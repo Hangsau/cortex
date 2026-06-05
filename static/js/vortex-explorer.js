@@ -5,6 +5,18 @@
 
   const $ = id => document.getElementById(id);
 
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+  // drill chip：名稱對得上 drill DB 就連過去，對不上退回純文字 chip
+  function drillChip(name) {
+    const ids = (typeof DRILL_IDS !== 'undefined') ? DRILL_IDS : {};
+    const id = ids[name];
+    if (id && typeof DRILLS_URL !== 'undefined') {
+      return '<a class="vxs-chip vxs-chip--link" href="' + esc(DRILLS_URL) + '#drill-' + encodeURIComponent(id) + '">' + esc(name) + '</a>';
+    }
+    return '<span class="vxs-chip">' + esc(name) + '</span>';
+  }
+
   // 側欄泳式 tabs
   const tabs = $('vxsTabs');
   STROKES.forEach(s => {
@@ -96,7 +108,7 @@
     let body = '';
     if (m.physical) body += '<div class="vxs-block"><p class="vxs-block-label">長什麼樣 <span class="vxs-cert">🔵</span></p><p>' + m.physical + '</p></div>';
     if (m.boundary) body += '<div class="vxs-block vxs-sticky-note"><p class="vxs-block-label"><span class="vxs-warn">⚠</span> 感知問題，還是身體限制？ <span class="vxs-cert">🔵</span></p><p>' + m.boundary + '</p></div>';
-    if (m.drills && m.drills.length) body += '<div class="vxs-block"><p class="vxs-block-label">練這個動作</p><div class="vxs-chips">' + m.drills.map(x => '<span class="vxs-chip">' + x + '</span>').join('') + '</div></div>';
+    if (m.drills && m.drills.length) body += '<div class="vxs-block"><p class="vxs-block-label">練這個動作</p><div class="vxs-chips">' + m.drills.map(drillChip).join('') + '</div></div>';
     if (m.cue_bad) body += '<div class="vxs-block"><p class="vxs-block-label">這句常見口令是錯的</p>' +
       '<div class="vxs-cue-bad"><span class="vxs-x">✗</span><span>「' + m.cue_bad + '」</span></div>' +
       (m.cue_why ? '<p class="vxs-cue-why">' + m.cue_why + '</p>' : '') +

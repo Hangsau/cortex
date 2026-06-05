@@ -71,6 +71,7 @@
     {{ $levelList := delimit .l_target "," }}
     {{ $abc := .abc_type | default "none" }}
     <div class="vxd-card"
+         id="drill-{{ .id }}"
          data-stroke="{{ $strokeList }}"
          data-level="{{ $levelList }}"
          data-category="{{ .category }}"
@@ -86,23 +87,25 @@
         {{ range .l_target }}<span class="vxd-level">{{ . }}</span>{{ end }}
       </div>
       <details class="vxd-detail">
-        <summary class="vxd-detail-trigger">感知說明</summary>
+        <summary class="vxd-detail-trigger">怎麼做</summary>
         <div class="vxd-detail-body">
           <p class="vxd-purpose">{{ .purpose_zh }}</p>
+          {{ with .how_to }}
+          <div class="vxd-howto">
+            <span class="vxd-howto-label">操作步驟</span>
+            <ol class="vxd-howto-list">
+              {{ range . }}<li>{{ . }}</li>{{ end }}
+            </ol>
+          </div>
+          {{ end }}
+          {{ with .perception_goal }}
           <div class="vxd-perception">
             <div class="vxd-p-row">
-              <span class="vxd-p-label">感知目標</span>
-              <span class="vxd-p-text">{{ .perception_goal }}</span>
-            </div>
-            <div class="vxd-p-row vxd-p-row--success">
-              <span class="vxd-p-label">成功感覺</span>
-              <span class="vxd-p-text">{{ .success_signal }}</span>
-            </div>
-            <div class="vxd-p-row vxd-p-row--fail">
-              <span class="vxd-p-label">失敗感覺</span>
-              <span class="vxd-p-text">{{ .failure_signal }}</span>
+              <span class="vxd-p-label">要去感覺什麼</span>
+              <span class="vxd-p-text">{{ . }}</span>
             </div>
           </div>
+          {{ end }}
           {{ if .equipment }}
           <p class="vxd-equipment">器材：{{ delimit .equipment "、" }}</p>
           {{ end }}
@@ -164,6 +167,27 @@
   });
 
   applyFilters();
+
+  // Hash-jump：#drill-<id> 直接跳到對應卡片
+  // 白名單：id 僅接受英數，且必須對應實際存在的卡片——畸形 hash（如注入字串）被 regex 擋掉
+  function jumpToHash() {
+    const m = window.location.hash.match(/^#drill-([A-Za-z0-9]+)$/);
+    if (!m) return;
+    const card = document.getElementById('drill-' + m[1]);
+    if (!card) return;
+    // 重置所有篩選，確保目標卡片不被既有篩選隱藏
+    ['stroke', 'level', 'category', 'abc'].forEach(k => filters[k] = 'all');
+    document.querySelectorAll('.vxd-btn').forEach(b => b.classList.remove('vxd-btn--active'));
+    document.querySelectorAll('.vxd-btn[data-value="all"]').forEach(b => b.classList.add('vxd-btn--active'));
+    applyFilters();
+    const det = card.querySelector('details');
+    if (det) det.open = true;
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    card.classList.add('vxd-card--highlight');
+    setTimeout(() => card.classList.remove('vxd-card--highlight'), 2400);
+  }
+  jumpToHash();
+  window.addEventListener('hashchange', jumpToHash);
 })();
 </script>
 {{ end }}

@@ -570,6 +570,13 @@ body:has(.vxd-filters) .vx-page {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
+  scroll-margin-top: var(--space-6);
+}
+
+.vxd-card--highlight {
+  border-color: #B5290B;
+  box-shadow: 0 0 0 2px rgba(181, 41, 11, 0.35);
+  transition: box-shadow var(--transition-base), border-color var(--transition-base);
 }
 
 .vxd-card-head {
@@ -700,6 +707,34 @@ body:has(.vxd-filters) .vx-page {
   font-style: italic;
 }
 
+/* ── How-to 操作步驟 ── */
+.vxd-howto {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.vxd-howto-label {
+  font-weight: 600;
+  color: #5A4A36;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+}
+
+.vxd-howto-list {
+  margin: 0;
+  padding-left: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.vxd-howto-list li {
+  font-size: 0.9rem;
+  color: #2B2416;
+  line-height: 1.65;
+}
+
 .vxd-perception {
   display: flex;
   flex-direction: column;
@@ -708,23 +743,13 @@ body:has(.vxd-filters) .vx-page {
 
 .vxd-p-row {
   display: grid;
-  grid-template-columns: 4rem 1fr;
+  grid-template-columns: 5rem 1fr;
   gap: var(--space-2);
   font-size: 0.88rem;
   line-height: 1.6;
   padding: var(--space-2) var(--space-3);
   background: #F9F4E8;
-  border-left: 2px solid #C8B89A;
-}
-
-.vxd-p-row--success {
-  background: #F0FFF4;
-  border-left-color: #2D6A4F;
-}
-
-.vxd-p-row--fail {
-  background: #FFF1F0;
-  border-left-color: #B5290B;
+  border-left: 2px solid #B5290B;
 }
 
 .vxd-p-label {
@@ -866,6 +891,9 @@ body:has(.vxd-filters) .vx-page {
 .vxs-warn { color: var(--vxs-pencil); font-weight: 700; }
 .vxs-chips { display: flex; flex-wrap: wrap; gap: 10px; }
 .vxs-chip { border: 1px solid var(--vxs-underline); color: var(--vxs-underline); padding: 5px 14px; font-size: 16px; background: #fff; }
+.vxs-chip--link { text-decoration: none; cursor: pointer; transition: background var(--transition-base), color var(--transition-base); }
+.vxs-chip--link::after { content: ' →'; font-size: 13px; opacity: 0.6; }
+.vxs-chip--link:hover { background: var(--vxs-underline); color: #fff; }
 .vxs-cue-bad, .vxs-cue-good { display: flex; gap: 10px; align-items: baseline; margin: 4px 0; }
 .vxs-x { color: var(--vxs-pencil); font-weight: 700; font-size: 20px; }
 .vxs-v { color: var(--vxs-underline); font-weight: 700; font-size: 20px; }

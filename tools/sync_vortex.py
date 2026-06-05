@@ -17,11 +17,18 @@ import sys
 from datetime import date
 from pathlib import Path
 
+import yaml
+
 # ── 路徑 ──
 VORTEX_SRC  = Path(r"C:\claudehome\projects\TheVortexProject")
 HUGO_ROOT   = Path(r"C:\claudehome\projects\my-site")
 HUGO_VORTEX = HUGO_ROOT / "content" / "vortex"
 STATE_FILE  = HUGO_ROOT / "tools" / "vortex_sync_state.json"
+
+# ── Drills 合併（canonical → my-site 單檔） ──
+DRILL_STROKES = ["freestyle", "backstroke", "breaststroke", "butterfly", "sculling"]
+DRILL_SRC_DIR = VORTEX_SRC / "Drills"
+DRILL_DST     = HUGO_ROOT / "data" / "vortex" / "drills.yaml"
 
 # ── Layer 設定 ──
 LAYERS = {
@@ -183,6 +190,45 @@ def save_state(state: dict):
     )
 
 
+def sync_drills(dry_run: bool):
+    """讀 5 個 canonical drills_*.yaml，依 stroke 順序合併成 my-site 單檔 drills.yaml。
+
+    canonical 是 single source of truth；本函式只搬運，不改內容。
+    輸出沿用 my-site 既有 block-style（PyYAML 預設 block dump 即對齊），
+    並把 canonical 新增的 how_to 欄位一併帶過。
+    """
+    all_drills = []
+    per_stroke = []
+    for stroke in DRILL_STROKES:
+        src = DRILL_SRC_DIR / f"drills_{stroke}.yaml"
+        data = yaml.safe_load(src.read_text(encoding="utf-8"))
+        drills = (data or {}).get("drills", []) or []
+        per_stroke.append((stroke, len(drills)))
+        all_drills.extend(drills)
+
+    howto_count = sum(1 for d in all_drills if d.get("how_to"))
+
+    print()
+    print("=== Drills 合併 ===")
+    for stroke, n in per_stroke:
+        print(f"  {stroke:12s} {n}")
+    print(f"  TOTAL        {len(all_drills)}  (how_to: {howto_count})")
+
+    if dry_run:
+        print("  [dry-run，未寫入 drills.yaml]")
+        return
+
+    out = yaml.safe_dump(
+        {"drills": all_drills},
+        allow_unicode=True,
+        default_flow_style=False,
+        sort_keys=False,
+        width=4096,
+    )
+    DRILL_DST.write_text(out, encoding="utf-8")
+    print(f"  寫入 {DRILL_DST.relative_to(HUGO_ROOT)}")
+
+
 def main():
     dry_run = "--dry-run" in sys.argv
     results = {"new": [], "changed": [], "same": [], "unknown": []}
@@ -253,6 +299,8 @@ def main():
     if not dry_run:
         state["files"] = files_state
         save_state(state)
+
+    sync_drills(dry_run)
 
     print()
     print("=== 同步摘要 ===")

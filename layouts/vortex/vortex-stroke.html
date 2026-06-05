@@ -42,9 +42,18 @@
   </div>
 </div>
 
+{{/* name_zh → drill id 對照，讓 chip 連到 drill DB 對應卡片 */}}
+{{ $drillIds := dict }}
+{{ with (index .Site.Data.vortex "drills") }}
+  {{ range .drills }}
+    {{ $drillIds = merge $drillIds (dict .name_zh .id) }}
+  {{ end }}
+{{ end }}
 <script>
 const STROKES = {{ $strokes | jsonify | safeJS }};
 const INIT_STROKE = {{ .Params.explorer_data | jsonify | safeJS }};
+const DRILL_IDS = {{ $drillIds | jsonify | safeJS }};
+const DRILLS_URL = {{ printf "%svortex/drills/" .Site.BaseURL | jsonify | safeJS }};
 </script>
 <script src="{{ .Site.BaseURL }}js/vortex-explorer.js" defer></script>
 {{ end }}
