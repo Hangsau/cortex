@@ -1,6 +1,6 @@
 ---
 title: "自由式常見教學誤區深探（23 條）"
-description: "整合來源：resources/raw/notes/ 七份原始筆記（已整合後刪除）"
+description: "23 條常見教學誤區——哪些口令在阻礙感知發展，哪些技術觀念需要修正"
 slug: "freestyle-teaching-errors"
 layer: "instructional"
 layer_name: "技術深探"

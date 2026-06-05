@@ -1,0 +1,51 @@
+{{ define "head-extra" }}
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+{{ end }}
+
+{{ define "main" }}
+<div class="vx-page">
+
+  <div class="vx-list-header">
+    <a href="{{ printf "%svortex/" .Site.BaseURL }}" class="vx-back-link">← Vortex</a>
+    <h1 class="vx-list-title">{{ .Title }}</h1>
+    {{ with .Params.stroke_en }}<p class="vx-list-desc">{{ . }}</p>{{ end }}
+  </div>
+
+  {{ $stroke := .Params.stroke_tag }}
+  {{ $strokePages := where site.RegularPages "Params.strokes" "intersect" (slice $stroke) }}
+
+  {{ $layers := slice
+    (dict "slug" "technica"     "name" "水感框架" "color" "#2B4A7A")
+    (dict "slug" "bridge"       "name" "感知橋接" "color" "#C45D00")
+    (dict "slug" "instructional" "name" "技術深探" "color" "#2D6A4F")
+  }}
+
+  {{ $found := false }}
+  {{ range $layers }}
+    {{ $layerSlug := .slug }}
+    {{ $layerPages := where $strokePages "Params.layer" "eq" $layerSlug }}
+    {{ if $layerPages }}
+      {{ $found = true }}
+      <section class="vx-entry-section">
+        <h2 class="vx-section-label vx-section-label--colored" style="--label-color: {{ .color }}">{{ .name }}</h2>
+        <ul class="vx-items">
+          {{ range $layerPages }}
+          <li class="vx-item">
+            <a href="{{ .RelPermalink }}" class="vx-item-link">
+              <span class="vx-item-title">{{ .Title }}</span>
+              {{ with .Description }}<span class="vx-item-desc">{{ . }}</span>{{ end }}
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </section>
+    {{ end }}
+  {{ end }}
+
+  {{ if not $found }}
+  <p class="vx-empty">此泳式目前無文章。</p>
+  {{ end }}
+
+</div>
+{{ end }}
