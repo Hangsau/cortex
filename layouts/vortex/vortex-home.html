@@ -18,11 +18,12 @@
     <h2 class="vx-section-label">依泳式瀏覽</h2>
     <div class="vx-stroke-grid">
       {{ $strokes := slice
-        (dict "name" "自由式"   "sub" "Freestyle"    "slug" "freestyle")
-        (dict "name" "仰式"     "sub" "Backstroke"   "slug" "backstroke")
-        (dict "name" "蛙式"     "sub" "Breaststroke" "slug" "breaststroke")
-        (dict "name" "蝶式"     "sub" "Butterfly"    "slug" "butterfly")
-        (dict "name" "出發與轉身" "sub" "Starts & Turns" "slug" "starts-turns")
+        (dict "name" "自由式"    "sub" "Freestyle"             "slug" "freestyle")
+        (dict "name" "仰式"      "sub" "Backstroke"            "slug" "backstroke")
+        (dict "name" "蛙式"      "sub" "Breaststroke"          "slug" "breaststroke")
+        (dict "name" "蝶式"      "sub" "Butterfly"             "slug" "butterfly")
+        (dict "name" "出發與轉身" "sub" "Starts & Turns"       "slug" "starts-turns")
+        (dict "name" "水下蝶腳"  "sub" "Underwater Dolphin Kick" "slug" "underwater-dolphin-kick")
       }}
       {{ range $strokes }}
       <a href="{{ printf "%svortex/%s/" $.Site.BaseURL .slug }}" class="vx-stroke-card">
