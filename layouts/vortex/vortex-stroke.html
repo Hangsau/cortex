@@ -43,8 +43,8 @@
 </div>
 
 <script>
-const STROKES = {{ $strokes | jsonify }};
-const INIT_STROKE = {{ .Params.explorer_data | jsonify }};
+const STROKES = {{ $strokes | jsonify | safeJS }};
+const INIT_STROKE = {{ .Params.explorer_data | jsonify | safeJS }};
 </script>
 <script src="{{ .Site.BaseURL }}js/vortex-explorer.js" defer></script>
 {{ end }}
