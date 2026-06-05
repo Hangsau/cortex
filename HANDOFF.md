@@ -1,6 +1,6 @@
 # HANDOFF — my-site (Cortex)
 
-## 目前狀態（2026-04-23，ch24 完成）
+## 目前狀態（2026-06-05）
 
 網站已上線並完全正常：https://hangsau.github.io/cortex/  
 CI/CD 正常運作，push hugo-source 自動部署。
@@ -33,55 +33,30 @@ CI/CD 正常運作，push hugo-source 自動部署。
 
 矩陣內容在 `data/adm/matrix.yaml`，要修改直接編輯這個檔案即可。
 
-## 尚未完成
+## 已完成（CSCS 內容）
 
-### CSCS
-- [x] ch02 筆記（8 個子主題 .md 完成）
-- [x] ch02 閃卡（52 張，row 54–93 + 134–145，補力矩/等速/可變阻力等）
-- [x] ch03 筆記（8 個子主題 .md，已在前次 commit 完成）
-- [x] ch03 閃卡（52 張，row 94–133 + 146–157，補乳酸濃度/糖原速率/BCAA等）
-- [x] ch04 筆記（8 個子主題 .md，已完成）
-- [x] ch04 閃卡（52 張，row 158–209，涵蓋內分泌基礎/睾固酮/GH/IGF/皮質醇/兒茶酚胺/受器/訓練處方）
-- [x] ch05 筆記（8 個子主題 .md 完成：neural/hypertrophy/fiber-type-transitions/connective-tissue/endocrine/cardiovascular/overtraining/detraining）
-- [x] ch05 閃卡（52 張，row 210–261，涵蓋神經適應/肌肉肥大/纖維轉換/結締組織/內分泌/心血管/混合訓練/過度訓練去訓練）
-- [x] ch06 筆記（8 個子主題 .md 完成：acute-cardiovascular/acute-respiratory/chronic-cardiovascular/chronic-muscular/connective-endocrine/external-factors/overtraining/detraining）
-- [x] ch06 閃卡（52 張，row 262–313，涵蓋急性心血管/呼吸反應/血液運輸/慢性適應/外在因素/OTS/去訓練）
-- [x] ch07 筆記（8 個子主題 .md 完成）
-- [x] ch07 閃卡（53 張，row 314–366，涵蓋兒童生長/訓練/女性生理/ACL/老年人訓練/肌骨變化/處方設計）
-- [x] ch08 筆記（8 個子主題 .md 完成）
-- [x] ch08 閃卡（53 張，row 367–419，涵蓋喚醒/焦慮/理論/注意力/目標設定/IPS/動機/動作學習/心理技巧）
-- [x] ch09 筆記（8 個子主題 .md 完成）
-- [x] ch09 閃卡（52 張，row 420–471，涵蓋碳水/DRI/電解質/脂肪/水分/蛋白質/營養師角色/維生素礦物質）
-- [x] ch10 筆記（8 個子主題 .md 完成：pre-competition/carb-loading/during-event/post-competition/energy-needs/weight-gain/weight-loss/eating-disorders）
-- [x] ch10 閃卡（53 張，row 472–524，涵蓋賽前/賽中/賽後/碳水超補/能量需求/增減重/飲食失調）
-- [x] ch11 筆記（8 個子主題 .md 完成：anabolic-steroids/prohormones-hcg/insulin-hgh/epo-blood-doping/beta-agonists-stimulants/anabolic-supplements/muscle-buffering/caffeine-energy-drinks）
-- [x] ch11 閃卡（52 張，row 525–576，涵蓋法規框架/類固醇/前驅激素/HCG/胰島素/HGH/EPO/β藥物/胺基酸/肌肉緩衝/肌酸/咖啡因）
-- [x] ch12 筆記（8 個子主題 .md 完成：why-test/terminology/validity/reliability/selection-factors/test-sequence/administration/safety）
-- [x] ch12 閃卡（53 張，row 577–629，涵蓋測驗目的/術語/效度四類/信度/選測五因素/施測順序/施測管理/熱環境安全）
-- [x] ch13 筆記（8 個子主題 .md 完成：max-strength/power-tests/anaerobic-endurance/aerobic-capacity/agility-speed/balance-flexibility-bc/statistics/test-administration）
-- [x] ch13 閃卡（52 張，row 630–681，涵蓋1RM/爆發力測試/無氧容量/有氧容量/敏捷速度/柔軟平衡體組成/統計解讀/測試條件）
-- [x] ch14 筆記（8 個子主題 .md 完成：warmup-physiology/ramp-protocol/flexibility-factors/proprioceptors/static-stretch/ballistic-stretch/dynamic-stretch/pnf-techniques）
-- [x] ch14 閃卡（52 張，row 682–733，涵蓋熱身生理/RAMP/柔軟度因素/本體感覺器/靜態/彈振/動態/PNF）
-- [x] ch15 筆記（8 個子主題 .md 完成：grips/body-positioning/breathing/weight-belt/spotting-when/spotting-how/spotter-communication/power-exercises-technique）
-- [x] ch15 閃卡（52 張，row 734–785，涵蓋握法/姿勢/呼吸/腰帶/保護時機/保護方式/保護溝通/爆發力動作）
-- [x] ch16 筆記（8 個子主題 .md 完成：general-guidelines/bodyweight-training/core-training/machine-vs-freeweight/variable-resistance/chains-bands/strongman-training/kettlebell-unilateral）
-- [x] ch16 閃卡（52 張，row 786–837，涵蓋一般原則/自體重量/核心訓練/器械vs自由重量/可變阻力/鏈條彈力帶/強人訓練/壺鈴單側）
-- [x] ch17–ch24 筆記內容（所有8個 .md 已存在）
-- [x] ch17 閃卡（52 張，rows 838–889）
-- [x] ch18 閃卡（52 張，rows 890–941）
-- [x] ch19 閃卡（52 張，rows 942–993，速度與敏捷訓練）
-- [x] ch20 閃卡（52 張，rows 994–1045，有氧耐力訓練）
-- [x] ch21 閃卡（52 張，rows 1046–1097，週期化訓練）
-- [x] ch22 閃卡（52 張，rows 1098–1149，復健與調整）
-- [x] ch23 閃卡（52 張，rows 1150–1201，設施設計）
-- [x] ch24 閃卡（52 張，rows 1202–1253，設施政策與法律）
-- [ ] 章節頁新增「完整重點整理」區塊（九宮格下方補充完整學習內容）
-- [ ] 書庫列表樣式優化（`library/list.html`）
+### CSCS 筆記 + 閃卡（ch01–ch24 全部完成，2026-04-23）
 
-### ADM
-- [ ] Appendix B：帕拉游泳分類（若有需要才做，原始檔在 `resources/books/Athlete-development-matrix/appendix_b_para_swimming_classification.md`）
+| 章節 | 筆記 | 閃卡（張數，Google Sheets rows） |
+|------|------|----------------------------------|
+| ch02 | ✅ | ✅ 52 張，row 54–93 + 134–145 |
+| ch03 | ✅ | ✅ 52 張，row 94–133 + 146–157 |
+| ch04 | ✅ | ✅ 52 張，row 158–209 |
+| ch05 | ✅ | ✅ 52 張，row 210–261 |
+| ch06 | ✅ | ✅ 52 張，row 262–313 |
+| ch07 | ✅ | ✅ 53 張，row 314–366 |
+| ch08 | ✅ | ✅ 53 張，row 367–419 |
+| ch09 | ✅ | ✅ 52 張，row 420–471 |
+| ch10 | ✅ | ✅ 53 張，row 472–524 |
+| ch11 | ✅ | ✅ 52 張，row 525–576 |
+| ch12 | ✅ | ✅ 53 張，row 577–629 |
+| ch13 | ✅ | ✅ 52 張，row 630–681 |
+| ch14 | ✅ | ✅ 52 張，row 682–733 |
+| ch15 | ✅ | ✅ 52 張，row 734–785 |
+| ch16 | ✅ | ✅ 52 張，row 786–837 |
+| ch17–ch24 | ✅ | ✅ 各 52 張，row 838–1253 |
 
-### 大腦喜歡這樣學
+### 大腦喜歡這樣學 / Uncommon Sense Teaching
 - [x] 書本封面頁（mnfl-book layout）
 - [x] 技法工具箱（mnfl-toolkit layout）—— 20 個技法，5 主題，可篩選可展開
 - [x] **Uncommon Sense Teaching 上線**（書封 + 教師手冊 + 策略查找）
@@ -89,7 +64,38 @@ CI/CD 正常運作，push hugo-source 自動部署。
   - `data/ust/chapters.yaml`：10 章摘要
   - `data/ust/strategies.yaml`：18 個策略，6 個教學問題分類
   - slug: `uncommon-sense-teaching`，layout 前綴 `ust-`
-- [ ] 與渦流計劃的連結（wiki 連結，使用者確認需求後再設計）
+
+## Vortex section（2026-06-05 新增）
+
+TheVortexProject 內容整合進 my-site，作為公開知識展示。
+
+**架構決策：**
+- 路徑：`content/vortex/`，nav 顯示「Vortex」
+- 不搬：Observations（不公開）、Research（文獻密度高，之後再說）
+- 風格：07 田野筆記（Caveat + Crimson Text，`#FDFBF3` 底）
+- 定位：物理錨點 → 多角度感知描述 → 失敗辨識 → 自測方法
+
+**已完成：**
+- [x] W1 骨架：`content/vortex/` + 3 層子目錄（technica/bridge/instructional）
+- [x] Layouts：vortex-home.html / list.html / single.html
+- [x] CSS：vortex.css（田野筆記風格，層色編碼）
+- [x] Landing page：雙入口（5 泳式卡片 + 3 主題卡片），確定性 badge 說明
+
+**待完成：**
+- [ ] W2 同步腳本（`tools/sync_vortex.py`）
+- [ ] W3 第一波內容：Technica（6篇）+ Bridge（6篇）
+- [ ] W4 第二波內容：Instructional（12篇）
+- [ ] 依泳式整合視圖（Landing page 的泳式卡片現為佔位，內容搬入後再接 links）
+
+**Vortex 來源路徑：** `C:\claudehome\projects\TheVortexProject\`
+
+---
+
+## 待決定（選做）
+
+- [ ] 章節頁新增「完整重點整理」區塊（九宮格下方補充完整學習內容）
+- [ ] 書庫列表樣式優化（`library/list.html`）
+- [ ] ADM Appendix B：帕拉游泳分類（若有需要才做，原始檔在 `resources/books/Athlete-development-matrix/appendix_b_para_swimming_classification.md`）
 
 ## Google Sheets 閃卡資料來源
 
