@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vortex · 感知地圖（設計原型）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FDFBF3; --ink:#2B2416; --ink-2:#7A6A52; --pencil:#B5290B;
+    --underline:#2B4A7A; --rule:#E4DCC6; --sticky:#FBF1C7; --mark:#FCE49A; --rail:#F6F0DF;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:"Crimson Text",Georgia,serif; font-size:19px; line-height:1.7; -webkit-font-smoothing:antialiased;}
+  mark{background:var(--mark); padding:0 2px;}
+  .cert{font-size:13px; vertical-align:.15em; margin-left:6px;}
+
+  .layout{display:flex; align-items:flex-start; max-width:1100px; margin:0 auto;}
+
+  /* ===== 側欄 ===== */
+  .rail{width:248px; flex:0 0 248px; position:sticky; top:0; align-self:flex-start; height:100vh; overflow-y:auto; background:var(--rail); border-right:1px solid var(--rule); padding:24px 18px 40px;}
+  .home{font-family:"Caveat",cursive; font-size:22px; color:var(--ink-2); text-decoration:none; display:block; margin-bottom:14px;}
+  .home:hover{color:var(--pencil);}
+  .overview-btn{display:block; width:100%; text-align:left; background:none; border:none; cursor:pointer; font-family:"Caveat",cursive; font-size:26px; font-weight:700; color:var(--ink); padding:0 0 10px; margin-bottom:12px; border-bottom:1px solid var(--rule);}
+  .overview-btn:hover{color:var(--pencil);}
+  .overview-btn.active{color:var(--pencil);}
+
+  .stroke-tabs{display:flex; flex-wrap:wrap; gap:6px; margin:0 0 18px;}
+  .stroke-tabs button{background:none; border:1px solid var(--rule); cursor:pointer; font-family:inherit; font-size:16px; color:var(--ink-2); padding:5px 12px; border-radius:2px;}
+  .stroke-tabs button:hover{color:var(--pencil); border-color:var(--pencil);}
+  .stroke-tabs button.active{background:var(--pencil); color:#fff; border-color:var(--pencil);}
+  .stroke-tabs button.soon{opacity:.55;}
+
+  .rail-label{font-variant:small-caps; letter-spacing:.1em; font-size:13px; color:var(--ink-2); margin:0 0 6px;}
+  .navbox > summary{display:none;}
+  .navlist{list-style:none; margin:0; padding:0;}
+  .navlist button{width:100%; text-align:left; background:none; border:none; cursor:pointer; display:flex; align-items:baseline; gap:10px; padding:8px; border-radius:2px; font-family:inherit; color:var(--ink); font-size:17px; line-height:1.3;}
+  .navlist button:hover{background:#EFE6CC; color:var(--pencil);}
+  .navlist .num{font-family:"Caveat",cursive; font-size:22px; font-weight:700; color:var(--ink-2); min-width:20px;}
+  .navlist li.active button{background:#EFE6CC;}
+  .navlist li.active .num,.navlist li.active .nm{color:var(--pencil); font-weight:700;}
+  .navlist .nm{font-weight:600;}
+  .navlist .soon{margin-left:auto; font-size:11px; color:var(--ink-2);}
+  .rail-empty{color:var(--ink-2); font-style:italic; font-size:15px;}
+
+  /* ===== 內容 ===== */
+  .content{flex:1; min-width:0; padding:44px 40px 96px; max-width:720px;}
+  .note-banner{background:#fff; border:1px dashed var(--ink-2); color:var(--ink-2); font-size:14px; padding:10px 14px; margin-bottom:24px; transform:rotate(-.3deg);}
+
+  /* 總覽 */
+  .ov-title{font-family:"Caveat",cursive; font-weight:700; font-size:50px; margin:0 0 2px;}
+  .ov-sub{font-variant:small-caps; letter-spacing:.1em; color:var(--ink-2); font-size:16px; margin-bottom:8px;}
+  .ov-hint{font-family:"Caveat",cursive; font-size:22px; color:var(--ink-2); margin:0 0 26px;}
+  .ov-stroke{margin:0 0 30px;}
+  .ov-stroke-head{display:flex; align-items:baseline; gap:12px; border-bottom:2px solid var(--ink); padding-bottom:4px; margin-bottom:12px;}
+  .ov-stroke-name{font-family:"Caveat",cursive; font-weight:700; font-size:30px; color:var(--ink); background:none; border:none; cursor:pointer; padding:0;}
+  .ov-stroke-name:hover{color:var(--pencil);}
+  .ov-stroke-en{font-variant:small-caps; letter-spacing:.08em; color:var(--ink-2); font-size:14px;}
+  .ov-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:8px;}
+  .ov-cell{text-align:left; background:#fff; border:1px solid var(--rule); cursor:pointer; font-family:inherit; padding:10px 12px; display:flex; gap:10px; align-items:baseline;}
+  .ov-cell:hover{border-color:var(--pencil);}
+  .ov-cell .num{font-family:"Caveat",cursive; font-size:22px; font-weight:700; color:var(--pencil); min-width:20px;}
+  .ov-cell .nm{font-weight:600; color:var(--ink);}
+  .ov-cell .one{display:block; color:var(--ink-2); font-size:14px; margin-top:1px;}
+  .ov-soon{color:var(--ink-2); font-style:italic; font-size:15px; padding:6px 2px;}
+
+  /* 泳式 welcome */
+  .welcome-title{font-family:"Caveat",cursive; font-weight:700; font-size:50px; margin:0 0 4px;}
+  .welcome-sub{font-variant:small-caps; letter-spacing:.1em; color:var(--ink-2); font-size:16px; margin-bottom:16px;}
+  .premise{font-style:italic; border-left:3px solid var(--rule); padding-left:16px; margin:0 0 14px;}
+  .welcome-hint{font-family:"Caveat",cursive; font-size:22px; color:var(--ink-2); margin-top:30px;}
+
+  /* 動作細節 */
+  .m-head{display:flex; justify-content:space-between; align-items:flex-end; gap:12px;}
+  .m-title{font-family:"Caveat",cursive; font-weight:700; font-size:48px; line-height:1.05; margin:2px 0 0; position:relative; display:inline-block;}
+  .m-title::after{content:""; position:absolute; left:0; right:0; bottom:-10px; height:8px; background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='8' viewBox='0 0 120 8'><path d='M0 5 Q15 0 30 5 T60 5 T90 5 T120 5' fill='none' stroke='%23B5290B' stroke-width='2'/></svg>") repeat-x; background-size:120px 8px;}
+  .m-meta{font-family:"Caveat",cursive; font-size:22px; color:var(--ink-2); white-space:nowrap;}
+  .m-l{color:var(--underline); font-weight:700;}
+  .block{margin:34px 0 0;}
+  .block-label{font-variant:small-caps; letter-spacing:.1em; font-size:16px; color:var(--ink-2); margin:0 0 8px; display:flex; align-items:center; gap:8px;}
+  .block-label::before{content:""; width:18px; height:2px; background:var(--ink-2); display:inline-block;}
+  .block p{margin:0;}
+  .sticky-note{background:var(--sticky); border:1px solid #E6D58A; padding:16px 18px; transform:rotate(-.5deg); box-shadow:1px 2px 0 rgba(0,0,0,.06);}
+  .sticky-note .block-label{color:#8a6d12;} .sticky-note .block-label::before{background:#8a6d12;}
+  .warn{color:var(--pencil); font-weight:700;}
+  .chips{display:flex; flex-wrap:wrap; gap:10px;}
+  .chip{border:1px solid var(--underline); color:var(--underline); padding:5px 14px; font-size:16px; text-decoration:none; background:#fff;}
+  .chip:hover{background:var(--underline); color:#fff;}
+  .cue-bad,.cue-good{display:flex; gap:10px; align-items:baseline; margin:4px 0;}
+  .x{color:var(--pencil); font-weight:700; font-size:20px;} .v{color:var(--underline); font-weight:700; font-size:20px;}
+  .cue-why{color:var(--ink-2); font-size:16px; font-style:italic; margin:0 0 10px 30px;}
+  .ldot{color:var(--underline); font-weight:700;}
+  .prevnext{display:flex; justify-content:space-between; gap:14px; margin-top:50px; border-top:1px solid var(--rule); padding-top:16px;}
+  .prevnext button{background:none; border:none; cursor:pointer; font-family:inherit; color:var(--ink-2); font-size:16px; text-align:left; max-width:48%;}
+  .prevnext button:hover{color:var(--pencil);}
+  .prevnext .pn-dir{font-family:"Caveat",cursive; font-size:18px; display:block;} .prevnext .pn-name{font-weight:600;} .prevnext .right{text-align:right;}
+  .legend{margin-top:40px; color:var(--ink-2); font-size:13px;}
+  .hidden{display:none;}
+
+  @media(max-width:760px){
+    .layout{flex-direction:column;}
+    .rail{width:100%; flex:none; position:sticky; top:0; height:auto; border-right:none; border-bottom:1px solid var(--rule); padding:12px 16px; z-index:10;}
+    .home,.rail-label{display:none;}
+    .overview-btn{margin-bottom:8px;}
+    .navbox > summary{display:flex; justify-content:space-between; align-items:center; cursor:pointer; list-style:none; font-family:"Caveat",cursive; font-size:22px; color:var(--ink);}
+    .navbox > summary::-webkit-details-marker{display:none;}
+    .navbox > summary::after{content:"☰"; color:var(--pencil);} .navbox[open] > summary::after{content:"✕";}
+    .navlist{margin-top:8px; max-height:50vh; overflow-y:auto;}
+    .content{padding:26px 20px 80px;}
+    .ov-grid{grid-template-columns:1fr;} .m-title{font-size:40px;}
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="rail">
+    <a class="home" href="#" onclick="showOverview();return false;">← Cortex / Vortex</a>
+    <button class="overview-btn" id="ovBtn" onclick="showOverview()">感知地圖 · 總覽</button>
+    <div class="stroke-tabs" id="strokeTabs"></div>
+    <details class="navbox" open id="navbox">
+      <summary>感知時刻</summary>
+      <p class="rail-label">感知時刻</p>
+      <ul class="navlist" id="navlist"></ul>
+    </details>
+  </aside>
+
+  <main class="content">
+    <div class="note-banner">設計原型 — 上方可切四式；「總覽」一眼掃全貌、點任一格直接跳。目前只有自由式「捕水 EVF」有真實內容（且尚未通過內容校正三關）。</div>
+    <section id="overview" class="hidden"></section>
+    <section id="welcome" class="hidden"></section>
+    <section id="detail" class="hidden"></section>
+    <p class="legend">🔵推導 · 🟢近期文獻 · 🟡舊文獻 · 🟠教練觀測 · 🔴待查</p>
+  </main>
+</div>
+
+<script>
+const FREE_MOVES=[
+  {n:1,name:"入水位置",one:"手怎麼進水、進哪裡",done:false},
+  {n:2,name:"捕水 EVF",one:"高肘抓水，推進的起點",done:true,l:"L3–L4",
+   physical:"高肘的目的是<mark>降低上臂阻力</mark>，不是讓前臂推進。上臂是自由式中阻力最大的部位——高肘讓上臂與游進方向平行、截面積最小化，同時讓<mark>手掌</mark>朝向後方、推進面積最大化。手掌才是主推進面，不是前臂。",
+   boundary:"<mark>前鋸肌</mark>是 EVF 的硬體前提。前鋸肌疲勞後肩胛骨失穩，高肘姿態無法維持，EVF 自然崩潰——這不是技術感知問題，是肌肉撐不住。長距離後段崩潰，多半是前鋸肌<strong>耐力</strong>問題，不要用感知訓練介入。",
+   drills:["握拳划手","帆船划手","三點觸碰"],
+   cue_bad:"前臂壓下去推水",cue_why:"前臂是圓形截面，推進效果遠差於手掌；高肘是為了降上臂阻力。",
+   cue_good:"肘尖保持朝向前方游進方向",lnote:"L3–L4 的核心技術點；連動鏈耦合要到 L5。"},
+  {n:3,name:"拉水加速",one:"手掌從抓水到推水",done:false},
+  {n:4,name:"旋轉耦合",one:"體幹旋轉帶動手臂",done:false},
+  {n:5,name:"踢水節律",one:"幾拍、節奏與平衡",done:false},
+  {n:6,name:"頭部位置",one:"最容易自我欺騙的感知",done:false},
+  {n:7,name:"划距",one:"最重要的疲勞指標",done:false},
+  {n:8,name:"連動鏈",one:"進階整合（L5+）",done:false},
+];
+const STROKES=[
+  {key:"free",name:"自由式",en:"Freestyle",ready:true,
+   premise:'划手距離是<mark>技術</mark>指標，划頻是<mark>生理</mark>指標——兩者是不同的對象，不可混為一談。<span class="cert">🔵</span>',
+   moves:FREE_MOVES},
+  {key:"back",name:"仰式",en:"Backstroke",ready:false},
+  {key:"breast",name:"蛙式",en:"Breaststroke",ready:false},
+  {key:"fly",name:"蝶式",en:"Butterfly",ready:false},
+];
+
+let curStroke=null, curMove=null;
+
+// 側欄泳式 tabs
+const tabs=document.getElementById('strokeTabs');
+STROKES.forEach(s=>{
+  const b=document.createElement('button');
+  b.textContent=s.name; b.id='tab-'+s.key;
+  if(!s.ready) b.classList.add('soon');
+  b.onclick=()=>selectStroke(s.key);
+  tabs.appendChild(b);
+});
+
+function clearViews(){['overview','welcome','detail'].forEach(id=>document.getElementById(id).classList.add('hidden'));}
+function setStrokeTabActive(key){document.querySelectorAll('.stroke-tabs button').forEach(b=>b.classList.remove('active')); const t=document.getElementById('tab-'+key); if(t)t.classList.add('active');}
+function setMoveActive(n){document.querySelectorAll('.navlist li').forEach(li=>li.classList.remove('active')); const li=document.getElementById('nav-'+n); if(li)li.classList.add('active');}
+function closeMobileNav(){if(window.matchMedia('(max-width:760px)').matches)document.getElementById('navbox').removeAttribute('open');}
+
+function renderRailMoves(s){
+  const nav=document.getElementById('navlist'); nav.innerHTML='';
+  if(!s||!s.ready){nav.innerHTML='<li class="rail-empty">此式整理中</li>'; return;}
+  s.moves.forEach(m=>{
+    const li=document.createElement('li'); li.id='nav-'+m.n;
+    li.innerHTML=`<button onclick="openMove(${m.n})"><span class="num">${m.n}</span><span class="nm">${m.name}</span>${m.done?'':'<span class="soon">整理中</span>'}</button>`;
+    nav.appendChild(li);
+  });
+}
+
+function showOverview(){
+  clearViews(); curStroke=null; curMove=null;
+  setStrokeTabActive(''); document.getElementById('ovBtn').classList.add('active');
+  renderRailMoves(null);
+  const ov=document.getElementById('overview');
+  let html=`<div class="ov-title">感知地圖</div><div class="ov-sub">Perception Map · 四式 × 感知時刻</div>
+    <p class="ov-hint">想大概看 → 在這頁掃；想細看 → 點任一格跳進去</p>`;
+  STROKES.forEach(s=>{
+    html+=`<div class="ov-stroke"><div class="ov-stroke-head">
+      <button class="ov-stroke-name" onclick="selectStroke('${s.key}')">${s.name}</button>
+      <span class="ov-stroke-en">${s.en}</span></div>`;
+    if(s.ready){
+      html+=`<div class="ov-grid">`+s.moves.map(m=>`
+        <button class="ov-cell" onclick="selectStroke('${s.key}');openMove(${m.n})">
+          <span class="num">${m.n}</span>
+          <span><span class="nm">${m.name}</span><span class="one">${m.one}</span></span>
+        </button>`).join('')+`</div>`;
+    }else{
+      html+=`<div class="ov-soon">8 個感知時刻 · 整理中</div>`;
+    }
+    html+=`</div>`;
+  });
+  ov.innerHTML=html; ov.classList.remove('hidden'); closeMobileNav(); window.scrollTo(0,0);
+}
+
+function selectStroke(key){
+  const s=STROKES.find(x=>x.key===key); curStroke=key; curMove=null;
+  document.getElementById('ovBtn').classList.remove('active'); setStrokeTabActive(key);
+  renderRailMoves(s);
+  clearViews();
+  const w=document.getElementById('welcome');
+  if(s.ready){
+    w.innerHTML=`<div class="welcome-title">${s.name}</div><div class="welcome-sub">${s.en}</div>
+      <p class="premise">${s.premise}</p><p class="welcome-hint">← 從左邊挑一個感知時刻</p>`;
+  }else{
+    w.innerHTML=`<div class="welcome-title">${s.name}</div><div class="welcome-sub">${s.en}</div>
+      <p class="premise" style="font-style:italic;color:var(--ink-2)">這個泳式的感知時刻整理中。</p>`;
+  }
+  w.classList.remove('hidden'); closeMobileNav(); window.scrollTo(0,0);
+}
+
+function openMove(n){
+  const s=STROKES.find(x=>x.key===curStroke); if(!s||!s.ready)return;
+  const m=s.moves.find(x=>x.n===n); curMove=n; setMoveActive(n);
+  document.getElementById('ovBtn').classList.remove('active');
+  const d=document.getElementById('detail');
+  let body=m.done?`
+    <div class="block"><p class="block-label">長什麼樣 <span class="cert">🔵</span></p><p>${m.physical}</p></div>
+    <div class="block sticky-note"><p class="block-label"><span class="warn">⚠</span> 感知問題，還是身體限制？ <span class="cert">🔵</span></p><p>${m.boundary}</p></div>
+    <div class="block"><p class="block-label">練這個動作</p><div class="chips">${m.drills.map(x=>`<a class="chip" href="#">${x}</a>`).join('')}</div></div>
+    <div class="block"><p class="block-label">這句常見口令是錯的</p>
+      <div class="cue-bad"><span class="x">✗</span><span>「${m.cue_bad}」</span></div>
+      <p class="cue-why">${m.cue_why}</p>
+      <div class="cue-good"><span class="v">✓</span><span>「${m.cue_good}」</span></div></div>
+    <div class="block"><p class="block-label">在發展序列上的位置</p><p><span class="ldot">●</span> ${m.lnote}</p></div>`
+    :`<div class="block"><p style="color:var(--ink-2);font-style:italic;">這個感知時刻的公開內容整理中。</p></div>`;
+  const prev=s.moves[n-2],next=s.moves[n];
+  const pn=`<div class="prevnext">
+    ${prev?`<button onclick="openMove(${prev.n})"><span class="pn-dir">← 上一個</span><span class="pn-name">${prev.name}</span></button>`:'<span></span>'}
+    ${next?`<button class="right" onclick="openMove(${next.n})"><span class="pn-dir">下一個 →</span><span class="pn-name">${next.name}</span></button>`:'<span></span>'}</div>`;
+  d.innerHTML=`<div class="m-head"><h1 class="m-title">${m.name}</h1><span class="m-meta">${s.name} · ${m.n}/8${m.l?` · <span class="m-l">${m.l}</span>`:''}</span></div>${body}${pn}`;
+  clearViews(); d.classList.remove('hidden'); closeMobileNav(); window.scrollTo(0,0);
+}
+
+showOverview(); // 進來先看總覽
+</script>
+</body>
+</html>
