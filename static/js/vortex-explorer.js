@@ -12,7 +12,7 @@
     const ids = (typeof DRILL_IDS !== 'undefined') ? DRILL_IDS : {};
     const id = ids[name];
     if (id && typeof DRILLS_URL !== 'undefined') {
-      return '<a class="vxs-chip vxs-chip--link" href="' + esc(DRILLS_URL) + '#drill-' + encodeURIComponent(id) + '">' + esc(name) + '</a>';
+      return '<a class="vxs-chip vxs-chip--link" target="_blank" rel="noopener" title="在新分頁開啟練習動作（不離開目前泳式）" href="' + esc(DRILLS_URL) + '#drill-' + encodeURIComponent(id) + '">' + esc(name) + '</a>';
     }
     return '<span class="vxs-chip">' + esc(name) + '</span>';
   }

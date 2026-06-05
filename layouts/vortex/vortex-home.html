@@ -14,7 +14,8 @@
 
   <section class="vxs-home-sec">
     <h2 class="vxs-home-sec-label">依泳式瀏覽</h2>
-    <div class="vxs-home-strokes">
+    <p class="vxs-home-sec-hint">把一個泳式拆成一連串「感知時刻」——點任一個就進到那一式的探索器。</p>
+    <ol class="vxs-home-index">
       {{ $strokes := slice
         (dict "name" "自由式"     "sub" "Freestyle"               "slug" "freestyle"               "key" "free")
         (dict "name" "仰式"       "sub" "Backstroke"              "slug" "backstroke"              "key" "back")
@@ -25,17 +26,21 @@
       }}
       {{ range $strokes }}
       {{ $data := index $.Site.Data.vortex .key }}
-      <a href="{{ printf "%svortex/%s/" $.Site.BaseURL .slug }}" class="vxs-home-stroke">
-        <span class="vxs-home-stroke-name">{{ .name }}</span>
-        <span class="vxs-home-stroke-sub">{{ .sub }}</span>
-        {{ with $data }}<span class="vxs-home-stroke-count">{{ len .moves }} 個感知時刻</span>{{ end }}
-      </a>
+      <li class="vxs-home-index-item">
+        <a href="{{ printf "%svortex/%s/" $.Site.BaseURL .slug }}" class="vxs-home-index-link">
+          <span class="vxs-home-index-name">{{ .name }}</span>
+          <span class="vxs-home-index-sub">{{ .sub }}</span>
+          <span class="vxs-home-index-dots" aria-hidden="true"></span>
+          {{ with $data }}<span class="vxs-home-index-count">{{ len .moves }} 個感知時刻</span>{{ end }}
+        </a>
+      </li>
       {{ end }}
-    </div>
+    </ol>
   </section>
 
   <section class="vxs-home-sec">
     <h2 class="vxs-home-sec-label">依主題瀏覽</h2>
+    <p class="vxs-home-sec-hint">想從概念切入而不是泳式時，從這三層讀起。</p>
     <div class="vxs-home-themes">
       {{ $layers := slice
         (dict "name" "水感框架" "slug" "technica" "desc" "L0–L6 感知發展序列——感知如何從呼吸建立到全身場感知，每級的訓練方法與外部觀察指標" "color" "#2B4A7A" "count" "6")
@@ -53,11 +58,10 @@
   </section>
 
   <section class="vxs-home-sec">
-    <h2 class="vxs-home-sec-label">動作練習資料庫</h2>
-    <a href="{{ printf "%svortex/drills/" .Site.BaseURL }}" class="vxs-home-theme" style="--theme-color: #B5290B">
-      <span class="vxs-home-theme-name">練習動作檢索</span>
-      <span class="vxs-home-theme-desc">125 個訓練動作，依泳式、L 級別、感知診斷分類篩選。來源：<em>There's a Drill for That</em>，Vortex 感知層標注。</span>
-      <span class="vxs-home-theme-count">125 個動作</span>
+    <a href="{{ printf "%svortex/drills/" .Site.BaseURL }}" class="vxs-home-drillnote">
+      <span class="vxs-home-drillnote-tag">動作練習資料庫</span>
+      <span class="vxs-home-drillnote-title">練習動作檢索 →</span>
+      <span class="vxs-home-drillnote-desc">125 個訓練動作，依泳式、L 級別、感知診斷分類篩選。來源：<em>There's a Drill for That</em>，Vortex 感知層標注。</span>
     </a>
   </section>
 
