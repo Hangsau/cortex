@@ -1,76 +1,70 @@
 {{ define "head-extra" }}
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
 {{ end }}
 
 {{ define "main" }}
-<div class="vx-page">
+<div class="vxs-home">
 
-  <section class="vx-hero">
-    <p class="vx-hero-eyebrow">水感研究 · Vortex</p>
-    <h1 class="vx-hero-question">你游泳時，<br>應該感覺到什麼？</h1>
-    <p class="vx-hero-desc">大多數技術問題，都是感知問題——只是沒人這樣教過你。<br>
-      這裡把游泳技術翻譯成你能感覺到的語言，從物理出發，找到屬於你自己的感覺。</p>
-    <hr class="vx-divider">
-  </section>
+  <header class="vxs-home-hero">
+    <p class="vxs-home-eyebrow">水感研究 · Vortex</p>
+    <h1 class="vxs-home-title">感知地圖</h1>
+    <p class="vxs-home-lead">把每個游泳動作拆成三件事：水裡正在發生的<mark>物理現實</mark>、撐不撐得住的<mark>硬體邊界</mark>，還有那些聽起來合理、其實是錯的<mark>口令</mark>。不規定你該有什麼感覺，只把水裡發生的事說清楚。</p>
+  </header>
 
-  <section class="vx-entry-section">
-    <h2 class="vx-section-label">依泳式瀏覽</h2>
-    <div class="vx-stroke-grid">
+  <section class="vxs-home-sec">
+    <h2 class="vxs-home-sec-label">依泳式瀏覽</h2>
+    <div class="vxs-home-strokes">
       {{ $strokes := slice
-        (dict "name" "自由式"    "sub" "Freestyle"             "slug" "freestyle")
-        (dict "name" "仰式"      "sub" "Backstroke"            "slug" "backstroke")
-        (dict "name" "蛙式"      "sub" "Breaststroke"          "slug" "breaststroke")
-        (dict "name" "蝶式"      "sub" "Butterfly"             "slug" "butterfly")
-        (dict "name" "出發與轉身" "sub" "Starts & Turns"       "slug" "starts-turns")
-        (dict "name" "水下蝶腳"  "sub" "Underwater Dolphin Kick" "slug" "underwater-dolphin-kick")
+        (dict "name" "自由式"     "sub" "Freestyle"               "slug" "freestyle"               "key" "free")
+        (dict "name" "仰式"       "sub" "Backstroke"              "slug" "backstroke"              "key" "back")
+        (dict "name" "蛙式"       "sub" "Breaststroke"            "slug" "breaststroke"            "key" "breast")
+        (dict "name" "蝶式"       "sub" "Butterfly"               "slug" "butterfly"               "key" "fly")
+        (dict "name" "出發與轉身"  "sub" "Starts & Turns"          "slug" "starts-turns"            "key" "starts-turns")
+        (dict "name" "水下蝶腳"   "sub" "Underwater Dolphin Kick" "slug" "underwater-dolphin-kick" "key" "udk")
       }}
       {{ range $strokes }}
-      <a href="{{ printf "%svortex/%s/" $.Site.BaseURL .slug }}" class="vx-stroke-card">
-        <span class="vx-stroke-name">{{ .name }}</span>
-        <span class="vx-stroke-sub">{{ .sub }}</span>
+      {{ $data := index $.Site.Data.vortex .key }}
+      <a href="{{ printf "%svortex/%s/" $.Site.BaseURL .slug }}" class="vxs-home-stroke">
+        <span class="vxs-home-stroke-name">{{ .name }}</span>
+        <span class="vxs-home-stroke-sub">{{ .sub }}</span>
+        {{ with $data }}<span class="vxs-home-stroke-count">{{ len .moves }} 個感知時刻</span>{{ end }}
       </a>
       {{ end }}
     </div>
   </section>
 
-  <section class="vx-entry-section">
-    <h2 class="vx-section-label">依主題瀏覽</h2>
-    <div class="vx-layer-grid">
+  <section class="vxs-home-sec">
+    <h2 class="vxs-home-sec-label">依主題瀏覽</h2>
+    <div class="vxs-home-themes">
       {{ $layers := slice
-        (dict "name" "水感框架" "slug" "technica" "desc" "L0–L6 感知發展序列——從呼吸建立到全身場感知" "color" "#2B4A7A" "count" "6")
-        (dict "name" "感知橋接" "slug" "bridge" "desc" "每個技術點你應該感覺到什麼——失敗和成功的感覺各是什麼" "color" "#C45D00" "count" "6")
-        (dict "name" "技術深探" "slug" "instructional" "desc" "四式技術的物理條件與常見教學誤解" "color" "#2D6A4F" "count" "12")
+        (dict "name" "水感框架" "slug" "technica" "desc" "L0–L6 感知發展序列——感知如何從呼吸建立到全身場感知，每級的訓練方法與外部觀察指標" "color" "#2B4A7A" "count" "6")
+        (dict "name" "感知橋接" "slug" "bridge" "desc" "把技術的物理條件對應到水裡可觀察的現象，以及常見的自我診斷方向" "color" "#C45D00" "count" "6")
+        (dict "name" "技術深探" "slug" "instructional" "desc" "四式技術的物理條件與常見教學誤解——為什麼這樣游才快，哪些廣傳教法是錯的" "color" "#2D6A4F" "count" "12")
       }}
       {{ range $layers }}
-      <a href="{{ printf "%svortex/%s/" $.Site.BaseURL .slug }}" class="vx-layer-card" style="--layer-color: {{ .color }}">
-        <span class="vx-layer-name">{{ .name }}</span>
-        <span class="vx-layer-desc">{{ .desc }}</span>
-        <span class="vx-layer-count">{{ .count }} 篇</span>
+      <a href="{{ printf "%svortex/%s/" $.Site.BaseURL .slug }}" class="vxs-home-theme" style="--theme-color: {{ .color }}">
+        <span class="vxs-home-theme-name">{{ .name }}</span>
+        <span class="vxs-home-theme-desc">{{ .desc }}</span>
+        <span class="vxs-home-theme-count">{{ .count }} 篇</span>
       </a>
       {{ end }}
     </div>
   </section>
 
-  <section class="vx-entry-section">
-    <h2 class="vx-section-label">動作練習資料庫</h2>
-    <a href="{{ printf "%svortex/drills/" .Site.BaseURL }}" class="vx-layer-card" style="--layer-color: #B5290B">
-      <span class="vx-layer-name">練習動作檢索</span>
-      <span class="vx-layer-desc">125 個訓練動作，依泳式、L 級別、感知診斷分類篩選。來源：<em>There's a Drill for That</em>，Vortex 感知層標注。</span>
-      <span class="vx-layer-count">125 個動作</span>
+  <section class="vxs-home-sec">
+    <h2 class="vxs-home-sec-label">動作練習資料庫</h2>
+    <a href="{{ printf "%svortex/drills/" .Site.BaseURL }}" class="vxs-home-theme" style="--theme-color: #B5290B">
+      <span class="vxs-home-theme-name">練習動作檢索</span>
+      <span class="vxs-home-theme-desc">125 個訓練動作，依泳式、L 級別、感知診斷分類篩選。來源：<em>There's a Drill for That</em>，Vortex 感知層標注。</span>
+      <span class="vxs-home-theme-count">125 個動作</span>
     </a>
   </section>
 
-  <section class="vx-legend">
-    <p class="vx-legend-title">文章確定性標記</p>
-    <div class="vx-legend-row">
-      <span class="vx-badge vx-badge--blue">🔵 推導</span>
-      <span class="vx-badge vx-badge--green">🟢 近期文獻</span>
-      <span class="vx-badge vx-badge--yellow">🟡 舊文獻</span>
-      <span class="vx-badge vx-badge--orange">🟠 教練觀測</span>
-      <span class="vx-badge vx-badge--red">🔴 待查</span>
-    </div>
-    <p class="vx-legend-note">每篇文章標注知識的確定性——讓你知道哪些是文獻確認的，哪些是教練觀測，哪些還在研究中</p>
+  <section class="vxs-home-legend">
+    <p class="vxs-home-legend-title">確定性標記</p>
+    <p class="vxs-home-legend-row">🔵 推導 · 🟢 近期文獻 · 🟡 舊文獻 · 🟠 教練觀測 · 🔴 待查</p>
+    <p class="vxs-home-legend-note">每條內容標注知識的確定性——哪些是文獻確認的、哪些是教練觀測、哪些還在查證。</p>
   </section>
 
 </div>

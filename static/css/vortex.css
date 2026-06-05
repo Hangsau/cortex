@@ -894,3 +894,57 @@ body:has(.vxd-filters) .vx-page {
   .vxs-m-title { font-size: 40px; }
 }
 
+/* ============ Vortex landing (感知地圖) ============ */
+body:has(.vxs-home) { background: #FDFBF3; }
+
+.vxs-home {
+  --vxs-bg: #FDFBF3;
+  --vxs-ink: #2B2416;
+  --vxs-ink-2: #7A6A52;
+  --vxs-pencil: #B5290B;
+  --vxs-underline: #2B4A7A;
+  --vxs-rule: #E4DCC6;
+  --vxs-sticky: #FBF1C7;
+  --vxs-mark: #FCE49A;
+  color: var(--vxs-ink);
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 19px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.vxs-home * { box-sizing: border-box; }
+.vxs-home mark { background: var(--vxs-mark); padding: 0 2px; }
+
+.vxs-home-hero { margin: 8px 0 48px; }
+.vxs-home-eyebrow { font-family: 'Caveat', cursive; font-size: 24px; color: var(--vxs-pencil); margin: 0 0 4px; }
+.vxs-home-title { font-family: 'Caveat', cursive; font-weight: 700; font-size: 64px; line-height: 1; margin: 0 0 20px; position: relative; display: inline-block; color: var(--vxs-ink); }
+.vxs-home-title::after { content: ""; position: absolute; left: 0; right: 0; bottom: -12px; height: 8px; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='8' viewBox='0 0 120 8'><path d='M0 5 Q15 0 30 5 T60 5 T90 5 T120 5' fill='none' stroke='%23B5290B' stroke-width='2'/></svg>") repeat-x; background-size: 120px 8px; }
+.vxs-home-lead { font-size: 21px; line-height: 1.75; max-width: 60ch; margin: 0; }
+
+.vxs-home-sec { margin: 0 0 48px; }
+.vxs-home-sec-label { font-family: 'Caveat', cursive; font-weight: 600; font-size: 30px; color: var(--vxs-ink); margin: 0 0 18px; padding-bottom: 6px; border-bottom: 1px solid var(--vxs-rule); }
+
+.vxs-home-strokes { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.vxs-home-stroke { display: flex; flex-direction: column; gap: 2px; padding: 18px 20px; background: #fff; border: 1px solid var(--vxs-rule); text-decoration: none; color: var(--vxs-ink); transition: transform .12s, box-shadow .12s, border-color .12s; }
+.vxs-home-stroke:hover { transform: translateY(-3px); box-shadow: 2px 4px 0 rgba(0, 0, 0, .07); border-color: var(--vxs-underline); }
+.vxs-home-stroke-name { font-size: 22px; font-weight: 600; }
+.vxs-home-stroke-sub { font-family: 'Caveat', cursive; font-size: 18px; color: var(--vxs-ink-2); }
+.vxs-home-stroke-count { margin-top: 8px; font-size: 14px; color: var(--vxs-pencil); }
+
+.vxs-home-themes { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.vxs-home-theme { display: flex; flex-direction: column; gap: 6px; padding: 20px 22px; background: #fff; border: 1px solid var(--vxs-rule); border-left: 4px solid var(--theme-color, var(--vxs-underline)); text-decoration: none; color: var(--vxs-ink); transition: transform .12s, box-shadow .12s; }
+.vxs-home-theme:hover { transform: translateY(-3px); box-shadow: 2px 4px 0 rgba(0, 0, 0, .07); }
+.vxs-home-theme-name { font-size: 21px; font-weight: 600; color: var(--theme-color, var(--vxs-ink)); }
+.vxs-home-theme-desc { font-size: 16px; line-height: 1.6; color: var(--vxs-ink-2); }
+.vxs-home-theme-count { margin-top: 4px; font-family: 'Caveat', cursive; font-size: 18px; color: var(--vxs-ink-2); }
+
+.vxs-home-legend { margin: 48px 0 20px; padding: 18px 20px; background: var(--vxs-sticky); border: 1px solid #E6D58A; transform: rotate(-.4deg); box-shadow: 1px 2px 0 rgba(0, 0, 0, .06); }
+.vxs-home-legend-title { font-variant: small-caps; letter-spacing: .1em; font-size: 15px; color: #8a6d12; margin: 0 0 8px; }
+.vxs-home-legend-row { font-size: 17px; margin: 0 0 8px; }
+.vxs-home-legend-note { font-size: 15px; color: var(--vxs-ink-2); margin: 0; }
+
+@media (max-width: 760px) {
+  .vxs-home-title { font-size: 48px; }
+  .vxs-home-lead { font-size: 19px; }
+}
+
