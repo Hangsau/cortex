@@ -894,6 +894,26 @@ body:has(.vxd-filters) .vx-page {
 .vxs-chip--link { text-decoration: none; cursor: pointer; transition: background var(--transition-base), color var(--transition-base); }
 .vxs-chip--link::after { content: ' ↗'; font-size: 13px; opacity: 0.6; }
 .vxs-chip--link:hover { background: var(--vxs-underline); color: #fff; }
+.vxs-drills { display: flex; flex-direction: column; gap: 8px; }
+.vxs-drill { border: 1px solid var(--vxs-rule); border-left: 3px solid var(--vxs-underline); background: #fff; }
+.vxs-drill[open] { border-left-color: var(--vxs-pencil); }
+.vxs-drill-sum { list-style: none; cursor: pointer; padding: 9px 14px; display: flex; align-items: center; gap: 10px; color: var(--vxs-underline); }
+.vxs-drill-sum::-webkit-details-marker { display: none; }
+.vxs-drill-sum::before { content: "+"; font-family: 'Caveat', cursive; font-size: 22px; line-height: 1; color: var(--vxs-ink-2); width: 14px; }
+.vxs-drill[open] > .vxs-drill-sum::before { content: "–"; color: var(--vxs-pencil); }
+.vxs-drill-sum:hover { color: var(--vxs-pencil); }
+.vxs-drill-name { font-size: 17px; }
+.vxs-drill-lv { font-size: 13px; color: var(--vxs-ink-2); letter-spacing: .04em; }
+.vxs-drill-body { padding: 2px 16px 16px 31px; border-top: 1px dashed var(--vxs-rule); }
+.vxs-drill-purpose { color: var(--vxs-ink-2); font-style: italic; margin: 12px 0 14px; }
+.vxs-drill-label { display: block; font-variant: small-caps; letter-spacing: .1em; font-size: 13px; color: var(--vxs-ink-2); margin: 0 0 5px; }
+.vxs-drill-howto ol { margin: 0 0 14px; padding-left: 20px; }
+.vxs-drill-howto li { margin: 0 0 5px; line-height: 1.55; }
+.vxs-drill-perc { background: var(--vxs-sticky); padding: 9px 12px; margin: 0 0 12px; }
+.vxs-drill-perc .vxs-drill-label { color: #8a6d12; }
+.vxs-drill-equip { font-size: 15px; color: var(--vxs-ink-2); margin: 0 0 10px; }
+.vxs-drill-dblink { font-size: 14px; color: var(--vxs-underline); text-decoration: none; border-bottom: 1px solid var(--vxs-rule); }
+.vxs-drill-dblink:hover { color: var(--vxs-pencil); border-bottom-color: var(--vxs-pencil); }
 .vxs-cue-bad, .vxs-cue-good { display: flex; gap: 10px; align-items: baseline; margin: 4px 0; }
 .vxs-x { color: var(--vxs-pencil); font-weight: 700; font-size: 20px; }
 .vxs-v { color: var(--vxs-underline); font-weight: 700; font-size: 20px; }

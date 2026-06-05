@@ -42,17 +42,28 @@
   </div>
 </div>
 
-{{/* name_zh → drill id 對照，讓 chip 連到 drill DB 對應卡片 */}}
+{{/* name_zh → drill id 對照（fallback chip 連結用）+ name_zh → 公開欄位（inline 展開用） */}}
+{{/* 只放公開層欄位：purpose / how_to / perception_goal / equipment；不含 success_signal / failure_signal */}}
 {{ $drillIds := dict }}
+{{ $drillData := dict }}
 {{ with (index .Site.Data.vortex "drills") }}
   {{ range .drills }}
     {{ $drillIds = merge $drillIds (dict .name_zh .id) }}
+    {{ $drillData = merge $drillData (dict .name_zh (dict
+      "id" .id
+      "en" .name_en
+      "purpose" .purpose_zh
+      "how_to" .how_to
+      "perception" .perception_goal
+      "equipment" .equipment
+      "levels" .l_target)) }}
   {{ end }}
 {{ end }}
 <script>
 const STROKES = {{ $strokes | jsonify | safeJS }};
 const INIT_STROKE = {{ .Params.explorer_data | jsonify | safeJS }};
 const DRILL_IDS = {{ $drillIds | jsonify | safeJS }};
+const DRILLS_DATA = {{ $drillData | jsonify | safeJS }};
 const DRILLS_URL = {{ printf "%svortex/drills/" .Site.BaseURL | jsonify | safeJS }};
 </script>
 <script src="{{ .Site.BaseURL }}js/vortex-explorer.js" defer></script>

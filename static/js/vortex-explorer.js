@@ -7,7 +7,7 @@
 
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
-  // drill chip：名稱對得上 drill DB 就連過去，對不上退回純文字 chip
+  // drill 名稱對不上 DB 時的退路：連得上就連過去，連不上純文字 chip
   function drillChip(name) {
     const ids = (typeof DRILL_IDS !== 'undefined') ? DRILL_IDS : {};
     const id = ids[name];
@@ -15,6 +15,30 @@
       return '<a class="vxs-chip vxs-chip--link" target="_blank" rel="noopener" title="在新分頁開啟練習動作（不離開目前泳式）" href="' + esc(DRILLS_URL) + '#drill-' + encodeURIComponent(id) + '">' + esc(name) + '</a>';
     }
     return '<span class="vxs-chip">' + esc(name) + '</span>';
+  }
+
+  // drill 就地展開：名稱對得上 DB 就用 <details> 內嵌操作步驟，不離開目前泳式
+  function drillItem(name) {
+    const all = (typeof DRILLS_DATA !== 'undefined') ? DRILLS_DATA : {};
+    const d = all[name];
+    if (!d) return drillChip(name); // 名稱對不上（破折號變體等）→ 退回 chip
+    let inner = '';
+    if (d.purpose) inner += '<p class="vxs-drill-purpose">' + esc(d.purpose) + '</p>';
+    if (d.how_to && d.how_to.length) {
+      inner += '<div class="vxs-drill-howto"><span class="vxs-drill-label">操作步驟</span><ol>' +
+        d.how_to.map(s => '<li>' + esc(s) + '</li>').join('') + '</ol></div>';
+    }
+    if (d.perception) {
+      inner += '<div class="vxs-drill-perc"><span class="vxs-drill-label">要去感覺什麼</span><span>' + esc(d.perception) + '</span></div>';
+    }
+    if (d.equipment && d.equipment.length) {
+      inner += '<p class="vxs-drill-equip">器材：' + esc(d.equipment.join('、')) + '</p>';
+    }
+    if (d.id && typeof DRILLS_URL !== 'undefined') {
+      inner += '<a class="vxs-drill-dblink" target="_blank" rel="noopener" href="' + esc(DRILLS_URL) + '#drill-' + encodeURIComponent(d.id) + '">在資料庫查看 ↗</a>';
+    }
+    const lv = (d.levels && d.levels.length) ? '<span class="vxs-drill-lv">' + esc(d.levels.join(' ')) + '</span>' : '';
+    return '<details class="vxs-drill"><summary class="vxs-drill-sum"><span class="vxs-drill-name">' + esc(name) + '</span>' + lv + '</summary><div class="vxs-drill-body">' + inner + '</div></details>';
   }
 
   // 側欄泳式 tabs
@@ -108,7 +132,7 @@
     let body = '';
     if (m.physical) body += '<div class="vxs-block"><p class="vxs-block-label">長什麼樣 <span class="vxs-cert">🔵</span></p><p>' + m.physical + '</p></div>';
     if (m.boundary) body += '<div class="vxs-block vxs-sticky-note"><p class="vxs-block-label"><span class="vxs-warn">⚠</span> 感知問題，還是身體限制？ <span class="vxs-cert">🔵</span></p><p>' + m.boundary + '</p></div>';
-    if (m.drills && m.drills.length) body += '<div class="vxs-block"><p class="vxs-block-label">練這個動作</p><div class="vxs-chips">' + m.drills.map(drillChip).join('') + '</div></div>';
+    if (m.drills && m.drills.length) body += '<div class="vxs-block"><p class="vxs-block-label">練這個動作</p><div class="vxs-drills">' + m.drills.map(drillItem).join('') + '</div></div>';
     if (m.cue_bad) body += '<div class="vxs-block"><p class="vxs-block-label">這句常見口令是錯的</p>' +
       '<div class="vxs-cue-bad"><span class="vxs-x">✗</span><span>「' + m.cue_bad + '」</span></div>' +
       (m.cue_why ? '<p class="vxs-cue-why">' + m.cue_why + '</p>' : '') +
