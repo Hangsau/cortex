@@ -473,3 +473,291 @@ a.vx-stroke-card:hover {
     font-size: 1.5rem;
   }
 }
+
+/* ══ Drill Database (vxd-*) ══════════════════════════════════════════════ */
+
+body:has(.vxd-filters) .vx-page {
+  max-width: 1100px;
+}
+
+/* ── Filters ── */
+.vxd-filters {
+  background: #F9F4E8;
+  border: 1px solid #C8B89A;
+  padding: var(--space-5) var(--space-6);
+  margin-bottom: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.vxd-filter-group {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.vxd-filter-label {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #7A6A52;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  min-width: 4rem;
+  padding-top: 5px;
+  flex-shrink: 0;
+}
+
+.vxd-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.vxd-btn {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 0.9rem;
+  color: #5A4A36;
+  background: #FDFBF3;
+  border: 1px solid #C8B89A;
+  padding: 3px 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  line-height: 1.6;
+}
+
+.vxd-btn:hover {
+  background: #F5EDD8;
+  border-color: #B5290B;
+  color: #B5290B;
+}
+
+.vxd-btn--active {
+  background: #2B2416;
+  color: #FDFBF3;
+  border-color: #2B2416;
+}
+
+.vxd-btn--active:hover {
+  background: #3D3224;
+  border-color: #3D3224;
+  color: #FDFBF3;
+}
+
+.vxd-count {
+  font-size: var(--font-size-sm);
+  color: #7A6A52;
+  font-style: italic;
+  margin: 0;
+  padding-top: var(--space-2);
+  border-top: 1px dashed #C8B89A;
+}
+
+/* ── Grid ── */
+.vxd-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-4);
+}
+
+/* ── Card ── */
+.vxd-card {
+  background: #FDFBF3;
+  border: 1px solid #C8B89A;
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.vxd-card-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.vxd-id {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #7A6A52;
+  background: #F0E8D8;
+  border: 1px solid #C8B89A;
+  padding: 1px 8px;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+}
+
+.vxd-cat {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 0.78rem;
+  padding: 1px 8px;
+  border-radius: 2px;
+  border: 1px solid currentColor;
+}
+
+.vxd-cat--kick      { background: #F0FFF4; color: #2D6A4F; }
+.vxd-cat--arm       { background: #FFF7ED; color: #C45D00; }
+.vxd-cat--balance   { background: #FFFBEB; color: #8B5E00; }
+.vxd-cat--breathing { background: #EEF2FF; color: #2B4A7A; }
+.vxd-cat--timing    { background: #FDF4FF; color: #7B2D8B; }
+.vxd-cat--sculling  { background: #FFF1F0; color: #B5290B; }
+.vxd-cat--awareness { background: #F0F9FF; color: #1D5F7A; }
+
+.vxd-abc {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 1px 8px;
+  border-radius: 2px;
+  border: 1px solid currentColor;
+}
+
+.vxd-abc--A { background: #FFF7ED; color: #C45D00; }
+.vxd-abc--B { background: #F0FFF4; color: #2D6A4F; }
+.vxd-abc--C { background: #EEF2FF; color: #2B4A7A; }
+
+.vxd-name {
+  font-family: 'Caveat', cursive;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2B2416;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.vxd-name-en {
+  font-size: 0.85rem;
+  color: #7A6A52;
+  font-style: italic;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.vxd-levels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.vxd-level {
+  font-size: 0.75rem;
+  color: #5A4A36;
+  border: 1px solid #C8B89A;
+  background: #F5EDD8;
+  padding: 1px 7px;
+  border-radius: 2px;
+  letter-spacing: 0.03em;
+}
+
+/* ── Details / Perception ── */
+.vxd-detail {
+  margin-top: var(--space-1);
+  border-top: 1px dashed #C8B89A;
+  padding-top: var(--space-2);
+}
+
+.vxd-detail-trigger {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 0.85rem;
+  color: #7A6A52;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  transition: color var(--transition-base);
+}
+
+.vxd-detail-trigger::-webkit-details-marker { display: none; }
+
+.vxd-detail-trigger::before {
+  content: '▸ ';
+  font-size: 0.7rem;
+}
+
+.vxd-detail[open] .vxd-detail-trigger::before {
+  content: '▾ ';
+}
+
+.vxd-detail-trigger:hover {
+  color: #B5290B;
+}
+
+.vxd-detail-body {
+  padding-top: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.vxd-purpose {
+  font-size: 0.9rem;
+  color: #5A4A36;
+  line-height: 1.65;
+  margin: 0;
+  font-style: italic;
+}
+
+.vxd-perception {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.vxd-p-row {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: var(--space-2);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  padding: var(--space-2) var(--space-3);
+  background: #F9F4E8;
+  border-left: 2px solid #C8B89A;
+}
+
+.vxd-p-row--success {
+  background: #F0FFF4;
+  border-left-color: #2D6A4F;
+}
+
+.vxd-p-row--fail {
+  background: #FFF1F0;
+  border-left-color: #B5290B;
+}
+
+.vxd-p-label {
+  font-weight: 600;
+  color: #5A4A36;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  padding-top: 2px;
+  flex-shrink: 0;
+}
+
+.vxd-p-text {
+  color: #2B2416;
+}
+
+.vxd-equipment {
+  font-size: 0.82rem;
+  color: #7A6A52;
+  margin: 0;
+}
+
+/* ── Drill DB Responsive ── */
+@media (max-width: 700px) {
+  .vxd-filter-group {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .vxd-filter-label {
+    min-width: auto;
+  }
+
+  .vxd-grid {
+    grid-template-columns: 1fr;
+  }
+}

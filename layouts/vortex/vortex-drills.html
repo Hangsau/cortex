@@ -1,0 +1,157 @@
+{{ define "head-extra" }}
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+{{ end }}
+
+{{ define "main" }}
+{{ $drills := (index .Site.Data.vortex "drills").drills }}
+
+<div class="vx-page">
+
+  <header class="vx-list-header">
+    <a href="{{ printf "%svortex/" .Site.BaseURL | absURL }}" class="vx-back-link">← 水感研究首頁</a>
+    <h1 class="vx-list-title">動作練習資料庫</h1>
+    <p class="vx-list-desc">125 個訓練動作，依泳式、L 級別、目標感知分類。來源：<em>There's a Drill for That</em>，Vortex 感知層標注。</p>
+  </header>
+
+  {{/* ── Filters ── */}}
+  <div class="vxd-filters" id="drill-filters">
+    <div class="vxd-filter-group">
+      <span class="vxd-filter-label">泳式</span>
+      <div class="vxd-filter-row">
+        <button class="vxd-btn vxd-btn--active" data-filter="stroke" data-value="all">全部</button>
+        <button class="vxd-btn" data-filter="stroke" data-value="freestyle">自由式</button>
+        <button class="vxd-btn" data-filter="stroke" data-value="backstroke">仰式</button>
+        <button class="vxd-btn" data-filter="stroke" data-value="breaststroke">蛙式</button>
+        <button class="vxd-btn" data-filter="stroke" data-value="butterfly">蝶式</button>
+        <button class="vxd-btn" data-filter="stroke" data-value="underwater_dolphin_kick">水下蝶腳</button>
+        <button class="vxd-btn" data-filter="stroke" data-value="sculling">划水感知</button>
+      </div>
+    </div>
+    <div class="vxd-filter-group">
+      <span class="vxd-filter-label">L 級別</span>
+      <div class="vxd-filter-row">
+        <button class="vxd-btn vxd-btn--active" data-filter="level" data-value="all">全部</button>
+        <button class="vxd-btn" data-filter="level" data-value="L0">L0 呼吸</button>
+        <button class="vxd-btn" data-filter="level" data-value="L1">L1 平衡</button>
+        <button class="vxd-btn" data-filter="level" data-value="L2">L2 推進萌芽</button>
+        <button class="vxd-btn" data-filter="level" data-value="L3">L3 水感初現</button>
+        <button class="vxd-btn" data-filter="level" data-value="L4">L4 壓力下</button>
+        <button class="vxd-btn" data-filter="level" data-value="L5">L5 自動化</button>
+      </div>
+    </div>
+    <div class="vxd-filter-group">
+      <span class="vxd-filter-label">類型</span>
+      <div class="vxd-filter-row">
+        <button class="vxd-btn vxd-btn--active" data-filter="category" data-value="all">全部</button>
+        <button class="vxd-btn" data-filter="category" data-value="kick">踢腿</button>
+        <button class="vxd-btn" data-filter="category" data-value="arm">手臂</button>
+        <button class="vxd-btn" data-filter="category" data-value="balance">平衡</button>
+        <button class="vxd-btn" data-filter="category" data-value="breathing">呼吸</button>
+        <button class="vxd-btn" data-filter="category" data-value="timing">時序</button>
+        <button class="vxd-btn" data-filter="category" data-value="sculling">划水感知</button>
+      </div>
+    </div>
+    <div class="vxd-filter-group">
+      <span class="vxd-filter-label">感知診斷</span>
+      <div class="vxd-filter-row">
+        <button class="vxd-btn vxd-btn--active" data-filter="abc" data-value="all">全部</button>
+        <button class="vxd-btn" data-filter="abc" data-value="A">A型 手感</button>
+        <button class="vxd-btn" data-filter="abc" data-value="B">B型 腳感</button>
+        <button class="vxd-btn" data-filter="abc" data-value="C">C型 張力</button>
+      </div>
+    </div>
+    <p class="vxd-count" id="drill-count"></p>
+  </div>
+
+  {{/* ── Drill Cards ── */}}
+  <div class="vxd-grid" id="drill-grid">
+    {{ range $drills }}
+    {{ $strokeList := delimit .strokes "," }}
+    {{ $levelList := delimit .l_target "," }}
+    {{ $abc := .abc_type | default "none" }}
+    <div class="vxd-card"
+         data-stroke="{{ $strokeList }}"
+         data-level="{{ $levelList }}"
+         data-category="{{ .category }}"
+         data-abc="{{ $abc }}">
+      <div class="vxd-card-head">
+        <span class="vxd-id">{{ .id }}</span>
+        <span class="vxd-cat vxd-cat--{{ .category }}">{{ .category }}</span>
+        {{ if .abc_type }}<span class="vxd-abc vxd-abc--{{ .abc_type }}">{{ .abc_type }}型</span>{{ end }}
+      </div>
+      <h3 class="vxd-name">{{ .name_zh }}</h3>
+      <p class="vxd-name-en">{{ .name_en }}</p>
+      <div class="vxd-levels">
+        {{ range .l_target }}<span class="vxd-level">{{ . }}</span>{{ end }}
+      </div>
+      <details class="vxd-detail">
+        <summary class="vxd-detail-trigger">感知說明</summary>
+        <div class="vxd-detail-body">
+          <p class="vxd-purpose">{{ .purpose_zh }}</p>
+          <div class="vxd-perception">
+            <div class="vxd-p-row">
+              <span class="vxd-p-label">感知目標</span>
+              <span class="vxd-p-text">{{ .perception_goal }}</span>
+            </div>
+            <div class="vxd-p-row vxd-p-row--success">
+              <span class="vxd-p-label">成功感覺</span>
+              <span class="vxd-p-text">{{ .success_signal }}</span>
+            </div>
+            <div class="vxd-p-row vxd-p-row--fail">
+              <span class="vxd-p-label">失敗感覺</span>
+              <span class="vxd-p-text">{{ .failure_signal }}</span>
+            </div>
+          </div>
+          {{ if .equipment }}
+          <p class="vxd-equipment">器材：{{ delimit .equipment "、" }}</p>
+          {{ end }}
+        </div>
+      </details>
+    </div>
+    {{ end }}
+  </div>
+
+</div>
+
+<script>
+(function() {
+  const filters = { stroke: 'all', level: 'all', category: 'all', abc: 'all' };
+  const cards = Array.from(document.querySelectorAll('.vxd-card'));
+  const countEl = document.getElementById('drill-count');
+
+  function applyFilters() {
+    let visible = 0;
+    cards.forEach(card => {
+      const stroke = card.dataset.stroke;
+      const level = card.dataset.level;
+      const category = card.dataset.category;
+      const abc = card.dataset.abc;
+
+      const okStroke = filters.stroke === 'all' || stroke.includes(filters.stroke);
+      const okLevel = filters.level === 'all' || level.includes(filters.level);
+      const okCat = filters.category === 'all' || category === filters.category;
+      const okAbc = filters.abc === 'all' || abc === filters.abc;
+
+      const show = okStroke && okLevel && okCat && okAbc;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    countEl.textContent = visible + ' 個動作練習';
+  }
+
+  document.querySelectorAll('.vxd-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const type = this.dataset.filter;
+      const val = this.dataset.value;
+      filters[type] = val;
+      document.querySelectorAll(`.vxd-btn[data-filter="${type}"]`).forEach(b => b.classList.remove('vxd-btn--active'));
+      this.classList.add('vxd-btn--active');
+      applyFilters();
+    });
+  });
+
+  applyFilters();
+})();
+</script>
+{{ end }}
