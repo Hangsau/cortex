@@ -1,0 +1,463 @@
+/* vortex.css — Vortex 水感研究
+ * 風格：07 田野筆記（class 前綴 vx-）
+ * 色系：#FDFBF3 底 / #2B2416 主文 / #B5290B 強調
+ * 層色：technica #2B4A7A / bridge #C45D00 / instructional #2D6A4F
+ */
+
+/* ── 頁面背景 ── */
+body:has(.vx-page) {
+  background: #FDFBF3;
+}
+
+/* ── 頁面容器 ── */
+.vx-page {
+  font-family: 'Crimson Text', Georgia, 'Times New Roman', serif;
+  color: #2B2416;
+  max-width: 860px;
+}
+
+/* ── Hero ── */
+.vx-hero {
+  padding: var(--space-12) 0 var(--space-8);
+}
+
+.vx-hero-eyebrow {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7A6A52;
+  margin: 0 0 var(--space-4);
+}
+
+.vx-hero-question {
+  font-family: 'Caveat', cursive;
+  font-size: 3.4rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #2B2416;
+  margin: 0 0 var(--space-6);
+}
+
+.vx-hero-desc {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: #5A4A36;
+  max-width: 600px;
+  margin: 0;
+}
+
+.vx-divider {
+  border: none;
+  border-top: 1px dashed #C8B89A;
+  margin: var(--space-8) 0;
+}
+
+/* ── Entry sections ── */
+.vx-entry-section {
+  margin-bottom: var(--space-12);
+}
+
+.vx-section-label {
+  font-family: 'Caveat', cursive;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #2B2416;
+  margin: 0 0 var(--space-4);
+  border-bottom: 1px solid #C8B89A;
+  padding-bottom: var(--space-3);
+}
+
+/* ── Stroke grid ── */
+.vx-stroke-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: #C8B89A;
+  border: 1px solid #C8B89A;
+  margin-bottom: var(--space-3);
+}
+
+.vx-stroke-card {
+  background: #FDFBF3;
+  padding: var(--space-4) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  opacity: 0.7;
+}
+
+.vx-stroke-name {
+  font-family: 'Caveat', cursive;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2B2416;
+  line-height: 1.2;
+}
+
+.vx-stroke-sub {
+  font-size: 0.78rem;
+  color: #7A6A52;
+  letter-spacing: 0.04em;
+}
+
+.vx-note {
+  font-size: var(--font-size-sm);
+  color: #7A6A52;
+  font-style: italic;
+  margin: 0;
+}
+
+/* ── Layer grid ── */
+.vx-layer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.vx-layer-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5) var(--space-5) var(--space-5) var(--space-4);
+  border: 1px solid #C8B89A;
+  border-left: 3px solid var(--layer-color, #C8B89A);
+  text-decoration: none;
+  color: #2B2416;
+  background: #FDFBF3;
+  transition: background-color var(--transition-base);
+}
+
+.vx-layer-card:hover {
+  background: #F5EDD8;
+  text-decoration: none;
+}
+
+.vx-layer-name {
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2B2416;
+  line-height: 1.2;
+}
+
+.vx-layer-desc {
+  font-size: 0.9rem;
+  color: #5A4A36;
+  line-height: 1.55;
+}
+
+.vx-layer-count {
+  font-size: var(--font-size-sm);
+  color: #7A6A52;
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+/* ── Certainty legend ── */
+.vx-legend {
+  padding: var(--space-6) 0 var(--space-12);
+  border-top: 1px dashed #C8B89A;
+}
+
+.vx-legend-title {
+  font-family: 'Caveat', cursive;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #7A6A52;
+  margin: 0 0 var(--space-3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.vx-legend-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.vx-legend-note {
+  font-size: var(--font-size-sm);
+  color: #7A6A52;
+  font-style: italic;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ── Badges ── */
+.vx-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 0.88rem;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+}
+
+.vx-badge--blue   { background: #EEF2FF; color: #2B4A7A; border-color: #BECBEE; }
+.vx-badge--green  { background: #F0FFF4; color: #2D6A4F; border-color: #B5DEC8; }
+.vx-badge--yellow { background: #FFFBEB; color: #8B5E00; border-color: #E8D5A0; }
+.vx-badge--orange { background: #FFF7ED; color: #C45D00; border-color: #F0C9A0; }
+.vx-badge--red    { background: #FFF1F0; color: #B5290B; border-color: #EBBBB0; }
+
+/* ── List page ── */
+.vx-list-header {
+  padding: var(--space-8) 0 var(--space-6);
+  border-bottom: 1px solid #C8B89A;
+  margin-bottom: var(--space-6);
+}
+
+.vx-back-link {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  color: #7A6A52;
+  text-decoration: none;
+  margin-bottom: var(--space-4);
+  transition: color var(--transition-base);
+}
+
+.vx-back-link:hover {
+  color: #B5290B;
+  text-decoration: none;
+}
+
+.vx-list-title {
+  font-family: 'Caveat', cursive;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #2B2416;
+  margin: 0 0 var(--space-2);
+  line-height: 1.1;
+}
+
+.vx-list-desc {
+  font-size: 1.05rem;
+  color: #5A4A36;
+  line-height: 1.7;
+  margin: 0;
+  font-style: italic;
+}
+
+.vx-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.vx-item {
+  border-bottom: 1px solid #E8E0D0;
+}
+
+.vx-item-link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-5) 0;
+  text-decoration: none;
+  color: #2B2416;
+  transition: color var(--transition-base);
+}
+
+.vx-item-link:hover {
+  color: #B5290B;
+  text-decoration: none;
+}
+
+.vx-item-title {
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.vx-item-desc {
+  font-size: 0.95rem;
+  color: #7A6A52;
+  line-height: 1.5;
+}
+
+.vx-item-strokes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-top: var(--space-1);
+}
+
+.vx-stroke-tag {
+  font-size: 0.78rem;
+  color: #7A6A52;
+  border: 1px solid #C8B89A;
+  padding: 1px 8px;
+  border-radius: 2px;
+  background: #F5EDD8;
+}
+
+.vx-empty {
+  font-style: italic;
+  color: #7A6A52;
+  padding: var(--space-8) 0;
+}
+
+/* ── Article page ── */
+.vx-article-header {
+  padding: var(--space-8) 0 var(--space-6);
+  border-bottom: 1px solid #C8B89A;
+  margin-bottom: var(--space-8);
+}
+
+.vx-article-strokes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-bottom: var(--space-3);
+}
+
+.vx-article-title {
+  font-family: 'Caveat', cursive;
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #2B2416;
+  margin: 0;
+}
+
+/* ── Article body typography ── */
+.vx-article-body {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 720px;
+}
+
+.vx-article-body h2 {
+  font-family: 'Caveat', cursive;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #2B2416;
+  margin: var(--space-10, 2.5rem) 0 var(--space-4) 0;
+  padding-bottom: var(--space-2);
+  border-bottom: 1px dashed #C8B89A;
+  line-height: 1.2;
+}
+
+.vx-article-body h3 {
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2B2416;
+  margin: var(--space-8) 0 var(--space-3) 0;
+  line-height: 1.3;
+}
+
+.vx-article-body h4 {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2B2416;
+  margin: var(--space-6) 0 var(--space-2) 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.vx-article-body p {
+  margin: 0 0 var(--space-4);
+}
+
+.vx-article-body strong {
+  color: #2B2416;
+  border-bottom: 1.5px solid #2B4A7A;
+}
+
+.vx-article-body em {
+  color: #5A4A36;
+}
+
+/* Blockquote = perception goal callout */
+.vx-article-body blockquote {
+  margin: var(--space-6) 0;
+  padding: var(--space-4) var(--space-6);
+  border-left: 3px solid #B5290B;
+  background: #F9F4E8;
+  color: #3D2E1A;
+  font-style: italic;
+  line-height: 1.75;
+}
+
+.vx-article-body blockquote p {
+  margin: 0;
+}
+
+.vx-article-body ul,
+.vx-article-body ol {
+  padding-left: var(--space-6);
+  margin: 0 0 var(--space-4);
+}
+
+.vx-article-body li {
+  margin-bottom: var(--space-2);
+  line-height: 1.7;
+}
+
+.vx-article-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-6) 0;
+  font-size: 0.95rem;
+}
+
+.vx-article-body th {
+  font-family: 'Caveat', cursive;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 2px solid #C8B89A;
+  color: #2B2416;
+}
+
+.vx-article-body td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid #E8E0D0;
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.vx-article-body tr:hover td {
+  background: #F9F4E8;
+}
+
+.vx-article-body hr {
+  border: none;
+  border-top: 1px dashed #C8B89A;
+  margin: var(--space-8) 0;
+}
+
+/* ── Article footer ── */
+.vx-article-footer {
+  padding: var(--space-6) 0 var(--space-12);
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .vx-hero-question {
+    font-size: 2.4rem;
+  }
+
+  .vx-stroke-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .vx-layer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vx-article-title {
+    font-size: 2rem;
+  }
+
+  .vx-article-body h2 {
+    font-size: 1.5rem;
+  }
+}

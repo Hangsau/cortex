@@ -1,0 +1,36 @@
+{{ define "head-extra" }}
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+{{ end }}
+
+{{ define "main" }}
+<div class="vx-page">
+
+  <div class="vx-list-header">
+    <a href="{{ printf "%svortex/" .Site.BaseURL }}" class="vx-back-link">← Vortex</a>
+    <h1 class="vx-list-title">{{ .Title }}</h1>
+    {{ with .Description }}<p class="vx-list-desc">{{ . }}</p>{{ end }}
+  </div>
+
+  {{ if .Pages }}
+  <ul class="vx-items">
+    {{ range .Pages }}
+    <li class="vx-item">
+      <a href="{{ .RelPermalink }}" class="vx-item-link">
+        <span class="vx-item-title">{{ .Title }}</span>
+        {{ with .Description }}<span class="vx-item-desc">{{ . }}</span>{{ end }}
+        {{ with .Params.strokes }}
+        <span class="vx-item-strokes">
+          {{ range . }}<span class="vx-stroke-tag">{{ . }}</span>{{ end }}
+        </span>
+        {{ end }}
+      </a>
+    </li>
+    {{ end }}
+  </ul>
+  {{ else }}
+  <p class="vx-empty">文章整理中，即將上線。</p>
+  {{ end }}
+
+</div>
+{{ end }}

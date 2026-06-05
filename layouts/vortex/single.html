@@ -1,0 +1,29 @@
+{{ define "head-extra" }}
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+{{ end }}
+
+{{ define "main" }}
+<div class="vx-page">
+
+  <div class="vx-article-header">
+    <a href="{{ printf "%svortex/%s/" .Site.BaseURL .Params.layer }}" class="vx-back-link">← {{ .Params.layer_name }}</a>
+    {{ with .Params.strokes }}
+    <div class="vx-article-strokes">
+      {{ range . }}<span class="vx-stroke-tag">{{ . }}</span>{{ end }}
+    </div>
+    {{ end }}
+    <h1 class="vx-article-title">{{ .Title }}</h1>
+  </div>
+
+  <div class="vx-article-body">
+    {{ .Content }}
+  </div>
+
+  <footer class="vx-article-footer">
+    <hr class="vx-divider">
+    <a href="{{ printf "%svortex/%s/" .Site.BaseURL .Params.layer }}" class="vx-back-link">← 返回 {{ .Params.layer_name }}</a>
+  </footer>
+
+</div>
+{{ end }}
