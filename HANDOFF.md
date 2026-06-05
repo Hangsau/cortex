@@ -97,12 +97,21 @@ TheVortexProject 內容整合進 my-site，作為公開知識展示。
   - `starts-turns.yaml`（出發與轉身 7，從 Bridge 出發轉身感知橋接.md 抽公開層）
 - [x] 6 個 `_index.md` 全部接上 `explorer_data` front matter
 - [x] `layouts/vortex/vortex-stroke.html`：重寫為非規定式 layout，schema = `premise` + `moves[]`（n/name/one/l/physical/boundary/cue_bad/cue_why/cue_good/drills/lnote），可選欄位以 `{{ with }}`/`{{ if }}` 守衛
-- [x] `static/js/vortex-explorer.js`：磚塊 toggle；`static/css/vortex.css`：`vxe-*` 樣式 + `<mark>` highlight
 - [x] **舊檔已刪**：`data/vortex/bridge_freestyle.yaml`（舊規定式 schema）、`static/vortex-preview.html`（額外站外預覽頁）
 - [x] **內容三關校正**：8 條沒過清單全部處理（A1/A2/B1/B3/C1/C2 已修；B2/D1 查證為真保留）；修正同步回 TheVortexProject 原始資料（v⁴→v³、9.5% 加 hip-driven 註記、PMID 24290609 歸因 Arellano→Atkison et al. 2014、蛙式 29% 出水改待查 🔴）
 
+**設計原型 SPA 移植上站（2026-06-05）：**
+
+泳式頁從平鋪的 `vxe-tile` 磚牆改為設計原型的「感知地圖」SPA（左側欄 + 總覽/welcome/動作細節三視圖），即原本在 `vortex-preview.html` 設計的格式。
+
+- [x] `layouts/vortex/vortex-stroke.html`：重寫為 SPA，把 6 式 data 透過 `jsonify` 內嵌成 `STROKES`，`INIT_STROKE` = 當前頁 `explorer_data`，進站落在當前泳式；丟掉「深入閱讀 · 完整文章」連結區（文章仍可由 Vortex 首頁「依主題瀏覽」進入）
+- [x] `static/js/vortex-explorer.js`：重寫為 showOverview/selectStroke/openMove/renderRailMoves，讀內嵌 STROKES（移除 done/ready 門檻，全部已上線）
+- [x] `static/css/vortex.css`：舊 `vxe-*` 區塊（765–994 行）整段替換為 `vxs-*` scoped 樣式（便利貼便條、Caveat 標題 + SVG 波浪底線、full-bleed 突破 800px main-content、側欄 sticky `top:56px`）
+- [x] 本機 Hugo extended build 通過（671 頁無錯）、CI 綠、已部署
+
 **待完成：**
 - [ ] （選做）水下蝶腳/出發轉身入口已有獨立頁，可考慮首頁加直達卡片
+- [ ] ⚠ `layouts/vortex/vortex-home.html` 仍有規定式文案（「你游泳時應該感覺到什麼」「找到屬於你自己的感覺」、bridge 層描述「每個技術點你應該感覺到什麼——失敗和成功的感覺各是什麼」），違反「感知不可規定」原則，待改成非規定式措辭
 
 
 **Vortex 來源路徑：** `C:\claudehome\projects\TheVortexProject\`
