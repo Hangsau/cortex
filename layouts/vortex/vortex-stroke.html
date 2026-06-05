@@ -1,6 +1,7 @@
 {{ define "head-extra" }}
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+<script src="{{ .Site.BaseURL }}js/vortex-explorer.js" defer></script>
 {{ end }}
 
 {{ define "main" }}
@@ -11,6 +12,110 @@
     <h1 class="vx-list-title">{{ .Title }}</h1>
     {{ with .Params.stroke_en }}<p class="vx-list-desc">{{ . }}</p>{{ end }}
   </div>
+
+  {{/* ── 技術組件 × 感知狀態探索器 ── */}}
+  {{ with .Params.explorer_data }}
+  {{ $exp := index $.Site.Data.vortex . }}
+  {{ with $exp }}
+  <section class="vxe" id="vx-explorer">
+    {{ with .intro }}<p class="vxe-intro">{{ . }}</p>{{ end }}
+    <h2 class="vxe-heading">技術組件 — 點開看該有的感覺</h2>
+    <p class="vxe-hint">隨手點任一塊，看它長什麼樣、該有什麼感覺、感覺錯了是什麼樣。</p>
+
+    <div class="vxe-grid">
+      {{ range .components }}
+      <div class="vxe-tile" data-id="{{ .id }}">
+        <button class="vxe-tile-head" type="button">
+          <span class="vxe-tile-name">{{ .name_zh }}</span>
+          <span class="vxe-tile-marker" aria-hidden="true"></span>
+        </button>
+        <div class="vxe-panel">
+          <div class="vxe-layer vxe-layer--physical">
+            <span class="vxe-layer-label">長什麼樣</span>
+            <p class="vxe-layer-text">{{ .physical }}</p>
+          </div>
+          {{ with .coach_cue }}
+          <div class="vxe-layer vxe-layer--cue">
+            <span class="vxe-layer-label">怎麼引出來</span>
+            <p class="vxe-layer-text">{{ . }}</p>
+          </div>
+          {{ end }}
+          <div class="vxe-layer vxe-layer--feel">
+            <span class="vxe-layer-label">該有什麼感覺</span>
+            <ul class="vxe-feel-list">
+              {{ range .should_feel }}<li>{{ . }}</li>{{ end }}
+            </ul>
+          </div>
+          <div class="vxe-layer vxe-layer--wrong">
+            <span class="vxe-layer-label">感覺錯了是什麼樣</span>
+            <ul class="vxe-wrong-list">
+              {{ range .wrong_feel }}
+              <li>
+                <span class="vxe-wrong-quote">「{{ .quote }}」</span>
+                <span class="vxe-wrong-followup">{{ .followup }}</span>
+              </li>
+              {{ end }}
+            </ul>
+          </div>
+          {{ with .hardware_boundary }}
+          <div class="vxe-layer vxe-layer--boundary">
+            <span class="vxe-layer-label">感知問題，還是身體限制？</span>
+            <p class="vxe-layer-text">{{ . }}</p>
+          </div>
+          {{ end }}
+          {{ with .external_check }}
+          <div class="vxe-layer vxe-layer--external">
+            <span class="vxe-layer-label">外部確認</span>
+            <p class="vxe-layer-text">{{ . }}</p>
+          </div>
+          {{ end }}
+          {{ with .drill_filter }}
+          <a class="vxe-drill-link" href="{{ printf "%svortex/drills/?stroke=%s&category=%s" $.Site.BaseURL .stroke .category }}">相關練習動作 →</a>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+
+    {{ with .fatigue_sequence }}
+    <div class="vxe-extra">
+      <h3 class="vxe-extra-title">疲勞崩潰的感知順序</h3>
+      <ol class="vxe-sequence">
+        {{ range . }}<li>{{ . }}</li>{{ end }}
+      </ol>
+    </div>
+    {{ end }}
+
+    {{ with .quick_diag }}
+    <div class="vxe-extra">
+      <h3 class="vxe-extra-title">三型快速識別</h3>
+      <div class="vxe-table-wrap">
+        <table class="vxe-table">
+          <thead><tr><th>學生說</th><th>通常哪型</th><th>第一個問題</th></tr></thead>
+          <tbody>
+            {{ range . }}<tr><td>{{ .says }}</td><td class="vxe-type">{{ .type }}</td><td>{{ .first_q }}</td></tr>{{ end }}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    {{ end }}
+
+    {{ with .cue_check }}
+    <div class="vxe-extra">
+      <h3 class="vxe-extra-title">指導語有效性速查</h3>
+      <div class="vxe-table-wrap">
+        <table class="vxe-table">
+          <thead><tr><th>常見指導語</th><th>問題</th><th>有效替代</th></tr></thead>
+          <tbody>
+            {{ range . }}<tr><td class="vxe-bad">{{ .bad_cue }}</td><td>{{ .problem }}</td><td class="vxe-good">{{ .better }}</td></tr>{{ end }}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    {{ end }}
+  </section>
+  {{ end }}
+  {{ end }}
 
   {{ $stroke := .Params.stroke_tag }}
   {{ $strokePages := where site.RegularPages "Params.strokes" "intersect" (slice $stroke) }}
@@ -26,6 +131,7 @@
     {{ $layerSlug := .slug }}
     {{ $layerPages := where $strokePages "Params.layer" "eq" $layerSlug }}
     {{ if $layerPages }}
+      {{ if not $found }}<hr class="vxe-divider"><p class="vxe-readmore-label">深入閱讀 · 完整文章</p>{{ end }}
       {{ $found = true }}
       <section class="vx-entry-section">
         <h2 class="vx-section-label vx-section-label--colored" style="--label-color: {{ .color }}">{{ .name }}</h2>

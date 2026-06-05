@@ -81,11 +81,27 @@ TheVortexProject 內容整合進 my-site，作為公開知識展示。
 - [x] CSS：vortex.css（田野筆記風格，層色編碼）
 - [x] Landing page：雙入口（5 泳式卡片 + 3 主題卡片），確定性 badge 說明
 
+**已完成：**
+- [x] W2 同步腳本（`tools/sync_vortex.py`）：dry-run + 狀態檔 `vortex_sync_state.json`，下次更新直接跑即可
+- [x] W3 Technica（6篇）+ Bridge（6篇）全部上線
+- [x] W4 Instructional（12篇）全部上線
+- [x] Nav double-cortex bug 修復（改用 `{{ .URL | absURL }}`）
+
+**技術組件 × 感知狀態 互動探索器（2026-06-05）：**
+- [x] 自由式 pilot：泳式頁從「文章連結清單」升級為可點開探索器
+  - `data/vortex/bridge_freestyle.yaml`：8 組件（入水/捕水EVF/拉水/旋轉/踢水/頭部/划距/連動鏈）+ 疲勞順序 + 三型速查 + 指導語速查
+  - 每組件展開：長什麼樣 / 怎麼引出來 / 該有什麼感覺 / 感覺錯了是什麼樣 /（解剖邊界）/（外部確認）/ 相關練習 deep-link
+  - `layouts/vortex/vortex-stroke.html`：`{{ with explorer_data }}` 包覆，無 data 的泳式自動跳過
+  - `static/js/vortex-explorer.js`：磚塊 toggle（一次開一個 + smooth scroll）
+  - `vortex-drills.html`：加 URL 參數白名單讀取，支援 `?stroke=&category=` deep-link
+  - vortex.css 追加 `vxe-*` 樣式區塊
+- [ ] **下一步（待用戶看過 pilot 後）**：複製到其餘 5 泳式 — 從各自 Bridge .md 抽 `bridge_<stroke>.yaml` + 加 `explorer_data` front matter
+  - 來源：`TheVortexProject/Bridge/<泳式>感知橋接.md`
+  - 已知資料缺口：頭部→breathing 全庫僅 1 個 drill（Fr1），偏薄但有效
+
 **待完成：**
-- [ ] W2 同步腳本（`tools/sync_vortex.py`）
-- [ ] W3 第一波內容：Technica（6篇）+ Bridge（6篇）
-- [ ] W4 第二波內容：Instructional（12篇）
-- [ ] 依泳式整合視圖（Landing page 的泳式卡片現為佔位，內容搬入後再接 links）
+- [ ] （選做）水下蝶腳文章也可出現在蝶式視圖之外，考慮在首頁加「水下蝶腳」入口
+
 
 **Vortex 來源路徑：** `C:\claudehome\projects\TheVortexProject\`
 

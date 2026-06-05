@@ -151,6 +151,18 @@
     });
   });
 
+  // Deep-link：從 URL 參數套用篩選（白名單比對——只接受有對應按鈕的值，未知值忽略）
+  const params = new URLSearchParams(window.location.search);
+  ['stroke', 'level', 'category', 'abc'].forEach(key => {
+    const val = params.get(key);
+    if (!val) return;
+    const target = document.querySelector(`.vxd-btn[data-filter="${key}"][data-value="${val}"]`);
+    if (!target) return;
+    filters[key] = val;
+    document.querySelectorAll(`.vxd-btn[data-filter="${key}"]`).forEach(b => b.classList.remove('vxd-btn--active'));
+    target.classList.add('vxd-btn--active');
+  });
+
   applyFilters();
 })();
 </script>

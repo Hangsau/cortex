@@ -761,3 +761,173 @@ body:has(.vxd-filters) .vx-page {
     grid-template-columns: 1fr;
   }
 }
+
+/* ════════════ 技術組件探索器 (vxe-) ════════════ */
+body:has(.vxe) .vx-page { max-width: 1000px; }
+
+.vxe { margin-bottom: var(--space-12); }
+
+.vxe-intro {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #5A4A36;
+  background: #F9F4E8;
+  border-left: 3px solid #C45D00;
+  padding: var(--space-4) var(--space-6);
+  margin: 0 0 var(--space-8);
+}
+
+.vxe-heading {
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2B2416;
+  margin: 0 0 var(--space-1);
+}
+
+.vxe-hint {
+  color: #7A6A52;
+  font-size: 0.95rem;
+  margin: 0 0 var(--space-6);
+}
+
+/* ── 磚塊格 ── */
+.vxe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+.vxe-tile {
+  border: 1px solid #D8C9AC;
+  background: #FDFBF3;
+}
+
+.vxe-tile-head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+  color: #2B2416;
+  text-align: left;
+}
+
+.vxe-tile-head:hover { color: #B5290B; }
+
+.vxe-tile-marker {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #C45D00;
+  border-bottom: 2px solid #C45D00;
+  transform: rotate(45deg);
+  transition: transform 0.15s;
+  flex-shrink: 0;
+}
+.vxe-tile.is-open .vxe-tile-marker { transform: rotate(-135deg); }
+
+.vxe-tile.is-open {
+  grid-column: 1 / -1;
+  border-color: #C45D00;
+}
+
+.vxe-panel { display: none; padding: 0 var(--space-4) var(--space-4); }
+.vxe-tile.is-open .vxe-panel { display: block; }
+
+/* ── 四層 ── */
+.vxe-layer {
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-3);
+  background: #F9F4E8;
+  border-left: 3px solid #C8B89A;
+}
+.vxe-layer--physical { border-left-color: #2B4A7A; }
+.vxe-layer--cue      { border-left-color: #7A6A52; background: #FBF8F0; }
+.vxe-layer--feel     { border-left-color: #2D6A4F; background: #F0FFF4; }
+.vxe-layer--wrong    { border-left-color: #B5290B; background: #FFF1F0; }
+.vxe-layer--boundary { border-left-color: #C45D00; background: #FFF6E8; }
+.vxe-layer--external { border-left-color: #5A4A36; }
+
+.vxe-layer-label {
+  display: block;
+  font-family: 'Caveat', cursive;
+  font-size: 1.25rem;
+  color: #2B2416;
+  margin-bottom: var(--space-1);
+}
+.vxe-layer-text { margin: 0; line-height: 1.7; color: #2B2416; }
+
+.vxe-feel-list { margin: 0; padding-left: 1.2em; }
+.vxe-feel-list li { margin-bottom: 4px; line-height: 1.6; }
+
+.vxe-wrong-list { margin: 0; padding-left: 0; list-style: none; }
+.vxe-wrong-list li { margin-bottom: var(--space-2); line-height: 1.6; }
+.vxe-wrong-quote { font-weight: 600; color: #B5290B; }
+.vxe-wrong-followup { display: block; color: #5A4A36; font-size: 0.95rem; margin-top: 2px; }
+.vxe-wrong-followup::before { content: "→ "; color: #C45D00; }
+
+.vxe-drill-link {
+  display: inline-block;
+  margin-top: var(--space-2);
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  color: #B5290B;
+  text-decoration: none;
+  border-bottom: 1px dashed #B5290B;
+}
+.vxe-drill-link:hover { color: #2B2416; border-bottom-color: #2B2416; }
+
+/* ── extra 區塊（疲勞順序 / 速查表） ── */
+.vxe-extra { margin-top: var(--space-8); }
+.vxe-extra-title {
+  font-family: 'Caveat', cursive;
+  font-size: 1.6rem;
+  color: #2B2416;
+  margin: 0 0 var(--space-3);
+}
+.vxe-sequence { padding-left: 1.4em; line-height: 1.8; margin: 0; }
+.vxe-sequence li { margin-bottom: var(--space-2); }
+
+.vxe-table-wrap { overflow-x: auto; }
+.vxe-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.vxe-table th, .vxe-table td {
+  text-align: left;
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid #E5D9C0;
+  vertical-align: top;
+}
+.vxe-table th {
+  font-family: 'Caveat', cursive;
+  font-size: 1.15rem;
+  color: #5A4A36;
+  border-bottom: 2px solid #C8B89A;
+}
+.vxe-type { font-weight: 600; color: #C45D00; white-space: nowrap; }
+.vxe-bad { color: #B5290B; }
+.vxe-good { color: #2D6A4F; }
+
+/* ── 深入閱讀分隔 ── */
+.vxe-divider {
+  border: none;
+  border-top: 1px dashed #C8B89A;
+  margin: var(--space-8) 0 var(--space-6);
+}
+.vxe-readmore-label {
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem;
+  color: #7A6A52;
+  margin: 0 0 var(--space-4);
+}
+
+/* ── Explorer Responsive ── */
+@media (max-width: 700px) {
+  .vxe-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+  .vxe-heading { font-size: 1.6rem; }
+}
