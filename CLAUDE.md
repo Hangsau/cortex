@@ -65,7 +65,7 @@ data/
   - Hugo 的 `absURL`/`relURL` 對以 `/` 開頭的路徑在 subdirectory 部署時失效
   - `.Site.BaseURL` = `https://hangsau.github.io/cortex/`，直接拼接即可
 - 頁面連結用 `{{ .RelPermalink }}` 或 `{{ .Permalink }}`（Hugo 自動帶入正確路徑）
-- nav menu 連結：`{{ printf "%s%s" $.Site.BaseURL (strings.TrimPrefix "/" .URL) }}`
+- nav menu 連結：`{{ .URL | absURL }}`（`.URL` 對已有 content 的 menu item 會返回含 subdirectory 的完整路徑，`absURL` 只取 host 部分拼接，不會 double-prefix）
 
 ### CSS 規則
 - 改全站外觀 → `variables.css`（改 CSS 變數即可）
