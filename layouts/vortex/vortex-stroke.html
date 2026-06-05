@@ -1,114 +1,50 @@
 {{ define "head-extra" }}
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
-<script src="{{ .Site.BaseURL }}js/vortex-explorer.js" defer></script>
 {{ end }}
 
 {{ define "main" }}
-<div class="vx-page">
+{{ $meta := slice
+  (dict "key" "free"         "name" "自由式"     "en" "Freestyle")
+  (dict "key" "back"         "name" "仰式"       "en" "Backstroke")
+  (dict "key" "breast"       "name" "蛙式"       "en" "Breaststroke")
+  (dict "key" "fly"          "name" "蝶式"       "en" "Butterfly")
+  (dict "key" "udk"          "name" "水下蝶腳"   "en" "Underwater Dolphin Kick")
+  (dict "key" "starts-turns" "name" "出發與轉身" "en" "Starts &amp; Turns")
+}}
+{{ $strokes := slice }}
+{{ range $meta }}
+  {{ $d := index $.Site.Data.vortex .key }}
+  {{ if $d }}
+    {{ $strokes = $strokes | append (dict "key" .key "name" .name "en" .en "premise" $d.premise "moves" $d.moves) }}
+  {{ end }}
+{{ end }}
 
-  <div class="vx-list-header">
-    <a href="{{ printf "%svortex/" .Site.BaseURL }}" class="vx-back-link">← Vortex</a>
-    <h1 class="vx-list-title">{{ .Title }}</h1>
-    {{ with .Params.stroke_en }}<p class="vx-list-desc">{{ . }}</p>{{ end }}
+<div class="vxs-app">
+  <div class="vxs-layout">
+    <aside class="vxs-rail">
+      <a class="vxs-home" href="{{ printf "%svortex/" .Site.BaseURL }}">← Cortex / Vortex</a>
+      <button class="vxs-overview-btn" id="vxsOvBtn" type="button">感知地圖 · 總覽</button>
+      <div class="vxs-tabs" id="vxsTabs"></div>
+      <details class="vxs-navbox" open id="vxsNavbox">
+        <summary>感知時刻</summary>
+        <p class="vxs-rail-label">感知時刻</p>
+        <ul class="vxs-navlist" id="vxsNavlist"></ul>
+      </details>
+    </aside>
+
+    <main class="vxs-content">
+      <section id="vxsOverview" class="vxs-hidden"></section>
+      <section id="vxsWelcome" class="vxs-hidden"></section>
+      <section id="vxsDetail" class="vxs-hidden"></section>
+      <p class="vxs-legend">🔵推導 · 🟢近期文獻 · 🟡舊文獻 · 🟠教練觀測 · 🔴待查</p>
+    </main>
   </div>
-
-  {{/* ── 技術組件探索器（公開層：物理現實／硬體邊界／常見錯誤口令／發展序列位置） ── */}}
-  {{ with .Params.explorer_data }}
-  {{ $exp := index $.Site.Data.vortex . }}
-  {{ with $exp }}
-  <section class="vxe" id="vx-explorer">
-    {{ with .premise }}<p class="vxe-intro">{{ . | safeHTML }}</p>{{ end }}
-    <h2 class="vxe-heading">技術組件 — 點開逐項拆解</h2>
-    <p class="vxe-hint">點任一塊，看它的物理現實、這是身體限制還是感知問題、常見的錯誤口令，以及在 L0–L6 發展序列上的位置。</p>
-
-    <div class="vxe-grid">
-      {{ range .moves }}
-      <div class="vxe-tile" data-id="{{ .n }}">
-        <button class="vxe-tile-head" type="button">
-          <span class="vxe-tile-titles">
-            <span class="vxe-tile-name">{{ .name }}</span>
-            {{ with .one }}<span class="vxe-tile-one">{{ . }}</span>{{ end }}
-          </span>
-          {{ with .l }}<span class="vxe-tile-l">{{ . }}</span>{{ end }}
-          <span class="vxe-tile-marker" aria-hidden="true"></span>
-        </button>
-        <div class="vxe-panel">
-          <div class="vxe-layer vxe-layer--physical">
-            <span class="vxe-layer-label">長什麼樣</span>
-            <p class="vxe-layer-text">{{ .physical | safeHTML }}</p>
-          </div>
-          {{ with .boundary }}
-          <div class="vxe-layer vxe-layer--boundary">
-            <span class="vxe-layer-label">這是感知問題，還是身體限制？</span>
-            <p class="vxe-layer-text">{{ . | safeHTML }}</p>
-          </div>
-          {{ end }}
-          {{ if .cue_bad }}
-          <div class="vxe-layer vxe-layer--cue">
-            <span class="vxe-layer-label">這句常見口令是錯的</span>
-            <p class="vxe-cue-bad">✗「{{ .cue_bad }}」</p>
-            {{ with .cue_why }}<p class="vxe-cue-why">{{ . }}</p>{{ end }}
-            {{ with .cue_good }}<p class="vxe-cue-good">✓ {{ . }}</p>{{ end }}
-          </div>
-          {{ end }}
-          {{ with .drills }}
-          <div class="vxe-layer vxe-layer--drills">
-            <span class="vxe-layer-label">練這個動作</span>
-            <ul class="vxe-drill-tags">
-              {{ range . }}<li>{{ . }}</li>{{ end }}
-            </ul>
-          </div>
-          {{ end }}
-          {{ with .lnote }}
-          <div class="vxe-layer vxe-layer--lnote">
-            <span class="vxe-layer-label">在發展序列上的位置</span>
-            <p class="vxe-layer-text">{{ . }}</p>
-          </div>
-          {{ end }}
-        </div>
-      </div>
-      {{ end }}
-    </div>
-  </section>
-  {{ end }}
-  {{ end }}
-
-  {{ $stroke := .Params.stroke_tag }}
-  {{ $strokePages := where site.RegularPages "Params.strokes" "intersect" (slice $stroke) }}
-
-  {{ $layers := slice
-    (dict "slug" "technica"     "name" "水感框架" "color" "#2B4A7A")
-    (dict "slug" "bridge"       "name" "感知橋接" "color" "#C45D00")
-    (dict "slug" "instructional" "name" "技術深探" "color" "#2D6A4F")
-  }}
-
-  {{ $found := false }}
-  {{ range $layers }}
-    {{ $layerSlug := .slug }}
-    {{ $layerPages := where $strokePages "Params.layer" "eq" $layerSlug }}
-    {{ if $layerPages }}
-      {{ if not $found }}<hr class="vxe-divider"><p class="vxe-readmore-label">深入閱讀 · 完整文章</p>{{ end }}
-      {{ $found = true }}
-      <section class="vx-entry-section">
-        <h2 class="vx-section-label vx-section-label--colored" style="--label-color: {{ .color }}">{{ .name }}</h2>
-        <ul class="vx-items">
-          {{ range $layerPages }}
-          <li class="vx-item">
-            <a href="{{ .RelPermalink }}" class="vx-item-link">
-              <span class="vx-item-title">{{ .Title }}</span>
-              {{ with .Description }}<span class="vx-item-desc">{{ . }}</span>{{ end }}
-            </a>
-          </li>
-          {{ end }}
-        </ul>
-      </section>
-    {{ end }}
-  {{ end }}
-
-  {{ if not $found }}
-  <p class="vx-empty">此泳式目前無文章。</p>
-  {{ end }}
-
 </div>
+
+<script>
+const STROKES = {{ $strokes | jsonify }};
+const INIT_STROKE = {{ .Params.explorer_data | jsonify }};
+</script>
+<script src="{{ .Site.BaseURL }}js/vortex-explorer.js" defer></script>
 {{ end }}
