@@ -87,20 +87,22 @@ TheVortexProject 內容整合進 my-site，作為公開知識展示。
 - [x] W4 Instructional（12篇）全部上線
 - [x] Nav double-cortex bug 修復（改用 `{{ .URL | absURL }}`）
 
-**技術組件 × 感知狀態 互動探索器（2026-06-05）：**
-- [x] 自由式 pilot：泳式頁從「文章連結清單」升級為可點開探索器
-  - `data/vortex/bridge_freestyle.yaml`：8 組件（入水/捕水EVF/拉水/旋轉/踢水/頭部/划距/連動鏈）+ 疲勞順序 + 三型速查 + 指導語速查
-  - 每組件展開：長什麼樣 / 怎麼引出來 / 該有什麼感覺 / 感覺錯了是什麼樣 /（解剖邊界）/（外部確認）/ 相關練習 deep-link
-  - `layouts/vortex/vortex-stroke.html`：`{{ with explorer_data }}` 包覆，無 data 的泳式自動跳過
-  - `static/js/vortex-explorer.js`：磚塊 toggle（一次開一個 + smooth scroll）
-  - `vortex-drills.html`：加 URL 參數白名單讀取，支援 `?stroke=&category=` deep-link
-  - vortex.css 追加 `vxe-*` 樣式區塊
-- [ ] **下一步（待用戶看過 pilot 後）**：複製到其餘 5 泳式 — 從各自 Bridge .md 抽 `bridge_<stroke>.yaml` + 加 `explorer_data` front matter
-  - 來源：`TheVortexProject/Bridge/<泳式>感知橋接.md`
-  - 已知資料缺口：頭部→breathing 全庫僅 1 個 drill（Fr1），偏薄但有效
+**技術組件互動探索器（2026-06-05，全 6 頁完成）：**
+
+泳式頁從「文章連結清單」升級為可點開的技術組件探索器。**公開層嚴格非規定式**：只呈現物理現實、硬體邊界（感知 vs 解剖限制）、常見錯誤口令（cue_bad/why/good）、L0–L6 序列位置、相關 drill；**不放任何「該有什麼感覺／感覺錯了是什麼樣／學生說 X＝到位／教練觸發」等感知判讀語**（那些只留在 TheVortexProject 的研究/診斷層）。
+
+- [x] 6 個探索器 data 全部建立（`data/vortex/`）：
+  - `free.yaml`（自由式 8 組件）/ `back.yaml`（仰式 9）/ `breast.yaml`（蛙式 11）/ `fly.yaml`（蝶式 9）
+  - `udk.yaml`（水下蝶腳 7，從 FLY m10-16 拆出獨立頁）
+  - `starts-turns.yaml`（出發與轉身 7，從 Bridge 出發轉身感知橋接.md 抽公開層）
+- [x] 6 個 `_index.md` 全部接上 `explorer_data` front matter
+- [x] `layouts/vortex/vortex-stroke.html`：重寫為非規定式 layout，schema = `premise` + `moves[]`（n/name/one/l/physical/boundary/cue_bad/cue_why/cue_good/drills/lnote），可選欄位以 `{{ with }}`/`{{ if }}` 守衛
+- [x] `static/js/vortex-explorer.js`：磚塊 toggle；`static/css/vortex.css`：`vxe-*` 樣式 + `<mark>` highlight
+- [x] **舊檔已刪**：`data/vortex/bridge_freestyle.yaml`（舊規定式 schema）、`static/vortex-preview.html`（額外站外預覽頁）
+- [x] **內容三關校正**：8 條沒過清單全部處理（A1/A2/B1/B3/C1/C2 已修；B2/D1 查證為真保留）；修正同步回 TheVortexProject 原始資料（v⁴→v³、9.5% 加 hip-driven 註記、PMID 24290609 歸因 Arellano→Atkison et al. 2014、蛙式 29% 出水改待查 🔴）
 
 **待完成：**
-- [ ] （選做）水下蝶腳文章也可出現在蝶式視圖之外，考慮在首頁加「水下蝶腳」入口
+- [ ] （選做）水下蝶腳/出發轉身入口已有獨立頁，可考慮首頁加直達卡片
 
 
 **Vortex 來源路徑：** `C:\claudehome\projects\TheVortexProject\`

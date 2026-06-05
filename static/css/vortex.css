@@ -807,20 +807,51 @@ body:has(.vxe) .vx-page { max-width: 1000px; }
 .vxe-tile-head {
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: var(--space-2);
   padding: var(--space-4);
   background: none;
   border: none;
   cursor: pointer;
-  font-family: 'Caveat', cursive;
-  font-size: 1.5rem;
   color: #2B2416;
   text-align: left;
 }
 
-.vxe-tile-head:hover { color: #B5290B; }
+.vxe-tile-head:hover .vxe-tile-name { color: #B5290B; }
+
+.vxe-tile-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.vxe-tile-name {
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+  line-height: 1.1;
+  color: #2B2416;
+  transition: color var(--transition-base);
+}
+
+.vxe-tile-one {
+  font-size: 0.82rem;
+  color: #7A6A52;
+  line-height: 1.4;
+}
+
+.vxe-tile-l {
+  font-size: 0.72rem;
+  color: #5A4A36;
+  background: #F5EDD8;
+  border: 1px solid #C8B89A;
+  padding: 1px 7px;
+  border-radius: 2px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: 0.03em;
+}
 
 .vxe-tile-marker {
   width: 10px;
@@ -849,11 +880,32 @@ body:has(.vxe) .vx-page { max-width: 1000px; }
   border-left: 3px solid #C8B89A;
 }
 .vxe-layer--physical { border-left-color: #2B4A7A; }
-.vxe-layer--cue      { border-left-color: #7A6A52; background: #FBF8F0; }
-.vxe-layer--feel     { border-left-color: #2D6A4F; background: #F0FFF4; }
-.vxe-layer--wrong    { border-left-color: #B5290B; background: #FFF1F0; }
 .vxe-layer--boundary { border-left-color: #C45D00; background: #FFF6E8; }
-.vxe-layer--external { border-left-color: #5A4A36; }
+.vxe-layer--cue      { border-left-color: #B5290B; background: #FFF6F4; }
+.vxe-layer--drills   { border-left-color: #2D6A4F; background: #F2FAF5; }
+.vxe-layer--lnote    { border-left-color: #7A6A52; background: #FBF8F0; }
+
+.vxe-cue-bad  { margin: 0 0 var(--space-1); color: #B5290B; font-weight: 600; line-height: 1.6; }
+.vxe-cue-why  { margin: 0 0 var(--space-1); color: #5A4A36; font-size: 0.95rem; line-height: 1.65; }
+.vxe-cue-good { margin: 0; color: #2D6A4F; font-weight: 600; line-height: 1.6; }
+
+.vxe-drill-tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+.vxe-drill-tags li {
+  font-size: 0.85rem;
+  color: #2D6A4F;
+  background: #FDFBF3;
+  border: 1px solid #B5DEC8;
+  padding: 1px 9px;
+  border-radius: 2px;
+  line-height: 1.6;
+}
 
 .vxe-layer-label {
   display: block;
@@ -863,6 +915,15 @@ body:has(.vxe) .vx-page { max-width: 1000px; }
   margin-bottom: var(--space-1);
 }
 .vxe-layer-text { margin: 0; line-height: 1.7; color: #2B2416; }
+
+.vxe-layer-text mark,
+.vxe-intro mark {
+  background: linear-gradient(transparent 55%, #F2D98C 55%);
+  color: inherit;
+  padding: 0 1px;
+}
+
+.vxe-intro .cert { font-size: 0.9em; }
 
 .vxe-feel-list { margin: 0; padding-left: 1.2em; }
 .vxe-feel-list li { margin-bottom: 4px; line-height: 1.6; }
