@@ -1,6 +1,6 @@
 # HANDOFF — my-site (Cortex)
 
-## 目前狀態（2026-06-05）
+## 目前狀態（2026-06-06）
 
 網站已上線並完全正常：https://hangsau.github.io/cortex/  
 CI/CD 正常運作，push hugo-source 自動部署。
@@ -113,6 +113,17 @@ TheVortexProject 內容整合進 my-site，作為公開知識展示。
 - [ ] （選做）水下蝶腳/出發轉身入口已有獨立頁，可考慮首頁加直達卡片
 - [ ] ⚠ `layouts/vortex/vortex-home.html` 仍有規定式文案（「你游泳時應該感覺到什麼」「找到屬於你自己的感覺」、bridge 層描述「每個技術點你應該感覺到什麼——失敗和成功的感覺各是什麼」），違反「感知不可規定」原則，待改成非規定式措辭
 
+**Drill how_to 操作步驟 + chip 可點連結（2026-06-06，commit ff69013）：**
+
+全六式一次做完（不分 pilot）。Canonical-first：先寫進 TheVortexProject 原始 YAML，再同步到 my-site 公開層、swim-coach 診斷層（submodule）。
+
+- [x] 125 個 drill 全部補入 `how_to` 操作步驟（從來源書 *There's a Drill for That* 抽，每條過三關校正）；canonical commit `a4ddee1`（5 個 `Drills/drills_*.yaml`）
+- [x] 感知欄位改框成「要去感覺什麼」（`perception_goal`）；移除 `failure_signal`（什麼是錯的），`success_signal` 併入或省略——公開層不放成功 vs 失敗對照
+- [x] `tools/sync_vortex.py` 新增 `sync_drills`：合併 5 式 canonical 為單一 `data/vortex/drills.yaml`（125 筆，block-style）
+- [x] `layouts/vortex/vortex-drills.html`：渲染 how_to + 要去感覺什麼；每張卡加 `#drill-<id>` 錨點 + hash-jump JS（白名單 regex 防注入）
+- [x] drill chip 從純文字改為可點連結：`vortex-stroke.html` build 時做 `name_zh→id` 對照塞進 `DRILL_IDS`，`vortex-explorer.js` 的 `drillChip()` 對得上就連到 drill DB 卡片、對不上退回純文字 chip；`free.yaml` 修破折號變體讓名稱 100% 對得上（103 chip refs，0 unmatched）
+- [x] swim-coach `vendor/vortex` submodule bump 到 `a4ddee1`（commit 9a1fed3）
+- [x] 本機 Hugo extended 0.159.1 build 通過、CI 綠、已部署
 
 **Vortex 來源路徑：** `C:\claudehome\projects\TheVortexProject\`
 
