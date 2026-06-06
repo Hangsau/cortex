@@ -58,11 +58,22 @@
   </section>
 
   <section class="vxs-home-sec">
-    <a href="{{ printf "%svortex/drills/" .Site.BaseURL }}" class="vxs-home-drillnote">
-      <span class="vxs-home-drillnote-tag">動作練習資料庫</span>
-      <span class="vxs-home-drillnote-title">練習動作檢索 →</span>
-      <span class="vxs-home-drillnote-desc">125 個訓練動作，依泳式、L 級別、感知診斷分類篩選。來源：<em>There's a Drill for That</em>，Vortex 感知層標注。</span>
-    </a>
+    <h2 class="vxs-home-sec-label">探索器</h2>
+    <p class="vxs-home-sec-hint">把研究內容拆成可篩選、可掃描的卡片——不是一篇篇文章。</p>
+    <div class="vxs-home-explorers">
+      {{ $errCount := 0 }}
+      {{ with index .Site.Data.vortex "teaching-errors" }}{{ $errCount = len .errors }}{{ end }}
+      <a href="{{ printf "%svortex/errors/" .Site.BaseURL }}" class="vxs-home-drillnote">
+        <span class="vxs-home-drillnote-tag">教學誤區探索器</span>
+        <span class="vxs-home-drillnote-title">誤區檢索 →</span>
+        <span class="vxs-home-drillnote-desc">{{ $errCount }} 條行業流傳的教學口令與觀念，逐條對照物理理由與正確觀念。依泳式、技術類別、確定性篩選。</span>
+      </a>
+      <a href="{{ printf "%svortex/drills/" .Site.BaseURL }}" class="vxs-home-drillnote">
+        <span class="vxs-home-drillnote-tag">動作練習資料庫</span>
+        <span class="vxs-home-drillnote-title">練習動作檢索 →</span>
+        <span class="vxs-home-drillnote-desc">125 個訓練動作，依泳式、L 級別、感知診斷分類篩選。來源：<em>There's a Drill for That</em>，Vortex 感知層標注。</span>
+      </a>
+    </div>
   </section>
 
   <section class="vxs-home-legend">

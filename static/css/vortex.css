@@ -1113,6 +1113,11 @@ body:has(.vxs-home) { background: #FDFBF3; }
 .vxs-home-theme-desc { font-size: 16px; line-height: 1.6; color: var(--vxs-ink-2); }
 .vxs-home-theme-count { margin-top: 2px; font-family: 'Caveat', cursive; font-size: 18px; color: var(--vxs-ink-2); }
 
+/* 探索器入口：兩張鉛筆紅便利貼並排 */
+.vxs-home-explorers { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
+.vxs-home-explorers .vxs-home-drillnote:nth-child(2) { transform: rotate(.5deg); }
+.vxs-home-explorers .vxs-home-drillnote:nth-child(2):hover { transform: rotate(0); }
+
 /* 動作資料庫：刻意的鉛筆紅便利貼（不再是被拉寬的孤卡） */
 .vxs-home-drillnote { display: block; max-width: 460px; padding: 18px 22px 20px; background: #fff; border: 1.5px solid var(--vxs-pencil); box-shadow: 2px 2px 0 rgba(181, 41, 11, .14); transform: rotate(-.5deg); text-decoration: none; color: var(--vxs-ink); transition: box-shadow .12s, transform .12s; }
 .vxs-home-drillnote:hover { transform: rotate(0); box-shadow: 3px 3px 0 rgba(181, 41, 11, .22); }
