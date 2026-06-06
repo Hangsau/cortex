@@ -1152,3 +1152,124 @@ body:has(.vxs-home) { background: #FDFBF3; }
   .vxs-home-drillnote { max-width: none; }
 }
 
+
+/* ============================================================
+   L 指標矩陣（vxm-）— 感知層級 × 泳式
+   ============================================================ */
+.vxm-page { max-width: 1040px; }
+.vxm-filters { margin-bottom: var(--space-5); }
+
+.vxm-scroll {
+  overflow-x: auto;
+  margin-bottom: var(--space-6);
+  border: 1px solid #C8B89A;
+  background: #FDFBF3;
+}
+
+.vxm-matrix {
+  display: grid;
+  grid-template-columns: minmax(150px, 1.15fr) repeat(var(--cols, 5), minmax(122px, 1fr));
+  min-width: 720px;
+}
+.vxm-row { display: contents; }
+
+.vxm-corner, .vxm-head, .vxm-label, .vxm-cell {
+  border-top: 1px solid #E0D4BC;
+  border-left: 1px solid #E0D4BC;
+  padding: var(--space-3);
+}
+.vxm-row--head .vxm-corner, .vxm-row--head .vxm-head { border-top: none; }
+.vxm-corner, .vxm-label { border-left: none; }
+
+.vxm-corner {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 0.78rem; color: #7A6A52; letter-spacing: .04em;
+  display: flex; align-items: flex-end;
+  background: #F9F4E8;
+}
+.vxm-head {
+  font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.35rem;
+  color: #2B4A7A; text-align: center; background: #F9F4E8;
+}
+.vxm-label { background: #F9F4E8; display: flex; flex-direction: column; gap: 3px; }
+.vxm-label-name { font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.4rem; color: #B5290B; line-height: 1.1; }
+.vxm-label-perc { font-size: 0.84rem; color: #5A4A36; line-height: 1.4; }
+.vxm-label-quant { font-size: 0.73rem; color: #7A6A52; font-style: italic; }
+
+.vxm-cell { display: flex; flex-direction: column; gap: var(--space-2); }
+
+.vxm-aspect {
+  display: flex; align-items: baseline; gap: 5px;
+  text-align: left; width: 100%;
+  font-family: 'Crimson Text', Georgia, serif; font-size: 0.86rem;
+  color: #2B2416; background: #FFFFFF; border: 1px solid #C8B89A;
+  padding: 4px 8px; border-radius: 2px; cursor: pointer;
+  transition: all var(--transition-base); line-height: 1.35;
+}
+.vxm-aspect:hover { border-color: #B5290B; color: #B5290B; background: #F5EDD8; }
+.vxm-aspect--active { background: #2B2416; color: #FDFBF3; border-color: #2B2416; }
+.vxm-aspect--active .vxm-aspect-name { color: #FDFBF3; }
+.vxm-aspect-dot { font-size: 0.7rem; flex-shrink: 0; }
+.vxm-aspect-name { flex: 1; }
+
+/* 聚焦單欄：dim 非選欄 */
+.vxm-matrix[data-focus]:not([data-focus="all"]) .vxm-head,
+.vxm-matrix[data-focus]:not([data-focus="all"]) .vxm-cell {
+  opacity: .26; transition: opacity var(--transition-base);
+}
+.vxm-matrix[data-focus="common"] .vxm-head[data-stroke="common"],
+.vxm-matrix[data-focus="common"] .vxm-cell[data-stroke="common"],
+.vxm-matrix[data-focus="free"]   .vxm-head[data-stroke="free"],
+.vxm-matrix[data-focus="free"]   .vxm-cell[data-stroke="free"],
+.vxm-matrix[data-focus="back"]   .vxm-head[data-stroke="back"],
+.vxm-matrix[data-focus="back"]   .vxm-cell[data-stroke="back"],
+.vxm-matrix[data-focus="fly"]    .vxm-head[data-stroke="fly"],
+.vxm-matrix[data-focus="fly"]    .vxm-cell[data-stroke="fly"],
+.vxm-matrix[data-focus="breast"] .vxm-head[data-stroke="breast"],
+.vxm-matrix[data-focus="breast"] .vxm-cell[data-stroke="breast"] {
+  opacity: 1;
+}
+
+/* 詳情面板 */
+.vxm-detail {
+  border: 1px dashed #C8B89A; background: #F9F4E8;
+  padding: var(--space-5) var(--space-6); margin-bottom: var(--space-8);
+}
+.vxm-detail-hint { color: #7A6A52; font-style: italic; margin: 0; line-height: 1.6; }
+.vxm-detail--filled { border-style: solid; background: #FDFBF3; }
+.vxm-src-head {
+  display: flex; align-items: baseline; gap: var(--space-3);
+  margin-bottom: var(--space-4); border-bottom: 1px solid #E0D4BC; padding-bottom: var(--space-3);
+}
+.vxm-src-aspect { font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.6rem; color: #B5290B; }
+.vxm-src-loc { font-size: 0.85rem; color: #7A6A52; }
+.vxm-src-sec { margin-bottom: var(--space-4); }
+.vxm-src-label {
+  display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: .08em;
+  color: #7A6A52; margin-bottom: 3px; font-weight: 600;
+}
+.vxm-src-text { margin: 0; line-height: 1.7; color: #2B2416; }
+.vxm-src-note {
+  background: #EEF2FF; border-left: 3px solid #2B4A7A;
+  padding: var(--space-3) var(--space-4); margin: var(--space-3) 0;
+  font-size: 0.9rem; color: #2B4A7A; line-height: 1.6;
+}
+.vxm-src-evi { margin: 0; padding-left: var(--space-5); }
+.vxm-src-evi li { margin-bottom: 4px; line-height: 1.6; }
+.vxm-src-cert { font-size: 0.8rem; }
+.vxm-src-source { color: #7A6A52; font-style: italic; font-size: 0.85rem; }
+
+/* 回推使用邊界 */
+.vxm-boundary { margin-top: var(--space-10); }
+.vxm-boundary-title { font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.9rem; color: #2B2416; margin: 0 0 var(--space-2); }
+.vxm-boundary-lead { color: #5A4A36; margin: 0 0 var(--space-5); line-height: 1.7; }
+.vxm-boundary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-4); }
+.vxm-boundary-card { border: 1px solid #C8B89A; background: #F9F4E8; padding: var(--space-4) var(--space-5); }
+.vxm-boundary-scenario { display: block; font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.4rem; color: #C45D00; margin-bottom: var(--space-2); }
+.vxm-boundary-obs { font-size: 0.9rem; color: #5A4A36; line-height: 1.6; margin: 0 0 var(--space-3); }
+.vxm-boundary-int { font-size: 0.9rem; color: #2B2416; line-height: 1.6; margin: 0; border-top: 1px dashed #C8B89A; padding-top: var(--space-3); }
+
+@media (max-width: 700px) {
+  .vxm-label-name { font-size: 1.2rem; }
+  .vxm-head { font-size: 1.15rem; }
+}

@@ -38,6 +38,10 @@ TEACHING_ERRORS_DST = HUGO_ROOT / "data" / "vortex" / "teaching-errors.yaml"
 TECH_ANALYSIS_SRC = VORTEX_SRC / "canonical" / "instructional" / "technical-analysis.yaml"
 TECH_ANALYSIS_DST = HUGO_ROOT / "data" / "vortex" / "technical-analysis.yaml"
 
+# ── L 指標矩陣（canonical 兩層 → my-site 只 public） ──
+L_INDICATORS_SRC = VORTEX_SRC / "canonical" / "technica" / "l-indicators.yaml"
+L_INDICATORS_DST = HUGO_ROOT / "data" / "vortex" / "l-indicators.yaml"
+
 # ── Layer 設定 ──
 LAYERS = {
     "Technica":     {"slug": "technica",     "name": "水感框架"},
@@ -354,6 +358,67 @@ def sync_technical_analysis(dry_run: bool):
     print(f"  寫入 {TECH_ANALYSIS_DST.relative_to(HUGO_ROOT)}")
 
 
+def sync_l_indicators(dry_run: bool):
+    """讀 canonical l-indicators.yaml（兩層），剝除每格的 diagnostic 層，
+    只把 public 層寫進 my-site data/vortex/l-indicators.yaml。
+
+    公開/診斷鐵則：失效訊號（failure_signal）與 A/B/C 三型（type）只在 swim-coach，
+    不上公開站。本函式是公開站最後一道剝離保險——levels / strokes / 每格 public /
+    usage_boundaries 帶過去，indicators 的 diagnostic 整塊不取。
+    """
+    if not L_INDICATORS_SRC.exists():
+        print()
+        print("=== L 指標矩陣 ===")
+        print(f"  [跳過] 找不到 {L_INDICATORS_SRC}")
+        return
+
+    data = yaml.safe_load(L_INDICATORS_SRC.read_text(encoding="utf-8")) or {}
+    inds_in = data.get("indicators", []) or []
+
+    inds_out = []
+    for i in inds_in:
+        pub = i.get("public", {}) or {}
+        rec = {
+            "id":     i.get("id"),
+            "stroke": i.get("stroke"),
+            "level":  i.get("level"),
+            "aspect": i.get("aspect"),
+        }
+        rec.update(pub)          # 只帶 public 欄位，diagnostic 整塊不取
+        inds_out.append(rec)
+
+    out_data = {
+        "levels":           data.get("levels", []),
+        "strokes":          data.get("strokes", []),
+        "indicators":       inds_out,
+        "usage_boundaries": data.get("usage_boundaries", []),
+    }
+
+    by_stroke = {}
+    for i in inds_out:
+        by_stroke[i["stroke"]] = by_stroke.get(i["stroke"], 0) + 1
+
+    print()
+    print("=== L 指標矩陣（public 層）===")
+    for s, n in sorted(by_stroke.items()):
+        print(f"  {s:14s} {n}")
+    print(f"  TOTAL          {len(inds_out)}")
+
+    if dry_run:
+        print("  [dry-run，未寫入 l-indicators.yaml]")
+        return
+
+    out = yaml.safe_dump(
+        out_data,
+        allow_unicode=True,
+        default_flow_style=False,
+        sort_keys=False,
+        width=4096,
+    )
+    L_INDICATORS_DST.write_text(out, encoding="utf-8")
+    print(f"  寫入 {L_INDICATORS_DST.relative_to(HUGO_ROOT)}")
+
+
 def main():
     dry_run = "--dry-run" in sys.argv
     results = {"new": [], "changed": [], "same": [], "unknown": []}
@@ -428,6 +493,7 @@ def main():
     sync_drills(dry_run)
     sync_teaching_errors(dry_run)
     sync_technical_analysis(dry_run)
+    sync_l_indicators(dry_run)
 
     print()
     print("=== 同步摘要 ===")

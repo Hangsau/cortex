@@ -1,0 +1,508 @@
+levels:
+- key: pre
+  name_zh: 前置
+  perception: 感覺阻力存在，但未與動作連結
+  quant_ref: 漂行 > 體長
+- key: L2
+  name_zh: L2
+  perception: 推進感萌芽：動作開始讓身體前進
+  quant_ref: 浮板踢 15m 不停頓
+- key: L3
+  name_zh: L3
+  perception: 水感出現但不穩定：偶爾抓到，下一趟又消失
+  quant_ref: SWOLF 45-60（25m）
+- key: L4
+  name_zh: L4
+  perception: 壓力下感知維持不住：技術開始崩潰
+  quant_ref: SWOLF 35-45；高速不超過 +8
+- key: L5
+  name_zh: L5
+  perception: 感知自動化過渡：高速下開始穩定
+  quant_ref: SWOLF 35-40；拳頭游差距 < 10%
+- key: L6
+  name_zh: L6
+  perception: 感知自動化完成：不需要刻意思考
+  quant_ref: SWOLF < 35；精英範圍
+strokes:
+- key: common
+  name_zh: 跨式通用
+- key: free
+  name_zh: 自由式
+- key: back
+  name_zh: 仰式
+- key: fly
+  name_zh: 蝶式
+- key: breast
+  name_zh: 蛙式
+indicators:
+- id: common.pre.resistance
+  stroke: common
+  level: pre
+  aspect: 阻力感知
+  indicator: 靜止漂浮距離可量測；緊鬆身體有明顯差異
+  framework_state: 感覺阻力存在，但未與動作連結
+  quant_ref: 漂行 > 體長
+  evidence:
+  - certainty: 🔵
+    text: 框架設計邏輯
+    source: ''
+- id: common.L2.propulsion
+  stroke: common
+  level: L2
+  aspect: 推進萌芽
+  indicator: 浮板踢水穩定前進；手部能撐起換氣（蛙）/ 前臂感覺水壓（自蝶）/ 上踢有感知（仰）
+  framework_state: 推進感萌芽：動作開始讓身體前進
+  quant_ref: 浮板踢 15m 不停頓
+  evidence:
+  - certainty: 🔵
+    text: 框架設計邏輯
+    source: ''
+- id: common.L3.watersense
+  stroke: common
+  level: L3
+  aspect: 水感萌芽
+  indicator: 捕水有前臂壓力感（自蝶仰）；踢腿後有滑行感（蛙）；波動傳到腳（蝶）；肩旋轉帶動划手（仰）
+  framework_state: 水感出現但不穩定：偶爾抓到，下一趟又消失
+  quant_ref: SWOLF 45-60（25m）
+  evidence:
+  - certainty: 🔵
+    text: 框架設計邏輯
+    source: ''
+- id: common.L4.under-pressure
+  stroke: common
+  level: L4
+  aspect: 壓力崩潰
+  indicator: 慢游技術正確但加速後崩潰；EVF 在高划頻下消失；蛙式踢腿時機在速度下跑掉；蝶式第二踢失同步
+  framework_state: 壓力下感知維持不住：技術開始崩潰
+  quant_ref: SWOLF 35-45；高速不超過 +8
+  evidence:
+  - certainty: 🔵
+    text: 框架設計邏輯
+    source: ''
+- id: common.L5.automation
+  stroke: common
+  level: L5
+  aspect: 自動化過渡
+  indicator: 划頻提升但划距不下降（Staunton 2025）；蛙式 late kick 時機穩定；蝶式兩踢功能分化；仰式旋轉角度不因速度縮小
+  framework_state: 感知自動化過渡：高速下開始穩定
+  quant_ref: SWOLF 35-40；拳頭游差距 < 10%
+  evidence:
+  - certainty: 🟢
+    text: Staunton 2025
+    source: Staunton et al. 2025
+- id: common.L6.stability
+  stroke: common
+  level: L6
+  aspect: 自動化完成
+  indicator: 疲勞下仍維持技術穩定性（Gonjo & Olstad 2023 精英特徵）；能感知並即時修正細微偏差；SWOLF 跨距離差距極小
+  framework_state: 感知自動化完成：不需要刻意思考
+  quant_ref: SWOLF < 35；精英範圍
+  evidence:
+  - certainty: 🟢
+    text: 疲勞下技術穩定性是精英特徵
+    source: Gonjo & Olstad 2023
+- id: free.pre.resistance
+  stroke: free
+  level: pre
+  aspect: 阻力感知
+  indicator: 靜止漂浮身體鬆緊有可觀察差異；推蹬後滑行距離可量測
+  framework_state: 感覺阻力存在（非感知動作）
+  evidence:
+  - certainty: 🔵
+    text: 框架設計邏輯
+    source: ''
+- id: free.L2.kick
+  stroke: free
+  level: L2
+  aspect: 踢水推進
+  indicator: 浮板踢水能穩定前進，踝蹠屈角度使腳掌朝後
+  framework_state: 推進感萌芽——腿部
+  evidence:
+  - certainty: 🟡
+    text: McCullough 2009
+    source: McCullough 2009
+- id: free.L2.hand-pressure
+  stroke: free
+  level: L2
+  aspect: 手部壓力
+  indicator: 前臂面向後方時有水壓感知（外感受器啟動）
+  framework_state: 推進感萌芽——手部
+  evidence:
+  - certainty: 🔵
+    text: EVF 物理推導
+    source: ''
+- id: free.L3.evf
+  stroke: free
+  level: L3
+  aspect: EVF 捕水
+  indicator: 划手有明顯的捕水「卡頓感」；拳頭游 vs 開手速度差 > 15%
+  framework_state: 水感出現但不穩定
+  evidence:
+  - certainty: 🟢
+    text: Race Club PDM（推進方向動作）
+    source: Race Club
+- id: free.L3.kick-rhythm
+  stroke: free
+  level: L3
+  aspect: 踢水節律
+  indicator: 六拍踢能描述「對側配對」；踢水後下半身不下沉
+  framework_state: 本體感覺萌芽
+  evidence:
+  - certainty: 🟠
+    text: 教練觀測共識
+    source: ''
+- id: free.L4.roll-coupling
+  stroke: free
+  level: L4
+  aspect: 旋轉耦合
+  indicator: 加速後旋轉崩潰（肩旋轉提前縮小）；高划頻下 EVF 消失
+  framework_state: 壓力下感知失守
+  evidence:
+  - certainty: 🟢
+    text: Gonjo 2020
+    source: Gonjo 2020
+- id: free.L4.sr-sl
+  stroke: free
+  level: L4
+  aspect: 划頻×划距
+  indicator: SR 提高時 SL 下降 > 5%（感知尚未支撐技術）
+  framework_state: 壓力下感知失守
+  evidence:
+  - certainty: 🟢
+    text: Staunton 2025
+    source: Staunton et al. 2025
+- id: free.L5.sr-sl
+  stroke: free
+  level: L5
+  aspect: 划頻×划距
+  indicator: 精英特徵：高 SR 下 SL 不下降；SR 與速度負相關消失
+  framework_state: 感知自動化過渡
+  evidence:
+  - certainty: 🟢
+    text: Staunton 2025
+    source: Staunton et al. 2025
+- id: free.L5.serratus
+  stroke: free
+  level: L5
+  aspect: 前鋸肌耐力
+  indicator: 疲勞後 EVF 仍維持；肩胛骨不 wing；第 4-6 趟技術與第 1-2 趟差距小
+  framework_state: 感知自動化過渡
+  note: 前鋸肌耐力是 L5 的硬體邊界——技術感知建立後能維持多久取決於前鋸肌，不是感知問題。
+  evidence:
+  - certainty: 🟡
+    text: Pink EMG 1991
+    source: Pink et al. 1991
+  - certainty: 🟢
+    text: StatPearls 2023
+    source: StatPearls 2023
+- id: free.L6.stability
+  stroke: free
+  level: L6
+  aspect: 技術穩定性
+  indicator: 疲勞全程划距穩定（Gonjo & Olstad 2023 精英特徵）；SWOLF 跨速度差異 < 3
+  framework_state: 感知自動化完成
+  evidence:
+  - certainty: 🟢
+    text: 疲勞全程划距穩定是精英特徵
+    source: Gonjo & Olstad 2023
+- id: back.pre.orientation
+  stroke: back
+  level: pre
+  aspect: 方向感安全
+  indicator: 能仰漂靜止 > 5 秒不扶持；描述得出「耳入水聲音變化」
+  framework_state: L1 仰漂感知建立
+  evidence:
+  - certainty: 🔵
+    text: 框架設計邏輯
+    source: ''
+- id: back.L2.up-kick
+  stroke: back
+  level: L2
+  aspect: 上踢推進
+  indicator: 浮板仰式踢水穩定前進；腳背往上踢能描述「水團被往上推」
+  framework_state: 推進感萌芽——腿部
+  evidence:
+  - certainty: 🟡
+    text: Maglischo 2003
+    source: Maglischo 2003
+- id: back.L3.pull
+  stroke: back
+  level: L3
+  aspect: 手部划水
+  indicator: 前臂在水下有水壓感知；能描述拉水「有抓住什麼」；入水不跨越中線（蛇行感知）
+  framework_state: 水感出現但不穩定
+  evidence:
+  - certainty: 🟢
+    text: Gonjo 2020
+    source: Gonjo 2020
+- id: back.L3.shoulder-roll
+  stroke: back
+  level: L3
+  aspect: 肩旋轉感知
+  indicator: 能感知「回臂側肩膀向上帶起」；旋轉幅度約 30-40°可自評
+  framework_state: 本體感覺萌芽
+  evidence:
+  - certainty: 🟢
+    text: 旋轉幅度平均 49.73°
+    source: Gonjo 2020
+- id: back.L4.roll-stability
+  stroke: back
+  level: L4
+  aspect: 旋轉穩定
+  indicator: 高划頻下旋轉幅度縮小；加速後蛇行明顯；流線型滑行後提早抬頭
+  framework_state: 壓力下感知失守
+  evidence:
+  - certainty: 🟢
+    text: González-Ravé 2025
+    source: González-Ravé 2025
+- id: back.L5.roll-invariant
+  stroke: back
+  level: L5
+  aspect: 旋轉不隨速縮
+  indicator: 仰式精英特徵：速度增加時旋轉幅度維持（≠ 自由式）；划距穩定
+  framework_state: 感知自動化過渡
+  note: 仰式精英特徵——速度增加時不縮小旋轉幅度（≠ 自由式），是 L5→L6 的關鍵分水嶺。
+  evidence:
+  - certainty: 🟢
+    text: Gonjo 2021
+    source: Gonjo 2021
+- id: back.L5.start-turn
+  stroke: back
+  level: L5
+  aspect: 出發轉身流線
+  indicator: 推蹬後流線型滑行至速度降至游進速度才開始划手；時機感知穩定
+  framework_state: 感知自動化過渡
+  note: 出發轉身流線型在 100m 佔近 1/3 時間，L4 即需重點介入，不可等到 L5。
+  evidence:
+  - certainty: 🟢
+    text: 流線滑行佔 100m 近 1/3 時間
+    source: González-Ravé 2025
+- id: back.L6.stability
+  stroke: back
+  level: L6
+  aspect: 技術穩定性
+  indicator: 疲勞後技術與前段差距極小；六拍踢節律全程維持；划距跨速度穩定
+  framework_state: 感知自動化完成
+  evidence:
+  - certainty: 🟢
+    text: 系統綜述
+    source: González-Ravé 2025
+- id: fly.pre.undulation
+  stroke: fly
+  level: pre
+  aspect: 波動感知
+  indicator: 胸骨下壓能描述「有東西傳到腳」；海豚漂浮有連貫弧線而非上下擺動
+  framework_state: 波動感知種子
+  evidence:
+  - certainty: 🟡
+    text: H1 諧波分析
+    source: Sanders et al. 1995
+- id: fly.L2.kick
+  stroke: fly
+  level: L2
+  aspect: 踢水推進
+  indicator: 浮板蝶式踢水能穩定前進；腳背有水壓感知（而非只是在拍水）
+  framework_state: 推進感萌芽——腿部
+  evidence:
+  - certainty: 🟢
+    text: PMC 2018
+    source: PMC 2018
+- id: fly.L2.catch
+  stroke: fly
+  level: L2
+  aspect: 捕水感知
+  indicator: 外划後停住時前臂有水壓感知（兩側對稱）
+  framework_state: 推進感萌芽——手部
+  evidence:
+  - certainty: 🔵
+    text: EVF 物理推導
+    source: ''
+- id: fly.L3.undulation-integration
+  stroke: fly
+  level: L3
+  aspect: 波動整合
+  indicator: 胸部下壓有帶動腿踢的感知（不是腿獨立踢）；身體像「一條線」而非兩段
+  framework_state: 水感出現但不穩定
+  evidence:
+  - certainty: 🟡
+    text: Sanders 1995
+    source: Sanders 1995
+  - certainty: 🟠
+    text: 教練觀測
+    source: ''
+- id: fly.L3.two-kick-timing
+  stroke: fly
+  level: L3
+  aspect: 兩踢時機
+  indicator: 能描述「第一踢在手入水時」；第二踢和出水有部分同步感
+  framework_state: 節律感知萌芽
+  evidence:
+  - certainty: 🟢
+    text: 兩踢相關 r=-0.45
+    source: PMC 2018
+- id: fly.L4.second-kick
+  stroke: fly
+  level: L4
+  aspect: 第二踢失守
+  indicator: 加速後第二踢消失；疲勞後手出水無法「飛過」水面；髖部下沉明顯
+  framework_state: 壓力下感知失守
+  evidence:
+  - certainty: 🟡
+    text: 五峰值分析
+    source: Mason et al. 1992
+- id: fly.L4.outsweep
+  stroke: fly
+  level: L4
+  aspect: 外划過大
+  indicator: 捕水感知不穩時外划幅度代償性增大；前臂感知比手掌感知更弱
+  framework_state: 壓力下感知失守
+  note: 外划幅度過大常是代償訊號——感知不到前臂水壓 → 靠更大外划「感覺抓到了」 → 實際推進反而下降。
+  evidence:
+  - certainty: 🟡
+    text: Peyrebrune & Turner 2007
+    source: Peyrebrune & Turner 2007
+- id: fly.L5.two-kick-differentiation
+  stroke: fly
+  level: L5
+  aspect: 兩踢功能分化
+  indicator: 能區分第一踢（輕、穩、觸發）和第二踢（強、同步出水）的不同感知
+  framework_state: 感知自動化過渡
+  note: 兩踢功能分化是蝶式最重要的進階感知——第一踢（輕、觸發）與第二踢（強、同步出水）是不同的感知對象。
+  evidence:
+  - certainty: 🟡
+    text: Mason 1992
+    source: Mason 1992
+  - certainty: 🟢
+    text: Swim Like A Fish 2025
+    source: Swim Like A Fish 2025
+- id: fly.L6.chain-closure
+  stroke: fly
+  level: L6
+  aspect: 波動鏈閉環
+  indicator: 每個划手週期從胸到腳感知連貫；疲勞後仍維持兩踢時機；SWOLF 穩定
+  framework_state: 感知自動化完成
+  evidence:
+  - certainty: 🔵
+    text: 連動鏈分析整合
+    source: ''
+- id: breast.pre.resistance
+  stroke: breast
+  level: pre
+  aspect: 阻力感知
+  indicator: 靜止漂浮感覺到「緊的身體滑更遠」；能描述阻力存在（非推進）
+  framework_state: 感覺阻力（火箭漂）
+  note: 蛙式前置感知（火箭漂）核心目的是讓學習者在任何動作之前先感知阻力存在——蛙式特有設計，因為蛙式是四式中阻力最大的泳式。
+  evidence:
+  - certainty: 🔵
+    text: 框架設計邏輯
+    source: ''
+- id: breast.L2.leg-propulsion
+  stroke: breast
+  level: L2
+  aspect: 腿部推進
+  indicator: 浮板踢水能穩定前進；翻腳掌時腳掌有水壓感知（非腳心朝後）
+  framework_state: 推進感萌芽——腿部
+  note: 踝關節柔韌性 > 踢腿力量（文獻一致結論）。感知建立前先確認踝關節能否翻轉到推進位置，否則是硬體問題而非感知問題。
+  evidence:
+  - certainty: 🟢
+    text: CFD 渦流分析
+    source: Tanaka 2024
+  - certainty: 🟡
+    text: 踝柔韌性主導
+    source: Hayashi 2025；Strzała 2013
+- id: breast.L2.hand-support
+  stroke: breast
+  level: L2
+  aspect: 手部撐水
+  indicator: 外划內抱能撐起身體換氣（不需要額外抬頭）
+  framework_state: 推進感萌芽——手部（L2 蛙式手部功能是撐水非推進）
+  evidence:
+  - certainty: 🔵
+    text: 框架設計邏輯
+    source: ''
+- id: breast.L3.kick-vortex
+  stroke: breast
+  level: L3
+  aspect: 踢腿渦流
+  indicator: 踢完後有滑行感；能描述「夾水後身體繼續往前」而非踢完即停
+  framework_state: 水感出現但不穩定——推進感
+  evidence:
+  - certainty: 🟢
+    text: 渦流合併機制
+    source: Tanaka 2024
+- id: breast.L3.recovery-drag
+  stroke: breast
+  level: L3
+  aspect: 收腿阻力
+  indicator: 開始感知收腿「有煞車感」；收腿路徑往外側而非正中（髖外旋意識）
+  framework_state: 阻力感知萌芽——收腿
+  evidence:
+  - certainty: 🟡
+    text: 收腿阻力相關 r=0.35
+    source: Strzała 2013
+- id: breast.L4.timing
+  stroke: breast
+  level: L4
+  aspect: 手腳時序
+  indicator: 加速後手腳時序跑掉（兩個推進脈衝重疊或空白過長）；速度谷值明顯加深
+  framework_state: 壓力下感知失守
+  evidence:
+  - certainty: 🟢
+    text: 系統綜述
+    source: Nicol et al. 2022
+- id: breast.L4.undulation
+  stroke: breast
+  level: L4
+  aspect: 波動整合
+  indicator: 能做波動蛙式但偶爾下沉（角度不穩）；Wave style 俯衝角度感知不穩
+  framework_state: 壓力下感知失守——身體平衡
+  evidence:
+  - certainty: 🟡
+    text: Colman 1998
+    source: Colman 1998
+  - certainty: 🟠
+    text: Ward 研究
+    source: Ward
+- id: breast.L5.late-kick
+  stroke: breast
+  level: L5
+  aspect: late kick 時機
+  indicator: insweep 啟動時才踢腿（比傳統更晚）；速度谷值明顯縮小；%VDO 降低
+  framework_state: 感知自動化過渡
+  evidence:
+  - certainty: 🟠
+    text: Ward 研究；Peaty 技術
+    source: Ward；Peaty
+- id: breast.L5.undulation-stability
+  stroke: breast
+  level: L5
+  aspect: 波動穩定
+  indicator: Wave style 俯衝角度可自評（胸口下壓時機穩定）；收腿阻力與滑行感配對
+  framework_state: 感知自動化過渡
+  evidence:
+  - certainty: 🟢
+    text: Nicol 2022
+    source: Nicol 2022
+  - certainty: 🟢
+    text: Tanaka 2024
+    source: Tanaka 2024
+- id: breast.L6.stability
+  stroke: breast
+  level: L6
+  aspect: 技術穩定性
+  indicator: 精英特徵：划距穩定；疲勞後 IVV（週期內速度波動）差距極小
+  framework_state: 感知自動化完成
+  evidence:
+  - certainty: 🟢
+    text: 划距穩定是精英特徵
+    source: Gonjo & Olstad 2023
+usage_boundaries:
+- scenario: 感知缺陷
+  observation: 技術崩潰，但學習者說不清楚「為什麼做不到」
+  intervention: 走水感框架介入——找到感知缺陷的位置，創造條件讓感知浮現
+- scenario: 硬體邊界
+  observation: 技術崩潰，學習者能描述「卡住的感覺」（踝翻不出、髖轉不到）
+  intervention: 走硬體介入（柔韌性訓練）——不等待，在當下邊界內同步建立感知
+- scenario: 錯誤感知
+  observation: 技術看似「正確」，但感知記憶是錯誤的（感覺快但實際沒前進）
+  intervention: 走感知剝奪重建——製造大誤差打破舊感知（拳頭游、閉眼游）

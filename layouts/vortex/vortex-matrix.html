@@ -1,0 +1,202 @@
+{{ define "head-extra" }}
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+{{ end }}
+
+{{ define "main" }}
+{{ $data := index .Site.Data.vortex "l-indicators" }}
+{{ $levels := $data.levels }}
+{{ $strokes := $data.strokes }}
+{{ $inds := $data.indicators }}
+
+{{ $certNames := dict "🔵" "🔵 推導" "🟢" "🟢 近期文獻" "🟡" "🟡 舊文獻" "🟠" "🟠 教練觀測" "🔴" "🔴 待查" }}
+
+<div class="vx-page vxm-page">
+
+  <header class="vx-list-header">
+    <a href="{{ printf "%svortex/" .Site.BaseURL | absURL }}" class="vx-back-link">← 水感研究首頁</a>
+    <h1 class="vx-list-title">L 指標矩陣</h1>
+    <p class="vx-list-desc">從技術分析回推感知發展層級。縱軸是 L0–L6 感知序列，橫軸是泳式——每格是該層級可觀察 / 可測量的技術指標。選泳式聚焦單欄，點面向看完整指標。</p>
+  </header>
+
+  {{/* ── 泳式篩選（聚焦單欄 / 手機切換器）── */}}
+  <div class="vxd-filters vxm-filters" id="matrix-filters">
+    <div class="vxd-filter-group">
+      <span class="vxd-filter-label">泳式</span>
+      <div class="vxd-filter-row">
+        <button class="vxd-btn vxd-btn--active" data-stroke="all">全部</button>
+        {{ range $strokes }}
+        <button class="vxd-btn" data-stroke="{{ .key }}">{{ .name_zh }}</button>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+
+  {{/* ── 矩陣 ── */}}
+  <div class="vxm-scroll">
+  <div class="vxm-matrix" id="matrix" style="--cols: {{ len $strokes }}">
+
+    {{/* 表頭列 */}}
+    <div class="vxm-row vxm-row--head">
+      <div class="vxm-corner">L 級 \ 泳式</div>
+      {{ range $strokes }}
+      <div class="vxm-head" data-stroke="{{ .key }}">{{ .name_zh }}</div>
+      {{ end }}
+    </div>
+
+    {{/* 資料列：每個 L 級一列 */}}
+    {{ range $lvl := $levels }}
+    <div class="vxm-row" data-level="{{ $lvl.key }}">
+      <div class="vxm-label">
+        <span class="vxm-label-name">{{ $lvl.name_zh }}</span>
+        <span class="vxm-label-perc">{{ $lvl.perception }}</span>
+        {{ with $lvl.quant_ref }}<span class="vxm-label-quant">{{ . }}</span>{{ end }}
+      </div>
+      {{ range $s := $strokes }}
+      <div class="vxm-cell" data-stroke="{{ $s.key }}" data-level="{{ $lvl.key }}">
+        {{ $cell := where (where $inds "level" $lvl.key) "stroke" $s.key }}
+        {{ range $cell }}
+        {{ $cert := "" }}{{ with .evidence }}{{ $cert = (index . 0).certainty }}{{ end }}
+        <button class="vxm-aspect" data-target="src-{{ .id }}">
+          <span class="vxm-aspect-dot">{{ $cert }}</span>
+          <span class="vxm-aspect-name">{{ .aspect }}</span>
+        </button>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+  </div>
+  </div>
+
+  {{/* ── 詳情面板（點面向後由 JS 填入）── */}}
+  <div class="vxm-detail" id="matrix-detail">
+    <p class="vxm-detail-hint">點上方任一技術面向，這裡顯示完整指標：可觀察表現、感知框架對應、量化參考與文獻依據。</p>
+  </div>
+
+  {{/* ── 隱藏的詳情來源（JS 取用）── */}}
+  <div class="vxm-src-store" hidden>
+    {{ range $inds }}
+    <div id="src-{{ .id }}" class="vxm-src">
+      <div class="vxm-src-head">
+        <span class="vxm-src-aspect">{{ .aspect }}</span>
+        <span class="vxm-src-loc" data-stroke="{{ .stroke }}" data-level="{{ .level }}"></span>
+      </div>
+      {{ with .indicator }}
+      <div class="vxm-src-sec">
+        <span class="vxm-src-label">可觀察 / 可測量</span>
+        <p class="vxm-src-text">{{ . }}</p>
+      </div>
+      {{ end }}
+      {{ with .framework_state }}
+      <div class="vxm-src-sec">
+        <span class="vxm-src-label">感知框架對應</span>
+        <p class="vxm-src-text">{{ . }}</p>
+      </div>
+      {{ end }}
+      {{ with .quant_ref }}
+      <div class="vxm-src-sec">
+        <span class="vxm-src-label">量化參考</span>
+        <p class="vxm-src-text">{{ . }}</p>
+      </div>
+      {{ end }}
+      {{ with .note }}<p class="vxm-src-note">{{ . }}</p>{{ end }}
+      {{ with .evidence }}
+      <div class="vxm-src-sec">
+        <span class="vxm-src-label">文獻 / 依據</span>
+        <ul class="vxm-src-evi">
+          {{ range . }}
+          <li><span class="vxm-src-cert" title="{{ index $certNames .certainty | default .certainty }}">{{ .certainty }}</span> {{ .text }}{{ with .source }}<span class="vxm-src-source">— {{ . }}</span>{{ end }}</li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+
+  {{/* ── 回推使用邊界：硬體邊界 vs 感知缺陷 ── */}}
+  {{ with $data.usage_boundaries }}
+  <section class="vxm-boundary">
+    <h2 class="vxm-boundary-title">回推邏輯的使用邊界</h2>
+    <p class="vxm-boundary-lead">技術崩潰看起來都一樣，但介入方向完全不同。先判斷是哪一種，再決定怎麼介入。</p>
+    <div class="vxm-boundary-grid">
+      {{ range . }}
+      <div class="vxm-boundary-card">
+        <span class="vxm-boundary-scenario">{{ .scenario }}</span>
+        <p class="vxm-boundary-obs">{{ .observation }}</p>
+        <p class="vxm-boundary-int">{{ .intervention }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+</div>
+
+<script>
+(function() {
+  // 泳式名稱對照（給詳情面板的位置標籤）
+  const strokeNames = { {{ range $i, $s := $strokes }}{{ if $i }}, {{ end }}"{{ $s.key }}": "{{ $s.name_zh }}"{{ end }} };
+  const matrix = document.getElementById('matrix');
+  const detail = document.getElementById('matrix-detail');
+  const hint = detail.innerHTML;
+
+  // 泳式篩選：聚焦單欄
+  document.querySelectorAll('#matrix-filters .vxd-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const val = this.dataset.stroke;
+      document.querySelectorAll('#matrix-filters .vxd-btn').forEach(b => b.classList.remove('vxd-btn--active'));
+      this.classList.add('vxd-btn--active');
+      matrix.setAttribute('data-focus', val);
+    });
+  });
+
+  // 點面向 → 填詳情面板
+  let active = null;
+  matrix.addEventListener('click', function(e) {
+    const btn = e.target.closest('.vxm-aspect');
+    if (!btn) return;
+    const id = btn.dataset.target;
+    const src = document.getElementById(id);
+    if (!src) return;
+    if (active) active.classList.remove('vxm-aspect--active');
+    btn.classList.add('vxm-aspect--active');
+    active = btn;
+    // 複製來源 HTML，補上位置標籤
+    const clone = src.cloneNode(true);
+    const loc = clone.querySelector('.vxm-src-loc');
+    if (loc) {
+      const sk = loc.dataset.stroke, lv = loc.dataset.level;
+      loc.textContent = (strokeNames[sk] || sk) + ' · ' + (lv === 'pre' ? '前置' : lv);
+    }
+    detail.innerHTML = '';
+    detail.appendChild(clone);
+    detail.classList.add('vxm-detail--filled');
+    if (window.matchMedia('(max-width: 700px)').matches) {
+      detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  });
+
+  // Deep-link：?stroke=free 聚焦該欄
+  const params = new URLSearchParams(window.location.search);
+  const sp = params.get('stroke');
+  if (sp) {
+    const tgt = document.querySelector(`#matrix-filters .vxd-btn[data-stroke="${sp}"]`);
+    if (tgt) tgt.click();
+  }
+  // Hash-jump：#ind-<id> 開該面向詳情
+  function jumpToHash() {
+    const m = window.location.hash.match(/^#ind-([A-Za-z0-9._-]+)$/);
+    if (!m) return;
+    const btn = document.querySelector(`.vxm-aspect[data-target="src-${m[1]}"]`);
+    if (!btn) return;
+    btn.click();
+    btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  jumpToHash();
+  window.addEventListener('hashchange', jumpToHash);
+})();
+</script>
+{{ end }}

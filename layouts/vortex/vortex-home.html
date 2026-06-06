@@ -75,6 +75,13 @@
         <span class="vxs-home-drillnote-title">技術點檢索 →</span>
         <span class="vxs-home-drillnote-desc">{{ $techCount }} 個深度技術點，拆自六式技術分析：物理機制、文獻依據、實踐意涵。依泳式、技術面向、確定性篩選。</span>
       </a>
+      {{ $matrixCount := 0 }}
+      {{ with index .Site.Data.vortex "l-indicators" }}{{ $matrixCount = len .indicators }}{{ end }}
+      <a href="{{ printf "%svortex/matrix/" .Site.BaseURL }}" class="vxs-home-drillnote">
+        <span class="vxs-home-drillnote-tag">L 指標矩陣</span>
+        <span class="vxs-home-drillnote-title">感知層級對照 →</span>
+        <span class="vxs-home-drillnote-desc">{{ $matrixCount }} 格技術指標，縱軸 L0–L6 感知序列 × 橫軸五式：每格是可觀察 / 可測量的指標、感知框架對應與量化參考。</span>
+      </a>
       <a href="{{ printf "%svortex/drills/" .Site.BaseURL }}" class="vxs-home-drillnote">
         <span class="vxs-home-drillnote-tag">動作練習資料庫</span>
         <span class="vxs-home-drillnote-title">練習動作檢索 →</span>
