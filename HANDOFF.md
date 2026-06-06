@@ -125,6 +125,22 @@ TheVortexProject 內容整合進 my-site，作為公開知識展示。
 - [x] swim-coach `vendor/vortex` submodule bump 到 `a4ddee1`（commit 9a1fed3）
 - [x] 本機 Hugo extended 0.159.1 build 通過、CI 綠、已部署
 
+**水感層級探索器（2026-06-06，commit dac5e8f）：**
+
+「依主題瀏覽」的水感框架層從散文升級為可掃描 + 可篩選 + 點開展開的探索器。Canonical-first：來源是 `TheVortexProject/canonical/technica/water-sense-levels.yaml`（26 levels，多層 public/diagnostic schema），經 sync 只取 public 層。
+
+- [x] `tools/sync_vortex.py` 新增 `sync_water_sense_levels`：canonical 26 levels → `data/vortex/water-sense-levels.yaml`，剝離 three_types / appendices / 所有 diagnostic 欄位（type_diagnosis / type_states / stagnation_by_type 等）；公開層 0 洩漏審查通過
+- [x] `layouts/vortex/vortex-levels.html`：vxl- 探索器，卡片式垂直序列（四式各自 L0–L6/pre，共 26 卡），依泳式 + L 級篩選，`#lvl-<id>` 深連結 hash-jump（白名單 regex 防注入）；每卡展開含 methods / indicators / 量化參考 / 停滯處理 / 里程碑等 public 欄位
+- [x] `static/css/vortex.css`：新增 vxl- 區塊（垂直導引線 + badge + 分節色編碼），沿用 Field Notes #07 風格
+- [x] `content/vortex/levels/_index.md`（layout: vortex-levels）+ 首頁 `vortex-home.html` 加水感層級探索器卡片（首位）
+- [x] 同步 canonical 內容修正（freestyle wave drag v⁴→v³ 物理修正等 6 個 content/vortex/*.md）
+- [x] 本機 Hugo build 通過、CI 綠（run 27062066148, success）、已部署
+
+**Vortex 待完成（後續階段）：**
+- [ ] Phase E（退役 Bridge）：Bridge/*.md 加 deprecated header（不刪）、sync 移除 Bridge 層、清 `content/vortex/bridge/`、首頁移除 bridge 卡片；保留水感指南為唯一散文
+- [ ] Phase F（首頁重設計）：⚠️ 須先取得用戶明確方向確認，不可自主實作
+- [ ] Phase G（收尾）：full sync --dry-run 驗證、文件對齊（_INDEX/雙 HANDOFF/vortex_sync_state.json）、swim-coach submodule 僅在診斷層被消費時才 bump
+
 **Vortex 來源路徑：** `C:\claudehome\projects\TheVortexProject\`
 
 ---
