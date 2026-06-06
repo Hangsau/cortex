@@ -42,6 +42,10 @@ TECH_ANALYSIS_DST = HUGO_ROOT / "data" / "vortex" / "technical-analysis.yaml"
 L_INDICATORS_SRC = VORTEX_SRC / "canonical" / "technica" / "l-indicators.yaml"
 L_INDICATORS_DST = HUGO_ROOT / "data" / "vortex" / "l-indicators.yaml"
 
+# ── 水感層級（canonical 多層 → my-site 只 public） ──
+WATER_SENSE_LEVELS_SRC = VORTEX_SRC / "canonical" / "technica" / "water-sense-levels.yaml"
+WATER_SENSE_LEVELS_DST = HUGO_ROOT / "data" / "vortex" / "water-sense-levels.yaml"
+
 # ── Layer 設定 ──
 LAYERS = {
     "Technica":     {"slug": "technica",     "name": "水感框架"},
@@ -419,6 +423,67 @@ def sync_l_indicators(dry_run: bool):
     print(f"  寫入 {L_INDICATORS_DST.relative_to(HUGO_ROOT)}")
 
 
+def sync_water_sense_levels(dry_run: bool):
+    """讀 canonical water-sense-levels.yaml（多層），剝除每個 level 的 diagnostic 層，
+    只把 public 層寫進 my-site data/vortex/water-sense-levels.yaml。
+
+    公開/診斷鐵則：三型診斷（three_types、diagnostic.*、stagnation_by_type）只在
+    swim-coach，不上公開站。本函式是公開站最後一道剝離保險——strokes / 每個 level 的
+    id/stroke/level/name_zh/tagline + public 帶過去；three_types、appendices、
+    每 level 的 diagnostic 整塊不取。
+    """
+    if not WATER_SENSE_LEVELS_SRC.exists():
+        print()
+        print("=== 水感層級 ===")
+        print(f"  [跳過] 找不到 {WATER_SENSE_LEVELS_SRC}")
+        return
+
+    data = yaml.safe_load(WATER_SENSE_LEVELS_SRC.read_text(encoding="utf-8")) or {}
+    levels_in = data.get("levels", []) or []
+
+    levels_out = []
+    for lv in levels_in:
+        pub = lv.get("public", {}) or {}
+        rec = {
+            "id":      lv.get("id"),
+            "stroke":  lv.get("stroke"),
+            "level":   lv.get("level"),
+            "name_zh": lv.get("name_zh"),
+            "tagline": lv.get("tagline"),
+        }
+        rec.update(pub)          # 只帶 public 欄位，diagnostic / three_types 整塊不取
+        levels_out.append(rec)
+
+    out_data = {
+        "strokes": data.get("strokes", []),
+        "levels":  levels_out,
+    }
+
+    by_stroke = {}
+    for lv in levels_out:
+        by_stroke[lv["stroke"]] = by_stroke.get(lv["stroke"], 0) + 1
+
+    print()
+    print("=== 水感層級（public 層）===")
+    for s, n in sorted(by_stroke.items()):
+        print(f"  {s:14s} {n}")
+    print(f"  TOTAL          {len(levels_out)}")
+
+    if dry_run:
+        print("  [dry-run，未寫入 water-sense-levels.yaml]")
+        return
+
+    out = yaml.safe_dump(
+        out_data,
+        allow_unicode=True,
+        default_flow_style=False,
+        sort_keys=False,
+        width=4096,
+    )
+    WATER_SENSE_LEVELS_DST.write_text(out, encoding="utf-8")
+    print(f"  寫入 {WATER_SENSE_LEVELS_DST.relative_to(HUGO_ROOT)}")
+
+
 def main():
     dry_run = "--dry-run" in sys.argv
     results = {"new": [], "changed": [], "same": [], "unknown": []}
@@ -494,6 +559,7 @@ def main():
     sync_teaching_errors(dry_run)
     sync_technical_analysis(dry_run)
     sync_l_indicators(dry_run)
+    sync_water_sense_levels(dry_run)
 
     print()
     print("=== 同步摘要 ===")

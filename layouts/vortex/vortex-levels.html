@@ -1,0 +1,203 @@
+{{ define "head-extra" }}
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+{{ end }}
+
+{{ define "main" }}
+{{ $data := index .Site.Data.vortex "water-sense-levels" }}
+{{ $levels := $data.levels }}
+{{ $strokes := $data.strokes }}
+
+{{/* ── 泳式名稱 + 順序（以 canonical strokes 為準） ── */}}
+{{ $strokeNames := dict }}
+{{ range $strokes }}{{ $strokeNames = merge $strokeNames (dict .key .name_zh) }}{{ end }}
+
+{{/* ── 資料中實際出現的 L 級（保留 canonical 排序） ── */}}
+{{ $usedLevels := slice }}
+{{ range $levels }}{{ $usedLevels = $usedLevels | append .level }}{{ end }}
+{{ $usedLevels = uniq $usedLevels }}
+
+{{/* ── public 欄位 → 中文標籤 ── */}}
+{{ $fieldNames := dict
+  "quant" "量化參考"
+  "stagnation" "停滯處理"
+  "milestone" "里程碑"
+  "four_problems" "四個主要問題"
+  "state_description" "狀態描述"
+  "fatigue_collapse_four_layers" "疲勞崩潰四層"
+  "kaizen" "持續改善（Kaizen）"
+  "stress_test" "壓力測試"
+}}
+
+<div class="vx-page">
+
+  <header class="vx-list-header">
+    <a href="{{ printf "%svortex/" .Site.BaseURL | absURL }}" class="vx-back-link">← 水感研究首頁</a>
+    <h1 class="vx-list-title">水感層級探索器</h1>
+    <p class="vx-list-desc">L0–L6 感知發展序列——不是技術難度，是感知如何從呼吸建立到全身場感知。每一式逐級展開：階段描述、訓練方法、可觀察指標、量化參考與停滯處理。依泳式、L 級篩選。</p>
+  </header>
+
+  {{/* ── Filters ── */}}
+  <div class="vxd-filters" id="lvl-filters">
+    <div class="vxd-filter-group">
+      <span class="vxd-filter-label">泳式</span>
+      <div class="vxd-filter-row">
+        {{ range $i, $s := $strokes }}
+        <button class="vxd-btn{{ if eq $i 0 }} vxd-btn--active{{ end }}" data-filter="stroke" data-value="{{ $s.key }}">{{ $s.name_zh }}</button>
+        {{ end }}
+      </div>
+    </div>
+    <div class="vxd-filter-group">
+      <span class="vxd-filter-label">L 級</span>
+      <div class="vxd-filter-row">
+        <button class="vxd-btn vxd-btn--active" data-filter="level" data-value="all">全部</button>
+        {{ range $lv := $usedLevels }}
+        <button class="vxd-btn" data-filter="level" data-value="{{ $lv }}">{{ $lv }}</button>
+        {{ end }}
+      </div>
+    </div>
+    <p class="vxd-count" id="lvl-count"></p>
+  </div>
+
+  {{/* ── Level Cards ── */}}
+  <div class="vxl-track" id="lvl-grid">
+    {{ range $levels }}
+    {{ $p := . }}
+    <div class="vxd-card vxl-card"
+         id="lvl-{{ .id }}"
+         data-stroke="{{ .stroke }}"
+         data-level="{{ .level }}">
+      <div class="vxl-card-head">
+        <span class="vxl-badge">{{ .level }}</span>
+        <div class="vxl-head-text">
+          <h3 class="vxl-name">{{ .name_zh }}</h3>
+          <p class="vxl-tagline">{{ .tagline }}</p>
+        </div>
+        <span class="vxl-stroke-tag">{{ index $strokeNames .stroke | default .stroke }}</span>
+      </div>
+
+      {{ with .description }}<p class="vxl-desc">{{ . }}</p>{{ end }}
+
+      <details class="vxd-detail vxl-detail">
+        <summary class="vxd-detail-trigger">訓練方法與指標</summary>
+        <div class="vxd-detail-body">
+
+          {{ with .methods }}
+          <div class="vxl-section">
+            <span class="vxl-label">訓練方法</span>
+            <ul class="vxl-methods">
+              {{ range . }}
+              <li class="vxl-method">
+                <span class="vxl-method-name">{{ .name }}</span>
+                {{ with .detail }}<span class="vxl-method-detail">{{ . }}</span>{{ end }}
+                {{ with .cue }}<span class="vxl-method-cue">口令：{{ . }}</span>{{ end }}
+              </li>
+              {{ end }}
+            </ul>
+          </div>
+          {{ end }}
+
+          {{ with .indicators }}
+          <div class="vxl-section">
+            <span class="vxl-label">觀察指標</span>
+            <ul class="vxl-indicators">
+              {{ range . }}
+              <li class="vxl-indicator">
+                <span class="vxl-ind-type">{{ .type }}</span>
+                <span class="vxl-ind-text">{{ .text }}</span>
+              </li>
+              {{ end }}
+            </ul>
+          </div>
+          {{ end }}
+
+          {{/* ── 其餘字串型 public 欄位（量化 / 停滯 / 里程碑 / 各式特有） ── */}}
+          {{ range $key, $label := $fieldNames }}
+          {{ with index $p $key }}
+          <div class="vxl-section vxl-section--{{ $key }}">
+            <span class="vxl-label">{{ $label }}</span>
+            <p class="vxl-text">{{ . }}</p>
+          </div>
+          {{ end }}
+          {{ end }}
+
+        </div>
+      </details>
+    </div>
+    {{ end }}
+  </div>
+
+</div>
+
+<script>
+(function() {
+  const filters = { stroke: null, level: 'all' };
+  const cards = Array.from(document.querySelectorAll('.vxl-card'));
+  const countEl = document.getElementById('lvl-count');
+
+  // 預設泳式 = 第一個 active 的 stroke 按鈕
+  const firstStroke = document.querySelector('#lvl-filters .vxd-btn--active[data-filter="stroke"]');
+  filters.stroke = firstStroke ? firstStroke.dataset.value : 'free';
+
+  function applyFilters() {
+    let visible = 0;
+    cards.forEach(card => {
+      const okStroke = card.dataset.stroke === filters.stroke;
+      const okLevel = filters.level === 'all' || card.dataset.level === filters.level;
+      const show = okStroke && okLevel;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    countEl.textContent = visible + ' 個層級';
+  }
+
+  document.querySelectorAll('#lvl-filters .vxd-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const type = this.dataset.filter;
+      filters[type] = this.dataset.value;
+      document.querySelectorAll(`#lvl-filters .vxd-btn[data-filter="${type}"]`).forEach(b => b.classList.remove('vxd-btn--active'));
+      this.classList.add('vxd-btn--active');
+      applyFilters();
+    });
+  });
+
+  // Deep-link：白名單比對——只接受有對應按鈕的值，未知值忽略
+  const params = new URLSearchParams(window.location.search);
+  ['stroke', 'level'].forEach(key => {
+    const val = params.get(key);
+    if (!val) return;
+    const target = document.querySelector(`#lvl-filters .vxd-btn[data-filter="${key}"][data-value="${val}"]`);
+    if (!target) return;
+    filters[key] = val;
+    document.querySelectorAll(`#lvl-filters .vxd-btn[data-filter="${key}"]`).forEach(b => b.classList.remove('vxd-btn--active'));
+    target.classList.add('vxd-btn--active');
+  });
+
+  applyFilters();
+
+  // Hash-jump：#lvl-<id>，id 僅接受英數與點/底線/連字號，且須對應實際卡片
+  function jumpToHash() {
+    const m = window.location.hash.match(/^#lvl-([A-Za-z0-9._-]+)$/);
+    if (!m) return;
+    const card = document.getElementById('lvl-' + m[1]);
+    if (!card) return;
+    filters.stroke = card.dataset.stroke;
+    filters.level = 'all';
+    document.querySelectorAll('#lvl-filters .vxd-btn[data-filter="stroke"]').forEach(b => b.classList.remove('vxd-btn--active'));
+    const sBtn = document.querySelector(`#lvl-filters .vxd-btn[data-filter="stroke"][data-value="${card.dataset.stroke}"]`);
+    if (sBtn) sBtn.classList.add('vxd-btn--active');
+    document.querySelectorAll('#lvl-filters .vxd-btn[data-filter="level"]').forEach(b => b.classList.remove('vxd-btn--active'));
+    const lAll = document.querySelector('#lvl-filters .vxd-btn[data-filter="level"][data-value="all"]');
+    if (lAll) lAll.classList.add('vxd-btn--active');
+    applyFilters();
+    const det = card.querySelector('details');
+    if (det) det.open = true;
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    card.classList.add('vxd-card--highlight');
+    setTimeout(() => card.classList.remove('vxd-card--highlight'), 2400);
+  }
+  jumpToHash();
+  window.addEventListener('hashchange', jumpToHash);
+})();
+</script>
+{{ end }}

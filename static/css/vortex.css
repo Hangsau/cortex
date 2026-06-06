@@ -921,6 +921,216 @@ body:has(.vxd-filters) .vx-page {
   border-left: 2px solid #B5290B;
 }
 
+/* ════════════ 水感層級探索器 (vxl-) ════════════ */
+.vxl-track {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 760px;
+}
+
+.vxl-card {
+  position: relative;
+  padding-left: var(--space-6);
+}
+
+/* 縱向序列導引線（L0→L6 是一條進展路徑） */
+.vxl-track .vxl-card::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--space-3) + 1px);
+  top: -1px;
+  bottom: -1px;
+  width: 1px;
+  border-left: 1px dashed #C8B89A;
+}
+.vxl-track .vxl-card:first-child::before { top: 50%; }
+.vxl-track .vxl-card:last-child::before { bottom: 50%; }
+
+.vxl-card-head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.vxl-badge {
+  position: absolute;
+  left: 0;
+  top: var(--space-4);
+  width: calc(var(--space-3) * 2 + 2px);
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #FDFBF3;
+  background: #2B4A7A;
+  border: 1px solid #2B4A7A;
+  border-radius: 2px;
+  padding: 1px 0;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+.vxl-head-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1 1 auto;
+}
+
+.vxl-name {
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2B2416;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.vxl-tagline {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #7A6A52;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.vxl-stroke-tag {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 0.75rem;
+  color: #5A4A36;
+  border: 1px solid #C8B89A;
+  background: #F5EDD8;
+  padding: 1px 8px;
+  border-radius: 2px;
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
+
+.vxl-desc {
+  font-size: 0.9rem;
+  color: #2B2416;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.vxl-detail {
+  margin-top: var(--space-1);
+  border-top: 1px dashed #C8B89A;
+  padding-top: var(--space-2);
+}
+
+.vxl-detail .vxd-detail-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.vxl-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.vxl-label {
+  font-weight: 600;
+  color: #5A4A36;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+}
+
+.vxl-text {
+  font-size: 0.88rem;
+  color: #2B2416;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.vxl-methods,
+.vxl-indicators {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.vxl-method {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: var(--space-3);
+  border-left: 2px solid #E0D4BC;
+}
+
+.vxl-method-name {
+  font-weight: 600;
+  font-size: 0.86rem;
+  color: #2B2416;
+}
+
+.vxl-method-detail {
+  font-size: 0.84rem;
+  color: #5A4A36;
+  line-height: 1.55;
+}
+
+.vxl-method-cue {
+  font-size: 0.82rem;
+  color: #2B4A7A;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.vxl-indicator {
+  display: flex;
+  gap: var(--space-2);
+  align-items: baseline;
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.vxl-ind-type {
+  flex-shrink: 0;
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 0.74rem;
+  color: #2D6A4F;
+  background: #F0FFF4;
+  border: 1px solid #2D6A4F;
+  border-radius: 2px;
+  padding: 0 6px;
+}
+
+.vxl-ind-text {
+  color: #2B2416;
+}
+
+.vxl-section--stagnation {
+  padding: var(--space-2) var(--space-3);
+  background: #FFF7ED;
+  border-left: 2px solid #C45D00;
+}
+
+.vxl-section--milestone {
+  padding: var(--space-2) var(--space-3);
+  background: #F0FFF4;
+  border-left: 2px solid #2D6A4F;
+}
+
+.vxl-section--quant {
+  padding: var(--space-2) var(--space-3);
+  background: #F9F4E8;
+  border-left: 2px solid #2B4A7A;
+}
+
+@media (max-width: 600px) {
+  .vxl-card { padding-left: var(--space-5); }
+  .vxl-badge { top: var(--space-3); }
+}
+
 /* ════════════ 感知地圖探索器 SPA (vxs-) ════════════ */
 .vxs-app {
   --vxs-bg: #FDFBF3;

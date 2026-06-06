@@ -61,6 +61,13 @@
     <h2 class="vxs-home-sec-label">探索器</h2>
     <p class="vxs-home-sec-hint">把研究內容拆成可篩選、可掃描的卡片——不是一篇篇文章。</p>
     <div class="vxs-home-explorers">
+      {{ $lvlCount := 0 }}
+      {{ with index .Site.Data.vortex "water-sense-levels" }}{{ $lvlCount = len .levels }}{{ end }}
+      <a href="{{ printf "%svortex/levels/" .Site.BaseURL }}" class="vxs-home-drillnote">
+        <span class="vxs-home-drillnote-tag">水感層級探索器</span>
+        <span class="vxs-home-drillnote-title">L0–L6 感知序列 →</span>
+        <span class="vxs-home-drillnote-desc">{{ $lvlCount }} 個層級，四式各自從呼吸感知到全身場感知逐級展開：階段描述、訓練方法、可觀察指標、量化參考與停滯處理。依泳式、L 級篩選。</span>
+      </a>
       {{ $errCount := 0 }}
       {{ with index .Site.Data.vortex "teaching-errors" }}{{ $errCount = len .errors }}{{ end }}
       <a href="{{ printf "%svortex/errors/" .Site.BaseURL }}" class="vxs-home-drillnote">

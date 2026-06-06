@@ -170,7 +170,7 @@ Strouhal 數（St = 踢腿頻率 × 振幅 ÷ 速度）是描述振動推進效�
 **為什麼上踢是 UDK 速度的關鍵預測變數** 🟢：
 
 > 「下踢腳尖速度 / 上踢腳尖速度的比值，與水平游速呈**顯著負相關**——相對上踢越強，游速越快。」  
-> — Arellano, Pardillo & Gavilán（PubMed 24290609）
+> — Atkison et al. 2014（PubMed 24290609）
 
 **上踢的三重貢獻** 🟢（yourswimlog）：
 1. **縮短上踢時間** → 更快進入下踢推進相，提升有效踢頻
@@ -181,7 +181,7 @@ Strouhal 數（St = 踢腿頻率 × 振幅 ÷ 速度）是描述振動推進效�
 
 ### 3.3 踢腿對稱性（Sagittal Kick Symmetry）
 
-🟢（Arellano et al. 2013, PubMed 24290609；ScienceDirect）：
+🟢（Atkison et al. 2014, PubMed 24290609；ScienceDirect）：
 
 「踢腿對稱性」定義為：上踢與下踢在運動學上相似，各自都能產生推進力，而非一個推進、一個阻礙。
 
