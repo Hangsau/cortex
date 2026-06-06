@@ -8,6 +8,7 @@
 {{ define "main" }}
 {{ $base := .Site.BaseURL }}
 {{ $strokeZh := dict "free" "自由式" "back" "仰式" "breast" "蛙式" "fly" "蝶式" "udk" "水下蝶腳" "starts-turns" "出發轉身" }}
+{{ $strokeEn := dict "free" "Freestyle" "back" "Backstroke" "breast" "Breaststroke" "fly" "Butterfly" "udk" "Underwater Dolphin Kick" "starts-turns" "Starts & Turns" }}
 {{ $strokeSlug := dict "free" "freestyle" "back" "backstroke" "breast" "breaststroke" "fly" "butterfly" "udk" "underwater-dolphin-kick" "starts-turns" "starts-turns" }}
 {{ $drillStrokeKey := dict "freestyle" "free" "backstroke" "back" "breaststroke" "breast" "butterfly" "fly" "underwater_dolphin_kick" "udk" "sculling" "" }}
 
@@ -91,7 +92,7 @@
     {{ $url := printf "%svortex/%s/" $base $sm.slug }}
     {{ $nm := index $strokeZh $sm.key }}
     {{ $idx = $idx | append (dict
-      "t" "stroke" "ti" $nm "en" "" "s" (.premise | plainify | truncate 96)
+      "t" "stroke" "ti" $nm "en" "" "s" (.premise | replaceRE "<span class=\"cert\">.*?</span>" "" | plainify | truncate 96)
       "st" $sm.key "lv" "" "c" ""
       "ce" "" "u" $url) }}
     {{ range .moves }}
@@ -110,10 +111,34 @@
     <header class="vxq-mast">
       <p class="vxq-kicker">Cortex / Vortex · 感知地圖</p>
       <h1 class="vxq-title">水感知識庫</h1>
-      <p class="vxq-lead">物理條件、硬體邊界、可觀察指標、常見誤區與練習動作——直接查，不做感覺判讀。一個搜尋框查遍全部內容。</p>
+      <p class="vxq-lead">想學哪一式，就從那一式開始——每一式都有完整的動作分解、物理條件與口訣。已經知道要找什麼，往下用搜尋直接查。</p>
     </header>
 
+    {{/* ── 主入口：選一式 ── */}}
+    <section class="vxq-portals">
+      <h2 class="vxq-portals-h">想學哪一式？</h2>
+      <p class="vxq-portals-hint">點進去看完整動作分解——一步一步，從入水到踢水。完全沒概念也看得懂。</p>
+      <div class="vxq-portal-grid">
+        {{ range $sm := $strokeMeta }}
+          {{ $d := index $.Site.Data.vortex $sm.key }}
+          {{ with $d }}
+            {{ $url := printf "%svortex/%s/" $base $sm.slug }}
+            <a class="vxq-portal" data-s="{{ $sm.key }}" href="{{ $url }}">
+              <span class="vxq-portal-head">
+                <span class="vxq-portal-zh">{{ index $strokeZh $sm.key }}</span>
+                <span class="vxq-portal-en">{{ index $strokeEn $sm.key }}</span>
+              </span>
+              <span class="vxq-portal-prem">{{ .premise | replaceRE "<span class=\"cert\">.*?</span>" "" | plainify | truncate 64 }}</span>
+              <span class="vxq-portal-go">完整動作分解 <span aria-hidden="true">→</span></span>
+            </a>
+          {{ end }}
+        {{ end }}
+      </div>
+      <p class="vxq-portals-foot">不確定「水感」是什麼？先看 <a href="{{ $base }}vortex/levels/">水感層級 L0–L6</a>，從最基礎的感覺開始。</p>
+    </section>
+
     <div class="vxq-search" id="vxqSearch">
+      <p class="vxq-search-h">知道要找什麼？直接查</p>
       <div class="vxq-search-field">
         <span class="vxq-search-mark" aria-hidden="true">▮</span>
         <input class="vxq-input" id="vxqInput" type="search" autocomplete="off"
@@ -243,7 +268,17 @@
     return true;
   }
 
+  function isPristine() {
+    return state.q === '' && state.type === 'all' && state.stroke === 'all'
+        && state.level === 'all' && state.certainty === 'all';
+  }
+
   function render() {
+    if (isPristine()) {
+      results.innerHTML = '<p class="vxq-start">上面選一式開始，<br>或在搜尋框打關鍵字、點下面的篩選，就會在這裡列出結果。</p>';
+      countE.innerHTML = '';
+      return;
+    }
     var hits = DATA.filter(match);
     var n = hits.length;
     var cap = 120;

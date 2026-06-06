@@ -72,7 +72,89 @@
   margin: 12px 0 0;
 }
 
+/* ── 主入口：選一式（新手主路徑） ─────────────────────────────────── */
+.vxq-portals {
+  margin: 26px 0 34px;
+  animation: vxq-rise .5s ease .06s both;
+}
+.vxq-portals-h {
+  font-size: clamp(20px, 3.4vw, 26px);
+  font-weight: 700;
+  letter-spacing: .02em;
+  margin: 0 0 4px;
+}
+.vxq-portals-hint {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--vxq-sub);
+  margin: 0 0 16px;
+}
+.vxq-portal-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+@media (min-width: 560px) { .vxq-portal-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 900px) { .vxq-portal-grid { grid-template-columns: 1fr 1fr 1fr; } }
+.vxq-portal {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  text-decoration: none;
+  color: inherit;
+  background: var(--vxq-paper);
+  border: 1px solid var(--vxq-border);
+  border-left: 3px solid var(--vxq-accent);
+  border-radius: 2px;
+  padding: 16px 18px 14px;
+  min-height: 112px;
+  transition: background .14s ease, border-color .14s ease, transform .14s ease;
+}
+.vxq-portal:hover {
+  background: #FFFBF6;
+  border-color: var(--vxq-accent);
+  transform: translateY(-1px);
+}
+.vxq-portal-head { display: flex; align-items: baseline; gap: 9px; flex-wrap: wrap; }
+.vxq-portal-zh { font-size: 21px; font-weight: 700; line-height: 1.1; }
+.vxq-portal-en {
+  font-family: var(--vxq-mono);
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--vxq-faint);
+}
+.vxq-portal-prem {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--vxq-sub);
+  flex: 1 1 auto;
+}
+.vxq-portal-go {
+  font-family: var(--vxq-mono);
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: var(--vxq-accent);
+}
+.vxq-portal:hover .vxq-portal-go { font-weight: 700; }
+.vxq-portals-foot {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--vxq-faint);
+  margin: 14px 0 0;
+}
+.vxq-portals-foot a { color: var(--vxq-accent); text-decoration: none; border-bottom: 1px solid var(--vxq-borderS); }
+.vxq-portals-foot a:hover { border-color: var(--vxq-accent); }
+
 /* ── 搜尋列：打字機底線，非圓角盒 ──────────────────────────────────── */
+.vxq-search-h {
+  font-family: var(--vxq-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--vxq-faint);
+  margin: 0 0 8px;
+}
 .vxq-search {
   position: sticky;
   top: 0;
@@ -275,6 +357,17 @@
   border-bottom: 1px solid var(--vxq-borderS);
 }
 .vxq-empty b { color: var(--vxq-ink); }
+
+.vxq-start {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 44px 20px;
+  color: var(--vxq-faint);
+  font-size: 14px;
+  line-height: 1.8;
+  background: var(--vxq-paper);
+  border-bottom: 1px solid var(--vxq-borderS);
+}
 
 /* type accent assignment */
 .vxq-hit[data-t="tech"]      { --hit-c: var(--vxq-tech); }
