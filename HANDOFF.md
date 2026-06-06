@@ -136,9 +136,16 @@ TheVortexProject 內容整合進 my-site，作為公開知識展示。
 - [x] 同步 canonical 內容修正（freestyle wave drag v⁴→v³ 物理修正等 6 個 content/vortex/*.md）
 - [x] 本機 Hugo build 通過、CI 綠（run 27062066148, success）、已部署
 
+**Phase F（首頁重設計，2026-06-06 完成）：**
+
+`/vortex/` 從「長清單 + 便利貼」改為「探索器總控台」兩欄版型。規格見 `.implementation_vortex-home-redesign.md`。
+
+- [x] `layouts/vortex/vortex-home.html`：重寫為 vxh- 結構（左 rail + 右主內容）。Hero「從泳式或問題切入」→ 區塊1 依泳式 6 卡（中英名 + moves 數 + premise 摘要）→ 區塊2 依問題 5 探索器卡（色彩分層：層級藍/技術綠/誤區紅/矩陣靛/練習棕金）→ 區塊3 長文入口降權（水感指南/Technica/Instructional，**無 Bridge**）→ 區塊4 確定性標記
+- [x] `static/css/vortex.css`：替換舊 vxs-home 區塊為 vxh- 樣式（full-bleed 兩欄、桌面 sticky 248px rail、手機 rail→頂部 sticky 橫向 chip bar、卡片單欄、觸控 ≥64px、radius 8px、premise line-clamp）
+- [x] 驗收：Hugo build 綠、無禁用文案、無 Bridge 入口、計數正確（26 層級/188 技術點/76 誤區/43 矩陣格/125 練習、6 式 moves 8/9/11/9/7/7）。**未做 live 瀏覽器截圖**，僅以 build + 渲染 HTML 結構驗證
+
 **Vortex 待完成（後續階段）：**
-- [ ] Phase E（退役 Bridge）：Bridge/*.md 加 deprecated header（不刪）、sync 移除 Bridge 層、清 `content/vortex/bridge/`、首頁移除 bridge 卡片；保留水感指南為唯一散文
-- [ ] Phase F（首頁重設計）：⚠️ 須先取得用戶明確方向確認，不可自主實作
+- [ ] Phase E（退役 Bridge）：Bridge/*.md 加 deprecated header（不刪）、sync 移除 Bridge 層、清 `content/vortex/bridge/`、首頁移除 bridge 卡片；保留水感指南為唯一散文（註：首頁 Bridge 入口已於 Phase F 一併移除）
 - [ ] Phase G（收尾）：full sync --dry-run 驗證、文件對齊（_INDEX/雙 HANDOFF/vortex_sync_state.json）、swim-coach submodule 僅在診斷層被消費時才 bump
 
 **Vortex 來源路徑：** `C:\claudehome\projects\TheVortexProject\`

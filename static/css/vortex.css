@@ -1286,7 +1286,10 @@ body:has(.vxd-filters) .vx-page {
   .vxs-m-title { font-size: 40px; }
 }
 
-/* ============ Vortex landing (感知地圖) ============ */
+/* ============================================================
+   Vortex home redesign（vxh-）— 探索器總控台
+   桌面：左 rail + 右主內容；手機：頂部 sticky chip bar
+   ============================================================ */
 body:has(.vxs-home) { background: #FDFBF3; }
 
 .vxs-home {
@@ -1294,10 +1297,17 @@ body:has(.vxs-home) { background: #FDFBF3; }
   --vxs-ink: #2B2416;
   --vxs-ink-2: #7A6A52;
   --vxs-pencil: #B5290B;
-  --vxs-underline: #2B4A7A;
   --vxs-rule: #E4DCC6;
+  --vxs-rail: #F6F0DF;
   --vxs-sticky: #FBF1C7;
   --vxs-mark: #FCE49A;
+  --vxs-nav-h: 56px;
+
+  position: relative;
+  left: 50%; right: 50%;
+  margin-left: -50vw; margin-right: -50vw;
+  width: 100vw;
+  background: var(--vxs-bg);
   color: var(--vxs-ink);
   font-family: 'Crimson Text', Georgia, serif;
   font-size: 19px;
@@ -1306,60 +1316,92 @@ body:has(.vxs-home) { background: #FDFBF3; }
 }
 .vxs-home * { box-sizing: border-box; }
 .vxs-home mark { background: var(--vxs-mark); padding: 0 2px; }
+.vxs-home .cert { font-size: 13px; vertical-align: .15em; margin-left: 4px; }
 
-.vxs-home-hero { margin: 8px 0 48px; }
-.vxs-home-eyebrow { font-family: 'Caveat', cursive; font-size: 24px; color: var(--vxs-pencil); margin: 0 0 4px; }
-.vxs-home-title { font-family: 'Caveat', cursive; font-weight: 700; font-size: 64px; line-height: 1; margin: 0 0 20px; position: relative; display: inline-block; color: var(--vxs-ink); }
-.vxs-home-title::after { content: ""; position: absolute; left: 0; right: 0; bottom: -12px; height: 8px; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='8' viewBox='0 0 120 8'><path d='M0 5 Q15 0 30 5 T60 5 T90 5 T120 5' fill='none' stroke='%23B5290B' stroke-width='2'/></svg>") repeat-x; background-size: 120px 8px; }
-.vxs-home-lead { font-size: 21px; line-height: 1.75; max-width: 60ch; margin: 0; }
+.vxh-layout { display: flex; align-items: flex-start; max-width: 1140px; margin: 0 auto; }
 
-.vxs-home-sec { margin: 0 0 44px; }
-.vxs-home-sec-label { font-family: 'Caveat', cursive; font-weight: 700; font-size: 30px; color: var(--vxs-ink); margin: 0 0 4px; }
-.vxs-home-sec-hint { font-size: 16px; color: var(--vxs-ink-2); margin: 0 0 16px; }
+/* ===== 左側 rail（桌面） ===== */
+.vxh-rail {
+  width: 248px; flex: 0 0 248px;
+  position: sticky; top: var(--vxs-nav-h); align-self: flex-start;
+  max-height: calc(100vh - var(--vxs-nav-h)); overflow-y: auto;
+  background: var(--vxs-rail); border-right: 1px solid var(--vxs-rule);
+  padding: 26px 18px 40px;
+}
+.vxh-rail-brand { font-family: 'Caveat', cursive; font-weight: 700; font-size: 30px; line-height: 1; color: var(--vxs-pencil); margin: 0 0 18px; }
+.vxh-rail-brand span { display: block; font-size: 18px; color: var(--vxs-ink-2); margin-top: 4px; }
+.vxh-chips { display: flex; flex-direction: column; gap: 4px; margin: 0 0 18px; }
+.vxh-chip { display: block; padding: 8px 10px; border-radius: 4px; text-decoration: none; color: var(--vxs-ink); font-size: 17px; }
+.vxh-chip:hover, .vxh-chip:focus-visible { background: #EFE6CC; color: var(--vxs-pencil); outline: none; }
+.vxh-rail-note { font-size: 14px; line-height: 1.6; color: var(--vxs-ink-2); margin: 0; padding-top: 16px; border-top: 1px solid var(--vxs-rule); }
 
-/* 依泳式：手寫筆記本目錄（橫線、編號、虛點引導） */
-.vxs-home-index { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--vxs-rule); counter-reset: vxsidx; }
-.vxs-home-index-item { counter-increment: vxsidx; border-bottom: 1px solid var(--vxs-rule); }
-.vxs-home-index-link { display: flex; align-items: baseline; gap: 14px; padding: 13px 8px 13px 0; text-decoration: none; color: var(--vxs-ink); position: relative; }
-.vxs-home-index-link::before { content: counter(vxsidx, decimal-leading-zero); font-family: 'Caveat', cursive; font-size: 22px; color: var(--vxs-ink-2); flex: 0 0 1.8em; }
-.vxs-home-index-name { font-size: 22px; font-weight: 600; flex: 0 0 auto; }
-.vxs-home-index-sub { font-family: 'Caveat', cursive; font-size: 19px; color: var(--vxs-ink-2); flex: 0 0 auto; }
-.vxs-home-index-dots { flex: 1 1 auto; align-self: stretch; border-bottom: 1px dotted var(--vxs-rule); transform: translateY(-5px); min-width: 18px; }
-.vxs-home-index-count { font-family: 'Caveat', cursive; font-size: 18px; color: var(--vxs-pencil); flex: 0 0 auto; white-space: nowrap; }
-.vxs-home-index-link:hover { background: #FBF6E6; }
-.vxs-home-index-link:hover .vxs-home-index-name { color: var(--vxs-pencil); }
-.vxs-home-index-link:hover::after { content: "✎"; position: absolute; left: -18px; color: var(--vxs-pencil); font-size: 16px; }
+/* ===== 右側主內容 ===== */
+.vxh-main { flex: 1 1 auto; min-width: 0; padding: 36px 40px 96px; max-width: 880px; }
 
-/* 依主題：色標便條（左側鉛筆色條，無浮動動畫） */
-.vxs-home-themes { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
-.vxs-home-theme { display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; background: #fff; border: 1px solid var(--vxs-rule); border-left: 5px solid var(--theme-color, var(--vxs-underline)); text-decoration: none; color: var(--vxs-ink); transition: background .12s, border-color .12s; }
-.vxs-home-theme:hover { background: #FBF6E6; border-color: var(--theme-color, var(--vxs-underline)); }
-.vxs-home-theme-name { font-size: 21px; font-weight: 600; color: var(--theme-color, var(--vxs-ink)); }
-.vxs-home-theme-desc { font-size: 16px; line-height: 1.6; color: var(--vxs-ink-2); }
-.vxs-home-theme-count { margin-top: 2px; font-family: 'Caveat', cursive; font-size: 18px; color: var(--vxs-ink-2); }
+.vxh-hero { margin: 0 0 40px; }
+.vxh-hero-title { font-family: 'Caveat', cursive; font-weight: 700; font-size: 52px; line-height: 1.05; margin: 0 0 12px; color: var(--vxs-ink); position: relative; display: inline-block; }
+.vxh-hero-title::after { content: ""; position: absolute; left: 0; right: 0; bottom: -8px; height: 7px; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='8' viewBox='0 0 120 8'><path d='M0 5 Q15 0 30 5 T60 5 T90 5 T120 5' fill='none' stroke='%23B5290B' stroke-width='2'/></svg>") repeat-x; background-size: 120px 8px; }
+.vxh-hero-lead { font-size: 20px; line-height: 1.7; max-width: 56ch; margin: 0; color: var(--vxs-ink-2); }
 
-/* 探索器入口：兩張鉛筆紅便利貼並排 */
-.vxs-home-explorers { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
-.vxs-home-explorers .vxs-home-drillnote:nth-child(2) { transform: rotate(.5deg); }
-.vxs-home-explorers .vxs-home-drillnote:nth-child(2):hover { transform: rotate(0); }
+.vxh-sec { margin: 0 0 40px; scroll-margin-top: calc(var(--vxs-nav-h) + 12px); }
+.vxh-sec-label { font-family: 'Caveat', cursive; font-weight: 700; font-size: 28px; color: var(--vxs-ink); margin: 0 0 4px; }
+.vxh-sec-hint { font-size: 16px; color: var(--vxs-ink-2); margin: 0 0 14px; }
 
-/* 動作資料庫：刻意的鉛筆紅便利貼（不再是被拉寬的孤卡） */
-.vxs-home-drillnote { display: block; max-width: 460px; padding: 18px 22px 20px; background: #fff; border: 1.5px solid var(--vxs-pencil); box-shadow: 2px 2px 0 rgba(181, 41, 11, .14); transform: rotate(-.5deg); text-decoration: none; color: var(--vxs-ink); transition: box-shadow .12s, transform .12s; }
-.vxs-home-drillnote:hover { transform: rotate(0); box-shadow: 3px 3px 0 rgba(181, 41, 11, .22); }
-.vxs-home-drillnote-tag { display: block; font-variant: small-caps; letter-spacing: .1em; font-size: 14px; color: var(--vxs-pencil); margin-bottom: 4px; }
-.vxs-home-drillnote-title { display: block; font-size: 24px; font-weight: 600; margin-bottom: 6px; }
-.vxs-home-drillnote-desc { display: block; font-size: 15px; line-height: 1.6; color: var(--vxs-ink-2); }
+/* ===== 區塊 1：依泳式 ===== */
+.vxh-strokes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 14px; }
+.vxh-stroke { display: flex; flex-direction: column; gap: 6px; min-height: 64px; padding: 16px 18px; background: #fff; border: 1px solid var(--vxs-rule); border-radius: 8px; text-decoration: none; color: var(--vxs-ink); transition: border-color .12s, box-shadow .12s; }
+.vxh-stroke:hover, .vxh-stroke:focus-visible { border-color: var(--vxs-pencil); box-shadow: 0 2px 0 rgba(181, 41, 11, .12); outline: none; }
+.vxh-stroke-head { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.vxh-stroke-name { font-size: 22px; font-weight: 600; }
+.vxh-stroke-sub { font-family: 'Caveat', cursive; font-size: 18px; color: var(--vxs-ink-2); }
+.vxh-stroke-count { font-family: 'Caveat', cursive; font-size: 17px; color: var(--vxs-pencil); }
+.vxh-stroke-premise { font-size: 15px; line-height: 1.55; color: var(--vxs-ink-2); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
-.vxs-home-legend { margin: 44px 0 20px; padding: 18px 20px; background: var(--vxs-sticky); border: 1px solid #E6D58A; transform: rotate(-.4deg); box-shadow: 1px 2px 0 rgba(0, 0, 0, .06); }
-.vxs-home-legend-title { font-variant: small-caps; letter-spacing: .1em; font-size: 15px; color: #8a6d12; margin: 0 0 8px; }
-.vxs-home-legend-row { font-size: 17px; margin: 0 0 8px; }
-.vxs-home-legend-note { font-size: 15px; color: var(--vxs-ink-2); margin: 0; }
+/* ===== 區塊 2：依問題（探索器，色彩分層） ===== */
+.vxh-explorers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 14px; }
+.vxh-exp { display: flex; flex-direction: column; gap: 5px; min-height: 64px; padding: 16px 18px; background: #fff; border: 1px solid var(--vxs-rule); border-left: 5px solid var(--vxh-accent); border-radius: 8px; text-decoration: none; color: var(--vxs-ink); transition: background .12s, box-shadow .12s; }
+.vxh-exp:hover, .vxh-exp:focus-visible { background: #FBF6E6; box-shadow: 0 2px 0 rgba(0, 0, 0, .08); outline: none; }
+.vxh-exp-kind { font-variant: small-caps; letter-spacing: .08em; font-size: 13px; color: var(--vxh-accent); }
+.vxh-exp-title { font-size: 21px; font-weight: 600; color: var(--vxh-accent); }
+.vxh-exp-meta { font-family: 'Caveat', cursive; font-size: 17px; color: var(--vxs-ink-2); }
+.vxh-exp-desc { font-size: 15px; line-height: 1.55; color: var(--vxs-ink-2); }
+.vxh-exp--levels    { --vxh-accent: #2B4A7A; }  /* 藍 */
+.vxh-exp--technical { --vxh-accent: #2D6A4F; }  /* 綠 */
+.vxh-exp--errors    { --vxh-accent: #B5290B; }  /* 紅 */
+.vxh-exp--matrix    { --vxh-accent: #3B3A8C; }  /* 靛藍 */
+.vxh-exp--drills    { --vxh-accent: #8A5A12; }  /* 棕金 */
 
+/* ===== 區塊 3：長文入口（降權） ===== */
+.vxh-prose { list-style: none; margin: 12px 0 0; padding: 0; border-top: 1px solid var(--vxs-rule); }
+.vxh-prose li { border-bottom: 1px solid var(--vxs-rule); }
+.vxh-prose-link { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; min-height: 64px; padding: 12px 6px; text-decoration: none; color: var(--vxs-ink); }
+.vxh-prose-link:hover, .vxh-prose-link:focus-visible { color: var(--vxs-pencil); outline: none; }
+.vxh-prose-name { font-size: 18px; font-weight: 600; }
+.vxh-prose-sub { font-size: 15px; color: var(--vxs-ink-2); }
+
+/* ===== 區塊 4：確定性標記 ===== */
+.vxh-legend { margin: 40px 0 0; padding: 18px 20px; background: var(--vxs-sticky); border: 1px solid #E6D58A; border-radius: 8px; scroll-margin-top: calc(var(--vxs-nav-h) + 12px); }
+.vxh-legend-title { font-variant: small-caps; letter-spacing: .1em; font-size: 15px; color: #8a6d12; margin: 0 0 8px; }
+.vxh-legend-row { font-size: 17px; margin: 0 0 8px; }
+.vxh-legend-note { font-size: 15px; color: var(--vxs-ink-2); margin: 0; }
+
+/* ===== 手機：rail 變頂部 sticky chip bar，卡片單欄 ===== */
 @media (max-width: 760px) {
-  .vxs-home-title { font-size: 48px; }
-  .vxs-home-lead { font-size: 19px; }
-  .vxs-home-index-sub { display: none; }
-  .vxs-home-drillnote { max-width: none; }
+  .vxh-layout { display: block; }
+  .vxh-rail {
+    width: 100%; flex: none; max-height: none; overflow: visible;
+    position: sticky; top: var(--vxs-nav-h); z-index: 10;
+    border-right: none; border-bottom: 1px solid var(--vxs-rule);
+    padding: 8px 12px;
+  }
+  .vxh-rail-brand, .vxh-rail-note { display: none; }
+  .vxh-chips { flex-direction: row; gap: 8px; margin: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .vxh-chip { flex: 0 0 auto; min-height: 40px; display: flex; align-items: center; border: 1px solid var(--vxs-rule); border-radius: 999px; padding: 0 16px; white-space: nowrap; background: #fff; }
+  .vxh-main { padding: 28px 18px 80px; max-width: none; }
+  .vxh-hero-title { font-size: 40px; }
+  .vxh-hero-lead { font-size: 18px; }
+  .vxh-strokes, .vxh-explorers { grid-template-columns: 1fr; }
+  .vxh-stroke-premise { -webkit-line-clamp: 2; }
 }
 
 
