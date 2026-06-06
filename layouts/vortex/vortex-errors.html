@@ -1,0 +1,194 @@
+{{ define "head-extra" }}
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+{{ end }}
+
+{{ define "main" }}
+{{ $data := index .Site.Data.vortex "teaching-errors" }}
+{{ $errors := $data.errors }}
+{{ $cats := $data.categories }}
+
+{{/* ── 動態取出資料中實際出現的泳式 / 類別 / 確定性 ── */}}
+{{ $strokeNames := dict "free" "自由式" "back" "仰式" "breast" "蛙式" "fly" "蝶式" "udk" "水下蝶腳" "starts-turns" "出發轉身" }}
+{{ $certNames := dict "🔵" "🔵 推導" "🟢" "🟢 近期文獻" "🟡" "🟡 舊文獻" "🟠" "🟠 教練觀測" "🔴" "🔴 待查" }}
+{{ $catNames := dict }}
+{{ range $cats }}{{ $catNames = merge $catNames (dict .key .name_zh) }}{{ end }}
+
+{{ $usedStrokes := slice }}
+{{ $usedCats := slice }}
+{{ $usedCerts := slice }}
+{{ range $errors }}
+  {{ $usedStrokes = $usedStrokes | append .stroke }}
+  {{ $usedCats = $usedCats | append .category }}
+  {{ with .physical_reason }}{{ $usedCerts = $usedCerts | append .certainty }}{{ end }}
+{{ end }}
+{{ $usedStrokes = uniq $usedStrokes }}
+{{ $usedCats = uniq $usedCats }}
+{{ $usedCerts = uniq $usedCerts }}
+
+<div class="vx-page">
+
+  <header class="vx-list-header">
+    <a href="{{ printf "%svortex/" .Site.BaseURL | absURL }}" class="vx-back-link">← 水感研究首頁</a>
+    <h1 class="vx-list-title">教學誤區探索器</h1>
+    <p class="vx-list-desc">行業流傳的教學口令與觀念，逐條對照物理理由與正確觀念。依泳式、技術類別、確定性分類。每條皆經研究查證。</p>
+  </header>
+
+  {{/* ── Filters ── */}}
+  <div class="vxd-filters" id="err-filters">
+    <div class="vxd-filter-group">
+      <span class="vxd-filter-label">泳式</span>
+      <div class="vxd-filter-row">
+        <button class="vxd-btn vxd-btn--active" data-filter="stroke" data-value="all">全部</button>
+        {{ range $s := $usedStrokes }}
+        <button class="vxd-btn" data-filter="stroke" data-value="{{ $s }}">{{ index $strokeNames $s | default $s }}</button>
+        {{ end }}
+      </div>
+    </div>
+    <div class="vxd-filter-group">
+      <span class="vxd-filter-label">類別</span>
+      <div class="vxd-filter-row">
+        <button class="vxd-btn vxd-btn--active" data-filter="category" data-value="all">全部</button>
+        {{ range $c := $cats }}
+        {{ if in $usedCats $c.key }}
+        <button class="vxd-btn" data-filter="category" data-value="{{ $c.key }}">{{ $c.name_zh }}</button>
+        {{ end }}
+        {{ end }}
+      </div>
+    </div>
+    <div class="vxd-filter-group">
+      <span class="vxd-filter-label">確定性</span>
+      <div class="vxd-filter-row">
+        <button class="vxd-btn vxd-btn--active" data-filter="certainty" data-value="all">全部</button>
+        {{ range $ct := $usedCerts }}
+        <button class="vxd-btn" data-filter="certainty" data-value="{{ $ct }}">{{ index $certNames $ct | default $ct }}</button>
+        {{ end }}
+      </div>
+    </div>
+    <p class="vxd-count" id="err-count"></p>
+  </div>
+
+  {{/* ── Error Cards ── */}}
+  <div class="vxd-grid" id="err-grid">
+    {{ range $errors }}
+    {{ $cert := "" }}{{ with .physical_reason }}{{ $cert = .certainty }}{{ end }}
+    <div class="vxd-card vxe-card"
+         id="err-{{ .id }}"
+         data-stroke="{{ .stroke }}"
+         data-category="{{ .category }}"
+         data-certainty="{{ $cert }}">
+      <div class="vxd-card-head">
+        <span class="vxd-id">{{ .id }}</span>
+        <span class="vxd-cat vxd-cat--{{ .category }}">{{ index $catNames .category | default .category }}</span>
+        {{ with .physical_reason }}<span class="vxe-cert-dot" title="{{ index $certNames .certainty | default .certainty }}">{{ .certainty }}</span>{{ end }}
+      </div>
+      <h3 class="vxe-title"><span class="vxe-myth-tag">迷思</span>{{ .title }}</h3>
+      <p class="vxe-misconception">{{ .misconception }}</p>
+      <details class="vxd-detail vxe-detail">
+        <summary class="vxd-detail-trigger">為什麼這是迷思</summary>
+        <div class="vxd-detail-body">
+          {{ with .physical_reason }}
+          <div class="vxe-section">
+            <span class="vxe-label">{{ .certainty }} 物理理由</span>
+            <p class="vxe-text">{{ .text }}</p>
+          </div>
+          {{ end }}
+          {{ with .evidence }}
+          <div class="vxe-section">
+            <span class="vxe-label">文獻 / 觀測</span>
+            <ul class="vxe-evidence-list">
+              {{ range . }}
+              <li>
+                <span class="vxe-cert-inline">{{ .certainty }}</span> {{ .text }}
+                {{ with .source }}<span class="vxe-source">— {{ . }}</span>{{ end }}
+                {{ with .url }}<a class="vxe-src-link" href="{{ . }}" target="_blank" rel="noopener">↗</a>{{ end }}
+              </li>
+              {{ end }}
+            </ul>
+          </div>
+          {{ end }}
+          {{ with .cross_ref }}<p class="vxe-xref">交叉參照：{{ . }}</p>{{ end }}
+          {{ with .correct_concept }}
+          <div class="vxe-section vxe-correct">
+            <span class="vxe-label">正確觀念</span>
+            <p class="vxe-text">{{ . }}</p>
+          </div>
+          {{ end }}
+          {{ with .perception_impact }}
+          <div class="vxe-section vxe-perception-impact">
+            <span class="vxe-label">對水感的影響</span>
+            <p class="vxe-text">{{ . }}</p>
+          </div>
+          {{ end }}
+        </div>
+      </details>
+    </div>
+    {{ end }}
+  </div>
+
+</div>
+
+<script>
+(function() {
+  const filters = { stroke: 'all', category: 'all', certainty: 'all' };
+  const cards = Array.from(document.querySelectorAll('.vxe-card'));
+  const countEl = document.getElementById('err-count');
+
+  function applyFilters() {
+    let visible = 0;
+    cards.forEach(card => {
+      const okStroke = filters.stroke === 'all' || card.dataset.stroke === filters.stroke;
+      const okCat = filters.category === 'all' || card.dataset.category === filters.category;
+      const okCert = filters.certainty === 'all' || card.dataset.certainty === filters.certainty;
+      const show = okStroke && okCat && okCert;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    countEl.textContent = visible + ' 條誤區';
+  }
+
+  document.querySelectorAll('#err-filters .vxd-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const type = this.dataset.filter;
+      filters[type] = this.dataset.value;
+      document.querySelectorAll(`#err-filters .vxd-btn[data-filter="${type}"]`).forEach(b => b.classList.remove('vxd-btn--active'));
+      this.classList.add('vxd-btn--active');
+      applyFilters();
+    });
+  });
+
+  // Deep-link：白名單比對——只接受有對應按鈕的值，未知值忽略
+  const params = new URLSearchParams(window.location.search);
+  ['stroke', 'category', 'certainty'].forEach(key => {
+    const val = params.get(key);
+    if (!val) return;
+    const target = document.querySelector(`#err-filters .vxd-btn[data-filter="${key}"][data-value="${val}"]`);
+    if (!target) return;
+    filters[key] = val;
+    document.querySelectorAll(`#err-filters .vxd-btn[data-filter="${key}"]`).forEach(b => b.classList.remove('vxd-btn--active'));
+    target.classList.add('vxd-btn--active');
+  });
+
+  applyFilters();
+
+  // Hash-jump：#err-<id>，id 僅接受英數與點/底線/連字號，且須對應實際卡片
+  function jumpToHash() {
+    const m = window.location.hash.match(/^#err-([A-Za-z0-9._-]+)$/);
+    if (!m) return;
+    const card = document.getElementById('err-' + m[1]);
+    if (!card) return;
+    ['stroke', 'category', 'certainty'].forEach(k => filters[k] = 'all');
+    document.querySelectorAll('#err-filters .vxd-btn').forEach(b => b.classList.remove('vxd-btn--active'));
+    document.querySelectorAll('#err-filters .vxd-btn[data-value="all"]').forEach(b => b.classList.add('vxd-btn--active'));
+    applyFilters();
+    const det = card.querySelector('details');
+    if (det) det.open = true;
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    card.classList.add('vxd-card--highlight');
+    setTimeout(() => card.classList.remove('vxd-card--highlight'), 2400);
+  }
+  jumpToHash();
+  window.addEventListener('hashchange', jumpToHash);
+})();
+</script>
+{{ end }}

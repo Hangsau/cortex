@@ -30,6 +30,10 @@ DRILL_STROKES = ["freestyle", "backstroke", "breaststroke", "butterfly", "sculli
 DRILL_SRC_DIR = VORTEX_SRC / "Drills"
 DRILL_DST     = HUGO_ROOT / "data" / "vortex" / "drills.yaml"
 
+# ── 教學誤區（canonical 兩層 → my-site 只 public） ──
+TEACHING_ERRORS_SRC = VORTEX_SRC / "canonical" / "instructional" / "teaching-errors.yaml"
+TEACHING_ERRORS_DST = HUGO_ROOT / "data" / "vortex" / "teaching-errors.yaml"
+
 # ── Layer 設定 ──
 LAYERS = {
     "Technica":     {"slug": "technica",     "name": "水感框架"},
@@ -229,6 +233,65 @@ def sync_drills(dry_run: bool):
     print(f"  寫入 {DRILL_DST.relative_to(HUGO_ROOT)}")
 
 
+def sync_teaching_errors(dry_run: bool):
+    """讀 canonical teaching-errors.yaml（兩層），剝除 diagnostic 層，
+    只把 public 層寫進 my-site data/vortex/teaching-errors.yaml。
+
+    公開/診斷鐵則：A/B/C 三型診斷只在 swim-coach，不上公開站。
+    本函式是公開站的最後一道剝離保險——即使 canonical 寫了 diagnostic，
+    這裡也不會帶過去。
+    """
+    if not TEACHING_ERRORS_SRC.exists():
+        print()
+        print("=== 教學誤區 ===")
+        print(f"  [跳過] 找不到 {TEACHING_ERRORS_SRC}")
+        return
+
+    data = yaml.safe_load(TEACHING_ERRORS_SRC.read_text(encoding="utf-8")) or {}
+    errors_in = data.get("errors", []) or []
+
+    errors_out = []
+    for e in errors_in:
+        pub = e.get("public", {}) or {}
+        rec = {
+            "id":       e.get("id"),
+            "stroke":   e.get("stroke"),
+            "category": e.get("category"),
+            "title":    e.get("title"),
+        }
+        rec.update(pub)          # 只帶 public 欄位，diagnostic 整塊不取
+        errors_out.append(rec)
+
+    out_data = {
+        "categories": data.get("categories", []),
+        "errors":     errors_out,
+    }
+
+    by_stroke = {}
+    for e in errors_out:
+        by_stroke[e["stroke"]] = by_stroke.get(e["stroke"], 0) + 1
+
+    print()
+    print("=== 教學誤區（public 層）===")
+    for s, n in sorted(by_stroke.items()):
+        print(f"  {s:14s} {n}")
+    print(f"  TOTAL          {len(errors_out)}")
+
+    if dry_run:
+        print("  [dry-run，未寫入 teaching-errors.yaml]")
+        return
+
+    out = yaml.safe_dump(
+        out_data,
+        allow_unicode=True,
+        default_flow_style=False,
+        sort_keys=False,
+        width=4096,
+    )
+    TEACHING_ERRORS_DST.write_text(out, encoding="utf-8")
+    print(f"  寫入 {TEACHING_ERRORS_DST.relative_to(HUGO_ROOT)}")
+
+
 def main():
     dry_run = "--dry-run" in sys.argv
     results = {"new": [], "changed": [], "same": [], "unknown": []}
@@ -301,6 +364,7 @@ def main():
         save_state(state)
 
     sync_drills(dry_run)
+    sync_teaching_errors(dry_run)
 
     print()
     print("=== 同步摘要 ===")

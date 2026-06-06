@@ -787,6 +787,125 @@ body:has(.vxd-filters) .vx-page {
   }
 }
 
+/* ════════════ 教學誤區探索器 (vxe-) ════════════ */
+/* 沿用 drill DB 的 filter / grid / card / detail（vxd-）外殼，僅補誤區卡片內部欄位 */
+
+/* 誤區類別色票（drill DB 未涵蓋的類別） */
+.vxd-cat--recovery { background: #FFF1F0; color: #B5290B; }
+.vxd-cat--entry    { background: #EEF2FF; color: #2B4A7A; }
+.vxd-cat--pull     { background: #F0F9FF; color: #1D5F7A; }
+.vxd-cat--rotation { background: #FDF4FF; color: #7B2D8B; }
+.vxd-cat--tempo    { background: #FFFBEB; color: #8B5E00; }
+.vxd-cat--start    { background: #F0FFF4; color: #2D6A4F; }
+
+.vxe-cert-dot {
+  font-size: 0.85rem;
+  margin-left: auto;
+  cursor: default;
+}
+
+.vxe-title {
+  font-family: 'Caveat', cursive;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #2B2416;
+  margin: 0;
+  line-height: 1.25;
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.vxe-myth-tag {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #B5290B;
+  background: #FFF1F0;
+  border: 1px solid #B5290B;
+  border-radius: 2px;
+  padding: 0 6px;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.vxe-misconception {
+  font-size: 0.9rem;
+  color: #5A4A36;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.vxe-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.vxe-label {
+  font-weight: 600;
+  color: #5A4A36;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+}
+
+.vxe-text {
+  font-size: 0.9rem;
+  color: #2B2416;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.vxe-evidence-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.vxe-evidence-list li {
+  font-size: 0.85rem;
+  color: #2B2416;
+  line-height: 1.6;
+}
+
+.vxe-cert-inline { font-size: 0.85rem; }
+
+.vxe-source {
+  color: #7A6A52;
+  font-style: italic;
+}
+
+.vxe-src-link {
+  color: #2B4A7A;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 2px;
+}
+
+.vxe-src-link:hover { color: #B5290B; }
+
+.vxe-xref {
+  font-size: 0.82rem;
+  color: #7A6A52;
+  font-style: italic;
+  margin: 0;
+}
+
+.vxe-correct {
+  padding: var(--space-2) var(--space-3);
+  background: #F0FFF4;
+  border-left: 2px solid #2D6A4F;
+}
+
+.vxe-perception-impact {
+  padding: var(--space-2) var(--space-3);
+  background: #F9F4E8;
+  border-left: 2px solid #B5290B;
+}
+
 /* ════════════ 感知地圖探索器 SPA (vxs-) ════════════ */
 .vxs-app {
   --vxs-bg: #FDFBF3;

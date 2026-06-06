@@ -1,0 +1,381 @@
+categories:
+- key: recovery
+  name_zh: 回臂
+- key: entry
+  name_zh: 入水
+- key: pull
+  name_zh: 水下划手
+- key: kick
+  name_zh: 踢水
+- key: rotation
+  name_zh: 身體旋轉
+- key: breathing
+  name_zh: 頭部與換氣
+- key: tempo
+  name_zh: 划頻划距與訓練哲學
+- key: start
+  name_zh: 出發與轉身
+errors:
+- id: free.err1
+  stroke: free
+  category: recovery
+  title: 高肘回臂是唯一正確方式
+  misconception: 許多教練教材將「高肘回臂（High Elbow Recovery）」定為標準，不論選手距離、水域、肩部結構， 一律要求高肘。
+  physical_reason:
+    certainty: 🔵
+    text: 回臂功能是「以最少能量將手臂帶回入水位置」。最佳路徑取決於距離、划頻需求、肩部活動度： 長距離需省能 → 高肘較優；短距離需高划頻與耦合動作 → 直臂反而能疊加推進力； 直臂自然拉高划頻並迫使更大身體旋轉；肩關節柔軟度不足者強制高肘可能製造代償或傷害。
+  evidence:
+  - certainty: 🟠
+    text: 教練過去教導必須高肘回臂、對稱划水，但 Janet Evans 的直臂、Grant Hackett 的單側換氣、 Phelps 與 Ledecky 的不對稱划水都推翻了這個說法。
+    source: Scott Bay, USMS Level 5 Coach
+    url: https://www.usms.org/fitness-and-training/articles-and-videos/articles/freestyle-demystified
+  - certainty: 🟠
+    text: 大多數世界級 50 公尺選手使用直臂回臂，因為直臂的耦合動作能增強划水推進力。
+    source: Tritonwear
+    url: https://blog.tritonwear.com/how-to-have-a-flawless-freestyle-swimming-recovery
+  cross_ref: 技術分析 §2.1、§3.1（三種風格對應三種回臂策略）
+  correct_concept: 先評估選手的距離目標、划頻需求、肩部柔軟度，再選擇適合的回臂風格。不存在唯一標準。
+  perception_impact: 強制改高肘 → 學員常用肩頸張力「架起」高肘，整條回臂因此僵硬，反而破壞換氣與旋轉的感知流暢度。
+- id: free.err2
+  stroke: free
+  category: recovery
+  title: 模仿菁英選手的動作就是正確
+  misconception: 教學中播放菁英選手影片，要求學員直接模仿其回臂動作，視「與奧運選手一樣」為技術目標。
+  physical_reason:
+    certainty: 🔵
+    text: 速度與技術細節是「相關」不是「因果」。菁英的速度部分來自技術，部分來自生理條件 （肌力、爆發力、肌纖維組成）——後者可以補償甚至掩蓋技術缺陷。
+  evidence:
+  - certainty: 🟠
+    text: 許多人相信最快的選手使用的技術值得模仿，結果產生許多誤解。即使最快的選手也有技術限制， 只是用體能彌補了不足。
+    source: Rod Havriluk, Swimming Technology Research
+    url: https://chicagobluedolphins.com/article-freestyle-straight-arm-recovery/
+  correct_concept: 影片分析要區分：「選手因為這個動作而快」vs「選手雖然有這個動作但還是快」。前者值得學， 後者是體能補償，複製只是複製了缺陷。
+  perception_impact: 「跟誰一樣」是形式目標，不是感知目標。學員注意力放在外型像不像，感知系統沒有接收到動作帶來的 水壓回饋訊號。
+- id: free.err3
+  stroke: free
+  category: recovery
+  title: 拉鏈 Drill 代表正確的高肘路徑
+  misconception: 拉鏈 drill（拇指沿身體側面往上拉）被廣泛用來訓練高肘回臂，並被教練告知「這就是正確的回臂路徑」。
+  physical_reason:
+    certainty: 🟠
+    text: Drill 是找感覺的工具，不是游泳時的固定路徑。拉鏈 drill 手部軌跡緊貼身體——實際游泳時手部 離身體應更寬。用這個 drill 的感覺直接對應到正式游泳，反而是錯誤的遷移。
+  evidence:
+  - certainty: 🟠
+    text: 高肘概念常被 drill 強化錯誤方向；拉鏈 drill 視覺化為手部緊貼身體，容易被誤解為正確游法—— 但實際手部離身體應更寬。
+    source: Coach Alan, Tri Training Harder
+    url: https://tritrainingharder.com/blog/2021/6/blog-is-straight-arm-better-than-high-elbow
+  - certainty: 🟠
+    text: 應避免拇指拖拉 drill（拉鏈 drill），因為它會讓肘部過度偏高，對肩膀產生極大壓力。
+    source: Matt Donovan, USMS
+    url: https://www.usms.org/fitness-and-training/articles-and-videos/articles/the-right-and-wrong-time-to-have-high-elbows-on-freestyle
+  correct_concept: Drill 是找感覺的工具，需明確說明它在訓練什麼感知，以及與正式游泳的差異。使用前告知目的， 使用後確認學員是否誤以為 drill 路徑就是游泳路徑。
+  perception_impact: Drill 引導的感知目標若方向錯誤，學員在正式游泳時會「找 drill 的感覺」，反而拉近手臂路徑， 製造不必要的側向阻力。
+- id: free.err4
+  stroke: free
+  category: recovery
+  title: 直臂回臂是初學者的壞習慣，需要矯正
+  misconception: 部分教練見到學員直臂回臂，不問原因直接要求改高肘，視直臂為「需要矯正的錯誤」。
+  physical_reason:
+    certainty: 🔵
+    text: 直臂回臂有其合理適用情境：短距離衝刺（直臂耦合增強推進）、開放水域（手部高於浪面減少阻力）、 肩部柔軟度不足（不強迫高肘，減少肩峰下撞擊風險）。
+  evidence:
+  - certainty: 🟠
+    text: 直臂回臂可獲得更高划頻，並在開放水域讓手部高於浪面，也有助於肩膀柔軟度不足的選手。
+    source: chilitri.com
+    url: https://chilitri.com/blog/karenparnell01@hotmail.com/bent-elbow-vs-straight-arm-recovery-which-is-best-for-you
+  - certainty: 🟢
+    text: 直臂回臂對肩部影響並非單向：高肘回臂若配合過高的肩膀抬舉，反而可能增加肩峰下撞擊 （subacromial impingement）風險。
+    source: Biomechanical Considerations in the Competitive Swimmer's Shoulder, PMC3438875
+    url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3438875/
+  correct_concept: 先問「這個學員為什麼用直臂？」再決定是否需要調整。直臂回臂不等於錯誤，高肘回臂也不等於安全。
+- id: free.err5
+  stroke: free
+  category: recovery
+  title: 回臂動作本身能產生推進力，所以要做得有力
+  misconception: 部分教學強調「回臂要快、要有力」，讓學員誤以為回臂動作本身可以直接帶來速度。
+  physical_reason:
+    certainty: 🔵
+    text: 手臂在空中移動不接觸水，無法直接產生推進力。但回臂的加速方式與時機透過「耦合動作」影響 水下划手效益：晚期回臂的加速能量在入水瞬間耦合至對側划手末段推力。正確說法是「鬆弛加速、 時機準確」，不是「要有力」。
+  evidence:
+  - certainty: 🟠
+    text: 回臂在空中的動作本身不產生推進力；重要的是水下划水。但回臂若做得不好，會消耗不必要的能量， 讓水下划水力道下降。
+    source: Tri-Coaching
+    url: https://tri-coaching.co.uk/2015/04/21/freestyle-recovery/
+  cross_ref: 技術分析 §3.1（晚期回臂）
+  correct_concept: 回臂本身不產生推進力，但回臂的質量（鬆弛度、加速節奏）直接影響水下推進效益。不是「要有力」， 而是「鬆弛加速、時機準確」。
+  perception_impact: 「用力揮臂」製造全身張力，表層肌肉張力升高後，本體感知對水下划手路徑的精細回饋被覆蓋， 學員失去感知水的能力。
+- id: free.err6
+  stroke: free
+  category: entry
+  title: 「頭部正前方入水」是標準入水點
+  misconception: 許多教學要求「在頭部正前方輕輕滑入水中」，甚至示範手剛超過頭頂就落水。
+  physical_reason:
+    certainty: 🔵
+    text: 水的密度約是空氣的 800 倍，正面阻力遠大於空氣。手臂在空中阻力極小，應讓手臂充分伸展後再入水， 而非提早落水製造正面阻力。
+  evidence:
+  - certainty: 🟠
+    text: 應讓手臂充分伸展後再入水，而不是在頭部正上方就落水。
+    source: The Race Club
+    url: https://theraceclub.com/aqua_note/common-mistakes-from-the-freestyle-hand-entry/
+  - certainty: 🟠
+    text: 現代共識：入水點應在肩線延伸前方、手臂接近完全伸展的位置（約肩寬、距頭部 30–45 公分）， 指尖朝前斜下切入，不跨越中線。
+    source: Vortex 整理
+  correct_concept: 入水點在肩線前方、手臂接近伸展處，指尖朝前斜下切入，不跨中線。
+  perception_impact: 入水過短 → 升力相被壓縮，捕水前延伸時間不足，學員無法建立「手伸到水前方、讓水來找手」的感知， L2 延伸感知難以建立。
+- id: free.err7
+  stroke: free
+  category: entry
+  title: 入水時手指要「完全夾緊」
+  misconception: 教學常要求入水時手指「完全夾緊、不留縫隙」，並且「全程保持夾緊」。
+  physical_reason:
+    certainty: 🟢
+    text: 入水（切入）與抓水（捕水）是兩個不同動作、對應不同手型：入水瞬間手形緊實降低阻力； 進入捕水後微微張開至放鬆自然位（約 10° 間距），增大推進面積。全程夾緊會限制抓水有效面積。
+  evidence:
+  - certainty: 🟢
+    text: CFD 分析真實手部模型（2 m/s）：最佳手指間距約 10°（指尖間距約 3.2 mm），與完全夾緊相比 阻力係數提升 2–5%、力矩提升 5–8%；最佳間距接近放鬆手的自然姿態。機制是指縫產生噴流， 抑制大渦流形成。多篇 CFD 重複確認。
+    source: Marinho et al. (2010), Journal of Applied Biomechanics
+    url: https://pubmed.ncbi.nlm.nih.gov/20733242/
+  - certainty: 🟢
+    text: 入水瞬間手指與拇指應緊合像刀片劃入；進入抓水後手指應略微張開以增大受力面積。
+    source: The Race Club
+    url: https://theraceclub.com/aqua_note/common-mistakes-from-the-freestyle-hand-entry/
+  correct_concept: 入水瞬間指尖領先、手形緊實；進入捕水後微微張開至約 10° 自然位。只教「全程夾緊」會限制抓水面積。
+  perception_impact: 手指感知是手感發展的核心。完全夾緊 → 手掌變「硬板」，失去對水流分布的感知細節；略微張開後才能 感知「水填滿指縫的壓力」，這是重要的感知訊號入口。
+- id: free.err8
+  stroke: free
+  category: entry
+  title: 「掌心朝下平入水」是唯一正確角度
+  misconception: 傳統教學幾乎一律要求掌心朝下（palm down）入水，視其為「乾淨入水」的標準。
+  physical_reason:
+    certainty: 🔵
+    text: 入水角度受回臂方式、身體旋轉幅度、個人腕部活動度共同決定。直臂回臂選手入水時手腕通常需要更多 屈曲才能讓指尖先入水；強制掌心朝下反而製造入水阻力或手腕代償。
+  evidence:
+  - certainty: 🟠
+    text: 一種手型適合所有人是不存在的。不同回臂方式、身體結構、傷病史都會影響入水時最佳的手腕角度。
+    source: Swimming World Magazine
+    url: https://www.swimmingworldmagazine.com/news/science-of-performance-hand-entry/
+  correct_concept: 目標是「指尖領先、乾淨切入」，達成此目標的腕部角度因回臂方式與個人解剖條件而異，不能硬套單一標準。
+- id: free.err9
+  stroke: free
+  category: entry
+  title: 入水要「越安靜越好」
+  misconception: 教學常強調「安靜入水、不能有水花」，讓學員過度謹慎地「放」手進水，而非積極向前伸刺。
+  physical_reason:
+    certainty: 🟠
+    text: 過度追求安靜 → 入水動作變被動、位置過短、姿勢消極，失去晚期回臂的加速能量轉移。 「安靜」是乾淨切入的副產品，不是追求目標。
+  evidence:
+  - certainty: 🟠
+    text: 正確做法是積極「攻擊水面」，將手向前推刺。15 次奧運冠軍教練 Eddie Reese： 「我們教的是『伸手觸牆』的概念。」
+    source: YourSwimLog
+    url: https://www.yourswimlog.com/how-to-improve-freestyle-hand-entry/
+  correct_concept: 目標是「指尖領先、積極前伸切入」。以「安靜」為目標會減慢手臂在空中的最後加速，削減耦合的能量轉移。
+  perception_impact: 「輕輕放入」製造消極的入水感知，學員把「沒有感覺」當成正確訊號。正確積極入水後應能感受到指尖切入 水面的「劈」感，這是重要的本體回饋起點。
+- id: free.err10
+  stroke: free
+  category: pull
+  title: S 形划水路徑是高效划水的目標
+  misconception: 過去教學（1960–1990 年代普遍）要求選手手部在水下走「S 形路徑」，視為高效划水的標準動作。
+  physical_reason:
+    certainty: 🔵
+    text: S 形划水的每次方向改變都意味手部需加速、減速、再加速，每次減速都是推進力損失。手掌相對身體走 接近直線的後向推進才最有效率。水下看到的 S 形是身體轉體造成的視覺錯覺，不是手部刻意繞 S。
+  evidence:
+  - certainty: 🟡
+    text: S 形路徑由 James "Doc" Counsilman 在《The Science of Swimming》（1968）依水下攝影觀察提出。
+    source: 歷史背景
+  - certainty: 🟢
+    text: 高速影像顯示菁英選手手部路徑相當直線；過去看到的 S 形是身體轉體造成的視覺錯覺。
+    source: Rocketswim
+    url: https://rocketswim.com/four-phases-of-freestyle-arm-stroke/
+  cross_ref: 技術分析 §3.1（後象限推進）
+  correct_concept: 水下划手目標是「手掌向後加速、維持路徑穩定」，S 形是轉體副產品，不應刻意訓練。
+  perception_impact: 「刻意繞 S」讓學員注意力放在路徑形狀（視覺/空間目標），無法聚焦在「手掌對水壓力的連續感知」。 路徑形狀是外部視角描述，感知系統不以路徑形狀為輸入。
+- id: free.err11
+  stroke: free
+  category: kick
+  title: 用力踢水才能快——力量優先於柔韌性
+  misconception: 「腿要踢有力、踢得快」是最普遍的踢水指令之一，但忽略了踢水效率的硬體前提：踝關節蹠屈幅度。
+  physical_reason:
+    certainty: 🔵
+    text: 踢水推進力來自腳掌面向後方的推水面積，踝關節蹠屈幅度直接決定此面積：柔韌性足夠 → 腳掌接近垂直 朝後 → 有效面積最大；踝關節僵硬 → 腳背而非腳掌面朝後 → 踢水反而制動。增加力量但蹠屈不足， 只是更有力地產生阻力。
+  evidence:
+  - certainty: 🟢
+    text: 踝關節蹠屈柔韌性與踢水速度直接相關；陸上踝柔韌性訓練能改善踢水效率。跑步背景者最容易踝僵硬， 踢水時最易制動。
+    source: McCullough et al. (2009/2010), J. Strength & Conditioning Research
+    url: https://pubmed.ncbi.nlm.nih.gov/19387413/
+  correct_concept: 踝關節柔韌性訓練優先於力量。跑步背景選手需先評估蹠屈幅度確認硬體邊界，再決定踢水訓練方向。
+  perception_impact: 踝僵硬選手腳掌從未建立「後方推水」的感覺——因為腳掌實際從未朝後過。這無法靠感知訓練解決， 是硬體邊界，必須先做柔韌性改善。
+- id: free.err12
+  stroke: free
+  category: kick
+  title: 六拍踢是正確標準，兩拍是偷懶或技術不好
+  misconception: 許多教練把六拍踢當「正確」節奏，見到兩拍踢直覺判斷為偷懶或技術不成熟，要求一律改六拍。
+  physical_reason:
+    certainty: 🔵
+    text: 六拍踢（高代謝、連續推進+填補划手空窗，適合 100m 以下衝刺）與兩拍踢（低代謝、維持旋轉節律+ 平衡穩定，適合 400m 以上長距離）的協調邏輯與適用情境不同——是距離策略的客觀反映，不是技術高低。 兩拍同側踢與六拍對側踢相反，但服務不同旋轉需求。
+  evidence:
+  - certainty: 🟠
+    text: Hip-driven 風格（長距離）自然發展兩拍踢，因六拍在低划頻下製造不必要腿部疲勞。精英長距離 大多用兩拍或四拍，不是六拍。
+    source: 教練觀測
+  cross_ref: 技術分析 §肆（踢水機制）
+  correct_concept: 踢水節奏由距離、划頻、腿部耐力共同決定。強制六拍可能讓長距離選手後段腿部提前疲勞，破壞整體效率。
+  perception_impact: 強制六拍的長距離選手，腿部能量在中段已大量消耗，後段節律錨點崩潰，換氣時機和划手節奏同步失守。 踢水節奏是整個划手週期的節律框架。
+- id: free.err13
+  stroke: free
+  category: kick
+  title: 「用腰帶腿踢」——踢水要從腰開始（鎖死膝蓋）
+  misconception: 「踢水要從腰帶動、不是靠膝蓋彎曲」常被過度執行，導致選手完全鎖住膝蓋，反而失去踝關節的加速能量。
+  physical_reason:
+    certainty: 🔵
+    text: 有效踢水需三環節連動：髖關節發力 → 膝蓋有控制地彎曲（下踢峰值約 55–75°）→ 踝關節鞭打加速。 「從腰帶動」解決環節 1，但若被解讀為「膝蓋不能動」，環節 2 消失、環節 3 無法加速，踢水變成 整條腿擺動，效率大幅下降。
+  evidence:
+  - certainty: 🟠
+    text: bicycle kick 的問題在膝蓋彎曲過大且主導踢水（膝先動、髖後動），而非膝蓋彎曲本身。最佳膝蓋 彎曲角度 55–75°（下踢峰值），低於 55° 推進不足，超過 75° 進入 bicycle kick。
+    source: The Race Club VM 量化
+  correct_concept: 根本是發力序列：髖帶膝、膝帶踝、踝完成鞭打。「用腰帶腿」修正的是發力起點，不應解讀為消除膝蓋動作。 推薦夾板踢水隔離腿部，感知髖-膝-踝連動。
+  perception_impact: 膝蓋鎖死的選手踝關節無法完成末端加速，踢水是「腿部整體推」而非「踝關節掃過水」。有鞭打感的踢水 在踝末端可感受水壓劇烈變化；鎖膝版本沒有這個峰值，感覺「平滑但沒有力量感」。
+- id: free.err14
+  stroke: free
+  category: kick
+  title: 腳踝僵硬是先天條件，無法改善
+  misconception: 部分教練診斷踝僵硬後告知「你的踝關節先天比較硬，踢水不會好」，或跳過踝訓練改強調用上半身彌補。
+  physical_reason:
+    certainty: 🔵
+    text: 踝關節蹠屈柔韌性後天可改善，但柔韌性改善與表現改善有時間差：6 週訓練研究顯示柔韌性顯著改善 （p=0.0008），但同期 25m 踢板成績改善尚未顯著（p=0.40）——柔韌性改善先於表現。「先天不可改」 常來自短期介入未見速度提升後的誤判。
+  evidence:
+  - certainty: 🟠
+    text: 陸上踝柔韌性訓練（泡沫軸放鬆腓腸肌、主動蹠屈伸展、跪坐拉伸）可改善踢水效率。
+    source: McCullough 2009/2010 方向
+  correct_concept: 踝柔韌性是可訓練的硬體條件，不是不可改變的先天限制。診斷僵硬後應設計踝專項訓練，同時在水中用 適合目前範圍的踢水訓練。只告知「天生腳踝硬」而不提供改善方案，是診斷與教學流程的雙重失職。
+  perception_impact: 改善過程中選手會逐漸出現「腳掌開始感受到水壓的新感覺」。需教練明確告知「這個新水壓感就是踢水 開始有效的信號」，否則可能誤判為「踢法改變了，感覺怪怪的」。
+- id: free.err15
+  stroke: free
+  category: rotation
+  title: 主動轉髖是自由式旋轉的正確指令
+  misconception: 「游自由式要用髖帶動手臂」「轉髖才能讓划水更有力」混淆了因果方向，在短距離或高划頻情境反而造成代償。
+  physical_reason:
+    certainty: 🔵
+    text: 旋轉的正確因果鏈：推水末段 → 肩胛肌群收縮（菱形肌後縮肩胛骨）→ 啟動對側身體滾轉 → 髖部被動跟隨。 髖部是被動跟隨者，不是發動者。短距離（高划頻）刻意主動轉髖 → 時機錯亂+額外能耗； 「用髖帶動划手」在長距離和短距離效果方向相反。
+  evidence:
+  - certainty: 🟡
+    text: 推水末段肩胛肌群（菱形肌）是旋轉的主動發動肌，髖部被動跟隨。「把肩膀教好，髖部自然跟著動。」
+    source: Pink et al. (1991) EMG；Science of Swimming Faster (Riewald & Rodeo 2015)
+  cross_ref: 技術分析 §伍（身體旋轉）
+  correct_concept: 旋轉的感知目標是肩胛骨的動作，不是髖部旋轉。指導語應從「轉髖」改為「推水末段感覺肩胛骨往脊椎縮」。
+  perception_impact: 「主動轉髖」的感知是腰椎扭轉感，與肩胛骨收縮感完全不同。建立「轉腰=正確旋轉」後，注意力永遠在腰部 而非肩胛骨，旋轉的耦合質量難以被精確感知和調整。
+- id: free.err16
+  stroke: free
+  category: rotation
+  title: 旋轉幅度越大越好——「把肩膀打開」指令
+  misconception: 「肩膀要打開到 90 度」「旋轉越多越好，增加拉力臂」混淆了長距離與短距離策略，在高划頻下幾何上不可能。
+  physical_reason:
+    certainty: 🔵
+    text: 旋轉幅度有最優範圍，超過後邊際效益為負：Hip-driven（長距離）髖旋轉約 45–60°；Shoulder-driven （衝刺）約 35–40°，時間窗口短，更大旋轉物理上無法完成。過度旋轉 → 側面面積增加（阻力上升）+ 推進方向偏移 + 旋轉速度峰值與推力峰值不再對齊。旋轉的價值在時機對齊，不在幅度。
+  evidence:
+  - certainty: 🟠
+    text: 短距離旋轉幅度明顯小於長距離（衝刺 ~37° vs 400m ~50°），且短距離速度優勢不是靠旋轉幅度達成。 （各研究測量方法與速度基準不同，確切範圍仍有差異）
+    source: Andersen et al. (2020) 方向；PMID 32500807
+    url: https://pubmed.ncbi.nlm.nih.gov/32500807/
+  correct_concept: 旋轉幅度目標是「讓划手推力峰值和旋轉速度峰值對齊」，不是越大越好。「打開肩膀」對長距離有意義， 對短距離可能是干擾。先確認目標距離和划頻。
+  perception_impact: 追求旋轉幅度的選手感知目標是「轉多遠」（空間/位置感知），不是「旋轉時機是否讓推水感覺更強」 （水壓感知）。這是耦合感知能否建立的關鍵分岔點。
+- id: free.err17
+  stroke: free
+  category: rotation
+  title: 「積極轉體，旋轉越快游越快」
+  misconception: 「要積極轉體，旋轉帶動划手才有力」把旋轉定位為速度的主動來源，但旋轉本身不接觸水，無法直接產生推進力。
+  physical_reason:
+    certainty: 🔵
+    text: 身體旋轉發生在空氣與水的介面，旋轉動作本身不接觸水（手臂在回臂，不在拉水），因此旋轉本身不產生 推進力。旋轉的作用是透過耦合——旋轉速度峰值與划手推力峰值在時間上對齊時能量疊加。旋轉是放大器， 不是引擎。沒有時機對齊的旋轉 = 零耦合貢獻 + 額外阻力。
+  evidence:
+  - certainty: 🟠
+    text: 旋轉速度峰值發生在划手推力峰值的特定時間窗口內時速度提升顯著；窗口外旋轉不帶來速度增益。
+    source: The Race Club Velocity Meter + Pressure Meter
+  cross_ref: 技術分析 §伍（Coupling 能量）
+  correct_concept: 正確問題不是「旋轉多不多」，而是「旋轉速度峰值有沒有和推力峰值對齊」。沒有時機的大幅旋轉， 效果不如時機精準的小幅旋轉。
+  perception_impact: 「積極旋轉」容易觸發全身張力升高（核心和腰部同時收緊），手部對水壓的細緻感知被覆蓋。結果是選手 一邊積極旋轉一邊失去感知划手是否有效的能力，耦合品質無法被感知調整。
+- id: free.err18
+  stroke: free
+  category: breathing
+  title: 換氣時眼睛要「看到天花板」
+  misconception: 「換氣時眼睛要看天花板」「臉要完全轉出水面才能吸到夠的空氣」透過頭部過度旋轉來解決換氣，代價比直覺大。
+  physical_reason:
+    certainty: 🔵
+    text: 頭部過度旋轉的連鎖代價：頸部肌肉張力升高 → 旋轉連動鏈被打斷 → 換氣側手臂入水位置偏移（常見跨中線） → 重心偏移 → 下半身補償 → 節律干擾。精英是「寄生換氣」：頭部搭身體旋轉的便車，嘴巴轉進弓形波 凹陷吸氣，而非主動把頭轉出水面。
+  evidence:
+  - certainty: 🟠
+    text: 精英換氣時護目鏡另一側鏡片通常沒完全離開水面——這是「最小旋轉換氣」的外部指標。 「嘴角剛好露出水面就足夠」，不需看天花板。
+    source: The Race Club
+  cross_ref: 技術分析 §陸（頭部位置與弓形波）
+  correct_concept: 換氣目標是「最小旋轉、讓嘴巴進入弓形波凹陷」。感知替代目標：「換氣時，另一側護目鏡還有一半在水裡。」
+  perception_impact: 頭部過度旋轉製造大量頸部張力，每次換氣都是一次全身感知的部分中斷。換氣週期和非換氣週期的划手品質 明顯不一致 → 換氣成為技術崩潰的觸發點而不是中性事件。
+- id: free.err19
+  stroke: free
+  category: breathing
+  title: 換氣時前方手臂要「等在那裡」——catch-up 換氣
+  misconception: 「換氣時另一隻手先在前方等著，等你吸完氣再一起划」製造人為的划手暫停，讓呼吸從「寄生在旋轉中」 變成「打斷旋轉節律」。
+  physical_reason:
+    certainty: 🔵
+    text: 呼吸最優是「寄生模式」：頭部搭身體已在進行的旋轉便車，借用但不延長。停留手臂的問題：一側手臂 水中停留 → 升力相拉長（消耗能量不推進）→ 划頻下降 → 旋轉動量被打斷，下一次旋轉需重新啟動。
+  evidence:
+  - certainty: 🟠
+    text: 精英不是為換氣而停等手臂，而是找到旋轉節律中換氣自然契合的時間窗口塞進去，不改變划手節律。
+    source: 教練觀測
+  correct_concept: 換氣不應讓划手節律停等它。讓嘴巴在旋轉瞬間進入弓形波凹陷，吸氣後立刻回位，整個換氣發生在旋轉的 正常弧度裡。換氣是「找到身體自然給出空間的瞬間」，不是「要求身體停下來等你」。
+  perception_impact: 停等手臂製造划手週期裡的感知空白段——那段時間手臂被動停留，沒有推進方向的水壓感知。習慣後換氣週期 和非換氣週期的節律感知差異越來越大，技術崩潰時換氣週期第一個失守。
+- id: free.err20
+  stroke: free
+  category: tempo
+  title: 衝刺要「划快一點」——划頻越高越快
+  misconception: 比賽後半或衝刺時本能反應是「划快一點」提高划頻。在精英以下層次有一定效果，但在高水準和長距離 情境下可能適得其反。
+  physical_reason:
+    certainty: 🔵
+    text: 速度 = SR × SL。SR 提高而 SL 不下降時速度才增加。但 SR 提高 → 每次划手時間窗口縮短 → 捕水品質 下降 → SL 容易下降。若 SL 同幅下降則速度不變但能耗增加；若 SL 下降更多則速度反而降低。精英優勢 是「在高 SR 下維持 SL 不下降」的技術穩定性，不是更高的 SR。
+  evidence:
+  - certainty: 🟢
+    text: 50m 中 SL 是主要速度決定因子；SR 在男子 50m 中甚至與速度呈負相關。精英金牌優勢在「高 SR 下 維持 SL」，而非更高的 SR。
+    source: Staunton et al. (2025), Frontiers in Sports and Active Living
+  cross_ref: 技術分析 §柒（划頻 vs 划距）
+  correct_concept: 衝刺感知目標不是「划快一點」，而是「確認每次划手還有水感」。若 SL 已在下降，繼續提高 SR 只會加速 技術崩潰。疲勞監測最佳信號是 SL 變化，不是主觀的快/慢。
+  perception_impact: 「衝刺靠划頻」的訓練模式讓選手在高速時習慣放棄感知監測、改用「努力划」模式，高速下的 feedforward 建立在錯誤技術模式上。速度越高，感知越差，技術崩潰越早。
+- id: free.err21
+  stroke: free
+  category: tempo
+  title: 「手伸遠一點」——在水中主動向前延伸增加划距
+  misconception: 「手在水裡要繼續向前伸」「延伸讓你划得更遠」想解決真實問題（提升 SL），但方向弄反了——在水中 主動向前推手反而讓手臂失去捕水位置。
+  physical_reason:
+    certainty: 🔵
+    text: 手在水中「主動向前推」：向前的肌肉收縮 → 手臂緩慢向前下方移動（不是靜止在最佳捕水位置）→ 選手 感知是「在延伸」，實際正在下沉到更深更前的地方 → 捕水效率降低，SL 反而下降。真正的延伸距離來自 旋轉把肩膀送出去，手臂搭便車到達更遠位置。
+  evidence:
+  - certainty: 🟠
+    text: 入水後讓慣性帶手繼續向前滑幾寸，然後立刻轉入捕水——不是主動推水延伸。延伸和捕水之間沒有 「主動向前推」這個動作。
+    source: 教練觀測
+  cross_ref: 技術分析 §參（六階段划手週期 ①升力相）
+  correct_concept: 增加 SL 的正確方向是提升捕水品質，而非延長手臂在水中的前進距離。「伸得更遠」應是「感覺肩膀被旋轉 送得更遠」，而不是「手臂在水中繼續往前推」。
+  perception_impact: 「主動向前推水」建立錯誤的 L2 水感：把「向前推動水」當成延伸訊號。這與 L3 捕水感知（水壓作用在 手掌後方）方向完全相反，前者一旦固化，L3 的建立會因感知方向衝突而受阻。
+- id: free.err22
+  stroke: free
+  category: tempo
+  title: SR 和 SL 必然互相取捨，要選一個方向訓練
+  misconception: 「你划頻快但划距短，這是你的風格，各有優劣」把 SR-SL 的負相關當成物理定律，並以此放棄對弱項的訓練。
+  physical_reason:
+    certainty: 🔵
+    text: SR-SL 的負相關是技術限制的外在表現，不是物理定律：技術足夠時 SR 提高 SL 可維持甚至提升——這正是 精英訓練的目標。兩者並非風格差異，而是「技術是否能在高划頻下維持捕水效率」的反映。
+  evidence:
+  - certainty: 🟢
+    text: 精英金牌相對於一般精英的優勢正在於「高 SR 下維持 SL 不下降」——兩者不是取捨，是同時最大化的目標。
+    source: Staunton et al. (2025)
+  correct_concept: SR 與 SL 都要訓練但目標不同：SR 訓練神經快速徵召；SL 訓練在高 SR 下維持捕水效率和阻力控制。 問題不是「選哪個」，而是「目前 SR 壓力下 SL 下降的原因是技術問題還是生理條件問題」。
+  perception_impact: 相信「必然取捨」的選手在划距縮短時不會嘗試找回捕水的感知質量，而是接受它。這讓捕水感知不精確被 「風格差異」的標籤永久掩蓋，無法被識別和改善。
+- id: free.err23
+  stroke: free
+  category: tempo
+  title: 「慢游練技術、快游練體能」——速度是訓練分界線
+  misconception: 「慢游注意技術、快游全力衝」幾乎普遍。它描述層次錯了——用速度作分界掩蓋了真正的判斷標準， 並製造有害副作用：選手在速度稍快時自動關閉技術監測。
+  physical_reason:
+    certainty: 🔵
+    text: 速度不是關鍵變項，真正的分界是「不崩速度」——在這個速度下技術不崩潰（疲勞時低、新鮮時高）。 在不崩速度以下游 → 有效技術刺激；超過 → 強化崩潰下的動作模式。技術崩潰有兩種：能量系統崩潰 vs 神經肌肉協調崩潰，兩者訓練介入方向完全不同。長距離後段崩潰更可能是神經肌肉協調崩潰。
+  evidence:
+  - certainty: 🟠
+    text: 特異性原則：慢速習得的神經動作模式不能自動遷移至比賽速度。USRPT（Dr. Brent Rushall, SDSU） 主張以短距離段落在比賽配速練習，建立比賽速度下的正確神經模式。
+    source: Specificity of Practice；USRPT
+  correct_concept: 訓練分界不是速度，而是「技術是否崩潰」。Drill 可加速度要求（只要技術不崩）；計時游也可是技術訓練 （只要在不崩速度內）。教練核心是找到每個選手在每個階段的「不崩速度」，在那個邊界設計訓練。
+  perception_impact: 「快游不用管技術」讓選手在速度稍高時自動關閉感知監測，高速下的神經動作模式和低速完全不同， feedforward 在高速下沒被正確建立。精英的標誌之一是「比賽速度和訓練速度下感知監測品質相同」。
