@@ -68,6 +68,13 @@
         <span class="vxs-home-drillnote-title">誤區檢索 →</span>
         <span class="vxs-home-drillnote-desc">{{ $errCount }} 條行業流傳的教學口令與觀念，逐條對照物理理由與正確觀念。依泳式、技術類別、確定性篩選。</span>
       </a>
+      {{ $techCount := 0 }}
+      {{ with index .Site.Data.vortex "technical-analysis" }}{{ $techCount = len .points }}{{ end }}
+      <a href="{{ printf "%svortex/technical/" .Site.BaseURL }}" class="vxs-home-drillnote">
+        <span class="vxs-home-drillnote-tag">技術分析探索器</span>
+        <span class="vxs-home-drillnote-title">技術點檢索 →</span>
+        <span class="vxs-home-drillnote-desc">{{ $techCount }} 個深度技術點，拆自六式技術分析：物理機制、文獻依據、實踐意涵。依泳式、技術面向、確定性篩選。</span>
+      </a>
       <a href="{{ printf "%svortex/drills/" .Site.BaseURL }}" class="vxs-home-drillnote">
         <span class="vxs-home-drillnote-tag">動作練習資料庫</span>
         <span class="vxs-home-drillnote-title">練習動作檢索 →</span>

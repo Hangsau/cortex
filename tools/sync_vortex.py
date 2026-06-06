@@ -34,6 +34,10 @@ DRILL_DST     = HUGO_ROOT / "data" / "vortex" / "drills.yaml"
 TEACHING_ERRORS_SRC = VORTEX_SRC / "canonical" / "instructional" / "teaching-errors.yaml"
 TEACHING_ERRORS_DST = HUGO_ROOT / "data" / "vortex" / "teaching-errors.yaml"
 
+# ── 技術分析（canonical → my-site；全 public，diagnostic 仍剝離保險） ──
+TECH_ANALYSIS_SRC = VORTEX_SRC / "canonical" / "instructional" / "technical-analysis.yaml"
+TECH_ANALYSIS_DST = HUGO_ROOT / "data" / "vortex" / "technical-analysis.yaml"
+
 # ── Layer 設定 ──
 LAYERS = {
     "Technica":     {"slug": "technica",     "name": "水感框架"},
@@ -292,6 +296,64 @@ def sync_teaching_errors(dry_run: bool):
     print(f"  寫入 {TEACHING_ERRORS_DST.relative_to(HUGO_ROOT)}")
 
 
+def sync_technical_analysis(dry_run: bool):
+    """讀 canonical technical-analysis.yaml，剝除 diagnostic 層（若有），
+    只把 public 層寫進 my-site data/vortex/technical-analysis.yaml。
+
+    技術分析屬物理/生物力學內容，原則上全 public；此函式仍做剝離保險，
+    與 sync_teaching_errors 對齊——canonical 即使誤寫 diagnostic 也不會帶過去。
+    """
+    if not TECH_ANALYSIS_SRC.exists():
+        print()
+        print("=== 技術分析 ===")
+        print(f"  [跳過] 找不到 {TECH_ANALYSIS_SRC}")
+        return
+
+    data = yaml.safe_load(TECH_ANALYSIS_SRC.read_text(encoding="utf-8")) or {}
+    points_in = data.get("points", []) or []
+
+    points_out = []
+    for p in points_in:
+        pub = p.get("public", {}) or {}
+        rec = {
+            "id":       p.get("id"),
+            "stroke":   p.get("stroke"),
+            "category": p.get("category"),
+            "title":    p.get("title"),
+        }
+        rec.update(pub)          # 只帶 public 欄位，diagnostic 整塊不取
+        points_out.append(rec)
+
+    out_data = {
+        "categories": data.get("categories", []),
+        "points":     points_out,
+    }
+
+    by_stroke = {}
+    for p in points_out:
+        by_stroke[p["stroke"]] = by_stroke.get(p["stroke"], 0) + 1
+
+    print()
+    print("=== 技術分析（public 層）===")
+    for s, n in sorted(by_stroke.items()):
+        print(f"  {s:14s} {n}")
+    print(f"  TOTAL          {len(points_out)}")
+
+    if dry_run:
+        print("  [dry-run，未寫入 technical-analysis.yaml]")
+        return
+
+    out = yaml.safe_dump(
+        out_data,
+        allow_unicode=True,
+        default_flow_style=False,
+        sort_keys=False,
+        width=4096,
+    )
+    TECH_ANALYSIS_DST.write_text(out, encoding="utf-8")
+    print(f"  寫入 {TECH_ANALYSIS_DST.relative_to(HUGO_ROOT)}")
+
+
 def main():
     dry_run = "--dry-run" in sys.argv
     results = {"new": [], "changed": [], "same": [], "unknown": []}
@@ -365,6 +427,7 @@ def main():
 
     sync_drills(dry_run)
     sync_teaching_errors(dry_run)
+    sync_technical_analysis(dry_run)
 
     print()
     print("=== 同步摘要 ===")
