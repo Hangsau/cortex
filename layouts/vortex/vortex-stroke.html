@@ -1,70 +1,241 @@
 {{ define "head-extra" }}
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+<noscript><style>.vx-panel{display:block;border-top:1px solid var(--vx-rule);padding-top:24px}.vx-rail{position:static;max-height:none}</style></noscript>
 {{ end }}
 
 {{ define "main" }}
-{{ $meta := slice
-  (dict "key" "free"         "name" "自由式"     "en" "Freestyle")
-  (dict "key" "back"         "name" "仰式"       "en" "Backstroke")
-  (dict "key" "breast"       "name" "蛙式"       "en" "Breaststroke")
-  (dict "key" "fly"          "name" "蝶式"       "en" "Butterfly")
-  (dict "key" "udk"          "name" "水下蝶腳"   "en" "Underwater Dolphin Kick")
-  (dict "key" "starts-turns" "name" "出發與轉身" "en" "Starts &amp; Turns")
-}}
-{{ $strokes := slice }}
-{{ range $meta }}
-  {{ $d := index $.Site.Data.vortex .key }}
-  {{ if $d }}
-    {{ $strokes = $strokes | append (dict "key" .key "name" .name "en" .en "premise" $d.premise "moves" $d.moves) }}
+{{ $key := .Params.explorer_data }}
+{{ $d := index .Site.Data.vortex $key }}
+{{ $zh := .Params.stroke_tag }}
+{{ $en := .Params.stroke_en }}
+
+{{/* ── 過濾本式的誤區 / 深入 / 水感進程 ── */}}
+{{ $errs := where (index .Site.Data.vortex "teaching-errors").errors "stroke" $key }}
+{{ $techs := where (index .Site.Data.vortex "technical-analysis").points "stroke" $key }}
+{{ $levels := where (index .Site.Data.vortex "water-sense-levels").levels "stroke" $key }}
+
+{{/* ── 分類中文名對照 ── */}}
+{{ $errCatName := dict }}
+{{ range (index .Site.Data.vortex "teaching-errors").categories }}{{ $errCatName = merge $errCatName (dict .key .name_zh) }}{{ end }}
+{{ $techCatName := dict }}
+{{ range (index .Site.Data.vortex "technical-analysis").categories }}{{ $techCatName = merge $techCatName (dict .key .name_zh) }}{{ end }}
+
+{{/* ── 本式實際出現的分類（給篩選 chip 用） ── */}}
+{{ $errCats := slice }}{{ range $errs }}{{ $errCats = $errCats | append .category }}{{ end }}{{ $errCats = $errCats | uniq }}
+{{ $techCats := slice }}{{ range $techs }}{{ $techCats = $techCats | append .category }}{{ end }}{{ $techCats = $techCats | uniq }}
+
+{{/* ── drill name_zh → 公開欄位（內嵌展開用） ── */}}
+{{ $drillData := dict }}
+{{ with (index .Site.Data.vortex "drills") }}
+  {{ range .drills }}
+    {{ $drillData = merge $drillData (dict .name_zh (dict
+      "id" .id "en" .name_en "purpose" .purpose_zh
+      "how_to" .how_to "perception" .perception_goal
+      "equipment" .equipment "levels" .l_target)) }}
   {{ end }}
 {{ end }}
 
-<div class="vxs-app">
-  <div class="vxs-layout">
-    <aside class="vxs-rail">
-      <a class="vxs-back" href="{{ printf "%svortex/" .Site.BaseURL }}">← Cortex / Vortex</a>
-      <button class="vxs-overview-btn" id="vxsOvBtn" type="button">感知地圖 · 總覽</button>
-      <div class="vxs-tabs" id="vxsTabs"></div>
-      <details class="vxs-navbox" open id="vxsNavbox">
-        <summary>感知時刻</summary>
-        <p class="vxs-rail-label">感知時刻</p>
-        <ul class="vxs-navlist" id="vxsNavlist"></ul>
-      </details>
+<div class="vx-stroke">
+  <div class="vx-stroke-wrap">
+
+    {{/* ════════ 左側常駐目次 ════════ */}}
+    <aside class="vx-rail">
+      <a class="vx-back-link" href="{{ .Site.BaseURL }}vortex/">← Cortex · Vortex</a>
+      <div class="vx-rail-head">
+        <span class="vx-stroke-zh">{{ $zh }}</span>
+        <span class="vx-stroke-en">{{ $en }}</span>
+      </div>
+
+      <div class="vx-rail-group">導覽</div>
+      <div class="vx-rail-scroll">
+        <ul class="vx-rail-list">
+          <li><button class="vx-navlink" type="button" data-target="overview"><span class="n">0</span>概覽</button></li>
+        </ul>
+      </div>
+
+      <div class="vx-rail-group">動作分解</div>
+      <div class="vx-rail-scroll">
+        <ul class="vx-rail-list">
+          {{ range $d.moves }}
+          <li><button class="vx-navlink" type="button" data-target="move-{{ .n }}"><span class="n">{{ .n }}</span>{{ .name }}</button></li>
+          {{ end }}
+        </ul>
+      </div>
+
+      <div class="vx-rail-group">深入</div>
+      <div class="vx-rail-scroll">
+        <ul class="vx-rail-list">
+          {{ if $errs }}<li><button class="vx-navlink" type="button" data-target="errors"><span class="n">!</span>常見誤區</button></li>{{ end }}
+          {{ if $techs }}<li><button class="vx-navlink" type="button" data-target="tech"><span class="n">§</span>深入機制</button></li>{{ end }}
+          {{ if $levels }}<li><button class="vx-navlink" type="button" data-target="levels"><span class="n">L</span>水感進程</button></li>{{ end }}
+        </ul>
+      </div>
     </aside>
 
-    <main class="vxs-content">
-      <section id="vxsOverview" class="vxs-hidden"></section>
-      <section id="vxsWelcome" class="vxs-hidden"></section>
-      <section id="vxsDetail" class="vxs-hidden"></section>
-      <p class="vxs-legend">🔵推導 · 🟢近期文獻 · 🟡舊文獻 · 🟠教練觀測 · 🔴待查</p>
+    {{/* ════════ 右側主面板 ════════ */}}
+    <main class="vx-panels">
+
+      {{/* ── 概覽 ── */}}
+      <section class="vx-panel vx-overview" id="overview">
+        <span class="vx-sec-no">VORTEX · {{ $en }}</span>
+        <h2>{{ $zh }}</h2>
+        {{ with $d.premise }}<p class="vx-premise">{{ . | safeHTML }}</p>{{ end }}
+        <p class="vx-panel-lead">點任一動作就地展開，不換頁。</p>
+        <div class="vx-path-list">
+          {{ range $d.moves }}
+          <button class="vx-path-item" type="button" data-target="move-{{ .n }}">
+            <span class="n">{{ .n }}</span>
+            <span><span class="t">{{ .name }}</span><span class="o">{{ .one }}</span></span>
+          </button>
+          {{ end }}
+        </div>
+        <p class="vx-legend">🔵 推導 · 🟢 近期文獻 · 🟡 舊文獻 · 🟠 教練觀測 · 🔴 待查</p>
+      </section>
+
+      {{/* ── 各動作 ── */}}
+      {{ $n := len $d.moves }}
+      {{ range $i, $m := $d.moves }}
+      <section class="vx-panel vx-move" id="move-{{ $m.n }}">
+        <span class="vx-sec-no">動作 {{ $m.n }} / {{ $n }}</span>
+        <h2>{{ $m.name }}</h2>
+        <p class="vx-panel-lead">{{ $m.one }}</p>
+        {{ with $m.l }}<span class="vx-move-meta">水感層級 {{ . }}</span>{{ end }}
+
+        <span class="vx-block-label">口訣校正</span>
+        <div class="vx-cues">
+          {{ with $m.cue_bad }}<div class="vx-cue vx-cue--bad"><div class="vx-cue-tag">別這樣</div><div class="vx-cue-txt">{{ . }}</div></div>{{ end }}
+          {{ with $m.cue_why }}<div class="vx-cue vx-cue--why"><div class="vx-cue-tag">為什麼</div><div class="vx-cue-txt">{{ . }}</div></div>{{ end }}
+          {{ with $m.cue_good }}<div class="vx-cue vx-cue--good"><div class="vx-cue-tag">這樣做</div><div class="vx-cue-txt">{{ . }}</div></div>{{ end }}
+        </div>
+
+        {{ with $m.physical }}
+        <span class="vx-block-label">物理原理</span>
+        <div class="vx-howto">{{ . | safeHTML }}</div>
+        {{ end }}
+
+        {{ with $m.boundary }}
+        <div class="vx-boundary"><span class="vx-label">硬體邊界</span>{{ . | safeHTML }}</div>
+        {{ end }}
+
+        {{ with $m.drills }}
+        <span class="vx-block-label">對應練習</span>
+        {{ range . }}
+          {{ $dr := index $drillData . }}
+          <details class="vx-drill">
+            <summary>{{ if $dr }}<span class="did">{{ $dr.id }}</span>{{ end }}{{ . }}</summary>
+            <div class="vx-drill-body">
+              {{ if $dr }}
+                {{ with $dr.purpose }}<p>{{ . }}</p>{{ end }}
+                {{ with $dr.how_to }}<span class="vx-label">怎麼做</span><ol>{{ range . }}<li>{{ . }}</li>{{ end }}</ol>{{ end }}
+                {{ with $dr.perception }}<span class="vx-label">感知目標</span><p>{{ . }}</p>{{ end }}
+                {{ with $dr.equipment }}<p class="vx-drill-eq">器材：{{ delimit . "、" }}</p>{{ end }}
+              {{ else }}
+                <p>（此練習尚未建立詳解）</p>
+              {{ end }}
+            </div>
+          </details>
+        {{ end }}
+        {{ end }}
+
+        {{ with $m.lnote }}<div class="vx-boundary"><span class="vx-label">水感註記</span>{{ . }}</div>{{ end }}
+
+        <nav class="vx-flow">
+          {{ if gt $m.n 1 }}<button type="button" data-target="move-{{ sub $m.n 1 }}"><span class="lbl">上一個</span>← {{ (index $d.moves (sub $i 1)).name }}</button>{{ else }}<button type="button" data-target="overview"><span class="lbl">回到</span>← 概覽</button>{{ end }}
+          {{ if lt $m.n $n }}<button class="nx" type="button" data-target="move-{{ add $m.n 1 }}"><span class="lbl">下一個</span>{{ (index $d.moves (add $i 1)).name }} →</button>{{ else if $errs }}<button class="nx" type="button" data-target="errors"><span class="lbl">接著看</span>常見誤區 →</button>{{ end }}
+        </nav>
+      </section>
+      {{ end }}
+
+      {{/* ── 常見誤區 ── */}}
+      {{ if $errs }}
+      <section class="vx-panel" id="errors">
+        <span class="vx-sec-no">{{ $zh }} · 常見誤區</span>
+        <h2>常見誤區</h2>
+        <p class="vx-panel-lead">教學現場最常見的錯誤指令，以及它在物理與感知上錯在哪。</p>
+        <div class="vx-filters">
+          <button class="vx-chip is-active" type="button" data-cat="all">全部 {{ len $errs }}</button>
+          {{ range $errCats }}<button class="vx-chip" type="button" data-cat="{{ . }}">{{ index $errCatName . }}</button>{{ end }}
+        </div>
+        {{ range $errs }}
+        <details class="vx-card vx-err" data-cat="{{ .category }}">
+          <summary><span class="vx-cardcat">{{ index $errCatName .category }}</span><span class="vx-cardtitle">{{ .title }}</span></summary>
+          <div class="vx-card-body">
+            {{ with .misconception }}<span class="vx-label">常見說法</span><p class="vx-mis">{{ . }}</p>{{ end }}
+            {{ with .physical_reason }}<span class="vx-label">物理原因 {{ .certainty }}</span><p>{{ .text }}</p>{{ end }}
+            {{ with .correct_concept }}<span class="vx-label">正確觀念</span><p class="vx-correct">{{ . }}</p>{{ end }}
+            {{ with .perception_impact }}<span class="vx-label">感知影響</span><p>{{ . }}</p>{{ end }}
+            {{ with .evidence }}<span class="vx-label">依據</span>{{ range . }}<span class="vx-cite">{{ .certainty }} {{ .text }}{{ with .source }} <span class="src">— {{ . }}</span>{{ end }}{{ with .url }} <a href="{{ . }}" target="_blank" rel="noopener">↗</a>{{ end }}</span>{{ end }}{{ end }}
+          </div>
+        </details>
+        {{ end }}
+      </section>
+      {{ end }}
+
+      {{/* ── 深入機制 ── */}}
+      {{ if $techs }}
+      <section class="vx-panel" id="tech">
+        <span class="vx-sec-no">{{ $zh }} · 深入機制</span>
+        <h2>深入機制</h2>
+        <p class="vx-panel-lead">想知道「為什麼」時再讀——每則是一個獨立的物理或生理機制。</p>
+        <div class="vx-filters">
+          <button class="vx-chip is-active" type="button" data-cat="all">全部 {{ len $techs }}</button>
+          {{ range $techCats }}<button class="vx-chip" type="button" data-cat="{{ . }}">{{ index $techCatName . }}</button>{{ end }}
+        </div>
+        {{ range $techs }}
+        <details class="vx-card vx-tech" data-cat="{{ .category }}">
+          <summary><span class="vx-cardcat">{{ index $techCatName .category }}</span><span class="vx-cardtitle">{{ .title }}</span></summary>
+          <div class="vx-card-body">
+            {{ with .summary }}<p>{{ . }}</p>{{ end }}
+            {{ with .mechanism }}<span class="vx-label">機制 {{ .certainty }}</span><p>{{ .text }}</p>{{ end }}
+            {{ with .practical_implication }}<span class="vx-label">實務意涵</span><p class="vx-correct">{{ . }}</p>{{ end }}
+            {{ with .evidence }}<span class="vx-label">依據</span>{{ range . }}<span class="vx-cite">{{ .certainty }} {{ .text }}{{ with .source }} <span class="src">— {{ . }}</span>{{ end }}{{ with .url }} <a href="{{ . }}" target="_blank" rel="noopener">↗</a>{{ end }}</span>{{ end }}{{ end }}
+          </div>
+        </details>
+        {{ end }}
+      </section>
+      {{ end }}
+
+      {{/* ── 水感進程 ── */}}
+      {{ if $levels }}
+      <section class="vx-panel" id="levels">
+        <span class="vx-sec-no">{{ $zh }} · 水感進程</span>
+        <h2>水感進程 L0 → L6</h2>
+        <p class="vx-panel-lead">由淺入深的感知建立順序。公開層是「怎麼帶」；教練判讀訊號收在每層底下。</p>
+        <div class="vx-ladder">
+          {{ range $levels }}
+          <details class="vx-level">
+            <summary><span class="lv">{{ .level }}</span><span><span class="lvname">{{ .name_zh }}</span><span class="lvtag">{{ .tagline }}</span></span></summary>
+            <div class="vx-level-body">
+              {{ with .description }}<p>{{ . }}</p>{{ end }}
+              {{ with .methods }}
+              <span class="vx-block-label">怎麼帶</span>
+              {{ range . }}
+              <div class="vx-method">
+                <div class="vx-method-name">{{ .name }}</div>
+                {{ with .detail }}<div class="vx-method-detail">{{ . }}</div>{{ end }}
+                {{ with .cue }}<div class="vx-method-cue">「{{ . }}」</div>{{ end }}
+              </div>
+              {{ end }}
+              {{ end }}
+              {{ with .indicators }}
+              <details class="vx-diag">
+                <summary>教練判讀訊號</summary>
+                <p class="vx-diag-note">以下是診斷用的觀察依據，給帶課的人判斷學生是否到位，不是規定學生「該有什麼感覺」。</p>
+                {{ range . }}<div class="vx-ind"><span class="vx-ind-type">{{ .type }}</span>{{ .text }}</div>{{ end }}
+              </details>
+              {{ end }}
+              {{ with .quant }}<p class="vx-diag-note">量化基準：{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+        </div>
+      </section>
+      {{ end }}
+
     </main>
   </div>
 </div>
 
-{{/* name_zh → drill id 對照（fallback chip 連結用）+ name_zh → 公開欄位（inline 展開用） */}}
-{{/* 只放公開層欄位：purpose / how_to / perception_goal / equipment；不含 success_signal / failure_signal */}}
-{{ $drillIds := dict }}
-{{ $drillData := dict }}
-{{ with (index .Site.Data.vortex "drills") }}
-  {{ range .drills }}
-    {{ $drillIds = merge $drillIds (dict .name_zh .id) }}
-    {{ $drillData = merge $drillData (dict .name_zh (dict
-      "id" .id
-      "en" .name_en
-      "purpose" .purpose_zh
-      "how_to" .how_to
-      "perception" .perception_goal
-      "equipment" .equipment
-      "levels" .l_target)) }}
-  {{ end }}
-{{ end }}
-<script>
-const STROKES = {{ $strokes | jsonify | safeJS }};
-const INIT_STROKE = {{ .Params.explorer_data | jsonify | safeJS }};
-const DRILL_IDS = {{ $drillIds | jsonify | safeJS }};
-const DRILLS_DATA = {{ $drillData | jsonify | safeJS }};
-const DRILLS_URL = {{ printf "%svortex/drills/" .Site.BaseURL | jsonify | safeJS }};
-</script>
-<script src="{{ .Site.BaseURL }}js/vortex-explorer.js" defer></script>
+<script src="{{ .Site.BaseURL }}js/vortex.js" defer></script>
 {{ end }}

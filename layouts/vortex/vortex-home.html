@@ -1,352 +1,68 @@
 {{ define "head-extra" }}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex-home.css">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
 {{ end }}
 
 {{ define "main" }}
 {{ $base := .Site.BaseURL }}
-{{ $strokeZh := dict "free" "自由式" "back" "仰式" "breast" "蛙式" "fly" "蝶式" "udk" "水下蝶腳" "starts-turns" "出發轉身" }}
+{{ $strokeZh := dict "free" "自由式" "back" "仰式" "breast" "蛙式" "fly" "蝶式" "udk" "水下蝶腳" "starts-turns" "出發與轉身" }}
 {{ $strokeEn := dict "free" "Freestyle" "back" "Backstroke" "breast" "Breaststroke" "fly" "Butterfly" "udk" "Underwater Dolphin Kick" "starts-turns" "Starts & Turns" }}
-{{ $strokeSlug := dict "free" "freestyle" "back" "backstroke" "breast" "breaststroke" "fly" "butterfly" "udk" "underwater-dolphin-kick" "starts-turns" "starts-turns" }}
-{{ $drillStrokeKey := dict "freestyle" "free" "backstroke" "back" "breaststroke" "breast" "butterfly" "fly" "underwater_dolphin_kick" "udk" "sculling" "" }}
-
-{{ $idx := slice }}
-
-{{/* ── 技術分析 ── */}}
-{{ $techN := 0 }}
-{{ with index .Site.Data.vortex "technical-analysis" }}
-  {{ $catNames := dict }}{{ range .categories }}{{ $catNames = merge $catNames (dict .key .name_zh) }}{{ end }}
-  {{ $techN = len .points }}
-  {{ range .points }}
-    {{ $cert := "" }}{{ with .mechanism }}{{ $cert = .certainty }}{{ end }}
-    {{ $idx = $idx | append (dict
-      "t" "tech" "ti" .title "en" "" "s" (.summary | truncate 96)
-      "st" .stroke "lv" "" "c" (index $catNames .category | default .category)
-      "ce" $cert "u" (printf "%svortex/technical/#tech-%s" $base .id)) }}
-  {{ end }}
-{{ end }}
-
-{{/* ── 教學誤區 ── */}}
-{{ $errN := 0 }}
-{{ with index .Site.Data.vortex "teaching-errors" }}
-  {{ $errN = len .errors }}
-  {{ range .errors }}
-    {{ $cert := "" }}{{ with .physical_reason }}{{ $cert = .certainty }}{{ end }}
-    {{ $idx = $idx | append (dict
-      "t" "error" "ti" .title "en" "" "s" (.misconception | truncate 96)
-      "st" .stroke "lv" "" "c" .category
-      "ce" $cert "u" (printf "%svortex/errors/#err-%s" $base .id)) }}
-  {{ end }}
-{{ end }}
-
-{{/* ── 動作練習 ── */}}
-{{ $drillN := 0 }}
-{{ with index .Site.Data.vortex "drills" }}
-  {{ $drillN = len .drills }}
-  {{ range .drills }}
-    {{ $sts := slice }}
-    {{ range .strokes }}{{ $k := index $drillStrokeKey . | default "" }}{{ if ne $k "" }}{{ $sts = $sts | append $k }}{{ end }}{{ end }}
-    {{ $idx = $idx | append (dict
-      "t" "drill" "ti" .name_zh "en" .name_en "s" (.purpose_zh | truncate 96)
-      "st" (delimit (uniq $sts) " ") "lv" (delimit .l_target " ") "c" .category
-      "ce" "" "u" (printf "%svortex/drills/#drill-%s" $base .id)) }}
-  {{ end }}
-{{ end }}
-
-{{/* ── 水感層級 ── */}}
-{{ $lvlN := 0 }}
-{{ with index .Site.Data.vortex "water-sense-levels" }}
-  {{ $lvlN = len .levels }}
-  {{ range .levels }}
-    {{ $idx = $idx | append (dict
-      "t" "level" "ti" (printf "%s · %s" .level .name_zh) "en" "" "s" (.tagline | default (.description | truncate 96))
-      "st" .stroke "lv" .level "c" ""
-      "ce" "" "u" (printf "%svortex/levels/#lvl-%s" $base .id)) }}
-  {{ end }}
-{{ end }}
-
-{{/* ── L 指標 ── */}}
-{{ $indN := 0 }}
-{{ with index .Site.Data.vortex "l-indicators" }}
-  {{ $indN = len .indicators }}
-  {{ range .indicators }}
-    {{ $cert := "" }}{{ with .evidence }}{{ $cert = (index . 0).certainty }}{{ end }}
-    {{ $idx = $idx | append (dict
-      "t" "indicator" "ti" .aspect "en" "" "s" (.indicator | truncate 96)
-      "st" .stroke "lv" .level "c" ""
-      "ce" $cert "u" (printf "%svortex/matrix/#ind-%s" $base .id)) }}
-  {{ end }}
-{{ end }}
-
-{{/* ── 感知時刻（各式 moves）+ 泳式入口 ── */}}
-{{ $moveN := 0 }}
 {{ $strokeMeta := slice
   (dict "key" "free" "slug" "freestyle") (dict "key" "back" "slug" "backstroke")
   (dict "key" "breast" "slug" "breaststroke") (dict "key" "fly" "slug" "butterfly")
   (dict "key" "udk" "slug" "underwater-dolphin-kick") (dict "key" "starts-turns" "slug" "starts-turns") }}
-{{ range $sm := $strokeMeta }}
-  {{ $d := index $.Site.Data.vortex $sm.key }}
-  {{ with $d }}
-    {{ $url := printf "%svortex/%s/" $base $sm.slug }}
-    {{ $nm := index $strokeZh $sm.key }}
-    {{ $idx = $idx | append (dict
-      "t" "stroke" "ti" $nm "en" "" "s" (.premise | replaceRE "<span class=\"cert\">.*?</span>" "" | plainify | truncate 96)
-      "st" $sm.key "lv" "" "c" ""
-      "ce" "" "u" $url) }}
-    {{ range .moves }}
-      {{ $moveN = add $moveN 1 }}
-      {{ $idx = $idx | append (dict
-        "t" "move" "ti" .name "en" "" "s" (.one | default "" | truncate 96)
-        "st" $sm.key "lv" (.l | default "") "c" ""
-        "ce" "" "u" $url) }}
+
+<div class="vx-home">
+
+  <header class="vx-masthead">
+    <p class="vx-eyebrow">Cortex · Vortex</p>
+    <h1>水感知識庫</h1>
+    <p class="vx-lead">把每一式拆成可操作的動作分解、物理條件與口訣校正。想學哪一式，就從那一式翻起——一頁讀完，不跳來跳去。</p>
+  </header>
+
+  {{/* ── 新手入口 ── */}}
+  <a class="vx-start" href="{{ $base }}vortex/freestyle/#overview">
+    <span class="vx-start-no">00</span>
+    <span>
+      <span class="vx-start-h">完全沒概念？從自由式開始</span>
+      <span class="vx-start-d">自由式是最通用的入門式。從入水、抓水到踢水，一個動作一個動作往下看，看不懂的詞都附了白話口訣。</span>
+      <span class="vx-start-go">開始讀 →</span>
+    </span>
+  </a>
+
+  {{/* ── 六式目次 ── */}}
+  <h2 class="vx-label vx-toc-label">六式 · 完整動作分解</h2>
+  <div class="vx-toc">
+    {{ range $i, $sm := $strokeMeta }}
+      {{ $d := index $.Site.Data.vortex $sm.key }}
+      {{ with $d }}
+        {{ $url := printf "%svortex/%s/" $base $sm.slug }}
+        {{ $nMoves := len .moves }}
+        <a class="vx-toc-row" href="{{ $url }}">
+          <span class="vx-toc-num">{{ printf "%02d" (add $i 1) }}</span>
+          <span class="vx-toc-main">
+            <span class="vx-toc-zh">{{ index $strokeZh $sm.key }}</span>
+            <span class="vx-toc-en">{{ index $strokeEn $sm.key }}</span>
+          </span>
+          <span class="vx-toc-prem">{{ .premise | replaceRE "<span class=\"cert\">.*?</span>" "" | plainify | truncate 70 }}</span>
+          <span class="vx-toc-meta">{{ $nMoves }} 個動作<br><span class="arr">→</span></span>
+        </a>
+      {{ end }}
     {{ end }}
-  {{ end }}
-{{ end }}
-
-<div class="vxq">
-  <div class="vxq-wrap">
-
-    <header class="vxq-mast">
-      <p class="vxq-kicker">Cortex / Vortex · 感知地圖</p>
-      <h1 class="vxq-title">水感知識庫</h1>
-      <p class="vxq-lead">想學哪一式，就從那一式開始——每一式都有完整的動作分解、物理條件與口訣。已經知道要找什麼，往下用搜尋直接查。</p>
-    </header>
-
-    {{/* ── 主入口：選一式 ── */}}
-    <section class="vxq-portals">
-      <h2 class="vxq-portals-h">想學哪一式？</h2>
-      <p class="vxq-portals-hint">點進去看完整動作分解——一步一步，從入水到踢水。完全沒概念也看得懂。</p>
-      <div class="vxq-portal-grid">
-        {{ range $sm := $strokeMeta }}
-          {{ $d := index $.Site.Data.vortex $sm.key }}
-          {{ with $d }}
-            {{ $url := printf "%svortex/%s/" $base $sm.slug }}
-            <a class="vxq-portal" data-s="{{ $sm.key }}" href="{{ $url }}">
-              <span class="vxq-portal-head">
-                <span class="vxq-portal-zh">{{ index $strokeZh $sm.key }}</span>
-                <span class="vxq-portal-en">{{ index $strokeEn $sm.key }}</span>
-              </span>
-              <span class="vxq-portal-prem">{{ .premise | replaceRE "<span class=\"cert\">.*?</span>" "" | plainify | truncate 64 }}</span>
-              <span class="vxq-portal-go">完整動作分解 <span aria-hidden="true">→</span></span>
-            </a>
-          {{ end }}
-        {{ end }}
-      </div>
-      <p class="vxq-portals-foot">不確定「水感」是什麼？先看 <a href="{{ $base }}vortex/levels/">水感層級 L0–L6</a>，從最基礎的感覺開始。</p>
-    </section>
-
-    <div class="vxq-search" id="vxqSearch">
-      <p class="vxq-search-h">知道要找什麼？直接查</p>
-      <div class="vxq-search-field">
-        <span class="vxq-search-mark" aria-hidden="true">▮</span>
-        <input class="vxq-input" id="vxqInput" type="search" autocomplete="off"
-               placeholder="搜尋技術點、誤區、練習、指標……（例：早期抓水、額頭、L3）"
-               aria-label="搜尋水感知識庫">
-        <button class="vxq-clear" id="vxqClear" type="button">清除 ✕</button>
-      </div>
-      <p class="vxq-count" id="vxqCount"></p>
-    </div>
-
-    <div class="vxq-facets" id="vxqFacets">
-      <div class="vxq-facet" data-facet="type">
-        <span class="vxq-facet-label">類型</span>
-        <div class="vxq-chips">
-          <button class="vxq-chip" data-value="all" aria-pressed="true">全部</button>
-          <button class="vxq-chip" data-value="tech" aria-pressed="false"><span class="vxq-chip-dot" style="color:#D4622A">●</span>技術</button>
-          <button class="vxq-chip" data-value="error" aria-pressed="false"><span class="vxq-chip-dot" style="color:#C0392B">●</span>誤區</button>
-          <button class="vxq-chip" data-value="drill" aria-pressed="false"><span class="vxq-chip-dot" style="color:#4E7A6C">●</span>練習</button>
-          <button class="vxq-chip" data-value="level" aria-pressed="false"><span class="vxq-chip-dot" style="color:#1B3A5C">●</span>層級</button>
-          <button class="vxq-chip" data-value="indicator" aria-pressed="false"><span class="vxq-chip-dot" style="color:#8B6F2A">●</span>指標</button>
-          <button class="vxq-chip" data-value="move" aria-pressed="false"><span class="vxq-chip-dot" style="color:#7A6A52">●</span>感知時刻</button>
-          <button class="vxq-chip" data-value="stroke" aria-pressed="false"><span class="vxq-chip-dot" style="color:#1A1A1A">●</span>泳式</button>
-        </div>
-      </div>
-      <div class="vxq-facet" data-facet="stroke">
-        <span class="vxq-facet-label">泳式</span>
-        <div class="vxq-chips">
-          <button class="vxq-chip" data-value="all" aria-pressed="true">全部</button>
-          <button class="vxq-chip" data-value="free" aria-pressed="false">自由式</button>
-          <button class="vxq-chip" data-value="back" aria-pressed="false">仰式</button>
-          <button class="vxq-chip" data-value="breast" aria-pressed="false">蛙式</button>
-          <button class="vxq-chip" data-value="fly" aria-pressed="false">蝶式</button>
-          <button class="vxq-chip" data-value="udk" aria-pressed="false">水下蝶腳</button>
-          <button class="vxq-chip" data-value="starts-turns" aria-pressed="false">出發轉身</button>
-        </div>
-      </div>
-      <div class="vxq-facet" data-facet="level">
-        <span class="vxq-facet-label">層級</span>
-        <div class="vxq-chips">
-          <button class="vxq-chip" data-value="all" aria-pressed="true">全部</button>
-          <button class="vxq-chip" data-value="L0" aria-pressed="false">L0</button>
-          <button class="vxq-chip" data-value="L1" aria-pressed="false">L1</button>
-          <button class="vxq-chip" data-value="L2" aria-pressed="false">L2</button>
-          <button class="vxq-chip" data-value="L3" aria-pressed="false">L3</button>
-          <button class="vxq-chip" data-value="L4" aria-pressed="false">L4</button>
-          <button class="vxq-chip" data-value="L5" aria-pressed="false">L5</button>
-          <button class="vxq-chip" data-value="L6" aria-pressed="false">L6</button>
-        </div>
-      </div>
-      <div class="vxq-facet" data-facet="certainty">
-        <span class="vxq-facet-label">確定性</span>
-        <div class="vxq-chips">
-          <button class="vxq-chip" data-value="all" aria-pressed="true">全部</button>
-          <button class="vxq-chip" data-value="🔵" aria-pressed="false">🔵 推導</button>
-          <button class="vxq-chip" data-value="🟢" aria-pressed="false">🟢 近期文獻</button>
-          <button class="vxq-chip" data-value="🟡" aria-pressed="false">🟡 舊文獻</button>
-          <button class="vxq-chip" data-value="🟠" aria-pressed="false">🟠 教練觀測</button>
-          <button class="vxq-chip" data-value="🔴" aria-pressed="false">🔴 待查</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="vxq-results" id="vxqResults" aria-live="polite"></div>
-
-    <footer class="vxq-foot">
-      <section>
-        <p class="vxq-foot-h">完整探索器 — 進階篩選</p>
-        <ul class="vxq-exolist">
-          <li><a class="vxq-exo" href="{{ $base }}vortex/levels/"><span class="vxq-exo-name">水感層級</span><span class="vxq-exo-n">{{ $lvlN }} 層級 · L0–L6 序列</span><span class="vxq-exo-arrow">→</span></a></li>
-          <li><a class="vxq-exo" href="{{ $base }}vortex/technical/"><span class="vxq-exo-name">技術分析</span><span class="vxq-exo-n">{{ $techN }} 技術點</span><span class="vxq-exo-arrow">→</span></a></li>
-          <li><a class="vxq-exo" href="{{ $base }}vortex/errors/"><span class="vxq-exo-name">教學誤區</span><span class="vxq-exo-n">{{ $errN }} 條誤區</span><span class="vxq-exo-arrow">→</span></a></li>
-          <li><a class="vxq-exo" href="{{ $base }}vortex/matrix/"><span class="vxq-exo-name">L 指標矩陣</span><span class="vxq-exo-n">{{ $indN }} 格 · L × 泳式</span><span class="vxq-exo-arrow">→</span></a></li>
-          <li><a class="vxq-exo" href="{{ $base }}vortex/drills/"><span class="vxq-exo-name">練習資料庫</span><span class="vxq-exo-n">{{ $drillN }} 練習</span><span class="vxq-exo-arrow">→</span></a></li>
-        </ul>
-      </section>
-      <section>
-        <p class="vxq-foot-h">需要長文脈絡</p>
-        <ul class="vxq-prose">
-          <li><a href="{{ $base }}vortex/technica/water-sense-guide/"><span class="vxq-prose-name">水感指南</span><span class="vxq-prose-sub">L0–L6 感知發展序列的完整脈絡</span></a></li>
-          <li><a href="{{ $base }}vortex/technica/"><span class="vxq-prose-name">Technica 原文</span><span class="vxq-prose-sub">水感框架層的研究文章</span></a></li>
-          <li><a href="{{ $base }}vortex/instructional/"><span class="vxq-prose-name">Instructional 原文</span><span class="vxq-prose-sub">四式技術的物理條件與教學誤解</span></a></li>
-        </ul>
-        <p class="vxq-foot-h">確定性標記</p>
-        <div class="vxq-legend">
-          <p>🔵 推導 · 🟢 近期文獻 · 🟡 舊文獻 · 🟠 教練觀測 · 🔴 待查</p>
-          <p class="vxq-legend-note">每條內容標注知識的確定性——文獻確認、教練觀測、或仍在查證。</p>
-        </div>
-      </section>
-    </footer>
-
   </div>
+
+  {{/* ── 次要：跨式資料庫 + 長文 ── */}}
+  <h2 class="vx-label vx-toc-label">想直接查 · 跨泳式</h2>
+  <div class="vx-home-foot">
+    <a href="{{ $base }}vortex/database/">跨泳式資料庫（誤區 · 機制 · 練習 · L 指標）</a>
+    <a href="{{ $base }}vortex/technica/water-sense-guide/">水感指南 L0–L6</a>
+    <a href="{{ $base }}vortex/technica/">Technica 研究原文</a>
+    <a href="{{ $base }}vortex/instructional/">Instructional 技術原文</a>
+  </div>
+
+  <p class="vx-legend">🔵 推導 · 🟢 近期文獻 · 🟡 舊文獻 · 🟠 教練觀測 · 🔴 待查 — 每條內容標注知識的確定性。</p>
+
 </div>
-
-<script id="vxqData" type="application/json">{{ $idx | jsonify | safeJS }}</script>
-<script>
-(function () {
-  var DATA = [];
-  try { DATA = JSON.parse(document.getElementById('vxqData').textContent); } catch (e) { DATA = []; }
-
-  var TYPE_ZH = { tech:'技術', error:'誤區', drill:'練習', level:'層級', indicator:'指標', move:'感知時刻', stroke:'泳式' };
-  var STROKE_ZH = { free:'自由式', back:'仰式', breast:'蛙式', fly:'蝶式', udk:'水下蝶腳', 'starts-turns':'出發轉身' };
-
-  var state = { q:'', type:'all', stroke:'all', level:'all', certainty:'all' };
-  var input  = document.getElementById('vxqInput');
-  var clear  = document.getElementById('vxqClear');
-  var search = document.getElementById('vxqSearch');
-  var countE = document.getElementById('vxqCount');
-  var results= document.getElementById('vxqResults');
-
-  // 預先建立小寫檢索字串
-  DATA.forEach(function (d) { d._h = ((d.ti||'') + ' ' + (d.en||'') + ' ' + (d.s||'')).toLowerCase(); });
-
-  function esc(s){ return (s||'').replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
-
-  function match(d) {
-    if (state.type !== 'all' && d.t !== state.type) return false;
-    if (state.stroke !== 'all') {
-      var sts = (d.st||'').split(' ');
-      if (sts.indexOf(state.stroke) === -1) return false;
-    }
-    if (state.level !== 'all') {
-      var lvs = (d.lv||'').split(' ');
-      if (lvs.indexOf(state.level) === -1) return false;
-    }
-    if (state.certainty !== 'all' && d.ce !== state.certainty) return false;
-    if (state.q && d._h.indexOf(state.q) === -1) return false;
-    return true;
-  }
-
-  function isPristine() {
-    return state.q === '' && state.type === 'all' && state.stroke === 'all'
-        && state.level === 'all' && state.certainty === 'all';
-  }
-
-  function render() {
-    if (isPristine()) {
-      results.innerHTML = '<p class="vxq-start">上面選一式開始，<br>或在搜尋框打關鍵字、點下面的篩選，就會在這裡列出結果。</p>';
-      countE.innerHTML = '';
-      return;
-    }
-    var hits = DATA.filter(match);
-    var n = hits.length;
-    var cap = 120;
-    var shown = hits.slice(0, cap);
-    var html = '';
-    if (n === 0) {
-      html = '<p class="vxq-empty">沒有符合的內容。<br>試試放寬篩選，或換個關鍵字。</p>';
-    } else {
-      shown.forEach(function (d) {
-        var meta = '';
-        var stz = (d.st||'').split(' ').filter(Boolean).map(function(k){ return STROKE_ZH[k]||k; });
-        if (stz.length) meta += '<span class="vxq-tag">' + esc(stz.join(' / ')) + '</span>';
-        var lvz = (d.lv||'').split(' ').filter(Boolean);
-        lvz.forEach(function(l){ meta += '<span class="vxq-tag">' + esc(l) + '</span>'; });
-        if (d.c) meta += '<span class="vxq-tag">' + esc(d.c) + '</span>';
-        html +=
-          '<a class="vxq-hit" data-t="' + d.t + '" href="' + esc(d.u) + '">' +
-            '<span class="vxq-hit-head">' +
-              '<span class="vxq-hit-type">' + (TYPE_ZH[d.t]||d.t) + '</span>' +
-              (d.ce ? '<span class="vxq-hit-cert">' + d.ce + '</span>' : '') +
-            '</span>' +
-            '<h3 class="vxq-hit-title">' + esc(d.ti) +
-              (d.en ? '<span class="vxq-en">' + esc(d.en) + '</span>' : '') +
-            '</h3>' +
-            (d.s ? '<p class="vxq-hit-sum">' + esc(d.s) + '</p>' : '') +
-            (meta ? '<span class="vxq-hit-meta">' + meta + '</span>' : '') +
-          '</a>';
-      });
-    }
-    results.innerHTML = html;
-    if (n === 0) { countE.innerHTML = '0 筆'; }
-    else if (n > cap) { countE.innerHTML = '<b>' + n + '</b> 筆 · 顯示前 ' + cap + ' 筆，縮小篩選看更多'; }
-    else { countE.innerHTML = '<b>' + n + '</b> 筆'; }
-  }
-
-  var t;
-  input.addEventListener('input', function () {
-    clearTimeout(t);
-    t = setTimeout(function () {
-      state.q = input.value.trim().toLowerCase();
-      search.classList.toggle('has-q', state.q.length > 0);
-      render();
-    }, 110);
-  });
-  clear.addEventListener('click', function () {
-    input.value = ''; state.q = ''; search.classList.remove('has-q'); input.focus(); render();
-  });
-
-  document.getElementById('vxqFacets').addEventListener('click', function (e) {
-    var btn = e.target.closest('.vxq-chip'); if (!btn) return;
-    var facet = btn.closest('.vxq-facet').dataset.facet;
-    state[facet] = btn.dataset.value;
-    btn.closest('.vxq-chips').querySelectorAll('.vxq-chip').forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
-    render();
-  });
-
-  // 深連結：?type=&stroke=&level=&q=
-  var p = new URLSearchParams(location.search);
-  ['type','stroke','level','certainty'].forEach(function (k) {
-    var v = p.get(k); if (!v) return;
-    var btn = document.querySelector('.vxq-facet[data-facet="' + k + '"] .vxq-chip[data-value="' + CSS.escape(v) + '"]');
-    if (!btn) return;
-    state[k] = v;
-    btn.closest('.vxq-chips').querySelectorAll('.vxq-chip').forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
-  });
-  if (p.get('q')) { input.value = p.get('q'); state.q = p.get('q').toLowerCase(); search.classList.add('has-q'); }
-
-  render();
-})();
-</script>
 {{ end }}
