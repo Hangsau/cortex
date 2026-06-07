@@ -1,0 +1,226 @@
+domain: periodization
+sub: structure
+schema_version: 1
+source_repos:
+- resources/books/Periodization__Theory_and_Methodology_of_Training/
+phases:
+- key: preparatory
+  name_zh: 準備期
+  name_en: Preparatory
+  cert: 🟡
+  source: Ch5 Periodization Terminology; Ch8 Phases
+  purpose_zh: 建立表現的生理基礎；準備期不足則競賽期表現無法最大化
+  subphases:
+  - key: general
+    name_zh: 一般準備
+    cert: 🟡
+    source: Ch8
+    share_of_prep: 25–33% of 準備期
+    intensity_cap: ≤40% of 總量
+    endurance_aerobic_share: 耐力運動 70–80% aerobic
+    focus_zh: 用多元非專項與專項方法建立生理基礎
+  - key: specific
+    name_zh: 專項準備
+    cert: 🟡
+    source: Ch8
+    sport_specific_share: 70–80% sport-specific work
+    focus_zh: 用專項模態發展項目所需特性
+- key: competitive
+  name_zh: 競賽期
+  name_en: Competitive
+  cert: 🟡
+  source: Ch5; Ch8
+  purpose_zh: 表現能力最大化；維持 90% 專項 / 10% 非專項
+  subphases:
+  - key: precompetitive
+    name_zh: 賽前
+    cert: 🟡
+    source: Ch8
+    note_zh: 通常僅熱身賽 / 展示賽
+  - key: main_competitive
+    name_zh: 主競賽
+    cert: 🟡
+    source: Ch8
+    note_zh: 所有正式比賽；主賽前接 unloading/taper + special preparation 子階段
+- key: transition
+  name_zh: 過渡期
+  name_en: Transition
+  cert: 🟡
+  source: Ch8 Transition Phase
+  duration_weeks:
+    min: 2
+    max: 4
+    extended_max: 6
+    note: 一般 2–4 週，年輕運動員可延至 6 週，正常不超過 6 週
+  maintain_fitness: 維持 40–50% 競賽期一般體能
+  purpose_zh: 移除疲勞、心理放鬆、生物再生；用主動休息(active rest)而非完全停練
+  warning_zh: 非 off-season；完全停練 <4 週即顯著 detraining（見 detraining 安全表）
+annual_plan_types:
+- id: periodization.structure.annual.monocycle
+  key: monocycle
+  name_zh: 單週期
+  name_en: Monocycle
+  cert: 🟡
+  source: Ch5 Table 5.1; Ch8 Classifying Annual Plans (Fig 8.4/8.5)
+  total_weeks: 52
+  peaks: 1
+  weeks:
+    preparatory:
+      min: 28
+      max: null
+      note: ≥28
+    competitive:
+      min: 12
+      max: 22
+    transition:
+      min: 4
+      max: 4
+  suited_for_zh: 新手 / 青少年；季節性運動；耐力主導項目（北歐滑雪、划船、自行車、長跑）
+  swim_application_zh: 🔵 游泳本質高度有氧，耐力型 monocycle（Fig 8.5）體積曲線需全程維持高；適合泳齡尚淺、單一目標賽季的泳者
+  links:
+    development_stages:
+    - l2t
+    - t2t
+- id: periodization.structure.annual.bicycle
+  key: bi-cycle
+  name_zh: 雙週期
+  name_en: Bi-cycle
+  cert: 🟡
+  source: Ch5 Table 5.1; Ch8 (Fig 8.6); Ch5 Fig 5.11 (游泳 200m 範例)
+  total_weeks: 26
+  peaks: 2
+  weeks:
+    preparatory:
+      min: 12
+      max: 16
+    competitive:
+      min: 6
+      max: 12
+    transition:
+      min: 1
+      max: 4
+  structure_note_zh: 兩個短 monocycle 以極短 unloading/transition 相連；準備期1體積遠大於準備期2；競賽期2目標年度最重要賽事
+  suited_for_zh: 進階 / 菁英；可達全國錦標資格者
+  swim_application_zh: 🔵 競技泳者原型年計畫——Bompa Fig 5.11 即『游泳 200m bi-cycle（冬季 + 夏季全國錦標）』；對映 ADM T2W『一年兩巔峰（春季選拔 + 夏季國際賽）』
+  links:
+    development_stages:
+    - t2c
+    - t2w
+- id: periodization.structure.annual.tricycle
+  key: tri-cycle
+  name_zh: 三週期
+  name_en: Tri-cycle
+  cert: 🟡
+  source: Ch5 Table 5.1; Ch8 (Fig 8.7)
+  peaks: 3
+  weeks_note_zh: 三段分別約 20–24(冬)/16–18(春夏)/4–6(夏)；準備期 12–20/10–12/2–4；競賽期 4–6/8–12/2–4；過渡期 1–2/1–2/3–6
+  structure_note_zh: 首準備期最長（含一般準備子階段）；最重要賽事置於第三 cycle；通常僅進階運動員使用
+  suited_for_zh: 進階 / 國際級（冬季錦標 + 夏季全國 + 世錦/奧運）
+  swim_application_zh: 🔵 高水準泳者多目標賽季；ADM T2W 終身競技階段可演進至此
+  links:
+    development_stages:
+    - t2w
+- id: periodization.structure.annual.multipeak
+  key: multipeak
+  name_zh: 多巔峰
+  name_en: Multiple-peak
+  cert: 🟡
+  source: Ch5 Table 5.1; Ch5 Selective Periodization; Ch8 (Fig 8.8)
+  weeks:
+    per_cycle:
+      min: 11
+      max: 16
+    preparatory:
+      min: 9
+      max: 12
+    competitive:
+      min: 1
+      max: 2
+    transition:
+      min: 1
+      max: 2
+  structure_note_zh: 週數少、準備期明顯短；僅適合 4–6 年訓練底、高運動能力、能承受密集賽事者（如網球）
+  suited_for_zh: 資深運動員（4–6 年訓練背景）；不建議青少年（易多重傷害）
+  swim_application_zh: 🔵 游泳少用純 multipeak；僅適用賽事極密集的職業 / 系列賽泳者
+  links:
+    development_stages: []
+macrocycle:
+  id: periodization.structure.macrocycle
+  cert: 🟡
+  source: Ch7 Planning Training Cycles
+  duration_weeks:
+    min: 2
+    max: 6
+    prep_macrocycle:
+      min: 4
+      max: 7
+  loading_patterns:
+  - ratio: '3:1'
+    cert: 🟡
+    note_zh: 最常見（probably the most common）；契合身體自然生物節律
+    default: true
+  - ratio: '4:1'
+    cert: 🟡
+    note_zh: 早期準備期
+  - ratio: '2:1'
+    cert: 🟡
+    note_zh: 爆發專項準備
+  - ratio: 2:2 / 1:1
+    cert: 🟡
+    note_zh: 競賽期
+  - ratio: '3:2'
+    cert: 🟡
+    note_zh: 高疲勞時
+  swim_application_zh: 🔵 游泳週課表結構基礎：3 個負荷週 + 1 個 unloading 週為預設；高疲勞泳者改 3:2
+  links:
+    development_stages:
+    - t2t
+    - t2c
+    - t2w
+microcycle:
+  id: periodization.structure.microcycle
+  cert: 🟡
+  source: Ch7 Planning Training Cycles (Table 7.1 強度分區見 zones.yaml)
+  duration: 1 週
+  classifications:
+  - key: developmental
+    name_zh: 發展型
+    cert: 🟡
+  - key: competition
+    name_zh: 競賽型
+    cert: 🟡
+    note_zh: 賽前 3–5 天達峰
+  - key: recovery_regen
+    name_zh: 恢復再生型
+    cert: 🟡
+  - key: peaking_unloading
+    name_zh: 達峰/卸載型
+    cert: 🟡
+    note_zh: 體積降 ≥50%、強度降 5–10%
+  swim_application_zh: 🔵 週為游泳課表最小規劃單位；unloading 微週期用於賽前與 macrocycle 銜接
+  links:
+    development_stages:
+    - t2t
+    - t2c
+    - t2w
+detraining:
+  id: periodization.structure.detraining
+  cert: 🟢
+  source: Ch8 Table 8.2; Mujika & Padilla 2000
+  vo2max_loss:
+  - days: 4
+    loss: 4%
+  - weeks: 3
+    loss: 7%
+  - weeks: 4
+    loss: 14%
+  - weeks: 8
+    loss: 20%
+  strength_power_loss_zh: 4 週完全停力量訓練：最大肌力降 6–10%、最大功率降 14–17%；菁英運動員衰退更快
+  endurance_perf_loss_zh: 短期(<4週)停練：力竭時間降 4–25%
+  reversible_note_zh: 短時間恢復訓練可逆轉；完全停練 <4 週即顯著 detraining → 過渡期務必 active rest
+  swim_application_zh: 🔵 游泳排賽季間休 / 傷停課表時，過渡期 >4 週需保留低量 active rest 以免 VO2max 大幅流失
+  links:
+    development_stages:
+    - t2c
+    - t2w

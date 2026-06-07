@@ -1,0 +1,135 @@
+domain: periodization
+sub: zones
+schema_version: 1
+source_repos:
+- resources/books/Periodization__Theory_and_Methodology_of_Training/
+intensity_zones:
+  id: periodization.zones.table_7_1
+  cert: 🟡
+  source: Ch7 Table 7.1 Intensity Zones and Training Demand
+  zones:
+  - zone: 1
+    demand_zh: 非常高
+    pct_max_performance: 90–100%
+    intensity_zh: 最大
+  - zone: 2
+    demand_zh: 高
+    pct_max_performance: 80–90%
+    intensity_zh: 重
+  - zone: 3
+    demand_zh: 中
+    pct_max_performance: 70–80%
+    intensity_zh: 中
+  - zone: 4
+    demand_zh: 低
+    pct_max_performance: 50–70%
+    intensity_zh: 低
+  - zone: 5
+    demand_zh: 非常低
+    pct_max_performance: <50%
+    intensity_zh: 非常低
+  - zone: recovery
+    demand_zh: 恢復
+    pct_max_performance: 無訓練
+    intensity_zh: 恢復
+  note_zh: 比賽配速 = zone 2；Bompa 建議每週至少 50% 訓練時間落在比賽配速強度。高於賽配速由無氧供能主導，低於賽配速由有氧供能主導
+hr_vo2_ergogenesis:
+  id: periodization.zones.table_11_2
+  cert: 🟡
+  source: Ch11 Table 11.2
+  rows:
+  - pct_hr_max: 50%
+    pct_vo2max: 28%
+    system_zh: 氧化-糖解（有氧）
+    target_zh: 主動恢復 / 有氧基礎
+  - pct_hr_max: 70%
+    pct_vo2max: 56%
+    system_zh: 糖解有氧
+    target_zh: 廣度有氧能力 (extensive aerobic capacity)
+  - pct_hr_max: 80%
+    pct_vo2max: 70%
+    system_zh: 糖解無氧-有氧
+    target_zh: 強度有氧能力 / 廣度有氧功率
+  - pct_hr_max: 90%
+    pct_vo2max: 83%
+    system_zh: 糖解有氧-無氧
+    target_zh: 強度有氧功率 (intensive aerobic power)
+  - pct_hr_max: 96%
+    pct_vo2max: 90%
+    system_zh: 糖解無氧-有氧
+    target_zh: 強度有氧功率 + 廣度無氧能力
+  - pct_hr_max: 100%
+    pct_vo2max: 100%
+    system_zh: 最大
+    target_zh: 無氧功率 / 最大
+liee_methods:
+  id: periodization.zones.table_11_1
+  cert: 🟡
+  source: Ch11 Table 11.1 Methods of developing low-intensity exercise endurance
+  warning_zh: LIEE（低強度）與 HIEE（高強度）不可混用；耐力型態選錯會降低專項表現
+  methods:
+  - key: active_rest
+    name_zh: 主動恢復
+    freq_per_wk: 1–2
+    duration: 30–60 min
+    intensity_zh: <60% HR / <40% VO2max
+  - key: lsd
+    name_zh: 長慢距離(LSD)
+    freq_per_wk: 1–2
+    duration: ≥30 min
+    intensity_zh: 66–80% HR / 50–70% VO2max
+  - key: continuous_tempo
+    name_zh: 連續配速/節奏
+    freq_per_wk: 1–2
+    duration: 20–30 min
+    intensity_zh: 乳酸閾值 (LT)
+  - key: aerobic_intervals
+    name_zh: 有氧間歇
+    freq_per_wk: 1–2
+    duration: 20–40 min
+    intensity_zh: 80–100% HR / 70–100% VO2max
+  - key: anaerobic_intervals
+    name_zh: 無氧間歇
+    freq_per_wk: 1–2
+    duration: <2 min 衝刺 (W:R 1:0.5–1:5)
+    intensity_zh: 最大 / 超最大
+  - key: fartlek
+    name_zh: 法特雷克(變速跑)
+    freq_per_wk: '1'
+    duration: '>30 min'
+    intensity_zh: 變動
+endurance_periodization:
+  id: periodization.zones.endurance_phases
+  cert: 🟡
+  source: Ch5 Endurance periodization
+  phases:
+  - key: aerobic_endurance
+    name_zh: 有氧耐力
+    when_zh: 過渡期 + 準備期早期（1–3 個月）
+    focus_zh: 建立有氧基礎、廣度有氧能力
+  - key: aerobic_plus_specific
+    name_zh: 有氧+專項
+    when_zh: 準備期中後段
+    focus_zh: 有氧基礎上疊加專項代謝需求
+  - key: specific_endurance
+    name_zh: 專項耐力
+    when_zh: 準備期晚期 + 競賽期
+    focus_zh: 對映比賽能量系統的專項耐力
+  links:
+    development_stages:
+    - t2t
+    - t2c
+    - t2w
+swim_application:
+  id: periodization.zones.swim
+  cert: 🔵
+  source: Ch7 Table 7.1 + Ch11 Table 11.2 框架推導（游泳項目對映）
+  pace_mapping_zh: 🔵 游泳組課強度以『比賽配速百分比』表達，直接套 Table 7.1：賽配速=zone 2，高於賽配速（衝刺/乳酸耐受）=zone 1，閾值/節奏=zone 3，有氧基礎=zone 4，恢復游=zone 5
+  event_metabolic_zh: 🔵 50–100m 偏無氧功率（zone 1–2）；200m 混合（Fig 5.11 bi-cycle 範例即 200m）；400–1500m 為肌耐力主導，需 specific endurance 階段大量 zone 3–4 鋪墊
+  weekly_distribution_zh: 🔵 依 Bompa『每週 ≥50% 賽配速』原則，swim-coach 週課表應確保賽配速組（zone 2）占足比重，其餘以 zone 4 有氧基礎與 zone 5 恢復填充
+  energy_system_zh: 🔵 swim-coach 生成單組課時，用 hr_vo2_ergogenesis 對照表標記該組主導能量系統，避免賽季階段與能量系統錯配（如競賽期仍堆 50% HR 主動恢復量）
+  links:
+    development_stages:
+    - t2t
+    - t2c
+    - t2w

@@ -54,6 +54,11 @@ ADM_MATRIX_DST = HUGO_ROOT / "data" / "adm" / "matrix.yaml"
 ADM_STANDARDS_SRC = VORTEX_SRC / "canonical" / "development" / "technical-standards.yaml"
 ADM_STANDARDS_DST = HUGO_ROOT / "data" / "adm" / "standards.yaml"
 
+# ── 週期化（canonical → my-site data/periodization；全 public，無 diagnostic 層） ──
+PERIODIZATION_SRC_DIR = VORTEX_SRC / "canonical" / "periodization"
+PERIODIZATION_DST_DIR = HUGO_ROOT / "data" / "periodization"
+PERIODIZATION_FILES   = ["structure", "taper", "zones"]
+
 # ── Layer 設定 ──
 LAYERS = {
     "Technica":     {"slug": "technica",     "name": "水感框架"},
@@ -614,6 +619,50 @@ def sync_adm_standards(dry_run: bool):
     print(f"  寫入 {ADM_STANDARDS_DST.relative_to(HUGO_ROOT)}")
 
 
+def sync_periodization(dry_run: bool):
+    """讀 canonical periodization/{structure,taper,zones}.yaml，搬進 my-site
+    data/periodization/。
+
+    週期化是已出版的公開知識（Bompa 教科書），canonical 無 public/diagnostic 分層，
+    全部可公開——本函式整檔搬運，不剝離、不改內容。canonical 是 single source of truth。
+    每檔保留 domain/sub/cert/source/swim_application 等欄位供 layout 取用與標記呈現。
+    """
+    print()
+    print("=== 週期化（全 public）===")
+    if not PERIODIZATION_SRC_DIR.exists():
+        print(f"  [跳過] 找不到 {PERIODIZATION_SRC_DIR}")
+        return
+
+    if not dry_run:
+        PERIODIZATION_DST_DIR.mkdir(parents=True, exist_ok=True)
+
+    for name in PERIODIZATION_FILES:
+        src = PERIODIZATION_SRC_DIR / f"{name}.yaml"
+        if not src.exists():
+            print(f"  [跳過] 找不到 {src.name}")
+            continue
+        data = yaml.safe_load(src.read_text(encoding="utf-8")) or {}
+        top_keys = [k for k in data.keys() if k not in ("domain", "sub", "schema_version", "source_repos")]
+        print(f"  {name:10s} top-level: {', '.join(top_keys)}")
+
+        if dry_run:
+            continue
+
+        dst = PERIODIZATION_DST_DIR / f"{name}.yaml"
+        out = yaml.safe_dump(
+            data,
+            allow_unicode=True,
+            default_flow_style=False,
+            sort_keys=False,
+            width=4096,
+        )
+        dst.write_text(out, encoding="utf-8")
+        print(f"             寫入 {dst.relative_to(HUGO_ROOT)}")
+
+    if dry_run:
+        print("  [dry-run，未寫入 data/periodization/]")
+
+
 def main():
     dry_run = "--dry-run" in sys.argv
     results = {"new": [], "changed": [], "same": [], "unknown": []}
@@ -692,6 +741,7 @@ def main():
     sync_water_sense_levels(dry_run)
     sync_adm_matrix(dry_run)
     sync_adm_standards(dry_run)
+    sync_periodization(dry_run)
 
     print()
     print("=== 同步摘要 ===")

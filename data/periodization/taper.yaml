@@ -1,0 +1,92 @@
+domain: periodization
+sub: taper
+schema_version: 1
+source_repos:
+- resources/books/Periodization__Theory_and_Methodology_of_Training/
+definition:
+  id: periodization.taper.definition
+  cert: 🟢
+  source: Ch9; Mujika & Padilla 2003
+  text_en: A progressive, nonlinear reduction of the training load during a variable period of time, intended to reduce physiological and psychological stress of daily training and optimize sport performance.
+  text_zh: 在一段可變期間內，漸進、非線性地降低訓練負荷，目的是移除日常訓練累積的生理與心理壓力、使表現最佳化
+  purpose_zh: 讓減量期前累積的訓練適應（fitness）保留，同時消除疲勞（fatigue）→ 表現 = fitness − fatigue 的差值在減量末達最大
+variables:
+- id: periodization.taper.volume
+  key: volume
+  name_zh: 訓練量
+  cert: 🟢
+  source: Ch9; Mujika & Padilla 2003; Bosquet et al. 2007
+  reduction:
+    typical: 41–60%
+    heavy_pretaper: 60–90%
+    note_zh: 一般降 41–60%；若減量前負荷極重可降至 60–90%
+  role_zh: 減量主旋鈕——量的下降是消除疲勞的最大來源
+- id: periodization.taper.intensity
+  key: intensity
+  name_zh: 訓練強度
+  cert: 🟡
+  source: Ch9
+  rule_zh: 維持中高強度以保留適應與技術；強度若一併大降會導致 detraining
+  first_week_zh: 減量第一週可微調：功率類 −5–10%、耐力類 −20–30%，之後回拉至接近賽強度
+  role_zh: 強度是『保適應』旋鈕，不可大降
+- id: periodization.taper.frequency
+  key: frequency
+  name_zh: 訓練頻率
+  cert: 🟡
+  source: Ch9
+  rule_zh: 維持 ≥80% 平時頻率以保技術手感與神經肌肉協調；頻率大降會掉技術
+  role_zh: 頻率是『保技術』旋鈕
+- id: periodization.taper.duration
+  key: duration
+  name_zh: 減量時長
+  cert: 🟢
+  source: Ch9; Mujika & Padilla 2003
+  range:
+    min_days: 8
+    max_days: 14
+    note_zh: 8–14 天為主流區間；過短疲勞未除、過長 fitness 流失
+  role_zh: 時長旋鈕——與減量前疲勞程度成正比
+taper_types:
+- id: periodization.taper.type.linear
+  key: linear
+  name_zh: 線性遞減
+  cert: 🟡
+  source: Ch9
+  note_zh: 負荷等量直線下降；增益低於指數型
+- id: periodization.taper.type.step
+  key: step
+  name_zh: 階梯式（單次驟降）
+  cert: 🟢
+  source: Ch9; Bosquet et al. 2007
+  perf_gain: ≈1.2–1.5%
+  note_zh: 一次性把負荷砍到固定低水平維持；增益最小
+- id: periodization.taper.type.fast_exponential
+  key: fast_exponential
+  name_zh: 快速指數遞減
+  cert: 🟢
+  source: Ch9; Bosquet et al. 2007
+  perf_gain: ≈4.0–5.0%
+  note_zh: 前段快降、後段趨緩的指數曲線；元分析中表現增益最大，為首選型態
+  default: true
+peak:
+  id: periodization.taper.peak_window
+  cert: 🟡
+  source: Ch9
+  maintainable_days:
+    min: 7
+    max: 14
+    note_zh: 巔峰狀態一旦達成，可維持約 7–14 天；主賽應落在此窗內
+  definition_zh: 達峰 = 在目標賽事當下同時擁有最高 fitness 與最低 fatigue 的暫態
+  warning_zh: 巔峰窗外（>14 天）表現回落；多目標賽季須以多個短減量分別對準各窗（見 structure.yaml multipeak）
+swim_application:
+  id: periodization.taper.swim
+  cert: 🟢
+  source: Ch9（游泳減量文獻引用）; Mujika et al. 游泳減量研究
+  volume_reduction_zh: 🔵 游泳文獻常見賽前 50–90% 量遞減（與 Bompa 41–60%／重負荷 60–90% 區間一致）
+  three_week_taper_zh: 🟢 三週減量於游泳研究報告約 +2.2% 表現增益
+  sydney_2000_zh: 🟢 雪梨 2000 奧運游泳：獎牌與否的成績差距常在 1.62% 量級——減量增益（數個百分點）足以決定名次
+  practice_zh: 🔵 swim-coach 賽前課表：對準主賽往前推 8–14 天，量降至平時 40–60%，維持頻率與賽強度短組，曲線採快速指數型
+  links:
+    development_stages:
+    - t2c
+    - t2w
