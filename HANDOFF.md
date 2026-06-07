@@ -5,6 +5,7 @@
 網站已上線並完全正常：https://hangsau.github.io/cortex/  
 CI/CD 正常運作，push hugo-source 自動部署。  
 **ADM 已從 library 遷入 vortex section，用 vortex 設計語言重建（commit 8710ad1，已 push）。**
+**週期化（Periodization）呈現層已上線：canonical/periodization → sync → data/periodization → vortex-periodization 期刊式單頁（commit 28cffd3，已 push）。**
 
 ## 已完成
 
@@ -20,6 +21,7 @@ CI/CD 正常運作，push hugo-source 自動部署。
 - [x] Hugo 串接 Google Sheets CSV（閃卡資料源）
 - [x] **ADM 遷入 vortex + 用 vortex 設計語言重建**（2026-06-07，commit 8710ad1）
 - [x] **大腦喜歡這樣學上線**（書架 + 技法工具箱，田野筆記風格）
+- [x] **週期化呈現層上線**（2026-06-07，commit 28cffd3）— Bompa Periodization 進 vortex，期刊式單頁 6 節，ADM ↔ 週期化雙向互連
 
 ## ADM 架構（2026-06-07 從 library 遷入 vortex 重建）
 
@@ -42,6 +44,23 @@ CI/CD 正常運作，push hugo-source 自動部署。
 - **已刪除舊架構**：`content/library/athlete-development-matrix/`（含 appendix-a.md）、`layouts/library/adm-book|adm-matrix|adm-single.html`、`static/css/adm.css`、`static/js/adm-matrix.js`、`static/images/covers/adm-cover.png`；`data/books.yaml` 移除 ADM 書目。appendix-a 長文改由 standards.yaml（canonical 源）重新呈現，退役 prose 頁。
 
 **驗收**：本機 Hugo build 綠（671 頁）+ curl 驗證四頁 200 + 結構標記正確（matrix 4 支柱×4 階段 master-detail、standards 22 卡 + 泳式篩選、home 3 入口）+ 手機 rail position:static 已服務。⚠ 未做 Playwright 截圖（此 session 未載入 playwright MCP）。CI：見下方 push 紀錄。
+
+## 週期化架構（2026-06-07 新增，commit 28cffd3）
+
+**起因**：把 Bompa《Periodization》6th ed. 模組化——不是當書庫收，而是給 ADM 年度計畫一個可操作的理論骨幹（vortex 呈現），並為 swim-coach 自動課表能力預留唯讀資料源。架構同 ADM：「一源兩消費」。
+
+**資料流**：`TheVortexProject/canonical/periodization/{structure,taper,zones}.yaml`（單一真相源，全 public 無 diagnostic 分層，因屬已出版教科書理論）→ `tools/sync_vortex.py` 的 `sync_periodization()`（全量 pass-through，無 diagnostic 剝離）→ `data/periodization/`。
+
+**檔案**：
+- `layouts/vortex/vortex-periodization.html` — 期刊式單頁（style 08 Academic Journal，重用 vx- 元件 + 新增 `.vx-pz-*`）。6 節：①三大階段 ②年度計畫類型（4 型 mono/bi/tri/multipeak）③中觀·微觀週期 ④賽前減量達峰 ⑤能量系統強度分區（Table 7.1/11.1/11.2）⑥停練流失安全表。每節附 🔵 游泳應用 callout + 來源溯源。
+- `content/vortex/periodization/_index.md`（layout: vortex-periodization）。
+- `static/css/vortex.css` 加 `.vx-pz-*` 區塊（不另建檔，沿 ADM 併入慣例）。
+- 互連：`vortex-home.html`「放大尺度」群組加 PZ 入口；`vortex-adm-matrix.html` 概覽面板加 → 週期化前向連結（T2C/T2W 一年兩巔峰 = bi-cycle 整合點）；週期化頁 footer 反向連回 ADM matrix。
+- 內容修改流程同 ADM：改 canonical（TheVortexProject/canonical/periodization/）後重跑 `sync_vortex.py`，不在此 repo 手改 `data/periodization/`。
+
+**驗收**：本機 Hugo build 綠（673 頁）+ 輸出檢查（6 節 / 6 section-no / 7 表 / 5 swim callout / §2 四型 swim-app 全渲染 / 無 Scratch·nil·ZgotmplZ 殘留）+ 三向互連在 public/ 確認。⚠ 未做 Playwright 截圖。
+
+**下游待續**：Phase 3 swim-coach 唯讀 FTS 引用（vendor/vortex submodule + build_knowledge_index.py 收 periodization）；Phase 4 swim-coach `rules/periodization.yaml` schema 提案（僅交 schema，coaching 參數由 Hang 填，A-zone 不派工）。
 
 ## 已完成（CSCS 內容）
 
