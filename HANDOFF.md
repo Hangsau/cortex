@@ -4,7 +4,7 @@
 
 網站已上線並完全正常：https://hangsau.github.io/cortex/  
 CI/CD 正常運作，push hugo-source 自動部署。  
-**Vortex 全頁已重建為 master-detail 連貫架構（commit 8744706，CI 綠、已部署）。**
+**ADM 已從 library 遷入 vortex section，用 vortex 設計語言重建（commit 8710ad1，已 push）。**
 
 ## 已完成
 
@@ -13,26 +13,35 @@ CI/CD 正常運作，push hugo-source 自動部署。
 - [x] 書庫 section（library/list、library/book、library/chapter）
 - [x] 筆記本 section（notebook/list、notebook/single）
 - [x] Shortcodes：flashcard、highlight-quote、callout
-- [x] CSS 分層：variables / base / layout / bookshelf / library / cscs-chapter / notebook / adm
+- [x] CSS 分層：variables / base / layout / bookshelf / library / cscs-chapter / notebook / vortex（adm-* class 併入 vortex.css）
 - [x] CSCS 24 章搬入 `library/essentials-of-strength-training/`，九宮格正常
 - [x] 閃卡資料（ch01）正常，閃卡模式可用
 - [x] GitHub Actions 自動部署完成
 - [x] Hugo 串接 Google Sheets CSV（閃卡資料源）
-- [x] **ADM 完整上線**（書架 + 背景頁 + 互動矩陣 + 附錄 A）
+- [x] **ADM 遷入 vortex + 用 vortex 設計語言重建**（2026-06-07，commit 8710ad1）
 - [x] **大腦喜歡這樣學上線**（書架 + 技法工具箱，田野筆記風格）
 
-## ADM 架構（新增，本次對話完成）
+## ADM 架構（2026-06-07 從 library 遷入 vortex 重建）
 
-四個頁面，皆在 `content/library/athlete-development-matrix/`：
+**起因**：ADM 原本是 cortex 書庫的一本書（`content/library/athlete-development-matrix/`，獨立 adm-book/adm-matrix/adm-single layout + adm.css + adm-matrix.js）。使用者要求整合進 vortex section，且「不是搬進去，要為了 vortex 一致性及好讀性做調整」——用 vortex 的 vx- 元件重新表達，不機械搬移。swim-coach 不在範圍（是另一套自動教練系統）。
 
-| 頁面 | layout | 說明 |
+四個頁面，皆在 `content/vortex/adm/`，layout 在 `layouts/vortex/vortex-adm-*.html`：
+
+| 頁面 | layout | 設計 |
 |------|--------|------|
-| `_index.md` | adm-book | 書本封面 + 導航卡（icon/description 從 front matter 讀） |
-| `background.md` | adm-single | Part 1–3 全文：LTD 模型、四大支柱、八大考量 |
-| `matrix.md` | adm-matrix | 互動矩陣：4 支柱 × 4 階段，篩選 + 點擊展開 |
-| `appendix-a.md` | adm-single | 四泳式划水 + 起跳 + 轉身（6 種）技術基準 |
+| `_index.md` | vortex-adm-home | masthead + 返回 vortex/ + 三入口 vx-toc |
+| `matrix.md` | vortex-adm-matrix | **master-detail**：左 rail 選支柱 → 主面板讀該支柱 4 階段（L2T→T2W）vx-ladder，points 收合；重用 vortex.js + vortex.css |
+| `standards.md` | vortex-adm-standards | vx-card 技術標準，泳式 chip 篩選 + 搜尋（self-contained inline JS，讀 data/adm/standards.yaml）|
+| `background.md` | vortex-adm-single | vx-article 長文（LTD 模型 / 獎牌台 / 四大支柱 / 八大考量）|
 
-矩陣內容在 `data/adm/matrix.yaml`，要修改直接編輯這個檔案即可。
+- 資料：`.Site.Data.adm.matrix`（4 支柱 × 4 階段）/ `.Site.Data.adm.standards`（22 筆），由 `tools/sync_vortex.py` 從 canonical 同步，**勿手改 data/adm/**。
+- 階段中文名 / 年齡對照寫死在 `vortex-adm-matrix.html` 的 dict。
+- ADM 專用樣式併入 `static/css/vortex.css`（`.vx-adm-*`），無獨立 adm.css / adm-matrix.js。
+- 首頁 `vortex-home.html` 加了「放大尺度 · 運動員發展」ADM 入口。
+- **附帶修手機 bug**：vx-rail 在 `@media (max-width: 820px)` 由 `position: sticky` 改 `static`（原本固定佔掉上半部頁面難瀏覽）。
+- **已刪除舊架構**：`content/library/athlete-development-matrix/`（含 appendix-a.md）、`layouts/library/adm-book|adm-matrix|adm-single.html`、`static/css/adm.css`、`static/js/adm-matrix.js`、`static/images/covers/adm-cover.png`；`data/books.yaml` 移除 ADM 書目。appendix-a 長文改由 standards.yaml（canonical 源）重新呈現，退役 prose 頁。
+
+**驗收**：本機 Hugo build 綠（671 頁）+ curl 驗證四頁 200 + 結構標記正確（matrix 4 支柱×4 階段 master-detail、standards 22 卡 + 泳式篩選、home 3 入口）+ 手機 rail position:static 已服務。⚠ 未做 Playwright 截圖（此 session 未載入 playwright MCP）。CI：見下方 push 紀錄。
 
 ## 已完成（CSCS 內容）
 
@@ -110,7 +119,8 @@ TheVortexProject 內容整合進 my-site，作為公開知識展示。路徑 `co
 
 - [ ] 章節頁新增「完整重點整理」區塊（九宮格下方補充完整學習內容）
 - [ ] 書庫列表樣式優化（`library/list.html`）
-- [ ] ADM Appendix B：帕拉游泳分類（若有需要才做，原始檔在 `resources/books/Athlete-development-matrix/appendix_b_para_swimming_classification.md`）
+- [ ] ADM Appendix B：帕拉游泳分類（若有需要才做；新架構下加一頁 `content/vortex/adm/` + vortex-adm-single layout，原始檔在 `resources/books/Athlete-development-matrix/appendix_b_para_swimming_classification.md`）
+- [ ] 截圖驗證 ADM vortex 四頁（matrix master-detail / standards 卡片 / background / home）+ 手機 rail 修正（本次 session 無 playwright MCP，未做）
 
 ## Google Sheets 閃卡資料來源
 
