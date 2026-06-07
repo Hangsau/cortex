@@ -46,6 +46,14 @@ L_INDICATORS_DST = HUGO_ROOT / "data" / "vortex" / "l-indicators.yaml"
 WATER_SENSE_LEVELS_SRC = VORTEX_SRC / "canonical" / "technica" / "water-sense-levels.yaml"
 WATER_SENSE_LEVELS_DST = HUGO_ROOT / "data" / "vortex" / "water-sense-levels.yaml"
 
+# ── ADM 發展矩陣（canonical 兩層 → my-site data/adm，只 public） ──
+ADM_MATRIX_SRC = VORTEX_SRC / "canonical" / "development" / "matrix.yaml"
+ADM_MATRIX_DST = HUGO_ROOT / "data" / "adm" / "matrix.yaml"
+
+# ── ADM 技術基準（canonical 兩層 → my-site data/adm，只 public） ──
+ADM_STANDARDS_SRC = VORTEX_SRC / "canonical" / "development" / "technical-standards.yaml"
+ADM_STANDARDS_DST = HUGO_ROOT / "data" / "adm" / "standards.yaml"
+
 # ── Layer 設定 ──
 LAYERS = {
     "Technica":     {"slug": "technica",     "name": "水感框架"},
@@ -484,6 +492,128 @@ def sync_water_sense_levels(dry_run: bool):
     print(f"  寫入 {WATER_SENSE_LEVELS_DST.relative_to(HUGO_ROOT)}")
 
 
+def sync_adm_matrix(dry_run: bool):
+    """讀 canonical development/matrix.yaml（cells 兩層），剝除 diagnostic 層，
+    把 public 層還原成 adm-matrix.html 現讀格式寫進 my-site data/adm/matrix.yaml。
+
+    canonical 是 single source of truth；本函式只搬運 public，不改內容。
+    輸出結構：pillars[].{id, name, icon, stages[].{id, summary, points}}
+      - pillar 順序依 canonical pillars 清單（physical/technical/mental/life）
+      - stage 只取 has_cells:true（l2t/t2t/t2c/t2w）；FUN(has_cells:false) 整階段不出（邊界）
+      - cell 只帶 public.{summary,points}，diagnostic / links 整塊不取
+    """
+    if not ADM_MATRIX_SRC.exists():
+        print()
+        print("=== ADM 發展矩陣 ===")
+        print(f"  [跳過] 找不到 {ADM_MATRIX_SRC}")
+        return
+
+    data = yaml.safe_load(ADM_MATRIX_SRC.read_text(encoding="utf-8")) or {}
+    pillars_in = data.get("pillars", []) or []
+    stages_in  = data.get("stages", []) or []
+    cells_in   = data.get("cells", []) or []
+
+    # 只保留有內容的 stage，依 canonical 順序（FUN has_cells:false 排除）
+    stage_keys = [s["key"] for s in stages_in if s.get("has_cells")]
+
+    # 以 (pillar, stage) 索引 cell
+    by_ps = {(c.get("pillar"), c.get("stage")): c for c in cells_in}
+
+    pillars_out = []
+    for p in pillars_in:
+        pkey = p.get("key")
+        stages_out = []
+        for skey in stage_keys:
+            cell = by_ps.get((pkey, skey))
+            if cell is None:
+                continue   # 該支柱該階段無 cell（理論上 16 格全滿，防呆）
+            pub = cell.get("public", {}) or {}
+            stages_out.append({
+                "id":      skey,
+                "summary": pub.get("summary", ""),
+                "points":  pub.get("points", []) or [],
+            })
+        pillars_out.append({
+            "id":     pkey,
+            "name":   p.get("name_zh"),
+            "icon":   p.get("icon"),
+            "stages": stages_out,
+        })
+
+    print()
+    print("=== ADM 發展矩陣（public 層）===")
+    for p in pillars_out:
+        print(f"  {p['id']:10s} stages={len(p['stages'])}")
+    total_cells = sum(len(p["stages"]) for p in pillars_out)
+    print(f"  TOTAL cells    {total_cells}  (stages/pillar: {len(stage_keys)})")
+
+    if dry_run:
+        print("  [dry-run，未寫入 data/adm/matrix.yaml]")
+        return
+
+    out = yaml.safe_dump(
+        {"pillars": pillars_out},
+        allow_unicode=True,
+        default_flow_style=False,
+        sort_keys=False,
+        width=4096,
+    )
+    ADM_MATRIX_DST.write_text(out, encoding="utf-8")
+    print(f"  寫入 {ADM_MATRIX_DST.relative_to(HUGO_ROOT)}")
+
+
+def sync_adm_standards(dry_run: bool):
+    """讀 canonical development/technical-standards.yaml（std 兩層），剝除 diagnostic 層，
+    把 public 層寫進 my-site data/adm/standards.yaml（結構化技術基準）。
+
+    公開/診斷鐵則：diagnostic 整塊不取（ADM 技術基準 diagnostic 原則為 null，
+    此函式仍做剝離保險）。framework / applies_note 頂層帶過去。
+
+    註：appendix-a.md（手寫散文，含左右鏡像分節）不由本函式改動——canonical std
+    為左右合併的有損表示，回寫散文會更動既有頁面。本函式只產出結構化 data 檔，
+    appendix-a.md 維持原狀直到另建結構化技術基準頁（見 HANDOFF 待決）。
+    """
+    if not ADM_STANDARDS_SRC.exists():
+        print()
+        print("=== ADM 技術基準 ===")
+        print(f"  [跳過] 找不到 {ADM_STANDARDS_SRC}")
+        return
+
+    data = yaml.safe_load(ADM_STANDARDS_SRC.read_text(encoding="utf-8")) or {}
+    stds_in = data.get("standards", []) or []
+
+    stds_out = []
+    for s in stds_in:
+        pub = s.get("public", {}) or {}
+        rec = {"id": s.get("id")}
+        rec.update(pub)          # 只帶 public 欄位，diagnostic / links 整塊不取
+        stds_out.append(rec)
+
+    out_data = {
+        "framework":    data.get("framework"),
+        "applies_note": data.get("applies_note"),
+        "standards":    stds_out,
+    }
+
+    print()
+    print("=== ADM 技術基準（public 層）===")
+    print(f"  TOTAL standards {len(stds_out)}")
+
+    if dry_run:
+        print("  [dry-run，未寫入 data/adm/standards.yaml]")
+        return
+
+    out = yaml.safe_dump(
+        out_data,
+        allow_unicode=True,
+        default_flow_style=False,
+        sort_keys=False,
+        width=4096,
+    )
+    ADM_STANDARDS_DST.write_text(out, encoding="utf-8")
+    print(f"  寫入 {ADM_STANDARDS_DST.relative_to(HUGO_ROOT)}")
+
+
 def main():
     dry_run = "--dry-run" in sys.argv
     results = {"new": [], "changed": [], "same": [], "unknown": []}
@@ -560,6 +690,8 @@ def main():
     sync_technical_analysis(dry_run)
     sync_l_indicators(dry_run)
     sync_water_sense_levels(dry_run)
+    sync_adm_matrix(dry_run)
+    sync_adm_standards(dry_run)
 
     print()
     print("=== 同步摘要 ===")
