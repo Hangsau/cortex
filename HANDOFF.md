@@ -157,8 +157,23 @@ Claude Code 讀 `resources/books/Essentials_of_Strength_Training_and_Conditionin
   → Claude Code 從 .md 製作閃卡 → 寫進 Google Sheets
 ```
 
+## 待辦 — 週期化白話重寫 + 模組化（my-site 呈現端，2026-06-08 規劃）
+
+**plan-check 已完成（Opus）**：`C:\claudehome\projects\TheVortexProject\plans\periodization_integration_plancheck.md`。本檔是「一源兩消費」全鏈整合，my-site 是消費端 1（公開呈現），swim-coach 是消費端 2（唯讀反查）。
+
+**my-site 呈現層已存在**（commit 28cffd3，`vortex-periodization.html` 期刊式單頁），這次不是從零接，是把白話層接進現有頁面。資料流不變：canonical 改 → `tools/sync_vortex.py` pass-through → `data/periodization/` → template。
+
+**接手後 my-site 這端要做的（在 canonical 的 plain_zh / _index.yaml 落地後）**：
+1. 等 TheVortexProject 把 `plain_zh` 欄加進 `canonical/periodization/*.yaml` + 新增 `_index.yaml` 概念目錄 → 跑 `sync_vortex.py`（其 `sync_periodization()` 為全量 pass-through，會自動帶進 `data/periodization/`，含新欄位與新檔，**不需改 sync 邏輯**，但要確認 _index.yaml 也被 sync 函式納入）。
+2. 改 `layouts/vortex/vortex-periodization.html`：每節把 `plain_zh` 白話顯示出來（與原 Bompa 物理敘述並列或取代，依 plan-check 定案），保留 🔵🟡🟢 確定性標記與 source 溯源。
+3. （選做）用 `_index.yaml` 概念目錄做一個「快速查詢 / 概念索引」入口頁或頁內導覽,讓人/AI 一眼掃到所有週期化概念 + 一行白話摘要。
+4. 本機 Hugo build 綠 → push（指令見 CLAUDE.md 部署段）→ `gh run list` 確認 CI。
+
+**注意**：白話內容**不在 my-site 手改 `data/periodization/`**,源頭在 canonical;my-site 只做呈現層 template。
+
 ## 下一步建議
 
 1. CSCS 所有 24 章閃卡已全部完成（ch01–ch24）
 2. 若需要 ADM Appendix B，直接用 adm-single layout 加一頁即可
 3. 大腦喜歡這樣學 × 渦流計劃連結：使用者確認 wiki 需求後再設計（可在技法卡新增「在游泳教學中的應用」欄位）
+4. **週期化白話重寫**：見上方「待辦 — 週期化白話重寫 + 模組化」,plan-check 已備,等 canonical 端 plain_zh 落地後接 template
