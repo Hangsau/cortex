@@ -1,9 +1,10 @@
 # HANDOFF — my-site (Cortex)
 
-## 目前狀態（2026-06-06）
+## 目前狀態（2026-06-07）
 
 網站已上線並完全正常：https://hangsau.github.io/cortex/  
-CI/CD 正常運作，push hugo-source 自動部署。
+CI/CD 正常運作，push hugo-source 自動部署。  
+**Vortex 全頁已重建為 master-detail 連貫架構（commit 8744706，CI 綠、已部署）。**
 
 ## 已完成
 
@@ -65,90 +66,43 @@ CI/CD 正常運作，push hugo-source 自動部署。
   - `data/ust/strategies.yaml`：18 個策略，6 個教學問題分類
   - slug: `uncommon-sense-teaching`，layout 前綴 `ust-`
 
-## Vortex section（2026-06-05 新增）
+## Vortex section
 
-TheVortexProject 內容整合進 my-site，作為公開知識展示。
+TheVortexProject 內容整合進 my-site，作為公開知識展示。路徑 `content/vortex/`，nav 顯示「Vortex」。  
+**公開層嚴格非規定式**：只放物理現實、硬體邊界、常見錯誤口令（cue_bad/why/good）、L0–L6 序列、相關 drill；感受語/里程碑訊號收進「教練判讀訊號」診斷子層（`.vx-diag`），不前景化。不搬 Observations / Research。
 
-**架構決策：**
-- 路徑：`content/vortex/`，nav 顯示「Vortex」
-- 不搬：Observations（不公開）、Research（文獻密度高，之後再說）
-- 風格：07 田野筆記（Caveat + Crimson Text，`#FDFBF3` 底）
-- 定位：物理錨點 → 多角度感知描述 → 失敗辨識 → 自測方法
+**來源路徑：** `C:\claudehome\projects\TheVortexProject\`（canonical-first：先改原始 YAML，再 `tools/sync_vortex.py` 同步到 `data/vortex/`）
 
-**已完成：**
-- [x] W1 骨架：`content/vortex/` + 3 層子目錄（technica/bridge/instructional）
-- [x] Layouts：vortex-home.html / list.html / single.html
-- [x] CSS：vortex.css（田野筆記風格，層色編碼）
-- [x] Landing page：雙入口（5 泳式卡片 + 3 主題卡片），確定性 badge 說明
+### 全頁重建為 master-detail 連貫架構（2026-06-07，commit 8744706）
 
-**已完成：**
-- [x] W2 同步腳本（`tools/sync_vortex.py`）：dry-run + 狀態檔 `vortex_sync_state.json`，下次更新直接跑即可
-- [x] W3 Technica（6篇）+ Bridge（6篇）全部上線
-- [x] W4 Instructional（12篇）全部上線
-- [x] Nav double-cortex bug 修復（改用 `{{ .URL | absURL }}`）
+**起因**：舊架構是 9 個各自獨立的分頁式 explorer（technica/bridge/instructional/drills/errors/levels/matrix/tech），點技術動作再跳 drill 會落到完全不同外觀的介面 → 連貫性破裂。使用者要求「整個打掉重建，不要看到原本的影子」，三大需求：① 連貫（不跳頁）② 不攏長（不強迫長捲）③ 轉跳順手。
 
-**技術組件互動探索器（2026-06-05，全 6 頁完成）：**
+**新架構（三個 layout 取代九個）：**
 
-泳式頁從「文章連結清單」升級為可點開的技術組件探索器。**公開層嚴格非規定式**：只呈現物理現實、硬體邊界（感知 vs 解剖限制）、常見錯誤口令（cue_bad/why/good）、L0–L6 序列位置、相關 drill；**不放任何「該有什麼感覺／感覺錯了是什麼樣／學生說 X＝到位／教練觸發」等感知判讀語**（那些只留在 TheVortexProject 的研究/診斷層）。
+| layout | 頁面 | 設計 |
+|--------|------|------|
+| `vortex-home.html` | `/vortex/` | 學術期刊風：新手引導卡（→ freestyle/#overview）+ 六式編號目次 |
+| `vortex-stroke.html` | 每式一頁 | **master-detail 單頁**：常駐左側動作目次（編號 ToC）+ 主面板就地切換 |
+| `vortex-database.html` | `/vortex/database/` | 跨泳式資料庫：誤區/機制/練習/L指標四 tab + 泳式篩選 + 文字搜尋 |
 
-- [x] 6 個探索器 data 全部建立（`data/vortex/`）：
-  - `free.yaml`（自由式 8 組件）/ `back.yaml`（仰式 9）/ `breast.yaml`（蛙式 11）/ `fly.yaml`（蝶式 9）
-  - `udk.yaml`（水下蝶腳 7，從 FLY m10-16 拆出獨立頁）
-  - `starts-turns.yaml`（出發與轉身 7，從 Bridge 出發轉身感知橋接.md 抽公開層）
-- [x] 6 個 `_index.md` 全部接上 `explorer_data` front matter
-- [x] `layouts/vortex/vortex-stroke.html`：重寫為非規定式 layout，schema = `premise` + `moves[]`（n/name/one/l/physical/boundary/cue_bad/cue_why/cue_good/drills/lnote），可選欄位以 `{{ with }}`/`{{ if }}` 守衛
-- [x] **舊檔已刪**：`data/vortex/bridge_freestyle.yaml`（舊規定式 schema）、`static/vortex-preview.html`（額外站外預覽頁）
-- [x] **內容三關校正**：8 條沒過清單全部處理（A1/A2/B1/B3/C1/C2 已修；B2/D1 查證為真保留）；修正同步回 TheVortexProject 原始資料（v⁴→v³、9.5% 加 hip-driven 註記、PMID 24290609 歸因 Arellano→Atkison et al. 2014、蛙式 29% 出水改待查 🔴）
+**連貫性解法（vortex-stroke 核心）：**
+- sticky 左 rail：導覽（概覽）/ 動作分解（動作 1..N）/ 深入（常見誤區 §機制 L水感進程，水感進程僅 free/back/breast/fly 有）
+- 主面板只顯示選中項，JS 就地 swap（fade + hash 更新 + popstate 可回上一步，**不重載**）
+- drill / 誤區 / 機制 / 水感層級全部用原生 `<details>` 收合，要看才原地展開 → 解決「不攏長」
+- **全部 server-side render**（不像舊版 client JSON 注入）；`static/js/vortex.js` 只切 is-active 可見性，`<noscript>` fallback 全展開
 
-**設計原型 SPA 移植上站（2026-06-05）：**
+**資料聚合（build time）：**
+- stroke key 對映：free/back/breast/fly/udk/starts-turns；drill 用全名 → 需 `$drillKey` map
+- 誤區/機制/水感層級用 `where ... "stroke" $key` 過濾；drill 用 `name_zh` 對照綁到 moves
+- 計數：誤區 76 / 機制 188 / 練習 125 / L指標 43；六式 moves 8/9/11/9/7/7
 
-泳式頁從平鋪的 `vxe-tile` 磚牆改為設計原型的「感知地圖」SPA（左側欄 + 總覽/welcome/動作細節三視圖），即原本在 `vortex-preview.html` 設計的格式。
+**已刪除（舊架構）：** layout `vortex-drills/errors/levels/matrix/tech.html`；content `vortex/drills|errors|levels|matrix|technical/_index.md`；`static/css/vortex-home.css`、`static/js/vortex-explorer.js`
 
-- [x] `layouts/vortex/vortex-stroke.html`：重寫為 SPA，把 6 式 data 透過 `jsonify` 內嵌成 `STROKES`，`INIT_STROKE` = 當前頁 `explorer_data`，進站落在當前泳式；丟掉「深入閱讀 · 完整文章」連結區（文章仍可由 Vortex 首頁「依主題瀏覽」進入）
-- [x] `static/js/vortex-explorer.js`：重寫為 showOverview/selectStroke/openMove/renderRailMoves，讀內嵌 STROKES（移除 done/ready 門檻，全部已上線）
-- [x] `static/css/vortex.css`：舊 `vxe-*` 區塊（765–994 行）整段替換為 `vxs-*` scoped 樣式（便利貼便條、Caveat 標題 + SVG 波浪底線、full-bleed 突破 800px main-content、側欄 sticky `top:56px`）
-- [x] 本機 Hugo extended build 通過（671 頁無錯）、CI 綠、已部署
+**驗收：** 本機 Hugo extended 0.162.1 build 綠（671 頁）+ Playwright 桌面/手機各 5 頁截圖（10 張，0 console error）驗證 hash 路由、rail active 同步、手機 rail→橫向 tab bar、filter chip wrap 全部正確 + CI 綠（run 27080320515）+ 已部署
 
-**待完成：**
-- [ ] （選做）水下蝶腳/出發轉身入口已有獨立頁，可考慮首頁加直達卡片
-- [ ] ⚠ `layouts/vortex/vortex-home.html` 仍有規定式文案（「你游泳時應該感覺到什麼」「找到屬於你自己的感覺」、bridge 層描述「每個技術點你應該感覺到什麼——失敗和成功的感覺各是什麼」），違反「感知不可規定」原則，待改成非規定式措辭
-
-**Drill how_to 操作步驟 + chip 可點連結（2026-06-06，commit ff69013）：**
-
-全六式一次做完（不分 pilot）。Canonical-first：先寫進 TheVortexProject 原始 YAML，再同步到 my-site 公開層、swim-coach 診斷層（submodule）。
-
-- [x] 125 個 drill 全部補入 `how_to` 操作步驟（從來源書 *There's a Drill for That* 抽，每條過三關校正）；canonical commit `a4ddee1`（5 個 `Drills/drills_*.yaml`）
-- [x] 感知欄位改框成「要去感覺什麼」（`perception_goal`）；移除 `failure_signal`（什麼是錯的），`success_signal` 併入或省略——公開層不放成功 vs 失敗對照
-- [x] `tools/sync_vortex.py` 新增 `sync_drills`：合併 5 式 canonical 為單一 `data/vortex/drills.yaml`（125 筆，block-style）
-- [x] `layouts/vortex/vortex-drills.html`：渲染 how_to + 要去感覺什麼；每張卡加 `#drill-<id>` 錨點 + hash-jump JS（白名單 regex 防注入）
-- [x] drill chip 從純文字改為可點連結：`vortex-stroke.html` build 時做 `name_zh→id` 對照塞進 `DRILL_IDS`，`vortex-explorer.js` 的 `drillChip()` 對得上就連到 drill DB 卡片、對不上退回純文字 chip；`free.yaml` 修破折號變體讓名稱 100% 對得上（103 chip refs，0 unmatched）
-- [x] swim-coach `vendor/vortex` submodule bump 到 `a4ddee1`（commit 9a1fed3）
-- [x] 本機 Hugo extended 0.159.1 build 通過、CI 綠、已部署
-
-**水感層級探索器（2026-06-06，commit dac5e8f）：**
-
-「依主題瀏覽」的水感框架層從散文升級為可掃描 + 可篩選 + 點開展開的探索器。Canonical-first：來源是 `TheVortexProject/canonical/technica/water-sense-levels.yaml`（26 levels，多層 public/diagnostic schema），經 sync 只取 public 層。
-
-- [x] `tools/sync_vortex.py` 新增 `sync_water_sense_levels`：canonical 26 levels → `data/vortex/water-sense-levels.yaml`，剝離 three_types / appendices / 所有 diagnostic 欄位（type_diagnosis / type_states / stagnation_by_type 等）；公開層 0 洩漏審查通過
-- [x] `layouts/vortex/vortex-levels.html`：vxl- 探索器，卡片式垂直序列（四式各自 L0–L6/pre，共 26 卡），依泳式 + L 級篩選，`#lvl-<id>` 深連結 hash-jump（白名單 regex 防注入）；每卡展開含 methods / indicators / 量化參考 / 停滯處理 / 里程碑等 public 欄位
-- [x] `static/css/vortex.css`：新增 vxl- 區塊（垂直導引線 + badge + 分節色編碼），沿用 Field Notes #07 風格
-- [x] `content/vortex/levels/_index.md`（layout: vortex-levels）+ 首頁 `vortex-home.html` 加水感層級探索器卡片（首位）
-- [x] 同步 canonical 內容修正（freestyle wave drag v⁴→v³ 物理修正等 6 個 content/vortex/*.md）
-- [x] 本機 Hugo build 通過、CI 綠（run 27062066148, success）、已部署
-
-**Phase F（首頁重設計，2026-06-06 完成）：**
-
-`/vortex/` 從「長清單 + 便利貼」改為「探索器總控台」兩欄版型。規格見 `.implementation_vortex-home-redesign.md`。
-
-- [x] `layouts/vortex/vortex-home.html`：重寫為 vxh- 結構（左 rail + 右主內容）。Hero「從泳式或問題切入」→ 區塊1 依泳式 6 卡（中英名 + moves 數 + premise 摘要）→ 區塊2 依問題 5 探索器卡（色彩分層：層級藍/技術綠/誤區紅/矩陣靛/練習棕金）→ 區塊3 長文入口降權（水感指南/Technica/Instructional，**無 Bridge**）→ 區塊4 確定性標記
-- [x] `static/css/vortex.css`：替換舊 vxs-home 區塊為 vxh- 樣式（full-bleed 兩欄、桌面 sticky 248px rail、手機 rail→頂部 sticky 橫向 chip bar、卡片單欄、觸控 ≥64px、radius 8px、premise line-clamp）
-- [x] 驗收：Hugo build 綠、無禁用文案、無 Bridge 入口、計數正確（26 層級/188 技術點/76 誤區/43 矩陣格/125 練習、6 式 moves 8/9/11/9/7/7）。**未做 live 瀏覽器截圖**，僅以 build + 渲染 HTML 結構驗證
-
-**Vortex 待完成（後續階段）：**
-- [ ] Phase E（退役 Bridge）：Bridge/*.md 加 deprecated header（不刪）、sync 移除 Bridge 層、清 `content/vortex/bridge/`、首頁移除 bridge 卡片；保留水感指南為唯一散文（註：首頁 Bridge 入口已於 Phase F 一併移除）
-- [ ] Phase G（收尾）：full sync --dry-run 驗證、文件對齊（_INDEX/雙 HANDOFF/vortex_sync_state.json）、swim-coach submodule 僅在診斷層被消費時才 bump
-
-**Vortex 來源路徑：** `C:\claudehome\projects\TheVortexProject\`
+**已知技術債（非阻斷）：**
+- ⚠ layout 用 `.Site.Data.vortex`（Hugo 0.156 起 deprecated，未來版本移除）；專案其他舊 layout 也都觸發同 WARN。未來應統一改 `hugo.Data`。build 目前正常。
+- canonical-first：本次只動 my-site 公開層 layout/CSS/JS，**未動 TheVortexProject 原始 YAML 內容**（資料 schema 不變，只換呈現層）；swim-coach submodule 無需 bump（診斷層未變）
 
 ---
 
