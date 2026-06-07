@@ -85,34 +85,30 @@ data/
 
 ### ADM（Athlete Development Matrix）架構
 
-ADM 不用 CSCS 的九宮格 layout，有自己一套：
+ADM 已從 library（cortex 書庫）遷入 **vortex** section，並改用 vortex 設計語言（一致性 + 好讀性），不再是書庫的獨立風格頁。資料源是 canonical（TheVortexProject）→ `sync_vortex.py` → `data/adm/`。
 
 ```
-content/library/athlete-development-matrix/
-  _index.md          layout: adm-book      → 封面 + 兩張導航卡
-  background.md      layout: adm-single    → Parts 1-3 長文閱讀
-  matrix.md          layout: adm-matrix    → 互動矩陣頁
+content/vortex/adm/
+  _index.md          layout: vortex-adm-home      → masthead + 三入口導覽
+  matrix.md          layout: vortex-adm-matrix    → master-detail：選一支柱讀其 L2T→T2W
+  standards.md       layout: vortex-adm-standards → 各式技術標準，按泳式篩選 + 搜尋
+  background.md      layout: vortex-adm-single    → 長文（LTD 模型 / 獎牌台 / 八大考量）
 
-layouts/library/
-  adm-book.html      封面頁 layout
-  adm-single.html    長文閱讀 layout（含返回連結）
-  adm-matrix.html    矩陣頁 layout（從 data 讀內容）
+layouts/vortex/
+  vortex-adm-home.html       首頁（masthead + vx-toc 三入口）
+  vortex-adm-matrix.html     矩陣（vx-stroke-wrap master-detail，重用 vortex.js + vortex.css）
+  vortex-adm-standards.html  技術標準（vx-db 風格，inline JS 篩選/搜尋，讀 data/adm/standards.yaml）
+  vortex-adm-single.html     長文（vx-article，返回連結指向 ADM home）
 
-data/adm/
-  matrix.yaml        矩陣的所有內容（4 支柱 × 4 階段）
-
-static/
-  css/adm.css        ADM 專用樣式
-  js/adm-matrix.js   篩選 + 格子展開互動
+data/adm/                    （由 sync_vortex.py 從 canonical 同步，勿手改）
+  matrix.yaml      4 支柱 × 4 階段（含 summary + points，points 支援 **粗體**）
+  standards.yaml   22 筆技術標準（四式 + 起跳轉身，phases/criteria 結構）
 ```
 
-**矩陣內容修改方式**：只需編輯 `data/adm/matrix.yaml`，每個格子有 `summary`（摘要句）和 `points`（詳細要點清單），`points` 支援 Markdown（`**粗體**` 等）。
-
-**adm-matrix.html 使用 `hugo.Data`（非 `.Site.Data`）** 讀取資料：
-```
-{{ $data := index hugo.Data "adm" }}
-{{ range $data.matrix.pillars }}
-```
+- 矩陣與標準頁皆用 `.Site.Data.adm.matrix` / `.Site.Data.adm.standards` 讀資料。
+- 階段中文名 / 年齡對照（L2T 學習訓練、T2T 訓練為訓練、T2C 訓練為競賽、T2W 訓練為勝利）寫死在 `vortex-adm-matrix.html` 的 dict。
+- 內容修改不在此 repo 手改 `data/adm/`：改 canonical（TheVortexProject/canonical/development/）後重跑 `tools/sync_vortex.py`。
+- ADM 專用樣式併入 `static/css/vortex.css`（`.vx-adm-*`），無獨立 adm.css / adm-matrix.js。
 
 ### 自訂風格書籍設計模式（如 大腦喜歡這樣學）
 

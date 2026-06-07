@@ -1,0 +1,82 @@
+{{ define "head-extra" }}
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+{{ end }}
+
+{{ define "main" }}
+{{ $base := .Site.BaseURL }}
+{{ $std := .Site.Data.adm.standards }}
+{{ $strokeZh := dict "free" "自由式" "back" "仰式" "breast" "蛙式" "fly" "蝶式" "start" "起跳" "turn" "轉身" }}
+{{ $stageName := dict "t2t" "訓練為訓練（T2T）" }}
+{{ $strokeChips := slice "all" "free" "back" "breast" "fly" "start" "turn" }}
+
+<div class="vx-db">
+  <a class="vx-back-link" href="{{ $base }}vortex/adm/">← 運動員發展 ADM</a>
+  <h1 class="vx-list-title">技術標準</h1>
+  <p class="vx-list-desc">四式 + 起跳轉身的理想技術基準，依「{{ $std.framework }}」框架分階段描述。{{ $std.applies_note }}按泳式篩選或打字搜尋。</p>
+
+  <div class="vx-db-search">
+    <input class="vx-db-input" id="vxAdmInput" type="search" autocomplete="off" placeholder="搜尋標題與技術要點……" aria-label="搜尋技術標準">
+  </div>
+
+  <div class="vx-db-panel is-active" id="adm-std">
+    <div class="vx-filters">
+      {{ range $strokeChips }}<button class="vx-chip{{ if eq . "all" }} is-active{{ end }}" type="button" data-s="{{ . }}">{{ if eq . "all" }}全部 {{ len $std.standards }}{{ else }}{{ index $strokeZh . }}{{ end }}</button>{{ end }}
+    </div>
+
+    {{ range $std.standards }}
+    {{ $parts := split .id "." }}
+    {{ $sk := index $parts 1 }}
+    {{ $txt := .title }}
+    {{ range .phases }}{{ range .criteria }}{{ $txt = printf "%s %s" $txt . }}{{ end }}{{ end }}
+    <details class="vx-card vx-tech" data-s="{{ $sk }}" data-text="{{ lower $txt }}">
+      <summary>
+        <span class="vx-cardcat">{{ index $strokeZh $sk }} · {{ upper .applies_from }} 起</span>
+        <span class="vx-cardtitle">{{ .title }}</span>
+      </summary>
+      <div class="vx-card-body">
+        {{ with .note }}<p class="vx-mis">{{ . }}</p>{{ end }}
+        {{ range .phases }}
+        <span class="vx-label">{{ .name }}</span>
+        <ul class="vx-adm-points">
+          {{ range .criteria }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        {{ end }}
+      </div>
+    </details>
+    {{ end }}
+  </div>
+
+  <p class="vx-legend">理想技術基準應在 T2T 階段達成，並在 T2C、T2W 及終身競技階段持續維持。</p>
+</div>
+
+<script>
+(function () {
+  var input = document.getElementById('vxAdmInput');
+  var panel = document.getElementById('adm-std');
+  if (!panel) return;
+  var bar = panel.querySelector('.vx-filters');
+
+  function applyFilters() {
+    var sChip = bar.querySelector('.vx-chip.is-active');
+    var s = sChip ? sChip.getAttribute('data-s') : 'all';
+    var q = (input.value || '').trim().toLowerCase();
+    panel.querySelectorAll('.vx-card').forEach(function (card) {
+      var sd = card.getAttribute('data-s') || '';
+      var okS = s === 'all' || sd === s;
+      var okQ = !q || (card.getAttribute('data-text') || '').indexOf(q) !== -1;
+      card.classList.toggle('is-hidden', !(okS && okQ));
+    });
+  }
+
+  bar.addEventListener('click', function (e) {
+    var chip = e.target.closest('.vx-chip'); if (!chip) return;
+    bar.querySelectorAll('.vx-chip').forEach(function (c) { c.classList.toggle('is-active', c === chip); });
+    applyFilters();
+  });
+
+  var t;
+  input.addEventListener('input', function () { clearTimeout(t); t = setTimeout(applyFilters, 110); });
+})();
+</script>
+{{ end }}

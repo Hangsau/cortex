@@ -1,9 +1,7 @@
 ---
 title: "背景與發展架構"
-layout: "adm-single"
-icon: "📖"
+layout: "vortex-adm-single"
 description: "ADM 系統的脈絡：LTD 模型、獎牌台路徑、四大支柱與八大考量"
-weight: 1
 ---
 
 # 第一章：背景與發展架構
