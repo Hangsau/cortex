@@ -7,6 +7,7 @@ CI/CD 正常運作，push hugo-source 自動部署。
 **ADM 已從 library 遷入 vortex section，用 vortex 設計語言重建（commit 8710ad1，已 push）。**
 **週期化（Periodization）呈現層已上線：canonical/periodization → sync → data/periodization → vortex-periodization 期刊式單頁（commit 28cffd3，已 push）。**
 **週期化外部文獻擴充 + plain_zh 白話層（2026-06-10，commit 31cea81）**：canonical 加 plain_zh（學員/家長/教練白話）+ 游泳外部文獻（Maglischo 六分區/各距離供能/TID/Hellard 年度結構/青少年 LTAD）。sync 加 `_index.yaml`；vortex-periodization.html §1–§6 渲染 plain_zh + §5 加 4 游泳區塊 + 新增 §7 游泳年度結構 §8 青少年 LTAD（windows of trainability 標 contested）。hugo build 綠。`.vx-pz-plain` 樣式（vortex.css）。
+**週期化頁改 master-detail 互動殼（2026-06-11，commit ec746b4，已 push + CI 綠）**：原本是單頁長文（像 .md 沒互動）。重寫成 ADM 矩陣那套互動殼——左側常駐目次、右側 4 面板（概覽 + 年度結構/賽前減量/能量分區三主題）切換、20 個概念各用 `<details>` 摺疊（預設收合）、頂部「選一個主題開始」引導入口。重用 vortex.js + vortex.css 既有元件，**零新 CSS/JS**。canonical 與 sync **未動**，純呈現層；20 概念 / 30 plain_zh 全欄位原樣保留。
 
 ## 已完成
 
