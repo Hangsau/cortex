@@ -3,6 +3,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+<noscript><style>.vx-panel{display:block;border-top:1px solid var(--vx-rule);padding-top:24px}.vx-rail{position:static;max-height:none}</style></noscript>
 {{ end }}
 
 {{ define "main" }}
@@ -11,359 +12,633 @@
 {{ $tp := index hugo.Data "periodization" "taper" }}
 {{ $zn := index hugo.Data "periodization" "zones" }}
 
-<div class="vx-page vx-pz">
+<div class="vx-stroke">
+  <div class="vx-stroke-wrap">
 
-  <a class="vx-back-link" href="{{ $base }}vortex/">← Cortex · Vortex</a>
+    {{/* ════════ 左側常駐目次 ════════ */}}
+    <aside class="vx-rail">
+      <a class="vx-back-link" href="{{ $base }}vortex/">← Cortex · Vortex</a>
+      <div class="vx-rail-head">
+        <span class="vx-stroke-zh">訓練週期化</span>
+        <span class="vx-stroke-en">Periodization</span>
+      </div>
 
-  <header class="vx-masthead">
-    <p class="vx-eyebrow">Vortex · 訓練週期化</p>
-    <h1>週期化 — 年度計畫的理論骨幹</h1>
-    <p class="vx-lead">Bompa《Periodization》的核心：把一整年的訓練拆成階段（準備 → 競賽 → 過渡）、把階段拆成中觀／微觀週期，並用賽前減量把適應推上巔峰、對準比賽當天。這是 <a href="{{ $base }}vortex/adm/matrix/">ADM 發展矩陣</a> 裡「48 週年度計畫 · 一年兩巔峰」背後的可操作理論。所有數字溯源至 Bompa 原文章節／表格並標確定性。</p>
-  </header>
+      <div class="vx-rail-group">導覽</div>
+      <div class="vx-rail-scroll">
+        <ul class="vx-rail-list">
+          <li><button class="vx-navlink" type="button" data-target="overview"><span class="n">0</span>概覽</button></li>
+        </ul>
+      </div>
 
-  {{/* ════════ §1 三大階段 ════════ */}}
-  <section class="vx-pz-sec">
-    <h2><span class="vx-sec-no">01</span>三大階段</h2>
-    <p class="vx-pz-intro">每個年度計畫至少有三階段，依序建立基礎、最大化表現、再生恢復。</p>
-    {{ range $st.phases }}
-    <div class="vx-pz-block">
-      <h3>{{ .name_zh }} <span class="vx-pz-en">{{ .name_en }}</span> <span class="vx-cert">{{ .cert }}</span></h3>
-      <p>{{ .purpose_zh }}</p>
-      {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
-      {{ with .duration_weeks }}<p class="vx-pz-meta">時長：{{ .min }}–{{ .max }} 週（年輕運動員可延至 {{ .extended_max }} 週）。{{ .note }}</p>{{ end }}
-      {{ with .maintain_fitness }}<p class="vx-pz-meta">{{ . }}</p>{{ end }}
-      {{ with .warning_zh }}<p class="vx-pz-warn">⚠ {{ . }}</p>{{ end }}
-      {{ with .subphases }}
-      <ul class="vx-pz-sub">
-        {{ range . }}
-        <li><strong>{{ .name_zh }}</strong>
-          {{ with .share_of_prep }}· {{ . }}{{ end }}
-          {{ with .intensity_cap }}· 強度上限 {{ . }}{{ end }}
-          {{ with .endurance_aerobic_share }}· {{ . }}{{ end }}
-          {{ with .sport_specific_share }}· {{ . }}{{ end }}
-          {{ with .note_zh }}· {{ . }}{{ end }}
-          {{ with .focus_zh }}<br><span class="vx-pz-focus">{{ . }}</span>{{ end }}
-        </li>
-        {{ end }}
-      </ul>
-      {{ end }}
-    </div>
-    {{ end }}
-    <p class="vx-cite"><span class="src">來源</span>：Bompa《Periodization》6th ed. — Ch5 / Ch8 階段定義</p>
-  </section>
+      <div class="vx-rail-group">主題</div>
+      <div class="vx-rail-scroll">
+        <ul class="vx-rail-list">
+          <li><button class="vx-navlink" type="button" data-target="structure"><span class="n">1</span>年度結構與週期</button></li>
+          <li><button class="vx-navlink" type="button" data-target="taper"><span class="n">2</span>賽前減量與達峰</button></li>
+          <li><button class="vx-navlink" type="button" data-target="zones"><span class="n">3</span>能量系統與強度分區</button></li>
+        </ul>
+      </div>
+    </aside>
 
-  {{/* ════════ §2 年度計畫類型 ════════ */}}
-  <section class="vx-pz-sec">
-    <h2><span class="vx-sec-no">02</span>年度計畫類型</h2>
-    <p class="vx-pz-intro">巔峰數決定計畫型態；選哪一種由運動員水準與賽季結構決定（Selective Periodization）。</p>
-    <table class="vx-pz-table">
-      <thead><tr><th>型態</th><th>巔峰</th><th>週數結構</th><th>適用對象</th></tr></thead>
-      <tbody>
-      {{ range $st.annual_plan_types }}
-        <tr>
-          <td><strong>{{ .name_zh }}</strong><br><span class="vx-pz-en">{{ .name_en }}</span> <span class="vx-cert">{{ .cert }}</span></td>
-          <td class="vx-pz-num">{{ .peaks }}</td>
-          <td>
-            {{ with .total_weeks }}全長 {{ . }} 週。{{ end }}
-            {{ with .weeks }}{{ with .preparatory }}準備 {{ .min }}{{ with .max }}–{{ . }}{{ end }} / {{ end }}{{ with .competitive }}競賽 {{ .min }}–{{ .max }} / {{ end }}{{ with .transition }}過渡 {{ .min }}{{ if ne .min .max }}–{{ .max }}{{ end }} 週{{ end }}{{ end }}
-            {{ with .weeks_note_zh }}{{ . }}{{ end }}
-            {{ with .structure_note_zh }}<br><span class="vx-pz-focus">{{ . }}</span>{{ end }}
-            {{ with .structure_note_zh }}{{ else }}{{ with .weeks }}{{ with .per_cycle }}<br>每週期 {{ .min }}–{{ .max }} 週{{ end }}{{ end }}{{ end }}
-            {{ with .plain_zh }}<span class="vx-pz-plain">{{ . }}</span>{{ end }}
-          </td>
-          <td>{{ .suited_for_zh }}</td>
-        </tr>
-      {{ end }}
-      </tbody>
-    </table>
-    <div class="vx-pz-swim">
-      <span class="vx-pz-swim-h">🔵 游泳應用</span>
-      <ul>
-      {{ range $st.annual_plan_types }}
-        {{ $name := .name_zh }}
-        {{ with .swim_application_zh }}<li><strong>{{ $name }}</strong>：{{ . }}</li>{{ end }}
-      {{ end }}
-      </ul>
-    </div>
-    <p class="vx-cite"><span class="src">來源</span>：Bompa《Periodization》6th ed. — Ch5 Table 5.1 + Selective Periodization；Ch8 Fig 8.4–8.8</p>
-  </section>
+    {{/* ════════ 右側主面板 ════════ */}}
+    <main class="vx-panels">
 
-  {{/* ════════ §3 中觀 · 微觀週期 ════════ */}}
-  <section class="vx-pz-sec">
-    <h2><span class="vx-sec-no">03</span>中觀 · 微觀週期</h2>
+      {{/* ── 概覽 ── */}}
+      <section class="vx-panel vx-overview" id="overview">
+        <span class="vx-sec-no">VORTEX · Periodization</span>
+        <h2>週期化 — 年度計畫的理論骨幹</h2>
+        <p class="vx-premise">把一整年的訓練拆成階段（準備 → 競賽 → 過渡），把階段拆成中觀／微觀週期，再用賽前減量把適應推上巔峰、對準比賽當天。這是 <a href="{{ $base }}vortex/adm/matrix/">ADM 發展矩陣</a> 裡「48 週年度計畫 · 一年兩巔峰」背後的可操作理論。選一個主題開始，就地展開讀——不換頁。</p>
+        <p class="vx-panel-lead">選一個主題開始：</p>
+        <div class="vx-path-list">
+          <button class="vx-path-item" type="button" data-target="structure">
+            <span class="n">1</span>
+            <span><span class="t">年度結構與週期</span><span class="o">三大階段 · 年度計畫型態 · 中觀／微觀 · 停練衰退 · 游泳實證</span></span>
+          </button>
+          <button class="vx-path-item" type="button" data-target="taper">
+            <span class="n">2</span>
+            <span><span class="t">賽前減量與達峰</span><span class="o">減量原理 · 四個操作旋鈕 · 曲線型態 · 達峰窗 · 游泳應用</span></span>
+          </button>
+          <button class="vx-path-item" type="button" data-target="zones">
+            <span class="n">3</span>
+            <span><span class="t">能量系統與強度分區</span><span class="o">Bompa 六分區 · 心率／VO₂ · 游泳分區 · 各距離供能 · TID</span></span>
+          </button>
+        </div>
+        <p class="vx-legend">確定性：🔵 推導 · 🟢 近期文獻 · 🟡 舊文獻（週期化基礎理論） · 🟠 教練觀測 · 🔴 待查。本頁為公開週期化理論，描述年度計畫結構與處方原則，不含感知診斷內容。所有數字溯源至 Bompa 原文章節／表格或外部文獻（PMID／DOI）並標確定性。</p>
+        <nav class="vx-flow">
+          <span></span>
+          <button class="nx" type="button" data-target="structure"><span class="lbl">下一個主題</span>年度結構與週期 →</button>
+        </nav>
+      </section>
 
-    <div class="vx-pz-block">
-      <h3>Macrocycle 中觀週期 <span class="vx-cert">{{ $st.macrocycle.cert }}</span></h3>
-      <p class="vx-pz-meta">時長 {{ $st.macrocycle.duration_weeks.min }}–{{ $st.macrocycle.duration_weeks.max }} 週（準備期 macrocycle {{ $st.macrocycle.duration_weeks.prep_macrocycle.min }}–{{ $st.macrocycle.duration_weeks.prep_macrocycle.max }} 週）。</p>
-      <table class="vx-pz-table vx-pz-table--narrow">
-        <thead><tr><th>負荷型態</th><th>適用</th></tr></thead>
-        <tbody>
-        {{ range $st.macrocycle.loading_patterns }}
-          <tr{{ if .default }} class="vx-pz-default"{{ end }}>
-            <td class="vx-pz-num">{{ .ratio }}{{ if .default }} ★{{ end }}</td>
-            <td>{{ .note_zh }}</td>
-          </tr>
-        {{ end }}
-        </tbody>
-      </table>
-    </div>
+      {{/* ════════ 主題 1 · 年度結構與週期 ════════ */}}
+      <section class="vx-panel vx-move" id="structure">
+        <span class="vx-sec-no">主題 1 / 3</span>
+        <h2>年度結構與週期</h2>
+        <p class="vx-panel-lead">從一整年怎麼分階段，到一週課表怎麼排。點任一概念就地展開。</p>
 
-    <div class="vx-pz-block">
-      <h3>Microcycle 微觀週期 <span class="vx-cert">{{ $st.microcycle.cert }}</span></h3>
-      <p class="vx-pz-meta">單位：{{ $st.microcycle.duration }}（游泳課表最小規劃單位）。</p>
-      <ul class="vx-pz-sub">
-      {{ range $st.microcycle.classifications }}
-        <li><strong>{{ .name_zh }}</strong>{{ with .note_zh }} · {{ . }}{{ end }}</li>
-      {{ end }}
-      </ul>
-    </div>
+        <div class="vx-ladder">
 
-    {{ with $st.macrocycle.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
-    {{ with $st.microcycle.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+          {{/* 三大階段 */}}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">階</span>
+              <span>
+                <span class="lvname">三大階段</span>
+                <span class="lvtag">準備 → 競賽 → 過渡：先打基礎、再推巔峰、最後恢復</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">每個年度計畫至少有三階段，依序建立基礎、最大化表現、再生恢復。</p>
+              {{ range $st.phases }}
+              <div class="vx-pz-block">
+                <h3>{{ .name_zh }} <span class="vx-pz-en">{{ .name_en }}</span> <span class="vx-cert">{{ .cert }}</span></h3>
+                <p>{{ .purpose_zh }}</p>
+                {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+                {{ with .duration_weeks }}<p class="vx-pz-meta">時長：{{ .min }}–{{ .max }} 週（年輕運動員可延至 {{ .extended_max }} 週）。{{ .note }}</p>{{ end }}
+                {{ with .maintain_fitness }}<p class="vx-pz-meta">{{ . }}</p>{{ end }}
+                {{ with .warning_zh }}<p class="vx-pz-warn">⚠ {{ . }}</p>{{ end }}
+                {{ with .subphases }}
+                <ul class="vx-pz-sub">
+                  {{ range . }}
+                  <li><strong>{{ .name_zh }}</strong>
+                    {{ with .share_of_prep }}· {{ . }}{{ end }}
+                    {{ with .intensity_cap }}· 強度上限 {{ . }}{{ end }}
+                    {{ with .endurance_aerobic_share }}· {{ . }}{{ end }}
+                    {{ with .sport_specific_share }}· {{ . }}{{ end }}
+                    {{ with .note_zh }}· {{ . }}{{ end }}
+                    {{ with .focus_zh }}<br><span class="vx-pz-focus">{{ . }}</span>{{ end }}
+                  </li>
+                  {{ end }}
+                </ul>
+                {{ end }}
+              </div>
+              {{ end }}
+              <p class="vx-cite"><span class="src">來源</span>：Bompa《Periodization》6th ed. — Ch5 / Ch8 階段定義</p>
+            </div>
+          </details>
 
-    <div class="vx-pz-swim">
-      <span class="vx-pz-swim-h">🔵 游泳應用</span>
-      <p>{{ $st.macrocycle.swim_application_zh }}</p>
-      <p>{{ $st.microcycle.swim_application_zh }}</p>
-    </div>
-    <p class="vx-cite"><span class="src">來源</span>：Bompa《Periodization》6th ed. — Ch7 Planning Training Cycles</p>
-  </section>
+          {{/* 年度計畫類型 */}}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">年</span>
+              <span>
+                <span class="lvname">年度計畫類型</span>
+                <span class="lvtag">一年衝幾個高峰決定計畫型態（單／雙／三／多巔峰）</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">巔峰數決定計畫型態；選哪一種由運動員水準與賽季結構決定（Selective Periodization）。</p>
+              <table class="vx-pz-table">
+                <thead><tr><th>型態</th><th>巔峰</th><th>週數結構</th><th>適用對象</th></tr></thead>
+                <tbody>
+                {{ range $st.annual_plan_types }}
+                  <tr>
+                    <td><strong>{{ .name_zh }}</strong><br><span class="vx-pz-en">{{ .name_en }}</span> <span class="vx-cert">{{ .cert }}</span></td>
+                    <td class="vx-pz-num">{{ .peaks }}</td>
+                    <td>
+                      {{ with .total_weeks }}全長 {{ . }} 週。{{ end }}
+                      {{ with .weeks }}{{ with .preparatory }}準備 {{ .min }}{{ with .max }}–{{ . }}{{ end }} / {{ end }}{{ with .competitive }}競賽 {{ .min }}–{{ .max }} / {{ end }}{{ with .transition }}過渡 {{ .min }}{{ if ne .min .max }}–{{ .max }}{{ end }} 週{{ end }}{{ end }}
+                      {{ with .weeks_note_zh }}{{ . }}{{ end }}
+                      {{ with .structure_note_zh }}<br><span class="vx-pz-focus">{{ . }}</span>{{ end }}
+                      {{ with .structure_note_zh }}{{ else }}{{ with .weeks }}{{ with .per_cycle }}<br>每週期 {{ .min }}–{{ .max }} 週{{ end }}{{ end }}{{ end }}
+                      {{ with .plain_zh }}<span class="vx-pz-plain">{{ . }}</span>{{ end }}
+                    </td>
+                    <td>{{ .suited_for_zh }}</td>
+                  </tr>
+                {{ end }}
+                </tbody>
+              </table>
+              <div class="vx-pz-swim">
+                <span class="vx-pz-swim-h">🔵 游泳應用</span>
+                <ul>
+                {{ range $st.annual_plan_types }}
+                  {{ $name := .name_zh }}
+                  {{ with .swim_application_zh }}<li><strong>{{ $name }}</strong>：{{ . }}</li>{{ end }}
+                {{ end }}
+                </ul>
+              </div>
+              <p class="vx-cite"><span class="src">來源</span>：Bompa《Periodization》6th ed. — Ch5 Table 5.1 + Selective Periodization；Ch8 Fig 8.4–8.8</p>
+            </div>
+          </details>
 
-  {{/* ════════ §4 賽前減量與達峰 ════════ */}}
-  <section class="vx-pz-sec">
-    <h2><span class="vx-sec-no">04</span>賽前減量與達峰</h2>
-    <p class="vx-pz-intro">{{ $tp.definition.text_zh }} <span class="vx-cert">{{ $tp.definition.cert }}</span></p>
-    <p class="vx-pz-meta">{{ $tp.definition.purpose_zh }}</p>
-    {{ with $tp.definition.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+          {{/* 中觀週期 */}}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">中</span>
+              <span>
+                <span class="lvname">中觀週期 <span class="vx-cert">{{ $st.macrocycle.cert }}</span></span>
+                <span class="lvtag">2–6 週的中型循環；最常見 3 負荷週 + 1 恢復週</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-meta">時長 {{ $st.macrocycle.duration_weeks.min }}–{{ $st.macrocycle.duration_weeks.max }} 週（準備期 macrocycle {{ $st.macrocycle.duration_weeks.prep_macrocycle.min }}–{{ $st.macrocycle.duration_weeks.prep_macrocycle.max }} 週）。</p>
+              <table class="vx-pz-table vx-pz-table--narrow">
+                <thead><tr><th>負荷型態</th><th>適用</th></tr></thead>
+                <tbody>
+                {{ range $st.macrocycle.loading_patterns }}
+                  <tr{{ if .default }} class="vx-pz-default"{{ end }}>
+                    <td class="vx-pz-num">{{ .ratio }}{{ if .default }} ★{{ end }}</td>
+                    <td>{{ .note_zh }}</td>
+                  </tr>
+                {{ end }}
+                </tbody>
+              </table>
+              {{ with $st.macrocycle.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+              <div class="vx-pz-swim">
+                <span class="vx-pz-swim-h">🔵 游泳應用</span>
+                <p>{{ $st.macrocycle.swim_application_zh }}</p>
+              </div>
+              <p class="vx-cite"><span class="src">來源</span>：Bompa《Periodization》6th ed. — Ch7 Planning Training Cycles</p>
+            </div>
+          </details>
 
-    <table class="vx-pz-table">
-      <thead><tr><th>變數</th><th>操作</th><th>角色</th></tr></thead>
-      <tbody>
-      {{ range $tp.variables }}
-        <tr>
-          <td><strong>{{ .name_zh }}</strong> <span class="vx-cert">{{ .cert }}</span></td>
-          <td>
-            {{ with .reduction }}降 {{ .typical }}{{ with .heavy_pretaper }}（重負荷可至 {{ . }}）{{ end }}{{ end }}
-            {{ with .range }}{{ .min_days }}–{{ .max_days }} 天{{ end }}
-            {{ with .rule_zh }}{{ . }}{{ end }}
-            {{ with .first_week_zh }}<br>{{ . }}{{ end }}
-          </td>
-          <td>{{ .role_zh }}{{ with .plain_zh }}<span class="vx-pz-plain">{{ . }}</span>{{ end }}</td>
-        </tr>
-      {{ end }}
-      </tbody>
-    </table>
+          {{/* 微觀週期 */}}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">微</span>
+              <span>
+                <span class="lvname">微觀週期 <span class="vx-cert">{{ $st.microcycle.cert }}</span></span>
+                <span class="lvtag">一週，排課表的最小單位（發展／競賽／恢復／卸載型）</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-meta">單位：{{ $st.microcycle.duration }}（游泳課表最小規劃單位）。</p>
+              <ul class="vx-pz-sub">
+              {{ range $st.microcycle.classifications }}
+                <li><strong>{{ .name_zh }}</strong>{{ with .note_zh }} · {{ . }}{{ end }}</li>
+              {{ end }}
+              </ul>
+              {{ with $st.microcycle.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+              <div class="vx-pz-swim">
+                <span class="vx-pz-swim-h">🔵 游泳應用</span>
+                <p>{{ $st.microcycle.swim_application_zh }}</p>
+              </div>
+              <p class="vx-cite"><span class="src">來源</span>：Bompa《Periodization》6th ed. — Ch7 Planning Training Cycles</p>
+            </div>
+          </details>
 
-    <div class="vx-pz-block">
-      <h3>減量曲線型態</h3>
-      <ul class="vx-pz-sub">
-      {{ range $tp.taper_types }}
-        <li{{ if .default }} class="vx-pz-hi"{{ end }}><strong>{{ .name_zh }}</strong>{{ with .perf_gain }} · 表現增益 {{ . }}{{ end }} <span class="vx-cert">{{ .cert }}</span>{{ if .default }} ★首選{{ end }}<br><span class="vx-pz-focus">{{ .note_zh }}</span>{{ with .plain_zh }}<span class="vx-pz-plain">{{ . }}</span>{{ end }}</li>
-      {{ end }}
-      </ul>
-      <p class="vx-pz-meta">達峰窗：巔峰狀態可維持約 {{ $tp.peak.maintainable_days.min }}–{{ $tp.peak.maintainable_days.max }} 天，主賽應落在此窗內。<span class="vx-cert">{{ $tp.peak.cert }}</span></p>
-      <p class="vx-pz-warn">⚠ {{ $tp.peak.warning_zh }}</p>
-      {{ with $tp.peak.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
-    </div>
+          {{/* 停練衰退 */}}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">停</span>
+              <span>
+                <span class="lvname">停練衰退安全表 <span class="vx-cert">{{ $st.detraining.cert }}</span></span>
+                <span class="lvtag">停 4 週 VO₂max 掉 14%——休季別整個躺平</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">過渡期與傷停排課的安全底線：知道停多久流失多少，才知道過渡期該保留多少 active rest。</p>
+              <table class="vx-pz-table vx-pz-table--narrow">
+                <thead><tr><th>停練時間</th><th>VO₂max 流失</th></tr></thead>
+                <tbody>
+                {{ range $st.detraining.vo2max_loss }}
+                  <tr><td>{{ with .days }}{{ . }} 天{{ end }}{{ with .weeks }}{{ . }} 週{{ end }}</td><td class="vx-pz-num">{{ .loss }}</td></tr>
+                {{ end }}
+                </tbody>
+              </table>
+              <p class="vx-pz-meta">{{ $st.detraining.strength_power_loss_zh }}</p>
+              <p class="vx-pz-meta">{{ $st.detraining.endurance_perf_loss_zh }}</p>
+              <p class="vx-pz-warn">⚠ {{ $st.detraining.reversible_note_zh }}</p>
+              <div class="vx-pz-swim">
+                <span class="vx-pz-swim-h">🔵 游泳應用</span>
+                <p>{{ $st.detraining.swim_application_zh }}</p>
+              </div>
+              <p class="vx-cite"><span class="src">來源</span>：Bompa《Periodization》6th ed. — Ch8 Table 8.2；Mujika &amp; Padilla 2000</p>
+            </div>
+          </details>
 
-    <div class="vx-pz-swim">
-      <span class="vx-pz-swim-h">🔵 游泳應用</span>
-      <p>{{ $tp.swim_application.volume_reduction_zh }}</p>
-      <p>{{ $tp.swim_application.three_week_taper_zh }}</p>
-      <p>{{ $tp.swim_application.sydney_2000_zh }}</p>
-      <p>{{ $tp.swim_application.practice_zh }}</p>
-    </div>
-    {{ with $tp.swim_application.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
-    <p class="vx-cite"><span class="src">來源</span>：Bompa《Periodization》6th ed. — Ch9；Mujika &amp; Padilla 2003 (PMID 12840640)；Mujika et al. 1996 (PMID 8775162)；Mujika/Padilla/Pyne 2002 (PMID 12439774)；Bosquet et al. 2007 (PMID 17762369)</p>
-  </section>
+          {{/* 游泳年度結構 */}}
+          {{ with $st.swim_annual_structure }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">泳</span>
+              <span>
+                <span class="lvname">游泳年度結構（菁英實證） <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">一年 2–4 個中週期、86–90% 量為低強度（Hellard 2019）</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">不靠通用理論，直接看菁英游泳的年度結構文獻長什麼樣。</p>
+              <table class="vx-pz-table vx-pz-table--narrow">
+                <tbody>
+                  <tr><td>每年中週期數</td><td class="vx-pz-num">{{ .macrocycles_per_year }}</td></tr>
+                  <tr><td>中週期長度</td><td class="vx-pz-num">{{ .macrocycle_length_weeks }}</td></tr>
+                  <tr><td>低強度量占比</td><td class="vx-pz-num">{{ .low_intensity_volume_share }}</td></tr>
+                </tbody>
+              </table>
+              <p class="vx-pz-meta">{{ .case_400im_zh }}</p>
+              {{ with .caution_zh }}<p class="vx-pz-warn">{{ . }}</p>{{ end }}
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+              <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
+            </div>
+          </details>
+          {{ end }}
 
-  {{/* ════════ §5 能量系統強度分區 ════════ */}}
-  <section class="vx-pz-sec">
-    <h2><span class="vx-sec-no">05</span>能量系統強度分區</h2>
+          {{/* 青少年分齡 LTAD */}}
+          {{ with $st.swim_youth_ltad }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">齡</span>
+              <span>
+                <span class="lvname">青少年分齡週期化（LTAD） <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">按年齡分階段；PHV 與 trainability 窗口須謹慎（含爭議）</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">青少年怎麼按年齡分階段練，對齊 ADM 發展階段。</p>
+              <p class="vx-pz-meta">{{ .stage_ages_zh }}</p>
+              <p class="vx-pz-meta">{{ .phv_zh }}</p>
+              {{ with .windows_note_zh }}<p class="vx-pz-warn">{{ . }}</p>{{ end }}
+              {{ with .caution_zh }}<p class="vx-pz-warn">{{ . }}</p>{{ end }}
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+              <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
+            </div>
+          </details>
+          {{ end }}
 
-    <div class="vx-pz-block">
-      <h3>六分區（以最大表現百分比）<span class="vx-cert">{{ $zn.intensity_zones.cert }}</span></h3>
-      <table class="vx-pz-table">
-        <thead><tr><th>分區</th><th>訓練需求</th><th>% 最大表現</th><th>強度</th></tr></thead>
-        <tbody>
-        {{ range $zn.intensity_zones.zones }}
-          <tr><td class="vx-pz-num">{{ .zone }}</td><td>{{ .demand_zh }}</td><td>{{ .pct_max_performance }}</td><td>{{ .intensity_zh }}</td></tr>
-        {{ end }}
-        </tbody>
-      </table>
-      <p class="vx-pz-meta">{{ $zn.intensity_zones.note_zh }}</p>
-      {{ with $zn.intensity_zones.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
-    </div>
+        </div>
 
-    <div class="vx-pz-block">
-      <h3>心率 / VO₂max / 能量系統對照 <span class="vx-cert">{{ $zn.hr_vo2_ergogenesis.cert }}</span></h3>
-      <table class="vx-pz-table">
-        <thead><tr><th>% HRmax</th><th>% VO₂max</th><th>主導能量系統</th><th>訓練目標</th></tr></thead>
-        <tbody>
-        {{ range $zn.hr_vo2_ergogenesis.rows }}
-          <tr><td class="vx-pz-num">{{ .pct_hr_max }}</td><td class="vx-pz-num">{{ .pct_vo2max }}</td><td>{{ .system_zh }}</td><td>{{ .target_zh }}</td></tr>
-        {{ end }}
-        </tbody>
-      </table>
-      {{ with $zn.hr_vo2_ergogenesis.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
-    </div>
+        <nav class="vx-flow">
+          <button type="button" data-target="overview"><span class="lbl">回到</span>← 概覽</button>
+          <button class="nx" type="button" data-target="taper"><span class="lbl">下一個主題</span>賽前減量與達峰 →</button>
+        </nav>
+      </section>
 
-    <div class="vx-pz-block">
-      <h3>低強度耐力方法（LIEE）<span class="vx-cert">{{ $zn.liee_methods.cert }}</span></h3>
-      <p class="vx-pz-warn">⚠ {{ $zn.liee_methods.warning_zh }}</p>
-      <table class="vx-pz-table">
-        <thead><tr><th>方法</th><th>每週</th><th>時長</th><th>強度</th></tr></thead>
-        <tbody>
-        {{ range $zn.liee_methods.methods }}
-          <tr><td><strong>{{ .name_zh }}</strong></td><td class="vx-pz-num">{{ .freq_per_wk }}</td><td>{{ .duration }}</td><td>{{ .intensity_zh }}</td></tr>
-        {{ end }}
-        </tbody>
-      </table>
-      {{ with $zn.liee_methods.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
-    </div>
+      {{/* ════════ 主題 2 · 賽前減量與達峰 ════════ */}}
+      <section class="vx-panel vx-move" id="taper">
+        <span class="vx-sec-no">主題 2 / 3</span>
+        <h2>賽前減量與達峰</h2>
+        <p class="vx-panel-lead">怎麼在比賽前把疲勞卸掉、把適應推上巔峰。點任一概念就地展開。</p>
 
-    <div class="vx-pz-block">
-      <h3>耐力週期化三階段（單巔峰）<span class="vx-cert">{{ $zn.endurance_periodization.cert }}</span></h3>
-      <ul class="vx-pz-sub">
-      {{ range $zn.endurance_periodization.phases }}
-        <li><strong>{{ .name_zh }}</strong> · {{ .when_zh }}<br><span class="vx-pz-focus">{{ .focus_zh }}</span></li>
-      {{ end }}
-      </ul>
-      {{ with $zn.endurance_periodization.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
-    </div>
+        <div class="vx-ladder">
 
-    {{/* ── 游泳專項分區（外部文獻）── */}}
-    {{ with $zn.swim_zones_maglischo }}
-    <div class="vx-pz-block">
-      <h3>Maglischo 游泳六分區 <span class="vx-cert">{{ .cert }}</span></h3>
-      <p class="vx-pz-meta">無氧閾值血乳酸：{{ .anaerobic_threshold_mmol }}</p>
-      <ul class="vx-pz-sub">
-      {{ range .zones }}
-        <li><strong>{{ .name_zh }}</strong> · <span class="vx-pz-focus">{{ .focus_zh }}</span></li>
-      {{ end }}
-      </ul>
-      <p class="vx-pz-meta">{{ .sprint_note_zh }}</p>
-      {{ with .caution_zh }}<p class="vx-pz-warn">{{ . }}</p>{{ end }}
-      {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
-    </div>
-    {{ end }}
+          {{/* 什麼是減量 */}}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">減</span>
+              <span>
+                <span class="lvname">什麼是減量 <span class="vx-cert">{{ $tp.definition.cert }}</span></span>
+                <span class="lvtag">賽前慢慢降量，消疲勞、保體能，比賽當天有料又不累</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">{{ $tp.definition.text_zh }}</p>
+              <p class="vx-pz-meta">{{ $tp.definition.purpose_zh }}</p>
+              {{ with $tp.definition.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+            </div>
+          </details>
 
-    {{ with $zn.swim_zones_three }}
-    <div class="vx-pz-block">
-      <h3>三區乳酸模型 <span class="vx-cert">{{ .cert }}</span></h3>
-      <table class="vx-pz-table vx-pz-table--narrow">
-        <thead><tr><th>區</th><th>血乳酸 (mmol)</th><th>名稱</th><th>重點</th></tr></thead>
-        <tbody>
-        {{ range .zones }}
-          <tr><td class="vx-pz-num">{{ .zone }}</td><td>{{ .lactate_mmol }}</td><td>{{ .name_zh }}</td><td>{{ .focus_zh }}</td></tr>
-        {{ end }}
-        </tbody>
-      </table>
-      {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
-    </div>
-    {{ end }}
+          {{/* 四個操作旋鈕 */}}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">鈕</span>
+              <span>
+                <span class="lvname">四個操作旋鈕</span>
+                <span class="lvtag">量、強度、頻率、時長——砍量保強度</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <table class="vx-pz-table">
+                <thead><tr><th>變數</th><th>操作</th><th>角色</th></tr></thead>
+                <tbody>
+                {{ range $tp.variables }}
+                  <tr>
+                    <td><strong>{{ .name_zh }}</strong> <span class="vx-cert">{{ .cert }}</span></td>
+                    <td>
+                      {{ with .reduction }}降 {{ .typical }}{{ with .heavy_pretaper }}（重負荷可至 {{ . }}）{{ end }}{{ end }}
+                      {{ with .range }}{{ .min_days }}–{{ .max_days }} 天{{ end }}
+                      {{ with .rule_zh }}{{ . }}{{ end }}
+                      {{ with .first_week_zh }}<br>{{ . }}{{ end }}
+                    </td>
+                    <td>{{ .role_zh }}{{ with .plain_zh }}<span class="vx-pz-plain">{{ . }}</span>{{ end }}</td>
+                  </tr>
+                {{ end }}
+                </tbody>
+              </table>
+            </div>
+          </details>
 
-    {{ with $zn.swim_energy_by_distance }}
-    <div class="vx-pz-block">
-      <h3>各距離能量系統供能比 <span class="vx-cert">{{ .cert }}</span></h3>
-      <table class="vx-pz-table">
-        <thead><tr><th>項目</th><th>有氧占比</th><th>說明</th></tr></thead>
-        <tbody>
-        {{ range .events }}
-          <tr><td class="vx-pz-num">{{ .event }}</td><td>{{ .aerobic_pct }} <span class="vx-cert">{{ .cert }}</span></td><td>{{ .note_zh }}</td></tr>
-        {{ end }}
-        </tbody>
-      </table>
-      {{ with .caution_zh }}<p class="vx-pz-warn">{{ . }}</p>{{ end }}
-      {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
-    </div>
-    {{ end }}
+          {{/* 減量曲線與達峰窗 */}}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">峰</span>
+              <span>
+                <span class="lvname">減量曲線與達峰窗</span>
+                <span class="lvtag">快速指數遞減增益最大；巔峰只撐 7–14 天</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <ul class="vx-pz-sub">
+              {{ range $tp.taper_types }}
+                <li{{ if .default }} class="vx-pz-hi"{{ end }}><strong>{{ .name_zh }}</strong>{{ with .perf_gain }} · 表現增益 {{ . }}{{ end }} <span class="vx-cert">{{ .cert }}</span>{{ if .default }} ★首選{{ end }}<br><span class="vx-pz-focus">{{ .note_zh }}</span>{{ with .plain_zh }}<span class="vx-pz-plain">{{ . }}</span>{{ end }}</li>
+              {{ end }}
+              </ul>
+              <p class="vx-pz-meta">達峰窗：巔峰狀態可維持約 {{ $tp.peak.maintainable_days.min }}–{{ $tp.peak.maintainable_days.max }} 天，主賽應落在此窗內。<span class="vx-cert">{{ $tp.peak.cert }}</span></p>
+              <p class="vx-pz-warn">⚠ {{ $tp.peak.warning_zh }}</p>
+              {{ with $tp.peak.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+            </div>
+          </details>
 
-    {{ with $zn.swim_tid }}
-    <div class="vx-pz-block">
-      <h3>訓練強度分布 TID <span class="vx-cert">{{ .cert }}</span></h3>
-      <ul class="vx-pz-sub">
-      {{ range .archetypes }}
-        <li><strong>{{ .name_zh }}</strong>{{ with .note_zh }} · <span class="vx-pz-focus">{{ . }}</span>{{ end }}</li>
-      {{ end }}
-      </ul>
-      <p class="vx-pz-meta">{{ .sprinter_note_zh }}</p>
-      {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
-    </div>
-    {{ end }}
+          {{/* 游泳減量應用 */}}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">泳</span>
+              <span>
+                <span class="lvname">游泳減量應用</span>
+                <span class="lvtag">對準主賽推 8–14 天、量降 40–60%；約進步 2–3%</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <div class="vx-pz-swim">
+                <span class="vx-pz-swim-h">🔵 游泳應用</span>
+                <p>{{ $tp.swim_application.volume_reduction_zh }}</p>
+                <p>{{ $tp.swim_application.three_week_taper_zh }}</p>
+                <p>{{ $tp.swim_application.sydney_2000_zh }}</p>
+                <p>{{ $tp.swim_application.practice_zh }}</p>
+              </div>
+              {{ with $tp.swim_application.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+            </div>
+          </details>
 
-    <div class="vx-pz-swim">
-      <span class="vx-pz-swim-h">🔵 游泳應用</span>
-      <p>{{ $zn.swim_application.pace_mapping_zh }}</p>
-      <p>{{ $zn.swim_application.event_metabolic_zh }}</p>
-      <p>{{ $zn.swim_application.weekly_distribution_zh }}</p>
-      <p>{{ $zn.swim_application.energy_system_zh }}</p>
-    </div>
-    {{ with $zn.swim_application.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
-    <p class="vx-cite"><span class="src">來源</span>：Bompa《Periodization》6th ed. — Ch7 Table 7.1；Ch11 Table 11.1 / 11.2。游泳專項：Maglischo 2012 (J Swimming Research 19:2)；Toussaint &amp; Hollander 1994；Rodríguez &amp; Mader 2011；Papadimitriou et al. 2025；Barbosa et al. 2019</p>
-  </section>
+        </div>
 
-  {{/* ════════ §6 Detraining 安全表 ════════ */}}
-  <section class="vx-pz-sec">
-    <h2><span class="vx-sec-no">06</span>停練流失（Detraining）安全表</h2>
-    <p class="vx-pz-intro">過渡期與傷停排課的安全底線：知道停多久流失多少，才知道過渡期該保留多少 active rest。<span class="vx-cert">{{ $st.detraining.cert }}</span></p>
-    <table class="vx-pz-table vx-pz-table--narrow">
-      <thead><tr><th>停練時間</th><th>VO₂max 流失</th></tr></thead>
-      <tbody>
-      {{ range $st.detraining.vo2max_loss }}
-        <tr><td>{{ with .days }}{{ . }} 天{{ end }}{{ with .weeks }}{{ . }} 週{{ end }}</td><td class="vx-pz-num">{{ .loss }}</td></tr>
-      {{ end }}
-      </tbody>
-    </table>
-    <p class="vx-pz-meta">{{ $st.detraining.strength_power_loss_zh }}</p>
-    <p class="vx-pz-meta">{{ $st.detraining.endurance_perf_loss_zh }}</p>
-    <p class="vx-pz-warn">⚠ {{ $st.detraining.reversible_note_zh }}</p>
-    <div class="vx-pz-swim">
-      <span class="vx-pz-swim-h">🔵 游泳應用</span>
-      <p>{{ $st.detraining.swim_application_zh }}</p>
-    </div>
-    <p class="vx-cite"><span class="src">來源</span>：Bompa《Periodization》6th ed. — Ch8 Table 8.2；Mujika &amp; Padilla 2000</p>
-  </section>
+        <p class="vx-cite"><span class="src">來源</span>：Bompa《Periodization》6th ed. — Ch9；Mujika &amp; Padilla 2003 (PMID 12840640)；Mujika et al. 1996 (PMID 8775162)；Mujika/Padilla/Pyne 2002 (PMID 12439774)；Bosquet et al. 2007 (PMID 17762369)</p>
 
-  {{/* ════════ §7 游泳年度結構（外部實證）════════ */}}
-  {{ with $st.swim_annual_structure }}
-  <section class="vx-pz-sec">
-    <h2><span class="vx-sec-no">07</span>游泳年度結構（菁英實證）<span class="vx-cert">{{ .cert }}</span></h2>
-    <p class="vx-pz-intro">不靠通用理論，直接看菁英游泳的年度結構文獻長什麼樣。</p>
-    <table class="vx-pz-table vx-pz-table--narrow">
-      <tbody>
-        <tr><td>每年中週期數</td><td class="vx-pz-num">{{ .macrocycles_per_year }}</td></tr>
-        <tr><td>中週期長度</td><td class="vx-pz-num">{{ .macrocycle_length_weeks }}</td></tr>
-        <tr><td>低強度量占比</td><td class="vx-pz-num">{{ .low_intensity_volume_share }}</td></tr>
-      </tbody>
-    </table>
-    <p class="vx-pz-meta">{{ .case_400im_zh }}</p>
-    {{ with .caution_zh }}<p class="vx-pz-warn">{{ . }}</p>{{ end }}
-    {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
-    <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
-  </section>
-  {{ end }}
+        <nav class="vx-flow">
+          <button type="button" data-target="structure"><span class="lbl">上一個主題</span>← 年度結構與週期</button>
+          <button class="nx" type="button" data-target="zones"><span class="lbl">下一個主題</span>能量系統與強度分區 →</button>
+        </nav>
+      </section>
 
-  {{/* ════════ §8 青少年分齡 LTAD（含爭議標記）════════ */}}
-  {{ with $st.swim_youth_ltad }}
-  <section class="vx-pz-sec">
-    <h2><span class="vx-sec-no">08</span>青少年分齡週期化（LTAD）<span class="vx-cert">{{ .cert }}</span></h2>
-    <p class="vx-pz-intro">青少年怎麼按年齡分階段練，對齊 ADM 發展階段。</p>
-    <p class="vx-pz-meta">{{ .stage_ages_zh }}</p>
-    <p class="vx-pz-meta">{{ .phv_zh }}</p>
-    {{ with .windows_note_zh }}<p class="vx-pz-warn">{{ . }}</p>{{ end }}
-    {{ with .caution_zh }}<p class="vx-pz-warn">{{ . }}</p>{{ end }}
-    {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
-    <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
-  </section>
-  {{ end }}
+      {{/* ════════ 主題 3 · 能量系統與強度分區 ════════ */}}
+      <section class="vx-panel vx-move" id="zones">
+        <span class="vx-sec-no">主題 3 / 3</span>
+        <h2>能量系統與強度分區</h2>
+        <p class="vx-panel-lead">通用強度分區，加上游泳專項的分區與供能文獻。點任一概念就地展開。</p>
 
-  <p class="vx-legend">確定性：🔵 推導 · 🟢 近期文獻 · 🟡 舊文獻（週期化基礎理論） · 🟠 教練觀測 · 🔴 待查。本頁為公開週期化理論，描述年度計畫結構與處方原則，不含感知診斷內容。</p>
+        <div class="vx-ladder">
 
-  <footer class="vx-article-footer">
-    <hr class="vx-divider">
-    <a class="vx-back-link" href="{{ $base }}vortex/adm/matrix/">→ 回到 ADM 發展矩陣（看週期化如何落在各階段）</a>
-  </footer>
+          {{/* Bompa 六分區 */}}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">6</span>
+              <span>
+                <span class="lvname">Bompa 六分區 <span class="vx-cert">{{ $zn.intensity_zones.cert }}</span></span>
+                <span class="lvtag">用最大表現百分比分 6 區；賽配速 = zone 2</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <table class="vx-pz-table">
+                <thead><tr><th>分區</th><th>訓練需求</th><th>% 最大表現</th><th>強度</th></tr></thead>
+                <tbody>
+                {{ range $zn.intensity_zones.zones }}
+                  <tr><td class="vx-pz-num">{{ .zone }}</td><td>{{ .demand_zh }}</td><td>{{ .pct_max_performance }}</td><td>{{ .intensity_zh }}</td></tr>
+                {{ end }}
+                </tbody>
+              </table>
+              <p class="vx-pz-meta">{{ $zn.intensity_zones.note_zh }}</p>
+              {{ with $zn.intensity_zones.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+            </div>
+          </details>
 
+          {{/* 心率 / VO2 / 能量系統 */}}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">HR</span>
+              <span>
+                <span class="lvname">心率 / VO₂max / 能量系統對照 <span class="vx-cert">{{ $zn.hr_vo2_ergogenesis.cert }}</span></span>
+                <span class="lvtag">把心率攝氧對應到主導能量系統</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <table class="vx-pz-table">
+                <thead><tr><th>% HRmax</th><th>% VO₂max</th><th>主導能量系統</th><th>訓練目標</th></tr></thead>
+                <tbody>
+                {{ range $zn.hr_vo2_ergogenesis.rows }}
+                  <tr><td class="vx-pz-num">{{ .pct_hr_max }}</td><td class="vx-pz-num">{{ .pct_vo2max }}</td><td>{{ .system_zh }}</td><td>{{ .target_zh }}</td></tr>
+                {{ end }}
+                </tbody>
+              </table>
+              {{ with $zn.hr_vo2_ergogenesis.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+            </div>
+          </details>
+
+          {{/* 低強度耐力方法 */}}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">低</span>
+              <span>
+                <span class="lvname">低強度耐力方法（LIEE） <span class="vx-cert">{{ $zn.liee_methods.cert }}</span></span>
+                <span class="lvtag">主動恢復／長慢游／節奏游；低強度與高強度不可亂混</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-warn">⚠ {{ $zn.liee_methods.warning_zh }}</p>
+              <table class="vx-pz-table">
+                <thead><tr><th>方法</th><th>每週</th><th>時長</th><th>強度</th></tr></thead>
+                <tbody>
+                {{ range $zn.liee_methods.methods }}
+                  <tr><td><strong>{{ .name_zh }}</strong></td><td class="vx-pz-num">{{ .freq_per_wk }}</td><td>{{ .duration }}</td><td>{{ .intensity_zh }}</td></tr>
+                {{ end }}
+                </tbody>
+              </table>
+              {{ with $zn.liee_methods.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+            </div>
+          </details>
+
+          {{/* 耐力週期化三階段 */}}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">耐</span>
+              <span>
+                <span class="lvname">耐力週期化三階段（單巔峰） <span class="vx-cert">{{ $zn.endurance_periodization.cert }}</span></span>
+                <span class="lvtag">廣度有氧 → 有氧+專項 → 專項耐力，順序不能顛倒</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <ul class="vx-pz-sub">
+              {{ range $zn.endurance_periodization.phases }}
+                <li><strong>{{ .name_zh }}</strong> · {{ .when_zh }}<br><span class="vx-pz-focus">{{ .focus_zh }}</span></li>
+              {{ end }}
+              </ul>
+              {{ with $zn.endurance_periodization.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+            </div>
+          </details>
+
+          {{/* Maglischo 游泳六分區 */}}
+          {{ with $zn.swim_zones_maglischo }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">M</span>
+              <span>
+                <span class="lvname">Maglischo 游泳六分區 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">游泳專用：恢復/En1/En2/En3/AnTh/VO₂max</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-meta">無氧閾值血乳酸：{{ .anaerobic_threshold_mmol }}</p>
+              <ul class="vx-pz-sub">
+              {{ range .zones }}
+                <li><strong>{{ .name_zh }}</strong> · <span class="vx-pz-focus">{{ .focus_zh }}</span></li>
+              {{ end }}
+              </ul>
+              <p class="vx-pz-meta">{{ .sprint_note_zh }}</p>
+              {{ with .caution_zh }}<p class="vx-pz-warn">{{ . }}</p>{{ end }}
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* 三區乳酸模型 */}}
+          {{ with $zn.swim_zones_three }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">3</span>
+              <span>
+                <span class="lvname">三區乳酸模型 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">TID 分析用：Z1≤2 / Z2 2–4 / Z3&gt;4 mmol</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <table class="vx-pz-table vx-pz-table--narrow">
+                <thead><tr><th>區</th><th>血乳酸 (mmol)</th><th>名稱</th><th>重點</th></tr></thead>
+                <tbody>
+                {{ range .zones }}
+                  <tr><td class="vx-pz-num">{{ .zone }}</td><td>{{ .lactate_mmol }}</td><td>{{ .name_zh }}</td><td>{{ .focus_zh }}</td></tr>
+                {{ end }}
+                </tbody>
+              </table>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* 各距離能量系統供能比 */}}
+          {{ with $zn.swim_energy_by_distance }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">距</span>
+              <span>
+                <span class="lvname">各距離能量系統供能比 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">50m 有氧 5–20%、100m≈各半、400m 40–84%（跨研究區間）</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <table class="vx-pz-table">
+                <thead><tr><th>項目</th><th>有氧占比</th><th>說明</th></tr></thead>
+                <tbody>
+                {{ range .events }}
+                  <tr><td class="vx-pz-num">{{ .event }}</td><td>{{ .aerobic_pct }} <span class="vx-cert">{{ .cert }}</span></td><td>{{ .note_zh }}</td></tr>
+                {{ end }}
+                </tbody>
+              </table>
+              {{ with .caution_zh }}<p class="vx-pz-warn">{{ . }}</p>{{ end }}
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* 訓練強度分布 TID */}}
+          {{ with $zn.swim_tid }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">TID</span>
+              <span>
+                <span class="lvname">訓練強度分布 TID <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">極化／金字塔／閾值三型；連衝刺者也 87–90% 量在 Z1</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <ul class="vx-pz-sub">
+              {{ range .archetypes }}
+                <li><strong>{{ .name_zh }}</strong>{{ with .note_zh }} · <span class="vx-pz-focus">{{ . }}</span>{{ end }}</li>
+              {{ end }}
+              </ul>
+              <p class="vx-pz-meta">{{ .sprinter_note_zh }}</p>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* 游泳配速分區應用 */}}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">泳</span>
+              <span>
+                <span class="lvname">游泳配速分區應用</span>
+                <span class="lvtag">用比賽配速百分比表達課表強度，映射 Bompa 不發明數字</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <div class="vx-pz-swim">
+                <span class="vx-pz-swim-h">🔵 游泳應用</span>
+                <p>{{ $zn.swim_application.pace_mapping_zh }}</p>
+                <p>{{ $zn.swim_application.event_metabolic_zh }}</p>
+                <p>{{ $zn.swim_application.weekly_distribution_zh }}</p>
+                <p>{{ $zn.swim_application.energy_system_zh }}</p>
+              </div>
+              {{ with $zn.swim_application.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+            </div>
+          </details>
+
+        </div>
+
+        <p class="vx-cite"><span class="src">來源</span>：Bompa《Periodization》6th ed. — Ch7 Table 7.1；Ch11 Table 11.1 / 11.2。游泳專項：Maglischo 2012 (J Swimming Research 19:2)；Toussaint &amp; Hollander 1994；Rodríguez &amp; Mader 2011；Papadimitriou et al. 2025；Barbosa et al. 2019</p>
+
+        <nav class="vx-flow">
+          <button type="button" data-target="taper"><span class="lbl">上一個主題</span>← 賽前減量與達峰</button>
+          <span></span>
+        </nav>
+
+        <footer class="vx-article-footer">
+          <hr class="vx-divider">
+          <a class="vx-back-link" href="{{ $base }}vortex/adm/matrix/">→ 回到 ADM 發展矩陣（看週期化如何落在各階段）</a>
+        </footer>
+      </section>
+
+    </main>
+  </div>
 </div>
+
+<script src="{{ .Site.BaseURL }}js/vortex.js" defer></script>
 {{ end }}
