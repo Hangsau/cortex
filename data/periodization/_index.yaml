@@ -1,0 +1,209 @@
+domain: periodization
+sub: _index
+schema_version: 1
+structure:
+- id: periodization.structure.annual.monocycle
+  file: structure.yaml
+  name_zh: 單週期
+  gist_zh: 一年衝一個高峰；適合新手/青少年/單一目標賽季
+  stages:
+  - l2t
+  - t2t
+- id: periodization.structure.annual.bicycle
+  file: structure.yaml
+  name_zh: 雙週期
+  gist_zh: 一年衝兩個高峰；競技泳者原型，對應 ADM 一年兩巔峰
+  stages:
+  - t2c
+  - t2w
+- id: periodization.structure.annual.tricycle
+  file: structure.yaml
+  name_zh: 三週期
+  gist_zh: 一年衝三個高峰；高水準多目標賽季
+  stages:
+  - t2w
+- id: periodization.structure.annual.multipeak
+  file: structure.yaml
+  name_zh: 多巔峰
+  gist_zh: 賽事極密集時用；風險高，游泳少用
+  stages: []
+- id: periodization.structure.macrocycle
+  file: structure.yaml
+  name_zh: 中觀週期
+  gist_zh: 2–6 週的中型週期；最常見 3:1（3 負荷週 + 1 恢復週）
+  stages:
+  - t2t
+  - t2c
+  - t2w
+- id: periodization.structure.microcycle
+  file: structure.yaml
+  name_zh: 微觀週期
+  gist_zh: 一週，排課表的最小單位；分發展/競賽/恢復/卸載型
+  stages:
+  - t2t
+  - t2c
+  - t2w
+- id: periodization.structure.detraining
+  file: structure.yaml
+  name_zh: 停練衰退安全表
+  gist_zh: 完全停練的衰退速率；停 4 週 VO2max 掉 14%——休季別躺平
+  stages:
+  - t2c
+  - t2w
+- id: periodization.structure.swim_annual
+  file: structure.yaml
+  name_zh: 游泳年度結構
+  gist_zh: 菁英實證：一年 2–4 macrocycle、86–90% 量為低強度（Hellard 2019）
+  stages:
+  - t2c
+  - t2w
+- id: periodization.structure.swim_youth_ltad
+  file: structure.yaml
+  name_zh: 青少年分齡 LTAD
+  gist_zh: 對齊 ADM 分齡；PHV 女12.5/男14；trainability 窗口有爭議須慎用
+  stages:
+  - l2t
+  - t2t
+  - t2c
+  - t2w
+taper:
+- id: periodization.taper.definition
+  file: taper.yaml
+  name_zh: 減量定義
+  gist_zh: 賽前慢慢降量；保留體能、消掉疲勞，比賽當天有料又不累
+  stages:
+  - t2c
+  - t2w
+- id: periodization.taper.volume
+  file: taper.yaml
+  name_zh: 訓練量
+  gist_zh: 減量主旋鈕；砍量 41–60%（重負荷可 60–90%）
+  stages:
+  - t2c
+  - t2w
+- id: periodization.taper.intensity
+  file: taper.yaml
+  name_zh: 訓練強度
+  gist_zh: 保適應旋鈕；強度不能跟著砍，要留快游
+  stages:
+  - t2c
+  - t2w
+- id: periodization.taper.frequency
+  file: taper.yaml
+  name_zh: 訓練頻率
+  gist_zh: 保技術旋鈕；下水次數維持 ≥80% 保手感
+  stages:
+  - t2c
+  - t2w
+- id: periodization.taper.duration
+  file: taper.yaml
+  name_zh: 減量時長
+  gist_zh: 8–14 天為主；之前越累拉越長
+  stages:
+  - t2c
+  - t2w
+- id: periodization.taper.type.linear
+  file: taper.yaml
+  name_zh: 線性遞減
+  gist_zh: 等量直線下降；效果差
+  stages:
+  - t2c
+  - t2w
+- id: periodization.taper.type.step
+  file: taper.yaml
+  name_zh: 階梯式減量
+  gist_zh: 一次砍到低水平維持；增益最小 ≈1.2–1.5%
+  stages:
+  - t2c
+  - t2w
+- id: periodization.taper.type.fast_exponential
+  file: taper.yaml
+  name_zh: 快速指數遞減
+  gist_zh: 前快後慢曲線；增益最大 ≈4–5%，首選
+  stages:
+  - t2c
+  - t2w
+- id: periodization.taper.peak_window
+  file: taper.yaml
+  name_zh: 達峰窗
+  gist_zh: 巔峰只能撐 7–14 天；主賽要排在窗內
+  stages:
+  - t2c
+  - t2w
+- id: periodization.taper.swim
+  file: taper.yaml
+  name_zh: 游泳減量應用
+  gist_zh: 對準主賽推 8–14 天、量降 40–60%；三週減量約進步 2–3%
+  stages:
+  - t2c
+  - t2w
+zones:
+- id: periodization.zones.table_7_1
+  file: zones.yaml
+  name_zh: Bompa 六分區
+  gist_zh: 用最大表現百分比分 6 區；賽配速=zone 2，每週≥50% 落賽配速
+  stages:
+  - t2t
+  - t2c
+  - t2w
+- id: periodization.zones.table_11_2
+  file: zones.yaml
+  name_zh: 心率/攝氧/能量系統對照
+  gist_zh: 把心率攝氧對應到主導能量系統；確認該組課練到哪套系統
+  stages:
+  - t2t
+  - t2c
+  - t2w
+- id: periodization.zones.table_11_1
+  file: zones.yaml
+  name_zh: 低強度耐力方法
+  gist_zh: 主動恢復/長慢游/節奏游等；低強度與高強度耐力不可亂混
+  stages:
+  - t2t
+  - t2c
+  - t2w
+- id: periodization.zones.endurance_phases
+  file: zones.yaml
+  name_zh: 耐力週期化三階段
+  gist_zh: 廣度有氧→有氧+專項→專項耐力；順序不能顛倒
+  stages:
+  - t2t
+  - t2c
+  - t2w
+- id: periodization.zones.swim_maglischo
+  file: zones.yaml
+  name_zh: Maglischo 游泳六分區
+  gist_zh: 游泳專用分區：恢復/En1/En2/En3/AnTh(3–5mmol)/VO2max；SP另類
+  stages:
+  - t2t
+  - t2c
+  - t2w
+- id: periodization.zones.swim_three_zone
+  file: zones.yaml
+  name_zh: 三區乳酸模型
+  gist_zh: TID 分析用：Z1≤2 / Z2 2–4 / Z3>4 mmol
+  stages:
+  - t2c
+  - t2w
+- id: periodization.zones.swim_energy_by_distance
+  file: zones.yaml
+  name_zh: 各距離能量系統供能比
+  gist_zh: 50m 有氧5–20%、100m≈各半、400m 40–84%(跨研究區間)
+  stages:
+  - t2c
+  - t2w
+- id: periodization.zones.swim_tid
+  file: zones.yaml
+  name_zh: 訓練強度分布 TID
+  gist_zh: 極化/金字塔/閾值三型；連衝刺者也 87–90% 量在 Z1
+  stages:
+  - t2c
+  - t2w
+- id: periodization.zones.swim
+  file: zones.yaml
+  name_zh: 游泳配速分區應用
+  gist_zh: 組課強度用比賽配速百分比表達；映射 Bompa 不發明數字
+  stages:
+  - t2t
+  - t2c
+  - t2w

@@ -10,6 +10,7 @@ phases:
   cert: 🟡
   source: Ch5 Periodization Terminology; Ch8 Phases
   purpose_zh: 建立表現的生理基礎；準備期不足則競賽期表現無法最大化
+  plain_zh: 準備期＝打底的階段。先把體能基礎建起來，這段練得不夠，後面比賽就拉不出好成績。前半段練得廣、雜一點，後半段越來越專項。
   subphases:
   - key: general
     name_zh: 一般準備
@@ -31,6 +32,7 @@ phases:
   cert: 🟡
   source: Ch5; Ch8
   purpose_zh: 表現能力最大化；維持 90% 專項 / 10% 非專項
+  plain_zh: 競賽期＝把表現拉到最高的階段，幾乎全部練專項（90%）。正式比賽都在這段，主賽前面接減量（taper）。
   subphases:
   - key: precompetitive
     name_zh: 賽前
@@ -55,6 +57,7 @@ phases:
   maintain_fitness: 維持 40–50% 競賽期一般體能
   purpose_zh: 移除疲勞、心理放鬆、生物再生；用主動休息(active rest)而非完全停練
   warning_zh: 非 off-season；完全停練 <4 週即顯著 detraining（見 detraining 安全表）
+  plain_zh: 過渡期＝賽季結束後的休整，但不是完全躺平。重點是消疲勞、心理放鬆，用『主動休息』（輕量活動）取代完全停練。完全不動超過 4 週，體能就明顯掉了（見下面 detraining 表）。
 annual_plan_types:
 - id: periodization.structure.annual.monocycle
   key: monocycle
@@ -77,6 +80,7 @@ annual_plan_types:
       max: 4
   suited_for_zh: 新手 / 青少年；季節性運動；耐力主導項目（北歐滑雪、划船、自行車、長跑）
   swim_application_zh: 🔵 游泳本質高度有氧，耐力型 monocycle（Fig 8.5）體積曲線需全程維持高；適合泳齡尚淺、單一目標賽季的泳者
+  plain_zh: 一年只衝一個高峰。整年（52 週）裡準備期最長（≥28 週），最後對準一場大賽。適合新手、青少年、泳齡還淺、一年只有一個重要目標的泳者。
   links:
     development_stages:
     - l2t
@@ -102,6 +106,7 @@ annual_plan_types:
   structure_note_zh: 兩個短 monocycle 以極短 unloading/transition 相連；準備期1體積遠大於準備期2；競賽期2目標年度最重要賽事
   suited_for_zh: 進階 / 菁英；可達全國錦標資格者
   swim_application_zh: 🔵 競技泳者原型年計畫——Bompa Fig 5.11 即『游泳 200m bi-cycle（冬季 + 夏季全國錦標）』；對映 ADM T2W『一年兩巔峰（春季選拔 + 夏季國際賽）』
+  plain_zh: 一年衝兩個高峰（如冬季＋夏季兩場大賽）。等於把一年切成兩個短的單週期接起來。這是競技泳者最典型的年計畫——Bompa 書裡舉的例子剛好就是游泳 200m。對應 ADM T2W 階段的『一年兩巔峰』。
   links:
     development_stages:
     - t2c
@@ -117,6 +122,7 @@ annual_plan_types:
   structure_note_zh: 首準備期最長（含一般準備子階段）；最重要賽事置於第三 cycle；通常僅進階運動員使用
   suited_for_zh: 進階 / 國際級（冬季錦標 + 夏季全國 + 世錦/奧運）
   swim_application_zh: 🔵 高水準泳者多目標賽季；ADM T2W 終身競技階段可演進至此
+  plain_zh: 一年衝三個高峰（如冬季錦標＋夏季全國＋世錦/奧運）。最重要那場放在第三段。只有高水準、能撐密集賽季的泳者才用。
   links:
     development_stages:
     - t2w
@@ -142,6 +148,7 @@ annual_plan_types:
   structure_note_zh: 週數少、準備期明顯短；僅適合 4–6 年訓練底、高運動能力、能承受密集賽事者（如網球）
   suited_for_zh: 資深運動員（4–6 年訓練背景）；不建議青少年（易多重傷害）
   swim_application_zh: 🔵 游泳少用純 multipeak；僅適用賽事極密集的職業 / 系列賽泳者
+  plain_zh: 一年衝很多個高峰（賽事極密集時用）。準備期被壓很短，風險高——要有 4–6 年訓練底子才扛得住。青少年不建議，容易受傷。游泳很少用。
   links:
     development_stages: []
 macrocycle:
@@ -172,6 +179,7 @@ macrocycle:
     cert: 🟡
     note_zh: 高疲勞時
   swim_application_zh: 🔵 游泳週課表結構基礎：3 個負荷週 + 1 個 unloading 週為預設；高疲勞泳者改 3:2
+  plain_zh: Macrocycle＝由幾個週組成的中型週期（2–6 週）。最常見的節奏是『3:1』——練 3 個漸增負荷的週，接 1 個減量恢復週。這契合身體自然的疲勞—恢復節律。泳者特別累時改 3:2（多一週恢復）。
   links:
     development_stages:
     - t2t
@@ -198,6 +206,7 @@ microcycle:
     cert: 🟡
     note_zh: 體積降 ≥50%、強度降 5–10%
   swim_application_zh: 🔵 週為游泳課表最小規劃單位；unloading 微週期用於賽前與 macrocycle 銜接
+  plain_zh: Microcycle＝一週，是排課表的最小單位。一週有不同類型：發展型（往上堆）、競賽型（賽前 3–5 天達峰）、恢復型、卸載型（量砍一半以上）。游泳就以『週』為單位排課。
   links:
     development_stages:
     - t2t
@@ -220,7 +229,38 @@ detraining:
   endurance_perf_loss_zh: 短期(<4週)停練：力竭時間降 4–25%
   reversible_note_zh: 短時間恢復訓練可逆轉；完全停練 <4 週即顯著 detraining → 過渡期務必 active rest
   swim_application_zh: 🔵 游泳排賽季間休 / 傷停課表時，過渡期 >4 週需保留低量 active rest 以免 VO2max 大幅流失
+  plain_zh: 完全停練掉得有多快？最大攝氧量：停 4 天掉 4%、停 4 週掉 14%、停 8 週掉 20%。力量也類似（停 4 週最大肌力掉 6–10%）。好消息是這些可以練回來。實務結論：休季或受傷時也別完全躺平，保留一點輕量活動，體能才不會崩。
   links:
     development_stages:
+    - t2c
+    - t2w
+swim_annual_structure:
+  id: periodization.structure.swim_annual
+  cert: 🟢
+  source: Hellard et al. 2019 (PMC6470949); González-Ravé et al. 2022 (PMID 36247944, n=1)
+  macrocycles_per_year: 2–4（菁英游泳常見；Hellard 2019）
+  macrocycle_length_weeks: ≈15 週/macrocycle（Hellard 2019）
+  low_intensity_volume_share: 86–90% 訓練量落在 ≤4 mmol（低強度為主，Hellard 2019）
+  case_400im_zh: 🟢 400m 個人混合式單一菁英個案（n=1，González-Ravé 2022）：52 週分 3 個 macrocycle，週量在 24–90 km 間波動
+  caution_zh: 🔴 不收『60–80 km/週、9–10 課/週』這類距離選手週量——屬未經查證的網路共識，無原始文獻
+  plain_zh: 菁英游泳的年度結構長怎樣（有實證的）：一年大概切 2–4 個中週期（每個約 15 週）。最反直覺的數字——高達 86–90% 的訓練量是低強度（血乳酸 ≤4），不是整天操高強度。有一個 400 混合式選手的個案，全年 52 週分 3 段，週泳量在 24–90 km 間起伏（這是單一個案，不是通則）。
+  links:
+    development_stages:
+    - t2c
+    - t2w
+swim_youth_ltad:
+  id: periodization.structure.swim_youth_ltad
+  cert: 🟢
+  source: Swimming Canada LTAD 分齡; PHV 文獻; Ford et al. 2011 (PMID 21259156); van Hooren & De Ste Croix 2020
+  stage_ages_zh: Swimming Canada 分齡（與 ADM 對齊）：學習訓練 L2T 女 8–11/男 9–12；訓練為訓練 T2T 女 11–15/男 12–16；訓練為競賽 T2C 女 15–21/男 16–23；訓練為勝利 T2W 女 18+/男 19+
+  phv_zh: 生長陡增高峰 PHV：女 ≈12.5 歲、男 ≈14 歲（平均值，個體差異大）
+  windows_of_trainability_contested: true
+  windows_note_zh: ⚠️ contested：『trainability 關鍵窗口』（某些素質在特定年齡有黃金訓練期）是有爭議的概念。Ford et al. 2011（PMID 21259156）與 van Hooren & De Ste Croix 2020 批判其缺乏可靠實證。引用時必須標明爭議，不可當定論。
+  caution_zh: 🔴 不收分齡 km/週對照表——查無 Swimming Canada 原始數據表；T:C（訓練比賽比）60:40/50:50/25:75 僅 Balyi 二手轉述，標弱不入正文
+  plain_zh: 青少年怎麼分齡練（對齊 ADM 階段）：大致按年齡分學習訓練→訓練為訓練→訓練為競賽→訓練為勝利。生長陡增高峰（長最快的時候）女生約 12.5 歲、男生約 14 歲，可作排訓練的參考。但要特別小心一個流行說法——『某些能力有黃金訓練窗口、錯過就補不回』，這在學界是有爭議的（Ford 2011 等批判它證據不足）。家長和教練別把它當鐵律，以免硬逼小孩在特定年齡猛練某項。
+  links:
+    development_stages:
+    - l2t
+    - t2t
     - t2c
     - t2w

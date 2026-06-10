@@ -6,21 +6,23 @@ source_repos:
 definition:
   id: periodization.taper.definition
   cert: 🟢
-  source: Ch9; Mujika & Padilla 2003
+  source: Ch9; Mujika & Padilla 2003 (PMID 12840640)
   text_en: A progressive, nonlinear reduction of the training load during a variable period of time, intended to reduce physiological and psychological stress of daily training and optimize sport performance.
   text_zh: 在一段可變期間內，漸進、非線性地降低訓練負荷，目的是移除日常訓練累積的生理與心理壓力、使表現最佳化
   purpose_zh: 讓減量期前累積的訓練適應（fitness）保留，同時消除疲勞（fatigue）→ 表現 = fitness − fatigue 的差值在減量末達最大
+  plain_zh: 減量＝比賽前那幾週，故意把訓練量慢慢降下來。關鍵在：之前練出來的本事（體能）會留著，但累積的疲勞會被消掉。比賽當天身體既有料又不累，成績自然跑得出來。
 variables:
 - id: periodization.taper.volume
   key: volume
   name_zh: 訓練量
   cert: 🟢
-  source: Ch9; Mujika & Padilla 2003; Bosquet et al. 2007
+  source: Ch9; Mujika & Padilla 2003 (PMID 12840640); Bosquet et al. 2007 (PMID 17762369)
   reduction:
     typical: 41–60%
     heavy_pretaper: 60–90%
     note_zh: 一般降 41–60%；若減量前負荷極重可降至 60–90%
   role_zh: 減量主旋鈕——量的下降是消除疲勞的最大來源
+  plain_zh: 比賽前要砍的主要是『游多少』——總量。一般砍掉四到六成；如果之前操得很兇，可以砍到六到九成。砍量是消疲勞最有效的一招。
 - id: periodization.taper.intensity
   key: intensity
   name_zh: 訓練強度
@@ -29,23 +31,26 @@ variables:
   rule_zh: 維持中高強度以保留適應與技術；強度若一併大降會導致 detraining
   first_week_zh: 減量第一週可微調：功率類 −5–10%、耐力類 −20–30%，之後回拉至接近賽強度
   role_zh: 強度是『保適應』旋鈕，不可大降
+  plain_zh: 強度（游多快）不能跟著砍。還是要保留一些接近比賽配速的快游，不然身體會『退掉』，比賽當天反而沒有速度感。
 - id: periodization.taper.frequency
   key: frequency
   name_zh: 訓練頻率
   cert: 🟡
-  source: Ch9
+  source: Ch9; Mujika & Padilla 2003 (PMID 12840640)
   rule_zh: 維持 ≥80% 平時頻率以保技術手感與神經肌肉協調；頻率大降會掉技術
   role_zh: 頻率是『保技術』旋鈕
+  plain_zh: 下水的次數（一週幾練）盡量維持，至少留平常的八成。少下水會掉手感、掉技術——這跟消疲勞是兩回事，不能混為一談。
 - id: periodization.taper.duration
   key: duration
   name_zh: 減量時長
   cert: 🟢
-  source: Ch9; Mujika & Padilla 2003
+  source: Ch9; Mujika & Padilla 2003 (PMID 12840640)
   range:
     min_days: 8
     max_days: 14
     note_zh: 8–14 天為主流區間；過短疲勞未除、過長 fitness 流失
   role_zh: 時長旋鈕——與減量前疲勞程度成正比
+  plain_zh: 減量要做多久？大概一到兩週（8–14 天）。之前操越兇、累越多，就需要拉長一點；太短疲勞沒消完，太長體能反而開始流失。
 taper_types:
 - id: periodization.taper.type.linear
   key: linear
@@ -53,21 +58,24 @@ taper_types:
   cert: 🟡
   source: Ch9
   note_zh: 負荷等量直線下降；增益低於指數型
+  plain_zh: 每天等量往下降一直線。最單純，但效果比指數型差。
 - id: periodization.taper.type.step
   key: step
   name_zh: 階梯式（單次驟降）
   cert: 🟢
-  source: Ch9; Bosquet et al. 2007
+  source: Ch9; Bosquet et al. 2007 (PMID 17762369)
   perf_gain: ≈1.2–1.5%
   note_zh: 一次性把負荷砍到固定低水平維持；增益最小
+  plain_zh: 一次把量砍到一個低水平就維持不動。最省事，但增益最小（大約進步 1–1.5%）。
 - id: periodization.taper.type.fast_exponential
   key: fast_exponential
   name_zh: 快速指數遞減
   cert: 🟢
-  source: Ch9; Bosquet et al. 2007
+  source: Ch9; Bosquet et al. 2007 (PMID 17762369)
   perf_gain: ≈4.0–5.0%
   note_zh: 前段快降、後段趨緩的指數曲線；元分析中表現增益最大，為首選型態
   default: true
+  plain_zh: 前面降得快、後面慢慢收的曲線。研究裡這種增益最大（約進步 4–5%），是首選做法。
 peak:
   id: periodization.taper.peak_window
   cert: 🟡
@@ -78,14 +86,16 @@ peak:
     note_zh: 巔峰狀態一旦達成，可維持約 7–14 天；主賽應落在此窗內
   definition_zh: 達峰 = 在目標賽事當下同時擁有最高 fitness 與最低 fatigue 的暫態
   warning_zh: 巔峰窗外（>14 天）表現回落；多目標賽季須以多個短減量分別對準各窗（見 structure.yaml multipeak）
+  plain_zh: 巔峰狀態不是無限期的——大概只能撐 7–14 天。所以主賽一定要排在這個窗口裡。一個賽季有好幾場重要比賽時，就用幾段短減量，分別對準每一場（見 structure.yaml 多巔峰）。
 swim_application:
   id: periodization.taper.swim
   cert: 🟢
-  source: Ch9（游泳減量文獻引用）; Mujika et al. 游泳減量研究
+  source: Mujika et al. 1996 (PMID 8775162); Mujika/Padilla/Pyne 2002 (PMID 12439774); Bosquet et al. 2007 (PMID 17762369)
   volume_reduction_zh: 🔵 游泳文獻常見賽前 50–90% 量遞減（與 Bompa 41–60%／重負荷 60–90% 區間一致）
-  three_week_taper_zh: 🟢 三週減量於游泳研究報告約 +2.2% 表現增益
-  sydney_2000_zh: 🟢 雪梨 2000 奧運游泳：獎牌與否的成績差距常在 1.62% 量級——減量增益（數個百分點）足以決定名次
+  three_week_taper_zh: 🟢 模型化游泳選手研究：三週減量平均 +2.90±1.50%、四週 +3.20±1.70% 表現增益（Mujika et al. 1996, PMID 8775162, N=18）
+  sydney_2000_zh: 🟢 雪梨 2000 奧運游泳：賽前三週減量期間表現平均提升 +2.18±1.50%（男 +2.57%／女 +1.78%，99 筆成績；Mujika/Padilla/Pyne 2002, PMID 12439774）；奧運獎牌的成績差距常在 0.5–1% 量級，故數個百分點的減量增益足以決定名次
   practice_zh: 🔵 swim-coach 賽前課表：對準主賽往前推 8–14 天，量降至平時 40–60%，維持頻率與賽強度短組，曲線採快速指數型
+  plain_zh: 游泳的實際做法：對準主賽往前推 8–14 天開始減量，總量降到平常的四到六成，但下水次數和短距離快游照舊，曲線用前快後慢的指數型。研究顯示游泳選手減三週平均能進步約 2–3%——在獎牌只差零點幾個百分點的場合，這幾個百分點足以決定名次。
   links:
     development_stages:
     - t2c

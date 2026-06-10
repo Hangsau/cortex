@@ -57,7 +57,7 @@ ADM_STANDARDS_DST = HUGO_ROOT / "data" / "adm" / "standards.yaml"
 # ── 週期化（canonical → my-site data/periodization；全 public，無 diagnostic 層） ──
 PERIODIZATION_SRC_DIR = VORTEX_SRC / "canonical" / "periodization"
 PERIODIZATION_DST_DIR = HUGO_ROOT / "data" / "periodization"
-PERIODIZATION_FILES   = ["structure", "taper", "zones"]
+PERIODIZATION_FILES   = ["structure", "taper", "zones", "_index"]
 
 # ── Layer 設定 ──
 LAYERS = {

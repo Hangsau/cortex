@@ -33,6 +33,7 @@ intensity_zones:
     pct_max_performance: 無訓練
     intensity_zh: 恢復
   note_zh: 比賽配速 = zone 2；Bompa 建議每週至少 50% 訓練時間落在比賽配速強度。高於賽配速由無氧供能主導，低於賽配速由有氧供能主導
+  plain_zh: Bompa 把訓練強度分成 6 區，用『佔最大表現的百分比』定義。zone 1 最吃力（90–100%），zone 5 最輕（<50%），recovery 是不下水。比賽配速落在 zone 2。一個好記的原則：每週至少一半的訓練時間要落在比賽配速強度。
 hr_vo2_ergogenesis:
   id: periodization.zones.table_11_2
   cert: 🟡
@@ -62,6 +63,7 @@ hr_vo2_ergogenesis:
     pct_vo2max: 100%
     system_zh: 最大
     target_zh: 無氧功率 / 最大
+  plain_zh: 這張表把心率／攝氧量對應到身體主要靠哪套能量系統供能。心率越高、越偏無氧；心率 50% 上下是有氧恢復區。用途是確認某一組課實際練到的是哪個系統，避免賽季階段跟能量系統錯配。
 liee_methods:
   id: periodization.zones.table_11_1
   cert: 🟡
@@ -98,6 +100,7 @@ liee_methods:
     freq_per_wk: '1'
     duration: '>30 min'
     intensity_zh: 變動
+  plain_zh: 低強度耐力的幾種練法：主動恢復、長慢游、節奏游、有氧間歇等。最重要的一句警告——低強度耐力和高強度耐力不能亂混著練，耐力型態選錯會拖累專項表現。
 endurance_periodization:
   id: periodization.zones.endurance_phases
   cert: 🟡
@@ -115,9 +118,119 @@ endurance_periodization:
     name_zh: 專項耐力
     when_zh: 準備期晚期 + 競賽期
     focus_zh: 對映比賽能量系統的專項耐力
+  plain_zh: 耐力是分階段堆起來的：先用廣度有氧打底（過渡期＋準備期早期），再疊上專項代謝需求，最後練對準比賽的專項耐力。順序不能顛倒——沒打好有氧底就直接衝專項，後面會撐不住。
   links:
     development_stages:
     - t2t
+    - t2c
+    - t2w
+swim_zones_maglischo:
+  id: periodization.zones.swim_maglischo
+  cert: 🟢
+  source: Maglischo 2012, Training Zones Revisited, J Swimming Research 19(2)（全文）
+  anaerobic_threshold_mmol: 3–5 mmol/L（AnTh 區血乳酸範圍）
+  zones:
+  - key: recovery
+    name_zh: 恢復
+    focus_zh: 主動恢復、技術游
+  - key: en1
+    name_zh: 有氧基礎 (Endurance 1)
+    focus_zh: 有氧基礎、低乳酸大量累積
+  - key: en2
+    name_zh: 有氧維持 (Endurance 2)
+    focus_zh: 接近無氧閾值的有氧發展
+  - key: en3
+    name_zh: 有氧超負荷 (Endurance 3)
+    focus_zh: 閾值附近、最高可持續有氧負荷
+  - key: anth
+    name_zh: 無氧閾值 (Anaerobic Threshold)
+    focus_zh: 閾值強度，血乳酸 3–5 mmol
+  - key: vo2max
+    name_zh: 最大攝氧 (VO2max)
+    focus_zh: 刺激最大攝氧量
+  sprint_note_zh: SP（衝刺）在 Maglischo 框架中是『類別』而非分區（速度/功率訓練），與上述有氧—閾值光譜分開處理
+  caution_zh: 🔴 各區詳細血乳酸 / 配速門檻需翻 Maglischo《Swimming Fastest》原書頁逐區確認；本檔僅收錄全文已確認的 AnTh 3–5mmol 與六區名稱，未逐區填數值以免發明
+  plain_zh: Maglischo 是游泳專用的分區系統，用血乳酸＋訓練目的把游泳強度分成：恢復、有氧基礎(En1)、有氧維持(En2)、有氧超負荷(En3)、無氧閾值(AnTh，乳酸 3–5)、最大攝氧(VO2max)。衝刺(SP)另外算一類，不在這條有氧—閾值光譜上。比 Bompa 的『百分比』更貼近游泳教練實際開課的語言。
+  links:
+    development_stages:
+    - t2t
+    - t2c
+    - t2w
+swim_zones_three:
+  id: periodization.zones.swim_three_zone
+  cert: 🟢
+  source: 游泳/耐力 TID 文獻通用三區模型（血乳酸界線）
+  zones:
+  - zone: 1
+    lactate_mmol: ≤2
+    name_zh: 低強度
+    focus_zh: 有氧基礎、恢復
+  - zone: 2
+    lactate_mmol: 2–4
+    name_zh: 閾值區
+    focus_zh: 閾值附近
+  - zone: 3
+    lactate_mmol: '>4'
+    name_zh: 高強度
+    focus_zh: VO2max / 無氧
+  plain_zh: 做訓練強度分布分析時最常用的簡化版：用血乳酸把強度切三段——Z1 輕鬆（≤2）、Z2 閾值（2–4）、Z3 吃力（>4）。下面的 polarized / pyramidal 分布就是用這三區算比例。
+  links:
+    development_stages:
+    - t2c
+    - t2w
+swim_energy_by_distance:
+  id: periodization.zones.swim_energy_by_distance
+  cert: 🟢
+  source: Toussaint & Hollander 1994 (Sports Med 18:384–405); Rodríguez & Mader 2011
+  events:
+  - event: 50m
+    aerobic_pct: ≈5–20%
+    cert: 🟢
+    note_zh: 有氧占比低，無氧（磷酸原+糖解）主導 ≈80–95%
+  - event: 100m
+    aerobic_pct: ≈40–50%
+    cert: 🟢
+    note_zh: 有氧無氧接近各半
+  - event: 200m
+    aerobic_pct: ≈60–65%
+    cert: 🟡
+    note_zh: 🟡 此區間文獻支持較弱，標舊文獻
+  - event: 400m
+    aerobic_pct: 40–84%
+    cert: 🟢
+    note_zh: 跨研究真實區間：Rodríguez & Mader ≈84% vs Maglischo 40–60%；不可合併成單值
+  - event: 800m
+    aerobic_pct: 有氧主導
+    cert: 🟡
+    note_zh: 質性有氧主導；精確 % 文獻分歧大，不填單值
+  - event: 1500m
+    aerobic_pct: 有氧主導
+    cert: 🟡
+    note_zh: 質性有氧主導；精確 % 文獻分歧大，不填單值
+  caution_zh: 🔴 200m 與 800/1500m 的精確 % 為文獻弱項，故意不收單一數字；只標質性主導方向
+  plain_zh: 不同距離靠的能量系統差很多：50m 幾乎全靠無氧（有氧只 5–20%），100m 有氧無氧大概各半，400m 以上開始有氧主導。注意 400m 的有氧占比在不同研究差很大（40% 到 84% 都有人測到），這不是我亂寫，是研究本身的真實分歧——所以保留區間不硬湊成一個數字。實務意義：練 50 自由式衝刺跟練 1500 完全是兩套系統，課表不能共用。
+  links:
+    development_stages:
+    - t2c
+    - t2w
+swim_tid:
+  id: periodization.zones.swim_tid
+  cert: 🟢
+  source: Papadimitriou et al. 2025 (Eur J Appl Physiol, DOI 10.1007/s00421-025-06064-x，全文); Barbosa et al. 2019（衝刺者）
+  archetypes:
+  - key: polarized
+    name_zh: 極化型
+    note_zh: 大量 Z1 + 少量 Z3、極少 Z2
+  - key: pyramidal
+    name_zh: 金字塔型
+    note_zh: Z1 最多、Z2 次之、Z3 最少
+  - key: threshold
+    name_zh: 閾值型
+    note_zh: Z2 比重相對偏高
+  sprinter_note_zh: 衝刺項目選手仍約 87–90% 訓練量落在 Z1（Barbosa et al. 2019）——即使是短距離，大部分量還是低強度有氧
+  plain_zh: TID＝整個週期裡輕鬆/閾值/吃力三種強度各占多少。主要有三種分布：極化型（大量輕鬆＋少量超吃力、中間幾乎不練）、金字塔型（由下往上遞減）、閾值型（中間那塊偏多）。一個反直覺的事實：連衝刺選手都有約 87–90% 的量是低強度有氧——不是整天衝。
+  links:
+    development_stages:
     - t2c
     - t2w
 swim_application:
@@ -128,6 +241,7 @@ swim_application:
   event_metabolic_zh: 🔵 50–100m 偏無氧功率（zone 1–2）；200m 混合（Fig 5.11 bi-cycle 範例即 200m）；400–1500m 為肌耐力主導，需 specific endurance 階段大量 zone 3–4 鋪墊
   weekly_distribution_zh: 🔵 依 Bompa『每週 ≥50% 賽配速』原則，swim-coach 週課表應確保賽配速組（zone 2）占足比重，其餘以 zone 4 有氧基礎與 zone 5 恢復填充
   energy_system_zh: 🔵 swim-coach 生成單組課時，用 hr_vo2_ergogenesis 對照表標記該組主導能量系統，避免賽季階段與能量系統錯配（如競賽期仍堆 50% HR 主動恢復量）
+  plain_zh: 游泳怎麼套 Bompa 這套：組課強度用『比賽配速百分比』講——賽配速＝zone 2，比賽更快（衝刺/乳酸耐受）＝zone 1，閾值/節奏＝zone 3，有氧基礎＝zone 4，恢復游＝zone 5。要更貼游泳教練語言時，改用上面的 Maglischo 六分區。
   links:
     development_stages:
     - t2t
