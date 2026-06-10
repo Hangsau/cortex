@@ -583,6 +583,15 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
    週期化 (Periodization)  —  期刊式單頁
    ════════════════════════════════════════════ */
 .vx-pz { max-width: var(--vx-wrap); }
+
+/* 週期化 master-detail：表格多，面板比 ADM 寬（grid 內最多 ~930px）；
+   摺疊內表格在窄處橫向捲動，不被擠成直條 */
+.vx-pz-stroke .vx-panels { max-width: 920px; }
+.vx-pz-stroke .vx-level-body .vx-pz-table {
+  display: block; overflow-x: auto; max-width: 100%;
+}
+.vx-pz-stroke .vx-level-body .vx-pz-table th,
+.vx-pz-stroke .vx-level-body .vx-pz-table td { white-space: normal; }
 .vx-pz .vx-masthead {
   border-bottom: 2px solid var(--vx-ink);
   padding-bottom: 22px;

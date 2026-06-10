@@ -12,7 +12,7 @@
 {{ $tp := index hugo.Data "periodization" "taper" }}
 {{ $zn := index hugo.Data "periodization" "zones" }}
 
-<div class="vx-stroke">
+<div class="vx-stroke vx-pz-stroke">
   <div class="vx-stroke-wrap">
 
     {{/* ════════ 左側常駐目次 ════════ */}}
@@ -137,7 +137,7 @@
                     <td class="vx-pz-num">{{ .peaks }}</td>
                     <td>
                       {{ with .total_weeks }}全長 {{ . }} 週。{{ end }}
-                      {{ with .weeks }}{{ with .preparatory }}準備 {{ .min }}{{ with .max }}–{{ . }}{{ end }} / {{ end }}{{ with .competitive }}競賽 {{ .min }}–{{ .max }} / {{ end }}{{ with .transition }}過渡 {{ .min }}{{ if ne .min .max }}–{{ .max }}{{ end }} 週{{ end }}{{ end }}
+                      {{ with .weeks }}{{ with .preparatory }}準備 {{ .min }}{{ with .max }}–{{ . }}{{ end }} 週 / {{ end }}{{ with .competitive }}競賽 {{ .min }}–{{ .max }} 週 / {{ end }}{{ with .transition }}過渡 {{ .min }}{{ if ne .min .max }}–{{ .max }}{{ end }} 週{{ end }}{{ end }}
                       {{ with .weeks_note_zh }}{{ . }}{{ end }}
                       {{ with .structure_note_zh }}<br><span class="vx-pz-focus">{{ . }}</span>{{ end }}
                       {{ with .structure_note_zh }}{{ else }}{{ with .weeks }}{{ with .per_cycle }}<br>每週期 {{ .min }}–{{ .max }} 週{{ end }}{{ end }}{{ end }}
@@ -172,8 +172,9 @@
             </summary>
             <div class="vx-level-body">
               <p class="vx-pz-meta">時長 {{ $st.macrocycle.duration_weeks.min }}–{{ $st.macrocycle.duration_weeks.max }} 週（準備期 macrocycle {{ $st.macrocycle.duration_weeks.prep_macrocycle.min }}–{{ $st.macrocycle.duration_weeks.prep_macrocycle.max }} 週）。</p>
+              <p class="vx-pz-meta">負荷型態 = 連續負荷週數 : 恢復（卸載）週數。例：3:1 = 練 3 個漸增負荷週 + 1 個減量週。</p>
               <table class="vx-pz-table vx-pz-table--narrow">
-                <thead><tr><th>負荷型態</th><th>適用</th></tr></thead>
+                <thead><tr><th>負荷:恢復（週）</th><th>適用</th></tr></thead>
                 <tbody>
                 {{ range $st.macrocycle.loading_patterns }}
                   <tr{{ if .default }} class="vx-pz-default"{{ end }}>
@@ -475,10 +476,10 @@
             <div class="vx-level-body">
               <p class="vx-pz-warn">⚠ {{ $zn.liee_methods.warning_zh }}</p>
               <table class="vx-pz-table">
-                <thead><tr><th>方法</th><th>每週</th><th>時長</th><th>強度</th></tr></thead>
+                <thead><tr><th>方法</th><th>每週次數</th><th>單次時長</th><th>強度</th></tr></thead>
                 <tbody>
                 {{ range $zn.liee_methods.methods }}
-                  <tr><td><strong>{{ .name_zh }}</strong></td><td class="vx-pz-num">{{ .freq_per_wk }}</td><td>{{ .duration }}</td><td>{{ .intensity_zh }}</td></tr>
+                  <tr><td><strong>{{ .name_zh }}</strong></td><td class="vx-pz-num">{{ .freq_per_wk }} 次</td><td>{{ .duration }}</td><td>{{ .intensity_zh }}</td></tr>
                 {{ end }}
                 </tbody>
               </table>
