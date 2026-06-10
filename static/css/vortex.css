@@ -584,12 +584,13 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
    ════════════════════════════════════════════ */
 .vx-pz { max-width: var(--vx-wrap); }
 
-/* 週期化 master-detail：表格多，面板比 ADM 寬（grid 內最多 ~930px）；
-   摺疊內表格在窄處橫向捲動，不被擠成直條 */
+/* 週期化 master-detail：表格多，面板比 ADM 寬（grid 內最多 ~930px）。
+   摺疊內表格給最小寬度，窄螢幕時讓「摺疊內容區」整塊橫向捲動，
+   不把儲存格擠成直條（保持每欄可讀寬度，用手指左右滑）。 */
 .vx-pz-stroke .vx-panels { max-width: 920px; }
-.vx-pz-stroke .vx-level-body .vx-pz-table {
-  display: block; overflow-x: auto; max-width: 100%;
-}
+.vx-pz-stroke .vx-level-body { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.vx-pz-stroke .vx-level-body .vx-pz-table { min-width: 560px; }
+.vx-pz-stroke .vx-level-body .vx-pz-table--narrow { min-width: 0; }
 .vx-pz-stroke .vx-level-body .vx-pz-table th,
 .vx-pz-stroke .vx-level-body .vx-pz-table td { white-space: normal; }
 .vx-pz .vx-masthead {
@@ -732,6 +733,17 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
   .vx-toc-row { grid-template-columns: 36px 1fr; }
   .vx-toc-meta { grid-column: 2; grid-row: auto; text-align: left; margin-top: 6px; }
   .vx-cue { grid-template-columns: 56px 1fr; }
-  .vx-pz-table { display: block; overflow-x: auto; white-space: nowrap; }
-  .vx-pz-table th, .vx-pz-table td { white-space: normal; }
+}
+
+/* ── 手機（窄）：字級與間距收斂，摺疊表格維持橫向捲動 ── */
+@media (max-width: 560px) {
+  .vx-panels { padding: 20px 14px 72px; }
+  .vx-panel h2 { font-size: clamp(22px, 7vw, 26px); }
+  .vx-panel-lead { font-size: 16px; margin-bottom: 20px; }
+  details.vx-level > summary { padding: 12px 14px; grid-template-columns: 40px 1fr; gap: 10px; }
+  details.vx-level .lv { font-size: 18px; }
+  details.vx-level .lvname { font-size: 16px; }
+  .vx-level-body { padding: 4px 14px 16px; }
+  .vx-pz-table { font-size: 13.5px; }
+  .vx-pz-table th, .vx-pz-table td { padding: 7px 9px; }
 }
