@@ -813,3 +813,8 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
   font-size: 14px; color: var(--vx-sub); line-height: 1.75; margin: 10px 0;
   white-space: pre-line;
 }
+.vx-lvl-prereq {
+  border-left: 2px solid var(--vx-accent, #c2553a); padding-left: 14px;
+  font-size: 15px; margin-top: 14px;
+}
+.vx-lvl-prereq a { font-weight: 600; }
