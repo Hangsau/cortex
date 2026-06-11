@@ -168,12 +168,19 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 5px;
   }
-  .mandala, .sub-grid {
+  .mandala {
     grid-template-columns: repeat(3, 1fr);
     gap: 3px;
   }
   .cell { min-height: 90px; }
-  .sc { min-height: 70px; }
+  /* 子內容（點開後的閱讀區）改單欄：每則拿到整列寬度，不再擠成窄長條 */
+  .sub-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .sc { min-height: 0; }
+  .st { font-size: 13px; }
+  .sb { font-size: 12px; }
 }
 
 /* ===== 平板 ===== */
@@ -188,9 +195,10 @@
   .cell { min-height: 80px; padding: 8px; }
   .ct { font-size: 10px; }
   .cs { font-size: 8px; }
-  .sc { min-height: 65px; padding: 6px; }
-  .st { font-size: 9px; }
-  .sb { font-size: 8px; }
+  /* sub-grid 已是單欄，閱讀文字維持可讀大小，不再縮成 8-9px */
+  .sc { min-height: 0; padding: 10px 12px; }
+  .st { font-size: 13px; }
+  .sb { font-size: 12px; }
   .ch-title { font-size: 15px; }
 }
 

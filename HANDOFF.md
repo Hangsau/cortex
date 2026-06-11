@@ -1,6 +1,6 @@
 # HANDOFF — my-site (Cortex)
 
-## 目前狀態（2026-06-10）
+## 目前狀態（2026-06-11）
 
 網站已上線並完全正常：https://hangsau.github.io/cortex/  
 CI/CD 正常運作，push hugo-source 自動部署。  
@@ -9,6 +9,13 @@ CI/CD 正常運作，push hugo-source 自動部署。
 **週期化外部文獻擴充 + plain_zh 白話層（2026-06-10，commit 31cea81）**：canonical 加 plain_zh（學員/家長/教練白話）+ 游泳外部文獻（Maglischo 六分區/各距離供能/TID/Hellard 年度結構/青少年 LTAD）。sync 加 `_index.yaml`；vortex-periodization.html §1–§6 渲染 plain_zh + §5 加 4 游泳區塊 + 新增 §7 游泳年度結構 §8 青少年 LTAD（windows of trainability 標 contested）。hugo build 綠。`.vx-pz-plain` 樣式（vortex.css）。
 **週期化頁改 master-detail 互動殼（2026-06-11，commit ec746b4，已 push + CI 綠）**：原本是單頁長文（像 .md 沒互動）。重寫成 ADM 矩陣那套互動殼——左側常駐目次、右側 4 面板（概覽 + 年度結構/賽前減量/能量分區三主題）切換、20 個概念各用 `<details>` 摺疊（預設收合）、頂部「選一個主題開始」引導入口。重用 vortex.js + vortex.css 既有元件，**零新 CSS/JS**。canonical 與 sync **未動**，純呈現層；20 概念 / 30 plain_zh 全欄位原樣保留。
 **週期化排版/單位/行動版修正（2026-06-11，commit e781453，已 push）**：①摺疊內表格行動版本被擠成直條 → 改「摺疊內容區（.vx-level-body）橫向捲動 + 寬表給 min-width 560px」，每欄保持可讀寬度、手指左右滑（不再用 `display:block` 擠壓儲存格）；②數字缺單位（年度週數/每週次數/負荷:恢復比）已補「週/次」+ 負荷型態說明列；③新增 ≤560px 手機斷點收斂面板/摺疊字級間距。vx-pz-table 僅用於 periodization 且全在 vx-pz-stroke 內，改動不影響其他頁。全站行動版巡檢：vortex home/adm-home（vx-toc-row 820px 收合）、standards（堆疊摺疊卡，全寬）、matrix/stroke（master-detail 820px 收合）皆 OK；CSCS 九宮格維持 3×3（刻意的 nav 設計，有自己的 480/600 斷點調字級）。
+
+**全站響應式總巡（2026-06-11）**：使用者要求整站行動版自主巡檢（文字密度不過高、不擠、橫向空間要夠，否則往下擠成窄長條）。發現並修 4 處（純呈現層 CSS，無 layout/JS/data 變動）：
+1. **根版面 800px 上限漏洞（最關鍵）**：`baseof.html` 的 `.main-content { max-width: 800px }` 罩住每一頁；vortex 的 `body:has(.vx-*)` 規則只設 background 沒解寬度 → vortex 的 1080/1180px 容器與週期化 920px 面板修正在桌機都被默默壓到 ~752px。修法：`vortex.css` 加 `body:has(.vx-page|.vx-home|.vx-stroke|.vx-db) .main-content { max-width:none; padding:0 }` 讓 vortex 頁脫離上限。
+2. **layout.css 缺手機斷點**：原檔無任何 media query。加 `@media (max-width:600px)` 收窄 `.main-content`/`.site-nav`/`.site-footer` padding（24px→16px）+ nav links gap，把橫向空間還給內容。
+3. **library.css 書頁 hero 不堆疊**：`.book-hero` flex 橫排 + 120px 封面在手機把書名/簡介擠成窄條。加 `@media (max-width:600px)` 改 `flex-direction:column` + 封面縮 96px。
+4. **cscs-chapter.css 子內容 3 欄爆擠**：點開九宮格後的閱讀區 `.sub-grid` 維持 3 欄 → 手機上每欄文字 8-9px 不可讀。改 ≤600px 單欄（1fr）+ 字級回到 12-13px（≤480 同步），九宮格 `.mandala` 維持 3×3 不動。
+本機 hugo build 綠（673 頁）。⚠ 未做 Playwright 截圖（此 session 未載入 playwright MCP），改由 CSS + 渲染 HTML 推理驗證。
 
 ## 已完成
 

@@ -33,6 +33,16 @@ body:has(.vx-db) {
   background: var(--vx-bg);
 }
 
+/* vortex 頁脫離 baseof 的 .main-content 800px 上限 + 內距，
+   讓 vx- 容器自身的寬度（1080/1180）與內距生效，避免雙重內距把面板擠窄 */
+body:has(.vx-page) .main-content,
+body:has(.vx-home) .main-content,
+body:has(.vx-stroke) .main-content,
+body:has(.vx-db) .main-content {
+  max-width: none;
+  padding: 0;
+}
+
 .vx-page, .vx-home, .vx-stroke, .vx-db {
   font-family: var(--vx-serif);
   color: var(--vx-ink);
