@@ -1,0 +1,137 @@
+{{ define "head-extra" }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+<noscript><style>.vx-panel{display:block;border-top:1px solid var(--vx-rule);padding-top:24px}.vx-rail{position:static;max-height:none}</style></noscript>
+{{ end }}
+
+{{ define "main" }}
+{{ $base := .Site.BaseURL }}
+{{ $wsl := index .Site.Data.vortex "water-sense-levels" }}
+{{ $strokes := $wsl.strokes }}
+{{ $levels := $wsl.levels }}
+
+<div class="vx-stroke vx-lvl-stroke">
+  <div class="vx-stroke-wrap">
+
+    {{/* ════════ 左側常駐目次 ════════ */}}
+    <aside class="vx-rail">
+      <a class="vx-back-link" href="{{ $base }}vortex/">← Cortex · Vortex</a>
+      <div class="vx-rail-head">
+        <span class="vx-stroke-zh">水感發展</span>
+        <span class="vx-stroke-en">Water Sense · L0–L6</span>
+      </div>
+
+      <div class="vx-rail-group">導覽</div>
+      <div class="vx-rail-scroll">
+        <ul class="vx-rail-list">
+          <li><button class="vx-navlink" type="button" data-target="overview"><span class="n">0</span>概覽</button></li>
+        </ul>
+      </div>
+
+      <div class="vx-rail-group">泳式</div>
+      <div class="vx-rail-scroll">
+        <ul class="vx-rail-list">
+          {{ range $i, $s := $strokes }}
+          <li><button class="vx-navlink" type="button" data-target="{{ $s.key }}"><span class="n">{{ add $i 1 }}</span>{{ $s.name_zh }}</button></li>
+          {{ end }}
+        </ul>
+      </div>
+    </aside>
+
+    {{/* ════════ 右側主面板 ════════ */}}
+    <main class="vx-panels">
+
+      {{/* ── 概覽 ── */}}
+      <section class="vx-panel vx-overview" id="overview">
+        <span class="vx-sec-no">VORTEX · Water Sense</span>
+        <h2>水感發展 — L0 到 L6 的感知地圖</h2>
+        <p class="vx-premise">水感是一級一級長出來的感知，不是靠教動作教出來的。這張地圖標出四式從 L0（呼吸感知建立）到 L6（感知自動化完成）的發展序列——每一級代表感知系統長到哪、可以用什麼方法去引導、從外部能觀察到什麼訊號、卡住時往哪裡退。它描述的是<strong>發展階段</strong>，不規定你「該有什麼感覺」——感覺只能由游的人自己說出口。選一式開始，就地展開讀，不換頁。</p>
+        <p class="vx-panel-lead">選一式開始：</p>
+        <div class="vx-path-list">
+          {{ range $i, $s := $strokes }}
+          {{ $sl := where $levels "stroke" $s.key }}
+          {{ $first := (index $sl 0).level }}
+          <button class="vx-path-item" type="button" data-target="{{ $s.key }}">
+            <span class="n">{{ printf "%02d" (add $i 1) }}</span>
+            <span><span class="t">{{ $s.name_zh }}</span><span class="o">{{ if eq $first "pre" }}預備{{ else }}{{ $first }}{{ end }} → L6 · {{ len $sl }} 個發展階段</span></span>
+          </button>
+          {{ end }}
+        </div>
+        <p class="vx-legend">感知判讀語（「泳者說 X = 感知到位」這類診斷訊號）不在公開頁，屬教練診斷工具。本頁只呈現「這一級是什麼、怎麼引導、外部看得到什麼」。</p>
+        <nav class="vx-flow">
+          <span></span>
+          {{ $s0 := index $strokes 0 }}
+          <button class="nx" type="button" data-target="{{ $s0.key }}"><span class="lbl">第一式</span>{{ $s0.name_zh }} →</button>
+        </nav>
+      </section>
+
+      {{/* ── 各式發展序列 ── */}}
+      {{ range $i, $s := $strokes }}
+      {{ $sl := where $levels "stroke" $s.key }}
+      {{ $first := (index $sl 0).level }}
+      <section class="vx-panel vx-move" id="{{ $s.key }}">
+        <span class="vx-sec-no">泳式 {{ add $i 1 }} / {{ len $strokes }}</span>
+        <h2>{{ $s.name_zh }} · 水感發展序列</h2>
+        <p class="vx-panel-lead">從 {{ if eq $first "pre" }}預備階段{{ else }}{{ $first }}{{ end }} 到 L6，一級一級往下看。點任一階段就地展開。</p>
+
+        <div class="vx-ladder">
+          {{ range $sl }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">{{ if eq .level "pre" }}預{{ else }}{{ .level }}{{ end }}</span>
+              <span>
+                <span class="lvname">{{ .name_zh }}</span>
+                <span class="lvtag">{{ .tagline }}</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              {{ with .description }}<p>{{ . }}</p>{{ end }}
+
+              {{ with .methods }}
+              <div class="vx-lvl-h">訓練方法</div>
+              {{ range . }}
+              <div class="vx-method">
+                <div class="vx-method-name">{{ .name }}</div>
+                {{ with .detail }}<div class="vx-method-detail">{{ . }}</div>{{ end }}
+                {{ with .cue }}<div class="vx-method-cue">「{{ . }}」</div>{{ end }}
+              </div>
+              {{ end }}
+              {{ end }}
+
+              {{ with .indicators }}
+              <div class="vx-lvl-h">觀察指標</div>
+              {{ range . }}
+              <div class="vx-ind"><span class="vx-ind-type">{{ .type }}</span>{{ .text }}</div>
+              {{ end }}
+              {{ end }}
+
+              {{ with .quant }}<p class="vx-lvl-meta"><strong>量化基準</strong>：{{ . }}</p>{{ end }}
+              {{ with .milestone }}<p class="vx-lvl-meta"><strong>里程碑</strong>：{{ . }}</p>{{ end }}
+              {{ with .stagnation }}<p class="vx-lvl-meta"><strong>停滯處理</strong>：{{ . }}</p>{{ end }}
+
+              {{ with .four_problems }}<div class="vx-lvl-block">{{ . }}</div>{{ end }}
+              {{ with .state_description }}<div class="vx-lvl-block">{{ . }}</div>{{ end }}
+              {{ with .fatigue_collapse_four_layers }}<div class="vx-lvl-block">{{ . }}</div>{{ end }}
+              {{ with .kaizen }}<div class="vx-lvl-block">{{ . }}</div>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+        </div>
+
+        <nav class="vx-flow">
+          <button type="button" data-target="overview"><span class="lbl">回到</span>← 概覽</button>
+          {{ if lt (add $i 1) (len $strokes) }}
+          {{ $next := index $strokes (add $i 1) }}
+          <button class="nx" type="button" data-target="{{ $next.key }}"><span class="lbl">下一式</span>{{ $next.name_zh }} →</button>
+          {{ end }}
+        </nav>
+      </section>
+      {{ end }}
+
+    </main>
+  </div>
+</div>
+<script src="{{ .Site.BaseURL }}js/vortex.js" defer></script>
+{{ end }}
