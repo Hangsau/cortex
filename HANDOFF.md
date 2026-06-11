@@ -17,6 +17,10 @@ CI/CD 正常運作，push hugo-source 自動部署。
 4. **cscs-chapter.css 子內容 3 欄爆擠**：點開九宮格後的閱讀區 `.sub-grid` 維持 3 欄 → 手機上每欄文字 8-9px 不可讀。改 ≤600px 單欄（1fr）+ 字級回到 12-13px（≤480 同步），九宮格 `.mandala` 維持 3×3 不動。
 本機 hugo build 綠（673 頁）。⚠ 未做 Playwright 截圖（此 session 未載入 playwright MCP），改由 CSS + 渲染 HTML 推理驗證。
 
+**「什麼是水感」介紹頁改設計頁（2026-06-11）**：原 `water-sense-guide` 是未設計的 .md 直接傾倒（single.html 渲染 `.Content`，使用者批「就搬 .md 放上去而已」）。重建為 `layouts/vortex/vortex-water-sense.html` master-detail 設計頁——左側 rail（概覽 + 6 部）+ 右側 7 面板，每部用 `<details class="vx-level">` ladder（共 22 則）+ 8 個 `vx-pz-table`。6 部：①水感是什麼（神經科學/四層次/四階段 + 為什麼不直接教動作）②感知剝奪訓練（拳頭游/穿襪踢水）③系統方法（五類機制/搖櫓）④觀察與測量（SWOLF/SPL/拳頭游速差/初學觀察指標）⑤錯誤水感重建（5 策略）⑥量化指標定義。**重用週期化既有 CSS class，零新 CSS**。content stub 改 `layout: vortex-water-sense` + title「什麼是水感」。`sync_vortex.py` 加 `LAYOUT_MAP`/`TITLE_OVERRIDE` + `build_frontmatter` layout 參數，避免重 sync 把 layout/title 洗掉。**公開頁邊界**：Part 2 表格的診斷型碼（C型/B型）已換成中性感知描述；built HTML A型/B型/C型/三型/typical_speech/main_problem 洩漏 = 0。hugo build 綠。
+
+**水感發展 L0–L6 頁面上線（2026-06-11，commit 85546b6，已 push + CI 綠）**：先前 `data/vortex/water-sense-levels.yaml`（26 階段、四式）是孤兒資料——沒有任何 layout 渲染它（TheVortexProject HANDOFF 曾記「my-site vortex-levels.html 已建」但實際 my-site 從未有該檔，是誤記）。本 session 真正建出 `layouts/vortex/vortex-levels.html`：左側泳式 rail + 概覽面板 + 右側各級 `<details class="vx-level">` ladder，重用 vortex.js 面板切換與原生 details 摺疊（**零新 JS**）。content stub `content/vortex/levels/_index.md`（layout: vortex-levels）。首頁 `vortex-home.html` 在「六式」之後、ADM 之前插入第四塊主入口「核心 · 水感發展地圖」（vx-toc-row → vortex/levels/，標 L0–6 · 四式 26 階段），六式/ADM/週期化既有 DOM 順序未動。CSS 僅補 `.vx-lvl-h`/`.vx-lvl-meta`/`.vx-lvl-block`（block 欄位 white-space:pre-line），重用既有 `.vx-ladder`/`.vx-level`/`.vx-method` 等元件。**公開頁邊界**：只呈現發展階段／訓練方法／觀察指標／量化基準，不含感知判讀診斷語（「泳者說 X = 到位」屬教練診斷層，已在 sync 階段淨化）；built HTML 診斷欄位（三型/A型/B型/C型/typical_speech/main_problem）洩漏 = 0（「診斷」字僅出現在 description 的通用描述與概覽的「此類內容不在公開頁」說明）。
+
 ## 已完成
 
 - [x] Hugo 專案骨架（無 theme，完全自訂 layout）
@@ -32,6 +36,8 @@ CI/CD 正常運作，push hugo-source 自動部署。
 - [x] **ADM 遷入 vortex + 用 vortex 設計語言重建**（2026-06-07，commit 8710ad1）
 - [x] **大腦喜歡這樣學上線**（書架 + 技法工具箱，田野筆記風格）
 - [x] **週期化呈現層上線**（2026-06-07，commit 28cffd3）— Bompa Periodization 進 vortex，期刊式單頁 6 節，ADM ↔ 週期化雙向互連
+- [x] **水感發展 L0–L6 頁面上線**（2026-06-11，commit 85546b6）— vortex-levels rail+ladder，首頁第四塊主入口；公開頁不含診斷判讀語
+- [x] **「什麼是水感」介紹頁改設計頁**（2026-06-11）— vortex-water-sense master-detail（rail + 7 面板 + 22 ladder + 8 表），取代未設計的 .md 傾倒；零新 CSS；公開頁淨化診斷型碼
 
 ## ADM 架構（2026-06-07 從 library 遷入 vortex 重建）
 

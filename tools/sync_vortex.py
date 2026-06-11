@@ -97,6 +97,21 @@ SLUG_MAP = {
     "出發與轉身教學誤區深探":"starts-turns-teaching-errors",
 }
 
+# ── 自訂 layout 對照（slug → layout）──
+# 預設 content 走 Hugo lookup（vortex/single.html，純 markdown 渲染）。
+# 已設計成 master-detail 的頁面在此指定專屬 layout，body 由 layout 接管，
+# .Content 不再使用。sync 重跑時這裡會把 layout 欄位寫回 frontmatter，
+# 避免覆蓋掉手動設定。
+LAYOUT_MAP = {
+    "water-sense-guide": "vortex-water-sense",
+}
+
+# ── 自訂標題對照（slug → title）──
+# canonical markdown 的 H1 標題若與公開站想呈現的不同，在此覆寫。
+TITLE_OVERRIDE = {
+    "water-sense-guide": "什麼是水感",
+}
+
 # ── Stroke 偵測（從檔名關鍵字推斷） ──
 def detect_strokes(stem: str) -> list:
     strokes = []
@@ -184,7 +199,8 @@ def strip_existing_frontmatter(content: str) -> str:
 
 
 def build_frontmatter(title: str, description: str, slug: str,
-                      layer: str, layer_name: str, strokes: list) -> str:
+                      layer: str, layer_name: str, strokes: list,
+                      layout: str = "") -> str:
     lines = ["---"]
     lines.append(f'title: "{title}"')
     if description:
@@ -193,6 +209,8 @@ def build_frontmatter(title: str, description: str, slug: str,
     lines.append(f'slug: "{slug}"')
     lines.append(f'layer: "{layer}"')
     lines.append(f'layer_name: "{layer_name}"')
+    if layout:
+        lines.append(f'layout: "{layout}"')
     if strokes:
         lines.append("strokes:")
         for s in strokes:
@@ -701,7 +719,7 @@ def main():
 
             raw = src_file.read_text(encoding="utf-8")
             body = strip_existing_frontmatter(raw)
-            title = extract_title(body)
+            title = TITLE_OVERRIDE.get(slug) or extract_title(body)
             desc  = extract_description(body)
             body_no_h1 = strip_title_h1(body)
 
@@ -721,6 +739,7 @@ def main():
                     title=title, description=desc, slug=slug,
                     layer=layer_cfg["slug"], layer_name=layer_cfg["name"],
                     strokes=detect_strokes(stem),
+                    layout=LAYOUT_MAP.get(slug, ""),
                 )
                 dst_file.write_text(fm + body_no_h1, encoding="utf-8")
                 files_state[rel_key] = {
