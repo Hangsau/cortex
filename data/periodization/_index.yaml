@@ -2,6 +2,31 @@ domain: periodization
 sub: _index
 schema_version: 1
 structure:
+- id: periodization.structure.schools_overview
+  file: structure.yaml
+  name_zh: 週期化多派概覽
+  gist_zh: 週期化不是定論而是幾派辯論：傳統/板塊/極化/Olbrecht/反向；含 Q1–Q11 導讀＋作者立場
+  stages:
+  - l2t
+  - t2t
+  - t2c
+  - t2w
+- id: periodization.structure.school_block
+  file: structure.yaml
+  name_zh: 板塊週期化（Issurin）
+  gist_zh: 菁英序列集中而非並行；殘留效應決定換塊（速度~5d/有氧~30d）；8–12 週一階段
+  stages:
+  - t2c
+  - t2w
+- id: periodization.structure.perception_periodization_bridge
+  file: structure.yaml
+  name_zh: 感知—週期化橋接
+  gist_zh: 🔴假設：感知穩定度本身該被週期化；老實標記與 Vortex 命題的脫節缺口
+  stages:
+  - l2t
+  - t2t
+  - t2c
+  - t2w
 - id: periodization.structure.annual.monocycle
   file: structure.yaml
   name_zh: 單週期
@@ -138,6 +163,20 @@ taper:
   - t2c
   - t2w
 zones:
+- id: periodization.zones.school_polarized
+  file: zones.yaml
+  name_zh: 極化分布（Seiler/TID）
+  gist_zh: 問每區占幾成：80/20 極化、避中間 Z2；但游泳金字塔型更常見（Crowley 2021）
+  stages:
+  - t2c
+  - t2w
+- id: periodization.zones.olbrecht_model
+  file: zones.yaml
+  name_zh: Olbrecht 能量系統個體化
+  gist_zh: 最適非最大；閾值=魔法子彈謬誤；capacity/power 不能同時練；個體乳酸測試
+  stages:
+  - t2c
+  - t2w
 - id: periodization.zones.table_7_1
   file: zones.yaml
   name_zh: Bompa 六分區

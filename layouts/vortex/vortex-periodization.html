@@ -33,9 +33,10 @@
       <div class="vx-rail-group">主題</div>
       <div class="vx-rail-scroll">
         <ul class="vx-rail-list">
-          <li><button class="vx-navlink" type="button" data-target="structure"><span class="n">1</span>年度結構與週期</button></li>
-          <li><button class="vx-navlink" type="button" data-target="taper"><span class="n">2</span>賽前減量與達峰</button></li>
-          <li><button class="vx-navlink" type="button" data-target="zones"><span class="n">3</span>能量系統與強度分區</button></li>
+          <li><button class="vx-navlink" type="button" data-target="schools"><span class="n">1</span>週期化的幾種流派</button></li>
+          <li><button class="vx-navlink" type="button" data-target="structure"><span class="n">2</span>年度結構與週期</button></li>
+          <li><button class="vx-navlink" type="button" data-target="taper"><span class="n">3</span>賽前減量與達峰</button></li>
+          <li><button class="vx-navlink" type="button" data-target="zones"><span class="n">4</span>能量系統與強度分區</button></li>
         </ul>
       </div>
     </aside>
@@ -46,33 +47,128 @@
       {{/* ── 概覽 ── */}}
       <section class="vx-panel vx-overview" id="overview">
         <span class="vx-sec-no">VORTEX · Periodization</span>
-        <h2>週期化 — 年度計畫的理論骨幹</h2>
-        <p class="vx-premise">把一整年的訓練拆成階段（準備 → 競賽 → 過渡），把階段拆成中觀／微觀週期，再用賽前減量把適應推上巔峰、對準比賽當天。這是 <a href="{{ $base }}vortex/adm/matrix/">ADM 發展矩陣</a> 裡「48 週年度計畫 · 一年兩巔峰」背後的可操作理論。選一個主題開始，就地展開讀——不換頁。</p>
+        <h2>週期化 — 不是一套定論，是幾派的辯論</h2>
+        <p class="vx-premise">週期化常被當成「Bompa 那一套標準答案」來教，但它其實是幾套互相辯論的框架：傳統線性（Bompa）、板塊集中（Issurin）、極化分布（Seiler/TID）、能量系統個體化（Olbrecht）、反向週期化（Sweetenham）。它們問的問題不同、適用對象不同——把任何一派當鐵律都是誤讀。本頁先給你一張「幾派在吵什麼」的地圖，再進到年度結構、減量、強度分區的具體內容；每塊都標出哪裡是哪一派的主張、哪裡是作者綜合。它是 <a href="{{ $base }}vortex/adm/matrix/">ADM 發展矩陣</a> 裡「48 週年度計畫 · 一年兩巔峰」背後的可操作理論。選一個主題開始，就地展開讀——不換頁。</p>
         <p class="vx-panel-lead">選一個主題開始：</p>
         <div class="vx-path-list">
-          <button class="vx-path-item" type="button" data-target="structure">
+          <button class="vx-path-item" type="button" data-target="schools">
             <span class="n">1</span>
-            <span><span class="t">年度結構與週期</span><span class="o">三大階段 · 年度計畫型態 · 中觀／微觀 · 停練衰退 · 游泳實證</span></span>
+            <span><span class="t">週期化的幾種流派</span><span class="o">五派地圖 · 各派核心問題 · 你要回答哪個問題 · 作者立場 · 感知缺口</span></span>
+          </button>
+          <button class="vx-path-item" type="button" data-target="structure">
+            <span class="n">2</span>
+            <span><span class="t">年度結構與週期</span><span class="o">三大階段 · 年度計畫型態 · 中觀／微觀 · 板塊週期化 · 停練衰退 · 游泳實證</span></span>
           </button>
           <button class="vx-path-item" type="button" data-target="taper">
-            <span class="n">2</span>
+            <span class="n">3</span>
             <span><span class="t">賽前減量與達峰</span><span class="o">減量原理 · 四個操作旋鈕 · 曲線型態 · 達峰窗 · 游泳應用</span></span>
           </button>
           <button class="vx-path-item" type="button" data-target="zones">
-            <span class="n">3</span>
-            <span><span class="t">能量系統與強度分區</span><span class="o">Bompa 六分區 · 心率／VO₂ · 游泳分區 · 各距離供能 · TID</span></span>
+            <span class="n">4</span>
+            <span><span class="t">能量系統與強度分區</span><span class="o">Bompa 六分區 · 極化派 · Olbrecht · 游泳分區 · 各距離供能 · TID</span></span>
           </button>
         </div>
-        <p class="vx-legend">確定性：🔵 推導 · 🟢 近期文獻 · 🟡 舊文獻（週期化基礎理論） · 🟠 教練觀測 · 🔴 待查。本頁為公開週期化理論，描述年度計畫結構與處方原則，不含感知診斷內容。所有數字溯源至 Bompa 原文章節／表格或外部文獻（PMID／DOI）並標確定性。</p>
+        <p class="vx-legend">確定性：🔵 推導／作者綜合 · 🟢 近期文獻 · 🟡 舊文獻（週期化基礎理論） · 🟠 教練觀測 · 🔴 待查／未驗證假設。本頁為公開週期化理論，描述年度計畫結構與處方原則，不含感知診斷內容。所有數字溯源至 Bompa 原文章節／表格或外部文獻（PMID／DOI）並標確定性；多派立場與作者綜合明確分層標示。</p>
         <nav class="vx-flow">
           <span></span>
+          <button class="nx" type="button" data-target="schools"><span class="lbl">下一個主題</span>週期化的幾種流派 →</button>
+        </nav>
+      </section>
+
+      {{/* ════════ 主題 1 · 週期化的幾種流派 ════════ */}}
+      <section class="vx-panel vx-move" id="schools">
+        <span class="vx-sec-no">主題 1 / 4</span>
+        <h2>週期化的幾種流派</h2>
+        {{ with $st.schools_overview }}
+        <p class="vx-panel-lead">{{ .premise_zh }}</p>
+
+        <div class="vx-ladder">
+
+          {{/* 五派地圖 */}}
+          <details class="vx-level" open>
+            <summary>
+              <span class="lv">圖</span>
+              <span>
+                <span class="lvname">五派地圖 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">每派問的問題不同、適用對象不同——先看它們各自在吵什麼</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <table class="vx-pz-table">
+                <thead><tr><th>流派</th><th>核心問題</th><th>強處</th><th>弱處</th></tr></thead>
+                <tbody>
+                {{ range .schools }}
+                  <tr>
+                    <td><strong>{{ .name_zh }}</strong> <span class="vx-cert">{{ .cert }}</span></td>
+                    <td>{{ .core_q_zh }}</td>
+                    <td>{{ .strength_zh }}</td>
+                    <td>{{ .weakness_zh }}</td>
+                  </tr>
+                {{ end }}
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+          {{/* 你要回答哪個問題 */}}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">問</span>
+              <span>
+                <span class="lvname">你要回答哪個問題？</span>
+                <span class="lvtag">先搞清楚你的問題，再決定參考哪一派（Q1–Q11）</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <ul class="vx-pz-sub">
+              {{ range .reader_questions_zh }}
+                <li>{{ . }}</li>
+              {{ end }}
+              </ul>
+            </div>
+          </details>
+
+          {{/* 作者立場 */}}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">綜</span>
+              <span>
+                <span class="lvname">作者立場 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">這幾派不是誰對誰錯，是不同問題的答案</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-author">{{ .author_synthesis_zh }}</p>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+            </div>
+          </details>
+
+        </div>
+        {{ end }}
+
+        {{/* 感知—週期化橋接：誠實標記的研究缺口 */}}
+        {{ with $st.perception_periodization_bridge }}
+        <div class="vx-pz-gap">
+          <span class="vx-pz-gap-h">🔴 研究缺口：感知 × 週期化（未驗證假設）</span>
+          <p>{{ .gap_zh }}</p>
+          <p>{{ .hypothesis_zh }}</p>
+          <p>{{ .why_it_matters_zh }}</p>
+          <p>{{ .status_zh }}</p>
+          {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+        </div>
+        {{ end }}
+
+        <p class="vx-cite"><span class="src">來源</span>：作者綜合 — Bompa &amp; Buzzichelli 6th ed.；Issurin 2008/2010/2016；Seiler 2010；Olbrecht 2000；Sweetenham &amp; Atkinson 2003；Hellard 2019</p>
+
+        <nav class="vx-flow">
+          <button type="button" data-target="overview"><span class="lbl">回到</span>← 概覽</button>
           <button class="nx" type="button" data-target="structure"><span class="lbl">下一個主題</span>年度結構與週期 →</button>
         </nav>
       </section>
 
-      {{/* ════════ 主題 1 · 年度結構與週期 ════════ */}}
+      {{/* ════════ 主題 2 · 年度結構與週期 ════════ */}}
       <section class="vx-panel vx-move" id="structure">
-        <span class="vx-sec-no">主題 1 / 3</span>
+        <span class="vx-sec-no">主題 2 / 4</span>
         <h2>年度結構與週期</h2>
         <p class="vx-panel-lead">從一整年怎麼分階段，到一週課表怎麼排。點任一概念就地展開。</p>
 
@@ -185,6 +281,7 @@
                 </tbody>
               </table>
               {{ with $st.macrocycle.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+              {{ with $st.macrocycle.block_dialogue_zh }}<p class="vx-pz-dialogue">{{ . }}</p>{{ end }}
               <div class="vx-pz-swim">
                 <span class="vx-pz-swim-h">🔵 游泳應用</span>
                 <p>{{ $st.macrocycle.swim_application_zh }}</p>
@@ -192,6 +289,48 @@
               <p class="vx-cite"><span class="src">來源</span>：Bompa《Periodization》6th ed. — Ch7 Planning Training Cycles</p>
             </div>
           </details>
+
+          {{/* 板塊週期化（Issurin）— 與傳統線性對話 */}}
+          {{ with $st.school_block }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">塊</span>
+              <span>
+                <span class="lvname">板塊週期化（Issurin） <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">高水準者不能什麼都同時練——按殘留效應序列集中</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">{{ .core_mechanism_zh }}</p>
+              <p class="vx-pz-meta">殘留效應（某能力停練後能撐多久，決定何時換塊）：</p>
+              <table class="vx-pz-table vx-pz-table--narrow">
+                <thead><tr><th>能力</th><th>殘留天數</th></tr></thead>
+                <tbody>
+                {{ range .residual_effects }}
+                  <tr><td>{{ .ability_zh }} <span class="vx-cert">{{ .cert }}</span></td><td class="vx-pz-num">{{ .days }} 天</td></tr>
+                {{ end }}
+                </tbody>
+              </table>
+              <p class="vx-pz-warn">⚠ {{ .residual_caveat_zh }}</p>
+              <p class="vx-pz-meta">板塊結構（一個完整序列構成一個訓練階段）：</p>
+              <ul class="vx-pz-sub">
+              {{ range .block_structure }}
+                <li><strong>{{ .name_zh }}</strong> · {{ .focus_zh }}<br><span class="vx-pz-focus">負荷：{{ .load_zh }}｜{{ .weeks }} 週</span></li>
+              {{ end }}
+              </ul>
+              <p class="vx-pz-meta">{{ .full_stage_weeks }}</p>
+              <p class="vx-pz-dialogue">{{ .critique_of_traditional_zh }}</p>
+              <div class="vx-pz-swim">
+                <span class="vx-pz-swim-h">🟠 游泳應用</span>
+                <p>{{ .swim_link_zh }}</p>
+              </div>
+              <p class="vx-pz-warn">{{ .limitations_zh }}</p>
+              <p class="vx-pz-author">{{ .author_note_zh }}</p>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+              <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
+            </div>
+          </details>
+          {{ end }}
 
           {{/* 微觀週期 */}}
           <details class="vx-level">
@@ -300,14 +439,14 @@
         </div>
 
         <nav class="vx-flow">
-          <button type="button" data-target="overview"><span class="lbl">回到</span>← 概覽</button>
+          <button type="button" data-target="schools"><span class="lbl">上一個主題</span>← 週期化的幾種流派</button>
           <button class="nx" type="button" data-target="taper"><span class="lbl">下一個主題</span>賽前減量與達峰 →</button>
         </nav>
       </section>
 
-      {{/* ════════ 主題 2 · 賽前減量與達峰 ════════ */}}
+      {{/* ════════ 主題 3 · 賽前減量與達峰 ════════ */}}
       <section class="vx-panel vx-move" id="taper">
-        <span class="vx-sec-no">主題 2 / 3</span>
+        <span class="vx-sec-no">主題 3 / 4</span>
         <h2>賽前減量與達峰</h2>
         <p class="vx-panel-lead">怎麼在比賽前把疲勞卸掉、把適應推上巔峰。點任一概念就地展開。</p>
 
@@ -411,11 +550,11 @@
         </nav>
       </section>
 
-      {{/* ════════ 主題 3 · 能量系統與強度分區 ════════ */}}
+      {{/* ════════ 主題 4 · 能量系統與強度分區 ════════ */}}
       <section class="vx-panel vx-move" id="zones">
-        <span class="vx-sec-no">主題 3 / 3</span>
+        <span class="vx-sec-no">主題 4 / 4</span>
         <h2>能量系統與強度分區</h2>
-        <p class="vx-panel-lead">通用強度分區，加上游泳專項的分區與供能文獻。點任一概念就地展開。</p>
+        <p class="vx-panel-lead">Bompa 通用分區、極化派（Seiler）與 Olbrecht 的對話，加上游泳專項的分區與供能文獻。點任一概念就地展開。</p>
 
         <div class="vx-ladder">
 
@@ -438,6 +577,7 @@
                 </tbody>
               </table>
               <p class="vx-pz-meta">{{ $zn.intensity_zones.note_zh }}</p>
+              {{ with $zn.intensity_zones.tid_dialogue_zh }}<p class="vx-pz-dialogue">{{ . }}</p>{{ end }}
               {{ with $zn.intensity_zones.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
             </div>
           </details>
@@ -502,9 +642,74 @@
                 <li><strong>{{ .name_zh }}</strong> · {{ .when_zh }}<br><span class="vx-pz-focus">{{ .focus_zh }}</span></li>
               {{ end }}
               </ul>
+              {{ with $zn.endurance_periodization.olbrecht_dialogue_zh }}<p class="vx-pz-dialogue">{{ . }}</p>{{ end }}
               {{ with $zn.endurance_periodization.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
             </div>
           </details>
+
+          {{/* 極化分布（Seiler / TID）— 與 Bompa 六分區對話 */}}
+          {{ with $zn.school_polarized }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">極</span>
+              <span>
+                <span class="lvname">極化分布（Seiler / TID） <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">不問每區強度多少，問每區各占幾成——80/20、避中間區</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">{{ .three_zone_basis_zh }}</p>
+              <table class="vx-pz-table">
+                <thead><tr><th>型態</th><th>Z1</th><th>Z2</th><th>Z3</th><th>說明</th></tr></thead>
+                <tbody>
+                {{ range .distribution }}
+                  <tr><td><strong>{{ .name_zh }}</strong></td><td class="vx-pz-num">{{ .z1 }}</td><td class="vx-pz-num">{{ .z2 }}</td><td class="vx-pz-num">{{ .z3 }}</td><td>{{ .note_zh }}</td></tr>
+                {{ end }}
+                </tbody>
+              </table>
+              <p class="vx-pz-meta">{{ .key_numbers_zh }}</p>
+              <p class="vx-pz-meta">{{ .unit_caveat_zh }}</p>
+              <p class="vx-pz-meta">{{ .avoid_middle_zh }}</p>
+              <p class="vx-pz-meta">{{ .evidence_zh }}</p>
+              <p class="vx-pz-warn">{{ .causation_caveat_zh }}</p>
+              <div class="vx-pz-swim">
+                <span class="vx-pz-swim-h">🟢 游泳實證挑戰</span>
+                <p>{{ .swim_caveat_zh }}</p>
+              </div>
+              <p class="vx-pz-author">{{ .author_note_zh }}</p>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+              <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* Olbrecht 能量系統個體化 — 與 Bompa 閾值堆量對話 */}}
+          {{ with $zn.olbrecht_model }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">O</span>
+              <span>
+                <span class="lvname">Olbrecht 能量系統個體化 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">最適非最大；閾值是「魔法子彈謬誤」；改個體乳酸測試</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">{{ .optimum_not_max_zh }}</p>
+              <p class="vx-pz-dialogue">{{ .threshold_critique_zh }}</p>
+              <p class="vx-pz-meta">{{ .capacity_power_zh }}</p>
+              <p class="vx-pz-meta">{{ .individualization_zh }}</p>
+              <p class="vx-pz-meta">{{ .periodization_order_zh }}</p>
+              <div class="vx-pz-swim">
+                <span class="vx-pz-swim-h">🟡 游泳特殊性</span>
+                <p>{{ .swim_note_zh }}</p>
+              </div>
+              <p class="vx-pz-warn">{{ .caveat_zh }}</p>
+              <p class="vx-pz-author">{{ .author_note_zh }}</p>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+              <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
+            </div>
+          </details>
+          {{ end }}
 
           {{/* Maglischo 游泳六分區 */}}
           {{ with $zn.swim_zones_maglischo }}
@@ -618,6 +823,7 @@
                 <p>{{ $zn.swim_application.weekly_distribution_zh }}</p>
                 <p>{{ $zn.swim_application.energy_system_zh }}</p>
               </div>
+              {{ with $zn.swim_application.author_mapping_note_zh }}<p class="vx-pz-author">{{ . }}</p>{{ end }}
               {{ with $zn.swim_application.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
             </div>
           </details>

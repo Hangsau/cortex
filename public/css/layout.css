@@ -147,3 +147,19 @@
   margin-top: var(--space-1);
   margin-bottom: 0;
 }
+
+/* 手機：收窄外距，把橫向空間還給內容，避免文字往下擠成窄長條 */
+@media (max-width: 600px) {
+  .main-content {
+    padding: var(--space-8) var(--space-4);
+  }
+  .site-nav {
+    padding: 0 var(--space-4);
+  }
+  .site-footer {
+    padding: var(--space-8) var(--space-4);
+  }
+  .site-nav-links {
+    gap: var(--space-4);
+  }
+}

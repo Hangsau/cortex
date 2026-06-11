@@ -714,6 +714,51 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
   vertical-align: 1px;
 }
 
+/* 對話層（school dialogue）：流派之間的辯論張力 */
+.vx-pz-dialogue {
+  font-size: 15px; line-height: 1.85; color: var(--vx-ink);
+  background: #eef3f8;
+  border-left: 3px solid var(--vx-accent2);
+  padding: 10px 14px; margin: 10px 0; border-radius: 2px;
+}
+.vx-pz-dialogue::before {
+  content: "對話"; display: inline-block;
+  font-family: var(--vx-display); font-weight: 600;
+  font-size: 11.5px; letter-spacing: 0.08em;
+  color: var(--vx-accent2); margin-right: 8px;
+  vertical-align: 1px;
+}
+
+/* 作者綜合層（author synthesis）：作者在多派之上的立場 */
+.vx-pz-author {
+  font-size: 15px; line-height: 1.85; color: var(--vx-ink);
+  background: var(--vx-gold-bg);
+  border-left: 3px solid var(--vx-gold);
+  padding: 10px 14px; margin: 10px 0; border-radius: 2px;
+}
+.vx-pz-author::before {
+  content: "作者綜合"; display: inline-block;
+  font-family: var(--vx-display); font-weight: 600;
+  font-size: 11.5px; letter-spacing: 0.08em;
+  color: var(--vx-gold); margin-right: 8px;
+  vertical-align: 1px;
+}
+
+/* 缺口層（research gap）：待查／未驗證的假設，視覺上明確標為未定 */
+.vx-pz-gap {
+  font-size: 14.5px; line-height: 1.8; color: var(--vx-ink);
+  background: var(--vx-warn-bg);
+  border: 1px dashed var(--vx-warn);
+  padding: 12px 16px; margin: 14px 0; border-radius: 2px;
+}
+.vx-pz-gap-h {
+  display: block;
+  font-family: var(--vx-display); font-weight: 600;
+  font-size: 14px; letter-spacing: 0.03em;
+  color: var(--vx-warn); margin-bottom: 6px;
+}
+.vx-pz-gap p { margin: 6px 0; }
+
 /* ════════════════════════════════════════════
    行動裝置
    ════════════════════════════════════════════ */
