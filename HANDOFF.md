@@ -1,6 +1,6 @@
 # HANDOFF — my-site (Cortex)
 
-## 目前狀態（2026-06-11）
+## 目前狀態（2026-06-12）
 
 網站已上線並完全正常：https://hangsau.github.io/cortex/  
 CI/CD 正常運作，push hugo-source 自動部署。  
@@ -21,8 +21,11 @@ CI/CD 正常運作，push hugo-source 自動部署。
 
 **水感發展 L0–L6 頁面上線（2026-06-11，commit 85546b6，已 push + CI 綠）**：先前 `data/vortex/water-sense-levels.yaml`（26 階段、四式）是孤兒資料——沒有任何 layout 渲染它（TheVortexProject HANDOFF 曾記「my-site vortex-levels.html 已建」但實際 my-site 從未有該檔，是誤記）。本 session 真正建出 `layouts/vortex/vortex-levels.html`：左側泳式 rail + 概覽面板 + 右側各級 `<details class="vx-level">` ladder，重用 vortex.js 面板切換與原生 details 摺疊（**零新 JS**）。content stub `content/vortex/levels/_index.md`（layout: vortex-levels）。首頁 `vortex-home.html` 在「六式」之後、ADM 之前插入第四塊主入口「核心 · 水感發展地圖」（vx-toc-row → vortex/levels/，標 L0–6 · 四式 26 階段），六式/ADM/週期化既有 DOM 順序未動。CSS 僅補 `.vx-lvl-h`/`.vx-lvl-meta`/`.vx-lvl-block`（block 欄位 white-space:pre-line），重用既有 `.vx-ladder`/`.vx-level`/`.vx-method` 等元件。**公開頁邊界**：只呈現發展階段／訓練方法／觀察指標／量化基準，不含感知判讀診斷語（「泳者說 X = 到位」屬教練診斷層，已在 sync 階段淨化）；built HTML 診斷欄位（三型/A型/B型/C型/typical_speech/main_problem）洩漏 = 0（「診斷」字僅出現在 description 的通用描述與概覽的「此類內容不在公開頁」說明）。
 
+**兒童九種氣質 section 上線（2026-06-12）**：全新獨立 section（不屬 vortex/library），研究＋網站＋互動測驗一次到位。研究綜合在 `resources/notes/temperament-nine-traits/`（SYNTHESIS.md 原始文獻 Thomas-Chess NYLS + 延伸 Rothbart/Kagan/EAS/differential-susceptibility/Big-Five 連續性；QUIZ_DESIGN.md 計分規格）。網站重用 vortex 學術期刊殼（vx-stroke master-detail + vortex.js + vortex.css），強調色換深青 teal `#1b5e69`（與 Vortex 海軍藍區隔）。`content/temperament/_index.md`（layout: temperament-main）；`layouts/temperament/temperament-main.html`：左 rail 7 入口（概覽/九維度/三型/延伸研究/適配度/批判視角 + 測驗 CTA）+ 7 面板，閱讀面板由 `.Site.Data.temperament.*`（traits/types/frameworks/fit/critique/refs 六 yaml）server-side render。**互動測驗**：`data/temperament/quiz.yaml`（child/self 各 18 題 × 1–5 Likert，每維 2 題其一反向；5 維原型距離判三型傾向）→ `temperament-quiz.js` 純前端計分（讀 `#tq-config` JSON + DOM；維度均分→分帶 low<2.34/mid/high>3.66；歐氏距離判安樂/高需求/慢熱，差<0.5 標「之間」；輸出九維度剖面為主、三型傾向為輔、環境配合建議；絕不輸出好壞分數或診斷）。`static/css/temperament.css`（`.vx-tmp-stroke` teal 覆寫 + 完整測驗 UI）。hugo.toml nav 加「氣質」(weight 4)。**驗收**：hugo build 綠（exit 0，page 80072 bytes）+ config JSON 解析為 dict（safeJS 修正雙重轉義 bug）+ 7 面板 id 齊 + 18 反向題 + 計分演算法經 Python 忠實模擬驗證（EASY→easy dist 0.0 / DIFFICULT→difficult / SLOW→slow_to_warm，分帶合理）+ node --check JS 通過 + noscript fallback。⚠ 未做 Playwright 點擊（此 session 未載入 playwright MCP），僅靜態＋演算法模擬驗證。
+
 ## 已完成
 
+- [x] **兒童九種氣質 section 上線**（2026-06-12）— 研究綜合 + temperament-main 學術期刊頁（teal）+ child/self 互動測驗（九維度剖面 + 三型傾向 + 環境建議，無診斷無好壞分）
 - [x] Hugo 專案骨架（無 theme，完全自訂 layout）
 - [x] 首頁書架設計（書本卡片，hover 浮起效果）
 - [x] 書庫 section（library/list、library/book、library/chapter）

@@ -1,0 +1,167 @@
+# 氣質測驗題庫與計分鍵
+# 來源：resources/notes/temperament-nine-traits/QUIZ_DESIGN.md
+# 設計哲學：輸出九維度剖面（主）+ 三型傾向（輔）+ 環境配合建議；絕不輸出好壞分數或診斷。
+
+# ── 計分參數 ──
+scoring:
+  band_low: 2.34      # < 2.34 為低
+  band_high: 3.66     # > 3.66 為高，之間為中
+  between_threshold: 0.5   # 三型最近與次近距離差 < 0.5 → 顯示「介於」
+  proto_dims: [rhythmicity, approach, adaptability, intensity, mood]
+
+# 三型原型向量（維度順序同 proto_dims）
+prototypes:
+  easy:          [5, 4, 5, 2, 5]
+  difficult:     [1, 2, 1, 5, 2]
+  slow_to_warm:  [3, 2, 2, 2, 3]
+
+# ── 題庫：child 模式（家長觀察） ──
+items_child:
+  - { dim: activity,     reverse: false, text: "我的孩子大部分時間都在動，很難安靜坐著。" }
+  - { dim: activity,     reverse: true,  text: "我的孩子可以安靜地坐著做一件事很久。" }
+  - { dim: rhythmicity,  reverse: false, text: "我的孩子每天吃飯、睡覺的時間都差不多。" }
+  - { dim: rhythmicity,  reverse: true,  text: "我的孩子的作息很難預測，每天都不一樣。" }
+  - { dim: approach,     reverse: false, text: "遇到新玩具或陌生人，我的孩子會主動靠近探索。" }
+  - { dim: approach,     reverse: true,  text: "面對陌生的人或環境，我的孩子會退縮、躲起來。" }
+  - { dim: adaptability, reverse: false, text: "行程或環境改變時，我的孩子很快就能適應。" }
+  - { dim: adaptability, reverse: true,  text: "我的孩子很抗拒改變，換新環境要鬧很久。" }
+  - { dim: intensity,    reverse: false, text: "我的孩子高興或不滿時，反應都很強烈（大笑、大哭）。" }
+  - { dim: intensity,    reverse: true,  text: "我的孩子情緒表達很溫和，不太大起大落。" }
+  - { dim: sensitivity,  reverse: false, text: "細微的聲音、光線、衣服標籤就會讓我的孩子有反應。" }
+  - { dim: sensitivity,  reverse: true,  text: "要相當強的刺激，我的孩子才會注意到或有反應。" }
+  - { dim: mood,         reverse: false, text: "我的孩子大多數時候是開心、友善的。" }
+  - { dim: mood,         reverse: true,  text: "我的孩子常常顯得不悅、愛抱怨。" }
+  - { dim: focus,        reverse: false, text: "我的孩子在做事時不容易被周圍的事物打斷。" }
+  - { dim: focus,        reverse: true,  text: "一點點動靜就會讓我的孩子分心、停下手邊的事。" }
+  - { dim: persistence,  reverse: false, text: "遇到困難的事，我的孩子會持續嘗試不輕易放棄。" }
+  - { dim: persistence,  reverse: true,  text: "事情一變難，我的孩子很快就放棄或換別的。" }
+
+# ── 題庫：self 模式（成人自評） ──
+items_self:
+  - { dim: activity,     reverse: false, text: "我大部分時間精力旺盛，靜不太下來。" }
+  - { dim: activity,     reverse: true,  text: "我可以長時間安靜地坐著做一件事。" }
+  - { dim: rhythmicity,  reverse: false, text: "我每天吃飯、睡覺的時間相當固定。" }
+  - { dim: rhythmicity,  reverse: true,  text: "我的作息很不規律，每天都不太一樣。" }
+  - { dim: approach,     reverse: false, text: "遇到新環境或陌生人，我傾向主動接觸。" }
+  - { dim: approach,     reverse: true,  text: "面對陌生場合，我會先退一步、觀望。" }
+  - { dim: adaptability, reverse: false, text: "計畫或環境改變時，我能很快調整。" }
+  - { dim: adaptability, reverse: true,  text: "我不喜歡改變，變動會讓我不安很久。" }
+  - { dim: intensity,    reverse: false, text: "我的情緒反應通常很強烈、明顯。" }
+  - { dim: intensity,    reverse: true,  text: "我的情緒表達偏溫和，不太大起大落。" }
+  - { dim: sensitivity,  reverse: false, text: "細微的聲音、光線、氣味就會明顯影響我。" }
+  - { dim: sensitivity,  reverse: true,  text: "要相當強的刺激我才會注意到或被影響。" }
+  - { dim: mood,         reverse: false, text: "我大多數時候心情是正向、開朗的。" }
+  - { dim: mood,         reverse: true,  text: "我常常感到煩躁或不滿。" }
+  - { dim: focus,        reverse: false, text: "做事時我不容易被周圍打斷。" }
+  - { dim: focus,        reverse: true,  text: "一點點動靜就會讓我分心。" }
+  - { dim: persistence,  reverse: false, text: "遇到困難我會持續嘗試、不輕易放棄。" }
+  - { dim: persistence,  reverse: true,  text: "事情一變難我很快就想放棄或轉換。" }
+
+# ── 環境配合建議（每維度 高/中/低，child / self 各一句；一律「配合」語氣，不用「矯正」） ──
+advice:
+  activity:
+    high:
+      child: "需要先放電再靜態。把動作嵌進日常，運動先於需久坐的場合——不是缺點，是設計。"
+      self:  "你需要先動起來才靜得下來。把走動、運動排在需專注的工作之前，效率會更好。"
+    mid:
+      child: "活動量適中，靜態與動態都能切換，順著當下狀態安排即可。"
+      self:  "活動量適中，靜與動之間轉換不費力，順著當下狀態安排即可。"
+    low:
+      child: "偏靜的孩子能久坐專注，別誤以為『不夠活潑』；適度安排戶外活動維持體能即可。"
+      self:  "你偏靜、能久坐，這是專注的本錢；記得主動安排運動，別讓身體太久不動。"
+  rhythmicity:
+    high:
+      child: "作息天生規律，順著固定節奏走最省力，臨時打亂時提前預告即可。"
+      self:  "你的生理節奏穩定，固定作息對你最省力；維持它就是維持狀態。"
+    mid:
+      child: "作息大致可抓，給一個寬鬆但穩定的框架，留一點彈性。"
+      self:  "作息大致可抓，給自己一個寬鬆但穩定的框架，不必硬卡時間。"
+    low:
+      child: "用穩定的外部節奏（固定的吃睡時間）幫他建立內在規律，不是強迫，是搭鷹架。"
+      self:  "你的內在節奏較不固定，用外部錨點（固定起床、固定一餐）幫自己穩住，比靠意志力有效。"
+  approach:
+    high:
+      child: "對新事物好奇敢試是很好的本錢；提醒安全邊界即可，別澆熄探索欲。"
+      self:  "你對新事物願意主動靠近，這是很好的本錢；保留一點停看聽，避免衝太快。"
+    mid:
+      child: "對新事物不抗拒也不躁進，給基本介紹他就會自己決定要不要加入。"
+      self:  "面對新場合你能適度接觸，給自己一點暖身時間就好。"
+    low:
+      child: "慢熱不是膽小。給他觀察的時間、提前預告，別在門口硬推；他會自己暖起來。"
+      self:  "面對陌生場合你需要先觀望——這不是退縮。提前了解情境、給自己暖身時間，再加入。"
+  adaptability:
+    high:
+      child: "轉換快、好帶；偶爾也確認他真的適應了，而不是壓下不適。"
+      self:  "你適應改變快，這在多變環境中是優勢；偶爾停下確認自己是真的好，不是硬撐。"
+    mid:
+      child: "適應速度中等，改變前給一點預告與時間，就能順過去。"
+      self:  "適應速度中等，面對改變給自己一點預告與緩衝就好。"
+    low:
+      child: "用固定的常規當扶手，改變前先給預告（『再玩五分鐘就回家』），讓轉換有跑道。"
+      self:  "你需要時間消化改變——這很正常。重大變動前先給自己預告與準備期，別期待立刻就位。"
+  intensity:
+    high:
+      child: "先承接強度，再一起練習平靜下來的方法（呼吸、數數）；強烈不等於不乖。"
+      self:  "你的情緒來得強——先承認它的存在，再用呼吸、暫停等工具調節，比壓抑有效。"
+    mid:
+      child: "情緒表達適中，喜怒看得出來但不過載，照常回應即可。"
+      self:  "情緒強度適中，表達得出來也收得回去，順其自然即可。"
+    low:
+      child: "反應溫和的孩子情緒不明顯，別因為『沒哭沒鬧』就忽略他的需要，多主動問。"
+      self:  "你情緒表達偏溫和，別人不一定看得出你的需要；必要時主動說出來，別預設別人會懂。"
+  sensitivity:
+    high:
+      child: "像蘭花——對的環境會開得最好。減少感官超載、保持可預測，把高敏感當『需要對的環境』而非毛病。"
+      self:  "你對細節敏感，容易被環境影響——這是蘭花特質。主動減少感官超載（噪音、強光），對的環境讓你發揮最好。"
+    mid:
+      child: "對刺激的敏感度適中，一般環境都能適應，過載時稍作調整即可。"
+      self:  "敏感度適中，多數環境都能適應；感到過載時給自己一個安靜的空檔。"
+    low:
+      child: "閾值高、不易被細節干擾，專注時是優點；提醒他注意他人較細微的訊號。"
+      self:  "你不易被細節干擾，吵雜中也能專注——這是優點；留意他人較細微的情緒訊號即可。"
+  mood:
+    high:
+      child: "情緒底色正向開朗，順著回應就好；別把『好心情』當成不需要關注。"
+      self:  "你情緒底色偏正向，這是很好的資源；低落時也允許自己不開朗，不必硬撐笑臉。"
+    mid:
+      child: "情緒有起有落屬正常範圍，平常回應、低落時多陪即可。"
+      self:  "情緒有起有落很正常，平常照舊、低落時多照顧自己即可。"
+    low:
+      child: "底色偏負向不代表愛抱怨——可能是表達方式。多承接感受、少急著糾正情緒本身。"
+      self:  "你情緒底色偏向謹慎或負面，這常伴隨對風險的敏銳；接納它，同時刻意累積正向經驗來平衡。"
+  focus:
+    high:
+      child: "專注力強、不易被打斷，是學習的本錢；轉換活動前先預告，避免硬中斷引發抗拒。"
+      self:  "你不易被打斷、能深度投入——這是稀缺能力；保護你的專注時段，避免被頻繁切換。"
+    mid:
+      child: "專注度中等，安靜環境能維持，吵雜時提供一個少干擾的角落即可。"
+      self:  "專注度中等，安靜環境下表現最好；需要深做的事就找個少干擾的時段。"
+    low:
+      child: "容易分心的孩子比較好哄（轉移注意就行），但學習時要主動降低干擾源，把任務切小。"
+      self:  "你容易被周圍拉走注意力——把任務切小、移除干擾源（通知、雜物）比靠意志力硬撐有效。"
+  persistence:
+    high:
+      child: "遇難不放棄是寶貴特質；同時教他『卡住時可以求助或換方法』，避免鑽牛角尖。"
+      self:  "你遇難不放棄，這是完成事情的引擎；學會適時停損與求助，避免在死路上耗太久。"
+    mid:
+      child: "堅持度中等，難度適中時能撐住，太難時給一點鷹架（拆步驟、陪一段）。"
+      self:  "堅持度中等，把大任務拆成小步驟，每完成一步的成就感能幫你撐下去。"
+    low:
+      child: "容易放棄常是因為難度跳太大。把任務拆小、難度漸進，讓他一直有『做得到』的成功經驗。"
+      self:  "你容易在變難時想放棄——把目標拆小、降低單步難度，用連續的小成功維持動力。"
+
+# ── 三型傾向結果語（child 模式主推；self 標為「成人風格參考」） ──
+type_text:
+  easy:         "目前傾向接近**安樂型**。好帶不代表不用陪——穩定的回應一樣重要。"
+  difficult:    "目前傾向接近**高需求型**（傳統稱『磨難型』，但氣質沒有好壞）。這種孩子在『對的環境配合』下一樣發展得好——關鍵是適配，不是改造他。"
+  slow_to_warm: "目前傾向接近**慢熱型**。給時間與預告，他會自己暖起來。"
+  between:      "介於 {a} 與 {b} 之間——這很正常，約 1/3 的孩子不完全屬於任一型。把上面的九維度剖面當主要參考。"
+  self_easy:         "你的成人風格偏向**安樂型**：規律、適應快、情緒平穩。這是與人協作時的穩定力。"
+  self_difficult:    "你的成人風格偏向**高需求 / 高反應型**：感受強烈、對變動敏感。這常伴隨高敏銳與高投入——在對的環境裡是創造力，在錯的環境裡容易耗竭。"
+  self_slow_to_warm: "你的成人風格偏向**慢熱型**：面對新事物先觀望再投入。給自己暖身時間，你會穩穩進入狀態。"
+  self_between:      "你的成人風格介於 {a} 與 {b} 之間——這很常見。九維度剖面比單一標籤更能描述你。"
+
+type_label:
+  easy: 安樂型
+  difficult: 高需求型
+  slow_to_warm: 慢熱型

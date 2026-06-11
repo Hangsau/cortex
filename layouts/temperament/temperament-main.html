@@ -1,0 +1,309 @@
+{{ define "head-extra" }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/temperament.css">
+<noscript><style>.vx-panel{display:block;border-top:1px solid var(--vx-rule);padding-top:24px}.vx-rail{position:static;max-height:none}.tq-quiz{display:none}</style></noscript>
+{{ end }}
+
+{{ define "main" }}
+{{ $base := .Site.BaseURL }}
+{{ $t := .Site.Data.temperament }}
+{{ $dims := $t.traits.dimensions }}
+{{ $types := $t.types.types }}
+{{ $frameworks := $t.frameworks.frameworks }}
+{{ $fit := $t.fit }}
+{{ $critique := $t.critique.items }}
+{{ $refs := $t.refs.refs }}
+{{ $quiz := $t.quiz }}
+
+<div class="vx-stroke vx-tmp-stroke">
+  <div class="vx-stroke-wrap">
+
+    {{/* ════════ 左側常駐目次 ════════ */}}
+    <aside class="vx-rail">
+      <a class="vx-back-link" href="{{ $base }}">← Cortex</a>
+      <div class="vx-rail-head">
+        <span class="vx-stroke-zh">兒童九種氣質</span>
+        <span class="vx-stroke-en">Temperament · Goodness of Fit</span>
+      </div>
+
+      <div class="vx-rail-group">導覽</div>
+      <div class="vx-rail-scroll">
+        <ul class="vx-rail-list">
+          <li><button class="vx-navlink" type="button" data-target="overview"><span class="n">0</span>概覽</button></li>
+          <li><button class="vx-navlink" type="button" data-target="dimensions"><span class="n">1</span>九維度</button></li>
+          <li><button class="vx-navlink" type="button" data-target="types"><span class="n">2</span>三型傾向</button></li>
+          <li><button class="vx-navlink" type="button" data-target="frameworks"><span class="n">3</span>現代框架</button></li>
+          <li><button class="vx-navlink" type="button" data-target="fit"><span class="n">4</span>適配度應用</button></li>
+          <li><button class="vx-navlink" type="button" data-target="critique"><span class="n">5</span>批判與邊界</button></li>
+        </ul>
+      </div>
+
+      <div class="vx-rail-group">互動</div>
+      <div class="vx-rail-scroll">
+        <ul class="vx-rail-list">
+          <li><button class="vx-navlink vx-navlink-cta" type="button" data-target="quiz"><span class="n">★</span>氣質測驗</button></li>
+        </ul>
+      </div>
+    </aside>
+
+    {{/* ════════ 右側主面板 ════════ */}}
+    <main class="vx-panels">
+
+      {{/* ── 0 概覽 ── */}}
+      <section class="vx-panel vx-overview" id="overview">
+        <span class="vx-sec-no">Temperament · Goodness of Fit</span>
+        <h2>兒童九種氣質 — 適配度，不是好壞</h2>
+        <p class="vx-premise"><strong>氣質沒有好壞。</strong>決定孩子發展的不是氣質本身，而是「適配度（goodness of fit）」——孩子的天生氣質與環境要求、教養方式之間的 match 程度。這是 Thomas &amp; Chess 紐約縱貫研究最重要、也最常被誤讀的發現：「磨難型」的孩子在<strong>良好適配</strong>下能健康發展；「安樂型」的孩子在<strong>不良適配</strong>下反而出現問題。<span class="cert">🔵</span></p>
+        <p class="vx-premise">所以這份內容不貼標籤、不論好壞，只談「這種氣質需要什麼樣的環境配合」。下面的測驗也一樣——它輸出<strong>九維度剖面</strong>（主）＋三型傾向（輔）＋環境配合建議，<strong>絕不輸出好壞分數或診斷</strong>。</p>
+        <p class="vx-panel-lead">從哪裡開始：</p>
+        <div class="vx-path-list">
+          <button class="vx-path-item" type="button" data-target="dimensions">
+            <span class="n">01</span>
+            <span><span class="t">九個維度</span><span class="o">先認識描述孩子的九把尺</span></span>
+          </button>
+          <button class="vx-path-item" type="button" data-target="quiz">
+            <span class="n">★</span>
+            <span><span class="t">直接做測驗</span><span class="o">幫孩子測 · 或測自己 · 18 題</span></span>
+          </button>
+          <button class="vx-path-item" type="button" data-target="fit">
+            <span class="n">04</span>
+            <span><span class="t">怎麼配合</span><span class="o">不同氣質的環境配合策略</span></span>
+          </button>
+        </div>
+        <p class="vx-legend">🔵 經典確立 · 🟢 廣泛驗證 · 🟡 常被引用待查證 · 🟠 新興有爭議 · 🔴 我的延伸詮釋 — 每條內容標注確定性。完整研究底稿見專案 resources/notes。</p>
+        <nav class="vx-flow">
+          <span></span>
+          <button class="nx" type="button" data-target="dimensions"><span class="lbl">下一節</span>九維度 →</button>
+        </nav>
+      </section>
+
+      {{/* ── 1 九維度 ── */}}
+      <section class="vx-panel vx-move" id="dimensions">
+        <span class="vx-sec-no">1 / 5 · 九維度</span>
+        <h2>九個氣質維度</h2>
+        <p class="vx-panel-lead">Thomas、Chess &amp; Birch 從 1956 年起追蹤 133 名紐約家庭的孩子，歸納出描述氣質的九把尺。<span class="cert">🔵</span> 它們是「描述」不是「評分」——每一維沒有哪一端比較好。點任一維度展開定義與兩端表現。</p>
+        <div class="vx-ladder">
+          {{ range $dims }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">{{ .no }}</span>
+              <span>
+                <span class="lvname">{{ .name_zh }} <span class="cert">{{ .cert }}</span></span>
+                <span class="lvtag">{{ .name_en }}</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p>{{ .definition }}</p>
+              <div class="tmp-poles">
+                <div class="tmp-pole tmp-pole-hi"><span class="tmp-pole-lbl">高</span>{{ .high }}</div>
+                <div class="tmp-pole tmp-pole-lo"><span class="tmp-pole-lbl">低</span>{{ .low }}</div>
+              </div>
+              {{ with .note }}<p class="vx-lvl-meta"><strong>理解要點</strong>：{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+        </div>
+        <nav class="vx-flow">
+          <button type="button" data-target="overview"><span class="lbl">回到</span>← 概覽</button>
+          <button class="nx" type="button" data-target="types"><span class="lbl">下一節</span>三型傾向 →</button>
+        </nav>
+      </section>
+
+      {{/* ── 2 三型 ── */}}
+      <section class="vx-panel vx-move" id="types">
+        <span class="vx-sec-no">2 / 5 · 三型</span>
+        <h2>三種典型氣質</h2>
+        <p class="vx-panel-lead">{{ $t.types.note }}</p>
+        <div class="vx-ladder">
+          {{ range $types }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv tmp-ratio">{{ .ratio }}</span>
+              <span>
+                <span class="lvname">{{ .name_zh }} <span class="cert">{{ .cert }}</span></span>
+                <span class="lvtag">{{ .summary }}</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p>{{ .detail }}</p>
+            </div>
+          </details>
+          {{ end }}
+        </div>
+        <nav class="vx-flow">
+          <button type="button" data-target="dimensions"><span class="lbl">回到</span>← 九維度</button>
+          <button class="nx" type="button" data-target="frameworks"><span class="lbl">下一節</span>現代框架 →</button>
+        </nav>
+      </section>
+
+      {{/* ── 3 現代框架 ── */}}
+      <section class="vx-panel vx-move" id="frameworks">
+        <span class="vx-sec-no">3 / 5 · 現代框架</span>
+        <h2>現代框架延伸</h2>
+        <p class="vx-panel-lead">不只 1970s 原典。後來的研究補上了「自我調節」、「神經底色」、「遺傳」，以及近 20 年最重要的翻轉——差異易感性。</p>
+        <div class="vx-ladder">
+          {{ range $frameworks }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv tmp-fw">{{ .cert }}</span>
+              <span>
+                <span class="lvname">{{ .name_zh }}</span>
+                <span class="lvtag">{{ .lead }}</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="tmp-fw-en">{{ .name_en }}</p>
+              <ul class="tmp-list">
+                {{ range .points }}<li>{{ . | markdownify }}</li>{{ end }}
+              </ul>
+            </div>
+          </details>
+          {{ end }}
+        </div>
+        <nav class="vx-flow">
+          <button type="button" data-target="types"><span class="lbl">回到</span>← 三型</button>
+          <button class="nx" type="button" data-target="fit"><span class="lbl">下一節</span>適配度應用 →</button>
+        </nav>
+      </section>
+
+      {{/* ── 4 適配度應用 ── */}}
+      <section class="vx-panel vx-move" id="fit">
+        <span class="vx-sec-no">4 / 5 · 適配度</span>
+        <h2>怎麼配合，不是怎麼矯正</h2>
+        <p class="vx-premise">{{ $fit.thesis }}<span class="cert">🔵</span></p>
+        <div class="tmp-strat">
+          {{ range $fit.strategies }}
+          <div class="tmp-strat-row">
+            <div class="tmp-strat-name">{{ .name_zh }} <span class="cert">{{ .cert }}</span></div>
+            <div class="tmp-strat-body">{{ .body }}</div>
+          </div>
+          {{ end }}
+        </div>
+        <p class="vx-lvl-meta">{{ $fit.classroom }}<span class="cert">🟢</span></p>
+        <div class="vx-lvl-h">跨框架綜合 <span class="cert">🔴</span></div>
+        <ul class="tmp-list">
+          {{ range $fit.synthesis }}<li>{{ . | markdownify }}</li>{{ end }}
+        </ul>
+        <nav class="vx-flow">
+          <button type="button" data-target="frameworks"><span class="lbl">回到</span>← 現代框架</button>
+          <button class="nx" type="button" data-target="critique"><span class="lbl">下一節</span>批判與邊界 →</button>
+        </nav>
+      </section>
+
+      {{/* ── 5 批判與邊界 ── */}}
+      <section class="vx-panel vx-move" id="critique">
+        <span class="vx-sec-no">5 / 5 · 邊界</span>
+        <h2>批判與邊界</h2>
+        <p class="vx-panel-lead">任何談氣質的內容都必須誠實面對這四件事，否則就會變成貼標籤的工具。</p>
+        <div class="vx-ladder">
+          {{ range $critique }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv tmp-fw">{{ .cert }}</span>
+              <span>
+                <span class="lvname">{{ .name_zh }}</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p>{{ .body | markdownify }}</p>
+            </div>
+          </details>
+          {{ end }}
+        </div>
+        <div class="vx-lvl-h">主要引用來源</div>
+        <ul class="tmp-refs">
+          {{ range $refs }}<li><span class="cert">{{ .cert }}</span> {{ .text }}</li>{{ end }}
+        </ul>
+        <nav class="vx-flow">
+          <button type="button" data-target="critique"><span class="lbl">回到</span>← 概覽</button>
+          <button class="nx" type="button" data-target="quiz"><span class="lbl">試試</span>★ 氣質測驗 →</button>
+        </nav>
+      </section>
+
+      {{/* ── ★ 測驗 ── */}}
+      <section class="vx-panel vx-move" id="quiz">
+        <span class="vx-sec-no">互動 · 氣質測驗</span>
+        <h2>氣質測驗 — 18 題</h2>
+
+        <div class="tq-disclaimer tq-disclaimer-top">
+          這是<strong>自我覺察工具，不是診斷或分類</strong>。它只反映你此刻的觀察，幫你認識孩子（或自己）的起點，不是給孩子貼標籤或評好壞。
+        </div>
+
+        <div class="tq-quiz" id="quiz-app"
+             data-band-low="{{ $quiz.scoring.band_low }}"
+             data-band-high="{{ $quiz.scoring.band_high }}"
+             data-between="{{ $quiz.scoring.between_threshold }}">
+
+          {{/* 模式切換 */}}
+          <div class="tq-mode" role="tablist">
+            <button type="button" class="tq-mode-btn is-active" data-mode="child">幫孩子測</button>
+            <button type="button" class="tq-mode-btn" data-mode="self">測自己</button>
+          </div>
+
+          {{/* 量表說明 */}}
+          <p class="tq-scale-note">每題請選最接近的程度：<strong>1 幾乎不會 → 5 幾乎總是</strong>。</p>
+
+          <form class="tq-form" onsubmit="return false">
+            {{/* child 題組 */}}
+            <div class="tq-items" data-mode="child">
+              {{ range $i, $q := $quiz.items_child }}
+              <fieldset class="tq-item" data-dim="{{ $q.dim }}" data-reverse="{{ $q.reverse }}">
+                <legend><span class="tq-qn">{{ add $i 1 }}</span>{{ $q.text }}</legend>
+                <div class="tq-likert">
+                  {{ range $v := (seq 1 5) }}
+                  <label class="tq-opt"><input type="radio" name="child-{{ $i }}" value="{{ $v }}"><span>{{ $v }}</span></label>
+                  {{ end }}
+                </div>
+              </fieldset>
+              {{ end }}
+            </div>
+
+            {{/* self 題組 */}}
+            <div class="tq-items" data-mode="self" hidden>
+              {{ range $i, $q := $quiz.items_self }}
+              <fieldset class="tq-item" data-dim="{{ $q.dim }}" data-reverse="{{ $q.reverse }}">
+                <legend><span class="tq-qn">{{ add $i 1 }}</span>{{ $q.text }}</legend>
+                <div class="tq-likert">
+                  {{ range $v := (seq 1 5) }}
+                  <label class="tq-opt"><input type="radio" name="self-{{ $i }}" value="{{ $v }}"><span>{{ $v }}</span></label>
+                  {{ end }}
+                </div>
+              </fieldset>
+              {{ end }}
+            </div>
+
+            <p class="tq-warn" hidden>還有題目沒作答——已用底色標出，補完再看結果。</p>
+            <button type="button" class="tq-submit">看結果</button>
+          </form>
+
+          {{/* 結果區 */}}
+          <div class="tq-result" hidden></div>
+        </div>
+
+        <div class="tq-disclaimer tq-disclaimer-bottom">
+          再說一次：氣質沒有好壞，這份結果<strong>不是診斷</strong>。它指出的是「這種氣質需要什麼樣的環境配合」。同一個孩子在不同時期、不同情境，結果也會變。
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+{{/* 計分用設定（原型 / 建議 / 型別文字），JS 讀取 */}}
+<script type="application/json" id="tq-config">
+{{ dict
+  "prototypes" $quiz.prototypes
+  "protoDims" $quiz.scoring.proto_dims
+  "advice" $quiz.advice
+  "typeText" $quiz.type_text
+  "typeLabel" $quiz.type_label
+  "dimMeta" ($dims)
+  | jsonify | safeJS }}
+</script>
+
+<script src="{{ .Site.BaseURL }}js/vortex.js" defer></script>
+<script src="{{ .Site.BaseURL }}js/temperament-quiz.js" defer></script>
+{{ end }}
