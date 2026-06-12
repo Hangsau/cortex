@@ -23,8 +23,11 @@ CI/CD 正常運作，push hugo-source 自動部署。
 
 **兒童九種氣質 section 上線（2026-06-12）**：全新獨立 section（不屬 vortex/library），研究＋網站＋互動測驗一次到位。研究綜合在 `resources/notes/temperament-nine-traits/`（SYNTHESIS.md 原始文獻 Thomas-Chess NYLS + 延伸 Rothbart/Kagan/EAS/differential-susceptibility/Big-Five 連續性；QUIZ_DESIGN.md 計分規格）。網站重用 vortex 學術期刊殼（vx-stroke master-detail + vortex.js + vortex.css），強調色換深青 teal `#1b5e69`（與 Vortex 海軍藍區隔）。`content/temperament/_index.md`（layout: temperament-main）；`layouts/temperament/temperament-main.html`：左 rail 7 入口（概覽/九維度/三型/延伸研究/適配度/批判視角 + 測驗 CTA）+ 7 面板，閱讀面板由 `.Site.Data.temperament.*`（traits/types/frameworks/fit/critique/refs 六 yaml）server-side render。**互動測驗**：`data/temperament/quiz.yaml`（child/self 各 18 題 × 1–5 Likert，每維 2 題其一反向；5 維原型距離判三型傾向）→ `temperament-quiz.js` 純前端計分（讀 `#tq-config` JSON + DOM；維度均分→分帶 low<2.34/mid/high>3.66；歐氏距離判安樂/高需求/慢熱，差<0.5 標「之間」；輸出九維度剖面為主、三型傾向為輔、環境配合建議；絕不輸出好壞分數或診斷）。`static/css/temperament.css`（`.vx-tmp-stroke` teal 覆寫 + 完整測驗 UI）。hugo.toml nav 加「氣質」(weight 4)。**驗收**：hugo build 綠（exit 0，page 80072 bytes）+ config JSON 解析為 dict（safeJS 修正雙重轉義 bug）+ 7 面板 id 齊 + 18 反向題 + 計分演算法經 Python 忠實模擬驗證（EASY→easy dist 0.0 / DIFFICULT→difficult / SLOW→slow_to_warm，分帶合理）+ node --check JS 通過 + noscript fallback。⚠ 未做 Playwright 點擊（此 session 未載入 playwright MCP），僅靜態＋演算法模擬驗證。
 
+**氣質 — 教學／教練應用（2026-06-12）**：使用者要把教學應用上站。**設計決策**：不另開面板（會與「適配度」重複「怎麼配合」、徒增導覽複雜度），而是把教學應用當「適配度的實務深層」併進現有 §4 適配度面板——教學應用＝goodness-of-fit 用在課堂/教練，本就是同一件事。結構：第一層原則（不動）→ 通用配合策略（不動）→ 跨框架綜合（不動）→ 新增「教學／教練應用」收合群（6 個 `<details>`：Keogh 三因子、九維度→教學動作對照、三型→教學基調、McClowry INSIGHTS 實證方案、兩陷阱、游泳/運動橋接）+ 頁尾連 UST。內容加進 `data/temperament/fit.yaml` 的 `teaching:` 區塊；template 用 `{{ with $fit.teaching }}` 渲染，**重用 tmp-strat / vx-level / tmp-list，零新 CSS**。驗收：hugo build 綠 + 教學 6 details + 20 tmp-strat-row（5 原策略 + 3 Keogh + 9 維度 + 3 型）+ Keogh/INSIGHTS/UST 連結齊 + **quiz 與 7 面板無回歸**（config dict、36 題、18 反向、180 radio、兩 script 全在）+ 無 ZgotmplZ/template error。
+
 ## 已完成
 
+- [x] **氣質教學／教練應用併入適配度面板**（2026-06-12）— Keogh 三因子 + 九維度教學對照 + 三型基調 + INSIGHTS + 陷阱 + 游泳橋接，6 details 收合，連 UST，零新 CSS
 - [x] **兒童九種氣質 section 上線**（2026-06-12）— 研究綜合 + temperament-main 學術期刊頁（teal）+ child/self 互動測驗（九維度剖面 + 三型傾向 + 環境建議，無診斷無好壞分）
 - [x] Hugo 專案骨架（無 theme，完全自訂 layout）
 - [x] 首頁書架設計（書本卡片，hover 浮起效果）

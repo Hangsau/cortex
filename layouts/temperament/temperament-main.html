@@ -187,6 +187,83 @@
         <ul class="tmp-list">
           {{ range $fit.synthesis }}<li>{{ . | markdownify }}</li>{{ end }}
         </ul>
+
+        {{/* ── 教學／教練應用（適配度的實務深層，收合）── */}}
+        {{ with $fit.teaching }}
+        <div class="vx-lvl-h" id="fit-teaching">教學／教練應用 <span class="cert">🟢</span></div>
+        <p class="vx-lvl-meta">{{ .lead }}</p>
+        <div class="vx-ladder">
+          <details class="vx-level">
+            <summary><span class="lv tmp-fw">A</span><span><span class="lvname">Keogh 三因子：把九維度濃縮成課堂鏡頭</span></span></summary>
+            <div class="vx-level-body">
+              <div class="tmp-strat">
+                {{ range .keogh }}
+                <div class="tmp-strat-row">
+                  <div class="tmp-strat-name">{{ .name_zh }} <span class="cert">{{ .cert }}</span></div>
+                  <div class="tmp-strat-body">{{ .body | markdownify }}</div>
+                </div>
+                {{ end }}
+              </div>
+              <p class="vx-lvl-meta">{{ .keogh_note }}</p>
+            </div>
+          </details>
+          <details class="vx-level">
+            <summary><span class="lv tmp-fw">B</span><span><span class="lvname">九維度 → 教學動作對照</span></span></summary>
+            <div class="vx-level-body">
+              <div class="tmp-strat">
+                {{ range .dimensions }}
+                <div class="tmp-strat-row">
+                  <div class="tmp-strat-name">{{ .name_zh }}</div>
+                  <div class="tmp-strat-body">{{ .body | markdownify }}</div>
+                </div>
+                {{ end }}
+              </div>
+            </div>
+          </details>
+          <details class="vx-level">
+            <summary><span class="lv tmp-fw">C</span><span><span class="lvname">三型 → 教學基調</span></span></summary>
+            <div class="vx-level-body">
+              <div class="tmp-strat">
+                {{ range .types }}
+                <div class="tmp-strat-row">
+                  <div class="tmp-strat-name">{{ .name_zh }}</div>
+                  <div class="tmp-strat-body">{{ .body | markdownify }}</div>
+                </div>
+                {{ end }}
+              </div>
+              <p class="vx-lvl-meta">{{ .types_note }}</p>
+            </div>
+          </details>
+          <details class="vx-level">
+            <summary><span class="lv tmp-fw">D</span><span><span class="lvname">INSIGHTS：有 RCT 證據的校園方案</span></span></summary>
+            <div class="vx-level-body">
+              <p>{{ .insights.lead | markdownify }}</p>
+              <ul class="tmp-list">
+                {{ range .insights.types }}<li>{{ . | markdownify }}</li>{{ end }}
+              </ul>
+            </div>
+          </details>
+          <details class="vx-level">
+            <summary><span class="lv tmp-fw">E</span><span><span class="lvname">兩個必避的陷阱</span></span></summary>
+            <div class="vx-level-body">
+              <ul class="tmp-list">
+                {{ range .traps }}<li>{{ . | markdownify }}</li>{{ end }}
+              </ul>
+            </div>
+          </details>
+          <details class="vx-level">
+            <summary><span class="lv tmp-fw">水</span><span><span class="lvname">帶進游泳／運動教學 <span class="cert">🔴</span></span></span></summary>
+            <div class="vx-level-body">
+              <p>{{ .sport.lead | markdownify }}</p>
+              <ul class="tmp-list">
+                {{ range .sport.points }}<li>{{ . | markdownify }}</li>{{ end }}
+              </ul>
+            </div>
+          </details>
+        </div>
+        <p class="vx-lvl-meta">延伸閱讀：<a href="{{ $.Site.BaseURL }}library/uncommon-sense-teaching/">Uncommon Sense Teaching — 依個別差異調整教學</a></p>
+        {{ end }}
+
         <nav class="vx-flow">
           <button type="button" data-target="frameworks"><span class="lbl">回到</span>← 現代框架</button>
           <button class="nx" type="button" data-target="critique"><span class="lbl">下一節</span>批判與邊界 →</button>
