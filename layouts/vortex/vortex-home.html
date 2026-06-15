@@ -19,21 +19,46 @@
   <header class="vx-masthead">
     <p class="vx-eyebrow">Cortex · Vortex</p>
     <h1>水感知識庫</h1>
-    <p class="vx-lead">把每一式拆成可操作的動作分解、物理條件與口訣校正。想學哪一式，就從那一式翻起——一頁讀完，不跳來跳去。</p>
+    <p class="vx-lead">游泳技術不是一組要照抄的動作，而是水感長出來的結果——感知對了，動作自己會收斂。所以這裡先帶你搞懂水感是什麼，再挑一式，把感知練成動作。</p>
   </header>
 
   {{/* ── 新手入口 ── */}}
-  <a class="vx-start" href="{{ $base }}vortex/freestyle/#overview">
+  <a class="vx-start" href="{{ $base }}vortex/technica/water-sense-guide/">
     <span class="vx-start-no">00</span>
     <span>
-      <span class="vx-start-h">完全沒概念？從自由式開始</span>
-      <span class="vx-start-d">自由式是最通用的入門式。從入水、抓水到踢水，一個動作一個動作往下看，看不懂的詞都附了白話口訣。</span>
+      <span class="vx-start-h">完全沒概念？先搞懂「水感」是什麼</span>
+      <span class="vx-start-d">為什麼你照著教練說的移手，卻還是做不對？因為水裡的感覺天生會騙你。先花十分鐘弄懂水感怎麼回事，後面每一式才讀得進去——這是整個渦流計劃的起點。</span>
       <span class="vx-start-go">開始讀 →</span>
     </span>
   </a>
 
-  {{/* ── 六式目次 ── */}}
-  <h2 class="vx-label vx-toc-label">六大單元 · 完整動作分解</h2>
+  {{/* ── 核心 · 水感（先讀） ── */}}
+  <h2 class="vx-label vx-toc-label">核心 · 先讀水感</h2>
+  <p class="vx-list-desc">整個渦流計劃只建立在一句話上：技術是感知的<strong>輸出</strong>，不是輸入。所以先從這裡讀起——理解水感是什麼、怎麼一級一級長出來，後面的動作分解才有意義。</p>
+  <div class="vx-toc">
+    <a class="vx-toc-row" href="{{ $base }}vortex/technica/water-sense-guide/">
+      <span class="vx-toc-num">理論</span>
+      <span class="vx-toc-main">
+        <span class="vx-toc-zh">什麼是水感</span>
+        <span class="vx-toc-en">What Is Water Sense</span>
+      </span>
+      <span class="vx-toc-prem">整個渦流計劃的核心命題：所有游泳技術都建立在水感知上——技術形式是感知系統的<strong>輸出</strong>，不是輸入。這份理論基礎從零講起：水感到底是什麼（本體感覺＋外感受）、水中感知為何天生失真、為什麼不能直接教動作形式、怎麼用「感知剝奪訓練」把它建立起來、如何觀察測量、錯誤水感又該怎麼重建。完全沒概念的人，從這裡開始。</span>
+      <span class="vx-toc-meta">理論 · 6 部分<br><span class="arr">→</span></span>
+    </a>
+    <a class="vx-toc-row" href="{{ $base }}vortex/levels/">
+      <span class="vx-toc-num">L0–6</span>
+      <span class="vx-toc-main">
+        <span class="vx-toc-zh">水感發展 L0–L6</span>
+        <span class="vx-toc-en">Water Sense Development</span>
+      </span>
+      <span class="vx-toc-prem">讀懂「什麼是水感」之後的下一層：感知不是教動作教出來的，是一級一級長出來的。四式各自從 L0（呼吸感知）到 L6（全身場感知）的發展序列——每級的訓練方法、外部觀察指標、量化基準、停滯處理。</span>
+      <span class="vx-toc-meta">四式 · 26 階段<br><span class="arr">→</span></span>
+    </a>
+  </div>
+
+  {{/* ── 六式目次（再挑一式練） ── */}}
+  <h2 class="vx-label vx-toc-label">六大單元 · 挑一個開始練</h2>
+  <p class="vx-list-desc">讀過水感之後再進來。每一式的動作分解都是「感知的輸出」——不是要照抄的姿勢，是感知對了、身體自己收斂出來的結果。</p>
   <div class="vx-toc">
     {{ range $i, $sm := $strokeMeta }}
       {{ $d := index $.Site.Data.vortex $sm.key }}
@@ -51,29 +76,6 @@
         </a>
       {{ end }}
     {{ end }}
-  </div>
-
-  {{/* ── 核心 · 水感 ── */}}
-  <h2 class="vx-label vx-toc-label">核心 · 水感</h2>
-  <div class="vx-toc">
-    <a class="vx-toc-row" href="{{ $base }}vortex/technica/water-sense-guide/">
-      <span class="vx-toc-num">理論</span>
-      <span class="vx-toc-main">
-        <span class="vx-toc-zh">什麼是水感</span>
-        <span class="vx-toc-en">What Is Water Sense</span>
-      </span>
-      <span class="vx-toc-prem">整個渦流計劃的核心命題：所有游泳技術都建立在水感知上——技術形式是感知系統的<strong>輸出</strong>，不是輸入。這份理論基礎從零講起：水感到底是什麼（本體感覺＋外感受）、水中感知為何天生失真、為什麼不能直接教動作形式、怎麼用「感知剝奪訓練」把它建立起來、如何觀察測量、錯誤水感又該怎麼重建。想理解每一式背後為什麼這樣帶，從這裡讀起。</span>
-      <span class="vx-toc-meta">理論 · 6 部分<br><span class="arr">→</span></span>
-    </a>
-    <a class="vx-toc-row" href="{{ $base }}vortex/levels/">
-      <span class="vx-toc-num">L0–6</span>
-      <span class="vx-toc-main">
-        <span class="vx-toc-zh">水感發展 L0–L6</span>
-        <span class="vx-toc-en">Water Sense Development</span>
-      </span>
-      <span class="vx-toc-prem">讀懂「什麼是水感」之後的下一層：感知不是教動作教出來的，是一級一級長出來的。四式各自從 L0（呼吸感知）到 L6（全身場感知）的發展序列——每級的訓練方法、外部觀察指標、量化基準、停滯處理。</span>
-      <span class="vx-toc-meta">四式 · 26 階段<br><span class="arr">→</span></span>
-    </a>
   </div>
 
   {{/* ── 運動員發展 ADM ── */}}
