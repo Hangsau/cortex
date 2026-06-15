@@ -1,85 +1,1191 @@
-<!doctype html><html lang=zh-tw><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>訓練週期化 Periodization — Cortex</title><meta name=description content="個人知識庫"><link rel=stylesheet href=https://hangsau.github.io/cortex/css/variables.css><link rel=stylesheet href=https://hangsau.github.io/cortex/css/base.css><link rel=stylesheet href=https://hangsau.github.io/cortex/css/layout.css><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel=stylesheet><link rel=stylesheet href=https://hangsau.github.io/cortex/css/vortex.css><noscript><style>.vx-panel{display:block;border-top:1px solid var(--vx-rule);padding-top:24px}.vx-rail{position:static;max-height:none}</style></noscript></head><body><nav class=site-nav><a href=https://hangsau.github.io/cortex/ class=site-nav-logo>Cortex</a><ul class=site-nav-links><li><a href=https://hangsau.github.io/cortex/library/>書庫</a></li><li><a href=https://hangsau.github.io/cortex/notebook/>筆記</a></li><li><a href=https://hangsau.github.io/cortex/vortex/>Vortex</a></li></ul></nav><main class=main-content><div class="vx-stroke vx-pz-stroke"><div class=vx-stroke-wrap><aside class=vx-rail><a class=vx-back-link href=https://hangsau.github.io/cortex/vortex/>← Cortex · Vortex</a><div class=vx-rail-head><span class=vx-stroke-zh>訓練週期化</span>
-<span class=vx-stroke-en>Periodization</span></div><div class=vx-rail-group>導覽</div><div class=vx-rail-scroll><ul class=vx-rail-list><li><button class=vx-navlink type=button data-target=overview><span class=n>0</span>概覽</button></li></ul></div><div class=vx-rail-group>主題</div><div class=vx-rail-scroll><ul class=vx-rail-list><li><button class=vx-navlink type=button data-target=schools><span class=n>1</span>週期化的幾種流派</button></li><li><button class=vx-navlink type=button data-target=structure><span class=n>2</span>年度結構與週期</button></li><li><button class=vx-navlink type=button data-target=taper><span class=n>3</span>賽前減量與達峰</button></li><li><button class=vx-navlink type=button data-target=zones><span class=n>4</span>能量系統與強度分區</button></li></ul></div></aside><main class=vx-panels><section class="vx-panel vx-overview" id=overview><span class=vx-sec-no>VORTEX · Periodization</span><h2>週期化 — 不是一套定論，是幾派的辯論</h2><p class=vx-premise>週期化常被當成「Bompa 那一套標準答案」來教，但它其實是幾套互相辯論的框架：傳統線性（Bompa）、板塊集中（Issurin）、極化分布（Seiler/TID）、能量系統個體化（Olbrecht）、反向週期化（Sweetenham）。它們問的問題不同、適用對象不同——把任何一派當鐵律都是誤讀。本頁先給你一張「幾派在吵什麼」的地圖，再進到年度結構、減量、強度分區的具體內容；每塊都標出哪裡是哪一派的主張、哪裡是作者綜合。它是 <a href=https://hangsau.github.io/cortex/vortex/adm/matrix/>ADM 發展矩陣</a> 裡「48 週年度計畫 · 一年兩巔峰」背後的可操作理論。選一個主題開始，就地展開讀——不換頁。</p><p class=vx-panel-lead>選一個主題開始：</p><div class=vx-path-list><button class=vx-path-item type=button data-target=schools>
-<span class=n>1</span>
-<span><span class=t>週期化的幾種流派</span><span class=o>五派地圖 · 各派核心問題 · 你要回答哪個問題 · 作者立場 · 感知缺口</span></span>
-</button>
-<button class=vx-path-item type=button data-target=structure>
-<span class=n>2</span>
-<span><span class=t>年度結構與週期</span><span class=o>三大階段 · 年度計畫型態 · 中觀／微觀 · 板塊週期化 · 停練衰退 · 游泳實證</span></span>
-</button>
-<button class=vx-path-item type=button data-target=taper>
-<span class=n>3</span>
-<span><span class=t>賽前減量與達峰</span><span class=o>減量原理 · 四個操作旋鈕 · 曲線型態 · 達峰窗 · 游泳應用</span></span>
-</button>
-<button class=vx-path-item type=button data-target=zones>
-<span class=n>4</span>
-<span><span class=t>能量系統與強度分區</span><span class=o>Bompa 六分區 · 極化派 · Olbrecht · 游泳分區 · 各距離供能 · TID</span></span></button></div><p class=vx-legend>確定性：🔵 推導／作者綜合 · 🟢 近期文獻 · 🟡 舊文獻（週期化基礎理論） · 🟠 教練觀測 · 🔴 待查／未驗證假設。本頁為公開週期化理論，描述年度計畫結構與處方原則，不含感知診斷內容。所有數字溯源至 Bompa 原文章節／表格或外部文獻（PMID／DOI）並標確定性；多派立場與作者綜合明確分層標示。</p><nav class=vx-flow><span></span>
-<button class=nx type=button data-target=schools><span class=lbl>下一個主題</span>週期化的幾種流派 →</button></nav></section><section class="vx-panel vx-move" id=schools><span class=vx-sec-no>主題 1 / 4</span><h2>週期化的幾種流派</h2><p class=vx-panel-lead>週期化不是一套被證明的定論，而是幾套互相辯論的框架。它們問的問題不同、適用的對象不同——把任何一派當『標準答案』都是誤讀。</p><div class=vx-ladder><details class=vx-level open><summary><span class=lv>圖</span>
-<span><span class=lvname>五派地圖 <span class=vx-cert>🔵</span></span>
-<span class=lvtag>每派問的問題不同、適用對象不同——先看它們各自在吵什麼</span></span></summary><div class=vx-level-body><table class=vx-pz-table><thead><tr><th>流派</th><th>核心問題</th><th>強處</th><th>弱處</th></tr></thead><tbody><tr><td><strong>傳統線性（Bompa/Matveyev）</strong> <span class=vx-cert>🟡</span></td><td>一年怎麼分準備/競賽/過渡，讓表現在大賽達峰？</td><td>結構清晰、教學完整、對新手與單一賽季最穩</td><td>對菁英多峰賽季僵硬；並行練多能力對高水準者效率下降</td></tr><tr><td><strong>板塊集中（Issurin）</strong> <span class=vx-cert>🟡</span></td><td>高水準者無法同時練好所有能力，那要按什麼順序集中練？</td><td>用殘留效應科學決定換塊時機；適合菁英、多峰</td><td>殘留效應個體差異大；術語邊界模糊；初中級者不需要</td></tr><tr><td><strong>極化分布（Seiler/TID）</strong> <span class=vx-cert>🟢</span></td><td>每個強度區各應占多少比例？</td><td>從菁英真實行為歸納；80/20 有 RCT 支持（Stöggl 2014）</td><td>只有單一 RCT；游泳實證其實金字塔型更常見（Crowley 2021）</td></tr><tr><td><strong>能量系統個體化（Olbrecht）</strong> <span class=vx-cert>🟡</span></td><td>有氧/無氧不是越大越好，怎麼找到最適組合？</td><td>捨棄通用閾值、改個體乳酸測試；解釋『閾值進步但成績沒進步』</td><td>需實驗室乳酸測試支援；原書處方數字不可及</td></tr><tr><td><strong>反向週期化（Sweetenham）</strong> <span class=vx-cert>🟢</span></td><td>速度該放賽季末，還是當全季的校準錨？</td><td>速度先行、技術不被疲勞固化；現場可操作（BBM＋benchmark）</td><td>原書五法則/具體數字網路不可查；非 RCT，靠成績佐證</td></tr></tbody></table></div></details><details class=vx-level><summary><span class=lv>問</span>
-<span><span class=lvname>你要回答哪個問題？</span>
-<span class=lvtag>先搞清楚你的問題，再決定參考哪一派（Q1–Q11）</span></span></summary><div class=vx-level-body><ul class=vx-pz-sub><li>Q1 我（或我的學員）是新手還是菁英？——新手用傳統線性就夠，菁英才需要板塊/極化的精細化。</li><li>Q2 這一季要衝幾個高峰？——一個峰選單週期；多個峰板塊派更靈活。</li><li>Q3 各強度該怎麼分配？——這是極化/TID 派的問題，不是 Bompa 的問題。</li><li>Q4 我能不能同時練多項能力？——傳統派說能（調比例），板塊派說菁英不能（要序列化）。</li><li>Q5 換訓練焦點的時機怎麼定？——傳統派看疲勞節律（3:1），板塊派看殘留效應天數。</li><li>Q6 閾值訓練到底要不要大量練？——Bompa 當主力，Olbrecht/Seiler 都質疑（魔法子彈謬誤／避開中間區）。</li><li>Q7 速度訓練放哪？——傳統派放賽季末，Sweetenham 放全季當校準錨。</li><li>Q8 我的距離項目偏有氧還是無氧？——決定 TID 型態與能量系統側重（見 zones）。</li><li>Q9 怎麼知道訓練有沒有效？——benchmark/階梯測試/乳酸曲線，不是只看課表跑完。</li><li>Q10 青少年和成年人練法一樣嗎？——不一樣；分齡發展是各派都同意要區分的。</li><li>Q11 減量怎麼安排？——這是相對成熟、各派分歧最小的一塊（見 taper）。</li></ul></div></details><details class=vx-level><summary><span class=lv>綜</span>
-<span><span class=lvname>作者立場 <span class=vx-cert>🔵</span></span>
-<span class=lvtag>這幾派不是誰對誰錯，是不同問題的答案</span></span></summary><div class=vx-level-body><p class=vx-pz-author>🔵 作者立場：這幾派不是『誰對誰錯』，是『不同問題的答案』。實務上我傾向——(1) 結構骨架用傳統線性（清楚、好教）；(2) 菁英換焦點時機參考板塊派的殘留效應；(3) 強度分配吸收極化派的『大量低強度＋少量高強度、慎用中間區』，但承認游泳金字塔型也常見、不教條化；(4) 評估診斷學 Olbrecht 的個體化測試精神（即使沒有實驗室，也別套通用百分比）；(5) 速度當全季校準錨（Sweetenham），不留到賽季末才碰。這是綜合判斷，不是文獻定論，故標 🔵。</p><p class=vx-pz-plain>週期化不是一本標準答案，而是幾派人在吵架。Bompa 那套（傳統線性：分準備期/競賽期/過渡期）只是歷史最久、最常被當教科書的一派，不等於唯一真理。另外幾派各問不同的問題：板塊派（Issurin）問『菁英不能什麼都同時練，那該按什麼順序集中練』；極化派（Seiler）問『各強度該占幾成』；Olbrecht 問『有氧無氧不是越大越好，怎麼配到最適』；Sweetenham 問『速度該放賽季末還是當全季的校準錨』。先搞清楚你要回答哪個問題（看上面 Q1–Q11），再決定參考哪一派——不要把任何一派當鐵律。</p></div></details></div><div class=vx-pz-gap><span class=vx-pz-gap-h>🔴 研究缺口：感知 × 週期化（未驗證假設）</span><p>目前的週期化內容（量、強度、能量系統、減量）全部講『生理負荷』，完全沒接到 Vortex 的核心命題『所有游泳技術都建立在水感知上』。兩者像兩套平行系統。</p><p>🔴 作者假設：感知穩定度本身可能是一個該被週期化的變項。疲勞會讓動作退回『感知真正穩定的地方』（CLAUDE.md 核心命題），那麼高量/高疲勞的訓練塊理論上會壓低感知品質——若成立，則(1) 大量低強度有氧塊可能正是『鞏固感知』的窗口（低疲勞、可專注感覺）；(2) 高強度/減量前的疲勞峰可能是感知最脆弱、最不該導入新技術的時機；(3) Sweetenham『速度先行、別讓疲勞固化壞技術』與此假設方向一致。</p><p>若這個接點成立，週期化模組就不只是『排生理負荷』，而能回答 Vortex 真正關心的問題：在年度計畫的哪個階段、哪種疲勞狀態下，最適合建立 vs 鞏固 vs 不該碰感知技術。這會讓週期化從『借來的通用理論』變成『服務水感知命題的工具』。</p><p>🔴 純假設，未驗證。沒有文獻直接研究『感知品質的週期化』。列出此缺口是為了誠實標記研究方向，不是宣稱已解決。後續需：(1) 把『感知穩定度』操作化為可觀測指標；(2) 在 Observations/ 層累積疲勞 vs 感知退化的教學案例；(3) 才談得上驗證。</p><p class=vx-pz-plain>老實說一個缺口：現在整個週期化在講的是『練多少量、什麼強度、怎麼減量』，但 Vortex 整個專案的核心是『水感知』——這兩件事目前是脫節的。一個還沒驗證的假設是：感知本身可能也該被週期化。疲勞會讓動作退回感知真正穩的地方，所以大量輕鬆游的階段可能正好適合鞏固感覺，而賽前最累的時候最不該硬塞新技術。Sweetenham『別讓疲勞把壞技術練成習慣』剛好呼應這點。但這只是假設（標 🔴），沒有文獻支持，寫出來是為了標清楚研究方向，不是說已經想通了。</p></div><p class=vx-cite><span class=src>來源</span>：作者綜合 — Bompa & Buzzichelli 6th ed.；Issurin 2008/2010/2016；Seiler 2010；Olbrecht 2000；Sweetenham & Atkinson 2003；Hellard 2019</p><nav class=vx-flow><button type=button data-target=overview><span class=lbl>回到</span>← 概覽</button>
-<button class=nx type=button data-target=structure><span class=lbl>下一個主題</span>年度結構與週期 →</button></nav></section><section class="vx-panel vx-move" id=structure><span class=vx-sec-no>主題 2 / 4</span><h2>年度結構與週期</h2><p class=vx-panel-lead>從一整年怎麼分階段，到一週課表怎麼排。點任一概念就地展開。</p><div class=vx-ladder><details class=vx-level><summary><span class=lv>階</span>
-<span><span class=lvname>三大階段</span>
-<span class=lvtag>準備 → 競賽 → 過渡：先打基礎、再推巔峰、最後恢復</span></span></summary><div class=vx-level-body><p class=vx-pz-intro>每個年度計畫至少有三階段，依序建立基礎、最大化表現、再生恢復。</p><div class=vx-pz-block><h3>準備期 <span class=vx-pz-en>Preparatory</span> <span class=vx-cert>🟡</span></h3><p>建立表現的生理基礎；準備期不足則競賽期表現無法最大化</p><p class=vx-pz-plain>準備期＝打底的階段。先把體能基礎建起來，這段練得不夠，後面比賽就拉不出好成績。前半段練得廣、雜一點，後半段越來越專項。</p><ul class=vx-pz-sub><li><strong>一般準備</strong>
-· 25–33% of 準備期
-· 強度上限 ≤40% of 總量
-· 耐力運動 70–80% aerobic<br><span class=vx-pz-focus>用多元非專項與專項方法建立生理基礎</span></li><li><strong>專項準備</strong>
-· 70–80% sport-specific work<br><span class=vx-pz-focus>用專項模態發展項目所需特性</span></li></ul></div><div class=vx-pz-block><h3>競賽期 <span class=vx-pz-en>Competitive</span> <span class=vx-cert>🟡</span></h3><p>表現能力最大化；維持 90% 專項 / 10% 非專項</p><p class=vx-pz-plain>競賽期＝把表現拉到最高的階段，幾乎全部練專項（90%）。正式比賽都在這段，主賽前面接減量（taper）。</p><ul class=vx-pz-sub><li><strong>賽前</strong>
-· 通常僅熱身賽 / 展示賽</li><li><strong>主競賽</strong>
-· 所有正式比賽；主賽前接 unloading/taper + special preparation 子階段</li></ul></div><div class=vx-pz-block><h3>過渡期 <span class=vx-pz-en>Transition</span> <span class=vx-cert>🟡</span></h3><p>移除疲勞、心理放鬆、生物再生；用主動休息(active rest)而非完全停練</p><p class=vx-pz-plain>過渡期＝賽季結束後的休整，但不是完全躺平。重點是消疲勞、心理放鬆，用『主動休息』（輕量活動）取代完全停練。完全不動超過 4 週，體能就明顯掉了（見下面 detraining 表）。</p><p class=vx-pz-meta>時長：2–4 週（年輕運動員可延至 6 週）。一般 2–4 週，年輕運動員可延至 6 週，正常不超過 6 週</p><p class=vx-pz-meta>維持 40–50% 競賽期一般體能</p><p class=vx-pz-warn>⚠ 非 off-season；完全停練 &lt;4 週即顯著 detraining（見 detraining 安全表）</p></div><p class=vx-cite><span class=src>來源</span>：Bompa《Periodization》6th ed. — Ch5 / Ch8 階段定義</p></div></details><details class=vx-level><summary><span class=lv>年</span>
-<span><span class=lvname>年度計畫類型</span>
-<span class=lvtag>一年衝幾個高峰決定計畫型態（單／雙／三／多巔峰）</span></span></summary><div class=vx-level-body><p class=vx-pz-intro>巔峰數決定計畫型態；選哪一種由運動員水準與賽季結構決定（Selective Periodization）。</p><table class=vx-pz-table><thead><tr><th>型態</th><th>巔峰</th><th>週數結構</th><th>適用對象</th></tr></thead><tbody><tr><td><strong>單週期</strong><br><span class=vx-pz-en>Monocycle</span> <span class=vx-cert>🟡</span></td><td class=vx-pz-num>1</td><td>全長 52 週。
-準備 28 週 / 競賽 12–22 週 / 過渡 4 週
-<span class=vx-pz-plain>一年只衝一個高峰。整年（52 週）裡準備期最長（≥28 週），最後對準一場大賽。適合新手、青少年、泳齡還淺、一年只有一個重要目標的泳者。</span></td><td>新手 / 青少年；季節性運動；耐力主導項目（北歐滑雪、划船、自行車、長跑）</td></tr><tr><td><strong>雙週期</strong><br><span class=vx-pz-en>Bi-cycle</span> <span class=vx-cert>🟡</span></td><td class=vx-pz-num>2</td><td>全長 26 週。
-準備 12–16 週 / 競賽 6–12 週 / 過渡 1–4 週<br><span class=vx-pz-focus>兩個短 monocycle 以極短 unloading/transition 相連；準備期1體積遠大於準備期2；競賽期2目標年度最重要賽事</span>
-<span class=vx-pz-plain>一年衝兩個高峰（如冬季＋夏季兩場大賽）。等於把一年切成兩個短的單週期接起來。這是競技泳者最典型的年計畫——Bompa 書裡舉的例子剛好就是游泳 200m。對應 ADM T2W 階段的『一年兩巔峰』。</span></td><td>進階 / 菁英；可達全國錦標資格者</td></tr><tr><td><strong>三週期</strong><br><span class=vx-pz-en>Tri-cycle</span> <span class=vx-cert>🟡</span></td><td class=vx-pz-num>3</td><td>三段分別約 20–24(冬)/16–18(春夏)/4–6(夏)；準備期 12–20/10–12/2–4；競賽期 4–6/8–12/2–4；過渡期 1–2/1–2/3–6<br><span class=vx-pz-focus>首準備期最長（含一般準備子階段）；最重要賽事置於第三 cycle；通常僅進階運動員使用</span>
-<span class=vx-pz-plain>一年衝三個高峰（如冬季錦標＋夏季全國＋世錦/奧運）。最重要那場放在第三段。只有高水準、能撐密集賽季的泳者才用。</span></td><td>進階 / 國際級（冬季錦標 + 夏季全國 + 世錦/奧運）</td></tr><tr><td><strong>多巔峰</strong><br><span class=vx-pz-en>Multiple-peak</span> <span class=vx-cert>🟡</span></td><td class=vx-pz-num></td><td>準備 9–12 週 / 競賽 1–2 週 / 過渡 1–2 週<br><span class=vx-pz-focus>週數少、準備期明顯短；僅適合 4–6 年訓練底、高運動能力、能承受密集賽事者（如網球）</span>
-<span class=vx-pz-plain>一年衝很多個高峰（賽事極密集時用）。準備期被壓很短，風險高——要有 4–6 年訓練底子才扛得住。青少年不建議，容易受傷。游泳很少用。</span></td><td>資深運動員（4–6 年訓練背景）；不建議青少年（易多重傷害）</td></tr></tbody></table><div class=vx-pz-swim><span class=vx-pz-swim-h>🔵 游泳應用</span><ul><li><strong>單週期</strong>：🔵 游泳本質高度有氧，耐力型 monocycle（Fig 8.5）體積曲線需全程維持高；適合泳齡尚淺、單一目標賽季的泳者</li><li><strong>雙週期</strong>：🔵 競技泳者原型年計畫——Bompa Fig 5.11 即『游泳 200m bi-cycle（冬季 + 夏季全國錦標）』；對映 ADM T2W『一年兩巔峰（春季選拔 + 夏季國際賽）』</li><li><strong>三週期</strong>：🔵 高水準泳者多目標賽季；ADM T2W 終身競技階段可演進至此</li><li><strong>多巔峰</strong>：🔵 游泳少用純 multipeak；僅適用賽事極密集的職業 / 系列賽泳者</li></ul></div><p class=vx-cite><span class=src>來源</span>：Bompa《Periodization》6th ed. — Ch5 Table 5.1 + Selective Periodization；Ch8 Fig 8.4–8.8</p></div></details><details class=vx-level><summary><span class=lv>中</span>
-<span><span class=lvname>中觀週期 <span class=vx-cert>🟡</span></span>
-<span class=lvtag>2–6 週的中型循環；最常見 3 負荷週 + 1 恢復週</span></span></summary><div class=vx-level-body><p class=vx-pz-meta>時長 2–6 週（準備期 macrocycle 4–7 週）。</p><p class=vx-pz-meta>負荷型態 = 連續負荷週數 : 恢復（卸載）週數。例：3:1 = 練 3 個漸增負荷週 + 1 個減量週。</p><table class="vx-pz-table vx-pz-table--narrow"><thead><tr><th>負荷:恢復（週）</th><th>適用</th></tr></thead><tbody><tr class=vx-pz-default><td class=vx-pz-num>3:1 ★</td><td>最常見（probably the most common）；契合身體自然生物節律</td></tr><tr><td class=vx-pz-num>4:1</td><td>早期準備期</td></tr><tr><td class=vx-pz-num>2:1</td><td>爆發專項準備</td></tr><tr><td class=vx-pz-num>2:2 / 1:1</td><td>競賽期</td></tr><tr><td class=vx-pz-num>3:2</td><td>高疲勞時</td></tr></tbody></table><p class=vx-pz-plain>Macrocycle＝由幾個週組成的中型週期（2–6 週）。最常見的節奏是『3:1』——練 3 個漸增負荷的週，接 1 個減量恢復週。這契合身體自然的疲勞—恢復節律。泳者特別累時改 3:2（多一週恢復）。</p><p class=vx-pz-dialogue>🟡 對話（板塊派 Issurin）：3:1 是『以時間切恢復』，板塊派改成『以殘留效應切換訓練焦點』——某能力的適應停練後能撐多久，就決定下一塊何時換。例如最大速度殘留只 ~5 天、有氧耐力 ~30 天（見 school_block 節點），所以速度要頻繁刺激、有氧可暫放。兩者不互斥：3:1 管的是『一塊之內的疲勞節律』，殘留效應管的是『塊與塊之間練什麼』。</p><div class=vx-pz-swim><span class=vx-pz-swim-h>🔵 游泳應用</span><p>🔵 游泳週課表結構基礎：3 個負荷週 + 1 個 unloading 週為預設；高疲勞泳者改 3:2</p></div><p class=vx-cite><span class=src>來源</span>：Bompa《Periodization》6th ed. — Ch7 Planning Training Cycles</p></div></details><details class=vx-level><summary><span class=lv>塊</span>
-<span><span class=lvname>板塊週期化（Issurin） <span class=vx-cert>🟡</span></span>
-<span class=lvtag>高水準者不能什麼都同時練——按殘留效應序列集中</span></span></summary><div class=vx-level-body><p class=vx-pz-intro>板塊派的根本主張：高水準運動員無法在同一階段同時有效提升所有能力，因為許多訓練刺激彼此不相容（有氧 AMPK 路徑 vs 肌力 mTOR 路徑拮抗），會產生衝突反應。解法是『序列集中』——一次只把高度集中的負荷指向極少數相容能力，靠前一塊的殘留效應保住已得適應。</p><p class=vx-pz-meta>殘留效應（某能力停練後能撐多久，決定何時換塊）：</p><table class="vx-pz-table vx-pz-table--narrow"><thead><tr><th>能力</th><th>殘留天數</th></tr></thead><tbody><tr><td>有氧耐力 <span class=vx-cert>🟡</span></td><td class=vx-pz-num>30 ± 5 天</td></tr><tr><td>最大肌力 <span class=vx-cert>🟡</span></td><td class=vx-pz-num>30 ± 5 天</td></tr><tr><td>無氧糖解耐力 <span class=vx-cert>🟡</span></td><td class=vx-pz-num>18 ± 4 天</td></tr><tr><td>肌力耐力 <span class=vx-cert>🟡</span></td><td class=vx-pz-num>15 ± 5 天</td></tr><tr><td>最大速度（磷酸原） <span class=vx-cert>🟡</span></td><td class=vx-pz-num>5 ± 3 天</td></tr></tbody></table><p class=vx-pz-warn>⚠ 🔴 上述天數在教練界廣泛流通（引自 Issurin 2008 書，據轉引為 Table 2.4），但『± N 天』的原始統計依據（實驗數據還是專家估計）、確切頁碼、方法論細節無法追溯至一手來源。使用時必須加注『原始方法論待核』。</p><p class=vx-pz-meta>板塊結構（一個完整序列構成一個訓練階段）：</p><ul class=vx-pz-sub><li><strong>累積板塊</strong> · 建立一般耐力、基礎肌力、協調的訓練儲備（基礎能力）<br><span class=vx-pz-focus>負荷：強度低中、量大｜≈3–6（🔴 精確範圍待核） 週</span></li><li><strong>轉化板塊</strong> · 把基礎儲備轉化為專項能力（專項耐力、爆發力、賽事技術）<br><span class=vx-pz-focus>負荷：強度高、量中、消耗最大｜≈2–4（🔴 待核） 週</span></li><li><strong>實現板塊</strong> · 完全恢復、最大速度、賽事戰術，以比賽/測驗收尾<br><span class=vx-pz-focus>負荷：強度極高、量最小｜≈1–2（🔴 待核） 週</span></li></ul><p class=vx-pz-meta>一個完整『累積→轉化→實現』序列構成一個訓練階段，典型 8–12 週；多階段疊加可靈活安排多峰</p><p class=vx-pz-dialogue>🟡 對傳統線性（Bompa/Matveyev）的三點批評（Issurin 2010）：(1) 長準備期→競賽期結構難產生現代賽季要求的多峰；(2) 長期混合訓練對已高度適應的菁英進步率遞減（刺激太分散）；(3) 不相容負荷同時練會互相干擾。核心張力：菁英能否從混合訓練持續受益——Bompa 說能（調比例），Issurin 說不能（要序列化高集中負荷）。</p><div class=vx-pz-swim><span class=vx-pz-swim-h>🟠 游泳應用</span><p>🟠 游泳早期應用：蘇聯教練 Koshkin 為三屆奧運冠軍 Salnikov 設計 10 週板塊系統（速度技術／肌力／有氧／減量比賽序列）。🔴 此案例廣見於教學材料但一手出處待核。當代游泳文獻多採『傳統模型＋強度分布分析』，較少嚴格依循板塊架構，但『階段專注』概念已廣泛影響備賽設計（對照 Almeida 2022, PMC9536385，400IM 世界級個案採傳統三巨集週期）。</p></div><p class=vx-pz-warn>🟢 學界批評：(1) 殘留效應個體差異大，平均值±SD 難直接套用；(2) 證據基礎有限——Breil 2019 meta（PMID 31802956）證實板塊在 VO2max/最大功率有優越表現，但研究數量少、受試多為高水準耐力選手；(3) 累積/轉化/實現的邊界操作上不夠清晰，教練詮釋差異大。不適合初中級者（達超補償只需 2–3 課，不需長期集中負荷策略）。</p><p class=vx-pz-author>🔵 作者取用：板塊派最值得吸收的不是整套換掉 Bompa，而是『換訓練焦點時用殘留效應當依據』這個操作原則——尤其菁英多峰賽季，比死守 3:1 時間節律更貼生理。但殘留天數要當『量級參考』不是『精確處方』（個體差異＋原始方法論待核）。</p><p class=vx-pz-plain>板塊週期化（Issurin）跟 Bompa 最大的不同：Bompa 主張準備期可以同時把很多能力一起練；Issurin 說高水準選手做不到——很多訓練刺激會互相打架（大量有氧會干擾長肌力），所以要『一次只集中練一兩項』，按順序排。怎麼決定何時換下一項？看『殘留效應』——某能力停練後能撐多久：有氧耐力、最大肌力約撐 30 天，無氧糖解約 18 天，最大速度只撐 ~5 天。所以速度要常常練、有氧可以先放一陣子。一個完整週期（累積→轉化→實現）約 8–12 週。注意：這套是為菁英設計的，新手用不到；那些殘留天數是廣為流傳的參考值，原始實驗依據其實沒查到，別當精確處方。</p><p class=vx-cite><span class=src>來源</span>：Issurin 2008《Block Periodization》; Issurin 2008 (PMID 18212712); 2010 (DOI 10.2165/11319770); 2016 (PMID 26573916); 2019 (PMID 30411234); Breil 2019 meta (PMID 31802956)</p></div></details><details class=vx-level><summary><span class=lv>微</span>
-<span><span class=lvname>微觀週期 <span class=vx-cert>🟡</span></span>
-<span class=lvtag>一週，排課表的最小單位（發展／競賽／恢復／卸載型）</span></span></summary><div class=vx-level-body><p class=vx-pz-meta>單位：1 週（游泳課表最小規劃單位）。</p><ul class=vx-pz-sub><li><strong>發展型</strong></li><li><strong>競賽型</strong> · 賽前 3–5 天達峰</li><li><strong>恢復再生型</strong></li><li><strong>達峰/卸載型</strong> · 體積降 ≥50%、強度降 5–10%</li></ul><p class=vx-pz-plain>Microcycle＝一週，是排課表的最小單位。一週有不同類型：發展型（往上堆）、競賽型（賽前 3–5 天達峰）、恢復型、卸載型（量砍一半以上）。游泳就以『週』為單位排課。</p><div class=vx-pz-swim><span class=vx-pz-swim-h>🔵 游泳應用</span><p>🔵 週為游泳課表最小規劃單位；unloading 微週期用於賽前與 macrocycle 銜接</p></div><p class=vx-cite><span class=src>來源</span>：Bompa《Periodization》6th ed. — Ch7 Planning Training Cycles</p></div></details><details class=vx-level><summary><span class=lv>停</span>
-<span><span class=lvname>停練衰退安全表 <span class=vx-cert>🟢</span></span>
-<span class=lvtag>停 4 週 VO₂max 掉 14%——休季別整個躺平</span></span></summary><div class=vx-level-body><p class=vx-pz-intro>過渡期與傷停排課的安全底線：知道停多久流失多少，才知道過渡期該保留多少 active rest。</p><table class="vx-pz-table vx-pz-table--narrow"><thead><tr><th>停練時間</th><th>VO₂max 流失</th></tr></thead><tbody><tr><td>4 天</td><td class=vx-pz-num>4%</td></tr><tr><td>3 週</td><td class=vx-pz-num>7%</td></tr><tr><td>4 週</td><td class=vx-pz-num>14%</td></tr><tr><td>8 週</td><td class=vx-pz-num>20%</td></tr></tbody></table><p class=vx-pz-meta>4 週完全停力量訓練：最大肌力降 6–10%、最大功率降 14–17%；菁英運動員衰退更快</p><p class=vx-pz-meta>短期(&lt;4週)停練：力竭時間降 4–25%</p><p class=vx-pz-warn>⚠ 短時間恢復訓練可逆轉；完全停練 &lt;4 週即顯著 detraining → 過渡期務必 active rest</p><div class=vx-pz-swim><span class=vx-pz-swim-h>🔵 游泳應用</span><p>🔵 游泳排賽季間休 / 傷停課表時，過渡期 >4 週需保留低量 active rest 以免 VO2max 大幅流失</p></div><p class=vx-cite><span class=src>來源</span>：Bompa《Periodization》6th ed. — Ch8 Table 8.2；Mujika & Padilla 2000</p></div></details><details class=vx-level><summary><span class=lv>泳</span>
-<span><span class=lvname>游泳年度結構（菁英實證） <span class=vx-cert>🟢</span></span>
-<span class=lvtag>一年 2–4 個中週期、86–90% 量為低強度（Hellard 2019）</span></span></summary><div class=vx-level-body><p class=vx-pz-intro>不靠通用理論，直接看菁英游泳的年度結構文獻長什麼樣。</p><table class="vx-pz-table vx-pz-table--narrow"><tbody><tr><td>每年中週期數</td><td class=vx-pz-num>2–4（菁英游泳常見；Hellard 2019）</td></tr><tr><td>中週期長度</td><td class=vx-pz-num>≈15 週/macrocycle（Hellard 2019）</td></tr><tr><td>低強度量占比</td><td class=vx-pz-num>86–90% 訓練量落在 ≤4 mmol（低強度為主，Hellard 2019）</td></tr></tbody></table><p class=vx-pz-meta>🟢 400m 個人混合式單一菁英個案（n=1，González-Ravé 2022）：52 週分 3 個 macrocycle，週量在 24–90 km 間波動</p><p class=vx-pz-warn>🔴 不收『60–80 km/週、9–10 課/週』這類距離選手週量——屬未經查證的網路共識，無原始文獻</p><p class=vx-pz-plain>菁英游泳的年度結構長怎樣（有實證的）：一年大概切 2–4 個中週期（每個約 15 週）。最反直覺的數字——高達 86–90% 的訓練量是低強度（血乳酸 ≤4），不是整天操高強度。有一個 400 混合式選手的個案，全年 52 週分 3 段，週泳量在 24–90 km 間起伏（這是單一個案，不是通則）。</p><p class=vx-cite><span class=src>來源</span>：Hellard et al. 2019 (PMC6470949); González-Ravé et al. 2022 (PMID 36247944, n=1)</p></div></details><details class=vx-level><summary><span class=lv>齡</span>
-<span><span class=lvname>青少年分齡週期化（LTAD） <span class=vx-cert>🟢</span></span>
-<span class=lvtag>按年齡分階段；PHV 與 trainability 窗口須謹慎（含爭議）</span></span></summary><div class=vx-level-body><p class=vx-pz-intro>青少年怎麼按年齡分階段練，對齊 ADM 發展階段。</p><p class=vx-pz-meta>Swimming Canada 分齡（與 ADM 對齊）：學習訓練 L2T 女 8–11/男 9–12；訓練為訓練 T2T 女 11–15/男 12–16；訓練為競賽 T2C 女 15–21/男 16–23；訓練為勝利 T2W 女 18+/男 19+</p><p class=vx-pz-meta>生長陡增高峰 PHV：女 ≈12.5 歲、男 ≈14 歲（平均值，個體差異大）</p><p class=vx-pz-warn>⚠️ contested：『trainability 關鍵窗口』（某些素質在特定年齡有黃金訓練期）是有爭議的概念。Ford et al. 2011（PMID 21259156）與 van Hooren & De Ste Croix 2020 批判其缺乏可靠實證。引用時必須標明爭議，不可當定論。</p><p class=vx-pz-warn>🔴 不收分齡 km/週對照表——查無 Swimming Canada 原始數據表；T:C（訓練比賽比）60:40/50:50/25:75 僅 Balyi 二手轉述，標弱不入正文</p><p class=vx-pz-plain>青少年怎麼分齡練（對齊 ADM 階段）：大致按年齡分學習訓練→訓練為訓練→訓練為競賽→訓練為勝利。生長陡增高峰（長最快的時候）女生約 12.5 歲、男生約 14 歲，可作排訓練的參考。但要特別小心一個流行說法——『某些能力有黃金訓練窗口、錯過就補不回』，這在學界是有爭議的（Ford 2011 等批判它證據不足）。家長和教練別把它當鐵律，以免硬逼小孩在特定年齡猛練某項。</p><p class=vx-cite><span class=src>來源</span>：Swimming Canada LTAD 分齡; PHV 文獻; Ford et al. 2011 (PMID 21259156); van Hooren & De Ste Croix 2020</p></div></details></div><nav class=vx-flow><button type=button data-target=schools><span class=lbl>上一個主題</span>← 週期化的幾種流派</button>
-<button class=nx type=button data-target=taper><span class=lbl>下一個主題</span>賽前減量與達峰 →</button></nav></section><section class="vx-panel vx-move" id=taper><span class=vx-sec-no>主題 3 / 4</span><h2>賽前減量與達峰</h2><p class=vx-panel-lead>怎麼在比賽前把疲勞卸掉、把適應推上巔峰。點任一概念就地展開。</p><div class=vx-ladder><details class=vx-level><summary><span class=lv>減</span>
-<span><span class=lvname>什麼是減量 <span class=vx-cert>🟢</span></span>
-<span class=lvtag>賽前慢慢降量，消疲勞、保體能，比賽當天有料又不累</span></span></summary><div class=vx-level-body><p class=vx-pz-intro>在一段可變期間內，漸進、非線性地降低訓練負荷，目的是移除日常訓練累積的生理與心理壓力、使表現最佳化</p><p class=vx-pz-meta>讓減量期前累積的訓練適應（fitness）保留，同時消除疲勞（fatigue）→ 表現 = fitness − fatigue 的差值在減量末達最大</p><p class=vx-pz-plain>減量＝比賽前那幾週，故意把訓練量慢慢降下來。關鍵在：之前練出來的本事（體能）會留著，但累積的疲勞會被消掉。比賽當天身體既有料又不累，成績自然跑得出來。</p></div></details><details class=vx-level><summary><span class=lv>鈕</span>
-<span><span class=lvname>四個操作旋鈕</span>
-<span class=lvtag>量、強度、頻率、時長——砍量保強度</span></span></summary><div class=vx-level-body><table class=vx-pz-table><thead><tr><th>變數</th><th>操作</th><th>角色</th></tr></thead><tbody><tr><td><strong>訓練量</strong> <span class=vx-cert>🟢</span></td><td>降 41–60%（重負荷可至 60–90%）</td><td>減量主旋鈕——量的下降是消除疲勞的最大來源<span class=vx-pz-plain>比賽前要砍的主要是『游多少』——總量。一般砍掉四到六成；如果之前操得很兇，可以砍到六到九成。砍量是消疲勞最有效的一招。</span></td></tr><tr><td><strong>訓練強度</strong> <span class=vx-cert>🟡</span></td><td>維持中高強度以保留適應與技術；強度若一併大降會導致 detraining<br>減量第一週可微調：功率類 −5–10%、耐力類 −20–30%，之後回拉至接近賽強度</td><td>強度是『保適應』旋鈕，不可大降<span class=vx-pz-plain>強度（游多快）不能跟著砍。還是要保留一些接近比賽配速的快游，不然身體會『退掉』，比賽當天反而沒有速度感。</span></td></tr><tr><td><strong>訓練頻率</strong> <span class=vx-cert>🟡</span></td><td>維持 ≥80% 平時頻率以保技術手感與神經肌肉協調；頻率大降會掉技術</td><td>頻率是『保技術』旋鈕<span class=vx-pz-plain>下水的次數（一週幾練）盡量維持，至少留平常的八成。少下水會掉手感、掉技術——這跟消疲勞是兩回事，不能混為一談。</span></td></tr><tr><td><strong>減量時長</strong> <span class=vx-cert>🟢</span></td><td>8–14 天</td><td>時長旋鈕——與減量前疲勞程度成正比<span class=vx-pz-plain>減量要做多久？大概一到兩週（8–14 天）。之前操越兇、累越多，就需要拉長一點；太短疲勞沒消完，太長體能反而開始流失。</span></td></tr></tbody></table></div></details><details class=vx-level><summary><span class=lv>峰</span>
-<span><span class=lvname>減量曲線與達峰窗</span>
-<span class=lvtag>快速指數遞減增益最大；巔峰只撐 7–14 天</span></span></summary><div class=vx-level-body><ul class=vx-pz-sub><li><strong>線性遞減</strong> <span class=vx-cert>🟡</span><br><span class=vx-pz-focus>負荷等量直線下降；增益低於指數型</span><span class=vx-pz-plain>每天等量往下降一直線。最單純，但效果比指數型差。</span></li><li><strong>階梯式（單次驟降）</strong> · 表現增益 ≈1.2–1.5% <span class=vx-cert>🟢</span><br><span class=vx-pz-focus>一次性把負荷砍到固定低水平維持；增益最小</span><span class=vx-pz-plain>一次把量砍到一個低水平就維持不動。最省事，但增益最小（大約進步 1–1.5%）。</span></li><li class=vx-pz-hi><strong>快速指數遞減</strong> · 表現增益 ≈4.0–5.0% <span class=vx-cert>🟢</span> ★首選<br><span class=vx-pz-focus>前段快降、後段趨緩的指數曲線；元分析中表現增益最大，為首選型態</span><span class=vx-pz-plain>前面降得快、後面慢慢收的曲線。研究裡這種增益最大（約進步 4–5%），是首選做法。</span></li></ul><p class=vx-pz-meta>達峰窗：巔峰狀態可維持約 7–14 天，主賽應落在此窗內。<span class=vx-cert>🟡</span></p><p class=vx-pz-warn>⚠ 巔峰窗外（>14 天）表現回落；多目標賽季須以多個短減量分別對準各窗（見 structure.yaml multipeak）</p><p class=vx-pz-plain>巔峰狀態不是無限期的——大概只能撐 7–14 天。所以主賽一定要排在這個窗口裡。一個賽季有好幾場重要比賽時，就用幾段短減量，分別對準每一場（見 structure.yaml 多巔峰）。</p></div></details><details class=vx-level><summary><span class=lv>泳</span>
-<span><span class=lvname>游泳減量應用</span>
-<span class=lvtag>對準主賽推 8–14 天、量降 40–60%；約進步 2–3%</span></span></summary><div class=vx-level-body><div class=vx-pz-swim><span class=vx-pz-swim-h>🔵 游泳應用</span><p>🔵 游泳文獻常見賽前 50–90% 量遞減（與 Bompa 41–60%／重負荷 60–90% 區間一致）</p><p>🟢 模型化游泳選手研究：三週減量平均 +2.90±1.50%、四週 +3.20±1.70% 表現增益（Mujika et al. 1996, PMID 8775162, N=18）</p><p>🟢 雪梨 2000 奧運游泳：賽前三週減量期間表現平均提升 +2.18±1.50%（男 +2.57%／女 +1.78%，99 筆成績；Mujika/Padilla/Pyne 2002, PMID 12439774）；奧運獎牌的成績差距常在 0.5–1% 量級，故數個百分點的減量增益足以決定名次</p><p>🔵 swim-coach 賽前課表：對準主賽往前推 8–14 天，量降至平時 40–60%，維持頻率與賽強度短組，曲線採快速指數型</p></div><p class=vx-pz-plain>游泳的實際做法：對準主賽往前推 8–14 天開始減量，總量降到平常的四到六成，但下水次數和短距離快游照舊，曲線用前快後慢的指數型。研究顯示游泳選手減三週平均能進步約 2–3%——在獎牌只差零點幾個百分點的場合，這幾個百分點足以決定名次。</p></div></details></div><p class=vx-cite><span class=src>來源</span>：Bompa《Periodization》6th ed. — Ch9；Mujika & Padilla 2003 (PMID 12840640)；Mujika et al. 1996 (PMID 8775162)；Mujika/Padilla/Pyne 2002 (PMID 12439774)；Bosquet et al. 2007 (PMID 17762369)</p><nav class=vx-flow><button type=button data-target=structure><span class=lbl>上一個主題</span>← 年度結構與週期</button>
-<button class=nx type=button data-target=zones><span class=lbl>下一個主題</span>能量系統與強度分區 →</button></nav></section><section class="vx-panel vx-move" id=zones><span class=vx-sec-no>主題 4 / 4</span><h2>能量系統與強度分區</h2><p class=vx-panel-lead>Bompa 通用分區、極化派（Seiler）與 Olbrecht 的對話，加上游泳專項的分區與供能文獻。點任一概念就地展開。</p><div class=vx-ladder><details class=vx-level><summary><span class=lv>6</span>
-<span><span class=lvname>Bompa 六分區 <span class=vx-cert>🟡</span></span>
-<span class=lvtag>用最大表現百分比分 6 區；賽配速 = zone 2</span></span></summary><div class=vx-level-body><table class=vx-pz-table><thead><tr><th>分區</th><th>訓練需求</th><th>% 最大表現</th><th>強度</th></tr></thead><tbody><tr><td class=vx-pz-num>1</td><td>非常高</td><td>90–100%</td><td>最大</td></tr><tr><td class=vx-pz-num>2</td><td>高</td><td>80–90%</td><td>重</td></tr><tr><td class=vx-pz-num>3</td><td>中</td><td>70–80%</td><td>中</td></tr><tr><td class=vx-pz-num>4</td><td>低</td><td>50–70%</td><td>低</td></tr><tr><td class=vx-pz-num>5</td><td>非常低</td><td>&lt;50%</td><td>非常低</td></tr><tr><td class=vx-pz-num>recovery</td><td>恢復</td><td>無訓練</td><td>恢復</td></tr></tbody></table><p class=vx-pz-meta>比賽配速 = zone 2；Bompa 建議每週至少 50% 訓練時間落在比賽配速強度。高於賽配速由無氧供能主導，低於賽配速由有氧供能主導</p><p class=vx-pz-dialogue>🔵 對話（極化派 Seiler）：Bompa『每週 ≥50% 落在比賽配速』與 Seiler『80% 低強度＋20% 高強度、避開中間區』表面上直接衝突，但兩套系統的『區』定義不同，不能直接數字對比——Bompa zone 2（賽配速，80–90% 最大表現）對應的可能是 Seiler 的 Z3（高強度）邊界而非『中間區』。若 Bompa 賽配速＝Seiler Z3，則『50% 在賽配速』比『80/20』要求更多高強度（方向相反）；若＝Seiler Z2，則 Bompa 等於主張大量閾值，與極化派『避中間』直接衝突。這個張力本身就是要呈現的辯論，不強行統一（見 school_polarized）。</p><p class=vx-pz-plain>Bompa 把訓練強度分成 6 區，用『佔最大表現的百分比』定義。zone 1 最吃力（90–100%），zone 5 最輕（&lt;50%），recovery 是不下水。比賽配速落在 zone 2。一個好記的原則：每週至少一半的訓練時間要落在比賽配速強度。注意這條原則有爭議——極化派（下面 school_polarized）主張剛好相反：大部分量應該是輕鬆的、少碰中間強度。</p></div></details><details class=vx-level><summary><span class=lv>HR</span>
-<span><span class=lvname>心率 / VO₂max / 能量系統對照 <span class=vx-cert>🟡</span></span>
-<span class=lvtag>把心率攝氧對應到主導能量系統</span></span></summary><div class=vx-level-body><table class=vx-pz-table><thead><tr><th>% HRmax</th><th>% VO₂max</th><th>主導能量系統</th><th>訓練目標</th></tr></thead><tbody><tr><td class=vx-pz-num>50%</td><td class=vx-pz-num>28%</td><td>氧化-糖解（有氧）</td><td>主動恢復 / 有氧基礎</td></tr><tr><td class=vx-pz-num>70%</td><td class=vx-pz-num>56%</td><td>糖解有氧</td><td>廣度有氧能力 (extensive aerobic capacity)</td></tr><tr><td class=vx-pz-num>80%</td><td class=vx-pz-num>70%</td><td>糖解無氧-有氧</td><td>強度有氧能力 / 廣度有氧功率</td></tr><tr><td class=vx-pz-num>90%</td><td class=vx-pz-num>83%</td><td>糖解有氧-無氧</td><td>強度有氧功率 (intensive aerobic power)</td></tr><tr><td class=vx-pz-num>96%</td><td class=vx-pz-num>90%</td><td>糖解無氧-有氧</td><td>強度有氧功率 + 廣度無氧能力</td></tr><tr><td class=vx-pz-num>100%</td><td class=vx-pz-num>100%</td><td>最大</td><td>無氧功率 / 最大</td></tr></tbody></table><p class=vx-pz-plain>這張表把心率／攝氧量對應到身體主要靠哪套能量系統供能。心率越高、越偏無氧；心率 50% 上下是有氧恢復區。用途是確認某一組課實際練到的是哪個系統，避免賽季階段跟能量系統錯配。</p></div></details><details class=vx-level><summary><span class=lv>低</span>
-<span><span class=lvname>低強度耐力方法（LIEE） <span class=vx-cert>🟡</span></span>
-<span class=lvtag>主動恢復／長慢游／節奏游；低強度與高強度不可亂混</span></span></summary><div class=vx-level-body><p class=vx-pz-warn>⚠ LIEE（低強度）與 HIEE（高強度）不可混用；耐力型態選錯會降低專項表現</p><table class=vx-pz-table><thead><tr><th>方法</th><th>每週次數</th><th>單次時長</th><th>強度</th></tr></thead><tbody><tr><td><strong>主動恢復</strong></td><td class=vx-pz-num>1–2 次</td><td>30–60 min</td><td>&lt;60% HR / &lt;40% VO2max</td></tr><tr><td><strong>長慢距離(LSD)</strong></td><td class=vx-pz-num>1–2 次</td><td>≥30 min</td><td>66–80% HR / 50–70% VO2max</td></tr><tr><td><strong>連續配速/節奏</strong></td><td class=vx-pz-num>1–2 次</td><td>20–30 min</td><td>乳酸閾值 (LT)</td></tr><tr><td><strong>有氧間歇</strong></td><td class=vx-pz-num>1–2 次</td><td>20–40 min</td><td>80–100% HR / 70–100% VO2max</td></tr><tr><td><strong>無氧間歇</strong></td><td class=vx-pz-num>1–2 次</td><td>&lt;2 min 衝刺 (W:R 1:0.5–1:5)</td><td>最大 / 超最大</td></tr><tr><td><strong>法特雷克(變速跑)</strong></td><td class=vx-pz-num>1 次</td><td>>30 min</td><td>變動</td></tr></tbody></table><p class=vx-pz-plain>低強度耐力的幾種練法：主動恢復、長慢游、節奏游、有氧間歇等。最重要的一句警告——低強度耐力和高強度耐力不能亂混著練，耐力型態選錯會拖累專項表現。</p></div></details><details class=vx-level><summary><span class=lv>耐</span>
-<span><span class=lvname>耐力週期化三階段（單巔峰） <span class=vx-cert>🟡</span></span>
-<span class=lvtag>廣度有氧 → 有氧+專項 → 專項耐力，順序不能顛倒</span></span></summary><div class=vx-level-body><ul class=vx-pz-sub><li><strong>有氧耐力</strong> · 過渡期 + 準備期早期（1–3 個月）<br><span class=vx-pz-focus>建立有氧基礎、廣度有氧能力</span></li><li><strong>有氧+專項</strong> · 準備期中後段<br><span class=vx-pz-focus>有氧基礎上疊加專項代謝需求</span></li><li><strong>專項耐力</strong> · 準備期晚期 + 競賽期<br><span class=vx-pz-focus>對映比賽能量系統的專項耐力</span></li></ul><p class=vx-pz-dialogue>🟡 對話（Olbrecht）：Bompa 在這個有氧建構階段的主力工具是『閾值配速大量堆量』，Olbrecht 直接質疑——他稱『在最大乳酸穩態速度訓練就能提升耐力』是『魔法子彈謬誤』，主張閾值訓練既非有氧能力的最佳刺激、也非有效的無氧刺激。他的替代：大量輕鬆有氧量＋嵌入短暫（~30–35 秒、超 VO2max）衝刺，並在基礎期刻意排除長間歇閾值組（見 olbrecht_model）。</p><p class=vx-pz-plain>耐力是分階段堆起來的：先用廣度有氧打底（過渡期＋準備期早期），再疊上專項代謝需求，最後練對準比賽的專項耐力。順序不能顛倒——沒打好有氧底就直接衝專項，後面會撐不住。不過『有氧底＝大量練閾值』這點 Olbrecht 反對（下面 olbrecht_model），他主張改用輕鬆量＋短衝刺。</p></div></details><details class=vx-level><summary><span class=lv>極</span>
-<span><span class=lvname>極化分布（Seiler / TID） <span class=vx-cert>🟢</span></span>
-<span class=lvtag>不問每區強度多少，問每區各占幾成——80/20、避中間區</span></span></summary><div class=vx-level-body><p class=vx-pz-intro>🟢 以通氣閾值 VT1/VT2 劃三區（對應 swim_three_zone 的乳酸三區，但邊界稍浮動不可當精確定論）：Z1 &lt; VT1（≤~2 mmol，可全程對話）；Z2 VT1–VT2（~2–4 mmol，閾值附近）；Z3 > VT2（>4 mmol，間歇強度）。</p><table class=vx-pz-table><thead><tr><th>型態</th><th>Z1</th><th>Z2</th><th>Z3</th><th>說明</th></tr></thead><tbody><tr><td><strong>極化型</strong></td><td class=vx-pz-num>~75–80%</td><td class=vx-pz-num>~5–10%</td><td class=vx-pz-num>~15–20%</td><td>啞鈴型，Z2 被刻意壓低</td></tr><tr><td><strong>金字塔型</strong></td><td class=vx-pz-num>最高</td><td class=vx-pz-num>中</td><td class=vx-pz-num>最低</td><td>三區由低到高遞減</td></tr><tr><td><strong>閾值型</strong></td><td class=vx-pz-num>中</td><td class=vx-pz-num>高</td><td class=vx-pz-num>低</td><td>Z2 為主力強度</td></tr></tbody></table><p class=vx-pz-meta>🟢 Seiler & Kjerland 2006（11 名菁英越野滑雪青少年、32 天）：Z1 75%／Z2 8%／Z3 17%（以 session 數計）。Seiler 2010 綜述：約 80% Z1＋20% Z3、Z2 近 0%。</p><p class=vx-pz-meta>🔵『80/20』的單位是 session 數（每週幾次低/高強度課），不是時間百分比；若改時間加權，因 Z1 每次更長，低強度比例會更高（可能 85–90%）。跨研究比較時這個差異很關鍵。</p><p class=vx-pz-meta>🔵 為何主張少練 Z2：(1) 應激-回報比差——夠高產生疲勞與乳酸，又不夠高激發 Z3 的強適應信號；(2) 慢性 Z2 疲勞壓縮練 Z3 的空間；(3) 閾值配速難精確維持、易漂進灰色地帶。注意：這是批評『以 Z2 為主力』的閾值模型，不否定 Z2 在特定場景（taper 前節奏、特定賽事）的角色。</p><p class=vx-pz-meta>🟢 Stöggl & Sperlich 2014（唯一 RCT，48 名訓練有素者、9 週、四組）：POL 組 VO2peak +11.7%、力竭時間 +17.4%，皆優於高量低強度／閾值／HIIT 三組。限制：僅單一 RCT、9 週偏短、非頂級菁英。</p><p class=vx-pz-warn>🔵 歸因爭議：菁英自然趨向極化，可能是『能承受高量後才能這樣練』（果），而非『這樣練才成菁英』（因）——觀察研究無法定因果方向。</p><div class=vx-pz-swim><span class=vx-pz-swim-h>🟢 游泳實證挑戰</span><p>🟢 游泳實證挑戰極化教條：Crowley 2021（PMID 33952709，9 研究 162 筆 TID）中金字塔型 89 例（多數）、極化型 65 例、閾值型 8 例——游泳金字塔型其實比極化型更常見。即便衝刺選手（Barbosa 2019）仍約 87–90% 量在 Z1，但型態更接近極化（Z3 比例高、Z2 壓縮）。長距離（400m+）偏金字塔、短距離偏極化；目前無單一型態可宣稱『所有泳者最佳』。</p></div><p class=vx-pz-author>🔵 作者取用：值得吸收的是『大部分量該是輕鬆的、慎用中間閾值區』這個方向性原則（它也呼應 Hellard 2019 菁英游泳 86–90% 量在 ≤4mmol）；但別把『80/20 極化』當游泳鐵律——游泳金字塔型更常見，依距離與個體調整。</p><p class=vx-pz-plain>極化派（Seiler）問的不是『每區強度多少』而是『每區各占幾成』。他觀察菁英耐力選手，發現他們自然形成『大量輕鬆＋少量超吃力、中間幾乎不練』的分布——大約 80% 低強度、20% 高強度（這個 80/20 算的是課次，不是時間）。為什麼避開中間（閾值）區？因為那強度『高不成低不就』：累積疲勞不少，但刺激又不如真正的高強度。唯一的 RCT（Stöggl 2014）支持極化最有效。但游泳要特別注意：游泳實證裡其實『金字塔型』比『極化型』更常見（Crowley 2021），所以別把 80/20 當鐵律——長距離偏金字塔、短距離偏極化，看項目和個人調整。</p><p class=vx-cite><span class=src>來源</span>：Seiler & Kjerland 2006 (PMID 16430681); Seiler 2010 (IJSPP 5(3):276–291); Stöggl & Sperlich 2014 (PMC3912323); Crowley et al. 2021 (PMID 33952709)</p></div></details><details class=vx-level><summary><span class=lv>O</span>
-<span><span class=lvname>Olbrecht 能量系統個體化 <span class=vx-cert>🟡</span></span>
-<span class=lvtag>最適非最大；閾值是「魔法子彈謬誤」；改個體乳酸測試</span></span></summary><div class=vx-level-body><p class=vx-pz-intro>🟡 核心命題『最適而非最大』：有氧與無氧代謝都要發展到『最適』而非『最大』水準才有最佳成績。兩系統反向制衡——無氧能力（VLamax）過高會壓低乳酸閾值與脂肪燃燒、延長恢復；過度追求有氧最大化又壓制無氧速度儲備。目標不是把任一曲線推到極限，而是找各事件的最適組合點。</p><p class=vx-pz-dialogue>🟡『魔法子彈謬誤』：Olbrecht 指控『在最大乳酸穩態速度訓練就能最優提升耐力』是迷思——耐力成分複雜，單一強度無法覆蓋；他主張閾值訓練在有氧或無氧上都不比均衡計畫有優勢。現場矛盾佐證：有些選手閾值進步了成績卻沒進步，有些看似失去有氧耐力卻游出生涯最佳。</p><p class=vx-pz-meta>🟢 四象限（理解全框架的前提）：有氧能力＝VO2max（引擎排氣量）；有氧功率＝比賽中能動用多少比例有氧能力，近似乳酸閾值（轉速使用率）；無氧能力＝VLamax 最大乳酸生成速率（渦輪峰值）；無氧功率＝維持近最大速度的持久度。關鍵限制：『能力與功率不能同時提升』（Olbrecht 訪談原話），每階段須有主攻方向、分期安排。</p><p class=vx-pz-meta>🟡 捨棄通用閾值、改個體乳酸測試：因為『閾值不是獨立生理參數，而是有氧與無氧在次最大強度下的合力衍生物』——光看閾值看不到底層是有氧變好還是無氧降低。用兩泳次乳酸測試估個人曲線，每 5–6 週在小週期第一週（超補償高峰、疲勞最低）重測。恢復比例也個體化：新手 1:1、中級 2:1、菁英 3:2。</p><p class=vx-pz-meta>🟡 順序按『能量系統優先』而非單一量/強度維度：前半賽季同步建構有氧能力＋無氧能力（引擎擴容：大量輕鬆量＋短超 VO2max 衝刺＋無氧能力訓練，刻意排除長間歇閾值）；後半賽季轉有氧功率＋無氧功率（使用效率優化，逼近賽配速、量降質升）。🔴 具體前後半週次比例書中原文不可及。</p><div class=vx-pz-swim><span class=vx-pz-swim-h>🟡 游泳特殊性</span><p>🟡 游泳特殊性：200m 以下占游泳競技 >80%，故游泳選手整體需較高 VLamax 儲備、比鐵人/馬拉松更偏無氧側。但短距離選手同樣需要有氧基礎以支撐高強度恢復效率，只是所需『量』可較低。</p></div><p class=vx-pz-warn>🔴 原書《The Science of Winning》全文不可及，多數細節由書摘/訪談重建；具體游泳配速處方、原始乳酸測試完整協議、前後半週次比例皆不可追溯，標 🔴。⚠️ VLamax 是 Weber/INSCYD 術語，與 Olbrecht『無氧能力』對應但非完全等同，歸因須注意。</p><p class=vx-pz-author>🔵 作者取用：即使沒有實驗室乳酸測試，Olbrecht 最該吸收的是『診斷精神』——別套通用百分比分區，盡量個體化；以及『閾值不是萬靈丹、別在基礎期狂堆閾值』這個與極化派一致的方向。capacity/power 不能同時練的限制，也呼應板塊派『序列集中』。</p><p class=vx-pz-plain>Olbrecht（游泳能量系統論）的核心是『最適，不是最大』：有氧和無氧都不是越大越好，要配到最適組合點——無氧太強會拖累有氧效率，有氧練過頭又壓掉速度。他最有名的是質疑閾值訓練是『魔法子彈謬誤』：以為在閾值速度狂練就能變強，其實不然（很多人閾值進步了成績沒動）。他改用個體乳酸測試（每 5–6 週重測），而不是套『最大心率 70%』這種通用百分比。順序上他主張前半季先把有氧無氧的『天花板』一起拉高（用輕鬆量＋短衝刺，不堆閾值），後半季再練『怎麼在比賽中高效用出來』。注意：原書拿不到，具體配速數字都是缺的（標 🔴）。</p><p class=vx-cite><span class=src>來源</span>：Olbrecht 2000《The Science of Winning》(書摘/訪談重建); Scientific Triathlon EP#198 訪談; TMR Coaching / lactate.com / INSCYD 二手摘要</p></div></details><details class=vx-level><summary><span class=lv>M</span>
-<span><span class=lvname>Maglischo 游泳六分區 <span class=vx-cert>🟢</span></span>
-<span class=lvtag>游泳專用：恢復/En1/En2/En3/AnTh/VO₂max</span></span></summary><div class=vx-level-body><p class=vx-pz-meta>無氧閾值血乳酸：3–5 mmol/L（AnTh 區血乳酸範圍）</p><ul class=vx-pz-sub><li><strong>恢復</strong> · <span class=vx-pz-focus>主動恢復、技術游</span></li><li><strong>有氧基礎 (Endurance 1)</strong> · <span class=vx-pz-focus>有氧基礎、低乳酸大量累積</span></li><li><strong>有氧維持 (Endurance 2)</strong> · <span class=vx-pz-focus>接近無氧閾值的有氧發展</span></li><li><strong>有氧超負荷 (Endurance 3)</strong> · <span class=vx-pz-focus>閾值附近、最高可持續有氧負荷</span></li><li><strong>無氧閾值 (Anaerobic Threshold)</strong> · <span class=vx-pz-focus>閾值強度，血乳酸 3–5 mmol</span></li><li><strong>最大攝氧 (VO2max)</strong> · <span class=vx-pz-focus>刺激最大攝氧量</span></li></ul><p class=vx-pz-meta>SP（衝刺）在 Maglischo 框架中是『類別』而非分區（速度/功率訓練），與上述有氧—閾值光譜分開處理</p><p class=vx-pz-warn>🔴 各區詳細血乳酸 / 配速門檻需翻 Maglischo《Swimming Fastest》原書頁逐區確認；本檔僅收錄全文已確認的 AnTh 3–5mmol 與六區名稱，未逐區填數值以免發明</p><p class=vx-pz-plain>Maglischo 是游泳專用的分區系統，用血乳酸＋訓練目的把游泳強度分成：恢復、有氧基礎(En1)、有氧維持(En2)、有氧超負荷(En3)、無氧閾值(AnTh，乳酸 3–5)、最大攝氧(VO2max)。衝刺(SP)另外算一類，不在這條有氧—閾值光譜上。比 Bompa 的『百分比』更貼近游泳教練實際開課的語言。</p></div></details><details class=vx-level><summary><span class=lv>3</span>
-<span><span class=lvname>三區乳酸模型 <span class=vx-cert>🟢</span></span>
-<span class=lvtag>TID 分析用：Z1≤2 / Z2 2–4 / Z3>4 mmol</span></span></summary><div class=vx-level-body><table class="vx-pz-table vx-pz-table--narrow"><thead><tr><th>區</th><th>血乳酸 (mmol)</th><th>名稱</th><th>重點</th></tr></thead><tbody><tr><td class=vx-pz-num>1</td><td>≤2</td><td>低強度</td><td>有氧基礎、恢復</td></tr><tr><td class=vx-pz-num>2</td><td>2–4</td><td>閾值區</td><td>閾值附近</td></tr><tr><td class=vx-pz-num>3</td><td>>4</td><td>高強度</td><td>VO2max / 無氧</td></tr></tbody></table><p class=vx-pz-plain>做訓練強度分布分析時最常用的簡化版：用血乳酸把強度切三段——Z1 輕鬆（≤2）、Z2 閾值（2–4）、Z3 吃力（>4）。下面的 polarized / pyramidal 分布就是用這三區算比例。</p></div></details><details class=vx-level><summary><span class=lv>距</span>
-<span><span class=lvname>各距離能量系統供能比 <span class=vx-cert>🟢</span></span>
-<span class=lvtag>50m 有氧 5–20%、100m≈各半、400m 40–84%（跨研究區間）</span></span></summary><div class=vx-level-body><table class=vx-pz-table><thead><tr><th>項目</th><th>有氧占比</th><th>說明</th></tr></thead><tbody><tr><td class=vx-pz-num>50m</td><td>≈5–20% <span class=vx-cert>🟢</span></td><td>有氧占比低，無氧（磷酸原+糖解）主導 ≈80–95%</td></tr><tr><td class=vx-pz-num>100m</td><td>≈40–50% <span class=vx-cert>🟢</span></td><td>有氧無氧接近各半</td></tr><tr><td class=vx-pz-num>200m</td><td>≈60–65% <span class=vx-cert>🟡</span></td><td>🟡 此區間文獻支持較弱，標舊文獻</td></tr><tr><td class=vx-pz-num>400m</td><td>40–84% <span class=vx-cert>🟢</span></td><td>跨研究真實區間：Rodríguez & Mader ≈84% vs Maglischo 40–60%；不可合併成單值</td></tr><tr><td class=vx-pz-num>800m</td><td>有氧主導 <span class=vx-cert>🟡</span></td><td>質性有氧主導；精確 % 文獻分歧大，不填單值</td></tr><tr><td class=vx-pz-num>1500m</td><td>有氧主導 <span class=vx-cert>🟡</span></td><td>質性有氧主導；精確 % 文獻分歧大，不填單值</td></tr></tbody></table><p class=vx-pz-warn>🔴 200m 與 800/1500m 的精確 % 為文獻弱項，故意不收單一數字；只標質性主導方向</p><p class=vx-pz-plain>不同距離靠的能量系統差很多：50m 幾乎全靠無氧（有氧只 5–20%），100m 有氧無氧大概各半，400m 以上開始有氧主導。注意 400m 的有氧占比在不同研究差很大（40% 到 84% 都有人測到），這不是我亂寫，是研究本身的真實分歧——所以保留區間不硬湊成一個數字。實務意義：練 50 自由式衝刺跟練 1500 完全是兩套系統，課表不能共用。</p></div></details><details class=vx-level><summary><span class=lv>TID</span>
-<span><span class=lvname>訓練強度分布 TID <span class=vx-cert>🟢</span></span>
-<span class=lvtag>極化／金字塔／閾值三型；連衝刺者也 87–90% 量在 Z1</span></span></summary><div class=vx-level-body><ul class=vx-pz-sub><li><strong>極化型</strong> · <span class=vx-pz-focus>大量 Z1 + 少量 Z3、極少 Z2</span></li><li><strong>金字塔型</strong> · <span class=vx-pz-focus>Z1 最多、Z2 次之、Z3 最少</span></li><li><strong>閾值型</strong> · <span class=vx-pz-focus>Z2 比重相對偏高</span></li></ul><p class=vx-pz-meta>衝刺項目選手仍約 87–90% 訓練量落在 Z1（Barbosa et al. 2019）——即使是短距離，大部分量還是低強度有氧</p><p class=vx-pz-plain>TID＝整個週期裡輕鬆/閾值/吃力三種強度各占多少。主要有三種分布：極化型（大量輕鬆＋少量超吃力、中間幾乎不練）、金字塔型（由下往上遞減）、閾值型（中間那塊偏多）。一個反直覺的事實：連衝刺選手都有約 87–90% 的量是低強度有氧——不是整天衝。</p></div></details><details class=vx-level><summary><span class=lv>泳</span>
-<span><span class=lvname>游泳配速分區應用</span>
-<span class=lvtag>用比賽配速百分比表達課表強度，映射 Bompa 不發明數字</span></span></summary><div class=vx-level-body><div class=vx-pz-swim><span class=vx-pz-swim-h>🔵 游泳應用</span><p>🔵 游泳組課強度以『比賽配速百分比』表達，直接套 Table 7.1：賽配速=zone 2，高於賽配速（衝刺/乳酸耐受）=zone 1，閾值/節奏=zone 3，有氧基礎=zone 4，恢復游=zone 5</p><p>🔵 50–100m 偏無氧功率（zone 1–2）；200m 混合（Fig 5.11 bi-cycle 範例即 200m）；400–1500m 為肌耐力主導，需 specific endurance 階段大量 zone 3–4 鋪墊</p><p>🔵 依 Bompa『每週 ≥50% 賽配速』原則，swim-coach 週課表應確保賽配速組（zone 2）占足比重，其餘以 zone 4 有氧基礎與 zone 5 恢復填充</p><p>🔵 swim-coach 生成單組課時，用 hr_vo2_ergogenesis 對照表標記該組主導能量系統，避免賽季階段與能量系統錯配（如競賽期仍堆 50% HR 主動恢復量）</p></div><p class=vx-pz-author>🔵 誠實標記：這整個節點是『把 Bompa 通用框架推導到游泳』的自製映射（cert 🔵），不是游泳實證——Bompa 的『最大表現百分比』本來不是為游泳設計的。游泳教練實際開課用的是別的語言：Maglischo 用血乳酸六分區（swim_maglischo）；Sweetenham 用 BBM（最大心率以下幾拍，個體化、只需心率不需採血）並主張反向週期化（速度先行當全季校準錨，而非賽季末才碰）；Olbrecht 用個體乳酸測試（olbrecht_model）。要更貼實務，優先用這些游泳專項語言，本節僅作 Bompa 框架的對接橋樑。</p><p class=vx-pz-plain>游泳怎麼套 Bompa 這套：組課強度用『比賽配速百分比』講——賽配速＝zone 2，比賽更快（衝刺/乳酸耐受）＝zone 1，閾值/節奏＝zone 3，有氧基礎＝zone 4，恢復游＝zone 5。但要老實說：這是把通用理論硬套到游泳的自製對照，不是游泳實證。游泳教練實際上更常用 Maglischo 的乳酸六分區、或 Sweetenham 的 BBM（最大心率以下幾拍）。要貼近現場，優先用那些游泳專用的語言。</p></div></details></div><p class=vx-cite><span class=src>來源</span>：Bompa《Periodization》6th ed. — Ch7 Table 7.1；Ch11 Table 11.1 / 11.2。游泳專項：Maglischo 2012 (J Swimming Research 19:2)；Toussaint & Hollander 1994；Rodríguez & Mader 2011；Papadimitriou et al. 2025；Barbosa et al. 2019</p><nav class=vx-flow><button type=button data-target=taper><span class=lbl>上一個主題</span>← 賽前減量與達峰</button>
-<span></span></nav><footer class=vx-article-footer><hr class=vx-divider><a class=vx-back-link href=https://hangsau.github.io/cortex/vortex/adm/matrix/>→ 回到 ADM 發展矩陣（看週期化如何落在各階段）</a></footer></section></main></div></div><script src=https://hangsau.github.io/cortex/js/vortex.js defer></script></main><footer class=site-footer><p>Cortex</p></footer></body></html>
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>訓練週期化 Periodization — Cortex</title>
+  <meta name="description" content="個人知識庫">
+  <link rel="stylesheet" href="https://hangsau.github.io/cortex/css/variables.css">
+  <link rel="stylesheet" href="https://hangsau.github.io/cortex/css/base.css">
+  <link rel="stylesheet" href="https://hangsau.github.io/cortex/css/layout.css">
+  
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://hangsau.github.io/cortex/css/vortex.css">
+<noscript><style>.vx-panel{display:block;border-top:1px solid var(--vx-rule);padding-top:24px}.vx-rail{position:static;max-height:none}</style></noscript>
+
+</head>
+<body>
+  <nav class="site-nav">
+  <a href="https://hangsau.github.io/cortex/" class="site-nav-logo">Cortex</a>
+  <ul class="site-nav-links">
+    
+    <li>
+      <a href="https://hangsau.github.io/cortex/library/" class="">書庫</a>
+    </li>
+    
+    <li>
+      <a href="https://hangsau.github.io/cortex/notebook/" class="">筆記</a>
+    </li>
+    
+    <li>
+      <a href="https://hangsau.github.io/cortex/vortex/" class="">Vortex</a>
+    </li>
+    
+    <li>
+      <a href="https://hangsau.github.io/cortex/temperament/" class="">氣質</a>
+    </li>
+    
+  </ul>
+</nav>
+
+  <main class="main-content">
+    
+
+
+
+
+
+<div class="vx-stroke vx-pz-stroke">
+  <div class="vx-stroke-wrap">
+
+    
+    <aside class="vx-rail">
+      <a class="vx-back-link" href="https://hangsau.github.io/cortex/vortex/">← Cortex · Vortex</a>
+      <div class="vx-rail-head">
+        <span class="vx-stroke-zh">訓練週期化</span>
+        <span class="vx-stroke-en">Periodization</span>
+      </div>
+
+      <div class="vx-rail-group">導覽</div>
+      <div class="vx-rail-scroll">
+        <ul class="vx-rail-list">
+          <li><button class="vx-navlink" type="button" data-target="overview"><span class="n">0</span>概覽</button></li>
+        </ul>
+      </div>
+
+      <div class="vx-rail-group">主題</div>
+      <div class="vx-rail-scroll">
+        <ul class="vx-rail-list">
+          <li><button class="vx-navlink" type="button" data-target="schools"><span class="n">1</span>週期化的幾種流派</button></li>
+          <li><button class="vx-navlink" type="button" data-target="structure"><span class="n">2</span>年度結構與週期</button></li>
+          <li><button class="vx-navlink" type="button" data-target="taper"><span class="n">3</span>賽前減量與達峰</button></li>
+          <li><button class="vx-navlink" type="button" data-target="zones"><span class="n">4</span>能量系統與強度分區</button></li>
+        </ul>
+      </div>
+    </aside>
+
+    
+    <main class="vx-panels">
+
+      
+      <section class="vx-panel vx-overview" id="overview">
+        <span class="vx-sec-no">VORTEX · Periodization</span>
+        <h2>週期化 — 不是一套定論，是幾派的辯論</h2>
+        <p class="vx-premise">週期化常被當成「Bompa 那一套標準答案」來教，但它其實是幾套互相辯論的框架：傳統線性（Bompa）、板塊集中（Issurin）、極化分布（Seiler/TID）、能量系統個體化（Olbrecht）、反向週期化（Sweetenham）。它們問的問題不同、適用對象不同——把任何一派當鐵律都是誤讀。本頁先給你一張「幾派在吵什麼」的地圖，再進到年度結構、減量、強度分區的具體內容；每塊都標出哪裡是哪一派的主張、哪裡是作者綜合。它是 <a href="https://hangsau.github.io/cortex/vortex/adm/matrix/">ADM 發展矩陣</a> 裡「48 週年度計畫 · 一年兩巔峰」背後的可操作理論。選一個主題開始，就地展開讀——不換頁。</p>
+        <p class="vx-panel-lead">選一個主題開始：</p>
+        <div class="vx-path-list">
+          <button class="vx-path-item" type="button" data-target="schools">
+            <span class="n">1</span>
+            <span><span class="t">週期化的幾種流派</span><span class="o">五派地圖 · 各派核心問題 · 你要回答哪個問題 · 作者立場 · 感知缺口</span></span>
+          </button>
+          <button class="vx-path-item" type="button" data-target="structure">
+            <span class="n">2</span>
+            <span><span class="t">年度結構與週期</span><span class="o">三大階段 · 年度計畫型態 · 中觀／微觀 · 板塊週期化 · 停練衰退 · 游泳實證</span></span>
+          </button>
+          <button class="vx-path-item" type="button" data-target="taper">
+            <span class="n">3</span>
+            <span><span class="t">賽前減量與達峰</span><span class="o">減量原理 · 四個操作旋鈕 · 曲線型態 · 達峰窗 · 游泳應用</span></span>
+          </button>
+          <button class="vx-path-item" type="button" data-target="zones">
+            <span class="n">4</span>
+            <span><span class="t">能量系統與強度分區</span><span class="o">Bompa 六分區 · 極化派 · Olbrecht · 游泳分區 · 各距離供能 · TID</span></span>
+          </button>
+        </div>
+        <p class="vx-legend">確定性：🔵 推導／作者綜合 · 🟢 近期文獻 · 🟡 舊文獻（週期化基礎理論） · 🟠 教練觀測 · 🔴 待查／未驗證假設。本頁為公開週期化理論，描述年度計畫結構與處方原則，不含感知診斷內容。所有數字溯源至 Bompa 原文章節／表格或外部文獻（PMID／DOI）並標確定性；多派立場與作者綜合明確分層標示。</p>
+        <nav class="vx-flow">
+          <span></span>
+          <button class="nx" type="button" data-target="schools"><span class="lbl">下一個主題</span>週期化的幾種流派 →</button>
+        </nav>
+      </section>
+
+      
+      <section class="vx-panel vx-move" id="schools">
+        <span class="vx-sec-no">主題 1 / 4</span>
+        <h2>週期化的幾種流派</h2>
+        
+        <p class="vx-panel-lead">週期化不是一套被證明的定論，而是幾套互相辯論的框架。它們問的問題不同、適用的對象不同——把任何一派當『標準答案』都是誤讀。</p>
+
+        <div class="vx-ladder">
+
+          
+          <details class="vx-level" open>
+            <summary>
+              <span class="lv">圖</span>
+              <span>
+                <span class="lvname">五派地圖 <span class="vx-cert">🔵</span></span>
+                <span class="lvtag">每派問的問題不同、適用對象不同——先看它們各自在吵什麼</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <table class="vx-pz-table">
+                <thead><tr><th>流派</th><th>核心問題</th><th>強處</th><th>弱處</th></tr></thead>
+                <tbody>
+                
+                  <tr>
+                    <td><strong>傳統線性（Bompa/Matveyev）</strong> <span class="vx-cert">🟡</span></td>
+                    <td>一年怎麼分準備/競賽/過渡，讓表現在大賽達峰？</td>
+                    <td>結構清晰、教學完整、對新手與單一賽季最穩</td>
+                    <td>對菁英多峰賽季僵硬；並行練多能力對高水準者效率下降</td>
+                  </tr>
+                
+                  <tr>
+                    <td><strong>板塊集中（Issurin）</strong> <span class="vx-cert">🟡</span></td>
+                    <td>高水準者無法同時練好所有能力，那要按什麼順序集中練？</td>
+                    <td>用殘留效應科學決定換塊時機；適合菁英、多峰</td>
+                    <td>殘留效應個體差異大；術語邊界模糊；初中級者不需要</td>
+                  </tr>
+                
+                  <tr>
+                    <td><strong>極化分布（Seiler/TID）</strong> <span class="vx-cert">🟢</span></td>
+                    <td>每個強度區各應占多少比例？</td>
+                    <td>從菁英真實行為歸納；80/20 有 RCT 支持（Stöggl 2014）</td>
+                    <td>只有單一 RCT；游泳實證其實金字塔型更常見（Crowley 2021）</td>
+                  </tr>
+                
+                  <tr>
+                    <td><strong>能量系統個體化（Olbrecht）</strong> <span class="vx-cert">🟡</span></td>
+                    <td>有氧/無氧不是越大越好，怎麼找到最適組合？</td>
+                    <td>捨棄通用閾值、改個體乳酸測試；解釋『閾值進步但成績沒進步』</td>
+                    <td>需實驗室乳酸測試支援；原書處方數字不可及</td>
+                  </tr>
+                
+                  <tr>
+                    <td><strong>反向週期化（Sweetenham）</strong> <span class="vx-cert">🟢</span></td>
+                    <td>速度該放賽季末，還是當全季的校準錨？</td>
+                    <td>速度先行、技術不被疲勞固化；現場可操作（BBM＋benchmark）</td>
+                    <td>原書五法則/具體數字網路不可查；非 RCT，靠成績佐證</td>
+                  </tr>
+                
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">問</span>
+              <span>
+                <span class="lvname">你要回答哪個問題？</span>
+                <span class="lvtag">先搞清楚你的問題，再決定參考哪一派（Q1–Q11）</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <ul class="vx-pz-sub">
+              
+                <li>Q1 我（或我的學員）是新手還是菁英？——新手用傳統線性就夠，菁英才需要板塊/極化的精細化。</li>
+              
+                <li>Q2 這一季要衝幾個高峰？——一個峰選單週期；多個峰板塊派更靈活。</li>
+              
+                <li>Q3 各強度該怎麼分配？——這是極化/TID 派的問題，不是 Bompa 的問題。</li>
+              
+                <li>Q4 我能不能同時練多項能力？——傳統派說能（調比例），板塊派說菁英不能（要序列化）。</li>
+              
+                <li>Q5 換訓練焦點的時機怎麼定？——傳統派看疲勞節律（3:1），板塊派看殘留效應天數。</li>
+              
+                <li>Q6 閾值訓練到底要不要大量練？——Bompa 當主力，Olbrecht/Seiler 都質疑（魔法子彈謬誤／避開中間區）。</li>
+              
+                <li>Q7 速度訓練放哪？——傳統派放賽季末，Sweetenham 放全季當校準錨。</li>
+              
+                <li>Q8 我的距離項目偏有氧還是無氧？——決定 TID 型態與能量系統側重（見 zones）。</li>
+              
+                <li>Q9 怎麼知道訓練有沒有效？——benchmark/階梯測試/乳酸曲線，不是只看課表跑完。</li>
+              
+                <li>Q10 青少年和成年人練法一樣嗎？——不一樣；分齡發展是各派都同意要區分的。</li>
+              
+                <li>Q11 減量怎麼安排？——這是相對成熟、各派分歧最小的一塊（見 taper）。</li>
+              
+              </ul>
+            </div>
+          </details>
+
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">綜</span>
+              <span>
+                <span class="lvname">作者立場 <span class="vx-cert">🔵</span></span>
+                <span class="lvtag">這幾派不是誰對誰錯，是不同問題的答案</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-author">🔵 作者立場：這幾派不是『誰對誰錯』，是『不同問題的答案』。實務上我傾向——(1) 結構骨架用傳統線性（清楚、好教）；(2) 菁英換焦點時機參考板塊派的殘留效應；(3) 強度分配吸收極化派的『大量低強度＋少量高強度、慎用中間區』，但承認游泳金字塔型也常見、不教條化；(4) 評估診斷學 Olbrecht 的個體化測試精神（即使沒有實驗室，也別套通用百分比）；(5) 速度當全季校準錨（Sweetenham），不留到賽季末才碰。這是綜合判斷，不是文獻定論，故標 🔵。</p>
+              <p class="vx-pz-plain">週期化不是一本標準答案，而是幾派人在吵架。Bompa 那套（傳統線性：分準備期/競賽期/過渡期）只是歷史最久、最常被當教科書的一派，不等於唯一真理。另外幾派各問不同的問題：板塊派（Issurin）問『菁英不能什麼都同時練，那該按什麼順序集中練』；極化派（Seiler）問『各強度該占幾成』；Olbrecht 問『有氧無氧不是越大越好，怎麼配到最適』；Sweetenham 問『速度該放賽季末還是當全季的校準錨』。先搞清楚你要回答哪個問題（看上面 Q1–Q11），再決定參考哪一派——不要把任何一派當鐵律。</p>
+            </div>
+          </details>
+
+        </div>
+        
+
+        
+        
+        <div class="vx-pz-gap">
+          <span class="vx-pz-gap-h">🔴 研究缺口：感知 × 週期化（未驗證假設）</span>
+          <p>目前的週期化內容（量、強度、能量系統、減量）全部講『生理負荷』，完全沒接到 Vortex 的核心命題『所有游泳技術都建立在水感知上』。兩者像兩套平行系統。</p>
+          <p>🔴 作者假設：感知穩定度本身可能是一個該被週期化的變項。疲勞會讓動作退回『感知真正穩定的地方』（CLAUDE.md 核心命題），那麼高量/高疲勞的訓練塊理論上會壓低感知品質——若成立，則(1) 大量低強度有氧塊可能正是『鞏固感知』的窗口（低疲勞、可專注感覺）；(2) 高強度/減量前的疲勞峰可能是感知最脆弱、最不該導入新技術的時機；(3) Sweetenham『速度先行、別讓疲勞固化壞技術』與此假設方向一致。</p>
+          <p>若這個接點成立，週期化模組就不只是『排生理負荷』，而能回答 Vortex 真正關心的問題：在年度計畫的哪個階段、哪種疲勞狀態下，最適合建立 vs 鞏固 vs 不該碰感知技術。這會讓週期化從『借來的通用理論』變成『服務水感知命題的工具』。</p>
+          <p>🔴 純假設，未驗證。沒有文獻直接研究『感知品質的週期化』。列出此缺口是為了誠實標記研究方向，不是宣稱已解決。後續需：(1) 把『感知穩定度』操作化為可觀測指標；(2) 在 Observations/ 層累積疲勞 vs 感知退化的教學案例；(3) 才談得上驗證。</p>
+          <p class="vx-pz-plain">老實說一個缺口：現在整個週期化在講的是『練多少量、什麼強度、怎麼減量』，但 Vortex 整個專案的核心是『水感知』——這兩件事目前是脫節的。一個還沒驗證的假設是：感知本身可能也該被週期化。疲勞會讓動作退回感知真正穩的地方，所以大量輕鬆游的階段可能正好適合鞏固感覺，而賽前最累的時候最不該硬塞新技術。Sweetenham『別讓疲勞把壞技術練成習慣』剛好呼應這點。但這只是假設（標 🔴），沒有文獻支持，寫出來是為了標清楚研究方向，不是說已經想通了。</p>
+        </div>
+        
+
+        <p class="vx-cite"><span class="src">來源</span>：作者綜合 — Bompa &amp; Buzzichelli 6th ed.；Issurin 2008/2010/2016；Seiler 2010；Olbrecht 2000；Sweetenham &amp; Atkinson 2003；Hellard 2019</p>
+
+        <nav class="vx-flow">
+          <button type="button" data-target="overview"><span class="lbl">回到</span>← 概覽</button>
+          <button class="nx" type="button" data-target="structure"><span class="lbl">下一個主題</span>年度結構與週期 →</button>
+        </nav>
+      </section>
+
+      
+      <section class="vx-panel vx-move" id="structure">
+        <span class="vx-sec-no">主題 2 / 4</span>
+        <h2>年度結構與週期</h2>
+        <p class="vx-panel-lead">從一整年怎麼分階段，到一週課表怎麼排。點任一概念就地展開。</p>
+
+        <div class="vx-ladder">
+
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">階</span>
+              <span>
+                <span class="lvname">三大階段</span>
+                <span class="lvtag">準備 → 競賽 → 過渡：先打基礎、再推巔峰、最後恢復</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">每個年度計畫至少有三階段，依序建立基礎、最大化表現、再生恢復。</p>
+              
+              <div class="vx-pz-block">
+                <h3>準備期 <span class="vx-pz-en">Preparatory</span> <span class="vx-cert">🟡</span></h3>
+                <p>建立表現的生理基礎；準備期不足則競賽期表現無法最大化</p>
+                <p class="vx-pz-plain">準備期＝打底的階段。先把體能基礎建起來，這段練得不夠，後面比賽就拉不出好成績。前半段練得廣、雜一點，後半段越來越專項。</p>
+                
+                
+                
+                
+                <ul class="vx-pz-sub">
+                  
+                  <li><strong>一般準備</strong>
+                    · 25–33% of 準備期
+                    · 強度上限 ≤40% of 總量
+                    · 耐力運動 70–80% aerobic
+                    
+                    
+                    <br><span class="vx-pz-focus">用多元非專項與專項方法建立生理基礎</span>
+                  </li>
+                  
+                  <li><strong>專項準備</strong>
+                    
+                    
+                    
+                    · 70–80% sport-specific work
+                    
+                    <br><span class="vx-pz-focus">用專項模態發展項目所需特性</span>
+                  </li>
+                  
+                </ul>
+                
+              </div>
+              
+              <div class="vx-pz-block">
+                <h3>競賽期 <span class="vx-pz-en">Competitive</span> <span class="vx-cert">🟡</span></h3>
+                <p>表現能力最大化；維持 90% 專項 / 10% 非專項</p>
+                <p class="vx-pz-plain">競賽期＝把表現拉到最高的階段，幾乎全部練專項（90%）。正式比賽都在這段，主賽前面接減量（taper）。</p>
+                
+                
+                
+                
+                <ul class="vx-pz-sub">
+                  
+                  <li><strong>賽前</strong>
+                    
+                    
+                    
+                    
+                    · 通常僅熱身賽 / 展示賽
+                    
+                  </li>
+                  
+                  <li><strong>主競賽</strong>
+                    
+                    
+                    
+                    
+                    · 所有正式比賽；主賽前接 unloading/taper &#43; special preparation 子階段
+                    
+                  </li>
+                  
+                </ul>
+                
+              </div>
+              
+              <div class="vx-pz-block">
+                <h3>過渡期 <span class="vx-pz-en">Transition</span> <span class="vx-cert">🟡</span></h3>
+                <p>移除疲勞、心理放鬆、生物再生；用主動休息(active rest)而非完全停練</p>
+                <p class="vx-pz-plain">過渡期＝賽季結束後的休整，但不是完全躺平。重點是消疲勞、心理放鬆，用『主動休息』（輕量活動）取代完全停練。完全不動超過 4 週，體能就明顯掉了（見下面 detraining 表）。</p>
+                <p class="vx-pz-meta">時長：2–4 週（年輕運動員可延至 6 週）。一般 2–4 週，年輕運動員可延至 6 週，正常不超過 6 週</p>
+                <p class="vx-pz-meta">維持 40–50% 競賽期一般體能</p>
+                <p class="vx-pz-warn">⚠ 非 off-season；完全停練 &lt;4 週即顯著 detraining（見 detraining 安全表）</p>
+                
+              </div>
+              
+              <p class="vx-cite"><span class="src">來源</span>：Bompa《Periodization》6th ed. — Ch5 / Ch8 階段定義</p>
+            </div>
+          </details>
+
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">年</span>
+              <span>
+                <span class="lvname">年度計畫類型</span>
+                <span class="lvtag">一年衝幾個高峰決定計畫型態（單／雙／三／多巔峰）</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">巔峰數決定計畫型態；選哪一種由運動員水準與賽季結構決定（Selective Periodization）。</p>
+              <table class="vx-pz-table">
+                <thead><tr><th>型態</th><th>巔峰</th><th>週數結構</th><th>適用對象</th></tr></thead>
+                <tbody>
+                
+                  <tr>
+                    <td><strong>單週期</strong><br><span class="vx-pz-en">Monocycle</span> <span class="vx-cert">🟡</span></td>
+                    <td class="vx-pz-num">1</td>
+                    <td>
+                      全長 52 週。
+                      準備 28 週 / 競賽 12–22 週 / 過渡 4 週
+                      
+                      
+                      
+                      <span class="vx-pz-plain">一年只衝一個高峰。整年（52 週）裡準備期最長（≥28 週），最後對準一場大賽。適合新手、青少年、泳齡還淺、一年只有一個重要目標的泳者。</span>
+                    </td>
+                    <td>新手 / 青少年；季節性運動；耐力主導項目（北歐滑雪、划船、自行車、長跑）</td>
+                  </tr>
+                
+                  <tr>
+                    <td><strong>雙週期</strong><br><span class="vx-pz-en">Bi-cycle</span> <span class="vx-cert">🟡</span></td>
+                    <td class="vx-pz-num">2</td>
+                    <td>
+                      全長 26 週。
+                      準備 12–16 週 / 競賽 6–12 週 / 過渡 1–4 週
+                      
+                      <br><span class="vx-pz-focus">兩個短 monocycle 以極短 unloading/transition 相連；準備期1體積遠大於準備期2；競賽期2目標年度最重要賽事</span>
+                      
+                      <span class="vx-pz-plain">一年衝兩個高峰（如冬季＋夏季兩場大賽）。等於把一年切成兩個短的單週期接起來。這是競技泳者最典型的年計畫——Bompa 書裡舉的例子剛好就是游泳 200m。對應 ADM T2W 階段的『一年兩巔峰』。</span>
+                    </td>
+                    <td>進階 / 菁英；可達全國錦標資格者</td>
+                  </tr>
+                
+                  <tr>
+                    <td><strong>三週期</strong><br><span class="vx-pz-en">Tri-cycle</span> <span class="vx-cert">🟡</span></td>
+                    <td class="vx-pz-num">3</td>
+                    <td>
+                      
+                      
+                      三段分別約 20–24(冬)/16–18(春夏)/4–6(夏)；準備期 12–20/10–12/2–4；競賽期 4–6/8–12/2–4；過渡期 1–2/1–2/3–6
+                      <br><span class="vx-pz-focus">首準備期最長（含一般準備子階段）；最重要賽事置於第三 cycle；通常僅進階運動員使用</span>
+                      
+                      <span class="vx-pz-plain">一年衝三個高峰（如冬季錦標＋夏季全國＋世錦/奧運）。最重要那場放在第三段。只有高水準、能撐密集賽季的泳者才用。</span>
+                    </td>
+                    <td>進階 / 國際級（冬季錦標 &#43; 夏季全國 &#43; 世錦/奧運）</td>
+                  </tr>
+                
+                  <tr>
+                    <td><strong>多巔峰</strong><br><span class="vx-pz-en">Multiple-peak</span> <span class="vx-cert">🟡</span></td>
+                    <td class="vx-pz-num"></td>
+                    <td>
+                      
+                      準備 9–12 週 / 競賽 1–2 週 / 過渡 1–2 週
+                      
+                      <br><span class="vx-pz-focus">週數少、準備期明顯短；僅適合 4–6 年訓練底、高運動能力、能承受密集賽事者（如網球）</span>
+                      
+                      <span class="vx-pz-plain">一年衝很多個高峰（賽事極密集時用）。準備期被壓很短，風險高——要有 4–6 年訓練底子才扛得住。青少年不建議，容易受傷。游泳很少用。</span>
+                    </td>
+                    <td>資深運動員（4–6 年訓練背景）；不建議青少年（易多重傷害）</td>
+                  </tr>
+                
+                </tbody>
+              </table>
+              <div class="vx-pz-swim">
+                <span class="vx-pz-swim-h">🔵 游泳應用</span>
+                <ul>
+                
+                  
+                  <li><strong>單週期</strong>：🔵 游泳本質高度有氧，耐力型 monocycle（Fig 8.5）體積曲線需全程維持高；適合泳齡尚淺、單一目標賽季的泳者</li>
+                
+                  
+                  <li><strong>雙週期</strong>：🔵 競技泳者原型年計畫——Bompa Fig 5.11 即『游泳 200m bi-cycle（冬季 &#43; 夏季全國錦標）』；對映 ADM T2W『一年兩巔峰（春季選拔 &#43; 夏季國際賽）』</li>
+                
+                  
+                  <li><strong>三週期</strong>：🔵 高水準泳者多目標賽季；ADM T2W 終身競技階段可演進至此</li>
+                
+                  
+                  <li><strong>多巔峰</strong>：🔵 游泳少用純 multipeak；僅適用賽事極密集的職業 / 系列賽泳者</li>
+                
+                </ul>
+              </div>
+              <p class="vx-cite"><span class="src">來源</span>：Bompa《Periodization》6th ed. — Ch5 Table 5.1 + Selective Periodization；Ch8 Fig 8.4–8.8</p>
+            </div>
+          </details>
+
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">中</span>
+              <span>
+                <span class="lvname">中觀週期 <span class="vx-cert">🟡</span></span>
+                <span class="lvtag">2–6 週的中型循環；最常見 3 負荷週 + 1 恢復週</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-meta">時長 2–6 週（準備期 macrocycle 4–7 週）。</p>
+              <p class="vx-pz-meta">負荷型態 = 連續負荷週數 : 恢復（卸載）週數。例：3:1 = 練 3 個漸增負荷週 + 1 個減量週。</p>
+              <table class="vx-pz-table vx-pz-table--narrow">
+                <thead><tr><th>負荷:恢復（週）</th><th>適用</th></tr></thead>
+                <tbody>
+                
+                  <tr class="vx-pz-default">
+                    <td class="vx-pz-num">3:1 ★</td>
+                    <td>最常見（probably the most common）；契合身體自然生物節律</td>
+                  </tr>
+                
+                  <tr>
+                    <td class="vx-pz-num">4:1</td>
+                    <td>早期準備期</td>
+                  </tr>
+                
+                  <tr>
+                    <td class="vx-pz-num">2:1</td>
+                    <td>爆發專項準備</td>
+                  </tr>
+                
+                  <tr>
+                    <td class="vx-pz-num">2:2 / 1:1</td>
+                    <td>競賽期</td>
+                  </tr>
+                
+                  <tr>
+                    <td class="vx-pz-num">3:2</td>
+                    <td>高疲勞時</td>
+                  </tr>
+                
+                </tbody>
+              </table>
+              <p class="vx-pz-plain">Macrocycle＝由幾個週組成的中型週期（2–6 週）。最常見的節奏是『3:1』——練 3 個漸增負荷的週，接 1 個減量恢復週。這契合身體自然的疲勞—恢復節律。泳者特別累時改 3:2（多一週恢復）。</p>
+              <p class="vx-pz-dialogue">🟡 對話（板塊派 Issurin）：3:1 是『以時間切恢復』，板塊派改成『以殘留效應切換訓練焦點』——某能力的適應停練後能撐多久，就決定下一塊何時換。例如最大速度殘留只 ~5 天、有氧耐力 ~30 天（見 school_block 節點），所以速度要頻繁刺激、有氧可暫放。兩者不互斥：3:1 管的是『一塊之內的疲勞節律』，殘留效應管的是『塊與塊之間練什麼』。</p>
+              <div class="vx-pz-swim">
+                <span class="vx-pz-swim-h">🔵 游泳應用</span>
+                <p>🔵 游泳週課表結構基礎：3 個負荷週 &#43; 1 個 unloading 週為預設；高疲勞泳者改 3:2</p>
+              </div>
+              <p class="vx-cite"><span class="src">來源</span>：Bompa《Periodization》6th ed. — Ch7 Planning Training Cycles</p>
+            </div>
+          </details>
+
+          
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">塊</span>
+              <span>
+                <span class="lvname">板塊週期化（Issurin） <span class="vx-cert">🟡</span></span>
+                <span class="lvtag">高水準者不能什麼都同時練——按殘留效應序列集中</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">板塊派的根本主張：高水準運動員無法在同一階段同時有效提升所有能力，因為許多訓練刺激彼此不相容（有氧 AMPK 路徑 vs 肌力 mTOR 路徑拮抗），會產生衝突反應。解法是『序列集中』——一次只把高度集中的負荷指向極少數相容能力，靠前一塊的殘留效應保住已得適應。</p>
+              <p class="vx-pz-meta">殘留效應（某能力停練後能撐多久，決定何時換塊）：</p>
+              <table class="vx-pz-table vx-pz-table--narrow">
+                <thead><tr><th>能力</th><th>殘留天數</th></tr></thead>
+                <tbody>
+                
+                  <tr><td>有氧耐力 <span class="vx-cert">🟡</span></td><td class="vx-pz-num">30 ± 5 天</td></tr>
+                
+                  <tr><td>最大肌力 <span class="vx-cert">🟡</span></td><td class="vx-pz-num">30 ± 5 天</td></tr>
+                
+                  <tr><td>無氧糖解耐力 <span class="vx-cert">🟡</span></td><td class="vx-pz-num">18 ± 4 天</td></tr>
+                
+                  <tr><td>肌力耐力 <span class="vx-cert">🟡</span></td><td class="vx-pz-num">15 ± 5 天</td></tr>
+                
+                  <tr><td>最大速度（磷酸原） <span class="vx-cert">🟡</span></td><td class="vx-pz-num">5 ± 3 天</td></tr>
+                
+                </tbody>
+              </table>
+              <p class="vx-pz-warn">⚠ 🔴 上述天數在教練界廣泛流通（引自 Issurin 2008 書，據轉引為 Table 2.4），但『± N 天』的原始統計依據（實驗數據還是專家估計）、確切頁碼、方法論細節無法追溯至一手來源。使用時必須加注『原始方法論待核』。</p>
+              <p class="vx-pz-meta">板塊結構（一個完整序列構成一個訓練階段）：</p>
+              <ul class="vx-pz-sub">
+              
+                <li><strong>累積板塊</strong> · 建立一般耐力、基礎肌力、協調的訓練儲備（基礎能力）<br><span class="vx-pz-focus">負荷：強度低中、量大｜≈3–6（🔴 精確範圍待核） 週</span></li>
+              
+                <li><strong>轉化板塊</strong> · 把基礎儲備轉化為專項能力（專項耐力、爆發力、賽事技術）<br><span class="vx-pz-focus">負荷：強度高、量中、消耗最大｜≈2–4（🔴 待核） 週</span></li>
+              
+                <li><strong>實現板塊</strong> · 完全恢復、最大速度、賽事戰術，以比賽/測驗收尾<br><span class="vx-pz-focus">負荷：強度極高、量最小｜≈1–2（🔴 待核） 週</span></li>
+              
+              </ul>
+              <p class="vx-pz-meta">一個完整『累積→轉化→實現』序列構成一個訓練階段，典型 8–12 週；多階段疊加可靈活安排多峰</p>
+              <p class="vx-pz-dialogue">🟡 對傳統線性（Bompa/Matveyev）的三點批評（Issurin 2010）：(1) 長準備期→競賽期結構難產生現代賽季要求的多峰；(2) 長期混合訓練對已高度適應的菁英進步率遞減（刺激太分散）；(3) 不相容負荷同時練會互相干擾。核心張力：菁英能否從混合訓練持續受益——Bompa 說能（調比例），Issurin 說不能（要序列化高集中負荷）。</p>
+              <div class="vx-pz-swim">
+                <span class="vx-pz-swim-h">🟠 游泳應用</span>
+                <p>🟠 游泳早期應用：蘇聯教練 Koshkin 為三屆奧運冠軍 Salnikov 設計 10 週板塊系統（速度技術／肌力／有氧／減量比賽序列）。🔴 此案例廣見於教學材料但一手出處待核。當代游泳文獻多採『傳統模型＋強度分布分析』，較少嚴格依循板塊架構，但『階段專注』概念已廣泛影響備賽設計（對照 Almeida 2022, PMC9536385，400IM 世界級個案採傳統三巨集週期）。</p>
+              </div>
+              <p class="vx-pz-warn">🟢 學界批評：(1) 殘留效應個體差異大，平均值±SD 難直接套用；(2) 證據基礎有限——Breil 2019 meta（PMID 31802956）證實板塊在 VO2max/最大功率有優越表現，但研究數量少、受試多為高水準耐力選手；(3) 累積/轉化/實現的邊界操作上不夠清晰，教練詮釋差異大。不適合初中級者（達超補償只需 2–3 課，不需長期集中負荷策略）。</p>
+              <p class="vx-pz-author">🔵 作者取用：板塊派最值得吸收的不是整套換掉 Bompa，而是『換訓練焦點時用殘留效應當依據』這個操作原則——尤其菁英多峰賽季，比死守 3:1 時間節律更貼生理。但殘留天數要當『量級參考』不是『精確處方』（個體差異＋原始方法論待核）。</p>
+              <p class="vx-pz-plain">板塊週期化（Issurin）跟 Bompa 最大的不同：Bompa 主張準備期可以同時把很多能力一起練；Issurin 說高水準選手做不到——很多訓練刺激會互相打架（大量有氧會干擾長肌力），所以要『一次只集中練一兩項』，按順序排。怎麼決定何時換下一項？看『殘留效應』——某能力停練後能撐多久：有氧耐力、最大肌力約撐 30 天，無氧糖解約 18 天，最大速度只撐 ~5 天。所以速度要常常練、有氧可以先放一陣子。一個完整週期（累積→轉化→實現）約 8–12 週。注意：這套是為菁英設計的，新手用不到；那些殘留天數是廣為流傳的參考值，原始實驗依據其實沒查到，別當精確處方。</p>
+              <p class="vx-cite"><span class="src">來源</span>：Issurin 2008《Block Periodization》; Issurin 2008 (PMID 18212712); 2010 (DOI 10.2165/11319770); 2016 (PMID 26573916); 2019 (PMID 30411234); Breil 2019 meta (PMID 31802956)</p>
+            </div>
+          </details>
+          
+
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">微</span>
+              <span>
+                <span class="lvname">微觀週期 <span class="vx-cert">🟡</span></span>
+                <span class="lvtag">一週，排課表的最小單位（發展／競賽／恢復／卸載型）</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-meta">單位：1 週（游泳課表最小規劃單位）。</p>
+              <ul class="vx-pz-sub">
+              
+                <li><strong>發展型</strong></li>
+              
+                <li><strong>競賽型</strong> · 賽前 3–5 天達峰</li>
+              
+                <li><strong>恢復再生型</strong></li>
+              
+                <li><strong>達峰/卸載型</strong> · 體積降 ≥50%、強度降 5–10%</li>
+              
+              </ul>
+              <p class="vx-pz-plain">Microcycle＝一週，是排課表的最小單位。一週有不同類型：發展型（往上堆）、競賽型（賽前 3–5 天達峰）、恢復型、卸載型（量砍一半以上）。游泳就以『週』為單位排課。</p>
+              <div class="vx-pz-swim">
+                <span class="vx-pz-swim-h">🔵 游泳應用</span>
+                <p>🔵 週為游泳課表最小規劃單位；unloading 微週期用於賽前與 macrocycle 銜接</p>
+              </div>
+              <p class="vx-cite"><span class="src">來源</span>：Bompa《Periodization》6th ed. — Ch7 Planning Training Cycles</p>
+            </div>
+          </details>
+
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">停</span>
+              <span>
+                <span class="lvname">停練衰退安全表 <span class="vx-cert">🟢</span></span>
+                <span class="lvtag">停 4 週 VO₂max 掉 14%——休季別整個躺平</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">過渡期與傷停排課的安全底線：知道停多久流失多少，才知道過渡期該保留多少 active rest。</p>
+              <table class="vx-pz-table vx-pz-table--narrow">
+                <thead><tr><th>停練時間</th><th>VO₂max 流失</th></tr></thead>
+                <tbody>
+                
+                  <tr><td>4 天</td><td class="vx-pz-num">4%</td></tr>
+                
+                  <tr><td>3 週</td><td class="vx-pz-num">7%</td></tr>
+                
+                  <tr><td>4 週</td><td class="vx-pz-num">14%</td></tr>
+                
+                  <tr><td>8 週</td><td class="vx-pz-num">20%</td></tr>
+                
+                </tbody>
+              </table>
+              <p class="vx-pz-meta">4 週完全停力量訓練：最大肌力降 6–10%、最大功率降 14–17%；菁英運動員衰退更快</p>
+              <p class="vx-pz-meta">短期(&lt;4週)停練：力竭時間降 4–25%</p>
+              <p class="vx-pz-warn">⚠ 短時間恢復訓練可逆轉；完全停練 &lt;4 週即顯著 detraining → 過渡期務必 active rest</p>
+              <div class="vx-pz-swim">
+                <span class="vx-pz-swim-h">🔵 游泳應用</span>
+                <p>🔵 游泳排賽季間休 / 傷停課表時，過渡期 &gt;4 週需保留低量 active rest 以免 VO2max 大幅流失</p>
+              </div>
+              <p class="vx-cite"><span class="src">來源</span>：Bompa《Periodization》6th ed. — Ch8 Table 8.2；Mujika &amp; Padilla 2000</p>
+            </div>
+          </details>
+
+          
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">泳</span>
+              <span>
+                <span class="lvname">游泳年度結構（菁英實證） <span class="vx-cert">🟢</span></span>
+                <span class="lvtag">一年 2–4 個中週期、86–90% 量為低強度（Hellard 2019）</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">不靠通用理論，直接看菁英游泳的年度結構文獻長什麼樣。</p>
+              <table class="vx-pz-table vx-pz-table--narrow">
+                <tbody>
+                  <tr><td>每年中週期數</td><td class="vx-pz-num">2–4（菁英游泳常見；Hellard 2019）</td></tr>
+                  <tr><td>中週期長度</td><td class="vx-pz-num">≈15 週/macrocycle（Hellard 2019）</td></tr>
+                  <tr><td>低強度量占比</td><td class="vx-pz-num">86–90% 訓練量落在 ≤4 mmol（低強度為主，Hellard 2019）</td></tr>
+                </tbody>
+              </table>
+              <p class="vx-pz-meta">🟢 400m 個人混合式單一菁英個案（n=1，González-Ravé 2022）：52 週分 3 個 macrocycle，週量在 24–90 km 間波動</p>
+              <p class="vx-pz-warn">🔴 不收『60–80 km/週、9–10 課/週』這類距離選手週量——屬未經查證的網路共識，無原始文獻</p>
+              <p class="vx-pz-plain">菁英游泳的年度結構長怎樣（有實證的）：一年大概切 2–4 個中週期（每個約 15 週）。最反直覺的數字——高達 86–90% 的訓練量是低強度（血乳酸 ≤4），不是整天操高強度。有一個 400 混合式選手的個案，全年 52 週分 3 段，週泳量在 24–90 km 間起伏（這是單一個案，不是通則）。</p>
+              <p class="vx-cite"><span class="src">來源</span>：Hellard et al. 2019 (PMC6470949); González-Ravé et al. 2022 (PMID 36247944, n=1)</p>
+            </div>
+          </details>
+          
+
+          
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">齡</span>
+              <span>
+                <span class="lvname">青少年分齡週期化（LTAD） <span class="vx-cert">🟢</span></span>
+                <span class="lvtag">按年齡分階段；PHV 與 trainability 窗口須謹慎（含爭議）</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">青少年怎麼按年齡分階段練，對齊 ADM 發展階段。</p>
+              <p class="vx-pz-meta">Swimming Canada 分齡（與 ADM 對齊）：學習訓練 L2T 女 8–11/男 9–12；訓練為訓練 T2T 女 11–15/男 12–16；訓練為競賽 T2C 女 15–21/男 16–23；訓練為勝利 T2W 女 18&#43;/男 19&#43;</p>
+              <p class="vx-pz-meta">生長陡增高峰 PHV：女 ≈12.5 歲、男 ≈14 歲（平均值，個體差異大）</p>
+              <p class="vx-pz-warn">⚠️ contested：『trainability 關鍵窗口』（某些素質在特定年齡有黃金訓練期）是有爭議的概念。Ford et al. 2011（PMID 21259156）與 van Hooren &amp; De Ste Croix 2020 批判其缺乏可靠實證。引用時必須標明爭議，不可當定論。</p>
+              <p class="vx-pz-warn">🔴 不收分齡 km/週對照表——查無 Swimming Canada 原始數據表；T:C（訓練比賽比）60:40/50:50/25:75 僅 Balyi 二手轉述，標弱不入正文</p>
+              <p class="vx-pz-plain">青少年怎麼分齡練（對齊 ADM 階段）：大致按年齡分學習訓練→訓練為訓練→訓練為競賽→訓練為勝利。生長陡增高峰（長最快的時候）女生約 12.5 歲、男生約 14 歲，可作排訓練的參考。但要特別小心一個流行說法——『某些能力有黃金訓練窗口、錯過就補不回』，這在學界是有爭議的（Ford 2011 等批判它證據不足）。家長和教練別把它當鐵律，以免硬逼小孩在特定年齡猛練某項。</p>
+              <p class="vx-cite"><span class="src">來源</span>：Swimming Canada LTAD 分齡; PHV 文獻; Ford et al. 2011 (PMID 21259156); van Hooren &amp; De Ste Croix 2020</p>
+            </div>
+          </details>
+          
+
+        </div>
+
+        <nav class="vx-flow">
+          <button type="button" data-target="schools"><span class="lbl">上一個主題</span>← 週期化的幾種流派</button>
+          <button class="nx" type="button" data-target="taper"><span class="lbl">下一個主題</span>賽前減量與達峰 →</button>
+        </nav>
+      </section>
+
+      
+      <section class="vx-panel vx-move" id="taper">
+        <span class="vx-sec-no">主題 3 / 4</span>
+        <h2>賽前減量與達峰</h2>
+        <p class="vx-panel-lead">怎麼在比賽前把疲勞卸掉、把適應推上巔峰。點任一概念就地展開。</p>
+
+        <div class="vx-ladder">
+
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">減</span>
+              <span>
+                <span class="lvname">什麼是減量 <span class="vx-cert">🟢</span></span>
+                <span class="lvtag">賽前慢慢降量，消疲勞、保體能，比賽當天有料又不累</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">在一段可變期間內，漸進、非線性地降低訓練負荷，目的是移除日常訓練累積的生理與心理壓力、使表現最佳化</p>
+              <p class="vx-pz-meta">讓減量期前累積的訓練適應（fitness）保留，同時消除疲勞（fatigue）→ 表現 = fitness − fatigue 的差值在減量末達最大</p>
+              <p class="vx-pz-plain">減量＝比賽前那幾週，故意把訓練量慢慢降下來。關鍵在：之前練出來的本事（體能）會留著，但累積的疲勞會被消掉。比賽當天身體既有料又不累，成績自然跑得出來。</p>
+            </div>
+          </details>
+
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">鈕</span>
+              <span>
+                <span class="lvname">四個操作旋鈕</span>
+                <span class="lvtag">量、強度、頻率、時長——砍量保強度</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <table class="vx-pz-table">
+                <thead><tr><th>變數</th><th>操作</th><th>角色</th></tr></thead>
+                <tbody>
+                
+                  <tr>
+                    <td><strong>訓練量</strong> <span class="vx-cert">🟢</span></td>
+                    <td>
+                      降 41–60%（重負荷可至 60–90%）
+                      
+                      
+                      
+                    </td>
+                    <td>減量主旋鈕——量的下降是消除疲勞的最大來源<span class="vx-pz-plain">比賽前要砍的主要是『游多少』——總量。一般砍掉四到六成；如果之前操得很兇，可以砍到六到九成。砍量是消疲勞最有效的一招。</span></td>
+                  </tr>
+                
+                  <tr>
+                    <td><strong>訓練強度</strong> <span class="vx-cert">🟡</span></td>
+                    <td>
+                      
+                      
+                      維持中高強度以保留適應與技術；強度若一併大降會導致 detraining
+                      <br>減量第一週可微調：功率類 −5–10%、耐力類 −20–30%，之後回拉至接近賽強度
+                    </td>
+                    <td>強度是『保適應』旋鈕，不可大降<span class="vx-pz-plain">強度（游多快）不能跟著砍。還是要保留一些接近比賽配速的快游，不然身體會『退掉』，比賽當天反而沒有速度感。</span></td>
+                  </tr>
+                
+                  <tr>
+                    <td><strong>訓練頻率</strong> <span class="vx-cert">🟡</span></td>
+                    <td>
+                      
+                      
+                      維持 ≥80% 平時頻率以保技術手感與神經肌肉協調；頻率大降會掉技術
+                      
+                    </td>
+                    <td>頻率是『保技術』旋鈕<span class="vx-pz-plain">下水的次數（一週幾練）盡量維持，至少留平常的八成。少下水會掉手感、掉技術——這跟消疲勞是兩回事，不能混為一談。</span></td>
+                  </tr>
+                
+                  <tr>
+                    <td><strong>減量時長</strong> <span class="vx-cert">🟢</span></td>
+                    <td>
+                      
+                      8–14 天
+                      
+                      
+                    </td>
+                    <td>時長旋鈕——與減量前疲勞程度成正比<span class="vx-pz-plain">減量要做多久？大概一到兩週（8–14 天）。之前操越兇、累越多，就需要拉長一點；太短疲勞沒消完，太長體能反而開始流失。</span></td>
+                  </tr>
+                
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">峰</span>
+              <span>
+                <span class="lvname">減量曲線與達峰窗</span>
+                <span class="lvtag">快速指數遞減增益最大；巔峰只撐 7–14 天</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <ul class="vx-pz-sub">
+              
+                <li><strong>線性遞減</strong> <span class="vx-cert">🟡</span><br><span class="vx-pz-focus">負荷等量直線下降；增益低於指數型</span><span class="vx-pz-plain">每天等量往下降一直線。最單純，但效果比指數型差。</span></li>
+              
+                <li><strong>階梯式（單次驟降）</strong> · 表現增益 ≈1.2–1.5% <span class="vx-cert">🟢</span><br><span class="vx-pz-focus">一次性把負荷砍到固定低水平維持；增益最小</span><span class="vx-pz-plain">一次把量砍到一個低水平就維持不動。最省事，但增益最小（大約進步 1–1.5%）。</span></li>
+              
+                <li class="vx-pz-hi"><strong>快速指數遞減</strong> · 表現增益 ≈4.0–5.0% <span class="vx-cert">🟢</span> ★首選<br><span class="vx-pz-focus">前段快降、後段趨緩的指數曲線；元分析中表現增益最大，為首選型態</span><span class="vx-pz-plain">前面降得快、後面慢慢收的曲線。研究裡這種增益最大（約進步 4–5%），是首選做法。</span></li>
+              
+              </ul>
+              <p class="vx-pz-meta">達峰窗：巔峰狀態可維持約 7–14 天，主賽應落在此窗內。<span class="vx-cert">🟡</span></p>
+              <p class="vx-pz-warn">⚠ 巔峰窗外（&gt;14 天）表現回落；多目標賽季須以多個短減量分別對準各窗（見 structure.yaml multipeak）</p>
+              <p class="vx-pz-plain">巔峰狀態不是無限期的——大概只能撐 7–14 天。所以主賽一定要排在這個窗口裡。一個賽季有好幾場重要比賽時，就用幾段短減量，分別對準每一場（見 structure.yaml 多巔峰）。</p>
+            </div>
+          </details>
+
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">泳</span>
+              <span>
+                <span class="lvname">游泳減量應用</span>
+                <span class="lvtag">對準主賽推 8–14 天、量降 40–60%；約進步 2–3%</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <div class="vx-pz-swim">
+                <span class="vx-pz-swim-h">🔵 游泳應用</span>
+                <p>🔵 游泳文獻常見賽前 50–90% 量遞減（與 Bompa 41–60%／重負荷 60–90% 區間一致）</p>
+                <p>🟢 模型化游泳選手研究：三週減量平均 &#43;2.90±1.50%、四週 &#43;3.20±1.70% 表現增益（Mujika et al. 1996, PMID 8775162, N=18）</p>
+                <p>🟢 雪梨 2000 奧運游泳：賽前三週減量期間表現平均提升 &#43;2.18±1.50%（男 &#43;2.57%／女 &#43;1.78%，99 筆成績；Mujika/Padilla/Pyne 2002, PMID 12439774）；奧運獎牌的成績差距常在 0.5–1% 量級，故數個百分點的減量增益足以決定名次</p>
+                <p>🔵 swim-coach 賽前課表：對準主賽往前推 8–14 天，量降至平時 40–60%，維持頻率與賽強度短組，曲線採快速指數型</p>
+              </div>
+              <p class="vx-pz-plain">游泳的實際做法：對準主賽往前推 8–14 天開始減量，總量降到平常的四到六成，但下水次數和短距離快游照舊，曲線用前快後慢的指數型。研究顯示游泳選手減三週平均能進步約 2–3%——在獎牌只差零點幾個百分點的場合，這幾個百分點足以決定名次。</p>
+            </div>
+          </details>
+
+        </div>
+
+        <p class="vx-cite"><span class="src">來源</span>：Bompa《Periodization》6th ed. — Ch9；Mujika &amp; Padilla 2003 (PMID 12840640)；Mujika et al. 1996 (PMID 8775162)；Mujika/Padilla/Pyne 2002 (PMID 12439774)；Bosquet et al. 2007 (PMID 17762369)</p>
+
+        <nav class="vx-flow">
+          <button type="button" data-target="structure"><span class="lbl">上一個主題</span>← 年度結構與週期</button>
+          <button class="nx" type="button" data-target="zones"><span class="lbl">下一個主題</span>能量系統與強度分區 →</button>
+        </nav>
+      </section>
+
+      
+      <section class="vx-panel vx-move" id="zones">
+        <span class="vx-sec-no">主題 4 / 4</span>
+        <h2>能量系統與強度分區</h2>
+        <p class="vx-panel-lead">Bompa 通用分區、極化派（Seiler）與 Olbrecht 的對話，加上游泳專項的分區與供能文獻。點任一概念就地展開。</p>
+
+        <div class="vx-ladder">
+
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">6</span>
+              <span>
+                <span class="lvname">Bompa 六分區 <span class="vx-cert">🟡</span></span>
+                <span class="lvtag">用最大表現百分比分 6 區；賽配速 = zone 2</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <table class="vx-pz-table">
+                <thead><tr><th>分區</th><th>訓練需求</th><th>% 最大表現</th><th>強度</th></tr></thead>
+                <tbody>
+                
+                  <tr><td class="vx-pz-num">1</td><td>非常高</td><td>90–100%</td><td>最大</td></tr>
+                
+                  <tr><td class="vx-pz-num">2</td><td>高</td><td>80–90%</td><td>重</td></tr>
+                
+                  <tr><td class="vx-pz-num">3</td><td>中</td><td>70–80%</td><td>中</td></tr>
+                
+                  <tr><td class="vx-pz-num">4</td><td>低</td><td>50–70%</td><td>低</td></tr>
+                
+                  <tr><td class="vx-pz-num">5</td><td>非常低</td><td>&lt;50%</td><td>非常低</td></tr>
+                
+                  <tr><td class="vx-pz-num">recovery</td><td>恢復</td><td>無訓練</td><td>恢復</td></tr>
+                
+                </tbody>
+              </table>
+              <p class="vx-pz-meta">比賽配速 = zone 2；Bompa 建議每週至少 50% 訓練時間落在比賽配速強度。高於賽配速由無氧供能主導，低於賽配速由有氧供能主導</p>
+              <p class="vx-pz-dialogue">🔵 對話（極化派 Seiler）：Bompa『每週 ≥50% 落在比賽配速』與 Seiler『80% 低強度＋20% 高強度、避開中間區』表面上直接衝突，但兩套系統的『區』定義不同，不能直接數字對比——Bompa zone 2（賽配速，80–90% 最大表現）對應的可能是 Seiler 的 Z3（高強度）邊界而非『中間區』。若 Bompa 賽配速＝Seiler Z3，則『50% 在賽配速』比『80/20』要求更多高強度（方向相反）；若＝Seiler Z2，則 Bompa 等於主張大量閾值，與極化派『避中間』直接衝突。這個張力本身就是要呈現的辯論，不強行統一（見 school_polarized）。</p>
+              <p class="vx-pz-plain">Bompa 把訓練強度分成 6 區，用『佔最大表現的百分比』定義。zone 1 最吃力（90–100%），zone 5 最輕（&lt;50%），recovery 是不下水。比賽配速落在 zone 2。一個好記的原則：每週至少一半的訓練時間要落在比賽配速強度。注意這條原則有爭議——極化派（下面 school_polarized）主張剛好相反：大部分量應該是輕鬆的、少碰中間強度。</p>
+            </div>
+          </details>
+
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">HR</span>
+              <span>
+                <span class="lvname">心率 / VO₂max / 能量系統對照 <span class="vx-cert">🟡</span></span>
+                <span class="lvtag">把心率攝氧對應到主導能量系統</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <table class="vx-pz-table">
+                <thead><tr><th>% HRmax</th><th>% VO₂max</th><th>主導能量系統</th><th>訓練目標</th></tr></thead>
+                <tbody>
+                
+                  <tr><td class="vx-pz-num">50%</td><td class="vx-pz-num">28%</td><td>氧化-糖解（有氧）</td><td>主動恢復 / 有氧基礎</td></tr>
+                
+                  <tr><td class="vx-pz-num">70%</td><td class="vx-pz-num">56%</td><td>糖解有氧</td><td>廣度有氧能力 (extensive aerobic capacity)</td></tr>
+                
+                  <tr><td class="vx-pz-num">80%</td><td class="vx-pz-num">70%</td><td>糖解無氧-有氧</td><td>強度有氧能力 / 廣度有氧功率</td></tr>
+                
+                  <tr><td class="vx-pz-num">90%</td><td class="vx-pz-num">83%</td><td>糖解有氧-無氧</td><td>強度有氧功率 (intensive aerobic power)</td></tr>
+                
+                  <tr><td class="vx-pz-num">96%</td><td class="vx-pz-num">90%</td><td>糖解無氧-有氧</td><td>強度有氧功率 &#43; 廣度無氧能力</td></tr>
+                
+                  <tr><td class="vx-pz-num">100%</td><td class="vx-pz-num">100%</td><td>最大</td><td>無氧功率 / 最大</td></tr>
+                
+                </tbody>
+              </table>
+              <p class="vx-pz-plain">這張表把心率／攝氧量對應到身體主要靠哪套能量系統供能。心率越高、越偏無氧；心率 50% 上下是有氧恢復區。用途是確認某一組課實際練到的是哪個系統，避免賽季階段跟能量系統錯配。</p>
+            </div>
+          </details>
+
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">低</span>
+              <span>
+                <span class="lvname">低強度耐力方法（LIEE） <span class="vx-cert">🟡</span></span>
+                <span class="lvtag">主動恢復／長慢游／節奏游；低強度與高強度不可亂混</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-warn">⚠ LIEE（低強度）與 HIEE（高強度）不可混用；耐力型態選錯會降低專項表現</p>
+              <table class="vx-pz-table">
+                <thead><tr><th>方法</th><th>每週次數</th><th>單次時長</th><th>強度</th></tr></thead>
+                <tbody>
+                
+                  <tr><td><strong>主動恢復</strong></td><td class="vx-pz-num">1–2 次</td><td>30–60 min</td><td>&lt;60% HR / &lt;40% VO2max</td></tr>
+                
+                  <tr><td><strong>長慢距離(LSD)</strong></td><td class="vx-pz-num">1–2 次</td><td>≥30 min</td><td>66–80% HR / 50–70% VO2max</td></tr>
+                
+                  <tr><td><strong>連續配速/節奏</strong></td><td class="vx-pz-num">1–2 次</td><td>20–30 min</td><td>乳酸閾值 (LT)</td></tr>
+                
+                  <tr><td><strong>有氧間歇</strong></td><td class="vx-pz-num">1–2 次</td><td>20–40 min</td><td>80–100% HR / 70–100% VO2max</td></tr>
+                
+                  <tr><td><strong>無氧間歇</strong></td><td class="vx-pz-num">1–2 次</td><td>&lt;2 min 衝刺 (W:R 1:0.5–1:5)</td><td>最大 / 超最大</td></tr>
+                
+                  <tr><td><strong>法特雷克(變速跑)</strong></td><td class="vx-pz-num">1 次</td><td>&gt;30 min</td><td>變動</td></tr>
+                
+                </tbody>
+              </table>
+              <p class="vx-pz-plain">低強度耐力的幾種練法：主動恢復、長慢游、節奏游、有氧間歇等。最重要的一句警告——低強度耐力和高強度耐力不能亂混著練，耐力型態選錯會拖累專項表現。</p>
+            </div>
+          </details>
+
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">耐</span>
+              <span>
+                <span class="lvname">耐力週期化三階段（單巔峰） <span class="vx-cert">🟡</span></span>
+                <span class="lvtag">廣度有氧 → 有氧+專項 → 專項耐力，順序不能顛倒</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <ul class="vx-pz-sub">
+              
+                <li><strong>有氧耐力</strong> · 過渡期 &#43; 準備期早期（1–3 個月）<br><span class="vx-pz-focus">建立有氧基礎、廣度有氧能力</span></li>
+              
+                <li><strong>有氧&#43;專項</strong> · 準備期中後段<br><span class="vx-pz-focus">有氧基礎上疊加專項代謝需求</span></li>
+              
+                <li><strong>專項耐力</strong> · 準備期晚期 &#43; 競賽期<br><span class="vx-pz-focus">對映比賽能量系統的專項耐力</span></li>
+              
+              </ul>
+              <p class="vx-pz-dialogue">🟡 對話（Olbrecht）：Bompa 在這個有氧建構階段的主力工具是『閾值配速大量堆量』，Olbrecht 直接質疑——他稱『在最大乳酸穩態速度訓練就能提升耐力』是『魔法子彈謬誤』，主張閾值訓練既非有氧能力的最佳刺激、也非有效的無氧刺激。他的替代：大量輕鬆有氧量＋嵌入短暫（~30–35 秒、超 VO2max）衝刺，並在基礎期刻意排除長間歇閾值組（見 olbrecht_model）。</p>
+              <p class="vx-pz-plain">耐力是分階段堆起來的：先用廣度有氧打底（過渡期＋準備期早期），再疊上專項代謝需求，最後練對準比賽的專項耐力。順序不能顛倒——沒打好有氧底就直接衝專項，後面會撐不住。不過『有氧底＝大量練閾值』這點 Olbrecht 反對（下面 olbrecht_model），他主張改用輕鬆量＋短衝刺。</p>
+            </div>
+          </details>
+
+          
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">極</span>
+              <span>
+                <span class="lvname">極化分布（Seiler / TID） <span class="vx-cert">🟢</span></span>
+                <span class="lvtag">不問每區強度多少，問每區各占幾成——80/20、避中間區</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">🟢 以通氣閾值 VT1/VT2 劃三區（對應 swim_three_zone 的乳酸三區，但邊界稍浮動不可當精確定論）：Z1 &lt; VT1（≤~2 mmol，可全程對話）；Z2 VT1–VT2（~2–4 mmol，閾值附近）；Z3 &gt; VT2（&gt;4 mmol，間歇強度）。</p>
+              <table class="vx-pz-table">
+                <thead><tr><th>型態</th><th>Z1</th><th>Z2</th><th>Z3</th><th>說明</th></tr></thead>
+                <tbody>
+                
+                  <tr><td><strong>極化型</strong></td><td class="vx-pz-num">~75–80%</td><td class="vx-pz-num">~5–10%</td><td class="vx-pz-num">~15–20%</td><td>啞鈴型，Z2 被刻意壓低</td></tr>
+                
+                  <tr><td><strong>金字塔型</strong></td><td class="vx-pz-num">最高</td><td class="vx-pz-num">中</td><td class="vx-pz-num">最低</td><td>三區由低到高遞減</td></tr>
+                
+                  <tr><td><strong>閾值型</strong></td><td class="vx-pz-num">中</td><td class="vx-pz-num">高</td><td class="vx-pz-num">低</td><td>Z2 為主力強度</td></tr>
+                
+                </tbody>
+              </table>
+              <p class="vx-pz-meta">🟢 Seiler &amp; Kjerland 2006（11 名菁英越野滑雪青少年、32 天）：Z1 75%／Z2 8%／Z3 17%（以 session 數計）。Seiler 2010 綜述：約 80% Z1＋20% Z3、Z2 近 0%。</p>
+              <p class="vx-pz-meta">🔵『80/20』的單位是 session 數（每週幾次低/高強度課），不是時間百分比；若改時間加權，因 Z1 每次更長，低強度比例會更高（可能 85–90%）。跨研究比較時這個差異很關鍵。</p>
+              <p class="vx-pz-meta">🔵 為何主張少練 Z2：(1) 應激-回報比差——夠高產生疲勞與乳酸，又不夠高激發 Z3 的強適應信號；(2) 慢性 Z2 疲勞壓縮練 Z3 的空間；(3) 閾值配速難精確維持、易漂進灰色地帶。注意：這是批評『以 Z2 為主力』的閾值模型，不否定 Z2 在特定場景（taper 前節奏、特定賽事）的角色。</p>
+              <p class="vx-pz-meta">🟢 Stöggl &amp; Sperlich 2014（唯一 RCT，48 名訓練有素者、9 週、四組）：POL 組 VO2peak &#43;11.7%、力竭時間 &#43;17.4%，皆優於高量低強度／閾值／HIIT 三組。限制：僅單一 RCT、9 週偏短、非頂級菁英。</p>
+              <p class="vx-pz-warn">🔵 歸因爭議：菁英自然趨向極化，可能是『能承受高量後才能這樣練』（果），而非『這樣練才成菁英』（因）——觀察研究無法定因果方向。</p>
+              <div class="vx-pz-swim">
+                <span class="vx-pz-swim-h">🟢 游泳實證挑戰</span>
+                <p>🟢 游泳實證挑戰極化教條：Crowley 2021（PMID 33952709，9 研究 162 筆 TID）中金字塔型 89 例（多數）、極化型 65 例、閾值型 8 例——游泳金字塔型其實比極化型更常見。即便衝刺選手（Barbosa 2019）仍約 87–90% 量在 Z1，但型態更接近極化（Z3 比例高、Z2 壓縮）。長距離（400m&#43;）偏金字塔、短距離偏極化；目前無單一型態可宣稱『所有泳者最佳』。</p>
+              </div>
+              <p class="vx-pz-author">🔵 作者取用：值得吸收的是『大部分量該是輕鬆的、慎用中間閾值區』這個方向性原則（它也呼應 Hellard 2019 菁英游泳 86–90% 量在 ≤4mmol）；但別把『80/20 極化』當游泳鐵律——游泳金字塔型更常見，依距離與個體調整。</p>
+              <p class="vx-pz-plain">極化派（Seiler）問的不是『每區強度多少』而是『每區各占幾成』。他觀察菁英耐力選手，發現他們自然形成『大量輕鬆＋少量超吃力、中間幾乎不練』的分布——大約 80% 低強度、20% 高強度（這個 80/20 算的是課次，不是時間）。為什麼避開中間（閾值）區？因為那強度『高不成低不就』：累積疲勞不少，但刺激又不如真正的高強度。唯一的 RCT（Stöggl 2014）支持極化最有效。但游泳要特別注意：游泳實證裡其實『金字塔型』比『極化型』更常見（Crowley 2021），所以別把 80/20 當鐵律——長距離偏金字塔、短距離偏極化，看項目和個人調整。</p>
+              <p class="vx-cite"><span class="src">來源</span>：Seiler &amp; Kjerland 2006 (PMID 16430681); Seiler 2010 (IJSPP 5(3):276–291); Stöggl &amp; Sperlich 2014 (PMC3912323); Crowley et al. 2021 (PMID 33952709)</p>
+            </div>
+          </details>
+          
+
+          
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">O</span>
+              <span>
+                <span class="lvname">Olbrecht 能量系統個體化 <span class="vx-cert">🟡</span></span>
+                <span class="lvtag">最適非最大；閾值是「魔法子彈謬誤」；改個體乳酸測試</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">🟡 核心命題『最適而非最大』：有氧與無氧代謝都要發展到『最適』而非『最大』水準才有最佳成績。兩系統反向制衡——無氧能力（VLamax）過高會壓低乳酸閾值與脂肪燃燒、延長恢復；過度追求有氧最大化又壓制無氧速度儲備。目標不是把任一曲線推到極限，而是找各事件的最適組合點。</p>
+              <p class="vx-pz-dialogue">🟡『魔法子彈謬誤』：Olbrecht 指控『在最大乳酸穩態速度訓練就能最優提升耐力』是迷思——耐力成分複雜，單一強度無法覆蓋；他主張閾值訓練在有氧或無氧上都不比均衡計畫有優勢。現場矛盾佐證：有些選手閾值進步了成績卻沒進步，有些看似失去有氧耐力卻游出生涯最佳。</p>
+              <p class="vx-pz-meta">🟢 四象限（理解全框架的前提）：有氧能力＝VO2max（引擎排氣量）；有氧功率＝比賽中能動用多少比例有氧能力，近似乳酸閾值（轉速使用率）；無氧能力＝VLamax 最大乳酸生成速率（渦輪峰值）；無氧功率＝維持近最大速度的持久度。關鍵限制：『能力與功率不能同時提升』（Olbrecht 訪談原話），每階段須有主攻方向、分期安排。</p>
+              <p class="vx-pz-meta">🟡 捨棄通用閾值、改個體乳酸測試：因為『閾值不是獨立生理參數，而是有氧與無氧在次最大強度下的合力衍生物』——光看閾值看不到底層是有氧變好還是無氧降低。用兩泳次乳酸測試估個人曲線，每 5–6 週在小週期第一週（超補償高峰、疲勞最低）重測。恢復比例也個體化：新手 1:1、中級 2:1、菁英 3:2。</p>
+              <p class="vx-pz-meta">🟡 順序按『能量系統優先』而非單一量/強度維度：前半賽季同步建構有氧能力＋無氧能力（引擎擴容：大量輕鬆量＋短超 VO2max 衝刺＋無氧能力訓練，刻意排除長間歇閾值）；後半賽季轉有氧功率＋無氧功率（使用效率優化，逼近賽配速、量降質升）。🔴 具體前後半週次比例書中原文不可及。</p>
+              <div class="vx-pz-swim">
+                <span class="vx-pz-swim-h">🟡 游泳特殊性</span>
+                <p>🟡 游泳特殊性：200m 以下占游泳競技 &gt;80%，故游泳選手整體需較高 VLamax 儲備、比鐵人/馬拉松更偏無氧側。但短距離選手同樣需要有氧基礎以支撐高強度恢復效率，只是所需『量』可較低。</p>
+              </div>
+              <p class="vx-pz-warn">🔴 原書《The Science of Winning》全文不可及，多數細節由書摘/訪談重建；具體游泳配速處方、原始乳酸測試完整協議、前後半週次比例皆不可追溯，標 🔴。⚠️ VLamax 是 Weber/INSCYD 術語，與 Olbrecht『無氧能力』對應但非完全等同，歸因須注意。</p>
+              <p class="vx-pz-author">🔵 作者取用：即使沒有實驗室乳酸測試，Olbrecht 最該吸收的是『診斷精神』——別套通用百分比分區，盡量個體化；以及『閾值不是萬靈丹、別在基礎期狂堆閾值』這個與極化派一致的方向。capacity/power 不能同時練的限制，也呼應板塊派『序列集中』。</p>
+              <p class="vx-pz-plain">Olbrecht（游泳能量系統論）的核心是『最適，不是最大』：有氧和無氧都不是越大越好，要配到最適組合點——無氧太強會拖累有氧效率，有氧練過頭又壓掉速度。他最有名的是質疑閾值訓練是『魔法子彈謬誤』：以為在閾值速度狂練就能變強，其實不然（很多人閾值進步了成績沒動）。他改用個體乳酸測試（每 5–6 週重測），而不是套『最大心率 70%』這種通用百分比。順序上他主張前半季先把有氧無氧的『天花板』一起拉高（用輕鬆量＋短衝刺，不堆閾值），後半季再練『怎麼在比賽中高效用出來』。注意：原書拿不到，具體配速數字都是缺的（標 🔴）。</p>
+              <p class="vx-cite"><span class="src">來源</span>：Olbrecht 2000《The Science of Winning》(書摘/訪談重建); Scientific Triathlon EP#198 訪談; TMR Coaching / lactate.com / INSCYD 二手摘要</p>
+            </div>
+          </details>
+          
+
+          
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">M</span>
+              <span>
+                <span class="lvname">Maglischo 游泳六分區 <span class="vx-cert">🟢</span></span>
+                <span class="lvtag">游泳專用：恢復/En1/En2/En3/AnTh/VO₂max</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-meta">無氧閾值血乳酸：3–5 mmol/L（AnTh 區血乳酸範圍）</p>
+              <ul class="vx-pz-sub">
+              
+                <li><strong>恢復</strong> · <span class="vx-pz-focus">主動恢復、技術游</span></li>
+              
+                <li><strong>有氧基礎 (Endurance 1)</strong> · <span class="vx-pz-focus">有氧基礎、低乳酸大量累積</span></li>
+              
+                <li><strong>有氧維持 (Endurance 2)</strong> · <span class="vx-pz-focus">接近無氧閾值的有氧發展</span></li>
+              
+                <li><strong>有氧超負荷 (Endurance 3)</strong> · <span class="vx-pz-focus">閾值附近、最高可持續有氧負荷</span></li>
+              
+                <li><strong>無氧閾值 (Anaerobic Threshold)</strong> · <span class="vx-pz-focus">閾值強度，血乳酸 3–5 mmol</span></li>
+              
+                <li><strong>最大攝氧 (VO2max)</strong> · <span class="vx-pz-focus">刺激最大攝氧量</span></li>
+              
+              </ul>
+              <p class="vx-pz-meta">SP（衝刺）在 Maglischo 框架中是『類別』而非分區（速度/功率訓練），與上述有氧—閾值光譜分開處理</p>
+              <p class="vx-pz-warn">🔴 各區詳細血乳酸 / 配速門檻需翻 Maglischo《Swimming Fastest》原書頁逐區確認；本檔僅收錄全文已確認的 AnTh 3–5mmol 與六區名稱，未逐區填數值以免發明</p>
+              <p class="vx-pz-plain">Maglischo 是游泳專用的分區系統，用血乳酸＋訓練目的把游泳強度分成：恢復、有氧基礎(En1)、有氧維持(En2)、有氧超負荷(En3)、無氧閾值(AnTh，乳酸 3–5)、最大攝氧(VO2max)。衝刺(SP)另外算一類，不在這條有氧—閾值光譜上。比 Bompa 的『百分比』更貼近游泳教練實際開課的語言。</p>
+            </div>
+          </details>
+          
+
+          
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">3</span>
+              <span>
+                <span class="lvname">三區乳酸模型 <span class="vx-cert">🟢</span></span>
+                <span class="lvtag">TID 分析用：Z1≤2 / Z2 2–4 / Z3&gt;4 mmol</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <table class="vx-pz-table vx-pz-table--narrow">
+                <thead><tr><th>區</th><th>血乳酸 (mmol)</th><th>名稱</th><th>重點</th></tr></thead>
+                <tbody>
+                
+                  <tr><td class="vx-pz-num">1</td><td>≤2</td><td>低強度</td><td>有氧基礎、恢復</td></tr>
+                
+                  <tr><td class="vx-pz-num">2</td><td>2–4</td><td>閾值區</td><td>閾值附近</td></tr>
+                
+                  <tr><td class="vx-pz-num">3</td><td>&gt;4</td><td>高強度</td><td>VO2max / 無氧</td></tr>
+                
+                </tbody>
+              </table>
+              <p class="vx-pz-plain">做訓練強度分布分析時最常用的簡化版：用血乳酸把強度切三段——Z1 輕鬆（≤2）、Z2 閾值（2–4）、Z3 吃力（&gt;4）。下面的 polarized / pyramidal 分布就是用這三區算比例。</p>
+            </div>
+          </details>
+          
+
+          
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">距</span>
+              <span>
+                <span class="lvname">各距離能量系統供能比 <span class="vx-cert">🟢</span></span>
+                <span class="lvtag">50m 有氧 5–20%、100m≈各半、400m 40–84%（跨研究區間）</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <table class="vx-pz-table">
+                <thead><tr><th>項目</th><th>有氧占比</th><th>說明</th></tr></thead>
+                <tbody>
+                
+                  <tr><td class="vx-pz-num">50m</td><td>≈5–20% <span class="vx-cert">🟢</span></td><td>有氧占比低，無氧（磷酸原&#43;糖解）主導 ≈80–95%</td></tr>
+                
+                  <tr><td class="vx-pz-num">100m</td><td>≈40–50% <span class="vx-cert">🟢</span></td><td>有氧無氧接近各半</td></tr>
+                
+                  <tr><td class="vx-pz-num">200m</td><td>≈60–65% <span class="vx-cert">🟡</span></td><td>🟡 此區間文獻支持較弱，標舊文獻</td></tr>
+                
+                  <tr><td class="vx-pz-num">400m</td><td>40–84% <span class="vx-cert">🟢</span></td><td>跨研究真實區間：Rodríguez &amp; Mader ≈84% vs Maglischo 40–60%；不可合併成單值</td></tr>
+                
+                  <tr><td class="vx-pz-num">800m</td><td>有氧主導 <span class="vx-cert">🟡</span></td><td>質性有氧主導；精確 % 文獻分歧大，不填單值</td></tr>
+                
+                  <tr><td class="vx-pz-num">1500m</td><td>有氧主導 <span class="vx-cert">🟡</span></td><td>質性有氧主導；精確 % 文獻分歧大，不填單值</td></tr>
+                
+                </tbody>
+              </table>
+              <p class="vx-pz-warn">🔴 200m 與 800/1500m 的精確 % 為文獻弱項，故意不收單一數字；只標質性主導方向</p>
+              <p class="vx-pz-plain">不同距離靠的能量系統差很多：50m 幾乎全靠無氧（有氧只 5–20%），100m 有氧無氧大概各半，400m 以上開始有氧主導。注意 400m 的有氧占比在不同研究差很大（40% 到 84% 都有人測到），這不是我亂寫，是研究本身的真實分歧——所以保留區間不硬湊成一個數字。實務意義：練 50 自由式衝刺跟練 1500 完全是兩套系統，課表不能共用。</p>
+            </div>
+          </details>
+          
+
+          
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">TID</span>
+              <span>
+                <span class="lvname">訓練強度分布 TID <span class="vx-cert">🟢</span></span>
+                <span class="lvtag">極化／金字塔／閾值三型；連衝刺者也 87–90% 量在 Z1</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <ul class="vx-pz-sub">
+              
+                <li><strong>極化型</strong> · <span class="vx-pz-focus">大量 Z1 &#43; 少量 Z3、極少 Z2</span></li>
+              
+                <li><strong>金字塔型</strong> · <span class="vx-pz-focus">Z1 最多、Z2 次之、Z3 最少</span></li>
+              
+                <li><strong>閾值型</strong> · <span class="vx-pz-focus">Z2 比重相對偏高</span></li>
+              
+              </ul>
+              <p class="vx-pz-meta">衝刺項目選手仍約 87–90% 訓練量落在 Z1（Barbosa et al. 2019）——即使是短距離，大部分量還是低強度有氧</p>
+              <p class="vx-pz-plain">TID＝整個週期裡輕鬆/閾值/吃力三種強度各占多少。主要有三種分布：極化型（大量輕鬆＋少量超吃力、中間幾乎不練）、金字塔型（由下往上遞減）、閾值型（中間那塊偏多）。一個反直覺的事實：連衝刺選手都有約 87–90% 的量是低強度有氧——不是整天衝。</p>
+            </div>
+          </details>
+          
+
+          
+          <details class="vx-level">
+            <summary>
+              <span class="lv">泳</span>
+              <span>
+                <span class="lvname">游泳配速分區應用</span>
+                <span class="lvtag">用比賽配速百分比表達課表強度，映射 Bompa 不發明數字</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <div class="vx-pz-swim">
+                <span class="vx-pz-swim-h">🔵 游泳應用</span>
+                <p>🔵 游泳組課強度以『比賽配速百分比』表達，直接套 Table 7.1：賽配速=zone 2，高於賽配速（衝刺/乳酸耐受）=zone 1，閾值/節奏=zone 3，有氧基礎=zone 4，恢復游=zone 5</p>
+                <p>🔵 50–100m 偏無氧功率（zone 1–2）；200m 混合（Fig 5.11 bi-cycle 範例即 200m）；400–1500m 為肌耐力主導，需 specific endurance 階段大量 zone 3–4 鋪墊</p>
+                <p>🔵 依 Bompa『每週 ≥50% 賽配速』原則，swim-coach 週課表應確保賽配速組（zone 2）占足比重，其餘以 zone 4 有氧基礎與 zone 5 恢復填充</p>
+                <p>🔵 swim-coach 生成單組課時，用 hr_vo2_ergogenesis 對照表標記該組主導能量系統，避免賽季階段與能量系統錯配（如競賽期仍堆 50% HR 主動恢復量）</p>
+              </div>
+              <p class="vx-pz-author">🔵 誠實標記：這整個節點是『把 Bompa 通用框架推導到游泳』的自製映射（cert 🔵），不是游泳實證——Bompa 的『最大表現百分比』本來不是為游泳設計的。游泳教練實際開課用的是別的語言：Maglischo 用血乳酸六分區（swim_maglischo）；Sweetenham 用 BBM（最大心率以下幾拍，個體化、只需心率不需採血）並主張反向週期化（速度先行當全季校準錨，而非賽季末才碰）；Olbrecht 用個體乳酸測試（olbrecht_model）。要更貼實務，優先用這些游泳專項語言，本節僅作 Bompa 框架的對接橋樑。</p>
+              <p class="vx-pz-plain">游泳怎麼套 Bompa 這套：組課強度用『比賽配速百分比』講——賽配速＝zone 2，比賽更快（衝刺/乳酸耐受）＝zone 1，閾值/節奏＝zone 3，有氧基礎＝zone 4，恢復游＝zone 5。但要老實說：這是把通用理論硬套到游泳的自製對照，不是游泳實證。游泳教練實際上更常用 Maglischo 的乳酸六分區、或 Sweetenham 的 BBM（最大心率以下幾拍）。要貼近現場，優先用那些游泳專用的語言。</p>
+            </div>
+          </details>
+
+        </div>
+
+        <p class="vx-cite"><span class="src">來源</span>：Bompa《Periodization》6th ed. — Ch7 Table 7.1；Ch11 Table 11.1 / 11.2。游泳專項：Maglischo 2012 (J Swimming Research 19:2)；Toussaint &amp; Hollander 1994；Rodríguez &amp; Mader 2011；Papadimitriou et al. 2025；Barbosa et al. 2019</p>
+
+        <nav class="vx-flow">
+          <button type="button" data-target="taper"><span class="lbl">上一個主題</span>← 賽前減量與達峰</button>
+          <span></span>
+        </nav>
+
+        <footer class="vx-article-footer">
+          <hr class="vx-divider">
+          <a class="vx-back-link" href="https://hangsau.github.io/cortex/vortex/adm/matrix/">→ 回到 ADM 發展矩陣（看週期化如何落在各階段）</a>
+        </footer>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://hangsau.github.io/cortex/js/vortex.js" defer></script>
+
+  </main>
+  <footer class="site-footer">
+  <p>Cortex</p>
+</footer>
+
+  
+</body>
+</html>

@@ -1,50 +1,1906 @@
-<!doctype html><html lang=zh-tw><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>自由式 — Cortex</title><meta name=description content="個人知識庫"><link rel=stylesheet href=https://hangsau.github.io/cortex/css/variables.css><link rel=stylesheet href=https://hangsau.github.io/cortex/css/base.css><link rel=stylesheet href=https://hangsau.github.io/cortex/css/layout.css><link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel=stylesheet><link rel=stylesheet href=https://hangsau.github.io/cortex/css/vortex.css><noscript><style>.vx-panel{display:block;border-top:1px solid var(--vx-rule);padding-top:24px}.vx-rail{position:static;max-height:none}</style></noscript></head><body><nav class=site-nav><a href=https://hangsau.github.io/cortex/ class=site-nav-logo>Cortex</a><ul class=site-nav-links><li><a href=https://hangsau.github.io/cortex/library/>書庫</a></li><li><a href=https://hangsau.github.io/cortex/notebook/>筆記</a></li><li><a href=https://hangsau.github.io/cortex/vortex/>Vortex</a></li></ul></nav><main class=main-content><div class=vx-stroke><div class=vx-stroke-wrap><aside class=vx-rail><a class=vx-back-link href=https://hangsau.github.io/cortex/vortex/>← Cortex · Vortex</a><div class=vx-rail-head><span class=vx-stroke-zh>自由式</span>
-<span class=vx-stroke-en>Freestyle</span></div><div class=vx-rail-group>導覽</div><div class=vx-rail-scroll><ul class=vx-rail-list><li><button class=vx-navlink type=button data-target=overview><span class=n>0</span>概覽</button></li></ul></div><div class=vx-rail-group>動作分解</div><div class=vx-rail-scroll><ul class=vx-rail-list><li><button class=vx-navlink type=button data-target=move-1><span class=n>1</span>入水位置</button></li><li><button class=vx-navlink type=button data-target=move-2><span class=n>2</span>捕水 EVF</button></li><li><button class=vx-navlink type=button data-target=move-3><span class=n>3</span>拉水加速</button></li><li><button class=vx-navlink type=button data-target=move-4><span class=n>4</span>旋轉耦合</button></li><li><button class=vx-navlink type=button data-target=move-5><span class=n>5</span>踢水節律</button></li><li><button class=vx-navlink type=button data-target=move-6><span class=n>6</span>頭部位置</button></li><li><button class=vx-navlink type=button data-target=move-7><span class=n>7</span>划距感知</button></li><li><button class=vx-navlink type=button data-target=move-8><span class=n>8</span>旋轉連動鏈</button></li></ul></div><div class=vx-rail-group>深入</div><div class=vx-rail-scroll><ul class=vx-rail-list><li><button class=vx-navlink type=button data-target=errors><span class=n>!</span>常見誤區</button></li><li><button class=vx-navlink type=button data-target=tech><span class=n>§</span>深入機制</button></li><li><button class=vx-navlink type=button data-target=levels><span class=n>L</span>水感進程</button></li></ul></div></aside><main class=vx-panels><section class="vx-panel vx-overview" id=overview><span class=vx-sec-no>VORTEX · Freestyle</span><h2>自由式</h2><p class=vx-premise>划手距離是<mark>技術</mark>指標，划頻是<mark>生理</mark>指標——兩者是不同的對象，不可混為一談。<span class=cert>🔵</span></p><p class=vx-panel-lead>點任一動作就地展開，不換頁。</p><div class=vx-path-list><button class=vx-path-item type=button data-target=move-1>
-<span class=n>1</span>
-<span><span class=t>入水位置</span><span class=o>手在肩前入水，不跨中線</span></span>
-</button>
-<button class=vx-path-item type=button data-target=move-2>
-<span class=n>2</span>
-<span><span class=t>捕水 EVF</span><span class=o>高肘抓水，推進的起點</span></span>
-</button>
-<button class=vx-path-item type=button data-target=move-3>
-<span class=n>3</span>
-<span><span class=t>拉水加速</span><span class=o>手掌加速向後推，不是定速划</span></span>
-</button>
-<button class=vx-path-item type=button data-target=move-4>
-<span class=n>4</span>
-<span><span class=t>旋轉耦合</span><span class=o>旋轉時機對上推力峰值</span></span>
-</button>
-<button class=vx-path-item type=button data-target=move-5>
-<span class=n>5</span>
-<span><span class=t>踢水節律</span><span class=o>踢水和划手整合，不是各跑各的</span></span>
-</button>
-<button class=vx-path-item type=button data-target=move-6>
-<span class=n>6</span>
-<span><span class=t>頭部位置</span><span class=o>頭不抬，眼球上轉換氣</span></span>
-</button>
-<button class=vx-path-item type=button data-target=move-7>
-<span class=n>7</span>
-<span><span class=t>划距感知</span><span class=o>察覺這趟划得比較短了</span></span>
-</button>
-<button class=vx-path-item type=button data-target=move-8>
-<span class=n>8</span>
-<span><span class=t>旋轉連動鏈</span><span class=o>回臂入水放大對側推力（進階）</span></span></button></div><p class=vx-legend>🔵 推導 · 🟢 近期文獻 · 🟡 舊文獻 · 🟠 教練觀測 · 🔴 待查</p></section><section class="vx-panel vx-move" id=move-1><span class=vx-sec-no>動作 1 / 8</span><h2>入水位置</h2><p class=vx-panel-lead>手在肩前入水，不跨中線</p><span class=vx-move-meta>水感層級 L2–L3</span>
-<span class=vx-block-label>口訣校正</span><div class=vx-cues><div class="vx-cue vx-cue--bad"><div class=vx-cue-tag>別這樣</div><div class=vx-cue-txt>頭部正前方輕輕滑入水</div></div><div class="vx-cue vx-cue--why"><div class=vx-cue-tag>為什麼</div><div class=vx-cue-txt>入水過短會壓縮延伸時間、失去晚期回臂的加速能量轉移，且手在頭頂落水製造正面阻力。</div></div><div class="vx-cue vx-cue--good"><div class=vx-cue-tag>這樣做</div><div class=vx-cue-txt>指尖領先、積極前伸，在肩線前方切入</div></div></div><span class=vx-block-label>物理原理</span><div class=vx-howto>入水點應在<mark>肩線延伸前方</mark>、手臂接近完全伸展處（約肩寬、距頭部 30–45 公分），指尖朝前斜下切入。跨越中線會讓入水後第一個動作變成大幅<mark>外掃</mark>，產生橫向分力誘發蛇行，肩胛骨無法穩定。小指可略轉朝下入水，有助降低入水阻力（教練觀測，主要見於 hip-driven 自由式，非通用物理量）🟠。</div><div class=vx-boundary><span class=vx-label>硬體邊界</span>入水位置的本體感知極不可靠——泳者對自己手臂落點的判斷準確度遠低於實際，這是感知問題不是解剖限制。最可靠的確認是側錄，不要單靠「感覺手在肩前」。</div><span class=vx-block-label>對應練習</span><details class=vx-drill><summary><span class=did>Fr11</span>單臂划手</summary><div class=vx-drill-body><p>單臂划手強調早期入水捕水，感覺核心同時帶動換氣與划手旋轉</p><span class=vx-label>怎麼做</span><ol><li>單手自由式，朝非划手側換氣；另一手貼身、手放大腿</li><li>用臀部轉到兩側45度，換氣時不過度旋轉；抓水要早、靠近水面開始</li><li>抓水時手肘略往上往外轉、位置高於手掌；一趟練一手，下一趟換手</li><li>重點是技術不是速度，靠核心同時帶動軀幹與划手完成換氣，快速換氣後盡快回到面朝下視線朝池底</li><li>進階：改成朝划手側換氣</li></ol><span class=vx-label>感知目標</span><p>捕水發生在水面附近而非深處；感覺肘部比手高</p></div></details><details class=vx-drill><summary><span class=did>Fr13</span>描黑線</summary><div class=vx-drill-body><p>視覺回饋修正手部入水過中線，感覺入水點在肩膀正前方偏外</p><span class=vx-label>怎麼做</span><ol><li>沿水道中央游，能看到池底黑線</li><li>用手「描」黑線外緣：左手描黑線左側、右手描右側（線細就描外側幾吋）</li><li>此練習可暫時抬眼看入水點對照黑線；讓入水落在肩膀正前方或略外側</li></ol><span class=vx-label>感知目標</span><p>入水點對準黑線外緣；不穿越身體中線；視線往下看線</p></div></details><details class=vx-drill><summary><span class=did>Fr21</span>靜音入水</summary><div class=vx-drill-body><p>靜音入水訓練手部滑入水而非拍打水面，感覺手指穿過一個洞前臂跟進</p><span class=vx-label>怎麼做</span><ol><li>放慢游自由式，留意手的入水</li><li>入水點在肩膀正前方（寬入水），指尖先入；安靜地把手滑進水裡，再略微向前滑行</li><li>想像手在水面開一個洞，前臂與肩膀順著同一個洞跟進，方向是向前滑（不往下也不往內）</li><li>入水同時感覺那一側臀部往水裡轉下</li></ol><span class=vx-label>感知目標</span><p>入水幾乎無聲；感覺手先開一個洞，前臂和肩膀順著滑入；同側髖往下旋</p></div></details><div class=vx-boundary><span class=vx-label>水感註記</span>L2 延伸感知的建立基礎；入水過短會讓 L2 延伸感知無法萌芽。</div><nav class=vx-flow><button type=button data-target=overview><span class=lbl>回到</span>← 概覽</button>
-<button class=nx type=button data-target=move-2><span class=lbl>下一個</span>捕水 EVF →</button></nav></section><section class="vx-panel vx-move" id=move-2><span class=vx-sec-no>動作 2 / 8</span><h2>捕水 EVF</h2><p class=vx-panel-lead>高肘抓水，推進的起點</p><span class=vx-move-meta>水感層級 L3–L4</span>
-<span class=vx-block-label>口訣校正</span><div class=vx-cues><div class="vx-cue vx-cue--bad"><div class=vx-cue-tag>別這樣</div><div class=vx-cue-txt>前臂壓下去推水</div></div><div class="vx-cue vx-cue--why"><div class=vx-cue-tag>為什麼</div><div class=vx-cue-txt>前臂是圓形截面，推進效果遠差於手掌；高肘是為了降上臂阻力。</div></div><div class="vx-cue vx-cue--good"><div class=vx-cue-tag>這樣做</div><div class=vx-cue-txt>肘尖保持朝向前方游進方向</div></div></div><span class=vx-block-label>物理原理</span><div class=vx-howto>高肘的目的是<mark>降低上臂阻力</mark>，不是讓前臂推進。上臂是自由式中阻力最大的部位——高肘讓上臂與游進方向平行、截面積最小化，同時讓<mark>手掌</mark>朝向後方、推進面積最大化。手掌才是主推進面，不是前臂。</div><div class=vx-boundary><span class=vx-label>硬體邊界</span><mark>前鋸肌</mark>是 EVF 的硬體前提。前鋸肌疲勞後肩胛骨失穩，高肘姿態無法維持——這不是技術感知問題，是肌肉撐不住。長距離後段崩潰多半是前鋸肌耐力問題，不要用感知訓練介入。</div><span class=vx-block-label>對應練習</span><details class=vx-drill><summary><span class=did>Fr16</span>握拳划手</summary><div class=vx-drill-body><p>握拳划手強調前臂在拉水中的作用，感覺張開手後壓力明顯增加</p><span class=vx-label>怎麼做</span><ol><li>第一趟握拳游自由式，感覺前臂在划水時的工作</li><li>記得前臂、手腕、手掌是一個整體；把划手伸長帶出旋轉，入水保持寬（不越過中線）</li><li>下一趟從握拳開始，逐漸把手張開到正常位置</li></ol><span class=vx-label>感知目標</span><p>握拳時感覺前臂在做工；張開手後感覺明顯的水壓增加</p></div></details><details class=vx-drill><summary><span class=did>Fr10</span>帆船划手</summary><div class=vx-drill-body><p>單臂高肘划水感知，強調錨定後整體旋轉推進，像用身體跳過手臂</p><span class=vx-label>怎麼做</span><ol><li>一手向前伸直（如左手），另一手剛離開水面、手肘高舉、指尖輕觸水面，以左臀約45度乘載</li><li>踢幾下取得動力，前伸手開始抓水，沿直線用力推到臀部，過程中保持高手肘（EVF）</li><li>感覺推水的推進與臀部滑開；左手推到底時右手前刺，換左手變成「帆」，像翻越到另一側</li><li>抓水卡住時，手錨定後把肩膀略往內轉、手肘自然略外轉，幫助建立EVF；全程放慢</li></ol><span class=vx-label>感知目標</span><p>前臂垂直入水錨定後，感覺身體整個翻越過去；拉手配合髖旋轉</p></div></details><details class=vx-drill><summary><span class=did>Fr17</span>三點觸碰</summary><div class=vx-drill-body><p>訓練恢復臂軌跡，前觸-後觸-前入水，感覺恢復臂的完整弧線</p><span class=vx-label>怎麼做</span><ol><li>超人姿勢俯臥，雙臂平衡在前方</li><li>左臂不動，右臂划過水到回到前方點一下水面到往後伸點一下水面到立刻盪回前方停住</li><li>換左臂做同一循環（前點、後點、前點），再換邊</li></ol><span class=vx-label>感知目標</span><p>肘部在整個恢復過程中保持高位；感覺手臂畫一個大弧線</p></div></details><div class=vx-boundary><span class=vx-label>水感註記</span>L3–L4 的核心技術點；連動鏈耦合要到 L5。</div><nav class=vx-flow><button type=button data-target=move-1><span class=lbl>上一個</span>← 入水位置</button>
-<button class=nx type=button data-target=move-3><span class=lbl>下一個</span>拉水加速 →</button></nav></section><section class="vx-panel vx-move" id=move-3><span class=vx-sec-no>動作 3 / 8</span><h2>拉水加速</h2><p class=vx-panel-lead>手掌加速向後推，不是定速划</p><span class=vx-move-meta>水感層級 L3–L4</span>
-<span class=vx-block-label>口訣校正</span><div class=vx-cues><div class="vx-cue vx-cue--bad"><div class=vx-cue-tag>別這樣</div><div class=vx-cue-txt>刻意走 S 形路徑</div></div><div class="vx-cue vx-cue--why"><div class=vx-cue-tag>為什麼</div><div class=vx-cue-txt>每次方向改變都要減速再加速，每次減速都是推進力損失；且把注意力放在路徑形狀會脫離水壓感知。</div></div><div class="vx-cue vx-cue--good"><div class=vx-cue-tag>這樣做</div><div class=vx-cue-txt>手掌向後加速、維持路徑穩定</div></div></div><span class=vx-block-label>物理原理</span><div class=vx-howto>捕水後進入推進相，手掌從 3 點鐘加速推到 9 點鐘，路徑<mark>接近直線向後</mark>——傳統 S 形路徑是高速攝影出現前缺乏測量工具的誤解，S 形其實是身體轉體造成的視覺副產品。手速必須從捕水起點<mark>逐漸加速</mark>，不是定速推水；後象限是推進力峰值，深度約 8–10 吋，手掌不應穿破水面。</div><div class=vx-boundary><span class=vx-label>硬體邊界</span>拉水推進感知屬可訓練的感知能力，不是硬體邊界。但若前鋸肌已失守導致捕水結構瓦解、轉為直臂蠻力划水，加速感會跟著消失——此時根因在硬體支撐，不在拉水技術本身。</div><span class=vx-block-label>對應練習</span><details class=vx-drill><summary><span class=did>Fr11</span>單臂划手</summary><div class=vx-drill-body><p>單臂划手強調早期入水捕水，感覺核心同時帶動換氣與划手旋轉</p><span class=vx-label>怎麼做</span><ol><li>單手自由式，朝非划手側換氣；另一手貼身、手放大腿</li><li>用臀部轉到兩側45度，換氣時不過度旋轉；抓水要早、靠近水面開始</li><li>抓水時手肘略往上往外轉、位置高於手掌；一趟練一手，下一趟換手</li><li>重點是技術不是速度，靠核心同時帶動軀幹與划手完成換氣，快速換氣後盡快回到面朝下視線朝池底</li><li>進階：改成朝划手側換氣</li></ol><span class=vx-label>感知目標</span><p>捕水發生在水面附近而非深處；感覺肘部比手高</p></div></details><details class=vx-drill><summary><span class=did>Fr16</span>握拳划手</summary><div class=vx-drill-body><p>握拳划手強調前臂在拉水中的作用，感覺張開手後壓力明顯增加</p><span class=vx-label>怎麼做</span><ol><li>第一趟握拳游自由式，感覺前臂在划水時的工作</li><li>記得前臂、手腕、手掌是一個整體；把划手伸長帶出旋轉，入水保持寬（不越過中線）</li><li>下一趟從握拳開始，逐漸把手張開到正常位置</li></ol><span class=vx-label>感知目標</span><p>握拳時感覺前臂在做工；張開手後感覺明顯的水壓增加</p></div></details><details class=vx-drill><summary><span class=did>Fr12</span>指尖拖水</summary><div class=vx-drill-body><p>恢復臂高肘訓練，感覺手指輕掠水面，肘部始終高於手腕</p><span class=vx-label>怎麼做</span><ol><li>自由式划手回臂時，指尖輕輕掠過水面（用指甲輕擦水面）</li><li>全程保持手肘高於手腕，帶出高手肘與指尖入水</li><li>放慢游，回臂的手盡量放鬆，並把每一划保持伸長</li></ol><span class=vx-label>感知目標</span><p>手指輕輕刮過水面；手臂放鬆；肘部保持高位</p></div></details><div class=vx-boundary><span class=vx-label>水感註記</span>L3 手感核心；提速後能否穩定維持加速感是 A 型在 L4–L5 的關卡。</div><nav class=vx-flow><button type=button data-target=move-2><span class=lbl>上一個</span>← 捕水 EVF</button>
-<button class=nx type=button data-target=move-4><span class=lbl>下一個</span>旋轉耦合 →</button></nav></section><section class="vx-panel vx-move" id=move-4><span class=vx-sec-no>動作 4 / 8</span><h2>旋轉耦合</h2><p class=vx-panel-lead>旋轉時機對上推力峰值</p><span class=vx-move-meta>水感層級 L4–L5</span>
-<span class=vx-block-label>口訣校正</span><div class=vx-cues><div class="vx-cue vx-cue--bad"><div class=vx-cue-tag>別這樣</div><div class=vx-cue-txt>主動轉髖帶動划手</div></div><div class="vx-cue vx-cue--why"><div class=vx-cue-tag>為什麼</div><div class=vx-cue-txt>混淆因果——髖是被動跟隨者；高划頻下刻意轉髖造成時機錯亂與額外能量消耗。</div></div><div class="vx-cue vx-cue--good"><div class=vx-cue-tag>這樣做</div><div class=vx-cue-txt>推水末段感覺肩胛骨往脊椎縮，對側自然跟著轉</div></div></div><span class=vx-block-label>物理原理</span><div class=vx-howto>身體旋轉本身<mark>不產生推進力</mark>，但旋轉速度峰值與划手推力峰值<mark>耦合</mark>時，能量疊加放大推力。旋轉是放大器，不是引擎。啟動旋轉的是推水末段的<mark>肩胛肌群</mark>（菱形肌收縮、後縮肩胛骨），髖部被動跟隨，不是腰或髖主動發動。</div><div class=vx-boundary><span class=vx-label>硬體邊界</span>旋轉幅度有解剖與風格差異：Hip-driven 髖旋轉 45–60°，Shoulder-driven 僅 20–30°，不同風格泳者的旋轉描述截然不同都屬有效。幅度受時間窗口限制——高划頻下物理上沒有時間完成大幅旋轉，這是力學邊界不是感知問題。</div><span class=vx-block-label>對應練習</span><details class=vx-drill><summary><span class=did>Fr24</span>俄式滾轉</summary><div class=vx-drill-body><p>自由式和仰式交替游，感覺兩式捕水動作的相似性，用核心旋轉切換</p><span class=vx-label>怎麼做</span><ol><li>交替游仰式和自由式，用單雙數組合：3划自由式到翻身到2划仰式到翻回到再3划自由式</li><li>單雙數組合可避免暈眩，並練到兩側的抓水</li><li>翻身時把前伸手錨定、確實抓住水，留意仰式與自由式的抓水其實相似</li></ol><span class=vx-label>感知目標</span><p>翻轉時前臂錨定不動，感覺抓住水；自由式和仰式的捕水角度相似</p></div></details><details class=vx-drill><summary><span class=did>Fr23</span>三划滑行</summary><div class=vx-drill-body><p>三划後45度滑行10拍，感覺核心在沒有划水時維持身體線條</p><span class=vx-label>怎麼做</span><ol><li>游3划自由式，第三划時把手留在前方，邊踢水邊滑行數到10</li><li>每三划會交替在不同側滑行</li><li>滑行時身體約45度乘載在臀部上，視線朝池底</li></ol><span class=vx-label>感知目標</span><p>滑行時45度穩定；感覺核心在支撐姿勢；視線朝池底</p></div></details><details class=vx-drill><summary><span class=did>Sc7</span>髖部划水</summary><div class=vx-drill-body><p>手在髖部兩側小幅划水，感覺拉水末段（出水前）的水感</p><span class=vx-label>怎麼做</span><ol><li>面朝下、夾浮棒、戴呼吸管</li><li>雙手放在臀部旁，只用手掌撥水</li><li>手移動幅度很小，只有幾吋</li></ol><span class=vx-label>感知目標</span><p>手在髖部感覺細微的水壓；感覺出水前的最後推力</p><p class=vx-drill-eq>器材：pull_buoy、snorkel</p></div></details><div class=vx-boundary><span class=vx-label>水感註記</span>耦合感知屬 L5 層次；L3–L4 基礎捕水推進未穩前不優先處理。</div><nav class=vx-flow><button type=button data-target=move-3><span class=lbl>上一個</span>← 拉水加速</button>
-<button class=nx type=button data-target=move-5><span class=lbl>下一個</span>踢水節律 →</button></nav></section><section class="vx-panel vx-move" id=move-5><span class=vx-sec-no>動作 5 / 8</span><h2>踢水節律</h2><p class=vx-panel-lead>踢水和划手整合，不是各跑各的</p><span class=vx-move-meta>水感層級 L3–L5</span>
-<span class=vx-block-label>口訣校正</span><div class=vx-cues><div class="vx-cue vx-cue--bad"><div class=vx-cue-tag>別這樣</div><div class=vx-cue-txt>腿要踢有力、踢得快</div></div><div class="vx-cue vx-cue--why"><div class=vx-cue-tag>為什麼</div><div class=vx-cue-txt>踝關節蹠屈不足時加大力量只是更有力地製造阻力；力量不是問題，整合節律才是。</div></div><div class="vx-cue vx-cue--good"><div class=vx-cue-tag>這樣做</div><div class=vx-cue-txt>踢腿有跟上划手嗎？還是各自跑？</div></div></div><span class=vx-block-label>物理原理</span><div class=vx-howto>踢水有四個功能，不只推進：<mark>推進</mark>（補划手空窗期）、<mark>升力</mark>（下半身維持水平、降正面截面積）、<mark>慣性</mark>（速度波動最小化）、<mark>平衡穩定</mark>（抵消回臂側向分力）。六拍踢的對側配對來自反扭矩：右手入水時身體向該側滾轉，對側腳踢下抵消蛇行。感知重點是整合，不是力道。</div><div class=vx-boundary><span class=vx-label>硬體邊界</span><mark>踝關節蹠屈幅度</mark>是踢水效率的硬體邊界。踝關節僵硬者（跑步背景常見）腳掌無法朝後，踢水效率大幅下降甚至制動——這是解剖限制，須先確認踝關節能否完整蹠屈，不能用感知訓練介入。柔韌性可後天訓練改善，但改善先於速度提升。</div><span class=vx-block-label>對應練習</span><details class=vx-drill><summary><span class=did>Fr5</span>超人踢水</summary><div class=vx-drill-body><p>手臂伸前的流線姿勢踢水，感覺收腹讓背部平坦，肺部壓水</p><span class=vx-label>怎麼做</span><ol><li>超人姿勢俯臥，雙臂向前伸直與肩同寬</li><li>收小腹把背打平，頭部中立、頸與脊椎對齊、視線朝池底</li><li>放鬆肩膀往下壓讓頸部拉長，肺部往水裡壓幫助臀部上浮</li><li>在這姿勢下持續踢水</li></ol><span class=vx-label>感知目標</span><p>收腹後背部感覺平坦；肺部往水裡壓；頸部與脊椎對齊</p></div></details><details class=vx-drill><summary><span class=did>Fr7</span>流線踢水</summary><div class=vx-drill-body><p>流線姿勢踢水（正面與背面），感覺踢水效率不依賴浮板</p><span class=vx-label>怎麼做</span><ol><li>仰躺streamline：收小腹「往上往內」把背打平，肺部往水裡壓</li><li>膝蓋不破水面，腳掌把水「煮沸」而非大濺水，腳趾微內八，從臀部和大腿發力（不是膝蓋）</li><li>俯臥streamline：同樣收小腹打平背，膝蓋只微彎、腳趾微伸，腳在水下煮沸水面</li><li>需要時抬頭換氣，再回到streamline找平衡</li></ol><span class=vx-label>感知目標</span><p>踢水讓水面沸騰而非大飛濺；腳不出水面；膝蓋微彎</p></div></details><details class=vx-drill><summary><span class=did>Fr8</span>垂直踢水</summary><div class=vx-drill-body><p>垂直踢水訓練從髖啟動的踢腿，消除自行車踢法</p><span class=vx-label>怎麼做</span><ol><li>在深水區直立踢水，先把雙手交叉放在對側肩膀上</li><li>身體保持垂直挺直（不前傾不後仰），做10、20、30或60秒的組數</li><li>進階：把手舉出水面（水球姿勢）；最難：雙臂上舉成streamline</li><li>重點：從臀部發力、腳趾下壓、踢水穩定緊湊、腳微內八、核心收緊</li></ol><span class=vx-label>感知目標</span><p>踢水從腹股溝和大腿啟動；腳踝放鬆；踢水緊實短促</p></div></details><div class=vx-boundary><span class=vx-label>水感註記</span>B 型核心訓練軸；L3 建立踢水推力感、L4 整合、L5 外部干擾下維持。</div><nav class=vx-flow><button type=button data-target=move-4><span class=lbl>上一個</span>← 旋轉耦合</button>
-<button class=nx type=button data-target=move-6><span class=lbl>下一個</span>頭部位置 →</button></nav></section><section class="vx-panel vx-move" id=move-6><span class=vx-sec-no>動作 6 / 8</span><h2>頭部位置</h2><p class=vx-panel-lead>頭不抬，眼球上轉換氣</p><span class=vx-move-meta>水感層級 L2–L4</span>
-<span class=vx-block-label>口訣校正</span><div class=vx-cues><div class="vx-cue vx-cue--bad"><div class=vx-cue-tag>別這樣</div><div class=vx-cue-txt>換氣時眼睛看天花板 / 抬頭換氣</div></div><div class="vx-cue vx-cue--why"><div class=vx-cue-tag>為什麼</div><div class=vx-cue-txt>頭部過度旋轉打斷旋轉連動鏈、誘發換氣側手入水偏移；抬頭直接造成下半身下沉。</div></div><div class="vx-cue vx-cue--good"><div class=vx-cue-tag>這樣做</div><div class=vx-cue-txt>嘴角轉進水面凹陷，眼睛看斜前方，另一側鏡片還有一半在水裡</div></div></div><span class=vx-block-label>物理原理</span><div class=vx-howto>頭部是自由式中<mark>本體感知最不可靠</mark>的部位——「感覺頭壓低了」不等於頭實際是低的。波阻隨速度急遽上升（約與速度三次方 v³ 成正比），接近競速時約佔總阻力 25%（低速時較低）。頭部微抬→下半身下沉→踢水要對抗傾斜→能量預算被佔用，代價隱性累積，長距離尾段才顯現。換氣靠嘴巴轉進<mark>弓形波凹陷</mark>，視線靠眼球上轉，頭部本身不移動。</div><div class=vx-boundary><span class=vx-label>硬體邊界</span>頭部位置幾乎全是感知問題而非解剖限制——這也是為什麼陸上示範正確、下水卻自動回到微抬習慣（感知系統沒被重新校正）。因為本體感知最不可信，這個環節必須靠外部確認（錄影、蛙鏡基準線），不能只信主觀感覺。</div><span class=vx-block-label>對應練習</span><details class=vx-drill><summary><span class=did>Fr2</span>頭帶平衡 — 面朝下</summary><div class=vx-drill-body><p>建立面朝下的身體線條與平衡，感覺肺部入水帶動臀部上浮</p><span class=vx-label>怎麼做</span><ol><li>面朝下俯臥，雙手放在大腿前側，維持身體線條</li><li>輕踢水保持穩定前進，放鬆肩頸，把肩膀往下壓讓頸部「拉長」</li><li>視線朝池底，肺部與額頭當成一個整體往水裡壓，臀部會自然浮起</li><li>這是建立姿勢的練習不是求快，輕踢、保持耐心</li></ol><span class=vx-label>感知目標</span><p>肺部往下壓水時臀部自然浮起；頸部長而放鬆；全身像一根漂浮的木材</p></div></details><details class=vx-drill><summary><span class=did>Fr4</span>頭帶平衡 + 旋轉</summary><div class=vx-drill-body><p>結合雙側平衡，加入換氣旋轉，感覺身體帶動頭轉而非頭帶動身體</p><span class=vx-label>怎麼做</span><ol><li>從側躺位置開始，加入旋轉，每6到10次踢水從一側臀部翻轉到另一側</li><li>旋轉由臀部底部發動，是快速的翻轉，搭配穩定緊湊的踢水</li><li>加入換氣：頭轉到最小，靠身體旋轉帶起換氣，每三次旋轉換一次氣</li><li>換氣後立刻回到平衡位置</li></ol><span class=vx-label>感知目標</span><p>旋轉從臀部啟動；頭轉量最小；回到水中立即找到平衡</p></div></details><details class=vx-drill><summary><span class=did>Fr22</span>無氣泡</summary><div class=vx-drill-body><p>觀察入水後氣泡量訓練延伸與阻力最小化，氣泡少代表手部前伸充分</p><span class=vx-label>怎麼做</span><ol><li>延續安靜入水的感覺，滑進那個「洞」後，注意開始抓水時手上產生的氣泡量</li><li>設法減少氣泡：盡量把手與手臂往前延伸（延伸來自臀部旋轉）</li><li>此練習需短暫抬頭看手，僅限此練習使用</li></ol><span class=vx-label>感知目標</span><p>入水後手部繼續延伸直到幾乎沒有氣泡；感覺髖旋轉帶動延伸</p></div></details><div class=vx-boundary><span class=vx-label>水感註記</span>L2 換氣建立的關鍵；頭部過度旋轉是 C 型局部遮蔽最常見的觸發點。</div><nav class=vx-flow><button type=button data-target=move-5><span class=lbl>上一個</span>← 踢水節律</button>
-<button class=nx type=button data-target=move-7><span class=lbl>下一個</span>划距感知 →</button></nav></section><section class="vx-panel vx-move" id=move-7><span class=vx-sec-no>動作 7 / 8</span><h2>划距感知</h2><p class=vx-panel-lead>察覺這趟划得比較短了</p><span class=vx-move-meta>水感層級 L4–L6</span>
-<span class=vx-block-label>口訣校正</span><div class=vx-cues><div class="vx-cue vx-cue--bad"><div class=vx-cue-tag>別這樣</div><div class=vx-cue-txt>游累了就划快一點</div></div><div class="vx-cue vx-cue--why"><div class=vx-cue-tag>為什麼</div><div class=vx-cue-txt>疲勞時提 SR 掩蓋 SL 下降，短期有用但長期加速技術崩潰。</div></div><div class="vx-cue vx-cue--good"><div class=vx-cue-tag>這樣做</div><div class=vx-cue-txt>先確認每划還有水感、推多遠，再考慮快慢</div></div></div><span class=vx-block-label>物理原理</span><div class=vx-howto>SL（每划距離）是技術品質最直接的外部指標，也是疲勞崩潰的<mark>第一個訊號</mark>——SL 下降先於 SR 下降。泳者本能反應剛好相反：感覺慢→划更快（提高 SR）→每划推進力下降但划次增加→消耗更多能量→技術繼續惡化。精英的優勢不是更高 SR，而是<mark>高 SR 下維持 SL 不下降</mark>。</div><div class=vx-boundary><span class=vx-label>硬體邊界</span>划距感知是可訓練的覺察能力，不是硬體邊界——目標是把「游完才發現划短了」推進到「游泳中途就能偵測」。但疲勞後主觀感知可信度下降，此時需回到 SPL 客觀數字，不能單靠感覺。</div><span class=vx-block-label>對應練習</span><details class=vx-drill><summary><span class=did>Fr20</span>高爾夫計分</summary><div class=vx-drill-body><p>以划水次數+時間的總分訓練每划距離，找到個人最佳節奏</p><span class=vx-label>怎麼做</span><ol><li>游四趟50公尺自由式（不穿蛙鞋最佳），每趟記下划手次數與秒數</li><li>把划手數加上秒數得到「高爾夫分數」（例：40秒加42划等於82）</li><li>接下來三趟設法降低這個分數（同時減少划手數與時間）</li><li>透過多次練習找到自己「每划距離」與速度之間的最佳平衡</li></ol><span class=vx-label>感知目標</span><p>感覺每一划都有明確推力；找到划頻與划距的平衡點</p></div></details><details class=vx-drill><summary><span class=did>Fr23</span>三划滑行</summary><div class=vx-drill-body><p>三划後45度滑行10拍，感覺核心在沒有划水時維持身體線條</p><span class=vx-label>怎麼做</span><ol><li>游3划自由式，第三划時把手留在前方，邊踢水邊滑行數到10</li><li>每三划會交替在不同側滑行</li><li>滑行時身體約45度乘載在臀部上，視線朝池底</li></ol><span class=vx-label>感知目標</span><p>滑行時45度穩定；感覺核心在支撐姿勢；視線朝池底</p></div></details><details class=vx-drill><summary><span class=did>Fr12</span>指尖拖水</summary><div class=vx-drill-body><p>恢復臂高肘訓練，感覺手指輕掠水面，肘部始終高於手腕</p><span class=vx-label>怎麼做</span><ol><li>自由式划手回臂時，指尖輕輕掠過水面（用指甲輕擦水面）</li><li>全程保持手肘高於手腕，帶出高手肘與指尖入水</li><li>放慢游，回臂的手盡量放鬆，並把每一划保持伸長</li></ol><span class=vx-label>感知目標</span><p>手指輕輕刮過水面；手臂放鬆；肘部保持高位</p></div></details><div class=vx-boundary><span class=vx-label>水感註記</span>能在中途察覺 SL 開始縮短是 L5→L6 的核心里程碑；疲勞崩潰序列的第一層。</div><nav class=vx-flow><button type=button data-target=move-6><span class=lbl>上一個</span>← 頭部位置</button>
-<button class=nx type=button data-target=move-8><span class=lbl>下一個</span>旋轉連動鏈 →</button></nav></section><section class="vx-panel vx-move" id=move-8><span class=vx-sec-no>動作 8 / 8</span><h2>旋轉連動鏈</h2><p class=vx-panel-lead>回臂入水放大對側推力（進階）</p><span class=vx-move-meta>水感層級 L5–L6</span>
-<span class=vx-block-label>口訣校正</span><div class=vx-cues><div class="vx-cue vx-cue--bad"><div class=vx-cue-tag>別這樣</div><div class=vx-cue-txt>回臂要快、要有力</div></div><div class="vx-cue vx-cue--why"><div class=vx-cue-tag>為什麼</div><div class=vx-cue-txt>回臂在空中不接觸水，本身不產生推進力；用力揮臂只製造全身張力、觸發 C 型遮蔽。重點是鬆弛加速與時機，不是力道。</div></div><div class="vx-cue vx-cue--good"><div class=vx-cue-tag>這樣做</div><div class=vx-cue-txt>回臂放鬆、持續加速到入水那一刻</div></div></div><span class=vx-block-label>物理原理</span><div class=vx-howto>回臂手從最高點<mark>加速下落</mark>、入水時動能傳遞到對側划手末段推力，產生 coupling 能量。耦合要有效，回臂必須<mark>持續加速到入水</mark>（不能在入水前減速）。肩旋轉峰值在拉水前段、髖旋轉峰值在拉水末段，兩者分開強化整個拉水週期。</div><div class=vx-boundary><span class=vx-label>硬體邊界</span>這是 L5 以上才會浮現的感知層次，屬感知成熟度問題而非硬體邊界。在 L3–L4 過早追求「整體連在一起」的感覺，往往是個別環節（抓水、踢水推進）尚未穩固卻誤以為「很好」——需先確認基礎感知穩定，不是直接進入連動鏈。</div><span class=vx-block-label>對應練習</span><details class=vx-drill><summary><span class=did>Fr24</span>俄式滾轉</summary><div class=vx-drill-body><p>自由式和仰式交替游，感覺兩式捕水動作的相似性，用核心旋轉切換</p><span class=vx-label>怎麼做</span><ol><li>交替游仰式和自由式，用單雙數組合：3划自由式到翻身到2划仰式到翻回到再3划自由式</li><li>單雙數組合可避免暈眩，並練到兩側的抓水</li><li>翻身時把前伸手錨定、確實抓住水，留意仰式與自由式的抓水其實相似</li></ol><span class=vx-label>感知目標</span><p>翻轉時前臂錨定不動，感覺抓住水；自由式和仰式的捕水角度相似</p></div></details><details class=vx-drill><summary><span class=did>Fr23</span>三划滑行</summary><div class=vx-drill-body><p>三划後45度滑行10拍，感覺核心在沒有划水時維持身體線條</p><span class=vx-label>怎麼做</span><ol><li>游3划自由式，第三划時把手留在前方，邊踢水邊滑行數到10</li><li>每三划會交替在不同側滑行</li><li>滑行時身體約45度乘載在臀部上，視線朝池底</li></ol><span class=vx-label>感知目標</span><p>滑行時45度穩定；感覺核心在支撐姿勢；視線朝池底</p></div></details><details class=vx-drill><summary><span class=did>Fr15</span>超人趕上</summary><div class=vx-drill-body><p>前伸等待訓練捕水錨定與肩髖旋轉，感覺拉手時髖部同步旋轉</p><span class=vx-label>怎麼做</span><ol><li>超人姿勢俯臥，雙臂前伸與肩同寬、肺部往水裡壓</li><li>一手划水，划完後該手停在前方，等另一手划過來「會合」，會合後才開始下一划</li><li>雙手在前方保持與肩同寬（不互碰），搭配穩定輕鬆的踢水</li><li>抓水錨定在接近水面處並從那裡開始划，搭配臀部旋轉</li></ol><span class=vx-label>感知目標</span><p>拉手起始於水面附近的錨定；感覺髖部在拉手時同步轉動</p></div></details><div class=vx-boundary><span class=vx-label>水感註記</span>L5 的耦合感知層次；連動鏈要等基礎捕水與推進感知穩固後才會出現。</div><nav class=vx-flow><button type=button data-target=move-7><span class=lbl>上一個</span>← 划距感知</button>
-<button class=nx type=button data-target=errors><span class=lbl>接著看</span>常見誤區 →</button></nav></section><section class=vx-panel id=errors><span class=vx-sec-no>自由式 · 常見誤區</span><h2>常見誤區</h2><p class=vx-panel-lead>教學現場最常見的錯誤指令，以及它在物理與感知上錯在哪。</p><div class=vx-filters><button class="vx-chip is-active" type=button data-cat=all>全部 23</button>
-<button class=vx-chip type=button data-cat=recovery>回臂</button><button class=vx-chip type=button data-cat=entry>入水</button><button class=vx-chip type=button data-cat=pull>水下划手</button><button class=vx-chip type=button data-cat=kick>踢腿</button><button class=vx-chip type=button data-cat=rotation>身體旋轉</button><button class=vx-chip type=button data-cat=breathing>頭部與換氣</button><button class=vx-chip type=button data-cat=tempo>划頻划距與訓練哲學</button></div><details class="vx-card vx-err" data-cat=recovery><summary><span class=vx-cardcat>回臂</span><span class=vx-cardtitle>高肘回臂是唯一正確方式</span></summary><div class=vx-card-body><span class=vx-label>常見說法</span><p class=vx-mis>許多教練教材將「高肘回臂（High Elbow Recovery）」定為標準，不論選手距離、水域、肩部結構， 一律要求高肘。</p><span class=vx-label>物理原因 🔵</span><p>回臂功能是「以最少能量將手臂帶回入水位置」。最佳路徑取決於距離、划頻需求、肩部活動度： 長距離需省能 → 高肘較優；短距離需高划頻與耦合動作 → 直臂反而能疊加推進力； 直臂自然拉高划頻並迫使更大身體旋轉；肩關節柔軟度不足者強制高肘可能製造代償或傷害。</p><span class=vx-label>正確觀念</span><p class=vx-correct>先評估選手的距離目標、划頻需求、肩部柔軟度，再選擇適合的回臂風格。不存在唯一標準。</p><span class=vx-label>感知影響</span><p>強制改高肘 → 學員常用肩頸張力「架起」高肘，整條回臂因此僵硬，反而破壞換氣與旋轉的感知流暢度。</p><span class=vx-label>依據</span><span class=vx-cite>🟠 教練過去教導必須高肘回臂、對稱划水，但 Janet Evans 的直臂、Grant Hackett 的單側換氣、 Phelps 與 Ledecky 的不對稱划水都推翻了這個說法。 <span class=src>— Scott Bay, USMS Level 5 Coach</span> <a href=https://www.usms.org/fitness-and-training/articles-and-videos/articles/freestyle-demystified target=_blank rel=noopener>↗</a></span><span class=vx-cite>🟠 大多數世界級 50 公尺選手使用直臂回臂，因為直臂的耦合動作能增強划水推進力。 <span class=src>— Tritonwear</span> <a href=https://blog.tritonwear.com/how-to-have-a-flawless-freestyle-swimming-recovery target=_blank rel=noopener>↗</a></span></div></details><details class="vx-card vx-err" data-cat=recovery><summary><span class=vx-cardcat>回臂</span><span class=vx-cardtitle>模仿菁英選手的動作就是正確</span></summary><div class=vx-card-body><span class=vx-label>常見說法</span><p class=vx-mis>教學中播放菁英選手影片，要求學員直接模仿其回臂動作，視「與奧運選手一樣」為技術目標。</p><span class=vx-label>物理原因 🔵</span><p>速度與技術細節是「相關」不是「因果」。菁英的速度部分來自技術，部分來自生理條件 （肌力、爆發力、肌纖維組成）——後者可以補償甚至掩蓋技術缺陷。</p><span class=vx-label>正確觀念</span><p class=vx-correct>影片分析要區分：「選手因為這個動作而快」vs「選手雖然有這個動作但還是快」。前者值得學， 後者是體能補償，複製只是複製了缺陷。</p><span class=vx-label>感知影響</span><p>「跟誰一樣」是形式目標，不是感知目標。學員注意力放在外型像不像，感知系統沒有接收到動作帶來的 水壓回饋訊號。</p><span class=vx-label>依據</span><span class=vx-cite>🟠 許多人相信最快的選手使用的技術值得模仿，結果產生許多誤解。即使最快的選手也有技術限制， 只是用體能彌補了不足。 <span class=src>— Rod Havriluk, Swimming Technology Research</span> <a href=https://chicagobluedolphins.com/article-freestyle-straight-arm-recovery/ target=_blank rel=noopener>↗</a></span></div></details><details class="vx-card vx-err" data-cat=recovery><summary><span class=vx-cardcat>回臂</span><span class=vx-cardtitle>拉鏈 Drill 代表正確的高肘路徑</span></summary><div class=vx-card-body><span class=vx-label>常見說法</span><p class=vx-mis>拉鏈 drill（拇指沿身體側面往上拉）被廣泛用來訓練高肘回臂，並被教練告知「這就是正確的回臂路徑」。</p><span class=vx-label>物理原因 🟠</span><p>Drill 是找感覺的工具，不是游泳時的固定路徑。拉鏈 drill 手部軌跡緊貼身體——實際游泳時手部 離身體應更寬。用這個 drill 的感覺直接對應到正式游泳，反而是錯誤的遷移。</p><span class=vx-label>正確觀念</span><p class=vx-correct>Drill 是找感覺的工具，需明確說明它在訓練什麼感知，以及與正式游泳的差異。使用前告知目的， 使用後確認學員是否誤以為 drill 路徑就是游泳路徑。</p><span class=vx-label>感知影響</span><p>Drill 引導的感知目標若方向錯誤，學員在正式游泳時會「找 drill 的感覺」，反而拉近手臂路徑， 製造不必要的側向阻力。</p><span class=vx-label>依據</span><span class=vx-cite>🟠 高肘概念常被 drill 強化錯誤方向；拉鏈 drill 視覺化為手部緊貼身體，容易被誤解為正確游法—— 但實際手部離身體應更寬。 <span class=src>— Coach Alan, Tri Training Harder</span> <a href=https://tritrainingharder.com/blog/2021/6/blog-is-straight-arm-better-than-high-elbow target=_blank rel=noopener>↗</a></span><span class=vx-cite>🟠 應避免拇指拖拉 drill（拉鏈 drill），因為它會讓肘部過度偏高，對肩膀產生極大壓力。 <span class=src>— Matt Donovan, USMS</span> <a href=https://www.usms.org/fitness-and-training/articles-and-videos/articles/the-right-and-wrong-time-to-have-high-elbows-on-freestyle target=_blank rel=noopener>↗</a></span></div></details><details class="vx-card vx-err" data-cat=recovery><summary><span class=vx-cardcat>回臂</span><span class=vx-cardtitle>直臂回臂是初學者的壞習慣，需要矯正</span></summary><div class=vx-card-body><span class=vx-label>常見說法</span><p class=vx-mis>部分教練見到學員直臂回臂，不問原因直接要求改高肘，視直臂為「需要矯正的錯誤」。</p><span class=vx-label>物理原因 🔵</span><p>直臂回臂有其合理適用情境：短距離衝刺（直臂耦合增強推進）、開放水域（手部高於浪面減少阻力）、 肩部柔軟度不足（不強迫高肘，減少肩峰下撞擊風險）。</p><span class=vx-label>正確觀念</span><p class=vx-correct>先問「這個學員為什麼用直臂？」再決定是否需要調整。直臂回臂不等於錯誤，高肘回臂也不等於安全。</p><span class=vx-label>依據</span><span class=vx-cite>🟠 直臂回臂可獲得更高划頻，並在開放水域讓手部高於浪面，也有助於肩膀柔軟度不足的選手。 <span class=src>— chilitri.com</span> <a href=https://chilitri.com/blog/karenparnell01@hotmail.com/bent-elbow-vs-straight-arm-recovery-which-is-best-for-you target=_blank rel=noopener>↗</a></span><span class=vx-cite>🟢 直臂回臂對肩部影響並非單向：高肘回臂若配合過高的肩膀抬舉，反而可能增加肩峰下撞擊 （subacromial impingement）風險。 <span class=src>— Biomechanical Considerations in the Competitive Swimmer's Shoulder, PMC3438875</span> <a href=https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3438875/ target=_blank rel=noopener>↗</a></span></div></details><details class="vx-card vx-err" data-cat=recovery><summary><span class=vx-cardcat>回臂</span><span class=vx-cardtitle>回臂動作本身能產生推進力，所以要做得有力</span></summary><div class=vx-card-body><span class=vx-label>常見說法</span><p class=vx-mis>部分教學強調「回臂要快、要有力」，讓學員誤以為回臂動作本身可以直接帶來速度。</p><span class=vx-label>物理原因 🔵</span><p>手臂在空中移動不接觸水，無法直接產生推進力。但回臂的加速方式與時機透過「耦合動作」影響 水下划手效益：晚期回臂的加速能量在入水瞬間耦合至對側划手末段推力。正確說法是「鬆弛加速、 時機準確」，不是「要有力」。</p><span class=vx-label>正確觀念</span><p class=vx-correct>回臂本身不產生推進力，但回臂的質量（鬆弛度、加速節奏）直接影響水下推進效益。不是「要有力」， 而是「鬆弛加速、時機準確」。</p><span class=vx-label>感知影響</span><p>「用力揮臂」製造全身張力，表層肌肉張力升高後，本體感知對水下划手路徑的精細回饋被覆蓋， 學員失去感知水的能力。</p><span class=vx-label>依據</span><span class=vx-cite>🟠 回臂在空中的動作本身不產生推進力；重要的是水下划水。但回臂若做得不好，會消耗不必要的能量， 讓水下划水力道下降。 <span class=src>— Tri-Coaching</span> <a href=https://tri-coaching.co.uk/2015/04/21/freestyle-recovery/ target=_blank rel=noopener>↗</a></span></div></details><details class="vx-card vx-err" data-cat=entry><summary><span class=vx-cardcat>入水</span><span class=vx-cardtitle>「頭部正前方入水」是標準入水點</span></summary><div class=vx-card-body><span class=vx-label>常見說法</span><p class=vx-mis>許多教學要求「在頭部正前方輕輕滑入水中」，甚至示範手剛超過頭頂就落水。</p><span class=vx-label>物理原因 🔵</span><p>水的密度約是空氣的 800 倍，正面阻力遠大於空氣。手臂在空中阻力極小，應讓手臂充分伸展後再入水， 而非提早落水製造正面阻力。</p><span class=vx-label>正確觀念</span><p class=vx-correct>入水點在肩線前方、手臂接近伸展處，指尖朝前斜下切入，不跨中線。</p><span class=vx-label>感知影響</span><p>入水過短 → 升力相被壓縮，捕水前延伸時間不足，學員無法建立「手伸到水前方、讓水來找手」的感知， L2 延伸感知難以建立。</p><span class=vx-label>依據</span><span class=vx-cite>🟠 應讓手臂充分伸展後再入水，而不是在頭部正上方就落水。 <span class=src>— The Race Club</span> <a href=https://theraceclub.com/aqua_note/common-mistakes-from-the-freestyle-hand-entry/ target=_blank rel=noopener>↗</a></span><span class=vx-cite>🟠 現代共識：入水點應在肩線延伸前方、手臂接近完全伸展的位置（約肩寬、距頭部 30–45 公分）， 指尖朝前斜下切入，不跨越中線。 <span class=src>— Vortex 整理</span></span></div></details><details class="vx-card vx-err" data-cat=entry><summary><span class=vx-cardcat>入水</span><span class=vx-cardtitle>入水時手指要「完全夾緊」</span></summary><div class=vx-card-body><span class=vx-label>常見說法</span><p class=vx-mis>教學常要求入水時手指「完全夾緊、不留縫隙」，並且「全程保持夾緊」。</p><span class=vx-label>物理原因 🟢</span><p>入水（切入）與抓水（捕水）是兩個不同動作、對應不同手型：入水瞬間手形緊實降低阻力； 進入捕水後微微張開至放鬆自然位（約 10° 間距），增大推進面積。全程夾緊會限制抓水有效面積。</p><span class=vx-label>正確觀念</span><p class=vx-correct>入水瞬間指尖領先、手形緊實；進入捕水後微微張開至約 10° 自然位。只教「全程夾緊」會限制抓水面積。</p><span class=vx-label>感知影響</span><p>手指感知是手感發展的核心。完全夾緊 → 手掌變「硬板」，失去對水流分布的感知細節；略微張開後才能 感知「水填滿指縫的壓力」，這是重要的感知訊號入口。</p><span class=vx-label>依據</span><span class=vx-cite>🟢 CFD 分析真實手部模型（2 m/s）：最佳手指間距約 10°（指尖間距約 3.2 mm），與完全夾緊相比 阻力係數提升 2–5%、力矩提升 5–8%；最佳間距接近放鬆手的自然姿態。機制是指縫產生噴流， 抑制大渦流形成。多篇 CFD 重複確認。 <span class=src>— Marinho et al. (2010), Journal of Applied Biomechanics</span> <a href=https://pubmed.ncbi.nlm.nih.gov/20733242/ target=_blank rel=noopener>↗</a></span><span class=vx-cite>🟢 入水瞬間手指與拇指應緊合像刀片劃入；進入抓水後手指應略微張開以增大受力面積。 <span class=src>— The Race Club</span> <a href=https://theraceclub.com/aqua_note/common-mistakes-from-the-freestyle-hand-entry/ target=_blank rel=noopener>↗</a></span></div></details><details class="vx-card vx-err" data-cat=entry><summary><span class=vx-cardcat>入水</span><span class=vx-cardtitle>「掌心朝下平入水」是唯一正確角度</span></summary><div class=vx-card-body><span class=vx-label>常見說法</span><p class=vx-mis>傳統教學幾乎一律要求掌心朝下（palm down）入水，視其為「乾淨入水」的標準。</p><span class=vx-label>物理原因 🔵</span><p>入水角度受回臂方式、身體旋轉幅度、個人腕部活動度共同決定。直臂回臂選手入水時手腕通常需要更多 屈曲才能讓指尖先入水；強制掌心朝下反而製造入水阻力或手腕代償。</p><span class=vx-label>正確觀念</span><p class=vx-correct>目標是「指尖領先、乾淨切入」，達成此目標的腕部角度因回臂方式與個人解剖條件而異，不能硬套單一標準。</p><span class=vx-label>依據</span><span class=vx-cite>🟠 一種手型適合所有人是不存在的。不同回臂方式、身體結構、傷病史都會影響入水時最佳的手腕角度。 <span class=src>— Swimming World Magazine</span> <a href=https://www.swimmingworldmagazine.com/news/science-of-performance-hand-entry/ target=_blank rel=noopener>↗</a></span></div></details><details class="vx-card vx-err" data-cat=entry><summary><span class=vx-cardcat>入水</span><span class=vx-cardtitle>入水要「越安靜越好」</span></summary><div class=vx-card-body><span class=vx-label>常見說法</span><p class=vx-mis>教學常強調「安靜入水、不能有水花」，讓學員過度謹慎地「放」手進水，而非積極向前伸刺。</p><span class=vx-label>物理原因 🟠</span><p>過度追求安靜 → 入水動作變被動、位置過短、姿勢消極，失去晚期回臂的加速能量轉移。 「安靜」是乾淨切入的副產品，不是追求目標。</p><span class=vx-label>正確觀念</span><p class=vx-correct>目標是「指尖領先、積極前伸切入」。以「安靜」為目標會減慢手臂在空中的最後加速，削減耦合的能量轉移。</p><span class=vx-label>感知影響</span><p>「輕輕放入」製造消極的入水感知，學員把「沒有感覺」當成正確訊號。正確積極入水後應能感受到指尖切入 水面的「劈」感，這是重要的本體回饋起點。</p><span class=vx-label>依據</span><span class=vx-cite>🟠 正確做法是積極「攻擊水面」，將手向前推刺。15 次奧運冠軍教練 Eddie Reese： 「我們教的是『伸手觸牆』的概念。」 <span class=src>— YourSwimLog</span> <a href=https://www.yourswimlog.com/how-to-improve-freestyle-hand-entry/ target=_blank rel=noopener>↗</a></span></div></details><details class="vx-card vx-err" data-cat=pull><summary><span class=vx-cardcat>水下划手</span><span class=vx-cardtitle>S 形划水路徑是高效划水的目標</span></summary><div class=vx-card-body><span class=vx-label>常見說法</span><p class=vx-mis>過去教學（1960–1990 年代普遍）要求選手手部在水下走「S 形路徑」，視為高效划水的標準動作。</p><span class=vx-label>物理原因 🔵</span><p>S 形划水的每次方向改變都意味手部需加速、減速、再加速，每次減速都是推進力損失。手掌相對身體走 接近直線的後向推進才最有效率。水下看到的 S 形是身體轉體造成的視覺錯覺，不是手部刻意繞 S。</p><span class=vx-label>正確觀念</span><p class=vx-correct>水下划手目標是「手掌向後加速、維持路徑穩定」，S 形是轉體副產品，不應刻意訓練。</p><span class=vx-label>感知影響</span><p>「刻意繞 S」讓學員注意力放在路徑形狀（視覺/空間目標），無法聚焦在「手掌對水壓力的連續感知」。 路徑形狀是外部視角描述，感知系統不以路徑形狀為輸入。</p><span class=vx-label>依據</span><span class=vx-cite>🟡 S 形路徑由 James "Doc" Counsilman 在《The Science of Swimming》（1968）依水下攝影觀察提出。 <span class=src>— 歷史背景</span></span><span class=vx-cite>🟢 高速影像顯示菁英選手手部路徑相當直線；過去看到的 S 形是身體轉體造成的視覺錯覺。 <span class=src>— Rocketswim</span> <a href=https://rocketswim.com/four-phases-of-freestyle-arm-stroke/ target=_blank rel=noopener>↗</a></span></div></details><details class="vx-card vx-err" data-cat=kick><summary><span class=vx-cardcat>踢腿</span><span class=vx-cardtitle>用力踢水才能快——力量優先於柔韌性</span></summary><div class=vx-card-body><span class=vx-label>常見說法</span><p class=vx-mis>「腿要踢有力、踢得快」是最普遍的踢水指令之一，但忽略了踢水效率的硬體前提：踝關節蹠屈幅度。</p><span class=vx-label>物理原因 🔵</span><p>踢水推進力來自腳掌面向後方的推水面積，踝關節蹠屈幅度直接決定此面積：柔韌性足夠 → 腳掌接近垂直 朝後 → 有效面積最大；踝關節僵硬 → 腳背而非腳掌面朝後 → 踢水反而制動。增加力量但蹠屈不足， 只是更有力地產生阻力。</p><span class=vx-label>正確觀念</span><p class=vx-correct>踝關節柔韌性訓練優先於力量。跑步背景選手需先評估蹠屈幅度確認硬體邊界，再決定踢水訓練方向。</p><span class=vx-label>感知影響</span><p>踝僵硬選手腳掌從未建立「後方推水」的感覺——因為腳掌實際從未朝後過。這無法靠感知訓練解決， 是硬體邊界，必須先做柔韌性改善。</p><span class=vx-label>依據</span><span class=vx-cite>🟢 踝關節蹠屈柔韌性與踢水速度直接相關；陸上踝柔韌性訓練能改善踢水效率。跑步背景者最容易踝僵硬， 踢水時最易制動。 <span class=src>— McCullough et al. (2009/2010), J. Strength & Conditioning Research</span> <a href=https://pubmed.ncbi.nlm.nih.gov/19387413/ target=_blank rel=noopener>↗</a></span></div></details><details class="vx-card vx-err" data-cat=kick><summary><span class=vx-cardcat>踢腿</span><span class=vx-cardtitle>六拍踢是正確標準，兩拍是偷懶或技術不好</span></summary><div class=vx-card-body><span class=vx-label>常見說法</span><p class=vx-mis>許多教練把六拍踢當「正確」節奏，見到兩拍踢直覺判斷為偷懶或技術不成熟，要求一律改六拍。</p><span class=vx-label>物理原因 🔵</span><p>六拍踢（高代謝、連續推進+填補划手空窗，適合 100m 以下衝刺）與兩拍踢（低代謝、維持旋轉節律+ 平衡穩定，適合 400m 以上長距離）的協調邏輯與適用情境不同——是距離策略的客觀反映，不是技術高低。 兩拍同側踢與六拍對側踢相反，但服務不同旋轉需求。</p><span class=vx-label>正確觀念</span><p class=vx-correct>踢水節奏由距離、划頻、腿部耐力共同決定。強制六拍可能讓長距離選手後段腿部提前疲勞，破壞整體效率。</p><span class=vx-label>感知影響</span><p>強制六拍的長距離選手，腿部能量在中段已大量消耗，後段節律錨點崩潰，換氣時機和划手節奏同步失守。 踢水節奏是整個划手週期的節律框架。</p><span class=vx-label>依據</span><span class=vx-cite>🟠 Hip-driven 風格（長距離）自然發展兩拍踢，因六拍在低划頻下製造不必要腿部疲勞。精英長距離 大多用兩拍或四拍，不是六拍。 <span class=src>— 教練觀測</span></span></div></details><details class="vx-card vx-err" data-cat=kick><summary><span class=vx-cardcat>踢腿</span><span class=vx-cardtitle>「用腰帶腿踢」——踢水要從腰開始（鎖死膝蓋）</span></summary><div class=vx-card-body><span class=vx-label>常見說法</span><p class=vx-mis>「踢水要從腰帶動、不是靠膝蓋彎曲」常被過度執行，導致選手完全鎖住膝蓋，反而失去踝關節的加速能量。</p><span class=vx-label>物理原因 🔵</span><p>有效踢水需三環節連動：髖關節發力 → 膝蓋有控制地彎曲（下踢峰值約 55–75°）→ 踝關節鞭打加速。 「從腰帶動」解決環節 1，但若被解讀為「膝蓋不能動」，環節 2 消失、環節 3 無法加速，踢水變成 整條腿擺動，效率大幅下降。</p><span class=vx-label>正確觀念</span><p class=vx-correct>根本是發力序列：髖帶膝、膝帶踝、踝完成鞭打。「用腰帶腿」修正的是發力起點，不應解讀為消除膝蓋動作。 推薦夾板踢水隔離腿部，感知髖-膝-踝連動。</p><span class=vx-label>感知影響</span><p>膝蓋鎖死的選手踝關節無法完成末端加速，踢水是「腿部整體推」而非「踝關節掃過水」。有鞭打感的踢水 在踝末端可感受水壓劇烈變化；鎖膝版本沒有這個峰值，感覺「平滑但沒有力量感」。</p><span class=vx-label>依據</span><span class=vx-cite>🟠 bicycle kick 的問題在膝蓋彎曲過大且主導踢水（膝先動、髖後動），而非膝蓋彎曲本身。最佳膝蓋 彎曲角度 55–75°（下踢峰值），低於 55° 推進不足，超過 75° 進入 bicycle kick。 <span class=src>— The Race Club VM 量化</span></span></div></details><details class="vx-card vx-err" data-cat=kick><summary><span class=vx-cardcat>踢腿</span><span class=vx-cardtitle>腳踝僵硬是先天條件，無法改善</span></summary><div class=vx-card-body><span class=vx-label>常見說法</span><p class=vx-mis>部分教練診斷踝僵硬後告知「你的踝關節先天比較硬，踢水不會好」，或跳過踝訓練改強調用上半身彌補。</p><span class=vx-label>物理原因 🔵</span><p>踝關節蹠屈柔韌性後天可改善，但柔韌性改善與表現改善有時間差：6 週訓練研究顯示柔韌性顯著改善 （p=0.0008），但同期 25m 踢板成績改善尚未顯著（p=0.40）——柔韌性改善先於表現。「先天不可改」 常來自短期介入未見速度提升後的誤判。</p><span class=vx-label>正確觀念</span><p class=vx-correct>踝柔韌性是可訓練的硬體條件，不是不可改變的先天限制。診斷僵硬後應設計踝專項訓練，同時在水中用 適合目前範圍的踢水訓練。只告知「天生腳踝硬」而不提供改善方案，是診斷與教學流程的雙重失職。</p><span class=vx-label>感知影響</span><p>改善過程中選手會逐漸出現「腳掌開始感受到水壓的新感覺」。需教練明確告知「這個新水壓感就是踢水 開始有效的信號」，否則可能誤判為「踢法改變了，感覺怪怪的」。</p><span class=vx-label>依據</span><span class=vx-cite>🟠 陸上踝柔韌性訓練（泡沫軸放鬆腓腸肌、主動蹠屈伸展、跪坐拉伸）可改善踢水效率。 <span class=src>— McCullough 2009/2010 方向</span></span></div></details><details class="vx-card vx-err" data-cat=rotation><summary><span class=vx-cardcat>身體旋轉</span><span class=vx-cardtitle>主動轉髖是自由式旋轉的正確指令</span></summary><div class=vx-card-body><span class=vx-label>常見說法</span><p class=vx-mis>「游自由式要用髖帶動手臂」「轉髖才能讓划水更有力」混淆了因果方向，在短距離或高划頻情境反而造成代償。</p><span class=vx-label>物理原因 🔵</span><p>旋轉的正確因果鏈：推水末段 → 肩胛肌群收縮（菱形肌後縮肩胛骨）→ 啟動對側身體滾轉 → 髖部被動跟隨。 髖部是被動跟隨者，不是發動者。短距離（高划頻）刻意主動轉髖 → 時機錯亂+額外能耗； 「用髖帶動划手」在長距離和短距離效果方向相反。</p><span class=vx-label>正確觀念</span><p class=vx-correct>旋轉的感知目標是肩胛骨的動作，不是髖部旋轉。指導語應從「轉髖」改為「推水末段感覺肩胛骨往脊椎縮」。</p><span class=vx-label>感知影響</span><p>「主動轉髖」的感知是腰椎扭轉感，與肩胛骨收縮感完全不同。建立「轉腰=正確旋轉」後，注意力永遠在腰部 而非肩胛骨，旋轉的耦合質量難以被精確感知和調整。</p><span class=vx-label>依據</span><span class=vx-cite>🟡 推水末段肩胛肌群（菱形肌）是旋轉的主動發動肌，髖部被動跟隨。「把肩膀教好，髖部自然跟著動。」 <span class=src>— Pink et al. (1991) EMG；Science of Swimming Faster (Riewald & Rodeo 2015)</span></span></div></details><details class="vx-card vx-err" data-cat=rotation><summary><span class=vx-cardcat>身體旋轉</span><span class=vx-cardtitle>旋轉幅度越大越好——「把肩膀打開」指令</span></summary><div class=vx-card-body><span class=vx-label>常見說法</span><p class=vx-mis>「肩膀要打開到 90 度」「旋轉越多越好，增加拉力臂」混淆了長距離與短距離策略，在高划頻下幾何上不可能。</p><span class=vx-label>物理原因 🔵</span><p>旋轉幅度有最優範圍，超過後邊際效益為負：Hip-driven（長距離）髖旋轉約 45–60°；Shoulder-driven （衝刺）約 35–40°，時間窗口短，更大旋轉物理上無法完成。過度旋轉 → 側面面積增加（阻力上升）+ 推進方向偏移 + 旋轉速度峰值與推力峰值不再對齊。旋轉的價值在時機對齊，不在幅度。</p><span class=vx-label>正確觀念</span><p class=vx-correct>旋轉幅度目標是「讓划手推力峰值和旋轉速度峰值對齊」，不是越大越好。「打開肩膀」對長距離有意義， 對短距離可能是干擾。先確認目標距離和划頻。</p><span class=vx-label>感知影響</span><p>追求旋轉幅度的選手感知目標是「轉多遠」（空間/位置感知），不是「旋轉時機是否讓推水感覺更強」 （水壓感知）。這是耦合感知能否建立的關鍵分岔點。</p><span class=vx-label>依據</span><span class=vx-cite>🟠 短距離旋轉幅度明顯小於長距離（衝刺 ~37° vs 400m ~50°），且短距離速度優勢不是靠旋轉幅度達成。 （各研究測量方法與速度基準不同，確切範圍仍有差異） <span class=src>— Andersen et al. (2020) 方向；PMID 32500807</span> <a href=https://pubmed.ncbi.nlm.nih.gov/32500807/ target=_blank rel=noopener>↗</a></span></div></details><details class="vx-card vx-err" data-cat=rotation><summary><span class=vx-cardcat>身體旋轉</span><span class=vx-cardtitle>「積極轉體，旋轉越快游越快」</span></summary><div class=vx-card-body><span class=vx-label>常見說法</span><p class=vx-mis>「要積極轉體，旋轉帶動划手才有力」把旋轉定位為速度的主動來源，但旋轉本身不接觸水，無法直接產生推進力。</p><span class=vx-label>物理原因 🔵</span><p>身體旋轉發生在空氣與水的介面，旋轉動作本身不接觸水（手臂在回臂，不在拉水），因此旋轉本身不產生 推進力。旋轉的作用是透過耦合——旋轉速度峰值與划手推力峰值在時間上對齊時能量疊加。旋轉是放大器， 不是引擎。沒有時機對齊的旋轉 = 零耦合貢獻 + 額外阻力。</p><span class=vx-label>正確觀念</span><p class=vx-correct>正確問題不是「旋轉多不多」，而是「旋轉速度峰值有沒有和推力峰值對齊」。沒有時機的大幅旋轉， 效果不如時機精準的小幅旋轉。</p><span class=vx-label>感知影響</span><p>「積極旋轉」容易觸發全身張力升高（核心和腰部同時收緊），手部對水壓的細緻感知被覆蓋。結果是選手 一邊積極旋轉一邊失去感知划手是否有效的能力，耦合品質無法被感知調整。</p><span class=vx-label>依據</span><span class=vx-cite>🟠 旋轉速度峰值發生在划手推力峰值的特定時間窗口內時速度提升顯著；窗口外旋轉不帶來速度增益。 <span class=src>— The Race Club Velocity Meter + Pressure Meter</span></span></div></details><details class="vx-card vx-err" data-cat=breathing><summary><span class=vx-cardcat>頭部與換氣</span><span class=vx-cardtitle>換氣時眼睛要「看到天花板」</span></summary><div class=vx-card-body><span class=vx-label>常見說法</span><p class=vx-mis>「換氣時眼睛要看天花板」「臉要完全轉出水面才能吸到夠的空氣」透過頭部過度旋轉來解決換氣，代價比直覺大。</p><span class=vx-label>物理原因 🔵</span><p>頭部過度旋轉的連鎖代價：頸部肌肉張力升高 → 旋轉連動鏈被打斷 → 換氣側手臂入水位置偏移（常見跨中線） → 重心偏移 → 下半身補償 → 節律干擾。精英是「寄生換氣」：頭部搭身體旋轉的便車，嘴巴轉進弓形波 凹陷吸氣，而非主動把頭轉出水面。</p><span class=vx-label>正確觀念</span><p class=vx-correct>換氣目標是「最小旋轉、讓嘴巴進入弓形波凹陷」。感知替代目標：「換氣時，另一側護目鏡還有一半在水裡。」</p><span class=vx-label>感知影響</span><p>頭部過度旋轉製造大量頸部張力，每次換氣都是一次全身感知的部分中斷。換氣週期和非換氣週期的划手品質 明顯不一致 → 換氣成為技術崩潰的觸發點而不是中性事件。</p><span class=vx-label>依據</span><span class=vx-cite>🟠 精英換氣時護目鏡另一側鏡片通常沒完全離開水面——這是「最小旋轉換氣」的外部指標。 「嘴角剛好露出水面就足夠」，不需看天花板。 <span class=src>— The Race Club</span></span></div></details><details class="vx-card vx-err" data-cat=breathing><summary><span class=vx-cardcat>頭部與換氣</span><span class=vx-cardtitle>換氣時前方手臂要「等在那裡」——catch-up 換氣</span></summary><div class=vx-card-body><span class=vx-label>常見說法</span><p class=vx-mis>「換氣時另一隻手先在前方等著，等你吸完氣再一起划」製造人為的划手暫停，讓呼吸從「寄生在旋轉中」 變成「打斷旋轉節律」。</p><span class=vx-label>物理原因 🔵</span><p>呼吸最優是「寄生模式」：頭部搭身體已在進行的旋轉便車，借用但不延長。停留手臂的問題：一側手臂 水中停留 → 升力相拉長（消耗能量不推進）→ 划頻下降 → 旋轉動量被打斷，下一次旋轉需重新啟動。</p><span class=vx-label>正確觀念</span><p class=vx-correct>換氣不應讓划手節律停等它。讓嘴巴在旋轉瞬間進入弓形波凹陷，吸氣後立刻回位，整個換氣發生在旋轉的 正常弧度裡。換氣是「找到身體自然給出空間的瞬間」，不是「要求身體停下來等你」。</p><span class=vx-label>感知影響</span><p>停等手臂製造划手週期裡的感知空白段——那段時間手臂被動停留，沒有推進方向的水壓感知。習慣後換氣週期 和非換氣週期的節律感知差異越來越大，技術崩潰時換氣週期第一個失守。</p><span class=vx-label>依據</span><span class=vx-cite>🟠 精英不是為換氣而停等手臂，而是找到旋轉節律中換氣自然契合的時間窗口塞進去，不改變划手節律。 <span class=src>— 教練觀測</span></span></div></details><details class="vx-card vx-err" data-cat=tempo><summary><span class=vx-cardcat>划頻划距與訓練哲學</span><span class=vx-cardtitle>衝刺要「划快一點」——划頻越高越快</span></summary><div class=vx-card-body><span class=vx-label>常見說法</span><p class=vx-mis>比賽後半或衝刺時本能反應是「划快一點」提高划頻。在精英以下層次有一定效果，但在高水準和長距離 情境下可能適得其反。</p><span class=vx-label>物理原因 🔵</span><p>速度 = SR × SL。SR 提高而 SL 不下降時速度才增加。但 SR 提高 → 每次划手時間窗口縮短 → 捕水品質 下降 → SL 容易下降。若 SL 同幅下降則速度不變但能耗增加；若 SL 下降更多則速度反而降低。精英優勢 是「在高 SR 下維持 SL 不下降」的技術穩定性，不是更高的 SR。</p><span class=vx-label>正確觀念</span><p class=vx-correct>衝刺感知目標不是「划快一點」，而是「確認每次划手還有水感」。若 SL 已在下降，繼續提高 SR 只會加速 技術崩潰。疲勞監測最佳信號是 SL 變化，不是主觀的快/慢。</p><span class=vx-label>感知影響</span><p>「衝刺靠划頻」的訓練模式讓選手在高速時習慣放棄感知監測、改用「努力划」模式，高速下的 feedforward 建立在錯誤技術模式上。速度越高，感知越差，技術崩潰越早。</p><span class=vx-label>依據</span><span class=vx-cite>🟢 50m 中 SL 是主要速度決定因子；SR 在男子 50m 中甚至與速度呈負相關。精英金牌優勢在「高 SR 下 維持 SL」，而非更高的 SR。 <span class=src>— Staunton et al. (2025), Frontiers in Sports and Active Living</span></span></div></details><details class="vx-card vx-err" data-cat=tempo><summary><span class=vx-cardcat>划頻划距與訓練哲學</span><span class=vx-cardtitle>「手伸遠一點」——在水中主動向前延伸增加划距</span></summary><div class=vx-card-body><span class=vx-label>常見說法</span><p class=vx-mis>「手在水裡要繼續向前伸」「延伸讓你划得更遠」想解決真實問題（提升 SL），但方向弄反了——在水中 主動向前推手反而讓手臂失去捕水位置。</p><span class=vx-label>物理原因 🔵</span><p>手在水中「主動向前推」：向前的肌肉收縮 → 手臂緩慢向前下方移動（不是靜止在最佳捕水位置）→ 選手 感知是「在延伸」，實際正在下沉到更深更前的地方 → 捕水效率降低，SL 反而下降。真正的延伸距離來自 旋轉把肩膀送出去，手臂搭便車到達更遠位置。</p><span class=vx-label>正確觀念</span><p class=vx-correct>增加 SL 的正確方向是提升捕水品質，而非延長手臂在水中的前進距離。「伸得更遠」應是「感覺肩膀被旋轉 送得更遠」，而不是「手臂在水中繼續往前推」。</p><span class=vx-label>感知影響</span><p>「主動向前推水」建立錯誤的 L2 水感：把「向前推動水」當成延伸訊號。這與 L3 捕水感知（水壓作用在 手掌後方）方向完全相反，前者一旦固化，L3 的建立會因感知方向衝突而受阻。</p><span class=vx-label>依據</span><span class=vx-cite>🟠 入水後讓慣性帶手繼續向前滑幾寸，然後立刻轉入捕水——不是主動推水延伸。延伸和捕水之間沒有 「主動向前推」這個動作。 <span class=src>— 教練觀測</span></span></div></details><details class="vx-card vx-err" data-cat=tempo><summary><span class=vx-cardcat>划頻划距與訓練哲學</span><span class=vx-cardtitle>SR 和 SL 必然互相取捨，要選一個方向訓練</span></summary><div class=vx-card-body><span class=vx-label>常見說法</span><p class=vx-mis>「你划頻快但划距短，這是你的風格，各有優劣」把 SR-SL 的負相關當成物理定律，並以此放棄對弱項的訓練。</p><span class=vx-label>物理原因 🔵</span><p>SR-SL 的負相關是技術限制的外在表現，不是物理定律：技術足夠時 SR 提高 SL 可維持甚至提升——這正是 精英訓練的目標。兩者並非風格差異，而是「技術是否能在高划頻下維持捕水效率」的反映。</p><span class=vx-label>正確觀念</span><p class=vx-correct>SR 與 SL 都要訓練但目標不同：SR 訓練神經快速徵召；SL 訓練在高 SR 下維持捕水效率和阻力控制。 問題不是「選哪個」，而是「目前 SR 壓力下 SL 下降的原因是技術問題還是生理條件問題」。</p><span class=vx-label>感知影響</span><p>相信「必然取捨」的選手在划距縮短時不會嘗試找回捕水的感知質量，而是接受它。這讓捕水感知不精確被 「風格差異」的標籤永久掩蓋，無法被識別和改善。</p><span class=vx-label>依據</span><span class=vx-cite>🟢 精英金牌相對於一般精英的優勢正在於「高 SR 下維持 SL 不下降」——兩者不是取捨，是同時最大化的目標。 <span class=src>— Staunton et al. (2025)</span></span></div></details><details class="vx-card vx-err" data-cat=tempo><summary><span class=vx-cardcat>划頻划距與訓練哲學</span><span class=vx-cardtitle>「慢游練技術、快游練體能」——速度是訓練分界線</span></summary><div class=vx-card-body><span class=vx-label>常見說法</span><p class=vx-mis>「慢游注意技術、快游全力衝」幾乎普遍。它描述層次錯了——用速度作分界掩蓋了真正的判斷標準， 並製造有害副作用：選手在速度稍快時自動關閉技術監測。</p><span class=vx-label>物理原因 🔵</span><p>速度不是關鍵變項，真正的分界是「不崩速度」——在這個速度下技術不崩潰（疲勞時低、新鮮時高）。 在不崩速度以下游 → 有效技術刺激；超過 → 強化崩潰下的動作模式。技術崩潰有兩種：能量系統崩潰 vs 神經肌肉協調崩潰，兩者訓練介入方向完全不同。長距離後段崩潰更可能是神經肌肉協調崩潰。</p><span class=vx-label>正確觀念</span><p class=vx-correct>訓練分界不是速度，而是「技術是否崩潰」。Drill 可加速度要求（只要技術不崩）；計時游也可是技術訓練 （只要在不崩速度內）。教練核心是找到每個選手在每個階段的「不崩速度」，在那個邊界設計訓練。</p><span class=vx-label>感知影響</span><p>「快游不用管技術」讓選手在速度稍高時自動關閉感知監測，高速下的神經動作模式和低速完全不同， feedforward 在高速下沒被正確建立。精英的標誌之一是「比賽速度和訓練速度下感知監測品質相同」。</p><span class=vx-label>依據</span><span class=vx-cite>🟠 特異性原則：慢速習得的神經動作模式不能自動遷移至比賽速度。USRPT（Dr. Brent Rushall, SDSU） 主張以短距離段落在比賽配速練習，建立比賽速度下的正確神經模式。 <span class=src>— Specificity of Practice；USRPT</span></span></div></details></section><section class=vx-panel id=tech><span class=vx-sec-no>自由式 · 深入機制</span><h2>深入機制</h2><p class=vx-panel-lead>想知道「為什麼」時再讀——每則是一個獨立的物理或生理機制。</p><div class=vx-filters><button class="vx-chip is-active" type=button data-cat=all>全部 26</button>
-<button class=vx-chip type=button data-cat=concept>分析框架與物理本質</button><button class=vx-chip type=button data-cat=tempo>划頻與划距</button><button class=vx-chip type=button data-cat=style>技術風格</button><button class=vx-chip type=button data-cat=stroke-cycle>划手週期與機制</button><button class=vx-chip type=button data-cat=hardware>硬體邊界</button><button class=vx-chip type=button data-cat=kick>踢水與腿部機制</button><button class=vx-chip type=button data-cat=rotation>身體旋轉</button><button class=vx-chip type=button data-cat=head>頭部與換氣</button><button class=vx-chip type=button data-cat=errors>常見錯誤</button><button class=vx-chip type=button data-cat=fatigue>疲勞崩潰序列</button><button class=vx-chip type=button data-cat=watersense>水感與神經控制</button><button class=vx-chip type=button data-cat=comparison>四式技術對照</button></div><details class="vx-card vx-tech" data-cat=concept><summary><span class=vx-cardcat>分析框架與物理本質</span><span class=vx-cardtitle>自由式無唯一最優技術——最優解由距離、生理條件、疲勞狀態共同決定</span></summary><div class=vx-card-body><p>自由式技術風格不是偏好選擇，而是距離與生理條件的客觀投影，沒有放諸四海皆準的單一正確技術。</p><span class=vx-label>機制 🔵</span><p>速度 = 划頻（SR）× 划手距離（SL），最優解隨距離、個人生理上限與疲勞狀態改變，屬開放式最佳化問題而非固定公式。</p><span class=vx-label>實務意涵</span><p class=vx-correct>教練與泳者應以「找個人最優解」取代「學正確形狀」的教學框架；先確認距離和生理條件，再選風格策略。</p></div></details><details class="vx-card vx-tech" data-cat=concept><summary><span class=vx-cardcat>分析框架與物理本質</span><span class=vx-cardtitle>自由式推進結構——手臂主引擎，腿部輔助，旋轉為耦合放大器</span></summary><div class=vx-card-body><p>手臂提供約 85–90% 推進力，腿部主要功能是穩定節律與輔助推進；身體旋轉本身不產生推進力，但透過耦合疊加可放大推力。</p><span class=vx-label>機制 🔵</span><p>旋轉是耦合運動（coupling motion）——當旋轉速度峰值與划手推力峰值對齊時，能量疊加顯著放大推力；本身無法獨立產生前進推力。</p><span class=vx-label>實務意涵</span><p class=vx-correct>不應把旋轉訓練與划手訓練拆開看待；教學焦點應放在旋轉峰值時機與推力峰值的對齊，而非旋轉幅度本身。</p></div></details><details class="vx-card vx-tech" data-cat=tempo><summary><span class=vx-cardcat>划頻與划距</span><span class=vx-cardtitle>SR–SL 動態關係——精英優勢在高划頻下維持划距不下降</span></summary><div class=vx-card-body><p>50m 中划手距離（SL）是主要速度決定因子；SR 在男子 50m 甚至與速度呈負相關；精英金牌的真正優勢是在高 SR 下維持 SL 不下降。</p><span class=vx-label>機制 🟢</span><p>SR 提高而 SL 下降是「技術沒有同步支撐划頻」的結果，不是物理必然；技術足夠時兩者可同時最大化。</p><span class=vx-label>實務意涵</span><p class=vx-correct>SR 訓練目標是提高神經快速徵召能力上限；SL 訓練目標是在高 SR 下維持捕水效率和阻力控制；兩者都要練，不是二選一。</p><span class=vx-label>依據</span><span class=vx-cite>🟢 50m 中 SL 是主要速度決定因子，SR 在男子 50m 與速度甚至呈負相關；精英金牌能在高 SR 下維持 SL。 <span class=src>— Staunton, Ruiz-Navarro & Born 2025</span></span><span class=vx-cite>🟢 划手穩定性（stroke steadiness）與速度相關 r = -0.61 至 -0.749，維持穩定的划手週期是高水準選手與地方選手的關鍵差距。 <span class=src>— Ruiz-Navarro et al. 2024</span></span></div></details><details class="vx-card vx-tech" data-cat=style><summary><span class=vx-cardcat>技術風格</span><span class=vx-cardtitle>Hip-driven 髖部驅動風格——低划頻大幅髖旋轉，適合長距離有氧情境</span></summary><div class=vx-card-body><p>划頻 50–75 次/分，入水後手臂在前方停留（glide）等待，大幅髖旋轉帶動每次划手，彎臂低能量回臂，適合 400m 以上長距離。</p><span class=vx-label>機制 🟠</span><p>髖旋轉先行帶動肩膀（「髖帶肩」模式），大幅旋轉讓每划距離長、能量效率高；但划頻低造成的推進空窗需強力六拍踢補足。</p><span class=vx-label>實務意涵</span><p class=vx-correct>適用條件：有強力六拍踢基礎、有氧耐力佳、體型高大臂展長；划距優勢選手仍需訓練划頻作為疲勞保護機制。</p></div></details><details class="vx-card vx-tech" data-cat=style><summary><span class=vx-cardcat>技術風格</span><span class=vx-cardtitle>Shoulder-driven 肩部驅動風格——高划頻入水即捕水，適合衝刺與女子全距離</span></summary><div class=vx-card-body><p>划頻 85–150 次/分，入水後 0.16–0.3 秒即施力捕水，大幅肩旋轉但髖旋轉相對小，直臂高能量回臂，幾乎所有女子精英選手的首選。</p><span class=vx-label>機制 🟠</span><p>肩旋轉主導，髖在高頻下沒有時間大幅旋轉，維持相對穩定；靠高頻率補划距不足，要求神經快速徵召能力強且肩部穩定性好。</p><span class=vx-label>實務意涵</span><p class=vx-correct>適合 50–100m 衝刺及大多數女子精英全距離；划頻優勢選手需額外訓練划距作為能量效率底線。</p></div></details><details class="vx-card vx-tech" data-cat=style><summary><span class=vx-cardcat>技術風格</span><span class=vx-cardtitle>Hybrid 混合驅動風格——兩臂不對稱，呼吸側 hip-driven、非呼吸側 shoulder-driven</span></summary><div class=vx-card-body><p>划頻 70–100 次/分，呼吸側手臂延伸等待（hip-driven 模式），非呼吸側立即施力（shoulder-driven 模式），兩臂在同一划手週期中採用不同策略。</p><span class=vx-label>機制 🟠</span><p>兩臂不對稱讓泳者在兼顧速度輸出與節能的同時，呼吸側的延伸為換氣創造更好的旋轉槓桿條件；是風格分類的過渡區（划頻 75–85 次/分為灰色地帶）。</p><span class=vx-label>實務意涵</span><p class=vx-correct>適合 100–400m 中距離；需要同時管理兩種不同的手臂時序，教學難度較高；Katie Ledecky 2015 年後轉換至此風格（200m 以上）。</p></div></details><details class="vx-card vx-tech" data-cat=stroke-cycle><summary><span class=vx-cardcat>划手週期與機制</span><span class=vx-cardtitle>S 形划手路徑是歷史錯誤——現代共識為接近直線的後向推進路徑</span></summary><div class=vx-card-body><p>傳統 Counsilman（1970）S 形划手路徑已被修正；現代水下高速攝影確認實際推進路徑接近直線向後，S 形是測量工具不足時代的誤判。</p><span class=vx-label>機制 🟠</span><p>S 形路徑是水下高速攝影出現前缺乏測量工具的觀察誤差；實際推進力學要求手掌持續面向後方，而非橫向移動以製造升力。</p><span class=vx-label>實務意涵</span><p class=vx-correct>教學中應放棄「畫 S 形」的口令，改以「手掌持續朝後向後推」為感知目標。</p></div></details><details class="vx-card vx-tech" data-cat=stroke-cycle><summary><span class=vx-cardcat>划手週期與機制</span><span class=vx-cardtitle>六階段划手週期——從升力相到晚期回臂的完整推進轉換系統</span></summary><div class=vx-card-body><p>划手週期可分為升力相、前象限推進、後象限推進、釋放相、早期回臂、晚期回臂六個階段，各有不同主力肌群與力學目標。</p><span class=vx-label>機制 🟠</span><p>升力相（手向前下方 12→3 點鐘）建立捕水位置；前象限（3→6 點鐘）開始後向推進；後象限（6→9 點鐘）達到推進峰值；釋放相（9→12 點鐘）小指翻上最小阻力出水；早期回臂肩胛上旋、手腕放鬆回復；晚期回臂重力輔助加速入水觸發 coupling。</p><span class=vx-label>實務意涵</span><p class=vx-correct>每個階段的技術崩潰位置不同，診斷時應依階段定位問題，而非只觀察最終速度下降。</p></div></details><details class="vx-card vx-tech" data-cat=stroke-cycle><summary><span class=vx-cardcat>划手週期與機制</span><span class=vx-cardtitle>高肘捕水（EVF）——降低上臂阻力、最大化推進面積的核心技術</span></summary><div class=vx-card-body><p>Early Vertical Forearm（EVF）讓上臂與游進方向平行（阻力最小），手掌和前臂同時面向後方（推進面積最大化）；常見誤解是「高肘讓前臂推進」，實際目的是降低上臂阻力。</p><span class=vx-label>機制 🔵</span><p>上臂是全身最大截面積部位之一；任何讓上臂橫向伸出的動作都製造正面阻力。高肘讓上臂平行游進方向，使手掌成為主推進面而非前臂（前臂是圓形截面，推進效率低於扁平手掌）。</p><span class=vx-label>實務意涵</span><p class=vx-correct>教學口令應從「讓前臂推水」改為「保持肘尖朝向游進方向」；高肘的訓練限制因素是前鋸肌耐力，而非技術理解。</p><span class=vx-label>依據</span><span class=vx-cite>🟠 The Race Club PDM 測試確認手掌（非前臂）是推進力的主要來源；三個物理原因（形狀、速度、拳頭測試）均支持此結論。 <span class=src>— Hall Sr. 2020</span></span></div></details><details class="vx-card vx-tech" data-cat=hardware><summary><span class=vx-cardcat>硬體邊界</span><span class=vx-cardtitle>前鋸肌——高肘動作的硬體邊界，耐力訓練優先於力量訓練</span></summary><div class=vx-card-body><p>前鋸肌在整個划手週期持續活化，是唯一全程工作的穩定肌；疲勞後觸發菱形肌代償→肩胛骨去穩定→高肘動作崩潰→游泳肩風險大升。</p><span class=vx-label>機制 🟢</span><p>前鋸肌穩定肩胛骨作為高肘動作的「基底」；疲勞後代償鏈為：菱形肌取代前鋸肌穩定肩胛→肩胛骨 winging→肩胛下肌旋轉肌袖代償→內部撞擊風險。游泳需要的是持續低強度活化，不是爆發力。</p><span class=vx-label>實務意涵</span><p class=vx-correct>陸上訓練中前鋸肌訓練的目標是「耐力」而非「力量」；這是游泳訓練中最被忽略的陸上需求——不是技術不夠好，而是支撐技術的硬體撐不住。</p><span class=vx-label>依據</span><span class=vx-cite>🟡 EMG 分析確認前鋸肌在整個划手週期持續活化；疲勞後前鋸肌活化下降，菱形肌代償，肩胛骨去穩定——奠定游泳肩機制的基礎研究。 <span class=src>— Pink, Perry et al. 1991</span></span><span class=vx-cite>🟢 游泳肩發生率 35–91%（定義不同）；前鋸肌和肩胛下肌是核心風險肌肉；前鋸肌疲勞後肩胛骨去穩定是主要機制。 <span class=src>— StatPearls 2023</span></span></div></details><details class="vx-card vx-tech" data-cat=kick><summary><span class=vx-cardcat>踢水與腿部機制</span><span class=vx-cardtitle>六拍踢——對側協調抵消蛇行，是最穩固的教學基準</span></summary><div class=vx-card-body><p>右手入水瞬間左腳主踢下；對側配對產生反扭矩抵消身體蛇行，與走路跑步的交叉模式一致，是教學上最穩固的基準。</p><span class=vx-label>機制 🟢</span><p>手入水時身體向該側滾轉，對側腳踢下產生反扭矩；六拍提供持續推進彌補划手空窗期，同時產生升力維持下半身水平、最小化正面截面積。</p><span class=vx-label>實務意涵</span><p class=vx-correct>「入水配對側踢」適用絕大多數泳者和情境；Hip-driven 風格以六拍強力踢作為基礎，彌補低划頻造成的推進空窗。</p></div></details><details class="vx-card vx-tech" data-cat=kick><summary><span class=vx-cardcat>踢水與腿部機制</span><span class=vx-cardtitle>兩拍踢——同側協調省能，長距離首選但配對邏輯與六拍相反</span></summary><div class=vx-card-body><p>右手拉水中段時右腳踢（同側配對），輔助同側滾轉並為對側手入水創造槓桿條件；代謝成本低，是長距離省能量的主要方式。</p><span class=vx-label>機制 🟢</span><p>兩拍與六拍的配對邏輯相反（「拉水配同側踢」vs「入水配對側踢」）；兩拍推進貢獻低但代謝成本也低，適合需要最大化有氧效率的長距離。</p><span class=vx-label>實務意涵</span><p class=vx-correct>教學時需明確說明兩拍和六拍的配對邏輯相反，否則容易混淆；長距離泳者從六拍轉換為兩拍時需要重新建立節律感知。</p></div></details><details class="vx-card vx-tech" data-cat=hardware><summary><span class=vx-cardcat>硬體邊界</span><span class=vx-cardtitle>踝關節柔韌性——踢水效率的解剖硬體邊界</span></summary><div class=vx-card-body><p>蹠屈幅度決定踢水推進面積；踝關節僵硬者（如跑步背景）腳掌無法朝後，踢水效率大幅下降，嚴重時踢水反而制動。</p><span class=vx-label>機制 🟢</span><p>踝關節蹠屈幅度直接決定腳掌能否形成有效推進面；柔韌性與踢水速度正相關，此機制與蛙式、仰式相同。</p><span class=vx-label>實務意涵</span><p class=vx-correct>踝關節柔韌性訓練應優先於踢水力量訓練；跑步背景泳者須先解決踝關節活動度限制，增加踢水次數或力量是錯誤介入方向。</p><span class=vx-label>依據</span><span class=vx-cite>🟡 踝關節蹠屈柔韌性與踢水速度直接相關；陸上踝關節柔韌性訓練能改善游泳踢水效率。 <span class=src>— McCullough et al. 2009/2010</span></span></div></details><details class="vx-card vx-tech" data-cat=kick><summary><span class=vx-cardcat>踢水與腿部機制</span><span class=vx-cardtitle>踢水四個功能——推進、升力、速度慣性維持、平衡穩定</span></summary><div class=vx-card-body><p>踢水不只是推進工具，同時提供升力維持下半身水平、透過持續節律最小化速度波動（牛頓第一定律）、以斜向踢水抵消手臂回臂時的側向分力。</p><span class=vx-label>機制 🔵</span><p>速度波動需要反覆加減速，加減速消耗能量；持續踢水維持勻速比間歇推進更節能。斜向踢水（oblique kick）抵消回臂產生的橫向力矩，防止蛇行。</p><span class=vx-label>實務意涵</span><p class=vx-correct>教學時不應把踢水簡化為「推進工具」；升力功能對下半身位置的影響在長距離尾段特別顯著，疲勞時踢水退化會連鎖引發頭部漂移。</p></div></details><details class="vx-card vx-tech" data-cat=rotation><summary><span class=vx-cardcat>身體旋轉</span><span class=vx-cardtitle>肩胛肌群啟動旋轉——菱形肌是旋轉的主動發動者，髖部被動跟隨</span></summary><div class=vx-card-body><p>推水末段菱形肌收縮向後縮肩胛骨，啟動對側身體滾轉；髖部被動跟隨，幅度小於肩膀。旋轉感知目標是肩胛骨動作，不是髖部。</p><span class=vx-label>機制 🟡</span><p>Pink et al.（1991）EMG 確認：推水末段肩胛肌群是旋轉的主動發動者。Hip-driven 髖旋轉幅度 45–60°；Shoulder-driven 約 20–30°；兩者同時旋轉和扭轉，不是剛性整體翻滾。</p><span class=vx-label>實務意涵</span><p class=vx-correct>在高划頻下刻意主動旋轉髖部會讓動作失調；短距離訓練應讓髖保持相對穩定，「把肩膀教好，髖部自然跟著動」。</p><span class=vx-label>依據</span><span class=vx-cite>🟡 12 塊肌肉 EMG 分析確認推水末段肩胛肌群（含菱形肌）是旋轉的主動發動者。 <span class=src>— Pink, Perry et al. 1991</span></span></div></details><details class="vx-card vx-tech" data-cat=rotation><summary><span class=vx-cardcat>身體旋轉</span><span class=vx-cardtitle>Coupling 能量——旋轉峰值時機與推力峰值對齊才產生疊加效果</span></summary><div class=vx-card-body><p>身體旋轉本身不產生推進力；肩旋轉峰值在前象限（拉水前段），髖旋轉峰值在後象限（拉水末段），兩者分開強化了整個拉水週期的推力。</p><span class=vx-label>機制 🟠</span><p>旋轉速度峰值和划手推力峰值「耦合」時能量疊加放大推力；晚期回臂手臂加速入水的動能也作為 coupling 傳遞給對側划水手末段推力。</p><span class=vx-label>實務意涵</span><p class=vx-correct>旋轉感知目標不是「幅度多大」，而是「峰值時機是否與推力峰值對齊」；這也解釋了為何回臂入水前不能在入水前減速。</p></div></details><details class="vx-card vx-tech" data-cat=head><summary><span class=vx-cardcat>頭部與換氣</span><span class=vx-cardtitle>頭部基礎位置與弓形波換氣——利用弓形波凹陷換氣幾乎零阻力代價</span></summary><div class=vx-card-body><p>頭頂朝前頸部持平視線約 45° 向下；弓形波在頭部兩側形成凹陷，精英選手嘴巴轉進凹陷換氣而非抬頭創造空間，頭部本身不移動靠眼球達成視線調整。</p><span class=vx-label>機制 🔵</span><p>頭部是全身密度最高且位於槓桿臂最長位置的部位，任何抬起都被放大。Wave drag（波阻）約與速度三次方成正比，競速時佔總阻力約 25%。弓形波凹陷換氣接近零額外阻力代價，但需正確頭部位置和足夠游速才存在。</p><span class=vx-label>實務意涵</span><p class=vx-correct>頭部本體感知精確度遠低於手臂腿部，「感覺壓低了」不等於「實際是低的」；需用錄影或外部參照確認頭部位置；長距離視覺安全感靠眼球上轉而非頭部上抬。</p></div></details><details class="vx-card vx-tech" data-cat=head><summary><span class=vx-cardcat>頭部與換氣</span><span class=vx-cardtitle>頭部抬起的連鎖代價——隱性累積阻力影響在長距離尾段完整顯現</span></summary><div class=vx-card-body><p>頭部微抬→重心前移→下半身下沉→踢水必須對抗傾斜→踢水能量預算被部分佔用；代價隱性且累積，短距離難察覺，長距離尾段才完整顯現。</p><span class=vx-label>機制 🔵</span><p>頭部抬起改變全身重心分布，下半身因浮力中心與重心偏移而下沉；踢水需要部分能量用於對抗傾斜而非推進，形成「向踢水借能量」的隱性負擔。</p><span class=vx-label>實務意涵</span><p class=vx-correct>換氣時過度抬頭不只影響換氣本身，還會打斷旋轉連動鏈並造成同側手入水位置偏移；「只讓嘴角露出水面，蛙鏡另一側不完全離水」是實用基準。</p></div></details><details class="vx-card vx-tech" data-cat=tempo><summary><span class=vx-cardcat>划頻與划距</span><span class=vx-cardtitle>划頻是神經生理指標，划距是技術效率指標</span></summary><div class=vx-card-body><p>SR 反映神經快速徵召能力與能量容量；SL 反映捕水品質、阻力控制與旋轉連動的綜合效率——SL 是技術問題的直接反映，SR 上限由神經系統循環速率決定。</p><span class=vx-label>機制 🟢</span><p>Staunton et al.（2025）確認：SL 與推進力產生和有效施水能力相關；SR 與神經肌肉功率和能量容量相關。強迫提高划頻而不提升技術支撐反而讓每划推進力下降。</p><span class=vx-label>實務意涵</span><p class=vx-correct>診斷速度瓶頸時應先問「SL 下降是技術問題還是生理條件問題」，而非直接提高划頻。</p><span class=vx-label>依據</span><span class=vx-cite>🟢 男子在 400m–1500m 之間從長 SL 低 SR 轉為高 SR 低 SL；女子轉換點更早（200m–400m），反映不同的生理策略。 <span class=src>— Staunton, Ruiz-Navarro & Born 2025</span></span></div></details><details class="vx-card vx-tech" data-cat=errors><summary><span class=vx-cardcat>常見錯誤</span><span class=vx-cardtitle>手入水跨越中線——誘發蛇行偏移與肩胛失穩</span></summary><div class=vx-card-body><p>入水跨越身體中線是最常見的正面阻力錯誤之一；第一個後果是大幅外掃產生橫向分力，肩胛骨無法穩定。</p><span class=vx-label>機制 🟢</span><p>跨越中線入水讓手的第一個動作必然是向外側掃，產生橫向分力；同時肩胛骨無法保持穩定，高肘捕水結構在入水瞬間即崩潰。</p><span class=vx-label>實務意涵</span><p class=vx-correct>修正入水位置在肩膀正前方（11 點/1 點方向）；回臂肘部下沉與跨越中線高度相關，修正回臂起始姿勢可同步改善入水位置。</p><span class=vx-label>依據</span><span class=vx-cite>🟡 91% 泳者有至少一項划手錯誤；跨越中線入水與 dropped elbow 高度相關，是最常見的兩類錯誤。 <span class=src>— Virag et al. 2014</span></span></div></details><details class="vx-card vx-tech" data-cat=errors><summary><span class=vx-cardcat>常見錯誤</span><span class=vx-cardtitle>肘部下沉（dropped elbow）——捕水推進力歸零的最常見錯誤</span></summary><div class=vx-card-body><p>肘部下沉讓上臂橫向伸出，製造最大正面阻力且捕水階段推進力幾乎歸零；是 Virag et al.（2014）確認最常見的正面阻力錯誤。</p><span class=vx-label>機制 🟢</span><p>上臂橫向伸出時，最大截面積直接面對游進方向；同時肩胛骨無法形成穩定基底，高肘結構在捕水階段立即崩潰，推進力從最大化降至接近零。</p><span class=vx-label>實務意涵</span><p class=vx-correct>修正感知口令：「保持肘尖朝向游進方向」；dropped elbow 往往引發跨越中線，修正根本錯誤可連帶改善多個表面錯誤。</p><span class=vx-label>依據</span><span class=vx-cite>🟡 Dropped elbow 是最常見的正面阻力錯誤，與跨越中線入水高度相關；91% 泳者有至少一項划手錯誤。 <span class=src>— Virag et al. 2014</span></span></div></details><details class="vx-card vx-tech" data-cat=errors><summary><span class=vx-cardcat>常見錯誤</span><span class=vx-cardtitle>入水後主動向前推水——失去捕水位置的隱性錯誤</span></summary><div class=vx-card-body><p>入水後主動向前推手讓手臂緩慢下沉而非停在捕水位置；泳者感知「在延伸」，實際是失去捕水結構。</p><span class=vx-label>機制 🔵</span><p>入水後的延伸應靠旋轉將肩膀送出去，而非手臂主動向前推水；主動推水讓手在水中失速，無法建立有效的升力相捕水位置。</p><span class=vx-label>實務意涵</span><p class=vx-correct>口令：「讓慣性帶手向前滑幾寸，然後立刻轉入捕水——延伸靠旋轉把肩膀送出去，不是手臂主動推水。」</p></div></details><details class="vx-card vx-tech" data-cat=errors><summary><span class=vx-cardcat>常見錯誤</span><span class=vx-cardtitle>錯誤連動性——一個根本錯誤往往引發多個表面錯誤</span></summary><div class=vx-card-body><p>Virag et al.（2014）確認錯誤高度相關：dropped elbow→跨越中線→過度抬頭→下半身下沉，找到因果鏈起點比逐一修正表面錯誤更有效。</p><span class=vx-label>機制 🟡</span><p>划手錯誤在生物力學上是互相連動的：入水位置偏差→捕水角度改變→肩胛穩定性受損→換氣旋轉補償→頭部位置漂移→下半身下沉連鎖。</p><span class=vx-label>實務意涵</span><p class=vx-correct>診斷時應尋找因果鏈起點，不要同時修正所有表面錯誤；通常修正根本錯誤（如捕水位置或回臂姿勢）能連帶改善 2–3 個下游表面錯誤。</p><span class=vx-label>依據</span><span class=vx-cite>🟡 31 名大學游泳選手中 91% 有至少一項划手錯誤；錯誤之間高度相關，一個錯誤往往引發另一個。 <span class=src>— Virag et al. 2014</span></span></div></details><details class="vx-card vx-tech" data-cat=fatigue><summary><span class=vx-cardcat>疲勞崩潰序列</span><span class=vx-cardtitle>疲勞崩潰序列——SL 是最早警報，SR 補償掩蓋問題</span></summary><div class=vx-card-body><p>自由式疲勞崩潰順序：①SL 下降→②旋轉幅度縮小→③前鋸肌失守/高肘崩潰→④頭部漂移→⑤踢水退化；泳者本能提高 SR 以維持速度感，反而加速技術惡化。</p><span class=vx-label>機制 🟢</span><p>SL 下降先於 SR 下降——技術品質比頻率更早受疲勞影響。每划推進力下降→需要更多划次→消耗更多能量→惡性循環加速。旋轉縮小→有效拉力臂縮短→同樣肌力下推進力矩減少（幾何必然）。前鋸肌失守→肩胛 winging→EVF 崩潰→直臂蠻力划水。</p><span class=vx-label>實務意涵</span><p class=vx-correct>訓練目標：在疲勞下主動監測 SL 而非被動依賴 SR 補償；SL 是最早的疲勞警報信號但泳者通常感知不到，需建立對 SL 的主動意識。</p><span class=vx-label>依據</span><span class=vx-cite>🟢 精英選手的疲勞優勢在「維持 SL 更久」而非 SR 更高。 <span class=src>— Staunton, Ruiz-Navarro & Born 2025</span></span><span class=vx-cite>🟡 前鋸肌疲勞後菱形肌代償→肩胛骨去穩定→高肘動作無法維持。 <span class=src>— Pink, Perry et al. 1991</span></span></div></details><details class="vx-card vx-tech" data-cat=watersense><summary><span class=vx-cardcat>水感與神經控制</span><span class=vx-cardtitle>水感的本質——加速 feedforward 神經固化的學習工具，非即時感知決策能力</span></summary><div class=vx-card-body><p>精英選手在比賽中的提前肌肉激活是大量訓練將正確時機固化成預測性神經指令的結果，不是比賽當下水感驅動的即時反應。水感加速這個固化學習過程，本身不是比賽中的反應能力。</p><span class=vx-label>機制 🟢</span><p>Feedback 階段（初學）感知到阻力才決定動作，此迴路太慢在比賽速度下造成時機延遲；feedforward 階段（熟練）神經系統學會在感知到阻力變化之前就預先送出指令。水感好讓正確感知更快出現，讓 feedforward 固化更快。</p><span class=vx-label>實務意涵</span><p class=vx-correct>水感是後天可發展的神經適應（感知施力如何轉換為推進速度的能力），可透過刻意練習發展；訓練設計應著重「讓泳者更快感知到正確施力時機」，而非「讓泳者比賽時靠感知決定動作」。</p></div></details><details class="vx-card vx-tech" data-cat=comparison><summary><span class=vx-cardcat>四式技術對照</span><span class=vx-cardtitle>四式技術對照——推進波動、主推進來源、旋轉軸向、技術多樣性</span></summary><div class=vx-card-body><p>自由式是四式中速度最快、速度波動最低（最接近勻速）、技術風格多樣性最高的泳式；手臂提供 85–90% 推進力；縱軸旋轉（Roll）；生理個體差異對技術選擇影響最直接。</p><span class=vx-label>機制 🔵</span><p>自由式手臂推進的連續性比蝶式和蛙式高，速度波動最小化符合能量最優原則；三種系統性風格（hip/shoulder/hybrid）由生理條件和距離共同決定，而非純粹風格偏好。</p><span class=vx-label>實務意涵</span><p class=vx-correct>理解四式技術差異有助於跨式訓練設計；自由式無「唯一正確技術」的特性使評估框架必須依個人生理條件調適，不能用統一標準強加於不同泳者。</p></div></details></section><section class=vx-panel id=levels><span class=vx-sec-no>自由式 · 水感進程</span><h2>水感進程 L0 → L6</h2><p class=vx-panel-lead>由淺入深的感知建立順序。公開層是「怎麼帶」；教練判讀訊號收在每層底下。</p><div class=vx-ladder><details class=vx-level><summary><span class=lv>L0</span><span><span class=lvname>呼吸感知建立</span><span class=lvtag>感受器啟動，讓感知準備好發生</span></span></summary><div class=vx-level-body><p>安全感不是教出來的，是感知到可預期的規律之後自然產生的結果。當學生感覺到「吸氣身體浮起、吐氣身體沉下」這個規律，安全感就跟著出現了。安全感是 L0 的輸出，不是輸入。當學生感覺到呼吸和浮力的規律，安全感自然跟著出現。</p><span class=vx-block-label>怎麼帶</span><div class=vx-method><div class=vx-method-name>陸上呼吸覺察（三層次）第一層　語言引導</div><div class=vx-method-detail>目的：啟動感受器，讓大腦開始習慣感覺身體內部的細微變化。三個層次依序進行，學生在能做到的層次停留就好。吸氣時感覺肚子往外推、肋骨往兩側擴開；吐氣時感覺它們慢慢回來</div><div class=vx-method-cue>「吸氣的時候，注意一下肚子和肋骨有沒有任何變化？」</div></div><div class=vx-method><div class=vx-method-name>陸上呼吸覺察（三層次）第二層　手部輔助</div><div class=vx-method-detail>一手放腹部、一手放肋骨，感覺兩個部位在呼吸時的起伏</div><div class=vx-method-cue>「把手放上去，感覺一下手下面的身體在做什麼？」</div></div><div class=vx-method><div class=vx-method-name>陸上呼吸覺察（三層次）第三層　物體輔助（躺下）</div><div class=vx-method-detail>肚子上放輕物（書或水瓶），感覺它隨呼吸起伏。重力輔助讓起伏更明顯，適合感知特別弱的學生</div><div class=vx-method-cue>「看看這個東西會不會動？它在告訴你什麼？」</div></div><div class=vx-method><div class=vx-method-name>水中呼吸浮力連結　吸氣</div><div class=vx-method-detail>目的：讓學生感覺到呼吸和浮力之間的直接連結。不是教「應該感覺到什麼」，而是創造條件讓這個感知自己浮現。深吸一口氣，在水中靜止，讓身體自然漂浮</div><div class=vx-method-cue>「吸氣之後，站在水裡不動，感覺一下身體有沒有什麼感覺？」</div></div><div class=vx-method><div class=vx-method-name>水中呼吸浮力連結　吐氣</div><div class=vx-method-detail>慢慢吐氣，感覺身體的變化和吸氣時是否不同</div><div class=vx-method-cue>「現在慢慢吐氣，感覺有什麼不一樣嗎？」</div></div><div class=vx-method><div class=vx-method-name>水中呼吸浮力連結　反覆感覺</div><div class=vx-method-detail>重複幾次吸吐，讓學生自己感覺到這個規律</div><div class=vx-method-cue>「試幾次，看看有沒有發現什麼？」</div></div><details class=vx-diag><summary>教練判讀訊號</summary><p class=vx-diag-note>以下是診斷用的觀察依據，給帶課的人判斷學生是否到位，不是規定學生「該有什麼感覺」。</p><div class=vx-ind><span class=vx-ind-type>感受語</span>能說出吸吐氣時身體的任何變化——不規定說什麼，能說出任何觀察就是訊號</div><div class=vx-ind><span class=vx-ind-type>里程碑</span>在水中能放鬆呼吸，不需要緊抓任何東西——這個狀態代表安全感已自然產生</div></details><p class=vx-diag-note>量化基準：以行為觀察和感受語為主，無數字基準</p></div></details><details class=vx-level><summary><span class=lv>L1</span><span><span class=lvname>漂浮與阻力感受</span><span class=lvtag>感知萌芽，開始感覺水的存在</span></span></summary><div class=vx-level-body><p>L1 的學生開始主動感覺水——不只是「待在水裡」，而是開始感覺水對身體做了什麼，以及自己對水做了什麼之後水有什麼反應。前庭感知說明：身體判斷自己在空間中位置和方向的能力。在水中，原本習慣陸地的方向感會暫時失準，需要重新校準。這不是問題，是正常的適應過程。</p><span class=vx-block-label>怎麼帶</span><div class=vx-method><div class=vx-method-name>前漂</div><div class=vx-method-detail>目的：讓學生感覺到水的支撐力，建立「水會撐著我」的第一個直接感知。身體往前傾，臉入水，讓身體自然浮起。距離目標：3--5 公尺（依年齡體型調整）</div><div class=vx-method-cue>「試著讓身體浮起來，注意一下有沒有感覺到什麼？」</div></div><div class=vx-method><div class=vx-method-name>漂後站立</div><div class=vx-method-detail>漂後站立同樣重要——學生知道「我可以隨時安全回來」，才敢放鬆去感覺浮力。漂浮後腳踩地站起來。讓學生知道「我隨時可以回到安全狀態」</div><div class=vx-method-cue>「什麼時候想站起來都可以，自己決定。」</div></div><div class=vx-method><div class=vx-method-name>初步阻力感受　踢足球</div><div class=vx-method-detail>目的：讓學生感覺到「我對水施力，水有反應」。這是從被動感受浮力，轉向主動探索水的存在的關鍵步驟。教練確認：感受學生踢出的水壓——是否有一團有力道的水往前推出來</div><div class=vx-method-cue>「腳踢出去的時候，感覺一下有沒有碰到什麼？」</div></div><div class=vx-method><div class=vx-method-name>初步阻力感受　三方向撥水</div><div class=vx-method-detail>①雙手張開往前抱 ②雙手胸前往前推 ③雙手往後撥水。教練確認：感受學生的水壓是否打到教練身上</div><div class=vx-method-cue>「手推出去的時候，感覺一下手上有什麼感覺？」</div></div><details class=vx-diag><summary>教練判讀訊號</summary><p class=vx-diag-note>以下是診斷用的觀察依據，給帶課的人判斷學生是否到位，不是規定學生「該有什麼感覺」。</p><div class=vx-ind><span class=vx-ind-type>外部觀察</span>腳開始嘗試離開水面（主動探索浮力）——這個自發行為代表學生開始信任水的支撐</div><div class=vx-ind><span class=vx-ind-type>感受語</span>能說出水對身體的任何回饋描述——例如「感覺水在推我的手」。不規定說什麼，能說出任何互動感知就是訊號</div><div class=vx-ind><span class=vx-ind-type>距離指標</span>前漂 3--5 公尺（依年齡和體型調整）</div></details><p class=vx-diag-note>量化基準：以行為觀察和感受語為主，無數字基準。腳自發性地嘗試離開水面，是比任何語言描述更直接的感知萌芽訊號——學生的身體已經開始相信水會撐著它。距離指標為參考基準，個體差異大。感受語和外部行為的出現比距離更能反映真實的感知狀態。</p></div></details><details class=vx-level><summary><span class=lv>L2</span><span><span class=lvname>推進感萌芽</span><span class=lvtag>開始感覺自己在移動，但水還沒有回應</span></span></summary><div class=vx-level-body><p>L2 的游泳者已經能移動，但大量力氣在製造波浪和掙扎，而不是前進。感覺快不等於真的快——這個階段的重點不是把動作做對，而是開始感覺自己在對水做什麼，以及水有沒有回應。核心原則：感覺先於效果。追求前進會讓學生用力，用力遮蔽感知。給探索時間——等待時間也是訓練，學生在無指令狀態下自己和水互動，感知有時在這個時候最自然發生。</p><span class=vx-block-label>怎麼帶</span><div class=vx-method><div class=vx-method-name>浮板踢水前進</div><div class=vx-method-detail>教練外部確認：觀察學生能否穩定前進，確認推進力能傳導到身體水平方向。學生內部感知：感覺踢水的力道有沒有讓自己往前走，還是腳踢完但身體沒動</div></div><div class=vx-method><div class=vx-method-name>浮板踢水前進　踢不動的處理</div><div class=vx-method-detail>教練外部確認：退回原地，觀察學生是否能在放鬆狀態下踢水。學生內部感知：放輕動作，前進不重要，先找到放鬆踢的感覺</div></div><div class=vx-method><div class=vx-method-name>手部動作：外划＋內抱（連續動作）</div><div class=vx-method-detail>外划內抱是正式搖櫓 Sculling 的前身，讓學生感覺手掌角度改變時水壓方向跟著改變。感覺手掌轉向時水壓從一側換到另一側——方向不要求，感覺到換邊就夠了</div><div class=vx-method-cue>「外划的時候感覺水壓在哪裡？內抱的時候水壓換到哪裡去了？」</div></div><div class=vx-method><div class=vx-method-name>手部動作：划手推進</div><div class=vx-method-detail>把外划內抱的感知帶進划手動作，感覺划手時有水在反應</div><div class=vx-method-cue>「划手的時候，手有沒有感覺到什麼？」</div></div><div class=vx-method><div class=vx-method-name>換氣建立</div><div class=vx-method-detail>換氣是 L2 最容易打亂整體感知的環節。目標不是完美的換氣技術，而是換氣後動作不完全崩潰。</div></div><div class=vx-method><div class=vx-method-name>搖櫓 Sculling 路徑（L2 等級）</div><div class=vx-method-detail>外划內抱，感覺水壓換邊，方向不要求。動作形式：外划＋內抱（連續動作）；感知目標：感覺手掌轉向時水壓從一側換到另一側（方向不要求）</div><div class=vx-method-cue>「外划的時候感覺水壓在哪裡？內抱的時候水壓換到哪裡去了？」</div></div><details class=vx-diag><summary>教練判讀訊號</summary><p class=vx-diag-note>以下是診斷用的觀察依據，給帶課的人判斷學生是否到位，不是規定學生「該有什麼感覺」。</p><div class=vx-ind><span class=vx-ind-type>觀察指標</span>換氣後動作是否能恢復——換氣後能繼續游而不需要停下來，代表基本換氣節奏建立</div><div class=vx-ind><span class=vx-ind-type>感受語</span>能說出換氣時身體有什麼感覺，例如「換氣的時候感覺身體歪了」</div></details><p class=vx-diag-note>量化基準：60 以上；尚無 SPL 基準；感知萌芽優先於數字</p></div></details><details class=vx-level><summary><span class=lv>L3</span><span><span class=lvname>水感出現但不穩定</span><span class=lvtag>抓到了，但下一趟又消失</span></span></summary><div class=vx-level-body><p>L3 是最讓人困惑的階段。游泳者偶爾能感覺到「啊，抓到了！」但下一趟又消失，不知道差別在哪裡。感知的不穩定性大多來自感知缺陷的方向不同——找到感知缺陷的主要方向，才能對應訓練。L3 有雙重身份：它是感知開始不穩定的階段，同時也是感知系統第一次精細到足以感知自己的硬體邊界。L0--L2 的感知還太粗糙，硬體邊界的影響被更大的感知缺陷掩蓋；到了 L3，感知稍微穩定後，學生才第一次能說出「我知道要怎麼做，但做不到」——這正是硬體邊界浮現的訊號，也是需要先釐清的分叉點。L3 正式引入搖櫓 Sculling：從外划內抱調整角度，讓兩側水壓都往後。動作可以大、可以慢，建立感知比效率重要。</p><span class=vx-block-label>怎麼帶</span><div class=vx-method><div class=vx-method-name>L3 共同指標——抓水感知</div><div class=vx-method-detail>SWOLF（25m）目標 45--60　能否描述手「抓到」水的時間點　連續游數趟後抓水感是否消失。典型體驗：有時一趟游得很輕鬆，下一趟完全不對，不知道差在哪裡。對應訓練方向：外划內抱調整角度 → 正式搖櫓 Sculling：感受前臂角度改變時水壓跟著改變</div></div><div class=vx-method><div class=vx-method-name>L3 共同指標——划距感知（SPL）</div><div class=vx-method-detail>開始記錄 SPL（25m）　同距離不同趟 SPL 變異性　察覺「多划一下沒有換來更快」。典型體驗：划手數每趟不同，不知道這件事，或以為划越多越快。對應訓練方向：設定目標划數，在同一趟練習中維持固定 SPL</div></div><div class=vx-method><div class=vx-method-name>L3 共同指標——對稱感知</div><div class=vx-method-detail>慣用側 vs 非慣用側換氣的划數差異　錄影比對兩側划水弧度差異。典型體驗：強側手感覺有抓到，弱側手感覺划過去了，但不知道差這麼多。對應訓練方向：非慣用側呼吸：覺察動作不對稱帶來的感知差異</div></div><div class=vx-method><div class=vx-method-name>L3 共同指標——感知持久性</div><div class=vx-method-detail>游 200m 後 SWOLF（25m）飄移幅度（目標 ≤5 分）　疲勞時能否察覺技術開始崩潰。典型體驗：游前段感覺很好，後段完全不一樣但不知道為什麼。對應訓練方向：間歇訓練後刻意觀察感覺如何變化，建立疲勞覺察能力</div></div><div class=vx-method><div class=vx-method-name>搖櫓 Sculling 路徑（L3 等級）</div><div class=vx-method-detail>外划內抱調整角度 → 正式搖櫓 Sculling。感知目標：感覺兩個方向的水壓都往後推。動作可以大、可以慢</div><div class=vx-method-cue>「試著調整手掌角度，讓外划和內抱兩個方向的水壓都往你身後推。」</div></div><details class=vx-diag><summary>教練判讀訊號</summary><p class=vx-diag-note>以下是診斷用的觀察依據，給帶課的人判斷學生是否到位，不是規定學生「該有什麼感覺」。</p><div class=vx-ind><span class=vx-ind-type>感受語</span>能說出「今天水感消失了，是因為＿＿」</div></details><p class=vx-diag-note>量化基準：SWOLF（25m）45--60；SPL（25m）差異 ≤ 2 划；SWOLF 穩定比數值更重要</p></div></details><details class=vx-level><summary><span class=lv>L4</span><span><span class=lvname>壓力下維持不住</span><span class=lvtag>找到了，但留不住</span></span></summary><div class=vx-level-body><p>L4 和 L3 最大的差別：L3 的問題是「找不到水感」，L4 的問題是「找到了但留不住」。放鬆狀態下幾乎都能感覺到水；但速度加快、疲勞累積、或心理壓力上升時，水感就消失了。搖櫓 Sculling 在 L4 的角色：水感消失後的重置工具，於組間休息或獨立訓練組使用。能用就好，不要求效率，效率的精細化留到 L5。L4→L5 的過渡不只是數字達到，更重要的是游泳者能「在游泳中進行內部對話」——知道自己現在在哪個狀態、出了什麼問題、怎麼調整。</p><span class=vx-block-label>怎麼帶</span><div class=vx-method><div class=vx-method-name>L4 共同指標——手部抓水感知</div><div class=vx-method-detail>能感覺到手掌和前臂的水壓差異——不只是手在動，而是感覺到水在反推　划手加速感：入水後手速是否逐漸加快　拳頭游 vs 張開手速度差縮小至 5 秒以內（25m）。典型體驗：有時能感覺到手「抓到水」，但不穩定，速度快時消失。對應訓練方向：Tornado Drill：感受手掌方向改變帶來的推進力差異</div></div><div class=vx-method><div class=vx-method-name>L4 共同指標——疲勞下的水感維持</div><div class=vx-method-detail>游 200--400m 後 SWOLF（25m）飄移幅度（目標 ≤5 分）　疲勞時能否主動察覺「手開始滑水」並調整。典型體驗：游到後半段完全沒有水感，知道有問題但不知道怎麼找回來。對應訓練方向：「新感知→舊感知→新感知」交替訓練：強化感知切換能力</div></div><div class=vx-method><div class=vx-method-name>L4 共同指標——搖櫓 Sculling 作為重置工具</div><div class=vx-method-detail>水感消失時能否用搖櫓 Sculling 找回手感　能用就好，不要求動作大小或速度。典型體驗：游到一半水感消失，不知道怎麼在游泳中途把它找回來。對應訓練方向：水感消失後，可於組間休息時做搖櫓重置，或在訓練組合中設置獨立搖櫓組接游泳趟，兩者均可，教練依學生狀況選擇</div></div><div class=vx-method><div class=vx-method-name>L4 共同指標——感知描述能力</div><div class=vx-method-detail>能否在游完後指出「哪個環節水感消失了」　能否在游泳中進行「內部對話」：調整細節，觀察感覺。典型體驗：知道有問題，但只能說「感覺不對」，無法指出具體哪裡。對應訓練方向：焦點游泳（Focal Point Swimming）：每趟只注意一個感知點</div></div><div class=vx-method><div class=vx-method-name>搖櫓 Sculling 路徑（L4 等級）</div><div class=vx-method-detail>搖櫓 Sculling 作為重置工具。感知目標：水感消失後，於組間休息或獨立搖櫓組重置手感。能用就好，不要求效率</div><div class=vx-method-cue>「水感消失了，停下來做幾下搖櫓 Sculling，感覺回來了再繼續游。」</div></div><details class=vx-diag><summary>教練判讀訊號</summary><p class=vx-diag-note>以下是診斷用的觀察依據，給帶課的人判斷學生是否到位，不是規定學生「該有什麼感覺」。</p><div class=vx-ind><span class=vx-ind-type>感受語</span>能描述「今天水感在第幾趟第幾划消失，原因是＿＿」</div></details><p class=vx-diag-note>量化基準：SWOLF（25m）40--50；疲勞後飄移 ≤5；Stroke Index ≥ 2.2；依學生能力觀察 200--400m</p></div></details><details class=vx-level><summary><span class=lv>L5</span><span><span class=lvname>感知自動化過渡期</span><span class=lvtag>讓感知在自動化的過程中不要失真</span></span></summary><div class=vx-level-body><p>L5 的核心問題和 L2--L4 本質上不同。L2--L4 都在「建立感知」，L5 開始是「讓感知在自動化的過程中不要失真」。動作監控正在從刻意注意移到背景運作，感知因此浮出前景——但這個轉換在壓力下尚未穩固。搖櫓 Sculling 在 L5 進入精細化階段：動作變小、反應變快、在競技壓力下仍然有效。這是 L4「能用就好」的進階版。L5→L6 的過渡不只是數字達到，更重要的是感知能在全速和壓力情境下仍然穩定運作——不需要刻意注意，水感自動在背景維持。</p><span class=vx-block-label>怎麼帶</span><div class=vx-method><div class=vx-method-name>L5 共同指標——Drill 遷移感知</div><div class=vx-method-detail>Drill 游完立刻接全速 25m，觀察水感是否維持　SWOLF 差距：Drill 趟 vs 全速趟，目標差距 ≤5。典型體驗：全速游時水感消失，但 Drill 時都有——兩個狀態無法連結。對應訓練方向：遷移訓練：Drill 結束不停頓，直接接全速趟，讓感知慣性延續</div></div><div class=vx-method><div class=vx-method-name>L5 共同指標——全速下水感維持</div><div class=vx-method-detail>85% 強度 50m 全程 SWOLF 飄移 ≤3　能在衝刺中途感覺到「手感開始滑」並自我調整。典型體驗：一全力游就什麼都感覺不到，游完才發現動作跑掉了。對應訓練方向：監控游：每趟結束後自問「手感維持到第幾划？踢腿有跟上嗎？」</div></div><div class=vx-method><div class=vx-method-name>L5 共同指標——節奏感自主性</div><div class=vx-method-detail>不看錶估配速誤差 ≤5 秒（100m）　有其他人在旁邊游時，能維持自己的節奏不被帶走。典型體驗：被帶快時繼無力；被帶慢時發揮不出來——節奏完全依賴外部。對應訓練方向：體感驗證：游完估配速，再核對實際數字，縮小落差</div></div><div class=vx-method><div class=vx-method-name>L5 共同指標——早期崩潰覺察</div><div class=vx-method-detail>能在游泳中途感覺到動作開始變形（不等到游完才察覺）　覺察後能主動調整，不只是繼續撐。典型體驗：偶爾能在動作開始變形時察覺，但不穩定——壓力一上來就退回「游完才發現」的狀態。對應訓練方向：單一感知點游：每趟只盯一個指標（踢腿節奏 or 入水角度），感覺它什麼時候開始偏</div></div><div class=vx-method><div class=vx-method-name>搖櫓 Sculling 路徑（L5 等級）</div><div class=vx-method-detail>搖櫓 Sculling 精細化。感知目標：動作小、反應快、在競技壓力下仍有效</div><div class=vx-method-cue>「同樣的重置，試著用更小的動作達到同樣的效果。」</div></div><details class=vx-diag><summary>教練判讀訊號</summary><p class=vx-diag-note>以下是診斷用的觀察依據，給帶課的人判斷學生是否到位，不是規定學生「該有什麼感覺」。</p><div class=vx-ind><span class=vx-ind-type>里程碑</span>能在游泳中途察覺動作開始變形並主動調整</div></details><p class=vx-diag-note>量化基準：SWOLF（25m）35--45；各配速差異 ≤3；節奏感建立為重點</p></div></details><details class=vx-level><summary><span class=lv>L6</span><span><span class=lvname>感知自動化完成</span><span class=lvtag>注意力可以完全放在配速和策略</span></span></summary><div class=vx-level-body><p>L6 的感知已完全移到背景運作，不需要刻意注意水感。L6 和 L5 最本質的差異，不在於「正常狀態有多好」，而在於「出問題時的反應層次不同」。L5 出問題：能感覺到動作開始變形（踢水變慢、入水角度偏）。L6 出問題：能感覺到划距剛開始縮短的瞬間——這是最早、最隱性的疲勞訊號。超出體能極限（機械失效）的崩潰不是水感問題，任何人的感知在這個時候都會失效。L6 的水感描述只適用於機械失效之前的範圍。</p><span class=vx-block-label>怎麼帶</span><div class=vx-method><div class=vx-method-name>搖櫓 Sculling 路徑（L6 等級）</div><div class=vx-method-detail>搖櫓 Sculling 作為感知精細度的自我檢核。感知目標：動作越來越小但仍然有效，反映感知精細程度的持續提升</div><div class=vx-method-cue>「你現在做搖櫓 Sculling 需要多大的動作才能感覺到水壓？」</div></div><p class=vx-diag-note>量化基準：SWOLF（25m）30--38；比賽 vs 訓練差值趨近零；感知為主，數字為持續精進參考</p></div></details></div></section></main></div></div><script src=https://hangsau.github.io/cortex/js/vortex.js defer></script></main><footer class=site-footer><p>Cortex</p></footer></body></html>
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自由式 — Cortex</title>
+  <meta name="description" content="個人知識庫">
+  <link rel="stylesheet" href="https://hangsau.github.io/cortex/css/variables.css">
+  <link rel="stylesheet" href="https://hangsau.github.io/cortex/css/base.css">
+  <link rel="stylesheet" href="https://hangsau.github.io/cortex/css/layout.css">
+  
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://hangsau.github.io/cortex/css/vortex.css">
+<noscript><style>.vx-panel{display:block;border-top:1px solid var(--vx-rule);padding-top:24px}.vx-rail{position:static;max-height:none}</style></noscript>
+
+</head>
+<body>
+  <nav class="site-nav">
+  <a href="https://hangsau.github.io/cortex/" class="site-nav-logo">Cortex</a>
+  <ul class="site-nav-links">
+    
+    <li>
+      <a href="https://hangsau.github.io/cortex/library/" class="">書庫</a>
+    </li>
+    
+    <li>
+      <a href="https://hangsau.github.io/cortex/notebook/" class="">筆記</a>
+    </li>
+    
+    <li>
+      <a href="https://hangsau.github.io/cortex/vortex/" class="">Vortex</a>
+    </li>
+    
+    <li>
+      <a href="https://hangsau.github.io/cortex/temperament/" class="">氣質</a>
+    </li>
+    
+  </ul>
+</nav>
+
+  <main class="main-content">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+<div class="vx-stroke">
+  <div class="vx-stroke-wrap">
+
+    
+    <aside class="vx-rail">
+      <a class="vx-back-link" href="https://hangsau.github.io/cortex/vortex/">← Cortex · Vortex</a>
+      <div class="vx-rail-head">
+        <span class="vx-stroke-zh">自由式</span>
+        <span class="vx-stroke-en">Freestyle</span>
+      </div>
+
+      <div class="vx-rail-group">導覽</div>
+      <div class="vx-rail-scroll">
+        <ul class="vx-rail-list">
+          <li><button class="vx-navlink" type="button" data-target="overview"><span class="n">0</span>概覽</button></li>
+        </ul>
+      </div>
+
+      <div class="vx-rail-group">動作分解</div>
+      <div class="vx-rail-scroll">
+        <ul class="vx-rail-list">
+          
+          <li><button class="vx-navlink" type="button" data-target="move-1"><span class="n">1</span>入水位置</button></li>
+          
+          <li><button class="vx-navlink" type="button" data-target="move-2"><span class="n">2</span>捕水 EVF</button></li>
+          
+          <li><button class="vx-navlink" type="button" data-target="move-3"><span class="n">3</span>拉水加速</button></li>
+          
+          <li><button class="vx-navlink" type="button" data-target="move-4"><span class="n">4</span>旋轉耦合</button></li>
+          
+          <li><button class="vx-navlink" type="button" data-target="move-5"><span class="n">5</span>踢水節律</button></li>
+          
+          <li><button class="vx-navlink" type="button" data-target="move-6"><span class="n">6</span>頭部位置</button></li>
+          
+          <li><button class="vx-navlink" type="button" data-target="move-7"><span class="n">7</span>划距感知</button></li>
+          
+          <li><button class="vx-navlink" type="button" data-target="move-8"><span class="n">8</span>旋轉連動鏈</button></li>
+          
+        </ul>
+      </div>
+
+      <div class="vx-rail-group">深入</div>
+      <div class="vx-rail-scroll">
+        <ul class="vx-rail-list">
+          <li><button class="vx-navlink" type="button" data-target="errors"><span class="n">!</span>常見誤區</button></li>
+          <li><button class="vx-navlink" type="button" data-target="tech"><span class="n">§</span>深入機制</button></li>
+          <li><button class="vx-navlink" type="button" data-target="levels"><span class="n">L</span>水感進程</button></li>
+        </ul>
+      </div>
+    </aside>
+
+    
+    <main class="vx-panels">
+
+      
+      <section class="vx-panel vx-overview" id="overview">
+        <span class="vx-sec-no">VORTEX · Freestyle</span>
+        <h2>自由式</h2>
+        <p class="vx-premise">划手距離是<mark>技術</mark>指標，划頻是<mark>生理</mark>指標——兩者是不同的對象，不可混為一談。<span class="cert">🔵</span></p>
+        <p class="vx-panel-lead">點任一動作就地展開，不換頁。</p>
+        <div class="vx-path-list">
+          
+          <button class="vx-path-item" type="button" data-target="move-1">
+            <span class="n">1</span>
+            <span><span class="t">入水位置</span><span class="o">手在肩前入水，不跨中線</span></span>
+          </button>
+          
+          <button class="vx-path-item" type="button" data-target="move-2">
+            <span class="n">2</span>
+            <span><span class="t">捕水 EVF</span><span class="o">高肘抓水，推進的起點</span></span>
+          </button>
+          
+          <button class="vx-path-item" type="button" data-target="move-3">
+            <span class="n">3</span>
+            <span><span class="t">拉水加速</span><span class="o">手掌加速向後推，不是定速划</span></span>
+          </button>
+          
+          <button class="vx-path-item" type="button" data-target="move-4">
+            <span class="n">4</span>
+            <span><span class="t">旋轉耦合</span><span class="o">旋轉時機對上推力峰值</span></span>
+          </button>
+          
+          <button class="vx-path-item" type="button" data-target="move-5">
+            <span class="n">5</span>
+            <span><span class="t">踢水節律</span><span class="o">踢水和划手整合，不是各跑各的</span></span>
+          </button>
+          
+          <button class="vx-path-item" type="button" data-target="move-6">
+            <span class="n">6</span>
+            <span><span class="t">頭部位置</span><span class="o">頭不抬，眼球上轉換氣</span></span>
+          </button>
+          
+          <button class="vx-path-item" type="button" data-target="move-7">
+            <span class="n">7</span>
+            <span><span class="t">划距感知</span><span class="o">察覺這趟划得比較短了</span></span>
+          </button>
+          
+          <button class="vx-path-item" type="button" data-target="move-8">
+            <span class="n">8</span>
+            <span><span class="t">旋轉連動鏈</span><span class="o">回臂入水放大對側推力（進階）</span></span>
+          </button>
+          
+        </div>
+        <p class="vx-legend">🔵 推導 · 🟢 近期文獻 · 🟡 舊文獻 · 🟠 教練觀測 · 🔴 待查</p>
+      </section>
+
+      
+      
+      
+      <section class="vx-panel vx-move" id="move-1">
+        <span class="vx-sec-no">動作 1 / 8</span>
+        <h2>入水位置</h2>
+        <p class="vx-panel-lead">手在肩前入水，不跨中線</p>
+        <span class="vx-move-meta">水感層級 L2–L3</span>
+
+        <span class="vx-block-label">口訣校正</span>
+        <div class="vx-cues">
+          <div class="vx-cue vx-cue--bad"><div class="vx-cue-tag">別這樣</div><div class="vx-cue-txt">頭部正前方輕輕滑入水</div></div>
+          <div class="vx-cue vx-cue--why"><div class="vx-cue-tag">為什麼</div><div class="vx-cue-txt">入水過短會壓縮延伸時間、失去晚期回臂的加速能量轉移，且手在頭頂落水製造正面阻力。</div></div>
+          <div class="vx-cue vx-cue--good"><div class="vx-cue-tag">這樣做</div><div class="vx-cue-txt">指尖領先、積極前伸，在肩線前方切入</div></div>
+        </div>
+
+        
+        <span class="vx-block-label">物理原理</span>
+        <div class="vx-howto">入水點應在<mark>肩線延伸前方</mark>、手臂接近完全伸展處（約肩寬、距頭部 30–45 公分），指尖朝前斜下切入。跨越中線會讓入水後第一個動作變成大幅<mark>外掃</mark>，產生橫向分力誘發蛇行，肩胛骨無法穩定。小指可略轉朝下入水，有助降低入水阻力（教練觀測，主要見於 hip-driven 自由式，非通用物理量）🟠。</div>
+        
+
+        
+        <div class="vx-boundary"><span class="vx-label">硬體邊界</span>入水位置的本體感知極不可靠——泳者對自己手臂落點的判斷準確度遠低於實際，這是感知問題不是解剖限制。最可靠的確認是側錄，不要單靠「感覺手在肩前」。</div>
+        
+
+        
+        <span class="vx-block-label">對應練習</span>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Fr11</span>單臂划手</summary>
+            <div class="vx-drill-body">
+              
+                <p>單臂划手強調早期入水捕水，感覺核心同時帶動換氣與划手旋轉</p>
+                <span class="vx-label">怎麼做</span><ol><li>單手自由式，朝非划手側換氣；另一手貼身、手放大腿</li><li>用臀部轉到兩側45度，換氣時不過度旋轉；抓水要早、靠近水面開始</li><li>抓水時手肘略往上往外轉、位置高於手掌；一趟練一手，下一趟換手</li><li>重點是技術不是速度，靠核心同時帶動軀幹與划手完成換氣，快速換氣後盡快回到面朝下視線朝池底</li><li>進階：改成朝划手側換氣</li></ol>
+                <span class="vx-label">感知目標</span><p>捕水發生在水面附近而非深處；感覺肘部比手高</p>
+                
+              
+            </div>
+          </details>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Fr13</span>描黑線</summary>
+            <div class="vx-drill-body">
+              
+                <p>視覺回饋修正手部入水過中線，感覺入水點在肩膀正前方偏外</p>
+                <span class="vx-label">怎麼做</span><ol><li>沿水道中央游，能看到池底黑線</li><li>用手「描」黑線外緣：左手描黑線左側、右手描右側（線細就描外側幾吋）</li><li>此練習可暫時抬眼看入水點對照黑線；讓入水落在肩膀正前方或略外側</li></ol>
+                <span class="vx-label">感知目標</span><p>入水點對準黑線外緣；不穿越身體中線；視線往下看線</p>
+                
+              
+            </div>
+          </details>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Fr21</span>靜音入水</summary>
+            <div class="vx-drill-body">
+              
+                <p>靜音入水訓練手部滑入水而非拍打水面，感覺手指穿過一個洞前臂跟進</p>
+                <span class="vx-label">怎麼做</span><ol><li>放慢游自由式，留意手的入水</li><li>入水點在肩膀正前方（寬入水），指尖先入；安靜地把手滑進水裡，再略微向前滑行</li><li>想像手在水面開一個洞，前臂與肩膀順著同一個洞跟進，方向是向前滑（不往下也不往內）</li><li>入水同時感覺那一側臀部往水裡轉下</li></ol>
+                <span class="vx-label">感知目標</span><p>入水幾乎無聲；感覺手先開一個洞，前臂和肩膀順著滑入；同側髖往下旋</p>
+                
+              
+            </div>
+          </details>
+        
+        
+
+        <div class="vx-boundary"><span class="vx-label">水感註記</span>L2 延伸感知的建立基礎；入水過短會讓 L2 延伸感知無法萌芽。</div>
+
+        <nav class="vx-flow">
+          <button type="button" data-target="overview"><span class="lbl">回到</span>← 概覽</button>
+          <button class="nx" type="button" data-target="move-2"><span class="lbl">下一個</span>捕水 EVF →</button>
+        </nav>
+      </section>
+      
+      <section class="vx-panel vx-move" id="move-2">
+        <span class="vx-sec-no">動作 2 / 8</span>
+        <h2>捕水 EVF</h2>
+        <p class="vx-panel-lead">高肘抓水，推進的起點</p>
+        <span class="vx-move-meta">水感層級 L3–L4</span>
+
+        <span class="vx-block-label">口訣校正</span>
+        <div class="vx-cues">
+          <div class="vx-cue vx-cue--bad"><div class="vx-cue-tag">別這樣</div><div class="vx-cue-txt">前臂壓下去推水</div></div>
+          <div class="vx-cue vx-cue--why"><div class="vx-cue-tag">為什麼</div><div class="vx-cue-txt">前臂是圓形截面，推進效果遠差於手掌；高肘是為了降上臂阻力。</div></div>
+          <div class="vx-cue vx-cue--good"><div class="vx-cue-tag">這樣做</div><div class="vx-cue-txt">肘尖保持朝向前方游進方向</div></div>
+        </div>
+
+        
+        <span class="vx-block-label">物理原理</span>
+        <div class="vx-howto">高肘的目的是<mark>降低上臂阻力</mark>，不是讓前臂推進。上臂是自由式中阻力最大的部位——高肘讓上臂與游進方向平行、截面積最小化，同時讓<mark>手掌</mark>朝向後方、推進面積最大化。手掌才是主推進面，不是前臂。</div>
+        
+
+        
+        <div class="vx-boundary"><span class="vx-label">硬體邊界</span><mark>前鋸肌</mark>是 EVF 的硬體前提。前鋸肌疲勞後肩胛骨失穩，高肘姿態無法維持——這不是技術感知問題，是肌肉撐不住。長距離後段崩潰多半是前鋸肌耐力問題，不要用感知訓練介入。</div>
+        
+
+        
+        <span class="vx-block-label">對應練習</span>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Fr16</span>握拳划手</summary>
+            <div class="vx-drill-body">
+              
+                <p>握拳划手強調前臂在拉水中的作用，感覺張開手後壓力明顯增加</p>
+                <span class="vx-label">怎麼做</span><ol><li>第一趟握拳游自由式，感覺前臂在划水時的工作</li><li>記得前臂、手腕、手掌是一個整體；把划手伸長帶出旋轉，入水保持寬（不越過中線）</li><li>下一趟從握拳開始，逐漸把手張開到正常位置</li></ol>
+                <span class="vx-label">感知目標</span><p>握拳時感覺前臂在做工；張開手後感覺明顯的水壓增加</p>
+                
+              
+            </div>
+          </details>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Fr10</span>帆船划手</summary>
+            <div class="vx-drill-body">
+              
+                <p>單臂高肘划水感知，強調錨定後整體旋轉推進，像用身體跳過手臂</p>
+                <span class="vx-label">怎麼做</span><ol><li>一手向前伸直（如左手），另一手剛離開水面、手肘高舉、指尖輕觸水面，以左臀約45度乘載</li><li>踢幾下取得動力，前伸手開始抓水，沿直線用力推到臀部，過程中保持高手肘（EVF）</li><li>感覺推水的推進與臀部滑開；左手推到底時右手前刺，換左手變成「帆」，像翻越到另一側</li><li>抓水卡住時，手錨定後把肩膀略往內轉、手肘自然略外轉，幫助建立EVF；全程放慢</li></ol>
+                <span class="vx-label">感知目標</span><p>前臂垂直入水錨定後，感覺身體整個翻越過去；拉手配合髖旋轉</p>
+                
+              
+            </div>
+          </details>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Fr17</span>三點觸碰</summary>
+            <div class="vx-drill-body">
+              
+                <p>訓練恢復臂軌跡，前觸-後觸-前入水，感覺恢復臂的完整弧線</p>
+                <span class="vx-label">怎麼做</span><ol><li>超人姿勢俯臥，雙臂平衡在前方</li><li>左臂不動，右臂划過水到回到前方點一下水面到往後伸點一下水面到立刻盪回前方停住</li><li>換左臂做同一循環（前點、後點、前點），再換邊</li></ol>
+                <span class="vx-label">感知目標</span><p>肘部在整個恢復過程中保持高位；感覺手臂畫一個大弧線</p>
+                
+              
+            </div>
+          </details>
+        
+        
+
+        <div class="vx-boundary"><span class="vx-label">水感註記</span>L3–L4 的核心技術點；連動鏈耦合要到 L5。</div>
+
+        <nav class="vx-flow">
+          <button type="button" data-target="move-1"><span class="lbl">上一個</span>← 入水位置</button>
+          <button class="nx" type="button" data-target="move-3"><span class="lbl">下一個</span>拉水加速 →</button>
+        </nav>
+      </section>
+      
+      <section class="vx-panel vx-move" id="move-3">
+        <span class="vx-sec-no">動作 3 / 8</span>
+        <h2>拉水加速</h2>
+        <p class="vx-panel-lead">手掌加速向後推，不是定速划</p>
+        <span class="vx-move-meta">水感層級 L3–L4</span>
+
+        <span class="vx-block-label">口訣校正</span>
+        <div class="vx-cues">
+          <div class="vx-cue vx-cue--bad"><div class="vx-cue-tag">別這樣</div><div class="vx-cue-txt">刻意走 S 形路徑</div></div>
+          <div class="vx-cue vx-cue--why"><div class="vx-cue-tag">為什麼</div><div class="vx-cue-txt">每次方向改變都要減速再加速，每次減速都是推進力損失；且把注意力放在路徑形狀會脫離水壓感知。</div></div>
+          <div class="vx-cue vx-cue--good"><div class="vx-cue-tag">這樣做</div><div class="vx-cue-txt">手掌向後加速、維持路徑穩定</div></div>
+        </div>
+
+        
+        <span class="vx-block-label">物理原理</span>
+        <div class="vx-howto">捕水後進入推進相，手掌從 3 點鐘加速推到 9 點鐘，路徑<mark>接近直線向後</mark>——傳統 S 形路徑是高速攝影出現前缺乏測量工具的誤解，S 形其實是身體轉體造成的視覺副產品。手速必須從捕水起點<mark>逐漸加速</mark>，不是定速推水；後象限是推進力峰值，深度約 8–10 吋，手掌不應穿破水面。</div>
+        
+
+        
+        <div class="vx-boundary"><span class="vx-label">硬體邊界</span>拉水推進感知屬可訓練的感知能力，不是硬體邊界。但若前鋸肌已失守導致捕水結構瓦解、轉為直臂蠻力划水，加速感會跟著消失——此時根因在硬體支撐，不在拉水技術本身。</div>
+        
+
+        
+        <span class="vx-block-label">對應練習</span>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Fr11</span>單臂划手</summary>
+            <div class="vx-drill-body">
+              
+                <p>單臂划手強調早期入水捕水，感覺核心同時帶動換氣與划手旋轉</p>
+                <span class="vx-label">怎麼做</span><ol><li>單手自由式，朝非划手側換氣；另一手貼身、手放大腿</li><li>用臀部轉到兩側45度，換氣時不過度旋轉；抓水要早、靠近水面開始</li><li>抓水時手肘略往上往外轉、位置高於手掌；一趟練一手，下一趟換手</li><li>重點是技術不是速度，靠核心同時帶動軀幹與划手完成換氣，快速換氣後盡快回到面朝下視線朝池底</li><li>進階：改成朝划手側換氣</li></ol>
+                <span class="vx-label">感知目標</span><p>捕水發生在水面附近而非深處；感覺肘部比手高</p>
+                
+              
+            </div>
+          </details>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Fr16</span>握拳划手</summary>
+            <div class="vx-drill-body">
+              
+                <p>握拳划手強調前臂在拉水中的作用，感覺張開手後壓力明顯增加</p>
+                <span class="vx-label">怎麼做</span><ol><li>第一趟握拳游自由式，感覺前臂在划水時的工作</li><li>記得前臂、手腕、手掌是一個整體；把划手伸長帶出旋轉，入水保持寬（不越過中線）</li><li>下一趟從握拳開始，逐漸把手張開到正常位置</li></ol>
+                <span class="vx-label">感知目標</span><p>握拳時感覺前臂在做工；張開手後感覺明顯的水壓增加</p>
+                
+              
+            </div>
+          </details>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Fr12</span>指尖拖水</summary>
+            <div class="vx-drill-body">
+              
+                <p>恢復臂高肘訓練，感覺手指輕掠水面，肘部始終高於手腕</p>
+                <span class="vx-label">怎麼做</span><ol><li>自由式划手回臂時，指尖輕輕掠過水面（用指甲輕擦水面）</li><li>全程保持手肘高於手腕，帶出高手肘與指尖入水</li><li>放慢游，回臂的手盡量放鬆，並把每一划保持伸長</li></ol>
+                <span class="vx-label">感知目標</span><p>手指輕輕刮過水面；手臂放鬆；肘部保持高位</p>
+                
+              
+            </div>
+          </details>
+        
+        
+
+        <div class="vx-boundary"><span class="vx-label">水感註記</span>L3 手感核心；提速後能否穩定維持加速感是 A 型在 L4–L5 的關卡。</div>
+
+        <nav class="vx-flow">
+          <button type="button" data-target="move-2"><span class="lbl">上一個</span>← 捕水 EVF</button>
+          <button class="nx" type="button" data-target="move-4"><span class="lbl">下一個</span>旋轉耦合 →</button>
+        </nav>
+      </section>
+      
+      <section class="vx-panel vx-move" id="move-4">
+        <span class="vx-sec-no">動作 4 / 8</span>
+        <h2>旋轉耦合</h2>
+        <p class="vx-panel-lead">旋轉時機對上推力峰值</p>
+        <span class="vx-move-meta">水感層級 L4–L5</span>
+
+        <span class="vx-block-label">口訣校正</span>
+        <div class="vx-cues">
+          <div class="vx-cue vx-cue--bad"><div class="vx-cue-tag">別這樣</div><div class="vx-cue-txt">主動轉髖帶動划手</div></div>
+          <div class="vx-cue vx-cue--why"><div class="vx-cue-tag">為什麼</div><div class="vx-cue-txt">混淆因果——髖是被動跟隨者；高划頻下刻意轉髖造成時機錯亂與額外能量消耗。</div></div>
+          <div class="vx-cue vx-cue--good"><div class="vx-cue-tag">這樣做</div><div class="vx-cue-txt">推水末段感覺肩胛骨往脊椎縮，對側自然跟著轉</div></div>
+        </div>
+
+        
+        <span class="vx-block-label">物理原理</span>
+        <div class="vx-howto">身體旋轉本身<mark>不產生推進力</mark>，但旋轉速度峰值與划手推力峰值<mark>耦合</mark>時，能量疊加放大推力。旋轉是放大器，不是引擎。啟動旋轉的是推水末段的<mark>肩胛肌群</mark>（菱形肌收縮、後縮肩胛骨），髖部被動跟隨，不是腰或髖主動發動。</div>
+        
+
+        
+        <div class="vx-boundary"><span class="vx-label">硬體邊界</span>旋轉幅度有解剖與風格差異：Hip-driven 髖旋轉 45–60°，Shoulder-driven 僅 20–30°，不同風格泳者的旋轉描述截然不同都屬有效。幅度受時間窗口限制——高划頻下物理上沒有時間完成大幅旋轉，這是力學邊界不是感知問題。</div>
+        
+
+        
+        <span class="vx-block-label">對應練習</span>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Fr24</span>俄式滾轉</summary>
+            <div class="vx-drill-body">
+              
+                <p>自由式和仰式交替游，感覺兩式捕水動作的相似性，用核心旋轉切換</p>
+                <span class="vx-label">怎麼做</span><ol><li>交替游仰式和自由式，用單雙數組合：3划自由式到翻身到2划仰式到翻回到再3划自由式</li><li>單雙數組合可避免暈眩，並練到兩側的抓水</li><li>翻身時把前伸手錨定、確實抓住水，留意仰式與自由式的抓水其實相似</li></ol>
+                <span class="vx-label">感知目標</span><p>翻轉時前臂錨定不動，感覺抓住水；自由式和仰式的捕水角度相似</p>
+                
+              
+            </div>
+          </details>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Fr23</span>三划滑行</summary>
+            <div class="vx-drill-body">
+              
+                <p>三划後45度滑行10拍，感覺核心在沒有划水時維持身體線條</p>
+                <span class="vx-label">怎麼做</span><ol><li>游3划自由式，第三划時把手留在前方，邊踢水邊滑行數到10</li><li>每三划會交替在不同側滑行</li><li>滑行時身體約45度乘載在臀部上，視線朝池底</li></ol>
+                <span class="vx-label">感知目標</span><p>滑行時45度穩定；感覺核心在支撐姿勢；視線朝池底</p>
+                
+              
+            </div>
+          </details>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Sc7</span>髖部划水</summary>
+            <div class="vx-drill-body">
+              
+                <p>手在髖部兩側小幅划水，感覺拉水末段（出水前）的水感</p>
+                <span class="vx-label">怎麼做</span><ol><li>面朝下、夾浮棒、戴呼吸管</li><li>雙手放在臀部旁，只用手掌撥水</li><li>手移動幅度很小，只有幾吋</li></ol>
+                <span class="vx-label">感知目標</span><p>手在髖部感覺細微的水壓；感覺出水前的最後推力</p>
+                <p class="vx-drill-eq">器材：pull_buoy、snorkel</p>
+              
+            </div>
+          </details>
+        
+        
+
+        <div class="vx-boundary"><span class="vx-label">水感註記</span>耦合感知屬 L5 層次；L3–L4 基礎捕水推進未穩前不優先處理。</div>
+
+        <nav class="vx-flow">
+          <button type="button" data-target="move-3"><span class="lbl">上一個</span>← 拉水加速</button>
+          <button class="nx" type="button" data-target="move-5"><span class="lbl">下一個</span>踢水節律 →</button>
+        </nav>
+      </section>
+      
+      <section class="vx-panel vx-move" id="move-5">
+        <span class="vx-sec-no">動作 5 / 8</span>
+        <h2>踢水節律</h2>
+        <p class="vx-panel-lead">踢水和划手整合，不是各跑各的</p>
+        <span class="vx-move-meta">水感層級 L3–L5</span>
+
+        <span class="vx-block-label">口訣校正</span>
+        <div class="vx-cues">
+          <div class="vx-cue vx-cue--bad"><div class="vx-cue-tag">別這樣</div><div class="vx-cue-txt">腿要踢有力、踢得快</div></div>
+          <div class="vx-cue vx-cue--why"><div class="vx-cue-tag">為什麼</div><div class="vx-cue-txt">踝關節蹠屈不足時加大力量只是更有力地製造阻力；力量不是問題，整合節律才是。</div></div>
+          <div class="vx-cue vx-cue--good"><div class="vx-cue-tag">這樣做</div><div class="vx-cue-txt">踢腿有跟上划手嗎？還是各自跑？</div></div>
+        </div>
+
+        
+        <span class="vx-block-label">物理原理</span>
+        <div class="vx-howto">踢水有四個功能，不只推進：<mark>推進</mark>（補划手空窗期）、<mark>升力</mark>（下半身維持水平、降正面截面積）、<mark>慣性</mark>（速度波動最小化）、<mark>平衡穩定</mark>（抵消回臂側向分力）。六拍踢的對側配對來自反扭矩：右手入水時身體向該側滾轉，對側腳踢下抵消蛇行。感知重點是整合，不是力道。</div>
+        
+
+        
+        <div class="vx-boundary"><span class="vx-label">硬體邊界</span><mark>踝關節蹠屈幅度</mark>是踢水效率的硬體邊界。踝關節僵硬者（跑步背景常見）腳掌無法朝後，踢水效率大幅下降甚至制動——這是解剖限制，須先確認踝關節能否完整蹠屈，不能用感知訓練介入。柔韌性可後天訓練改善，但改善先於速度提升。</div>
+        
+
+        
+        <span class="vx-block-label">對應練習</span>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Fr5</span>超人踢水</summary>
+            <div class="vx-drill-body">
+              
+                <p>手臂伸前的流線姿勢踢水，感覺收腹讓背部平坦，肺部壓水</p>
+                <span class="vx-label">怎麼做</span><ol><li>超人姿勢俯臥，雙臂向前伸直與肩同寬</li><li>收小腹把背打平，頭部中立、頸與脊椎對齊、視線朝池底</li><li>放鬆肩膀往下壓讓頸部拉長，肺部往水裡壓幫助臀部上浮</li><li>在這姿勢下持續踢水</li></ol>
+                <span class="vx-label">感知目標</span><p>收腹後背部感覺平坦；肺部往水裡壓；頸部與脊椎對齊</p>
+                
+              
+            </div>
+          </details>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Fr7</span>流線踢水</summary>
+            <div class="vx-drill-body">
+              
+                <p>流線姿勢踢水（正面與背面），感覺踢水效率不依賴浮板</p>
+                <span class="vx-label">怎麼做</span><ol><li>仰躺streamline：收小腹「往上往內」把背打平，肺部往水裡壓</li><li>膝蓋不破水面，腳掌把水「煮沸」而非大濺水，腳趾微內八，從臀部和大腿發力（不是膝蓋）</li><li>俯臥streamline：同樣收小腹打平背，膝蓋只微彎、腳趾微伸，腳在水下煮沸水面</li><li>需要時抬頭換氣，再回到streamline找平衡</li></ol>
+                <span class="vx-label">感知目標</span><p>踢水讓水面沸騰而非大飛濺；腳不出水面；膝蓋微彎</p>
+                
+              
+            </div>
+          </details>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Fr8</span>垂直踢水</summary>
+            <div class="vx-drill-body">
+              
+                <p>垂直踢水訓練從髖啟動的踢腿，消除自行車踢法</p>
+                <span class="vx-label">怎麼做</span><ol><li>在深水區直立踢水，先把雙手交叉放在對側肩膀上</li><li>身體保持垂直挺直（不前傾不後仰），做10、20、30或60秒的組數</li><li>進階：把手舉出水面（水球姿勢）；最難：雙臂上舉成streamline</li><li>重點：從臀部發力、腳趾下壓、踢水穩定緊湊、腳微內八、核心收緊</li></ol>
+                <span class="vx-label">感知目標</span><p>踢水從腹股溝和大腿啟動；腳踝放鬆；踢水緊實短促</p>
+                
+              
+            </div>
+          </details>
+        
+        
+
+        <div class="vx-boundary"><span class="vx-label">水感註記</span>B 型核心訓練軸；L3 建立踢水推力感、L4 整合、L5 外部干擾下維持。</div>
+
+        <nav class="vx-flow">
+          <button type="button" data-target="move-4"><span class="lbl">上一個</span>← 旋轉耦合</button>
+          <button class="nx" type="button" data-target="move-6"><span class="lbl">下一個</span>頭部位置 →</button>
+        </nav>
+      </section>
+      
+      <section class="vx-panel vx-move" id="move-6">
+        <span class="vx-sec-no">動作 6 / 8</span>
+        <h2>頭部位置</h2>
+        <p class="vx-panel-lead">頭不抬，眼球上轉換氣</p>
+        <span class="vx-move-meta">水感層級 L2–L4</span>
+
+        <span class="vx-block-label">口訣校正</span>
+        <div class="vx-cues">
+          <div class="vx-cue vx-cue--bad"><div class="vx-cue-tag">別這樣</div><div class="vx-cue-txt">換氣時眼睛看天花板 / 抬頭換氣</div></div>
+          <div class="vx-cue vx-cue--why"><div class="vx-cue-tag">為什麼</div><div class="vx-cue-txt">頭部過度旋轉打斷旋轉連動鏈、誘發換氣側手入水偏移；抬頭直接造成下半身下沉。</div></div>
+          <div class="vx-cue vx-cue--good"><div class="vx-cue-tag">這樣做</div><div class="vx-cue-txt">嘴角轉進水面凹陷，眼睛看斜前方，另一側鏡片還有一半在水裡</div></div>
+        </div>
+
+        
+        <span class="vx-block-label">物理原理</span>
+        <div class="vx-howto">頭部是自由式中<mark>本體感知最不可靠</mark>的部位——「感覺頭壓低了」不等於頭實際是低的。波阻隨速度急遽上升（約與速度三次方 v³ 成正比），接近競速時約佔總阻力 25%（低速時較低）。頭部微抬→下半身下沉→踢水要對抗傾斜→能量預算被佔用，代價隱性累積，長距離尾段才顯現。換氣靠嘴巴轉進<mark>弓形波凹陷</mark>，視線靠眼球上轉，頭部本身不移動。</div>
+        
+
+        
+        <div class="vx-boundary"><span class="vx-label">硬體邊界</span>頭部位置幾乎全是感知問題而非解剖限制——這也是為什麼陸上示範正確、下水卻自動回到微抬習慣（感知系統沒被重新校正）。因為本體感知最不可信，這個環節必須靠外部確認（錄影、蛙鏡基準線），不能只信主觀感覺。</div>
+        
+
+        
+        <span class="vx-block-label">對應練習</span>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Fr2</span>頭帶平衡 — 面朝下</summary>
+            <div class="vx-drill-body">
+              
+                <p>建立面朝下的身體線條與平衡，感覺肺部入水帶動臀部上浮</p>
+                <span class="vx-label">怎麼做</span><ol><li>面朝下俯臥，雙手放在大腿前側，維持身體線條</li><li>輕踢水保持穩定前進，放鬆肩頸，把肩膀往下壓讓頸部「拉長」</li><li>視線朝池底，肺部與額頭當成一個整體往水裡壓，臀部會自然浮起</li><li>這是建立姿勢的練習不是求快，輕踢、保持耐心</li></ol>
+                <span class="vx-label">感知目標</span><p>肺部往下壓水時臀部自然浮起；頸部長而放鬆；全身像一根漂浮的木材</p>
+                
+              
+            </div>
+          </details>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Fr4</span>頭帶平衡 &#43; 旋轉</summary>
+            <div class="vx-drill-body">
+              
+                <p>結合雙側平衡，加入換氣旋轉，感覺身體帶動頭轉而非頭帶動身體</p>
+                <span class="vx-label">怎麼做</span><ol><li>從側躺位置開始，加入旋轉，每6到10次踢水從一側臀部翻轉到另一側</li><li>旋轉由臀部底部發動，是快速的翻轉，搭配穩定緊湊的踢水</li><li>加入換氣：頭轉到最小，靠身體旋轉帶起換氣，每三次旋轉換一次氣</li><li>換氣後立刻回到平衡位置</li></ol>
+                <span class="vx-label">感知目標</span><p>旋轉從臀部啟動；頭轉量最小；回到水中立即找到平衡</p>
+                
+              
+            </div>
+          </details>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Fr22</span>無氣泡</summary>
+            <div class="vx-drill-body">
+              
+                <p>觀察入水後氣泡量訓練延伸與阻力最小化，氣泡少代表手部前伸充分</p>
+                <span class="vx-label">怎麼做</span><ol><li>延續安靜入水的感覺，滑進那個「洞」後，注意開始抓水時手上產生的氣泡量</li><li>設法減少氣泡：盡量把手與手臂往前延伸（延伸來自臀部旋轉）</li><li>此練習需短暫抬頭看手，僅限此練習使用</li></ol>
+                <span class="vx-label">感知目標</span><p>入水後手部繼續延伸直到幾乎沒有氣泡；感覺髖旋轉帶動延伸</p>
+                
+              
+            </div>
+          </details>
+        
+        
+
+        <div class="vx-boundary"><span class="vx-label">水感註記</span>L2 換氣建立的關鍵；頭部過度旋轉是 C 型局部遮蔽最常見的觸發點。</div>
+
+        <nav class="vx-flow">
+          <button type="button" data-target="move-5"><span class="lbl">上一個</span>← 踢水節律</button>
+          <button class="nx" type="button" data-target="move-7"><span class="lbl">下一個</span>划距感知 →</button>
+        </nav>
+      </section>
+      
+      <section class="vx-panel vx-move" id="move-7">
+        <span class="vx-sec-no">動作 7 / 8</span>
+        <h2>划距感知</h2>
+        <p class="vx-panel-lead">察覺這趟划得比較短了</p>
+        <span class="vx-move-meta">水感層級 L4–L6</span>
+
+        <span class="vx-block-label">口訣校正</span>
+        <div class="vx-cues">
+          <div class="vx-cue vx-cue--bad"><div class="vx-cue-tag">別這樣</div><div class="vx-cue-txt">游累了就划快一點</div></div>
+          <div class="vx-cue vx-cue--why"><div class="vx-cue-tag">為什麼</div><div class="vx-cue-txt">疲勞時提 SR 掩蓋 SL 下降，短期有用但長期加速技術崩潰。</div></div>
+          <div class="vx-cue vx-cue--good"><div class="vx-cue-tag">這樣做</div><div class="vx-cue-txt">先確認每划還有水感、推多遠，再考慮快慢</div></div>
+        </div>
+
+        
+        <span class="vx-block-label">物理原理</span>
+        <div class="vx-howto">SL（每划距離）是技術品質最直接的外部指標，也是疲勞崩潰的<mark>第一個訊號</mark>——SL 下降先於 SR 下降。泳者本能反應剛好相反：感覺慢→划更快（提高 SR）→每划推進力下降但划次增加→消耗更多能量→技術繼續惡化。精英的優勢不是更高 SR，而是<mark>高 SR 下維持 SL 不下降</mark>。</div>
+        
+
+        
+        <div class="vx-boundary"><span class="vx-label">硬體邊界</span>划距感知是可訓練的覺察能力，不是硬體邊界——目標是把「游完才發現划短了」推進到「游泳中途就能偵測」。但疲勞後主觀感知可信度下降，此時需回到 SPL 客觀數字，不能單靠感覺。</div>
+        
+
+        
+        <span class="vx-block-label">對應練習</span>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Fr20</span>高爾夫計分</summary>
+            <div class="vx-drill-body">
+              
+                <p>以划水次數&#43;時間的總分訓練每划距離，找到個人最佳節奏</p>
+                <span class="vx-label">怎麼做</span><ol><li>游四趟50公尺自由式（不穿蛙鞋最佳），每趟記下划手次數與秒數</li><li>把划手數加上秒數得到「高爾夫分數」（例：40秒加42划等於82）</li><li>接下來三趟設法降低這個分數（同時減少划手數與時間）</li><li>透過多次練習找到自己「每划距離」與速度之間的最佳平衡</li></ol>
+                <span class="vx-label">感知目標</span><p>感覺每一划都有明確推力；找到划頻與划距的平衡點</p>
+                
+              
+            </div>
+          </details>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Fr23</span>三划滑行</summary>
+            <div class="vx-drill-body">
+              
+                <p>三划後45度滑行10拍，感覺核心在沒有划水時維持身體線條</p>
+                <span class="vx-label">怎麼做</span><ol><li>游3划自由式，第三划時把手留在前方，邊踢水邊滑行數到10</li><li>每三划會交替在不同側滑行</li><li>滑行時身體約45度乘載在臀部上，視線朝池底</li></ol>
+                <span class="vx-label">感知目標</span><p>滑行時45度穩定；感覺核心在支撐姿勢；視線朝池底</p>
+                
+              
+            </div>
+          </details>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Fr12</span>指尖拖水</summary>
+            <div class="vx-drill-body">
+              
+                <p>恢復臂高肘訓練，感覺手指輕掠水面，肘部始終高於手腕</p>
+                <span class="vx-label">怎麼做</span><ol><li>自由式划手回臂時，指尖輕輕掠過水面（用指甲輕擦水面）</li><li>全程保持手肘高於手腕，帶出高手肘與指尖入水</li><li>放慢游，回臂的手盡量放鬆，並把每一划保持伸長</li></ol>
+                <span class="vx-label">感知目標</span><p>手指輕輕刮過水面；手臂放鬆；肘部保持高位</p>
+                
+              
+            </div>
+          </details>
+        
+        
+
+        <div class="vx-boundary"><span class="vx-label">水感註記</span>能在中途察覺 SL 開始縮短是 L5→L6 的核心里程碑；疲勞崩潰序列的第一層。</div>
+
+        <nav class="vx-flow">
+          <button type="button" data-target="move-6"><span class="lbl">上一個</span>← 頭部位置</button>
+          <button class="nx" type="button" data-target="move-8"><span class="lbl">下一個</span>旋轉連動鏈 →</button>
+        </nav>
+      </section>
+      
+      <section class="vx-panel vx-move" id="move-8">
+        <span class="vx-sec-no">動作 8 / 8</span>
+        <h2>旋轉連動鏈</h2>
+        <p class="vx-panel-lead">回臂入水放大對側推力（進階）</p>
+        <span class="vx-move-meta">水感層級 L5–L6</span>
+
+        <span class="vx-block-label">口訣校正</span>
+        <div class="vx-cues">
+          <div class="vx-cue vx-cue--bad"><div class="vx-cue-tag">別這樣</div><div class="vx-cue-txt">回臂要快、要有力</div></div>
+          <div class="vx-cue vx-cue--why"><div class="vx-cue-tag">為什麼</div><div class="vx-cue-txt">回臂在空中不接觸水，本身不產生推進力；用力揮臂只製造全身張力、觸發 C 型遮蔽。重點是鬆弛加速與時機，不是力道。</div></div>
+          <div class="vx-cue vx-cue--good"><div class="vx-cue-tag">這樣做</div><div class="vx-cue-txt">回臂放鬆、持續加速到入水那一刻</div></div>
+        </div>
+
+        
+        <span class="vx-block-label">物理原理</span>
+        <div class="vx-howto">回臂手從最高點<mark>加速下落</mark>、入水時動能傳遞到對側划手末段推力，產生 coupling 能量。耦合要有效，回臂必須<mark>持續加速到入水</mark>（不能在入水前減速）。肩旋轉峰值在拉水前段、髖旋轉峰值在拉水末段，兩者分開強化整個拉水週期。</div>
+        
+
+        
+        <div class="vx-boundary"><span class="vx-label">硬體邊界</span>這是 L5 以上才會浮現的感知層次，屬感知成熟度問題而非硬體邊界。在 L3–L4 過早追求「整體連在一起」的感覺，往往是個別環節（抓水、踢水推進）尚未穩固卻誤以為「很好」——需先確認基礎感知穩定，不是直接進入連動鏈。</div>
+        
+
+        
+        <span class="vx-block-label">對應練習</span>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Fr24</span>俄式滾轉</summary>
+            <div class="vx-drill-body">
+              
+                <p>自由式和仰式交替游，感覺兩式捕水動作的相似性，用核心旋轉切換</p>
+                <span class="vx-label">怎麼做</span><ol><li>交替游仰式和自由式，用單雙數組合：3划自由式到翻身到2划仰式到翻回到再3划自由式</li><li>單雙數組合可避免暈眩，並練到兩側的抓水</li><li>翻身時把前伸手錨定、確實抓住水，留意仰式與自由式的抓水其實相似</li></ol>
+                <span class="vx-label">感知目標</span><p>翻轉時前臂錨定不動，感覺抓住水；自由式和仰式的捕水角度相似</p>
+                
+              
+            </div>
+          </details>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Fr23</span>三划滑行</summary>
+            <div class="vx-drill-body">
+              
+                <p>三划後45度滑行10拍，感覺核心在沒有划水時維持身體線條</p>
+                <span class="vx-label">怎麼做</span><ol><li>游3划自由式，第三划時把手留在前方，邊踢水邊滑行數到10</li><li>每三划會交替在不同側滑行</li><li>滑行時身體約45度乘載在臀部上，視線朝池底</li></ol>
+                <span class="vx-label">感知目標</span><p>滑行時45度穩定；感覺核心在支撐姿勢；視線朝池底</p>
+                
+              
+            </div>
+          </details>
+        
+          
+          <details class="vx-drill">
+            <summary><span class="did">Fr15</span>超人趕上</summary>
+            <div class="vx-drill-body">
+              
+                <p>前伸等待訓練捕水錨定與肩髖旋轉，感覺拉手時髖部同步旋轉</p>
+                <span class="vx-label">怎麼做</span><ol><li>超人姿勢俯臥，雙臂前伸與肩同寬、肺部往水裡壓</li><li>一手划水，划完後該手停在前方，等另一手划過來「會合」，會合後才開始下一划</li><li>雙手在前方保持與肩同寬（不互碰），搭配穩定輕鬆的踢水</li><li>抓水錨定在接近水面處並從那裡開始划，搭配臀部旋轉</li></ol>
+                <span class="vx-label">感知目標</span><p>拉手起始於水面附近的錨定；感覺髖部在拉手時同步轉動</p>
+                
+              
+            </div>
+          </details>
+        
+        
+
+        <div class="vx-boundary"><span class="vx-label">水感註記</span>L5 的耦合感知層次；連動鏈要等基礎捕水與推進感知穩固後才會出現。</div>
+
+        <nav class="vx-flow">
+          <button type="button" data-target="move-7"><span class="lbl">上一個</span>← 划距感知</button>
+          <button class="nx" type="button" data-target="errors"><span class="lbl">接著看</span>常見誤區 →</button>
+        </nav>
+      </section>
+      
+
+      
+      
+      <section class="vx-panel" id="errors">
+        <span class="vx-sec-no">自由式 · 常見誤區</span>
+        <h2>常見誤區</h2>
+        <p class="vx-panel-lead">教學現場最常見的錯誤指令，以及它在物理與感知上錯在哪。</p>
+        <div class="vx-filters">
+          <button class="vx-chip is-active" type="button" data-cat="all">全部 23</button>
+          <button class="vx-chip" type="button" data-cat="recovery">回臂</button><button class="vx-chip" type="button" data-cat="entry">入水</button><button class="vx-chip" type="button" data-cat="pull">水下划手</button><button class="vx-chip" type="button" data-cat="kick">踢腿</button><button class="vx-chip" type="button" data-cat="rotation">身體旋轉</button><button class="vx-chip" type="button" data-cat="breathing">頭部與換氣</button><button class="vx-chip" type="button" data-cat="tempo">划頻划距與訓練哲學</button>
+        </div>
+        
+        <details class="vx-card vx-err" data-cat="recovery">
+          <summary><span class="vx-cardcat">回臂</span><span class="vx-cardtitle">高肘回臂是唯一正確方式</span></summary>
+          <div class="vx-card-body">
+            <span class="vx-label">常見說法</span><p class="vx-mis">許多教練教材將「高肘回臂（High Elbow Recovery）」定為標準，不論選手距離、水域、肩部結構， 一律要求高肘。</p>
+            <span class="vx-label">物理原因 🔵</span><p>回臂功能是「以最少能量將手臂帶回入水位置」。最佳路徑取決於距離、划頻需求、肩部活動度： 長距離需省能 → 高肘較優；短距離需高划頻與耦合動作 → 直臂反而能疊加推進力； 直臂自然拉高划頻並迫使更大身體旋轉；肩關節柔軟度不足者強制高肘可能製造代償或傷害。</p>
+            <span class="vx-label">正確觀念</span><p class="vx-correct">先評估選手的距離目標、划頻需求、肩部柔軟度，再選擇適合的回臂風格。不存在唯一標準。</p>
+            <span class="vx-label">感知影響</span><p>強制改高肘 → 學員常用肩頸張力「架起」高肘，整條回臂因此僵硬，反而破壞換氣與旋轉的感知流暢度。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟠 教練過去教導必須高肘回臂、對稱划水，但 Janet Evans 的直臂、Grant Hackett 的單側換氣、 Phelps 與 Ledecky 的不對稱划水都推翻了這個說法。 <span class="src">— Scott Bay, USMS Level 5 Coach</span> <a href="https://www.usms.org/fitness-and-training/articles-and-videos/articles/freestyle-demystified" target="_blank" rel="noopener">↗</a></span><span class="vx-cite">🟠 大多數世界級 50 公尺選手使用直臂回臂，因為直臂的耦合動作能增強划水推進力。 <span class="src">— Tritonwear</span> <a href="https://blog.tritonwear.com/how-to-have-a-flawless-freestyle-swimming-recovery" target="_blank" rel="noopener">↗</a></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-err" data-cat="recovery">
+          <summary><span class="vx-cardcat">回臂</span><span class="vx-cardtitle">模仿菁英選手的動作就是正確</span></summary>
+          <div class="vx-card-body">
+            <span class="vx-label">常見說法</span><p class="vx-mis">教學中播放菁英選手影片，要求學員直接模仿其回臂動作，視「與奧運選手一樣」為技術目標。</p>
+            <span class="vx-label">物理原因 🔵</span><p>速度與技術細節是「相關」不是「因果」。菁英的速度部分來自技術，部分來自生理條件 （肌力、爆發力、肌纖維組成）——後者可以補償甚至掩蓋技術缺陷。</p>
+            <span class="vx-label">正確觀念</span><p class="vx-correct">影片分析要區分：「選手因為這個動作而快」vs「選手雖然有這個動作但還是快」。前者值得學， 後者是體能補償，複製只是複製了缺陷。</p>
+            <span class="vx-label">感知影響</span><p>「跟誰一樣」是形式目標，不是感知目標。學員注意力放在外型像不像，感知系統沒有接收到動作帶來的 水壓回饋訊號。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟠 許多人相信最快的選手使用的技術值得模仿，結果產生許多誤解。即使最快的選手也有技術限制， 只是用體能彌補了不足。 <span class="src">— Rod Havriluk, Swimming Technology Research</span> <a href="https://chicagobluedolphins.com/article-freestyle-straight-arm-recovery/" target="_blank" rel="noopener">↗</a></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-err" data-cat="recovery">
+          <summary><span class="vx-cardcat">回臂</span><span class="vx-cardtitle">拉鏈 Drill 代表正確的高肘路徑</span></summary>
+          <div class="vx-card-body">
+            <span class="vx-label">常見說法</span><p class="vx-mis">拉鏈 drill（拇指沿身體側面往上拉）被廣泛用來訓練高肘回臂，並被教練告知「這就是正確的回臂路徑」。</p>
+            <span class="vx-label">物理原因 🟠</span><p>Drill 是找感覺的工具，不是游泳時的固定路徑。拉鏈 drill 手部軌跡緊貼身體——實際游泳時手部 離身體應更寬。用這個 drill 的感覺直接對應到正式游泳，反而是錯誤的遷移。</p>
+            <span class="vx-label">正確觀念</span><p class="vx-correct">Drill 是找感覺的工具，需明確說明它在訓練什麼感知，以及與正式游泳的差異。使用前告知目的， 使用後確認學員是否誤以為 drill 路徑就是游泳路徑。</p>
+            <span class="vx-label">感知影響</span><p>Drill 引導的感知目標若方向錯誤，學員在正式游泳時會「找 drill 的感覺」，反而拉近手臂路徑， 製造不必要的側向阻力。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟠 高肘概念常被 drill 強化錯誤方向；拉鏈 drill 視覺化為手部緊貼身體，容易被誤解為正確游法—— 但實際手部離身體應更寬。 <span class="src">— Coach Alan, Tri Training Harder</span> <a href="https://tritrainingharder.com/blog/2021/6/blog-is-straight-arm-better-than-high-elbow" target="_blank" rel="noopener">↗</a></span><span class="vx-cite">🟠 應避免拇指拖拉 drill（拉鏈 drill），因為它會讓肘部過度偏高，對肩膀產生極大壓力。 <span class="src">— Matt Donovan, USMS</span> <a href="https://www.usms.org/fitness-and-training/articles-and-videos/articles/the-right-and-wrong-time-to-have-high-elbows-on-freestyle" target="_blank" rel="noopener">↗</a></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-err" data-cat="recovery">
+          <summary><span class="vx-cardcat">回臂</span><span class="vx-cardtitle">直臂回臂是初學者的壞習慣，需要矯正</span></summary>
+          <div class="vx-card-body">
+            <span class="vx-label">常見說法</span><p class="vx-mis">部分教練見到學員直臂回臂，不問原因直接要求改高肘，視直臂為「需要矯正的錯誤」。</p>
+            <span class="vx-label">物理原因 🔵</span><p>直臂回臂有其合理適用情境：短距離衝刺（直臂耦合增強推進）、開放水域（手部高於浪面減少阻力）、 肩部柔軟度不足（不強迫高肘，減少肩峰下撞擊風險）。</p>
+            <span class="vx-label">正確觀念</span><p class="vx-correct">先問「這個學員為什麼用直臂？」再決定是否需要調整。直臂回臂不等於錯誤，高肘回臂也不等於安全。</p>
+            
+            <span class="vx-label">依據</span><span class="vx-cite">🟠 直臂回臂可獲得更高划頻，並在開放水域讓手部高於浪面，也有助於肩膀柔軟度不足的選手。 <span class="src">— chilitri.com</span> <a href="https://chilitri.com/blog/karenparnell01@hotmail.com/bent-elbow-vs-straight-arm-recovery-which-is-best-for-you" target="_blank" rel="noopener">↗</a></span><span class="vx-cite">🟢 直臂回臂對肩部影響並非單向：高肘回臂若配合過高的肩膀抬舉，反而可能增加肩峰下撞擊 （subacromial impingement）風險。 <span class="src">— Biomechanical Considerations in the Competitive Swimmer&#39;s Shoulder, PMC3438875</span> <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3438875/" target="_blank" rel="noopener">↗</a></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-err" data-cat="recovery">
+          <summary><span class="vx-cardcat">回臂</span><span class="vx-cardtitle">回臂動作本身能產生推進力，所以要做得有力</span></summary>
+          <div class="vx-card-body">
+            <span class="vx-label">常見說法</span><p class="vx-mis">部分教學強調「回臂要快、要有力」，讓學員誤以為回臂動作本身可以直接帶來速度。</p>
+            <span class="vx-label">物理原因 🔵</span><p>手臂在空中移動不接觸水，無法直接產生推進力。但回臂的加速方式與時機透過「耦合動作」影響 水下划手效益：晚期回臂的加速能量在入水瞬間耦合至對側划手末段推力。正確說法是「鬆弛加速、 時機準確」，不是「要有力」。</p>
+            <span class="vx-label">正確觀念</span><p class="vx-correct">回臂本身不產生推進力，但回臂的質量（鬆弛度、加速節奏）直接影響水下推進效益。不是「要有力」， 而是「鬆弛加速、時機準確」。</p>
+            <span class="vx-label">感知影響</span><p>「用力揮臂」製造全身張力，表層肌肉張力升高後，本體感知對水下划手路徑的精細回饋被覆蓋， 學員失去感知水的能力。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟠 回臂在空中的動作本身不產生推進力；重要的是水下划水。但回臂若做得不好，會消耗不必要的能量， 讓水下划水力道下降。 <span class="src">— Tri-Coaching</span> <a href="https://tri-coaching.co.uk/2015/04/21/freestyle-recovery/" target="_blank" rel="noopener">↗</a></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-err" data-cat="entry">
+          <summary><span class="vx-cardcat">入水</span><span class="vx-cardtitle">「頭部正前方入水」是標準入水點</span></summary>
+          <div class="vx-card-body">
+            <span class="vx-label">常見說法</span><p class="vx-mis">許多教學要求「在頭部正前方輕輕滑入水中」，甚至示範手剛超過頭頂就落水。</p>
+            <span class="vx-label">物理原因 🔵</span><p>水的密度約是空氣的 800 倍，正面阻力遠大於空氣。手臂在空中阻力極小，應讓手臂充分伸展後再入水， 而非提早落水製造正面阻力。</p>
+            <span class="vx-label">正確觀念</span><p class="vx-correct">入水點在肩線前方、手臂接近伸展處，指尖朝前斜下切入，不跨中線。</p>
+            <span class="vx-label">感知影響</span><p>入水過短 → 升力相被壓縮，捕水前延伸時間不足，學員無法建立「手伸到水前方、讓水來找手」的感知， L2 延伸感知難以建立。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟠 應讓手臂充分伸展後再入水，而不是在頭部正上方就落水。 <span class="src">— The Race Club</span> <a href="https://theraceclub.com/aqua_note/common-mistakes-from-the-freestyle-hand-entry/" target="_blank" rel="noopener">↗</a></span><span class="vx-cite">🟠 現代共識：入水點應在肩線延伸前方、手臂接近完全伸展的位置（約肩寬、距頭部 30–45 公分）， 指尖朝前斜下切入，不跨越中線。 <span class="src">— Vortex 整理</span></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-err" data-cat="entry">
+          <summary><span class="vx-cardcat">入水</span><span class="vx-cardtitle">入水時手指要「完全夾緊」</span></summary>
+          <div class="vx-card-body">
+            <span class="vx-label">常見說法</span><p class="vx-mis">教學常要求入水時手指「完全夾緊、不留縫隙」，並且「全程保持夾緊」。</p>
+            <span class="vx-label">物理原因 🟢</span><p>入水（切入）與抓水（捕水）是兩個不同動作、對應不同手型：入水瞬間手形緊實降低阻力； 進入捕水後微微張開至放鬆自然位（約 10° 間距），增大推進面積。全程夾緊會限制抓水有效面積。</p>
+            <span class="vx-label">正確觀念</span><p class="vx-correct">入水瞬間指尖領先、手形緊實；進入捕水後微微張開至約 10° 自然位。只教「全程夾緊」會限制抓水面積。</p>
+            <span class="vx-label">感知影響</span><p>手指感知是手感發展的核心。完全夾緊 → 手掌變「硬板」，失去對水流分布的感知細節；略微張開後才能 感知「水填滿指縫的壓力」，這是重要的感知訊號入口。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟢 CFD 分析真實手部模型（2 m/s）：最佳手指間距約 10°（指尖間距約 3.2 mm），與完全夾緊相比 阻力係數提升 2–5%、力矩提升 5–8%；最佳間距接近放鬆手的自然姿態。機制是指縫產生噴流， 抑制大渦流形成。多篇 CFD 重複確認。 <span class="src">— Marinho et al. (2010), Journal of Applied Biomechanics</span> <a href="https://pubmed.ncbi.nlm.nih.gov/20733242/" target="_blank" rel="noopener">↗</a></span><span class="vx-cite">🟢 入水瞬間手指與拇指應緊合像刀片劃入；進入抓水後手指應略微張開以增大受力面積。 <span class="src">— The Race Club</span> <a href="https://theraceclub.com/aqua_note/common-mistakes-from-the-freestyle-hand-entry/" target="_blank" rel="noopener">↗</a></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-err" data-cat="entry">
+          <summary><span class="vx-cardcat">入水</span><span class="vx-cardtitle">「掌心朝下平入水」是唯一正確角度</span></summary>
+          <div class="vx-card-body">
+            <span class="vx-label">常見說法</span><p class="vx-mis">傳統教學幾乎一律要求掌心朝下（palm down）入水，視其為「乾淨入水」的標準。</p>
+            <span class="vx-label">物理原因 🔵</span><p>入水角度受回臂方式、身體旋轉幅度、個人腕部活動度共同決定。直臂回臂選手入水時手腕通常需要更多 屈曲才能讓指尖先入水；強制掌心朝下反而製造入水阻力或手腕代償。</p>
+            <span class="vx-label">正確觀念</span><p class="vx-correct">目標是「指尖領先、乾淨切入」，達成此目標的腕部角度因回臂方式與個人解剖條件而異，不能硬套單一標準。</p>
+            
+            <span class="vx-label">依據</span><span class="vx-cite">🟠 一種手型適合所有人是不存在的。不同回臂方式、身體結構、傷病史都會影響入水時最佳的手腕角度。 <span class="src">— Swimming World Magazine</span> <a href="https://www.swimmingworldmagazine.com/news/science-of-performance-hand-entry/" target="_blank" rel="noopener">↗</a></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-err" data-cat="entry">
+          <summary><span class="vx-cardcat">入水</span><span class="vx-cardtitle">入水要「越安靜越好」</span></summary>
+          <div class="vx-card-body">
+            <span class="vx-label">常見說法</span><p class="vx-mis">教學常強調「安靜入水、不能有水花」，讓學員過度謹慎地「放」手進水，而非積極向前伸刺。</p>
+            <span class="vx-label">物理原因 🟠</span><p>過度追求安靜 → 入水動作變被動、位置過短、姿勢消極，失去晚期回臂的加速能量轉移。 「安靜」是乾淨切入的副產品，不是追求目標。</p>
+            <span class="vx-label">正確觀念</span><p class="vx-correct">目標是「指尖領先、積極前伸切入」。以「安靜」為目標會減慢手臂在空中的最後加速，削減耦合的能量轉移。</p>
+            <span class="vx-label">感知影響</span><p>「輕輕放入」製造消極的入水感知，學員把「沒有感覺」當成正確訊號。正確積極入水後應能感受到指尖切入 水面的「劈」感，這是重要的本體回饋起點。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟠 正確做法是積極「攻擊水面」，將手向前推刺。15 次奧運冠軍教練 Eddie Reese： 「我們教的是『伸手觸牆』的概念。」 <span class="src">— YourSwimLog</span> <a href="https://www.yourswimlog.com/how-to-improve-freestyle-hand-entry/" target="_blank" rel="noopener">↗</a></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-err" data-cat="pull">
+          <summary><span class="vx-cardcat">水下划手</span><span class="vx-cardtitle">S 形划水路徑是高效划水的目標</span></summary>
+          <div class="vx-card-body">
+            <span class="vx-label">常見說法</span><p class="vx-mis">過去教學（1960–1990 年代普遍）要求選手手部在水下走「S 形路徑」，視為高效划水的標準動作。</p>
+            <span class="vx-label">物理原因 🔵</span><p>S 形划水的每次方向改變都意味手部需加速、減速、再加速，每次減速都是推進力損失。手掌相對身體走 接近直線的後向推進才最有效率。水下看到的 S 形是身體轉體造成的視覺錯覺，不是手部刻意繞 S。</p>
+            <span class="vx-label">正確觀念</span><p class="vx-correct">水下划手目標是「手掌向後加速、維持路徑穩定」，S 形是轉體副產品，不應刻意訓練。</p>
+            <span class="vx-label">感知影響</span><p>「刻意繞 S」讓學員注意力放在路徑形狀（視覺/空間目標），無法聚焦在「手掌對水壓力的連續感知」。 路徑形狀是外部視角描述，感知系統不以路徑形狀為輸入。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟡 S 形路徑由 James &#34;Doc&#34; Counsilman 在《The Science of Swimming》（1968）依水下攝影觀察提出。 <span class="src">— 歷史背景</span></span><span class="vx-cite">🟢 高速影像顯示菁英選手手部路徑相當直線；過去看到的 S 形是身體轉體造成的視覺錯覺。 <span class="src">— Rocketswim</span> <a href="https://rocketswim.com/four-phases-of-freestyle-arm-stroke/" target="_blank" rel="noopener">↗</a></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-err" data-cat="kick">
+          <summary><span class="vx-cardcat">踢腿</span><span class="vx-cardtitle">用力踢水才能快——力量優先於柔韌性</span></summary>
+          <div class="vx-card-body">
+            <span class="vx-label">常見說法</span><p class="vx-mis">「腿要踢有力、踢得快」是最普遍的踢水指令之一，但忽略了踢水效率的硬體前提：踝關節蹠屈幅度。</p>
+            <span class="vx-label">物理原因 🔵</span><p>踢水推進力來自腳掌面向後方的推水面積，踝關節蹠屈幅度直接決定此面積：柔韌性足夠 → 腳掌接近垂直 朝後 → 有效面積最大；踝關節僵硬 → 腳背而非腳掌面朝後 → 踢水反而制動。增加力量但蹠屈不足， 只是更有力地產生阻力。</p>
+            <span class="vx-label">正確觀念</span><p class="vx-correct">踝關節柔韌性訓練優先於力量。跑步背景選手需先評估蹠屈幅度確認硬體邊界，再決定踢水訓練方向。</p>
+            <span class="vx-label">感知影響</span><p>踝僵硬選手腳掌從未建立「後方推水」的感覺——因為腳掌實際從未朝後過。這無法靠感知訓練解決， 是硬體邊界，必須先做柔韌性改善。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟢 踝關節蹠屈柔韌性與踢水速度直接相關；陸上踝柔韌性訓練能改善踢水效率。跑步背景者最容易踝僵硬， 踢水時最易制動。 <span class="src">— McCullough et al. (2009/2010), J. Strength &amp; Conditioning Research</span> <a href="https://pubmed.ncbi.nlm.nih.gov/19387413/" target="_blank" rel="noopener">↗</a></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-err" data-cat="kick">
+          <summary><span class="vx-cardcat">踢腿</span><span class="vx-cardtitle">六拍踢是正確標準，兩拍是偷懶或技術不好</span></summary>
+          <div class="vx-card-body">
+            <span class="vx-label">常見說法</span><p class="vx-mis">許多教練把六拍踢當「正確」節奏，見到兩拍踢直覺判斷為偷懶或技術不成熟，要求一律改六拍。</p>
+            <span class="vx-label">物理原因 🔵</span><p>六拍踢（高代謝、連續推進&#43;填補划手空窗，適合 100m 以下衝刺）與兩拍踢（低代謝、維持旋轉節律&#43; 平衡穩定，適合 400m 以上長距離）的協調邏輯與適用情境不同——是距離策略的客觀反映，不是技術高低。 兩拍同側踢與六拍對側踢相反，但服務不同旋轉需求。</p>
+            <span class="vx-label">正確觀念</span><p class="vx-correct">踢水節奏由距離、划頻、腿部耐力共同決定。強制六拍可能讓長距離選手後段腿部提前疲勞，破壞整體效率。</p>
+            <span class="vx-label">感知影響</span><p>強制六拍的長距離選手，腿部能量在中段已大量消耗，後段節律錨點崩潰，換氣時機和划手節奏同步失守。 踢水節奏是整個划手週期的節律框架。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟠 Hip-driven 風格（長距離）自然發展兩拍踢，因六拍在低划頻下製造不必要腿部疲勞。精英長距離 大多用兩拍或四拍，不是六拍。 <span class="src">— 教練觀測</span></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-err" data-cat="kick">
+          <summary><span class="vx-cardcat">踢腿</span><span class="vx-cardtitle">「用腰帶腿踢」——踢水要從腰開始（鎖死膝蓋）</span></summary>
+          <div class="vx-card-body">
+            <span class="vx-label">常見說法</span><p class="vx-mis">「踢水要從腰帶動、不是靠膝蓋彎曲」常被過度執行，導致選手完全鎖住膝蓋，反而失去踝關節的加速能量。</p>
+            <span class="vx-label">物理原因 🔵</span><p>有效踢水需三環節連動：髖關節發力 → 膝蓋有控制地彎曲（下踢峰值約 55–75°）→ 踝關節鞭打加速。 「從腰帶動」解決環節 1，但若被解讀為「膝蓋不能動」，環節 2 消失、環節 3 無法加速，踢水變成 整條腿擺動，效率大幅下降。</p>
+            <span class="vx-label">正確觀念</span><p class="vx-correct">根本是發力序列：髖帶膝、膝帶踝、踝完成鞭打。「用腰帶腿」修正的是發力起點，不應解讀為消除膝蓋動作。 推薦夾板踢水隔離腿部，感知髖-膝-踝連動。</p>
+            <span class="vx-label">感知影響</span><p>膝蓋鎖死的選手踝關節無法完成末端加速，踢水是「腿部整體推」而非「踝關節掃過水」。有鞭打感的踢水 在踝末端可感受水壓劇烈變化；鎖膝版本沒有這個峰值，感覺「平滑但沒有力量感」。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟠 bicycle kick 的問題在膝蓋彎曲過大且主導踢水（膝先動、髖後動），而非膝蓋彎曲本身。最佳膝蓋 彎曲角度 55–75°（下踢峰值），低於 55° 推進不足，超過 75° 進入 bicycle kick。 <span class="src">— The Race Club VM 量化</span></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-err" data-cat="kick">
+          <summary><span class="vx-cardcat">踢腿</span><span class="vx-cardtitle">腳踝僵硬是先天條件，無法改善</span></summary>
+          <div class="vx-card-body">
+            <span class="vx-label">常見說法</span><p class="vx-mis">部分教練診斷踝僵硬後告知「你的踝關節先天比較硬，踢水不會好」，或跳過踝訓練改強調用上半身彌補。</p>
+            <span class="vx-label">物理原因 🔵</span><p>踝關節蹠屈柔韌性後天可改善，但柔韌性改善與表現改善有時間差：6 週訓練研究顯示柔韌性顯著改善 （p=0.0008），但同期 25m 踢板成績改善尚未顯著（p=0.40）——柔韌性改善先於表現。「先天不可改」 常來自短期介入未見速度提升後的誤判。</p>
+            <span class="vx-label">正確觀念</span><p class="vx-correct">踝柔韌性是可訓練的硬體條件，不是不可改變的先天限制。診斷僵硬後應設計踝專項訓練，同時在水中用 適合目前範圍的踢水訓練。只告知「天生腳踝硬」而不提供改善方案，是診斷與教學流程的雙重失職。</p>
+            <span class="vx-label">感知影響</span><p>改善過程中選手會逐漸出現「腳掌開始感受到水壓的新感覺」。需教練明確告知「這個新水壓感就是踢水 開始有效的信號」，否則可能誤判為「踢法改變了，感覺怪怪的」。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟠 陸上踝柔韌性訓練（泡沫軸放鬆腓腸肌、主動蹠屈伸展、跪坐拉伸）可改善踢水效率。 <span class="src">— McCullough 2009/2010 方向</span></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-err" data-cat="rotation">
+          <summary><span class="vx-cardcat">身體旋轉</span><span class="vx-cardtitle">主動轉髖是自由式旋轉的正確指令</span></summary>
+          <div class="vx-card-body">
+            <span class="vx-label">常見說法</span><p class="vx-mis">「游自由式要用髖帶動手臂」「轉髖才能讓划水更有力」混淆了因果方向，在短距離或高划頻情境反而造成代償。</p>
+            <span class="vx-label">物理原因 🔵</span><p>旋轉的正確因果鏈：推水末段 → 肩胛肌群收縮（菱形肌後縮肩胛骨）→ 啟動對側身體滾轉 → 髖部被動跟隨。 髖部是被動跟隨者，不是發動者。短距離（高划頻）刻意主動轉髖 → 時機錯亂&#43;額外能耗； 「用髖帶動划手」在長距離和短距離效果方向相反。</p>
+            <span class="vx-label">正確觀念</span><p class="vx-correct">旋轉的感知目標是肩胛骨的動作，不是髖部旋轉。指導語應從「轉髖」改為「推水末段感覺肩胛骨往脊椎縮」。</p>
+            <span class="vx-label">感知影響</span><p>「主動轉髖」的感知是腰椎扭轉感，與肩胛骨收縮感完全不同。建立「轉腰=正確旋轉」後，注意力永遠在腰部 而非肩胛骨，旋轉的耦合質量難以被精確感知和調整。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟡 推水末段肩胛肌群（菱形肌）是旋轉的主動發動肌，髖部被動跟隨。「把肩膀教好，髖部自然跟著動。」 <span class="src">— Pink et al. (1991) EMG；Science of Swimming Faster (Riewald &amp; Rodeo 2015)</span></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-err" data-cat="rotation">
+          <summary><span class="vx-cardcat">身體旋轉</span><span class="vx-cardtitle">旋轉幅度越大越好——「把肩膀打開」指令</span></summary>
+          <div class="vx-card-body">
+            <span class="vx-label">常見說法</span><p class="vx-mis">「肩膀要打開到 90 度」「旋轉越多越好，增加拉力臂」混淆了長距離與短距離策略，在高划頻下幾何上不可能。</p>
+            <span class="vx-label">物理原因 🔵</span><p>旋轉幅度有最優範圍，超過後邊際效益為負：Hip-driven（長距離）髖旋轉約 45–60°；Shoulder-driven （衝刺）約 35–40°，時間窗口短，更大旋轉物理上無法完成。過度旋轉 → 側面面積增加（阻力上升）&#43; 推進方向偏移 &#43; 旋轉速度峰值與推力峰值不再對齊。旋轉的價值在時機對齊，不在幅度。</p>
+            <span class="vx-label">正確觀念</span><p class="vx-correct">旋轉幅度目標是「讓划手推力峰值和旋轉速度峰值對齊」，不是越大越好。「打開肩膀」對長距離有意義， 對短距離可能是干擾。先確認目標距離和划頻。</p>
+            <span class="vx-label">感知影響</span><p>追求旋轉幅度的選手感知目標是「轉多遠」（空間/位置感知），不是「旋轉時機是否讓推水感覺更強」 （水壓感知）。這是耦合感知能否建立的關鍵分岔點。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟠 短距離旋轉幅度明顯小於長距離（衝刺 ~37° vs 400m ~50°），且短距離速度優勢不是靠旋轉幅度達成。 （各研究測量方法與速度基準不同，確切範圍仍有差異） <span class="src">— Andersen et al. (2020) 方向；PMID 32500807</span> <a href="https://pubmed.ncbi.nlm.nih.gov/32500807/" target="_blank" rel="noopener">↗</a></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-err" data-cat="rotation">
+          <summary><span class="vx-cardcat">身體旋轉</span><span class="vx-cardtitle">「積極轉體，旋轉越快游越快」</span></summary>
+          <div class="vx-card-body">
+            <span class="vx-label">常見說法</span><p class="vx-mis">「要積極轉體，旋轉帶動划手才有力」把旋轉定位為速度的主動來源，但旋轉本身不接觸水，無法直接產生推進力。</p>
+            <span class="vx-label">物理原因 🔵</span><p>身體旋轉發生在空氣與水的介面，旋轉動作本身不接觸水（手臂在回臂，不在拉水），因此旋轉本身不產生 推進力。旋轉的作用是透過耦合——旋轉速度峰值與划手推力峰值在時間上對齊時能量疊加。旋轉是放大器， 不是引擎。沒有時機對齊的旋轉 = 零耦合貢獻 &#43; 額外阻力。</p>
+            <span class="vx-label">正確觀念</span><p class="vx-correct">正確問題不是「旋轉多不多」，而是「旋轉速度峰值有沒有和推力峰值對齊」。沒有時機的大幅旋轉， 效果不如時機精準的小幅旋轉。</p>
+            <span class="vx-label">感知影響</span><p>「積極旋轉」容易觸發全身張力升高（核心和腰部同時收緊），手部對水壓的細緻感知被覆蓋。結果是選手 一邊積極旋轉一邊失去感知划手是否有效的能力，耦合品質無法被感知調整。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟠 旋轉速度峰值發生在划手推力峰值的特定時間窗口內時速度提升顯著；窗口外旋轉不帶來速度增益。 <span class="src">— The Race Club Velocity Meter &#43; Pressure Meter</span></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-err" data-cat="breathing">
+          <summary><span class="vx-cardcat">頭部與換氣</span><span class="vx-cardtitle">換氣時眼睛要「看到天花板」</span></summary>
+          <div class="vx-card-body">
+            <span class="vx-label">常見說法</span><p class="vx-mis">「換氣時眼睛要看天花板」「臉要完全轉出水面才能吸到夠的空氣」透過頭部過度旋轉來解決換氣，代價比直覺大。</p>
+            <span class="vx-label">物理原因 🔵</span><p>頭部過度旋轉的連鎖代價：頸部肌肉張力升高 → 旋轉連動鏈被打斷 → 換氣側手臂入水位置偏移（常見跨中線） → 重心偏移 → 下半身補償 → 節律干擾。精英是「寄生換氣」：頭部搭身體旋轉的便車，嘴巴轉進弓形波 凹陷吸氣，而非主動把頭轉出水面。</p>
+            <span class="vx-label">正確觀念</span><p class="vx-correct">換氣目標是「最小旋轉、讓嘴巴進入弓形波凹陷」。感知替代目標：「換氣時，另一側護目鏡還有一半在水裡。」</p>
+            <span class="vx-label">感知影響</span><p>頭部過度旋轉製造大量頸部張力，每次換氣都是一次全身感知的部分中斷。換氣週期和非換氣週期的划手品質 明顯不一致 → 換氣成為技術崩潰的觸發點而不是中性事件。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟠 精英換氣時護目鏡另一側鏡片通常沒完全離開水面——這是「最小旋轉換氣」的外部指標。 「嘴角剛好露出水面就足夠」，不需看天花板。 <span class="src">— The Race Club</span></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-err" data-cat="breathing">
+          <summary><span class="vx-cardcat">頭部與換氣</span><span class="vx-cardtitle">換氣時前方手臂要「等在那裡」——catch-up 換氣</span></summary>
+          <div class="vx-card-body">
+            <span class="vx-label">常見說法</span><p class="vx-mis">「換氣時另一隻手先在前方等著，等你吸完氣再一起划」製造人為的划手暫停，讓呼吸從「寄生在旋轉中」 變成「打斷旋轉節律」。</p>
+            <span class="vx-label">物理原因 🔵</span><p>呼吸最優是「寄生模式」：頭部搭身體已在進行的旋轉便車，借用但不延長。停留手臂的問題：一側手臂 水中停留 → 升力相拉長（消耗能量不推進）→ 划頻下降 → 旋轉動量被打斷，下一次旋轉需重新啟動。</p>
+            <span class="vx-label">正確觀念</span><p class="vx-correct">換氣不應讓划手節律停等它。讓嘴巴在旋轉瞬間進入弓形波凹陷，吸氣後立刻回位，整個換氣發生在旋轉的 正常弧度裡。換氣是「找到身體自然給出空間的瞬間」，不是「要求身體停下來等你」。</p>
+            <span class="vx-label">感知影響</span><p>停等手臂製造划手週期裡的感知空白段——那段時間手臂被動停留，沒有推進方向的水壓感知。習慣後換氣週期 和非換氣週期的節律感知差異越來越大，技術崩潰時換氣週期第一個失守。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟠 精英不是為換氣而停等手臂，而是找到旋轉節律中換氣自然契合的時間窗口塞進去，不改變划手節律。 <span class="src">— 教練觀測</span></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-err" data-cat="tempo">
+          <summary><span class="vx-cardcat">划頻划距與訓練哲學</span><span class="vx-cardtitle">衝刺要「划快一點」——划頻越高越快</span></summary>
+          <div class="vx-card-body">
+            <span class="vx-label">常見說法</span><p class="vx-mis">比賽後半或衝刺時本能反應是「划快一點」提高划頻。在精英以下層次有一定效果，但在高水準和長距離 情境下可能適得其反。</p>
+            <span class="vx-label">物理原因 🔵</span><p>速度 = SR × SL。SR 提高而 SL 不下降時速度才增加。但 SR 提高 → 每次划手時間窗口縮短 → 捕水品質 下降 → SL 容易下降。若 SL 同幅下降則速度不變但能耗增加；若 SL 下降更多則速度反而降低。精英優勢 是「在高 SR 下維持 SL 不下降」的技術穩定性，不是更高的 SR。</p>
+            <span class="vx-label">正確觀念</span><p class="vx-correct">衝刺感知目標不是「划快一點」，而是「確認每次划手還有水感」。若 SL 已在下降，繼續提高 SR 只會加速 技術崩潰。疲勞監測最佳信號是 SL 變化，不是主觀的快/慢。</p>
+            <span class="vx-label">感知影響</span><p>「衝刺靠划頻」的訓練模式讓選手在高速時習慣放棄感知監測、改用「努力划」模式，高速下的 feedforward 建立在錯誤技術模式上。速度越高，感知越差，技術崩潰越早。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟢 50m 中 SL 是主要速度決定因子；SR 在男子 50m 中甚至與速度呈負相關。精英金牌優勢在「高 SR 下 維持 SL」，而非更高的 SR。 <span class="src">— Staunton et al. (2025), Frontiers in Sports and Active Living</span></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-err" data-cat="tempo">
+          <summary><span class="vx-cardcat">划頻划距與訓練哲學</span><span class="vx-cardtitle">「手伸遠一點」——在水中主動向前延伸增加划距</span></summary>
+          <div class="vx-card-body">
+            <span class="vx-label">常見說法</span><p class="vx-mis">「手在水裡要繼續向前伸」「延伸讓你划得更遠」想解決真實問題（提升 SL），但方向弄反了——在水中 主動向前推手反而讓手臂失去捕水位置。</p>
+            <span class="vx-label">物理原因 🔵</span><p>手在水中「主動向前推」：向前的肌肉收縮 → 手臂緩慢向前下方移動（不是靜止在最佳捕水位置）→ 選手 感知是「在延伸」，實際正在下沉到更深更前的地方 → 捕水效率降低，SL 反而下降。真正的延伸距離來自 旋轉把肩膀送出去，手臂搭便車到達更遠位置。</p>
+            <span class="vx-label">正確觀念</span><p class="vx-correct">增加 SL 的正確方向是提升捕水品質，而非延長手臂在水中的前進距離。「伸得更遠」應是「感覺肩膀被旋轉 送得更遠」，而不是「手臂在水中繼續往前推」。</p>
+            <span class="vx-label">感知影響</span><p>「主動向前推水」建立錯誤的 L2 水感：把「向前推動水」當成延伸訊號。這與 L3 捕水感知（水壓作用在 手掌後方）方向完全相反，前者一旦固化，L3 的建立會因感知方向衝突而受阻。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟠 入水後讓慣性帶手繼續向前滑幾寸，然後立刻轉入捕水——不是主動推水延伸。延伸和捕水之間沒有 「主動向前推」這個動作。 <span class="src">— 教練觀測</span></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-err" data-cat="tempo">
+          <summary><span class="vx-cardcat">划頻划距與訓練哲學</span><span class="vx-cardtitle">SR 和 SL 必然互相取捨，要選一個方向訓練</span></summary>
+          <div class="vx-card-body">
+            <span class="vx-label">常見說法</span><p class="vx-mis">「你划頻快但划距短，這是你的風格，各有優劣」把 SR-SL 的負相關當成物理定律，並以此放棄對弱項的訓練。</p>
+            <span class="vx-label">物理原因 🔵</span><p>SR-SL 的負相關是技術限制的外在表現，不是物理定律：技術足夠時 SR 提高 SL 可維持甚至提升——這正是 精英訓練的目標。兩者並非風格差異，而是「技術是否能在高划頻下維持捕水效率」的反映。</p>
+            <span class="vx-label">正確觀念</span><p class="vx-correct">SR 與 SL 都要訓練但目標不同：SR 訓練神經快速徵召；SL 訓練在高 SR 下維持捕水效率和阻力控制。 問題不是「選哪個」，而是「目前 SR 壓力下 SL 下降的原因是技術問題還是生理條件問題」。</p>
+            <span class="vx-label">感知影響</span><p>相信「必然取捨」的選手在划距縮短時不會嘗試找回捕水的感知質量，而是接受它。這讓捕水感知不精確被 「風格差異」的標籤永久掩蓋，無法被識別和改善。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟢 精英金牌相對於一般精英的優勢正在於「高 SR 下維持 SL 不下降」——兩者不是取捨，是同時最大化的目標。 <span class="src">— Staunton et al. (2025)</span></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-err" data-cat="tempo">
+          <summary><span class="vx-cardcat">划頻划距與訓練哲學</span><span class="vx-cardtitle">「慢游練技術、快游練體能」——速度是訓練分界線</span></summary>
+          <div class="vx-card-body">
+            <span class="vx-label">常見說法</span><p class="vx-mis">「慢游注意技術、快游全力衝」幾乎普遍。它描述層次錯了——用速度作分界掩蓋了真正的判斷標準， 並製造有害副作用：選手在速度稍快時自動關閉技術監測。</p>
+            <span class="vx-label">物理原因 🔵</span><p>速度不是關鍵變項，真正的分界是「不崩速度」——在這個速度下技術不崩潰（疲勞時低、新鮮時高）。 在不崩速度以下游 → 有效技術刺激；超過 → 強化崩潰下的動作模式。技術崩潰有兩種：能量系統崩潰 vs 神經肌肉協調崩潰，兩者訓練介入方向完全不同。長距離後段崩潰更可能是神經肌肉協調崩潰。</p>
+            <span class="vx-label">正確觀念</span><p class="vx-correct">訓練分界不是速度，而是「技術是否崩潰」。Drill 可加速度要求（只要技術不崩）；計時游也可是技術訓練 （只要在不崩速度內）。教練核心是找到每個選手在每個階段的「不崩速度」，在那個邊界設計訓練。</p>
+            <span class="vx-label">感知影響</span><p>「快游不用管技術」讓選手在速度稍高時自動關閉感知監測，高速下的神經動作模式和低速完全不同， feedforward 在高速下沒被正確建立。精英的標誌之一是「比賽速度和訓練速度下感知監測品質相同」。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟠 特異性原則：慢速習得的神經動作模式不能自動遷移至比賽速度。USRPT（Dr. Brent Rushall, SDSU） 主張以短距離段落在比賽配速練習，建立比賽速度下的正確神經模式。 <span class="src">— Specificity of Practice；USRPT</span></span>
+          </div>
+        </details>
+        
+      </section>
+      
+
+      
+      
+      <section class="vx-panel" id="tech">
+        <span class="vx-sec-no">自由式 · 深入機制</span>
+        <h2>深入機制</h2>
+        <p class="vx-panel-lead">想知道「為什麼」時再讀——每則是一個獨立的物理或生理機制。</p>
+        <div class="vx-filters">
+          <button class="vx-chip is-active" type="button" data-cat="all">全部 26</button>
+          <button class="vx-chip" type="button" data-cat="concept">分析框架與物理本質</button><button class="vx-chip" type="button" data-cat="tempo">划頻與划距</button><button class="vx-chip" type="button" data-cat="style">技術風格</button><button class="vx-chip" type="button" data-cat="stroke-cycle">划手週期與機制</button><button class="vx-chip" type="button" data-cat="hardware">硬體邊界</button><button class="vx-chip" type="button" data-cat="kick">踢水與腿部機制</button><button class="vx-chip" type="button" data-cat="rotation">身體旋轉</button><button class="vx-chip" type="button" data-cat="head">頭部與換氣</button><button class="vx-chip" type="button" data-cat="errors">常見錯誤</button><button class="vx-chip" type="button" data-cat="fatigue">疲勞崩潰序列</button><button class="vx-chip" type="button" data-cat="watersense">水感與神經控制</button><button class="vx-chip" type="button" data-cat="comparison">四式技術對照</button>
+        </div>
+        
+        <details class="vx-card vx-tech" data-cat="concept">
+          <summary><span class="vx-cardcat">分析框架與物理本質</span><span class="vx-cardtitle">自由式無唯一最優技術——最優解由距離、生理條件、疲勞狀態共同決定</span></summary>
+          <div class="vx-card-body">
+            <p>自由式技術風格不是偏好選擇，而是距離與生理條件的客觀投影，沒有放諸四海皆準的單一正確技術。</p>
+            <span class="vx-label">機制 🔵</span><p>速度 = 划頻（SR）× 划手距離（SL），最優解隨距離、個人生理上限與疲勞狀態改變，屬開放式最佳化問題而非固定公式。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">教練與泳者應以「找個人最優解」取代「學正確形狀」的教學框架；先確認距離和生理條件，再選風格策略。</p>
+            
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="concept">
+          <summary><span class="vx-cardcat">分析框架與物理本質</span><span class="vx-cardtitle">自由式推進結構——手臂主引擎，腿部輔助，旋轉為耦合放大器</span></summary>
+          <div class="vx-card-body">
+            <p>手臂提供約 85–90% 推進力，腿部主要功能是穩定節律與輔助推進；身體旋轉本身不產生推進力，但透過耦合疊加可放大推力。</p>
+            <span class="vx-label">機制 🔵</span><p>旋轉是耦合運動（coupling motion）——當旋轉速度峰值與划手推力峰值對齊時，能量疊加顯著放大推力；本身無法獨立產生前進推力。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">不應把旋轉訓練與划手訓練拆開看待；教學焦點應放在旋轉峰值時機與推力峰值的對齊，而非旋轉幅度本身。</p>
+            
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="tempo">
+          <summary><span class="vx-cardcat">划頻與划距</span><span class="vx-cardtitle">SR–SL 動態關係——精英優勢在高划頻下維持划距不下降</span></summary>
+          <div class="vx-card-body">
+            <p>50m 中划手距離（SL）是主要速度決定因子；SR 在男子 50m 甚至與速度呈負相關；精英金牌的真正優勢是在高 SR 下維持 SL 不下降。</p>
+            <span class="vx-label">機制 🟢</span><p>SR 提高而 SL 下降是「技術沒有同步支撐划頻」的結果，不是物理必然；技術足夠時兩者可同時最大化。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">SR 訓練目標是提高神經快速徵召能力上限；SL 訓練目標是在高 SR 下維持捕水效率和阻力控制；兩者都要練，不是二選一。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟢 50m 中 SL 是主要速度決定因子，SR 在男子 50m 與速度甚至呈負相關；精英金牌能在高 SR 下維持 SL。 <span class="src">— Staunton, Ruiz-Navarro &amp; Born 2025</span></span><span class="vx-cite">🟢 划手穩定性（stroke steadiness）與速度相關 r = -0.61 至 -0.749，維持穩定的划手週期是高水準選手與地方選手的關鍵差距。 <span class="src">— Ruiz-Navarro et al. 2024</span></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="style">
+          <summary><span class="vx-cardcat">技術風格</span><span class="vx-cardtitle">Hip-driven 髖部驅動風格——低划頻大幅髖旋轉，適合長距離有氧情境</span></summary>
+          <div class="vx-card-body">
+            <p>划頻 50–75 次/分，入水後手臂在前方停留（glide）等待，大幅髖旋轉帶動每次划手，彎臂低能量回臂，適合 400m 以上長距離。</p>
+            <span class="vx-label">機制 🟠</span><p>髖旋轉先行帶動肩膀（「髖帶肩」模式），大幅旋轉讓每划距離長、能量效率高；但划頻低造成的推進空窗需強力六拍踢補足。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">適用條件：有強力六拍踢基礎、有氧耐力佳、體型高大臂展長；划距優勢選手仍需訓練划頻作為疲勞保護機制。</p>
+            
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="style">
+          <summary><span class="vx-cardcat">技術風格</span><span class="vx-cardtitle">Shoulder-driven 肩部驅動風格——高划頻入水即捕水，適合衝刺與女子全距離</span></summary>
+          <div class="vx-card-body">
+            <p>划頻 85–150 次/分，入水後 0.16–0.3 秒即施力捕水，大幅肩旋轉但髖旋轉相對小，直臂高能量回臂，幾乎所有女子精英選手的首選。</p>
+            <span class="vx-label">機制 🟠</span><p>肩旋轉主導，髖在高頻下沒有時間大幅旋轉，維持相對穩定；靠高頻率補划距不足，要求神經快速徵召能力強且肩部穩定性好。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">適合 50–100m 衝刺及大多數女子精英全距離；划頻優勢選手需額外訓練划距作為能量效率底線。</p>
+            
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="style">
+          <summary><span class="vx-cardcat">技術風格</span><span class="vx-cardtitle">Hybrid 混合驅動風格——兩臂不對稱，呼吸側 hip-driven、非呼吸側 shoulder-driven</span></summary>
+          <div class="vx-card-body">
+            <p>划頻 70–100 次/分，呼吸側手臂延伸等待（hip-driven 模式），非呼吸側立即施力（shoulder-driven 模式），兩臂在同一划手週期中採用不同策略。</p>
+            <span class="vx-label">機制 🟠</span><p>兩臂不對稱讓泳者在兼顧速度輸出與節能的同時，呼吸側的延伸為換氣創造更好的旋轉槓桿條件；是風格分類的過渡區（划頻 75–85 次/分為灰色地帶）。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">適合 100–400m 中距離；需要同時管理兩種不同的手臂時序，教學難度較高；Katie Ledecky 2015 年後轉換至此風格（200m 以上）。</p>
+            
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="stroke-cycle">
+          <summary><span class="vx-cardcat">划手週期與機制</span><span class="vx-cardtitle">S 形划手路徑是歷史錯誤——現代共識為接近直線的後向推進路徑</span></summary>
+          <div class="vx-card-body">
+            <p>傳統 Counsilman（1970）S 形划手路徑已被修正；現代水下高速攝影確認實際推進路徑接近直線向後，S 形是測量工具不足時代的誤判。</p>
+            <span class="vx-label">機制 🟠</span><p>S 形路徑是水下高速攝影出現前缺乏測量工具的觀察誤差；實際推進力學要求手掌持續面向後方，而非橫向移動以製造升力。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">教學中應放棄「畫 S 形」的口令，改以「手掌持續朝後向後推」為感知目標。</p>
+            
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="stroke-cycle">
+          <summary><span class="vx-cardcat">划手週期與機制</span><span class="vx-cardtitle">六階段划手週期——從升力相到晚期回臂的完整推進轉換系統</span></summary>
+          <div class="vx-card-body">
+            <p>划手週期可分為升力相、前象限推進、後象限推進、釋放相、早期回臂、晚期回臂六個階段，各有不同主力肌群與力學目標。</p>
+            <span class="vx-label">機制 🟠</span><p>升力相（手向前下方 12→3 點鐘）建立捕水位置；前象限（3→6 點鐘）開始後向推進；後象限（6→9 點鐘）達到推進峰值；釋放相（9→12 點鐘）小指翻上最小阻力出水；早期回臂肩胛上旋、手腕放鬆回復；晚期回臂重力輔助加速入水觸發 coupling。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">每個階段的技術崩潰位置不同，診斷時應依階段定位問題，而非只觀察最終速度下降。</p>
+            
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="stroke-cycle">
+          <summary><span class="vx-cardcat">划手週期與機制</span><span class="vx-cardtitle">高肘捕水（EVF）——降低上臂阻力、最大化推進面積的核心技術</span></summary>
+          <div class="vx-card-body">
+            <p>Early Vertical Forearm（EVF）讓上臂與游進方向平行（阻力最小），手掌和前臂同時面向後方（推進面積最大化）；常見誤解是「高肘讓前臂推進」，實際目的是降低上臂阻力。</p>
+            <span class="vx-label">機制 🔵</span><p>上臂是全身最大截面積部位之一；任何讓上臂橫向伸出的動作都製造正面阻力。高肘讓上臂平行游進方向，使手掌成為主推進面而非前臂（前臂是圓形截面，推進效率低於扁平手掌）。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">教學口令應從「讓前臂推水」改為「保持肘尖朝向游進方向」；高肘的訓練限制因素是前鋸肌耐力，而非技術理解。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟠 The Race Club PDM 測試確認手掌（非前臂）是推進力的主要來源；三個物理原因（形狀、速度、拳頭測試）均支持此結論。 <span class="src">— Hall Sr. 2020</span></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="hardware">
+          <summary><span class="vx-cardcat">硬體邊界</span><span class="vx-cardtitle">前鋸肌——高肘動作的硬體邊界，耐力訓練優先於力量訓練</span></summary>
+          <div class="vx-card-body">
+            <p>前鋸肌在整個划手週期持續活化，是唯一全程工作的穩定肌；疲勞後觸發菱形肌代償→肩胛骨去穩定→高肘動作崩潰→游泳肩風險大升。</p>
+            <span class="vx-label">機制 🟢</span><p>前鋸肌穩定肩胛骨作為高肘動作的「基底」；疲勞後代償鏈為：菱形肌取代前鋸肌穩定肩胛→肩胛骨 winging→肩胛下肌旋轉肌袖代償→內部撞擊風險。游泳需要的是持續低強度活化，不是爆發力。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">陸上訓練中前鋸肌訓練的目標是「耐力」而非「力量」；這是游泳訓練中最被忽略的陸上需求——不是技術不夠好，而是支撐技術的硬體撐不住。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟡 EMG 分析確認前鋸肌在整個划手週期持續活化；疲勞後前鋸肌活化下降，菱形肌代償，肩胛骨去穩定——奠定游泳肩機制的基礎研究。 <span class="src">— Pink, Perry et al. 1991</span></span><span class="vx-cite">🟢 游泳肩發生率 35–91%（定義不同）；前鋸肌和肩胛下肌是核心風險肌肉；前鋸肌疲勞後肩胛骨去穩定是主要機制。 <span class="src">— StatPearls 2023</span></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="kick">
+          <summary><span class="vx-cardcat">踢水與腿部機制</span><span class="vx-cardtitle">六拍踢——對側協調抵消蛇行，是最穩固的教學基準</span></summary>
+          <div class="vx-card-body">
+            <p>右手入水瞬間左腳主踢下；對側配對產生反扭矩抵消身體蛇行，與走路跑步的交叉模式一致，是教學上最穩固的基準。</p>
+            <span class="vx-label">機制 🟢</span><p>手入水時身體向該側滾轉，對側腳踢下產生反扭矩；六拍提供持續推進彌補划手空窗期，同時產生升力維持下半身水平、最小化正面截面積。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">「入水配對側踢」適用絕大多數泳者和情境；Hip-driven 風格以六拍強力踢作為基礎，彌補低划頻造成的推進空窗。</p>
+            
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="kick">
+          <summary><span class="vx-cardcat">踢水與腿部機制</span><span class="vx-cardtitle">兩拍踢——同側協調省能，長距離首選但配對邏輯與六拍相反</span></summary>
+          <div class="vx-card-body">
+            <p>右手拉水中段時右腳踢（同側配對），輔助同側滾轉並為對側手入水創造槓桿條件；代謝成本低，是長距離省能量的主要方式。</p>
+            <span class="vx-label">機制 🟢</span><p>兩拍與六拍的配對邏輯相反（「拉水配同側踢」vs「入水配對側踢」）；兩拍推進貢獻低但代謝成本也低，適合需要最大化有氧效率的長距離。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">教學時需明確說明兩拍和六拍的配對邏輯相反，否則容易混淆；長距離泳者從六拍轉換為兩拍時需要重新建立節律感知。</p>
+            
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="hardware">
+          <summary><span class="vx-cardcat">硬體邊界</span><span class="vx-cardtitle">踝關節柔韌性——踢水效率的解剖硬體邊界</span></summary>
+          <div class="vx-card-body">
+            <p>蹠屈幅度決定踢水推進面積；踝關節僵硬者（如跑步背景）腳掌無法朝後，踢水效率大幅下降，嚴重時踢水反而制動。</p>
+            <span class="vx-label">機制 🟢</span><p>踝關節蹠屈幅度直接決定腳掌能否形成有效推進面；柔韌性與踢水速度正相關，此機制與蛙式、仰式相同。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">踝關節柔韌性訓練應優先於踢水力量訓練；跑步背景泳者須先解決踝關節活動度限制，增加踢水次數或力量是錯誤介入方向。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟡 踝關節蹠屈柔韌性與踢水速度直接相關；陸上踝關節柔韌性訓練能改善游泳踢水效率。 <span class="src">— McCullough et al. 2009/2010</span></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="kick">
+          <summary><span class="vx-cardcat">踢水與腿部機制</span><span class="vx-cardtitle">踢水四個功能——推進、升力、速度慣性維持、平衡穩定</span></summary>
+          <div class="vx-card-body">
+            <p>踢水不只是推進工具，同時提供升力維持下半身水平、透過持續節律最小化速度波動（牛頓第一定律）、以斜向踢水抵消手臂回臂時的側向分力。</p>
+            <span class="vx-label">機制 🔵</span><p>速度波動需要反覆加減速，加減速消耗能量；持續踢水維持勻速比間歇推進更節能。斜向踢水（oblique kick）抵消回臂產生的橫向力矩，防止蛇行。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">教學時不應把踢水簡化為「推進工具」；升力功能對下半身位置的影響在長距離尾段特別顯著，疲勞時踢水退化會連鎖引發頭部漂移。</p>
+            
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="rotation">
+          <summary><span class="vx-cardcat">身體旋轉</span><span class="vx-cardtitle">肩胛肌群啟動旋轉——菱形肌是旋轉的主動發動者，髖部被動跟隨</span></summary>
+          <div class="vx-card-body">
+            <p>推水末段菱形肌收縮向後縮肩胛骨，啟動對側身體滾轉；髖部被動跟隨，幅度小於肩膀。旋轉感知目標是肩胛骨動作，不是髖部。</p>
+            <span class="vx-label">機制 🟡</span><p>Pink et al.（1991）EMG 確認：推水末段肩胛肌群是旋轉的主動發動者。Hip-driven 髖旋轉幅度 45–60°；Shoulder-driven 約 20–30°；兩者同時旋轉和扭轉，不是剛性整體翻滾。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">在高划頻下刻意主動旋轉髖部會讓動作失調；短距離訓練應讓髖保持相對穩定，「把肩膀教好，髖部自然跟著動」。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟡 12 塊肌肉 EMG 分析確認推水末段肩胛肌群（含菱形肌）是旋轉的主動發動者。 <span class="src">— Pink, Perry et al. 1991</span></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="rotation">
+          <summary><span class="vx-cardcat">身體旋轉</span><span class="vx-cardtitle">Coupling 能量——旋轉峰值時機與推力峰值對齊才產生疊加效果</span></summary>
+          <div class="vx-card-body">
+            <p>身體旋轉本身不產生推進力；肩旋轉峰值在前象限（拉水前段），髖旋轉峰值在後象限（拉水末段），兩者分開強化了整個拉水週期的推力。</p>
+            <span class="vx-label">機制 🟠</span><p>旋轉速度峰值和划手推力峰值「耦合」時能量疊加放大推力；晚期回臂手臂加速入水的動能也作為 coupling 傳遞給對側划水手末段推力。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">旋轉感知目標不是「幅度多大」，而是「峰值時機是否與推力峰值對齊」；這也解釋了為何回臂入水前不能在入水前減速。</p>
+            
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="head">
+          <summary><span class="vx-cardcat">頭部與換氣</span><span class="vx-cardtitle">頭部基礎位置與弓形波換氣——利用弓形波凹陷換氣幾乎零阻力代價</span></summary>
+          <div class="vx-card-body">
+            <p>頭頂朝前頸部持平視線約 45° 向下；弓形波在頭部兩側形成凹陷，精英選手嘴巴轉進凹陷換氣而非抬頭創造空間，頭部本身不移動靠眼球達成視線調整。</p>
+            <span class="vx-label">機制 🔵</span><p>頭部是全身密度最高且位於槓桿臂最長位置的部位，任何抬起都被放大。Wave drag（波阻）約與速度三次方成正比，競速時佔總阻力約 25%。弓形波凹陷換氣接近零額外阻力代價，但需正確頭部位置和足夠游速才存在。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">頭部本體感知精確度遠低於手臂腿部，「感覺壓低了」不等於「實際是低的」；需用錄影或外部參照確認頭部位置；長距離視覺安全感靠眼球上轉而非頭部上抬。</p>
+            
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="head">
+          <summary><span class="vx-cardcat">頭部與換氣</span><span class="vx-cardtitle">頭部抬起的連鎖代價——隱性累積阻力影響在長距離尾段完整顯現</span></summary>
+          <div class="vx-card-body">
+            <p>頭部微抬→重心前移→下半身下沉→踢水必須對抗傾斜→踢水能量預算被部分佔用；代價隱性且累積，短距離難察覺，長距離尾段才完整顯現。</p>
+            <span class="vx-label">機制 🔵</span><p>頭部抬起改變全身重心分布，下半身因浮力中心與重心偏移而下沉；踢水需要部分能量用於對抗傾斜而非推進，形成「向踢水借能量」的隱性負擔。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">換氣時過度抬頭不只影響換氣本身，還會打斷旋轉連動鏈並造成同側手入水位置偏移；「只讓嘴角露出水面，蛙鏡另一側不完全離水」是實用基準。</p>
+            
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="tempo">
+          <summary><span class="vx-cardcat">划頻與划距</span><span class="vx-cardtitle">划頻是神經生理指標，划距是技術效率指標</span></summary>
+          <div class="vx-card-body">
+            <p>SR 反映神經快速徵召能力與能量容量；SL 反映捕水品質、阻力控制與旋轉連動的綜合效率——SL 是技術問題的直接反映，SR 上限由神經系統循環速率決定。</p>
+            <span class="vx-label">機制 🟢</span><p>Staunton et al.（2025）確認：SL 與推進力產生和有效施水能力相關；SR 與神經肌肉功率和能量容量相關。強迫提高划頻而不提升技術支撐反而讓每划推進力下降。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">診斷速度瓶頸時應先問「SL 下降是技術問題還是生理條件問題」，而非直接提高划頻。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟢 男子在 400m–1500m 之間從長 SL 低 SR 轉為高 SR 低 SL；女子轉換點更早（200m–400m），反映不同的生理策略。 <span class="src">— Staunton, Ruiz-Navarro &amp; Born 2025</span></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="errors">
+          <summary><span class="vx-cardcat">常見錯誤</span><span class="vx-cardtitle">手入水跨越中線——誘發蛇行偏移與肩胛失穩</span></summary>
+          <div class="vx-card-body">
+            <p>入水跨越身體中線是最常見的正面阻力錯誤之一；第一個後果是大幅外掃產生橫向分力，肩胛骨無法穩定。</p>
+            <span class="vx-label">機制 🟢</span><p>跨越中線入水讓手的第一個動作必然是向外側掃，產生橫向分力；同時肩胛骨無法保持穩定，高肘捕水結構在入水瞬間即崩潰。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">修正入水位置在肩膀正前方（11 點/1 點方向）；回臂肘部下沉與跨越中線高度相關，修正回臂起始姿勢可同步改善入水位置。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟡 91% 泳者有至少一項划手錯誤；跨越中線入水與 dropped elbow 高度相關，是最常見的兩類錯誤。 <span class="src">— Virag et al. 2014</span></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="errors">
+          <summary><span class="vx-cardcat">常見錯誤</span><span class="vx-cardtitle">肘部下沉（dropped elbow）——捕水推進力歸零的最常見錯誤</span></summary>
+          <div class="vx-card-body">
+            <p>肘部下沉讓上臂橫向伸出，製造最大正面阻力且捕水階段推進力幾乎歸零；是 Virag et al.（2014）確認最常見的正面阻力錯誤。</p>
+            <span class="vx-label">機制 🟢</span><p>上臂橫向伸出時，最大截面積直接面對游進方向；同時肩胛骨無法形成穩定基底，高肘結構在捕水階段立即崩潰，推進力從最大化降至接近零。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">修正感知口令：「保持肘尖朝向游進方向」；dropped elbow 往往引發跨越中線，修正根本錯誤可連帶改善多個表面錯誤。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟡 Dropped elbow 是最常見的正面阻力錯誤，與跨越中線入水高度相關；91% 泳者有至少一項划手錯誤。 <span class="src">— Virag et al. 2014</span></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="errors">
+          <summary><span class="vx-cardcat">常見錯誤</span><span class="vx-cardtitle">入水後主動向前推水——失去捕水位置的隱性錯誤</span></summary>
+          <div class="vx-card-body">
+            <p>入水後主動向前推手讓手臂緩慢下沉而非停在捕水位置；泳者感知「在延伸」，實際是失去捕水結構。</p>
+            <span class="vx-label">機制 🔵</span><p>入水後的延伸應靠旋轉將肩膀送出去，而非手臂主動向前推水；主動推水讓手在水中失速，無法建立有效的升力相捕水位置。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">口令：「讓慣性帶手向前滑幾寸，然後立刻轉入捕水——延伸靠旋轉把肩膀送出去，不是手臂主動推水。」</p>
+            
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="errors">
+          <summary><span class="vx-cardcat">常見錯誤</span><span class="vx-cardtitle">錯誤連動性——一個根本錯誤往往引發多個表面錯誤</span></summary>
+          <div class="vx-card-body">
+            <p>Virag et al.（2014）確認錯誤高度相關：dropped elbow→跨越中線→過度抬頭→下半身下沉，找到因果鏈起點比逐一修正表面錯誤更有效。</p>
+            <span class="vx-label">機制 🟡</span><p>划手錯誤在生物力學上是互相連動的：入水位置偏差→捕水角度改變→肩胛穩定性受損→換氣旋轉補償→頭部位置漂移→下半身下沉連鎖。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">診斷時應尋找因果鏈起點，不要同時修正所有表面錯誤；通常修正根本錯誤（如捕水位置或回臂姿勢）能連帶改善 2–3 個下游表面錯誤。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟡 31 名大學游泳選手中 91% 有至少一項划手錯誤；錯誤之間高度相關，一個錯誤往往引發另一個。 <span class="src">— Virag et al. 2014</span></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="fatigue">
+          <summary><span class="vx-cardcat">疲勞崩潰序列</span><span class="vx-cardtitle">疲勞崩潰序列——SL 是最早警報，SR 補償掩蓋問題</span></summary>
+          <div class="vx-card-body">
+            <p>自由式疲勞崩潰順序：①SL 下降→②旋轉幅度縮小→③前鋸肌失守/高肘崩潰→④頭部漂移→⑤踢水退化；泳者本能提高 SR 以維持速度感，反而加速技術惡化。</p>
+            <span class="vx-label">機制 🟢</span><p>SL 下降先於 SR 下降——技術品質比頻率更早受疲勞影響。每划推進力下降→需要更多划次→消耗更多能量→惡性循環加速。旋轉縮小→有效拉力臂縮短→同樣肌力下推進力矩減少（幾何必然）。前鋸肌失守→肩胛 winging→EVF 崩潰→直臂蠻力划水。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">訓練目標：在疲勞下主動監測 SL 而非被動依賴 SR 補償；SL 是最早的疲勞警報信號但泳者通常感知不到，需建立對 SL 的主動意識。</p>
+            <span class="vx-label">依據</span><span class="vx-cite">🟢 精英選手的疲勞優勢在「維持 SL 更久」而非 SR 更高。 <span class="src">— Staunton, Ruiz-Navarro &amp; Born 2025</span></span><span class="vx-cite">🟡 前鋸肌疲勞後菱形肌代償→肩胛骨去穩定→高肘動作無法維持。 <span class="src">— Pink, Perry et al. 1991</span></span>
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="watersense">
+          <summary><span class="vx-cardcat">水感與神經控制</span><span class="vx-cardtitle">水感的本質——加速 feedforward 神經固化的學習工具，非即時感知決策能力</span></summary>
+          <div class="vx-card-body">
+            <p>精英選手在比賽中的提前肌肉激活是大量訓練將正確時機固化成預測性神經指令的結果，不是比賽當下水感驅動的即時反應。水感加速這個固化學習過程，本身不是比賽中的反應能力。</p>
+            <span class="vx-label">機制 🟢</span><p>Feedback 階段（初學）感知到阻力才決定動作，此迴路太慢在比賽速度下造成時機延遲；feedforward 階段（熟練）神經系統學會在感知到阻力變化之前就預先送出指令。水感好讓正確感知更快出現，讓 feedforward 固化更快。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">水感是後天可發展的神經適應（感知施力如何轉換為推進速度的能力），可透過刻意練習發展；訓練設計應著重「讓泳者更快感知到正確施力時機」，而非「讓泳者比賽時靠感知決定動作」。</p>
+            
+          </div>
+        </details>
+        
+        <details class="vx-card vx-tech" data-cat="comparison">
+          <summary><span class="vx-cardcat">四式技術對照</span><span class="vx-cardtitle">四式技術對照——推進波動、主推進來源、旋轉軸向、技術多樣性</span></summary>
+          <div class="vx-card-body">
+            <p>自由式是四式中速度最快、速度波動最低（最接近勻速）、技術風格多樣性最高的泳式；手臂提供 85–90% 推進力；縱軸旋轉（Roll）；生理個體差異對技術選擇影響最直接。</p>
+            <span class="vx-label">機制 🔵</span><p>自由式手臂推進的連續性比蝶式和蛙式高，速度波動最小化符合能量最優原則；三種系統性風格（hip/shoulder/hybrid）由生理條件和距離共同決定，而非純粹風格偏好。</p>
+            <span class="vx-label">實務意涵</span><p class="vx-correct">理解四式技術差異有助於跨式訓練設計；自由式無「唯一正確技術」的特性使評估框架必須依個人生理條件調適，不能用統一標準強加於不同泳者。</p>
+            
+          </div>
+        </details>
+        
+      </section>
+      
+
+      
+      
+      <section class="vx-panel" id="levels">
+        <span class="vx-sec-no">自由式 · 水感進程</span>
+        <h2>水感進程 L0 → L6</h2>
+        <p class="vx-panel-lead">由淺入深的感知建立順序。公開層是「怎麼帶」；教練判讀訊號收在每層底下。</p>
+        <div class="vx-ladder">
+          
+          <details class="vx-level">
+            <summary><span class="lv">L0</span><span><span class="lvname">呼吸感知建立</span><span class="lvtag">感受器啟動，讓感知準備好發生</span></span></summary>
+            <div class="vx-level-body">
+              <p>安全感不是教出來的，是感知到可預期的規律之後自然產生的結果。當學生感覺到「吸氣身體浮起、吐氣身體沉下」這個規律，安全感就跟著出現了。安全感是 L0 的輸出，不是輸入。當學生感覺到呼吸和浮力的規律，安全感自然跟著出現。</p>
+              
+              <span class="vx-block-label">怎麼帶</span>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">陸上呼吸覺察（三層次）第一層　語言引導</div>
+                <div class="vx-method-detail">目的：啟動感受器，讓大腦開始習慣感覺身體內部的細微變化。三個層次依序進行，學生在能做到的層次停留就好。吸氣時感覺肚子往外推、肋骨往兩側擴開；吐氣時感覺它們慢慢回來</div>
+                <div class="vx-method-cue">「吸氣的時候，注意一下肚子和肋骨有沒有任何變化？」</div>
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">陸上呼吸覺察（三層次）第二層　手部輔助</div>
+                <div class="vx-method-detail">一手放腹部、一手放肋骨，感覺兩個部位在呼吸時的起伏</div>
+                <div class="vx-method-cue">「把手放上去，感覺一下手下面的身體在做什麼？」</div>
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">陸上呼吸覺察（三層次）第三層　物體輔助（躺下）</div>
+                <div class="vx-method-detail">肚子上放輕物（書或水瓶），感覺它隨呼吸起伏。重力輔助讓起伏更明顯，適合感知特別弱的學生</div>
+                <div class="vx-method-cue">「看看這個東西會不會動？它在告訴你什麼？」</div>
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">水中呼吸浮力連結　吸氣</div>
+                <div class="vx-method-detail">目的：讓學生感覺到呼吸和浮力之間的直接連結。不是教「應該感覺到什麼」，而是創造條件讓這個感知自己浮現。深吸一口氣，在水中靜止，讓身體自然漂浮</div>
+                <div class="vx-method-cue">「吸氣之後，站在水裡不動，感覺一下身體有沒有什麼感覺？」</div>
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">水中呼吸浮力連結　吐氣</div>
+                <div class="vx-method-detail">慢慢吐氣，感覺身體的變化和吸氣時是否不同</div>
+                <div class="vx-method-cue">「現在慢慢吐氣，感覺有什麼不一樣嗎？」</div>
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">水中呼吸浮力連結　反覆感覺</div>
+                <div class="vx-method-detail">重複幾次吸吐，讓學生自己感覺到這個規律</div>
+                <div class="vx-method-cue">「試幾次，看看有沒有發現什麼？」</div>
+              </div>
+              
+              
+              
+              <details class="vx-diag">
+                <summary>教練判讀訊號</summary>
+                <p class="vx-diag-note">以下是診斷用的觀察依據，給帶課的人判斷學生是否到位，不是規定學生「該有什麼感覺」。</p>
+                <div class="vx-ind"><span class="vx-ind-type">感受語</span>能說出吸吐氣時身體的任何變化——不規定說什麼，能說出任何觀察就是訊號</div><div class="vx-ind"><span class="vx-ind-type">里程碑</span>在水中能放鬆呼吸，不需要緊抓任何東西——這個狀態代表安全感已自然產生</div>
+              </details>
+              
+              <p class="vx-diag-note">量化基準：以行為觀察和感受語為主，無數字基準</p>
+            </div>
+          </details>
+          
+          <details class="vx-level">
+            <summary><span class="lv">L1</span><span><span class="lvname">漂浮與阻力感受</span><span class="lvtag">感知萌芽，開始感覺水的存在</span></span></summary>
+            <div class="vx-level-body">
+              <p>L1 的學生開始主動感覺水——不只是「待在水裡」，而是開始感覺水對身體做了什麼，以及自己對水做了什麼之後水有什麼反應。前庭感知說明：身體判斷自己在空間中位置和方向的能力。在水中，原本習慣陸地的方向感會暫時失準，需要重新校準。這不是問題，是正常的適應過程。</p>
+              
+              <span class="vx-block-label">怎麼帶</span>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">前漂</div>
+                <div class="vx-method-detail">目的：讓學生感覺到水的支撐力，建立「水會撐著我」的第一個直接感知。身體往前傾，臉入水，讓身體自然浮起。距離目標：3--5 公尺（依年齡體型調整）</div>
+                <div class="vx-method-cue">「試著讓身體浮起來，注意一下有沒有感覺到什麼？」</div>
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">漂後站立</div>
+                <div class="vx-method-detail">漂後站立同樣重要——學生知道「我可以隨時安全回來」，才敢放鬆去感覺浮力。漂浮後腳踩地站起來。讓學生知道「我隨時可以回到安全狀態」</div>
+                <div class="vx-method-cue">「什麼時候想站起來都可以，自己決定。」</div>
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">初步阻力感受　踢足球</div>
+                <div class="vx-method-detail">目的：讓學生感覺到「我對水施力，水有反應」。這是從被動感受浮力，轉向主動探索水的存在的關鍵步驟。教練確認：感受學生踢出的水壓——是否有一團有力道的水往前推出來</div>
+                <div class="vx-method-cue">「腳踢出去的時候，感覺一下有沒有碰到什麼？」</div>
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">初步阻力感受　三方向撥水</div>
+                <div class="vx-method-detail">①雙手張開往前抱 ②雙手胸前往前推 ③雙手往後撥水。教練確認：感受學生的水壓是否打到教練身上</div>
+                <div class="vx-method-cue">「手推出去的時候，感覺一下手上有什麼感覺？」</div>
+              </div>
+              
+              
+              
+              <details class="vx-diag">
+                <summary>教練判讀訊號</summary>
+                <p class="vx-diag-note">以下是診斷用的觀察依據，給帶課的人判斷學生是否到位，不是規定學生「該有什麼感覺」。</p>
+                <div class="vx-ind"><span class="vx-ind-type">外部觀察</span>腳開始嘗試離開水面（主動探索浮力）——這個自發行為代表學生開始信任水的支撐</div><div class="vx-ind"><span class="vx-ind-type">感受語</span>能說出水對身體的任何回饋描述——例如「感覺水在推我的手」。不規定說什麼，能說出任何互動感知就是訊號</div><div class="vx-ind"><span class="vx-ind-type">距離指標</span>前漂 3--5 公尺（依年齡和體型調整）</div>
+              </details>
+              
+              <p class="vx-diag-note">量化基準：以行為觀察和感受語為主，無數字基準。腳自發性地嘗試離開水面，是比任何語言描述更直接的感知萌芽訊號——學生的身體已經開始相信水會撐著它。距離指標為參考基準，個體差異大。感受語和外部行為的出現比距離更能反映真實的感知狀態。</p>
+            </div>
+          </details>
+          
+          <details class="vx-level">
+            <summary><span class="lv">L2</span><span><span class="lvname">推進感萌芽</span><span class="lvtag">開始感覺自己在移動，但水還沒有回應</span></span></summary>
+            <div class="vx-level-body">
+              <p>L2 的游泳者已經能移動，但大量力氣在製造波浪和掙扎，而不是前進。感覺快不等於真的快——這個階段的重點不是把動作做對，而是開始感覺自己在對水做什麼，以及水有沒有回應。核心原則：感覺先於效果。追求前進會讓學生用力，用力遮蔽感知。給探索時間——等待時間也是訓練，學生在無指令狀態下自己和水互動，感知有時在這個時候最自然發生。</p>
+              
+              <span class="vx-block-label">怎麼帶</span>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">浮板踢水前進</div>
+                <div class="vx-method-detail">教練外部確認：觀察學生能否穩定前進，確認推進力能傳導到身體水平方向。學生內部感知：感覺踢水的力道有沒有讓自己往前走，還是腳踢完但身體沒動</div>
+                
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">浮板踢水前進　踢不動的處理</div>
+                <div class="vx-method-detail">教練外部確認：退回原地，觀察學生是否能在放鬆狀態下踢水。學生內部感知：放輕動作，前進不重要，先找到放鬆踢的感覺</div>
+                
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">手部動作：外划＋內抱（連續動作）</div>
+                <div class="vx-method-detail">外划內抱是正式搖櫓 Sculling 的前身，讓學生感覺手掌角度改變時水壓方向跟著改變。感覺手掌轉向時水壓從一側換到另一側——方向不要求，感覺到換邊就夠了</div>
+                <div class="vx-method-cue">「外划的時候感覺水壓在哪裡？內抱的時候水壓換到哪裡去了？」</div>
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">手部動作：划手推進</div>
+                <div class="vx-method-detail">把外划內抱的感知帶進划手動作，感覺划手時有水在反應</div>
+                <div class="vx-method-cue">「划手的時候，手有沒有感覺到什麼？」</div>
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">換氣建立</div>
+                <div class="vx-method-detail">換氣是 L2 最容易打亂整體感知的環節。目標不是完美的換氣技術，而是換氣後動作不完全崩潰。</div>
+                
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">搖櫓 Sculling 路徑（L2 等級）</div>
+                <div class="vx-method-detail">外划內抱，感覺水壓換邊，方向不要求。動作形式：外划＋內抱（連續動作）；感知目標：感覺手掌轉向時水壓從一側換到另一側（方向不要求）</div>
+                <div class="vx-method-cue">「外划的時候感覺水壓在哪裡？內抱的時候水壓換到哪裡去了？」</div>
+              </div>
+              
+              
+              
+              <details class="vx-diag">
+                <summary>教練判讀訊號</summary>
+                <p class="vx-diag-note">以下是診斷用的觀察依據，給帶課的人判斷學生是否到位，不是規定學生「該有什麼感覺」。</p>
+                <div class="vx-ind"><span class="vx-ind-type">觀察指標</span>換氣後動作是否能恢復——換氣後能繼續游而不需要停下來，代表基本換氣節奏建立</div><div class="vx-ind"><span class="vx-ind-type">感受語</span>能說出換氣時身體有什麼感覺，例如「換氣的時候感覺身體歪了」</div>
+              </details>
+              
+              <p class="vx-diag-note">量化基準：60 以上；尚無 SPL 基準；感知萌芽優先於數字</p>
+            </div>
+          </details>
+          
+          <details class="vx-level">
+            <summary><span class="lv">L3</span><span><span class="lvname">水感出現但不穩定</span><span class="lvtag">抓到了，但下一趟又消失</span></span></summary>
+            <div class="vx-level-body">
+              <p>L3 是最讓人困惑的階段。游泳者偶爾能感覺到「啊，抓到了！」但下一趟又消失，不知道差別在哪裡。感知的不穩定性大多來自感知缺陷的方向不同——找到感知缺陷的主要方向，才能對應訓練。L3 有雙重身份：它是感知開始不穩定的階段，同時也是感知系統第一次精細到足以感知自己的硬體邊界。L0--L2 的感知還太粗糙，硬體邊界的影響被更大的感知缺陷掩蓋；到了 L3，感知稍微穩定後，學生才第一次能說出「我知道要怎麼做，但做不到」——這正是硬體邊界浮現的訊號，也是需要先釐清的分叉點。L3 正式引入搖櫓 Sculling：從外划內抱調整角度，讓兩側水壓都往後。動作可以大、可以慢，建立感知比效率重要。</p>
+              
+              <span class="vx-block-label">怎麼帶</span>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">L3 共同指標——抓水感知</div>
+                <div class="vx-method-detail">SWOLF（25m）目標 45--60　能否描述手「抓到」水的時間點　連續游數趟後抓水感是否消失。典型體驗：有時一趟游得很輕鬆，下一趟完全不對，不知道差在哪裡。對應訓練方向：外划內抱調整角度 → 正式搖櫓 Sculling：感受前臂角度改變時水壓跟著改變</div>
+                
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">L3 共同指標——划距感知（SPL）</div>
+                <div class="vx-method-detail">開始記錄 SPL（25m）　同距離不同趟 SPL 變異性　察覺「多划一下沒有換來更快」。典型體驗：划手數每趟不同，不知道這件事，或以為划越多越快。對應訓練方向：設定目標划數，在同一趟練習中維持固定 SPL</div>
+                
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">L3 共同指標——對稱感知</div>
+                <div class="vx-method-detail">慣用側 vs 非慣用側換氣的划數差異　錄影比對兩側划水弧度差異。典型體驗：強側手感覺有抓到，弱側手感覺划過去了，但不知道差這麼多。對應訓練方向：非慣用側呼吸：覺察動作不對稱帶來的感知差異</div>
+                
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">L3 共同指標——感知持久性</div>
+                <div class="vx-method-detail">游 200m 後 SWOLF（25m）飄移幅度（目標 ≤5 分）　疲勞時能否察覺技術開始崩潰。典型體驗：游前段感覺很好，後段完全不一樣但不知道為什麼。對應訓練方向：間歇訓練後刻意觀察感覺如何變化，建立疲勞覺察能力</div>
+                
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">搖櫓 Sculling 路徑（L3 等級）</div>
+                <div class="vx-method-detail">外划內抱調整角度 → 正式搖櫓 Sculling。感知目標：感覺兩個方向的水壓都往後推。動作可以大、可以慢</div>
+                <div class="vx-method-cue">「試著調整手掌角度，讓外划和內抱兩個方向的水壓都往你身後推。」</div>
+              </div>
+              
+              
+              
+              <details class="vx-diag">
+                <summary>教練判讀訊號</summary>
+                <p class="vx-diag-note">以下是診斷用的觀察依據，給帶課的人判斷學生是否到位，不是規定學生「該有什麼感覺」。</p>
+                <div class="vx-ind"><span class="vx-ind-type">感受語</span>能說出「今天水感消失了，是因為＿＿」</div>
+              </details>
+              
+              <p class="vx-diag-note">量化基準：SWOLF（25m）45--60；SPL（25m）差異 ≤ 2 划；SWOLF 穩定比數值更重要</p>
+            </div>
+          </details>
+          
+          <details class="vx-level">
+            <summary><span class="lv">L4</span><span><span class="lvname">壓力下維持不住</span><span class="lvtag">找到了，但留不住</span></span></summary>
+            <div class="vx-level-body">
+              <p>L4 和 L3 最大的差別：L3 的問題是「找不到水感」，L4 的問題是「找到了但留不住」。放鬆狀態下幾乎都能感覺到水；但速度加快、疲勞累積、或心理壓力上升時，水感就消失了。搖櫓 Sculling 在 L4 的角色：水感消失後的重置工具，於組間休息或獨立訓練組使用。能用就好，不要求效率，效率的精細化留到 L5。L4→L5 的過渡不只是數字達到，更重要的是游泳者能「在游泳中進行內部對話」——知道自己現在在哪個狀態、出了什麼問題、怎麼調整。</p>
+              
+              <span class="vx-block-label">怎麼帶</span>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">L4 共同指標——手部抓水感知</div>
+                <div class="vx-method-detail">能感覺到手掌和前臂的水壓差異——不只是手在動，而是感覺到水在反推　划手加速感：入水後手速是否逐漸加快　拳頭游 vs 張開手速度差縮小至 5 秒以內（25m）。典型體驗：有時能感覺到手「抓到水」，但不穩定，速度快時消失。對應訓練方向：Tornado Drill：感受手掌方向改變帶來的推進力差異</div>
+                
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">L4 共同指標——疲勞下的水感維持</div>
+                <div class="vx-method-detail">游 200--400m 後 SWOLF（25m）飄移幅度（目標 ≤5 分）　疲勞時能否主動察覺「手開始滑水」並調整。典型體驗：游到後半段完全沒有水感，知道有問題但不知道怎麼找回來。對應訓練方向：「新感知→舊感知→新感知」交替訓練：強化感知切換能力</div>
+                
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">L4 共同指標——搖櫓 Sculling 作為重置工具</div>
+                <div class="vx-method-detail">水感消失時能否用搖櫓 Sculling 找回手感　能用就好，不要求動作大小或速度。典型體驗：游到一半水感消失，不知道怎麼在游泳中途把它找回來。對應訓練方向：水感消失後，可於組間休息時做搖櫓重置，或在訓練組合中設置獨立搖櫓組接游泳趟，兩者均可，教練依學生狀況選擇</div>
+                
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">L4 共同指標——感知描述能力</div>
+                <div class="vx-method-detail">能否在游完後指出「哪個環節水感消失了」　能否在游泳中進行「內部對話」：調整細節，觀察感覺。典型體驗：知道有問題，但只能說「感覺不對」，無法指出具體哪裡。對應訓練方向：焦點游泳（Focal Point Swimming）：每趟只注意一個感知點</div>
+                
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">搖櫓 Sculling 路徑（L4 等級）</div>
+                <div class="vx-method-detail">搖櫓 Sculling 作為重置工具。感知目標：水感消失後，於組間休息或獨立搖櫓組重置手感。能用就好，不要求效率</div>
+                <div class="vx-method-cue">「水感消失了，停下來做幾下搖櫓 Sculling，感覺回來了再繼續游。」</div>
+              </div>
+              
+              
+              
+              <details class="vx-diag">
+                <summary>教練判讀訊號</summary>
+                <p class="vx-diag-note">以下是診斷用的觀察依據，給帶課的人判斷學生是否到位，不是規定學生「該有什麼感覺」。</p>
+                <div class="vx-ind"><span class="vx-ind-type">感受語</span>能描述「今天水感在第幾趟第幾划消失，原因是＿＿」</div>
+              </details>
+              
+              <p class="vx-diag-note">量化基準：SWOLF（25m）40--50；疲勞後飄移 ≤5；Stroke Index ≥ 2.2；依學生能力觀察 200--400m</p>
+            </div>
+          </details>
+          
+          <details class="vx-level">
+            <summary><span class="lv">L5</span><span><span class="lvname">感知自動化過渡期</span><span class="lvtag">讓感知在自動化的過程中不要失真</span></span></summary>
+            <div class="vx-level-body">
+              <p>L5 的核心問題和 L2--L4 本質上不同。L2--L4 都在「建立感知」，L5 開始是「讓感知在自動化的過程中不要失真」。動作監控正在從刻意注意移到背景運作，感知因此浮出前景——但這個轉換在壓力下尚未穩固。搖櫓 Sculling 在 L5 進入精細化階段：動作變小、反應變快、在競技壓力下仍然有效。這是 L4「能用就好」的進階版。L5→L6 的過渡不只是數字達到，更重要的是感知能在全速和壓力情境下仍然穩定運作——不需要刻意注意，水感自動在背景維持。</p>
+              
+              <span class="vx-block-label">怎麼帶</span>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">L5 共同指標——Drill 遷移感知</div>
+                <div class="vx-method-detail">Drill 游完立刻接全速 25m，觀察水感是否維持　SWOLF 差距：Drill 趟 vs 全速趟，目標差距 ≤5。典型體驗：全速游時水感消失，但 Drill 時都有——兩個狀態無法連結。對應訓練方向：遷移訓練：Drill 結束不停頓，直接接全速趟，讓感知慣性延續</div>
+                
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">L5 共同指標——全速下水感維持</div>
+                <div class="vx-method-detail">85% 強度 50m 全程 SWOLF 飄移 ≤3　能在衝刺中途感覺到「手感開始滑」並自我調整。典型體驗：一全力游就什麼都感覺不到，游完才發現動作跑掉了。對應訓練方向：監控游：每趟結束後自問「手感維持到第幾划？踢腿有跟上嗎？」</div>
+                
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">L5 共同指標——節奏感自主性</div>
+                <div class="vx-method-detail">不看錶估配速誤差 ≤5 秒（100m）　有其他人在旁邊游時，能維持自己的節奏不被帶走。典型體驗：被帶快時繼無力；被帶慢時發揮不出來——節奏完全依賴外部。對應訓練方向：體感驗證：游完估配速，再核對實際數字，縮小落差</div>
+                
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">L5 共同指標——早期崩潰覺察</div>
+                <div class="vx-method-detail">能在游泳中途感覺到動作開始變形（不等到游完才察覺）　覺察後能主動調整，不只是繼續撐。典型體驗：偶爾能在動作開始變形時察覺，但不穩定——壓力一上來就退回「游完才發現」的狀態。對應訓練方向：單一感知點游：每趟只盯一個指標（踢腿節奏 or 入水角度），感覺它什麼時候開始偏</div>
+                
+              </div>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">搖櫓 Sculling 路徑（L5 等級）</div>
+                <div class="vx-method-detail">搖櫓 Sculling 精細化。感知目標：動作小、反應快、在競技壓力下仍有效</div>
+                <div class="vx-method-cue">「同樣的重置，試著用更小的動作達到同樣的效果。」</div>
+              </div>
+              
+              
+              
+              <details class="vx-diag">
+                <summary>教練判讀訊號</summary>
+                <p class="vx-diag-note">以下是診斷用的觀察依據，給帶課的人判斷學生是否到位，不是規定學生「該有什麼感覺」。</p>
+                <div class="vx-ind"><span class="vx-ind-type">里程碑</span>能在游泳中途察覺動作開始變形並主動調整</div>
+              </details>
+              
+              <p class="vx-diag-note">量化基準：SWOLF（25m）35--45；各配速差異 ≤3；節奏感建立為重點</p>
+            </div>
+          </details>
+          
+          <details class="vx-level">
+            <summary><span class="lv">L6</span><span><span class="lvname">感知自動化完成</span><span class="lvtag">注意力可以完全放在配速和策略</span></span></summary>
+            <div class="vx-level-body">
+              <p>L6 的感知已完全移到背景運作，不需要刻意注意水感。L6 和 L5 最本質的差異，不在於「正常狀態有多好」，而在於「出問題時的反應層次不同」。L5 出問題：能感覺到動作開始變形（踢水變慢、入水角度偏）。L6 出問題：能感覺到划距剛開始縮短的瞬間——這是最早、最隱性的疲勞訊號。超出體能極限（機械失效）的崩潰不是水感問題，任何人的感知在這個時候都會失效。L6 的水感描述只適用於機械失效之前的範圍。</p>
+              
+              <span class="vx-block-label">怎麼帶</span>
+              
+              <div class="vx-method">
+                <div class="vx-method-name">搖櫓 Sculling 路徑（L6 等級）</div>
+                <div class="vx-method-detail">搖櫓 Sculling 作為感知精細度的自我檢核。感知目標：動作越來越小但仍然有效，反映感知精細程度的持續提升</div>
+                <div class="vx-method-cue">「你現在做搖櫓 Sculling 需要多大的動作才能感覺到水壓？」</div>
+              </div>
+              
+              
+              
+              <p class="vx-diag-note">量化基準：SWOLF（25m）30--38；比賽 vs 訓練差值趨近零；感知為主，數字為持續精進參考</p>
+            </div>
+          </details>
+          
+        </div>
+      </section>
+      
+
+    </main>
+  </div>
+</div>
+
+<script src="https://hangsau.github.io/cortex/js/vortex.js" defer></script>
+
+  </main>
+  <footer class="site-footer">
+  <p>Cortex</p>
+</footer>
+
+  
+</body>
+</html>

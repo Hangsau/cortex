@@ -1,22 +1,1018 @@
-<!doctype html><html lang=zh-tw><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>出發與轉身技術分析 — Cortex</title><meta name=description content="Starts, Turns & Underwater Dolphin Kick — Technical Framework"><link rel=stylesheet href=https://hangsau.github.io/cortex/css/variables.css><link rel=stylesheet href=https://hangsau.github.io/cortex/css/base.css><link rel=stylesheet href=https://hangsau.github.io/cortex/css/layout.css><link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel=stylesheet><link rel=stylesheet href=https://hangsau.github.io/cortex/css/vortex.css></head><body><nav class=site-nav><a href=https://hangsau.github.io/cortex/ class=site-nav-logo>Cortex</a><ul class=site-nav-links><li><a href=https://hangsau.github.io/cortex/library/>書庫</a></li><li><a href=https://hangsau.github.io/cortex/notebook/>筆記</a></li><li><a href=https://hangsau.github.io/cortex/vortex/>Vortex</a></li></ul></nav><main class=main-content><div class=vx-page><div class=vx-article-header><a href=https://hangsau.github.io/cortex/vortex/instructional/ class=vx-back-link>← 技術深探</a><div class=vx-article-strokes><span class=vx-stroke-tag>出發與轉身</span></div><h1 class=vx-article-title>出發與轉身技術分析</h1></div><div class=vx-article-body><p><em>Starts, Turns & Underwater Dolphin Kick — Technical Framework</em></p><blockquote><p>出發技術 × 轉身技術 × 水下蝶腳（UDK）
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>出發與轉身技術分析 — Cortex</title>
+  <meta name="description" content="Starts, Turns &amp; Underwater Dolphin Kick — Technical Framework">
+  <link rel="stylesheet" href="https://hangsau.github.io/cortex/css/variables.css">
+  <link rel="stylesheet" href="https://hangsau.github.io/cortex/css/base.css">
+  <link rel="stylesheet" href="https://hangsau.github.io/cortex/css/layout.css">
+  
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://hangsau.github.io/cortex/css/vortex.css">
+
+</head>
+<body>
+  <nav class="site-nav">
+  <a href="https://hangsau.github.io/cortex/" class="site-nav-logo">Cortex</a>
+  <ul class="site-nav-links">
+    
+    <li>
+      <a href="https://hangsau.github.io/cortex/library/" class="">書庫</a>
+    </li>
+    
+    <li>
+      <a href="https://hangsau.github.io/cortex/notebook/" class="">筆記</a>
+    </li>
+    
+    <li>
+      <a href="https://hangsau.github.io/cortex/vortex/" class="">Vortex</a>
+    </li>
+    
+    <li>
+      <a href="https://hangsau.github.io/cortex/temperament/" class="">氣質</a>
+    </li>
+    
+  </ul>
+</nav>
+
+  <main class="main-content">
+    
+<div class="vx-page">
+
+  <div class="vx-article-header">
+    <a href="https://hangsau.github.io/cortex/vortex/instructional/" class="vx-back-link">← 技術深探</a>
+    
+    <div class="vx-article-strokes">
+      <span class="vx-stroke-tag">出發與轉身</span>
+    </div>
+    
+    <h1 class="vx-article-title">出發與轉身技術分析</h1>
+  </div>
+
+  <div class="vx-article-body">
+    <p><em>Starts, Turns &amp; Underwater Dolphin Kick — Technical Framework</em></p>
+<blockquote>
+<p>出發技術 × 轉身技術 × 水下蝶腳（UDK）
 四式共用原則 × 各式差異 × 常見誤區 × 感知意涵
 骨架版（2026-04-14）：🟠 來自 Swimming Canada ADM
 更新版（2026-04-14）：第 1.1、1.2、3.1–3.3 節已補入實證文獻，部分 🔴 升格
-更新版（2026-04-16）：補入具名來源；GRF 🔴 填入；仰式計步 🔴 填入；蛙式觸牆深度 🔴 填入；新增轉身共用力學節；蝶→背效率損失 🔴 填入；背→蛙規則精確解讀 🔴 填入；🔴 由 8 降至 6</p></blockquote><p>Hangsau · 2026</p><hr><h2 id=閱讀說明知識來源標注系統>閱讀說明：知識來源標注系統</h2><blockquote><p>【🔵 邏輯推導】= 物理或生物力學演繹；【🟢 近期文獻（2009–2025）】= 近十五年實證研究；【🟡 有效舊文獻】= 舊研究但物理原理仍被引用；【🟠 教練觀測】= Swimming Canada ADM / The Race Club 等教練系統觀測，有實務數據支撐但非學術控制組；【🔴 待查】= 有爭議或缺乏共識，需文獻補充。</p></blockquote><hr><h2 id=術語定義>術語定義</h2><p>本文統一使用以下術語，括號內為英文錨定：</p><table><thead><tr><th>中文術語</th><th>英文</th><th>定義</th></tr></thead><tbody><tr><td>前衝式起跳</td><td>Grab start</td><td>雙腳並排站在台前緣，雙手抓住台前緣，重心偏前</td></tr><tr><td>起跑式起跳</td><td>Track start</td><td>一腳在前、一腳在後（類似田徑起跑），後腳踩楔形輔具（wedge）</td></tr><tr><td>仰式起跳</td><td>Backstroke start</td><td>背對水面，雙手抓台、腳踩牆，向後推出</td></tr><tr><td>水下蝶腳</td><td>Underwater dolphin kick（UDK）</td><td>入水後的水下蝶式踢腿，用於出發與轉身後加速</td></tr><tr><td>流線型姿勢</td><td>Streamline position</td><td>雙臂夾耳向前伸展、全身收緊呈最小截面積的姿勢</td></tr><tr><td>出水</td><td>Breakout</td><td>水下踢腿結束、浮出水面恢復划手的過渡階段</td></tr><tr><td>推蹬</td><td>Push-off</td><td>腳接觸牆面後向後蹬出的動作（轉身）或向前蹬離台（出發）</td></tr></tbody></table><hr><h2 id=壹出發技術starts>壹、出發技術（Starts）</h2><h3 id=11-兩種起跳方式的基本差異>1.1 兩種起跳方式的基本差異</h3><table><thead><tr><th></th><th>前衝式起跳（Grab start）</th><th>起跑式起跳（Track start）</th></tr></thead><tbody><tr><td>腳的站法</td><td>雙腳並排，靠近台前緣</td><td>一前一後，後腳踩楔形輔具</td></tr><tr><td>重心位置</td><td>明顯前傾</td><td>介於前後腳之間，可調整</td></tr><tr><td>啟動方式</td><td>靠向後拉再向前彈出</td><td>後腳蹬推，前腳穩定</td></tr><tr><td>現代競技主流</td><td>少數選手仍使用</td><td><strong>主流</strong>（楔形輔具普及後）</td></tr></tbody></table><p><strong>Grab start vs Track start 數據</strong> 🟢：</p><p>Welcher, Hinrichs & George（2008）以 20 名大學女子選手比較三種起跳方式：</p><table><thead><tr><th></th><th>前衝式（Grab）</th><th>起跑式前重心</th><th>起跑式後重心</th></tr></thead><tbody><tr><td>離台時間</td><td>0.87 s</td><td><strong>0.80 s</strong>（最快）</td><td>0.87 s</td></tr><tr><td>離台水平速度</td><td>3.87 m/s</td><td>3.90 m/s</td><td><strong>3.99 m/s</strong>（最高）</td></tr><tr><td>5m 水平速度</td><td>—</td><td>2.18 m/s</td><td><strong>2.25 m/s</strong>（最高）</td></tr></tbody></table><p><strong>結論</strong>：前重心起跑式反應最快，但後重心起跑式在水平速度上勝出，5m 成績最佳。研究建議女子選手採後重心起跑式。</p><blockquote><p>⚠️ 樣本為女子非精英大學生，結果不可直接外推至男子或精英選手。</p></blockquote><p><strong>Cossor & Mason（2001）雪梨奧運數據</strong> 🟠：
-分析雪梨奧運頂尖選手的起跑數據。結論是出發的水下階段佔整體起跑時間約 <strong>84%</strong>，水下表現才是起跑效率的決定因素，不同起跳方式的差異在精英層級結果不顯著。</p><p><strong>整體研究現狀</strong>：Grab start vs Track start 在精英層級無統計顯著差異——「大家都用 track start」主要是因為 Kick Start 變體（見 1.3 節）和楔形輔具的結構優勢，非純 track start 的勝出。</p><hr><h3 id=grab-start-的核心爭議>Grab Start 的核心爭議</h3><h4 id=1-抓台拉力的機制>1. 抓台拉力的機制</h4><p><strong>支持</strong> 🟡（Welcher et al. 1979）：手部拉力能增大前傾角、預先拉伸下肢伸肌群（SSC 牽張–縮短循環），產生可量化的向後拉力。</p><p><strong>質疑</strong> 🔵：手部拉力相對腿部推力很小；若姿勢不佳反而限制髖部伸展；釋放時機稍晚會拖慢起跳。</p><p><strong>結論</strong>：效益高度依賴個人技術執行。</p><h4 id=2-set-position-的膝蓋角度>2. Set Position 的膝蓋角度</h4><p>早期建議 90–120°；後續研究（Blanksby et al. 2002）指出過深超出股四頭肌最佳力–長度關係，太淺則無法充分利用 SSC。<strong>無跨選手通用數字</strong>，與個人肌肉特性高度相關。</p><h4 id=3-頭部位置>3. 頭部位置</h4><p><strong>現有共識</strong> 🟠：頸部中立（neutral neck）。抬頭看水面理論上有視覺導引優勢，但頸部伸展可能破壞身體對齊；看台面維持流線型，精英選手個體差異仍大。</p><h4 id=4-爭議共同根源>4. 爭議共同根源</h4><p>精英 vs 非精英樣本差異、測量指標不統一（反應時間 / 入水速度 / 15m 總時間三者結論可以相反）、個體生物力學差異被忽略。</p><hr><h3 id=12-起跑式起跳track-start各階段分析>1.2 起跑式起跳（Track Start）各階段分析</h3><h4 id=零位姿勢zero-position>零位姿勢（Zero Position）</h4><p><strong>動作描述</strong> 🟠：</p><ul><li>雙腳一前一後，腳尖朝前</li><li>後腳穩固踩在楔形輔具上</li><li>雙臂向下伸直，抓住台前緣</li><li>肩部在雙手正上方或略前</li><li>頭部中立，不抬頭、不低頭</li><li>臀部抬高，高於肩部</li></ul><p><strong>物理邏輯</strong> 🔵：
-臀部高於肩部讓重心集中在前足上方，縮短啟動力矩。肩部前移讓身體在出發瞬間已具備向前傾的動能，而非從直立姿勢重新加速。</p><blockquote><p>🔴 <strong>待查</strong>：臀部高度的最優解——目前研究集中在膝蓋角度（見下），臀部絕對高度尚無直接研究。</p></blockquote><p><strong>膝蓋角度數據</strong> 🟢（OSB12 台，Yeadon et al. / MDPI 2024）：</p><ul><li>前腳膝蓋角度：<strong>130–133°</strong></li><li>後腳膝蓋角度：<strong>76–82°</strong></li><li>推薦後腳踏板位置：3–4 號位置（各廠商台編號）</li></ul><p>這兩個角度是目前有數據支撐的起始姿勢量化參數。</p><hr><h4 id=推蹬階段push-off-phase>推蹬階段（Push-off Phase）</h4><p><strong>動作描述</strong> 🟠：</p><ul><li>臀部立即向前移動（不是向上跳）</li><li>後腿完全蹬直，產生主要推力</li><li>頭部保持中立</li><li>手臂彎曲離台，隨即向前伸展</li><li>前臂與前腿同步伸展</li></ul><p><strong>物理邏輯</strong> 🔵：
-後腿的蹬伸角度決定起跳方向。蹬伸方向過垂直（太向上）→ 飛行弧線過高，水平速度損失；蹬伸方向過水平 → 入水點太近，無法充分利用飛行距離。</p><p><strong>起跳角度數據</strong> 🟢：</p><table><thead><tr><th>群體</th><th>起跳角度</th><th>來源</th></tr></thead><tbody><tr><td>精英選手</td><td><strong>27.45 ± 5.99°</strong></td><td>Benjanuvatra et al. 2007 🟢</td></tr><tr><td>精英選手</td><td><strong>21.25 ± 5.59°</strong></td><td>Wilson & Marino 1983 🟡</td></tr><tr><td>非精英選手</td><td><strong>39.62 ± 13.19°</strong></td><td>Benjanuvatra et al. 2007 🟢</td></tr></tbody></table><p>以上數據收錄於系統性綜述：Biomechanical Analysis of the Swim-Start: A Review（PMC3990873）🟢。</p><p>精英選手的起跳角度<strong>遠低於</strong>傳統建議的 30–40°。重點不是角度本身，而是<strong>水平速度最大化</strong>——降低起跳角度增加水平速度，代價是飛行距離縮短，但入水後速度保留更好。</p><blockquote><p>⚠️ 舊文獻（Guimarães & Hay 1985）提出精英選手的實際角度觀察，但後來更精確的測量確認現代精英角度比非精英<strong>低</strong>，而非高。</p></blockquote><p><strong>前腳 vs 後腳地面反作用力（GRF）貢獻</strong> 🟢（Takai et al. 2016，PubMed 27149652）：</p><table><thead><tr><th>腳</th><th>GRF 主導方向</th></tr></thead><tbody><tr><td><strong>後腳</strong>（楔形台）</td><td><strong>水平衝量</strong>顯著高於前腳</td></tr><tr><td><strong>前腳</strong>（台前緣）</td><td><strong>垂直衝量</strong>顯著高於後腳</td></tr></tbody></table><p>此為直接力板量測結果，確認 Kick Start 中前後腳的功能分工（見 1.3 節）。</p><hr><h4 id=飛行階段flight-phase>飛行階段（Flight Phase）</h4><p><strong>動作描述</strong> 🟠：</p><ul><li>後腿上提至前腿位置，雙腿合攏</li><li>雙臂向前延伸，在臉部前方準備入水</li><li>頭部在雙臂之間對齊，不抬頭</li><li>雙手在接觸水面前合攏</li></ul><p><strong>物理邏輯</strong> 🔵：
-飛行階段重心的拋物線路徑在起跳瞬間即決定，無法在空中修正。這個階段的主要任務是<strong>整理姿勢</strong>：雙腿合攏、手臂合攏，讓身體在入水前成為最小截面積的形狀。</p><hr><h4 id=入水點entry-point>入水點（Entry Point）</h4><p><strong>動作描述</strong> 🟠：</p><ul><li>維持流線型姿勢入水</li><li>雙腿沿與身體相同路徑進入水面（全身穿過同一個「洞」）</li><li>腳踝與腳背完全伸展（pointed toes）</li><li>入水角度：身體略低於水平，不是垂直插入</li></ul><p><strong>物理邏輯</strong> 🔵：
-「全身穿過同一個洞」是減少入水阻力的核心原則。腿部打開或腳踝未伸展，會讓身體在入水瞬間產生額外阻力，打破已建立的水下滑行動能。</p><p><strong>入水角度與入水點</strong> 🟢：</p><p>入水角度本身不是最強的成績預測因子。PLOS ONE 2020（DOI: 10.1371/journal.pone.0241345，PMC7598512）研究以 15 名次精英選手量化：</p><ul><li>入水距離每增加 1m → 成績快 0.6 s</li><li>重心水平速度每增加 1 m/s → 成績快 0.3 s</li><li>入水角度每平 1 弧度 → 成績快 0.5 s（影響次於前兩者）</li><li>三變數合計解釋成績變異的 <strong>86.1%</strong> 🟢</li></ul><p>因此，追求正確入水角度是手段，不是目的——入水後速度保留才是核心指標。</p><p><strong>過淺入水的代價</strong> 🟢（PubMed 25455956，Comparing Three Underwater Trajectories，2014）：
-三種水下軌跡比較研究顯示，淺軌跡（Dive 1）的 15m 成績顯著慢於中等深度軌跡（Dive 2）——推薦最大深度約 <strong>−0.92 ± 0.16 m</strong>。</p><p>過淺入水的機制 🔵：</p><ul><li>身體近水平入水 → 接觸水面積大 → 入水瞬間波浪阻力（wave drag）峰值高</li><li>水下軌跡偏淺 → 難以充分利用重力加速後的速度</li><li>水下轉水平的距離更長 → 速度耗散更多</li></ul><blockquote><p>🔴 <strong>仍待查</strong>：過淺入水的<strong>阻力直接量化</strong>（拖力係數 CD 或具體阻力增量百分比）——目前文獻提供的是成績時間比較，非阻力的直接測量。</p></blockquote><hr><h4 id=水下滑行與-udkunderwater-phase>水下滑行與 UDK（Underwater Phase）</h4><p>→ 詳見第參章「水下蝶腳（UDK）」</p><hr><h3 id=13-kick-start-變體osb11osb12-楔形台的現代演化>1.3 Kick Start 變體（OSB11/OSB12 楔形台的現代演化）</h3><p>Kick Start 不是獨立的起跳分類，而是 Track Start 在 2009 年 Omega OSB11 楔形台普及後演化出的主流操作方式。楔形後踏板讓後腳有明確的推蹬支撐面，後腳從輔助腳變成<strong>主要水平推力來源</strong>。</p><p><strong>前腳 vs 後腳角色重新分配</strong> 🟢（Takai et al. 2016，PubMed 27149652；MDPI 2024；PMC8700779）：</p><ul><li><strong>後腳</strong>：主要產生水平速度（horizontal velocity）——水平衝量顯著高於前腳</li><li><strong>前腳</strong>：主要產生垂直速度（vertical velocity），負責飛行高度與身體對齊</li><li>這與傳統 Track Start「前腳主導」的教學描述相反</li></ul><p><strong>慣用腳放哪裡</strong> 🟢（Leg Dominance 研究，PMC8700779，2021）：</p><ul><li>慣用腳放<strong>台前緣</strong>：block 時間更短、2m 和 5m 成績更好、飛行距離更長</li><li>解釋：慣用腳負責起跳角度精準控制（垂直分量），間接提升整體成績</li><li>⚠️ 注意：部分研究基於水平推力邏輯建議「強腳放後」，但表現數據支持「慣用腳放前」——兩者不矛盾，前腳的角度控制貢獻可能超過後腳水平力量的增益 🔵</li></ul><p><strong>重心策略</strong> 🟢（MDPI 2024）：</p><ul><li>中立重心（neutral）與後重心（rear-weighted）的 15m 時間<strong>優於</strong>前重心</li><li>與 Welcher 等（2008）在傳統 Track Start 的結論一致：後重心在水平速度上有優勢</li></ul><p><strong>尚未正式命名</strong>：Kick Start 目前仍屬教練口耳相傳的操作調整，學術文獻多以「OSB11/OSB12 start」描述，無統一術語。</p><hr><h3 id=14-仰式起跳backstroke-start各階段分析>1.4 仰式起跳（Backstroke Start）各階段分析</h3><h4 id=零位姿勢zero-position-1>零位姿勢（Zero Position）</h4><p><strong>動作描述</strong> 🟠：</p><ul><li>面對牆，臀部靠近牆壁</li><li>雙手抓住出發台把手</li><li>腳趾至少與水面同高（或略高於水面）</li><li>背部直立，頭部中立</li></ul><p><strong>髖部高度是關鍵變數</strong> 🟢（The Backstroke Swimming Start: State of the Art，PMC4234766）：</p><ul><li>髖部高度提升 → 起跳後水平速度更大</li><li>起跳角度越大（弧線越高）→ 成績越差（與俯式起跳邏輯一致）</li><li>「背部有沒有出水」是外觀指標，不是表現指標；髖高才是正確評判維度</li></ul><p><strong>仰式出發台（Backstroke Ledge）的效益</strong> 🟢（PubMed 28975846，OBL2 研究）：</p><ul><li>使用 OBL2 → 10m 時間快 <strong>0.13 s</strong>，入水距離多 <strong>0.14 m</strong></li><li>機制：OBL2 讓頭部入水距離更遠，<strong>不是</strong>靠更大的水平推力</li><li>此發現說明：起跳角度（飛行弧線的水平延伸）比推力大小更重要</li></ul><blockquote><p>🔴 <strong>仍待查</strong>：</p><ol><li>腳的高度上限——腳越高是否一定越好？目前研究聚焦在髖高，腳高的最優值缺乏直接量化。</li><li>仰式最優起跳角度具體數值（類似俯式 21–27°）——PMC4234766 確認「較小角度 = 較好成績」，但未量化最優範圍。文獻摘要提示精英選手約 20° 左右，但無系統性研究確認。</li></ol></blockquote><hr><h4 id=推蹬階段push-off-phase-1>推蹬階段（Push-off Phase）</h4><p><strong>動作描述</strong> 🟠：</p><ul><li>頭部與背部立即向後移動</li><li>臀部快速推出使臀部完全出水</li><li>臀部出水後腿部才蹬直</li><li>腿部完全蹬出時，身體與水面平行</li><li>手臂與推蹬動作同步向後伸展</li></ul><p><strong>物理邏輯</strong> 🔵：
-仰式起跳的核心在於先讓臀部出水，再蹬腿。如果腿蹬得太早（臀部還在水中），水的阻力會直接對抗蹬腿力量；臀部先出水後，蹬腿的力量才能完整轉換為水平速度。</p><hr><h4 id=飛行與入水flight-phase--entry-point>飛行與入水（Flight Phase & Entry Point）</h4><p><strong>動作描述</strong> 🟠：</p><ul><li>背部向後拱起越過水面</li><li>雙手在接觸水面前合攏</li><li>頭部在雙臂之間對齊</li><li>雙腿與腳完全出水（不要讓腳提早入水）</li><li>全身維持流線型，透過同一個洞入水</li><li>腳踝與腳背完全伸展</li></ul><hr><h4 id=水下階段underwater-phase>水下階段（Underwater Phase）</h4><p>→ 詳見第參章「水下蝶腳（UDK）」，仰式水下採仰姿 UDK</p><hr><h2 id=貳轉身技術turns>貳、轉身技術（Turns）</h2><blockquote><p>轉身的核心物理邏輯：<strong>速度損失最小化</strong>。轉身的每個決策——何時開始翻滾、觸牆角度、推蹬力道、水下距離——都圍繞一個目標：讓泳者盡可能快速重新達到接近游泳速度的水平速度。</p></blockquote><hr><h3 id=20-轉身共用力學all-turns>2.0 轉身共用力學（All Turns）</h3><h4 id=推蹬速度的決定因素>推蹬速度的決定因素</h4><p>進牆速度是轉身成績的首要預測變數——帶入牆的速度越高，推出速度越高 🟢（Journal of Applied Biomechanics 1998；PMC8960438）。</p><p>推蹬出水速度由三個因素共同決定 🟢：</p><table><thead><tr><th>因素</th><th>研究量化</th><th>來源</th></tr></thead><tbody><tr><td>推蹬力道</td><td>解釋轉身成績約 <strong>42%</strong> 的變異</td><td>PMC6409673 🟢</td></tr><tr><td>推蹬方向（力向量對齊重心）</td><td>與出水速度相關 <strong>r = 0.76</strong>（p &lt; 0.001）</td><td>PubMed 40252339 🟢</td></tr><tr><td>流線型品質</td><td>前提條件——無流線型則推力被阻力抵消</td><td>Tritonwear / SwimSwam 🟠</td></tr></tbody></table><p><strong>推論</strong> 🔵：推蹬力道只解釋 42% 的變異，另外 58% 主要來自方向與流線型。訓練優先順序應是：流線型時機 → 推蹬方向 → 推蹬力道。</p><h4 id=流線型時機>流線型時機</h4><p>流線型應在<strong>腳觸牆之前</strong>完成（觸牆時雙臂已就位），而非推出後再整理 🔵：</p><ul><li>腳觸牆時流線型已就位 → 推蹬力直接轉換為水平速度</li><li>推出後才整理流線型 → 部分力量轉為旋轉動量，效率損耗</li></ul><h4 id=進牆速度保護>進牆速度保護</h4><p>任何在接近牆時降低進牆速度的行為都直接損害成績 🟠（360swim；MySwimPro 2022）：</p><ul><li>蛙式/蝶式：最後一划應完整推水，不提前收手「湊牆」；距離不對用踢腿補，不縮短划手</li><li>自由式：翻滾前不減速，靠計步判斷距離</li></ul><hr><h3 id=21-自由式轉身freestyle-flip-turn>2.1 自由式轉身（Freestyle Flip Turn）</h3><h4 id=接近與旋轉approach--rotation>接近與旋轉（Approach & Rotation）</h4><p><strong>動作描述</strong> 🟠：</p><ul><li>維持游泳速度與划頻，不減速滑行</li><li>頭部朝下，視線看向池底</li><li>最後一划完整（不提前結束划水）</li><li>從腰部開始彎曲翻滾</li><li>臀部維持在水面附近</li><li>膝蓋收向腹部</li></ul><p><strong>物理邏輯</strong> 🔵：
-頭部朝下（不抬頭看牆）是翻滾啟動的關鍵。抬頭看牆會讓頸部伸展，破壞翻滾的旋轉動量，同時讓身體提前減速。有經驗的泳者靠計步（stroke count）判斷翻滾時機，不靠視覺。</p><p><strong>翻滾啟動時機的研究現狀</strong> 🟠（PMC5260528；The Race Club；360swim）：
-研究以「tuck index（腳觸牆時臀部距牆距離）」為主要測量變數，而非「翻滾啟動距離」。目前共識：</p><ul><li>啟動太早 → 腳觸牆角度過垂直 → 推蹬方向偏上，水平速度損失</li><li>啟動太晚 → 進牆速度損失（為避免撞牆而減速）或超過牆面</li><li><strong>教練觀測慣用參照</strong>：最後一划末端時啟動翻滾，頭已低於水面</li></ul><blockquote><p>🔴 <strong>仍待查</strong>：最優翻滾啟動距離的直接量化研究——目前文獻研究的是「觸牆時」的tuck index，不是「開始翻滾時距牆幾公尺」。因個體差異（身高/划幅）大，此項可能無跨選手通用值。</p></blockquote><hr><h4 id=接觸與推蹬contact--push-off>接觸與推蹬（Contact & Push-off）</h4><p><strong>動作描述</strong> 🟠：</p><ul><li>雙腳與髖同寬觸牆</li><li>觸牆同時雙臂已伸展至流線型姿勢</li><li>背部平坦，臀部收緊</li><li>推蹬過程中維持流線型，不在水中旋轉</li></ul><p><strong>物理邏輯</strong> 🔵：
-雙臂提前到流線型（在腳觸牆之前完成）讓推蹬的力量直接轉換為流線型姿勢的水平速度，不需要在推蹬後再整理姿勢——那樣會浪費推蹬動能。</p><p><strong>推蹬方向與出水速度</strong> 🟢（PubMed 40252339）：
-推蹬力向量與重心軌跡的對齊程度，是出水速度的強預測因子（r = 0.76）。腳觸牆的位置和深度直接影響推蹬方向——觸牆過深 → 推蹬方向偏上 → 水平速度損失。</p><p><strong>最優觸牆膝蓋屈曲角度</strong> 🟢（PMC6409673；Kinetic Analysis of Swimming Flip-Turn Push-Off Techniques）：</p><ul><li>觸牆時膝蓋屈曲角度 <strong>100–120°</strong> 為最優範圍</li><li>機制：此角度讓股四頭肌處於最佳力–長度關係，預載彈性能（SSC）最大化</li><li>角度過小（&lt; 90°）→ 腿部過度彎曲，超出最佳力–長度曲線，推力下降</li><li>角度過大（> 120°）→ 預載不足，推蹬衝量減少</li></ul><blockquote><p>⚠️ 100–120° 為研究均值範圍，與個人肌力特性有關；但至少確立了「不是越直越好、也不是越彎越好」的雙邊邊界。</p></blockquote><hr><h4 id=水下與出水underwater--breakout>水下與出水（Underwater & Breakout）</h4><p>→ 詳見第參章「水下蝶腳（UDK）」</p><hr><h3 id=22-仰式轉身backstroke-flip-turn>2.2 仰式轉身（Backstroke Flip Turn）</h3><h4 id=接近與旋轉approach--rotation-1>接近與旋轉（Approach & Rotation）</h4><p><strong>動作描述</strong> 🟠：</p><ul><li>維持游泳速度與划頻</li><li>翻轉那一划，手指朝下入水（這一划是自由式動作）</li><li>頭部朝下，視線看向池底</li><li>從腰部開始彎曲，跟隨入水手方向翻滾</li><li>臀部維持在水面附近</li><li>膝蓋收向腹部</li></ul><p><strong>注意</strong>：仰式轉身的翻滾動作與自由式翻滾相同——泳者翻轉成俯臥姿才能踢牆，這不違規（FINA 規則允許翻轉後以俯臥姿觸牆，但需在轉身過程中連續完成）。</p><p><strong>旗幟計步系統</strong> 🟠（U.S. Masters Swimming）：</p><p>旗幟（5m）到牆的划手次數隨游速改變而變動，<strong>沒有跨選手通用數字</strong>，也沒有單一選手適用所有速度的固定數字：</p><blockquote><p>「旗幟到牆的划手次數取決於速度與划效……游速快慢會讓你比預期更靠近或更遠離牆。」 — USMS 🟠</p></blockquote><p><strong>實務做法</strong>：在慢速、中速、比賽速度三種條件下各自標定步數，定期重新確認（訓練量增加後划幅改變，步數也會跟著變）。</p><blockquote><p>🔴 <strong>仍待查</strong>：系統性研究不同游速下仰式計步的變化量——目前教練觀測成立，缺乏量化數據。</p></blockquote><hr><h4 id=接觸與推蹬contact--push-off-1>接觸與推蹬（Contact & Push-off）</h4><p><strong>動作描述</strong> 🟠：</p><ul><li>雙腳與髖同寬觸牆</li><li>觸牆同時雙臂伸展至流線型</li><li>背部平坦，臀部收緊</li><li>推蹬過程中維持流線型</li></ul><hr><h4 id=水下與出水underwater--breakout-1>水下與出水（Underwater & Breakout）</h4><p>→ 詳見第參章「水下蝶腳（UDK）」，仰式水下採仰姿 UDK，出水時鼻子需在水面</p><hr><h3 id=23-蛙式轉身breaststroke-turn>2.3 蛙式轉身（Breaststroke Turn）</h3><h4 id=接近與旋轉approach--rotation-2>接近與旋轉（Approach & Rotation）</h4><p><strong>動作描述</strong> 🟠：</p><ul><li>維持速度，以完整最後一划結束（完整推水 + 恢復）</li><li>身體保持平坦在水面</li><li>雙手同時觸牆（規則要求）</li><li>一手先落下，雙肩保持與牆面平行直到該手落下</li><li>落下手經過髖部時，肩部開始旋轉</li><li>雙腿從身體下方穿過</li><li>身體向後倒落同時，雙腿向牆延伸</li></ul><p><strong>最後一划策略</strong> 🔵 + 🟠：
-完整推水後觸牆優於提前收手「湊牆」。進牆速度是轉身成績的關鍵（見 2.0 節）；提前收手讓速度在觸牆前提早流失，且觸牆時手臂位置不理想 🟠（MySwimPro 2022：縮臂湊牆是直接列名的轉身錯誤）。</p><p>距離判斷不準時，補一個踢腿而非縮短划手。</p><blockquote><p>🔴 <strong>仍待查</strong>：完整最後一划 vs 提前短划的時間差直接實測數據（目前邏輯 + 教練觀測成立，缺控制組量化）。</p></blockquote><hr><h4 id=接觸與推蹬contact--push-off-2>接觸與推蹬（Contact & Push-off）</h4><p><strong>動作描述</strong> 🟠：</p><ul><li>雙腳與髖同寬觸牆</li><li>觸牆同時雙臂伸展至流線型</li><li>背部平坦，臀部收緊</li><li>推蹬過程中不旋轉</li></ul><p><strong>最優觸牆深度</strong> 🟢（PMC8960438，Biomechanical Features of Backstroke to Breaststroke Transition Techniques）：</p><ul><li>最優腳觸牆深度：<strong>30–40 cm</strong>，此深度下水平推蹬速度最佳</li><li>觸牆過深 → 推蹬方向偏上，水平速度損失</li><li>髖部不應主動下沉來「找牆」——腳的深度應由縮腿路徑自然決定 🔵</li></ul><blockquote><p>⚠️ 此數據來自背→蛙 IM 轉身研究，適用於蛙式轉身的通用性仍可參考，但蛙式純轉身的直接研究較少。</p></blockquote><hr><h4 id=水下與出水underwater--breakout-2>水下與出水（Underwater & Breakout）</h4><p><strong>動作描述</strong> 🟠：</p><ul><li>維持流線型滑行</li><li>滑行後進行 pullout（水下单次划手）</li><li>以手指向下啟動拉水</li><li>拉水後頸部在流線型中完全伸展</li><li>雙手在腳收回前恢復到臉部位置</li><li>蛙式踢水時膝蓋朝後</li></ul><p><strong>三種 Pullout 技術</strong> 🟢（PMC9445308，Frontiers 2022；世界級精英樣本 150 次試驗）：</p><table><thead><tr><th>技術</th><th>描述</th><th>使用比例</th></tr></thead><tbody><tr><td><strong>Combined</strong>（合併式）</td><td>蝶腳與拉手動作在時間上部分重疊</td><td>71 次（最多）</td></tr><tr><td><strong>Fly-Kick First</strong>（蝶腳先行）</td><td>蝶腳完成後才開始拉手</td><td>65 次</td></tr><tr><td><strong>Pull-Down First</strong>（拉手先行）</td><td>拉手完成後才做蝶腳</td><td>14 次（最少）</td></tr></tbody></table><p><strong>重要發現</strong>：三種技術在 50m、100m、200m 蛙式成績間<strong>無統計顯著差異</strong>——無單一最優技術。性別傾向：男性偏好 Combined，女性偏好 Fly-Kick First。技術選擇應依個人測試決定，不應強制統一模式。</p><p><strong>水下滑行深度</strong> 🟢（PMC8960438）：最優滑行深度 0.4–0.6 m（來自背→蛙轉身研究，蛙式 pullout 適用性可參考）。</p><blockquote><p>🔴 <strong>仍待查</strong>：Pullout 各動作（滑行→蝶腳→拉手→踢腿）的<strong>最優時機量化</strong>——目前有技術分類與成績比較，但各動作最佳持續時間（幀數/秒數）缺乏直接研究。</p></blockquote><hr><h3 id=24-蝶式轉身butterfly-turn>2.4 蝶式轉身（Butterfly Turn）</h3><h4 id=接近與旋轉approach--rotation-3>接近與旋轉（Approach & Rotation）</h4><p><strong>動作描述</strong> 🟠：</p><ul><li>維持速度，以完整最後一划結束</li><li>身體保持平坦在水面</li><li>雙手同時觸牆（規則要求）</li><li>一手先落下，雙肩保持與牆面平行直到該手落下</li><li>落下手經過髖部時，肩部開始旋轉</li><li>雙腿從身體下方穿過</li><li>身體向後倒落同時，雙腿向牆延伸</li></ul><p>（接近與旋轉動作與蛙式相同）</p><hr><h4 id=接觸與推蹬contact--push-off-3>接觸與推蹬（Contact & Push-off）</h4><p><strong>動作描述</strong> 🟠：同蛙式轉身</p><hr><h4 id=水下與出水underwater--breakout-3>水下與出水（Underwater & Breakout）</h4><p>→ 詳見第參章「水下蝶腳（UDK）」</p><hr><h3 id=25-個人混合式轉身im-turns>2.5 個人混合式轉身（IM Turns）</h3><h4 id=蝶背into-backstroke>蝶→背（Into Backstroke）</h4><p>規則：蝶式觸牆後，轉身推出進入仰式游泳方向。雙手同時觸牆（蝶式規則）。</p><p><strong>蝶→背是最快的 IM 轉身</strong> 🟢（PubMed 30694108，Gonjo et al. 2018）：
-四式 IM 轉身中，蝶→背的轉身時間最短——因為不需要執行翻滾，雙手直接觸牆後腳即可落牆。</p><p><strong>常見效率損失</strong> 🟠（USMS；SGSwim）：</p><table><thead><tr><th>問題</th><th>機制</th><th>修正</th></tr></thead><tbody><tr><td>觸牆後停頓</td><td>手碰牆後「確認」了才開始縮腿</td><td>觸牆同時啟動縮腿，不停頓</td></tr><tr><td>旋轉過慢</td><td>縮腿路徑過長，腳找牆太慢</td><td>膝蓋快速收向胸口，縮短翻轉半徑</td></tr><tr><td>多吸一口氣</td><td>觸牆後抬頭換氣，打斷旋轉動量</td><td>轉身全程閉氣，出發後在流線型滑行中才換氣</td></tr></tbody></table><p><strong>推出與水下</strong> 🔵：
-推出後以仰臥姿維持流線型，進入仰姿 UDK，出水時的呼吸節奏要提前計劃（因為剛完成一段蝶式，呼吸債會影響出水後的第一划判斷）。</p><hr><h4 id=背蛙into-breaststroke>背→蛙（Into Breaststroke）</h4><p><strong>FINA/World Aquatics 規則精確解讀</strong> 🟢（FINA Swimming Technical Rules SW 6.4；USA Swimming；USMS）：</p><table><thead><tr><th>動作時機</th><th>規則要求</th></tr></thead><tbody><tr><td>觸牆時</td><td>肩部必須仍在仰式位置（與水平面夾角 &lt; 90°，即背面朝上方）</td></tr><tr><td>離牆時</td><td>肩部必須已通過垂直面朝向蛙式方向（≥ 90° 旋轉完成）</td></tr><tr><td>第一次划手前</td><td>必須已轉為蛙式姿勢（俯臥，雙手同步）</td></tr></tbody></table><p>「觸牆時仰臥」與「離牆時俯臥」是兩個獨立的時間點要求，中間的旋轉在牆上完成。</p><p><strong>動作描述</strong> 🟠：</p><ul><li>最後一划以充分伸展完成</li><li>觸牆前全程保持仰姿（肩部不過垂直面）</li><li>觸牆後從腰部彎曲啟動旋轉</li><li>雙腿收向腹部，從身體上方越過至側邊</li><li>身體側臥 → 俯臥的旋轉中雙腿延伸至牆</li><li>離牆時已轉為俯臥，推蹬後採蛙式 pullout 出水</li></ul><p><strong>常見犯規點</strong> 🟠：
-觸牆前肩部過垂直面（提前側滾看牆），或離牆時尚未轉為俯臥。前者在長距離 IM 中常見（疲勞時提前轉身，加快觸牆）。</p><hr><h4 id=背蛙三種轉法比較>背→蛙三種轉法比較</h4><table><thead><tr><th>轉法</th><th>中文別名</th><th>核心動作</th></tr></thead><tbody><tr><td>Open turn</td><td>側轉法 / 開放式轉身</td><td>略側身觸牆，以臀部為軸旋轉，雙腿收向胸口</td></tr><tr><td>Bucket / Somersault turn</td><td>翻滾法 / 桶轉</td><td>向後翻滾（類後空翻），手掌向下深觸牆後帶動翻轉</td></tr><tr><td>Crossover turn</td><td>交叉轉法</td><td>上臂越過身體觸牆，臀部順著觸牆手方向旋轉帶動腳落牆</td></tr></tbody></table><p><strong>動作力學差異</strong> 🟢（PMC7918682）：</p><table><thead><tr><th>轉法</th><th>推出速度</th><th>腳觸牆深度指數</th><th>特點</th></tr></thead><tbody><tr><td>Crossover</td><td><strong>2.17 ± 0.05 m/s</strong>（最高）</td><td>0.50（最淺）</td><td>腳接觸牆面位置最淺，推蹬方向最水平</td></tr><tr><td>Open</td><td>2.03 m/s</td><td>0.59</td><td>動作幅度大，旋轉弧度長</td></tr><tr><td>Somersault</td><td>2.02 m/s</td><td>0.68（最深）</td><td>腳觸牆最深，推蹬方向偏上</td></tr></tbody></table><p><strong>關鍵研究發現</strong> 🟢（PMC7918682）：
-Crossover 推出速度雖然統計顯著高於其他轉法（p = 0.01），<strong>但 7.5m 成績三種技術無顯著差異</strong>（平均出水時間 4.86 ± 0.98 s，出水距離 6.04 ± 0.94 m）。</p><p>推出速度的優勢在 7.5m 內被抵消，可能機制如下 🔵：</p><ol><li><strong>速度差距小，阻力快速均等化</strong>：差距僅 0.14 m/s（2.17 vs 2.03），水中阻力在 7.5m 內足以將此差距抹平。</li><li><strong>推出後 pullout 品質主導後段</strong>：7.5m 成績 = 推出 + 水下滑行 + pullout + 出水。Crossover 旋轉複雜，若殘留旋轉動量導致流線型品質下降，pushoff 優勢被 pullout 損失抵消；Open turn 旋轉弧度大但結束後身體位置更穩定。</li><li><strong>腳觸牆深度影響水下路徑</strong>：Crossover 腳觸牆最淺（0.50），推出最水平但水下路徑也最淺、出水點更近；Somersault 腳最深（0.68），推出方向偏上但換來更深的水下滑行距離。三種技術在「推出速度」與「水下路徑效率」之間做不同取捨，7.5m 正好拉平。</li><li><strong>樣本為青少年選手，Crossover 尚未熟練</strong> 🟠：PMC7918682 受試者為 age-group swimmers。Crossover 技術要求最高，若執行不穩定，推出速度的理論優勢在執行誤差中消失。菁英選手樣本結果未知。</li></ol><p><strong>教學含義</strong> 🔵：這個發現比「Crossover 最快」更有價值——<strong>執行穩定性可能比技術選擇更重要</strong>。把 Open turn 練到每次完全一致，可能比把 Crossover 練到 80% 穩定更快。技術選擇應以個人計時測試為依據，而非假設 Crossover 必然最優。</p><p><strong>各轉法適用情境</strong> 🟠（360swim；USMS；Swimming World）：</p><table><thead><tr><th>轉法</th><th>適用情境</th><th>主要限制</th></tr></thead><tbody><tr><td>Open turn</td><td>初學者；長距離 IM；換氣需求高</td><td>旋轉弧度最長，速度最慢</td></tr><tr><td>Bucket turn</td><td>中等技術水準；需要快速觸牆</td><td>需要良好憋氣能力，翻滾後 pullout 氧耗高</td></tr><tr><td>Crossover turn</td><td>短距離 IM（100/200）；技術熟練者</td><td>技術要求最高；失誤易犯規（提前過垂直面）</td></tr></tbody></table><p><strong>選擇策略</strong> 🟠：
-技術選擇不純粹看速度——長距離 IM（400 IM）疲勞段若無法完整執行 Crossover，Open turn 更穩定。個人最快轉法應透過計時測試（觸牆到 7.5m 時間）確認，而非假設 Crossover 必然最優。</p><hr><h4 id=蛙自into-freestyle>蛙→自（Into Freestyle）</h4><p><strong>動作描述</strong> 🟠：</p><ul><li>雙手同時觸牆（蛙式規則）</li><li>後續動作同蝶式轉身</li><li>水下採 UDK 出水（蝶式踢轉換捷式踢）</li></ul><hr><h2 id=參水下蝶腳underwater-dolphin-kickudk>參、水下蝶腳（Underwater Dolphin Kick，UDK）</h2><blockquote><p>水下蝶腳已獨立成完整深度技術分析文件：<br>→ <strong><code>水下蝶腳技術分析.md</code></strong></p></blockquote><p>以下為本文脈絡所需的核心摘要。</p><hr><h3 id=31-為什麼水下比水面快摘要>3.1 為什麼水下比水面快（摘要）</h3><ul><li>水下無波浪阻力，出發/轉身後的初始速度遠高於游泳速度 🔵</li><li>實用深度：0.4–0.6 m；超過 0.75 m 無額外效益 🟢（Lyttle 1998；Novais 2012）</li><li>精英選手的優勢來自<strong>更快的踢腿速度</strong>，而非更長的水下距離 🟢（Frontiers 2021）</li></ul><hr><h3 id=32-技術核心摘要>3.2 技術核心（摘要）</h3><ul><li>入水後先滑行再起踢；小幅度高頻率；臀部固定 🟠</li><li>速度關鍵：<strong>上踢的腳尖峰值速度</strong> 🟢</li><li>最後一踢與第一個抓水同步，不留空窗 🟠</li></ul><hr><h3 id=33-各式-udk-姿勢差異>3.3 各式 UDK 姿勢差異</h3><table><thead><tr><th>泳式</th><th>姿勢</th><th>特殊要點</th></tr></thead><tbody><tr><td>自由式</td><td>俯臥</td><td>出水時轉換為捷式踢，最後一踢與第一抓水同步</td></tr><tr><td>仰式</td><td>仰臥</td><td>出水時鼻子需在水面，第一抓水後轉捷式踢</td></tr><tr><td>蝶式</td><td>俯臥</td><td>出水時頭部中立</td></tr><tr><td>蛙式</td><td>俯臥</td><td><strong>不用 UDK</strong>，改為 pullout（水下単次划手 + 一次蛙踢）</td></tr></tbody></table><hr><h2 id=肆感知意涵待橋接>肆、感知意涵（待橋接）</h2><blockquote><p>本章為框架佔位。出發、轉身、UDK 的感知目標語言將在 <code>Bridge/出發轉身感知橋接.md</code> 展開。</p></blockquote><p>各技術階段的感知問題預覽：</p><ul><li><strong>出發</strong>：起跳瞬間身體的「向前墜落」感 vs 「主動跳出」感——哪個才是感知目標？</li><li><strong>飛行入水</strong>：入水後有無「被水接住」的感覺，還是感覺到衝擊？</li><li><strong>轉身觸牆</strong>：推蹬的力量感從腳底傳到全身流線型的連貫感</li><li><strong>UDK</strong>：核心收緊下，每一踢的「傳導感」——力量從核心到腳尖的波浪感是否連貫？</li><li><strong>出水 Breakout</strong>：最後一踢到第一抓水的感知連接——有沒有「空窗期」？</li></ul><hr><hr><h2 id=文件版本紀錄與查證說明>文件版本紀錄與查證說明</h2><h3 id=版本歷程>版本歷程</h3><ul><li><strong>骨架版</strong> · 2026-04-14：Swimming Canada ADM 附錄A 作為物理描述骨架</li><li><strong>文獻補充版</strong> · 2026-04-14：補入實證文獻，🔴 由 12 降至 6</li><li><strong>查證修正版</strong> · 2026-04-14：修正兩處 AI 生成錯誤數據（見下）</li><li><strong>擴充版</strong> · 2026-04-16（第一輪）：補入具名來源（Benjanuvatra 2007；Wilson 1983；Takai PubMed 27149652；PMC8700779；PMC4234766；PLOS ONE PMC7598512；PMC6409673；PubMed 40252360；PMC8960438）；新增 2.0 轉身共用力學節；GRF/仰式計步/蛙式觸牆深度 🔴 填入；🔴 由 6 降至 8 項</li><li><strong>查證版</strong> · 2026-04-16（第二輪）：蝶→背（PubMed 30694108）+ 背→蛙（FINA SW 6.4）+ 自由式觸牆膝蓋角度（100–120°，PMC6409673）填入；過淺入水機制補充（PubMed 25455956）；Pullout 三技術分類（PMC9445308）+ 翻滾啟動機制說明補充；仰式 OBL2 數據（PubMed 28975846）補充；🔴 由 8 降至 5 項（餘下均屬研究空白或個體差異過大無通用值）</li></ul><h3 id=已修正的錯誤>已修正的錯誤</h3><table><thead><tr><th>錯誤位置</th><th>原始內容</th><th>修正後</th><th>問題性質</th></tr></thead><tbody><tr><td>3.1 深度描述</td><td>「0.6–0.7m 消除波浪阻力」歸源 🟢</td><td>改為表格，分別引用 Lyttle 1998 與 Novais et al. 2012，用「降低」而非「消除」</td><td>AI 誇大用詞 + 部分歸源錯誤</td></tr><tr><td>3.1 速度表</td><td>男 2.17/2.04 m/s，女 1.90/1.79 m/s，歸源「Frontiers 2021」</td><td>移除具體對比數值，改述 Frontiers 2021 實際報告內容（競技層級水下速度差異）</td><td>AI 混搭不同來源數字，歸源錯誤</td></tr><tr><td>3.3 仰式案例</td><td>「Frontiers in Sports, 2025」🟢</td><td>降格為 🟠，改述為「前衛且具爭議」</td><td>2025 年文獻來源未能精確確認</td></tr></tbody></table><h3 id=你提供的文獻清單查證結果>你提供的文獻清單查證結果</h3><p><strong>正確無誤：</strong></p><ul><li>Welcher et al. (2008), Sports Biomechanics 7(1), 100-113 ✅</li><li>Cossor & Mason (2001), ISBS ✅</li><li>Vantorre et al. (2010), Int J Sports Medicine 31(12), 887-893 ✅</li><li>Connaboy et al. (2016), J Sports Sciences ✅</li></ul><p><strong>期刊名稱有誤（論文存在，期刊不對）：</strong></p><ul><li>Lyttle et al. (2000)：應為 <strong>Journal of Sports Sciences 18, 801-807</strong>（非 Journal of Applied Biomechanics）</li><li>Blanksby et al. (1996)：應為 <strong>Journal of Swimming Research 11, 40-45</strong>（非 Journal of Applied Biomechanics）</li></ul><p><strong>作者或年份有誤：</strong></p><ul><li>Houel et al. (2013)：實際作者為 <strong>Novais, Silva, Mantha et al.</strong>，年份為 <strong>2012</strong>，Journal of Human Kinetics vol.33</li></ul><p><strong>無法確認：</strong></p><ul><li>Puel et al. (2010), Journal of Biomechanics（Puel 是真實研究者，但此特定論文未能在 PubMed 確認）</li></ul><h3 id=剩餘-7-處>剩餘 🔴（7 處）</h3><p><em>2026-04-16 更新：蝶→背（PubMed 30694108）+ 背→蛙（FINA SW 6.4）+ 自由式觸牆膝蓋角度（PMC6409673）已填入移出。Pullout 三技術分類（PMC9445308）+ 翻滾啟動機制已補充，但精確最優值仍無研究，保留 🔴。餘下 6 條均屬研究空白或個體差異過大無通用值。</em></p><table><thead><tr><th>位置</th><th>待查項目</th><th>難度預估</th></tr></thead><tbody><tr><td>1.2 零位姿勢</td><td>臀部高度最優解（目前無直接研究）</td><td>難，可能無數據</td></tr><tr><td>1.2 入水點</td><td>過淺入水的阻力<strong>直接量化</strong>（CD 或增量百分比）</td><td>難，現有研究僅有時間比較</td></tr><tr><td>1.4 仰式起跳</td><td>腳高上限 + 最優起跳角度數值</td><td>中等，仰式文獻確認趨勢但無具體範圍</td></tr><tr><td>2.1 自由式翻滾</td><td>最優翻滾啟動距離直接量化</td><td>難，個體差異大，可能無通用值</td></tr><tr><td>2.2 仰式計步</td><td>不同游速下計步變化的量化研究</td><td>中等，USMS 確認現象但無系統性量化</td></tr><tr><td>2.3 蛙式</td><td>完整最後一划 vs 短划的時間差實測</td><td>難，缺控制組研究</td></tr><tr><td>2.3 蛙式水下</td><td>Pullout 各動作最優持續時間量化</td><td>難，有技術分類但無時機最優值</td></tr></tbody></table></div><footer class=vx-article-footer><hr class=vx-divider><a href=https://hangsau.github.io/cortex/vortex/instructional/ class=vx-back-link>← 返回 技術深探</a></footer></div></main><footer class=site-footer><p>Cortex</p></footer></body></html>
+更新版（2026-04-16）：補入具名來源；GRF 🔴 填入；仰式計步 🔴 填入；蛙式觸牆深度 🔴 填入；新增轉身共用力學節；蝶→背效率損失 🔴 填入；背→蛙規則精確解讀 🔴 填入；🔴 由 8 降至 6</p>
+</blockquote>
+<p>Hangsau · 2026</p>
+<hr>
+<h2 id="閱讀說明知識來源標注系統">閱讀說明：知識來源標注系統</h2>
+<blockquote>
+<p>【🔵 邏輯推導】= 物理或生物力學演繹；【🟢 近期文獻（2009–2025）】= 近十五年實證研究；【🟡 有效舊文獻】= 舊研究但物理原理仍被引用；【🟠 教練觀測】= Swimming Canada ADM / The Race Club 等教練系統觀測，有實務數據支撐但非學術控制組；【🔴 待查】= 有爭議或缺乏共識，需文獻補充。</p>
+</blockquote>
+<hr>
+<h2 id="術語定義">術語定義</h2>
+<p>本文統一使用以下術語，括號內為英文錨定：</p>
+<table>
+	<thead>
+			<tr>
+					<th>中文術語</th>
+					<th>英文</th>
+					<th>定義</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>前衝式起跳</td>
+					<td>Grab start</td>
+					<td>雙腳並排站在台前緣，雙手抓住台前緣，重心偏前</td>
+			</tr>
+			<tr>
+					<td>起跑式起跳</td>
+					<td>Track start</td>
+					<td>一腳在前、一腳在後（類似田徑起跑），後腳踩楔形輔具（wedge）</td>
+			</tr>
+			<tr>
+					<td>仰式起跳</td>
+					<td>Backstroke start</td>
+					<td>背對水面，雙手抓台、腳踩牆，向後推出</td>
+			</tr>
+			<tr>
+					<td>水下蝶腳</td>
+					<td>Underwater dolphin kick（UDK）</td>
+					<td>入水後的水下蝶式踢腿，用於出發與轉身後加速</td>
+			</tr>
+			<tr>
+					<td>流線型姿勢</td>
+					<td>Streamline position</td>
+					<td>雙臂夾耳向前伸展、全身收緊呈最小截面積的姿勢</td>
+			</tr>
+			<tr>
+					<td>出水</td>
+					<td>Breakout</td>
+					<td>水下踢腿結束、浮出水面恢復划手的過渡階段</td>
+			</tr>
+			<tr>
+					<td>推蹬</td>
+					<td>Push-off</td>
+					<td>腳接觸牆面後向後蹬出的動作（轉身）或向前蹬離台（出發）</td>
+			</tr>
+	</tbody>
+</table>
+<hr>
+<h2 id="壹出發技術starts">壹、出發技術（Starts）</h2>
+<h3 id="11-兩種起跳方式的基本差異">1.1 兩種起跳方式的基本差異</h3>
+<table>
+	<thead>
+			<tr>
+					<th></th>
+					<th>前衝式起跳（Grab start）</th>
+					<th>起跑式起跳（Track start）</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>腳的站法</td>
+					<td>雙腳並排，靠近台前緣</td>
+					<td>一前一後，後腳踩楔形輔具</td>
+			</tr>
+			<tr>
+					<td>重心位置</td>
+					<td>明顯前傾</td>
+					<td>介於前後腳之間，可調整</td>
+			</tr>
+			<tr>
+					<td>啟動方式</td>
+					<td>靠向後拉再向前彈出</td>
+					<td>後腳蹬推，前腳穩定</td>
+			</tr>
+			<tr>
+					<td>現代競技主流</td>
+					<td>少數選手仍使用</td>
+					<td><strong>主流</strong>（楔形輔具普及後）</td>
+			</tr>
+	</tbody>
+</table>
+<p><strong>Grab start vs Track start 數據</strong> 🟢：</p>
+<p>Welcher, Hinrichs &amp; George（2008）以 20 名大學女子選手比較三種起跳方式：</p>
+<table>
+	<thead>
+			<tr>
+					<th></th>
+					<th>前衝式（Grab）</th>
+					<th>起跑式前重心</th>
+					<th>起跑式後重心</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>離台時間</td>
+					<td>0.87 s</td>
+					<td><strong>0.80 s</strong>（最快）</td>
+					<td>0.87 s</td>
+			</tr>
+			<tr>
+					<td>離台水平速度</td>
+					<td>3.87 m/s</td>
+					<td>3.90 m/s</td>
+					<td><strong>3.99 m/s</strong>（最高）</td>
+			</tr>
+			<tr>
+					<td>5m 水平速度</td>
+					<td>—</td>
+					<td>2.18 m/s</td>
+					<td><strong>2.25 m/s</strong>（最高）</td>
+			</tr>
+	</tbody>
+</table>
+<p><strong>結論</strong>：前重心起跑式反應最快，但後重心起跑式在水平速度上勝出，5m 成績最佳。研究建議女子選手採後重心起跑式。</p>
+<blockquote>
+<p>⚠️ 樣本為女子非精英大學生，結果不可直接外推至男子或精英選手。</p>
+</blockquote>
+<p><strong>Cossor &amp; Mason（2001）雪梨奧運數據</strong> 🟠：
+分析雪梨奧運頂尖選手的起跑數據。結論是出發的水下階段佔整體起跑時間約 <strong>84%</strong>，水下表現才是起跑效率的決定因素，不同起跳方式的差異在精英層級結果不顯著。</p>
+<p><strong>整體研究現狀</strong>：Grab start vs Track start 在精英層級無統計顯著差異——「大家都用 track start」主要是因為 Kick Start 變體（見 1.3 節）和楔形輔具的結構優勢，非純 track start 的勝出。</p>
+<hr>
+<h3 id="grab-start-的核心爭議">Grab Start 的核心爭議</h3>
+<h4 id="1-抓台拉力的機制">1. 抓台拉力的機制</h4>
+<p><strong>支持</strong> 🟡（Welcher et al. 1979）：手部拉力能增大前傾角、預先拉伸下肢伸肌群（SSC 牽張–縮短循環），產生可量化的向後拉力。</p>
+<p><strong>質疑</strong> 🔵：手部拉力相對腿部推力很小；若姿勢不佳反而限制髖部伸展；釋放時機稍晚會拖慢起跳。</p>
+<p><strong>結論</strong>：效益高度依賴個人技術執行。</p>
+<h4 id="2-set-position-的膝蓋角度">2. Set Position 的膝蓋角度</h4>
+<p>早期建議 90–120°；後續研究（Blanksby et al. 2002）指出過深超出股四頭肌最佳力–長度關係，太淺則無法充分利用 SSC。<strong>無跨選手通用數字</strong>，與個人肌肉特性高度相關。</p>
+<h4 id="3-頭部位置">3. 頭部位置</h4>
+<p><strong>現有共識</strong> 🟠：頸部中立（neutral neck）。抬頭看水面理論上有視覺導引優勢，但頸部伸展可能破壞身體對齊；看台面維持流線型，精英選手個體差異仍大。</p>
+<h4 id="4-爭議共同根源">4. 爭議共同根源</h4>
+<p>精英 vs 非精英樣本差異、測量指標不統一（反應時間 / 入水速度 / 15m 總時間三者結論可以相反）、個體生物力學差異被忽略。</p>
+<hr>
+<h3 id="12-起跑式起跳track-start各階段分析">1.2 起跑式起跳（Track Start）各階段分析</h3>
+<h4 id="零位姿勢zero-position">零位姿勢（Zero Position）</h4>
+<p><strong>動作描述</strong> 🟠：</p>
+<ul>
+<li>雙腳一前一後，腳尖朝前</li>
+<li>後腳穩固踩在楔形輔具上</li>
+<li>雙臂向下伸直，抓住台前緣</li>
+<li>肩部在雙手正上方或略前</li>
+<li>頭部中立，不抬頭、不低頭</li>
+<li>臀部抬高，高於肩部</li>
+</ul>
+<p><strong>物理邏輯</strong> 🔵：
+臀部高於肩部讓重心集中在前足上方，縮短啟動力矩。肩部前移讓身體在出發瞬間已具備向前傾的動能，而非從直立姿勢重新加速。</p>
+<blockquote>
+<p>🔴 <strong>待查</strong>：臀部高度的最優解——目前研究集中在膝蓋角度（見下），臀部絕對高度尚無直接研究。</p>
+</blockquote>
+<p><strong>膝蓋角度數據</strong> 🟢（OSB12 台，Yeadon et al. / MDPI 2024）：</p>
+<ul>
+<li>前腳膝蓋角度：<strong>130–133°</strong></li>
+<li>後腳膝蓋角度：<strong>76–82°</strong></li>
+<li>推薦後腳踏板位置：3–4 號位置（各廠商台編號）</li>
+</ul>
+<p>這兩個角度是目前有數據支撐的起始姿勢量化參數。</p>
+<hr>
+<h4 id="推蹬階段push-off-phase">推蹬階段（Push-off Phase）</h4>
+<p><strong>動作描述</strong> 🟠：</p>
+<ul>
+<li>臀部立即向前移動（不是向上跳）</li>
+<li>後腿完全蹬直，產生主要推力</li>
+<li>頭部保持中立</li>
+<li>手臂彎曲離台，隨即向前伸展</li>
+<li>前臂與前腿同步伸展</li>
+</ul>
+<p><strong>物理邏輯</strong> 🔵：
+後腿的蹬伸角度決定起跳方向。蹬伸方向過垂直（太向上）→ 飛行弧線過高，水平速度損失；蹬伸方向過水平 → 入水點太近，無法充分利用飛行距離。</p>
+<p><strong>起跳角度數據</strong> 🟢：</p>
+<table>
+	<thead>
+			<tr>
+					<th>群體</th>
+					<th>起跳角度</th>
+					<th>來源</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>精英選手</td>
+					<td><strong>27.45 ± 5.99°</strong></td>
+					<td>Benjanuvatra et al. 2007 🟢</td>
+			</tr>
+			<tr>
+					<td>精英選手</td>
+					<td><strong>21.25 ± 5.59°</strong></td>
+					<td>Wilson &amp; Marino 1983 🟡</td>
+			</tr>
+			<tr>
+					<td>非精英選手</td>
+					<td><strong>39.62 ± 13.19°</strong></td>
+					<td>Benjanuvatra et al. 2007 🟢</td>
+			</tr>
+	</tbody>
+</table>
+<p>以上數據收錄於系統性綜述：Biomechanical Analysis of the Swim-Start: A Review（PMC3990873）🟢。</p>
+<p>精英選手的起跳角度<strong>遠低於</strong>傳統建議的 30–40°。重點不是角度本身，而是<strong>水平速度最大化</strong>——降低起跳角度增加水平速度，代價是飛行距離縮短，但入水後速度保留更好。</p>
+<blockquote>
+<p>⚠️ 舊文獻（Guimarães &amp; Hay 1985）提出精英選手的實際角度觀察，但後來更精確的測量確認現代精英角度比非精英<strong>低</strong>，而非高。</p>
+</blockquote>
+<p><strong>前腳 vs 後腳地面反作用力（GRF）貢獻</strong> 🟢（Takai et al. 2016，PubMed 27149652）：</p>
+<table>
+	<thead>
+			<tr>
+					<th>腳</th>
+					<th>GRF 主導方向</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>後腳</strong>（楔形台）</td>
+					<td><strong>水平衝量</strong>顯著高於前腳</td>
+			</tr>
+			<tr>
+					<td><strong>前腳</strong>（台前緣）</td>
+					<td><strong>垂直衝量</strong>顯著高於後腳</td>
+			</tr>
+	</tbody>
+</table>
+<p>此為直接力板量測結果，確認 Kick Start 中前後腳的功能分工（見 1.3 節）。</p>
+<hr>
+<h4 id="飛行階段flight-phase">飛行階段（Flight Phase）</h4>
+<p><strong>動作描述</strong> 🟠：</p>
+<ul>
+<li>後腿上提至前腿位置，雙腿合攏</li>
+<li>雙臂向前延伸，在臉部前方準備入水</li>
+<li>頭部在雙臂之間對齊，不抬頭</li>
+<li>雙手在接觸水面前合攏</li>
+</ul>
+<p><strong>物理邏輯</strong> 🔵：
+飛行階段重心的拋物線路徑在起跳瞬間即決定，無法在空中修正。這個階段的主要任務是<strong>整理姿勢</strong>：雙腿合攏、手臂合攏，讓身體在入水前成為最小截面積的形狀。</p>
+<hr>
+<h4 id="入水點entry-point">入水點（Entry Point）</h4>
+<p><strong>動作描述</strong> 🟠：</p>
+<ul>
+<li>維持流線型姿勢入水</li>
+<li>雙腿沿與身體相同路徑進入水面（全身穿過同一個「洞」）</li>
+<li>腳踝與腳背完全伸展（pointed toes）</li>
+<li>入水角度：身體略低於水平，不是垂直插入</li>
+</ul>
+<p><strong>物理邏輯</strong> 🔵：
+「全身穿過同一個洞」是減少入水阻力的核心原則。腿部打開或腳踝未伸展，會讓身體在入水瞬間產生額外阻力，打破已建立的水下滑行動能。</p>
+<p><strong>入水角度與入水點</strong> 🟢：</p>
+<p>入水角度本身不是最強的成績預測因子。PLOS ONE 2020（DOI: 10.1371/journal.pone.0241345，PMC7598512）研究以 15 名次精英選手量化：</p>
+<ul>
+<li>入水距離每增加 1m → 成績快 0.6 s</li>
+<li>重心水平速度每增加 1 m/s → 成績快 0.3 s</li>
+<li>入水角度每平 1 弧度 → 成績快 0.5 s（影響次於前兩者）</li>
+<li>三變數合計解釋成績變異的 <strong>86.1%</strong> 🟢</li>
+</ul>
+<p>因此，追求正確入水角度是手段，不是目的——入水後速度保留才是核心指標。</p>
+<p><strong>過淺入水的代價</strong> 🟢（PubMed 25455956，Comparing Three Underwater Trajectories，2014）：
+三種水下軌跡比較研究顯示，淺軌跡（Dive 1）的 15m 成績顯著慢於中等深度軌跡（Dive 2）——推薦最大深度約 <strong>−0.92 ± 0.16 m</strong>。</p>
+<p>過淺入水的機制 🔵：</p>
+<ul>
+<li>身體近水平入水 → 接觸水面積大 → 入水瞬間波浪阻力（wave drag）峰值高</li>
+<li>水下軌跡偏淺 → 難以充分利用重力加速後的速度</li>
+<li>水下轉水平的距離更長 → 速度耗散更多</li>
+</ul>
+<blockquote>
+<p>🔴 <strong>仍待查</strong>：過淺入水的<strong>阻力直接量化</strong>（拖力係數 CD 或具體阻力增量百分比）——目前文獻提供的是成績時間比較，非阻力的直接測量。</p>
+</blockquote>
+<hr>
+<h4 id="水下滑行與-udkunderwater-phase">水下滑行與 UDK（Underwater Phase）</h4>
+<p>→ 詳見第參章「水下蝶腳（UDK）」</p>
+<hr>
+<h3 id="13-kick-start-變體osb11osb12-楔形台的現代演化">1.3 Kick Start 變體（OSB11/OSB12 楔形台的現代演化）</h3>
+<p>Kick Start 不是獨立的起跳分類，而是 Track Start 在 2009 年 Omega OSB11 楔形台普及後演化出的主流操作方式。楔形後踏板讓後腳有明確的推蹬支撐面，後腳從輔助腳變成<strong>主要水平推力來源</strong>。</p>
+<p><strong>前腳 vs 後腳角色重新分配</strong> 🟢（Takai et al. 2016，PubMed 27149652；MDPI 2024；PMC8700779）：</p>
+<ul>
+<li><strong>後腳</strong>：主要產生水平速度（horizontal velocity）——水平衝量顯著高於前腳</li>
+<li><strong>前腳</strong>：主要產生垂直速度（vertical velocity），負責飛行高度與身體對齊</li>
+<li>這與傳統 Track Start「前腳主導」的教學描述相反</li>
+</ul>
+<p><strong>慣用腳放哪裡</strong> 🟢（Leg Dominance 研究，PMC8700779，2021）：</p>
+<ul>
+<li>慣用腳放<strong>台前緣</strong>：block 時間更短、2m 和 5m 成績更好、飛行距離更長</li>
+<li>解釋：慣用腳負責起跳角度精準控制（垂直分量），間接提升整體成績</li>
+<li>⚠️ 注意：部分研究基於水平推力邏輯建議「強腳放後」，但表現數據支持「慣用腳放前」——兩者不矛盾，前腳的角度控制貢獻可能超過後腳水平力量的增益 🔵</li>
+</ul>
+<p><strong>重心策略</strong> 🟢（MDPI 2024）：</p>
+<ul>
+<li>中立重心（neutral）與後重心（rear-weighted）的 15m 時間<strong>優於</strong>前重心</li>
+<li>與 Welcher 等（2008）在傳統 Track Start 的結論一致：後重心在水平速度上有優勢</li>
+</ul>
+<p><strong>尚未正式命名</strong>：Kick Start 目前仍屬教練口耳相傳的操作調整，學術文獻多以「OSB11/OSB12 start」描述，無統一術語。</p>
+<hr>
+<h3 id="14-仰式起跳backstroke-start各階段分析">1.4 仰式起跳（Backstroke Start）各階段分析</h3>
+<h4 id="零位姿勢zero-position-1">零位姿勢（Zero Position）</h4>
+<p><strong>動作描述</strong> 🟠：</p>
+<ul>
+<li>面對牆，臀部靠近牆壁</li>
+<li>雙手抓住出發台把手</li>
+<li>腳趾至少與水面同高（或略高於水面）</li>
+<li>背部直立，頭部中立</li>
+</ul>
+<p><strong>髖部高度是關鍵變數</strong> 🟢（The Backstroke Swimming Start: State of the Art，PMC4234766）：</p>
+<ul>
+<li>髖部高度提升 → 起跳後水平速度更大</li>
+<li>起跳角度越大（弧線越高）→ 成績越差（與俯式起跳邏輯一致）</li>
+<li>「背部有沒有出水」是外觀指標，不是表現指標；髖高才是正確評判維度</li>
+</ul>
+<p><strong>仰式出發台（Backstroke Ledge）的效益</strong> 🟢（PubMed 28975846，OBL2 研究）：</p>
+<ul>
+<li>使用 OBL2 → 10m 時間快 <strong>0.13 s</strong>，入水距離多 <strong>0.14 m</strong></li>
+<li>機制：OBL2 讓頭部入水距離更遠，<strong>不是</strong>靠更大的水平推力</li>
+<li>此發現說明：起跳角度（飛行弧線的水平延伸）比推力大小更重要</li>
+</ul>
+<blockquote>
+<p>🔴 <strong>仍待查</strong>：</p>
+<ol>
+<li>腳的高度上限——腳越高是否一定越好？目前研究聚焦在髖高，腳高的最優值缺乏直接量化。</li>
+<li>仰式最優起跳角度具體數值（類似俯式 21–27°）——PMC4234766 確認「較小角度 = 較好成績」，但未量化最優範圍。文獻摘要提示精英選手約 20° 左右，但無系統性研究確認。</li>
+</ol>
+</blockquote>
+<hr>
+<h4 id="推蹬階段push-off-phase-1">推蹬階段（Push-off Phase）</h4>
+<p><strong>動作描述</strong> 🟠：</p>
+<ul>
+<li>頭部與背部立即向後移動</li>
+<li>臀部快速推出使臀部完全出水</li>
+<li>臀部出水後腿部才蹬直</li>
+<li>腿部完全蹬出時，身體與水面平行</li>
+<li>手臂與推蹬動作同步向後伸展</li>
+</ul>
+<p><strong>物理邏輯</strong> 🔵：
+仰式起跳的核心在於先讓臀部出水，再蹬腿。如果腿蹬得太早（臀部還在水中），水的阻力會直接對抗蹬腿力量；臀部先出水後，蹬腿的力量才能完整轉換為水平速度。</p>
+<hr>
+<h4 id="飛行與入水flight-phase--entry-point">飛行與入水（Flight Phase &amp; Entry Point）</h4>
+<p><strong>動作描述</strong> 🟠：</p>
+<ul>
+<li>背部向後拱起越過水面</li>
+<li>雙手在接觸水面前合攏</li>
+<li>頭部在雙臂之間對齊</li>
+<li>雙腿與腳完全出水（不要讓腳提早入水）</li>
+<li>全身維持流線型，透過同一個洞入水</li>
+<li>腳踝與腳背完全伸展</li>
+</ul>
+<hr>
+<h4 id="水下階段underwater-phase">水下階段（Underwater Phase）</h4>
+<p>→ 詳見第參章「水下蝶腳（UDK）」，仰式水下採仰姿 UDK</p>
+<hr>
+<h2 id="貳轉身技術turns">貳、轉身技術（Turns）</h2>
+<blockquote>
+<p>轉身的核心物理邏輯：<strong>速度損失最小化</strong>。轉身的每個決策——何時開始翻滾、觸牆角度、推蹬力道、水下距離——都圍繞一個目標：讓泳者盡可能快速重新達到接近游泳速度的水平速度。</p>
+</blockquote>
+<hr>
+<h3 id="20-轉身共用力學all-turns">2.0 轉身共用力學（All Turns）</h3>
+<h4 id="推蹬速度的決定因素">推蹬速度的決定因素</h4>
+<p>進牆速度是轉身成績的首要預測變數——帶入牆的速度越高，推出速度越高 🟢（Journal of Applied Biomechanics 1998；PMC8960438）。</p>
+<p>推蹬出水速度由三個因素共同決定 🟢：</p>
+<table>
+	<thead>
+			<tr>
+					<th>因素</th>
+					<th>研究量化</th>
+					<th>來源</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>推蹬力道</td>
+					<td>解釋轉身成績約 <strong>42%</strong> 的變異</td>
+					<td>PMC6409673 🟢</td>
+			</tr>
+			<tr>
+					<td>推蹬方向（力向量對齊重心）</td>
+					<td>與出水速度相關 <strong>r = 0.76</strong>（p &lt; 0.001）</td>
+					<td>PubMed 40252339 🟢</td>
+			</tr>
+			<tr>
+					<td>流線型品質</td>
+					<td>前提條件——無流線型則推力被阻力抵消</td>
+					<td>Tritonwear / SwimSwam 🟠</td>
+			</tr>
+	</tbody>
+</table>
+<p><strong>推論</strong> 🔵：推蹬力道只解釋 42% 的變異，另外 58% 主要來自方向與流線型。訓練優先順序應是：流線型時機 → 推蹬方向 → 推蹬力道。</p>
+<h4 id="流線型時機">流線型時機</h4>
+<p>流線型應在<strong>腳觸牆之前</strong>完成（觸牆時雙臂已就位），而非推出後再整理 🔵：</p>
+<ul>
+<li>腳觸牆時流線型已就位 → 推蹬力直接轉換為水平速度</li>
+<li>推出後才整理流線型 → 部分力量轉為旋轉動量，效率損耗</li>
+</ul>
+<h4 id="進牆速度保護">進牆速度保護</h4>
+<p>任何在接近牆時降低進牆速度的行為都直接損害成績 🟠（360swim；MySwimPro 2022）：</p>
+<ul>
+<li>蛙式/蝶式：最後一划應完整推水，不提前收手「湊牆」；距離不對用踢腿補，不縮短划手</li>
+<li>自由式：翻滾前不減速，靠計步判斷距離</li>
+</ul>
+<hr>
+<h3 id="21-自由式轉身freestyle-flip-turn">2.1 自由式轉身（Freestyle Flip Turn）</h3>
+<h4 id="接近與旋轉approach--rotation">接近與旋轉（Approach &amp; Rotation）</h4>
+<p><strong>動作描述</strong> 🟠：</p>
+<ul>
+<li>維持游泳速度與划頻，不減速滑行</li>
+<li>頭部朝下，視線看向池底</li>
+<li>最後一划完整（不提前結束划水）</li>
+<li>從腰部開始彎曲翻滾</li>
+<li>臀部維持在水面附近</li>
+<li>膝蓋收向腹部</li>
+</ul>
+<p><strong>物理邏輯</strong> 🔵：
+頭部朝下（不抬頭看牆）是翻滾啟動的關鍵。抬頭看牆會讓頸部伸展，破壞翻滾的旋轉動量，同時讓身體提前減速。有經驗的泳者靠計步（stroke count）判斷翻滾時機，不靠視覺。</p>
+<p><strong>翻滾啟動時機的研究現狀</strong> 🟠（PMC5260528；The Race Club；360swim）：
+研究以「tuck index（腳觸牆時臀部距牆距離）」為主要測量變數，而非「翻滾啟動距離」。目前共識：</p>
+<ul>
+<li>啟動太早 → 腳觸牆角度過垂直 → 推蹬方向偏上，水平速度損失</li>
+<li>啟動太晚 → 進牆速度損失（為避免撞牆而減速）或超過牆面</li>
+<li><strong>教練觀測慣用參照</strong>：最後一划末端時啟動翻滾，頭已低於水面</li>
+</ul>
+<blockquote>
+<p>🔴 <strong>仍待查</strong>：最優翻滾啟動距離的直接量化研究——目前文獻研究的是「觸牆時」的tuck index，不是「開始翻滾時距牆幾公尺」。因個體差異（身高/划幅）大，此項可能無跨選手通用值。</p>
+</blockquote>
+<hr>
+<h4 id="接觸與推蹬contact--push-off">接觸與推蹬（Contact &amp; Push-off）</h4>
+<p><strong>動作描述</strong> 🟠：</p>
+<ul>
+<li>雙腳與髖同寬觸牆</li>
+<li>觸牆同時雙臂已伸展至流線型姿勢</li>
+<li>背部平坦，臀部收緊</li>
+<li>推蹬過程中維持流線型，不在水中旋轉</li>
+</ul>
+<p><strong>物理邏輯</strong> 🔵：
+雙臂提前到流線型（在腳觸牆之前完成）讓推蹬的力量直接轉換為流線型姿勢的水平速度，不需要在推蹬後再整理姿勢——那樣會浪費推蹬動能。</p>
+<p><strong>推蹬方向與出水速度</strong> 🟢（PubMed 40252339）：
+推蹬力向量與重心軌跡的對齊程度，是出水速度的強預測因子（r = 0.76）。腳觸牆的位置和深度直接影響推蹬方向——觸牆過深 → 推蹬方向偏上 → 水平速度損失。</p>
+<p><strong>最優觸牆膝蓋屈曲角度</strong> 🟢（PMC6409673；Kinetic Analysis of Swimming Flip-Turn Push-Off Techniques）：</p>
+<ul>
+<li>觸牆時膝蓋屈曲角度 <strong>100–120°</strong> 為最優範圍</li>
+<li>機制：此角度讓股四頭肌處於最佳力–長度關係，預載彈性能（SSC）最大化</li>
+<li>角度過小（&lt; 90°）→ 腿部過度彎曲，超出最佳力–長度曲線，推力下降</li>
+<li>角度過大（&gt; 120°）→ 預載不足，推蹬衝量減少</li>
+</ul>
+<blockquote>
+<p>⚠️ 100–120° 為研究均值範圍，與個人肌力特性有關；但至少確立了「不是越直越好、也不是越彎越好」的雙邊邊界。</p>
+</blockquote>
+<hr>
+<h4 id="水下與出水underwater--breakout">水下與出水（Underwater &amp; Breakout）</h4>
+<p>→ 詳見第參章「水下蝶腳（UDK）」</p>
+<hr>
+<h3 id="22-仰式轉身backstroke-flip-turn">2.2 仰式轉身（Backstroke Flip Turn）</h3>
+<h4 id="接近與旋轉approach--rotation-1">接近與旋轉（Approach &amp; Rotation）</h4>
+<p><strong>動作描述</strong> 🟠：</p>
+<ul>
+<li>維持游泳速度與划頻</li>
+<li>翻轉那一划，手指朝下入水（這一划是自由式動作）</li>
+<li>頭部朝下，視線看向池底</li>
+<li>從腰部開始彎曲，跟隨入水手方向翻滾</li>
+<li>臀部維持在水面附近</li>
+<li>膝蓋收向腹部</li>
+</ul>
+<p><strong>注意</strong>：仰式轉身的翻滾動作與自由式翻滾相同——泳者翻轉成俯臥姿才能踢牆，這不違規（FINA 規則允許翻轉後以俯臥姿觸牆，但需在轉身過程中連續完成）。</p>
+<p><strong>旗幟計步系統</strong> 🟠（U.S. Masters Swimming）：</p>
+<p>旗幟（5m）到牆的划手次數隨游速改變而變動，<strong>沒有跨選手通用數字</strong>，也沒有單一選手適用所有速度的固定數字：</p>
+<blockquote>
+<p>「旗幟到牆的划手次數取決於速度與划效……游速快慢會讓你比預期更靠近或更遠離牆。」 — USMS 🟠</p>
+</blockquote>
+<p><strong>實務做法</strong>：在慢速、中速、比賽速度三種條件下各自標定步數，定期重新確認（訓練量增加後划幅改變，步數也會跟著變）。</p>
+<blockquote>
+<p>🔴 <strong>仍待查</strong>：系統性研究不同游速下仰式計步的變化量——目前教練觀測成立，缺乏量化數據。</p>
+</blockquote>
+<hr>
+<h4 id="接觸與推蹬contact--push-off-1">接觸與推蹬（Contact &amp; Push-off）</h4>
+<p><strong>動作描述</strong> 🟠：</p>
+<ul>
+<li>雙腳與髖同寬觸牆</li>
+<li>觸牆同時雙臂伸展至流線型</li>
+<li>背部平坦，臀部收緊</li>
+<li>推蹬過程中維持流線型</li>
+</ul>
+<hr>
+<h4 id="水下與出水underwater--breakout-1">水下與出水（Underwater &amp; Breakout）</h4>
+<p>→ 詳見第參章「水下蝶腳（UDK）」，仰式水下採仰姿 UDK，出水時鼻子需在水面</p>
+<hr>
+<h3 id="23-蛙式轉身breaststroke-turn">2.3 蛙式轉身（Breaststroke Turn）</h3>
+<h4 id="接近與旋轉approach--rotation-2">接近與旋轉（Approach &amp; Rotation）</h4>
+<p><strong>動作描述</strong> 🟠：</p>
+<ul>
+<li>維持速度，以完整最後一划結束（完整推水 + 恢復）</li>
+<li>身體保持平坦在水面</li>
+<li>雙手同時觸牆（規則要求）</li>
+<li>一手先落下，雙肩保持與牆面平行直到該手落下</li>
+<li>落下手經過髖部時，肩部開始旋轉</li>
+<li>雙腿從身體下方穿過</li>
+<li>身體向後倒落同時，雙腿向牆延伸</li>
+</ul>
+<p><strong>最後一划策略</strong> 🔵 + 🟠：
+完整推水後觸牆優於提前收手「湊牆」。進牆速度是轉身成績的關鍵（見 2.0 節）；提前收手讓速度在觸牆前提早流失，且觸牆時手臂位置不理想 🟠（MySwimPro 2022：縮臂湊牆是直接列名的轉身錯誤）。</p>
+<p>距離判斷不準時，補一個踢腿而非縮短划手。</p>
+<blockquote>
+<p>🔴 <strong>仍待查</strong>：完整最後一划 vs 提前短划的時間差直接實測數據（目前邏輯 + 教練觀測成立，缺控制組量化）。</p>
+</blockquote>
+<hr>
+<h4 id="接觸與推蹬contact--push-off-2">接觸與推蹬（Contact &amp; Push-off）</h4>
+<p><strong>動作描述</strong> 🟠：</p>
+<ul>
+<li>雙腳與髖同寬觸牆</li>
+<li>觸牆同時雙臂伸展至流線型</li>
+<li>背部平坦，臀部收緊</li>
+<li>推蹬過程中不旋轉</li>
+</ul>
+<p><strong>最優觸牆深度</strong> 🟢（PMC8960438，Biomechanical Features of Backstroke to Breaststroke Transition Techniques）：</p>
+<ul>
+<li>最優腳觸牆深度：<strong>30–40 cm</strong>，此深度下水平推蹬速度最佳</li>
+<li>觸牆過深 → 推蹬方向偏上，水平速度損失</li>
+<li>髖部不應主動下沉來「找牆」——腳的深度應由縮腿路徑自然決定 🔵</li>
+</ul>
+<blockquote>
+<p>⚠️ 此數據來自背→蛙 IM 轉身研究，適用於蛙式轉身的通用性仍可參考，但蛙式純轉身的直接研究較少。</p>
+</blockquote>
+<hr>
+<h4 id="水下與出水underwater--breakout-2">水下與出水（Underwater &amp; Breakout）</h4>
+<p><strong>動作描述</strong> 🟠：</p>
+<ul>
+<li>維持流線型滑行</li>
+<li>滑行後進行 pullout（水下单次划手）</li>
+<li>以手指向下啟動拉水</li>
+<li>拉水後頸部在流線型中完全伸展</li>
+<li>雙手在腳收回前恢復到臉部位置</li>
+<li>蛙式踢水時膝蓋朝後</li>
+</ul>
+<p><strong>三種 Pullout 技術</strong> 🟢（PMC9445308，Frontiers 2022；世界級精英樣本 150 次試驗）：</p>
+<table>
+	<thead>
+			<tr>
+					<th>技術</th>
+					<th>描述</th>
+					<th>使用比例</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>Combined</strong>（合併式）</td>
+					<td>蝶腳與拉手動作在時間上部分重疊</td>
+					<td>71 次（最多）</td>
+			</tr>
+			<tr>
+					<td><strong>Fly-Kick First</strong>（蝶腳先行）</td>
+					<td>蝶腳完成後才開始拉手</td>
+					<td>65 次</td>
+			</tr>
+			<tr>
+					<td><strong>Pull-Down First</strong>（拉手先行）</td>
+					<td>拉手完成後才做蝶腳</td>
+					<td>14 次（最少）</td>
+			</tr>
+	</tbody>
+</table>
+<p><strong>重要發現</strong>：三種技術在 50m、100m、200m 蛙式成績間<strong>無統計顯著差異</strong>——無單一最優技術。性別傾向：男性偏好 Combined，女性偏好 Fly-Kick First。技術選擇應依個人測試決定，不應強制統一模式。</p>
+<p><strong>水下滑行深度</strong> 🟢（PMC8960438）：最優滑行深度 0.4–0.6 m（來自背→蛙轉身研究，蛙式 pullout 適用性可參考）。</p>
+<blockquote>
+<p>🔴 <strong>仍待查</strong>：Pullout 各動作（滑行→蝶腳→拉手→踢腿）的<strong>最優時機量化</strong>——目前有技術分類與成績比較，但各動作最佳持續時間（幀數/秒數）缺乏直接研究。</p>
+</blockquote>
+<hr>
+<h3 id="24-蝶式轉身butterfly-turn">2.4 蝶式轉身（Butterfly Turn）</h3>
+<h4 id="接近與旋轉approach--rotation-3">接近與旋轉（Approach &amp; Rotation）</h4>
+<p><strong>動作描述</strong> 🟠：</p>
+<ul>
+<li>維持速度，以完整最後一划結束</li>
+<li>身體保持平坦在水面</li>
+<li>雙手同時觸牆（規則要求）</li>
+<li>一手先落下，雙肩保持與牆面平行直到該手落下</li>
+<li>落下手經過髖部時，肩部開始旋轉</li>
+<li>雙腿從身體下方穿過</li>
+<li>身體向後倒落同時，雙腿向牆延伸</li>
+</ul>
+<p>（接近與旋轉動作與蛙式相同）</p>
+<hr>
+<h4 id="接觸與推蹬contact--push-off-3">接觸與推蹬（Contact &amp; Push-off）</h4>
+<p><strong>動作描述</strong> 🟠：同蛙式轉身</p>
+<hr>
+<h4 id="水下與出水underwater--breakout-3">水下與出水（Underwater &amp; Breakout）</h4>
+<p>→ 詳見第參章「水下蝶腳（UDK）」</p>
+<hr>
+<h3 id="25-個人混合式轉身im-turns">2.5 個人混合式轉身（IM Turns）</h3>
+<h4 id="蝶背into-backstroke">蝶→背（Into Backstroke）</h4>
+<p>規則：蝶式觸牆後，轉身推出進入仰式游泳方向。雙手同時觸牆（蝶式規則）。</p>
+<p><strong>蝶→背是最快的 IM 轉身</strong> 🟢（PubMed 30694108，Gonjo et al. 2018）：
+四式 IM 轉身中，蝶→背的轉身時間最短——因為不需要執行翻滾，雙手直接觸牆後腳即可落牆。</p>
+<p><strong>常見效率損失</strong> 🟠（USMS；SGSwim）：</p>
+<table>
+	<thead>
+			<tr>
+					<th>問題</th>
+					<th>機制</th>
+					<th>修正</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>觸牆後停頓</td>
+					<td>手碰牆後「確認」了才開始縮腿</td>
+					<td>觸牆同時啟動縮腿，不停頓</td>
+			</tr>
+			<tr>
+					<td>旋轉過慢</td>
+					<td>縮腿路徑過長，腳找牆太慢</td>
+					<td>膝蓋快速收向胸口，縮短翻轉半徑</td>
+			</tr>
+			<tr>
+					<td>多吸一口氣</td>
+					<td>觸牆後抬頭換氣，打斷旋轉動量</td>
+					<td>轉身全程閉氣，出發後在流線型滑行中才換氣</td>
+			</tr>
+	</tbody>
+</table>
+<p><strong>推出與水下</strong> 🔵：
+推出後以仰臥姿維持流線型，進入仰姿 UDK，出水時的呼吸節奏要提前計劃（因為剛完成一段蝶式，呼吸債會影響出水後的第一划判斷）。</p>
+<hr>
+<h4 id="背蛙into-breaststroke">背→蛙（Into Breaststroke）</h4>
+<p><strong>FINA/World Aquatics 規則精確解讀</strong> 🟢（FINA Swimming Technical Rules SW 6.4；USA Swimming；USMS）：</p>
+<table>
+	<thead>
+			<tr>
+					<th>動作時機</th>
+					<th>規則要求</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>觸牆時</td>
+					<td>肩部必須仍在仰式位置（與水平面夾角 &lt; 90°，即背面朝上方）</td>
+			</tr>
+			<tr>
+					<td>離牆時</td>
+					<td>肩部必須已通過垂直面朝向蛙式方向（≥ 90° 旋轉完成）</td>
+			</tr>
+			<tr>
+					<td>第一次划手前</td>
+					<td>必須已轉為蛙式姿勢（俯臥，雙手同步）</td>
+			</tr>
+	</tbody>
+</table>
+<p>「觸牆時仰臥」與「離牆時俯臥」是兩個獨立的時間點要求，中間的旋轉在牆上完成。</p>
+<p><strong>動作描述</strong> 🟠：</p>
+<ul>
+<li>最後一划以充分伸展完成</li>
+<li>觸牆前全程保持仰姿（肩部不過垂直面）</li>
+<li>觸牆後從腰部彎曲啟動旋轉</li>
+<li>雙腿收向腹部，從身體上方越過至側邊</li>
+<li>身體側臥 → 俯臥的旋轉中雙腿延伸至牆</li>
+<li>離牆時已轉為俯臥，推蹬後採蛙式 pullout 出水</li>
+</ul>
+<p><strong>常見犯規點</strong> 🟠：
+觸牆前肩部過垂直面（提前側滾看牆），或離牆時尚未轉為俯臥。前者在長距離 IM 中常見（疲勞時提前轉身，加快觸牆）。</p>
+<hr>
+<h4 id="背蛙三種轉法比較">背→蛙三種轉法比較</h4>
+<table>
+	<thead>
+			<tr>
+					<th>轉法</th>
+					<th>中文別名</th>
+					<th>核心動作</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Open turn</td>
+					<td>側轉法 / 開放式轉身</td>
+					<td>略側身觸牆，以臀部為軸旋轉，雙腿收向胸口</td>
+			</tr>
+			<tr>
+					<td>Bucket / Somersault turn</td>
+					<td>翻滾法 / 桶轉</td>
+					<td>向後翻滾（類後空翻），手掌向下深觸牆後帶動翻轉</td>
+			</tr>
+			<tr>
+					<td>Crossover turn</td>
+					<td>交叉轉法</td>
+					<td>上臂越過身體觸牆，臀部順著觸牆手方向旋轉帶動腳落牆</td>
+			</tr>
+	</tbody>
+</table>
+<p><strong>動作力學差異</strong> 🟢（PMC7918682）：</p>
+<table>
+	<thead>
+			<tr>
+					<th>轉法</th>
+					<th>推出速度</th>
+					<th>腳觸牆深度指數</th>
+					<th>特點</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Crossover</td>
+					<td><strong>2.17 ± 0.05 m/s</strong>（最高）</td>
+					<td>0.50（最淺）</td>
+					<td>腳接觸牆面位置最淺，推蹬方向最水平</td>
+			</tr>
+			<tr>
+					<td>Open</td>
+					<td>2.03 m/s</td>
+					<td>0.59</td>
+					<td>動作幅度大，旋轉弧度長</td>
+			</tr>
+			<tr>
+					<td>Somersault</td>
+					<td>2.02 m/s</td>
+					<td>0.68（最深）</td>
+					<td>腳觸牆最深，推蹬方向偏上</td>
+			</tr>
+	</tbody>
+</table>
+<p><strong>關鍵研究發現</strong> 🟢（PMC7918682）：
+Crossover 推出速度雖然統計顯著高於其他轉法（p = 0.01），<strong>但 7.5m 成績三種技術無顯著差異</strong>（平均出水時間 4.86 ± 0.98 s，出水距離 6.04 ± 0.94 m）。</p>
+<p>推出速度的優勢在 7.5m 內被抵消，可能機制如下 🔵：</p>
+<ol>
+<li><strong>速度差距小，阻力快速均等化</strong>：差距僅 0.14 m/s（2.17 vs 2.03），水中阻力在 7.5m 內足以將此差距抹平。</li>
+<li><strong>推出後 pullout 品質主導後段</strong>：7.5m 成績 = 推出 + 水下滑行 + pullout + 出水。Crossover 旋轉複雜，若殘留旋轉動量導致流線型品質下降，pushoff 優勢被 pullout 損失抵消；Open turn 旋轉弧度大但結束後身體位置更穩定。</li>
+<li><strong>腳觸牆深度影響水下路徑</strong>：Crossover 腳觸牆最淺（0.50），推出最水平但水下路徑也最淺、出水點更近；Somersault 腳最深（0.68），推出方向偏上但換來更深的水下滑行距離。三種技術在「推出速度」與「水下路徑效率」之間做不同取捨，7.5m 正好拉平。</li>
+<li><strong>樣本為青少年選手，Crossover 尚未熟練</strong> 🟠：PMC7918682 受試者為 age-group swimmers。Crossover 技術要求最高，若執行不穩定，推出速度的理論優勢在執行誤差中消失。菁英選手樣本結果未知。</li>
+</ol>
+<p><strong>教學含義</strong> 🔵：這個發現比「Crossover 最快」更有價值——<strong>執行穩定性可能比技術選擇更重要</strong>。把 Open turn 練到每次完全一致，可能比把 Crossover 練到 80% 穩定更快。技術選擇應以個人計時測試為依據，而非假設 Crossover 必然最優。</p>
+<p><strong>各轉法適用情境</strong> 🟠（360swim；USMS；Swimming World）：</p>
+<table>
+	<thead>
+			<tr>
+					<th>轉法</th>
+					<th>適用情境</th>
+					<th>主要限制</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Open turn</td>
+					<td>初學者；長距離 IM；換氣需求高</td>
+					<td>旋轉弧度最長，速度最慢</td>
+			</tr>
+			<tr>
+					<td>Bucket turn</td>
+					<td>中等技術水準；需要快速觸牆</td>
+					<td>需要良好憋氣能力，翻滾後 pullout 氧耗高</td>
+			</tr>
+			<tr>
+					<td>Crossover turn</td>
+					<td>短距離 IM（100/200）；技術熟練者</td>
+					<td>技術要求最高；失誤易犯規（提前過垂直面）</td>
+			</tr>
+	</tbody>
+</table>
+<p><strong>選擇策略</strong> 🟠：
+技術選擇不純粹看速度——長距離 IM（400 IM）疲勞段若無法完整執行 Crossover，Open turn 更穩定。個人最快轉法應透過計時測試（觸牆到 7.5m 時間）確認，而非假設 Crossover 必然最優。</p>
+<hr>
+<h4 id="蛙自into-freestyle">蛙→自（Into Freestyle）</h4>
+<p><strong>動作描述</strong> 🟠：</p>
+<ul>
+<li>雙手同時觸牆（蛙式規則）</li>
+<li>後續動作同蝶式轉身</li>
+<li>水下採 UDK 出水（蝶式踢轉換捷式踢）</li>
+</ul>
+<hr>
+<h2 id="參水下蝶腳underwater-dolphin-kickudk">參、水下蝶腳（Underwater Dolphin Kick，UDK）</h2>
+<blockquote>
+<p>水下蝶腳已獨立成完整深度技術分析文件：<br>
+→ <strong><code>水下蝶腳技術分析.md</code></strong></p>
+</blockquote>
+<p>以下為本文脈絡所需的核心摘要。</p>
+<hr>
+<h3 id="31-為什麼水下比水面快摘要">3.1 為什麼水下比水面快（摘要）</h3>
+<ul>
+<li>水下無波浪阻力，出發/轉身後的初始速度遠高於游泳速度 🔵</li>
+<li>實用深度：0.4–0.6 m；超過 0.75 m 無額外效益 🟢（Lyttle 1998；Novais 2012）</li>
+<li>精英選手的優勢來自<strong>更快的踢腿速度</strong>，而非更長的水下距離 🟢（Frontiers 2021）</li>
+</ul>
+<hr>
+<h3 id="32-技術核心摘要">3.2 技術核心（摘要）</h3>
+<ul>
+<li>入水後先滑行再起踢；小幅度高頻率；臀部固定 🟠</li>
+<li>速度關鍵：<strong>上踢的腳尖峰值速度</strong> 🟢</li>
+<li>最後一踢與第一個抓水同步，不留空窗 🟠</li>
+</ul>
+<hr>
+<h3 id="33-各式-udk-姿勢差異">3.3 各式 UDK 姿勢差異</h3>
+<table>
+	<thead>
+			<tr>
+					<th>泳式</th>
+					<th>姿勢</th>
+					<th>特殊要點</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>自由式</td>
+					<td>俯臥</td>
+					<td>出水時轉換為捷式踢，最後一踢與第一抓水同步</td>
+			</tr>
+			<tr>
+					<td>仰式</td>
+					<td>仰臥</td>
+					<td>出水時鼻子需在水面，第一抓水後轉捷式踢</td>
+			</tr>
+			<tr>
+					<td>蝶式</td>
+					<td>俯臥</td>
+					<td>出水時頭部中立</td>
+			</tr>
+			<tr>
+					<td>蛙式</td>
+					<td>俯臥</td>
+					<td><strong>不用 UDK</strong>，改為 pullout（水下単次划手 + 一次蛙踢）</td>
+			</tr>
+	</tbody>
+</table>
+<hr>
+<h2 id="肆感知意涵待橋接">肆、感知意涵（待橋接）</h2>
+<blockquote>
+<p>本章為框架佔位。出發、轉身、UDK 的感知目標語言將在 <code>Bridge/出發轉身感知橋接.md</code> 展開。</p>
+</blockquote>
+<p>各技術階段的感知問題預覽：</p>
+<ul>
+<li><strong>出發</strong>：起跳瞬間身體的「向前墜落」感 vs 「主動跳出」感——哪個才是感知目標？</li>
+<li><strong>飛行入水</strong>：入水後有無「被水接住」的感覺，還是感覺到衝擊？</li>
+<li><strong>轉身觸牆</strong>：推蹬的力量感從腳底傳到全身流線型的連貫感</li>
+<li><strong>UDK</strong>：核心收緊下，每一踢的「傳導感」——力量從核心到腳尖的波浪感是否連貫？</li>
+<li><strong>出水 Breakout</strong>：最後一踢到第一抓水的感知連接——有沒有「空窗期」？</li>
+</ul>
+<hr>
+<hr>
+<h2 id="文件版本紀錄與查證說明">文件版本紀錄與查證說明</h2>
+<h3 id="版本歷程">版本歷程</h3>
+<ul>
+<li><strong>骨架版</strong> · 2026-04-14：Swimming Canada ADM 附錄A 作為物理描述骨架</li>
+<li><strong>文獻補充版</strong> · 2026-04-14：補入實證文獻，🔴 由 12 降至 6</li>
+<li><strong>查證修正版</strong> · 2026-04-14：修正兩處 AI 生成錯誤數據（見下）</li>
+<li><strong>擴充版</strong> · 2026-04-16（第一輪）：補入具名來源（Benjanuvatra 2007；Wilson 1983；Takai PubMed 27149652；PMC8700779；PMC4234766；PLOS ONE PMC7598512；PMC6409673；PubMed 40252360；PMC8960438）；新增 2.0 轉身共用力學節；GRF/仰式計步/蛙式觸牆深度 🔴 填入；🔴 由 6 降至 8 項</li>
+<li><strong>查證版</strong> · 2026-04-16（第二輪）：蝶→背（PubMed 30694108）+ 背→蛙（FINA SW 6.4）+ 自由式觸牆膝蓋角度（100–120°，PMC6409673）填入；過淺入水機制補充（PubMed 25455956）；Pullout 三技術分類（PMC9445308）+ 翻滾啟動機制說明補充；仰式 OBL2 數據（PubMed 28975846）補充；🔴 由 8 降至 5 項（餘下均屬研究空白或個體差異過大無通用值）</li>
+</ul>
+<h3 id="已修正的錯誤">已修正的錯誤</h3>
+<table>
+	<thead>
+			<tr>
+					<th>錯誤位置</th>
+					<th>原始內容</th>
+					<th>修正後</th>
+					<th>問題性質</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>3.1 深度描述</td>
+					<td>「0.6–0.7m 消除波浪阻力」歸源 🟢</td>
+					<td>改為表格，分別引用 Lyttle 1998 與 Novais et al. 2012，用「降低」而非「消除」</td>
+					<td>AI 誇大用詞 + 部分歸源錯誤</td>
+			</tr>
+			<tr>
+					<td>3.1 速度表</td>
+					<td>男 2.17/2.04 m/s，女 1.90/1.79 m/s，歸源「Frontiers 2021」</td>
+					<td>移除具體對比數值，改述 Frontiers 2021 實際報告內容（競技層級水下速度差異）</td>
+					<td>AI 混搭不同來源數字，歸源錯誤</td>
+			</tr>
+			<tr>
+					<td>3.3 仰式案例</td>
+					<td>「Frontiers in Sports, 2025」🟢</td>
+					<td>降格為 🟠，改述為「前衛且具爭議」</td>
+					<td>2025 年文獻來源未能精確確認</td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="你提供的文獻清單查證結果">你提供的文獻清單查證結果</h3>
+<p><strong>正確無誤：</strong></p>
+<ul>
+<li>Welcher et al. (2008), Sports Biomechanics 7(1), 100-113 ✅</li>
+<li>Cossor &amp; Mason (2001), ISBS ✅</li>
+<li>Vantorre et al. (2010), Int J Sports Medicine 31(12), 887-893 ✅</li>
+<li>Connaboy et al. (2016), J Sports Sciences ✅</li>
+</ul>
+<p><strong>期刊名稱有誤（論文存在，期刊不對）：</strong></p>
+<ul>
+<li>Lyttle et al. (2000)：應為 <strong>Journal of Sports Sciences 18, 801-807</strong>（非 Journal of Applied Biomechanics）</li>
+<li>Blanksby et al. (1996)：應為 <strong>Journal of Swimming Research 11, 40-45</strong>（非 Journal of Applied Biomechanics）</li>
+</ul>
+<p><strong>作者或年份有誤：</strong></p>
+<ul>
+<li>Houel et al. (2013)：實際作者為 <strong>Novais, Silva, Mantha et al.</strong>，年份為 <strong>2012</strong>，Journal of Human Kinetics vol.33</li>
+</ul>
+<p><strong>無法確認：</strong></p>
+<ul>
+<li>Puel et al. (2010), Journal of Biomechanics（Puel 是真實研究者，但此特定論文未能在 PubMed 確認）</li>
+</ul>
+<h3 id="剩餘-7-處">剩餘 🔴（7 處）</h3>
+<p><em>2026-04-16 更新：蝶→背（PubMed 30694108）+ 背→蛙（FINA SW 6.4）+ 自由式觸牆膝蓋角度（PMC6409673）已填入移出。Pullout 三技術分類（PMC9445308）+ 翻滾啟動機制已補充，但精確最優值仍無研究，保留 🔴。餘下 6 條均屬研究空白或個體差異過大無通用值。</em></p>
+<table>
+	<thead>
+			<tr>
+					<th>位置</th>
+					<th>待查項目</th>
+					<th>難度預估</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>1.2 零位姿勢</td>
+					<td>臀部高度最優解（目前無直接研究）</td>
+					<td>難，可能無數據</td>
+			</tr>
+			<tr>
+					<td>1.2 入水點</td>
+					<td>過淺入水的阻力<strong>直接量化</strong>（CD 或增量百分比）</td>
+					<td>難，現有研究僅有時間比較</td>
+			</tr>
+			<tr>
+					<td>1.4 仰式起跳</td>
+					<td>腳高上限 + 最優起跳角度數值</td>
+					<td>中等，仰式文獻確認趨勢但無具體範圍</td>
+			</tr>
+			<tr>
+					<td>2.1 自由式翻滾</td>
+					<td>最優翻滾啟動距離直接量化</td>
+					<td>難，個體差異大，可能無通用值</td>
+			</tr>
+			<tr>
+					<td>2.2 仰式計步</td>
+					<td>不同游速下計步變化的量化研究</td>
+					<td>中等，USMS 確認現象但無系統性量化</td>
+			</tr>
+			<tr>
+					<td>2.3 蛙式</td>
+					<td>完整最後一划 vs 短划的時間差實測</td>
+					<td>難，缺控制組研究</td>
+			</tr>
+			<tr>
+					<td>2.3 蛙式水下</td>
+					<td>Pullout 各動作最優持續時間量化</td>
+					<td>難，有技術分類但無時機最優值</td>
+			</tr>
+	</tbody>
+</table>
+
+  </div>
+
+  <footer class="vx-article-footer">
+    <hr class="vx-divider">
+    <a href="https://hangsau.github.io/cortex/vortex/instructional/" class="vx-back-link">← 返回 技術深探</a>
+  </footer>
+
+</div>
+
+  </main>
+  <footer class="site-footer">
+  <p>Cortex</p>
+</footer>
+
+  
+</body>
+</html>

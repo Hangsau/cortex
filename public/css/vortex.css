@@ -802,3 +802,19 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
   .vx-pz-table { font-size: 13.5px; }
   .vx-pz-table th, .vx-pz-table td { padding: 7px 9px; }
 }
+
+/* 水感發展頁 — 補充（meta 行 / 多行區塊） */
+.vx-lvl-h {
+  font-family: var(--vx-display); font-size: 12.5px; letter-spacing: 0.05em;
+  text-transform: uppercase; color: var(--vx-faint); margin: 16px 0 6px;
+}
+.vx-lvl-meta { font-size: 14px; color: var(--vx-sub); line-height: 1.7; margin: 8px 0; }
+.vx-lvl-block {
+  font-size: 14px; color: var(--vx-sub); line-height: 1.75; margin: 10px 0;
+  white-space: pre-line;
+}
+.vx-lvl-prereq {
+  border-left: 2px solid var(--vx-accent, #c2553a); padding-left: 14px;
+  font-size: 15px; margin-top: 14px;
+}
+.vx-lvl-prereq a { font-weight: 600; }
