@@ -4,6 +4,7 @@
 
 網站已上線並完全正常：https://hangsau.github.io/cortex/  
 CI/CD 正常運作，push hugo-source 自動部署。  
+**Vortex 首頁編排校正 + 改水感優先漏斗（2026-06-15，commit c2de328 + 480c510，已 push + CI 綠）**：使用者要求全面檢查 vortex 編排。先修首頁三處（消除「什麼是水感」與新手入口雙重「從這開始」競爭、Technica/Instructional 原文降為 faint 註腳存檔列與成品資料庫分層、標題「六式」→「六大單元」因水下蝶腳/出發轉身非泳式）。再依使用者質疑「為何從泳式而非水感開始」重排為**水感優先**：核心命題是「技術是感知的輸出不是輸入」，原漏斗卻先帶人看動作分解（命題說不要先做的事）。新手入口從自由式改指向 `vortex/technica/water-sense-guide/`；masthead lead 改述「先懂水感→再挑一式」；「核心·先讀水感」整組上移到六式之前並加 step 框架說明（用 `.vx-list-desc`，零新 CSS）；六式改框成「六大單元·挑一個開始練」第二步；水感理論頁概覽加白話鉤子（神經科學仍在 `<details>` 內，降低零基礎彈走）。三頁頁內編排（database 扁平查詢 / levels / 水感理論 master-detail）已查，編排良好不需結構性改動；levels↔水感理論雙向互連在頁面層已實現感知優先。本機 hugo build 綠 + 渲染 HTML 確認順序（核心在六大單元之前）。⚠ 未做 Playwright 截圖（此 session 無 playwright MCP）。
 **ADM 已從 library 遷入 vortex section，用 vortex 設計語言重建（commit 8710ad1，已 push）。**
 **週期化（Periodization）呈現層已上線：canonical/periodization → sync → data/periodization → vortex-periodization 期刊式單頁（commit 28cffd3，已 push）。**
 **週期化外部文獻擴充 + plain_zh 白話層（2026-06-10，commit 31cea81）**：canonical 加 plain_zh（學員/家長/教練白話）+ 游泳外部文獻（Maglischo 六分區/各距離供能/TID/Hellard 年度結構/青少年 LTAD）。sync 加 `_index.yaml`；vortex-periodization.html §1–§6 渲染 plain_zh + §5 加 4 游泳區塊 + 新增 §7 游泳年度結構 §8 青少年 LTAD（windows of trainability 標 contested）。hugo build 綠。`.vx-pz-plain` 樣式（vortex.css）。
