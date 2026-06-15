@@ -83,4 +83,40 @@
       });
     });
   });
+
+  // ── 練習庫多軸篩選（環節 × 水感階段，AND 組合） ──
+  root.querySelectorAll('.vx-drill-filters').forEach(function (wrap) {
+    var scope = wrap.closest('.vx-panel');
+    if (!scope) return;
+    var cards = Array.prototype.slice.call(scope.querySelectorAll('.vx-drillcard'));
+    var bars = Array.prototype.slice.call(wrap.querySelectorAll('.vx-filterbar'));
+    var active = {};
+    bars.forEach(function (bar) { active[bar.getAttribute('data-axis')] = 'all'; });
+
+    function apply() {
+      cards.forEach(function (card) {
+        var show = true;
+        bars.forEach(function (bar) {
+          var axis = bar.getAttribute('data-axis');
+          var val = active[axis];
+          if (val === 'all') return;
+          var cardVal = card.getAttribute('data-' + axis) || '';
+          if (cardVal.split(' ').indexOf(val) === -1) show = false;
+        });
+        card.classList.toggle('is-hidden', !show);
+      });
+    }
+
+    bars.forEach(function (bar) {
+      var axis = bar.getAttribute('data-axis');
+      var chips = Array.prototype.slice.call(bar.querySelectorAll('.vx-chip'));
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          active[axis] = chip.getAttribute('data-val');
+          chips.forEach(function (c) { c.classList.toggle('is-active', c === chip); });
+          apply();
+        });
+      });
+    });
+  });
 })();

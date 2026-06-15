@@ -36,6 +36,18 @@
   {{ end }}
 {{ end }}
 
+{{/* ── 本式完整練習庫（依需求篩：環節 × 水感階段） ── */}}
+{{ $drillCatName := dict "breathing" "呼吸" "balance" "平衡" "kick" "踢腿" "arm" "划手" "timing" "銜接" "sculling" "搖櫓" }}
+{{ $strokeFull := index (dict "free" "freestyle" "back" "backstroke" "breast" "breaststroke" "fly" "butterfly" "udk" "underwater_dolphin_kick" "starts-turns" "starts_turns") $key }}
+{{ $strokeDrills := slice }}
+{{ with (index .Site.Data.vortex "drills") }}
+  {{ range .drills }}
+    {{ if in .strokes $strokeFull }}{{ $strokeDrills = $strokeDrills | append . }}{{ end }}
+  {{ end }}
+{{ end }}
+{{ $drillCats := slice }}{{ range $strokeDrills }}{{ $drillCats = $drillCats | append .category }}{{ end }}{{ $drillCats = $drillCats | uniq }}
+{{ $drillLevels := slice }}{{ range $strokeDrills }}{{ range .l_target }}{{ $drillLevels = $drillLevels | append . }}{{ end }}{{ end }}{{ $drillLevels = $drillLevels | uniq | sort }}
+
 <div class="vx-stroke">
   <div class="vx-stroke-wrap">
 
@@ -62,6 +74,15 @@
           {{ end }}
         </ul>
       </div>
+
+      {{ if $strokeDrills }}
+      <div class="vx-rail-group">練習</div>
+      <div class="vx-rail-scroll">
+        <ul class="vx-rail-list">
+          <li><button class="vx-navlink" type="button" data-target="drills"><span class="n">D</span>練習庫 {{ len $strokeDrills }}</button></li>
+        </ul>
+      </div>
+      {{ end }}
 
       <div class="vx-rail-group">深入</div>
       <div class="vx-rail-scroll">
@@ -230,6 +251,40 @@
           </details>
           {{ end }}
         </div>
+      </section>
+      {{ end }}
+
+      {{/* ── 練習庫（依需求篩） ── */}}
+      {{ if $strokeDrills }}
+      <section class="vx-panel" id="drills">
+        <span class="vx-sec-no">{{ $zh }} · 練習庫</span>
+        <h2>練習庫 · {{ len $strokeDrills }} 個練習</h2>
+        <p class="vx-panel-lead">這一式的全部練習。依需求挑：想練哪個環節，或你在哪個水感階段。</p>
+        <div class="vx-drill-filters">
+          <div class="vx-filterbar" data-axis="cat">
+            <span class="vx-filterbar-label">環節</span>
+            <button class="vx-chip is-active" type="button" data-val="all">全部 {{ len $strokeDrills }}</button>
+            {{ range $drillCats }}<button class="vx-chip" type="button" data-val="{{ . }}">{{ index $drillCatName . }}</button>{{ end }}
+          </div>
+          <div class="vx-filterbar" data-axis="level">
+            <span class="vx-filterbar-label">水感階段</span>
+            <button class="vx-chip is-active" type="button" data-val="all">全部</button>
+            {{ range $drillLevels }}<button class="vx-chip" type="button" data-val="{{ . }}">{{ . }}</button>{{ end }}
+          </div>
+        </div>
+        {{ range $strokeDrills }}
+        <details class="vx-card vx-drillcard" data-cat="{{ .category }}" data-level="{{ delimit .l_target " " }}">
+          <summary><span class="vx-cardcat">{{ .id }} · {{ index $drillCatName .category }}{{ with .l_target }} · {{ delimit . " " }}{{ end }}</span><span class="vx-cardtitle">{{ .name_zh }} <span class="vx-card-en">{{ .name_en }}</span></span></summary>
+          <div class="vx-card-body">
+            {{ with .purpose_zh }}<p>{{ . }}</p>{{ end }}
+            {{ with .how_to }}<span class="vx-label">怎麼做</span><ol>{{ range . }}<li>{{ . }}</li>{{ end }}</ol>{{ end }}
+            {{ with .perception_goal }}<span class="vx-label">感知目標</span><p class="vx-correct">{{ . }}</p>{{ end }}
+            {{ with .success_signal }}<span class="vx-label">成功訊號</span><p>{{ . }}</p>{{ end }}
+            {{ with .failure_signal }}<span class="vx-label">要避免</span><p class="vx-mis">{{ . }}</p>{{ end }}
+            {{ with .equipment }}<p class="vx-drill-eq">器材：{{ delimit . "、" }}</p>{{ end }}
+          </div>
+        </details>
+        {{ end }}
       </section>
       {{ end }}
 

@@ -33,6 +33,9 @@
   </div>
 
   {{ $strokeChips := slice "all" "free" "back" "breast" "fly" "udk" "starts-turns" }}
+  {{ $drillCatName := dict "breathing" "呼吸" "balance" "平衡" "kick" "踢腿" "arm" "划手" "timing" "銜接" "sculling" "搖櫓" }}
+  {{ $drillCats := slice }}{{ range $drills }}{{ $drillCats = $drillCats | append .category }}{{ end }}{{ $drillCats = $drillCats | uniq }}
+  {{ $drillLevels := slice }}{{ range $drills }}{{ range .l_target }}{{ $drillLevels = $drillLevels | append . }}{{ end }}{{ end }}{{ $drillLevels = $drillLevels | uniq | sort }}
 
   {{/* ── 誤區 ── */}}
   <div class="vx-db-panel is-active" id="db-errors">
@@ -68,10 +71,12 @@
   {{/* ── 練習 ── */}}
   <div class="vx-db-panel" id="db-drills">
     <div class="vx-filters">{{ range $strokeChips }}<button class="vx-chip{{ if eq . "all" }} is-active{{ end }}" type="button" data-s="{{ . }}">{{ if eq . "all" }}全部{{ else }}{{ index $strokeZh . }}{{ end }}</button>{{ end }}</div>
+    <div class="vx-filters"><span class="vx-filterbar-label">環節</span><button class="vx-chip is-active" type="button" data-cat="all">全部</button>{{ range $drillCats }}<button class="vx-chip" type="button" data-cat="{{ . }}">{{ index $drillCatName . }}</button>{{ end }}</div>
+    <div class="vx-filters"><span class="vx-filterbar-label">水感階段</span><button class="vx-chip is-active" type="button" data-level="all">全部</button>{{ range $drillLevels }}<button class="vx-chip" type="button" data-level="{{ . }}">{{ . }}</button>{{ end }}</div>
     {{ range $drills }}
     {{ $sk := slice }}{{ range .strokes }}{{ with index $drillKey . }}{{ $sk = $sk | append . }}{{ end }}{{ end }}
-    <details class="vx-card vx-tech" data-s="{{ delimit $sk " " }}" data-text="{{ lower (printf "%s %s %s" .name_zh .name_en .purpose_zh) }}">
-      <summary><span class="vx-cardcat">{{ .id }} · {{ delimit .l_target " " }}</span><span class="vx-cardtitle">{{ .name_zh }} <span class="vx-card-en">{{ .name_en }}</span></span></summary>
+    <details class="vx-card vx-tech" data-s="{{ delimit $sk " " }}" data-cat="{{ .category }}" data-level="{{ delimit .l_target " " }}" data-text="{{ lower (printf "%s %s %s" .name_zh .name_en .purpose_zh) }}">
+      <summary><span class="vx-cardcat">{{ .id }} · {{ index $drillCatName .category }} · {{ delimit .l_target " " }}</span><span class="vx-cardtitle">{{ .name_zh }} <span class="vx-card-en">{{ .name_en }}</span></span></summary>
       <div class="vx-card-body">
         {{ with .purpose_zh }}<p>{{ . }}</p>{{ end }}
         {{ with .how_to }}<span class="vx-label">怎麼做</span><ol>{{ range . }}<li>{{ . }}</li>{{ end }}</ol>{{ end }}
@@ -110,16 +115,31 @@
 
   function activePanel() { return document.querySelector('.vx-db-panel.is-active'); }
 
+  var AXES = ['s', 'cat', 'level'];
+
   function applyFilters() {
     var panel = activePanel(); if (!panel) return;
-    var sChip = panel.querySelector('.vx-chip.is-active');
-    var s = sChip ? sChip.getAttribute('data-s') : 'all';
+    var active = {};
+    panel.querySelectorAll('.vx-filters').forEach(function (bar) {
+      var chip = bar.querySelector('.vx-chip.is-active');
+      if (!chip) return;
+      AXES.forEach(function (axis) {
+        var v = chip.getAttribute('data-' + axis);
+        if (v !== null) active[axis] = v;
+      });
+    });
     var q = (input.value || '').trim().toLowerCase();
     panel.querySelectorAll('.vx-card').forEach(function (card) {
-      var sd = (card.getAttribute('data-s') || '').split(' ');
-      var okS = s === 'all' || sd.indexOf(s) !== -1 || sd.indexOf('common') !== -1;
+      var ok = true;
+      AXES.forEach(function (axis) {
+        var val = active[axis];
+        if (!val || val === 'all') return;
+        var cd = (card.getAttribute('data-' + axis) || '').split(' ');
+        var match = cd.indexOf(val) !== -1 || (axis === 's' && cd.indexOf('common') !== -1);
+        if (!match) ok = false;
+      });
       var okQ = !q || (card.getAttribute('data-text') || '').indexOf(q) !== -1;
-      card.classList.toggle('is-hidden', !(okS && okQ));
+      card.classList.toggle('is-hidden', !(ok && okQ));
     });
   }
 

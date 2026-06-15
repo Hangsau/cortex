@@ -421,6 +421,14 @@ details.vx-drill > summary .did {
 
 /* 卡片（誤區 / 深入）共用 */
 .vx-filters { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 22px; }
+
+/* 練習庫多軸篩選（環節 × 水感階段） */
+.vx-drill-filters { margin: 0 0 22px; }
+.vx-filterbar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 0 0 8px; }
+.vx-filterbar-label {
+  font-family: var(--vx-serif); font-size: 11px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--vx-faint); margin-right: 4px; min-width: 56px;
+}
 .vx-chip {
   font-family: var(--vx-serif); font-size: 13px;
   background: none; border: 1px solid var(--vx-rule2);
