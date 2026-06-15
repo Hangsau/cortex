@@ -62,6 +62,7 @@ CI/CD 正常運作，push hugo-source 自動部署。
 
 ## 已完成
 
+- [x] **跨泳式資料庫改成「需求優先」雙區**（2026-06-15，commit c070b89）— 資料庫頁重構為「想練什麼?」主角區(三軸 picker)+「已知道要查什麼?」配角區(3 tab);首頁升級兩條入口。詳見 Vortex section
 - [x] **依需求找 drill：泳式內練習庫 + 資料庫多軸篩選**（2026-06-15，commit dbe2b1b）— 每式頁新增「練習庫」面板列本式全部 drill，環節×水感階段雙軸 AND 篩選；資料庫練習 tab 同款；泛化 inline applyFilters 支援多軸。詳見 Vortex section
 - [x] **全站健康檢查 + 死碼清理**（2026-06-15）— 0 斷鏈確認；刪孤兒 cscs.css/flashcard.css/flashcard.js + 3 shortcode；停用 mojibake taxonomy；新增「維護注意事項」專節
 - [x] **氣質教學／教練應用併入適配度面板**（2026-06-12）— Keogh 三因子 + 九維度教學對照 + 三型基調 + INSIGHTS + 陷阱 + 游泳橋接，6 details 收合，連 UST，零新 CSS
@@ -190,6 +191,20 @@ TheVortexProject 內容整合進 my-site，作為公開知識展示。路徑 `co
 **已知技術債（非阻斷）：**
 - ⚠ layout 用 `.Site.Data.vortex`（Hugo 0.156 起 deprecated，未來版本移除）；專案其他舊 layout 也都觸發同 WARN。未來應統一改 `hugo.Data`。build 目前正常。
 - canonical-first：本次只動 my-site 公開層 layout/CSS/JS，**未動 TheVortexProject 原始 YAML 內容**（資料 schema 不變，只換呈現層）；swim-coach submodule 無需 bump（診斷層未變）
+
+### 跨泳式資料庫改成「需求優先」雙區（2026-06-15，commit c070b89）
+
+**起因**：上一版把「依需求找 drill」加進資料庫練習 tab,但使用者反映**很不明顯**。三個病因:① 首頁入口埋在最底一行小字;② 資料庫副標寫「已經知道要找什麼時用這裡」把新手擋在門外;③ 四個 tab 地位平等,唯一可行動的「練習」藏進第三個 tab,篩選鈕還要自己發現。
+
+**做法（不新建頁,重用既有 vx 元件,不動 canonical）：**
+- `vortex-database.html` 重構為兩個有標題的區塊:**主角 `.vx-needs`「想練什麼?」** 放最上面(環節×階段×泳式三軸 picker + 即時計數 + drill 清單),**配角 `.vx-lookup`「已經知道要查什麼?」** 放下面(誤區/機制/L指標三 tab,移除練習 tab)。兩套獨立 inline JS:needs 自含多軸 AND filter、lookup 沿用 tab+泳式+搜尋的 applyFilters。
+- `vortex-home.html`:底部一行小連結升級成兩條正式 vx-toc 列(依需求找練習 → `database/#vxNeeds` / 跨泳式查資料 → `database/`)。
+- `$drillKey` 補上 `underwater_dolphin_kick→udk`、`starts_turns→starts-turns`,讓這兩類 drill 也帶泳式標籤(之前缺,選泳式會漏掉)。
+- `vortex.css`:`.vx-needs`(paper 底 + 海軍藍左框,刻意醒目)、`.vx-needs-h/sub/filters/count`、`.vx-lookup`(上分隔線,配角定位)。
+
+**未做（同前,刻意省）：** 第三軸「卡在哪」(手感/腳感/全身張力,abc_type)偏感知判讀,照公開/診斷分層規矩**不放公開頁**,待使用者拍板;書中具名缺陷(Common Stroke Deficiencies)要先抄進 canonical。
+
+**驗收：** build 綠(329 頁)+ needs 區三軸 picker + 125 drillcard + tab 收斂為 3 + 首頁兩入口 + udk/starts-turns 帶 data-s 確認。**視覺未經真實瀏覽器確認**(無 Playwright),以部署站為準。
 
 ### 依需求找 drill：泳式內練習庫 + 資料庫多軸篩選（2026-06-15，commit dbe2b1b）
 
