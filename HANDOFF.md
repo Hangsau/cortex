@@ -62,6 +62,7 @@ CI/CD 正常運作，push hugo-source 自動部署。
 
 ## 已完成
 
+- [x] **依需求找 drill：泳式內練習庫 + 資料庫多軸篩選**（2026-06-15，commit dbe2b1b）— 每式頁新增「練習庫」面板列本式全部 drill，環節×水感階段雙軸 AND 篩選；資料庫練習 tab 同款；泛化 inline applyFilters 支援多軸。詳見 Vortex section
 - [x] **全站健康檢查 + 死碼清理**（2026-06-15）— 0 斷鏈確認；刪孤兒 cscs.css/flashcard.css/flashcard.js + 3 shortcode；停用 mojibake taxonomy；新增「維護注意事項」專節
 - [x] **氣質教學／教練應用併入適配度面板**（2026-06-12）— Keogh 三因子 + 九維度教學對照 + 三型基調 + INSIGHTS + 陷阱 + 游泳橋接，6 details 收合，連 UST，零新 CSS
 - [x] **兒童九種氣質 section 上線**（2026-06-12）— 研究綜合 + temperament-main 學術期刊頁（teal）+ child/self 互動測驗（九維度剖面 + 三型傾向 + 環境建議，無診斷無好壞分）
@@ -189,6 +190,20 @@ TheVortexProject 內容整合進 my-site，作為公開知識展示。路徑 `co
 **已知技術債（非阻斷）：**
 - ⚠ layout 用 `.Site.Data.vortex`（Hugo 0.156 起 deprecated，未來版本移除）；專案其他舊 layout 也都觸發同 WARN。未來應統一改 `hugo.Data`。build 目前正常。
 - canonical-first：本次只動 my-site 公開層 layout/CSS/JS，**未動 TheVortexProject 原始 YAML 內容**（資料 schema 不變，只換呈現層）；swim-coach submodule 無需 bump（診斷層未變）
+
+### 依需求找 drill：泳式內練習庫 + 資料庫多軸篩選（2026-06-15，commit dbe2b1b）
+
+**起因**：master-detail 重建後，每式頁的 drill 只透過「動作分解」裡 move-curated 的 `$m.drills` 露出 → 一式只看得到綁在動作上的少數 drill，全式練習不完整。使用者要「像之前那樣依需求找 drill」，且可嵌進泳式頁。
+
+**做法（重用既有 chip/is-hidden CSS，零新依賴）：**
+- `vortex-stroke.html`：新增 `data/vortex/drills` 依 `.strokes` 含本式全名過濾 → 每式 rail 多一組「練習」群組 + `#drills` 面板，列本式全部 drill（free 30 / back 31 / breast 43 / fly 40 / udk 9 / starts-turns 1）。雙軸 AND 篩選：環節（category）× 水感階段（l_target，多值如 `L1 L2`）。
+- `vortex.js`：新增 `.vx-drill-filters` 多軸 handler，每軸各自 active、AND 組合 toggle `.is-hidden`（與舊單軸 `.vx-filters` 並存，互不影響）。
+- `vortex-database.html`：練習 tab 順帶加同款環節/水感階段兩條 chip bar；inline `applyFilters()` 已泛化成讀 active panel 內所有 `.vx-filters` bar 的 active chip（軸 = chip 帶的 `data-s`/`data-cat`/`data-level`），每軸皆需匹配（stroke 軸保留 `common` fallback）+ 文字搜尋。
+- `vortex.css`：`.vx-drill-filters` / `.vx-filterbar` / `.vx-filterbar-label`（環節/階段標籤）。
+
+**未做（v1 刻意省）：** drill 的 `deficiency_fixes`（值是 1/2/3 之類索引，語意不明確、易誤導），先不前景化。
+
+**驗收：** Hugo 0.162.1 build 綠（329 頁）+ 六式 drill 面板渲染數正確 + 泛化 JS 軸陣列 `["s","cat","level"]` minify 後存活 + CI 綠（run 27517837346）+ 已部署。
 
 ---
 
