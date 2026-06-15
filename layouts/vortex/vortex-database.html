@@ -9,104 +9,173 @@
 {{ $errCatName := dict }}{{ range (index .Site.Data.vortex "teaching-errors").categories }}{{ $errCatName = merge $errCatName (dict .key .name_zh) }}{{ end }}
 {{ $techCatName := dict }}{{ range (index .Site.Data.vortex "technical-analysis").categories }}{{ $techCatName = merge $techCatName (dict .key .name_zh) }}{{ end }}
 {{ $strokeZh := dict "free" "自由式" "back" "仰式" "breast" "蛙式" "fly" "蝶式" "udk" "水下蝶腳" "starts-turns" "出發轉身" "common" "通用" }}
-{{ $drillKey := dict "freestyle" "free" "backstroke" "back" "breaststroke" "breast" "butterfly" "fly" }}
+{{ $drillKey := dict "freestyle" "free" "backstroke" "back" "breaststroke" "breast" "butterfly" "fly" "underwater_dolphin_kick" "udk" "starts_turns" "starts-turns" }}
 
 {{ $errs := (index .Site.Data.vortex "teaching-errors").errors }}
 {{ $techs := (index .Site.Data.vortex "technical-analysis").points }}
 {{ $drills := (index .Site.Data.vortex "drills").drills }}
 {{ $inds := (index .Site.Data.vortex "l-indicators").indicators }}
 
+{{ $strokeChips := slice "all" "free" "back" "breast" "fly" "udk" "starts-turns" }}
+{{ $drillCatName := dict "breathing" "呼吸" "balance" "平衡" "kick" "踢腿" "arm" "划手" "timing" "銜接" "sculling" "搖櫓" }}
+{{ $drillCats := slice }}{{ range $drills }}{{ $drillCats = $drillCats | append .category }}{{ end }}{{ $drillCats = $drillCats | uniq }}
+{{ $drillLevels := slice }}{{ range $drills }}{{ range .l_target }}{{ $drillLevels = $drillLevels | append . }}{{ end }}{{ end }}{{ $drillLevels = $drillLevels | uniq | sort }}
+
 <div class="vx-db">
   <a class="vx-back-link" href="{{ $base }}vortex/">← Cortex · Vortex</a>
   <h1 class="vx-list-title">跨泳式資料庫</h1>
-  <p class="vx-list-desc">已經知道要找什麼時用這裡——四類內容跨所有泳式集中查詢，可依泳式篩選或打字搜尋。</p>
+  <p class="vx-list-desc">不分泳式，把所有內容集中在一頁。你可以從「需求」挑該練什麼，或直接查某一類資料。</p>
 
-  <div class="vx-db-search">
-    <input class="vx-db-input" id="vxdbInput" type="search" autocomplete="off" placeholder="在目前分頁內搜尋標題與內容……" aria-label="搜尋資料庫">
-  </div>
+  {{/* ════════ 主角：依需求找練習 ════════ */}}
+  <section class="vx-needs" id="vxNeeds">
+    <span class="vx-needs-eyebrow">第一種用法</span>
+    <h2 class="vx-needs-h">想練什麼？</h2>
+    <p class="vx-needs-sub">不用先選泳式。挑一個你想練的環節（或你卡住的階段），下面立刻列出所有對應練習，點開就有怎麼做。</p>
 
-  <div class="vx-db-tabs" id="vxdbTabs">
-    <button class="vx-db-tab is-active" type="button" data-tab="errors">誤區 {{ len $errs }}</button>
-    <button class="vx-db-tab" type="button" data-tab="tech">機制 {{ len $techs }}</button>
-    <button class="vx-db-tab" type="button" data-tab="drills">練習 {{ len $drills }}</button>
-    <button class="vx-db-tab" type="button" data-tab="ind">L 指標 {{ len $inds }}</button>
-  </div>
-
-  {{ $strokeChips := slice "all" "free" "back" "breast" "fly" "udk" "starts-turns" }}
-  {{ $drillCatName := dict "breathing" "呼吸" "balance" "平衡" "kick" "踢腿" "arm" "划手" "timing" "銜接" "sculling" "搖櫓" }}
-  {{ $drillCats := slice }}{{ range $drills }}{{ $drillCats = $drillCats | append .category }}{{ end }}{{ $drillCats = $drillCats | uniq }}
-  {{ $drillLevels := slice }}{{ range $drills }}{{ range .l_target }}{{ $drillLevels = $drillLevels | append . }}{{ end }}{{ end }}{{ $drillLevels = $drillLevels | uniq | sort }}
-
-  {{/* ── 誤區 ── */}}
-  <div class="vx-db-panel is-active" id="db-errors">
-    <div class="vx-filters">{{ range $strokeChips }}<button class="vx-chip{{ if eq . "all" }} is-active{{ end }}" type="button" data-s="{{ . }}">{{ if eq . "all" }}全部{{ else }}{{ index $strokeZh . }}{{ end }}</button>{{ end }}</div>
-    {{ range $errs }}
-    <details class="vx-card vx-err" data-s="{{ .stroke }}" data-text="{{ lower (printf "%s %s %s" .title .misconception .correct_concept) }}">
-      <summary><span class="vx-cardcat">{{ index $strokeZh .stroke }} · {{ index $errCatName .category }}</span><span class="vx-cardtitle">{{ .title }}</span></summary>
-      <div class="vx-card-body">
-        {{ with .misconception }}<span class="vx-label">常見說法</span><p class="vx-mis">{{ . }}</p>{{ end }}
-        {{ with .physical_reason }}<span class="vx-label">物理原因 {{ .certainty }}</span><p>{{ .text }}</p>{{ end }}
-        {{ with .correct_concept }}<span class="vx-label">正確觀念</span><p class="vx-correct">{{ . }}</p>{{ end }}
-        {{ with .perception_impact }}<span class="vx-label">感知影響</span><p>{{ . }}</p>{{ end }}
+    <div class="vx-needs-filters">
+      <div class="vx-filterbar" data-axis="cat">
+        <span class="vx-filterbar-label">想練哪個環節</span>
+        <button class="vx-chip is-active" type="button" data-val="all">全部 {{ len $drills }}</button>
+        {{ range $drillCats }}<button class="vx-chip" type="button" data-val="{{ . }}">{{ index $drillCatName . }}</button>{{ end }}
       </div>
-    </details>
-    {{ end }}
-  </div>
-
-  {{/* ── 機制 ── */}}
-  <div class="vx-db-panel" id="db-tech">
-    <div class="vx-filters">{{ range $strokeChips }}<button class="vx-chip{{ if eq . "all" }} is-active{{ end }}" type="button" data-s="{{ . }}">{{ if eq . "all" }}全部{{ else }}{{ index $strokeZh . }}{{ end }}</button>{{ end }}</div>
-    {{ range $techs }}
-    <details class="vx-card vx-tech" data-s="{{ .stroke }}" data-text="{{ lower (printf "%s %s" .title .summary) }}">
-      <summary><span class="vx-cardcat">{{ index $strokeZh .stroke }} · {{ index $techCatName .category }}</span><span class="vx-cardtitle">{{ .title }}</span></summary>
-      <div class="vx-card-body">
-        {{ with .summary }}<p>{{ . }}</p>{{ end }}
-        {{ with .mechanism }}<span class="vx-label">機制 {{ .certainty }}</span><p>{{ .text }}</p>{{ end }}
-        {{ with .practical_implication }}<span class="vx-label">實務意涵</span><p class="vx-correct">{{ . }}</p>{{ end }}
+      <div class="vx-filterbar" data-axis="level">
+        <span class="vx-filterbar-label">在哪個水感階段</span>
+        <button class="vx-chip is-active" type="button" data-val="all">全部</button>
+        {{ range $drillLevels }}<button class="vx-chip" type="button" data-val="{{ . }}">{{ . }}</button>{{ end }}
       </div>
-    </details>
-    {{ end }}
-  </div>
-
-  {{/* ── 練習 ── */}}
-  <div class="vx-db-panel" id="db-drills">
-    <div class="vx-filters">{{ range $strokeChips }}<button class="vx-chip{{ if eq . "all" }} is-active{{ end }}" type="button" data-s="{{ . }}">{{ if eq . "all" }}全部{{ else }}{{ index $strokeZh . }}{{ end }}</button>{{ end }}</div>
-    <div class="vx-filters"><span class="vx-filterbar-label">環節</span><button class="vx-chip is-active" type="button" data-cat="all">全部</button>{{ range $drillCats }}<button class="vx-chip" type="button" data-cat="{{ . }}">{{ index $drillCatName . }}</button>{{ end }}</div>
-    <div class="vx-filters"><span class="vx-filterbar-label">水感階段</span><button class="vx-chip is-active" type="button" data-level="all">全部</button>{{ range $drillLevels }}<button class="vx-chip" type="button" data-level="{{ . }}">{{ . }}</button>{{ end }}</div>
-    {{ range $drills }}
-    {{ $sk := slice }}{{ range .strokes }}{{ with index $drillKey . }}{{ $sk = $sk | append . }}{{ end }}{{ end }}
-    <details class="vx-card vx-tech" data-s="{{ delimit $sk " " }}" data-cat="{{ .category }}" data-level="{{ delimit .l_target " " }}" data-text="{{ lower (printf "%s %s %s" .name_zh .name_en .purpose_zh) }}">
-      <summary><span class="vx-cardcat">{{ .id }} · {{ index $drillCatName .category }} · {{ delimit .l_target " " }}</span><span class="vx-cardtitle">{{ .name_zh }} <span class="vx-card-en">{{ .name_en }}</span></span></summary>
-      <div class="vx-card-body">
-        {{ with .purpose_zh }}<p>{{ . }}</p>{{ end }}
-        {{ with .how_to }}<span class="vx-label">怎麼做</span><ol>{{ range . }}<li>{{ . }}</li>{{ end }}</ol>{{ end }}
-        {{ with .perception_goal }}<span class="vx-label">感知目標</span><p>{{ . }}</p>{{ end }}
-        {{ with .equipment }}<p class="vx-drill-eq">器材：{{ delimit . "、" }}</p>{{ end }}
+      <div class="vx-filterbar" data-axis="s">
+        <span class="vx-filterbar-label">限定泳式（可不選）</span>
+        {{ range $strokeChips }}<button class="vx-chip{{ if eq . "all" }} is-active{{ end }}" type="button" data-val="{{ . }}">{{ if eq . "all" }}全部{{ else }}{{ index $strokeZh . }}{{ end }}</button>{{ end }}
       </div>
-    </details>
-    {{ end }}
-  </div>
+    </div>
 
-  {{/* ── L 指標 ── */}}
-  <div class="vx-db-panel" id="db-ind">
-    <div class="vx-filters">{{ range $strokeChips }}<button class="vx-chip{{ if eq . "all" }} is-active{{ end }}" type="button" data-s="{{ . }}">{{ if eq . "all" }}全部{{ else }}{{ index $strokeZh . }}{{ end }}</button>{{ end }}</div>
-    {{ range $inds }}
-    <details class="vx-card vx-tech" data-s="{{ .stroke }}" data-text="{{ lower (printf "%s %s %s" .aspect .indicator .framework_state) }}">
-      <summary><span class="vx-cardcat">{{ index $strokeZh .stroke }} · {{ .level }}</span><span class="vx-cardtitle">{{ .aspect }}</span></summary>
-      <div class="vx-card-body">
-        {{ with .indicator }}<span class="vx-label">可觀察指標</span><p>{{ . }}</p>{{ end }}
-        {{ with .framework_state }}<span class="vx-label">框架狀態</span><p>{{ . }}</p>{{ end }}
-        {{ with .quant_ref }}<p class="vx-drill-eq">量化參照：{{ . }}</p>{{ end }}
-      </div>
-    </details>
-    {{ end }}
-  </div>
+    <p class="vx-needs-count" id="vxNeedsCount"></p>
+
+    <div class="vx-needs-results" id="vxNeedsResults">
+      {{ range $drills }}
+      {{ $sk := slice }}{{ range .strokes }}{{ with index $drillKey . }}{{ $sk = $sk | append . }}{{ end }}{{ end }}
+      <details class="vx-card vx-drillcard" data-cat="{{ .category }}" data-level="{{ delimit .l_target " " }}" data-s="{{ delimit $sk " " }}">
+        <summary><span class="vx-cardcat">{{ index $drillCatName .category }}{{ with .l_target }} · {{ delimit . " " }}{{ end }} · {{ range $i, $s := $sk }}{{ if $i }}／{{ end }}{{ index $strokeZh $s }}{{ end }}</span><span class="vx-cardtitle">{{ .name_zh }} <span class="vx-card-en">{{ .name_en }}</span></span></summary>
+        <div class="vx-card-body">
+          {{ with .purpose_zh }}<p>{{ . }}</p>{{ end }}
+          {{ with .how_to }}<span class="vx-label">怎麼做</span><ol>{{ range . }}<li>{{ . }}</li>{{ end }}</ol>{{ end }}
+          {{ with .perception_goal }}<span class="vx-label">感知目標</span><p class="vx-correct">{{ . }}</p>{{ end }}
+          {{ with .equipment }}<p class="vx-drill-eq">器材：{{ delimit . "、" }}</p>{{ end }}
+        </div>
+      </details>
+      {{ end }}
+    </div>
+  </section>
+
+  {{/* ════════ 配角：直接查資料 ════════ */}}
+  <section class="vx-lookup">
+    <span class="vx-needs-eyebrow">第二種用法</span>
+    <h2 class="vx-lookup-h">已經知道要查什麼？</h2>
+    <p class="vx-needs-sub">三類參考資料，跨所有泳式集中查詢，可依泳式篩選或打字搜尋。</p>
+
+    <div class="vx-db-search">
+      <input class="vx-db-input" id="vxdbInput" type="search" autocomplete="off" placeholder="在目前分頁內搜尋標題與內容……" aria-label="搜尋資料庫">
+    </div>
+
+    <div class="vx-db-tabs" id="vxdbTabs">
+      <button class="vx-db-tab is-active" type="button" data-tab="errors">誤區 {{ len $errs }}</button>
+      <button class="vx-db-tab" type="button" data-tab="tech">機制 {{ len $techs }}</button>
+      <button class="vx-db-tab" type="button" data-tab="ind">L 指標 {{ len $inds }}</button>
+    </div>
+
+    {{/* ── 誤區 ── */}}
+    <div class="vx-db-panel is-active" id="db-errors">
+      <div class="vx-filters">{{ range $strokeChips }}<button class="vx-chip{{ if eq . "all" }} is-active{{ end }}" type="button" data-s="{{ . }}">{{ if eq . "all" }}全部{{ else }}{{ index $strokeZh . }}{{ end }}</button>{{ end }}</div>
+      {{ range $errs }}
+      <details class="vx-card vx-err" data-s="{{ .stroke }}" data-text="{{ lower (printf "%s %s %s" .title .misconception .correct_concept) }}">
+        <summary><span class="vx-cardcat">{{ index $strokeZh .stroke }} · {{ index $errCatName .category }}</span><span class="vx-cardtitle">{{ .title }}</span></summary>
+        <div class="vx-card-body">
+          {{ with .misconception }}<span class="vx-label">常見說法</span><p class="vx-mis">{{ . }}</p>{{ end }}
+          {{ with .physical_reason }}<span class="vx-label">物理原因 {{ .certainty }}</span><p>{{ .text }}</p>{{ end }}
+          {{ with .correct_concept }}<span class="vx-label">正確觀念</span><p class="vx-correct">{{ . }}</p>{{ end }}
+          {{ with .perception_impact }}<span class="vx-label">感知影響</span><p>{{ . }}</p>{{ end }}
+        </div>
+      </details>
+      {{ end }}
+    </div>
+
+    {{/* ── 機制 ── */}}
+    <div class="vx-db-panel" id="db-tech">
+      <div class="vx-filters">{{ range $strokeChips }}<button class="vx-chip{{ if eq . "all" }} is-active{{ end }}" type="button" data-s="{{ . }}">{{ if eq . "all" }}全部{{ else }}{{ index $strokeZh . }}{{ end }}</button>{{ end }}</div>
+      {{ range $techs }}
+      <details class="vx-card vx-tech" data-s="{{ .stroke }}" data-text="{{ lower (printf "%s %s" .title .summary) }}">
+        <summary><span class="vx-cardcat">{{ index $strokeZh .stroke }} · {{ index $techCatName .category }}</span><span class="vx-cardtitle">{{ .title }}</span></summary>
+        <div class="vx-card-body">
+          {{ with .summary }}<p>{{ . }}</p>{{ end }}
+          {{ with .mechanism }}<span class="vx-label">機制 {{ .certainty }}</span><p>{{ .text }}</p>{{ end }}
+          {{ with .practical_implication }}<span class="vx-label">實務意涵</span><p class="vx-correct">{{ . }}</p>{{ end }}
+        </div>
+      </details>
+      {{ end }}
+    </div>
+
+    {{/* ── L 指標 ── */}}
+    <div class="vx-db-panel" id="db-ind">
+      <div class="vx-filters">{{ range $strokeChips }}<button class="vx-chip{{ if eq . "all" }} is-active{{ end }}" type="button" data-s="{{ . }}">{{ if eq . "all" }}全部{{ else }}{{ index $strokeZh . }}{{ end }}</button>{{ end }}</div>
+      {{ range $inds }}
+      <details class="vx-card vx-tech" data-s="{{ .stroke }}" data-text="{{ lower (printf "%s %s %s" .aspect .indicator .framework_state) }}">
+        <summary><span class="vx-cardcat">{{ index $strokeZh .stroke }} · {{ .level }}</span><span class="vx-cardtitle">{{ .aspect }}</span></summary>
+        <div class="vx-card-body">
+          {{ with .indicator }}<span class="vx-label">可觀察指標</span><p>{{ . }}</p>{{ end }}
+          {{ with .framework_state }}<span class="vx-label">框架狀態</span><p>{{ . }}</p>{{ end }}
+          {{ with .quant_ref }}<p class="vx-drill-eq">量化參照：{{ . }}</p>{{ end }}
+        </div>
+      </details>
+      {{ end }}
+    </div>
+  </section>
 
   <p class="vx-legend">🔵 推導 · 🟢 近期文獻 · 🟡 舊文獻 · 🟠 教練觀測 · 🔴 待查</p>
 </div>
 
 <script>
 (function () {
+  // ── 主角：依需求找練習（環節 × 階段 × 泳式，AND 組合） ──
+  var needs = document.getElementById('vxNeeds');
+  if (needs) {
+    var bars = Array.prototype.slice.call(needs.querySelectorAll('.vx-filterbar'));
+    var cards = Array.prototype.slice.call(needs.querySelectorAll('.vx-drillcard'));
+    var countEl = document.getElementById('vxNeedsCount');
+    var active = {};
+    bars.forEach(function (bar) { active[bar.getAttribute('data-axis')] = 'all'; });
+
+    function apply() {
+      var shown = 0;
+      cards.forEach(function (card) {
+        var show = true;
+        bars.forEach(function (bar) {
+          var axis = bar.getAttribute('data-axis');
+          var val = active[axis];
+          if (val === 'all') return;
+          var cd = (card.getAttribute('data-' + axis) || '').split(' ');
+          if (cd.indexOf(val) === -1) show = false;
+        });
+        card.classList.toggle('is-hidden', !show);
+        if (show) shown++;
+      });
+      if (countEl) countEl.textContent = '共 ' + shown + ' 個練習';
+    }
+
+    bars.forEach(function (bar) {
+      var axis = bar.getAttribute('data-axis');
+      var chips = Array.prototype.slice.call(bar.querySelectorAll('.vx-chip'));
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          active[axis] = chip.getAttribute('data-val');
+          chips.forEach(function (c) { c.classList.toggle('is-active', c === chip); });
+          apply();
+        });
+      });
+    });
+    apply();
+  }
+
+  // ── 配角：直接查資料（tab 切換 + 泳式篩選 + 搜尋） ──
   var tabs = document.getElementById('vxdbTabs');
   var input = document.getElementById('vxdbInput');
   if (!tabs) return;
@@ -115,31 +184,16 @@
 
   function activePanel() { return document.querySelector('.vx-db-panel.is-active'); }
 
-  var AXES = ['s', 'cat', 'level'];
-
   function applyFilters() {
     var panel = activePanel(); if (!panel) return;
-    var active = {};
-    panel.querySelectorAll('.vx-filters').forEach(function (bar) {
-      var chip = bar.querySelector('.vx-chip.is-active');
-      if (!chip) return;
-      AXES.forEach(function (axis) {
-        var v = chip.getAttribute('data-' + axis);
-        if (v !== null) active[axis] = v;
-      });
-    });
+    var sChip = panel.querySelector('.vx-chip.is-active');
+    var s = sChip ? sChip.getAttribute('data-s') : 'all';
     var q = (input.value || '').trim().toLowerCase();
     panel.querySelectorAll('.vx-card').forEach(function (card) {
-      var ok = true;
-      AXES.forEach(function (axis) {
-        var val = active[axis];
-        if (!val || val === 'all') return;
-        var cd = (card.getAttribute('data-' + axis) || '').split(' ');
-        var match = cd.indexOf(val) !== -1 || (axis === 's' && cd.indexOf('common') !== -1);
-        if (!match) ok = false;
-      });
+      var sd = (card.getAttribute('data-s') || '').split(' ');
+      var okS = s === 'all' || sd.indexOf(s) !== -1 || sd.indexOf('common') !== -1;
       var okQ = !q || (card.getAttribute('data-text') || '').indexOf(q) !== -1;
-      card.classList.toggle('is-hidden', !(ok && okQ));
+      card.classList.toggle('is-hidden', !(okS && okQ));
     });
   }
 

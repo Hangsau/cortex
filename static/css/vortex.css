@@ -429,6 +429,34 @@ details.vx-drill > summary .did {
   font-family: var(--vx-serif); font-size: 11px; letter-spacing: 0.08em;
   text-transform: uppercase; color: var(--vx-faint); margin-right: 4px; min-width: 56px;
 }
+
+/* 資料庫：依需求找練習（主角區塊） */
+.vx-needs {
+  margin: 32px 0 12px;
+  padding: 26px 28px 12px;
+  background: var(--vx-paper);
+  border: 1px solid var(--vx-rule);
+  border-left: 3px solid var(--vx-accent);
+}
+.vx-needs-eyebrow,
+.vx-lookup .vx-needs-eyebrow {
+  display: inline-block; font-family: var(--vx-serif); font-size: 11px;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--vx-accent);
+  margin: 0 0 4px;
+}
+.vx-needs-h {
+  font-family: var(--vx-display); font-size: clamp(24px, 4vw, 32px);
+  margin: 0 0 8px; color: var(--vx-ink);
+}
+.vx-needs-sub { color: var(--vx-sub); margin: 0 0 20px; max-width: 60ch; }
+.vx-needs-filters { margin: 0 0 14px; }
+.vx-needs-filters .vx-filterbar-label { min-width: 132px; text-transform: none; font-size: 12px; }
+.vx-needs-count { font-size: 13px; color: var(--vx-faint); margin: 0 0 18px; }
+.vx-needs-results { margin: 0; }
+
+/* 資料庫：直接查資料（配角區塊） */
+.vx-lookup { margin: 48px 0 0; padding-top: 36px; border-top: 1px solid var(--vx-rule); }
+.vx-lookup-h { font-family: var(--vx-display); font-size: clamp(22px, 3.5vw, 28px); margin: 0 0 8px; }
 .vx-chip {
   font-family: var(--vx-serif); font-size: 13px;
   background: none; border: 1px solid var(--vx-rule2);
