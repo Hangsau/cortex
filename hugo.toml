@@ -2,6 +2,7 @@ baseURL = "https://hangsau.github.io/cortex/"
 languageCode = "zh-tw"
 title = "Cortex"
 defaultContentLanguage = "zh-tw"
+disableKinds = ["taxonomy", "term"]
 
 [markup.goldmark.renderer]
   unsafe = true

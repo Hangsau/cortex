@@ -26,16 +26,51 @@ CI/CD 正常運作，push hugo-source 自動部署。
 
 **氣質 — 教學／教練應用（2026-06-12）**：使用者要把教學應用上站。**設計決策**：不另開面板（會與「適配度」重複「怎麼配合」、徒增導覽複雜度），而是把教學應用當「適配度的實務深層」併進現有 §4 適配度面板——教學應用＝goodness-of-fit 用在課堂/教練，本就是同一件事。結構：第一層原則（不動）→ 通用配合策略（不動）→ 跨框架綜合（不動）→ 新增「教學／教練應用」收合群（6 個 `<details>`：Keogh 三因子、九維度→教學動作對照、三型→教學基調、McClowry INSIGHTS 實證方案、兩陷阱、游泳/運動橋接）+ 頁尾連 UST。內容加進 `data/temperament/fit.yaml` 的 `teaching:` 區塊；template 用 `{{ with $fit.teaching }}` 渲染，**重用 tmp-strat / vx-level / tmp-list，零新 CSS**。驗收：hugo build 綠 + 教學 6 details + 20 tmp-strat-row（5 原策略 + 3 Keogh + 9 維度 + 3 型）+ Keogh/INSIGHTS/UST 連結齊 + **quiz 與 7 面板無回歸**（config dict、36 題、18 反向、180 radio、兩 script 全在）+ 無 ZgotmplZ/template error。
 
+**全站結構健康檢查 + 死碼清理（2026-06-15）**：使用者要求整站結構健康檢查、找出「好像不太對」的連結、並把維護注意事項寫進交接單。**連結稽核結果：4030 條站內連結、0 條斷鏈、0 個失效頁內錨點**（腳本掃 public/ 全 HTML，解析 href/src 對應檔案系統，含 `--minify` 去引號格式）——使用者擔心的壞連結不存在於 404 層級；真正服務的是 CI 每次 push 重新 build 的版本（見下方維護注意事項），永遠是乾淨的。**清掉的死碼**：①孤兒 CSS `cscs.css`/`flashcard.css`（無 layout 引用，CSCS 樣式早已併入 cscs-chapter.css）②孤兒 JS `flashcard.js`（翻卡邏輯已內聯進 chapter.html）③三個零使用 shortcode `flashcard`/`highlight-quote`/`callout`（layouts/shortcodes/ 現為空）④停用 taxonomy（hugo.toml 加 `disableKinds = ["taxonomy","term"]`）——原本 Hugo 自動產生 ~348 個 `/tags/<中文>` 亂碼 URL 頁（CJK 標籤被編碼成 mojibake，如 `tags/sfra…`），這些頁只被 tags/index 自己連、從不出現在 UI，純 build 垃圾。清理後頁數 677→329、static 17→14，build 綠、零殘留引用。完整維護注意事項見下方新增專節。
+
+## 維護注意事項（給未來維護者）
+
+> 2026-06-15 全站健康檢查整理。開工前先讀本節 + CLAUDE.md。
+
+**1. 部署真相（最重要，常被誤解）**
+- live 站 = GitHub Actions 每次 push 用 `hugo --minify` **重新 build** 的 `./public`（見 `.github/workflows/deploy.yml`）。**committed 進 git 的 `public/` 從不被服務**。
+- 因此本機看到的斷鏈/亂碼若來自 committed public，與 live 無關；live 永遠是 fresh build。
+- ✅ **已處理（2026-06-15）**：`public/` 原本被 git 追蹤，每次 commit 拖一大包重生成 HTML diff（且 committed 版本根本不被服務）。本次 `git rm -r --cached public` 取消追蹤 + 加進 `.gitignore`。**今後 commit 只含 source（content/layouts/data/static/css/js/config），public/ 由 CI 重 build**。本機預覽照常 `hugo` 即可，輸出只是不再進 git。
+
+**2. `.Site.Data` 已 deprecated（時限炸彈）**
+- 8 個 layout 仍用 `.Site.Data.*`（Hugo 0.156 起 deprecated），只有 4 個已遷到新 `hugo.Data`。
+- 目前 build 只是 WARN，**但 CI 的 Hugo 一旦升過移除版本，全站會 build 失敗**。遷移是機械式（`.Site.Data.x` → `index hugo.Data "x"`），有空就做完。
+
+**3. Hugo 版本漂移**
+- CI 用 **0.159.1**（寫死在 deploy.yml line 20），本機曾用 0.162.x。版本差可能造成本機預覽與 live 細微不一致。改版面前先對齊版本，或至少知道有此落差。
+
+**4. 資料流：canonical-first「一源兩消費」（勿手改 data/）**
+- `data/vortex/`、`data/adm/`、`data/periodization/` 全部是 `tools/sync_vortex.py` 從 `C:\claudehome\projects\TheVortexProject\canonical/` 同步來的。**改內容要改 canonical 再重跑 sync，不在 my-site 手改 data/**（手改會被下次 sync 洗掉）。
+- `data/mnfl`、`data/ust`、`data/temperament`、`data/books.yaml` 是 my-site 自有，可直接改。
+- 公開頁邊界：vortex 公開層**不放感知判讀診斷語**（「泳者說 X = 到位」屬教練診斷層），sync 階段已淨化；新增 vortex 內容前確認沒洩漏診斷型碼（三型/A型/B型/C型/typical_speech/main_problem）。
+
+**5. 連結與路徑寫法（踩過的坑）**
+- CSS/JS/圖片路徑用 `{{ .Site.BaseURL }}css/x.css`（**不加前綴 `/`**）；subdirectory 部署下 `absURL`/`relURL` 對 `/` 開頭路徑會失效。
+- 頁面連結優先 `.RelPermalink`/`.Permalink`；vortex 內部跨頁連結用 `$base`（= `.Site.BaseURL`）+ 已知 slug，全部都解析得到。
+- nav menu 連結用 `{{ .URL | absURL }}`。
+
+**6. 已停用 taxonomy**
+- `hugo.toml` 的 `disableKinds = ["taxonomy","term"]` 關掉了 tags/categories 生成。content frontmatter 裡的 `tags:` 現在不產頁、不可點。若未來想做標籤導覽，要先移除這行並設計乾淨的 slug（中文標籤要處理 URL 編碼，否則回到 mojibake）。
+
+**7. layouts/shortcodes/ 現為空**
+- 三個舊 shortcode 已刪。若要寫文章用 callout/quote，需重建 shortcode 或直接用 HTML（unsafe 已開）。
+
 ## 已完成
 
+- [x] **全站健康檢查 + 死碼清理**（2026-06-15）— 0 斷鏈確認；刪孤兒 cscs.css/flashcard.css/flashcard.js + 3 shortcode；停用 mojibake taxonomy；新增「維護注意事項」專節
 - [x] **氣質教學／教練應用併入適配度面板**（2026-06-12）— Keogh 三因子 + 九維度教學對照 + 三型基調 + INSIGHTS + 陷阱 + 游泳橋接，6 details 收合，連 UST，零新 CSS
 - [x] **兒童九種氣質 section 上線**（2026-06-12）— 研究綜合 + temperament-main 學術期刊頁（teal）+ child/self 互動測驗（九維度剖面 + 三型傾向 + 環境建議，無診斷無好壞分）
 - [x] Hugo 專案骨架（無 theme，完全自訂 layout）
 - [x] 首頁書架設計（書本卡片，hover 浮起效果）
 - [x] 書庫 section（library/list、library/book、library/chapter）
 - [x] 筆記本 section（notebook/list、notebook/single）
-- [x] Shortcodes：flashcard、highlight-quote、callout
-- [x] CSS 分層：variables / base / layout / bookshelf / library / cscs-chapter / notebook / vortex（adm-* class 併入 vortex.css）
+- [x] ~~Shortcodes：flashcard、highlight-quote、callout~~（2026-06-15 全數刪除：content 零使用，閃卡翻轉邏輯已內聯進 `library/chapter.html`）
+- [x] CSS 分層：variables / base / layout / bookshelf / library / cscs-chapter / notebook / vortex（adm-* class 併入 vortex.css）+ mnfl / ust / temperament（各書/section 專用）
 - [x] CSCS 24 章搬入 `library/essentials-of-strength-training/`，九宮格正常
 - [x] 閃卡資料（ch01）正常，閃卡模式可用
 - [x] GitHub Actions 自動部署完成
