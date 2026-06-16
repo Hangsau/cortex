@@ -1,0 +1,142 @@
+domain: psychology
+domain_name_zh: 心理
+themes:
+- id: psych.fear
+  name_zh: 水中恐懼
+  order: 1
+  status: complete
+  premise:
+    layer: public
+    certainty: 🔵
+    one_line: 水中恐懼的核心常不是「怕水本身」，而是「怕在水裡失去對身體的控制」—— 而恐懼一旦啟動，會從源頭關閉學習所需的感知頻寬，所以它是 L0 的閘門，不是性格問題。
+  concepts:
+  - id: psych.fear.control_loss
+    name_zh: 怕的是失控，不是水
+    order: 1
+    status: complete
+    phenomenon:
+      certainty: 🟢
+      text: 針對游泳情境開發的恐懼量表（FWAQ, Misimi 等 2020, n=2,074）把水中恐懼拆成三個因子： 與水環境接觸、水的自然力量、以及「水中動作控制感」。其中「對水中動作控制感的缺失」 是三者裡最強的恐懼預測因子。換句話說，怕水的人多半不是怕水這個物質， 而是怕自己一進水就失去對身體的掌控。
+    l_levels:
+    - L0
+    l_note: 恐懼閘門落在 L0——在呼吸與漂浮感知建立之前就把學習擋住。
+    misconception_refs:
+    - cue: 不要怕，水很安全
+      why: 用「安全」回應失控恐懼，沒有觸及核心（怕的不是水危險，是怕自己會失控），反而否定了對方的感受。
+      better: 先把可預測性與控制權還給對方——「你隨時可以站起來/抓邊，每一步由你決定」。
+    intervention_refs:
+    - name: 系統減敏（焦慮層級分階）
+      certainty: 🟡
+      how_to: 列出由弱到強的暴露階梯（坐池邊→腳入水→膝→腰→臉碰水），每階在放鬆狀態下充分習慣再進下一階。
+    - name: 先建立信任再入水
+      certainty: 🟠
+      how_to: 恐懼者需先在池外建立教練關係與情緒安全，不急著下水（ERIC 教學實踐指引）。
+    population_note: 「失控」這個簽名在成人初學身上會被社會評價放大（「這年紀還不會」）， 介入要先卸評價威脅；族群差異見本主題「恐懼的不同臉孔」。
+    sources:
+    - Research/心理/03_水中恐懼與學習者心理.md#FWAQ
+  - id: psych.fear.perception_masking
+    name_zh: 恐懼會關掉水感
+    order: 2
+    status: complete
+    phenomenon:
+      certainty: 🔵
+      text: 恐懼啟動時，神經系統把感知資源全部分配給外感受（水在哪？深嗎？我要沉了嗎？）， 系統性壓制內感受與本體感覺。但水感正是建立在這些被壓制的安靜信號上——細微的浮力回饋、 流場感、壓力分佈。結果是：恐懼者就算把動作教給他，也「感覺不到水」，因為感知頻寬已被恐懼佔滿。 這是「先把動作學會就好」之所以對恐懼者無效的原因——通道在 L0 就被關了。
+    hardware_boundary:
+      certainty: 🔵
+      text: 注意這是跨領域推導：注意力窄化、內感受壓制等機制來自臨床恐懼/焦慮研究， 外推到游泳情境合理但游泳專屬的「感知遮蔽」直接量測仍是研究空白，不是已坐實的游泳實證。
+    l_note: 解釋「為什麼對恐懼者教動作形式會學不進去」——感知遮蔽發生在 L0。
+    misconception_refs:
+    - cue: 先把動作學會，怕水自然就好了
+      why: 感知被恐懼遮蔽時動作根本學不進去；把順序顛倒了。
+      better: 先降恐懼、打開感知頻寬，再教動作——感知是輸入，動作是輸出。
+    sources:
+    - Research/心理/03_水中恐懼與學習者心理.md#感知遮蔽機制
+  - id: psych.fear.freeze_reflex
+    name_zh: 凍結是反射，不是膽小
+    order: 3
+    status: complete
+    phenomenon:
+      certainty: 🟢
+      text: 「凍結」（freeze）是杏仁核投射到中腦導水管周圍灰質（PAG）的神經反射，不是膽小或故意不配合。 防衛反應是一條串聯：預警凍結（交感主導，警覺但不動）可能升級成崩潰性不動 （背側迷走主導，解離、像關機）。兩者外觀都是「不動」，但神經狀態相反。
+    hardware_boundary:
+      certainty: 🔵
+      text: 在水中，凍結者無法主動輸出動作，而動覺回饋（水如何回應你的動作）需要主動輸出才會產生—— 所以凍結是最深的感知遮蔽：不只感覺不到水，連感覺不到自己在動。這是反射層， 無法用「動起來啊」的指令解除（游泳情境的死亡案例比例本身仍是研究空白）。
+    l_note: L0 最深層的遮蔽狀態。
+    misconception_refs:
+    - cue: 他就是不肯動 / 不配合
+      why: 凍結是不自主的防衛反射，不是抗拒；催促等於加重威脅。
+      better: 降低威脅、恢復安全信號（聲音、觸碰許可、可預測性），讓神經系統先離開凍結。
+    sources:
+    - Research/心理/03_水中恐懼與學習者心理.md#凍結反應
+  - id: psych.fear.co2_breath_panic
+    name_zh: 換氣過度反而會引爆憋氣恐慌
+    order: 4
+    status: complete
+    phenomenon:
+      certainty: 🔵
+      text: 恐懼者典型是上胸淺快呼吸。淺快換氣讓血中 CO₂ 偏低，於是「想呼吸」的慾望感變弱， 人就會不知不覺憋氣憋太久；一旦 CO₂ 回升並驟然超過閾值，就觸發一次微型恐慌，感知瞬間關閉、技術崩解。 矛盾就在這裡：表面上的「換氣過度」反而是後段憋氣恐慌的引信。
+    hardware_boundary:
+      certainty: 🟢
+      text: 對 CO₂ 上升的敏感度有生理底盤：受訓潛水員的 CO₂ 耐受明顯高於恐慌傾向者 （Kyriakoulis 2025）。提高耐受要靠漸進訓練，不是靠意志撐住。
+    intervention_refs:
+    - name: 陸上腹式呼吸
+      certainty: 🔵
+      how_to: 先在陸上讓學習者感受「吐氣時想呼吸的慾望是正常的」，不把這個感覺當警報。
+    - name: 嘴碰水面吐氣（氣泡回饋）
+      certainty: 🔵
+      how_to: 用看得見的氣泡提供視覺回饋，降低憋氣的隱性焦慮。
+    - name: 規律呼吸節奏
+      certainty: 🔵
+      how_to: 建立固定的吸—轉頭—吐入水節律，規律本身就抑制 CO₂ 驟升。
+    sources:
+    - Research/心理/03_水中恐懼與學習者心理.md#呼吸介入
+  - id: psych.fear.diving_reflex_calm
+    name_zh: 同一片水，也能讓人冷靜
+    order: 5
+    status: complete
+    phenomenon:
+      certainty: 🔵
+      text: 水對恐懼者同時打開兩條相反的迷走神經通路。一條是背側迷走：水=威脅+呼吸限制→崩潰凍結。 另一條是潛水反射：臉部接觸（偏冷的）水→三叉神經感知→迷走神經激活→心跳反射性減緩→副交感優勢→ 產生鎮靜。也就是說，同一片水可以是威脅，也可以是冷靜的開關，差別在於怎麼進入。
+    hardware_boundary:
+      certainty: 🟢
+      text: 潛水反射的生理路徑（三叉神經 CN V 感知、迷走神經 CN X 減緩心跳、臉部冷刺激最強）是已知的； 但「用它當游泳教學的鎮靜工具」是從恐慌症臨床研究外推，游泳教學方案的效果仍未驗證（研究空白）。
+    intervention_refs:
+    - name: 漸進臉部接觸水
+      certainty: 🔵
+      how_to: 引導學習者緩慢讓臉部接觸水，利用潛水反射的自然鎮靜——前提是先建立安全感，避免突然的冷水觸發驚嚇而轉成交感主導。
+    sources:
+    - Research/心理/03_水中恐懼與學習者心理.md#潛水反射
+  - id: psych.fear.safety_precondition
+    name_zh: 沒有安全感就學不進去
+    order: 6
+    status: complete
+    phenomenon:
+      certainty: 🔵
+      text: 神經系統只有在判定「安全」時才會進入學習就緒狀態，開放接收新技術（多迷走理論的腹側迷走狀態）。 水的陌生本身就是一串新奇威脅信號：重力消失、視覺模糊、聲音改變。教練的聲調、節奏、眼神接觸、 一致性，會被學習者的神經系統自動評估（neuroception），決定他能不能維持在能學習的狀態。 這是框架外推（多迷走理論在游泳的操作化測量仍是研究空白），但方向上與所有教學經驗一致。
+    misconception_refs:
+    - cue: 凶一點他才會認真 / 嚇一下就敢了
+      why: 威脅信號把神經系統推離學習就緒態，恐懼者只會更關閉，不是更專注。
+      better: 用穩定、可預測的安全信號（清楚的流程、觸碰許可、一致的語氣）維持學習狀態。
+    intervention_refs:
+    - name: 池外先建立信任
+      certainty: 🟠
+      how_to: 進水前先建立教練關係與情緒安全（ERIC 教學實踐指引）。
+    - name: 可預測流程 + 觸碰許可
+      certainty: 🔵
+      how_to: 每一步先說會發生什麼、徵得同意再做，把不可預測性降到最低。
+    sources:
+    - Research/心理/03_水中恐懼與學習者心理.md#社會安全感
+  - id: psych.fear.population_faces
+    name_zh: 恐懼的不同臉孔（依族群）
+    order: 7
+    status: complete
+    phenomenon:
+      certainty: 🟠
+      text: 「水中恐懼」是同一個標籤，在不同族群指向完全不同的介入點，不能一套水性課通用： 兒童初學是陌生環境的新奇威脅加上父母恐懼的代際傳遞，安全感一建立就快速消退； 成人初學疊加了社會羞恥與自我意識，失控簽名被「這年紀還不會」的評價威脅放大； 鐵人三項多半泳池能游，怕的不是水而是開放水域情境（看不到底、群泳被踩踏、無法觸壁）， 是有能力的泳者在賽境被暫時打回 L0；青少年競技的「怕」多半已不是 L0 水恐，而是表現/評價焦慮。
+    population_note: 框架紀律：本專案教學對象涵蓋全光譜、沒有單一主客群。恐懼文獻嚴重偏壓兒童泳課與一般非游泳者， 其他族群（成人初學的社會性恐懼、鐵人開放水域 panic、青少年評價恐懼）多為質性/二手轉述， 屬素材缺口而非「次要對象」，不以兒童 L0 資料外推填空。
+    misconception_refs:
+    - cue: 把鐵人三項或青少年的「怕」用兒童 L0 水性課來處理
+      why: 族群混淆——他們的恐懼不在 L0 水性，介入點完全不同。
+      better: 成人先卸評價威脅再暴露；鐵人做開放水域情境減敏（群泳模擬、定位呼吸）；青少年往表現焦慮查。
+    sources:
+    - Research/心理/03_水中恐懼與學習者心理.md#族群特異性

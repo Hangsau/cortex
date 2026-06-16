@@ -1,0 +1,128 @@
+{{ define "head-extra" }}
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+<noscript><style>.vx-panel{display:block;border-top:1px solid var(--vx-rule);padding-top:24px}.vx-rail{position:static;max-height:none}</style></noscript>
+{{ end }}
+
+{{ define "main" }}
+{{ $base := .Site.BaseURL }}
+{{ $psy := .Site.Data.vortex.psychology }}
+{{ $themes := $psy.themes }}
+
+<div class="vx-stroke">
+  <div class="vx-stroke-wrap">
+
+    {{/* ════════ 左側常駐目次 ════════ */}}
+    <aside class="vx-rail">
+      <a class="vx-back-link" href="{{ $base }}vortex/">← Cortex · Vortex</a>
+      <div class="vx-rail-head">
+        <span class="vx-stroke-zh">心理層</span>
+        <span class="vx-stroke-en">Psychology</span>
+      </div>
+
+      <div class="vx-rail-group">導覽</div>
+      <div class="vx-rail-scroll">
+        <ul class="vx-rail-list">
+          <li><button class="vx-navlink" type="button" data-target="overview"><span class="n">0</span>概覽</button></li>
+        </ul>
+      </div>
+
+      {{ range $themes }}
+      <div class="vx-rail-group">{{ .name_zh }}</div>
+      <div class="vx-rail-scroll">
+        <ul class="vx-rail-list">
+          {{ range .concepts }}
+          <li><button class="vx-navlink" type="button" data-target="{{ replace .id "." "-" }}"><span class="n">{{ .order }}</span>{{ .name_zh }}</button></li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+    </aside>
+
+    {{/* ════════ 右側主面板 ════════ */}}
+    <main class="vx-panels">
+
+      {{/* ── 概覽 ── */}}
+      <section class="vx-panel vx-overview" id="overview">
+        <span class="vx-sec-no">VORTEX · Psychology</span>
+        <h2>心理層</h2>
+        <p class="vx-premise">技術建立在感知上，感知建立在心理狀態上。恐懼、動機、注意力會在源頭決定一個人能不能感覺到水——所以心理不是技術之外的附加題，是 L0 的地基。</p>
+        <p class="vx-panel-lead">選一個主題開始，點任一概念就地展開，不換頁。</p>
+        {{ range $themes }}
+        <p class="vx-panel-lead" style="margin-top:1.4em">{{ .name_zh }}</p>
+        {{ with .premise }}<p class="vx-premise">{{ .one_line }} <span class="vx-cert">{{ .certainty }}</span></p>{{ end }}
+        <div class="vx-path-list">
+          {{ range .concepts }}
+          <button class="vx-path-item" type="button" data-target="{{ replace .id "." "-" }}">
+            <span class="n">{{ .order }}</span>
+            <span><span class="t">{{ .name_zh }}</span>{{ with .l_levels }}<span class="o">感知層級 {{ delimit . "、" }}</span>{{ end }}</span>
+          </button>
+          {{ end }}
+        </div>
+        {{ end }}
+        <p class="vx-legend">🔵 推導／跨領域外推 · 🟢 近期文獻 · 🟡 舊文獻 · 🟠 書籍二手或觀測 · 🔴 待查</p>
+        <p class="vx-cite"><span class="src">分層說明</span>：公開層解釋「這個心理現象是什麼、怎麼運作」；教練判讀訊號（怎麼從泳者的話判斷他在哪一層）收在教練工具，不在公開站。</p>
+      </section>
+
+      {{/* ── 各概念 ── */}}
+      {{ range $t := $themes }}
+      {{ $concepts := $t.concepts }}
+      {{ $nc := len $concepts }}
+      {{ range $i, $c := $concepts }}
+      <section class="vx-panel vx-move" id="{{ replace $c.id "." "-" }}">
+        <span class="vx-sec-no">{{ $t.name_zh }} · 概念 {{ add $i 1 }} / {{ $nc }}</span>
+        <h2>{{ $c.name_zh }}</h2>
+        {{ with $c.l_levels }}<span class="vx-move-meta">感知層級 {{ delimit . "、" }}</span>{{ end }}
+
+        {{ with $c.phenomenon }}
+        <span class="vx-block-label">現象與機制 {{ .certainty }}</span>
+        <div class="vx-howto">{{ .text }}</div>
+        {{ end }}
+
+        {{ with $c.hardware_boundary }}
+        <div class="vx-boundary"><span class="vx-label">生理／證據邊界 {{ .certainty }}</span>{{ .text }}</div>
+        {{ end }}
+
+        {{ with $c.misconception_refs }}
+        <span class="vx-block-label">教學誤區校正</span>
+        {{ range . }}
+        <div class="vx-cues">
+          <div class="vx-cue vx-cue--bad"><div class="vx-cue-tag">別這樣教</div><div class="vx-cue-txt">{{ .cue }}</div></div>
+          <div class="vx-cue vx-cue--why"><div class="vx-cue-tag">為什麼</div><div class="vx-cue-txt">{{ .why }}</div></div>
+          <div class="vx-cue vx-cue--good"><div class="vx-cue-tag">這樣做</div><div class="vx-cue-txt">{{ .better }}</div></div>
+        </div>
+        {{ end }}
+        {{ end }}
+
+        {{ with $c.intervention_refs }}
+        <span class="vx-block-label">可做的介入</span>
+        {{ range . }}
+        <div class="vx-method">
+          <div class="vx-method-name">{{ .name }} {{ with .certainty }}<span class="vx-cert">{{ . }}</span>{{ end }}</div>
+          {{ with .how_to }}<div class="vx-method-detail">{{ . }}</div>{{ end }}
+        </div>
+        {{ end }}
+        {{ end }}
+
+        {{ with $c.population_note }}<div class="vx-boundary"><span class="vx-label">族群差異</span>{{ . }}</div>{{ end }}
+        {{ with $c.l_note }}<div class="vx-boundary"><span class="vx-label">水感註記</span>{{ . }}</div>{{ end }}
+
+        {{ with $c.sources }}
+        <span class="vx-block-label">來源</span>
+        {{ range . }}<span class="vx-cite"><span class="src">{{ . }}</span></span>{{ end }}
+        {{ end }}
+
+        <nav class="vx-flow">
+          {{ if gt $i 0 }}<button type="button" data-target="{{ replace (index $concepts (sub $i 1)).id "." "-" }}"><span class="lbl">上一個</span>← {{ (index $concepts (sub $i 1)).name_zh }}</button>{{ else }}<button type="button" data-target="overview"><span class="lbl">回到</span>← 概覽</button>{{ end }}
+          {{ if lt (add $i 1) $nc }}<button class="nx" type="button" data-target="{{ replace (index $concepts (add $i 1)).id "." "-" }}"><span class="lbl">下一個</span>{{ (index $concepts (add $i 1)).name_zh }} →</button>{{ end }}
+        </nav>
+      </section>
+      {{ end }}
+      {{ end }}
+
+    </main>
+  </div>
+</div>
+
+<script src="{{ .Site.BaseURL }}js/vortex.js" defer></script>
+{{ end }}

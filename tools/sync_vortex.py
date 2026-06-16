@@ -59,6 +59,10 @@ PERIODIZATION_SRC_DIR = VORTEX_SRC / "canonical" / "periodization"
 PERIODIZATION_DST_DIR = HUGO_ROOT / "data" / "periodization"
 PERIODIZATION_FILES   = ["structure", "taper", "zones", "_index"]
 
+# ── 心理層（canonical 兩層 → my-site 只 public） ──
+PSYCHOLOGY_SRC = VORTEX_SRC / "canonical" / "psychology" / "psychology.yaml"
+PSYCHOLOGY_DST = HUGO_ROOT / "data" / "vortex" / "psychology.yaml"
+
 # ── Layer 設定 ──
 LAYERS = {
     "Technica":     {"slug": "technica",     "name": "水感框架"},
@@ -681,6 +685,75 @@ def sync_periodization(dry_run: bool):
         print("  [dry-run，未寫入 data/periodization/]")
 
 
+def sync_psychology(dry_run: bool):
+    """讀 canonical psychology.yaml（theme→concept，每概念兩層），剝除 diagnostic 層，
+    只把 public 層寫進 my-site data/vortex/psychology.yaml。
+
+    公開/診斷鐵則：「泳者說 X → 判斷」的判讀訊號（reading_signals / probe）、三型對應
+    （abc_link）只在 swim-coach，不上公開站。本函式是公開站最後一道剝離保險——
+    theme 的 id/name_zh/order/premise(public) 與每個 concept 的 id/name_zh/order + public
+    帶過去；concept 的 diagnostic 整塊不取。
+    """
+    if not PSYCHOLOGY_SRC.exists():
+        print()
+        print("=== 心理層 ===")
+        print(f"  [跳過] 找不到 {PSYCHOLOGY_SRC}")
+        return
+
+    data = yaml.safe_load(PSYCHOLOGY_SRC.read_text(encoding="utf-8")) or {}
+    themes_in = data.get("themes", []) or []
+
+    themes_out = []
+    total_concepts = 0
+    for t in themes_in:
+        concepts_out = []
+        for c in t.get("concepts", []) or []:
+            pub = c.get("public", {}) or {}
+            rec = {
+                "id":      c.get("id"),
+                "name_zh": c.get("name_zh"),
+                "order":   c.get("order"),
+                "status":  c.get("status"),
+            }
+            rec.update(pub)          # 只帶 public 欄位，diagnostic 整塊不取
+            concepts_out.append(rec)
+        total_concepts += len(concepts_out)
+        themes_out.append({
+            "id":       t.get("id"),
+            "name_zh":  t.get("name_zh"),
+            "order":    t.get("order"),
+            "status":   t.get("status"),
+            "premise":  t.get("premise"),   # premise 本身即 public 層
+            "concepts": concepts_out,
+        })
+
+    out_data = {
+        "domain":      data.get("domain"),
+        "domain_name_zh": data.get("domain_name_zh"),
+        "themes":      themes_out,
+    }
+
+    print()
+    print("=== 心理層（public 層）===")
+    for t in themes_out:
+        print(f"  {t['name_zh']:10s} concepts={len(t['concepts'])}")
+    print(f"  TOTAL concepts {total_concepts}")
+
+    if dry_run:
+        print("  [dry-run，未寫入 data/vortex/psychology.yaml]")
+        return
+
+    out = yaml.safe_dump(
+        out_data,
+        allow_unicode=True,
+        default_flow_style=False,
+        sort_keys=False,
+        width=4096,
+    )
+    PSYCHOLOGY_DST.write_text(out, encoding="utf-8")
+    print(f"  寫入 {PSYCHOLOGY_DST.relative_to(HUGO_ROOT)}")
+
+
 def main():
     dry_run = "--dry-run" in sys.argv
     results = {"new": [], "changed": [], "same": [], "unknown": []}
@@ -761,6 +834,7 @@ def main():
     sync_adm_matrix(dry_run)
     sync_adm_standards(dry_run)
     sync_periodization(dry_run)
+    sync_psychology(dry_run)
 
     print()
     print("=== 同步摘要 ===")
