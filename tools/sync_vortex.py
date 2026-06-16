@@ -723,6 +723,7 @@ def sync_psychology(dry_run: bool):
             "id":            t.get("id"),
             "name_zh":       t.get("name_zh"),
             "nav_zh":        t.get("nav_zh"),     # 短導航標籤（左欄用）
+            "when_zh":       t.get("when_zh"),    # 處境線：什麼狀況該讀這個（左欄白話副標）
             "order":         t.get("order"),
             "status":        t.get("status"),
             "band":          t.get("band"),          # 三帶定位：初學端 / 貫穿全程 / 進階競技端

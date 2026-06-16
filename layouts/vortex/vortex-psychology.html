@@ -30,9 +30,12 @@
       {{ if eq $t.status "complete" }}
       <div class="vx-rail-theme" data-theme="t{{ $ti }}">
         <button class="vx-rail-theme-head" type="button" data-theme-toggle="t{{ $ti }}" aria-expanded="false">
-          <span class="vx-rail-theme-caret" aria-hidden="true"></span>
-          <span class="vx-rail-theme-name">{{ $t.nav_zh | default $t.name_zh }}</span>
-          <span class="vx-rail-theme-count">{{ len $t.concepts }}</span>
+          <span class="vx-rail-theme-top">
+            <span class="vx-rail-theme-caret" aria-hidden="true"></span>
+            <span class="vx-rail-theme-name">{{ $t.nav_zh | default $t.name_zh }}</span>
+            <span class="vx-rail-theme-count">{{ len $t.concepts }}</span>
+          </span>
+          {{ with $t.when_zh }}<span class="vx-rail-theme-when">{{ . }}</span>{{ end }}
         </button>
         <div class="vx-rail-scroll">
           <ul class="vx-rail-list">
