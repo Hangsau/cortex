@@ -712,6 +712,7 @@ def sync_psychology(dry_run: bool):
             rec = {
                 "id":      c.get("id"),
                 "name_zh": c.get("name_zh"),
+                "nav_zh":  c.get("nav_zh"),    # 短導航標籤（左欄用，可掃讀）
                 "order":   c.get("order"),
                 "status":  c.get("status"),
             }
@@ -721,6 +722,7 @@ def sync_psychology(dry_run: bool):
         themes_out.append({
             "id":            t.get("id"),
             "name_zh":       t.get("name_zh"),
+            "nav_zh":        t.get("nav_zh"),     # 短導航標籤（左欄用）
             "order":         t.get("order"),
             "status":        t.get("status"),
             "band":          t.get("band"),          # 三帶定位：初學端 / 貫穿全程 / 進階競技端

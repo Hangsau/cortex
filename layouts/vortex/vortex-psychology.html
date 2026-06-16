@@ -31,13 +31,13 @@
       <div class="vx-rail-theme" data-theme="t{{ $ti }}">
         <button class="vx-rail-theme-head" type="button" data-theme-toggle="t{{ $ti }}" aria-expanded="false">
           <span class="vx-rail-theme-caret" aria-hidden="true"></span>
-          <span class="vx-rail-theme-name">{{ $t.name_zh }}</span>
+          <span class="vx-rail-theme-name">{{ $t.nav_zh | default $t.name_zh }}</span>
           <span class="vx-rail-theme-count">{{ len $t.concepts }}</span>
         </button>
         <div class="vx-rail-scroll">
           <ul class="vx-rail-list">
             {{ range $t.concepts }}
-            <li><button class="vx-navlink" type="button" data-target="{{ replace .id "." "-" }}" data-theme="t{{ $ti }}"><span class="n">{{ .order }}</span>{{ .name_zh }}</button></li>
+            <li><button class="vx-navlink" type="button" data-target="{{ replace .id "." "-" }}" data-theme="t{{ $ti }}"><span class="n">{{ .order }}</span>{{ .nav_zh | default .name_zh }}</button></li>
             {{ end }}
           </ul>
         </div>
