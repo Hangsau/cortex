@@ -54,7 +54,27 @@
         <span class="vx-sec-no">VORTEX · Psychology</span>
         <h2>心理層 · 心理地圖</h2>
         <p class="vx-premise">技術建立在感知上，感知建立在心理狀態上。恐懼、動機、注意力會在源頭決定一個人能不能感覺到水——所以心理不是技術之外的附加題，是 L0 的地基。</p>
-        <p class="vx-panel-lead">這 8 個主題不是並列清單，而是沿著水感的 <strong>L0→L6／初學→競技</strong> 這條脊椎排出來的：恐懼坐在最起點 L0，心流坐在最頂端 L6。下面三帶就是這條脊椎的三段——已上線的可以點進去讀，其餘正在建置。</p>
+
+        {{/* ── 處境門面：不靠學術名稱，按「你現在在哪」對號入座 ── */}}
+        {{ $situations := slice
+          (dict "l" "L0" "target" "psych-fear-control_loss" "txt" "一靠近水就怕、不敢放手——動作都還沒開始，恐懼先把人擋在門外。")
+          (dict "l" "L0–L2" "target" "psych-interaction-anterior_insula_gain" "txt" "不怕了，但一緊張身體就僵、換氣一亂整個垮——身體和心理在水裡互相點火。")
+          (dict "l" "L0–L6" "target" "psych-motivation-bpn_triad" "txt" "技術沒問題，卻練不下去、提不起勁——想找回能一直練下去的動力。")
+          (dict "l" "L3–L6" "target" "psych-attention-ef_if_definition" "txt" "平常練得好，一上場注意力就散、越想控制越糟——專注該放哪、怎麼放。")
+          (dict "l" "L6" "target" "psych-arousal-inverted_u" "txt" "壓力一來就崩，想學會在台上穩住、甚至進入心流。") }}
+
+        <div class="vx-situations">
+          <p class="vx-sit-lead">不用先認得下面的主題名稱。挑一句最接近你（或你帶的人）現在處境的，它會帶你到對的地方：</p>
+          {{ range $situations }}
+          <button class="vx-sit-card" type="button" data-target="{{ .target }}">
+            <span class="vx-sit-l">{{ .l }}</span>
+            <span class="vx-sit-txt">{{ .txt }}</span>
+            <span class="vx-sit-go">從這裡開始 →</span>
+          </button>
+          {{ end }}
+        </div>
+
+        <p class="vx-panel-lead"><span class="vx-map-label">或瀏覽完整地圖</span>這 8 個主題不是並列清單，而是沿著水感的 <strong>L0→L6／初學→競技</strong> 這條脊椎排出來的：恐懼坐在最起點 L0，心流坐在最頂端 L6。下面三帶就是這條脊椎的三段。</p>
 
         {{ $bands := slice
           (dict "name" "初學端" "l" "L0–L2" "desc" "還沒碰到動作之前，心裡先發生了什麼——恐懼與身心交互在源頭決定一個人能不能感覺到水。")
@@ -109,7 +129,14 @@
       <section class="vx-panel vx-move" id="{{ replace $c.id "." "-" }}">
         <span class="vx-sec-no">{{ $t.name_zh }} · 概念 {{ add $i 1 }} / {{ $nc }}</span>
         <h2>{{ $c.name_zh }}</h2>
-        {{ with $c.l_levels }}<span class="vx-move-meta">感知層級 {{ delimit . "、" }}</span>{{ end }}
+        {{ with $c.l_levels }}
+        <div class="vx-ladder" aria-label="這個概念落在水感的哪一層">
+          <span class="vx-ladder-cap">水感層級</span>
+          {{ range $lv := slice "L0" "L1" "L2" "L3" "L4" "L5" "L6" }}
+          <span class="vx-ladder-node{{ if in $c.l_levels $lv }} is-on{{ end }}">{{ $lv }}</span>
+          {{ end }}
+        </div>
+        {{ end }}
 
         {{ with $c.phenomenon }}
         <span class="vx-block-label">現象與機制 {{ .certainty }}</span>

@@ -464,6 +464,62 @@ mark, .mark {
   padding: 2px 8px; margin-bottom: 14px;
 }
 
+/* 處境門面（概覽）：按「你現在在哪」對號入座，不靠主題學名 */
+.vx-situations { margin: 0 0 34px; }
+.vx-sit-lead {
+  font-size: 15px; color: var(--vx-sub); line-height: 1.7;
+  margin: 0 0 14px; max-width: var(--vx-measure);
+}
+.vx-sit-card {
+  display: grid; grid-template-columns: auto 1fr auto; gap: 16px;
+  align-items: center; text-align: left; width: 100%;
+  padding: 15px 18px; margin-bottom: 10px;
+  border: 1px solid var(--vx-rule2); border-left: 4px solid var(--vx-accent);
+  background: var(--vx-paper); font-family: var(--vx-serif); cursor: pointer;
+}
+.vx-sit-card:hover { background: #fff; border-left-color: var(--vx-gold); }
+.vx-sit-l {
+  font-family: var(--vx-display); font-size: 13px; letter-spacing: 0.06em;
+  color: #fff; background: var(--vx-accent);
+  padding: 3px 9px; border-radius: 2px; white-space: nowrap; align-self: start;
+}
+.vx-sit-txt {
+  font-size: 16px; line-height: 1.65; color: var(--vx-ink); min-width: 0;
+}
+.vx-sit-go {
+  font-family: var(--vx-display); font-size: 14px; color: var(--vx-accent);
+  font-weight: 600; white-space: nowrap;
+}
+.vx-map-label {
+  display: block; font-family: var(--vx-display); font-size: 13px;
+  letter-spacing: 0.06em; color: var(--vx-faint); margin-bottom: 6px;
+}
+
+/* 每頁「你在 L0–L6 哪裡」常駐定位梯 */
+.vx-ladder {
+  display: flex; align-items: center; gap: 5px; flex-wrap: wrap;
+  margin: 4px 0 18px;
+}
+.vx-ladder-cap {
+  font-size: 12px; letter-spacing: 0.05em; color: var(--vx-faint);
+  margin-right: 6px;
+}
+.vx-ladder-node {
+  font-family: var(--vx-display); font-size: 12.5px; line-height: 1;
+  color: var(--vx-faint); background: var(--vx-paper2);
+  border: 1px solid var(--vx-rule); border-radius: 2px;
+  padding: 4px 7px; white-space: nowrap;
+}
+.vx-ladder-node.is-on {
+  color: #fff; background: var(--vx-accent); border-color: var(--vx-accent);
+  font-weight: 600;
+}
+
+@media (max-width: 560px) {
+  .vx-sit-card { grid-template-columns: auto 1fr; }
+  .vx-sit-go { display: none; }
+}
+
 /* 硬體邊界 callout */
 .vx-boundary {
   background: var(--vx-paper2);
