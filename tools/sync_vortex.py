@@ -719,12 +719,16 @@ def sync_psychology(dry_run: bool):
             concepts_out.append(rec)
         total_concepts += len(concepts_out)
         themes_out.append({
-            "id":       t.get("id"),
-            "name_zh":  t.get("name_zh"),
-            "order":    t.get("order"),
-            "status":   t.get("status"),
-            "premise":  t.get("premise"),   # premise 本身即 public 層
-            "concepts": concepts_out,
+            "id":            t.get("id"),
+            "name_zh":       t.get("name_zh"),
+            "order":         t.get("order"),
+            "status":        t.get("status"),
+            "band":          t.get("band"),          # 三帶定位：初學端 / 貫穿全程 / 進階競技端
+            "l_band":        t.get("l_band"),         # L 範圍（如 L0–L2）
+            "level_tag":     t.get("level_tag"),      # 分級標籤（初學 / 全程 / 進階·競技）
+            "concept_count": t.get("concept_count"),  # planned 主題沒有 concepts，用這個顯示數量
+            "premise":       t.get("premise"),        # premise 本身即 public 層
+            "concepts":      concepts_out,
         })
 
     out_data = {

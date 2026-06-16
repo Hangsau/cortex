@@ -28,6 +28,7 @@
       </div>
 
       {{ range $themes }}
+      {{ if eq .status "complete" }}
       <div class="vx-rail-group">{{ .name_zh }}</div>
       <div class="vx-rail-scroll">
         <ul class="vx-rail-list">
@@ -37,31 +38,62 @@
         </ul>
       </div>
       {{ end }}
+      {{ end }}
     </aside>
 
     {{/* ════════ 右側主面板 ════════ */}}
     <main class="vx-panels">
 
-      {{/* ── 概覽 ── */}}
+      {{/* ── 概覽：心理地圖（沿 L0→L6 / 初學→競技 脊椎排成三帶）── */}}
       <section class="vx-panel vx-overview" id="overview">
         <span class="vx-sec-no">VORTEX · Psychology</span>
-        <h2>心理層</h2>
+        <h2>心理層 · 心理地圖</h2>
         <p class="vx-premise">技術建立在感知上，感知建立在心理狀態上。恐懼、動機、注意力會在源頭決定一個人能不能感覺到水——所以心理不是技術之外的附加題，是 L0 的地基。</p>
-        <p class="vx-panel-lead">選一個主題開始，點任一概念就地展開，不換頁。</p>
-        {{ range $themes }}
-        <p class="vx-panel-lead" style="margin-top:1.4em">{{ .name_zh }}</p>
-        {{ with .premise }}<p class="vx-premise">{{ .one_line }} <span class="vx-cert">{{ .certainty }}</span></p>{{ end }}
-        <div class="vx-path-list">
-          {{ range .concepts }}
-          <button class="vx-path-item" type="button" data-target="{{ replace .id "." "-" }}">
-            <span class="n">{{ .order }}</span>
-            <span><span class="t">{{ .name_zh }}</span>{{ with .l_levels }}<span class="o">感知層級 {{ delimit . "、" }}</span>{{ end }}</span>
-          </button>
-          {{ end }}
+        <p class="vx-panel-lead">這 8 個主題不是並列清單，而是沿著水感的 <strong>L0→L6／初學→競技</strong> 這條脊椎排出來的：恐懼坐在最起點 L0，心流坐在最頂端 L6。下面三帶就是這條脊椎的三段——已上線的可以點進去讀，其餘正在建置。</p>
+
+        {{ $bands := slice
+          (dict "name" "初學端" "l" "L0–L2" "desc" "還沒碰到動作之前，心裡先發生了什麼——恐懼與身心交互在源頭決定一個人能不能感覺到水。")
+          (dict "name" "貫穿全程" "l" "L0–L6" "desc" "從初學到競技都在運作的底土——動機氣候與心理演練，是感知能不能持續生長的土壤。")
+          (dict "name" "進階競技端" "l" "L3–L6" "desc" "感知已經建立之後的高層心理——注意力、自我對話、壓力崩潰與心流，決定水感能不能在表現壓力下守住。") }}
+
+        {{ range $b := $bands }}
+        <div class="vx-band">
+          <div class="vx-band-head">
+            <span class="vx-band-l">{{ $b.l }}</span>
+            <span class="vx-band-name">{{ $b.name }}</span>
+          </div>
+          <p class="vx-band-desc">{{ $b.desc }}</p>
+          <div class="vx-theme-grid">
+            {{ range $themes }}
+              {{ if eq .band $b.name }}
+                {{ if eq .status "complete" }}
+                <button class="vx-theme-card is-ready" type="button" data-target="{{ replace (index .concepts 0).id "." "-" }}">
+                  <span class="vx-theme-no">{{ printf "%02d" .order }}</span>
+                  <span class="vx-theme-body">
+                    <span class="vx-theme-zh">{{ .name_zh }}</span>
+                    {{ with .premise }}<span class="vx-theme-prem">{{ .one_line }}</span>{{ end }}
+                    <span class="vx-theme-meta">{{ with .premise }}<span class="vx-cert">{{ .certainty }}</span> · {{ end }}{{ len .concepts }} 概念 · {{ .level_tag }}</span>
+                  </span>
+                  <span class="vx-theme-go">讀 →</span>
+                </button>
+                {{ else }}
+                <div class="vx-theme-card is-planned">
+                  <span class="vx-theme-no">{{ printf "%02d" .order }}</span>
+                  <span class="vx-theme-body">
+                    <span class="vx-theme-zh">{{ .name_zh }}<span class="vx-theme-badge">建置中</span></span>
+                    {{ with .premise }}<span class="vx-theme-prem">{{ .one_line }}</span>{{ end }}
+                    <span class="vx-theme-meta">{{ with .premise }}<span class="vx-cert">{{ .certainty }}</span> · {{ end }}{{ .concept_count }} 概念 · {{ .level_tag }}</span>
+                  </span>
+                </div>
+                {{ end }}
+              {{ end }}
+            {{ end }}
+          </div>
         </div>
         {{ end }}
+
         <p class="vx-legend">🔵 推導／跨領域外推 · 🟢 近期文獻 · 🟡 舊文獻 · 🟠 書籍二手或觀測 · 🔴 待查</p>
-        <p class="vx-cite"><span class="src">分層說明</span>：公開層解釋「這個心理現象是什麼、怎麼運作」；教練判讀訊號（怎麼從泳者的話判斷他在哪一層）收在教練工具，不在公開站。</p>
+        <p class="vx-cite"><span class="src">分層說明</span>：公開層解釋「這個心理現象是什麼、怎麼運作」；教練判讀訊號（怎麼從泳者的話判斷他在哪一層）收在教練工具，不在公開站。標「建置中」的主題，dossier 研究已完成、概念內容量產中。</p>
       </section>
 
       {{/* ── 各概念 ── */}}
