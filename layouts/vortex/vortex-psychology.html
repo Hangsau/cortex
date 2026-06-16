@@ -13,29 +13,34 @@
   <div class="vx-stroke-wrap">
 
     {{/* ════════ 左側常駐目次 ════════ */}}
-    <aside class="vx-rail">
+    <aside class="vx-rail vx-rail--collapsible">
       <a class="vx-back-link" href="{{ $base }}vortex/">← Cortex · Vortex</a>
       <div class="vx-rail-head">
         <span class="vx-stroke-zh">心理層</span>
         <span class="vx-stroke-en">Psychology</span>
       </div>
 
-      <div class="vx-rail-group">導覽</div>
       <div class="vx-rail-scroll">
         <ul class="vx-rail-list">
-          <li><button class="vx-navlink" type="button" data-target="overview"><span class="n">0</span>概覽</button></li>
+          <li><button class="vx-navlink vx-navlink--top" type="button" data-target="overview"><span class="n">◆</span>心理地圖 · 概覽</button></li>
         </ul>
       </div>
 
-      {{ range $themes }}
-      {{ if eq .status "complete" }}
-      <div class="vx-rail-group">{{ .name_zh }}</div>
-      <div class="vx-rail-scroll">
-        <ul class="vx-rail-list">
-          {{ range .concepts }}
-          <li><button class="vx-navlink" type="button" data-target="{{ replace .id "." "-" }}"><span class="n">{{ .order }}</span>{{ .name_zh }}</button></li>
-          {{ end }}
-        </ul>
+      {{ range $ti, $t := $themes }}
+      {{ if eq $t.status "complete" }}
+      <div class="vx-rail-theme" data-theme="t{{ $ti }}">
+        <button class="vx-rail-theme-head" type="button" data-theme-toggle="t{{ $ti }}" aria-expanded="false">
+          <span class="vx-rail-theme-caret" aria-hidden="true"></span>
+          <span class="vx-rail-theme-name">{{ $t.name_zh }}</span>
+          <span class="vx-rail-theme-count">{{ len $t.concepts }}</span>
+        </button>
+        <div class="vx-rail-scroll">
+          <ul class="vx-rail-list">
+            {{ range $t.concepts }}
+            <li><button class="vx-navlink" type="button" data-target="{{ replace .id "." "-" }}" data-theme="t{{ $ti }}"><span class="n">{{ .order }}</span>{{ .name_zh }}</button></li>
+            {{ end }}
+          </ul>
+        </div>
       </div>
       {{ end }}
       {{ end }}

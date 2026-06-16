@@ -15,6 +15,29 @@
 
   var order = panels.map(function (p) { return p.id; });
 
+  // 密集階層側欄：當前分支展開（只在 .vx-rail--collapsible 啟用）
+  var collapsibleRail = root.querySelector('.vx-rail--collapsible');
+  var railThemes = collapsibleRail
+    ? Array.prototype.slice.call(collapsibleRail.querySelectorAll('.vx-rail-theme'))
+    : [];
+
+  function syncRailExpand(activeId) {
+    if (!railThemes.length) return;
+    var activeKey = null;
+    for (var i = 0; i < navlinks.length; i++) {
+      if (navlinks[i].getAttribute('data-target') === activeId) {
+        activeKey = navlinks[i].getAttribute('data-theme');
+        break;
+      }
+    }
+    railThemes.forEach(function (themeEl) {
+      var on = themeEl.getAttribute('data-theme') === activeKey;
+      themeEl.classList.toggle('is-expanded', on);
+      var head = themeEl.querySelector('[data-theme-toggle]');
+      if (head) head.setAttribute('aria-expanded', on ? 'true' : 'false');
+    });
+  }
+
   function panelById(id) {
     for (var i = 0; i < panels.length; i++) {
       if (panels[i].id === id) return panels[i];
@@ -30,6 +53,7 @@
     navlinks.forEach(function (n) {
       n.classList.toggle('is-active', n.getAttribute('data-target') === id);
     });
+    syncRailExpand(id);
 
     if (push) {
       if (location.hash.slice(1) !== id) {
@@ -51,6 +75,16 @@
       e.preventDefault();
       var id = n.getAttribute('data-target');
       if (id) activate(id, true);
+    });
+  });
+
+  // 主題標題：點一下展開／收合該主題（讓使用者先看概念再選），不切換面板
+  railThemes.forEach(function (themeEl) {
+    var head = themeEl.querySelector('[data-theme-toggle]');
+    if (!head) return;
+    head.addEventListener('click', function () {
+      var on = themeEl.classList.toggle('is-expanded');
+      head.setAttribute('aria-expanded', on ? 'true' : 'false');
     });
   });
 

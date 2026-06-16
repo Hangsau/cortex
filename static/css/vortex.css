@@ -9,7 +9,8 @@
   --vx-bg:        #ffffff;
   --vx-paper:     #faf9f5;
   --vx-paper2:    #f4f2ea;
-  --vx-ink:       #1a1a1a;
+  --vx-ground:    #faf8f3;
+  --vx-ink:       #232323;
   --vx-sub:       #555555;
   --vx-faint:     #8a8a82;
   --vx-accent:    #1b3a5c;
@@ -20,9 +21,11 @@
   --vx-warn-bg:   #fbf1ee;
   --vx-rule:      #e2e1d8;
   --vx-rule2:     #c9c8bd;
-  --vx-serif:     'Source Serif 4', Georgia, 'Songti TC', serif;
+  --vx-serif:     'Source Serif 4', 'Noto Serif TC', 'Source Han Serif TC', Georgia, 'Songti TC', serif;
   --vx-display:   'Crimson Pro', Georgia, serif;
   --vx-wrap:      1080px;
+  --vx-measure:       38em;   /* ~38 漢字 / ~66 拉丁字元 內文行長 */
+  --vx-measure-lead:  32em;   /* 引言/前言略窄 */
 }
 
 /* ── 頁面底 ── */
@@ -30,7 +33,7 @@ body:has(.vx-page),
 body:has(.vx-home),
 body:has(.vx-stroke),
 body:has(.vx-db) {
-  background: var(--vx-bg);
+  background: var(--vx-ground);
 }
 
 /* vortex 頁脫離 baseof 的 .main-content 800px 上限 + 內距，
@@ -50,6 +53,7 @@ body:has(.vx-db) .main-content {
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   font-feature-settings: "liga" 1, "onum" 1;
+  text-autospace: ideograph-alpha ideograph-numeric;
 }
 
 .vx-page, .vx-home, .vx-db {
@@ -164,7 +168,7 @@ mark, .mark {
 .vx-home .vx-masthead .vx-lead {
   font-size: 17px;
   color: var(--vx-sub);
-  max-width: 60ch;
+  max-width: var(--vx-measure-lead);
   margin: 0;
 }
 
@@ -232,6 +236,7 @@ mark, .mark {
 .vx-toc-prem {
   grid-column: 2 / 3;
   font-size: 14.5px; color: var(--vx-sub); margin-top: 3px;
+  max-width: var(--vx-measure);
 }
 .vx-toc-meta {
   grid-column: 3; grid-row: span 2;
@@ -307,10 +312,40 @@ mark, .mark {
 }
 .vx-navlink.is-active .n { color: var(--vx-accent); }
 
+/* ── 密集階層側欄：當前分支展開（active-branch-expand）──
+   8 個主題標題常駐（保留資訊氣味），只展開當前所在主題的概念，
+   其餘只剩標題。把可見項目從 ~70 降到 ~16。NN/G 對純手風琴的批評即此修正。 */
+.vx-rail--collapsible .vx-rail-theme > .vx-rail-scroll { display: none; }
+.vx-rail--collapsible .vx-rail-theme.is-expanded > .vx-rail-scroll { display: block; }
+.vx-rail-theme-head {
+  display: flex; align-items: center; gap: 8px;
+  width: 100%; text-align: left; cursor: pointer;
+  background: none; border: 0;
+  font-family: var(--vx-serif); color: var(--vx-sub);
+  padding: 8px 6px; margin: 1px 0 0;
+  border-left: 2px solid transparent;
+}
+.vx-rail-theme-head:hover { color: var(--vx-ink); }
+.vx-rail-theme.is-expanded > .vx-rail-theme-head { color: var(--vx-ink); }
+.vx-rail-theme-caret {
+  width: 0; height: 0; flex-shrink: 0;
+  border-left: 5px solid var(--vx-faint);
+  border-top: 4px solid transparent; border-bottom: 4px solid transparent;
+  transition: transform 0.18s ease;
+}
+.vx-rail-theme.is-expanded > .vx-rail-theme-head .vx-rail-theme-caret {
+  transform: rotate(90deg); border-left-color: var(--vx-accent);
+}
+.vx-rail-theme-name { flex: 1; font-size: 14px; font-weight: 600; line-height: 1.3; }
+.vx-rail-theme-count {
+  font-size: 11px; color: var(--vx-faint); font-family: var(--vx-display);
+}
+.vx-navlink--top { font-weight: 600; }
+
 /* 內容面板 */
 .vx-panels {
-  padding: 36px clamp(24px, 4vw, 60px) 100px;
-  max-width: 760px;
+  padding: 36px clamp(20px, 3vw, 40px) 100px;
+  max-width: 700px;
 }
 .vx-panel { display: none; animation: vxfade .18s ease; }
 .vx-panel.is-active { display: block; }
@@ -323,8 +358,9 @@ mark, .mark {
 }
 .vx-panel h2 { font-size: clamp(25px, 4vw, 34px); margin: 0 0 6px; }
 .vx-panel-lead {
-  font-size: 18px; color: var(--vx-sub); font-style: italic;
+  font-size: 18px; color: var(--vx-sub);
   margin: 0 0 26px;
+  max-width: var(--vx-measure-lead);
 }
 
 /* 概覽面板 */
@@ -365,6 +401,7 @@ mark, .mark {
 .vx-band-desc {
   font-size: 14.5px; line-height: 1.7; color: var(--vx-sub);
   margin: 8px 0 16px;
+  max-width: var(--vx-measure);
 }
 .vx-theme-grid { display: flex; flex-direction: column; gap: 12px; }
 .vx-theme-card {
@@ -510,7 +547,7 @@ details.vx-drill > summary .did {
   font-family: var(--vx-display); font-size: clamp(24px, 4vw, 32px);
   margin: 0 0 8px; color: var(--vx-ink);
 }
-.vx-needs-sub { color: var(--vx-sub); margin: 0 0 20px; max-width: 60ch; }
+.vx-needs-sub { color: var(--vx-sub); margin: 0 0 20px; max-width: var(--vx-measure); }
 .vx-needs-filters { margin: 0 0 14px; }
 .vx-needs-filters .vx-filterbar-label { min-width: 132px; text-transform: none; font-size: 12px; }
 .vx-needs-count { font-size: 13px; color: var(--vx-faint); margin: 0 0 18px; }
@@ -579,7 +616,7 @@ details.vx-level .lvtag { font-size: 13.5px; color: var(--vx-sub); display: bloc
 .vx-method { padding: 10px 0; border-bottom: 1px dotted var(--vx-rule); }
 .vx-method-name { font-weight: 600; font-size: 15px; }
 .vx-method-detail { font-size: 14px; color: var(--vx-sub); margin: 3px 0; }
-.vx-method-cue { font-size: 14px; color: var(--vx-accent2); font-style: italic; }
+.vx-method-cue { font-size: 14px; color: var(--vx-accent2); }
 details.vx-diag { margin-top: 14px; }
 details.vx-diag > summary {
   cursor: pointer; font-size: 13px; letter-spacing: 0.04em;
@@ -641,7 +678,7 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
   font-size: 12px; letter-spacing: 0.05em; color: var(--vx-accent);
   border: 1px solid var(--vx-rule2); padding: 1px 8px;
 }
-.vx-article-body { font-size: 17px; line-height: 1.8; }
+.vx-article-body { font-size: 17px; line-height: 1.8; max-width: 42em; }
 .vx-article-body h2 { font-size: 26px; margin: 36px 0 10px; padding-top: 10px; border-top: 1px solid var(--vx-rule); }
 .vx-article-body h3 { font-size: 20px; margin: 26px 0 8px; }
 .vx-article-body p { margin: 14px 0; }
@@ -651,7 +688,7 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
 .vx-article-body th, .vx-article-body td { border: 1px solid var(--vx-rule); padding: 8px 12px; text-align: left; }
 .vx-article-body th { background: var(--vx-paper); font-family: var(--vx-display); }
 .vx-article-body blockquote {
-  border-left: 3px solid var(--vx-gold); padding-left: 16px; color: var(--vx-sub); font-style: italic; margin: 16px 0;
+  border-left: 3px solid var(--vx-gold); padding-left: 16px; color: var(--vx-sub); margin: 16px 0;
 }
 .vx-article-body code {
   font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 0.88em;
@@ -669,7 +706,7 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
 .vx-item-title { font-family: var(--vx-display); font-size: 20px; display: block; }
 .vx-item-desc { font-size: 14.5px; color: var(--vx-sub); display: block; margin-top: 3px; }
 .vx-item-strokes { display: inline-flex; gap: 6px; margin-top: 8px; }
-.vx-empty { color: var(--vx-faint); font-style: italic; padding: 40px 0; }
+.vx-empty { color: var(--vx-faint); padding: 40px 0; }
 
 /* ════════════════════════════════════════════
    ADM 運動員發展
@@ -728,8 +765,8 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
   display: inline; margin-right: 10px; font-size: 18px;
 }
 .vx-pz-intro {
-  font-size: 16px; color: var(--vx-sub); font-style: italic;
-  margin: 0 0 20px; max-width: 68ch;
+  font-size: 16px; color: var(--vx-sub);
+  margin: 0 0 20px; max-width: 42em;
 }
 .vx-pz-block { margin: 20px 0 24px; }
 .vx-pz-block h3 {
@@ -881,6 +918,16 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
     padding: 6px 10px; flex: none;
   }
   .vx-navlink.is-active { border-left: 0; border-bottom-color: var(--vx-accent); }
+  /* 收合側欄在手機改回縱向：主題標題堆疊，展開主題的概念縱列 */
+  .vx-rail--collapsible .vx-rail-theme > .vx-rail-scroll { display: none; }
+  .vx-rail--collapsible .vx-rail-theme.is-expanded > .vx-rail-scroll { display: block; }
+  .vx-rail--collapsible .vx-rail-list { flex-direction: column; }
+  .vx-rail--collapsible .vx-navlink {
+    white-space: normal; border-left: 2px solid transparent; border-bottom: 0;
+  }
+  .vx-rail--collapsible .vx-navlink.is-active {
+    border-left-color: var(--vx-accent); border-bottom-color: transparent;
+  }
   .vx-panels { padding: 24px 18px 80px; max-width: 100%; }
   .vx-page, .vx-home, .vx-db { padding: 24px 18px 80px; }
   .vx-toc-row { grid-template-columns: 36px 1fr; }
