@@ -22,7 +22,7 @@
 {{ $drillCats := slice }}{{ range $drills }}{{ $drillCats = $drillCats | append .category }}{{ end }}{{ $drillCats = $drillCats | uniq }}
 {{ $drillLevels := slice }}{{ range $drills }}{{ range .l_target }}{{ $drillLevels = $drillLevels | append . }}{{ end }}{{ end }}{{ $drillLevels = $drillLevels | uniq | sort }}
 
-<div class="vx-db">
+<div class="vx-db" data-vx-db>
   <a class="vx-back-link" href="{{ $base }}vortex/">← Cortex · Vortex</a>
   <h1 class="vx-list-title">跨泳式資料庫</h1>
   <p class="vx-list-desc">不分泳式，把所有內容集中在一頁。你可以從「需求」挑該練什麼，或直接查某一類資料。</p>
@@ -134,102 +134,5 @@
   <p class="vx-legend">🔵 推導 · 🟢 近期文獻 · 🟡 舊文獻 · 🟠 教練觀測 · 🔴 待查</p>
 </div>
 
-<script>
-(function () {
-  // ── 主角：依需求找練習（環節 × 階段 × 泳式，AND 組合） ──
-  var needs = document.getElementById('vxNeeds');
-  if (needs) {
-    var bars = Array.prototype.slice.call(needs.querySelectorAll('.vx-filterbar'));
-    var cards = Array.prototype.slice.call(needs.querySelectorAll('.vx-drillcard'));
-    var countEl = document.getElementById('vxNeedsCount');
-    var active = {};
-    bars.forEach(function (bar) { active[bar.getAttribute('data-axis')] = 'all'; });
-
-    function apply() {
-      var shown = 0;
-      cards.forEach(function (card) {
-        var show = true;
-        bars.forEach(function (bar) {
-          var axis = bar.getAttribute('data-axis');
-          var val = active[axis];
-          if (val === 'all') return;
-          var cd = (card.getAttribute('data-' + axis) || '').split(' ');
-          if (cd.indexOf(val) === -1) show = false;
-        });
-        card.classList.toggle('is-hidden', !show);
-        if (show) shown++;
-      });
-      if (countEl) countEl.textContent = '共 ' + shown + ' 個練習';
-    }
-
-    bars.forEach(function (bar) {
-      var axis = bar.getAttribute('data-axis');
-      var chips = Array.prototype.slice.call(bar.querySelectorAll('.vx-chip'));
-      chips.forEach(function (chip) {
-        chip.addEventListener('click', function () {
-          active[axis] = chip.getAttribute('data-val');
-          chips.forEach(function (c) { c.classList.toggle('is-active', c === chip); });
-          apply();
-        });
-      });
-    });
-    apply();
-  }
-
-  // ── 配角：直接查資料（tab 切換 + 泳式篩選 + 搜尋） ──
-  var tabs = document.getElementById('vxdbTabs');
-  var input = document.getElementById('vxdbInput');
-  if (!tabs) return;
-  var panels = Array.prototype.slice.call(document.querySelectorAll('.vx-db-panel'));
-  var tabBtns = Array.prototype.slice.call(tabs.querySelectorAll('.vx-db-tab'));
-
-  function activePanel() { return document.querySelector('.vx-db-panel.is-active'); }
-
-  function applyFilters() {
-    var panel = activePanel(); if (!panel) return;
-    var sChip = panel.querySelector('.vx-chip.is-active');
-    var s = sChip ? sChip.getAttribute('data-s') : 'all';
-    var q = (input.value || '').trim().toLowerCase();
-    panel.querySelectorAll('.vx-card').forEach(function (card) {
-      var sd = (card.getAttribute('data-s') || '').split(' ');
-      var okS = s === 'all' || sd.indexOf(s) !== -1 || sd.indexOf('common') !== -1;
-      var okQ = !q || (card.getAttribute('data-text') || '').indexOf(q) !== -1;
-      card.classList.toggle('is-hidden', !(okS && okQ));
-    });
-  }
-
-  tabBtns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var id = btn.getAttribute('data-tab');
-      tabBtns.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
-      panels.forEach(function (p) { p.classList.toggle('is-active', p.id === 'db-' + id); });
-      applyFilters();
-    });
-  });
-
-  document.querySelectorAll('.vx-db-panel .vx-filters').forEach(function (bar) {
-    bar.addEventListener('click', function (e) {
-      var chip = e.target.closest('.vx-chip'); if (!chip) return;
-      bar.querySelectorAll('.vx-chip').forEach(function (c) { c.classList.toggle('is-active', c === chip); });
-      applyFilters();
-    });
-  });
-
-  var t;
-  input.addEventListener('input', function () { clearTimeout(t); t = setTimeout(applyFilters, 110); });
-})();
-
-/* 標記此頁已讀（給 vortex home 首頁 vx-toc-row 顯示小圓點）。
-   vortex.js 的 activate() 會處理有面板切換的頁面；database 沒有面板，
-   所以在這裡 inline 寫入。無 JS / localStorage 不可用時靜默。 */
-(function () {
-  if (!window.localStorage) return;
-  try {
-    var raw = localStorage.getItem('vx-read');
-    var obj = raw ? JSON.parse(raw) : {};
-    obj[location.pathname.replace(/\/$/, '') || '/'] = Date.now();
-    localStorage.setItem('vx-read', JSON.stringify(obj));
-  } catch (e) { /* 靜默 */ }
-})();
-</script>
+<script src="{{ .Site.BaseURL }}js/vortex.js" defer></script>
 {{ end }}
