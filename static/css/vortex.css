@@ -1529,16 +1529,12 @@ html { scroll-behavior: smooth; }
   .vx-jrn *, .vx-jrn *::before, .vx-jrn *::after { transition: none; animation: none; }
 }
 
-/* ── 雙模式互連入口 ── */
-.vx-read-banner {
-  display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px;
-  margin: 0 0 30px; padding: 14px 20px; text-decoration: none;
-  background: var(--vx-accent); border-radius: 8px;
-  transition: background .18s ease;
+/* ── 怎麼讀（輕量指示，不搶版面）── */
+.vx-read-howto {
+  margin: 0 0 26px; padding: 10px 0 0;
+  font-size: 14px; line-height: 1.7; color: var(--vx-sub);
+  border-top: 1px dashed var(--vx-rule2);
 }
-.vx-read-banner:hover { background: #16314d; }
-.vx-read-banner-lbl { font-family: var(--vx-display); font-size: 13px; color: #a9c4dd; letter-spacing: .04em; }
-.vx-read-banner-go { font-family: var(--vx-display); font-weight: 600; font-size: 16px; color: #fff; }
 .vx-list-sub { margin: 10px 0 0; font-size: 14px; }
 .vx-list-sub a { color: var(--vx-sub); text-decoration: none; border-bottom: 1px dashed var(--vx-rule2); padding-bottom: 1px; }
 .vx-list-sub a:hover { color: var(--vx-accent); border-color: var(--vx-accent2); }
