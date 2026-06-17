@@ -83,13 +83,44 @@ body:has(.tx-page) {
   color: var(--tx-sub); white-space: nowrap;
 }
 .tx-sec-note {
-  font-family: var(--tx-mincho); font-size: 14.5px; line-height: 1.9;
-  color: var(--tx-sub); margin: 12px 0 18px; max-width: 42em;
+  font-family: var(--tx-mincho); font-size: 15.5px; line-height: 1.95;
+  color: #4a4a42; margin: 14px 0 20px; max-width: 42em;
 }
-.tx-sec-note strong { color: var(--tx-ink); font-weight: 600; }
+.tx-sec-note strong { color: var(--tx-accent); font-weight: 700; }
+
+/* ── 新手入口：大面積導入卡（整個計劃的門） ── */
+.tx-hero {
+  display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: start;
+  text-decoration: none; color: inherit; background: #fdfdfb;
+  border: 1px solid var(--tx-ink); border-left: 4px solid var(--tx-accent);
+  padding: 26px 28px 28px; transition: background .15s, transform .15s;
+}
+.tx-hero:hover { background: #fbf4ec; transform: translateY(-2px); }
+.tx-hero-no {
+  font-family: var(--tx-mincho); font-weight: 700; font-size: 52px; line-height: 1;
+  color: var(--tx-accent); letter-spacing: -.02em;
+}
+.tx-hero-k {
+  display: block; font-family: var(--tx-mono); font-size: 11px; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--tx-sub); margin-bottom: 6px;
+}
+.tx-hero-h {
+  display: block; font-family: var(--tx-mincho); font-weight: 700;
+  font-size: 27px; letter-spacing: .03em; color: var(--tx-ink);
+}
+.tx-hero-d {
+  display: block; font-family: var(--tx-mincho); font-size: 15.5px; line-height: 1.95;
+  color: #3a3a34; margin: 12px 0 0;
+}
+.tx-hero-d strong { color: var(--tx-accent); font-weight: 700; }
+.tx-hero-go {
+  display: inline-block; margin-top: 16px; font-family: var(--tx-mono);
+  font-size: 13px; letter-spacing: .08em; color: var(--tx-accent);
+  border-bottom: 1px solid var(--tx-accent); padding-bottom: 2px;
+}
 
 /* ── 入門路徑：編號優先序（techō todo） ── */
-.tx-path { list-style: none; margin: 14px 0 0; padding: 0; }
+.tx-path { list-style: none; margin: 18px 0 0; padding: 0; }
 .tx-path a {
   display: grid; grid-template-columns: 44px 1fr auto; align-items: baseline;
   gap: 16px; text-decoration: none; color: inherit;
@@ -327,4 +358,7 @@ body:has(.tx-page) {
   .tx-path .parr, .tx-row .rmeta { grid-column: 2; text-align: left; }
   .tx-moves { padding-left: 20px; }
   .tx-stamp { position: static; display: inline-block; margin-bottom: 14px; }
+  .tx-hero { grid-template-columns: 1fr; gap: 4px; padding: 20px 18px 22px; }
+  .tx-hero-no { font-size: 38px; }
+  .tx-hero-h { font-size: 22px; }
 }
