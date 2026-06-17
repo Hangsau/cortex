@@ -1,8 +1,8 @@
 {{ define "head-extra" }}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Noto+Serif+TC:wght@500;600&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex-techo.css">
 {{ end }}
 
 {{ define "main" }}
@@ -15,159 +15,133 @@
   (dict "key" "breast" "slug" "breaststroke") (dict "key" "fly" "slug" "butterfly")
   (dict "key" "udk" "slug" "underwater-dolphin-kick") (dict "key" "starts-turns" "slug" "starts-turns") }}
 
-<div class="vx-home">
+<div class="tx-page">
 
-  <header class="vx-masthead">
-    <p class="vx-eyebrow">Cortex · Vortex</p>
-    <h1>水感知識庫</h1>
-    <p class="vx-lead">游泳技術不是一組要照抄的動作，而是水感長出來的結果——感知對了，動作自己會收斂。所以這裡先帶你搞懂水感是什麼，再挑一式，把感知練成動作。</p>
+  <header class="tx-mast">
+    <span class="tx-stamp">渦流計劃<br>EDITION · 水感</span>
+    <p class="tx-eyebrow">Cortex / Vortex</p>
+    <h1 class="tx-title">水感<span class="tx-en">A Notebook of Water Sense</span></h1>
+    <p class="tx-lead">游泳技術不是一組要照抄的動作，而是水感長出來的結果——<strong>感知對了，動作自己會收斂</strong>。這本手帳先帶你弄懂水感是什麼，再翻到某一式，把感知一格一格練成動作。</p>
   </header>
 
-  {{/* ── 新手入口 ── */}}
-  <a class="vx-start" href="{{ $base }}vortex/technica/water-sense-guide/">
-    <span class="vx-start-no">00</span>
-    <span>
-      <span class="vx-start-h">完全沒概念？先搞懂「水感」是什麼</span>
-      <span class="vx-start-d">為什麼你照著教練說的移手，卻還是做不對？因為水裡的感覺天生會騙你。先花十分鐘弄懂水感怎麼回事，後面每一式才讀得進去——這是整個渦流計劃的起點。</span>
-      <span class="vx-start-go">開始讀 →</span>
-    </span>
-  </a>
+  {{/* ── 入門路徑 ── */}}
+  <section class="tx-sec">
+    <div class="tx-sec-head">
+      <h2 class="tx-sec-h"><span class="no">＊</span>從這裡翻起</h2>
+      <span class="tx-sec-tag">Start Here</span>
+    </div>
+    <p class="tx-sec-note">整個計劃只建立在一句話上：技術是感知的<strong>輸出</strong>，不是輸入。所以先讀水感、再讀它怎麼一級一級長出來，後面的動作分解才有意義。</p>
+    <ul class="tx-path">
+      <li><a href="{{ $base }}vortex/technica/water-sense-guide/">
+        <span class="pno">00</span>
+        <span><span class="ph">完全沒概念？先搞懂「水感」是什麼</span>
+          <span class="pd">為什麼照著教練說的移手，卻還是做不對？因為水裡的感覺天生會騙你。花十分鐘弄懂水感怎麼回事——這是整個渦流計劃的起點。</span></span>
+        <span class="parr">→</span>
+      </a></li>
+      <li><a href="{{ $base }}vortex/levels/">
+        <span class="pno">L0</span>
+        <span><span class="ph">水感發展 L0–L6 · 一級一級長出來</span>
+          <span class="pd">感知不是教動作教出來的，是長出來的。四式各自從 L0 呼吸感知到 L6 全身場感知的發展序列——每級的訓練方法、外部觀察指標、量化基準。</span></span>
+        <span class="parr">→</span>
+      </a></li>
+    </ul>
+  </section>
 
-  {{/* ── 核心 · 水感（先讀） ── */}}
-  <h2 class="vx-label vx-toc-label">核心 · 先讀水感</h2>
-  <p class="vx-list-desc">整個渦流計劃只建立在一句話上：技術是感知的<strong>輸出</strong>，不是輸入。所以先從這裡讀起——理解水感是什麼、怎麼一級一級長出來，後面的動作分解才有意義。</p>
-  <div class="vx-toc">
-    <a class="vx-toc-row" href="{{ $base }}vortex/technica/water-sense-guide/">
-      <span class="vx-toc-num">理論</span>
-      <span class="vx-toc-main">
-        <span class="vx-toc-zh">什麼是水感</span>
-        <span class="vx-toc-en">What Is Water Sense</span>
-      </span>
-      <span class="vx-toc-prem">整個渦流計劃的核心命題：所有游泳技術都建立在水感知上——技術形式是感知系統的<strong>輸出</strong>，不是輸入。這份理論基礎從零講起：水感到底是什麼（本體感覺＋外感受）、水中感知為何天生失真、為什麼不能直接教動作形式、怎麼用「感知剝奪訓練」把它建立起來、如何觀察測量、錯誤水感又該怎麼重建。完全沒概念的人，從這裡開始。</span>
-      <span class="vx-toc-meta">理論 · 6 部分<br><span class="arr">→</span></span>
-    </a>
-    <a class="vx-toc-row" href="{{ $base }}vortex/levels/">
-      <span class="vx-toc-num">L0–6</span>
-      <span class="vx-toc-main">
-        <span class="vx-toc-zh">水感發展 L0–L6</span>
-        <span class="vx-toc-en">Water Sense Development</span>
-      </span>
-      <span class="vx-toc-prem">讀懂「什麼是水感」之後的下一層：感知不是教動作教出來的，是一級一級長出來的。四式各自從 L0（呼吸感知）到 L6（全身場感知）的發展序列——每級的訓練方法、外部觀察指標、量化基準、停滯處理。</span>
-      <span class="vx-toc-meta">四式 · 26 階段<br><span class="arr">→</span></span>
-    </a>
-  </div>
+  {{/* ── 六式 ledger（展開即見真實動作） ── */}}
+  <section class="tx-sec">
+    <div class="tx-sec-head">
+      <h2 class="tx-sec-h"><span class="no">六</span>六大單元 · 挑一式練</h2>
+      <span class="tx-sec-tag">Strokes</span>
+    </div>
+    <p class="tx-sec-note">讀過水感之後再進來。點開任一式，先看它由哪些動作組成——每個動作都是「感知的輸出」，不是要照抄的姿勢。想深讀就點<strong>進入這一式</strong>。</p>
+    <div class="tx-ledger">
+      {{ range $i, $sm := $strokeMeta }}
+        {{ $d := index (index hugo.Data "vortex") $sm.key }}
+        {{ with $d }}
+          {{ $url := printf "%svortex/%s/" $base $sm.slug }}
+          {{ $nMoves := len .moves }}
+          <details class="tx-row">
+            <summary>
+              <span class="rno">{{ printf "%02d" (add $i 1) }}</span>
+              <span class="rname">{{ index $strokeZh $sm.key }}<span class="ren">{{ index $strokeEn $sm.key }}</span>
+                <span class="rone">{{ .premise | replaceRE "<span class=\"cert\">.*?</span>" "" | plainify | truncate 64 }}</span></span>
+              <span class="rmeta"><span class="rcount">{{ $nMoves }}<small> 個動作</small></span><br><span class="rmark">展開</span></span>
+            </summary>
+            <div class="tx-moves">
+              <ol>
+                {{ range .moves }}
+                  <li><span class="mn">{{ .n }}</span>
+                    <span><span class="mnm">{{ .name }}</span>
+                      <span class="mone">{{ .one }}</span></span>
+                    <span class="ml">{{ .l }}</span></li>
+                {{ end }}
+              </ol>
+              <a class="tx-enter" href="{{ $url }}">進入這一式，逐個動作深讀 →</a>
+            </div>
+          </details>
+        {{ end }}
+      {{ end }}
+    </div>
+  </section>
 
-  {{/* ── 心理層（感知的地基） ── */}}
+  {{/* ── 更底層 · 心理 ── */}}
   {{ with (index hugo.Data "vortex").psychology }}
-  <h2 class="vx-label vx-toc-label">更底層 · 感知的地基</h2>
-  <p class="vx-list-desc">水感建立在感知上，感知建立在心理狀態上。恐懼、動機、注意力會在<strong>源頭</strong>決定一個人能不能感覺到水——所以心理不是技術之外的附加題，是 L0 底下的那一層。</p>
-  <div class="vx-toc">
-    <a class="vx-toc-row" href="{{ $base }}vortex/psychology/">
-      <span class="vx-toc-num">L0−</span>
-      <span class="vx-toc-main">
-        <span class="vx-toc-zh">心理層</span>
-        <span class="vx-toc-en">Psychology</span>
-      </span>
-      <span class="vx-toc-prem">技術建立在感知上，感知建立在心理狀態上。恐懼會在源頭關掉水感、安全感是學習的前置條件、不同族群（兒童／成人初學／鐵人／競技）恐懼的臉孔各不相同——這一層談的是還沒碰到動作之前，心裡先發生了什麼。左欄按處境與程度挑一個進去：怕水的從恐懼讀起、已經穩了的直接跳到心流，不必從頭。</span>
-      <span class="vx-toc-meta">{{ len .themes }} 主題<br><span class="arr">→</span></span>
-    </a>
-  </div>
+  <section class="tx-sec">
+    <div class="tx-sec-head">
+      <h2 class="tx-sec-h"><span class="no">心</span>更底層 · 感知的地基</h2>
+      <span class="tx-sec-tag">Psychology · L0−</span>
+    </div>
+    <p class="tx-sec-note">水感建立在感知上，感知建立在心理狀態上。恐懼、動機、注意力會在<strong>源頭</strong>決定一個人能不能感覺到水——所以心理不是技術之外的附加題，是 L0 底下那一層。按處境挑一個進去：</p>
+    <div class="tx-chips">
+      {{ range .themes }}
+        <a href="{{ $base }}vortex/psychology/#{{ .id }}">{{ .nav_zh }}<span class="band">{{ .l_band }}</span></a>
+      {{ end }}
+    </div>
+  </section>
   {{ end }}
 
-  {{/* ── 六式目次（再挑一式練） ── */}}
-  <h2 class="vx-label vx-toc-label">六大單元 · 挑一個開始練</h2>
-  <p class="vx-list-desc">讀過水感之後再進來。每一式的動作分解都是「感知的輸出」——不是要照抄的姿勢，是感知對了、身體自己收斂出來的結果。</p>
-  <div class="vx-toc">
-    {{ range $i, $sm := $strokeMeta }}
-      {{ $d := index (index hugo.Data "vortex") $sm.key }}
-      {{ with $d }}
-        {{ $url := printf "%svortex/%s/" $base $sm.slug }}
-        {{ $nMoves := len .moves }}
-        <a class="vx-toc-row" href="{{ $url }}">
-          <span class="vx-toc-num">{{ printf "%02d" (add $i 1) }}</span>
-          <span class="vx-toc-main">
-            <span class="vx-toc-zh">{{ index $strokeZh $sm.key }}</span>
-            <span class="vx-toc-en">{{ index $strokeEn $sm.key }}</span>
-          </span>
-          <span class="vx-toc-prem">{{ .premise | replaceRE "<span class=\"cert\">.*?</span>" "" | plainify | truncate 70 }}</span>
-          <span class="vx-toc-meta">{{ $nMoves }} 個動作<br><span class="arr">→</span></span>
-        </a>
-      {{ end }}
-    {{ end }}
-  </div>
+  {{/* ── 放大尺度 · 運動員發展 + 資料庫 ── */}}
+  <section class="tx-sec">
+    <div class="tx-sec-head">
+      <h2 class="tx-sec-h"><span class="no">＋</span>放大尺度 · 發展與查找</h2>
+      <span class="tx-sec-tag">Develop · Reference</span>
+    </div>
+    <div class="tx-cards">
+      <a class="tx-card" href="{{ $base }}vortex/adm/">
+        <span class="ctag">ADM</span>
+        <span class="ch">運動員發展矩陣</span>
+        <span class="cen">Athlete Development Matrix</span>
+        <span class="cd">單一動作之上的長期視角：一名選手從學習訓練到登上獎牌台該長出什麼能力，含各式技術標準。</span>
+        <span class="cmeta"><b>4</b> 支柱 × <b>4</b> 階段　L2T→T2W</span>
+      </a>
+      <a class="tx-card" href="{{ $base }}vortex/periodization/">
+        <span class="ctag">PZ</span>
+        <span class="ch">訓練週期化</span>
+        <span class="cen">Periodization</span>
+        <span class="cd">ADM 年度計畫背後的理論骨幹：階段、中觀／微觀週期、賽前減量達峰、能量系統分區。源自 Bompa 6th ed.。</span>
+        <span class="cmeta"><b>6</b> 節</span>
+      </a>
+      <a class="tx-card" href="{{ $base }}vortex/database/#vxNeeds">
+        <span class="ctag">DRILLS</span>
+        <span class="ch">依需求找練習</span>
+        <span class="cen">Find Drills by Need</span>
+        <span class="cd">不知道練什麼？挑一個環節（呼吸／平衡／踢腿／划手／銜接／搖櫓）或卡住的水感階段，立刻列出對應練習，點開就有怎麼做。</span>
+        <span class="cmeta"><b>125</b> 個練習</span>
+      </a>
+      <a class="tx-card" href="{{ $base }}vortex/database/">
+        <span class="ctag">REFERENCE</span>
+        <span class="ch">跨泳式查資料</span>
+        <span class="cen">Cross-Stroke Reference</span>
+        <span class="cd">已經知道要找什麼？誤區、機制、L 指標三類參考資料跨四式集中查詢，可依泳式篩選或打字搜尋。</span>
+        <span class="cmeta">誤區 · 機制 · <b>L</b> 指標</span>
+      </a>
+    </div>
+  </section>
 
-  {{/* ── 運動員發展 ADM ── */}}
-  <h2 class="vx-label vx-toc-label">放大尺度 · 運動員發展</h2>
-  <div class="vx-toc">
-    <a class="vx-toc-row" href="{{ $base }}vortex/adm/">
-      <span class="vx-toc-num">ADM</span>
-      <span class="vx-toc-main">
-        <span class="vx-toc-zh">運動員發展矩陣</span>
-        <span class="vx-toc-en">Athlete Development Matrix</span>
-      </span>
-      <span class="vx-toc-prem">單一動作之上的長期視角：四大支柱 × 四階段（L2T → T2W），一名選手從學習訓練到登上獎牌台該長出什麼能力。含各式技術標準。</span>
-      <span class="vx-toc-meta">3 入口<br><span class="arr">→</span></span>
-    </a>
-    <a class="vx-toc-row" href="{{ $base }}vortex/periodization/">
-      <span class="vx-toc-num">PZ</span>
-      <span class="vx-toc-main">
-        <span class="vx-toc-zh">訓練週期化</span>
-        <span class="vx-toc-en">Periodization</span>
-      </span>
-      <span class="vx-toc-prem">ADM 年度計畫背後的理論骨幹：階段（準備→競賽→過渡）、中觀／微觀週期、賽前減量達峰、能量系統強度分區、停練流失安全表。源自 Bompa《Periodization》6th ed.，每個數字標確定性。</span>
-      <span class="vx-toc-meta">6 節<br><span class="arr">→</span></span>
-    </a>
-  </div>
-
-  {{/* ── 不分泳式 · 依需求找 ── */}}
-  <h2 class="vx-label vx-toc-label">不想從泳式開始？依需求找</h2>
-  <p class="vx-list-desc">不確定該練什麼、或只想查某類資料時用這裡——所有內容跨四式集中，不必先選泳式。</p>
-  <div class="vx-toc">
-    <a class="vx-toc-row" href="{{ $base }}vortex/database/#vxNeeds">
-      <span class="vx-toc-num">練</span>
-      <span class="vx-toc-main">
-        <span class="vx-toc-zh">依需求找練習</span>
-        <span class="vx-toc-en">Find Drills by Need</span>
-      </span>
-      <span class="vx-toc-prem">不知道練什麼？挑一個想練的環節（呼吸 / 平衡 / 踢腿 / 划手 / 銜接 / 搖櫓）或你卡住的水感階段，立刻列出所有對應練習，點開就有怎麼做——不必先選泳式。</span>
-      <span class="vx-toc-meta">125 練習<br><span class="arr">→</span></span>
-    </a>
-    <a class="vx-toc-row" href="{{ $base }}vortex/database/">
-      <span class="vx-toc-num">查</span>
-      <span class="vx-toc-main">
-        <span class="vx-toc-zh">跨泳式查資料</span>
-        <span class="vx-toc-en">Cross-Stroke Reference</span>
-      </span>
-      <span class="vx-toc-prem">已經知道要找什麼？誤區、機制、L 指標三類參考資料跨四式集中查詢，可依泳式篩選或打字搜尋。</span>
-      <span class="vx-toc-meta">誤區 · 機制 · L 指標<br><span class="arr">→</span></span>
-    </a>
-  </div>
-
-  <p class="vx-legend">研究原文存檔（未經編排，供查證）：<a href="{{ $base }}vortex/technica/">Technica 四式水感框架</a> · <a href="{{ $base }}vortex/instructional/">Instructional 技術原文</a></p>
-
-  <p class="vx-legend">🔵 推導 · 🟢 近期文獻 · 🟡 舊文獻 · 🟠 教練觀測 · 🔴 待查 — 每條內容標注知識的確定性。</p>
+  <p class="tx-legend">
+    研究原文存檔（未經編排，供查證）：<a href="{{ $base }}vortex/technica/">Technica 四式水感框架</a> · <a href="{{ $base }}vortex/instructional/">Instructional 技術原文</a><br>
+    🔵 推導 · 🟢 近期文獻 · 🟡 舊文獻 · 🟠 教練觀測 · 🔴 待查 — 每條內容標注知識的確定性。
+  </p>
 
 </div>
-
-<script>
-/* 讀過標記：對應 vx-toc-row 連結的目標頁若有 localStorage 紀錄，加上 is-read class。
-   標記寫入端在 vortex.js 的 activate()；adm home / database 等不走 vortex.js 的頁面
-   在自己 layout 內聯同樣的 markRead()。無 JS 時不顯示、不報錯。 */
-(function () {
-  if (!window.localStorage) return;
-  try {
-    var raw = localStorage.getItem('vx-read');
-    if (!raw) return;
-    var obj = JSON.parse(raw);
-    var rows = document.querySelectorAll('.vx-toc-row');
-    for (var i = 0; i < rows.length; i++) {
-      var href = rows[i].getAttribute('href') || '';
-      try {
-        var path = new URL(href, location.href).pathname.replace(/\/$/, '');
-        if (obj[path]) rows[i].classList.add('is-read');
-      } catch (e) { /* 忽略單筆錯誤 */ }
-    }
-  } catch (e) { /* localStorage 解析失敗就靜默 */ }
-})();
-</script>
 {{ end }}
