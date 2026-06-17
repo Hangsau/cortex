@@ -708,6 +708,21 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
 .vx-flow .nx { text-align: right; }
 .vx-flow .lbl { display: block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--vx-faint); }
 
+/* 接著讀：動作面板底部，連到水感發展地圖對應層級 */
+.vx-read-next {
+  display: flex; align-items: baseline; gap: 10px;
+  margin: 18px 0 0; padding: 10px 0 0;
+  border-top: 1px dashed var(--vx-rule2);
+  font-size: 14px;
+}
+.vx-read-next-label {
+  font-family: var(--vx-display); font-size: 11px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--vx-faint); white-space: nowrap;
+}
+.vx-read-next-link { color: var(--vx-accent); text-decoration: none; }
+.vx-read-next-link:hover { text-decoration: underline; }
+
 /* ════════════════════════════════════════════
    跨泳式資料庫 (vx-db)
    ════════════════════════════════════════════ */

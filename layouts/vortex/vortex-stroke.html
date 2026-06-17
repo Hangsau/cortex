@@ -165,6 +165,15 @@
           {{ if gt $m.n 1 }}<button type="button" data-target="move-{{ sub $m.n 1 }}"><span class="lbl">上一個</span>← {{ (index $d.moves (sub $i 1)).name }}</button>{{ else }}<button type="button" data-target="overview"><span class="lbl">回到</span>← 概覽</button>{{ end }}
           {{ if lt $m.n $n }}<button class="nx" type="button" data-target="move-{{ add $m.n 1 }}"><span class="lbl">下一個</span>{{ (index $d.moves (add $i 1)).name }} →</button>{{ else if $errs }}<button class="nx" type="button" data-target="errors"><span class="lbl">接著看</span>常見誤區 →</button>{{ end }}
         </nav>
+
+        {{/* ── 接著讀：連到水感發展地圖對應層級 ── */}}
+        {{ $hasLevelPage := in (slice "free" "back" "breast" "fly") $key }}
+        {{ with $m.l }}{{ if $hasLevelPage }}
+        <div class="vx-read-next">
+          <span class="vx-read-next-label">接著讀</span>
+          <a class="vx-read-next-link" href="{{ $.Site.BaseURL }}vortex/levels/#{{ $key }}">看「{{ $zh }}」在水感發展 {{ . }} 是什麼樣 →</a>
+        </div>
+        {{ end }}{{ end }}
       </section>
       {{ end }}
 
