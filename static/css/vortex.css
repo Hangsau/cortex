@@ -1147,15 +1147,20 @@ html { scroll-behavior: smooth; }
   margin: 0 0 30px; max-width: 36em;
 }
 .vx-jrn-hero-lead b { color: var(--vx-accent); font-weight: 600; }
-.vx-jrn-hero-lvl {
-  font-size: 15.5px; line-height: 1.75; color: var(--vx-sub);
-  background: var(--vx-paper); border-left: 3px solid var(--vx-gold);
-  border-radius: 0 6px 6px 0; padding: 12px 18px; margin: 0 0 30px;
+.vx-jrn-hero-how {
+  font-size: 15.5px; line-height: 1.7; color: var(--vx-sub);
+  background: var(--vx-paper); border: 1px solid var(--vx-rule);
+  border-radius: 6px; padding: 12px 16px; margin: 0 0 26px;
 }
-.vx-jrn-hero-lvl b { color: var(--vx-accent); font-weight: 600; }
+.vx-jrn-hero-how b { color: var(--vx-accent); font-weight: 600; }
+.vx-jrn-hero-lvl {
+  font-size: 13px; line-height: 1.65; color: var(--vx-faint);
+  margin: 18px 0 0;
+}
 .vx-jrn-lvl-eg {
-  font-family: var(--vx-display); font-size: 12px; letter-spacing: .04em;
-  color: #fff; background: var(--vx-accent); border-radius: 999px; padding: 1px 8px;
+  font-family: var(--vx-display); font-size: 11px; letter-spacing: .04em;
+  color: var(--vx-sub); background: var(--vx-paper2);
+  border: 1px solid var(--vx-rule2); border-radius: 999px; padding: 1px 7px;
 }
 .vx-jrn-hero-pick {
   font-size: 15px; color: var(--vx-sub); margin: 0 0 14px;

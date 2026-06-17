@@ -43,10 +43,11 @@
   <section class="vx-jrn-hero" id="start" data-ch="0" data-lstart="0" data-lend="0" data-name="序章">
     <span class="vx-jrn-hero-eyebrow">VORTEX · 心理層</span>
     <h1 class="vx-jrn-hero-title">為什麼心理，是水感的地基</h1>
-    <p class="vx-jrn-hero-lead">技術建立在感知上，感知又建立在心理狀態上。恐懼、動機、注意力，會在一個人還沒碰到動作之前，就先決定他能不能感覺到水——所以心理不是技術之外的附加題，是 <b>L0 的地基</b>。</p>
-    <p class="vx-jrn-hero-lead vx-jrn-hero-lvl">水感是一層一層長出來的，共 7 層：<b>L0</b> 是最底層的源頭（呼吸、漂浮、敢不敢放手），<b>L6</b> 是最頂端（全身整合、心流）。上方那排 <span class="vx-jrn-lvl-eg">L0…L6</span> 點，以及每個概念裡的小階梯，標的都是這條脊椎的高度。這趟旅程就沿著它走一遍——從最起點的恐懼，爬到最頂端的心流。</p>
+    <p class="vx-jrn-hero-lead">技術建立在感知上，感知又建立在心理狀態上——恐懼、動機、注意力，會在你還沒碰到水之前，就先決定你感不感覺得到它。</p>
 
-    <p class="vx-jrn-hero-pick">不用先認得任何主題名稱。挑一句最接近你（或你帶的人）現在處境的，它會帶你到對的地方：</p>
+    <p class="vx-jrn-hero-how">這不是一篇要從頭讀到尾的長文，是一張<b>挑著讀的地圖</b>。每一條都先收著、<b>點開才展開</b>，不想看就略過。兩種開始法——</p>
+
+    <p class="vx-jrn-hero-pick">① 挑一句最接近你（或你帶的人）現在處境的：</p>
     {{ $situations := slice
       (dict "l" "L0" "ch" "1" "txt" "一靠近水就怕、不敢放手——動作都還沒開始，恐懼先把人擋在門外。")
       (dict "l" "L0–L2" "ch" "2" "txt" "不怕了，但一緊張身體就僵、換氣一亂整個垮——身體和心理在水裡互相點火。")
@@ -63,7 +64,9 @@
       {{ end }}
     </div>
 
-    <a class="vx-jrn-hero-start" href="#ch-1">或從頭讀起 · 第 1 章 {{ (index $themes 0).name_zh }} ↓</a>
+    <a class="vx-jrn-hero-start" href="#ch-1">② 或從第一章開始 · {{ (index $themes 0).name_zh }} ↓</a>
+
+    <p class="vx-jrn-hero-lvl">（頁頂那排 <span class="vx-jrn-lvl-eg">L0…L6</span> 是水感的 7 層高度：L0 最底＝呼吸與恐懼，L6 最頂＝整合與心流。每個概念裡的小階梯標的就是它落在哪幾層。）</p>
   </section>
 
   {{/* ════════ 8 章 ════════ */}}
@@ -89,7 +92,7 @@
 
     <div class="vx-jrn-concepts">
     {{ range $i, $c := $concepts }}
-      <details class="vx-jrn-concept" id="{{ replace $c.id "." "-" }}"{{ if and (eq $ti 0) (eq $i 0) }} open{{ end }}>
+      <details class="vx-jrn-concept" id="{{ replace $c.id "." "-" }}">
         <summary class="vx-jrn-c-sum">
           <span class="vx-jrn-c-no">{{ add $i 1 }}</span>
           <span class="vx-jrn-c-head">
