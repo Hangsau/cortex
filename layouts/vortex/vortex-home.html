@@ -33,25 +33,6 @@
     </span>
   </a>
 
-  {{/* ── 對號入座：按「你現在在哪」挑一個開始（不靠學術名稱） ── */}}
-  {{ $homeSituations := slice
-    (dict "l" "L0"        "url" (printf "%svortex/psychology/#psych-fear-control_loss" $base)              "txt" "一靠近水就怕、不敢放手——動作都還沒開始，恐懼先把人擋在門外。")
-    (dict "l" "L0–L2"     "url" (printf "%svortex/psychology/#psych-interaction-anterior_insula_gain" $base) "txt" "不怕了，但一緊張身體就僵、換氣一亂整個垮——身體和心理在水裡互相點火。")
-    (dict "l" "L0–L6"     "url" (printf "%svortex/psychology/#psych-motivation-bpn_triad" $base)             "txt" "技術沒問題，卻練不下去、提不起勁——想找回能一直練下去的動力。")
-    (dict "l" "L3–L6"     "url" (printf "%svortex/psychology/#psych-attention-ef_if_definition" $base)       "txt" "平常練得好，一上場注意力就散、越想控制越糟——專注該放哪、怎麼放。")
-    (dict "l" "L6"        "url" (printf "%svortex/psychology/#psych-arousal-inverted_u" $base)              "txt" "壓力一來就崩，想學會在台上穩住、甚至進入心流。") }}
-
-  <section class="vx-situations vx-situations--home">
-    <p class="vx-sit-lead"><strong>對號入座 · 挑一個開始</strong> · 不用先認得學術名稱。挑一句最接近你（或你帶的人）現在處境的，它會帶你到對的地方：</p>
-    {{ range $homeSituations }}
-    <a class="vx-sit-card" href="{{ .url }}">
-      <span class="vx-sit-l">{{ .l }}</span>
-      <span class="vx-sit-txt">{{ .txt }}</span>
-      <span class="vx-sit-go">從這裡開始 →</span>
-    </a>
-    {{ end }}
-  </section>
-
   {{/* ── 核心 · 水感（先讀） ── */}}
   <h2 class="vx-label vx-toc-label">核心 · 先讀水感</h2>
   <p class="vx-list-desc">整個渦流計劃只建立在一句話上：技術是感知的<strong>輸出</strong>，不是輸入。所以先從這裡讀起——理解水感是什麼、怎麼一級一級長出來，後面的動作分解才有意義。</p>
