@@ -23,9 +23,8 @@
 <div class="tx-page">
 
   <header class="tx-mast">
-    <span class="tx-stamp">渦流計劃<br>EDITION · 水感</span>
-    <p class="tx-eyebrow">Cortex / Vortex</p>
-    <h1 class="tx-title">水感<span class="tx-en">A Map of Water Sense</span></h1>
+    <span class="tx-stamp">渦流計劃<br>水感地圖</span>
+    <h1 class="tx-title">水感</h1>
     <p class="tx-lead">游泳技術不是一組要照抄的動作，而是水感長出來的結果——<strong>感知對了，動作自己會收斂</strong>。下面這張地圖是整個計劃的骨架：感知從共同地基長起，一級一級攀升，到 L2 才分流成四式。看清楚自己在哪、下一步往哪，再點進去讀。</p>
   </header>
 
@@ -42,7 +41,7 @@
       <div class="tx-map">
         <div class="tx-map-colhead axis"></div>
         {{ range $tracks }}
-          <div class="tx-map-colhead">{{ .name_zh }}<span class="en">{{ .key }}</span></div>
+          <div class="tx-map-colhead">{{ .name_zh }}</div>
         {{ end }}
 
         {{ range $L := $rows }}
@@ -116,7 +115,7 @@
   <section class="tx-sec">
     <div class="tx-sec-head">
       <h2 class="tx-sec-h"><span class="no">六</span>六大單元 · 動作分解</h2>
-      <span class="tx-sec-tag">Strokes · 動作 = 感知的輸出</span>
+      <span class="tx-sec-tag">動作＝感知的輸出</span>
     </div>
     <p class="tx-sec-note">地圖給你「感知長到哪」，這裡給你「該長出哪些動作」。點開任一式先看它由哪些動作組成——每個動作都是感知對了之後身體自己收斂的結果，不是要照抄的姿勢。</p>
     <div class="tx-ledger">
@@ -128,7 +127,7 @@
           <details class="tx-row">
             <summary>
               <span class="rno">{{ printf "%02d" (add $i 1) }}</span>
-              <span class="rname">{{ index $strokeZh $sm.key }}<span class="ren">{{ index $strokeEn $sm.key }}</span>
+              <span class="rname">{{ index $strokeZh $sm.key }}
                 <span class="rone">{{ .premise | replaceRE "<span class=\"cert\">.*?</span>" "" | plainify | truncate 64 }}</span></span>
               <span class="rmeta"><span class="rcount">{{ $nMoves }}<small> 個動作</small></span><br><span class="rmark">展開</span></span>
             </summary>
@@ -153,7 +152,7 @@
   <section class="tx-sec">
     <div class="tx-sec-head">
       <h2 class="tx-sec-h"><span class="no">＋</span>放大尺度 · 發展與查找</h2>
-      <span class="tx-sec-tag">Develop · Reference</span>
+      <span class="tx-sec-tag">發展 · 查找</span>
     </div>
     <div class="tx-cards">
       <a class="tx-card" href="{{ $base }}vortex/adm/">
@@ -188,7 +187,7 @@
   </section>
 
   <p class="tx-legend">
-    研究原文存檔（未經編排，供查證）：<a href="{{ $base }}vortex/technica/">Technica 四式水感框架</a> · <a href="{{ $base }}vortex/instructional/">Instructional 技術原文</a><br>
+    研究原文存檔（未經編排，供查證）：<a href="{{ $base }}vortex/technica/">四式水感框架</a> · <a href="{{ $base }}vortex/instructional/">技術原文</a><br>
     🔵 推導 · 🟢 近期文獻 · 🟡 舊文獻 · 🟠 教練觀測 · 🔴 待查 — 每條內容標注知識的確定性。
   </p>
 
