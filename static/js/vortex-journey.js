@@ -87,7 +87,7 @@
   var resumeName = document.getElementById('vx-jrn-resume-name');
   var resumeGo = document.getElementById('vx-jrn-resume-go');
   var resumeX = document.getElementById('vx-jrn-resume-x');
-  if (resume && !location.hash) {
+  if (resume && (!location.hash || location.hash === '#start')) {
     try {
       var saved = JSON.parse(localStorage.getItem(STORE) || 'null');
       if (saved && saved.ch >= 1 && saved.ch <= 8 && window.scrollY < 240) {
@@ -111,7 +111,7 @@
   if (mapBtn && map) {
     mapBtn.addEventListener('click', function () { map.hidden ? openMap() : closeMap(); });
     map.addEventListener('click', function (e) {
-      if (e.target.closest('.vx-jrn-map-item') || e.target === map) closeMap();
+      if (e.target.closest('.vx-jrn-map-item')) closeMap();
     });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMap(); });
   }

@@ -43,7 +43,8 @@
   <section class="vx-jrn-hero" id="start" data-ch="0" data-lstart="0" data-lend="0" data-name="序章">
     <span class="vx-jrn-hero-eyebrow">VORTEX · 心理層</span>
     <h1 class="vx-jrn-hero-title">為什麼心理，是水感的地基</h1>
-    <p class="vx-jrn-hero-lead">技術建立在感知上，感知又建立在心理狀態上。恐懼、動機、注意力，會在一個人還沒碰到動作之前，就先決定他能不能感覺到水——所以心理不是技術之外的附加題，是 <b>L0 的地基</b>。這趟旅程沿著水感的 L0→L6 脊椎走一遍：從最起點的恐懼，一路爬到最頂端的心流。</p>
+    <p class="vx-jrn-hero-lead">技術建立在感知上，感知又建立在心理狀態上。恐懼、動機、注意力，會在一個人還沒碰到動作之前，就先決定他能不能感覺到水——所以心理不是技術之外的附加題，是 <b>L0 的地基</b>。</p>
+    <p class="vx-jrn-hero-lead vx-jrn-hero-lvl">水感是一層一層長出來的，共 7 層：<b>L0</b> 是最底層的源頭（呼吸、漂浮、敢不敢放手），<b>L6</b> 是最頂端（全身整合、心流）。上方那排 <span class="vx-jrn-lvl-eg">L0…L6</span> 點，以及每個概念裡的小階梯，標的都是這條脊椎的高度。這趟旅程就沿著它走一遍——從最起點的恐懼，爬到最頂端的心流。</p>
 
     <p class="vx-jrn-hero-pick">不用先認得任何主題名稱。挑一句最接近你（或你帶的人）現在處境的，它會帶你到對的地方：</p>
     {{ $situations := slice
@@ -62,7 +63,7 @@
       {{ end }}
     </div>
 
-    <a class="vx-jrn-hero-start" href="#ch-1">或從頭讀起 · 第 1 章 恐懼 ↓</a>
+    <a class="vx-jrn-hero-start" href="#ch-1">或從頭讀起 · 第 1 章 {{ (index $themes 0).name_zh }} ↓</a>
   </section>
 
   {{/* ════════ 8 章 ════════ */}}
@@ -93,7 +94,7 @@
           <span class="vx-jrn-c-no">{{ add $i 1 }}</span>
           <span class="vx-jrn-c-head">
             <span class="vx-jrn-c-title">{{ $c.name_zh }}</span>
-            <span class="vx-jrn-c-peek">{{ substr $c.phenomenon.text 0 42 }}…</span>
+            <span class="vx-jrn-c-peek">{{ substr $c.phenomenon.text 0 24 }}…</span>
           </span>
           <span class="vx-jrn-c-toggle" aria-hidden="true"></span>
         </summary>
@@ -101,6 +102,7 @@
         <div class="vx-jrn-c-body">
           {{ with $c.l_levels }}
           <div class="vx-jrn-ladder" aria-label="這個概念落在水感的哪一層">
+            <span class="vx-jrn-ladder-cap">出現在</span>
             {{ range $lv := slice "L0" "L1" "L2" "L3" "L4" "L5" "L6" }}<span class="vx-jrn-lnode{{ if in $c.l_levels $lv }} is-on{{ end }}">{{ $lv }}</span>{{ end }}
           </div>
           {{ end }}
@@ -153,7 +155,8 @@
     <a class="vx-jrn-bridge" href="#ch-{{ $next.order }}">
       <span class="vx-jrn-bridge-lbl">接著讀 · 第 {{ $next.order }} 章</span>
       <span class="vx-jrn-bridge-name">{{ $next.nav_zh | default $next.name_zh }}</span>
-      <span class="vx-jrn-bridge-why">{{ $next.when_zh }}</span>
+      {{ with $next.premise }}<span class="vx-jrn-bridge-why">{{ .one_line }}</span>{{ end }}
+      {{ with $next.when_zh }}<span class="vx-jrn-bridge-when">什麼時候輪到它：{{ . }}</span>{{ end }}
       <span class="vx-jrn-bridge-go">→</span>
     </a>
     {{ end }}

@@ -1147,6 +1147,16 @@ html { scroll-behavior: smooth; }
   margin: 0 0 30px; max-width: 36em;
 }
 .vx-jrn-hero-lead b { color: var(--vx-accent); font-weight: 600; }
+.vx-jrn-hero-lvl {
+  font-size: 15.5px; line-height: 1.75; color: var(--vx-sub);
+  background: var(--vx-paper); border-left: 3px solid var(--vx-gold);
+  border-radius: 0 6px 6px 0; padding: 12px 18px; margin: 0 0 30px;
+}
+.vx-jrn-hero-lvl b { color: var(--vx-accent); font-weight: 600; }
+.vx-jrn-lvl-eg {
+  font-family: var(--vx-display); font-size: 12px; letter-spacing: .04em;
+  color: #fff; background: var(--vx-accent); border-radius: 999px; padding: 1px 8px;
+}
 .vx-jrn-hero-pick {
   font-size: 15px; color: var(--vx-sub); margin: 0 0 14px;
   font-style: italic;
@@ -1250,7 +1260,8 @@ html { scroll-behavior: smooth; }
 }
 
 /* 概念內 L 階梯 */
-.vx-jrn-ladder { display: flex; gap: 5px; margin: 16px 0 18px; flex-wrap: wrap; }
+.vx-jrn-ladder { display: flex; align-items: center; gap: 5px; margin: 16px 0 18px; flex-wrap: wrap; }
+.vx-jrn-ladder-cap { font-size: 12px; color: var(--vx-faint); margin-right: 4px; letter-spacing: .04em; }
 .vx-jrn-lnode {
   font-size: 11px; color: var(--vx-faint); border: 1px solid var(--vx-rule);
   border-radius: 3px; padding: 2px 7px;
@@ -1326,10 +1337,13 @@ html { scroll-behavior: smooth; }
   font-size: 22px; color: #fff;
 }
 .vx-jrn-bridge-why {
-  grid-column: 1; font-size: 14.5px; color: #cdddec; line-height: 1.55; margin-top: 2px;
+  grid-column: 1; font-size: 15px; color: #eaf2fa; line-height: 1.6; margin-top: 4px;
+}
+.vx-jrn-bridge-when {
+  grid-column: 1; font-size: 13px; color: #a9c4dd; line-height: 1.5; margin-top: 4px;
 }
 .vx-jrn-bridge-go {
-  grid-column: 2; grid-row: 1 / 4; align-self: center;
+  grid-column: 2; grid-row: 1 / 5; align-self: center;
   font-size: 30px; color: #fff;
 }
 
@@ -1384,7 +1398,7 @@ html { scroll-behavior: smooth; }
 /* 偏好減少動態 */
 @media (prefers-reduced-motion: reduce) {
   html, .vx-jrn { scroll-behavior: auto; }
-  .vx-jrn-sit, .vx-jrn-bridge { transition: none; }
+  .vx-jrn *, .vx-jrn *::before, .vx-jrn *::after { transition: none; animation: none; }
 }
 
 /* ── 雙模式互連入口 ── */
