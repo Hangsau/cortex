@@ -6,23 +6,24 @@
  */
 
 :root {
-  --vx-bg:        #ffffff;
-  --vx-paper:     #faf9f5;
-  --vx-paper2:    #f4f2ea;
-  --vx-ground:    #faf8f3;
-  --vx-ink:       #232323;
-  --vx-sub:       #555555;
-  --vx-faint:     #8a8a82;
-  --vx-accent:    #1b3a5c;
-  --vx-accent2:   #2c5a86;
-  --vx-gold:      #b08a2e;
-  --vx-gold-bg:   #faf4e2;
+  --vx-bg:        #FAFAF7;
+  --vx-paper:     #fdfdfb;
+  --vx-paper2:    #f4f1e8;
+  --vx-ground:    #FAFAF7;
+  --vx-ink:       #1A1A1A;
+  --vx-sub:       #56564e;
+  --vx-faint:     #88887e;
+  --vx-accent:    #D4622A;
+  --vx-accent2:   #B5511F;
+  --vx-gold:      #a98321;
+  --vx-gold-bg:   #f7efd9;
   --vx-warn:      #9a3326;
   --vx-warn-bg:   #fbf1ee;
-  --vx-rule:      #e2e1d8;
-  --vx-rule2:     #c9c8bd;
-  --vx-serif:     'Source Serif 4', 'Noto Serif TC', 'Source Han Serif TC', Georgia, 'Songti TC', serif;
-  --vx-display:   'Crimson Pro', Georgia, serif;
+  --vx-rule:      #E8E8E0;
+  --vx-rule2:     #c9c9bd;
+  --vx-serif:     'Noto Serif TC', 'Shippori Mincho', 'Source Han Serif TC', Georgia, 'Songti TC', serif;
+  --vx-display:   'Shippori Mincho', 'Noto Serif TC', Georgia, serif;
+  --vx-mono:      'Courier Prime', 'Noto Sans TC', monospace;
   --vx-wrap:      1080px;
   --vx-measure:       38em;   /* ~38 漢字 / ~66 拉丁字元 內文行長 */
   --vx-measure-lead:  32em;   /* 引言/前言略窄 */
@@ -413,7 +414,7 @@ mark, .mark {
 .vx-band-l {
   font-family: var(--vx-display); font-size: 13px; letter-spacing: 0.08em;
   color: #fff; background: var(--vx-accent);
-  padding: 2px 9px; border-radius: 2px; white-space: nowrap;
+  padding: 2px 9px; border-radius: 0; white-space: nowrap;
 }
 .vx-band-name {
   font-family: var(--vx-display); font-size: 20px; color: var(--vx-ink);
@@ -501,7 +502,7 @@ mark, .mark {
 .vx-sit-l {
   font-family: var(--vx-display); font-size: 13px; letter-spacing: 0.06em;
   color: #fff; background: var(--vx-accent);
-  padding: 3px 9px; border-radius: 2px; white-space: nowrap; align-self: start;
+  padding: 3px 9px; border-radius: 0; white-space: nowrap; align-self: start;
 }
 .vx-sit-txt {
   font-size: 16px; line-height: 1.65; color: var(--vx-ink); min-width: 0;
@@ -527,7 +528,7 @@ mark, .mark {
 .vx-ladder-node {
   font-family: var(--vx-display); font-size: 12.5px; line-height: 1;
   color: var(--vx-faint); background: var(--vx-paper2);
-  border: 1px solid var(--vx-rule); border-radius: 2px;
+  border: 1px solid var(--vx-rule); border-radius: 0;
   padding: 4px 7px; white-space: nowrap;
 }
 .vx-ladder-node.is-on {
@@ -559,7 +560,7 @@ mark, .mark {
   display: flex; align-items: center; justify-content: center;
 }
 .vx-cue--bad .vx-cue-tag { background: var(--vx-warn-bg); color: var(--vx-warn); }
-.vx-cue--good .vx-cue-tag { background: #eef2f6; color: var(--vx-accent); }
+.vx-cue--good .vx-cue-tag { background: #f7efe6; color: var(--vx-accent); }
 .vx-cue--why .vx-cue-tag { background: var(--vx-paper); color: var(--vx-faint); }
 .vx-cue-txt { padding: 12px 16px; font-size: 15px; line-height: 1.6; }
 .vx-cue--bad .vx-cue-txt { color: var(--vx-sub); }
@@ -667,7 +668,7 @@ details.vx-card[open] > summary { border-bottom: 1px solid var(--vx-rule); }
 .vx-mis { color: var(--vx-sub); }
 .vx-correct {
   border-left: 3px solid var(--vx-accent); padding-left: 14px;
-  background: #f6f8fa;
+  background: #faf6ef;
 }
 .vx-card.vx-err > summary { border-left: 3px solid var(--vx-warn); }
 .vx-card.vx-tech > summary { border-left: 3px solid var(--vx-accent); }
@@ -875,14 +876,14 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
   font-size: 14.5px; color: var(--vx-warn);
   background: var(--vx-warn-bg);
   border-left: 3px solid var(--vx-warn);
-  padding: 8px 12px; margin: 10px 0; border-radius: 2px;
+  padding: 8px 12px; margin: 10px 0; border-radius: 0;
 }
 .vx-pz-sub { margin: 8px 0; padding-left: 20px; }
 .vx-pz-sub li {
   font-size: 15px; line-height: 1.7; color: var(--vx-ink); margin: 8px 0;
 }
 .vx-pz-sub li strong { font-weight: 600; color: var(--vx-accent2); }
-.vx-pz-hi { background: var(--vx-gold-bg); border-radius: 2px; padding: 4px 6px; }
+.vx-pz-hi { background: var(--vx-gold-bg); border-radius: 0; padding: 4px 6px; }
 
 .vx-pz-table {
   width: 100%; border-collapse: collapse;
@@ -912,7 +913,7 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
   background: var(--vx-paper);
   border: 1px solid var(--vx-rule2);
   border-left: 4px solid var(--vx-accent);
-  padding: 14px 18px; margin: 16px 0; border-radius: 2px;
+  padding: 14px 18px; margin: 16px 0; border-radius: 0;
 }
 .vx-pz-swim-h {
   display: block;
@@ -930,7 +931,7 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
   font-size: 15px; line-height: 1.85; color: var(--vx-ink);
   background: var(--vx-soft, rgba(0,0,0,0.025));
   border-left: 3px solid var(--vx-accent);
-  padding: 10px 14px; margin: 10px 0; border-radius: 2px;
+  padding: 10px 14px; margin: 10px 0; border-radius: 0;
 }
 .vx-pz-plain::before {
   content: "白話"; display: inline-block;
@@ -943,9 +944,9 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
 /* 對話層（school dialogue）：流派之間的辯論張力 */
 .vx-pz-dialogue {
   font-size: 15px; line-height: 1.85; color: var(--vx-ink);
-  background: #eef3f8;
+  background: #f7efe6;
   border-left: 3px solid var(--vx-accent2);
-  padding: 10px 14px; margin: 10px 0; border-radius: 2px;
+  padding: 10px 14px; margin: 10px 0; border-radius: 0;
 }
 .vx-pz-dialogue::before {
   content: "對話"; display: inline-block;
@@ -960,7 +961,7 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
   font-size: 15px; line-height: 1.85; color: var(--vx-ink);
   background: var(--vx-gold-bg);
   border-left: 3px solid var(--vx-gold);
-  padding: 10px 14px; margin: 10px 0; border-radius: 2px;
+  padding: 10px 14px; margin: 10px 0; border-radius: 0;
 }
 .vx-pz-author::before {
   content: "作者綜合"; display: inline-block;
@@ -975,7 +976,7 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
   font-size: 14.5px; line-height: 1.8; color: var(--vx-ink);
   background: var(--vx-warn-bg);
   border: 1px dashed var(--vx-warn);
-  padding: 12px 16px; margin: 14px 0; border-radius: 2px;
+  padding: 12px 16px; margin: 14px 0; border-radius: 0;
 }
 .vx-pz-gap-h {
   display: block;
@@ -1082,7 +1083,7 @@ html { scroll-behavior: smooth; }
 .vx-jrn-bar-back {
   flex: none; font-size: 13px; color: var(--vx-sub);
   text-decoration: none; border: 1px solid var(--vx-rule2);
-  border-radius: 3px; padding: 3px 9px; letter-spacing: .04em;
+  border-radius: 0; padding: 3px 9px; letter-spacing: .04em;
 }
 .vx-jrn-bar-back:hover { color: var(--vx-accent); border-color: var(--vx-accent2); }
 .vx-jrn-bar-chip {
@@ -1096,7 +1097,7 @@ html { scroll-behavior: smooth; }
 }
 .vx-jrn-dot {
   font-size: 10px; letter-spacing: .02em; color: var(--vx-faint);
-  border: 1px solid var(--vx-rule2); border-radius: 999px;
+  border: 1px solid var(--vx-rule2); border-radius: 0;
   padding: 2px 7px; line-height: 1.4; transition: all .25s ease;
 }
 .vx-jrn-dot.is-on {
@@ -1105,7 +1106,7 @@ html { scroll-behavior: smooth; }
 .vx-jrn-bar-map {
   flex: none; font-family: var(--vx-serif); font-size: 13px;
   color: var(--vx-sub); background: none; border: 1px solid var(--vx-rule2);
-  border-radius: 3px; padding: 4px 11px; cursor: pointer;
+  border-radius: 0; padding: 4px 11px; cursor: pointer;
 }
 .vx-jrn-bar-map:hover { color: var(--vx-accent); border-color: var(--vx-accent2); }
 
@@ -1117,7 +1118,7 @@ html { scroll-behavior: smooth; }
   margin: 0 auto; max-width: 760px;
   padding: 11px 18px; background: var(--vx-gold-bg);
   border: 1px solid var(--vx-gold); border-top: none;
-  border-radius: 0 0 6px 6px; font-size: 14px;
+  border-radius: 0; font-size: 14px;
 }
 .vx-jrn-resume-txt { color: var(--vx-ink); }
 .vx-jrn-resume-txt b { color: var(--vx-gold); font-weight: 600; }
@@ -1135,13 +1136,13 @@ html { scroll-behavior: smooth; }
   position: fixed; top: 52px; right: 22px; z-index: 50;
   width: min(320px, 86vw); max-height: 74vh; overflow-y: auto;
   background: #fff; border: 1px solid var(--vx-rule2);
-  border-radius: 8px; box-shadow: 0 18px 50px rgba(20,30,45,.18);
+  border-radius: 0; box-shadow: 0 18px 50px rgba(20,30,45,.18);
   padding: 8px;
 }
 .vx-jrn-map-item {
   display: flex; align-items: baseline; gap: 10px;
   padding: 9px 12px; text-decoration: none; color: var(--vx-ink);
-  border-radius: 5px; font-size: 15px;
+  border-radius: 0; font-size: 15px;
 }
 .vx-jrn-map-item:hover { background: var(--vx-paper2); }
 .vx-jrn-map-no {
@@ -1177,7 +1178,7 @@ html { scroll-behavior: smooth; }
 .vx-jrn-hero-how {
   font-size: 15.5px; line-height: 1.7; color: var(--vx-sub);
   background: var(--vx-paper); border: 1px solid var(--vx-rule);
-  border-radius: 6px; padding: 12px 16px; margin: 0 0 26px;
+  border-radius: 0; padding: 12px 16px; margin: 0 0 26px;
 }
 .vx-jrn-hero-how b { color: var(--vx-accent); font-weight: 600; }
 .vx-jrn-hero-lvl {
@@ -1187,7 +1188,7 @@ html { scroll-behavior: smooth; }
 .vx-jrn-lvl-eg {
   font-family: var(--vx-display); font-size: 11px; letter-spacing: .04em;
   color: var(--vx-sub); background: var(--vx-paper2);
-  border: 1px solid var(--vx-rule2); border-radius: 999px; padding: 1px 7px;
+  border: 1px solid var(--vx-rule2); border-radius: 0; padding: 1px 7px;
 }
 .vx-jrn-hero-pick {
   font-size: 15px; color: var(--vx-sub); margin: 0 0 14px;
@@ -1198,7 +1199,7 @@ html { scroll-behavior: smooth; }
   display: grid; grid-template-columns: 58px 1fr auto; align-items: center;
   gap: 14px; padding: 14px 18px; text-decoration: none;
   background: var(--vx-paper); border: 1px solid var(--vx-rule);
-  border-left: 3px solid var(--vx-rule2); border-radius: 5px;
+  border-left: 3px solid var(--vx-rule2); border-radius: 0;
   transition: all .18s ease;
 }
 .vx-jrn-sit:hover {
@@ -1221,12 +1222,12 @@ html { scroll-behavior: smooth; }
 /* ── 章節 ── */
 .vx-jrn-ch { padding-top: 40px; padding-bottom: 28px; }
 .vx-jrn-ch-head {
-  padding: 26px 26px 22px; border-radius: 10px; margin-bottom: 22px;
+  padding: 26px 26px 22px; border-radius: 0; margin-bottom: 22px;
   border: 1px solid var(--vx-rule);
 }
-.vx-jrn-band--start .vx-jrn-ch-head { background: linear-gradient(180deg, #eef4fa, #f7f5ef); }
+.vx-jrn-band--start .vx-jrn-ch-head { background: linear-gradient(180deg, #f9ede3, #f7f5ef); }
 .vx-jrn-band--through .vx-jrn-ch-head { background: linear-gradient(180deg, #f3f0e7, #f7f5ef); }
-.vx-jrn-band--peak .vx-jrn-ch-head { background: linear-gradient(180deg, #e9eef6, #eef0ee); border-color: var(--vx-rule2); }
+.vx-jrn-band--peak .vx-jrn-ch-head { background: linear-gradient(180deg, #f4e7da, #eef0ee); border-color: var(--vx-rule2); }
 .vx-jrn-ch-meta {
   display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
   margin-bottom: 12px;
@@ -1237,7 +1238,7 @@ html { scroll-behavior: smooth; }
 }
 .vx-jrn-ch-l {
   font-size: 12px; color: var(--vx-sub);
-  border: 1px solid var(--vx-rule2); border-radius: 999px; padding: 2px 10px;
+  border: 1px solid var(--vx-rule2); border-radius: 0; padding: 2px 10px;
 }
 .vx-jrn-ch-title {
   font-family: var(--vx-display); font-weight: 700;
@@ -1253,7 +1254,7 @@ html { scroll-behavior: smooth; }
 /* ── 概念（progressive disclosure） ── */
 .vx-jrn-concepts { display: flex; flex-direction: column; gap: 12px; }
 .vx-jrn-concept {
-  border: 1px solid var(--vx-rule); border-radius: 8px;
+  border: 1px solid var(--vx-rule); border-radius: 0;
   background: #fff; overflow: hidden;
 }
 .vx-jrn-concept[open] { border-color: var(--vx-rule2); box-shadow: 0 2px 14px rgba(20,30,45,.05); }
@@ -1266,7 +1267,7 @@ html { scroll-behavior: smooth; }
 .vx-jrn-c-no {
   font-family: var(--vx-display); font-weight: 600; font-size: 15px;
   color: var(--vx-faint); text-align: center;
-  border: 1px solid var(--vx-rule2); border-radius: 999px;
+  border: 1px solid var(--vx-rule2); border-radius: 0;
   width: 30px; height: 30px; line-height: 28px;
 }
 .vx-jrn-concept[open] .vx-jrn-c-no { color: #fff; background: var(--vx-accent); border-color: var(--vx-accent); }
@@ -1296,13 +1297,13 @@ html { scroll-behavior: smooth; }
 .vx-jrn-ladder-cap { font-size: 12px; color: var(--vx-faint); margin-right: 4px; letter-spacing: .04em; }
 .vx-jrn-lnode {
   font-size: 11px; color: var(--vx-faint); border: 1px solid var(--vx-rule);
-  border-radius: 3px; padding: 2px 7px;
+  border-radius: 0; padding: 2px 7px;
 }
 .vx-jrn-lnode.is-on { color: #fff; background: var(--vx-accent2); border-color: var(--vx-accent2); }
 .vx-jrn-c-text { font-size: 16.5px; line-height: 1.85; margin: 0 0 18px; color: #2a2a2a; }
 
 /* 誤區 */
-.vx-jrn-mis { display: flex; flex-direction: column; gap: 0; margin: 0 0 18px; border-radius: 6px; overflow: hidden; border: 1px solid var(--vx-rule); }
+.vx-jrn-mis { display: flex; flex-direction: column; gap: 0; margin: 0 0 18px; border-radius: 0; overflow: hidden; border: 1px solid var(--vx-rule); }
 .vx-jrn-mis-row + .vx-jrn-mis-row { border-top: 4px solid var(--vx-paper2); }
 .vx-jrn-mis-bad, .vx-jrn-mis-why, .vx-jrn-mis-good {
   padding: 10px 14px; font-size: 14.5px; line-height: 1.65;
@@ -1313,7 +1314,7 @@ html { scroll-behavior: smooth; }
 .vx-jrn-mis-tag {
   display: inline-block; font-family: var(--vx-display); font-weight: 600;
   font-size: 11px; letter-spacing: .04em; margin-right: 8px;
-  padding: 1px 7px; border-radius: 3px; vertical-align: 1px;
+  padding: 1px 7px; border-radius: 0; vertical-align: 1px;
 }
 .vx-jrn-mis-bad .vx-jrn-mis-tag { background: var(--vx-warn); color: #fff; }
 .vx-jrn-mis-why .vx-jrn-mis-tag { background: var(--vx-rule2); color: #fff; }
@@ -1335,7 +1336,7 @@ html { scroll-behavior: smooth; }
 
 /* 想深一點 */
 .vx-jrn-deep {
-  margin-top: 14px; border: 1px dashed var(--vx-rule2); border-radius: 6px;
+  margin-top: 14px; border: 1px dashed var(--vx-rule2); border-radius: 0;
   background: var(--vx-paper);
 }
 .vx-jrn-deep > summary {
@@ -1356,23 +1357,23 @@ html { scroll-behavior: smooth; }
   display: grid; grid-template-columns: 1fr auto; align-items: center;
   column-gap: 16px; row-gap: 4px; margin-top: 24px;
   padding: 20px 24px; text-decoration: none;
-  background: var(--vx-accent); border-radius: 10px;
+  background: var(--vx-accent); border-radius: 0;
   transition: transform .18s ease, background .18s ease;
 }
-.vx-jrn-bridge:hover { background: #16314d; transform: translateY(-1px); }
+.vx-jrn-bridge:hover { background: var(--vx-accent2); transform: translateY(-1px); }
 .vx-jrn-bridge-lbl {
   grid-column: 1; font-family: var(--vx-display); font-size: 12px;
-  letter-spacing: .1em; color: #a9c4dd;
+  letter-spacing: .1em; color: #f3d3bf;
 }
 .vx-jrn-bridge-name {
   grid-column: 1; font-family: var(--vx-display); font-weight: 700;
   font-size: 22px; color: #fff;
 }
 .vx-jrn-bridge-why {
-  grid-column: 1; font-size: 15px; color: #eaf2fa; line-height: 1.6; margin-top: 4px;
+  grid-column: 1; font-size: 15px; color: #fbe3d3; line-height: 1.6; margin-top: 4px;
 }
 .vx-jrn-bridge-when {
-  grid-column: 1; font-size: 13px; color: #a9c4dd; line-height: 1.5; margin-top: 4px;
+  grid-column: 1; font-size: 13px; color: #f3d3bf; line-height: 1.5; margin-top: 4px;
 }
 .vx-jrn-bridge-go {
   grid-column: 2; grid-row: 1 / 5; align-self: center;
@@ -1431,7 +1432,7 @@ html { scroll-behavior: smooth; }
   display: inline-flex; align-items: center;
   font-family: var(--vx-display); font-size: 12.5px;
   color: var(--vx-sub); background: var(--vx-paper);
-  border: 1px solid var(--vx-rule2); border-radius: 999px;
+  border: 1px solid var(--vx-rule2); border-radius: 0;
   padding: 4px 12px; text-decoration: none;
   letter-spacing: 0.02em;
   transition: color .15s, border-color .15s, background .15s;
@@ -1470,7 +1471,7 @@ html { scroll-behavior: smooth; }
   background: var(--vx-gold-bg);
   border: 1px solid var(--vx-rule);
   border-left: 4px solid var(--vx-gold);
-  border-radius: 4px;
+  border-radius: 0;
   padding: 16px 18px 18px;
 }
 .vx-jrn-c-phenom-tag {
@@ -1479,7 +1480,7 @@ html { scroll-behavior: smooth; }
   font-size: 11px; letter-spacing: 0.18em;
   text-transform: uppercase; color: var(--vx-gold);
   background: var(--vx-bg);
-  padding: 2px 9px; border-radius: 2px;
+  padding: 2px 9px; border-radius: 0;
   margin-bottom: 10px;
 }
 .vx-jrn-c-text { margin: 0; }
@@ -1510,7 +1511,7 @@ html { scroll-behavior: smooth; }
   background: var(--vx-paper2);
   border: 1px solid var(--vx-rule);
   border-left: 4px solid var(--vx-accent2);
-  border-radius: 4px;
+  border-radius: 0;
   padding: 16px 18px 18px;
 }
 .vx-jrn-iv > .vx-jrn-subhead {
@@ -1534,7 +1535,7 @@ html { scroll-behavior: smooth; }
     transform: translateX(-50%); z-index: 45;
     background: var(--vx-accent); color: #fff; text-decoration: none;
     font-family: var(--vx-display); font-weight: 600; font-size: 15px;
-    padding: 12px 24px; border-radius: 999px;
+    padding: 12px 24px; border-radius: 0;
     box-shadow: 0 8px 24px rgba(20,30,45,.28); max-width: 90vw;
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   }
