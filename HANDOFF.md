@@ -1,6 +1,8 @@
 # HANDOFF — my-site (Cortex)
 
-## 目前狀態（2026-06-17）
+## 目前狀態（2026-06-18）
+
+**Vortex 全 section 改套日式文具（techō）設計語言，整站一致（2026-06-18，commit 3426640→4b92123，已 push）**：起因——站主明確不滿「只在原本東西上修修補補、超級微調、什麼都來問」，要求**整段重做成一個真正設計過、好讀、一致的網站**（不是 reskin/patch），並停止過度詢問、自己做設計決定。做法：①首頁（vortex-home）改用 techō 設計語言重做（commit 3426640），用新 `vortex-techo.css`（tx-* class，bg #FAFAF7 / 柿橘 #D4622A / Shippori Mincho + Noto Serif TC + Courier Prime / 1px grid / 無圓角）；移除全部裝飾性英文（副標/印章/欄位 key/英文式名/區塊小標改回繁中，commit 170751c）。②**回補被我誤刪的「什麼是水感」導入**（站主糾正「整個介紹水感的就沒了」——我在改地圖時把新手入口 + 水感導入 orphan 掉了，這是錯誤不是設計）：在首頁最上加 `.tx-hero`（大「00」+「什麼是水感？」→ technica/water-sense-guide/）+ `.tx-path` 兩列（水感理論 / L0–L6），地圖降為導覽脊椎「找到你現在在哪一級」（commit 9fef115）。③**一次性把 12 個子頁 layout 全套同一設計語言**（commit 4b92123）：不重寫 layout，改 `vortex.css` 的 `:root` tokens（原 style 08 學術期刊海軍藍 → techō 暖色 #FAFAF7/#D4622A）+ 歸零全部 border-radius + 換 Shippori/Noto Serif/Courier Prime 字體 + remap 海軍藍專屬色塊 → 因 vortex.css 是 token-driven，一改 :root 全子頁同步換皮、結構與 JS（vortex.js 面板切換、stroke rail）完全不動；同時移除子頁裝飾性英文（vx-stroke-en / `VORTEX · Xxx` eyebrow / vx-toc-en）改回繁中。**驗收**：本機 hugo build 綠（BUILD_EXIT:0）+ headless Chrome 截圖確認 home（導入+地圖）/freestyle/levels/psychology/database/periodization/adm-home/water-sense-guide 全部在 techō 暖色系一致渲染、無海軍藍衝突、平角、柿橘強調、Shippori 標題。**教訓存記憶**：①視覺迭代別把既有內容入口誤刪（先確認新編排有涵蓋舊入口才動）；②全站重皮優先改共用 token 檔（vortex.css :root）不逐頁重寫，省工又保結構/JS；③站主要「真做一個網站」時停止微調式提問、自己拍板整批執行。⚠ 兩個 `.m3-*.txt`（layout/rebuild brief）刻意保持 untracked，勿 commit。
 
 網站已上線並完全正常：https://hangsau.github.io/cortex/  
 CI/CD 正常運作，push hugo-source 自動部署。  
