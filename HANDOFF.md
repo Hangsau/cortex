@@ -4,7 +4,8 @@
 
 網站已上線並完全正常：https://hangsau.github.io/cortex/  
 CI/CD 正常運作，push hugo-source 自動部署。  
-**心理層「一條讀下來」READ 模式上線（2026-06-17）**：使用者核心糾正——問題是**網站「呈現方式」**（layout/導航/視覺動線），不是內容文字怎麼寫。現有 vortex-psychology.html 是學術期刊 master-detail＝「索引查詢」介面，三病：①進站不知第一個讀什麼 ②讀完不知往哪續 ③查得到但讀不下去。**動工前先派 minimax-m3（`claude-m3 -p`）審方案**（使用者糾正「做之前就要審，不是卡住才審」）；m3 verdict：scrollytelling 範式對，但要 ① 章層級不是 62 概念層級 ② 殺左 rail 改頂部 sticky 7-dot ③ 殺 % 進度條 ④ 加 localStorage 續讀 ⑤ concept 預設摺疊（progressive disclosure）。全數採納。**實作（純呈現層，canonical/sync/data 全未動）**：新 `layouts/vortex/vortex-psychology-journey.html`（單頁捲動：序章 hero＋5 處境卡起跑線 → 8 章[theme=章，沿 L0→L6]＋章尾 navy 橋接卡 → 尾聲）；每概念 `<details>` 預設摺疊（標題＋42字 peek），展開見現象/誤區/介入＋巢狀「想深一點」收學術邊界與來源；新 `static/js/vortex-journey.js`（scroll 偵測當前章→更新 sticky chip＋7-dot L0–L6 亮帶＋mobile FAB「下一章」＋localStorage 續讀＋章節地圖 exit ramp；無 JS 仍全可讀，內容皆 server-render、details 原生）；`.vx-jrn-*` CSS（含三帶視覺變奏 start/through/peak、scroll-margin-top 錨點、prefers-reduced-motion）。**單頁 vs 拆 8 頁的取捨**：m3 建議拆頁，但 progressive disclosure 把概念摺疊後單頁長度問題消解，且單一 layout bug 面小、能逐項截圖驗證——故採單頁＋章錨點（`#ch-1`…）。**雙模式互連**：home 心理入口改指 journey（READ 為主）＋次連 lookup；journey↔lookup 互link（lookup 概覽頂部加 navy `.vx-read-banner`、journey 頂部「☰ 查」＋尾聲連結）。舊 vortex-psychology.html 原封保留為 LOOK-UP 查詢旁路。**驗收**：hugo build 綠、headless Chrome 桌機＋手機截圖確認 hero/處境卡/章首/概念展開/誤區三欄/橋接卡/sticky chip 隨捲動更新（「第1章·恐懼」＋L0–L2 dots 亮）/FAB/lookup banner 全渲染正確；修掉 resume banner 因 `display:flex` 覆蓋 `hidden` 屬性而首訪誤顯的 bug（改 `:not([hidden])`）。⚠ m3 列的選做增強未做（非 bug）：鍵盤 J/K 導航、概念 ☆ 書籤、每章閱讀分鐘數已加但「續讀百分比」未做。
+**心理層 READ 旅程已試驗並撤回（commit 7f337e5, 2026-06-17）**：原「一條讀下來」scrollytelling 單頁旅程（vortex-psychology-journey.html + vortex-journey.js + 對應 content）已整個刪除，心理層回到 master-detail lookup（`vortex-psychology.html`）。撤回原因：單頁即使概念全收合，落地仍 ~3400px，章卡展開概念列 + 章尾橋接疊起來仍天邊；使用者反覆糾正「一打開就是一整頁長到天邊、不知從哪讀」。改為左欄按處境＋程度對號入座（怕水的從恐懼讀起、已穩的直接跳心流），首頁心理入口文案去掉「一條讀下來」、改為「按處境與程度挑一個進去」。**記**：未來若要對其他共用左欄頁（感知層/泳式技術）做新手導讀，先用輕量處境卡入口而非整頁 READ 旅程。下方的 READ 迭代段落（commit 0441c22/43b6c63/0054e63/e51beb7）已隨 journey 退役，僅留迭代歷史紀錄。  
+**心理層 READ 模式迭代史（已撤回，僅留紀錄）**：使用者核心糾正——問題是**網站「呈現方式」**（layout/導航/視覺動線），不是內容文字怎麼寫。現有 vortex-psychology.html 是學術期刊 master-detail＝「索引查詢」介面，三病：①進站不知第一個讀什麼 ②讀完不知往哪續 ③查得到但讀不下去。**動工前先派 minimax-m3（`claude-m3 -p`）審方案**（使用者糾正「做之前就要審，不是卡住才審」）；m3 verdict：scrollytelling 範式對，但要 ① 章層級不是 62 概念層級 ② 殺左 rail 改頂部 sticky 7-dot ③ 殺 % 進度條 ④ 加 localStorage 續讀 ⑤ concept 預設摺疊（progressive disclosure）。全數採納。**實作（純呈現層，canonical/sync/data 全未動）**：新 `layouts/vortex/vortex-psychology-journey.html`（單頁捲動：序章 hero＋5 處境卡起跑線 → 8 章[theme=章，沿 L0→L6]＋章尾 navy 橋接卡 → 尾聲）；每概念 `<details>` 預設摺疊（標題＋42字 peek），展開見現象/誤區/介入＋巢狀「想深一點」收學術邊界與來源；新 `static/js/vortex-journey.js`（scroll 偵測當前章→更新 sticky chip＋7-dot L0–L6 亮帶＋mobile FAB「下一章」＋localStorage 續讀＋章節地圖 exit ramp；無 JS 仍全可讀，內容皆 server-render、details 原生）；`.vx-jrn-*` CSS（含三帶視覺變奏 start/through/peak、scroll-margin-top 錨點、prefers-reduced-motion）。**單頁 vs 拆 8 頁的取捨**：m3 建議拆頁，但 progressive disclosure 把概念摺疊後單頁長度問題消解，且單一 layout bug 面小、能逐項截圖驗證——故採單頁＋章錨點（`#ch-1`…）。**雙模式互連**：home 心理入口改指 journey（READ 為主）＋次連 lookup；journey↔lookup 互link（lookup 概覽頂部加 navy `.vx-read-banner`、journey 頂部「☰ 查」＋尾聲連結）。舊 vortex-psychology.html 原封保留為 LOOK-UP 查詢旁路。**驗收**：hugo build 綠、headless Chrome 桌機＋手機截圖確認 hero/處境卡/章首/概念展開/誤區三欄/橋接卡/sticky chip 隨捲動更新（「第1章·恐懼」＋L0–L2 dots 亮）/FAB/lookup banner 全渲染正確；修掉 resume banner 因 `display:flex` 覆蓋 `hidden` 屬性而首訪誤顯的 bug（改 `:not([hidden])`）。⚠ m3 列的選做增強未做（非 bug）：鍵盤 J/K 導航、概念 ☆ 書籤、每章閱讀分鐘數已加但「續讀百分比」未做。
 **READ 模式 — minimax-m3 成品審查跟進（2026-06-17，commit 0441c22，已 push + CI 綠 run 27659748177）**：上線後再派 m3 審「成品」（非方案）。m3 verdict 兌現度 80%，逐條對實檔複查後**已改 6 條**：①Hero 加 L0→L6 系統 1 段解釋（gold 左框 `.vx-jrn-hero-lvl`，解決「dots/階梯全是無入門符號」）②概念 peek 42→24 字 + L 階梯加「出現在」視覺說明（`.vx-jrn-ladder-cap`）③章尾橋接卡補 `premise.one_line`（這章在講什麼），`when_zh` 降為次行 `.vx-jrn-bridge-when`④Hero「從頭讀起」章名改抓 `(index $themes 0).name_zh`，與章頭一致（原 hardcode「恐懼」vs 章頭「水中恐懼」斷裂）⑤JS 修續讀守衛容忍 `#start`（原「↑回到起點」點過後 hash 永久污染、續讀失效）⑥JS 章節地圖拿掉「點背景即關」、reduced-motion 改 `.vx-jrn * { transition/animation:none }`。**刻意不改（與 m3 分歧）**：處境卡不改成章名——違反「按處境不按 topic 名」原則（feedback memory）。**deferred backlog（屬實但緩，非 bug）**：D 續讀記到概念級（需改 localStorage schema 存 concept_idx + toggle hook + scroll restore，~30 分）；E「想深一點」拆成「證據邊界+來源」與「適用範圍」兩 details；I 章節地圖每章內嵌概念清單；單頁固有缺陷緩解「每章分享此章 URL 按鈕」。m3 確認單頁 vs 拆頁取捨**站得住**（臨界：章數≤12/概念≤100/HTML≤200KB，目前 8/62/~100KB 遠低於）。
 **READ 落地反牆化（2026-06-17，commit 43b6c63，已 push + CI 綠 run 27660109605）**：上一輪 m3 跟進**反而把 hero 弄重**（加了金框 L 解釋段）＋ 第 1 概念 `open` 預設展開，使用者回饋「一點進去一大篇長論、不知怎麼看起」「比原本還糟」。修：①**所有概念預設收合**（移除 first-concept auto-open）→ 落地＝可掃讀標題清單；②hero 砍重：移除金框 L 段改一行短 lead；③加輕量「怎麼讀」框（明說這是挑著讀的地圖、點開才展開、兩種開始法①處境卡②第一章）；④L0–L6 解釋降為頁尾淡灰一行小註。CSS：`.vx-jrn-hero-how`（輕框）+ `.vx-jrn-hero-lvl` 改淡灰小字（原金框樣式移除）。教訓存記憶 `feedback_vortex_read_landing_collapse_and_light.md`：progressive-disclosure 閱讀頁預設全收合、不 auto-open；採納審查建議用最輕觸碰，別加段落把入口弄成牆。
 **READ 展開概念拆牆（2026-06-17，commit 0054e63，已 push + CI 綠 run 27665165592）**：使用者反覆糾正兩件事——①重點是 **web UI 不是內容**（「點開來就是一長串不知道要表達什麼」＝呈現問題，內容文字之後再調、這輪一字不動）②「我叫你外審你就自己審」＝外審要實際**驅動**，不是叫了 m3 再用自己判斷濾掉它的意見。本輪全程走 `claude-m3 -p`（MiniMax 月費、零 Claude 配額）：先派 m3 做**純 web UI 審查**（明令忽略內容寫作品質），m3 點出展開後 `phenomenon.text` 是 body 內**唯一無標籤的裸 `<p>`**、其餘塊（誤區/介入/深讀）都有 tag/底色，故被讀成「裝飾文字/迷霧」；m3 給 14 條排序改法。再派 m3 **親手實作它自己 P0+P1 的 6 條**（不由我濾改）：①核心現象包成金框 eyebrow 容器、首句 build-time `findRE` 切出當 lead（19px accent，rest 15.5px）②誤區/介入/想深一點 各加 `.vx-jrn-subhead` section 中標題（含小寫英文）③展開 body 開頭加 `.vx-jrn-toc` mini-toc pill（核心/誤區×N/做法×N/深讀，缺哪塊不列，錨點跳各 sub-block）④4 個 sub-block 各自底色/左條視覺分格（現象金、誤區 warn、介入 accent2 米底、深讀 dashed）⑤section 間距統一 24px。**只改 `layouts/vortex/vortex-psychology-journey.html` + `static/css/vortex.css`，canonical/sync/data/JS 全未動，內容文字一字未改**。驗收：本機 hugo build 綠（333 頁 0 錯）、headless Chrome 強制展開全 62 概念截圖確認落地仍是收合清單、展開後＝金框現象+標籤化分區（非文字牆）、缺資料概念 `{{ with }}` 自動跳過該塊。教訓：外審交付物要讓外審自己審＋自己實作，主模型只做 framing＋驗收＋push，省 Claude 配額。
@@ -253,24 +254,29 @@ Claude Code 讀 `resources/books/Essentials_of_Strength_Training_and_Conditionin
   → Claude Code 從 .md 製作閃卡 → 寫進 Google Sheets
 ```
 
-## 待辦 — 週期化白話重寫 + 模組化（my-site 呈現端，2026-06-08 規劃）
+## 待辦 — 週期化白話重寫 + 模組化（my-site 呈現端，2026-06-08 規劃） ✅ 已完成
 
 **plan-check 已完成（Opus）**：`C:\claudehome\projects\TheVortexProject\plans\periodization_integration_plancheck.md`。本檔是「一源兩消費」全鏈整合，my-site 是消費端 1（公開呈現），swim-coach 是消費端 2（唯讀反查）。
 
 **my-site 呈現層已存在**（commit 28cffd3，`vortex-periodization.html` 期刊式單頁），這次不是從零接，是把白話層接進現有頁面。資料流不變：canonical 改 → `tools/sync_vortex.py` pass-through → `data/periodization/` → template。
 
-**接手後 my-site 這端要做的（在 canonical 的 plain_zh / _index.yaml 落地後）**：
-1. 等 TheVortexProject 把 `plain_zh` 欄加進 `canonical/periodization/*.yaml` + 新增 `_index.yaml` 概念目錄 → 跑 `sync_vortex.py`（其 `sync_periodization()` 為全量 pass-through，會自動帶進 `data/periodization/`，含新欄位與新檔，**不需改 sync 邏輯**，但要確認 _index.yaml 也被 sync 函式納入）。
-2. 改 `layouts/vortex/vortex-periodization.html`：每節把 `plain_zh` 白話顯示出來（與原 Bompa 物理敘述並列或取代，依 plan-check 定案），保留 🔵🟡🟢 確定性標記與 source 溯源。
-3. （選做）用 `_index.yaml` 概念目錄做一個「快速查詢 / 概念索引」入口頁或頁內導覽,讓人/AI 一眼掃到所有週期化概念 + 一行白話摘要。
-4. 本機 Hugo build 綠 → push（指令見 CLAUDE.md 部署段）→ `gh run list` 確認 CI。
+**✅ 已完成（2026-06-10 commit 31cea81 + 2026-06-11 ec746b4 + e781453）**：
+1. ✅ canonical 把 `plain_zh` 欄加進 `canonical/periodization/*.yaml` + 新增 `_index.yaml` 概念目錄 → 跑 `sync_vortex.py`（其 `sync_periodization()` 為全量 pass-through，已自動帶進 `data/periodization/`，含新欄位與新檔）。
+2. ✅ `layouts/vortex/vortex-periodization.html`：每節把 `plain_zh` 白話顯示出來（`grep plain_zh layouts/vortex/vortex-periodization.html` = 25 處），保留 🔵🟡🟢 確定性標記與 source 溯源；§5 加 4 游泳區塊 + §7 游泳年度結構 + §8 青少年 LTAD。
+3. ✅ 用 `_index.yaml` 概念目錄做 master-detail 互動殼（commit ec746b4），左側常駐目次 + 右側 4 面板切換 + 20 個概念各用 `<details>` 摺疊（預設收合）；行動版修正（e781453）。
+4. ✅ Hugo build 綠 → push → CI 綠。
 
-**注意**：白話內容**不在 my-site 手改 `data/periodization/`**,源頭在 canonical;my-site 只做呈現層 template。
+**注意**：白話內容**不在 my-site 手改 `data/periodization/`**，源頭在 canonical；my-site 只做呈現層 template。
+
+---
+
+## 已廢棄（READ 旅程相關）
+
+`vortex-psychology-journey.html`、`static/js/vortex-journey.js`、`content/vortex/psychology-journey/_index.md` 已於 commit 7f337e5 全部刪除；未來對其他共用左欄頁（感知層/泳式技術）的新手導讀採輕量處境卡入口而非整頁旅程模式。
 
 ## 下一步建議
 
-1. **心理層 READ 模式驗收 + 推廣**：vortex-psychology-journey 已上線，等使用者看線上版回饋。若方向對，把同樣板（單頁脊椎旅程＋progressive disclosure＋頂部 sticky 7-dot）套到其他共用左欄頁——感知層（vortex-levels）、泳式技術，週期化已有 plain_zh 最好套。選做增強：鍵盤 J/K 導航、概念 ☆ 書籤、續讀百分比。
+1. **新手導讀改走輕量處境卡入口**：READ 整頁旅程模式已撤回，不再嘗試在每個共用左欄頁套單頁脊椎旅程。新手進站以**處境卡**（vortex-home 已加 5 張心理處境卡；可推廣到泳式／感知層的「你卡在哪」式入口）為主要引導。站主已驗證 psychology 處境卡有效，未來若需對其他頁加新手導讀，先加處境卡入口而非整頁 READ 旅程。
 2. CSCS 所有 24 章閃卡已全部完成（ch01–ch24）
 3. 若需要 ADM Appendix B，直接用 adm-single layout 加一頁即可
 4. 大腦喜歡這樣學 × 渦流計劃連結：使用者確認 wiki 需求後再設計（可在技法卡新增「在游泳教學中的應用」欄位）
-5. **週期化白話重寫**：見上方「待辦 — 週期化白話重寫 + 模組化」,plan-check 已備,等 canonical 端 plain_zh 落地後接 template
