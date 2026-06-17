@@ -80,15 +80,17 @@
     {{ $nc := len $concepts }}
 
   <section class="vx-jrn-ch vx-jrn-band--{{ $bandClass }}" id="ch-{{ $t.order }}" data-ch="{{ $t.order }}" data-lstart="{{ $ls }}" data-lend="{{ $le }}" data-name="{{ $t.nav_zh | default $t.name_zh }}">
-    <div class="vx-jrn-ch-head">
+    <details class="vx-jrn-ch-d">
+    <summary class="vx-jrn-ch-head">
       <div class="vx-jrn-ch-meta">
         <span class="vx-jrn-ch-no">第 {{ $t.order }} 章 / {{ $nt }}</span>
         <span class="vx-jrn-ch-l">{{ $t.l_band }} · {{ $t.level_tag }}</span>
       </div>
       <h2 class="vx-jrn-ch-title">{{ $t.name_zh }}</h2>
       {{ with $t.premise }}<p class="vx-jrn-ch-lead">{{ .one_line }}</p>{{ end }}
-      <span class="vx-jrn-ch-count">{{ $nc }} 個概念 · 約 {{ math.Round (mul $nc 1.5) }} 分鐘 · 點任一條展開</span>
-    </div>
+      <span class="vx-jrn-ch-count">{{ $nc }} 個概念 · 約 {{ math.Round (mul $nc 1.5) }} 分鐘</span>
+      <span class="vx-jrn-ch-open" aria-hidden="true"></span>
+    </summary>
 
     <div class="vx-jrn-concepts">
     {{ range $i, $c := $concepts }}
@@ -187,6 +189,7 @@
       <span class="vx-jrn-bridge-go">→</span>
     </a>
     {{ end }}
+    </details>
   </section>
   {{ end }}
 

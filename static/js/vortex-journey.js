@@ -116,5 +116,23 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMap(); });
   }
 
+  /* ── 章預設收合：任何指向 #ch-N 的連結都先展開該章 ── */
+  function openChapterByOrder(order) {
+    var sec = sectionByCh(+order);
+    if (!sec) return;
+    var d = sec.querySelector('.vx-jrn-ch-d');
+    if (d && !d.open) d.open = true;
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href*="#ch-"]');
+    if (!a) return;
+    var m = (a.getAttribute('href') || '').match(/#ch-(\d+)/);
+    if (m) openChapterByOrder(m[1]);
+  });
+  (function () {
+    var m = (location.hash || '').match(/#ch-(\d+)/);
+    if (m) openChapterByOrder(m[1]);
+  })();
+
   compute();
 })();

@@ -1376,6 +1376,23 @@ html { scroll-behavior: smooth; }
 .vx-jrn-outro-links a:hover { text-decoration: underline; }
 .vx-jrn-legend { font-size: 12.5px; color: var(--vx-faint); }
 
+/* ═══ 章預設收合：落地只見 8 張章卡（2026-06-17）══════════════ */
+.vx-jrn-ch-d > summary.vx-jrn-ch-head {
+  cursor: pointer; list-style: none; position: relative;
+  transition: filter .15s ease;
+}
+.vx-jrn-ch-d > summary.vx-jrn-ch-head::-webkit-details-marker { display: none; }
+.vx-jrn-ch-d > summary.vx-jrn-ch-head:hover { filter: brightness(.985); }
+.vx-jrn-ch-d[open] > summary.vx-jrn-ch-head { margin-bottom: 22px; }
+.vx-jrn-ch-open {
+  display: inline-flex; align-items: center; margin-left: 14px;
+  font-family: var(--vx-display); font-size: 13px; font-weight: 600;
+  color: var(--vx-accent); letter-spacing: .04em; vertical-align: 1px;
+}
+.vx-jrn-ch-open::after { content: "展開這章 ▾"; }
+.vx-jrn-ch-d[open] .vx-jrn-ch-open { color: var(--vx-faint); }
+.vx-jrn-ch-d[open] .vx-jrn-ch-open::after { content: "收合 ▴"; }
+
 /* ═══ 心理層展開 UI 改進（2026-06-17，6 條）══════════════════ */
 
 /* ── Mini-toc pill（展開後四個 sub-block 快速跳轉）── */
