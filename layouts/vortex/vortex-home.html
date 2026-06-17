@@ -147,4 +147,26 @@
   <p class="vx-legend">🔵 推導 · 🟢 近期文獻 · 🟡 舊文獻 · 🟠 教練觀測 · 🔴 待查 — 每條內容標注知識的確定性。</p>
 
 </div>
+
+<script>
+/* 讀過標記：對應 vx-toc-row 連結的目標頁若有 localStorage 紀錄，加上 is-read class。
+   標記寫入端在 vortex.js 的 activate()；adm home / database 等不走 vortex.js 的頁面
+   在自己 layout 內聯同樣的 markRead()。無 JS 時不顯示、不報錯。 */
+(function () {
+  if (!window.localStorage) return;
+  try {
+    var raw = localStorage.getItem('vx-read');
+    if (!raw) return;
+    var obj = JSON.parse(raw);
+    var rows = document.querySelectorAll('.vx-toc-row');
+    for (var i = 0; i < rows.length; i++) {
+      var href = rows[i].getAttribute('href') || '';
+      try {
+        var path = new URL(href, location.href).pathname.replace(/\/$/, '');
+        if (obj[path]) rows[i].classList.add('is-read');
+      } catch (e) { /* 忽略單筆錯誤 */ }
+    }
+  } catch (e) { /* localStorage 解析失敗就靜默 */ }
+})();
+</script>
 {{ end }}

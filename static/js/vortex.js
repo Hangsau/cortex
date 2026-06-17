@@ -15,6 +15,21 @@
 
   var order = panels.map(function (p) { return p.id; });
 
+  // 讀過標記（localStorage：給 vortex home 首頁 vx-toc-row 顯示小圓點）
+  // 用 path 作 key，避免「technica」這類非唯一 slug 衝突
+  function pagePath() {
+    return location.pathname.replace(/\/$/, '') || '/';
+  }
+  function markRead() {
+    if (!window.localStorage) return;
+    try {
+      var raw = localStorage.getItem('vx-read');
+      var obj = raw ? JSON.parse(raw) : {};
+      obj[pagePath()] = Date.now();
+      localStorage.setItem('vx-read', JSON.stringify(obj));
+    } catch (e) { /* localStorage 不可用就靜默 */ }
+  }
+
   // 密集階層側欄：當前分支展開（只在 .vx-rail--collapsible 啟用）
   var collapsibleRail = root.querySelector('.vx-rail--collapsible');
   var railThemes = collapsibleRail
@@ -67,6 +82,9 @@
       var top = panelsBox.getBoundingClientRect().top + window.pageYOffset - 12;
       if (window.pageYOffset > top) window.scrollTo({ top: top, behavior: 'smooth' });
     }
+
+    // 記錄「這一頁被讀過」（給首頁 vx-toc-row 顯示小圓點）
+    markRead();
   }
 
   // rail 連結 / 概覽路徑卡 / 上一動作 下一動作

@@ -217,5 +217,18 @@
   var t;
   input.addEventListener('input', function () { clearTimeout(t); t = setTimeout(applyFilters, 110); });
 })();
+
+/* 標記此頁已讀（給 vortex home 首頁 vx-toc-row 顯示小圓點）。
+   vortex.js 的 activate() 會處理有面板切換的頁面；database 沒有面板，
+   所以在這裡 inline 寫入。無 JS / localStorage 不可用時靜默。 */
+(function () {
+  if (!window.localStorage) return;
+  try {
+    var raw = localStorage.getItem('vx-read');
+    var obj = raw ? JSON.parse(raw) : {};
+    obj[location.pathname.replace(/\/$/, '') || '/'] = Date.now();
+    localStorage.setItem('vx-read', JSON.stringify(obj));
+  } catch (e) { /* 靜默 */ }
+})();
 </script>
 {{ end }}

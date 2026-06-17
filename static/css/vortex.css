@@ -221,8 +221,20 @@ mark, .mark {
   text-decoration: none;
   color: inherit;
   transition: padding-left .15s, background .15s;
+  position: relative;
 }
 .vx-toc-row:hover { padding-left: 8px; background: var(--vx-paper); }
+/* 已讀過的小圓點（localStorage 標記，由 vortex-home 的 inline script 加 class） */
+.vx-toc-row.is-read::after {
+  content: "·";
+  position: absolute;
+  top: 14px;
+  right: 4px;
+  font-size: 22px;
+  color: var(--vx-accent);
+  line-height: 1;
+  font-family: var(--vx-display);
+}
 .vx-toc-num {
   font-family: var(--vx-display);
   font-size: 24px;
