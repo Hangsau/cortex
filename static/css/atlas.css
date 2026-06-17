@@ -1,0 +1,442 @@
+/* ════════ 水感發展座標圖 · 日式文具（hobonichi）風格 ════════ */
+
+:root {
+  --atlas-bg: #FAFAF7;
+  --atlas-ink: #1A1A1A;
+  --atlas-sub: #999990;
+  --atlas-accent: #D4622A;
+  --atlas-grid: #E8E8E0;
+  --atlas-border: #BFBFB5;
+}
+
+/* 把這個 section 的 body 背景換成米白（不動全域 base.css） */
+body:has(.atlas-page) {
+  background: var(--atlas-bg);
+  color: var(--atlas-ink);
+  font-family: 'Noto Serif TC', 'Shippori Mincho', serif;
+}
+
+/* ═══════ Hero ═══════ */
+.atlas-page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 64px 32px 120px;
+}
+
+.atlas-hero {
+  margin-bottom: 40px;
+}
+
+.atlas-hero h1 {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 700;
+  font-size: 36px;
+  letter-spacing: 0.04em;
+  color: var(--atlas-ink);
+  margin: 0 0 18px;
+}
+
+.atlas-intro {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--atlas-ink);
+  max-width: 720px;
+  margin: 0;
+}
+
+.atlas-axis-hint {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--atlas-sub);
+  margin: 0 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--atlas-border);
+}
+
+/* ═══════ 座標圖主體（含 24px 極淡格線底紋） ═══════ */
+.atlas-grid {
+  display: grid;
+  grid-template-columns: minmax(96px, auto) repeat(var(--atlas-cols, 6), 1fr);
+  gap: 0;
+  border-top: 1px solid var(--atlas-border);
+  border-left: 1px solid var(--atlas-border);
+  background-color: var(--atlas-bg);
+  background-image:
+    repeating-linear-gradient(0deg,   var(--atlas-grid) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(90deg,  var(--atlas-grid) 0 1px, transparent 1px 24px);
+}
+
+/* 所有方格統一邊框，方正無圓角 */
+.atlas-corner,
+.atlas-colhead,
+.atlas-rowhead,
+.atlas-node,
+.atlas-cell--empty {
+  border-right: 1px solid var(--atlas-border);
+  border-bottom: 1px solid var(--atlas-border);
+  border-radius: 0;
+  background: transparent;
+}
+
+/* ═══════ 角落格 ═══════ */
+.atlas-corner {
+  min-height: 56px;
+  background: transparent;
+}
+
+/* ═══════ 維度表頭（第一列） ═══════ */
+.atlas-colhead {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  color: var(--atlas-ink);
+  text-align: left;
+  padding: 14px 16px;
+  cursor: pointer;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border-top: 0;
+  border-left: 0;
+}
+
+.atlas-colhead:hover,
+.atlas-colhead:focus-visible {
+  color: var(--atlas-accent);
+  outline: none;
+}
+
+.atlas-colhead.is-locked {
+  color: var(--atlas-accent);
+  box-shadow: inset 0 0 0 2px var(--atlas-accent);
+}
+
+/* ═══════ 階段標籤（第一欄） ═══════ */
+.atlas-rowhead {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 500;
+  text-align: left;
+  padding: 12px 14px;
+  cursor: pointer;
+  min-height: 84px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  background: transparent;
+  border-top: 0;
+  border-left: 0;
+}
+
+.atlas-code {
+  font-family: 'Courier Prime', monospace;
+  font-size: 12px;
+  color: var(--atlas-sub);
+  letter-spacing: 0.05em;
+}
+
+.atlas-rowzh {
+  font-size: 14px;
+  color: var(--atlas-ink);
+  letter-spacing: 0.05em;
+}
+
+.atlas-rowhead:hover,
+.atlas-rowhead:focus-visible {
+  background: #FBEDE4;
+  outline: none;
+}
+
+.atlas-rowhead:hover .atlas-rowzh,
+.atlas-rowhead:focus-visible .atlas-rowzh {
+  color: var(--atlas-accent);
+}
+
+.atlas-rowhead.is-locked {
+  box-shadow: inset 0 0 0 2px var(--atlas-accent);
+}
+
+.atlas-rowhead.is-locked .atlas-rowzh {
+  color: var(--atlas-accent);
+}
+
+/* ═══════ 有內容的節點格子 ═══════ */
+.atlas-node {
+  font-family: 'Noto Serif TC', serif;
+  text-align: left;
+  padding: 12px 14px 14px;
+  min-height: 84px;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  background: transparent;
+  border-top: 0;
+  border-left: 0;
+  color: var(--atlas-ink);
+  position: relative;
+}
+
+.atlas-node-ov {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--atlas-ink);
+}
+
+.atlas-node:hover,
+.atlas-node:focus-visible {
+  background: #FBEDE4;
+  outline: none;
+}
+
+.atlas-node.is-axis-hot {
+  box-shadow: inset 0 0 0 2px var(--atlas-accent);
+}
+
+.atlas-node.is-selected {
+  box-shadow: inset 0 0 0 2px var(--atlas-accent);
+  background: #FBEDE4;
+}
+
+.atlas-node.is-dim {
+  opacity: 0.45;
+}
+
+/* 「你在這裡」小圈與標記 */
+.atlas-here-dot {
+  flex: 0 0 auto;
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--atlas-sub);
+  border-radius: 50%;
+  background: transparent;
+  margin-top: 4px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.atlas-here-dot:hover {
+  border-color: var(--atlas-accent);
+}
+
+.atlas-node.is-here .atlas-here-dot {
+  background: var(--atlas-accent);
+  border-color: var(--atlas-accent);
+}
+
+.atlas-node.is-here::after {
+  content: '你在這裡';
+  position: absolute;
+  bottom: 4px;
+  right: 6px;
+  font-family: 'Courier Prime', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.05em;
+  color: var(--atlas-accent);
+  pointer-events: none;
+}
+
+/* ═══════ 空格子 ═══════ */
+.atlas-cell--empty {
+  min-height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--atlas-grid);
+  font-family: 'Courier Prime', monospace;
+  font-size: 12px;
+  cursor: default;
+}
+
+.atlas-cell--empty::before {
+  content: '·';
+  color: var(--atlas-border);
+  font-size: 14px;
+}
+
+.atlas-cell--empty.is-axis-hot {
+  box-shadow: inset 0 0 0 1px var(--atlas-accent);
+}
+
+.atlas-cell--empty.is-dim {
+  opacity: 0.45;
+}
+
+/* ═══════ 自我定位說明 ═══════ */
+.atlas-hint {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--atlas-sub);
+  margin: 24px 0 0;
+}
+
+/* ═══════ 細節面板（從右側滑入） ═══════ */
+.atlas-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: min(420px, 92vw);
+  background: #FFFFFF;
+  border-left: 1px solid var(--atlas-border);
+  padding: 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  z-index: 50;
+  transform: translateX(100%);
+  transition: transform 0.25s ease-out;
+}
+
+.atlas-panel.is-open {
+  transform: translateX(0);
+}
+
+.atlas-panel-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--atlas-border);
+  background: transparent;
+  border-radius: 0;
+  font-family: 'Courier Prime', monospace;
+  font-size: 18px;
+  color: var(--atlas-ink);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.atlas-panel-close:hover,
+.atlas-panel-close:focus-visible {
+  border-color: var(--atlas-accent);
+  color: var(--atlas-accent);
+  outline: none;
+}
+
+.atlas-panel-body {
+  margin-top: 24px;
+}
+
+.atlas-three > * + * {
+  border-top: 1px solid var(--atlas-grid);
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+.atlas-three > :first-child {
+  margin-top: 0;
+}
+
+/* SVG 視覺示意 */
+.atlas-visual svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  color: var(--atlas-accent);
+}
+
+/* 文字區 */
+.atlas-text h3 {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 500;
+  font-size: 18px;
+  margin: 0 0 10px;
+  color: var(--atlas-ink);
+  letter-spacing: 0.04em;
+}
+
+.atlas-text p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--atlas-ink);
+  margin: 0;
+}
+
+/* 節奏器 */
+.atlas-tryit label {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 14px;
+  color: var(--atlas-ink);
+  margin-bottom: 12px;
+}
+
+.atlas-bpm {
+  font-family: 'Courier Prime', monospace;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--atlas-accent);
+  letter-spacing: 0.04em;
+}
+
+.atlas-tempo {
+  width: 100%;
+  accent-color: var(--atlas-accent);
+  background: transparent;
+  margin: 0 0 16px;
+}
+
+.atlas-beats {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.atlas-beats span {
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--atlas-border);
+  border-radius: 0;
+  background: transparent;
+  display: block;
+  transition: background 0.05s linear;
+}
+
+.atlas-beats span.beat-on {
+  background: var(--atlas-accent);
+  border-color: var(--atlas-accent);
+}
+
+.atlas-tryit-note {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--atlas-sub);
+  margin: 0;
+}
+
+/* ═══════ 響應式（手機面板變全寬） ═══════ */
+@media (max-width: 640px) {
+  .atlas-page {
+    padding: 40px 16px 80px;
+  }
+
+  .atlas-hero h1 {
+    font-size: 28px;
+  }
+
+  .atlas-grid {
+    grid-template-columns: minmax(72px, auto) repeat(var(--atlas-cols, 6), minmax(88px, 1fr));
+    overflow-x: auto;
+  }
+
+  .atlas-rowhead,
+  .atlas-node,
+  .atlas-cell--empty {
+    min-height: 72px;
+  }
+
+  .atlas-panel {
+    width: 100vw;
+  }
+}
