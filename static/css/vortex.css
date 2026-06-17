@@ -1376,6 +1376,112 @@ html { scroll-behavior: smooth; }
 .vx-jrn-outro-links a:hover { text-decoration: underline; }
 .vx-jrn-legend { font-size: 12.5px; color: var(--vx-faint); }
 
+/* ═══ 心理層展開 UI 改進（2026-06-17，6 條）══════════════════ */
+
+/* ── Mini-toc pill（展開後四個 sub-block 快速跳轉）── */
+.vx-jrn-toc {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin: 0 0 24px;
+}
+.vx-jrn-toc-pill {
+  display: inline-flex; align-items: center;
+  font-family: var(--vx-display); font-size: 12.5px;
+  color: var(--vx-sub); background: var(--vx-paper);
+  border: 1px solid var(--vx-rule2); border-radius: 999px;
+  padding: 4px 12px; text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color .15s, border-color .15s, background .15s;
+}
+.vx-jrn-toc-pill:hover {
+  color: var(--vx-accent); border-color: var(--vx-accent2); background: #fff;
+}
+
+/* ── Sub-block 間距統一 24px（同階） ── */
+.vx-jrn-c-body > .vx-jrn-c-phenom,
+.vx-jrn-c-body > .vx-jrn-mis,
+.vx-jrn-c-body > .vx-jrn-iv,
+.vx-jrn-c-body > .vx-jrn-deep-section { margin-top: 24px; }
+.vx-jrn-c-body > .vx-jrn-c-phenom:first-of-type,
+.vx-jrn-c-body > .vx-jrn-mis:first-of-type,
+.vx-jrn-c-body > .vx-jrn-iv:first-of-type,
+.vx-jrn-c-body > .vx-jrn-deep-section:first-of-type { margin-top: 0; }
+
+/* ── Subhead（section 中標題，含小英文） ── */
+.vx-jrn-subhead {
+  font-family: var(--vx-display); font-weight: 600;
+  font-size: 16px; line-height: 1.4; color: var(--vx-ink);
+  margin: 0 0 12px;
+  display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  border-bottom: 1px solid var(--vx-rule);
+  padding-bottom: 8px;
+}
+.vx-jrn-subhead-en {
+  font-family: var(--vx-serif); font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--vx-faint); font-weight: 400;
+}
+
+/* ── 核心現象 box：紙色底 + 左金條 + 標籤 ── */
+.vx-jrn-c-phenom {
+  background: var(--vx-gold-bg);
+  border: 1px solid var(--vx-rule);
+  border-left: 4px solid var(--vx-gold);
+  border-radius: 4px;
+  padding: 16px 18px 18px;
+}
+.vx-jrn-c-phenom-tag {
+  display: inline-block;
+  font-family: var(--vx-display); font-weight: 600;
+  font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--vx-gold);
+  background: var(--vx-bg);
+  padding: 2px 9px; border-radius: 2px;
+  margin-bottom: 10px;
+}
+.vx-jrn-c-text { margin: 0; }
+.vx-jrn-c-text-lead {
+  display: block;
+  font-family: var(--vx-display);
+  font-size: 19px; font-weight: 500;
+  line-height: 1.6; color: var(--vx-accent);
+  margin: 0 0 8px;
+}
+.vx-jrn-c-text-rest {
+  display: block;
+  font-size: 15.5px; line-height: 1.85; color: #2a2a2a;
+  margin: 0;
+}
+
+/* ── 誤區 box：加 warn 左條 + subhead 底色（內部三列色塊照舊）── */
+.vx-jrn-mis { border-left: 4px solid var(--vx-warn); }
+.vx-jrn-mis > .vx-jrn-subhead {
+  background: var(--vx-warn-bg);
+  padding: 12px 16px 10px;
+  margin: 0 0 0;
+  border-bottom: 1px solid var(--vx-rule);
+}
+
+/* ── 介入 box：米色底 + accent2 左條 ── */
+.vx-jrn-iv {
+  background: var(--vx-paper2);
+  border: 1px solid var(--vx-rule);
+  border-left: 4px solid var(--vx-accent2);
+  border-radius: 4px;
+  padding: 16px 18px 18px;
+}
+.vx-jrn-iv > .vx-jrn-subhead {
+  padding: 0 0 10px;
+  margin: 0 0 12px;
+  border-bottom: 1px solid var(--vx-rule);
+}
+
+/* ── 深讀 box：保留 dashed 樣式 + subhead 收邊 ── */
+.vx-jrn-deep-section > .vx-jrn-subhead {
+  padding: 0 0 10px;
+  margin: 0 0 12px;
+  border-bottom: 1px solid var(--vx-rule2);
+}
+
 /* ── 行動裝置浮動「下一章」 ── */
 .vx-jrn-fab { display: none; }
 @media (max-width: 760px) {

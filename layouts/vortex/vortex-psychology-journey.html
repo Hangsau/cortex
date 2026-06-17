@@ -103,6 +103,15 @@
         </summary>
 
         <div class="vx-jrn-c-body">
+          {{/* mini-toc：展開後四個 sub-block 快速跳轉（缺哪塊不列哪塊） */}}
+          {{ $slug := replace $c.id "." "-" }}
+          <nav class="vx-jrn-toc" aria-label="本概念快速導覽">
+            {{ with $c.phenomenon }}<a class="vx-jrn-toc-pill" href="#{{ $slug }}-phenom">核心</a>{{ end }}
+            {{ with $c.misconception_refs }}<a class="vx-jrn-toc-pill" href="#{{ $slug }}-mis">誤區 · {{ len . }} 條</a>{{ end }}
+            {{ with $c.intervention_refs }}<a class="vx-jrn-toc-pill" href="#{{ $slug }}-iv">做法 · {{ len . }} 條</a>{{ end }}
+            {{ if or $c.hardware_boundary (or $c.population_note (or $c.l_note $c.sources)) }}<a class="vx-jrn-toc-pill" href="#{{ $slug }}-deep">深讀</a>{{ end }}
+          </nav>
+
           {{ with $c.l_levels }}
           <div class="vx-jrn-ladder" aria-label="這個概念落在水感的哪一層">
             <span class="vx-jrn-ladder-cap">出現在</span>
@@ -111,11 +120,23 @@
           {{ end }}
 
           {{ with $c.phenomenon }}
-          <p class="vx-jrn-c-text">{{ .text }}</p>
+          <section class="vx-jrn-c-phenom" id="{{ $slug }}-phenom">
+            <span class="vx-jrn-c-phenom-tag">核心現象</span>
+            {{ $txt := .text }}
+            {{ $first := $txt }}
+            {{ $rest := "" }}
+            {{ $matches := findRE "[^。]+。" $txt }}
+            {{ if gt (len $matches) 0 }}
+              {{ $first = index $matches 0 }}
+              {{ $rest = strings.TrimPrefix $first $txt }}
+            {{ end }}
+            <div class="vx-jrn-c-text"><span class="vx-jrn-c-text-lead">{{ $first }}</span>{{ if $rest }}<span class="vx-jrn-c-text-rest">{{ $rest }}</span>{{ end }}</div>
+          </section>
           {{ end }}
 
           {{ with $c.misconception_refs }}
-          <div class="vx-jrn-mis">
+          <section class="vx-jrn-mis" id="{{ $slug }}-mis">
+            <h4 class="vx-jrn-subhead">誤區 <span class="vx-jrn-subhead-en">Misconceptions</span></h4>
             {{ range . }}
             <div class="vx-jrn-mis-row">
               <div class="vx-jrn-mis-bad"><span class="vx-jrn-mis-tag">別這樣教</span>{{ .cue }}</div>
@@ -123,29 +144,32 @@
               <div class="vx-jrn-mis-good"><span class="vx-jrn-mis-tag">這樣做</span>{{ .better }}</div>
             </div>
             {{ end }}
-          </div>
+          </section>
           {{ end }}
 
           {{ with $c.intervention_refs }}
-          <div class="vx-jrn-iv">
-            <span class="vx-jrn-iv-lbl">可以做的</span>
+          <section class="vx-jrn-iv" id="{{ $slug }}-iv">
+            <h4 class="vx-jrn-subhead">介入 <span class="vx-jrn-subhead-en">Interventions</span></h4>
             {{ range . }}
             <div class="vx-jrn-iv-row"><span class="vx-jrn-iv-name">{{ .name }}{{ with .certainty }} <span class="vx-jrn-cert">{{ . }}</span>{{ end }}</span>{{ with .how_to }}<span class="vx-jrn-iv-how">{{ . }}</span>{{ end }}</div>
             {{ end }}
-          </div>
+          </section>
           {{ end }}
 
           {{ if or $c.hardware_boundary (or $c.population_note (or $c.l_note $c.sources)) }}
-          <details class="vx-jrn-deep">
-            <summary>想深一點 · 研究邊界與來源</summary>
-            <div class="vx-jrn-deep-body">
-              {{ with $c.phenomenon.certainty }}<p class="vx-jrn-deep-cert">現象確定性：{{ . }}</p>{{ end }}
-              {{ with $c.hardware_boundary }}<p><b>生理／證據邊界 {{ .certainty }}</b>　{{ .text }}</p>{{ end }}
-              {{ with $c.population_note }}<p><b>族群差異</b>　{{ . }}</p>{{ end }}
-              {{ with $c.l_note }}<p><b>水感註記</b>　{{ . }}</p>{{ end }}
-              {{ with $c.sources }}<p class="vx-jrn-deep-src"><b>來源</b>　{{ range $si, $s := . }}{{ if $si }}　·　{{ end }}{{ $s }}{{ end }}</p>{{ end }}
-            </div>
-          </details>
+          <section class="vx-jrn-deep-section" id="{{ $slug }}-deep">
+            <h4 class="vx-jrn-subhead">想深一點 <span class="vx-jrn-subhead-en">Research Notes</span></h4>
+            <details class="vx-jrn-deep">
+              <summary>研究邊界與來源</summary>
+              <div class="vx-jrn-deep-body">
+                {{ with $c.phenomenon.certainty }}<p class="vx-jrn-deep-cert">現象確定性：{{ . }}</p>{{ end }}
+                {{ with $c.hardware_boundary }}<p><b>生理／證據邊界 {{ .certainty }}</b>　{{ .text }}</p>{{ end }}
+                {{ with $c.population_note }}<p><b>族群差異</b>　{{ . }}</p>{{ end }}
+                {{ with $c.l_note }}<p><b>水感註記</b>　{{ . }}</p>{{ end }}
+                {{ with $c.sources }}<p class="vx-jrn-deep-src"><b>來源</b>　{{ range $si, $s := . }}{{ if $si }}　·　{{ end }}{{ $s }}{{ end }}</p>{{ end }}
+              </div>
+            </details>
+          </section>
           {{ end }}
         </div>
       </details>
