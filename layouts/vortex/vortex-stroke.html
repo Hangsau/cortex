@@ -6,20 +6,20 @@
 
 {{ define "main" }}
 {{ $key := .Params.explorer_data }}
-{{ $d := index .Site.Data.vortex $key }}
+{{ $d := index (index hugo.Data "vortex") $key }}
 {{ $zh := .Params.stroke_tag }}
 {{ $en := .Params.stroke_en }}
 
 {{/* ── 過濾本式的誤區 / 深入 / 水感進程 ── */}}
-{{ $errs := where (index .Site.Data.vortex "teaching-errors").errors "stroke" $key }}
-{{ $techs := where (index .Site.Data.vortex "technical-analysis").points "stroke" $key }}
-{{ $levels := where (index .Site.Data.vortex "water-sense-levels").levels "stroke" $key }}
+{{ $errs := where (index hugo.Data "vortex" "teaching-errors").errors "stroke" $key }}
+{{ $techs := where (index hugo.Data "vortex" "technical-analysis").points "stroke" $key }}
+{{ $levels := where (index hugo.Data "vortex" "water-sense-levels").levels "stroke" $key }}
 
 {{/* ── 分類中文名對照 ── */}}
 {{ $errCatName := dict }}
-{{ range (index .Site.Data.vortex "teaching-errors").categories }}{{ $errCatName = merge $errCatName (dict .key .name_zh) }}{{ end }}
+{{ range (index hugo.Data "vortex" "teaching-errors").categories }}{{ $errCatName = merge $errCatName (dict .key .name_zh) }}{{ end }}
 {{ $techCatName := dict }}
-{{ range (index .Site.Data.vortex "technical-analysis").categories }}{{ $techCatName = merge $techCatName (dict .key .name_zh) }}{{ end }}
+{{ range (index hugo.Data "vortex" "technical-analysis").categories }}{{ $techCatName = merge $techCatName (dict .key .name_zh) }}{{ end }}
 
 {{/* ── 本式實際出現的分類（給篩選 chip 用） ── */}}
 {{ $errCats := slice }}{{ range $errs }}{{ $errCats = $errCats | append .category }}{{ end }}{{ $errCats = $errCats | uniq }}
@@ -27,7 +27,7 @@
 
 {{/* ── drill name_zh → 公開欄位（內嵌展開用） ── */}}
 {{ $drillData := dict }}
-{{ with (index .Site.Data.vortex "drills") }}
+{{ with (index hugo.Data "vortex" "drills") }}
   {{ range .drills }}
     {{ $drillData = merge $drillData (dict .name_zh (dict
       "id" .id "en" .name_en "purpose" .purpose_zh
@@ -40,7 +40,7 @@
 {{ $drillCatName := dict "breathing" "呼吸" "balance" "平衡" "kick" "踢腿" "arm" "划手" "timing" "銜接" "sculling" "搖櫓" }}
 {{ $strokeFull := index (dict "free" "freestyle" "back" "backstroke" "breast" "breaststroke" "fly" "butterfly" "udk" "underwater_dolphin_kick" "starts-turns" "starts_turns") $key }}
 {{ $strokeDrills := slice }}
-{{ with (index .Site.Data.vortex "drills") }}
+{{ with (index hugo.Data "vortex" "drills") }}
   {{ range .drills }}
     {{ if in .strokes $strokeFull }}{{ $strokeDrills = $strokeDrills | append . }}{{ end }}
   {{ end }}

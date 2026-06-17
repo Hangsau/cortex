@@ -9,7 +9,7 @@
 
 {{ define "main" }}
 {{ $base := .Site.BaseURL }}
-{{ $t := .Site.Data.temperament }}
+{{ $t := index hugo.Data "temperament" }}
 {{ $dims := $t.traits.dimensions }}
 {{ $types := $t.types.types }}
 {{ $frameworks := $t.frameworks.frameworks }}

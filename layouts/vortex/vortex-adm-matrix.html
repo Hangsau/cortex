@@ -6,7 +6,7 @@
 
 {{ define "main" }}
 {{ $base := .Site.BaseURL }}
-{{ $pillars := .Site.Data.adm.matrix.pillars }}
+{{ $pillars := (index hugo.Data "adm").matrix.pillars }}
 
 {{/* ── 階段中文名 + 年齡對照（L2T → T2W） ── */}}
 {{ $stageName := dict "l2t" "學習訓練" "t2t" "訓練為訓練" "t2c" "訓練為競賽" "t2w" "訓練為勝利" }}

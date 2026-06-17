@@ -6,7 +6,7 @@
 
 {{ define "main" }}
 {{ $base := .Site.BaseURL }}
-{{ $psy := .Site.Data.vortex.psychology }}
+{{ $psy := (index hugo.Data "vortex").psychology }}
 {{ $themes := $psy.themes }}
 
 <div class="vx-stroke">

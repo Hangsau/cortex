@@ -6,16 +6,16 @@
 {{ define "main" }}
 {{ $base := .Site.BaseURL }}
 
-{{ $errCatName := dict }}{{ range (index .Site.Data.vortex "teaching-errors").categories }}{{ $errCatName = merge $errCatName (dict .key .name_zh) }}{{ end }}
-{{ $techCatName := dict }}{{ range (index .Site.Data.vortex "technical-analysis").categories }}{{ $techCatName = merge $techCatName (dict .key .name_zh) }}{{ end }}
+{{ $errCatName := dict }}{{ range (index hugo.Data "vortex" "teaching-errors").categories }}{{ $errCatName = merge $errCatName (dict .key .name_zh) }}{{ end }}
+{{ $techCatName := dict }}{{ range (index hugo.Data "vortex" "technical-analysis").categories }}{{ $techCatName = merge $techCatName (dict .key .name_zh) }}{{ end }}
 {{ $dicts := partial "vortex/stroke-dicts.html" . }}
 {{ $strokeZh := $dicts.strokeZh }}
 {{ $drillKey := dict "freestyle" "free" "backstroke" "back" "breaststroke" "breast" "butterfly" "fly" "underwater_dolphin_kick" "udk" "starts_turns" "starts-turns" }}
 
-{{ $errs := (index .Site.Data.vortex "teaching-errors").errors }}
-{{ $techs := (index .Site.Data.vortex "technical-analysis").points }}
-{{ $drills := (index .Site.Data.vortex "drills").drills }}
-{{ $inds := (index .Site.Data.vortex "l-indicators").indicators }}
+{{ $errs := (index hugo.Data "vortex" "teaching-errors").errors }}
+{{ $techs := (index hugo.Data "vortex" "technical-analysis").points }}
+{{ $drills := (index hugo.Data "vortex" "drills").drills }}
+{{ $inds := (index hugo.Data "vortex" "l-indicators").indicators }}
 
 {{ $strokeChips := slice "all" "free" "back" "breast" "fly" "udk" "starts-turns" }}
 {{ $drillCatName := dict "breathing" "呼吸" "balance" "平衡" "kick" "踢腿" "arm" "划手" "timing" "銜接" "sculling" "搖櫓" }}

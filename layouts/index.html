@@ -10,7 +10,7 @@
   </header>
 
   <div class="shelf">
-    {{ range .Site.Data.books }}
+    {{ range index hugo.Data "books" }}
     <a href="{{ printf "%slibrary/%s/" $.Site.BaseURL .slug }}" class="book-card" style="--book-color: {{ .color }}">
       <div class="book-spine"></div>
       <div class="book-cover">

@@ -5,7 +5,7 @@
 
 {{ define "main" }}
 {{ $base := .Site.BaseURL }}
-{{ $std := .Site.Data.adm.standards }}
+{{ $std := (index hugo.Data "adm").standards }}
 {{ $dicts := partial "vortex/stroke-dicts.html" . }}
 {{ $strokeZh := $dicts.strokeZh }}
 {{ $stageName := dict "t2t" "訓練為訓練（T2T）" }}

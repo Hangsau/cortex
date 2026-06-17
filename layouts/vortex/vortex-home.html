@@ -58,7 +58,7 @@
   </div>
 
   {{/* ── 心理層（感知的地基） ── */}}
-  {{ with .Site.Data.vortex.psychology }}
+  {{ with (index hugo.Data "vortex").psychology }}
   <h2 class="vx-label vx-toc-label">更底層 · 感知的地基</h2>
   <p class="vx-list-desc">水感建立在感知上，感知建立在心理狀態上。恐懼、動機、注意力會在<strong>源頭</strong>決定一個人能不能感覺到水——所以心理不是技術之外的附加題，是 L0 底下的那一層。</p>
   <div class="vx-toc">
@@ -79,7 +79,7 @@
   <p class="vx-list-desc">讀過水感之後再進來。每一式的動作分解都是「感知的輸出」——不是要照抄的姿勢，是感知對了、身體自己收斂出來的結果。</p>
   <div class="vx-toc">
     {{ range $i, $sm := $strokeMeta }}
-      {{ $d := index $.Site.Data.vortex $sm.key }}
+      {{ $d := index (index hugo.Data "vortex") $sm.key }}
       {{ with $d }}
         {{ $url := printf "%svortex/%s/" $base $sm.slug }}
         {{ $nMoves := len .moves }}

@@ -8,7 +8,7 @@
 
 {{ define "main" }}
 {{ $base := .Site.BaseURL }}
-{{ $wsl := index .Site.Data.vortex "water-sense-levels" }}
+{{ $wsl := index (index hugo.Data "vortex") "water-sense-levels" }}
 {{ $strokes := $wsl.strokes }}
 {{ $levels := $wsl.levels }}
 
