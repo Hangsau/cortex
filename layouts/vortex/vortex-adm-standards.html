@@ -6,7 +6,8 @@
 {{ define "main" }}
 {{ $base := .Site.BaseURL }}
 {{ $std := .Site.Data.adm.standards }}
-{{ $strokeZh := dict "free" "自由式" "back" "仰式" "breast" "蛙式" "fly" "蝶式" "start" "起跳" "turn" "轉身" }}
+{{ $dicts := partial "vortex/stroke-dicts.html" . }}
+{{ $strokeZh := $dicts.strokeZh }}
 {{ $stageName := dict "t2t" "訓練為訓練（T2T）" }}
 {{ $strokeChips := slice "all" "free" "back" "breast" "fly" "start" "turn" }}
 

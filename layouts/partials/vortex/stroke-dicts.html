@@ -1,0 +1,27 @@
+{{/*
+  vortex/stroke-dicts.html
+  統一 stroke 中英名 dict（home/database/adm-standards 共用）
+  超集 = free/back/breast/fly/udk/starts-turns/common/start/turn
+  （home 原本只有 6 鍵；database 多 common；adm-standards 多 start/turn、缺 udk/starts-turns）
+  使用：
+    {{ $dicts := partial "vortex/stroke-dicts.html" . }}
+    {{ index $dicts.strokeZh "free" }}
+*/}}
+{{ $strokeZh := dict
+  "free" "自由式"
+  "back" "仰式"
+  "breast" "蛙式"
+  "fly" "蝶式"
+  "udk" "水下蝶腳"
+  "starts-turns" "出發與轉身"
+  "common" "通用"
+  "start" "起跳"
+  "turn" "轉身" }}
+{{ $strokeEn := dict
+  "free" "Freestyle"
+  "back" "Backstroke"
+  "breast" "Breaststroke"
+  "fly" "Butterfly"
+  "udk" "Underwater Dolphin Kick"
+  "starts-turns" "Starts & Turns" }}
+{{ return (dict "strokeZh" $strokeZh "strokeEn" $strokeEn) }}

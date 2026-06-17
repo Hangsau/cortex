@@ -8,7 +8,8 @@
 
 {{ $errCatName := dict }}{{ range (index .Site.Data.vortex "teaching-errors").categories }}{{ $errCatName = merge $errCatName (dict .key .name_zh) }}{{ end }}
 {{ $techCatName := dict }}{{ range (index .Site.Data.vortex "technical-analysis").categories }}{{ $techCatName = merge $techCatName (dict .key .name_zh) }}{{ end }}
-{{ $strokeZh := dict "free" "自由式" "back" "仰式" "breast" "蛙式" "fly" "蝶式" "udk" "水下蝶腳" "starts-turns" "出發與轉身" "common" "通用" }}
+{{ $dicts := partial "vortex/stroke-dicts.html" . }}
+{{ $strokeZh := $dicts.strokeZh }}
 {{ $drillKey := dict "freestyle" "free" "backstroke" "back" "breaststroke" "breast" "butterfly" "fly" "underwater_dolphin_kick" "udk" "starts_turns" "starts-turns" }}
 
 {{ $errs := (index .Site.Data.vortex "teaching-errors").errors }}

@@ -7,8 +7,9 @@
 
 {{ define "main" }}
 {{ $base := .Site.BaseURL }}
-{{ $strokeZh := dict "free" "自由式" "back" "仰式" "breast" "蛙式" "fly" "蝶式" "udk" "水下蝶腳" "starts-turns" "出發與轉身" }}
-{{ $strokeEn := dict "free" "Freestyle" "back" "Backstroke" "breast" "Breaststroke" "fly" "Butterfly" "udk" "Underwater Dolphin Kick" "starts-turns" "Starts & Turns" }}
+{{ $dicts := partial "vortex/stroke-dicts.html" . }}
+{{ $strokeZh := $dicts.strokeZh }}
+{{ $strokeEn := $dicts.strokeEn }}
 {{ $strokeMeta := slice
   (dict "key" "free" "slug" "freestyle") (dict "key" "back" "slug" "backstroke")
   (dict "key" "breast" "slug" "breaststroke") (dict "key" "fly" "slug" "butterfly")
