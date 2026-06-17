@@ -1,9 +1,10 @@
 # HANDOFF — my-site (Cortex)
 
-## 目前狀態（2026-06-12）
+## 目前狀態（2026-06-17）
 
 網站已上線並完全正常：https://hangsau.github.io/cortex/  
 CI/CD 正常運作，push hugo-source 自動部署。  
+**心理層「一條讀下來」READ 模式上線（2026-06-17）**：使用者核心糾正——問題是**網站「呈現方式」**（layout/導航/視覺動線），不是內容文字怎麼寫。現有 vortex-psychology.html 是學術期刊 master-detail＝「索引查詢」介面，三病：①進站不知第一個讀什麼 ②讀完不知往哪續 ③查得到但讀不下去。**動工前先派 minimax-m3（`claude-m3 -p`）審方案**（使用者糾正「做之前就要審，不是卡住才審」）；m3 verdict：scrollytelling 範式對，但要 ① 章層級不是 62 概念層級 ② 殺左 rail 改頂部 sticky 7-dot ③ 殺 % 進度條 ④ 加 localStorage 續讀 ⑤ concept 預設摺疊（progressive disclosure）。全數採納。**實作（純呈現層，canonical/sync/data 全未動）**：新 `layouts/vortex/vortex-psychology-journey.html`（單頁捲動：序章 hero＋5 處境卡起跑線 → 8 章[theme=章，沿 L0→L6]＋章尾 navy 橋接卡 → 尾聲）；每概念 `<details>` 預設摺疊（標題＋42字 peek），展開見現象/誤區/介入＋巢狀「想深一點」收學術邊界與來源；新 `static/js/vortex-journey.js`（scroll 偵測當前章→更新 sticky chip＋7-dot L0–L6 亮帶＋mobile FAB「下一章」＋localStorage 續讀＋章節地圖 exit ramp；無 JS 仍全可讀，內容皆 server-render、details 原生）；`.vx-jrn-*` CSS（含三帶視覺變奏 start/through/peak、scroll-margin-top 錨點、prefers-reduced-motion）。**單頁 vs 拆 8 頁的取捨**：m3 建議拆頁，但 progressive disclosure 把概念摺疊後單頁長度問題消解，且單一 layout bug 面小、能逐項截圖驗證——故採單頁＋章錨點（`#ch-1`…）。**雙模式互連**：home 心理入口改指 journey（READ 為主）＋次連 lookup；journey↔lookup 互link（lookup 概覽頂部加 navy `.vx-read-banner`、journey 頂部「☰ 查」＋尾聲連結）。舊 vortex-psychology.html 原封保留為 LOOK-UP 查詢旁路。**驗收**：hugo build 綠、headless Chrome 桌機＋手機截圖確認 hero/處境卡/章首/概念展開/誤區三欄/橋接卡/sticky chip 隨捲動更新（「第1章·恐懼」＋L0–L2 dots 亮）/FAB/lookup banner 全渲染正確；修掉 resume banner 因 `display:flex` 覆蓋 `hidden` 屬性而首訪誤顯的 bug（改 `:not([hidden])`）。⚠ m3 列的選做增強未做（非 bug）：鍵盤 J/K 導航、概念 ☆ 書籤、每章閱讀分鐘數已加但「續讀百分比」未做。
 **心理層 IA 改處境門面 + 每頁 L0–L6 定位梯（2026-06-17，commit 3081feb，已 push + CI 綠 run 27624598896）**：承接前一輪的 rail 短標籤（nav_zh）+ active-branch-expand。使用者核心糾正：網站不分受眾（教練/選手/家長）、也不按心理構念（恐懼/動機/心流＝教科書目錄）當門面——人按**自己的處境**來找（「半年後比賽」「帶 6 歲的」）。做了外部 IA 研究（NN/G 反對 audience-based navigation、polyhierarchy、information scent；Krug trunk test；Diátaxis；Duolingo/MedlinePlus/Brilliant/Starting Strength/Mountain Project 範例），收斂結論：① 用處境/程度（L0–L6 脊椎）當門面，topic 退到內容底層；② 每頁要有「你在哪一層」常駐定位；③ 不放角色選擇器。**實作**（純呈現層，canonical/sync 未動）：vortex-psychology.html 概覽面板頂部加 `.vx-situations` 處境門面（5 張 `.vx-sit-card`，泳者口吻白話句 + L 標籤 → data-target 路由到對應主題首概念），三帶完整地圖降為「或瀏覽完整地圖」；每個概念面板把舊的 `.vx-move-meta`（感知層級文字）換成 `.vx-ladder` L0–L6 定位梯（當前 l_levels 高亮），解決 search deep-link 的 trunk test。vortex.css 加 `.vx-situations`/`.vx-sit-*`/`.vx-ladder`/`.vx-map-label`（≤560px 收 go 字）。hugo build 綠（673 頁），headless 截圖確認概覽門面與概念定位梯渲染正確。
 **左欄主題加處境副標 when_zh（2026-06-17，my-site commit ed87033 + canonical de9720d，已 push + CI 綠 run 27655449660）**：使用者回饋「左欄項目分得不錯，但我不知道什麼狀況該讀哪個，讀起來困惑」——左欄仍是純構念學名（恐懼/注意力/心流），告訴你「是什麼」卻沒說「何時讀」。修法：8 個主題各加一句白話處境線（canonical 加 `when_zh` 欄位 → sync_vortex passthrough → 左欄 theme-head 渲染為第二行副標）。如 恐懼「還不敢放手、一下水就僵、怕到不敢開始時」、注意力「一上場就分心、不知道該把注意力放哪時」、心流「想進入忘我、把好表現守在壓力下時」。左欄 theme-head 由單列 flex 改成兩列 column（`.vx-rail-theme-top` 為原本的 caret+name+count 列，下方 `.vx-rail-theme-when` 副標，展開時轉 sub 色）。這樣整個導航看得懂「何時讀」，不只首頁那 5 張卡。內容欄位走 canonical→sync，未手改 my-site data。⚠ 待辦：同套 when_zh 尚未推到首頁 5 張處境卡以外的其他共用左欄頁（泳式/感知層）；處境卡目前仍只連到單一主題首概念（L3–L6 四主題只 2 張卡指過去），中繼「主題概覽頁」尚未做——使用者尚未拍板要不要做這層。
 **Vortex 首頁編排校正 + 改水感優先漏斗（2026-06-15，commit c2de328 + 480c510，已 push + CI 綠）**：使用者要求全面檢查 vortex 編排。先修首頁三處（消除「什麼是水感」與新手入口雙重「從這開始」競爭、Technica/Instructional 原文降為 faint 註腳存檔列與成品資料庫分層、標題「六式」→「六大單元」因水下蝶腳/出發轉身非泳式）。再依使用者質疑「為何從泳式而非水感開始」重排為**水感優先**：核心命題是「技術是感知的輸出不是輸入」，原漏斗卻先帶人看動作分解（命題說不要先做的事）。新手入口從自由式改指向 `vortex/technica/water-sense-guide/`；masthead lead 改述「先懂水感→再挑一式」；「核心·先讀水感」整組上移到六式之前並加 step 框架說明（用 `.vx-list-desc`，零新 CSS）；六式改框成「六大單元·挑一個開始練」第二步；水感理論頁概覽加白話鉤子（神經科學仍在 `<details>` 內，降低零基礎彈走）。三頁頁內編排（database 扁平查詢 / levels / 水感理論 master-detail）已查，編排良好不需結構性改動；levels↔水感理論雙向互連在頁面層已實現感知優先。本機 hugo build 綠 + 渲染 HTML 確認順序（核心在六大單元之前）。⚠ 未做 Playwright 截圖（此 session 無 playwright MCP）。
@@ -264,7 +265,8 @@ Claude Code 讀 `resources/books/Essentials_of_Strength_Training_and_Conditionin
 
 ## 下一步建議
 
-1. CSCS 所有 24 章閃卡已全部完成（ch01–ch24）
-2. 若需要 ADM Appendix B，直接用 adm-single layout 加一頁即可
-3. 大腦喜歡這樣學 × 渦流計劃連結：使用者確認 wiki 需求後再設計（可在技法卡新增「在游泳教學中的應用」欄位）
-4. **週期化白話重寫**：見上方「待辦 — 週期化白話重寫 + 模組化」,plan-check 已備,等 canonical 端 plain_zh 落地後接 template
+1. **心理層 READ 模式驗收 + 推廣**：vortex-psychology-journey 已上線，等使用者看線上版回饋。若方向對，把同樣板（單頁脊椎旅程＋progressive disclosure＋頂部 sticky 7-dot）套到其他共用左欄頁——感知層（vortex-levels）、泳式技術，週期化已有 plain_zh 最好套。選做增強：鍵盤 J/K 導航、概念 ☆ 書籤、續讀百分比。
+2. CSCS 所有 24 章閃卡已全部完成（ch01–ch24）
+3. 若需要 ADM Appendix B，直接用 adm-single layout 加一頁即可
+4. 大腦喜歡這樣學 × 渦流計劃連結：使用者確認 wiki 需求後再設計（可在技法卡新增「在游泳教學中的應用」欄位）
+5. **週期化白話重寫**：見上方「待辦 — 週期化白話重寫 + 模組化」,plan-check 已備,等 canonical 端 plain_zh 落地後接 template
