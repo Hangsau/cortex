@@ -84,7 +84,7 @@
 
 **Pirolli & Card — Information Foraging Theory**（1990s 起）的關鍵命題：**使用者在決定要不要點進一個連結時，self-estimate 那個頁面的「價值」與「取用成本」**。當氣味（scent）不足，使用者會離開。分流門口正好發生在「使用者最沒資訊、最沒法估價值」的瞬間（連「我想要什麼」都還在摸索），成本效益最差。
 
-**Rosenfeld & Morville — Information Architecture for the World Wide Web**（1998–2015）把 IA 整理成「物件／選擇／揭露／範例／前門／多重分類／焦點導航／成長」等八原則（Wikipedia 整理版可查）。其中 **「multiple classification」原則直接反對單一觀點的組織**：同一份內容可同時被多種方式歸類時，IA 應允許使用者從不同入口進入同一節點，而**不要**逼選一個入口。
+**Dan Brown — "Eight Principles of Information Architecture"**（2010，發表於 Bulletin of the American Society for Information Science and Technology）把 IA 整理成「物件／選擇／揭露／範例／前門／多重分類／焦點導航／成長」八原則。其中 **「multiple classification」原則直接反對單一觀點的組織**：同一份內容可同時被多種方式歸類時，IA 應允許使用者從不同入口進入同一節點，而**不要**逼選一個入口。（註：Rosenfeld & Morville《Information Architecture for the World Wide Web》是 IA 領域的奠基文本「北極熊書」，但上述這套八原則是 Dan Brown 提出，非 R&M——原始稿誤植，已更正。）
 
 ### 3.2 應用到本案的具體推論
 
@@ -365,9 +365,9 @@ NN/g 提到 audience nav 的失敗部分來自「使用者自我標籤焦慮」�
    URL：https://en.wikipedia.org/wiki/Information_foraging
    （Pirolli & Card 1990s PARC 提出；primary citations 含 Fu & Pirolli 2007 SNIF-ACT；Nielsen 2003、2004 Alertbox）
 
-5. **Wikipedia — "Information architecture"**
-   URL：https://en.wikipedia.org/wiki/Information_architecture
-   （Rosenfeld & Morville《Information Architecture for the World Wide Web》1998–2015；八原則：objects / choices / disclosure / exemplars / front doors / multiple classification / focused navigation / growth）
+5. **Dan Brown — "Eight Principles of Information Architecture"**（2010，Bulletin of the American Society for Information Science and Technology, Vol. 36, No. 6）
+   八原則：objects / choices / disclosure / exemplars / front doors / multiple classification / focused navigation / growth。
+   （註：本報告引用的這套八原則由 Dan Brown 提出，非 Rosenfeld & Morville。Rosenfeld & Morville《Information Architecture for the World Wide Web》是 IA 領域奠基文本「北極熊書」，但「八原則」這個清單出自 Dan Brown——原始稿誤植，已更正。Wikipedia "Information architecture" 條目可作背景參考：https://en.wikipedia.org/wiki/Information_architecture）
 
 ### 真實前例
 
@@ -403,8 +403,8 @@ NN/g 提到 audience nav 的失敗部分來自「使用者自我標籤焦慮」�
 
 > 委託人核對引用時若發現這段以外的內容，請直接退回——這些是搜尋時遇到的限制。
 
-- **Rosenfeld & Morville 原書具體頁碼**：本研究只引用 Wikipedia 整理的八原則清單，未直接讀《Information Architecture for the World Wide Web》第四版原書確認其原始用詞。**未能查證**原書是否逐字使用 "multiple classification" / "front doors" 等詞。
-- **NN/g "Audience-Based Navigation" 文章發表日期**：研究確認作者為 Katie Sherwin；摘要寫 2015 年。**未能查證**確切日期（NN/g 多數文章發表日期在頁面 metadata）。
+- **Dan Brown 八原則原文**：本研究引用的八原則（objects / choices / disclosure / exemplars / front doors / multiple classification / focused navigation / growth）出自 Dan Brown 2010 年 ASIS&T Bulletin 文章；**未直接讀原文 PDF** 確認逐字用詞，僅以二手整理引用。（原始稿誤植為 Rosenfeld & Morville，已更正——見 §3.1 與引用 #5。）
+- **NN/g "Audience-Based Navigation" 文章發表日期**：**已查證**——作者 Katie Sherwin，發表日 2015-09-07（核對 NN/g 頁面 metadata 確認）。此項已不屬未能查證範圍，保留供對照。
 - **Mayo Clinic 官網現況**：NN/g 引用 Mayo Clinic「Information for patients」前綴作為 audience label 修辭範例。本研究**未直接查 Mayo Clinic 官網當前 IA**——只引用 NN/g 文章的二手描述。
 - **WAI Tutorials 站內 IA 的設計文件**：WebFetch 抓到 WAI Tutorials 首頁的導航結構，但**未抓 W3C WAI 自己的 IA 設計指南文件**（如有）作為 WAI 採用此模式的官方表述。
 - **IKEA 動線設計的官方「多入口」論述**：Wikipedia 提供的是描述性敘述，**未抓到 IKEA 官方任何關於「不按顧客分區」的設計意圖文件**。
