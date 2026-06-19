@@ -105,6 +105,7 @@
         <div class="tx-floor">
           <div class="tx-floor-h">L0− · 感知的地基：心理層（恐懼／動機／注意力，在源頭決定能不能感覺到水）</div>
           {{ with (index hugo.Data "vortex").psychology }}
+          <a class="tx-floor-read" href="{{ $base }}vortex/psychology-read/">一條讀下來 · 從恐懼到心流 →</a>
           <div class="tx-chips">
             {{ range .themes }}
               <a href="{{ $base }}vortex/psychology/#{{ .id }}">{{ .nav_zh }}<span class="band">{{ .l_band }}</span></a>

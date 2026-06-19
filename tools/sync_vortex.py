@@ -730,6 +730,8 @@ def sync_psychology(dry_run: bool):
             "l_band":        t.get("l_band"),         # L 範圍（如 L0–L2）
             "level_tag":     t.get("level_tag"),      # 分級標籤（初學 / 全程 / 進階·競技）
             "concept_count": t.get("concept_count"),  # planned 主題沒有 concepts，用這個顯示數量
+            "lead_zh":       t.get("lead_zh"),        # READ 模式章首白話導引（敘事黏合層）
+            "bridge_zh":     t.get("bridge_zh"),      # READ 模式章尾橋接到下一章
             "premise":       t.get("premise"),        # premise 本身即 public 層
             "concepts":      concepts_out,
         })
@@ -737,6 +739,8 @@ def sync_psychology(dry_run: bool):
     out_data = {
         "domain":      data.get("domain"),
         "domain_name_zh": data.get("domain_name_zh"),
+        "intro_zh":    data.get("intro_zh"),   # READ 模式序章（敘事黏合層，domain 頂層）
+        "outro_zh":    data.get("outro_zh"),   # READ 模式尾聲
         "themes":      themes_out,
     }
 

@@ -1,0 +1,137 @@
+{{ define "head-extra" }}
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+TC:wght@400;500;600;700&family=Quattrocento+Sans:wght@400;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+<noscript><style>.vx-read-progress{display:none}.vx-read-spine{position:static;max-height:none}</style></noscript>
+{{ end }}
+
+{{ define "main" }}
+{{ $base := .Site.BaseURL }}
+{{ $psy := (index hugo.Data "vortex").psychology }}
+{{ $themes := where $psy.themes "status" "complete" }}
+{{ $n := len $themes }}
+
+<div class="vx-read">
+  <div class="vx-read-progress" id="vxReadProgress"><span></span></div>
+
+  <div class="vx-read-wrap">
+
+    {{/* ════════ 左側 L0→L6 進度脊椎 ════════ */}}
+    <aside class="vx-read-spine">
+      <a class="vx-back-link" href="{{ $base }}vortex/">← Cortex · Vortex</a>
+      <div class="vx-read-spine-head">心理層 · 一條讀下來</div>
+      <ol class="vx-read-toc">
+        <li><a href="#vx-read-intro" data-spy="vx-read-intro" class="vx-read-toc-edge">序章</a></li>
+        {{ range $i, $t := $themes }}
+        <li>
+          <a href="#ch-{{ $t.order }}" data-spy="ch-{{ $t.order }}">
+            <span class="vx-read-toc-l">{{ $t.l_band }}</span>
+            <span class="vx-read-toc-name">{{ $t.nav_zh | default $t.name_zh }}</span>
+          </a>
+        </li>
+        {{ end }}
+        <li><a href="#vx-read-outro" data-spy="vx-read-outro" class="vx-read-toc-edge">尾聲</a></li>
+      </ol>
+      <a class="vx-read-modeswitch" href="{{ $base }}vortex/psychology/">已經知道要找哪個主題？<b>→ 跳著查</b></a>
+    </aside>
+
+    {{/* ════════ 右側連續長文 ════════ */}}
+    <main class="vx-read-article">
+
+      {{/* ── 序章 ── */}}
+      {{ with $psy.intro_zh }}
+      <header class="vx-read-intro" id="vx-read-intro">
+        <span class="vx-read-kicker">心理層 · 序章</span>
+        <h1>心理：水感的地基</h1>
+        <div class="vx-read-leadtext">{{ . }}</div>
+        <a class="vx-read-startcta" href="#ch-1">從第一章開始 ↓</a>
+      </header>
+      {{ end }}
+
+      {{/* ── 各章 ── */}}
+      {{ range $i, $t := $themes }}
+      {{ $next := "" }}
+      {{ if lt (add $i 1) $n }}{{ $next = index $themes (add $i 1) }}{{ end }}
+      <section class="vx-read-chapter" id="ch-{{ $t.order }}">
+        <div class="vx-read-chhead">
+          <span class="vx-read-chno">第 {{ $t.order }} 章</span>
+          <span class="vx-read-chl">{{ $t.l_band }}</span>
+        </div>
+        <h2>{{ $t.name_zh }}</h2>
+
+        {{ with $t.lead_zh }}
+        <div class="vx-read-chlead">{{ . }}</div>
+        {{ else }}
+          {{ with $t.premise }}
+          <div class="vx-read-chlead vx-read-chlead--prem">{{ .one_line }}<span class="vx-read-wip">敘事化撰寫中</span></div>
+          {{ end }}
+        {{ end }}
+
+        {{ range $c := $t.concepts }}
+        <article class="vx-read-concept" id="{{ replace $c.id "." "-" }}">
+          <h3>{{ $c.name_zh }}{{ with $c.phenomenon }}{{ with .certainty }} <span class="vx-read-cert">{{ . }}</span>{{ end }}{{ end }}</h3>
+
+          {{ with $c.phenomenon }}
+            {{ with .plain_text }}
+            <p class="vx-read-body">{{ . }}</p>
+            {{ else }}
+            <p class="vx-read-body vx-read-body--raw">{{ .text }}</p>
+            {{ end }}
+          {{ end }}
+
+          {{ $hasDepth := false }}
+          {{ with $c.phenomenon }}{{ if .plain_text }}{{ $hasDepth = true }}{{ end }}{{ end }}
+          {{ if or $c.hardware_boundary $c.misconception_refs }}{{ $hasDepth = true }}{{ end }}
+          {{ if or $c.intervention_refs $c.population_note }}{{ $hasDepth = true }}{{ end }}
+          {{ if $hasDepth }}
+          <details class="vx-read-more">
+            <summary>想深一點</summary>
+            <div class="vx-read-morebody">
+              {{ with $c.phenomenon }}{{ if .plain_text }}
+              <div class="vx-read-moreblock"><span class="vx-read-morelabel">研究原文 {{ .certainty }}</span><p>{{ .text }}</p></div>
+              {{ end }}{{ end }}
+              {{ with $c.hardware_boundary }}
+              <div class="vx-read-moreblock"><span class="vx-read-morelabel">生理／證據邊界 {{ .certainty }}</span><p>{{ .text }}</p></div>
+              {{ end }}
+              {{ with $c.misconception_refs }}
+              <div class="vx-read-moreblock"><span class="vx-read-morelabel">教學誤區校正</span>
+                {{ range . }}<div class="vx-read-cue"><span class="bad">別這樣教</span>{{ .cue }}<span class="why">為什麼</span>{{ .why }}<span class="good">這樣做</span>{{ .better }}</div>{{ end }}
+              </div>
+              {{ end }}
+              {{ with $c.intervention_refs }}
+              <div class="vx-read-moreblock"><span class="vx-read-morelabel">可做的介入</span>
+                {{ range . }}<div class="vx-read-iv"><b>{{ .name }}{{ with .certainty }} {{ . }}{{ end }}</b>{{ with .how_to }}<span>{{ . }}</span>{{ end }}</div>{{ end }}
+              </div>
+              {{ end }}
+              {{ with $c.population_note }}<div class="vx-read-moreblock"><span class="vx-read-morelabel">族群差異</span><p>{{ . }}</p></div>{{ end }}
+              {{ with $c.sources }}<div class="vx-read-moreblock"><span class="vx-read-morelabel">來源</span>{{ range . }}<span class="vx-cite"><span class="src">{{ . }}</span></span> {{ end }}</div>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+        </article>
+        {{ end }}
+
+        {{ if $next }}
+        <div class="vx-read-bridge">
+          {{ with $t.bridge_zh }}<p class="vx-read-bridgetxt">{{ . }}</p>{{ end }}
+          <a class="vx-read-bridgenext" href="#ch-{{ $next.order }}">接著讀 · {{ $next.nav_zh | default $next.name_zh }} →</a>
+        </div>
+        {{ end }}
+      </section>
+      {{ end }}
+
+      {{/* ── 尾聲 ── */}}
+      {{ with $psy.outro_zh }}
+      <footer class="vx-read-outro" id="vx-read-outro">
+        <span class="vx-read-kicker">心理層 · 尾聲</span>
+        <div class="vx-read-leadtext">{{ . }}</div>
+        <p class="vx-legend">🔵 推導／跨領域外推 · 🟢 近期文獻 · 🟡 舊文獻 · 🟠 書籍二手或觀測 · 🔴 待查</p>
+        <p class="vx-cite"><span class="src">分層說明</span>：公開層解釋「這個心理現象是什麼、怎麼運作」；教練判讀訊號（怎麼從泳者的話判斷他在哪一層）收在教練工具，不在公開站。</p>
+      </footer>
+      {{ end }}
+
+    </main>
+  </div>
+</div>
+
+<script src="{{ .Site.BaseURL }}js/vortex.js" defer></script>
+{{ end }}

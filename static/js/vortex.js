@@ -293,4 +293,66 @@
       stdInput.addEventListener('input', function () { clearTimeout(t2); t2 = setTimeout(applyStdFilters, 110); });
     }
   }
+
+  // ── READ 模式（一條讀下來）：頂部進度條 + 脊椎當前章高亮 ──
+  var readRoot = document.querySelector('.vx-read');
+  if (readRoot) {
+    var bar = document.querySelector('#vxReadProgress span');
+    var article = readRoot.querySelector('.vx-read-article');
+
+    // 進度條：依文章捲動百分比填寬
+    function updateProgress() {
+      if (!bar || !article) return;
+      var rect = article.getBoundingClientRect();
+      var total = article.offsetHeight - window.innerHeight;
+      var scrolled = -rect.top;
+      var pct = total > 0 ? Math.min(1, Math.max(0, scrolled / total)) : 0;
+      bar.style.width = (pct * 100).toFixed(1) + '%';
+    }
+
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(function () { updateProgress(); ticking = false; });
+    }, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
+
+    // 脊椎高亮：IntersectionObserver 找當前可見章節
+    var spyLinks = Array.prototype.slice.call(
+      readRoot.querySelectorAll('.vx-read-toc a[data-spy]')
+    );
+    if (spyLinks.length && 'IntersectionObserver' in window) {
+      var linkFor = {};
+      spyLinks.forEach(function (a) { linkFor[a.getAttribute('data-spy')] = a; });
+      var visible = {};
+
+      function highlight() {
+        var current = null, top = Infinity;
+        Object.keys(visible).forEach(function (id) {
+          if (visible[id] != null && visible[id] < top) { top = visible[id]; current = id; }
+        });
+        spyLinks.forEach(function (a) {
+          a.classList.toggle('is-active', a.getAttribute('data-spy') === current);
+        });
+      }
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          var id = e.target.id;
+          if (e.isIntersecting) visible[id] = e.boundingClientRect.top;
+          else delete visible[id];
+        });
+        highlight();
+      }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+
+      spyLinks.forEach(function (a) {
+        var sec = document.getElementById(a.getAttribute('data-spy'));
+        if (sec) io.observe(sec);
+      });
+    }
+
+    markRead();
+  }
 })();

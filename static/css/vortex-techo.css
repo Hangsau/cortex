@@ -330,6 +330,13 @@ body:has(.tx-page) { background-color: var(--tx-bg); }
 /* 心理地板（L0−） */
 .tx-floor { grid-column: 1 / -1; margin-top: 26px; border-top: 1px solid var(--tx-hair); padding-top: 22px; }
 .tx-floor-h { font-family: var(--tx-mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--tx-faint); margin-bottom: 14px; line-height: 1.7; }
+.tx-floor-read {
+  display: inline-block; margin: 0 0 14px;
+  font-family: var(--tx-mono); font-size: 13px; letter-spacing: .04em;
+  color: var(--tx-accent2); text-decoration: none;
+  border-bottom: 1px solid var(--tx-accent); padding-bottom: 2px;
+}
+.tx-floor-read:hover { color: var(--tx-accent); }
 
 /* ════ 細節側面板（展品說明卡） ════ */
 .tx-detail {

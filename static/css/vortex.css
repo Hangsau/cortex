@@ -45,6 +45,7 @@ body:has(.vx-page),
 body:has(.vx-home),
 body:has(.vx-stroke),
 body:has(.vx-db),
+body:has(.vx-read),
 body:has(.vx-jrn) {
   background: var(--vx-ground);
 }
@@ -55,12 +56,13 @@ body:has(.vx-page) .main-content,
 body:has(.vx-home) .main-content,
 body:has(.vx-stroke) .main-content,
 body:has(.vx-db) .main-content,
+body:has(.vx-read) .main-content,
 body:has(.vx-jrn) .main-content {
   max-width: none;
   padding: 0;
 }
 
-.vx-page, .vx-home, .vx-stroke, .vx-db {
+.vx-page, .vx-home, .vx-stroke, .vx-db, .vx-read {
   font-family: var(--vx-serif);
   color: var(--vx-ink);
   font-size: var(--fs-base);
@@ -1577,4 +1579,319 @@ html { scroll-behavior: smooth; }
 .vx-list-sub { margin: 10px 0 0; font-size: 14px; }
 .vx-list-sub a { color: var(--vx-sub); text-decoration: none; border-bottom: 1px dashed var(--vx-rule2); padding-bottom: 1px; }
 .vx-list-sub a:hover { color: var(--vx-accent); border-color: var(--vx-accent2); }
+
+/* ════════════════════════════════════════════════════════════
+   READ 模式 · 一條讀下來（時間化結構 + 學習序列軸 / web-ux-kit G·H）
+   左側 L0→L6 進度脊椎 + 右側連續長文；progressive-disclosure「想深一點」
+   ════════════════════════════════════════════════════════════ */
+
+/* 頂部進度條 */
+.vx-read-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 2px;
+  background: transparent; z-index: 50; pointer-events: none;
+}
+.vx-read-progress span {
+  display: block; height: 100%; width: 0;
+  background: var(--vx-accent);
+  transition: width .1s linear;
+}
+
+.vx-read { max-width: var(--vx-wrap); margin: 0 auto; padding: 0 24px; }
+
+.vx-read-wrap {
+  display: grid;
+  grid-template-columns: 232px minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+}
+
+/* ── 左側脊椎 ── */
+.vx-read-spine {
+  position: sticky; top: 24px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  padding: 8px 4px 24px;
+  font-family: var(--vx-mono);
+}
+.vx-read-spine::-webkit-scrollbar { width: 6px; }
+.vx-read-spine::-webkit-scrollbar-thumb { background: var(--vx-rule); border-radius: 3px; }
+
+.vx-back-link {
+  display: inline-block; margin-bottom: 18px;
+  font-size: var(--fs-xs); letter-spacing: .04em;
+  color: var(--vx-sub); text-decoration: none;
+}
+.vx-back-link:hover { color: var(--vx-accent2); }
+
+.vx-read-spine-head {
+  font-size: var(--fs-xs); letter-spacing: .12em;
+  text-transform: none; color: var(--vx-faint);
+  padding-bottom: 12px; margin-bottom: 12px;
+  border-bottom: 1px solid var(--vx-rule);
+}
+
+.vx-read-toc { list-style: none; margin: 0; padding: 0; }
+.vx-read-toc li { margin: 0; }
+.vx-read-toc a {
+  display: flex; align-items: baseline; gap: 8px;
+  padding: 7px 10px; margin: 1px 0;
+  text-decoration: none; color: var(--vx-sub);
+  border-left: 2px solid transparent;
+  border-radius: 0 3px 3px 0;
+  line-height: 1.35; transition: color .15s, background .15s, border-color .15s;
+}
+.vx-read-toc a:hover { color: var(--vx-ink); background: var(--vx-paper2); }
+.vx-read-toc a.is-active {
+  color: var(--vx-accent2); background: var(--vx-paper2);
+  border-left-color: var(--vx-accent);
+}
+.vx-read-toc-edge {
+  font-size: var(--fs-xs); letter-spacing: .08em;
+  color: var(--vx-faint);
+}
+.vx-read-toc-l {
+  flex: 0 0 auto; min-width: 1.8em;
+  font-size: 11px; letter-spacing: .04em;
+  color: var(--vx-accent); font-weight: 700;
+}
+.vx-read-toc a.is-active .vx-read-toc-l { color: var(--vx-accent2); }
+.vx-read-toc-name { font-size: var(--fs-sm); }
+
+.vx-read-modeswitch {
+  display: block; margin-top: 22px; padding-top: 14px;
+  border-top: 1px solid var(--vx-rule);
+  font-size: var(--fs-xs); line-height: 1.6;
+  color: var(--vx-faint); text-decoration: none;
+}
+.vx-read-modeswitch b { display: block; margin-top: 3px; color: var(--vx-accent2); font-weight: 700; }
+.vx-read-modeswitch:hover b { text-decoration: underline; }
+
+/* LOOK-UP 頁的「一條讀下來」入口（橫向，不在脊椎內） */
+.vx-read-modeswitch--inline {
+  margin: 18px 0 0; padding: 12px 16px;
+  border: 1px solid var(--vx-rule); border-top: 1px solid var(--vx-rule);
+  border-radius: 4px; background: var(--vx-paper);
+  font-size: var(--fs-sm);
+}
+.vx-read-modeswitch--inline b { display: inline; margin: 0; }
+
+/* ── 右側文章 ── */
+.vx-read-article {
+  max-width: var(--vx-measure);
+  padding-bottom: 120px;
+}
+
+.vx-read-kicker {
+  display: block; font-family: var(--vx-mono);
+  font-size: var(--fs-xs); letter-spacing: .14em;
+  color: var(--vx-faint); margin-bottom: 14px;
+}
+
+/* 序章 */
+.vx-read-intro {
+  padding: 48px 0 56px;
+  border-bottom: 1px solid var(--vx-rule);
+  margin-bottom: 8px;
+}
+.vx-read-intro h1 {
+  font-family: var(--vx-display);
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  font-weight: 600; line-height: 1.15;
+  margin: 0 0 22px; color: var(--vx-ink);
+}
+.vx-read-leadtext {
+  font-size: var(--fs-md); line-height: 1.95;
+  color: var(--vx-ink); white-space: pre-line;
+}
+.vx-read-startcta {
+  display: inline-block; margin-top: 28px;
+  font-family: var(--vx-mono); font-size: var(--fs-sm);
+  letter-spacing: .04em; color: var(--vx-accent2);
+  text-decoration: none;
+  border-bottom: 1px solid var(--vx-accent);
+  padding-bottom: 2px;
+}
+.vx-read-startcta:hover { color: var(--vx-accent); }
+
+/* 各章 */
+.vx-read-chapter {
+  padding: 56px 0 8px;
+  scroll-margin-top: 24px;
+}
+.vx-read-chhead {
+  display: flex; align-items: baseline; gap: 12px;
+  font-family: var(--vx-mono); margin-bottom: 10px;
+}
+.vx-read-chno {
+  font-size: var(--fs-xs); letter-spacing: .12em;
+  color: var(--vx-faint);
+}
+.vx-read-chl {
+  font-size: var(--fs-xs); letter-spacing: .06em;
+  color: var(--vx-accent); font-weight: 700;
+  padding: 2px 8px; border: 1px solid var(--vx-rule);
+  border-radius: 3px;
+}
+.vx-read-chapter h2 {
+  font-family: var(--vx-display);
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 600; line-height: 1.2;
+  margin: 0 0 20px; color: var(--vx-ink);
+}
+.vx-read-chlead {
+  font-size: var(--fs-md); line-height: 1.95;
+  color: var(--vx-ink); margin: 0 0 36px;
+  padding-left: 16px; border-left: 2px solid var(--vx-accent);
+}
+.vx-read-chlead--prem { color: var(--vx-sub); }
+.vx-read-wip {
+  display: inline-block; margin-left: 8px;
+  font-family: var(--vx-mono); font-size: 11px;
+  letter-spacing: .06em; color: var(--vx-faint);
+  border: 1px dashed var(--vx-rule2); border-radius: 3px;
+  padding: 1px 6px; vertical-align: middle;
+}
+
+/* 概念（散文段落） */
+.vx-read-concept {
+  margin: 0 0 40px;
+  scroll-margin-top: 24px;
+}
+.vx-read-concept h3 {
+  font-family: var(--vx-serif);
+  font-size: var(--fs-lg); font-weight: 600;
+  line-height: 1.4; margin: 0 0 12px; color: var(--vx-ink);
+}
+.vx-read-cert {
+  font-size: var(--fs-xs); vertical-align: middle;
+  margin-left: 4px;
+}
+.vx-read-body {
+  font-size: var(--fs-base); line-height: var(--lh-body);
+  color: var(--vx-ink); margin: 0 0 14px;
+}
+.vx-read-body--raw { color: var(--vx-sub); }
+
+/* 想深一點（progressive disclosure） */
+.vx-read-more {
+  margin: 8px 0 0;
+  border-top: 1px dashed var(--vx-rule2);
+}
+.vx-read-more > summary {
+  cursor: pointer; list-style: none;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--vx-mono); font-size: var(--fs-xs);
+  letter-spacing: .06em; color: var(--vx-accent2);
+  padding: 10px 0; user-select: none;
+}
+.vx-read-more > summary::-webkit-details-marker { display: none; }
+.vx-read-more > summary::before {
+  content: "＋"; font-size: 13px; color: var(--vx-accent);
+}
+.vx-read-more[open] > summary::before { content: "－"; }
+.vx-read-more > summary:hover { color: var(--vx-accent); }
+
+.vx-read-morebody {
+  padding: 4px 0 18px 16px;
+  border-left: 2px solid var(--vx-rule);
+  margin-left: 2px;
+}
+.vx-read-moreblock { margin: 0 0 18px; }
+.vx-read-moreblock:last-child { margin-bottom: 0; }
+.vx-read-morelabel {
+  display: block; font-family: var(--vx-mono);
+  font-size: 11px; letter-spacing: .1em;
+  color: var(--vx-faint); margin-bottom: 6px;
+}
+.vx-read-moreblock p {
+  font-size: var(--fs-sm); line-height: 1.85;
+  color: var(--vx-sub); margin: 0;
+}
+
+/* 誤區校正 cue */
+.vx-read-cue {
+  font-size: var(--fs-sm); line-height: 1.8;
+  color: var(--vx-sub); margin: 0 0 10px;
+}
+.vx-read-cue .bad,
+.vx-read-cue .why,
+.vx-read-cue .good {
+  display: inline-block; margin-right: 6px;
+  font-family: var(--vx-mono); font-size: 11px;
+  letter-spacing: .04em; padding: 1px 6px; border-radius: 3px;
+}
+.vx-read-cue .bad { color: var(--vx-warn); background: var(--vx-warn-bg); }
+.vx-read-cue .why { color: var(--vx-faint); background: var(--vx-paper2); }
+.vx-read-cue .good { color: var(--vx-accent2); background: var(--vx-gold-bg); }
+
+/* 介入 */
+.vx-read-iv {
+  font-size: var(--fs-sm); line-height: 1.8;
+  color: var(--vx-sub); margin: 0 0 8px;
+}
+.vx-read-iv b { color: var(--vx-ink); font-weight: 600; }
+.vx-read-iv span { display: block; color: var(--vx-sub); }
+
+/* 橋接卡 */
+.vx-read-bridge {
+  margin: 44px 0 8px; padding: 24px 0 0;
+  border-top: 1px solid var(--vx-rule);
+}
+.vx-read-bridgetxt {
+  font-size: var(--fs-base); line-height: 1.9;
+  color: var(--vx-sub); font-style: italic; margin: 0 0 14px;
+}
+.vx-read-bridgenext {
+  display: inline-block;
+  font-family: var(--vx-mono); font-size: var(--fs-sm);
+  letter-spacing: .04em; color: var(--vx-accent2);
+  text-decoration: none;
+  border-bottom: 1px solid var(--vx-accent);
+  padding-bottom: 2px;
+}
+.vx-read-bridgenext:hover { color: var(--vx-accent); }
+
+/* 尾聲 */
+.vx-read-outro {
+  margin-top: 64px; padding: 48px 0 0;
+  border-top: 1px solid var(--vx-rule);
+}
+.vx-read-outro .vx-legend {
+  font-family: var(--vx-mono); font-size: var(--fs-xs);
+  line-height: 1.9; color: var(--vx-faint); margin: 20px 0 0;
+}
+.vx-read-outro .vx-cite {
+  display: block; font-size: var(--fs-sm); line-height: 1.85;
+  color: var(--vx-sub); margin: 14px 0 0;
+}
+.vx-read-outro .vx-cite .src {
+  font-family: var(--vx-mono); color: var(--vx-gold); margin-right: 6px;
+}
+
+/* 來源 cite（想深一點內） */
+.vx-read-moreblock .vx-cite { display: inline; margin-right: 8px; }
+.vx-read-moreblock .vx-cite .src {
+  font-family: var(--vx-mono); font-size: 11px; color: var(--vx-gold);
+}
+
+/* ── 窄螢幕：脊椎收到頂部，文章佔滿 ── */
+@media (max-width: 860px) {
+  .vx-read-wrap { grid-template-columns: 1fr; gap: 0; }
+  .vx-read-spine {
+    position: static; max-height: none; overflow: visible;
+    margin-bottom: 24px; padding-bottom: 16px;
+    border-bottom: 1px solid var(--vx-rule);
+  }
+  .vx-read-toc {
+    display: flex; flex-wrap: wrap; gap: 4px;
+  }
+  .vx-read-toc a { border-left: none; border-radius: 3px; padding: 5px 9px; }
+  .vx-read-toc a.is-active { border-left: none; }
+  .vx-read-article { max-width: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vx-read-progress span { transition: none; }
+  .vx-read-toc a { transition: none; }
+}
 
