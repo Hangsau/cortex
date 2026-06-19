@@ -1,0 +1,27 @@
+你是內容邏輯稽核員。工作目錄是 Hugo 網站 C:\claudehome\projects\my-site（游泳技術知識庫 vortex section）。
+
+任務：通讀 vortex 的內容，找出「邏輯不通」與「自打嘴巴（自相矛盾）」的地方，寫成一份稽核報告。
+
+要讀的檔（用 Read / Grep）：
+1. 資料層（內容真相）：data/vortex/ 下全部 yaml —
+   free.yaml back.yaml breast.yaml fly.yaml udk.yaml starts-turns.yaml（各泳式動作/誤區/機制）、
+   drills.yaml（練習）、teaching-errors.yaml（教學誤區）、l-indicators.yaml（L 水感指標）、
+   water-sense-levels.yaml（L0–L6 階段）、psychology.yaml（心理）、technical-analysis.yaml、technical-analysis 以外的也讀。
+2. 有硬寫文字的 layout：layouts/vortex/vortex-home.html、vortex-water-sense.html、vortex-periodization.html（這幾頁部分文案寫死在 template，不在 data）。
+3. content/vortex/ 下各 _index.md 的 front matter 標題/描述。
+
+要找的問題類型（重點是「自相矛盾」，不是寫作品質）：
+- A 核心命題與做法衝突：例如站方核心主張「技術是感知的輸出、不是輸入 → 先練水感再練動作」，但某頁卻叫人先做動作分解 / 先糾正姿勢；或某 drill 的目的與該命題相反。
+- B 兩處對同一件事說法相反：A 檔說「要 X」、B 檔說「不要 X」；或同一動作的 cue_good 與另一處的建議互斥。
+- C 數字/分級不一致：同一泳式的階段數、L 級定義、年齡對照、計數在不同檔對不上。
+- D 命名/分類不一致：同一概念在不同檔用不同名字或歸到不同類，會讓讀者混淆。
+- E 因果/條件講不通：步驟順序矛盾、前提與結論斷裂、「因為A所以B」但A推不出B。
+
+硬規則：
+1. 全繁體中文。
+2. **絕對不准動 git**（不 commit/add/push/reset/stash/checkout）。
+3. **只准寫這一個檔**：research/vortex-content-logic-audit.md（用 Write）。不准改任何 data/content/layout/css 檔。
+4. **不准編造**：每條發現必附 `檔名:行號` 或 `檔名 的 yaml key 路徑`，引用兩處衝突文字的原文片段。找不到證據就不要寫。把握度低的標「🟡 待人工確認」。
+5. 報告格式：表格＋每條含【位置1 原文】【位置2 原文】【為何矛盾】【建議解法】【嚴重度 高/中/低】。最後給「沒問題但容易被誤會」的清單。
+
+現在開始讀檔並寫 research/vortex-content-logic-audit.md。

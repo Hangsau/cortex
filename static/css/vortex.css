@@ -1,32 +1,43 @@
 /* vortex.css — Vortex 游泳技術知識庫
- * 風格：08 學術期刊（class 前綴 vx-）
- * 字型：標題 Crimson Pro / 內文 Source Serif 4
- * 色系：#FFFFFF 底 / #1A1A1A 主文 / #1B3A5C 海軍藍強調 / #C8A84B 暗金引用
- * 設計原則：章節編號為導航骨架；一頁之內 master-detail 就地切換，不跳頁；深層內容收合，閱讀不攏長。
+ * 風格：06 博物館說明牌（Museum Label）× web-ux-kit CJK 字體 token（class 前綴 vx-）
+ * 字型：大標 Cormorant Garamond / 內文 Noto Serif TC / 標籤 Quattrocento Sans
+ * 色系：#F8F6F1 展覽白牆 / #2C2C2C 深炭灰主文 / #5B7B6F 銅綠強調 / #3E574D 深銅綠（小字）
+ * 度量：內文 16px、行高 1.8、行長 34rem（≈34 漢字）—— 全繁中 CJK-first（web-ux-kit 03/04）
+ * 設計原則：大標細內文＋大量留白＋隱形網格；master-detail 就地切換不跳頁；深層內容收合不攏長。
+ * 改造紀錄見 research/vortex-restyle-brief.md（2026-06-19，從 techō 換到博物館說明牌）。
  */
 
 :root {
-  --vx-bg:        #FAFAF7;
-  --vx-paper:     #fdfdfb;
-  --vx-paper2:    #f4f1e8;
-  --vx-ground:    #FAFAF7;
-  --vx-ink:       #1A1A1A;
-  --vx-sub:       #56564e;
-  --vx-faint:     #88887e;
-  --vx-accent:    #D4622A;
-  --vx-accent2:   #B5511F;
-  --vx-gold:      #a98321;
-  --vx-gold-bg:   #f7efd9;
-  --vx-warn:      #9a3326;
-  --vx-warn-bg:   #fbf1ee;
-  --vx-rule:      #E8E8E0;
-  --vx-rule2:     #c9c9bd;
-  --vx-serif:     'Noto Serif TC', 'Shippori Mincho', 'Source Han Serif TC', Georgia, 'Songti TC', serif;
-  --vx-display:   'Shippori Mincho', 'Noto Serif TC', Georgia, serif;
-  --vx-mono:      'Courier Prime', 'Noto Sans TC', monospace;
+  /* ── 色彩：博物館說明牌（冷靜畫廊，金屬氧化銅綠）── */
+  --vx-bg:        #F8F6F1;   /* 展覽白牆，極淡暖 */
+  --vx-paper:     #FFFFFF;   /* 浮層 / 卡片底，乾淨白 */
+  --vx-paper2:    #EFEDE6;   /* hover / 斑馬，冷淡 */
+  --vx-ground:    #F8F6F1;
+  --vx-ink:       #2C2C2C;   /* 深炭灰主文；on bg ≈ 12:1 ✅ */
+  --vx-sub:       #6B6B63;   /* 次要文字；on bg ≈ 5.5:1 ✅ */
+  --vx-faint:     #8A8A80;   /* meta / 標籤 */
+  --vx-accent:    #5B7B6F;   /* 銅綠；on bg ≈ 3.3:1 → 僅 ≥24px / 非文字（邊框·大數字·active）*/
+  --vx-accent2:   #3E574D;   /* 深銅綠；小字連結 / 強調，on bg ≈ 6.5:1 ✅（web-ux-kit 05）*/
+  --vx-gold:      #8C7544;   /* 冷青銅，引用左框 / 來源 */
+  --vx-gold-bg:   #F0EBDD;
+  --vx-warn:      #9A3326;   /* 誤區 / 錯誤紅（通用，保留）*/
+  --vx-warn-bg:   #F6ECEA;
+  --vx-rule:      #D8D4CC;   /* 淡暖灰細線（博物館分隔線）*/
+  --vx-rule2:     #C2BEB2;
+  --vx-serif:     'Noto Serif TC', 'Source Han Serif TC', Georgia, 'Songti TC', serif;
+  --vx-display:   'Cormorant Garamond', 'Noto Serif TC', Georgia, serif;
+  --vx-mono:      'Quattrocento Sans', 'Noto Sans TC', sans-serif;
   --vx-wrap:      1080px;
-  --vx-measure:       38em;   /* ~38 漢字 / ~66 拉丁字元 內文行長 */
-  --vx-measure-lead:  32em;   /* 引言/前言略窄 */
+
+  /* ── web-ux-kit 度量 token（CJK-first，無半像素，8px grid）── */
+  --fs-xs:   13px;  --fs-sm:   14px;  --fs-base: 16px;  --fs-md:  18px;
+  --fs-lg:   21px;  --fs-xl:   27px;  --fs-2xl:  34px;
+  --lh-body: 1.8;   --lh-snug: 1.6;   --lh-tight: 1.35;
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 16px;  --sp-4: 24px;
+  --sp-5: 32px; --sp-6: 48px; --sp-7: 64px;  --sp-8: 96px;
+
+  --vx-measure:       34rem;  /* ≈34 漢字（上限 40 以內，修舊 38em 偏寬，web-ux-kit 04 處方1）*/
+  --vx-measure-lead:  28rem;  /* 引言 / 前言略窄 */
 }
 
 /* ── 頁面底 ── */
@@ -52,8 +63,8 @@ body:has(.vx-jrn) .main-content {
 .vx-page, .vx-home, .vx-stroke, .vx-db {
   font-family: var(--vx-serif);
   color: var(--vx-ink);
-  font-size: 17px;
-  line-height: 1.75;
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
   -webkit-font-smoothing: antialiased;
   font-feature-settings: "liga" 1, "onum" 1;
   text-autospace: ideograph-alpha ideograph-numeric;
@@ -81,7 +92,7 @@ body:has(.vx-jrn) .main-content {
 
 .vx-label {
   font-family: var(--vx-serif);
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -97,7 +108,7 @@ body:has(.vx-jrn) .main-content {
   margin: 0 0 10px;
 }
 
-a { color: var(--vx-accent); }
+a { color: var(--vx-accent2); }  /* 小字連結用深銅綠（web-ux-kit 05：accent 未達 4.5:1）*/
 
 .vx-back-link {
   display: inline-block;
@@ -202,7 +213,7 @@ mark, .mark {
   font-size: 21px;
   margin: 0 0 4px;
 }
-.vx-start .vx-start-d { font-size: 14.5px; color: var(--vx-sub); margin: 0; }
+.vx-start .vx-start-d { font-size: 14px; color: var(--vx-sub); margin: 0; }
 .vx-start .vx-start-go { color: var(--vx-accent); font-weight: 600; }
 
 /* 六式目次 */
@@ -250,7 +261,7 @@ mark, .mark {
 }
 .vx-toc-prem {
   grid-column: 2 / 3;
-  font-size: 14.5px; color: var(--vx-sub); margin-top: 3px;
+  font-size: 14px; color: var(--vx-sub); margin-top: 3px;
   max-width: var(--vx-measure);
 }
 .vx-toc-meta {
@@ -344,7 +355,7 @@ mark, .mark {
 .vx-rail-theme-head:hover { color: var(--vx-ink); }
 .vx-rail-theme.is-expanded > .vx-rail-theme-head { color: var(--vx-ink); }
 .vx-rail-theme-when {
-  font-size: 11.5px; line-height: 1.5; color: var(--vx-faint);
+  font-size: 13px; line-height: 1.5; color: var(--vx-faint);
   padding-left: 13px;
 }
 .vx-rail-theme.is-expanded > .vx-rail-theme-head .vx-rail-theme-when { color: var(--vx-sub); }
@@ -420,7 +431,7 @@ mark, .mark {
   font-family: var(--vx-display); font-size: 20px; color: var(--vx-ink);
 }
 .vx-band-desc {
-  font-size: 14.5px; line-height: 1.7; color: var(--vx-sub);
+  font-size: 14px; line-height: 1.7; color: var(--vx-sub);
   margin: 8px 0 16px;
   max-width: var(--vx-measure);
 }
@@ -453,10 +464,10 @@ mark, .mark {
   padding: 1px 7px; margin-left: 9px; vertical-align: middle;
 }
 .vx-theme-prem {
-  display: block; font-size: 14.5px; line-height: 1.65; color: var(--vx-sub);
+  display: block; font-size: 14px; line-height: 1.65; color: var(--vx-sub);
 }
 .vx-theme-meta {
-  display: block; font-size: 12.5px; color: var(--vx-faint);
+  display: block; font-size: 13px; color: var(--vx-faint);
   margin-top: 7px; letter-spacing: 0.02em;
 }
 .vx-theme-go {
@@ -471,13 +482,13 @@ mark, .mark {
 /* 動作面板 */
 .vx-block-label {
   display: inline-block;
-  font-size: 11.5px; font-weight: 600; letter-spacing: 0.12em;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.12em;
   text-transform: uppercase; color: var(--vx-accent);
   border-top: 2px solid var(--vx-accent);
   padding-top: 6px; margin: 30px 0 10px;
 }
 .vx-howto {
-  font-size: 17.5px; line-height: 1.8;
+  font-size: 18px; line-height: 1.8;
 }
 .vx-move-meta {
   display: inline-block; font-size: 12px; letter-spacing: 0.05em;
@@ -526,7 +537,7 @@ mark, .mark {
   margin-right: 6px;
 }
 .vx-ladder-node {
-  font-family: var(--vx-display); font-size: 12.5px; line-height: 1;
+  font-family: var(--vx-display); font-size: 13px; line-height: 1;
   color: var(--vx-faint); background: var(--vx-paper2);
   border: 1px solid var(--vx-rule); border-radius: 0;
   padding: 4px 7px; white-space: nowrap;
@@ -560,7 +571,7 @@ mark, .mark {
   display: flex; align-items: center; justify-content: center;
 }
 .vx-cue--bad .vx-cue-tag { background: var(--vx-warn-bg); color: var(--vx-warn); }
-.vx-cue--good .vx-cue-tag { background: #f7efe6; color: var(--vx-accent); }
+.vx-cue--good .vx-cue-tag { background: var(--vx-paper2); color: var(--vx-accent); }
 .vx-cue--why .vx-cue-tag { background: var(--vx-paper); color: var(--vx-faint); }
 .vx-cue-txt { padding: 12px 16px; font-size: 15px; line-height: 1.6; }
 .vx-cue--bad .vx-cue-txt { color: var(--vx-sub); }
@@ -574,7 +585,7 @@ details.vx-drill {
 }
 details.vx-drill > summary {
   cursor: pointer; list-style: none;
-  padding: 11px 16px; font-size: 15.5px;
+  padding: 11px 16px; font-size: 16px;
   display: flex; align-items: center; gap: 10px;
 }
 details.vx-drill > summary::-webkit-details-marker { display: none; }
@@ -589,8 +600,8 @@ details.vx-drill > summary .did {
 }
 .vx-drill-body { padding: 4px 16px 16px; border-top: 1px solid var(--vx-rule); }
 .vx-drill-body .vx-label { display: block; margin: 12px 0 4px; color: var(--vx-faint); }
-.vx-drill-body ol { margin: 4px 0; padding-left: 20px; font-size: 14.5px; line-height: 1.65; }
-.vx-drill-body p { font-size: 14.5px; margin: 4px 0; }
+.vx-drill-body ol { margin: 4px 0; padding-left: 20px; font-size: 14px; line-height: 1.65; }
+.vx-drill-body p { font-size: 14px; margin: 4px 0; }
 .vx-drill-eq {
   font-size: 12px; color: var(--vx-faint); letter-spacing: 0.03em;
 }
@@ -664,11 +675,11 @@ details.vx-card[open] > summary { border-bottom: 1px solid var(--vx-rule); }
 .vx-card-body { padding: 16px 18px 20px; }
 .vx-card-body .vx-label { display: block; margin: 16px 0 4px; }
 .vx-card-body .vx-label:first-child { margin-top: 0; }
-.vx-card-body p { margin: 4px 0; font-size: 15.5px; line-height: 1.7; }
+.vx-card-body p { margin: 4px 0; font-size: 16px; line-height: 1.7; }
 .vx-mis { color: var(--vx-sub); }
 .vx-correct {
   border-left: 3px solid var(--vx-accent); padding-left: 14px;
-  background: #faf6ef;
+  background: var(--vx-paper2);
 }
 .vx-card.vx-err > summary { border-left: 3px solid var(--vx-warn); }
 .vx-card.vx-tech > summary { border-left: 3px solid var(--vx-accent); }
@@ -687,7 +698,7 @@ details.vx-level .lv {
   font-family: var(--vx-display); font-size: 22px; color: var(--vx-accent);
 }
 details.vx-level .lvname { font-family: var(--vx-display); font-size: 18px; }
-details.vx-level .lvtag { font-size: 13.5px; color: var(--vx-sub); display: block; margin-top: 2px; }
+details.vx-level .lvtag { font-size: 14px; color: var(--vx-sub); display: block; margin-top: 2px; }
 .vx-level-body { padding: 4px 18px 18px 18px; border-top: 1px solid var(--vx-rule); }
 .vx-level-body > p { font-size: 15px; line-height: 1.7; color: var(--vx-sub); }
 .vx-method { padding: 10px 0; border-bottom: 1px dotted var(--vx-rule); }
@@ -701,7 +712,7 @@ details.vx-diag > summary {
 }
 details.vx-diag > summary::before { content: "▸ "; }
 details.vx-diag[open] > summary::before { content: "▾ "; }
-.vx-diag-note { font-size: 12.5px; color: var(--vx-faint); margin: 8px 0 4px; }
+.vx-diag-note { font-size: 13px; color: var(--vx-faint); margin: 8px 0 4px; }
 .vx-ind { font-size: 14px; color: var(--vx-sub); padding: 4px 0; }
 .vx-ind .vx-ind-type {
   font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
@@ -715,7 +726,7 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
 }
 .vx-flow button {
   background: none; border: 0; cursor: pointer; font-family: var(--vx-serif);
-  color: var(--vx-accent); font-size: 14.5px; text-align: left;
+  color: var(--vx-accent); font-size: 14px; text-align: left;
 }
 .vx-flow button:disabled { color: var(--vx-rule2); cursor: default; }
 .vx-flow .nx { text-align: right; }
@@ -796,7 +807,7 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
 .vx-item-link { display: block; padding: 18px 6px; text-decoration: none; color: inherit; transition: padding-left .15s, background .15s; }
 .vx-item-link:hover { padding-left: 10px; background: var(--vx-paper); }
 .vx-item-title { font-family: var(--vx-display); font-size: 20px; display: block; }
-.vx-item-desc { font-size: 14.5px; color: var(--vx-sub); display: block; margin-top: 3px; }
+.vx-item-desc { font-size: 14px; color: var(--vx-sub); display: block; margin-top: 3px; }
 .vx-item-strokes { display: inline-flex; gap: 6px; margin-top: 8px; }
 .vx-empty { color: var(--vx-faint); padding: 40px 0; }
 
@@ -840,7 +851,7 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
   margin: 6px 0 12px;
 }
 .vx-pz .vx-lead {
-  font-size: 16.5px; line-height: 1.7;
+  font-size: 16px; line-height: 1.7;
   color: var(--vx-sub);
   max-width: 70ch;
   margin: 0;
@@ -870,10 +881,10 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
   font-size: 13px; font-style: italic; color: var(--vx-faint);
   letter-spacing: 0.01em;
 }
-.vx-pz-meta { font-size: 14.5px; color: var(--vx-sub); margin: 6px 0; }
+.vx-pz-meta { font-size: 14px; color: var(--vx-sub); margin: 6px 0; }
 .vx-pz-focus { font-size: 14px; color: var(--vx-sub); }
 .vx-pz-warn {
-  font-size: 14.5px; color: var(--vx-warn);
+  font-size: 14px; color: var(--vx-warn);
   background: var(--vx-warn-bg);
   border-left: 3px solid var(--vx-warn);
   padding: 8px 12px; margin: 10px 0; border-radius: 0;
@@ -887,7 +898,7 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
 
 .vx-pz-table {
   width: 100%; border-collapse: collapse;
-  font-size: 14.5px; margin: 12px 0 16px;
+  font-size: 14px; margin: 12px 0 16px;
 }
 .vx-pz-table--narrow { max-width: 520px; }
 .vx-pz-table th, .vx-pz-table td {
@@ -922,7 +933,7 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
   color: var(--vx-accent); margin-bottom: 6px;
 }
 .vx-pz-swim p, .vx-pz-swim li {
-  font-size: 14.5px; line-height: 1.7; color: var(--vx-ink); margin: 6px 0;
+  font-size: 14px; line-height: 1.7; color: var(--vx-ink); margin: 6px 0;
 }
 .vx-pz-swim ul { margin: 4px 0; padding-left: 20px; }
 
@@ -936,7 +947,7 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
 .vx-pz-plain::before {
   content: "白話"; display: inline-block;
   font-family: var(--vx-display); font-weight: 600;
-  font-size: 11.5px; letter-spacing: 0.08em;
+  font-size: 13px; letter-spacing: 0.08em;
   color: var(--vx-accent); margin-right: 8px;
   vertical-align: 1px;
 }
@@ -944,14 +955,14 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
 /* 對話層（school dialogue）：流派之間的辯論張力 */
 .vx-pz-dialogue {
   font-size: 15px; line-height: 1.85; color: var(--vx-ink);
-  background: #f7efe6;
+  background: var(--vx-paper2);
   border-left: 3px solid var(--vx-accent2);
   padding: 10px 14px; margin: 10px 0; border-radius: 0;
 }
 .vx-pz-dialogue::before {
   content: "對話"; display: inline-block;
   font-family: var(--vx-display); font-weight: 600;
-  font-size: 11.5px; letter-spacing: 0.08em;
+  font-size: 13px; letter-spacing: 0.08em;
   color: var(--vx-accent2); margin-right: 8px;
   vertical-align: 1px;
 }
@@ -966,14 +977,14 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
 .vx-pz-author::before {
   content: "作者綜合"; display: inline-block;
   font-family: var(--vx-display); font-weight: 600;
-  font-size: 11.5px; letter-spacing: 0.08em;
+  font-size: 13px; letter-spacing: 0.08em;
   color: var(--vx-gold); margin-right: 8px;
   vertical-align: 1px;
 }
 
 /* 缺口層（research gap）：待查／未驗證的假設，視覺上明確標為未定 */
 .vx-pz-gap {
-  font-size: 14.5px; line-height: 1.8; color: var(--vx-ink);
+  font-size: 14px; line-height: 1.8; color: var(--vx-ink);
   background: var(--vx-warn-bg);
   border: 1px dashed var(--vx-warn);
   padding: 12px 16px; margin: 14px 0; border-radius: 0;
@@ -1036,13 +1047,13 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
   details.vx-level .lv { font-size: 18px; }
   details.vx-level .lvname { font-size: 16px; }
   .vx-level-body { padding: 4px 14px 16px; }
-  .vx-pz-table { font-size: 13.5px; }
+  .vx-pz-table { font-size: 14px; }
   .vx-pz-table th, .vx-pz-table td { padding: 7px 9px; }
 }
 
 /* 水感發展頁 — 補充（meta 行 / 多行區塊） */
 .vx-lvl-h {
-  font-family: var(--vx-display); font-size: 12.5px; letter-spacing: 0.05em;
+  font-family: var(--vx-display); font-size: 13px; letter-spacing: 0.05em;
   text-transform: uppercase; color: var(--vx-faint); margin: 16px 0 6px;
 }
 .vx-lvl-meta { font-size: 14px; color: var(--vx-sub); line-height: 1.7; margin: 8px 0; }
@@ -1176,7 +1187,7 @@ html { scroll-behavior: smooth; }
 }
 .vx-jrn-hero-lead b { color: var(--vx-accent); font-weight: 600; }
 .vx-jrn-hero-how {
-  font-size: 15.5px; line-height: 1.7; color: var(--vx-sub);
+  font-size: 16px; line-height: 1.7; color: var(--vx-sub);
   background: var(--vx-paper); border: 1px solid var(--vx-rule);
   border-radius: 0; padding: 12px 16px; margin: 0 0 26px;
 }
@@ -1210,7 +1221,7 @@ html { scroll-behavior: smooth; }
   font-family: var(--vx-display); font-weight: 600; font-size: 13px;
   color: var(--vx-accent); text-align: center;
 }
-.vx-jrn-sit-txt { color: var(--vx-ink); font-size: 15.5px; line-height: 1.6; }
+.vx-jrn-sit-txt { color: var(--vx-ink); font-size: 16px; line-height: 1.6; }
 .vx-jrn-sit-go { font-size: 13px; color: var(--vx-faint); white-space: nowrap; }
 .vx-jrn-hero-start {
   display: inline-block; font-family: var(--vx-display); font-size: 15px;
@@ -1300,13 +1311,13 @@ html { scroll-behavior: smooth; }
   border-radius: 0; padding: 2px 7px;
 }
 .vx-jrn-lnode.is-on { color: #fff; background: var(--vx-accent2); border-color: var(--vx-accent2); }
-.vx-jrn-c-text { font-size: 16.5px; line-height: 1.85; margin: 0 0 18px; color: #2a2a2a; }
+.vx-jrn-c-text { font-size: 16px; line-height: 1.85; margin: 0 0 18px; color: #2a2a2a; }
 
 /* 誤區 */
 .vx-jrn-mis { display: flex; flex-direction: column; gap: 0; margin: 0 0 18px; border-radius: 0; overflow: hidden; border: 1px solid var(--vx-rule); }
 .vx-jrn-mis-row + .vx-jrn-mis-row { border-top: 4px solid var(--vx-paper2); }
 .vx-jrn-mis-bad, .vx-jrn-mis-why, .vx-jrn-mis-good {
-  padding: 10px 14px; font-size: 14.5px; line-height: 1.65;
+  padding: 10px 14px; font-size: 14px; line-height: 1.65;
 }
 .vx-jrn-mis-bad { background: var(--vx-warn-bg); color: #6e2018; }
 .vx-jrn-mis-why { background: #fbf9f3; color: var(--vx-sub); }
@@ -1331,7 +1342,7 @@ html { scroll-behavior: smooth; }
   font-size: 15px; line-height: 1.7;
 }
 .vx-jrn-iv-name { font-weight: 600; color: var(--vx-ink); }
-.vx-jrn-iv-how { display: block; color: var(--vx-sub); font-size: 14.5px; margin-top: 2px; }
+.vx-jrn-iv-how { display: block; color: var(--vx-sub); font-size: 14px; margin-top: 2px; }
 .vx-jrn-cert { font-size: 12px; }
 
 /* 想深一點 */
@@ -1340,7 +1351,7 @@ html { scroll-behavior: smooth; }
   background: var(--vx-paper);
 }
 .vx-jrn-deep > summary {
-  cursor: pointer; padding: 10px 14px; font-size: 13.5px; color: var(--vx-sub);
+  cursor: pointer; padding: 10px 14px; font-size: 14px; color: var(--vx-sub);
   font-family: var(--vx-display); letter-spacing: .04em; list-style: none;
 }
 .vx-jrn-deep > summary::-webkit-details-marker { display: none; }
@@ -1349,8 +1360,8 @@ html { scroll-behavior: smooth; }
 .vx-jrn-deep-body { padding: 2px 16px 14px; font-size: 14px; line-height: 1.7; color: var(--vx-sub); }
 .vx-jrn-deep-body p { margin: 8px 0; }
 .vx-jrn-deep-body b { color: var(--vx-ink); }
-.vx-jrn-deep-cert { font-size: 12.5px; color: var(--vx-faint); }
-.vx-jrn-deep-src { font-size: 12.5px; color: var(--vx-faint); }
+.vx-jrn-deep-cert { font-size: 13px; color: var(--vx-faint); }
+.vx-jrn-deep-src { font-size: 13px; color: var(--vx-faint); }
 
 /* ── 章尾橋接 ── */
 .vx-jrn-bridge {
@@ -1402,7 +1413,7 @@ html { scroll-behavior: smooth; }
 }
 .vx-jrn-outro-links a { color: var(--vx-accent); text-decoration: none; font-weight: 600; }
 .vx-jrn-outro-links a:hover { text-decoration: underline; }
-.vx-jrn-legend { font-size: 12.5px; color: var(--vx-faint); }
+.vx-jrn-legend { font-size: 13px; color: var(--vx-faint); }
 
 /* ═══ 章預設收合：落地只見 8 張章卡（2026-06-17）══════════════ */
 .vx-jrn-ch-d > summary.vx-jrn-ch-head {
@@ -1430,7 +1441,7 @@ html { scroll-behavior: smooth; }
 }
 .vx-jrn-toc-pill {
   display: inline-flex; align-items: center;
-  font-family: var(--vx-display); font-size: 12.5px;
+  font-family: var(--vx-display); font-size: 13px;
   color: var(--vx-sub); background: var(--vx-paper);
   border: 1px solid var(--vx-rule2); border-radius: 0;
   padding: 4px 12px; text-decoration: none;
@@ -1493,7 +1504,7 @@ html { scroll-behavior: smooth; }
 }
 .vx-jrn-c-text-rest {
   display: block;
-  font-size: 15.5px; line-height: 1.85; color: #2a2a2a;
+  font-size: 16px; line-height: 1.85; color: #2a2a2a;
   margin: 0;
 }
 
