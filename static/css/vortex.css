@@ -1630,31 +1630,60 @@ html { scroll-behavior: smooth; }
   border-bottom: 1px solid var(--vx-rule);
 }
 
-.vx-read-toc { list-style: none; margin: 0; padding: 0; }
-.vx-read-toc li { margin: 0; }
+/* 脊椎＝一條從序章貫穿到尾聲的路徑，每章是路上的一個節點 */
+.vx-read-toc {
+  list-style: none; margin: 0; padding: 0;
+  position: relative;
+}
+/* 連續的鉛直軌道線：穿過所有節點圓心（節點圓心在 left:9px）*/
+.vx-read-toc::before {
+  content: ""; position: absolute;
+  left: 9px; top: 14px; bottom: 14px; width: 1px;
+  background: var(--vx-rule); z-index: 0;
+}
+.vx-read-toc li { margin: 0; position: relative; z-index: 1; }
 .vx-read-toc a {
-  display: flex; align-items: baseline; gap: 8px;
-  padding: 7px 10px; margin: 1px 0;
+  display: flex; align-items: baseline; gap: 9px;
+  padding: 8px 8px 8px 26px; margin: 0;
   text-decoration: none; color: var(--vx-sub);
-  border-left: 2px solid transparent;
-  border-radius: 0 3px 3px 0;
-  line-height: 1.35; transition: color .15s, background .15s, border-color .15s;
+  line-height: 1.35; position: relative;
+  transition: color .15s;
 }
-.vx-read-toc a:hover { color: var(--vx-ink); background: var(--vx-paper2); }
-.vx-read-toc a.is-active {
-  color: var(--vx-accent2); background: var(--vx-paper2);
-  border-left-color: var(--vx-accent);
+/* 節點圓點：壓在軌道線上 */
+.vx-read-toc a::before {
+  content: ""; position: absolute;
+  left: 5px; top: 12px; width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--vx-bg);
+  border: 1.5px solid var(--vx-rule2);
+  box-shadow: 0 0 0 3px var(--vx-bg);
+  transition: background .15s, border-color .15s, transform .15s;
 }
-.vx-read-toc-edge {
-  font-size: var(--fs-xs); letter-spacing: .08em;
-  color: var(--vx-faint);
+.vx-read-toc a:hover { color: var(--vx-ink); }
+.vx-read-toc a:hover::before { border-color: var(--vx-accent); }
+.vx-read-toc a.is-active { color: var(--vx-accent2); }
+.vx-read-toc a.is-active::before {
+  background: var(--vx-accent); border-color: var(--vx-accent);
+  transform: scale(1.18);
 }
+/* 序章 / 尾聲：路徑的兩個端點，用空心菱形區別於章節圓點 */
+.vx-read-toc-edge { font-size: var(--fs-xs); letter-spacing: .08em; color: var(--vx-faint); }
+.vx-read-toc a.vx-read-toc-edge::before {
+  width: 7px; height: 7px; left: 6px; border-radius: 1px;
+  transform: rotate(45deg); border-color: var(--vx-faint);
+}
+.vx-read-toc a.vx-read-toc-edge.is-active::before {
+  transform: rotate(45deg) scale(1.1); background: var(--vx-accent); border-color: var(--vx-accent);
+}
+/* L 階：節點旁的層級銘牌 */
 .vx-read-toc-l {
-  flex: 0 0 auto; min-width: 1.8em;
-  font-size: 11px; letter-spacing: .04em;
-  color: var(--vx-accent); font-weight: 700;
+  flex: 0 0 auto; min-width: 2.6em;
+  font-size: 10px; letter-spacing: .03em;
+  color: var(--vx-faint); font-weight: 700;
+  padding-top: 1px;
 }
-.vx-read-toc a.is-active .vx-read-toc-l { color: var(--vx-accent2); }
+.vx-read-toc a:hover .vx-read-toc-l,
+.vx-read-toc a.is-active .vx-read-toc-l { color: var(--vx-accent); }
 .vx-read-toc-name { font-size: var(--fs-sm); }
 
 .vx-read-modeswitch {
@@ -1885,8 +1914,11 @@ html { scroll-behavior: smooth; }
   .vx-read-toc {
     display: flex; flex-wrap: wrap; gap: 4px;
   }
-  .vx-read-toc a { border-left: none; border-radius: 3px; padding: 5px 9px; }
-  .vx-read-toc a.is-active { border-left: none; }
+  .vx-read-toc::before { display: none; }
+  .vx-read-toc a { padding: 5px 11px; border-radius: 3px; background: var(--vx-paper2); }
+  .vx-read-toc a::before { display: none; }
+  .vx-read-toc a.is-active { background: var(--vx-accent); color: #fff; }
+  .vx-read-toc a.is-active .vx-read-toc-l { color: rgba(255,255,255,.8); }
   .vx-read-article { max-width: none; }
 }
 
