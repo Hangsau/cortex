@@ -2,6 +2,10 @@
 
 ## 目前狀態（2026-06-19）
 
+**心理層 READ 模式重啟「一條讀下來」（2026-06-19，my-site commit 1da6f77 + canonical abb7e9e，已 push + CI 確認中）**：此前的 scrollytelling 單頁 journey 已退役（見下方 7f337e5），本輪用**全新範式**重做——不是單頁 scrollytelling，而是獨立的連續長文閱讀頁 `content/vortex/psychology-read/`（slug `psychology-read`，URL `vortex/psychology-read/`）+ 新 layout `layouts/vortex/vortex-psychology-read.html`。結構：左側 sticky `.vx-read-spine`（L0→L6 進度脊椎 TOC，IntersectionObserver 高亮當前章）+ 右側連續長文（序章 → 8 章[恐懼→…→心流，`where themes status complete`]→ 尾聲）+ 頂部 `.vx-read-progress` 捲動進度條 + 章末 `.vx-read-bridge` 橋接卡（bridge_zh + 接下章連結）。**三層概念呈現**：章首 `lead_zh` 白話導引 → 概念散文（`public.phenomenon.plain_text`，無則 fallback 學術 `text` 標 `--raw`）→ `<details>「想深一點」` progressive-disclosure 收學術原文/生理邊界/誤區/介入/族群/來源。**內容狀態**：僅**恐懼章**已完整敘事化（canonical 加 domain 級 `intro_zh`/`outro_zh` + 恐懼 `lead_zh`/`bridge_zh` + 7 概念 `plain_text`，全過三關校正）；其餘 7 章以 `premise.one_line` + `敘事化撰寫中` 標記優雅 fallback，學術 text 照常進「想深一點」。**雙模式互連**：home 心理 floor 加 `.tx-floor-read`「一條讀下來」為主入口（chips 仍快跳 LOOK-UP）；既有 rail+panel explorer（`vortex-psychology.html`）降為「跳著查」並加 `.vx-read-modeswitch--inline` 指回 READ。**資料管線**：canonical psychology.yaml → `sync_vortex.py`（已加 `lead_zh`/`bridge_zh` theme passthrough + `intro_zh`/`outro_zh` domain passthrough；concept `plain_text` 走既有 `pub.update` 自動流通）→ data/vortex/psychology.yaml。CSS 全在 `vortex.css` 末尾 `.vx-read-*` 區塊（博物館白牆風，單欄 34rem measure，rule G 時間化），JS 在 `vortex.js` 末尾 `.vx-read` 守衛區塊（進度條 + spy 高亮，無 JS 仍全可讀）。**驗收**：hugo build 綠（exit 0）、READ 頁渲染確認 8 章 + 序章 h1 + 恐懼散文 + 62 個「想深一點」、home/lookup 雙向入口連結解析正確。⚠ **待辦（下輪，需用戶 review 後）**：把 plain_text/lead_zh/bridge_zh 內容推到其餘 7 章（身心交互/動機/意象/注意力/自我對話/喚醒焦慮/心流）。⚠ `.m3-*.txt` 與 `.prompts/audit-run.log` 仍刻意 untracked，勿 commit。
+
+> ↓ 更早
+
 **Vortex 首頁「真正重設計」成博物館說明牌（2026-06-19，commit 5eab6f8 + 6ab2772 + canonical a29e81a，全 push + CI 綠）**：
 
 ⚠️ **更正前一條的誇大**：前一輪（commit 00b1123）只把 `vortex-techo.css` 與 `vortex.css` 的**配色 token 換成博物館綠**（sed 換暖色 → 冷調），**版面結構原封不動**——首頁仍是日式文具的密集格線、編號徽章、滿版方框卡片、bordered 矩陣表。站主回來看網站直接糾正「我不是叫你重新設計嗎 為什麼還是一樣的東西」「第幾次了」。**換配色 ≠ 重新設計**：DESIGN_SYSTEM 06 的靈魂是「嚴謹網格但網格本身不可見」（無方框、髮絲線、巨大留白、高對比展示襯線），前一輪完全沒做到，只是重新上色。
