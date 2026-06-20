@@ -38,6 +38,28 @@ body:has(.vx-shell) .main-content { max-width: none; padding: 0; }
   .vx-shell:has(.vx-stroke-wrap) > .vx-stroke-wrap > .vx-panels {
     grid-area: main; min-width: 0;
   }
+
+  /* READ 頁（心理層「一條讀下來」）同理：全站欄 + 閱讀脊椎疊進同一左欄，
+     長文在右。.vx-read / .vx-read-wrap 化為透明容器，spine / article 直接
+     進 shell 格線。.vx-read-progress 是 position:fixed 不佔格。 */
+  .vx-shell:has(.vx-read) {
+    grid-template-columns: 244px minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "nav   main"
+      "spine main";
+    column-gap: 48px;
+  }
+  .vx-shell:has(.vx-read) > .vxnav {
+    grid-area: nav;
+    position: static; max-height: none; overflow: visible;
+    border-bottom: 1px solid var(--n-rule);
+    padding-bottom: 18px;
+  }
+  .vx-shell > .vx-read { display: contents; }
+  .vx-shell > .vx-read > .vx-read-wrap { display: contents; }
+  .vx-shell:has(.vx-read) .vx-read-spine { grid-area: spine; min-width: 0; }
+  .vx-shell:has(.vx-read) .vx-read-article { grid-area: main; min-width: 0; }
 }
 
 .vxnav {
