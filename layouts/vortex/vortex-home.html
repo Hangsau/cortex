@@ -9,16 +9,10 @@
 {{ $base := .Site.BaseURL }}
 {{ $dicts := partial "vortex/stroke-dicts.html" . }}
 {{ $strokeZh := $dicts.strokeZh }}
-{{ $strokeEn := $dicts.strokeEn }}
 {{ $strokeMeta := slice
   (dict "key" "free" "slug" "freestyle") (dict "key" "back" "slug" "backstroke")
   (dict "key" "breast" "slug" "breaststroke") (dict "key" "fly" "slug" "butterfly")
   (dict "key" "udk" "slug" "underwater-dolphin-kick") (dict "key" "starts-turns" "slug" "starts-turns") }}
-{{ $wsl := index (index hugo.Data "vortex") "water-sense-levels" }}
-{{ $levels := $wsl.levels }}
-{{ $tracks := $wsl.strokes }}
-{{ $rows := slice "L6" "L5" "L4" "L3" "L2" }}
-{{ $found := slice "L1" "L0" }}
 
 <div class="tx-page">
 
@@ -28,163 +22,58 @@
     <p class="tx-lead"><strong>技術是水感的輸出，不是要照抄的動作</strong>。先搞懂水感是什麼，再挑一式把感知練成動作。</p>
   </header>
 
-  {{/* ════════ 序 · 先搞懂水感是什麼（新手入口） ════════ */}}
-  <section class="tx-sec">
-    <a class="tx-hero" href="{{ $base }}vortex/technica/water-sense-guide/">
-      <span class="tx-hero-no">00</span>
-      <span class="tx-hero-body">
-        <span class="tx-hero-k">第一次來，從這裡開始</span>
-        <span class="tx-hero-h">什麼是「水感」？</span>
-        <span class="tx-hero-d">照著教練說的移手卻還是做不對，因為水裡的感覺天生會騙你。十分鐘弄懂水感是什麼、為何失真、怎麼一級級練出來——<strong>後面每一式才讀得進去</strong>。</span>
-        <span class="tx-hero-go">開始讀 · 整個計劃的起點 →</span>
-      </span>
-    </a>
-    <ul class="tx-path">
-      <li><a href="{{ $base }}vortex/technica/water-sense-guide/">
-        <span class="pno">理</span>
-        <span><span class="ph">什麼是水感（理論）</span><span class="pd">本體感覺＋外感受、為何水中感知天生失真、感知剝奪訓練怎麼建立、錯誤水感怎麼重建。</span></span>
-        <span class="parr">→</span></a></li>
-      <li><a href="{{ $base }}vortex/levels/">
-        <span class="pno">級</span>
-        <span><span class="ph">水感發展 L0–L6</span><span class="pd">四式從 L0 呼吸感知到 L6 全身場感知的發展序列，每級的訓練方法、觀察指標、量化基準、停滯處理。</span></span>
-        <span class="parr">→</span></a></li>
-    </ul>
-  </section>
+  {{/* ════════ 起點：先搞懂水感（唯一的「從這開始」） ════════ */}}
+  <a class="tx-hero" href="{{ $base }}vortex/technica/water-sense-guide/">
+    <span class="tx-hero-no">00</span>
+    <span class="tx-hero-body">
+      <span class="tx-hero-k">第一次來，從這裡開始</span>
+      <span class="tx-hero-h">什麼是「水感」？</span>
+      <span class="tx-hero-d">照著教練說的移手卻還是做不對，因為水裡的感覺天生會騙你。十分鐘弄懂水感是什麼、為何失真、怎麼一級級練出來——<strong>後面每一式才讀得進去</strong>。</span>
+      <span class="tx-hero-go">開始讀 · 整個計劃的起點 →</span>
+    </span>
+  </a>
 
-  {{/* ════════ 水感發展地圖 ════════ */}}
+  {{/* ════════ 入口網格：每張是一道門，重內容在各自子頁 ════════ */}}
   <section class="tx-sec">
     <div class="tx-sec-head">
-      <h2 class="tx-sec-h"><span class="no">圖</span>找到你現在在哪一級</h2>
-      <span class="tx-sec-tag">L0 → L6 · 點任一格讀細節</span>
-    </div>
-    <p class="tx-sec-note"><strong>呼吸（L0）、漂浮（L1）是四式共同地基</strong>，L2 起分流成四式各自軌道直到 L6 自動化。找到你的位置，點任一格讀那級的訓練方法與觀察指標。</p>
-
-    <div class="tx-map-wrap">
-      <div class="tx-map-hint"><span class="up">↑ 越往上 · 感知越自動化</span><span>每格＝一個發展階段</span></div>
-      <div class="tx-map">
-        <div class="tx-map-colhead axis"></div>
-        {{ range $tracks }}
-          <div class="tx-map-colhead">{{ .name_zh }}</div>
-        {{ end }}
-
-        {{ range $L := $rows }}
-          <div class="tx-map-row">
-            <div class="tx-axis-l">{{ $L }}</div>
-            {{ range $s := $tracks }}
-              {{ $node := index (where (where $levels "stroke" $s.key) "level" $L) 0 }}
-              {{ with $node }}
-                <button class="tx-node" type="button" data-node="{{ .id }}">
-                  <span class="lv">{{ .level }}</span>
-                  <span class="nm">{{ .name_zh }}</span>
-                  <span class="tg">{{ .tagline }}</span>
-                </button>
-              {{ else }}
-                <span class="tx-node" style="visibility:hidden"></span>
-              {{ end }}
-            {{ end }}
-          </div>
-        {{ end }}
-
-        <div class="tx-branch">四式由此分流 · 以下為共同地基</div>
-
-        {{ range $L := $found }}
-          {{ $node := index (where (where $levels "stroke" "free") "level" $L) 0 }}
-          {{ with $node }}
-            <div class="tx-base">
-              <div class="tx-axis-l">{{ .level }}</div>
-              <button class="tx-base-node" type="button" data-node="{{ .id }}">
-                <span class="lv">{{ .level }}</span>
-                <span class="nm">{{ .name_zh }}</span>
-                <span class="tg">{{ .tagline }}</span>
-              </button>
-            </div>
-          {{ end }}
-        {{ end }}
-        <div class="tx-base-label"></div>
-
-        <div class="tx-floor">
-          <div class="tx-floor-h">L0− · 感知的地基：心理層（恐懼／動機／注意力，在源頭決定能不能感覺到水）</div>
-          {{ with (index hugo.Data "vortex").psychology }}
-          <a class="tx-floor-read" href="{{ $base }}vortex/psychology-read/">一條讀下來 · 從恐懼到心流 →</a>
-          <div class="tx-chips">
-            {{ range .themes }}
-              <a href="{{ $base }}vortex/psychology/#{{ .id }}">{{ .nav_zh }}<span class="band">{{ .l_band }}</span></a>
-            {{ end }}
-          </div>
-          {{ end }}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {{/* 隱藏細節資料（JS 取用，無 JS 時面板不開、地圖仍可看） */}}
-  {{ range $s := $tracks }}
-    {{ range (where $levels "stroke" $s.key) }}
-      <template class="tx-tpl" data-node="{{ .id }}"
-        data-name="{{ .name_zh }}" data-lv="{{ index $strokeZh $s.key }} · {{ .level }}" data-tag="{{ .tagline }}"
-        data-more="{{ $base }}vortex/levels/#{{ $s.key }}">
-        {{ with .description }}<p>{{ . }}</p>{{ end }}
-        {{ with .methods }}<div class="tx-dh">訓練方法</div>
-          {{ range . }}<div class="tx-dmethod"><span class="mn2">{{ .name }}</span>{{ with .detail }}<span class="md2">{{ . }}</span>{{ end }}{{ with .cue }}<span class="mc2">「{{ . }}」</span>{{ end }}</div>{{ end }}
-        {{ end }}
-        {{ with .indicators }}<div class="tx-dh">觀察指標</div>
-          {{ range . }}<div class="tx-dind"><span class="it">{{ .type }}</span>{{ .text }}</div>{{ end }}
-        {{ end }}
-        {{ with .quant }}<p class="tx-dmeta"><b>量化基準</b>：{{ . }}</p>{{ end }}
-      </template>
-    {{ end }}
-  {{ end }}
-
-  {{/* ════════ 六式 ledger ════════ */}}
-  <section class="tx-sec">
-    <div class="tx-sec-head">
-      <h2 class="tx-sec-h"><span class="no">六</span>六大單元 · 動作分解</h2>
-      <span class="tx-sec-tag">動作＝感知的輸出</span>
-    </div>
-    <p class="tx-sec-note"><strong>點開任一式看它由哪些動作組成</strong>——每個動作都是感知對了之後身體自己收斂的結果。水下蝶腿與起跳轉身是四式地基上的銜接技術，只在這裡以動作清單呈現。</p>
-    <div class="tx-ledger">
-      {{ range $i, $sm := $strokeMeta }}
-        {{ $d := index (index hugo.Data "vortex") $sm.key }}
-        {{ with $d }}
-          {{ $url := printf "%svortex/%s/" $base $sm.slug }}
-          {{ $nMoves := len .moves }}
-          <details class="tx-row">
-            <summary>
-              <span class="rno">{{ printf "%02d" (add $i 1) }}</span>
-              <span class="rname">{{ index $strokeZh $sm.key }}
-                <span class="rone">{{ .premise | replaceRE "<span class=\"cert\">.*?</span>" "" | plainify | truncate 64 }}</span></span>
-              <span class="rmeta"><span class="rcount">{{ $nMoves }}<small> 個動作</small></span><br><span class="rmark">展開</span></span>
-            </summary>
-            <div class="tx-moves">
-              <ol>
-                {{ range .moves }}
-                  <li><span class="mn">{{ .n }}</span>
-                    <span><span class="mnm">{{ .name }}</span>
-                      <span class="mone">{{ .one }}</span></span>
-                    <span class="ml">{{ .l }}</span></li>
-                {{ end }}
-              </ol>
-              <a class="tx-enter" href="{{ $url }}">進入這一式，逐個動作深讀 →</a>
-            </div>
-          </details>
-        {{ end }}
-      {{ end }}
-    </div>
-  </section>
-
-  {{/* ════════ 放大尺度 · 發展與查找 ════════ */}}
-  <section class="tx-sec">
-    <div class="tx-sec-head">
-      <h2 class="tx-sec-h"><span class="no">＋</span>放大尺度 · 發展與查找</h2>
-      <span class="tx-sec-tag">發展 · 查找</span>
+      <h2 class="tx-sec-h"><span class="no">門</span>接下來去哪</h2>
+      <span class="tx-sec-tag">每張＝一道門 · 點進去才是內容</span>
     </div>
     <div class="tx-cards">
+      <a class="tx-card" href="{{ $base }}vortex/levels/">
+        <span class="ctag">L0–L6</span>
+        <span class="ch">水感發展地圖</span>
+        <span class="cen">Find Your Level</span>
+        <span class="cd">找到你現在在哪一級：四式從 L0 呼吸感知到 L6 自動化的發展序列，每級的訓練方法、觀察指標、量化基準。</span>
+        <span class="cmeta">四式 · <b>26</b> 階段　L0→L6</span>
+      </a>
+      <a class="tx-card" href="{{ $base }}vortex/psychology-read/">
+        <span class="ctag">L0−</span>
+        <span class="ch">心理層</span>
+        <span class="cen">From Fear to Flow</span>
+        <span class="cd">感知的地基：恐懼、動機、注意力在源頭決定你能不能感覺到水。一條讀下來，從怕水到心流。</span>
+        <span class="cmeta"><b>8</b> 主題　從恐懼到心流</span>
+      </a>
+      <a class="tx-card" href="{{ $base }}vortex/database/#vxNeeds">
+        <span class="ctag">DRILLS</span>
+        <span class="ch">依需求找練習</span>
+        <span class="cen">Find Drills by Need</span>
+        <span class="cd">不知道練什麼？挑一個環節（呼吸／平衡／踢腿／划手／銜接／搖櫓）或卡住的水感階段，立刻列出對應練習。</span>
+        <span class="cmeta"><b>125</b> 個練習</span>
+      </a>
+      <a class="tx-card" href="{{ $base }}vortex/database/">
+        <span class="ctag">REFERENCE</span>
+        <span class="ch">跨泳式查資料</span>
+        <span class="cen">Cross-Stroke Reference</span>
+        <span class="cd">已經知道要找什麼？誤區、機制、L 指標三類參考資料跨四式集中查詢，可依泳式篩選或搜尋。</span>
+        <span class="cmeta">誤區 · 機制 · <b>L</b> 指標</span>
+      </a>
       <a class="tx-card" href="{{ $base }}vortex/adm/">
         <span class="ctag">ADM</span>
         <span class="ch">運動員發展矩陣</span>
         <span class="cen">Athlete Development Matrix</span>
-        <span class="cd">單一動作之上的長期視角：一名選手從學習訓練到登上獎牌台該長出什麼能力，含各式技術標準。</span>
-        <span class="cmeta"><b>4</b> 支柱 × <b>4</b> 階段　L2T→T2W</span>
+        <span class="cd">單一動作之上的長期視角：選手從學習訓練到登上獎牌台該長出什麼能力，含各式技術標準。</span>
+        <span class="cmeta"><b>4</b> 支柱 × <b>4</b> 階段</span>
       </a>
       <a class="tx-card" href="{{ $base }}vortex/periodization/">
         <span class="ctag">PZ</span>
@@ -193,21 +82,28 @@
         <span class="cd">ADM 年度計畫背後的理論骨幹：階段、中觀／微觀週期、賽前減量達峰、能量系統分區。源自 Bompa 6th ed.。</span>
         <span class="cmeta"><b>6</b> 節</span>
       </a>
-      <a class="tx-card" href="{{ $base }}vortex/database/#vxNeeds">
-        <span class="ctag">DRILLS</span>
-        <span class="ch">依需求找練習</span>
-        <span class="cen">Find Drills by Need</span>
-        <span class="cd">不知道練什麼？挑一個環節（呼吸／平衡／踢腿／划手／銜接／搖櫓）或卡住的水感階段，立刻列出對應練習，點開就有怎麼做。</span>
-        <span class="cmeta"><b>125</b> 個練習</span>
-      </a>
-      <a class="tx-card" href="{{ $base }}vortex/database/">
-        <span class="ctag">REFERENCE</span>
-        <span class="ch">跨泳式查資料</span>
-        <span class="cen">Cross-Stroke Reference</span>
-        <span class="cd">已經知道要找什麼？誤區、機制、L 指標三類參考資料跨四式集中查詢，可依泳式篩選或打字搜尋。</span>
-        <span class="cmeta">誤區 · 機制 · <b>L</b> 指標</span>
-      </a>
     </div>
+  </section>
+
+  {{/* ════════ 六式：精簡連結列，逐動作深讀在各自子頁 ════════ */}}
+  <section class="tx-sec">
+    <div class="tx-sec-head">
+      <h2 class="tx-sec-h"><span class="no">六</span>挑一式開始練</h2>
+      <span class="tx-sec-tag">動作＝感知的輸出</span>
+    </div>
+    <ul class="tx-path">
+      {{ range $i, $sm := $strokeMeta }}
+        {{ $d := index (index hugo.Data "vortex") $sm.key }}
+        {{ with $d }}
+          {{ $url := printf "%svortex/%s/" $base $sm.slug }}
+          <li><a href="{{ $url }}">
+            <span class="pno">{{ printf "%02d" (add $i 1) }}</span>
+            <span><span class="ph">{{ index $strokeZh $sm.key }}　<span class="pcount">{{ len .moves }} 個動作</span></span>
+              <span class="pd">{{ .premise | replaceRE "<span class=\"cert\">.*?</span>" "" | plainify | truncate 60 }}</span></span>
+            <span class="parr">→</span></a></li>
+        {{ end }}
+      {{ end }}
+    </ul>
   </section>
 
   <p class="tx-legend">
@@ -216,58 +112,4 @@
   </p>
 
 </div>
-
-{{/* ════════ 細節側面板 ════════ */}}
-<div class="tx-scrim" id="txScrim"></div>
-<aside class="tx-detail" id="txDetail" aria-hidden="true">
-  <div class="tx-detail-bar">
-    <span class="dlv" id="txDlv"></span>
-    <button class="tx-detail-close" id="txClose" type="button" aria-label="關閉">×</button>
-  </div>
-  <div class="tx-detail-body" id="txBody"></div>
-</aside>
-
-<script>
-(function () {
-  var detail = document.getElementById('txDetail');
-  var scrim  = document.getElementById('txScrim');
-  var body   = document.getElementById('txBody');
-  var dlv    = document.getElementById('txDlv');
-  if (!detail) return;
-  var nodes = document.querySelectorAll('[data-node]');
-  var active = null;
-
-  function tplFor(id) {
-    return document.querySelector('template.tx-tpl[data-node="' + id + '"]');
-  }
-  function open(btn) {
-    var id = btn.getAttribute('data-node');
-    var tpl = tplFor(id);
-    if (!tpl) return;
-    while (body.firstChild) body.removeChild(body.firstChild);
-    var h = document.createElement('h3'); h.textContent = tpl.getAttribute('data-name'); body.appendChild(h);
-    var t = document.createElement('p'); t.className = 'dtag'; t.textContent = tpl.getAttribute('data-tag'); body.appendChild(t);
-    body.appendChild(tpl.content.cloneNode(true));
-    var more = tpl.getAttribute('data-more');
-    if (more) { var a = document.createElement('a'); a.className = 'tx-dmore'; a.href = more; a.textContent = '到這一式的完整發展序列 →'; body.appendChild(a); }
-    dlv.textContent = tpl.getAttribute('data-lv') || '';
-    detail.classList.add('is-open'); scrim.classList.add('is-open');
-    detail.setAttribute('aria-hidden', 'false');
-    if (active) active.classList.remove('is-active');
-    btn.classList.add('is-active'); active = btn;
-    body.scrollTop = 0;
-  }
-  function close() {
-    detail.classList.remove('is-open'); scrim.classList.remove('is-open');
-    detail.setAttribute('aria-hidden', 'true');
-    if (active) { active.classList.remove('is-active'); active = null; }
-  }
-  for (var i = 0; i < nodes.length; i++) {
-    if (nodes[i].tagName === 'BUTTON') nodes[i].addEventListener('click', (function (b) { return function () { open(b); }; })(nodes[i]));
-  }
-  document.getElementById('txClose').addEventListener('click', close);
-  scrim.addEventListener('click', close);
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
-})();
-</script>
 {{ end }}
