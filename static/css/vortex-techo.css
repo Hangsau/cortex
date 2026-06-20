@@ -19,7 +19,7 @@
   --tx-hair2:   rgba(35,35,32,.07);   /* 更淡的內部分隔 */
   --tx-mincho:  'Cormorant Garamond', 'Noto Serif TC', Georgia, serif;
   --tx-mono:    'Quattrocento Sans', 'Noto Sans TC', sans-serif;
-  --tx-air:     clamp(64px, 9vw, 132px);  /* 區塊間巨大留白 */
+  --tx-air:     clamp(44px, 5.5vw, 78px);  /* 區塊間留白（瘦身後） */
 }
 
 /* 展牆：純平面，無底紋格線 */
@@ -46,7 +46,7 @@ body:has(.tx-page) { background-color: var(--tx-bg); }
 /* ════ Masthead — 巨大展示標題 + 編目戳記 ════ */
 .tx-mast {
   position: relative;
-  padding-bottom: var(--tx-air);
+  padding-bottom: clamp(26px, 3.5vw, 44px);
   margin-bottom: var(--tx-air);
   border-bottom: 1px solid var(--tx-hair);
 }
@@ -55,7 +55,7 @@ body:has(.tx-page) { background-color: var(--tx-bg); }
   font-family: var(--tx-mono);
   font-size: 10.5px; letter-spacing: .34em; line-height: 1.9;
   text-transform: uppercase; color: var(--tx-sub);
-  margin-bottom: clamp(28px, 5vw, 52px);
+  margin-bottom: clamp(16px, 2.6vw, 28px);
 }
 .tx-eyebrow {
   font-size: 11px; letter-spacing: .42em; text-transform: uppercase;
@@ -63,7 +63,7 @@ body:has(.tx-page) { background-color: var(--tx-bg); }
 }
 .tx-title {
   font-family: var(--tx-mincho); font-weight: 500; font-style: normal;
-  font-size: clamp(72px, 19vw, 188px); line-height: .92;
+  font-size: clamp(56px, 12vw, 116px); line-height: .92;
   letter-spacing: .01em; margin: 0; color: var(--tx-ink);
 }
 .tx-title .tx-en {
@@ -73,8 +73,8 @@ body:has(.tx-page) { background-color: var(--tx-bg); }
 }
 .tx-lead {
   font-family: var(--tx-mincho); font-weight: 500;
-  font-size: clamp(19px, 2.6vw, 24px); line-height: 1.7;
-  color: #34342f; margin: clamp(34px, 5vw, 56px) 0 0; max-width: 30em;
+  font-size: clamp(17px, 2vw, 21px); line-height: 1.68;
+  color: #34342f; margin: clamp(20px, 3vw, 32px) 0 0; max-width: 28em;
 }
 .tx-lead strong { color: var(--tx-accent2); font-weight: 600; }
 
@@ -82,7 +82,7 @@ body:has(.tx-page) { background-color: var(--tx-bg); }
 .tx-sec { margin-top: var(--tx-air); }
 .tx-sec-head {
   display: flex; align-items: baseline; justify-content: space-between;
-  gap: 24px; padding-bottom: 18px; margin-bottom: 40px;
+  gap: 24px; padding-bottom: 13px; margin-bottom: 26px;
   border-bottom: 1px solid var(--tx-hair);
 }
 .tx-sec-h {
@@ -101,8 +101,8 @@ body:has(.tx-page) { background-color: var(--tx-bg); }
 }
 .tx-sec-note {
   font-family: var(--tx-mincho); font-weight: 500;
-  font-size: clamp(17px, 2.1vw, 20px); line-height: 1.75;
-  color: #46463f; margin: 0 0 44px; max-width: 34em;
+  font-size: clamp(15.5px, 1.7vw, 17.5px); line-height: 1.72;
+  color: #46463f; margin: 0 0 28px; max-width: 33em;
 }
 .tx-sec-note strong { color: var(--tx-accent2); font-weight: 600; }
 
@@ -111,32 +111,32 @@ body:has(.tx-page) { background-color: var(--tx-bg); }
   display: grid; grid-template-columns: minmax(0, auto) 1fr;
   gap: clamp(20px, 4vw, 56px); align-items: start;
   text-decoration: none; color: inherit;
-  padding: 8px 0 44px; margin-bottom: 48px;
+  padding: 0 0 30px; margin-bottom: 32px;
   border-bottom: 1px solid var(--tx-hair);
   transition: opacity .2s;
 }
 .tx-hero:hover { opacity: .72; }
 .tx-hero:hover .tx-hero-go { color: var(--tx-accent); border-color: var(--tx-accent); }
 .tx-hero-no {
-  font-family: var(--tx-mincho); font-weight: 500; font-size: clamp(64px, 11vw, 132px);
-  line-height: .8; color: var(--tx-accent); letter-spacing: -.01em;
+  font-family: var(--tx-mincho); font-weight: 500; font-size: clamp(48px, 8vw, 96px);
+  line-height: .82; color: var(--tx-accent); letter-spacing: -.01em;
 }
 .tx-hero-k {
   display: block; font-family: var(--tx-mono); font-size: 10.5px; letter-spacing: .3em;
-  text-transform: uppercase; color: var(--tx-faint); margin-bottom: 14px;
+  text-transform: uppercase; color: var(--tx-faint); margin-bottom: 11px;
 }
 .tx-hero-h {
   display: block; font-family: var(--tx-mincho); font-weight: 600;
-  font-size: clamp(28px, 4vw, 42px); line-height: 1.12; letter-spacing: .01em; color: var(--tx-ink);
+  font-size: clamp(26px, 3.4vw, 36px); line-height: 1.12; letter-spacing: .01em; color: var(--tx-ink);
 }
 .tx-hero-d {
   display: block; font-family: var(--tx-mincho); font-weight: 500;
-  font-size: clamp(16px, 1.9vw, 18px); line-height: 1.85;
-  color: #46463f; margin: 20px 0 0; max-width: 38em;
+  font-size: clamp(15.5px, 1.8vw, 17px); line-height: 1.78;
+  color: #46463f; margin: 15px 0 0; max-width: 37em;
 }
 .tx-hero-d strong { color: var(--tx-accent2); font-weight: 600; }
 .tx-hero-go {
-  display: inline-block; margin-top: 26px; font-family: var(--tx-mono);
+  display: inline-block; margin-top: 20px; font-family: var(--tx-mono);
   font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--tx-accent2);
   border-bottom: 1px solid var(--tx-hair); padding-bottom: 4px; transition: all .2s;
 }
@@ -148,7 +148,7 @@ body:has(.tx-page) { background-color: var(--tx-bg); }
 .tx-path a {
   display: grid; grid-template-columns: 2.4em 1fr auto; align-items: baseline;
   gap: clamp(14px, 2.4vw, 28px); text-decoration: none; color: inherit;
-  padding: 26px 4px; transition: opacity .18s;
+  padding: 17px 4px; transition: opacity .18s;
 }
 .tx-path a:hover { opacity: .62; }
 .tx-path a:hover .parr { transform: translateX(5px); }
@@ -157,7 +157,7 @@ body:has(.tx-page) { background-color: var(--tx-bg); }
   font-weight: 500; line-height: 1;
 }
 .tx-path .ph { font-family: var(--tx-mincho); font-weight: 600; font-size: 20px; letter-spacing: .01em; }
-.tx-path .pd { display: block; color: var(--tx-sub); font-size: 13px; line-height: 1.75; margin-top: 8px; max-width: 44em; }
+.tx-path .pd { display: block; color: var(--tx-sub); font-size: 12.5px; line-height: 1.7; margin-top: 6px; max-width: 44em; }
 .tx-path .parr { color: var(--tx-faint); font-size: 16px; align-self: center; transition: transform .2s; }
 
 /* ════ 六式 ledger：髮絲線帳列，可展開，無方框 ════ */
@@ -167,7 +167,7 @@ body:has(.tx-page) { background-color: var(--tx-bg); }
 .tx-row > summary {
   list-style: none; cursor: pointer;
   display: grid; grid-template-columns: 2.6em 1fr auto; align-items: baseline;
-  gap: clamp(14px, 2.4vw, 28px); padding: 26px 4px; transition: opacity .18s;
+  gap: clamp(14px, 2.4vw, 28px); padding: 17px 4px; transition: opacity .18s;
 }
 .tx-row > summary::-webkit-details-marker { display: none; }
 .tx-row > summary:hover { opacity: .6; }
@@ -184,7 +184,7 @@ body:has(.tx-page) { background-color: var(--tx-bg); }
   letter-spacing: .24em; text-transform: uppercase; color: var(--tx-faint);
   margin-left: 12px;
 }
-.tx-row .rone { display: block; color: var(--tx-sub); font-size: 13px; line-height: 1.75; margin-top: 8px; max-width: 42em; }
+.tx-row .rone { display: block; color: var(--tx-sub); font-size: 12.5px; line-height: 1.65; margin-top: 5px; max-width: 42em; }
 .tx-row .rmeta { text-align: right; white-space: nowrap; line-height: 1.6; }
 .tx-row .rcount { font-family: var(--tx-mincho); font-size: 24px; color: var(--tx-accent); font-weight: 500; }
 .tx-row .rcount small { font-size: 10px; color: var(--tx-faint); font-family: var(--tx-mono); font-weight: 400; letter-spacing: .12em; }
@@ -230,17 +230,17 @@ body:has(.tx-page) { background-color: var(--tx-bg); }
 .tx-card {
   text-decoration: none; color: inherit;
   display: flex; flex-direction: column;
-  padding: 36px clamp(20px, 3vw, 34px) 40px 0;
+  padding: 26px clamp(20px, 3vw, 34px) 28px 0;
   border-bottom: 1px solid var(--tx-hair2);
   border-right: 1px solid var(--tx-hair2);
   transition: opacity .18s;
 }
 .tx-card:hover { opacity: .62; }
 .tx-card .ctag { font-family: var(--tx-mono); font-size: 10px; letter-spacing: .3em; text-transform: uppercase; color: var(--tx-accent2); }
-.tx-card .ch { font-family: var(--tx-mincho); font-weight: 600; font-size: 25px; margin: 16px 0 3px; letter-spacing: .01em; line-height: 1.15; }
+.tx-card .ch { font-family: var(--tx-mincho); font-weight: 600; font-size: 23px; margin: 12px 0 3px; letter-spacing: .01em; line-height: 1.15; }
 .tx-card .cen { font-family: var(--tx-mono); font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--tx-faint); }
-.tx-card .cd { font-size: 13px; line-height: 1.8; color: var(--tx-sub); margin: 18px 0 0; }
-.tx-card .cmeta { margin-top: auto; padding-top: 22px; font-family: var(--tx-mono); font-size: 11.5px; color: var(--tx-sub); letter-spacing: .04em; }
+.tx-card .cd { font-size: 12.5px; line-height: 1.72; color: var(--tx-sub); margin: 13px 0 0; }
+.tx-card .cmeta { margin-top: auto; padding-top: 16px; font-family: var(--tx-mono); font-size: 11.5px; color: var(--tx-sub); letter-spacing: .04em; }
 .tx-card .cmeta b { color: var(--tx-accent); font-size: 17px; font-family: var(--tx-mincho); }
 
 /* ════════════════════════════════════════════════════════════
@@ -271,16 +271,16 @@ body:has(.tx-page) { background-color: var(--tx-bg); }
 .tx-axis-l {
   display: flex; align-items: flex-start; justify-content: flex-start;
   font-family: var(--tx-mono); font-size: 11px; color: var(--tx-accent2);
-  font-weight: 700; letter-spacing: .08em; padding: 16px 0 0; min-height: 96px;
+  font-weight: 700; letter-spacing: .08em; padding: 13px 0 0; min-height: 74px;
 }
 
 /* 節點：無方框、無連接線，靠對齊與留白 + 髮絲列線 */
 .tx-node {
-  position: relative; min-height: 96px;
+  position: relative; min-height: 74px;
   display: flex; flex-direction: column; justify-content: flex-start;
   text-align: left; cursor: pointer; background: transparent;
   border: 0; border-right: 1px solid var(--tx-hair2);
-  padding: 16px 14px 18px; font-family: inherit; color: inherit; width: 100%;
+  padding: 13px 13px 15px; font-family: inherit; color: inherit; width: 100%;
   transition: background .16s;
 }
 .tx-node:last-child { border-right: 0; }
@@ -288,7 +288,7 @@ body:has(.tx-page) { background-color: var(--tx-bg); }
 .tx-node.is-active { background: rgba(91,123,111,.12); }
 .tx-node.is-active::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--tx-accent); }
 .tx-node .lv { font-family: var(--tx-mono); font-size: 9.5px; letter-spacing: .18em; color: var(--tx-faint); text-transform: uppercase; }
-.tx-node .nm { font-family: var(--tx-mincho); font-weight: 600; font-size: 16px; line-height: 1.3; margin: 6px 0 5px; }
+.tx-node .nm { font-family: var(--tx-mincho); font-weight: 600; font-size: 15.5px; line-height: 1.28; margin: 5px 0 4px; }
 .tx-node .tg { font-size: 11px; line-height: 1.55; color: var(--tx-sub); }
 .tx-map-row { display: contents; }
 .tx-map-row .tx-node { border-top: 1px solid var(--tx-hair2); }
@@ -298,7 +298,7 @@ body:has(.tx-page) { background-color: var(--tx-bg); }
 .tx-branch {
   grid-column: 1 / -1; text-align: left; font-family: var(--tx-mono);
   font-size: 10px; letter-spacing: .26em; color: var(--tx-faint);
-  padding: 26px 0 14px; text-transform: uppercase;
+  padding: 18px 0 12px; text-transform: uppercase;
   border-top: 1px solid var(--tx-hair); margin-top: 4px;
 }
 
@@ -310,7 +310,7 @@ body:has(.tx-page) { background-color: var(--tx-bg); }
 .tx-base .tx-axis-l { min-height: 0; align-items: center; padding: 0; }
 .tx-base-node {
   border: 0; background: transparent; cursor: pointer;
-  padding: 22px 14px; display: flex; align-items: baseline; gap: 18px;
+  padding: 15px 14px; display: flex; align-items: baseline; gap: 18px;
   font-family: inherit; color: inherit; text-align: left; width: 100%;
   transition: background .16s; position: relative;
 }
@@ -328,7 +328,7 @@ body:has(.tx-page) { background-color: var(--tx-bg); }
 .tx-base-label::before { content: '四式共同地基'; }
 
 /* 心理地板（L0−） */
-.tx-floor { grid-column: 1 / -1; margin-top: 26px; border-top: 1px solid var(--tx-hair); padding-top: 22px; }
+.tx-floor { grid-column: 1 / -1; margin-top: 18px; border-top: 1px solid var(--tx-hair); padding-top: 16px; }
 .tx-floor-h { font-family: var(--tx-mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--tx-faint); margin-bottom: 14px; line-height: 1.7; }
 .tx-floor-read {
   display: inline-block; margin: 0 0 14px;
