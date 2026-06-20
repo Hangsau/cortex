@@ -1,6 +1,7 @@
 {{ define "head-extra" }}
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+TC:wght@400;500;600;700&family=Quattrocento+Sans:wght@400;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex-nav.css">
 <noscript><style>.vx-read-progress{display:none}.vx-read-spine{position:static;max-height:none}</style></noscript>
 {{ end }}
 
@@ -10,6 +11,8 @@
 {{ $themes := where $psy.themes "status" "complete" }}
 {{ $n := len $themes }}
 
+<div class="vx-shell">
+{{ partial "vortex/sidebar.html" (dict "ctx" . "current" "psychology") }}
 <div class="vx-read">
   <div class="vx-read-progress" id="vxReadProgress"><span></span></div>
 
@@ -131,6 +134,7 @@
 
     </main>
   </div>
+</div>
 </div>
 
 <script src="{{ .Site.BaseURL }}js/vortex.js" defer></script>

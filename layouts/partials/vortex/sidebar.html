@@ -1,0 +1,45 @@
+{{/* 全站 Vortex 持久側欄：每頁共用，當前主題高亮，任何頁可一鍵跳任何主題。
+     參數：dict "ctx" .  "current" <section-id>  ("stroke" <slug> 可選，泳式頁高亮用) */}}
+{{ $base := .ctx.Site.BaseURL }}
+{{ $cur := .current }}
+{{ $curStroke := .stroke }}
+{{ $strokes := slice
+  (dict "slug" "freestyle" "zh" "自由式")
+  (dict "slug" "backstroke" "zh" "仰式")
+  (dict "slug" "breaststroke" "zh" "蛙式")
+  (dict "slug" "butterfly" "zh" "蝶式")
+  (dict "slug" "underwater-dolphin-kick" "zh" "水下海豚腿")
+  (dict "slug" "starts-turns" "zh" "起跳轉身") }}
+<input type="checkbox" id="vxnav-toggle" class="vxnav-toggle" hidden>
+<aside class="vxnav" aria-label="Vortex 主題導航">
+  <div class="vxnav-bar">
+    <a class="vxnav-home" href="{{ $base }}vortex/">渦流計劃 · 水感</a>
+    <label class="vxnav-burger" for="vxnav-toggle" aria-label="開合主題選單">主題 ▾</label>
+  </div>
+  <nav class="vxnav-body">
+    <ul class="vxnav-list">
+      <li class="vxnav-item{{ if eq $cur "start" }} is-current{{ end }}">
+        <a href="{{ $base }}vortex/technica/water-sense-guide/"><span class="vxnav-n">00</span>什麼是水感</a></li>
+      <li class="vxnav-item{{ if eq $cur "levels" }} is-current{{ end }}">
+        <a href="{{ $base }}vortex/levels/"><span class="vxnav-n">L</span>發展地圖 L0–L6</a></li>
+      <li class="vxnav-item vxnav-group{{ if eq $cur "strokes" }} is-current is-open{{ end }}">
+        <span class="vxnav-grouphead"><span class="vxnav-n">六</span>六式技術</span>
+        <ul class="vxnav-sub">
+          {{ range $strokes }}
+          <li class="{{ if eq $curStroke .slug }}is-current{{ end }}"><a href="{{ $base }}vortex/{{ .slug }}/">{{ .zh }}</a></li>
+          {{ end }}
+        </ul>
+      </li>
+      <li class="vxnav-item{{ if eq $cur "psychology" }} is-current{{ end }}">
+        <a href="{{ $base }}vortex/psychology-read/"><span class="vxnav-n">心</span>心理層</a></li>
+      <li class="vxnav-item{{ if eq $cur "drills" }} is-current{{ end }}">
+        <a href="{{ $base }}vortex/database/#vxNeeds"><span class="vxnav-n">練</span>找練習</a></li>
+      <li class="vxnav-item{{ if eq $cur "database" }} is-current{{ end }}">
+        <a href="{{ $base }}vortex/database/"><span class="vxnav-n">查</span>查資料</a></li>
+      <li class="vxnav-item{{ if eq $cur "adm" }} is-current{{ end }}">
+        <a href="{{ $base }}vortex/adm/"><span class="vxnav-n">A</span>運動員發展</a></li>
+      <li class="vxnav-item{{ if eq $cur "periodization" }} is-current{{ end }}">
+        <a href="{{ $base }}vortex/periodization/"><span class="vxnav-n">期</span>訓練週期</a></li>
+    </ul>
+  </nav>
+</aside>

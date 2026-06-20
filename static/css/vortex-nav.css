@@ -1,0 +1,84 @@
+/* ──────────────────────────────────────────────────────────
+   全站 Vortex 持久側欄（vxnav）+ 兩欄骨架（vx-shell）
+   每個 vortex 頁共用：左側常駐主題導航，任何頁可一鍵跳任何主題，
+   不必回首頁重滑。色票自帶（首頁 vortex-techo.css 不載 vortex.css 亦可用）。
+   ────────────────────────────────────────────────────────── */
+
+/* vortex 頁脫離 baseof .main-content 的寬度上限與內距，讓 shell 自管 */
+body:has(.vx-shell) .main-content { max-width: none; padding: 0; }
+
+.vx-shell {
+  display: grid;
+  grid-template-columns: 212px minmax(0, 1fr);
+  align-items: start;
+  max-width: 1340px;
+  margin: 0 auto;
+}
+
+.vxnav {
+  --n-bg: #F8F6F1; --n-paper: #FFFFFF; --n-ink: #2C2C2C; --n-sub: #6B6B63;
+  --n-faint: #8A8A80; --n-accent: #5B7B6F; --n-accent2: #3E574D; --n-rule: #D8D4CC;
+  --n-serif: 'Noto Serif TC', 'Source Han Serif TC', Georgia, serif;
+  --n-display: 'Cormorant Garamond', 'Noto Serif TC', Georgia, serif;
+  position: sticky; top: 0; align-self: start;
+  max-height: 100vh; overflow-y: auto;
+  border-right: 1px solid var(--n-rule);
+  padding: 30px 16px 60px 22px;
+  font-family: var(--n-serif);
+  background: var(--n-bg);
+}
+
+.vxnav-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
+.vxnav-home {
+  font-family: var(--n-display); font-size: 20px; line-height: 1.15;
+  color: var(--n-ink); text-decoration: none; letter-spacing: .01em;
+}
+.vxnav-home:hover { color: var(--n-accent2); }
+.vxnav-burger { display: none; }
+
+.vxnav-list { list-style: none; margin: 0; padding: 0; }
+.vxnav-item > a, .vxnav-grouphead {
+  display: flex; gap: 9px; align-items: baseline;
+  text-decoration: none; color: var(--n-sub);
+  font-size: 15px; line-height: 1.3;
+  padding: 8px 8px 8px 10px;
+  border-left: 2px solid transparent;
+}
+.vxnav-item > a:hover { color: var(--n-ink); background: var(--n-paper); }
+.vxnav-n { font-family: var(--n-display); font-size: 14px; color: var(--n-faint); min-width: 17px; }
+
+.vxnav-item.is-current > a,
+.vxnav-group.is-current > .vxnav-grouphead {
+  color: var(--n-accent2); font-weight: 600;
+  border-left-color: var(--n-accent); background: var(--n-paper);
+}
+.vxnav-item.is-current > a .vxnav-n { color: var(--n-accent); }
+
+.vxnav-sub { list-style: none; margin: 2px 0 6px; padding: 0 0 0 27px; display: none; }
+.vxnav-group.is-open .vxnav-sub { display: block; }
+.vxnav-sub a {
+  display: block; text-decoration: none; color: var(--n-sub);
+  font-size: 14px; padding: 5px 8px; border-left: 2px solid transparent;
+}
+.vxnav-sub a:hover { color: var(--n-ink); }
+.vxnav-sub li.is-current a { color: var(--n-accent2); font-weight: 600; border-left-color: var(--n-accent); }
+
+/* ── 手機：側欄收成頂部漢堡，點開覆蓋 ── */
+@media (max-width: 820px) {
+  .vx-shell { grid-template-columns: 1fr; }
+  .vxnav {
+    position: sticky; top: 0; z-index: 30;
+    max-height: none; overflow: visible;
+    border-right: 0; border-bottom: 1px solid var(--n-rule);
+    padding: 12px 16px;
+  }
+  .vxnav-bar { margin-bottom: 0; }
+  .vxnav-burger {
+    display: inline-block; cursor: pointer; font-size: 14px;
+    color: var(--n-accent2); border: 1px solid var(--n-rule);
+    padding: 4px 12px; border-radius: 2px;
+  }
+  .vxnav-body { display: none; padding-top: 12px; }
+  .vxnav-toggle:checked ~ .vxnav .vxnav-body { display: block; }
+  .vxnav-sub { display: block; }
+}

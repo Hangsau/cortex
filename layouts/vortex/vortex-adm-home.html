@@ -3,14 +3,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+TC:wght@400;500;600;700&family=Quattrocento+Sans:wght@400;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex-nav.css">
 {{ end }}
 
 {{ define "main" }}
 {{ $base := .Site.BaseURL }}
 
+<div class="vx-shell">
+{{ partial "vortex/sidebar.html" (dict "ctx" . "current" "adm") }}
 <div class="vx-home">
-
-  <a class="vx-back-link" href="{{ $base }}vortex/">← Cortex · Vortex</a>
 
   <header class="vx-masthead">
     <p class="vx-eyebrow">渦流計劃 · 運動員發展</p>
@@ -53,6 +54,7 @@
 
   <p class="vx-legend">ADM 為公開發展框架，描述各階段的發展期望，不含感知診斷處方。</p>
 
+</div>
 </div>
 
 <script>
