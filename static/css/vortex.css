@@ -1800,6 +1800,10 @@ html { scroll-behavior: smooth; }
   color: var(--vx-ink); margin: 0 0 14px;
 }
 .vx-read-body--raw { color: var(--vx-sub); }
+.vx-read-body--wip {
+  color: var(--vx-faint); font-size: var(--fs-sm); font-style: italic;
+  padding-left: 12px; border-left: 1px dashed var(--vx-rule2);
+}
 
 /* 想深一點（progressive disclosure） */
 .vx-read-more {

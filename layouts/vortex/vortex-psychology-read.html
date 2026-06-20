@@ -74,20 +74,20 @@
             {{ with .plain_text }}
             <p class="vx-read-body">{{ . }}</p>
             {{ else }}
-            <p class="vx-read-body vx-read-body--raw">{{ .text }}</p>
+            <p class="vx-read-body vx-read-body--wip">白話版本撰寫中。研究原文（含專有名詞與文獻）收在下方「想深一點」。</p>
             {{ end }}
           {{ end }}
 
           {{ $hasDepth := false }}
-          {{ with $c.phenomenon }}{{ if .plain_text }}{{ $hasDepth = true }}{{ end }}{{ end }}
+          {{ with $c.phenomenon }}{{ with .text }}{{ $hasDepth = true }}{{ end }}{{ end }}
           {{ if or $c.hardware_boundary $c.misconception_refs }}{{ $hasDepth = true }}{{ end }}
           {{ if or $c.intervention_refs $c.population_note }}{{ $hasDepth = true }}{{ end }}
           {{ if $hasDepth }}
           <details class="vx-read-more">
             <summary>想深一點</summary>
             <div class="vx-read-morebody">
-              {{ with $c.phenomenon }}{{ if .plain_text }}
-              <div class="vx-read-moreblock"><span class="vx-read-morelabel">研究原文 {{ .certainty }}</span><p>{{ .text }}</p></div>
+              {{ with $c.phenomenon }}{{ with .text }}
+              <div class="vx-read-moreblock"><span class="vx-read-morelabel">研究原文 {{ $c.phenomenon.certainty }}</span><p>{{ . }}</p></div>
               {{ end }}{{ end }}
               {{ with $c.hardware_boundary }}
               <div class="vx-read-moreblock"><span class="vx-read-morelabel">生理／證據邊界 {{ .certainty }}</span><p>{{ .text }}</p></div>
