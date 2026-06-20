@@ -1614,7 +1614,7 @@ html { scroll-behavior: smooth; }
   font-family: var(--vx-mono);
 }
 .vx-read-spine::-webkit-scrollbar { width: 6px; }
-.vx-read-spine::-webkit-scrollbar-thumb { background: var(--vx-rule); border-radius: 3px; }
+.vx-read-spine::-webkit-scrollbar-thumb { background: var(--vx-rule); border-radius: 0; }
 
 .vx-back-link {
   display: inline-block; margin-bottom: 18px;
@@ -1677,13 +1677,13 @@ html { scroll-behavior: smooth; }
 }
 /* L 階：節點旁的層級銘牌 */
 .vx-read-toc-l {
-  flex: 0 0 auto; min-width: 2.6em;
-  font-size: 10px; letter-spacing: .03em;
+  flex: 0 0 auto; min-width: 3.4em;
+  font-size: var(--fs-xs); letter-spacing: .03em;
   color: var(--vx-faint); font-weight: 700;
   padding-top: 1px;
 }
 .vx-read-toc a:hover .vx-read-toc-l,
-.vx-read-toc a.is-active .vx-read-toc-l { color: var(--vx-accent); }
+.vx-read-toc a.is-active .vx-read-toc-l { color: var(--vx-accent2); }
 .vx-read-toc-name { font-size: var(--fs-sm); }
 
 .vx-read-modeswitch {
@@ -1699,7 +1699,7 @@ html { scroll-behavior: smooth; }
 .vx-read-modeswitch--inline {
   margin: 18px 0 0; padding: 12px 16px;
   border: 1px solid var(--vx-rule); border-top: 1px solid var(--vx-rule);
-  border-radius: 4px; background: var(--vx-paper);
+  border-radius: 0; background: var(--vx-paper);
   font-size: var(--fs-sm);
 }
 .vx-read-modeswitch--inline b { display: inline; margin: 0; }
@@ -1724,7 +1724,7 @@ html { scroll-behavior: smooth; }
 }
 .vx-read-intro h1 {
   font-family: var(--vx-display);
-  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  font-size: clamp(34px, 6vw, 56px);
   font-weight: 600; line-height: 1.15;
   margin: 0 0 22px; color: var(--vx-ink);
 }
@@ -1757,13 +1757,13 @@ html { scroll-behavior: smooth; }
 }
 .vx-read-chl {
   font-size: var(--fs-xs); letter-spacing: .06em;
-  color: var(--vx-accent); font-weight: 700;
+  color: var(--vx-accent2); font-weight: 700;
   padding: 2px 8px; border: 1px solid var(--vx-rule);
-  border-radius: 3px;
+  border-radius: 0;
 }
 .vx-read-chapter h2 {
   font-family: var(--vx-display);
-  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-size: clamp(28px, 4vw, 40px);
   font-weight: 600; line-height: 1.2;
   margin: 0 0 20px; color: var(--vx-ink);
 }
@@ -1775,9 +1775,9 @@ html { scroll-behavior: smooth; }
 .vx-read-chlead--prem { color: var(--vx-sub); }
 .vx-read-wip {
   display: inline-block; margin-left: 8px;
-  font-family: var(--vx-mono); font-size: 11px;
+  font-family: var(--vx-mono); font-size: var(--fs-xs);
   letter-spacing: .06em; color: var(--vx-faint);
-  border: 1px dashed var(--vx-rule2); border-radius: 3px;
+  border: 1px dashed var(--vx-rule2); border-radius: 0;
   padding: 1px 6px; vertical-align: middle;
 }
 
@@ -1801,7 +1801,7 @@ html { scroll-behavior: smooth; }
 }
 .vx-read-body--raw { color: var(--vx-sub); }
 .vx-read-body--wip {
-  color: var(--vx-faint); font-size: var(--fs-sm); font-style: italic;
+  color: var(--vx-faint); font-size: var(--fs-sm);
   padding-left: 12px; border-left: 1px dashed var(--vx-rule2);
 }
 
@@ -1819,7 +1819,7 @@ html { scroll-behavior: smooth; }
 }
 .vx-read-more > summary::-webkit-details-marker { display: none; }
 .vx-read-more > summary::before {
-  content: "＋"; font-size: 13px; color: var(--vx-accent);
+  content: "＋"; font-size: var(--fs-xs); color: var(--vx-accent2);
 }
 .vx-read-more[open] > summary::before { content: "－"; }
 .vx-read-more > summary:hover { color: var(--vx-accent); }
@@ -1833,7 +1833,7 @@ html { scroll-behavior: smooth; }
 .vx-read-moreblock:last-child { margin-bottom: 0; }
 .vx-read-morelabel {
   display: block; font-family: var(--vx-mono);
-  font-size: 11px; letter-spacing: .1em;
+  font-size: var(--fs-xs); letter-spacing: .1em;
   color: var(--vx-faint); margin-bottom: 6px;
 }
 .vx-read-moreblock p {
@@ -1850,8 +1850,8 @@ html { scroll-behavior: smooth; }
 .vx-read-cue .why,
 .vx-read-cue .good {
   display: inline-block; margin-right: 6px;
-  font-family: var(--vx-mono); font-size: 11px;
-  letter-spacing: .04em; padding: 1px 6px; border-radius: 3px;
+  font-family: var(--vx-mono); font-size: var(--fs-xs);
+  letter-spacing: .04em; padding: 1px 6px; border-radius: 0;
 }
 .vx-read-cue .bad { color: var(--vx-warn); background: var(--vx-warn-bg); }
 .vx-read-cue .why { color: var(--vx-faint); background: var(--vx-paper2); }
@@ -1872,7 +1872,7 @@ html { scroll-behavior: smooth; }
 }
 .vx-read-bridgetxt {
   font-size: var(--fs-base); line-height: 1.9;
-  color: var(--vx-sub); font-style: italic; margin: 0 0 14px;
+  color: var(--vx-sub); margin: 0 0 14px;
 }
 .vx-read-bridgenext {
   display: inline-block;
@@ -1904,7 +1904,7 @@ html { scroll-behavior: smooth; }
 /* 來源 cite（想深一點內） */
 .vx-read-moreblock .vx-cite { display: inline; margin-right: 8px; }
 .vx-read-moreblock .vx-cite .src {
-  font-family: var(--vx-mono); font-size: 11px; color: var(--vx-gold);
+  font-family: var(--vx-mono); font-size: var(--fs-xs); color: var(--vx-gold);
 }
 
 /* ── 窄螢幕：脊椎收到頂部，文章佔滿 ── */
@@ -1919,7 +1919,7 @@ html { scroll-behavior: smooth; }
     display: flex; flex-wrap: wrap; gap: 4px;
   }
   .vx-read-toc::before { display: none; }
-  .vx-read-toc a { padding: 5px 11px; border-radius: 3px; background: var(--vx-paper2); }
+  .vx-read-toc a { padding: 5px 11px; border-radius: 0; background: var(--vx-paper2); }
   .vx-read-toc a::before { display: none; }
   .vx-read-toc a.is-active { background: var(--vx-accent); color: #fff; }
   .vx-read-toc a.is-active .vx-read-toc-l { color: rgba(255,255,255,.8); }
