@@ -22,13 +22,15 @@
         <a href="{{ $base }}vortex/technica/water-sense-guide/"><span class="vxnav-n">00</span>什麼是水感</a></li>
       <li class="vxnav-item{{ if eq $cur "levels" }} is-current{{ end }}">
         <a href="{{ $base }}vortex/levels/"><span class="vxnav-n">L</span>發展地圖 L0–L6</a></li>
-      <li class="vxnav-item vxnav-group{{ if eq $cur "strokes" }} is-current is-open{{ end }}">
-        <span class="vxnav-grouphead"><span class="vxnav-n">六</span>六式技術</span>
-        <ul class="vxnav-sub">
-          {{ range $strokes }}
-          <li class="{{ if eq $curStroke .slug }}is-current{{ end }}"><a href="{{ $base }}vortex/{{ .slug }}/">{{ .zh }}</a></li>
-          {{ end }}
-        </ul>
+      <li class="vxnav-item vxnav-group{{ if eq $cur "strokes" }} is-current{{ end }}">
+        <details class="vxnav-details"{{ if eq $cur "strokes" }} open{{ end }}>
+          <summary class="vxnav-grouphead"><span class="vxnav-n">六</span>六式技術<span class="vxnav-caret" aria-hidden="true">▸</span></summary>
+          <ul class="vxnav-sub">
+            {{ range $strokes }}
+            <li class="{{ if eq $curStroke .slug }}is-current{{ end }}"><a href="{{ $base }}vortex/{{ .slug }}/">{{ .zh }}</a></li>
+            {{ end }}
+          </ul>
+        </details>
       </li>
       <li class="vxnav-item{{ if eq $cur "psychology" }} is-current{{ end }}">
         <a href="{{ $base }}vortex/psychology-read/"><span class="vxnav-n">心</span>心理層</a></li>

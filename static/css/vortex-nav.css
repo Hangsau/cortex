@@ -15,6 +15,31 @@ body:has(.vx-shell) .main-content { max-width: none; padding: 0; }
   margin: 0 auto;
 }
 
+/* rail 頁（master-detail）：把全站欄 + 頁內欄疊進「同一個左欄」，內容在右，
+   = 一條側欄含兩層樹 + 內容兩欄，而非三條並排。純 CSS，不動 HTML / JS。
+   桌機限定；手機沿用原本單欄 + 頂部漢堡。 */
+@media (min-width: 821px) {
+  .vx-shell:has(.vx-stroke-wrap) {
+    grid-template-columns: 244px minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "nav  main"
+      "rail main";
+  }
+  .vx-shell:has(.vx-stroke-wrap) > .vxnav {
+    grid-area: nav;
+    position: static; max-height: none; overflow: visible;
+    border-bottom: 1px solid var(--n-rule);
+    padding-bottom: 18px;
+  }
+  /* stroke-wrap 不再自成一格：化為透明容器，rail / panels 直接進 shell 格線 */
+  .vx-shell > .vx-stroke-wrap { display: contents; }
+  .vx-shell:has(.vx-stroke-wrap) > .vx-stroke-wrap > .vx-rail { grid-area: rail; }
+  .vx-shell:has(.vx-stroke-wrap) > .vx-stroke-wrap > .vx-panels {
+    grid-area: main; min-width: 0;
+  }
+}
+
 .vxnav {
   --n-bg: #F8F6F1; --n-paper: #FFFFFF; --n-ink: #2C2C2C; --n-sub: #6B6B63;
   --n-faint: #8A8A80; --n-accent: #5B7B6F; --n-accent2: #3E574D; --n-rule: #D8D4CC;
@@ -48,14 +73,23 @@ body:has(.vx-shell) .main-content { max-width: none; padding: 0; }
 .vxnav-n { font-family: var(--n-display); font-size: 14px; color: var(--n-faint); min-width: 17px; }
 
 .vxnav-item.is-current > a,
-.vxnav-group.is-current > .vxnav-grouphead {
+.vxnav-group.is-current .vxnav-grouphead {
   color: var(--n-accent2); font-weight: 600;
   border-left-color: var(--n-accent); background: var(--n-paper);
 }
 .vxnav-item.is-current > a .vxnav-n { color: var(--n-accent); }
 
-.vxnav-sub { list-style: none; margin: 2px 0 6px; padding: 0 0 0 27px; display: none; }
-.vxnav-group.is-open .vxnav-sub { display: block; }
+/* 六式技術：原生 details，任何頁都能點開（零 JS） */
+.vxnav-details > summary { list-style: none; cursor: pointer; }
+.vxnav-details > summary::-webkit-details-marker { display: none; }
+.vxnav-details > summary:hover { color: var(--n-ink); background: var(--n-paper); }
+.vxnav-caret {
+  margin-left: auto; color: var(--n-faint); font-size: 11px;
+  transition: transform .15s ease;
+}
+.vxnav-details[open] > summary .vxnav-caret { transform: rotate(90deg); }
+
+.vxnav-sub { list-style: none; margin: 2px 0 6px; padding: 0 0 0 27px; }
 .vxnav-sub a {
   display: block; text-decoration: none; color: var(--n-sub);
   font-size: 14px; padding: 5px 8px; border-left: 2px solid transparent;
