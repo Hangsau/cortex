@@ -63,6 +63,10 @@ PERIODIZATION_FILES   = ["structure", "taper", "zones", "_index"]
 PSYCHOLOGY_SRC = VORTEX_SRC / "canonical" / "psychology" / "psychology.yaml"
 PSYCHOLOGY_DST = HUGO_ROOT / "data" / "vortex" / "psychology.yaml"
 
+# ── 運動傷害（canonical promoted artifact → my-site；剝除內部 QA 旗標） ──
+INJURIES_SRC = VORTEX_SRC / "canonical" / "health" / "injuries.yaml"
+INJURIES_DST = HUGO_ROOT / "data" / "vortex" / "injuries.yaml"
+
 # ── Layer 設定 ──
 LAYERS = {
     "Technica":     {"slug": "technica",     "name": "水感框架"},
@@ -765,6 +769,68 @@ def sync_psychology(dry_run: bool):
     print(f"  寫入 {PSYCHOLOGY_DST.relative_to(HUGO_ROOT)}")
 
 
+def _strip_injury(rec):
+    """剝除內部 QA 層：去掉 audit（內部稽核）與 flags.pending_verification
+    （未驗證數字，鐵則不進 public）。保留 flags.contested + vintage_warning
+    （誠實揭露學界分歧，對公眾有教育價值）。其餘欄位皆屬公開衛教內容。
+    """
+    out = {k: v for k, v in rec.items() if k != "audit"}
+    fl = out.get("flags")
+    if isinstance(fl, dict):
+        out["flags"] = {k: v for k, v in fl.items() if k != "pending_verification"}
+    return out
+
+
+def sync_injuries(dry_run: bool):
+    """讀 canonical health/injuries.yaml（promoted artifact），剝除內部 QA 旗標，
+    寫進 my-site data/vortex/injuries.yaml。
+
+    公開鐵則：pending_verification 內的未驗證數字不進公開站；audit 內部欄位剝除。
+    本函式是公開站最後一道剝離保險——即使 canonical 帶了待驗證旗標也不會公開。
+    全光譜：population_notes 各族群並列原樣帶過，不窄化單一受眾。
+    """
+    if not INJURIES_SRC.exists():
+        print()
+        print("=== 運動傷害 ===")
+        print(f"  [跳過] 找不到 {INJURIES_SRC}")
+        return
+
+    data = yaml.safe_load(INJURIES_SRC.read_text(encoding="utf-8")) or {}
+    injuries_out = [_strip_injury(r) for r in (data.get("injuries") or [])]
+    # meta_references 是 Phase 2 內部整合輔助（跨條目流行病學），不渲染、不公開。
+
+    out_data = {
+        "categories":             data.get("categories", []),
+        "certainty_legend":       data.get("certainty_legend"),
+        "evidence_grade_legend":  data.get("evidence_grade_legend"),
+        "injuries":               injuries_out,
+    }
+
+    by_cat = {}
+    for r in injuries_out:
+        by_cat[r.get("category")] = by_cat.get(r.get("category"), 0) + 1
+
+    print()
+    print("=== 運動傷害（public 層）===")
+    for c in (data.get("categories") or []):
+        print(f"  {c['id']:32s} {by_cat.get(c['id'], 0)}")
+    print(f"  TOTAL injuries {len(injuries_out)}")
+
+    if dry_run:
+        print("  [dry-run，未寫入 data/vortex/injuries.yaml]")
+        return
+
+    out = yaml.safe_dump(
+        out_data,
+        allow_unicode=True,
+        default_flow_style=False,
+        sort_keys=False,
+        width=4096,
+    )
+    INJURIES_DST.write_text(out, encoding="utf-8")
+    print(f"  寫入 {INJURIES_DST.relative_to(HUGO_ROOT)}")
+
+
 def main():
     dry_run = "--dry-run" in sys.argv
     results = {"new": [], "changed": [], "same": [], "unknown": []}
@@ -846,6 +912,7 @@ def main():
     sync_adm_standards(dry_run)
     sync_periodization(dry_run)
     sync_psychology(dry_run)
+    sync_injuries(dry_run)
 
     print()
     print("=== 同步摘要 ===")

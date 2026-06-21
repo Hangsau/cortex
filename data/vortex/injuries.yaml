@@ -1,0 +1,4287 @@
+categories:
+- id: A-shoulder-upper
+  zh: 肩部與上肢
+- id: B-lower-spine-strokespecific
+  zh: 腰椎與泳式特異
+- id: C-nonMSK-medical
+  zh: 非肌骨醫療
+- id: D-systemic-acute
+  zh: 全身急性
+- id: D-endocrine
+  zh: 內分泌與骨骼
+- id: E-acute-trauma
+  zh: 急性外傷
+- id: F-pediatric-growth
+  zh: 兒童生長
+certainty_legend: 🔵推導 🟢近期文獻 🟡舊文獻 🟠教練觀測 🔴待查
+evidence_grade_legend: A=RCT/SR B=cohort C=case-series Expert=共識（與 certainty 點獨立）
+injuries:
+- id: biceps-tendinopathy
+  zh: 肱二頭肌長頭肌腱病
+  en: Biceps (long head) tendinopathy
+  category: A-shoulder-upper
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 肱二頭肌長頭腱
+  - 結節間溝
+  - 旋轉肌袖
+  - 旋轉間隔
+  mechanism:
+    summary: 肱二頭肌長頭腱(LHB)於結節間溝承受摩擦，推進期(自由式/蝶式拉水)反覆張力與剪切。LHB 兼任肱骨頭前方穩定器，當棘上肌功能下降後 LHB 代償超載而腱病；穩定肌疲勞後肩胛前傾增加溝內壓迫。多與旋轉肌袖退化共存，常為旋轉肌袖完整性下降之繼發表現。
+    trigger_phase: 自由式拉水轉換、背泳恢復、蝶式入水
+    who: 較大年齡者(Masters 尤甚)、棘上肌腱病共存者、肩部疼痛史者
+  epidemiology:
+    prevalence: Masters 泳者超音波(n=80 泳者/40 對照)LHB 腱病 48.8% vs 對照 12.5%；棘上肌與 LHB 共存率 22–78.5%(n=200 約 49% 共存退化);年齡每增 1 歲 LHB 腱病風險 +5%、晚競技每增 1 年 +4%
+    certainty: 🟡
+    evidence_grade: B
+    caveat: 主要為 Masters 影像數據，年輕競技者資料較少；多與旋轉肌袖損傷共病，獨立歸因困難
+    sources:
+    - Masters swimmers shoulder ultrasound, PMC7824457 (已驗證)
+    - LHB and rotator cuff coexistence systematic review, PMC4247626 (已驗證)
+  risk_factors:
+  - text: 棘上肌腱病共存
+    grade: B
+  - text: 年齡增長(Masters)
+    grade: B
+  - text: 肩部疼痛史(OR 3.95)
+    grade: B
+  - text: 過頭活動量大
+    grade: B
+  - text: 旋轉間隔病變
+    grade: C
+  prevention:
+  - text: 旋轉肌袖整體強化(避免 LHB 代償)
+    grade: B
+  - text: 仰泳/蛙泳輪換
+    grade: Expert
+  - text: 每週 ≥2 天休息
+    grade: Expert
+  management:
+    red_flags:
+    - Speed/Yergason 高度陽性+溝觸痛 → 就醫
+    - 急性斷裂(Popeye 隆起) → 就醫
+    - 與 SLAP 共存深部痛 → 骨科評估
+    - 靜息/夜間痛 → 就醫
+    acute: 休息、NSAIDs、必要時超音波導引注射(類固醇/PRP 短期止痛)
+    pain_rules: 輕度前肩活動痛 → 調量避過度拉水；靜息/夜間痛 → 停水中訓練
+    rehab: 減負荷→再負荷；以棘上肌+旋轉肌袖穩定為核心減少 LHB 代償；體外震波(ESWT)、PRP 為輔助選項
+    functional_progression_criteria:
+    - Speed/Yergason 無痛
+    - 拉水無前肩痛
+    - 肌力 ≥85% 對側
+    swim_modifications_in_rehab:
+    - 減拉水頻率、停划手板
+    - 改踢腿板/浮袋訓練
+    return_to_train: 保守反應良好者漸進回水
+    return_to_compete: 視旋轉肌袖整體恢復而定
+    prognosis: 多數保守反應良好；手術(tenodesis/tenotomy)保留給失敗者，年輕/活動型偏 tenodesis、Masters 可接受 tenotomy
+  population_notes:
+    age:
+      youth: 資料較少
+      adult_beginner: null
+      masters: 主要風險群
+    sex:
+      female: 女性特定數據缺失(DATA GAP)
+      male: null
+    ability:
+      para: Para 數據缺失(DATA GAP)
+    lifecycle: null
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Shoulder pathology in masters swimmers, PMC7824457
+    certainty: 🟢
+    verified: true
+  - citation: LHB tendon and rotator cuff coexistence, PMC4247626
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: LHB 腱病為獨立病變或旋轉肌袖損傷繼發
+      consensus_source: 文獻傾向視為旋轉肌袖完整性下降之代償繼發
+      dissent_source: tenodesis vs tenotomy 在年輕運動員的選擇仍有爭論
+    vintage_warning: false
+- id: rotator-cuff-tendinopathy
+  zh: 旋轉肌袖肌腱病（棘上肌）
+  en: Rotator cuff (supraspinatus) tendinopathy
+  category: A-shoulder-upper
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 棘上肌腱
+  - 旋轉肌袖
+  - 肩峰下空間
+  - 肩胛穩定肌
+  mechanism:
+    summary: 棘上肌腱在划水推進期承受肩峰下壓縮與腱內張力、恢復期被過頭拉伸，反覆機械刺激活化基質金屬蛋白酶(MMP)並升高一氧化氮，造成膠原排列紊亂、細胞型態退化——是退化性腱病(tendinopathy)而非單純發炎。精英泳者每日肩部迴轉超過 2,500 次、年累積上百萬次為核心外在負荷。肩胛動態控制不足、內外旋肌力失衡會放大腱內應力。
+    trigger_phase: 自由式/蝶式拉水與過頭恢復相
+    who: 訓練量大者(≥15 h/週或 ≥35 km/週)、青少年急遽增量期、肩胛控制不足者、技術缺陷(手肘下垂/路徑偏移)者
+  epidemiology:
+    prevalence: Masters 泳者超音波研究棘上肌腱病 17.5%、合併部分撕裂達 35%；多站點青少年調查(n=671)49% 有肩部症狀、15–17 歲 55.5% 有疼痛史；棘上肌腱厚度每增 1 mm 腱病 OR 2.51
+    certainty: 🟡
+    evidence_grade: B
+    caveat: 多為影像橫斷面；影像改變不等於臨床疾病(Masters 影像盛行率遠高於有症狀者)；訓練量倍率與部分 MRI 數字為二手綜述引用待追原始研究
+    sources:
+    - Masters swimmers shoulder ultrasound, PMC7824457 (已驗證)
+    - Youth swimmer shoulder pain multi-site survey, PMC11297363 (已驗證)
+  risk_factors:
+  - text: 高訓練量/急遽增量(>15 h/週或 >35 km/週)
+    grade: B
+  - text: 肩胛動作異常(疲勞後出現)
+    grade: B
+  - text: 內/外旋肌力失衡
+    grade: B
+  - text: 多向性肩鬆弛
+    grade: B
+  - text: 棘上肌腱厚度增加(每 mm OR 2.51)
+    grade: B
+  - text: 肩部受傷史(解釋約 22% 疼痛變異)
+    grade: B
+  - text: 技術缺陷(手肘下垂/路徑偏移)
+    grade: Expert
+  prevention:
+  - text: 旋轉肌袖+肩胛穩定肌訓練(12 週×2/週)
+    grade: B
+  - text: 每週訓練量增幅 ≤10%
+    grade: Expert
+  - text: 賽季前 dryland 陸上訓練
+    grade: B
+  - text: 技術修正(增加軀幹旋轉、高肘划水)
+    grade: Expert
+  management:
+    red_flags:
+    - 靜息/夜間痛 → 就醫評估
+    - 神經放射痛/手麻 → 就醫(排除頸椎/TOS)
+    - 急性撕裂感+無力 → 就醫
+    - 保守治療 3–6 月無效 → 骨科評估
+    acute: 減量、冰敷、短期 NSAIDs、停用划手板
+    pain_rules: NRS ≤3 且 24 小時內消退 → 減量續練；疼痛 >24 小時或 NRS ≥4 → 停划手練習、啟動物理治療
+    rehab: ①肩胛穩定(前鋸肌、下斜方肌)+後囊拉伸 ②旋轉肌等長→向心→離心漸進 ③功能性重建模擬划手
+    functional_progression_criteria:
+    - 外旋肌力 ≥85% 對側
+    - 肩胛控制正常
+    - 模擬划手動作無痛
+    swim_modifications_in_rehab:
+    - 停蝶式、減自由式量、停划手板
+    - 可從背泳低強度開始
+    return_to_train: 輕症 4–8 週、中重症 8–16 週漸進回水
+    return_to_compete: 肌力與技術指標達標後分階段回賽
+    prognosis: 多數完全恢復；與 SLAP/MDI 共存較複雜；高量者易復發，需長期維持旋轉肌袖+肩胛肌力
+  population_notes:
+    age:
+      youth: 15–17 歲流行率最高；成長期肌腱更脆弱，是教練重點問診對象
+      adult_beginner: 技術不穩，風險不低於競技者
+      masters: 棘上肌腱病盛行率隨年齡顯著上升(影像 75% vs 對照 17.5%)
+    sex:
+      female: 女性肩傷率較高但系統回顧結論不一致
+      male: null
+    ability:
+      para: 上肢截肢者健側過度使用風險高，缺量化數據(DATA GAP)
+    lifecycle: null
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Shoulder pathology in masters swimmers (ultrasound), PMC7824457
+    certainty: 🟢
+    verified: true
+  - citation: Shoulder pain in youth competitive swimmers, PMC11297363
+    certainty: 🟢
+    verified: true
+  - citation: Youth swimmer shoulder prevalence, PMC6961642
+    certainty: 🟢
+    verified: true
+  - citation: Shoulder strengthening programme protective effect, PMC11899141
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 腱病 vs 夾擠(impingement)命名
+      consensus_source: 現代共識傾向 tendinopathy 退化框架
+      dissent_source: 傳統 impingement 模型仍見於部分臨床語境；影像改變≠臨床疾病
+    vintage_warning: false
+- id: shoulder-multidirectional-instability
+  zh: 多向性肩關節不穩定（MDI）
+  en: Multidirectional shoulder instability
+  category: A-shoulder-upper
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 肩關節囊韌帶
+  - 旋轉肌袖
+  - 肩胛穩定肌
+  - 盂肱關節
+  mechanism:
+    summary: 關節囊韌帶整體鬆弛使肱骨頭向 ≥2 個方向(前/後/下)過度移位。幼年反覆大幅外展外旋(蝶式、自由式恢復期)造成後天性關節囊拉伸；部分人有先天廣泛韌帶鬆弛(Ehlers-Danlos/Marfan 傾向)。當旋轉肌袖與肩胛肌無法動態補償時症狀顯現，表現為鬆動感、半脫位、dead arm。
+    trigger_phase: 需極端外展外旋角度的入水與過頭恢復相
+    who: 女性、雙側症狀者、結締組織鬆弛者、年輕游泳者
+  epidemiology:
+    prevalence: MDI 佔所有肩不穩定 <10%；女性佔 MDI 患者約 35.7%(整體肩不穩定男性為 2.7 倍但 MDI 性別趨近)；喙肱距每增 1 mm 風險上升約 20%；游泳者 MDI 盛行率高於其他運動但無精確數字
+    certainty: 🟠
+    evidence_grade: C
+    caveat: TOS/旋轉肌袖損傷易混淆；游泳者 MDI 特定盛行率僅為摘要層級無前瞻數據；診斷標準不完全統一
+    sources:
+    - Multidirectional instability of the shoulder, StatPearls NBK557726 (已驗證)
+    - MDI management review, Annals of Joint (已驗證)
+  risk_factors:
+  - text: 廣泛韌帶鬆弛
+    grade: B
+  - text: 結締組織疾患(Ehlers-Danlos/Marfan)
+    grade: B
+  - text: 反覆過頭微創傷
+    grade: B
+  - text: 女性(雌激素/鬆弛素影響，結論不一)
+    grade: B
+  - text: 年輕(第二、三十歲高峰)
+    grade: B
+  - text: 喙肱距增加(每 mm 風險 +20%)
+    grade: B
+  prevention:
+  - text: 肩胛穩定肌+旋轉肌袖強化(青少年主動預防)
+    grade: Expert
+  - text: 避免過度柔軟度訓練
+    grade: Expert
+  - text: 適度減少高角度訓練量
+    grade: Expert
+  management:
+    red_flags:
+    - 神經症狀(手麻/無力) → 就醫
+    - 明顯 Sulcus sign + 功能受限 → 骨科
+    - 反覆半脫位/dead arm → 停誘發動作就醫
+    - 保守治療 6 月無效 → 手術評估
+    acute: 限制誘發方向、肩胛穩定訓練、姿勢教育
+    pain_rules: 日常輕度不適可續練但避誘發動作；dead arm / 反覆半脫位 → 立即停
+    rehab: 非手術為第一線 ≥3–6 月：肩胛穩定(Blackburn Y、push-up plus)+旋轉肌+本體感覺+胸小肌柔軟度；保守 6–12 月 83–90% 改善
+    functional_progression_criteria:
+    - 誘發方向無不穩感
+    - 肩胛動態控制達標
+    - 本體感覺/閉鏈測試通過
+    swim_modifications_in_rehab:
+    - 減少高外展外旋角度訓練
+    - 優先旋轉為主泳式、限制蝶式
+    return_to_train: 保守復健達標後漸進回水
+    return_to_compete: 術後 86–93% 恢復運動；8 年隨訪 82% 持續改善
+    prognosis: 保守對多數有效；手術保留給保守失敗者(關節鏡全囊縫摺術復發率約 6%，熱收縮術已淘汰)
+  population_notes:
+    age:
+      youth: 最常診斷年齡層
+      adult_beginner: null
+      masters: 文獻少，推測後天鬆弛累積
+    sex:
+      female: 風險因鬆弛度高而增，流行病學數據仍不足
+      male: null
+    ability:
+      para: 文獻極少(DATA GAP)
+    lifecycle: null
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Multidirectional instability of the shoulder, StatPearls NBK557726
+    certainty: 🟢
+    verified: true
+  - citation: MDI management and surgical outcomes review, Annals of Joint
+    certainty: 🟢
+    verified: true
+  - citation: Arthroscopic vs open MDI repair outcomes, PMC5611704
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 先天 vs 後天鬆弛比例
+      consensus_source: MDI 涵蓋先天廣泛鬆弛與後天反覆微創傷兩型
+      dissent_source: 兩型比例與手術 vs 保守門檻仍有爭論；關節鏡活動度較佳、開放長期穩定性差異縮小
+    vintage_warning: false
+- id: slap-lesion
+  zh: 上盂唇前後損傷（SLAP）
+  en: Superior labrum anterior-posterior (SLAP) lesion
+  category: A-shoulder-upper
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 上盂唇
+  - 肱二頭肌長頭腱錨點
+  - 盂肱關節囊
+  - 後囊
+  mechanism:
+    summary: 上盂唇自肩盂緣撕脫，可延伸至前後及肱二頭長頭腱錨點。游泳主機制為 peel-back——外展 90°+最大外旋(自由式入水、蝶式拉水起點)時二頭腱錨點承受扭轉剪切；減速期二頭肌偏心收縮為另一路徑；急性牽引可單次造成。內旋缺損(GIRD)使後上盂唇張力集中。
+    trigger_phase: 入水至拉水早期(外展外旋極限)
+    who: GIRD(內旋缺損 >13–15°)者、優勢側高量者、急性牽引史者
+  epidemiology:
+    prevalence: 一般肩關節鏡中 SLAP 佔 6–26%；過頭運動員關節鏡盂唇病變比例高(投擲者達 83%，屬選擇性手術族群)；游泳者保守無效後關節鏡盂唇病變達 61%(小樣本 n=14 中 SLAP 2 例)
+    certainty: 🟠
+    evidence_grade: C
+    caveat: 游泳者 SLAP 無大型前瞻數據，現有比例全來自偏態手術樣本；跨研究手術結果變異極大(40–94%)
+    sources:
+    - SLAP lesions overview & rehab, PMC3811737 (已驗證)
+    - Swimmers refractory shoulder arthroscopy series, PMC4528289 (已驗證)
+  risk_factors:
+  - text: GIRD(內旋缺損 >13–15°)
+    grade: B
+  - text: 高量過頭+二頭腱反覆偏心
+    grade: B
+  - text: 後囊緊縮
+    grade: B
+  - text: 前方關節囊鬆弛/不穩定
+    grade: B
+  - text: 急性牽引史
+    grade: B
+  prevention:
+  - text: 後囊牽拉(sleeper stretch)改善 GIRD
+    grade: B
+  - text: 二頭肌離心訓練
+    grade: Expert
+  - text: 避免突增入水/拉水量
+    grade: Expert
+  management:
+    red_flags:
+    - 深部肩痛+機械性卡頓/異音 → 就醫
+    - 神經症狀 → 就醫
+    - 與 Bankart/MDI 共存 → 骨科綜合評估
+    - 保守 3–6 月無改善 → 關節鏡評估
+    acute: 保守 3–6 月首選：訓練調整、物理治療、NSAIDs、必要時關節腔注射
+    pain_rules: 深層痛可練但出現機械卡頓 → 立即停評估
+    rehab: Type II 修補術後 5 期：0–6w 懸臂固定禁主動二頭收縮 → 6–12w 漸進 ROM+Throwers Ten → 12–20w 全活動+二頭抗阻 → 20–26w 專項 → 6–9 月返回
+    functional_progression_criteria:
+    - 全 ROM 無痛
+    - 等速肌力 ≥75–80% 對側
+    - 外旋峰力矩/體重 18–23%
+    swim_modifications_in_rehab:
+    - 停高外展外旋負荷泳式
+    - 保守期可低強度替代訓練
+    return_to_train: 保守約 67% 過頭運動員無需手術即可回水
+    return_to_compete: 手術整體約 55% 回傷前；游泳者術後平均 2.9 月返回(小樣本)
+    prognosis: 游泳者預後優於投手；手術成功率 40–94%(隨族群/定義差異大)
+  population_notes:
+    age:
+      youth: 最常見；骨骺未閉合者偏好保守
+      adult_beginner: null
+      masters: 退化性 Type I 與手術相關性弱
+    sex:
+      female: 游泳者 SLAP 女性數據缺(DATA GAP)
+      male: null
+    ability:
+      para: Para 游泳者數據缺(DATA GAP)
+    lifecycle: null
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: 'SLAP lesions: diagnosis and rehabilitation, PMC3811737'
+    certainty: 🟢
+    verified: true
+  - citation: Arthroscopy in refractory swimmer's shoulder, PMC4528289
+    certainty: 🟢
+    verified: true
+  - citation: NATA position on overhead athlete shoulder, PMC5894372
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 保守 vs 手術
+      consensus_source: NATA 支持初期保守 3–6 月
+      dissent_source: 35 歲以上/非投擲者 tenodesis 可能同等且復發更低；手術結果跨研究高變異
+    vintage_warning: false
+- id: swimmer-elbow-wrist-overuse
+  zh: 游泳者肘/腕過度使用傷
+  en: Swimmer's elbow & wrist overuse
+  category: A-shoulder-upper
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  subtypes:
+  - 內上髁肌腱病(游泳者肘)
+  - 外上髁病
+  - ECU 腱病/腱鞘半脫位
+  structures:
+  - 肱骨內上髁屈肌-旋前肌起點
+  - 外上髁伸肌起點
+  - 尺側伸腕肌(ECU)腱
+  mechanism:
+    summary: 最常見為「游泳者肘」(內上髁肌腱病)——拉水期反覆腕屈曲+前臂旋前，對肱骨內上髁屈肌-旋前肌起點累積負荷致腱病；蝶式/蛙泳「高肘划水」特別易誘發。外上髁病在背泳者偶見但較少。腕部以尺側伸腕肌(ECU)腱最常受累，入水角度不正或過度用划手板誘發；ECU 腱鞘半脫位可發生於強力旋後(背泳翻轉入水)。
+    trigger_phase: 蝶式/蛙泳拉水、背泳恢復入水
+    who: 過度用划手板者、蝶/蛙專項、技術不穩的成人初學者
+  epidemiology:
+    prevalence: 肘部佔游泳整體傷害比例低(肩部佔絕大多數)，無前瞻大型數據；腕部游泳特定流行率幾乎缺失
+    certainty: 🔵
+    evidence_grade: C
+    caveat: 證據幾乎全為教練觀察與臨床回報；無控制研究；常見引用的『精英泳者 58% 曾有肘不適』來自商業平台文章，不可作公開數字
+    sources:
+    - 臨床/教練回報(無系統性流行病學研究)
+  risk_factors:
+  - text: 蝶/蛙拉水技術不正(手肘下垂、過中線)
+    grade: Expert
+  - text: 過度用划手板
+    grade: Expert
+  - text: 訓練量急增
+    grade: Expert
+  - text: 核心不足致肢末代償
+    grade: Expert
+  - text: 後肩肌群虛弱
+    grade: Expert
+  prevention:
+  - text: 技術矯正(高肘、避過中線)
+    grade: Expert
+  - text: 限制划手板使用頻率
+    grade: Expert
+  - text: 前臂/腕肌腱離心訓練
+    grade: Expert
+  - text: 每週 10% 訓練量增幅上限
+    grade: Expert
+  management:
+    red_flags:
+    - 靜息痛 → 就醫
+    - 手部麻木 → 就醫(排除 TOS/尺神經病變)
+    - 骨性壓痛 → 就醫(排除應力骨折)
+    - 腕部鎖定感/彈跳(ECU 腱鞘脫位) → 就醫
+    acute: 休息、冰敷、NSAIDs；停划手板；急性 ECU 腕夾板固定
+    pain_rules: 訓練後輕痠 24 小時消退 → 減量續練；划水時 NRS ≥4 → 停評估
+    rehab: 內上髁離心腕屈曲(3 次/週)+後肩補強；ECU 腱鞘病以旋後位夾板固定 3–4 週；多數 4–8 週保守有效
+    functional_progression_criteria:
+    - 全 ROM 無痛
+    - 握力 ≥85% 對側
+    - 模擬划水動作無痛
+    swim_modifications_in_rehab:
+    - 停蝶/蛙，改自由式(減內上髁負荷)或背泳
+    - 停划手板
+    return_to_train: 輕症 4–8 週回水；難治者可考慮 PRP/ESWT
+    return_to_compete: 技術矯正並達肌力指標後回賽
+    prognosis: 通常良好；<5% 需手術；改善誘發技術為防復發關鍵
+  population_notes:
+    age:
+      youth: 特定數據缺失(DATA GAP)
+      adult_beginner: 技術不穩風險高但數據缺失
+      masters: 特定數據缺失(DATA GAP)
+    sex:
+      female: 無游泳者特定數據
+      male: null
+    ability:
+      para: 特定數據缺失(DATA GAP)
+    lifecycle: null
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: 臨床綜述/教練實務(游泳者肘/腕過用無大型流行病學研究)
+    certainty: 🟠
+    verified: false
+  flags:
+    contested:
+    - claim: 划手板的角色
+      consensus_source: 划手板被視為加速因素
+      dissent_source: 為主因或促因未定論；無安全劑量 RCT
+    vintage_warning: false
+- id: swimmers-shoulder
+  zh: 游泳肩
+  en: Swimmer's shoulder
+  category: A-shoulder-upper
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 棘上肌腱
+  - 肱二頭肌長頭腱
+  - 肩峰下滑囊
+  - 旋轉肌袖
+  mechanism:
+    summary: 高度重複過頭划水；前鋸肌疲勞→肩胛骨去穩定(winging)→旋轉肌過載→繼發夾擊/肌腱病。是傘狀總稱，涵蓋肩峰下夾擊、旋轉肌腱病、內夾擊等亞型。
+    trigger_phase: 自由式/蝶式抓水—早期推水（肱骨高度外展+內旋，通過喙肩弓下方）；恢復期高肘崩潰
+    who: null
+  epidemiology:
+    prevalence: 菁英泳者肩痛 40–91%
+    certainty: 🟡
+    evidence_grade: B
+    caveat: 盛行率不可橫向比較——定義差異極大（現症vs生涯、自陳vs影像、青少年/collegiate/Olympic/masters 族群不同）
+    sources:
+    - McKenzie 2023 系統綜述, Scand J Med Sci Sports, DOI:10.1111/sms.14454（DOI 待 WebFetch 驗證）
+    - StatPearls Swimmer's Shoulder, NCBI Bookshelf NBK470589
+  risk_factors:
+  - text: 訓練量 >35 km/週
+    grade: B
+  - text: 肩關節鬆弛/多向不穩
+    grade: B
+  - text: 既往肩痛史
+    grade: B
+  - text: 內外旋活動度異常
+    grade: C
+  - text: 高肘技術崩潰（前鋸肌疲勞）
+    grade: C
+  prevention:
+  - text: 旋轉肌+肩胛穩定肌耐力訓練（前鋸肌目標是耐力非力量）
+    grade: B
+  - text: 技術矯正：避免越中線入水、雙側換氣
+    grade: C
+  - text: 訓練量漸進管理、避免急性量跳升
+    grade: B
+  management:
+    red_flags:
+    - 夜間靜止痛 + 手臂主動上舉無力 → 排除旋轉肌全層撕裂
+    - 頸部放射痛 + 上肢麻木/無力 → 排除頸神經根病變/TOS
+    acute: 相對休息（非完全停練）+ 物理治療；急性期避免誘發角度的過頭動作
+    pain_rules: 復健期疼痛 ≤3/10、動作型態不變形、24 小時內不惡化
+    rehab: 旋轉肌與肩胛穩定肌漸進阻力訓練；離心負荷；恢復肩胛-肱骨節律
+    functional_progression_criteria:
+    - 肩胛穩定測試左右對稱、無 winging
+    - 全活動度無痛
+    - 旋轉肌肌力對稱達健側 ~90%
+    swim_modifications_in_rehab:
+    - 初期 pull buoy 減踢、限制過頭爆發負荷
+    - 單臂划水分離患側、控制單側量
+    - 暫避蝶式與大划距自由式
+    return_to_train: 全活動度無痛 + 肩胛穩定測試過 → 漸進回水，技術重建優先於量
+    return_to_compete: 全量無痛訓練 ≥2 週 + 技術穩定 → 復賽
+    prognosis: 保守治療多數 6–12 週改善（依嚴重度）；結構性撕裂另評估
+  population_notes:
+    age:
+      youth: 早發肌腱病（早開始競技 + 長泳齡，棘上/肩胛下肌）
+      adult_beginner: 既有肩部退化 + 技術未熟，負荷集中易夾擠
+      masters: 二頭肌長頭腱病/鈣化偏多；超音波 LHB tendinosis 可達 48.8%
+    sex: null
+    ability:
+      para: 上肢推進依賴者（尤視障 S11–S13）肩負擔最高，為帕拉游泳首要傷害
+    lifecycle: null
+  links:
+    mechanism_link: 前鋸肌耐力是 EVF（早期垂直前臂）的硬體前提，疲勞後肩胛失穩→捕水崩潰
+    technical_link: free.tech.10 前鋸肌硬體邊界 / free 疲勞崩潰順序第③步
+    perception_link: L4–L6 手感與全身張力
+  references:
+  - citation: Sein ML, Walton J, Linklater J, Appleyard R, Kirkbride B, Kuah D, Murrell G. Br J Sports Med 2010;44(2):105-113
+    certainty: 🔴
+    verified: false
+  - citation: McKenzie 系統綜述 2023, Scand J Med Sci Sports, DOI:10.1111/sms.14454
+    certainty: 🔴
+    verified: false
+  - citation: Masters 泳者肩超音波研究, PMC7824457
+    certainty: 🟡
+    verified: false
+  flags:
+    contested:
+    - claim: 機制為真正喙肩弓下夾擊 vs 不穩定繼發的肌腱病
+      consensus_source: 近期學界偏向不穩定+疲勞繼發肌腱病（Sein 2010 指鬆弛與夾擊關聯極小）
+      dissent_source: 早期 Neer 肩峰下夾擊模型
+    vintage_warning: false
+- id: thoracic-outlet-syndrome
+  zh: 胸廓出口症候群（TOS）
+  en: Thoracic outlet syndrome in swimmers
+  category: A-shoulder-upper
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  subtypes:
+  - 神經性 nTOS
+  - 靜脈性(Paget-Schroetter)
+  - 動脈性
+  structures:
+  - 臂神經叢
+  - 鎖骨下動靜脈
+  - 斜角肌三角
+  - 肋鎖間隙
+  - 胸小肌後間隙
+  mechanism:
+    summary: 鎖骨下動靜脈或臂神經叢在斜角肌三角、肋鎖間隙或胸小肌後方受壓。游泳主機制為反覆過頭划水(自由式/蝶式/背泳)引起斜角肌與胸小肌肥大壓迫神經血管束，同時肩胛下沉前傾縮小出口空間。神經性(nTOS)最常見；靜脈性(Paget-Schroetter，鎖骨下靜脈血栓)次常見且更緊急；動脈性最罕見但最危險。
+    trigger_phase: 入水相與過頭恢復相
+    who: 高量競技者、頸肋/纖維索帶者、肩胛控制不足者
+  epidemiology:
+    prevalence: 游泳者 TOS 以個案與小系列為主：某 41 名運動員 TOS 手術系列含游泳者 11 名；另一 97 名 nTOS 系列含游泳者 2 名；無可靠流行病學分母
+    certainty: 🔵
+    evidence_grade: C
+    caveat: TOS 診斷標準無完全共識(CORE-TOS 等)，盛行率差異大；易與 MDI/旋轉肌袖損傷混淆；游泳者文獻多為 1990s–2010s 小系列
+    sources:
+    - TOS in athletes systematic review (Frontiers 2022) / PMC7340704 (已驗證)
+    - TOS conservative rehabilitation protocol, PMC11277273 (已驗證)
+  risk_factors:
+  - text: 反覆過頭→斜角肌/胸小肌肥大
+    grade: B
+  - text: 先天頸肋/纖維索帶
+    grade: B
+  - text: 肩胛動作異常/下沉
+    grade: B
+  - text: 高訓練量
+    grade: Expert
+  - text: 斜角肌解剖變異
+    grade: C
+  prevention:
+  - text: 肩胛提肌+中下斜方肌強化
+    grade: Expert
+  - text: 斜角肌/胸小肌伸展
+    grade: Expert
+  - text: 維持姿勢、避免過量
+    grade: Expert
+  management:
+    red_flags:
+    - 手臂腫脹/發紺(靜脈性) → 立即就醫
+    - 手指缺血/蒼白冰冷(動脈性) → 急診
+    - 進行性神經缺損(無力/萎縮) → 就醫
+    - 持續手麻不因姿勢改變緩解 → 就醫
+    acute: 神經性 nTOS：休息、斜角肌放鬆、NSAIDs、姿勢矯正；血管型需血管外科緊急處置
+    pain_rules: 僅特定角度症狀 → 技術調整續輕量；靜息神經症狀(手麻持續) → 停誘發活動
+    rehab: 6 期肩胛控制漸進(靜止位→<30°→45–90°→屈曲→>90° 仰舉→專項)+手法治療(第一肋/胸椎)+神經鬆動+呼吸訓練；避免血流限制訓練(靜脈性風險)
+    functional_progression_criteria:
+    - 症狀消失
+    - 患側等長肌力 ≥90% 對側
+    - 閉鏈上肢測試/後肩耐力測試通過
+    swim_modifications_in_rehab:
+    - 減過頭量、避誘發角度
+    - 靜脈型禁血流限制式負荷
+    return_to_train: 保守 60–70% nTOS 成功(4–6 月試驗)
+    return_to_compete: 手術後 nTOS 約 9–12 月、靜脈性約 3.5 月返回
+    prognosis: 保守對多數 nTOS 有效；血管型須及時介入；手術後約 70–81% 返回原水準(摘要層級待查)
+  population_notes:
+    age:
+      youth: 頸肋+高量更易誘發
+      adult_beginner: 罕見(DATA GAP)
+      masters: 罕見(DATA GAP)
+    sex: null
+    ability:
+      para: 罕見(DATA GAP)
+    lifecycle: null
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Thoracic outlet syndrome in athletes (systematic review), PMC7340704
+    certainty: 🟢
+    verified: true
+  - citation: Conservative rehabilitation for neurogenic TOS, PMC11277273
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 診斷標準與保守試驗時間
+      consensus_source: 保守復健為神經性 TOS 第一線
+      dissent_source: TOS 診斷標準不統一、保守試驗時長各中心不一；易誤診為 MDI/旋轉肌袖損傷
+    vintage_warning: true
+- id: breaststrokers-knee
+  zh: 蛙泳膝
+  en: Breaststroker's knee
+  category: B-lower-spine-strokespecific
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  subtypes:
+  - 內側副韌帶應力症(MCL)
+  - 髕股疼痛症候群(PFPS)
+  - 鵝足滑囊炎(pes anserine)
+  - 內側皺襞症候群(medial plica)
+  structures:
+  - 內側副韌帶(MCL)
+  - 髕股關節
+  - 鵝足滑囊
+  - 內側皺襞
+  mechanism:
+    summary: 蛙式踢腿(whip kick)外翻+外旋負荷重複施於膝內側→內側副韌帶反覆應力(最常見子型)；另有髕股關節壓力(PFPS)、鵝足滑囊炎、內側皺襞夾擠。是傘狀總稱，子型機制與處置不同，須先分型。
+    driver: 踢腿外翻角過大、髖外旋不足以代償(代償落到膝)、訓練量驟增
+    trigger_phase: 蛙式踢腿—收腿後外翻外旋蹬夾(propulsive phase)，膝在外翻位承受高扭轉負荷
+    who: null
+  epidemiology:
+    prevalence: 競技蛙泳者膝痛報導比例高(範圍待 WebFetch 核實)；非蛙式主項者顯著較低
+    certainty: 🟡
+    evidence_grade: B
+    caveat: 「蛙泳膝」常被當單一診斷統計，未分子型→盛行率混雜不同病理
+    sources:
+    - Rovere & Nichols 等蛙泳膝經典文獻（作者/年份/期刊待查）
+    - 游泳膝傷流病系統綜述（待 WebFetch 核實）
+  risk_factors:
+  - text: 蛙式為主項 + 高週踢腿量
+    grade: B
+  - text: 踢腿外翻角過大(技術)
+    grade: B
+  - text: 髖外旋活動度不足(硬體邊界→代償落膝)
+    grade: C
+  - text: 訓練量/踢腿量急性跳升
+    grade: B
+  - text: 既往膝內側疼痛史
+    grade: C
+  prevention:
+  - text: 技術矯正：縮小踢腿外翻角、改善髖外旋帶動(減膝扭轉)
+    grade: C
+  - text: 髖外旋活動度與臀肌力量訓練(把負荷從膝移回髖)
+    grade: C
+  - text: 踢腿量漸進管理，避免急性跳升
+    grade: B
+  - text: 賽季高蛙量期分散踢腿負荷、混入其他泳式
+    grade: C
+  management:
+    red_flags:
+    - 膝鎖死/卡住/打軟(giving way) → 排除半月板/游離體損傷
+    - 明顯腫脹積液 + 不穩 → 排除韌帶斷裂，影像評估
+    - 夜間痛/休息痛/發燒紅熱 → 排除感染性關節炎或其他病理
+    acute: 相對休息(減踢腿、非全停)；急性期冰敷/相對卸載；分型後對因處理
+    pain_rules: 復健期踢腿疼痛 ≤3/10、不改踢腿型態、24h 不惡化
+    rehab: 依子型：MCL 應力→漸進負荷+技術；PFPS→髖膝控制與股四頭/臀肌；鵝足滑囊→離心+負荷管理
+    functional_progression_criteria:
+    - 全活動度無痛
+    - 髖外旋活動度與臀肌力對稱
+    - 陸上單腿控制測試無代償性外翻
+    swim_modifications_in_rehab:
+    - 暫以自由式/仰式踢腿替代蛙式蹬夾，卸載膝內側
+    - 蛙式回歸初期用浮板控制踢腿量、縮小外翻角
+    - 避免蛙泳大力蹬牆轉身的瞬間外翻負荷
+    return_to_train: 踢腿無痛 + 髖外旋/臀肌對稱 + 技術外翻角矯正 → 漸進回蛙踢，技術優先於量
+    return_to_compete: 全蛙量無痛訓練穩定 + 技術型態維持 → 復賽
+    prognosis: 多數保守處理+技術矯正可改善；結構性損傷(半月板/韌帶斷裂)另評估
+  population_notes:
+    age:
+      youth: 青少年蛙泳專項化早+踢腿量高，外翻技術未定型易累積
+      adult_beginner: 成人蛙式技術未熟、外翻角過大，常見膝內側痛
+      masters: 既有膝退化(內側室骨關節炎)疊加蛙踢負荷
+    sex: null
+    ability: null
+    lifecycle: null
+  links:
+    mechanism_link: 踢腿外翻負荷與髖外旋代償可接『硬體邊界 vs 感知缺陷』判斷(髖活動度=硬體)
+    technical_link: 蛙式踢腿技術分析(外翻角/髖帶動)——待對應 canonical technical 條目
+    perception_link: L2–L4 腳感層(踢腿節律與蹬夾感知)
+  references:
+  - citation: 蛙泳膝經典流病文獻（作者/年份/期刊全待 WebFetch 核實）
+    certainty: 🟡
+    verified: false
+  flags:
+    contested:
+    - claim: 蛙泳膝主要病理是 MCL 應力還是髕股/內側皺襞
+      consensus_source: 多數文獻指向內側結構(MCL)應力為最常見，但子型分布隨研究而異
+      dissent_source: 部分研究強調髕股疼痛症候群在蛙泳膝中比例被低估
+    vintage_warning: false
+- id: extension-low-back-pain
+  zh: 伸展型下背痛（蝶泳）
+  en: Extension-type low back pain (butterfly)
+  category: B-lower-spine-strokespecific
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 腰椎關節突關節
+  - 腰椎旁肌
+  - 髂腰肌
+  - 腰椎韌帶
+  mechanism:
+    summary: 機制導向的「伸展型」腰痛，主要由蝶/蛙反覆腰椎過伸引起，不一定有影像可見的椎弓解離或椎間盤病變(與椎弓解離條目重疊，此處聚焦關節突關節炎性/肌肉韌帶型負荷痛)。蝴蝶踢腰椎過伸+骨盆前傾壓迫關節突關節；核心不足或髖屈肌緊縮則波動幅度加大。俗稱「蝶泳下背症候群」。
+    trigger_phase: 蝴蝶踢下踢、蛙泳回腿、水中伸展姿勢、腳踢板
+    who: 蝶/蛙高量者、髂腰肌緊縮者、核心不足者
+  epidemiology:
+    prevalence: 蝶式下背痛 33.3–50%、蛙泳 22.2–47%；有下背痛者蝴蝶踢時腰椎過伸角度顯著較大、髂腰肌彈性模量更高；精英泳者脊椎退化率 68% vs 休閒 29%
+    certainty: 🟡
+    evidence_grade: B
+    caveat: 橫斷面為主，因果方向不明；機制研究(PMID 31141446)與 68% 退化率原始研究為摘要/二手
+    sources:
+    - Swimming low back pain by stroke, PMC11531034 (已驗證)
+    - Competitive swimmers spine degeneration, PMC3435931 (已驗證)
+  risk_factors:
+  - text: 髂腰肌緊縮
+    grade: B
+  - text: 腰椎過伸角度過大
+    grade: B
+  - text: 核心不足
+    grade: B
+  - text: 腳踢板過度使用
+    grade: Expert
+  - text: 高量蝶/蛙
+    grade: B
+  - text: 骨盆前傾
+    grade: Expert
+  - text: 蝴蝶踢偏全身性波浪(vs 膝為主)
+    grade: Expert
+  prevention:
+  - text: 核心強化(抗伸展方向)
+    grade: B
+  - text: 髂腰肌拉伸
+    grade: B
+  - text: 技術:較小波動、膝為主蝴蝶踢
+    grade: Expert
+  - text: 減少腳踢板
+    grade: Expert
+  - text: 分散筆畫避免長時間單一蝶/蛙
+    grade: Expert
+  management:
+    red_flags:
+    - 下肢放射痛/神經症狀 → 就醫(排除椎間盤突出)
+    - 伸展位劇痛 → 就醫(排除椎弓解離)
+    - 夜間痛 → 就醫(排除腫瘤/感染)
+    acute: 訓練調整(停蝶/蛙/腳踢板)、關節鬆動、軟組織治療、NSAIDs
+    pain_rules: 輕度訓練後痠痛 24 小時消退 → 續但分散蝶式；過伸即痛 → 停蝶/蛙評估；有下肢症狀 → 立即評估(red flag)
+    rehab: 核心抗伸展穩定(plank/dead bug/bird-dog)+髂腰肌拉伸+腰椎中立位動作控制；關節突關節痛者關節鬆動+短期貼紮
+    functional_progression_criteria:
+    - 腰椎中立位全 ROM 無痛
+    - 核心耐力測試通過
+    - 漸進蝴蝶踢無症狀
+    swim_modifications_in_rehab:
+    - 自由式/背泳替代(旋轉為主非過伸)
+    - 水中核心練習、漸引窄幅蝴蝶踢
+    return_to_train: 輕症 4–8 週；與椎弓解離共存按椎弓解離條目(更長)
+    return_to_compete: 核心與蝴蝶踢無症狀達標後回賽
+    prognosis: 多數保守反應良好；無構造病變者佳；高量蝶式者需長期核心維持
+  population_notes:
+    age:
+      youth: 核心族群
+      adult_beginner: 核心控制不足風險不低
+      masters: 退化性椎間盤+關節突關節炎共存，機制更複雜
+    sex:
+      female: 蝶/蛙下背痛略高於男性(待查)
+      male: null
+    ability:
+      para: 脊椎損傷者特殊腰椎狀況，不可套用一般評估(DATA GAP)
+    lifecycle: null
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Low back pain in swimmers by stroke, PMC11531034
+    certainty: 🟢
+    verified: true
+  - citation: Spine degeneration in competitive swimmers, PMC3435931
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 伸展型下背痛 vs 椎弓解離鑑別
+      consensus_source: 影像前難鑑別，處理相近
+      dissent_source: 椎弓解離需更謹慎；抗伸展 vs 屈曲導向核心訓練相對效益缺高品質 RCT
+    vintage_warning: false
+- id: femoroacetabular-impingement
+  zh: 股骨髖臼撞擊（FAI）
+  en: Femoroacetabular impingement in swimmers
+  category: B-lower-spine-strokespecific
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  subtypes:
+  - Cam 型
+  - Pincer 型
+  - 混合型
+  structures:
+  - 股骨頭頸交界
+  - 髖臼緣
+  - 髖盂唇
+  - 髖關節軟骨
+  mechanism:
+    summary: 股骨頭(Cam)或髖臼(Pincer)骨性異常致髖屈曲/內旋時骨性接觸夾擊盂唇與軟骨。蛙泳踢腿需大幅外旋屈曲後內收內旋的組合反覆動作為主要誘發；蝴蝶踢反覆髖屈伸亦可。水上運動員在骨骼發育期反覆對股骨頭施加旋轉應力，可能促進 Cam 形態發育。
+    trigger_phase: 蛙泳踢腿加速相、蝴蝶踢下踢
+    who: 青少年期大量水上運動者、蛙泳專項、既有骨性異常者
+  epidemiology:
+    prevalence: 水上項目(水球/同步游泳)Cam 形態 67.5%(27/40 髖)、與足球(64.2%)相當；Pincer 22.5%；蛙泳特定無獨立研究
+    certainty: 🟡
+    evidence_grade: B
+    caveat: 流行率數據來自水球/同步游泳(蛋踢)，非蛙泳特定；alpha angle 與蛋踢時數無統計相關，習得 vs 先天未定
+    sources:
+    - Cam morphology in aquatic athletes, PMC7605769 (已驗證)
+    - FAI rehabilitation & RTS, PMC11642080 (已驗證)
+  risk_factors:
+  - text: 青少年期大量水上運動(骨骺敏感)
+    grade: B
+  - text: 先天/發育性股骨或髖臼異常
+    grade: B
+  - text: 蛙泳踢腿幅度/技術
+    grade: B
+  - text: 髖 ROM 不足(內旋 <40°)
+    grade: B
+  - text: 家族性 FAI 形態
+    grade: B
+  prevention:
+  - text: 生長期避免過度專項化
+    grade: Expert
+  - text: 維持髖 ROM 與肌力
+    grade: B
+  - text: 蛙泳骨盆位置優化
+    grade: Expert
+  - text: 控制訓練量
+    grade: Expert
+  management:
+    red_flags:
+    - 靜息腹股溝/深髖痛 → 就醫
+    - 夜間痛 → 就醫
+    - 神經症狀 → 就醫(排除腰椎)
+    - 急性髖鎖定(盂唇嵌頓) → 就醫
+    acute: 停誘發活動(蛙泳)、NSAIDs、物理治療
+    pain_rules: 輕度撞擊徵象 → 先練 ROM/肌力+調技術；蛙泳持續深痛 → 停蛙泳、影像(X-ray AP+側位)
+    rehab: 術後 4 期:即刻負重 20 kg/ROM ≤90° → 2–8w 漸進全承重+水中走路 → 8–16w 弓步/單腳平衡 → 16w–8 月跳躍/專項
+    functional_progression_criteria:
+    - 髖 ROM 與肌力恢復
+    - 單腳平衡/功能測試通過
+    - 蛙泳踢腿無撞擊痛
+    swim_modifications_in_rehab:
+    - 術後 3–4 月開始水中走路
+    - 蛙泳通常術後 ≥4 月恢復
+    return_to_train: 保守首選；多數骨性異常可保守管理
+    return_to_compete: 整體術後 RTS 90.3%；游泳者 100% 平均 3.4 月(各項目最佳之一)
+    prognosis: 手術結果優良，游泳者為各項目最佳之一；盂唇撕裂+持續症狀手術效益清楚
+  population_notes:
+    age:
+      youth: 骨骺開放期最易形成 Cam，重視預防與避免過度專項化
+      adult_beginner: null
+      masters: 篩查髖 ROM；多數可保守
+    sex:
+      female: 女性 Cam 較低、Pincer 較常見(一般人群外推)
+      male: null
+    ability:
+      para: DATA GAP
+    lifecycle: null
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Cam morphology in aquatic (water polo/synchro) athletes, PMC7605769
+    certainty: 🟢
+    verified: true
+  - citation: FAI surgical rehabilitation and return to sport, PMC11642080
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: Cam 形態為運動習得或先天為主
+      consensus_source: Cam 多在骨骺開放期形成、與機械負荷相關
+      dissent_source: alpha angle 與蛋踢時數無統計相關，水中旋轉促進說未證實
+    vintage_warning: false
+- id: groin-adductor-strain
+  zh: 腹股溝/內收肌損傷（蛙泳）
+  en: Groin / adductor strain (breaststroke)
+  category: B-lower-spine-strokespecific
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 內收肌群
+  - 股薄肌
+  - 恥骨聯合
+  - 髖內收肌腱起點
+  mechanism:
+    summary: 蛙泳踢腿推進期需大力髖內收(內收肌群+股薄肌)，膝足外開幅度越大、內收肌牽張負荷越高。急性傷害見於負荷突增或疲勞後失衡；慢性來自反覆超載致腱病或恥骨聯合過載(運動性恥骨痛)。與一般定義「腹股溝痛」涵蓋 adductor strain / 運動性恥骨痛 / 疝氣多有重疊。
+    trigger_phase: 蛙泳鞭踢的外展→內收轉換相
+    who: 蛙泳專項、踢腿幅度大者、內收肌相對弱者
+  epidemiology:
+    prevalence: 蛙泳者 42.7% 過去一年因腹股溝傷無法完成蛙泳訓練(vs 個人混合式 21.5%、非蛙泳 5.8%)；當前腹股溝痛蛙泳 6.92% vs 個人混合式 0%(p=0.015)
+    certainty: 🟡
+    evidence_grade: B
+    caveat: 主要數字來自 2004 年單一研究(Grote 等，AJSM)，現代訓練模式不同；全文未開啟，數字屬待查
+    sources:
+    - Grote 2004 breaststroke groin injury, AJSM PMID 14754731 (摘要層級待驗證)
+    - Adductor loading/return-to-sport practice (Coast Sport, 已驗證)
+  risk_factors:
+  - text: 蛙泳踢腿幅度過大
+    grade: B
+  - text: 訓練量急增(急/慢性負荷比 >150%)
+    grade: B
+  - text: 熱身不足(<900 m)
+    grade: B
+  - text: 髖內旋 ROM 不足(<40°)
+    grade: B
+  - text: 核心/臀肌薄弱
+    grade: Expert
+  - text: 年齡 ≥16
+    grade: B
+  - text: 競技年資 ≥9 年
+    grade: B
+  prevention:
+  - text: 技術:縮小踢腿幅度、窄鞭踢
+    grade: B
+  - text: Copenhagen 內收肌離心訓練(顯著提升肌力)
+    grade: B
+  - text: 充足熱身 ≥900 m
+    grade: B
+  - text: 負荷漸進管理
+    grade: B
+  management:
+    red_flags:
+    - 恥骨結節嚴重觸痛 → 就醫(排除恥骨骨炎/應力骨折)
+    - 腹股溝膨出/疝氣徵象 → 就醫
+    - 神經症狀 → 就醫
+    - 不明消瘦+持續痛 → 就醫(排除腫瘤)
+    acute: 休息、冰敷、停蛙泳
+    pain_rules: 等長收縮無痛 → 開始等長訓練；NRS ≤3 且消退 → 調整續練(非蛙泳)；蛙泳期間任何痛 → 停蛙泳改自由/背泳
+    rehab: ①等長 ②同心/離心漸進(Copenhagen) ③功能性(模擬踢腿路徑) ④專項(窄幅蛙踢)
+    functional_progression_criteria:
+    - 內收肌力 ≥90% 對側
+    - 窄幅踢腿無痛
+    - 蛙泳全速無痛再現
+    swim_modifications_in_rehab:
+    - 停蛙泳；可自由式/背泳/蝴蝶腳(腹股溝負荷低)
+    - 監督下漸引窄幅蛙踢
+    return_to_train: 輕症 2–12 週；慢性腱病 3–6 月
+    return_to_compete: 肌力與蛙泳全速無痛達標後回賽
+    prognosis: 主動復健佳；慢性(含恥骨骨炎)延長；避免帶痛蛙泳為關鍵
+  population_notes:
+    age:
+      youth: 16 歲後顯著增加
+      adult_beginner: null
+      masters: 累積軟組織退化，數據缺
+    sex:
+      female: 女性蛙泳者骨盆寬度生物力學差異(DATA GAP)
+      male: null
+    ability:
+      para: 蛙泳部分分級受限，文獻缺
+    lifecycle: null
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Breaststroke groin injury (Grote 2004), AJSM PMID 14754731
+    certainty: 🟡
+    verified: false
+  - citation: Adductor strengthening / load management (Coast Sport)
+    certainty: 🟠
+    verified: true
+  flags:
+    contested:
+    - claim: Copenhagen 是否足以預防蛙泳者傷害
+      consensus_source: Copenhagen 顯著提升內收肌力
+      dissent_source: 季節性傷害預防統計不顯著，依從性為關鍵(PMC12363431 2025 摘要)
+    vintage_warning: true
+- id: spondylolysis
+  zh: 椎弓解離/脊椎滑脫
+  en: Spondylolysis / spondylolisthesis
+  category: B-lower-spine-strokespecific
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 腰椎椎弓根峽部(pars interarticularis)
+  - 腰椎關節突關節
+  - 椎間盤
+  mechanism:
+    summary: 腰椎椎弓根峽部(pars interarticularis)應力骨折，由反覆腰椎過伸+旋轉+剪切造成。蝶式/蛙泳波浪動作要求腰椎反覆過伸對抗水阻，每次訓練可重複 1,000 次以上。雙側峽部不癒合可進展為脊椎滑脫。是青少年運動員最常見的下背痛結構性病因之一。
+    trigger_phase: 蝴蝶踢下推、蛙泳回腿過伸、水中標準化伸展姿勢
+    who: 蝶/蛙專項青少年、髂腰肌緊縮/核心不足者、習慣性腰椎過伸者
+  epidemiology:
+    prevalence: 蝶式下背痛 33.3–50%、蛙泳 22.2–47%；青少年運動員為最常見下背痛原因；運動員椎弓解離約一般人群(5–10%)的 2 倍，游泳特定比例屬二手
+    certainty: 🟡
+    evidence_grade: B
+    caveat: 下背痛盛行率有游泳數據，但椎弓解離游泳特定比例為二手綜述；返回運動時間數字多為摘要層級
+    sources:
+    - Swimming low back pain by stroke, PMC11531034 (已驗證)
+    - Competitive swimmers spine degeneration, PMC3435931 (已驗證)
+  risk_factors:
+  - text: 蝶/蛙反覆腰椎過伸
+    grade: B
+  - text: 核心薄弱
+    grade: B
+  - text: 髂腰肌緊縮/骨盆前傾
+    grade: B
+  - text: 腳踢板過多(強迫過伸)
+    grade: Expert
+  - text: 青少年骨骼發育期
+    grade: B
+  - text: 蝶/蛙訓練量高
+    grade: Expert
+  prevention:
+  - text: dryland 核心強化
+    grade: B
+  - text: 技術:減少蝴蝶踢波動、改以膝為主踢腿
+    grade: Expert
+  - text: 減少腳踢板使用
+    grade: Expert
+  - text: 平衡過伸與屈曲訓練
+    grade: Expert
+  - text: 髂腰肌拉伸
+    grade: B
+  management:
+    red_flags:
+    - 急性嚴重下背痛 → 就醫
+    - 下肢神經症狀(麻/無力) → 就醫(滑脫進展)
+    - 大小便失禁 → 急診(罕見急症)
+    - 伸展位劇痛+影像確認 → 骨科/脊椎評估
+    acute: 停蝶/蛙；視情況硬式胸腰薦支架(TLSO/Boston)23 小時/天×3 月；電骨刺激(臨床常用但 RCT 證據不足)
+    pain_rules: 有症狀+影像確認 → 停蝶/蛙改自由/背泳；無症狀偶然發現 → 仍考慮保護性調整
+    rehab: 3 期:①ROM 恢復(髂腰肌拉伸、腰椎中立) ②穩定化(dead bug/bird-dog/腹部等長) ③功能性(區分髖屈 vs 腰椎屈)
+    functional_progression_criteria:
+    - 靜息/活動無痛
+    - 核心肌力測試通過
+    - 影像穩定(症狀消失可接受，不一定要骨癒合)
+    swim_modifications_in_rehab:
+    - 停蝶/蛙，初期自由/背泳
+    - 監督下漸引蝴蝶腿(無症狀)，不帶痛蝶式或腳踢板
+    return_to_train: 保守平均 3.7–4.6 月
+    return_to_compete: 青少年保守約 95% 恢復傷前無需手術
+    prognosis: 總體良好；滑脫 >50% 可能需椎弓融合；長期核心維持防復發
+  population_notes:
+    age:
+      youth: 核心風險群，峽部更脆弱
+      adult_beginner: null
+      masters: 退化性改變共存需鑑別
+    sex:
+      female: 蝶/蛙下背痛略增；椎弓解離性別差異游泳特定數據缺
+      male: null
+    ability:
+      para: 脊椎損傷者腰椎風險不同，需個案評估(DATA GAP)
+    lifecycle: null
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Low back pain in swimmers by stroke, PMC11531034
+    certainty: 🟢
+    verified: true
+  - citation: Spine degeneration in competitive swimmers, PMC3435931
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 骨癒合是否治療成功必要條件
+      consensus_source: 近年趨向症狀消失+功能恢復即可 RTS
+      dissent_source: 支架種類(硬式 TLSO vs 半硬式)比較證據不足
+    vintage_warning: false
+- id: swimmer-ankle-foot-overuse
+  zh: 游泳者踝/足過度使用傷
+  en: Swimmer's ankle & foot overuse
+  category: B-lower-spine-strokespecific
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  subtypes:
+  - 趾伸肌腱病
+  - 外/後側踝應力
+  - 蹠骨應力/足底筋膜問題
+  structures:
+  - 趾伸肌腱
+  - 尺側/外側踝韌帶
+  - 蹠骨
+  - 足底筋膜
+  mechanism:
+    summary: 三條路徑——①趾伸肌腱病:蛙/自由式踢腿反覆踝背屈、腳踢板及蛙鞋使用對前足踝背側趾伸肌腱牽拉(蛙鞋槓桿加大前掌受力為催化)；②外/後側踝應力:翻滾轉身腳板接觸不準致踝扭傷、蛙鞋過用致外側踝骨髓水腫；③蹠骨應力骨折/足底筋膜問題:罕見個案，與推蹬牆及高頻踢腿有關。游泳屬非承重運動，踝足傷害最不常見(約佔整體傷害 1%)。
+    trigger_phase: 蛙鞋訓練、腳踢板、蛙泳踢腿
+    who: 過用蛙鞋者、快速增量者、翻滾轉身技術不良者
+  epidemiology:
+    prevalence: 踝部佔游泳整體傷害約 1%；蛙鞋使用者個案報告外側踝骨髓水腫(11 歲女精英)、趾伸支持帶水腫(14 歲女精英)；系統性流行率游泳特定幾乎缺失
+    certainty: 🔵
+    evidence_grade: C
+    caveat: 幾乎全靠個案報告與推斷，無控制研究；公開呈現須明標證據等級低；蛙鞋安全劑量無 RCT
+    sources:
+    - Swimming injury imaging review (踝部約 1%), radiologykey (已驗證)
+    - Stress fractures in swimmers systematic review, journals.aiac.org.au (已驗證)
+  risk_factors:
+  - text: 蛙鞋過用/尺寸不合
+    grade: Expert
+  - text: 快速增加踢腿量
+    grade: Expert
+  - text: 腳踢板強迫踝背屈
+    grade: Expert
+  - text: 翻滾轉身技術不良
+    grade: Expert
+  - text: 踝背屈活動度不足
+    grade: C
+  prevention:
+  - text: 限制蛙鞋持續使用量
+    grade: Expert
+  - text: 選擇合適蛙鞋尺寸
+    grade: Expert
+  - text: 逐步增加踢腿量
+    grade: Expert
+  - text: 改善翻滾轉身技術
+    grade: Expert
+  - text: 踝部伸展與強化
+    grade: Expert
+  management:
+    red_flags:
+    - 足部急性腫脹 → 就醫(排除應力骨折)
+    - 趾伸肌腱異音/脫位感 → 就醫
+    - 足底/踝神經症狀 → 就醫(排除跗骨管症候群)
+    acute: 休息(停蛙鞋)、冰敷；輕微趾伸肌腱病夾板 1–2 週
+    pain_rules: 蛙鞋訓練後前足背輕痛隔日消退 → 減蛙鞋量、評估合適度；持續痛或骨壓痛 → 停蛙鞋、影像排除應力骨折
+    rehab: 趾伸肌腱病以踝趾屈/背屈漸進阻力；足底問題以足內在肌強化+小腿拉伸；翻滾轉身技術重建
+    functional_progression_criteria:
+    - 前足背無痛
+    - 踝背屈 ROM 正常
+    - 無痛踢腿 100 m
+    swim_modifications_in_rehab:
+    - 停蛙鞋改裸腳踢腿
+    - 翻滾暫改開放式轉身
+    return_to_train: 趾伸肌腱病 2–6 週保守有效；應力骨折按影像癒合 6–12 週
+    return_to_compete: 無痛踢腿達標後回賽
+    prognosis: 通常良好；因低衝擊運動，減蛙鞋/腳踢板即顯著改善
+  population_notes:
+    age:
+      youth: 高強度蛙鞋訓練的青少年精英最多個案報告
+      adult_beginner: 翻滾轉身技術不良踝扭傷風險較高
+      masters: 臨床觀察有趾伸肌腱病，大型數據缺
+    sex:
+      female: 無特定數據
+      male: null
+    ability:
+      para: 截肢者殘肢/假肢力學完全不同，標準評估不適用(DATA GAP)
+    lifecycle: null
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Imaging of swimming injuries (ankle ~1%), radiologykey
+    certainty: 🟠
+    verified: true
+  - citation: Stress fractures in swimmers (systematic review), journals.aiac.org.au
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 游泳是否『保護』踝足
+      consensus_source: 普遍認為低衝擊極少傷
+      dissent_source: 蛙鞋個案報告挑戰此說，但無大規模研究翻轉；蛙鞋效益 vs 風險無安全劑量 RCT
+    vintage_warning: false
+- id: acanthamoeba-keratitis
+  zh: 棘阿米巴角膜炎（隱形眼鏡泳者）
+  en: Acanthamoeba keratitis in swimmers
+  category: C-nonMSK-medical
+  environment:
+  - pool
+  - open_water
+  sport_variant:
+  - swim
+  - open_water_swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 角膜上皮
+  - 角膜基質
+  - 角膜神經
+  mechanism:
+    summary: 棘阿米巴(Acanthamoeba)為環境中普遍存在的自由生活原蟲，以包囊(cyst)形態抗環境耐氯。戴隱形眼鏡時鏡片與角膜間形成微缺氧及微小上皮損傷，原蟲附著於鏡片並侵入角膜上皮、沿角膜神經擴散(致劇痛與環形浸潤)，包囊形態對藥物與消毒高度抵抗，治療困難且病程數月。游泳時戴隱形眼鏡(尤其軟式)被水中原蟲污染、或用自來水沖洗/保存鏡片為主要途徑。標準泳池游離氯無法殺滅包囊，防護依賴鏡片管理而非水質。
+    trigger_phase: 戴隱形眼鏡游泳/泡水、用自來水洗鏡片或鏡盒、戴鏡淋浴
+    who: 隱形眼鏡配戴者(約佔病例 9 成)、配戴軟式日拋未取下即下水者、開放水域/溫泉接觸者
+  epidemiology:
+    prevalence: 全球年發生率估約 23,561 例(約 2.9/百萬，PMC11424229)；隱形眼鏡配戴為最大宗危險因子(約佔 85–90% 病例)；約 39% 患者最終視力結果不佳；確診前誤用類固醇為最強不良預後因子
+    certainty: 🟢
+    evidence_grade: B
+    caveat: 屬罕見但破壞性極強之眼科急症；發生率受隱形眼鏡使用率與通報品質影響，地區差異大；游泳特異性歸因比例缺精確分母
+    sources:
+    - Global incidence of Acanthamoeba keratitis, PMC11424229 (已驗證)
+  risk_factors:
+  - text: 戴隱形眼鏡游泳/泡水
+    grade: B
+  - text: 用自來水沖洗或保存隱形眼鏡/鏡盒
+    grade: B
+  - text: 戴隱形眼鏡淋浴/泡溫泉
+    grade: B
+  - text: 鏡片衛生不良(過夜配戴、延長配戴)
+    grade: B
+  - text: 角膜既有微小外傷
+    grade: Expert
+  prevention:
+  - text: 游泳/泡水/淋浴前取下隱形眼鏡(單一最重要措施)
+    grade: B
+  - text: 必須戴鏡下水則用密封泳鏡並改日拋、出水即丟
+    grade: Expert
+  - text: 絕不以自來水沖洗或保存鏡片/鏡盒
+    grade: B
+  - text: 鏡盒定期更換、用專用保存液
+    grade: Expert
+  - text: 出現紅眼/異物感/畏光持續勿自行點藥拖延，儘速眼科
+    grade: Expert
+  management:
+    red_flags:
+    - 與體徵不成比例的劇烈眼痛 → 緊急眼科
+    - 戴隱形眼鏡者持續紅眼/畏光/視力模糊 → 緊急眼科(勿先點類固醇)
+    - 角膜環形浸潤/上皮反覆缺損 → 角膜專科
+    - 點抗生素/抗病毒無改善的角膜炎 → 重新評估阿米巴
+    acute: 立即停戴隱形眼鏡並送角膜專科；確診靠共軛焦顯微鏡/角膜刮取培養/PCR。治療為長療程(數月)雙重抗阿米巴：雙胍類(PHMB/chlorhexidine)+二脒類(propamidine/hexamidine)；嚴重或藥物無效需角膜移植。確診前誤用類固醇會惡化預後，為關鍵禁忌
+    pain_rules: null
+    rehab: null
+    functional_progression_criteria:
+    - 角膜炎完全治癒且眼科同意後方可恢復戴鏡/下水
+    - 病史者強烈建議改採非鏡片視力矯正(眼鏡/雷射)後再下水
+    swim_modifications_in_rehab: null
+    return_to_train: 感染治癒、眼科放行後回水，並落實不戴鏡游泳
+    return_to_compete: null
+    prognosis: 早期確診且未誤用類固醇者預後較佳；延誤診斷或誤用類固醇者約四成視力結果不佳，重症可致角膜瘢痕、失明甚至需移植或摘除
+  population_notes:
+    age:
+      youth: 青少年隱形眼鏡使用上升(美觀/運動)，泳前取鏡衛教應提早納入
+      adult_beginner: 成人初學戴鏡下水習慣最須提醒
+      masters: null
+    sex: null
+    ability:
+      para: null
+    lifecycle:
+      open_water: 開放水域/溫泉原蟲負荷高，戴鏡風險更甚泳池
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Global incidence and prevalence of Acanthamoeba keratitis, PMC11424229
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 泳池水質能否防護
+      consensus_source: 標準氯化無法殺滅棘阿米巴包囊，防護須靠鏡片管理
+      dissent_source: 部分公衛建議仍強調水質維護，但對包囊實效有限，重點仍在不戴鏡下水
+    vintage_warning: false
+- id: chlorine-eye-irritation
+  zh: 氯 / 化學性結膜炎與角膜刺激
+  en: Chlorine / chemical conjunctivitis & corneal irritation
+  category: C-nonMSK-medical
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 角膜上皮
+  - 結膜
+  - 淚膜
+  mechanism:
+    summary: 真正刺激源非氯本身而是氯胺(chloramines)，尤其三氯胺(NCl₃)——氯與游泳者帶入有機物(汗/尿素/皮脂)反應生成。三氯胺溶解淚膜脂質層、破壞淚膜穩定；池水相對淚液為低張，水分移入角膜上皮致暫時性角膜水腫。結果為化學性結膜炎(紅眼/灼熱/流淚)合併乾眼與暫時性視力模糊。
+    trigger_phase: 室內泳池(三氯胺封閉累積)、水質管理不佳、無泳鏡游泳
+    who: 所有不戴泳鏡游泳者；長時間/高頻訓練競技泳者；室內泳池工作人員
+  epidemiology:
+    prevalence: 自由氯約 8 ppm 開始出現結膜刺激、20 ppm 明確反應；游泳者紅眼/刺激主觀症狀極常見但缺系統盛行率；室內泳池工作者三氯胺相關眼症狀約佔 1/3–2/5
+    certainty: 🟡
+    evidence_grade: C
+    caveat: 缺游泳者眼症狀全球前瞻盛行率；『結膜炎』vs『刺激』判準不一；多數研究聚焦職業工作者非一般泳者
+    sources:
+    - Chloramine eye irritation 機制研究, PMC6137694 (已驗證)
+  risk_factors:
+  - text: 不戴泳鏡游泳
+    grade: Expert
+  - text: 室內泳池(三氯胺不易散逸)
+    grade: Expert
+  - text: 長時間高頻游泳
+    grade: Expert
+  - text: 既有乾眼或配戴角膜接觸鏡
+    grade: Expert
+  - text: 泳池 pH 失衡/高有機負荷
+    grade: Expert
+  prevention:
+  - text: 全程戴密封型泳鏡
+    grade: Expert
+  - text: 游泳後立即以清水/生理食鹽水沖洗眼部
+    grade: Expert
+  - text: 泳池維持 pH 7.2–7.8 與適當換水率
+    grade: Expert
+  - text: 室內泳池加強通風降低空氣三氯胺
+    grade: Expert
+  - text: 入池前淋浴減少有機負荷
+    grade: Expert
+  management:
+    red_flags:
+    - 游泳後 >48 小時刺激未緩解 → 就醫
+    - 持續視力模糊(非瞬間) → 就醫
+    - 膿性分泌物/劇痛/畏光/角膜混濁 → 懷疑細菌/阿米巴角膜炎(見 acanthamoeba-keratitis)
+    acute: 立即以清水沖洗約 20 分鐘；無防腐劑人工淚液每日多次。化學性刺激通常 24–48 小時自癒，不需抗生素
+    pain_rules: null
+    rehab: null
+    functional_progression_criteria:
+    - 刺激症狀完全緩解即可返泳(無細菌感染時不影響返泳時機)
+    swim_modifications_in_rehab: null
+    return_to_train: 症狀緩解後回水並改善護目防護
+    return_to_compete: null
+    prognosis: 化學性刺激預後極佳近乎完全自癒；角膜接觸鏡配戴者若無保護有較高進展為細菌/阿米巴角膜炎風險
+  population_notes:
+    age:
+      youth: 不習慣戴泳鏡或密封不佳，症狀最常見
+      adult_beginner: null
+      masters: 既有乾眼者症狀更明顯
+    sex: null
+    ability:
+      para: null
+    lifecycle: null
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Chloramines and ocular irritation in swimming pools, PMC6137694
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 主要刺激源
+      consensus_source: 傾向三氯胺為主要致病物質
+      dissent_source: 低張水質滲透壓效應的相對貢獻比例未定論
+    vintage_warning: false
+- id: recreational-water-cryptosporidium
+  zh: 隱孢子蟲 / 泳池水傳染腸道病
+  en: Cryptosporidium & recreational water illness
+  category: C-nonMSK-medical
+  environment:
+  - pool
+  - open_water
+  sport_variant:
+  - swim
+  - open_water_swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 腸道上皮(小腸刷狀緣)
+  - 體液-電解質平衡
+  mechanism:
+    summary: 隱孢子蟲(Cryptosporidium parvum/hominis)以卵囊(oocysts)在水中存活，感染者糞便含大量卵囊(單次腹瀉排 10⁷–10⁸ 個)，僅需 10–100 個即致病。卵囊在標準泳池 >1 ppm 自由氯下仍可存活 >7 天，化學消毒幾乎無效。吞入含卵囊水後卵囊在腸道釋放子孢子侵入小腸上皮刷狀緣，造成大量水樣腹瀉、腹痛、噁心，病程 2–3 週；免疫低下者可慢性致命。
+    trigger_phase: 公共泳池/水上遊樂設施(尤有腹瀉兒童入池)、循環式戲水池
+    who: 兒童(最高風險)、照護機構人員、免疫低下者(HIV/AIDS/移植)
+  epidemiology:
+    prevalence: 美國 2009–2017 共 444 起隱孢子蟲暴露、7,465 例；泳池/水上設施為最大單一途徑(35.1% 暴發、56.7% 病例)；2015–2019 泳池水相關暴發中隱孢子蟲佔確認病因 49% 暴發、84% 病例；暴發報告件數每年約增 13%
+    certainty: 🟢
+    evidence_grade: B
+    caveat: 受限於自願通報系統(36 州)，實際負擔可能遠高於報告；台灣/亞洲監測資料甚少
+    sources:
+    - Cryptosporidiosis outbreaks US 2009–2017, PMC6597118 (已驗證)
+    - Treated recreational water illness outbreaks 2015–2019, PMC8136425 (已驗證)
+  risk_factors:
+  - text: 吞入泳池水
+    grade: B
+  - text: 兒童(2–10 歲，穿尿布/意外排便)
+    grade: B
+  - text: 腹瀉期間或症狀消退 2 週內仍入池
+    grade: B
+  - text: 免疫低下
+    grade: B
+  - text: 泳池未用 UV/臭氧補充消毒
+    grade: Expert
+  prevention:
+  - text: 腹瀉者禁入池(症狀消退後 2 週方可)
+    grade: Expert
+  - text: 泳池設 UV 光/臭氧補充消毒(殺氯抗性卵囊)
+    grade: Expert
+  - text: 兒童入池前沖洗/更換尿布、勿在池中排泄
+    grade: Expert
+  - text: 遊客入池前強制沖澡
+    grade: Expert
+  - text: 發現污染後超氯化+延長接觸時間
+    grade: Expert
+  management:
+    red_flags:
+    - 嚴重脫水(無尿/精神改變) → 就醫
+    - 血便 → 就醫
+    - 免疫低下者任何腹瀉 → 早期就醫
+    - 腹瀉持續 >7 天 → 就醫
+    acute: 免疫正常者：補液(口服電解質)；硝唑尼特(Nitazoxanide，唯一 FDA 核准)縮短病程 1–2 天，多 2–3 週自癒。免疫低下者：Nitazoxanide+抗病毒(若 HIV)，嚴重需住院靜脈補液。泳池暴發控制：關閉+超氯化(≥20 ppm 游離氯持續 8 小時)或 UV/臭氧
+    pain_rules: null
+    rehab: null
+    functional_progression_criteria:
+    - 免疫正常者症狀完全消退+至少 2 週後再入池(防再傳播)
+    - 免疫低下者由感染科評估
+    swim_modifications_in_rehab: null
+    return_to_train: 症狀消退並達防傳播間隔後回水
+    return_to_compete: null
+    prognosis: 免疫正常者預後極佳完全自癒；免疫低下者預後謹慎，有慢性化與致命風險
+  population_notes:
+    age:
+      youth: 最常見傳播來源(糞便污染)也是最主要受害者，應優先納入健康游泳教育
+      adult_beginner: null
+      masters: 若有潛在免疫抑制(癌症治療)需特別注意
+    sex: null
+    ability:
+      para: null
+    lifecycle:
+      open_water: 開放水域感染存在但較難追蹤
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Cryptosporidiosis Outbreaks United States 2009–2017, PMC6597118
+    certainty: 🟢
+    verified: true
+  - citation: Outbreaks Associated with Treated Recreational Water 2015–2019, PMC8136425
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: UV/臭氧標準化
+      consensus_source: 標準氯化無法殺隱孢子蟲卵囊、CDC 建議補充 UV/臭氧
+      dissent_source: 許多低資源地區尚未普及，標準執行差距大
+    vintage_warning: false
+- id: surfers-ear-exostosis
+  zh: 外耳道骨瘤 / 骨疣（衝浪耳）
+  en: Surfer's ear / external auditory exostosis
+  category: C-nonMSK-medical
+  environment:
+  - open_water
+  - surf
+  - pool
+  sport_variant:
+  - swim
+  - open_water_swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 外耳道骨性部
+  - 骨膜
+  - 外耳道上皮
+  mechanism:
+    summary: 長期冷水(臨界約 <19°C)與冷風刺激外耳道骨性部骨膜，引發慢性骨膜炎；成骨細胞活化致鼓環周圍骨性增生並向耳道腔延伸。過度增生後耳道阻塞，耳垢與水分積聚→反覆外耳道炎、傳導性聽損。外耳道上皮極薄(約 0.1mm)幾無緩衝。
+    trigger_phase: 冷水游泳/衝浪/划艇/潛水，頻率高、累積時數長；風冷加成
+    who: 衝浪者(研究最多)、冷水/冬泳者、划艇選手、潛水員；任何長期反覆冷水暴露者
+  epidemiology:
+    prevalence: 一般人群約每千人 6.3 例；冷水衝浪者 70–80%，連暖水衝浪者小樣本(n=23)仍達 69.6%；已確診者約 80% 雙側
+    certainty: 🟡
+    evidence_grade: C
+    caveat: 絕大多數研究針對衝浪者，競技(室內溫水)游泳者獨立盛行率幾乎不存在；女性樣本過少
+    sources:
+    - External Auditory Exostoses, StatPearls PMID 30521295 (已驗證)
+    - Warm-water surfers exostosis 橫斷研究, PMC7077213 (已驗證)
+  risk_factors:
+  - text: 冷水(<19°C)暴露頻率與累積時數
+    grade: B
+  - text: 每年 >50 次水域活動且 >5 年年資
+    grade: B
+  - text: 無耳保護裝備
+    grade: B
+  - text: 冷風暴露
+    grade: Expert
+  - text: 男性(部分因活動參與率偏差)
+    grade: B
+  prevention:
+  - text: 完整密封型矽膠耳塞
+    grade: B
+  - text: 氯丁橡膠帽(neoprene hood)保溫
+    grade: Expert
+  - text: 每次入水均用耳保護(實際依從率僅約 5%)
+    grade: Expert
+  - text: 術後持續耳保護防復發
+    grade: Expert
+  management:
+    red_flags:
+    - 耳道阻塞 >80% → 耳鼻喉科評估
+    - 反覆外耳道炎(≥3 次/年)+傳導性聽損 → 轉介
+    - 持續耳痛/耳鳴 → 轉介
+    acute: 保守(Grade 1–2)：定期耳垢清潔、治療合併外耳道炎、監測進展。外科(canalplasty/exostectomy)：阻塞 >80%+持續症狀；術後約 68% 生活品質改善，約 14% 併發症(鼓膜穿孔/顏面神經麻痺/顳顎關節障礙)
+    pain_rules: null
+    rehab: null
+    functional_progression_criteria:
+    - 術後雙側手術一般間隔約 6 週
+    - 術後持續使用耳保護(繼續冷水暴露可再生長)
+    swim_modifications_in_rehab: null
+    return_to_train: 保守者持續監測下可游泳；術後依耳鼻喉科評估回水
+    return_to_compete: null
+    prognosis: 骨性增生本質不可逆；保守下持續進展，外科治療後多數改善但繼續冷水暴露有復發風險
+  population_notes:
+    age:
+      youth: 冷水訓練青少年為潛在高風險，但缺乏專項研究
+      adult_beginner: null
+      masters: 累積暴露年限長，篩查值得討論，無專項研究
+    sex:
+      male: 多數研究男性佔比 >80%
+      female: 文獻嚴重不足(DATA GAP)
+    ability:
+      para: null
+    lifecycle:
+      open_water: 冬泳/開放水域為新興風險族群，無獨立流病資料
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: External Auditory Exostoses, StatPearls, PMID 30521295
+    certainty: 🟡
+    verified: true
+  - citation: Prevalence of exostoses in warm-water surfers, PMC7077213
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 是否僅冷水致病
+      consensus_source: 冷水暴露為主要致病因子
+      dissent_source: 暖水衝浪者小樣本(n=23)盛行率仍近 70%，暗示機械衝擊或其他因素，結論需審慎
+    vintage_warning: false
+- id: swimmer-dental-erosion
+  zh: 牙齒酸蝕（游泳者）
+  en: Swimmer's dental erosion
+  category: C-nonMSK-medical
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 牙釉質
+  - 牙本質(象牙質)
+  mechanism:
+    summary: 泳池水若 pH 偏低(<4.5)、或即使近中性但對羥基磷灰石飽和度不足(飽和指數為負)，持續接觸即緩慢溶解釉質。競技泳者訓練時口腔反覆浸入水中大口吸吐，口腔接觸池水時數遠超休閒者；高強度後唾液分泌減少(保護下降)。嚴重欠飽和酸性池水(有記錄低達 pH 3.24)為最強致病因素。
+    trigger_phase: pH 維護不當泳池、每日 >2 小時水中訓練、主動吞嚥/浸潤池水
+    who: 競技泳者(訓練時數長)、青少年(釉質仍成熟中)、合併高酸飲食者
+  epidemiology:
+    prevalence: 競技 vs 休閒對比研究：波蘭 26%(資深組 50%) vs 10%；埃及 60% vs 對照(划船)25.6%(p<0.001)；波蘭池水 pH 中位 7.2 但羥基磷灰石飽和指數 -3.33(中性 pH 仍有腐蝕風險)，埃及最低 pH 3.24
+    certainty: 🟡
+    evidence_grade: B
+    caveat: 多為橫斷面無法確認時間序列；泳池水質差異大；現有研究多聚焦 14–25 歲競技者，老年/休閒數據缺如
+    sources:
+    - Dental erosion in competitive swimmers (Poland), PMC3579418 (已驗證)
+    - Dental erosion competitive swimmers vs rowers (Egypt), PMC10713671 (已驗證)
+  risk_factors:
+  - text: 競技游泳(高訓練量)
+    grade: B
+  - text: 游泳年資(每多一年 AOR 約 1.24)
+    grade: B
+  - text: 酸性泳池水(pH <4.5)
+    grade: Expert
+  - text: 羥基磷灰石飽和度不足(即使 pH 中性)
+    grade: B
+  - text: 高酸飲食(含糖/酸性飲料)
+    grade: B
+  - text: 既有牙齒過敏
+    grade: B
+  prevention:
+  - text: 訓練前含氟漱口水(臨床共識，無游泳者 RCT)
+    grade: Expert
+  - text: 緊貼式防護牙托(內面塗氟/CPP-ACP)
+    grade: B
+  - text: 游泳後等 30 分待再礦化後再刷牙
+    grade: Expert
+  - text: 塗布氟化物塗劑(fluoride varnish)
+    grade: Expert
+  - text: 泳池管理者控制 pH 7.2–7.8 並監測飽和指數
+    grade: Expert
+  management:
+    red_flags:
+    - 牙齒冷熱過敏 → 牙科
+    - 牙齒外形明顯改變(磨短/邊緣薄化) → 牙科
+    - 釉質損傷進入象牙質(更深層疼痛) → 牙科
+    acute: 含鉀/精氨酸去敏牙膏；氟化物塗劑、CPP-ACP(酪蛋白磷酸鈣);嚴重酸蝕需牙科樹脂修復。未改善池水水質則修復無意義
+    pain_rules: null
+    rehab: null
+    functional_progression_criteria:
+    - 無需停止游泳；以預防措施為主
+    - 確診嚴重酸蝕須評估並改善泳池水質
+    swim_modifications_in_rehab: null
+    return_to_train: 持續游泳，加強口腔防護
+    return_to_compete: null
+    prognosis: 預防措施執行良好者預後佳；未干預競技泳者釉質損傷可持續累積(尤年資長者)
+  population_notes:
+    age:
+      youth: 14–18 歲競技者研究最多，釉質仍成熟中風險最高
+      adult_beginner: null
+      masters: 牙周退縮/象牙質暴露者池水更快進入敏感層(DATA GAP)
+    sex:
+      male: 部分研究較高(技術動作較激烈、更多口腔接觸水)
+      female: null
+    ability:
+      para: null
+    lifecycle: null
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Dental erosion among competitive swimmers (Poland), PMC3579418
+    certainty: 🟢
+    verified: true
+  - citation: Dental erosion in competitive swimmers vs rowers (Egypt), PMC10713671
+    certainty: 🟢
+    verified: true
+  - citation: Mouthguard fluoride/CPP-ACP in vitro protection, PMC11425598
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: pH 中性池水是否仍腐蝕
+      consensus_source: 酸性池水致釉質溶解為共識
+      dissent_source: 波蘭研究指 pH 7.2 但飽和指數負值仍腐蝕，需更多研究確認；飽和指數尚未納入全球泳池管理標準
+    vintage_warning: false
+- id: swimmer-dermatoses
+  zh: 泳者皮膚問題群
+  en: Swimmer dermatoses (folliculitis / swimmer's itch / green hair / chlorine dermatitis)
+  category: C-nonMSK-medical
+  environment:
+  - pool
+  - open_water
+  sport_variant:
+  - swim
+  - open_water_swim
+  layer:
+  - public
+  - clinical
+  subtypes:
+  - 熱浴缸毛囊炎(綠膿桿菌)
+  - 泳者癢(尾蚴性皮膚炎)
+  - 綠髮(銅沉積)
+  - 氯刺激性皮膚炎
+  structures:
+  - 毛囊
+  - 表皮角質層
+  - 真皮(過敏反應)
+  - 毛髮角蛋白
+  mechanism:
+    summary: 四亞型——A 熱浴缸毛囊炎：綠膿桿菌(Pseudomonas)在溫水/高 pH/低氯環境繁殖，經毛囊侵入致泳衣覆蓋區丘疹膿疱；B 泳者癢：淡水/海水中禽鳥血吸蟲尾蚴誤穿人皮膚後死亡引發遲發型過敏(再暴露反應加重)；C 綠髮：並非氯致綠，而是水中銅離子(銅管腐蝕/硫酸銅除藻劑)被氯氧化後與毛髮角蛋白螯合，漂染髮更明顯；D 氯刺激性皮膚炎：氯氧化作用去脂、破壞皮膚屏障致刺激性接觸性皮膚炎。
+    trigger_phase: 熱浴缸/SPA(毛囊炎)、淡水湖淺水順風區(泳者癢)、含銅泳池(綠髮)、高頻室內泳池(氯皮膚炎)
+    who: 競技泳者(氯皮膚炎/綠髮)、開放水域/湖泳者(泳者癢)、免疫低下/糖尿病(毛囊炎重症)、兒童(皮膚屏障薄)
+  epidemiology:
+    prevalence: 泳者癢(Michigan Douglas Lake 2000)每 100 水中暴露日 6.8 例、301 名湖泊使用者中 17.3% 有症狀；熱浴缸毛囊炎估計 67% 熱浴缸/63% 泳池有綠膿桿菌污染(污染率為二手引用)；氯皮膚炎/綠髮無系統盛行率
+    certainty: 🟡
+    evidence_grade: C
+    caveat: 各亞型多為案例報告或單地調查；台灣本島泳者癢資料幾乎缺如；發生率因地理/季節差異極大
+    sources:
+    - Aquatic dermatoses 回顧, PMC5286756 (已驗證)
+    - Cercarial dermatitis 前瞻調查, PMC1448328 (已驗證)
+    - Hot tub folliculitis 回顧, PMC7584313 (已驗證)
+  risk_factors:
+  - text: 熱浴缸長時間浸泡(>30 分)+消毒不良(毛囊炎)
+    grade: B
+  - text: 免疫低下/糖尿病(毛囊炎重症化)
+    grade: Expert
+  - text: 淡水淺水區/順風水域暴露(泳者癢)
+    grade: B
+  - text: 泳者癢再暴露(過敏強化)
+    grade: Expert
+  - text: 含銅泳池+漂染/淺色髮(綠髮)
+    grade: C
+  - text: 高頻訓練+皮膚屏障不全(氯皮膚炎)
+    grade: Expert
+  prevention:
+  - text: 選擇有定期消毒紀錄設施、限制浸泡時間(毛囊炎)
+    grade: Expert
+  - text: 避免淺水/順風區、出水立即用力擦乾(泳者癢)
+    grade: B
+  - text: 游泳前清水濕髮+矽靈護髮、游後螯合(EDTA)洗髮(綠髮)
+    grade: Expert
+  - text: 游泳後立即沖淋+保濕(氯皮膚炎)
+    grade: Expert
+  management:
+    red_flags:
+    - 毛囊炎合併發燒/蜂窩組織炎/膿腫 → 就醫
+    - 泳者癢廣泛性繼發細菌感染 → 就醫
+    - 皮膚炎大面積/合併全身症狀 → 就醫
+    acute: 毛囊炎：免疫正常多 1–2 週自癒，醋酸濕敷；嚴重用環丙沙星。泳者癢：抗組胺+局部類固醇+止癢，3–7 天自限。綠髮：螯合(EDTA/組胺酸)洗髮，無健康風險。氯皮膚炎：避免暴露+局部類固醇(輕中度)，停止暴露後數天消退
+    pain_rules: null
+    rehab: null
+    functional_progression_criteria:
+    - 皮疹完全消退再返泳防感染
+    - 泳者癢:繼續暴露同一水體風險持續
+    swim_modifications_in_rehab: null
+    return_to_train: 皮損癒合後回水；氯皮膚炎考慮改低氯泳池
+    return_to_compete: null
+    prognosis: 毛囊炎 2–10 天自行消退多不留疤；泳者癢自限數日；綠髮為美觀問題可洗除；氯皮膚炎避刺激源後預後良好
+  population_notes:
+    age:
+      youth: 皮膚屏障薄對刺激更敏感；尾蚴性皮膚炎在淡水嬉水兒童常見
+      adult_beginner: null
+      masters: 開放水域泳者癢風險最高
+    sex: null
+    ability:
+      para: 皮膚病流病幾乎缺如(DATA GAP)
+    lifecycle:
+      open_water: 尾蚴性皮膚炎為開放水域(尤淡水湖)特有
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Aquatic dermatoses, PMC5286756
+    certainty: 🟢
+    verified: true
+  - citation: Cercarial dermatitis epidemiology (Douglas Lake), PMC1448328
+    certainty: 🟢
+    verified: true
+  - citation: Hot tub (Pseudomonas) folliculitis, PMC7584313
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 氯刺激性皮膚炎發生閾值
+      consensus_source: 高氯暴露破壞皮膚屏障為共識
+      dissent_source: 致病氯濃度閾值不明；干預措施無 RCT
+    vintage_warning: false
+- id: swimmers-ear
+  zh: 游泳耳 / 外耳道炎
+  en: Swimmer's ear / otitis externa
+  category: C-nonMSK-medical
+  environment:
+  - pool
+  - open_water
+  sport_variant:
+  - swim
+  - open_water_swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 外耳道皮膚
+  - 耳垢腺
+  - 耳道上皮屏障
+  mechanism:
+    summary: 外耳道靠酸性環境(pH 4–5)、耳垢抗菌與完整上皮屏障防禦。反覆進水沖淡耳垢、升高 pH、破壞上皮，細菌(最常見綠膿桿菌 Pseudomonas aeruginosa，次為金黃色葡萄球菌)增殖定植→感染性外耳道炎。棉花棒/耳塞機械摩擦直接破壞皮膚屏障形成入口。
+    trigger_phase: 游泳(尤頻繁潛水/開放水域)、高溫潮濕、自行掏耳後
+    who: 5–14 歲兒童(發生率最高)、頻繁游泳者、糖尿病/免疫低下者(重症化)、濕疹/乾癬者
+  epidemiology:
+    prevalence: 終身盛行率約 10%；美國 2003–2007 年外耳道炎年門診約 240 萬次(每千人 8.1)，5–9 歲最高(每千人 18.6)，逾半數就診者為 20 歲以上成人；游泳者罹患急性外耳道炎風險為非游泳者約 5 倍
+    certainty: 🟡
+    evidence_grade: B
+    caveat: 美國 CDC 資料為 2003–2007，缺最新全球系統回顧；開放水域 vs 室內泳池分層數據不足
+    sources:
+    - StatPearls Otitis Externa, PMID 32310515 (已驗證)
+    - CDC MMWR 急性外耳道炎門診資料 2003–2007 (已驗證)
+  risk_factors:
+  - text: 游泳/頻繁潛水
+    grade: B
+  - text: 棉花棒/耳塞/助聽器機械創傷
+    grade: Expert
+  - text: 異位性皮膚炎/濕疹/乾癬
+    grade: B
+  - text: 糖尿病(惡性外耳道炎風險)
+    grade: B
+  - text: 免疫功能低下
+    grade: Expert
+  - text: 高溫潮濕氣候
+    grade: B
+  prevention:
+  - text: 游泳後傾頭排水、耳道自然乾燥
+    grade: Expert
+  - text: 游泳後異丙醇+白醋耳滴劑(酸化乾燥，無 RCT)
+    grade: Expert
+  - text: 避免棉花棒掏耳
+    grade: Expert
+  - text: 矽膠耳塞(不當使用反致機械傷)
+    grade: Expert
+  - text: 糖尿病嚴格血糖控制
+    grade: Expert
+  management:
+    red_flags:
+    - 發燒 >38.3°C / 耳廓紅腫熱痛 / 耳周淋巴腫 → 感染超出外耳道，就醫
+    - 糖尿病/免疫低下者耳痛未改善 → 懷疑惡性(壞死性)外耳道炎，緊急就醫
+    - 耳道肉芽組織或顏面神經麻痺 → 緊急轉介
+    acute: 第一線局部抗生素±類固醇耳滴劑(多黏菌素B/新黴素/氫化可體松、氧氟沙星或環丙沙星)，多在 7–10 天痊癒。口服抗生素非第一線，僅限糖尿病/免疫低下/惡性外耳道炎或合併中耳炎。疼痛用乙醯胺酚/NSAIDs。48–72 小時無改善再評估。惡性外耳道炎需靜脈/長療程抗假單胞菌抗生素±外科清創
+    pain_rules: null
+    rehab: null
+    functional_progression_criteria:
+    - 症狀(疼痛/分泌物)完全消失再返泳
+    - 惡性外耳道炎完成全療程+影像確認控制
+    swim_modifications_in_rehab: null
+    return_to_train: 急性期暫停游泳，症狀完全緩解後回水
+    return_to_compete: null
+    prognosis: 急性單純型預後極佳，5–7 天痊癒；慢性反覆者有耳道狹窄/聽損風險；惡性外耳道炎致死率高(顱內侵犯為主要死因)
+  population_notes:
+    age:
+      youth: 5–9 歲發生率最高，但少重症
+      adult_beginner: null
+      masters: 糖尿病者惡性外耳道炎風險，致死率顯著較高
+    sex: null
+    ability:
+      para: null
+    lifecycle:
+      open_water: 開放水域暴露量大，預防依從性決定風險
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Otitis Externa, StatPearls (Medina-Blasini & Sharman), PMID 32310515
+    certainty: 🟢
+    verified: true
+  - citation: CDC MMWR Estimated Burden of Acute Otitis Externa United States 2003–2007
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 預防性酸化耳滴劑與耳塞效益
+      consensus_source: 游泳後乾燥耳道為共識
+      dissent_source: 酸化滴劑無 RCT；耳塞不當使用反增創傷
+    vintage_warning: false
+- id: swimming-induced-bronchoconstriction
+  zh: 運動誘發支氣管收縮 / 游泳氣喘
+  en: Exercise-induced bronchoconstriction in swimmers
+  category: C-nonMSK-medical
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 氣道上皮
+  - 支氣管平滑肌
+  - 黏液纖毛清除系統
+  mechanism:
+    summary: 游泳 EIB 有兩條並行途徑——A 滲透壓途徑：劇烈換氣致氣道水分丟失、滲透壓升高，肥大細胞脫顆粒釋放組胺/白三烯致平滑肌收縮；B 化學上皮損傷途徑(游泳特有)：吸入空氣中三氯胺(NCl₃)及含氯氣溶膠直接損傷氣道上皮、破壞黏液纖毛清除、增加上皮通透性而易致敏。競技泳者換氣量遠超一般人，吸入三氯胺有效劑量更高，較低濃度即顯著效應；長期可從暫時性 EIB 進展為持久性氣道高反應性乃至臨床氣喘。
+    trigger_phase: 室內泳池長時間高強度訓練、高換氣量長距離游泳
+    who: 競技泳者(尤長期室內訓練)、個人/家族過敏史者、兒童早期大量泳池暴露者
+  epidemiology:
+    prevalence: 競技游泳者 EIB 盛行率接近 50%(定義/診斷法差異下文獻 11–29% 亦見)；Brussels 兒童研究(n=341，10–13 歲)11.7% 醫師確診氣喘，每多 100 小時泳池暴露氣喘 OR 增 1.79(限 IgE>100)；泳池空氣 NCl₃ 中位數約 0.18 mg/m³
+    certainty: 🟡
+    evidence_grade: B
+    caveat: EIB 自我報告準確率低需客觀肺功能確診；多數研究偏競技泳者；因果方向(氣喘者選游泳 vs 游泳致氣喘)仍爭論
+    sources:
+    - EIB in competitive swimmers 回顧, PMC6092370 (已驗證)
+    - Childhood pool exposure and asthma (Brussels), PMC1626429 (已驗證)
+    - Trichloramine and lung function, PMC3488741 (已驗證)
+  risk_factors:
+  - text: 室內泳池長期訓練(>100 小時)
+    grade: B
+  - text: 個人/家族過敏體質(atopy)
+    grade: B
+  - text: 血清 IgE 升高
+    grade: B
+  - text: 高三氯胺濃度泳池
+    grade: B
+  - text: 6 歲前大量泳池暴露(限兒童)
+    grade: B
+  prevention:
+  - text: 改善室內泳池通風降低三氯胺
+    grade: Expert
+  - text: 游前充分熱身降低 EIB 反應
+    grade: B
+  - text: 入水前沐浴減少有機負荷(降三氯胺生成)
+    grade: Expert
+  - text: 有氣喘者游前 20–30 分預防性 SABA
+    grade: A
+  - text: 持續性氣喘者吸入型皮質類固醇
+    grade: A
+  management:
+    red_flags:
+    - 游泳中/後重度氣喘發作(SABA 無效) → 緊急就醫
+    - 靜止時喘鳴/呼吸急促 → 就醫
+    - 運動後 SpO₂ 下降 → 就醫
+    acute: 停止訓練、離開高三氯胺密閉環境、吸入 SABA；嚴重者醫院全身性皮質類固醇。確診需客觀功能測試(FEV₁、eucapnic voluntary hyperpnea、高滲鹽水吸入)
+    pain_rules: null
+    rehab: null
+    functional_progression_criteria:
+    - 輕度 EIB(藥物控制良好)可繼續游泳但預防性 SABA
+    - 難控制者考慮更換訓練環境(戶外/低三氯胺)
+    swim_modifications_in_rehab:
+    - 症狀難控時部分患者陸地訓練後再返泳
+    return_to_train: 依肺功能與症狀個別評估，無統一返泳流程
+    return_to_compete: null
+    prognosis: 多數 EIB 可藥物良好控制；長期高暴露不改善環境者可能進展為持久性氣道高反應性；退役競技泳者肺功能可有部分恢復
+  population_notes:
+    age:
+      youth: 6 歲前大量(尤室內)泳池暴露為獨立危險因子，有明確劑量反應
+      adult_beginner: 研究甚少，推測風險較低(訓練/換氣量低)，缺數據
+      masters: 有 COPD/既有氣道疾病者可能更敏感(DATA GAP)
+    sex: null
+    ability:
+      para: null
+    lifecycle: null
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Exercise-induced bronchoconstriction in swimmers, PMC6092370
+    certainty: 🟢
+    verified: true
+  - citation: Childhood swimming pool attendance and asthma (Brussels), PMC1626429
+    certainty: 🟢
+    verified: true
+  - citation: Nitrogen trichloride exposure and lung function, PMC3488741
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 游泳在氣喘管理中的地位 / 三氯胺因果
+      consensus_source: 游泳傳統被推薦為氣喘者較安全運動
+      dissent_source: 室內三氯胺暴露使建議複雜化；部分學者認為競技泳者氣喘高為選擇偏差非游泳致病；OR 部分研究未達顯著
+    vintage_warning: false
+- id: uv-photo-damage
+  zh: 曬傷 / 光化性傷害（皮膚 + 眼睛）
+  en: UV / photo-damage — skin cancer & pterygium in outdoor swimmers
+  category: C-nonMSK-medical
+  environment:
+  - open_water
+  - surf
+  sport_variant:
+  - swim
+  - open_water_swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 皮膚(表皮 DNA)
+  - 眼球表面(結膜/角膜)
+  - 水晶體
+  mechanism:
+    summary: 戶外泳者雙重 UV 暴露：直接陽光+水面反射(10–20%)，加上水平泳姿使軀幹頸部暴露最大化，實際劑量高於陸上同等時間。UV-B 誘導 DNA 損傷(嘧啶二聚體)長期累積致鱗狀細胞癌/基底細胞癌/黑色素瘤；眼球累積 UV 致翼狀胬肉與白內障。游泳後防曬因沾水降效，需防水型並頻繁補擦。
+    trigger_phase: 長時間水面浮游(鐵人/馬拉松游泳)、高峰時段(10am–2pm)、未戴護目鏡/太陽眼鏡
+    who: 熱帶/赤道戶外開放水域泳者、淺膚色者、兒童期大量戶外游泳者(DNA 損傷長期累積)
+  epidemiology:
+    prevalence: 澳洲衝浪/泳者黑色素瘤點盛行率為一般澳洲族群 76 倍(高 UV 地區，不可外推全球)；翼狀胬肉全球約 12%(20 歲以下 3%、80 歲以上 19.5%)
+    certainty: 🟡
+    evidence_grade: B
+    caveat: 皮膚癌流病多為澳洲研究外推需謹慎；翼狀胬肉 12%/76 倍/15000 J·m⁻² 等數字來自二次來源，原始論文作者待查
+    sources:
+    - Point prevalence skin cancers Australian surfers/swimmers, PMC9057286 (已驗證)
+    - Skin Cancer Risk in Athletes narrative review, Cancers 2023, PMC10339925 (已驗證)
+    - Solar Radiation Latitudes and Pterygium systematic review, PMC5800136 (已驗證)
+  risk_factors:
+  - text: 累積 UV 暴露(>5 小時/日戶外)
+    grade: A
+  - text: 戶外運動(游泳/衝浪/釣魚)
+    grade: B
+  - text: 低緯度地區(南北緯 30 度內，台灣在翼狀胬肉帶)
+    grade: B
+  - text: 淺膚色/易曬傷體質(對皮膚癌)
+    grade: B
+  - text: 不戴護目鏡(對翼狀胬肉/白內障)
+    grade: Expert
+  - text: 水面反射增加劑量
+    grade: B
+  - text: 兒童期 UV 暴露(長期累積)
+    grade: B
+  prevention:
+  - text: 防水廣譜防曬乳(SPF 30+)每 2 小時補擦、出水後再補
+    grade: A
+  - text: 穿防曬泳裝(UPF 50+ 上衣/泳帽)
+    grade: B
+  - text: UV 護目鏡/側翼遮蔽太陽眼鏡(護翼狀胬肉)
+    grade: B
+  - text: 高峰時段(10am–2pm)避開或縮短訓練
+    grade: Expert
+  - text: 戶外泳者年度全身皮膚科檢查
+    grade: Expert
+  management:
+    red_flags:
+    - 皮膚 ABCDE：不對稱/邊界不規則/多色/直徑 >6mm 病灶、不癒合潰瘍結痂、快速增大色素區 → 皮膚科
+    - 眼睛：視力下降/模糊(翼狀胬肉侵入視軸)、眼表組織快速增大、持續眼紅刺激 → 眼科
+    acute: 急性曬傷：移入陰涼+冷濕敷(非冰塊直接)+保濕+補水+非處方止痛(ibuprofen/acetaminophen)；大面積水泡/高燒就醫。翼狀胬肉輕度人工淚液+持續防護，侵犯視軸/快速增大則手術切除(mitomycin C 降復發)
+    pain_rules: null
+    rehab: null
+    functional_progression_criteria:
+    - 曬傷待皮膚癒合(無水泡/剝落)再回水防感染
+    - 翼狀胬肉術後通常 4–6 週避免氯水接觸
+    swim_modifications_in_rehab: null
+    return_to_train: 曬傷皮膚癒合後/翼狀胬肉術後復原後 → 回水並強化防護
+    return_to_compete: null
+    prognosis: 早期皮膚癌(尤黑色素瘤)5 年存活 >95%，轉移性預後差；翼狀胬肉手術成功率高但復發 10–40%(結膜移植術可降至 <5%)
+  population_notes:
+    age:
+      youth: 皮膚癌潛伏期數十年，但兒童期 UV 暴露是日後皮膚癌最強獨立預測因子
+      adult_beginner: null
+      masters: 累積 UV 最多，翼狀胬肉及皮膚癌盛行率最高，定期篩查尤重要
+    sex:
+      male: 翼狀胬肉、SCC 風險較高
+      female: null
+    ability: null
+    lifecycle: null
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Point prevalence non-melanoma/melanoma skin cancers Australian surfers and swimmers SE Queensland/N NSW, PMC9057286
+    certainty: 🟢
+    verified: true
+  - citation: Skin Cancer Risk, Sun-Protection Knowledge and Behavior in Athletes — Narrative Review, Cancers 2023, PMC10339925
+    certainty: 🟢
+    verified: true
+  - citation: Occupational Solar Radiation at Different Latitudes and Pterygium systematic review, PMC5800136
+    certainty: 🟢
+    verified: true
+  - citation: Ultraviolet Light and Skin Cancer in Athletes, PMC3445124
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 水面反射『增加劑量』對皮膚癌/翼狀胬肉的獨立貢獻
+      consensus_source: 水面反射 10–20% 為物理測量共識
+      dissent_source: 缺乏對比單純戶外時間的大型對照研究
+    vintage_warning: false
+- id: cold-water-shock
+  zh: 冷水休克 / 冷水衝擊反應
+  en: Cold water shock / Cold shock response
+  category: D-systemic-acute
+  environment:
+  - open_water
+  - surf
+  sport_variant:
+  - swim
+  - open_water_swim
+  layer:
+  - public
+  - clinical
+  fatal_acute: true
+  structures:
+  - 皮膚溫度感受器
+  - 自主神經系統
+  - 呼吸系統
+  - 心臟傳導系統
+  mechanism:
+    summary: 皮膚急劇降溫(≤15–25°C 水)在 5–30 秒內反射觸發強制喘氣(gasp)→過度換氣→血壓心率急升+血管收縮，使深水中呼吸控制喪失易嗆水，連強壯泳者也可數秒內溺水。若同時面浸觸發潛水反射(迷走→心動過緩)與交感心搏過速形成「自主神經衝突」，可誘發室性心律不整甚至心室顫動。
+    trigger_phase: 突然跳入/意外落入冷水的最初數分鐘(此窗口溺水風險最高，冷休克反應隨後自行減退)
+    who: 突然入冷水的非習化者、意外落水者(落橋/翻船)、兒童(體表面積比大反應更劇)、有心律不整史者
+  epidemiology:
+    prevalence: 無可靠獨立死亡數字——案例幾乎都歸類為『溺水』，與低體溫死亡混淆，現場目擊稀少
+    certainty: 🟠
+    evidence_grade: B
+    caveat: 被認為是意外落水後最常見的『立即』死因(低體溫需 >30 分才危及生命)；機制證據多為生理實驗，缺大型流病
+    sources:
+    - 'Tipton MJ et al., Cold water immersion: sudden death and prolonged survival, Lancet 2003 (已驗證 URL)'
+    - Lundström et al., 健康青少年冰水面浸心律研究, Physiological Reports 2025, PMC12234767 (已驗證)
+  risk_factors:
+  - text: 水溫 <15°C(尤 <10°C)
+    grade: B
+  - text: 未預期/意外落水(vs 自願入水)
+    grade: Expert
+  - text: 未進行冷水習化
+    grade: A
+  - text: 屏氣/潛水動作(加劇自主神經衝突)
+    grade: B
+  - text: 既有心律不整/長 QT/心臟病
+    grade: Expert
+  - text: 兒童(體表面積比大反應更強)
+    grade: B
+  - text: 急速跳入(vs 緩慢下水)
+    grade: Expert
+  prevention:
+  - text: 冷水習化(≥4 次逐漸暴露，間隔 ≤8 天；效果可維持 7–14 月。要求暴露 ≥50% 體表、避免臉部以防觸潛水反射、每次 ≥150 秒)
+    grade: A
+  - text: 緩慢涉水入水(淋水後再入)
+    grade: Expert
+  - text: 穿防寒衣減少皮膚暴露面積
+    grade: B
+  - text: 開放水域穿 PFD 降溺水機率
+    grade: B
+  - text: 有心臟病史者避免冷水開放水域
+    grade: Expert
+  management:
+    red_flags:
+    - 突然入水後控制不住的喘息/過度換氣、無法控制肢體沉入水中 → 立即救援出水
+    - 意識改變、心悸/心跳停頓感、唇/指甲發紺 → 監測心律並就醫
+    acute: 立即救援出水(冷休克數分鐘自退但此窗口溺水風險最高)→保持橫躺(避免直立致『救援崩潰』)→無反應即 CPR(參溺水演算法)→有意識則保暖(離冷水/脫濕衣/蓋毯)、監測心律→即使症狀已緩仍送醫觀察(心律不整可能延遲出現)
+    pain_rules: null
+    rehab: null
+    functional_progression_criteria:
+    - 無記錄心律不整、無缺氧損傷 → 完全恢復
+    - 有心律不整記錄 → 心臟科評估後方回水
+    swim_modifications_in_rehab:
+    - 建議事後進行冷水習化訓練(尤開放水域泳者)
+    return_to_train: 單純冷休克事件且無心臟異常 → 完全恢復後可回水；有心律不整則待心臟科綠燈
+    return_to_compete: null
+    prognosis: 及時救出且無缺氧損傷→完全恢復；若冷休克致溺水則預後同溺水(依缺氧時長)
+  population_notes:
+    age:
+      youth: 反應更強烈但習化速度相同，10–12 歲兒童可有效習化
+      adult_beginner: null
+      masters: 心臟儲備下降，心律不整風險更高
+    sex: null
+    ability:
+      para: 脊髓損傷者自主神經調節已異常，反應難預測
+    lifecycle: null
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: 可接 L0 呼吸感知(冷水喘氣反射的生理意義)
+  references:
+  - citation: 'Tipton MJ et al., Cold water immersion: sudden death and prolonged survival, Lancet 2003'
+    certainty: 🟢
+    verified: true
+  - citation: 'Habituation of the cold shock response: systematic review and meta-analysis, 2024, PubMed 38211547'
+    certainty: 🟢
+    verified: true
+  - citation: Lundström et al., face immersion/body submersion ice-cold water adolescents, Physiol Rep 2025, PMC12234767
+    certainty: 🟢
+    verified: true
+  - citation: Farstad & Dunn, Cold Water Immersion Syndrome, Wilderness Environ Med 2019
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 『自主神經衝突』作為溺水死亡機制的比重
+      consensus_source: 2015 後主流假說，生理實驗支持
+      dissent_source: 缺大型流行病學驗證其實際佔比
+    vintage_warning: false
+- id: dehydration-hyponatremia
+  zh: 運動性脫水 / 低鈉血症
+  en: Exercise-associated dehydration / hyponatremia in swimmers
+  category: D-systemic-acute
+  environment:
+  - open_water
+  - pool
+  sport_variant:
+  - swim
+  - open_water_swim
+  layer:
+  - public
+  - clinical
+  fatal_acute: true
+  structures:
+  - 體液-電解質平衡
+  - 腎臟(AVP 調節)
+  - 中樞神經系統(腦水腫)
+  mechanism:
+    summary: 游泳者口渴感受被抑制，可能因怕掉速而過度補水。低鈉血症(EAH，血鈉 <135 mmol/L)在長距離開放水域的主因不是『太少喝』而是過度飲水+運動誘發非滲透性 AVP(精胺酸加壓素)分泌使腎保留水分，加劇稀釋。嚴重時誘發低鈉腦病：腦水腫+顱內壓升，意識改變/抽搐/死亡。另有少見的低血容型(汗失鈉補充不足)。
+    trigger_phase: 賽程 >4 小時的長距離馬拉松游泳/鐵人三項；賽事飲水站密集致過度補水
+    who: 10km+ 開放水域泳者、鐵人三項選手、體重輕/女性(部分研究)、賽前服 NSAIDs(增 AVP 作用)者
+  epidemiology:
+    prevalence: 馬拉松跑者(可外推耐力運動)EAH 約 15–30%，血鈉 <120 嚴重者約 1%；開放水域游泳獨立盛行率無可靠數字
+    certainty: 🟡
+    evidence_grade: B
+    caveat: 開放水域監測不一致、可水中補水量難追蹤、輕症常被誤診→無獨立盛行率
+    sources:
+    - Exercise-Associated Hyponatremia in Marathon Runners, PMC9699060 (已驗證)
+    - EAH hyponatremic encephalopathy in open water swimmer 案例, PubMed 25443755 (已驗證)
+    - Pathophysiology and treatment of EAH, J Endocrinol Invest 2025, PMC12847173 (已驗證)
+  risk_factors:
+  - text: 過度飲水(超過口渴需求的『預防性』補水)
+    grade: A
+  - text: 賽程 >4 小時/長距離
+    grade: B
+  - text: 女性(部分研究較高，機制仍爭論)
+    grade: B
+  - text: 低體重
+    grade: B
+  - text: 賽前服 NSAIDs
+    grade: B
+  - text: 僅補純水、電解質不足
+    grade: B
+  prevention:
+  - text: 『按口渴補水(drink to thirst)』，不預防性過量補水
+    grade: A
+  - text: 補含鈉電解質飲料取代純水
+    grade: B
+  - text: 賽中監測體重(減 >3% 補水、增加則停止補水)
+    grade: B
+  - text: 賽前避免 NSAIDs
+    grade: B
+  - text: 長賽前制定個人化補水計畫
+    grade: Expert
+  management:
+    red_flags:
+    - 輕症(血鈉 125–134)：噁心/嘔吐/頭痛/脹氣感/異常疲勞
+    - 重症腦病(血鈉 <125)：意識混亂/言語不清/定向力喪失、抽搐、呼吸困難、昏迷 → 立即停止+EMS+勿再給任何飲水
+    acute: 現場：立即停止+水平躺+停止一切液體補充(症狀性 EAH 禁給水)。輕症(意識清楚)若確認體重增加→限水+高鹽零食(可口服高張鹽)+觀察。重症(意識改變)緊急送醫。醫院：重度/腦病型用 3% 高張鹽水(目標升血鈉 1–2 mmol/L/小時緩解顱內壓)；禁低張液體(0.9% 都可能惡化)
+    pain_rules: null
+    rehab: null
+    functional_progression_criteria:
+    - EAH 完全糾正後通常無長期影響
+    - 有抽搐/意識喪失者神經學評估確認無腦水腫殘餘
+    swim_modifications_in_rehab:
+    - 重返長距離賽前須再評估並制定個人化補水策略
+    return_to_train: 完全糾正+補水策略修正 → 漸進回水
+    return_to_compete: 個人化補水計畫確立 + 無神經殘餘 → 復賽
+    prognosis: 輕症及時停止補水完全恢復；重症腦病及時靜注高張鹽水可完全恢復(有插管次日出院案例)；誤給低張液體可致永久腦損傷/死亡
+  population_notes:
+    age:
+      youth: 短距離游泳幾乎無 EAH 風險；長距離活動確保按需補水但不鼓勵『多補』
+      adult_beginner: 泳池短訓風險低；開放水域挑戰事件另計
+      masters: AVP 對滲透壓敏感性隨年齡改變+可能服利尿劑(HCTZ)改變鈉平衡，需個別化
+    sex:
+      female: 多研究觀察 EAH 發生率略高，機制(雌激素/AVP/體液分布)仍爭論
+      male: null
+    ability: null
+    lifecycle:
+      open_water: 10km+ 馬拉松游泳為最高風險場景
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Exercise-Associated Hyponatremia in Marathon Runners, PMC9699060
+    certainty: 🟢
+    verified: true
+  - citation: EAH encephalopathy in an endurance open water swimmer, PubMed 25443755
+    certainty: 🟢
+    verified: true
+  - citation: Pathophysiology and treatment of EAH, J Endocrinol Invest 2025, PMC12847173
+    certainty: 🟢
+    verified: true
+  - citation: Rehydration during Endurance Exercise (IMMDA drink-to-thirst), PMC8001428
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 補水策略
+      consensus_source: 『按口渴補水』為現行主流共識
+      dissent_source: 部分早期耐力指引(pre-2010)推薦定時補水
+    vintage_warning: false
+- id: drowning
+  zh: 溺水 / 近乎溺水
+  en: Drowning / Near-drowning
+  category: D-systemic-acute
+  environment:
+  - pool
+  - open_water
+  - surf
+  sport_variant:
+  - swim
+  - open_water_swim
+  - freediving
+  layer:
+  - public
+  - clinical
+  fatal_acute: true
+  structures:
+  - 呼吸系統(肺泡-表面活性劑)
+  - 中樞神經系統(腦缺氧)
+  - 心血管系統
+  mechanism:
+    summary: 液體進入氣道→氣體交換障礙→進行性低氧血症+高碳酸血症→若未中斷則心跳驟停(缺氧性，非心因性)。水入肺泡破壞表面活性劑致肺泡塌陷；約一成案例以喉痙攣為主(進水極少)。淡水/海水滲透壓機制有別但臨床處置相同。
+    trigger_phase: 任何涉水情境失去有效呼吸；幼兒於浴缸/充氣泳池、成人於開放水域離岸/水流低估、酒精影響下尤甚
+    who: 1–4 歲幼童最高危；男性各年齡死亡率均約女性 2 倍；無泳技或過度自信者；酒精/藥物影響者；獨游者
+  epidemiology:
+    prevalence: WHO 2024：2021 全球溺水死亡約 274,200 人(另估 ~30 萬，方法不同)；近半發生於 29 歲以下，五歲以下約佔四分之一
+    certainty: 🟢
+    evidence_grade: A
+    caveat: 死亡常被泛歸「溺水」，特定機制(SWB/冷水休克/心因)難事後分辨；開放水域溺水人數多於泳池(紐西蘭 2020 達 87%)
+    sources:
+    - WHO 2024-12-13 新聞稿『Drowning deaths decline globally』(已驗證 URL)
+    - Scientific Reports 2025 全球溺水負擔 204 國研究, PMC11954903 (已驗證)
+    - CDC Vital Signs 溺水死亡率, MMWR 2024, PMC11115434 (已驗證)
+  risk_factors:
+  - text: 缺乏監督(幼童最關鍵，佔兒童溺水約 52%)
+    grade: A
+  - text: 無游泳技能或對泳技過度自信
+    grade: A
+  - text: 缺乏水邊障礙/圍欄
+    grade: A
+  - text: 男性
+    grade: B
+  - text: 幼兒年齡(1–4 歲為最高風險組)
+    grade: A
+  - text: 酒精攝取(青少年/成人開放水域)
+    grade: B
+  - text: 開放水域(波浪/水流/低能見度/低溫)
+    grade: B
+  - text: 獨游(無伴)
+    grade: Expert
+  prevention:
+  - text: 6 歲以上兒童基礎游泳技能訓練(WHO 列 promising)
+    grade: A
+  - text: 泳池四面圍欄(可減約 75% 泳池溺水)
+    grade: A
+  - text: 水邊主動成人監督
+    grade: A
+  - text: 救生員在場
+    grade: B
+  - text: 開放水域穿戴個人浮力裝置(PFD)
+    grade: B
+  - text: 戒除水中/水邊飲酒、避免獨游
+    grade: Expert
+  management:
+    red_flags:
+    - 任何溺水事件無論意識狀態皆視為緊急；意識喪失或無法自行離水 → 立即救援
+    - 離水後咳嗽/呼吸困難/喘鳴/發紺 → 立即就醫
+    - 繼發性惡化警示：溺水後數小時內(最長 24–72h)咳嗽加重/呼吸急促/異常疲倦/混亂 → 即使當下『看似沒事』也須就醫
+    acute: 2024 AHA/AAP 溺水復甦(已驗證 doi:10.1161/CIR.0000000000001274)：移出水→受訓者安全時可水中救援呼吸→無反應無呼吸即 CPR『通氣優先』先給 5 次救援呼吸再按壓(溺水驟停根因為缺氧)→盡早 AED 但不延誤 CPR→呼叫 EMS→勿試圖『倒水』。中度(有呼吸但吸入水)監測 4–6h 防遲發肺水腫
+    pain_rules: null
+    rehab: null
+    functional_progression_criteria:
+    - 肺功能正常、無持續肺水腫/感染跡象
+    - 若有缺氧後神經缺損 → 個人化評估
+    swim_modifications_in_rehab:
+    - 輕度案例經急診評估穩定後數日至一週多可回水
+    - 神經學後遺者由醫療團隊個別決定，可能長期禁水
+    return_to_train: 肺功能與神經狀態經醫師評估綠燈 → 漸進回水；勿自行評估
+    return_to_compete: null
+    prognosis: 及時目擊+立即 CPR 預後佳；浸水 >6 分鐘顯著惡化；入院時意識水平(缺氧時長)是最強預後指標。冷水(尤兒童)潛水反射可能延長 CPR 有效窗口，復甦至復溫前不輕言放棄
+  population_notes:
+    age:
+      youth: 幼兒(0–4)家庭浴缸/充氣泳池最高危；學齡兒童游泳教育顯著降風險，開放水域危機來自水流低估
+      adult_beginner: 成人初學低估開放水域波流
+      masters: 心臟共病增加，開放水域突發驟停風險
+    sex:
+      male: 各年齡死亡率約女性 2 倍(風險行為+酒精+離岸游泳)
+      female: null
+    ability:
+      para: 部分身障(截肢/肌無力)水中自救受限，需特別監督設計
+    lifecycle: null
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: 可接 L0 呼吸感知層作為水安全教育素材(非技術介入)
+  references:
+  - citation: WHO 2024-12-13『Drowning deaths decline globally but the most vulnerable remain at risk』新聞稿
+    certainty: 🟢
+    verified: true
+  - citation: Global burden of drowning 204 countries 1990-2021, Sci Rep 2025, PMC11954903
+    certainty: 🟢
+    verified: true
+  - citation: '2024 AHA/AAP Focused Update: Resuscitation Following Drowning, Circulation, doi:10.1161/CIR.0000000000001274'
+    certainty: 🟢
+    verified: true
+  - citation: Wilderness Medical Society CPG for Drowning 2024 Update
+    certainty: 🟢
+    verified: true
+  - citation: 'StatPearls: Drowning, NCBI NBK430833'
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: CPR 通氣優先 vs 壓縮優先
+      consensus_source: 2024 AHA 更新允許兩序，但強調溺水通氣重要性遠高於一般心臟驟停
+      dissent_source: 標準成人驟停 CAB(壓縮優先)演算法
+    vintage_warning: false
+    terminology_note: 『乾溺水 dry drowning』『近乎溺水 near-drowning』為過時/不建議術語，ILCOR 統一用『溺水(存活/死亡)』描述
+- id: exertional-sudden-cardiac-death
+  zh: 運動性猝死（游泳 / 運動員）
+  en: Exertional sudden cardiac death — swimming / athletes
+  category: D-systemic-acute
+  environment:
+  - pool
+  - open_water
+  sport_variant:
+  - swim
+  - open_water_swim
+  layer:
+  - public
+  - clinical
+  fatal_acute: true
+  structures:
+  - 心臟(心肌/傳導系統/冠狀動脈)
+  - 自主神經系統
+  mechanism:
+    summary: 運動中或運動後 1 小時內突發心跳驟停(多為心室顫動)。病理基礎多元：肥厚性心肌病(HCM)使心肌增厚影響傳導；心肌炎使發炎心肌電不穩；長 QT 等離子通道病變於運動觸發惡性心律不整；冠狀動脈異常運動時受壓缺血；commotio cordis 為胸前鈍擊在 T 波升段觸發 VF。游泳特有：面浸冷水強烈副交感(潛水反射)與運動交感激活形成自主神經衝突，在潛在易感者可致命。
+    trigger_phase: 游泳中突然意識喪失/沉水；鐵人三項游泳段(冷水+面浸+起跳緊張過度換氣多重壓力疊加)為最高風險情境
+    who: 家族猝死史者、未診斷 HCM/LQTS/WPW、心肌炎後過早復訓者、男性(約女性 6 倍)、Masters(冠心病加入)
+  epidemiology:
+    prevalence: 競技運動員(≤35 歲)SCA/SCD 男性約 1.46、女性約 0.30 /10 萬運動員年；≤35 歲青年運動員猝死中 HCM 約佔 36%
+    certainty: 🟢
+    evidence_grade: B
+    caveat: 游泳池獨立 SCD 數字無可靠單一來源，多依運動員整體數據推算；鐵人三項游泳段每 10 萬數字研究間差異大
+    sources:
+    - Sex Differences in SCA/SCD in Competitive Athletes 系統綜述+meta, PMC11985649 (已驗證)
+    - 義大利 ECG 篩查自然實驗(SCD 3.6→0.4 /10 萬，降 89%) (已驗證 URL)
+    - Commotio Cordis in 2023, PMC10356869 (已驗證)
+  risk_factors:
+  - text: HCM(肥厚性心肌病，最常見單一原因)
+    grade: A
+  - text: 先天性冠狀動脈異常
+    grade: B
+  - text: 心肌炎(尤近期病毒性後過早復訓)
+    grade: B
+  - text: 長 QT 症候群(冷水浸入為特定觸發)
+    grade: B
+  - text: Wolff-Parkinson-White(WPW)
+    grade: B
+  - text: 男性(約 6 倍風險)
+    grade: A
+  - text: commotio cordis(胸前鈍擊 T 波敏感期)
+    grade: B
+  - text: 冷水+面浸+屏氣(自主神經衝突)
+    grade: B
+  - text: 家族 SCD 史(一等親 <50 歲猝死)
+    grade: Expert
+  - text: 賽前感冒/發燒(可能遮蔽心肌炎)
+    grade: Expert
+  prevention:
+  - text: 運動前篩查(病史+理學檢查±ECG)
+    grade: A
+  - text: ECG 篩查(ESC 推薦；義大利自然實驗 89% 減 SCD，美 ACC 立場有爭議)
+    grade: A
+  - text: 心肌炎後充分休息(≥6 個月，LVEF 恢復+無誘發心律不整後方回訓)
+    grade: Expert
+  - text: 賽場/泳池 AED 即時可取得 + 人員 CPR/AED 培訓
+    grade: A
+  - text: 不在感冒/發燒期訓練
+    grade: Expert
+  - text: LQTS 已知者避免冷水/強度衝刺
+    grade: Expert
+  management:
+    red_flags:
+    - 游泳中意識喪失/突然沉水 → 立即救援+CPR
+    - 運動中突發心悸/胸痛/暈厥任一 → 立即停止就醫
+    - 不明原因劇烈呼吸困難(排除溺水) → 排查心因
+    acute: 安全地點立即 CPR(有目擊且具技能可先水中救援呼吸再上岸)→上岸 5 次救援呼吸+按壓(30:2)→盡快 AED(SCD 多為 VF，除顫最有效)→持續 CPR 直至 AED/救援到場；懷疑心肌炎者入院延伸心臟評估，不可未評估復訓
+    pain_rules: null
+    rehab: null
+    functional_progression_criteria:
+    - HCM：2022 JACC 趨個別化風險分層，不再一律禁競技
+    - 心肌炎：≥6 個月休息+LVEF 正常+運動誘發心律不整陰性
+    - LQTS：β 阻斷劑治療下部分可恢復游泳
+    swim_modifications_in_rehab: null
+    return_to_train: 依病因經心臟科風險分層評估綠燈 → 漸進回水
+    return_to_compete: 心臟專科評估通過 + 個別化風險討論 → 復賽
+    prognosis: commotio cordis 即時 CPR+AED 存活可達 >50%(過去曾低至 15%)；一般運動驟停每延遲 1 分鐘存活率降 7–10%
+  population_notes:
+    age:
+      youth: HCM/LQTS/commotio cordis 為主，需強制運動前篩查
+      adult_beginner: 未診斷冠心病/HCM 風險，篩查應覆蓋成人
+      masters: 冠心病為首要新增因子；ECG+超音波評估更重要
+    sex:
+      male: 整體約 6 倍風險
+      female: 整體風險低，但先天冠狀動脈異常在女性 SCD 佔比更高
+    ability: null
+    lifecycle:
+      open_water: 鐵人三項游泳段多重自主神經壓力疊加，為最高 SCD 風險情境之一
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: 'Sex Differences in the Incidence of SCA/Death in Competitive Athletes: systematic review and meta-analysis, PMC11985649'
+    certainty: 🟢
+    verified: true
+  - citation: Athletic Activity for Patients with Hypertrophic Cardiomyopathy, JACC 2022
+    certainty: 🟢
+    verified: true
+  - citation: Commotio Cordis in 2023, PMC10356869
+    certainty: 🟢
+    verified: true
+  - citation: Meta-analysis on ECG Screening for SCD in Young Athletes, PMC10478328
+    certainty: 🟢
+    verified: true
+  - citation: Lundström et al. diving reflex arrhythmia 2025, PMC12234767
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: ECG 常規篩查
+      consensus_source: ESC 主張 ECG 篩查(義大利自然實驗為最強證據)
+      dissent_source: ACC/AHA 反對常規 ECG 篩查(混淆因素多)
+    vintage_warning: false
+- id: hypothermia-swimmers
+  zh: 游泳者低體溫（開放水域）
+  en: Hypothermia in swimmers / open-water hypothermia
+  category: D-systemic-acute
+  environment:
+  - open_water
+  sport_variant:
+  - swim
+  - open_water_swim
+  layer:
+  - public
+  - clinical
+  fatal_acute: true
+  structures:
+  - 核心體溫調節系統
+  - 心臟傳導系統
+  - 中樞神經系統
+  mechanism:
+    summary: 水導熱率為空氣 25 倍，泳者持續對流/傳導散熱。散熱速率超過產熱→核心體溫下降。輕度(32–35°C)顫抖+協調下降；中度(28–32°C)意識模糊+心律不整危險升；重度(<28°C)心室顫動風險劇增。「後降(afterdrop)」是關鍵危機：離水後周邊冷血回流使核心溫續降，可能在救援後才誘發驟停。
+    trigger_phase: 長距離冷水(<18°C)游泳/超距賽末段；離水後不當處置(站立行走加速後降)
+    who: 低體脂瘦型泳者、低體重兒童、未穿防寒衣的 10km+ 開放水域選手；超距(海峽)泳者核心溫可降 3–4°C 持續數小時
+  epidemiology:
+    prevalence: 無全球獨立盛行率(多以賽事為單位)；長距離開放水域賽事為顯著醫療風險
+    certainty: 🟡
+    evidence_grade: B
+    caveat: 同一場賽事可同時出現低體溫與高體溫個案(核心溫變化 −3.1 至 +2.7°C)；多數研究為觀察性無對照
+    sources:
+    - Brannigan et al., Hypothermia... Mass Participation Open Water Swimming, Wilderness Environ Med 2009 (已驗證)
+    - JSAMS 2025 開放水域/泳池體溫調節, PubMed 40783351 (已驗證)
+    - Doha 2024 Masters 3km 核心溫研究, PubMed 39500300 (已驗證)
+  risk_factors:
+  - text: 水溫 <18°C(競賽分界)
+    grade: B
+  - text: 低體脂率/低體重
+    grade: B
+  - text: 長距離(10km+ / >1 小時)
+    grade: B
+  - text: 未穿防寒衣(規則允許時不穿)
+    grade: B
+  - text: 賽前訓練量不足
+    grade: Expert
+  - text: 脫水(降低循環效率)
+    grade: Expert
+  prevention:
+  - text: 遵守 World Aquatics 水溫規範(下限近年趨提高)
+    grade: Expert
+  - text: 規則允許下穿防寒衣
+    grade: B
+  - text: 賽事設計合理中止時限(視水溫/預期時間)
+    grade: Expert
+  - text: 賽後即時隔熱(乾燥保暖衣物)
+    grade: Expert
+  - text: 辨識輕度低體溫症狀及早退出，不超時
+    grade: Expert
+  management:
+    red_flags:
+    - 顫抖停止(可能為中度加重、產熱失效) → 警訊
+    - 意識混亂/言語不清/行為怪異(核心約 32°C) → 緊急處置
+    - 無法協調動作/心律不整/意識喪失 → 緊急後送
+    - 後降危機：上岸看似回暖仍可能數十分鐘內惡化；禁止讓傷者站立行走
+    acute: WMS 2019：輕柔移出冷水保持水平(直立致救援崩潰)→防風脫濕衣隔熱保暖(避免直接熱敷防燙傷+加劇後降)→暖化腋下/鼠蹊(熱水袋)+暖氧→禁劇烈活動。輕度被動復溫；中度主動外部複溫+嚴密監測心律；重度緊急後送 ECMO 體外加溫。無心跳則 CPR 直至醫院(『暖了才算死』原則)
+    pain_rules: null
+    rehab: null
+    functional_progression_criteria:
+    - 輕度完全恢復後數天可回水
+    - 中重度需醫師評估心臟功能、排除續發心律不整風險
+    swim_modifications_in_rehab:
+    - 反覆低體溫事件須排查冷誘發心律不整易感體質
+    return_to_train: 輕度恢復後數天；中重度待心臟評估綠燈
+    return_to_compete: 核心溫調節與心臟評估正常 + 賽前準備(防寒/習化)到位 → 復賽
+    prognosis: 輕中度多完全恢復；重度(<28°C)死亡率高但冷水低體溫即使外表『死亡』仍有復甦可能，應積極救治
+  population_notes:
+    age:
+      youth: 體表面積比大降溫更快，賽事應採更嚴格水溫門檻
+      adult_beginner: null
+      masters: Doha 2024 顯示 Masters 核心溫下降更顯著；心臟儲備降使中度低體溫心律不整風險更高
+    sex:
+      female: 傳統認為體脂保護，但競賽研究結論不一致(肌肉量影響可能更大)
+      male: null
+    ability: null
+    lifecycle:
+      open_water: 超距(海峽)泳者核心溫可降 3–4°C 持續數小時
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Brannigan et al., Hypothermia is a Significant Medical Risk of Mass Participation Long-Distance Open Water Swimming, Wilderness Environ Med 2009
+    certainty: 🟢
+    verified: true
+  - citation: Thermoregulatory responses open water and pool swimming, JSAMS 2025, PubMed 40783351
+    certainty: 🟢
+    verified: true
+  - citation: Core-Temperature Responses 3-km World Aquatics Open-Water Masters Doha 2024, PubMed 39500300
+    certainty: 🟢
+    verified: true
+  - citation: WMS CPG Accidental Hypothermia 2019 Update
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 後降(afterdrop)臨床意義量值
+      consensus_source: 臨床仍建議保守處置(禁站立行走)
+      dissent_source: 部分研究認為其量值常被高估
+    vintage_warning: false
+- id: shallow-water-blackout
+  zh: 淺水昏迷
+  en: Shallow water blackout (SWB)
+  category: D-systemic-acute
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  - freediving
+  layer:
+  - public
+  - clinical
+  fatal_acute: true
+  structures:
+  - 中樞神經系統
+  - 延髓呼吸中樞化學受器
+  - 頸動脈體
+  mechanism:
+    summary: 潛前自主過度換氣→人為降低動脈 CO₂(低碳酸血症)→鈍化高碳酸驅動的「想呼吸」警訊→閉氣下潛時 O₂ 持續耗盡卻無換氣衝動→在水下無預警失去意識→若無人即時救援即溺水。並非肺或心臟疾病，是化學驅動被人為關閉。
+    trigger_phase: 閉氣前過度換氣 + 水下動態閉氣(DYN)或靜態閉氣(STA)；上升段壓力驟降使肺泡 O₂ 分壓再降，常在接近水面數公尺內昏迷
+    who: 體能良好、年輕、經驗豐富的泳者/自由潛水者/軍警泳訓者尤其高危——「我很會憋氣」是風險放大因子非保護因子
+  epidemiology:
+    prevalence: 缺乏分母明確的發生率；多為個案系列與死亡驗屍報告
+    certainty: 🟠
+    evidence_grade: C
+    caveat: 死亡常被歸類為一般溺水，SWB 機制未被記錄→系統性低估；無可靠盛行率數字
+    sources:
+    - Shallow Water Blackout Prevention 衛教文獻（來源待 WebFetch 核實）
+    - 美軍/海軍 breath-hold training 安全準則（具體文件待查）
+  risk_factors:
+  - text: 潛前主動過度換氣（hyperventilation）
+    grade: B
+  - text: 閉氣競賽/比拼憋氣時間
+    grade: C
+  - text: 單獨閉氣訓練（無 1:1 直接看護）
+    grade: B
+  - text: 重複多次閉氣未充分間隔恢復
+    grade: C
+  - text: 「自認憋氣能力強」的過度自信
+    grade: Expert
+  prevention:
+  - text: 絕對禁止潛前過度換氣（最核心單一訊息）
+    grade: B
+  - text: 絕不單獨閉氣訓練；採 1:1 直接看護(direct supervision)，看護者手臂可及
+    grade: B
+  - text: 閉氣後充分水面恢復間隔，禁連續多趟拼時間
+    grade: C
+  - text: 泳池禁止閉氣比拼遊戲，張貼 SWB 警示
+    grade: C
+  - text: 教育：『想呼吸的衝動是保命警訊，過度換氣會把它關掉』
+    grade: B
+  management:
+    red_flags:
+    - 水下泳者靜止不動/沉底/吐氣泡停止 → 立即視為昏迷，馬上下水拉出
+    - 拉出後無反應/無正常呼吸 → 立即啟動 EMS + CPR(先給呼吸/通氣，溺水復甦以通氣優先)
+    - 曾水下短暫失神但自行恢復 → 仍須就醫評估，勿當沒事繼續下水
+    acute: 離水→評估反應與呼吸→無呼吸即 CPR（溺水演算法：先 5 次人工呼吸再胸外按壓）→呼叫 EMS；恢復後仍須送醫觀察續發性溺水/吸入
+    pain_rules: null
+    rehab: null
+    functional_progression_criteria: null
+    swim_modifications_in_rehab:
+    - 倖存者回水前須由醫療評估；移除所有過度換氣與閉氣比拼行為
+    - 閉氣訓練(若必要)改為陸上或有 1:1 直接看護的結構化 protocol
+    return_to_train: 經醫療評估無神經/心肺後遺 + 行為矯正(禁過度換氣、不單獨閉氣) → 漸進回水
+    return_to_compete: null
+    prognosis: 及時救援+CPR 多可完全恢復；延遲救援則缺氧性腦損傷或死亡——預後高度取決於目擊與救援時效
+  population_notes:
+    age:
+      youth: 青少年泳池閉氣比拼/憋氣遊戲是常見情境
+      adult_beginner: null
+      masters: 自由潛水社群與軍警泳訓族群
+    sex: null
+    ability: null
+    lifecycle:
+      freediving: 自由潛水是 SWB/BO 主場景；競技自由潛水有 surface protocol 與 buddy 規範
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: 可接 L0 呼吸感知層：閉氣與換氣衝動的生理意義屬呼吸感知教育素材
+  references:
+  - citation: Shallow Water Blackout Prevention（組織衛教，待核實具體出處）
+    certainty: 🟠
+    verified: false
+  - citation: ILCOR/AHA 溺水復甦演算法（通氣優先），具體版本待查
+    certainty: 🔴
+    verified: false
+  flags:
+    contested:
+    - claim: 潛前過度換氣是否為唯一/主要機制
+      consensus_source: 主流安全衛教共識：過度換氣去除 CO₂ 警訊是核心可預防因子
+      dissent_source: 部分案例無明確過度換氣史，提示重複閉氣的累積缺氧亦可獨立致病
+    vintage_warning: false
+- id: sipe
+  zh: 游泳誘發肺水腫
+  en: Swimming-Induced Pulmonary Edema (SIPE)
+  category: D-systemic-acute
+  environment:
+  - open_water
+  sport_variant:
+  - swim
+  - open_water_swim
+  layer:
+  - public
+  - clinical
+  fatal_acute: true
+  structures:
+  - 肺(肺泡-微血管膜)
+  - 心血管系統
+  - 肺循環
+  mechanism:
+    summary: 浸水(中心血液重新分布)+冷水(血管收縮)+劇烈運動(高心輸出)+負壓呼吸→肺微血管跨壁壓驟升→液體滲入肺泡(壓力性肺水腫)。非吸入溺水，是血流動力誘發的肺水腫，可在無嗆水下發生。
+    trigger_phase: 開放水域競賽/訓練起始高強度段、冷水浸泡、緊身防寒衣壓迫；常於游程中突發呼吸困難、咳嗽、咳粉紅泡沫痰
+    who: 鐵人三項/開放水域泳者尤高危；亦見軍事泳訓、SCUBA、健康年輕人
+  epidemiology:
+    prevalence: 開放水域/鐵人族群報導發生率範圍待 WebFetch 核實；可能因誤診為溺水/氣喘而低估
+    certainty: 🟡
+    evidence_grade: B
+    caveat: 常被誤判為近乎溺水或運動性氣喘；真實發生率不明
+    sources:
+    - SIPE 病理生理與鐵人三項案例系列（作者/年份待查）
+    - 軍事泳訓 SIPE 研究（具體文獻待 WebFetch 核實）
+  risk_factors:
+  - text: 冷水浸泡
+    grade: B
+  - text: 高強度起泳/比賽配速
+    grade: B
+  - text: 緊身防寒衣(wetsuit)胸廓壓迫
+    grade: C
+  - text: 高血壓/既往 SIPE 史(高復發)
+    grade: B
+  - text: 過量賽前補液(增加前負荷)
+    grade: C
+  - text: 女性、年齡較長為部分研究指出的相關因子(待核實)
+    grade: C
+  prevention:
+  - text: 避免冷水中爆發式起泳，漸進加溫加速
+    grade: C
+  - text: 防寒衣合身不過緊，必要時剪鬆領口/胸口
+    grade: C
+  - text: 既往 SIPE 史者就醫評估血壓，討論用藥(如部分研究探討的西地那非，須醫囑)
+    grade: C
+  - text: 避免賽前過度補液
+    grade: C
+  - text: 認識早期症狀(呼吸困難/咳嗽/咳泡沫痰)即停止上岸
+    grade: B
+  management:
+    red_flags:
+    - 游泳中突發呼吸困難 + 咳嗽 + 咳粉紅/血色泡沫痰 → 立即停止、上岸、求救
+    - 上岸後持續呼吸窘迫/血氧低/發紺 → 啟動 EMS，可能需氧療/醫院處置
+    - 胸痛/意識改變 → 排除心因事件，立即就醫
+    acute: 立即停止運動+離水+保暖+直立姿勢；給氧;多數離水後數小時內自行緩解，但須醫療評估排除嚴重者(可能需 CPAP/利尿/住院)
+    pain_rules: null
+    rehab: null
+    functional_progression_criteria:
+    - 症狀完全緩解 + 影像/血氧恢復
+    - 心肺評估(含血壓/心臟結構)排除潛在誘因
+    swim_modifications_in_rehab:
+    - 復發風險高→回水前心肺評估;避免冷水爆發式起泳
+    - 調整防寒衣鬆緊、賽前補液量
+    return_to_train: 症狀緩解 + 心肺評估綠燈 + 誘因矯正(配速/防寒衣/補液) → 漸進回水，避免冷水高強度起泳
+    return_to_compete: 心肺專科評估通過 + 既往發作誘因已處理 → 復賽；高復發者需個別風險討論
+    prognosis: 急性發作多在離水後數小時緩解；但復發率高(尤其誘因未矯正)，個別嚴重者需住院
+  population_notes:
+    age:
+      youth: null
+      adult_beginner: 成人鐵人/開放水域初入者冷水+高強度起泳組合高危
+      masters: 高齡+高血壓增風險
+    sex:
+      female: 部分研究指女性風險較高(待核實)
+      male: null
+    ability: null
+    lifecycle:
+      freediving: SCUBA/自由潛水浸水亦可誘發(immersion pulmonary edema 同源機制)
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: 可接 L0 呼吸感知/配速感知教育(辨識異常呼吸窘迫 vs 正常喘)
+  references:
+  - citation: SIPE 病理生理綜述（作者/年份/期刊待 WebFetch 核實）
+    certainty: 🔴
+    verified: false
+  - citation: 鐵人三項 SIPE 案例系列（具體出處待查）
+    certainty: 🟡
+    verified: false
+  flags:
+    contested:
+    - claim: SIPE 與既往高血壓/心臟結構的因果強度
+      consensus_source: 多數研究支持壓力性機制與高血壓相關
+      dissent_source: 部分病例為健康年輕無心血管病史者，提示單純浸水+運動+冷水即足以誘發
+    vintage_warning: false
+- id: exercise-amenorrhea
+  zh: 運動性月經功能障礙
+  en: Exercise-associated menstrual dysfunction
+  category: D-endocrine
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 下視丘-腦垂體-性腺軸
+  - 卵巢
+  - 腎上腺(雄激素)
+  mechanism:
+    summary: 運動誘發月經失調(無月經、稀發月經)主要由低能量可及性(LEA)抑制下視丘 GnRH 脈衝 → LH/FSH 下降 → 雌激素合成減少(功能性下視丘性無月經 FHA)。但游泳族群存在另一路徑——高雄激素症(類 PCOS)，不透過下視丘抑制:游泳員雌二醇可維持正常、伴 DHEA-S/雄烯二酮升高，與跑者的低雌激素型不同。臨床意義:高雄激素型骨骼影響可能較小，但 PCOS 相關代謝風險需另評。
+    trigger_phase: 長期高訓練量、能量赤字、低體脂、心理壓力
+    who: 長期高量訓練者、能量赤字者、低體脂者、可能既有高雄激素傾向者
+  epidemiology:
+    prevalence: 游泳族群原發性無月經最高 19%、繼發性無月經 0–23.8%、稀發月經 9.5–38.9%；系統性回顧游泳員月經失調平均約 41%；部分小樣本研究指游泳員停經後月經不規則率偏高(一研究達 82%、對照 40%，樣本小且為橫斷面)、雌二醇維持正常伴輕度高雄激素症
+    certainty: 🟡
+    evidence_grade: B
+    caveat: 多為橫斷面，樣本小；高雄激素型 vs 下視丘型非互斥；PCOS 先天 vs 訓練誘發因果方向無法確定；近年無大型前瞻性游泳員月經研究
+    sources:
+    - Menstrual dysfunction in swimmers, PMID 36361122 / PMC9658102 (已驗證)
+    - Swimmer menstrual dysfunction as distinct entity (hyperandrogenism), PMID 7673417 (已驗證)
+  risk_factors:
+  - text: 能量可及性 <30 kcal/kg FFM/天
+    grade: A
+  - text: 高訓練量
+    grade: B
+  - text: 低體脂率
+    grade: B
+  - text: 心理壓力/飲食失調
+    grade: B
+  - text: 早期專項化
+    grade: B
+  prevention:
+  - text: 能量攝取監測
+    grade: B
+  - text: 月經週期紀錄
+    grade: C
+  - text: 教練知識教育
+    grade: Expert
+  management:
+    red_flags:
+    - 原發性無月經(15 歲未初潮) → 就醫
+    - 繼發性無月經 >3 月 → 就醫
+    - 骨折/飲食失調 → 多科介入
+    acute: 排除妊娠及器質病因；評估能量狀態；多科介入
+    pain_rules: null
+    rehab: 增加能量 → 月經恢復(中位 3–6 月)；疑 PCOS 型轉內分泌科
+    functional_progression_criteria:
+    - 月經改善
+    - 能量狀態恢復
+    swim_modifications_in_rehab: null
+    return_to_train: 月經改善後漸進恢復
+    return_to_compete: 重度 LEA+低 BMD 更謹慎
+    prognosis: 下視丘型介入後多恢復；高雄激素/PCOS 型預後更複雜
+  population_notes:
+    age:
+      youth: 早期專項化+高訓練量主因
+      adult_beginner: null
+      masters: 停經後 RED-S 骨骼風險仍在，月經不再為指標
+    sex:
+      female: 游泳員月經失調平均約 41%，部分屬高雄激素型
+      male: null
+    ability:
+      para: 資料極缺
+    lifecycle: null
+  links:
+    mechanism_link: female-athlete-triad
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Menstrual dysfunction in competitive swimmers, PMC9658102
+    certainty: 🟢
+    verified: true
+  - citation: Swimmers as a distinct menstrual entity (hyperandrogenism), PMID 7673417
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 游泳員月經失調是否為『不同實體』
+      consensus_source: 下視丘抑制型為主流機制
+      dissent_source: 游泳員可能伴高雄激素型(類 PCOS)，雌二醇正常；樣本均小，兩型非互斥，先天 vs 訓練誘發方向不明
+    vintage_warning: true
+- id: female-athlete-triad
+  zh: 女性運動員三聯症
+  en: Female athlete triad
+  category: D-endocrine
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 下視丘-腦垂體-性腺軸
+  - 骨骼(骨密度)
+  - 月經生理
+  mechanism:
+    summary: 三聯症由三個相互關聯成分構成——低能量可及性(LEA)、月經功能障礙、低骨密度。LEA 是核心驅動子:飲食熱量扣除訓練消耗後可用能量不足，下視丘抑制 GnRH 脈衝，引發月經紊亂，長期低雌激素削弱骨形成。三者連鎖:LEA → 月經失調 → 骨流失，全具備時骨折風險大增。註:RED-S 為涵蓋更廣(含男性、代謝/免疫等)的後繼框架，見 red-s 條目。
+    trigger_phase: 能量赤字長期累積、菁英訓練量、青春期不穩定期
+    who: 偏瘦/耐力型女性、菁英訓練量者、青春期中後期者
+  epidemiology:
+    prevalence: 女性運動員約 40% 至少有一項三聯症成分；游泳族群約 41% 有三聯症風險(系統性回顧 n=478，17 研究)；完整三聯症(三項全具備)盛行率約 1–4%
+    certainty: 🟡
+    evidence_grade: B
+    caveat: 各研究診斷標準不一；游泳族群月經失調可能含高雄激素型(見 exercise-amenorrhea)，與低雌激素型骨骼影響不同
+    sources:
+    - Female athlete triad in swimmers systematic review, JWSM (已驗證，無 PMID 記載)
+    - RED-S Clinical Assessment Tool framework (IOC)
+  risk_factors:
+  - text: 低能量可及性(LEA <30 kcal/kg FFM/天)
+    grade: A
+  - text: 月經失調 >3 個月
+    grade: A
+  - text: 飲食失調/限制飲食
+    grade: B
+  - text: 高訓練量、低體重項目
+    grade: B
+  - text: 青春期中後期
+    grade: B
+  prevention:
+  - text: 熱量攝取監測與教育
+    grade: B
+  - text: 教練+醫療整合篩查
+    grade: C
+  - text: Triad Risk Assessment Tool 風險分級
+    grade: B
+  management:
+    red_flags:
+    - 低創傷骨折史 → 就醫
+    - BMI <17.5 → 就醫
+    - 停經 >6 月 → 就醫
+    - 嚴重飲食限制 → 多學科介入
+    acute: 多學科介入(營養/心理/運動醫學)；優先恢復能量可及性
+    pain_rules: null
+    rehab: LEA 糾正 → 月經恢復(6–12 月)→ DXA 監測 BMD
+    functional_progression_criteria:
+    - 能量可及性恢復
+    - 月經恢復
+    - 依 RED-S Clinical Assessment Tool 分級放行
+    swim_modifications_in_rehab: null
+    return_to_train: 能量狀態改善後漸進恢復
+    return_to_compete: 重度需月經恢復才全訓練
+    prognosis: 及早介入大多恢復月經；BMD 恢復慢需 1–2 年，能否回到峰值不確定
+  population_notes:
+    age:
+      youth: 首次高風險期，延誤影響峰值骨量累積
+      adult_beginner: null
+      masters: 停經後以骨流失為表現，月經不再為指標
+    sex:
+      female: 游泳女選手約 41% 風險
+      male: 三聯症定義本不含男性(→ RED-S 框架擴展之爭核心)
+    ability:
+      para: 資料極缺；脊損非重力負荷疊加 LEA 風險尤高
+    lifecycle: null
+  links:
+    mechanism_link: red-s
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Female athlete triad prevalence in swimmers, JWSM systematic review
+    certainty: 🟢
+    verified: true
+  - citation: De Souza et al, Misunderstanding the female athlete triad, PMID 25037200
+    certainty: 🟡
+    verified: false
+  flags:
+    contested:
+    - claim: 三聯症 vs RED-S 框架
+      consensus_source: 2014 起 IOC 擴展為 RED-S(含男性與代謝/免疫)，2023 修訂為 REDs v3
+      dissent_source: De Souza 等 2014 發表反駁，主張保留三聯症框架；臨床界雙軌工具並用
+    vintage_warning: false
+- id: red-s
+  zh: 相對能量不足（RED-S）
+  en: Relative Energy Deficiency in Sport (RED-S)
+  category: D-endocrine
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 下視丘-腦下垂體-性腺軸
+  - 骨骼(骨密度)
+  - 內分泌系統
+  - 心血管/代謝/免疫多系統
+  mechanism:
+    summary: 能量攝取長期低於運動消耗(low energy availability, LEA)→身體下調非必要功能以保命→月經/睪固酮、骨代謝、代謝率、免疫、心血管、心理多系統受抑。不是單一疾病而是低能量可用性引發的多系統症候群。女性運動員三聯症(低能量可用性+月經失調+低骨密度)是 RED-S 的子集。
+    driver: 能量可用性 = (攝取 − 運動消耗) / 去脂體重；< 30 kcal/kg FFM/day 為臨床關切閾值（具體閾值待核實，個體差異大）
+    swim_context: 泳者每日高熱量消耗 + 體型/外觀壓力 + 大量陸訓，能量赤字易被低估
+    who: null
+  epidemiology:
+    prevalence: 女性運動員 LEA/三聯症盛行率報導範圍極廣；游泳專項數字待 WebFetch 核實
+    certainty: 🟡
+    evidence_grade: B
+    caveat: 定義與篩檢工具(LEAF-Q/RED-S CAT2)差異大→盛行率不可橫向比較；男性 RED-S 長期被低估
+    sources:
+    - IOC RED-S 共識聲明（2014 首版，2018/2023 更新；具體 DOI 待查）
+    - Mountjoy 等 IOC consensus（作者/年份/期刊待 WebFetch 核實）
+  risk_factors:
+  - text: 能量攝取不足以匹配訓練量（有意或無意）
+    grade: B
+  - text: 刻意限食/體重控制/外觀壓力
+    grade: B
+  - text: 訓練量驟增未相應增加攝取
+    grade: B
+  - text: 飲食失調/失調性飲食行為
+    grade: B
+  - text: 對能量需求的知識不足（青少年尤甚）
+    grade: C
+  prevention:
+  - text: 能量攝取匹配訓練消耗，重訓練日加量(fuelling)
+    grade: B
+  - text: 定期監測月經狀態(女)/晨間勃起或性慾(男)作為能量可用性指標
+    grade: C
+  - text: 教練/家長/醫療三方對體重與飲食言語謹慎，避免觸發限食
+    grade: C
+  - text: 青少年成長期格外保障能量與鈣/維D，保護骨量累積窗口
+    grade: B
+  management:
+    red_flags:
+    - 停經 ≥3 個月(原發或續發) → 內分泌/婦科評估，勿視為『訓練正常現象』
+    - 反覆疲勞性骨折 → 評估骨密度與能量可用性
+    - 極端限食/暴食清除行為/體重驟降 → 飲食失調專業介入
+    - 心搏過緩+姿態性低血壓+電解質異常 → 醫療評估(嚴重 LEA/飲食失調可致命)
+    acute: 非急性外傷模式；核心是『提升能量可用性』——增加攝取、降低訓練消耗，多由運動醫學+營養+(必要時)心理團隊處理
+    pain_rules: null
+    rehab: 能量再平衡為主軸；疲勞性骨折依部位另循骨折復健；恢復月經/骨代謝指標為療效錨
+    functional_progression_criteria:
+    - 能量可用性回升(攝取-消耗平衡)
+    - 月經恢復(女)/賀爾蒙指標回升
+    - 骨密度穩定或改善、無新發疲勞性骨折
+    swim_modifications_in_rehab:
+    - 暫時下調訓練量/陸訓負荷以縮小能量赤字，非『加練消耗』
+    - 疲勞性骨折期依部位調整踢腿/出發跳台負荷
+    return_to_train: 能量可用性恢復 + 無活動性疲勞性骨折 + 團隊(醫療/營養/心理)綠燈 → 漸進加量
+    return_to_compete: 賀爾蒙/骨骼/心理指標穩定 + 訓練耐受全量無症狀 → 復賽；RED-S CAT2 風險分層輔助決策
+    prognosis: 能量再平衡後多數可逆；但青少年期累積的骨量損失可能不完全回復→長期骨折風險
+  population_notes:
+    age:
+      youth: 成長期骨量累積窗口受損影響終生峰值骨量；青少年競技泳者高風險
+      adult_beginner: null
+      masters: 成人/高齡能量赤字疊加既有骨流失，骨折風險升
+    sex:
+      female: 三聯症(LEA+月經失調+低骨密度)為經典表現
+      male: RED-S 同樣發生但長期被低估；表現為睪固酮下降、骨密度低、表現停滯
+    ability:
+      para: 殘疾運動員能量需求評估更複雜(體組成/截肢/痙攣消耗)，篩檢工具未充分驗證
+    lifecycle: null
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: IOC consensus statement on RED-S（2014 首版/後續更新，作者與 DOI 待 WebFetch 核實）
+    certainty: 🔴
+    verified: false
+  - citation: 女性運動員三聯症 ACSM position stand（年份/作者待查）
+    certainty: 🔴
+    verified: false
+  flags:
+    contested:
+    - claim: 三聯症 vs RED-S 框架範圍
+      consensus_source: IOC 主張 RED-S 為更廣的多系統框架，涵蓋男性與非月經系統
+      dissent_source: 部分學者(如 ACSM 傳統三聯症陣營)主張保留三聯症的明確臨床定義，質疑 RED-S 證據強度
+    vintage_warning: false
+- id: stress-fracture-swimmer
+  zh: 游泳員疲勞性骨折（肋骨為主）
+  en: Stress fracture in swimmers (rib-predominant)
+  category: D-endocrine
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 肋骨
+  - 恥骨枝
+  - 股骨頸
+  - 蹠骨
+  - 骨重塑單位
+  mechanism:
+    summary: 疲勞性骨折係骨骼在反復次最大應力下微損傷積累超過重塑修復所致。游泳水中低衝擊本應保護骨骼，但以下使游泳員仍有風險:①陸訓(跑步/跳躍/核心)的重力負荷；②非重力負荷使 BMD 整體偏低、骨骼對同等壓力耐受度下降；③RED-S 骨骼代謝異常；④肋骨在划水(尤蝶式)時承受反復軀幹旋轉拉力。游泳員最常見為肋骨疲勞性骨折，機制是軀幹肌肉拉力而非體重衝擊——與跑步的下肢衝擊型骨折不同。
+    trigger_phase: 軀幹反復旋轉(尤蝶式)、陸訓負荷突增
+    who: RED-S/低 BMD 者、陸訓負荷突增者、蝶式為主泳式者、既往疲勞性骨折史者
+  epidemiology:
+    prevalence: 2017 年前僅約 10 篇游泳員應力骨折研究，肋骨最常見(其他:第一肋、恥骨枝、股骨頸、蹠骨)；RED-S 相關:月經失調女性骨折風險 +4.5 倍、兩項以上三聯症成分 +4.7 倍、單項 LEA +1.1 倍
+    certainty: 🟠
+    evidence_grade: B
+    caveat: 游泳員應力骨折研究量不足以定盛行率；肋骨骨折常誤診為肌肉拉傷延誤 4–6 週；某些倍率數字為二手綜述
+    sources:
+    - Stress fractures in swimmers systematic review, IJKSS DOI 10.7575/aiac.ijkss.v.6n.1p.25 (已驗證)
+    - RED-S and bone stress injury risk, PMID 36479178 / PMC9724109 (已驗證)
+  risk_factors:
+  - text: RED-S/低 BMD
+    grade: A
+  - text: 月經失調
+    grade: A
+  - text: 陸訓負荷突然增加
+    grade: B
+  - text: 蝶式為主要泳式(肋骨拉力)
+    grade: B
+  - text: 訓練量快速增加
+    grade: B
+  - text: 飲食失調
+    grade: B
+  - text: 疲勞性骨折既往史
+    grade: A
+  prevention:
+  - text: RED-S 預防(能量/月經/BMD 監測)
+    grade: A
+  - text: 漸進式陸訓量(10% 規則)
+    grade: C
+  - text: 軀幹穩定肌訓練
+    grade: C
+  - text: 技術糾正降低蝶式扭矩
+    grade: Expert
+  management:
+    red_flags:
+    - 局部點狀骨骼壓痛(尤肋骨) → 就醫
+    - 活動劇痛 → 就醫
+    - 已知低 BMD 新發疼痛 → 就醫
+    acute: 影像確認(X-ray 常陰性，需 MRI/骨掃描)；停止負重/疼痛活動；骨科評估。注意肋骨骨折常誤診為肌肉拉傷
+    pain_rules: null
+    rehab: 4–12 週相對休息(依嚴重度/部位)；水中跑步等低衝擊交叉訓練；RED-S 同步治療
+    functional_progression_criteria:
+    - 癒合+疼痛消失
+    - RED-S 根源同步處理
+    swim_modifications_in_rehab:
+    - 游泳本身可較早恢復(低衝擊)
+    - 陸訓最後恢復
+    return_to_train: 以癒合+疼痛消失為準，游泳先於陸訓恢復
+    return_to_compete: RED-S 控制+無痛後回賽
+    prognosis: 肋骨骨折 6–8 週多癒合，但不解決 RED-S 根源則反覆
+  population_notes:
+    age:
+      youth: RED-S+肋骨骨折疊加，常被誤為胸肌拉傷
+      adult_beginner: null
+      masters: 骨量自然衰退使閾值降低，需更積極 BMD 篩查
+    sex:
+      female: 月經失調為主要風險放大因子
+      male: null
+    ability:
+      para: 截肢/脊損骨骼負荷分佈異常，特定部位風險未系統研究
+    lifecycle: null
+  links:
+    mechanism_link: swimmer-low-bone-density
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Stress fractures in swimmers (systematic review), IJKSS
+    certainty: 🟢
+    verified: true
+  - citation: RED-S and bone stress injury, PMC9724109
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 游泳員肋骨疲勞性骨折是否『常見』
+      consensus_source: 肋骨為游泳員最常見應力骨折部位
+      dissent_source: 僅約 10 篇研究，水中訓練直接致骨應力理論極低，但高強度划水軀幹扭矩不可忽略
+    vintage_warning: false
+- id: swimmer-low-bone-density
+  zh: 游泳員低骨密度
+  en: Low bone mineral density in swimmers
+  category: D-endocrine
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 骨骼(皮質骨/小樑骨)
+  - 成骨細胞-蝕骨細胞重塑單位
+  mechanism:
+    summary: 游泳是典型非重力負荷運動——水中地面反作用力近零，骨骼缺乏機械負荷刺激，成骨細胞活性不足。游泳員 BMD 往往接近靜態對照組，顯著低於同齡重力負荷型運動員(跑步/籃球/體操)。青少年若僅游泳，正值骨量累積關鍵期(10–20 歲)，錯失峰值骨質，後果延伸至成年骨折及骨質疏鬆風險。此框架與跑步相反:跑步是高衝擊成骨運動，游泳無此效益。
+    trigger_phase: 純游泳專項、缺乏重力負荷交叉訓練、骨量累積期
+    who: 純游泳青少年、合併 LEA/月經失調者、鈣/維生素 D 攝取不足者
+  epidemiology:
+    prevalence: 系統性回顧:游泳員 vs 靜態對照 BMD 無顯著差異，但顯著低於重力負荷運動員；小樣本研究近端脛骨皮質骨面積低 13.8%、皮質骨體積密度低 6.0%(橈骨/遠端脛骨無顯著差異，power 偏低)；阻力/跳躍訓練可改善青少年游泳員骨密度
+    certainty: 🟡
+    evidence_grade: B
+    caveat: meta-analysis 多引 2000–2015 研究；游泳員專屬 BMD 介入研究僅約 2 篇且樣本小；長期實際骨折增加缺大型前瞻性結果數據
+    sources:
+    - Site-specific BMD in female swimmers, PMC7039474 (已驗證)
+    - Resistance/impact BMD intervention, PMID 39833826 / PMC11744971 (已驗證)
+  risk_factors:
+  - text: 純游泳專項、缺乏重力負荷交叉訓練
+    grade: A
+  - text: 低能量可及性合併
+    grade: A
+  - text: 月經失調/低雌激素
+    grade: A
+  - text: 早期專項化
+    grade: B
+  - text: 鈣/維生素 D 攝取不足
+    grade: B
+  prevention:
+  - text: 陸上負重/阻力訓練(每週 ≥2 次)
+    grade: B
+  - text: 跳繩/跳躍訓練補充
+    grade: B
+  - text: 鈣 1,000–1,300 mg/天(青少年)+維生素 D
+    grade: B
+  - text: 月經週期監測(間接指標)
+    grade: B
+  management:
+    red_flags:
+    - 低創傷骨折 → 就醫
+    - DXA Z-score <-2.0 → 就醫
+    - 月經失調 >6 月 → 就醫
+    acute: 多科評估(骨科/內分泌/營養)；排除繼發性骨質疏鬆
+    pain_rules: null
+    rehab: 增能量可及性、補鈣/維生素 D、加負重訓練；高風險者每 1–2 年 DXA
+    functional_progression_criteria:
+    - 能量可及性改善
+    - 月經恢復
+    - DXA 追蹤穩定/改善
+    swim_modifications_in_rehab: null
+    return_to_train: 持續游泳並加入陸上負重，不需停水
+    return_to_compete: null
+    prognosis: 能量改善+月經恢復後 BMD 可增，但恢復慢(1–2 年)，能否達年齡期望值不確定
+  population_notes:
+    age:
+      youth: 骨量累積關鍵期，早期介入效益最大；高風險者常規 DXA
+      adult_beginner: null
+      masters: 對老年骨量無明顯額外保護(相比散步/慢跑)，但維持肌肉間接減少跌倒骨折
+    sex:
+      female: 研究較多，與 LEA/月經失調交互
+      male: 男性游泳員低 BMD 亦有記錄，研究遠少於女性
+    ability:
+      para: 輪椅運動員非重力負荷疊加更嚴重，低 BMD 高盛行率
+    lifecycle: null
+  links:
+    mechanism_link: female-athlete-triad
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Site-specific bone density in female swimmers, PMC7039474
+    certainty: 🟢
+    verified: true
+  - citation: Bone density intervention in low-impact athletes, PMC11744971
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 游泳員低 BMD 是否導致實際骨折增加
+      consensus_source: 游泳員 BMD 低於重力負荷運動員為共識
+      dissent_source: 缺大型前瞻性骨折結果；水中浮力負面效應能否完全被陸訓抵消不確定
+    vintage_warning: false
+- id: diving-cervical-injury
+  zh: 跳水 / 入水頸椎與脊髓損傷
+  en: Diving-related cervical spine and spinal cord injury
+  category: E-acute-trauma
+  environment:
+  - pool
+  - open_water
+  - surf
+  sport_variant:
+  - swim
+  - diving_entry
+  layer:
+  - public
+  - clinical
+  fatal_acute: true
+  structures:
+  - 頸椎(C4–C6)
+  - 脊髓
+  - 椎間盤/韌帶
+  mechanism:
+    summary: 入水頭頂先觸底，頸椎受軸向壓縮力(axial loading)致爆裂性骨折或骨折脫位；脊髓同時受壓/撕裂/缺血→四肢癱(tetraplegia)。關鍵物理條件：入水角度過陡+水深不足以吸收減速距離。
+    trigger_phase: 從池邊/跳水台/石礁/防波堤往不明深度水域頭朝下跳；競賽出發台起跳角度過陡；撞上隱藏障礙(礁石/沙洲)
+    who: 年輕男性(97.5–98.7%)；非正式場合、下午/傍晚、夏日水域；首次使用該場地者
+  epidemiology:
+    prevalence: 美國每年約 800 起跳水致脊髓損傷(約 90% 永久癱)；90% 發生於水深 <6 英尺(1.83m)、57% <4 英尺(1.22m)；受傷節段 C5 最常見(60.9%)；入院 55% 為完全性四肢癱(AIS A)
+    certainty: 🟢
+    evidence_grade: B
+    caveat: 「每年 800 起」為多個美國傷害登記的廣泛引用估計(非單一 peer-reviewed 計數)；跳水佔所有脊髓損傷 1.2–22%(族群/登記系統差異大)
+    sources:
+    - Cervical spine injuries 34 patients(C5 節段數據), PMC2899837 (已驗證)
+    - Spinal injuries Aegean Coast(24h 內減壓與恢復), PMC8192199 (已驗證)
+    - Quebec 44-year diving SCI study, ScienceDirect (已驗證)
+  risk_factors:
+  - text: 水深不足(<1.5m)——最強可改變風險因子
+    grade: A
+  - text: 飲酒(41.7% 案例涉及)
+    grade: B
+  - text: 年輕男性(16–35 歲，社會風險行為)
+    grade: B
+  - text: 未知水域/首次使用場地(無法判斷深度/障礙)
+    grade: B
+  - text: 無救生員在場(延誤急救)
+    grade: B
+  - text: 缺乏正式出發台訓練(競賽情境入水角度過陡)
+    grade: Expert
+  prevention:
+  - text: 禁止在水深 <1.35m(競賽出發)/<2.74m(一般跳水，美紅十字)水域頭朝下入水
+    grade: A
+  - text: 陌生水域一律腳先入水
+    grade: A
+  - text: 競賽出發台須接受正式指導(僅 21.7% 教練用機構制定的潛水進展協議)
+    grade: B
+  - text: 禁止在私人/旅館泳池跳水(普遍 <1.5m)
+    grade: B
+  - text: 清楚設置水深標示與『禁止跳水』標誌
+    grade: Expert
+  - text: 飲酒後禁止入水
+    grade: B
+  management:
+    red_flags:
+    - 入水後頸/背劇痛+四肢麻木/刺痛/無力 → 立刻啟動脊椎預防措施
+    - 意識不清漂浮水面 → 假定存在脊椎傷害直至排除
+    - 呼吸困難(頸脊髓損傷可影響膈神經致呼吸衰竭) → 緊急
+    acute: 脊椎預防序列：水中面朝上 log roll 保持頭頸軀幹直線(不扭不彎)維持氣道→多人協助移至脊板頭頸軀幹同一直線→頸圈/側面穩定物固定→立刻 EMS(不可自行起身/步行)→呼吸停止則維持頭頸穩定下 CPR(jaw-thrust，避免頭後仰)。傷後 24 小時內手術減壓與不完全損傷的神經恢復相關
+    pain_rules: null
+    rehab: 水療(aquatic therapy)為脊髓損傷主要復健工具；頸椎固定後須影像確認骨癒合再規劃水中活動
+    functional_progression_criteria:
+    - 完全性四肢癱(AIS A)：幾乎不可能回競技游泳，水療為主
+    - 不完全損傷(AIS B–D)：神經外科/復健科評估後個別化，回水前功能性評估
+    swim_modifications_in_rehab: null
+    return_to_train: 依損傷完全性個別化；不完全損傷經神外/復健評估後漸進
+    return_to_compete: null
+    prognosis: 完全損傷神經改善率低；不完全損傷(AIS B–D)預後顯著較好；整體『outcomes still unsatisfactory』。早期(<24h)減壓與不完全損傷恢復相關
+  population_notes:
+    age:
+      youth: 成人監督缺失或允許跳水時暴露於風險
+      adult_beginner: null
+      masters: 跌入水中(非主動跳水)為不同機制(見 poolside-slip/drowning)
+    sex:
+      male: 97–98% 案例(社會風險行為+飲酒)
+      female: 明顯低風險(<3%)
+    ability:
+      para: 潛在風險尚無充分文獻
+    lifecycle: null
+  links:
+    mechanism_link: null
+    technical_link: 競賽出發台入水角度技術(racing start)——與出發台撞擊傷共享預防
+    perception_link: null
+  references:
+  - citation: Prevention of spinal cord injuries in swimming pools, PubMed 9267915
+    certainty: 🟢
+    verified: true
+  - citation: Cervical spine injuries 34 patients, PMC2899837
+    certainty: 🟢
+    verified: true
+  - citation: Overview of Spinal Injuries Aegean Coast(24h decompression), PMC8192199
+    certainty: 🟢
+    verified: true
+  - citation: Spinal Cord Injury With Tetraplegia, SAGE 2021, PubMed 32909818
+    certainty: 🟢
+    verified: true
+  - citation: World Aquatics 1.35m diving depth rule(STA technical notice 2023)
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 各組織最低水深標準不一致
+      consensus_source: 禁止淺水跳水、陌生水域腳先入水為強烈共識
+      dissent_source: FINA/World Aquatics 1.35m(競賽) vs 美紅十字 2.74m(一般跳水)——適用情境不同
+    vintage_warning: true
+- id: flip-turn-wall-push
+  zh: 轉身 / 蹬牆相關急性傷
+  en: Flip-turn and wall-push acute injuries
+  category: E-acute-trauma
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  subtypes:
+  - 蹬牆踝/足扭傷
+  - 蹬牆膝過伸
+  - 轉身腕/手撞牆
+  - 蹬牆下背急性痛
+  structures:
+  - 踝/足
+  - 膝
+  - 腕/手
+  - 腰椎/下背
+  mechanism:
+    summary: 翻滾轉身在牆面瞬間產生高爆發離心-向心負荷。蹬牆相足踝若角度不正（足背屈/內翻）或牆面濕滑打滑→踝扭傷；膝在屈曲蹬伸瞬間若過度伸展或扭轉→髕股/半月板應力。轉身時手臂未及時收回或誤判牆距→腕/指撞牆。蹬牆爆發伴軀幹屈伸，核心控制不足者下背急性肌肉拉傷。多為技術或疲勞末端時序失準所致。
+    trigger_phase: 翻滾觸牆-蹬牆相、轉身入水手臂位置相、疲勞末段反覆轉身
+    who: 競技泳者（高頻轉身）、轉身技術未成熟青少年、疲勞訓練末段、誤判牆距者
+  epidemiology:
+    prevalence: 無可靠獨立流病數字——轉身/蹬牆急性傷多併入一般游泳傷害統計，未單獨計列
+    certainty: 🟡
+    evidence_grade: C
+    caveat: 缺乏針對轉身機制的前瞻傷害登記；多為個案或生物力學研究外推
+    sources:
+    - Flip-turn kinetics 生物力學研究, PMC6409673 (已驗證 URL)
+    - Swimming injuries narrative review, PubMed 33010194 (已驗證)
+  risk_factors:
+  - text: 轉身技術未成熟（足踝角度/牆距判斷）
+    grade: Expert
+  - text: 牆面濕滑/觸牆板老化打滑
+    grade: Expert
+  - text: 疲勞末段時序失準
+    grade: B
+  - text: 核心控制不足（蹬牆下背代償）
+    grade: Expert
+  - text: 既往踝/膝不穩定
+    grade: B
+  prevention:
+  - text: 系統化轉身技術教學（觸牆時機/足位/牆距）
+    grade: Expert
+  - text: 防滑觸牆板與良好維護
+    grade: Expert
+  - text: 核心穩定訓練支撐蹬牆爆發
+    grade: B
+  - text: 疲勞時降低轉身強度避免時序失準
+    grade: Expert
+  management:
+    red_flags:
+    - 蹬牆後踝/膝即刻腫脹+無法承重 → 韌帶撕裂/骨折疑慮，影像評估
+    - 撞牆後腕/指變形劇痛 → 骨折疑慮，固定影像
+    - 下背急性劇痛伴下肢放射/麻木 → 排除椎間盤急性突出
+    acute: 踝/膝扭傷 RICE+功能性評估韌帶完整性，中重度影像。腕/指撞傷固定+影像排除骨折。下背肌肉拉傷相對休息+止痛+早期活動，有神經症狀就醫
+    pain_rules: null
+    rehab: 踝/膝扭傷依分級漸進本體感覺與肌力；轉身技術再教育避免再傷
+    functional_progression_criteria:
+    - 踝/膝扭傷：無痛全活動度+單腳穩定+無腫脹
+    - 下背：核心控制恢復+無神經症狀
+    swim_modifications_in_rehab:
+    - 急性期改用開放式觸牆/減少翻滾轉身
+    return_to_train: 患部無痛全功能+轉身技術修正 → 漸進回轉身訓練
+    return_to_compete: 全功能+無代償 → 復賽
+    prognosis: 多數軟組織傷數週恢復；反覆踝扭傷未充分復健致慢性不穩定；技術矯正後復發率低
+  population_notes:
+    age:
+      youth: 轉身技術學習期急性傷較多
+      adult_beginner: 初學翻滾轉身誤判牆距致撞擊
+      masters: null
+    sex: null
+    ability:
+      para: 依肢體功能個別化轉身方式，風險情境不同
+    lifecycle: null
+  links:
+    mechanism_link: null
+    technical_link: 翻滾轉身技術——時序與足位精準度直接影響受傷風險
+    perception_link: null
+  references:
+  - citation: Biomechanics of swimming flip-turn (wall contact kinetics), PMC6409673
+    certainty: 🟢
+    verified: true
+  - citation: 'Swimming injuries: a narrative review, PubMed 33010194'
+    certainty: 🟢
+    verified: true
+  flags:
+    contested: []
+    vintage_warning: false
+- id: open-water-marine-biological-hazards
+  zh: 開放水域海洋生物危害（螫刺 / 感染）
+  en: Open-water marine biological hazards — stings, punctures, infections
+  category: E-acute-trauma
+  environment:
+  - open_water
+  - surf
+  sport_variant:
+  - swim
+  - open_water_swim
+  layer:
+  - public
+  - clinical
+  fatal_acute: true
+  subtypes:
+  - 水母螫傷
+  - 海膽/魟魚刺傷
+  - 創傷弧菌感染
+  - 鉤端螺旋體病(Weil's)
+  structures:
+  - 皮膚/軟組織
+  - 全身過敏反應(心肺)
+  - 肝腎(鉤端螺旋體)
+  - 神經(Irukandji 症候群)
+  mechanism:
+    summary: 開放水域接觸海洋生物四類危害——A 刺胞動物（水母/海葵）刺絲胞注入毒素致灼痛/皮疹，敏感者過敏性休克，箱型水母/Irukandji 致命；B 棘刺生物（海膽/魟魚/獅子魚）穿刺傷+毒素+異物殘留；C 創傷弧菌（Vibrio vulnificus）經傷口/海水接觸侵入，免疫低下/肝病者致壞死性筋膜炎與敗血症（高死亡率）；D 鉤端螺旋體經受污染淡水/河口經黏膜或傷口侵入，重症 Weil's 病致肝腎衰竭。皮膚原有傷口為感染入口。
+    trigger_phase: 水母季節/特定海域游泳、礁岩區踩踏、傷口接觸溫暖海水或淡水、暴雨後河口水域
+    who: 開放水域/三鐵選手、礁岩淺水區泳者、免疫低下/慢性肝病者（弧菌高危）、暴雨後淡水/河口活動者
+  epidemiology:
+    prevalence: 水母螫傷為全球海域最常見海洋生物傷；創傷弧菌台灣為流行區（沿海溫暖海水），免疫低下者壞死性筋膜炎死亡率高（一般文獻 >20%）；鉤端螺旋體三鐵/開放水域賽事群聚案例見諸文獻；台灣為鉤端螺旋體中度流行區
+    certainty: 🟡
+    evidence_grade: B
+    caveat: 各危害流病分散於熱帶醫學/急診/感染科文獻，無統一游泳專屬登記；台灣具體年發生率數字待查
+    sources:
+    - Vibrio vulnificus infection Taiwan 案例, PMC8147101 (已驗證)
+    - Leptospirosis associated with triathlon/open water, PMC2858141 (已驗證)
+    - Jellyfish envenomation first-aid 系統回顧（種屬特異, 待補具體出處）
+  risk_factors:
+  - text: 免疫低下/慢性肝病（創傷弧菌壞死性筋膜炎）
+    grade: A
+  - text: 皮膚開放傷口接觸海水/淡水
+    grade: B
+  - text: 水母季節/特定海域游泳
+    grade: B
+  - text: 礁岩淺水區赤足踩踏（棘刺傷）
+    grade: B
+  - text: 暴雨後河口/淡水活動（鉤端螺旋體）
+    grade: B
+  - text: 低緯度熱帶海域（致命水母分布）
+    grade: B
+  prevention:
+  - text: 已知水母季節避開或穿防螫泳衣（stinger suit）
+    grade: B
+  - text: 開放傷口未癒不下海（尤慢性肝病者）
+    grade: A
+  - text: 礁岩區穿防刺水鞋
+    grade: B
+  - text: 暴雨後避免河口/可能污染淡水域
+    grade: B
+  - text: 高危族群（肝病/免疫低下）避免生食海鮮+海水傷口暴露衛教
+    grade: Expert
+  - text: 海域危險生物警示與當地通報系統
+    grade: Expert
+  management:
+    red_flags:
+    - 螫傷後全身蕁麻疹/喉緊/呼吸困難/低血壓 → 過敏性休克，腎上腺素+EMS
+    - 螫傷後劇烈全身痛/血壓飆高/瀕死感 → Irukandji 症候群疑慮，緊急就醫
+    - 傷口接觸海水後快速紅腫劇痛+水泡+全身發燒 → 創傷弧菌壞死性筋膜炎，緊急外科+抗生素
+    - 海水/淡水暴露後發燒+黃疸+肌痛+少尿 → 鉤端螺旋體 Weil's 病，就醫
+    acute: 水母螫傷：離水、移除觸手（勿徒手）、依種屬處置（箱型水母用醋；多數溫帶種海水沖洗，急救法種屬特異有爭議）、熱水浸泡（43–45°C）緩解部分種屬疼痛；過敏反應腎上腺素。棘刺傷：熱水浸泡（去熱不穩定毒素）、移除可見棘刺、影像查殘留、傷口照護+破傷風。創傷弧菌疑慮：緊急就醫，早期廣效抗生素+外科清創（延誤致死）。鉤端螺旋體：就醫，doxycycline/penicillin
+    pain_rules: null
+    rehab: 壞死性筋膜炎術後傷口重建與復健；其餘多為傷口癒合導向
+    functional_progression_criteria:
+    - 螫傷/刺傷：傷口癒合+無感染徵象
+    - 全身感染（弧菌/鉤端螺旋體）：感染科確認痊癒
+    swim_modifications_in_rehab: null
+    return_to_train: 傷口完全癒合+無感染 → 回水（防水敷料）
+    return_to_compete: null
+    prognosis: 多數水母螫傷/棘刺傷局部處置後完全恢復；過敏性休克/Irukandji/創傷弧菌壞死性筋膜炎可致命，及時治療為關鍵；鉤端螺旋體早期抗生素預後良好，Weil's 病死亡率較高
+  population_notes:
+    age:
+      youth: 兒童體表面積比大，水母螫傷全身反應風險相對高
+      adult_beginner: null
+      masters: 慢性肝病/免疫低下盛行率高，創傷弧菌風險上升
+    sex: null
+    ability:
+      para: null
+    lifecycle:
+      open_water: 所有海洋生物危害的唯一暴露場景；台灣沿海為創傷弧菌+鉤端螺旋體相關區域
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Vibrio vulnificus necrotizing fasciitis in Taiwan, PMC8147101
+    certainty: 🟢
+    verified: true
+  - citation: Leptospirosis outbreak associated with triathlon/open water swimming, PMC2858141
+    certainty: 🟢
+    verified: true
+  - citation: Jellyfish envenomation and first-aid (species-specific), 系統回顧 待補 DOI
+    certainty: 🟡
+    verified: false
+  flags:
+    contested:
+    - claim: 水母螫傷急救沖洗液（醋 vs 海水 vs 淡水）
+      consensus_source: 箱型水母用醋抑制刺絲胞為共識；勿用淡水（觸發放電）
+      dissent_source: 醋對部分種屬反加重放電——急救法為種屬特異，無單一通則
+    vintage_warning: false
+- id: poolside-slip-fall
+  zh: 池畔濕滑跌倒傷
+  en: Poolside slip-and-fall injuries
+  category: E-acute-trauma
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  subtypes:
+  - 跌倒頭部撞擊
+  - 保護性跌倒骨折(腕/髖)
+  - 軟組織挫傷裂傷
+  structures:
+  - 頭/腦
+  - 腕(橈骨遠端)
+  - 髖(股骨頸)
+  - 尾椎/骨盆
+  - 肘
+  - 皮膚軟組織
+  mechanism:
+    summary: 池畔濕磁磚/混凝土摩擦係數驟降——乾混凝土靜摩擦約 0.6（ASTM 建議濕地最低標）、泳池濕區常 <0.4（部分量測濕磁磚低至 0.3），赤足+水膜形成近似潤滑層。失去抓地→滑倒。跌倒生物力學分兩型：向後/側滑頭枕部直接撞硬面（腦震盪/顱內出血）；伸手保護性跌倒（FOOSH）力沿前臂傳致橈骨遠端骨折（Colles），或側髖著地致股骨頸骨折（高齡）。奔跑/嬉戲放大速度與衝量。
+    trigger_phase: 出入水梯、起跳台周邊、淋浴更衣濕區、嬉戲奔跑、提重物失衡
+    who: 兒童（奔跑嬉戲）、高齡泳者（平衡/骨密度↓）、視覺受限（泳鏡起霧/摘鏡）、地面排水不良場館
+  epidemiology:
+    prevalence: 美國泳池相關急診估計每年數十萬件（含各機制），其中滑倒跌落佔相當比例——具體『約 35 萬件/60% 為滑倒』為二手引用、原始登記待查；高齡髖骨折後一年死亡率 20–30%（一般骨科數據，非游泳專屬）
+    certainty: 🟡
+    evidence_grade: B
+    caveat: 池畔滑倒缺乏獨立流病登記，多併入一般跌倒或泳池傷害統計；摩擦係數數字依材質/清潔/量測法差異大
+    sources:
+    - ASTM F2508 / 防滑摩擦係數標準（工程標準，非流病）
+    - Falls and hip fracture mortality, 一般骨科文獻（待補具體 PMID）
+  risk_factors:
+  - text: 濕滑硬質地面（摩擦係數 <0.5）
+    grade: A
+  - text: 赤足+水膜
+    grade: B
+  - text: 奔跑嬉戲（兒童）
+    grade: B
+  - text: 高齡（平衡退化+骨質疏鬆）
+    grade: B
+  - text: 視覺受限（泳鏡起霧/近視摘鏡）
+    grade: Expert
+  - text: 場館排水不良/無防滑處理
+    grade: B
+  prevention:
+  - text: 池畔防滑表面（粗糙磁磚/防滑塗層，符合濕地摩擦係數標準）
+    grade: A
+  - text: 『池畔禁跑』規則與監督（尤兒童）
+    grade: B
+  - text: 良好排水避免積水
+    grade: B
+  - text: 高齡泳者防滑鞋/扶手輔助出入水
+    grade: Expert
+  - text: 充足照明與濕區警示標示
+    grade: Expert
+  management:
+    red_flags:
+    - 頭部著地後意識改變/持續嘔吐/抽搐/瞳孔不等 → 顱內出血疑慮，緊急就醫
+    - 腕/髖跌倒後變形/無法承重/劇痛 → 骨折疑慮，固定就醫影像
+    - 高齡跌倒後髖/鼠蹊痛無法站立 → 股骨頸骨折，勿勉強行走
+    acute: 頭部撞擊依腦震盪流程評估，紅旗症狀緊急送醫。橈骨遠端骨折：固定+冰敷+抬高+影像（多需復位）。股骨頸骨折：勿移動患肢、保暖、EMS（高齡常需手術）。軟組織挫傷裂傷 RICE+傷口加壓清創。尾椎挫傷對症止痛+坐墊
+    pain_rules: null
+    rehab: 骨折後依固定/手術方式漸進負重與關節活動度；高齡須併跌倒預防與肌力平衡訓練
+    functional_progression_criteria:
+    - 腦震盪：依分級協議無症狀回場
+    - 橈骨遠端骨折：影像癒合（一般 6 週）+腕關節活動度恢復
+    - 股骨頸骨折：骨科評估負重進展
+    swim_modifications_in_rehab: null
+    return_to_train: 依傷型癒合（腦震盪逐步/骨折影像確認）後回水
+    return_to_compete: 完成回場標準且無症狀 → 復賽
+    prognosis: 輕度挫傷數日恢復；橈骨遠端骨折多良好；高齡股骨頸骨折預後較差（一年死亡率 20–30%，併發症與失能風險高）；頭部撞擊視傷情而定
+  population_notes:
+    age:
+      youth: 奔跑嬉戲滑倒為兒童池畔主要傷因
+      adult_beginner: null
+      masters: 高齡跌倒骨折（髖/腕）後果最嚴重，預防最關鍵
+    sex: null
+    ability:
+      para: 行動輔具使用者出入水濕區風險高，需無障礙防滑設計
+    lifecycle: null
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: ASTM F2508 Standard Practice for Validation of Walkway Tribometers
+    certainty: 🟡
+    verified: false
+  - citation: Hip fracture one-year mortality (general orthopedic literature, PMID 待補)
+    certainty: 🟡
+    verified: false
+  flags:
+    contested:
+    - claim: 髖骨折一年死亡率
+      consensus_source: 高齡髖骨折後死亡率顯著升高為骨科共識
+      dissent_source: 20–30% 數字依族群/合併症差異大，非游泳專屬
+    vintage_warning: false
+- id: starting-block-impact
+  zh: 出發台 / 牆面 / 水面撞擊傷
+  en: Starting block, wall, and water-surface impact injuries
+  category: E-acute-trauma
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  - diving_entry
+  layer:
+  - public
+  - clinical
+  subtypes:
+  - 出發台入水撞擊
+  - 游泳中撞牆
+  - 水面拍水傷(bellyflop)
+  structures:
+  - 頭/臉/腦(腦震盪)
+  - 頸椎
+  - 腕/手指
+  - 肋骨/胸壁皮膚
+  mechanism:
+    summary: 三子機制——A 出發台起跳：頭/臉/肩撞池底(水深不足)或不正確角度入水(腹/胸拍水)，或踩台失足跌至硬面；B 游泳中撞牆：高速轉身/衝刺末端未及時減速，頭/臉/腕撞壁，或密集起跑肢體碰撞；C 水面拍水傷：腹/胸大面積撞水面致皮膚撕裂/肌肉挫傷，高台情境有肺挫傷風險。
+    trigger_phase: 出發起跳相(block phase)、轉身前減速相、密集起跑前數秒
+    who: 初學出發動作的青少年競技泳者、技術訓練不足者、泳道秩序混亂(公開水域起跑)
+  epidemiology:
+    prevalence: 高中游泳與跳水：563 件傷害 / 2,171,260 次暴露(0.26/1000 AE)；跳水項目頭/臉傷 36.6%、接觸池面/地面傷 68.3%、腦震盪為最常見傷型(31.7%)。游泳/跳水是高中 20 項運動傷害率最低者之一
+    certainty: 🟢
+    evidence_grade: B
+    caveat: 競賽出發台直接致脊髓損傷的獨立流病數據缺乏(多併入一般跳水傷統計)；『70% 泳池傷害為頭頸部』為二手引用、原始數據源待查
+    sources:
+    - Descriptive Epidemiology of High School Swimming and Diving Injuries, PMC10372189 (已驗證)
+    - Neurobehavioral consequences of repetitive head impacts in Para swimming, ScienceDirect 2023/2024 (已驗證)
+  risk_factors:
+  - text: 出發技術未成熟(入水角度過陡致頭部觸底)
+    grade: Expert
+  - text: 水深不足(出發台前區)
+    grade: A
+  - text: 教練缺乏出發技術指導協議(僅 21.7% 用系統化進展)
+    grade: B
+  - text: 高速衝刺末端視野受限(近終點看不清牆距)
+    grade: Expert
+  - text: Para 視覺障礙(靠觸牆棒 tapper 延誤反應)
+    grade: Expert
+  prevention:
+  - text: 出發台訓練遵循進階協議(水中出發→池邊→台上，技能未就緒不上台)
+    grade: Expert
+  - text: 水深符合 World Aquatics 競賽最低標準(1.35m)
+    grade: A
+  - text: 教練系統化出發技術教學(淺角度入水)
+    grade: B
+  - text: 提供視障選手觸牆訓練
+    grade: Expert
+  management:
+    red_flags:
+    - 頭部撞牆後意識改變/失憶/嘔吐/視力模糊 → 懷疑腦震盪，停止運動評估
+    - 頸部疼痛+肢體症狀 → 脊椎預防措施(見 diving-cervical-injury)
+    - 面部撞擊大量出血/眼眶骨折(浣熊眼) → 就醫
+    acute: 腦震盪：當場撤離(remove from play)，不得同次訓練/比賽回場。裂傷直接加壓止血；顏面骨折疑似固定就醫。腕/手指骨折 RICE+固定+影像。肋骨/胸壁挫傷監測呼吸困難排除肺挫傷
+    pain_rules: null
+    rehab: null
+    functional_progression_criteria:
+    - 腦震盪：依運動腦震盪分級協議逐步回場(Swimming Canada 有專項指引)
+    - 骨折：影像確認癒合(掌骨一般 4–6 週)
+    - 裂傷：傷口癒合(防水敷料下可提前回水)
+    swim_modifications_in_rehab: null
+    return_to_train: 依傷型(腦震盪逐步回場/骨折癒合/裂傷癒合)分別評估
+    return_to_compete: 完成回場分級且無症狀 → 復賽
+    prognosis: 頭部撞擊多為輕度腦震盪完全恢復(數天至數週)；反覆腦震盪(Para 個案)有神經行為後遺風險；未診斷腦震盪帶傷續練有 second impact syndrome 風險(罕見但嚴重)
+  population_notes:
+    age:
+      youth: 競技青少年出發台受傷主要族群
+      adult_beginner: 缺乏出發技術訓練時風險最高
+      masters: null
+    sex: null
+    ability:
+      para: 視障 Para 選手腦震盪累積風險，需特別監測
+    lifecycle:
+      open_water: 公開水域起跑碰撞為獨特場景
+  links:
+    mechanism_link: null
+    technical_link: 出發台 racing start 技術——與跳水頸椎傷共享水深/角度預防
+    perception_link: null
+  references:
+  - citation: Descriptive Epidemiology of High School Swimming and Diving Injuries, PMC10372189
+    certainty: 🟢
+    verified: true
+  - citation: Epidemiology NCAA Swimming and Diving, PubMed 34280272
+    certainty: 🟢
+    verified: true
+  - citation: Neurobehavioral consequences of repetitive head impacts in Para swimming, ScienceDirect 2023/2024
+    certainty: 🟡
+    verified: true
+  flags:
+    contested:
+    - claim: 腦震盪在游泳的發生率估計
+      consensus_source: 高中數據腦震盪為最常見游泳/跳水傷型
+      dissent_source: 『>50% 泳池傷害為頭部』來源不明，二手引用不應視為流病數據
+    vintage_warning: false
+- id: osgood-schlatter
+  zh: Osgood-Schlatter 病
+  en: Osgood-Schlatter disease
+  category: F-pediatric-growth
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 脛骨粗隆骨突
+  - 髕骨韌帶
+  - 股四頭肌
+  mechanism:
+    summary: 脛骨粗隆的牽引性骨突炎。青春期骨骼快速生長，股四頭肌透過髕骨韌帶反復拉扯尚未完全骨化的脛骨粗隆骨突中心，造成微損傷與局部炎症，形成前膝隆起和疼痛。觸發機制(股四頭肌爆發拉力)在游泳中幾乎不存在——高風險運動為籃球/排球/田徑/體操，游泳員發生率極低。游泳員兼做陸訓(跑跳)時風險才重現。重要意義:游泳是 OSD 患者合理的低衝擊替代運動。
+    trigger_phase: 陸訓跑跳(非水中)；游泳本身極少觸發
+    who: 12–15 歲運動活躍男孩、8–12 歲女孩、急速生長期+高量跑跳陸訓者
+  epidemiology:
+    prevalence: 12–15 歲運動活躍青少年盛行率男 11.4%、女 8.3%、整體約 9.8%(運動活躍族群高達 21%)；荷蘭一般科前瞻發病率整體 3.8/1,000 人年(男 4.9、女 2.7)，峰值男 12 歲、女 11 歲
+    certainty: 🟢
+    evidence_grade: B
+    caveat: 數據來自一般青少年/跑跳運動族群，非游泳特定；游泳機制上幾乎不致病，此條目主要意義為『游泳是友善替代運動』
+    sources:
+    - Osgood-Schlatter disease, StatPearls NBK441995 (已驗證)
+    - OSD incidence general practice (Netherlands), PMID 34990396 / PMC8869186 (已驗證)
+  risk_factors:
+  - text: 快速身高增長
+    grade: B
+  - text: 高量跑跳運動(陸訓)
+    grade: A
+  - text: 男性
+    grade: B
+  - text: 雙側受累(預後較長)
+    grade: B
+  - text: 股四頭肌/腿筋柔軟度不足
+    grade: C
+  prevention:
+  - text: 避免跑跳量過快增加
+    grade: C
+  - text: 股四頭肌/腿筋拉伸
+    grade: C
+  - text: 急速生長期監測
+    grade: Expert
+  management:
+    red_flags:
+    - 急速腫脹/急性撕脫骨折 → 就醫
+    - 成年後持續症狀(約 10%) → 骨科評估
+    acute: 相對休息(不強制全停)、冰敷、NSAIDs、活動調整；無手術或注射適應症
+    pain_rules: 膝前痛在不痛範圍內可繼續活動；負荷後加重則減量
+    rehab: 股四頭肌/腿筋漸進拉伸；不痛範圍漸進恢復
+    functional_progression_criteria:
+    - 活動時膝前痛可控
+    - 拉伸/肌力改善
+    swim_modifications_in_rehab:
+    - 游泳是友善替代運動(膝屈伸受控、無陸上衝擊)
+    return_to_train: 游泳通常無需中斷；陸訓跑跳調整
+    return_to_compete: null
+    prognosis: 自限性；約 90% 於骨骺融合後(約 2 年內)完全緩解；約 10% 延續成年(症狀性骨化結節)
+  population_notes:
+    age:
+      youth: 核心族群；游泳是 OSD 後低衝擊替代選項
+      adult_beginner: null
+      masters: 骨骺已閉合，幾乎不適用
+    sex:
+      male: 男性較多(約 65%)
+      female: null
+    ability:
+      para: 骨骺閉合後不適用
+    lifecycle: null
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Osgood-Schlatter disease, StatPearls NBK441995
+    certainty: 🟢
+    verified: true
+  - citation: OSD incidence in general practice, PMC8869186
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 是否需影像確認 / 運動限制程度
+      consensus_source: 臨床診斷即可，現代指引傾向疼痛範圍內繼續活動
+      dissent_source: 部分仍轉介影像(荷蘭研究 19.5%)；完全停訓 vs 疼痛範圍內繼續無一致
+    vintage_warning: false
+- id: salter-harris-physeal-fracture
+  zh: Salter-Harris 生長板骨折
+  en: Salter-Harris physeal fracture
+  category: F-pediatric-growth
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 生長板(骨骺板)
+  - 骨骺
+  - 幹骺端
+  - 遠端橈骨
+  mechanism:
+    summary: 生長板(骨骺板)是兒童骨骼最脆弱結構，強度低於韌帶，急性創傷時骨骺板先於韌帶斷裂。Salter-Harris 分型依骨折線穿過骨骺板位置與範圍分五型(I 型僅穿骨骺板，預後最佳；V 型壓縮型最差且常漏診)。游泳本身創傷風險低，但相關情境(跳水入池衝擊、陸訓跌倒、池邊滑倒 FOOSH)可引發上肢(遠端橈骨最常見)或下肢骨折。
+    trigger_phase: 跳水/跳台入池衝擊、池邊滑倒、陸訓跌倒
+    who: 開放骨骺兒童(女 11–12 歲、男 12–14 歲)、跳水/跳台高衝擊活動者
+  epidemiology:
+    prevalence: 佔兒童所有骨折 15–30%；II 型最常見(約 75%)；男>女；上肢>下肢，遠端橈骨為最常見單一部位；競泳本身致 Salter-Harris 極少見(水中低衝擊)，多見於跳水/池邊情境
+    certainty: 🟢
+    evidence_grade: B
+    caveat: 游泳特定的生長板骨折分母缺；V 型急性期 X-ray 常正常易低估
+    sources:
+    - Salter-Harris fractures, StatPearls NBK430688 (已驗證)
+  risk_factors:
+  - text: 開放骨骺年齡
+    grade: A
+  - text: 跳水/池邊高衝擊活動
+    grade: B
+  - text: 高速衝擊(競速跳台跳水)
+    grade: C
+  - text: 骨骼代謝問題(維生素 D 缺乏、RED-S)
+    grade: C
+  prevention:
+  - text: 池邊防滑設計
+    grade: Expert
+  - text: 跳水技術指導
+    grade: Expert
+  - text: 強制跳水深度規定
+    grade: Expert
+  - text: 補鈣/維生素 D(輔助)
+    grade: B
+  management:
+    red_flags:
+    - 任何兒童急性肢端創傷伴疼痛 → 就醫排除生長板骨折
+    - 關節面受累(III/IV 型)徵象 → 小兒骨科急會診
+    - 生長停滯/肢體不等長後續徵象 → 追蹤
+    acute: X-ray 常低估需比對健側；SH I–II 閉合復位+固定(石膏/夾板)；SH III–IV 通常需切開復位內固定(ORIF)；SH V 急性期常漏診(X-ray 正常)
+    pain_rules: null
+    rehab: 初次 7–10 天複查；SH III–V 需 6–12 月影像追蹤確認生長板正常
+    functional_progression_criteria:
+    - 癒合確認
+    - 生長板追蹤正常
+    swim_modifications_in_rehab:
+    - 依固定/部位調整水中活動
+    return_to_train: 上肢 SH I–II 通常 6–8 週；依類型/固定/癒合
+    return_to_compete: null
+    prognosis: SH I–II 良好；SH III–V 有肢體不等長、關節畸形風險
+  population_notes:
+    age:
+      youth: 唯一受影響族群(骨骺板閉合後不再發生)；跳水台/起跳台是游泳訓練中少數高衝擊情境
+      adult_beginner: null
+      masters: 不適用
+    sex:
+      male: 男>女，男 12–14 歲對應生長高峰
+      female: null
+    ability:
+      para: 數據缺
+    lifecycle: null
+  links:
+    mechanism_link: diving-cervical-injury
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Salter-Harris fractures, StatPearls NBK430688
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: SH V 型診斷率 / 是否常規 MRI
+      consensus_source: 急性期 X-ray 常陰性
+      dissent_source: SH V 實際發生率可能被低估；是否常規 MRI 各中心做法不一
+    vintage_warning: false
+- id: scheuermann-kyphosis
+  zh: Scheuermann 病（青少年脊椎後凸）
+  en: Scheuermann's kyphosis
+  category: F-pediatric-growth
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 胸椎椎體
+  - 椎體終板軟骨
+  - 椎間盤
+  mechanism:
+    summary: 青少年特發性脊椎後凸，以胸椎(T7–T9 頂點)或胸腰椎三節以上椎體前緣楔形變(wedging ≥5°×≥3 個相鄰椎體)為診斷標準。病因未完全明確，推測與生長期椎體終板軟骨細胞功能障礙有關，椎體前緣承壓大於後緣抑制前緣生長。蝶式反復軀幹彎曲-伸展被懷疑可誘發或加重，屬「加重因子」而非原因。姿勢型「圓背」需與結構型 Scheuermann 鑑別。
+    trigger_phase: 蝶式反復軀幹屈伸(加重因子)；生長期椎體前緣壓力集中
+    who: 男性(男:女 ≥2:1)、青春期快速生長者、蝶式高量者
+  epidemiology:
+    prevalence: 美國盛行率 1–8%；男:女 ≥2:1；診斷高峰 12–17 歲；胸椎型(I 型)最常見，胸腰椎型(II 型)罕見但症狀常較重；診斷標準 Cobb ≥40° 剛性後凸+3 個以上相鄰椎體楔形 ≥5°
+    certainty: 🟢
+    evidence_grade: B
+    caveat: 游泳與後凸關聯之 OR 值來自摘要轉述未驗證原文；蝶式因果方向不明(加重後凸 vs 後凸者選游泳)
+    sources:
+    - Scheuermann disease, StatPearls NBK499966 (已驗證)
+  risk_factors:
+  - text: 男性
+    grade: B
+  - text: 青春期快速生長
+    grade: B
+  - text: 反復胸椎屈曲運動(蝶式為特定 risk)
+    grade: Expert
+  - text: 姿勢習慣
+    grade: C
+  prevention:
+  - text: 胸椎伸展運動
+    grade: C
+  - text: 核心穩定訓練
+    grade: C
+  - text: Scheuermann 患者限制蝶式
+    grade: Expert
+  management:
+    red_flags:
+    - 神經症狀(脊髓壓迫) → 就醫
+    - 快速進展 → 脊椎評估
+    - 後凸 >75° → 脊椎外科評估
+    acute: 非手術(Cobb <60°):生活方式調整、NSAIDs、伸展復健；支架(60–80°)需 12–24 月；手術(>75° 合併疼痛/神經症狀):脊椎融合
+    pain_rules: null
+    rehab: 胸椎伸展+核心穩定；主動期減少蝶式訓練量
+    functional_progression_criteria:
+    - 症狀控制
+    - 後凸角度穩定(非進展)
+    swim_modifications_in_rehab:
+    - 避免蝶式；仰式可能助胸椎伸展(理論性)
+    return_to_train: 主動期減少蝶式訓練量
+    return_to_compete: 術後患者有案例報告仍可游泳
+    prognosis: Cobb <60° 骨骼成熟後通常無長期後遺症；>60° 者成年慢性背痛風險增加
+  population_notes:
+    age:
+      youth: 診斷期；游泳教練需識別圓背且持續加重者，轉介脊椎評估
+      adult_beginner: null
+      masters: 已有結構後凸者蝶式訓練需個別評估
+    sex:
+      male: 男:女 ≥2:1
+      female: null
+    ability:
+      para: 脊損患者坐姿加重前傾，但 Scheuermann 診斷不適用成年後脊損者
+    lifecycle: null
+  links:
+    mechanism_link: extension-low-back-pain
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Scheuermann disease, StatPearls NBK499966
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 游泳(尤蝶式)與 Scheuermann 因果關係
+      consensus_source: 椎體楔形為診斷核心；蝶式為加重因子
+      dissent_source: 橫斷面 OR 顯示關聯但方向不明；游泳是保護或加重取決泳式，兩者可能同時為真
+    vintage_warning: false
+- id: sever-disease
+  zh: Sever 病（跟骨骨突炎）
+  en: Sever's disease (calcaneal apophysitis)
+  category: F-pediatric-growth
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 跟骨次級骨化中心
+  - 跟腱
+  - 腓腸肌-比目魚肌
+  mechanism:
+    summary: 跟骨骨突炎。跟骨次級骨化中心在快速生長期受跟腱過度拉力而炎症。骨骼生長快於肌肉伸展，跟腱相對緊繃，在跑跳等高地面反作用力活動中過度牽拉跟骨(行走時足跟承壓可達正常 10 倍)。機制高度依賴跑跳衝擊，水中幾乎無觸發；游泳員兼高量陸訓(跑步)才有風險。活躍游泳通常是 Sever 病患者的低衝擊替代運動。
+    trigger_phase: 陸訓跑跳(非水中)；游泳本身幾乎不觸發
+    who: 8–15 歲生長高峰運動活躍兒童(男>女約 2–3:1)、高跑跳陸訓量者
+  epidemiology:
+    prevalence: 佔兒童肌肉骨骼主訴 2–16%；高達 60% 雙側；男:女約 2–3:1；發病尖峰男 12 歲、女 11 歲；德國青少年足球學院 10 年年發病率 0.36/100 運動員(返回運動初次約 42 天、復發約 181 天)
+    certainty: 🟢
+    evidence_grade: B
+    caveat: 數據來自跑跳運動(足球)族群，非游泳特定；游泳機制上幾乎不致病，主要意義為低衝擊替代運動
+    sources:
+    - Sever's disease (calcaneal apophysitis), StatPearls NBK441928 (已驗證)
+    - Sever disease in youth football academy, PMID 35139872 / PMC8827183 (已驗證)
+  risk_factors:
+  - text: 快速生長高峰
+    grade: B
+  - text: 高跑跳訓練量(陸訓)
+    grade: A
+  - text: 腓腸肌緊繃/柔軟度差
+    grade: B
+  - text: BMI 偏高
+    grade: B
+  - text: 足部生物力學異常(扁平/高弓足)
+    grade: C
+  - text: 磨損/不合適鞋具
+    grade: C
+  prevention:
+  - text: 腓腸肌-比目魚肌漸進拉伸
+    grade: B
+  - text: 適合鞋具+足跟墊
+    grade: C
+  - text: 訓練量漸進管理
+    grade: C
+  - text: 急速生長期監測
+    grade: Expert
+  management:
+    red_flags:
+    - 靜止痛/明顯腫脹 → 就醫(排除跟骨骨折)
+    - 雙側受累恢復更長 → 評估
+    acute: 活動調整(避跑跳)、冰敷、足跟墊、NSAIDs；持續 4–8 週可考慮 CAM boot 或短腿石膏
+    pain_rules: 足跟痛在不痛範圍活動，跑跳後加重則減量
+    rehab: 腓腸肌/比目魚肌漸進拉伸+離心強化；體重管理
+    functional_progression_criteria:
+    - 足跟痛緩解
+    - 拉伸/離心改善
+    swim_modifications_in_rehab:
+    - 游泳通常是 Sever 病的友善低衝擊替代運動
+    return_to_train: 症狀緩解後每週增量 <10%；雙側更保守
+    return_to_compete: null
+    prognosis: 自限性，骨骺閉合後完全緩解；可復發至骨骼成熟
+  population_notes:
+    age:
+      youth: 8–15 歲核心族群
+      adult_beginner: null
+      masters: 骨骺閉合後不再發生
+    sex:
+      male: 男:女約 2–3:1
+      female: null
+    ability:
+      para: 兒童資料缺乏
+    lifecycle: null
+  links:
+    mechanism_link: null
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Sever's disease, StatPearls NBK441928
+    certainty: 🟢
+    verified: true
+  - citation: Calcaneal apophysitis in youth football, PMC8827183
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 影像必要性 / 最佳保守方案
+      consensus_source: 臨床診斷通常足夠
+      dissent_source: 跟骨 X-ray 骨化碎裂為 non-specific；足跟墊/物理治療/觀察效益類似，無明確優勝
+    vintage_warning: false
+- id: youth-swimmer-apophysitis
+  zh: 年輕游泳員肩/肘骨骺與骨突損傷
+  en: Youth swimmer shoulder/elbow physeal & apophyseal injury
+  category: F-pediatric-growth
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  subtypes:
+  - 近端肱骨骨骺損傷
+  - 肘內上髁骨突炎
+  structures:
+  - 近端肱骨骨骺
+  - 肘內上髁骨突
+  - 旋轉肌群
+  mechanism:
+    summary: 青少年游泳員肩部(近端肱骨骨骺)和肘部(內上髁骨突)受反復過頭動作旋轉應力。近端肱骨骨骺損傷(「小聯盟肩」類比):骨骺軟骨在高頻過頭划水中受旋轉剪力，引起骨骺微裂/增寬(X-ray 骨骺線增寬)。肘部內上髁骨突炎:反復外翻應力(蝶式/仰式轉身、拉力帶訓練)拉扯未骨化內上髁骨突，造成炎症甚至撕脫。
+    trigger_phase: 高頻過頭划水、蝶/仰式轉身、陸訓拉力帶
+    who: 開放骨骺期(11–16 歲)高過頭量者、快速增量者、技術缺陷者
+  epidemiology:
+    prevalence: 近端肱骨骨骺損傷最常見於 11–16 歲投擲型運動員，游泳專屬盛行率缺乏(多由棒球研究外推)；游泳員整體肩痛:15–17 歲 55.5%、13–14 歲 47.4%、9–10 歲 11.1% 有干擾游泳的肩痛(含骨骺+軟組織)
+    certainty: 🟠
+    evidence_grade: C
+    caveat: 幾乎無游泳員專屬骨骺研究，全外推自棒球文獻，適用性存疑；游泳外翻應力遠低於投擲者；休息時程外推自投擲運動
+    sources:
+    - Youth swimmer shoulder pain multi-site, PMID 39100936 / PMC11297363 (已驗證)
+    - Proximal humeral epiphysiolysis (little league shoulder), PMID 30485006 (摘要層級)
+  risk_factors:
+  - text: 開放骨骺期+高過頭訓練量
+    grade: B
+  - text: 快速訓練量增加
+    grade: B
+  - text: 旋轉肌群肌力不平衡
+    grade: B
+  - text: 技術缺陷(過度旋轉、入水角不良)
+    grade: C
+  - text: 陸訓拉力帶過度使用
+    grade: C
+  prevention:
+  - text: 青少年定期肩部動態評估
+    grade: Expert
+  - text: 訓練量漸進管理
+    grade: C
+  - text: 旋轉肌群強化
+    grade: B
+  - text: 技術指導
+    grade: Expert
+  management:
+    red_flags:
+    - 肩部靜止痛/夜間痛 → 就醫
+    - 骨骺點觸痛(骨骺線位置) → 就醫
+    - 游泳後明顯腫脹 → 就醫
+    acute: 完全停過頭划水(≥4–6 週，類比小聯盟肩標準)；冰敷；NSAIDs。診斷以 X-ray 雙側比對(骨骺線增寬陽性)、MRI(骨骺水腫)
+    pain_rules: 骨骺點觸痛或靜止痛 → 停過頭划水評估
+    rehab: 核心+肩胛穩定；旋轉肌群漸進強化；技術分析；陸訓量同步調整
+    functional_progression_criteria:
+    - 症狀消失
+    - 影像骨骺線恢復
+    - 漸進負荷(從低強度自由式始)
+    swim_modifications_in_rehab:
+    - 停過頭划水期可下肢/核心為主
+    return_to_train: 症狀+影像恢復後漸進回水
+    return_to_compete: null
+    prognosis: 適當休息多痊癒；反復/延誤可能影響骨骺閉合後肩關節結構
+  population_notes:
+    age:
+      youth: 11–16 歲核心高風險；教練應定期問肩部靜止痛
+      adult_beginner: null
+      masters: 骨骺閉合後改為旋轉肌腱損傷，不適用
+    sex: null
+    ability:
+      para: 不適用/數據缺
+    lifecycle: null
+  links:
+    mechanism_link: rotator-cuff-tendinopathy
+    technical_link: null
+    perception_link: null
+  references:
+  - citation: Shoulder pain in youth competitive swimmers, PMC11297363
+    certainty: 🟢
+    verified: true
+  flags:
+    contested:
+    - claim: 游泳員近端肱骨骨骺損傷發生率
+      consensus_source: 開放骨骺+高過頭量為理論風險
+      dissent_source: 幾乎無游泳員專屬研究，全外推自棒球文獻，適用性存疑
+    vintage_warning: false

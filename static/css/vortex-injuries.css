@@ -1,0 +1,239 @@
+/* vortex-injuries.css — 運動傷害頁專屬樣式
+   延伸既有 vortex 設計語言（博物館白牆 + 銅綠 + 襯線），不新建審美。
+   多數結構類（vx-panel / vx-block-label / vx-boundary / vx-sit-card / vx-flow）
+   沿用 vortex.css；此處只加傷害頁獨有元件。 */
+
+/* ── 左欄緊急連結 ── */
+.vx-navlink--alert { color: var(--vx-warn); }
+.vx-navlink--alert .n {
+  background: var(--vx-warn-bg);
+  color: var(--vx-warn);
+  border-color: var(--vx-warn);
+}
+.vx-navlink--alert.is-active { color: var(--vx-warn); font-weight: 700; }
+
+/* ── 概覽：緊急置頂橫幅 ── */
+.vx-emerg-banner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--sp-3);
+  width: 100%;
+  text-align: left;
+  margin: var(--sp-4) 0;
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--vx-warn-bg);
+  border: 1px solid var(--vx-warn);
+  border-left-width: 4px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: var(--vx-serif);
+}
+.vx-emerg-banner:hover { background: #f3e3e0; }
+.vx-emerg-icon {
+  width: 30px; height: 30px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--vx-warn); color: #fff;
+  font-weight: 700; font-size: var(--fs-lg);
+  font-family: var(--vx-display);
+}
+.vx-emerg-txt { font-size: var(--fs-sm); color: var(--vx-ink); line-height: var(--lh-snug); }
+.vx-emerg-txt b { display: block; color: var(--vx-warn); font-size: var(--fs-base); margin-bottom: 2px; }
+.vx-emerg-go { font-size: var(--fs-sm); color: var(--vx-warn); white-space: nowrap; font-weight: 600; }
+
+/* ── 分類地圖 ── */
+.vx-cat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--sp-3);
+  margin: var(--sp-3) 0 var(--sp-5);
+}
+.vx-cat-card {
+  text-align: left;
+  padding: var(--sp-3);
+  background: var(--vx-paper);
+  border: 1px solid var(--vx-rule);
+  border-top: 3px solid var(--vx-accent);
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex; flex-direction: column; gap: 4px;
+  transition: border-color .15s, box-shadow .15s;
+}
+.vx-cat-card:hover { border-color: var(--vx-accent); box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+.vx-cat-zh { font-family: var(--vx-serif); font-weight: 600; font-size: var(--fs-md); color: var(--vx-ink); }
+.vx-cat-count { font-size: var(--fs-xs); color: var(--vx-accent2); }
+.vx-cat-list { font-size: var(--fs-xs); color: var(--vx-sub); line-height: var(--lh-snug); margin-top: 2px; }
+
+/* ── 緊急面板 ── */
+.vx-premise--alert { border-left: 3px solid var(--vx-warn); padding-left: var(--sp-3); }
+.vx-emerg-list { display: flex; flex-direction: column; gap: var(--sp-3); margin: var(--sp-4) 0; }
+.vx-emerg-card {
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "zh go" "flags flags";
+  gap: 4px var(--sp-3);
+  padding: var(--sp-3);
+  background: var(--vx-paper);
+  border: 1px solid var(--vx-rule);
+  border-left: 4px solid var(--vx-warn);
+  border-radius: 2px;
+  cursor: pointer;
+}
+.vx-emerg-card:hover { background: var(--vx-warn-bg); }
+.vx-emerg-card-zh { grid-area: zh; font-family: var(--vx-serif); font-weight: 600; font-size: var(--fs-md); color: var(--vx-ink); }
+.vx-emerg-card-go { grid-area: go; font-size: var(--fs-xs); color: var(--vx-warn); white-space: nowrap; align-self: center; }
+.vx-emerg-card-flags { grid-area: flags; display: flex; flex-direction: column; gap: 2px; }
+.vx-emerg-flag { font-size: var(--fs-sm); color: var(--vx-warn); }
+
+/* ── 傷害條目：標籤列 ── */
+.vx-injury-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 var(--sp-3); }
+.vx-tag {
+  font-family: var(--vx-mono);
+  font-size: var(--fs-xs);
+  color: var(--vx-sub);
+  background: var(--vx-paper2);
+  border: 1px solid var(--vx-rule);
+  border-radius: 2px;
+  padding: 2px 8px;
+}
+.vx-tag--sport { color: var(--vx-accent2); }
+.vx-tag--vintage { color: var(--vx-gold); background: var(--vx-gold-bg); border-color: var(--vx-gold); }
+
+.vx-subtypes { font-size: var(--fs-sm); color: var(--vx-sub); margin-bottom: var(--sp-3); }
+.vx-subtypes .vx-label { color: var(--vx-gold); margin-right: 6px; }
+
+/* ── 機制 meta ── */
+.vx-mech-meta { display: flex; flex-direction: column; gap: 6px; margin: var(--sp-2) 0 var(--sp-3); }
+.vx-mech-item { font-size: var(--fs-sm); color: var(--vx-sub); line-height: var(--lh-snug); }
+.vx-mech-item b { color: var(--vx-accent2); margin-right: 8px; font-weight: 600; }
+
+/* ── 證據等級徽章 ── */
+.vx-grade {
+  display: inline-block;
+  font-family: var(--vx-mono);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 3px 6px;
+  border-radius: 2px;
+  margin-left: 6px;
+  vertical-align: middle;
+  border: 1px solid;
+  cursor: help;
+}
+.vx-grade--A      { color: #fff; background: var(--vx-accent2); border-color: var(--vx-accent2); }
+.vx-grade--B      { color: var(--vx-accent2); background: transparent; border-color: var(--vx-accent); }
+.vx-grade--C      { color: var(--vx-faint); background: transparent; border-color: var(--vx-rule2); }
+.vx-grade--Expert { color: var(--vx-gold); background: var(--vx-gold-bg); border-color: var(--vx-gold); }
+
+/* ── 危險因子 / 預防清單 ── */
+.vx-factor-list { list-style: none; margin: var(--sp-2) 0 var(--sp-3); padding: 0; }
+.vx-factor-list li {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--sp-3);
+  padding: 7px 0;
+  border-bottom: 1px dotted var(--vx-rule);
+  font-size: var(--fs-sm);
+  color: var(--vx-ink);
+}
+.vx-factor-list--prevent li { border-bottom-color: var(--vx-rule); }
+.vx-factor-txt { line-height: var(--lh-snug); }
+
+/* ── 處置：紅旗 ── */
+.vx-block-label--mgmt::before { content: ""; }
+.vx-redflags {
+  background: var(--vx-warn-bg);
+  border: 1px solid var(--vx-warn);
+  border-left-width: 4px;
+  border-radius: 2px;
+  padding: var(--sp-3) var(--sp-3) var(--sp-3) var(--sp-4);
+  margin: var(--sp-2) 0 var(--sp-3);
+}
+.vx-redflags-cap {
+  display: block;
+  font-family: var(--vx-mono);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: var(--vx-warn);
+  margin-bottom: 6px;
+}
+.vx-redflags ul { margin: 0; padding-left: 18px; }
+.vx-redflags li { font-size: var(--fs-sm); color: var(--vx-ink); line-height: var(--lh-snug); margin: 3px 0; }
+
+/* ── 處置：細項網格 ── */
+.vx-mgmt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); margin-bottom: var(--sp-3); }
+.vx-mgmt-item {
+  font-size: var(--fs-sm);
+  color: var(--vx-ink);
+  line-height: var(--lh-snug);
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--vx-paper);
+  border: 1px solid var(--vx-rule);
+  border-radius: 2px;
+}
+.vx-mgmt-item b { display: block; color: var(--vx-accent2); font-weight: 600; font-size: var(--fs-xs); margin-bottom: 3px; }
+.vx-mini { margin: 4px 0 0; padding-left: 16px; }
+.vx-mini li { margin: 2px 0; }
+@media (max-width: 640px) { .vx-mgmt-grid { grid-template-columns: 1fr; } }
+
+/* ── 全光譜族群 ── */
+.vx-fullspectrum {
+  font-family: var(--vx-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--vx-accent2);
+  background: #e7efe9;
+  border-radius: 2px;
+  padding: 2px 7px;
+  margin-left: 8px;
+}
+.vx-pop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-2); margin: var(--sp-2) 0 var(--sp-3); }
+.vx-pop-item {
+  font-size: var(--fs-sm);
+  color: var(--vx-ink);
+  line-height: var(--lh-snug);
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--vx-paper);
+  border: 1px solid var(--vx-rule);
+  border-left: 3px solid var(--vx-accent);
+  border-radius: 2px;
+}
+.vx-pop-tag {
+  display: block;
+  font-family: var(--vx-mono);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--vx-accent2);
+  margin-bottom: 3px;
+}
+@media (max-width: 640px) { .vx-pop-grid { grid-template-columns: 1fr; } }
+
+/* ── 學界分歧 ── */
+.vx-contested {
+  background: var(--vx-paper2);
+  border: 1px solid var(--vx-rule);
+  border-radius: 2px;
+  padding: var(--sp-3);
+  margin: var(--sp-2) 0 var(--sp-3);
+}
+.vx-contested-claim { font-family: var(--vx-serif); font-weight: 600; font-size: var(--fs-sm); color: var(--vx-ink); margin-bottom: 6px; }
+.vx-contested-row { font-size: var(--fs-sm); color: var(--vx-sub); line-height: var(--lh-snug); margin: 4px 0; }
+.vx-contested-tag {
+  display: inline-block;
+  font-family: var(--vx-mono);
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 2px;
+  padding: 1px 6px;
+  margin-right: 8px;
+}
+.vx-contested-tag--con { color: var(--vx-accent2); background: #e7efe9; }
+.vx-contested-tag--dis { color: var(--vx-warn); background: var(--vx-warn-bg); }
+
+/* ── 連結 ── */
+.vx-injury-links { display: flex; flex-direction: column; gap: 4px; margin: var(--sp-3) 0; padding: var(--sp-3); border: 1px dashed var(--vx-rule2); border-radius: 2px; }
+.vx-injury-link { font-size: var(--fs-sm); color: var(--vx-sub); }
+.vx-injury-link b { color: var(--vx-accent2); margin-right: 8px; font-weight: 600; }

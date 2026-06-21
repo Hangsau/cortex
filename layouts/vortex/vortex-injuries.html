@@ -1,0 +1,289 @@
+{{ define "head-extra" }}
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+TC:wght@400;500;600;700&family=Quattrocento+Sans:wght@400;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex-nav.css">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex-injuries.css">
+<noscript><style>.vx-panel{display:block;border-top:1px solid var(--vx-rule);padding-top:24px}.vx-rail{position:static;max-height:none}</style></noscript>
+{{ end }}
+
+{{ define "main" }}
+{{ $base := .Site.BaseURL }}
+{{ $inj := (index hugo.Data "vortex").injuries }}
+{{ $cats := $inj.categories }}
+{{ $injuries := $inj.injuries }}
+{{ $envZh := dict "pool" "泳池" "open_water" "開放水域" }}
+{{ $sportZh := dict "swim" "競泳／池訓" "open_water_swim" "開放水域游泳" }}
+{{ $gradeZh := dict "A" "A 級·隨機對照/系統綜述" "B" "B 級·世代研究" "C" "C 級·病例系列" "Expert" "專家共識" }}
+{{ $emerg := where $injuries "category" "D-systemic-acute" }}
+{{ $diving := where $injuries "id" "diving-cervical-injury" }}
+
+<div class="vx-stroke vx-shell">
+{{ partial "vortex/sidebar.html" (dict "ctx" . "current" "injuries") }}
+  <div class="vx-stroke-wrap">
+
+    {{/* ════════ 左側常駐目次（按身體系統分類） ════════ */}}
+    <aside class="vx-rail vx-rail--collapsible">
+      <div class="vx-rail-head">
+        <span class="vx-stroke-zh">運動傷害</span>
+      </div>
+
+      <div class="vx-rail-scroll">
+        <ul class="vx-rail-list">
+          <li><button class="vx-navlink vx-navlink--top" type="button" data-target="overview"><span class="n">◆</span>傷害總覽</button></li>
+          <li><button class="vx-navlink vx-navlink--top vx-navlink--alert" type="button" data-target="emergency"><span class="n">!</span>緊急辨識</button></li>
+        </ul>
+      </div>
+
+      {{ range $ci, $cat := $cats }}
+      {{ $catInj := where $injuries "category" $cat.id }}
+      <div class="vx-rail-theme" data-theme="c{{ $ci }}">
+        <button class="vx-rail-theme-head" type="button" data-theme-toggle="c{{ $ci }}" aria-expanded="false">
+          <span class="vx-rail-theme-top">
+            <span class="vx-rail-theme-caret" aria-hidden="true"></span>
+            <span class="vx-rail-theme-name">{{ $cat.zh }}</span>
+            <span class="vx-rail-theme-count">{{ len $catInj }}</span>
+          </span>
+        </button>
+        <div class="vx-rail-scroll">
+          <ul class="vx-rail-list">
+            {{ range $catInj }}
+            <li><button class="vx-navlink" type="button" data-target="{{ .id }}" data-theme="c{{ $ci }}">{{ .zh }}</button></li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+      {{ end }}
+    </aside>
+
+    {{/* ════════ 右側主面板 ════════ */}}
+    <main class="vx-panels">
+
+      {{/* ── 概覽 ── */}}
+      <section class="vx-panel vx-overview" id="overview">
+        <span class="vx-sec-no">運動傷害</span>
+        <h2>運動傷害 · 一條線從機制到處置</h2>
+        <p class="vx-premise">傷害是<strong>獨立於水感的另一條軸</strong>。水感講的是「怎麼游得更好」，傷害講的是「身體的硬體會在哪裡出問題、怎麼避開、出事了怎麼辦」——兩者不互相換算。這裡每一條都走完整一條線：<strong>機制 → 流行病學 → 危險因子 → 預防 → 處置 → 各族群差異</strong>。</p>
+        <p class="vx-read-howto">怎麼用：這頁是「對號入座」。先看下面「你怎麼了」挑最接近的處境，或從左欄按身體部位直接找。<strong>如果是當下緊急狀況（溺水、暈厥、胸悶、撞擊），先點上面紅色的「緊急辨識」。</strong></p>
+
+        {{/* ── 緊急置頂橫幅 ── */}}
+        <button class="vx-emerg-banner" type="button" data-target="emergency">
+          <span class="vx-emerg-icon" aria-hidden="true">!</span>
+          <span class="vx-emerg-txt"><b>緊急狀況辨識</b>溺水、淺水暈厥、運動猝死、游泳性肺水腫、低溫、頸椎撞擊——哪些是必須立刻離水／求救／送醫的紅旗</span>
+          <span class="vx-emerg-go">立刻看 →</span>
+        </button>
+
+        {{/* ── 處境門面：你怎麼了 ── */}}
+        {{ $situations := slice
+          (dict "tag" "受傷當下" "target" "diving-cervical-injury" "txt" "剛剛撞到、扭到、或在水裡突然不對勁——需要先判斷是不是緊急、能不能繼續。")
+          (dict "tag" "慢慢開始痛" "target" "swimmers-shoulder" "txt" "游久了肩膀／腰／膝蓋越來越痠痛——典型的反覆過勞傷，想知道怎麼擋下來。")
+          (dict "tag" "非外傷的不舒服" "target" "swimmers-ear" "txt" "耳朵、眼睛、皮膚、牙齒、呼吸或腸胃在游泳後出狀況——不是撞到也不是拉傷。")
+          (dict "tag" "長期／系統" "target" "red-s" "txt" "在意骨密度、停經、能量不足，或帶的是發育中的孩子——身體在更深層發生的事。") }}
+
+        <div class="vx-situations">
+          <p class="vx-sit-lead">不用先知道傷害的學名。挑一句最接近你（或你帶的人）現在狀況的，它會帶你到對的地方：</p>
+          {{ range $situations }}
+          <button class="vx-sit-card" type="button" data-target="{{ .target }}">
+            <span class="vx-sit-l">{{ .tag }}</span>
+            <span class="vx-sit-txt">{{ .txt }}</span>
+            <span class="vx-sit-go">從這裡開始 →</span>
+          </button>
+          {{ end }}
+        </div>
+
+        {{/* ── 完整分類地圖 ── */}}
+        <p class="vx-panel-lead"><span class="vx-map-label">或瀏覽完整分類</span>{{ len $injuries }} 條傷害按身體系統分成 {{ len $cats }} 類。點任一類別卡進入該類第一條，左欄可展開看全部。</p>
+
+        <div class="vx-cat-grid">
+          {{ range $cats }}
+          {{ $catInj := where $injuries "category" .id }}
+          {{ if gt (len $catInj) 0 }}
+          <button class="vx-cat-card" type="button" data-target="{{ (index $catInj 0).id }}">
+            <span class="vx-cat-zh">{{ .zh }}</span>
+            <span class="vx-cat-count">{{ len $catInj }} 條</span>
+            <span class="vx-cat-list">{{ range $i, $e := $catInj }}{{ if $i }}・{{ end }}{{ $e.zh }}{{ end }}</span>
+          </button>
+          {{ end }}
+          {{ end }}
+        </div>
+
+        <p class="vx-legend">{{ $inj.certainty_legend }}</p>
+        <p class="vx-cite"><span class="src">分層說明</span>：公開層呈現機制、預防、處置與各族群差異；待驗證的具體數字（標記於 canonical）不進公開站，等查證後才補上。本站為衛教與研究整理，<strong>不能取代醫療診斷</strong>；出現紅旗症狀請就醫。</p>
+      </section>
+
+      {{/* ── 緊急辨識面板 ── */}}
+      <section class="vx-panel vx-emergency" id="emergency">
+        <span class="vx-sec-no">運動傷害 · 緊急</span>
+        <h2>緊急辨識 · 什麼時候必須立刻處理</h2>
+        <p class="vx-premise vx-premise--alert">下面這些是<strong>可能致命或造成永久傷害</strong>的急性狀況。重點不是記住病名，而是認得「該停下／離水／求救／送醫」的訊號。點任一條看完整處置。</p>
+
+        <div class="vx-emerg-list">
+          {{ range $emerg }}
+          <button class="vx-emerg-card" type="button" data-target="{{ .id }}">
+            <span class="vx-emerg-card-zh">{{ .zh }}</span>
+            {{ with .management }}{{ with .red_flags }}
+            <span class="vx-emerg-card-flags">
+              {{ range first 2 . }}<span class="vx-emerg-flag">▸ {{ . }}</span>{{ end }}
+            </span>
+            {{ end }}{{ end }}
+            <span class="vx-emerg-card-go">完整處置 →</span>
+          </button>
+          {{ end }}
+          {{ range $diving }}
+          <button class="vx-emerg-card" type="button" data-target="{{ .id }}">
+            <span class="vx-emerg-card-zh">{{ .zh }}</span>
+            {{ with .management }}{{ with .red_flags }}
+            <span class="vx-emerg-card-flags">
+              {{ range first 2 . }}<span class="vx-emerg-flag">▸ {{ . }}</span>{{ end }}
+            </span>
+            {{ end }}{{ end }}
+            <span class="vx-emerg-card-go">完整處置 →</span>
+          </button>
+          {{ end }}
+        </div>
+        <nav class="vx-flow"><button type="button" data-target="overview"><span class="lbl">回到</span>← 傷害總覽</button></nav>
+      </section>
+
+      {{/* ── 各傷害面板 ── */}}
+      {{ range $cat := $cats }}
+      {{ $catInj := where $injuries "category" $cat.id }}
+      {{ $nc := len $catInj }}
+      {{ range $i, $x := $catInj }}
+      <section class="vx-panel vx-injury" id="{{ $x.id }}">
+        <span class="vx-sec-no">{{ $cat.zh }}{{ with $x.en }} · {{ . }}{{ end }}</span>
+        <h2>{{ $x.zh }}</h2>
+
+        <div class="vx-injury-tags">
+          {{ range $x.environment }}<span class="vx-tag">{{ index $envZh . | default . }}</span>{{ end }}
+          {{ range $x.sport_variant }}<span class="vx-tag vx-tag--sport">{{ index $sportZh . | default . }}</span>{{ end }}
+          {{ if and $x.flags $x.flags.vintage_warning }}<span class="vx-tag vx-tag--vintage">⚠ 部分文獻較舊</span>{{ end }}
+        </div>
+
+        {{ with $x.subtypes }}
+        <div class="vx-subtypes"><span class="vx-label">亞型</span>{{ range $si, $s := . }}{{ if $si }} · {{ end }}{{ $s }}{{ end }}</div>
+        {{ end }}
+
+        {{/* 機制 */}}
+        {{ with $x.mechanism }}
+        <span class="vx-block-label">機制</span>
+        <div class="vx-howto">{{ .summary }}</div>
+        <div class="vx-mech-meta">
+          {{ with .trigger_phase }}<span class="vx-mech-item"><b>觸發時機</b>{{ . }}</span>{{ end }}
+          {{ with .who }}<span class="vx-mech-item"><b>誰容易中</b>{{ . }}</span>{{ end }}
+          {{ with $x.structures }}<span class="vx-mech-item"><b>受累結構</b>{{ range $si, $s := . }}{{ if $si }}、{{ end }}{{ $s }}{{ end }}</span>{{ end }}
+        </div>
+        {{ end }}
+
+        {{/* 流行病學 */}}
+        {{ with $x.epidemiology }}
+        <span class="vx-block-label">流行病學 {{ .certainty }}{{ with .evidence_grade }} <span class="vx-grade vx-grade--{{ . }}" title="{{ index $gradeZh . | default . }}">{{ . }}</span>{{ end }}</span>
+        <div class="vx-howto">{{ .prevalence }}</div>
+        {{ with .caveat }}<div class="vx-boundary"><span class="vx-label">解讀注意</span>{{ . }}</div>{{ end }}
+        {{ with .sources }}<p class="vx-cite">{{ range $si, $s := . }}{{ if $si }}　{{ end }}<span class="src">{{ $s }}</span>{{ end }}</p>{{ end }}
+        {{ end }}
+
+        {{/* 危險因子 */}}
+        {{ with $x.risk_factors }}
+        <span class="vx-block-label">危險因子</span>
+        <ul class="vx-factor-list">
+          {{ range . }}<li><span class="vx-factor-txt">{{ .text }}</span>{{ with .grade }}<span class="vx-grade vx-grade--{{ . }}" title="{{ index $gradeZh . | default . }}">{{ . }}</span>{{ end }}</li>{{ end }}
+        </ul>
+        {{ end }}
+
+        {{/* 預防 */}}
+        {{ with $x.prevention }}
+        <span class="vx-block-label">預防</span>
+        <ul class="vx-factor-list vx-factor-list--prevent">
+          {{ range . }}<li><span class="vx-factor-txt">{{ .text }}</span>{{ with .grade }}<span class="vx-grade vx-grade--{{ . }}" title="{{ index $gradeZh . | default . }}">{{ . }}</span>{{ end }}</li>{{ end }}
+        </ul>
+        {{ end }}
+
+        {{/* 處置 */}}
+        {{ with $x.management }}
+        <span class="vx-block-label vx-block-label--mgmt">處置</span>
+        {{ with .red_flags }}
+        <div class="vx-redflags">
+          <span class="vx-redflags-cap">紅旗·立刻就醫</span>
+          <ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+        </div>
+        {{ end }}
+        <div class="vx-mgmt-grid">
+          {{ with .acute }}<div class="vx-mgmt-item"><b>急性期</b>{{ . }}</div>{{ end }}
+          {{ with .pain_rules }}<div class="vx-mgmt-item"><b>疼痛守則</b>{{ . }}</div>{{ end }}
+          {{ with .rehab }}<div class="vx-mgmt-item"><b>復健</b>{{ . }}</div>{{ end }}
+          {{ with .swim_modifications_in_rehab }}<div class="vx-mgmt-item"><b>復健期游泳調整</b><ul class="vx-mini">{{ range . }}<li>{{ . }}</li>{{ end }}</ul></div>{{ end }}
+          {{ with .functional_progression_criteria }}<div class="vx-mgmt-item"><b>進階判準</b><ul class="vx-mini">{{ range . }}<li>{{ . }}</li>{{ end }}</ul></div>{{ end }}
+          {{ with .return_to_train }}<div class="vx-mgmt-item"><b>回到訓練</b>{{ . }}</div>{{ end }}
+          {{ with .return_to_compete }}<div class="vx-mgmt-item"><b>回到比賽</b>{{ . }}</div>{{ end }}
+          {{ with .prognosis }}<div class="vx-mgmt-item"><b>預後</b>{{ . }}</div>{{ end }}
+        </div>
+        {{ end }}
+
+        {{/* 全光譜族群差異 */}}
+        {{ with $x.population_notes }}
+        {{ $age := .age }}{{ $sex := .sex }}{{ $ability := .ability }}
+        {{ $hasAge := and $age (or $age.youth (or $age.adult_beginner $age.masters)) }}
+        {{ $hasSex := and $sex (or $sex.male $sex.female) }}
+        {{ $hasAbility := and $ability $ability.para }}
+        {{ if or $hasAge (or $hasSex (or $hasAbility .lifecycle)) }}
+        <span class="vx-block-label">各族群差異 <span class="vx-fullspectrum">全光譜並列</span></span>
+        <div class="vx-pop-grid">
+          {{ with $age }}
+          {{ with .youth }}<div class="vx-pop-item"><span class="vx-pop-tag">兒童／青少年</span>{{ . }}</div>{{ end }}
+          {{ with .adult_beginner }}<div class="vx-pop-item"><span class="vx-pop-tag">成人初學</span>{{ . }}</div>{{ end }}
+          {{ with .masters }}<div class="vx-pop-item"><span class="vx-pop-tag">壯年／長青</span>{{ . }}</div>{{ end }}
+          {{ end }}
+          {{ with $sex }}
+          {{ with .male }}<div class="vx-pop-item"><span class="vx-pop-tag">男性</span>{{ . }}</div>{{ end }}
+          {{ with .female }}<div class="vx-pop-item"><span class="vx-pop-tag">女性</span>{{ . }}</div>{{ end }}
+          {{ end }}
+          {{ with $ability }}{{ with .para }}<div class="vx-pop-item"><span class="vx-pop-tag">帕拉游泳</span>{{ . }}</div>{{ end }}{{ end }}
+          {{ with .lifecycle }}<div class="vx-pop-item"><span class="vx-pop-tag">生命週期</span>{{ . }}</div>{{ end }}
+        </div>
+        {{ end }}
+        {{ end }}
+
+        {{/* 學界分歧 */}}
+        {{ if and $x.flags $x.flags.contested }}
+        {{ with $x.flags.contested }}
+        <span class="vx-block-label">學界仍有分歧</span>
+        {{ range . }}
+        <div class="vx-contested">
+          <div class="vx-contested-claim">{{ .claim }}</div>
+          <div class="vx-contested-row"><span class="vx-contested-tag vx-contested-tag--con">主流看法</span>{{ .consensus_source }}</div>
+          <div class="vx-contested-row"><span class="vx-contested-tag vx-contested-tag--dis">不同意見</span>{{ .dissent_source }}</div>
+        </div>
+        {{ end }}
+        {{ end }}
+        {{ end }}
+
+        {{/* 連結 */}}
+        {{ with $x.links }}
+        {{ if or .mechanism_link (or .technical_link .perception_link) }}
+        <div class="vx-injury-links">
+          {{ with .mechanism_link }}<span class="vx-injury-link"><b>機制關聯</b>{{ . }}</span>{{ end }}
+          {{ with .technical_link }}<span class="vx-injury-link"><b>技術關聯</b>{{ . }}</span>{{ end }}
+          {{ with .perception_link }}<span class="vx-injury-link"><b>水感關聯</b>{{ . }}</span>{{ end }}
+        </div>
+        {{ end }}
+        {{ end }}
+
+        {{/* 來源 */}}
+        {{ with $x.references }}
+        <span class="vx-block-label">參考來源</span>
+        {{ range . }}<span class="vx-cite"><span class="src">{{ .citation }}{{ if .verified }} ✓{{ end }}</span></span>{{ end }}
+        {{ end }}
+
+        <nav class="vx-flow">
+          {{ if gt $i 0 }}<button type="button" data-target="{{ (index $catInj (sub $i 1)).id }}"><span class="lbl">上一條</span>← {{ (index $catInj (sub $i 1)).zh }}</button>{{ else }}<button type="button" data-target="overview"><span class="lbl">回到</span>← 傷害總覽</button>{{ end }}
+          {{ if lt (add $i 1) $nc }}<button class="nx" type="button" data-target="{{ (index $catInj (add $i 1)).id }}"><span class="lbl">下一條</span>{{ (index $catInj (add $i 1)).zh }} →</button>{{ end }}
+        </nav>
+      </section>
+      {{ end }}
+      {{ end }}
+
+    </main>
+  </div>
+</div>
+
+<script src="{{ .Site.BaseURL }}js/vortex.js" defer></script>
+{{ end }}
