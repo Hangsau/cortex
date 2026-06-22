@@ -12,6 +12,7 @@
 {{ $st := index hugo.Data "periodization" "structure" }}
 {{ $tp := index hugo.Data "periodization" "taper" }}
 {{ $zn := index hugo.Data "periodization" "zones" }}
+{{ $dl := index hugo.Data "periodization" "dryland" }}
 
 <div class="vx-stroke vx-pz-stroke vx-shell">
 {{ partial "vortex/sidebar.html" (dict "ctx" . "current" "periodization") }}
@@ -37,6 +38,7 @@
           <li><button class="vx-navlink" type="button" data-target="structure"><span class="n">2</span>年度結構與週期</button></li>
           <li><button class="vx-navlink" type="button" data-target="taper"><span class="n">3</span>賽前減量與達峰</button></li>
           <li><button class="vx-navlink" type="button" data-target="zones"><span class="n">4</span>能量系統與強度分區</button></li>
+          <li><button class="vx-navlink" type="button" data-target="dryland"><span class="n">5</span>陸上力量訓練</button></li>
         </ul>
       </div>
     </aside>
@@ -67,6 +69,10 @@
             <span class="n">4</span>
             <span><span class="t">能量系統與強度分區</span><span class="o">三大能量系統運作 · Bompa 六分區 · 極化派 · Olbrecht · 游泳分區 · 各距離供能 · TID</span></span>
           </button>
+          <button class="vx-path-item" type="button" data-target="dryland">
+            <span class="n">5</span>
+            <span><span class="t">陸上力量訓練</span><span class="o">轉移成不成立 · 訓練模式 · 並行排程殘留疲勞 · 游泳肩預防 · 青少年負重安全 · 誠實反例</span></span>
+          </button>
         </div>
         <p class="vx-legend">確定性：🔵 推導／作者綜合 · 🟢 近期文獻 · 🟡 舊文獻（週期化基礎理論） · 🟠 教練觀測 · 🔴 待查／未驗證假設。本頁為公開週期化理論，描述年度計畫結構與處方原則，不含感知診斷內容。所有數字溯源至 Bompa 原文章節／表格或外部文獻（PMID／DOI）並標確定性；多派立場與作者綜合明確分層標示。</p>
         <nav class="vx-flow">
@@ -77,7 +83,7 @@
 
       {{/* ════════ 主題 1 · 週期化的幾種流派 ════════ */}}
       <section class="vx-panel vx-move" id="schools">
-        <span class="vx-sec-no">主題 1 / 4</span>
+        <span class="vx-sec-no">主題 1 / 5</span>
         <h2>週期化的幾種流派</h2>
         {{ with $st.schools_overview }}
         <p class="vx-panel-lead">{{ .premise_zh }}</p>
@@ -168,7 +174,7 @@
 
       {{/* ════════ 主題 2 · 年度結構與週期 ════════ */}}
       <section class="vx-panel vx-move" id="structure">
-        <span class="vx-sec-no">主題 2 / 4</span>
+        <span class="vx-sec-no">主題 2 / 5</span>
         <h2>年度結構與週期</h2>
         <p class="vx-panel-lead">從一整年怎麼分階段，到一週課表怎麼排。點任一概念就地展開。</p>
 
@@ -446,7 +452,7 @@
 
       {{/* ════════ 主題 3 · 賽前減量與達峰 ════════ */}}
       <section class="vx-panel vx-move" id="taper">
-        <span class="vx-sec-no">主題 3 / 4</span>
+        <span class="vx-sec-no">主題 3 / 5</span>
         <h2>賽前減量與達峰</h2>
         <p class="vx-panel-lead">怎麼在比賽前把疲勞卸掉、把適應推上巔峰。點任一概念就地展開。</p>
 
@@ -552,7 +558,7 @@
 
       {{/* ════════ 主題 4 · 能量系統與強度分區 ════════ */}}
       <section class="vx-panel vx-move" id="zones">
-        <span class="vx-sec-no">主題 4 / 4</span>
+        <span class="vx-sec-no">主題 4 / 5</span>
         <h2>能量系統與強度分區</h2>
         <p class="vx-panel-lead">Bompa 通用分區、極化派（Seiler）與 Olbrecht 的對話，加上游泳專項的分區與供能文獻。點任一概念就地展開。</p>
 
@@ -894,6 +900,178 @@
 
         <nav class="vx-flow">
           <button type="button" data-target="taper"><span class="lbl">上一個主題</span>← 賽前減量與達峰</button>
+          <button class="nx" type="button" data-target="dryland"><span class="lbl">下一個主題</span>陸上力量訓練 →</button>
+        </nav>
+      </section>
+
+      {{/* ════════ 主題 5 · 陸上力量訓練 ════════ */}}
+      <section class="vx-panel vx-move" id="dryland">
+        <span class="vx-sec-no">主題 5 / 5</span>
+        <h2>陸上力量訓練</h2>
+        {{ with $dl.overview }}
+        <p class="vx-panel-lead">{{ .premise_zh }}</p>
+        {{ end }}
+
+        <div class="vx-ladder">
+
+          {{/* 總覽 · 真正的爭論 */}}
+          {{ with $dl.overview }}
+          <details class="vx-level" open>
+            <summary>
+              <span class="lv">綜</span>
+              <span>
+                <span class="lvname">陸訓的真正爭論 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">不是「能不能變強」，是轉移／排程／成熟度三件事</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-author">{{ .author_synthesis_zh }}</p>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* 轉移效果 */}}
+          {{ with $dl.transfer_evidence }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">轉</span>
+              <span>
+                <span class="lvname">力量轉移到游速？有條件成立 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">支持與反向證據並列——約每兩篇就有一篇看不到效果</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-focus">{{ .positive_zh }}</p>
+              <p class="vx-pz-warn">{{ .negative_zh }}</p>
+              <p>{{ .conditions_zh }}</p>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+              <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* 訓練模式 */}}
+          {{ with $dl.methods }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">式</span>
+              <span>
+                <span class="lvname">訓練模式比較 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">最大力量 vs 增強式 vs 專項阻力——增強式只助出發轉身</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <table class="vx-pz-table">
+                <thead><tr><th>模式</th><th>說明</th><th></th></tr></thead>
+                <tbody>
+                {{ range .methods_list }}
+                  <tr>
+                    <td><strong>{{ .name_zh }}</strong></td>
+                    <td>{{ .desc_zh }}</td>
+                    <td><span class="vx-cert">{{ .cert }}</span></td>
+                  </tr>
+                {{ end }}
+                </tbody>
+              </table>
+              <p class="vx-pz-warn">{{ .caveat_zh }}</p>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+              <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* 並行排程 */}}
+          {{ with $dl.concurrent_scheduling }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">排</span>
+              <span>
+                <span class="lvname">並行排程與殘留疲勞 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">傍晚陸訓 + 一夜睡眠 → 隔天 100m 無殘留疲勞</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p>{{ .finding_zh }}</p>
+              <p class="vx-pz-focus">{{ .interpretation_zh }}</p>
+              <p class="vx-pz-warn">{{ .caveat_zh }}</p>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+              <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* 傷害預防 */}}
+          {{ with $dl.injury_prevention }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">肩</span>
+              <span>
+                <span class="lvname">游泳肩傷害預防 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">內旋＞外旋的肌力失衡是源頭；彈力帶 8 週可扳回</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p>{{ .risk_factors_zh }}</p>
+              <p class="vx-pz-focus">{{ .intervention_zh }}</p>
+              <p>{{ .kinetic_chain_zh }}</p>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+              <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* 青少年負重安全 */}}
+          {{ with $dl.youth_safety }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">齡</span>
+              <span>
+                <span class="lvname">青少年負重安全 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">看成熟度不看實齡；PHV 前只徒手</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p>{{ .age_zh }}</p>
+              <p>{{ .maturation_zh }}</p>
+              <p class="vx-pz-swim"><span class="vx-pz-swim-h">🟢 游泳專項處方</span>{{ .swim_specific_zh }}</p>
+              <p>{{ .tools_zh }}</p>
+              <p class="vx-pz-warn">{{ .spectrum_gap_zh }}</p>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+              <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* 誠實反例 */}}
+          {{ with $dl.null_caveats }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">疑</span>
+              <span>
+                <span class="lvname">誠實反例：陸訓不是萬靈丹 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">轉移有條件成立，前提不滿足效果可能歸零</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <ul class="vx-pz-sub">
+              {{ range .items_zh }}
+                <li>{{ . }}</li>
+              {{ end }}
+              </ul>
+              <p class="vx-pz-author">{{ .takeaway_zh }}</p>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+              <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
+            </div>
+          </details>
+          {{ end }}
+
+        </div>
+
+        <p class="vx-cite"><span class="src">來源</span>：Amaro et al. (Science &amp; Sports, S0765159718302363)；Frontiers Physiology 2024/2025 統合分析；JFMK 2023 (PMID 37489300)；McKenzie et al. 2023 (DOI 10.1111/sms.14454)；Kabat D2 RCT (PMC10679734)；AAP Pediatrics 2020;145(6):e20201011；NSCA／Swimming Australia 處方；增強式 SR (PMC9424421)</p>
+
+        <nav class="vx-flow">
+          <button type="button" data-target="zones"><span class="lbl">上一個主題</span>← 能量系統與強度分區</button>
           <span></span>
         </nav>
 

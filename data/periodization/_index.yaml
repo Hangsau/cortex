@@ -254,3 +254,56 @@ zones:
   - t2t
   - t2c
   - t2w
+dryland:
+- id: periodization.dryland.overview
+  file: dryland.yaml
+  name_zh: 陸訓總覽
+  gist_zh: 爭論不是能不能變強(能)而是三件事:轉移成不成立/並行排程/成熟度;有條件成立非鐵律
+  stages:
+  - t2t
+  - t2c
+  - t2w
+- id: periodization.dryland.transfer
+  file: dryland.yaml
+  name_zh: 力量轉移效果
+  gist_zh: 16篇約7篇無效;最大力量最有效;轉移看技術成熟度+專項性;臥推未必預測衝刺速度
+  stages:
+  - t2c
+  - t2w
+- id: periodization.dryland.methods
+  file: dryland.yaml
+  name_zh: 陸訓模式比較
+  gist_zh: 最大力量轉移最強;增強式只助出發轉身非整體游速(618人SR無效);專項阻力(划手板/拖傘)轉移高
+  stages:
+  - t2c
+  - t2w
+- id: periodization.dryland.concurrent
+  file: dryland.yaml
+  name_zh: 並行排程殘留疲勞
+  gist_zh: 傍晚陸訓+12h睡眠→隔天100m無殘留疲勞(n=8);重陸訓排關鍵課前一天非當天
+  stages:
+  - t2c
+  - t2w
+- id: periodization.dryland.injury
+  file: dryland.yaml
+  name_zh: 游泳肩傷害預防
+  gist_zh: 划手讓內旋>外旋失衡=游泳肩源頭;彈力帶練外旋+肩胛8週有效;練整條動力鏈優於孤立肩肌
+  stages:
+  - l2t
+  - t2t
+  - t2c
+  - t2w
+- id: periodization.dryland.youth
+  file: dryland.yaml
+  name_zh: 青少年負重安全
+  gist_zh: 無最低年齡硬門檻(能守安全規則~7-8歲);成熟度>實齡;PHV前只徒手;成人初學/masters/para是缺口
+  stages:
+  - l2t
+  - t2t
+- id: periodization.dryland.caveats
+  file: dryland.yaml
+  name_zh: 陸訓誠實反例
+  gist_zh: 7/16無效+臥推未必預測衝刺+三組100m無差+增強式對游速無效;轉移有條件成立非普遍
+  stages:
+  - t2c
+  - t2w

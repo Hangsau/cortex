@@ -57,7 +57,7 @@ ADM_STANDARDS_DST = HUGO_ROOT / "data" / "adm" / "standards.yaml"
 # ── 週期化（canonical → my-site data/periodization；全 public，無 diagnostic 層） ──
 PERIODIZATION_SRC_DIR = VORTEX_SRC / "canonical" / "periodization"
 PERIODIZATION_DST_DIR = HUGO_ROOT / "data" / "periodization"
-PERIODIZATION_FILES   = ["structure", "taper", "zones", "_index"]
+PERIODIZATION_FILES   = ["structure", "taper", "zones", "dryland", "_index"]
 
 # ── 心理層（canonical 兩層 → my-site 只 public） ──
 PSYCHOLOGY_SRC = VORTEX_SRC / "canonical" / "psychology" / "psychology.yaml"
