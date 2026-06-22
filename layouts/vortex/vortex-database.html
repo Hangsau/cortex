@@ -32,6 +32,15 @@
   {{ with $sd }}{{ range .moves }}{{ $moves = $moves | append (dict "sk" $sk "m" .) }}{{ end }}{{ end }}
 {{ end }}
 
+{{/* ── 散文層：markdown 內容頁（不在結構化 yaml，靠 RegularPages 撈，確保全站可查） ── */}}
+{{ $strokePrefixes := slice
+  (slice "freestyle" "free") (slice "backstroke" "back") (slice "breaststroke" "breast")
+  (slice "butterfly" "fly") (slice "underwater-dolphin-kick" "udk") (slice "starts-turns" "starts-turns") }}
+{{ $framePages  := (.Site.GetPage "/vortex/technica").Pages }}
+{{ $bridgePages := (.Site.GetPage "/vortex/bridge").Pages }}
+{{ $sourcePages := (.Site.GetPage "/vortex/instructional").Pages }}
+{{ $periodPage  := .Site.GetPage "/vortex/periodization" }}
+
 {{ $strokeChips := slice "all" "free" "back" "breast" "fly" "udk" "starts-turns" }}
 {{ $types := slice
   (dict "k" "err"    "zh" "誤區"     "n" (len $errs))
@@ -42,13 +51,17 @@
   (dict "k" "psych"  "zh" "心理"     "n" (len $themes))
   (dict "k" "injury" "zh" "傷害"     "n" (len $injuries))
   (dict "k" "breath" "zh" "呼吸"     "n" (len $breathKeys))
-  (dict "k" "adm"    "zh" "發展"     "n" (add (len $stds) (len $pillars))) }}
+  (dict "k" "adm"    "zh" "發展"     "n" (add (len $stds) (len $pillars)))
+  (dict "k" "frame"  "zh" "水感框架" "n" (len $framePages))
+  (dict "k" "bridge" "zh" "感知銜接" "n" (len $bridgePages))
+  (dict "k" "period" "zh" "訓練週期" "n" 1)
+  (dict "k" "source" "zh" "教學原文" "n" (len $sourcePages)) }}
 
 <div class="vx-shell">
 {{ partial "vortex/sidebar.html" (dict "ctx" . "current" "database") }}
 <div class="vx-find" data-vx-find>
   <h1 class="vx-list-title">查資料</h1>
-  <p class="vx-list-desc">不用翻一整頁。<strong>先選一個類型</strong>（再選泳式或打字搜尋），把你要看的那一類撈出來。要找該練什麼，請到<a href="{{ $base }}vortex/drills/">找練習</a>。</p>
+  <p class="vx-list-desc">不用翻一整頁。<strong>先選一個類型</strong>（再選泳式或打字搜尋），把你要看的那一類撈出來。涵蓋全站內容（誤區、機制、技術動作、水感階段、心理、傷害、呼吸、發展、水感框架、感知銜接、訓練週期、教學原文）；唯一不在這裡的是<a href="{{ $base }}vortex/drills/">找練習</a>。</p>
 
   <div class="vx-find-facets">
     <div class="vx-filterbar vx-find-types" data-axis="type">
@@ -68,7 +81,7 @@
   <p class="vx-find-count" id="vxFindCount" hidden></p>
   <div class="vx-find-empty" id="vxFindEmpty">
     <span class="vx-find-empty-h">選一個類型開始</span>
-    <span class="vx-find-empty-d">或在上面打字，跨全站（誤區、機制、技術動作、水感階段、心理、傷害、呼吸、發展）一次搜。練習在<a href="{{ $base }}vortex/drills/">找練習</a>另查。</span>
+    <span class="vx-find-empty-d">或在上面打字，跨全站一次搜（誤區、機制、技術動作、水感階段、心理、傷害、呼吸、發展、水感框架、感知銜接、訓練週期、教學原文）。練習在<a href="{{ $base }}vortex/drills/">找練習</a>另查。</span>
   </div>
 
   <div class="vx-find-results" id="vxFindResults">
@@ -188,6 +201,56 @@
       <div class="vx-card-body">
         {{ range .stages }}<span class="vx-label">{{ .id | upper }}</span><p>{{ .summary }}</p>{{ end }}
         <a class="vx-find-go" href="{{ $base }}vortex/adm/matrix/">看完整發展矩陣 →</a>
+      </div>
+    </details>
+    {{ end }}
+
+    {{/* ── 水感框架（technica 散文，摘要 + 連到原頁） ── */}}
+    {{ range $framePages }}
+    {{ $bn := .File.BaseFileName }}{{ $st := "common" }}
+    {{ range $strokePrefixes }}{{ if hasPrefix $bn (index . 0) }}{{ $st = index . 1 }}{{ end }}{{ end }}
+    <details class="vx-card vx-tech vx-find-card" data-type="frame" data-s="{{ $st }}" data-text="{{ lower (printf "%s %s %s" .Title .Description (.Plain | truncate 1500 "")) }}">
+      <summary><span class="vx-cardcat">水感框架{{ if ne $st "common" }} · {{ index $strokeZh $st }}{{ end }}</span><span class="vx-cardtitle">{{ .Title }}</span></summary>
+      <div class="vx-card-body">
+        {{ with .Summary }}<p>{{ . | plainify }}</p>{{ end }}
+        <a class="vx-find-go" href="{{ .RelPermalink }}">看完整 →</a>
+      </div>
+    </details>
+    {{ end }}
+
+    {{/* ── 感知銜接（bridge 散文，摘要 + 連到原頁） ── */}}
+    {{ range $bridgePages }}
+    {{ $bn := .File.BaseFileName }}{{ $st := "common" }}
+    {{ range $strokePrefixes }}{{ if hasPrefix $bn (index . 0) }}{{ $st = index . 1 }}{{ end }}{{ end }}
+    <details class="vx-card vx-tech vx-find-card" data-type="bridge" data-s="{{ $st }}" data-text="{{ lower (printf "%s %s %s" .Title .Description (.Plain | truncate 1500 "")) }}">
+      <summary><span class="vx-cardcat">感知銜接{{ if ne $st "common" }} · {{ index $strokeZh $st }}{{ end }}</span><span class="vx-cardtitle">{{ .Title }}</span></summary>
+      <div class="vx-card-body">
+        {{ with .Summary }}<p>{{ . | plainify }}</p>{{ end }}
+        <a class="vx-find-go" href="{{ .RelPermalink }}">看完整 →</a>
+      </div>
+    </details>
+    {{ end }}
+
+    {{/* ── 訓練週期化（單頁散文） ── */}}
+    {{ with $periodPage }}
+    <details class="vx-card vx-tech vx-find-card" data-type="period" data-s="common" data-text="{{ lower (printf "%s 訓練週期化 %s %s" .Title .Description (.Plain | truncate 1500 "")) }}">
+      <summary><span class="vx-cardcat">訓練週期</span><span class="vx-cardtitle">{{ .Title }}</span></summary>
+      <div class="vx-card-body">
+        {{ with .Summary }}<p>{{ . | plainify }}</p>{{ end }}
+        <a class="vx-find-go" href="{{ .RelPermalink }}">看完整 →</a>
+      </div>
+    </details>
+    {{ end }}
+
+    {{/* ── 教學原文存檔（instructional，未編排，供查證） ── */}}
+    {{ range $sourcePages }}
+    {{ $bn := .File.BaseFileName }}{{ $st := "common" }}
+    {{ range $strokePrefixes }}{{ if hasPrefix $bn (index . 0) }}{{ $st = index . 1 }}{{ end }}{{ end }}
+    <details class="vx-card vx-tech vx-find-card" data-type="source" data-s="{{ $st }}" data-text="{{ lower (printf "%s %s %s" .Title .Description (.Plain | truncate 1500 "")) }}">
+      <summary><span class="vx-cardcat">教學原文 · 供查證{{ if ne $st "common" }} · {{ index $strokeZh $st }}{{ end }}</span><span class="vx-cardtitle">{{ .Title }}</span></summary>
+      <div class="vx-card-body">
+        {{ with .Summary }}<p>{{ . | plainify }}</p>{{ end }}
+        <a class="vx-find-go" href="{{ .RelPermalink }}">看完整原文 →</a>
       </div>
     </details>
     {{ end }}
