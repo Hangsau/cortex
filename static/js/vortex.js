@@ -266,6 +266,65 @@
     markRead();
   }
 
+  // ── 查資料頁（全站撈取）：選類型 → 選泳式 → 搜尋，預設空白不堆一頁 ──
+  var find = document.querySelector('[data-vx-find]');
+  if (find) {
+    var typeBar = find.querySelector('[data-axis="type"]');
+    var sBar = find.querySelector('[data-axis="s"]');
+    var fInput = document.getElementById('vxFindInput');
+    var fResults = document.getElementById('vxFindResults');
+    var fCount = document.getElementById('vxFindCount');
+    var fEmpty = document.getElementById('vxFindEmpty');
+    var fCards = Array.prototype.slice.call(fResults.querySelectorAll('.vx-find-card'));
+    var fType = null;
+    var fS = 'all';
+    var fT;
+
+    function applyFind() {
+      var q = (fInput.value || '').trim().toLowerCase();
+      var hasSel = fType || q;
+      fEmpty.hidden = !!hasSel;
+      fResults.hidden = !hasSel;
+      if (!hasSel) { fCount.hidden = true; return; }
+      var shown = 0;
+      fCards.forEach(function (card) {
+        var okType = !fType || card.getAttribute('data-type') === fType;
+        var sd = (card.getAttribute('data-s') || '').split(' ');
+        var okS = fS === 'all' || sd.indexOf(fS) !== -1 || sd.indexOf('common') !== -1;
+        var okQ = !q || (card.getAttribute('data-text') || '').indexOf(q) !== -1;
+        var show = okType && okS && okQ;
+        card.classList.toggle('is-hidden', !show);
+        if (show) shown++;
+      });
+      fCount.hidden = false;
+      fCount.textContent = '撈出 ' + shown + ' 筆' + (fType ? '' : '（跨全站）');
+    }
+
+    typeBar.querySelectorAll('.vx-chip').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var v = chip.getAttribute('data-val');
+        if (fType === v) { fType = null; chip.classList.remove('is-active'); }
+        else {
+          fType = v;
+          typeBar.querySelectorAll('.vx-chip').forEach(function (c) { c.classList.toggle('is-active', c === chip); });
+        }
+        applyFind();
+      });
+    });
+
+    sBar.querySelectorAll('.vx-chip').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        fS = chip.getAttribute('data-val');
+        sBar.querySelectorAll('.vx-chip').forEach(function (c) { c.classList.toggle('is-active', c === chip); });
+        applyFind();
+      });
+    });
+
+    fInput.addEventListener('input', function () { clearTimeout(fT); fT = setTimeout(applyFind, 110); });
+    applyFind();
+    markRead();
+  }
+
   // ── ADM 技術標準頁：泳式篩選 + 搜尋 ──
   var admStd = document.querySelector('[data-vx-adm-std]');
   if (admStd) {

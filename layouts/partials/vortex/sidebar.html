@@ -18,10 +18,15 @@
   </div>
   <nav class="vxnav-body">
     <ul class="vxnav-list">
+      <li class="vxnav-sect">入門</li>
       <li class="vxnav-item{{ if eq $cur "start" }} is-current{{ end }}">
         <a href="{{ $base }}vortex/technica/water-sense-guide/"><span class="vxnav-n">00</span>什麼是水感</a></li>
       <li class="vxnav-item{{ if eq $cur "levels" }} is-current{{ end }}">
         <a href="{{ $base }}vortex/levels/"><span class="vxnav-n">L</span>發展地圖 L0–L6</a></li>
+
+      <li class="vxnav-sect">內容 · 從地基到表面</li>
+      <li class="vxnav-item{{ if eq $cur "psychology" }} is-current{{ end }}">
+        <a href="{{ $base }}vortex/psychology-read/"><span class="vxnav-n">心</span>心理層 · 地基</a></li>
       <li class="vxnav-item vxnav-group{{ if eq $cur "strokes" }} is-current{{ end }}">
         <details class="vxnav-details"{{ if eq $cur "strokes" }} open{{ end }}>
           <summary class="vxnav-grouphead"><span class="vxnav-n">六</span>六式技術<span class="vxnav-caret" aria-hidden="true">▸</span></summary>
@@ -32,16 +37,18 @@
           </ul>
         </details>
       </li>
-      <li class="vxnav-item{{ if eq $cur "psychology" }} is-current{{ end }}">
-        <a href="{{ $base }}vortex/psychology-read/"><span class="vxnav-n">心</span>心理層</a></li>
-      <li class="vxnav-item{{ if eq $cur "injuries" }} is-current{{ end }}">
-        <a href="{{ $base }}vortex/injuries/"><span class="vxnav-n">傷</span>運動傷害</a></li>
       <li class="vxnav-item{{ if eq $cur "breathing" }} is-current{{ end }}">
-        <a href="{{ $base }}vortex/breathing/"><span class="vxnav-n">吸</span>呼吸訓練</a></li>
+        <a href="{{ $base }}vortex/breathing/"><span class="vxnav-n">吸</span>呼吸訓練 · 生理</a></li>
+      <li class="vxnav-item{{ if eq $cur "injuries" }} is-current{{ end }}">
+        <a href="{{ $base }}vortex/injuries/"><span class="vxnav-n">傷</span>運動傷害 · 防護</a></li>
+
+      <li class="vxnav-sect">查找</li>
       <li class="vxnav-item{{ if eq $cur "drills" }} is-current{{ end }}">
         <a href="{{ $base }}vortex/drills/"><span class="vxnav-n">練</span>找練習</a></li>
       <li class="vxnav-item{{ if eq $cur "database" }} is-current{{ end }}">
         <a href="{{ $base }}vortex/database/"><span class="vxnav-n">查</span>查資料</a></li>
+
+      <li class="vxnav-sect">長期規劃</li>
       <li class="vxnav-item{{ if eq $cur "adm" }} is-current{{ end }}">
         <a href="{{ $base }}vortex/adm/"><span class="vxnav-n">A</span>運動員發展</a></li>
       <li class="vxnav-item{{ if eq $cur "periodization" }} is-current{{ end }}">

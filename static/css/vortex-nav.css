@@ -101,6 +101,13 @@ body:has(.vx-shell) .main-content { max-width: none; padding: 0; }
 }
 .vxnav-item.is-current > a .vxnav-n { color: var(--n-accent); }
 
+.vxnav-sect {
+  font-family: var(--n-display); font-size: 11px; letter-spacing: 0.14em;
+  color: var(--n-faint); text-transform: uppercase;
+  padding: 14px 8px 4px 10px; margin: 0;
+}
+.vxnav-sect:first-child { padding-top: 2px; }
+
 /* 六式技術：原生 details，任何頁都能點開（零 JS） */
 .vxnav-details > summary { list-style: none; cursor: pointer; }
 .vxnav-details > summary::-webkit-details-marker { display: none; }

@@ -1,5 +1,20 @@
 # HANDOFF — my-site (Cortex)
 
+## 目前狀態（2026-06-22 · 深夜）
+
+**找練習／查資料拆兩頁 + 查資料改全站撈取 + 左欄重排（2026-06-22）**：站主先指出「找資料跟找練習看起來一樣」——病根是兩入口都落在 `database` 一頁的不同段（先試加 `#vxLookup` 錨點分流仍被打回，因同一頁捲一下就看到另一段＝本質還是一頁）。**最終解＝拆成兩個獨立頁**：
+
+1. **拆頁**：新 `layouts/vortex/vortex-drills.html`（= 原 database 的「找練習/vx-needs」段，container 仍帶 `data-vx-db` 走 vortex.js Zone1）+ content `content/vortex/drills/_index.md`（slug drills, current "drills"）→ `/vortex/drills/`。`vortex-database.html` 則整個重寫成「查資料」。各頁只跑自己的 JS zone（vortex.js 的 `if(needs)` / `if(tabs)` 本就分離；新增 `if(find)`）。
+
+2. **查資料＝選擇優先的全站撈取**（站主要求：「不用一次看一堆慢慢找，要能分區選擇撈出想直接看的，選擇方式要設計得非常好」）：`vortex-database.html` 重寫為 `[data-vx-find]`。**預設空白**（`#vxFindEmpty` 顯示、results 隱藏，不堆一頁）→ ①選類型（9 種 chip 帶數量，單選、再點取消）②限定泳式（可不選）③或打字跨全站搜尋。索引粒度＝**單元級**，build 時把 8 類攤平成 467 張輕量 `<details class="vx-find-card" data-type data-s data-text>`：誤區76/機制188/L指標43/技術動作51(六式 moves)/水感階段26/心理8/傷害44/呼吸5/發展26(22標準+4支柱)。**drill 排除**（自己有頁）。誤區/機制/L指標完整內容（這裡是唯一的家）；其餘類給摘要 + `.vx-find-go`「看完整 →」連到各自頁。JS：type 單選 gate + 泳式 + 搜尋 AND 組合，無類型但有關鍵字＝跨全站搜；live count「撈出 N 筆」。`data-s="common"` 的非泳式類（心理/傷害/呼吸/部分發展）不受泳式篩選影響。
+   - ADM 資料在 `hugo.Data.adm`（非 vortex）；breathing-training 是 dict 不是 list（iterate `safety/overview/imt_rmt/co2_tolerance/grading`）；move stroke→slug 用 `$strokeSlug` dict。
+
+3. **左欄重排成 4 組**（站主：「排序有點亂，要有邏輯」）：`sidebar.html` 加 `.vxnav-sect` 小標分組——**入門**(什麼是水感·發展地圖)→**內容·從地基到表面**(心理層·地基／六式技術／呼吸訓練·生理／運動傷害·防護)→**查找**(找練習／查資料)→**長期規劃**(運動員發展／訓練週期)。邏輯＝依網站自身依賴鏈「心理→感知→技術」由底到表（原本六式排在心理前，違反此鏈）。`vortex-nav.css` 加 `.vxnav-sect` 樣式（display 字體、11px、letter-spacing）。`vortex-home.html` 查資料 card 文案更新為「8 類·全站可查」。
+
+**驗收**：`hugo --quiet` exit 0；`node --check vortex.js` OK；grep `public/`：drills 頁 129 卡無 tabs、database 頁 467 find-card（9 type 計數正確）+ 9 type chip + empty state、sidebar 4 組、home 3 處 drills 連結。**未做瀏覽器點測**（環境無確認瀏覽器），僅 build-output + JS 靜態檢查。⚠ `.m3-*.txt` 與 `.prompts/audit-run.log` 仍刻意 untracked，勿 commit。
+
+> ↓ 更早
+
 ## 目前狀態（2026-06-22 · 夜）
 
 **呼吸訓練輔助軸上站 + 首頁處境帶路 + 誤區 cross_ref 渲染（2026-06-22）**：源自 M3 v2 審查，用戶授權「一次執行完」。四件事一次做完，全 canonical-sourced + sync：

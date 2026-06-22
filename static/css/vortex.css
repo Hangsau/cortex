@@ -774,6 +774,35 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
 .vx-db-input:focus { border-color: var(--vx-accent); background: var(--vx-bg); }
 .vx-db-input::placeholder { color: var(--vx-faint); }
 
+/* ── 查資料：全站撈取的選擇器 ── */
+.vx-find-facets {
+  border: 1px solid var(--vx-rule2); background: var(--vx-paper);
+  padding: 16px 18px; margin: 22px 0 18px;
+}
+.vx-find-facets .vx-filterbar { margin-bottom: 12px; }
+.vx-find-facets .vx-filterbar:last-of-type { margin-bottom: 0; }
+.vx-find-facets .vx-filterbar-label {
+  min-width: 158px; text-transform: none; font-size: 12px; color: var(--vx-sub);
+}
+.vx-chip--type { font-size: 14px; padding: 6px 12px; }
+.vx-chip--type b { font-weight: 700; opacity: 0.7; margin-left: 2px; }
+.vx-chip--type.is-active b { opacity: 0.9; }
+.vx-find-search { margin-top: 4px; }
+.vx-find-search .vx-db-input { margin-top: 6px; }
+.vx-find-count { font-size: 13px; color: var(--vx-faint); margin: 0 0 14px; }
+.vx-find-empty {
+  display: flex; flex-direction: column; gap: 6px;
+  border: 1px dashed var(--vx-rule2); background: var(--vx-bg);
+  padding: 32px 24px; text-align: center; color: var(--vx-sub);
+}
+.vx-find-empty-h { font-family: var(--vx-serif); font-size: 19px; color: var(--vx-ink); }
+.vx-find-empty-d { font-size: 14px; line-height: 1.7; }
+.vx-find-go {
+  display: inline-block; margin-top: 10px; font-size: 13px;
+  color: var(--vx-accent); border-bottom: 1px solid var(--vx-rule2);
+}
+.vx-find-go:hover { border-color: var(--vx-accent); }
+
 /* ════════════════════════════════════════════
    長文 / 列表（technica·bridge·instructional 保留頁）
    ════════════════════════════════════════════ */

@@ -7,81 +7,192 @@
 {{ define "main" }}
 {{ $base := .Site.BaseURL }}
 
-{{ $errCatName := dict }}{{ range (index hugo.Data "vortex" "teaching-errors").categories }}{{ $errCatName = merge $errCatName (dict .key .name_zh) }}{{ end }}
-{{ $techCatName := dict }}{{ range (index hugo.Data "vortex" "technical-analysis").categories }}{{ $techCatName = merge $techCatName (dict .key .name_zh) }}{{ end }}
 {{ $dicts := partial "vortex/stroke-dicts.html" . }}
 {{ $strokeZh := $dicts.strokeZh }}
+{{ $errCatName := dict }}{{ range (index hugo.Data "vortex" "teaching-errors").categories }}{{ $errCatName = merge $errCatName (dict .key .name_zh) }}{{ end }}
+{{ $techCatName := dict }}{{ range (index hugo.Data "vortex" "technical-analysis").categories }}{{ $techCatName = merge $techCatName (dict .key .name_zh) }}{{ end }}
+{{ $strokeSlug := dict "free" "freestyle" "back" "backstroke" "breast" "breaststroke" "fly" "butterfly" "udk" "underwater-dolphin-kick" "starts-turns" "starts-turns" }}
 
 {{ $errs := (index hugo.Data "vortex" "teaching-errors").errors }}
 {{ $techs := (index hugo.Data "vortex" "technical-analysis").points }}
 {{ $inds := (index hugo.Data "vortex" "l-indicators").indicators }}
+{{ $levels := (index hugo.Data "vortex" "water-sense-levels").levels }}
+{{ $themes := (index hugo.Data "vortex" "psychology").themes }}
+{{ $injuries := (index hugo.Data "vortex" "injuries").injuries }}
+{{ $stds := (index hugo.Data "adm" "standards").standards }}
+{{ $pillars := (index hugo.Data "adm" "matrix").pillars }}
+{{ $breathKeys := slice "safety" "overview" "imt_rmt" "co2_tolerance" "grading" }}
+{{ $breathName := dict "safety" "安全鐵則" "overview" "兩條線框架" "imt_rmt" "吸氣肌訓練 IMT/RMT" "co2_tolerance" "CO₂ 耐受" "grading" "呼吸怎麼分級" }}
+{{ $breathBody := dict "safety" "danger_zh" "overview" "plain_zh" "imt_rmt" "plain_zh" "co2_tolerance" "plain_zh" "grading" "plain_zh" }}
+{{ $bt := index hugo.Data "vortex" "breathing-training" }}
+
+{{ $moves := slice }}
+{{ range $sk := slice "free" "back" "breast" "fly" "udk" "starts-turns" }}
+  {{ $sd := index hugo.Data "vortex" $sk }}
+  {{ with $sd }}{{ range .moves }}{{ $moves = $moves | append (dict "sk" $sk "m" .) }}{{ end }}{{ end }}
+{{ end }}
 
 {{ $strokeChips := slice "all" "free" "back" "breast" "fly" "udk" "starts-turns" }}
+{{ $types := slice
+  (dict "k" "err"    "zh" "誤區"     "n" (len $errs))
+  (dict "k" "tech"   "zh" "機制"     "n" (len $techs))
+  (dict "k" "ind"    "zh" "L 指標"   "n" (len $inds))
+  (dict "k" "move"   "zh" "技術動作" "n" (len $moves))
+  (dict "k" "level"  "zh" "水感階段" "n" (len $levels))
+  (dict "k" "psych"  "zh" "心理"     "n" (len $themes))
+  (dict "k" "injury" "zh" "傷害"     "n" (len $injuries))
+  (dict "k" "breath" "zh" "呼吸"     "n" (len $breathKeys))
+  (dict "k" "adm"    "zh" "發展"     "n" (add (len $stds) (len $pillars))) }}
 
 <div class="vx-shell">
 {{ partial "vortex/sidebar.html" (dict "ctx" . "current" "database") }}
-<div class="vx-db" data-vx-db>
+<div class="vx-find" data-vx-find>
   <h1 class="vx-list-title">查資料</h1>
-  <p class="vx-list-desc">已經知道要查什麼？三類參考資料——誤區、機制、L 指標——跨所有泳式集中查詢，可依泳式篩選或打字搜尋。想找該練什麼，請到<a href="{{ .Site.BaseURL }}vortex/drills/">找練習</a>。</p>
+  <p class="vx-list-desc">不用翻一整頁。<strong>先選一個類型</strong>（再選泳式或打字搜尋），把你要看的那一類撈出來。要找該練什麼，請到<a href="{{ $base }}vortex/drills/">找練習</a>。</p>
 
-  <section class="vx-lookup" id="vxLookup">
-    <div class="vx-db-search">
-      <input class="vx-db-input" id="vxdbInput" type="search" autocomplete="off" placeholder="在目前分頁內搜尋標題與內容……" aria-label="搜尋資料庫">
+  <div class="vx-find-facets">
+    <div class="vx-filterbar vx-find-types" data-axis="type">
+      <span class="vx-filterbar-label">① 選類型</span>
+      {{ range $types }}<button class="vx-chip vx-chip--type" type="button" data-val="{{ .k }}">{{ .zh }} <b>{{ .n }}</b></button>{{ end }}
     </div>
+    <div class="vx-filterbar" data-axis="s">
+      <span class="vx-filterbar-label">② 限定泳式（可不選）</span>
+      {{ range $strokeChips }}<button class="vx-chip{{ if eq . "all" }} is-active{{ end }}" type="button" data-val="{{ . }}">{{ if eq . "all" }}全部{{ else }}{{ index $strokeZh . }}{{ end }}</button>{{ end }}
+    </div>
+    <div class="vx-find-search">
+      <span class="vx-filterbar-label">③ 或直接搜尋（跨全站）</span>
+      <input class="vx-db-input" id="vxFindInput" type="search" autocomplete="off" placeholder="打字搜尋標題與內容……" aria-label="搜尋全站">
+    </div>
+  </div>
 
-    <div class="vx-db-tabs" id="vxdbTabs">
-      <button class="vx-db-tab is-active" type="button" data-tab="errors">誤區 {{ len $errs }}</button>
-      <button class="vx-db-tab" type="button" data-tab="tech">機制 {{ len $techs }}</button>
-      <button class="vx-db-tab" type="button" data-tab="ind">L 指標 {{ len $inds }}</button>
-    </div>
+  <p class="vx-find-count" id="vxFindCount" hidden></p>
+  <div class="vx-find-empty" id="vxFindEmpty">
+    <span class="vx-find-empty-h">選一個類型開始</span>
+    <span class="vx-find-empty-d">或在上面打字，跨全站（誤區、機制、技術動作、水感階段、心理、傷害、呼吸、發展）一次搜。練習在<a href="{{ $base }}vortex/drills/">找練習</a>另查。</span>
+  </div>
 
-    {{/* ── 誤區 ── */}}
-    <div class="vx-db-panel is-active" id="db-errors">
-      <div class="vx-filters">{{ range $strokeChips }}<button class="vx-chip{{ if eq . "all" }} is-active{{ end }}" type="button" data-s="{{ . }}">{{ if eq . "all" }}全部{{ else }}{{ index $strokeZh . }}{{ end }}</button>{{ end }}</div>
-      {{ range $errs }}
-      <details class="vx-card vx-err" data-s="{{ .stroke }}" data-text="{{ lower (printf "%s %s %s" .title .misconception .correct_concept) }}">
-        <summary><span class="vx-cardcat">{{ index $strokeZh .stroke }} · {{ index $errCatName .category }}</span><span class="vx-cardtitle">{{ .title }}</span></summary>
-        <div class="vx-card-body">
-          {{ with .misconception }}<span class="vx-label">常見說法</span><p class="vx-mis">{{ . }}</p>{{ end }}
-          {{ with .physical_reason }}<span class="vx-label">物理原因 {{ .certainty }}</span><p>{{ .text }}</p>{{ end }}
-          {{ with .correct_concept }}<span class="vx-label">正確觀念</span><p class="vx-correct">{{ . }}</p>{{ end }}
-          {{ with .perception_impact }}<span class="vx-label">感知影響</span><p>{{ . }}</p>{{ end }}
-          {{ with .cross_ref }}<span class="vx-label">對應機制</span><p class="vx-xref">{{ . }}</p>{{ end }}
-        </div>
-      </details>
-      {{ end }}
-    </div>
+  <div class="vx-find-results" id="vxFindResults">
 
-    {{/* ── 機制 ── */}}
-    <div class="vx-db-panel" id="db-tech">
-      <div class="vx-filters">{{ range $strokeChips }}<button class="vx-chip{{ if eq . "all" }} is-active{{ end }}" type="button" data-s="{{ . }}">{{ if eq . "all" }}全部{{ else }}{{ index $strokeZh . }}{{ end }}</button>{{ end }}</div>
-      {{ range $techs }}
-      <details class="vx-card vx-tech" data-s="{{ .stroke }}" data-text="{{ lower (printf "%s %s" .title .summary) }}">
-        <summary><span class="vx-cardcat">{{ index $strokeZh .stroke }} · {{ index $techCatName .category }}</span><span class="vx-cardtitle">{{ .title }}</span></summary>
-        <div class="vx-card-body">
-          {{ with .summary }}<p>{{ . }}</p>{{ end }}
-          {{ with .mechanism }}<span class="vx-label">機制 {{ .certainty }}</span><p>{{ .text }}</p>{{ end }}
-          {{ with .practical_implication }}<span class="vx-label">實務意涵</span><p class="vx-correct">{{ . }}</p>{{ end }}
-        </div>
-      </details>
-      {{ end }}
-    </div>
+    {{/* ── 誤區（完整內容，這裡是它唯一的家） ── */}}
+    {{ range $errs }}
+    <details class="vx-card vx-err vx-find-card" data-type="err" data-s="{{ .stroke }}" data-text="{{ lower (printf "%s %s %s" .title .misconception .correct_concept) }}">
+      <summary><span class="vx-cardcat">誤區 · {{ index $strokeZh .stroke }} · {{ index $errCatName .category }}</span><span class="vx-cardtitle">{{ .title }}</span></summary>
+      <div class="vx-card-body">
+        {{ with .misconception }}<span class="vx-label">常見說法</span><p class="vx-mis">{{ . }}</p>{{ end }}
+        {{ with .physical_reason }}<span class="vx-label">物理原因 {{ .certainty }}</span><p>{{ .text }}</p>{{ end }}
+        {{ with .correct_concept }}<span class="vx-label">正確觀念</span><p class="vx-correct">{{ . }}</p>{{ end }}
+        {{ with .perception_impact }}<span class="vx-label">感知影響</span><p>{{ . }}</p>{{ end }}
+        {{ with .cross_ref }}<span class="vx-label">對應機制</span><p class="vx-xref">{{ . }}</p>{{ end }}
+      </div>
+    </details>
+    {{ end }}
 
-    {{/* ── L 指標 ── */}}
-    <div class="vx-db-panel" id="db-ind">
-      <div class="vx-filters">{{ range $strokeChips }}<button class="vx-chip{{ if eq . "all" }} is-active{{ end }}" type="button" data-s="{{ . }}">{{ if eq . "all" }}全部{{ else }}{{ index $strokeZh . }}{{ end }}</button>{{ end }}</div>
-      {{ range $inds }}
-      <details class="vx-card vx-tech" data-s="{{ .stroke }}" data-text="{{ lower (printf "%s %s %s" .aspect .indicator .framework_state) }}">
-        <summary><span class="vx-cardcat">{{ index $strokeZh .stroke }} · {{ .level }}</span><span class="vx-cardtitle">{{ .aspect }}</span></summary>
-        <div class="vx-card-body">
-          {{ with .indicator }}<span class="vx-label">可觀察指標</span><p>{{ . }}</p>{{ end }}
-          {{ with .framework_state }}<span class="vx-label">框架狀態</span><p>{{ . }}</p>{{ end }}
-          {{ with .quant_ref }}<p class="vx-drill-eq">量化參照：{{ . }}</p>{{ end }}
-        </div>
-      </details>
-      {{ end }}
-    </div>
-  </section>
+    {{/* ── 機制（完整內容） ── */}}
+    {{ range $techs }}
+    <details class="vx-card vx-tech vx-find-card" data-type="tech" data-s="{{ .stroke }}" data-text="{{ lower (printf "%s %s" .title .summary) }}">
+      <summary><span class="vx-cardcat">機制 · {{ index $strokeZh .stroke }} · {{ index $techCatName .category }}</span><span class="vx-cardtitle">{{ .title }}</span></summary>
+      <div class="vx-card-body">
+        {{ with .summary }}<p>{{ . }}</p>{{ end }}
+        {{ with .mechanism }}<span class="vx-label">機制 {{ .certainty }}</span><p>{{ .text }}</p>{{ end }}
+        {{ with .practical_implication }}<span class="vx-label">實務意涵</span><p class="vx-correct">{{ . }}</p>{{ end }}
+      </div>
+    </details>
+    {{ end }}
+
+    {{/* ── L 指標（完整內容） ── */}}
+    {{ range $inds }}
+    <details class="vx-card vx-tech vx-find-card" data-type="ind" data-s="{{ .stroke }}" data-text="{{ lower (printf "%s %s %s" .aspect .indicator .framework_state) }}">
+      <summary><span class="vx-cardcat">L 指標 · {{ index $strokeZh .stroke }} · {{ .level }}</span><span class="vx-cardtitle">{{ .aspect }}</span></summary>
+      <div class="vx-card-body">
+        {{ with .indicator }}<span class="vx-label">可觀察指標</span><p>{{ . }}</p>{{ end }}
+        {{ with .framework_state }}<span class="vx-label">框架狀態</span><p>{{ . }}</p>{{ end }}
+        {{ with .quant_ref }}<p class="vx-drill-eq">量化參照：{{ . }}</p>{{ end }}
+      </div>
+    </details>
+    {{ end }}
+
+    {{/* ── 技術動作（摘要 + 連到泳式頁） ── */}}
+    {{ range $moves }}
+    {{ $m := .m }}{{ $sk := .sk }}
+    <details class="vx-card vx-tech vx-find-card" data-type="move" data-s="{{ $sk }}" data-text="{{ lower (printf "%s %s %s" $m.name $m.one (plainify $m.physical)) }}">
+      <summary><span class="vx-cardcat">技術動作 · {{ index $strokeZh $sk }}{{ with $m.l }} · {{ . }}{{ end }}</span><span class="vx-cardtitle">{{ $m.name }} <span class="vx-card-en">{{ $m.one }}</span></span></summary>
+      <div class="vx-card-body">
+        {{ with $m.physical }}<p>{{ . | safeHTML }}</p>{{ end }}
+        <a class="vx-find-go" href="{{ $base }}vortex/{{ index $strokeSlug $sk }}/">看完整技術頁 →</a>
+      </div>
+    </details>
+    {{ end }}
+
+    {{/* ── 水感階段（摘要 + 連到發展地圖） ── */}}
+    {{ range $levels }}
+    <details class="vx-card vx-tech vx-find-card" data-type="level" data-s="{{ .stroke }}" data-text="{{ lower (printf "%s %s %s %s" .level .name_zh .tagline .description) }}">
+      <summary><span class="vx-cardcat">水感階段 · {{ index $strokeZh .stroke }} · {{ .level }}</span><span class="vx-cardtitle">{{ .name_zh }} <span class="vx-card-en">{{ .tagline }}</span></span></summary>
+      <div class="vx-card-body">
+        {{ with .description }}<p>{{ . }}</p>{{ end }}
+        <a class="vx-find-go" href="{{ $base }}vortex/levels/">看完整發展地圖 →</a>
+      </div>
+    </details>
+    {{ end }}
+
+    {{/* ── 心理（摘要 + 連到心理層） ── */}}
+    {{ range $themes }}
+    <details class="vx-card vx-tech vx-find-card" data-type="psych" data-s="common" data-text="{{ lower (printf "%s %s %s" .name_zh .when_zh .lead_zh) }}">
+      <summary><span class="vx-cardcat">心理{{ with .band }} · {{ . }}{{ end }}{{ with .l_band }} · {{ . }}{{ end }}</span><span class="vx-cardtitle">{{ .name_zh }}{{ with .when_zh }} <span class="vx-card-en">{{ . }}</span>{{ end }}</span></summary>
+      <div class="vx-card-body">
+        {{ with .lead_zh }}<p>{{ . }}</p>{{ end }}
+        <a class="vx-find-go" href="{{ $base }}vortex/psychology-read/">看完整心理層 →</a>
+      </div>
+    </details>
+    {{ end }}
+
+    {{/* ── 傷害（摘要 + 連到運動傷害） ── */}}
+    {{ range $injuries }}
+    <details class="vx-card vx-tech vx-find-card" data-type="injury" data-s="common" data-text="{{ lower (printf "%s %s %s" .zh .en .mechanism.summary) }}">
+      <summary><span class="vx-cardcat">傷害{{ with .mechanism.trigger_phase }} · {{ . }}{{ end }}</span><span class="vx-cardtitle">{{ .zh }} <span class="vx-card-en">{{ .en }}</span></span></summary>
+      <div class="vx-card-body">
+        {{ with .mechanism.summary }}<p>{{ . }}</p>{{ end }}
+        {{ with .epidemiology }}<span class="vx-label">流行病學 {{ .certainty }}</span><p>{{ .prevalence }}</p>{{ end }}
+        <a class="vx-find-go" href="{{ $base }}vortex/injuries/">看完整傷害頁 →</a>
+      </div>
+    </details>
+    {{ end }}
+
+    {{/* ── 呼吸（摘要 + 連到呼吸訓練） ── */}}
+    {{ range $breathKeys }}
+    {{ $node := index $bt . }}
+    {{ $body := index $node (index $breathBody .) }}
+    <details class="vx-card vx-tech vx-find-card" data-type="breath" data-s="common" data-text="{{ lower (printf "%s %s" (index $breathName .) $body) }}">
+      <summary><span class="vx-cardcat">呼吸 · 生理輔助軸{{ with $node.cert }} · {{ . }}{{ end }}</span><span class="vx-cardtitle">{{ index $breathName . }}</span></summary>
+      <div class="vx-card-body">
+        {{ with $body }}<p>{{ . }}</p>{{ end }}
+        <a class="vx-find-go" href="{{ $base }}vortex/breathing/">看完整呼吸訓練頁 →</a>
+      </div>
+    </details>
+    {{ end }}
+
+    {{/* ── 發展：技術標準 + 發展矩陣（摘要 + 連到 ADM） ── */}}
+    {{ range $stds }}
+    {{ $tok := index (split .id ".") 1 }}
+    <details class="vx-card vx-tech vx-find-card" data-type="adm" data-s="{{ cond (in (slice "free" "back" "breast" "fly") $tok) $tok "common" }}" data-text="{{ lower (printf "%s %s" .title .framework) }}">
+      <summary><span class="vx-cardcat">發展 · 技術標準{{ with .applies_from }} · {{ . | upper }}{{ end }}</span><span class="vx-cardtitle">{{ .title }}</span></summary>
+      <div class="vx-card-body">
+        {{ with .framework }}<span class="vx-label">框架</span><p>{{ . }}</p>{{ end }}
+        {{ range .phases }}<span class="vx-label">{{ .name }}</span><ul>{{ range .criteria }}<li>{{ . }}</li>{{ end }}</ul>{{ end }}
+        <a class="vx-find-go" href="{{ $base }}vortex/adm/standards/">看完整技術標準 →</a>
+      </div>
+    </details>
+    {{ end }}
+    {{ range $pillars }}
+    <details class="vx-card vx-tech vx-find-card" data-type="adm" data-s="common" data-text="{{ lower (printf "%s 發展矩陣 %s" .name (delimit (apply .stages "index" "." "summary") " ")) }}">
+      <summary><span class="vx-cardcat">發展 · 發展矩陣支柱</span><span class="vx-cardtitle">{{ .icon }} {{ .name }}</span></summary>
+      <div class="vx-card-body">
+        {{ range .stages }}<span class="vx-label">{{ .id | upper }}</span><p>{{ .summary }}</p>{{ end }}
+        <a class="vx-find-go" href="{{ $base }}vortex/adm/matrix/">看完整發展矩陣 →</a>
+      </div>
+    </details>
+    {{ end }}
+
+  </div>
 
   <p class="vx-legend">🔵 推導 · 🟢 近期文獻 · 🟡 舊文獻 · 🟠 教練觀測 · 🔴 待查</p>
 </div>
