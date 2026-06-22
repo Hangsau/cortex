@@ -53,7 +53,7 @@
         <span><span class="ph">會游了，想游得更好／不知道自己在哪一級</span>
           <span class="pd">先到水感發展地圖找到你現在在 L 幾 → 再挑一式把那一級練成動作。</span></span>
         <span class="parr">→</span></a></li>
-      <li><a href="{{ $base }}vortex/database/#vxNeeds">
+      <li><a href="{{ $base }}vortex/drills/">
         <span class="pno">卡</span>
         <span><span class="ph">某個動作卡住、某種感覺怎麼都抓不到</span>
           <span class="pd">用「依需求找練習」挑一個環節或卡住的水感階段 → 立刻列出對應的 drill。</span></span>
@@ -87,14 +87,14 @@
         <span class="cd">感知的地基：恐懼、動機、注意力在源頭決定你能不能感覺到水。一條讀下來，從怕水到心流。</span>
         <span class="cmeta"><b>8</b> 主題　從恐懼到心流</span>
       </a>
-      <a class="tx-card" href="{{ $base }}vortex/database/#vxNeeds">
+      <a class="tx-card" href="{{ $base }}vortex/drills/">
         <span class="ctag">DRILLS</span>
         <span class="ch">依需求找練習</span>
         <span class="cen">Find Drills by Need</span>
         <span class="cd">不知道練什麼？挑一個環節（呼吸／平衡／踢腿／划手／銜接／搖櫓）或卡住的水感階段，立刻列出對應練習。</span>
-        <span class="cmeta"><b>125</b> 個練習</span>
+        <span class="cmeta"><b>{{ len (index hugo.Data "vortex" "drills").drills }}</b> 個練習</span>
       </a>
-      <a class="tx-card" href="{{ $base }}vortex/database/#vxLookup">
+      <a class="tx-card" href="{{ $base }}vortex/database/">
         <span class="ctag">REFERENCE</span>
         <span class="ch">跨泳式查資料</span>
         <span class="cen">Cross-Stroke Reference</span>

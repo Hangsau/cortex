@@ -1,0 +1,69 @@
+{{ define "head-extra" }}
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+TC:wght@400;500;600;700&family=Quattrocento+Sans:wght@400;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex-nav.css">
+{{ end }}
+
+{{ define "main" }}
+{{ $base := .Site.BaseURL }}
+
+{{ $dicts := partial "vortex/stroke-dicts.html" . }}
+{{ $strokeZh := $dicts.strokeZh }}
+{{ $drillKey := dict "freestyle" "free" "backstroke" "back" "breaststroke" "breast" "butterfly" "fly" "underwater_dolphin_kick" "udk" "starts_turns" "starts-turns" }}
+
+{{ $drills := (index hugo.Data "vortex" "drills").drills }}
+{{ $strokeChips := slice "all" "free" "back" "breast" "fly" "udk" "starts-turns" }}
+{{ $drillCatName := dict "breathing" "呼吸" "balance" "平衡" "kick" "踢腿" "arm" "划手" "timing" "銜接" "sculling" "搖櫓" }}
+{{ $drillCats := slice }}{{ range $drills }}{{ $drillCats = $drillCats | append .category }}{{ end }}{{ $drillCats = $drillCats | uniq }}
+{{ $drillLevels := slice }}{{ range $drills }}{{ range .l_target }}{{ $drillLevels = $drillLevels | append . }}{{ end }}{{ end }}{{ $drillLevels = $drillLevels | uniq | sort }}
+
+<div class="vx-shell">
+{{ partial "vortex/sidebar.html" (dict "ctx" . "current" "drills") }}
+<div class="vx-db" data-vx-db>
+  <h1 class="vx-list-title">找練習</h1>
+  <p class="vx-list-desc">不用先選泳式。挑一個你想練的環節（或你卡住的水感階段），下面立刻列出所有對應練習，點開就有怎麼做。要查誤區、機制、L 指標等參考資料，請到<a href="{{ $base }}vortex/database/">查資料</a>。</p>
+
+  <section class="vx-needs" id="vxNeeds">
+    <h2 class="vx-needs-h">想練什麼？</h2>
+
+    <div class="vx-needs-filters">
+      <div class="vx-filterbar" data-axis="cat">
+        <span class="vx-filterbar-label">想練哪個環節</span>
+        <button class="vx-chip is-active" type="button" data-val="all">全部 {{ len $drills }}</button>
+        {{ range $drillCats }}<button class="vx-chip" type="button" data-val="{{ . }}">{{ index $drillCatName . }}</button>{{ end }}
+      </div>
+      <div class="vx-filterbar" data-axis="level">
+        <span class="vx-filterbar-label">在哪個水感階段</span>
+        <button class="vx-chip is-active" type="button" data-val="all">全部</button>
+        {{ range $drillLevels }}<button class="vx-chip" type="button" data-val="{{ . }}">{{ . }}</button>{{ end }}
+      </div>
+      <div class="vx-filterbar" data-axis="s">
+        <span class="vx-filterbar-label">限定泳式（可不選）</span>
+        {{ range $strokeChips }}<button class="vx-chip{{ if eq . "all" }} is-active{{ end }}" type="button" data-val="{{ . }}">{{ if eq . "all" }}全部{{ else }}{{ index $strokeZh . }}{{ end }}</button>{{ end }}
+      </div>
+    </div>
+
+    <p class="vx-needs-count" id="vxNeedsCount"></p>
+
+    <div class="vx-needs-results" id="vxNeedsResults">
+      {{ range $drills }}
+      {{ $sk := slice }}{{ range .strokes }}{{ with index $drillKey . }}{{ $sk = $sk | append . }}{{ end }}{{ end }}
+      <details class="vx-card vx-drillcard" data-cat="{{ .category }}" data-level="{{ delimit .l_target " " }}" data-s="{{ delimit $sk " " }}">
+        <summary><span class="vx-cardcat">{{ index $drillCatName .category }}{{ with .l_target }} · {{ delimit . " " }}{{ end }} · {{ range $i, $s := $sk }}{{ if $i }}／{{ end }}{{ index $strokeZh $s }}{{ end }}</span><span class="vx-cardtitle">{{ .name_zh }} <span class="vx-card-en">{{ .name_en }}</span></span></summary>
+        <div class="vx-card-body">
+          {{ with .purpose_zh }}<p>{{ . }}</p>{{ end }}
+          {{ with .how_to }}<span class="vx-label">怎麼做</span><ol>{{ range . }}<li>{{ . }}</li>{{ end }}</ol>{{ end }}
+          {{ with .perception_goal }}<span class="vx-label">感知目標</span><p class="vx-correct">{{ . }}</p>{{ end }}
+          {{ with .equipment }}<p class="vx-drill-eq">器材：{{ delimit . "、" }}</p>{{ end }}
+        </div>
+      </details>
+      {{ end }}
+    </div>
+  </section>
+
+  <p class="vx-legend">🔵 推導 · 🟢 近期文獻 · 🟡 舊文獻 · 🟠 教練觀測 · 🔴 待查</p>
+</div>
+</div>
+
+<script src="{{ .Site.BaseURL }}js/vortex.js" defer></script>
+{{ end }}
