@@ -1,0 +1,132 @@
+{{ define "head-extra" }}
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+TC:wght@400;500;600;700&family=Quattrocento+Sans:wght@400;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex-nav.css">
+<noscript><style>.vx-panel{display:block;border-top:1px solid var(--vx-rule);padding-top:24px}.vx-rail{position:static;max-height:none}</style></noscript>
+{{ end }}
+
+{{ define "main" }}
+{{ $b := index hugo.Data "vortex" "breathing-training" }}
+
+<div class="vx-stroke vx-shell">
+{{ partial "vortex/sidebar.html" (dict "ctx" . "current" "breathing") }}
+  <div class="vx-stroke-wrap">
+
+    {{/* ════════ 左側常駐目次 ════════ */}}
+    <aside class="vx-rail vx-rail--collapsible">
+      <div class="vx-rail-head">
+        <span class="vx-stroke-zh">呼吸訓練</span>
+      </div>
+      <div class="vx-rail-scroll">
+        <ul class="vx-rail-list">
+          <li><button class="vx-navlink vx-navlink--top vx-navlink--alert" type="button" data-target="safety"><span class="n">!</span>安全鐵則</button></li>
+          <li><button class="vx-navlink vx-navlink--top" type="button" data-target="overview"><span class="n">◆</span>兩條線（總覽）</button></li>
+          <li><button class="vx-navlink" type="button" data-target="imt_rmt"><span class="n">1</span>呼吸肌訓練 IMT/RMT</button></li>
+          <li><button class="vx-navlink" type="button" data-target="co2"><span class="n">2</span>CO2 耐受／閉氣表</button></li>
+          <li><button class="vx-navlink" type="button" data-target="grading"><span class="n">3</span>能不能分級？</button></li>
+        </ul>
+      </div>
+    </aside>
+
+    {{/* ════════ 右側主面板（安全鐵則為預設） ════════ */}}
+    <main class="vx-panels">
+
+      {{/* ── 安全鐵則（預設 active，置頂） ── */}}
+      {{ with $b.safety }}
+      <section class="vx-panel is-active vx-overview" id="safety">
+        <span class="vx-sec-no">呼吸訓練 · 安全</span>
+        <h2>先講最重要的：別在水裡憋氣</h2>
+        <div class="vx-pz-warn">{{ .danger_zh }}</div>
+        <span class="vx-block-label">這不是危言聳聽 {{ .cert }}</span>
+        <p>{{ .evidence_zh }}</p>
+        <span class="vx-block-label vx-block-label--mgmt">三方權威立場</span>
+        <p>{{ .policy_zh }}</p>
+        <div class="vx-pz-author">{{ .rule_zh }}</div>
+        {{ with .source }}<p class="vx-cite"><span class="src">{{ . }}</span></p>{{ end }}
+        <nav class="vx-flow"><button class="nx" type="button" data-target="overview"><span class="lbl">下一步</span>呼吸的兩條線 →</button></nav>
+      </section>
+      {{ end }}
+
+      {{/* ── 總覽：兩條線 ── */}}
+      {{ with $b.overview }}
+      <section class="vx-panel" id="overview">
+        <span class="vx-sec-no">呼吸訓練 · 總覽</span>
+        <h2>呼吸的兩條線：感知 vs 生理</h2>
+        <p class="vx-premise">{{ .premise_zh }}</p>
+        <div class="vx-pz-author">{{ .author_synthesis_zh }}</div>
+        <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh }}</div>
+        <p class="vx-cite"><span class="src">感知線（水中呼吸節律）的練習在 drills 的「呼吸」類：FrBr1 韻律呼吸 · FrBr2 放鬆下沉 · FrBr3 連續涓流吐氣 · FrBr4 兩側換氣。本頁只處理生理線。</span></p>
+        <nav class="vx-flow">
+          <button type="button" data-target="safety"><span class="lbl">回到</span>← 安全鐵則</button>
+          <button class="nx" type="button" data-target="imt_rmt"><span class="lbl">下一步</span>呼吸肌訓練 →</button>
+        </nav>
+      </section>
+      {{ end }}
+
+      {{/* ── IMT/RMT ── */}}
+      {{ with $b.imt_rmt }}
+      <section class="vx-panel" id="imt_rmt">
+        <span class="vx-sec-no">呼吸訓練 · 生理線 1</span>
+        <h2>呼吸肌訓練（IMT / RMT） {{ .cert }}</h2>
+        <span class="vx-block-label">是什麼</span>
+        <p>{{ .what_zh }}</p>
+        <span class="vx-block-label">證據（分距離看）</span>
+        <p>{{ .evidence_zh }}</p>
+        <span class="vx-block-label vx-block-label--mgmt">證據導向協議</span>
+        <div class="vx-pz-focus">{{ .protocol_zh }}</div>
+        <span class="vx-block-label">誠實反例</span>
+        <div class="vx-pz-warn">{{ .null_zh }}</div>
+        <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh }}</div>
+        {{ with .source }}<p class="vx-cite"><span class="src">{{ . }}</span></p>{{ end }}
+        <nav class="vx-flow">
+          <button type="button" data-target="overview"><span class="lbl">回到</span>← 總覽</button>
+          <button class="nx" type="button" data-target="co2"><span class="lbl">下一步</span>CO2 耐受 →</button>
+        </nav>
+      </section>
+      {{ end }}
+
+      {{/* ── CO2 耐受 ── */}}
+      {{ with $b.co2_tolerance }}
+      <section class="vx-panel" id="co2">
+        <span class="vx-sec-no">呼吸訓練 · 生理線 2</span>
+        <h2>CO2 耐受／閉氣表 {{ .cert }}</h2>
+        <span class="vx-block-label">是什麼</span>
+        <p>{{ .what_zh }}</p>
+        <span class="vx-block-label">對游泳表現的證據</span>
+        <div class="vx-pz-warn">{{ .evidence_zh }}</div>
+        <span class="vx-block-label">安全面</span>
+        <p>{{ .safety_zh }}</p>
+        <div class="vx-pz-author">{{ .verdict_zh }}</div>
+        <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh }}</div>
+        {{ with .source }}<p class="vx-cite"><span class="src">{{ . }}</span></p>{{ end }}
+        <nav class="vx-flow">
+          <button type="button" data-target="imt_rmt"><span class="lbl">回到</span>← 呼吸肌訓練</button>
+          <button class="nx" type="button" data-target="grading"><span class="lbl">下一步</span>能不能分級 →</button>
+        </nav>
+      </section>
+      {{ end }}
+
+      {{/* ── 分級框架 ── */}}
+      {{ with $b.grading }}
+      <section class="vx-panel" id="grading">
+        <span class="vx-sec-no">呼吸訓練 · 分級</span>
+        <h2>純粹的呼吸訓練，能不能分級？</h2>
+        <p class="vx-premise">{{ .premise_zh }}</p>
+        <ul class="vx-factor-list">
+          {{ range .axes_zh }}<li><span class="vx-factor-txt">{{ . }}</span></li>{{ end }}
+        </ul>
+        <div class="vx-pz-warn">{{ .caveat_zh }}</div>
+        <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh }}</div>
+        <nav class="vx-flow">
+          <button type="button" data-target="co2"><span class="lbl">回到</span>← CO2 耐受</button>
+          <button class="nx" type="button" data-target="safety"><span class="lbl">回到</span>安全鐵則 ↺</button>
+        </nav>
+      </section>
+      {{ end }}
+
+    </main>
+  </div>
+</div>
+
+<script src="{{ .Site.BaseURL }}js/vortex.js" defer></script>
+{{ end }}

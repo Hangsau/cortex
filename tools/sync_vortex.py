@@ -67,6 +67,10 @@ PSYCHOLOGY_DST = HUGO_ROOT / "data" / "vortex" / "psychology.yaml"
 INJURIES_SRC = VORTEX_SRC / "canonical" / "health" / "injuries.yaml"
 INJURIES_DST = HUGO_ROOT / "data" / "vortex" / "injuries.yaml"
 
+# ── 呼吸訓練（canonical → my-site；全 public，無 diagnostic 層） ──
+BREATHING_SRC = VORTEX_SRC / "canonical" / "health" / "breathing-training.yaml"
+BREATHING_DST = HUGO_ROOT / "data" / "vortex" / "breathing-training.yaml"
+
 # ── Layer 設定 ──
 LAYERS = {
     "Technica":     {"slug": "technica",     "name": "水感框架"},
@@ -831,6 +835,39 @@ def sync_injuries(dry_run: bool):
     print(f"  寫入 {INJURIES_DST.relative_to(HUGO_ROOT)}")
 
 
+def sync_breathing(dry_run: bool):
+    """讀 canonical health/breathing-training.yaml，整檔搬進 my-site
+    data/vortex/breathing-training.yaml。
+
+    呼吸訓練的生理線（IMT/RMT、CO2）是公開知識，canonical 無 public/diagnostic 分層，
+    全部可公開——本函式整檔搬運，不剝離、不改內容。canonical 是 single source of truth。
+    安全鐵則（SWB）置頂節點原樣帶過，layout 渲染時必置頂。
+    """
+    print()
+    print("=== 呼吸訓練（全 public）===")
+    if not BREATHING_SRC.exists():
+        print(f"  [跳過] 找不到 {BREATHING_SRC}")
+        return
+
+    data = yaml.safe_load(BREATHING_SRC.read_text(encoding="utf-8")) or {}
+    top_keys = [k for k in data.keys() if k not in ("domain", "sub", "schema_version")]
+    print(f"  top-level: {', '.join(top_keys)}")
+
+    if dry_run:
+        print("  [dry-run，未寫入 data/vortex/breathing-training.yaml]")
+        return
+
+    out = yaml.safe_dump(
+        data,
+        allow_unicode=True,
+        default_flow_style=False,
+        sort_keys=False,
+        width=4096,
+    )
+    BREATHING_DST.write_text(out, encoding="utf-8")
+    print(f"  寫入 {BREATHING_DST.relative_to(HUGO_ROOT)}")
+
+
 def main():
     dry_run = "--dry-run" in sys.argv
     results = {"new": [], "changed": [], "same": [], "unknown": []}
@@ -913,6 +950,7 @@ def main():
     sync_periodization(dry_run)
     sync_psychology(dry_run)
     sync_injuries(dry_run)
+    sync_breathing(dry_run)
 
     print()
     print("=== 同步摘要 ===")

@@ -36,11 +36,41 @@
     </span>
   </a>
 
+  {{/* ════════ 處境帶路：不知道從哪張門進，按現在的狀況挑一句 ════════ */}}
+  <section class="tx-sec">
+    <div class="tx-sec-head">
+      <h2 class="tx-sec-h"><span class="no">你</span>不知道進哪張門？按你現在的狀況挑一句</h2>
+      <span class="tx-sec-tag">按處境帶路 · 不必先懂術語</span>
+    </div>
+    <ul class="tx-path tx-path--situ">
+      <li><a href="{{ $base }}vortex/psychology-read/">
+        <span class="pno">怕</span>
+        <span><span class="ph">還不敢下水／一進水就緊張</span>
+          <span class="pd">先走心理層（恐懼）→ 什麼是水感 → L0 呼吸感知。地基鋪好，後面動作才練得進去。</span></span>
+        <span class="parr">→</span></a></li>
+      <li><a href="{{ $base }}vortex/levels/">
+        <span class="pno">級</span>
+        <span><span class="ph">會游了，想游得更好／不知道自己在哪一級</span>
+          <span class="pd">先到水感發展地圖找到你現在在 L 幾 → 再挑一式把那一級練成動作。</span></span>
+        <span class="parr">→</span></a></li>
+      <li><a href="{{ $base }}vortex/database/#vxNeeds">
+        <span class="pno">卡</span>
+        <span><span class="ph">某個動作卡住、某種感覺怎麼都抓不到</span>
+          <span class="pd">用「依需求找練習」挑一個環節或卡住的水感階段 → 立刻列出對應的 drill。</span></span>
+        <span class="parr">→</span></a></li>
+      <li><a href="{{ $base }}vortex/adm/">
+        <span class="pno">排</span>
+        <span><span class="ph">想把訓練排成長期計畫</span>
+          <span class="pd">先看運動員發展矩陣（長期該長出什麼能力）→ 再到訓練週期化排年度節奏。</span></span>
+        <span class="parr">→</span></a></li>
+    </ul>
+  </section>
+
   {{/* ════════ 入口網格：每張是一道門，重內容在各自子頁 ════════ */}}
   <section class="tx-sec">
     <div class="tx-sec-head">
-      <h2 class="tx-sec-h"><span class="no">門</span>接下來去哪</h2>
-      <span class="tx-sec-tag">每張＝一道門 · 點進去才是內容</span>
+      <h2 class="tx-sec-h"><span class="no">門</span>或者，直接挑一道門</h2>
+      <span class="tx-sec-tag">已經知道要找什麼 · 點進去才是內容</span>
     </div>
     <div class="tx-cards">
       <a class="tx-card" href="{{ $base }}vortex/levels/">

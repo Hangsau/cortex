@@ -1,5 +1,22 @@
 # HANDOFF — my-site (Cortex)
 
+## 目前狀態（2026-06-22 · 夜）
+
+**呼吸訓練輔助軸上站 + 首頁處境帶路 + 誤區 cross_ref 渲染（2026-06-22）**：源自 M3 v2 審查，用戶授權「一次執行完」。四件事一次做完，全 canonical-sourced + sync：
+
+1. **誤區 cross_ref 渲染（最小）**：`vortex-database.html` 誤區卡在 perception_impact 後加 `{{ with .cross_ref }}<span class="vx-label">對應機制</span>...{{ end }}`（76 條中 33 條有 cross_ref，全渲染 ✓）；`vortex.css` 加 `.vx-xref`（sub 色、14px）。**不做** §-ref→ID deep-link（mapping 雜、ROI 低）。
+
+2. **呼吸感知 drills 上脊椎**：canonical `Drills/drills_freestyle.yaml` 加 FrBr1–FrBr4（L0→L2 呼吸 drill），sync 後 `data/vortex/drills.yaml` 125→129，database「找練習」呼吸類從 1→5 個。
+
+3. **呼吸訓練輔助軸（新頁 `/vortex/breathing/`）**：新 canonical `health/breathing-training.yaml`（5 節點，安全置頂：SWB/缺氧昏迷）→ sync_vortex.py 加 `BREATHING_SRC/DST` 常數 + `sync_breathing()`（全 public 整檔搬，無 diagnostic 剝離）+ main 呼叫 → `data/vortex/breathing-training.yaml`。新 layout `layouts/vortex/vortex-breathing.html`（master-detail rail+panels，**safety 節點預設 is-active 確保安全鐵則先被看到**，reuse vortex.js + vortex.css 的 vx-pz-* 類，不依賴 injuries.css）+ content `content/vortex/breathing/_index.md`（layout vortex-breathing, slug breathing）+ sidebar partial 加「吸 呼吸訓練」nav（接在 injuries 後，health 姊妹軸）。
+   - **設計判斷（偏離原 plan，已自主裁定）**：原 plan 含「首頁 grid card」，但**未加**——injuries（同為 health 輔助軸）刻意不在首頁 grid，breathing 比照保持一致；且 breathing 是進階生理軸非新手學習路徑，sidebar-only 才對。
+
+4. **首頁處境帶路（#3）**：`vortex-home.html` 在 hero 與 content-grid 之間插一條 `.tx-path--situ` 處境帶（4 卡：怕=還不敢下水→心理層 / 級=想突破不知哪一級→levels / 卡=動作卡住→database#vxNeeds / 排=長期計畫→adm），每張給明確多步路徑。**按處境/進程軸非身份非 topic、無 L 自評測**（守記憶原則）。reuse 既有 tx-path 樣式零新 CSS；原 grid 標題改「或者，直接挑一道門」。
+
+**驗收**：sync 跑通（drills 129、breathing 寫入）→ `hugo --quiet` exit 0 → grep `public/`：breathing 頁 5 節點全渲染 + safety is-active + SWB 內容 9 處命中；home 4 處境卡(怕/級/卡/排)渲染；sidebar「吸」nav 在；database cross_ref「對應機制」33 處；4 個 FrBr drill 在 data。**未做瀏覽器視覺測**（環境無確認瀏覽器），僅 build-output HTML 驗證。
+
+> ↓ 更早
+
 ## 目前狀態（2026-06-20）
 
 **側欄三欄併兩欄 + 六式技術改可點（2026-06-20，commit e953d42，push hugo-source + CI run 27865354734）**：承上條全站側欄後，站主點出兩個後續問題——①rail 頁「點進去後橫向展開變三層」版型不好：`.vx-shell`(212px 全站欄 + 1fr) 內又包 `.vx-stroke-wrap`(250px 頁內欄 + 1fr)，渲染成「全站欄‖頁內欄‖內容」三條並排；②「六式技術」點不動。**修法（只動 `vortex-nav.css` + `sidebar.html`，不碰 6 個 layout 也不碰 vortex.js）**：①三欄→兩欄：桌機（min-width 821px）`.vx-shell:has(.vx-stroke-wrap)` 用 `grid-template-areas: "nav main"/"rail main"`，並對 `.vx-stroke-wrap` 設 `display:contents`（化為透明容器，其子 `.vx-rail`/`.vx-panels` 直接進 shell 格線），把全站欄(nav) + 頁內欄(rail) 疊進**同一個左欄**、內容(main) 在右 ＝ 一條兩層側欄 + 內容兩欄（MDN/GitBook 標準範式）；rail 自帶 border-right + sticky、panels 自帶 max-width 700/padding，分隔與間距都還在，nav 改 static + 加 border-bottom 與 rail 分隔。手機 <=820px 完全沿用原本單欄 + 漢堡。②六式可點：原為非連結 `<span class="vxnav-grouphead">`，只在泳式頁伺服器端 `is-open`，其他頁無法展開 → 改原生 `<details>/<summary>`（零 JS、全頁可點），泳式頁預設 `open`，加 `.vxnav-caret` 展開指示。**驗收**：hugo build 綠（333 頁）→ playwright 截 freestyle/levels（rail 頁皆兩欄）、database/home（單欄頁維持兩欄、未受 `:has` scoping 影響）、並在 levels 頁點 `.vxnav-details` 確認 open false→true（六式在非泳式頁也能展開）。**後續（commit f2febac，push + CI）**：站主指「心理層 要改一下」——psychology-read（一條讀下來）用 `.vx-read` 不是 `.vx-stroke-wrap`，故上面 `:has(.vx-stroke-wrap)` 沒涵蓋到它，仍三欄（全站欄‖閱讀脊椎‖長文）。比照同手法補一條 `.vx-shell:has(.vx-read)`：grid-areas `"nav main"/"spine main"`，對 `.vx-read` + `.vx-read-wrap` 設 `display:contents`（spine/article 直接進 shell 格線），補 `column-gap:48px` 代原 wrap gap；`.vx-read-progress` 為 fixed 不佔格。playwright 截圖確認桌機兩欄、手機單欄不變。**站主認可此併欄做法「變得很好」→ 教訓存記憶 `feedback_vortex_two_column_unified_sidebar_validated.md`**（全站導航+頁內導航併成單一左欄兩層樹，別兩條側欄並排成三欄；display:contents+grid-areas+:has() 不重構 HTML/JS）。⚠ `.m3-*.txt` 與 `.prompts/audit-run.log` 仍刻意 untracked，勿 commit。
