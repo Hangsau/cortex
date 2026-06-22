@@ -787,6 +787,9 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
 .vx-chip--type { font-size: 14px; padding: 6px 12px; }
 .vx-chip--type b { font-weight: 700; opacity: 0.7; margin-left: 2px; }
 .vx-chip--type.is-active b { opacity: 0.9; }
+.vx-find-cats { padding: 10px 0 0; border-top: 1px solid var(--vx-rule); }
+.vx-find-cats[hidden] { display: none; }
+.vx-find-cat-chips { display: inline-flex; flex-wrap: wrap; gap: 8px; }
 .vx-find-search { margin-top: 4px; }
 .vx-find-search .vx-db-input { margin-top: 6px; }
 .vx-find-count { font-size: 13px; color: var(--vx-faint); margin: 0 0 14px; }

@@ -271,6 +271,8 @@
   if (find) {
     var typeBar = find.querySelector('[data-axis="type"]');
     var sBar = find.querySelector('[data-axis="s"]');
+    var catBar = document.getElementById('vxFindCatBar');
+    var catChips = document.getElementById('vxFindCatChips');
     var fInput = document.getElementById('vxFindInput');
     var fResults = document.getElementById('vxFindResults');
     var fCount = document.getElementById('vxFindCount');
@@ -278,7 +280,36 @@
     var fCards = Array.prototype.slice.call(fResults.querySelectorAll('.vx-find-card'));
     var fType = null;
     var fS = 'all';
+    var fCat = 'all';
     var fT;
+
+    function passTSQ(card, q) {
+      if (card.getAttribute('data-type') !== fType) return false;
+      var sd = (card.getAttribute('data-s') || '').split(' ');
+      var okS = fS === 'all' || sd.indexOf(fS) !== -1 || sd.indexOf('common') !== -1;
+      if (!okS) return false;
+      return !q || (card.getAttribute('data-text') || '').indexOf(q) !== -1;
+    }
+
+    // 選定類型後，依當前泳式撈出該類型底下的「次分類」，動態生成 ③ chip
+    function buildCats() {
+      fCat = 'all';
+      if (!fType) { catBar.hidden = true; catChips.innerHTML = ''; return; }
+      var q = (fInput.value || '').trim().toLowerCase();
+      var seen = {}, order = [];
+      fCards.forEach(function (card) {
+        if (!passTSQ(card, q)) return;
+        var c = card.getAttribute('data-cat') || '';
+        if (c && !seen[c]) { seen[c] = true; order.push({ c: c, l: card.getAttribute('data-catlabel') || c }); }
+      });
+      if (order.length < 2) { catBar.hidden = true; catChips.innerHTML = ''; return; }
+      var html = '<button class="vx-chip is-active" type="button" data-val="all">全部</button>';
+      order.forEach(function (o) {
+        html += '<button class="vx-chip" type="button" data-val="' + o.c.replace(/"/g, '') + '">' + o.l + '</button>';
+      });
+      catChips.innerHTML = html;
+      catBar.hidden = false;
+    }
 
     function applyFind() {
       var q = (fInput.value || '').trim().toLowerCase();
@@ -291,8 +322,9 @@
         var okType = !fType || card.getAttribute('data-type') === fType;
         var sd = (card.getAttribute('data-s') || '').split(' ');
         var okS = fS === 'all' || sd.indexOf(fS) !== -1 || sd.indexOf('common') !== -1;
+        var okCat = fCat === 'all' || (card.getAttribute('data-cat') || '') === fCat;
         var okQ = !q || (card.getAttribute('data-text') || '').indexOf(q) !== -1;
-        var show = okType && okS && okQ;
+        var show = okType && okS && okCat && okQ;
         card.classList.toggle('is-hidden', !show);
         if (show) shown++;
       });
@@ -308,6 +340,7 @@
           fType = v;
           typeBar.querySelectorAll('.vx-chip').forEach(function (c) { c.classList.toggle('is-active', c === chip); });
         }
+        buildCats();
         applyFind();
       });
     });
@@ -316,8 +349,17 @@
       chip.addEventListener('click', function () {
         fS = chip.getAttribute('data-val');
         sBar.querySelectorAll('.vx-chip').forEach(function (c) { c.classList.toggle('is-active', c === chip); });
+        buildCats();
         applyFind();
       });
+    });
+
+    // ③ 細分 chip 是動態生成的，用事件委派
+    catBar.addEventListener('click', function (e) {
+      var chip = e.target.closest('.vx-chip'); if (!chip) return;
+      fCat = chip.getAttribute('data-val');
+      catChips.querySelectorAll('.vx-chip').forEach(function (c) { c.classList.toggle('is-active', c === chip); });
+      applyFind();
     });
 
     fInput.addEventListener('input', function () { clearTimeout(fT); fT = setTimeout(applyFind, 110); });

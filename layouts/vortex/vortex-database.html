@@ -12,6 +12,7 @@
 {{ $errCatName := dict }}{{ range (index hugo.Data "vortex" "teaching-errors").categories }}{{ $errCatName = merge $errCatName (dict .key .name_zh) }}{{ end }}
 {{ $techCatName := dict }}{{ range (index hugo.Data "vortex" "technical-analysis").categories }}{{ $techCatName = merge $techCatName (dict .key .name_zh) }}{{ end }}
 {{ $strokeSlug := dict "free" "freestyle" "back" "backstroke" "breast" "breaststroke" "fly" "butterfly" "udk" "underwater-dolphin-kick" "starts-turns" "starts-turns" }}
+{{ $injCatName := dict "A-shoulder-upper" "肩與上肢" "B-lower-spine-strokespecific" "腰椎與泳式特異" "C-nonMSK-medical" "非肌骨醫療" "D-endocrine" "內分泌" "D-systemic-acute" "全身急性" "E-acute-trauma" "急性創傷" "F-pediatric-growth" "兒童生長" }}
 
 {{ $errs := (index hugo.Data "vortex" "teaching-errors").errors }}
 {{ $techs := (index hugo.Data "vortex" "technical-analysis").points }}
@@ -72,8 +73,12 @@
       <span class="vx-filterbar-label">② 限定泳式（可不選）</span>
       {{ range $strokeChips }}<button class="vx-chip{{ if eq . "all" }} is-active{{ end }}" type="button" data-val="{{ . }}">{{ if eq . "all" }}全部{{ else }}{{ index $strokeZh . }}{{ end }}</button>{{ end }}
     </div>
+    <div class="vx-filterbar vx-find-cats" data-axis="cat" id="vxFindCatBar" hidden>
+      <span class="vx-filterbar-label">③ 再細分</span>
+      <span class="vx-find-cat-chips" id="vxFindCatChips"></span>
+    </div>
     <div class="vx-find-search">
-      <span class="vx-filterbar-label">③ 或直接搜尋（跨全站）</span>
+      <span class="vx-filterbar-label">④ 或直接搜尋（跨全站）</span>
       <input class="vx-db-input" id="vxFindInput" type="search" autocomplete="off" placeholder="打字搜尋標題與內容……" aria-label="搜尋全站">
     </div>
   </div>
@@ -88,7 +93,7 @@
 
     {{/* ── 誤區（完整內容，這裡是它唯一的家） ── */}}
     {{ range $errs }}
-    <details class="vx-card vx-err vx-find-card" data-type="err" data-s="{{ .stroke }}" data-text="{{ lower (printf "%s %s %s" .title .misconception .correct_concept) }}">
+    <details class="vx-card vx-err vx-find-card" data-type="err" data-s="{{ .stroke }}" data-cat="{{ .category }}" data-catlabel="{{ index $errCatName .category }}" data-text="{{ lower (printf "%s %s %s" .title .misconception .correct_concept) }}">
       <summary><span class="vx-cardcat">誤區 · {{ index $strokeZh .stroke }} · {{ index $errCatName .category }}</span><span class="vx-cardtitle">{{ .title }}</span></summary>
       <div class="vx-card-body">
         {{ with .misconception }}<span class="vx-label">常見說法</span><p class="vx-mis">{{ . }}</p>{{ end }}
@@ -102,7 +107,7 @@
 
     {{/* ── 機制（完整內容） ── */}}
     {{ range $techs }}
-    <details class="vx-card vx-tech vx-find-card" data-type="tech" data-s="{{ .stroke }}" data-text="{{ lower (printf "%s %s" .title .summary) }}">
+    <details class="vx-card vx-tech vx-find-card" data-type="tech" data-s="{{ .stroke }}" data-cat="{{ .category }}" data-catlabel="{{ index $techCatName .category }}" data-text="{{ lower (printf "%s %s" .title .summary) }}">
       <summary><span class="vx-cardcat">機制 · {{ index $strokeZh .stroke }} · {{ index $techCatName .category }}</span><span class="vx-cardtitle">{{ .title }}</span></summary>
       <div class="vx-card-body">
         {{ with .summary }}<p>{{ . }}</p>{{ end }}
@@ -114,7 +119,7 @@
 
     {{/* ── L 指標（完整內容） ── */}}
     {{ range $inds }}
-    <details class="vx-card vx-tech vx-find-card" data-type="ind" data-s="{{ .stroke }}" data-text="{{ lower (printf "%s %s %s" .aspect .indicator .framework_state) }}">
+    <details class="vx-card vx-tech vx-find-card" data-type="ind" data-s="{{ .stroke }}" data-cat="{{ .level }}" data-catlabel="{{ .level }}" data-text="{{ lower (printf "%s %s %s" .aspect .indicator .framework_state) }}">
       <summary><span class="vx-cardcat">L 指標 · {{ index $strokeZh .stroke }} · {{ .level }}</span><span class="vx-cardtitle">{{ .aspect }}</span></summary>
       <div class="vx-card-body">
         {{ with .indicator }}<span class="vx-label">可觀察指標</span><p>{{ . }}</p>{{ end }}
@@ -127,7 +132,7 @@
     {{/* ── 技術動作（摘要 + 連到泳式頁） ── */}}
     {{ range $moves }}
     {{ $m := .m }}{{ $sk := .sk }}
-    <details class="vx-card vx-tech vx-find-card" data-type="move" data-s="{{ $sk }}" data-text="{{ lower (printf "%s %s %s" $m.name $m.one (plainify $m.physical)) }}">
+    <details class="vx-card vx-tech vx-find-card" data-type="move" data-s="{{ $sk }}" data-cat="{{ $m.l | default "其他" }}" data-catlabel="{{ $m.l | default "未標級" }}" data-text="{{ lower (printf "%s %s %s" $m.name $m.one (plainify $m.physical)) }}">
       <summary><span class="vx-cardcat">技術動作 · {{ index $strokeZh $sk }}{{ with $m.l }} · {{ . }}{{ end }}</span><span class="vx-cardtitle">{{ $m.name }} <span class="vx-card-en">{{ $m.one }}</span></span></summary>
       <div class="vx-card-body">
         {{ with $m.physical }}<p>{{ . | safeHTML }}</p>{{ end }}
@@ -138,7 +143,7 @@
 
     {{/* ── 水感階段（摘要 + 連到發展地圖） ── */}}
     {{ range $levels }}
-    <details class="vx-card vx-tech vx-find-card" data-type="level" data-s="{{ .stroke }}" data-text="{{ lower (printf "%s %s %s %s" .level .name_zh .tagline .description) }}">
+    <details class="vx-card vx-tech vx-find-card" data-type="level" data-s="{{ .stroke }}" data-cat="{{ .level }}" data-catlabel="{{ .level }}" data-text="{{ lower (printf "%s %s %s %s" .level .name_zh .tagline .description) }}">
       <summary><span class="vx-cardcat">水感階段 · {{ index $strokeZh .stroke }} · {{ .level }}</span><span class="vx-cardtitle">{{ .name_zh }} <span class="vx-card-en">{{ .tagline }}</span></span></summary>
       <div class="vx-card-body">
         {{ with .description }}<p>{{ . }}</p>{{ end }}
@@ -149,7 +154,7 @@
 
     {{/* ── 心理（摘要 + 連到心理層） ── */}}
     {{ range $themes }}
-    <details class="vx-card vx-tech vx-find-card" data-type="psych" data-s="common" data-text="{{ lower (printf "%s %s %s" .name_zh .when_zh .lead_zh) }}">
+    <details class="vx-card vx-tech vx-find-card" data-type="psych" data-s="common" data-cat="{{ .band | default "心理" }}" data-catlabel="{{ .band | default "心理" }}" data-text="{{ lower (printf "%s %s %s" .name_zh .when_zh .lead_zh) }}">
       <summary><span class="vx-cardcat">心理{{ with .band }} · {{ . }}{{ end }}{{ with .l_band }} · {{ . }}{{ end }}</span><span class="vx-cardtitle">{{ .name_zh }}{{ with .when_zh }} <span class="vx-card-en">{{ . }}</span>{{ end }}</span></summary>
       <div class="vx-card-body">
         {{ with .lead_zh }}<p>{{ . }}</p>{{ end }}
@@ -160,7 +165,7 @@
 
     {{/* ── 傷害（摘要 + 連到運動傷害） ── */}}
     {{ range $injuries }}
-    <details class="vx-card vx-tech vx-find-card" data-type="injury" data-s="common" data-text="{{ lower (printf "%s %s %s" .zh .en .mechanism.summary) }}">
+    <details class="vx-card vx-tech vx-find-card" data-type="injury" data-s="common" data-cat="{{ .category }}" data-catlabel="{{ index $injCatName .category | default .category }}" data-text="{{ lower (printf "%s %s %s" .zh .en .mechanism.summary) }}">
       <summary><span class="vx-cardcat">傷害{{ with .mechanism.trigger_phase }} · {{ . }}{{ end }}</span><span class="vx-cardtitle">{{ .zh }} <span class="vx-card-en">{{ .en }}</span></span></summary>
       <div class="vx-card-body">
         {{ with .mechanism.summary }}<p>{{ . }}</p>{{ end }}
@@ -174,7 +179,7 @@
     {{ range $breathKeys }}
     {{ $node := index $bt . }}
     {{ $body := index $node (index $breathBody .) }}
-    <details class="vx-card vx-tech vx-find-card" data-type="breath" data-s="common" data-text="{{ lower (printf "%s %s" (index $breathName .) $body) }}">
+    <details class="vx-card vx-tech vx-find-card" data-type="breath" data-s="common" data-cat="breath" data-catlabel="生理輔助" data-text="{{ lower (printf "%s %s" (index $breathName .) $body) }}">
       <summary><span class="vx-cardcat">呼吸 · 生理輔助軸{{ with $node.cert }} · {{ . }}{{ end }}</span><span class="vx-cardtitle">{{ index $breathName . }}</span></summary>
       <div class="vx-card-body">
         {{ with $body }}<p>{{ . }}</p>{{ end }}
@@ -186,7 +191,7 @@
     {{/* ── 發展：技術標準 + 發展矩陣（摘要 + 連到 ADM） ── */}}
     {{ range $stds }}
     {{ $tok := index (split .id ".") 1 }}
-    <details class="vx-card vx-tech vx-find-card" data-type="adm" data-s="{{ cond (in (slice "free" "back" "breast" "fly") $tok) $tok "common" }}" data-text="{{ lower (printf "%s %s" .title .framework) }}">
+    <details class="vx-card vx-tech vx-find-card" data-type="adm" data-s="{{ cond (in (slice "free" "back" "breast" "fly") $tok) $tok "common" }}" data-cat="std" data-catlabel="技術標準" data-text="{{ lower (printf "%s %s" .title .framework) }}">
       <summary><span class="vx-cardcat">發展 · 技術標準{{ with .applies_from }} · {{ . | upper }}{{ end }}</span><span class="vx-cardtitle">{{ .title }}</span></summary>
       <div class="vx-card-body">
         {{ with .framework }}<span class="vx-label">框架</span><p>{{ . }}</p>{{ end }}
@@ -196,7 +201,7 @@
     </details>
     {{ end }}
     {{ range $pillars }}
-    <details class="vx-card vx-tech vx-find-card" data-type="adm" data-s="common" data-text="{{ lower (printf "%s 發展矩陣 %s" .name (delimit (apply .stages "index" "." "summary") " ")) }}">
+    <details class="vx-card vx-tech vx-find-card" data-type="adm" data-s="common" data-cat="matrix" data-catlabel="發展矩陣" data-text="{{ lower (printf "%s 發展矩陣 %s" .name (delimit (apply .stages "index" "." "summary") " ")) }}">
       <summary><span class="vx-cardcat">發展 · 發展矩陣支柱</span><span class="vx-cardtitle">{{ .icon }} {{ .name }}</span></summary>
       <div class="vx-card-body">
         {{ range .stages }}<span class="vx-label">{{ .id | upper }}</span><p>{{ .summary }}</p>{{ end }}
@@ -209,7 +214,7 @@
     {{ range $framePages }}
     {{ $bn := .File.BaseFileName }}{{ $st := "common" }}
     {{ range $strokePrefixes }}{{ if hasPrefix $bn (index . 0) }}{{ $st = index . 1 }}{{ end }}{{ end }}
-    <details class="vx-card vx-tech vx-find-card" data-type="frame" data-s="{{ $st }}" data-text="{{ lower (printf "%s %s %s" .Title .Description (.Plain | truncate 1500 "")) }}">
+    <details class="vx-card vx-tech vx-find-card" data-type="frame" data-s="{{ $st }}" data-cat="frame" data-catlabel="水感框架" data-text="{{ lower (printf "%s %s %s" .Title .Description (.Plain | truncate 1500 "")) }}">
       <summary><span class="vx-cardcat">水感框架{{ if ne $st "common" }} · {{ index $strokeZh $st }}{{ end }}</span><span class="vx-cardtitle">{{ .Title }}</span></summary>
       <div class="vx-card-body">
         {{ with .Summary }}<p>{{ . | plainify }}</p>{{ end }}
@@ -222,7 +227,7 @@
     {{ range $bridgePages }}
     {{ $bn := .File.BaseFileName }}{{ $st := "common" }}
     {{ range $strokePrefixes }}{{ if hasPrefix $bn (index . 0) }}{{ $st = index . 1 }}{{ end }}{{ end }}
-    <details class="vx-card vx-tech vx-find-card" data-type="bridge" data-s="{{ $st }}" data-text="{{ lower (printf "%s %s %s" .Title .Description (.Plain | truncate 1500 "")) }}">
+    <details class="vx-card vx-tech vx-find-card" data-type="bridge" data-s="{{ $st }}" data-cat="bridge" data-catlabel="感知銜接" data-text="{{ lower (printf "%s %s %s" .Title .Description (.Plain | truncate 1500 "")) }}">
       <summary><span class="vx-cardcat">感知銜接{{ if ne $st "common" }} · {{ index $strokeZh $st }}{{ end }}</span><span class="vx-cardtitle">{{ .Title }}</span></summary>
       <div class="vx-card-body">
         {{ with .Summary }}<p>{{ . | plainify }}</p>{{ end }}
@@ -233,7 +238,7 @@
 
     {{/* ── 訓練週期化（單頁散文） ── */}}
     {{ with $periodPage }}
-    <details class="vx-card vx-tech vx-find-card" data-type="period" data-s="common" data-text="{{ lower (printf "%s 訓練週期化 %s %s" .Title .Description (.Plain | truncate 1500 "")) }}">
+    <details class="vx-card vx-tech vx-find-card" data-type="period" data-s="common" data-cat="period" data-catlabel="訓練週期" data-text="{{ lower (printf "%s 訓練週期化 %s %s" .Title .Description (.Plain | truncate 1500 "")) }}">
       <summary><span class="vx-cardcat">訓練週期</span><span class="vx-cardtitle">{{ .Title }}</span></summary>
       <div class="vx-card-body">
         {{ with .Summary }}<p>{{ . | plainify }}</p>{{ end }}
@@ -246,7 +251,7 @@
     {{ range $sourcePages }}
     {{ $bn := .File.BaseFileName }}{{ $st := "common" }}
     {{ range $strokePrefixes }}{{ if hasPrefix $bn (index . 0) }}{{ $st = index . 1 }}{{ end }}{{ end }}
-    <details class="vx-card vx-tech vx-find-card" data-type="source" data-s="{{ $st }}" data-text="{{ lower (printf "%s %s %s" .Title .Description (.Plain | truncate 1500 "")) }}">
+    <details class="vx-card vx-tech vx-find-card" data-type="source" data-s="{{ $st }}" data-cat="source" data-catlabel="教學原文" data-text="{{ lower (printf "%s %s %s" .Title .Description (.Plain | truncate 1500 "")) }}">
       <summary><span class="vx-cardcat">教學原文 · 供查證{{ if ne $st "common" }} · {{ index $strokeZh $st }}{{ end }}</span><span class="vx-cardtitle">{{ .Title }}</span></summary>
       <div class="vx-card-body">
         {{ with .Summary }}<p>{{ . | plainify }}</p>{{ end }}
