@@ -210,7 +210,33 @@ energy_systems_primer:
     recovery_zh: 🟡 它同時是『運動後恢復系統』——清乳酸、補 PCr 都靠它
     swim_events_zh: 200m 以上漸增主導，400/800/1500 為主力
     training_direction_zh: 🔵 LSD、節奏游、有氧間歇、閾值（見 liee_methods）；對應 Maglischo En1/En2/En3。即使衝刺選手大部分量仍在此系統（swim_tid sprinter_note）
-  protocol_pending_zh: 🔴 待補（m3 派工蒐集）：各系統具體可訓練協議的文獻數字——磷酸原（衝刺距離/休息比/組數）、糖酵解（乳酸生成 vs 耐受組的配速與恢復結構）、有氧（各 Maglischo 區的量與配速）——需附 PMID/期刊溯源後才寫入，現僅給質性訓練方向。
+  training_protocols:
+  - system: phosphagen
+    name_zh: 磷酸原（速度/功率）
+    protocol_zh: 🟠 極短最大努力 6–15 秒、休 90–120 秒（補 PCr）、5–10 reps。範例：6×15m 全力、組間休 90s。重點是每趟接近全速，休息要足以恢復功率，不是練到累。
+    cert: 🟠
+    source: 教練共識（getphysical / strengthmatters alactic power intervals）；與 PCr 再合成動力學一致（90–120s 部分恢復、3–5min 大致完全，見上 recovery_zh）
+  - system: glycolytic_production
+    name_zh: 糖酵解—乳酸生成（lactate production）
+    protocol_zh: 🟠 短距離 25–50m 最大努力 + 長休（讓乳酸部分清除以維持每趟全速），單次課前段量約 300–500m；須從跳台全速、不配速（確保最大刺激無氧糖解）。目的是『把乳酸推上去』。
+    cert: 🟠
+    source: British Swimming《A Guide to Anaerobic Training—Lactate Production》(© British Swimming 2006, Revised 2020)
+  - system: glycolytic_tolerance
+    name_zh: 糖酵解—乳酸耐受（lactate tolerance）
+    protocol_zh: 🟠 距離 35–100m（50m 最常用最實用）、組間給足恢復以全程維持專項配速；強度高，完全恢復需 ≥48 小時，通常每週一組即可。目的是『在高乳酸下還能維持速度』。
+    cert: 🟠
+    source: British Swimming《A Guide to Anaerobic Training—Lactate Tolerance》(© British Swimming 2006, Revised 2020)
+  - system: glycolytic_measured
+    name_zh: 糖酵解—實測血乳酸（佐證）
+    protocol_zh: 🟢 衝刺間歇組 4×50 / 6×50 / 8×50m 自由式（不同恢復）可誘發血乳酸 12–18 mmol/L——印證這類組確實打在糖酵解系統。
+    cert: 🟢
+    source: PMC8607769（Sprint Interval Swim Training Set 與 100m 自由式關聯，血乳酸+運動學）；另見 PMC10747448（訓練組順序對乳酸反應）
+  - system: oxidative
+    name_zh: 有氧（交叉引用既有節點）
+    protocol_zh: 🔵 有氧各區的量與配速不另立——直接用 liee_methods（主動恢復/LSD/節奏/有氧間歇）與 swim_maglischo（En1/En2/En3）。
+    cert: 🔵
+    source: 本檔 liee_methods（Bompa Ch11 Table 11.1）+ swim_maglischo（Maglischo 2012）
+  protocol_caveat_zh: 🔴 等級限制：上述磷酸原與糖酵解協議多為**教練指南／共識層（🟠）**，非 RCT 驗證的最適處方——具體距離/休息/量是現場慣用值不是實驗最佳化結果。引用時講方向與量級即可，別當精確定論；RCT 級協議比較仍是研究空白。
   plain_zh: 身體有三套供能系統，差別在『撐多久、靠什麼、怎麼累』：① 磷酸原（ATP-PCr）——前 10 秒的爆發力來源，用肌肉裡現成的能量，不產乳酸，但很快用完，休 3–5 分鐘才回補；對應 25m 衝刺、出發轉身。② 糖酵解——10 秒到 2 分鐘的主力，燒肝糖但會堆乳酸讓你發酸撐不住；對應 100、200。③ 有氧——2 分鐘以上越來越主導，燒糖和脂肪、可持續，還負責你運動後的恢復；對應 400 以上。三套不是開關切換，而是隨時都在跑、只是誰當主角。怎麼練：磷酸原用超短衝刺＋長休，糖酵解用 30 秒–2 分鐘的硬組＋不完全休息，有氧用長慢游和節奏游。注意：連衝刺選手大部分訓練量也還是在有氧系統。
   links:
     development_stages:
