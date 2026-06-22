@@ -65,7 +65,7 @@
           </button>
           <button class="vx-path-item" type="button" data-target="zones">
             <span class="n">4</span>
-            <span><span class="t">能量系統與強度分區</span><span class="o">Bompa 六分區 · 極化派 · Olbrecht · 游泳分區 · 各距離供能 · TID</span></span>
+            <span><span class="t">能量系統與強度分區</span><span class="o">三大能量系統運作 · Bompa 六分區 · 極化派 · Olbrecht · 游泳分區 · 各距離供能 · TID</span></span>
           </button>
         </div>
         <p class="vx-legend">確定性：🔵 推導／作者綜合 · 🟢 近期文獻 · 🟡 舊文獻（週期化基礎理論） · 🟠 教練觀測 · 🔴 待查／未驗證假設。本頁為公開週期化理論，描述年度計畫結構與處方原則，不含感知診斷內容。所有數字溯源至 Bompa 原文章節／表格或外部文獻（PMID／DOI）並標確定性；多派立場與作者綜合明確分層標示。</p>
@@ -558,6 +558,59 @@
 
         <div class="vx-ladder">
 
+          {{/* 三大能量系統運作入門 */}}
+          {{ with $zn.energy_systems_primer }}
+          <details class="vx-level" open>
+            <summary>
+              <span class="lv">能</span>
+              <span>
+                <span class="lvname">三大能量系統運作入門 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">磷酸原（爆發）／糖酵解（乳酸）／有氧（持續）：各撐多久、靠什麼、怎麼練</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-warn">{{ .caveat_zh }}</p>
+              <table class="vx-pz-table">
+                <thead><tr><th>系統</th><th>主導時長</th><th>燃料</th><th>限制因子</th><th>恢復</th><th>主導距離</th></tr></thead>
+                <tbody>
+                {{ range .systems }}
+                  <tr>
+                    <td><strong>{{ .name_zh }}</strong></td>
+                    <td>{{ .dominant_window_zh }}</td>
+                    <td>{{ .fuel_zh }}</td>
+                    <td>{{ .limiter_zh }}</td>
+                    <td>{{ .recovery_zh }}</td>
+                    <td>{{ .swim_events_zh }}</td>
+                  </tr>
+                {{ end }}
+                </tbody>
+              </table>
+              <p class="vx-pz-meta">訓練方向（各系統怎麼練）：</p>
+              <ul class="vx-pz-sub">
+              {{ range .systems }}
+                <li><strong>{{ .name_zh }}</strong><br><span class="vx-pz-focus">{{ .training_direction_zh }}</span></li>
+              {{ end }}
+              </ul>
+              <p class="vx-pz-meta">具體可訓練協議（誠實標層級——多為教練指南層 🟠，非 RCT 最適化）：</p>
+              <table class="vx-pz-table">
+                <thead><tr><th>系統</th><th>協議</th><th>來源</th></tr></thead>
+                <tbody>
+                {{ range .training_protocols }}
+                  <tr>
+                    <td><strong>{{ .name_zh }}</strong> <span class="vx-cert">{{ .cert }}</span></td>
+                    <td>{{ .protocol_zh }}</td>
+                    <td><span class="vx-pz-en">{{ .source }}</span></td>
+                  </tr>
+                {{ end }}
+                </tbody>
+              </table>
+              <p class="vx-pz-warn">{{ .protocol_caveat_zh }}</p>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+              <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
+            </div>
+          </details>
+          {{ end }}
+
           {{/* Bompa 六分區 */}}
           <details class="vx-level">
             <summary>
@@ -800,8 +853,15 @@
                 <li><strong>{{ .name_zh }}</strong>{{ with .note_zh }} · <span class="vx-pz-focus">{{ . }}</span>{{ end }}</li>
               {{ end }}
               </ul>
+              {{ with .pyramidal_majority_zh }}<p class="vx-pz-meta">{{ . }}</p>{{ end }}
+              <div class="vx-pz-swim">
+                <span class="vx-pz-swim-h">🟢 依距離分流（González-Ravé 2021）</span>
+                {{ with .distance_split_zh }}<p>{{ . }}</p>{{ end }}
+                {{ with .distance_split_caveat_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+              </div>
               <p class="vx-pz-meta">{{ .sprinter_note_zh }}</p>
               {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+              <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
             </div>
           </details>
           {{ end }}
