@@ -180,6 +180,43 @@ swim_zones_three:
     development_stages:
     - t2c
     - t2w
+energy_systems_primer:
+  id: periodization.zones.energy_systems_primer
+  cert: 🟡
+  source: 公認運動生理學（磷酸原/糖酵解/氧化三系統時程為教科書級共識，如 Bompa Ch5/Ch11、McArdle Exercise Physiology）；游泳項目對映見 swim_energy_by_distance 來源（Toussaint & Hollander 1994 / Rodríguez & Mader 2011）
+  caveat_zh: 🔵 三系統並非開關切換而是連續重疊——任一時刻三者都在供能，差別只在『誰主導』。下列時長為主導窗口的教科書級近似，個體與項目會浮動，不可當精確門檻。
+  systems:
+  - key: phosphagen
+    name_zh: 磷酸原系統（ATP-PCr，無乳酸/alactic）
+    dominant_window_zh: 🟡 約 0–10 秒（最大功率前 6–10 秒）
+    fuel_zh: 肌肉內既存 ATP + 磷酸肌酸（PCr）儲備
+    limiter_zh: 🟡 不產乳酸；受 PCr 儲量限制，耗竭即功率下降
+    recovery_zh: 🟡 PCr 再合成快，約 3–5 分鐘大致回補（靠有氧系統供能完成）
+    swim_events_zh: 25m 全力、出發/轉身爆發、50m 前段加速
+    training_direction_zh: 🔵 極短（≤10–15 秒）最大努力 + 接近完全的長休（高 W:R 比），對應 Maglischo SP（衝刺/功率）類；目的是練速度與爆發力，不是練乳酸耐受。精確組數/休息比協議 🔴 待補（見下 protocol_pending）
+  - key: glycolytic
+    name_zh: 糖酵解系統（無氧糖解，乳酸/lactic）
+    dominant_window_zh: 🟡 約 10 秒–2 分鐘（高峰約 30 秒–1 分鐘）
+    fuel_zh: 肌糖原無氧分解
+    limiter_zh: 🟡 乳酸與 H⁺ 堆積造成肌肉酸化 → 疲勞；這是『撐不住』的主因
+    recovery_zh: 🟡 慢，乳酸清除需數十分鐘，靠有氧系統代謝
+    swim_events_zh: 50m 後段、100m、200m 的無氧部分
+    training_direction_zh: 🔵 30 秒–2 分鐘高強度 + 不完全恢復（乳酸生成組/乳酸耐受組）。研究層另有 VHL/RSH-VHL 低通氣路線專練此系統（見 research/週期化/低通氣訓練_VHL_RSH.md，屬進階、有樣本限制）。精確協議 🔴 待補
+  - key: oxidative
+    name_zh: 氧化系統（有氧/aerobic）
+    dominant_window_zh: 🟡 約 2 分鐘以上起主導，項目越長越主導
+    fuel_zh: 糖 + 脂肪在粒線體內有氧氧化
+    limiter_zh: 🟡 副產物為 CO₂ + H₂O，可持續排除；限制在供氧與基質而非酸化
+    recovery_zh: 🟡 它同時是『運動後恢復系統』——清乳酸、補 PCr 都靠它
+    swim_events_zh: 200m 以上漸增主導，400/800/1500 為主力
+    training_direction_zh: 🔵 LSD、節奏游、有氧間歇、閾值（見 liee_methods）；對應 Maglischo En1/En2/En3。即使衝刺選手大部分量仍在此系統（swim_tid sprinter_note）
+  protocol_pending_zh: 🔴 待補（m3 派工蒐集）：各系統具體可訓練協議的文獻數字——磷酸原（衝刺距離/休息比/組數）、糖酵解（乳酸生成 vs 耐受組的配速與恢復結構）、有氧（各 Maglischo 區的量與配速）——需附 PMID/期刊溯源後才寫入，現僅給質性訓練方向。
+  plain_zh: 身體有三套供能系統，差別在『撐多久、靠什麼、怎麼累』：① 磷酸原（ATP-PCr）——前 10 秒的爆發力來源，用肌肉裡現成的能量，不產乳酸，但很快用完，休 3–5 分鐘才回補；對應 25m 衝刺、出發轉身。② 糖酵解——10 秒到 2 分鐘的主力，燒肝糖但會堆乳酸讓你發酸撐不住；對應 100、200。③ 有氧——2 分鐘以上越來越主導，燒糖和脂肪、可持續，還負責你運動後的恢復；對應 400 以上。三套不是開關切換，而是隨時都在跑、只是誰當主角。怎麼練：磷酸原用超短衝刺＋長休，糖酵解用 30 秒–2 分鐘的硬組＋不完全休息，有氧用長慢游和節奏游。注意：連衝刺選手大部分訓練量也還是在有氧系統。
+  links:
+    development_stages:
+    - t2t
+    - t2c
+    - t2w
 swim_energy_by_distance:
   id: periodization.zones.swim_energy_by_distance
   cert: 🟢
@@ -218,7 +255,7 @@ swim_energy_by_distance:
 swim_tid:
   id: periodization.zones.swim_tid
   cert: 🟢
-  source: Papadimitriou et al. 2025 (Eur J Appl Physiol, DOI 10.1007/s00421-025-06064-x，全文); Barbosa et al. 2019（衝刺者）
+  source: González-Ravé et al. 2021 (IJSPP 16(7):913–926, PMID 33952709, 系統回顧 9 篇入選/162 筆 TID); Papadimitriou et al. 2025 (Eur J Appl Physiol, DOI 10.1007/s00421-025-06064-x，全文); Barbosa et al. 2019（衝刺者）
   archetypes:
   - key: polarized
     name_zh: 極化型
@@ -229,8 +266,11 @@ swim_tid:
   - key: threshold
     name_zh: 閾值型
     note_zh: Z2 比重相對偏高
+  pyramidal_majority_zh: 🟢 González-Ravé 2021 系統回顧的 162 筆 TID 資料中：金字塔型 89 筆（多數）、極化型 65 筆、閾值型 8 筆——游泳實證裡金字塔型其實比極化型更常見，不該把『80/20 極化』當游泳鐵律。
+  distance_split_zh: 🟢 TID 型態依主項距離分流（González-Ravé 2021 核心結論）：短距離（50–100m，sprint）偏『極化 + 閾值』；中距離（200–400m）偏『閾值 + 金字塔』；長距離（400m+，distance）偏『金字塔』。
+  distance_split_caveat_zh: 🔵 證據等級限制：依距離分流為『觀察歸納』而非『實驗驗證』——SR 9 篇入選研究中僅 3 篇為 1b 介入研究、6 篇為 2b 觀察研究。型態描述可信（🟢），但『某距離就該用某型態』的處方性推論仍缺 RCT 支撐。
   sprinter_note_zh: 衝刺項目選手仍約 87–90% 訓練量落在 Z1（Barbosa et al. 2019）——即使是短距離，大部分量還是低強度有氧
-  plain_zh: TID＝整個週期裡輕鬆/閾值/吃力三種強度各占多少。主要有三種分布：極化型（大量輕鬆＋少量超吃力、中間幾乎不練）、金字塔型（由下往上遞減）、閾值型（中間那塊偏多）。一個反直覺的事實：連衝刺選手都有約 87–90% 的量是低強度有氧——不是整天衝。
+  plain_zh: TID＝整個週期裡輕鬆/閾值/吃力三種強度各占多少。主要有三種分布：極化型（大量輕鬆＋少量超吃力、中間幾乎不練）、金字塔型（由下往上遞減）、閾值型（中間那塊偏多）。游泳實證裡『金字塔型』其實比『極化型』更常見（González-Ravé 2021 的 162 筆資料：金字塔 89、極化 65、閾值 8），而且型態會看主項距離變：短距離偏極化、中距離偏閾值/金字塔、長距離偏金字塔。但這是觀察歸納不是 RCT 驗證，別當成『某距離一定要某型態』的鐵律。一個反直覺的事實：連衝刺選手都有約 87–90% 的量是低強度有氧——不是整天衝。
   links:
     development_stages:
     - t2c
@@ -253,7 +293,7 @@ swim_application:
 school_polarized:
   id: periodization.zones.school_polarized
   cert: 🟢
-  source: Seiler & Kjerland 2006 (PMID 16430681); Seiler 2010 (IJSPP 5(3):276–291); Stöggl & Sperlich 2014 (PMC3912323); Crowley et al. 2021 (PMID 33952709)
+  source: Seiler & Kjerland 2006 (PMID 16430681); Seiler 2010 (IJSPP 5(3):276–291); Stöggl & Sperlich 2014 (PMC3912323); González-Ravé et al. 2021 (PMID 33952709, IJSPP 16(7):913–926)
   three_zone_basis_zh: 🟢 以通氣閾值 VT1/VT2 劃三區（對應 swim_three_zone 的乳酸三區，但邊界稍浮動不可當精確定論）：Z1 < VT1（≤~2 mmol，可全程對話）；Z2 VT1–VT2（~2–4 mmol，閾值附近）；Z3 > VT2（>4 mmol，間歇強度）。
   distribution:
   - key: polarized
@@ -279,9 +319,9 @@ school_polarized:
   avoid_middle_zh: 🔵 為何主張少練 Z2：(1) 應激-回報比差——夠高產生疲勞與乳酸，又不夠高激發 Z3 的強適應信號；(2) 慢性 Z2 疲勞壓縮練 Z3 的空間；(3) 閾值配速難精確維持、易漂進灰色地帶。注意：這是批評『以 Z2 為主力』的閾值模型，不否定 Z2 在特定場景（taper 前節奏、特定賽事）的角色。
   evidence_zh: 🟢 Stöggl & Sperlich 2014（唯一 RCT，48 名訓練有素者、9 週、四組）：POL 組 VO2peak +11.7%、力竭時間 +17.4%，皆優於高量低強度／閾值／HIIT 三組。限制：僅單一 RCT、9 週偏短、非頂級菁英。
   causation_caveat_zh: 🔵 歸因爭議：菁英自然趨向極化，可能是『能承受高量後才能這樣練』（果），而非『這樣練才成菁英』（因）——觀察研究無法定因果方向。
-  swim_caveat_zh: 🟢 游泳實證挑戰極化教條：Crowley 2021（PMID 33952709，9 研究 162 筆 TID）中金字塔型 89 例（多數）、極化型 65 例、閾值型 8 例——游泳金字塔型其實比極化型更常見。即便衝刺選手（Barbosa 2019）仍約 87–90% 量在 Z1，但型態更接近極化（Z3 比例高、Z2 壓縮）。長距離（400m+）偏金字塔、短距離偏極化；目前無單一型態可宣稱『所有泳者最佳』。
+  swim_caveat_zh: 🟢 游泳實證挑戰極化教條：González-Ravé 2021（PMID 33952709，9 研究 162 筆 TID）中金字塔型 89 例（多數）、極化型 65 例、閾值型 8 例——游泳金字塔型其實比極化型更常見。即便衝刺選手（Barbosa 2019）仍約 87–90% 量在 Z1，但型態更接近極化（Z3 比例高、Z2 壓縮）。長距離（400m+）偏金字塔、短距離偏極化；目前無單一型態可宣稱『所有泳者最佳』。
   author_note_zh: 🔵 作者取用：值得吸收的是『大部分量該是輕鬆的、慎用中間閾值區』這個方向性原則（它也呼應 Hellard 2019 菁英游泳 86–90% 量在 ≤4mmol）；但別把『80/20 極化』當游泳鐵律——游泳金字塔型更常見，依距離與個體調整。
-  plain_zh: 極化派（Seiler）問的不是『每區強度多少』而是『每區各占幾成』。他觀察菁英耐力選手，發現他們自然形成『大量輕鬆＋少量超吃力、中間幾乎不練』的分布——大約 80% 低強度、20% 高強度（這個 80/20 算的是課次，不是時間）。為什麼避開中間（閾值）區？因為那強度『高不成低不就』：累積疲勞不少，但刺激又不如真正的高強度。唯一的 RCT（Stöggl 2014）支持極化最有效。但游泳要特別注意：游泳實證裡其實『金字塔型』比『極化型』更常見（Crowley 2021），所以別把 80/20 當鐵律——長距離偏金字塔、短距離偏極化，看項目和個人調整。
+  plain_zh: 極化派（Seiler）問的不是『每區強度多少』而是『每區各占幾成』。他觀察菁英耐力選手，發現他們自然形成『大量輕鬆＋少量超吃力、中間幾乎不練』的分布——大約 80% 低強度、20% 高強度（這個 80/20 算的是課次，不是時間）。為什麼避開中間（閾值）區？因為那強度『高不成低不就』：累積疲勞不少，但刺激又不如真正的高強度。唯一的 RCT（Stöggl 2014）支持極化最有效。但游泳要特別注意：游泳實證裡其實『金字塔型』比『極化型』更常見（González-Ravé 2021），所以別把 80/20 當鐵律——長距離偏金字塔、短距離偏極化，看項目和個人調整。
   links:
     development_stages:
     - t2c

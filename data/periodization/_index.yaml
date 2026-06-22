@@ -166,7 +166,7 @@ zones:
 - id: periodization.zones.school_polarized
   file: zones.yaml
   name_zh: 極化分布（Seiler/TID）
-  gist_zh: 問每區占幾成：80/20 極化、避中間 Z2；但游泳金字塔型更常見（Crowley 2021）
+  gist_zh: 問每區占幾成：80/20 極化、避中間 Z2；但游泳金字塔型更常見（González-Ravé 2021）
   stages:
   - t2c
   - t2w
@@ -181,6 +181,14 @@ zones:
   file: zones.yaml
   name_zh: Bompa 六分區
   gist_zh: 用最大表現百分比分 6 區；賽配速=zone 2，每週≥50% 落賽配速
+  stages:
+  - t2t
+  - t2c
+  - t2w
+- id: periodization.zones.energy_systems_primer
+  file: zones.yaml
+  name_zh: 三大能量系統運作入門
+  gist_zh: 磷酸原(0–10s爆發)/糖酵解(10s–2min乳酸)/有氧(2min+持續)三系統的運作、主導距離與訓練方向；三者連續重疊非開關
   stages:
   - t2t
   - t2c
@@ -234,7 +242,7 @@ zones:
 - id: periodization.zones.swim_tid
   file: zones.yaml
   name_zh: 訓練強度分布 TID
-  gist_zh: 極化/金字塔/閾值三型；連衝刺者也 87–90% 量在 Z1
+  gist_zh: 極化/金字塔/閾值三型；游泳金字塔最常見(162筆89);依距離分流短=極化長=金字塔;連衝刺者也87–90%量在Z1
   stages:
   - t2c
   - t2w
