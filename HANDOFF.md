@@ -1,5 +1,11 @@
 # HANDOFF — my-site (Cortex)
 
+## 目前狀態（2026-06-23）
+
+**全站健康檢查補強內容上站（2026-06-23）**：承健康檢查報告（`research/site-health-check-2026-06-23.md`）抓出的三真缺口，全在 TheVortexProject canonical 補完後 sync 進來：① 背式 teaching-errors 5→9（補 err6–9，**刻意停在 9 不灌到 14**，收錄標準把關）；② udk / starts-turns drills 各 0→5（`tools/sync_vortex.py` 的 `DRILL_STROKES` 加 `udk`/`starts-turns`，`layouts/vortex/vortex-drills.html` 補 `$drillCatName` 的「出發轉身」）；③ Ward 引用全式補 2018（資料層 + 2 散文 md 共 5 處，散文走 LAYERS sync）。**sync 結果**：drills 129→139、back errors 5→9、Ward 2018 散文層同步。**驗收**：`python tools/sync_vortex.py` CHANGED 2 → `hugo --quiet` exit 0 → grep `public/vortex/drills/`：10 新 drill 渲染、「出發轉身」chip 在、**零診斷層洩漏**（abc_type/success/failure/deficiency 全剝離）；`public/vortex/backstroke/` err6–9 標題渲染、結構 `diagnostic.type` 已剝。報告 §5 補 M3 第 3 輪內容覆審採納/駁回 ledger（C1 Ward 全集=真 gap 已補；A2 候選/B1 drills 經查證/WebSearch 證偽）。**未做瀏覽器視覺測**（環境無確認瀏覽器），僅 build-output 驗證。
+
+> ↓ 更早
+
 ## 目前狀態（2026-06-22 · 深夜）
 
 **找練習／查資料拆兩頁 + 查資料改全站撈取 + 左欄重排（2026-06-22）**：站主先指出「找資料跟找練習看起來一樣」——病根是兩入口都落在 `database` 一頁的不同段（先試加 `#vxLookup` 錨點分流仍被打回，因同一頁捲一下就看到另一段＝本質還是一頁）。**最終解＝拆成兩個獨立頁**：

@@ -2979,3 +2979,229 @@ drills:
   failure_signal: 完全感覺不到用力點；頸部緊繃
   deficiency_fixes: []
   source: There's a Drill for That
+- id: UDK1
+  name_en: Vertical Kicking
+  name_zh: 垂直打水
+  strokes:
+  - underwater_dolphin_kick
+  category: kick
+  equipment: []
+  l_target:
+  - L2
+  - L3
+  abc_type: B
+  purpose_zh: 直立姿態隔離海豚腳，拿掉浮力這個拐杖，逼出雙向（前後）都要主動推水的打水。
+  how_to:
+  - 在深水區直立，雙手抱胸或舉高，靠海豚腳把頭維持在水面或水面附近
+  - 波動由核心（胸-髖）發起，往下傳到大腿、小腿、腳背，前後兩個方向都主動壓水
+  - 10–20 秒一組，組間充分休息；進階可雙手出水增加負荷
+  perception_goal: 感覺水被腳背往兩個方向推，核心像鞭柄、腳背像鞭梢；不是只有膝蓋在踩。
+  success_signal: 頭能穩定維持在水面附近，前後兩個踢向都感覺到水壓。
+  failure_signal: 身體下沉、只靠膝蓋猛踩、單向（只有下踢）有力。
+  deficiency_fixes:
+  - B
+  source: yourswimlog.com（vertical kicking）；U.S. Masters Swimming Underwater Kick guide
+- id: UDK2
+  name_en: Streamline Kick — Orientation Switch
+  name_zh: 流線打水換面（仰／側／俯）
+  strokes:
+  - underwater_dolphin_kick
+  category: kick
+  equipment:
+  - fins
+  l_target:
+  - L4
+  - L5
+  abc_type: B
+  purpose_zh: 在同一趟內輪流以仰、側、俯三個身體面打水，檢查波動是否依賴特定身體朝向。
+  how_to:
+  - 蹬牆成流線，水下打 4–6 下仰躺打水 → 轉成側身打 4–6 下 → 再轉俯臥打 4–6 下
+  - 保持手臂緊鎖流線、波動幅度一致，只換身體朝向不換節律
+  - 全程在水下、頭在身體線內，浮起前完成換面
+  perception_goal: 三個朝向的腳背推水感一致；波動由核心發起，不因翻面而散掉。
+  success_signal: 換面後仍維持推進與緊湊流線，速度不明顯掉。
+  failure_signal: 某個朝向（常是俯臥）波動變小或膝蓋代償；換面時流線鬆掉。
+  deficiency_fixes:
+  - B
+  - C
+  source: Competitor Swim UDK drills；swimswam UDK sets
+- id: UDK3
+  name_en: Tethered Max Dolphin Kick
+  name_zh: 繫繩最大努力海豚腳
+  strokes:
+  - underwater_dolphin_kick
+  category: kick
+  equipment:
+  - tubing
+  l_target:
+  - L4
+  - L5
+  abc_type: B
+  purpose_zh: 用短彈力繩製造阻力，做最大努力打水，發展打水的力量與相位。
+  how_to:
+  - 腰繫短彈力繩固定於牆，俯臥或側身水下打水
+  - 4×5 秒最大努力，每組間完全休息（約 60 秒）
+  - 每週 2–3 次；專注維持核心發起的完整波動，不為了用力而變成踩水
+  perception_goal: 阻力下仍能感覺核心→腳背的完整波動傳遞，而非膝蓋孤立發力。
+  success_signal: 繩阻力下身體仍前移、波動完整。
+  failure_signal: 波動塌成純膝蓋踩、髖部不參與。
+  deficiency_fixes:
+  - B
+  source: yourswimlog.com（4×5 tethered, ~60s rest, 2–3×/週）
+- id: UDK4
+  name_en: Tempo Trainer Kick to Cone
+  name_zh: 節拍器找個人打水頻率
+  strokes:
+  - underwater_dolphin_kick
+  category: kick
+  equipment:
+  - tempo_trainer
+  l_target:
+  - L4
+  - L5
+  abc_type: B
+  purpose_zh: 用節拍器測試不同打水頻率，找出能最快游到固定距離的個人最佳頻率（非套用統一數字）。
+  how_to:
+  - 池底放一個標記（如 15 公尺處），節拍器設不同節奏
+  - 每個頻率水下打到標記，教練計時，比較哪個頻率最快
+  - 高頻不一定快——找的是個人「頻率×幅度」最佳組合
+  perception_goal: 在最佳頻率時，每一下都感覺腳背確實壓到水，波動不被頻率追著跑而變淺。
+  success_signal: 找到一個明顯比其他頻率快的個人節奏。
+  failure_signal: 一味追高頻率使幅度塌掉、推進反而變差。
+  deficiency_fixes:
+  - B
+  source: yourswimlog.com（tempo trainer + cone 15m 找最佳頻率）
+- id: UDK5
+  name_en: Race-Tempo Underwater Off the Wall
+  name_zh: 比賽配速水下打水
+  strokes:
+  - underwater_dolphin_kick
+  category: kick
+  equipment: []
+  l_target:
+  - L5
+  - L6
+  abc_type: B
+  purpose_zh: 把水下打水放回比賽情境：蹬牆後以比賽強度打到旗標再接出水，整合速度與時序。
+  how_to:
+  - 蹬牆成流線，以比賽強度水下打水到 10–15 公尺（依規則上限內）
+  - 在接近最高速時乾淨地接第一次划手（breakout），不讓速度先掉
+  - 多數水下打水量以較高強度進行；組間充分恢復維持品質
+  perception_goal: 高強度下仍維持核心發起的波動與緊湊流線；breakout 時機在速度尚高時。
+  success_signal: 出水接划手沒有明顯減速、波動到最後一下仍完整。
+  failure_signal: 後段波動塌掉、太晚或太早出水、breakout 卡頓。
+  deficiency_fixes:
+  - B
+  - C
+  source: yourswimlog.com（race-tempo underwater）；swimswam UDK sets
+- id: ST1
+  name_en: Mid-Pool Somersault
+  name_zh: 中池翻滾
+  strokes:
+  - starts_turns
+  category: turn
+  equipment: []
+  l_target:
+  - L1
+  - L2
+  abc_type: C
+  purpose_zh: 離開牆面練翻滾本身，先建立「直線翻過去、不歪斜」的身體定向，再帶到牆邊。
+  how_to:
+  - 在池中央俯臥漂浮，雙手放大腿
+  - 打一下緊湊海豚腳、同時把頭往膝蓋帶，腿用力翻過去；手掌前臂從大腿掃到肩膀
+  - 翻完檢查身體是否正對原方向（沒有左右歪）
+  perception_goal: 翻滾是一個緊湊的團身，軸線維持在矢狀面，翻完仍朝原方向。
+  success_signal: 能在原地直線翻過去，不向側邊偏。
+  failure_signal: 翻滾鬆散、身體歪向一側、翻完方向跑掉。
+  deficiency_fixes:
+  - C
+  source: U.S. Masters Swimming Faster Flip Turns；EatSleepSwimCoach mid-pool progression
+- id: ST2
+  name_en: Wall Flip + Foot Plant
+  name_zh: 翻牆踩牆（腳尖朝上）
+  strokes:
+  - starts_turns
+  category: turn
+  equipment: []
+  l_target:
+  - L2
+  - L3
+  abc_type: C
+  purpose_zh: 把中池翻滾帶到牆邊，只練「翻過去、雙腳穩穩踩上牆、腳尖朝正上方」這一段。
+  how_to:
+  - 游近牆，翻滾後把雙腳平貼牆面，腳尖指向正上方（確保翻得正、準備仰躺出去）
+  - 先不蹬出，只確認踩牆位置與身體朝向正確
+  - 穩定後再延伸成蹬牆成仰躺流線
+  perception_goal: 雙腳同時、對稱地踩到牆，腳尖朝上代表翻轉軸線正確。
+  success_signal: 雙腳穩踩牆、腳尖朝上、身體準備好仰躺蹬出。
+  failure_signal: 單腳先到、踩牆位置太高或太低、身體歪斜。
+  deficiency_fixes:
+  - C
+  source: U.S. Masters Swimming Faster Flip Turns（wall progression）
+- id: ST3
+  name_en: Streamline Push-Off Distance
+  name_zh: 蹬牆流線測距
+  strokes:
+  - starts_turns
+  category: turn
+  equipment: []
+  l_target:
+  - L2
+  - L3
+  abc_type: C
+  purpose_zh: 練蹬牆瞬間把身體鎖成最緊、最窄的流線，用「滑多遠」當客觀回饋。
+  how_to:
+  - 蹬牆成流線（雙手交疊鎖住、夾耳、全身拉長），不打水純滑行
+  - 看自己能滑到哪（如旗標、某條池底線），記住距離
+  - 重複，嘗試讓身體更窄更緊以滑更遠
+  perception_goal: 蹬離牆瞬間全身像一支箭，水從身體兩側乾淨滑過，沒有任何鼓出的阻力面。
+  success_signal: 同樣力道下滑行距離增加、感覺水阻變小。
+  failure_signal: 頭抬起、手沒鎖緊、身體鬆開，很快就停。
+  deficiency_fixes:
+  - C
+  source: U.S. Masters Swimming Turns guides（tight streamline push-off）
+- id: ST4
+  name_en: Backstroke Flag Stroke-Count
+  name_zh: 仰式旗下數划手
+  strokes:
+  - starts_turns
+  category: turn
+  equipment:
+  - fins
+  l_target:
+  - L3
+  - L4
+  abc_type: C
+  purpose_zh: 仰式看不到牆，用旗標（距牆 5 公尺）建立固定划手數，不靠回頭偷看就能準確翻身。
+  how_to:
+  - 正常仰式游，經過背泳旗標時開始數划手，記錄到牆需要幾下
+  - 用這個固定划手數，在最後一下轉體翻身，不抬頭偷看
+  - 加蛙鞋以比賽速度測試，校正高速下的划手數
+  perception_goal: 靠固定划手節律就知道牆在哪；轉體在不減速、不偷看的狀態下啟動。
+  success_signal: 用划手數就能準確到牆翻身，不需偷看、不撞牆或撈空。
+  failure_signal: 仍需抬頭看牆、划手數不穩、到牆距離忽遠忽近。
+  deficiency_fixes:
+  - C
+  source: Train Daly 仰式翻身系統；U.S. Masters Swimming（旗標距牆 5yd/m，數划手）
+- id: ST5
+  name_en: Push-and-Rotate Breakout
+  name_zh: 蹬牆轉體出水
+  strokes:
+  - starts_turns
+  category: turn
+  equipment: []
+  l_target:
+  - L3
+  - L4
+  abc_type: C
+  purpose_zh: 自由式翻身蹬牆時人是仰／側躺，練在水下邊打水邊旋轉回俯臥，再乾淨接第一次划手。
+  how_to:
+  - 翻身蹬牆，蹬出時維持側／仰流線、保持窄而緊
+  - 水下打水，利用腳的擺動帶動身體從背／側轉回俯臥
+  - 在速度仍高時接第一次划手出水（breakout），不先把速度滑掉
+  perception_goal: 旋轉由打水自然帶動、流線全程不散；breakout 接在速度尚高的時點。
+  success_signal: 出水順、無卡頓、轉體中流線維持、銜接划手不減速。
+  failure_signal: 為了轉體鬆開流線、太早浮起、breakout 時明顯減速。
+  deficiency_fixes:
+  - C
+  source: U.S. Masters Swimming Flip Turn Fundamentals（approach/execution/breakout）；arenaswim flip turn drills

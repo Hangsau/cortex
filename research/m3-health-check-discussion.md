@@ -56,7 +56,7 @@ drills 總 129、teaching-errors 總 76、technical-analysis 總 188。
 
 ### C. 內容正確性小瑕疵
 
-- breast.yaml 一處 `🟠 Ward` 引用缺年份。
+- ~~breast.yaml~~ 一處 `🟠 Ward` 引用缺年份。**（更正：位置非 breast.yaml，實為 technical-analysis.yaml + l-indicators.yaml；已查證補為 Ward 2018）**
 - temperament types.yaml 類型比例標 🟡（待查），來源不確定。
 - bridge 6 檔刻意輕引用（屬「物理→感知」翻譯層，非研究文件）——agent 判定可接受。
 

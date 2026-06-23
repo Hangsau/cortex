@@ -13,7 +13,7 @@
 
 {{ $drills := (index hugo.Data "vortex" "drills").drills }}
 {{ $strokeChips := slice "all" "free" "back" "breast" "fly" "udk" "starts-turns" }}
-{{ $drillCatName := dict "breathing" "呼吸" "balance" "平衡" "kick" "踢腿" "arm" "划手" "timing" "銜接" "sculling" "搖櫓" }}
+{{ $drillCatName := dict "breathing" "呼吸" "balance" "平衡" "kick" "踢腿" "arm" "划手" "timing" "銜接" "sculling" "搖櫓" "turn" "出發轉身" }}
 {{ $drillCats := slice }}{{ range $drills }}{{ $drillCats = $drillCats | append .category }}{{ end }}{{ $drillCats = $drillCats | uniq }}
 {{ $drillLevels := slice }}{{ range $drills }}{{ range .l_target }}{{ $drillLevels = $drillLevels | append . }}{{ end }}{{ end }}{{ $drillLevels = $drillLevels | uniq | sort }}
 

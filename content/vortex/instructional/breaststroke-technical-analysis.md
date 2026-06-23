@@ -70,7 +70,7 @@ Nicol et al.（2022）系統綜述確認：arm-leg coordination 時序與游速�
 
 - Late kick（Peaty）：insweep 啟動時才踢腿（比傳統更晚）------降低速度谷值，縮小速度波動範圍
 
-- Ward 研究：late kick 有更小的速度下降百分比（%VDO）、更高的速度恢復百分比（%VR）
+- Ward 2018 研究：late kick 有更小的速度下降百分比（%VDO）、更高的速度恢復百分比（%VR）
 
 > **手腳時序的核心原則：讓兩個推進峰值（手 insweep + 腿踢）盡量接近，但不重疊------重疊時兩個推進力互相干擾，浪費做功。**
 
@@ -202,7 +202,7 @@ Undulating 在「收腿阻力」上理論上比 Wave style 更優（傾斜角度
 | **技術指標** | **依據** | **Adam Peaty（英）** | **秦海洋 Qin Haiyang（中）** | **啟示** |
 | --- | --- | --- | --- | --- |
 | **游泳風格** | **文獻** | 高頻率 Wave style；踢腿時機革命性（late kick） | Wave style；頻率與距離精準分配；200m 節奏管理出色 | Wave style 是精英共識，但時機策略有個體差異 |
-| **踢腿時機** | **文獻** | Late kick：insweep 啟動時才踢腿（比傳統更晚）。Ward 研究：降低速度波谷，縮小速度波動範圍 | 傳統 timing 的精細化；100m / 200m 各有節奏策略 | 踢腿時機是速度波動管理的關鍵變數 |
+| **踢腿時機** | **文獻** | Late kick：insweep 啟動時才踢腿（比傳統更晚）。Ward 2018 研究：降低速度波谷，縮小速度波動範圍 | 傳統 timing 的精細化；100m / 200m 各有節奏策略 | 踢腿時機是速度波動管理的關鍵變數 |
 | **划頻與划距** | **文獻** | 100m 高划頻；極短滑行時間；以頻率主導 | Gonjo & Olstad 2023：精英比次精英有更穩定的划距（SL），而非更高划頻 | 精英優勢在技術穩定性，不只是頻率 |
 | **神經肌肉活化** | **文獻** | Nicol et al. 2022：世界冠軍比國家選手更早啟動 insweep（BB + PM），輸出更大推進力 | 腿部：世界冠軍 gastrocnemius 踢腿末端更強；rectus femoris 滑行初期更早活化 | 精英差距在肌肉活化時序精度，不只是力量 |
 
@@ -337,4 +337,4 @@ Gonjo & Olstad（2023）揭示了一個反直覺的結果：精英和次精英�
 
 *Sanders, R. H. (1998). Wave characteristics of Olympic breaststroke swimmers. Research Quarterly for Exercise and Sport.*
 
-*Ward, S. M. Kinematic analysis of peak velocities in the breaststroke. University of Hawaii at Manoa. \[Adam Peaty late kick 技術分析\]*
+*Ward, S. M. (2018). Kinematic analysis of peak velocities in the breaststroke. MS thesis, University of Hawaii at Manoa.（亦見 Journal of Swimming Research Vol. 26）\[Adam Peaty late kick 技術分析\]*

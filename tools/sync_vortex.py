@@ -26,7 +26,7 @@ HUGO_VORTEX = HUGO_ROOT / "content" / "vortex"
 STATE_FILE  = HUGO_ROOT / "tools" / "vortex_sync_state.json"
 
 # ── Drills 合併（canonical → my-site 單檔） ──
-DRILL_STROKES = ["freestyle", "backstroke", "breaststroke", "butterfly", "sculling"]
+DRILL_STROKES = ["freestyle", "backstroke", "breaststroke", "butterfly", "sculling", "udk", "starts-turns"]
 DRILL_SRC_DIR = VORTEX_SRC / "Drills"
 DRILL_DST     = HUGO_ROOT / "data" / "vortex" / "drills.yaml"
 
