@@ -94,7 +94,18 @@
         n.addEventListener('click', function (e) {
           e.preventDefault();
           var id = n.getAttribute('data-target');
-          if (id) activate(id, true);
+          if (!id) return;
+          activate(id, true);
+          var anchor = n.getAttribute('data-anchor');
+          if (anchor) {
+            var el = document.getElementById(anchor);
+            if (el) {
+              var d = el.closest('details'); if (d) d.open = true;
+              setTimeout(function () {
+                el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              }, 80);
+            }
+          }
         });
       });
 

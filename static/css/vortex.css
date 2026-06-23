@@ -1032,6 +1032,55 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
 }
 .vx-pz-gap p { margin: 6px 0; }
 
+/* 概覽末尾：指向感知缺口節點的 teaser（① 不搬節點，只露一句 anchor） */
+.vx-overview-teaser {
+  display: flex; align-items: baseline; gap: 8px;
+  width: 100%; text-align: left; cursor: pointer;
+  background: none; border: 0; border-left: 2px dashed var(--vx-warn);
+  padding: 8px 0 8px 12px; margin: 18px 0 0;
+  font-family: var(--vx-serif); font-size: 14px; line-height: 1.6;
+  color: var(--vx-sub);
+}
+.vx-overview-teaser:hover { color: var(--vx-ink); }
+.vx-overview-teaser .vx-cert { flex: none; }
+.vx-overview-teaser .arr { color: var(--vx-warn); margin-left: auto; padding-left: 10px; }
+
+/* 陸訓面板歸屬聲明（④ 從週期化視角切入，非陸訓總覽） */
+.vx-pz-scope {
+  font-size: 13px; line-height: 1.7; color: var(--vx-sub);
+  border-left: 2px solid var(--vx-rule);
+  padding: 4px 0 4px 12px; margin: 0 0 14px;
+}
+.vx-pz-scope strong { color: var(--vx-ink); }
+
+/* zones 面板內兩組分隔標（② 不拆主題，面板內分組） */
+.vx-pz-group {
+  font-family: var(--vx-display); font-weight: 600;
+  font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--vx-faint);
+  border-bottom: 1px solid var(--vx-rule);
+  padding-bottom: 6px; margin: 26px 0 10px;
+}
+.vx-pz-group:first-child { margin-top: 4px; }
+.vx-pz-group .gsub {
+  display: block; text-transform: none; letter-spacing: 0.01em;
+  font-family: var(--vx-serif); font-weight: 400; font-size: 12px;
+  color: var(--vx-faint); margin-top: 3px;
+}
+
+/* 左欄常駐圖例（⑤ meta 軸跨面板恆在，不改內容面板） */
+.vx-rail-legend {
+  margin-top: 24px; padding-top: 12px;
+  border-top: 1px solid var(--vx-rule);
+  font-size: 11px; line-height: 1.7; color: var(--vx-faint);
+  letter-spacing: 0.01em;
+}
+.vx-rail-legend .rl-h {
+  display: block; text-transform: uppercase; letter-spacing: 0.12em;
+  font-size: 10px; margin-bottom: 5px; color: var(--vx-faint);
+}
+.vx-rail-legend b { font-weight: 600; color: var(--vx-sub); }
+
 /* ════════════════════════════════════════════
    行動裝置
    ════════════════════════════════════════════ */
@@ -1066,6 +1115,7 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
   .vx-rail--collapsible .vx-navlink.is-active {
     border-left-color: var(--vx-accent); border-bottom-color: transparent;
   }
+  .vx-rail-legend { display: none; }
   .vx-panels { padding: 24px 18px 80px; max-width: 100%; }
   .vx-page, .vx-home, .vx-db { padding: 24px 18px 80px; }
   .vx-toc-row { grid-template-columns: 36px 1fr; }

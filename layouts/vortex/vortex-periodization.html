@@ -41,6 +41,11 @@
           <li><button class="vx-navlink" type="button" data-target="dryland"><span class="n">5</span>陸上力量訓練</button></li>
         </ul>
       </div>
+
+      <div class="vx-rail-legend">
+        <span class="rl-h">確定性標記</span>
+        🔵 <b>推導／作者綜合</b> · 🟢 <b>近期文獻</b> · 🟡 <b>舊文獻</b> · 🟠 <b>教練觀測</b> · 🔴 <b>待驗證假設</b>
+      </div>
     </aside>
 
     {{/* ════════ 右側主面板 ════════ */}}
@@ -74,6 +79,11 @@
             <span><span class="t">陸上力量訓練</span><span class="o">轉移成不成立 · 訓練模式 · 並行排程殘留疲勞 · 游泳肩預防 · 青少年負重安全 · 誠實反例</span></span>
           </button>
         </div>
+        <button class="vx-overview-teaser" type="button" data-target="schools" data-anchor="perception-gap">
+          <span class="vx-cert">🔴</span>
+          <span>這頁主體是 Bompa 那一套已出版的週期化理論；但本站認為「感知穩定度本身也該被週期化」——這是個還沒被驗證的缺口，讀「流派」那節的末段會碰到它。</span>
+          <span class="arr">看這個缺口 →</span>
+        </button>
         <p class="vx-legend">確定性：🔵 推導／作者綜合 · 🟢 近期文獻 · 🟡 舊文獻（週期化基礎理論） · 🟠 教練觀測 · 🔴 待查／未驗證假設。本頁為公開週期化理論，描述年度計畫結構與處方原則，不含感知診斷內容。所有數字溯源至 Bompa 原文章節／表格或外部文獻（PMID／DOI）並標確定性；多派立場與作者綜合明確分層標示。</p>
         <nav class="vx-flow">
           <span></span>
@@ -154,7 +164,7 @@
 
         {{/* 感知—週期化橋接：誠實標記的研究缺口 */}}
         {{ with $st.perception_periodization_bridge }}
-        <div class="vx-pz-gap">
+        <div class="vx-pz-gap" id="perception-gap">
           <span class="vx-pz-gap-h">🔴 研究缺口：感知 × 週期化（未驗證假設）</span>
           <p>{{ .gap_zh }}</p>
           <p>{{ .hypothesis_zh }}</p>
@@ -564,6 +574,8 @@
 
         <div class="vx-ladder">
 
+          <p class="vx-pz-group">A · 生理基礎<span class="gsub">能量從哪來——下面所有分區與配比都建立在這之上</span></p>
+
           {{/* 三大能量系統運作入門 */}}
           {{ with $zn.energy_systems_primer }}
           <details class="vx-level" open>
@@ -617,6 +629,55 @@
           </details>
           {{ end }}
 
+          {{/* 心率 / VO2 / 能量系統 */}}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">HR</span>
+              <span>
+                <span class="lvname">心率 / VO₂max / 能量系統對照 <span class="vx-cert">{{ $zn.hr_vo2_ergogenesis.cert }}</span></span>
+                <span class="lvtag">把心率攝氧對應到主導能量系統</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <table class="vx-pz-table">
+                <thead><tr><th>% HRmax</th><th>% VO₂max</th><th>主導能量系統</th><th>訓練目標</th></tr></thead>
+                <tbody>
+                {{ range $zn.hr_vo2_ergogenesis.rows }}
+                  <tr><td class="vx-pz-num">{{ .pct_hr_max }}</td><td class="vx-pz-num">{{ .pct_vo2max }}</td><td>{{ .system_zh }}</td><td>{{ .target_zh }}</td></tr>
+                {{ end }}
+                </tbody>
+              </table>
+              {{ with $zn.hr_vo2_ergogenesis.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+            </div>
+          </details>
+
+          {{/* 各距離能量系統供能比 */}}
+          {{ with $zn.swim_energy_by_distance }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">距</span>
+              <span>
+                <span class="lvname">各距離能量系統供能比 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">50m 有氧 5–20%、100m≈各半、400m 40–84%（跨研究區間）</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <table class="vx-pz-table">
+                <thead><tr><th>項目</th><th>有氧占比</th><th>說明</th></tr></thead>
+                <tbody>
+                {{ range .events }}
+                  <tr><td class="vx-pz-num">{{ .event }}</td><td>{{ .aerobic_pct }} <span class="vx-cert">{{ .cert }}</span></td><td>{{ .note_zh }}</td></tr>
+                {{ end }}
+                </tbody>
+              </table>
+              {{ with .caution_zh }}<p class="vx-pz-warn">{{ . }}</p>{{ end }}
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+          <p class="vx-pz-group">B · 操作框架<span class="gsub">怎麼把強度切成「區」、又怎麼把訓練量配到各區</span></p>
+
           {{/* Bompa 六分區 */}}
           <details class="vx-level">
             <summary>
@@ -638,28 +699,6 @@
               <p class="vx-pz-meta">{{ $zn.intensity_zones.note_zh }}</p>
               {{ with $zn.intensity_zones.tid_dialogue_zh }}<p class="vx-pz-dialogue">{{ . }}</p>{{ end }}
               {{ with $zn.intensity_zones.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
-            </div>
-          </details>
-
-          {{/* 心率 / VO2 / 能量系統 */}}
-          <details class="vx-level">
-            <summary>
-              <span class="lv">HR</span>
-              <span>
-                <span class="lvname">心率 / VO₂max / 能量系統對照 <span class="vx-cert">{{ $zn.hr_vo2_ergogenesis.cert }}</span></span>
-                <span class="lvtag">把心率攝氧對應到主導能量系統</span>
-              </span>
-            </summary>
-            <div class="vx-level-body">
-              <table class="vx-pz-table">
-                <thead><tr><th>% HRmax</th><th>% VO₂max</th><th>主導能量系統</th><th>訓練目標</th></tr></thead>
-                <tbody>
-                {{ range $zn.hr_vo2_ergogenesis.rows }}
-                  <tr><td class="vx-pz-num">{{ .pct_hr_max }}</td><td class="vx-pz-num">{{ .pct_vo2max }}</td><td>{{ .system_zh }}</td><td>{{ .target_zh }}</td></tr>
-                {{ end }}
-                </tbody>
-              </table>
-              {{ with $zn.hr_vo2_ergogenesis.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
             </div>
           </details>
 
@@ -705,6 +744,54 @@
               {{ with $zn.endurance_periodization.plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
             </div>
           </details>
+
+          {{/* Maglischo 游泳六分區 */}}
+          {{ with $zn.swim_zones_maglischo }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">M</span>
+              <span>
+                <span class="lvname">Maglischo 游泳六分區 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">游泳專用：恢復/En1/En2/En3/AnTh/VO₂max</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-meta">無氧閾值血乳酸：{{ .anaerobic_threshold_mmol }}</p>
+              <ul class="vx-pz-sub">
+              {{ range .zones }}
+                <li><strong>{{ .name_zh }}</strong> · <span class="vx-pz-focus">{{ .focus_zh }}</span></li>
+              {{ end }}
+              </ul>
+              <p class="vx-pz-meta">{{ .sprint_note_zh }}</p>
+              {{ with .caution_zh }}<p class="vx-pz-warn">{{ . }}</p>{{ end }}
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* 三區乳酸模型 */}}
+          {{ with $zn.swim_zones_three }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">3</span>
+              <span>
+                <span class="lvname">三區乳酸模型 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">TID 分析用：Z1≤2 / Z2 2–4 / Z3&gt;4 mmol</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <table class="vx-pz-table vx-pz-table--narrow">
+                <thead><tr><th>區</th><th>血乳酸 (mmol)</th><th>名稱</th><th>重點</th></tr></thead>
+                <tbody>
+                {{ range .zones }}
+                  <tr><td class="vx-pz-num">{{ .zone }}</td><td>{{ .lactate_mmol }}</td><td>{{ .name_zh }}</td><td>{{ .focus_zh }}</td></tr>
+                {{ end }}
+                </tbody>
+              </table>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
 
           {{/* 極化分布（Seiler / TID）— 與 Bompa 六分區對話 */}}
           {{ with $zn.school_polarized }}
@@ -766,79 +853,6 @@
               <p class="vx-pz-author">{{ .author_note_zh }}</p>
               {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
               <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
-            </div>
-          </details>
-          {{ end }}
-
-          {{/* Maglischo 游泳六分區 */}}
-          {{ with $zn.swim_zones_maglischo }}
-          <details class="vx-level">
-            <summary>
-              <span class="lv">M</span>
-              <span>
-                <span class="lvname">Maglischo 游泳六分區 <span class="vx-cert">{{ .cert }}</span></span>
-                <span class="lvtag">游泳專用：恢復/En1/En2/En3/AnTh/VO₂max</span>
-              </span>
-            </summary>
-            <div class="vx-level-body">
-              <p class="vx-pz-meta">無氧閾值血乳酸：{{ .anaerobic_threshold_mmol }}</p>
-              <ul class="vx-pz-sub">
-              {{ range .zones }}
-                <li><strong>{{ .name_zh }}</strong> · <span class="vx-pz-focus">{{ .focus_zh }}</span></li>
-              {{ end }}
-              </ul>
-              <p class="vx-pz-meta">{{ .sprint_note_zh }}</p>
-              {{ with .caution_zh }}<p class="vx-pz-warn">{{ . }}</p>{{ end }}
-              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
-            </div>
-          </details>
-          {{ end }}
-
-          {{/* 三區乳酸模型 */}}
-          {{ with $zn.swim_zones_three }}
-          <details class="vx-level">
-            <summary>
-              <span class="lv">3</span>
-              <span>
-                <span class="lvname">三區乳酸模型 <span class="vx-cert">{{ .cert }}</span></span>
-                <span class="lvtag">TID 分析用：Z1≤2 / Z2 2–4 / Z3&gt;4 mmol</span>
-              </span>
-            </summary>
-            <div class="vx-level-body">
-              <table class="vx-pz-table vx-pz-table--narrow">
-                <thead><tr><th>區</th><th>血乳酸 (mmol)</th><th>名稱</th><th>重點</th></tr></thead>
-                <tbody>
-                {{ range .zones }}
-                  <tr><td class="vx-pz-num">{{ .zone }}</td><td>{{ .lactate_mmol }}</td><td>{{ .name_zh }}</td><td>{{ .focus_zh }}</td></tr>
-                {{ end }}
-                </tbody>
-              </table>
-              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
-            </div>
-          </details>
-          {{ end }}
-
-          {{/* 各距離能量系統供能比 */}}
-          {{ with $zn.swim_energy_by_distance }}
-          <details class="vx-level">
-            <summary>
-              <span class="lv">距</span>
-              <span>
-                <span class="lvname">各距離能量系統供能比 <span class="vx-cert">{{ .cert }}</span></span>
-                <span class="lvtag">50m 有氧 5–20%、100m≈各半、400m 40–84%（跨研究區間）</span>
-              </span>
-            </summary>
-            <div class="vx-level-body">
-              <table class="vx-pz-table">
-                <thead><tr><th>項目</th><th>有氧占比</th><th>說明</th></tr></thead>
-                <tbody>
-                {{ range .events }}
-                  <tr><td class="vx-pz-num">{{ .event }}</td><td>{{ .aerobic_pct }} <span class="vx-cert">{{ .cert }}</span></td><td>{{ .note_zh }}</td></tr>
-                {{ end }}
-                </tbody>
-              </table>
-              {{ with .caution_zh }}<p class="vx-pz-warn">{{ . }}</p>{{ end }}
-              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
             </div>
           </details>
           {{ end }}
@@ -908,6 +922,7 @@
       <section class="vx-panel vx-move" id="dryland">
         <span class="vx-sec-no">主題 5 / 5</span>
         <h2>陸上力量訓練</h2>
+        <p class="vx-pz-scope">本節從<strong>週期化視角</strong>切入陸訓——關鍵全在「何時做、做多少、誰能做」，這正是週期化要回答的；不是陸訓動作的內容總覽。</p>
         {{ with $dl.overview }}
         <p class="vx-panel-lead">{{ .premise_zh }}</p>
         {{ end }}
