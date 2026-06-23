@@ -105,7 +105,7 @@ data/adm/                    （由 sync_vortex.py 從 canonical 同步，勿手
   standards.yaml   22 筆技術標準（四式 + 起跳轉身，phases/criteria 結構）
 ```
 
-- 矩陣與標準頁皆用 `.Site.Data.adm.matrix` / `.Site.Data.adm.standards` 讀資料。
+- 矩陣與標準頁皆用 `index hugo.Data "adm" "matrix"` / `index hugo.Data "adm" "standards"` 讀資料（`.Site.Data.*` 在 Hugo 0.156+ 已棄用，全站 layout 已遷 `hugo.Data`）。
 - 階段中文名 / 年齡對照（L2T 學習訓練、T2T 訓練為訓練、T2C 訓練為競賽、T2W 訓練為勝利）寫死在 `vortex-adm-matrix.html` 的 dict。
 - 內容修改不在此 repo 手改 `data/adm/`：改 canonical（TheVortexProject/canonical/development/）後重跑 `tools/sync_vortex.py`。
 - ADM 專用樣式併入 `static/css/vortex.css`（`.vx-adm-*`），無獨立 adm.css / adm-matrix.js。

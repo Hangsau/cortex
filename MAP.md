@@ -28,7 +28,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 | 改 ADM / 週期化內容 | 同 vortex：canonical-synced，改 canonical 再 sync |
 | 改氣質 section 內容 | `data/temperament/*.yaml`（my-site 自有，**可直接改**） |
 | 加 CSCS 閃卡 | Google Sheets（非本地檔），見 `CLAUDE.md`；build time 抓 CSV |
-| 改 vortex 互動行為 | `static/js/vortex.js`（僅 stroke 頁）/ database & standards 的 inline JS |
+| 改 vortex 互動行為 | `static/js/vortex.js`（單檔依 DOM hook 分派：stroke / `[data-vx-db]` database / `[data-vx-adm-std]` ADM 標準） |
 
 ---
 
@@ -53,11 +53,11 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 |----|----|------|---------|
 | `vortex-home.html` | 133 | hub 首頁，vx-toc 多入口 | 載 `vortex.js` |
 | `vortex-stroke.html` | 296 | 每式 master-detail（rail + 面板） | 載 `vortex.js` |
-| `vortex-database.html` | 221 | 跨泳式查詢（需求區 + 3 tab） | **自帶 inline JS，不載 vortex.js**（雷 §4） |
+| `vortex-database.html` | 221 | 跨泳式查詢（需求區 + 3 tab） | 載 `vortex.js`，由其 `[data-vx-db]` 分支驅動（無 inline JS） |
 | `vortex-water-sense.html` | 586 | 水感指南，**全 hardcoded** | 無 |
 | `vortex-periodization.html` | 851 | 週期化期刊頁（最長） | 重用 vortex.js |
 | `vortex-levels.html` | 138 | 水感 L0–L6 | 重用 vortex.js |
-| `vortex-adm-{home,matrix,standards,single}.html` | 60/105/82/24 | ADM 四頁 | matrix 重用 vortex.js；standards 自帶 inline JS |
+| `vortex-adm-{home,matrix,standards,single}.html` | 60/105/82/24 | ADM 四頁 | matrix/standards 載 vortex.js（standards 由 `[data-vx-adm-std]` 分支驅動，無 inline JS） |
 | `vortex/{single,list}.html` | 29/36 | technica/instructional/bridge 散文 fallback | 無 |
 
 ### CSS（static/css/，3157 行）
@@ -77,14 +77,14 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 ## 4. 踩雷點 / 非顯而易見處（讀檔表面看不出）
 
 1. **`static/css/vortex.css` 的 RWD `@media` 全在檔案最底**（約 801+ 行，2026-06-15）。中段讀不到任何 media query → **別下「沒有 RWD / 沒手機版」結論**。同理 `is-hidden`（搜 `is-hidden`，details.vx-card 用）、`.vx-cert`（搜 `vx-cert`）都在中後段。`:focus-visible` 確實沒有、`prefers-color-scheme`（dark mode）確實沒有。
-2. **`vortex-database.html` 不載 `vortex.js`，自帶一份 inline JS**。因為 `vortex.js` 在非 stroke 頁 early-return，database/standards 只能自己寫。兩者「多軸 filter」邏輯看似重複但**無法直接共用**，不是單純 DRY 違規。
+2. **`vortex.js` 是單一檔依 DOM hook 分派**（已不再 stroke-only early-return）：stroke master-detail / `[data-vx-db]` database / `[data-vx-adm-std]` ADM 標準三個分支。database 與 standards 都**載入 vortex.js、無 inline JS**（2026-06-23 稽核更正：舊 MAP 誤記為「自帶 inline JS 不載 vortex.js」）。改多軸 filter 行為在 `vortex.js` 對應分支改。
 3. **`vortex-water-sense.html` 全 hardcoded，從不呼叫 `.Content`**。對應 `content/vortex/technica/water-sense-guide.md` 的 body 是**死碼**（2026-06-15 已清空留註解）。改這頁文案要改 template，不是改 .md。
 4. **`data/vortex|adm|periodization/` 是 canonical-synced**：手改會被下次 `sync_vortex.py` 洗掉。改內容要回 `C:\claudehome\projects\TheVortexProject\canonical/`。
 5. **`baseof.html` 的 `.main-content { max-width:800px }` 罩住每一頁**；vortex 頁靠 `vortex.css` 的 `body:has(...) .main-content{max-width:none}` 脫離上限（搜 `main-content`）。改寬度問題先查這條。
 6. **stroke 頁誤區/機制用精確 key 過濾**（`vortex-stroke.html` 搜 `where ... "stroke" $key`）：`stroke: common` 的通用項**不會**自動出現在各式頁——是「可能缺漏」而非「會多出來」。
-7. **stroke 中英名 dict 在 3 個 layout 各有一份副本**（home/database/stroke），曾因此「出發與轉身」vs「出發轉身」不一致（2026-06-15 已對齊 canonical 標題「出發與轉身」）。加第七式要同步改多處。adm-standards 用的是另一套 `start`/`turn` 分開的 vocabulary，不同概念別混。
+7. **stroke 中英名 dict 已抽成共用 partial** `layouts/partials/vortex/stroke-dicts.html`，home/database/standards/drills 4 個 layout 都 `partial` 它（2026-06-23 稽核更正）。`vortex-stroke.html` 不用 partial——它的中英名取自每式 `_index.md` front-matter（`stroke_tag`/`stroke_en`），機制不同。**殘留低優先重複**：key→slug 映射 dict（`free→freestyle`）仍在 stroke/database/drills 各 inline 一份。adm-standards 用另一套 `start`/`turn` 分開 vocabulary，別混。
 8. **`public/` 不進 git**（2026-06-15 `git rm --cached` + gitignore）。本機看到的 committed public 斷鏈與 live 無關，live 永遠是 CI fresh build。
-9. **`.Site.Data.*` 已 deprecated**（Hugo 0.156+）：8 個 layout 仍用，CI Hugo 一旦升過移除版本會全站 build 失敗。遷移是機械式 `.Site.Data.x` → `index hugo.Data "x"`。
+9. **`.Site.Data.*` 已全數遷移完畢**（2026-06-23 稽核：`grep -rn '\.Site\.Data' layouts/` 命中 0）：全站 layout 都用 `index hugo.Data "x"`。舊 MAP 記「8 個 layout 仍用」已過時，不再是隱憂。
 10. **taxonomy 已停用**（`hugo.toml` `disableKinds`）：frontmatter 的 `tags:` 不產頁。想做標籤導覽要先處理中文 slug URL 編碼（否則 mojibake）。
 
 ---

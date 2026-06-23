@@ -101,12 +101,15 @@
 .cell:hover { border-color: #7c6af7; transform: scale(1.03); z-index: 2; }
 .cell.center {
   cursor: default;
-  transform: none !important;
   align-items: center;
   justify-content: center;
   text-align: center;
-  border-color: #7c6af7 !important;
+  border-color: #7c6af7;
   border-top-width: 2px;
+}
+.cell.center:hover {
+  transform: none;
+  border-color: #7c6af7;
 }
 
 .ch-num { font-size: clamp(9px, 1.5vw, 11px); color: #7c6af7; font-weight: 700; margin-bottom: 4px; }
