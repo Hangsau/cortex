@@ -1,0 +1,58 @@
+name: Sync from TheVortexProject
+
+# 由 TheVortexProject 推送觸發（透過 repository_dispatch），或手動觸發。
+# 跑 my-site/tools/sync_vortex.py 把 Vortex canonical 同步進 my-site data/。
+# 若有實際 diff，commit + push 回 hugo-source；deploy.yml 偵測到 push 後自動 build/deploy。
+
+on:
+  repository_dispatch:
+    types: [vortex-content-updated]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout my-site
+        uses: actions/checkout@v4
+        with:
+          ref: hugo-source
+          path: my-site
+          fetch-depth: 0
+
+      - name: Checkout TheVortexProject
+        uses: actions/checkout@v4
+        with:
+          repository: Hangsau/TheVortexProject
+          ref: master
+          path: TheVortexProject
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install deps
+        run: pip install pyyaml
+
+      - name: Run sync
+        env:
+          VORTEX_SRC: ${{ github.workspace }}/TheVortexProject
+          HUGO_ROOT: ${{ github.workspace }}/my-site
+        run: python my-site/tools/sync_vortex.py
+
+      - name: Check diff & commit
+        working-directory: my-site
+        run: |
+          git config user.name "vortex-sync-bot"
+          git config user.email "noreply@github.com"
+          if git diff --quiet; then
+            echo "No content changes."
+            exit 0
+          fi
+          git add data/ content/
+          git commit -m "sync(vortex): auto-sync from TheVortexProject@${{ github.event.client_payload.sha || 'manual' }}"
+          git push origin hugo-source

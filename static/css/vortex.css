@@ -2072,3 +2072,87 @@ html { scroll-behavior: smooth; }
   .vx-read-toc a { transition: none; }
 }
 
+/* ── 族群差異化頁 vortex-populations ── */
+.vx-pop-list { display: flex; flex-direction: column; gap: 14px; margin: 32px 0 56px; }
+.vx-pop-card {
+  border: 1px solid var(--vx-rule);
+  background: var(--vx-bg, #fff);
+  border-radius: 4px;
+  padding: 0;
+}
+.vx-pop-card > summary {
+  list-style: none; cursor: pointer;
+  padding: 18px 22px;
+  display: flex; align-items: baseline; gap: 16px;
+  font-family: var(--vx-serif);
+}
+.vx-pop-card > summary::-webkit-details-marker { display: none; }
+.vx-pop-card > summary::before {
+  content: '▸'; display: inline-block; margin-right: 4px;
+  color: var(--vx-accent); transition: transform 0.15s ease;
+}
+.vx-pop-card[open] > summary::before { transform: rotate(90deg); }
+.vx-pop-name {
+  font-size: 18px; font-weight: 600; color: var(--vx-ink);
+}
+.vx-pop-age {
+  font-size: 12px; color: var(--vx-faint);
+  letter-spacing: 0.04em;
+}
+.vx-pop-body {
+  padding: 4px 22px 22px;
+  border-top: 1px dashed var(--vx-rule);
+}
+.vx-pop-summary {
+  color: var(--vx-sub);
+  margin: 14px 0 16px;
+  font-style: italic;
+}
+.vx-pop-points {
+  padding-left: 22px; margin: 8px 0 16px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.vx-pop-points li {
+  color: var(--vx-ink);
+  line-height: 1.7;
+}
+.vx-pop-points li strong {
+  color: var(--vx-accent);
+}
+.vx-pop-app {
+  margin: 12px 0 0; padding: 12px 14px;
+  background: var(--vx-bg-faint, #faf7f2);
+  border-left: 2px solid var(--vx-accent);
+  border-radius: 2px;
+  font-size: 13px; color: var(--vx-sub);
+}
+.vx-pop-principles {
+  margin: 40px 0 0;
+  padding-top: 28px;
+  border-top: 1px solid var(--vx-rule);
+}
+.vx-pop-principles h2 {
+  font-family: var(--vx-display);
+  font-size: clamp(20px, 3vw, 26px);
+  margin: 0 0 18px;
+}
+.vx-pop-pcards {
+  display: grid; gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.vx-pop-pcard {
+  padding: 16px 18px;
+  background: var(--vx-bg-faint, #faf7f2);
+  border-radius: 4px;
+  border-left: 2px solid var(--vx-accent);
+}
+.vx-pop-pcard h3 {
+  font-family: var(--vx-serif);
+  font-size: 15px; font-weight: 600;
+  margin: 0 0 10px; color: var(--vx-ink);
+}
+.vx-pop-pcard p {
+  margin: 0; color: var(--vx-sub); font-size: 13.5px;
+  line-height: 1.65;
+}
+

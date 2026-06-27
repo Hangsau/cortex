@@ -12,6 +12,7 @@ sync_vortex.py — 把 TheVortexProject 內容同步進 my-site Hugo
 
 import hashlib
 import json
+import os
 import re
 import sys
 from datetime import date
@@ -20,8 +21,9 @@ from pathlib import Path
 import yaml
 
 # ── 路徑 ──
-VORTEX_SRC  = Path(r"C:\claudehome\projects\TheVortexProject")
-HUGO_ROOT   = Path(r"C:\claudehome\projects\my-site")
+# 預設本機 Windows 路徑；CI 透過 VORTEX_SRC / HUGO_ROOT env var 覆寫
+VORTEX_SRC  = Path(os.environ.get("VORTEX_SRC", r"C:\claudehome\projects\TheVortexProject"))
+HUGO_ROOT   = Path(os.environ.get("HUGO_ROOT",  r"C:\claudehome\projects\my-site"))
 HUGO_VORTEX = HUGO_ROOT / "content" / "vortex"
 STATE_FILE  = HUGO_ROOT / "tools" / "vortex_sync_state.json"
 
@@ -53,6 +55,10 @@ ADM_MATRIX_DST = HUGO_ROOT / "data" / "adm" / "matrix.yaml"
 # ── ADM 技術基準（canonical 兩層 → my-site data/adm，只 public） ──
 ADM_STANDARDS_SRC = VORTEX_SRC / "canonical" / "development" / "technical-standards.yaml"
 ADM_STANDARDS_DST = HUGO_ROOT / "data" / "adm" / "standards.yaml"
+
+# ── ADM 族群差異化（canonical → my-site data/adm，全 public，無 diagnostic 層） ──
+ADM_POPULATIONS_SRC = VORTEX_SRC / "canonical" / "development" / "populations.yaml"
+ADM_POPULATIONS_DST = HUGO_ROOT / "data" / "adm" / "populations.yaml"
 
 # ── 週期化（canonical → my-site data/periodization；全 public，無 diagnostic 層） ──
 PERIODIZATION_SRC_DIR = VORTEX_SRC / "canonical" / "periodization"
@@ -597,6 +603,45 @@ def sync_adm_matrix(dry_run: bool):
     print(f"  寫入 {ADM_MATRIX_DST.relative_to(HUGO_ROOT)}")
 
 
+def sync_adm_populations(dry_run: bool):
+    """讀 canonical development/populations.yaml，把 populations + cross_cutting_principles
+    結構整檔搬到 my-site data/adm/populations.yaml。
+
+    canonical 無 diagnostic 層（族群差異化是公開 IP），直接整檔搬運。
+    """
+    if not ADM_POPULATIONS_SRC.exists():
+        print()
+        print("=== ADM 族群差異化 ===")
+        print(f"  [跳過] 找不到 {ADM_POPULATIONS_SRC}")
+        return
+
+    data = yaml.safe_load(ADM_POPULATIONS_SRC.read_text(encoding="utf-8")) or {}
+    populations = data.get("populations", []) or []
+    principles  = data.get("cross_cutting_principles", []) or []
+
+    print()
+    print("=== ADM 族群差異化（public 層）===")
+    for p in populations:
+        n_points = len((p.get("public") or {}).get("points") or [])
+        print(f"  {p.get('id', '?'):20s} points={n_points}")
+    print(f"  TOTAL populations {len(populations)}  principles {len(principles)}")
+
+    if dry_run:
+        print("  [dry-run，未寫入 data/adm/populations.yaml]")
+        return
+
+    ADM_POPULATIONS_DST.parent.mkdir(parents=True, exist_ok=True)
+    out = yaml.safe_dump(
+        {"populations": populations, "cross_cutting_principles": principles},
+        allow_unicode=True,
+        default_flow_style=False,
+        sort_keys=False,
+        width=4096,
+    )
+    ADM_POPULATIONS_DST.write_text(out, encoding="utf-8")
+    print(f"  寫入 {ADM_POPULATIONS_DST.relative_to(HUGO_ROOT)}")
+
+
 def sync_adm_standards(dry_run: bool):
     """讀 canonical development/technical-standards.yaml（std 兩層），剝除 diagnostic 層，
     把 public 層寫進 my-site data/adm/standards.yaml（結構化技術基準）。
@@ -947,6 +992,7 @@ def main():
     sync_water_sense_levels(dry_run)
     sync_adm_matrix(dry_run)
     sync_adm_standards(dry_run)
+    sync_adm_populations(dry_run)
     sync_periodization(dry_run)
     sync_psychology(dry_run)
     sync_injuries(dry_run)
