@@ -14,8 +14,39 @@
 {{ $drills := (index hugo.Data "vortex" "drills").drills }}
 {{ $strokeChips := slice "all" "free" "back" "breast" "fly" "udk" "starts-turns" }}
 {{ $drillCatName := dict "breathing" "呼吸" "balance" "平衡" "kick" "踢腿" "arm" "划手" "timing" "銜接" "sculling" "搖櫓" "turn" "出發轉身" }}
+
+{{/* 9 軸中文映射 v1.0 (2026-06-27) */}}
+{{ $bodyZh := dict "standing" "站姿" "vertical" "垂直" "prone" "俯臥" "supine" "仰躺" "side" "側躺" "underwater" "水下" "transitional" "轉換" }}
+{{ $mpZh := dict "static" "靜止" "progressive" "緩進" "continuous" "連續" "pause_pulse" "停頓脈衝" "alternating" "左右交替" "rotational" "旋轉" }}
+{{ $skZh := dict "breath_rhythm" "呼吸節律" "streamline_line" "流線體線" "buoyancy_balance" "浮力平衡" "core_tension" "核心張力" "hip_drive" "髖部驅動" "catch_evf" "高肘捕水" "forearm_pressure" "前臂壓水" "hand_acceleration" "手部加速" "entry_extension" "入水延伸" "recovery_path" "移臂路徑" "kick_origin" "踢水起始" "kick_amplitude" "踢水振幅" "wave_undulation" "波動傳遞" "rotation_connection" "轉體連動" "rhythm_tempo" "節奏速率" "spatial_awareness" "空間定位" "pressure_mapping" "壓力地圖" "glide_efficiency" "滑行效率" }}
+{{ $spZh := dict "entry" "入水" "catch" "抓水" "pull" "拉前段" "push" "推後段" "recovery" "移臂" "glide" "滑行" "transition" "銜接" "whole_stroke" "整套" "non_stroke" "非划水段" }}
+{{ $fnZh := dict "warmup" "熱身" "corrective" "矯正" "skill_isolation" "孤立練習" "skill_integration" "整合" "progression" "階梯遞進" "pre_main_set" "主項前激活" "cooldown" "緩和" }}
+{{ $clZh := dict "low" "低" "medium" "中" "high" "高" }}
+{{ $taZh := dict "pool_floor_visual" "看池底" "hand_pressure" "手感" "foot_pressure" "腳感" "core_tension_internal" "核心張力" "wall_contact" "牆面" "water_sound" "水聲" "partner_feedback" "同伴" "equipment_feedback" "器材回饋" "surface_break" "破水時機" }}
+{{ $dtZh := dict "foundation" "基礎" "intermediate" "中階" "advanced" "進階" "elite" "菁英" }}
+{{ $conZh := dict "no_arms" "不用手" "single_arm" "單手" "closed_fist" "握拳" "paddle_amplifier" "手掌板" "no_kick" "不踢" "single_leg" "單腳" "no_breath" "閉氣" "breath_added" "加換氣" "eyes_closed" "閉眼" "tempo_constrained" "限定節奏" "tension_held" "維持張力" }}
+
+{{/* 固定排序（避免 hash 順序）*/}}
+{{ $bodyOrder := slice "standing" "vertical" "prone" "supine" "side" "underwater" "transitional" }}
+{{ $mpOrder := slice "static" "progressive" "continuous" "pause_pulse" "alternating" "rotational" }}
+{{ $spOrder := slice "non_stroke" "entry" "catch" "pull" "push" "recovery" "glide" "transition" "whole_stroke" }}
+{{ $fnOrder := slice "warmup" "corrective" "skill_isolation" "skill_integration" "progression" "pre_main_set" "cooldown" }}
+{{ $clOrder := slice "low" "medium" "high" }}
+{{ $dtOrder := slice "foundation" "intermediate" "advanced" "elite" }}
+{{ $taOrder := slice "core_tension_internal" "hand_pressure" "foot_pressure" "equipment_feedback" "surface_break" "water_sound" "pool_floor_visual" "wall_contact" "partner_feedback" }}
+
+{{/* 從 drills 取出實際出現的值（避免空 chip）*/}}
 {{ $drillCats := slice }}{{ range $drills }}{{ $drillCats = $drillCats | append .category }}{{ end }}{{ $drillCats = $drillCats | uniq }}
 {{ $drillLevels := slice }}{{ range $drills }}{{ range .l_target }}{{ $drillLevels = $drillLevels | append . }}{{ end }}{{ end }}{{ $drillLevels = $drillLevels | uniq | sort }}
+{{ $bodyVals := slice }}{{ range $drills }}{{ $bodyVals = $bodyVals | append .body_position }}{{ end }}{{ $bodyVals = $bodyVals | uniq }}
+{{ $mpVals := slice }}{{ range $drills }}{{ $mpVals = $mpVals | append .movement_pattern }}{{ end }}{{ $mpVals = $mpVals | uniq }}
+{{ $spVals := slice }}{{ range $drills }}{{ $spVals = $spVals | append .stroke_phase }}{{ end }}{{ $spVals = $spVals | uniq }}
+{{ $fnVals := slice }}{{ range $drills }}{{ $fnVals = $fnVals | append .drill_function }}{{ end }}{{ $fnVals = $fnVals | uniq }}
+{{ $clVals := slice }}{{ range $drills }}{{ $clVals = $clVals | append .cognitive_load }}{{ end }}{{ $clVals = $clVals | uniq }}
+{{ $dtVals := slice }}{{ range $drills }}{{ $dtVals = $dtVals | append .difficulty_tier }}{{ end }}{{ $dtVals = $dtVals | uniq }}
+{{ $taVals := slice }}{{ range $drills }}{{ $taVals = $taVals | append .tactile_anchor }}{{ end }}{{ $taVals = $taVals | uniq }}
+{{ $skVals := slice }}{{ range $drills }}{{ range .skill_focus }}{{ $skVals = $skVals | append . }}{{ end }}{{ end }}{{ $skVals = $skVals | uniq | sort }}
+{{ $conVals := slice }}{{ range $drills }}{{ range .constraints }}{{ $conVals = $conVals | append . }}{{ end }}{{ end }}{{ $conVals = $conVals | uniq | sort }}
 
 <div class="vx-shell">
 {{ partial "vortex/sidebar.html" (dict "ctx" . "current" "drills") }}
@@ -41,6 +72,67 @@
         <span class="vx-filterbar-label">限定泳式（可不選）</span>
         {{ range $strokeChips }}<button class="vx-chip{{ if eq . "all" }} is-active{{ end }}" type="button" data-val="{{ . }}">{{ if eq . "all" }}全部{{ else }}{{ index $strokeZh . }}{{ end }}</button>{{ end }}
       </div>
+
+      <details class="vx-advfilter">
+        <summary>更多篩選（9 軸特色指紋）</summary>
+        <div class="vx-advfilter-body">
+
+          <div class="vx-filterbar" data-axis="fn">
+            <span class="vx-filterbar-label">用途</span>
+            <button class="vx-chip is-active" type="button" data-val="all">全部</button>
+            {{ range $fnOrder }}{{ if in $fnVals . }}<button class="vx-chip" type="button" data-val="{{ . }}">{{ index $fnZh . }}</button>{{ end }}{{ end }}
+          </div>
+
+          <div class="vx-filterbar" data-axis="dt">
+            <span class="vx-filterbar-label">難度門檻</span>
+            <button class="vx-chip is-active" type="button" data-val="all">全部</button>
+            {{ range $dtOrder }}{{ if in $dtVals . }}<button class="vx-chip" type="button" data-val="{{ . }}">{{ index $dtZh . }}</button>{{ end }}{{ end }}
+          </div>
+
+          <div class="vx-filterbar" data-axis="cl">
+            <span class="vx-filterbar-label">專注程度（疲勞下能否做）</span>
+            <button class="vx-chip is-active" type="button" data-val="all">全部</button>
+            {{ range $clOrder }}{{ if in $clVals . }}<button class="vx-chip" type="button" data-val="{{ . }}">{{ index $clZh . }}</button>{{ end }}{{ end }}
+          </div>
+
+          <div class="vx-filterbar" data-axis="body">
+            <span class="vx-filterbar-label">身體姿勢</span>
+            <button class="vx-chip is-active" type="button" data-val="all">全部</button>
+            {{ range $bodyOrder }}{{ if in $bodyVals . }}<button class="vx-chip" type="button" data-val="{{ . }}">{{ index $bodyZh . }}</button>{{ end }}{{ end }}
+          </div>
+
+          <div class="vx-filterbar" data-axis="sk">
+            <span class="vx-filterbar-label">感知標的</span>
+            <button class="vx-chip is-active" type="button" data-val="all">全部</button>
+            {{ range $skVals }}<button class="vx-chip" type="button" data-val="{{ . }}">{{ index $skZh . }}</button>{{ end }}
+          </div>
+
+          <div class="vx-filterbar" data-axis="con">
+            <span class="vx-filterbar-label">限制條件（拿掉什麼讓感知浮出）</span>
+            <button class="vx-chip is-active" type="button" data-val="all">全部</button>
+            {{ range $conVals }}<button class="vx-chip" type="button" data-val="{{ . }}">{{ index $conZh . }}</button>{{ end }}
+          </div>
+
+          <div class="vx-filterbar" data-axis="mp">
+            <span class="vx-filterbar-label">動作型態</span>
+            <button class="vx-chip is-active" type="button" data-val="all">全部</button>
+            {{ range $mpOrder }}{{ if in $mpVals . }}<button class="vx-chip" type="button" data-val="{{ . }}">{{ index $mpZh . }}</button>{{ end }}{{ end }}
+          </div>
+
+          <div class="vx-filterbar" data-axis="sp">
+            <span class="vx-filterbar-label">划水週期</span>
+            <button class="vx-chip is-active" type="button" data-val="all">全部</button>
+            {{ range $spOrder }}{{ if in $spVals . }}<button class="vx-chip" type="button" data-val="{{ . }}">{{ index $spZh . }}</button>{{ end }}{{ end }}
+          </div>
+
+          <div class="vx-filterbar" data-axis="ta">
+            <span class="vx-filterbar-label">回饋訊號</span>
+            <button class="vx-chip is-active" type="button" data-val="all">全部</button>
+            {{ range $taOrder }}{{ if in $taVals . }}<button class="vx-chip" type="button" data-val="{{ . }}">{{ index $taZh . }}</button>{{ end }}{{ end }}
+          </div>
+
+        </div>
+      </details>
     </div>
 
     <p class="vx-needs-count" id="vxNeedsCount"></p>
@@ -48,13 +140,39 @@
     <div class="vx-needs-results" id="vxNeedsResults">
       {{ range $drills }}
       {{ $sk := slice }}{{ range .strokes }}{{ with index $drillKey . }}{{ $sk = $sk | append . }}{{ end }}{{ end }}
-      <details class="vx-card vx-drillcard" data-cat="{{ .category }}" data-level="{{ delimit .l_target " " }}" data-s="{{ delimit $sk " " }}">
-        <summary><span class="vx-cardcat">{{ index $drillCatName .category }}{{ with .l_target }} · {{ delimit . " " }}{{ end }} · {{ range $i, $s := $sk }}{{ if $i }}／{{ end }}{{ index $strokeZh $s }}{{ end }}</span><span class="vx-cardtitle">{{ .name_zh }} <span class="vx-card-en">{{ .name_en }}</span></span></summary>
+      <details class="vx-card vx-drillcard"
+        data-cat="{{ .category }}"
+        data-level="{{ delimit .l_target " " }}"
+        data-s="{{ delimit $sk " " }}"
+        data-fn="{{ .drill_function }}"
+        data-dt="{{ .difficulty_tier }}"
+        data-cl="{{ .cognitive_load }}"
+        data-body="{{ .body_position }}"
+        data-mp="{{ .movement_pattern }}"
+        data-sp="{{ .stroke_phase }}"
+        data-ta="{{ .tactile_anchor }}"
+        data-sk="{{ delimit .skill_focus " " }}"
+        data-con="{{ delimit .constraints " " }}">
+        <summary><span class="vx-cardcat">{{ index $drillCatName .category }}{{ with .l_target }} · {{ delimit . " " }}{{ end }} · {{ range $i, $s := $sk }}{{ if $i }}／{{ end }}{{ index $strokeZh $s }}{{ end }}{{ with .difficulty_tier }} · <span class="vx-tier-{{ . }}">{{ index $dtZh . }}</span>{{ end }}</span><span class="vx-cardtitle">{{ .name_zh }} <span class="vx-card-en">{{ .name_en }}</span></span></summary>
         <div class="vx-card-body">
           {{ with .purpose_zh }}<p>{{ . }}</p>{{ end }}
           {{ with .how_to }}<span class="vx-label">怎麼做</span><ol>{{ range . }}<li>{{ . }}</li>{{ end }}</ol>{{ end }}
           {{ with .perception_goal }}<span class="vx-label">感知目標</span><p class="vx-correct">{{ . }}</p>{{ end }}
           {{ with .equipment }}<p class="vx-drill-eq">器材：{{ delimit . "、" }}</p>{{ end }}
+
+          {{/* 9 軸特色指紋 */}}
+          <span class="vx-label">特色指紋</span>
+          <div class="vx-fingerprint">
+            {{ with .drill_function }}<span class="vx-fp-tag" data-axis="fn">用途：{{ index $fnZh . }}</span>{{ end }}
+            {{ with .difficulty_tier }}<span class="vx-fp-tag vx-fp-tier-{{ . }}" data-axis="dt">難度：{{ index $dtZh . }}</span>{{ end }}
+            {{ with .cognitive_load }}<span class="vx-fp-tag" data-axis="cl">專注：{{ index $clZh . }}</span>{{ end }}
+            {{ with .body_position }}<span class="vx-fp-tag" data-axis="body">姿勢：{{ index $bodyZh . }}</span>{{ end }}
+            {{ with .movement_pattern }}<span class="vx-fp-tag" data-axis="mp">型態：{{ index $mpZh . }}</span>{{ end }}
+            {{ with .stroke_phase }}<span class="vx-fp-tag" data-axis="sp">週期：{{ index $spZh . }}</span>{{ end }}
+            {{ with .tactile_anchor }}<span class="vx-fp-tag" data-axis="ta">訊號：{{ index $taZh . }}</span>{{ end }}
+            {{ range .skill_focus }}<span class="vx-fp-tag vx-fp-skill" data-axis="sk">標的：{{ index $skZh . }}</span>{{ end }}
+            {{ range .constraints }}<span class="vx-fp-tag vx-fp-con" data-axis="con">限制：{{ index $conZh . }}</span>{{ end }}
+          </div>
         </div>
       </details>
       {{ end }}

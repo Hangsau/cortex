@@ -643,6 +643,64 @@ details.vx-drill > summary .did {
 .vx-needs-count { font-size: 13px; color: var(--vx-faint); margin: 0 0 18px; }
 .vx-needs-results { margin: 0; }
 
+/* 進階篩選摺疊（9 軸特色指紋） */
+.vx-advfilter {
+  margin: 14px 0 0; padding: 0; border-top: 1px dashed var(--vx-rule);
+}
+.vx-advfilter > summary {
+  list-style: none; cursor: pointer; padding: 12px 0 4px;
+  font-family: var(--vx-serif); font-size: 13px;
+  color: var(--vx-sub); letter-spacing: 0.02em;
+}
+.vx-advfilter > summary::-webkit-details-marker { display: none; }
+.vx-advfilter > summary::before {
+  content: '▸'; display: inline-block; margin-right: 8px;
+  transition: transform 0.15s ease; color: var(--vx-accent);
+}
+.vx-advfilter[open] > summary::before { transform: rotate(90deg); }
+.vx-advfilter > summary:hover { color: var(--vx-accent); }
+.vx-advfilter-body { padding: 6px 0 0; }
+.vx-advfilter-body .vx-filterbar { margin-bottom: 6px; }
+
+/* 卡片難度標 */
+.vx-tier-foundation { color: #5b9b59; }
+.vx-tier-intermediate { color: #c08a3b; }
+.vx-tier-advanced { color: #b8554f; }
+.vx-tier-elite { color: #7a4b9a; font-weight: 600; }
+
+/* 9 軸特色指紋（卡片內展示） */
+.vx-fingerprint {
+  display: flex; flex-wrap: wrap; gap: 4px 6px;
+  margin: 6px 0 4px; padding: 8px 10px;
+  background: var(--vx-bg-faint, #faf7f2);
+  border-left: 2px solid var(--vx-accent);
+  border-radius: 2px;
+}
+.vx-fp-tag {
+  font-family: var(--vx-serif); font-size: 11px;
+  padding: 2px 8px;
+  background: #fff;
+  border: 1px solid var(--vx-rule2);
+  border-radius: 10px;
+  color: var(--vx-sub);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.vx-fp-skill {
+  background: #f4ede0;
+  border-color: #d9c89e;
+  color: #6b4f1d;
+}
+.vx-fp-con {
+  background: #ecf2ec;
+  border-color: #bcd1bc;
+  color: #3d5e3d;
+}
+.vx-fp-tier-foundation { background: #ecf3ec; border-color: #b3d4b1; color: #3a6537; }
+.vx-fp-tier-intermediate { background: #f5ecd9; border-color: #d6bc8a; color: #7a5418; }
+.vx-fp-tier-advanced { background: #f3dad8; border-color: #d9a09b; color: #8a3a35; }
+.vx-fp-tier-elite { background: #ebe1f0; border-color: #b89cc6; color: #5a3a72; font-weight: 600; }
+
 /* 資料庫：直接查資料（配角區塊） */
 .vx-lookup { margin: 48px 0 0; padding-top: 36px; border-top: 1px solid var(--vx-rule); }
 .vx-lookup-h { font-family: var(--vx-display); font-size: clamp(22px, 3.5vw, 28px); margin: 0 0 8px; }
