@@ -22,6 +22,16 @@ drills:
   - 1
   - 2
   source: There's a Drill for That
+  body_position: standing
+  constraints: []
+  movement_pattern: static
+  skill_focus:
+  - breath_rhythm
+  stroke_phase: non_stroke
+  drill_function: warmup
+  cognitive_load: low
+  tactile_anchor: pool_floor_visual
+  difficulty_tier: foundation
 - id: Fr2
   name_en: Head Lead Balance – Face Down
   name_zh: 頭帶平衡 — 面朝下
@@ -44,6 +54,18 @@ drills:
   deficiency_fixes:
   - 3
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - no_arms
+  movement_pattern: progressive
+  skill_focus:
+  - buoyancy_balance
+  - streamline_line
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: low
+  tactile_anchor: pool_floor_visual
+  difficulty_tier: foundation
 - id: Fr3
   name_en: Head Lead Balance – On Your Side
   name_zh: 頭帶平衡 — 側躺
@@ -64,6 +86,17 @@ drills:
   failure_signal: 過度旋轉到90度；感覺在上坡踢水
   deficiency_fixes: []
   source: There's a Drill for That
+  body_position: side
+  constraints:
+  - no_arms
+  movement_pattern: progressive
+  skill_focus:
+  - buoyancy_balance
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: low
+  tactile_anchor: pool_floor_visual
+  difficulty_tier: foundation
 - id: Fr4
   name_en: Head Lead Balance with Rotation
   name_zh: 頭帶平衡 + 旋轉
@@ -90,6 +123,19 @@ drills:
   - 4
   - 5
   source: There's a Drill for That
+  body_position: transitional
+  constraints:
+  - no_arms
+  - breath_added
+  movement_pattern: rotational
+  skill_focus:
+  - hip_drive
+  - rotation_connection
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: intermediate
 - id: Fr5
   name_en: Superman Kick
   name_zh: 超人踢水
@@ -112,6 +158,18 @@ drills:
   failure_signal: 背部拱起；踢水感覺只在膝蓋以下
   deficiency_fixes: []
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - no_arms
+  movement_pattern: continuous
+  skill_focus:
+  - streamline_line
+  - kick_origin
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: low
+  tactile_anchor: pool_floor_visual
+  difficulty_tier: foundation
 - id: Fr6
   name_en: Arm Lead Balance or 6-Count
   name_zh: 手臂主導平衡（六拍）
@@ -137,6 +195,18 @@ drills:
   - 5
   - 10
   source: There's a Drill for That
+  body_position: side
+  constraints:
+  - single_arm
+  movement_pattern: alternating
+  skill_focus:
+  - buoyancy_balance
+  - hip_drive
+  stroke_phase: glide
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: intermediate
 - id: Fr7
   name_en: Streamline Kick
   name_zh: 流線踢水
@@ -160,6 +230,18 @@ drills:
   deficiency_fixes:
   - 7
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - no_arms
+  movement_pattern: continuous
+  skill_focus:
+  - kick_origin
+  - streamline_line
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: low
+  tactile_anchor: water_sound
+  difficulty_tier: foundation
 - id: Fr8
   name_en: Vertical Kick
   name_zh: 垂直踢水
@@ -183,6 +265,18 @@ drills:
   deficiency_fixes:
   - 7
   source: There's a Drill for That
+  body_position: vertical
+  constraints:
+  - no_arms
+  movement_pattern: static
+  skill_focus:
+  - kick_origin
+  - core_tension
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: intermediate
 - id: Fr9
   name_en: 360 Roll
   name_zh: 360度滾轉
@@ -207,6 +301,18 @@ drills:
   - 4
   - 5
   source: There's a Drill for That
+  body_position: transitional
+  constraints:
+  - no_arms
+  movement_pattern: rotational
+  skill_focus:
+  - hip_drive
+  - rotation_connection
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: intermediate
 - id: Fr10
   name_en: Sailboat
   name_zh: 帆船划手
@@ -231,6 +337,18 @@ drills:
   - 6
   - 11
   source: There's a Drill for That
+  body_position: side
+  constraints:
+  - single_arm
+  movement_pattern: pause_pulse
+  skill_focus:
+  - catch_evf
+  - hip_drive
+  stroke_phase: catch
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: Fr11
   name_en: One Arm Stroke
   name_zh: 單臂划手
@@ -260,6 +378,18 @@ drills:
   - 7
   - 11
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - single_arm
+  movement_pattern: continuous
+  skill_focus:
+  - catch_evf
+  - hip_drive
+  stroke_phase: catch
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: Fr12
   name_en: Fingertip Dribble
   name_zh: 指尖拖水
@@ -282,6 +412,16 @@ drills:
   - 9
   - 12
   source: There's a Drill for That
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - recovery_path
+  stroke_phase: recovery
+  drill_function: corrective
+  cognitive_load: medium
+  tactile_anchor: surface_break
+  difficulty_tier: intermediate
 - id: Fr13
   name_en: Trace The Line
   name_zh: 描黑線
@@ -306,6 +446,17 @@ drills:
   - 8
   - 13
   source: There's a Drill for That
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - entry_extension
+  - spatial_awareness
+  stroke_phase: entry
+  drill_function: corrective
+  cognitive_load: medium
+  tactile_anchor: pool_floor_visual
+  difficulty_tier: intermediate
 - id: Fr14
   name_en: Skating Underwater or Underwater Recovery
   name_zh: 水下溜冰（水下恢復臂）
@@ -329,6 +480,17 @@ drills:
   deficiency_fixes:
   - 13
   source: There's a Drill for That
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - catch_evf
+  - recovery_path
+  stroke_phase: catch
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: Fr15
   name_en: Superman Catch up
   name_zh: 超人趕上
@@ -354,6 +516,17 @@ drills:
   - 10
   - 11
   source: There's a Drill for That
+  body_position: prone
+  constraints: []
+  movement_pattern: pause_pulse
+  skill_focus:
+  - catch_evf
+  - hip_drive
+  stroke_phase: catch
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: Fr16
   name_en: Fist Freestyle
   name_zh: 握拳划手
@@ -376,6 +549,17 @@ drills:
   deficiency_fixes:
   - 13
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - closed_fist
+  movement_pattern: continuous
+  skill_focus:
+  - forearm_pressure
+  stroke_phase: pull
+  drill_function: corrective
+  cognitive_load: low
+  tactile_anchor: hand_pressure
+  difficulty_tier: intermediate
 - id: Fr17
   name_en: Triple Touch
   name_zh: 三點觸碰
@@ -398,6 +582,17 @@ drills:
   deficiency_fixes:
   - 12
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - single_arm
+  movement_pattern: pause_pulse
+  skill_focus:
+  - recovery_path
+  stroke_phase: recovery
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: surface_break
+  difficulty_tier: advanced
 - id: Fr18
   name_en: Suspended Hand
   name_zh: 懸空手
@@ -422,6 +617,18 @@ drills:
   - 4
   - 5
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - tension_held
+  movement_pattern: pause_pulse
+  skill_focus:
+  - core_tension
+  - kick_origin
+  stroke_phase: recovery
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
 - id: Fr19
   name_en: Water Polo Free
   name_zh: 水球式自由式
@@ -445,6 +652,18 @@ drills:
   - 6
   - 13
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - tension_held
+  movement_pattern: continuous
+  skill_focus:
+  - catch_evf
+  - spatial_awareness
+  stroke_phase: catch
+  drill_function: corrective
+  cognitive_load: medium
+  tactile_anchor: hand_pressure
+  difficulty_tier: intermediate
 - id: Fr20
   name_en: Golf
   name_zh: 高爾夫計分
@@ -468,6 +687,17 @@ drills:
   deficiency_fixes:
   - 15
   source: There's a Drill for That
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - rhythm_tempo
+  - glide_efficiency
+  stroke_phase: whole_stroke
+  drill_function: skill_integration
+  cognitive_load: medium
+  tactile_anchor: equipment_feedback
+  difficulty_tier: advanced
 - id: Fr21
   name_en: Quiet Hand Entry
   name_zh: 靜音入水
@@ -491,6 +721,16 @@ drills:
   deficiency_fixes:
   - 14
   source: There's a Drill for That
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - entry_extension
+  stroke_phase: entry
+  drill_function: corrective
+  cognitive_load: high
+  tactile_anchor: water_sound
+  difficulty_tier: advanced
 - id: Fr22
   name_en: No Bubbles
   name_zh: 無氣泡
@@ -513,6 +753,17 @@ drills:
   deficiency_fixes:
   - 14
   source: There's a Drill for That
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - entry_extension
+  - hip_drive
+  stroke_phase: entry
+  drill_function: corrective
+  cognitive_load: high
+  tactile_anchor: pool_floor_visual
+  difficulty_tier: advanced
 - id: Fr23
   name_en: 3 & Glide
   name_zh: 三划滑行
@@ -538,6 +789,17 @@ drills:
   - 4
   - 5
   source: There's a Drill for That
+  body_position: side
+  constraints: []
+  movement_pattern: alternating
+  skill_focus:
+  - core_tension
+  - glide_efficiency
+  stroke_phase: glide
+  drill_function: skill_integration
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: intermediate
 - id: Fr24
   name_en: Russian Rollover
   name_zh: 俄式滾轉
@@ -562,6 +824,17 @@ drills:
   - 5
   - 11
   source: There's a Drill for That
+  body_position: transitional
+  constraints: []
+  movement_pattern: alternating
+  skill_focus:
+  - catch_evf
+  - rotation_connection
+  stroke_phase: catch
+  drill_function: skill_integration
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: FrBr1
   name_en: Bubble Bobbing
   name_zh: 水中吐氣節律（韻律呼吸）
@@ -585,6 +858,16 @@ drills:
   - 1
   - 2
   source: 通用游泳教學法（Vortex 整理）
+  body_position: standing
+  constraints: []
+  movement_pattern: pause_pulse
+  skill_focus:
+  - breath_rhythm
+  stroke_phase: non_stroke
+  drill_function: warmup
+  cognitive_load: low
+  tactile_anchor: water_sound
+  difficulty_tier: foundation
 - id: FrBr2
   name_en: Sink Down / Relaxation Float
   name_zh: 放鬆下沉
@@ -607,6 +890,19 @@ drills:
   deficiency_fixes:
   - 3
   source: 通用游泳教學法（Vortex 整理）
+  body_position: vertical
+  constraints:
+  - no_arms
+  - no_kick
+  movement_pattern: static
+  skill_focus:
+  - buoyancy_balance
+  - breath_rhythm
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: low
+  tactile_anchor: core_tension_internal
+  difficulty_tier: foundation
 - id: FrBr3
   name_en: Trickle Exhale
   name_zh: 連續涓流吐氣
@@ -630,6 +926,16 @@ drills:
   - 1
   - 2
   source: 通用游泳教學法（Vortex 整理）
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - breath_rhythm
+  stroke_phase: whole_stroke
+  drill_function: corrective
+  cognitive_load: medium
+  tactile_anchor: water_sound
+  difficulty_tier: intermediate
 - id: FrBr4
   name_en: Bilateral Breathing
   name_zh: 兩側換氣（每三划）
@@ -654,6 +960,305 @@ drills:
   - 2
   - 4
   source: 通用游泳教學法（Vortex 整理）
+  body_position: prone
+  constraints:
+  - tempo_constrained
+  movement_pattern: continuous
+  skill_focus:
+  - breath_rhythm
+  - rotation_connection
+  stroke_phase: whole_stroke
+  drill_function: skill_integration
+  cognitive_load: medium
+  tactile_anchor: surface_break
+  difficulty_tier: intermediate
+- id: FrEC1
+  name_en: Eyes Closed Catch-Up
+  name_zh: 閉眼超人趕上
+  strokes:
+  - freestyle
+  category: arm
+  equipment: []
+  l_target:
+  - L3
+  - L4
+  abc_type: A
+  purpose_zh: 閉眼版超人趕上，拿掉視覺後逼出前臂錨定與髖部旋轉的本體感
+  how_to:
+  - 確認泳道淨空、無他人；超人姿勢俯臥，雙臂前伸與肩同寬，輕踢水
+  - 閉上眼睛（戴遮蔽鏡或泳鏡塗膠帶最佳），做超人趕上節律
+  - 全程靠手感判斷另一手是否回到會合點，不靠視覺；每 6 划停下抬頭確認方向
+  - 捕水時感覺髖同步旋轉、前手錨定不動
+  perception_goal: 閉眼後感知放大；前手錨定與髖旋轉變得明顯；沒有視覺仍能維持身體線
+  success_signal: 能維持與肩同寬的會合點；划水有明確錨定感
+  failure_signal: 失去方向（漂離中線）；划手感覺混亂
+  deficiency_fixes:
+  - 4
+  - 6
+  - 11
+  source: Total Immersion (Terry Laughlin) 感知訓練傳統；Vortex 整理
+  body_position: prone
+  constraints:
+  - eyes_closed
+  movement_pattern: pause_pulse
+  skill_focus:
+  - catch_evf
+  - hip_drive
+  stroke_phase: catch
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
+- id: FrPad1
+  name_en: Paddle Catch Hold
+  name_zh: 手掌板捕水靜止
+  strokes:
+  - freestyle
+  category: arm
+  equipment:
+  - paddles
+  l_target:
+  - L3
+  - L4
+  abc_type: A
+  purpose_zh: 戴手掌板放大前臂水壓訊號，靜止錨定 3 秒讓捕水感固化
+  how_to:
+  - 戴標準捕水板（小或中號，避免傷肩），超人姿勢俯臥輕踢
+  - 單臂划手到捕水位置（前臂垂直、肘高於手），停住 3 秒感受手掌板的水壓
+  - 完成拉水，前手停在前方等待換手；每側做 8 次
+  - 板會把細微壓力差異放大，幫助大腦標記正確角度
+  perception_goal: 手掌板讓水壓變得「響亮」；停住時感覺前臂全長都在抓水，不只是手掌
+  success_signal: 停 3 秒手仍有支撐感不下滑；左右側壓力感類似
+  failure_signal: 板一停就下沉（代表肘部沒高於手）；左右側差異很大
+  deficiency_fixes:
+  - 13
+  source: Maglischo Swimming Fastest（paddle catch isolation）
+  body_position: prone
+  constraints:
+  - paddle_amplifier
+  - single_arm
+  movement_pattern: pause_pulse
+  skill_focus:
+  - catch_evf
+  - forearm_pressure
+  stroke_phase: catch
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: equipment_feedback
+  difficulty_tier: advanced
+- id: FrSt1
+  name_en: Standing High Elbow Trace
+  name_zh: 站姿高肘軌跡描繪
+  strokes:
+  - freestyle
+  category: arm
+  equipment: []
+  l_target:
+  - L1
+  - L2
+  abc_type: A
+  purpose_zh: 及胸水深站姿模擬自由式回臂與入水，慢動作建立高肘記憶；熱身或初學者乾預演
+  how_to:
+  - 站在及胸水深，身體微前傾（脊椎打直、不彎腰駝背）
+  - 雙手放大腿，緩慢做自由式划手循環：抬肘→指尖入水→延伸→拉到大腿
+  - 全程肘部高於手腕，視覺確認手指軌跡擦過水面
+  - 兩側各做 10 次，重點在感覺肩部三角肌位置和肘部高度
+  perception_goal: 肘高於手；指尖先入水；無速度壓力下建立正確路徑記憶
+  success_signal: 肘部明顯高於手腕；入水時手指先觸水
+  failure_signal: 肘部下垂；手掌整片拍水
+  deficiency_fixes:
+  - 9
+  - 12
+  source: USA Swimming Foundations of Swimming（dryland-in-water 模擬）
+  body_position: standing
+  constraints:
+  - no_kick
+  movement_pattern: progressive
+  skill_focus:
+  - recovery_path
+  stroke_phase: recovery
+  drill_function: warmup
+  cognitive_load: low
+  tactile_anchor: surface_break
+  difficulty_tier: foundation
+- id: FrP1
+  name_en: Partner Hand Touch Recovery
+  name_zh: 同伴擊掌恢復臂
+  strokes:
+  - freestyle
+  category: arm
+  equipment:
+  - partner
+  l_target:
+  - L3
+  abc_type: A
+  purpose_zh: 同伴站在泳道邊把手伸到水面當固定點，回臂時必須輕擊那隻手，強制建立穩定恢復路徑
+  how_to:
+  - 同伴站在泳道邊（或水中），把手平伸到游者預期入水點外側 10 公分處
+  - 游自由式，每次恢復臂的最高點（或入水前）輕擊同伴的手
+  - 持續 25 公尺，左右側都練；同伴慢慢調整手的位置試探游者的舒適區
+  - 目的不是擊中而是建立空間參考
+  perception_goal: 恢復路徑有外部空間錨點；同伴的手成為「正確位置」的回饋
+  success_signal: 穩定擊中同伴的手；左右側都能精準
+  failure_signal: 擊中位置忽前忽後（代表回臂路徑不穩定）
+  deficiency_fixes:
+  - 8
+  - 12
+  source: 通用團隊訓練法（pair-tap drill 美式 NCAA 慣用）
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - recovery_path
+  - spatial_awareness
+  stroke_phase: recovery
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: partner_feedback
+  difficulty_tier: intermediate
+- id: FrP2
+  name_en: Partner Resistance Belt Tow
+  name_zh: 同伴阻力帶拖游
+  strokes:
+  - freestyle
+  category: timing
+  equipment:
+  - partner
+  - tubing
+  l_target:
+  - L4
+  - L5
+  abc_type: null
+  purpose_zh: 腰繫彈力繩、同伴在岸上輕拉，阻力下游自由式，感覺核心必須持續做功維持身體線
+  how_to:
+  - 腰繫長彈力繩，同伴站在岸上或前方水中輕拉繩另一端（拉力溫和，不爆衝）
+  - 游自由式，阻力下注意身體不能往下沉、髖必須持續驅動
+  - 做 4×15 秒，組間休 30 秒；繩拉力固定不變
+  - 核心一鬆身體會立刻下沉——這是回饋
+  perception_goal: 核心持續發力；髖部旋轉不間斷；阻力放大了「沒做功」的代價
+  success_signal: 阻力下仍能維持高臀位；划水節律不亂
+  failure_signal: 臀部下沉；划水變慢且亂
+  deficiency_fixes:
+  - 5
+  - 6
+  source: Salo & Riewald Complete Conditioning for Swimming（tethered work）
+  body_position: prone
+  constraints:
+  - tension_held
+  movement_pattern: continuous
+  skill_focus:
+  - hip_drive
+  - core_tension
+  stroke_phase: whole_stroke
+  drill_function: progression
+  cognitive_load: medium
+  tactile_anchor: partner_feedback
+  difficulty_tier: advanced
+- id: FrSide1
+  name_en: Side Catch Anchor
+  name_zh: 側躺前手錨定捕水
+  strokes:
+  - freestyle
+  category: arm
+  equipment: []
+  l_target:
+  - L3
+  - L4
+  abc_type: A
+  purpose_zh: 在 45° 側躺位置只練前手的捕水錨定，把捕水從旋轉與呼吸中孤立出來
+  how_to:
+  - 右側躺 45°，右手前伸、左手放左臀，輕踢水保持平衡
+  - 右手做捕水動作：肘部抬高、前臂垂直、手指朝池底，停住 3 秒
+  - 感覺前臂全長都在抓水（不只是手掌）；不拉到底，只練捕水那一段
+  - 停夠後放鬆讓手回前方，重複 8 次再換側
+  perception_goal: 捕水位置的水壓清晰；前臂感覺像「掛在水上」
+  success_signal: 停住時手沒有下沉；前臂感受得到水壓
+  failure_signal: 手一停就下沉（肘部沒抬）；只感覺手掌不感覺前臂
+  deficiency_fixes:
+  - 11
+  - 13
+  source: Counsilman 捕水傳統（hand-arm pressure isolation）
+  body_position: side
+  constraints:
+  - single_arm
+  - no_breath
+  movement_pattern: pause_pulse
+  skill_focus:
+  - catch_evf
+  - forearm_pressure
+  stroke_phase: catch
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
+- id: FrSide2
+  name_en: Side Glide Pressure Check
+  name_zh: 側躺滑行壓力檢查
+  strokes:
+  - freestyle
+  category: balance
+  equipment: []
+  l_target:
+  - L2
+  - L3
+  abc_type: A
+  purpose_zh: 側躺滑行時用前伸手的手背感受水流方向，建立「身體切水」的細微感知
+  how_to:
+  - 側躺 45°，前手伸直、掌心略朝池底，後手放臀
+  - 輕踢水緩慢前進，把注意力放在前伸手的「手背」上
+  - 手背應感覺水從指尖流向手腕的均勻壓力——這代表身體切水方向正確
+  - 如果手背感覺亂流或側面壓力，代表手腕或肩膀沒對齊
+  perception_goal: 手背的水流是均勻向後的壓力，不是側壓也不是亂流
+  success_signal: 手背能清楚感受到方向性的水流
+  failure_signal: 手背只感覺到亂流或無感（代表姿勢有偏）
+  deficiency_fixes:
+  - 4
+  - 10
+  source: Vortex 整理（pressure mapping 系列）
+  body_position: side
+  constraints:
+  - no_arms
+  movement_pattern: progressive
+  skill_focus:
+  - forearm_pressure
+  - glide_efficiency
+  stroke_phase: glide
+  drill_function: corrective
+  cognitive_load: medium
+  tactile_anchor: hand_pressure
+  difficulty_tier: intermediate
+- id: FrLow1
+  name_en: Snorkel Easy Catch
+  name_zh: 戴呼吸管輕鬆捕水
+  strokes:
+  - freestyle
+  category: arm
+  equipment:
+  - snorkel
+  l_target:
+  - L2
+  - L3
+  abc_type: A
+  purpose_zh: 戴呼吸管消除換氣負擔的低強度自由式，把感官完全給捕水；熱身或主項目前感知激活用
+  how_to:
+  - 戴呼吸管游自由式，配速 60–70% (能聊天強度)，划幅放大
+  - 每一划都明確感受捕水時前臂的水壓；速度不重要
+  - 做 4×100，組間休 20 秒；這是「感官開機」不是體能訓練
+  perception_goal: 在不疲勞的狀態下重訪捕水感；建立 main set 之前的感知基線
+  success_signal: 每一划都能準確描述捕水的位置和力量
+  failure_signal: 心智散漫；只是無感地游
+  deficiency_fixes: []
+  source: FINIS 教練資源（snorkel-based perception priming）
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - catch_evf
+  stroke_phase: catch
+  drill_function: warmup
+  cognitive_load: low
+  tactile_anchor: equipment_feedback
+  difficulty_tier: foundation
 - id: Bk1
   name_en: Streamlined Kick on Back
   name_zh: 仰式流線踢水
@@ -677,6 +1282,18 @@ drills:
   - 5
   - 6
   source: There's a Drill for That
+  body_position: supine
+  constraints:
+  - no_arms
+  movement_pattern: continuous
+  skill_focus:
+  - streamline_line
+  - kick_origin
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: low
+  tactile_anchor: water_sound
+  difficulty_tier: foundation
 - id: Bk2
   name_en: Flutter Kick Cross
   name_zh: 交叉手踢水
@@ -701,6 +1318,18 @@ drills:
   - 2
   - 13
   source: There's a Drill for That
+  body_position: supine
+  constraints:
+  - no_arms
+  movement_pattern: continuous
+  skill_focus:
+  - buoyancy_balance
+  - streamline_line
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: low
+  tactile_anchor: surface_break
+  difficulty_tier: foundation
 - id: Bk3
   name_en: Board Down Kick
   name_zh: 浮板壓腿踢水
@@ -722,6 +1351,18 @@ drills:
   deficiency_fixes:
   - 7
   source: There's a Drill for That
+  body_position: supine
+  constraints:
+  - no_arms
+  movement_pattern: continuous
+  skill_focus:
+  - kick_origin
+  - kick_amplitude
+  stroke_phase: non_stroke
+  drill_function: corrective
+  cognitive_load: low
+  tactile_anchor: equipment_feedback
+  difficulty_tier: intermediate
 - id: Bk4
   name_en: Head Lead Balance Kick on Side
   name_zh: 頭帶側身平衡踢水
@@ -745,6 +1386,18 @@ drills:
   - 3
   - 4
   source: There's a Drill for That
+  body_position: side
+  constraints:
+  - no_arms
+  movement_pattern: progressive
+  skill_focus:
+  - buoyancy_balance
+  - core_tension
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: low
+  tactile_anchor: core_tension_internal
+  difficulty_tier: foundation
 - id: Bk5
   name_en: Head Lead Balance Kick with Rotation
   name_zh: 頭帶平衡旋轉踢水
@@ -769,6 +1422,18 @@ drills:
   - 3
   - 4
   source: There's a Drill for That
+  body_position: transitional
+  constraints:
+  - no_arms
+  movement_pattern: rotational
+  skill_focus:
+  - hip_drive
+  - rotation_connection
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: intermediate
 - id: Bk6
   name_en: Superman Kick
   name_zh: 超人仰式踢水
@@ -791,6 +1456,18 @@ drills:
   deficiency_fixes:
   - 10
   source: There's a Drill for That
+  body_position: supine
+  constraints:
+  - tension_held
+  movement_pattern: continuous
+  skill_focus:
+  - streamline_line
+  - core_tension
+  stroke_phase: entry
+  drill_function: skill_isolation
+  cognitive_load: low
+  tactile_anchor: core_tension_internal
+  difficulty_tier: foundation
 - id: Bk7
   name_en: Vertical Flutter Kick
   name_zh: 垂直仰式踢水
@@ -816,6 +1493,18 @@ drills:
   - 5
   - 7
   source: There's a Drill for That
+  body_position: vertical
+  constraints:
+  - no_arms
+  movement_pattern: rotational
+  skill_focus:
+  - kick_origin
+  - rotation_connection
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: intermediate
 - id: Bk8
   name_en: Arm Lead Balance
   name_zh: 手臂主導平衡
@@ -838,6 +1527,18 @@ drills:
   deficiency_fixes:
   - 6
   source: There's a Drill for That
+  body_position: side
+  constraints:
+  - single_arm
+  movement_pattern: progressive
+  skill_focus:
+  - buoyancy_balance
+  - streamline_line
+  stroke_phase: glide
+  drill_function: skill_isolation
+  cognitive_load: low
+  tactile_anchor: pool_floor_visual
+  difficulty_tier: foundation
 - id: Bk9
   name_en: Alternating Arm Lead
   name_zh: 交替手臂主導
@@ -862,6 +1563,18 @@ drills:
   - 4
   - 10
   source: There's a Drill for That
+  body_position: transitional
+  constraints:
+  - single_arm
+  movement_pattern: alternating
+  skill_focus:
+  - hip_drive
+  - rotation_connection
+  stroke_phase: catch
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: hand_pressure
+  difficulty_tier: intermediate
 - id: Bk10
   name_en: Head Lead Balance with 1/4 Arm Lifts
   name_zh: 頭帶平衡＋四分之一抬臂
@@ -884,6 +1597,17 @@ drills:
   deficiency_fixes:
   - 8
   source: There's a Drill for That
+  body_position: transitional
+  constraints: []
+  movement_pattern: alternating
+  skill_focus:
+  - rotation_connection
+  - recovery_path
+  stroke_phase: recovery
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: intermediate
 - id: Bk11
   name_en: Catch Up Backstroke
   name_zh: 仰式趕上
@@ -906,6 +1630,17 @@ drills:
   deficiency_fixes:
   - 6
   source: There's a Drill for That
+  body_position: supine
+  constraints: []
+  movement_pattern: pause_pulse
+  skill_focus:
+  - buoyancy_balance
+  - core_tension
+  stroke_phase: recovery
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: intermediate
 - id: Bk12
   name_en: Double Arm Backstroke
   name_zh: 雙臂同步仰式
@@ -928,6 +1663,17 @@ drills:
   deficiency_fixes:
   - 9
   source: There's a Drill for That
+  body_position: supine
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - recovery_path
+  - entry_extension
+  stroke_phase: recovery
+  drill_function: corrective
+  cognitive_load: low
+  tactile_anchor: core_tension_internal
+  difficulty_tier: intermediate
 - id: Bk13
   name_en: One Arm Stroke
   name_zh: 單臂仰式
@@ -950,6 +1696,18 @@ drills:
   deficiency_fixes:
   - 11
   source: There's a Drill for That
+  body_position: side
+  constraints:
+  - single_arm
+  movement_pattern: continuous
+  skill_focus:
+  - hip_drive
+  - forearm_pressure
+  stroke_phase: pull
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: Bk14
   name_en: L Drill
   name_zh: L形鑽
@@ -975,6 +1733,18 @@ drills:
   - 8
   - 15
   source: There's a Drill for That
+  body_position: transitional
+  constraints:
+  - single_arm
+  movement_pattern: alternating
+  skill_focus:
+  - hip_drive
+  - catch_evf
+  stroke_phase: catch
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: Bk15
   name_en: Switching L
   name_zh: 快速L形切換
@@ -1001,6 +1771,18 @@ drills:
   - 8
   - 13
   source: There's a Drill for That
+  body_position: transitional
+  constraints:
+  - tempo_constrained
+  movement_pattern: alternating
+  skill_focus:
+  - hip_drive
+  - rhythm_tempo
+  stroke_phase: catch
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
 - id: Bk16
   name_en: Switching L to Regular Backstroke
   name_zh: L形切換接正式仰式
@@ -1023,6 +1805,16 @@ drills:
   deficiency_fixes:
   - 10
   source: There's a Drill for That
+  body_position: supine
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - rotation_connection
+  stroke_phase: whole_stroke
+  drill_function: skill_integration
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
 - id: Bk17
   name_en: Pause Point
   name_zh: 暫停點
@@ -1046,6 +1838,17 @@ drills:
   deficiency_fixes:
   - 3
   source: There's a Drill for That
+  body_position: side
+  constraints: []
+  movement_pattern: pause_pulse
+  skill_focus:
+  - hip_drive
+  - rotation_connection
+  stroke_phase: catch
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
 - id: Bk18
   name_en: Sky Point
   name_zh: 指天
@@ -1068,6 +1871,19 @@ drills:
   deficiency_fixes:
   - 4
   source: There's a Drill for That
+  body_position: side
+  constraints:
+  - single_arm
+  - tension_held
+  movement_pattern: alternating
+  skill_focus:
+  - kick_origin
+  - core_tension
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
 - id: Bk19
   name_en: Fist Swimming
   name_zh: 握拳仰式
@@ -1091,6 +1907,17 @@ drills:
   deficiency_fixes:
   - 11
   source: There's a Drill for That
+  body_position: supine
+  constraints:
+  - closed_fist
+  movement_pattern: continuous
+  skill_focus:
+  - forearm_pressure
+  stroke_phase: pull
+  drill_function: corrective
+  cognitive_load: medium
+  tactile_anchor: hand_pressure
+  difficulty_tier: intermediate
 - id: Bk20
   name_en: Russian Rollover
   name_zh: 俄式滾轉（仰式）
@@ -1113,6 +1940,17 @@ drills:
   failure_signal: 翻轉時方向感混亂；感覺完全是兩個不同動作
   deficiency_fixes: []
   source: There's a Drill for That
+  body_position: transitional
+  constraints: []
+  movement_pattern: alternating
+  skill_focus:
+  - catch_evf
+  - rotation_connection
+  stroke_phase: catch
+  drill_function: skill_integration
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: Bk21
   name_en: Three & Glide
   name_zh: 三划滑行（仰式）
@@ -1133,6 +1971,17 @@ drills:
   failure_signal: 滑行時立刻開始下沉
   deficiency_fixes: []
   source: There's a Drill for That
+  body_position: side
+  constraints: []
+  movement_pattern: alternating
+  skill_focus:
+  - core_tension
+  - glide_efficiency
+  stroke_phase: glide
+  drill_function: skill_integration
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: intermediate
 - id: Bk22
   name_en: Goggle Balance
   name_zh: 泳鏡平衡
@@ -1157,6 +2006,17 @@ drills:
   - 2
   - 13
   source: There's a Drill for That
+  body_position: supine
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - streamline_line
+  - spatial_awareness
+  stroke_phase: whole_stroke
+  drill_function: corrective
+  cognitive_load: medium
+  tactile_anchor: equipment_feedback
+  difficulty_tier: foundation
 - id: Bk23
   name_en: Spin
   name_zh: 高速仰式
@@ -1179,6 +2039,17 @@ drills:
   deficiency_fixes:
   - 14
   source: There's a Drill for That
+  body_position: supine
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - rhythm_tempo
+  - hand_acceleration
+  stroke_phase: whole_stroke
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: elite
 - id: Bk24
   name_en: Backstroke Pull
   name_zh: 仰式拉力板
@@ -1205,6 +2076,18 @@ drills:
   - 9
   - 11
   source: There's a Drill for That
+  body_position: supine
+  constraints:
+  - no_kick
+  movement_pattern: continuous
+  skill_focus:
+  - hip_drive
+  - forearm_pressure
+  stroke_phase: pull
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: Bk25
   name_en: Accelerated Hand Strike
   name_zh: 加速入水
@@ -1229,6 +2112,17 @@ drills:
   - 12
   - 14
   source: There's a Drill for That
+  body_position: supine
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - hand_acceleration
+  - entry_extension
+  stroke_phase: entry
+  drill_function: corrective
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: Bk26
   name_en: Lane Line Pull
   name_zh: 水線輔助拉水
@@ -1252,6 +2146,199 @@ drills:
   deficiency_fixes:
   - 15
   source: There's a Drill for That
+  body_position: supine
+  constraints:
+  - single_arm
+  movement_pattern: continuous
+  skill_focus:
+  - catch_evf
+  - hand_acceleration
+  stroke_phase: catch
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: equipment_feedback
+  difficulty_tier: intermediate
+- id: BkEC1
+  name_en: Eyes Closed Streamline Backkick
+  name_zh: 閉眼仰式流線踢水
+  strokes:
+  - backstroke
+  category: kick
+  equipment: []
+  l_target:
+  - L2
+  - L3
+  abc_type: null
+  purpose_zh: 閉眼仰式流線踢水，靠耳朵感覺池底距離、靠體感確認身體線；建立純粹的本體感
+  how_to:
+  - 確認泳道淨空、最好有同伴看著；仰躺 streamline 踢水
+  - 閉眼出發，靠耳朵聽水流方向、靠身體感覺水面位置
+  - 踢 8 拍後睜眼確認方向；逐步延長到 16 拍
+  - 重點是當視覺消失時，身體線必須由核心而非眼睛維持
+  perception_goal: 閉眼後身體線變成純內部感覺；耳朵的水聲變成方向參考
+  success_signal: 睜眼時仍在中線；身體線沒有彎掉
+  failure_signal: 嚴重漂離中線；身體下沉
+  deficiency_fixes:
+  - 3
+  source: Vortex 整理（proprioception × spatial axis）
+  body_position: supine
+  constraints:
+  - eyes_closed
+  - no_arms
+  movement_pattern: continuous
+  skill_focus:
+  - streamline_line
+  - spatial_awareness
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: water_sound
+  difficulty_tier: intermediate
+- id: BkPad1
+  name_en: Paddle Backstroke Pull
+  name_zh: 手掌板仰式拉手
+  strokes:
+  - backstroke
+  category: arm
+  equipment:
+  - paddles
+  - pull_buoy
+  l_target:
+  - L4
+  - L5
+  abc_type: A
+  purpose_zh: 戴小手掌板夾浮棒游仰式，放大拉水路徑壓力差，幫助找到 S 路徑的甜蜜點
+  how_to:
+  - 戴小手掌板（防傷肩，不戴大型）、夾 pull buoy
+  - 正常仰式划水，全程感受手掌板的水壓變化
+  - 肘部收近身體、像「往腳的方向丟東西」——板會把這個位置標記得很清楚
+  - 做 4×50，每組停下回報「最有壓力的點在哪」
+  perception_goal: 手掌板讓拉水路徑變成有方向感的壓力地圖
+  success_signal: 能說出整段拉水中壓力最大的位置
+  failure_signal: 全程壓力平均（代表路徑沒分段）
+  deficiency_fixes:
+  - 11
+  - 15
+  source: Maglischo Swimming Fastest（paddles for S-pattern feedback）
+  body_position: supine
+  constraints:
+  - paddle_amplifier
+  - no_kick
+  movement_pattern: continuous
+  skill_focus:
+  - forearm_pressure
+  - hand_acceleration
+  stroke_phase: pull
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: equipment_feedback
+  difficulty_tier: advanced
+- id: BkSt1
+  name_en: Standing Backstroke Sweep
+  name_zh: 站姿仰式划手模擬
+  strokes:
+  - backstroke
+  category: arm
+  equipment: []
+  l_target:
+  - L1
+  - L2
+  abc_type: A
+  purpose_zh: 站姿模擬仰式入水與拉水軌跡，初學者建立小指先入水與肘部位置；熱身用
+  how_to:
+  - 站在及胸水深，身體後仰約 15°
+  - 緩慢做仰式划手循環：拇指朝上出水、小指先入水、肘高於手、拉到大腿
+  - 視覺確認入水位置在肩膀正延伸線、不越過中線
+  - 兩側交替各 10 次
+  perception_goal: 建立小指入水的感覺；確認肘高於手
+  success_signal: 小指清楚先入水；肘部位置正確
+  failure_signal: 拇指或手掌先入水；越過中線
+  deficiency_fixes:
+  - 9
+  - 10
+  source: USA Swimming Foundations of Swimming（站姿動作預演）
+  body_position: standing
+  constraints:
+  - no_kick
+  movement_pattern: progressive
+  skill_focus:
+  - catch_evf
+  - recovery_path
+  stroke_phase: entry
+  drill_function: warmup
+  cognitive_load: low
+  tactile_anchor: hand_pressure
+  difficulty_tier: foundation
+- id: BkP1
+  name_en: Partner Pace Side-by-Side
+  name_zh: 同伴並肩配速仰式
+  strokes:
+  - backstroke
+  category: timing
+  equipment:
+  - partner
+  l_target:
+  - L4
+  - L5
+  abc_type: null
+  purpose_zh: 與同伴在相鄰泳道並肩游仰式，互相鎖節律，外部視覺與聽覺成為節律錨
+  how_to:
+  - 兩人選相鄰泳道，事先約定划手次數（例：每 25 公尺 14 次）
+  - 並肩出發，餘光與水聲互相回饋；節律以慢者為準（不競速）
+  - 做 6×50，每組換配速約定（13、14、15 划/25）
+  - 重點是在被動接收節律下能否維持身體線
+  perception_goal: 節律從外部回饋變成內化參考；身體線不為了追節律而崩潰
+  success_signal: 兩人能在約定划數下到牆，划水節律穩定
+  failure_signal: 為了配速犧牲身體線；節律跟不上
+  deficiency_fixes: []
+  source: 通用團隊訓練法（pair pacing in adjacent lanes）
+  body_position: supine
+  constraints:
+  - tempo_constrained
+  movement_pattern: continuous
+  skill_focus:
+  - rhythm_tempo
+  - spatial_awareness
+  stroke_phase: whole_stroke
+  drill_function: skill_integration
+  cognitive_load: high
+  tactile_anchor: partner_feedback
+  difficulty_tier: advanced
+- id: BkLow1
+  name_en: Six Kick Switch
+  name_zh: 六踢換邊
+  strokes:
+  - backstroke
+  category: timing
+  equipment: []
+  l_target:
+  - L2
+  - L3
+  abc_type: null
+  purpose_zh: 低強度仰式六踢換邊，作為仰式 main set 前的感知激活與節律建立
+  how_to:
+  - 仰躺側躺位置出發，數 6 拍踢水後翻到另一側
+  - 翻轉時不划水，只用核心驅動旋轉、肩膀短暫出水
+  - 持續 4×100 公尺，配速放慢
+  - 重點在每次切換都找回平衡點，不在速度
+  perception_goal: 每 6 拍找到新平衡；核心驅動旋轉、頭部完全靜止
+  success_signal: 切換流暢；節律穩定不亂
+  failure_signal: 翻邊時失去平衡；頭部跟著晃
+  deficiency_fixes:
+  - 3
+  - 4
+  source: 通用游泳教學法（switch drill warmup variant）
+  body_position: transitional
+  constraints: []
+  movement_pattern: alternating
+  skill_focus:
+  - rotation_connection
+  - kick_origin
+  stroke_phase: non_stroke
+  drill_function: warmup
+  cognitive_load: low
+  tactile_anchor: core_tension_internal
+  difficulty_tier: intermediate
 - id: Br1
   name_en: Wall Kicks
   name_zh: 牆邊蛙式腿
@@ -1275,6 +2362,18 @@ drills:
   - 12
   - 13
   source: There's a Drill for That
+  body_position: vertical
+  constraints:
+  - no_arms
+  - tension_held
+  movement_pattern: static
+  skill_focus:
+  - kick_origin
+  stroke_phase: non_stroke
+  drill_function: corrective
+  cognitive_load: medium
+  tactile_anchor: wall_contact
+  difficulty_tier: foundation
 - id: Br2
   name_en: Egg Beater Kick
   name_zh: 打蛋器踢水
@@ -1296,6 +2395,16 @@ drills:
   deficiency_fixes:
   - 11
   source: There's a Drill for That
+  body_position: vertical
+  constraints: []
+  movement_pattern: static
+  skill_focus:
+  - kick_origin
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: low
+  tactile_anchor: foot_pressure
+  difficulty_tier: foundation
 - id: Br3
   name_en: Vertical Breaststroke Kick
   name_zh: 垂直蛙式踢腿
@@ -1320,6 +2429,17 @@ drills:
   - 12
   - 13
   source: There's a Drill for That
+  body_position: vertical
+  constraints:
+  - no_arms
+  movement_pattern: static
+  skill_focus:
+  - kick_origin
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: low
+  tactile_anchor: foot_pressure
+  difficulty_tier: intermediate
 - id: Br4
   name_en: Vertical Kick with Streamline Arms
   name_zh: 垂直踢腿流線臂
@@ -1342,6 +2462,18 @@ drills:
   - 12
   - 13
   source: There's a Drill for That
+  body_position: vertical
+  constraints:
+  - tension_held
+  movement_pattern: static
+  skill_focus:
+  - kick_origin
+  - kick_amplitude
+  stroke_phase: non_stroke
+  drill_function: progression
+  cognitive_load: medium
+  tactile_anchor: foot_pressure
+  difficulty_tier: advanced
 - id: Br5
   name_en: Pull-Buoy Kick
   name_zh: 浮力棒踢腿
@@ -1366,6 +2498,19 @@ drills:
   - 11
   - 13
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - no_arms
+  - tension_held
+  movement_pattern: continuous
+  skill_focus:
+  - kick_origin
+  - glide_efficiency
+  stroke_phase: non_stroke
+  drill_function: corrective
+  cognitive_load: low
+  tactile_anchor: equipment_feedback
+  difficulty_tier: intermediate
 - id: Br6
   name_en: Hands Down Kick on Stomach
   name_zh: 手放臀部面朝下踢腿
@@ -1390,6 +2535,17 @@ drills:
   - 10
   - 11
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - no_arms
+  movement_pattern: continuous
+  skill_focus:
+  - kick_origin
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: low
+  tactile_anchor: foot_pressure
+  difficulty_tier: intermediate
 - id: Br7
   name_en: Hands Down Kick on Back
   name_zh: 手放臀部面朝上踢腿
@@ -1414,6 +2570,17 @@ drills:
   - 12
   - 13
   source: There's a Drill for That
+  body_position: supine
+  constraints:
+  - no_arms
+  movement_pattern: continuous
+  skill_focus:
+  - kick_origin
+  stroke_phase: non_stroke
+  drill_function: corrective
+  cognitive_load: low
+  tactile_anchor: foot_pressure
+  difficulty_tier: intermediate
 - id: Br8
   name_en: Superman Kick on Stomach
   name_zh: 超人蛙式踢腿
@@ -1436,6 +2603,18 @@ drills:
   deficiency_fixes:
   - 16
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - no_arms
+  movement_pattern: continuous
+  skill_focus:
+  - kick_origin
+  - wave_undulation
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: equipment_feedback
+  difficulty_tier: intermediate
 - id: Br9
   name_en: Superman Kick on Back
   name_zh: 仰面超人蛙式踢腿
@@ -1458,6 +2637,18 @@ drills:
   deficiency_fixes:
   - 12
   source: There's a Drill for That
+  body_position: supine
+  constraints:
+  - no_arms
+  movement_pattern: continuous
+  skill_focus:
+  - kick_origin
+  - streamline_line
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: low
+  tactile_anchor: surface_break
+  difficulty_tier: intermediate
 - id: Br10
   name_en: Tombstone Kick
   name_zh: 墓碑浮板踢腿
@@ -1482,6 +2673,17 @@ drills:
   - 11
   - 14
   source: There's a Drill for That
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - kick_origin
+  - kick_amplitude
+  stroke_phase: non_stroke
+  drill_function: progression
+  cognitive_load: medium
+  tactile_anchor: equipment_feedback
+  difficulty_tier: advanced
 - id: Br11
   name_en: Barrowman Kick
   name_zh: Barrowman腿（交替踢）
@@ -1504,6 +2706,18 @@ drills:
   deficiency_fixes:
   - 11
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - single_leg
+  movement_pattern: alternating
+  skill_focus:
+  - kick_origin
+  - rhythm_tempo
+  stroke_phase: non_stroke
+  drill_function: progression
+  cognitive_load: medium
+  tactile_anchor: foot_pressure
+  difficulty_tier: advanced
 - id: Br12
   name_en: Breaststroke Arm Sweeps
   name_zh: 蛙式手臂外撇
@@ -1526,6 +2740,18 @@ drills:
   deficiency_fixes:
   - 4
   source: There's a Drill for That
+  body_position: standing
+  constraints:
+  - no_kick
+  movement_pattern: progressive
+  skill_focus:
+  - catch_evf
+  - breath_rhythm
+  stroke_phase: pull
+  drill_function: skill_isolation
+  cognitive_load: low
+  tactile_anchor: hand_pressure
+  difficulty_tier: foundation
 - id: Br13
   name_en: Breaststroke Arm Pull
   name_zh: 蛙式泡麵條輔助拉手
@@ -1549,6 +2775,18 @@ drills:
   deficiency_fixes:
   - 4
   source: There's a Drill for That
+  body_position: standing
+  constraints:
+  - no_kick
+  movement_pattern: progressive
+  skill_focus:
+  - catch_evf
+  - hand_acceleration
+  stroke_phase: pull
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: equipment_feedback
+  difficulty_tier: foundation
 - id: Br14
   name_en: High Elbow Pull
   name_zh: 高肘支撐練習
@@ -1570,6 +2808,17 @@ drills:
   deficiency_fixes:
   - 3
   source: There's a Drill for That
+  body_position: vertical
+  constraints:
+  - no_kick
+  movement_pattern: pause_pulse
+  skill_focus:
+  - catch_evf
+  stroke_phase: catch
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: wall_contact
+  difficulty_tier: intermediate
 - id: Br15
   name_en: Breast Pull with Flutter Kick
   name_zh: 蛙式拉手＋自由式踢水
@@ -1593,6 +2842,17 @@ drills:
   - 6
   - 10
   source: There's a Drill for That
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - glide_efficiency
+  - streamline_line
+  stroke_phase: glide
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: intermediate
 - id: Br16
   name_en: Breast Pull with Dolphin Kick
   name_zh: 蛙式拉手＋蝶式踢水
@@ -1617,6 +2877,17 @@ drills:
   - 6
   - 16
   source: There's a Drill for That
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - wave_undulation
+  - hip_drive
+  stroke_phase: transition
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
 - id: Br17
   name_en: Cobra
   name_zh: 眼鏡蛇
@@ -1644,6 +2915,18 @@ drills:
   - 8
   - 10
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - no_kick
+  movement_pattern: pause_pulse
+  skill_focus:
+  - hip_drive
+  - entry_extension
+  stroke_phase: pull
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
 - id: Br18
   name_en: One-Arm Breaststroke
   name_zh: 單臂蛙式
@@ -1665,6 +2948,18 @@ drills:
   deficiency_fixes:
   - 3
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - single_arm
+  movement_pattern: continuous
+  skill_focus:
+  - forearm_pressure
+  - hand_acceleration
+  stroke_phase: pull
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: intermediate
 - id: Br19
   name_en: Fist Pulling
   name_zh: 握拳蛙式
@@ -1686,6 +2981,17 @@ drills:
   deficiency_fixes:
   - 4
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - closed_fist
+  movement_pattern: continuous
+  skill_focus:
+  - forearm_pressure
+  stroke_phase: pull
+  drill_function: corrective
+  cognitive_load: medium
+  tactile_anchor: hand_pressure
+  difficulty_tier: intermediate
 - id: Br20
   name_en: Miles Per Hour Pull
   name_zh: 時速拉手
@@ -1714,6 +3020,18 @@ drills:
   - 8
   - 10
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - no_kick
+  movement_pattern: continuous
+  skill_focus:
+  - hand_acceleration
+  - rhythm_tempo
+  stroke_phase: pull
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: Br21
   name_en: Dive Downs
   name_zh: 潛水下衝
@@ -1737,6 +3055,17 @@ drills:
   - 8
   - 9
   source: There's a Drill for That
+  body_position: transitional
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - streamline_line
+  - glide_efficiency
+  stroke_phase: transition
+  drill_function: skill_integration
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
 - id: Br22
   name_en: Flat Breaststroke Pull
   name_zh: 平面蛙式拉手
@@ -1762,6 +3091,18 @@ drills:
   - 1
   - 3
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - no_kick
+  movement_pattern: continuous
+  skill_focus:
+  - hand_acceleration
+  - streamline_line
+  stroke_phase: pull
+  drill_function: skill_isolation
+  cognitive_load: low
+  tactile_anchor: equipment_feedback
+  difficulty_tier: intermediate
 - id: Br23
   name_en: Underwater Undulation
   name_zh: 水下波動
@@ -1785,6 +3126,17 @@ drills:
   - 1
   - 16
   source: There's a Drill for That
+  body_position: underwater
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - wave_undulation
+  - forearm_pressure
+  stroke_phase: whole_stroke
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
 - id: Br24
   name_en: Kick-Dive Progression
   name_zh: 踢腿潛水遞進
@@ -1807,6 +3159,18 @@ drills:
   deficiency_fixes:
   - 9
   source: There's a Drill for That
+  body_position: transitional
+  constraints:
+  - no_breath
+  movement_pattern: pause_pulse
+  skill_focus:
+  - streamline_line
+  - glide_efficiency
+  stroke_phase: glide
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
 - id: Br25
   name_en: Head-Up Breaststroke Shoots
   name_zh: 抬頭快速前推
@@ -1829,6 +3193,17 @@ drills:
   deficiency_fixes:
   - 5
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - tension_held
+  movement_pattern: continuous
+  skill_focus:
+  - hand_acceleration
+  stroke_phase: recovery
+  drill_function: progression
+  cognitive_load: medium
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: Br26
   name_en: Breaststroke with a Snorkel
   name_zh: 戴呼吸管游蛙式
@@ -1852,6 +3227,16 @@ drills:
   deficiency_fixes:
   - 1
   source: There's a Drill for That
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - streamline_line
+  stroke_phase: whole_stroke
+  drill_function: skill_isolation
+  cognitive_load: low
+  tactile_anchor: equipment_feedback
+  difficulty_tier: foundation
 - id: Br27
   name_en: Underwater Full Breaststroke
   name_zh: 水下完整蛙式
@@ -1873,6 +3258,17 @@ drills:
   deficiency_fixes:
   - 1
   source: There's a Drill for That
+  body_position: underwater
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - glide_efficiency
+  - pressure_mapping
+  stroke_phase: whole_stroke
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
 - id: Br28
   name_en: Upside Down Underwater Breaststroke
   name_zh: 仰面水下蛙式
@@ -1895,6 +3291,17 @@ drills:
   - 1
   - 3
   source: There's a Drill for That
+  body_position: underwater
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - spatial_awareness
+  - pressure_mapping
+  stroke_phase: whole_stroke
+  drill_function: corrective
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
 - id: Br29
   name_en: Up-Down Combos
   name_zh: 正仰面組合
@@ -1916,6 +3323,17 @@ drills:
   deficiency_fixes:
   - 1
   source: There's a Drill for That
+  body_position: transitional
+  constraints: []
+  movement_pattern: alternating
+  skill_focus:
+  - streamline_line
+  - spatial_awareness
+  stroke_phase: whole_stroke
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
 - id: Br30
   name_en: Pull Stop Kick Stop
   name_zh: 拉停踢停
@@ -1938,6 +3356,17 @@ drills:
   deficiency_fixes:
   - 9
   source: There's a Drill for That
+  body_position: prone
+  constraints: []
+  movement_pattern: pause_pulse
+  skill_focus:
+  - streamline_line
+  - glide_efficiency
+  stroke_phase: transition
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: intermediate
 - id: Br31
   name_en: Overlap Timing
   name_zh: 重疊時序
@@ -1960,6 +3389,17 @@ drills:
   - 9
   - 15
   source: There's a Drill for That
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - rhythm_tempo
+  - glide_efficiency
+  stroke_phase: transition
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: elite
 - id: Br32
   name_en: Stroke Count Speed Drill
   name_zh: 划次速度訓練
@@ -1981,6 +3421,18 @@ drills:
   deficiency_fixes:
   - 15
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - tempo_constrained
+  movement_pattern: continuous
+  skill_focus:
+  - rhythm_tempo
+  - glide_efficiency
+  stroke_phase: whole_stroke
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: equipment_feedback
+  difficulty_tier: elite
 - id: Br33
   name_en: Short Axis Combo
   name_zh: 短軸組合（蛙蝶）
@@ -2005,6 +3457,17 @@ drills:
   - 2
   - 16
   source: There's a Drill for That
+  body_position: prone
+  constraints: []
+  movement_pattern: alternating
+  skill_focus:
+  - wave_undulation
+  - hip_drive
+  stroke_phase: whole_stroke
+  drill_function: skill_integration
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: Br34
   name_en: Frozen Head
   name_zh: 冰凍頭部
@@ -2021,12 +3484,168 @@ drills:
   - 拿一顆網球，或略大一點的軟橡膠充氣球
   - 夾在下巴下游蛙式，設法讓球留在原位
   - 藉此保持眼睛朝下、頭與脊椎成一線
-  perception_goal: 頭部完全靜止；感覺動作從髖部以下發起，不帶動頭部
+  perception_goal: 頭部完全靜止；感覺動作從髖部以下發起，不帶動頭部移動
   success_signal: 一趟下來頭部零晃動；換氣完全靠身體動作創造空間
   failure_signal: 頭部跟著拉手上下移動
   deficiency_fixes:
   - 1
   source: There's a Drill for That
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - streamline_line
+  - spatial_awareness
+  stroke_phase: whole_stroke
+  drill_function: corrective
+  cognitive_load: medium
+  tactile_anchor: equipment_feedback
+  difficulty_tier: intermediate
+- id: BrEC1
+  name_en: Eyes Closed Streamline Pulldown
+  name_zh: 閉眼水下流線蛙式拉手
+  strokes:
+  - breaststroke
+  category: timing
+  equipment: []
+  l_target:
+  - L4
+  abc_type: null
+  purpose_zh: 閉眼做水下蛙式 pulldown（出發第一動作），用本體感確認雙手對稱與流線軸線
+  how_to:
+  - 蹬牆成 streamline 滑進水面下
+  - 閉眼做一次完整水下蛙式拉手（外撇→下推→雙手在身體下方會合→沿身體推回）
+  - 全程閉眼，靠對稱感維持直線
+  - 出水睜眼確認位置；做 6 次
+  perception_goal: 閉眼後雙手對稱性放大；左右側不對稱會直接表現在偏離方向
+  success_signal: 出水時仍在中線；雙手感覺對稱
+  failure_signal: 嚴重偏離；一手感覺比另一手早結束
+  deficiency_fixes:
+  - 1
+  - 3
+  source: Vortex 整理（pulldown × proprioception 結合）
+  body_position: underwater
+  constraints:
+  - eyes_closed
+  - no_breath
+  movement_pattern: pause_pulse
+  skill_focus:
+  - glide_efficiency
+  - spatial_awareness
+  stroke_phase: pull
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
+- id: BrPad1
+  name_en: Paddle Breast Sweep
+  name_zh: 手掌板蛙式外撇
+  strokes:
+  - breaststroke
+  category: arm
+  equipment:
+  - paddles
+  - pull_buoy
+  l_target:
+  - L3
+  - L4
+  abc_type: A
+  purpose_zh: 戴小手掌板做蛙式拉手（不踢），把外撇→內撇的加速差異放大成明確的壓力感
+  how_to:
+  - 戴小手掌板、夾 pull buoy，完全不踢水
+  - 做蛙式拉手：外撇慢、內撇加速、前刺最快
+  - 手掌板會把「加速 = 壓力增加」這個關係放大
+  - 做 4×50，每組計算划水次數
+  perception_goal: 外撇 vs 內撇的壓力差異明顯；前刺時板「載得起來」是甜蜜點
+  success_signal: 三段速度差異反映在板上的壓力變化；划水數穩定
+  failure_signal: 三段都平均壓力（代表沒在加速）
+  deficiency_fixes:
+  - 4
+  - 5
+  source: Maglischo Swimming Fastest（breaststroke paddle work）
+  body_position: prone
+  constraints:
+  - paddle_amplifier
+  - no_kick
+  movement_pattern: progressive
+  skill_focus:
+  - catch_evf
+  - hand_acceleration
+  stroke_phase: pull
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: equipment_feedback
+  difficulty_tier: intermediate
+- id: BrSt1
+  name_en: Standing Wall Glide Setup
+  name_zh: 站姿牆邊流線設定
+  strokes:
+  - breaststroke
+  category: balance
+  equipment: []
+  l_target:
+  - L1
+  - L2
+  abc_type: null
+  purpose_zh: 站姿在牆邊建立蛙式 streamline 的肌肉感覺，作為下水前的姿勢校正；蛙式熱身首選
+  how_to:
+  - 站在牆邊及胸水深，背貼牆、腳跟距牆 30 公分
+  - 雙手交疊上舉成 streamline，肘部夾耳、肩胛下沉
+  - 感覺背部、肩胛、頭頸都在一直線上
+  - 停 10 秒，重複 5 次；下水後立刻做一次蛙式拉手檢查 streamline 是否一致
+  perception_goal: 建立 streamline 的內部肌肉記憶；下水後能立刻找回此姿勢
+  success_signal: 肘部夾耳、背平、肩下沉的感覺清楚
+  failure_signal: 肩膀聳起；肘部無法夾耳（柔軟度限制——這是硬體邊界）
+  deficiency_fixes:
+  - 9
+  source: USA Swimming Foundations / 通用蛙式教學熱身
+  body_position: standing
+  constraints:
+  - no_arms
+  - no_kick
+  movement_pattern: static
+  skill_focus:
+  - streamline_line
+  - core_tension
+  stroke_phase: glide
+  drill_function: warmup
+  cognitive_load: low
+  tactile_anchor: wall_contact
+  difficulty_tier: foundation
+- id: BrLow1
+  name_en: Pull-Pull-Kick
+  name_zh: 拉拉踢
+  strokes:
+  - breaststroke
+  category: timing
+  equipment: []
+  l_target:
+  - L2
+  - L3
+  abc_type: null
+  purpose_zh: 兩次拉手只一次踢腿的低強度組合，建立蛙式拉手獨立性與滑行感；蛙式熱身用
+  how_to:
+  - 做兩次完整蛙式拉手（每次都換氣），第三次只做踢腿、雙手保持 streamline
+  - 拉拉踢、拉拉踢，循環
+  - 重點不在速度，在分段感的清晰度
+  - 做 4×100，配速 60–70%
+  perception_goal: 拉手與踢腿成為兩個獨立的感知單元；滑行段拉長
+  success_signal: 三個動作分得清楚；踢腿後滑行明顯
+  failure_signal: 動作糊在一起；沒有滑行感
+  deficiency_fixes:
+  - 9
+  source: 通用蛙式教學（fractional drill 變體）
+  body_position: prone
+  constraints: []
+  movement_pattern: pause_pulse
+  skill_focus:
+  - hip_drive
+  - glide_efficiency
+  stroke_phase: transition
+  drill_function: warmup
+  cognitive_load: low
+  tactile_anchor: core_tension_internal
+  difficulty_tier: intermediate
 - id: Fl1
   name_en: Chest Press
   name_zh: 胸部下壓
@@ -2049,6 +3668,19 @@ drills:
   deficiency_fixes:
   - 8
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - no_arms
+  - no_kick
+  movement_pattern: pause_pulse
+  skill_focus:
+  - wave_undulation
+  - hip_drive
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: low
+  tactile_anchor: core_tension_internal
+  difficulty_tier: foundation
 - id: Fl2
   name_en: Hands Down Dolphin Kick
   name_zh: 手放兩側蝶式踢腿
@@ -2072,6 +3704,18 @@ drills:
   deficiency_fixes:
   - 8
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - no_arms
+  movement_pattern: continuous
+  skill_focus:
+  - wave_undulation
+  - kick_origin
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: low
+  tactile_anchor: equipment_feedback
+  difficulty_tier: foundation
 - id: Fl3
   name_en: Chest Press Pinkies Up
   name_zh: 胸部下壓小指朝上
@@ -2094,6 +3738,18 @@ drills:
   deficiency_fixes:
   - 8
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - tension_held
+  movement_pattern: pause_pulse
+  skill_focus:
+  - wave_undulation
+  - streamline_line
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: intermediate
 - id: Fl4
   name_en: Dolphin Kick On Back Arms Up
   name_zh: 仰面雙臂上舉蝶腿
@@ -2118,6 +3774,18 @@ drills:
   - 9
   - 14
   source: There's a Drill for That
+  body_position: supine
+  constraints:
+  - tension_held
+  movement_pattern: continuous
+  skill_focus:
+  - core_tension
+  - kick_origin
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
 - id: Fl5
   name_en: Streamline Dolphin Kick On Back
   name_zh: 仰面流線蝶腿
@@ -2142,6 +3810,18 @@ drills:
   - 7
   - 9
   source: There's a Drill for That
+  body_position: supine
+  constraints:
+  - tension_held
+  movement_pattern: continuous
+  skill_focus:
+  - wave_undulation
+  - kick_amplitude
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: intermediate
 - id: Fl6
   name_en: Sideways Dolphin Kick
   name_zh: 側面蝶腿踢水
@@ -2165,6 +3845,18 @@ drills:
   - 9
   - 14
   source: There's a Drill for That
+  body_position: side
+  constraints:
+  - tension_held
+  movement_pattern: continuous
+  skill_focus:
+  - wave_undulation
+  - core_tension
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: foot_pressure
+  difficulty_tier: advanced
 - id: Fl7
   name_en: Surf Kick Dolphin Kick
   name_zh: 衝浪蝶腿
@@ -2188,6 +3880,18 @@ drills:
   deficiency_fixes:
   - 9
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - tension_held
+  movement_pattern: continuous
+  skill_focus:
+  - kick_amplitude
+  - rhythm_tempo
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: surface_break
+  difficulty_tier: advanced
 - id: Fl8
   name_en: Dolphin Kick Underwater
   name_zh: 水下蝶腿
@@ -2212,6 +3916,18 @@ drills:
   deficiency_fixes:
   - 7
   source: There's a Drill for That
+  body_position: underwater
+  constraints:
+  - tension_held
+  movement_pattern: continuous
+  skill_focus:
+  - wave_undulation
+  - kick_amplitude
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: foot_pressure
+  difficulty_tier: advanced
 - id: Fl9
   name_en: Whale Kick On Back
   name_zh: 鯨魚仰式蝶腿
@@ -2235,6 +3951,18 @@ drills:
   failure_signal: 只感覺一個方向的踢水
   deficiency_fixes: []
   source: There's a Drill for That
+  body_position: underwater
+  constraints:
+  - tension_held
+  movement_pattern: continuous
+  skill_focus:
+  - kick_amplitude
+  - kick_origin
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: foot_pressure
+  difficulty_tier: advanced
 - id: Fl10
   name_en: Vertical Kicks
   name_zh: 垂直蝶腿
@@ -2259,6 +3987,17 @@ drills:
   - 9
   - 14
   source: There's a Drill for That
+  body_position: vertical
+  constraints: []
+  movement_pattern: static
+  skill_focus:
+  - kick_origin
+  - rhythm_tempo
+  stroke_phase: non_stroke
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: water_sound
+  difficulty_tier: advanced
 - id: Fl11
   name_en: Kick 360
   name_zh: 蝶腿360度
@@ -2282,6 +4021,18 @@ drills:
   deficiency_fixes:
   - 14
   source: There's a Drill for That
+  body_position: transitional
+  constraints:
+  - tension_held
+  movement_pattern: rotational
+  skill_focus:
+  - core_tension
+  - spatial_awareness
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
 - id: Fl12
   name_en: Over the Barrel
   name_zh: 跨過木桶
@@ -2305,6 +4056,18 @@ drills:
   deficiency_fixes:
   - 9
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - tension_held
+  movement_pattern: continuous
+  skill_focus:
+  - catch_evf
+  - kick_origin
+  stroke_phase: catch
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: Fl13
   name_en: Angel Wings
   name_zh: 天使翅膀
@@ -2334,6 +4097,17 @@ drills:
   - 6
   - 10
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - tempo_constrained
+  movement_pattern: progressive
+  skill_focus:
+  - recovery_path
+  stroke_phase: recovery
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: equipment_feedback
+  difficulty_tier: intermediate
 - id: Fl14
   name_en: Angel Wings Transition to Full Fly
   name_zh: 天使翅膀接完整蝶式
@@ -2360,6 +4134,17 @@ drills:
   - 6
   - 10
   source: There's a Drill for That
+  body_position: prone
+  constraints: []
+  movement_pattern: progressive
+  skill_focus:
+  - recovery_path
+  - rhythm_tempo
+  stroke_phase: recovery
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: equipment_feedback
+  difficulty_tier: advanced
 - id: Fl15
   name_en: Butterfly Stroke & Run
   name_zh: 蝶式划手跑直線
@@ -2383,6 +4168,19 @@ drills:
   - 7
   - 11
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - no_kick
+  - no_breath
+  movement_pattern: pause_pulse
+  skill_focus:
+  - streamline_line
+  - glide_efficiency
+  stroke_phase: glide
+  drill_function: corrective
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
 - id: Fl16
   name_en: Scull to Combination
   name_zh: 外划到組合
@@ -2406,6 +4204,17 @@ drills:
   deficiency_fixes:
   - 7
   source: There's a Drill for That
+  body_position: prone
+  constraints: []
+  movement_pattern: progressive
+  skill_focus:
+  - catch_evf
+  - wave_undulation
+  stroke_phase: catch
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: Fl17
   name_en: Butterfly Recovery
   name_zh: 蝶式恢復臂（水下）
@@ -2431,6 +4240,17 @@ drills:
   - 2
   - 12
   source: There's a Drill for That
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - catch_evf
+  - hand_acceleration
+  stroke_phase: pull
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: Fl18
   name_en: Single Arm Swimming
   name_zh: 單臂蝶式
@@ -2455,6 +4275,18 @@ drills:
   - 2
   - 11
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - single_arm
+  movement_pattern: continuous
+  skill_focus:
+  - recovery_path
+  - rhythm_tempo
+  stroke_phase: recovery
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: surface_break
+  difficulty_tier: advanced
 - id: Fl19
   name_en: 2-2-2 Drill
   name_zh: 二二二組合
@@ -2476,6 +4308,18 @@ drills:
   deficiency_fixes:
   - 11
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - single_arm
+  movement_pattern: alternating
+  skill_focus:
+  - rhythm_tempo
+  - wave_undulation
+  stroke_phase: whole_stroke
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
 - id: Fl20
   name_en: Low Baby Low!
   name_zh: 保持低位換氣
@@ -2499,6 +4343,17 @@ drills:
   - 1
   - 2
   source: There's a Drill for That
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - breath_rhythm
+  - streamline_line
+  stroke_phase: recovery
+  drill_function: corrective
+  cognitive_load: high
+  tactile_anchor: surface_break
+  difficulty_tier: advanced
 - id: Fl21
   name_en: Deep Catch
   name_zh: 深度捕水
@@ -2521,6 +4376,18 @@ drills:
   deficiency_fixes:
   - 7
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - tension_held
+  movement_pattern: continuous
+  skill_focus:
+  - catch_evf
+  - hand_acceleration
+  stroke_phase: catch
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: Fl22
   name_en: Thumb Drag Recovery
   name_zh: 拇指拖水恢復
@@ -2544,6 +4411,16 @@ drills:
   - 3
   - 5
   source: There's a Drill for That
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - recovery_path
+  stroke_phase: recovery
+  drill_function: corrective
+  cognitive_load: medium
+  tactile_anchor: surface_break
+  difficulty_tier: intermediate
 - id: Fl23
   name_en: Ball Toss
   name_zh: 球拋練習
@@ -2567,6 +4444,17 @@ drills:
   deficiency_fixes:
   - 14
   source: There's a Drill for That
+  body_position: vertical
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - core_tension
+  - kick_origin
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: partner_feedback
+  difficulty_tier: advanced
 - id: Fl24
   name_en: Easy Recovery Fly
   name_zh: 輕鬆恢復蝶式
@@ -2587,6 +4475,19 @@ drills:
   failure_signal: 第一划就感覺費力不協調
   deficiency_fixes: []
   source: There's a Drill for That
+  body_position: transitional
+  constraints:
+  - no_kick
+  - no_breath
+  movement_pattern: pause_pulse
+  skill_focus:
+  - recovery_path
+  - streamline_line
+  stroke_phase: whole_stroke
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: intermediate
 - id: Fl25
   name_en: Slow Recovery Drill to Front
   name_zh: 慢速前恢復
@@ -2611,6 +4512,18 @@ drills:
   deficiency_fixes:
   - 4
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - tempo_constrained
+  movement_pattern: pause_pulse
+  skill_focus:
+  - catch_evf
+  - recovery_path
+  stroke_phase: recovery
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: Fl26
   name_en: Triangle or Biondi Drill
   name_zh: 三角形（Biondi）鑽
@@ -2634,6 +4547,17 @@ drills:
   - 2
   - 12
   source: There's a Drill for That
+  body_position: transitional
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - hand_acceleration
+  - breath_rhythm
+  stroke_phase: push
+  drill_function: skill_integration
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: Fl27
   name_en: Four Kicks Per Arm Cycle
   name_zh: 每划四踢
@@ -2657,6 +4581,18 @@ drills:
   deficiency_fixes:
   - 12
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - tempo_constrained
+  movement_pattern: continuous
+  skill_focus:
+  - rhythm_tempo
+  - wave_undulation
+  stroke_phase: transition
+  drill_function: skill_integration
+  cognitive_load: high
+  tactile_anchor: foot_pressure
+  difficulty_tier: advanced
 - id: Fl28
   name_en: Vertical Strokes
   name_zh: 垂直蝶式
@@ -2679,6 +4615,17 @@ drills:
   deficiency_fixes:
   - 12
   source: There's a Drill for That
+  body_position: vertical
+  constraints: []
+  movement_pattern: pause_pulse
+  skill_focus:
+  - hand_acceleration
+  - core_tension
+  stroke_phase: pull
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: elite
 - id: Fl29
   name_en: High Catch with Foam Roller
   name_zh: 泡棉滾筒高肘捕水
@@ -2701,6 +4648,17 @@ drills:
   deficiency_fixes:
   - 4
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - tension_held
+  movement_pattern: pause_pulse
+  skill_focus:
+  - catch_evf
+  stroke_phase: catch
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: equipment_feedback
+  difficulty_tier: intermediate
 - id: Fl30
   name_en: Breakout Stroke
   name_zh: 破水動作
@@ -2724,6 +4682,17 @@ drills:
   deficiency_fixes:
   - 13
   source: There's a Drill for That
+  body_position: transitional
+  constraints: []
+  movement_pattern: pause_pulse
+  skill_focus:
+  - streamline_line
+  - breath_rhythm
+  stroke_phase: transition
+  drill_function: skill_integration
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
 - id: Fl31
   name_en: Short Axis Combo
   name_zh: 短軸組合（蝶蛙）
@@ -2746,6 +4715,128 @@ drills:
   failure_signal: 兩式在感知上完全無關
   deficiency_fixes: []
   source: There's a Drill for That
+  body_position: prone
+  constraints: []
+  movement_pattern: alternating
+  skill_focus:
+  - wave_undulation
+  - hip_drive
+  stroke_phase: whole_stroke
+  drill_function: skill_integration
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
+- id: FlEC1
+  name_en: Eyes Closed Dolphin Kick
+  name_zh: 閉眼蝶腿
+  strokes:
+  - butterfly
+  - underwater_dolphin_kick
+  category: kick
+  equipment:
+  - snorkel
+  l_target:
+  - L3
+  - L4
+  abc_type: B
+  purpose_zh: 戴呼吸管閉眼蝶腿，拿掉視覺後讓核心驅動波動的感覺浮出來
+  how_to:
+  - 戴呼吸管、面朝下，雙手放身側
+  - 閉眼打蝶腿，把感官集中在腹部與胸口的波動傳遞
+  - 每 10 秒睜眼確認方向；逐步延長到 20 秒
+  - 重點不在距離，在感受波動是否仍從核心啟動
+  perception_goal: 閉眼後波動的源頭變得明顯；核心是鞭柄、腳是鞭梢
+  success_signal: 閉眼期間方向穩定；波動感清楚
+  failure_signal: 立刻漂離中線；波動從膝蓋啟動
+  deficiency_fixes:
+  - 8
+  source: Vortex 整理（proprioception × wave undulation）
+  body_position: prone
+  constraints:
+  - eyes_closed
+  movement_pattern: continuous
+  skill_focus:
+  - wave_undulation
+  - kick_origin
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: intermediate
+- id: FlPad1
+  name_en: Paddle Underwater Recovery
+  name_zh: 手掌板水下恢復臂
+  strokes:
+  - butterfly
+  category: arm
+  equipment:
+  - paddles
+  - snorkel
+  l_target:
+  - L4
+  - L5
+  abc_type: A
+  purpose_zh: 戴小手掌板做蝶式水下恢復（像蛙式恢復），用板放大高肘捕水的壓力訊號
+  how_to:
+  - 戴小手掌板、戴呼吸管
+  - 做 Fl17 蝶式水下恢復：高肘捕水→拉到身體下方會合→沿身體推回前方
+  - 板會把高肘捕水時前臂的水壓變大，幫助找到正確角度
+  - 配蝶腿，做 4×25 公尺
+  perception_goal: 手掌板讓「高肘 vs 低肘」的壓力差異變得很大；正確時水壓清晰
+  success_signal: 捕水時板上有強烈壓力；推進感明顯
+  failure_signal: 板上沒壓力（代表肘部下垂）
+  deficiency_fixes:
+  - 2
+  - 12
+  source: Maglischo Swimming Fastest（butterfly paddle work）
+  body_position: prone
+  constraints:
+  - paddle_amplifier
+  movement_pattern: continuous
+  skill_focus:
+  - catch_evf
+  - hand_acceleration
+  stroke_phase: pull
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: equipment_feedback
+  difficulty_tier: advanced
+- id: FlSt1
+  name_en: Standing Chest Press
+  name_zh: 站姿胸壓+髖前後
+  strokes:
+  - butterfly
+  category: kick
+  equipment: []
+  l_target:
+  - L1
+  - L2
+  abc_type: null
+  purpose_zh: 站姿模擬蝶式胸壓帶動髖前後的動作，建立短軸波動的肌肉感覺；蝶式熱身首選
+  how_to:
+  - 站在及腰水深，雙手放大腿
+  - 把胸口往前下壓——同時髖往後拱（像 cobra 弓背）
+  - 再把胸口往上挺——髖往前送（骨盆前傾）
+  - 重複 10 次，配呼吸節律；下水時把這個感覺帶進蝶腿
+  perception_goal: 胸壓和髖動作的反向連動清晰；蝶式波動的源頭可視化
+  success_signal: 胸與髖的反向動作流暢；身體像柔軟的桿子
+  failure_signal: 胸與髖一起前後（沒有反向）；動作僵硬
+  deficiency_fixes:
+  - 8
+  source: USA Swimming Foundations / Vortex 整理（短軸動作預演）
+  body_position: standing
+  constraints:
+  - no_arms
+  - no_kick
+  movement_pattern: pause_pulse
+  skill_focus:
+  - wave_undulation
+  - hip_drive
+  stroke_phase: non_stroke
+  drill_function: warmup
+  cognitive_load: low
+  tactile_anchor: core_tension_internal
+  difficulty_tier: foundation
 - id: Sc1
   name_en: Wide Y Sculling
   name_zh: 寬Y型划水
@@ -2771,6 +4862,18 @@ drills:
   failure_signal: 感覺不到水壓；只是讓手在水中移動
   deficiency_fixes: []
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - no_kick
+  movement_pattern: static
+  skill_focus:
+  - forearm_pressure
+  - catch_evf
+  stroke_phase: catch
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: hand_pressure
+  difficulty_tier: intermediate
 - id: Sc2
   name_en: Head Down Scull with Buoy
   name_zh: 頭朝下划水（窄Y）
@@ -2795,6 +4898,19 @@ drills:
   failure_signal: 手臂整體在做大動作；感覺不到精細水壓
   deficiency_fixes: []
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - no_kick
+  - tension_held
+  movement_pattern: progressive
+  skill_focus:
+  - forearm_pressure
+  - pressure_mapping
+  stroke_phase: catch
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: hand_pressure
+  difficulty_tier: intermediate
 - id: Sc3
   name_en: Head Up Scull with Buoy
   name_zh: 頭朝上划水
@@ -2819,6 +4935,19 @@ drills:
   failure_signal: 抬頭時幾乎無法前進
   deficiency_fixes: []
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - no_kick
+  - tension_held
+  movement_pattern: progressive
+  skill_focus:
+  - forearm_pressure
+  - catch_evf
+  stroke_phase: catch
+  drill_function: progression
+  cognitive_load: medium
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: Sc4
   name_en: Windshield Wipers Head Down
   name_zh: 雨刷划水（頭朝下）
@@ -2842,6 +4971,17 @@ drills:
   failure_signal: 肘部跟著動；感覺只是在隨便划水
   deficiency_fixes: []
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - no_kick
+  movement_pattern: alternating
+  skill_focus:
+  - forearm_pressure
+  stroke_phase: catch
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: Sc5
   name_en: Windshield Wipers Chin Up
   name_zh: 雨刷划水（下巴朝上）
@@ -2865,6 +5005,19 @@ drills:
   failure_signal: 感覺比Sc4容易（代表沒有在加大工作角度）
   deficiency_fixes: []
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - no_kick
+  - tension_held
+  movement_pattern: alternating
+  skill_focus:
+  - forearm_pressure
+  - breath_rhythm
+  stroke_phase: catch
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: Sc6
   name_en: Feet First Scull
   name_zh: 腳先行划水
@@ -2889,6 +5042,18 @@ drills:
   failure_signal: 幾乎無法移動（代表沒有抓到水）
   deficiency_fixes: []
   source: There's a Drill for That
+  body_position: supine
+  constraints:
+  - no_kick
+  movement_pattern: progressive
+  skill_focus:
+  - forearm_pressure
+  - pressure_mapping
+  stroke_phase: push
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: hand_pressure
+  difficulty_tier: intermediate
 - id: Sc7
   name_en: Hip Scull
   name_zh: 髖部划水
@@ -2913,6 +5078,19 @@ drills:
   failure_signal: 感覺不到任何水壓
   deficiency_fixes: []
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - no_kick
+  - tension_held
+  movement_pattern: static
+  skill_focus:
+  - forearm_pressure
+  - hand_acceleration
+  stroke_phase: push
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: hand_pressure
+  difficulty_tier: intermediate
 - id: Sc8
   name_en: Seated Scull
   name_zh: 坐姿划水
@@ -2934,6 +5112,17 @@ drills:
   failure_signal: 肘部拉到肩膀後面；前推無力
   deficiency_fixes: []
   source: There's a Drill for That
+  body_position: vertical
+  constraints: []
+  movement_pattern: static
+  skill_focus:
+  - catch_evf
+  - hand_acceleration
+  stroke_phase: pull
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: Sc9
   name_en: Single Arm Scull
   name_zh: 單臂划水
@@ -2958,6 +5147,19 @@ drills:
   failure_signal: 單臂時身體明顯歪向划水側
   deficiency_fixes: []
   source: There's a Drill for That
+  body_position: prone
+  constraints:
+  - no_kick
+  - single_arm
+  movement_pattern: progressive
+  skill_focus:
+  - forearm_pressure
+  - core_tension
+  stroke_phase: catch
+  drill_function: corrective
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: Sc10
   name_en: Behind the Head Scull
   name_zh: 頭後方划水
@@ -2979,6 +5181,92 @@ drills:
   failure_signal: 完全感覺不到用力點；頸部緊繃
   deficiency_fixes: []
   source: There's a Drill for That
+  body_position: supine
+  constraints:
+  - no_kick
+  movement_pattern: progressive
+  skill_focus:
+  - forearm_pressure
+  - catch_evf
+  stroke_phase: catch
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
+- id: ScFist
+  name_en: Fist Sculling
+  name_zh: 握拳划水
+  strokes:
+  - freestyle
+  - breaststroke
+  - butterfly
+  category: sculling
+  equipment:
+  - pull_buoy
+  l_target:
+  - L3
+  - L4
+  abc_type: A
+  purpose_zh: 握拳做寬 Y 划水，把前臂感知逼到最大；開拳後感覺手掌的「額外推進」是前臂之上的附加層
+  how_to:
+  - 夾 pull buoy、不踢水，雙手握拳做 Sc1 寬 Y 划水
+  - 全程靠前臂壓力推進；25 公尺後改為張開手繼續划
+  - 對照前臂感知 vs 加上手掌後的感知差異
+  - 做 4 趟，前 2 趟全程握拳、後 2 趟前 12.5 公尺握拳、後 12.5 開手
+  perception_goal: 握拳時前臂感覺最強；開手後手掌變成「點綴」而非主力
+  success_signal: 握拳能前進；開手後推進量明顯多但感覺基線在前臂
+  failure_signal: 握拳完全無法前進（代表整個系統依賴手掌）
+  deficiency_fixes: []
+  source: Counsilman 捕水訓練（fist sculling 為前臂感知標準練習）
+  body_position: prone
+  constraints:
+  - closed_fist
+  - no_kick
+  - tension_held
+  movement_pattern: static
+  skill_focus:
+  - forearm_pressure
+  stroke_phase: catch
+  drill_function: corrective
+  cognitive_load: medium
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
+- id: ScUW1
+  name_en: Underwater Wide Y Hover
+  name_zh: 水下寬 Y 懸停
+  strokes:
+  - freestyle
+  - breaststroke
+  - butterfly
+  category: sculling
+  equipment: []
+  l_target:
+  - L4
+  abc_type: A
+  purpose_zh: 水下做寬 Y 划水試圖「懸停」（不上浮不下沉），這是捕水力量的精確測試
+  how_to:
+  - 深吸一口氣下潛到約 1.5 公尺深，俯臥水下
+  - 雙臂前伸做 Sc1 寬 Y 撥水，目標是讓身體停在那個深度（不浮不沉）
+  - 做 10–15 秒一組，回水面換氣 30 秒再重複
+  - 做 4 組；過程注意呼吸安全（淺水區、有同伴監看）
+  perception_goal: 懸停代表撥水的力量恰好抵消浮力，是捕水效率的客觀標尺
+  success_signal: 能維持深度 10 秒以上不浮
+  failure_signal: 立刻上浮（撥水沒抓到水）
+  deficiency_fixes: []
+  source: Counsilman 沉浮平衡傳統（hover sculling）
+  body_position: underwater
+  constraints:
+  - no_kick
+  - no_breath
+  movement_pattern: static
+  skill_focus:
+  - forearm_pressure
+  - pressure_mapping
+  stroke_phase: catch
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
 - id: UDK1
   name_en: Vertical Kicking
   name_zh: 垂直打水
@@ -3001,6 +5289,18 @@ drills:
   deficiency_fixes:
   - B
   source: yourswimlog.com（vertical kicking）；U.S. Masters Swimming Underwater Kick guide
+  body_position: vertical
+  constraints:
+  - tension_held
+  movement_pattern: static
+  skill_focus:
+  - wave_undulation
+  - kick_origin
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: foot_pressure
+  difficulty_tier: intermediate
 - id: UDK2
   name_en: Streamline Kick — Orientation Switch
   name_zh: 流線打水換面（仰／側／俯）
@@ -3025,6 +5325,18 @@ drills:
   - B
   - C
   source: Competitor Swim UDK drills；swimswam UDK sets
+  body_position: transitional
+  constraints:
+  - tension_held
+  movement_pattern: alternating
+  skill_focus:
+  - wave_undulation
+  - spatial_awareness
+  stroke_phase: non_stroke
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
 - id: UDK3
   name_en: Tethered Max Dolphin Kick
   name_zh: 繫繩最大努力海豚腳
@@ -3048,6 +5360,18 @@ drills:
   deficiency_fixes:
   - B
   source: yourswimlog.com（4×5 tethered, ~60s rest, 2–3×/週）
+  body_position: underwater
+  constraints:
+  - tension_held
+  movement_pattern: continuous
+  skill_focus:
+  - wave_undulation
+  - kick_origin
+  stroke_phase: non_stroke
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: equipment_feedback
+  difficulty_tier: advanced
 - id: UDK4
   name_en: Tempo Trainer Kick to Cone
   name_zh: 節拍器找個人打水頻率
@@ -3071,6 +5395,18 @@ drills:
   deficiency_fixes:
   - B
   source: yourswimlog.com（tempo trainer + cone 15m 找最佳頻率）
+  body_position: underwater
+  constraints:
+  - tempo_constrained
+  movement_pattern: continuous
+  skill_focus:
+  - rhythm_tempo
+  - kick_amplitude
+  stroke_phase: non_stroke
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: equipment_feedback
+  difficulty_tier: advanced
 - id: UDK5
   name_en: Race-Tempo Underwater Off the Wall
   name_zh: 比賽配速水下打水
@@ -3094,6 +5430,87 @@ drills:
   - B
   - C
   source: yourswimlog.com（race-tempo underwater）；swimswam UDK sets
+  body_position: underwater
+  constraints:
+  - tension_held
+  movement_pattern: continuous
+  skill_focus:
+  - wave_undulation
+  - rhythm_tempo
+  stroke_phase: transition
+  drill_function: skill_integration
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: elite
+- id: UDKEC1
+  name_en: Eyes Closed Vertical Dolphin
+  name_zh: 閉眼垂直蝶腿
+  strokes:
+  - underwater_dolphin_kick
+  category: kick
+  equipment: []
+  l_target:
+  - L4
+  abc_type: B
+  purpose_zh: 閉眼垂直蝶腿，拿掉視覺平衡後逼出核心軸線的純本體感
+  how_to:
+  - 深水區、確認泳道淨空（最好有同伴監看）
+  - 雙手抱胸閉眼做垂直蝶腿，目標是 20 秒不偏不沉
+  - 睜眼確認位置；如果嚴重偏離代表核心軸線需要校正
+  - 做 4 組，每組間休 30 秒
+  perception_goal: 閉眼後身體軸線完全靠本體感維持；核心是真正的軸
+  success_signal: 20 秒內身體不偏離原點，頭仍接近水面
+  failure_signal: 立刻歪斜或下沉
+  deficiency_fixes:
+  - B
+  - C
+  source: Vortex 整理（vertical kick × proprioception）
+  body_position: vertical
+  constraints:
+  - eyes_closed
+  - tension_held
+  movement_pattern: static
+  skill_focus:
+  - wave_undulation
+  - core_tension
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: water_sound
+  difficulty_tier: advanced
+- id: UDKLow1
+  name_en: Snorkel Underwater Cruise
+  name_zh: 戴呼吸管水下巡航
+  strokes:
+  - underwater_dolphin_kick
+  category: kick
+  equipment:
+  - snorkel
+  l_target:
+  - L3
+  abc_type: B
+  purpose_zh: 戴呼吸管延長水下停留時間做低強度蝶腿，作為 UDK 體感激活與技術修正；主項目前熱身
+  how_to:
+  - 戴呼吸管、streamline 蹬牆，水下打蝶腿到 25 公尺；呼吸管讓你不必為換氣而提早出水
+  - 強度 50–60%（能聊天但不能跑），注意全程波動由核心啟動
+  - 做 6×25 公尺，組間休 15 秒
+  - 重點是技術可重複性，不是體能
+  perception_goal: 在不疲勞、不需要換氣的狀態下重訪 UDK 的波動感
+  success_signal: 全程波動穩定一致；25 公尺感覺輕鬆
+  failure_signal: 波動很快變不均；膝蓋代償
+  deficiency_fixes: []
+  source: FINIS 教練資源（snorkel UDK warmup standard）
+  body_position: underwater
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - wave_undulation
+  - glide_efficiency
+  stroke_phase: non_stroke
+  drill_function: warmup
+  cognitive_load: low
+  tactile_anchor: equipment_feedback
+  difficulty_tier: intermediate
 - id: ST1
   name_en: Mid-Pool Somersault
   name_zh: 中池翻滾
@@ -3116,6 +5533,17 @@ drills:
   deficiency_fixes:
   - C
   source: U.S. Masters Swimming Faster Flip Turns；EatSleepSwimCoach mid-pool progression
+  body_position: transitional
+  constraints: []
+  movement_pattern: rotational
+  skill_focus:
+  - spatial_awareness
+  - core_tension
+  stroke_phase: transition
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: foundation
 - id: ST2
   name_en: Wall Flip + Foot Plant
   name_zh: 翻牆踩牆（腳尖朝上）
@@ -3138,6 +5566,17 @@ drills:
   deficiency_fixes:
   - C
   source: U.S. Masters Swimming Faster Flip Turns（wall progression）
+  body_position: transitional
+  constraints: []
+  movement_pattern: pause_pulse
+  skill_focus:
+  - spatial_awareness
+  - streamline_line
+  stroke_phase: transition
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: wall_contact
+  difficulty_tier: intermediate
 - id: ST3
   name_en: Streamline Push-Off Distance
   name_zh: 蹬牆流線測距
@@ -3160,6 +5599,20 @@ drills:
   deficiency_fixes:
   - C
   source: U.S. Masters Swimming Turns guides（tight streamline push-off）
+  body_position: prone
+  constraints:
+  - no_arms
+  - no_kick
+  - tension_held
+  movement_pattern: static
+  skill_focus:
+  - streamline_line
+  - glide_efficiency
+  stroke_phase: glide
+  drill_function: corrective
+  cognitive_load: medium
+  tactile_anchor: pool_floor_visual
+  difficulty_tier: intermediate
 - id: ST4
   name_en: Backstroke Flag Stroke-Count
   name_zh: 仰式旗下數划手
@@ -3183,6 +5636,18 @@ drills:
   deficiency_fixes:
   - C
   source: Train Daly 仰式翻身系統；U.S. Masters Swimming（旗標距牆 5yd/m，數划手）
+  body_position: supine
+  constraints:
+  - tempo_constrained
+  movement_pattern: continuous
+  skill_focus:
+  - spatial_awareness
+  - rhythm_tempo
+  stroke_phase: transition
+  drill_function: corrective
+  cognitive_load: high
+  tactile_anchor: equipment_feedback
+  difficulty_tier: advanced
 - id: ST5
   name_en: Push-and-Rotate Breakout
   name_zh: 蹬牆轉體出水
@@ -3205,3 +5670,48 @@ drills:
   deficiency_fixes:
   - C
   source: U.S. Masters Swimming Flip Turn Fundamentals（approach/execution/breakout）；arenaswim flip turn drills
+  body_position: transitional
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - streamline_line
+  - rotation_connection
+  stroke_phase: transition
+  drill_function: skill_integration
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
+- id: STSpat1
+  name_en: Wall Approach by Sound (Eyes Closed)
+  name_zh: 閉眼靠水聲判斷牆距
+  strokes:
+  - starts_turns
+  category: turn
+  equipment: []
+  l_target:
+  - L5
+  abc_type: C
+  purpose_zh: 閉眼仰式游近牆，靠水反射聲與壁壓變化判斷牆距；ST4 數划手系統的「聽覺進階版」
+  how_to:
+  - （需同伴在牆邊監看，最好戴泳帽防撞）距牆 15 公尺仰式出發
+  - 閉眼游，集中注意力在耳朵聽到的水流回音與牆壓變化
+  - 感覺「快到了」就翻身蹬牆；同伴回報距牆距離
+  - 做 6 次，每次調整對牆距的聽覺判斷
+  perception_goal: 建立純聽覺/觸覺的空間判斷，取代視覺；極限的空間感訓練
+  success_signal: 誤差在 30 公分內；翻身不撞牆不撈空
+  failure_signal: 嚴重誤差（>1 公尺）；需要睜眼或撞牆
+  deficiency_fixes:
+  - C
+  source: Vortex 整理（高階空間感訓練；類似 paralympic visually impaired tapper system）
+  body_position: supine
+  constraints:
+  - eyes_closed
+  movement_pattern: continuous
+  skill_focus:
+  - spatial_awareness
+  - rhythm_tempo
+  stroke_phase: transition
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: water_sound
+  difficulty_tier: elite
