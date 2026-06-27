@@ -1259,6 +1259,296 @@ drills:
   cognitive_load: low
   tactile_anchor: equipment_feedback
   difficulty_tier: foundation
+- id: FrEL1
+  name_en: 6 Kick Switch with Fins and Snorkel
+  name_zh: 六踢換邊（蛙鞋+呼吸管）
+  strokes:
+  - freestyle
+  category: timing
+  equipment:
+  - fins
+  - snorkel
+  l_target:
+  - L5
+  abc_type: null
+  purpose_zh: Race Club 招牌節律 drill：每側踢 6 下後換邊，戴呼吸管排除換氣干擾，蛙鞋維持配速基線，專注雙側髖部旋轉的對稱性
+  how_to:
+  - 穿蛙鞋、戴呼吸管，超人姿勢俯臥出發
+  - 右側躺位置（45°）踢 6 下，然後一個完整划手換到左側躺，再踢 6 下
+  - 換邊時旋轉從髖部發動，肩膀緊跟，不靠頭
+  - 做 4×100 公尺，組間休 20 秒；專注左右側對稱性
+  perception_goal: 雙側躺位置感覺對稱；換邊由髖驅動；節律穩定不依賴呼吸
+  success_signal: 左右側感覺一樣穩；6 拍間距精準
+  failure_signal: 弱側維持比較吃力；換邊節律不一致
+  deficiency_fixes:
+  - 4
+  - 6
+  source: The Race Club (Gary Hall Sr) — Fundamentals of Fast Swimming Ch 6
+  body_position: transitional
+  constraints:
+  - tempo_constrained
+  movement_pattern: alternating
+  skill_focus:
+  - rotation_connection
+  - rhythm_tempo
+  stroke_phase: whole_stroke
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: equipment_feedback
+  difficulty_tier: elite
+- id: FrEL2
+  name_en: 4 Kicks 2 Strokes with Fins and Snorkel
+  name_zh: 四踢二划（衝刺節律）
+  strokes:
+  - freestyle
+  category: timing
+  equipment:
+  - fins
+  - snorkel
+  l_target:
+  - L5
+  abc_type: null
+  purpose_zh: Race Club 衝刺節律 drill：踢 4 下 + 划 2 下循環，比 6K1S 短的鞭式節律，逼出 50/100 短距比賽用的高划頻
+  how_to:
+  - 穿蛙鞋、戴呼吸管
+  - streamline 踢 4 下 → 完整划 2 下 → 再 streamline 踢 4 下 → 划 2 下，循環
+  - 高划頻配高踢頻；划手後立刻接踢腿不停頓
+  - 做 6×50 公尺，組間休 30 秒
+  perception_goal: 節律緊湊；划手與踢腿之間零過渡時間；體會 50 短距的高頻感
+  success_signal: 節律一致；划手不影響踢腿頻率
+  failure_signal: 划完踢腿停頓；節律慢下來
+  deficiency_fixes:
+  - 15
+  source: The Race Club — Fundamentals of Fast Swimming Ch 6
+  body_position: prone
+  constraints:
+  - tempo_constrained
+  movement_pattern: continuous
+  skill_focus:
+  - rhythm_tempo
+  - rotation_connection
+  stroke_phase: whole_stroke
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: equipment_feedback
+  difficulty_tier: elite
+- id: FrEL3
+  name_en: Snap Paddle Drill
+  name_zh: Snap 手掌板（爆發捕水）
+  strokes:
+  - freestyle
+  category: arm
+  equipment:
+  - paddles
+  - fins
+  - snorkel
+  l_target:
+  - L5
+  abc_type: A
+  purpose_zh: Race Club 招牌爆發捕水訓練：戴小手掌板強調入水後手立刻往下「snap」抓水，發展菁英 sprinter 的早期高肘
+  how_to:
+  - 穿蛙鞋、戴呼吸管、戴小手掌板
+  - 正常自由式划手，重點放在入水後手立刻往下抓水（snap 動作）
+  - 手肘保持高於手、保持在 elbow 內側；手掌板會把錯誤的拉水路徑放大
+  - 做 8×50 公尺，組間休 30 秒；專注每一划的爆發感
+  perception_goal: 入水後手立刻往下「咬」住水；手掌板有強烈水壓回饋；肘部不下垂
+  success_signal: 捕水有 snap 的爆發感；手掌板給出穩定壓力
+  failure_signal: 入水後手停頓再抓；肘部下沉
+  deficiency_fixes:
+  - 13
+  source: The Race Club — Fundamentals of Fast Swimming Ch 7
+  body_position: prone
+  constraints:
+  - paddle_amplifier
+  movement_pattern: continuous
+  skill_focus:
+  - catch_evf
+  - hand_acceleration
+  stroke_phase: entry
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: equipment_feedback
+  difficulty_tier: elite
+- id: FrEL4
+  name_en: High-Elbow Sculling with Paddles
+  name_zh: 高肘撥水（手掌板+蛙鞋+呼吸管）
+  strokes:
+  - freestyle
+  category: sculling
+  equipment:
+  - paddles
+  - snorkel
+  - fins
+  l_target:
+  - L5
+  abc_type: A
+  purpose_zh: Race Club 菁英捕水訓練：在維持高肘位置同時做小幅撥水，戴手掌板放大壓力訊號，發展菁英 lift force generation
+  how_to:
+  - 穿蛙鞋、戴呼吸管、戴小手掌板
+  - 面朝下，雙手在前方（寬於肩）做小幅撥水（內外掃）
+  - 全程維持肘部高於手——這是 Race Club 強調的 lift 機制
+  - 做 4×25 公尺，組間休 20 秒；專注肘部高度不要塌
+  perception_goal: 肘部明顯高於手；撥水時手掌板有清楚壓力；前臂全長都在做功
+  success_signal: 肘部維持高位；撥水時板有持續壓力
+  failure_signal: 肘部塌下；只有手掌有感覺
+  deficiency_fixes:
+  - 13
+  source: The Race Club — Fundamentals of Fast Swimming Ch 7
+  body_position: prone
+  constraints:
+  - paddle_amplifier
+  - no_kick
+  movement_pattern: alternating
+  skill_focus:
+  - catch_evf
+  - forearm_pressure
+  stroke_phase: catch
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: equipment_feedback
+  difficulty_tier: elite
+- id: FrEL5
+  name_en: Body Rotation Drill (Race Club)
+  name_zh: Race Club 全身旋轉
+  strokes:
+  - freestyle
+  category: timing
+  equipment:
+  - fins
+  - snorkel
+  l_target:
+  - L5
+  abc_type: C
+  purpose_zh: Race Club 強調的 coupling motion：肩部旋轉後 0.2-0.3 秒髖部跟上的時間差，這是菁英 freestyle 推進的核心
+  how_to:
+  - 穿蛙鞋、戴呼吸管，正常游自由式
+  - 誇張化肩部旋轉：每次划手肩膀盡量側轉到極限
+  - 感覺髖部在肩膀完成旋轉後 0.2 秒跟上——這是 Race Club 量測的菁英時間差
+  - 做 6×100 公尺，組間休 30 秒；專注旋轉而非速度
+  perception_goal: 肩到髖的旋轉是接力不是同步；髖部跟在肩後而非和肩同時
+  success_signal: 感覺旋轉「分兩步」；划手力量明顯增強
+  failure_signal: 肩髖同時轉（失去 coupling 效益）；只動肩不動髖
+  deficiency_fixes:
+  - 4
+  - 6
+  source: The Race Club — Fundamentals of Fast Swimming Ch 7, 10 (Coupling Motions)
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - rotation_connection
+  - hip_drive
+  stroke_phase: whole_stroke
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: elite
+- id: FrEL6
+  name_en: Over the Wave, Under the Wave
+  name_zh: 波頂入水 vs 波底入水
+  strokes:
+  - freestyle
+  category: arm
+  equipment: []
+  l_target:
+  - L5
+  - L6
+  abc_type: A
+  purpose_zh: Race Club 獨家：交替練習在身體弓波的不同位置入水，感受流體力學如何影響推進，是菁英 sprinter 找最佳入水點的方法
+  how_to:
+  - 正常自由式游進，第 1 趟刻意把手入水在身體弓波的頂部（高於水面）
+  - 第 2 趟刻意把手入水在弓波的底部（低於水面）
+  - 感受兩種入水的阻力與推進差異
+  - 找到自己最佳的入水點（通常在波的中間位置）
+  perception_goal: 入水位置決定整個 stroke 的效率；找到自己最佳波點位置
+  success_signal: 能描述兩種入水的感覺差異
+  failure_signal: 兩種入水感覺一樣（代表沒感受到流體變化）
+  deficiency_fixes:
+  - 14
+  source: The Race Club — Fundamentals of Fast Swimming Ch 6
+  body_position: prone
+  constraints: []
+  movement_pattern: alternating
+  skill_focus:
+  - entry_extension
+  - pressure_mapping
+  stroke_phase: entry
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: water_sound
+  difficulty_tier: elite
+- id: FrEL7
+  name_en: Wall Swim Race-Pace Repeats
+  name_zh: 比賽配速短反覆（呼吸管+蛙鞋）
+  strokes:
+  - freestyle
+  category: timing
+  equipment:
+  - snorkel
+  - fins
+  l_target:
+  - L5
+  - L6
+  abc_type: null
+  purpose_zh: Race Club 短反覆比賽配速訓練：戴呼吸管和蛙鞋做 25-50m 短反覆，維持完美 streamline 和旋轉，是穩定菁英配速感的方法
+  how_to:
+  - 穿蛙鞋、戴呼吸管
+  - 蹬牆出發，以比賽配速游 25 或 50 公尺，維持 streamline 不破
+  - 重點是技術品質而非力竭——這是 quality reps
+  - 做 8-12×25 公尺，組間休 30-60 秒；組間品質下降立刻停
+  perception_goal: 比賽配速下技術不崩潰；streamline 和旋轉維持完整
+  success_signal: 全部 reps 維持一致配速和技術；不見明顯下滑
+  failure_signal: 後段技術崩潰；配速下降
+  deficiency_fixes:
+  - 15
+  source: The Race Club — Fundamentals of Fast Swimming Ch 6
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - streamline_line
+  - rhythm_tempo
+  stroke_phase: whole_stroke
+  drill_function: skill_integration
+  cognitive_load: medium
+  tactile_anchor: equipment_feedback
+  difficulty_tier: elite
+- id: FrEL8
+  name_en: Catch-up with 3 Second Pause
+  name_zh: 三秒暫停趕上
+  strokes:
+  - freestyle
+  category: timing
+  equipment:
+  - fins
+  l_target:
+  - L5
+  abc_type: A
+  purpose_zh: Race Club 變體 catch-up：每次手在前方相遇時暫停 3 秒，蛙鞋維持踢腿；極致拉長 stroke length，是菁英 800/1500 距離訓練核心
+  how_to:
+  - 穿蛙鞋（戴呼吸管可選）
+  - 做 catch-up 自由式：一手前伸等另一手會合
+  - 雙手在前相遇時，明確暫停 3 秒（默數），同時持續踢腿
+  - 3 秒後再開始下一划；做 4×100 公尺，組間休 30 秒
+  perception_goal: 3 秒暫停時身體仍在前進；感覺最長的 stroke length；踢腿維持身體高度
+  success_signal: 3 秒暫停不下沉；前進距離增加
+  failure_signal: 暫停時身體下沉；無法維持 3 秒
+  deficiency_fixes:
+  - 10
+  - 11
+  source: The Race Club — Fundamentals of Fast Swimming Ch 6
+  body_position: prone
+  constraints:
+  - tempo_constrained
+  movement_pattern: pause_pulse
+  skill_focus:
+  - glide_efficiency
+  - catch_evf
+  stroke_phase: glide
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: elite
 - id: Bk1
   name_en: Streamlined Kick on Back
   name_zh: 仰式流線踢水
@@ -2339,6 +2629,42 @@ drills:
   cognitive_load: low
   tactile_anchor: core_tension_internal
   difficulty_tier: intermediate
+- id: BkEL1
+  name_en: Backstroke 6 Kicks 1 Stroke
+  name_zh: 仰式 6K1S（蛙鞋）
+  strokes:
+  - backstroke
+  category: timing
+  equipment:
+  - fins
+  l_target:
+  - L5
+  abc_type: null
+  purpose_zh: Race Club 仰式節律 drill：每側踢 6 下 + 1 划手循環，蛙鞋維持配速，專注每划之間的旋轉時間和距離
+  how_to:
+  - 穿蛙鞋，仰躺 streamline 出發
+  - 右側躺位置（45°）踢 6 下，然後一個完整仰式划手換到左側躺，再踢 6 下
+  - 划手時感覺距離最大化——這是 distance per stroke 訓練
+  - 做 6×50 公尺，組間休 30 秒；關注每划之間維持的距離
+  perception_goal: 每划的推進距離明確；旋轉是 90° 大幅度；踢腿不間斷
+  success_signal: 每 6 拍踢腿 + 1 划之後身體有明顯前進距離
+  failure_signal: 划手後距離很短；踢腿和划手時序脫節
+  deficiency_fixes:
+  - 3
+  - 14
+  source: The Race Club — Fundamentals of Fast Swimming Ch 13, 16
+  body_position: transitional
+  constraints:
+  - tempo_constrained
+  movement_pattern: alternating
+  skill_focus:
+  - rhythm_tempo
+  - rotation_connection
+  stroke_phase: whole_stroke
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: equipment_feedback
+  difficulty_tier: elite
 - id: Br1
   name_en: Wall Kicks
   name_zh: 牆邊蛙式腿
@@ -3031,7 +3357,7 @@ drills:
   drill_function: progression
   cognitive_load: high
   tactile_anchor: hand_pressure
-  difficulty_tier: advanced
+  difficulty_tier: elite
 - id: Br21
   name_en: Dive Downs
   name_zh: 潛水下衝
@@ -4592,7 +4918,7 @@ drills:
   drill_function: skill_integration
   cognitive_load: high
   tactile_anchor: foot_pressure
-  difficulty_tier: advanced
+  difficulty_tier: elite
 - id: Fl28
   name_en: Vertical Strokes
   name_zh: 垂直蝶式
@@ -5371,7 +5697,7 @@ drills:
   drill_function: progression
   cognitive_load: high
   tactile_anchor: equipment_feedback
-  difficulty_tier: advanced
+  difficulty_tier: elite
 - id: UDK4
   name_en: Tempo Trainer Kick to Cone
   name_zh: 節拍器找個人打水頻率
@@ -5406,7 +5732,7 @@ drills:
   drill_function: progression
   cognitive_load: high
   tactile_anchor: equipment_feedback
-  difficulty_tier: advanced
+  difficulty_tier: elite
 - id: UDK5
   name_en: Race-Tempo Underwater Off the Wall
   name_zh: 比賽配速水下打水
@@ -5714,4 +6040,107 @@ drills:
   drill_function: progression
   cognitive_load: high
   tactile_anchor: water_sound
+  difficulty_tier: elite
+- id: STEL1
+  name_en: Backstroke Ladder Starts
+  name_zh: 仰式階梯式出發
+  strokes:
+  - starts_turns
+  category: turn
+  equipment: []
+  l_target:
+  - L5
+  abc_type: C
+  purpose_zh: Race Club 仰式出發階梯式 progression：從池梯最低踏板開始，每組往上一階，安全建立爆發力出發機制
+  how_to:
+  - 雙腳放在池梯最低踏板上，雙手抓踏板上方握把
+  - 做 3-5 次完整仰式出發動作（頭往後仰、身體拱起、雙腿爆發蹬離）
+  - 穩定後往上移一階，再做 3-5 次
+  - 逐階往上直到接近正式出發台高度；最終轉到正式出發台
+  perception_goal: 每階高度都能完成乾淨爆發；不依賴蠻力
+  success_signal: 每階都能做出對稱、有力的出發；身體拋物線清晰
+  failure_signal: 蠻力撐起；單腳先離開；身體歪斜
+  deficiency_fixes:
+  - C
+  source: The Race Club (Gary Hall Sr) — Fundamentals of Fast Swimming Ch 24 (Backstroke Starts)
+  body_position: vertical
+  constraints: []
+  movement_pattern: progressive
+  skill_focus:
+  - streamline_line
+  - spatial_awareness
+  stroke_phase: transition
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: wall_contact
+  difficulty_tier: elite
+- id: STEL2
+  name_en: Leg Kick Flops
+  name_zh: 仰式出發腿驅動跳
+  strokes:
+  - starts_turns
+  category: turn
+  equipment: []
+  l_target:
+  - L5
+  - L6
+  abc_type: C
+  purpose_zh: Race Club 仰式出發專項 drill：強調腿/髖往上爆發，不靠手——讓臀部和大腿先離水後手才進入水
+  how_to:
+  - 正常仰式出發姿勢（腳貼牆、抓握把）
+  - 出發時專注雙腿往上方爆發推送，讓臀部先離開水面、形成空中拋物線
+  - 手反而是被動跟著走，不主動往後甩
+  - 做 5-10 次，組間休 60 秒；專注腿驅動感
+  perception_goal: 出發時感覺臀部和大腿先飛起；手是被動的
+  success_signal: 身體形成乾淨拋物線；入水後仍有強流線
+  failure_signal: 靠手拉起身體；身體入水時已散
+  deficiency_fixes:
+  - C
+  source: The Race Club — Fundamentals of Fast Swimming Ch 24
+  body_position: transitional
+  constraints: []
+  movement_pattern: pause_pulse
+  skill_focus:
+  - hip_drive
+  - core_tension
+  stroke_phase: transition
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: wall_contact
+  difficulty_tier: elite
+- id: STEL3
+  name_en: Beach Ball Leg Kicks
+  name_zh: 仰式出發踢沙灘球
+  strokes:
+  - starts_turns
+  category: turn
+  equipment:
+  - ball
+  - partner
+  l_target:
+  - L5
+  - L6
+  abc_type: C
+  purpose_zh: Race Club 仰式出發感知時機 drill：教練拿沙灘球懸在出發拋物線高點，選手要在腳入水前剛好踢到球，發展腿驅動時機
+  how_to:
+  - 同伴或教練站在池邊，把沙灘球懸在游者出發拋物線的高點（離水面 60-90 公分）
+  - 正常仰式出發，目標是腳在入水前剛好踢到球
+  - 踢到球代表腿伸展時機正確且有足夠爆發力
+  - 做 5-10 次，每次調整球位置；組間休 60 秒
+  perception_goal: 出發時腿往上爆發到能踢到球的高度；感覺腿是主驅動
+  success_signal: 能持續踢到球；入水時身體仍流線
+  failure_signal: 踢不到球（腿驅動不夠）；身體入水時拱起
+  deficiency_fixes:
+  - C
+  source: The Race Club — Fundamentals of Fast Swimming Ch 24
+  body_position: transitional
+  constraints: []
+  movement_pattern: pause_pulse
+  skill_focus:
+  - hip_drive
+  - spatial_awareness
+  stroke_phase: transition
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: partner_feedback
   difficulty_tier: elite
