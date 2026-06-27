@@ -181,6 +181,28 @@ indicators:
   - certainty: 🟢
     text: Staunton 2025
     source: Staunton et al. 2025
+- id: free.L5.coupling-timing
+  stroke: free
+  level: L5
+  aspect: 肩-髖旋轉時間差
+  indicator: 精英特徵：肩旋轉峰值與髖旋轉峰值相差 0.2–0.3 秒（不是同步）；初學者兩者同時或無時差
+  framework_state: 感知自動化過渡
+  note: 同步旋轉代表把肩髖當剛體一起轉，失去 coupling 機制；菁英的時間差是讓肩旋轉先進入拉水前段、髖旋轉接到拉水末段，整個拉水週期都有 coupling 加成。可由水下高速攝影或 IMU 多軸感測量測。
+  evidence:
+  - certainty: 🟠
+    text: Race Club Pressure Meter 同步量測肩-髖角速度與手壓力
+    source: 整合 Race Club + 通用菁英觀察
+- id: free.L5.lift-phase-duration
+  stroke: free
+  level: L5
+  aspect: 升力相時長與風格匹配
+  indicator: 精英特徵：升力相時長與所選風格的 SR 對應——hip-driven 60 SPM 約 >0.6 秒、shoulder-driven 120 SPM <0.3 秒；風格與時長不匹配（如低 SR 但短升力相）代表風格未真正建立
+  framework_state: 感知自動化過渡
+  note: 升力相 = 手入水到開始向後產生推進力之間的時間。這個指標把風格從外觀判斷（觀察 SR）升級到力學判斷（觀察推進啟動時機）。長距離選手做高 SR 但升力相短 = 形似 shoulder-driven 神不到。
+  evidence:
+  - certainty: 🟠
+    text: Race Club Velocity Meter 量測 Gary Hall Sr 100 SPM 升力相 0.34 秒
+    source: 整合 Race Club 量測
 - id: free.L5.serratus
   stroke: free
   level: L5

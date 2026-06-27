@@ -206,13 +206,54 @@ microcycle:
     name_zh: 達峰/卸載型
     cert: 🟡
     note_zh: 體積降 ≥50%、強度降 5–10%
-  swim_application_zh: 🔵 週為游泳課表最小規劃單位；unloading 微週期用於賽前與 macrocycle 銜接
-  plain_zh: Microcycle＝一週，是排課表的最小單位。一週有不同類型：發展型（往上堆）、競賽型（賽前 3–5 天達峰）、恢復型、卸載型（量砍一半以上）。游泳就以『週』為單位排課。
+  rest_day_patterns:
+  - key: '6:1'
+    name_zh: 六練一休
+    cert: 🟢
+    note_zh: 傳統游泳隊預設，週內固定一個完整休息日
+  - key: '4:1'
+    name_zh: 四練一休
+    cert: 🟡
+    note_zh: 雙練日 + 單練日的循環變體（雙練×2 + 單練×1）；少數菁英隊使用
+  - key: '7:0'
+    name_zh: 天天練
+    cert: 🟡
+    note_zh: 完全不留固定休息日；少數教練嘗試但風險高，需精細監測
+  swim_application_zh: 🔵 週為游泳課表最小規劃單位；unloading 微週期用於賽前與 macrocycle 銜接；6:1 為預設休日模式
+  plain_zh: Microcycle＝一週，是排課表的最小單位。一週有不同類型：發展型（往上堆）、競賽型（賽前 3–5 天達峰）、恢復型、卸載型（量砍一半以上）。游泳就以『週』為單位排課。週內休息日預設「六練一休」，少數隊伍用「四練一休」或全天天練但需要更細的監測。
   links:
     development_stages:
     - t2t
     - t2c
     - t2w
+general_adaptation_syndrome:
+  id: periodization.structure.gas
+  cert: 🟢
+  source: Selye 1974, 1976; 整合進 Bompa 體系（多教練書共識）
+  three_stages:
+  - key: alarm
+    name_zh: 警覺期
+    duration_zh: 幾天
+    description_zh: 新訓練刺激出現時的即時反應；交感神經興奮、表現可能短暫下降、免疫力短期被壓抑
+  - key: adaptation
+    name_zh: 適應期/抗拒期
+    duration_zh: 幾週
+    description_zh: 身體積極建構應對能力——肌力增加、能量系統效率提升、神經肌肉協調改善；訓練成果在此階段累積
+  - key: exhaustion
+    name_zh: 耗竭期
+    duration_zh: 超出時不可逆
+    description_zh: 刺激過大或持續太久，身體無法繼續適應或修復，表現下降、過度訓練症候群、傷病風險暴增；這是過度訓練的生理本質
+  why_periodization_works_zh: 🔵 週期化的核心邏輯：刻意把每段訓練留在「適應期」收完成果就減量恢復，避免進入耗竭期。3:1 macrocycle 結構（3 週堆負荷 + 1 週減量）就是 GAS 三階段的時間骨架——前 3 週走完警覺→適應，第 4 週減量讓身體完成適應、避免耗竭。Unloading 微週期同理。
+  swim_application_zh: 🔵 游泳教練判斷選手是否「練過頭」時的生物學參考——出現持續性表現下降、睡眠品質崩、晨脈異常、技術細節失守，是耗竭期的早期信號；不是「再撐一下」的時機，而是立刻 unloading 的時機。
+  plain_zh: 為什麼週期化要有節奏不能一路往上堆？因為身體對訓練壓力有三個階段：① 警覺期（剛開始幾天，覺得難）、② 適應期（幾週後身體變強）、③ 耗竭期（再撐就崩）。週期化的目標就是每段訓練都停在適應期收成果就減量，不要踩進耗竭期。3 練 1 休的 macrocycle 結構就是這個原理。
+  links:
+    development_stages:
+    - t2t
+    - t2c
+    - t2w
+    related:
+    - macrocycle
+    - microcycle
 detraining:
   id: periodization.structure.detraining
   cert: 🟢
