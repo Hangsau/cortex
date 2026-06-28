@@ -1550,6 +1550,74 @@ injuries:
       consensus_source: 標準氯化無法殺隱孢子蟲卵囊、CDC 建議補充 UV/臭氧
       dissent_source: 許多低資源地區尚未普及，標準執行差距大
     vintage_warning: false
+- id: sci-hip-flexor-contracture
+  zh: 脊髓損傷泳者的髖屈攣縮
+  en: Hip flexor contracture in SCI swimmers
+  category: C-nonMSK-medical
+  environment:
+  - pool
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 髂腰肌
+  - 股直肌
+  - 髖關節囊
+  - 骨盆-腰椎連結
+  mechanism:
+    summary: 脊髓損傷（SCI）選手長期坐輪椅，髖屈肌（髂腰肌、股直肌）長期處於縮短位置，加上下肢主動伸展能力受限，造成髖屈攣縮可達 60–90° 屈曲。游泳時這個攣縮無法靠水中拉伸快速消除——俯臥泳式時下肢往後伸不直，造成正面阻力大、軀幹拱起；仰式因軀幹控制不足會被攣縮的髖屈肌拉著腰椎前彎而更困難。不主動介入會持續惡化，極端情況需手術做髖關節囊釋放。
+    driver: 髖屈攣縮角度 = 受傷時間 × 每日坐姿時間 × 是否有規律髖屈拉伸介入；坐輪椅 ≥ 2 年且無拉伸介入者攣縮普遍 ≥ 30°
+    trigger_phase: 俯臥泳式下肢伸展位 / 仰式軀幹姿勢
+    who: SCI 完全性損傷者、輪椅依賴 ≥ 2 年且無規律拉伸介入者、L1–L3 段以上損傷者
+    swim_context: SCI 泳者在水中對下肢的本體感覺與主動控制能力有限，無法靠游泳本身展開髖部；陸上拉伸是必要而非選項
+  epidemiology:
+    prevalence: SCI 泳者髖屈攣縮幾乎普遍存在；嚴重攣縮（≥ 60°）報告比例 30–50%（依損傷層級與輪椅依賴年限）
+    certainty: 🟠
+    evidence_grade: B
+    caveat: 多數數據來自臨床觀察與小規模個案系列，缺大型流病
+    sources:
+    - Akkurt et al. 2017, J Phys Ther Sci（SCI 髖屈攣縮綜述；待核實具體引用）
+  risk_factors:
+  - text: 完全性 SCI（vs 不完全性）
+    grade: B
+  - text: 受傷時間 > 2 年
+    grade: B
+  - text: 每日輪椅時間 > 12 小時
+    grade: B
+  - text: 無規律髖屈拉伸介入
+    grade: Expert
+  - text: L1–L3 段以上損傷（下肢主動伸展更受限）
+    grade: B
+  prevention:
+  - text: 每日髂腰肌與股直肌拉伸（俯臥髖伸展、Thomas 姿）≥ 2 × 30 秒，每日至少 1 次
+    grade: B
+  - text: PT/OT 介入建立家用拉伸計畫，傷後 6 個月內開始
+    grade: Expert
+  - text: 游泳訓練前後加陸上動態髖伸展 10 分鐘
+    grade: Expert
+  - text: 考慮夜間使用髖伸展支架（已有攣縮者）
+    grade: Expert
+  management:
+    red_flags:
+    - 新發疼痛或攣縮加速 → 排除異位性骨化（HO）
+    - 皮膚壓瘡風險增加（攣縮改變坐姿） → PT 重新評估輪椅適配
+    - 保守治療 6 個月無進展 + 攣縮 > 60° 影響日常功能 → 骨科會診評估手術釋放
+    acute: null
+    pain_rules: 拉伸時 NRS ≤ 4 為安全範圍；> 4 或拉伸後 24 小時持續疼痛 → 降低強度
+    rehab: ①每日 2 × 30 秒拉伸 ②水中俯臥使用 pull buoy 補償腿位 ③陸上髖伸展肌力訓練（臀大肌、後鏈）
+    functional_progression_criteria:
+    - 陸上俯臥姿勢髖伸展角度逐月改善
+    - 游泳時軀幹拱起減少
+    - 比賽姿勢可維持時間延長
+    swim_modifications_in_rehab:
+    - 俯臥泳式（自由式、蝶式）使用 pull buoy 提高腿位、減少正面阻力
+    - 仰式時加強核心訓練補償腰椎被動前彎
+    - 考慮起跳改用水中起跳（避開站立式起跳對攣縮髖部的衝擊）
+    return_to_train: 新近介入拉伸計畫 → 立即可訓練；不應因攣縮而停訓，但訓練量與技術期望需依攣縮程度調整
+    return_to_compete: null
+    prognosis: 早期介入 (傷後 < 6 月) 可有效預防嚴重攣縮；已有 > 60° 攣縮者保守治療效果有限，需手術才能顯著改善
 - id: surfers-ear-exostosis
   zh: 外耳道骨瘤 / 骨疣（衝浪耳）
   en: Surfer's ear / external auditory exostosis
@@ -2185,6 +2253,8 @@ injuries:
   prevention:
   - text: 冷水習化(≥4 次逐漸暴露，間隔 ≤8 天；效果可維持 7–14 月。要求暴露 ≥50% 體表、避免臉部以防觸潛水反射、每次 ≥150 秒)
     grade: A
+  - text: 開放水域比賽前的『表現級』冷水適應協議 = 短期保命級 + 持續性：賽前 14–21 天的規律暴露才能達到比賽當天的穩定耐受度（一致性 > 強度，每天 15 分鐘比一週一次 2 小時有效）；凡士林、潤滑膏等號稱『急速適應』的方法都無效
+    grade: Expert
   - text: 緩慢涉水入水(淋水後再入)
     grade: Expert
   - text: 穿防寒衣減少皮膚暴露面積
@@ -3052,6 +3122,144 @@ injuries:
       consensus_source: 2014 起 IOC 擴展為 RED-S(含男性與代謝/免疫)，2023 修訂為 REDs v3
       dissent_source: De Souza 等 2014 發表反駁，主張保留三聯症框架；臨床界雙軌工具並用
     vintage_warning: false
+- id: iron-deficiency-swimmer
+  zh: 泳者鐵質缺乏（含非貧血性鐵缺）
+  en: Iron deficiency in swimmers (including non-anemic iron deficiency)
+  category: D-endocrine
+  environment:
+  - pool
+  - open_water
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 紅血球系統
+  - 攜氧鏈
+  - 肌紅蛋白
+  - 細胞色素鏈
+  - 認知/疲勞調節
+  mechanism:
+    summary: 鐵不只用於血紅素——肌紅蛋白、粒線體細胞色素鏈、神經傳導物合成都依賴鐵。鐵缺乏分三階段：① 鐵儲備耗竭（鐵蛋白↓但血紅素正常）；② 紅血球生成減弱（血紅素開始下滑）；③ 缺鐵性貧血。耐力表現在階段 ① 就已下降——光看血紅素會錯失大量「鐵蛋白偏低但 Hb 正常」的選手。
+    driver: 鐵蛋白(ferritin) < 20 ng/mL 即視為儲備不足；< 12 ng/mL 為臨床缺鐵；女性比男性更易缺鐵（月經損失+多吃植物來源+紅肉攝取低）
+    trigger_phase: 高強度訓練期 / 月經期 / 訓練量驟增期
+    who: 女性運動員、青少年成長期者、素食/純素傾向者、月經量大者、訓練量驟增者
+    swim_context: 游泳是非衝擊運動，足部撞擊性溶血較跑者少；但訓練強度與量大、運動性發炎（hepcidin 升高抑制吸收）+ 訓練後 24 小時內鐵吸收窗口縮窄，仍易累積缺鐵
+  epidemiology:
+    prevalence: 女性運動員 11–41% 鐵缺乏（範圍取決於切點與族群）；女子泳者報告 ferritin < 20 ng/mL 比例可達 50%（即使口服鐵補充劑加倍從 20 mg → 40 mg/日，盛行率仍未顯著下降，顯示吸收效率才是瓶頸）
+    certainty: 🟡
+    evidence_grade: B
+    caveat: 「鐵儲備不足」vs「臨床貧血」切點差異大；運動性偽貧血（高血漿量稀釋）會讓 Hb 看似低但其實有益於耐力，要與真鐵缺乏區分
+    sources:
+    - IOC 共識聲明 — Iron in sport（具體 DOI 待 WebFetch 核實）
+    - Sim et al. 2019, Eur J Appl Physiol（hepcidin 與運動誘發鐵吸收抑制；具體引用待核實）
+  risk_factors:
+  - text: 女性（月經損失約每月 30 mg）
+    grade: A
+  - text: 素食/純素傾向（植物來源鐵吸收率僅 5–10% vs 動物來源 25–30%）
+    grade: A
+  - text: 維生素 C 攝入不足（抑制非血基質鐵吸收）
+    grade: B
+  - text: 高強度訓練期 hepcidin 升高（運動後 3–6 小時吸收降低）
+    grade: B
+  - text: 咖啡因/茶/鈣質與鐵補充劑同服（抑制吸收 30–60%）
+    grade: B
+  - text: 青少年成長期（生長性需求疊加運動性損失）
+    grade: A
+  prevention:
+  - text: 女性運動員年度 ferritin 監測（建議目標 > 30 ng/mL；耐力選手 > 35 ng/mL）
+    grade: B
+  - text: 動物來源鐵優先（紅肉、肝、貝類、深色禽肉）
+    grade: A
+  - text: 植物來源鐵 + 維生素 C 同食（菠菜+柑橘/番茄/紅椒）
+    grade: A
+  - text: 訓練後 30 分鐘內勿補鐵（hepcidin 高峰），改在隔天清晨空腹或訓練前 2 小時前
+    grade: B
+  - text: 鐵補充劑與咖啡因/鈣分隔 ≥2 小時
+    grade: B
+  management:
+    red_flags:
+    - Hb < 11.0 g/dL（女）或 < 13.0 g/dL（男）+ 疲倦/頭暈/心悸 → 就醫排除其他病因
+    - ferritin < 12 ng/mL + 持續疲勞 → 全套貧血評估
+    - 口服鐵補充 8 週後 ferritin 仍 < 20 → 排除吸收障礙（celiac、H. pylori、IBD）
+    acute: 若 ferritin < 30 ng/mL：硫酸亞鐵 100–200 mg 元素鐵/日 + 維生素 C 500 mg 同服（鐵吸收提升約 30%）；避免咖啡因/鈣/茶於同時段
+    pain_rules: null
+    rehab: ferritin 回升期間（4–12 週）：高強度訓練量減半，重點放在技術與基礎有氧；恢復後逐漸加量
+    functional_progression_criteria:
+    - ferritin > 30 ng/mL（耐力選手 > 35）
+    - 主觀疲勞回到基線
+    - 靜息心率回到基線
+    swim_modifications_in_rehab:
+    - 氧合不足時高強度訓練品質低，浪費窗口；改成技術 drill + 基礎有氧
+    - 監測訓練後恢復時間（鐵缺乏者顯著延長）
+    return_to_train: ferritin > 30 ng/mL + 主觀疲勞回正 → 漸進回歸（每週量增 ≤10%）
+    return_to_compete: ferritin > 35（耐力）+ Hb 在正常範圍 + 訓練質量已恢復
+    prognosis: 純鐵缺乏無潛在病因者 8–12 週可完全恢復；忽視持續高量訓練則演變為慢性疲勞、表現停滯、過度訓練症候群
+- id: oral-contraceptives-performance
+  zh: 口服避孕藥對運動表現的影響
+  en: Oral contraceptives and athletic performance
+  category: D-endocrine
+  environment:
+  - pool
+  - open_water
+  sport_variant:
+  - swim
+  layer:
+  - public
+  - clinical
+  structures:
+  - 下視丘-腦下垂體-性腺軸
+  - 雌激素受體
+  - 心血管自主神經
+  - 骨代謝
+  - 肌肉修復
+  mechanism:
+    summary: 三相型口服避孕藥（triphasic OC）會抑制內源性雌激素與黃體素的週期性波動，外加合成荷爾蒙的相對穩定。對運動表現的主要影響：交感神經激活下降→ VO₂max 降 10–11%（範圍 6–15%，個人差異大）；體溫基線略升；液體滯留輕度增加。低劑量配方（少 30–40% 荷爾蒙）影響較小。雌激素對運動後肌肉損傷有保護作用（透過抗氧化機制與膜穩定）——OC 使用者運動後 CK 與肌酸激酶較低。
+    driver: 三相型 > 單相型 > 低劑量單相型 對 VO₂max 的影響強度依序遞減
+    trigger_phase: 耐力項目（400m 以上）/ 開放水域 / 鐵人三項
+    who: 服用三相型或高劑量 OC 的女性耐力選手、賽前 12 個月內換配方者、未與教練/運科告知 OC 使用的選手
+    swim_context: 游泳 50/100/200 等爆發/中距離受 VO₂max 影響相對小（無氧為主），但 400m 以上耐力項目受影響顯著；女性選手大量服用 OC（避孕、月經調節、皮膚問題）但對表現影響的諮詢不足
+  epidemiology:
+    prevalence: 成年女運動員 OC 使用率 30–50%（依族群與年齡）；正在用 OC 的菁英選手與其教練的相關知識落差大
+    certainty: 🟡
+    evidence_grade: B
+    caveat: 個體反應差異大（雌激素受體多型性）；多數研究 N 小、配方混雜；新一代低劑量配方研究稀少
+    sources:
+    - Elliott-Sale et al. 2020, Br J Sports Med（OC 與運動表現綜述；具體引用待核實）
+    - Bushman et al. 2006, Phys Sportsmed（早期 OC × VO₂max 量化）
+  risk_factors:
+  - text: 三相型配方（vs 單相型）
+    grade: B
+  - text: 高劑量配方（每錠 > 35 μg ethinylestradiol）
+    grade: B
+  - text: 耐力為主項目（400m 以上 / 開放水域 / 鐵人三項）
+    grade: B
+  - text: 選手未告知教練/運科 OC 使用
+    grade: Expert
+  prevention:
+  - text: 選手與教練在 OC 開始前/換配方前共同諮詢運動醫學醫師
+    grade: Expert
+  - text: 對耐力選手優先選擇低劑量單相型或非荷爾蒙避孕（IUD、保險套）
+    grade: Expert
+  - text: 賽前 12 個月內不換配方（避免賽前出現未知的表現變化）
+    grade: Expert
+  - text: 教練紀錄選手 OC 使用狀況作為 VO₂max 基線校準依據
+    grade: Expert
+  management:
+    red_flags:
+    - OC 使用後出現腿部腫脹疼痛、胸痛、呼吸困難 → 立即就醫排除血栓
+    - 急性嚴重頭痛 + 視覺變化 → 就醫評估腦血管事件
+    - 黃疸或上腹劇痛 → 評估肝臟反應
+    acute: null
+    pain_rules: null
+    rehab: null
+    functional_progression_criteria:
+    - 若懷疑 OC 影響表現：與醫師討論換配方或停用，3 個月後重測 VO₂max 確認
+    swim_modifications_in_rehab: null
+    return_to_train: null
+    return_to_compete: null
+    prognosis: OC 對表現的影響可逆——停用或換低劑量配方後 2–3 個月 VO₂max 通常回升；但避孕需求需另行規劃替代方案
 - id: red-s
   zh: 相對能量不足（RED-S）
   en: Relative Energy Deficiency in Sport (RED-S)
@@ -3074,7 +3282,7 @@ injuries:
     swim_context: 泳者每日高熱量消耗 + 體型/外觀壓力 + 大量陸訓，能量赤字易被低估
     who: null
   epidemiology:
-    prevalence: 女性運動員 LEA/三聯症盛行率報導範圍極廣；游泳專項數字待 WebFetch 核實
+    prevalence: 女性運動員 LEA/三聯症盛行率報導範圍極廣；游泳專項數字待 WebFetch 核實。青少年女子泳者 disordered eating 盛行率 25–31%、月經失調 3–65%（範圍極廣反映定義差異），是同年齡男性與非運動族群的數倍
     certainty: 🟡
     evidence_grade: B
     caveat: 定義與篩檢工具(LEAF-Q/RED-S CAT2)差異大→盛行率不可橫向比較；男性 RED-S 長期被低估
