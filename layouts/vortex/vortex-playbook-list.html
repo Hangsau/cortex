@@ -1,0 +1,39 @@
+{{ define "head-extra" }}
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+TC:wght@400;500;600;700&family=Quattrocento+Sans:wght@400;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex-nav.css">
+{{ end }}
+
+{{ define "main" }}
+{{ $base := .Site.BaseURL }}
+<div class="vx-shell">
+{{ partial "vortex/sidebar.html" (dict "ctx" . "current" "playbooks") }}
+<div class="vx-home">
+
+  <header class="vx-masthead">
+    <p class="vx-eyebrow">渦流計劃 · 教練 Playbook</p>
+    <h1>教練 Playbook</h1>
+    <p class="vx-lead">使用情境導向的整合參考——把 canonical 散落的 atomic 知識編成可印一頁、可直接查的工作手冊。每份 playbook 對應一個具體場景，含主結構 + 診斷流程 + canonical cross-reference。</p>
+  </header>
+
+  <h2 class="vx-label vx-toc-label">場景手冊</h2>
+  <div class="vx-toc">
+    {{ range (where .Site.RegularPages "Section" "vortex").ByTitle }}
+    {{ if and (eq .Type "vortex") (in .RelPermalink "/playbooks/") }}
+    <a class="vx-toc-row" href="{{ .Permalink }}">
+      <span class="vx-toc-num">▸</span>
+      <span class="vx-toc-main">
+        <span class="vx-toc-zh">{{ .Title }}</span>
+      </span>
+      <span class="vx-toc-prem">{{ with .Description }}{{ . }}{{ else }}場景整合手冊{{ end }}</span>
+      <span class="vx-toc-meta"><span class="arr">→</span></span>
+    </a>
+    {{ end }}
+    {{ end }}
+  </div>
+
+  <p class="vx-legend">Playbook 從 Vortex canonical 萃取整合；canonical 條目變動時 playbook 對應更新。</p>
+
+</div>
+</div>
+{{ end }}
