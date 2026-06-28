@@ -227,11 +227,16 @@ points:
   summary: 推水末段菱形肌收縮向後縮肩胛骨，啟動對側身體滾轉；髖部被動跟隨，幅度小於肩膀。旋轉感知目標是肩胛骨動作，不是髖部。
   mechanism:
     certainty: 🟡
-    text: Pink et al.（1991）EMG 確認：推水末段肩胛肌群是旋轉的主動發動者。Hip-driven 髖旋轉幅度 45–60°；Shoulder-driven 約 20–30°；兩者同時旋轉和扭轉，不是剛性整體翻滾。
+    text: '兩個機制來源分清楚：① 「肩胛肌群啟動旋轉」是 Pink 1991 EMG 量測結果（12 塊肌肉同步分析），雖為舊文獻但屬實驗實證、機制至今未被推翻；② 「Hip-driven 髖旋轉 45-60° / Shoulder-driven 20-30°」是 Race Club 等教練體系的影像觀察數據（屬 🟠 教練觀測層級），不是 Pink 研究的內容。本條件 🟡 主要對應 EMG 機制——肩胛肌群啟動旋轉的結論至今有效。
+
+      '
   evidence:
   - certainty: 🟡
-    text: 12 塊肌肉 EMG 分析確認推水末段肩胛肌群（含菱形肌）是旋轉的主動發動者。
+    text: 12 塊肌肉 EMG 分析確認推水末段肩胛肌群（含菱形肌）是旋轉的主動發動者。舊但仍有效。
     source: Pink, Perry et al. 1991
+  - certainty: 🟠
+    text: Hip-driven 與 Shoulder-driven 風格的髖旋轉幅度範圍來自菁英影像觀察。
+    source: Race Club / 通用菁英觀察
   practical_implication: 在高划頻下刻意主動旋轉髖部會讓動作失調；短距離訓練應讓髖保持相對穩定，「把肩膀教好，髖部自然跟著動」。
 - id: free.tech.16
   stroke: free
@@ -341,11 +346,11 @@ points:
   title: 錯誤連動性——一個根本錯誤往往引發多個表面錯誤
   summary: Virag et al.（2014）確認錯誤高度相關：dropped elbow→跨越中線→過度抬頭→下半身下沉，找到因果鏈起點比逐一修正表面錯誤更有效。
   mechanism:
-    certainty: 🟡
+    certainty: 🟢
     text: 划手錯誤在生物力學上是互相連動的：入水位置偏差→捕水角度改變→肩胛穩定性受損→換氣旋轉補償→頭部位置漂移→下半身下沉連鎖。
   evidence:
-  - certainty: 🟡
-    text: 31 名大學游泳選手中 91% 有至少一項划手錯誤；錯誤之間高度相關，一個錯誤往往引發另一個。
+  - certainty: 🟢
+    text: 31 名大學游泳選手中 91% 有至少一項划手錯誤；錯誤之間高度相關，一個錯誤往往引發另一個。具體實證數據（n=31, 2014）。
     source: Virag et al. 2014
   practical_implication: 診斷時應尋找因果鏈起點，不要同時修正所有表面錯誤；通常修正根本錯誤（如捕水位置或回臂姿勢）能連帶改善 2–3 個下游表面錯誤。
 - id: free.tech.24
@@ -540,12 +545,12 @@ points:
   title: 捕水：高肘確立，前臂面向推進方向，捕水點在肩線後約 10–15 cm
   summary: 手掌在身後確立高肘捕水，前臂面向推進方向，最大化槳葉面積，啟動升力推進。
   mechanism:
-    certainty: 🟡
-    text: 前臂垂直時升力係數（CL）最大化的基本物理關係至今仍成立（Schleihauf 1979 物理原理有效，具體數值量化已有更精確替代）。高肘使前臂面積最大化作用於水流，升力推進啟動。
+    certainty: 🔵
+    text: 前臂垂直時升力係數（CL）最大化是基本流體力學推導——薄板面對水流的推進面積等同於前臂全長乘以掌寬，遠大於僅手掌的面積。Schleihauf 1979 用實驗手部模型量化了此關係，後續多項研究（Toussaint, Berger 等 1990 年代起）持續驗證升力推進在低速段佔比顯著、高速段以阻力推進為主。具體推力分配數字隨方法論演進，但「前臂垂直增大有效推進面積」這個結構性原理至今未被推翻。
   evidence:
   - certainty: 🟡
-    text: 手掌流體力學原理：前臂垂直時升力係數最大化，高肘捕水邏輯至今有效；具體數字量化已有更精確替代。
-    source: Schleihauf 1979
+    text: 早期手部流體力學量化，奠定升力推進框架；具體數字今已被更精確方法替代，但原理推導仍有效。
+    source: Schleihauf 1979（歷史依據，非當前定論）
   practical_implication: 「抓水感」的練習重點是讓前臂而非只是手掌面對推進方向；槳板輔助訓練有助建立前臂垂直的本體感知。
 - id: back.tech.11
   stroke: back
@@ -553,12 +558,15 @@ points:
   title: 拉水：橢圓曲線路徑，肘部屈曲 90–100°（S形路徑已過時）
   summary: 手臂沿橢圓曲線路徑拉動，肘部維持屈曲 90–100°，避免直線推進；S 形路徑指導語已過時。
   mechanism:
-    certainty: 🟡
+    certainty: 🟢
     text: 升力＋阻力混合推進，最大化掌面與水流的作用角。Counsilman（1971）的 S 形划手路徑已被 Maglischo（2003）修正為橢圓形路徑；近期研究（Gonjo 2020 等）確認划手路徑個體差異顯著。核心原則（高肘捕水）仍有效，但強調固定形狀路徑的指導語已過時。
   evidence:
   - certainty: 🟡
-    text: 修正 S 形划手路徑為橢圓形路徑；個體差異在近期研究中持續被確認。
+    text: 修正 S 形划手路徑為橢圓形路徑；定性方向至今有效。
     source: Maglischo 2003
+  - certainty: 🟢
+    text: 近期實測確認划手路徑個體差異顯著，「前臂面向推進方向」比路徑形狀更重要。
+    source: Gonjo et al. 2020
   practical_implication: 不應要求泳者走固定的 S 形或橢圓形軌跡；訓練重點是維持前臂面向推進方向的高肘，路徑隨個人最優化。
 - id: back.tech.12
   stroke: back
@@ -594,11 +602,11 @@ points:
   summary: 仰式上踢時足背朝上及後方（蹠屈），形成有效推進面，是踢水的主推進來源。
   mechanism:
     certainty: 🟡
-    text: 上踢時蹠屈使足背面向上方及後方，形成有效推進面，對應自由式的下踢功能。注意：原始 70–80% 推進佔比數字來自舊研究（Maglischo 2003），近代研究方法論受限，此數字應視為定性方向而非精確值。
+    text: 上踢時蹠屈使足背面向上方及後方，形成有效推進面，對應自由式的下踢功能。**「上踢是主推進」這個定性結論至今未被推翻**——影像觀察與菁英教練共識一致。原始 70–80% 推進佔比數字來自 Maglischo 2003 整理的舊研究，現代精準量化（如 IMU + EMG 同步）尚未有同等規模的替代研究，所以**具體百分比應視為歷史定性方向，不是當代精確值**。教學決策上「主要推進來自上踢」這個結論已足夠，不需要精確百分比。
   evidence:
   - certainty: 🟡
     text: 仰式上踢是推進主力，定性結論仍被接受；70–80% 佔比的具體量化已過時。
-    source: Maglischo 2003
+    source: Maglischo 2003（屬定性方向參考，量化數字待現代研究更新）
   practical_implication: 訓練上踢時注意蹠屈到位（足背朝後），是踢水產生推進力的前提；踝關節柔韌性不足會直接限制此動作。
 - id: back.tech.16
   stroke: back
@@ -633,11 +641,11 @@ points:
   summary: 踢水深度約 30–40 cm 時推進力最大；更大深度同時增加阻力，存在最優區間而非越深越好。
   mechanism:
     certainty: 🟡
-    text: 踢水深度增加時推進力與阻力同步增加，二者存在最優交叉點（約 30–40 cm）。此數字來自 Maglischo（2003），作為定性方向參考仍有效。
+    text: 踢水深度增加時推進力與阻力同步增加，二者存在最優交叉點（約 30–40 cm）。**「最優深度存在、不是越深越好」是定性結論至今有效**；具體 30-40 cm 區間來自 Maglischo 2003 二手整理，現代精準量化方法（如 CFD 模擬）尚未發表同等規模替代研究，故**此區間應視為群體均值參考、不是個人最優值**。實務上不應以固定深度為訓練目標。
   evidence:
   - certainty: 🟡
-    text: 踢水深度約 30–40 cm 推進力最大；同時指出更大深度也增加阻力，存在最優區間。
-    source: Maglischo 2003
+    text: 踢水深度約 30–40 cm 推進力最大；同時指出更大深度也增加阻力，存在最優區間（屬群體均值，非個人最優）。
+    source: Maglischo 2003（量化區間屬歷史參考，現代研究尚未更新具體值）
   practical_implication: 踢水深度是個人最優值，不應以固定數字為目標；感知「推進感」優先於追求視覺上的特定深度。
 - id: back.tech.19
   stroke: back
@@ -1248,10 +1256,10 @@ points:
   summary: 精英蝶式選手每週期有五個推進加速峰值，Insweep 最大（4.2 m/s²），依次為第一踢（1.9）、第二踢+Upsweep（2.3）、外划（1.4）；乘波為非主動推進。
   mechanism:
     certainty: 🟡
-    text: 峰值分布說明蝶式推進來自多個協調節點而非單一動作，各峰值間的時序連接品質決定整體速度。
+    text: 峰值分布說明蝶式推進來自多個協調節點而非單一動作，各峰值間的時序連接品質決定整體速度。**「五個推進節點 + Insweep 為最大」這個定性結構至今未被推翻**，但具體數字（4.2 / 1.9 / 2.3 / 1.4 m/s²）來自 Mason 1992 單一研究（n 小）、現代影像分析尚未發表同等量化的替代研究，故**具體數值應視為單一研究結果而非定論**——實務上記住「Insweep 是最大、各峰值有時序」即可，不需精確數字。
   evidence:
   - certainty: 🟡
-    text: 量化五個推進加速峰值：Insweep 4.2 m/s²、Entry Kick 1.9、Outsweep 1.4、第二踢+Upsweep 2.3
+    text: 量化五個推進加速峰值：Insweep 4.2 m/s²、Entry Kick 1.9、Outsweep 1.4、第二踢+Upsweep 2.3（屬單一研究，定性順序仍被現代影像支持，具體數字屬歷史參考）
     source: Mason et al. 1992
   practical_implication: Insweep 是最大推進相，其品質是訓練的最高優先項。
 - id: fly.tech.12
@@ -1772,9 +1780,9 @@ points:
   title: 短水道短距離的水下策略有不同代謝邏輯
   summary: 長水道長距離的乳酸研究結論不可直接套用到短水道短距離，兩者代謝本質不同。
   mechanism:
-    certainty: 🔴
-    text: 長水道長距離超時滑行以有氧系統為主（研究清楚）；短水道短距離極限水下為磷酸 + 無氧系統爆發，目前是游泳運動科學的真實研究空白。
-  practical_implication: 短水道短距離極限水下策略目前缺乏高品質研究依據，需謹慎套用長水道研究結論。
+    certainty: 🔵
+    text: 長水道長距離超時滑行以有氧系統為主（研究清楚）；短水道短距離極限水下為磷酸 + 無氧系統爆發。**這是基於通用代謝系統知識的推導**——短水道每 15-25m 一轉，水下推進佔總賽程比例極高（每次轉身可貢獻 7-10m 水下），密集無氧爆發累積，乳酸代謝曲線與長水道長距離本質不同。**目前仍是游泳運動科學的真實研究空白**——沒有同時量測短水道菁英選手連續水下段的乳酸動態研究發表。
+  practical_implication: 短水道短距離極限水下策略目前缺乏高品質研究依據；不可直接套用長水道乳酸耐受訓練法；實務上以無氧能力訓練（短距重複 + 充分恢復）+ 水下技術效率優化為主，等實證研究出現再調整。
 - id: udk.tech.22
   stroke: udk
   category: comparison
@@ -1864,9 +1872,17 @@ points:
   title: 出發與轉身的起踢時機差異
   summary: 出發入水後需要短暫姿勢整合窗口（從空中進入水中確立流線型），起踢時機與轉身略有不同。
   mechanism:
-    certainty: 🔴
-    text: 出發後身體需確立流線型再起踢，此窗口的最優時機尚待更多研究確認；轉身後已在水中可立刻起踢。
-  practical_implication: 教學時出發與轉身的起踢時機指導需分開處理，不可完全套用轉身的「立刻起踢」原則。
+    certainty: 🔵
+    text: '兩段差異基於物理推導：
+
+      - **出發**：從空中進入水中經歷介質改變（空氣→水）+ 高速衝擊（5-6 m/s 入水），身體需要短暫姿勢確立才能進入有效 streamline。**這個窗口的最優時機目前是研究空白**——沒有發表研究量化「入水後幾毫秒起踢最佳」。
+
+      - **轉身**：已在水中、姿勢連續、推蹬力直接轉換為水下動能，可立刻起踢。
+
+      現有共識：出發後等待約 0.3-0.5 秒確立 hyperstreamline 再起踢、轉身後 0.1 秒內起踢——但這些數字屬教練體系觀察，不是實驗研究結論。
+
+      '
+  practical_implication: 教學時出發與轉身的起踢時機指導需分開處理，不可完全套用轉身的「立刻起踢」原則；出發後 0.3-0.5 秒 streamline 確立窗口為教練觀測共識（非實驗實證），可作為訓練起點但保持個別調整空間。
 - id: starts-turns.tech.1
   stroke: starts-turns
   category: comparison
@@ -1887,15 +1903,16 @@ points:
   stroke: starts-turns
   category: stroke-cycle
   title: Grab Start 抓台拉力效益爭議
-  summary: Grab Start 的手部拉力能預先拉伸下肢伸肌群（SSC），但效益高度依賴個人技術執行，姿勢不佳時反而限制髖部伸展。
+  summary: 〔歷史條目〕Grab Start 已於 2000 年代後逐漸退役，菁英層級今幾乎全用 Track Start（含重心前傾／後仰兩變體，見 tech.41）。此條保留為歷史脈絡與 Masters 等仍使用 Grab Start 的族群參考。
   mechanism:
-    certainty: 🟡
-    text: 手部拉力增大前傾角並預先拉伸下肢伸肌群（SSC），可產生可量化的向後拉力；但手部拉力相對腿部推力小，釋放時機稍晚則拖慢起跳。
+    certainty: 🔵
+    text: Grab Start 的手部拉力能預先拉伸下肢伸肌群（SSC），可產生可量化的向後拉力；但手部拉力相對腿部推力小，釋放時機稍晚則拖慢起跳。**這個機制在物理推導上仍然成立**，但在現代競技中已被 Track Start 的雙腳分離站位（更穩定的推蹬基礎 + 重心可前後調配）取代——不是 Grab 失效，是 Track 提供了更多策略空間。Masters 與部分長者因 Track 站姿穩定性問題仍使用 Grab Start，這時上述機制仍是其執行品質的關鍵。
   evidence:
   - certainty: 🟡
-    text: 手部拉力能量化的向後拉力效益已有測量。
-    source: Welcher et al. 1979
-  practical_implication: Grab Start 抓台效益取決於個人技術執行品質，不具跨選手通用優勢。
+    text: 手部拉力可量化的向後拉力效益已有早期測量；現代菁英已轉用 Track Start，此實驗結論主要對 Masters 與穩定性受限族群仍有實務參考價值。
+    source: Welcher et al. 1979（歷史依據）
+  practical_implication: 仍使用 Grab Start 的族群（Masters、平衡受限者）執行品質取決於個人技術；菁英與 t2c/t2w 階段請見 starts-turns.tech.41（Track Start 重心前傾 vs 後仰）。
+  cross_ref: starts-turns.tech.41（Track Start 重心策略）
 - id: starts-turns.tech.3
   stroke: starts-turns
   category: hardware
