@@ -277,6 +277,23 @@ indicators:
   - certainty: 🟢
     text: González-Ravé 2025
     source: González-Ravé 2025
+- id: back.L4.head-stillness
+  stroke: back
+  level: L4
+  aspect: 頭部加速靜止度
+  indicator: '加速後頭部仍能維持完全靜止（不左右晃、不前後點）；額頭水線位置不偏移。
+
+    L4 訊號是「加速時頭部開始輕微晃動但仍能控制」；L5 是「全速下完全不動」。
+
+    測試：在額頭放小物（泳鏡平衡 drill）+ 漸進加速，物品掉落速度與加速幅度的關係。
+
+    '
+  framework_state: 壓力下感知失守
+  note: 頭部靜止度與身體軸線穩定直接連動——頭一動，肩旋轉軸線偏移，划手對齊度下降。多數教練只看「外觀有沒有動」，但實際應該看「加速曲線中何時開始動」。
+  evidence:
+  - certainty: 🟠
+    text: 教練影像觀察—菁英仰式選手在 sub-1:00 100m 配速下頭部位移 <3cm
+    source: 通用菁英影像共識
 - id: back.L5.roll-invariant
   stroke: back
   level: L5
@@ -397,6 +414,27 @@ indicators:
   - certainty: 🟢
     text: Swim Like A Fish 2025
     source: Swim Like A Fish 2025
+- id: fly.L5.glide-elimination
+  stroke: fly
+  level: L5
+  aspect: 滑行相消除
+  indicator: '每個 stroke cycle 的「滑行/減速期」幾乎消失——推進力連續銜接、不存在「等」的瞬間。
+
+    L4 訊號是「能感知滑行期但無法消除」；L5 是「在標準訓練配速下能消除」；
+
+    L6 是「比賽配速下也消除」。
+
+    測試：水下高速攝影 + 速度曲線分析。菁英 50/100m 蝶式選手的 IVV
+
+    （週期內速度波動）顯著小於非菁英，主要因為滑行期消失。
+
+    '
+  framework_state: 感知自動化過渡
+  note: 菁英蝶式的決定性特徵之一是「stroke 之間沒有空檔」——前一個推進相還沒結束， 下一個推進相已經開始。這與「划手快」是不同的——划手快但有滑行的選手 IVV 仍大； 真菁英是「划手節律 + 滑行消除」雙重特徵。
+  evidence:
+  - certainty: 🟠
+    text: 菁英蝶式 IVV 觀察—Phelps/Milak/Dressel 50/100m 影像分析
+    source: 通用菁英影像共識
 - id: fly.L6.chain-closure
   stroke: fly
   level: L6
