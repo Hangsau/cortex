@@ -73,10 +73,6 @@ INJURIES_DST = HUGO_ROOT / "data" / "vortex" / "injuries.yaml"
 BREATHING_SRC = VORTEX_SRC / "canonical" / "health" / "breathing-training.yaml"
 BREATHING_DST = HUGO_ROOT / "data" / "vortex" / "breathing-training.yaml"
 
-# ── Playbooks（use-case 整合 markdown → my-site content/vortex/playbooks/） ──
-PLAYBOOKS_SRC_DIR = VORTEX_SRC / "playbooks"
-PLAYBOOKS_DST_DIR = HUGO_ROOT / "content" / "vortex" / "playbooks"
-
 # ── Layer 設定 ──
 LAYERS = {
     "Technica":     {"slug": "technica",     "name": "水感框架"},
@@ -603,74 +599,6 @@ def sync_adm_matrix(dry_run: bool):
     print(f"  寫入 {ADM_MATRIX_DST.relative_to(HUGO_ROOT)}")
 
 
-def sync_playbooks(dry_run: bool):
-    """讀 playbooks/*.md 加 Hugo frontmatter 寫進 content/vortex/playbooks/。
-
-    playbook 是 use-case 整合（從 canonical 萃取的 narrative reference）。
-    每份 playbook 在 my-site 渲染為一個獨立頁，layout: vortex-playbook。
-    第一行 H1 作為 title；其後第一段非空行作為 description。
-    """
-    if not PLAYBOOKS_SRC_DIR.exists():
-        print()
-        print("=== Playbooks ===")
-        print(f"  [跳過] 找不到 {PLAYBOOKS_SRC_DIR}")
-        return
-
-    md_files = sorted(PLAYBOOKS_SRC_DIR.glob("*.md"))
-    if not md_files:
-        print()
-        print("=== Playbooks ===")
-        print(f"  [跳過] {PLAYBOOKS_SRC_DIR} 內無 .md 檔")
-        return
-
-    print()
-    print(f"=== Playbooks ({len(md_files)} 份) ===")
-
-    if not dry_run:
-        PLAYBOOKS_DST_DIR.mkdir(parents=True, exist_ok=True)
-
-    for src in md_files:
-        raw = src.read_text(encoding="utf-8")
-        lines = raw.splitlines()
-
-        # 第一個 H1 = title
-        title = ""
-        body_start_idx = 0
-        for i, l in enumerate(lines):
-            if l.startswith("# "):
-                title = l[2:].strip()
-                body_start_idx = i + 1
-                break
-
-        # 第一段非空非引用作 description（取首 100 字）
-        desc = ""
-        for l in lines[body_start_idx:]:
-            ls = l.strip()
-            if not ls or ls.startswith(">") or ls.startswith("---"):
-                continue
-            desc = ls[:100]
-            break
-
-        slug = src.stem.replace("-coach-reference", "").replace("-reference", "").replace("-coach", "")
-        dst = PLAYBOOKS_DST_DIR / f"{slug}.md"
-
-        fm = f"""---
-title: "{title}"
-description: "{desc}"
-layout: "vortex-playbook"
----
-
-"""
-        # 從原文移除第一個 H1（title 已在 frontmatter），保留後續內容
-        body_lines = lines[body_start_idx:] if title else lines
-        out = fm + "\n".join(body_lines)
-
-        print(f"  {src.name} → {dst.relative_to(HUGO_ROOT)}")
-        print(f"    title: {title[:50]}")
-        if not dry_run:
-            dst.write_text(out, encoding="utf-8")
-
-
 def sync_adm_standards(dry_run: bool):
     """讀 canonical development/technical-standards.yaml（std 兩層），剝除 diagnostic 層，
     把 public 層寫進 my-site data/adm/standards.yaml（結構化技術基準）。
@@ -1021,7 +949,6 @@ def main():
     sync_water_sense_levels(dry_run)
     sync_adm_matrix(dry_run)
     sync_adm_standards(dry_run)
-    sync_playbooks(dry_run)
     sync_periodization(dry_run)
     sync_psychology(dry_run)
     sync_injuries(dry_run)
