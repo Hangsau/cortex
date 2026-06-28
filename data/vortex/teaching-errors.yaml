@@ -854,6 +854,62 @@ errors:
     source: Wikipedia Breaststroke
   correct_concept: 初學教學使用明顯滑行幫助建立動作感覺是合理的，但若將其當成所有情境的標準，反而讓進階選手 的速度受限。滑行長短的判斷標準是「不流失動能」，不是追求優美感。
   perception_impact: 過度強調滑行讓學員把「停頓後的重新加速感」誤認為良好推進的感知特徵，而非感知「連貫動能 通過阻力最小時間窗」的流暢感。L3–L4 推進感知的參照點建立錯誤。
+- id: breast.err13
+  stroke: breast
+  category: breathing
+  title: 抬頭越高吸氣越容易——把蛙式做成海豚式上下擺動
+  misconception: 部分教練教「換氣時抬頭抬高一點才吸得到氣」，立意是確保學員不嗆水。 執行端變成每次換氣都把頭抬到肩線以上、整個上半身往上翹， 把蛙式做成類似海豚式的劇烈上下擺動，前進動能在垂直方向被浪費掉。
+  physical_reason:
+    certainty: 🟠
+    text: 蛙式換氣的物理目標是「在內划（insweep）創造的上浮窗口快速吸一口氣」， 不是「主動把頭抬出水面」。內划時手向身體中央方向收，產生向後下方的反作用力， 自然把肩膀與頭部向前上方推——這個動量是「免費的」抬頭。 如果額外主動抬頭，就是用核心肌力把頭頂出水（消耗能量）， 同時破壞 streamline、入水時要對抗向下分量、整個週期效率下降。 菁英蛙式選手換氣時頭部抬升幅度通常只有眼睛剛出水面（甚至更低）， 靠下巴前送的姿勢吸氣，不靠抬高。
+  correct_concept: 換氣動作的感知目標是「跟著內划推力上來」， 而不是「我要把頭抬多高」。 頭部抬升幅度應該「剛好夠嘴出水吸氣」，不是更多。
+  perception_impact: 「抬高」口令把感知放在「頭離水面多少公分」的位置監控， 錯失了「內划推力與身體上浮對齊」的關鍵 coupling 感知。 L3–L4 蛙式 timing 感知建立會被這個錯誤口令阻擋。
+- id: breast.err14
+  stroke: breast
+  category: kick
+  title: 收腿要快、像彈簧反彈——增加阻力反而拖慢
+  misconception: 部分教練教「收腿要快速、像彈簧把腳收回來」， 立意是減少收腿期的滑行損失。 但執行端造成快速收腿期間阻力暴增（膝蓋、大腿正面正對前進方向）， 反而比緩慢、放鬆的收腿浪費更多時間與動量。
+  physical_reason:
+    certainty: 🟠
+    text: 收腿期是蛙式 stroke cycle 中阻力最大的瞬間—— 膝蓋與大腿從伸展位收向身體，正面投影面積大幅增加。 快速收腿的「快」會放大這個阻力（阻力與速度平方成正比）， 反而比慢速放鬆收腿的減速更嚴重。 菁英蛙式選手的收腿是「不主動加速、讓腿自然回收」的動作， 速度遠慢於外划/內划/踢腿期——這個慢正是減阻策略。 「快速收腿」的口令把蛙式時序最關鍵的「減速期」做反了。
+  correct_concept: 收腿動作目標是「最小阻力路徑回到踢腿準備位」， 速度應該是整個 stroke cycle 中最慢的。 感知目標是「腿放鬆讓水把腿帶回來」， 不是「主動快速收」。
+  perception_impact: 「快」的口令鎖住感知，學員會用本體張力推動快速收腿， 反而阻擋了「水把腿帶回來」的感知建立。 蛙式 L4-L5 的核心感知（被動 vs 主動的時序判讀）會被這個口令阻擋。
+- id: breast.err15
+  stroke: breast
+  category: pull
+  title: insweep 時手肘要收緊貼身體——失去高肘 leverage
+  misconception: 部分教練教「insweep 時手肘要收緊貼到身體」， 立意是讓內划動作緊湊。 但執行端造成手肘在內划期「掉下來」貼到身體側， 失去了高肘 catch 的 leverage、推進力大幅下降。
+  physical_reason:
+    certainty: 🟢
+    text: 蛙式 insweep 是整個 stroke cycle 推進力最大的相位（見 fly.tech.11 類似機制）。 insweep 推進的物理基礎是「高肘前臂橫掃水」—— 手肘必須維持在身體前方上方，讓前臂能像扇葉一樣向後推水。 手肘掉下來貼身體時，前臂變成「直直向後推手掌」， 失去高肘 leverage，推進力降到約 30-50% 之間（依肘位置而定）。 菁英蛙式選手 insweep 時手肘明顯保持在「肩膀前方、不貼身體」的高位置—— 這需要訓練建立的核心穩定支撐。
+  evidence:
+  - certainty: 🟠
+    text: 菁英蛙式選手 insweep 影像分析：手肘在肩膀前方、不貼身體側
+    source: Race Club Ch 18 / 通用菁英影像觀察
+  correct_concept: insweep 時手肘維持在肩膀前方、上方， 前臂橫掃水（像扇葉），不是「手肘收緊推手掌」。 感知目標是「前臂感覺水流」，不是「手肘有沒有到身體」。
+  perception_impact: 「手肘收緊」口令把感知放在手肘位置監控， 錯失了「前臂掃水的水壓感」這個 L4 蛙式核心感知。
+  cross_ref: free.tech.9（EVF 通用原理）、fly.tech.11（Insweep 是最大推進）
+- id: breast.err16
+  stroke: breast
+  category: undulation
+  title: 蛙式波動越大越好——wave style 誤套到 flat style 選手
+  misconception: 部分教練（受 wave-style 訓練影響）教所有人「蛙式要有大幅波動、髖部要上下擺動」， 立意是建立菁英的 wave style。 但執行端把 flat style 適合的選手（核心穩定/腰柔軟度差/體型較重）也強迫做波動， 他們的波動會變成失控擺動，反而拖慢前進。
+  physical_reason:
+    certainty: 🟠
+    text: 蛙式有兩大風格體系：① wave style（Adam Peaty、Kosuke Kitajima 等）強調髖部大幅波動， 靠核心連動傳遞推進到上半身；② flat style（Mike Barrowman、Eddie Reese 教學體系）強調身體保持平直， 靠強力推進相+短滑行刻劃距離。兩者都有奧運級代表選手，沒有絕對優劣。 選擇取決於選手特性：腰椎柔軟度、核心控制能力、體型重心、肩柔軟度。 要求所有人都做 wave style 等於要求柔軟度不足者做超出能力範圍的動作， 造成腰椎過度伸展、髖節時序錯亂、整體效率下降。
+  correct_concept: 蛙式風格選擇應該按選手特性評估： - 腰椎柔軟+核心強：wave style 適合 - 腰椎硬+核心一般：flat style 適合 - 體型重+短距：flat style 通常較好 教學早期建立平直的 flat style 作為基礎， 等選手進入專項訓練後再評估是否切換到 wave style。
+  perception_impact: 「波動越大越好」口令把感知放在「我波動有沒有夠大」的動作監控， 錯失了「推進方向是否向前」這個結構性感知。 強迫波動的選手會感受到「身體上下動但前進感變差」， 但已經被口令鎖死無法調整。
+- id: breast.err17
+  stroke: breast
+  category: breathing
+  title: 水中先把氣全吐光再吸——破壞蛙式 stroke 內的連續呼吸節律
+  misconception: 部分教練教「水中要先把氣全部吐光，等臉出水才吸」， 立意是徹底排氣防嗆水。 但執行端造成吐氣集中在很短的瞬間， 破壞蛙式 stroke 內的連續呼吸節律，反而緊張嗆水。
+  physical_reason:
+    certainty: 🟠
+    text: 蛙式的呼吸節律應該是「連續吐氣（從入水到下次出水）+ 快速短吸（內划上浮窗口）」， 類似於自由式的 trickle exhale。 「先吐光再吸」的口令把吐氣集中到出水前 0.2-0.3 秒， 這個瞬間吐氣量需要肺部突然收縮——造成腹部緊繃、橫膈緊張、 下一秒的快速吸氣機械上更困難，反而容易嗆水。 連續吐氣讓肺內 CO2 持續排出，到吸氣窗口時肺已半空、 一個快速短吸就足夠補回新鮮空氣。
+  correct_concept: 水中持續吐氣（細流式，不是憋住）， 內划上浮窗口快速短吸，不需要「先吐光」。 感知目標是「吐氣的細流連續性」，不是「我有沒有吐光」。
+  perception_impact: 「吐光」口令把感知放在「我吐了多少」的量化監控， 錯失了「吐氣節律連續性」這個核心感知。 L0-L1 呼吸感知（FrBr3 連續涓流吐氣）建立會被這個口令阻擋。
+  cross_ref: 自由式 FrBr3（連續涓流吐氣 drill）通用呼吸原則
 - id: fly.err1
   stroke: fly
   category: pull
