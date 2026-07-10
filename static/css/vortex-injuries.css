@@ -28,6 +28,7 @@
   border-radius: 3px;
   cursor: pointer;
   font-family: var(--vx-serif);
+  text-decoration: none; color: inherit;
 }
 .vx-emerg-banner:hover { background: #f3e3e0; }
 .vx-emerg-icon {
@@ -59,6 +60,7 @@
   cursor: pointer;
   display: flex; flex-direction: column; gap: 4px;
   transition: border-color .15s, box-shadow .15s;
+  text-decoration: none; color: inherit;
 }
 .vx-cat-card:hover { border-color: var(--vx-accent); box-shadow: 0 2px 10px rgba(0,0,0,.05); }
 .vx-cat-zh { font-family: var(--vx-serif); font-weight: 600; font-size: var(--fs-md); color: var(--vx-ink); }
@@ -80,6 +82,7 @@
   border-left: 4px solid var(--vx-warn);
   border-radius: 2px;
   cursor: pointer;
+  text-decoration: none; color: inherit;
 }
 .vx-emerg-card:hover { background: var(--vx-warn-bg); }
 .vx-emerg-card-zh { grid-area: zh; font-family: var(--vx-serif); font-weight: 600; font-size: var(--fs-md); color: var(--vx-ink); }

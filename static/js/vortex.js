@@ -87,6 +87,28 @@
   var root = document.querySelector('.vx-stroke-wrap');
   if (root && root.classList.contains('vx-doc')) {
     var spyLinks = Array.prototype.slice.call(root.querySelectorAll('.vx-navlink[data-spy]'));
+
+    // 可收合 rail 群組：點標題展開／收合；scrollspy 自動展開當前群組（不自動收合，尊重手動展開）
+    var docThemes = Array.prototype.slice.call(root.querySelectorAll('.vx-rail-theme'));
+    docThemes.forEach(function (themeEl) {
+      var head = themeEl.querySelector('[data-theme-toggle]');
+      if (!head) return;
+      head.addEventListener('click', function () {
+        var on = themeEl.classList.toggle('is-expanded');
+        head.setAttribute('aria-expanded', on ? 'true' : 'false');
+      });
+    });
+
+    function docExpandTheme(key) {
+      if (!key) return;
+      docThemes.forEach(function (themeEl) {
+        if (themeEl.getAttribute('data-theme') !== key) return;
+        themeEl.classList.add('is-expanded');
+        var head = themeEl.querySelector('[data-theme-toggle]');
+        if (head) head.setAttribute('aria-expanded', 'true');
+      });
+    }
+
     if (spyLinks.length && 'IntersectionObserver' in window) {
       var spyVisible = {};
 
@@ -96,7 +118,9 @@
           if (spyVisible[id] != null && spyVisible[id] < top) { top = spyVisible[id]; current = id; }
         });
         spyLinks.forEach(function (a) {
-          a.classList.toggle('is-active', a.getAttribute('data-spy') === current);
+          var on = a.getAttribute('data-spy') === current;
+          a.classList.toggle('is-active', on);
+          if (on) docExpandTheme(a.getAttribute('data-theme'));
         });
       }
 

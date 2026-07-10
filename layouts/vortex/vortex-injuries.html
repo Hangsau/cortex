@@ -3,7 +3,6 @@
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex-nav.css">
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex-injuries.css">
-<noscript><style>.vx-panel{display:block;border-top:1px solid var(--vx-rule);padding-top:24px}.vx-rail{position:static;max-height:none}</style></noscript>
 {{ end }}
 
 {{ define "main" }}
@@ -19,9 +18,9 @@
 
 <div class="vx-stroke vx-shell">
 {{ partial "vortex/sidebar.html" (dict "ctx" . "current" "injuries") }}
-  <div class="vx-stroke-wrap">
+  <div class="vx-stroke-wrap vx-doc">
 
-    {{/* ════════ 左側常駐目次（按身體系統分類） ════════ */}}
+    {{/* ════════ 左側常駐目次（按身體系統分類，錨點 + scrollspy） ════════ */}}
     <aside class="vx-rail vx-rail--collapsible">
       <div class="vx-rail-head">
         <span class="vx-stroke-zh">運動傷害</span>
@@ -29,8 +28,8 @@
 
       <div class="vx-rail-scroll">
         <ul class="vx-rail-list">
-          <li><button class="vx-navlink vx-navlink--top" type="button" data-target="overview"><span class="n">◆</span>傷害總覽</button></li>
-          <li><button class="vx-navlink vx-navlink--top vx-navlink--alert" type="button" data-target="emergency"><span class="n">!</span>緊急辨識</button></li>
+          <li><a class="vx-navlink vx-navlink--top" href="#overview" data-spy="overview"><span class="n">◆</span>傷害總覽</a></li>
+          <li><a class="vx-navlink vx-navlink--top vx-navlink--alert" href="#emergency" data-spy="emergency"><span class="n">!</span>緊急辨識</a></li>
         </ul>
       </div>
 
@@ -47,7 +46,7 @@
         <div class="vx-rail-scroll">
           <ul class="vx-rail-list">
             {{ range $catInj }}
-            <li><button class="vx-navlink" type="button" data-target="{{ .id }}" data-theme="c{{ $ci }}">{{ .zh }}</button></li>
+            <li><a class="vx-navlink" href="#{{ .id }}" data-spy="{{ .id }}" data-theme="c{{ $ci }}">{{ .zh }}</a></li>
             {{ end }}
           </ul>
         </div>
@@ -63,14 +62,14 @@
         <span class="vx-sec-no">運動傷害</span>
         <h2>運動傷害 · 一條線從機制到處置</h2>
         <p class="vx-premise">傷害是<strong>獨立於水感的另一條軸</strong>。水感講的是「怎麼游得更好」，傷害講的是「身體的硬體會在哪裡出問題、怎麼避開、出事了怎麼辦」——兩者不互相換算。這裡每一條都走完整一條線：<strong>機制 → 流行病學 → 危險因子 → 預防 → 處置 → 各族群差異</strong>。</p>
-        <p class="vx-read-howto">怎麼用：這頁是「對號入座」。先看下面「你怎麼了」挑最接近的處境，或從左欄按身體部位直接找。<strong>如果是當下緊急狀況（溺水、暈厥、胸悶、撞擊），先點上面紅色的「緊急辨識」。</strong></p>
+        <p class="vx-read-howto">怎麼用：整頁是一份從上讀到下的文件，{{ len $injuries }} 條傷害按身體系統依序排列。先看下面「你怎麼了」挑最接近的處境直接跳過去，或從左欄按身體部位找。<strong>如果是當下緊急狀況（溺水、暈厥、胸悶、撞擊），先點上面紅色的「緊急辨識」。</strong></p>
 
         {{/* ── 緊急置頂橫幅 ── */}}
-        <button class="vx-emerg-banner" type="button" data-target="emergency">
+        <a class="vx-emerg-banner" href="#emergency">
           <span class="vx-emerg-icon" aria-hidden="true">!</span>
           <span class="vx-emerg-txt"><b>緊急狀況辨識</b>溺水、淺水暈厥、運動猝死、游泳性肺水腫、低溫、頸椎撞擊——哪些是必須立刻離水／求救／送醫的紅旗</span>
           <span class="vx-emerg-go">立刻看 →</span>
-        </button>
+        </a>
 
         {{/* ── 處境門面：你怎麼了 ── */}}
         {{ $situations := slice
@@ -82,26 +81,26 @@
         <div class="vx-situations">
           <p class="vx-sit-lead">不用先知道傷害的學名。挑一句最接近你（或你帶的人）現在狀況的，它會帶你到對的地方：</p>
           {{ range $situations }}
-          <button class="vx-sit-card" type="button" data-target="{{ .target }}">
+          <a class="vx-sit-card" href="#{{ .target }}">
             <span class="vx-sit-l">{{ .tag }}</span>
             <span class="vx-sit-txt">{{ .txt }}</span>
             <span class="vx-sit-go">從這裡開始 →</span>
-          </button>
+          </a>
           {{ end }}
         </div>
 
         {{/* ── 完整分類地圖 ── */}}
-        <p class="vx-panel-lead"><span class="vx-map-label">或瀏覽完整分類</span>{{ len $injuries }} 條傷害按身體系統分成 {{ len $cats }} 類。點任一類別卡進入該類第一條，左欄可展開看全部。</p>
+        <p class="vx-panel-lead"><span class="vx-map-label">或瀏覽完整分類</span>{{ len $injuries }} 條傷害按身體系統分成 {{ len $cats }} 類。點任一類別卡跳到該類第一條，左欄可展開看全部。</p>
 
         <div class="vx-cat-grid">
           {{ range $cats }}
           {{ $catInj := where $injuries "category" .id }}
           {{ if gt (len $catInj) 0 }}
-          <button class="vx-cat-card" type="button" data-target="{{ (index $catInj 0).id }}">
+          <a class="vx-cat-card" href="#{{ (index $catInj 0).id }}">
             <span class="vx-cat-zh">{{ .zh }}</span>
             <span class="vx-cat-count">{{ len $catInj }} 條</span>
             <span class="vx-cat-list">{{ range $i, $e := $catInj }}{{ if $i }}・{{ end }}{{ $e.zh }}{{ end }}</span>
-          </button>
+          </a>
           {{ end }}
           {{ end }}
         </div>
@@ -118,7 +117,7 @@
 
         <div class="vx-emerg-list">
           {{ range $emerg }}
-          <button class="vx-emerg-card" type="button" data-target="{{ .id }}">
+          <a class="vx-emerg-card" href="#{{ .id }}">
             <span class="vx-emerg-card-zh">{{ .zh }}</span>
             {{ with .management }}{{ with .red_flags }}
             <span class="vx-emerg-card-flags">
@@ -126,10 +125,10 @@
             </span>
             {{ end }}{{ end }}
             <span class="vx-emerg-card-go">完整處置 →</span>
-          </button>
+          </a>
           {{ end }}
           {{ range $diving }}
-          <button class="vx-emerg-card" type="button" data-target="{{ .id }}">
+          <a class="vx-emerg-card" href="#{{ .id }}">
             <span class="vx-emerg-card-zh">{{ .zh }}</span>
             {{ with .management }}{{ with .red_flags }}
             <span class="vx-emerg-card-flags">
@@ -137,10 +136,10 @@
             </span>
             {{ end }}{{ end }}
             <span class="vx-emerg-card-go">完整處置 →</span>
-          </button>
+          </a>
           {{ end }}
         </div>
-        <nav class="vx-flow"><button type="button" data-target="overview"><span class="lbl">回到</span>← 傷害總覽</button></nav>
+        <nav class="vx-flow"><a href="#overview"><span class="lbl">回到</span>← 傷害總覽</a></nav>
       </section>
 
       {{/* ── 各傷害面板 ── */}}
@@ -274,8 +273,8 @@
         {{ end }}
 
         <nav class="vx-flow">
-          {{ if gt $i 0 }}<button type="button" data-target="{{ (index $catInj (sub $i 1)).id }}"><span class="lbl">上一條</span>← {{ (index $catInj (sub $i 1)).zh }}</button>{{ else }}<button type="button" data-target="overview"><span class="lbl">回到</span>← 傷害總覽</button>{{ end }}
-          {{ if lt (add $i 1) $nc }}<button class="nx" type="button" data-target="{{ (index $catInj (add $i 1)).id }}"><span class="lbl">下一條</span>{{ (index $catInj (add $i 1)).zh }} →</button>{{ end }}
+          {{ if gt $i 0 }}<a href="#{{ (index $catInj (sub $i 1)).id }}"><span class="lbl">上一條</span>← {{ (index $catInj (sub $i 1)).zh }}</a>{{ else }}<a href="#overview"><span class="lbl">回到</span>← 傷害總覽</a>{{ end }}
+          {{ if lt (add $i 1) $nc }}<a class="nx" href="#{{ (index $catInj (add $i 1)).id }}"><span class="lbl">下一條</span>{{ (index $catInj (add $i 1)).zh }} →</a>{{ end }}
         </nav>
       </section>
       {{ end }}

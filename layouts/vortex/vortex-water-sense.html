@@ -4,7 +4,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+TC:wght@400;500;600;700&family=Quattrocento+Sans:wght@400;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex-nav.css">
-<noscript><style>.vx-panel{display:block;border-top:1px solid var(--vx-rule);padding-top:24px}.vx-rail{position:static;max-height:none}</style></noscript>
 {{ end }}
 
 {{ define "main" }}
@@ -12,7 +11,7 @@
 
 <div class="vx-stroke vx-pz-stroke vx-shell">
 {{ partial "vortex/sidebar.html" (dict "ctx" . "current" "start") }}
-  <div class="vx-stroke-wrap">
+  <div class="vx-stroke-wrap vx-doc">
 
     {{/* ════════ 左側常駐目次（頁內） ════════ */}}
     <aside class="vx-rail">
@@ -23,19 +22,19 @@
       <div class="vx-rail-group">導覽</div>
       <div class="vx-rail-scroll">
         <ul class="vx-rail-list">
-          <li><button class="vx-navlink" type="button" data-target="overview"><span class="n">0</span>概覽</button></li>
+          <li><a class="vx-navlink" href="#overview" data-spy="overview"><span class="n">0</span>概覽</a></li>
         </ul>
       </div>
 
       <div class="vx-rail-group">六個部分</div>
       <div class="vx-rail-scroll">
         <ul class="vx-rail-list">
-          <li><button class="vx-navlink" type="button" data-target="what"><span class="n">1</span>水感是什麼</button></li>
-          <li><button class="vx-navlink" type="button" data-target="deprivation"><span class="n">2</span>感知剝奪訓練</button></li>
-          <li><button class="vx-navlink" type="button" data-target="methods"><span class="n">3</span>建立水感的系統方法</button></li>
-          <li><button class="vx-navlink" type="button" data-target="measure"><span class="n">4</span>觀察與測量</button></li>
-          <li><button class="vx-navlink" type="button" data-target="rebuild"><span class="n">5</span>錯誤水感的重建</button></li>
-          <li><button class="vx-navlink" type="button" data-target="metrics"><span class="n">6</span>量化指標定義</button></li>
+          <li><a class="vx-navlink" href="#what" data-spy="what"><span class="n">1</span>水感是什麼</a></li>
+          <li><a class="vx-navlink" href="#deprivation" data-spy="deprivation"><span class="n">2</span>感知剝奪訓練</a></li>
+          <li><a class="vx-navlink" href="#methods" data-spy="methods"><span class="n">3</span>建立水感的系統方法</a></li>
+          <li><a class="vx-navlink" href="#measure" data-spy="measure"><span class="n">4</span>觀察與測量</a></li>
+          <li><a class="vx-navlink" href="#rebuild" data-spy="rebuild"><span class="n">5</span>錯誤水感的重建</a></li>
+          <li><a class="vx-navlink" href="#metrics" data-spy="metrics"><span class="n">6</span>量化指標定義</a></li>
         </ul>
       </div>
     </aside>
@@ -47,39 +46,39 @@
       <section class="vx-panel vx-overview" id="overview">
         <span class="vx-sec-no">水感理論</span>
         <h2>水感是什麼 — 整個渦流計劃的核心命題</h2>
-        <p class="vx-premise"><strong>為什麼你照著教練說的移手，卻總是做不對？因為水裡的感覺，天生就是騙你的。</strong>水感不是單一的感覺，而是多個感知系統同時運作、整合之後的結果——而且這個整合在水中<strong>天生就是失真的</strong>，需要刻意訓練才能校準。整個渦流計劃只建立在一句話上：<strong>所有游泳技術都建立在水感知上</strong>。技術形式是感知系統的「輸出」，不是輸入——直接教動作形式會跳過感知建立，疲勞一來，動作就退回感知真正穩定的地方。這份理論基礎從零講起：水感到底是什麼、為什麼不能直接教動作形式、怎麼用「感知剝奪訓練」把它建立起來、如何觀察測量、錯誤水感又該怎麼重建。選一個部分開始，就地展開讀——不換頁。</p>
+        <p class="vx-premise"><strong>為什麼你照著教練說的移手，卻總是做不對？因為水裡的感覺，天生就是騙你的。</strong>水感不是單一的感覺，而是多個感知系統同時運作、整合之後的結果——而且這個整合在水中<strong>天生就是失真的</strong>，需要刻意訓練才能校準。整個渦流計劃只建立在一句話上：<strong>所有游泳技術都建立在水感知上</strong>。技術形式是感知系統的「輸出」，不是輸入——直接教動作形式會跳過感知建立，疲勞一來，動作就退回感知真正穩定的地方。這份理論基礎從零講起：水感到底是什麼、為什麼不能直接教動作形式、怎麼用「感知剝奪訓練」把它建立起來、如何觀察測量、錯誤水感又該怎麼重建。整頁是一份從上讀到下的文件，六個部分依序排列；點任一部分直接跳到那一段。</p>
         <p class="vx-premise vx-lvl-prereq">讀懂「水感是什麼」之後，下一層是 <a href="{{ $base }}vortex/levels/">水感發展 L0–L6</a>——感知不是教動作教出來的，是一級一級長出來的發展序列。</p>
         <p class="vx-panel-lead">選一個部分開始：</p>
         <div class="vx-path-list">
-          <button class="vx-path-item" type="button" data-target="what">
+          <a class="vx-path-item" href="#what">
             <span class="n">01</span>
             <span><span class="t">水感是什麼</span><span class="o">神經科學 · 水中感知失真 · 四個理解層次 · 四個能力階段 · 為什麼不直接教動作</span></span>
-          </button>
-          <button class="vx-path-item" type="button" data-target="deprivation">
+          </a>
+          <a class="vx-path-item" href="#deprivation">
             <span class="n">02</span>
             <span><span class="t">感知剝奪訓練</span><span class="o">拳頭游 · 穿襪踢水 · 其他剝奪方式 · 「復活感」從何而來</span></span>
-          </button>
-          <button class="vx-path-item" type="button" data-target="methods">
+          </a>
+          <a class="vx-path-item" href="#methods">
             <span class="n">03</span>
             <span><span class="t">建立水感的系統方法</span><span class="o">五類機制 · 搖櫓 Sculling 的核心地位</span></span>
-          </button>
-          <button class="vx-path-item" type="button" data-target="measure">
+          </a>
+          <a class="vx-path-item" href="#measure">
             <span class="n">04</span>
             <span><span class="t">觀察與測量</span><span class="o">SWOLF · SPL · 拳頭游速度差 · 初學者行為觀察指標</span></span>
-          </button>
-          <button class="vx-path-item" type="button" data-target="rebuild">
+          </a>
+          <a class="vx-path-item" href="#rebuild">
             <span class="n">05</span>
             <span><span class="t">錯誤水感的重建</span><span class="o">五個有研究支持的策略 · 大誤差 · 交替練習 · 復活窗口</span></span>
-          </button>
-          <button class="vx-path-item" type="button" data-target="metrics">
+          </a>
+          <a class="vx-path-item" href="#metrics">
             <span class="n">06</span>
             <span><span class="t">量化指標定義</span><span class="o">SWOLF · SPL · Stroke Index · 參考來源</span></span>
-          </button>
+          </a>
         </div>
         <p class="vx-legend">確定性：🔵 推導／作者綜合 · 🟢 近期文獻 · 🟡 舊文獻 · 🟠 教練觀測 · 🔴 待驗證假設。本頁為公開水感理論，描述感知科學、訓練機制與觀察方法，<strong>不含</strong>感知診斷判讀語（「泳者說 X = 感知到位」這類訊號屬教練診斷工具，不在公開頁）。作者：Hangsau 2026，待田野驗證。</p>
         <nav class="vx-flow">
           <span></span>
-          <button class="nx" type="button" data-target="what"><span class="lbl">第一部分</span>水感是什麼 →</button>
+          <a class="nx" href="#what"><span class="lbl">第一部分</span>水感是什麼 →</a>
         </nav>
       </section>
 
@@ -192,8 +191,8 @@
         </div>
 
         <nav class="vx-flow">
-          <button type="button" data-target="overview"><span class="lbl">回到</span>← 概覽</button>
-          <button class="nx" type="button" data-target="deprivation"><span class="lbl">第二部分</span>感知剝奪訓練 →</button>
+          <a href="#overview"><span class="lbl">回到</span>← 概覽</a>
+          <a class="nx" href="#deprivation"><span class="lbl">第二部分</span>感知剝奪訓練 →</a>
         </nav>
       </section>
 
@@ -257,8 +256,8 @@
         </div>
 
         <nav class="vx-flow">
-          <button type="button" data-target="what"><span class="lbl">上一部分</span>← 水感是什麼</button>
-          <button class="nx" type="button" data-target="methods"><span class="lbl">第三部分</span>建立水感的系統方法 →</button>
+          <a href="#what"><span class="lbl">上一部分</span>← 水感是什麼</a>
+          <a class="nx" href="#methods"><span class="lbl">第三部分</span>建立水感的系統方法 →</a>
         </nav>
       </section>
 
@@ -310,8 +309,8 @@
         </div>
 
         <nav class="vx-flow">
-          <button type="button" data-target="deprivation"><span class="lbl">上一部分</span>← 感知剝奪訓練</button>
-          <button class="nx" type="button" data-target="measure"><span class="lbl">第四部分</span>觀察與測量 →</button>
+          <a href="#deprivation"><span class="lbl">上一部分</span>← 感知剝奪訓練</a>
+          <a class="nx" href="#measure"><span class="lbl">第四部分</span>觀察與測量 →</a>
         </nav>
       </section>
 
@@ -399,8 +398,8 @@
         </div>
 
         <nav class="vx-flow">
-          <button type="button" data-target="methods"><span class="lbl">上一部分</span>← 建立水感的系統方法</button>
-          <button class="nx" type="button" data-target="rebuild"><span class="lbl">第五部分</span>錯誤水感的重建 →</button>
+          <a href="#methods"><span class="lbl">上一部分</span>← 建立水感的系統方法</a>
+          <a class="nx" href="#rebuild"><span class="lbl">第五部分</span>錯誤水感的重建 →</a>
         </nav>
       </section>
 
@@ -497,8 +496,8 @@
         </div>
 
         <nav class="vx-flow">
-          <button type="button" data-target="measure"><span class="lbl">上一部分</span>← 觀察與測量</button>
-          <button class="nx" type="button" data-target="metrics"><span class="lbl">第六部分</span>量化指標定義 →</button>
+          <a href="#measure"><span class="lbl">上一部分</span>← 觀察與測量</a>
+          <a class="nx" href="#metrics"><span class="lbl">第六部分</span>量化指標定義 →</a>
         </nav>
       </section>
 
@@ -568,7 +567,7 @@
         </div>
 
         <nav class="vx-flow">
-          <button type="button" data-target="rebuild"><span class="lbl">上一部分</span>← 錯誤水感的重建</button>
+          <a href="#rebuild"><span class="lbl">上一部分</span>← 錯誤水感的重建</a>
           <span></span>
         </nav>
 

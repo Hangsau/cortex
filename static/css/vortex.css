@@ -512,6 +512,7 @@ mark, .mark {
   padding: 15px 18px; margin-bottom: 10px;
   border: 1px solid var(--vx-rule2); border-left: 4px solid var(--vx-accent);
   background: var(--vx-paper); font-family: var(--vx-serif); cursor: pointer;
+  text-decoration: none; color: inherit;
 }
 .vx-sit-card:hover { background: #fff; border-left-color: var(--vx-gold); }
 .vx-sit-l {
@@ -1101,6 +1102,7 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
   padding: 8px 0 8px 12px; margin: 18px 0 0;
   font-family: var(--vx-serif); font-size: 14px; line-height: 1.6;
   color: var(--vx-sub);
+  text-decoration: none;
 }
 .vx-overview-teaser:hover { color: var(--vx-ink); }
 .vx-overview-teaser .vx-cert { flex: none; }

@@ -2,7 +2,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+TC:wght@400;500;600;700&family=Quattrocento+Sans:wght@400;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex-nav.css">
-<noscript><style>.vx-panel{display:block;border-top:1px solid var(--vx-rule);padding-top:24px}.vx-rail{position:static;max-height:none}</style></noscript>
 {{ end }}
 
 {{ define "main" }}
@@ -16,7 +15,7 @@
 
 <div class="vx-stroke vx-shell">
 {{ partial "vortex/sidebar.html" (dict "ctx" . "current" "adm") }}
-  <div class="vx-stroke-wrap">
+  <div class="vx-stroke-wrap vx-doc">
 
     {{/* ════════ 左側常駐目次（頁內：ADM 子頁） ════════ */}}
     <aside class="vx-rail">
@@ -28,7 +27,7 @@
       <div class="vx-rail-group">導覽</div>
       <div class="vx-rail-scroll">
         <ul class="vx-rail-list">
-          <li><button class="vx-navlink" type="button" data-target="overview"><span class="n">0</span>概覽</button></li>
+          <li><a class="vx-navlink" href="#overview" data-spy="overview"><span class="n">0</span>概覽</a></li>
         </ul>
       </div>
 
@@ -36,7 +35,7 @@
       <div class="vx-rail-scroll">
         <ul class="vx-rail-list">
           {{ range $pillars }}
-          <li><button class="vx-navlink" type="button" data-target="pillar-{{ .id }}"><span class="n">{{ .icon }}</span>{{ .name }}</button></li>
+          <li><a class="vx-navlink" href="#pillar-{{ .id }}" data-spy="pillar-{{ .id }}"><span class="n">{{ .icon }}</span>{{ .name }}</a></li>
           {{ end }}
         </ul>
       </div>
@@ -49,14 +48,14 @@
       <section class="vx-panel vx-overview" id="overview">
         <span class="vx-sec-no">ADM · 發展矩陣</span>
         <h2>發展矩陣</h2>
-        <p class="vx-premise">四大支柱描述一名選手要長成的四個面向；四個發展階段（L2T → T2W）描述每個面向在不同年齡該長到哪。選一個支柱，就地展開讀它的完整發展軌跡——不換頁。</p>
+        <p class="vx-premise">四大支柱描述一名選手要長成的四個面向；四個發展階段（L2T → T2W）描述每個面向在不同年齡該長到哪。整頁是一份從上讀到下的文件，四個支柱依序排列；點任一支柱直接跳到那一段。</p>
         <p class="vx-panel-lead">選一個支柱開始：</p>
         <div class="vx-path-list">
           {{ range $pillars }}
-          <button class="vx-path-item" type="button" data-target="pillar-{{ .id }}">
+          <a class="vx-path-item" href="#pillar-{{ .id }}">
             <span class="n">{{ .icon }}</span>
             <span><span class="t">{{ .name }}</span><span class="o">L2T → T2W 共 {{ len .stages }} 階段</span></span>
-          </button>
+          </a>
           {{ end }}
         </div>
         <p class="vx-legend">理想技術基準應在 T2T（訓練為訓練）階段達成，並在後續階段持續維持。</p>
@@ -92,8 +91,8 @@
         </div>
 
         <nav class="vx-flow">
-          {{ if gt $i 0 }}<button type="button" data-target="pillar-{{ (index $pillars (sub $i 1)).id }}"><span class="lbl">上一支柱</span>← {{ (index $pillars (sub $i 1)).name }}</button>{{ else }}<button type="button" data-target="overview"><span class="lbl">回到</span>← 概覽</button>{{ end }}
-          {{ if lt (add $i 1) $np }}<button class="nx" type="button" data-target="pillar-{{ (index $pillars (add $i 1)).id }}"><span class="lbl">下一支柱</span>{{ (index $pillars (add $i 1)).name }} →</button>{{ end }}
+          {{ if gt $i 0 }}<a href="#pillar-{{ (index $pillars (sub $i 1)).id }}"><span class="lbl">上一支柱</span>← {{ (index $pillars (sub $i 1)).name }}</a>{{ else }}<a href="#overview"><span class="lbl">回到</span>← 概覽</a>{{ end }}
+          {{ if lt (add $i 1) $np }}<a class="nx" href="#pillar-{{ (index $pillars (add $i 1)).id }}"><span class="lbl">下一支柱</span>{{ (index $pillars (add $i 1)).name }} →</a>{{ end }}
         </nav>
       </section>
       {{ end }}

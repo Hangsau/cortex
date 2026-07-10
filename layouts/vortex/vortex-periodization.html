@@ -4,7 +4,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+TC:wght@400;500;600;700&family=Quattrocento+Sans:wght@400;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex-nav.css">
-<noscript><style>.vx-panel{display:block;border-top:1px solid var(--vx-rule);padding-top:24px}.vx-rail{position:static;max-height:none}</style></noscript>
 {{ end }}
 
 {{ define "main" }}
@@ -16,7 +15,7 @@
 
 <div class="vx-stroke vx-pz-stroke vx-shell">
 {{ partial "vortex/sidebar.html" (dict "ctx" . "current" "periodization") }}
-  <div class="vx-stroke-wrap">
+  <div class="vx-stroke-wrap vx-doc">
 
     {{/* ════════ 左側常駐目次（頁內） ════════ */}}
     <aside class="vx-rail">
@@ -27,18 +26,18 @@
       <div class="vx-rail-group">導覽</div>
       <div class="vx-rail-scroll">
         <ul class="vx-rail-list">
-          <li><button class="vx-navlink" type="button" data-target="overview"><span class="n">0</span>概覽</button></li>
+          <li><a class="vx-navlink" href="#overview" data-spy="overview"><span class="n">0</span>概覽</a></li>
         </ul>
       </div>
 
       <div class="vx-rail-group">主題</div>
       <div class="vx-rail-scroll">
         <ul class="vx-rail-list">
-          <li><button class="vx-navlink" type="button" data-target="schools"><span class="n">1</span>週期化的幾種流派</button></li>
-          <li><button class="vx-navlink" type="button" data-target="structure"><span class="n">2</span>年度結構與週期</button></li>
-          <li><button class="vx-navlink" type="button" data-target="taper"><span class="n">3</span>賽前減量與達峰</button></li>
-          <li><button class="vx-navlink" type="button" data-target="zones"><span class="n">4</span>能量系統與強度分區</button></li>
-          <li><button class="vx-navlink" type="button" data-target="dryland"><span class="n">5</span>陸上力量訓練</button></li>
+          <li><a class="vx-navlink" href="#schools" data-spy="schools"><span class="n">1</span>週期化的幾種流派</a></li>
+          <li><a class="vx-navlink" href="#structure" data-spy="structure"><span class="n">2</span>年度結構與週期</a></li>
+          <li><a class="vx-navlink" href="#taper" data-spy="taper"><span class="n">3</span>賽前減量與達峰</a></li>
+          <li><a class="vx-navlink" href="#zones" data-spy="zones"><span class="n">4</span>能量系統與強度分區</a></li>
+          <li><a class="vx-navlink" href="#dryland" data-spy="dryland"><span class="n">5</span>陸上力量訓練</a></li>
         </ul>
       </div>
 
@@ -55,39 +54,39 @@
       <section class="vx-panel vx-overview" id="overview">
         <span class="vx-sec-no">訓練週期化</span>
         <h2>週期化 — 不是一套定論，是幾派的辯論</h2>
-        <p class="vx-premise">週期化常被當成「Bompa 那一套標準答案」來教，但它其實是幾套互相辯論的框架：傳統線性（Bompa）、板塊集中（Issurin）、極化分布（Seiler/TID）、能量系統個體化（Olbrecht）、反向週期化（Sweetenham）。它們問的問題不同、適用對象不同——把任何一派當鐵律都是誤讀。本頁先給你一張「幾派在吵什麼」的地圖，再進到年度結構、減量、強度分區的具體內容；每塊都標出哪裡是哪一派的主張、哪裡是作者綜合。它是 <a href="{{ $base }}vortex/adm/matrix/">ADM 發展矩陣</a> 裡「48 週年度計畫 · 一年兩巔峰」背後的可操作理論。選一個主題開始，就地展開讀——不換頁。</p>
+        <p class="vx-premise">週期化常被當成「Bompa 那一套標準答案」來教，但它其實是幾套互相辯論的框架：傳統線性（Bompa）、板塊集中（Issurin）、極化分布（Seiler/TID）、能量系統個體化（Olbrecht）、反向週期化（Sweetenham）。它們問的問題不同、適用對象不同——把任何一派當鐵律都是誤讀。本頁先給你一張「幾派在吵什麼」的地圖，再進到年度結構、減量、強度分區的具體內容；每塊都標出哪裡是哪一派的主張、哪裡是作者綜合。它是 <a href="{{ $base }}vortex/adm/matrix/">ADM 發展矩陣</a> 裡「48 週年度計畫 · 一年兩巔峰」背後的可操作理論。整頁是一份從上讀到下的文件，五個主題依序排列；點任一主題直接跳到那一段。</p>
         <p class="vx-panel-lead">選一個主題開始：</p>
         <div class="vx-path-list">
-          <button class="vx-path-item" type="button" data-target="schools">
+          <a class="vx-path-item" href="#schools">
             <span class="n">1</span>
             <span><span class="t">週期化的幾種流派</span><span class="o">五派地圖 · 各派核心問題 · 你要回答哪個問題 · 作者立場 · 感知缺口</span></span>
-          </button>
-          <button class="vx-path-item" type="button" data-target="structure">
+          </a>
+          <a class="vx-path-item" href="#structure">
             <span class="n">2</span>
             <span><span class="t">年度結構與週期</span><span class="o">三大階段 · 年度計畫型態 · 中觀／微觀 · 板塊週期化 · 停練衰退 · 游泳實證</span></span>
-          </button>
-          <button class="vx-path-item" type="button" data-target="taper">
+          </a>
+          <a class="vx-path-item" href="#taper">
             <span class="n">3</span>
             <span><span class="t">賽前減量與達峰</span><span class="o">減量原理 · 四個操作旋鈕 · 曲線型態 · 達峰窗 · 游泳應用</span></span>
-          </button>
-          <button class="vx-path-item" type="button" data-target="zones">
+          </a>
+          <a class="vx-path-item" href="#zones">
             <span class="n">4</span>
             <span><span class="t">能量系統與強度分區</span><span class="o">三大能量系統運作 · Bompa 六分區 · 極化派 · Olbrecht · 游泳分區 · 各距離供能 · TID</span></span>
-          </button>
-          <button class="vx-path-item" type="button" data-target="dryland">
+          </a>
+          <a class="vx-path-item" href="#dryland">
             <span class="n">5</span>
             <span><span class="t">陸上力量訓練</span><span class="o">轉移成不成立 · 訓練模式 · 並行排程殘留疲勞 · 游泳肩預防 · 青少年負重安全 · 誠實反例</span></span>
-          </button>
+          </a>
         </div>
-        <button class="vx-overview-teaser" type="button" data-target="schools" data-anchor="perception-gap">
+        <a class="vx-overview-teaser" href="#perception-gap">
           <span class="vx-cert">🔵</span>
           <span>這頁主體是 Bompa 那一套已出版的生理週期化；但本站認為「感知穩定度本身也該被週期化」。其中「技能可被週期化、疲勞會傷技能學習」這一層其實有文獻撐（Branscheidt 2019、PoST 框架）；真正還沒驗證的，只剩把它收窄成 Vortex「水感知」之後的專屬量測。讀「流派」那節的末段會碰到完整分層。</span>
           <span class="arr">看這個缺口 →</span>
-        </button>
+        </a>
         <p class="vx-legend">確定性：🔵 推導／作者綜合 · 🟢 近期文獻 · 🟡 舊文獻（週期化基礎理論） · 🟠 教練觀測 · 🔴 待查／未驗證假設。本頁為公開週期化理論，描述年度計畫結構與處方原則，不含感知診斷內容。所有數字溯源至 Bompa 原文章節／表格或外部文獻（PMID／DOI）並標確定性；多派立場與作者綜合明確分層標示。</p>
         <nav class="vx-flow">
           <span></span>
-          <button class="nx" type="button" data-target="schools"><span class="lbl">下一個主題</span>週期化的幾種流派 →</button>
+          <a class="nx" href="#schools"><span class="lbl">下一個主題</span>週期化的幾種流派 →</a>
         </nav>
       </section>
 
@@ -177,8 +176,8 @@
         <p class="vx-cite"><span class="src">來源</span>：作者綜合 — Bompa &amp; Buzzichelli 6th ed.；Issurin 2008/2010/2016；Seiler 2010；Olbrecht 2000；Sweetenham &amp; Atkinson 2003；Hellard 2019</p>
 
         <nav class="vx-flow">
-          <button type="button" data-target="overview"><span class="lbl">回到</span>← 概覽</button>
-          <button class="nx" type="button" data-target="structure"><span class="lbl">下一個主題</span>年度結構與週期 →</button>
+          <a href="#overview"><span class="lbl">回到</span>← 概覽</a>
+          <a class="nx" href="#structure"><span class="lbl">下一個主題</span>年度結構與週期 →</a>
         </nav>
       </section>
 
@@ -455,8 +454,8 @@
         </div>
 
         <nav class="vx-flow">
-          <button type="button" data-target="schools"><span class="lbl">上一個主題</span>← 週期化的幾種流派</button>
-          <button class="nx" type="button" data-target="taper"><span class="lbl">下一個主題</span>賽前減量與達峰 →</button>
+          <a href="#schools"><span class="lbl">上一個主題</span>← 週期化的幾種流派</a>
+          <a class="nx" href="#taper"><span class="lbl">下一個主題</span>賽前減量與達峰 →</a>
         </nav>
       </section>
 
@@ -561,8 +560,8 @@
         <p class="vx-cite"><span class="src">來源</span>：Bompa《Periodization》6th ed. — Ch9；Mujika &amp; Padilla 2003 (PMID 12840640)；Mujika et al. 1996 (PMID 8775162)；Mujika/Padilla/Pyne 2002 (PMID 12439774)；Bosquet et al. 2007 (PMID 17762369)</p>
 
         <nav class="vx-flow">
-          <button type="button" data-target="structure"><span class="lbl">上一個主題</span>← 年度結構與週期</button>
-          <button class="nx" type="button" data-target="zones"><span class="lbl">下一個主題</span>能量系統與強度分區 →</button>
+          <a href="#structure"><span class="lbl">上一個主題</span>← 年度結構與週期</a>
+          <a class="nx" href="#zones"><span class="lbl">下一個主題</span>能量系統與強度分區 →</a>
         </nav>
       </section>
 
@@ -913,8 +912,8 @@
         <p class="vx-cite"><span class="src">來源</span>：Bompa《Periodization》6th ed. — Ch7 Table 7.1；Ch11 Table 11.1 / 11.2。游泳專項：Maglischo 2012 (J Swimming Research 19:2)；Toussaint &amp; Hollander 1994；Rodríguez &amp; Mader 2011；Papadimitriou et al. 2025；Barbosa et al. 2019</p>
 
         <nav class="vx-flow">
-          <button type="button" data-target="taper"><span class="lbl">上一個主題</span>← 賽前減量與達峰</button>
-          <button class="nx" type="button" data-target="dryland"><span class="lbl">下一個主題</span>陸上力量訓練 →</button>
+          <a href="#taper"><span class="lbl">上一個主題</span>← 賽前減量與達峰</a>
+          <a class="nx" href="#dryland"><span class="lbl">下一個主題</span>陸上力量訓練 →</a>
         </nav>
       </section>
 
@@ -1086,7 +1085,7 @@
         <p class="vx-cite"><span class="src">來源</span>：Amaro et al. (Science &amp; Sports, S0765159718302363)；Frontiers Physiology 2024/2025 統合分析；JFMK 2023 (PMID 37489300)；McKenzie et al. 2023 (DOI 10.1111/sms.14454)；Kabat D2 RCT (PMC10679734)；AAP Pediatrics 2020;145(6):e20201011；NSCA／Swimming Australia 處方；增強式 SR (PMC9424421)</p>
 
         <nav class="vx-flow">
-          <button type="button" data-target="zones"><span class="lbl">上一個主題</span>← 能量系統與強度分區</button>
+          <a href="#zones"><span class="lbl">上一個主題</span>← 能量系統與強度分區</a>
           <span></span>
         </nav>
 
