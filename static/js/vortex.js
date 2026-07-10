@@ -24,9 +24,102 @@
     } catch (e) { /* localStorage 不可用就靜默 */ }
   }
 
-  // ── 泳式頁 master-detail ──
+  // ── 泳式頁共用：卡片分類篩選（誤區 / 深入機制），面板模式與文件流模式都用 ──
+  function setupCardFilters(wrap) {
+    wrap.querySelectorAll('.vx-filters').forEach(function (bar) {
+      var scope = bar.closest('.vx-panel');
+      if (!scope) return;
+      var cards = Array.prototype.slice.call(scope.querySelectorAll('.vx-card'));
+      var chips = Array.prototype.slice.call(bar.querySelectorAll('.vx-chip'));
+
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          var cat = chip.getAttribute('data-cat');
+          chips.forEach(function (c) { c.classList.toggle('is-active', c === chip); });
+          cards.forEach(function (card) {
+            var show = cat === 'all' || card.getAttribute('data-cat') === cat;
+            card.classList.toggle('is-hidden', !show);
+          });
+        });
+      });
+    });
+  }
+
+  // ── 泳式頁共用：練習庫多軸篩選（環節 × 水感階段，AND 組合） ──
+  function setupDrillFilters(wrap) {
+    wrap.querySelectorAll('.vx-drill-filters').forEach(function (filterWrap) {
+      var scope = filterWrap.closest('.vx-panel');
+      if (!scope) return;
+      var cards = Array.prototype.slice.call(scope.querySelectorAll('.vx-drillcard'));
+      var bars = Array.prototype.slice.call(filterWrap.querySelectorAll('.vx-filterbar'));
+      var active = {};
+      bars.forEach(function (bar) { active[bar.getAttribute('data-axis')] = 'all'; });
+
+      function apply() {
+        cards.forEach(function (card) {
+          var show = true;
+          bars.forEach(function (bar) {
+            var axis = bar.getAttribute('data-axis');
+            var val = active[axis];
+            if (val === 'all') return;
+            var cardVal = card.getAttribute('data-' + axis) || '';
+            if (cardVal.split(' ').indexOf(val) === -1) show = false;
+          });
+          card.classList.toggle('is-hidden', !show);
+        });
+      }
+
+      bars.forEach(function (bar) {
+        var axis = bar.getAttribute('data-axis');
+        var chips = Array.prototype.slice.call(bar.querySelectorAll('.vx-chip'));
+        chips.forEach(function (chip) {
+          chip.addEventListener('click', function () {
+            active[axis] = chip.getAttribute('data-val');
+            chips.forEach(function (c) { c.classList.toggle('is-active', c === chip); });
+            apply();
+          });
+        });
+      });
+    });
+  }
+
+  // ── 文件流頁（vx-doc）：內容全攤開成連續文件，rail 錨點 + scrollspy 高亮 ──
   var root = document.querySelector('.vx-stroke-wrap');
-  if (root) {
+  if (root && root.classList.contains('vx-doc')) {
+    var spyLinks = Array.prototype.slice.call(root.querySelectorAll('.vx-navlink[data-spy]'));
+    if (spyLinks.length && 'IntersectionObserver' in window) {
+      var spyVisible = {};
+
+      function spyHighlight() {
+        var current = null, top = Infinity;
+        Object.keys(spyVisible).forEach(function (id) {
+          if (spyVisible[id] != null && spyVisible[id] < top) { top = spyVisible[id]; current = id; }
+        });
+        spyLinks.forEach(function (a) {
+          a.classList.toggle('is-active', a.getAttribute('data-spy') === current);
+        });
+      }
+
+      var spyIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) spyVisible[e.target.id] = e.boundingClientRect.top;
+          else delete spyVisible[e.target.id];
+        });
+        spyHighlight();
+      }, { rootMargin: '-12% 0px -70% 0px', threshold: 0 });
+
+      spyLinks.forEach(function (a) {
+        var sec = document.getElementById(a.getAttribute('data-spy'));
+        if (sec) spyIO.observe(sec);
+      });
+    }
+    setupCardFilters(root);
+    setupDrillFilters(root);
+    markRead();
+  }
+
+  // ── 泳式頁 master-detail（legacy 面板模式：尚未轉文件流的頁） ──
+  else if (root) {
     var panels = Array.prototype.slice.call(root.querySelectorAll('.vx-panel'));
     var navlinks = Array.prototype.slice.call(root.querySelectorAll('[data-target]'));
     if (panels.length) {
@@ -130,60 +223,8 @@
       var initial = location.hash.slice(1);
       activate(initial && panelById(initial) ? initial : order[0], false);
 
-      // ── 卡片分類篩選（誤區 / 深入機制 面板） ──
-      root.querySelectorAll('.vx-filters').forEach(function (bar) {
-        var scope = bar.closest('.vx-panel');
-        if (!scope) return;
-        var cards = Array.prototype.slice.call(scope.querySelectorAll('.vx-card'));
-        var chips = Array.prototype.slice.call(bar.querySelectorAll('.vx-chip'));
-
-        chips.forEach(function (chip) {
-          chip.addEventListener('click', function () {
-            var cat = chip.getAttribute('data-cat');
-            chips.forEach(function (c) { c.classList.toggle('is-active', c === chip); });
-            cards.forEach(function (card) {
-              var show = cat === 'all' || card.getAttribute('data-cat') === cat;
-              card.classList.toggle('is-hidden', !show);
-            });
-          });
-        });
-      });
-
-      // ── 練習庫多軸篩選（環節 × 水感階段，AND 組合） ──
-      root.querySelectorAll('.vx-drill-filters').forEach(function (wrap) {
-        var scope = wrap.closest('.vx-panel');
-        if (!scope) return;
-        var cards = Array.prototype.slice.call(scope.querySelectorAll('.vx-drillcard'));
-        var bars = Array.prototype.slice.call(wrap.querySelectorAll('.vx-filterbar'));
-        var active = {};
-        bars.forEach(function (bar) { active[bar.getAttribute('data-axis')] = 'all'; });
-
-        function apply() {
-          cards.forEach(function (card) {
-            var show = true;
-            bars.forEach(function (bar) {
-              var axis = bar.getAttribute('data-axis');
-              var val = active[axis];
-              if (val === 'all') return;
-              var cardVal = card.getAttribute('data-' + axis) || '';
-              if (cardVal.split(' ').indexOf(val) === -1) show = false;
-            });
-            card.classList.toggle('is-hidden', !show);
-          });
-        }
-
-        bars.forEach(function (bar) {
-          var axis = bar.getAttribute('data-axis');
-          var chips = Array.prototype.slice.call(bar.querySelectorAll('.vx-chip'));
-          chips.forEach(function (chip) {
-            chip.addEventListener('click', function () {
-              active[axis] = chip.getAttribute('data-val');
-              chips.forEach(function (c) { c.classList.toggle('is-active', c === chip); });
-              apply();
-            });
-          });
-        });
-      });
+      setupCardFilters(root);
+      setupDrillFilters(root);
     }
   }
 

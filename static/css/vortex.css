@@ -327,6 +327,7 @@ mark, .mark {
   padding: 7px 8px 7px 10px;
   border-left: 2px solid transparent;
   line-height: 1.35;
+  text-decoration: none; box-sizing: border-box;
 }
 .vx-navlink .n {
   font-family: var(--vx-display); color: var(--vx-faint);
@@ -412,6 +413,7 @@ mark, .mark {
   cursor: pointer; text-align: left;
   background: none; border-left: 0; border-right: 0; border-top: 0;
   width: 100%; font-family: var(--vx-serif);
+  text-decoration: none; color: inherit;
 }
 .vx-path-item:hover { background: var(--vx-paper); }
 .vx-path-item .n { font-family: var(--vx-display); font-size: 22px; color: var(--vx-accent); }
@@ -785,9 +787,10 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
   display: flex; justify-content: space-between; gap: 12px;
   margin-top: 40px; border-top: 1px solid var(--vx-rule); padding-top: 18px;
 }
-.vx-flow button {
+.vx-flow button, .vx-flow a {
   background: none; border: 0; cursor: pointer; font-family: var(--vx-serif);
   color: var(--vx-accent); font-size: 14px; text-align: left;
+  text-decoration: none; display: block;
 }
 .vx-flow button:disabled { color: var(--vx-rule2); cursor: default; }
 .vx-flow .nx { text-align: right; }
@@ -2156,3 +2159,21 @@ html { scroll-behavior: smooth; }
   line-height: 1.65;
 }
 
+
+/* ═══════════════════════════════════════════════════════════
+   文件流模式（.vx-doc）：面板不切換，全部依序攤開成連續文件。
+   rail 變成錨點目次（scrollspy 高亮），內容可掃讀、可 Ctrl+F、
+   每節有真實 URL 錨點。逐頁遷移：容器加 vx-doc class 即生效；
+   沒加的頁仍走上方 legacy 面板切換。
+   ═══════════════════════════════════════════════════════════ */
+.vx-doc .vx-panel { display: block; animation: none; }
+.vx-doc .vx-panel + .vx-panel {
+  margin-top: 84px;
+  padding-top: 44px;
+  border-top: 1px solid var(--vx-rule);
+}
+.vx-doc .vx-panel[id] { scroll-margin-top: 18px; }
+
+@media (max-width: 820px) {
+  .vx-doc .vx-panel + .vx-panel { margin-top: 56px; padding-top: 32px; }
+}
