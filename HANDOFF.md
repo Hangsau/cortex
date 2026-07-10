@@ -1,5 +1,23 @@
 # HANDOFF — my-site (Cortex)
 
+## 目前狀態（2026-07-10）
+
+**Vortex 全站重設計 I1–I5 完成上線（2026-07-10，commits 1f94b62→94d625b→345c6d3→db2c98d→15f83ec，全 push + CI 綠）**：站主「一直覺得設計得很不好用」授權全自主重設計，五個 iteration 一氣呵成：
+
+- **I1（1f94b62）泳式頁範式翻轉**：6 泳式頁 master-detail 面板切換 → 連續文件（wrap 加 `vx-doc`）+ IntersectionObserver scrollspy；rail 按鈕→錨點；drills 段移到 moves 後（學→練→深入）；錨點 ID 不變、舊深連結相容；vortex.js 抽 `setupCardFilters`/`setupDrillFilters` 共用。
+- **I2（94d625b）其餘 rail 頁同步翻轉**：levels/breathing/injuries/water-sense/periodization/adm-matrix 全改 vx-doc；doc 分支支援 rail 主題群組（scrollspy 進主題自動展開、只展不收）；**psychology lookup 頁退役**（刪 layout+content，`/vortex/psychology/` alias 轉址 psychology-read）。
+- **I3（345c6d3）全站搜尋**：側欄常駐純 HTML GET 搜尋框（action=database/?q=，零 JS 依賴）；database 頁讀 `?q=` 自動帶入篩選。**改判：不建 JSON 索引**——database 頁本身已是伺服端渲染的全量單元級搜尋頁（467 卡），加 JSON 索引是重複建設；XSS 驗證過（?q= 只寫 input.value，注入字串字面呈現）。
+- **I4（db2c98d）首頁瘦身 + 篩選介面一致化**：首頁砍 tx-cards 六卡格 + 六式列（主題入口全在左欄，不重複），收成 masthead→hero(什麼是水感)→處境帶 4 入口→legend；drills 與 adm-standards 篩選 label 統一 database 的「①②③」編號步驟詞彙，adm-standards 搜尋框移入 panel 與 chips 同區。
+- **I5（15f83ec）收尾**：/code-audit 過（死碼清理約 345 行 CSS：vortex-techo.css 舊首頁殘留 + vortex.css psychology 殘留；**`.vx-ladder` 容器存活勿刪**，只刪了 -cap/-node 子節點；legacy 面板 JS 分支存活——temperament 仍用）；MAP.md/HANDOFF 對齊。
+
+**與原計畫的三個偏離（皆已裁定，非缺漏）**：① 泳式頁高度超過原定 9000px 門檻——連續文件範式本來就長，scrollspy+rail 錨點即是應對，門檻作廢；② I3 原計畫 JSON 搜尋索引改判不建（理由如上）；③ 首頁瘦身目標「一屏半」（~1350px），實際 1825px（約兩屏@1440×900）——處境帶 4 項含描述句不再壓縮，取可讀性。
+
+**驗收**：每輪 Playwright（port 8123，絕對資產 URL 必須此 port）+ Hugo build + `node --check`；I5 迴歸全過（home cards=0/hero=1/situ=4/側欄搜尋=1；drills 篩選 176→5；adm-std chip 22→3、搜尋 22→6；?q= 帶入 95 筆；XSS 注入字面呈現）。唯一 console 404 = favicon.ico（一直都沒有，良性）。⚠ `.m3-*.txt` 與 `.prompts/audit-run.log` 仍刻意 untracked，勿 commit。
+
+**下一步建議**：① 全站桌機+手機截圖巡檢尚未做完整輪（本輪僅逐頁功能驗證）；② favicon.ico 可補一個消 console 噪音；③ 若站主用過後覺得泳式長文件太長，可考慮 rail 加「收合全部」控制（先不做，等真實使用回饋）。
+
+> ↓ 更早
+
 ## 目前狀態（2026-06-23）
 
 **全站健康檢查補強內容上站（2026-06-23）**：承健康檢查報告（`research/site-health-check-2026-06-23.md`）抓出的三真缺口，全在 TheVortexProject canonical 補完後 sync 進來：① 背式 teaching-errors 5→9（補 err6–9，**刻意停在 9 不灌到 14**，收錄標準把關）；② udk / starts-turns drills 各 0→5（`tools/sync_vortex.py` 的 `DRILL_STROKES` 加 `udk`/`starts-turns`，`layouts/vortex/vortex-drills.html` 補 `$drillCatName` 的「出發轉身」）；③ Ward 引用全式補 2018（資料層 + 2 散文 md 共 5 處，散文走 LAYERS sync）。**sync 結果**：drills 129→139、back errors 5→9、Ward 2018 散文層同步。**驗收**：`python tools/sync_vortex.py` CHANGED 2 → `hugo --quiet` exit 0 → grep `public/vortex/drills/`：10 新 drill 渲染、「出發轉身」chip 在、**零診斷層洩漏**（abc_type/success/failure/deficiency 全剝離）；`public/vortex/backstroke/` err6–9 標題渲染、結構 `diagnostic.type` 已剝。報告 §5 補 M3 第 3 輪內容覆審採納/駁回 ledger（C1 Ward 全集=真 gap 已補；A2 候選/B1 drills 經查證/WebSearch 證偽）。**未做瀏覽器視覺測**（環境無確認瀏覽器），僅 build-output 驗證。

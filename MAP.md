@@ -3,7 +3,7 @@
 > 結構地圖，給冷啟動讀者（人/LLM）。格式與維護流程見 `C:\claudehome\CODEBASE_MAP_METHODOLOGY.md`。
 > 行為規範見 `CLAUDE.md`；進度/待辦見 `HANDOFF.md`。
 >
-> `last_verified: 2026-06-15`
+> `last_verified: 2026-07-10`
 
 ---
 
@@ -28,7 +28,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 | 改 ADM / 週期化內容 | 同 vortex：canonical-synced，改 canonical 再 sync |
 | 改氣質 section 內容 | `data/temperament/*.yaml`（my-site 自有，**可直接改**） |
 | 加 CSCS 閃卡 | Google Sheets（非本地檔），見 `CLAUDE.md`；build time 抓 CSV |
-| 改 vortex 互動行為 | `static/js/vortex.js`（單檔依 DOM hook 分派：stroke / `[data-vx-db]` database / `[data-vx-adm-std]` ADM 標準） |
+| 改 vortex 互動行為 | `static/js/vortex.js`（單檔依 DOM hook 分派：`.vx-doc` 文件流 scrollspy / legacy 面板切換 / `[data-vx-db]` drills / `[data-vx-find]` database / `[data-vx-adm-std]` ADM 標準 / `.vx-read` 進度條） |
 
 ---
 
@@ -49,23 +49,30 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 | `content/vortex/` | `layouts/vortex/*`（見下） | 游泳知識庫，最大最複雜 |
 
 ### vortex layouts（layouts/vortex/，全 section 重點）
+
+> 2026-07 重設計（I1–I5）後：**master-detail 面板切換範式已退役**，rail 型頁全數改「連續文件 + scrollspy」（wrap 加 `vx-doc` class，rail 按鈕→錨點連結）。唯一 legacy 面板頁剩 temperament section（不在 vortex）。
+
 | 檔 | 行 | 職責 | 互動 JS |
 |----|----|------|---------|
-| `vortex-home.html` | 133 | hub 首頁，vx-toc 多入口 | 載 `vortex.js` |
-| `vortex-stroke.html` | 296 | 每式 master-detail（rail + 面板） | 載 `vortex.js` |
-| `vortex-database.html` | 221 | 跨泳式查詢（需求區 + 3 tab） | 載 `vortex.js`，由其 `[data-vx-db]` 分支驅動（無 inline JS） |
-| `vortex-water-sense.html` | 586 | 水感指南，**全 hardcoded** | 無 |
-| `vortex-periodization.html` | 851 | 週期化期刊頁（最長） | 重用 vortex.js |
-| `vortex-levels.html` | 138 | 水感 L0–L6 | 重用 vortex.js |
-| `vortex-adm-{home,matrix,standards,single}.html` | 60/105/82/24 | ADM 四頁 | matrix/standards 載 vortex.js（standards 由 `[data-vx-adm-std]` 分支驅動，無 inline JS） |
+| `vortex-home.html` | 70 | 首頁：masthead + hero(什麼是水感) + 處境帶 4 入口 + legend（主題/搜尋都在左欄） | 載 `vortex.js` |
+| `vortex-stroke.html` | 304 | 每式連續文件（vx-doc：moves→drills→errors→tech→levels） | vortex.js doc 分支（scrollspy + chip 篩選） |
+| `vortex-database.html` | 270 | 查資料：全站 8 類單元級撈取，支援 `?q=` | vortex.js `[data-vx-find]` 分支 |
+| `vortex-drills.html` | 187 | 找練習（139 drill 多軸篩選，label ①②③） | vortex.js `[data-vx-db]` 分支 |
+| `vortex-water-sense.html` | 585 | 水感指南，**全 hardcoded**，vx-doc | vortex.js doc 分支 |
+| `vortex-periodization.html` | 1103 | 週期化期刊頁（最長），vx-doc | vortex.js doc 分支 |
+| `vortex-levels.html` | 137 | 水感 L0–L6，vx-doc | vortex.js doc 分支 |
+| `vortex-breathing.html` | 131 | 呼吸訓練輔助軸，vx-doc | vortex.js doc 分支 |
+| `vortex-injuries.html` | 288 | 運動傷害，vx-doc | vortex.js doc 分支 |
+| `vortex-psychology-read.html` | 140 | 心理層連續長文（READ；lookup 頁已退役，/vortex/psychology/ alias 轉址至此） | vortex.js `.vx-read` 分支（進度條+spy） |
+| `vortex-adm-{home,matrix,standards,single}.html` | 74/105/60/28 | ADM 四頁；matrix 為 vx-doc | matrix doc 分支；standards `[data-vx-adm-std]` 分支 |
 | `vortex/{single,list}.html` | 29/36 | technica/instructional/bridge 散文 fallback | 無 |
 
-### CSS（static/css/，3157 行）
-`variables.css`(49) `base.css`(79) `layout.css`(165) `bookshelf.css`(221) `library.css`(140) `cscs-chapter.css`(375) `notebook.css`(59) `vortex.css`(856) `mnfl.css`(391) `ust.css`(526) `temperament.css`(296)。  
+### CSS（static/css/）
+`variables.css`(49) `base.css`(79) `layout.css`(165) `bookshelf.css`(221) `library.css`(140) `cscs-chapter.css`(375) `notebook.css`(59) `vortex.css`(2080) `vortex-techo.css`(158，僅首頁 tx-*) `vortex-nav.css`(159，全站側欄+搜尋框) `vortex-injuries.css`(242) `mnfl.css`(391) `ust.css`(526) `temperament.css`(296)。  
 隔離手法：各 section CSS 用 `body:has(.<prefix>-*)` scope，不互相污染。
 
 ### JS（static/js/）
-- `vortex.js`(122) — **只服務 stroke 頁**（開頭 `if(!.vx-stroke-wrap) return`）：面板切換 + hash 路由 + popstate + 多軸 filter
+- `vortex.js`(539) — 單檔依 DOM hook 分派（見 §2 決策索引該列）；`setupCardFilters`/`setupDrillFilters` 為 doc 與 legacy 分支共用；`?q=` 只寫入 `input.value`（XSS-safe）
 - `temperament-quiz.js`(197) — 氣質測驗純前端計分
 
 ### 資料流
@@ -76,8 +83,8 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 
 ## 4. 踩雷點 / 非顯而易見處（讀檔表面看不出）
 
-1. **`static/css/vortex.css` 的 RWD `@media` 全在檔案最底**（約 801+ 行，2026-06-15）。中段讀不到任何 media query → **別下「沒有 RWD / 沒手機版」結論**。同理 `is-hidden`（搜 `is-hidden`，details.vx-card 用）、`.vx-cert`（搜 `vx-cert`）都在中後段。`:focus-visible` 確實沒有、`prefers-color-scheme`（dark mode）確實沒有。
-2. **`vortex.js` 是單一檔依 DOM hook 分派**（已不再 stroke-only early-return）：stroke master-detail / `[data-vx-db]` database / `[data-vx-adm-std]` ADM 標準三個分支。database 與 standards 都**載入 vortex.js、無 inline JS**（2026-06-23 稽核更正：舊 MAP 誤記為「自帶 inline JS 不載 vortex.js」）。改多軸 filter 行為在 `vortex.js` 對應分支改。
+1. **`static/css/vortex.css` 的 RWD `@media` 集中在檔案後段**（檔案現約 2080 行）。中段讀不到任何 media query → **別下「沒有 RWD / 沒手機版」結論**。同理 `is-hidden`（搜 `is-hidden`，details.vx-card 用）、`.vx-cert`（搜 `vx-cert`）都在中後段。`:focus-visible` 確實沒有、`prefers-color-scheme`（dark mode）確實沒有。
+2. **`vortex.js` 是單一檔依 DOM hook 分派**：`.vx-doc` 文件流（scrollspy）/ legacy 面板切換（**temperament-main.html 仍用 data-target 按鈕，此分支不可刪**）/ `[data-vx-db]` drills / `[data-vx-find]` database / `[data-vx-adm-std]` ADM 標準 / `.vx-read`。改多軸 filter 在 `setupCardFilters`/`setupDrillFilters` 共用函數改。**adm-standards 的 `stdPanel.querySelector('.vx-filters')` 依賴容器 class，layout 改 `.vx-filters` 名會斷 JS**（2026-07-10 audit 確認）。
 3. **`vortex-water-sense.html` 全 hardcoded，從不呼叫 `.Content`**。對應 `content/vortex/technica/water-sense-guide.md` 的 body 是**死碼**（2026-06-15 已清空留註解）。改這頁文案要改 template，不是改 .md。
 4. **`data/vortex|adm|periodization/` 是 canonical-synced**：手改會被下次 `sync_vortex.py` 洗掉。改內容要回 `C:\claudehome\projects\TheVortexProject\canonical/`。
 5. **`baseof.html` 的 `.main-content { max-width:800px }` 罩住每一頁**；vortex 頁靠 `vortex.css` 的 `body:has(...) .main-content{max-width:none}` 脫離上限（搜 `main-content`）。改寬度問題先查這條。
