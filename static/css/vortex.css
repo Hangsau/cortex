@@ -357,11 +357,6 @@ mark, .mark {
 .vx-rail-theme-top { display: flex; align-items: center; gap: 8px; }
 .vx-rail-theme-head:hover { color: var(--vx-ink); }
 .vx-rail-theme.is-expanded > .vx-rail-theme-head { color: var(--vx-ink); }
-.vx-rail-theme-when {
-  font-size: 13px; line-height: 1.5; color: var(--vx-faint);
-  padding-left: 13px;
-}
-.vx-rail-theme.is-expanded > .vx-rail-theme-head .vx-rail-theme-when { color: var(--vx-sub); }
 .vx-rail-theme-caret {
   width: 0; height: 0; flex-shrink: 0;
   border-left: 5px solid var(--vx-faint);
@@ -420,69 +415,6 @@ mark, .mark {
 .vx-path-item .t { font-size: 17px; color: var(--vx-ink); }
 .vx-path-item .o { font-size: 14px; color: var(--vx-sub); display: block; margin-top: 2px; }
 
-/* ── 心理地圖：三帶 + 主題卡 ── */
-.vx-band { margin: 30px 0 8px; }
-.vx-band-head {
-  display: flex; align-items: baseline; gap: 12px;
-  border-top: 2px solid var(--vx-accent); padding-top: 8px;
-}
-.vx-band-l {
-  font-family: var(--vx-display); font-size: 13px; letter-spacing: 0.08em;
-  color: #fff; background: var(--vx-accent);
-  padding: 2px 9px; border-radius: 0; white-space: nowrap;
-}
-.vx-band-name {
-  font-family: var(--vx-display); font-size: 20px; color: var(--vx-ink);
-}
-.vx-band-desc {
-  font-size: 14px; line-height: 1.7; color: var(--vx-sub);
-  margin: 8px 0 16px;
-  max-width: var(--vx-measure);
-}
-.vx-theme-grid { display: flex; flex-direction: column; gap: 12px; }
-.vx-theme-card {
-  display: grid; grid-template-columns: 42px 1fr auto; gap: 16px;
-  align-items: center; text-align: left; width: 100%;
-  padding: 16px 18px; border: 1px solid var(--vx-rule);
-  background: var(--vx-paper); font-family: var(--vx-serif);
-}
-.vx-theme-card.is-ready { cursor: pointer; }
-.vx-theme-card.is-ready:hover {
-  border-color: var(--vx-accent); background: #fff;
-}
-.vx-theme-card.is-planned { opacity: 0.72; cursor: default; }
-.vx-theme-no {
-  font-family: var(--vx-display); font-size: 26px; color: var(--vx-accent);
-  align-self: start; line-height: 1;
-}
-.vx-theme-card.is-planned .vx-theme-no { color: var(--vx-faint); }
-.vx-theme-body { min-width: 0; }
-.vx-theme-zh {
-  display: block; font-size: 18px; font-weight: 600; color: var(--vx-ink);
-  margin-bottom: 4px;
-}
-.vx-theme-badge {
-  display: inline-block; font-family: var(--vx-display);
-  font-size: 11px; letter-spacing: 0.06em; font-weight: 400;
-  color: var(--vx-faint); border: 1px solid var(--vx-rule2);
-  padding: 1px 7px; margin-left: 9px; vertical-align: middle;
-}
-.vx-theme-prem {
-  display: block; font-size: 14px; line-height: 1.65; color: var(--vx-sub);
-}
-.vx-theme-meta {
-  display: block; font-size: 13px; color: var(--vx-faint);
-  margin-top: 7px; letter-spacing: 0.02em;
-}
-.vx-theme-go {
-  font-family: var(--vx-display); font-size: 14px; color: var(--vx-accent);
-  white-space: nowrap; align-self: center;
-}
-@media (max-width: 560px) {
-  .vx-theme-card { grid-template-columns: 34px 1fr; }
-  .vx-theme-go { display: none; }
-}
-
 /* 動作面板 */
 .vx-block-label {
   display: inline-block;
@@ -537,21 +469,6 @@ mark, .mark {
   display: flex; align-items: center; gap: 5px; flex-wrap: wrap;
   margin: 4px 0 18px;
 }
-.vx-ladder-cap {
-  font-size: 12px; letter-spacing: 0.05em; color: var(--vx-faint);
-  margin-right: 6px;
-}
-.vx-ladder-node {
-  font-family: var(--vx-display); font-size: 13px; line-height: 1;
-  color: var(--vx-faint); background: var(--vx-paper2);
-  border: 1px solid var(--vx-rule); border-radius: 0;
-  padding: 4px 7px; white-space: nowrap;
-}
-.vx-ladder-node.is-on {
-  color: #fff; background: var(--vx-accent); border-color: var(--vx-accent);
-  font-weight: 600;
-}
-
 @media (max-width: 560px) {
   .vx-sit-card { grid-template-columns: auto 1fr; }
   .vx-sit-go { display: none; }
@@ -1831,24 +1748,6 @@ html { scroll-behavior: smooth; }
 .vx-read-toc a:hover .vx-read-toc-l,
 .vx-read-toc a.is-active .vx-read-toc-l { color: var(--vx-accent2); }
 .vx-read-toc-name { font-size: var(--fs-sm); }
-
-.vx-read-modeswitch {
-  display: block; margin-top: 22px; padding-top: 14px;
-  border-top: 1px solid var(--vx-rule);
-  font-size: var(--fs-xs); line-height: 1.6;
-  color: var(--vx-faint); text-decoration: none;
-}
-.vx-read-modeswitch b { display: block; margin-top: 3px; color: var(--vx-accent2); font-weight: 700; }
-.vx-read-modeswitch:hover b { text-decoration: underline; }
-
-/* LOOK-UP 頁的「一條讀下來」入口（橫向，不在脊椎內） */
-.vx-read-modeswitch--inline {
-  margin: 18px 0 0; padding: 12px 16px;
-  border: 1px solid var(--vx-rule); border-top: 1px solid var(--vx-rule);
-  border-radius: 0; background: var(--vx-paper);
-  font-size: var(--fs-sm);
-}
-.vx-read-modeswitch--inline b { display: inline; margin: 0; }
 
 /* ── 右側文章 ── */
 .vx-read-article {
