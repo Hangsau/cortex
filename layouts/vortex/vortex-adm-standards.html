@@ -19,13 +19,14 @@
   <h1 class="vx-list-title">技術標準</h1>
   <p class="vx-list-desc">四式 + 起跳轉身的理想技術基準，依「{{ $std.framework }}」框架分階段描述。{{ $std.applies_note }}按泳式篩選或打字搜尋。</p>
 
-  <div class="vx-db-search">
-    <input class="vx-db-input" id="vxAdmInput" type="search" autocomplete="off" placeholder="搜尋標題與技術要點……" aria-label="搜尋技術標準">
-  </div>
-
   <div class="vx-db-panel is-active" id="adm-std">
     <div class="vx-filters">
+      <span class="vx-filterbar-label">① 限定泳式（可不選）</span>
       {{ range $strokeChips }}<button class="vx-chip{{ if eq . "all" }} is-active{{ end }}" type="button" data-s="{{ . }}">{{ if eq . "all" }}全部 {{ len $std.standards }}{{ else }}{{ index $strokeZh . }}{{ end }}</button>{{ end }}
+    </div>
+    <div class="vx-db-search">
+      <span class="vx-filterbar-label">② 或直接搜尋</span>
+      <input class="vx-db-input" id="vxAdmInput" type="search" autocomplete="off" placeholder="搜尋標題與技術要點……" aria-label="搜尋技術標準">
     </div>
 
     {{ range $std.standards }}

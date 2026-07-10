@@ -59,17 +59,17 @@
 
     <div class="vx-needs-filters">
       <div class="vx-filterbar" data-axis="cat">
-        <span class="vx-filterbar-label">想練哪個環節</span>
+        <span class="vx-filterbar-label">① 想練哪個環節</span>
         <button class="vx-chip is-active" type="button" data-val="all">全部 {{ len $drills }}</button>
         {{ range $drillCats }}<button class="vx-chip" type="button" data-val="{{ . }}">{{ index $drillCatName . }}</button>{{ end }}
       </div>
       <div class="vx-filterbar" data-axis="level">
-        <span class="vx-filterbar-label">在哪個水感階段</span>
+        <span class="vx-filterbar-label">② 在哪個水感階段</span>
         <button class="vx-chip is-active" type="button" data-val="all">全部</button>
         {{ range $drillLevels }}<button class="vx-chip" type="button" data-val="{{ . }}">{{ . }}</button>{{ end }}
       </div>
       <div class="vx-filterbar" data-axis="s">
-        <span class="vx-filterbar-label">限定泳式（可不選）</span>
+        <span class="vx-filterbar-label">③ 限定泳式（可不選）</span>
         {{ range $strokeChips }}<button class="vx-chip{{ if eq . "all" }} is-active{{ end }}" type="button" data-val="{{ . }}">{{ if eq . "all" }}全部{{ else }}{{ index $strokeZh . }}{{ end }}</button>{{ end }}
       </div>
 

@@ -8,12 +8,6 @@
 
 {{ define "main" }}
 {{ $base := .Site.BaseURL }}
-{{ $dicts := partial "vortex/stroke-dicts.html" . }}
-{{ $strokeZh := $dicts.strokeZh }}
-{{ $strokeMeta := slice
-  (dict "key" "free" "slug" "freestyle") (dict "key" "back" "slug" "backstroke")
-  (dict "key" "breast" "slug" "breaststroke") (dict "key" "fly" "slug" "butterfly")
-  (dict "key" "udk" "slug" "underwater-dolphin-kick") (dict "key" "starts-turns" "slug" "starts-turns") }}
 
 <div class="vx-shell">
 {{ partial "vortex/sidebar.html" (dict "ctx" . "current" "home") }}
@@ -36,11 +30,11 @@
     </span>
   </a>
 
-  {{/* ════════ 處境帶路：不知道從哪張門進，按現在的狀況挑一句 ════════ */}}
+  {{/* ════════ 處境帶路：按現在的狀況挑一句（主題導覽與搜尋在左欄） ════════ */}}
   <section class="tx-sec">
     <div class="tx-sec-head">
-      <h2 class="tx-sec-h"><span class="no">你</span>不知道進哪張門？按你現在的狀況挑一句</h2>
-      <span class="tx-sec-tag">按處境帶路 · 不必先懂術語</span>
+      <h2 class="tx-sec-h"><span class="no">你</span>按你現在的狀況挑一句</h2>
+      <span class="tx-sec-tag">按處境帶路 · 全部主題在左欄 · 搜尋也在左欄</span>
     </div>
     <ul class="tx-path tx-path--situ">
       <li><a href="{{ $base }}vortex/psychology-read/">
@@ -63,79 +57,6 @@
         <span><span class="ph">想把訓練排成長期計畫</span>
           <span class="pd">先看運動員發展矩陣（長期該長出什麼能力）→ 再到訓練週期化排年度節奏。</span></span>
         <span class="parr">→</span></a></li>
-    </ul>
-  </section>
-
-  {{/* ════════ 入口網格：每張是一道門，重內容在各自子頁 ════════ */}}
-  <section class="tx-sec">
-    <div class="tx-sec-head">
-      <h2 class="tx-sec-h"><span class="no">門</span>或者，直接挑一道門</h2>
-      <span class="tx-sec-tag">已經知道要找什麼 · 點進去才是內容</span>
-    </div>
-    <div class="tx-cards">
-      <a class="tx-card" href="{{ $base }}vortex/levels/">
-        <span class="ctag">L0–L6</span>
-        <span class="ch">水感發展地圖</span>
-        <span class="cen">Find Your Level</span>
-        <span class="cd">找到你現在在哪一級：四式從 L0 呼吸感知到 L6 自動化的發展序列，每級的訓練方法、觀察指標、量化基準。</span>
-        <span class="cmeta">四式 · <b>26</b> 階段　L0→L6</span>
-      </a>
-      <a class="tx-card" href="{{ $base }}vortex/psychology-read/">
-        <span class="ctag">L0−</span>
-        <span class="ch">心理層</span>
-        <span class="cen">From Fear to Flow</span>
-        <span class="cd">感知的地基：恐懼、動機、注意力在源頭決定你能不能感覺到水。一條讀下來，從怕水到心流。</span>
-        <span class="cmeta"><b>8</b> 主題　從恐懼到心流</span>
-      </a>
-      <a class="tx-card" href="{{ $base }}vortex/drills/">
-        <span class="ctag">DRILLS</span>
-        <span class="ch">依需求找練習</span>
-        <span class="cen">Find Drills by Need</span>
-        <span class="cd">不知道練什麼？挑一個環節（呼吸／平衡／踢腿／划手／銜接／搖櫓）或卡住的水感階段，立刻列出對應練習。</span>
-        <span class="cmeta"><b>{{ len (index hugo.Data "vortex" "drills").drills }}</b> 個練習</span>
-      </a>
-      <a class="tx-card" href="{{ $base }}vortex/database/">
-        <span class="ctag">REFERENCE</span>
-        <span class="ch">查資料</span>
-        <span class="cen">Search Everything</span>
-        <span class="cd">已經知道要找什麼？選一個類型（誤區／機制／技術動作／水感階段／心理／傷害／呼吸／發展／水感框架／感知銜接／訓練週期／教學原文）撈出來，或打字跨全站搜尋。</span>
-        <span class="cmeta"><b>12</b> 類 · 除練習外全站可查</span>
-      </a>
-      <a class="tx-card" href="{{ $base }}vortex/adm/">
-        <span class="ctag">ADM</span>
-        <span class="ch">運動員發展矩陣</span>
-        <span class="cen">Athlete Development Matrix</span>
-        <span class="cd">單一動作之上的長期視角：選手從學習訓練到登上獎牌台該長出什麼能力，含各式技術標準。</span>
-        <span class="cmeta"><b>4</b> 支柱 × <b>4</b> 階段</span>
-      </a>
-      <a class="tx-card" href="{{ $base }}vortex/periodization/">
-        <span class="ctag">PZ</span>
-        <span class="ch">訓練週期化</span>
-        <span class="cen">Periodization</span>
-        <span class="cd">ADM 年度計畫背後的理論骨幹：階段、中觀／微觀週期、賽前減量達峰、能量系統分區。源自 Bompa 6th ed.。</span>
-        <span class="cmeta"><b>6</b> 節</span>
-      </a>
-    </div>
-  </section>
-
-  {{/* ════════ 六式：精簡連結列，逐動作深讀在各自子頁 ════════ */}}
-  <section class="tx-sec">
-    <div class="tx-sec-head">
-      <h2 class="tx-sec-h"><span class="no">六</span>挑一式開始練</h2>
-      <span class="tx-sec-tag">動作＝感知的輸出</span>
-    </div>
-    <ul class="tx-path">
-      {{ range $i, $sm := $strokeMeta }}
-        {{ $d := index (index hugo.Data "vortex") $sm.key }}
-        {{ with $d }}
-          {{ $url := printf "%svortex/%s/" $base $sm.slug }}
-          <li><a href="{{ $url }}">
-            <span class="pno">{{ printf "%02d" (add $i 1) }}</span>
-            <span><span class="ph">{{ index $strokeZh $sm.key }}　<span class="pcount">{{ len .moves }} 個動作</span></span>
-              <span class="pd">{{ .premise | replaceRE "<span class=\"cert\">.*?</span>" "" | plainify | truncate 60 }}</span></span>
-            <span class="parr">→</span></a></li>
-        {{ end }}
-      {{ end }}
     </ul>
   </section>
 
