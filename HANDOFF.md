@@ -8,13 +8,13 @@
 - **I2（94d625b）其餘 rail 頁同步翻轉**：levels/breathing/injuries/water-sense/periodization/adm-matrix 全改 vx-doc；doc 分支支援 rail 主題群組（scrollspy 進主題自動展開、只展不收）；**psychology lookup 頁退役**（刪 layout+content，`/vortex/psychology/` alias 轉址 psychology-read）。
 - **I3（345c6d3）全站搜尋**：側欄常駐純 HTML GET 搜尋框（action=database/?q=，零 JS 依賴）；database 頁讀 `?q=` 自動帶入篩選。**改判：不建 JSON 索引**——database 頁本身已是伺服端渲染的全量單元級搜尋頁（467 卡），加 JSON 索引是重複建設；XSS 驗證過（?q= 只寫 input.value，注入字串字面呈現）。
 - **I4（db2c98d）首頁瘦身 + 篩選介面一致化**：首頁砍 tx-cards 六卡格 + 六式列（主題入口全在左欄，不重複），收成 masthead→hero(什麼是水感)→處境帶 4 入口→legend；drills 與 adm-standards 篩選 label 統一 database 的「①②③」編號步驟詞彙，adm-standards 搜尋框移入 panel 與 chips 同區。
-- **I5（15f83ec）收尾**：/code-audit 過（死碼清理約 345 行 CSS：vortex-techo.css 舊首頁殘留 + vortex.css psychology 殘留；**`.vx-ladder` 容器存活勿刪**，只刪了 -cap/-node 子節點；legacy 面板 JS 分支存活——temperament 仍用）；MAP.md/HANDOFF 對齊。
+- **I5（15f83ec + 後續 RWD commit）收尾**：/code-audit 過（死碼清理約 345 行 CSS：vortex-techo.css 舊首頁殘留 + vortex.css psychology 殘留；**`.vx-ladder` 容器存活勿刪**，只刪了 -cap/-node 子節點；legacy 面板 JS 分支存活——temperament 仍用）；MAP.md/HANDOFF 對齊。**全站截圖巡檢（12 頁 × 桌機 1440/手機 390）抓到 doc 範式的手機橫向溢出迴歸並修復**：面板全攤開後，nowrap 錨點列 / `min-width:560px` 表格 / row-flex `.vx-ladder` 的 details 經 grid/flex `min-width:auto` 把頁面撐到 400–618px。修法四件：① `.vx-shell`/`.vx-stroke-wrap` 手機 grid track 改 `minmax(0,1fr)` + 子項 `min-width:0`；② `.vx-pz-table` 手機改 `display:block; overflow-x:auto; min-width:0`（容器內橫向捲動）；③ `.vx-ladder > details.vx-level { width:100%; min-width:0 }`（vx-ladder 另有 row-flex 舊規則，details 作 flex item 會卡在 min-content）；④ 首頁 `.tx-sec-head` 手機改直向堆疊 + `.tx-sec-tag` 可換行。修後 12 頁 × 2 視口全數 overflow-x=False，I3/I4 桌機功能迴歸重跑全過。
 
 **與原計畫的三個偏離（皆已裁定，非缺漏）**：① 泳式頁高度超過原定 9000px 門檻——連續文件範式本來就長，scrollspy+rail 錨點即是應對，門檻作廢；② I3 原計畫 JSON 搜尋索引改判不建（理由如上）；③ 首頁瘦身目標「一屏半」（~1350px），實際 1825px（約兩屏@1440×900）——處境帶 4 項含描述句不再壓縮，取可讀性。
 
 **驗收**：每輪 Playwright（port 8123，絕對資產 URL 必須此 port）+ Hugo build + `node --check`；I5 迴歸全過（home cards=0/hero=1/situ=4/側欄搜尋=1；drills 篩選 176→5；adm-std chip 22→3、搜尋 22→6；?q= 帶入 95 筆；XSS 注入字面呈現）。唯一 console 404 = favicon.ico（一直都沒有，良性）。⚠ `.m3-*.txt` 與 `.prompts/audit-run.log` 仍刻意 untracked，勿 commit。
 
-**下一步建議**：① 全站桌機+手機截圖巡檢尚未做完整輪（本輪僅逐頁功能驗證）；② favicon.ico 可補一個消 console 噪音；③ 若站主用過後覺得泳式長文件太長，可考慮 rail 加「收合全部」控制（先不做，等真實使用回饋）。
+**下一步建議**：① favicon.ico 可補一個消 console 噪音（全站唯一 404）；② injuries 頁 doc 化後桌機全高 ~140k px（44 個傷害條目全文攤開）——rail 收合分類 + scrollspy 可用，但若站主覺得太長，候選改法是傷害條目比照 drills/adm-standards 改收合 `<details>` 卡（參考庫型內容 vs 敘事型內容的分界）；③ 泳式長文件同理，等真實使用回饋再議。
 
 > ↓ 更早
 

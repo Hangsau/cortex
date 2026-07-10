@@ -151,6 +151,8 @@ body:has(.tx-page) { background-color: var(--tx-bg); }
 
 /* ════ 響應式 ════ */
 @media (max-width: 560px) {
+  .tx-sec-head { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .tx-sec-tag { white-space: normal; }
   .tx-path a { grid-template-columns: 1.8em 1fr; }
   .tx-path .parr { grid-column: 2; text-align: left; padding-top: 6px; }
   .tx-hero { grid-template-columns: 1fr; gap: 6px; }

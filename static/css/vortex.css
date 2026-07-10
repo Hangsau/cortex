@@ -667,6 +667,9 @@ details.vx-card[open] > summary { border-bottom: 1px solid var(--vx-rule); }
 
 /* 水感進程 ladder */
 .vx-ladder { margin-top: 6px; }
+/* .vx-ladder 另有 row-flex 規則（原節點梯設計）；details 作 flex item
+   會被 min-width:auto 卡在內容 min-content 撐爆手機版，明定佔滿整行 */
+.vx-ladder > details.vx-level { width: 100%; min-width: 0; }
 details.vx-level {
   border: 1px solid var(--vx-rule); margin: 0 0 8px; background: var(--vx-bg);
 }
@@ -1065,7 +1068,10 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
    行動裝置
    ════════════════════════════════════════════ */
 @media (max-width: 820px) {
-  .vx-stroke-wrap { grid-template-columns: 1fr; }
+  /* minmax(0,1fr) + min-width:0：1fr 的 auto 最小值會被 doc 模式全攤開的
+     nowrap 錨點列 / 寬表格經 min-content 撐爆 */
+  .vx-stroke-wrap { grid-template-columns: minmax(0, 1fr); }
+  .vx-stroke-wrap > * { min-width: 0; }
   .vx-rail {
     position: static;
     border-right: 0; border-bottom: 1px solid var(--vx-rule);
@@ -1101,6 +1107,15 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
   .vx-toc-row { grid-template-columns: 36px 1fr; }
   .vx-toc-meta { grid-column: 2; grid-row: auto; text-align: left; margin-top: 6px; }
   .vx-cue { grid-template-columns: 56px 1fr; }
+}
+
+/* ── 手機：寬表格改容器內橫向捲動，不撐爆頁面 ── */
+@media (max-width: 820px) {
+  .vx-pz-table,
+  .vx-pz-stroke .vx-level-body .vx-pz-table {
+    display: block; overflow-x: auto; min-width: 0;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /* ── 手機（窄）：字級與間距收斂，摺疊表格維持橫向捲動 ── */
