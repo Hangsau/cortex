@@ -17,6 +17,9 @@
     <label class="vxnav-burger" for="vxnav-toggle" aria-label="開合主題選單">主題 ▾</label>
   </div>
   <nav class="vxnav-body">
+    <form class="vxnav-search" action="{{ $base }}vortex/database/" method="get" role="search">
+      <input class="vxnav-search-input" type="search" name="q" placeholder="搜尋全站內容…" aria-label="搜尋全站內容">
+    </form>
     <ul class="vxnav-list">
       <li class="vxnav-sect">入門</li>
       <li class="vxnav-item{{ if eq $cur "start" }} is-current{{ end }}">

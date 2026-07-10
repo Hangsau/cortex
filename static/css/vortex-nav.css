@@ -83,6 +83,18 @@ body:has(.vx-shell) .main-content { max-width: none; padding: 0; }
 .vxnav-home:hover { color: var(--n-accent2); }
 .vxnav-burger { display: none; }
 
+/* 常駐搜尋框：純 HTML form GET 到查資料頁（?q=），零 JS 依賴 */
+.vxnav-search { margin: 0 0 14px; }
+.vxnav-search-input {
+  width: 100%; box-sizing: border-box;
+  font-family: var(--n-serif); font-size: 14px;
+  color: var(--n-ink); background: var(--n-paper);
+  border: 1px solid var(--n-rule); border-radius: 2px;
+  padding: 7px 10px;
+}
+.vxnav-search-input::placeholder { color: var(--n-faint); }
+.vxnav-search-input:focus { outline: none; border-color: var(--n-accent); }
+
 .vxnav-list { list-style: none; margin: 0; padding: 0; }
 .vxnav-item > a, .vxnav-grouphead {
   display: flex; gap: 9px; align-items: baseline;

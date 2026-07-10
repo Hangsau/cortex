@@ -439,6 +439,11 @@
     });
 
     fInput.addEventListener('input', function () { clearTimeout(fT); fT = setTimeout(applyFind, 110); });
+    // 側欄搜尋框以 ?q= 進站：帶入查詢直接跨全站搜（只設 .value，不進 DOM）
+    try {
+      var q0 = new URLSearchParams(location.search).get('q');
+      if (q0) fInput.value = q0;
+    } catch (e) {}
     applyFind();
     markRead();
   }
