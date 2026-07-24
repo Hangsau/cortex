@@ -1,0 +1,99 @@
+{{ define "head-extra" }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/neurochem.css">
+{{ end }}
+
+{{ define "main" }}
+{{ $d := index hugo.Data "neurochem" "index" }}
+{{ if not $d }}
+<article class="nc-page nc-review"><div class="nc-body"><header class="nc-masthead">
+  <p class="nc-eyebrow">神經化學知識庫 · 驗收面</p>
+  <h1>索引尚未生成</h1>
+  <p class="nc-honest">找不到 <code>data/neurochem/index.json</code>；請先在 knowledge-hub 跑 <code>build_indexes.py</code>，再於本站跑 <code>tools/sync_atlas_index.py</code>。此頁不假裝有內容。</p>
+</header></div></article>
+{{ else }}
+{{ $m := $d.manifest }}
+{{ $claimTotal := $d.rollup.claim.total }}
+{{ $learnable := len $d.learnable_claims }}
+<article class="nc-page nc-review">
+  <div class="nc-grid">
+    <aside class="nc-toc">
+      <p class="nc-toc-title">本頁</p>
+      <nav>
+        <a href="#overview">概覽</a>
+        <a href="#rollup">各型別狀態</a>
+        <a href="#gaps">缺口與待補</a>
+        <a href="{{ "neurochem/learn/" | absURL }}" class="nc-toc-cross">前往學習面 →</a>
+      </nav>
+    </aside>
+
+    <div class="nc-body">
+      <header class="nc-masthead">
+        <p class="nc-eyebrow">神經化學知識庫 · 驗收面</p>
+        <h1>做到哪、有哪些成品</h1>
+        <p class="nc-honest">此頁反映 <strong>committed 快照</strong>的結構狀態，<strong>不代表主張已被專家覆核</strong>——索引可重生（build 綠）不等於內容為真。</p>
+        <dl class="nc-snapshot">
+          <div><dt>來源</dt><dd class="nc-mono">{{ $m.project_id }}</dd></div>
+          <div><dt>commit</dt><dd class="nc-mono">{{ substr $m.source_commit 0 10 }}</dd></div>
+          <div><dt>生成於</dt><dd class="nc-mono">{{ $m.generated_at }}</dd></div>
+          <div><dt>內容雜湊</dt><dd class="nc-mono">{{ substr $m.content_hash 0 16 }}</dd></div>
+          <div><dt>存取層級</dt><dd class="nc-mono">{{ $m.access_policy }}</dd></div>
+        </dl>
+      </header>
+
+      <section id="overview" class="nc-section">
+        <h2>概覽</h2>
+        <div class="nc-figures">
+          <div class="nc-figure"><span class="nc-figure-num">{{ $learnable }}</span><span class="nc-figure-label">可學習主張<br><small>publishable + 有逐字證據 + 可解析來源</small></span></div>
+          <div class="nc-figure"><span class="nc-figure-num">{{ $claimTotal }}</span><span class="nc-figure-label">原子主張總數</span></div>
+          <div class="nc-figure"><span class="nc-figure-num">{{ $d.rollup.source.total }}</span><span class="nc-figure-label">登錄來源</span></div>
+          <div class="nc-figure"><span class="nc-figure-num">{{ $d.rollup.concept.total }}</span><span class="nc-figure-label">概念節點</span></div>
+        </div>
+      </section>
+
+      <section id="rollup" class="nc-section">
+        <h2>各型別狀態</h2>
+        <p class="nc-note">狀態不塌成單一綠燈：分別列 total、可發布數與各 status 分佈。</p>
+        <table class="nc-table">
+          <thead><tr><th>型別</th><th>總數</th><th>可發布</th><th>status 分佈</th></tr></thead>
+          <tbody>
+          {{ range $rt := slice "concept" "claim" "evidence" "source" "controversy" }}
+            {{ $row := index $d.rollup $rt }}
+            <tr>
+              <td class="nc-mono">{{ $rt }}</td>
+              <td>{{ $row.total }}</td>
+              <td>{{ $row.publishable }}</td>
+              <td>
+                {{ range $k, $v := $row.by_status }}<span class="nc-chip">{{ $k }}: {{ $v }}</span>{{ end }}
+              </td>
+            </tr>
+          {{ end }}
+          </tbody>
+        </table>
+      </section>
+
+      <section id="gaps" class="nc-section">
+        <h2>缺口與待補</h2>
+        {{ $gaps := $d.gaps }}
+        <h3>可發布但缺逐字引文（不進學習面）</h3>
+        {{ if $gaps.publishable_without_quote }}
+          <ul class="nc-gaplist">{{ range $gaps.publishable_without_quote }}<li class="nc-mono">{{ . }}</li>{{ end }}</ul>
+        {{ else }}<p class="nc-empty">無——所有可發布主張都有逐字證據。</p>{{ end }}
+
+        <h3>未解析主題概念</h3>
+        {{ if $gaps.unresolved_subjects }}
+          <ul class="nc-gaplist">{{ range $gaps.unresolved_subjects }}<li class="nc-mono">{{ .claim }} → {{ delimit .missing ", " }}</li>{{ end }}</ul>
+        {{ else }}<p class="nc-empty">無。</p>{{ end }}
+
+        <h3>解析錯誤</h3>
+        {{ if $gaps.parse_errors }}
+          <ul class="nc-gaplist">{{ range $gaps.parse_errors }}<li class="nc-mono">{{ .path }}: {{ .error }}</li>{{ end }}</ul>
+        {{ else }}<p class="nc-empty">無。</p>{{ end }}
+      </section>
+    </div>
+  </div>
+</article>
+{{ end }}
+{{ end }}

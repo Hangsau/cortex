@@ -1,0 +1,92 @@
+{{ define "head-extra" }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/neurochem.css">
+{{ end }}
+
+{{ define "main" }}
+{{ $d := index hugo.Data "neurochem" "index" }}
+{{ if not $d }}
+<article class="nc-page nc-learn"><div class="nc-body"><header class="nc-masthead">
+  <p class="nc-eyebrow">神經化學知識庫 · 學習面</p>
+  <h1>索引尚未生成</h1>
+  <p class="nc-honest">找不到 <code>data/neurochem/index.json</code>；請先在 knowledge-hub 跑 <code>build_indexes.py</code>，再於本站跑 <code>tools/sync_atlas_index.py</code>。此頁不假裝有內容。</p>
+</header></div></article>
+{{ else }}
+{{ $m := $d.manifest }}
+{{ $claims := $d.learnable_claims }}
+
+{{/* 依主要主題概念（subjects[0]）分組，維持穩定順序 */}}
+{{ $groups := newScratch }}
+{{ range $c := $claims }}
+  {{ $p := index $c.subjects 0 }}
+  {{ $g := $groups.Get $p.id }}
+  {{ if $g }}
+    {{ $groups.Set $p.id (dict "name" $p.name "claims" (append $c $g.claims)) }}
+  {{ else }}
+    {{ $groups.Set $p.id (dict "name" $p.name "claims" (slice $c)) }}
+  {{ end }}
+{{ end }}
+{{ $grouped := $groups.Values }}
+
+<article class="nc-page nc-learn">
+  <div class="nc-grid">
+    <aside class="nc-toc">
+      <p class="nc-toc-title">主題概念</p>
+      <nav>
+        {{ range $id, $g := $grouped }}
+          <a href="#{{ $id }}">{{ $g.name }} <span class="nc-toc-count">{{ len $g.claims }}</span></a>
+        {{ end }}
+        <a href="{{ "neurochem/" | absURL }}" class="nc-toc-cross">← 回驗收面</a>
+      </nav>
+    </aside>
+
+    <div class="nc-body">
+      <header class="nc-masthead">
+        <p class="nc-eyebrow">神經化學知識庫 · 學習面</p>
+        <h1>可學習的主張</h1>
+        <p class="nc-honest">每條主張都附<strong>逐字證據引文</strong>與<strong>可解析來源</strong>；缺任一者不會出現在此頁（列於驗收面缺口）。引文為原文轉錄，未經專家覆核不代表主張為真。</p>
+        <dl class="nc-snapshot">
+          <div><dt>快照 commit</dt><dd class="nc-mono">{{ substr $m.source_commit 0 10 }}</dd></div>
+          <div><dt>可學習主張</dt><dd class="nc-mono">{{ len $claims }}</dd></div>
+          <div><dt>主題概念</dt><dd class="nc-mono">{{ len $grouped }}</dd></div>
+        </dl>
+      </header>
+
+      {{ range $id, $g := $grouped }}
+      <section id="{{ $id }}" class="nc-concept">
+        <h2>{{ $g.name }}</h2>
+        {{ range $c := $g.claims }}
+        <article class="nc-claim nc-risk-{{ $c.risk_level }}">
+          <div class="nc-claim-head">
+            <span class="nc-verdict nc-verdict-{{ $c.verdict }}">{{ $c.verdict }}</span>
+            <span class="nc-chip">{{ $c.claim_type }}</span>
+            <span class="nc-chip">風險：{{ $c.risk_level }}</span>
+          </div>
+          <p class="nc-statement">{{ $c.statement }}</p>
+          {{ if gt (len $c.subjects) 1 }}
+          <p class="nc-subjects">相關概念：{{ range $i, $s := $c.subjects }}{{ if $i }}、{{ end }}{{ $s.name }}{{ end }}</p>
+          {{ end }}
+          {{ range $ev := $c.evidence }}
+          <figure class="nc-evidence">
+            <blockquote class="nc-quote">{{ $ev.short_quote }}</blockquote>
+            <figcaption class="nc-cite">
+              <span class="nc-cite-title">
+                {{ with $ev.source.retrieval_locator }}<a href="{{ . }}" rel="noopener" target="_blank">{{ $ev.source.title }}</a>{{ else }}{{ $ev.source.title }}{{ end }}
+              </span>
+              <span class="nc-cite-meta nc-mono">{{ $ev.source.citation }}</span>
+              <span class="nc-cite-meta">{{ $ev.locator }}</span>
+              <span class="nc-cite-meta">{{ $ev.evidence_level }} · {{ $ev.direction }}</span>
+            </figcaption>
+          </figure>
+          {{ end }}
+        </article>
+        {{ end }}
+      </section>
+      {{ end }}
+    </div>
+  </div>
+</article>
+{{ end }}
+{{ end }}
