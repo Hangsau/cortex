@@ -12,7 +12,7 @@
 {{ $errCatName := dict }}{{ range (index hugo.Data "vortex" "teaching-errors").categories }}{{ $errCatName = merge $errCatName (dict .key .name_zh) }}{{ end }}
 {{ $techCatName := dict }}{{ range (index hugo.Data "vortex" "technical-analysis").categories }}{{ $techCatName = merge $techCatName (dict .key .name_zh) }}{{ end }}
 {{ $strokeSlug := dict "free" "freestyle" "back" "backstroke" "breast" "breaststroke" "fly" "butterfly" "udk" "underwater-dolphin-kick" "starts-turns" "starts-turns" }}
-{{ $injCatName := dict "A-shoulder-upper" "肩與上肢" "B-lower-spine-strokespecific" "腰椎與泳式特異" "C-nonMSK-medical" "非肌骨醫療" "D-endocrine" "內分泌" "D-systemic-acute" "全身急性" "E-acute-trauma" "急性創傷" "F-pediatric-growth" "兒童生長" }}
+{{ $injCatName := dict }}{{ range (index hugo.Data "vortex" "injuries").categories }}{{ $injCatName = merge $injCatName (dict .id .zh) }}{{ end }}
 
 {{ $errs := (index hugo.Data "vortex" "teaching-errors").errors }}
 {{ $techs := (index hugo.Data "vortex" "technical-analysis").points }}
