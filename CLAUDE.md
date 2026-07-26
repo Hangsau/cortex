@@ -83,6 +83,18 @@ data/
 2. 在 `data/books.yaml` 加一筆（含 slug、color）
 3. 封面圖放 `static/images/covers/`
 
+### Vortex 分類標籤：一律從資料讀，禁止在 layout 硬編
+
+`data/vortex/*.yaml` 每份都自帶 `categories` 區塊（真相源在 TheVortexProject 的 canonical / `Drills/_categories.yaml`），layout 用 merge 取標籤：
+
+```
+{{ $catName := dict }}{{ range (index hugo.Data "vortex" "drills").categories }}{{ $catName = merge $catName (dict .key .name_zh) }}{{ end }}
+```
+
+（`injuries.yaml` 的欄位名是 `.id` / `.zh`，其餘是 `.key` / `.name_zh`。）
+
+**為什麼是鐵則**：Hugo 的 `{{ index $dict .key }}` 查不到 key 會回**空字串且不報錯**。硬編一份副本，canonical 一加新分類，頁面標籤就無聲消失——2026-07-26 一次抓到兩起（starts-turns 頁 9 張 drill 卡標籤全空、傷害資料庫三個標籤文字漂移）。canonical 側有 E009 擋「條目用了沒宣告的 category」，但擋不住 layout 自己抄一份。
+
 ### ADM（Athlete Development Matrix）架構
 
 ADM 已從 library（cortex 書庫）遷入 **vortex** section，並改用 vortex 設計語言（一致性 + 好讀性），不再是書庫的獨立風格頁。資料源是 canonical（TheVortexProject）→ `sync_vortex.py` → `data/adm/`。
