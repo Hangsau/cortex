@@ -7,6 +7,8 @@ intensity_zones:
   id: periodization.zones.table_7_1
   cert: 🟡
   source: Ch7 Table 7.1 Intensity Zones and Training Demand
+  source_ids:
+  - src.ch7-table-7-1-intensity-zones-and-training-d
   zones:
   - zone: 1
     demand_zh: 非常高
@@ -39,6 +41,8 @@ hr_vo2_ergogenesis:
   id: periodization.zones.table_11_2
   cert: 🟡
   source: Ch11 Table 11.2
+  source_ids:
+  - src.ch11-table-11-2
   rows:
   - pct_hr_max: 50%
     pct_vo2max: 28%
@@ -69,6 +73,8 @@ liee_methods:
   id: periodization.zones.table_11_1
   cert: 🟡
   source: Ch11 Table 11.1 Methods of developing low-intensity exercise endurance
+  source_ids:
+  - src.ch11-table-11-1-methods-of-developing-low-in
   warning_zh: LIEE（低強度）與 HIEE（高強度）不可混用；耐力型態選錯會降低專項表現
   methods:
   - key: active_rest
@@ -106,6 +112,8 @@ endurance_periodization:
   id: periodization.zones.endurance_phases
   cert: 🟡
   source: Ch5 Endurance periodization
+  source_ids:
+  - src.ch5-endurance-periodization
   phases:
   - key: aerobic_endurance
     name_zh: 有氧耐力
@@ -130,6 +138,8 @@ swim_zones_maglischo:
   id: periodization.zones.swim_maglischo
   cert: 🟢
   source: Maglischo 2012, Training Zones Revisited, J Swimming Research 19(2)（全文）
+  source_ids:
+  - src.maglischo-2012
   anaerobic_threshold_mmol: 3–5 mmol/L（AnTh 區血乳酸範圍）
   zones:
   - key: recovery
@@ -162,6 +172,8 @@ swim_zones_three:
   id: periodization.zones.swim_three_zone
   cert: 🟢
   source: 游泳/耐力 TID 文獻通用三區模型（血乳酸界線）
+  source_ids:
+  - src.tid-three-zone-model
   zones:
   - zone: 1
     lactate_mmol: ≤2
@@ -184,6 +196,8 @@ energy_systems_primer:
   id: periodization.zones.energy_systems_primer
   cert: 🟡
   source: 公認運動生理學（磷酸原/糖酵解/氧化三系統時程為教科書級共識，如 Bompa Ch5/Ch11、McArdle Exercise Physiology）；游泳項目對映見 swim_energy_by_distance 來源（Toussaint & Hollander 1994 / Rodríguez & Mader 2011）
+  source_ids:
+  - src.bompa-ch5-ch11-mcardle-exercise-physiology-s
   caveat_zh: 🔵 三系統並非開關切換而是連續重疊——任一時刻三者都在供能，差別只在『誰主導』。下列時長為主導窗口的教科書級近似，個體與項目會浮動，不可當精確門檻。
   systems:
   - key: phosphagen
@@ -216,26 +230,36 @@ energy_systems_primer:
     protocol_zh: 🟠 極短最大努力 6–15 秒、休 90–120 秒（補 PCr）、5–10 reps。範例：6×15m 全力、組間休 90s。重點是每趟接近全速，休息要足以恢復功率，不是練到累。
     cert: 🟠
     source: 教練共識（getphysical / strengthmatters alactic power intervals）；與 PCr 再合成動力學一致（90–120s 部分恢復、3–5min 大致完全，見上 recovery_zh）
+    source_ids:
+    - src.getphysical-strengthmatters-alactic-power-in
   - system: glycolytic_production
     name_zh: 糖酵解—乳酸生成（lactate production）
     protocol_zh: 🟠 短距離 25–50m 最大努力 + 長休（讓乳酸部分清除以維持每趟全速），單次課前段量約 300–500m；須從跳台全速、不配速（確保最大刺激無氧糖解）。目的是『把乳酸推上去』。
     cert: 🟠
     source: British Swimming《A Guide to Anaerobic Training—Lactate Production》(© British Swimming 2006, Revised 2020)
+    source_ids:
+    - src.british-swimming-a-guide-to-anaerobic-traini-a
   - system: glycolytic_tolerance
     name_zh: 糖酵解—乳酸耐受（lactate tolerance）
     protocol_zh: 🟠 距離 35–100m（50m 最常用最實用）、組間給足恢復以全程維持專項配速；強度高，完全恢復需 ≥48 小時，通常每週一組即可。目的是『在高乳酸下還能維持速度』。
     cert: 🟠
     source: British Swimming《A Guide to Anaerobic Training—Lactate Tolerance》(© British Swimming 2006, Revised 2020)
+    source_ids:
+    - src.british-swimming-a-guide-to-anaerobic-traini-b
   - system: glycolytic_measured
     name_zh: 糖酵解—實測血乳酸（佐證）
     protocol_zh: 🟢 衝刺間歇組 4×50 / 6×50 / 8×50m 自由式（不同恢復）可誘發血乳酸 12–18 mmol/L——印證這類組確實打在糖酵解系統。
     cert: 🟢
     source: PMC8607769（Sprint Interval Swim Training Set 與 100m 自由式關聯，血乳酸+運動學）；另見 PMC10747448（訓練組順序對乳酸反應）
+    source_ids:
+    - src.pmc8607769
   - system: oxidative
     name_zh: 有氧（交叉引用既有節點）
     protocol_zh: 🔵 有氧各區的量與配速不另立——直接用 liee_methods（主動恢復/LSD/節奏/有氧間歇）與 swim_maglischo（En1/En2/En3）。
     cert: 🔵
     source: 本檔 liee_methods（Bompa Ch11 Table 11.1）+ swim_maglischo（Maglischo 2012）
+    source_ids:
+    - src.liee-methods-bompa-ch11-table-11-1-swim-magl-2012
   protocol_caveat_zh: 🔴 等級限制：上述磷酸原與糖酵解協議多為**教練指南／共識層（🟠）**，非 RCT 驗證的最適處方——具體距離/休息/量是現場慣用值不是實驗最佳化結果。引用時講方向與量級即可，別當精確定論；RCT 級協議比較仍是研究空白。
   plain_zh: 身體有三套供能系統，差別在『撐多久、靠什麼、怎麼累』：① 磷酸原（ATP-PCr）——前 10 秒的爆發力來源，用肌肉裡現成的能量，不產乳酸，但很快用完，休 3–5 分鐘才回補；對應 25m 衝刺、出發轉身。② 糖酵解——10 秒到 2 分鐘的主力，燒肝糖但會堆乳酸讓你發酸撐不住；對應 100、200。③ 有氧——2 分鐘以上越來越主導，燒糖和脂肪、可持續，還負責你運動後的恢復；對應 400 以上。三套不是開關切換，而是隨時都在跑、只是誰當主角。怎麼練：磷酸原用超短衝刺＋長休，糖酵解用 30 秒–2 分鐘的硬組＋不完全休息，有氧用長慢游和節奏游。注意：連衝刺選手大部分訓練量也還是在有氧系統。
   links:
@@ -247,6 +271,8 @@ swim_energy_by_distance:
   id: periodization.zones.swim_energy_by_distance
   cert: 🟢
   source: Toussaint & Hollander 1994 (Sports Med 18:384–405); Rodríguez & Mader 2011
+  source_ids:
+  - src.toussaint
   events:
   - event: 50m
     aerobic_pct: ≈5–20%
@@ -282,6 +308,8 @@ swim_tid:
   id: periodization.zones.swim_tid
   cert: 🟢
   source: González-Ravé et al. 2021 (IJSPP 16(7):913–926, PMID 33952709, 系統回顧 9 篇入選/162 筆 TID); Papadimitriou et al. 2025 (Eur J Appl Physiol, DOI 10.1007/s00421-025-06064-x，全文); Barbosa et al. 2019（衝刺者）
+  source_ids:
+  - src.gonzalez-rave
   archetypes:
   - key: polarized
     name_zh: 極化型
@@ -305,6 +333,8 @@ swim_application:
   id: periodization.zones.swim
   cert: 🔵
   source: Ch7 Table 7.1 + Ch11 Table 11.2 框架推導（游泳項目對映）
+  source_ids:
+  - src.ch7-table-7-1-ch11-table-11-2
   pace_mapping_zh: 🔵 游泳組課強度以『比賽配速百分比』表達，直接套 Table 7.1：賽配速=zone 2，高於賽配速（衝刺/乳酸耐受）=zone 1，閾值/節奏=zone 3，有氧基礎=zone 4，恢復游=zone 5
   event_metabolic_zh: 🔵 50–100m 偏無氧功率（zone 1–2）；200m 混合（Fig 5.11 bi-cycle 範例即 200m）；400–1500m 為肌耐力主導，需 specific endurance 階段大量 zone 3–4 鋪墊
   weekly_distribution_zh: 🔵 依 Bompa『每週 ≥50% 賽配速』原則，swim-coach 週課表應確保賽配速組（zone 2）占足比重，其餘以 zone 4 有氧基礎與 zone 5 恢復填充
@@ -320,6 +350,8 @@ school_polarized:
   id: periodization.zones.school_polarized
   cert: 🟢
   source: Seiler & Kjerland 2006 (PMID 16430681); Seiler 2010 (IJSPP 5(3):276–291); Stöggl & Sperlich 2014 (PMC3912323); González-Ravé et al. 2021 (PMID 33952709, IJSPP 16(7):913–926)
+  source_ids:
+  - src.seiler
   three_zone_basis_zh: 🟢 以通氣閾值 VT1/VT2 劃三區（對應 swim_three_zone 的乳酸三區，但邊界稍浮動不可當精確定論）：Z1 < VT1（≤~2 mmol，可全程對話）；Z2 VT1–VT2（~2–4 mmol，閾值附近）；Z3 > VT2（>4 mmol，間歇強度）。
   distribution:
   - key: polarized
@@ -356,6 +388,8 @@ olbrecht_model:
   id: periodization.zones.olbrecht_model
   cert: 🟡
   source: Olbrecht 2000《The Science of Winning》(書摘/訪談重建); Scientific Triathlon EP#198 訪談; TMR Coaching / lactate.com / INSCYD 二手摘要
+  source_ids:
+  - src.olbrecht-2000
   optimum_not_max_zh: 🟡 核心命題『最適而非最大』：有氧與無氧代謝都要發展到『最適』而非『最大』水準才有最佳成績。兩系統反向制衡——無氧能力（VLamax）過高會壓低乳酸閾值與脂肪燃燒、延長恢復；過度追求有氧最大化又壓制無氧速度儲備。目標不是把任一曲線推到極限，而是找各事件的最適組合點。
   threshold_critique_zh: 🟡『魔法子彈謬誤』：Olbrecht 指控『在最大乳酸穩態速度訓練就能最優提升耐力』是迷思——耐力成分複雜，單一強度無法覆蓋；他主張閾值訓練在有氧或無氧上都不比均衡計畫有優勢。現場矛盾佐證：有些選手閾值進步了成績卻沒進步，有些看似失去有氧耐力卻游出生涯最佳。
   capacity_power_zh: 🟢 四象限（理解全框架的前提）：有氧能力＝VO2max（引擎排氣量）；有氧功率＝比賽中能動用多少比例有氧能力，近似乳酸閾值（轉速使用率）；無氧能力＝VLamax 最大乳酸生成速率（渦輪峰值）；無氧功率＝維持近最大速度的持久度。關鍵限制：『能力與功率不能同時提升』（Olbrecht 訪談原話），每階段須有主攻方向、分期安排。

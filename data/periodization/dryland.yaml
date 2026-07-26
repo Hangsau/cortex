@@ -16,6 +16,8 @@ transfer_evidence:
   id: periodization.dryland.transfer
   cert: 🟡
   source: Amaro et al. 系統回顧 (Science & Sports, S0765159718302363); 簡短回顧 (Redalyc 3010); Frontiers Physiology 2024 統合分析 (DOI 10.3389/fphys.2024.1406518)
+  source_ids:
+  - src.fphys-2024-1406518
   positive_zh: 支持的證據：多項研究看到 25m、50m、400m 自由式表現、划距（stroke length）、划頻（stroke rate）改善；其中**最大力量訓練是最有效的方法**。2024 統合分析指出阻力訓練顯著提升上肢力量與前爬式表現，機轉推測是透過提高划頻。年輕競技泳者的臥推 6RM 與游泳表現有中度顯著相關。
   negative_zh: 🟡 反向證據（必讀）：回顧的 16 篇研究中約 **7 篇未報告任何正向或負向效果**。臥推力量在部分研究中**無法顯著預測衝刺速度**；另一研究發現力量耐力、最大力量、對照三組之間 **100m 衝刺時間沒有差異**。
   conditions_zh: 轉移成不成立取決於：① 對象的競技水準與技術成熟度（技術未定型者轉移弱）；② 訓練專項性（越接近游泳動作模式轉移越好——划手板、拖傘等水中阻力工具的轉移高於純陸上自由重量）；③ 年齡／性別／訓練史的調節效果，現有研究極少，是已知缺口。
@@ -28,6 +30,8 @@ methods:
   id: periodization.dryland.methods
   cert: 🟢
   source: Frontiers Physiology 2025 網絡統合分析 (DOI 10.3389/fphys.2025.1636595); 水上運動增強式 SR (PMC9424421, n=618); 前爬式 S&C 生物力學 SR (PMC8488830)
+  source_ids:
+  - src.pmc9424421-a
   methods_list:
   - name_zh: 最大力量訓練
     desc_zh: 少次數、大重量（≥85% 1RM）。轉移證據最強，尤其對技術成熟泳者的功率輸出。
@@ -51,6 +55,8 @@ concurrent_scheduling:
   id: periodization.dryland.concurrent
   cert: 🟢
   source: Delayed Effect of Dry-Land Strength Training Sessions on Swimming Performance, J Funct Morphol Kinesiol 2023 (PMID 37489300 / PMC10366873)
+  source_ids:
+  - src.pmc10366873
   finding_zh: 8 名泳者（18.6±2.9 歲）傍晚做陸訓（最大力量 MS 或力量耐力 SE，19:00–19:40），接著 90 分鐘泳池課；隔天早上 8:30 測 100m 自由式衝刺。三種條件（MS / SE / 對照）的成績**無顯著差異**（MS 64.70、SE 63.81、CON 64.52 秒，p>0.05），RPE、血乳酸、生物力學變數也都無差異。
   interpretation_zh: 🟢 推論：經過約 12 小時恢復（含一夜睡眠），前一天的陸訓不會在隔天造成可測的殘留疲勞。實務上，把較重的最大力量陸訓排在關鍵泳池課或比賽的**前一天傍晚以上的間隔**，隔天表現不受影響；但**不要在比賽當天或關鍵課的同幾小時內**安插重陸訓。
   caveat_zh: 🟢 限制：n 僅 8、單一年齡層（成年青年）、單次急性設計。減量／達峰期間（taper）的陸訓劑量該怎麼降、青少年的恢復窗是否更長，都還沒有對應證據——別把『12 小時就好』外推到所有對象與所有週期階段。
@@ -63,6 +69,8 @@ injury_prevention:
   id: periodization.dryland.injury
   cert: 🟢
   source: McKenzie et al. 2023 SR, Scand J Med Sci Sports (DOI 10.1111/sms.14454); Kabat D2 彈力帶計畫, Frontiers Physiology 2023 (PMC10679734); 綜合傷害預防 RCT (ScienceDirect S1360859225004899)
+  source_ids:
+  - src.mckenzie-2023-b
   risk_factors_zh: 2023 系統回顧指出競技泳者肩痛的風險因子集中在：肩關節活動度、肩鬆弛／不穩定、肩部姿勢、肩胛動力異常（scapular dyskinesis）。反覆划手讓**內旋肌**比拮抗的**外旋肌**更強，形成肌力失衡——這是游泳肩的結構性源頭。
   intervention_zh: 🟢 有效介入：8 週彈力帶肩旋轉肌計畫（Kabat D2 對角屈曲模式，RCT n=22 男泳者）改善內外旋活動度、等長肌力與肩胛動作。針對性強化**外旋肌與肩胛穩定肌**是抵消失衡的方向。
   kinetic_chain_zh: 🟢 2024 觀念更新：只練孤立的旋轉肌袖或肩胛穩定肌可能不夠——綜合傷害預防 RCT 顯示，涵蓋整條動力鏈（kinetic chain）的訓練能顯著提升青少年泳者的上肢動態穩定，並同時改善自由式表現。預防與表現不是兩件事。
@@ -77,6 +85,8 @@ youth_safety:
   id: periodization.dryland.youth
   cert: 🟢
   source: AAP Pediatrics 2020;145(6):e20201011; NSCA Youth Resistance Training 立場聲明; Swimming Australia 處方
+  source_ids:
+  - src.aap-pediatrics-2020-145-6-e20201011-nsca-you-2020
   age_zh: 🟢 介入年齡：並無『最低年齡』硬門檻——只要孩子能**聽懂並遵守指令與安全規則**（大致 7–8 歲、開始參與有組織運動的時機）就可以開始某種形式的阻力訓練。多個機構建議 5–8 歲是引入的合適區間。
   maturation_zh: 🟢 成熟度優先於實齡：同一實齡的孩子生理成熟度可差 **4–5 歲**，所以要看**生物年齡與訓練年齡**，不是只看出生日期。
   swim_specific_zh: 🟢 游泳專項處方（Swimming Australia）：**尚未進入發育衝刺期（PHV）前，只做自體重量訓練**；負重阻力訓練建議用於女生大於 13 歲（男生更晚，對應其較晚的 PHV）。對齊 ADM 分齡與 PHV（女 ~12.5 / 男 ~14）。
@@ -91,6 +101,8 @@ flexibility_mobility:
   id: periodization.dryland.flexibility
   cert: 🟢
   source: McCullough et al. 2009/2010 踝活動度與踢水推進相關研究; Pink/Tibone 肩關節基線; 通用瑜伽解剖 / 運動科學共識
+  source_ids:
+  - src.mccullough-d
   premise_zh: 游泳對三個關節活動度的依賴度高於多數運動：**肩**（划手延伸與高肘恢復）、**髖**（蛙腿外翻與蝶腰波動）、**踝**（蹠屈推進面積）。三個關節若活動度不足，技術天花板會被『硬體上限』壓住，無論再怎麼練感知都打不破。柔軟度訓練在陸訓裡屬於『拆天花板』那一側，跟最大力量訓練（蓋更高的功率輸出）並列、不互相替代。
   shoulder_zh: 🟢 **肩關節**：游泳要求的肩活動範圍是運動界最大之一（過頭屈曲 + 內外旋複合）。划手側內旋肌長期使用會變短變緊，外旋肌相對弱化（見上方 injury_prevention）；陸訓柔軟度的重點是**內旋肌伸展 + 後囊鬆動**，不是把活動度練得無限大（過度鬆會讓肩不穩定，反而提高傷害風險）。常用工具：胸大肌與前三角伸展、肩後囊 sleeper stretch、PVC 棍過頭迴旋。
   hip_zh: 🟢 **髖關節**：蛙式踢腿要求**髖內旋**（讓腳掌可以外翻朝後推水）、蝶式波動要求**髖屈伸**幅度。髖內旋活動度受限的選手蛙踢只能靠加寬膝距代償，造成正面阻力增加。陸訓重點：髖內旋活動度（lying hip rotation、90/90 stretch）、髖屈肌伸展（lunge variations）；對長期久坐者尤其重要（坐姿縮短髂腰肌）。
@@ -108,6 +120,8 @@ null_caveats:
   id: periodization.dryland.caveats
   cert: 🟡
   source: 簡短回顧 (Redalyc 3010); 增強式水上運動 SR (PMC9424421)
+  source_ids:
+  - src.pmc9424421-b
   items_zh:
   - 回顧的 16 篇研究中約 7 篇對游泳表現**無任何顯著效果**。
   - 臥推力量在部分研究中**無法顯著預測**衝刺速度。

@@ -37,7 +37,7 @@
 {{ end }}
 
 {{/* ── 本式完整練習庫（依需求篩：環節 × 水感階段） ── */}}
-{{ $drillCatName := dict "breathing" "呼吸" "balance" "平衡" "kick" "踢腿" "arm" "划手" "timing" "銜接" "sculling" "搖櫓" "turn" "出發轉身" }}
+{{ $drillCatName := dict }}{{ range (index hugo.Data "vortex" "drills").categories }}{{ $drillCatName = merge $drillCatName (dict .key .name_zh) }}{{ end }}
 {{ $strokeFull := index (dict "free" "freestyle" "back" "backstroke" "breast" "breaststroke" "fly" "butterfly" "udk" "underwater_dolphin_kick" "starts-turns" "starts_turns") $key }}
 {{ $strokeDrills := slice }}
 {{ with (index hugo.Data "vortex" "drills") }}

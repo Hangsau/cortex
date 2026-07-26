@@ -257,7 +257,14 @@ def sync_drills(dry_run: bool):
     canonical 是 single source of truth；本函式只搬運，不改內容。
     輸出沿用 my-site 既有 block-style（PyYAML 預設 block dump 即對齊），
     並把 canonical 新增的 how_to 欄位一併帶過。
+
+    categories 取自 Drills/_categories.yaml（drills 標籤的單一真相源），
+    與 teaching-errors / technical-analysis 同一模式；layout 不得硬編副本。
     """
+    cat_data = yaml.safe_load(
+        (DRILL_SRC_DIR / "_categories.yaml").read_text(encoding="utf-8")
+    ) or {}
+
     all_drills = []
     per_stroke = []
     for stroke in DRILL_STROKES:
@@ -274,13 +281,14 @@ def sync_drills(dry_run: bool):
     for stroke, n in per_stroke:
         print(f"  {stroke:12s} {n}")
     print(f"  TOTAL        {len(all_drills)}  (how_to: {howto_count})")
+    print(f"  categories   {len(cat_data.get('categories') or [])}")
 
     if dry_run:
         print("  [dry-run，未寫入 drills.yaml]")
         return
 
     out = yaml.safe_dump(
-        {"drills": all_drills},
+        {"categories": cat_data.get("categories", []) or [], "drills": all_drills},
         allow_unicode=True,
         default_flow_style=False,
         sort_keys=False,

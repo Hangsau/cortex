@@ -11,8 +11,12 @@ categories:
   name_zh: 身體旋轉
 - key: undulation
   name_zh: 身體波動
+- key: recovery
+  name_zh: 回臂
 - key: timing
   name_zh: 手腳時序
+- key: coupling
+  name_zh: 動力耦合
 - key: head
   name_zh: 頭部與換氣
 - key: tempo
@@ -62,11 +66,17 @@ points:
   - certainty: 🟢
     text: 50m 中 SL 是主要速度決定因子，SR 在男子 50m 與速度甚至呈負相關；精英金牌能在高 SR 下維持 SL。
     source: Staunton, Ruiz-Navarro & Born 2025
+    source_ids:
+    - src.staunton-2025-d
   - certainty: 🟢
     text: 划手穩定性（stroke steadiness）與速度相關 r = -0.61 至 -0.749，維持穩定的划手週期是高水準選手與地方選手的關鍵差距。
     source: Ruiz-Navarro et al. 2024
+    source_ids:
+    - src.ruiz-navarro-2024
   practical_implication: SR 訓練目標是提高神經快速徵召能力上限；SL 訓練目標是在高 SR 下維持捕水效率和阻力控制；兩者都要練，不是二選一。
   cross_ref: free.tech.13（划頻 vs 划距的生理條件分析）
+  cross_ref_ids:
+  - free.tech.13
 - id: free.tech.4
   stroke: free
   category: style
@@ -140,6 +150,8 @@ points:
   - certainty: 🟢
     text: 入水手部姿勢對阻力影響的量測（PDM, APLab Italy，配速 2.3 m/s）——指張開 +2%、腕側彎 +2.3%、腕後仰 +13%、腕下彎 +12%、小指朝下 -9.5%。對照基準為指尖前指、掌心朝下、腕直、指/拇緊閉。
     source: The Race Club PDM 量測資料
+    source_ids:
+    - src.race-club-pdm-data
   practical_implication: 教學口令應依風格分流。長距離（800/1500/open water）與三鐵泳者用 hip-driven/hybrid 時應加入「小指朝下入水」訓練；衝刺與 100m 沒有時間做這個翻轉，直接「掌心朝下、指緊、立刻抓水」。任何泳者都要避開腕後仰或腕下彎的入水（這是 13% 阻力陷阱）。
 - id: free.tech.28
   stroke: free
@@ -162,8 +174,12 @@ points:
   - certainty: 🟠
     text: The Race Club PDM 測試確認手掌（非前臂）是推進力的主要來源；三個物理原因（形狀、速度、拳頭測試）均支持此結論。
     source: Hall Sr. 2020
+    source_ids:
+    - src.hall-sr-2020
   practical_implication: 教學口令應從「讓前臂推水」改為「保持肘尖朝向游進方向」；高肘的訓練限制因素是前鋸肌耐力，而非技術理解。
   cross_ref: free.tech.10（前鋸肌硬體邊界）
+  cross_ref_ids:
+  - free.tech.10
 - id: free.tech.10
   stroke: free
   category: hardware
@@ -176,9 +192,13 @@ points:
   - certainty: 🟡
     text: EMG 分析確認前鋸肌在整個划手週期持續活化；疲勞後前鋸肌活化下降，菱形肌代償，肩胛骨去穩定——奠定游泳肩機制的基礎研究。
     source: Pink, Perry et al. 1991
+    source_ids:
+    - src.pink-1991-b
   - certainty: 🟢
     text: 游泳肩發生率 35–91%（定義不同）；前鋸肌和肩胛下肌是核心風險肌肉；前鋸肌疲勞後肩胛骨去穩定是主要機制。
     source: StatPearls 2023
+    source_ids:
+    - src.statpearls-2023
   practical_implication: 陸上訓練中前鋸肌訓練的目標是「耐力」而非「力量」；這是游泳訓練中最被忽略的陸上需求——不是技術不夠好，而是支撐技術的硬體撐不住。
 - id: free.tech.11
   stroke: free
@@ -210,6 +230,8 @@ points:
   - certainty: 🟡
     text: 踝關節蹠屈柔韌性與踢水速度直接相關；陸上踝關節柔韌性訓練能改善游泳踢水效率。
     source: McCullough et al. 2009/2010
+    source_ids:
+    - src.mccullough-b
   practical_implication: 踝關節柔韌性訓練應優先於踢水力量訓練；跑步背景泳者須先解決踝關節活動度限制，增加踢水次數或力量是錯誤介入方向。
 - id: free.tech.14
   stroke: free
@@ -234,9 +256,13 @@ points:
   - certainty: 🟡
     text: 12 塊肌肉 EMG 分析確認推水末段肩胛肌群（含菱形肌）是旋轉的主動發動者。舊但仍有效。
     source: Pink, Perry et al. 1991
+    source_ids:
+    - src.pink-1991-b
   - certainty: 🟠
     text: Hip-driven 與 Shoulder-driven 風格的髖旋轉幅度範圍來自菁英影像觀察。
     source: Race Club / 通用菁英觀察
+    source_ids:
+    - src.race-club-b
   practical_implication: 在高划頻下刻意主動旋轉髖部會讓動作失調；短距離訓練應讓髖保持相對穩定，「把肩膀教好，髖部自然跟著動」。
 - id: free.tech.16
   stroke: free
@@ -304,6 +330,8 @@ points:
   - certainty: 🟢
     text: 男子在 400m–1500m 之間從長 SL 低 SR 轉為高 SR 低 SL；女子轉換點更早（200m–400m），反映不同的生理策略。
     source: Staunton, Ruiz-Navarro & Born 2025
+    source_ids:
+    - src.staunton-2025-d
   practical_implication: 診斷速度瓶頸時應先問「SL 下降是技術問題還是生理條件問題」，而非直接提高划頻。
 - id: free.tech.20
   stroke: free
@@ -317,6 +345,8 @@ points:
   - certainty: 🟡
     text: 91% 泳者有至少一項划手錯誤；跨越中線入水與 dropped elbow 高度相關，是最常見的兩類錯誤。
     source: Virag et al. 2014
+    source_ids:
+    - src.virag-2014
   practical_implication: 修正入水位置在肩膀正前方（11 點/1 點方向）；回臂肘部下沉與跨越中線高度相關，修正回臂起始姿勢可同步改善入水位置。
 - id: free.tech.21
   stroke: free
@@ -330,6 +360,8 @@ points:
   - certainty: 🟡
     text: Dropped elbow 是最常見的正面阻力錯誤，與跨越中線入水高度相關；91% 泳者有至少一項划手錯誤。
     source: Virag et al. 2014
+    source_ids:
+    - src.virag-2014
   practical_implication: 修正感知口令：「保持肘尖朝向游進方向」；dropped elbow 往往引發跨越中線，修正根本錯誤可連帶改善多個表面錯誤。
 - id: free.tech.22
   stroke: free
@@ -352,6 +384,8 @@ points:
   - certainty: 🟢
     text: 31 名大學游泳選手中 91% 有至少一項划手錯誤；錯誤之間高度相關，一個錯誤往往引發另一個。具體實證數據（n=31, 2014）。
     source: Virag et al. 2014
+    source_ids:
+    - src.virag-2014
   practical_implication: 診斷時應尋找因果鏈起點，不要同時修正所有表面錯誤；通常修正根本錯誤（如捕水位置或回臂姿勢）能連帶改善 2–3 個下游表面錯誤。
 - id: free.tech.24
   stroke: free
@@ -365,9 +399,13 @@ points:
   - certainty: 🟢
     text: 精英選手的疲勞優勢在「維持 SL 更久」而非 SR 更高。
     source: Staunton, Ruiz-Navarro & Born 2025
+    source_ids:
+    - src.staunton-2025-d
   - certainty: 🟡
     text: 前鋸肌疲勞後菱形肌代償→肩胛骨去穩定→高肘動作無法維持。
     source: Pink, Perry et al. 1991
+    source_ids:
+    - src.pink-1991-b
   practical_implication: 訓練目標：在疲勞下主動監測 SL 而非被動依賴 SR 補償；SL 是最早的疲勞警報信號但泳者通常感知不到，需建立對 SL 的主動意識。
 - id: free.tech.25
   stroke: free
@@ -388,6 +426,8 @@ points:
     text: 自由式手臂推進的連續性比蝶式和蛙式高，速度波動最小化符合能量最優原則；三種系統性風格（hip/shoulder/hybrid）由生理條件和距離共同決定，而非純粹風格偏好。
   practical_implication: 理解四式技術差異有助於跨式訓練設計；自由式無「唯一正確技術」的特性使評估框架必須依個人生理條件調適，不能用統一標準強加於不同泳者。
   cross_ref: free.tech.1（無唯一最優技術的框架前提）
+  cross_ref_ids:
+  - free.tech.1
 - id: free.tech.32
   stroke: free
   category: stroke-cycle
@@ -408,6 +448,11 @@ points:
       '
   practical_implication: 對教練：依選手主項距離與風格決定光譜定位，不要把衝刺直臂訓練套到長距離選手身上。對選手：練多種光譜位置以備不同距離與後段策略——例如 200m 前段用 mid、後段切高能量直臂衝。轉換並不會自然發生，需專門訓練。
   cross_ref: free.tech.4/5/6（hip/shoulder/hybrid 風格的對應位置）、free.tech.16（晚期回臂作為 coupling 動作）
+  cross_ref_ids:
+  - free.tech.4
+  - free.tech.5
+  - free.tech.6
+  - free.tech.16
 - id: free.tech.33
   stroke: free
   category: hardware
@@ -424,6 +469,10 @@ points:
       '
   practical_implication: 對教練：當六拍踢與划手 coupling 看起來「就是不對」時，先檢查筋膜鏈中段（腹外斜肌、闊筋膜張肌、胸腰筋膜）的張力與柔軟度，比直接修改踢水動作更可能找到根因。對選手：螺旋線特定段的拉伸與啟動訓練（如螺旋伸展、單側 deadbug、單邊 carry）可改善這條鏈的功能性。對應 dryland 的 kinetic chain 整合訓練（見 dryland.yaml injury_prevention.kinetic_chain_zh）。
   cross_ref: free.tech.10（前鋸肌）、free.tech.15（菱形肌啟動旋轉）、free.tech.16（coupling）
+  cross_ref_ids:
+  - free.tech.10
+  - free.tech.15
+  - free.tech.16
 - id: free.tech.30
   stroke: free
   category: rotation
@@ -436,7 +485,7 @@ points:
   perception_signal: 對稱時手背在側躺滑行階段感覺水流均勻向後（不是側壓或亂流）；不對稱時弱側會感覺水流偏一邊或無感
 - id: free.tech.31
   stroke: free
-  category: tactic
+  category: fatigue
   title: 神經肌肉控制限制下的技術退化——CP 選手 30 秒後系統性下降，配速策略要前低後高
   summary: 部分泳者（典型如腦性麻痺背景）的技術會在約 30 秒後系統性退化——這不是體能不足而是神經肌肉控制特性。傳統「保持均速、後段衝刺」的配速策略對這類選手會失效，比賽策略應反過來：前段刻意降強度以保留末段技術品質。
   mechanism:
@@ -463,6 +512,8 @@ points:
       '
   practical_implication: 訓練流線型不是只在出發和轉身做；每個 stroke cycle 都有 streamline 回歸窗口（手出水前後）。教學重點是「回到 streamline 的速度」，不是「保持划手不變形」。Drill：每三划後刻意 streamline 滑行 3 秒，建立「划手 → streamline → 划手」的循環感知。
   cross_ref: free.tech.32（octane recovery 是 streamline 偏離程度的選擇）
+  cross_ref_ids:
+  - free.tech.32
 - id: free.tech.35
   stroke: free
   category: timing
@@ -483,6 +534,10 @@ points:
       '
   practical_implication: SR-SL 曲線測試是 L4-L5 評估的核心：用 4-6 個逐漸加速的 50m，記錄每趟 SR 與 SL（劃數/距離），繪出曲線。曲線斜率與絕對位置都是教練指標。訓練重點：先用 tempo trainer 在不同 SR 下保持 SL，建立曲線平緩的本體控制。
   cross_ref: free.tech.4/5/6（hip/shoulder/hybrid 風格決定起點位置）
+  cross_ref_ids:
+  - free.tech.4
+  - free.tech.5
+  - free.tech.6
 - id: back.tech.28
   stroke: back
   category: recovery
@@ -509,6 +564,9 @@ points:
       '
   practical_implication: 仰式 recovery 處方應依距離與肩柔軟度評估。教學早期建立中等彎臂作為預設，待選手肩柔軟度與專項距離確定後再切換。直臂訓練前必須通過肩活動度評估，否則訓練越多傷越多。
   cross_ref: free.tech.32（octane 三層光譜物理基礎）、back.err15（誤套導致的傷害風險）
+  cross_ref_ids:
+  - free.tech.32
+  - back.err15
 - id: back.tech.29
   stroke: back
   category: recovery
@@ -531,6 +589,9 @@ points:
       '
   practical_implication: 必須用外部回饋校正入水位置：① 教練從泳池上方拍攝、選手回看影片；② 水道線輔助 drill——選手沿水道線游、用手腕輕觸水線確認入水點對齊；③ Bk22 泳鏡平衡 drill 鞏固身體軸線靜止後再評估手位置。本體感覺單獨不足以判定入水位置。
   cross_ref: back.err11（小指先入水執著常引發入水偏外）、Bk22（泳鏡平衡）
+  cross_ref_ids:
+  - back.err11
+  - Bk22
 - id: back.tech.1
   stroke: back
   category: rotation
@@ -543,6 +604,8 @@ points:
   - certainty: 🟢
     text: 3D運動學比較自由式與仰式上肢動作，確認仰式肩旋轉 49.73 ± 5.73°、髖旋轉 39.83 ± 7.25°。
     source: Gonjo et al. 2020
+    source_ids:
+    - src.gonjo-2020-c
   practical_implication: 旋轉幅度有個體最優值，訓練應找到個人的穩定旋轉角度，而非追求固定數字；個體差異（SD ≈ 6°）屬正常範圍。
 - id: back.tech.2
   stroke: back
@@ -556,9 +619,13 @@ points:
   - certainty: 🟢
     text: 仰式在不同速度下肩旋轉與髖旋轉幅度不隨速度改變，後被 2021 期刊研究延伸確認。
     source: Gonjo et al. 2016
+    source_ids:
+    - src.gonjo-2016
   - certainty: 🟢
     text: 仰式在增加強度時維持整體旋轉幅度，旋轉峰值時序轉移至週期前段，是與自由式的關鍵差異。
     source: Gonjo et al. 2021
+    source_ids:
+    - src.gonjo-2021-c
   practical_implication: 「衝刺時縮小旋轉以提高頻率」的策略在仰式不適用；疲勞也不應作為縮小旋轉的理由。旋轉幅度的穩定性本身是仰式效率的指標。
 - id: back.tech.3
   stroke: back
@@ -590,6 +657,8 @@ points:
   - certainty: 🟢
     text: 精英仰式泳者肩旋轉平均 49.73 ± 5.73°，個體差異顯著（SD ≈ 6°）。
     source: Gonjo et al. 2020
+    source_ids:
+    - src.gonjo-2020-c
   practical_implication: 訓練目標是找到「個人最優旋轉角度」並穩定複現，而非追求某個固定數字。約 45–50° 是群體中位數，不是每人的最優解。
 - id: back.tech.6
   stroke: back
@@ -639,6 +708,8 @@ points:
   - certainty: 🟡
     text: 早期手部流體力學量化，奠定升力推進框架；具體數字今已被更精確方法替代，但原理推導仍有效。
     source: Schleihauf 1979（歷史依據，非當前定論）
+    source_ids:
+    - src.schleihauf-1979
   practical_implication: 「抓水感」的練習重點是讓前臂而非只是手掌面對推進方向；槳板輔助訓練有助建立前臂垂直的本體感知。
 - id: back.tech.11
   stroke: back
@@ -652,9 +723,13 @@ points:
   - certainty: 🟡
     text: 修正 S 形划手路徑為橢圓形路徑；定性方向至今有效。
     source: Maglischo 2003
+    source_ids:
+    - src.maglischo-2003-b
   - certainty: 🟢
     text: 近期實測確認划手路徑個體差異顯著，「前臂面向推進方向」比路徑形狀更重要。
     source: Gonjo et al. 2020
+    source_ids:
+    - src.gonjo-2020-c
   practical_implication: 不應要求泳者走固定的 S 形或橢圓形軌跡；訓練重點是維持前臂面向推進方向的高肘，路徑隨個人最優化。
 - id: back.tech.12
   stroke: back
@@ -695,6 +770,8 @@ points:
   - certainty: 🟡
     text: 仰式上踢是推進主力，定性結論仍被接受；70–80% 佔比的具體量化已過時。
     source: Maglischo 2003（屬定性方向參考，量化數字待現代研究更新）
+    source_ids:
+    - src.maglischo-2003-c
   practical_implication: 訓練上踢時注意蹠屈到位（足背朝後），是踢水產生推進力的前提；踝關節柔韌性不足會直接限制此動作。
 - id: back.tech.16
   stroke: back
@@ -708,6 +785,8 @@ points:
   - certainty: 🟢
     text: 踝關節蹠屈柔韌性與踢水速度顯著相關；柔韌性訓練（非力量訓練）是提升踢水效率的主要途徑；記錄到極度僵硬者踢水在無手臂輔助時產生淨倒退力。
     source: McCullough et al. 2009
+    source_ids:
+    - src.mccullough-2009-b
   practical_implication: 踝關節柔韌性訓練應優先於腿部力量訓練；陸上踝關節蹠屈伸展和蛙鞋輔助訓練是最直接的改善途徑。
 - id: back.tech.17
   stroke: back
@@ -721,6 +800,8 @@ points:
   - certainty: 🟢
     text: 50–200m 有不同生理與運動學模式；提升划手距離對 200m 效率的影響優先於踢水頻率；六拍踢是精英中的普遍策略但非絕對最優。
     source: González-Ravé et al. 2025
+    source_ids:
+    - src.gonzalez-rave-2025-b
   practical_implication: 教練應視距離與個人特質調整踢水策略；不應把「六拍一定更好」作為全距離通用原則。
 - id: back.tech.18
   stroke: back
@@ -734,6 +815,8 @@ points:
   - certainty: 🟡
     text: 踢水深度約 30–40 cm 推進力最大；同時指出更大深度也增加阻力，存在最優區間（屬群體均值，非個人最優）。
     source: Maglischo 2003（量化區間屬歷史參考，現代研究尚未更新具體值）
+    source_ids:
+    - src.maglischo-2003-d
   practical_implication: 踢水深度是個人最優值，不應以固定數字為目標；感知「推進感」優先於追求視覺上的特定深度。
 - id: back.tech.19
   stroke: back
@@ -774,9 +857,13 @@ points:
   - certainty: 🟢
     text: 100m 仰式中出發與轉身時間佔整場近 1/3；流線型品質是 100m 成績的最重要單一技術預測因子之一。
     source: González-Ravé et al. 2025
+    source_ids:
+    - src.gonzalez-rave-2025-b
   - certainty: 🟢
     text: 出發與轉身表現與 100m 仰式成績顯著相關（r > 0.7）；滑行距離是獨立預測因子。
     source: Morais et al. 2019
+    source_ids:
+    - src.morais-2019
   practical_implication: 現代訓練優先級：出發+轉身流線型 ≥ 游進技術（至少在 100m 賽事中）。這是舊報告未強調的面向，由近期系統綜述所揭示。
 - id: back.tech.23
   stroke: back
@@ -799,6 +886,8 @@ points:
   - certainty: 🟢
     text: 疲勞時泳者維持肩旋轉但增加髖旋轉；仰式代償模式與蝶式（波動鏈中斷）截然不同。
     source: Psycharakis & Sanders 2010
+    source_ids:
+    - src.psycharakis-2010
   practical_implication: 教練觀察疲勞崩潰時，第一指標是髖旋轉是否顯著增加（而非肩旋轉縮小）；訓練核心旋轉控制能力可延緩崩潰序列。
 - id: back.tech.25
   stroke: back
@@ -812,6 +901,8 @@ points:
   - certainty: 🟢
     text: 仰式速度提升的重心正在從游進技術轉移到出發、轉身、完賽；100m 仰式出發+轉身時間合計佔整場近 1/3。
     source: González-Ravé et al. 2025
+    source_ids:
+    - src.gonzalez-rave-2025-b
   practical_implication: 訓練資源配置應重新評估；出發技術（起跳力學、背靠牆起跳 vs OSB13 起跳架）和轉身技術（翻轉觸牆、推蹬角度）的專項訓練應提升優先級。
 - id: back.tech.26
   stroke: back
@@ -825,9 +916,13 @@ points:
   - certainty: 🟢
     text: 仰式在不同速度下維持旋轉幅度（不像自由式縮小），旋轉是仰式效率的核心機制。
     source: Gonjo et al. 2020
+    source_ids:
+    - src.gonjo-2020-c
   - certainty: 🟡
     text: 蝶式兩踢功能不對稱（Entry Kick / Power Kick）；蝶式疲勞表現為波動鏈中斷序列。
     source: Maglischo 2003
+    source_ids:
+    - src.maglischo-2003-b
   practical_implication: 仰式分析深度應在「旋轉連動鏈」層面，對應蝶式的「波動連動鏈」；仰式尚需加入出發技術的專項分析（這是蝶式目前缺乏的面向）。
 - id: back.tech.27
   stroke: back
@@ -841,6 +936,8 @@ points:
   - certainty: 🟢
     text: 100m 仰式中出發與轉身時間合計佔整場近 1/3；仰式在四式中出發技術佔比最高。
     source: González-Ravé et al. 2025
+    source_ids:
+    - src.gonzalez-rave-2025-b
   practical_implication: 若要平行深化蝶式與仰式的技術分析，仰式需加入出發技術（起跳力學）和轉身技術（翻轉觸牆、推蹬角度）的專項研究，以對應蝶式的連動鏈分析深度。
 - id: breast.tech.1
   stroke: breast
@@ -872,6 +969,8 @@ points:
   - certainty: 🟢
     text: 外划功能確認為捕水前置動作，非推進相
     source: Nicol et al. 2022
+    source_ids:
+    - src.nicol-2022-c
   practical_implication: 外划幅度以不超過肩寬為上限（USMS 建議），不以更寬為目標；上肢力量越強或肩活動度受限者可有個人化調整空間。
 - id: breast.tech.4
   stroke: breast
@@ -894,6 +993,8 @@ points:
   - certainty: 🟢
     text: 國際金牌比國家選手更早啟動 insweep（biceps brachii + pectoralis major），輸出更大推進力
     source: Nicol et al. 2022
+    source_ids:
+    - src.nicol-2022-c
   practical_implication: insweep 的加速感是蛙式划手的核心感知目標，也是疲勞時最先崩潰的技術環節。
 - id: breast.tech.6
   stroke: breast
@@ -907,6 +1008,8 @@ points:
   - certainty: 🟢
     text: 回臂路徑與阻力關係確認
     source: Nicol et al. 2022
+    source_ids:
+    - src.nicol-2022-c
   practical_implication: 回臂階段目標是最低阻力，不是推進；掌形合攏、肘低是共識要求。
 - id: breast.tech.7
   stroke: breast
@@ -920,6 +1023,8 @@ points:
   - certainty: 🟢
     text: 精英選手（晉級組）比次精英（半決賽被淘汰組）有更長的 arm glide phase
     source: Nicol et al. 2022
+    source_ids:
+    - src.nicol-2022-c
   practical_implication: 滑行結束的最優時機是速度開始快速下降時才啟動外划，不在動能最高段打斷。
 - id: breast.tech.8
   stroke: breast
@@ -933,9 +1038,13 @@ points:
   - certainty: 🟢
     text: arm-leg coordination 時序與游速的相關性在所有技術指標中最高
     source: Nicol et al. 2022
+    source_ids:
+    - src.nicol-2022-c
   - certainty: 🟢
     text: late kick 有更小的速度下降百分比（%VDO）、更高的速度恢復百分比（%VR）
     source: Ward 2018（碩士論文，University of Hawaii at Manoa；亦見 Journal of Swimming Research Vol. 26）
+    source_ids:
+    - src.ward-2018
   practical_implication: 踢腿時機是速度波動管理的關鍵變數；晚踢策略有文獻支持，但需個人化調整。
 - id: breast.tech.9
   stroke: breast
@@ -949,9 +1058,13 @@ points:
   - certainty: 🟢
     text: CFD 完整分析蛙腿渦流：outsweep（足背 + 小腿後外側）→ insweep（大腿側 + 足背）→ 渦流合併後向後噴射是主推進機制
     source: Tanaka et al. 2024
+    source_ids:
+    - src.tanaka-2024-c
   - certainty: 🟢
     text: insweep 腳速與推進力 r=0.89
     source: Hayashi et al. 2025
+    source_ids:
+    - src.hayashi-2025
   practical_implication: 渦流整合機制解釋了為什麼 insweep 的加速度方向正確性比力量更重要，也解釋了膝距窄的雙重效益。
 - id: breast.tech.10
   stroke: breast
@@ -965,9 +1078,13 @@ points:
   - certainty: 🟢
     text: CFD 確認收腿是制動最大時刻；收腿時腳掌和小腿後外側產生制動渦流
     source: Tanaka et al. 2024
+    source_ids:
+    - src.tanaka-2024-c
   - certainty: 🟡
     text: 膝外旋（髖外旋功能性指標）與蛙腿游速顯著相關（r=0.35, p<0.08）
     source: Strzała et al. 2013
+    source_ids:
+    - src.strzala-2013-c
   practical_implication: 「腳跟往外側臀部靠」是物理最優路徑，但需要刻意建立——日常生活幾乎沒有對應動作；仰躺蛙腿可讓泳者直接看到自己的腿確認路徑。
 - id: breast.tech.11
   stroke: breast
@@ -981,6 +1098,8 @@ points:
   - certainty: 🟡
     text: 膝外旋與游速顯著相關（r=0.35）
     source: Strzała et al. 2013
+    source_ids:
+    - src.strzala-2013-c
   practical_implication: 「等腳掌到位再蹬」——腳掌斜後方出現水壓是蹬水確認訊號；速度越快越需建立此感知。
 - id: breast.tech.12
   stroke: breast
@@ -994,6 +1113,8 @@ points:
   - certainty: 🟢
     text: insweep 腳速 r=0.89；踝蹠屈角速度 r=0.59；膝伸展角速度峰值負相關 r=-0.54
     source: Hayashi et al. 2025
+    source_ids:
+    - src.hayashi-2025
   practical_implication: 訓練目標是「渦流方向正確的加速」而非「更大的蹬腿力量」；夾腿沒有加速是推進力渙散的根本原因。
 - id: breast.tech.13
   stroke: breast
@@ -1016,9 +1137,13 @@ points:
   - certainty: 🟡
     text: 踝關節柔韌性是蛙腿游速的獨立預測因子
     source: Strzała et al. 2013
+    source_ids:
+    - src.strzala-2013-c
   - certainty: 🟢
     text: 踝蹠屈角速度與推進力 r=0.59
     source: Hayashi et al. 2025
+    source_ids:
+    - src.hayashi-2025
   practical_implication: 訓練優先級：踝關節柔韌性 > 踢腿力量——這是文獻一致的結論，且與多數業餘訓練習慣相反。
 - id: breast.tech.15
   stroke: breast
@@ -1032,9 +1157,13 @@ points:
   - certainty: 🟠
     text: 每增加一度 hip internal rotation，推進力增加約 5%（教練觀測，非學術研究控制數字）
     source: The Race Club
+    source_ids:
+    - src.the-race-club
   - certainty: 🟠
     text: Adam Peaty 和 Rebecca Soni 能在約 120° 髖-大腿角啟動踢腿；一般選手需要更大角度（100–110°）
     source: 教練觀測
+    source_ids:
+    - src.coach-observation
   practical_implication: 評估泳者前應先區分「解剖固定限制」與「可訓練軟組織限制」，不能給相同的訓練建議；hip internal rotation 是蛙腿技術的解剖前提，而不只是效率因子。
 - id: breast.tech.16
   stroke: breast
@@ -1057,6 +1186,8 @@ points:
   - certainty: 🟡
     text: flat 在最低速點阻力更小；與 undulating 的速度波動範圍比較
     source: Colman et al. 1998
+    source_ids:
+    - src.colman-1998-b
   practical_implication: 力量強、柔韌性有限的泳者可能在 flat 風格下表現最佳；Ed Moses 為部分代表選手。
 - id: breast.tech.18
   stroke: breast
@@ -1070,6 +1201,8 @@ points:
   - certainty: 🟡
     text: wave style 在競技精英中的主流地位觀察
     source: Sanders 1998
+    source_ids:
+    - src.sanders-1998
   practical_implication: Adam Peaty、秦海洋、Mike Barrowman 均為 wave style 代表；競技蛙式技術教學應以 wave style 為預設目標風格。
 - id: breast.tech.19
   stroke: breast
@@ -1083,9 +1216,13 @@ points:
   - certainty: 🟡
     text: undulating 比 flat 速度波動範圍更小（谷值更高）但峰值略低；均速性可能更好但只在極高柔韌性泳者身上才能超越 wave style
     source: Colman et al. 1998
+    source_ids:
+    - src.colman-1998-b
   - certainty: 🟡
     text: 奧運選手軀幹波動：頭部振幅 43–64 cm；肩部 21–50 cm；髖部 12–17 cm；個體差異巨大，風格是連續體非離散分類
     source: Sanders 1998
+    source_ids:
+    - src.sanders-1998
   practical_implication: Undulating 是柔韌性超群泳者的特殊最優解（Amanda Beard 為代表）；一般泳者推進損失會蓋過減阻優勢。
 - id: breast.tech.20
   stroke: breast
@@ -1117,6 +1254,8 @@ points:
   - certainty: 🟢
     text: 精英比次精英在 100m 游進段有更穩定的划距（SL），出發/轉身差異反而不顯著
     source: Gonjo & Olstad 2023
+    source_ids:
+    - src.gonjo-2023
   practical_implication: 蛙式技術訓練的優先目標是「疲勞下技術穩定性」而非「單次最大速度」；insweep 加速感和滑行效率是最先崩潰的技術元素，也應是訓練的核心關注點。
 - id: breast.tech.23
   stroke: breast
@@ -1130,6 +1269,8 @@ points:
   - certainty: 🟢
     text: 世界冠軍比國家選手更早啟動 insweep，神經肌肉活化更精省（shorter coactivation）
     source: Nicol et al. 2022
+    source_ids:
+    - src.nicol-2022-c
   practical_implication: 精英差距的本質是神經控制的時序精度，而非肌力大小；技術訓練應著重建立精確的時序感知，而非增加力量輸出。
 - id: breast.tech.24
   stroke: breast
@@ -1143,6 +1284,8 @@ points:
   - certainty: 🟢
     text: 外划幅度上限建議不超過肩寬
     source: Nicol et al. 2022
+    source_ids:
+    - src.nicol-2022-c
   practical_implication: USMS 建議外划不超過肩膀寬度為上限；根本修正是建立捕水感知，讓手在感知到位時自然停止，而非靠意識強制控制幅度。
 - id: breast.tech.25
   stroke: breast
@@ -1174,6 +1317,8 @@ points:
   - certainty: 🟢
     text: 疲勞導致 insweep 腳速下降，推進力直接損失
     source: Nicol et al. 2022
+    source_ids:
+    - src.nicol-2022-c
   practical_implication: 訓練目標是讓第一層崩潰（insweep 加速消失）盡可能晚發生；這也解釋了為什麼「疲勞下技術穩定性」是精英的核心優勢。
 - id: breast.tech.28
   stroke: breast
@@ -1187,6 +1332,8 @@ points:
   - certainty: 🟢
     text: 精英比次精英有更長的 arm glide phase；半決賽被淘汰選手的滑行比晉級選手更短
     source: Nicol et al. 2022
+    source_ids:
+    - src.nicol-2022-c
   practical_implication: 滑行管理是蛙式特有的效率核心，是蛙式教學中最難靠觀察外部動作傳授的技術環節，必須靠感知建立。
 - id: breast.tech.29
   stroke: breast
@@ -1209,6 +1356,8 @@ points:
   - certainty: 🟢
     text: 水面比水下收腿制動力更大（−173.5 vs −134.0 N）；outsweep 阻力係數水面 2.06 > 水下 1.29；主因是波阻
     source: Tanaka et al. 2025
+    source_ids:
+    - src.tanaka-2025
   practical_implication: 水面蛙腿承受更大的阻力代價，解釋了為什麼流線型滑行在水面下進行以及波動對阻力管理的重要性。
 - id: breast.tech.31
   stroke: breast
@@ -1229,6 +1378,8 @@ points:
     text: 推進來自波動能量在體軸的定向傳遞，與自由式旋轉慣性耦合、蛙式雙脈衝推進機制本質不同；IVV（週期內速度波動）居四式中等水準。
   practical_implication: 任何動作的意義都依附於它在整條波動鏈中的角色，不能孤立評估單一動作。
   cross_ref: 四式推進機制對比見 fly.tech.2
+  cross_ref_ids:
+  - fly.tech.2
 - id: fly.tech.2
   stroke: fly
   category: comparison
@@ -1250,6 +1401,8 @@ points:
   - certainty: 🟢
     text: 確認蝶式波動以正弦H1波從髖傳至踝，振幅逐節增大
     source: Sanders, Cappaert & Devlin 1995
+    source_ids:
+    - src.sanders-1995-d
   practical_implication: 教學語言「壓胸起波」優於「踢腿驅動」，腳踢是波動的終點加速器而非起點。
 - id: fly.tech.4
   stroke: fly
@@ -1272,6 +1425,8 @@ points:
   - certainty: 🟠
     text: 50m蝶式的技術不是波動消失，而是波動幅度壓縮後的緊湊版本
     source: Coach Andrew Sheaff 2022
+    source_ids:
+    - src.coach-andrew-sheaff-2022
   practical_implication: 不同距離的技術差異在於波動幅度與節律調配，不應按距離切換為本質不同的技術。
 - id: fly.tech.6
   stroke: fly
@@ -1285,6 +1440,8 @@ points:
   - certainty: 🟠
     text: 把兩踢當同一動作做兩次是最常見的訓練錯誤
     source: Swim Like A Fish 2025
+    source_ids:
+    - src.swim-like-a-fish-2025
   practical_implication: 訓練應明確區分兩踢任務，不用單一踢水口令覆蓋兩者。
 - id: fly.tech.7
   stroke: fly
@@ -1298,9 +1455,13 @@ points:
   - certainty: 🟢
     text: entry-kick temporal index 與游速顯著負相關 r=−0.45；entry-kick 是速度獨立預測因子
     source: Strzała et al. 2017
+    source_ids:
+    - src.strzala-2017
   - certainty: 🟡
     text: 第一踢是多數泳者最具推進力的踢
     source: Maglischo 2003
+    source_ids:
+    - src.maglischo-2003-b
   practical_implication: 第一踢時機是可量化的訓練指標，精英訓練已開始量化其相對時機。
 - id: fly.tech.8
   stroke: fly
@@ -1314,6 +1475,8 @@ points:
   - certainty: 🟠
     text: 精英泳者第二踢穩定性是技術持續性的關鍵分界
     source: Swim Like A Fish 2025
+    source_ids:
+    - src.swim-like-a-fish-2025
   practical_implication: 第二踢與出水的同步是最容易被忽略但影響最大的時序問題，疲勞後需優先維持。
 - id: fly.tech.9
   stroke: fly
@@ -1327,6 +1490,8 @@ points:
   - certainty: 🟠
     text: 兩踢合計推進比例約 80%
     source: Swim Like A Fish 2025
+    source_ids:
+    - src.swim-like-a-fish-2025
   practical_implication: 踢水訓練是蝶式的核心不可簡化，踝關節訓練優先於腿部力量訓練。
 - id: fly.tech.10
   stroke: fly
@@ -1349,6 +1514,8 @@ points:
   - certainty: 🟡
     text: 量化五個推進加速峰值：Insweep 4.2 m/s²、Entry Kick 1.9、Outsweep 1.4、第二踢+Upsweep 2.3（屬單一研究，定性順序仍被現代影像支持，具體數字屬歷史參考）
     source: Mason et al. 1992
+    source_ids:
+    - src.mason-1992-b
   practical_implication: Insweep 是最大推進相，其品質是訓練的最高優先項。
 - id: fly.tech.12
   stroke: fly
@@ -1362,11 +1529,16 @@ points:
   - certainty: 🟢
     text: 疲勞狀態下外划的手部方向偏移使有效推進力進一步下降，支持最小幅度外划原則
     source: Peyrebrune & Turner 2007
+    source_ids:
+    - src.peyrebrune-2007
   - certainty: 🟡
     text: 外划階段存在升力推進，但貢獻可能被部分研究高估
     source: Kudo et al. 2014
+    source_ids:
+    - src.kudo-2014
   practical_implication: 外划技術目標應設為「最小必要幅度的捕水位置準備」，不以外划形狀作為技術目標。
   cross_ref: 2024–2025 外划幅度縮小趨勢已成為精英教學主流演進方向
+  cross_ref_ids: []
 - id: fly.tech.13
   stroke: fly
   category: stroke-cycle
@@ -1379,6 +1551,8 @@ points:
   - certainty: 🟢
     text: 精英選手比國家選手更早啟動 insweep，允許更大推進力輸出
     source: Nicol et al. 2022
+    source_ids:
+    - src.nicol-2022-c
   practical_implication: 划水技術訓練的核心是保護 Insweep 的爆發空間，外划不主動施力是前提。
 - id: fly.tech.14
   stroke: fly
@@ -1419,8 +1593,12 @@ points:
   - certainty: 🟢
     text: 頭部位置的改變顯著地改變泳者周圍的尾流結構，進而大幅修改水動力學表現
     source: 法國研究者 CFD 模擬（年份未指定）
+    source_ids:
+    - src.french-cfd-simulation-undated
   practical_implication: 「向前不向上」是蝶式換氣最重要的感知建立目標，Chin Forward 技術成熟者每划換氣速度損失極小。
   cross_ref: 呼吸策略的決定因子是換氣方式，不是換氣次數（見 fly.tech.30）
+  cross_ref_ids:
+  - fly.tech.30
 - id: fly.tech.18
   stroke: fly
   category: timing
@@ -1487,8 +1665,12 @@ points:
   - certainty: 🟡
     text: 踝關節僵硬者踢水效率大幅下降，嚴重時甚至制動
     source: McCullough 2009
+    source_ids:
+    - src.mccullough-2009-a
   practical_implication: 踝關節柔韌性訓練應列為蝶式訓練的優先基礎能力，早於腿部力量訓練。
   cross_ref: 四式踝關節柔韌性結論一致，見 fly.tech.34
+  cross_ref_ids:
+  - fly.tech.34
 - id: fly.tech.25
   stroke: fly
   category: hardware
@@ -1546,6 +1728,8 @@ points:
   - certainty: 🟠
     text: 精英選手如 Walsh、Huske 採用每划換氣（Chin Forward 技術前提）
     source: 教練觀測 2024–2025
+    source_ids:
+    - src.2024-2025
   practical_implication: 呼吸頻率訓練應以換氣技術成熟度為前提，而非直接套用精英的換氣次數模式。
 - id: fly.tech.31
   stroke: fly
@@ -1559,6 +1743,8 @@ points:
   - certainty: 🟢
     text: 精英蝶式 IVV（18.4%）顯著低於國家級（23.7%）；外划相是主要變異來源
     source: Fernandes et al. 2024
+    source_ids:
+    - src.fernandes-2024
   practical_implication: 外划技術優化有最高的 IVV 改善潛力，是精英與非精英差距最大的單一環節。
 - id: fly.tech.32
   stroke: fly
@@ -1572,6 +1758,8 @@ points:
   - certainty: 🟢
     text: 競技選手 vs 休閒選手的肌肉協調模式（Synergy Analysis）存在顯著差異，精英泳者招募效率更高
     source: Yamakawa et al. 2024
+    source_ids:
+    - src.yamakawa-2024
   practical_implication: 蝶式技術訓練應包含神經協調層面的訓練設計，不只是體能和力量訓練。
 - id: fly.tech.33
   stroke: fly
@@ -1603,6 +1791,8 @@ points:
   - certainty: 🟢
     text: 精英蝶式IVV（18.4%）顯著低於國家級（23.7%）
     source: Fernandes et al. 2024
+    source_ids:
+    - src.fernandes-2024
   practical_implication: 現代蝶式訓練日益依賴生物力學量化指標，訓練設計應整合 IVV 監控與時序量化工具。
 - id: udk.tech.1
   stroke: udk
@@ -1625,12 +1815,18 @@ points:
   - certainty: 🟢
     text: 0.4 m 推薦推牆深度；0.6 m 阻力降約 20%（2.2 m/s 測量）
     source: Lyttle et al. 1998
+    source_ids:
+    - src.lyttle-1998
   - certainty: 🟢
     text: ≥ 0.7 m 波浪阻力 < 5% 總阻力，效益趨穩定
     source: ScienceDirect 波浪阻力研究
+    source_ids:
+    - src.sciencedirect-wave-drag-study
   - certainty: 🟢
     text: '> 0.75 m 無額外效益，反增上浮時間'
     source: Novais et al. 2012 (JHK)
+    source_ids:
+    - src.novais-2012-a
   practical_implication: 推牆後目標深度 0.4–0.6 m；過深反而增加上浮時間與能量消耗，應避免。
 - id: udk.tech.3
   stroke: udk
@@ -1644,6 +1840,8 @@ points:
   - certainty: 🟢
     text: 精英 2.54 ± 0.05 m/s vs 次精英 2.46 / 2.38 m/s
     source: Pla et al. 2021, Frontiers in Physiology
+    source_ids:
+    - src.pla-2021
   practical_implication: 提升 UDK 絕對速度比延長水下距離更關鍵。
 - id: udk.tech.4
   stroke: udk
@@ -1657,6 +1855,8 @@ points:
   - certainty: 🟢
     text: 核心力量提升使踝關節力量增加 25%
     source: yourswimlog 核心力量研究；phantomlattice.com 生物力學分析
+    source_ids:
+    - src.yourswimlog-phantomlattice-core
   practical_implication: 訓練 UDK 必須從核心穩定性出發，「腿踢更用力」的思路無法觸及推進力的根源。
 - id: udk.tech.5
   stroke: udk
@@ -1679,6 +1879,8 @@ points:
   - certainty: 🟢
     text: 粒子影像測速（PIV）直接可視化 UDK 水流動態，確認渦流噴射機制
     source: University of Tsukuba 2024, Journal of Biomechanics
+    source_ids:
+    - src.university-of-tsukuba-2024-journal-of-biomec-2024
   practical_implication: 下踢末段的髖外旋 + 腳尖聚攏是觸發渦流噴射的關鍵動作，不可省略。
 - id: udk.tech.7
   stroke: udk
@@ -1692,6 +1894,8 @@ points:
   - certainty: 🟢
     text: PIV 可視化確認渦流回收機制
     source: University of Tsukuba 2024, Journal of Biomechanics
+    source_ids:
+    - src.university-of-tsukuba-2024-journal-of-biomec-2024
   practical_implication: 縮短上踢過渡時間（快速切換）是利用渦流回收的關鍵；慢速上踢不只阻力大，還浪費下踢已製造的能量。
 - id: udk.tech.8
   stroke: udk
@@ -1705,6 +1909,8 @@ points:
   - certainty: 🟢
     text: 人類 UDK St ~0.80；monofin St ~0.34；魚類最優 0.25–0.35
     source: Zamparo et al. 2009, J Biomech Eng; Rohr & Fish 2004
+    source_ids:
+    - src.zamparo
   practical_implication: 裸泳提升效率的方向是在現有頻率下改善技術質量（振幅/渦流利用），而非單純追求更快的踢頻。
 - id: udk.tech.9
   stroke: udk
@@ -1718,9 +1924,13 @@ points:
   - certainty: 🟢
     text: 從髖到膝到踝的縱向加速度增加，與水平速度最大化直接相關
     source: Kinematic differences research (ResearchGate)
+    source_ids:
+    - src.researchgate-kinematic-differences
   - certainty: 🟢
     text: 下踢前膝蓋彎曲是主要減速來源；最優膝屈曲約 30–40°
     source: The Race Club
+    source_ids:
+    - src.the-race-club
   practical_implication: 教學重點是控制膝蓋彎曲幅度，而非完全消除；過度彎曲造成正面阻力，但零彎曲無法蓄力。
 - id: udk.tech.10
   stroke: udk
@@ -1734,6 +1944,8 @@ points:
   - certainty: 🟢
     text: 下踢/上踢腳尖速度比值與水平游速呈顯著負相關
     source: Atkison et al. 2014, PubMed 24290609
+    source_ids:
+    - src.atkison-2014-b
   practical_implication: 多數選手下踢已接近個人上限，訓練上踢有更高的投資報酬率。
 - id: udk.tech.11
   stroke: udk
@@ -1756,6 +1968,8 @@ points:
   - certainty: 🟢
     text: 踢腿對稱性與 UDK 效率正相關
     source: Atkison et al. 2014, PubMed 24290609; ScienceDirect
+    source_ids:
+    - src.atkison-2014-c
   practical_implication: 訓練重點應放在改善上踢，而非繼續強化已接近上限的下踢。
 - id: udk.tech.13
   stroke: udk
@@ -1769,6 +1983,8 @@ points:
   - certainty: 🟢
     text: 強迫 115% 踢頻實驗：游速無變化，Froude 效率 0.72 → 0.70
     source: Gonjo et al. 2017, PubMed 28605694
+    source_ids:
+    - src.gonjo-2017
   practical_implication: 正確訓練邏輯是「在現有頻率下踢得更有效率」；頻率提升應是技術改善的結果，而非訓練手段。
 - id: udk.tech.14
   stroke: udk
@@ -1782,12 +1998,18 @@ points:
   - certainty: 🟢
     text: 限制踝關節活動度 30% → 踢腿速度下降 19%
     source: PubMed 24984154
+    source_ids:
+    - src.pmid-24984154
   - certainty: 🟢
     text: 踝關節蹠屈 + 內旋柔韌性受限，顯著降低 UDK 表現
     source: ScienceDirect 2014
+    source_ids:
+    - src.sciencedirect-2014
   - certainty: 🟢
     text: 踝關節柔韌性直接影響水下波動游速
     source: PMC9402090, 2022
+    source_ids:
+    - src.pmc9402090-b
   practical_implication: 踝關節柔韌性訓練是 UDK 長期發展的必要投資，不能以技術口令替代。
 - id: udk.tech.15
   stroke: udk
@@ -1801,6 +2023,8 @@ points:
   - certainty: 🟢
     text: 踝關節蹠屈受限 → 上踢相膝蓋彎曲增加，為最具體可觀察指標
     source: PMC9402090 2022; PubMed 24984154
+    source_ids:
+    - src.pmc9402090-a
   practical_implication: 觀察到膝蓋過度彎曲（>40°）時，先排查踝關節蹠屈範圍，再評估技術問題；建議介入順序：踝關節柔韌性評估 → 柔韌性訓練 → 重新評估踢腿技術。
 - id: udk.tech.16
   stroke: udk
@@ -1817,15 +2041,19 @@ points:
   title: 轉身後應立刻起踢，不先滑行
   summary: 轉身後立刻起踢比短暫滑行快 0.1 秒、比長時間滑行快 0.18 秒（5 公尺成績）。
   mechanism:
-    certainty: 🟠
-    text: 彎膝準備第一下踢的速度損失，無論何時發生量都差不多；等越久只是從更慢的速度開始加速，造成更大的速度損失。
+    certainty: 🟢
+    text: 彎膝準備第一下踢的速度損失，無論何時發生量都差不多；等越久只是從更慢的速度開始加速，造成更大的速度損失。Sports Biomechanics 2026 三狀態最優轉換速度模型確認大多數精英選手最優起踢速度高於水面游泳速度——立刻起踢是定論而非教練觀測。
   evidence:
   - certainty: 🟠
     text: 精英選手實測：立刻起踢 vs 短暫滑行快 0.1 秒，vs 長時間滑行快 0.18 秒
     source: The Race Club velocity meter 實測
+    source_ids:
+    - src.the-race-club-velocity-meter-a
   - certainty: 🟢
     text: 建立「流線型滑行 → UDK → 出水划手」三狀態最優轉換速度模型，確認大多數精英選手最優起踢速度高於水面游泳速度
     source: Sports Biomechanics 2026
+    source_ids:
+    - src.sports-biomechanics-2026
   practical_implication: 教學重點：轉身後不等待，確立流線型後立刻起踢。
 - id: udk.tech.18
   stroke: udk
@@ -1839,6 +2067,8 @@ points:
   - certainty: 🟢
     text: 精英選手優勢來自更快的水下速度，而非更長的水下距離
     source: Frontiers in Physiology 2021, PMC8442910
+    source_ids:
+    - src.pmc8442910-b
   practical_implication: 品質優先於數量；用更少但更有力的踢腿覆蓋距離，比用更多但速度已衰減的踢腿更有效。
 - id: udk.tech.19
   stroke: udk
@@ -1852,6 +2082,8 @@ points:
   - certainty: 🟢
     text: 長水下（12.5 m）乳酸 ~7.9 mmol/L vs 短水下（<5 m）~3.5 mmol/L，速度無顯著差異
     source: Hvid et al. 2024, Sports, PMC11125574
+    source_ids:
+    - src.hvid-2024
   practical_implication: 對 FINA 分數 < 800 的選手，延長水下距離幾乎確定是反效果——UDK 速度不足時，代謝代價超過速度紅利。
 - id: udk.tech.20
   stroke: udk
@@ -1883,6 +2115,8 @@ points:
   - certainty: 🟢
     text: 俯臥下踢峰值速度超 2 m/s 但速度波動達 0.5 m/s；仰臥速度曲線明顯更平緩
     source: SwimSwam Junya Koga analysis; WKU Digital Commons Kinematic Comparison
+    source_ids:
+    - src.swimswam-koga-wku-kinematic
   practical_implication: 仰式選手不應追求下踢的爆發峰值感，而應以速度維持穩定為感知目標。
 - id: udk.tech.23
   stroke: udk
@@ -1905,6 +2139,8 @@ points:
   - certainty: 🟠
     text: 成功水下踢腿最重要因素之一是選手在緊縮流線型中開始並在正確時機起踢
     source: USMS Body Alignment Guide
+    source_ids:
+    - src.usms-body-alignment-guide-a
   practical_implication: UDK 訓練的先決條件是流線型品質；流線型訓練優先於踢腿力量訓練。
 - id: udk.tech.25
   stroke: udk
@@ -1918,6 +2154,8 @@ points:
   - certainty: 🟢
     text: Monofin 訓練效果與上踢感知建立
     source: yourswimlog monofin 研究
+    source_ids:
+    - src.yourswimlog-monofin
   practical_implication: Monofin 是上踢訓練最有效的工具之一，可作為上踢弱點的診斷與訓練手段。
 - id: udk.tech.26
   stroke: udk
@@ -1931,6 +2169,8 @@ points:
   - certainty: 🟢
     text: 男子：1.73 → 1.81 m/s（+4.6%）；女子：1.49 → 1.53 m/s（+2.7%）
     source: Elite Japanese swimmer study, 4-month intervention
+    source_ids:
+    - src.elite-japanese-swimmer-4month
   practical_implication: 每次訓練加入 ~10 分鐘 UDK 專項組，是具實證支持的高效率投資方式。
 - id: udk.tech.27
   stroke: udk
@@ -1953,6 +2193,8 @@ points:
   - certainty: 🟢
     text: 踝關節柔韌性訓練可改善蹠屈範圍，進而提升 UDK 表現
     source: PubMed 24984154
+    source_ids:
+    - src.pmid-24984154
   practical_implication: 踝關節柔韌性訓練需列入長期週期計畫，不能期待短期見效。
 - id: udk.tech.29
   stroke: udk
@@ -1971,6 +2213,53 @@ points:
 
       '
   practical_implication: 教學時出發與轉身的起踢時機指導需分開處理，不可完全套用轉身的「立刻起踢」原則；出發後 0.3-0.5 秒 streamline 確立窗口為教練觀測共識（非實驗實證），可作為訓練起點但保持個別調整空間。
+- id: fly.tech.36
+  stroke: fly
+  category: streamline
+  title: 蝶式 streamline 是脈衝式不是維持式——基準姿態只存在於波動低點
+  summary: 自由式/仰式有「持續 streamline 姿態」可維持，蝶式沒有——身體在每個 stroke cycle 內都在波動，所以「streamline 基準」只存在於波動低點那一瞬。教學處方要把「streamline」重新定義為「波動週期內的最低阻力姿態」，不是「保持身體不動」。要求蝶式選手「保持 streamline」是動作物理上的不可能。
+  mechanism:
+    certainty: 🔵
+    text: '蝶式推進依賴胸-髖反向波動——胸下壓時髖上抬，胸上抬時髖下壓。
+
+      每個 cycle 有兩個「streamline 通過點」：
+
+      - **入水後**（雙臂前伸、頭夾臂、身體拉長）—— 此時最接近自由式式的 streamline
+
+      - **拉水末段**（雙臂在臀部、頭已抬完、身體準備出水）—— 此時是另一個低阻力相位
+
+      兩個 streamline 通過點之間是必要的高阻力相（手出水、轉身、新的下壓）。
+
+      所以教學目標不是「維持 streamline」，是「縮短兩個 streamline 通過點之間的時間 + 加深兩個通過點本身的低阻力品質」。
+
+      '
+  practical_implication: 蝶式 streamline 訓練應該分兩段：① 入水後 streamline（最像自由式，可借用 streamline kick drill）；② 出水前 streamline（身體拉長、手臂高於臀部）。對選手喊「保持 streamline」會困惑——他無法在波動中保持不動。改成「入水那瞬間 streamline 要乾淨」更可執行。
+  cross_ref: free.tech.34（自由式 streamline 基準姿態對照）、fly.tech.10（IVV 與波動效率）
+  cross_ref_ids:
+  - free.tech.34
+  - fly.tech.10
+- id: breast.tech.35
+  stroke: breast
+  category: timing
+  title: 蛙式三種時序策略——Touch-and-Go / Traditional / Wave 重疊，按距離與個人選擇
+  summary: 蛙式時序不是「對 vs 錯」而是三種策略：Touch-and-Go（短距離極限速度）、Traditional（中距離平衡）、Wave 重疊（長距離節能或菁英衝刺）。教練常用「正確時序」的口令，但實際是依距離 / 體型 / 風格選擇——把一種時序當作普遍正確會限制選手潛能。
+  mechanism:
+    certainty: 🟠
+    text: '三種時序策略的差異點：
+
+      - **Touch-and-Go**（觸碰即起）：手前伸到底「碰一下」就立刻收手做下一划，幾乎沒有 streamline 滑行。SR 最高、SL 最短、能量代價最高，適合 50m 衝刺。Adam Peaty 為代表。
+
+      - **Traditional**（傳統分段）：手前伸 + 短滑行 + 收手；明確的「拉手→踢腿→滑行→拉手」分段。SR 中、SL 中、平衡推進與節能，適合 100m。
+
+      - **Wave 重疊**（waveform overlap）：拉手末段就開始收腿、踢腿時手已開始下一划外划；推進相互重疊。SR 高、SL 中、coupling 動能最大。Kosuke Kitajima、Lilly King 為代表，適合 100/200m 衝刺。
+
+      選擇依個人體型（重心、肩柔軟度、髖內旋）、訓練史、距離綜合決定，不是「先進」優於「傳統」。
+
+      '
+  practical_implication: 教練處方時序應先評估選手體型與目標距離，再選對應時序作為主訓。教學早期建立 Traditional 為基礎，待選手成熟後再評估是否切換。Touch-and-Go 需要極高無氧能力支撐、Wave 重疊需要高肩髖協調——兩者都不是「越早教越好」。
+  cross_ref: breast.err16（wave style 誤套到 flat style 適合者）
+  cross_ref_ids:
+  - breast.err16
 - id: starts-turns.tech.1
   stroke: starts-turns
   category: comparison
@@ -1983,9 +2272,13 @@ points:
   - certainty: 🟢
     text: 20 名大學女子選手比較：前重心 Track 離台時間最快（0.80 s），後重心 Track 水平速度最高（3.99 m/s）；建議女子選手採後重心起跑式。
     source: Welcher, Hinrichs & George 2008
+    source_ids:
+    - src.welcher-2008-b
   - certainty: 🟠
     text: 雪梨奧運頂尖選手出發的水下階段佔整體起跑時間約 84%，不同起跳方式在精英層級結果不顯著。
     source: Cossor & Mason 2001
+    source_ids:
+    - src.cossor-2001
   practical_implication: 選手技術選擇應依個人計時測試決定；精英層級起跳方式差異不顯著，水下表現才是決定因素。
 - id: starts-turns.tech.2
   stroke: starts-turns
@@ -1999,8 +2292,12 @@ points:
   - certainty: 🟡
     text: 手部拉力可量化的向後拉力效益已有早期測量；現代菁英已轉用 Track Start，此實驗結論主要對 Masters 與穩定性受限族群仍有實務參考價值。
     source: Welcher et al. 1979（歷史依據）
+    source_ids:
+    - src.welcher-1979
   practical_implication: 仍使用 Grab Start 的族群（Masters、平衡受限者）執行品質取決於個人技術；菁英與 t2c/t2w 階段請見 starts-turns.tech.41（Track Start 重心前傾 vs 後仰）。
   cross_ref: starts-turns.tech.41（Track Start 重心策略）
+  cross_ref_ids:
+  - starts-turns.tech.41
 - id: starts-turns.tech.3
   stroke: starts-turns
   category: hardware
@@ -2013,6 +2310,8 @@ points:
   - certainty: 🟢
     text: 早期建議 90–120°；後續研究指出過深超出股四頭肌最佳力–長度關係。
     source: Blanksby et al. 2002
+    source_ids:
+    - src.blanksby-2002
   practical_implication: 教練應依個別選手肌肉特性調整膝蓋角度，不應套用固定數字。
 - id: starts-turns.tech.4
   stroke: starts-turns
@@ -2062,6 +2361,8 @@ points:
   - certainty: 🟢
     text: 腳掌懸掛（未 plantar flexion）vs 腳尖伸直的對照阻力——前者在配速 2.3 m/s 下增加 41% 正面阻力。入水時實際速度更高（接近 5 m/s），阻力差異按速度平方放大。
     source: The Race Club PDM 量測資料
+    source_ids:
+    - src.race-club-pdm-data
   practical_implication: 入水訓練要拆開練。Hyperstreamline 在陸上鏡前先設好（手腕重疊位置、肘夾耳、頭夾臂）；髖屈用 Running Dive drill 訓練（助跑潛水自然會學會 hip lift）；腳尖伸直是觀察的最後一道防線——每次起跳訓練都要回看影片檢查腳尖。
 - id: starts-turns.tech.43
   stroke: starts-turns
@@ -2087,6 +2388,8 @@ points:
 
       '
     source: The Race Club VM 量測資料
+    source_ids:
+    - src.the-race-club-vm-b
   practical_implication: 訓練優先序：① 先確認後腿踢的存在與幅度（多數人忽略，回報最大）；② 教大圓直臂繞臂（需要肩柔軟度，沒有就保留小圓）；③ 抬頭視角訓練。Set position 配合：背要圓不要平（圓背 5% 飛行距離、3% 到 12m 時間）。
 - id: starts-turns.tech.44
   stroke: starts-turns
@@ -2127,6 +2430,8 @@ points:
   - certainty: 🟢
     text: 前腳膝蓋 130–133°、後腳 76–82°；建議後腳踏板位置 3–4 號（OSB12 台）。
     source: Yeadon et al. / MDPI 2024
+    source_ids:
+    - src.yeadon-et-al-mdpi-2024
   practical_implication: 起始姿勢設置以臀高肩低為原則，膝蓋角度數據可作為量化參考。
 - id: starts-turns.tech.6
   stroke: starts-turns
@@ -2140,10 +2445,14 @@ points:
   - certainty: 🟢
     text: 精英選手起跳角度 27.45 ± 5.99°，非精英 39.62 ± 13.19°。
     source: Benjanuvatra et al. 2007
+    source_ids:
+    - src.benjanuvatra-2007-a
     url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3990873/
   - certainty: 🟡
     text: 精英選手起跳角度 21.25 ± 5.59°。
     source: Wilson & Marino 1983
+    source_ids:
+    - src.wilson-1983
   practical_implication: 訓練目標是水平速度最大化，不是追求特定角度數字；降低起跳角度通常有利。
 - id: starts-turns.tech.7
   stroke: starts-turns
@@ -2157,6 +2466,8 @@ points:
   - certainty: 🟢
     text: 力板量測確認 Kick Start 前後腳 GRF 方向分工。
     source: Takai et al. 2016
+    source_ids:
+    - src.takai-2016
     url: https://pubmed.ncbi.nlm.nih.gov/27149652/
   practical_implication: 教學重點應調整為「後腳產生水平速度、前腳控制飛行角度」，不再以前腳主導描述 Kick Start。
 - id: starts-turns.tech.8
@@ -2171,6 +2482,8 @@ points:
   - certainty: 🟢
     text: 慣用腳放前：block 時間更短、2m 和 5m 成績更好、飛行距離更長。
     source: Leg Dominance 研究 2021
+    source_ids:
+    - src.pmc8700779
     url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8700779/
   practical_implication: 建議選手以慣用腳置台前緣作為預設，再透過計時測試確認個人最優配置。
 - id: starts-turns.tech.9
@@ -2185,9 +2498,13 @@ points:
   - certainty: 🟢
     text: 中立與後重心 15m 時間優於前重心。
     source: MDPI 2024
+    source_ids:
+    - src.mdpi-2024
   - certainty: 🟢
     text: 後重心在水平速度上有優勢。
     source: Welcher et al. 2008
+    source_ids:
+    - src.welcher-2008-a
   practical_implication: Kick Start 重心設定傾向中立至後重心；不應為加快反應時間而過度前移重心。
 - id: starts-turns.tech.10
   stroke: starts-turns
@@ -2219,6 +2536,8 @@ points:
   - certainty: 🟢
     text: 15 名次精英選手量化，三變數解釋 86.1% 成績變異。
     source: PLOS ONE 2020
+    source_ids:
+    - src.journal-pone-0241345-a
     url: https://doi.org/10.1371/journal.pone.0241345
   practical_implication: 訓練優先序為提升入水距離與水平速度，入水角度調整是手段而非目標。
 - id: starts-turns.tech.13
@@ -2233,6 +2552,8 @@ points:
   - certainty: 🟢
     text: 淺軌跡（Dive 1）15m 成績顯著慢於中等深度（Dive 2）；推薦最大深度 −0.92 ± 0.16 m。
     source: PubMed 25455956 2014
+    source_ids:
+    - src.pmid-25455956
     url: https://pubmed.ncbi.nlm.nih.gov/25455956/
   practical_implication: 入水後應尋求約 0.9 m 的最大深度，避免過淺入水路徑。
 - id: starts-turns.tech.14
@@ -2247,6 +2568,8 @@ points:
   - certainty: 🟢
     text: 髖部高度提升與水平速度正相關；起跳角度大與成績差相關。
     source: 'The Backstroke Swimming Start: State of the Art'
+    source_ids:
+    - src.pmc4234766-a
     url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4234766/
   practical_implication: 仰式起跳教學應以最大化髖部高度為目標，不以背部出水程度作評估指標。
 - id: starts-turns.tech.15
@@ -2261,6 +2584,8 @@ points:
   - certainty: 🟢
     text: OBL2：10m 時間快 0.13 s，入水距離多 0.14 m。
     source: PubMed 28975846
+    source_ids:
+    - src.pmid-28975846
     url: https://pubmed.ncbi.nlm.nih.gov/28975846/
   practical_implication: 推廣使用仰式出發台；教學重點在優化起跳水平延伸，而非單純增加推力。
 - id: starts-turns.tech.16
@@ -2284,13 +2609,19 @@ points:
   - certainty: 🟢
     text: 進牆速度與推出速度正相關。
     source: Journal of Applied Biomechanics 1998; PMC8960438
+    source_ids:
+    - src.pmc8960438-c
   - certainty: 🟢
     text: 推蹬力道解釋成績約 42% 的變異。
     source: PMC6409673
+    source_ids:
+    - src.pmc6409673-b
     url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6409673/
   - certainty: 🟢
     text: 推蹬力向量與重心軌跡對齊程度與出水速度相關 r = 0.76（p < 0.001）。
     source: PubMed 40252339
+    source_ids:
+    - src.pmid-40252339-b
   practical_implication: 訓練優先順序：流線型時機 → 推蹬方向 → 推蹬力道；進牆前任何減速行為都直接損害成績。
 - id: starts-turns.tech.18
   stroke: starts-turns
@@ -2313,6 +2644,8 @@ points:
   - certainty: 🟠
     text: 縮臂湊牆被直接列名為轉身錯誤。
     source: MySwimPro 2022
+    source_ids:
+    - src.myswimpro-2022
   practical_implication: 教學口令：「划完再轉，不夠就踢，不要縮手湊。」
 - id: starts-turns.tech.20
   stroke: starts-turns
@@ -2326,6 +2659,8 @@ points:
   - certainty: 🟠
     text: 翻滾啟動時機研究以 tuck index 為主要變數；頭部朝下是教練觀測共識。
     source: PMC5260528; The Race Club; 360swim
+    source_ids:
+    - src.pmc5260528
   practical_implication: 訓練計步能力是自由式轉身的核心技能；啟動翻滾時視線向下看池底，不看牆。
 - id: starts-turns.tech.21
   stroke: starts-turns
@@ -2339,6 +2674,8 @@ points:
   - certainty: 🟢
     text: 觸牆膝蓋屈曲 100–120° 最優範圍。
     source: PMC6409673
+    source_ids:
+    - src.pmc6409673-b
     url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6409673/
   practical_implication: 翻滾時機訓練目標：觸牆時膝蓋約 100–120°；tuck 過深或過淺均損害推蹬力。
 - id: starts-turns.tech.22
@@ -2353,6 +2690,8 @@ points:
   - certainty: 🟢
     text: 推蹬力向量對齊與出水速度 r = 0.76（p < 0.001）。
     source: PubMed 40252339
+    source_ids:
+    - src.pmid-40252339-b
   practical_implication: 腳觸牆位置的深度控制是轉身技術的關鍵量化目標。
 - id: starts-turns.tech.23
   stroke: starts-turns
@@ -2366,6 +2705,8 @@ points:
   - certainty: 🟠
     text: 旗幟到牆的划手次數取決於速度與划效，游速快慢會讓預期距離偏移。
     source: U.S. Masters Swimming
+    source_ids:
+    - src.u-s-masters-swimming
   practical_implication: 教練應幫助泳者建立三速計步庫（慢/中/比賽速），並在訓練量或技術改變後重新標定。
 - id: starts-turns.tech.24
   stroke: starts-turns
@@ -2388,6 +2729,8 @@ points:
   - certainty: 🟢
     text: 最優腳觸牆深度 30–40 cm，此深度下水平推蹬速度最佳。
     source: PMC8960438
+    source_ids:
+    - src.pmc8960438-d
     url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8960438/
   practical_implication: 教學重點：縮腿路徑自然決定腳的深度；避免主動壓低髖部「找牆」。
 - id: starts-turns.tech.26
@@ -2402,6 +2745,8 @@ points:
   - certainty: 🟢
     text: 世界級精英 150 次試驗：Combined 71 次（最多）、Fly-Kick First 65 次、Pull-Down First 14 次；三種技術在 50/100/200m 成績間無統計顯著差異。男性偏好 Combined，女性偏好 Fly-Kick First。
     source: PMC9445308 Frontiers 2022
+    source_ids:
+    - src.pmc9445308
     url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9445308/
   practical_implication: 教學應讓選手試驗三種技術並計時比較，以個人最快結果為準，不強制統一。
 - id: starts-turns.tech.27
@@ -2416,6 +2761,8 @@ points:
   - certainty: 🟢
     text: 最優滑行深度 0.4–0.6 m（背→蛙轉身研究）。
     source: PMC8960438
+    source_ids:
+    - src.pmc8960438-d
     url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8960438/
   practical_implication: 蛙式推出後維持流線型滑行於 0.4–0.6 m 深度，再啟動 pullout 動作序列。
 - id: starts-turns.tech.28
@@ -2430,6 +2777,8 @@ points:
   - certainty: 🟢
     text: 四式 IM 轉身中蝶→背轉身時間最短。
     source: Gonjo et al. 2018
+    source_ids:
+    - src.gonjo-2018
     url: https://pubmed.ncbi.nlm.nih.gov/30694108/
   practical_implication: 蝶→背訓練重點：觸牆同時啟動縮腿（不停頓），快速收膝縮短旋轉半徑，全程閉氣。
 - id: starts-turns.tech.29
@@ -2444,6 +2793,8 @@ points:
   - certainty: 🟢
     text: FINA Swimming Technical Rules SW 6.4 確認觸牆/離牆兩點要求。
     source: FINA/World Aquatics SW 6.4; USA Swimming; USMS
+    source_ids:
+    - src.fina-sw64-usas-usms
   practical_implication: 教學需分別訓練兩個時間點的身體位置；長距離 IM 疲勞段需特別注意不提前側滾。
 - id: starts-turns.tech.30
   stroke: starts-turns
@@ -2457,6 +2808,8 @@ points:
   - certainty: 🟢
     text: Crossover 推出 2.17 ± 0.05 m/s（p = 0.01 顯著）；7.5m 成績三種技術無顯著差異（平均 4.86 ± 0.98 s）；受試者為 age-group swimmers。
     source: PMC7918682
+    source_ids:
+    - src.pmc7918682
     url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7918682/
   practical_implication: 技術選擇應以個人計時測試（觸牆到 7.5m）為依據；將任一技術練到完全一致，可能比半熟練 Crossover 更有利。
 - id: starts-turns.tech.31
@@ -2471,6 +2824,8 @@ points:
   - certainty: 🟠
     text: 適用情境分類來自教練系統觀測。
     source: 360swim; USMS; Swimming World
+    source_ids:
+    - src.360swim-usms-swimming-world
   practical_implication: 400 IM 疲勞段若無法完整執行 Crossover，改用 Open turn 更穩定；100/200 IM 技術熟練者可考慮 Crossover。
 - id: starts-turns.tech.32
   stroke: starts-turns
@@ -2484,6 +2839,8 @@ points:
   - certainty: 🟢
     text: 實用深度 0.4–0.6 m；超過 0.75 m 無額外效益。
     source: Lyttle 1998; Novais et al. 2012
+    source_ids:
+    - src.lyttle
   practical_implication: 出發轉身後維持 0.4–0.6 m 深度進行 UDK，不追求更深的水下路徑。
 - id: starts-turns.tech.33
   stroke: starts-turns
@@ -2497,6 +2854,8 @@ points:
   - certainty: 🟢
     text: 精英選手水下優勢來自更快踢腿速度，非更長水下距離。
     source: Frontiers 2021
+    source_ids:
+    - src.frontiers-2021
   practical_implication: UDK 訓練重點在提升踢腿速度，而非追求更長的水下距離。
 - id: starts-turns.tech.34
   stroke: starts-turns
@@ -2528,6 +2887,8 @@ points:
   - certainty: 🟠
     text: 效率損失清單來自教練系統觀測。
     source: USMS; SGSwim
+    source_ids:
+    - src.usms-sgswim
   practical_implication: 訓練口令：觸牆不停頓（同時縮腿）、膝蓋快收向胸口、全程閉氣到出水。
 - id: starts-turns.tech.37
   stroke: starts-turns
@@ -2550,6 +2911,8 @@ points:
   - certainty: 🟠
     text: 以 tuck index（腳觸牆時臀部距牆距離）為主要測量變數；最優翻滾啟動距離無跨選手通用量化值。
     source: PMC5260528; The Race Club; 360swim
+    source_ids:
+    - src.pmc5260528
   practical_implication: 以「最後一划末端啟動、頭已低於水面」作為計步之外的啟動參照信號。
 - id: starts-turns.tech.39
   stroke: starts-turns
@@ -2563,6 +2926,8 @@ points:
   - certainty: 🟠
     text: 水下階段佔整體起跳時間約 84%。
     source: Cossor & Mason 2001
+    source_ids:
+    - src.cossor-2001
   practical_implication: 選手評估起跳技術時應以最終成績指標（15m 時間）為主，不以單一中間指標（如離台速度）判斷優劣。
 - id: starts-turns.tech.40
   stroke: starts-turns
@@ -2588,6 +2953,19 @@ points:
   title: Paralympic 級別決定 SR/SL 最佳組合——SR 主導 vs SL 主導視級別而定
   summary: Paralympic 不同級別與比賽時間的相關性結構不同。S8–S9 對划頻（SR）高度敏感（r = −0.51 至 −0.78）、對划距（SL）相對不敏感；S7 中度依賴划距；S10 高度依賴划距。處方必須按級別個別化——對 S8/S9 喊「拉長划距」是錯誤建議，對 S10 喊「拉高划頻」也錯。
   mechanism:
-    certainty: 🟠
-    text: 不同障別下「能維持的最大推進力」的限制因子不同。軀幹控制較弱的級別無法把 stroke 拉長（核心會崩潰），只能靠提高頻率；軀幹完整的級別則可以從拉長 stroke 中獲益。這個觀察雖然在 Paralympic 級別研究中最清楚，但「個人結構決定 SR/SL 最佳組合」這個原則對非 Paralympic 選手也適用——肩柔軟度差的選手無法做菁英級延伸划距，提高頻率反而是更好的策略。
+    certainty: 🟢
+    text: 不同障別下「能維持的最大推進力」的限制因子不同。軀幹控制較弱的級別無法把 stroke 拉長（核心會崩潰），只能靠提高頻率；軀幹完整的級別則可以從拉長 stroke 中獲益。Pereira 2018 (Redalyc) 跨國家級身障泳者實測證實 SL/stroke index/速度隨功能性 class（S4→S10）顯著上升、SR 不隨之上升；S4 與 S8/S9/S10 在 SR/SL/速度上有顯著差異；Olstad 2024 IMU 量測驗證了這個 class-stratified 模式。「個人結構決定 SR/SL 最佳組合」這個原則對非 Paralympic 選手也適用——肩柔軟度差的選手無法做菁英級延伸划距，提高頻率反而是更好的策略。
+  evidence:
+  - certainty: 🟢
+    text: 國家級身障泳者實測 SL/stroke index/速度隨 functional class 顯著上升、SR 不隨之上升；class 間有顯著差異
+    source: Pereira et al. 2018, Freestyle stroke parameters of national level swimmers with physical impairments
+    source_ids:
+    - src.pereira-2018
+    url: https://www.redalyc.org/journal/710/71059023007/html/
+  - certainty: 🟢
+    text: IMU 自動量化 Paralympic 泳者 stroke mechanics 確認 class-stratified SR/SL 模式
+    source: Validation of Automatically Quantified Swim Stroke Mechanics Using IMU in Paralympic Athletes, 2024
+    source_ids:
+    - src.pmc10813451
+    url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10813451/
   practical_implication: 教練處方 SR/SL 前要先評估選手能延伸 stroke 的硬體上限。對軀幹控制不全或肩柔軟度有限的選手，與其追求「拉長划距」不如優化頻率；硬體允許延伸的選手才走划距路線。「Distance Per Stroke 越大越好」是某類選手才適用的部分真理。

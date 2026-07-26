@@ -90,6 +90,8 @@ indicators:
   - certainty: 🟢
     text: Staunton 2025
     source: Staunton et al. 2025
+    source_ids:
+    - src.staunton-2025-c
 - id: common.L6.stability
   stroke: common
   level: L6
@@ -101,6 +103,8 @@ indicators:
   - certainty: 🟢
     text: 疲勞下技術穩定性是精英特徵
     source: Gonjo & Olstad 2023
+    source_ids:
+    - src.gonjo-2023
 - id: free.pre.resistance
   stroke: free
   level: pre
@@ -121,6 +125,8 @@ indicators:
   - certainty: 🟡
     text: McCullough 2009
     source: McCullough 2009
+    source_ids:
+    - src.mccullough-2009-a
 - id: free.L2.hand-pressure
   stroke: free
   level: L2
@@ -141,6 +147,8 @@ indicators:
   - certainty: 🟢
     text: Race Club PDM（推進方向動作）
     source: Race Club
+    source_ids:
+    - src.race-club
 - id: free.L3.kick-rhythm
   stroke: free
   level: L3
@@ -161,6 +169,8 @@ indicators:
   - certainty: 🟢
     text: Gonjo 2020
     source: Gonjo 2020
+    source_ids:
+    - src.gonjo-2020-a
 - id: free.L4.sr-sl
   stroke: free
   level: L4
@@ -171,6 +181,8 @@ indicators:
   - certainty: 🟢
     text: Staunton 2025
     source: Staunton et al. 2025
+    source_ids:
+    - src.staunton-2025-c
 - id: free.L5.sr-sl
   stroke: free
   level: L5
@@ -181,6 +193,8 @@ indicators:
   - certainty: 🟢
     text: Staunton 2025
     source: Staunton et al. 2025
+    source_ids:
+    - src.staunton-2025-c
 - id: free.L5.coupling-timing
   stroke: free
   level: L5
@@ -192,6 +206,8 @@ indicators:
   - certainty: 🟠
     text: Race Club Pressure Meter 同步量測肩-髖角速度與手壓力
     source: 整合 Race Club + 通用菁英觀察
+    source_ids:
+    - src.race-club-c
 - id: free.L5.lift-phase-duration
   stroke: free
   level: L5
@@ -203,6 +219,8 @@ indicators:
   - certainty: 🟠
     text: Race Club Velocity Meter 量測 Gary Hall Sr 100 SPM 升力相 0.34 秒
     source: 整合 Race Club 量測
+    source_ids:
+    - src.race-club-d
 - id: free.L5.serratus
   stroke: free
   level: L5
@@ -214,9 +232,13 @@ indicators:
   - certainty: 🟡
     text: Pink EMG 1991
     source: Pink et al. 1991
+    source_ids:
+    - src.pink-1991-a
   - certainty: 🟢
     text: StatPearls 2023
     source: StatPearls 2023
+    source_ids:
+    - src.statpearls-2023
 - id: free.L6.stability
   stroke: free
   level: L6
@@ -227,6 +249,8 @@ indicators:
   - certainty: 🟢
     text: 疲勞全程划距穩定是精英特徵
     source: Gonjo & Olstad 2023
+    source_ids:
+    - src.gonjo-2023
 - id: back.pre.orientation
   stroke: back
   level: pre
@@ -247,6 +271,8 @@ indicators:
   - certainty: 🟡
     text: Maglischo 2003
     source: Maglischo 2003
+    source_ids:
+    - src.maglischo-2003-b
 - id: back.L3.pull
   stroke: back
   level: L3
@@ -257,6 +283,8 @@ indicators:
   - certainty: 🟢
     text: Gonjo 2020
     source: Gonjo 2020
+    source_ids:
+    - src.gonjo-2020-a
 - id: back.L3.shoulder-roll
   stroke: back
   level: L3
@@ -267,6 +295,8 @@ indicators:
   - certainty: 🟢
     text: 旋轉幅度平均 49.73°
     source: Gonjo 2020
+    source_ids:
+    - src.gonjo-2020-a
 - id: back.L4.roll-stability
   stroke: back
   level: L4
@@ -277,6 +307,8 @@ indicators:
   - certainty: 🟢
     text: González-Ravé 2025
     source: González-Ravé 2025
+    source_ids:
+    - src.gonzalez-rave-2025-a
 - id: back.L4.head-stillness
   stroke: back
   level: L4
@@ -294,6 +326,8 @@ indicators:
   - certainty: 🟠
     text: 教練影像觀察—菁英仰式選手在 sub-1:00 100m 配速下頭部位移 <3cm
     source: 通用菁英影像共識
+    source_ids:
+    - src.elite-video-consensus
 - id: back.L5.roll-invariant
   stroke: back
   level: L5
@@ -305,6 +339,8 @@ indicators:
   - certainty: 🟢
     text: Gonjo 2021
     source: Gonjo 2021
+    source_ids:
+    - src.gonjo-2021-a
 - id: back.L5.start-turn
   stroke: back
   level: L5
@@ -316,6 +352,8 @@ indicators:
   - certainty: 🟢
     text: 流線滑行佔 100m 近 1/3 時間
     source: González-Ravé 2025
+    source_ids:
+    - src.gonzalez-rave-2025-a
 - id: back.L6.stability
   stroke: back
   level: L6
@@ -326,6 +364,8 @@ indicators:
   - certainty: 🟢
     text: 系統綜述
     source: González-Ravé 2025
+    source_ids:
+    - src.gonzalez-rave-2025-a
 - id: fly.pre.undulation
   stroke: fly
   level: pre
@@ -336,6 +376,8 @@ indicators:
   - certainty: 🟡
     text: H1 諧波分析
     source: Sanders et al. 1995
+    source_ids:
+    - src.sanders-1995-b
 - id: fly.L2.kick
   stroke: fly
   level: L2
@@ -346,6 +388,8 @@ indicators:
   - certainty: 🟢
     text: PMC 2018
     source: PMC 2018
+    source_ids:
+    - src.pmc-2018
 - id: fly.L2.catch
   stroke: fly
   level: L2
@@ -366,6 +410,8 @@ indicators:
   - certainty: 🟡
     text: Sanders 1995
     source: Sanders 1995
+    source_ids:
+    - src.sanders-1995-a
   - certainty: 🟠
     text: 教練觀測
     source: ''
@@ -379,6 +425,8 @@ indicators:
   - certainty: 🟢
     text: 兩踢相關 r=-0.45
     source: PMC 2018
+    source_ids:
+    - src.pmc-2018
 - id: fly.L4.second-kick
   stroke: fly
   level: L4
@@ -389,6 +437,8 @@ indicators:
   - certainty: 🟡
     text: 五峰值分析
     source: Mason et al. 1992
+    source_ids:
+    - src.mason-1992-b
 - id: fly.L4.outsweep
   stroke: fly
   level: L4
@@ -400,6 +450,8 @@ indicators:
   - certainty: 🟡
     text: Peyrebrune & Turner 2007
     source: Peyrebrune & Turner 2007
+    source_ids:
+    - src.peyrebrune-2007
 - id: fly.L5.two-kick-differentiation
   stroke: fly
   level: L5
@@ -411,9 +463,13 @@ indicators:
   - certainty: 🟡
     text: Mason 1992
     source: Mason 1992
+    source_ids:
+    - src.mason-1992-a
   - certainty: 🟢
     text: Swim Like A Fish 2025
     source: Swim Like A Fish 2025
+    source_ids:
+    - src.swim-like-a-fish-2025
 - id: fly.L5.glide-elimination
   stroke: fly
   level: L5
@@ -435,6 +491,8 @@ indicators:
   - certainty: 🟠
     text: 菁英蝶式 IVV 觀察—Phelps/Milak/Dressel 50/100m 影像分析
     source: 通用菁英影像共識
+    source_ids:
+    - src.elite-video-consensus
 - id: fly.L6.chain-closure
   stroke: fly
   level: L6
@@ -467,9 +525,13 @@ indicators:
   - certainty: 🟢
     text: CFD 渦流分析
     source: Tanaka 2024
+    source_ids:
+    - src.tanaka-2024-a
   - certainty: 🟡
     text: 踝柔韌性主導
     source: Hayashi 2025；Strzała 2013
+    source_ids:
+    - src.hayashi
 - id: breast.L2.hand-support
   stroke: breast
   level: L2
@@ -490,6 +552,8 @@ indicators:
   - certainty: 🟢
     text: 渦流合併機制
     source: Tanaka 2024
+    source_ids:
+    - src.tanaka-2024-a
 - id: breast.L3.recovery-drag
   stroke: breast
   level: L3
@@ -500,6 +564,8 @@ indicators:
   - certainty: 🟡
     text: 收腿阻力相關 r=0.35
     source: Strzała 2013
+    source_ids:
+    - src.strzala-2013-a
 - id: breast.L4.timing
   stroke: breast
   level: L4
@@ -510,6 +576,8 @@ indicators:
   - certainty: 🟢
     text: 系統綜述
     source: Nicol et al. 2022
+    source_ids:
+    - src.nicol-2022-c
 - id: breast.L4.undulation
   stroke: breast
   level: L4
@@ -520,9 +588,13 @@ indicators:
   - certainty: 🟡
     text: Colman 1998
     source: Colman 1998
+    source_ids:
+    - src.colman-1998-a
   - certainty: 🟠
     text: Ward 2018 研究
     source: Ward 2018
+    source_ids:
+    - src.ward-2018-b
 - id: breast.L5.late-kick
   stroke: breast
   level: L5
@@ -533,6 +605,8 @@ indicators:
   - certainty: 🟠
     text: Ward 2018 研究；Peaty 技術
     source: Ward 2018；Peaty
+    source_ids:
+    - src.ward-2018-c
 - id: breast.L5.undulation-stability
   stroke: breast
   level: L5
@@ -543,9 +617,13 @@ indicators:
   - certainty: 🟢
     text: Nicol 2022
     source: Nicol 2022
+    source_ids:
+    - src.nicol-2022-a
   - certainty: 🟢
     text: Tanaka 2024
     source: Tanaka 2024
+    source_ids:
+    - src.tanaka-2024-a
 - id: breast.L6.stability
   stroke: breast
   level: L6
@@ -556,6 +634,8 @@ indicators:
   - certainty: 🟢
     text: 划距穩定是精英特徵
     source: Gonjo & Olstad 2023
+    source_ids:
+    - src.gonjo-2023
 usage_boundaries:
 - scenario: 感知缺陷
   observation: 技術崩潰，但學習者說不清楚「為什麼做不到」

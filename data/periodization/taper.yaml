@@ -7,6 +7,8 @@ definition:
   id: periodization.taper.definition
   cert: 🟢
   source: Ch9; Mujika & Padilla 2003 (PMID 12840640)
+  source_ids:
+  - src.pmid-12840640-a
   text_en: A progressive, nonlinear reduction of the training load during a variable period of time, intended to reduce physiological and psychological stress of daily training and optimize sport performance.
   text_zh: 在一段可變期間內，漸進、非線性地降低訓練負荷，目的是移除日常訓練累積的生理與心理壓力、使表現最佳化
   purpose_zh: 讓減量期前累積的訓練適應（fitness）保留，同時消除疲勞（fatigue）→ 表現 = fitness − fatigue 的差值在減量末達最大
@@ -17,6 +19,8 @@ variables:
   name_zh: 訓練量
   cert: 🟢
   source: Ch9; Mujika & Padilla 2003 (PMID 12840640); Bosquet et al. 2007 (PMID 17762369)
+  source_ids:
+  - src.pmid-12840640-b
   reduction:
     typical: 41–60%
     heavy_pretaper: 60–90%
@@ -28,6 +32,8 @@ variables:
   name_zh: 訓練強度
   cert: 🟡
   source: Ch9
+  source_ids:
+  - src.ch9
   rule_zh: 維持中高強度以保留適應與技術；強度若一併大降會導致 detraining
   first_week_zh: 減量第一週可微調：功率類 −5–10%、耐力類 −20–30%，之後回拉至接近賽強度
   role_zh: 強度是『保適應』旋鈕，不可大降
@@ -37,6 +43,8 @@ variables:
   name_zh: 訓練頻率
   cert: 🟡
   source: Ch9; Mujika & Padilla 2003 (PMID 12840640)
+  source_ids:
+  - src.pmid-12840640-a
   rule_zh: 維持 ≥80% 平時頻率以保技術手感與神經肌肉協調；頻率大降會掉技術
   role_zh: 頻率是『保技術』旋鈕
   plain_zh: 下水的次數（一週幾練）盡量維持，至少留平常的八成。少下水會掉手感、掉技術——這跟消疲勞是兩回事，不能混為一談。
@@ -45,6 +53,8 @@ variables:
   name_zh: 減量時長
   cert: 🟢
   source: Ch9; Mujika & Padilla 2003 (PMID 12840640)
+  source_ids:
+  - src.pmid-12840640-a
   range:
     min_days: 8
     max_days: 14
@@ -57,6 +67,8 @@ taper_types:
   name_zh: 線性遞減
   cert: 🟡
   source: Ch9
+  source_ids:
+  - src.ch9
   note_zh: 負荷等量直線下降；增益低於指數型
   plain_zh: 每天等量往下降一直線。最單純，但效果比指數型差。
 - id: periodization.taper.type.step
@@ -64,6 +76,8 @@ taper_types:
   name_zh: 階梯式（單次驟降）
   cert: 🟢
   source: Ch9; Bosquet et al. 2007 (PMID 17762369)
+  source_ids:
+  - src.pmid-17762369
   perf_gain: ≈1.2–1.5%
   note_zh: 一次性把負荷砍到固定低水平維持；增益最小
   plain_zh: 一次把量砍到一個低水平就維持不動。最省事，但增益最小（大約進步 1–1.5%）。
@@ -72,6 +86,8 @@ taper_types:
   name_zh: 快速指數遞減
   cert: 🟢
   source: Ch9; Bosquet et al. 2007 (PMID 17762369)
+  source_ids:
+  - src.pmid-17762369
   perf_gain: ≈4.0–5.0%
   note_zh: 前段快降、後段趨緩的指數曲線；元分析中表現增益最大，為首選型態
   default: true
@@ -80,6 +96,8 @@ peak:
   id: periodization.taper.peak_window
   cert: 🟡
   source: Ch9
+  source_ids:
+  - src.ch9
   maintainable_days:
     min: 7
     max: 14
@@ -91,6 +109,8 @@ swim_application:
   id: periodization.taper.swim
   cert: 🟢
   source: Mujika et al. 1996 (PMID 8775162); Mujika/Padilla/Pyne 2002 (PMID 12439774); Bosquet et al. 2007 (PMID 17762369)
+  source_ids:
+  - src.mujika
   volume_reduction_zh: 🔵 游泳文獻常見賽前 50–90% 量遞減（與 Bompa 41–60%／重負荷 60–90% 區間一致）
   three_week_taper_zh: 🟢 模型化游泳選手研究：三週減量平均 +2.90±1.50%、四週 +3.20±1.70% 表現增益（Mujika et al. 1996, PMID 8775162, N=18）
   sydney_2000_zh: 🟢 雪梨 2000 奧運游泳：賽前三週減量期間表現平均提升 +2.18±1.50%（男 +2.57%／女 +1.78%，99 筆成績；Mujika/Padilla/Pyne 2002, PMID 12439774）；奧運獎牌的成績差距常在 0.5–1% 量級，故數個百分點的減量增益足以決定名次

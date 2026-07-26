@@ -13,7 +13,7 @@
 
 {{ $drills := (index hugo.Data "vortex" "drills").drills }}
 {{ $strokeChips := slice "all" "free" "back" "breast" "fly" "udk" "starts-turns" }}
-{{ $drillCatName := dict "breathing" "呼吸" "balance" "平衡" "kick" "踢腿" "arm" "划手" "timing" "銜接" "sculling" "搖櫓" "turn" "出發轉身" }}
+{{ $drillCatName := dict }}{{ range (index hugo.Data "vortex" "drills").categories }}{{ $drillCatName = merge $drillCatName (dict .key .name_zh) }}{{ end }}
 
 {{/* 9 軸中文映射 v1.0 (2026-06-27) */}}
 {{ $bodyZh := dict "standing" "站姿" "vertical" "垂直" "prone" "俯臥" "supine" "仰躺" "side" "側躺" "underwater" "水下" "transitional" "轉換" }}

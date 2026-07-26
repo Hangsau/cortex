@@ -9,6 +9,8 @@ phases:
   name_en: Preparatory
   cert: 🟡
   source: Ch5 Periodization Terminology; Ch8 Phases
+  source_ids:
+  - src.ch5-periodization-terminology-ch8-phases
   purpose_zh: 建立表現的生理基礎；準備期不足則競賽期表現無法最大化
   plain_zh: 準備期＝打底的階段。先把體能基礎建起來，這段練得不夠，後面比賽就拉不出好成績。前半段練得廣、雜一點，後半段越來越專項。
   subphases:
@@ -16,6 +18,8 @@ phases:
     name_zh: 一般準備
     cert: 🟡
     source: Ch8
+    source_ids:
+    - src.ch8
     share_of_prep: 25–33% of 準備期
     intensity_cap: ≤40% of 總量
     endurance_aerobic_share: 耐力運動 70–80% aerobic
@@ -24,6 +28,8 @@ phases:
     name_zh: 專項準備
     cert: 🟡
     source: Ch8
+    source_ids:
+    - src.ch8
     sport_specific_share: 70–80% sport-specific work
     focus_zh: 用專項模態發展項目所需特性
 - key: competitive
@@ -31,6 +37,8 @@ phases:
   name_en: Competitive
   cert: 🟡
   source: Ch5; Ch8
+  source_ids:
+  - src.ch5-ch8
   purpose_zh: 表現能力最大化；維持 90% 專項 / 10% 非專項
   plain_zh: 競賽期＝把表現拉到最高的階段，幾乎全部練專項（90%）。正式比賽都在這段，主賽前面接減量（taper）。
   subphases:
@@ -39,16 +47,22 @@ phases:
     cert: 🟡
     source: Ch8
     note_zh: 通常僅熱身賽 / 展示賽
+    source_ids:
+    - src.ch8
   - key: main_competitive
     name_zh: 主競賽
     cert: 🟡
     source: Ch8
     note_zh: 所有正式比賽；主賽前接 unloading/taper + special preparation 子階段
+    source_ids:
+    - src.ch8
 - key: transition
   name_zh: 過渡期
   name_en: Transition
   cert: 🟡
   source: Ch8 Transition Phase
+  source_ids:
+  - src.ch8-transition-phase
   duration_weeks:
     min: 2
     max: 4
@@ -65,6 +79,8 @@ annual_plan_types:
   name_en: Monocycle
   cert: 🟡
   source: Ch5 Table 5.1; Ch8 Classifying Annual Plans (Fig 8.4/8.5)
+  source_ids:
+  - src.ch5-table-5-1-ch8-classifying-annual-plans-f
   total_weeks: 52
   peaks: 1
   weeks:
@@ -91,6 +107,8 @@ annual_plan_types:
   name_en: Bi-cycle
   cert: 🟡
   source: Ch5 Table 5.1; Ch8 (Fig 8.6); Ch5 Fig 5.11 (游泳 200m 範例)
+  source_ids:
+  - src.ch5-table-5-1-ch8-fig-8-6-ch5-fig-5-11-200m
   total_weeks: 26
   peaks: 2
   weeks:
@@ -117,6 +135,8 @@ annual_plan_types:
   name_en: Tri-cycle
   cert: 🟡
   source: Ch5 Table 5.1; Ch8 (Fig 8.7)
+  source_ids:
+  - src.ch5-table-5-1-ch8-fig-8-7
   peaks: 3
   weeks_note_zh: 三段分別約 20–24(冬)/16–18(春夏)/4–6(夏)；準備期 12–20/10–12/2–4；競賽期 4–6/8–12/2–4；過渡期 1–2/1–2/3–6
   structure_note_zh: 首準備期最長（含一般準備子階段）；最重要賽事置於第三 cycle；通常僅進階運動員使用
@@ -132,6 +152,8 @@ annual_plan_types:
   name_en: Multiple-peak
   cert: 🟡
   source: Ch5 Table 5.1; Ch5 Selective Periodization; Ch8 (Fig 8.8)
+  source_ids:
+  - src.ch5-table-5-1-ch5-selective-periodization-ch
   weeks:
     per_cycle:
       min: 11
@@ -155,6 +177,8 @@ macrocycle:
   id: periodization.structure.macrocycle
   cert: 🟡
   source: Ch7 Planning Training Cycles
+  source_ids:
+  - src.ch7-planning-training-cycles
   duration_weeks:
     min: 2
     max: 6
@@ -190,6 +214,8 @@ microcycle:
   id: periodization.structure.microcycle
   cert: 🟡
   source: Ch7 Planning Training Cycles (Table 7.1 強度分區見 zones.yaml)
+  source_ids:
+  - src.ch7-planning-training-cycles-table-7-1-zones
   duration: 1 週
   classifications:
   - key: developmental
@@ -230,6 +256,8 @@ general_adaptation_syndrome:
   id: periodization.structure.gas
   cert: 🟢
   source: Selye 1974, 1976; 整合進 Bompa 體系（多教練書共識）
+  source_ids:
+  - src.selye
   three_stages:
   - key: alarm
     name_zh: 警覺期
@@ -252,12 +280,14 @@ general_adaptation_syndrome:
     - t2c
     - t2w
     related:
-    - macrocycle
-    - microcycle
+    - periodization.structure.macrocycle
+    - periodization.structure.microcycle
 detraining:
   id: periodization.structure.detraining
   cert: 🟢
   source: Ch8 Table 8.2; Mujika & Padilla 2000
+  source_ids:
+  - src.ch8-table-8-2-mujika-padilla-2000
   vo2max_loss:
   - days: 4
     loss: 4%
@@ -280,6 +310,8 @@ swim_annual_structure:
   id: periodization.structure.swim_annual
   cert: 🟢
   source: Hellard et al. 2019 (PMC6470949); González-Ravé et al. 2022 (PMID 36247944, n=1)
+  source_ids:
+  - src.hellard
   macrocycles_per_year: 2–4（菁英游泳常見；Hellard 2019）
   macrocycle_length_weeks: ≈15 週/macrocycle（Hellard 2019）
   low_intensity_volume_share: 86–90% 訓練量落在 ≤4 mmol（低強度為主，Hellard 2019）
@@ -295,6 +327,8 @@ swim_youth_ltad:
   id: periodization.structure.swim_youth_ltad
   cert: 🟢
   source: Swimming Canada LTAD 分齡; PHV 文獻; Ford et al. 2011 (PMID 21259156); van Hooren & De Ste Croix 2020
+  source_ids:
+  - src.pmid-21259156
   stage_ages_zh: Swimming Canada 分齡（與 ADM 對齊）：學習訓練 L2T 女 8–11/男 9–12；訓練為訓練 T2T 女 11–15/男 12–16；訓練為競賽 T2C 女 15–21/男 16–23；訓練為勝利 T2W 女 18+/男 19+
   phv_zh: 生長陡增高峰 PHV：女 ≈12.5 歲、男 ≈14 歲（平均值，個體差異大）
   windows_of_trainability_contested: true
@@ -311,6 +345,8 @@ schools_overview:
   id: periodization.structure.schools_overview
   cert: 🔵
   source: 作者綜合：Bompa & Buzzichelli 6th ed.；Issurin 2008/2010/2016；Seiler 2010；Olbrecht 2000；Sweetenham & Atkinson 2003；Hellard 2019
+  source_ids:
+  - src.bompa-buzzichelli-6th-ed-issurin-2008-2010-2
   premise_zh: 週期化不是一套被證明的定論，而是幾套互相辯論的框架。它們問的問題不同、適用的對象不同——把任何一派當『標準答案』都是誤讀。
   schools:
   - key: traditional
@@ -367,6 +403,8 @@ school_block:
   id: periodization.structure.school_block
   cert: 🟡
   source: Issurin 2008《Block Periodization》; Issurin 2008 (PMID 18212712); 2010 (DOI 10.2165/11319770); 2016 (PMID 26573916); 2019 (PMID 30411234); Breil 2019 meta (PMID 31802956)
+  source_ids:
+  - src.issurin
   core_mechanism_zh: 板塊派的根本主張：高水準運動員無法在同一階段同時有效提升所有能力，因為許多訓練刺激彼此不相容（有氧 AMPK 路徑 vs 肌力 mTOR 路徑拮抗），會產生衝突反應。解法是『序列集中』——一次只把高度集中的負荷指向極少數相容能力，靠前一塊的殘留效應保住已得適應。
   residual_effects:
   - ability_zh: 有氧耐力
@@ -415,6 +453,8 @@ perception_periodization_bridge:
   id: periodization.structure.perception_periodization_bridge
   cert: 🔵
   source: 作者綜合（Vortex 核心命題 × 週期化）；通用『技能週期化』與『疲勞損害技能學習』有文獻支持，水感知(L0–L6)專屬層仍待驗證
+  source_ids:
+  - src.vortex-l0-l6
   gap_zh: 目前的週期化內容（量、強度、能量系統、減量）全部講『生理負荷』，完全沒接到 Vortex 的核心命題『所有游泳技術都建立在水感知上』。兩者像兩套平行系統。
   hypothesis_zh: 作者假設：感知穩定度本身是一個該被週期化的變項。疲勞會讓動作退回『感知真正穩定的地方』（CLAUDE.md 核心命題），高量/高疲勞的訓練塊會壓低感知品質——三個推論逐層標確定性：(1) 🔵 大量低強度有氧塊可能正是『鞏固感知』的窗口（低疲勞、可專注感覺）——與減量研究『降頻會掉 motor sensation 與技術熟練度、需維持頻率保技術』方向一致；(2) 🟢 高強度/減量前的疲勞峰是最不該導入新技術的時機——Branscheidt et al. 2019（eLife 8:e40578，DOI 10.7554/eLife.40578）證實肌肉疲勞會損害動作技能的『學習』本身（非僅執行），且影響延續到隔天無疲勞狀態，作者直言『在疲勞中或超過疲勞訓練的常見做法應重新檢討』；(3) 🟡 Sweetenham『速度先行、別讓疲勞固化壞技術』與此方向一致。框架層面：『技能本身可週期化』非原創——Otte, Millar & Klatt 2019 的 PoST 框架（Front. Sports Act. Living 1:61，DOI 10.3389/fspor.2019.00061）已把技能訓練分 coordination → skill adaptation → performance 三階段；板塊週期化的 transmutation 塊本就定義為『specific technical motor skills 習得』。
   why_it_matters_zh: 若這個接點成立，週期化模組就不只是『排生理負荷』，而能回答 Vortex 真正關心的問題：在年度計畫的哪個階段、哪種疲勞狀態下，最適合建立 vs 鞏固 vs 不該碰感知技術。這會讓週期化從『借來的通用理論』變成『服務水感知命題的工具』。

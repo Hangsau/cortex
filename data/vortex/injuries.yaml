@@ -44,6 +44,9 @@ injuries:
     sources:
     - Masters swimmers shoulder ultrasound, PMC7824457 (已驗證)
     - LHB and rotator cuff coexistence systematic review, PMC4247626 (已驗證)
+    source_ids:
+    - src.pmc7824457
+    - src.pmc4247626
   risk_factors:
   - text: 棘上肌腱病共存
     grade: B
@@ -137,6 +140,9 @@ injuries:
     sources:
     - Masters swimmers shoulder ultrasound, PMC7824457 (已驗證)
     - Youth swimmer shoulder pain multi-site survey, PMC11297363 (已驗證)
+    source_ids:
+    - src.pmc7824457
+    - src.pmc11297363-a
   risk_factors:
   - text: 高訓練量/急遽增量(>15 h/週或 >35 km/週)
     grade: B
@@ -242,6 +248,9 @@ injuries:
     sources:
     - Multidirectional instability of the shoulder, StatPearls NBK557726 (已驗證)
     - MDI management review, Annals of Joint (已驗證)
+    source_ids:
+    - src.multidirectional-instability-of-the-shoulder
+    - src.mdi-management-review-annals-of-joint
   risk_factors:
   - text: 廣泛韌帶鬆弛
     grade: B
@@ -340,6 +349,9 @@ injuries:
     sources:
     - SLAP lesions overview & rehab, PMC3811737 (已驗證)
     - Swimmers refractory shoulder arthroscopy series, PMC4528289 (已驗證)
+    source_ids:
+    - src.pmc3811737
+    - src.pmc4528289
   risk_factors:
   - text: GIRD(內旋缺損 >13–15°)
     grade: B
@@ -438,6 +450,8 @@ injuries:
     caveat: 證據幾乎全為教練觀察與臨床回報；無控制研究；常見引用的『精英泳者 58% 曾有肘不適』來自商業平台文章，不可作公開數字
     sources:
     - 臨床/教練回報(無系統性流行病學研究)
+    source_ids:
+    - src.clinical-coach-report-no-epidemiology
   risk_factors:
   - text: 蝶/蛙拉水技術不正(手肘下垂、過中線)
     grade: Expert
@@ -530,6 +544,9 @@ injuries:
     sources:
     - McKenzie 2023 系統綜述, Scand J Med Sci Sports, DOI:10.1111/sms.14454（DOI 待 WebFetch 驗證）
     - StatPearls Swimmer's Shoulder, NCBI Bookshelf NBK470589
+    source_ids:
+    - src.mckenzie-2023-a
+    - src.statpearls-swimmer-s-shoulder-ncbi-bookshelf
   risk_factors:
   - text: 訓練量 >35 km/週
     grade: B
@@ -577,8 +594,12 @@ injuries:
     lifecycle: null
   links:
     mechanism_link: 前鋸肌耐力是 EVF（早期垂直前臂）的硬體前提，疲勞後肩胛失穩→捕水崩潰
+    mechanism_link_ids: []
     technical_link: free.tech.10 前鋸肌硬體邊界 / free 疲勞崩潰順序第③步
+    technical_link_ids:
+    - free.tech.10
     perception_link: L4–L6 手感與全身張力
+    perception_link_ids: []
   references:
   - citation: Sein ML, Walton J, Linklater J, Appleyard R, Kirkbride B, Kuah D, Murrell G. Br J Sports Med 2010;44(2):105-113
     certainty: 🔴
@@ -628,6 +649,9 @@ injuries:
     sources:
     - TOS in athletes systematic review (Frontiers 2022) / PMC7340704 (已驗證)
     - TOS conservative rehabilitation protocol, PMC11277273 (已驗證)
+    source_ids:
+    - src.pmc7340704
+    - src.pmc11277273
   risk_factors:
   - text: 反覆過頭→斜角肌/胸小肌肥大
     grade: B
@@ -725,6 +749,9 @@ injuries:
     sources:
     - Rovere & Nichols 等蛙泳膝經典文獻（作者/年份/期刊待查）
     - 游泳膝傷流病系統綜述（待 WebFetch 核實）
+    source_ids:
+    - src.rovere-nichols
+    - src.swimmers-knee-epidemiology-sr
   risk_factors:
   - text: 蛙式為主項 + 高週踢腿量
     grade: B
@@ -774,8 +801,11 @@ injuries:
     lifecycle: null
   links:
     mechanism_link: 踢腿外翻負荷與髖外旋代償可接『硬體邊界 vs 感知缺陷』判斷(髖活動度=硬體)
+    mechanism_link_ids: []
     technical_link: 蛙式踢腿技術分析(外翻角/髖帶動)——待對應 canonical technical 條目
+    technical_link_ids: []
     perception_link: L2–L4 腳感層(踢腿節律與蹬夾感知)
+    perception_link_ids: []
   references:
   - citation: 蛙泳膝經典流病文獻（作者/年份/期刊全待 WebFetch 核實）
     certainty: 🟡
@@ -814,6 +844,9 @@ injuries:
     sources:
     - Swimming low back pain by stroke, PMC11531034 (已驗證)
     - Competitive swimmers spine degeneration, PMC3435931 (已驗證)
+    source_ids:
+    - src.pmc11531034
+    - src.pmc3435931
   risk_factors:
   - text: 髂腰肌緊縮
     grade: B
@@ -918,6 +951,9 @@ injuries:
     sources:
     - Cam morphology in aquatic athletes, PMC7605769 (已驗證)
     - FAI rehabilitation & RTS, PMC11642080 (已驗證)
+    source_ids:
+    - src.pmc7605769
+    - src.pmc11642080
   risk_factors:
   - text: 青少年期大量水上運動(骨骺敏感)
     grade: B
@@ -1013,6 +1049,9 @@ injuries:
     sources:
     - Grote 2004 breaststroke groin injury, AJSM PMID 14754731 (摘要層級待驗證)
     - Adductor loading/return-to-sport practice (Coast Sport, 已驗證)
+    source_ids:
+    - src.grote-2004
+    - src.adductor-loading-return-to-sport-practice-co
   risk_factors:
   - text: 蛙泳踢腿幅度過大
     grade: B
@@ -1111,6 +1150,9 @@ injuries:
     sources:
     - Swimming low back pain by stroke, PMC11531034 (已驗證)
     - Competitive swimmers spine degeneration, PMC3435931 (已驗證)
+    source_ids:
+    - src.pmc11531034
+    - src.pmc3435931
   risk_factors:
   - text: 蝶/蛙反覆腰椎過伸
     grade: B
@@ -1214,6 +1256,9 @@ injuries:
     sources:
     - Swimming injury imaging review (踝部約 1%), radiologykey (已驗證)
     - Stress fractures in swimmers systematic review, journals.aiac.org.au (已驗證)
+    source_ids:
+    - src.swimming-injury-imaging-review-1-radiologyke
+    - src.stress-fractures-in-swimmers-systematic-revi
   risk_factors:
   - text: 蛙鞋過用/尺寸不合
     grade: Expert
@@ -1310,6 +1355,8 @@ injuries:
     caveat: 屬罕見但破壞性極強之眼科急症；發生率受隱形眼鏡使用率與通報品質影響，地區差異大；游泳特異性歸因比例缺精確分母
     sources:
     - Global incidence of Acanthamoeba keratitis, PMC11424229 (已驗證)
+    source_ids:
+    - src.pmc11424229
   risk_factors:
   - text: 戴隱形眼鏡游泳/泡水
     grade: B
@@ -1398,6 +1445,8 @@ injuries:
     caveat: 缺游泳者眼症狀全球前瞻盛行率；『結膜炎』vs『刺激』判準不一；多數研究聚焦職業工作者非一般泳者
     sources:
     - Chloramine eye irritation 機制研究, PMC6137694 (已驗證)
+    source_ids:
+    - src.pmc6137694
   risk_factors:
   - text: 不戴泳鏡游泳
     grade: Expert
@@ -1485,6 +1534,9 @@ injuries:
     sources:
     - Cryptosporidiosis outbreaks US 2009–2017, PMC6597118 (已驗證)
     - Treated recreational water illness outbreaks 2015–2019, PMC8136425 (已驗證)
+    source_ids:
+    - src.pmc6597118
+    - src.pmc8136425
   risk_factors:
   - text: 吞入泳池水
     grade: B
@@ -1579,6 +1631,8 @@ injuries:
     caveat: 多數數據來自臨床觀察與小規模個案系列，缺大型流病
     sources:
     - Akkurt et al. 2017, J Phys Ther Sci（SCI 髖屈攣縮綜述；待核實具體引用）
+    source_ids:
+    - src.akkurt-2017
   risk_factors:
   - text: 完全性 SCI（vs 不完全性）
     grade: B
@@ -1648,6 +1702,9 @@ injuries:
     sources:
     - External Auditory Exostoses, StatPearls PMID 30521295 (已驗證)
     - Warm-water surfers exostosis 橫斷研究, PMC7077213 (已驗證)
+    source_ids:
+    - src.pmid-30521295
+    - src.pmc7077213
   risk_factors:
   - text: 冷水(<19°C)暴露頻率與累積時數
     grade: B
@@ -1738,6 +1795,9 @@ injuries:
     sources:
     - Dental erosion in competitive swimmers (Poland), PMC3579418 (已驗證)
     - Dental erosion competitive swimmers vs rowers (Egypt), PMC10713671 (已驗證)
+    source_ids:
+    - src.pmc3579418
+    - src.pmc10713671
   risk_factors:
   - text: 競技游泳(高訓練量)
     grade: B
@@ -1844,6 +1904,10 @@ injuries:
     - Aquatic dermatoses 回顧, PMC5286756 (已驗證)
     - Cercarial dermatitis 前瞻調查, PMC1448328 (已驗證)
     - Hot tub folliculitis 回顧, PMC7584313 (已驗證)
+    source_ids:
+    - src.pmc5286756
+    - src.pmc1448328
+    - src.pmc7584313
   risk_factors:
   - text: 熱浴缸長時間浸泡(>30 分)+消毒不良(毛囊炎)
     grade: B
@@ -1940,6 +2004,9 @@ injuries:
     sources:
     - StatPearls Otitis Externa, PMID 32310515 (已驗證)
     - CDC MMWR 急性外耳道炎門診資料 2003–2007 (已驗證)
+    source_ids:
+    - src.pmid-32310515
+    - src.cdc-mmwr-2003-2007
   risk_factors:
   - text: 游泳/頻繁潛水
     grade: B
@@ -2034,6 +2101,10 @@ injuries:
     - EIB in competitive swimmers 回顧, PMC6092370 (已驗證)
     - Childhood pool exposure and asthma (Brussels), PMC1626429 (已驗證)
     - Trichloramine and lung function, PMC3488741 (已驗證)
+    source_ids:
+    - src.pmc6092370
+    - src.pmc1626429
+    - src.pmc3488741
   risk_factors:
   - text: 室內泳池長期訓練(>100 小時)
     grade: B
@@ -2131,6 +2202,10 @@ injuries:
     - Point prevalence skin cancers Australian surfers/swimmers, PMC9057286 (已驗證)
     - Skin Cancer Risk in Athletes narrative review, Cancers 2023, PMC10339925 (已驗證)
     - Solar Radiation Latitudes and Pterygium systematic review, PMC5800136 (已驗證)
+    source_ids:
+    - src.pmc9057286
+    - src.pmc10339925
+    - src.pmc5800136
   risk_factors:
   - text: 累積 UV 暴露(>5 小時/日戶外)
     grade: A
@@ -2235,6 +2310,9 @@ injuries:
     sources:
     - 'Tipton MJ et al., Cold water immersion: sudden death and prolonged survival, Lancet 2003 (已驗證 URL)'
     - Lundström et al., 健康青少年冰水面浸心律研究, Physiological Reports 2025, PMC12234767 (已驗證)
+    source_ids:
+    - src.tipton-mj-et-al-cold-water-immersion-sudden-2003
+    - src.pmc12234767
   risk_factors:
   - text: 水溫 <15°C(尤 <10°C)
     grade: B
@@ -2291,6 +2369,7 @@ injuries:
     mechanism_link: null
     technical_link: null
     perception_link: 可接 L0 呼吸感知(冷水喘氣反射的生理意義)
+    perception_link_ids: []
   references:
   - citation: 'Tipton MJ et al., Cold water immersion: sudden death and prolonged survival, Lancet 2003'
     certainty: 🟢
@@ -2341,6 +2420,10 @@ injuries:
     - Exercise-Associated Hyponatremia in Marathon Runners, PMC9699060 (已驗證)
     - EAH hyponatremic encephalopathy in open water swimmer 案例, PubMed 25443755 (已驗證)
     - Pathophysiology and treatment of EAH, J Endocrinol Invest 2025, PMC12847173 (已驗證)
+    source_ids:
+    - src.pmc9699060
+    - src.pmid-25443755
+    - src.pmc12847173
   risk_factors:
   - text: 過度飲水(超過口渴需求的『預防性』補水)
     grade: A
@@ -2447,6 +2530,10 @@ injuries:
     - WHO 2024-12-13 新聞稿『Drowning deaths decline globally』(已驗證 URL)
     - Scientific Reports 2025 全球溺水負擔 204 國研究, PMC11954903 (已驗證)
     - CDC Vital Signs 溺水死亡率, MMWR 2024, PMC11115434 (已驗證)
+    source_ids:
+    - src.who-2024-12-13-drowning-deaths-decline-globa-2024
+    - src.pmc11954903
+    - src.pmc11115434
   risk_factors:
   - text: 缺乏監督(幼童最關鍵，佔兒童溺水約 52%)
     grade: A
@@ -2509,6 +2596,7 @@ injuries:
     mechanism_link: null
     technical_link: null
     perception_link: 可接 L0 呼吸感知層作為水安全教育素材(非技術介入)
+    perception_link_ids: []
   references:
   - citation: WHO 2024-12-13『Drowning deaths decline globally but the most vulnerable remain at risk』新聞稿
     certainty: 🟢
@@ -2562,6 +2650,10 @@ injuries:
     - Sex Differences in SCA/SCD in Competitive Athletes 系統綜述+meta, PMC11985649 (已驗證)
     - 義大利 ECG 篩查自然實驗(SCD 3.6→0.4 /10 萬，降 89%) (已驗證 URL)
     - Commotio Cordis in 2023, PMC10356869 (已驗證)
+    source_ids:
+    - src.pmc11985649
+    - src.ecg-scd-3-6-0-4-10-89-url
+    - src.pmc10356869
   risk_factors:
   - text: HCM(肥厚性心肌病，最常見單一原因)
     grade: A
@@ -2679,6 +2771,10 @@ injuries:
     - Brannigan et al., Hypothermia... Mass Participation Open Water Swimming, Wilderness Environ Med 2009 (已驗證)
     - JSAMS 2025 開放水域/泳池體溫調節, PubMed 40783351 (已驗證)
     - Doha 2024 Masters 3km 核心溫研究, PubMed 39500300 (已驗證)
+    source_ids:
+    - src.brannigan-et-al-hypothermia-mass-participati-2009
+    - src.pmid-40783351
+    - src.pmid-39500300
   risk_factors:
   - text: 水溫 <18°C(競賽分界)
     grade: B
@@ -2783,6 +2879,9 @@ injuries:
     sources:
     - Shallow Water Blackout Prevention 衛教文獻（來源待 WebFetch 核實）
     - 美軍/海軍 breath-hold training 安全準則（具體文件待查）
+    source_ids:
+    - src.shallow-water-blackout-prevention-webfetch
+    - src.breath-hold-training
   risk_factors:
   - text: 潛前主動過度換氣（hyperventilation）
     grade: B
@@ -2833,6 +2932,7 @@ injuries:
     mechanism_link: null
     technical_link: null
     perception_link: 可接 L0 呼吸感知層：閉氣與換氣衝動的生理意義屬呼吸感知教育素材
+    perception_link_ids: []
   references:
   - citation: Shallow Water Blackout Prevention（組織衛教，待核實具體出處）
     certainty: 🟠
@@ -2875,6 +2975,9 @@ injuries:
     sources:
     - SIPE 病理生理與鐵人三項案例系列（作者/年份待查）
     - 軍事泳訓 SIPE 研究（具體文獻待 WebFetch 核實）
+    source_ids:
+    - src.sipe
+    - src.military-swim-training-sipe
   risk_factors:
   - text: 冷水浸泡
     grade: B
@@ -2931,6 +3034,7 @@ injuries:
     mechanism_link: null
     technical_link: null
     perception_link: 可接 L0 呼吸感知/配速感知教育(辨識異常呼吸窘迫 vs 正常喘)
+    perception_link_ids: []
   references:
   - citation: SIPE 病理生理綜述（作者/年份/期刊待 WebFetch 核實）
     certainty: 🔴
@@ -2971,6 +3075,9 @@ injuries:
     sources:
     - Menstrual dysfunction in swimmers, PMID 36361122 / PMC9658102 (已驗證)
     - Swimmer menstrual dysfunction as distinct entity (hyperandrogenism), PMID 7673417 (已驗證)
+    source_ids:
+    - src.pmc9658102
+    - src.pmid-7673417
   risk_factors:
   - text: 能量可及性 <30 kcal/kg FFM/天
     grade: A
@@ -3017,6 +3124,8 @@ injuries:
     lifecycle: null
   links:
     mechanism_link: female-athlete-triad
+    mechanism_link_ids:
+    - female-athlete-triad
     technical_link: null
     perception_link: null
   references:
@@ -3059,6 +3168,9 @@ injuries:
     sources:
     - Female athlete triad in swimmers systematic review, JWSM (已驗證，無 PMID 記載)
     - RED-S Clinical Assessment Tool framework (IOC)
+    source_ids:
+    - src.female-athlete-triad-in-swimmers-systematic
+    - src.red-s-clinical-assessment-tool-framework-ioc
   risk_factors:
   - text: 低能量可及性(LEA <30 kcal/kg FFM/天)
     grade: A
@@ -3107,6 +3219,8 @@ injuries:
     lifecycle: null
   links:
     mechanism_link: red-s
+    mechanism_link_ids:
+    - red-s
     technical_link: null
     perception_link: null
   references:
@@ -3154,6 +3268,9 @@ injuries:
     sources:
     - IOC 共識聲明 — Iron in sport（具體 DOI 待 WebFetch 核實）
     - Sim et al. 2019, Eur J Appl Physiol（hepcidin 與運動誘發鐵吸收抑制；具體引用待核實）
+    source_ids:
+    - src.ioc-iron-in-sport-doi-webfetch
+    - src.sim-2019
   risk_factors:
   - text: 女性（月經損失約每月 30 mg）
     grade: A
@@ -3228,6 +3345,9 @@ injuries:
     sources:
     - Elliott-Sale et al. 2020, Br J Sports Med（OC 與運動表現綜述；具體引用待核實）
     - Bushman et al. 2006, Phys Sportsmed（早期 OC × VO₂max 量化）
+    source_ids:
+    - src.elliott-sale-2020
+    - src.bushman-2006
   risk_factors:
   - text: 三相型配方（vs 單相型）
     grade: B
@@ -3289,6 +3409,9 @@ injuries:
     sources:
     - IOC RED-S 共識聲明（2014 首版，2018/2023 更新；具體 DOI 待查）
     - Mountjoy 等 IOC consensus（作者/年份/期刊待 WebFetch 核實）
+    source_ids:
+    - src.ioc-red-s-2014-2018-2023-doi
+    - src.mountjoy-ioc-consensus-webfetch
   risk_factors:
   - text: 能量攝取不足以匹配訓練量（有意或無意）
     grade: B
@@ -3385,6 +3508,9 @@ injuries:
     sources:
     - Stress fractures in swimmers systematic review, IJKSS DOI 10.7575/aiac.ijkss.v.6n.1p.25 (已驗證)
     - RED-S and bone stress injury risk, PMID 36479178 / PMC9724109 (已驗證)
+    source_ids:
+    - src.aiac-ijkss-v-6n-1p-25
+    - src.pmc9724109
   risk_factors:
   - text: RED-S/低 BMD
     grade: A
@@ -3439,6 +3565,8 @@ injuries:
     lifecycle: null
   links:
     mechanism_link: swimmer-low-bone-density
+    mechanism_link_ids:
+    - swimmer-low-bone-density
     technical_link: null
     perception_link: null
   references:
@@ -3480,6 +3608,9 @@ injuries:
     sources:
     - Site-specific BMD in female swimmers, PMC7039474 (已驗證)
     - Resistance/impact BMD intervention, PMID 39833826 / PMC11744971 (已驗證)
+    source_ids:
+    - src.pmc7039474
+    - src.pmc11744971
   risk_factors:
   - text: 純游泳專項、缺乏重力負荷交叉訓練
     grade: A
@@ -3529,6 +3660,8 @@ injuries:
     lifecycle: null
   links:
     mechanism_link: female-athlete-triad
+    mechanism_link_ids:
+    - female-athlete-triad
     technical_link: null
     perception_link: null
   references:
@@ -3576,6 +3709,10 @@ injuries:
     - Cervical spine injuries 34 patients(C5 節段數據), PMC2899837 (已驗證)
     - Spinal injuries Aegean Coast(24h 內減壓與恢復), PMC8192199 (已驗證)
     - Quebec 44-year diving SCI study, ScienceDirect (已驗證)
+    source_ids:
+    - src.pmc2899837
+    - src.pmc8192199
+    - src.quebec-44-year-diving-sci-study-sciencedirec
   risk_factors:
   - text: 水深不足(<1.5m)——最強可改變風險因子
     grade: A
@@ -3631,6 +3768,7 @@ injuries:
   links:
     mechanism_link: null
     technical_link: 競賽出發台入水角度技術(racing start)——與出發台撞擊傷共享預防
+    technical_link_ids: []
     perception_link: null
   references:
   - citation: Prevention of spinal cord injuries in swimming pools, PubMed 9267915
@@ -3687,6 +3825,9 @@ injuries:
     sources:
     - Flip-turn kinetics 生物力學研究, PMC6409673 (已驗證 URL)
     - Swimming injuries narrative review, PubMed 33010194 (已驗證)
+    source_ids:
+    - src.pmc6409673-c
+    - src.pmid-33010194
   risk_factors:
   - text: 轉身技術未成熟（足踝角度/牆距判斷）
     grade: Expert
@@ -3735,6 +3876,7 @@ injuries:
   links:
     mechanism_link: null
     technical_link: 翻滾轉身技術——時序與足位精準度直接影響受傷風險
+    technical_link_ids: []
     perception_link: null
   references:
   - citation: Biomechanics of swimming flip-turn (wall contact kinetics), PMC6409673
@@ -3783,6 +3925,10 @@ injuries:
     - Vibrio vulnificus infection Taiwan 案例, PMC8147101 (已驗證)
     - Leptospirosis associated with triathlon/open water, PMC2858141 (已驗證)
     - Jellyfish envenomation first-aid 系統回顧（種屬特異, 待補具體出處）
+    source_ids:
+    - src.pmc8147101
+    - src.pmc2858141
+    - src.jellyfish-envenomation-first-aid
   risk_factors:
   - text: 免疫低下/慢性肝病（創傷弧菌壞死性筋膜炎）
     grade: A
@@ -3889,6 +4035,9 @@ injuries:
     sources:
     - ASTM F2508 / 防滑摩擦係數標準（工程標準，非流病）
     - Falls and hip fracture mortality, 一般骨科文獻（待補具體 PMID）
+    source_ids:
+    - src.astm-f2508
+    - src.falls-and-hip-fracture-mortality-pmid
   risk_factors:
   - text: 濕滑硬質地面（摩擦係數 <0.5）
     grade: A
@@ -3988,6 +4137,9 @@ injuries:
     sources:
     - Descriptive Epidemiology of High School Swimming and Diving Injuries, PMC10372189 (已驗證)
     - Neurobehavioral consequences of repetitive head impacts in Para swimming, ScienceDirect 2023/2024 (已驗證)
+    source_ids:
+    - src.pmc10372189
+    - src.neurobehavioral-consequences-of-repetitive-h
   risk_factors:
   - text: 出發技術未成熟(入水角度過陡致頭部觸底)
     grade: Expert
@@ -4037,6 +4189,7 @@ injuries:
   links:
     mechanism_link: null
     technical_link: 出發台 racing start 技術——與跳水頸椎傷共享水深/角度預防
+    technical_link_ids: []
     perception_link: null
   references:
   - citation: Descriptive Epidemiology of High School Swimming and Diving Injuries, PMC10372189
@@ -4081,6 +4234,9 @@ injuries:
     sources:
     - Osgood-Schlatter disease, StatPearls NBK441995 (已驗證)
     - OSD incidence general practice (Netherlands), PMID 34990396 / PMC8869186 (已驗證)
+    source_ids:
+    - src.osgood-schlatter-disease-statpearls-nbk44199
+    - src.pmc8869186
   risk_factors:
   - text: 快速身高增長
     grade: B
@@ -4169,6 +4325,8 @@ injuries:
     caveat: 游泳特定的生長板骨折分母缺；V 型急性期 X-ray 常正常易低估
     sources:
     - Salter-Harris fractures, StatPearls NBK430688 (已驗證)
+    source_ids:
+    - src.salter-harris-fractures-statpearls-nbk430688
   risk_factors:
   - text: 開放骨骺年齡
     grade: A
@@ -4216,6 +4374,8 @@ injuries:
     lifecycle: null
   links:
     mechanism_link: diving-cervical-injury
+    mechanism_link_ids:
+    - diving-cervical-injury
     technical_link: null
     perception_link: null
   references:
@@ -4254,6 +4414,8 @@ injuries:
     caveat: 游泳與後凸關聯之 OR 值來自摘要轉述未驗證原文；蝶式因果方向不明(加重後凸 vs 後凸者選游泳)
     sources:
     - Scheuermann disease, StatPearls NBK499966 (已驗證)
+    source_ids:
+    - src.scheuermann-disease-statpearls-nbk499966
   risk_factors:
   - text: 男性
     grade: B
@@ -4299,6 +4461,8 @@ injuries:
     lifecycle: null
   links:
     mechanism_link: extension-low-back-pain
+    mechanism_link_ids:
+    - extension-low-back-pain
     technical_link: null
     perception_link: null
   references:
@@ -4338,6 +4502,9 @@ injuries:
     sources:
     - Sever's disease (calcaneal apophysitis), StatPearls NBK441928 (已驗證)
     - Sever disease in youth football academy, PMID 35139872 / PMC8827183 (已驗證)
+    source_ids:
+    - src.sever-s-disease-calcaneal-apophysitis-statpe
+    - src.pmc8827183
   risk_factors:
   - text: 快速生長高峰
     grade: B
@@ -4433,6 +4600,9 @@ injuries:
     sources:
     - Youth swimmer shoulder pain multi-site, PMID 39100936 / PMC11297363 (已驗證)
     - Proximal humeral epiphysiolysis (little league shoulder), PMID 30485006 (摘要層級)
+    source_ids:
+    - src.pmc11297363-b
+    - src.pmid-30485006
   risk_factors:
   - text: 開放骨骺期+高過頭訓練量
     grade: B
@@ -4481,6 +4651,8 @@ injuries:
     lifecycle: null
   links:
     mechanism_link: rotator-cuff-tendinopathy
+    mechanism_link_ids:
+    - rotator-cuff-tendinopathy
     technical_link: null
     perception_link: null
   references:
