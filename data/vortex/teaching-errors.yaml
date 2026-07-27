@@ -168,6 +168,9 @@ errors:
   physical_reason:
     certainty: 🟢
     text: 入水（切入）與抓水（捕水）是兩個不同動作、對應不同手型：入水瞬間手形緊實降低阻力； 進入捕水後微微張開至放鬆自然位（約 10° 間距），增大推進面積。全程夾緊會限制抓水有效面積。
+    source_ids:
+    - src.marinho-2010
+    - src.the-race-club
   evidence:
   - certainty: 🟢
     text: CFD 分析真實手部模型（2 m/s）：最佳手指間距約 10°（指尖間距約 3.2 mm），與完全夾緊相比 阻力係數提升 2–5%、力矩提升 5–8%；最佳間距接近放鬆手的自然姿態。機制是指縫產生噴流， 抑制大渦流形成。多篇 CFD 重複確認。
@@ -538,6 +541,9 @@ errors:
   physical_reason:
     certainty: 🟡
     text: 划水過程中水本身在移動，每次斜切後面對的已是移動中的水，升力大幅下降； 直接對推進方向施力（drag-based propulsion）效率明顯更高。 路徑形狀遠不如「前臂面向推進方向」重要。仰式另有兩個特殊困難加重此問題： 選手看不到自己的手（視覺回饋缺失），入水後手掌容易因慣性繼續往外滑形成被動 S 形。
+    source_ids:
+    - src.toussaint-colwin-1990-maglischo-2003-swimmin
+    - src.gonjo-2020-b
   evidence:
   - certainty: 🟡
     text: 流體力學研究指出划水中升力推進效率低於阻力推進；Maglischo（2003）已修正為「橢圓路徑」， 近期研究確認個體差異顯著。
@@ -1401,6 +1407,8 @@ errors:
   physical_reason:
     certainty: 🟢
     text: 系統回顧研究指出，競技選手的有效踢幅約為身長的 0.2–0.3 倍，與魚類的最優推進比例相符。 超過這個範圍後，身體截面積增大、阻力急劇上升，核心需要額外力量對抗側向晃動，效率下降。
+    source_ids:
+    - src.veiga-2022
   evidence:
   - certainty: 🟢
     text: 競技選手有效踢幅約為身長的 0.2–0.3 倍，與魚類最優推進比例相符。
