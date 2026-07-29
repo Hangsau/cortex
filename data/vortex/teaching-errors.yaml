@@ -177,7 +177,7 @@ errors:
     source: Marinho et al. (2010), Journal of Applied Biomechanics
     source_ids:
     - src.marinho-2010
-    url: https://pubmed.ncbi.nlm.nih.gov/20733242/
+    url: https://pubmed.ncbi.nlm.nih.gov/20147761/
   - certainty: 🟢
     text: 入水瞬間手指與拇指應緊合像刀片劃入；進入抓水後手指應略微張開以增大受力面積。
     source: The Race Club
@@ -250,14 +250,14 @@ errors:
   misconception: 「腿要踢有力、踢得快」是最普遍的踢水指令之一，但忽略了踢水效率的硬體前提：踝關節蹠屈幅度。
   physical_reason:
     certainty: 🔵
-    text: 踢水推進力來自腳掌面向後方的推水面積，踝關節蹠屈幅度直接決定此面積：柔韌性足夠 → 腳掌接近垂直 朝後 → 有效面積最大；踝關節僵硬 → 腳背而非腳掌面朝後 → 踢水反而制動。增加力量但蹠屈不足， 只是更有力地產生阻力。
+    text: 踝關節蹠屈幅度會改變腳部推進面的方向；蹠屈受限時，單純增加踢水力量未必能轉化為有效推進。 McCullough 研究顯示蹠屈與 flutter-kick 速度相關、垂直跳力量則未呈顯著相關，但這不足以證明 柔軟度訓練必然優於力量訓練，應先評估個別限制再選介入。
   evidence:
-  - certainty: 🟢
-    text: 踝關節蹠屈柔韌性與踢水速度直接相關；陸上踝柔韌性訓練能改善踢水效率。跑步背景者最容易踝僵硬， 踢水時最易制動。
-    source: McCullough et al. (2009/2010), J. Strength & Conditioning Research
+  - certainty: 🟡
+    text: 20 名女性競技／休閒泳者中，踝蹠屈與 flutter-kick 速度呈中度相關（r=0.509）；垂直跳力量未呈顯著相關。 這是相關研究，沒有測試陸上柔軟度訓練，也沒有分析跑步背景或倒退力。
+    source: McCullough et al. 2009, J. Strength & Conditioning Research
     source_ids:
     - src.mccullough-a
-    url: https://pubmed.ncbi.nlm.nih.gov/19387413/
+    url: https://pubmed.ncbi.nlm.nih.gov/19855342/
   correct_concept: 踝關節柔韌性訓練優先於力量。跑步背景選手需先評估蹠屈幅度確認硬體邊界，再決定踢水訓練方向。
   perception_impact: 踝僵硬選手腳掌從未建立「後方推水」的感覺——因為腳掌實際從未朝後過。這無法靠感知訓練解決， 是硬體邊界，必須先做柔韌性改善。
 - id: free.err12
@@ -303,9 +303,9 @@ errors:
     certainty: 🔵
     text: 踝關節蹠屈柔韌性後天可改善，但柔韌性改善與表現改善有時間差：6 週訓練研究顯示柔韌性顯著改善 （p=0.0008），但同期 25m 踢板成績改善尚未顯著（p=0.40）——柔韌性改善先於表現。「先天不可改」 常來自短期介入未見速度提升後的誤判。
   evidence:
-  - certainty: 🟠
-    text: 陸上踝柔韌性訓練（泡沫軸放鬆腓腸肌、主動蹠屈伸展、跪坐拉伸）可改善踢水效率。
-    source: McCullough 2009/2010 方向
+  - certainty: 🔴
+    text: 原記錄的 6 週介入數字與具體陸上處方尚未定位到原始研究；McCullough 2009 是橫斷相關研究，不能支持此介入效果。
+    source: 原始介入研究待查（不是 McCullough 2009）
     source_ids:
     - src.mccullough-c
   correct_concept: 踝柔韌性是可訓練的硬體條件，不是不可改變的先天限制。診斷僵硬後應設計踝專項訓練，同時在水中用 適合目前範圍的踢水訓練。只告知「天生腳踝硬」而不提供改善方案，是診斷與教學流程的雙重失職。
@@ -1517,7 +1517,7 @@ errors:
   evidence:
   - certainty: 🟢
     text: 當選手被要求以超過最大努力的踢頻踢腿時，振幅顯著下降，但游速沒有增加。 Froude 效率從 0.72 降至 0.70，肌肉共收縮相增加，代謝負擔上升。
-    source: Gonjo et al.
+    source: Yamakawa et al. 2017
     source_ids:
     - src.pmid-28605694
     url: https://pubmed.ncbi.nlm.nih.gov/28605694/
@@ -1701,15 +1701,15 @@ errors:
   title: 「像海豚一樣游」足以傳遞 UDK 的技術要求
   misconception: 「像海豚一樣！」是最廣泛使用的 UDK 口令之一，簡單直覺，教練和學員都很熟悉。
   physical_reason:
-    certainty: 🟢
+    certainty: 🔵
     source_ids:
     - src.rohr-2004
     - src.usms-swimming-world-magazine-the-race-club
-    text: 人類 UDK 與海豚踢腿在生物力學上有根本差異：海豚靠尾鰭水平擺動，人類靠雙腿垂直擺動； 海豚脊椎的彈性蓄能機制，人類幾乎無法複製。這個類比無法告訴學員波動從哪裡啟動、 上踢的速度目標，或流線型的核心穩定要求。
+    text: 鯨豚以水平展開的尾鰭做背腹向拍動，人類則以髖—膝—踝關節鏈驅動雙腿；兩者推進構造不同。 Rohr & Fish (2004) 只量化鯨豚的尾鰭頻率、振幅、速度與 Strouhal number，並未直接比較人類 UDK。 因此「像海豚」只能作形象類比，無法告訴學員波動從哪裡啟動、 上踢的速度目標，或流線型的核心穩定要求。
   evidence:
-  - certainty: 🟢
-    text: 人類 UDK 與海豚踢腿在生物力學上有根本差異，包括擺動方向與脊椎彈性蓄能機制。
-    source: Rohr & Fish 2004, dolphin kinematics comparison
+  - certainty: 🟡
+    text: Rohr & Fish 量化鯨豚尾鰭頻率、振幅、游速與 Strouhal number；研究未測量或直接比較人類 UDK。
+    source: Rohr & Fish 2004, odontocete swimming kinematics
     source_ids:
     - src.rohr-2004
   - certainty: 🟠
