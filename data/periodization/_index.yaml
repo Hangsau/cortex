@@ -102,7 +102,7 @@ taper:
 - id: periodization.taper.volume
   file: taper.yaml
   name_zh: 訓練量
-  gist_zh: 減量主旋鈕；研究區間作候選起點，以個人 pretaper 負荷與反應校準
+  gist_zh: 標準降41–60%；高量訓練塊後降60–90%
   stages:
   - t2c
   - t2w
@@ -116,7 +116,7 @@ taper:
 - id: periodization.taper.frequency
   file: taper.yaml
   name_zh: 訓練頻率
-  gist_zh: 保技術旋鈕；維持部分下水與賽速暴露，比例依個人反應調整
+  gist_zh: 下水頻率維持至少80%，縮短每堂而非大量停水
   stages:
   - t2c
   - t2w
@@ -144,21 +144,21 @@ taper:
 - id: periodization.taper.type.fast_exponential
   file: taper.yaml
   name_zh: 快速指數遞減
-  gist_zh: 前快後慢；統合平均訊號較高，作候選而非固定首選
+  gist_zh: 統合研究平均效果最高；無個人歷史時作標準首選
   stages:
   - t2c
   - t2w
 - id: periodization.taper.peak_window
   file: taper.yaml
   name_zh: 達峰窗
-  gist_zh: 7–14 天作排程起點；用歷次反應估計個人高表現窗
+  gist_zh: 主賽放進達峰後7–14天；超出時用恢復＋再刺激＋微減量
   stages:
   - t2c
   - t2w
 - id: periodization.taper.swim
   file: taper.yaml
   name_zh: 游泳減量應用
-  gist_zh: 常見天數與降量範圍作候選；按主項、pretaper 負荷與個人反應校準
+  gist_zh: 8–14天快速指數減量、降41–60%、頻率留80%、保賽速
   stages:
   - t2c
   - t2w
@@ -258,7 +258,7 @@ dryland:
 - id: periodization.dryland.overview
   file: dryland.yaml
   name_zh: 陸訓總覽
-  gist_zh: 爭論不是能不能變強(能)而是三件事:轉移成不成立/並行排程/成熟度;有條件成立非鐵律
+  gist_zh: 出發用爆發、推牆與划水產力用最大力量、轉身後5m用核心；全部接回水中驗收
   stages:
   - t2t
   - t2c
@@ -266,21 +266,21 @@ dryland:
 - id: periodization.dryland.transfer
   file: dryland.yaml
   name_zh: 力量轉移效果
-  gist_zh: 16篇約7篇無效;最大力量最有效;轉移看技術成熟度+專項性;臥推未必預測衝刺速度
+  gist_zh: 36個RCT共844人支持水中＋陸上；依掉速段選陸訓，4–6週用水中分段判定轉移
   stages:
   - t2c
   - t2w
 - id: periodization.dryland.methods
   file: dryland.yaml
   name_zh: 陸訓模式比較
-  gist_zh: 最大力量轉移最強;增強式只助出發轉身非整體游速(618人SR無效);專項阻力(划手板/拖傘)轉移高
+  gist_zh: 最大力量接推牆與划水功率；增強式接出發轉身；核心接轉身後5m；力量耐力接後段姿勢
   stages:
   - t2c
   - t2w
 - id: periodization.dryland.concurrent
   file: dryland.yaml
   name_zh: 並行排程殘留疲勞
-  gist_zh: 傍晚陸訓+12h睡眠→隔天100m無殘留疲勞(n=8);重陸訓排關鍵課前一天非當天
+  gist_zh: 一般週重陸訓與品質水課隔一晚；掉出基線就拉至24–36h
   stages:
   - t2c
   - t2w
@@ -294,8 +294,8 @@ dryland:
   - t2w
 - id: periodization.dryland.injury
   file: dryland.yaml
-  name_zh: 游泳肩傷害預防
-  gist_zh: 划手讓內旋>外旋失衡=游泳肩源頭;彈力帶練外旋+肩胛8週有效;練整條動力鏈優於孤立肩肌
+  name_zh: 游泳肩容量與疼痛管理
+  gist_zh: 有痛先追疼痛、ROM與容量；無痛但能力不足再補外旋、肩胛與全鏈訓練
   stages:
   - l2t
   - t2t
@@ -303,15 +303,15 @@ dryland:
   - t2w
 - id: periodization.dryland.youth
   file: dryland.yaml
-  name_zh: 青少年負重安全
-  gist_zh: 無最低年齡硬門檻(能守安全規則~7-8歲);成熟度>實齡;PHV前只徒手;成人初學/masters/para是缺口
+  name_zh: 青少年與特殊族群負重安全
+  gist_zh: 能守規則約7–8歲起徒手；成熟後負重；成人先學動作、masters看恢復、para依功能分流
   stages:
   - l2t
   - t2t
 - id: periodization.dryland.caveats
   file: dryland.yaml
-  name_zh: 陸訓誠實反例
-  gist_zh: 7/16無效+臥推未必預測衝刺+三組100m無差+增強式對游速無效;轉移有條件成立非普遍
+  name_zh: 無反應時的調整規則
+  gist_zh: 陸上進步但水中不變就換水中阻力或賽速；每4–6週依乾地→分段→完整成績換法
   stages:
   - t2c
   - t2w
