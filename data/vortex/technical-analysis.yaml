@@ -48,12 +48,31 @@ points:
 - id: free.tech.2
   stroke: free
   category: concept
-  title: 自由式推進結構——手臂主引擎，腿部輔助，旋轉為耦合放大器
-  summary: 手臂提供約 85–90% 推進力，腿部主要功能是穩定節律與輔助推進；身體旋轉本身不產生推進力，但透過耦合疊加可放大推力。
+  title: 自由式推進結構——手臂通常主導，腿與軀幹共同改變整體輸出
+  summary: 手臂通常是自由式主要推進來源；腿不只穩定與節律，也可直接產力並改變全身協調。手腿比例會隨測法、速度、踢頻與個體改變，不能固定寫成 85–90%。
   mechanism:
-    certainty: 🔵
-    text: 旋轉是耦合運動（coupling motion）——當旋轉速度峰值與划手推力峰值對齊時，能量疊加顯著放大推力；本身無法獨立產生前進推力。
-  practical_implication: 不應把旋轉訓練與划手訓練拆開看待；教學焦點應放在旋轉峰值時機與推力峰值的對齊，而非旋轉幅度本身。
+    certainty: 🟡
+    source_ids:
+    - src.gonjo-2021
+    - src.hyodo-2025
+    text: 手、腿、軀幹在完整泳姿中相互影響；軀幹旋轉可改變手部空間路徑、速度與身體扭矩平衡。Race Club 的 coupling 是可測的教練模型，但目前不能把旋轉角動能直接等同於手部推力增益。
+  evidence:
+  - certainty: 🟢
+    text: 23 名國家級青年泳者的 30 秒最大完全繫繩測試中，以分開手／腿條件估計，腿部約占兩者力總和的 29.7%（男）與 33.4%（女）；完整泳姿力又低於分開條件總和約 13–16%，顯示協調不能由兩端簡單相加。
+    source: Morouço et al. 2015, fully tethered front crawl
+    source_ids:
+    - src.morouco-2015
+  - certainty: 🟡
+    text: 軀幹旋轉回顧顯示效果依划水相位與模型而變；速度較一致地與肩—腰扭轉或角速度相關，而不是固定最大旋轉角。
+    source: Hyodo 2025, trunk rotation review
+    source_ids:
+    - src.hyodo-2025
+  - certainty: 🟢
+    text: 10 名泳者在四種相同絕對速度下，自由式的抬腿浮力扭矩與反向水動力扭矩均比仰式大 30–40%；只量到全身總扭矩，未直接分出各肢段來源。
+    source: Gonjo et al. 2021, Sports Biomechanics
+    source_ids:
+    - src.gonjo-2021
+  practical_implication: 先以完整泳姿影片、分段時間、SR/SL 與必要時的拉力／速度曲線找出掉速相位；再分別改手、腿或旋轉時序，最後回到完整泳姿 A/B 重測。繫繩比例只用於相同 protocol 內比較。
 - id: free.tech.3
   stroke: free
   category: tempo
@@ -275,24 +294,31 @@ points:
 - id: free.tech.16
   stroke: free
   category: rotation
-  title: Coupling 能量——旋轉與回臂峰值若與推力峰值對齊就疊加放大推力
-  summary: 自由式有兩個主要 coupling 動作——身體旋轉與晚期回臂。它們本身都不產生推進力（單獨做 coupling 動作站在原地不會前進），但時機若與划水推力峰值對齊，能把外加的動能疊加到推力上。類比：走路時手不推地卻一直擺，是因為手後擺峰值剛好對齊腳蹬地——這個能量會傳到地面推力上，所以擺手讓人走得遠。游泳同理。
+  title: Coupling 教練模型——比較旋轉、回臂與對側拉水的相位關係
+  summary: Race Club 將身體旋轉與晚期回臂視為 coupling 動作，主張其相位會影響對側拉水輸出。這是可用速度／壓力曲線和影片檢驗的教練模型，不是已被直接證實的節段能量傳遞定律。
   mechanism:
     certainty: 🟠
-    text: 'Coupling 的三個必要條件：① 時機對齊推力峰值（差 0.1 秒就失效）；② coupling 動作本身不產生推進力，所以單做它在水裡不會前進；③ 不能造成額外阻力（否則得不償失）。
+    text: '模型觀察三件事：① 回臂下落、肩／髖旋轉和對側拉水的峰值相位；② 加快某一動作後，局部壓力或淨速度是否真的提高；③ 額外水花、側擺或阻力是否抵銷收益。
 
-      自由式兩個 coupling 動作：
+      書中提出約 0.1 秒失配、肩髖峰值相差 0.2–0.3 秒等數值，可作原個案的標記與量測起點，不能當作所有泳者的失效門檻。
 
-      1. **晚期回臂下落**：手在空中越快越用力砸向水面，撞擊時的動能會透過肩膀傳到對側拉水手的末段推力。觀察菁英 sprinter 入水時的 3 英尺水花就是這個動能的副產物。
-
-      2. **身體旋轉**：分肩旋轉與髖旋轉兩個峰值，時間錯開 0.2–0.3 秒——肩旋轉峰值在拉水前段／肩膀正下方，髖旋轉峰值在拉水末段／釋放相。這個時間結構讓整個拉水週期都有 coupling 在補強推力。
-
-      重要副產物：手下落速度和肩旋轉速度是同源的（手砸得越快、肩旋轉自動越快），這不是兩件事而是同一個動作的不同觀察面（見 free.tech.29）。
+      軀幹旋轉確會改變手部路徑與扭矩平衡；「回臂動能經身體直接疊加到對側手推力」則仍屬待個別量測的機制解釋。
 
       '
-  practical_implication: '旋轉感知目標不是「幅度多大」，而是「峰值時機是否與推力峰值對齊」。這也解釋了為何回臂入水前不能減速——失去的是 coupling 能量。
+  evidence:
+  - certainty: 🟠
+    text: Coupling、回臂與 Velocity/Pressure Meter 的相位解釋來自 Race Club 教材與個案量測。
+    source: Hall & Murphy, Fundamentals of Fast Swimming, 2020
+    source_ids:
+    - src.hall-murphy-2020
+  - certainty: 🟡
+    text: 軀幹旋轉研究支持相位、角速度與手部運動互相相關，但未建立固定 0.1 秒門檻或直接節段能量流。
+    source: Hyodo 2025, trunk rotation review
+    source_ids:
+    - src.hyodo-2025
+  practical_implication: '以正面／側面影片標記入水、肩峰、髖峰與對側拉水事件；一次只改一個相位。比較同速耗力、同力速度、SR/SL、身體側擺與完整 15–25m 時間。若局部曲線變好但整段更慢或更費力，就不採用。
 
-    風格分流：shoulder-driven 高頻沒時間做大幅髖旋轉，應該主攻「垂直回臂 + 手用力砸水」（肩旋轉自然跟上）；hip-driven 與 hybrid 應該訓練「拉到底 + 髖部 snap」（用慢頻換大髖旋轉的 coupling 增益）。
+    shoulder-driven、hip-driven、hybrid 保留為策略光譜；選擇依主項速度、可維持划頻、呼吸側差異和個人 A/B 結果，不由書中固定類型決定。
 
     '
 - id: free.tech.29
@@ -475,18 +501,22 @@ points:
 - id: free.tech.33
   stroke: free
   category: hardware
-  title: 螺旋筋膜線——旋轉推進的全身連動硬體基礎
-  summary: 自由式的旋轉不是肩膀獨自轉動，而是透過螺旋筋膜線（Spiral Line）把全身串成一條傳力鏈：對側腳掌外緣 → 大腿外側 → 對側腰 → 對側肩 → 手掌。當這條筋膜線的張力連貫時，肩旋轉峰值能透過張力傳遞到對側腳的踢水推進，是 free.tech.16 coupling 動作的解剖學基礎。任一節點筋膜緊繃或張力中斷會把連動鏈打斷，旋轉變成只有肩膀獨自轉、coupling 失效。
+  title: 螺旋筋膜線——全身連動的解剖觀察模型
+  summary: Anatomy Trains 的螺旋線可作為觀察對側肩—軀幹—髖—腳連動的解剖地圖；它能產生陸上測試與訓練候選，但尚不能證明自由式扭力沿固定筋膜路徑傳到對側腳，或把某一緊繃點直接判為根因。
   mechanism:
     certainty: 🟠
-    text: '螺旋線（Anatomy Trains 命名）由 12 條肌肉串聯：頭夾肌、菱形肌、前鋸肌、腹外斜肌、腹內斜肌、闊筋膜張肌、脛前肌、腓骨長肌、股二頭肌、薦結節韌帶、豎脊肌——形成左右兩條呈螺旋纏繞身體的張力鏈。游泳時這條線的功能是把肩旋轉的扭力傳到對側腳的下踢，把上下半身耦合成一個整體。
+    text: '螺旋線（Anatomy Trains 命名）把頭頸、肩胛、腹斜肌、髖與小腿等結構組成跨側連續線，適合提示教練不要只看單一關節。但這是解剖／動作組織模型；游泳中的實際力與扭矩仍同時受水動力、浮力、肌肉控制、踢腿反作用與划水相位影響。
 
-      當鏈中任一節點失效（如腹外斜肌弱、闊筋膜張肌緊繃、薦結節韌帶受限），張力傳遞中斷——肩仍然會轉，但能量傳不到腳；外觀上看起來「打水跟划手脫節」，實際是筋膜傳導鏈斷掉。
-
-      這套理論對解釋「為什麼有人六拍踢就是『跟不上』划手」很有幫助：不是踢水技術問題，是肩到對側腳的張力傳遞斷在中間。
+      因此「六拍踢跟不上」可以提出胸廓旋轉、軀幹控制、髖腿時序或局部活動度等多個候選，不能只憑外觀診斷筋膜傳導中斷。
 
       '
-  practical_implication: 對教練：當六拍踢與划手 coupling 看起來「就是不對」時，先檢查筋膜鏈中段（腹外斜肌、闊筋膜張肌、胸腰筋膜）的張力與柔軟度，比直接修改踢水動作更可能找到根因。對選手：螺旋線特定段的拉伸與啟動訓練（如螺旋伸展、單側 deadbug、單邊 carry）可改善這條鏈的功能性。對應 dryland 的 kinetic chain 整合訓練（見 dryland.yaml injury_prevention.kinetic_chain_zh）。
+  evidence:
+  - certainty: 🟠
+    text: 螺旋線的結構與臨床／動作閱讀方式來自 Anatomy Trains；該書沒有直接量測自由式對側腳到手的能量傳遞。
+    source: Myers, Anatomy Trains, 4th ed., 2021
+    source_ids:
+    - src.myers-2021
+  practical_implication: 把螺旋線當「候選產生器」：先記錄完整泳姿的左右相位、軀幹側擺與掉速點，再測胸廓旋轉、單側軀幹控制或髖踝能力；只有在陸上介入後完整泳姿的相位與成績也改善，才把該候選留在個人方案。
   cross_ref: free.tech.10（前鋸肌）、free.tech.15（菱形肌啟動旋轉）、free.tech.16（coupling）
   cross_ref_ids:
   - free.tech.10
@@ -1235,12 +1265,18 @@ points:
 - id: breast.tech.16
   stroke: breast
   category: hardware
-  title: 腰椎伸展幅度：波動風格的解剖天花板
-  summary: 腰椎伸展幅度決定肩膀能否充分升高，限制了 wave style 的 coupling 動能上限，隨年齡下降。
+  title: 軀幹伸展能力：波動蛙式的策略條件之一
+  summary: 軀幹伸展與胸廓—骨盆控制會影響波動蛙式的抬升與回落策略，但不是由腰椎最大伸展單獨決定的硬天花板。
   mechanism:
-    certainty: 🔵
-    text: 腰椎伸展不足時肩膀無法充分升起，波動的 coupling 動能（insweep 帶動身體升起的能量傳遞）天花板降低；動作能完成，但效率上限被壓低；此因子可靠訓練改善，但隨年齡下降需持續維護。
-  practical_implication: 三種蛙式風格的適用性部分由腰椎伸展幅度決定；undulating 需要最高的腰椎活動度，flat 需求最低。
+    certainty: 🟠
+    text: 教材模型認為較大的波形需要足夠軀幹伸展；實際動作同時由胸椎、髖、頭部策略、速度、呼吸與症狀共同決定。把所有抬升不足都歸因於腰椎，可能以代償換來疼痛而非速度。
+  evidence:
+  - certainty: 🟠
+    text: wave／undulating／flat 的風格與活動度關係屬泳書技術模型，適合用來提出個別測試，而非設定單一腰椎角度門檻。
+    source: Hall & Murphy, Fundamentals of Fast Swimming, 2020
+    source_ids:
+    - src.hall-murphy-2020
+  practical_implication: 同一泳者比較較平與較波動策略的 15–25m 時間、stroke count、速度最低點與腰背症狀；若需增加活動度，優先測胸廓、髖與主動控制，避免只追求被動腰椎伸展。
 - id: breast.tech.17
   stroke: breast
   category: style
@@ -1462,12 +1498,26 @@ points:
 - id: fly.tech.1
   stroke: fly
   category: concept
-  title: 蝶式推進本質：全身波動能量傳遞
-  summary: 蝶式核心不是用力划水，而是全身頭尾方向波動（Cephalocaudal Undulation）的有效能量傳遞，每週期有兩個推進峰值。
+  title: 蝶式整體模型：全身相位鏈與兩次踢水
+  summary: 蝶式表現來自手臂推水、身體波動與兩次踢水的相位整合；頭尾方向的運動波可沿體軸觀察，但不能把所有推進簡化成單一「能量從胸傳到腳」。
   mechanism:
-    certainty: 🔵
-    text: 推進來自波動能量在體軸的定向傳遞，與自由式旋轉慣性耦合、蛙式雙脈衝推進機制本質不同；IVV（週期內速度波動）居四式中等水準。
-  practical_implication: 任何動作的意義都依附於它在整條波動鏈中的角色，不能孤立評估單一動作。
+    certainty: 🟡
+    source_ids:
+    - src.veiga-2022
+    - src.riewald-rodeo-2015
+    text: 軀幹、髖、膝與踝呈現有相位差的運動，末端振幅／速度可增加；同時，手臂與腳和水的交互作用才形成外力。六節點是相位診斷模型，不是直接量得的節段能量流。
+  evidence:
+  - certainty: 🟢
+    text: UUS 系統與綜合回顧整理了競技泳者的軀幹—下肢運動學、頻率、振幅與節段時序，支持以完整週期而非單關節診斷。
+    source: Veiga et al. 2022, UUS kinematics review
+    source_ids:
+    - src.veiga-2022
+  - certainty: 🟠
+    text: 兩踢、身體波動與手臂相位的完整蝶式教學模型來自兩本泳書的技術整合。
+    source: Riewald & Rodeo (eds.), Science of Swimming Faster, 2015
+    source_ids:
+    - src.riewald-rodeo-2015
+  practical_implication: 以入水、胸廓下降、髖峰、膝屈曲、第一踢、推水峰與第二踢標事件；找出先後順序和速度最低點，再一次改一個相位，回到完整蝶式重測。
   cross_ref: 四式推進機制對比見 fly.tech.2
   cross_ref_ids:
   - fly.tech.2
@@ -1500,12 +1550,23 @@ points:
 - id: fly.tech.4
   stroke: fly
   category: undulation
-  title: 完整動力傳遞鏈六節點
-  summary: 波動鏈依序為胸/下肋（啟動）→髖部（放大）→膝部（傳遞）→踝/腳（終點加速）→第一踢（重置觸發）→第二踢（能量收割）。
+  title: 六節點相位診斷鏈
+  summary: 可用胸/下肋→髖→膝→踝/腳→第一踢→第二踢作六節點影片標記，觀察運動波與兩踢如何配合手臂週期；「啟動、放大、傳遞」是教學語言，不代表直接量到能量逐節流動。
   mechanism:
-    certainty: 🔵
-    text: 每節點缺失或主動干擾均截斷波動鏈：過度主動彎膝是最常見的阻力陷阱；缺少第一踢則波動鏈無法重置；缺少第二踢則波動能量無法轉化為推進。
-  practical_implication: 診斷蝶式問題時先確認哪個節點斷裂，而非直接糾正末端動作形式。
+    certainty: 🟠
+    text: 節點順序可揭露過早屈膝、髖與踝相位脫節、或兩踢未落在需要的手臂事件；但節點外觀異常可能是原因、代償或結果，必須用單一改動與完整泳段結果區分。
+  evidence:
+  - certainty: 🟢
+    text: UUS 文獻支持節段運動學與相位分析，但研究多為水下波動踢，不能無條件外推到完整蝶式的手臂—呼吸週期。
+    source: Veiga et al. 2022, UUS kinematics review
+    source_ids:
+    - src.veiga-2022
+  - certainty: 🟠
+    text: 六節點與兩踢角色是泳書整合後的教學模型。
+    source: Hall & Murphy, Fundamentals of Fast Swimming, 2020
+    source_ids:
+    - src.hall-murphy-2020
+  practical_implication: 用慢動作影片標六個事件，再看完整 15–25m 的速度、stroke count、呼吸與主觀負荷。只修最早出現偏移的節點；若下游外觀變好但整段結果不變，撤回該修正。
 - id: fly.tech.5
   stroke: fly
   category: undulation
@@ -2163,14 +2224,14 @@ points:
 - id: udk.tech.17
   stroke: udk
   category: depth
-  title: 轉身後應立刻起踢，不先滑行
-  summary: 轉身後立刻起踢比短暫滑行快 0.1 秒、比長時間滑行快 0.18 秒（5 公尺成績）。
+  title: 多數精英情境傾向盡早起踢；用個人速度曲線確認
+  summary: 一組 Race Club 個案中，立刻起踢的 5m 成績比短暫滑行快 0.1 秒、比長滑行快 0.18 秒；較新的三狀態模型也支持多數精英泳者較早轉換，但個人最佳點仍須由推牆後速度衰減與 UDK 速度確認。
   mechanism:
-    certainty: 🟢
+    certainty: 🟡
     source_ids:
     - src.sports-biomechanics-2026
     - src.the-race-club-velocity-meter-a
-    text: 彎膝準備第一下踢的速度損失，無論何時發生量都差不多；等越久只是從更慢的速度開始加速，造成更大的速度損失。Sports Biomechanics 2026 三狀態最優轉換速度模型確認大多數精英選手最優起踢速度高於水面游泳速度——立刻起踢是定論而非教練觀測。
+    text: 若個人第一踢能在仍高於水面速度時有效接續，等待會放掉推牆速度；但過早屈膝也可能破壞流線。Sports Biomechanics 2026 三狀態模型支持多數受測精英泳者較早轉換，不等於每位泳者都必須在同一時間點立刻起踢。
   evidence:
   - certainty: 🟠
     text: 精英選手實測：立刻起踢 vs 短暫滑行快 0.1 秒，vs 長時間滑行快 0.18 秒
@@ -2182,7 +2243,7 @@ points:
     source: Sports Biomechanics 2026
     source_ids:
     - src.sports-biomechanics-2026
-  practical_implication: 教學重點：轉身後不等待，確立流線型後立刻起踢。
+  practical_implication: 先確立推牆流線，再比較立即、短滑與較長滑行的 5m／10m 時間和速度最低點。以最快且可重複的方案為個人起踢點；0.1／0.18 秒只描述原個案，不作通用門檻。
 - id: udk.tech.18
   stroke: udk
   category: depth

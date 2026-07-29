@@ -102,7 +102,7 @@ taper:
 - id: periodization.taper.volume
   file: taper.yaml
   name_zh: 訓練量
-  gist_zh: 減量主旋鈕；砍量 41–60%（重負荷可 60–90%）
+  gist_zh: 減量主旋鈕；研究區間作候選起點，以個人 pretaper 負荷與反應校準
   stages:
   - t2c
   - t2w
@@ -116,7 +116,7 @@ taper:
 - id: periodization.taper.frequency
   file: taper.yaml
   name_zh: 訓練頻率
-  gist_zh: 保技術旋鈕；下水次數維持 ≥80% 保手感
+  gist_zh: 保技術旋鈕；維持部分下水與賽速暴露，比例依個人反應調整
   stages:
   - t2c
   - t2w
@@ -130,35 +130,35 @@ taper:
 - id: periodization.taper.type.linear
   file: taper.yaml
   name_zh: 線性遞減
-  gist_zh: 等量直線下降；效果差
+  gist_zh: 等量直線下降；可用方案之一，與個人歷次反應比較
   stages:
   - t2c
   - t2w
 - id: periodization.taper.type.step
   file: taper.yaml
   name_zh: 階梯式減量
-  gist_zh: 一次砍到低水平維持；增益最小 ≈1.2–1.5%
+  gist_zh: 一次降量後維持；統合平均較低，不代表個人必然較差
   stages:
   - t2c
   - t2w
 - id: periodization.taper.type.fast_exponential
   file: taper.yaml
   name_zh: 快速指數遞減
-  gist_zh: 前快後慢曲線；增益最大 ≈4–5%，首選
+  gist_zh: 前快後慢；統合平均訊號較高，作候選而非固定首選
   stages:
   - t2c
   - t2w
 - id: periodization.taper.peak_window
   file: taper.yaml
   name_zh: 達峰窗
-  gist_zh: 巔峰只能撐 7–14 天；主賽要排在窗內
+  gist_zh: 7–14 天作排程起點；用歷次反應估計個人高表現窗
   stages:
   - t2c
   - t2w
 - id: periodization.taper.swim
   file: taper.yaml
   name_zh: 游泳減量應用
-  gist_zh: 對準主賽推 8–14 天、量降 40–60%；三週減量約進步 2–3%
+  gist_zh: 常見天數與降量範圍作候選；按主項、pretaper 負荷與個人反應校準
   stages:
   - t2c
   - t2w
@@ -282,6 +282,14 @@ dryland:
   name_zh: 並行排程殘留疲勞
   gist_zh: 傍晚陸訓+12h睡眠→隔天100m無殘留疲勞(n=8);重陸訓排關鍵課前一天非當天
   stages:
+  - t2c
+  - t2w
+- id: periodization.dryland.needs_analysis
+  file: dryland.yaml
+  name_zh: NSCA需求分析與三層驗收
+  gist_zh: 先找掉速任務與個人限制；依序驗收陸上能力、水中相位／外力與完整泳段
+  stages:
+  - t2t
   - t2c
   - t2w
 - id: periodization.dryland.injury

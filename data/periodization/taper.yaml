@@ -95,16 +95,17 @@ taper_types:
 peak:
   id: periodization.taper.peak_window
   cert: 🟡
-  source: Ch9
+  source: Ch9; Bompa & Buzzichelli, Periodization, 6th ed., 2019
   source_ids:
   - src.ch9
+  - src.bompa-buzzichelli-2019
   maintainable_days:
     min: 7
     max: 14
-    note_zh: 巔峰狀態一旦達成，可維持約 7–14 天；主賽應落在此窗內
+    note_zh: 教材常用約 7–14 天描述達峰窗，可作排程候選；個人窗須由歷次減量反應估計
   definition_zh: 達峰 = 在目標賽事當下同時擁有最高 fitness 與最低 fatigue 的暫態
-  warning_zh: 巔峰窗外（>14 天）表現回落；多目標賽季須以多個短減量分別對準各窗（見 structure.yaml multipeak）
-  plain_zh: 巔峰狀態不是無限期的——大概只能撐 7–14 天。所以主賽一定要排在這個窗口裡。一個賽季有好幾場重要比賽時，就用幾段短減量，分別對準每一場（見 structure.yaml 多巔峰）。
+  warning_zh: 不能由通用 7–14 天直接判定第 15 天必然回落；多目標賽季應用歷次比賽、疲勞與表現曲線估計個人可維持窗。
+  plain_zh: 7–14 天是常用的排程起點，不是每個人的硬期限。留下每次減量後的日序、訓練量、主觀狀態與成績，逐季估計自己的高表現窗口。
 swim_application:
   id: periodization.taper.swim
   cert: 🟢
@@ -121,7 +122,7 @@ swim_application:
     這個分層暗示：水準越高、表現天花板越近，減量的剩餘空間就越小。教練設定減量目標增益時，應以選手目前水準為基準，避免拿高中數據套到菁英選手身上。
 
     '
-  no_event_specificity_zh: 🟢 跨事件穩定性（Mujika/Padilla/Pyne 2002 雪梨 2000 數據）：減量帶來的表現增益在 50–1500m 各距離、自由式 vs 混合式（背蛙蝶）皆無顯著差異。這支持「減量主要消除累積疲勞、釋放既有適應」的機制——而非針對特定能量系統或技術特性。教練不必為衝刺 vs 中距離設計截然不同的減量曲線。
+  no_event_specificity_zh: 🟢 雪梨 2000 樣本中，50–1500m 與泳式分組的平均改善未達顯著差異，支持減量可跨項目釋放既有適應；但『未檢出組間差異』不證明所有項目可用同一曲線。賽速暴露、技術負荷與個人恢復仍可依主項調整。
   psychological_aspect_zh: 🟠 心理面與生理面同等重要：減量不只是消除生理疲勞，也是讓選手心理穩定、信心累積、賽前焦慮被導入正確情緒狀態的窗口。教練實務常見的失敗案例不是「體能沒到」而是「心理沒到」——身體在小型比賽超越自己、卻在主賽『撐不住焦慮』。減量期應同步處理：心理回放（影片回看）、目標重整、焦慮管理。
   links:
     development_stages:
