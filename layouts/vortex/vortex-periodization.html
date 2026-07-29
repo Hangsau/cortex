@@ -1002,13 +1002,34 @@
               <span class="lv">排</span>
               <span>
                 <span class="lvname">並行排程與殘留疲勞 <span class="vx-cert">{{ .cert }}</span></span>
-                <span class="lvtag">傍晚陸訓 + 一夜睡眠 → 隔天 100m 無殘留疲勞</span>
+                <span class="lvtag">n=8 急性研究隔夜後未測出差異；作候選排程，不是恢復鐵律</span>
               </span>
             </summary>
             <div class="vx-level-body">
               <p>{{ .finding_zh }}</p>
               <p class="vx-pz-focus">{{ .interpretation_zh }}</p>
               <p class="vx-pz-warn">{{ .caveat_zh }}</p>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+              <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* NSCA 需求分析與三層驗收 */}}
+          {{ with $dl.needs_analysis }}
+          <details class="vx-level" id="dryland-needs-analysis">
+            <summary>
+              <span class="lv">析</span>
+              <span>
+                <span class="lvname">需求分析與三層驗收 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">掉速任務 → 個人限制 → 處方 → 陸上／水中／完整泳段重測</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-focus">{{ .premise_zh }}</p>
+              <div>{{ .workflow_zh | markdownify }}</div>
+              <p>{{ .criteria_progression_zh }}</p>
+              <p class="vx-pz-swim"><span class="vx-pz-swim-h">游泳例</span>{{ .practical_example_zh }}</p>
               {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
               <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
             </div>
@@ -1022,13 +1043,36 @@
               <span class="lv">肩</span>
               <span>
                 <span class="lvname">游泳肩傷害預防 <span class="vx-cert">{{ .cert }}</span></span>
-                <span class="lvtag">內旋＞外旋的肌力失衡是源頭；彈力帶 8 週可扳回</span>
+                <span class="lvtag">活動度、肌力與肩胛控制是候選因子；能力改善與傷害下降分開追蹤</span>
               </span>
             </summary>
             <div class="vx-level-body">
               <p>{{ .risk_factors_zh }}</p>
               <p class="vx-pz-focus">{{ .intervention_zh }}</p>
               <p>{{ .kinetic_chain_zh }}</p>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+              <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* 柔軟度與活動度 */}}
+          {{ with $dl.flexibility_mobility }}
+          <details class="vx-level" id="dryland-mobility">
+            <summary>
+              <span class="lv">動</span>
+              <span>
+                <span class="lvname">活動度：先辨認限制，再回水中驗收 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">肩／髖／踝是候選條件；分開角度、控制、疼痛與技術策略</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-focus">{{ .premise_zh }}</p>
+              <div>{{ .shoulder_zh | markdownify }}</div>
+              <div>{{ .hip_zh | markdownify }}</div>
+              <div>{{ .ankle_zh | markdownify }}</div>
+              <div>{{ .protocol_zh | markdownify }}</div>
+              <div class="vx-pz-warn">{{ .caveat_zh | markdownify }}</div>
               {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
               <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
             </div>
@@ -1082,7 +1126,7 @@
 
         </div>
 
-        <p class="vx-cite"><span class="src">來源</span>：Amaro et al. (Science &amp; Sports, S0765159718302363)；Frontiers Physiology 2024/2025 統合分析；JFMK 2023 (PMID 37489300)；McKenzie et al. 2023 (DOI 10.1111/sms.14454)；Kabat D2 RCT (PMC10679734)；AAP Pediatrics 2020;145(6):e20201011；NSCA／Swimming Australia 處方；增強式 SR (PMC9424421)</p>
+        <p class="vx-cite"><span class="src">來源</span>：Amaro et al. (Science &amp; Sports, S0765159718302363)；Frontiers Physiology 2024/2025 統合分析；JFMK 2023 (PMID 37489300)；McKenzie et al. 2023 (DOI 10.1111/sms.14454)；Haff &amp; Triplett, NSCA Essentials 4e；Kaminoff &amp; Matthews, Yoga Anatomy；Kabat D2 RCT (PMC10679734)；AAP Pediatrics 2020;145(6):e20201011；Swimming Australia 處方；增強式 SR (PMC9424421)</p>
 
         <nav class="vx-flow">
           <a href="#zones"><span class="lbl">上一個主題</span>← 能量系統與強度分區</a>
