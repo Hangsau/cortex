@@ -73,10 +73,6 @@ INJURIES_DST = HUGO_ROOT / "data" / "vortex" / "injuries.yaml"
 BREATHING_SRC = VORTEX_SRC / "canonical" / "health" / "breathing-training.yaml"
 BREATHING_DST = HUGO_ROOT / "data" / "vortex" / "breathing-training.yaml"
 
-# ── 游泳動力鏈 Knowledge Hub（Vortex canonical public bundle → site data） ──
-KINETIC_HUB_SRC = VORTEX_SRC / "canonical" / "evidence" / "kinetic-chain-knowledge-hub.json"
-KINETIC_HUB_DST = HUGO_ROOT / "data" / "vortex" / "kinetic-chain-knowledge-hub.json"
-
 # ── Layer 設定 ──
 LAYERS = {
     "Technica":     {"slug": "technica",     "name": "水感框架"},
@@ -882,37 +878,6 @@ def sync_breathing(dry_run: bool):
     print(f"  寫入 {BREATHING_DST.relative_to(HUGO_ROOT)}")
 
 
-def sync_kinetic_chain_hub(dry_run: bool):
-    """同步經 Hub 固定版本與 Vortex 公開閘門產生的游泳動力鏈 bundle。"""
-    print()
-    print("=== 游泳動力鏈 Knowledge Hub（public bundle）===")
-    if not KINETIC_HUB_SRC.exists():
-        print(f"  [跳過] 找不到 {KINETIC_HUB_SRC}")
-        return
-    data = json.loads(KINETIC_HUB_SRC.read_text(encoding="utf-8"))
-    expected = {
-        "analyses": 62, "findings": 299, "claims": 28,
-        "evidence_references": 43, "publications": 3, "practice_tools": 5,
-    }
-    if data.get("schema_version") != 1 or data.get("domain") != "swimming-kinetic-chain":
-        raise ValueError("kinetic-chain bundle 契約不符")
-    if data.get("counts") != expected:
-        raise ValueError(f"kinetic-chain bundle 數量不符：{data.get('counts')}")
-    blob = json.dumps(data, ensure_ascii=False, indent=2) + "\n"
-    lowered = blob.lower()
-    if any(token in lowered for token in ("<script", "javascript:", "c:\\\\", "c:/users/", "/users/", "/home/")):
-        raise ValueError("kinetic-chain bundle 含不安全標記或本機路徑")
-    print("  " + ", ".join(f"{key}={value}" for key, value in expected.items()))
-    if dry_run:
-        print("  [dry-run，未寫入 data/vortex/kinetic-chain-knowledge-hub.json]")
-        return
-    KINETIC_HUB_DST.parent.mkdir(parents=True, exist_ok=True)
-    temp = KINETIC_HUB_DST.with_suffix(".json.tmp")
-    temp.write_text(blob, encoding="utf-8")
-    temp.replace(KINETIC_HUB_DST)
-    print(f"  寫入 {KINETIC_HUB_DST.relative_to(HUGO_ROOT)}")
-
-
 def main():
     dry_run = "--dry-run" in sys.argv
     results = {"new": [], "changed": [], "same": [], "unknown": []}
@@ -996,7 +961,6 @@ def main():
     sync_psychology(dry_run)
     sync_injuries(dry_run)
     sync_breathing(dry_run)
-    sync_kinetic_chain_hub(dry_run)
 
     print()
     print("=== 同步摘要 ===")
