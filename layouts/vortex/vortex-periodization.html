@@ -75,7 +75,7 @@
           </a>
           <a class="vx-path-item" href="#dryland">
             <span class="n">5</span>
-            <span><span class="t">陸上力量訓練</span><span class="o">轉移成不成立 · 訓練模式 · 並行排程殘留疲勞 · 游泳肩預防 · 青少年負重安全 · 誠實反例</span></span>
+            <span><span class="t">陸上力量訓練</span><span class="o">掉速分流 · 訓練模式 · 並行排程 · 游泳肩容量 · 族群安全 · 無反應換法</span></span>
           </a>
         </div>
         <a class="vx-overview-teaser" href="#perception-gap">
@@ -928,14 +928,14 @@
 
         <div class="vx-ladder">
 
-          {{/* 總覽 · 真正的爭論 */}}
+          {{/* 總覽 */}}
           {{ with $dl.overview }}
           <details class="vx-level" open>
             <summary>
               <span class="lv">綜</span>
               <span>
-                <span class="lvname">陸訓的真正爭論 <span class="vx-cert">{{ .cert }}</span></span>
-                <span class="lvtag">不是「能不能變強」，是轉移／排程／成熟度三件事</span>
+                <span class="lvname">依掉速段選陸訓 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">出發、推牆、水面功率、轉身後 5m 與疼痛各有對應方案</span>
               </span>
             </summary>
             <div class="vx-level-body">
@@ -951,8 +951,8 @@
             <summary>
               <span class="lv">轉</span>
               <span>
-                <span class="lvname">力量轉移到游速？有條件成立 <span class="vx-cert">{{ .cert }}</span></span>
-                <span class="lvtag">支持與反向證據並列——約每兩篇就有一篇看不到效果</span>
+                <span class="lvname">把陸上能力轉成水中速度 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">36 個隨機試驗、844 人：水中＋陸上組合效果最高</span>
               </span>
             </summary>
             <div class="vx-level-body">
@@ -972,7 +972,7 @@
               <span class="lv">式</span>
               <span>
                 <span class="lvname">訓練模式比較 <span class="vx-cert">{{ .cert }}</span></span>
-                <span class="lvtag">最大力量 vs 增強式 vs 專項阻力——增強式只助出發轉身</span>
+                <span class="lvtag">最大力量接產力、增強式接出發轉身、核心接轉身後 5m</span>
               </span>
             </summary>
             <div class="vx-level-body">
@@ -1002,7 +1002,7 @@
               <span class="lv">排</span>
               <span>
                 <span class="lvname">並行排程與殘留疲勞 <span class="vx-cert">{{ .cert }}</span></span>
-                <span class="lvtag">n=8 急性研究隔夜後未測出差異；作候選排程，不是恢復鐵律</span>
+                <span class="lvtag">一般週隔一晚；連續兩次掉出個人基線就拉到 24–36 小時</span>
               </span>
             </summary>
             <div class="vx-level-body">
@@ -1042,8 +1042,8 @@
             <summary>
               <span class="lv">肩</span>
               <span>
-                <span class="lvname">游泳肩傷害預防 <span class="vx-cert">{{ .cert }}</span></span>
-                <span class="lvtag">活動度、肌力與肩胛控制是候選因子；能力改善與傷害下降分開追蹤</span>
+                <span class="lvname">游泳肩容量與疼痛管理 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">有痛先降負荷；無痛但外旋、肩胛或跨側控制不足就補 8 週容量</span>
               </span>
             </summary>
             <div class="vx-level-body">
@@ -1062,8 +1062,8 @@
             <summary>
               <span class="lv">動</span>
               <span>
-                <span class="lvname">活動度：先辨認限制，再回水中驗收 <span class="vx-cert">{{ .cert }}</span></span>
-                <span class="lvtag">肩／髖／踝是候選條件；分開角度、控制、疼痛與技術策略</span>
+                <span class="lvname">活動度分型處方 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">被動也緊就伸展；被動夠但控制不到就練末端力量；痛就先補容量</span>
               </span>
             </summary>
             <div class="vx-level-body">
@@ -1085,8 +1085,8 @@
             <summary>
               <span class="lv">齡</span>
               <span>
-                <span class="lvname">青少年負重安全 <span class="vx-cert">{{ .cert }}</span></span>
-                <span class="lvtag">看成熟度不看實齡；PHV 前只徒手</span>
+                <span class="lvname">青少年與特殊族群負重安全 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">青少年看成熟度；成人先學動作；masters 看恢復；para 依功能設定</span>
               </span>
             </summary>
             <div class="vx-level-body">
@@ -1101,14 +1101,14 @@
           </details>
           {{ end }}
 
-          {{/* 誠實反例 */}}
+          {{/* 無反應時調整 */}}
           {{ with $dl.null_caveats }}
           <details class="vx-level">
             <summary>
-              <span class="lv">疑</span>
+              <span class="lv">調</span>
               <span>
-                <span class="lvname">誠實反例：陸訓不是萬靈丹 <span class="vx-cert">{{ .cert }}</span></span>
-                <span class="lvtag">轉移有條件成立，前提不滿足效果可能歸零</span>
+                <span class="lvname">4–6 週無反應時怎麼換法 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">陸上進步但水中不變，就改水中阻力、賽速或對應分段</span>
               </span>
             </summary>
             <div class="vx-level-body">
