@@ -99,11 +99,14 @@
       <select id="khStroke" aria-label="依泳式篩選">
         <option value="">全部泳式／主題</option><option value="freestyle">自由式</option><option value="backstroke">仰式</option><option value="breaststroke">蛙式</option><option value="butterfly">蝶式</option><option value="underwater">水下</option><option value="start">出發</option><option value="turn">轉身</option>
       </select>
+      <select id="khBasis" aria-label="依證據類型篩選">
+        <option value="">全部證據類型</option><option value="direct-result">研究直接結果</option><option value="author-interpretation">作者解釋</option><option value="reviewer-synthesis">整合判讀</option><option value="mechanistic-model">機制模型</option><option value="context-only">背景情境</option>
+      </select>
       <span id="khResultCount">{{ len $hub.analyses }} 份來源分析</span>
     </div>
     <div class="kh-analyses" id="khAnalyses">
-    {{ range $hub.analyses }}{{ $source := index $sources .source_id }}
-      <details class="kh-analysis" data-strokes="{{ delimit .stroke_ids " " }} {{ delimit .phase_ids " " }}" data-search="{{ lower (printf "%s %s %s %s" .title_zh .methods_summary_zh (delimit .local_concept_ids " ") (delimit .practical_implications_zh " ")) }}">
+    {{ range $hub.analyses }}{{ $source := index $sources .source_id }}{{ $bases := slice }}{{ range .findings }}{{ $bases = $bases | append .evidence_basis }}{{ end }}
+      <details class="kh-analysis" data-strokes="{{ delimit .stroke_ids " " }} {{ delimit .phase_ids " " }}" data-bases="{{ delimit $bases " " }}" data-search="{{ lower (printf "%s %s %s %s" .title_zh .methods_summary_zh (delimit .local_concept_ids " ") (delimit .practical_implications_zh " ")) }}">
         <summary>
           <span class="kh-analysis-index">來源分析</span>
           <strong>{{ .title_zh }}</strong>
@@ -146,22 +149,24 @@
 (() => {
   const input = document.getElementById('khSearch');
   const stroke = document.getElementById('khStroke');
+  const basis = document.getElementById('khBasis');
   const cards = [...document.querySelectorAll('.kh-analysis')];
   const count = document.getElementById('khResultCount');
   const empty = document.getElementById('khEmpty');
   const apply = () => {
     const q = input.value.trim().toLocaleLowerCase('zh-Hant');
     const s = stroke.value;
+    const b = basis.value;
     let shown = 0;
     cards.forEach(card => {
       const text = (card.dataset.search + ' ' + card.textContent).toLocaleLowerCase('zh-Hant');
-      const ok = (!q || text.includes(q)) && (!s || card.dataset.strokes.includes(s) || text.includes(s));
+      const ok = (!q || text.includes(q)) && (!s || card.dataset.strokes.includes(s) || text.includes(s)) && (!b || card.dataset.bases.includes(b));
       card.hidden = !ok; if (ok) shown++;
     });
     count.textContent = `${shown} 份來源分析`;
     empty.hidden = shown !== 0;
   };
-  input.addEventListener('input', apply); stroke.addEventListener('change', apply);
+  input.addEventListener('input', apply); stroke.addEventListener('change', apply); basis.addEventListener('change', apply);
 })();
 </script>
 {{ end }}
