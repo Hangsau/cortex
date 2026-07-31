@@ -10,98 +10,131 @@ topics:
   - id: ch04.catecholamines.i01
     q: 來源
     a:
-    - 腎上腺髓質（medulla）直接由神經刺激分泌
-    - 腎上腺素（Epinephrine）為主 + 正腎上腺素 + 多巴胺
-    detail: ''
-    terms: []
+    - 腎上腺髓質（medulla）直接由神經系統刺激後分泌
+    - 主要成員：腎上腺素（Epinephrine）為主，加正腎上腺素、多巴胺
+    detail: 腎上腺髓質屬於交感神經節後細胞，受神經直接支配，因此兒茶酚胺的分泌不需要荷爾蒙中繼——這使其成為最快速的內分泌反應之一，可在運動開始後數秒內升高
+    terms:
+    - catecholamine
+    - epinephrine
+    - norepinephrine
+    - dopamine
     numbers: []
     concepts:
     - hormone
     related: []
-    locator: ''
+    locator: Adrenal Hormones > Catecholamines
   - id: ch04.catecholamines.i02
     q: 生理功能
     a:
-    - ↑力量輸出（中樞）·↑肌肉收縮速率·↑血壓·↑能量可用性·↑肌肉血流（血管擴張）·促進其他合成荷爾蒙分泌
-    detail: ''
-    terms: []
+    - ↑力量輸出（中樞機制）
+    - ↑肌肉收縮速率
+    - ↑血壓
+    - ↑能量可用性
+    - ↑肌肉血流（血管擴張）
+    - 促進其他合成荷爾蒙（如睾固酮）的分泌
+    detail: 腎上腺素是最早響應阻力訓練的內分泌機制之一；刺激其他合成荷爾蒙分泌，形成協同合成代謝環境
+    terms:
+    - catecholamine
+    - epinephrine
+    - norepinephrine
     numbers: []
     concepts:
     - hormone
     related: []
-    locator: ''
+    locator: Adrenal Hormones > Catecholamines > Role of Catecholamines
   - id: ch04.catecholamines.i03
     q: 腎上腺素與乳酸
     a:
-    - 腎上腺素濃度與乳酸相關
-    - 高強度短休息訓練後 NE/E/DA 維持升高 5 分鐘進入恢復期
-    detail: ''
-    terms: []
-    numbers: []
+    - 腎上腺素濃度與乳酸濃度相關
+    - 高強度短休息（10RM，10-60 秒休息，10 個動作，3 組）後，NE/E/多巴胺維持升高至恢復後 5 分鐘
+    detail: 乳酸（以及伴隨的 H⁺ 升高）可能透過代謝感應神經刺激腎上腺髓質；因此高乳酸訓練（短休息、高容量）是最有效的兒茶酚胺刺激模式
+    terms:
+    - catecholamine
+    - epinephrine
+    - norepinephrine
+    - dopamine
+    numbers:
+    - v: 5
+      unit: 分鐘
+      of: 高強度短休息訓練後兒茶酚胺維持升高的恢復期時間
     concepts:
     - hormone
     related: []
-    locator: ''
+    locator: Adrenal Hormones > Catecholamines > Role of Catecholamines
   - id: ch04.catecholamines.i04
     q: 力量維持
     a:
-    - 賽前/訓練前更高兒茶酚胺釋放 → 整個訓練過程中更能維持力量輸出
-    detail: ''
-    terms: []
+    - 訓練前更高的兒茶酚胺釋放（預期性反應）→ 整個訓練過程中更能維持力量輸出
+    detail: 心理備戰會觸發預期性腎上腺素反應，是訓練前暖身程序能增強表現的生理基礎
+    terms:
+    - catecholamine
+    - epinephrine
     numbers: []
     concepts:
     - hormone
     related: []
-    locator: ''
+    locator: Adrenal Hormones > Catecholamines > Role of Catecholamines
   - id: ch04.catecholamines.i05
-    q: 腎上腺素枯竭
+    q: 腎上腺素能耗竭
     a:
-    - 訓練不變化 → 持續應激 → 腎上腺髓質持續參與 → 最終導致腎上腺素能耗竭（adrenergic exhaustion）
-    detail: ''
-    terms: []
+    - 訓練不變化 → 持續高應激 → 腎上腺髓質持續參與 → 最終導致腎上腺素能耗竭（adrenergic exhaustion）
+    - 週期化訓練（長休息、低量日、完全休息日）是預防關鍵
+    detail: 同樣的持續壓力也會導致慢性皮質醇升高，雙重傷害免疫系統與蛋白質代謝
+    terms:
+    - catecholamine
+    - adrenergic-exhaustion
     numbers: []
     concepts:
     - hormone
+    - periodization
     related: []
-    locator: ''
+    locator: Adrenal Hormones > Catecholamines > Role of Catecholamines
   - id: ch04.catecholamines.i06
     q: Proenkephalins
     a:
-    - 腎上腺髓質也分泌 Peptide F 等前腦啡肽片段
+    - 腎上腺髓質也分泌前腦啡肽片段（Proenkephalin fragments），如 Peptide F
     - 增強免疫細胞功能
     - 對運動後恢復至關重要
-    detail: ''
-    terms: []
+    detail: Peptide F 是腎上腺髓質分泌的恢復機制，與兒茶酚胺的壓力/分解代謝角色不同，說明腎上腺髓質同時支援即時壓力反應與後續恢復
+    terms:
+    - proenkephalin
     numbers: []
     concepts:
     - hormone
     related: []
-    locator: ''
+    locator: Adrenal Hormones > Catecholamines
   - id: ch04.catecholamines.i07
     q: 訓練適應
     a:
     - 長期重訓 → 最大運動時腎上腺素分泌能力↑
-    - 對單次訓練的腎上腺素反應可能↓（效率提升）
-    detail: ''
-    terms: []
+    - 對特定次最大訓練（如單次臥推）的腎上腺素急性反應可能↓（效率提升）
+    detail: 兩種方向並存：最大能力擴大，但習慣化後日常訓練刺激需求減少，反映系統效率提升
+    terms:
+    - catecholamine
+    - epinephrine
     numbers: []
     concepts:
     - hormone
+    - adaptation
     related: []
-    locator: ''
+    locator: Adrenal Hormones > Catecholamines > Training Adaptations of Catecholamines
   - id: ch04.catecholamines.i08
     q: 胺類特性
     a:
-    - 由酪氨酸（tyrosine）合成
-    - 與胜肽荷爾蒙類似與膜受器結合作用
-    - 但不像胜肽荷爾蒙受到直接負回饋調節
-    detail: ''
-    terms: []
+    - 由酪氨酸（tyrosine）衍生合成
+    - 與胜肽荷爾蒙類似：與膜受器結合，透過二級訊使傳遞訊號
+    - 但不受直接負回饋調節（與胜肽荷爾蒙的關鍵區別）
+    detail: 不受負回饋調節使兒茶酚胺能快速且大量釋放，適合緊急「戰或逃」情境
+    terms:
+    - catecholamine
+    - secondary-messenger
     numbers: []
     concepts:
     - hormone
+    - structure
     related: []
-    locator: ''
+    locator: Categories of Hormones > Amine Hormone Interactions
+
 - id: cortisol
   title: 皮質醇 Cortisol
   desc: ''
@@ -111,100 +144,128 @@ topics:
     q: 來源與分類
     a:
     - 腎上腺皮質分泌的糖皮質素（glucocorticoid）
-    - 由 ACTH（前腦垂體）刺激分泌
+    - 由前腦垂體釋放的 ACTH 刺激分泌
     - 人體主要糖皮質素
-    detail: ''
-    terms: []
+    detail: 皮質醇是 HPA 軸（下視丘→垂體→腎上腺皮質）的最終效應激素；ACTH 分泌受 CRH 調控、又受皮質醇負回饋抑制，形成穩定的調節迴路
+    terms:
+    - cortisol
+    - glucocorticoid
+    - ACTH
     numbers: []
     concepts:
     - hormone
     related: []
-    locator: ''
+    locator: Adrenal Hormones > Cortisol
   - id: ch04.cortisol.i02
     q: 分解代謝作用
     a:
-    - ① 胺基酸→碳水化合物（糖質新生）② ↑蛋白水解酶 ③ ↓蛋白質合成 ④ 抑制糖原合成 ⑤ 抑制免疫細胞功能
-    detail: ''
-    terms: []
+    - ① 胺基酸→碳水化合物（糖質新生）
+    - ② ↑蛋白水解酶（加速蛋白質降解）
+    - ③ ↓蛋白質合成
+    - ④ 抑制糖原合成
+    - ⑤ 抑制免疫細胞（B/T cells）功能
+    detail: 皮質醇本質是醣類代謝訊號激素：肌糖原偏低時，蛋白質（胺基酸）成為維持血糖的替代原料
+    terms:
+    - cortisol
+    - glucocorticoid
+    - proteolytic-enzyme
     numbers: []
     concepts:
     - hormone
     related: []
-    locator: ''
+    locator: Adrenal Hormones > Cortisol > Role of Cortisol
   - id: ch04.cortisol.i03
     q: 日夜節律
     a:
     - 早晨濃度最高，全天下降
     - 測量時必須記錄採血時間點
-    - 比較研究需控制日夜節律變數
-    detail: ''
-    terms: []
+    - 比較不同研究需控制日夜節律這個混淆變項
+    detail: 皮質醇的日夜振幅可達 2-3 倍，遠大於一般訓練誘發的急性變化；若不控制採血時間，訓練效應會淹沒在自然波動中
+    terms:
+    - cortisol
+    - diurnal-variation
     numbers: []
     concepts:
     - hormone
+    - measurement
     related: []
-    locator: ''
+    locator: Adrenal Hormones > Cortisol
   - id: ch04.cortisol.i04
     q: 急性 vs 慢性
     a:
-    - 急性↑：協助去除受損蛋白質，是肌肉重塑過程的一部分
-    - 慢性高濃度：負面，導致肌肉萎縮、力量↓
-    detail: ''
-    terms: []
+    - 急性↑：協助去除受損蛋白質，是肌肉重塑過程的一部分（有益）
+    - 慢性高濃度：負面，導致氮流失、肌肉萎縮、力量↓
+    detail: 急性皮質醇的分解作用清除受損蛋白，為新蛋白的合成騰出空間；但持續高濃度意味著清除超過合成
+    terms:
+    - cortisol
     numbers: []
     concepts:
     - hormone
+    - adaptation
     related: []
-    locator: ''
+    locator: Adrenal Hormones > Cortisol > Resistance Exercise Responses of Cortisol
   - id: ch04.cortisol.i05
     q: T/C 比值
     a:
     - 睾固酮/皮質醇比值：評估合成/分解代謝狀態的指標
-    - 皮質醇>800 nmol/L 可能代表過度訓練
-    detail: ''
-    terms: []
-    numbers: []
+    - 皮質醇>800 nmol/L 可能提示過度訓練問題
+    detail: T/C 比值在概念上吸引人，但實際預測力有限：皮質醇有多重生理角色，單一指標難以全面反映訓練狀態
+    terms:
+    - cortisol
+    - testosterone
+    numbers:
+    - v: 800
+      unit: nmol/L
+      of: 皮質醇過度訓練警示門檻（大於此值提示可能過度訓練）
     concepts:
     - hormone
+    - measurement
     related: []
-    locator: ''
+    locator: Adrenal Hormones > Cortisol > Resistance Exercise Responses of Cortisol
   - id: ch04.cortisol.i06
     q: 升高皮質醇的訓練條件
     a:
-    - 大訓練量 + 大肌群 + 短休息 → 皮質醇↑
-    - 與 GH 升高的訓練條件相似（高代謝壓力）
-    detail: ''
-    terms: []
+    - 大訓練量＋大肌群＋短休息 → 皮質醇↑
+    - 與 GH 升高的訓練條件相似（高代謝壓力）；急性升高有助重塑，慢性升高有害
+    detail: 大訓練量的代謝壓力最大化了 HPA 軸的啟動，皮質醇分泌量與 ACTH 釋放量正相關；GH 和皮質醇共享相同訓練刺激，說明身體對應激反應並非單一路徑
+    terms:
+    - cortisol
     numbers: []
     concepts:
     - hormone
+    - program-design
     related: []
-    locator: ''
+    locator: Adrenal Hormones > Cortisol > Resistance Exercise Responses of Cortisol
   - id: ch04.cortisol.i07
     q: 肌纖維差異
     a:
-    - 對 Type II 纖維分解代謝效果更強（蛋白質含量更多）
-    - Type I 纖維主要靠減少降解來達到肥大
-    detail: ''
-    terms: []
+    - 對 Type II 纖維分解代謝效果更強（Type II 纖維蛋白質含量更多）
+    - Type I 纖維達到肥大主要靠減少降解（而非大幅增加合成）
+    detail: 力量訓練的肌肥大主要發生在 Type II 纖維，而這些纖維恰好對皮質醇的分解代謝更敏感，因此控制慢性皮質醇對力量增益尤為關鍵
+    terms:
+    - cortisol
     numbers: []
     concepts:
     - hormone
+    - fiber-type
     related: []
-    locator: ''
+    locator: Adrenal Hormones > Cortisol > Role of Cortisol
   - id: ch04.cortisol.i08
     q: 免疫系統影響
     a:
     - 使免疫細胞（B/T cells）失活
-    - 運動後免疫抑制的部分原因
-    - 影響骨骼肌的恢復與重塑
-    detail: ''
-    terms: []
+    - 運動後免疫抑制的重要原因之一
+    - B 細胞的皮質醇受器在運動前即已上調（預期性反應）；男性效果強於女性
+    detail: 皮質醇對免疫系統的抑制作用影響骨骼肌的恢復與重塑，因為 T/B cells 參與組織修復的炎症反應
+    terms:
+    - cortisol
     numbers: []
     concepts:
     - hormone
+    - adaptation
     related: []
-    locator: ''
+    locator: Adrenal Hormones > Cortisol > Role of Cortisol
+
 - id: endocrinology-basics
   title: 荷爾蒙基礎概念 Endocrinology
   desc: ''
@@ -216,97 +277,116 @@ topics:
     - 化學訊號分子
     - 由內分泌腺合成、儲存、分泌入血液
     - 作用於含有特異性受器的目標組織
-    detail: ''
+    detail: 「含有特異性受器」是荷爾蒙作用的前提——同樣的荷爾蒙對沒有受器的細胞毫無作用；受器的存在與數量決定了哪些組織能「聽到」訊號
     terms: []
     numbers: []
     concepts:
     - hormone
     related: []
-    locator: ''
+    locator: Synthesis, Storage, and Secretion of Hormones
   - id: ch04.endocrinology-basics.i02
     q: 三大類別
     a:
-    - ① 類固醇（脂溶性，擴散進細胞）② 胜肽/多肽（水溶性，作用於膜受器）③ 胺類（酪氨酸或色氨酸衍生）
-    detail: ''
-    terms: []
+    - ① 類固醇（脂溶性，擴散進細胞，作用於胞質受器）
+    - ② 胜肽/多肽（水溶性，作用於膜受器，透過二級訊使）
+    - ③ 胺類（酪氨酸或色氨酸衍生，作用於膜受器，不受直接負回饋）
+    detail: 分類決定了作用速度與持久性：胜肽（分鐘級）快於類固醇（小時至天級）；類固醇直接改變基因表達，持效更長，但不可逆程度也更高
+    terms:
+    - secondary-messenger
     numbers: []
     concepts:
     - hormone
+    - structure
     related: []
-    locator: ''
+    locator: Categories of Hormones
   - id: ch04.endocrinology-basics.i03
     q: 分泌途徑
     a:
-    - 內分泌（入血）· 旁分泌（鄰近細胞）· 自分泌（作用自身）· 胞內分泌（細胞內）
-    detail: ''
+    - 內分泌（入血循環，作用遠端組織）
+    - 胞內分泌（intracrine，細胞內自身作用，不入血）
+    - 自分泌（autocrine，作用自身細胞膜受器）
+    - 旁分泌（paracrine，作用鄰近細胞）
+    detail: IGF-I 可在機械刺激後於肌肉細胞局部合成並自分泌，無須進入血液循環，是肌肉 IGF 的主要作用途徑
     terms: []
     numbers: []
     concepts:
     - hormone
     related: []
-    locator: ''
+    locator: Synthesis, Storage, and Secretion of Hormones
   - id: ch04.endocrinology-basics.i04
     q: 結合蛋白
     a:
-    - 血液中攜帶荷爾蒙
-    - 延長半衰期
-    - 防止降解
+    - 血液中攜帶荷爾蒙（同時攜帶胜肽與類固醇）
+    - 延長半衰期；防止降解
     - 多數荷爾蒙必須「游離」才有活性（free hormone hypothesis）
-    detail: ''
-    terms: []
+    detail: SHBG 是特例：本身可與膜受器結合啟動 cAMP 途徑，說明部分結合蛋白自身即具生物活性，不只是運送工具
+    terms:
+    - SHBG
     numbers: []
     concepts:
     - hormone
+    - structure
     related: []
-    locator: ''
+    locator: Synthesis, Storage, and Secretion of Hormones
   - id: ch04.endocrinology-basics.i05
     q: 鎖鑰理論
     a:
-    - 受器=鎖
-    - 荷爾蒙=鑰匙
-    - 每種荷爾蒙對應特異受器
-    - 但現知互動比鎖鑰更複雜（交叉反應、異位結合）
-    detail: ''
-    terms: []
+    - 受器＝鎖；荷爾蒙＝鑰匙；每種荷爾蒙對應特異受器
+    - 但現知互動比鎖鑰更複雜：交叉反應（cross-reactivity）、異位結合（allosteric binding）
+    detail: 鎖鑰理論的訓練意義：每種荷爾蒙只能作用於有相應受器的細胞；受器不足時即使荷爾蒙充足也無效，說明增加受器數量（upregulation）本身就是重要的適應目標
+    terms:
+    - lock-key-theory
     numbers: []
     concepts:
     - hormone
+    - structure
     related: []
-    locator: ''
+    locator: Role of Receptors in Mediating Hormonal Changes
   - id: ch04.endocrinology-basics.i06
     q: 類固醇作用機制
     a:
-    - 擴散穿過細胞膜 → 與細胞質受器結合 → H-RC 移入細胞核 → 與 DNA 結合 → 轉錄 mRNA → 蛋白質合成
-    detail: ''
-    terms: []
+    - 擴散穿過肌膜（sarcolemma）→ 與細胞質受器結合形成 H-RC
+    - 兩個 H-RC 二聚（dimerize）→ 移入細胞核 → 作用於 DNA 上特定強化子（enhancer）
+    - 轉錄特定 mRNA → 核糖體翻譯成蛋白質
+    detail: 二聚是類固醇基因調控的關鍵步驟；mRNA 製造只是第一步，翻譯完成才有蛋白質
+    terms:
+    - H-RC
     numbers: []
     concepts:
     - hormone
+    - structure
     related: []
-    locator: ''
+    locator: Categories of Hormones > Steroid Hormone Interactions
   - id: ch04.endocrinology-basics.i07
     q: 胜肽作用機制
     a:
-    - 與膜受器結合 → 活化二級訊使（cAMP、JAK/STAT 等）→ 訊號傳導至細胞核或代謝途徑
-    detail: ''
-    terms: []
+    - 水溶性，無法穿透細胞膜 → 與膜受器結合
+    - 活化二級訊使（如 cAMP、JAK/STAT）→ 訊號傳導至細胞核或代謝途徑
+    detail: 二級訊使機制的優點是訊號放大：一個荷爾蒙-受器結合可活化數百至數千個 cAMP 分子，產生遠大於刺激量的效應，使微量荷爾蒙即可觸發顯著細胞反應
+    terms:
+    - secondary-messenger
     numbers: []
     concepts:
     - hormone
+    - structure
     related: []
-    locator: ''
+    locator: Categories of Hormones > Polypeptide Hormone Interactions
   - id: ch04.endocrinology-basics.i08
-    q: 一般適應症候群
+    q: 一般適應症候群（GAS）
     a:
-    - Selye 提出
-    - 壓力 → 警戒反應（功能下降）→ 抵抗期（適應，功能超越基準）→ 週期化理論基礎
-    detail: ''
-    terms: []
+    - Selye 提出；以腎上腺對壓力的反應為基礎
+    - ① 警戒反應（功能暫時下降）→ ② 抵抗期（適應，功能超越基準）→ ③ 耗竭期（壓力未移除持續下去）
+    - 及時移除訓練刺激（週期化）是避免耗竭、實現適應的關鍵
+    detail: 前東歐運動科學家發現運動員的訓練反應模式與 GAS 相似，進而建立週期化訓練的理論框架
+    terms:
+    - GAS
     numbers: []
     concepts:
     - hormone
+    - periodization
     related: []
-    locator: ''
+    locator: Introduction
+
 - id: growth-hormone
   title: 生長激素 Growth Hormone
   desc: ''
@@ -316,106 +396,126 @@ topics:
     q: 22 kDa 單體
     a:
     - 191 胺基酸多肽
-    - 由前腦垂體 somatotroph 產生
-    - 最常被測量的形式（RIA/ELISA）
-    - 但非唯一形式
-    detail: ''
+    - 由前腦垂體 somatotroph 產生（Band 1：較小分子量形式）
+    - 最常被 RIA/ELISA 測量的形式
+    - 但非生物活性 GH 的主體（聚合體才是）
+    detail: 測量技術長期只能偵測 22 kDa 形式（最穩定、最豐富），導致文獻低估了真實 GH 生物活性；高分子量聚合體才是訓練後肌肉合成代謝的主要訊號載體
     terms: []
-    numbers: []
+    numbers:
+    - v: 191
+      unit: 胺基酸
+      of: 22 kDa GH 單體（monomer）的胜肽鏈長度
     concepts:
     - hormone
+    - structure
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Growth Hormone
   - id: ch04.growth-hormone.i02
     q: GH 超家族
     a:
-    - 含多種 splice variants 及聚合體（aggregates）
-    - 生物活性 GH 濃度遠高於 22kDa 單體
-    - 超家族才是真正作用主體
-    detail: ''
+    - 含多種 splice variants 及聚合體（aggregates，多個 GH 單體以二硫鍵相連）
+    - 生物活性 GH（aggregate forms）濃度遠高於 22 kDa 單體
+    - 聚合體才是真正的生物功能主體；無明顯日夜節律
+    detail: RIA/ELISA 只偵測 22 kDa，長期低估了真實 GH 的生物活性；高分子量聚合體與不同受器結合，靶組織也不同
     terms: []
     numbers: []
     concepts:
     - hormone
+    - structure
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Growth Hormone
   - id: ch04.growth-hormone.i03
     q: 主要生理功能
     a:
-    - ↑蛋白合成·↑胺基酸轉運·↑脂肪利用(脂解)·↓葡萄糖利用·↓糖原合成·↑膠原蛋白合成·促軟骨生長
-    detail: ''
+    - ↑蛋白質合成·↑胺基酸轉運·↑脂肪酸利用（脂解）
+    - ↓葡萄糖利用·↓糖原合成
+    - ↑膠原蛋白合成·促軟骨生長
+    - ↑腎臟血漿流量·↑氮/鈉/鉀/磷留存
+    - 增強免疫細胞功能
+    detail: GH 的代謝邏輯是「以脂肪為燃料、保存蛋白質與糖」：同時促進脂解（↑游離脂肪酸作為燃料）與抑制葡萄糖利用，為肌肉蛋白質合成創造正氮平衡環境
     terms: []
     numbers: []
     concepts:
     - hormone
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Growth Hormone
   - id: ch04.growth-hormone.i04
-    q: 刺激 GH 分泌的訓練條件
+    q: 刺激 22 kDa GH 分泌的訓練條件
     a:
-    - 高乳酸 + 低 pH 是主要刺激
-    - 10RM（重）+ 短休息（1分鐘）+ 多組數 = 最大 GH 反應
-    - 長休息（>3分）GH 反應↓
-    detail: ''
+    - 高乳酸＋低 pH（氫離子濃度↑）是主要代謝刺激
+    - 10RM（重）＋ 3 組每動作＋短休息（1 分鐘）= 最大 GH 反應
+    - 長休息（>3 分鐘）GH 反應↓
+    detail: 1 分鐘 vs 3 分鐘休息差異顯著；不達強度閾值（如使用 28% 7RM 的低強度）GH 不增加
     terms: []
-    numbers: []
+    numbers:
+    - v: 1
+      unit: 分鐘
+      of: 最大化 22 kDa GH 反應的組間休息時間（研究比較 1 分鐘 vs 3 分鐘）
     concepts:
     - hormone
+    - program-design
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Growth Hormone > Growth Hormone Responses to Stress
   - id: ch04.growth-hormone.i05
     q: 女性 GH
     a:
-    - 女性 22kDa GH 靜息濃度高於男性（分泌頻率與振幅更高）
-    - 月經週期各期反應不同
-    - 生物活性GH隨訓練增加靜息值
-    detail: ''
-    terms: []
+    - 女性 22 kDa GH 靜息濃度高於男性（分泌頻率與振幅更高）
+    - 月經週期各期反應不同；使用荷爾蒙避孕藥可增加 GH 反應
+    - 生物活性 GH 隨阻力訓練增加靜息值（不同於 22 kDa 形式）
+    detail: 女性 22 kDa GH 靜息值更高，顯示其下視丘-垂體軸的脈衝模式不同於男性；對訓練的適應（生物活性 GH 靜息值↑）也可能是女性肌肉恢復與肌肥大的重要機制
+    terms:
+    - diurnal-variation
     numbers: []
     concepts:
     - hormone
+    - population
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Growth Hormone > Growth Hormone Responses in Women
   - id: ch04.growth-hormone.i06
     q: 分泌模式
     a:
-    - 脈衝式分泌（pulsatile）
-    - 夜間睡眠時 22kDa 最高
+    - 脈衝式分泌（pulsatile）；夜間睡眠時 22 kDa 最高
     - 運動可增加脈衝振幅與次數
     - 生物活性 GH 無明顯日夜節律
-    detail: ''
-    terms: []
+    detail: 脈衝式分泌的意義：受器長期暴露於連續信號會發生下調（desensitization），脈衝模式可維持受器敏感性；睡眠品質不佳直接壓制夜間 GH 脈衝，影響恢復
+    terms:
+    - diurnal-variation
     numbers: []
     concepts:
     - hormone
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Growth Hormone
   - id: ch04.growth-hormone.i07
     q: 訓練適應
     a:
-    - 訓練後對同等絕對強度的 22kDa GH 反應↓（效率提升）
-    - 生物活性GH靜息值可能↑
-    - 長期適應仍在研究中
-    detail: ''
+    - 訓練後對同等絕對強度的 22 kDa GH 運動誘發反應↓（效率提升）
+    - 生物活性 GH 靜息值可能因訓練↑（尤其女性）
+    - 長期適應機制仍在研究中
+    detail: 22 kDa 急性反應↓是效率的標誌，不是適應變差；訓練者的相對強度對 GH 刺激更小，需提高絕對強度才能維持同等 GH 反應——週期化增加負荷的部分依據在此
     terms: []
     numbers: []
     concepts:
     - hormone
+    - adaptation
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Growth Hormone > Training Adaptations of Growth Hormone
   - id: ch04.growth-hormone.i08
     q: 調節機制
     a:
-    - 下視丘 GhRH（+）→ 促進 GH
-    - 生長激素抑制素 Somatostatin（−）→ 抑制 GH
+    - 下視丘 GHRH（+）→ 促進前腦垂體釋放 GH
+    - 生長激素抑制素 Somatostatin（−）→ 抑制 GH 釋放
     - 複雜神經內分泌回饋迴路
-    detail: ''
-    terms: []
+    detail: 運動時 GHRH 釋放增加而 Somatostatin 減少，雙重機制共同放大 GH 脈衝；訓練強度、睡眠、營養狀態都能改變這個推-拉平衡
+    terms:
+    - GHRH
+    - somatostatin
     numbers: []
     concepts:
     - hormone
+    - structure
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Growth Hormone
+
 - id: igf
   title: 類胰島素生長因子 IGF
   desc: ''
@@ -424,109 +524,143 @@ topics:
   - id: ch04.igf.i01
     q: IGF-I 基本
     a:
-    - 70 胺基酸多肽
-    - 主要由肝臟在 GH 刺激後產生
+    - 70 胺基酸多肽（IGF-II 為 67 胺基酸）
+    - 主要由肝臟在 GH 刺激後產生（需 8-24 小時）
     - 促進蛋白質合成的核心角色
-    - 也存在肌肉局部合成
-    detail: ''
-    terms: []
-    numbers: []
+    - 肌肉受機械刺激（過負荷、伸展）時也可局部合成
+    detail: 肝臟合成需 8-24 小時的延遲說明：運動後立即出現的血液 IGF-I 急性增加不可能來自肝臟，而是來自脂肪細胞與肌肉細胞破壞釋放；局部肌肉 IGF（機械刺激）才是即時合成代謝訊號
+    terms:
+    - IGF
+    numbers:
+    - v: 70
+      unit: 胺基酸
+      of: IGF-I 的胜肽鏈長度
     concepts:
     - hormone
+    - structure
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Insulin-Like Growth Factors
   - id: ch04.igf.i02
     q: IGF 結合蛋白
     a:
-    - 至少 6 種（IGFBP-1 ~ IGFBP-6）
+    - 至少 6 種（IGFBP-1 ～ IGFBP-6）
     - IGFBP-1 和 IGFBP-3 研究最多
-    - 調節 IGF 的受器可及性
-    - 各有獨立生物活性
-    detail: ''
-    terms: []
-    numbers: []
+    - 調節 IGF 受器可及性；各有獨立生物活性，且對運動的反應各自獨立
+    detail: IGFBP 也作為 IGF 在循環中的儲存庫，受器有位置時才釋放 IGF，延長 IGF 的有效時間
+    terms:
+    - IGF
+    - IGFBP
+    numbers:
+    - v: 6
+      unit: 種
+      of: 已知 IGF 結合蛋白（IGFBP）的最少種數
     concepts:
     - hormone
+    - structure
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Insulin-Like Growth Factors
   - id: ch04.igf.i03
     q: Mechano Growth Factor
     a:
     - 機械刺激（過負荷、伸展）→ 肌肉細胞大量合成 IGF-I
-    - 以自分泌方式作用
-    - 可能是肌肉 IGF 最重要作用途徑
-    detail: ''
-    terms: []
+    - 以自分泌方式作用（不進血液）
+    - 被認為是肌肉 IGF 最重要的作用途徑
+    detail: MGF 的自分泌模式意義深遠：肌肉細胞既是應激感測器也是促合成訊號的製造者，不需等待遠端肝臟訊號；這解釋了為何局部肌肉過負荷比全身代謝壓力對肌肥大更重要
+    terms:
+    - IGF
+    - mechano-growth-factor
     numbers: []
     concepts:
     - hormone
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Insulin-Like Growth Factors > Exercise Responses of Insulin-Like Growth Factors
   - id: ch04.igf.i04
     q: IGF 運動反應
     a:
-    - 初始濃度低 → 運動後 IGF↑
-    - 初始濃度高 → 變化不明顯
-    - 需 8~24h 才從肝臟產生
-    - 急性增加可能來自細胞破壞
-    detail: ''
-    terms: []
-    numbers: []
+    - 初始濃度低（約 10-20 nmol/L）→ 運動後 IGF-I 更容易升高
+    - 初始濃度高（約 35-45 nmol/L）→ 變化不明顯或不升高
+    - 肝臟在 GH 刺激後需 8-24 小時才產生並釋放 IGF-I
+    - 急性增加可能來自脂肪細胞及肌肉細胞的破壞（非肝臟釋放）
+    detail: 初始濃度的天花板效應（ceiling effect）對訓練處方有直接意義：靜息 IGF-I 已高的運動員，透過訓練進一步拉高循環 IGF-I 的空間有限，局部 MGF 途徑更可能是其適應動力
+    terms:
+    - IGF
+    numbers:
+    - v: 8-24
+      unit: 小時
+      of: 肝臟在 GH 刺激後產生並釋放 IGF-I 所需時間
+    - v: 10-20
+      unit: nmol/L
+      of: IGF-I 靜息濃度低值（低於此值則運動後更易升高）
+    - v: 35-45
+      unit: nmol/L
+      of: IGF-I 靜息濃度高值（達此值則運動後不易再升高）
     concepts:
     - hormone
+    - measurement
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Insulin-Like Growth Factors > Exercise Responses of Insulin-Like Growth Factors
   - id: ch04.igf.i05
     q: 營養的重要性
     a:
     - IGF-I 對急性熱量攝入極敏感
-    - 訓練前後補充蛋白質+碳水化合物可顯著提升 IGF-I
-    detail: ''
-    terms: []
+    - 訓練前後補充蛋白質＋碳水化合物可顯著提升 IGF-I
+    detail: IGF-I 對熱量狀態的敏感性強調了「訓練後補充的時機窗」：若不在訓練後及時補充，即使訓練刺激充分，肝臟也可能因缺乏底物而降低 IGF-I 的產出
+    terms:
+    - IGF
     numbers: []
     concepts:
     - hormone
+    - nutrition
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Insulin-Like Growth Factors > Exercise Responses of Insulin-Like Growth Factors
   - id: ch04.igf.i06
     q: 局部 vs 循環 IGF
     a:
-    - 循環中 IGF-I 增加不一定反映肌肉局部 IGF 信號
-    - 間質液（ISF）中的 IGF 可能更直接影響肌肉
-    - 不同生物隔室
-    detail: ''
-    terms: []
+    - 循環中 IGF-I 增加不一定反映肌肉間質液（ISF）或肌内 IGF-I 信號
+    - 局部自分泌/旁分泌途徑（mechano growth factor）可能才是肌肉 IGF 最關鍵的作用途徑
+    detail: 研究方法論限制：抽血只能測循環 IGF，但最重要的 IGF 訊號（MGF）完全不進血液；用血液指標評估訓練後肌肉 IGF 狀態，可能完全誤讀局部的合成代謝信號強度
+    terms:
+    - IGF
+    - mechano-growth-factor
     numbers: []
     concepts:
     - hormone
+    - measurement
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Insulin-Like Growth Factors > Exercise Responses of Insulin-Like Growth Factors
   - id: ch04.igf.i07
     q: 女性 IGF 適應
     a:
     - 阻力訓練可增加女性總 IGF-I
-    - 降低 IGFBP-1 → 更多 IGF 可與受器結合
+    - 降低 IGFBP-1 → 更多游離 IGF 可與受器結合
     - 顯示運動模式特異性適應
-    detail: ''
-    terms: []
+    detail: IGFBP-1 下降是隱藏的合成代謝放大機制：總 IGF-I 即使只增加少量，游離（活性）IGF-I 因 IGFBP-1 減少而大幅增加；女性透過此途徑彌補了睾固酮不足的部分
+    terms:
+    - IGF
+    - IGFBP
     numbers: []
     concepts:
     - hormone
+    - adaptation
+    - population
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Insulin-Like Growth Factors > Training Adaptations of Insulin-Like Growth Factors
   - id: ch04.igf.i08
     q: 調控因子
     a:
-    - GH 為主要刺激
-    - 甲狀腺素和睾固酮也參與
-    - 營養狀態（正氮平衡、蛋白質攝入）是關鍵調節變項
-    detail: ''
-    terms: []
+    - GH 為主要刺激（刺激肝臟合成 IGF-I）
+    - 甲狀腺素和睾固酮也參與 IGF 合成調節
+    - 營養狀態（蛋白質攝入、正氮平衡、急性熱量攝取）是關鍵調節變項
+    detail: IGF-I 是多種合成代謝信號的交匯點：GH、睾固酮、甲狀腺素各自獨立調控 IGF-I；任何一條路徑受阻（如能量不足抑制 GH 效果）都會降低整體 IGF-I 輸出
+    terms:
+    - IGF
+    - testosterone
     numbers: []
     concepts:
     - hormone
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Insulin-Like Growth Factors
+
 - id: program-design
   title: 訓練處方操控策略 Program Design
   desc: ''
@@ -535,109 +669,139 @@ topics:
   - id: ch04.program-design.i01
     q: 最大化睾固酮
     a:
-    - ① 大肌群動作（深蹲/硬舉/爆發上舉）② 85~95% 1RM ③ 多組數 or 多動作（高容量）④ 短休息 30~60秒
-    detail: ''
-    terms: []
-    numbers: []
+    - ① 大肌群動作（深蹲/硬舉/爆發上舉）
+    - ② 重負荷（85-95% 1RM）
+    - ③ 多組數 or 多動作（中至高容量）
+    - ④ 短休息（30-60 秒）
+    detail: 四項條件的機制邏輯：大肌群→大量肌纖維募集；重負荷→最大化神經-內分泌整合；高容量＋短休息→代謝壓力＋乳酸↑→刺激睾丸 Leydig 細胞分泌睾固酮
+    terms:
+    - testosterone
+    numbers:
+    - v: 85-95
+      unit: "% 1RM"
+      of: 急性升高睾固酮的訓練強度範圍
+    - v: 30-60
+      unit: 秒
+      of: 急性升高睾固酮建議的組間休息時間
     concepts:
     - hormone
     - program-design
     related: []
-    locator: ''
+    locator: How Can Athletes Manipulate the Endocrine System > To Increase Serum Testosterone Concentrations
   - id: ch04.program-design.i02
     q: 最大化 GH（22kDa）
     a:
-    - ① 高強度（10RM）+ 三組 ② 短休息（1分鐘）③ 訓練前後補充蛋白質+碳水化合物
-    - 關鍵：產生高乳酸+低pH
-    detail: ''
+    - ① 高強度（10RM）＋ 每動作 3 組
+    - ② 短休息（1 分鐘）→ 關鍵：產生高乳酸＋低 pH
+    - ③ 訓練前後補充蛋白質＋碳水化合物
+    detail: 短休息的效果不是強度本身，而是累積的乳酸與 H⁺：酸性環境刺激下視丘 GHRH 釋放，同時抑制 Somatostatin；1 分鐘比 3 分鐘的研究顯示此差異顯著
     terms: []
-    numbers: []
+    numbers:
+    - v: 1
+      unit: 分鐘
+      of: 最大化 22 kDa GH 反應的組間休息時間
     concepts:
     - hormone
     - program-design
+    - nutrition
     related: []
-    locator: ''
+    locator: How Can Athletes Manipulate the Endocrine System > To Increase 22 kDa Growth Hormone Concentrations
   - id: ch04.program-design.i03
     q: 優化腎上腺反應
     a:
-    - 大訓練量+大肌群+短休息 → 腎上腺應激
-    - 但必須週期化：長休息/低量/完全休息日 → 預防腎上腺枯竭
-    detail: ''
-    terms: []
+    - 大訓練量＋大肌群＋短休息 → 腎上腺應激
+    - 但必須週期化：輪換長短休息、低量日、完全休息日
+    - 目的：防止腎上腺枯竭，降低腎上腺皮質的慢性皮質醇分泌
+    detail: 腎上腺系統存在「使用後必須恢復」的機制：皮質（皮質醇）和髓質（兒茶酚胺）都有容量上限；持續高應激不給恢復，兩套系統都會耗竭，進入非功能性超量訓練
+    terms:
+    - adrenergic-exhaustion
+    - cortisol
     numbers: []
     concepts:
     - hormone
     - program-design
+    - periodization
     related: []
-    locator: ''
+    locator: How Can Athletes Manipulate the Endocrine System > To Optimize Responses of Adrenal Hormones
   - id: ch04.program-design.i04
     q: 週期化原則
     a:
     - 訓練必須變化（週期化）才能讓腎上腺恢復
     - 避免慢性高皮質醇
-    - 防止非功能性超量訓練（overreaching）
-    detail: ''
-    terms: []
+    - 防止非功能性超量訓練（nonfunctional overreaching）
+    detail: GAS 三階段直接支撐週期化邏輯：適應發生在「壓力→移除壓力→超補償」的循環中；永遠在「警戒期」的訓練者永遠無法到達抵抗期的正向適應
+    terms:
+    - cortisol
+    - adrenergic-exhaustion
     numbers: []
     concepts:
     - hormone
     - program-design
+    - periodization
     related: []
-    locator: ''
+    locator: How Can Athletes Manipulate the Endocrine System > To Optimize Responses of Adrenal Hormones
   - id: ch04.program-design.i05
     q: 急性變項的重要性
     a:
-    - 強度·組數·動作順序·休息時間·動作選擇 → 決定荷爾蒙反應模式
+    - 強度·組數·動作順序·休息時間·動作選擇 → 決定荷爾蒙反應的樣式與幅度
     - 不同組合產生不同合成/分解代謝環境
-    detail: ''
+    detail: 每個急性變項都是一個可調節的「荷爾蒙旋鈕」：長休息偏向神經適應（低代謝壓力），短休息偏向代謝適應（高 GH/皮質醇）；目標不同，旋鈕設定不同
     terms: []
     numbers: []
     concepts:
     - hormone
     - program-design
     related: []
-    locator: ''
+    locator: Introduction
   - id: ch04.program-design.i06
     q: 募集原則
     a:
-    - 只有被活化的肌纖維才接受荷爾蒙適應
-    - 募集越多運動單位 → 全肌肉重塑範圍越大
-    detail: ''
+    - 只有被神經活化的肌纖維才接受荷爾蒙適應（size principle）
+    - 募集越多運動單位 → 全肌肉重塑範圍越大 → 生理系統支援需求越高
+    detail: 這是深蹲/硬舉產生更大全身荷爾蒙反應的機制基礎：大肌群動作招募更多運動單位，相應地需要更強的合成代謝支援，因此誘發更大的睾固酮與 GH 分泌
     terms: []
     numbers: []
     concepts:
     - hormone
     - program-design
+    - motor-control
     related: []
-    locator: ''
+    locator: Heavy Resistance Exercise and Hormonal Increases
   - id: ch04.program-design.i07
     q: 過度訓練警示
     a:
-    - 皮質醇持續>800 nmol/L → 過度訓練警示
-    - T/C比↓
-    - 負向蛋白代謝平衡
-    - 免疫抑制
-    - 肌肉萎縮
-    detail: ''
-    terms: []
-    numbers: []
+    - 皮質醇持續>800 nmol/L → 可能過度訓練
+    - T/C 比↓；負向蛋白代謝平衡；免疫抑制；肌肉萎縮/力量↓
+    detail: 沒有單一指標足以確診過度訓練；皮質醇 800 nmol/L 只是輔助門檻，需結合 T/C 比值趨勢、表現退步、主觀疲勞感等多指標評估才能做出判斷
+    terms:
+    - cortisol
+    - testosterone
+    numbers:
+    - v: 800
+      unit: nmol/L
+      of: 皮質醇過度訓練警示門檻
     concepts:
     - hormone
     - program-design
+    - measurement
     related: []
-    locator: ''
+    locator: Adrenal Hormones > Cortisol > Resistance Exercise Responses of Cortisol
   - id: ch04.program-design.i08
     q: 營養時機
     a:
-    - 訓練前後補充蛋白質+碳水化合物可：① 提升 IGF-I ② 上調雄激素受器 ③ 優化合成代謝環境
-    detail: ''
-    terms: []
+    - 訓練前後補充蛋白質＋碳水化合物可：① 提升 IGF-I ② 上調骨骼肌雄激素受器 ③ 優化合成代謝環境
+    detail: 訓練前後補充的作用機制是多層的：碳水化合物↓皮質醇（維持血糖，減少糖質新生需求）、蛋白質提供胺基酸底物（IGF-I 合成原料）、兩者共同放大訓練誘發的合成代謝視窗
+    terms:
+    - IGF
+    - androgen-receptor
     numbers: []
     concepts:
     - hormone
     - program-design
+    - nutrition
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Testosterone > Training Adaptations of Testosterone
+
 - id: receptor-mechanisms
   title: 受器機制與調節 Receptor Mechanisms
   desc: ''
@@ -647,111 +811,131 @@ topics:
     q: 上調 Upregulation
     a:
     - 受器數量↑ 或 結合敏感性↑
-    - 1~2 次重訓即可增加雄激素受器數量
+    - 僅 1-2 次重訓即可增加雄激素受器數量
     - 使現有睾固酮可被更充分利用
-    detail: ''
-    terms: []
-    numbers: []
+    detail: 只需 1-2 次訓練即可上調受器，說明受器適應比肌肉結構適應快得多；這可能是「初次訓練者快速反應」的機制之一——相同的睾固酮濃度在更多受器的條件下效果被放大
+    terms:
+    - androgen-receptor
+    - testosterone
+    numbers:
+    - v: 1-2
+      unit: 次
+      of: 可增加雄激素受器數量的最少重訓次數
     concepts:
     - hormone
     - structure
+    - adaptation
     related: []
-    locator: ''
+    locator: Heavy Resistance Exercise and Hormonal Increases
   - id: ch04.receptor-mechanisms.i02
     q: 下調 Downregulation
     a:
     - 過度刺激（如胰島素抵抗）或已達肌肉最大尺寸 → 受器反應性↓
-    - 荷爾蒙無法有效與受器結合
-    detail: ''
-    terms: []
+    - 荷爾蒙無法有效與受器結合，細胞代謝無法被改變
+    detail: 下調是身體對過度刺激的自我保護：當細胞已達生長上限，繼續接受合成代謝信號只是浪費資源；這也說明為何極端肥大的肌肉對進一步的訓練反應遞減
+    terms:
+    - androgen-receptor
     numbers: []
     concepts:
     - hormone
     - structure
     related: []
-    locator: ''
+    locator: Role of Receptors in Mediating Hormonal Changes
   - id: ch04.receptor-mechanisms.i03
     q: 雄激素受器
     a:
-    - 睾固酮的受器
-    - 訓練影響最大數量（非結合敏感性）
-    - 女性受器上調速度更快（約1小時）
-    detail: ''
-    terms: []
+    - 睾固酮的胞內受器
+    - 訓練主要影響受器最大數量（非結合敏感性）
+    - 女性受器上調速度更快（約 1 小時）→ 對少量睾固酮高度敏感利用
+    detail: 女性更快的受器上調速度（~1 小時）補償了較低的睾固酮絕對量；受器效率的差異說明訓練適應並非單純靠荷爾蒙濃度決定，受器側的適應同等重要
+    terms:
+    - androgen-receptor
+    - testosterone
     numbers: []
     concepts:
     - hormone
     - structure
+    - population
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Testosterone > Training Adaptations of Testosterone
   - id: ch04.receptor-mechanisms.i04
     q: 受器 vs 血中濃度
     a:
     - 血中荷爾蒙濃度 ≠ 細胞效果
-    - 重要的是受器狀態
-    - 低量訓練可能不改變血中T但增加受器數量
-    detail: ''
-    terms: []
+    - 真正效果取決於受器狀態（數量、敏感性、親和力）
+    - 低量高強度訓練（1-2RM，5-7 分鐘休息）可不改變血中 T 但增加受器數量
+    detail: 這是對「必須讓睾固酮大幅升高才有效」直觀假設的挑戰：低量高強度（神經為主的訓練）可不改變循環 T 但依然產生合成代謝適應，受器上調是關鍵機制
+    terms:
+    - androgen-receptor
+    - testosterone
     numbers: []
     concepts:
     - hormone
-    - structure
+    - measurement
     related: []
-    locator: ''
+    locator: Hormonal Changes in Peripheral Blood
   - id: ch04.receptor-mechanisms.i05
     q: 神經活化影響
     a:
     - 神經活化肌纖維 → 增加肌肉受器結合親和力
     - 訓練水平影響神經-內分泌整合方式
-    detail: ''
+    detail: 神經活化「打開」了受器對荷爾蒙的敏感性；這說明只有被神經系統主動徵召的肌纖維才能受益於荷爾蒙信號，輕度訓練無法觸及 Type II 纖維，荷爾蒙適應的範圍也因此受限
     terms: []
     numbers: []
     concepts:
     - hormone
-    - structure
+    - motor-control
     related: []
-    locator: ''
+    locator: Mechanisms of Hormonal Interactions
   - id: ch04.receptor-mechanisms.i06
     q: SHBG 作用
     a:
     - 性荷爾蒙結合球蛋白可與膜受器結合 → 啟動 cAMP 途徑
     - 結合蛋白本身具有生物活性
     - 不只是運送工具
-    detail: ''
-    terms: []
+    detail: SHBG 打破了「結合=不活躍、游離=活躍」的簡單二分法；SHBG 結合的睾固酮可透過 SHBG-膜受器-cAMP 路徑發揮效應，說明「有效睾固酮」量比「游離睾固酮」量更難單純用一個數字衡量
+    terms:
+    - SHBG
+    - secondary-messenger
     numbers: []
     concepts:
     - hormone
     - structure
     related: []
-    locator: ''
+    locator: Synthesis, Storage, and Secretion of Hormones
   - id: ch04.receptor-mechanisms.i07
     q: mTOR 途徑
     a:
     - 皮質醇可阻斷 Akt/mTOR 信號通路（mRNA 翻譯起始）
-    - 睾固酮反效果
-    - 兩者競爭對 DNA 元件的結合
-    detail: ''
-    terms: []
+    - 睾固酮效果相反（對抗皮質醇）
+    - 兩者在 DNA 元件上競爭結合位點
+    detail: mTOR 是蛋白質合成的主開關；皮質醇與睾固酮在 DNA 同一位點的競爭說明，T/C 比值不只是一個監測指標，而是反映了細胞核內真實的合成/分解代謝力量競爭
+    terms:
+    - cortisol
+    - testosterone
+    - mTOR
     numbers: []
     concepts:
     - hormone
     - structure
     related: []
-    locator: ''
+    locator: Muscle as the Target for Hormone Interactions
   - id: ch04.receptor-mechanisms.i08
     q: 訓練前營養
     a:
-    - 訓練前攝取蛋白質+碳水化合物可上調骨骼肌雄激素受器含量
+    - 訓練前攝取蛋白質＋碳水化合物可上調骨骼肌雄激素受器含量
     - 進一步強化睾固酮利用效率
-    detail: ''
-    terms: []
+    detail: 訓練前補充的作用不只是能量：蛋白質提供胺基酸底物（促受器蛋白合成），碳水化合物穩定血糖（降低皮質醇需求）；兩者共同為受器創造有利的上調環境
+    terms:
+    - androgen-receptor
+    - testosterone
     numbers: []
     concepts:
     - hormone
-    - structure
+    - nutrition
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Testosterone > Training Adaptations of Testosterone
+
 - id: testosterone
   title: 睾固酮 Testosterone
   desc: ''
@@ -760,260 +944,293 @@ topics:
   - id: ch04.testosterone.i01
     q: 來源與功能
     a:
-    - 男：睾丸為主
-    - 女：卵巢＋腎上腺
-    - 促進蛋白質合成·抑制蛋白質分解·合成代謝最重要荷爾蒙
-    detail: ''
-    terms: []
+    - 男：主要來自睾丸；女：卵巢＋腎上腺
+    - 促進蛋白質合成（胺基酸併入蛋白質）
+    - 抑制蛋白質分解
+    - 主要合成代謝荷爾蒙
+    detail: 睾固酮的核心功能是氮留存：促進合成＋抑制分解雙管齊下，使蛋白質淨積累；女性儘管濃度低得多，但透過更快的受器上調仍能充分利用有限的睾固酮
+    terms:
+    - testosterone
     numbers: []
     concepts:
     - hormone
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Testosterone
   - id: ch04.testosterone.i02
     q: 游離睾固酮
     a:
-    - 僅佔總量 0.5~2%
-    - 重阻訓可急性增加游離睾固酮
-    - 年齡↑ → 游離睾固酮反應↓
-    - 較老年男性生理潛能較小
-    detail: ''
-    terms: []
-    numbers: []
+    - 僅佔總量 0.5-2%（未與結合蛋白結合）
+    - 重阻訓（如 6 組 10RM 深蹲）可急性增加游離睾固酮
+    - 年齡↑ → 游離睾固酮反應↓（年長男性生物潛能較小）
+    detail: 年輕男性擁有更高的總睾固酮絕對值，因此有更多游離睾固酮可與靶組織互動
+    terms:
+    - testosterone
+    - SHBG
+    numbers:
+    - v: 0.5-2
+      unit: "%"
+      of: 游離睾固酮占總睾固酮的比例
     concepts:
     - hormone
+    - population
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Testosterone > Free Testosterone and Sex Hormone–Binding Globulin
   - id: ch04.testosterone.i03
     q: SHBG
     a:
-    - 性荷爾蒙結合球蛋白
-    - 攜帶睾固酮
-    - 可自身與膜受器結合啟動 cAMP 途徑
-    - 並非單純載體
-    detail: ''
-    terms: []
+    - 性荷爾蒙結合球蛋白：攜帶睾固酮（及雌激素）
+    - 本身可與膜受器結合啟動 cAMP 途徑
+    - 並非單純載體，具有獨立生物活性
+    detail: SHBG 同時扮演兩個角色：緩衝器（防止游離 T 過高/過低）和獨立信號分子（直接啟動膜受器）；年齡↑ 時 SHBG↑，游離 T↓，但 SHBG 本身的信號活性可能部分補償
+    terms:
+    - testosterone
+    - SHBG
+    - secondary-messenger
     numbers: []
     concepts:
     - hormone
+    - structure
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Testosterone > Free Testosterone and Sex Hormone–Binding Globulin
   - id: ch04.testosterone.i04
     q: 男性反應
     a:
-    - 大肌群運動後血中睾固酮顯著↑
-    - 早晨濃度最高
-    - 需多組、大重量、足夠肌肉量才能觀察到增加
-    detail: ''
-    terms: []
+    - 大肌群運動（如硬舉，非臥推）後血中睾固酮顯著↑
+    - 早晨濃度最高，但運動可在日夜節律任一時點誘發增加
+    - 需多組、重負荷、足夠肌肉量才觀察到明顯增加
+    detail: 硬舉 vs 臥推的差異說明肌肉量是荷爾蒙反應的重要決定因素：更大的肌肉量→更大的代謝需求→更強的荷爾蒙訊號；上肢孤立動作難以觸發足夠的全身荷爾蒙反應
+    terms:
+    - testosterone
+    - diurnal-variation
     numbers: []
     concepts:
     - hormone
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Testosterone
   - id: ch04.testosterone.i05
     q: 女性反應
     a:
-    - 濃度為男性 1/15~1/20
-    - 多數研究無顯著急性↑
-    - 但雄激素受器上調更快（約1小時）
-    - 對少量睾固酮高度敏感
-    detail: ''
-    terms: []
-    numbers: []
+    - 濃度約為男性的 1/15-1/20（15-20 倍低）
+    - 多數研究無顯著急性血中↑；若增加也很小，有時只見於游離睾固酮
+    - 雄激素受器上調速度更快（約 1 小時）→ 對少量睾固酮高度敏感利用
+    detail: 女性的睾固酮策略是「精打細算」而非「大量堆積」：更快的受器上調（約 1 小時）意味著有限的睾固酮可被更高效地利用；加上 IGF-I 與生長激素途徑的補充，女性肌肥大潛力不因低 T 而大幅受限
+    terms:
+    - testosterone
+    - androgen-receptor
+    numbers:
+    - v: 15-20
+      unit: 倍
+      of: 男性睾固酮濃度高於女性的倍數
     concepts:
     - hormone
+    - population
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Testosterone > Testosterone Responses in Women
   - id: ch04.testosterone.i06
     q: 升高睾固酮的訓練條件
     a:
-    - ① 大肌群動作（深蹲、硬舉、爆發上舉）② 重負荷 85~95% 1RM ③ 多組數/多動作 ④ 中等休息（30~60秒）
-    detail: ''
-    terms: []
-    numbers: []
+    - ① 大肌群動作（深蹲、硬舉、爆發上舉）
+    - ② 重負荷（85-95% 1RM）
+    - ③ 多組數/多動作（中至高容量）
+    - ④ 短休息（30-60 秒）
+    detail: 這組條件同時最大化了兩個信號：神經-內分泌整合（大肌群＋重負荷）與代謝壓力（高容量＋短休息）；兩個信號共同作用才能觸發最大睾固酮分泌反應
+    terms:
+    - testosterone
+    numbers:
+    - v: 85-95
+      unit: "% 1RM"
+      of: 急性升高睾固酮的訓練強度範圍
+    - v: 30-60
+      unit: 秒
+      of: 急性升高睾固酮建議的組間休息時間
     concepts:
     - hormone
+    - program-design
     related: []
-    locator: ''
+    locator: How Can Athletes Manipulate the Endocrine System > To Increase Serum Testosterone Concentrations
   - id: ch04.testosterone.i07
     q: 神經系統影響
     a:
     - 睾固酮與神經元受器結合 → 增加神經傳導物質 → 改變結構蛋白 → 提升神經肌肉力量潛力
-    detail: ''
-    terms: []
+    detail: 睾固酮的神經作用說明其合成代謝效應不只局限於肌肉：提升神經傳導效率和運動神經元結構蛋白，從神經側放大肌肉可產生的最大力量，即使肌肉本身大小不變
+    terms:
+    - testosterone
     numbers: []
     concepts:
     - hormone
+    - motor-control
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Testosterone
   - id: ch04.testosterone.i08
     q: 訓練適應
     a:
     - 長期訓練可小幅增加靜息睾固酮
-    - LH/FSH 同步上升
-    - 菁英舉重選手2年訓練後靜息T上升
-    detail: ''
-    terms: []
+    - LH/FSH 同步上升（下視丘-垂體-性腺軸強化）
+    - 菁英舉重選手 2 年訓練後靜息 T 有小幅增加（Häkkinen 等人）
+    detail: 靜息睾固酮的長期適應幅度雖小，但 LH/FSH 同步上升表明整個 HPG 軸都上調了容量——這是一個更強健的合成代謝系統的標誌，不只是單一荷爾蒙數值的改變
+    terms:
+    - testosterone
     numbers: []
     concepts:
     - hormone
+    - adaptation
     related: []
-    locator: ''
+    locator: Primary Anabolic Hormones > Testosterone > Training Adaptations of Testosterone
+
 cards:
-- q: 荷爾蒙的定義與基本功能？
-  a: 化學訊號分子，由內分泌腺合成、儲存、分泌入血液，作用於含有特異性受器的目標組織
+- q: 荷爾蒙的定義？
+  a: 由內分泌腺合成、儲存、分泌入血液的化學訊號分子，作用於含有特異性受器的目標組織
   tag: Endocrinology
 - q: 荷爾蒙三大分類與各自特性？
-  a: ①類固醇（脂溶性，直接穿透細胞膜）②胜肽/多肽（水溶性，作用於膜受器）③胺類（酪氨酸/色氨酸衍生，作用於膜受器）
+  a: ①類固醇（脂溶性，擴散穿細胞膜，作用於胞質受器）②胜肽/多肽（水溶性，作用於膜受器，透過二級訊使）③胺類（酪氨酸/色氨酸衍生，作用於膜受器，不受直接負回饋）
   tag: Endocrinology
 - q: 荷爾蒙的四種分泌途徑？
-  a: ①內分泌（入血循環）②旁分泌（作用鄰近細胞）③自分泌（作用自身細胞）④胞內分泌（細胞內作用）
+  a: ①內分泌（入血循環，作用遠端）②胞內分泌（細胞內自身作用，不入血）③自分泌（作用自身細胞膜受器）④旁分泌（作用鄰近細胞）
   tag: Endocrinology
 - q: 血液中結合蛋白的功能？
-  a: 攜帶荷爾蒙運輸；延長半衰期；防止降解；多數荷爾蒙需「游離」才有活性（free hormone hypothesis）
+  a: 攜帶荷爾蒙運輸；延長半衰期；防止降解；多數荷爾蒙需「游離」才有活性（free hormone hypothesis）；SHBG 本身可與膜受器結合啟動 cAMP 途徑
   tag: Endocrinology
 - q: 類固醇荷爾蒙的作用機制步驟？
-  a: 擴散穿細胞膜→與細胞質受器結合→形成H-RC→移入細胞核→與DNA結合→轉錄mRNA→蛋白質合成
+  a: 擴散穿過肌膜→與細胞質受器結合形成H-RC→兩個H-RC二聚→移入細胞核→作用於DNA強化子→轉錄特定mRNA→核糖體翻譯成蛋白質
   tag: Endocrinology
 - q: 胜肽荷爾蒙為何無法直接進入細胞核？如何傳訊？
   a: 水溶性，無法穿透細胞膜；與膜受器結合後活化二級訊使（如cAMP、JAK/STAT）→訊號傳導至核或代謝途徑
   tag: Endocrinology
 - q: 一般適應症候群（GAS）的三個階段與對週期化的意義？
-  a: ①警戒反應（功能暫時下降）②抵抗期（功能超越基準＝適應）③耗竭期；週期化理論的基礎——適時移除壓力才能適應
+  a: ①警戒反應（功能暫時下降）②抵抗期（適應，功能超越基準）③耗竭期（壓力未移除持續下去）；週期化的核心就是在耗竭前及時移除刺激，讓功能恢復後再超量負荷
   tag: Endocrinology
 - q: 睾固酮的來源（男性 vs 女性）？
-  a: 男性：主要來自睾丸；女性：卵巢＋腎上腺；女性濃度為男性 1/15~1/20
+  a: 男性：主要來自睾丸；女性：卵巢＋腎上腺；女性濃度約為男性的 1/15-1/20
   tag: Anabolic
 - q: 游離睾固酮（free testosterone）的特性？
-  a: 僅佔總睾固酮 0.5~2%；未與結合蛋白結合；重阻訓可急性增加；年齡↑則游離T反應↓
+  a: 僅佔總睾固酮 0.5-2%；重阻訓（如6組10RM深蹲）可急性增加；年齡↑則游離T反應↓；年輕男性有更多絕對量可與靶組織互動
   tag: Anabolic
 - q: SHBG（性荷爾蒙結合球蛋白）的特殊功能？
-  a: 不只是載體，可與膜受器結合啟動cAMP途徑；本身具有生物活性；對睾固酮和雌激素的結合各有影響
+  a: 不只是載體：可與膜受器結合啟動cAMP途徑，本身具有生物活性；攜帶睾固酮並延長其半衰期
   tag: Anabolic
 - q: 哪些訓練條件可急性升高男性血中睾固酮？
-  a: ①大肌群動作（深蹲/硬舉/爆發上舉）②重負荷（85~95% 1RM）③多組數或多動作（高容量）④短休息（30~60秒）
+  a: ①大肌群動作（深蹲/硬舉/爆發上舉）②重負荷（85-95% 1RM）③多組數或多動作（中至高容量）④短休息（30-60秒）
   tag: Anabolic
 - q: 女性對阻力訓練的睾固酮反應有何特點？
-  a: 血中濃度增加幅度極小或無顯著增加；但雄激素受器上調速度更快（約1小時）→對少量睾固酮高度敏感利用
+  a: 血中濃度增加幅度極小或無顯著增加（若有也很小）；但雄激素受器上調速度更快（約1小時）→對少量睾固酮高度敏感利用
   tag: Anabolic
 - q: 睾固酮對神經系統有哪些影響？
-  a: 與神經元受器結合→增加神經傳導物質→改變結構蛋白→提升神經肌肉力量潛力；長期訓練可增強神經適應
+  a: 與神經元受器結合→增加神經傳導物質→改變結構蛋白→提升神經肌肉力量潛力；長期訓練可強化神經適應
   tag: Anabolic
-- q: 高強度阻力訓練後睾固酮增加是適應的必要條件嗎？
-  a: 並非必要條件——低量高強度訓練可上調受器數量而不改變血中T，同樣產生適應；增加代表合成代謝訊號更強
+- q: 睾固酮急性增加是肌肥大的必要條件嗎？
+  a: 不是必要條件；低量高強度訓練（1-2RM，5-7分鐘休息）可不改變血中T，但增加受器數量仍能產生適應；增加代表合成代謝訊號更強
   tag: Anabolic
 - q: 睾固酮長期訓練適應：靜息值 vs 運動誘發反應？
-  a: 長期重訓可小幅↑靜息睾固酮（LH/FSH同步上升）；菁英舉重選手2年訓練後靜息T有小幅增加
+  a: 長期重訓可小幅↑靜息睾固酮（LH/FSH同步上升）；菁英舉重選手2年訓練後靜息T有小幅增加（Häkkinen研究）
   tag: Anabolic
 - q: 22 kDa GH 的來源與主要特性？
-  a: 191胺基酸多肽；由前腦垂體somatotroph產生；血中最常被測量（RIA/ELISA）；但非生物活性GH的主體
+  a: 191胺基酸多肽；由前腦垂體somatotroph（Band 1）產生；血中最常被RIA/ELISA測量；但非生物活性GH的主體（聚合體才是）
   tag: GH Superfamily
 - q: 生物活性GH（bioactive GH）vs 22kDa GH的差異？
-  a: 生物活性GH為聚合體（aggregates）形式，濃度遠高於22kDa單體；才是真正作用主體；無明顯日夜節律
+  a: 生物活性GH為聚合體（aggregates）形式，濃度遠高於22kDa單體；才是真正作用主體；無明顯日夜節律（與22kDa夜間最高不同）
   tag: GH Superfamily
-- q: GH超家族的主要生理功能（列出6個以上）？
-  a: ↑蛋白合成、↑胺基酸轉運、↑脂解、↓葡萄糖利用、↓糖原合成、↑膠原蛋白合成、促軟骨生長、增強免疫細胞功能
+- q: GH超家族的主要生理功能（列6個以上）？
+  a: ↑蛋白合成、↑胺基酸轉運、↑脂解、↓葡萄糖利用、↓糖原合成、↑膠原蛋白合成、促軟骨生長、↑氮/鈉/鉀/磷留存、增強免疫細胞功能
   tag: GH Superfamily
 - q: 哪種訓練條件可最大化22kDa GH反應？
-  a: 高強度（10RM）＋多組（3組）＋短休息（1分鐘）；關鍵驅動因素：高乳酸＋低pH（氫離子濃度增加）
+  a: 高強度（10RM）＋每動作3組＋短休息（1分鐘）；關鍵驅動因素：高乳酸＋低pH（氫離子濃度↑）；輕負荷或長休息（>3分鐘）GH反應↓
   tag: GH Superfamily
 - q: 22kDa GH 的分泌模式？
-  a: 脈衝式（pulsatile）分泌；夜間睡眠時濃度最高；運動可增加脈衝振幅與次數；受下視丘GhRH(+)/Somatostatin(-)調節
+  a: 脈衝式（pulsatile）分泌；夜間睡眠時濃度最高；運動可增加脈衝振幅與次數；受下視丘GHRH(+)/Somatostatin(-)調節
   tag: GH Superfamily
 - q: 女性22kDa GH的特點？
-  a: 靜息濃度高於男性（分泌頻率與振幅更高）；月經週期各期反應不同；生物活性GH隨阻力訓練增加靜息值
+  a: 靜息濃度高於男性（分泌頻率與振幅更高）；月經週期各期反應不同；生物活性GH隨阻力訓練增加靜息值（不同於22kDa形式）
   tag: GH Superfamily
 - q: 訓練適應對22kDa GH運動反應的影響？
-  a: 訓練後對同等絕對強度的22kDa GH急性反應↓（效率提升）；生物活性GH靜息值可能↑；長期適應仍在研究
+  a: 對同等絕對強度的22kDa GH急性反應↓（效率提升）；生物活性GH靜息值可能↑（尤其女性）；長期適應機制仍在研究中
   tag: GH Superfamily
 - q: GH如何與IGF互動促進肌肉合成？
-  a: GH刺激肝臟產生IGF-I；也可直接刺激肌肉細胞自分泌IGF-I；兩者協同促進蛋白質合成與組織修復
+  a: 22kDa GH刺激肝臟產生IGF-I（需8-24小時）；也刺激肌肉細胞自身合成IGF-I（mechano growth factor）；兩者協同促進蛋白質合成與組織修復
   tag: GH Superfamily
 - q: IGF-I的結構與主要來源？
-  a: 70胺基酸多肽；主要由肝臟在GH刺激後產生（需8~24h）；也由肌肉細胞在機械刺激下局部合成
+  a: 70胺基酸多肽；主要由肝臟在GH刺激後產生（需8-24小時）；機械刺激也可誘使肌肉細胞局部合成（mechano growth factor，自分泌）
   tag: IGF Axis
 - q: IGF結合蛋白（IGFBPs）的功能？
-  a: 至少6種（IGFBP-1~IGFBP-6）；調節IGF受器可及性；延長IGF半衰期；各IGFBP對運動反應獨立
+  a: 至少6種（IGFBP-1～IGFBP-6）；調節IGF受器可及性；延長IGF半衰期（作為循環儲存庫）；各IGFBP對運動反應獨立，且有自身生物活性
   tag: IGF Axis
 - q: Mechano Growth Factor (MGF) 是什麼？
-  a: 機械刺激（過負荷/伸展）→肌肉細胞大量合成局部IGF-I；以自分泌方式作用於肌肉；可能是肌肉IGF最重要途徑
+  a: 肌肉在機械負荷（過負荷/伸展）下大量合成的局部IGF-I；以自分泌方式作用（不入血）；被認為是肌肉IGF最重要的作用途徑
   tag: IGF Axis
 - q: IGF-I的運動反應與初始濃度的關係？
-  a: 初始濃度低→運動後IGF↑；初始濃度高→變化不明顯或無增加；說明個體起始狀態影響反應模式
+  a: 初始濃度低（約10-20 nmol/L）→運動後IGF更易升高；初始濃度高（約35-45 nmol/L）→不易升高或無變化；個體起始狀態影響反應模式
   tag: IGF Axis
 - q: 為何循環IGF-I不能完全代表肌肉局部IGF信號？
-  a: 循環IGF-I增加不一定與間質液（ISF）或肌肉內IGF-I相關；局部自分泌/旁分泌可能才是最關鍵作用途徑
+  a: 研究顯示循環IGF-I增加與間質液（ISF）或肌內IGF-I不相關；局部自分泌/旁分泌（mechano growth factor）可能才是最關鍵途徑
   tag: IGF Axis
 - q: 哪些因素影響IGF-I的調控與分泌？
-  a: ①GH（主要刺激）②甲狀腺素和睾固酮③營養狀態（蛋白質攝入、正氮平衡）④訓練前後補充蛋白質+碳水化合物
+  a: ①GH（主要刺激）②甲狀腺素和睾固酮③營養狀態（蛋白質攝入、正氮平衡、急性熱量攝取）；訓練前後補充蛋白質+碳水化合物可顯著提升IGF-I
   tag: IGF Axis
 - q: 皮質醇的來源與分泌調節？
-  a: 腎上腺皮質分泌的糖皮質素；由前腦垂體釋放的ACTH刺激分泌；有強烈日夜節律（早晨最高）
+  a: 腎上腺皮質分泌的主要糖皮質素；由前腦垂體釋放的ACTH刺激分泌；有強烈日夜節律（早晨最高，全天下降）
   tag: Catabolic
 - q: 皮質醇的五大分解代謝作用？
-  a: ①胺基酸→糖質新生②↑蛋白水解酶③↓蛋白質合成④抑制糖原合成⑤抑制B/T免疫細胞功能
+  a: ①胺基酸→糖質新生②↑蛋白水解酶（加速蛋白質降解）③↓蛋白質合成④抑制糖原合成⑤抑制B/T免疫細胞功能
   tag: Catabolic
 - q: 急性皮質醇升高 vs 慢性高皮質醇的差異？
-  a: 急性：協助去除受損蛋白，促進肌肉重塑（有益）；慢性高濃度：肌肉萎縮、力量↓、免疫抑制（有害）
+  a: 急性：協助去除受損蛋白，促進肌肉重塑（有益）；慢性高濃度：氮流失、肌肉萎縮、力量↓、免疫抑制（有害）
   tag: Catabolic
 - q: 皮質醇的日夜節律對研究的影響？
-  a: 早晨濃度最高，全天下降；比較不同研究時必須控制採血時間點；否則數據無可比性
+  a: 早晨濃度最高，全天下降；比較不同研究時必須控制採血時間點；否則日夜節律成為混淆變項使數據無可比性
   tag: Catabolic
 - q: T/C比值（睾固酮/皮質醇）的意義與限制？
-  a: 理論上反映合成/分解代謝平衡；皮質醇>800 nmol/L提示可能過度訓練；但實際預測力有限，受多種因素干擾
+  a: 理論上反映合成/分解代謝平衡；皮質醇>800 nmol/L提示可能過度訓練；但實際預測力有限（皮質醇有多重生理角色）
   tag: Catabolic
 - q: 皮質醇對不同肌纖維的影響差異？
-  a: Type II纖維：蛋白質含量多→分解代謝效果更強；Type I纖維：主要靠減少降解（非增加合成）來達到肥大
+  a: Type II纖維：蛋白質含量多→分解代謝效果更強；Type I纖維：達到肥大主要靠減少降解（而非大幅增加合成）
   tag: Catabolic
 - q: 哪種訓練條件會顯著升高皮質醇？
-  a: 大訓練量＋大肌群＋短休息；與GH升高的訓練條件相似（高代謝壓力）；過高持續負荷導致慢性升高
+  a: 大訓練量＋大肌群＋短休息；與GH升高的訓練條件相似（高代謝壓力）；急性升高有助重塑，慢性升高有害
   tag: Catabolic
 - q: 兒茶酚胺的主要成員及來源？
-  a: 腎上腺素（主）＋正腎上腺素＋多巴胺；由腎上腺髓質（medulla）在神經系統直接刺激下快速分泌
+  a: 腎上腺素（E，主要）＋正腎上腺素（NE）＋多巴胺（DA）；由腎上腺髓質（medulla）在神經系統直接刺激下快速分泌
   tag: Fight-or-Flight
 - q: 兒茶酚胺在阻力訓練中的六大生理功能？
-  a: ↑力量（中樞機制）·↑肌肉收縮速率·↑血壓·↑能量可用性·↑肌肉血流（血管擴張）·促進睾固酮等荷爾蒙分泌
+  a: ↑力量（中樞機制）·↑肌肉收縮速率·↑血壓·↑能量可用性·↑肌肉血流（血管擴張）·促進睾固酮等其他荷爾蒙分泌
   tag: Fight-or-Flight
-- q: 腎上腺素與乳酸的關係？
-  a: 腎上腺素濃度與乳酸濃度相關；高強度短休息訓練後NE/E/多巴胺可維持升高至恢復期後5分鐘
+- q: 腎上腺素與乳酸的關係？以及典型訓練後的持續時間？
+  a: 腎上腺素濃度與乳酸濃度相關；10RM+10-60秒休息+10個動作+3組的高強度訓練後，NE/E/多巴胺維持升高至恢復後5分鐘
   tag: Fight-or-Flight
-- q: 什麼是腎上腺素能耗竭（adrenergic exhaustion）？
-  a: 訓練不變化→持續高應激→腎上腺髓質持續參與→腎上腺素釋放能力下降；週期化訓練是預防關鍵
+- q: 什麼是腎上腺素能耗竭（adrenergic exhaustion）？如何預防？
+  a: 訓練不變化→持續高應激→腎上腺髓質持續參與→腎上腺素釋放能力下降；預防：週期化訓練（輪換長短休息、低量日、完全休息日）
   tag: Fight-or-Flight
 - q: Proenkephalins/Peptide F 的功能？
-  a: 腎上腺髓質分泌的前腦啡肽片段；增強免疫細胞功能；對運動後恢復至關重要；不同於腎上腺素的分解代謝角色
+  a: 腎上腺髓質分泌的前腦啡肽片段；增強免疫細胞功能；對運動後恢復至關重要；與兒茶酚胺（壓力/分解代謝角色）不同
   tag: Fight-or-Flight
 - q: 兒茶酚胺的長期訓練適應？
-  a: 長期重訓→最大運動時腎上腺素分泌能力↑；對單次特定訓練的腎上腺素急性反應可能↓（效率提升）
+  a: 長期重訓→最大運動時腎上腺素分泌能力↑；對特定次最大訓練的腎上腺素急性反應可能↓（效率提升）；兩種方向並存
   tag: Fight-or-Flight
 - q: 受器上調（upregulation）vs 下調（downregulation）的定義？
-  a: 上調：受器數量↑或結合敏感性↑（如1~2次重訓即可↑雄激素受器）；下調：過度刺激或功能已達上限→受器反應性↓
+  a: 上調：受器數量↑或結合敏感性↑（如1-2次重訓即可↑雄激素受器數量）；下調：過度刺激或已達最大尺寸→受器反應性↓
   tag: Receptor
 - q: 雄激素受器的運動相關特性？
-  a: 睾固酮的受器；訓練影響受器最大數量（非結合敏感性）；女性受器上調速度更快（約1小時）；對現有T更充分利用
+  a: 睾固酮的胞內受器；訓練主要影響受器最大數量（非結合敏感性）；女性受器上調速度更快（約1小時）；對現有T更充分利用
   tag: Receptor
 - q: 為何血中睾固酮濃度不等於細胞內效果？
-  a: 血中濃度只代表一個曝露機率指標；真正效果取決於受器狀態（數量、敏感性、親和力）；受器才是關鍵
+  a: 血中濃度只代表曝露機率指標；真正效果取決於受器狀態（數量、敏感性、親和力）；受器才是關鍵
   tag: Receptor
 - q: mTOR途徑與皮質醇/睾固酮的競爭關係？
-  a: 皮質醇可阻斷Akt/mTOR信號通路（mRNA翻譯起始）；睾固酮反效果，兩者在DNA元件競爭結合；合成/分解代謝平衡
+  a: 皮質醇可阻斷Akt/mTOR信號通路（mRNA翻譯起始）；睾固酮反效果（對抗皮質醇）；兩者在DNA元件上競爭結合位點；決定合成/分解代謝平衡
   tag: Receptor
 - q: 訓練前攝取蛋白質+碳水化合物對受器有何影響？
-  a: 可上調骨骼肌雄激素受器含量；強化睾固酮利用效率；也可提升IGF-I；建議訓練前後補充
+  a: 可上調骨骼肌雄激素受器含量；強化睾固酮利用效率；也可提升IGF-I；說明訓練前補充的合成代謝作用不只來自能量
   tag: Receptor
 - q: 最大化22kDa GH的訓練處方要素？
-  a: ①高強度（10RM）②三組以上③短休息（1分鐘）④訓練前後補充蛋白質+碳水化合物；目標：產生高乳酸＋低pH
+  a: ①高強度（10RM）②每動作3組③短休息（1分鐘）④訓練前後補充蛋白質+碳水化合物；目標：產生高乳酸＋低pH
   tag: Program Design
 - q: 週期化訓練對荷爾蒙系統的重要性？
-  a: 不變化訓練→持續高應激→腎上腺耗竭+慢性高皮質醇→過度訓練；週期化（輕重交替、完全休息）是保護機制
+  a: 不變化訓練→持續高應激→腎上腺耗竭+慢性高皮質醇→非功能性超量訓練；週期化（輕重交替、完全休息）是保護腎上腺與維持合成代謝環境的機制
   tag: Program Design
 - q: 急性訓練變項對荷爾蒙反應的影響為何重要？
-  a: 強度、組數、動作順序、休息時間、動作選擇→決定荷爾蒙分泌模式；不同組合產生不同合成/分解代謝環境
+  a: 強度、組數、動作順序、休息時間、動作選擇→決定荷爾蒙分泌模式的樣式與幅度；不同組合產生不同合成/分解代謝環境
   tag: Program Design
 - q: 募集原則在荷爾蒙適應中的意義？
-  a: 只有被神經活化的肌纖維才接受荷爾蒙適應；募集越多運動單位→全肌肉重塑範圍越大→全身性荷爾蒙反應更強
+  a: 只有被神經活化的肌纖維才接受荷爾蒙適應（size principle）；募集越多運動單位→全肌肉重塑範圍越大→生理系統（含內分泌）支援需求越高
   tag: Program Design
 - q: 過度訓練的荷爾蒙警示指標有哪些？
-  a: ①皮質醇持續>800 nmol/L②T/C比↓③靜息睾固酮↓④IGF-I無增加⑤免疫抑制⑥肌肉持續萎縮/力量↓
+  a: ①皮質醇持續>800 nmol/L②T/C比↓③負向蛋白代謝平衡④免疫抑制⑤肌肉萎縮/力量持續↓
   tag: Program Design
