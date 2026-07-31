@@ -60,7 +60,9 @@
 
 結論：整批卡片視為不可信，**閃卡改寫併進每章的對帳工序**——agent 讀一次源書，同時重寫 items 與 cards，兩者天然一致，不再事後偵測。`cscs_card_sync.py` 降級為輔助複查，不當閘。
 
-**下一步建議**：① **對帳式補完是唯一剩下的大工程（177 個 topic，ch04–ch24）**——每個 agent 認一章、自己讀 `resources/books/.../chNN_*.md`、**items 與該章 52 張 cards 一起重寫**，一個 topic 填完立刻寫盤，每章跑綠 `cscs_check` 才 commit；ch01–ch03 已走完可當範本（見上），下一章從 **ch04** 接。派工 prompt 務必帶上 ch03 那句「每個數字都要回原文確認淨值／總值與單位」——ch03 品質明顯高於 ch01/ch02 就是因為這句；② **欠 ch01–ch03 一次卡片補課**：這三章的卡片只做過點狀修補（`33d7df5` 修了 ch02 三張），從沒回源書整批重寫，等 ch04 起的新工序跑順後補；ch21/ch23/ch24 已重寫過可跳過，**ch13/ch15 不另派**，等輪到該章時一併處理；③（配額）串行派發，一次一個 agent，驗收 + commit 後才派下一個；5H >80% 一律不開新批次，排 shotclock 等下一窗；④ 遮答自測仍是全頁 toggle，「逐條遮／已答對不再遮」需要 localStorage 層，未做；⑤ `layouts/library/book.html` 與書庫其他 layout（library.css / bookshelf.css）調性未對齊。
+**ch04 對帳完成（2026-08-01，commit `e1f2514`，push + CI 正在跑）**：64 個 item 全補 locator/numbers/detail/terms；52 張 cards 回源書重寫；`_terms.yaml` 新增 24 條內分泌術語（catecholamine/cortisol/testosterone/IGF 等）。主要數字錨定：22kDa GH=191aa, IGF-I=70aa, 游離T=0.5-2%, 男女T差15-20倍, GH最佳休息1分鐘, 皮質醇警示800nmol/L。修正：GAS補第三階段（耗竭期）, H-RC二聚步驟, GHRH拼寫。`cscs_check` 全綠（ch01–ch04 均 OK）。
+
+**下一步建議**：① **對帳式補完是唯一剩下的大工程（177 個 topic，ch05–ch24）**——每個 agent 認一章、自己讀 `resources/books/.../chNN_*.md`、**items 與該章 52 張 cards 一起重寫**，一個 topic 填完立刻寫盤，每章跑綠 `cscs_check` 才 commit；ch01–ch04 已走完可當範本，下一章從 **ch05** 接。派工 prompt 務必帶上 ch03 那句「每個數字都要回原文確認淨值／總值與單位」——ch03 品質明顯高於 ch01/ch02 就是因為這句；② **欠 ch01–ch03 一次卡片補課**：這三章的卡片只做過點狀修補（`33d7df5` 修了 ch02 三張），從沒回源書整批重寫，等 ch05 起的新工序跑順後補；ch21/ch23/ch24 已重寫過可跳過，**ch13/ch15 不另派**，等輪到該章時一併處理；③（配額）串行派發，一次一個 agent，驗收 + commit 後才派下一個；5H >80% 一律不開新批次，排 shotclock 等下一窗；④ 遮答自測仍是全頁 toggle，「逐條遮／已答對不再遮」需要 localStorage 層，未做；⑤ `layouts/library/book.html` 與書庫其他 layout（library.css / bookshelf.css）調性未對齊。
 
 > ↓ 更早
 
