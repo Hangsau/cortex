@@ -10,45 +10,39 @@ topics:
   - id: ch01.skeleton.axial
     q: 軸心骨骼包含哪些骨頭
     a:
-    - 頭顱
+    - 頭顱（cranium）
     - 脊椎（從第一頸椎到尾骨）
     - 肋骨與胸骨
-    detail: 軸心骨骼是身體的中軸，功能偏保護與支撐（腦、脊髓、心肺都被它包起來）。全身 206 塊骨頭中約 80 塊屬於這裡。
+    detail: 軸心骨骼是身體的中軸，功能偏保護與支撐（腦、脊髓、心肺都被它包起來）。全身骨頭總數約 206 塊，但書中並未列出軸心骨骼具體佔多少塊。
     terms:
     - axial-skeleton
     - vertebral-column
     numbers:
-    - v: 約 80
+    - v: 約 206
       unit: 塊
-      of: 軸心骨骼的骨頭數
+      of: 全身骨頭總數（書中標注 "approximately"，且個體間有差異）
     concepts:
     - structure
     related:
     - ch01.skeleton.appendicular
     - ch01.skeleton.vertebral-segments
-    locator: 第 1 章 · The Skeletal System
+    locator: 第 1 章 · Skeleton
   - id: ch01.skeleton.appendicular
     q: 附肢骨骼包含哪些骨頭
     a:
-    - 肩帶：肩胛骨與鎖骨
-    - 上肢
-    - 骨盆帶
-    - 下肢
-    detail: 附肢骨骼是「掛在中軸上的部分」，功能偏產生動作。約 126 塊，加上軸心骨骼的 80 塊，成人全身共 206 塊。
+    - 肩帶：左右肩胛骨與鎖骨
+    - 上肢：肱骨、橈骨、尺骨、腕骨、掌骨、指骨
+    - 骨盆帶：左右髖骨
+    - 下肢：股骨、髕骨、脛骨、腓骨、跗骨、蹠骨、趾骨
+    detail: 附肢骨骼是「掛在中軸上的部分」，功能偏產生動作。書中列出了各組成骨骼的名稱，但並未給出附肢骨骼的塊數。
     terms:
     - appendicular-skeleton
-    numbers:
-    - v: 約 126
-      unit: 塊
-      of: 附肢骨骼的骨頭數
-    - v: '206'
-      unit: 塊
-      of: 成人全身骨頭總數
+    numbers: []
     concepts:
     - structure
     related:
     - ch01.skeleton.axial
-    locator: 第 1 章 · The Skeletal System
+    locator: 第 1 章 · Skeleton
   - id: ch01.skeleton.fibrous-joint
     q: 纖維關節是什麼
     a:
@@ -65,7 +59,7 @@ topics:
     related:
     - ch01.skeleton.cartilaginous-joint
     - ch01.skeleton.synovial-joint
-    locator: 第 1 章 · Joints
+    locator: 第 1 章 · Skeleton
   - id: ch01.skeleton.cartilaginous-joint
     q: 軟骨關節是什麼
     a:
@@ -83,7 +77,7 @@ topics:
     related:
     - ch01.skeleton.fibrous-joint
     - ch01.skeleton.vertebral-segments
-    locator: 第 1 章 · Joints
+    locator: 第 1 章 · Skeleton
   - id: ch01.skeleton.synovial-joint
     q: 滑液關節為什麼活動度最大
     a:
@@ -101,7 +95,7 @@ topics:
     related:
     - ch01.skeleton.joint-axes
     - ch01.skeleton.fibrous-joint
-    locator: 第 1 章 · Joints
+    locator: 第 1 章 · Skeleton
   - id: ch01.skeleton.joint-axes
     q: 單軸、雙軸、多軸關節怎麼分
     a:
@@ -119,7 +113,7 @@ topics:
     - measurement
     related:
     - ch01.skeleton.synovial-joint
-    locator: 第 1 章 · Joints
+    locator: 第 1 章 · Skeleton
   - id: ch01.skeleton.vertebral-segments
     q: 脊椎各區段各有幾節
     a:
@@ -153,7 +147,7 @@ topics:
     related:
     - ch01.skeleton.axial
     - ch01.skeleton.cartilaginous-joint
-    locator: 第 1 章 · The Skeletal System
+    locator: 第 1 章 · Skeleton
   - id: ch01.skeleton.lever-system
     q: 為什麼肌肉必須透過骨骼才能推東西
     a:
@@ -170,7 +164,7 @@ topics:
     related:
     - ch01.muscle-structure.epimysium
     - ch01.skeleton.synovial-joint
-    locator: 第 1 章 · The Skeletal System
+    locator: 第 1 章 · Skeleton
   - id: ch01.skeleton.bone-adaptation
     q: 阻力訓練怎麼改變骨骼
     a:
@@ -184,7 +178,7 @@ topics:
     - adaptation
     related:
     - ch01.skeleton.lever-system
-    locator: 第 1 章 · The Skeletal System
+    locator: 第 1 章 · Skeleton
 - id: muscle-structure
   title: 肌肉結構 Muscle Structure
   desc: 三層結締組織 · 肌纖維 · 肌節與肌絲 · 橫小管與肌漿網
@@ -205,7 +199,7 @@ topics:
     related:
     - ch01.muscle-structure.perimysium
     - ch01.muscle-structure.endomysium
-    locator: 第 1 章 · Muscular System
+    locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
   - id: ch01.muscle-structure.perimysium
     q: 肌束膜包住的是什麼
     a:
@@ -224,7 +218,7 @@ topics:
     related:
     - ch01.muscle-structure.epimysium
     - ch01.muscle-structure.endomysium
-    locator: 第 1 章 · Muscular System
+    locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
   - id: ch01.muscle-structure.endomysium
     q: 肌內膜包住的是什麼
     a:
@@ -240,7 +234,7 @@ topics:
     related:
     - ch01.muscle-structure.perimysium
     - ch01.muscle-structure.fiber-dimensions
-    locator: 第 1 章 · Muscular System
+    locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
   - id: ch01.muscle-structure.fiber-dimensions
     q: 一條肌纖維長什麼樣
     a:
@@ -263,7 +257,7 @@ topics:
     related:
     - ch01.muscle-structure.sarcomere
     - ch01.muscle-structure.endomysium
-    locator: 第 1 章 · Muscular System
+    locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
   - id: ch01.muscle-structure.sarcomere
     q: 肌節是什麼，靜息時多長
     a:
@@ -288,7 +282,7 @@ topics:
     related:
     - ch01.muscle-structure.bands
     - ch01.sliding-filament.band-changes
-    locator: 第 1 章 · Muscular System
+    locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
   - id: ch01.muscle-structure.myosin
     q: 粗絲肌凝蛋白的構造
     a:
@@ -315,7 +309,7 @@ topics:
     related:
     - ch01.muscle-structure.actin
     - ch01.sliding-filament.power-stroke
-    locator: 第 1 章 · Muscular System
+    locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
   - id: ch01.muscle-structure.actin
     q: 細絲肌動蛋白的構造
     a:
@@ -338,7 +332,7 @@ topics:
     related:
     - ch01.muscle-structure.myosin
     - ch01.sliding-filament.crossbridge-formation
-    locator: 第 1 章 · Muscular System
+    locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
   - id: ch01.muscle-structure.bands
     q: A 帶、I 帶、H 區、Z 線、M 線各是什麼
     a:
@@ -361,7 +355,7 @@ topics:
     related:
     - ch01.muscle-structure.sarcomere
     - ch01.sliding-filament.band-changes
-    locator: 第 1 章 · Muscular System
+    locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
   - id: ch01.muscle-structure.sr-ttubule
     q: 橫小管與肌漿網各做什麼
     a:
@@ -380,7 +374,7 @@ topics:
     related:
     - ch01.sliding-filament.crossbridge-formation
     - ch01.neuromuscular.nmj
-    locator: 第 1 章 · Muscular System
+    locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
 - id: sliding-filament
   title: 滑動絲理論 Sliding Filament
   desc: 橫橋循環四步 · 力量的即時決定因素 · 收縮與放鬆條件
@@ -405,7 +399,7 @@ topics:
     related:
     - ch01.sliding-filament.band-changes
     - ch01.muscle-structure.sarcomere
-    locator: 第 1 章 · Sliding-Filament Theory
+    locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
   - id: ch01.sliding-filament.atp-cleavage
     q: 橫橋循環第一步：ATP 分解
     a:
@@ -424,7 +418,7 @@ topics:
     related:
     - ch01.sliding-filament.power-stroke
     - ch01.sliding-filament.requirements
-    locator: 第 1 章 · Sliding-Filament Theory
+    locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
   - id: ch01.sliding-filament.crossbridge-formation
     q: 橫橋循環第二步：橫橋形成
     a:
@@ -443,7 +437,7 @@ topics:
     related:
     - ch01.muscle-structure.sr-ttubule
     - ch01.sliding-filament.relaxation
-    locator: 第 1 章 · Sliding-Filament Theory
+    locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
   - id: ch01.sliding-filament.power-stroke
     q: 橫橋循環第三步：動力衝程
     a:
@@ -462,7 +456,7 @@ topics:
     related:
     - ch01.sliding-filament.force-determinant
     - ch01.sliding-filament.dissociation
-    locator: 第 1 章 · Sliding-Filament Theory
+    locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
   - id: ch01.sliding-filament.dissociation
     q: 橫橋循環第四步：解離
     a:
@@ -480,7 +474,7 @@ topics:
     related:
     - ch01.sliding-filament.atp-cleavage
     - ch01.sliding-filament.requirements
-    locator: 第 1 章 · Sliding-Filament Theory
+    locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
   - id: ch01.sliding-filament.force-determinant
     q: 肌肉當下的力量由什麼決定
     a:
@@ -494,7 +488,7 @@ topics:
     related:
     - ch01.fiber-types.improve-force
     - ch01.neuromuscular.recruitment
-    locator: 第 1 章 · Sliding-Filament Theory
+    locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
   - id: ch01.sliding-filament.relaxation
     q: 肌肉要放鬆需要什麼條件
     a:
@@ -512,7 +506,7 @@ topics:
     - energy-supply
     related:
     - ch01.sliding-filament.crossbridge-formation
-    locator: 第 1 章 · Sliding-Filament Theory
+    locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
   - id: ch01.sliding-filament.requirements
     q: 收縮循環缺一不可的三樣東西
     a:
@@ -530,7 +524,7 @@ topics:
     related:
     - ch01.sliding-filament.atp-cleavage
     - ch01.sliding-filament.dissociation
-    locator: 第 1 章 · Sliding-Filament Theory
+    locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
   - id: ch01.sliding-filament.band-changes
     q: 收縮時肌節的哪些區段會改變
     a:
@@ -551,7 +545,7 @@ topics:
     related:
     - ch01.sliding-filament.core
     - ch01.muscle-structure.bands
-    locator: 第 1 章 · Sliding-Filament Theory
+    locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
 - id: neuromuscular
   title: 神經肌肉系統 Neuromuscular
   desc: 運動單位 · 全有全無律 · 單收縮到強直 · 力量分級兩途徑
@@ -574,7 +568,7 @@ topics:
     related:
     - ch01.neuromuscular.all-or-none
     - ch01.fiber-types.recruitment-order
-    locator: 第 1 章 · Neuromuscular System
+    locator: 第 1 章 · Activation of Muscles
   - id: ch01.neuromuscular.nmj
     q: 訊號怎麼從神經傳到肌肉
     a:
@@ -596,7 +590,7 @@ topics:
     related:
     - ch01.muscle-structure.sr-ttubule
     - ch01.sliding-filament.crossbridge-formation
-    locator: 第 1 章 · Neuromuscular System
+    locator: 第 1 章 · Activation of Muscles
   - id: ch01.neuromuscular.all-or-none
     q: 全有全無律是什麼
     a:
@@ -613,7 +607,7 @@ topics:
     related:
     - ch01.neuromuscular.recruitment
     - ch01.neuromuscular.rate-coding
-    locator: 第 1 章 · Neuromuscular System
+    locator: 第 1 章 · Activation of Muscles
   - id: ch01.neuromuscular.twitch
     q: 單收縮是什麼
     a:
@@ -630,7 +624,7 @@ topics:
     - force-production
     related:
     - ch01.neuromuscular.tetanus
-    locator: 第 1 章 · Neuromuscular System
+    locator: 第 1 章 · Activation of Muscles
   - id: ch01.neuromuscular.tetanus
     q: 從單收縮到強直收縮怎麼疊上去
     a:
@@ -648,7 +642,7 @@ topics:
     related:
     - ch01.neuromuscular.twitch
     - ch01.neuromuscular.rate-coding
-    locator: 第 1 章 · Neuromuscular System
+    locator: 第 1 章 · Activation of Muscles
   - id: ch01.neuromuscular.rate-coding
     q: 力量分級途徑一：頻率調節
     a:
@@ -665,7 +659,7 @@ topics:
     related:
     - ch01.neuromuscular.recruitment
     - ch01.neuromuscular.unit-size
-    locator: 第 1 章 · Neuromuscular System
+    locator: 第 1 章 · Motor Unit Recruitment Patterns
   - id: ch01.neuromuscular.recruitment
     q: 力量分級途徑二：運動單位徵召
     a:
@@ -683,7 +677,7 @@ topics:
     related:
     - ch01.neuromuscular.rate-coding
     - ch01.fiber-types.improve-force
-    locator: 第 1 章 · Neuromuscular System
+    locator: 第 1 章 · Motor Unit Recruitment Patterns
   - id: ch01.neuromuscular.unit-size
     q: 運動單位的大小如何決定精確度
     a:
@@ -706,7 +700,7 @@ topics:
     related:
     - ch01.neuromuscular.rate-coding
     - ch01.neuromuscular.motor-unit
-    locator: 第 1 章 · Neuromuscular System
+    locator: 第 1 章 · Activation of Muscles
 - id: fiber-types
   title: 肌纖維類型 Fiber Types
   desc: Type I / IIa / IIx · 徵召順序 · 專項分布 · 分型方法
@@ -884,7 +878,7 @@ topics:
     related:
     - ch01.proprioception.spindle
     - ch01.proprioception.gto-function
-    locator: 第 1 章 · Proprioceptors
+    locator: 第 1 章 · Proprioception
   - id: ch01.proprioception.spindle
     q: 肌梭偵測什麼
     a:
@@ -902,7 +896,7 @@ topics:
     related:
     - ch01.proprioception.stretch-reflex
     - ch01.proprioception.gto-location
-    locator: 第 1 章 · Proprioceptors
+    locator: 第 1 章 · Muscle Spindles
   - id: ch01.proprioception.stretch-reflex
     q: 牽張反射的迴路
     a:
@@ -921,7 +915,7 @@ topics:
     related:
     - ch01.proprioception.spindle
     - ch01.proprioception.spindle-vs-gto
-    locator: 第 1 章 · Proprioceptors
+    locator: 第 1 章 · Muscle Spindles
   - id: ch01.proprioception.gto-location
     q: 高爾基肌腱器長在哪裡
     a:
@@ -939,7 +933,7 @@ topics:
     related:
     - ch01.proprioception.gto-function
     - ch01.proprioception.spindle
-    locator: 第 1 章 · Proprioceptors
+    locator: 第 1 章 · Golgi Tendon Organs
   - id: ch01.proprioception.gto-function
     q: 高爾基肌腱器怎麼運作
     a:
@@ -959,7 +953,7 @@ topics:
     related:
     - ch01.proprioception.gto-adaptation
     - ch01.proprioception.spindle-vs-gto
-    locator: 第 1 章 · Proprioceptors
+    locator: 第 1 章 · Golgi Tendon Organs
   - id: ch01.proprioception.spindle-vs-gto
     q: 肌梭與高爾基肌腱器的對照
     a:
@@ -977,7 +971,7 @@ topics:
     related:
     - ch01.proprioception.stretch-reflex
     - ch01.proprioception.gto-function
-    locator: 第 1 章 · Proprioceptors
+    locator: 第 1 章 · Proprioception
   - id: ch01.proprioception.gto-adaptation
     q: 長期重量訓練如何改變高爾基肌腱器的作用
     a:
@@ -996,7 +990,7 @@ topics:
     related:
     - ch01.proprioception.gto-function
     - ch01.neuromuscular.recruitment
-    locator: 第 1 章 · Proprioceptors
+    locator: 第 1 章 · Golgi Tendon Organs
   - id: ch01.proprioception.intrafusal
     q: 梭內纖維與梭外纖維的差別
     a:
@@ -1013,7 +1007,7 @@ topics:
     - reflex
     related:
     - ch01.proprioception.spindle
-    locator: 第 1 章 · Proprioceptors
+    locator: 第 1 章 · Muscle Spindles
 - id: cardiovascular
   title: 心血管系統 Cardiovascular
   desc: 心臟腔室與瓣膜 · 傳導系統 · 心電圖 · 血管與血液
@@ -1038,7 +1032,7 @@ topics:
     related:
     - ch01.cardiovascular.valves
     - ch01.cardiovascular.vessels
-    locator: 第 1 章 · Cardiovascular System
+    locator: 第 1 章 · Heart
   - id: ch01.cardiovascular.valves
     q: 心臟瓣膜怎麼防止逆流
     a:
@@ -1059,7 +1053,7 @@ topics:
     related:
     - ch01.cardiovascular.heart-chambers
     - ch01.cardiovascular.conduction
-    locator: 第 1 章 · Cardiovascular System
+    locator: 第 1 章 · Valves
   - id: ch01.cardiovascular.conduction
     q: 電訊號在心臟裡走的路徑
     a:
@@ -1084,7 +1078,7 @@ topics:
     related:
     - ch01.cardiovascular.pacemaker-hierarchy
     - ch01.cardiovascular.ecg
-    locator: 第 1 章 · Cardiovascular System
+    locator: 第 1 章 · Conduction System
   - id: ch01.cardiovascular.pacemaker-hierarchy
     q: 為什麼是竇房結當節律點
     a:
@@ -1112,7 +1106,7 @@ topics:
     related:
     - ch01.cardiovascular.conduction
     - ch01.cardiovascular.heart-rate
-    locator: 第 1 章 · Cardiovascular System
+    locator: 第 1 章 · Conduction System
   - id: ch01.cardiovascular.heart-rate
     q: 心率如何被神經調節，正常範圍多少
     a:
@@ -1145,7 +1139,7 @@ topics:
     related:
     - ch01.cardiovascular.pacemaker-hierarchy
     - ch01.cardiovascular.ecg
-    locator: 第 1 章 · Cardiovascular System
+    locator: 第 1 章 · Conduction System
   - id: ch01.cardiovascular.ecg
     q: 心電圖三個主要波形各代表什麼
     a:
@@ -1167,7 +1161,7 @@ topics:
     related:
     - ch01.cardiovascular.conduction
     - ch01.cardiovascular.heart-rate
-    locator: 第 1 章 · Cardiovascular System
+    locator: 第 1 章 · Electrocardiogram
   - id: ch01.cardiovascular.vessels
     q: 血管從心臟出發到回到心臟的順序
     a:
@@ -1190,7 +1184,7 @@ topics:
     related:
     - ch01.cardiovascular.blood
     - ch01.cardiovascular.muscle-pump
-    locator: 第 1 章 · Cardiovascular System
+    locator: 第 1 章 · Blood Vessels
   - id: ch01.cardiovascular.blood
     q: 血液怎麼運送氧氣與二氧化碳
     a:
@@ -1208,7 +1202,7 @@ topics:
     related:
     - ch01.respiratory.gas-exchange
     - ch01.cardiovascular.vessels
-    locator: 第 1 章 · Cardiovascular System
+    locator: 第 1 章 · Blood
   - id: ch01.cardiovascular.muscle-pump
     q: 骨骼肌幫浦怎麼幫血液回心
     a:
@@ -1224,7 +1218,7 @@ topics:
     - circulation
     related:
     - ch01.cardiovascular.vessels
-    locator: 第 1 章 · Cardiovascular System
+    locator: 第 1 章 · Blood Vessels
 - id: respiratory
   title: 呼吸系統 Respiratory
   desc: 氣道路徑 · 吸氣與呼氣機制 · 氣體交換 · 壓力與耗能
@@ -1272,7 +1266,7 @@ topics:
     related:
     - ch01.respiratory.expiration
     - ch01.respiratory.alveolar-pressure
-    locator: 第 1 章 · Respiratory System
+    locator: 第 1 章 · Exchange of Air
   - id: ch01.respiratory.expiration
     q: 呼氣是怎麼發生的
     a:
@@ -1289,7 +1283,7 @@ topics:
     related:
     - ch01.respiratory.inspiration
     - ch01.respiratory.energy-cost
-    locator: 第 1 章 · Respiratory System
+    locator: 第 1 章 · Exchange of Air
   - id: ch01.respiratory.gas-exchange
     q: 氣體交換靠什麼驅動
     a:
@@ -1313,7 +1307,7 @@ topics:
     related:
     - ch01.cardiovascular.blood
     - ch01.respiratory.airway
-    locator: 第 1 章 · Respiratory System
+    locator: 第 1 章 · Exchange of Respiratory Gases
   - id: ch01.respiratory.alveolar-pressure
     q: 肺泡壓在呼吸週期中怎麼變
     a:
@@ -1331,7 +1325,7 @@ topics:
     related:
     - ch01.respiratory.pleural-pressure
     - ch01.respiratory.inspiration
-    locator: 第 1 章 · Respiratory System
+    locator: 第 1 章 · Exchange of Air
   - id: ch01.respiratory.pleural-pressure
     q: 胸膜腔壓為什麼是負的
     a:
@@ -1348,7 +1342,7 @@ topics:
     - normal-values
     related:
     - ch01.respiratory.alveolar-pressure
-    locator: 第 1 章 · Respiratory System
+    locator: 第 1 章 · Exchange of Air
   - id: ch01.respiratory.energy-cost
     q: 呼吸本身消耗多少能量
     a:
@@ -1371,7 +1365,7 @@ topics:
     related:
     - ch01.respiratory.expiration
     - ch01.respiratory.training
-    locator: 第 1 章 · Respiratory System
+    locator: 第 1 章 · Exchange of Air
   - id: ch01.respiratory.training
     q: 呼吸肌需要另外訓練嗎
     a:
@@ -1387,13 +1381,13 @@ topics:
     - gas-exchange
     related:
     - ch01.respiratory.energy-cost
-    locator: 第 1 章 · Respiratory System
+    locator: 第 1 章 · Exchange of Air
 cards:
 - q: 軸心骨骼（Axial Skeleton）包含哪些？
-  a: 頭顱（cranium）、脊椎（C1-尾骨）、肋骨、胸骨；約80塊
+  a: 頭顱（cranium）、脊椎（C1-尾骨）、肋骨、胸骨；全身骨頭總數約206塊（個體間有差異）
   tag: 骨骼系統
 - q: 附肢骨骼（Appendicular Skeleton）包含哪些？
-  a: 肩帶（肩胛+鎖骨）、上肢、骨盆帶、下肢；約126塊。全身約206塊
+  a: 肩帶（肩胛+鎖骨）、上肢（肱橈尺骨+腕掌指骨）、骨盆帶、下肢（股髕脛腓骨+跗蹠趾骨）
   tag: 骨骼系統
 - q: 三種關節類型與活動度？
   a: 纖維關節（幾乎不動，如顱縫）、軟骨關節（有限，如椎間盤）、滑液關節（最大，如肘膝肩）
