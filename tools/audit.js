@@ -1,7 +1,8 @@
 // 章節頁版型迴歸閘：先開 `hugo server`，再 `node tools/audit.js`（需 npm i playwright）。
 // 存在理由：重新設計最容易退化成「換配色」，這裡的斷言全部是數值，改壞了會 FAIL。
 const { chromium } = require(process.env.PLAYWRIGHT_PATH || 'playwright');
-const URL = 'http://localhost:1313/cortex/library/essentials-of-strength-training/ch22/';
+// 指向 ch01：它是補完後的樣板章，深度層（術語／數字／延伸）只有在這裡才驗得到
+const URL = 'http://localhost:1313/cortex/library/essentials-of-strength-training/ch01/';
 
 function lum(rgb) {
   const [r, g, b] = rgb.map(v => {
@@ -56,6 +57,48 @@ const parse = s => s.match(/\d+/g).slice(0, 3).map(Number);
   chk('「；」已拆成條列', m.bulletCount > 0, m.bulletCount + ' 條');
   chk('layout 內無 inline 色彩硬編', m.colorSet === 0, m.colorSet + ' 處');
 
+  // 深度層（術語／數字／延伸）：使用者列的三個學習障礙，斷言化成數值
+  const d = await page.evaluate(() => {
+    const txt = e => (e.textContent || '').trim();
+    const terms = [...document.querySelectorAll('.nb-term')];
+    const hidden = terms.filter(e => {
+      const s = getComputedStyle(e);
+      return s.display === 'none' || s.visibility === 'hidden' || parseFloat(s.opacity) === 0 || e.closest('details');
+    }).length;
+    const zhLess = terms.filter(e => !e.querySelector('b') || !txt(e.querySelector('b'))).length;
+    const gloss = [...document.querySelectorAll('.nb-gloss-en')];
+    const emptyGloss = gloss.filter(e => !txt(e)).length;
+    const nums = [...document.querySelectorAll('.nb-nums li')];
+    const badNums = nums.filter(li => {
+      const u = li.querySelector('.nb-num-u'), o = li.querySelector('.nb-num-of');
+      return !u || !o || !txt(u) || !txt(o);
+    }).length;
+    const rels = [...document.querySelectorAll('.nb-rel a')];
+    const deadRels = rels.filter(a => {
+      const u = new URL(a.href);
+      if (u.pathname !== location.pathname) return false;
+      return !u.hash || !document.getElementById(decodeURIComponent(u.hash.slice(1)));
+    }).length;
+    const emptyRels = rels.filter(a => !txt(a)).length;
+    return {
+      termCount: terms.length, hidden, zhLess,
+      glossCount: gloss.length, emptyGloss,
+      numCount: nums.length, badNums,
+      relCount: rels.length, deadRels, emptyRels,
+      openByDefault: document.querySelectorAll('details[open]').length,
+      detailCount: document.querySelectorAll('.nb-detail').length,
+    };
+  });
+
+  chk('術語中英對照常駐可見（不靠 hover / 不藏在 details）',
+      d.termCount > 0 && d.hidden === 0, d.termCount + ' 條，' + d.hidden + ' 條被藏');
+  chk('每條術語都有中文', d.termCount > 0 && d.zhLess === 0, d.zhLess + ' 條缺中文');
+  chk('縮寫在詞條展開後有全稱', d.glossCount > 0 && d.emptyGloss === 0, d.glossCount + ' 條，' + d.emptyGloss + ' 條空白');
+  chk('每個數字都有單位與所指', d.numCount > 0 && d.badNums === 0, d.numCount + ' 個，' + d.badNums + ' 個不完整');
+  chk('延伸連結全部指得到（同頁錨點）', d.relCount > 0 && d.deadRels === 0, d.relCount + ' 條，' + d.deadRels + ' 條斷鏈');
+  chk('延伸連結有可讀標題（非裸 id）', d.relCount > 0 && d.emptyRels === 0, d.emptyRels + ' 條空白');
+  chk('細節預設收合（漸進揭露）', d.detailCount > 0 && d.openByDefault === 0, d.detailCount + ' 個，' + d.openByDefault + ' 個預設展開');
+
   // 模式切換零版面位移（鐵則 I）
   const before = await page.$$eval('.nb-q', els => els.map(e => Math.round(e.getBoundingClientRect().top)));
   await page.click('.nb-mode[data-mode="quiz"]');
@@ -84,17 +127,33 @@ const parse = s => s.match(/\d+/g).slice(0, 3).map(Number);
   await page.click('.nb-mode[data-mode="read"]');
   await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight * 0.5));
   await page.waitForTimeout(300);
+  // 首末章各少一個方向的換章鈕，所以斷言是「畫出來的全都還在」，不是寫死 3
   const midNav = await page.evaluate(() => {
-    const seen = (sel) => {
-      const e = document.querySelector(sel);
-      if (!e) return false;
+    const els = [...document.querySelectorAll('.nb-toc-up, .nb-toc-step')];
+    const seen = els.filter(e => {
       const r = e.getBoundingClientRect();
       return r.top < innerHeight && r.bottom > 0 && r.width > 0;
-    };
-    return ['.nb-toc-up', '.nb-toc-step[rel=prev]', '.nb-toc-step[rel=next]'].filter(seen).length;
+    }).length;
+    return { total: els.length, seen };
   });
-  chk('捲到中段仍可換章 / 回書目（不必回頁首）', midNav === 3, midNav + '/3 常駐');
+  chk('捲到中段仍可換章 / 回書目（不必回頁首）',
+      midNav.total >= 2 && midNav.seen === midNav.total, midNav.seen + '/' + midNav.total + ' 常駐');
   chk('章末有接續導航', await page.$$eval('.nb-end-card', e => e.length >= 1), '');
+
+  // 延伸連結點進去要真的落在那一條上，而且細節已展開——否則使用者只看到一個標題
+  const anchorId = await page.$eval('.nb-rel a', a => decodeURIComponent(new URL(a.href).hash.slice(1)));
+  await page.goto(URL + '#' + anchorId, { waitUntil: 'networkidle' });
+  await page.waitForTimeout(600);
+  const land = await page.evaluate((id) => {
+    const el = document.getElementById(id);
+    if (!el) return { ok: false, why: '找不到目標' };
+    const r = el.getBoundingClientRect();
+    const d = el.querySelector('details');
+    return { top: Math.round(r.top), inView: r.top >= 0 && r.top < innerHeight * 0.6, open: !!(d && d.open) };
+  }, anchorId);
+  chk('跳到延伸連結會落在該條上', land.inView, anchorId + ' @ ' + land.top + 'px');
+  chk('跳過去時細節已展開', land.open, '');
+
   await page.close();
 
   // 手機：目次收成橫向膠囊列，換章收成箭頭鈕

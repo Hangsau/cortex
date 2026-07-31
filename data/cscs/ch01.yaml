@@ -1,0 +1,1180 @@
+id: ch01
+weight: 1
+title: "Ch.1 Structure and Function of Body Systems"
+topics:
+
+- id: skeleton
+  title: "骨骼系統 Skeleton"
+  desc: "軸心／附肢骨骼 · 三類關節 · 脊椎區段 · 槓桿"
+  tag: "Skeleton"
+  items:
+
+  - id: ch01.skeleton.axial
+    q: "軸心骨骼包含哪些骨頭"
+    a:
+    - "頭顱"
+    - "脊椎（從第一頸椎到尾骨）"
+    - "肋骨與胸骨"
+    detail: "軸心骨骼是身體的中軸，功能偏保護與支撐（腦、脊髓、心肺都被它包起來）。全身 206 塊骨頭中約 80 塊屬於這裡。"
+    terms: ["axial-skeleton", "vertebral-column"]
+    numbers:
+    - v: "約 80"
+      unit: "塊"
+      of: "軸心骨骼的骨頭數"
+    concepts: ["structure"]
+    related: ["ch01.skeleton.appendicular", "ch01.skeleton.vertebral-segments"]
+    locator: "第 1 章 · The Skeletal System"
+
+  - id: ch01.skeleton.appendicular
+    q: "附肢骨骼包含哪些骨頭"
+    a:
+    - "肩帶：肩胛骨與鎖骨"
+    - "上肢"
+    - "骨盆帶"
+    - "下肢"
+    detail: "附肢骨骼是「掛在中軸上的部分」，功能偏產生動作。約 126 塊，加上軸心骨骼的 80 塊，成人全身共 206 塊。"
+    terms: ["appendicular-skeleton"]
+    numbers:
+    - v: "約 126"
+      unit: "塊"
+      of: "附肢骨骼的骨頭數"
+    - v: "206"
+      unit: "塊"
+      of: "成人全身骨頭總數"
+    concepts: ["structure"]
+    related: ["ch01.skeleton.axial"]
+    locator: "第 1 章 · The Skeletal System"
+
+  - id: ch01.skeleton.fibrous-joint
+    q: "纖維關節是什麼"
+    a:
+    - "骨與骨之間以纖維結締組織直接相連"
+    - "幾乎不能動"
+    - "典型例子是頭顱的顱縫"
+    detail: "三類關節照活動度排序，纖維關節在最不能動的一端。它存在的理由就是「不要動」——顱縫若能活動，腦就失去剛性保護。"
+    terms: ["fibrous-joint"]
+    numbers: []
+    concepts: ["structure", "methodology"]
+    related: ["ch01.skeleton.cartilaginous-joint", "ch01.skeleton.synovial-joint"]
+    locator: "第 1 章 · Joints"
+
+  - id: ch01.skeleton.cartilaginous-joint
+    q: "軟骨關節是什麼"
+    a:
+    - "骨與骨之間以軟骨相連"
+    - "可小幅活動"
+    - "典型例子是椎間盤"
+    detail: "介於纖維關節與滑液關節之間。單一椎間盤能動的幅度很小，但整條脊椎二十多節累加起來，就成為可觀的活動範圍——這是理解脊椎為何「節節都不大動、整體卻很靈活」的關鍵。"
+    terms: ["cartilaginous-joint", "vertebral-column"]
+    numbers: []
+    concepts: ["structure", "methodology"]
+    related: ["ch01.skeleton.fibrous-joint", "ch01.skeleton.vertebral-segments"]
+    locator: "第 1 章 · Joints"
+
+  - id: ch01.skeleton.synovial-joint
+    q: "滑液關節為什麼活動度最大"
+    a:
+    - "關節面覆有透明軟骨，摩擦極低"
+    - "關節囊內充滿滑液潤滑"
+    - "靠韌帶與軟骨提供穩定，而不是靠骨頭卡住"
+    detail: "運動訓練中幾乎所有動作都發生在滑液關節。它把「穩定」的工作外包給韌帶與肌肉，換來活動度——所以這類關節的傷害風險也最高，訓練上要同時顧活動度與主動穩定。"
+    terms: ["synovial-joint", "hyaline-cartilage", "synovial-fluid"]
+    numbers: []
+    concepts: ["structure"]
+    related: ["ch01.skeleton.joint-axes", "ch01.skeleton.fibrous-joint"]
+    locator: "第 1 章 · Joints"
+
+  - id: ch01.skeleton.joint-axes
+    q: "單軸、雙軸、多軸關節怎麼分"
+    a:
+    - "單軸：只繞一個軸轉，例如肘"
+    - "雙軸：可繞兩個互相垂直的軸轉，例如踝、腕"
+    - "多軸：可繞空間三個軸轉，例如肩、髖"
+    detail: "分類看的是「可繞幾個軸旋轉」，不是「感覺能動多少」。這個軸數直接決定動作選擇：多軸關節需要更多方向的訓練涵蓋，單軸關節則要留意鄰近關節代償。"
+    terms: ["uniaxial-joint", "biaxial-joint", "multiaxial-joint"]
+    numbers: []
+    concepts: ["structure", "methodology"]
+    related: ["ch01.skeleton.synovial-joint"]
+    locator: "第 1 章 · Joints"
+
+  - id: ch01.skeleton.vertebral-segments
+    q: "脊椎各區段各有幾節"
+    a:
+    - "頸椎 Cervical 7 節"
+    - "胸椎 Thoracic 12 節"
+    - "腰椎 Lumbar 5 節"
+    - "薦椎 Sacral 5 節（成年後融合成一塊）"
+    - "尾椎 Coccygeal 3 到 5 節（融合）"
+    detail: "編號慣例是 C1–C7、T1–T12、L1–L5，訓練與臨床文獻談「L4/L5 椎間盤」時就是用這套。薦椎與尾椎融合，所以脊椎「可動的」實際上是上面 24 節。"
+    terms: ["vertebral-column"]
+    numbers:
+    - v: "7"
+      unit: "節"
+      of: "頸椎"
+    - v: "12"
+      unit: "節"
+      of: "胸椎"
+    - v: "5"
+      unit: "節"
+      of: "腰椎"
+    - v: "5"
+      unit: "節"
+      of: "薦椎（融合）"
+    - v: "3–5"
+      unit: "節"
+      of: "尾椎（融合）"
+    concepts: ["structure", "normal-values"]
+    related: ["ch01.skeleton.axial", "ch01.skeleton.cartilaginous-joint"]
+    locator: "第 1 章 · The Skeletal System"
+
+  - id: ch01.skeleton.lever-system
+    q: "為什麼肌肉必須透過骨骼才能推東西"
+    a:
+    - "肌肉只能拉，不能推"
+    - "骨頭當槓桿、關節當支點，把拉力轉成各種方向的動作"
+    - "肌腱把肌肉的張力傳到骨膜"
+    detail: "臥推看起來是「把槓鈴推出去」，但胸肌本身做的只是把肱骨拉向身體中線；推的動作是槓桿系統轉換出來的結果。這個觀念是後面所有生物力學章節的前提。"
+    terms: ["periosteum"]
+    numbers: []
+    concepts: ["structure", "force-production"]
+    related: ["ch01.muscle-structure.epimysium", "ch01.skeleton.synovial-joint"]
+    locator: "第 1 章 · The Skeletal System"
+
+  - id: ch01.skeleton.bone-adaptation
+    q: "阻力訓練怎麼改變骨骼"
+    a:
+    - "重負荷會提高骨密度與骨礦物質含量"
+    - "高衝擊的爆發性動作有類似效果"
+    - "骨骼的適應速度比肌肉慢，刺激要持續變化"
+    detail: "骨頭是活組織，會照承受的負荷重塑。但它的改建週期以月為單位，遠慢於肌肉的數週——所以短期看不到骨密度變化不代表沒效，反過來說也不能用「肌力進步了」推論骨骼已經跟上。"
+    terms: []
+    numbers: []
+    concepts: ["adaptation"]
+    related: ["ch01.skeleton.lever-system"]
+    locator: "第 1 章 · The Skeletal System"
+
+- id: muscle-structure
+  title: "肌肉結構 Muscle Structure"
+  desc: "三層結締組織 · 肌纖維 · 肌節與肌絲 · 橫小管與肌漿網"
+  tag: "Muscle Structure"
+  items:
+
+  - id: ch01.muscle-structure.epimysium
+    q: "肌外膜在哪一層"
+    a:
+    - "包住整塊肌肉的最外層纖維結締組織"
+    - "兩端與肌腱連續"
+    detail: "三層膜是同一套結締組織連續體的三個層級：肌外膜包全肌、肌束膜包肌束、肌內膜包單條纖維，最後全部匯進肌腱。所以肌纖維產生的張力不必逐條找路，會沿著這個網絡整體傳到骨頭。"
+    terms: ["epimysium"]
+    numbers: []
+    concepts: ["structure", "force-production"]
+    related: ["ch01.muscle-structure.perimysium", "ch01.muscle-structure.endomysium"]
+    locator: "第 1 章 · Muscular System"
+
+  - id: ch01.muscle-structure.perimysium
+    q: "肌束膜包住的是什麼"
+    a:
+    - "包住一束肌纖維，這一束叫肌束"
+    - "每束最多約 150 條肌纖維"
+    detail: "肉眼在生牛排上看到的「肉紋」就是肌束。肌束膜同時是血管與神經進入肌肉內部的通道。"
+    terms: ["perimysium", "fasciculus"]
+    numbers:
+    - v: "最多 150"
+      unit: "條"
+      of: "每個肌束內的肌纖維數"
+    concepts: ["structure"]
+    related: ["ch01.muscle-structure.epimysium", "ch01.muscle-structure.endomysium"]
+    locator: "第 1 章 · Muscular System"
+
+  - id: ch01.muscle-structure.endomysium
+    q: "肌內膜包住的是什麼"
+    a:
+    - "包住單一條肌纖維"
+    - "與該纖維的肌膜連續"
+    detail: "這是三層裡最內的一層，緊貼細胞膜。因為它與肌膜連續，單條纖維收縮的力量一離開細胞就已經在結締組織網絡上。"
+    terms: ["endomysium", "sarcolemma"]
+    numbers: []
+    concepts: ["structure"]
+    related: ["ch01.muscle-structure.perimysium", "ch01.muscle-structure.fiber-dimensions"]
+    locator: "第 1 章 · Muscular System"
+
+  - id: ch01.muscle-structure.fiber-dimensions
+    q: "一條肌纖維長什麼樣"
+    a:
+    - "直徑約 50 到 100 微米，大約一根頭髮的粗細"
+    - "多核，細胞核推在細胞周邊"
+    - "外觀有橫紋"
+    - "細胞質稱為肌漿，內含肌原纖維與粒線體"
+    detail: "肌纖維是少數多核的細胞——它由多個肌母細胞融合而成，所以一條纖維裡有很多核，各自負責鄰近區段的蛋白質合成。核被擠在細胞周邊，是因為中央空間全給了肌原纖維。"
+    terms: ["muscle-fiber", "sarcoplasm", "myofibril", "sarcolemma"]
+    numbers:
+    - v: "50–100"
+      unit: "μm（微米）"
+      of: "肌纖維直徑"
+    concepts: ["structure"]
+    related: ["ch01.muscle-structure.sarcomere", "ch01.muscle-structure.endomysium"]
+    locator: "第 1 章 · Muscular System"
+
+  - id: ch01.muscle-structure.sarcomere
+    q: "肌節是什麼，靜息時多長"
+    a:
+    - "骨骼肌最小的收縮單位"
+    - "兩端以 Z 線為界"
+    - "靜息長度約 2.5 微米，一公分肌原纖維上串著約 4,500 個"
+    detail: "「最小收縮單位」的意思是：整塊肌肉縮短，其實是幾千個肌節各縮短一點點的總和。理解這點就知道為什麼肌肉能縮短很大幅度——每個肌節只要縮短不到一微米，串聯起來就很可觀。"
+    terms: ["sarcomere", "z-line", "myofibril"]
+    numbers:
+    - v: "約 2.5"
+      unit: "μm（微米）"
+      of: "肌節靜息長度"
+    - v: "約 4,500"
+      unit: "個 / 公分"
+      of: "肌原纖維上串聯的肌節數"
+    concepts: ["structure", "force-production"]
+    related: ["ch01.muscle-structure.bands", "ch01.sliding-filament.band-changes"]
+    locator: "第 1 章 · Muscular System"
+
+  - id: ch01.muscle-structure.myosin
+    q: "粗絲肌凝蛋白的構造"
+    a:
+    - "直徑約 16 奈米"
+    - "由球形頭、鉸鏈點、纖維尾三段組成"
+    - "球形頭是能與細絲形成橫橋的部位"
+    - "一條粗絲最多含約 200 個肌凝蛋白分子"
+    detail: "球形頭同時是機械臂與酵素——它自己就有分解 ATP 的活性。鉸鏈點讓頭能彎折，這一彎就是動力衝程。"
+    terms: ["myosin", "myofilament", "crossbridge", "myosin-atpase"]
+    numbers:
+    - v: "約 16"
+      unit: "nm（奈米）"
+      of: "粗絲直徑"
+    - v: "最多約 200"
+      unit: "個"
+      of: "每條粗絲含的肌凝蛋白分子數"
+    concepts: ["structure", "force-production"]
+    related: ["ch01.muscle-structure.actin", "ch01.sliding-filament.power-stroke"]
+    locator: "第 1 章 · Muscular System"
+
+  - id: ch01.muscle-structure.actin
+    q: "細絲肌動蛋白的構造"
+    a:
+    - "直徑約 6 奈米，是粗絲的三分之一左右"
+    - "兩股呈雙螺旋纏繞"
+    - "上面附著旋光素（與鈣結合）與原肌凝蛋白（遮住結合位點）"
+    detail: "細絲上有兩個管制蛋白，是整條收縮鏈的開關所在。靜息時原肌凝蛋白蓋住肌凝蛋白頭要接的位置，所以就算 ATP 充足也接不上——收縮不是缺能量而是被鎖住。"
+    terms: ["actin", "troponin", "tropomyosin", "myofilament"]
+    numbers:
+    - v: "約 6"
+      unit: "nm（奈米）"
+      of: "細絲直徑"
+    concepts: ["structure", "concentric-mechanism"]
+    related: ["ch01.muscle-structure.myosin", "ch01.sliding-filament.crossbridge-formation"]
+    locator: "第 1 章 · Muscular System"
+
+  - id: ch01.muscle-structure.bands
+    q: "A 帶、I 帶、H 區、Z 線、M 線各是什麼"
+    a:
+    - "A 帶：粗絲所在的區段，含與細絲重疊的部分"
+    - "I 帶：只有細絲的區段"
+    - "H 區：肌節中央只有粗絲的區段"
+    - "Z 線：肌節邊界，細絲固定於此"
+    - "M 線：肌節中央固定相鄰粗絲的構造"
+    detail: "這些名字全都是顯微鏡下明暗條紋的描述，不是不同的物質。記法：A 帶 = 有粗絲的地方（長度等於粗絲長度，永遠不變）；I 帶與 H 區都是「沒有重疊」的空隙，所以收縮時兩者都縮小。"
+    terms: ["a-band", "i-band", "h-zone", "z-line", "m-bridge"]
+    numbers: []
+    concepts: ["structure", "methodology"]
+    related: ["ch01.muscle-structure.sarcomere", "ch01.sliding-filament.band-changes"]
+    locator: "第 1 章 · Muscular System"
+
+  - id: ch01.muscle-structure.sr-ttubule
+    q: "橫小管與肌漿網各做什麼"
+    a:
+    - "橫小管由肌膜向內延伸，把動作電位帶進肌纖維深處"
+    - "肌漿網包圍肌原纖維，儲存鈣離子並在受刺激時釋放"
+    detail: "沒有橫小管的話，訊號只到表面，纖維中心會慢半拍甚至不收縮。橫小管垂直穿進去，讓深淺各處幾乎同時去極化——這是整條纖維能一起發力的結構前提。"
+    terms: ["t-tubule", "sarcoplasmic-reticulum", "sarcolemma", "action-potential"]
+    numbers: []
+    concepts: ["structure", "concentric-mechanism"]
+    related: ["ch01.sliding-filament.crossbridge-formation", "ch01.neuromuscular.nmj"]
+    locator: "第 1 章 · Muscular System"
+
+- id: sliding-filament
+  title: "滑動絲理論 Sliding Filament"
+  desc: "橫橋循環四步 · 力量的即時決定因素 · 收縮與放鬆條件"
+  tag: "Sliding Filament"
+  items:
+
+  - id: ch01.sliding-filament.core
+    q: "滑動絲理論的核心主張是什麼"
+    a:
+    - "細絲從肌節兩端往中央滑動"
+    - "粗絲與細絲本身長度都不變"
+    - "Z 線被拉近，肌節縮短"
+    detail: "最容易誤解的一點：肌肉縮短時，肌絲本身沒有變短，是兩組肌絲重疊得更多。這也是為什麼 A 帶（粗絲長度）在整個收縮過程都不變，可以拿來當判讀依據。"
+    terms: ["actin", "myosin", "sarcomere", "z-line"]
+    numbers: []
+    concepts: ["concentric-mechanism", "structure"]
+    related: ["ch01.sliding-filament.band-changes", "ch01.muscle-structure.sarcomere"]
+    locator: "第 1 章 · Sliding-Filament Theory"
+
+  - id: ch01.sliding-filament.atp-cleavage
+    q: "橫橋循環第一步：ATP 分解"
+    a:
+    - "肌凝蛋白 ATP 水解酶把 ATP 分解成 ADP 與無機磷酸"
+    - "分解釋出的能量把肌凝蛋白頭「上膛」到就位角度"
+    detail: "注意能量是在這一步就取得的，不是在拉的那一刻。肌凝蛋白頭像被扳開的彈簧夾，能量已經儲存在構型裡，等待接上細絲後釋放。"
+    terms: ["atp", "adp", "myosin-atpase", "myosin"]
+    numbers: []
+    concepts: ["concentric-mechanism", "energy-supply"]
+    related: ["ch01.sliding-filament.power-stroke", "ch01.sliding-filament.requirements"]
+    locator: "第 1 章 · Sliding-Filament Theory"
+
+  - id: ch01.sliding-filament.crossbridge-formation
+    q: "橫橋循環第二步：橫橋形成"
+    a:
+    - "肌漿網釋出的鈣離子與旋光素結合"
+    - "原肌凝蛋白位移，露出細絲上的結合位點"
+    - "上膛的肌凝蛋白頭接上細絲，形成橫橋"
+    detail: "這一步是整條因果鏈的開關。電訊號到此為止都還只是電，鈣離子是把電訊號翻譯成機械動作的中介——這就是「興奮收縮偶聯」這個名字的意思。"
+    terms: ["troponin", "tropomyosin", "crossbridge", "sarcoplasmic-reticulum"]
+    numbers: []
+    concepts: ["concentric-mechanism"]
+    related: ["ch01.muscle-structure.sr-ttubule", "ch01.sliding-filament.relaxation"]
+    locator: "第 1 章 · Sliding-Filament Theory"
+
+  - id: ch01.sliding-filament.power-stroke
+    q: "橫橋循環第三步：動力衝程"
+    a:
+    - "無機磷酸釋出，觸發肌凝蛋白頭彎折"
+    - "彎折把細絲拉向肌節中心"
+    - "隨後 ADP 釋出"
+    detail: "這一下就是肌肉實際做功的瞬間。整塊肌肉在任何時刻都有大量橫橋處在循環的不同階段，此起彼落，所以外觀上是平順出力而不是一抖一抖。"
+    terms: ["power-stroke", "adp", "crossbridge", "actin"]
+    numbers: []
+    concepts: ["concentric-mechanism", "force-production"]
+    related: ["ch01.sliding-filament.force-determinant", "ch01.sliding-filament.dissociation"]
+    locator: "第 1 章 · Sliding-Filament Theory"
+
+  - id: ch01.sliding-filament.dissociation
+    q: "橫橋循環第四步：解離"
+    a:
+    - "新的一個 ATP 接上肌凝蛋白頭"
+    - "頭與細絲脫開，回復原本角度"
+    - "只要鈣離子還在，循環立刻重來一輪"
+    detail: "ATP 在這裡的角色是「鬆開」而不是「出力」——這也解釋了屍僵：死亡後 ATP 耗盡，橫橋接上去卻沒有 ATP 可以讓它們脫開，肌肉就僵住。"
+    terms: ["atp", "crossbridge"]
+    numbers: []
+    concepts: ["concentric-mechanism", "energy-supply"]
+    related: ["ch01.sliding-filament.atp-cleavage", "ch01.sliding-filament.requirements"]
+    locator: "第 1 章 · Sliding-Filament Theory"
+
+  - id: ch01.sliding-filament.force-determinant
+    q: "肌肉當下的力量由什麼決定"
+    a:
+    - "任一瞬間接在細絲上的橫橋數量"
+    detail: "這一句是整章往後所有訓練推論的地基。想提高力量，路徑只有兩條：讓更多橫橋同時接上（神經徵召、鈣釋放），或增加可用的橫橋總數（肌肥大增加肌絲數量）。"
+    terms: ["crossbridge"]
+    numbers: []
+    concepts: ["force-production", "concentric-mechanism"]
+    related: ["ch01.fiber-types.improve-force", "ch01.neuromuscular.recruitment"]
+    locator: "第 1 章 · Sliding-Filament Theory"
+
+  - id: ch01.sliding-filament.relaxation
+    q: "肌肉要放鬆需要什麼條件"
+    a:
+    - "運動神經停止發送刺激"
+    - "鈣離子被主動泵回肌漿網"
+    - "原肌凝蛋白重新蓋住結合位點，橫橋無法再接上"
+    detail: "放鬆是耗能的：把鈣泵回肌漿網要花 ATP。所以「放鬆」不是單純停止用力，而是另一個需要能量的主動過程——疲勞時放鬆變慢，原因之一就在這裡。"
+    terms: ["tropomyosin", "sarcoplasmic-reticulum", "atp"]
+    numbers: []
+    concepts: ["concentric-mechanism", "energy-supply"]
+    related: ["ch01.sliding-filament.crossbridge-formation"]
+    locator: "第 1 章 · Sliding-Filament Theory"
+
+  - id: ch01.sliding-filament.requirements
+    q: "收縮循環缺一不可的三樣東西"
+    a:
+    - "鈣離子：解開細絲上的鎖"
+    - "ATP：提供動力衝程能量，並讓橫橋解離"
+    - "肌凝蛋白 ATP 水解酶：催化 ATP 分解"
+    detail: "三者角色不同，不能互相替代。缺鈣＝鎖著打不開；缺 ATP＝接上了脫不開；缺酵素＝有燃料卻點不著。"
+    terms: ["atp", "myosin-atpase"]
+    numbers: []
+    concepts: ["concentric-mechanism", "energy-supply"]
+    related: ["ch01.sliding-filament.atp-cleavage", "ch01.sliding-filament.dissociation"]
+    locator: "第 1 章 · Sliding-Filament Theory"
+
+  - id: ch01.sliding-filament.band-changes
+    q: "收縮時肌節的哪些區段會改變"
+    a:
+    - "H 區縮小"
+    - "I 帶縮小"
+    - "Z 線互相靠近"
+    - "A 帶長度不變"
+    detail: "A 帶不變是判別「滑動」而非「縮短」的直接證據：如果粗絲自己縮短，A 帶就該跟著縮。考題常拿這一點來問。"
+    terms: ["a-band", "i-band", "h-zone", "z-line"]
+    numbers: []
+    concepts: ["concentric-mechanism", "structure"]
+    related: ["ch01.sliding-filament.core", "ch01.muscle-structure.bands"]
+    locator: "第 1 章 · Sliding-Filament Theory"
+
+- id: neuromuscular
+  title: "神經肌肉系統 Neuromuscular"
+  desc: "運動單位 · 全有全無律 · 單收縮到強直 · 力量分級兩途徑"
+  tag: "Neuromuscular"
+  items:
+
+  - id: ch01.neuromuscular.motor-unit
+    q: "運動單位的定義"
+    a:
+    - "一個運動神經元，加上它所支配的全部肌纖維"
+    - "同一個運動單位內的肌纖維類型完全相同"
+    detail: "「類型相同」這件事很關鍵：神經元決定了它底下纖維的性格，所以纖維類型不是纖維自己的屬性，而是神經支配的結果。這也是為什麼改變神經支配可以改變纖維類型。"
+    terms: ["motor-unit", "motor-neuron", "muscle-fiber"]
+    numbers: []
+    concepts: ["motor-control", "structure"]
+    related: ["ch01.neuromuscular.all-or-none", "ch01.fiber-types.recruitment-order"]
+    locator: "第 1 章 · Neuromuscular System"
+
+  - id: ch01.neuromuscular.nmj
+    q: "訊號怎麼從神經傳到肌肉"
+    a:
+    - "動作電位抵達神經末梢"
+    - "末梢釋出乙醯膽鹼，擴散過突觸間隙"
+    - "乙醯膽鹼在肌膜上引發新的動作電位"
+    - "動作電位沿肌膜與橫小管傳遍整條纖維"
+    detail: "神經與肌肉並沒有實體相連，中間隔著一道間隙，訊號必須從電轉成化學再轉回電。這道化學轉換就是許多藥物與毒素（例如箭毒、肉毒桿菌毒素）的作用點。"
+    terms: ["neuromuscular-junction", "acetylcholine", "action-potential", "motor-end-plate", "sarcolemma"]
+    numbers: []
+    concepts: ["motor-control", "concentric-mechanism"]
+    related: ["ch01.muscle-structure.sr-ttubule", "ch01.sliding-filament.crossbridge-formation"]
+    locator: "第 1 章 · Neuromuscular System"
+
+  - id: ch01.neuromuscular.all-or-none
+    q: "全有全無律是什麼"
+    a:
+    - "運動單位一旦被刺激，其下所有肌纖維同時完全收縮"
+    - "把刺激加大，並不會讓單次收縮變得更強"
+    detail: "這條律說的是「單一運動單位」的行為，不是整塊肌肉。整塊肌肉當然能出不同大小的力——那是靠改變參與的運動單位數量與放電頻率做到的，不是靠讓每個單位用力一點。"
+    terms: ["all-or-none", "motor-unit"]
+    numbers: []
+    concepts: ["motor-control", "force-production"]
+    related: ["ch01.neuromuscular.recruitment", "ch01.neuromuscular.rate-coding"]
+    locator: "第 1 章 · Neuromuscular System"
+
+  - id: ch01.neuromuscular.twitch
+    q: "單收縮是什麼"
+    a:
+    - "單一動作電位引發的一次短暫力量峰值"
+    - "鈣離子在力量達到峰值前就已經開始被泵回肌漿網"
+    detail: "鈣「提早收回」是後面強直收縮的關鍵前提：因為一次刺激的鈣訊號來不及讓所有橫橋都動起來就退場，單收縮的力量遠低於該運動單位的能力上限。"
+    terms: ["twitch", "action-potential", "sarcoplasmic-reticulum"]
+    numbers: []
+    concepts: ["motor-control", "force-production"]
+    related: ["ch01.neuromuscular.tetanus"]
+    locator: "第 1 章 · Neuromuscular System"
+
+  - id: ch01.neuromuscular.tetanus
+    q: "從單收縮到強直收縮怎麼疊上去"
+    a:
+    - "提高刺激頻率，前一次還沒放鬆完下一次就來，力量疊加"
+    - "頻率再高會進入不完全強直，力量曲線仍有起伏"
+    - "頻率高到起伏消失就是完全強直，這是該運動單位的最大力量"
+    detail: "疊加之所以成立，是因為鈣還沒被完全收回、下一波又來了，肌漿內鈣濃度維持在高點，橫橋能持續循環。這是「同一個運動單位也能出不同力量」的唯一機制。"
+    terms: ["tetanus", "twitch"]
+    numbers: []
+    concepts: ["motor-control", "force-production"]
+    related: ["ch01.neuromuscular.twitch", "ch01.neuromuscular.rate-coding"]
+    locator: "第 1 章 · Neuromuscular System"
+
+  - id: ch01.neuromuscular.rate-coding
+    q: "力量分級途徑一：頻率調節"
+    a:
+    - "提高同一批運動單位的放電頻率"
+    - "小肌肉主要靠這條路"
+    detail: "眼外肌、手部小肌肉這類運動單位總數少的肌肉，能徵召的單位很快就用完，所以只能靠加快放電來繼續增加力量。"
+    terms: ["rate-coding", "motor-unit"]
+    numbers: []
+    concepts: ["motor-control", "force-production"]
+    related: ["ch01.neuromuscular.recruitment", "ch01.neuromuscular.unit-size"]
+    locator: "第 1 章 · Neuromuscular System"
+
+  - id: ch01.neuromuscular.recruitment
+    q: "力量分級途徑二：運動單位徵召"
+    a:
+    - "啟動更多運動單位參與"
+    - "大肌肉主要靠這條路，例如股四頭肌"
+    detail: "大肌肉底下有成千上百個運動單位可以陸續加入，所以徵召的空間遠大於加快頻率。這也是重量訓練提升力量的主要神經機制之一——訓練初期力量進步但肌肉沒變大，多半發生在這一層。"
+    terms: ["recruitment", "motor-unit"]
+    numbers: []
+    concepts: ["motor-control", "force-production", "adaptation"]
+    related: ["ch01.neuromuscular.rate-coding", "ch01.fiber-types.improve-force"]
+    locator: "第 1 章 · Neuromuscular System"
+
+  - id: ch01.neuromuscular.unit-size
+    q: "運動單位的大小如何決定精確度"
+    a:
+    - "眼部肌肉：一個神經元大約只管一條纖維"
+    - "股四頭肌：一個神經元管數百條纖維"
+    detail: "神經元管的纖維越少，能做的力量微調越細——眼球要瞄準，代價是力量小。股四頭肌相反，一個訊號就啟動數百條纖維，力量大但無法做精細調節。精確度與力量在同一個結構參數上互斥。"
+    terms: ["motor-unit", "motor-neuron"]
+    numbers:
+    - v: "約 1"
+      unit: "條纖維 / 神經元"
+      of: "眼部肌肉的運動單位大小"
+    - v: "數百"
+      unit: "條纖維 / 神經元"
+      of: "股四頭肌的運動單位大小"
+    concepts: ["motor-control", "structure"]
+    related: ["ch01.neuromuscular.rate-coding", "ch01.neuromuscular.motor-unit"]
+    locator: "第 1 章 · Neuromuscular System"
+
+- id: fiber-types
+  title: "肌纖維類型 Fiber Types"
+  desc: "Type I / IIa / IIx · 徵召順序 · 專項分布 · 分型方法"
+  tag: "Fiber Types"
+  items:
+
+  - id: ch01.fiber-types.type-i
+    q: "Type I 慢縮肌纖維的特徵"
+    a:
+    - "運動神經元小、徵召閾值低"
+    - "收縮與放鬆速度慢"
+    - "抗疲勞能力高，有氧酵素多"
+    - "微血管密度高、肌紅蛋白多，外觀偏紅"
+    - "纖維直徑較細"
+    detail: "把這些特徵串成一句話：它是為了「長時間反覆使用」設計的。低閾值代表它最先被叫醒，高有氧能力與密集微血管代表它能持續拿氧氣做事——所以維持姿勢這種整天都在做的工作交給它。"
+    terms: ["slow-twitch", "motor-neuron", "capillary"]
+    numbers: []
+    concepts: ["fiber-type", "energy-supply"]
+    related: ["ch01.fiber-types.type-iix", "ch01.fiber-types.postural-vs-power"]
+    locator: "第 1 章 · Muscle Fiber Types"
+
+  - id: ch01.fiber-types.type-iix
+    q: "Type IIx 快縮肌纖維的特徵"
+    a:
+    - "運動神經元大、徵召閾值高"
+    - "收縮速度快"
+    - "容易疲勞，無氧酵素多"
+    - "微血管密度低、肌紅蛋白少，外觀偏白"
+    - "纖維直徑較粗，爆發力最強"
+    detail: "它是 Type I 的鏡像：高閾值代表平常叫不動，要夠大的努力才會參與；粗大加上快速收縮讓它輸出功率最高，但沒有氧氣支援系統，所以只能撐很短的時間。"
+    terms: ["fast-twitch", "motor-neuron"]
+    numbers: []
+    concepts: ["fiber-type", "energy-supply", "force-production"]
+    related: ["ch01.fiber-types.type-i", "ch01.fiber-types.recruitment-order"]
+    locator: "第 1 章 · Muscle Fiber Types"
+
+  - id: ch01.fiber-types.type-iia
+    q: "Type IIa 與 Type IIx 差在哪"
+    a:
+    - "Type IIa 的有氧代謝能力高於 IIx"
+    - "微血管數量較多"
+    - "抗疲勞能力中等，介於 Type I 與 IIx 之間"
+    detail: "IIa 是中間型：保有快縮的速度，又補上一部分有氧能力。拳擊、摔角這種「高強度但要撐好幾回合」的項目最依賴它。訓練也會讓 IIx 往 IIa 轉變，所以它同時是最容易被訓練改變的一群。"
+    terms: ["fast-twitch", "capillary"]
+    numbers: []
+    concepts: ["fiber-type", "adaptation", "energy-supply"]
+    related: ["ch01.fiber-types.type-iix", "ch01.fiber-types.sport-distribution"]
+    locator: "第 1 章 · Muscle Fiber Types"
+
+  - id: ch01.fiber-types.recruitment-order
+    q: "肌纖維被徵召的順序"
+    a:
+    - "低強度：先用 Type I"
+    - "中強度：加入 Type IIa"
+    - "高強度或爆發性動作：再加入 Type IIx"
+    detail: "順序由運動神經元的大小決定（小的先被激發），不是由動作意圖決定。實務推論很直接：想練到 Type IIx，只能靠夠大的負荷或夠快的動作速度把徵召推到頂——輕重量慢慢做，再多下也叫不動它。"
+    terms: ["recruitment", "motor-neuron", "motor-unit"]
+    numbers: []
+    concepts: ["fiber-type", "motor-control"]
+    related: ["ch01.neuromuscular.recruitment", "ch01.fiber-types.improve-force"]
+    locator: "第 1 章 · Muscle Fiber Types"
+
+  - id: ch01.fiber-types.sport-distribution
+    q: "不同專項的纖維類型分布"
+    a:
+    - "100 公尺衝刺：Type II 比例高"
+    - "馬拉松：Type I 比例高"
+    - "足球、籃球：Type I 與 Type II 都需要"
+    detail: "分布同時反映天賦與訓練後的表型。要注意因果不能反推——不能因為某人 Type I 多就斷定他不適合爆發項目，訓練狀態、技術與體型都在影響表現。"
+    terms: ["slow-twitch", "fast-twitch"]
+    numbers: []
+    concepts: ["fiber-type", "methodology"]
+    related: ["ch01.fiber-types.postural-vs-power", "ch01.fiber-types.type-iia"]
+    locator: "第 1 章 · Muscle Fiber Types"
+
+  - id: ch01.fiber-types.postural-vs-power
+    q: "姿勢肌與動力肌的纖維差異"
+    a:
+    - "比目魚肌屬姿勢肌，Type I 比例高"
+    - "股四頭肌屬混合，Type I 與 Type II 都多"
+    detail: "比目魚肌整天都在對抗重力維持站姿，需要的是永遠不累而不是爆發，所以 Type I 佔優。這組對照說明纖維分布是跟著肌肉的日常工作內容走的。"
+    terms: ["slow-twitch"]
+    numbers: []
+    concepts: ["fiber-type", "structure"]
+    related: ["ch01.fiber-types.type-i", "ch01.fiber-types.sport-distribution"]
+    locator: "第 1 章 · Muscle Fiber Types"
+
+  - id: ch01.fiber-types.classification-method
+    q: "怎麼判定一條纖維是哪一型"
+    a:
+    - "常用做法是肌凝蛋白 ATP 水解酶染色，看深淺分型"
+    - "更精確的做法是定量肌凝蛋白重鏈"
+    detail: "兩種方法測的東西不同：染色看的是酵素活性（快慢縮的功能差異來源），定量重鏈看的是蛋白質亞型本身。後者能分辨出染色看不出的混合型纖維，所以研究文獻多半採用它。"
+    terms: ["myosin-atpase", "mhc"]
+    numbers: []
+    concepts: ["methodology", "fiber-type"]
+    related: ["ch01.fiber-types.type-iia"]
+    locator: "第 1 章 · Muscle Fiber Types"
+
+  - id: ch01.fiber-types.improve-force
+    q: "要提高力量輸出，可以動哪些變項"
+    a:
+    - "用大負荷訓練改善神經徵召"
+    - "增加肌肉橫截面積，讓可用橫橋總數變多"
+    - "採用多關節爆發性動作"
+    detail: "這三條分別對應前面三個機制：徵召（神經層）、橫橋數量（結構層）、以及高閾值纖維的參與（動作速度層）。所以它不是三個並列的建議，而是同一個力量方程式的三個入口。"
+    terms: ["recruitment", "crossbridge"]
+    numbers: []
+    concepts: ["adaptation", "force-production", "motor-control"]
+    related: ["ch01.sliding-filament.force-determinant", "ch01.fiber-types.recruitment-order"]
+    locator: "第 1 章 · Muscle Fiber Types"
+
+- id: proprioception
+  title: "本體感覺器 Proprioception"
+  desc: "肌梭 · 高爾基肌腱器 · 牽張反射 · 反射性抑制"
+  tag: "Proprioception"
+  items:
+
+  - id: ch01.proprioception.definition
+    q: "本體感覺受器是什麼"
+    a:
+    - "位於關節、肌肉、肌腱的特化感覺受器"
+    - "偵測壓力與張力的變化"
+    - "把動覺資訊送回中樞神經系統"
+    detail: "動覺指的是「不用看也知道身體各部位在哪裡」的那種感知。閉眼摸鼻子做得到，靠的就是這套受器——它是所有動作控制與技術學習的輸入端。"
+    terms: ["proprioceptor", "kinesthetic-sense", "cns"]
+    numbers: []
+    concepts: ["reflex", "motor-control"]
+    related: ["ch01.proprioception.spindle", "ch01.proprioception.gto-function"]
+    locator: "第 1 章 · Proprioceptors"
+
+  - id: ch01.proprioception.spindle
+    q: "肌梭偵測什麼"
+    a:
+    - "與梭外纖維平行排列"
+    - "偵測肌肉長度，以及長度改變的速率"
+    detail: "平行排列是關鍵：肌肉被拉長時肌梭跟著被拉長，所以它讀得到長度。「速率」這一項解釋了為什麼快速下放比慢速下放更能引出反射——反射強度跟拉長的速度有關，不只跟拉多長有關。"
+    terms: ["muscle-spindle", "extrafusal-fiber", "intrafusal-fiber"]
+    numbers: []
+    concepts: ["reflex", "structure"]
+    related: ["ch01.proprioception.stretch-reflex", "ch01.proprioception.gto-location"]
+    locator: "第 1 章 · Proprioceptors"
+
+  - id: ch01.proprioception.stretch-reflex
+    q: "牽張反射的迴路"
+    a:
+    - "肌肉被拉長"
+    - "肌梭被激活，訊號進脊髓"
+    - "脊髓直接驅動運動神經元"
+    - "同一條肌肉反射性收縮"
+    detail: "訊號不必上到大腦就折返，所以極快——膝跳反射就是這條迴路。它在訓練上的直接應用是增強式訓練：落地時的快速拉長引出反射性收縮，疊加在自主用力之上。"
+    terms: ["muscle-spindle", "motor-neuron"]
+    numbers: []
+    concepts: ["reflex", "motor-control"]
+    related: ["ch01.proprioception.spindle", "ch01.proprioception.spindle-vs-gto"]
+    locator: "第 1 章 · Proprioceptors"
+
+  - id: ch01.proprioception.gto-location
+    q: "高爾基肌腱器長在哪裡"
+    a:
+    - "位於肌腱靠近肌腱接合處的位置"
+    - "與梭外纖維串聯排列"
+    detail: "串聯與肌梭的平行是決定性的差別：串聯代表肌肉出的力全部經過它，所以它讀到的是張力而不是長度。位置決定了功能，這一組對照值得記牢。"
+    terms: ["gto", "myotendinous-junction", "extrafusal-fiber"]
+    numbers: []
+    concepts: ["reflex", "structure"]
+    related: ["ch01.proprioception.gto-function", "ch01.proprioception.spindle"]
+    locator: "第 1 章 · Proprioceptors"
+
+  - id: ch01.proprioception.gto-function
+    q: "高爾基肌腱器怎麼運作"
+    a:
+    - "張力升高時高爾基肌腱器被激活"
+    - "訊號經抑制性中間神經元"
+    - "支配該肌肉的運動神經元被抑制"
+    - "肌肉放鬆，張力下降"
+    detail: "它與肌梭的方向相反：肌梭促進收縮，它抑制收縮。存在的理由是保護——避免張力大到扯斷肌腱或撕裂肌肉。代價是它會在真正的力量上限之前就先踩煞車。"
+    terms: ["gto", "inhibitory-interneuron", "motor-neuron"]
+    numbers: []
+    concepts: ["reflex", "force-production"]
+    related: ["ch01.proprioception.gto-adaptation", "ch01.proprioception.spindle-vs-gto"]
+    locator: "第 1 章 · Proprioceptors"
+
+  - id: ch01.proprioception.spindle-vs-gto
+    q: "肌梭與高爾基肌腱器的對照"
+    a:
+    - "肌梭：偵測長度，促進收縮"
+    - "高爾基肌腱器：偵測張力，抑制收縮"
+    - "兩者排列方式也相反，肌梭平行、高爾基肌腱器串聯"
+    detail: "三個維度（測什麼／作用方向／排列方式）一起記，比分開背可靠。它們是同一套安全系統的兩端：一個確保肌肉被拉長時立刻補上張力，一個確保張力不會高到出事。"
+    terms: ["muscle-spindle", "gto"]
+    numbers: []
+    concepts: ["reflex", "methodology"]
+    related: ["ch01.proprioception.stretch-reflex", "ch01.proprioception.gto-function"]
+    locator: "第 1 章 · Proprioceptors"
+
+  - id: ch01.proprioception.gto-adaptation
+    q: "長期重量訓練如何改變高爾基肌腱器的作用"
+    a:
+    - "大腦運動皮質能逐漸壓過高爾基肌腱器的抑制"
+    - "抑制減弱後可動用的力量增加"
+    - "這是最基本的神經適應之一"
+    detail: "訓練初期力量進步遠快於肌肉變大，這是原因之一：不是肌肉變強了，是原本被安全機制擋住的部分被釋放出來。也因此，這種進步依賴持續訓練維持，不像肌肥大那樣結構性。"
+    terms: ["gto", "cns"]
+    numbers: []
+    concepts: ["adaptation", "reflex", "motor-control"]
+    related: ["ch01.proprioception.gto-function", "ch01.neuromuscular.recruitment"]
+    locator: "第 1 章 · Proprioceptors"
+
+  - id: ch01.proprioception.intrafusal
+    q: "梭內纖維與梭外纖維的差別"
+    a:
+    - "梭內纖維：肌梭內部經過改良的肌纖維，負責感測"
+    - "梭外纖維：一般的肌纖維，負責產生力量"
+    detail: "字面就是「梭之內」與「梭之外」。梭內纖維也會收縮，但目的是調整肌梭本身的敏感度，讓它在肌肉不同長度下都保持可用，而不是對外出力。"
+    terms: ["intrafusal-fiber", "extrafusal-fiber", "muscle-spindle"]
+    numbers: []
+    concepts: ["structure", "reflex"]
+    related: ["ch01.proprioception.spindle"]
+    locator: "第 1 章 · Proprioceptors"
+
+- id: cardiovascular
+  title: "心血管系統 Cardiovascular"
+  desc: "心臟腔室與瓣膜 · 傳導系統 · 心電圖 · 血管與血液"
+  tag: "Cardiovascular"
+  items:
+
+  - id: ch01.cardiovascular.heart-chambers
+    q: "心臟的四個腔室怎麼分工"
+    a:
+    - "右心房與右心室把血送去肺循環"
+    - "左心房與左心室把血送去體循環"
+    - "心房負責把血送進同側心室"
+    - "心室是推動血液前進的主要力量來源"
+    detail: "心臟其實是兩個並排的泵，共用同一套節律。心房只把血往下推一小段，真正的推進工作在心室——這是左心室壁遠比其他腔室厚的原因，它要把血送到全身。"
+    terms: ["atrium", "ventricle", "myocardium"]
+    numbers: []
+    concepts: ["circulation", "structure"]
+    related: ["ch01.cardiovascular.valves", "ch01.cardiovascular.vessels"]
+    locator: "第 1 章 · Cardiovascular System"
+
+  - id: ch01.cardiovascular.valves
+    q: "心臟瓣膜怎麼防止逆流"
+    a:
+    - "房室瓣（右側三尖瓣、左側二尖瓣）防止心室收縮時血液倒回心房"
+    - "半月瓣（主動脈瓣、肺動脈瓣）防止心室舒張時血液倒灌回心室"
+    detail: "瓣膜沒有肌肉、不會主動開闔，完全被兩側的壓力差推開或壓上。心音就是瓣膜關閉時的聲音：第一心音是房室瓣關，第二心音是半月瓣關。"
+    terms: ["av-valve", "tricuspid-valve", "mitral-valve", "semilunar-valve", "systole", "diastole"]
+    numbers: []
+    concepts: ["circulation", "structure"]
+    related: ["ch01.cardiovascular.heart-chambers", "ch01.cardiovascular.conduction"]
+    locator: "第 1 章 · Cardiovascular System"
+
+  - id: ch01.cardiovascular.conduction
+    q: "電訊號在心臟裡走的路徑"
+    a:
+    - "竇房結起始"
+    - "經結間傳導路徑傳遍心房"
+    - "房室結（訊號在此延遲）"
+    - "房室束"
+    - "左右束支"
+    - "浦金氏纖維，遍布心室"
+    detail: "房室結的延遲不是缺陷而是設計：它給心房足夠時間把血完全擠進心室，心室才開始收縮。延遲之後訊號進入傳導極快的束支與浦金氏纖維，讓兩側心室幾乎同時收縮，把血一次擠出去。"
+    terms: ["sa-node", "internodal-pathway", "av-node", "av-bundle", "bundle-branch", "purkinje-fiber"]
+    numbers: []
+    concepts: ["circulation", "structure"]
+    related: ["ch01.cardiovascular.pacemaker-hierarchy", "ch01.cardiovascular.ecg"]
+    locator: "第 1 章 · Cardiovascular System"
+
+  - id: ch01.cardiovascular.pacemaker-hierarchy
+    q: "為什麼是竇房結當節律點"
+    a:
+    - "竇房結固有放電頻率最快：每分鐘 60 到 80 次"
+    - "房室結每分鐘 40 到 60 次"
+    - "心室纖維每分鐘 15 到 40 次"
+    detail: "下游組織其實都有自我激發的能力，但竇房結每次放電都提前把它們的膜電位放掉，讓它們來不及自發。誰快誰當家——這也是為什麼竇房結失效時心臟不會停，只會慢下來由下一層接手。"
+    terms: ["sa-node", "av-node", "myocardium"]
+    numbers:
+    - v: "60–80"
+      unit: "次 / 分"
+      of: "竇房結固有放電頻率"
+    - v: "40–60"
+      unit: "次 / 分"
+      of: "房室結固有放電頻率"
+    - v: "15–40"
+      unit: "次 / 分"
+      of: "心室纖維固有放電頻率"
+    concepts: ["circulation", "normal-values"]
+    related: ["ch01.cardiovascular.conduction", "ch01.cardiovascular.heart-rate"]
+    locator: "第 1 章 · Cardiovascular System"
+
+  - id: ch01.cardiovascular.heart-rate
+    q: "心率如何被神經調節，正常範圍多少"
+    a:
+    - "交感神經活化：加快竇房結去極化，心率上升"
+    - "副交感神經活化：減慢竇房結放電，心率下降"
+    - "安靜心率正常約每分鐘 60 到 100 次"
+    - "低於 60 稱心搏徐緩，高於 100 稱心搏過速"
+    detail: "兩套神經的分布不對稱：心房同時受交感與副交感支配，心室幾乎只受交感支配。所以副交感（迷走神經）主要調的是速率，交感則同時調速率與收縮強度。另外要注意，耐力運動員安靜心率低於 60 是訓練適應，不是病態。"
+    terms: ["sympathetic", "parasympathetic", "chronotropic", "bradycardia", "tachycardia", "sa-node"]
+    numbers:
+    - v: "60–100"
+      unit: "次 / 分"
+      of: "成人安靜心率正常範圍"
+    - v: "< 60"
+      unit: "次 / 分"
+      of: "心搏徐緩的判定門檻"
+    - v: "> 100"
+      unit: "次 / 分"
+      of: "心搏過速的判定門檻"
+    concepts: ["circulation", "normal-values", "adaptation"]
+    related: ["ch01.cardiovascular.pacemaker-hierarchy", "ch01.cardiovascular.ecg"]
+    locator: "第 1 章 · Cardiovascular System"
+
+  - id: ch01.cardiovascular.ecg
+    q: "心電圖三個主要波形各代表什麼"
+    a:
+    - "P 波：心房去極化，隨後心房收縮"
+    - "QRS 複合波：心室去極化，隨後心室收縮"
+    - "T 波：心室再極化"
+    detail: "心電圖記錄的是電活動，不是機械收縮——電在前、收縮在後。心房再極化在圖上看不到，因為它剛好被振幅大得多的 QRS 複合波蓋過去了；不是沒發生，是被遮住。"
+    terms: ["ecg", "p-wave", "qrs-complex", "t-wave", "depolarization", "repolarization"]
+    numbers: []
+    concepts: ["circulation", "methodology"]
+    related: ["ch01.cardiovascular.conduction", "ch01.cardiovascular.heart-rate"]
+    locator: "第 1 章 · Cardiovascular System"
+
+  - id: ch01.cardiovascular.vessels
+    q: "血管從心臟出發到回到心臟的順序"
+    a:
+    - "動脈：高壓把血送離心臟"
+    - "小動脈：可開可關，調節送往各組織的血流"
+    - "微血管：管壁極薄，進行氣體與養分交換"
+    - "小靜脈：收集微血管的血"
+    - "靜脈：把血送回心臟，同時當作血液儲存庫"
+    detail: "整條路上只有微血管在做交換，其他都是運輸或調節。小動脈是「水龍頭」——運動時肌肉血流暴增，靠的就是小動脈擴張、同時內臟區的小動脈收縮，把有限的心輸出重新分配。"
+    terms: ["artery", "arteriole", "capillary", "venule", "vein"]
+    numbers: []
+    concepts: ["circulation", "structure"]
+    related: ["ch01.cardiovascular.blood", "ch01.cardiovascular.muscle-pump"]
+    locator: "第 1 章 · Cardiovascular System"
+
+  - id: ch01.cardiovascular.blood
+    q: "血液怎麼運送氧氣與二氧化碳"
+    a:
+    - "氧氣由紅血球內的血紅素攜帶送到組織"
+    - "二氧化碳被帶回肺部排出"
+    - "紅血球內的碳酸酐酶協助二氧化碳的處理"
+    detail: "兩種氣體的運送方式不對稱：氧氣幾乎全靠血紅素攜帶，二氧化碳則大部分以碳酸氫根的形式溶在血漿裡運送，碳酸酐酶就是催化這個轉換的酵素。血紅素同時還是重要的酸鹼緩衝物。"
+    terms: ["hemoglobin", "carbonic-anhydrase"]
+    numbers: []
+    concepts: ["circulation", "gas-exchange"]
+    related: ["ch01.respiratory.gas-exchange", "ch01.cardiovascular.vessels"]
+    locator: "第 1 章 · Cardiovascular System"
+
+  - id: ch01.cardiovascular.muscle-pump
+    q: "骨骼肌幫浦怎麼幫血液回心"
+    a:
+    - "收縮的肌肉壓迫靜脈"
+    - "靜脈內的單向瓣膜只讓血往心臟方向走"
+    - "運動後保持輕度活動，避免血液積在下肢"
+    detail: "靜脈壓力低，光靠心臟的推力不足以把下肢的血送回來，所以需要肌肉幫忙。這解釋了兩件事：久站不動容易頭暈腳腫；以及衝刺結束後應該慢走收操，突然完全靜止會讓回心血量驟降。"
+    terms: ["skeletal-muscle-pump", "vein"]
+    numbers: []
+    concepts: ["circulation"]
+    related: ["ch01.cardiovascular.vessels"]
+    locator: "第 1 章 · Cardiovascular System"
+
+- id: respiratory
+  title: "呼吸系統 Respiratory"
+  desc: "氣道路徑 · 吸氣與呼氣機制 · 氣體交換 · 壓力與耗能"
+  tag: "Respiratory"
+  items:
+
+  - id: ch01.respiratory.airway
+    q: "空氣從鼻腔到肺泡的路徑"
+    a:
+    - "鼻腔：暖化、濕化、過濾空氣"
+    - "氣管，是第一代呼吸道"
+    - "左右主支氣管，第二代"
+    - "細支氣管，逐代分支，全程約 23 代"
+    - "肺泡，氣體交換發生處"
+    detail: "「代」指的是分支的層數：每分一次算一代。逐代分支的意義是總截面積不斷放大，到肺泡時氣流速度已經幾乎為零，讓氣體有足夠時間擴散。"
+    terms: ["trachea", "bronchus", "bronchiole", "alveolus"]
+    numbers:
+    - v: "約 23"
+      unit: "代"
+      of: "從氣管到肺泡的分支代數"
+    concepts: ["gas-exchange", "structure"]
+    related: ["ch01.respiratory.gas-exchange", "ch01.respiratory.inspiration"]
+    locator: "第 1 章 · Respiratory System"
+
+  - id: ch01.respiratory.inspiration
+    q: "吸氣是怎麼發生的"
+    a:
+    - "橫膈膜收縮下降，胸腔容積變大"
+    - "肺內壓低於大氣壓，空氣被推進來"
+    - "用力吸氣時外肋間肌、胸鎖乳突肌、前鋸肌、斜角肌加入"
+    detail: "空氣不是被「吸」進來，是被大氣壓推進來的——身體做的事只是把胸腔撐大製造壓力差。安靜呼吸幾乎全靠橫膈膜，輔助肌只在需求上升時才加入，這也是為什麼看到頸部肌肉明顯參與呼吸代表呼吸負擔已經很大。"
+    terms: ["diaphragm", "alveolar-pressure"]
+    numbers: []
+    concepts: ["gas-exchange", "structure"]
+    related: ["ch01.respiratory.expiration", "ch01.respiratory.alveolar-pressure"]
+    locator: "第 1 章 · Respiratory System"
+
+  - id: ch01.respiratory.expiration
+    q: "呼氣是怎麼發生的"
+    a:
+    - "安靜時是被動的：橫膈膜放鬆，加上肺與腹部結構的彈性回縮"
+    - "用力呼氣時腹肌與內肋間肌主動收縮"
+    detail: "安靜呼氣不耗能，是彈性組織把撐開的胸腔拉回去。這個「被動」是相對的——訓練中的閉氣用力法就是刻意把腹肌與呼吸肌一起收緊，用腹內壓穩定軀幹，此時呼氣肌反而在做很大的等長工作。"
+    terms: ["diaphragm", "valsalva"]
+    numbers: []
+    concepts: ["gas-exchange", "force-production"]
+    related: ["ch01.respiratory.inspiration", "ch01.respiratory.energy-cost"]
+    locator: "第 1 章 · Respiratory System"
+
+  - id: ch01.respiratory.gas-exchange
+    q: "氣體交換靠什麼驅動"
+    a:
+    - "靠擴散：分子從分壓高的一側往分壓低的一側移動"
+    - "氧氣從肺泡（高）進入肺微血管（低）"
+    - "二氧化碳方向相反"
+    - "肺泡內氧分壓比肺微血管高出約 60 毫米汞柱"
+    detail: "整個過程不需要主動運輸，只靠濃度差。那 60 毫米汞柱的落差就是驅動力大小——落差越大擴散越快，這也是高海拔為什麼會影響運動表現：大氣氧分壓下降，落差變小，氧氣進血液的速度就跟著降。"
+    terms: ["diffusion", "partial-pressure", "alveolus", "capillary"]
+    numbers:
+    - v: "約 60"
+      unit: "mmHg（毫米汞柱）"
+      of: "肺泡與肺微血管之間的氧分壓差"
+    concepts: ["gas-exchange", "circulation"]
+    related: ["ch01.cardiovascular.blood", "ch01.respiratory.airway"]
+    locator: "第 1 章 · Respiratory System"
+
+  - id: ch01.respiratory.alveolar-pressure
+    q: "肺泡壓在呼吸週期中怎麼變"
+    a:
+    - "吸氣時肺泡壓低於大氣壓，氣流進入"
+    - "呼氣時肺泡壓高於大氣壓，氣流排出"
+    - "聲門開啟且無氣流時，肺泡壓等於大氣壓"
+    detail: "氣流方向永遠只跟壓力差走。這個原則同時解釋了氣胸為什麼危險：胸壁破損後外界空氣直接灌進胸膜腔，壓力差被消除，肺就塌陷。"
+    terms: ["alveolar-pressure", "alveolus"]
+    numbers: []
+    concepts: ["gas-exchange", "normal-values"]
+    related: ["ch01.respiratory.pleural-pressure", "ch01.respiratory.inspiration"]
+    locator: "第 1 章 · Respiratory System"
+
+  - id: ch01.respiratory.pleural-pressure
+    q: "胸膜腔壓為什麼是負的"
+    a:
+    - "位於包覆肺的膜與襯在胸壁的膜之間"
+    - "正常狀態下略呈負值"
+    - "這個負壓把肺撐開貼住胸壁"
+    detail: "肺本身有彈性、傾向縮小，胸壁傾向擴張，兩股相反的拉力把中間的胸膜腔拉出負壓。所以肺是被「吸附」在胸壁上的，這也是它能跟著胸腔一起擴張的原因。"
+    terms: ["pleura", "pleural-pressure"]
+    numbers: []
+    concepts: ["gas-exchange", "normal-values"]
+    related: ["ch01.respiratory.alveolar-pressure"]
+    locator: "第 1 章 · Respiratory System"
+
+  - id: ch01.respiratory.energy-cost
+    q: "呼吸本身消耗多少能量"
+    a:
+    - "安靜時約佔總能量消耗的 3 到 5 個百分點"
+    - "劇烈運動時可達 8 到 15 個百分點"
+    - "有氣道阻力問題的人比例更高"
+    detail: "這個數字提醒的是：呼吸肌也是肌肉，也會累、也會跟四肢搶血流。劇烈運動時呼吸肌耗掉的那一成能量，是運動表現的實際成本，不是可以忽略的背景值。"
+    terms: []
+    numbers:
+    - v: "3–5"
+      unit: "%"
+      of: "安靜時呼吸佔總能量消耗的比例"
+    - v: "8–15"
+      unit: "%"
+      of: "劇烈運動時呼吸佔總能量消耗的比例"
+    concepts: ["energy-supply", "gas-exchange", "normal-values"]
+    related: ["ch01.respiratory.expiration", "ch01.respiratory.training"]
+    locator: "第 1 章 · Respiratory System"
+
+  - id: ch01.respiratory.training
+    q: "呼吸肌需要另外訓練嗎"
+    a:
+    - "耐力訓練與阻力訓練本身就會訓練到呼吸肌"
+    - "一般族群不需要額外的呼吸肌訓練"
+    - "術後或長期臥床者是例外"
+    detail: "理由很直接：只要訓練強度夠，換氣量自然大幅上升，呼吸肌就處在被訓練的狀態。專門的呼吸肌訓練適用的是「無法透過一般運動達到足夠換氣量」的族群。"
+    terms: ["diaphragm"]
+    numbers: []
+    concepts: ["adaptation", "gas-exchange"]
+    related: ["ch01.respiratory.energy-cost"]
+    locator: "第 1 章 · Respiratory System"
+
+cards:
+- q: 軸心骨骼（Axial Skeleton）包含哪些？
+  a: 頭顱（cranium）、脊椎（C1-尾骨）、肋骨、胸骨；約80塊
+  tag: 骨骼系統
+- q: 附肢骨骼（Appendicular Skeleton）包含哪些？
+  a: 肩帶（肩胛+鎖骨）、上肢、骨盆帶、下肢；約126塊。全身約206塊
+  tag: 骨骼系統
+- q: 三種關節類型與活動度？
+  a: 纖維關節（幾乎不動，如顱縫）、軟骨關節（有限，如椎間盤）、滑液關節（最大，如肘膝肩）
+  tag: 骨骼系統
+- q: 單軸/雙軸/多軸關節各舉例？
+  a: 單軸=肘；雙軸=踝、腕；多軸=肩、髖（球窩關節）
+  tag: 骨骼系統
+- q: 脊椎各區段數量？
+  a: 頸C 7塊、胸T 12塊、腰L 5塊、薦S 5塊（融合）、尾骨 3-5塊
+  tag: 骨骼系統
+- q: 滑液關節的組成？
+  a: 透明軟骨（hyaline cartilage）覆蓋關節面 + 關節囊充滿滑液（synovial fluid）+ 韌帶和軟骨支撐
+  tag: 骨骼系統
+- q: 重訓如何影響骨骼？
+  a: 重負荷 → 骨密度↑、骨礦物質↑；高衝擊爆發力動作效果類似；骨骼適應期比肌肉慢，需變化刺激
+  tag: 骨骼系統
+- q: Epimysium 是什麼？
+  a: 包覆整塊骨骼肌最外層的纖維結締組織，與兩端肌腱連續（contiguous）
+  tag: 肌肉結構
+- q: Perimysium 是什麼？
+  a: 包覆肌束（fasciculi）的結締組織，每束最多150條肌纖維
+  tag: 肌肉結構
+- q: Endomysium 是什麼？
+  a: 包覆單條肌纖維的結締組織，與肌膜（sarcolemma）連續
+  tag: 肌肉結構
+- q: 肌纖維的基本特徵？
+  a: 直徑50-100μm，多核（核位於細胞周邊），橫紋外觀；肌漿（sarcoplasm）含肌原纖維、粒線體、SR
+  tag: 肌肉結構
+- q: Sarcomere（肌節）的定義與靜息長度？
+  a: 兩個Z線之間的區域，為肌肉最小收縮單位；靜息長度約2.5μm（每公分約4,500個）
+  tag: 肌肉結構
+- q: A帶、I帶、H帶各代表什麼？
+  a: A帶=myosin所在區（含actin重疊部分，長度不變）；I帶=僅有actin；H帶=肌節中央僅有myosin的區域
+  tag: 肌肉結構
+- q: Myosin（粗絲）的結構？
+  a: 直徑16nm；含球形頭（可形成橫橋）+ 鉸鏈點 + 纖維尾；每條myosin絲含最多200個myosin分子
+  tag: 肌肉結構
+- q: Actin（細絲）的結構？
+  a: 直徑6nm，雙螺旋；含Troponin（與Ca²⁺結合）與Tropomyosin（平時遮蓋myosin結合位點）
+  tag: 肌肉結構
+- q: T管（T-tubule）的功能？
+  a: 垂直於SR，與肌膜連續，將動作電位同步傳遞至肌纖維深層，使整塊肌肉協調收縮
+  tag: 肌肉結構
+- q: 滑動絲理論的核心概念？
+  a: Actin絲從肌節兩端向中央滑動（myosin本身長度不變），拉近Z線使肌節縮短；H帶和I帶縮小，A帶不變
+  tag: 滑動絲理論
+- q: 收縮的觸發步驟（興奮-收縮耦聯）？
+  a: AP → SR釋放Ca²⁺ → Ca²⁺與Troponin結合 → Tropomyosin位移 → 暴露actin結合位點 → myosin橫橋結合
+  tag: 滑動絲理論
+- q: Power Stroke 的能量來源？
+  a: ATP水解（ATP→ADP+Pi）；Pi釋放觸發myosin頭彎曲拉動actin，隨後ADP釋放
+  tag: 滑動絲理論
+- q: 肌肉放鬆的條件？
+  a: 運動神經停止刺激 → Ca²⁺泵回SR → Tropomyosin重新遮蓋actin結合位點 → actin/myosin解離
+  tag: 滑動絲理論
+- q: 肌肉力量的即時決定因素？
+  a: 任一瞬間與actin結合的myosin橫橋數量（crossbridges bound）= 產生的力量
+  tag: 滑動絲理論
+- q: 收縮循環需要哪些物質？
+  a: Ca²⁺（觸發/解除）+ ATP（動力stroke + 解離）+ ATPase（催化）三者缺一不可
+  tag: 滑動絲理論
+- q: 運動單位（Motor Unit）的定義？
+  a: 一個運動神經元 + 其所支配的所有肌纖維；同一運動單位內的肌纖維類型相同
+  tag: 神經肌肉
+- q: 神經肌肉接合（NMJ）如何傳遞訊號？
+  a: AP抵達神經末梢 → 釋放乙醯膽鹼（ACh）→ ACh擴散過突觸 → 激發肌膜產生AP → 肌纖維收縮
+  tag: 神經肌肉
+- q: All-or-None 原則是什麼？
+  a: 一個運動單位受刺激後，其所有肌纖維同時完全收縮；更強的刺激不會產生更強的單次收縮
+  tag: 神經肌肉
+- q: Twitch → Summation → Tetanus 的關係？
+  a: 單次AP=twitch（力量小）；頻率↑兩次twitch疊加=summation；頻率極高=unfused→fused tetanus（最大力量）
+  tag: 神經肌肉
+- q: 力量分級的兩種方式？
+  a: ①頻率調節（rate coding）：增加同一運動單位激發頻率（小肌肉常用）；②招募（recruitment）：啟動更多運動單位（大肌肉）
+  tag: 神經肌肉
+- q: 眼肌 vs 股四頭肌的運動單位大小差異？
+  a: 眼肌：1條纖維/神經元（高精確）；股四頭肌：數百條纖維/神經元（高力量）
+  tag: 神經肌肉
+- q: Type I 肌纖維的特徵？
+  a: 慢縮、小運動神經元、低招募閾值、抗疲勞高、有氧酶多、微血管密度高、肌紅蛋白高（紅色）、纖維細
+  tag: 肌纖維類型
+- q: Type IIx 肌纖維的特徵？
+  a: 快縮、大運動神經元、高招募閾值、易疲勞、無氧酶多、微血管密度低（白色）、纖維粗、爆發力最強
+  tag: 肌纖維類型
+- q: Type IIa 與 Type IIx 最主要的差異？
+  a: IIa 有氧代謝能力 > IIx，微血管數量較多，抗疲勞能力中等（介於I和IIx之間）
+  tag: 肌纖維類型
+- q: 肌纖維類型的招募順序？
+  a: 低強度 → Type I；中強度 → Type IIa；高強度/爆發 → Type IIx（依size principle遞增）
+  tag: 肌纖維類型
+- q: 馬拉松 vs 100m衝刺的纖維類型使用？
+  a: 馬拉松：高Type I / 低Type II；100m衝刺：低Type I / 高Type II
+  tag: 肌纖維類型
+- q: 比目魚肌（soleus）為何富含Type I？
+  a: 比目魚肌為姿勢肌，需持續低強度收縮對抗重力，Type I耐疲勞特性最適合
+  tag: 肌纖維類型
+- q: 本體感覺器（Proprioceptors）的定義？
+  a: 位於關節、肌肉、肌腱的特化感覺受器，偵測壓力與張力，傳遞動覺（kinesthetic sense）資訊至CNS
+  tag: 本體感覺器
+- q: 肌梭（Muscle Spindle）的功能？
+  a: 偵測肌肉長度與長度變化速率；肌肉被拉長 → 肌梭激活 → 脊髓 → 運動神經元 → 同一肌肉收縮（促進）
+  tag: 本體感覺器
+- q: GTO（高爾基腱器）的功能？
+  a: 位於肌腱近肌腱接合處；偵測張力；張力過高 → GTO激活 → 抑制性中間神經元 → 同一肌肉被抑制放鬆（保護機制）
+  tag: 本體感覺器
+- q: Muscle Spindle vs GTO 的對比？
+  a: Spindle：促進收縮（facilitatory）；GTO：抑制收縮（inhibitory）。前者偵測長度，後者偵測張力
+  tag: 本體感覺器
+- q: 重訓如何影響GTO？
+  a: 長期重訓 → 大腦運動皮質可抑制（override）GTO的抑制效應 → 能產生更大力量，為基本神經適應之一
+  tag: 本體感覺器
+- q: 心臟四個腔室的功能？
+  a: 右心房/室 → 泵血至肺（pulmonary circulation）；左心房/室 → 泵血至全身（systemic circulation）
+  tag: 心血管系統
+- q: AV瓣（房室瓣）有哪些，功能為何？
+  a: 三尖瓣（右）和二尖瓣/僧帽瓣（左）；防止血液在心室收縮（systole）時逆流回心房
+  tag: 心血管系統
+- q: 半月瓣（Semilunar Valves）有哪些，功能為何？
+  a: 主動脈瓣和肺動脈瓣；防止血液在心室放鬆（diastole）時從主動脈/肺動脈逆流回心室
+  tag: 心血管系統
+- q: 心臟傳導系統的順序？
+  a: SA node（起搏器）→ 心房內傳導 → AV node（延遲）→ AV束 → 左右束支 → Purkinje纖維 → 心室
+  tag: 心血管系統
+- q: SA node 的正常放電頻率？為何主導心律？
+  a: 60-80次/分；高於AV node（40-60/分）和心室（15-40/分），因此每次放電先觸發其他部位
+  tag: 心血管系統
+- q: ECG三個主要波形代表什麼？
+  a: P波=心房去極化（atrial depolarization）；QRS複合波=心室去極化；T波=心室再極化（repolarization）
+  tag: 心血管系統
+- q: Bradycardia 與 Tachycardia 的定義？
+  a: Bradycardia（心搏徐緩）= 靜息心率 <60 bpm；Tachycardia（心搏過速）= >100 bpm
+  tag: 心血管系統
+- q: 血管從大到小的順序及功能？
+  a: 動脈（artery，高壓輸送）→ 小動脈（arteriole，調節血流）→ 微血管（capillary，氣體/營養交換）→ 小靜脈 → 靜脈（回心）
+  tag: 心血管系統
+- q: 呼吸系統的氣道路徑（幾代到肺泡）？
+  a: 鼻腔 → 氣管（第1代）→ 主支氣管（第2代）→ 細支氣管（共約23代）→ 肺泡（alveoli，氣體交換處）
+  tag: 呼吸系統
+- q: 安靜吸氣的主要肌肉？
+  a: 橫膈膜（diaphragm）：收縮 → 胸腔容積↑ → 負壓 → 空氣進入。安靜呼氣=橫膈膜放鬆+肺彈力回縮
+  tag: 呼吸系統
+- q: 用力呼氣（heavy breathing）的輔助肌肉？
+  a: 腹肌（rectus abdominis、external/internal obliques、transversus abdominis）+ 內肋間肌主動收縮
+  tag: 呼吸系統
+- q: 氣體交換的原理？
+  a: 擴散（diffusion）：分子從高分壓→低分壓。O₂從肺泡（高）→微血管（低）；CO₂反向。肺泡O₂分壓高於肺微血管約60mmHg
+  tag: 呼吸系統
+- q: 安靜 vs 劇烈運動時呼吸耗能比例？
+  a: 安靜時3-5%總能量；劇烈運動（尤其有氣道阻力）可達8-15%
+  tag: 呼吸系統

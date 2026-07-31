@@ -1,0 +1,456 @@
+# 全書術語表：知識單位的 terms 欄位只放 key，中英對照與說明集中在這裡。
+# 一個術語補一次，全書所有引用同時修好。abbr 有值代表它是縮寫，網頁會展開全稱。
+# 新增 key 後跑 tools/cscs_check.py，會列出「被引用但未定義」與「定義了沒人用」。
+
+# --- 骨骼 ---
+axial-skeleton:
+  en: "Axial skeleton"
+  zh: "軸心骨骼"
+  note: "身體中軸的骨頭：頭顱、脊椎、肋骨、胸骨"
+appendicular-skeleton:
+  en: "Appendicular skeleton"
+  zh: "附肢骨骼"
+  note: "四肢與連接四肢的帶狀骨：肩帶、上肢、骨盆帶、下肢"
+fibrous-joint:
+  en: "Fibrous joint"
+  zh: "纖維關節"
+  note: "以纖維結締組織直接相連，幾乎不能動，例如顱縫"
+cartilaginous-joint:
+  en: "Cartilaginous joint"
+  zh: "軟骨關節"
+  note: "以軟骨相連，可小幅活動，例如椎間盤"
+synovial-joint:
+  en: "Synovial joint"
+  zh: "滑液關節"
+  note: "關節囊內含滑液、關節面覆軟骨，活動度最大，運動動作幾乎都發生在這類關節"
+hyaline-cartilage:
+  en: "Hyaline cartilage"
+  zh: "透明軟骨"
+  note: "覆蓋關節面的光滑軟骨，負責降低摩擦"
+synovial-fluid:
+  en: "Synovial fluid"
+  zh: "滑液"
+  note: "關節囊內的潤滑液"
+uniaxial-joint:
+  en: "Uniaxial joint"
+  zh: "單軸關節"
+  note: "只繞一個軸轉動的鉸鏈型關節，例如肘"
+biaxial-joint:
+  en: "Biaxial joint"
+  zh: "雙軸關節"
+  note: "可繞兩個互相垂直的軸轉動，例如踝、腕"
+multiaxial-joint:
+  en: "Multiaxial joint"
+  zh: "多軸關節"
+  note: "可繞空間三軸轉動的球窩關節，例如肩、髖"
+vertebral-column:
+  en: "Vertebral column"
+  zh: "脊椎"
+  note: "由椎骨與其間的椎間盤組成"
+periosteum:
+  en: "Bone periosteum"
+  zh: "骨膜"
+  note: "包覆骨頭表面的結締組織，肌腱附著於此"
+
+# --- 肌肉結構 ---
+epimysium:
+  en: "Epimysium"
+  zh: "肌外膜"
+  note: "包住整塊肌肉的最外層結締組織，兩端與肌腱連續"
+perimysium:
+  en: "Perimysium"
+  zh: "肌束膜"
+  note: "包住一束肌纖維（肌束）的結締組織"
+endomysium:
+  en: "Endomysium"
+  zh: "肌內膜"
+  note: "包住單一條肌纖維的結締組織"
+fasciculus:
+  en: "Fasciculus"
+  zh: "肌束"
+  plural: "fasciculi"
+  note: "一群被肌束膜包住的肌纖維"
+muscle-fiber:
+  en: "Muscle fiber"
+  zh: "肌纖維"
+  note: "肌肉細胞，長條圓柱形、多核"
+sarcolemma:
+  en: "Sarcolemma"
+  zh: "肌膜"
+  note: "肌纖維的細胞膜"
+sarcoplasm:
+  en: "Sarcoplasm"
+  zh: "肌漿"
+  note: "肌纖維的細胞質，含肝醣、脂肪顆粒、酵素與胞器"
+myofibril:
+  en: "Myofibril"
+  zh: "肌原纖維"
+  note: "肌漿內的收縮構造束，由肌絲排列而成"
+myofilament:
+  en: "Myofilament"
+  zh: "肌絲"
+  note: "肌原纖維的組成單位，分粗絲（肌凝蛋白）與細絲（肌動蛋白）"
+myosin:
+  en: "Myosin"
+  zh: "肌凝蛋白"
+  note: "粗絲，有球形頭可與肌動蛋白形成橫橋"
+actin:
+  en: "Actin"
+  zh: "肌動蛋白"
+  note: "細絲，雙螺旋排列，上面有肌凝蛋白的結合位點"
+sarcomere:
+  en: "Sarcomere"
+  zh: "肌節"
+  note: "骨骼肌最小的收縮單位，兩端以 Z 線為界"
+crossbridge:
+  en: "Crossbridge"
+  zh: "橫橋"
+  note: "肌凝蛋白頭與肌動蛋白接上後形成的連接"
+z-line:
+  en: "Z-line"
+  zh: "Z 線"
+  note: "肌節的邊界，細絲固定於此"
+a-band:
+  en: "A-band"
+  zh: "A 帶（暗帶）"
+  note: "粗絲所在區段，收縮時長度不變"
+i-band:
+  en: "I-band"
+  zh: "I 帶（明帶）"
+  note: "只有細絲的區段，收縮時縮短"
+h-zone:
+  en: "H-zone"
+  zh: "H 區"
+  note: "肌節中央只有粗絲的區段，收縮時縮短"
+m-bridge:
+  en: "M-bridge"
+  zh: "M 線"
+  note: "肌節中央固定相鄰粗絲的構造"
+sarcoplasmic-reticulum:
+  en: "Sarcoplasmic reticulum"
+  abbr: "SR"
+  zh: "肌漿網"
+  note: "包圍肌原纖維的管道系統，儲存鈣離子"
+t-tubule:
+  en: "Transverse tubule"
+  abbr: "T-tubule"
+  zh: "橫小管"
+  note: "由肌膜向內延伸的管道，讓動作電位同時抵達肌纖維深處"
+troponin:
+  en: "Troponin"
+  zh: "旋光素／肌鈣蛋白"
+  note: "位於細絲上、對鈣離子親和力高的蛋白，鈣結合於此觸發收縮"
+tropomyosin:
+  en: "Tropomyosin"
+  zh: "原肌凝蛋白"
+  note: "沿細絲雙螺旋溝槽分布，靜息時遮住結合位點"
+motor-end-plate:
+  en: "Motor end plate"
+  zh: "運動終板"
+  note: "運動神經元與肌纖維的接合處，即神經肌肉接合處"
+
+# --- 神經肌肉 ---
+motor-neuron:
+  en: "Motor neuron"
+  zh: "運動神經元"
+  note: "從脊髓把電化學訊號送到肌肉的神經細胞"
+motor-unit:
+  en: "Motor unit"
+  zh: "運動單位"
+  note: "一個運動神經元加上它所支配的全部肌纖維"
+neuromuscular-junction:
+  en: "Neuromuscular junction"
+  abbr: "NMJ"
+  zh: "神經肌肉接合處"
+  note: "運動神經末梢與肌纖維之間的化學傳遞介面"
+acetylcholine:
+  en: "Acetylcholine"
+  abbr: "ACh"
+  zh: "乙醯膽鹼"
+  note: "在神經肌肉接合處釋放的神經傳導物質"
+action-potential:
+  en: "Action potential"
+  zh: "動作電位"
+  note: "沿神經或肌膜傳導的電訊號"
+all-or-none:
+  en: "All-or-none principle"
+  zh: "全有全無律"
+  note: "運動單位受刺激時全部纖維一起收縮，刺激加強不會讓單次收縮更強"
+twitch:
+  en: "Twitch"
+  zh: "單收縮"
+  note: "單一動作電位引發的短暫收縮"
+tetanus:
+  en: "Tetanus"
+  zh: "強直收縮"
+  note: "高頻刺激使單收縮融合，運動單位在此達到最大力量"
+recruitment:
+  en: "Recruitment"
+  zh: "運動單位徵召"
+  note: "藉由啟動更多運動單位來增加肌肉力量"
+rate-coding:
+  en: "Rate coding"
+  zh: "頻率調節"
+  note: "藉由提高運動單位的放電頻率來增加力量"
+slow-twitch:
+  en: "Slow-twitch fiber"
+  zh: "慢縮肌纖維"
+  note: "即 Type I，收縮與放鬆慢、抗疲勞"
+fast-twitch:
+  en: "Fast-twitch fiber"
+  zh: "快縮肌纖維"
+  note: "即 Type II，收縮與放鬆快、易疲勞"
+myosin-atpase:
+  en: "Myosin adenosine triphosphatase"
+  abbr: "Myosin ATPase"
+  zh: "肌凝蛋白 ATP 水解酶"
+  note: "分解 ATP 供橫橋做功的酵素；其染色深淺也用來分辨快慢縮纖維"
+mhc:
+  en: "Myosin heavy chain"
+  abbr: "MHC"
+  zh: "肌凝蛋白重鏈"
+  note: "肌凝蛋白的大分子次單元，定量它可更精確分型肌纖維"
+atp:
+  en: "Adenosine triphosphate"
+  abbr: "ATP"
+  zh: "三磷酸腺苷"
+  note: "細胞的直接能量貨幣"
+adp:
+  en: "Adenosine diphosphate"
+  abbr: "ADP"
+  zh: "二磷酸腺苷"
+  note: "ATP 去掉一個磷酸後的產物"
+power-stroke:
+  en: "Power stroke"
+  zh: "動力衝程"
+  note: "肌凝蛋白頭彎折、把細絲拉向肌節中心的那一下"
+
+# --- 本體感覺 ---
+proprioceptor:
+  en: "Proprioceptor"
+  zh: "本體感覺受器"
+  note: "位於關節、肌肉、肌腱，感應壓力與張力的感覺受器"
+muscle-spindle:
+  en: "Muscle spindle"
+  zh: "肌梭"
+  note: "偵測肌肉長度與長度變化速率的本體感覺受器"
+intrafusal-fiber:
+  en: "Intrafusal fiber"
+  zh: "梭內纖維"
+  note: "肌梭內部經過改良的肌纖維"
+extrafusal-fiber:
+  en: "Extrafusal fiber"
+  zh: "梭外纖維"
+  note: "一般負責產生力量的肌纖維"
+gto:
+  en: "Golgi tendon organ"
+  abbr: "GTO"
+  zh: "高爾基肌腱器"
+  note: "位於肌腱、與梭外纖維串聯的張力受器，張力過高時反射性抑制收縮"
+myotendinous-junction:
+  en: "Myotendinous junction"
+  zh: "肌腱接合處"
+  note: "肌肉與肌腱交界處"
+cns:
+  en: "Central nervous system"
+  abbr: "CNS"
+  zh: "中樞神經系統"
+  note: "腦與脊髓"
+inhibitory-interneuron:
+  en: "Inhibitory interneuron"
+  zh: "抑制性中間神經元"
+  note: "脊髓內負責抑制運動神經元的中繼神經元"
+kinesthetic-sense:
+  en: "Kinesthetic sense"
+  zh: "動覺"
+  note: "對身體各部位相對於重力之位置的意識感知"
+
+# --- 心血管 ---
+atrium:
+  en: "Atrium"
+  zh: "心房"
+  plural: "atria"
+  note: "心臟上腔，接收回流血液後送入心室"
+ventricle:
+  en: "Ventricle"
+  zh: "心室"
+  note: "心臟下腔，是推動血液前進的主要力量來源"
+tricuspid-valve:
+  en: "Tricuspid valve"
+  zh: "三尖瓣"
+  note: "右心房與右心室之間的瓣膜"
+mitral-valve:
+  en: "Mitral valve (bicuspid valve)"
+  zh: "二尖瓣"
+  note: "左心房與左心室之間的瓣膜"
+av-valve:
+  en: "Atrioventricular valves"
+  abbr: "AV valves"
+  zh: "房室瓣"
+  note: "三尖瓣與二尖瓣的合稱，防止心室收縮時血液逆流回心房"
+semilunar-valve:
+  en: "Semilunar valves"
+  zh: "半月瓣"
+  note: "主動脈瓣與肺動脈瓣的合稱，防止心室舒張時血液倒灌回心室"
+systole:
+  en: "Systole"
+  zh: "收縮期"
+  note: "心室收縮、把血打出去的階段"
+diastole:
+  en: "Diastole"
+  zh: "舒張期"
+  note: "心室放鬆、回充血液的階段"
+sa-node:
+  en: "Sinoatrial node"
+  abbr: "SA node"
+  zh: "竇房結"
+  note: "位於右心房上外側壁的天然節律點"
+av-node:
+  en: "Atrioventricular node"
+  abbr: "AV node"
+  zh: "房室結"
+  note: "位於右心房後隔壁，訊號在此稍作延遲再進入心室"
+internodal-pathway:
+  en: "Internodal pathways"
+  zh: "結間傳導路徑"
+  note: "把訊號從竇房結帶到房室結的傳導路徑"
+av-bundle:
+  en: "Atrioventricular bundle"
+  abbr: "AV bundle"
+  zh: "房室束"
+  note: "把訊號帶進心室的傳導束"
+bundle-branch:
+  en: "Bundle branches"
+  zh: "左右束支"
+  note: "房室束分出的左右分支，傳導速度遠快於房室結纖維"
+purkinje-fiber:
+  en: "Purkinje fibers"
+  zh: "浦金氏纖維"
+  note: "束支末端遍布心室的傳導纖維，使兩心室幾乎同時收縮"
+myocardium:
+  en: "Myocardium"
+  zh: "心肌"
+  note: "心臟的肌肉層"
+sympathetic:
+  en: "Sympathetic nervous system"
+  zh: "交感神經系統"
+  note: "自律神經的一支，活化時加快竇房結去極化、心率上升"
+parasympathetic:
+  en: "Parasympathetic nervous system"
+  zh: "副交感神經系統"
+  note: "自律神經的一支，活化時減慢竇房結放電、心率下降"
+chronotropic:
+  en: "Chronotropic effect"
+  zh: "變時性效應"
+  note: "改變心跳速率的作用"
+bradycardia:
+  en: "Bradycardia"
+  zh: "心搏徐緩"
+  note: "安靜心率低於每分鐘 60 次"
+tachycardia:
+  en: "Tachycardia"
+  zh: "心搏過速"
+  note: "安靜心率高於每分鐘 100 次"
+ecg:
+  en: "Electrocardiogram"
+  abbr: "ECG"
+  zh: "心電圖"
+  note: "從體表記錄心臟電活動的圖形"
+depolarization:
+  en: "Depolarization"
+  zh: "去極化"
+  note: "膜電位反轉，膜內由負轉正，是引發機械收縮的電刺激"
+repolarization:
+  en: "Repolarization"
+  zh: "再極化"
+  note: "去極化後膜電位回復的過程"
+p-wave:
+  en: "P-wave"
+  zh: "P 波"
+  note: "心房去極化，隨之心房收縮"
+qrs-complex:
+  en: "QRS complex"
+  zh: "QRS 複合波"
+  note: "心室去極化，常由 Q、R、S 三個分開的波組成"
+t-wave:
+  en: "T-wave"
+  zh: "T 波"
+  note: "心室再極化"
+artery:
+  en: "Artery"
+  zh: "動脈"
+  note: "把血從心臟快速送出的血管，管壁強韌多肌"
+arteriole:
+  en: "Arteriole"
+  zh: "小動脈"
+  note: "動脈末端的控制血管，可完全關閉或大幅擴張以調節微血管血流"
+capillary:
+  en: "Capillary"
+  zh: "微血管"
+  note: "管壁極薄，負責血液與組織間液的物質交換"
+venule:
+  en: "Venule"
+  zh: "小靜脈"
+  note: "收集微血管血液後匯入靜脈"
+vein:
+  en: "Vein"
+  zh: "靜脈"
+  note: "把血送回心臟的血管，管壁薄，可當血液儲存庫"
+hemoglobin:
+  en: "Hemoglobin"
+  zh: "血紅素"
+  note: "紅血球內的鐵蛋白分子，負責運送氧氣，同時是酸鹼緩衝物"
+carbonic-anhydrase:
+  en: "Carbonic anhydrase"
+  zh: "碳酸酐酶"
+  note: "催化二氧化碳與水反應的酵素，協助二氧化碳排除"
+skeletal-muscle-pump:
+  en: "Skeletal muscle pump"
+  zh: "骨骼肌幫浦"
+  note: "收縮的肌肉壓迫靜脈，配合單向瓣膜把血推回心臟"
+
+# --- 呼吸 ---
+trachea:
+  en: "Trachea"
+  zh: "氣管"
+  note: "第一代呼吸道"
+bronchus:
+  en: "Bronchi"
+  zh: "支氣管"
+  note: "左右主支氣管為第二代呼吸道"
+bronchiole:
+  en: "Bronchiole"
+  zh: "細支氣管"
+  note: "支氣管之後逐代變細的氣道"
+alveolus:
+  en: "Alveoli"
+  zh: "肺泡"
+  note: "氣體交換發生的終端氣囊"
+diaphragm:
+  en: "Diaphragm"
+  zh: "橫膈膜"
+  note: "主要吸氣肌，安靜呼吸幾乎全靠它"
+pleura:
+  en: "Pleura"
+  zh: "胸膜／肋膜"
+  note: "包覆肺與襯在胸壁內側的膜"
+pleural-pressure:
+  en: "Pleural pressure"
+  zh: "胸膜腔壓"
+  note: "肺膜與胸壁膜之間的壓力，正常略呈負值"
+alveolar-pressure:
+  en: "Alveolar pressure"
+  zh: "肺泡壓"
+  note: "聲門開啟且無氣流時肺泡內的壓力，此時等於大氣壓"
+diffusion:
+  en: "Diffusion"
+  zh: "擴散"
+  note: "分子隨機運動造成的淨移動，由高濃度往低濃度"
+partial-pressure:
+  en: "Partial pressure"
+  zh: "分壓"
+  note: "混合氣體中單一氣體所佔的壓力，是氣體擴散的驅動力"
+valsalva:
+  en: "Valsalva maneuver"
+  zh: "閉氣用力法"
+  note: "閉住聲門用力，提高腹內壓以穩定軀幹"

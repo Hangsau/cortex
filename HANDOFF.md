@@ -14,7 +14,18 @@
 
 **追加：章節導航改成常駐（commit 07c45d5，CI 綠 + 線上驗證）**：站主回報「長文想換下一章或回上一頁，都得拉回最上層」——導航原本全掛在頁首麵包屑。① 黏性側欄改 flex column，頭（回書目 + 第 N/24 章）與尾（上一章 / 下一章）固定、只有目次列表捲動；② 章末補接續卡，末章顯示「讀完了 › 回書目」；③ 手機橫向膠囊列裡，回書目收成膠囊、換章收成 ‹ › 箭頭鈕（32×32，可及名稱靠 `a` 的 `aria-label`，`.nb-toc-step-k/-t` 在手機 `display:none` 改用 `::before` 放箭頭）。順手修好膠囊列不跟隨 scrollspy 的 bug（讀到第 4 主題膠囊列還停在第 1 = 等於沒有目次）。上一章/下一章由 `$book.Sections.ByWeight` 算，章節 front-matter 的 `weight` 是排序真相源。audit.js 加 6 條斷言，共 22/22。
 
-**下一步建議**：① `layouts/library/book.html` 共用 `cscs-chapter.css` 的 `.home-grid`/`.home-card`，已一起改成淺色細線格，但**書庫其他 layout（library.css / bookshelf.css）未動**，若覺得書庫首頁與章節頁調性不接可續做；② 遮答自測目前是全頁 toggle，若站主想要「逐條遮／已答對就不再遮」的進度記憶，需要 localStorage 層，尚未做；③ 其餘 23 章只做了 HTML 結構抽查，沒逐章看畫面，內容異常（如某章 `；` 用法不同）要靠實際閱讀才會發現。
+**追加：CSCS 改成原子卡資料層 + ch01 深度層樣板（2026-07-31）**：站主提三個學習障礙——「專有名詞只有英文沒有中文／數字交代不清／英文縮寫沒展開」，外加一個方向性需求「之後能不能打散章節，用相同或延伸的概念去讀，或 wiki 連結法」。
+
+- **架構裁定**：借 atlas 的**身分／索引那一半**（穩定 id、受控詞彙、出處欄位、由資料生成索引與缺口報告），**不借證據／查證那一半**——單一權威教科書沒有裁決問題，做 evidence layer 是空轉。canonical 就放 my-site `data/cscs/`，因為消費端只有這一個。
+- **真相源搬家**：24 章一次全轉（`tools/cscs_import.py` 一次性），1583 個知識單位。**Google Sheets CSV + `resources.GetRemote` + 202 個 topic md 檔全部刪除**——建置不再有網路依賴。topic 順序順便修回課本教學序（舊的字母序是 `.Pages` 機制的意外，不是設計）。
+- **id 是 slug 制**（`ch01.cardiovascular.pacemaker-hierarchy`），重排序不用改號；跨章 `related` 靠 id 前綴直接算出 URL，只有**標籤**要查表 → `layouts/partials/cscs-index.html` 用 `partialCached` 全站只建一次。
+- **三個障礙各自對應一個結構欄位**：`terms` → 全域術語表 `_terms.yaml`（106 條，一個詞修一次全書受益）；`numbers` → `v`/`unit`/`of` 三欄強制；`abbr` → 展開層印全稱。**術語中英對照是常駐可見的，不放 hover 也不藏在 details**——痛點就是看不到中文，藏起來等於沒解決。
+- **一次全轉的理由**：避免「舊 md 路徑 + 新 yaml 路徑」並存。ch02–24 的 `detail`/`terms`/`numbers` 是空的，深度層就整塊不渲染，畫面不會出現半成品（實測 ch02：64 個 `.nb-item`、0 個 `.nb-terms`）。
+- **兩支驗收閘**：`tools/cscs_check.py`（斷鏈的 `related`/`terms`/`concepts` 一律算**失敗**不是待辦——Hugo 查不到 key 只回空字串且不報錯，跟 Vortex 分類標籤同一個坑；目前 0 錯、106 術語與 12 概念全被引用）＋ `tools/audit.js` 擴到 **31 條**（新增：術語常駐可見不被藏、每條術語有中文、縮寫有全稱、每個數字有單位與所指、延伸連結不斷鏈、細節預設收合、跳延伸連結會落在該條上且已展開）。
+- **兩個 audit 抓不到、截圖才看到的 bug**：① `summary` 的 `display` 不是 `list-item`，原生三角消失，「展開細節」看起來只是一行灰字 → `::before` 自己畫箭頭；② 瀏覽器在字型／展開內容就位前就跳完 hash，落點偏掉 → `openTarget()` 補一次 `scrollIntoView()` 並掛 `load`。
+- **驗收**：`cscs_check` 0 錯 / audit 31/31 / `hugo` exit 0 / ch01 渲染 68 條知識單位、186 個術語、27 個數字、126 條延伸連結。
+
+**下一步建議**：① **ch02–24 的深度層補完（1515 條）尚未做**，等站主看過 ch01 實際密度再決定要不要推；派工時每章一單位、補完立刻 `cscs_check` + commit；② **站主要的「跨章按概念讀」還沒做**——`concepts` 資料已經在（12 條封閉集、全被引用），但 `.nb-con` 目前只是純標籤不是連結，缺一個概念索引頁把同概念的知識單位跨章聚起來，這是最小增量且資料已就緒；③ 遮答自測仍是全頁 toggle，「逐條遮／已答對不再遮」需要 localStorage 層，未做；④ `layouts/library/book.html` 與書庫其他 layout（library.css / bookshelf.css）調性未對齊。
 
 > ↓ 更早
 

@@ -13,22 +13,17 @@
 {{ if gt $idx 0 }}{{ $prev = index $chapters (sub $idx 1) }}{{ end }}
 {{ if and (ge $idx 0) (lt $idx (sub (len $chapters) 1)) }}{{ $next = index $chapters (add $idx 1) }}{{ end }}
 
-{{ $cards := slice }}
-{{ $csvURL := .Site.Params.cscsFlashcardsCSV }}
-{{ if $csvURL }}
-  {{ with resources.GetRemote $csvURL }}
-    {{ range $i, $row := (. | transform.Unmarshal (dict "delimiter" ",")) }}
-      {{ if and (gt $i 0) (eq (index $row 0) $chID) }}
-        {{ $cards = $cards | append (dict "q" (index $row 1) "a" (index $row 2) "tag" (index $row 3)) }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
-{{ end }}
+{{ $cscs := index hugo.Data "cscs" }}
+{{ $ch := index $cscs $chID }}
+{{ $terms := index $cscs "_terms" }}
+{{ $concepts := index $cscs "_concepts" }}
+{{ $refIndex := partialCached "cscs-index.html" $book $book.RelPermalink }}
+{{ $cards := $ch.cards | default slice }}
 
 <div class="nb" id="nb">
 
   <nav class="nb-crumb" aria-label="麵包屑">
-    <a href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a>
+    <a href="{{ $book.RelPermalink }}">{{ $book.Title }}</a>
     <span aria-hidden="true">›</span>
     <span class="nb-crumb-now">{{ .Title }}</span>
   </nav>
@@ -52,12 +47,12 @@
         {{ if ge $idx 0 }}<p class="nb-toc-pos">第 {{ add $idx 1 }} / {{ len $chapters }} 章</p>{{ end }}
       </div>
 
-      <p class="nb-toc-cap">本章 {{ len .Pages }} 個主題</p>
+      <p class="nb-toc-cap">本章 {{ len $ch.topics }} 個主題</p>
       <ol class="nb-toc-list">
-        {{ range $i, $page := .Pages }}
+        {{ range $i, $topic := $ch.topics }}
         <li><a href="#t{{ $i }}" data-toc="t{{ $i }}">
           <span class="nb-toc-n">{{ printf "%02d" (add $i 1) }}</span>
-          <span class="nb-toc-t">{{ $page.Title }}</span>
+          <span class="nb-toc-t">{{ $topic.title }}</span>
         </a></li>
         {{ end }}
       </ol>
@@ -79,31 +74,77 @@
     </aside>
 
     <div class="nb-body">
-      {{ range $i, $page := .Pages }}
-      {{ $secs := after 1 (split $page.RawContent "## ") }}
+      {{ range $i, $topic := $ch.topics }}
       <section class="nb-topic" id="t{{ $i }}">
         <header class="nb-topic-head">
           <p class="nb-topic-meta">
             <span class="nb-topic-n">{{ printf "%02d" (add $i 1) }}</span>
-            {{ with $page.Params.tags }}<span class="nb-topic-tag">{{ index . 0 }}</span>{{ end }}
+            {{ with $topic.tag }}<span class="nb-topic-tag">{{ . }}</span>{{ end }}
           </p>
-          <h2 class="nb-topic-t">{{ $page.Title }}</h2>
+          <h2 class="nb-topic-t">{{ $topic.title }}</h2>
         </header>
 
         <dl class="nb-qa">
-          {{ range $si, $sec := $secs }}
-            {{ $lines := split $sec "\n" }}
-            {{ $heading := trim (index $lines 0) " \r" }}
-            {{ $body := trim (delimit (after 1 $lines) "\n") " \n\r" }}
-            {{ $items := split $body "；" }}
-            <dt class="nb-q">{{ $heading }}</dt>
+          {{ range $item := $topic.items }}
+          <div class="nb-item" id="{{ $item.id }}">
+            <dt class="nb-q">{{ $item.q }}</dt>
             <dd class="nb-a" data-a>
-              {{ if gt (len $items) 1 }}
-              <ul>{{ range $items }}{{ with trim . " \n\r" }}<li>{{ . }}</li>{{ end }}{{ end }}</ul>
-              {{ else }}
-              <p>{{ $body }}</p>
+              <ul>{{ range $item.a }}<li>{{ . }}</li>{{ end }}</ul>
+            </dd>
+
+            {{ $known := slice }}
+            {{ range $item.terms }}{{ with index $terms . }}{{ $known = $known | append . }}{{ end }}{{ end }}
+
+            {{ if $known }}
+            <dd class="nb-terms">
+              {{ range $known }}
+              <span class="nb-term"><b>{{ .zh }}</b> {{ with .abbr }}{{ . }}{{ else }}{{ .en }}{{ end }}</span>
               {{ end }}
             </dd>
+            {{ end }}
+
+            {{ if or $item.detail (or $known $item.numbers) }}
+            <dd class="nb-more">
+              <details class="nb-detail">
+                <summary>展開細節</summary>
+                <div class="nb-detail-in">
+                  {{ with $item.detail }}<p class="nb-detail-p">{{ . }}</p>{{ end }}
+
+                  {{ with $item.numbers }}
+                  <ul class="nb-nums">
+                    {{ range . }}
+                    <li><b class="nb-num-v">{{ .v }}</b><span class="nb-num-u">{{ .unit }}</span><span class="nb-num-of">{{ .of }}</span></li>
+                    {{ end }}
+                  </ul>
+                  {{ end }}
+
+                  {{ if $known }}
+                  <dl class="nb-gloss">
+                    {{ range $known }}
+                    <dt>{{ .zh }}<span class="nb-gloss-en">{{ .en }}{{ with .abbr }}（縮寫 {{ . }}）{{ end }}</span></dt>
+                    {{ with .note }}<dd>{{ . }}</dd>{{ end }}
+                    {{ end }}
+                  </dl>
+                  {{ end }}
+
+                  {{ with $item.related }}
+                  <p class="nb-rel"><span class="nb-rel-k">延伸</span>
+                    {{ range . }}{{ with index $refIndex . }}<a href="{{ .url }}">{{ .q }}</a>{{ end }}{{ end }}
+                  </p>
+                  {{ end }}
+
+                  {{ with $item.locator }}<p class="nb-src">{{ . }}</p>{{ end }}
+                </div>
+              </details>
+
+              {{ with $item.concepts }}
+              <p class="nb-cons">
+                {{ range . }}{{ with index $concepts . }}<span class="nb-con">{{ .zh }}</span>{{ end }}{{ end }}
+              </p>
+              {{ end }}
+            </dd>
+            {{ end }}
+          </div>
           {{ end }}
         </dl>
       </section>
@@ -214,6 +255,21 @@
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); reveal(a); }
     });
   });
+
+  // 從別章的延伸連結跳進來時，把目標那條的細節先展開，否則使用者只看到標題
+  function openTarget() {
+    if (!location.hash) return;
+    var el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (!el) return;
+    var d = el.querySelector('details');
+    if (d) d.open = true;
+    el.classList.add('is-target');
+    // 瀏覽器在字型與展開內容就位前就跳完了，落點會偏掉；自己補一次定位
+    el.scrollIntoView();
+  }
+  window.addEventListener('hashchange', openTarget);
+  window.addEventListener('load', openTarget);
+  openTarget();
 
   // 目次跟隨目前閱讀位置
   var links = {};

@@ -17,7 +17,7 @@ content/
   library/                  # 書庫（每本書一個資料夾）
     essentials-of-strength-training/
       _index.md             # layout: book
-      ch01/ ... ch24/       # 每章 layout: chapter，含 8 個 .md
+      ch01/ ... ch24/       # 每章只有 _index.md（layout: chapter），內容在 data/cscs/
       highlights.md
       notes.md
   notebook/                 # 個人筆記
@@ -42,10 +42,17 @@ static/
     flashcard.js            # 閃卡翻轉（單一功能）
   images/
     cscs-cover.jpg
+layouts/partials/
+  cscs-index.html           # 全書 id → 標題/網址 索引（wiki 連結用，partialCached）
 data/
   books.yaml                # 書目索引（slug 對應 content/library/ 資料夾名）
-  flashcards/
-    ch01.json ... chXX.json # 每章閃卡資料（q / a / tag）
+  cscs/
+    _terms.yaml             # 全書術語表（en / zh / abbr / note），106 條
+    _concepts.yaml          # 受控概念詞彙（封閉集，12 條）
+    ch01.yaml ... ch24.yaml # 每章 topics → items（知識單位）+ cards（閃卡）
+tools/
+  cscs_check.py             # 交叉參照與完整性驗收閘（改 data/cscs/ 後必跑）
+  audit.js                  # 章節頁版型數值迴歸閘（Playwright）
 ```
 
 ---
@@ -175,16 +182,34 @@ static/css/
 
 ---
 
-### 加新 CSCS 章節閃卡
-- 閃卡資料來源是 **Google Sheets CSV**，Hugo build time 透過 `resources.GetRemote` 抓取
-- Sheet URL 設定在 `hugo.toml` → `params.cscsFlashcardsCSV`
-- Sheet 欄位：`chapter, question, answer, tag`（第一列是 header）
-- 新增閃卡：往該 Sheet **append 新列**，`chapter` 填章節 ID（如 `ch01`）
-- 可用 `google-docs-mcp` 的 `appendRows` 工具直接寫入
-- **不再使用** `data/flashcards/` 本地 JSON 檔
-- **寫閃卡注意**：answer 欄位不能以 `=` 開頭，Google Sheets 會解析為公式（導致 #ERROR!）。用 `valueInputOption: RAW` 或改寫句子避開
-- **寫完 Sheets 後必須 push**：Hugo 是 build time 抓 CSV，Sheets 更新後網站不會自動反映，一定要 push 一個 commit 觸發 CI rebuild，閃卡才會出現在網站上
-- **數量基準**：每章目標約 52 張（以 ch01 為標準）；寫完後主動比較同章節現有數量，若明顯偏少（<48）應補充，不等使用者提問
+### CSCS 內容：真相源是 `data/cscs/`，不是 markdown、不是 Google Sheets
+
+2026-07-31 起，章節內容與閃卡全部住在 `data/cscs/chNN.yaml`。**Google Sheets CSV / `resources.GetRemote` / `data/flashcards/*.json` / 每章 8 個 topic md 檔全部已廢除**——建置不再有網路依賴，改資料就是改 yaml。
+
+每個知識單位（item）的欄位：
+
+| 欄位 | 必填 | 說明 |
+|------|------|------|
+| `id` | ✓ | `chNN.topic-slug.item-slug`；**slug 制，重排序不改號** |
+| `q` / `a` | ✓ | 標題句 / 條列答案（`a` 是 YAML list，不是 `；` 分隔字串） |
+| `detail` | | 深度層：寫「為什麼／代表什麼」，**不得複述 `a`** |
+| `terms` | | 指向 `_terms.yaml` 的 key |
+| `numbers` | | `v` / `unit` / `of` 三欄缺一即驗收失敗 |
+| `concepts` | | 只能用 `_concepts.yaml` 的封閉集，不得自由發明 |
+| `related` | | 指向其他 item 的 `id`，跨章自動變 wiki 連結 |
+| `locator` | | 書中出處 |
+
+**驗收閘（改完必跑，兩支都要綠）**：
+
+```bash
+python tools/cscs_check.py            # 交叉參照 / 重複 id / numbers 完整性；有錯 = 失敗，不是待辦
+hugo server                            # 另開一個視窗
+node tools/audit.js                    # 31 條版型與深度層數值斷言
+```
+
+- `audit.js` 需要 playwright：`PLAYWRIGHT_PATH=<playwright 路徑> node tools/audit.js`
+- **術語一律常駐可見**，不准塞進 hover 或 details——使用者的原始痛點就是「只有英文沒有中文」，藏起來等於沒解決；定義本身才進展開層
+- 補完進度：ch01 已補（68 條全滿），ch02–ch24 只有骨架（`detail`/`terms`/`numbers` 空著時深度層自動不渲染，不會有半成品畫面）
 - **完成後立即更新 HANDOFF**：push + CI 確認後，下一步必須更新 HANDOFF.md（勾選已完成項目、更新下一步建議），不等使用者提醒
 
 ---

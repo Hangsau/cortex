@@ -1,0 +1,17 @@
+{{- /* 全書知識單位索引：id → 標題與網址。跨章 wiki 連結靠這張表把 id 解析成可點的連結。
+       用 partialCached 呼叫，全站只建一次（1500+ 條，每頁重建會拖慢建置）。
+       context 傳書本 page，變體用 .RelPermalink，避免多本書共用同一份快取。 */ -}}
+{{- $book := . -}}
+{{- $map := dict -}}
+{{- range $chID, $ch := (index hugo.Data "cscs") -}}
+  {{- if hasPrefix $chID "ch" -}}
+    {{- range $ch.topics -}}
+      {{- range .items -}}
+        {{- $map = merge $map (dict .id (dict
+              "q" .q
+              "url" (printf "%s%s/#%s" $book.RelPermalink $chID .id))) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $map -}}

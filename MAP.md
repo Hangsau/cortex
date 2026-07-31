@@ -27,7 +27,8 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 | 改 vortex 呈現（版面/互動/CSS） | `layouts/vortex/*.html` + `static/css/vortex.css`（可直接改） |
 | 改 ADM / 週期化內容 | 同 vortex：canonical-synced，改 canonical 再 sync |
 | 改氣質 section 內容 | `data/temperament/*.yaml`（my-site 自有，**可直接改**） |
-| 加 CSCS 閃卡 | Google Sheets（非本地檔），見 `CLAUDE.md`；build time 抓 CSV |
+| 改 CSCS 內容 / 閃卡 | `data/cscs/chNN.yaml`（唯一真相源）→ 跑 `python tools/cscs_check.py` |
+| 補 CSCS 深度層（術語/數字/延伸） | 同上 yaml 的 `detail`/`terms`/`numbers`/`related`/`concepts`；術語表 `data/cscs/_terms.yaml` |
 | 改 vortex 互動行為 | `static/js/vortex.js`（單檔依 DOM hook 分派：`.vx-doc` 文件流 scrollspy / legacy 面板切換 / `[data-vx-db]` drills / `[data-vx-find]` database / `[data-vx-adm-std]` ADM 標準 / `.vx-read` 進度條） |
 
 ---
@@ -42,7 +43,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 ### Section → layout 路由
 | content 目錄 | layout | 說明 |
 |-------------|--------|------|
-| `content/library/` | `layouts/library/{list,book,chapter,single}.html` | 書庫；CSCS 章節頁在 `chapter.html`（229 行，2026-07-31 從 3×3 九宮格改成黏性目次文件版型 + 遮答自測；模式切換／scrollspy／閃卡 JS 全內聯）。改動後跑 `tools/audit.js` 迴歸 |
+| `content/library/` | `layouts/library/{list,book,chapter,single}.html` | 書庫；CSCS 章節頁在 `chapter.html`（343 行，2026-07-31 從 3×3 九宮格改成黏性目次文件版型 + 遮答自測 + 深度層，資料讀 `data/cscs/`；模式切換／scrollspy／錨點展開／閃卡 JS 全內聯）。改動後跑 `tools/audit.js` 迴歸 |
 | 　└ 特殊書 | `library/mnfl-{book,toolkit}.html`、`library/ust-{book,handbook,strategies}.html` | 大腦喜歡這樣學 / UST，各自 CSS |
 | `content/notebook/` | `layouts/notebook/{list,single}.html` | 個人筆記 |
 | `content/temperament/` | `layouts/temperament/temperament-main.html`（386 行） | 氣質 section + 測驗（`temperament-quiz.js` 197 行） |
@@ -68,7 +69,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 | `vortex/{single,list}.html` | 29/36 | technica/instructional/bridge 散文 fallback | 無 |
 
 ### CSS（static/css/）
-`variables.css`(49) `base.css`(79) `layout.css`(165) `bookshelf.css`(221) `library.css`(140) `cscs-chapter.css`(352) `notebook.css`(59) `vortex.css`(2080) `vortex-techo.css`(158，僅首頁 tx-*) `vortex-nav.css`(159，全站側欄+搜尋框) `vortex-injuries.css`(242) `mnfl.css`(391) `ust.css`(526) `temperament.css`(296)。  
+`variables.css`(49) `base.css`(79) `layout.css`(165) `bookshelf.css`(221) `library.css`(140) `cscs-chapter.css`(632) `notebook.css`(59) `vortex.css`(2080) `vortex-techo.css`(158，僅首頁 tx-*) `vortex-nav.css`(159，全站側欄+搜尋框) `vortex-injuries.css`(242) `mnfl.css`(391) `ust.css`(526) `temperament.css`(296)。  
 隔離手法：各 section CSS 用 `body:has(.<prefix>-*)` scope，不互相污染。
 
 ### JS（static/js/）
@@ -94,7 +95,10 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 9. **`.Site.Data.*` 已全數遷移完畢**（2026-06-23 稽核：`grep -rn '\.Site\.Data' layouts/` 命中 0）：全站 layout 都用 `index hugo.Data "x"`。舊 MAP 記「8 個 layout 仍用」已過時，不再是隱憂。
 10. **taxonomy 已停用**（`hugo.toml` `disableKinds`）：frontmatter 的 `tags:` 不產頁。想做標籤導覽要先處理中文 slug URL 編碼（否則 mojibake）。
 11. **`el.hidden = true` 在有 `display` class 規則的元素上無效**：author 的 `.nb-doc { display: grid }` specificity 高過 UA 的 `[hidden] { display: none }`，JS 設 hidden 畫面不會變。`cscs-chapter.css` 明寫 `.nb-doc[hidden] { display: none }` 解（**不用 `!important`**，專案禁用）。同模式的 `.vx-*` 若日後用 hidden 切換要一併注意。
-12. **CSCS 章節頁 `chapter.html` 直接剖析子頁 `RawContent`**（`split "## "` 取小節、`split "；"` 拆條列），不走 `.Content`。所以改教材 md 的標點/標題層級會直接影響版面；`；` 是條列分隔符不是普通標點。
+12. **CSCS 章節頁已改讀 `data/cscs/`**（2026-07-31）：舊的「剖析子頁 `RawContent`、`；` 當條列分隔符」機制連同 202 個 topic md 檔一起刪除，`；` 恢復成普通標點。`chNN/` 現在只剩 `_index.md`。
+13. **`related` / `terms` / `concepts` 指到不存在的目標，Hugo 不報錯只給空字串**（同 §踩雷 Vortex 分類標籤的坑）。所以驗收靠 `tools/cscs_check.py`，把斷鏈當失敗；**不跑它就等於沒有交叉參照**。
+14. **wiki 連結索引用 `partialCached "cscs-index.html" $book $book.RelPermalink`**：1583 條，每頁重建會拖慢建置；variant key 用 RelPermalink，避免第二本書共用同一份快取。
+15. **`.nb-detail summary` 的 `display` 不是 `list-item`，原生三角會消失**，靠 `::before` 自己畫；改 summary 版面時別把箭頭弄丟（`audit.js` 沒有斷言它，只有人眼看得到）。
 
 ---
 
@@ -102,5 +106,5 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 
 - **canonical 源在另一個 repo**：`TheVortexProject`（游泳內容真相源）。my-site 只是消費端/呈現層。
 - **swim-coach 不在範圍**：另一套自動教練系統（會反查 periodization data，但獨立）。
-- **CSCS 閃卡資料在 Google Sheets**，非本地檔；改閃卡走 Sheets append + push 觸發 rebuild。
+- **CSCS 內容真相源是 `data/cscs/`**（my-site 自有，可直接改）。Google Sheets CSV / `data/flashcards/*.json` / topic md 檔皆已廢除，別再照舊文件去 Sheets 加閃卡。
 - **Hugo 版本漂移**：CI 0.159.1（寫死 deploy.yml）vs 本機可能更新版，改版面前先知道有落差。

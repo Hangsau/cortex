@@ -233,7 +233,11 @@ body:has(.nb) {
   line-height: 1.6;
   margin: 0 0 4px;
 }
-.nb-q + .nb-a { margin-bottom: 24px; }
+.nb-item {
+  margin-bottom: 28px;
+  scroll-margin-top: calc(var(--nav-height) + 24px);
+}
+.nb-item:last-child { margin-bottom: 0; }
 .nb-a {
   margin: 0;
   font-size: var(--nb-fs-base);
@@ -263,6 +267,141 @@ body:has(.nb) {
   cursor: auto;
   user-select: auto;
 }
+
+/* ---- 術語中英對照 ----
+   常駐可見而非 hover：使用者的痛點就是「只有英文沒有中文」，
+   藏在提示框裡等於沒解決。定義本身才進 details。 */
+.nb-terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin: 6px 0 0 18px;
+  font-size: var(--nb-fs-meta);
+  line-height: 1.7;
+  color: var(--nb-ink-2);
+}
+.nb-term b { font-weight: 700; color: var(--nb-ink); }
+
+/* ---- 深度層：細節、數字、詞義、延伸 ---- */
+.nb-more { margin: 8px 0 0 18px; }
+/* display 不是 list-item 就沒有原生三角，靠 ::before 自己畫一個；
+   沒有可視提示的話「展開細節」看起來只是一行灰字，不會有人去點。 */
+.nb-detail summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 0;
+  min-height: 24px;          /* 鐵則 E：可點目標不小於 24px */
+  font-family: var(--font-mono);
+  font-size: var(--nb-fs-meta);
+  color: var(--nb-ink-2);
+  cursor: pointer;
+}
+.nb-detail summary::-webkit-details-marker { display: none; }
+.nb-detail summary::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform .15s ease;
+}
+.nb-detail[open] summary::before { transform: rotate(45deg); }
+.nb-detail summary:hover { color: var(--nb-accent); }
+.nb-detail[open] summary { color: var(--nb-ink); }
+.nb-detail-in {
+  border-left: 2px solid var(--nb-line);
+  padding: 8px 0 4px 16px;
+  margin-top: 4px;
+}
+.nb-detail-p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--nb-ink);
+}
+
+.nb-nums { list-style: none; margin: 14px 0 0; padding: 0; }
+.nb-nums li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px;
+  padding: 3px 0;
+  font-size: var(--nb-fs-meta);
+  color: var(--nb-ink-2);
+}
+.nb-num-v {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--nb-ink);
+}
+.nb-num-of { color: var(--nb-ink-2); }
+
+.nb-gloss { margin: 14px 0 0; font-size: var(--nb-fs-meta); }
+.nb-gloss dt {
+  font-weight: 700;
+  color: var(--nb-ink);
+  margin-top: 8px;
+}
+.nb-gloss dt:first-child { margin-top: 0; }
+.nb-gloss-en {
+  margin-left: 8px;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  color: var(--nb-ink-2);
+}
+.nb-gloss dd {
+  margin: 2px 0 0;
+  line-height: 1.7;
+  color: var(--nb-ink-2);
+}
+
+.nb-rel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin: 14px 0 0;
+  font-size: var(--nb-fs-meta);
+}
+.nb-rel-k {
+  font-family: var(--font-mono);
+  color: var(--nb-ink-2);
+}
+.nb-rel a {
+  color: var(--nb-accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--nb-line);
+  padding-bottom: 1px;
+}
+.nb-rel a:hover { border-bottom-color: var(--nb-accent); }
+
+.nb-src {
+  margin: 14px 0 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--nb-ink-2);
+}
+
+/* 概念軸：跨章節閱讀的分類，之後會成為連結；現階段先當可見標記 */
+.nb-cons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0 0;
+}
+.nb-con {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--nb-ink-2);
+  border: 1px solid var(--nb-line);
+  padding: 2px 8px;
+}
+
+/* 從別章跳進來的目標條目：只加左緣標記，不做背景高亮以免與遮答紅衝突 */
+.nb-item.is-target { box-shadow: -12px 0 0 -10px var(--nb-accent); }
 
 /* ---- 章末接續 ---- */
 .nb-end {
