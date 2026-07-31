@@ -10,110 +10,194 @@ topics:
   - id: ch05.cardiovascular-adaptations.i01
     q: 急性反應
     a:
-    - HR、SV、CO、BP 全部急性↑
-    - 高強度腿推 峰值 BP 達 320/250 mmHg
-    - HR 170 bpm
-    detail: ''
-    terms: []
-    numbers: []
+    - 阻力運動時心率（HR）、每搏量（SV）、心輸出量（CO）、血壓全部顯著急性上升
+    - 高強度（95% 1RM）腿推曾測得血壓峰值 320/250 mmHg、心率 170 bpm
+    - 血壓反應隨主動肌肉量增加而呈非線性上升
+    detail: 這組數字來自單一項腿推測試研究，代表可能出現的極端值，不是每次重訓的常態反應。書中同時強調：儘管血壓瞬間飆得很高，目前證據不足以顯示阻力訓練會對靜息血壓造成負面影響。
+    terms:
+    - stroke-volume
+    - cardiac-output
+    numbers:
+    - v: 320/250
+      unit: mmHg
+      of: 95% 1RM 腿推測得的血壓峰值
+    - v: 170
+      unit: bpm
+      of: 同一測試測得的心率峰值
+    - v: 95
+      unit: '% 1RM'
+      of: 該峰值血壓與心率測試所用的負荷強度
     concepts:
     - adaptation
     - circulation
     related: []
-    locator: ''
+    locator: Cardiovascular and Respiratory Responses to Anaerobic Exercise > Acute
+      Cardiovascular Responses to Anaerobic Exercise
   - id: ch05.cardiovascular-adaptations.i02
     q: 血壓相位差
     a:
-    - 向心期 BP 高於離心期（尤其在 sticking point）
-    - 離心期 SV/CO 反而較大
-    detail: ''
-    terms: []
-    numbers: []
+    - 血壓在向心期高於離心期，尤其在動作的「黏滯點」（sticking point）附近最明顯
+    - 每搏量與心輸出量反而在離心期上升較多，使用 Valsalva 手法時更明顯
+    - 原因是向心期胸內壓與腹內壓上升（Valsalva）限制靜脈回流、降低舒張末期容積，使血液動力反應延後到離心期或組間休息才浮現
+    - 一組結束後的前 5 秒，心率反而比動作進行中還高
+    detail: 血流的高峰不是跟著出力最大的瞬間走，而是被向心期的胸內壓機制延後——這代表監測阻力訓練的心血管負荷不能只看動作當下，組間休息的前幾秒同樣是高負荷時刻。
+    terms:
+    - valsalva
+    - stroke-volume
+    - cardiac-output
+    numbers:
+    - v: 5
+      unit: 秒
+      of: 一組結束後心率高於動作進行中的時間窗
     concepts:
     - adaptation
     - circulation
-    related: []
-    locator: ''
+    related:
+    - ch05.cardiovascular-adaptations.i01
+    locator: Cardiovascular and Respiratory Responses to Anaerobic Exercise > Acute
+      Cardiovascular Responses to Anaerobic Exercise
   - id: ch05.cardiovascular-adaptations.i03
     q: 血流阻斷
     a:
-    - '>20% MVC → 局部毛細血管壓閉 → 代謝物累積（H⁺/乳酸）→ 休息期反應性充血'
-    detail: ''
-    terms: []
-    numbers: []
+    - 肌肉收縮超過 20% 最大自主收縮力（MVC）時會夾壓微血管，造成局部血流受阻
+    - 休息期血流回升，稱為反應性充血（reactive hyperemia）
+    - 血流受阻造成的代謝物（氫離子）堆積與 pH 下降，本身被認為是刺激肌肉生長的訊號
+    - 血流受阻的程度取決於阻力強度、持續時間（反覆次數）、動用的肌肉量三項
+    detail: 缺血與刺激生長在書中被直接連在一起講——這不是阻力訓練的副作用，而是重量夠重時本來就會發生、且被認為具有生理意義的一環；輕負荷高反覆的阻力運動因為不會夾壓微血管，血流表現反而比較接近有氧運動。
+    terms:
+    - mvc
+    - reactive-hyperemia
+    numbers:
+    - v: 20
+      unit: '% MVC'
+      of: 造成微血管夾壓、血流受阻的收縮強度門檻
     concepts:
     - adaptation
     - circulation
     related: []
-    locator: ''
+    locator: Cardiovascular and Respiratory Responses to Anaerobic Exercise > Acute
+      Cardiovascular Responses to Anaerobic Exercise
   - id: ch05.cardiovascular-adaptations.i04
     q: 慢性靜息適應
     a:
-    - 靜息 HR ↓5–12%（短期）
-    - systolic/diastolic BP ↓2–4%
-    - SV 絕對值↑
-    detail: ''
-    terms: []
-    numbers: []
+    - 短期阻力訓練可使靜息心率下降 5–12%
+    - 長期追蹤結果不一致：有些研究無變化，有些下降 4–13%
+    - 長期訓練者（健美、健力、舉重選手）靜息心率的平均值與偏低值（60–78 bpm）都比未訓練者常見
+    - 統合分析顯示收縮壓與舒張壓皆下降 2–4%，起始血壓略高者效果最明顯
+    - 每搏量絕對值上升，但相對於體表面積或除脂體重則沒有上升（隨除脂體重增加而增加）
+    - 總膽固醇與低密度脂蛋白可能不變或略降，高密度脂蛋白可能上升
+    detail: 書中明講「重阻力訓練對靜息心臟功能的提升有限」——真正對靜息心血管功能有較大改善的，反而是高量、短休息的健美式或循環訓練，因為那種訓練整體的持續張力更高，更接近有氧刺激。
+    terms:
+    - double-product
+    numbers:
+    - v: 5–12
+      unit: '%'
+      of: 短期阻力訓練後靜息心率下降幅度
+    - v: 4–13
+      unit: '%'
+      of: 部分長期追蹤研究的靜息心率下降幅度
+    - v: 60–78
+      unit: bpm
+      of: 長期訓練者靜息心率範圍
+    - v: 2–4
+      unit: '%'
+      of: 統合分析中收縮壓／舒張壓下降幅度
     concepts:
     - adaptation
     - circulation
     related: []
-    locator: ''
+    locator: Cardiovascular and Respiratory Responses to Anaerobic Exercise > Chronic
+      Cardiovascular Adaptations at Rest
   - id: ch05.cardiovascular-adaptations.i05
     q: 左心室壁厚↑
     a:
-    - 慢性阻力訓練→LV壁厚↑
-    - 校正體表面積後差異縮小
-    - 與有氧訓練（腔室↑）不同
-    detail: ''
+    - 慢性阻力訓練使左心室壁厚度與心臟重量上升，但換算成相對體表面積或除脂體重後，差異就消失了
+    - 左心室腔室大小或容積幾乎沒有變化——這是阻力訓練與有氧訓練在心臟結構適應上的主要差異
+    - 健美選手的左右心室絕對舒張末期／收縮末期容積比正常值大，但舉重選手沒有這個現象；書中提醒這可能與健美選手常兼練有氧運動有關
+    - 健美與舉重選手的左心房內徑（絕對值與相對值）都比正常值大，健美選手的差異更明顯
+    detail: 心室壁增厚被認為源自訓練中間歇性的血壓與胸內壓升高，加上除脂體重與體型增加所需的代償。「腔室不變、壁增厚」常被拿來與有氧訓練的「腔室擴大」模式對比，但書中同時提醒健美選手的容積變化未必是阻力訓練單獨造成的。
     terms: []
     numbers: []
     concepts:
     - adaptation
     - circulation
-    related: []
-    locator: ''
+    related:
+    - ch05.cardiovascular-adaptations.i04
+    locator: Cardiovascular and Respiratory Responses to Anaerobic Exercise > Chronic
+      Cardiovascular Adaptations at Rest
   - id: ch05.cardiovascular-adaptations.i06
     q: 運動心血管鈍化
     a:
-    - 訓練後同等絕對強度下 HR/BP/double product 急性反應↓
-    - afterload↓ → CO↑
-    detail: ''
-    terms: []
-    numbers: []
+    - 長期阻力訓練後，同樣絕對強度下 HR、BP、double product（心率×收縮壓，反映心肌作功）的急性上升幅度都會被鈍化
+    - 男性健美選手在 50–100% 1RM 力竭組別中，收縮壓、舒張壓與心率都低於久坐者與訓練較少者
+    - 健美選手的峰值心輸出量與每搏量顯著高於健力選手，顯示同樣絕對負荷下訓練者能動用更大的每搏量與心輸出量
+    - 這些適應被認為源自左心室後負荷（afterload）下降，使心輸出量上升、心肌耗氧量下降
+    - 重負荷低量的阻力訓練通常無法改善氧氣攝取率，高量短休息的阻力訓練或連續有氧運動改善幅度較大
+    detail: 鈍化不是心臟變弱，而是同一份工作對心臟造成的相對負擔變小。書中特別點出健美 vs 健力的對比不是負荷大小的差異，而是量與休息結構的差異——健美式的高量短休息練法本身就比健力式的低量長休息更接近能練到心血管功能的刺激。
+    terms:
+    - double-product
+    - afterload
+    numbers:
+    - v: 50–100
+      unit: '% 1RM'
+      of: 健美選手力竭組別測試所用的負荷範圍
     concepts:
     - adaptation
     - circulation
-    related: []
-    locator: ''
+    related:
+    - ch05.cardiovascular-adaptations.i04
+    locator: Cardiovascular and Respiratory Responses to Anaerobic Exercise > Chronic
+      Adaptations of the Acute Cardiovascular Response to Anaerobic Exercise
   - id: ch05.cardiovascular-adaptations.i07
     q: 通氣反應
     a:
-    - 組間通氣最高（>60 L/min）
-    - 短休息（30s）通氣更高
-    - 訓練後每分通氣當量↓
-    detail: ''
-    terms: []
-    numbers: []
+    - 通氣速率通常不是阻力訓練的限制因子，阻力訓練對它的影響不明顯或只有中度改善
+    - 每組動作中通氣量已顯著升高，恢復的第一分鐘升高幅度甚至更大
+    - 已測到通氣量超過 60 L/min；休息時間長短影響很大，短休息（30 秒至 1 分鐘）造成的通氣升高最明顯
+    - 訓練適應包含最大運動時潮氣容積與呼吸頻率都上升；次大強度運動時呼吸頻率反而下降、潮氣容積上升
+    - 訓練者的每分通氣當量（V̇E/V̇O2，通氣量對耗氧量的比值）比未訓練者更有效率
+    detail: 休息期間通氣量比組內還高，提醒了一件事：阻力訓練的呼吸負荷高峰常落在組間，不是動作當下——這也是短休息的高量訓練通氣需求特別大的原因。
+    terms:
+    - tidal-volume
+    - ventilatory-equivalent
+    numbers:
+    - v: 60
+      unit: L/min
+      of: 阻力訓練組間通氣量的已測上限（超過此值）
+    - v: 30 秒–1
+      unit: 分鐘
+      of: 造成最大通氣升高的休息時間範圍
     concepts:
     - adaptation
     - circulation
     related: []
-    locator: ''
+    locator: Cardiovascular and Respiratory Responses to Anaerobic Exercise > Ventilatory
+      Response to Anaerobic Exercise
   - id: ch05.cardiovascular-adaptations.i08
     q: 有氧阻力並用
     a:
-    - 大量有氧（頻率/強度過高）可能抑制力量/爆發力增益
-    - 合理頻次安排可降低干擾
-    detail: ''
+    - 合併阻力與有氧訓練可能干擾力量／爆發力增益，主因是有氧訓練的強度、量或頻率過高
+    - Kraemer 三個月五組別研究：純阻力組的 1RM 力量與力量發展速率增幅都大於合併組；但兩組的最大攝氧量進步幾乎相同，顯示合併訓練沒有造成有氧的過度訓練
+    - 爆發力比最大力量更容易受干擾：純阻力組上肢與下肢的峰值功率都有提升，合併組沒有
+    - 每週交替 6 天分開訓練（3 天阻力＋3 天有氧）或每週 4–6 天高強度合併訓練較容易出現不相容效應；同一次訓練同時做兩者、每週約 3 天且組間留休息日則較少出現不相容
+    - 訓練順序也有影響：25 分鐘有氧運動後 30 分鐘做深蹲，反覆次數比未先做有氧時減少 13–36%
+    detail: 干擾效應不是「有氧就會抵銷力量」的全稱命題——書中的反例是每週 4 天分開訓練（2 天阻力＋2 天有氧）比每週 2 天合併訓練對腿推 1RM 的效果更好（25% vs 13%），代表安排的頻率與恢復間隔比「有沒有做有氧」本身更關鍵。
     terms: []
-    numbers: []
+    numbers:
+    - v: 13–36
+      unit: '%'
+      of: 有氧運動後 30 分鐘做深蹲，反覆次數的減少幅度
+    - v: 25
+      unit: '%'
+      of: 每週 4 天分開訓練組的腿推 1RM 增幅
+    - v: 13
+      unit: '%'
+      of: 每週 2 天合併訓練組的腿推 1RM 增幅
     concepts:
     - adaptation
     - circulation
     related: []
-    locator: ''
+    locator: Compatibility of Aerobic and Anaerobic Modes of Training
 - id: connective-tissue
   title: 結締組織適應 Bone & Connective Tissue
   desc: ''
@@ -136,7 +220,7 @@ topics:
     - structure
     related:
     - ch05.connective-tissue.i02
-    locator: 第 5 章 · Connective Tissue Adaptations
+    locator: Connective Tissue Adaptations
   - id: ch05.connective-tissue.i02
     q: MES 閾值
     a:
@@ -157,7 +241,7 @@ topics:
     related:
     - ch05.connective-tissue.i01
     - ch05.connective-tissue.i04
-    locator: 第 5 章 · General Bone Physiology
+    locator: Connective Tissue Adaptations > General Bone Physiology
   - id: ch05.connective-tissue.i03
     q: BMD 與肌力相關
     a:
@@ -178,7 +262,7 @@ topics:
     - structure
     related:
     - ch05.connective-tissue.i04
-    locator: 第 5 章 · Anaerobic Training and Bone Growth
+    locator: Connective Tissue Adaptations > Anaerobic Training and Bone Growth
   - id: ch05.connective-tissue.i04
     q: 骨骼訓練原則
     a:
@@ -202,7 +286,7 @@ topics:
     related:
     - ch05.connective-tissue.i02
     - ch05.connective-tissue.i03
-    locator: 第 5 章 · Principles of Training to Increase Bone Strength
+    locator: Connective Tissue Adaptations > Principles of Training to Increase Bone Strength
   - id: ch05.connective-tissue.i05
     q: 肌腱適應
     a:
@@ -229,7 +313,7 @@ topics:
     related:
     - ch05.connective-tissue.i06
     - ch05.connective-tissue.i08
-    locator: 第 5 章 · Adaptations of Tendons, Ligaments, and Fascia
+    locator: Connective Tissue Adaptations > Adaptations of Tendons, Ligaments, and Fascia to Anaerobic Training
   - id: ch05.connective-tissue.i06
     q: 韌帶與筋膜
     a:
@@ -248,7 +332,7 @@ topics:
     - structure
     related:
     - ch05.connective-tissue.i05
-    locator: 第 5 章 · Adaptations of Tendons, Ligaments, and Fascia
+    locator: Connective Tissue Adaptations > Adaptations of Tendons, Ligaments, and Fascia to Anaerobic Training
   - id: ch05.connective-tissue.i07
     q: 軟骨
     a:
@@ -267,7 +351,7 @@ topics:
     - structure
     related:
     - ch05.connective-tissue.i06
-    locator: 第 5 章 · Adaptations of Cartilage to Anaerobic Training
+    locator: Connective Tissue Adaptations > Adaptations of Cartilage to Anaerobic Training
   - id: ch05.connective-tissue.i08
     q: 膠原蛋白結構
     a:
@@ -286,811 +370,1016 @@ topics:
     - structure
     related:
     - ch05.connective-tissue.i05
-    locator: 第 5 章 · Adaptations of Tendons, Ligaments, and Fascia
+    locator: Connective Tissue Adaptations > Adaptations of Tendons, Ligaments, and Fascia to Anaerobic Training
 - id: detraining
   title: 去訓練 Detraining
   desc: ''
   tag: Detraining
   items:
   - id: ch05.detraining.i01
-    q: 肌力維持期
-    a:
-    - 停訓後肌力普遍可維持 4 週
-    - 高訓練者離心力與爆發力可能提早下滑
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - adaptation
-    related: []
-    locator: ''
-  - id: ch05.detraining.i02
-    q: 短期影響（≤2週）
-    a:
-    - 14 天停訓：1RM bench –1.7%、squat –0.9%
-    - 等速/等長力幾乎不變
-    - 跳躍維持
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - adaptation
-    related: []
-    locator: ''
-  - id: ch05.detraining.i03
-    q: 中期影響（8–12週）
-    a:
-    - 肌力僅損失 7–12%
-    - 但 EMG↓（神經機制先退）
-    - 快縮纖維 CSA 先萎縮
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - adaptation
-    related: []
-    locator: ''
-  - id: ch05.detraining.i04
-    q: 快縮 vs 慢縮萎縮
-    a:
-    - 快縮纖維 CSA 優先萎縮（14天即 –6.4%）
-    - 慢縮纖維初期不受影響
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - adaptation
-    related: []
-    locator: ''
-  - id: ch05.detraining.i05
-    q: 長期影響
-    a:
-    - 7 個月：所有纖維均萎縮 ~37%
-    - 13.5 月後健美選手無脂肪體重 –9.3%
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - adaptation
-    related: []
-    locator: ''
-  - id: ch05.detraining.i06
-    q: IIx overshoot
-    a:
-    - 去訓練後 IIa → IIx
-    - 可能超過訓練前 IIx 比例（反向過衝現象）
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - adaptation
-    related: []
-    locator: ''
-  - id: ch05.detraining.i07
-    q: 肌肉記憶
-    a:
-    - 恢復訓練時肌力重獲速度快
-    - 停訓後肌力幾乎不低於訓練前水準（residual effect）
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - adaptation
-    related: []
-    locator: ''
-  - id: ch05.detraining.i08
     q: 可逆性原則
     a:
-    - 訓練適應為暫時性
-    - 頻率/量/強度任一嚴重減少皆可引發去訓練效應
-    detail: ''
+    - 去訓練指停止無氧訓練，或頻率、訓練量、強度大幅減少後，表現與已累積的生理適應下降的現象
+    - 依可逆性原則，訓練誘發的適應是暫時性的，訓練負荷不足或完全移除時會逐漸消失
+    - 損失幅度取決於去訓練期間的長度，以及個人原本的訓練狀態
+    detail: 可逆性原則是整個去訓練主題的統攝概念——後面所有具體數字（4 週、8–12 週、7 個月、13.5 個月）都是同一條原則在不同時間尺度下的展開，不是各自獨立的現象。
+    terms:
+    - reversibility
+    numbers: []
+    concepts:
+    - adaptation
+    related: []
+    locator: Detraining
+  - id: ch05.detraining.i02
+    q: 停訓初期：肌力的滯後效應
+    a:
+    - 移除訓練刺激後，去訓練效應要經過一段延遲才會完全顯現
+    - 一般而言肌力可維持長達 4 週不受影響
+    - 但高度訓練者的離心力量與運動專項爆發力，可能提早、更快出現下滑
+    detail: 「一般肌力維持 4 週」與「高訓練者更快下滑」看似矛盾，其實反映訓練狀態越高，維持適應所需的持續刺激也越精細——離心力與爆發力是相對晚期、高度特化的適應，停止刺激後也最先流失。
+    terms: []
+    numbers:
+    - v: 4
+      unit: 週
+      of: 一般情況下肌力可維持不受去訓練影響的時間
+    concepts:
+    - adaptation
+    related: []
+    locator: Detraining
+  - id: ch05.detraining.i03
+    q: 14 天停訓的實測數據
+    a:
+    - 訓練有素的舉重選手停訓 14 天：1RM bench press –1.7%、squat –0.9%
+    - 等長膝伸展力 –7%、等速向心膝伸展力 –2.3%、垂直跳表現 +1.2%（幾乎無變化）
+    - 休閒訓練男性在停訓前 6 週內變化非常小
+    detail: 這組數字說明短期停訓（2 週）對訓練有素者的影響其實很輕微，垂直跳甚至沒有下滑——這與「停練馬上退步」的直覺不同，也支持前一條「肌力一般可維持 4 週」的說法。
+    terms: []
+    numbers:
+    - v: -1.7
+      unit: "%"
+      of: 舉重選手停訓 14 天後臥推 1RM 的變化
+    - v: -0.9
+      unit: "%"
+      of: 舉重選手停訓 14 天後深蹲 1RM 的變化
+    - v: 6
+      unit: 週
+      of: 休閒訓練男性停訓後幾乎無變化可維持的期間
+    concepts:
+    - adaptation
+    related: []
+    locator: Detraining
+  - id: ch05.detraining.i04
+    q: 8–12 週的中期損失與神經機制
+    a:
+    - 訓練有素的力量型運動員停訓時間拉長後，肌力下滑幅度明顯加大，但停訓 8–12 週的損失仍限制在 7% 至 12%
+    - 肌力損失伴隨著雙側與單側最大肌電圖（EMG）活性下降
+    - 肌力下降初期與神經機制相關，隨去訓練期間拉長，肌肉萎縮才逐漸取代神經因素成為主因
+    detail: EMG 下降先於（並先於）明顯的肌肉萎縮，說明肌力流失的順序與獲得時相似——神經適應先變化，結構性適應（肌肉量）的改變在後，這跟本章神經適應主題「肌力增益初期多來自神經」的邏輯剛好對稱。
+    terms: []
+    numbers:
+    - v: 7-12
+      unit: "%"
+      of: 停訓 8 至 12 週後力量型運動員的肌力損失範圍
+    concepts:
+    - adaptation
+    related:
+    - ch05.neural-adaptations.i01
+    locator: Detraining
+  - id: ch05.detraining.i05
+    q: 殘留效應與肌肉記憶
+    a:
+    - 保留下來的肌力很少低於訓練前的原始水準，顯示阻力訓練停止後仍有「殘留效應」
+    - 恢復訓練時，肌力重新獲得的速度很快，支持「肌肉記憶」的說法
+    detail: 殘留效應加上快速重獲，是去訓練主題裡對訓練者最實用的訊息——即使長時間中斷訓練，肌力也很少完全打回原點，回歸訓練後找回水準的速度也遠比從零開始訓練快。
     terms: []
     numbers: []
     concepts:
     - adaptation
     related: []
-    locator: ''
+    locator: Detraining
+  - id: ch05.detraining.i06
+    q: 纖維類型分布與氧化性纖維的反直覺變化
+    a:
+    - 停訓初期，纖維結構的破壞程度大致不變；力量型運動員停訓 14 天，肌纖維類型分布沒有明顯改變
+    - 停訓 8 週內，力量型運動員的氧化性纖維比例可能反而增加（耐力型運動員則是減少）
+    detail: 這是本主題最反直覺的一條——一般預期「不練了適應就全部退步」，但氧化性纖維比例在力量型運動員身上短期內不減反增，且與耐力型運動員的方向相反，說明去訓練效應會依原本的訓練型態分道而行，不是單一退化曲線。
+    terms: []
+    numbers:
+    - v: 14
+      unit: 天
+      of: 力量型運動員停訓後肌纖維類型分布仍無明顯改變的時間
+    concepts:
+    - adaptation
+    - fiber-type
+    related:
+    - ch05.fiber-type-transitions.i01
+    locator: Detraining
+  - id: ch05.detraining.i07
+    q: 橫截面積（CSA）的快速流失：快縮優先
+    a:
+    - 纖維類型分布不變的同時，肌纖維橫截面積（CSA）在力量與短跑型運動員身上下滑得很快
+    - Hortobagyi 等人對 12 位訓練有素舉重選手的研究：停訓 14 天，快縮纖維 CSA 下降 6.4%，慢縮纖維初期無顯著變化
+    - 職業橄欖球聯盟球員：賽季末快縮纖維 CSA 比慢縮大 23%，但停訓 6 週後這個差距只剩 9%
+    detail: CSA 與纖維類型分布是兩個獨立指標——「型態沒變」不代表「大小沒變」，快縮纖維的體積流失速度遠快於慢縮纖維，也遠快於纖維類型本身重新分類的速度。
+    terms: []
+    numbers:
+    - v: -6.4
+      unit: "%"
+      of: 舉重選手停訓 14 天後快縮纖維 CSA 的下降幅度
+    concepts:
+    - adaptation
+    - fiber-type
+    related: []
+    locator: Detraining
+  - id: ch05.detraining.i08
+    q: 長期停訓的累積流失
+    a:
+    - 一位健力選手停訓 7 個月後，所有纖維類型平均萎縮 37.1%
+    - 頂尖健美選手停訓 13.5 個月後：無脂肪體重 –9.3%、大腿圍 –0.5%、手臂圍 –11.5%、平均纖維面積 –8.3%
+    detail: 大腿圍幾乎不變（–0.5%）但纖維面積大幅下降（–8.3%），兩個數字放在一起說明周徑測量對偵測肌肉流失並不敏感——外觀維度變化遠小於實際肌纖維層級的萎縮程度。
+    terms: []
+    numbers:
+    - v: 37.1
+      unit: "%"
+      of: 健力選手停訓 7 個月後所有纖維類型的平均萎縮幅度
+    - v: 13.5
+      unit: 個月
+      of: 頂尖健美選手停訓後觀察無脂肪體重、圍度與纖維面積下降的時間點
+    concepts:
+    - adaptation
+    related: []
+    locator: Detraining
 - id: endocrine-adaptations
   title: 內分泌反應 Endocrine Adaptations
   desc: ''
   tag: Endocrine
   items:
   - id: ch05.endocrine-adaptations.i01
-    q: 急性合成激素↑
+    q: 急性合成激素反應
     a:
-    - 運動後 testosterone、GH、cortisol 升高可達 30 分鐘
-    - 大肌群動作 + 中高量 + 短休息效果最大
-    detail: ''
-    terms: []
-    numbers: []
+    - 無氧運動（特別是阻力訓練）後，男性的睾固酮、GH 分子變體、皮質醇濃度可維持升高長達 30 分鐘
+    - 升高幅度在使用大肌群動作，或中高強度、中高訓練量搭配較短休息時最大
+    detail: 這條建立本主題的基準模式——急性激素反應不是恆定的，其幅度直接由訓練變項（動作選擇、強度、量、休息）決定，後面幾條都是圍繞這個基準模式的延伸與例外。
+    terms:
+    - testosterone
+    - cortisol
+    numbers:
+    - v: 30
+      unit: 分鐘
+      of: 無氧運動後男性睾固酮／GH／皮質醇維持升高的時間
     concepts:
     - adaptation
     - hormone
-    related: []
-    locator: ''
+    related:
+    - ch04.testosterone.i01
+    - ch04.cortisol.i01
+    locator: Endocrine Responses and Adaptations to Anaerobic Training > Acute Anabolic Hormone Responses
   - id: ch05.endocrine-adaptations.i02
-    q: GH 與乳酸
+    q: 乳酸／氫離子與 GH、皮質醇的關聯
     a:
-    - 血乳酸 / H⁺ 累積是 GH 和 cortisol 分泌的主要刺激因子
-    detail: ''
-    terms: []
+    - 血乳酸與 GH、皮質醇濃度呈高度相關，氫離子累積被認為是刺激 GH 與皮質醇分泌的主要因子
+    - 游離睾固酮的升高幅度在阻力訓練者身上大於有氧訓練者
+    - 部分研究顯示女性運動後睾固酮也有輕微升高
+    detail: 氫離子累積作為刺激因子的推論，直接呼應本章稍早高強度間歇訓練提升緩衝能力的邏輯——同一種代謝壓力（H⁺堆積）既是誘發內分泌反應的訊號，也是誘發緩衝適應的訊號。
+    terms:
+    - testosterone
     numbers: []
     concepts:
     - adaptation
     - hormone
-    related: []
-    locator: ''
+    related:
+    - ch04.testosterone.i02
+    locator: Endocrine Responses and Adaptations to Anaerobic Training > Acute Anabolic Hormone Responses
   - id: ch05.endocrine-adaptations.i03
-    q: IGF-I
+    q: IGF-I 與機械生長因子
     a:
-    - GH 的下游媒介
-    - 刺激幾乎所有細胞生長（骨骼肌、軟骨、骨）
-    - 運動後延遲上升
-    detail: ''
+    - IGF-I 是 GH 的主要下游媒介，作用於幾乎所有細胞（尤其骨骼肌、軟骨、骨）的生長促進
+    - IGF-I 對運動的反應延遲，且依賴急性 GH 反應才會啟動
+    - 機械生長因子（mechano growth factor）則在機械負荷下獨立於 GH 於骨骼肌內上調
+    detail: 「獨立於 GH」是這條的關鍵——它說明肌肉的生長訊號不是單一線性鏈（GH→IGF-I→生長），而是存在一條不需要等待 GH 反應、由機械形變直接觸發的平行路徑。
     terms: []
     numbers: []
     concepts:
     - adaptation
     - hormone
-    related: []
-    locator: ''
+    related:
+    - ch04.igf.i01
+    locator: Endocrine Responses and Adaptations to Anaerobic Training > Acute Anabolic Hormone Responses
   - id: ch05.endocrine-adaptations.i04
-    q: 慢性急性反應改變
+    q: 胰島素與兒茶酚胺的角色
     a:
-    - 長期訓練 → 承受更大負荷 → 急性內分泌反應程度更大（以 GH 最明顯）
-    detail: ''
-    terms: []
+    - 胰島素分泌主要跟隨血糖與胺基酸濃度變化，受補充品攝取時機的影響大於無氧運動本身的刺激
+    - 兒茶酚胺（腎上腺素、去甲腎上腺素、多巴胺）反映無氧運動的急性需求
+    - 兒茶酚胺濃度上升對調節力量產生、肌肉收縮速率、能量可用性，以及強化其他激素（如睾固酮）的作用都很重要
+    detail: 胰島素在這裡被排除在「運動誘發」的激素之外——它的變化主要由飲食時機驅動，這也是為何討論運動內分泌適應時，胰島素通常只在營養介入的脈絡下被提及。
+    terms:
+    - catecholamine
+    - epinephrine
+    - norepinephrine
+    - dopamine
     numbers: []
     concepts:
     - adaptation
     - hormone
-    related: []
-    locator: ''
+    related:
+    - ch04.catecholamines.i01
+    locator: Endocrine Responses and Adaptations to Anaerobic Training > Acute Anabolic Hormone Responses
   - id: ch05.endocrine-adaptations.i05
-    q: 靜息濃度不變
+    q: 急性反應的慢性改變
     a:
-    - 長期訓練後靜息激素濃度幾乎不變
-    - 訓練中短暫↑已足夠刺激組織重塑
-    detail: ''
+    - 長期阻力訓練使身體能承受漸增的相對訓練強度，可產生更大肌肉力量
+    - 隨之而來的是急性內分泌反應也會反映這種適應提升，此現象在 GH 上被最明顯地觀察到
+    detail: 這裡的「慢性改變」指的是急性反應本身隨訓練資歷變得更強，而不是靜息濃度改變——兩者是本主題容易混淆的兩種不同時間尺度變化，下一條會處理靜息濃度的部分。
     terms: []
     numbers: []
     concepts:
     - adaptation
     - hormone
     related: []
-    locator: ''
+    locator: Endocrine Responses and Adaptations to Anaerobic Training > Chronic Changes in the Acute Hormonal Response
   - id: ch05.endocrine-adaptations.i06
-    q: AR 受體上調
+    q: 靜息激素濃度多半不變
     a:
-    - 阻力訓練後 48–72 小時內 AR ↑
-    - 高量訓練（6 組）先下調再上調
-    - 補充蛋白+碳水可減緩下調
-    detail: ''
+    - 長期無氧訓練後，睾固酮、GH、IGF-I、皮質醇的靜息濃度變化證據不一致，慢性改變的可能性不高
+    - 運動中與運動後的短暫升高，被認為已足以刺激組織重塑，不需要靜息基準值長期偏高
+    detail: 這條解釋為何「測靜息激素濃度」不是判斷訓練適應好壞的可靠指標——真正驅動組織重塑的是訓練當下與訓練後的急性波動，靜息值本身反而相對穩定。
     terms: []
     numbers: []
     concepts:
     - adaptation
     - hormone
     related: []
-    locator: ''
+    locator: Endocrine Responses and Adaptations to Anaerobic Training > Chronic Changes in Resting Hormonal Concentrations
   - id: ch05.endocrine-adaptations.i07
-    q: 兒茶酚胺
+    q: 雄激素受器（AR）含量與上調時機
     a:
-    - 腎上腺素 / 去甲腎上腺素反映無氧訓練急性需求
-    - 調節力量輸出與其他激素
-    detail: ''
-    terms: []
-    numbers: []
+    - AR 含量（目標組織單位面積的受器數）取決於肌纖維類型、收縮活動量與睾固酮濃度
+    - 阻力訓練後 48 至 72 小時內，AR 含量會上調
+    - 訓練刺激的量似乎會調節 AR 變化的幅度
+    detail: AR 含量不是固定值而是動態調控的變數，這條先建立「受什麼因素影響、多久後上調」的基準模式，下一條會說明高訓練量反而先讓 AR 下調的例外情況。
+    terms:
+    - androgen-receptor
+    numbers:
+    - v: 48-72
+      unit: 小時
+      of: 阻力訓練後 AR 含量開始上調所需的時間範圍
     concepts:
     - adaptation
     - hormone
-    related: []
-    locator: ''
+    related:
+    - ch04.receptor-mechanisms.i03
+    locator: Endocrine Responses and Adaptations to Anaerobic Training > Hormone Receptor Changes
   - id: ch05.endocrine-adaptations.i08
-    q: 受體下調風險
+    q: AR 先下調現象與慢性高暴露的代價
     a:
-    - 慢性高激素暴露 → 受體下調（如 type 2 diabetes 與胰島素）
-    - 類固醇使用者需周期循環
-    detail: ''
-    terms: []
-    numbers: []
+    - Ratamess 等人比較 1 組與 6 組 × 10 下深蹲：單組無 AR 差異，6 組的高量課表在運動後 1 小時造成 AR 顯著下調，早於其他研究觀察到的上調
+    - Kraemer 等人發現運動前後補充蛋白＋碳水可減緩這種 AR 下調
+    - 慢性高激素暴露長期而言可能適得其反：受器會因持續高暴露而下調（如第二型糖尿病患者對胰島素的敏感度下降）
+    - 這也是類固醇使用者採取週期性用藥而非持續高劑量的原因
+    detail: 高量訓練先下調 AR 這個發現，與「訓練量越大合成反應越強」的直覺相反——書中把它跟慢性高激素暴露導致受器去敏感化歸為同一類機制：受器數量對「持續高濃度暴露」的反應是下調，不是上調。
+    terms:
+    - androgen-receptor
+    numbers:
+    - v: 1
+      unit: 小時
+      of: Ratamess 研究中 6 組深蹲課表造成 AR 顯著下調所需的運動後時間
     concepts:
     - adaptation
     - hormone
-    related: []
-    locator: ''
+    related:
+    - ch04.receptor-mechanisms.i02
+    locator: Endocrine Responses and Adaptations to Anaerobic Training > Hormone Receptor Changes
 - id: fiber-type-transitions
   title: 肌纖維轉型 Fiber Type Transitions
   desc: ''
   tag: Fiber Type
   items:
   - id: ch05.fiber-type-transitions.i01
-    q: 轉型方向
+    q: 纖維類型連續體與轉型方向
     a:
-    - 無氧訓練：IIx → IIax → IIa（更有氧化能力）
-    - 去訓練反向：IIa → IIx
-    detail: ''
-    terms: []
+    - 肌纖維理論上位於一個氧化能力連續體上：I、Ic、IIc、IIac、IIa、IIax、IIx，各自對應 MHC I、IIa、IIx 的表現量
+    - Type I／II 大比例由遺傳決定，但各亞型之間會隨訓練轉型
+    - 高閾值運動單位被活化後，訓練誘發的方向是 IIx → IIax → IIa（氧化能力提高）
+    detail: 這條區分了「大類型（I vs II）由遺傳決定、訓練改不了」與「亞型（IIx/IIax/IIa 之間）會隨訓練轉型」——兩者常被混為一談，但書中明確只有後者是可訓練的。
+    terms:
+    - mhc
     numbers: []
     concepts:
     - adaptation
     - fiber-type
     related: []
-    locator: ''
+    locator: Muscular Adaptations > Fiber Type Transitions
   - id: ch05.fiber-type-transitions.i02
-    q: 轉型速度
+    q: Staron 研究：轉型速度與幅度
     a:
-    - 女性 2 週（4 次訓練）、男性 4 週即見顯著 IIx 減少
-    - 8 週後 IIx 從 18% → 7%
-    detail: ''
-    terms: []
-    numbers: []
+    - Staron 等人的研究：多組深蹲／腿推／膝伸展，採 6–12RM 負荷、組間休息 2 分鐘，每週 2 次共 8 週
+    - 女性訓練 2 週（4 次訓練）後 IIx 比例即顯著下降，男性則在 4 週（8 次訓練）後才出現顯著下降
+    - 整個 8 週課程中，兩性 IIx 比例皆從約 18% 降至約 7%，MHC 分析顯示 IIx MHC 被 IIa MHC 取代
+    detail: 女性比男性更快出現顯著轉型，是這個研究少數明確報告的性別差異之一；但兩性最終的轉型幅度（18%→7%）相同，代表訓練終點是收斂的，只是抵達速度不同。
+    terms:
+    - mhc
+    numbers:
+    - v: 18-7
+      unit: "%"
+      of: Staron 研究 8 週課程中 IIx 纖維比例的下降區間（起點約 18%，終點約 7%）
     concepts:
     - adaptation
     - fiber-type
     related: []
-    locator: ''
+    locator: Muscular Adaptations > Fiber Type Transitions
   - id: ch05.fiber-type-transitions.i03
-    q: MHC 改變
+    q: 荷爾蒙交互作用與去訓練反轉
     a:
-    - IIx MHC → IIa MHC
-    - 與睾酮/皮質醇交互作用相關
-    - 去訓練可能造成 IIx overshoot
-    detail: ''
+    - Staron 研究同時發現，睾固酮與皮質醇濃度的變化與肌纖維類型改變相關
+    - 去訓練造成相反效果：IIx 比例上升、IIa 比例下降
+    - 去訓練後 IIx 比例可能出現「overshoot」，高於原本訓練前的水準
+    detail: overshoot 現象提醒訓練與去訓練不是單純鏡像對稱——停止訓練後纖維組成不只是「退回原點」，某些情況下會超調到比訓練前更偏向 IIx 的狀態。
     terms: []
     numbers: []
     concepts:
     - adaptation
     - fiber-type
-    related: []
-    locator: ''
+    related:
+    - ch05.detraining.i06
+    locator: Muscular Adaptations > Fiber Type Transitions
   - id: ch05.fiber-type-transitions.i04
-    q: Type I ↔ II
+    q: Type I ↔ Type II 轉換的可能性
     a:
-    - Type I 與 II 之間的轉換幾乎不可能
-    - MHC isoform 差異太大
-    - 為遺傳決定
-    detail: ''
-    terms: []
+    - Type I 與 Type II 之間的直接轉換看似不太可能，主因是兩者 MHC 同型異構物與氧化酵素含量差異太大
+    - 目前證據不足以確認或排除這種轉換是否可能發生
+    detail: 書中對此保持開放但保守的立場——不是斷言「不可能」，而是說「證據不足」，並提出馬拉松選手做重阻力訓練、健力選手做長期有氧訓練這類極端情境仍待未來研究釐清。
+    terms:
+    - mhc
     numbers: []
     concepts:
     - adaptation
     - fiber-type
     related: []
-    locator: ''
+    locator: Muscular Adaptations > Fiber Type Transitions
   - id: ch05.fiber-type-transitions.i05
-    q: 有氧+阻力並用
+    q: 阻力＋有氧併用的轉型效果
     a:
-    - 同時進行高強度阻力 + 有氧訓練：IIx → IIa 幾近完全轉換（最大效果）
-    detail: ''
+    - 高強度阻力訓練結合有氧耐力訓練，研究顯示可誘發近乎完全的 IIx → IIa 轉型
+    detail: 這是全章唯一報告「近乎完全轉型」的訓練組合，代表結合兩種訓練刺激的效果大於單獨進行阻力訓練，但書中未進一步說明機轉細節。
     terms: []
     numbers: []
     concepts:
     - adaptation
     - fiber-type
     related: []
-    locator: ''
+    locator: Muscular Adaptations > Fiber Type Transitions
   - id: ch05.fiber-type-transitions.i06
-    q: Pennation Angle
+    q: 結構與建築性改變：羽狀角與肌束長度
     a:
-    - 阻力訓練↑羽狀角 → 允許更多蛋白質沉積 → CSA↑
-    - 肌束長度↑（sprinter 尤明顯）
-    detail: ''
+    - 羽狀肌的肌束以斜角附著於肌腱，羽狀角越大越能容納更多蛋白質沉積、允許 CSA 增加更多
+    - 阻力訓練會增加羽狀角，力量型運動員的肱三頭肌與股外側肌羽狀角大於未訓練者
+    - 力量型運動員的肌束長度也較長；短跑選手的腓腸肌與股外側肌肌束長度長於長跑選手
+    - 阻力＋衝刺＋跳躍併用可增加股直肌肌束長度；衝刺＋跳躍可增加股外側肌肌束長度
+    detail: 羽狀角與肌束長度是兩個獨立但常一起討論的建築參數——羽狀角影響出力與 CSA 容納空間，肌束長度則與收縮速度和活動範圍有關，這也是短跑選手與長跑選手肌肉外觀差異的結構基礎。
     terms: []
     numbers: []
     concepts:
     - adaptation
     - fiber-type
     related: []
-    locator: ''
+    locator: Muscular Adaptations > Structural and Architectural Changes
   - id: ch05.fiber-type-transitions.i07
-    q: 衝刺與跳躍訓練
+    q: 衝刺訓練與鈣離子釋放
     a:
-    - 衝刺訓練↑鈣離子釋放 → actin/myosin 橋接↑ → 速度與爆發力↑
-    detail: ''
-    terms: []
+    - 衝刺訓練已被證實可強化鈣離子釋放
+    - 鈣離子釋放增加有助於促進 actin/myosin 橋接形成，進而提升速度與爆發力表現
+    detail: 這條把「結構性改變」（羽狀角、肌束長度）之外的另一種訓練適應獨立出來——鈣離子釋放是興奮收縮偶聯層級的功能性改變，不是肌肉外觀或體積的變化。
+    terms:
+    - actin
+    - myosin
     numbers: []
     concepts:
     - adaptation
     - fiber-type
     related: []
-    locator: ''
+    locator: Muscular Adaptations > Other Muscular Adaptations
   - id: ch05.fiber-type-transitions.i08
-    q: 緩衝能力↑
+    q: 酸鹼緩衝能力提升
     a:
-    - 高強度間歇訓練可提升緩衝容量 16–38% → 延緩疲勞、提升肌耐力
-    detail: ''
-    terms: []
-    numbers: []
+    - 無氧運動使肌肉與血液 pH 大幅下降；持續訓練誘發的酸鹼變化可提升緩衝能力
+    - 緩衝能力提升讓運動員更能耐受氫離子堆積，延緩疲勞、提升肌耐力
+    - 超過乳酸閾值的高強度間歇訓練（衝刺、飛輪）可使緩衝能力提升 16% 至 38%
+    - 無氧團隊運動選手的緩衝能力高於耐力型選手與未訓練者
+    detail: 緩衝能力是無氧訓練特有的代謝適應，與有氧耐力訓練追求的粒線體／微血管適應方向不同，兩者甚至可能互相拮抗——這也是本章後段「有氧無氧相容性」議題的伏筆。
+    terms:
+    - lactate-threshold
+    numbers:
+    - v: 16-38
+      unit: "%"
+      of: 超過乳酸閾值的高強度間歇訓練後緩衝能力的提升幅度區間
     concepts:
     - adaptation
-    - fiber-type
+    - energy-supply
     related: []
-    locator: ''
+    locator: Muscular Adaptations > Other Muscular Adaptations
 - id: hypertrophy
   title: 肌肉生長 Muscular Hypertrophy
   desc: ''
   tag: Hypertrophy
   items:
   - id: ch05.hypertrophy.i01
-    q: 肥大定義
+    q: 肥大的生物機轉：淨蛋白增生
     a:
-    - 肌纖維橫截面積（CSA）↑
-    - actin/myosin 蛋白合成↑
-    - myofibril 數量↑
-    detail: ''
-    terms: []
+    - 肌纖維橫截面積（CSA）擴大來自 myofibril 內 actin/myosin 淨累積（合成增加、分解減少，或兩者兼具）
+    - myofibril 數量本身也增加
+    - titin、nebulin 等結構蛋白依肌絲變化比例同步合成，新肌絲附加在 myofibril 周邊使其直徑增加
+    detail: 「淨累積」是關鍵字——肥大不只是合成變多，分解減少同樣算數；兩者的相對比例決定淨效果，這也是為何恢復期營養與休息會直接影響肥大幅度。
+    terms:
+    - myofibril
+    - myosin
+    - actin
     numbers: []
     concepts:
     - adaptation
     - structure
     related: []
-    locator: ''
+    locator: Muscular Adaptations > Muscular Growth
   - id: ch05.hypertrophy.i02
-    q: mTOR 路徑
+    q: Akt/mTOR 路徑與肌生成訊號
     a:
-    - 機械負荷激活 Akt/mTOR → 肌蛋白合成↑
-    - 訓練後合成率↑維持最多 48 小時
-    detail: ''
-    terms: []
-    numbers: []
+    - 機械負荷（不依賴激素濃度）獨立激活 Akt/mTOR、AMPK、MAPK 三條訊號路徑，其中 Akt/mTOR 對阻力訓練適應的調控最直接
+    - 肌纖維收縮時 Akt/mTOR 訊號大幅上升，驅動肌蛋白合成與肌生成（myogenesis）
+    - 同時抑制性生長因子 myostatin 表現下調，兩者共同促成合成大於分解
+    - 急性阻力運動後蛋白合成率上升，維持長達 48 小時
+    detail: 這說明肥大訊號早在肌肉「看起來變大」之前就已啟動——機械形變本身（不靠激素）就足以觸發 Akt/mTOR，這也是為何肥大反應與急性合成激素反應是兩條可分開討論但會交互作用的機制。
+    terms:
+    - mtor
+    - myostatin
+    numbers:
+    - v: 48
+      unit: 小時
+      of: 急性阻力運動後肌蛋白合成率維持上升的時間
     concepts:
     - adaptation
     - structure
-    related: []
-    locator: ''
+    related:
+    - ch04.growth-hormone.i03
+    locator: Muscular Adaptations > Muscular Growth
   - id: ch05.hypertrophy.i03
-    q: EIMD 與修復
+    q: EIMD：運動誘發肌肉損傷與修復
     a:
-    - 運動誘發肌肉損傷 → 基因表達改變 → 發炎修復 → 蛋白轉換↑ → 長期肥大
-    detail: ''
-    terms: []
+    - 高強度無氧訓練造成 myofibril 與肌節結構的破壞（EIMD），被認為會改變基因表現以強化組織、預防再損傷
+    - 蛋白合成順序依序是（a）水分攝入、（b）非收縮性蛋白合成、（c）收縮性蛋白合成
+    - 發炎反應與蛋白轉換增加共同促成長期肥大適應
+    detail: 這條解釋為何「痠痛」與「肥大」常被連結——EIMD 觸發的修復重塑過程本身就是肥大訊號鏈的一部分，但痠痛程度不等於肥大幅度，兩者是相關的獨立現象。
+    terms:
+    - eimd
     numbers: []
     concepts:
     - adaptation
     - structure
     related: []
-    locator: ''
+    locator: Muscular Adaptations > Muscular Growth
   - id: ch05.hypertrophy.i04
-    q: 機械 vs 代謝刺激
+    q: 機械刺激 vs 代謝刺激：兩條肥大路徑
     a:
-    - 機械：重負荷 + 離心 + 低中量
-    - 代謝：高量 + 短休息（健美式）→ 最強合成激素反應
-    detail: ''
+    - 機械因子：重負荷、離心收縮、低至中訓練量，是力量訓練的特徵，促成最佳的肌纖維徵召、生長因子表現與肌節破壞
+    - 代謝因子：低至中或中高強度、高訓練量、短休息，是健美式訓練的特徵，會刺激糖解系統累積代謝物，並引出最強的合成激素反應
+    - 快縮肌蛋白（fast myosin heavy chain）的類型轉換在數次訓練內即開始，但 CSA 要顯著改變需 16 次以上訓練
+    detail: 兩條路徑不是互斥選項，而是「肥大的最佳化」需要週期化整合兩種刺激；純機械或純代謝都各自解釋不了健美選手與力量選手不同的肥大特徵。
     terms: []
-    numbers: []
+    numbers:
+    - v: 16
+      unit: 次
+      of: 阻力訓練後肌纖維 CSA 出現顯著變化所需的最少訓練次數
     concepts:
     - adaptation
-    - structure
+    - program-design
     related: []
-    locator: ''
+    locator: Muscular Adaptations > Muscular Growth
   - id: ch05.hypertrophy.i05
-    q: Hyperplasia
+    q: Hyperplasia：肌纖維數量增加的爭議
     a:
-    - 肌纖維數量↑（縱裂）
-    - 動物模型確認
-    - 人體中具爭議，若存在佔比 <10%
-    detail: ''
-    terms: []
-    numbers: []
+    - Hyperplasia 指高強度阻力訓練誘發肌纖維縱向分裂、使肌纖維數量增加
+    - 動物模型已確認發生，但人體研究結果矛盾，部分支持、部分反對，爭議未解
+    - 部分爭議源於訓練者與未訓練者的橫斷面比較無法排除遺傳差異
+    - 即使人體確實發生，估計也僅佔受刺激組織不到 10%，不被視為主要肥大機制
+    detail: 人體研究之所以難有定論，是因為動物研究可整條肌肉取出縱切分析，人體只能用針刺切片做橫切面推算，方法本身的解析力就不足以確認縱裂是否發生。
+    terms:
+    - hyperplasia
+    numbers:
+    - v: 10
+      unit: "%"
+      of: 若人體確實發生 hyperplasia，估計佔受刺激組織的上限比例
     concepts:
     - adaptation
     - structure
     related: []
-    locator: ''
+    locator: Muscular Adaptations > Muscular Growth
   - id: ch05.hypertrophy.i06
-    q: Type II 肥大更顯著
+    q: Type II 纖維肥大幅度較大
     a:
-    - 快縮纖維 CSA 增幅 > 慢縮
-    - 快縮比例越高，肥大潛力越大（遺傳影響）
-    detail: ''
-    terms: []
+    - 阻力訓練後 Type II 纖維的 CSA 增幅通常大於 Type I 纖維
+    - 依大小原則，高閾值運動單位（多為 Type II）需先被徵召才能啟動肥大訊號
+    - 運動員先天快縮纖維比例越高，肌肉量成長的潛力理論上越大
+    detail: 這條把大小原則與肥大幅度連起來——不是「快縮纖維本身更會長」的獨立特性，而是快縮纖維需要更高徵召門檻才啟動訊號，一旦啟動其增生反應就比慢縮纖維更明顯。
+    terms:
+    - size-principle
     numbers: []
     concepts:
     - adaptation
-    - structure
-    related: []
-    locator: ''
+    - fiber-type
+    related:
+    - ch05.fiber-type-transitions.i01
+    locator: Muscular Adaptations > Fiber Size Changes
   - id: ch05.hypertrophy.i07
-    q: 粒線體密度↓
+    q: 粒線體與微血管密度相對下降
     a:
-    - 肌肉肥大使體積↑不成比例 → 粒線體密度（per unit volume）相對下降
-    detail: ''
+    - 重阻力訓練會降低粒線體密度；粒線體實際數量維持不變或略增，但因 CSA 增幅不成比例，單位體積的密度反而下降
+    - 微血管密度以相同機制下降，但每條纖維的微血管數量其實略有增加
+    - 舉重／健力選手的微血管密度明顯低於對照組，健美選手則與非運動員相近
+    detail: 「密度下降」容易被誤讀成微血管或粒線體變少，實際上是分母（CSA）長得比分子快造成的稀釋效果——這也解釋為何純力量取向訓練者的有氧能力表現往往較弱，並非組織真的退化。
     terms: []
     numbers: []
     concepts:
     - adaptation
     - structure
     related: []
-    locator: ''
+    locator: Muscular Adaptations > Other Muscular Adaptations
   - id: ch05.hypertrophy.i08
-    q: ATP/CP/肝糖↑
+    q: 高能磷酸與肝糖超補償
     a:
-    - 5 個月阻力訓練後：CP ↑28%、ATP ↑18%、肝糖 ↑112%（超補償效應）
-    detail: ''
+    - ATP、CP 在反覆高強度間歇收縮後耗竭，其儲存容量會透過「超補償」效應增加
+    - MacDougall 等人的研究：5 個月阻力訓練（3–5 組 × 8–10 下，組間休息 2 分鐘）後，靜態 CP 增加 28%、ATP 增加 18%
+    - 同一研究中肝糖含量最多增加 112%，顯示強調無氧糖解的健美式課表對肝糖儲存也是強力刺激
+    detail: 超補償效應說明高能磷酸系統本身也會「訓練適應」——不是只有肌肉大小或神經徵召在變，能量受質儲存容量的擴大同樣是肥大訓練累積數月後才顯現的長期效果。
     terms: []
-    numbers: []
+    numbers:
+    - v: 28
+      unit: "%"
+      of: 5 個月阻力訓練後靜態肌酸磷酸（CP）濃度的增加幅度
+    - v: 18
+      unit: "%"
+      of: 同一研究中靜態 ATP 濃度的增加幅度
+    - v: 112
+      unit: "%"
+      of: 同一研究中肌肝糖含量的最大增加幅度
     concepts:
     - adaptation
-    - structure
+    - energy-supply
     related: []
-    locator: ''
+    locator: Muscular Adaptations > Other Muscular Adaptations
 - id: neural-adaptations
   title: 神經適應 Neural Adaptations
   desc: ''
   tag: Neural
   items:
   - id: ch05.neural-adaptations.i01
-    q: 中樞適應
+    q: 中樞驅動：未訓練者的徵召天花板
     a:
-    - 大腦運動皮質活性↑
-    - 沿皮質脊髓束傳遞
-    - 可徵召更多快縮運動單位
-    detail: ''
-    terms: []
-    numbers: []
+    - 未訓練者在最大自主收縮時，平均只能徵召約 71% 的肌肉
+    - 阻力訓練提高大腦運動皮質的驅動輸出，經皮質脊髓徑傳遞，讓更大比例的肌肉可被徵召
+    detail: 這是神經適應能在「肌肉大小還沒變」之前就先讓力量上升的原因——未訓練者留有徵召餘裕，訓練初期的力量增益主要來自把這段餘裕榨出來，而不是肌肥大。
+    terms:
+    - rate-coding
+    numbers:
+    - v: 71
+      unit: "%"
+      of: 未訓練者最大自主收縮時可徵召的肌肉比例平均值
     concepts:
     - adaptation
     - motor-control
-    related: []
-    locator: ''
+    related:
+    - ch01.neuromuscular.recruitment
+    locator: Neural Adaptations to Anaerobic Training > Central Adaptations
   - id: ch05.neural-adaptations.i02
-    q: Size Principle
+    q: 大小原則（Size Principle）
     a:
-    - 小→大依閾值順序徵召
-    - 快縮纖維需高閾值
-    - 爆發性動作可例外選擇性徵召
-    detail: ''
-    terms: []
+    - 運動單位依運動神經元大小由小到大依序徵召
+    - 小運動單位（慢縮）閾值低，先被徵召；大運動單位（快縮）閾值高，需更大出力需求才被徵召
+    detail: 這條原則說明為何低強度動作很難主動徵召快縮纖維——不是不能，是徵召順序把快縮排在後面，得先把小單位的力量榨盡、需求持續升高，快縮單位才會加入。
+    terms:
+    - size-principle
+    - motor-unit
     numbers: []
     concepts:
     - adaptation
     - motor-control
     related: []
-    locator: ''
+    locator: Neural Adaptations to Anaerobic Training > Motor Unit Recruitment, Firing Rate, and Synchronization
   - id: ch05.neural-adaptations.i03
-    q: 選擇性徵召
+    q: 選擇性徵召：彈道式動作的例外
     a:
-    - 爆發/彈道式動作可跳過慢縮直接徵召快縮（奧舉、增強式、衝刺）
-    detail: ''
-    terms: []
-    numbers: []
+    - 爆發性、彈道式動作（如奧林匹克舉重、增強式訓練、衝刺）可不依大小原則順序，優先徵召快縮運動單位
+    - 這類選擇性徵召常發生在動作時間極短的情境，例如反向動作到起跳僅約 0.4 秒的跳躍
+    detail: 選擇性徵召的意義是：訓練若只做慢速、低強度動作，就算做到力竭也不會誘發這種例外徵召模式；要練出快縮優先徵召的能力，需要動作本身具備爆發性/時間壓力。
+    terms:
+    - selective-recruitment
+    numbers:
+    - v: 0.4
+      unit: 秒
+      of: 誘發選擇性徵召快縮運動單位的反向動作到起跳最大時間窗
     concepts:
     - adaptation
     - motor-control
-    related: []
-    locator: ''
+    related:
+    - ch05.fiber-type-transitions.i01
+    locator: Neural Adaptations to Anaerobic Training > Motor Unit Recruitment, Firing Rate, and Synchronization
   - id: ch05.neural-adaptations.i04
-    q: 發火率與同步化
+    q: 發火率與同步化：依肌肉大小分工
     a:
-    - ↑firing rate → 收縮疊加 → 更大力
-    - 多運動單位同步化 → 力量峰值更高
-    detail: ''
-    terms: []
+    - 提高運動神經元發火率（rate coding）讓單一運動單位的收縮疊加、產生更大力
+    - 對小肌肉而言，發火率的貢獻比徵召更重要；對大肌肉而言，徵召更多運動單位的貢獻比發火率更重要
+    - 多個運動單位同步發火（synchronization）可讓力量上升得更快、峰值更高
+    detail: 這條把「發火率 vs 徵召」的相對重要性綁進肌肉大小——大肌肉本身運動單位數量多，靠多徵召幾個就能大幅增加力量；小肌肉運動單位少，能榨的主要是讓既有單位發得更快。
+    terms:
+    - rate-coding
+    - motor-unit
     numbers: []
     concepts:
     - adaptation
     - motor-control
     related: []
-    locator: ''
+    locator: Neural Adaptations to Anaerobic Training > Motor Unit Recruitment, Firing Rate, and Synchronization
   - id: ch05.neural-adaptations.i05
-    q: NMJ 適應
+    q: 神經肌肉接合處（NMJ）適應
     a:
-    - 突觸面積↑
-    - 神經末梢分支↑
-    - 乙醯膽鹼受體分散範圍↑ → 傳導效率↑
-    detail: ''
-    terms: []
-    numbers: []
+    - Deschenes 等人的大鼠比目魚肌研究：高強度跑步機訓練使 NMJ 突觸面積增加，且突觸型態變得更分散、更不規則，效果大於低強度訓練
+    - 人類研究：7 週阻力訓練後，運動終板（motor end plate）的周長與面積增加，乙醯膽鹼受體的分散範圍也擴大
+    detail: 突觸面積擴大與受體分散範圍增加，代表神經衝動能更有效、更同步地傳遞給肌肉纖維，是神經適應中發生在「神經與肌肉交界處」而非大腦端的部分。
+    terms:
+    - neuromuscular-junction
+    - motor-end-plate
+    numbers:
+    - v: 7
+      unit: 週
+      of: 人類研究中觀察到運動終板周長／面積與受體分散範圍增加所需的阻力訓練時間
     concepts:
     - adaptation
     - motor-control
     related: []
-    locator: ''
+    locator: Neural Adaptations to Anaerobic Training > Neuromuscular Junction Adaptations
   - id: ch05.neural-adaptations.i06
-    q: 肌梭反射強化
+    q: 反射增益（reflex potentiation）
     a:
-    - 阻力訓練可提升反射強化 19–55%
-    - 訓練者反射電位高於未訓練者
-    detail: ''
-    terms: []
-    numbers: []
+    - 阻力訓練可使反射性肌肉活化增益提升 19–55%
+    - 舉重選手與健美選手的比目魚肌反射電位高於未訓練者
+    detail: 反射增益是本體感覺回饋迴路的訓練效果——肌梭偵測到牽張時，引發的反射性收縮變得更強，代表脊髓層級的興奮性也隨阻力訓練提高，不只是大腦端的驅動增加。
+    terms:
+    - muscle-spindle
+    numbers:
+    - v: 19-55
+      unit: "%"
+      of: 阻力訓練後反射性肌肉活化增益的提升幅度
     concepts:
     - adaptation
-    - motor-control
+    - reflex
     related: []
-    locator: ''
+    locator: Neural Adaptations to Anaerobic Training > Reflex Potentiation
   - id: ch05.neural-adaptations.i07
-    q: Cross-Education
+    q: 交叉教育效應（Cross-Education）
     a:
-    - 單側訓練使對側肌力↑最多 22%（平均 8%）
-    - 源自中樞神經適應
-    detail: ''
-    terms: []
-    numbers: []
+    - 單側肢體訓練可使對側（未訓練）肢體的肌力提升，最多達 22%，平均約 8%
+    - 對側肢體的肌電圖（EMG）活性同步增加，顯示效應源自中樞神經適應而非肌肉本身
+    detail: 交叉教育效應是神經適應「不需要肌肉受訓練」也能發生力量提升的直接證據——訓練效果透過中樞神經系統擴散到對側未受刺激的肢體，支持神經驅動先於肌肉結構改變的整體論述。
+    terms:
+    - cross-education
+    numbers:
+    - v: 22
+      unit: "%"
+      of: 單側訓練後對側肢體肌力提升的最大觀察值（平均約 8%）
     concepts:
     - adaptation
     - motor-control
     related: []
-    locator: ''
+    locator: Neural Adaptations to Anaerobic Training > Cross-Education
   - id: ch05.neural-adaptations.i08
-    q: 拮抗肌協同收縮↓
+    q: 拮抗肌協同收縮的調整
     a:
-    - 訓練後拮抗肌過多協同收縮↓ → 淨力輸出↑
-    - 保護機制與速度需求需平衡
-    detail: ''
+    - 阻力訓練降低拮抗肌的過度協同收縮，讓淨力輸出提高，而不需增加主動肌徵召
+    - 雙側肢體同時出力時常出現「雙側缺失」（bilateral deficit），訓練後此缺失會減少，甚至轉為雙側促進（bilateral facilitation）
+    - 衝刺與增強式訓練改變的是拮抗肌協同收縮的時機，而非單純降低其量；彈道式或不熟悉的動作反而可能增加拮抗肌活性以維持關節穩定
+    detail: 協同收縮的調整不是單向「越少越好」——降低過度協同收縮能提升淨力輸出，但特定情境（不熟悉動作、需要關節穩定）下適度的拮抗肌活性是保護機制，訓練效果是讓時機與量都更貼合動作需求。
     terms: []
     numbers: []
     concepts:
     - adaptation
     - motor-control
     related: []
-    locator: ''
+    locator: Neural Adaptations to Anaerobic Training > Coactivation of Agonist and Antagonist Muscle Groups
 - id: overtraining
   title: 過度訓練 Overtraining
   desc: ''
   tag: Overtraining
   items:
   - id: ch05.overtraining.i01
-    q: 連續體概念
+    q: 過度訓練連續體：從急性疲勞到 OTS
     a:
-    - Training overload → Acute fatigue → FOR（天~週）→ NFOR（週~月）→ OTS（月~年）
-    detail: ''
+    - 訓練目標是提供漸進式超負荷以誘發生理適應；但超負荷若未搭配足夠的恢復、休息與營養攝取，會累積訓練壓力，導致極度疲勞、疾病或傷害
+    - 這種訓練壓力的累積若造成長期表現下降（可能伴隨也可能不伴隨生理與心理徵象），即稱為過度訓練
+    - 依恢復所需時間可分四階段：急性疲勞（數天）→ 功能性過度撐 FOR（數天至數週）→ 非功能性過度撐 NFOR（數週至數月）→ 過度訓練症候群 OTS（數月至數年）
+    - 過度訓練的程度不同，表現恢復可能需數週到數月不等
+    detail: 這個連續體的重點是「過度撐」本身不是壞事——它是課表設計中刻意使用的短期超負荷工具，真正的問題出在恢復管理失當，導致短期反應演變成長期症候群
     terms: []
     numbers: []
     concepts:
     - adaptation
     - periodization
     related: []
-    locator: ''
+    locator: Overtraining
   - id: ch05.overtraining.i02
-    q: FOR（功能性過度訓練）
+    q: FOR（功能性過度撐）：計畫性短期策略
     a:
-    - 計畫性短期表現下降
-    - 數天~週內恢復
-    - tapering 後可超補償（計畫性策略）
-    detail: ''
-    terms: []
+    - 運動員進行超額訓練造成短期表現下降時，稱為過度撐或功能性過度撐（FOR）
+    - 通常數天至數週的休息即可恢復，因此 FOR 可作為許多訓練計畫中刻意安排的階段
+    - 策略邏輯：先超量訓練壓低表現、建立耐受度，再減量（tapering），誘發「超補償」
+    - 短期過度撐搭配適當減量期，已證實能帶來肌力與爆發力增益
+    - 若管理不當，FOR 也可能產生不利效果
+    detail: FOR 之所以能被刻意排進課表，關鍵在於它是連續體裡唯一可控、可預期恢復時程的階段——這也是它與 NFOR/OTS 最根本的差異：不是「有沒有超負荷」，而是「恢復是否在計畫內」
+    terms:
+    - overreaching
     numbers: []
     concepts:
     - adaptation
     - periodization
     related: []
-    locator: ''
+    locator: Overtraining
   - id: ch05.overtraining.i03
-    q: NFOR（非功能性）
+    q: NFOR 與 OTS：停滯、慢性適應不良與職業生涯風險
     a:
-    - 表現停滯/下降持續數週~月
-    - 荷爾蒙、心血管、免疫異常
-    - 難與OTS區分
-    detail: ''
-    terms: []
-    numbers: []
+    - 訓練刺激持續加強卻缺乏足夠恢復與再生時，運動員會演變成極端過度撐，即非功能性過度撐（NFOR）
+    - NFOR 導致表現停滯或下降，且會持續數週至數月
+    - 運動員未妥善拿捏訓練與恢復平衡時，最先出現的徵象是表現下降、疲勞增加、活力下降與荷爾蒙紊亂
+    - 這些徵象出現時，NFOR 與過度訓練症候群（OTS）已難以區分；OTS 的核心定義是運動員本身及多個生理、神經化學與荷爾蒙調節機制的「長期適應不良」
+    - OTS 也有多個替代名稱：burnout（倦怠）、慢性過勞、staleness、unexplained underperformance syndrome（不明原因表現不佳症候群）、overfatigue
+    - OTS 可持續六個月以上，最壞情況足以終結運動生涯
+    detail: NFOR 與 OTS 之間沒有清楚的判定線——書中直接承認兩者「難以區分」，這也是為什麼過度訓練的診斷長期依賴表現下降這種落後指標，而不是某個單一生化切點
+    terms:
+    - nonfunctional-overreaching
+    - overtraining-syndrome
+    numbers:
+    - v: 6
+      unit: 個月以上
+      of: OTS 持續時間下限
     concepts:
     - adaptation
     - periodization
     related: []
-    locator: ''
+    locator: Overtraining
   - id: ch05.overtraining.i04
-    q: OTS 兩型
+    q: OTS 兩型：交感型與副交感型
     a:
-    - 交感型：靜息交感活性↑（年輕速度/力量型）
-    - 副交感型：最終所有狀態都走向此
-    detail: ''
+    - 交感型 OTS：靜息時交感神經活性上升
+    - 副交感型 OTS：靜息與運動時副交感神經活性都上升
+    - 交感型通常先於副交感型發展，好發於訓練速度或力量的年輕運動員
+    - 所有過度訓練狀態最終都會走向副交感型，伴隨全身多數生理系統的長期抑制
+    - 因為反彈（rebound）是可能的，難以精確判定過度訓練何時轉為慢性；部分運動員對過度撐策略反應正向，對另一些人則可能成為誘發 OTS 的導火線
+    detail: 兩型會「先交感、後副交感」依序發展，而不是二選一的分類——這代表交感型症狀出現時，若未介入處理，理論上就是朝副交感型（更難逆轉的終局狀態）前進的早期警訊
     terms: []
     numbers: []
     concepts:
     - adaptation
     - periodization
     related: []
-    locator: ''
+    locator: Overtraining
   - id: ch05.overtraining.i05
-    q: 荷爾蒙標記
+    q: 無氧過度訓練的理論發展階段（表 5.3）
     a:
-    - T/C ratio↓
-    - 量型OTS：cortisol↑、LH↓、T↓
-    - 強度型OTS：靜息激素多不變
-    detail: ''
+    - 急性疲勞（數天）：表現無影響或提升；神經功能改變
+    - FOR（數天至數週）：表現暫時下降後回到基準；運動單位徵召改變；交感活性與下視丘控制改變
+    - NFOR（數週至數月）：表現停滯或下降；運動協調下降；興奮收縮偶聯改變；肌肉肝醣下降；靜息心率與血壓上升；免疫功能改變；荷爾蒙濃度改變；情緒紊亂
+    - OTS（數月至數年）：表現下降；力量產生下降；醣解能力下降；疾病與感染；情緒與睡眠紊亂
+    detail: 此表整理自 Fry 等人 1993 年與 Meeusen 等人 2013 年的研究，說明過度訓練不只是單一系統的問題，而是神經、肌肉、代謝、心血管、免疫、內分泌與心理多系統隨階段依序惡化
     terms: []
     numbers: []
     concepts:
     - adaptation
     - periodization
+    - measurement
     related: []
-    locator: ''
+    locator: Overtraining
   - id: ch05.overtraining.i06
-    q: 心理標記
+    q: 無氧過度訓練實證：77% 統計與兩項 Fry 研究
     a:
-    - POMS 惡化：疲憊↑、活力↓、憂鬱/憤怒/焦慮↑
-    - 心理變化常先於表現下降出現
-    detail: ''
+    - 過度訓練研究多以耐力型運動員為對象，但一項調查顯示 77% 受調過度訓練者同時從事需要高度肌力、速度或協調的運動
+    - 無氧型（交感型）過度訓練的症狀與有氧耐力型（副交感型）不同
+    - Fry 等人研究一：8 組機械深蹲、95% 1RM、連續 6 天 → 等速力矩、衝刺時間、敏捷時間等呈現非特定性下降，但 1RM 肌力維持不變
+    - Fry 等人研究二：10 組 1RM 深蹲、連續 7 天（中間休息一天）→ 73% 受試者 1RM 顯著下降超過 9.9 磅（4.5 公斤）；部分受試者仍持續進步、未進入 NFOR 狀態
+    - 這顯示過度撐或過度訓練症狀的發生時程高度取決於個體反應、訓練狀態與基因稟賦
+    detail: 兩項 Fry 研究的對照很關鍵——同樣是深蹲高負荷，研究一（95%1RM×8組×6天）只造成非特定性表現下降但 1RM 維持，研究二（1RM×10組×7天）卻讓多數人 1RM 顯著下降，顯示「強度是否達到 1RM 本身」比單純堆疊組數更決定是否誘發 NFOR
     terms: []
-    numbers: []
+    numbers:
+    - v: 77
+      unit: '%'
+      of: 過度訓練調查受訪者中同時從事高肌力/速度/協調型運動的比例
+    - v: 9.9
+      unit: 磅（4.5 公斤）
+      of: Fry 第二項研究中 73% 受試者 1RM 顯著下降的幅度
+    - v: 73
+      unit: '%'
+      of: Fry 第二項研究中 1RM 顯著下降的受試者比例
     concepts:
     - adaptation
-    - periodization
+    - measurement
     related: []
-    locator: ''
+    locator: Overtraining
   - id: ch05.overtraining.i07
-    q: OTS 識別清單
+    q: OTS 判定清單與常見課程設計錯誤
     a:
-    - 不明原因表現↓、持續疲勞、睡眠/食慾紊亂、最大測試退步、訓練量/強度急升
-    detail: ''
-    terms: []
-    numbers: []
+    - 目前沒有明確的早期判定工具，教練與運動員需以表現下降作為過度訓練徵兆的佐證，可考量以下五類指標
+    - 症狀：不明原因表現不佳、持續疲勞、自覺費力度升高、睡眠紊亂、食慾下降
+    - 表現與生命徵象：最大測試、專項表現測試或生命徵象（心率、血壓）比先前測試或基準值差
+    - 課程設計錯誤：訓練量顯著增加（<5%）、訓練強度顯著增加、訓練單調性、比賽次數或頻率過高
+    - 干擾因子：心理徵象（POMS 惡化、RPE 高於正常）、社會因素（家庭、感情、財務、工作、教練、團隊）、近期或跨多時區旅行
+    - 排除項：潛在疾病、貧血、感染性疾病、肌肉損傷（肌酸激酶偏高）、內分泌疾病、重度飲食疾患、生物指標異常（C 反應蛋白、肌酸酐、肌鐵蛋白下降）、骨骼肌傷害、心臟症狀、成人型氣喘、過敏
+    - 沒有單一指標可視為即將發生 OTS 的判定依據；應規律監測表現、生理、生化、免疫與心理等多變項組合
+    - 高動機運動員最常見的錯誤課程設計組合：高訓練量 + 重負荷 + 高訓練頻率 + 恢復時間不足；漸進超負荷速率過快也會提高風險
+    detail: 這份清單本質上是排除法，不是判定法——沒有任何一項單獨出現就能斷定 OTS，教材也明講「沒有單一指標可視為判定依據」；「訓練量顯著增加（<5%）」這個數值教材原文如此，語意本身含糊，實務上應理解為「監測到量的變動」的提示，而非精確切點
+    terms:
+    - poms
+    - creatine-kinase
+    numbers:
+    - v: 5
+      unit: '%'
+      of: 判定清單中「訓練量顯著增加」項目所附數值（教材原文如此）
     concepts:
     - adaptation
     - periodization
+    - measurement
     related: []
-    locator: ''
+    locator: Overtraining > What Are the Markers of Anaerobic Overtraining?
   - id: ch05.overtraining.i08
-    q: 預防策略
+    q: 荷爾蒙標記與心理因素
     a:
-    - 漸進超負荷 + 足夠恢復期
-    - 監控組合指標（表現+生化+心理）
-    - 無單一黃金標記
-    detail: ''
-    terms: []
+    - 靜息血漿睪固酮/皮質醇比值曾被視為過度訓練指標，會隨運動強度與時間下降；但現已證實它只反映訓練的實際生理負荷，不能作為診斷依據
+    - 量型過度訓練（volume-related）已證實會使皮質醇上升，並使靜息 LH、總睪固酮與游離睪固酮下降
+    - 強度型過度訓練（intensity-related）則不會改變靜息荷爾蒙濃度；Fry 等人的研究（10 組 1RM 深蹲、每天、連續兩週）並未觀察到睪固酮、游離睪固酮、皮質醇或生長激素的變化
+    - Meeusen 等人發現運動員的訓練狀態會影響下視丘─腦下垂體反應性：高度訓練者初期對 NFOR 呈現放大的敏感交感激素反應，隨後轉為循環荷爾蒙濃度受抑制，反映腦下垂體敏感度下降與長期腦下垂體耗竭
+    - 內分泌指標需要一週以上的監測才具參考價值；能及早偵測 NFOR 的生物指標，才最有助於預防 OTS
+    - 心理層面：以情緒狀態量表（POMS）測得的情緒紊亂與心理徵象長年被認為與 OTS 相關；重度阻力訓練伴隨活力、動機與自信下降，緊張、憂鬱、憤怒、疲憊、混亂、焦慮與易怒升高，以及注意力減損
+    - 心理層面的改變也與內分泌變化相關；許多運動員能藉由心理徵象察覺過度訓練，且這些徵象常先於實際表現下降出現
+    detail: 量型與強度型過度訓練的荷爾蒙訊號不同，代表單看「有沒有荷爾蒙變化」不足以判斷是否過度訓練——強度型的 Fry 研究連續兩週操到 1RM 都測不出荷爾蒙變化，說明荷爾蒙指標本身不夠敏感；這也是為什麼教材把重點放回心理徵象（POMS）：它常先於表現下降出現，反而是更早的預警訊號
+    terms:
+    - testosterone
+    - cortisol
+    - poms
     numbers: []
     concepts:
     - adaptation
     - periodization
-    related: []
-    locator: ''
+    - psychology
+    related:
+    - ch04.testosterone.i01
+    locator: Overtraining > Hormonal Markers of Anaerobic Overtraining
 cards:
-- q: 無氧訓練後，神經驅動增強的三個主要機制是什麼？
-  a: ①激動肌徵召↑ ②發火率↑ ③同步化↑（加上：拮抗肌抑制↓）
+- q: 未訓練者最大自主收縮時能徵召多少比例的肌肉？訓練後為何能提升？
+  a: 平均約71%；阻力訓練提高運動皮質驅動輸出，經皮質脊髓徑傳遞，讓更大比例肌肉被徵召
   tag: Neural
-- q: Size Principle（大小原則）的定義？
-  a: 運動單位依閾值由小到大依序徵召；低閾值（Type I）先，高閾值（Type II）後
+- q: Size Principle（大小原則）的徵召順序是什麼？
+  a: 依運動神經元大小由小到大：小（慢縮、低閾值）先徵召，大（快縮、高閾值）後徵召
   tag: Neural
-- q: 「選擇性徵召」在什麼情境下發生？為什麼重要？
-  a: 爆發/彈道式動作（奧舉、增強式）可跳過低閾值直接徵召高閾值；確保在<0.4秒內產生最大爆發力
+- q: 選擇性徵召在什麼情境下發生？時間窗多短？
+  a: 爆發性彈道式動作（奧舉、增強式、衝刺）可跳過大小原則直接徵召快縮單位；反向動作到起跳僅約0.4秒的跳躍即可誘發
   tag: Neural
-- q: Cross-Education 是什麼？數字為何？
-  a: 單側訓練使對側未訓練肌力↑；最多22%，平均約8%；源自中樞神經適應
+- q: 發火率（rate coding）對小肌肉與大肌肉的相對重要性有何不同？
+  a: 小肌肉靠發火率貢獻較大；大肌肉靠徵召更多運動單位貢獻較大；多單位同步發火可讓力量上升更快、峰值更高
   tag: Neural
-- q: 神經肌肉接合處（NMJ）在阻力訓練後的適應有哪些？
-  a: 突觸面積↑、神經末梢分支↑、乙醯膽鹼受體分散範圍↑ → 傳導效率↑
+- q: Deschenes 大鼠研究與人類 7 週研究分別發現 NMJ 有哪些適應？
+  a: 大鼠：高強度訓練使突觸面積增加、型態更分散不規則；人類：7 週阻力訓練後運動終板周長/面積增加、乙醯膽鹼受體分散範圍擴大
   tag: Neural
-- q: 訓練早期（6-10週）和後期（>10週）分別以哪種適應為主？
-  a: 早期：神經適應為主（協調、徵召改善）；後期：肌肉肥大貢獻增加；肥大停滯後需新刺激再啟動神經適應
+- q: 反射增益（reflex potentiation）的提升幅度是多少？哪些族群反射電位較高？
+  a: 提升19–55%；舉重與健美選手的比目魚肌反射電位高於未訓練者
   tag: Neural
-- q: Bilateral deficit 是什麼？訓練後如何改變？
-  a: 雙側同時收縮力量＜兩側單獨收縮之和；訓練後deficit縮小，甚至出現bilateral facilitation（雙側增強）
+- q: Cross-Education 效應的最大值與平均值？機制是什麼？
+  a: 最大22%、平均約8%；對側肢體EMG同步增加，顯示效應源自中樞神經適應而非肌肉本身
   tag: Neural
-- q: 阻力訓練後拮抗肌共同收縮如何改變？意義是什麼？
-  a: 訓練後過多的拮抗肌共同收縮↓ → 淨力輸出↑；但一定程度共收縮仍保護關節穩定
+- q: 阻力訓練後拮抗肌協同收縮如何改變？雙側缺失如何變化？
+  a: 過度協同收縮降低、淨力輸出提升；雙側缺失（bilateral deficit）減少，甚至轉為雙側促進；衝刺/增強式訓練改變的是協同收縮時機而非量
   tag: Neural
-- q: 肌肉肥大的分子機制——Akt/mTOR 通路的作用？
-  a: 機械負荷激活Akt/mTOR → 蛋白質合成↑（myogenesis）；同時myostatin（抑制因子）下調
+- q: 肌纖維CSA擴大的生物機轉是什麼？
+  a: myofibril內actin/myosin淨累積（合成增加、分解減少或兩者）+myofibril數量增加；titin/nebulin等結構蛋白依比例同步合成
   tag: Hypertrophy
-- q: 急性阻力訓練後蛋白質合成速率升高可持續多久？
-  a: 最多持續48小時
+- q: Akt/mTOR路徑如何被活化？與myostatin的關係？蛋白合成率上升可持續多久？
+  a: 機械負荷（不依賴激素）獨立激活Akt/mTOR/AMPK/MAPK；Akt/mTOR訊號上升驅動肌蛋白合成，myostatin同時下調，合成率上升可持續48小時
   tag: Hypertrophy
-- q: 肌纖維CSA顯著增加至少需要多少次訓練？
-  a: 超過16次訓練後才開始出現明顯CSA變化
+- q: EIMD如何促成長期肥大？蛋白合成的順序是什麼？
+  a: 高強度訓練造成myofibril/肌節結構破壞，改變基因表現以強化組織；合成順序：水分攝入→非收縮性蛋白→收縮性蛋白；發炎與蛋白轉換共同促成肥大
   tag: Hypertrophy
-- q: 運動誘發肌肉損傷（EIMD）如何促進肥大？
-  a: 結構破壞影響基因表現 → 修復/重塑過程（發炎反應+蛋白質周轉↑）→ 長期肥大適應
+- q: 機械刺激與代謝刺激兩條肥大路徑各對應什麼訓練特徵？CSA顯著變化需多少次訓練？
+  a: 機械：重負荷+離心+低中量（力量訓練）；代謝：高量短休息（健美訓練）；CSA顯著改變需16次以上訓練
   tag: Hypertrophy
-- q: Hyperplasia（肌纖維增生）在人類是否確定存在？
-  a: 動物實驗有支持；人類證據有爭議，若存在也＜10%，非主要適應機制
+- q: Hyperplasia的證據狀態與估計佔比？
+  a: 動物模型確認、人體證據矛盾具爭議；若人體確實發生，估計不到10%，非主要肥大機制
   tag: Hypertrophy
-- q: 機械因素 vs 代謝因素各對應哪種訓練方式促進肥大？
-  a: 機械：大重量+離心+低中容量（力量訓練）；代謝：中低強度+高容量+短休息（健美訓練）
+- q: Type II纖維肥大幅度為何通常大於Type I？
+  a: 依大小原則，Type II需先被徵召才啟動肥大訊號，一旦啟動增生反應比Type I明顯
   tag: Hypertrophy
-- q: 阻力訓練5個月後，ATP和CP靜息濃度分別增加多少？糖原呢？
-  a: CP增加28%、ATP增加18%；糖原可增加高達112%（MacDougall et al.）
+- q: MacDougall研究中5個月阻力訓練後CP、ATP、肝糖分別增加多少？
+  a: CP增加28%、ATP增加18%、肝糖最多增加112%（3–5組×8–10下，組間休息2分鐘）
   tag: Hypertrophy
-- q: 無氧訓練後肌纖維類型的轉換方向是什麼？
-  a: IIx → IIax → IIa（更具氧化性）；I/II整體比例基因決定，但亞型間可轉換
+- q: 肌纖維連續體有哪幾型？訓練誘發的轉型方向是什麼？
+  a: I、Ic、IIc、IIac、IIa、IIax、IIx；訓練誘發方向IIx→IIax→IIa；I/II大類由遺傳決定，亞型間可訓練轉型
   tag: Fiber Types
-- q: 高強度阻力訓練8週後，IIx纖維比例如何變化？（Staron et al.）
-  a: 從約18%降至約7%；男性在第4週（8次訓練）、女性在第2週（4次訓練）即出現顯著下降
+- q: Staron研究中IIx纖維比例8週如何變化？男女出現顯著下降的時間點各是？
+  a: 從約18%降至約7%；女性2週（4次訓練）、男性4週（8次訓練）即出現顯著下降
   tag: Fiber Types
-- q: 去訓練後肌纖維類型如何變化？
-  a: IIx比例↑、IIa↓；甚至可能超射（IIx比訓練前更高）
+- q: 去訓練對纖維類型的影響？overshoot現象是什麼？
+  a: IIx比例上升、IIa下降；去訓練後IIx比例可能overshoot，高於訓練前原始水準
   tag: Fiber Types
-- q: 肌纖維羽角（pennation angle）如何因訓練改變？有何意義？
-  a: 阻力訓練後↑；更大羽角可容納更多蛋白質沉積、增加CSA；力量訓練者triceps/vastus lateralis羽角大於未訓練者
+- q: Type I與Type II之間能否直接轉換？
+  a: 看似不太可能（MHC同型異構物與氧化酵素含量差異太大），但目前證據不足以確認或排除
   tag: Fiber Types
-- q: Type II vs Type I 纖維對肥大的反應差異？
-  a: Type II肥大幅度大於Type I；高比例IIx纖維的運動員理論上有更大增肌潛能
+- q: 羽狀角與肌束長度如何隨訓練改變？
+  a: 阻力訓練增加羽狀角（容納更多蛋白沉積、CSA增加空間更大）；力量型運動員肌束較長；短跑選手腓腸肌/股外側肌肌束長於長跑選手
   tag: Fiber Types
-- q: 緩衝能力（buffering capacity）在高強度訓練後如何改變？
-  a: 高強度間歇訓練（超過乳酸閾值）可提升16-38%；使運動員更耐受H⁺積累、延遲疲勞
+- q: 衝刺訓練如何影響鈣離子釋放？緩衝能力可提升多少？
+  a: 衝刺訓練強化鈣離子釋放，助actin/myosin橋接形成；超過乳酸閾值的高強度間歇訓練可使緩衝能力提升16%至38%
   tag: Fiber Types
-- q: 骨骼對機械負荷的初始反應機制是什麼？
-  a: 成骨細胞遷移到受力區 → 分泌膠原蛋白 → 礦化為磷酸鈣（hydroxyapatite）→ 主要在骨外膜（periosteum）增厚
+- q: 骨骼建模（modeling）的機制順序是什麼？
+  a: 機械負荷使骨頭形變 → 成骨細胞遷移到形變最大區域 → 分泌膠原蛋白填入空隙 → 膠原纖維礦化，骨徑變粗
   tag: Connective Tissue
-- q: MES（最小必要應變）的定義及與骨折的關係？
-  a: 觸發新骨形成的最低應變閾值；約為骨折所需力量的1/10；持續超過MES → 骨骼增厚
+- q: MES（最小必要應變）是什麼？書中如何描述它與骨折所需力量的關係？
+  a: 啟動新骨生成的應變門檻；書中稱「據認為」約是折斷骨頭所需力量的1/10
   tag: Connective Tissue
-- q: 促進骨密度（BMD）增加的訓練設計原則有哪些？
-  a: ①特異性負荷 ②多關節結構性動作 ③漸進超負荷 ④訓練變化（改變力向）⑤總次數30-35即足夠
+- q: 骨密度（BMD）通常需要多久才能測到可測量的變化？為什麼造骨過程其實更早開始？
+  a: 約6個月以上；造骨標記可提早驗血測到，BMD儀器要等礦化累積夠久才顯現變化
   tag: Connective Tissue
-- q: 深蹲 vs 腿舉機對骨密度的影響差異為何？
-  a: 深蹲對股骨大轉子BMD增加更有效（Cussler et al.）；機械輔助動作由器械支撐體重，骨骼受力↓
+- q: 促進骨骼強度的訓練原則有哪些？
+  a: 多關節結構性動作、力沿軸向穿過脊椎與髖、負荷落在1–10RM、混用重負荷與彈震高衝擊動作、變換動作改變受力方向
   tag: Connective Tissue
-- q: 阻力訓練後肌腱的結構變化有哪些？
-  a: ①膠原纖維直徑↑ ②共價交聯↑ ③膠原纖維數↑ ④填充密度↑ → 整體張力承受能力↑
+- q: 阻力訓練後肌腱結構產生哪些改變？Kubo研究的剛度增幅是多少？
+  a: 膠原纖維直徑變大、數量增加、堆積密度提高、共價交聯增多；8週訓練後阿基里斯腱剛度增加15–19%
   tag: Connective Tissue
-- q: 肌腱僵硬度（tendon stiffness）需要多大負荷才能提升？
-  a: 需要80%1RM（Kubo et al.：8週後增加15-19%）；20%1RM無顯著效果
+- q: 韌帶與筋膜的適應各有什麼特點？
+  a: 韌帶除膠原外含彈性蛋白，允許關節正常活動；筋膜膠原束朝多平面排列以抵抗各方向的力；適應需走完整關節活動範圍
   tag: Connective Tissue
-- q: 軟骨的營養供應特點及對訓練的含義？
-  a: 軟骨無血管，靠滑液擴散；關節活動產生壓力變化幫助養分擴散；固定（immobilization）→ 軟骨萎縮
+- q: 軟骨如何獲取養分？固定不動會造成什麼後果？
+  a: 軟骨無血液供應，靠滑液擴散；關節活動改變關節囊內壓力推動擴散；固定 → 擴散受阻 → 軟骨細胞死亡、基質被吸收
   tag: Connective Tissue
-- q: 皮質骨 vs 骨小梁（trabecular）對機械刺激的反應速度差異？
-  a: 骨小梁密度低、表面積大 → 反應更快；皮質骨密實 → 適應較慢
+- q: 膠原蛋白從纖維母細胞到成熟纖維的形成過程？強度真正來自什麼？
+  a: 纖維母細胞合成分泌前膠原 → 三條蛋白鏈纏繞成三螺旋 → 兩端保護延伸離開細胞後被酵素切除 → 活性膠原對齊成纖維；交聯（cross-linking）才是強度真正來源
   tag: Connective Tissue
-- q: 急性阻力訓練後，哪些激素升高？持續多久？
-  a: 睾固酮、生長激素（多種分子型）、皮質醇；男性可維持30分鐘以上
+- q: 急性合成激素反應中，哪些激素會升高？可維持多久？在什麼訓練條件下幅度最大？
+  a: 睾固酮、GH分子變體、皮質醇；可維持升高長達30分鐘；大肌群動作+中高強度/量+較短休息時幅度最大
   tag: Endocrine
-- q: 何種訓練設計最能刺激急性合成代謝激素反應？
-  a: 大肌群多關節動作 + 中高強度/容量 + 短休息（30-60秒）→ 最高血乳酸 = 最強GH/皮質醇反應
+- q: 血乳酸與GH、皮質醇的關聯是什麼？游離睾固酮在阻力訓練者與有氧訓練者有何差異？
+  a: 高度相關，氫離子堆積被認為是刺激GH與皮質醇分泌的主要因子；游離睾固酮升幅在阻力訓練者身上大於有氧訓練者
   tag: Endocrine
-- q: 慢性阻力訓練後靜息激素濃度是否會長期改變？為什麼？
-  a: 通常不會持久改變；運動後短暫升高已足以刺激受器重塑；長期高濃度反而使受器下調（如II型糖尿病胰島素抵抗）
+- q: IGF-I與機械生長因子（mechano growth factor）的差異是什麼？
+  a: IGF-I是GH下游媒介、反應延遲且依賴GH；機械生長因子在機械負荷下獨立於GH，於骨骼肌內直接上調
   tag: Endocrine
-- q: 雄激素受器（AR）在阻力訓練後如何變化？
-  a: 訓練後48-72小時內upregulate；高容量訓練後1小時先downregulate再upregulate；蛋白+碳水補充可減輕downregulation
+- q: 胰島素與兒茶酚胺在無氧訓練中的角色分別是什麼？
+  a: 胰島素分泌主要受飲食時機影響，不是運動誘發；兒茶酚胺（腎上腺素、去甲腎上腺素、多巴胺）反映急性訓練需求，調節力量產生、收縮速率與能量可用性
   tag: Endocrine
-- q: IGF-I 和 mechano growth factor 的主要差異？
-  a: IGF-I依賴GH（延遲反應）；Mechano growth factor對骨骼肌機械負荷立即反應，不依賴GH
+- q: 長期訓練後靜息激素濃度是否會改變？為什麼運動當下的短暫升高就已足夠？
+  a: 證據不一致、慢性改變可能性不高；運動中與運動後的短暫升高已足以刺激組織重塑，不需靜息值長期偏高
   tag: Endocrine
-- q: 兒茶酚胺（Catecholamines）在無氧訓練中的主要作用？
-  a: 調節力量產生、肌肉收縮率、能量可用性；增強其他激素（如睾固酮）效果；反映急性訓練需求強度
+- q: Ratamess研究中1組vs6組深蹲對AR分別有何影響？如何減緩AR下調？
+  a: 單組無AR差異；6組高量課表在運動後1小時造成AR顯著下調；Kraemer發現運動前後補充蛋白+碳水可減緩這種下調
   tag: Endocrine
-- q: 高強度腿推（95%1RM）可產生的最大血壓和心率為何？
-  a: 血壓峰值可達320/250 mmHg；心率約170次/分（Macdougall et al.）
+- q: 95% 1RM腿推曾測得的血壓與心率峰值各是多少？
+  a: 血壓峰值可達320/250 mmHg，心率約170 bpm（Macdougall et al.）
   tag: Cardiovascular
-- q: 為什麼重阻力訓練時血流向肌肉的輸送反而減少？
-  a: 肌肉收縮超過20%MVC時夾壓毛細血管 → 局部缺血；休息時reactive hyperemia補償；缺血刺激也促進肌肉生長
+- q: 血壓的向心期/離心期相位差是什麼？一組結束後前5秒心率如何變化？
+  a: 血壓向心期高於離心期（黏滯點附近最明顯）；每搏量與心輸出量反而在離心期或組間休息上升更多（Valsalva導致）；一組結束後前5秒心率比動作進行中更高
   tag: Cardiovascular
-- q: 阻力訓練對靜息血壓的長期影響（meta-analysis數據）？
-  a: 系統性與舒張壓各下降2-4%；初始血壓偏高者效果最顯著
+- q: 肌肉收縮超過多少%MVC會夾壓微血管？造成的代謝物堆積有何生理意義？
+  a: 超過20% MVC；血流受阻造成的氫離子堆積與pH下降，本身被認為是刺激肌肉生長的訊號
   tag: Cardiovascular
-- q: Valsalva 手法如何影響心輸出量和每搏量？
-  a: 胸腔內壓↑ → 靜脈回流↓ → 舒張末期容積↓ → 向心期心輸出量↓；離心期或組間休息後心輸出量反而升高
+- q: 短期與長期阻力訓練對靜息心率的影響？統合分析中血壓下降幅度是多少？
+  a: 短期下降5–12%，長期研究結果不一致（部分下降4–13%）；統合分析顯示收縮壓與舒張壓皆下降2–4%
   tag: Cardiovascular
-- q: 重阻力訓練 vs 高容量短休息訓練對心臟結構的差異？
-  a: 重阻力：左心室壁增厚、室腔大小不變；高容量（健美式）：左右心室絕對體積↑（類似有氧訓練效果）
+- q: 阻力訓練對左心室結構的影響，與有氧訓練的差異是什麼？
+  a: 左心室壁厚度與心臟重量上升，但腔室大小幾乎不變；有氧訓練則是腔室擴大，是兩者心臟結構適應的主要差異
   tag: Cardiovascular
-- q: 通氣速率在阻力訓練中的特徵？
-  a: 訓練中顯著升高；恢復第1分鐘更高；短休息（30秒-1分）產生最大通氣升高；可達>60 L/min
+- q: 長期訓練後，同樣絕對強度下的心血管反應如何被鈍化？
+  a: HR、BP、double product的急性升高幅度都被鈍化；被認為源自左心室後負荷下降，使心肌耗氧量減少
   tag: Cardiovascular
-- q: 長期阻力訓練後，同等絕對負荷下心臟反應如何改變？
-  a: 心率、血壓、double product的急性升高被鈍化（blunted）；左心室後負荷↓、心肌耗氧↓
+- q: Kraemer五組別研究發現合併阻力+有氧訓練對力量、爆發力、有氧能力各有何影響？
+  a: 純阻力組1RM與力量發展速率增幅大於合併組；兩組最大攝氧量進步幾乎相同（未見有氧過度訓練）；爆發力比最大力量更易受干擾，純阻力組峰值功率提升、合併組沒有
   tag: Cardiovascular
-- q: 同時進行力量+有氧訓練對爆發力的影響？
-  a: 爆發力比最大力量更容易受到干擾（interference effect）；同時訓練組的rate of force development增幅＜純力量組
-  tag: Program Design
-- q: 高強度有氧+阻力同時訓練的不相容效應（interference effect）在什麼條件下最明顯？
-  a: 每週6天（交替）高強度訓練；同日訓練（每週3天有完整休息日）往往不顯著不相容
-  tag: Program Design
-- q: 肌肉耐力訓練後的主要肌肉纖維和代謝適應？
-  a: IIx→IIa；粒線體↑、毛細血管↑、緩衝能力↑、抗疲勞性↑、代謝酶活性↑
+- q: 不同訓練程度者的最大肌力增幅（超過100項研究綜述）？
+  a: 未訓練約40%、中度訓練20%、訓練者16%、進階10%、精英2%
   tag: Program Design
 - q: 各動作峰值功率輸出對應的最佳負荷？
-  a: Jump squat：0%1RM（體重）；訓練好的爆發力運動員squat 30-60%1RM；Power clean 80%1RM；Ballistic bench press throw 46-62%1RM
+  a: Jump squat：0%1RM（體重）；深蹲峰值功率在56%1RM；power clean在80%1RM；上肢彈震臥推投擲在46–62%1RM；訓練有素的爆發力運動員在較高負荷（30–60%1RM）也可達峰值功率
   tag: Program Design
-- q: 不同訓練程度者的最大肌力增幅（文獻綜述）？
-  a: 未訓練↑40%、中度訓練↑20%、訓練者↑16%、進階↑10%、精英↑2%（>100個研究）
+- q: 無氧肌耐力訓練誘發的骨骼肌適應有哪些？
+  a: 纖維類型轉型（教材原文為IIx→IIb）；粒線體與微血管數量增加；緩衝能力、抗疲勞性與代謝酶活性提升
   tag: Program Design
-- q: FOR / NFOR / OTS 三者的時間軸和主要差別？
-  a: FOR（功能性過度訓練）：天~週，計畫性，tapering後超補償；NFOR：週~月，停滯+多系統異常；OTS：月~年，長期表現下降
+- q: 合併阻力+有氧訓練最容易出現不相容效應的頻率安排是什麼？Sale研究發現什麼？
+  a: 每週交替6天分開訓練、或每週4–6天高強度合併訓練較容易出現不相容；Sale研究：每週4天分開訓練（2天阻力+2天有氧）比每週2天合併訓練對腿推1RM效果更好（25% vs 13%）
+  tag: Program Design
+- q: 訓練順序如何影響表現？25分鐘有氧後做深蹲，反覆次數減少多少？
+  a: 三組平均減少13%至36%
+  tag: Program Design
+- q: 過度訓練連續體的四階段是什麼？各自恢復所需時間為何？
+  a: 急性疲勞（數天）→ FOR（數天至數週）→ NFOR（數週至數月）→ OTS（數月至數年）
   tag: Overtraining
-- q: 交感型 vs 副交感型 OTS 的差異？
-  a: 交感型：靜息交感活性↑（速度/力量型年輕運動員先出現）；副交感型：靜息副交感↑，所有OTS最終走向副交感型
+- q: 交感型與副交感型OTS的差異？最終都走向哪一型？
+  a: 交感型：靜息交感活性上升，好發訓練速度/力量的年輕運動員，通常先出現；副交感型：靜息與運動時副交感活性都上升；所有過度訓練狀態最終走向副交感型
   tag: Overtraining
-- q: 量型（volume）和強度型（intensity）過度訓練在激素上的差別？
-  a: 量型：皮質醇↑、LH↓、靜息T↓；強度型：靜息激素多無顯著變化
+- q: Fry兩項NFOR研究的設計與結果分別是什麼？
+  a: 研究一：8組95%1RM深蹲、連續6天 → 非特定性表現下降但1RM維持不變；研究二：10組1RM深蹲、7天（中間休息一天）→ 73%受試者1RM下降超過9.9磅（4.5公斤）
   tag: Overtraining
-- q: 去訓練（Detraining）後肌力可維持多久？最多流失多少？
-  a: 一般可維持4週；8-12週流失7-12%力量；高訓練者快縮纖維CSA在14天內↓6.4%；不太會低於訓練前基準值
+- q: 訓練有素舉重選手停訓14天後，各項表現指標分別下降多少？
+  a: 臥推1RM −1.7%、深蹲1RM −0.9%、等長膝伸展−7%、等速向心膝伸展−2.3%、垂直跳+1.2%（幾乎無變化）
   tag: Detraining
-- q: 去訓練後哪類肌纖維先萎縮？長期影響如何？
-  a: 快縮纖維（Type IIa/IIx）先萎縮；慢縮纖維影響較慢；7個月後所有纖維類型平均萎縮37%
+- q: 長期停訓的累積流失數據？健力選手7個月與健美選手13.5個月分別損失多少？
+  a: 健力選手7個月後所有纖維類型平均萎縮37.1%；健美選手13.5個月後無脂肪體重−9.3%、大腿圍−0.5%、手臂圍−11.5%、平均纖維面積−8.3%
   tag: Detraining
