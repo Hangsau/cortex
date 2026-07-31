@@ -13,101 +13,131 @@ topics:
     - 能量系統速率越高，總容量越低
     - 磷酸原最快但量最少
     - 脂肪氧化最慢但量最多
-    detail: ''
-    terms: []
+    detail: 速率（每單位時間生成的 ATP 量）與容量（可生成的 ATP 總量）之間存在反比關係，原因在於高速能量來源依賴有限的儲備底物。磷酸原系統速率最高但 CP 儲量極小；脂肪氧化容量最大，但其多步驟反應鏈使生成速率遠低於磷酸原系統。此反比關係直接決定各系統在特定運動強度與持續時間下的分工。
+    terms:
+    - phosphagen-system
+    - oxidative-system
     numbers: []
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.energy-capacity.i07
+    - ch03.energy-capacity.i08
+    locator: 第 3 章 · Energy Production and Capacity
   - id: ch03.energy-capacity.i02
     q: 0-6秒活動
     a:
     - 極高強度
     - 主要系統：磷酸原
     - 例：鉛球、舉重抓舉
-    detail: ''
-    terms: []
+    detail: 持續時間極短的高爆發活動（如抓舉）幾乎完全依賴儲存於肌肉的 ATP 與 CP，糖解系統尚未充分活化。此區段的特徵是功率輸出最高，但可持續時間最短。
+    terms:
+    - phosphagen-system
     numbers: []
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.energy-capacity.i03
+    - ch03.phosphagen.i06
+    locator: 第 3 章 · Energy Production and Capacity
   - id: ch03.energy-capacity.i03
     q: 6-30秒活動
     a:
     - 非常高強度
     - 磷酸原＋快速糖解
     - 例：100m衝刺
-    detail: ''
-    terms: []
+    detail: 此時段磷酸原系統漸趨耗竭，快速糖解（丙酮酸→乳酸路徑）的比重上升。兩個系統協同提供高功率，但乳酸與 H⁺ 開始積累。
+    terms:
+    - phosphagen-system
+    - fast-glycolysis
     numbers: []
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.energy-capacity.i02
+    - ch03.energy-capacity.i04
+    locator: 第 3 章 · Energy Production and Capacity
   - id: ch03.energy-capacity.i04
     q: 30秒-2分鐘
     a:
     - 高強度
     - 快速糖解為主
     - 例：400m跑、200m游泳
-    detail: ''
-    terms: []
+    detail: 快速糖解成為主要 ATP 來源，乳酸與 H⁺ 大量積累。這個強度區段對代謝酸中毒的抵抗能力要求最高，也是訓練緩衝能力的關鍵窗口。
+    terms:
+    - fast-glycolysis
     numbers: []
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.energy-capacity.i03
+    - ch03.energy-capacity.i05
+    locator: 第 3 章 · Energy Production and Capacity
   - id: ch03.energy-capacity.i05
     q: 2-3分鐘活動
     a:
     - 中強度
     - 快速糖解＋氧化系統
     - 例：1500m跑
-    detail: ''
-    terms: []
+    detail: 此區段兩個系統的貢獻度接近對等，運動員同時承受無氧代謝產生的酸性環境與有氧系統的需氧量。隨運動持續，有氧系統比重逐漸增大。
+    terms:
+    - fast-glycolysis
+    - oxidative-system
     numbers: []
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.energy-capacity.i04
+    - ch03.energy-capacity.i06
+    locator: 第 3 章 · Energy Production and Capacity
   - id: ch03.energy-capacity.i06
     q: '>3分鐘活動'
     a:
     - 低強度
     - 以氧化系統為主
     - 例：馬拉松、長跑
-    detail: ''
-    terms: []
+    detail: 超過 3 分鐘的持續活動主要依賴氧化系統（Krebs 循環 + ETC），底物以碳水化合物和脂肪為主。氧化系統的高容量允許長時間維持穩定功率，但代價是 ATP 生成速率最低，無法支撐爆發性動作。
+    terms:
+    - oxidative-system
     numbers: []
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.energy-capacity.i05
+    - ch03.oxidative.i08
+    locator: 第 3 章 · Energy Production and Capacity
   - id: ch03.energy-capacity.i07
     q: 速率排名
     a:
     - 1磷酸原 2快速糖解 3慢速糖解 4碳水氧化 5脂肪/蛋白氧化
-    detail: ''
-    terms: []
+    detail: 此排名來自書中 Table 3.3，同時也列出容量排名（1=最大/最快，5=最小/最慢）。速率與容量排名互為鏡像——速率第 1 的磷酸原系統在容量上排第 5，容量最大的脂肪/蛋白氧化速率排第 5。
+    terms:
+    - phosphagen-system
+    - fast-glycolysis
+    - slow-glycolysis
+    - oxidative-system
     numbers: []
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.energy-capacity.i01
+    locator: 第 3 章 · Energy Production and Capacity
   - id: ch03.energy-capacity.i08
     q: 三系統同時作用
     a:
     - 任何時刻三系統皆同時活化
     - 由強度（主）和持續時間（次）決定各系統貢獻比例
-    detail: ''
-    terms: []
+    detail: 三個能量系統從不以「全有全無」的方式切換，而是以不同比例同時運作。強度是決定各系統相對貢獻的首要因素，持續時間為次要因素。這個概念是設計代謝專一性訓練的基礎。
+    terms:
+    - phosphagen-system
+    - oxidative-system
     numbers: []
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.energy-capacity.i01
+    - ch03.metabolic-specificity.i01
+    locator: 第 3 章 · Energy Production and Capacity
 - id: epoc
   title: 攝氧量與EPOC
   desc: ''
@@ -118,66 +148,91 @@ topics:
     a:
     - 運動初期有氧系統反應慢→需無氧補充的能量量
     - 強度越高氧虧越大
-    detail: ''
-    terms: []
+    detail: 氧虧（oxygen deficit）是有氧系統在運動初期無法即時滿足能量需求所產生的缺口，此時磷酸原與糖解系統先行介入。高強度運動時，所需攝氧量可能永遠無法達到，導致氧虧持續整個運動過程（非穩態運動的特徵）。氧虧大小影響但不等於 EPOC。
+    terms:
+    - oxygen-deficit
+    - epoc
     numbers: []
     concepts:
     - energy-supply
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch03.epoc.i02
+    - ch03.epoc.i03
+    locator: 第 3 章 · Oxygen Uptake and the Aerobic and Anaerobic Contributions to Exercise
   - id: ch03.epoc.i02
     q: 穩態 Steady State
     a:
     - 低強度持續運動數分鐘後，攝氧量等於需氧量
     - 高強度運動無法達到穩態
-    detail: ''
-    terms: []
+    detail: 穩態（steady state）代表有氧系統的供給量已完全滿足當前強度的能量需求，無氧系統無需額外介入。在低強度穩態下氧虧不再增加，此時乳酸產生與清除趨於平衡。超過個人最大攝氧量的強度不可能達到穩態。
+    terms:
+    - oxygen-deficit
+    - vo2max
     numbers: []
     concepts:
     - energy-supply
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch03.epoc.i01
+    - ch03.epoc.i08
+    locator: 第 3 章 · Oxygen Uptake and the Aerobic and Anaerobic Contributions to Exercise
   - id: ch03.epoc.i03
     q: EPOC定義
     a:
     - 運動後超過靜息水準的額外攝氧量
     - 用於使身體恢復至運動前狀態
-    detail: ''
-    terms: []
+    detail: EPOC（excess postexercise oxygen consumption）也曾被稱為 oxygen debt 或 recovery O₂，但現代術語以 EPOC 為準。它與氧虧只存在小到中等程度的相關，兩者不相等——EPOC 的成因包括磷酸原補充、體溫升高、循環增加等多種機制，不只是「償還」氧虧。
+    terms:
+    - epoc
+    - oxygen-deficit
     numbers: []
     concepts:
     - energy-supply
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch03.epoc.i01
+    - ch03.epoc.i05
+    locator: 第 3 章 · Oxygen Uptake and the Aerobic and Anaerobic Contributions to Exercise
   - id: ch03.epoc.i04
     q: EPOC影響因素
     a:
     - 強度>持續時間
     - '>50-60% VO₂max且>40分鐘時EPOC最大'
     - 超極量間歇可最大化EPOC
-    detail: ''
-    terms: []
-    numbers: []
+    detail: 在有氧運動中，強度對 EPOC 的影響最大。超過最大攝氧量（>100% VO₂max）的短暫間歇訓練可用較少的總工作量誘發相當大的 EPOC。個體間對同一相對強度刺激的 EPOC 反應存在差異。各有氧運動模式（跑步、游泳等）對 EPOC 的影響尚不明確。
+    terms:
+    - epoc
+    - vo2max
+    numbers:
+    - v: 50
+      unit: '%VO₂max'
+      of: 誘發顯著 EPOC 的有氧強度下限（需同時持續>40分鐘）
+    - v: 40
+      unit: 分鐘
+      of: 誘發最大 EPOC 所需的最低持續時間（需同時強度>50-60% VO₂max）
     concepts:
     - energy-supply
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch03.epoc.i03
+    - ch03.epoc.i07
+    locator: 第 3 章 · Excess Postexercise Oxygen Consumption Is Intensity, Duration, and Mode Dependent
   - id: ch03.epoc.i05
     q: EPOC生理機制
     a:
     - 血液/肌肉O₂補充、ATP/CP再合成、體溫↑、三酸甘油酯-脂肪酸循環、蛋白質更新
-    detail: ''
-    terms: []
+    detail: 書中列出的 EPOC 成因包括：補充血液與肌肉中的氧氣儲量、ATP/CP 再合成、體溫升高帶來的循環與換氣增加、三酸甘油酯－脂肪酸循環速率上升、蛋白質更新率增加，以及恢復期能量效率的變化。這些因素共同解釋為何 EPOC 不僅僅是在「還清氧虧」。
+    terms:
+    - epoc
     numbers: []
     concepts:
     - energy-supply
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch03.epoc.i03
+    - ch03.epoc.i04
+    locator: 第 3 章 · Excess Postexercise Oxygen Consumption Is Intensity, Duration, and Mode Dependent
   - id: ch03.epoc.i06
     q: 無氧vs有氧貢獻
     a:
@@ -186,40 +241,68 @@ topics:
     - 60秒：50/50
     - 90秒：35%無氧
     - 逐漸轉向有氧
-    detail: ''
-    terms: []
-    numbers: []
+    detail: 數據來自 Table 3.5（自行車功率計最大持續努力），代表在各時間點的系統貢獻比例。60 秒是無氧/有氧各占 50% 的關鍵時間點。運動超過 60 秒後有氧系統即成為主要能量來源。
+    terms:
+    - vo2max
+    numbers:
+    - v: 96
+      unit: '%無氧貢獻'
+      of: 0-5 秒最大功率自行車運動的無氧機制比例（Table 3.5）
+    - v: 75
+      unit: '%無氧貢獻'
+      of: 30 秒最大努力時的無氧機制比例（Table 3.5）
+    - v: 50
+      unit: '%無氧貢獻'
+      of: 60 秒最大努力時的無氧機制比例（Table 3.5）
+    - v: 35
+      unit: '%無氧貢獻'
+      of: 90 秒最大努力時的無氧機制比例（Table 3.5）
     concepts:
     - energy-supply
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch03.epoc.i01
+    - ch03.energy-capacity.i08
+    locator: 第 3 章 · Oxygen Uptake and the Aerobic and Anaerobic Contributions to Exercise
   - id: ch03.epoc.i07
     q: 阻力訓練EPOC
     a:
-    - 大重量（80-90%1RM，3組）EPOC > 循環訓練（50%1RM）
+    - 大重量（80-90%1RM，3組8個動作至力竭）EPOC > 循環訓練（50%1RM，4組8個動作15次）
     - 阻力訓練也具強度依賴性
-    detail: ''
-    terms: []
-    numbers: []
+    detail: 書中具體對比的是「三組、八個動作、80-90% 1RM 至力竭」與「四組、八個動作、50% 1RM 15 次反覆」的循環訓練。大重量訓練的 EPOC 更大，顯示阻力訓練的 EPOC 與有氧運動同樣具有強度依賴性。
+    terms:
+    - epoc
+    numbers:
+    - v: 80
+      unit: '%1RM'
+      of: 產生較大 EPOC 的大重量阻力訓練強度下限（3 組 8 個動作至力竭）
+    - v: 50
+      unit: '%1RM'
+      of: 循環重量訓練強度（4 組 8 個動作 15 次反覆），EPOC 較小
     concepts:
     - energy-supply
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch03.epoc.i04
+    locator: 第 3 章 · Excess Postexercise Oxygen Consumption Is Intensity, Duration, and Mode Dependent
   - id: ch03.epoc.i08
     q: 高強度EPOC特性
     a:
     - 超過VO₂max的高強度運動：整個運動期間持續存在氧虧
     - 無法達穩態
-    detail: ''
-    terms: []
+    detail: 當運動強度超過個人最大攝氧量時，所需攝氧量永遠無法達成，氧虧在整個運動過程中持續積累而非趨於平衡。此種非穩態模式意味著無氧機制必須貢獻大部分能量，代謝負荷極高，持續時間相對短暫。
+    terms:
+    - epoc
+    - vo2max
+    - oxygen-deficit
     numbers: []
     concepts:
     - energy-supply
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch03.epoc.i01
+    - ch03.epoc.i02
+    locator: 第 3 章 · Oxygen Uptake and the Aerobic and Anaerobic Contributions to Exercise
 - id: glycolysis
   title: 糖解作用
   desc: ''
@@ -230,102 +313,147 @@ topics:
     a:
     - 碳水化合物（肌糖原或血糖）分解再合成ATP
     - 發生在肌漿（sarcoplasm）
-    detail: ''
-    terms: []
+    detail: 糖解作用（glycolysis）是一系列酵素催化反應，發生在細胞漿（肌漿）中。與磷酸原系統的單步反應相比，糖解涉及多步驟，因此 ATP 再合成速率較低；但因糖原與葡萄糖的供應量遠大於 CP，其產 ATP 的容量明顯更高。糖解過程本身不需要氧氣，但終產物（丙酮酸）的去向取決於細胞的氧氣狀態與能量需求。
+    terms:
+    - glycolysis
+    - sarcoplasm
     numbers: []
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.glycolysis.i02
+    - ch03.glycolysis.i03
+    locator: 第 3 章 · Glycolysis
   - id: ch03.glycolysis.i02
     q: 快速糖解
     a:
     - 丙酮酸→乳酸
     - 快速再生NAD⁺
     - H⁺增加→pH下降
-    - 無氧條件
-    - 短時間
-    detail: ''
-    terms: []
+    - 高能量需求條件
+    - 持續時間受限
+    detail: 書中指出「快速糖解」（fast glycolysis）是俗稱，因為糖解本身不依賴氧氣，以「無氧」稱之在技術上不夠精確。丙酮酸轉為乳酸的實際目的是快速再生 NAD⁺，讓糖解持續進行。此路徑的限制在於 H⁺ 積累導致 pH 下降，進而抑制糖解酶並干擾興奮-收縮耦合。
+    terms:
+    - glycolysis
+    - fast-glycolysis
+    - lactate-dehydrogenase
     numbers: []
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.glycolysis.i03
+    - ch03.lactate.i01
+    locator: 第 3 章 · Glycolysis
   - id: ch03.glycolysis.i03
     q: 慢速糖解
     a:
     - 丙酮酸→粒線體→Krebs cycle
-    - 有氧條件
+    - 粒線體內氧氣充足時的路徑
     - 速率慢但持續時間長
-    detail: ''
-    terms: []
+    detail: 當細胞氧氣充足且能量需求不過高時，丙酮酸不轉為乳酸，而是被送入粒線體，經 pyruvate dehydrogenase 轉化為乙醯 CoA 進入 Krebs 循環。書中指出以「有氧糖解」（aerobic glycolysis）稱之同樣在術語上不夠精確，丙酮酸的去向根本上由細胞的能量需求決定，而非僅由氧氣是否存在決定。
+    terms:
+    - glycolysis
+    - slow-glycolysis
+    - krebs-cycle
     numbers: []
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.glycolysis.i02
+    - ch03.oxidative.i01
+    locator: 第 3 章 · Glycolysis
   - id: ch03.glycolysis.i04
     q: 淨ATP產量
     a:
-    - 血糖起始：淨2 ATP
-    - 肌糖原起始：淨3 ATP（不需hexokinase消耗ATP）
-    detail: ''
-    terms: []
-    numbers: []
+    - 血糖起始：淨2 ATP（總產4，消耗2）
+    - 肌糖原起始：淨3 ATP（總產4，消耗1）
+    detail: 從血糖開始：hexokinase 磷酸化葡萄糖消耗 1 ATP，PFK 步驟再消耗 1 ATP，共用 2 ATP；substrate-level phosphorylation 產 4 ATP，淨 2 ATP。從肌糖原開始：glycogen phosphorylase 分解糖原時已磷酸化，不需 hexokinase 消耗那 1 ATP，故只消耗 1 ATP，淨 3 ATP。
+    terms:
+    - glycolysis
+    - hexokinase
+    - pfk
+    numbers:
+    - v: 2
+      unit: ATP（淨）
+      of: 從血糖起始的糖解淨 ATP 產量（基質磷酸化）
+    - v: 3
+      unit: ATP（淨）
+      of: 從肌糖原起始的糖解淨 ATP 產量（基質磷酸化）
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.glycolysis.i06
+    - ch03.oxidative.i03
+    locator: 第 3 章 · Energy Yield of Glycolysis
   - id: ch03.glycolysis.i05
     q: 關鍵酶調控
     a:
-    - PFK（限速步驟）：ATP抑制、AMP活化
-    - Hexokinase：G-6-P抑制
-    - Pyruvate kinase：ATP抑制
-    detail: ''
-    terms: []
+    - PFK（限速步驟）：ATP抑制、AMP活化；氨也可活化PFK
+    - Hexokinase：G-6-P別構抑制
+    - Pyruvate kinase：ATP與乙醯CoA抑制、AMP與F-1,6-BP活化
+    detail: PFK 是糖解最重要的調節點（rate-limiting step），因其具有別構結合位點。ATP 在高濃度時抑制 PFK，代表能量充足不需加速糖解；AMP 則是強力活化劑，代表能量匱乏。高強度運動產生的氨（來自 AMP 去氨基或胺基酸脫氨）也能刺激 PFK。Pyruvate kinase 受乙醯 CoA 抑制，代表有 Krebs 循環中間物時自動降速。
+    terms:
+    - pfk
+    - hexokinase
+    - allosteric-regulation
     numbers: []
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.glycolysis.i07
+    locator: 第 3 章 · Control of Glycolysis
   - id: ch03.glycolysis.i06
     q: 磷酸化方式
     a:
-    - 基質磷酸化（substrate-level）：4 ATP gross
-    - 氧化磷酸化（oxidative）：via ETC
-    detail: ''
-    terms: []
-    numbers: []
+    - 基質磷酸化（substrate-level）：4 ATP gross（PGK步驟 + pyruvate kinase步驟各2 ATP）
+    - 氧化磷酸化（oxidative）：via ETC，需 NADH/FADH₂
+    detail: 基質磷酸化是在單一反應中直接由高能中間物將磷酸轉移給 ADP 的過程，不需氧氣。糖解中有兩個基質磷酸化步驟（phosphoglycerate kinase 和 pyruvate kinase），每步各產 2 ATP（一分子葡萄糖分裂為兩個三碳單元），共 4 ATP gross。氧化磷酸化則需要 ETC 和氧氣作為最終電子受體。
+    terms:
+    - substrate-level-phosphorylation
+    - oxidative-phosphorylation
+    numbers:
+    - v: 4
+      unit: ATP（gross）
+      of: 糖解中基質磷酸化的總產 ATP 量（不扣除消耗）
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.glycolysis.i04
+    - ch03.oxidative.i02
+    locator: 第 3 章 · Energy Yield of Glycolysis
   - id: ch03.glycolysis.i07
     q: 糖解促進因子
     a:
     - ADP↑、Pi↑、AMP↑、NH₃↑、pH輕微下降→糖解加速
     - pH顯著下降→抑制糖解
-    detail: ''
-    terms: []
+    detail: 輕微的 pH 下降是促進信號（代表 ATP 正在被消耗），但 pH 繼續顯著下降則轉為抑制信號——這是一個保護機制，防止進一步的酸中毒惡化。靜息時存在的 ATP、CP、檸檬酸（citrate）和游離脂肪酸則會抑制糖解，代表能量充足無需加速。
+    terms:
+    - glycolysis
+    - pfk
     numbers: []
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.glycolysis.i05
+    - ch03.lactate.i02
+    locator: 第 3 章 · Control of Glycolysis
   - id: ch03.glycolysis.i08
     q: 糖解終產物
     a:
-    - →乳酸（無氧/能量需求高）or 丙酮酸進粒線體（有氧/能量需求低）
+    - 丙酮酸（pyruvate）→乳酸（高能量需求時）
+    - 丙酮酸→粒線體（能量需求低且氧氣充足時）
     - 由細胞能量狀態決定
-    detail: ''
-    terms: []
+    detail: 書中明確指出，丙酮酸的去向「根本上由細胞內的能量需求所控制」，而非單純由氧氣是否存在決定。高強度訓練（如阻力訓練）時，丙酮酸主要轉為乳酸以維持快速糖解；低強度且氧氣充足時，丙酮酸進入粒線體進一步氧化。
+    terms:
+    - glycolysis
+    - pyruvate
     numbers: []
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.glycolysis.i02
+    - ch03.glycolysis.i03
+    locator: 第 3 章 · Glycolysis
 - id: lactate
   title: 乳酸與代謝酸中毒
   desc: ''
@@ -335,110 +463,152 @@ topics:
     q: 乳酸非疲勞原因
     a:
     - 乳酸≠疲勞成因
-    - 乳酸脫氫酶反應本身消耗H⁺（鹼化）
-    - 實為能量基質
-    detail: ''
-    terms: []
+    - 乳酸脫氫酶反應本身消耗H⁺（使細胞鹼化）
+    - 乳酸實為能量基質（Type I 與心肌纖維氧化利用）
+    detail: 雖然高強度運動的疲勞常與乳酸濃度相關，但相關不等於因果。乳酸脫氫酶（LDH）催化丙酮酸轉為乳酸的反應實際上消耗質子（H⁺），使細胞輕微鹼化，與酸中毒方向相反。乳酸更常被用作能量基質，在 Type I 與心肌纖維中直接氧化，或透過 Cori 循環轉為葡萄糖。
+    terms:
+    - lactate-dehydrogenase
+    - cori-cycle
     numbers: []
     concepts:
     - energy-supply
     - normal-values
-    related: []
-    locator: ''
+    related:
+    - ch03.lactate.i02
+    - ch03.lactate.i07
+    locator: 第 3 章 · Glycolysis and the Formation of Lactate
   - id: ch03.lactate.i02
     q: 真正酸化來源
     a:
-    - ATP水解（ATP→ADP+Pi+H⁺）才是H⁺主要來源
+    - 粒線體外的ATP水解才是H⁺主要來源
     - 非乳酸堆積
-    - 乳酸酸中毒為誤稱
-    detail: ''
-    terms: []
+    - 「乳酸酸中毒」（lactic acidosis）為誤稱，應改用「代謝酸中毒」
+    detail: 書中引用 Busa 與 Nuccitelli 的說法：「ATP 水解，而非乳酸積累，是胞內酸負荷的主要來源。」Robergs 等人的研究也指出，粒線體外的 ATP 水解是運動誘發代謝酸中毒中 H⁺ 積累的主要原因。因此「lactic acidosis」是錯誤術語，「metabolic acidosis」才是正確描述。
+    terms:
+    - metabolic-acidosis
     numbers: []
     concepts:
     - energy-supply
     - normal-values
-    related: []
-    locator: ''
+    related:
+    - ch03.lactate.i01
+    - ch03.lactate.i03
+    locator: 第 3 章 · Lactic Acid Does Not Cause Metabolic Acidosis!
   - id: ch03.lactate.i03
     q: 代謝酸中毒效應
     a:
-    - 抑制糖解酶、干擾興奮-收縮耦合（鈣離子與肌鈣蛋白結合受阻）、抑制橫橋循環
-    detail: ''
-    terms: []
+    - 抑制糖解酶活性
+    - 干擾興奮-收縮耦合（H⁺積累可能抑制鈣與肌鈣蛋白結合，或干擾橫橋循環）
+    - 近期研究對代謝酸中毒在週邊疲勞中的角色提出質疑
+    detail: H⁺ 積累降低胞內 pH，抑制糖解反應的酶活性，並直接干擾肌肉的興奮-收縮耦合機制。書中同時指出，近年有研究質疑代謝酸中毒在週邊疲勞中的主導角色，其他因素（如胞間隙 K⁺ 濃度升高、Pi 升高影響 Ca²⁺ 釋放）也被認為在週邊疲勞中扮演重要角色。
+    terms:
+    - metabolic-acidosis
+    - troponin
     numbers: []
     concepts:
     - energy-supply
     - normal-values
-    related: []
-    locator: ''
+    related:
+    - ch03.lactate.i02
+    locator: 第 3 章 · Glycolysis and the Formation of Lactate
   - id: ch03.lactate.i04
     q: 乳酸閾值LT
     a:
-    - 血乳酸開始急劇上升的運動強度
-    - 未訓練者50-60% VO₂max
-    - 訓練者70-80%
-    detail: ''
-    terms: []
-    numbers: []
+    - 血乳酸開始急劇上升（高於基線）的運動強度
+    - 未訓練者約50-60% VO₂max
+    - 有氧訓練者約70-80% VO₂max
+    detail: LT（lactate threshold）代表無氧機制對能量生產的依賴顯著增加。LT 與通氣閾（ventilatory threshold，VE 與 VO₂ 關係的折點）相關良好，因此常被用作無氧閾的替代指標。在 LT 以下，乳酸產生與清除速率大致平衡。
+    terms:
+    - lactate-threshold
+    - vo2max
+    numbers:
+    - v: 50
+      unit: '%VO₂max'
+      of: 未訓練者乳酸閾值的典型起始範圍下限
+    - v: 70
+      unit: '%VO₂max'
+      of: 有氧訓練者乳酸閾值的典型起始範圍下限
     concepts:
     - energy-supply
     - normal-values
-    related: []
-    locator: ''
+    related:
+    - ch03.lactate.i05
+    - ch03.lactate.i08
+    locator: 第 3 章 · Lactate Threshold and Onset of Blood Lactate Accumulation
   - id: ch03.lactate.i05
     q: OBLA
     a:
-    - 血乳酸達4 mmol/L的第二個轉折點
-    - 對應大運動單位（Type II）大量徵召
-    detail: ''
-    terms: []
-    numbers: []
+    - 血乳酸濃度達4 mmol/L時的第二個積累轉折點
+    - 對應更高強度下大型運動單位（Type II 纖維）大量徵召
+    detail: OBLA（onset of blood lactate accumulation）是乳酸積累曲線的第二個折點，發生在比 LT 更高的強度。Type II 纖維特別適合無氧代謝與乳酸生產，因此大型運動單位的大量徵召（此時才會大量動用 Type II 纖維）解釋了 OBLA 折點的出現。
+    terms:
+    - obla
+    - lactate-threshold
+    numbers:
+    - v: 4
+      unit: mmol/L
+      of: 血乳酸濃度達到 OBLA 的判定值
     concepts:
     - energy-supply
     - normal-values
-    related: []
-    locator: ''
+    related:
+    - ch03.lactate.i04
+    locator: 第 3 章 · Lactate Threshold and Onset of Blood Lactate Accumulation
   - id: ch03.lactate.i06
     q: 乳酸清除
     a:
     - 停止運動後約5分鐘達峰值
-    - 1小時內回基線
-    - 主動恢復優於被動
-    - 有訓練者清除更快
-    detail: ''
-    terms: []
-    numbers: []
+    - 通常在1小時內回到運動前基線
+    - 主動恢復（輕度運動）清除速度優於被動恢復
+    - 有氧與無氧訓練者清除速率均優於未訓練者
+    detail: 運動停止後約 5 分鐘血乳酸才達到峰值，延遲原因是乳酸需要時間從組織緩衝並轉運到血液。清除機制包括：在產生乳酸的肌纖維內氧化、轉運到其他肌纖維氧化、或運到肝臟透過 Cori 循環轉為葡萄糖。主動恢復通過增加肌肉血流促進上述過程。
+    terms:
+    - cori-cycle
+    numbers:
+    - v: 5
+      unit: 分鐘
+      of: 運動停止後血乳酸達到峰值的大約時間
     concepts:
     - energy-supply
     - normal-values
-    related: []
-    locator: ''
+    related:
+    - ch03.lactate.i07
+    locator: 第 3 章 · Glycolysis and the Formation of Lactate
   - id: ch03.lactate.i07
     q: Cori Cycle
     a:
-    - 乳酸→血液→肝臟→糖質新生（glucose）
-    - 長時間運動與恢復期的重要機制
-    detail: ''
-    terms: []
+    - 乳酸→血液→肝臟→糖質新生（gluconeogenesis）→葡萄糖
+    - 長時間運動與恢復期的重要乳酸清除機制
+    detail: Cori 循環（Cori cycle）是乳酸清除的重要途徑之一。肌肉產生的乳酸透過血液運送到肝臟，在肝臟中被轉化為葡萄糖（糖質新生），葡萄糖再釋放回血液供肌肉使用。這個循環在延長的運動與恢復期中特別重要，也是乳酸作為能量底物而非廢物的具體例證。
+    terms:
+    - cori-cycle
+    - gluconeogenesis
     numbers: []
     concepts:
     - energy-supply
     - normal-values
-    related: []
-    locator: ''
+    related:
+    - ch03.lactate.i01
+    - ch03.lactate.i06
+    locator: 第 3 章 · Glycolysis and the Formation of Lactate
   - id: ch03.lactate.i08
     q: 訓練對LT影響
     a:
-    - LT/OBLA右移（更高強度才開始堆積）
-    - 粒線體增加、兒茶酚胺分泌減少
-    detail: ''
-    terms: []
+    - 接近或超過 LT/OBLA 強度的訓練可使曲線右移
+    - 可能機制：高強度下兒茶酚胺分泌減少、粒線體含量增加
+    detail: 書中以「可能（probably）」描述此右移的機制，表達推測而非確定。右移後運動員可在更高比例的最大攝氧量下維持運動，同時血乳酸積累較少，是有氧耐力提升的重要指標。
+    terms:
+    - lactate-threshold
+    - obla
     numbers: []
     concepts:
     - energy-supply
     - normal-values
-    related: []
-    locator: ''
+    - adaptation
+    related:
+    - ch03.lactate.i04
+    - ch03.lactate.i05
+    locator: 第 3 章 · Lactate Threshold and Onset of Blood Lactate Accumulation
 - id: metabolic-specificity
   title: 訓練代謝專一性
   desc: ''
@@ -449,106 +619,152 @@ topics:
     a:
     - 運動強度與休息間隔可「選擇」特定能量系統
     - 訓練設計需符合運動代謝需求
-    detail: ''
-    terms: []
+    detail: 書中說明，適當的運動強度與休息間隔允許「選擇」訓練特定能量系統。大多數運動（美式足球、籃球、曲棍球等）產生的代謝特徵與「高強度間歇努力穿插休息」非常相似。因此，單純增加有氧耐力訓練而犧牲無氧能力訓練，對這類運動員幫助有限。
+    terms:
+    - metabolic-specificity
     numbers: []
     concepts:
     - energy-supply
     - adaptation
-    related: []
-    locator: ''
+    - program-design
+    related:
+    - ch03.metabolic-specificity.i02
+    - ch03.energy-capacity.i08
+    locator: 第 3 章 · Metabolic Specificity of Training
   - id: ch03.metabolic-specificity.i02
     q: 間歇訓練原理
     a:
     - 預設功休比允許更高強度完成更多訓練量
-    - 同強度下比連續訓練疲勞更少
-    detail: ''
-    terms: []
+    - 同強度下比連續訓練疲勞更少、代謝刺激相當
+    detail: 書中引用 Christensen 等人的早期研究：在會導致 5 分鐘內力竭的速度下，連續跑只能完成 0.81 英里（1.30 km）；使用相同速度的間歇訓練（共 30 分鐘），2:1 功休比可完成 4.14 英里（6.66 km），代謝刺激與連續訓練相當。書中指出這個概念已確立超過 45 年。
+    terms:
+    - interval-training
     numbers: []
     concepts:
     - energy-supply
     - adaptation
-    related: []
-    locator: ''
+    - program-design
+    related:
+    - ch03.metabolic-specificity.i01
+    - ch03.metabolic-specificity.i03
+    locator: 第 3 章 · Interval Training
   - id: ch03.metabolic-specificity.i03
     q: 功休比指引
     a:
-    - 90-100%max：1:12-1:20（磷酸原）
-    - 75-90%：1:3-1:5（快速糖解）
-    - '>3min：1:1-1:3（氧化）'
-    detail: ''
-    terms: []
+    - 90-100%最大功率，5-10秒：1:12-1:20（磷酸原）
+    - 75-90%，15-30秒：1:3-1:5（快速糖解）
+    - 30-75%，1-3分鐘：1:3-1:4（快速糖解＋氧化）
+    - 20-30%，>3分鐘：1:1-1:3（氧化）
+    detail: 此表格（Table 3.6）為一般性指引，書中明確指出「更多研究有助提供最佳功休比的實證建議」，即目前指引仍基於理論而非完整實證。高強度磷酸原系統訓練需要長休息（CP 完全恢復需約 8 分鐘），故功休比最大（1:12-1:20）。
+    terms:
+    - interval-training
+    - phosphagen-system
     numbers: []
     concepts:
     - energy-supply
     - adaptation
-    related: []
-    locator: ''
+    - program-design
+    related:
+    - ch03.metabolic-specificity.i02
+    - ch03.substrate.i02
+    locator: 第 3 章 · Interval Training
   - id: ch03.metabolic-specificity.i04
     q: HIIT定義與效益
     a:
-    - 短暫高強度+間歇恢復
-    - 改善VO₂max、緩衝能力、糖原含量、無氧閾值
+    - 短暫高強度間歇加間歇恢復期
+    - 改善：VO₂max、緩衝能力、糖原含量、無氧閾值、力竭時間、計時賽成績
     - 時間效率高
-    detail: ''
-    terms: []
+    detail: 書中引用 Buchheit 與 Laursen 的說法：HIIT「被認為是提升運動員體能表現的最有效訓練形式之一」。書中研究例：HIIT（250% VO₂peak，4-6 次 30 秒衝刺）與長慢耐力訓練（90-120 分鐘，65% VO₂peak）在 6 次訓練後對肌肉緩衝能力和糖原含量的改善相當，而計時賽成績 HIIT 組改善 10.1%，耐力組 7.5%。
+    terms:
+    - hiit
+    - vo2max
     numbers: []
     concepts:
     - energy-supply
     - adaptation
-    related: []
-    locator: ''
+    - program-design
+    related:
+    - ch03.metabolic-specificity.i05
+    - ch03.metabolic-specificity.i06
+    locator: 第 3 章 · High-Intensity Interval Training
   - id: ch03.metabolic-specificity.i05
     q: HIIT 9大變數
     a:
-    - 工作強度/持續時間、恢復強度/持續時間、每組重複次數、組數、組間休息、恢復強度、訓練模式
-    detail: ''
-    terms: []
-    numbers: []
+    - 工作期強度、工作期持續時間
+    - 恢復期強度、恢復期持續時間
+    - 每組重複次數、組數、組間休息時間、組間恢復強度
+    - 訓練模式（跑步/騎車等）
+    detail: 書中引用 Buchheit 與 Laursen 的分類，共 9 個可操控變數。其中「工作期強度與持續時間」被認為是最重要的兩個因素，目標是使累積時間處於接近或高於 90% VO₂max。
+    terms:
+    - hiit
+    - vo2max
+    numbers:
+    - v: 9
+      unit: 個變數
+      of: HIIT 設計中可操控的訓練變數數量（Buchheit & Laursen 分類）
     concepts:
     - energy-supply
     - adaptation
-    related: []
-    locator: ''
+    - program-design
+    related:
+    - ch03.metabolic-specificity.i04
+    - ch03.metabolic-specificity.i06
+    locator: 第 3 章 · High-Intensity Interval Training
   - id: ch03.metabolic-specificity.i06
     q: HIIT最佳化
     a:
-    - 累積時間於>90% VO₂max
-    - 同時徵召大運動單位＋近最大心輸出量→氧化纖維+心肌適應
-    detail: ''
-    terms: []
-    numbers: []
+    - 累積時間達數分鐘於>90% VO₂max
+    - 同時徵召大運動單位＋接近最大心輸出量→氧化肌纖維適應+心肌肥大
+    detail: 書中指出，設計良好的 HIIT 效益主要來自「大運動單位的同時徵召加上接近最大心輸出量」。HIIT 因此可同時提供氧化肌纖維適應（有氧）與心肌肥大（循環）的刺激，這是低強度有氧訓練難以同時實現的組合。
+    terms:
+    - hiit
+    - vo2max
+    numbers:
+    - v: 90
+      unit: '%VO₂max'
+      of: HIIT 最佳化的目標工作強度下限，累積時間應達數分鐘
     concepts:
     - energy-supply
     - adaptation
-    related: []
-    locator: ''
+    - program-design
+    related:
+    - ch03.metabolic-specificity.i04
+    - ch03.metabolic-specificity.i05
+    locator: 第 3 章 · High-Intensity Interval Training
   - id: ch03.metabolic-specificity.i07
     q: 組合訓練風險
     a:
-    - 有氧訓練可能降低無氧能力
-    - 同時訓練可能抑制最大肌力增益（第7週後停滯甚至下降）
-    detail: ''
-    terms: []
+    - 有氧耐力訓練可能降低無氧表現能力
+    - 同時進行無氧與有氧耐力訓練可能抑制肌肉圍度、最大肌力、速度與爆發力的增益
+    detail: 書中指出有氧耐力訓練已被證明降低大鼠的無氧能量生成能力。同時訓練可能減少肌肉圍度增益、最大肌力增益，以及速度和爆發力相關表現。書中沒有提到「第 7 週後停滯甚至下降」這個時間節點，此數字來自書外，已予刪除。
+    terms:
+    - combination-training
     numbers: []
     concepts:
     - energy-supply
     - adaptation
-    related: []
-    locator: ''
+    - program-design
+    related:
+    - ch03.metabolic-specificity.i08
+    locator: 第 3 章 · Combination Training
   - id: ch03.metabolic-specificity.i08
     q: 組合訓練注意
     a:
-    - 無氧訓練本身可提升有氧功率與恢復
-    - 大量有氧耐力訓練對無氧運動員可能適得其反
-    detail: ''
-    terms: []
+    - 恢復被認為主要依賴有氧機制，故有人建議無氧運動員加入有氧訓練
+    - 研究顯示功率恢復確實與有氧耐力（VO₂max）相關
+    - 但大量有氧耐力訓練對無氧運動員的高強度表現可能適得其反
+    detail: 書中指出，有人建議將有氧耐力訓練加入無氧運動員的計畫（組合訓練），理由是恢復主要依賴有氧機制。確有研究顯示恢復功率與 VO₂max 相關。然而，書中也列出有氧耐力訓練可能降低最大肌力、爆發力與速度等證據，強調需審慎權衡。
+    terms:
+    - combination-training
+    - vo2max
     numbers: []
     concepts:
     - energy-supply
     - adaptation
-    related: []
-    locator: ''
+    - program-design
+    related:
+    - ch03.metabolic-specificity.i07
+    locator: 第 3 章 · Combination Training
 - id: oxidative
   title: 氧化系統
   desc: ''
@@ -557,104 +773,164 @@ topics:
   - id: ch03.oxidative.i01
     q: Krebs Cycle
     a:
-    - 丙酮酸→乙醯CoA（pyruvate dehydrogenase）→進入TCA
-    - 每葡萄糖產2 ATP（GTP）
-    detail: ''
-    terms: []
-    numbers: []
+    - 丙酮酸→乙醯CoA（由pyruvate dehydrogenase複合體催化，釋放CO₂）→進入TCA循環
+    - 每分子葡萄糖（兩圈循環）產2 ATP（via GTP，基質磷酸化）
+    detail: Krebs 循環（又稱 citric acid cycle 或 tricarboxylic acid cycle，TCA）發生在粒線體中。每圈循環產生的 NADH 和 FADH₂ 是電子傳遞鏈（ETC）的燃料，而非直接產生大量 ATP。基質磷酸化只產 2 ATP（via GTP），超過 90% 的 ATP 來自後續的氧化磷酸化。
+    terms:
+    - krebs-cycle
+    - pyruvate
+    numbers:
+    - v: 2
+      unit: ATP（via GTP）
+      of: Krebs 循環每分子葡萄糖（兩圈）的基質磷酸化 ATP 產量
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.oxidative.i02
+    - ch03.glycolysis.i03
+    locator: 第 3 章 · Glucose and Glycogen Oxidation
   - id: ch03.oxidative.i02
     q: 電子傳遞鏈ETC
     a:
-    - NADH→3 ATP
-    - FADH₂→2 ATP
+    - NADH→3 ATP（氧化磷酸化）
+    - FADH₂→2 ATP（在ETC不同位置進入，故產量較少）
     - O₂為最終電子受體→形成H₂O
-    - 氧化磷酸化
-    detail: ''
-    terms: []
-    numbers: []
+    detail: ETC 由一系列電子載體（細胞色素）構成，氫原子沿鏈傳遞形成質子濃度梯度，此梯度驅動 ATP 合成。NADH 與 FADH₂ 因進入 ETC 的位置不同（不同位置），對 ATP 產量有差異。O₂ 作為最終電子受體被還原為 H₂O，這是 ETC 持續運轉的必要條件。
+    terms:
+    - electron-transport-chain
+    numbers:
+    - v: 3
+      unit: ATP
+      of: 每個 NADH 分子透過氧化磷酸化（ETC）產生的 ATP 量
+    - v: 2
+      unit: ATP
+      of: 每個 FADH₂ 分子透過氧化磷酸化（ETC）產生的 ATP 量
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.oxidative.i01
+    - ch03.oxidative.i03
+    locator: 第 3 章 · Glucose and Glycogen Oxidation
   - id: ch03.oxidative.i03
     q: 葡萄糖總ATP產量
     a:
-    - 血糖：38 ATP
-    - 肌糖原：39 ATP
+    - 血糖：淨38 ATP（gross 40，扣除糖解消耗2 ATP）
+    - 肌糖原：淨39 ATP（不需hexokinase步驟，少消耗1 ATP）
     - 氧化磷酸化佔>90%的ATP合成
-    detail: ''
-    terms: []
-    numbers: []
+    detail: 書中 Table 3.1 的 gross 產量為 40 ATP（糖解基質磷酸化 4 + 糖解 NADH 氧化磷酸化 6 + Krebs 基質磷酸化 2 + Krebs NADH 氧化磷酸化 24 + FADH₂ 氧化磷酸化 4）。書中同時注記：「依穿梭系統不同，也可報告為 36 ATP」。
+    terms:
+    - oxidative-phosphorylation
+    - substrate-level-phosphorylation
+    - electron-transport-chain
+    numbers:
+    - v: 38
+      unit: ATP（淨）
+      of: 一分子血糖完整氧化（糖解+Krebs+ETC）的淨 ATP 產量
+    - v: 39
+      unit: ATP（淨）
+      of: 一分子肌糖原完整氧化的淨 ATP 產量（不需 hexokinase，少消耗 1 ATP）
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.oxidative.i01
+    - ch03.oxidative.i02
+    locator: 第 3 章 · Glucose and Glycogen Oxidation
   - id: ch03.oxidative.i04
     q: 脂肪氧化
     a:
     - 三酸甘油酯→游離脂肪酸→β氧化→乙醯CoA→Krebs
-    - 1分子棕櫚酸(16C)可產>100 ATP
-    detail: ''
-    terms: []
-    numbers: []
+    - 1個三酸甘油酯分子（含3條16C棕櫚酸）可產>300 ATP（每條棕櫚酸>100 ATP）
+    detail: 脂肪酸從脂肪細胞（由hormone-sensitive lipase水解釋放）或肌肉內儲存（少量）進入粒線體進行β氧化。β氧化是一系列反應，將脂肪酸切割為乙醯 CoA 並產生 NADH 和 FADH₂。脂肪氧化的 ATP 生成容量遠大於碳水化合物，但速率較慢，不適合支撐高強度運動。
+    terms:
+    - beta-oxidation
+    - krebs-cycle
+    numbers:
+    - v: 100
+      unit: ATP
+      of: 每條 16 碳棕櫚酸（palmitic acid）β 氧化後（含 Krebs + ETC）可產生的 ATP 量（>100）
+    - v: 300
+      unit: ATP
+      of: 一個含三條棕櫚酸的三酸甘油酯完整氧化可產生的 ATP 量（>300）
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.oxidative.i06
+    locator: 第 3 章 · Fat Oxidation
   - id: ch03.oxidative.i05
     q: 蛋白質氧化
     a:
-    - 胺基酸→葡萄糖/丙酮酸/Krebs中間物
-    - 貢獻3-18%（長時間運動）
-    - BCAA為主要氧化胺基酸
-    detail: ''
-    terms: []
-    numbers: []
+    - 胺基酸可轉化為葡萄糖（糖質新生）、丙酮酸或Krebs循環中間物
+    - 短期運動貢獻極少；長時間運動（>90分鐘）及長期飢餓可貢獻3-18%
+    - 骨骼肌主要氧化的胺基酸為BCAA（leucine、isoleucine、valine）
+    detail: 書中以「estimated to be（估計）」描述 3-18% 這個貢獻範圍，表示此數字並非確定值。胺基酸分解的含氮廢物以尿素和少量氨的形式排除，而氨有毒且與疲勞相關。蛋白質並非重要的短期能量來源，只有在長時間飢餓和長程運動中其貢獻才顯著增加。
+    terms:
+    - bcaa
+    - gluconeogenesis
+    numbers:
+    - v: 3
+      unit: '%（能量貢獻）'
+      of: 長時間運動（>90 分鐘）中蛋白質（胺基酸氧化）的估計能量貢獻下限
+    - v: 18
+      unit: '%（能量貢獻）'
+      of: 長時間運動（>90 分鐘）中蛋白質（胺基酸氧化）的估計能量貢獻上限
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.oxidative.i06
+    locator: 第 3 章 · Protein Oxidation
   - id: ch03.oxidative.i06
     q: 基質偏好
     a:
-    - 靜息：70%脂肪+30%碳水
-    - 高強度：近100%碳水
-    - 長時間次極量：逐漸轉向脂肪
-    detail: ''
-    terms: []
-    numbers: []
+    - 靜息：約70%脂肪+30%碳水
+    - 運動強度升高：基質偏好從脂肪轉向碳水
+    - 高強度有氧運動（供應充足時）：近100%碳水
+    - 長時間次極量穩態運動：逐漸轉回脂肪（碳水與脂肪，極少量蛋白質）
+    detail: 書中明確指出高強度時是「如果碳水化合物供應充足（if an adequate supply is available）」才能接近 100% 碳水，這個條件保留語氣很重要。長時間低強度運動中隨糖原耗竭而逐漸轉向脂肪氧化是一個動態過程，不是一刀切的切換。
+    terms:
+    - oxidative-system
+    numbers:
+    - v: 70
+      unit: '%'
+      of: 靜息狀態下 ATP 來自脂肪的估計比例
+    - v: 30
+      unit: '%'
+      of: 靜息狀態下 ATP 來自碳水化合物的估計比例
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.oxidative.i04
+    - ch03.oxidative.i05
+    locator: 第 3 章 · The Oxidative (Aerobic) System
   - id: ch03.oxidative.i07
     q: Krebs限速步驟
     a:
-    - isocitrate→α-ketoglutarate（isocitrate dehydrogenase）
-    - ADP活化、ATP抑制
-    detail: ''
-    terms: []
+    - isocitrate→α-ketoglutarate（isocitrate dehydrogenase 催化）
+    - ADP活化（能量匱乏→加速）、ATP別構抑制（能量充足→減速）
+    detail: 當 NAD⁺ 和 FAD²⁺ 不足以接受氫原子時，Krebs 循環速率也會降低。此外，GTP 積累會導致 succinyl CoA 增加，進而抑制 Krebs 循環的第一步（草醋酸+乙醯CoA→檸檬酸）。ETC 同樣受 ATP 抑制和 ADP 刺激，與 Krebs 循環的調控邏輯一致。
+    terms:
+    - krebs-cycle
+    - isocitrate-dehydrogenase
     numbers: []
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.oxidative.i02
+    locator: 第 3 章 · Control of the Oxidative (Aerobic) System
   - id: ch03.oxidative.i08
     q: 容量最大
     a:
     - ATP生成速率最慢（#5）但總容量最大（#1）
     - 適合低強度長時間運動（>3分鐘）
-    detail: ''
-    terms: []
+    detail: 氧化系統之所以容量最大，是因為底物（特別是脂肪）的儲量幾乎無限；ATP 生成速率最慢則是因為需要多步驟的 Krebs 循環與 ETC，無法在極短時間內大量產出 ATP。這個特性決定了氧化系統在高強度爆發性運動中無法作為主要能量來源。
+    terms:
+    - oxidative-system
     numbers: []
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.energy-capacity.i01
+    - ch03.energy-capacity.i06
+    locator: 第 3 章 · Energy Production and Capacity
 - id: phosphagen
   title: 磷酸原系統
   desc: ''
@@ -664,102 +940,152 @@ topics:
     q: ATP水解
     a:
     - ATP+H₂O → ADP+Pi+H⁺+能量
-    - 由ATPase催化
-    - 肌肉儲量僅80-100g
-    detail: ''
-    terms: []
-    numbers: []
+    - 由ATPase催化（肌凝蛋白ATPase負責橫橋循環）
+    - 全身任何時刻儲存約80-100g ATP
+    detail: 書中明確說明儲存量是「全身任何時刻（at any given time）」約 80-100g ATP，而非特指肌肉。這個量不構成顯著的運動能量儲備。ATP 不能完全耗竭（需維持基本細胞功能），實驗誘發的肌肉疲勞中 ATP 可降至運動前水平的 50-60%。
+    terms:
+    - atp
+    - adp
+    - myosin-atpase
+    numbers:
+    - v: 80
+      unit: g
+      of: 全身任何時刻 ATP 儲量的下限（不代表顯著的運動能量儲備）
+    - v: 100
+      unit: g
+      of: 全身任何時刻 ATP 儲量的上限
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.phosphagen.i02
+    - ch03.phosphagen.i07
+    locator: 第 3 章 · ATP Stores
   - id: ch03.phosphagen.i02
     q: 肌酸激酶反應
     a:
-    - ADP+CP → ATP+肌酸
-    - 快速提供能量，但CP有限，不能長時間供能
-    detail: ''
-    terms: []
+    - ADP+CP → ATP+肌酸（Creatine kinase 催化）
+    - 快速提供能量，但CP儲量相對少，不能長時間持續供能
+    detail: 肌酸磷酸（CP，又稱 phosphocreatine，PCr）提供一個磷酸基與 ADP 結合以再合成 ATP。此反應速率高（單步反應），但因 CP 的儲量相對有限，無法作為長時間持續活動的主要能源。CP 的儲量在靜息時為 ATP 的 4-6 倍，Type II 纖維的 CP 濃度高於 Type I 纖維。
+    terms:
+    - creatine-phosphate
+    - creatine-kinase
     numbers: []
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.phosphagen.i04
+    - ch03.phosphagen.i01
+    locator: 第 3 章 · Phosphagen System
   - id: ch03.phosphagen.i03
     q: 腺苷酸激酶反應
     a:
-    - 2ADP → ATP+AMP
-    - AMP為強力糖解促進劑，啟動糖解加速能量產生
-    detail: ''
-    terms: []
+    - 2ADP → ATP+AMP（adenylate kinase，又稱myokinase催化）
+    - AMP為強力糖解促進劑（PFK的別構活化劑）
+    detail: 腺苷酸激酶（adenylate kinase，又稱 myokinase）反應是磷酸原系統的重要補充反應。此反應的意義不只在於直接產 ATP，更在於產生 AMP——AMP 是 PFK（糖解關鍵限速酶）的強力活化劑，負責在磷酸原耗竭時啟動糖解系統接力。
+    terms:
+    - adp
+    - atp
+    - pfk
     numbers: []
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.phosphagen.i05
+    - ch03.glycolysis.i05
+    locator: 第 3 章 · ATP Stores
   - id: ch03.phosphagen.i04
     q: CP儲量
     a:
-    - 靜息時CP為ATP的4-6倍
-    - Type II纖維CP濃度 > Type I
-    - 爆發性運動更有效
-    detail: ''
-    terms: []
-    numbers: []
+    - 靜息時骨骼肌CP濃度為ATP的4-6倍
+    - Type II纖維CP濃度高於Type I纖維
+    - 因此高比例Type II纖維者在無氧爆發性運動中可更快透過磷酸原系統補充ATP
+    detail: 書中指出 CP 是 ATP 的能量儲備，透過肌酸激酶反應快速再合成 ATP。CP 濃度在 Type II 纖維較高，與 Type II 纖維較強的無氧爆發性能力相符。高比例 Type II 纖維者（如短跑選手）可能透過磷酸原系統更快再合成 ATP。
+    terms:
+    - creatine-phosphate
+    numbers:
+    - v: 4
+      unit: 倍（相對於 ATP 濃度）
+      of: 靜息骨骼肌中 CP 濃度相對於 ATP 濃度的下限
+    - v: 6
+      unit: 倍（相對於 ATP 濃度）
+      of: 靜息骨骼肌中 CP 濃度相對於 ATP 濃度的上限
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.phosphagen.i02
+    - ch03.substrate.i01
+    locator: 第 3 章 · ATP Stores
   - id: ch03.phosphagen.i05
     q: 質量作用定律
     a:
-    - 反應物/產物濃度驅動反應方向
-    - ADP↑ → 肌酸激酶加速
-    - ATP↑ → 反應減緩
-    detail: ''
-    terms: []
+    - 溶液中反應物/產物濃度驅動反應方向（law of mass action）
+    - 運動中ATP水解→ADP↑、Pi↑→肌酸激酶加速再合成ATP
+    - ATP↑→反應減緩或逆轉（磷酸原系統反應近乎平衡）
+    detail: 磷酸原系統的三個反應（ATP 水解、肌酸激酶、腺苷酸激酶）都受質量作用定律控制，這些反應用雙向箭頭表示。當運動強度低到足以讓糖解或氧化系統成為主要 ATP 來源時，ATP 濃度上升，肌酸激酶反應減速或反向，CP 重新合成，磷酸原系統趨於平衡。
+    terms:
+    - creatine-kinase
+    - creatine-phosphate
     numbers: []
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.phosphagen.i02
+    - ch03.phosphagen.i03
+    locator: 第 3 章 · Control of the Phosphagen System
   - id: ch03.phosphagen.i06
     q: 適用活動
     a:
-    - 0-10秒極高強度
-    - 阻力訓練、衝刺
-    - 所有運動初始皆高度活化
-    detail: ''
-    terms: []
+    - 高強度短時間活動（如阻力訓練、衝刺）
+    - 所有強度的運動初始皆高度活化
+    detail: 書中指出磷酸原系統「在所有運動初始皆高度活化，不論強度（highly active at the start of all exercise regardless of intensity）」。這是因為有氧系統在最初幾秒鐘反應慢，磷酸原系統必須立即提供能量。
+    terms:
+    - phosphagen-system
+    - creatine-phosphate
     numbers: []
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.energy-capacity.i02
+    - ch03.phosphagen.i05
+    locator: 第 3 章 · Phosphagen System
   - id: ch03.phosphagen.i07
     q: ATP耗竭上限
     a:
-    - 肌肉ATP最多下降50-60%（維持基本細胞功能需求）
-    - CP可近乎完全耗竭
-    detail: ''
-    terms: []
-    numbers: []
+    - ATP儲量不能完全耗竭（需維持基本細胞功能）
+    - 實驗誘發疲勞中ATP可下降至運動前水平的50-60%
+    - CP在高強度運動中可近乎完全耗竭
+    detail: 書中說明 ATP 濃度「可能下降多達運動前水平的 50-60%」（during experimentally induced muscle fatigue），這是實驗性資料，不代表每次運動都如此。CP 則相反，在短暫極度高強度運動至力竭時可幾乎完全耗竭。此對比說明磷酸原系統以 CP 耗竭保護細胞免於 ATP 完全耗竭。
+    terms:
+    - creatine-phosphate
+    - atp
+    numbers:
+    - v: 50
+      unit: '%（下降幅度）'
+      of: 實驗誘發肌肉疲勞中 ATP 濃度下降幅度的下限
+    - v: 60
+      unit: '%（下降幅度）'
+      of: 實驗誘發肌肉疲勞中 ATP 濃度下降幅度的上限
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.phosphagen.i04
+    - ch03.substrate.i01
+    locator: 第 3 章 · ATP Stores
   - id: ch03.phosphagen.i08
     q: 能量速率
     a:
     - 三系統中ATP生成速率最快（速率排名#1）
-    - 但總容量最小（容量排名#5）
-    detail: ''
-    terms: []
+    - 總容量最小（容量排名#5）
+    detail: 磷酸原系統速率最快的原因是它只涉及一或兩步反應（ATP 水解與 CP 轉移），不需要多步驟酵素串聯。但正因為底物（ATP + CP）儲量極有限，在持續性活動中很快耗竭。速率第 1 / 容量第 5 是磷酸原系統定義性的雙重特徵。
+    terms:
+    - phosphagen-system
     numbers: []
     concepts:
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch03.energy-capacity.i01
+    - ch03.energy-capacity.i07
+    locator: 第 3 章 · Energy Production and Capacity
 - id: substrate
   title: 基質耗竭與補充
   desc: ''
@@ -768,112 +1094,209 @@ topics:
   - id: ch03.substrate.i01
     q: CP耗竭速率
     a:
-    - 高強度運動5-30秒可下降50-70%
-    - 極度衰竭可近乎耗盡
-    - 有氧運動耗竭較慢
-    detail: ''
-    terms: []
-    numbers: []
+    - 高強度運動5-30秒可使CP下降50-70%
+    - 極度高強度運動至力竭可使CP近乎完全耗盡
+    - 高強度無氧運動耗竭速度遠快於有氧運動
+    detail: 書中指出 CP 可「在高強度短中時程（5-30 秒）運動的第一階段顯著下降（50-70%）」。這個速率與磷酸原系統的高速率特性一致。肌肉 ATP 濃度變化較小（可能只輕微下降，也可能達 50-60%），主要靠 CP 耗竭緩衝。
+    terms:
+    - creatine-phosphate
+    numbers:
+    - v: 50
+      unit: '%（下降幅度）'
+      of: 5-30 秒高強度運動中 CP 可能下降幅度的下限
+    - v: 70
+      unit: '%（下降幅度）'
+      of: 5-30 秒高強度運動中 CP 可能下降幅度的上限
     concepts:
     - energy-supply
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch03.phosphagen.i07
+    - ch03.substrate.i02
+    locator: 第 3 章 · Phosphagens
   - id: ch03.substrate.i02
     q: 磷酸原回補時間
     a:
-    - ATP完全回補：3-5分鐘
+    - ATP完全回補：約3-5分鐘
     - CP完全回補：約8分鐘
-    - 主要靠有氧代謝完成
-    detail: ''
-    terms: []
-    numbers: []
+    - 主要靠有氧代謝完成（糖解也可貢獻高強度後的恢復）
+    detail: 磷酸原的再合成主要依賴有氧代謝，這也是為何高強度訓練（磷酸原系統）需要充足的休息時間讓有氧機制完成 CP 再合成。8 分鐘的 CP 完全恢復時間，是設計功休比指引（Table 3.6，1:12-1:20）的生理依據之一。
+    terms:
+    - creatine-phosphate
+    - atp
+    numbers:
+    - v: 3
+      unit: 分鐘
+      of: 運動後 ATP 完全再合成的大約時間下限
+    - v: 5
+      unit: 分鐘
+      of: 運動後 ATP 完全再合成的大約時間上限
+    - v: 8
+      unit: 分鐘
+      of: 運動後 CP 完全再合成的大約時間
     concepts:
     - energy-supply
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch03.substrate.i01
+    - ch03.metabolic-specificity.i03
+    locator: 第 3 章 · Phosphagens
   - id: ch03.substrate.i03
     q: 肌糖原儲量
     a:
-    - 全身肌肉300-400g
-    - 肝臟70-100g
-    - 可受訓練與飲食影響
-    detail: ''
-    terms: []
-    numbers: []
+    - 全身肌肉約300-400g糖原
+    - 肝臟約70-100g糖原
+    - 靜息濃度可受訓練（無氧與有氧）及飲食調控
+    detail: 肌糖原是高強度與中強度運動的關鍵底物，肝糖原則在低強度和長時間運動中相對重要。兩種訓練方式（無氧訓練如衝刺/阻力訓練，以及有氧耐力訓練）加上適當營養，均能提升靜息肌糖原濃度。
+    terms:
+    - glycogen
+    numbers:
+    - v: 300
+      unit: g
+      of: 全身肌肉糖原靜息儲量的下限估計
+    - v: 400
+      unit: g
+      of: 全身肌肉糖原靜息儲量的上限估計
+    - v: 70
+      unit: g
+      of: 肝臟糖原靜息儲量的下限估計
+    - v: 100
+      unit: g
+      of: 肝臟糖原靜息儲量的上限估計
     concepts:
     - energy-supply
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch03.substrate.i04
+    locator: 第 3 章 · Glycogen
   - id: ch03.substrate.i04
     q: 糖原耗竭與強度
     a:
-    - '>60% VO₂max肌糖原為關鍵能源'
-    - 阻力訓練可使肌糖原下降20-60%（少數組數即可）
-    detail: ''
-    terms: []
-    numbers: []
+    - '>60% VO₂max時肌糖原為日益重要的能量底物'
+    - 阻力訓練可造成肌糖原下降20-60%（即使組數不多）
+    - 耗竭速率：50% VO₂max = 0.7、75% = 1.4、100% = 3.4 mmol·kg⁻¹·min⁻¹
+    detail: 書中指出肌糖原在 >60% VO₂max 時「成為日益重要的能量底物」，並非突然成為唯一來源。高強度阻力訓練可選擇性耗竭 Type II 纖維的糖原，進而限制後續表現。當總工作量相等時，阻力訓練的糖原耗竭總量不受強度影響。
+    terms:
+    - glycogen
+    - vo2max
+    numbers:
+    - v: 0.7
+      unit: mmol·kg⁻¹·min⁻¹
+      of: 50% VO₂max 時的肌糖原分解速率
+    - v: 1.4
+      unit: mmol·kg⁻¹·min⁻¹
+      of: 75% VO₂max 時的肌糖原分解速率
+    - v: 3.4
+      unit: mmol·kg⁻¹·min⁻¹
+      of: 100% VO₂max 時的肌糖原分解速率
+    - v: 20
+      unit: '%（下降幅度）'
+      of: 高強度間歇阻力訓練造成肌糖原耗竭的下限（少數組數即可造成）
+    - v: 60
+      unit: '%（下降幅度）'
+      of: 高強度間歇阻力訓練造成肌糖原耗竭的上限
     concepts:
     - energy-supply
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch03.substrate.i03
+    - ch03.substrate.i05
+    locator: 第 3 章 · Glycogen
   - id: ch03.substrate.i05
     q: 肌糖原回補策略
     a:
-    - 運動後每2小時攝取0.7-3.0 g/kg碳水
-    - 前4-6小時最快回補
-    - 24小時可完全回補
-    detail: ''
-    terms: []
-    numbers: []
+    - 運動後每2小時攝取0.7-3.0 g/kg體重碳水
+    - 前4-6小時最大化回補速率（5-6 mmol/g濕肌肉/小時）
+    - 充足碳水攝取下24小時可完全回補
+    detail: 若運動含高度離心成分（伴隨運動誘發的肌肉損傷），糖原完全回補可能需要超過 24 小時。最佳碳水攝取量需在每 2 小時補充一次的頻率下維持 0.7-3.0 g/kg 的範圍，以最大化前 4-6 小時的加速回補窗口。
+    terms:
+    - glycogen
+    numbers:
+    - v: 0.7
+      unit: g/kg體重
+      of: 每 2 小時碳水補充量的下限（最佳肌糖原回補策略）
+    - v: 3.0
+      unit: g/kg體重
+      of: 每 2 小時碳水補充量的上限（最佳肌糖原回補策略）
+    - v: 5
+      unit: mmol/g濕肌肉/小時
+      of: 適當補碳後前 4-6 小時肌糖原最大化回補速率的下限
+    - v: 6
+      unit: mmol/g濕肌肉/小時
+      of: 適當補碳後前 4-6 小時肌糖原最大化回補速率的上限
+    - v: 24
+      unit: 小時
+      of: 充足碳水攝取下肌糖原完全回補所需時間（無肌肉損傷時）
     concepts:
     - energy-supply
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch03.substrate.i04
+    locator: 第 3 章 · Glycogen
   - id: ch03.substrate.i06
     q: 血糖維持
     a:
-    - <50% VO₂max血糖相對穩定
-    - '>90分鐘後可能下降'
-    - <2.5 mmol/L可能低血糖反應
-    detail: ''
-    terms: []
-    numbers: []
+    - '<50% VO₂max：肌肉葡萄糖攝取低，血糖相對穩定'
+    - '>90分鐘低強度：血糖可能下降，但很少低於2.8 mmol/L'
+    - '>90分鐘高強度（>50% VO₂max）：肝糖原耗竭可能造成血糖顯著下降'
+    - '<2.5-3.0 mmol/L：某些人可能出現低血糖反應'
+    detail: 長時間低強度（<50% VO₂max）運動下，血糖很少低於 2.8 mmol/L。當強度超過 50% VO₂max 且持續超過 90 分鐘，肝糖原耗竭可能導致血糖顯著下降。血糖降至 2.5-3.0 mmol/L 會降低碳水化合物氧化能力，最終導致力竭。
+    terms:
+    - glycogen
+    - vo2max
+    numbers:
+    - v: 2.8
+      unit: mmol/L
+      of: 低強度長時間運動（<50% VO₂max）血糖的大致下限（很少低於此值）
+    - v: 2.5
+      unit: mmol/L
+      of: 血糖值降至此水平可能引發某些人的低血糖反應
     concepts:
     - energy-supply
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch03.substrate.i03
+    locator: 第 3 章 · Glycogen
   - id: ch03.substrate.i07
     q: 訓練對磷酸原影響
     a:
-    - 有氧訓練可提升靜息磷酸原濃度
-    - 阻力訓練5週後triceps brachii磷酸原濃度增加
-    detail: ''
-    terms: []
-    numbers: []
+    - 訓練對磷酸原濃度的影響尚未充分研究
+    - 有氧耐力訓練可能提升靜息磷酸原濃度、降低同絕對強度下的耗竭速率
+    - 阻力訓練5週後三頭肌磷酸原靜息濃度增加
+    - 短期衝刺與阻力/爆發訓練（6個月）研究未顯示靜息磷酸原改變
+    detail: 書中明確說明「訓練對磷酸原濃度的影響尚未充分研究或了解」。不同研究結果不一致：有研究顯示有氧訓練可能提升靜息值，但短期（8 週）衝刺訓練及 6 個月阻力/爆發訓練研究未見靜息值改變。衝刺訓練後因肌肉肥大，總磷酸原含量可能增加。
+    terms:
+    - creatine-phosphate
+    - atp
+    numbers:
+    - v: 5
+      unit: 週
+      of: 阻力訓練後三頭肌磷酸原靜息濃度增加的研究觀察時程
     concepts:
     - energy-supply
     - nutrition
-    related: []
-    locator: ''
+    - adaptation
+    related:
+    - ch03.substrate.i01
+    locator: 第 3 章 · Phosphagens
   - id: ch03.substrate.i08
     q: 兒童vs成人CP
     a:
-    - 兒童氧化能力更強→CP耗竭較少、回補較快、運動後pH較高
-    - 更依賴有氧代謝
-    detail: ''
-    terms: []
+    - 兒童氧化能力更強→第一組CP耗竭量較少
+    - 多組訓練後兒童平均CP水準較高、恢復期CP水準也較高
+    - 運動後兒童肌肉pH顯著較高
+    detail: 書中引用 Kappenstein 等人的研究：9 歲兒童（n=16）與 26 歲成人（n=16）進行 10 次 30 秒動態跖屈運動（25% 1RM）。第一組 CP 分解在兒童顯著較低，整個運動和恢復期兒童 CP 水準均較高，兒童肌肉 pH 在運動結束時也較高。結論：兒童在高強度間歇運動中更依賴氧化代謝。
+    terms:
+    - creatine-phosphate
     numbers: []
     concepts:
     - energy-supply
     - nutrition
-    related: []
-    locator: ''
+    - population
+    related:
+    - ch03.substrate.i01
+    - ch03.substrate.i02
+    locator: 第 3 章 · Differences in Phosphocreatine Depletion and Resynthesis in Children Versus Adults
 cards:
 - q: ATP水解的完整反應式及催化酶？
   a: ATP + H₂O → ADP + Pi + H⁺ + 能量；由ATPase催化；肌球蛋白ATPase負責橫橋循環

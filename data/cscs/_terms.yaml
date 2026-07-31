@@ -613,3 +613,165 @@ range-of-motion:
   abbr: "ROM"
   zh: "關節活動範圍"
   note: "關節能移動的角度範圍；結締組織適應要求力施加於完整範圍"
+
+# --- 生物能量學（ch03）---
+phosphagen-system:
+  en: "Phosphagen system"
+  abbr: ""
+  zh: "磷酸原系統"
+  note: "利用 ATP 與 CP 直接提供能量的無氧能量系統；速率最快但容量最小"
+creatine-phosphate:
+  en: "Creatine phosphate"
+  abbr: "CP"
+  zh: "磷酸肌酸"
+  note: "又稱 phosphocreatine（PCr）；肌肉中的高能磷酸儲備，靜息時濃度為 ATP 的 4-6 倍"
+creatine-kinase:
+  en: "Creatine kinase"
+  abbr: "CK"
+  zh: "肌酸激酶"
+  note: "催化 ADP + CP → ATP + 肌酸的酵素；磷酸原系統的核心反應酶"
+glycolysis:
+  en: "Glycolysis"
+  abbr: ""
+  zh: "糖解作用"
+  note: "葡萄糖或肌糖原分解為丙酮酸並產生 ATP 的代謝路徑；發生在肌漿中，不需要氧氣"
+fast-glycolysis:
+  en: "Fast glycolysis"
+  abbr: ""
+  zh: "快速糖解"
+  note: "丙酮酸轉為乳酸的糖解路徑；快速再生 NAD⁺，ATP 生成速率較快但 H⁺ 積累限制持續時間"
+slow-glycolysis:
+  en: "Slow glycolysis"
+  abbr: ""
+  zh: "慢速糖解"
+  note: "丙酮酸進入粒線體的糖解路徑；速率較慢但可持續較長時間"
+pyruvate:
+  en: "Pyruvate"
+  abbr: ""
+  zh: "丙酮酸"
+  note: "糖解的最終產物；可轉為乳酸（快速糖解）或進入粒線體（慢速糖解/氧化磷酸化）"
+lactate-dehydrogenase:
+  en: "Lactate dehydrogenase"
+  abbr: "LDH"
+  zh: "乳酸脫氫酶"
+  note: "催化丙酮酸轉為乳酸的酵素；此反應消耗 H⁺，有輕微鹼化效果"
+pfk:
+  en: "Phosphofructokinase"
+  abbr: "PFK"
+  zh: "磷酸果糖激酶"
+  note: "糖解的速率限制酶（rate-limiting step）；ATP 為別構抑制劑，AMP 為強力活化劑"
+hexokinase:
+  en: "Hexokinase"
+  abbr: ""
+  zh: "己糖激酶"
+  note: "催化血糖磷酸化為葡萄糖-6-磷酸的酵素；受 G-6-P 別構抑制（負回饋）"
+allosteric-regulation:
+  en: "Allosteric regulation"
+  abbr: ""
+  zh: "別構調節"
+  note: "代謝路徑的終產物回饋調節關鍵酵素活性；又稱 end product regulation 或 feedback regulation"
+substrate-level-phosphorylation:
+  en: "Substrate-level phosphorylation"
+  abbr: ""
+  zh: "基質磷酸化"
+  note: "在單一代謝反應中直接由高能中間物將磷酸轉移給 ADP 生成 ATP；不需氧氣"
+oxidative-phosphorylation:
+  en: "Oxidative phosphorylation"
+  abbr: ""
+  zh: "氧化磷酸化"
+  note: "在電子傳遞鏈（ETC）中利用 NADH/FADH₂ 的電子梯度驅動 ATP 合成；需要氧氣"
+krebs-cycle:
+  en: "Krebs cycle"
+  abbr: ""
+  zh: "Krebs 循環"
+  note: "又稱 citric acid cycle 或 TCA cycle；粒線體內氧化乙醯 CoA 並產生 NADH/FADH₂ 的循環反應"
+electron-transport-chain:
+  en: "Electron transport chain"
+  abbr: "ETC"
+  zh: "電子傳遞鏈"
+  note: "粒線體內利用 NADH/FADH₂ 驅動 ATP 合成的電子載體鏈；O₂ 為最終電子受體"
+oxidative-system:
+  en: "Oxidative (aerobic) system"
+  abbr: ""
+  zh: "氧化系統（有氧系統）"
+  note: "包含糖解→Krebs 循環→ETC 的完整有氧代謝路徑；ATP 容量最大但速率最慢"
+beta-oxidation:
+  en: "Beta oxidation"
+  abbr: "β-oxidation"
+  zh: "β 氧化"
+  note: "在粒線體中將游離脂肪酸逐步切割為乙醯 CoA 並產生 NADH/FADH₂ 的反應序列"
+bcaa:
+  en: "Branched-chain amino acids"
+  abbr: "BCAA"
+  zh: "支鏈胺基酸"
+  note: "leucine（白胺酸）、isoleucine（異白胺酸）、valine（纈胺酸）；骨骼肌中被氧化的主要胺基酸"
+gluconeogenesis:
+  en: "Gluconeogenesis"
+  abbr: ""
+  zh: "糖質新生"
+  note: "從非碳水化合物來源（如乳酸、胺基酸）合成葡萄糖的代謝過程；Cori 循環的肝臟端步驟"
+isocitrate-dehydrogenase:
+  en: "Isocitrate dehydrogenase"
+  abbr: ""
+  zh: "異檸檬酸脫氫酶"
+  note: "催化 isocitrate → α-ketoglutarate 的 Krebs 循環限速酶；ADP 活化、ATP 別構抑制"
+metabolic-acidosis:
+  en: "Metabolic acidosis"
+  abbr: ""
+  zh: "代謝酸中毒"
+  note: "高強度運動中胞內 pH 下降的過程；主要來源是粒線體外的 ATP 水解，非乳酸堆積；'lactic acidosis' 是誤稱"
+lactate-threshold:
+  en: "Lactate threshold"
+  abbr: "LT"
+  zh: "乳酸閾值"
+  note: "血乳酸在基線以上急劇增加的運動強度；未訓練者約 50-60% VO₂max，有氧訓練者約 70-80%"
+obla:
+  en: "Onset of blood lactate accumulation"
+  abbr: "OBLA"
+  zh: "血乳酸積累起始點"
+  note: "血乳酸達到 4 mmol/L 的第二個積累折點；對應大型運動單位（Type II 纖維）大量徵召"
+cori-cycle:
+  en: "Cori cycle"
+  abbr: ""
+  zh: "Cori 循環"
+  note: "乳酸由血液運送至肝臟轉為葡萄糖（糖質新生），再釋放回血液的代謝循環"
+oxygen-deficit:
+  en: "Oxygen deficit"
+  abbr: ""
+  zh: "氧虧"
+  note: "運動初期有氧系統未能即時滿足能量需求所產生的缺口；由無氧機制暫時補充"
+epoc:
+  en: "Excess postexercise oxygen consumption"
+  abbr: "EPOC"
+  zh: "運動後過量氧耗"
+  note: "運動後攝氧量超過靜息值的部分；用於恢復磷酸原、補充氧氣儲量、散熱等多種目的；不等於氧虧"
+vo2max:
+  en: "Maximal oxygen uptake"
+  abbr: "VO₂max"
+  zh: "最大攝氧量"
+  note: "個人能攝取、輸送並利用的最大氧氣量；常用於定義有氧能力上限與相對運動強度"
+glycogen:
+  en: "Glycogen"
+  abbr: ""
+  zh: "糖原"
+  note: "碳水化合物的多聚體儲存形式；肌糖原（約 300-400g）與肝糖原（約 70-100g）是運動的主要糖類底物"
+interval-training:
+  en: "Interval training"
+  abbr: ""
+  zh: "間歇訓練"
+  note: "使用預設功休比交替進行高強度運動與休息的訓練方法；允許以更高強度完成更多訓練量"
+hiit:
+  en: "High-intensity interval training"
+  abbr: "HIIT"
+  zh: "高強度間歇訓練"
+  note: "短暫高強度工作期加間歇恢復期；目標使累積時間處於 >90% VO₂max；有 9 個可操控變數"
+combination-training:
+  en: "Combination training"
+  abbr: ""
+  zh: "組合訓練"
+  note: "又稱 cross-training；將有氧耐力訓練加入無氧運動員計畫；可能抑制最大肌力、爆發力與肌肉圍度增益"
+metabolic-specificity:
+  en: "Metabolic specificity of training"
+  abbr: ""
+  zh: "訓練代謝專一性"
+  note: "透過適當的運動強度與休息間隔『選擇』特定能量系統進行訓練；訓練設計需符合運動的實際代謝需求"
