@@ -16,217 +16,214 @@
   {{ end }}
 {{ end }}
 
-<div class="topbar">
-  <a href="{{ .Parent.RelPermalink }}">&larr; {{ .Parent.Title }}</a>
-  <span>/</span>
-  <span style="color:#7c6af7">{{ .Title }}</span>
-  {{ if $cards }}
-  <button class="fc-toggle-btn" onclick="toggleFlashcard()" id="fcBtn">🃏 閃卡模式</button>
-  {{ end }}
-</div>
+<div class="nb" id="nb">
 
-<div id="reading-progress"></div>
-<h2 class="ch-title">{{ .Title }}</h2>
+  <nav class="nb-crumb" aria-label="麵包屑">
+    <a href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a>
+    <span aria-hidden="true">›</span>
+    <span class="nb-crumb-now">{{ .Title }}</span>
+  </nav>
 
-<div id="main-view">
-  <div class="mandala">
-    {{ $colors := slice "#7c6af7" "#3fc87c" "#f0a030" "#e05252" "#3b8bd4" "#3fc87c" "#7c6af7" "#f0a030" }}
-    {{ range $i, $page := .Pages }}
-    {{ $color := index $colors $i }}
-    {{ if eq $i 4 }}
-    <div class="cell center">
-      <div class="ch-num">{{ $.Title }}</div>
-      <div class="cs" style="font-size:10px;margin-top:4px">點擊各格展開</div>
-    </div>
+  <h1 class="nb-title">{{ .Title }}</h1>
+
+  <div class="nb-modes" role="group" aria-label="閱讀模式">
+    <button type="button" class="nb-mode is-on" data-mode="read" aria-pressed="true">讀書</button>
+    <button type="button" class="nb-mode" data-mode="quiz" aria-pressed="false">遮答自測</button>
+    {{ if $cards }}
+    <button type="button" class="nb-mode" data-mode="card" aria-pressed="false">閃卡 {{ len $cards }}</button>
     {{ end }}
-    <div class="cell" style="border-top:2px solid {{ $color }}" onclick="showSub('s{{ $i }}')">
-      <div class="ct" style="color:{{ $color }}">{{ $page.Title }}</div>
-      <div class="cs">{{ $page.Description }}</div>
-      <div class="tag" style="color:{{ $color }};background:{{ $color }}22">{{ index $page.Params.tags 0 }}</div>
-    </div>
-    {{ end }}
+    <span class="nb-modehint" id="nbHint">全部答案顯示中</span>
   </div>
-  <p class="hint">↑ 點擊各格展開詳細內容</p>
-</div>
 
-{{ range $i, $page := .Pages }}
-{{ $colors := slice "#7c6af7" "#3fc87c" "#f0a030" "#e05252" "#3b8bd4" "#3fc87c" "#7c6af7" "#f0a030" }}
-{{ $color := index $colors $i }}
-<div class="sub-area" id="s{{ $i }}">
-  <span class="back-btn" onclick="goBack()">&larr; 返回</span>
-  <div class="sub-head" style="color:{{ $color }}">{{ $page.Title }}</div>
-  <div class="sub-grid">
-    {{ $raw := $page.RawContent }}
-    {{ $sections := split $raw "## " }}
-    {{ range $si, $sec := $sections }}
-      {{ if gt $si 0 }}
-        {{ $lines := split $sec "\n" }}
-        {{ $heading := index $lines 0 }}
-        {{ $bodylines := after 1 $lines }}
-        {{ $body := delimit $bodylines " " }}
-        {{ if eq $si 4 }}
-        <div class="sc scc" style="border-color:{{ $color }}">
-          <div class="st" style="color:{{ $color }}">{{ $page.Title }}</div>
-        </div>
+  <div class="nb-doc" id="nbDoc">
+
+    <aside class="nb-toc" aria-label="本章目次">
+      <p class="nb-toc-cap">本章 {{ len .Pages }} 個主題</p>
+      <ol class="nb-toc-list">
+        {{ range $i, $page := .Pages }}
+        <li><a href="#t{{ $i }}" data-toc="t{{ $i }}">
+          <span class="nb-toc-n">{{ printf "%02d" (add $i 1) }}</span>
+          <span class="nb-toc-t">{{ $page.Title }}</span>
+        </a></li>
         {{ end }}
-        <div class="sc">
-          <div class="st" style="color:{{ $color }}">{{ $heading }}</div>
-          <div class="sb">{{ $body }}</div>
-        </div>
+      </ol>
+    </aside>
+
+    <div class="nb-body">
+      {{ range $i, $page := .Pages }}
+      {{ $secs := after 1 (split $page.RawContent "## ") }}
+      <section class="nb-topic" id="t{{ $i }}">
+        <header class="nb-topic-head">
+          <p class="nb-topic-meta">
+            <span class="nb-topic-n">{{ printf "%02d" (add $i 1) }}</span>
+            {{ with $page.Params.tags }}<span class="nb-topic-tag">{{ index . 0 }}</span>{{ end }}
+          </p>
+          <h2 class="nb-topic-t">{{ $page.Title }}</h2>
+        </header>
+
+        <dl class="nb-qa">
+          {{ range $si, $sec := $secs }}
+            {{ $lines := split $sec "\n" }}
+            {{ $heading := trim (index $lines 0) " \r" }}
+            {{ $body := trim (delimit (after 1 $lines) "\n") " \n\r" }}
+            {{ $items := split $body "；" }}
+            <dt class="nb-q">{{ $heading }}</dt>
+            <dd class="nb-a" data-a>
+              {{ if gt (len $items) 1 }}
+              <ul>{{ range $items }}{{ with trim . " \n\r" }}<li>{{ . }}</li>{{ end }}{{ end }}</ul>
+              {{ else }}
+              <p>{{ $body }}</p>
+              {{ end }}
+            </dd>
+          {{ end }}
+        </dl>
+      </section>
       {{ end }}
-    {{ end }}
+    </div>
+
   </div>
 </div>
-{{ end }}
 
 {{ if $cards }}
-<div id="fc-view" style="display:none">
-  <div class="fc-header">
-    <button class="back-btn" onclick="toggleFlashcard()">← 返回九宮格</button>
-    <div class="fc-progress-text">
-      <span id="fc-current">1</span> / <span id="fc-total">{{ len $cards }}</span>
-      &nbsp;·&nbsp; ✓ <span id="fc-known">0</span>
-    </div>
+<div class="nb-fc" id="nbFc" hidden>
+  <div class="nb-fc-bar">
+    <span class="nb-fc-count"><span id="fcCur">1</span> / {{ len $cards }}</span>
+    <span class="nb-fc-known">已懂 <span id="fcKnown">0</span></span>
   </div>
-  <div class="fc-stage">
-    <div class="fc-card" id="fcCard" onclick="flipCard()">
-      <div class="fc-front">
-        <div class="fc-tag" id="fcTag"></div>
-        <div class="fc-question" id="fcQ"></div>
-        <div class="fc-tap-hint">點擊翻面查看答案</div>
-      </div>
-      <div class="fc-back">
-        <div class="fc-tag" id="fcTagB"></div>
-        <div class="fc-answer" id="fcA"></div>
-      </div>
-    </div>
+  <div class="nb-fc-card" id="fcCard">
+    <p class="nb-fc-tag" id="fcTag"></p>
+    <p class="nb-fc-q" id="fcQ"></p>
+    <div class="nb-fc-a" id="fcA" hidden></div>
+    <button type="button" class="nb-fc-flip" id="fcFlip">顯示答案</button>
   </div>
-  <div class="fc-actions" id="fcActions" style="display:none">
-    <button class="fc-btn fc-again" onclick="markCard(false)">↺ 再看</button>
-    <button class="fc-btn fc-know" onclick="markCard(true)">✓ 已懂</button>
+  <div class="nb-fc-act" id="fcAct" hidden>
+    <button type="button" class="nb-fc-btn" data-known="0">再看一次</button>
+    <button type="button" class="nb-fc-btn is-know" data-known="1">已懂</button>
   </div>
-  <div class="fc-nav">
-    <button class="fc-nav-btn" onclick="prevCard()">‹ 上一張</button>
-    <div class="fc-dots" id="fcDots"></div>
-    <button class="fc-nav-btn" onclick="nextCard()">下一張 ›</button>
-  </div>
-  <div id="fc-done" style="display:none" class="fc-done-msg">
-    <div class="fc-done-icon">🎉</div>
-    <div>這輪完成！</div>
-    <div class="fc-done-score">已懂 <span id="fc-score"></span> / {{ len $cards }}</div>
-    <button class="fc-btn fc-know" onclick="restartCards()" style="margin-top:16px">重新開始</button>
+  <div class="nb-fc-nav">
+    <button type="button" class="nb-fc-step" id="fcPrev">‹ 上一張</button>
+    <button type="button" class="nb-fc-step" id="fcNext">下一張 ›</button>
   </div>
 </div>
-<script>
-const FC_DATA = JSON.parse({{ $cards | jsonify }});
-let fcIndex = 0, fcFlipped = false, fcKnown = new Set();
-function renderCard() {
-  const c = FC_DATA[fcIndex];
-  document.getElementById('fcQ').textContent = c.q;
-  document.getElementById('fcA').textContent = c.a;
-  document.getElementById('fcTag').textContent = c.tag;
-  document.getElementById('fcTagB').textContent = c.tag;
-  document.getElementById('fc-current').textContent = fcIndex + 1;
-  document.getElementById('fc-known').textContent = fcKnown.size;
-  document.getElementById('fcCard').classList.remove('flipped');
-  document.getElementById('fcActions').style.display = 'none';
-  fcFlipped = false;
-  renderDots();
-}
-function renderDots() {
-  const dots = document.getElementById('fcDots');
-  const total = FC_DATA.length;
-  const start = Math.max(0, Math.min(fcIndex - 3, total - 7));
-  const end = Math.min(total, start + 7);
-  dots.innerHTML = '';
-  for (let i = start; i < end; i++) {
-    const d = document.createElement('span');
-    d.className = 'fc-dot' + (i === fcIndex ? ' active' : '') + (fcKnown.has(i) ? ' known' : '');
-    d.onclick = ((idx) => () => { fcIndex = idx; renderCard(); })(i);
-    dots.appendChild(d);
-  }
-}
-function flipCard() {
-  if (fcFlipped) return;
-  document.getElementById('fcCard').classList.add('flipped');
-  document.getElementById('fcActions').style.display = 'flex';
-  fcFlipped = true;
-}
-function markCard(known) {
-  if (known) fcKnown.add(fcIndex); else fcKnown.delete(fcIndex);
-  document.getElementById('fc-known').textContent = fcKnown.size;
-  if (fcIndex < FC_DATA.length - 1) { fcIndex++; renderCard(); } else { showDone(); }
-}
-function nextCard() { if (fcIndex < FC_DATA.length - 1) { fcIndex++; renderCard(); } }
-function prevCard() { if (fcIndex > 0) { fcIndex--; renderCard(); } }
-function showDone() {
-  document.getElementById('fcCard').style.display = 'none';
-  document.getElementById('fcActions').style.display = 'none';
-  document.getElementById('fc-nav').style.display = 'none';
-  document.getElementById('fc-done').style.display = 'block';
-  document.getElementById('fc-score').textContent = fcKnown.size;
-}
-function restartCards() {
-  fcIndex = 0; fcKnown.clear();
-  document.getElementById('fcCard').style.display = '';
-  document.getElementById('fc-nav').style.display = '';
-  document.getElementById('fc-done').style.display = 'none';
-  renderCard();
-}
-function toggleFlashcard() {
-  const fcView = document.getElementById('fc-view');
-  const mainView = document.getElementById('main-view');
-  const subAreas = document.querySelectorAll('.sub-area');
-  const btn = document.getElementById('fcBtn');
-  const chTitle = document.querySelector('.ch-title');
-  if (fcView.style.display === 'none') {
-    fcView.style.display = 'block'; mainView.style.display = 'none';
-    subAreas.forEach(s => s.style.display = 'none');
-    btn.textContent = '📚 九宮格'; btn.classList.add('active');
-    chTitle.style.display = 'none'; renderCard();
-  } else {
-    fcView.style.display = 'none'; mainView.style.display = 'block';
-    subAreas.forEach(s => s.style.display = '');
-    btn.textContent = '🃏 閃卡模式'; btn.classList.remove('active');
-    chTitle.style.display = ''; goBack();
-  }
-}
-function showSub(id) {
-  document.getElementById('main-view').style.display = 'none';
-  document.querySelectorAll('.sub-area').forEach(s => s.classList.remove('show'));
-  document.getElementById(id).classList.add('show');
-  window.scrollTo(0, 0);
-}
-function goBack() {
-  document.getElementById('main-view').style.display = 'block';
-  document.querySelectorAll('.sub-area').forEach(s => s.classList.remove('show'));
-  window.scrollTo(0, 0);
-}
-window.addEventListener('scroll', () => {
-  const bar = document.getElementById('reading-progress');
-  const total = document.body.scrollHeight - window.innerHeight;
-  if (total > 0) bar.style.width = (window.scrollY / total * 100) + '%';
-});
-document.addEventListener('DOMContentLoaded', renderCard);
-</script>
-{{ else }}
-<script>
-function showSub(id) {
-  document.getElementById('main-view').style.display = 'none';
-  document.querySelectorAll('.sub-area').forEach(s => s.classList.remove('show'));
-  document.getElementById(id).classList.add('show');
-  window.scrollTo(0, 0);
-}
-function goBack() {
-  document.getElementById('main-view').style.display = 'block';
-  document.querySelectorAll('.sub-area').forEach(s => s.classList.remove('show'));
-  window.scrollTo(0, 0);
-}
-window.addEventListener('scroll', () => {
-  const bar = document.getElementById('reading-progress');
-  const total = document.body.scrollHeight - window.innerHeight;
-  if (total > 0) bar.style.width = (window.scrollY / total * 100) + '%';
-});
-</script>
+<script id="fcData" type="application/json">{{ $cards | jsonify | safeJS }}</script>
 {{ end }}
+
+<script>
+(function () {
+  var nb = document.getElementById('nb');
+  var hint = document.getElementById('nbHint');
+  var doc = document.getElementById('nbDoc');
+  var fc = document.getElementById('nbFc');
+  var answers = Array.prototype.slice.call(document.querySelectorAll('[data-a]'));
+
+  var HINTS = { read: '全部答案顯示中', quiz: '點紅色區塊顯示答案', card: '' };
+
+  function setMode(mode) {
+    var was = nb.dataset.mode;
+    nb.dataset.mode = mode;
+    // 閃卡是另一份文件，進出時回到頁首；讀書↔自測留在原位
+    if (was && (was === 'card') !== (mode === 'card')) window.scrollTo(0, 0);
+    document.querySelectorAll('.nb-mode').forEach(function (b) {
+      var on = b.dataset.mode === mode;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    hint.textContent = HINTS[mode] || '';
+    doc.hidden = (mode === 'card');
+    if (fc) fc.hidden = (mode !== 'card');
+
+    answers.forEach(function (a) {
+      a.classList.remove('is-open');
+      if (mode === 'quiz') {
+        a.tabIndex = 0;
+        a.setAttribute('role', 'button');
+        a.setAttribute('aria-expanded', 'false');
+        a.setAttribute('aria-label', '顯示答案');
+      } else {
+        a.removeAttribute('tabindex');
+        a.removeAttribute('role');
+        a.removeAttribute('aria-expanded');
+        a.removeAttribute('aria-label');
+      }
+    });
+    if (mode === 'card' && typeof render === 'function') render();
+  }
+
+  document.querySelectorAll('.nb-mode').forEach(function (b) {
+    b.addEventListener('click', function () { setMode(b.dataset.mode); });
+  });
+
+  function reveal(a) {
+    if (nb.dataset.mode !== 'quiz') return;
+    a.classList.add('is-open');
+    a.setAttribute('aria-expanded', 'true');
+    a.removeAttribute('aria-label');
+  }
+  answers.forEach(function (a) {
+    a.addEventListener('click', function () { reveal(a); });
+    a.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); reveal(a); }
+    });
+  });
+
+  // 目次跟隨目前閱讀位置
+  var links = {};
+  document.querySelectorAll('[data-toc]').forEach(function (a) { links[a.dataset.toc] = a; });
+  var topics = document.querySelectorAll('.nb-topic');
+  if ('IntersectionObserver' in window && topics.length) {
+    var seen = new Set();
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) seen.add(en.target.id); else seen.delete(en.target.id);
+      });
+      Object.keys(links).forEach(function (k) { links[k].classList.remove('is-here'); });
+      var first = Array.prototype.map.call(topics, function (t) { return t.id; })
+                       .filter(function (id) { return seen.has(id); })[0];
+      if (first && links[first]) links[first].classList.add('is-here');
+    }, { rootMargin: '-72px 0px -60% 0px' });
+    topics.forEach(function (t) { io.observe(t); });
+  }
+
+  // 閃卡
+  var dataEl = document.getElementById('fcData');
+  var render;
+  if (dataEl && fc) {
+    var DATA = JSON.parse(dataEl.textContent);
+    var idx = 0, known = new Set();
+    var elQ = document.getElementById('fcQ'), elA = document.getElementById('fcA'),
+        elTag = document.getElementById('fcTag'), elCur = document.getElementById('fcCur'),
+        elKnown = document.getElementById('fcKnown'), elFlip = document.getElementById('fcFlip'),
+        elAct = document.getElementById('fcAct');
+
+    render = function () {
+      var c = DATA[idx];
+      elQ.textContent = c.q;
+      elA.textContent = c.a;
+      elTag.textContent = c.tag || '';
+      elCur.textContent = idx + 1;
+      elKnown.textContent = known.size;
+      elA.hidden = true; elAct.hidden = true; elFlip.hidden = false;
+    };
+    elFlip.addEventListener('click', function () {
+      elA.hidden = false; elAct.hidden = false; elFlip.hidden = true;
+    });
+    elAct.querySelectorAll('.nb-fc-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (b.dataset.known === '1') known.add(idx); else known.delete(idx);
+        if (idx < DATA.length - 1) idx++;
+        render();
+      });
+    });
+    document.getElementById('fcNext').addEventListener('click', function () {
+      if (idx < DATA.length - 1) { idx++; render(); }
+    });
+    document.getElementById('fcPrev').addEventListener('click', function () {
+      if (idx > 0) { idx--; render(); }
+    });
+    render();
+  }
+
+  setMode('read');
+})();
+</script>
 {{ end }}
