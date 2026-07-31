@@ -4,6 +4,15 @@
 
 {{ define "main" }}
 {{ $chID := path.Base (.RelPermalink | strings.TrimRight "/") }}
+
+{{ $book := .Parent }}
+{{ $chapters := $book.Sections.ByWeight }}
+{{ $idx := -1 }}
+{{ range $i, $c := $chapters }}{{ if eq $c.RelPermalink $.RelPermalink }}{{ $idx = $i }}{{ end }}{{ end }}
+{{ $prev := false }}{{ $next := false }}
+{{ if gt $idx 0 }}{{ $prev = index $chapters (sub $idx 1) }}{{ end }}
+{{ if and (ge $idx 0) (lt $idx (sub (len $chapters) 1)) }}{{ $next = index $chapters (add $idx 1) }}{{ end }}
+
 {{ $cards := slice }}
 {{ $csvURL := .Site.Params.cscsFlashcardsCSV }}
 {{ if $csvURL }}
@@ -37,7 +46,12 @@
 
   <div class="nb-doc" id="nbDoc">
 
-    <aside class="nb-toc" aria-label="本章目次">
+    <aside class="nb-toc" aria-label="本章目次與章節切換">
+      <div class="nb-toc-head">
+        <a class="nb-toc-up" href="{{ $book.RelPermalink }}">‹ 回書目</a>
+        {{ if ge $idx 0 }}<p class="nb-toc-pos">第 {{ add $idx 1 }} / {{ len $chapters }} 章</p>{{ end }}
+      </div>
+
       <p class="nb-toc-cap">本章 {{ len .Pages }} 個主題</p>
       <ol class="nb-toc-list">
         {{ range $i, $page := .Pages }}
@@ -47,6 +61,21 @@
         </a></li>
         {{ end }}
       </ol>
+
+      <nav class="nb-toc-foot" aria-label="章節切換">
+        {{ with $prev }}
+        <a class="nb-toc-step" href="{{ .RelPermalink }}" rel="prev" aria-label="上一章：{{ .Title }}">
+          <span class="nb-toc-step-k">‹ 上一章</span>
+          <span class="nb-toc-step-t">{{ .Title }}</span>
+        </a>
+        {{ end }}
+        {{ with $next }}
+        <a class="nb-toc-step is-next" href="{{ .RelPermalink }}" rel="next" aria-label="下一章：{{ .Title }}">
+          <span class="nb-toc-step-k">下一章 ›</span>
+          <span class="nb-toc-step-t">{{ .Title }}</span>
+        </a>
+        {{ end }}
+      </nav>
     </aside>
 
     <div class="nb-body">
@@ -79,6 +108,26 @@
         </dl>
       </section>
       {{ end }}
+
+      <nav class="nb-end" aria-label="讀完本章">
+        {{ with $prev }}
+        <a class="nb-end-card" href="{{ .RelPermalink }}" rel="prev">
+          <span class="nb-end-k">‹ 上一章</span>
+          <span class="nb-end-t">{{ .Title }}</span>
+        </a>
+        {{ else }}<span></span>{{ end }}
+        {{ with $next }}
+        <a class="nb-end-card is-next" href="{{ .RelPermalink }}" rel="next">
+          <span class="nb-end-k">下一章 ›</span>
+          <span class="nb-end-t">{{ .Title }}</span>
+        </a>
+        {{ else }}
+        <a class="nb-end-card is-next" href="{{ $book.RelPermalink }}">
+          <span class="nb-end-k">讀完了 ›</span>
+          <span class="nb-end-t">回書目</span>
+        </a>
+        {{ end }}
+      </nav>
     </div>
 
   </div>
@@ -170,6 +219,15 @@
   var links = {};
   document.querySelectorAll('[data-toc]').forEach(function (a) { links[a.dataset.toc] = a; });
   var topics = document.querySelectorAll('.nb-topic');
+  var tocList = document.querySelector('.nb-toc-list');
+
+  // 手機的目次是橫向膠囊列，捲不到的話等於沒有——把目前主題捲進視野
+  function syncStrip(a) {
+    if (!tocList || tocList.scrollWidth <= tocList.clientWidth) return;
+    var lr = tocList.getBoundingClientRect(), ar = a.getBoundingClientRect();
+    tocList.scrollLeft += (ar.left - lr.left) - (lr.width - ar.width) / 2;
+  }
+
   if ('IntersectionObserver' in window && topics.length) {
     var seen = new Set();
     var io = new IntersectionObserver(function (entries) {
@@ -179,7 +237,7 @@
       Object.keys(links).forEach(function (k) { links[k].classList.remove('is-here'); });
       var first = Array.prototype.map.call(topics, function (t) { return t.id; })
                        .filter(function (id) { return seen.has(id); })[0];
-      if (first && links[first]) links[first].classList.add('is-here');
+      if (first && links[first]) { links[first].classList.add('is-here'); syncStrip(links[first]); }
     }, { rootMargin: '-72px 0px -60% 0px' });
     topics.forEach(function (t) { io.observe(t); });
   }

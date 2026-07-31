@@ -93,21 +93,83 @@ body:has(.nb) {
 /* class 選擇器的 display 會蓋掉 UA 的 [hidden]，必須明寫 */
 .nb-doc[hidden] { display: none; }
 
+/* 頭（回書目）與尾（換章）固定，只有目次列表捲動
+   —— 長章節讀到一半要換章不必捲回頁首 */
 .nb-toc {
   position: sticky;
   top: calc(var(--nav-height) + 16px);
   max-height: calc(100vh - var(--nav-height) - 32px);
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
   border-left: 1px solid var(--nb-line);
 }
+.nb-toc-head {
+  flex: none;
+  padding: 0 8px 12px 16px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--nb-line);
+}
+.nb-toc-up {
+  display: block;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 700;
+  color: var(--nb-ink);
+  text-decoration: none;
+}
+.nb-toc-up:hover { color: var(--nb-accent); }
+.nb-toc-pos {
+  font-family: var(--font-mono);
+  font-size: var(--nb-fs-meta);
+  color: var(--nb-ink-2);
+  margin: 4px 0 0;
+}
 .nb-toc-cap {
+  flex: none;
   font-family: var(--font-mono);
   font-size: var(--nb-fs-meta);
   color: var(--nb-ink-2);
   margin: 0 0 8px;
   padding-left: 16px;
 }
-.nb-toc-list { list-style: none; margin: 0; padding: 0; }
+.nb-toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+.nb-toc-foot {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--nb-line);
+}
+.nb-toc-step {
+  display: block;
+  padding: 8px 8px 8px 16px;
+  min-height: 32px;
+  text-decoration: none;
+}
+.nb-toc-step-k {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--nb-fs-meta);
+  color: var(--nb-ink-2);
+}
+.nb-toc-step-t {
+  display: block;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--nb-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nb-toc-step:hover .nb-toc-step-t { color: var(--nb-accent); }
 .nb-toc-list a {
   display: flex;
   gap: 8px;
@@ -200,6 +262,41 @@ body:has(.nb) {
   border-left-color: var(--nb-line);
   cursor: auto;
   user-select: auto;
+}
+
+/* ---- 章末接續 ---- */
+.nb-end {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--nb-line);
+  border: 1px solid var(--nb-line);
+  margin-top: 48px;
+}
+.nb-end > span { background: #FBFAF7; }   /* 首章無「上一章」時的佔位格 */
+.nb-end-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 16px;
+  min-height: 64px;
+  background: #FBFAF7;
+  text-decoration: none;
+  transition: opacity 160ms ease-out;
+}
+.nb-end-card:hover { opacity: .68; }
+.nb-end-card.is-next { text-align: right; }
+.nb-end-k {
+  font-family: var(--font-mono);
+  font-size: var(--nb-fs-meta);
+  color: var(--nb-ink-2);
+}
+.nb-end-t {
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 700;
+  color: var(--nb-ink);
 }
 
 /* ---- 閃卡 ---- */
@@ -308,11 +405,13 @@ body:has(.nb) {
     top: var(--nav-height);
     z-index: 5;
     max-height: none;
-    overflow: visible;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
     border-left: 0;
     border-bottom: 1px solid var(--nb-line);
     background: #FBFAF7;
-    padding: 8px 0;
+    padding: 8px 16px;
     margin: 0 -16px;
   }
   .nb-toc-cap { display: none; }
@@ -320,10 +419,49 @@ body:has(.nb) {
     display: flex;
     gap: 8px;
     overflow-x: auto;
+    overflow-y: visible;
     scrollbar-width: none;
-    padding: 0 16px;
+    padding: 0;
+    order: 2;
   }
   .nb-toc-list::-webkit-scrollbar { display: none; }
+
+  /* 換章在手機收成純箭頭鈕（可及名稱由 a 的 aria-label 提供），
+     把橫向空間留給主題膠囊 */
+  .nb-toc-head {
+    order: 1;
+    padding: 0;
+    margin: 0;
+    border-bottom: 0;
+  }
+  .nb-toc-pos { display: none; }
+  .nb-toc-up {
+    border: 1px solid var(--nb-line);
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+  .nb-toc-foot {
+    order: 3;
+    flex-direction: row;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    border-top: 0;
+  }
+  .nb-toc-step {
+    padding: 0;
+    min-width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--nb-line);
+    color: var(--nb-ink-2);
+  }
+  .nb-toc-step-k, .nb-toc-step-t { display: none; }
+  .nb-toc-step::before { content: "‹"; font-size: 15px; }
+  .nb-toc-step.is-next::before { content: "›"; }
   .nb-toc-list a {
     white-space: nowrap;
     border: 1px solid var(--nb-line);
@@ -337,6 +475,9 @@ body:has(.nb) {
     color: #FBFAF7;
   }
   .nb-toc-list a.is-here .nb-toc-n { color: #FBFAF7; }
+  .nb-end { grid-template-columns: minmax(0, 1fr); }
+  .nb-end > span { display: none; }
+  .nb-end-card.is-next { text-align: left; }
   .nb-title { font-size: 21px; }
   .nb-topic-t { font-size: 19px; }
   .nb-topic { scroll-margin-top: calc(var(--nav-height) + 64px); }
