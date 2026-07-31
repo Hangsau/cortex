@@ -26,7 +26,7 @@ content/
 layouts/
   _default/                 # baseof、list、single
   partials/                 # nav、footer
-  library/                  # list（書庫列表）、book（單書頁）、chapter（九宮格）、single
+  library/                  # list（書庫列表）、book（單書頁）、chapter（暗記帳文件版型）、single
   notebook/                 # list、single
   shortcodes/               # flashcard、highlight-quote、callout
 static/
@@ -36,7 +36,7 @@ static/
     layout.css              # nav/main/footer 結構
     bookshelf.css           # 首頁書架樣式
     library.css             # 書庫 section 樣式
-    cscs-chapter.css        # 九宮格 + 閃卡樣式（從 cscs-study 移植）
+    cscs-chapter.css        # 章節頁（黏性目次正文 + 遮答自測 + 閃卡）與 book.html 的 .home-grid
     notebook.css            # 筆記本樣式
   js/
     flashcard.js            # 閃卡翻轉（單一功能）
@@ -124,7 +124,7 @@ data/adm/                    （由 sync_vortex.py 從 canonical 同步，勿手
 
 ### 自訂風格書籍設計模式（如 大腦喜歡這樣學）
 
-當一本書需要獨立視覺風格（不沿用 CSCS 九宮格或 ADM 矩陣），使用以下模式：
+當一本書需要獨立視覺風格（不沿用 CSCS 章節頁或 ADM 矩陣），使用以下模式：
 
 ```
 content/library/<slug>/

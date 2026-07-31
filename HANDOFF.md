@@ -1,5 +1,21 @@
 # HANDOFF — my-site (Cortex)
 
+## 目前狀態（2026-07-31）
+
+**CSCS 章節頁重新設計上線（2026-07-31，commit 6b34bc0，push + CI 綠 + 線上驗證）**：站主指出「你的重新設計一定會跟之前一樣」——這是對既有失敗模式的診斷（換配色／縮間距冒充重設計），所以這次先寫出可證偽的前後骨架 diff 表才動手，並用 `Write` 整檔覆寫而非 `Edit` 增修。
+
+- **廢掉九宮格的理由（截圖才看得出來，讀 code 看不出來）**：① 3×3 把線性內容打散成非線性——傷癒三期在格子裡渲染成 3、2、…、1；② 中央格重複 h1 卻佔住第五個閱讀位置，把「DAPRE（Knight）」和「DAPRE 第3組調整表」切開；③ De Lorme／Oxford／DAPRE 三個可比系統成了不等高盒子、數字不對齊（鐵則 H 比較任務禁忌）；④ 深色卡片浮在白底站上，全站唯一暗頁；⑤ 內文字級被格子封頂 9px、對比約 3:1。
+- **新骨架**：鐵則 G 空間化——黏性側欄目次（IntersectionObserver scrollspy）+ 受控行長正文（27.8 CJK 字/行）；`showSub`/`goBack` 整頁切換與中央格全刪。
+- **補上章節頁原本 0 個的提取機制**：赤シート遮答自測（鐵則 H 學習軸），三模式列「讀書／遮答自測／閃卡」。遮罩只改 `color`/`background`，文字仍佔位 → 切換零版面位移。
+- **視覺方向**：日本受験参考書／暗記帳（米白 #FBFAF7 紙面、細墨線、無卡片無陰影、mono 題號），紅色只出現在「答案被遮住」的狀態，不碰正文。
+- **`tools/audit.js` 是這次留下的迴歸閘**（16 條數值斷言：字級 17px / 內文對比 7.36:1 / 標題 16.67:1 / 行高 1.80 / 行長 27.8 字 / 目標 60×39 / 64 錨點零位移 / 焦點指示）。跑法：先開 `hugo server`，再 `PLAYWRIGHT_PATH=<path> node tools/audit.js`（需 npm i playwright）。**存在理由就是擋「只換配色」的退化**，日後改章節頁務必跑。
+- **踩到兩個 audit 抓不到、只有截圖抓得到的 bug**：① 序號 01 用了 `--nb-line`（1.1:1）近乎隱形——帶位置資訊的文字不能用線條色；② `doc.hidden = true` 無效，因為 `.nb-doc { display: grid }` 這條 author 規則蓋掉 UA 的 `[hidden]`，必須明寫 `.nb-doc[hidden] { display: none }`（不用 `!important`，專案禁用）。
+- **驗收**：audit 16/16；ch01/05/11/18/24 抽查各 8 topics + 閃卡鈕；`hugo --minify` 337 頁 exit 0；線上 grep 新骨架命中、`mandala` 歸零。
+
+**下一步建議**：① `layouts/library/book.html` 共用 `cscs-chapter.css` 的 `.home-grid`/`.home-card`，已一起改成淺色細線格，但**書庫其他 layout（library.css / bookshelf.css）未動**，若覺得書庫首頁與章節頁調性不接可續做；② 遮答自測目前是全頁 toggle，若站主想要「逐條遮／已答對就不再遮」的進度記憶，需要 localStorage 層，尚未做；③ 其餘 23 章只做了 HTML 結構抽查，沒逐章看畫面，內容異常（如某章 `；` 用法不同）要靠實際閱讀才會發現。
+
+> ↓ 更早
+
 ## 目前狀態（2026-07-10）
 
 **Vortex 全站重設計 I1–I5 完成上線（2026-07-10，commits 1f94b62→94d625b→345c6d3→db2c98d→15f83ec，全 push + CI 綠）**：站主「一直覺得設計得很不好用」授權全自主重設計，五個 iteration 一氣呵成：

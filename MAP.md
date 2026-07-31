@@ -42,7 +42,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 ### Section → layout 路由
 | content 目錄 | layout | 說明 |
 |-------------|--------|------|
-| `content/library/` | `layouts/library/{list,book,chapter,single}.html` | 書庫；CSCS 九宮格在 `chapter.html`（232 行，閃卡翻轉 JS 已內聯） |
+| `content/library/` | `layouts/library/{list,book,chapter,single}.html` | 書庫；CSCS 章節頁在 `chapter.html`（229 行，2026-07-31 從 3×3 九宮格改成黏性目次文件版型 + 遮答自測；模式切換／scrollspy／閃卡 JS 全內聯）。改動後跑 `tools/audit.js` 迴歸 |
 | 　└ 特殊書 | `library/mnfl-{book,toolkit}.html`、`library/ust-{book,handbook,strategies}.html` | 大腦喜歡這樣學 / UST，各自 CSS |
 | `content/notebook/` | `layouts/notebook/{list,single}.html` | 個人筆記 |
 | `content/temperament/` | `layouts/temperament/temperament-main.html`（386 行） | 氣質 section + 測驗（`temperament-quiz.js` 197 行） |
@@ -68,7 +68,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 | `vortex/{single,list}.html` | 29/36 | technica/instructional/bridge 散文 fallback | 無 |
 
 ### CSS（static/css/）
-`variables.css`(49) `base.css`(79) `layout.css`(165) `bookshelf.css`(221) `library.css`(140) `cscs-chapter.css`(375) `notebook.css`(59) `vortex.css`(2080) `vortex-techo.css`(158，僅首頁 tx-*) `vortex-nav.css`(159，全站側欄+搜尋框) `vortex-injuries.css`(242) `mnfl.css`(391) `ust.css`(526) `temperament.css`(296)。  
+`variables.css`(49) `base.css`(79) `layout.css`(165) `bookshelf.css`(221) `library.css`(140) `cscs-chapter.css`(352) `notebook.css`(59) `vortex.css`(2080) `vortex-techo.css`(158，僅首頁 tx-*) `vortex-nav.css`(159，全站側欄+搜尋框) `vortex-injuries.css`(242) `mnfl.css`(391) `ust.css`(526) `temperament.css`(296)。  
 隔離手法：各 section CSS 用 `body:has(.<prefix>-*)` scope，不互相污染。
 
 ### JS（static/js/）
@@ -93,6 +93,8 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 8. **`public/` 不進 git**（2026-06-15 `git rm --cached` + gitignore）。本機看到的 committed public 斷鏈與 live 無關，live 永遠是 CI fresh build。
 9. **`.Site.Data.*` 已全數遷移完畢**（2026-06-23 稽核：`grep -rn '\.Site\.Data' layouts/` 命中 0）：全站 layout 都用 `index hugo.Data "x"`。舊 MAP 記「8 個 layout 仍用」已過時，不再是隱憂。
 10. **taxonomy 已停用**（`hugo.toml` `disableKinds`）：frontmatter 的 `tags:` 不產頁。想做標籤導覽要先處理中文 slug URL 編碼（否則 mojibake）。
+11. **`el.hidden = true` 在有 `display` class 規則的元素上無效**：author 的 `.nb-doc { display: grid }` specificity 高過 UA 的 `[hidden] { display: none }`，JS 設 hidden 畫面不會變。`cscs-chapter.css` 明寫 `.nb-doc[hidden] { display: none }` 解（**不用 `!important`**，專案禁用）。同模式的 `.vx-*` 若日後用 hidden 切換要一併注意。
+12. **CSCS 章節頁 `chapter.html` 直接剖析子頁 `RawContent`**（`split "## "` 取小節、`split "；"` 拆條列），不走 `.Content`。所以改教材 md 的標點/標題層級會直接影響版面；`；` 是條列分隔符不是普通標點。
 
 ---
 
