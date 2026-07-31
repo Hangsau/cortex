@@ -56,7 +56,7 @@
 | Typography | modular scale 變數化、baseline grid 變數化、web font preload + `size-adjust` |
 | 結構決策 | 首頁 3 群 + 1 摺合區重排（per presentation-layout §4.2）+ L0–L6 mini 階梯 partial（per entry-wayfinding H4） |
 | 互動規範 | Material 3 motion patterns + Duration Tokens（200/400/500ms）+ easing tokens |
-| 結構性 CSS | 既有 `.vx-*` / `.tx-*` class 整理、文件化（DESIGN_SYSTEM.md 補建） |
+| 結構性 CSS | 既有 `.vx-*` / `.tx-*` class 整理、文件化（~~DESIGN_SYSTEM.md 補建~~ — 前提錯誤，該檔早已存在，見 §13 O2 作廢說明） |
 
 ### 2.2 不做（站主明確不同意才做）
 
@@ -135,7 +135,7 @@
 - ✗ SVG `<title>` / `aria-label`
 - ✗ Web font preload + `size-adjust`
 - ✗ modular scale 變數（目前字級都是 hardcoded）
-- ✗ DESIGN_SYSTEM.md（站主尚未建）
+- ~~✗ DESIGN_SYSTEM.md（站主尚未建）~~ → **判定錯誤**：該檔早已存在於 `C:\claudehome\resources\notes\DESIGN_SYSTEM.md`（見 §13 O2 作廢說明）
 
 ### 3.5 design-craft-meta-research（craft 層）
 
@@ -597,7 +597,7 @@
 
 站主 review 本計畫，決定：
 - O1：techo 推廣（A）vs vx 統一（B）vs 混搭（C）
-- O2：DESIGN_SYSTEM.md 補建（站主寫 / 我寫 / 不建）
+- ~~O2：DESIGN_SYSTEM.md 補建~~ **已作廢**（該檔早已存在，見 §13 O2）
 - O3：5-agent usability testing 是否跑
 - O4：multi-agent design critique 是否跑
 - O5：是否買商業字型
@@ -725,11 +725,13 @@
 
 ### O2 — DESIGN_SYSTEM.md 補建
 
-- (A) 站主自己寫
-- (B) 授權我寫（基於 §5 typography 決策 + §6 互動決策）
-- (C) 不建（DESIGN_SYSTEM 散在各 layout / CSS 註解）
-
-**目前 5 份研究都引用 DESIGN_SYSTEM.md 但檔案不存在**。
+> ⛔ **本問題已作廢（2026-07-31 修正）— 前提錯誤，不要據此行動。**
+>
+> `DESIGN_SYSTEM.md` **一直都存在**，路徑是 `C:\claudehome\resources\notes\DESIGN_SYSTEM.md`，且已被 `claudehome/CLAUDE.md` 列為所有視覺設計任務的必讀前置。本研究是在 VM 內以 `~/projects/cortex/` 這個不存在的 Unix 路徑 grep，才誤判為「不存在」。
+>
+> (A)/(B)/(C) 三個選項全部無效。**照 (B) 補寫會造出第二份設計規範，直接違反單一真相來源。**
+>
+> 實際處置：本研究 §3 互動細節與 §5 CLS 的可用內容已於 2026-07-31 併入 DESIGN_SYSTEM.md 的**鐵則 I（狀態、動效與載入穩定）**；§2 / §4.1 與既有鐵則 C/D/E 重複，未重複收錄。
 
 ### O3 — 5-agent usability testing
 
@@ -760,7 +762,7 @@
 
 - [ ] 站主讀完 §0-§13
 - [ ] 站主拍板 O1（核心 — techo / vx / 混搭）
-- [ ] 站主拍板 O2（DESIGN_SYSTEM.md）
+- [x] ~~站主拍板 O2（DESIGN_SYSTEM.md）~~ — 已作廢，前提錯誤
 - [ ] 站主拍板 O3（5-agent usability）
 - [ ] 站主拍板 O4（multi-agent critique）
 - [ ] 站主拍板 O5（商業字型）

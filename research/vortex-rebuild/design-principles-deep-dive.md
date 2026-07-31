@@ -23,7 +23,7 @@
 > 本研究**不建議**：
 > ① 任何「自陳 → 感知／技術品質判斷」的推論語（前三份研究已確立，本研究維持禁區）。
 > ② 換皮思考 — 每個原理必須對應「為什麼這樣做」與「Vortex 重做時如何套用結構決策」，不只是 CSS tips。
-> ③ 替站主決定 DESIGN_SYSTEM.md 內容（**站主尚未建此檔**，本研究只標出「建議補」；§10 開放問題）。
+> ③ 替站主決定 DESIGN_SYSTEM.md 內容（~~**站主尚未建此檔**~~ → **此判定錯誤**，該檔一直存在於 `C:\claudehome\resources\notes\DESIGN_SYSTEM.md`，見 §10 O1 作廢說明）。
 
 ---
 
@@ -591,11 +591,15 @@ layout shift score = impact fraction × distance fraction
 
 ### O1 — DESIGN_SYSTEM.md 補建時機與內容
 
-站主三份研究都引用「DESIGN_SYSTEM.md 硬性禁止清單」但**檔案不存在於 `~/projects/cortex/`**（本輪研究 grep 確認）。本研究 §8 給的「對 vortex 套用」清單可作為 DESIGN_SYSTEM.md 草稿原料，但**需站主拍板**：
+> **⛔ 本問題已作廢（2026-07-31 修正）— 前提錯誤，不要據此行動。**
+>
+> 本節斷言「檔案不存在」，依據是在 `~/projects/cortex/`（VM 上的 Unix 路徑）grep。**該檔一直存在於 `C:\claudehome\resources\notes\DESIGN_SYSTEM.md`**，是全域設計規範的單一真相源，內含經交叉驗證的可用性鐵則 A–I。搜尋路徑找錯了，不是檔案缺失。
+>
+> 因此 (A)/(B)/(C) 三個選項全部不適用——照任一項去「補建」都會生出第二份設計規範，違反單一真相來源。
+>
+> **實際處置**：本研究 §3（互動細節）與 §5（CLS）確實補到了 A–H 的空白，已收斂為**鐵則 I「狀態、動效與載入穩定」**寫入該檔。§2 typography、§4.1 WCAG POUR 與既有鐵則 C/D/E 重複，未重複收錄；§4.2 的 18 個 a11y 失敗模式屬操作清單層級，留在本檔備查、不上升為金條。
 
-- (A) 站主自己寫一份 DESIGN_SYSTEM.md（把 §8 內容納入）
-- (B) 站主授權 Claude 寫（需站主 review）
-- (C) 維持現狀（從每個 layout 的局部 CSS 變數讀）
+~~原始選項（僅存查）：(A) 站主自己寫 (B) 授權 Claude 寫 (C) 維持現狀~~
 
 ### O2 — a11y audit 的執行方式
 
@@ -727,7 +731,7 @@ Source Serif 4 + Crimson Pro 是 SIL OFL（開放授權），**目前沒問題**
 ## 終止
 
 > 本研究僅為設計原理深度研究論證，未動任何 layout / data / 既有檔；新增檔案路徑 `research/vortex-rebuild/design-principles-deep-dive.md`，待站主核對引用 + 拍板 §10 開放問題後，可進入：
-> 1. DESIGN_SYSTEM.md 補建（依 §8 + §10 O1）
+> 1. ~~DESIGN_SYSTEM.md 補建（依 §8 + §10 O1）~~ **已作廢**：該檔早已存在，可用內容已於 2026-07-31 併入其鐵則 I
 > 2. a11y audit（依 §4.2 + §10 O2）
 > 3. 未來 vortex 重做時攜帶 §9 checklist 避免換皮
 >
