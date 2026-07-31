@@ -10,100 +10,151 @@ topics:
   - id: ch02.joint-biomechanics.i01
     q: 背部傷害風險
     a:
-    - 85-90%椎間盤突出發生於L4/L5或L5/S1。脊旁肌機械利益極低，內力可達外力10倍
-    detail: ''
-    terms: []
-    numbers: []
+    - 85-90%椎間盤突出發生於L4/L5或L5/S1
+    - 脊旁肌力臂極短（約2英吋，5cm），內力可達舉起重量的10倍以上
+    detail: 脊旁肌力臂之所以短，是因為豎脊肌到椎間盤的垂直距離遠小於外部重量到椎間盤的水平距離。這種機械不利代表椎間盤與肌腱在提重時承受巨大壓迫力，是背部最脆弱的根本原因。
+    terms:
+    - vertebral-column
+    numbers:
+    - v: 85-90
+      unit: '%'
+      of: 椎間盤突出發生於L4/L5或L5/S1的比例
+    - v: 約5
+      unit: cm
+      of: 脊旁肌（豎脊肌）到椎間盤旋轉軸的力臂長度（書中原文）
+    - v: 超過10
+      unit: 倍
+      of: 背肌內力相對於舉起重量的比值（書中寫 frequently exceed 10 times）
     concepts:
     - structure
-    - force-production
-    related: []
-    locator: ''
+    - injury
+    related:
+    - ch02.joint-biomechanics.i02
+    - ch02.joint-biomechanics.i03
+    locator: '第 2 章 · Back Injury'
   - id: ch02.joint-biomechanics.i02
     q: 腰椎中立姿勢
     a:
-    - 自然S形（腰椎前凸）優於圓背。圓背=前側椎間盤受壓
-    - 過度弓背=後側受壓
-    detail: ''
-    terms: []
+    - 中立腰椎（自然前凸）整體優於圓背，可減少L5/S1壓迫力與韌帶應力
+    - 圓背→前側椎間盤受壓；過度弓背→後側受壓
+    detail: 脊椎自然呈S形：胸椎後凸、腰椎前凸，此姿勢下椎間盤受力最均勻。圓背或過度弓背都使椎間盤受力不均，可能導致破裂。書中同時指出，背肌在腰椎前凸時可產生較高的力量輸出。
+    terms:
+    - vertebral-column
     numbers: []
     concepts:
     - structure
-    - force-production
-    related: []
-    locator: ''
+    - technique
+    related:
+    - ch02.joint-biomechanics.i01
+    - ch02.joint-biomechanics.i03
+    locator: '第 2 章 · Back Injury'
   - id: ch02.joint-biomechanics.i03
     q: 腹內壓 & 腰帶
     a:
-    - 「流體球」支撐脊椎。瓦氏呼吸法增加全軀幹剛性，但有血壓風險。腰帶不宜每組都戴
-    detail: ''
-    terms: []
+    - 腹肌與橫膈膜收縮產生「流體球」，可輔助支撐脊椎
+    - 瓦氏呼吸法增加全軀幹剛性，但有壓迫心臟、升高血壓的副作用
+    - 保持氣道開放的腹肌收縮更安全（不加胸腔壓力）；腰帶不宜每組都戴
+    detail: 書中區分兩種腹內壓產生方式：（1）閉聲門（瓦氏法）同時增加腹腔與胸腔壓力；（2）保持氣道開放只加腹腔壓力。第二種對一般訓練更安全。腰帶雖可提高腹內壓，但若每組都戴，深層腹肌可能因缺乏刺激而不能獨立產生足夠壓力。
+    terms:
+    - valsalva
     numbers: []
     concepts:
     - structure
-    - force-production
-    related: []
-    locator: ''
+    - technique
+    - safety
+    related:
+    - ch02.joint-biomechanics.i01
+    - ch02.joint-biomechanics.i02
+    locator: '第 2 章 · Intra-Abdominal Pressure and Lifting Belts'
   - id: ch02.joint-biomechanics.i04
     q: 肩關節
     a:
-    - 活動度最大=最不穩定。旋轉肌群（岡上/下、肩胛下、小圓）維持穩定。需均衡訓練
-    detail: ''
-    terms: []
+    - 肩關節是全身活動度最大的關節，但關節窩（glenoid cavity）不如髖的球窩深，穩定性相對低
+    - 旋轉肌群（岡上肌、岡下肌、肩胛下肌、小圓肌）對維持穩定最關鍵
+    - 需均衡訓練肩部所有主要動作方向
+    detail: 肩部高活動度帶來高傷害風險：骨骼、肌肉、肌腱、韌帶與滑液囊距離極近，容易互相夾擠引發肌腱炎。重訓的臥推與肩推對肩部壓力特別大，暖身與全方向均衡訓練是預防的核心。
+    terms:
+    - multiaxial-joint
     numbers: []
     concepts:
     - structure
-    - force-production
-    related: []
-    locator: ''
+    - safety
+    related:
+    - ch02.joint-biomechanics.i01
+    locator: '第 2 章 · Shoulders'
   - id: ch02.joint-biomechanics.i05
     q: 膝關節
     a:
-    - 位於兩長槓桿之間→易受傷。髕骨功能=增加股四頭肌力臂。過度訓練量→髕腱炎
-    detail: ''
-    terms: []
+    - 膝關節位於上下腿兩根長槓桿之間，容易受傷
+    - 髕骨主要功能：把股四頭肌肌腱維持在遠離旋轉軸的位置，保持較大的力臂與機械利益
+    - 不適當的負荷、訓練量或恢復，可導致髕腱炎
+    detail: 書中強調髕腱炎並非深蹲等動作「本身的風險」，而是訓練量與強度過度堆積、缺乏適當漸進所致。額狀面與橫切面的扭矩在訓練中幾乎不存在，主要由韌帶與軟骨結構保護。
+    terms:
+    - cartilaginous-joint
     numbers: []
     concepts:
     - structure
-    - force-production
-    related: []
-    locator: ''
+    - injury
+    related:
+    - ch02.levers.i07
+    - ch02.joint-biomechanics.i06
+    locator: '第 2 章 · Knees'
   - id: ch02.joint-biomechanics.i06
     q: 膝蓋護具
     a:
-    - 重型護具可平均增加25磅舉起力（彈性效果），而非僅心理作用。建議限用最重組
-    detail: ''
+    - 重型護具透過彈性效果，平均可對深蹲增加25磅（110N）的助力，而非僅靠穩定或心理安慰
+    - 建議若要使用，限於最大重量組；相關副作用包括皮膚損傷與髕骨軟骨磨損
+    detail: 書中引用研究指出，護具真正的機械作用是在伸膝時直接給予助力。這意味著使用護具訓練的重量不等於個人真實的伸膝力量，競技場合需評估是否允許使用。
     terms: []
-    numbers: []
+    numbers:
+    - v: 25
+      unit: 磅（110 N）
+      of: 重型護具透過彈性效果對深蹲增加的平均助力
     concepts:
     - structure
-    - force-production
-    related: []
-    locator: ''
+    - technique
+    related:
+    - ch02.joint-biomechanics.i05
+    locator: '第 2 章 · Knees'
   - id: ch02.joint-biomechanics.i07
     q: 深蹲軀幹角度
     a:
-    - 低槓：軀幹前傾→髖力矩大、膝力矩小。高槓：軀幹直立→膝力矩大、髖力矩小
-    detail: ''
-    terms: []
+    - 低槓深蹲：槓鈴水平位置遠離膝、靠近髖→髖伸肌力矩大、膝伸肌力矩小
+    - 高槓深蹲：槓鈴位置較高且靠近頸→膝伸肌力矩大、髖伸肌力矩相對小
+    detail: 阻力的力矩臂等於重量到關節的水平距離。低槓迫使軀幹前傾以維持重心平衡，使槓鈴水平上更靠近髖關節而遠離膝；高槓允許軀幹較直立，把更多力矩分配給股四頭肌。這說明槓鈴位置決定肌群受力分配。
+    terms:
+    - moment-arm
     numbers: []
     concepts:
     - structure
-    - force-production
-    related: []
-    locator: ''
+    - technique
+    related:
+    - ch02.resistance-sources.i01
+    - ch02.levers.i05
+    locator: '第 2 章 · Applications to Resistance Training'
   - id: ch02.joint-biomechanics.i08
     q: 阻力訓練傷害率
     a:
-    - 約4次/1000小時，低於多數運動。大學美式足球員：每100人每球季僅0.35次
-    detail: ''
+    - 約4次/1000小時，低於跑步、有氧與多數球類運動
+    - 大學美式足球員：每100人每球季僅0.35次阻力訓練相關傷害
+    - 傷害僅佔賽季傷害失能時間的0.74%
+    detail: 書中強調阻力訓練是各類體能活動中相對安全的。最高傷害率出現在團隊運動；居中的是跑步與有氧；最低的是自行車、走路與阻力訓練。低風險並非零風險，謹慎的風險管理仍有必要。
     terms: []
-    numbers: []
+    numbers:
+    - v: 約4
+      unit: 次/1000小時
+      of: 阻力訓練的傷害發生率
+    - v: 0.35
+      unit: 次/每100人每球季
+      of: 大學美式足球員阻力訓練相關傷害率
+    - v: 0.74
+      unit: '%'
+      of: 阻力訓練傷害佔賽季傷害失能時間的比例
     concepts:
     - structure
-    - force-production
+    - safety
     related: []
-    locator: ''
+    locator: '第 2 章 · Joint Biomechanics: Concerns in Resistance Training'
 - id: levers
   title: 槓桿系統 Levers
   desc: ''
@@ -112,99 +163,143 @@ topics:
   - id: ch02.levers.i01
     q: 第一類槓桿
     a:
-    - 支點在中間，肌肉力與阻力在兩側。例：肱三頭肌伸肘。機械利益通常 <1
-    detail: ''
-    terms: []
-    numbers: []
+    - 支點在中間，肌肉力與阻力在兩側
+    - 例：肱三頭肌伸肘（肘關節為支點，三頭肌在一側，外部阻力在另一側）
+    detail: 書中以前臂為第一類槓桿的例子（圖2.2），計算機械利益 = 5cm（肌肉力臂）÷ 40cm（阻力臂）= 0.125，明顯小於1，是機械不利的配置。第一類槓桿並不一定機械不利，但人體中的第一類槓桿案例確實大多如此。
+    terms:
+    - mechanical-advantage
+    - moment-arm
+    numbers:
+    - v: 0.125
+      unit: 無單位（比值）
+      of: 肘關節伸展（三頭肌）的機械利益（書中圖2.2範例：5cm÷40cm）
     concepts:
     - force-production
     - structure
-    related: []
-    locator: ''
+    related:
+    - ch02.levers.i04
+    locator: '第 2 章 · Levers of the Musculoskeletal System'
   - id: ch02.levers.i02
     q: 第二類槓桿
     a:
-    - 阻力在中間，肌肉力臂 > 阻力臂。例：踮腳尖（腓腸肌）。機械利益 >1，省力
-    detail: ''
-    terms: []
+    - 肌肉力與阻力在支點同側，且肌肉力臂 > 阻力臂
+    - 例：踮腳尖（腓腸肌）：腳球為支點，體重在中間，腓腸肌力臂更長
+    - 機械利益 > 1，肌肉力小於阻力
+    detail: 踮腳尖時，前腳掌為支點（fulcrum），體重向下的阻力落在腳掌中段，而腓腸肌透過跟腱在更後方拉，使力臂更長。這是人體少數機械利益大於1的例子，可以相對省力地抵抗體重。
+    terms:
+    - mechanical-advantage
+    - moment-arm
+    - fulcrum
     numbers: []
     concepts:
     - force-production
     - structure
-    related: []
-    locator: ''
+    related:
+    - ch02.levers.i04
+    locator: '第 2 章 · Levers of the Musculoskeletal System'
   - id: ch02.levers.i03
     q: 第三類槓桿
     a:
-    - 肌肉力在中間，肌肉力臂 < 阻力臂。例：肱二頭肌彎舉。最常見，需較大肌力
-    detail: ''
-    terms: []
+    - 肌肉力與阻力在支點同側，且肌肉力臂 < 阻力臂
+    - 例：肱二頭肌彎舉（肌力在肘靠近側，阻力在遠端）
+    - 機械利益 < 1，是人體最常見的槓桿類型
+    detail: 第三類槓桿代表肌肉必須產生遠大於外部阻力的力，才能產生相同的扭矩。這雖然「費力」，但換來的好處是速度：肌肉很小的縮短量可讓遠端肢段移動很大的弧長，適合需要大幅度快速動作的人體設計。
+    terms:
+    - mechanical-advantage
+    - moment-arm
     numbers: []
     concepts:
     - force-production
     - structure
-    related: []
-    locator: ''
+    related:
+    - ch02.levers.i04
+    locator: '第 2 章 · Levers of the Musculoskeletal System'
   - id: ch02.levers.i04
     q: 機械利益 MA
     a:
-    - MA = 肌肉力臂 / 阻力臂。人體大多 <1（機械不利），因此肌肉力遠大於外部阻力
-    detail: ''
-    terms: []
+    - MA = 肌肉力臂 ÷ 阻力臂
+    - 人體大多數肌肉 MA < 1，處於機械不利；因此肌肉內力遠大於外部阻力
+    - 理解機械利益原理比槓桿分類更重要
+    detail: 機械不利是人體設計的必然結果（肌腱附著點距關節很近），代價是肌肉與肌腱承受的力遠大於手腳施加在外物上的力，這是肌腱受傷的主要結構性原因。書中明確指出：「understanding the principle of mechanical advantage is of much greater importance than being able to classify levers.」
+    terms:
+    - mechanical-advantage
+    - moment-arm
     numbers: []
     concepts:
     - force-production
     - structure
-    related: []
-    locator: ''
+    related:
+    - ch02.levers.i01
+    - ch02.levers.i02
+    - ch02.levers.i03
+    locator: '第 2 章 · Levers of the Musculoskeletal System'
   - id: ch02.levers.i05
     q: 力矩 Torque
     a:
-    - Torque = 力 × 力臂（垂直距離）。肌肉以力矩形式作用於關節，而非直線力
-    detail: ''
-    terms: []
+    - Torque = 力 × 力臂（力的作用線到旋轉軸的垂直距離）
+    - 肌肉以力矩形式作用於關節，而非純直線力
+    detail: 力臂的定義是力的作用線到支點的「垂直距離」，不是力到支點的直線距離——這個區別很重要：手持重量時，重量產生的力矩臂等於重量到關節的水平距離（因為重力永遠垂直向下，其力臂必然是水平方向量到關節）。
+    terms:
+    - torque
+    - moment-arm
     numbers: []
     concepts:
     - force-production
-    - structure
-    related: []
-    locator: ''
+    - measurement
+    related:
+    - ch02.levers.i06
+    - ch02.work-power.i04
+    locator: '第 2 章 · Levers of the Musculoskeletal System'
   - id: ch02.levers.i06
     q: 動態力臂變化
     a:
-    - 動作過程中力臂持續改變。自由重量的阻力矩臂 = 重量與關節的「水平距離」
-    detail: ''
-    terms: []
+    - 動作過程中力臂持續改變（關節並非真正的鉸鏈，旋轉軸也會移動）
+    - 自由重量的阻力矩臂 = 重量到關節的水平距離，隨動作角度不斷變化
+    detail: 舉例：手臂彎舉時，前臂水平時槓鈴到肘關節的水平距離最長，此時阻力力矩最大；前臂垂直（向上或向下）時水平距離接近零，阻力力矩接近零。這解釋了自由重量動作在不同角度難易程度不同的原因。
+    terms:
+    - moment-arm
+    - torque
     numbers: []
     concepts:
     - force-production
-    - structure
-    related: []
-    locator: ''
+    - technique
+    related:
+    - ch02.levers.i05
+    - ch02.resistance-sources.i01
+    locator: '第 2 章 · Levers of the Musculoskeletal System'
   - id: ch02.levers.i07
     q: 髕骨的作用
     a:
-    - 防止股四頭肌肌腱靠近膝關節旋轉軸，維持較大力臂，保持機械利益相對穩定
-    detail: ''
-    terms: []
+    - 髕骨維持股四頭肌肌腱與膝關節旋轉軸的距離，防止肌腱靠近旋轉軸
+    - 這使股四頭肌在整個活動範圍內維持較大的力臂與相對穩定的機械利益
+    detail: 書中圖2.5比較有無髕骨的差異：缺乏髕骨時，肌腱會靠近旋轉軸，力臂縮短，機械利益下降。髕骨是人體為補償膝關節幾何不利而演化出的特殊結構，說明骨骼形狀直接影響肌肉效能。
+    terms:
+    - mechanical-advantage
+    - moment-arm
     numbers: []
     concepts:
     - force-production
     - structure
-    related: []
-    locator: ''
+    related:
+    - ch02.joint-biomechanics.i05
+    - ch02.levers.i06
+    locator: '第 2 章 · Levers of the Musculoskeletal System'
   - id: ch02.levers.i08
-    q: 考試重點
+    q: 人體機械不利的後果
     a:
-    - 理解機械利益原理比分類槓桿更重要。人體高內力→肌腱受傷風險主因
-    detail: ''
-    terms: []
+    - 人體大多數肌肉 MA < 1，使肌肉與肌腱承受的力遠大於外部阻力
+    - 這種高內力是肌肉與肌腱受傷的主要結構原因
+    detail: 以圖2.2的肘伸為例，阻力臂是肌肉力臂的8倍，因此肌肉需產生外部阻力8倍的力。這種設計換來的代價就是肌腱長期處於高應力，是慢性過用傷害的根本解剖原因。書中強調此原理的重要性高於槓桿類型分類。
+    terms:
+    - mechanical-advantage
     numbers: []
     concepts:
     - force-production
-    - structure
-    related: []
-    locator: ''
+    - injury
+    related:
+    - ch02.levers.i04
+    - ch02.joint-biomechanics.i01
+    locator: '第 2 章 · Levers of the Musculoskeletal System'
 - id: musculature
   title: 骨骼肌肉組織 Musculature
   desc: ''
@@ -213,101 +308,122 @@ topics:
   - id: ch02.musculature.i01
     q: 起點 Origin
     a:
-    - 傳統定義：近端（靠近身體中心）附著點。通常較固定的一端。
-    detail: ''
-    terms: []
+    - 傳統定義：近端（靠近身體中心）附著點，通常是較固定的一端
+    detail: 「近端＝起點」是解剖傳統，但書中指出這個定義會在動作改變時產生令人困惑的角色互換（見 musculature.i08 的髂腰肌例子）。傳統定義的好處是一致性：不管動作怎麼做，起止點的名稱不變。
+    terms:
+    - periosteum
     numbers: []
     concepts:
     - structure
-    - force-production
-    related: []
-    locator: ''
+    related:
+    - ch02.musculature.i02
+    - ch02.musculature.i08
+    locator: '第 2 章 · Skeletal Musculature'
   - id: ch02.musculature.i02
     q: 止點 Insertion
     a:
-    - 遠端（遠離身體中心）附著點。通常較活動的一端。
-    detail: ''
-    terms: []
+    - 傳統定義：遠端（遠離身體中心）附著點，通常是較活動的一端
+    detail: 書中同時提到另一種定義方式：以「較固定的一側為起點、較活動的一側為止點」。這種定義在動作改變時起止點會互換，反而容易混淆，因此傳統的近端/遠端定義提供更高的一致性。
+    terms:
+    - periosteum
     numbers: []
     concepts:
     - structure
-    - force-production
-    related: []
-    locator: ''
+    related:
+    - ch02.musculature.i01
+    locator: '第 2 章 · Skeletal Musculature'
   - id: ch02.musculature.i03
     q: 附著方式
     a:
-    - 肉質附著（近端，分散力量）
-    - 纖維附著（肌腱，延伸入骨骼，強度高）
-    detail: ''
-    terms: []
+    - 肉質附著（fleshy attachment）：肌纖維直接固定在骨頭上，常見於近端，力量分散在較大面積
+    - 纖維附著（fibrous attachment）：透過肌腱，纖維延伸入骨膜甚至骨頭本身，強度高
+    detail: 兩種附著方式各有功能邏輯：肉質附著分散力、降低局部骨骼壓力；纖維附著（肌腱）集中且傳導力，適合需要精確施力點的動作。肌腱的纖維延伸入骨頭，使這個接合介面非常堅韌。
+    terms:
+    - collagen
     numbers: []
     concepts:
     - structure
-    - force-production
-    related: []
-    locator: ''
+    related:
+    - ch02.musculature.i01
+    - ch02.musculature.i02
+    locator: '第 2 章 · Skeletal Musculature'
   - id: ch02.musculature.i04
     q: 主動肌 Agonist
     a:
-    - 直接執行動作的主要肌肉（prime mover）。例：肱三頭肌於投擲動作中
-    detail: ''
-    terms: []
+    - 直接完成動作的主要肌肉，又稱 prime mover
+    - 例：投擲時肱三頭肌伸肘加速前臂
+    detail: 主動肌是動作的「主力執行者」，但幾乎所有動作都同時需要拮抗肌和協同肌配合。孤立地訓練主動肌而忽視其他角色，可能造成關節穩定性不足。
+    terms:
+    - motor-unit
     numbers: []
     concepts:
-    - structure
     - force-production
-    related: []
-    locator: ''
+    - structure
+    related:
+    - ch02.musculature.i05
+    - ch02.musculature.i06
+    locator: '第 2 章 · Skeletal Musculature'
   - id: ch02.musculature.i05
     q: 拮抗肌 Antagonist
     a:
-    - 減速或停止動作，保護關節結構。例：肱二頭肌於肘伸末期煞車
-    detail: ''
-    terms: []
+    - 減速或停止動作，同時協助關節穩定，保護韌帶與軟骨免受衝擊
+    - 例：投擲末期肱二頭肌煞住肘伸，防止肘關節過伸
+    detail: 書中明確指出拮抗肌有兩個功能：（1）協助關節穩定；（2）在快速動作末段煞車，保護韌帶與軟骨免受「內部衝擊」。若拮抗肌無力，這兩項保護功能都會下降，提高關節受傷的風險。
+    terms:
+    - motor-unit
     numbers: []
     concepts:
-    - structure
     - force-production
-    related: []
-    locator: ''
+    - structure
+    - injury
+    related:
+    - ch02.musculature.i04
+    locator: '第 2 章 · Skeletal Musculature'
   - id: ch02.musculature.i06
     q: 協同肌 Synergist
     a:
-    - 間接協助動作。例：穩定肩胛骨的肌肉 = 上臂動作的協同肌
-    detail: ''
-    terms: []
+    - 間接協助動作完成的肌肉
+    - 例：穩定肩胛骨的肌肉，是上臂動作的協同肌（上臂許多肌肉起點在肩胛骨，需要穩定基座）
+    detail: 書中以肩胛骨為例說明：上臂的主動肌起點在肩胛骨，若沒有協同肌穩定肩胛骨這個「基座」，主動肌的拉力方向就不固定，動作效能大幅下降。這解釋了為何下斜方肌、前鋸肌等「不起眼」的肩胛穩定肌對上肢表現至關重要。
+    terms:
+    - motor-unit
     numbers: []
     concepts:
-    - structure
     - force-production
-    related: []
-    locator: ''
+    - structure
+    related:
+    - ch02.musculature.i04
+    - ch02.musculature.i07
+    locator: '第 2 章 · Skeletal Musculature'
   - id: ch02.musculature.i07
     q: 雙關節肌注意
     a:
-    - 股直肌跨越髖與膝，需要臀大肌等協同肌抵消副作用以維持正確動作
-    detail: ''
-    terms: []
+    - 股直肌同時跨越髖（屈）與膝（伸），進行蹲起時需要臀大肌等協同肌抵消其在髖部的屈曲效果
+    detail: 這是協同肌不可或缺的典型案例：股直肌在膝伸展的同時，它的張力也會屈曲髖部。若沒有髖伸肌（如臀大肌）同步作用，蹲起時人會自動前傾。這也說明訓練動作的整體協調性，不能只看單一肌肉。
+    terms:
+    - motor-unit
     numbers: []
     concepts:
-    - structure
     - force-production
-    related: []
-    locator: ''
+    - technique
+    related:
+    - ch02.musculature.i06
+    locator: '第 2 章 · Skeletal Musculature'
   - id: ch02.musculature.i08
-    q: 實例：直腿仰臥起
+    q: 實例：髂腰肌的起止點互換
     a:
-    - 髂腰肌起點=股骨（較固定），骨盆為止點
-    - 但抬腿時骨盆固定，角色互換
-    detail: ''
-    terms: []
+    - 直腿仰臥起：髂腰肌中的髂肌（iliacus）起點是股骨（較固定），骨盆為止點
+    - 抬腿動作：骨盆固定，股骨變為較活動端，角色互換——但傳統定義不改變起止點名稱
+    detail: 書中用這個例子說明「以較活動端為止點」定義的缺陷：同一塊肌肉在不同動作下起止點對調，容易造成混淆。注意：書中用的是髂肌（iliacus），不是整個髂腰肌複合體（iliopsoas）——兩者有所不同，髂腰肌是髂肌加腰大肌的合稱。
+    terms:
+    - periosteum
     numbers: []
     concepts:
     - structure
-    - force-production
-    related: []
-    locator: ''
+    related:
+    - ch02.musculature.i01
+    - ch02.musculature.i02
+    locator: '第 2 章 · Skeletal Musculature'
 - id: planes
   title: 解剖平面與動作 Planes
   desc: ''
@@ -316,93 +432,135 @@ topics:
   - id: ch02.planes.i01
     q: 矢狀面 Sagittal
     a:
-    - 將身體分左右。屈/伸動作。例：槓鈴彎舉、深蹲、垂直跳
-    detail: ''
-    terms: []
+    - 將身體分左右的平面；主要動作：屈曲/伸展
+    - 書中例子：站立槓鈴彎舉（standing barbell curl）
+    detail: 矢狀面是日常最常用的平面（走路、跑步、深蹲、硬舉幾乎都在矢狀面）。屈曲/伸展在書中圖2.10有完整列表，包含髖屈、膝伸等。
+    terms:
+    - sagittal-plane
     numbers: []
     concepts:
     - structure
-    related: []
-    locator: ''
+    - technique
+    related:
+    - ch02.planes.i02
+    - ch02.planes.i03
+    locator: '第 2 章 · Anatomical Planes and Major Body Movements'
   - id: ch02.planes.i02
     q: 冠狀面 Frontal
     a:
-    - 將身體分前後。外展/內收動作。例：側向啞鈴舉、游泳蛙式
-    detail: ''
-    terms: []
+    - 將身體分前後的平面；主要動作：外展/內收
+    - 書中例子：站立側向啞鈴舉（standing lateral dumbbell raise）
+    detail: 冠狀面的訓練在標準計畫中常被忽略，但對側向切入（cutting）、游泳（划臂外展）、體操等側向動作的運動特殊性訓練有重要價值。
+    terms:
+    - frontal-plane
     numbers: []
     concepts:
     - structure
-    related: []
-    locator: ''
+    - technique
+    related:
+    - ch02.planes.i01
+    - ch02.planes.i03
+    locator: '第 2 章 · Anatomical Planes and Major Body Movements'
   - id: ch02.planes.i03
     q: 橫切面 Transverse
     a:
-    - 將身體分上下。旋轉動作。例：啞鈴飛鳥、棒球揮擊軀幹旋轉
-    detail: ''
-    terms: []
+    - 將身體分上下的平面；主要動作：旋轉
+    - 書中例子：啞鈴飛鳥（dumbbell fly）
+    detail: 橫切面的旋轉動作在投擲、揮棒、網球等項目中極為關鍵，但在標準阻力訓練計畫中最常被忽略。軀幹旋轉、髖內外旋都屬於此平面。
+    terms:
+    - transverse-plane
     numbers: []
     concepts:
     - structure
-    related: []
-    locator: ''
+    - technique
+    related:
+    - ch02.planes.i01
+    - ch02.planes.i02
+    locator: '第 2 章 · Anatomical Planes and Major Body Movements'
   - id: ch02.planes.i04
     q: 解剖姿勢
     a:
-    - 直立、手臂垂放兩側、手掌朝前。所有平面與動作描述的基準姿勢
-    detail: ''
-    terms: []
+    - 直立、手臂垂放兩側、手掌朝前
+    - 所有平面方位與動作方向描述的基準姿勢
+    detail: 解剖姿勢是一套命名協定的基準，確保「向前」「向上」「外展」等方向描述不因人的朝向而歧義。沒有這個基準，解剖學描述就會因個人站姿不同而混亂。
+    terms:
+    - anatomical-position
     numbers: []
     concepts:
     - structure
-    related: []
-    locator: ''
+    related:
+    - ch02.planes.i01
+    - ch02.planes.i02
+    - ch02.planes.i03
+    locator: '第 2 章 · Anatomical Planes and Major Body Movements'
   - id: ch02.planes.i05
     q: 常被忽略的動作
     a:
-    - 肩內/外旋（投擲）、膝屈（衝刺）、踝背屈（跑步）、髖內外旋（轉向）
-    detail: ''
+    - 肩內/外旋（投擲、網球）
+    - 膝屈（衝刺）
+    - 髖屈（踢球、衝刺）
+    - 踝背屈（跑步）
+    - 髖內/外旋（轉向切入）
+    - 髖外展/內收（側向切入）
+    - 軀幹旋轉（投擲、揮棒）
+    detail: 書中明確列出這些動作「常被標準阻力訓練計畫忽略」。它們在場上動作中很關鍵，若選手在這些方向上力量不足，成為傷害的薄弱環節。
     terms: []
     numbers: []
     concepts:
     - structure
-    related: []
-    locator: ''
+    - technique
+    - program-design
+    related:
+    - ch02.planes.i06
+    locator: '第 2 章 · Anatomical Planes and Major Body Movements'
   - id: ch02.planes.i06
     q: 訓練特殊性
     a:
-    - 選擇與目標運動相同關節動作的訓練動作。慢動作影片可輔助分析
-    detail: ''
+    - 選擇與目標運動相同關節動作的訓練動作（specificity of training）
+    - 慢動作影片可輔助分析運動動作，市售軟體可做更詳細的數位影片分析
+    detail: 動作特殊性原則的前提是先「正確識別運動所需的動作平面與關節動作」，這需要生物力學分析能力或借助影片工具。分析完目標運動後，才能選擇有效的阻力訓練替代動作。
     terms: []
     numbers: []
     concepts:
-    - structure
-    related: []
-    locator: ''
+    - technique
+    - program-design
+    related:
+    - ch02.planes.i05
+    locator: '第 2 章 · Anatomical Planes and Major Body Movements'
   - id: ch02.planes.i07
     q: 平面間遷移
     a:
-    - 在主要平面訓練的效果會遷移到平面之間的動作，足夠全面訓練即可
-    detail: ''
+    - 雖然動作很少只發生在單一平面，在主要平面訓練的效果足以遷移到跨平面動作
+    - 因此在三個主要平面內訓練肌肉即可，不需要對每一個斜向動作都設計特定訓練
+    detail: 書中明確指出：「exercising muscles within the planes also strengthens them for movements between the planes.」這為「以平面為框架設計訓練」提供了理論依據，說明不必對每個特定角度的運動動作都設計精確的模擬訓練。
     terms: []
     numbers: []
     concepts:
-    - structure
-    related: []
-    locator: ''
+    - program-design
+    - technique
+    related:
+    - ch02.planes.i06
+    locator: '第 2 章 · Anatomical Planes and Major Body Movements'
   - id: ch02.planes.i08
-    q: 常見運動動作
+    q: 三個平面各的書中舉例動作
     a:
-    - 游泳自由式=肩伸展（矢狀）
-    - 籃球轉身=髖橫切面
-    - 溜冰=踝外翻（冠狀）
-    detail: ''
-    terms: []
+    - 矢狀面：站立槓鈴彎舉（standing barbell curl）
+    - 冠狀面：站立側向啞鈴舉（standing lateral dumbbell raise）
+    - 橫切面：啞鈴飛鳥（dumbbell fly）
+    detail: 書中正文僅明確列出這三個例子對應三個平面（圖2.9附近）。圖2.10是一張各動作的完整圖表，但內容是圖片格式，無法直接引用。書中同時舉了衝刺、投擲、游泳等運動的特定動作，但它們在圖中，非正文文字。
+    terms:
+    - sagittal-plane
+    - frontal-plane
+    - transverse-plane
     numbers: []
     concepts:
     - structure
-    related: []
-    locator: ''
+    - technique
+    related:
+    - ch02.planes.i01
+    - ch02.planes.i02
+    - ch02.planes.i03
+    locator: '第 2 章 · Anatomical Planes and Major Body Movements'
 - id: resistance-sources
   title: 阻力來源 Resistance Sources
   desc: ''
@@ -411,102 +569,137 @@ topics:
   - id: ch02.resistance-sources.i01
     q: 重力 Gravity
     a:
-    - Fg = m × ag。自由重量/器械皆以重力為阻力。阻力矩臂 = 水平距離（到關節）
-    detail: ''
-    terms: []
+    - Fg = m × ag（重力 = 質量 × 重力加速度）
+    - 自由重量與重量堆疊器械的阻力都來自重力
+    - 阻力力矩臂 = 重量到關節的水平距離（重力垂直向下，力臂必然是水平量測）
+    detail: 書中強調「磅」是力的單位，「公斤」是質量的單位，兩者不應混用。體重計顯示的公斤值實際是質量，重量（Fg）需乘以重力加速度才得到牛頓值。地理位置不同，重力加速度略有差異，因此嚴格說同一槓鈴在不同地點重量不同。
+    terms:
+    - torque
+    - moment-arm
     numbers: []
     concepts:
     - force-production
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch02.levers.i06
+    - ch02.joint-biomechanics.i07
+    locator: '第 2 章 · Gravity'
   - id: ch02.resistance-sources.i02
     q: 自由重量 vs 器械
     a:
-    - 器械：更安全、設計靈活
-    - 自由重量：全身訓練、更接近真實動作、需穩定肌參與
-    detail: ''
-    terms: []
+    - 器械優勢：更安全（不會被壓）、設計靈活（可阻抗自由重量難以訓練的方向）、容易使用
+    - 自由重量優勢：全身性訓練（站姿負重促進骨密度）、需要穩定肌群參與、更貼近真實動作協調
+    detail: 書中指出自由重量的「重量承重促進骨礦化」效益，是器械難以完全複製的。「結構性動作」（如爆發上搏、抓舉）對大範圍肌肉骨骼系統的刺激是器械訓練所欠缺的。兩種工具各有特定使用情境，非二選一。
+    terms:
+    - structural-exercise
     numbers: []
     concepts:
-    - force-production
     - technique
-    related: []
-    locator: ''
+    - program-design
+    related:
+    - ch02.resistance-sources.i01
+    - ch02.resistance-sources.i07
+    locator: '第 2 章 · Weight-Stack Machines'
   - id: ch02.resistance-sources.i03
     q: 慣性 Inertia
     a:
-    - 加速時：阻力 = 重量+慣性力
-    - 減速時：阻力 < 重量。爆發性動作=特殊性訓練
-    detail: ''
-    terms: []
+    - 動作初始加速：運動員需施加的力 = 槓鈴重量 + 慣性力（F = m × a）
+    - 動作末段減速：阻力 < 槓鈴重量（減速代表拮抗肌在作用，或主動肌給力少於重量）
+    - 爆發性加速動作對神經肌肉系統有特殊性訓練效果
+    detail: 書中說明：加速型動作讓主動肌在關節活動範圍前段受到更大阻力，末段則較小。對於奧林匹克舉重（如爆發上搏），慣性允許較弱的上肢肌群在下肢完成加速後繼續「搭順風車」讓槓鈴上升。這種慣性利用是特定訓練的設計邏輯，不是副作用。
+    terms:
+    - inertial-force
     numbers: []
     concepts:
     - force-production
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch02.resistance-sources.i01
+    - ch02.resistance-sources.i08
+    locator: '第 2 章 · Inertia'
   - id: ch02.resistance-sources.i04
     q: 摩擦力 Friction
     a:
-    - FR = k × FN。啟動摩擦 > 滑動摩擦。速度不影響阻力大小，但功率隨速度增加
-    detail: ''
+    - FR = k × FN（摩擦力 = 摩擦係數 × 法向力）
+    - 啟動摩擦力 > 滑動摩擦力：物體從靜止開始移動需要更大的力
+    - 速度不影響滑動摩擦力的大小；但功率隨速度提高而增加
+    detail: 書中舉制動式腳踏車測功計為例。使用制動設計器械時，調整的是接觸面法向力（壓緊力）而非速度本身。戶外雪橇因地面（草地/砂地/濕地）不同，摩擦係數會變，導致阻力不可精確重複，這是其訓練監控的主要缺點。
     terms: []
     numbers: []
     concepts:
     - force-production
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch02.resistance-sources.i01
+    locator: '第 2 章 · Friction'
   - id: ch02.resistance-sources.i05
     q: 流體阻力 Fluid
     a:
-    - FR = k × v（速度越快阻力越大）。液壓/氣壓器械：無離心相
-    - 拮抗肌輪流作功
-    detail: ''
-    terms: []
+    - FR ≈ k × v（流體阻力大致與速度成正比）
+    - 液壓/氣壓器械：阻力隨速度增加而增加，允許快速加速後自動受限
+    - 一般不提供離心收縮相：回程由拮抗肌向心收縮完成，兩側肌群輪流作功
+    detail: 書中明確指出流體器械「並非等速（isokinetic）」，雖然它能限制速度範圍，但並非全程恆定。缺乏離心訓練是其主要限制：書中說明離心收縮是跑步、跳躍、投擲的核心動作特徵，流體器械難以提供這類特殊性刺激。
+    terms:
+    - fluid-resistance
     numbers: []
     concepts:
     - force-production
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch02.strength-factors.i07
+    locator: '第 2 章 · Fluid Resistance'
   - id: ch02.resistance-sources.i06
     q: 彈性 Elasticity
     a:
-    - FR = k × x（拉伸越多阻力越大）。與肌肉力量曲線相反→動作結束時最難
-    detail: ''
+    - FR = k × x（阻力與拉伸距離成正比）
+    - 動作起始阻力最低，動作末端阻力最高
+    - 這與人體肌力曲線相反：大多數肌群在動作末端ROM時力量最弱
+    detail: 書中明確指出彈性阻力的缺點：「every exercise movement begins with low resistance and ends with high resistance. This is contrary to the force capability patterns of virtually all human muscle groups.」此外，彈性阻力可調整性有限，且跳躍助力帶產品可能在空中施予最大阻力，反而增加落地衝擊傷害風險。
     terms: []
     numbers: []
     concepts:
     - force-production
     - technique
-    related: []
-    locator: ''
+    - safety
+    related:
+    - ch02.resistance-sources.i01
+    locator: '第 2 章 · Elasticity'
   - id: ch02.resistance-sources.i07
     q: Cam器械原理
     a:
-    - 可變半徑凸輪改變力矩臂，試圖匹配人體扭矩曲線，但需恆速移動才有效
-    detail: ''
-    terms: []
+    - 可變半徑凸輪改變重量堆疊的力矩臂長度，使阻力力矩隨關節角度改變
+    - 設計目標是讓阻力力矩匹配人體的肌力曲線，全ROM都能達到接近最大刺激
+    - 缺點：需要以恆定、緩慢的角速度移動才能如設計作用；且器械常無法準確匹配人體真實扭矩曲線
+    detail: Nautilus 是最早商業化此概念的品牌。書中指出這類器械「frequently fail to match normal human torque capability patterns」，說明理論上的匹配在實際訓練中難以實現，因為人體扭矩曲線個體差異大，且動作速度很少真正恆定。
+    terms:
+    - torque
+    - moment-arm
     numbers: []
     concepts:
     - force-production
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch02.resistance-sources.i01
+    - ch02.levers.i05
+    locator: '第 2 章 · Weight-Stack Machines'
   - id: ch02.resistance-sources.i08
-    q: 括弧訓練法
+    q: 括弧訓練法 Bracketing
     a:
-    - 用比正常輕或重的器材練習同一動作（bracketing）。利用力-速度關係增加速度範圍
-    detail: ''
-    terms: []
+    - 以比正常輕和比正常重的器材分別練習同一運動動作（bracketing technique）
+    - 利用力-速度關係：重器材→低速高力；輕器材→高速低力
+    - 增加神經肌肉系統在更廣速度範圍的適應，但需注意改變負荷對技術動作模式的影響
+    detail: 書中以鉛球為例：使用較重的鉛球讓肌肉在低速下產生更大力；使用較輕的鉛球則讓肌肉達到更高速度。書中同時提醒：改變器材負荷可能對技術動作產生負面影響，因為身體需要時間調整特定負荷下的動作模式。
+    terms:
+    - bracketing-technique
     numbers: []
     concepts:
     - force-production
     - technique
-    related: []
-    locator: ''
+    - program-design
+    related:
+    - ch02.strength-factors.i06
+    - ch02.resistance-sources.i03
+    locator: '第 2 章 · Inertia'
 - id: size-strength
   title: 肌力與體型比例 Size & Strength
   desc: ''
@@ -515,100 +708,130 @@ topics:
   - id: ch02.size-strength.i01
     q: 肌力/體重比
     a:
-    - 衝刺/跳躍：肌力/體重比是關鍵指標。體重增15%但肌力只增10%→比值下降→表現退步
-    detail: ''
+    - 衝刺與跳躍等依賴自身體重加速的運動，肌力對體重之比（strength-to-mass ratio）是關鍵
+    - 若體重增加15%但肌力只增加10%，肌力/體重比下降，加速能力退步
+    detail: 書中以體型大小的反比例說明這一點：相同體型比例下，體型較大者的體重比力量增長更快（體重 ∝ 尺寸³，肌力 ∝ 尺寸²），導致磅磅肌力下降。衝刺與跳躍選手需特別留意增肌是否同步帶來等比例的力量提升。
     terms: []
     numbers: []
     concepts:
     - force-production
     - structure
-    related: []
-    locator: ''
+    - program-design
+    related:
+    - ch02.size-strength.i02
+    locator: '第 2 章 · Strength-to-Mass Ratio'
   - id: ch02.size-strength.i02
     q: 體型 vs 肌力關係
     a:
-    - 力量 ∝ 橫截面積（線性尺寸²）
-    - 體重 ∝ 體積（線性尺寸³）。體型越大，磅磅比越低
-    detail: ''
+    - 肌力 ∝ 肌肉橫截面積（與線性體型尺寸的平方成正比）
+    - 體重 ∝ 體積（與線性體型尺寸的立方成正比）
+    - 因此體型增大時，體重的增長比肌力更快，磅磅比下降
+    detail: 書中以「尺寸²對尺寸³」說明這個比例關係。這是純幾何定律，不需要生理假設。它解釋了為何大體型運動員雖然絕對肌力更高，但相對體重的肌力（磅磅比）往往低於小體型選手。
     terms: []
     numbers: []
     concepts:
     - force-production
     - structure
-    related: []
-    locator: ''
+    related:
+    - ch02.size-strength.i01
+    - ch02.size-strength.i03
+    locator: '第 2 章 · Body Size'
   - id: ch02.size-strength.i03
     q: 跨量級比較公式
     a:
-    - 古典公式：舉起重量 ÷ 體重^(2/3)，修正體型影響。中等體重選手通常表現最佳
-    detail: ''
-    terms: []
+    - 古典公式：舉起重量 ÷ 體重^(2/3)，修正體型增大導致的力量/體重比下降
+    - 此公式看似對中等體重選手最有利，但書中認為這可能確實反映了中等體重選手的優勢
+    detail: 書中指出這個古典公式後又有其他公式被提出，因為古典公式「seemed to favor athletes of middle body weight」，但書中同時表示，中等體重選手表現最優「may indeed be unbiased」（可能不是公式偏差，而是真實現象），因為人口中體重的正態分布使中等體重群體競爭最密集。
+    terms:
+    - classic-formula
     numbers: []
     concepts:
     - force-production
-    - structure
-    related: []
-    locator: ''
+    - measurement
+    related:
+    - ch02.size-strength.i02
+    - ch02.size-strength.i04
+    locator: '第 2 章 · Body Size'
   - id: ch02.size-strength.i04
     q: 量級策略
     a:
-    - 找到自身肌力相對其他選手最高的量級。確定後：盡可能增強，不超重限
-    detail: ''
+    - 找到自身肌力相對同量級選手最高的量級（試錯過程）
+    - 確定目標量級後：盡可能增強，不超過體重上限
+    detail: 書中以「trial and error」描述找到最佳量級的過程，說明沒有公式能直接算出每個選手的最佳量級。目標是找到自己的相對優勢位置，而非追求最大絕對重量。
     terms: []
     numbers: []
     concepts:
+    - program-design
     - force-production
-    - structure
-    related: []
-    locator: ''
+    related:
+    - ch02.size-strength.i01
+    - ch02.size-strength.i03
+    locator: '第 2 章 · Strength-to-Mass Ratio'
   - id: ch02.size-strength.i05
-    q: 肌腱遠附著點
+    q: 肌腱遠附著點的利弊
     a:
-    - 遠離關節→力矩臂長→力量大，但同樣肌肉縮短量產生的角位移較小→速度↓
-    detail: ''
-    terms: []
+    - 利：附著點遠離關節→力臂長→相同肌力可產生更大扭矩→慢速動作力量優勢
+    - 弊：相同肌肉縮短量產生的關節角位移更小→速度下降
+    detail: 書中以圖2.8說明：附著點較遠時，同樣的肌肉縮短量（例如肌肉縮短相同長度），關節旋轉角度反而更少（37° vs 34°），因為幾何三角的關係。因此遠附著點有利於低速高力（如健力），不利於高速動作（如網球揮拍）。
+    terms:
+    - moment-arm
     numbers: []
     concepts:
     - force-production
     - structure
-    related: []
-    locator: ''
+    related:
+    - ch02.levers.i04
+    - ch02.strength-factors.i08
+    locator: '第 2 章 · Variations in Tendon Insertion'
   - id: ch02.size-strength.i06
     q: 力-速度關係
     a:
-    - Hill曲線：速度↑→向心力量↓。遠附著點在高速時需更快收縮，但力量也隨之下降
-    detail: ''
-    terms: []
+    - 向心收縮：速度越快，力量越低（非線性反比關係，低速段下降最陡）
+    - 遠附著點者在需要高速動作時，因幾何關係需要更快的肌肉縮短速度，在高速收縮下力量更低
+    detail: 書中說明：以較遠附著點產生特定關節角速度，肌肉必須以更高收縮速度完成，而由力-速度曲線可知高速時力量更低。這把「幾何利弊」和「力-速度生理」兩個概念連結起來，解釋為何解剖結構直接影響適合的運動項目。
+    terms:
+    - force-velocity
     numbers: []
     concepts:
     - force-production
     - structure
-    related: []
-    locator: ''
+    related:
+    - ch02.size-strength.i05
+    - ch02.strength-factors.i06
+    locator: '第 2 章 · Variations in Tendon Insertion'
   - id: ch02.size-strength.i07
-    q: 結構不可修改
+    q: 結構的可修改性
     a:
-    - 骨骼排列先天決定，但羽狀角度可透過訓練修改，部分解釋訓練後的力量與速度差異
-    detail: ''
-    terms: []
+    - 骨骼排列（肌腱附著點位置）先天決定，無法透過訓練改變
+    - 羽狀角度（angle of pennation）可透過訓練改變，部分解釋訓練帶來的力量與速度差異
+    detail: 書中明確區分：骨骼幾何（附著點）是「nonmodifiable」，但羽狀角度不固定，訓練可改變它——這使同樣體型的人在訓練後產生不同的力量與速度表現。了解哪些結構因素可改、哪些不可改，是制定現實訓練期望的基礎。
+    terms:
+    - angle-of-pennation
     numbers: []
     concepts:
     - force-production
     - structure
-    related: []
-    locator: ''
+    - adaptation
+    related:
+    - ch02.strength-factors.i03
+    - ch02.size-strength.i05
+    locator: '第 2 章 · Variations in Tendon Insertion'
   - id: ch02.size-strength.i08
-    q: 精英體操選手
+    q: 精英體操選手的身材特徵
     a:
-    - 通常身材不高，因為體型越大，需要移動更多自身體重，肌力/體重比相對更差
-    detail: ''
+    - 精英體操選手通常身材較矮小，因為體型增大時體重增加比肌力快，肌力/體重比下降
+    - 體操動作高度依賴支撐自身體重的能力（單槓、吊環、自由式）
+    detail: 書中明確提到這個例子以說明肌力/體重比的實際意義：「This is why most elite gymnasts are not very tall.」這是「body size」一節的應用例。矮小體型使肌力/體重比維持較高，在無法藉外部重量分散成本的動作中有先天優勢。
     terms: []
     numbers: []
     concepts:
     - force-production
     - structure
-    related: []
-    locator: ''
+    - population
+    related:
+    - ch02.size-strength.i01
+    - ch02.size-strength.i02
+    locator: '第 2 章 · Body Size'
 - id: strength-factors
   title: 肌力生物力學因素 Strength Factors
   desc: ''
@@ -617,91 +840,148 @@ topics:
   - id: ch02.strength-factors.i01
     q: 神經控制
     a:
-    - 運動單元徵召數量、大小、放電頻率（rate coding）。訓練初期進步主因=神經適應
-    detail: ''
-    terms: []
+    - 影響力量的神經因素：（1）運動單位徵召數量；（2）運動單位大小；（3）放電頻率（rate coding）
+    - 訓練初期的力量進步主要來自神經適應，而非肌肥大（肌肥大發生較慢）
+    detail: 書中指出初學者常因為幾週後進步速度下降而沮喪，但書中說明：持續訓練仍會進步，只是機制從神經適應切換到較慢的肌肥大。這是設定正確訓練期望的重要概念。
+    terms:
+    - recruitment
+    - rate-coding
+    - motor-unit
     numbers: []
     concepts:
     - force-production
-    related: []
-    locator: ''
+    - adaptation
+    related:
+    - ch02.strength-factors.i02
+    locator: '第 2 章 · Neural Control'
   - id: ch02.strength-factors.i02
     q: 肌肉橫截面積
     a:
-    - 力量∝橫截面積（非體積）。相同圍度的高個與矮個力量相近，但高個體重更大
-    detail: ''
-    terms: []
+    - 肌肉力量與橫截面積（CSA）相關，而非與體積（或長度）相關
+    - 相同肱二頭肌圍度的高個與矮個，力量相近，但高個體重更大→磅磅比更低
+    detail: 書中以兩位肌肉圍度相同但身高不同的選手為例說明：「their upper arm muscle cross-sectional areas are about the same... the strength of the two athletes' biceps should be about the same」。這解釋了為何長肌肉（高個子的肌肉）不等於更強的肌肉，強度取決於粗細（CSA），不是長短。
+    terms:
+    - crossbridge
     numbers: []
     concepts:
     - force-production
-    related: []
-    locator: ''
+    - structure
+    related:
+    - ch02.strength-factors.i01
+    - ch02.size-strength.i02
+    locator: '第 2 章 · Muscle Cross-Sectional Area'
   - id: ch02.strength-factors.i03
     q: 肌纖維排列
     a:
-    - 羽狀肌（pennate）：更多平行肌節→更大力量但速度較低。角度越大，力量越強
-    detail: ''
-    terms: []
-    numbers: []
+    - 最大收縮時肌肉可產生 16–100 N/cm² 的力（23–145 psi），範圍因肌纖維排列差異而大
+    - 羽狀肌（pennate muscle）：肌纖維斜向排列，平行肌節數多→力量強；但串聯肌節少→收縮速度低
+    - 羽狀角度可因訓練改變，且不保持固定（肌肉縮短時角度增大）
+    detail: 書中說明羽狀角度在人體中大多不超過15°，且肌肉縮短時角度增大。羽狀肌的「更多平行肌節」意味著可同時有更多橫橋同時產力，但「更少串聯肌節」意味著縮短速度上限較低。這是力量與速度在肌肉纖維排列層面的基礎取捨。
+    terms:
+    - angle-of-pennation
+    - sarcomere
+    numbers:
+    - v: 16-100
+      unit: N/cm²
+      of: 最大收縮時肌肉可產生的力量範圍（書中原文 23-145 psi 換算，因肌纖維排列差異）
     concepts:
     - force-production
-    related: []
-    locator: ''
+    - structure
+    related:
+    - ch02.strength-factors.i04
+    - ch02.size-strength.i07
+    locator: '第 2 章 · Arrangement of Muscle Fibers'
   - id: ch02.strength-factors.i04
     q: 肌肉長度
     a:
-    - 靜息長度（actin-myosin最大重疊）= 最大力量。過短或過長都會降低橋接點數量
-    detail: ''
-    terms: []
+    - 靜息長度（resting length）下，肌動蛋白與肌凝蛋白重疊最大，可用橫橋位點最多，力量最大
+    - 過短或過長都會減少橫橋接合位點，降低力量輸出
+    detail: 這是長度-張力關係（length-tension relationship）的生理基礎。對訓練的應用是：某些動作在特定ROM起始或末端時肌肉不在最適長度，這是inertia-based和cam-based器械嘗試解決的問題（讓阻力在肌肉力量最弱時最低）。
+    terms:
+    - actin
+    - myosin
+    - crossbridge
     numbers: []
     concepts:
     - force-production
-    related: []
-    locator: ''
+    - structure
+    related:
+    - ch02.strength-factors.i03
+    - ch02.strength-factors.i05
+    locator: '第 2 章 · Muscle Length'
   - id: ch02.strength-factors.i05
     q: 關節角度
     a:
-    - 扭矩隨關節角度變化（非線性）。受肌肉長度-力量關係+動態幾何共同影響
-    detail: ''
-    terms: []
+    - 關節可產生的扭矩隨角度非線性變化
+    - 影響因素：（1）肌肉長度-力量關係；（2）動態幾何（力臂隨角度改變）；（3）收縮類型；（4）收縮速度
+    detail: 書中指出「the amount of torque that can be exerted about a given body joint varies throughout the joint's range of motion」，並列出四個影響因素。關節角度-扭矩曲線的形狀因動作（等長/等速/等張）不同而異，不能一概而論。
+    terms:
+    - torque
+    - moment-arm
     numbers: []
     concepts:
     - force-production
-    related: []
-    locator: ''
+    - measurement
+    related:
+    - ch02.strength-factors.i04
+    - ch02.strength-factors.i06
+    locator: '第 2 章 · Joint Angle'
   - id: ch02.strength-factors.i06
-    q: 收縮速度 Hill曲線
+    q: 收縮速度 力-速度曲線
     a:
-    - 速度↑→向心力量↓（非線性）。離心力量隨速度↑先升後降，峰值約90°/s
-    detail: ''
-    terms: []
-    numbers: []
+    - 向心收縮：速度↑則力量↓（非線性，低速段下降最陡，由 A.V. Hill 的古典實驗建立）
+    - 離心收縮：速度↑則力量↑，直到約 90°/s（1.57 rad/s）後開始緩慢下降
+    - 因此離心收縮可產生最大力量
+    detail: 書中以垂直跳為例說明如何利用此曲線：起跳時手臂向上擺動，對身體向下施加力，迫使髖膝伸肌在更低速度下收縮，使其在較高力量的區段工作。書中引用 Jorgensen（1976）的圖。
+    terms:
+    - force-velocity
+    numbers:
+    - v: 約90
+      unit: °/s（1.57 rad/s）
+      of: 離心收縮峰值扭矩的速度（超過此速度後扭矩緩慢下降）
     concepts:
     - force-production
-    related: []
-    locator: ''
+    - technique
+    related:
+    - ch02.strength-factors.i07
+    - ch02.size-strength.i06
+    locator: '第 2 章 · Muscle Contraction Velocity'
   - id: ch02.strength-factors.i07
     q: 三種肌肉動作
     a:
-    - 向心（縮短）、離心（延長）、等長（不變）。離心可產生最大力量→作弊動作原理
-    detail: ''
-    terms: []
+    - 向心動作（concentric）：肌肉縮短，收縮力 > 阻力；例：舉重的上舉相
+    - 離心動作（eccentric）：肌肉延長，收縮力 < 阻力；例：放下重量；風險包括更高的延遲性肌肉酸痛
+    - 等長動作（isometric）：長度不變，收縮力 = 阻力；例：棒式支撐時腹肌維持軀幹剛性
+    detail: 書中偏好用「muscle action」而非「contraction」，因為「contraction」的字義是縮短，不適用於離心與等長。離心動作產生最大力量，這是「作弊動作」的機制：靠慣性超過向心極限後，肌肉切換到離心/等長模式繼續承受重量。
+    terms:
+    - concentric-action
+    - eccentric-action
+    - isometric-action
     numbers: []
     concepts:
     - force-production
-    related: []
-    locator: ''
+    - technique
+    related:
+    - ch02.strength-factors.i06
+    - ch02.resistance-sources.i05
+    locator: '第 2 章 · Joint Angular Velocity'
   - id: ch02.strength-factors.i08
-    q: 肌腱附著點變異
+    q: 肌腱附著點變異對表現的影響
     a:
-    - 附著點遠離關節→扭矩↑力量↑，但速度↓。慢速（健力）有利，快速（網球）不利
-    detail: ''
-    terms: []
+    - 附著點遠離關節→力臂長→可產生更大扭矩，有利於慢速（健力）
+    - 同時，相同縮短量帶來更小的角位移，且需要更高收縮速度→不利於快速動作（如打網球）
+    detail: 書中明確舉健力與網球為對比例子，說明同一解剖特徵在不同速度要求的運動中是優勢還是劣勢。這些骨骼幾何差異是「subtle individual differences in structure」，相對微小卻對運動表現有實質影響。
+    terms:
+    - moment-arm
     numbers: []
     concepts:
     - force-production
-    related: []
-    locator: ''
+    - structure
+    related:
+    - ch02.size-strength.i05
+    - ch02.size-strength.i06
+    - ch02.levers.i04
+    locator: '第 2 章 · Variations in Tendon Insertion'
 - id: work-power
   title: 功與功率 Work & Power
   desc: ''
@@ -710,103 +990,150 @@ topics:
   - id: ch02.work-power.i01
     q: 功 Work
     a:
-    - W = 力 × 位移（N·m = Joules）。方向需與位移一致（cos θ）
-    detail: ''
-    terms: []
+    - W = 力 × 位移（力與位移方向一致的分量）
+    - SI單位：牛頓·公尺（N·m）= 焦耳（J）
+    detail: 功的關鍵是力與位移的方向必須一致（cos θ 分量）。若力垂直於位移方向（如搬重物走路時向上托的力，位移是水平的），則不做功。這個定義讓「功」成為精確的能量轉換量測，而非日常語言中的「工作量」。
+    terms:
+    - positive-work
     numbers: []
     concepts:
     - force-production
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch02.work-power.i02
+    locator: '第 2 章 · Positive Work and Power'
   - id: ch02.work-power.i02
     q: 功率 Power
     a:
-    - P = 功 / 時間（Watts）= 力 × 速度。科學定義≠日常「爆發力」
-    detail: ''
-    terms: []
+    - P = 功 ÷ 時間（J/s = W，瓦特）
+    - 也可表示為 P = 力 × 速度
+    - 科學定義的 power ≠ 日常語言的「爆發力」
+    detail: 書中強調：「power」在物理學中有精確定義，是「做功的時間速率」。而日常口語中的「爆發力」（explosive strength）是不精確的說法，可能造成混淆。此外，力量（strength）和功率（power）都反映「在特定速度下產力的能力」，不應把前者只和慢速、後者只和高速聯繫。
+    terms:
+    - power-output
     numbers: []
     concepts:
     - force-production
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch02.work-power.i01
+    - ch02.work-power.i06
+    locator: '第 2 章 · Positive Work and Power'
   - id: ch02.work-power.i03
     q: 正功 vs 負功
     a:
-    - 正功：肌肉對重量作功（上舉）。負功：重量對肌肉作功（下放，離心）
-    detail: ''
+    - 正功：肌肉對外部物體做功（上舉重量，增加其位能）
+    - 負功：外部物體對肌肉做功（放下重量，肌肉離心控制）
+    - 書中說明：「負功」嚴格說並不存在，只是功由誰對誰做的問題；反覆動作中，運動員與重量交替互相做功
+    detail: 書中明確指出「負功」概念雖然被廣泛使用，但實際上是說重量對肌肉施功，而非肌肉做了「負的」功。這個區別影響能量計算：下放重量時，重量的位能轉移給了肌肉（以熱與機械形式散逸），不是「肌肉在回收能量」。
     terms: []
     numbers: []
     concepts:
     - force-production
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch02.work-power.i01
+    - ch02.strength-factors.i07
+    locator: '第 2 章 · Negative Work and Power'
   - id: ch02.work-power.i04
     q: 旋轉功
     a:
-    - W = 扭矩 × 角位移（弧度）。功率計算仍用 P = W/t
-    detail: ''
-    terms: []
+    - W = 扭矩 × 角位移（以弧度表示）
+    - 功率計算仍用 P = W/t
+    - 扭矩單位 N·m 與功單位 N·m（焦耳）相同，但含義不同：扭矩的距離是力臂，功的距離是沿力方向的位移
+    detail: 旋轉功公式是線性功公式的角度版本。書中提醒扭矩（N·m）和功（N·m = J）雖然單位相同，語義不同：前者描述力的旋轉效果（力 × 垂直力臂），後者描述能量轉換（力 × 位移方向距離）。混淆這兩個量是常見錯誤。
+    terms:
+    - torque
     numbers: []
     concepts:
     - force-production
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch02.work-power.i01
+    - ch02.levers.i05
+    locator: '第 2 章 · Angular Work and Power'
   - id: ch02.work-power.i05
     q: SI 單位換算
     a:
-    - 1 lb = 4.448 N
-    - 1 ft = 0.3048 m
-    - 1° = 0.01745 rad
-    - 功率用 W（瓦特）
-    detail: ''
+    - 1 磅（lb）= 4.448 牛頓（N）
+    - 1 英呎（ft）= 0.3048 公尺（m）
+    - 1 英吋（in.）= 0.02540 公尺（m）
+    - 1 度（°）= 0.01745 弧度（rad）
+    - 公斤力（kgf）× 9.807 = 牛頓（N）
+    detail: 書中以表2.1列出換算係數。注意：重量盤上標示的「公斤」是質量（kg），要得到實際重力（N）需乘以當地重力加速度（約9.8 m/s²）。「磅（lb）」是力的單位，不是質量單位——這在生物力學計算中是常見概念混淆點。
     terms: []
-    numbers: []
+    numbers:
+    - v: 4.448
+      unit: N
+      of: 1磅（lb）換算成牛頓的係數
+    - v: 0.3048
+      unit: m
+      of: 1英呎（ft）換算成公尺的係數
+    - v: 0.01745
+      unit: rad
+      of: 1度換算成弧度的係數
     concepts:
-    - force-production
     - measurement
     related: []
-    locator: ''
+    locator: '第 2 章 · Positive Work and Power'
   - id: ch02.work-power.i06
-    q: 肌力 vs 爆發力
+    q: 肌力 vs 功率的關係
     a:
-    - 兩者皆描述特定速度下的出力能力。P = F × v，知道其二即可求第三
-    detail: ''
-    terms: []
+    - P = F × v，因此若已知力與速度中的任兩個，即可求第三個
+    - 肌力（strength）和功率（power）都反映「在特定速度下產力的能力」，不應把肌力只聯繫低速、功率只聯繫高速
+    - 要克服高阻力的低速動作，低速肌力重要；要應對低阻力的高速動作，高速肌力重要
+    detail: 書中明確說：「it is not correct to associate strength with low speed and power with high speed.」強調肌力是在任意速度下產力的能力，功率是力與速度的乘積——兩者都是速度相關量，只是描述角度不同。這個澄清對選擇正確的訓練和測試方法至關重要。
+    terms:
+    - power-output
     numbers: []
     concepts:
     - force-production
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch02.work-power.i02
+    - ch02.strength-factors.i06
+    locator: '第 2 章 · Strength Versus Power'
   - id: ch02.work-power.i07
-    q: 舉重 vs 健力
+    q: 舉重 vs 健力的功率比較
     a:
-    - Olympic lifting（高速+重量）功率 > Powerlifting（低速+極重）。健力命名有誤導性
-    detail: ''
-    terms: []
+    - 奧林匹克舉重（高速+重量）產生的物理功率高於健力（極重但低速）
+    - 「powerlifting」的命名在物理學定義上具有誤導性，產生的 power 反而更低
+    detail: 書中明確指出：「in the sport of powerlifting, which involves high forces but relatively low movement speeds, less mechanical power is produced than in several other sports, including Olympic lifting.」這是一個幫助記憶功率公式（P = F×v）的有效例子。
+    terms:
+    - power-output
     numbers: []
     concepts:
     - force-production
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch02.work-power.i02
+    - ch02.work-power.i06
+    locator: '第 2 章 · Strength Versus Power'
   - id: ch02.work-power.i08
     q: 計算實例
     a:
-    - 100kg×2m×10次，a=2m/s²：正功=(980+200)×2×10=23,600J
-    - 40秒→590W
-    detail: ''
-    terms: []
-    numbers: []
+    - 舉100 kg槓鈴2公尺高、10次、加速度2 m/s²
+    - 重力 F1 = 100 × 9.8 = 980 N；加速力 F2 = 100 × 2 = 200 N
+    - 正功 = (980 + 200) × 2 × 10 = 23,600 J
+    - 若40秒完成→平均功率 = 23,600 ÷ 40 = 590 W
+    detail: 這是書中正文提供的完整計算範例（表2.1附近）。注意：慣性力（F2 = m×a）要加進去是因為槓鈴在加速，所以需要比重量更多的力；完整訓練量可用同樣方法計算每組的功後累加，得出總訓練功（total training work）。
+    terms:
+    - power-output
+    numbers:
+    - v: 23600
+      unit: J
+      of: 舉100kg槓鈴2m高10次（加速度2m/s²）的正功
+    - v: 590
+      unit: W
+      of: 上述動作在40秒內完成的平均功率
     concepts:
     - force-production
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch02.work-power.i01
+    - ch02.work-power.i02
+    - ch02.resistance-sources.i03
+    locator: '第 2 章 · Positive Work and Power'
 cards:
 - q: 第一/二/三類槓桿各舉一個人體例子？
   a: 第一類=肘伸（三頭肌，支點在肘關節中間）；第二類=踮腳尖（腓腸肌，阻力在中間）；第三類=肘屈（二頭肌彎舉，最常見）
