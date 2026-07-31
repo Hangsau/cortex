@@ -122,111 +122,171 @@ topics:
   - id: ch05.connective-tissue.i01
     q: 骨骼建模
     a:
-    - 機械負荷 → osteoblast 遷移 → 分泌膠原蛋白 → 礦化（hydroxyapatite）→ 骨徑↑
-    detail: ''
-    terms: []
+    - 機械負荷讓骨頭產生形變（彎曲、壓縮或扭轉）
+    - 成骨細胞（osteoblast）遷移到形變最大的區域
+    - 分泌膠原蛋白填進骨細胞之間的空隙
+    - 膠原纖維礦化，骨骼直徑因此變粗
+    detail: 力量從肌肉經肌腱拉在骨頭的附著點上，骨頭被拉彎的那一側就是訊號發生的地方——所以刺激骨骼的關鍵不是「有沒有動」，而是形變夠不夠大。骨徑變粗之所以重要，是因為抗彎能力隨直徑增加而大幅上升，同樣一份負荷造成的應變就變小了。
+    terms:
+    - osteoblast
+    - bone-modeling
     numbers: []
     concepts:
     - adaptation
     - structure
-    related: []
-    locator: ''
+    related:
+    - ch05.connective-tissue.i02
+    locator: 第 5 章 · Connective Tissue Adaptations
   - id: ch05.connective-tissue.i02
     q: MES 閾值
     a:
-    - 最小必要應變（MES）≈ 骨折力的 1/10
-    - 超過閾值才刺激新骨生成
-    - 進階超負荷原則
-    detail: ''
-    terms: []
-    numbers: []
+    - 最小必要應變（MES）是啟動新骨生成的門檻
+    - 書中說 MES「據認為」約是折斷骨頭所需力量的 1/10
+    - 低於門檻的力不構成刺激，超過才會叫成骨細胞來造骨
+    detail: 骨細胞會反過來調節造骨速度，讓日常反覆承受的力量維持在 MES 之下，等於自動保留一段防骨折的安全邊際。這也解釋了為什麼日常活動練不到骨頭——身體已經把日常負荷校準在門檻底下了，要長骨就必須拿出超過日常的負荷。
+    terms:
+    - minimal-essential-strain
+    - bone-modeling
+    numbers:
+    - v: 約 1/10
+      unit: 倍
+      of: MES 相對於折斷骨頭所需力量的比例（原文為推估值）
     concepts:
     - adaptation
     - structure
-    related: []
-    locator: ''
+    related:
+    - ch05.connective-tissue.i01
+    - ch05.connective-tissue.i04
+    locator: 第 5 章 · General Bone Physiology
   - id: ch05.connective-tissue.i03
     q: BMD 與肌力相關
     a:
-    - 阻力訓練者 BMD 高於同齡對照
-    - 肌力 / 肌肉量增加伴隨 BMD↑
-    - 適應期約 6 個月
-    detail: ''
-    terms: []
-    numbers: []
+    - 肌力或肌肉量上升，肌肉拉骨頭的力量跟著變大，骨量必須跟上才撐得住
+    - 所以肌力增加通常伴隨骨密度（BMD）上升
+    - 不活動或被固定則相反，骨質會流失
+    - 骨骼適應的時間尺度約六個月以上
+    detail: 六個月指的是骨密度真的量得出變化所需的時間，不是適應開始的時間——造骨過程在頭幾次訓練就啟動了。差別在於骨頭會把新生成的物質先分泌到血液中（造骨標記），驗血就能提早看到反應，而 BMD 儀器要等礦化累積夠久才看得出來。
+    terms:
+    - bone-mineral-density
+    - osteoblast
+    numbers:
+    - v: 約 6
+      unit: 個月以上
+      of: 骨密度出現可測量變化所需的時間
     concepts:
     - adaptation
     - structure
-    related: []
-    locator: ''
+    related:
+    - ch05.connective-tissue.i04
+    locator: 第 5 章 · Anaerobic Training and Bone Growth
   - id: ch05.connective-tissue.i04
     q: 骨骼訓練原則
     a:
-    - 多關節結構性動作（深蹲/爆發上搏）優先
-    - 軸向力向量穿越脊椎及髖
-    - 1–10RM 負荷
-    detail: ''
-    terms: []
-    numbers: []
+    - 選多關節的結構性動作，避開單關節孤立動作
+    - 讓力的向量沿軸向穿過脊椎與髖
+    - 用漸進超負荷，負荷落在 1–10RM 這種重的區間
+    - 兼用重負荷與彈震／高衝擊動作，給骨頭不同強度的力
+    - 變換動作選擇，改變力的分布方向
+    detail: 前四點是強度，第五點是方向——骨基質裡的膠原纖維會順著承受應力的方向重新排列，所以一直練同樣的動作，骨頭會把那個方向「補強完就不再反應」。換動作等於換受力線，對骨頭而言又是新刺激。專一性也一樣嚴格：只有真正被載到的那段骨骼會長，跑步練得到下肢卻練不到脊椎。
+    terms:
+    - progressive-overload
+    - structural-exercise
+    - repetition-maximum
+    numbers:
+    - v: 1–10
+      unit: RM
+      of: 刺激骨骼生長所需的負荷區間
     concepts:
     - adaptation
-    - structure
-    related: []
-    locator: ''
+    - program-design
+    related:
+    - ch05.connective-tissue.i02
+    - ch05.connective-tissue.i03
+    locator: 第 5 章 · Principles of Training to Increase Bone Strength
   - id: ch05.connective-tissue.i05
     q: 肌腱適應
     a:
-    - 膠原纖維直徑↑、fibril 數↑、packing density↑
-    - 阿基里斯腱硬度 8 週↑15–19%
-    detail: ''
-    terms: []
-    numbers: []
+    - 膠原纖維（fibril）直徑變大
+    - 纖維數量增加
+    - 纖維排列的堆積密度提高
+    - 纖維之間的共價交聯變多
+    - 結果是肌腱能承受更大的張力
+    detail: 這四項合起來造成的可測結果是「肌腱剛度」上升——同樣的拉力下肌腱被拉長得比較少，力量傳遞的損耗因此減少。Kubo 等人的研究測到八週阻力訓練後阿基里斯腱剛度增加 15–19%。強度是關鍵變項：低到中強度不會明顯改變結締組織的膠原含量。
+    terms:
+    - collagen
+    - tendon-stiffness
+    - cross-link
+    numbers:
+    - v: 15–19
+      unit: '%'
+      of: 八週阻力訓練後阿基里斯腱剛度的增加幅度
+    - v: 8
+      unit: 週
+      of: 上述肌腱剛度研究的訓練期長度
     concepts:
     - adaptation
     - structure
-    related: []
-    locator: ''
+    related:
+    - ch05.connective-tissue.i06
+    - ch05.connective-tissue.i08
+    locator: 第 5 章 · Adaptations of Tendons, Ligaments, and Fascia
   - id: ch05.connective-tissue.i06
     q: 韌帶與筋膜
     a:
-    - 高強度負荷刺激膠原合成
-    - 肌腱血流差、癒合慢
-    - 全ROM動作有助力量傳遞
-    detail: ''
-    terms: []
+    - 三者的生長刺激都來自高強度運動造成的機械力，適應程度與強度成正比
+    - 韌帶除膠原外還含彈性蛋白（elastin），才能允許關節正常活動
+    - 筋膜的膠原束朝不同平面排列，用來抵抗來自各方向的力
+    - 動作要走完整關節活動範圍，並盡量用多關節動作
+    detail: 成熟的肌腱與韌帶細胞很少、代謝活性低，需氧與養分需求都小——這是它們受傷後癒合特別慢的結構原因，不是血流「差」而已。全關節活動範圍之所以被特別點名，是因為結締組織能增強的位置有三處：腱（韌帶）與骨的交界、腱體本身、以及肌肉內的筋膜網，而只有走完整範圍才會把力施加到交界處。
+    terms:
+    - collagen
+    - fascia
+    - range-of-motion
     numbers: []
     concepts:
     - adaptation
     - structure
-    related: []
-    locator: ''
+    related:
+    - ch05.connective-tissue.i05
+    locator: 第 5 章 · Adaptations of Tendons, Ligaments, and Fascia
   - id: ch05.connective-tissue.i07
     q: 軟骨
     a:
-    - 依靠滑液擴散獲取營養
-    - 固定化→軟骨萎縮
-    - 中等強度運動維持軟骨厚度
-    detail: ''
-    terms: []
+    - 軟骨沒有自己的血液供應，靠滑液擴散取得氧氣與養分
+    - 關節活動改變關節囊內壓力，把養分推向關節軟骨
+    - 關節被固定 → 擴散受阻 → 軟骨細胞死亡、基質被吸收
+    - 中等強度運動看來足以增加軟骨厚度
+    detail: 「沒有血流、靠擴散」直接解釋了兩件事：軟骨受傷後不易自行修復，以及不動比動更傷關節——因為擴散是靠關節活動時的壓力變化驅動的。書中對外部負荷「增加」軟骨厚度的效果講得保留（尚未完全釐清），但對移除負荷造成萎縮則講得肯定。
+    terms:
+    - hyaline-cartilage
+    - synovial-fluid
+    - chondrocyte
     numbers: []
     concepts:
     - adaptation
     - structure
-    related: []
-    locator: ''
+    related:
+    - ch05.connective-tissue.i06
+    locator: 第 5 章 · Adaptations of Cartilage to Anaerobic Training
   - id: ch05.connective-tissue.i08
     q: 膠原蛋白結構
     a:
-    - procollagen → 三螺旋 → 微纖維 → 纖維束
-    - cross-linking 提供真正強度
-    detail: ''
-    terms: []
+    - 纖維母細胞（fibroblast）合成並分泌前膠原蛋白（procollagen）
+    - 前膠原由三條蛋白鏈互相纏繞成三螺旋
+    - 兩端帶保護性延伸，離開細胞後才被酵素切除
+    - 切除後成為活性膠原，與其他膠原分子對齊成長纖維
+    - 交聯（cross-linking）才是強度的真正來源
+    detail: 兩端的保護性延伸是防止膠原在細胞內就提早聚合。因為切除靠酵素，測酵素濃度就能反映膠原代謝速率——訓練後酵素上升，是結締組織正在重塑的證據。骨、肌腱、韌帶用的是第一型膠原，軟骨用第二型。
+    terms:
+    - collagen
+    - fibroblast
+    - cross-link
     numbers: []
     concepts:
-    - adaptation
     - structure
-    related: []
-    locator: ''
+    related:
+    - ch05.connective-tissue.i05
+    locator: 第 5 章 · Adaptations of Tendons, Ligaments, and Fascia
 - id: detraining
   title: 去訓練 Detraining
   desc: ''
