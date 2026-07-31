@@ -12,6 +12,8 @@
 - **踩到兩個 audit 抓不到、只有截圖抓得到的 bug**：① 序號 01 用了 `--nb-line`（1.1:1）近乎隱形——帶位置資訊的文字不能用線條色；② `doc.hidden = true` 無效，因為 `.nb-doc { display: grid }` 這條 author 規則蓋掉 UA 的 `[hidden]`，必須明寫 `.nb-doc[hidden] { display: none }`（不用 `!important`，專案禁用）。
 - **驗收**：audit 16/16；ch01/05/11/18/24 抽查各 8 topics + 閃卡鈕；`hugo --minify` 337 頁 exit 0；線上 grep 新骨架命中、`mandala` 歸零。
 
+**追加：章節導航改成常駐（commit 07c45d5，CI 綠 + 線上驗證）**：站主回報「長文想換下一章或回上一頁，都得拉回最上層」——導航原本全掛在頁首麵包屑。① 黏性側欄改 flex column，頭（回書目 + 第 N/24 章）與尾（上一章 / 下一章）固定、只有目次列表捲動；② 章末補接續卡，末章顯示「讀完了 › 回書目」；③ 手機橫向膠囊列裡，回書目收成膠囊、換章收成 ‹ › 箭頭鈕（32×32，可及名稱靠 `a` 的 `aria-label`，`.nb-toc-step-k/-t` 在手機 `display:none` 改用 `::before` 放箭頭）。順手修好膠囊列不跟隨 scrollspy 的 bug（讀到第 4 主題膠囊列還停在第 1 = 等於沒有目次）。上一章/下一章由 `$book.Sections.ByWeight` 算，章節 front-matter 的 `weight` 是排序真相源。audit.js 加 6 條斷言，共 22/22。
+
 **下一步建議**：① `layouts/library/book.html` 共用 `cscs-chapter.css` 的 `.home-grid`/`.home-card`，已一起改成淺色細線格，但**書庫其他 layout（library.css / bookshelf.css）未動**，若覺得書庫首頁與章節頁調性不接可續做；② 遮答自測目前是全頁 toggle，若站主想要「逐條遮／已答對就不再遮」的進度記憶，需要 localStorage 層，尚未做；③ 其餘 23 章只做了 HTML 結構抽查，沒逐章看畫面，內容異常（如某章 `；` 用法不同）要靠實際閱讀才會發現。
 
 > ↓ 更早
