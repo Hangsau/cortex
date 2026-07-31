@@ -42,17 +42,20 @@ static/
     flashcard.js            # 閃卡翻轉（單一功能）
   images/
     cscs-cover.jpg
+layouts/library/
+  cscs-concepts.html        # 概念索引頁（打散章節，照概念讀）
 layouts/partials/
   cscs-index.html           # 全書 id → 標題/網址 索引（wiki 連結用，partialCached）
 data/
   books.yaml                # 書目索引（slug 對應 content/library/ 資料夾名）
   cscs/
     _terms.yaml             # 全書術語表（en / zh / abbr / note），106 條
-    _concepts.yaml          # 受控概念詞彙（封閉集，12 條）
+    _concepts.yaml          # 受控概念詞彙（封閉集，22 條，含 group / order）
     ch01.yaml ... ch24.yaml # 每章 topics → items（知識單位）+ cards（閃卡）
 tools/
   cscs_check.py             # 交叉參照與完整性驗收閘（改 data/cscs/ 後必跑）
-  audit.js                  # 章節頁版型數值迴歸閘（Playwright）
+  cscs_tag_concepts.py      # 主題級批次上概念標（不覆寫既有值，可重複跑）
+  audit.js                  # 章節頁 + 概念頁版型數值迴歸閘（Playwright）
 ```
 
 ---
@@ -204,11 +207,12 @@ static/css/
 ```bash
 python tools/cscs_check.py            # 交叉參照 / 重複 id / numbers 完整性；有錯 = 失敗，不是待辦
 hugo server                            # 另開一個視窗
-node tools/audit.js                    # 31 條版型與深度層數值斷言
+node tools/audit.js                    # 38 條版型／深度層／概念索引數值斷言
 ```
 
 - `audit.js` 需要 playwright：`PLAYWRIGHT_PATH=<playwright 路徑> node tools/audit.js`
 - **術語一律常駐可見**，不准塞進 hover 或 details——使用者的原始痛點就是「只有英文沒有中文」，藏起來等於沒解決；定義本身才進展開層
+- **概念軸是第二條閱讀動線**：`concepts` 只能挑 `_concepts.yaml` 的 22 條，且**一條概念至少橫跨兩章**才准存在（只在單章的概念＝把該章抄一遍，`audit.js` 有斷言）。批次上標用 `tools/cscs_tag_concepts.py`（主題級、不覆寫既有值）
 - 補完進度：ch01 已補（68 條全滿），ch02–ch24 只有骨架（`detail`/`terms`/`numbers` 空著時深度層自動不渲染，不會有半成品畫面）
 - **完成後立即更新 HANDOFF**：push + CI 確認後，下一步必須更新 HANDOFF.md（勾選已完成項目、更新下一步建議），不等使用者提醒
 

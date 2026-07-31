@@ -385,7 +385,7 @@ body:has(.nb) {
   color: var(--nb-ink-2);
 }
 
-/* 概念軸：跨章節閱讀的分類，之後會成為連結；現階段先當可見標記 */
+/* 概念軸：跨章節閱讀的分類，點進概念索引頁看同概念在別章的落點 */
 .nb-cons {
   display: flex;
   flex-wrap: wrap;
@@ -393,11 +393,88 @@ body:has(.nb) {
   margin: 8px 0 0;
 }
 .nb-con {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;          /* 鐵則 E：可點目標不小於 24px */
   font-family: var(--font-mono);
   font-size: 12px;
   color: var(--nb-ink-2);
   border: 1px solid var(--nb-line);
   padding: 2px 8px;
+  text-decoration: none;
+  transition: color 160ms ease-out, border-color 160ms ease-out;
+}
+.nb-con:hover {
+  color: var(--nb-accent);
+  border-color: var(--nb-accent);
+}
+
+/* ---- 概念索引頁 ---- */
+.nb-lead {
+  max-width: 34rem;
+  margin: 0 0 24px;
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--nb-ink-2);
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--nb-line);
+}
+.nb-toc-grp {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .06em;
+  color: var(--nb-ink-2);
+  padding: 16px 8px 4px 16px;
+}
+.nb-toc-grp:first-child { padding-top: 0; }
+/* 側欄條目在概念頁是「名稱 + 條數」，條數靠右對齊成一欄好比較 */
+.nb-toc-list a .nb-toc-t { flex: 1 1 auto; }
+.nb-toc-list a .nb-toc-n { flex: none; }
+
+.nb-cdesc {
+  margin: 8px 0 0;
+  font-size: var(--nb-fs-meta);
+  line-height: 1.7;
+  color: var(--nb-ink-2);
+}
+.nb-cch { margin-top: 4px; }
+/* 章名是中文句子，mono 讀起來像程式碼；只有條數留 mono 好對齊比較 */
+.nb-cch summary {
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--nb-ink);
+}
+.nb-cch-n {
+  font-family: var(--font-mono);
+  font-size: var(--nb-fs-meta);
+  color: var(--nb-ink-2);
+}
+.nb-hits {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+}
+.nb-hits li {
+  line-height: 1.8;
+  padding: 3px 0;
+}
+.nb-hit-t {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--nb-ink-2);
+  margin-top: 8px;
+}
+.nb-hits li:first-child .nb-hit-t { margin-top: 0; }
+.nb-hits a {
+  color: var(--nb-ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--nb-line);
+}
+.nb-hits a:hover {
+  color: var(--nb-accent);
+  border-bottom-color: var(--nb-accent);
 }
 
 /* 從別章跳進來的目標條目：只加左緣標記，不做背景高亮以免與遮答紅衝突 */
@@ -526,6 +603,14 @@ body:has(.nb) {
 }
 .home-card:hover { opacity: .68; }
 
+/* 工具頁（概念索引／筆記）不是章節，用墨底反白跟 24 章的清單分開 */
+.home-grid.is-tools { margin-bottom: 24px; }
+.home-card.is-tool {
+  background: #1A1A1A;
+  color: #FBFAF7;
+  font-weight: 700;
+}
+
 /* ---- 焦點指示（鐵則 I / WCAG 2.2 SC 2.4.7）---- */
 .nb a:focus-visible,
 .nb-mode:focus-visible,
@@ -554,6 +639,8 @@ body:has(.nb) {
     margin: 0 -16px;
   }
   .nb-toc-cap { display: none; }
+  /* 分組標題在橫向膠囊列裡會變成點不了的假膠囊，直接收掉 */
+  .nb-toc-grp { display: none; }
   .nb-toc-list {
     display: flex;
     gap: 8px;

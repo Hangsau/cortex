@@ -1,40 +1,131 @@
-# 受控概念詞彙：跨章節閱讀用的軸。刻意維持小而封閉——概念只能從這裡挑，不能臨時發明，
+# 受控概念詞彙：跨章節閱讀用的軸。刻意封閉——概念只能從這裡挑，不能臨時發明，
 # 否則「用相同概念讀」會退化成自由標籤，同一件事散成好幾個近義詞而永遠聚不起來。
-# 要新增一條，先確認現有 12 條都不合適；新增後跑 tools/cscs_check.py。
+#
+# 收錄門檻：一條概念至少要橫跨兩章才留著。只出現在單一章的概念，在概念索引頁裡
+# 等於把該章原封不動抄一遍，對「打散章節去讀」零貢獻——2026-07-31 因此併掉兩條：
+#   concentric-mechanism（興奮收縮偶聯，只有 ch01）→ force-production
+#   methodology（測量與分類方法，只有 ch01）→ measurement
+#
+# 要新增一條，先確認現有 22 條都不合適，且新概念至少橫跨兩章；新增後跑 tools/cscs_check.py。
 
+# ---- 身體怎麼構成、怎麼出力 ----
 structure:
   zh: "構造與解剖"
   desc: "組織、器官、細胞層級的組成與空間關係"
-concentric-mechanism:
-  zh: "興奮收縮偶聯"
-  desc: "從電訊號到機械收縮之間的因果鏈"
+  group: "身體與出力"
+  order: 1
 force-production:
   zh: "力量產生"
-  desc: "力量的來源、上限與影響因子"
+  desc: "力量的來源、上限與影響因子，含從電訊號到機械收縮的因果鏈"
+  group: "身體與出力"
+  order: 2
 fiber-type:
   zh: "肌纖維類型"
-  desc: "快慢縮分型及其形態與生理差異"
+  desc: "快慢縮分型及其形態、生理與訓練反應差異"
+  group: "身體與出力"
+  order: 3
 motor-control:
   zh: "神經控制"
-  desc: "運動單位徵召、放電頻率與力量分級"
+  desc: "運動單位徵召、放電頻率、技能學習與力量分級"
+  group: "身體與出力"
+  order: 4
 reflex:
   zh: "反射與本體感覺"
   desc: "受器偵測、脊髓迴路與反射性促進或抑制"
-circulation:
-  zh: "循環運輸"
-  desc: "血液流動路徑、血管功能與物質運送"
-gas-exchange:
-  zh: "氣體交換"
-  desc: "通氣、擴散與氧和二氧化碳的移動"
+  group: "身體與出力"
+  order: 5
+
+# ---- 供能與運輸 ----
 energy-supply:
   zh: "能量供應"
   desc: "ATP 的來源、消耗與有氧無氧途徑"
+  group: "供能與運輸"
+  order: 6
+circulation:
+  zh: "循環運輸"
+  desc: "血液流動路徑、血管功能與物質運送"
+  group: "供能與運輸"
+  order: 7
+gas-exchange:
+  zh: "氣體交換"
+  desc: "通氣、擴散與氧和二氧化碳的移動"
+  group: "供能與運輸"
+  order: 8
+hormone:
+  zh: "內分泌調控"
+  desc: "荷爾蒙的分泌、受器作用與對訓練的反應"
+  group: "供能與運輸"
+  order: 9
+
+# ---- 訓練帶來什麼改變 ----
 adaptation:
   zh: "訓練適應"
-  desc: "組織與神經系統對訓練刺激的長期改變"
+  desc: "組織與神經系統對訓練刺激的長期改變，含去訓練與過度訓練"
+  group: "訓練與適應"
+  order: 10
+periodization:
+  zh: "週期化與恢復"
+  desc: "訓練刺激的時間安排、疲勞管理與恢復"
+  group: "訓練與適應"
+  order: 11
+program-design:
+  zh: "課程設計"
+  desc: "需求分析到變項處方：選擇、順序、負荷、頻率、量、休息"
+  group: "訓練與適應"
+  order: 12
+
+# ---- 怎麼做、怎麼量 ----
+technique:
+  zh: "動作技術"
+  desc: "姿勢、握法、呼吸、動作執行與器材使用方式"
+  group: "執行與測量"
+  order: 13
+measurement:
+  zh: "測量與評估"
+  desc: "用什麼方法判定、分型或量化，含信效度與統計判讀"
+  group: "執行與測量"
+  order: 14
 normal-values:
   zh: "正常值與判讀"
-  desc: "生理數值的正常範圍與偏離時的名稱"
-methodology:
-  zh: "測量與分類方法"
-  desc: "用什麼方法判定、分型或量化"
+  desc: "生理與規格數值的正常範圍，以及偏離時的名稱"
+  group: "執行與測量"
+  order: 15
+
+# ---- 吃什麼、用什麼 ----
+nutrition:
+  zh: "營養"
+  desc: "巨量與微量營養素、水分、體重管理與飲食策略"
+  group: "營養與補充"
+  order: 16
+ergogenic:
+  zh: "增補劑與禁藥"
+  desc: "增強表現的物質與方法，及其機制、效果與風險"
+  group: "營養與補充"
+  order: 17
+
+# ---- 人與情境 ----
+psychology:
+  zh: "心理與動機"
+  desc: "喚醒、焦慮、注意力、動機與心理技巧"
+  group: "人與情境"
+  order: 18
+population:
+  zh: "族群差異"
+  desc: "年齡、性別與特殊族群的生理差異與處方調整"
+  group: "人與情境"
+  order: 19
+injury:
+  zh: "傷害與復健"
+  desc: "傷害類型、癒合階段、預防與重返運動"
+  group: "人與情境"
+  order: 20
+safety:
+  zh: "安全與風險"
+  desc: "保護補位、場地設備、環境與緊急應變的風險控制"
+  group: "人與情境"
+  order: 21
+professional:
+  zh: "專業與法規"
+  desc: "角色職責、資格、監督、紀錄與法律責任"
+  group: "人與情境"
+  order: 22

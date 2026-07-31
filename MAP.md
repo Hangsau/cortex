@@ -3,7 +3,7 @@
 > 結構地圖，給冷啟動讀者（人/LLM）。格式與維護流程見 `C:\claudehome\CODEBASE_MAP_METHODOLOGY.md`。
 > 行為規範見 `CLAUDE.md`；進度/待辦見 `HANDOFF.md`。
 >
-> `last_verified: 2026-07-10`
+> `last_verified: 2026-07-31`
 
 ---
 
@@ -29,6 +29,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 | 改氣質 section 內容 | `data/temperament/*.yaml`（my-site 自有，**可直接改**） |
 | 改 CSCS 內容 / 閃卡 | `data/cscs/chNN.yaml`（唯一真相源）→ 跑 `python tools/cscs_check.py` |
 | 補 CSCS 深度層（術語/數字/延伸） | 同上 yaml 的 `detail`/`terms`/`numbers`/`related`/`concepts`；術語表 `data/cscs/_terms.yaml` |
+| 改 CSCS 概念軸（跨章節閱讀） | 詞彙 `data/cscs/_concepts.yaml`（封閉集 22 條，含 `group`/`order`）；批次上標 `tools/cscs_tag_concepts.py`；頁面 `layouts/library/cscs-concepts.html` |
 | 改 vortex 互動行為 | `static/js/vortex.js`（單檔依 DOM hook 分派：`.vx-doc` 文件流 scrollspy / legacy 面板切換 / `[data-vx-db]` drills / `[data-vx-find]` database / `[data-vx-adm-std]` ADM 標準 / `.vx-read` 進度條） |
 
 ---
@@ -43,7 +44,8 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 ### Section → layout 路由
 | content 目錄 | layout | 說明 |
 |-------------|--------|------|
-| `content/library/` | `layouts/library/{list,book,chapter,single}.html` | 書庫；CSCS 章節頁在 `chapter.html`（343 行，2026-07-31 從 3×3 九宮格改成黏性目次文件版型 + 遮答自測 + 深度層，資料讀 `data/cscs/`；模式切換／scrollspy／錨點展開／閃卡 JS 全內聯）。改動後跑 `tools/audit.js` 迴歸 |
+| `content/library/` | `layouts/library/{list,book,chapter,single}.html` | 書庫；CSCS 章節頁在 `chapter.html`（351 行，2026-07-31 從 3×3 九宮格改成黏性目次文件版型 + 遮答自測 + 深度層，資料讀 `data/cscs/`；模式切換／scrollspy／錨點展開／閃卡 JS 全內聯）。改動後跑 `tools/audit.js` 迴歸 |
+| 　└ CSCS 概念索引 | `library/cscs-concepts.html`（180 行） | 打散章節的第二條軸：22 概念 × 各自落點（2505 條連結），共用 `.nb` 版型；入口在 book 頁的工具列與每條知識單位的概念標籤 |
 | 　└ 特殊書 | `library/mnfl-{book,toolkit}.html`、`library/ust-{book,handbook,strategies}.html` | 大腦喜歡這樣學 / UST，各自 CSS |
 | `content/notebook/` | `layouts/notebook/{list,single}.html` | 個人筆記 |
 | `content/temperament/` | `layouts/temperament/temperament-main.html`（386 行） | 氣質 section + 測驗（`temperament-quiz.js` 197 行） |
@@ -69,7 +71,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 | `vortex/{single,list}.html` | 29/36 | technica/instructional/bridge 散文 fallback | 無 |
 
 ### CSS（static/css/）
-`variables.css`(49) `base.css`(79) `layout.css`(165) `bookshelf.css`(221) `library.css`(140) `cscs-chapter.css`(632) `notebook.css`(59) `vortex.css`(2080) `vortex-techo.css`(158，僅首頁 tx-*) `vortex-nav.css`(159，全站側欄+搜尋框) `vortex-injuries.css`(242) `mnfl.css`(391) `ust.css`(526) `temperament.css`(296)。  
+`variables.css`(49) `base.css`(79) `layout.css`(165) `bookshelf.css`(221) `library.css`(140) `cscs-chapter.css`(719) `notebook.css`(59) `vortex.css`(2080) `vortex-techo.css`(158，僅首頁 tx-*) `vortex-nav.css`(159，全站側欄+搜尋框) `vortex-injuries.css`(242) `mnfl.css`(391) `ust.css`(526) `temperament.css`(296)。  
 隔離手法：各 section CSS 用 `body:has(.<prefix>-*)` scope，不互相污染。
 
 ### JS（static/js/）
@@ -99,6 +101,8 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 13. **`related` / `terms` / `concepts` 指到不存在的目標，Hugo 不報錯只給空字串**（同 §踩雷 Vortex 分類標籤的坑）。所以驗收靠 `tools/cscs_check.py`，把斷鏈當失敗；**不跑它就等於沒有交叉參照**。
 14. **wiki 連結索引用 `partialCached "cscs-index.html" $book $book.RelPermalink`**：1583 條，每頁重建會拖慢建置；variant key 用 RelPermalink，避免第二本書共用同一份快取。
 15. **`.nb-detail summary` 的 `display` 不是 `list-item`，原生三角會消失**，靠 `::before` 自己畫；改 summary 版面時別把箭頭弄丟（`audit.js` 沒有斷言它，只有人眼看得到）。
+16. **`base.css` 全站 `html { scroll-behavior: smooth }` 會讓錨點落地漂掉**：跳錨點時瀏覽器自己的平滑捲動、頁面既有的平滑捲動、`scrollIntoView()` 三者互搶，實測落點偏離目標 2200px。`chapter.html` / `cscs-concepts.html` 的 `openTarget()` 因此在定位期間暫時把 `documentElement.style.scrollBehavior` 設成 `auto`，下一幀再補一次並還原。**只用 `scrollIntoView({behavior:'auto'})` 不夠**（動畫仍會接手）。
+17. **純計算的 Hugo 迴圈一定要用 `{{- -}}` 夾緊**：不夾的話每次迭代吐出縮排空白，概念頁 22 × 1583 次迭代把 HTML 從 578KB 灌成 1.86MB。看到頁面異常肥先查迴圈空白，不是查內容量。
 
 ---
 

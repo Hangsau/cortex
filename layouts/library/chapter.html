@@ -139,7 +139,7 @@
 
               {{ with $item.concepts }}
               <p class="nb-cons">
-                {{ range . }}{{ with index $concepts . }}<span class="nb-con">{{ .zh }}</span>{{ end }}{{ end }}
+                {{ range $k := . }}{{ with index $concepts $k }}<a class="nb-con" href="{{ $book.RelPermalink }}concepts/#{{ $k }}">{{ .zh }}</a>{{ end }}{{ end }}
               </p>
               {{ end }}
             </dd>
@@ -264,8 +264,16 @@
     var d = el.querySelector('details');
     if (d) d.open = true;
     el.classList.add('is-target');
-    // 瀏覽器在字型與展開內容就位前就跳完了，落點會偏掉；自己補一次定位
+    // 瀏覽器在字型與展開內容就位前就跳完了，落點會偏掉；自己補一次定位。
+    // base.css 全站 scroll-behavior:smooth，錨點落地會變成一段長動畫，還會跟瀏覽器自己的
+    // 錨點捲動打架，落點飄到幾千 px 外。落地期間暫時關掉平滑，下一幀再補一次並還原。
+    var root = document.documentElement, prev = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
     el.scrollIntoView();
+    requestAnimationFrame(function () {
+      el.scrollIntoView();
+      root.style.scrollBehavior = prev;
+    });
   }
   window.addEventListener('hashchange', openTarget);
   window.addEventListener('load', openTarget);

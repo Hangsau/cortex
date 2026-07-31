@@ -18,6 +18,16 @@
   </div>
 </div>
 
+{{ with .RegularPages.ByWeight }}
+<div class="home-grid is-tools">
+  {{ range . }}
+  <a href="{{ .Permalink }}" class="home-card is-tool">
+    <div>{{ .Title }}</div>
+  </a>
+  {{ end }}
+</div>
+{{ end }}
+
 <div class="home-grid">
   {{ range .Sections }}
   <a href="{{ .Permalink }}" class="home-card">

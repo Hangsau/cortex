@@ -1,0 +1,180 @@
+{{ define "head-extra" }}
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/cscs-chapter.css">
+{{ end }}
+
+{{ define "main" }}
+{{ $book := .Parent }}
+{{ $chapters := $book.Sections.ByWeight }}
+
+{{ $cscs := index hugo.Data "cscs" }}
+{{ $concepts := index $cscs "_concepts" }}
+
+{{/* map 的迭代順序是 key 字母序，會把人工排的語意順序打散；靠 order 欄位還原 */}}
+{{ $clist := slice }}
+{{ range $k, $v := $concepts }}{{ $clist = $clist | append (merge $v (dict "key" $k)) }}{{ end }}
+{{ $clist = sort $clist "order" }}
+
+{{/* 側欄要顯示條數，但條數只有掃過全書才知道；先單獨掃一遍。
+     純計算的迴圈一律用 {{- -}} 夾緊：不夾的話每次迭代都會吐出縮排空白，
+     22 概念 × 1583 條會把頁面灌成 MB 級。 */}}
+{{ $counts := dict }}
+{{- range $ch := $chapters -}}
+  {{- with index $cscs (path.Base ($ch.RelPermalink | strings.TrimRight "/")) -}}
+    {{- range .topics -}}{{- range .items -}}{{- range .concepts -}}
+      {{- $counts = merge $counts (dict . (add (index $counts . | default 0) 1)) -}}
+    {{- end -}}{{- end -}}{{- end -}}
+  {{- end -}}
+{{- end }}
+
+<div class="nb" id="nb">
+
+  <nav class="nb-crumb" aria-label="麵包屑">
+    <a href="{{ $book.RelPermalink }}">{{ $book.Title }}</a>
+    <span aria-hidden="true">›</span>
+    <span class="nb-crumb-now">{{ .Title }}</span>
+  </nav>
+
+  <h1 class="nb-title">{{ .Title }}</h1>
+  <p class="nb-lead">同一個概念散在不同章。這裡把全書 {{ len $clist }} 條概念各自的落點集中起來，
+    照概念讀而不是照章節讀——點進去會直接落在該章的那一條。</p>
+
+  <div class="nb-doc" id="nbDoc">
+
+    <aside class="nb-toc" aria-label="概念清單">
+      <div class="nb-toc-head">
+        <a class="nb-toc-up" href="{{ $book.RelPermalink }}">‹ 回書目</a>
+        <p class="nb-toc-pos">{{ len $clist }} 條概念</p>
+      </div>
+
+      <ol class="nb-toc-list">
+        {{ $lastGroup := "" }}
+        {{ range $clist }}
+        {{ if ne .group $lastGroup }}
+        <li class="nb-toc-grp">{{ .group }}</li>
+        {{ $lastGroup = .group }}
+        {{ end }}
+        <li><a href="#{{ .key }}" data-toc="{{ .key }}">
+          <span class="nb-toc-t">{{ .zh }}</span>
+          <span class="nb-toc-n">{{ index $counts .key | default 0 }}</span>
+        </a></li>
+        {{ end }}
+      </ol>
+
+      <nav class="nb-toc-foot" aria-label="回到章節">
+        {{/* 手機把這顆收成純箭頭（文字被 CSS 隱藏），可及名稱只剩 aria-label */}}
+        <a class="nb-toc-step is-next" href="{{ (index $chapters 0).RelPermalink }}"
+           aria-label="照章節讀：{{ (index $chapters 0).Title }}">
+          <span class="nb-toc-step-k">照章節讀 ›</span>
+          <span class="nb-toc-step-t">{{ (index $chapters 0).Title }}</span>
+        </a>
+      </nav>
+    </aside>
+
+    <div class="nb-body">
+      {{ range $c := $clist }}
+      {{ $key := $c.key }}
+
+      {{ $groups := slice }}
+      {{ $total := 0 }}
+      {{- range $ch := $chapters -}}
+        {{- with index $cscs (path.Base ($ch.RelPermalink | strings.TrimRight "/")) -}}
+          {{- $hits := slice -}}
+          {{- range .topics -}}
+            {{- $tt := .title -}}
+            {{- range .items -}}
+              {{- if in (.concepts | default slice) $key -}}
+              {{- $hits = $hits | append (dict "id" .id "q" .q "topic" $tt) -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+          {{- if $hits -}}
+          {{- $groups = $groups | append (dict "title" $ch.Title "url" $ch.RelPermalink "hits" $hits) -}}
+          {{- $total = add $total (len $hits) -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end }}
+
+      <section class="nb-topic" id="{{ $key }}">
+        <header class="nb-topic-head">
+          <p class="nb-topic-meta">
+            <span class="nb-topic-tag">{{ $c.group }}</span>
+            <span class="nb-topic-n">{{ $total }} 條 · 跨 {{ len $groups }} 章</span>
+          </p>
+          <h2 class="nb-topic-t">{{ $c.zh }}</h2>
+          <p class="nb-cdesc">{{ $c.desc }}</p>
+        </header>
+
+        {{ range $g := $groups }}
+        <details class="nb-detail nb-cch">
+          <summary>{{ $g.title }} <span class="nb-cch-n">{{ len $g.hits }}</span></summary>
+          <div class="nb-detail-in">
+            <ul class="nb-hits">
+              {{ $lastTopic := "" }}
+              {{ range $g.hits }}
+              <li>
+                {{ if ne .topic $lastTopic }}<span class="nb-hit-t">{{ .topic }}</span>{{ $lastTopic = .topic }}{{ end }}
+                <a href="{{ $g.url }}#{{ .id }}">{{ .q }}</a>
+              </li>
+              {{ end }}
+            </ul>
+          </div>
+        </details>
+        {{ end }}
+      </section>
+      {{ end }}
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  // 側欄跟隨目前位置；與章節頁同一套行為，長清單才不會迷路
+  var links = {};
+  document.querySelectorAll('[data-toc]').forEach(function (a) { links[a.dataset.toc] = a; });
+  var sections = document.querySelectorAll('.nb-topic');
+  var tocList = document.querySelector('.nb-toc-list');
+
+  function syncStrip(a) {
+    if (!tocList || tocList.scrollWidth <= tocList.clientWidth) return;
+    var lr = tocList.getBoundingClientRect(), ar = a.getBoundingClientRect();
+    tocList.scrollLeft += (ar.left - lr.left) - (lr.width - ar.width) / 2;
+  }
+
+  if ('IntersectionObserver' in window && sections.length) {
+    var seen = new Set();
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) seen.add(en.target.id); else seen.delete(en.target.id);
+      });
+      Object.keys(links).forEach(function (k) { links[k].classList.remove('is-here'); });
+      var first = Array.prototype.map.call(sections, function (t) { return t.id; })
+                       .filter(function (id) { return seen.has(id); })[0];
+      if (first && links[first]) { links[first].classList.add('is-here'); syncStrip(links[first]); }
+    }, { rootMargin: '-72px 0px -60% 0px' });
+    sections.forEach(function (t) { io.observe(t); });
+  }
+
+  // 從章節頁的概念標籤跳進來時，把該概念的第一章先展開，否則只看到一排收合標題
+  function openTarget() {
+    if (!location.hash) return;
+    var el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (!el) return;
+    var d = el.querySelector('details');
+    if (d) d.open = true;
+    // 落地期間暫時關掉全站的 scroll-behavior:smooth，否則會跟瀏覽器自己的錨點捲動
+    // 打架、落點飄掉（見 chapter.html 同段註解）
+    var root = document.documentElement, prev = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+    el.scrollIntoView();
+    requestAnimationFrame(function () {
+      el.scrollIntoView();
+      root.style.scrollBehavior = prev;
+    });
+  }
+  window.addEventListener('hashchange', openTarget);
+  window.addEventListener('load', openTarget);
+  openTarget();
+})();
+</script>
+{{ end }}
