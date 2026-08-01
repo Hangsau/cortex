@@ -18,8 +18,31 @@ DATA = Path(__file__).resolve().parent.parent / "data" / "cscs"
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 
+class StrictLoader(yaml.SafeLoader):
+    """PyYAML 預設讓重複 key 後者覆蓋前者，Hugo 的 YAML 解析器卻硬性報錯。
+    只用 safe_load 驗收會全綠但網站建不起來（2026-08-01 ch11 殘留的 `numbers: []`
+    蓋掉填好的區塊，python 全過、hugo 直接 error building site）。"""
+
+
+def _no_dup_mapping(loader, node, deep=False):
+    seen = set()
+    for k, _ in node.value:
+        key = loader.construct_object(k, deep=True)
+        if key in seen:
+            raise yaml.YAMLError(f"第 {k.start_mark.line + 1} 行重複的 key '{key}'（Hugo 會建置失敗）")
+        seen.add(key)
+    return yaml.SafeLoader.construct_mapping(loader, node, deep)
+
+
+StrictLoader.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, _no_dup_mapping)
+
+
 def load(name):
-    return yaml.safe_load((DATA / f"{name}.yaml").read_text(encoding="utf-8"))
+    path = DATA / f"{name}.yaml"
+    try:
+        return yaml.load(path.read_text(encoding="utf-8"), StrictLoader)
+    except yaml.YAMLError as exc:
+        sys.exit(f"{path.name}: {exc}")
 
 
 def main():
