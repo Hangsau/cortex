@@ -8,1015 +8,1546 @@ topics:
   tag: Carb Loading
   items:
   - id: ch10.carb-loading.i01
-    q: 目的
+    q: 碳水化合物超補（carbohydrate loading）的目的
     a:
-    - 最大化肌肉與肝臟肝醣儲存，延遲長時間有氧運動的疲勞
-    detail: ''
-    terms: []
+    - 在耐力賽前幾天提高碳水化合物攝取，以最大化肌肉糖原儲存
+    - 增加賽事後段可用的碳水化合物，延後長時間有氧耐力運動的疲勞
+    detail: 此策略是為有糖原耗竭風險的耐力項目設計；書中只說它「可能」也會有益於其他運動員，未把效益推論為所有運動皆相同。
+    terms:
+    - carbohydrate-loading
+    - carbohydrate
+    - glycogen
     numbers: []
     concepts:
     - nutrition
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch10.carb-loading.i02
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Precompetition Nutrition > Carbohydrate Loading
   - id: ch10.carb-loading.i02
-    q: 標準方案
+    q: 常用的碳水化合物超補方案
     a:
-    - 賽前 3 天高碳水＋減量訓練
-    - 賽前一天完全休息
-    - 劑量：8–10 g/kg BW/day → 肝醣↑ 20–40%
-    detail: ''
-    terms: []
-    numbers: []
+    - 賽前一週採減量運動，賽前 3 天高碳水化合物飲食，賽前一天完全休息
+    - 超補期間每天攝取 8–10 g/kg 體重的碳水化合物
+    - 此方案應可使肌肉糖原儲存高於平常 20–40%
+    detail: 書中把「攝取足夠總熱量」列為此方案的一部分；只提高碳水比例、但總量不足，未必能達到預期糖原儲存。
+    terms:
+    - carbohydrate-loading
+    - carbohydrate
+    - glycogen
+    numbers:
+    - v: 3
+      unit: 天
+      of: 常用超補方案中賽前高碳水化合物飲食的期間
+    - v: 8–10
+      unit: g/kg 體重/日
+      of: 超補期間每天的碳水化合物攝取量
+    - v: 20–40
+      unit: '%'
+      of: 此方案後肌肉糖原高於正常的增幅
     concepts:
     - nutrition
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch10.carb-loading.i08
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Precompetition Nutrition > Carbohydrate Loading
   - id: ch10.carb-loading.i03
-    q: 馬拉松特例
+    q: 馬拉松前的較高碳水化合物攝取建議
     a:
-    - 賽前 36–48h 可增至 10–12 g/kg BW/day
-    detail: ''
-    terms: []
-    numbers: []
+    - 跑者在馬拉松前 36–48 小時，可建議每天攝取 10–12 g/kg 體重的碳水化合物
+    detail: 這是書中對馬拉松跑者提出的較高攝取量，不應把它當成所有耐力賽或所有運動員的通用劑量。
+    terms:
+    - carbohydrate-loading
+    - carbohydrate
+    numbers:
+    - v: 36–48
+      unit: 小時
+      of: 馬拉松前建議提高碳水化合物攝取的時間窗
+    - v: 10–12
+      unit: g/kg 體重/日
+      of: 馬拉松前時間窗內建議的每日碳水化合物攝取量
     concepts:
     - nutrition
     - energy-supply
     related: []
-    locator: ''
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Precompetition Nutrition > Carbohydrate Loading
   - id: ch10.carb-loading.i04
-    q: 男女差異
+    q: 女性進行碳水化合物超補時的總熱量考量
     a:
-    - 女性需更高總熱量才能有效補充肝醣（>2400 kcal/day）
-    - 在熱量充足條件下，兩性肝醣儲存能力無差異
-    detail: ''
-    terms: []
-    numbers: []
+    - 習慣每天攝取少於 2,400 kcal 的女性，可能難以吃到足量碳水化合物
+    - 她們可能需要提高總能量攝取至 2,400 kcal 以上，並採較高碳水化合物飲食，才有助增加糖原儲存
+    detail: 書中將早期女性研究結果不一致的可能原因，指向總熱量或總碳水量不足；這不是把女性的反應解釋為固定的生理限制。
+    terms:
+    - carbohydrate-loading
+    - carbohydrate
+    - glycogen
+    numbers:
+    - v: <2,400
+      unit: kcal/日
+      of: 書中指出可能難以吃到足量碳水化合物的女性習慣性每日能量攝取
+    - v: '>2,400'
+      unit: kcal/日
+      of: 書中建議女性為增加糖原儲存可能需提高到的總能量攝取
     concepts:
     - nutrition
     - energy-supply
-    related: []
-    locator: ''
+    - population
+    related:
+    - ch10.carb-loading.i05
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Precompetition Nutrition > Carbohydrate Loading
   - id: ch10.carb-loading.i05
-    q: 女性關鍵
+    q: 女性碳水化合物超補研究的可用結論
     a:
-    - 習慣每日 <2400 kcal 的女運動員需先提高總熱量才能達到有效肝醣超補
-    detail: ''
-    terms: []
-    numbers: []
+    - 在一項女性自行車選手研究中，達到足夠的碳水化合物絕對攝取量後，糖原儲存與騎乘至力竭時間都增加
+    - 男女在運動後按每公斤體重攝取相同碳水化合物時，4 小時內的糖原儲存能力沒有差異
+    detail: 研究結果不能簡化成「女性超補無效」；書中強調的是實際吃進的碳水化合物總量與能量，而非只看碳水化合物占熱量的百分比。
+    terms:
+    - carbohydrate-loading
+    - carbohydrate
+    - glycogen
+    numbers:
+    - v: 4
+      unit: 小時
+      of: 男女按每公斤體重攝取相同碳水化合物後，比較糖原儲存能力的運動後時段
     concepts:
     - nutrition
     - energy-supply
-    related: []
-    locator: ''
+    - population
+    related:
+    - ch10.carb-loading.i04
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Precompetition Nutrition > Carbohydrate Loading
   - id: ch10.carb-loading.i06
-    q: 適用運動
+    q: 可能從碳水化合物超補獲益的運動
     a:
-    - 長跑、公路自行車、越野滑雪等 >2h 的有氧耐力項目
-    - 間歇性高強度運動效果有限
-    detail: ''
-    terms: []
+    - 長跑、公路自行車、越野滑雪等有糖原耗竭風險的有氧耐力運動員，可能獲益
+    - 書中只說其他運動員也可能受益，未對間歇性高強度運動下出一概而論的結論
+    detail: 效益程度會因人而異；書中建議運動員在練習期間權衡可能的暫時增重等副作用，再決定是否採用。
+    terms:
+    - carbohydrate-loading
+    - glycogen
     numbers: []
     concepts:
     - nutrition
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch10.carb-loading.i07
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Precompetition Nutrition > Carbohydrate Loading
   - id: ch10.carb-loading.i07
-    q: 副作用
+    q: 碳水化合物超補的實務限制
     a:
-    - 暫時性體重增加（肝醣存水 3–4 倍）
-    - 腸脹氣（避免豆類/菊糖 oligosaccharides）
-    detail: ''
-    terms: []
+    - 可能出現暫時性體重增加
+    - 豆類、豌豆、洋蔥與添加菊糖或其他寡糖的食品，可能因腸道細菌快速發酵而造成過多腸氣與腹脹
+    detail: 書中沒有在超補段落量化「糖原會帶幾倍水分」；這裡的重點是先在練習中試行，找出個人可耐受的碳水來源。
+    terms:
+    - carbohydrate-loading
     numbers: []
     concepts:
     - nutrition
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch10.carb-loading.i06
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Precompetition Nutrition > Carbohydrate Loading
   - id: ch10.carb-loading.i08
-    q: 考試重點
+    q: 能從碳水化合物超補得到效益的攝取範圍
     a:
-    - 有效超補最低劑量 = 8 g/kg BW
-    - 女性失敗主因 = 總碳水攝取不足而非性別差異
-    detail: ''
-    terms: []
-    numbers: []
+    - 超補期間每天需攝取 8–10 g/kg 體重的碳水化合物，才會察覺到超補效益
+    detail: 這是書中對「超補期間」的範圍，不是一般訓練日、賽中或賽後的碳水化合物建議量。
+    terms:
+    - carbohydrate-loading
+    - carbohydrate
+    numbers:
+    - v: 8–10
+      unit: g/kg 體重/日
+      of: 超補期間為獲得超補效益所需的每日碳水化合物攝取範圍
     concepts:
     - nutrition
     - energy-supply
-    related: []
-    locator: ''
+    related:
+    - ch10.carb-loading.i02
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Precompetition Nutrition > Carbohydrate Loading
 - id: during-event
   title: 賽中營養 During-Event Nutrition
   desc: ''
   tag: During-Event
   items:
   - id: ch10.during-event.i01
-    q: 水分補充原則
+    q: 賽中水分補充的原則
     a:
-    - 預防體重流失超過 2% BW
-    - 個別化補水計畫（賽前後體重差）
-    detail: ''
-    terms: []
-    numbers: []
+    - 運動中攝取足量液體，避免水分造成的體重流失超過體重的 2%
+    - 應在特定天氣條件下量測訓練與比賽的體重變化，以此制定個人化水合策略
+    detail: 書中把這項上限連結到運動表現、過熱、脫水與熱疾病的預防；個人化的依據是實際體重變化與電解質流失差異，而不是單一固定飲水量。
+    terms:
+    - hydration
+    numbers:
+    - v: 2
+      unit: '% 體重'
+      of: 賽中應避免超過的水分造成體重流失上限
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch10.during-event.i03
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > During-Event Nutrition
   - id: ch10.during-event.i02
-    q: 運動飲料成分
+    q: 熱天長時間運動時運動飲料的組成
     a:
-    - Na 20–30 mEq/L（460–690 mg）
-    - K 2–5 mEq/L（78–195 mg）
-    - 碳水濃度 5–10%（理想 6–8%）
-    detail: ''
-    terms: []
-    numbers: []
+    - 每公升含鈉 20–30 mEq（氯離子為陰離子時為 460–690 mg）、鉀 2–5 mEq（78–195 mg）
+    - 碳水化合物濃度可為 5–10%；超過 8% 會延遲胃排空，故 6–8% 可能較理想
+    detail: 「6–8% 可能理想」是源自高於 8% 會延遲胃排空、可能引起胃部不適的推論；不同運動員的耐受度仍須個別測試。
+    terms:
+    - electrolyte
+    - carbohydrate
+    numbers:
+    - v: 20–30
+      unit: mEq/L
+      of: 熱天長時間活動時運動飲料每公升的鈉含量
+    - v: 460–690
+      unit: mg/L
+      of: 氯離子為陰離子時，上述鈉含量的毫克表示
+    - v: 2–5
+      unit: mEq/L
+      of: 熱天長時間活動時運動飲料每公升的鉀含量
+    - v: 78–195
+      unit: mg/L
+      of: 上述鉀含量的毫克表示
+    - v: 5–10
+      unit: '%'
+      of: 熱天長時間活動時運動飲料的碳水化合物濃度
+    - v: '>8'
+      unit: '%'
+      of: 會延遲胃排空的運動飲料碳水化合物濃度
+    - v: 6–8
+      unit: '%'
+      of: 書中認為可能理想的運動飲料碳水化合物濃度
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch10.during-event.i01
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > During-Event Nutrition
   - id: ch10.during-event.i03
-    q: 兒童補水
+    q: 兒童與青少年的賽中飲水建議
     a:
-    - 40 kg 兒童：148 ml / 每 20 分鐘
-    - 60 kg 青少年：256 ml / 每 20 分鐘（即使不渴）
-    detail: ''
-    terms: []
-    numbers: []
+    - 體重 40 kg 的兒童，練習中每 20 分鐘飲用 5 oz（148 ml）冷水或調味含鹽飲料
+    - 體重 60 kg 的青少年，每 20 分鐘飲用 9 oz（256 ml），即使沒有口渴感
+    detail: 書中提醒一次喝 9 oz 對青少年已是不小的量，可能造成胃部不適，因此仍可能需要依個別運動員調整。
+    terms:
+    - hydration
+    - electrolyte
+    numbers:
+    - v: 40
+      unit: kg
+      of: 兒童飲水建議所對應的體重
+    - v: 5
+      unit: oz
+      of: 該體重兒童每次建議飲用的冷水或調味含鹽飲料量
+    - v: 148
+      unit: ml
+      of: 該體重兒童每次建議飲用量的毫升表示
+    - v: 20
+      unit: 分鐘
+      of: 兒童與青少年飲水建議的間隔
+    - v: 60
+      unit: kg
+      of: 青少年飲水建議所對應的體重
+    - v: 9
+      unit: oz
+      of: 該體重青少年每次建議飲用的量
+    - v: 256
+      unit: ml
+      of: 該體重青少年每次建議飲用量的毫升表示
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    - population
+    related:
+    - ch10.during-event.i01
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > During-Event Nutrition
   - id: ch10.during-event.i04
-    q: 有氧耐力碳水攝取
+    q: 長時間有氧耐力運動的賽中碳水化合物攝取
     a:
-    - 28–144 g/h
-    - 多種碳水組合（葡萄糖＋果糖＋麥芽糊精）可提高氧化速率至 >1 g/min
-    detail: ''
-    terms: []
-    numbers: []
+    - 每小時攝取 28–144 g 碳水化合物；較高攝取量的研究主要見於自行車運動
+    - 對有限糖原儲存的依賴降低，可延長至力竭時間並改善表現
+    detail: 運動飲料雖能供應碳水化合物，但在長時間高強度活動中，除非喝下過量液體，通常無法追上運動員的碳水化合物利用量。
+    terms:
+    - carbohydrate
+    - glycogen
+    numbers:
+    - v: 28–144
+      unit: g/小時
+      of: 長時間有氧耐力活動中研究過的每小時碳水化合物攝取範圍
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    - energy-supply
+    related:
+    - ch10.during-event.i05
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > During-Event Nutrition > Aerobic Endurance Sports
   - id: ch10.during-event.i05
-    q: 多種碳水優勢
+    q: 賽中混合多種碳水化合物的理由
     a:
-    - 不同腸道轉運蛋白 → 轉運飽和後可繼續吸收
-    - 葡萄糖＋果糖比單獨葡萄糖改善計時賽表現
-    detail: ''
-    terms: []
-    numbers: []
+    - 各種碳水化合物有不同腸道運輸系統；只攝取一種時，該種的運輸蛋白飽和會限制消化
+    - 併用蔗糖、果糖、葡萄糖或麥芽糊精，可比等熱量的單一糖提高吸收率與外源性碳水化合物氧化
+    - 外源性碳水化合物氧化率不超過每分鐘 1.0–1.1 g；葡萄糖加果糖在自行車計時賽研究中優於單用葡萄糖
+    detail: 混合來源的優勢不是無限提高氧化速率；書中明確指出外源性氧化本身仍有每分鐘約 1 g 的上限。
+    terms:
+    - carbohydrate
+    numbers:
+    - v: 1.0–1.1
+      unit: g/分鐘
+      of: 外源性碳水化合物氧化率不會超過的範圍
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    - energy-supply
+    related:
+    - ch10.during-event.i04
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > During-Event Nutrition > Aerobic Endurance Sports
   - id: ch10.during-event.i06
-    q: 間歇性高強度運動
+    q: 間歇性高強度運動的賽中碳水化合物與液體
     a:
-    - 碳水電解質飲料改善技術表現（網球揮拍精準度、足球運球）
-    - 在肝醣耗竭狀態效果更顯著
-    detail: ''
-    terms: []
+    - 長時間間歇性運動時，液體與碳水化合物供應對表現很重要
+    - 碳水化合物補充可改善長時間網球比賽的擊球品質；在一項足球研究中，碳水化合物－電解質飲料改善部分特定技能表現
+    detail: 足球研究的結果並非所有測試項目皆改善；且另一項研究先以耗竭運動、低碳水化合物餐與隔夜禁食處理，因此其效果不能直接外推到進食充足的比賽情境。
+    terms:
+    - carbohydrate
+    - electrolyte
+    - glycogen
     numbers: []
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch10.during-event.i01
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > During-Event Nutrition > Intermittent High-Intensity Sports
   - id: ch10.during-event.i07
-    q: 力量/爆發力運動
+    q: 力量與爆發力運動的賽中碳水化合物
     a:
-    - 阻力訓練需消耗大量肌肉肝醣
-    - 賽前與賽中補充碳水可維持肝醣、減少肌肉分解
-    detail: ''
-    terms: []
+    - 阻力訓練會使用大量肌肉糖原；力量與爆發力競賽或特別依賴肌力與爆發力的位置，可能耗竭糖原
+    - 賽前與賽中補充碳水化合物可維持糖原儲存，可能降低慢縮肌纖維的肌肉疲勞並改善表現
+    detail: 源書以「可能」描述對慢縮肌纖維疲勞與表現的效果；不可改寫成已確定的肌肉分解降低效果。
+    terms:
+    - carbohydrate
+    - glycogen
     numbers: []
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    - energy-supply
+    related:
+    - ch10.post-competition.i05
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > During-Event Nutrition > Strength and Power Sports
   - id: ch10.during-event.i08
-    q: 口腔漱口效應
+    q: 碳水化合物漱口的表現效果
     a:
-    - 碳水漱口（不吞嚥）可透過中樞神經系統改善約 1 小時運動表現 2–3%
-    detail: ''
-    terms: []
-    numbers: []
+    - 將碳水化合物在口中漱過而不吞下，似乎可使約 1 小時的運動表現改善 2–3%
+    - 其機制推測與中樞神經系統有關
+    detail: 書中以「seems」與「presumably」表述這個發現，故效果與機制皆不能寫成確定因果。
+    terms:
+    - carbohydrate
+    numbers:
+    - v: 1
+      unit: 小時
+      of: 研究中碳水化合物漱口似乎可改善表現的運動持續時間
+    - v: 2–3
+      unit: '%'
+      of: 碳水化合物漱口似乎帶來的表現改善幅度
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch10.during-event.i04
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > During-Event Nutrition > Aerobic Endurance Sports
 - id: eating-disorders
   title: 飲食失調 Eating Disorders
   desc: ''
   tag: Eating Disorders
   items:
   - id: ch10.eating-disorders.i01
-    q: 厭食症 Anorexia Nervosa
+    q: 神經性厭食症（anorexia nervosa）的特徵與流行病學
     a:
-    - 體像扭曲＋強烈恐懼增重 → 極度限制熱量
-    - 平均發病 19 歲
-    - 女性終身盛行率 0.9%
-    - 所有精神疾患中死亡率最高
-    detail: ''
-    terms: []
-    numbers: []
+    - 體像扭曲、強烈害怕增重或變胖，導致過度限制熱量與嚴重減重；也常過度重視體重或體型，卻不承認疾病嚴重性
+    - 平均發病年齡為 19 歲；女性與男性終生盛行率分別為 0.9% 與 0.3%
+    - 在所有精神健康疾患中，神經性厭食症的死亡率最高
+    detail: 這些盛行率與治療統計採用較舊的診斷標準；書中明確提醒，2013 年修訂診斷標準後的盛行率可能上升。
+    terms:
+    - anorexia-nervosa
+    numbers:
+    - v: 19
+      unit: 歲
+      of: 神經性厭食症的平均發病年齡
+    - v: 0.9
+      unit: '%'
+      of: 女性神經性厭食症的終生盛行率
+    - v: 0.3
+      unit: '%'
+      of: 男性神經性厭食症的終生盛行率
     concepts:
     - nutrition
     - psychology
-    related: []
-    locator: ''
+    related:
+    - ch10.eating-disorders.i07
+    locator: Feeding and Eating Disorders > Anorexia Nervosa
   - id: ch10.eating-disorders.i02
-    q: 厭食症症狀
+    q: 神經性厭食症的身體症狀
     a:
-    - 骨質疏鬆、掉髮、皮膚乾燥黃化、lanugo（胎毛）、貧血、低血壓、心臟損傷、腦部損傷、多器官衰竭
-    detail: ''
-    terms: []
+    - 骨質變薄（骨質減少症或骨質疏鬆症）、頭髮與指甲脆弱、皮膚乾燥偏黃、全身長出細毛（胎毛）
+    - 輕度貧血、肌肉消耗與無力、嚴重便祕、低血壓、呼吸與脈搏變慢
+    - 心臟結構與功能受損、腦部損傷、多器官衰竭、體內溫度下降而長期怕冷、倦怠與不孕
+    detail: 本清單是書中轉載的 National Institute of Mental Health 症狀清單，屬於識別警訊，不可由肌力與體能專業人員據此自行診斷。
+    terms:
+    - anorexia-nervosa
     numbers: []
     concepts:
     - nutrition
     - psychology
-    related: []
-    locator: ''
+    related:
+    - ch10.eating-disorders.i07
+    locator: Feeding and Eating Disorders > Anorexia Nervosa > Symptoms of Anorexia Nervosa
   - id: ch10.eating-disorders.i03
-    q: 暴食症 Bulimia Nervosa
+    q: 神經性貪食症（bulimia nervosa）的特徵與流行病學
     a:
-    - 反覆暴食後清除（催吐/瀉藥/過度運動）
-    - ≥1 次/週 × 3 個月
-    - 體重通常正常
-    - 發病平均 20 歲
-    - 盛行率 0.6%
-    detail: ''
-    terms: []
-    numbers: []
+    - 在一段明確時間內反覆吃下遠多於一般人會吃的量，之後以自我催吐、劇烈運動、瀉藥或利尿劑等方式清除
+    - 暴食與清除至少每週 1 次、持續 3 個月；患者暴食時感到失去控制，較常為正常體重而非過輕
+    - 平均發病年齡為 20 歲，終生盛行率為 0.6%
+    detail: 書中同樣註明此盛行率基於較舊診斷標準，修訂後的盛行率可能上升；不要把「較常正常體重」誤寫成診斷條件。
+    terms:
+    - bulimia-nervosa
+    numbers:
+    - v: 1
+      unit: 次/週
+      of: 神經性貪食症暴食與清除行為的最低頻率
+    - v: 3
+      unit: 個月
+      of: 神經性貪食症暴食與清除行為須持續的期間
+    - v: 20
+      unit: 歲
+      of: 神經性貪食症的平均發病年齡
+    - v: 0.6
+      unit: '%'
+      of: 神經性貪食症的終生盛行率
     concepts:
     - nutrition
     - psychology
-    related: []
-    locator: ''
+    related:
+    - ch10.eating-disorders.i04
+    locator: Feeding and Eating Disorders > Bulimia Nervosa
   - id: ch10.eating-disorders.i04
-    q: 暴食症症狀
+    q: 神經性貪食症的身體症狀
     a:
-    - 慢性喉嚨發炎、頸部腺體腫大、牙釉質受損（胃酸）、電解質失衡（低鈉/鉀/鈣 → 心臟病發）
-    detail: ''
-    terms: []
+    - 慢性喉嚨發炎與疼痛、頸部與下顎區唾液腺腫大、胃酸造成牙釉質磨損與牙齒敏感或蛀蝕
+    - 胃食道逆流與其他腸胃問題、瀉藥濫用造成腸道不適與刺激、清除體液造成嚴重脫水
+    - 鈉、鈣、鉀等礦物質過低或過高的電解質失衡，可能導致心臟病發作
+    detail: 症狀清單同樣是書中轉載的 National Institute of Mental Health 資料；書上寫的是「heart attack」，不是泛稱的所有心臟疾病。
+    terms:
+    - bulimia-nervosa
+    - electrolyte
+    - dehydration
     numbers: []
     concepts:
     - nutrition
     - psychology
-    related: []
-    locator: ''
+    related:
+    - ch10.eating-disorders.i07
+    locator: Feeding and Eating Disorders > Bulimia Nervosa > Symptoms of Bulimia Nervosa
   - id: ch10.eating-disorders.i05
-    q: 暴食症 BED
+    q: 暴食疾患（binge-eating disorder）的特徵與流行病學
     a:
-    - 反覆無控制暴食，無清除行為
-    - ≥1 次/週 × 3 週
-    - 女性 3.5%、男性 2.0%
-    - 常見過重或肥胖
-    - 發病平均 25 歲
-    detail: ''
-    terms: []
-    numbers: []
+    - 反覆無法控制地暴食；發作至少每週 1 次，持續 3 週，且同時出現至少 3 項相關行為或感受，例如吃得異常快、吃到不舒服地飽、非飢餓仍大量進食、因尷尬獨食或事後自責
+    - 暴食後沒有像神經性貪食症一樣的清除行為，因此患者常過重或肥胖
+    - 男性與女性終生盛行率分別為 2.0% 與 3.5%，平均發病年齡為 25 歲
+    detail: 教材原文將最低頻率寫為「每週一次、持續三週」；這些統計也基於 2013 年納入特定診斷類別前的較舊標準，原文並說修訂後盛行率可能上升。
+    terms:
+    - binge-eating-disorder
+    - bulimia-nervosa
+    numbers:
+    - v: 1
+      unit: 次/週
+      of: 教材原文所列暴食疾患發作的最低頻率
+    - v: 3
+      unit: 週
+      of: 教材原文所列暴食疾患發作須持續的期間
+    - v: 2.0
+      unit: '%'
+      of: 男性暴食疾患的終生盛行率
+    - v: 3.5
+      unit: '%'
+      of: 女性暴食疾患的終生盛行率
+    - v: 25
+      unit: 歲
+      of: 暴食疾患的平均發病年齡
     concepts:
     - nutrition
     - psychology
-    related: []
-    locator: ''
+    related:
+    - ch10.eating-disorders.i03
+    locator: Feeding and Eating Disorders > Binge-Eating Disorder
   - id: ch10.eating-disorders.i06
-    q: 高風險運動類型
+    q: 運動員出現失序飲食與飲食疾患的風險情境
     a:
-    - 量級運動（摔角）→ 節食
-    - 強調瘦度（越野跑）
-    - 審美性運動（體操、花式溜冰）→ 飲食失調比例更高
-    detail: ''
+    - 研究顯示，運動員的失序飲食與飲食疾患盛行率高於對照組
+    - 量級運動（如摔角）、強調纖瘦的運動（如越野跑）與審美運動（如體操）的運動員可能較易出現這些問題
+    detail: 失序飲食的徵象可包括限制飲食、禁食、跳過正餐、服用減肥藥、瀉藥或利尿劑；但失序飲食並不等於已符合飲食疾患完整診斷標準。
     terms: []
     numbers: []
     concepts:
     - nutrition
     - psychology
-    related: []
-    locator: ''
+    related:
+    - ch10.eating-disorders.i07
+    locator: Feeding and Eating Disorders
   - id: ch10.eating-disorders.i07
-    q: SC 的職責
+    q: 肌力與體能專業人員面對疑似飲食疾患的職責
     a:
-    - 辨識症狀 → 轉介合格醫療/心理/營養師團隊
-    - SC 不負責診斷或治療
-    - 建立轉介網絡是倫理義務
-    detail: ''
-    terms: []
+    - 肌力與體能專業人員不負責診斷或治療，而是協助運動員取得合格醫師的正確診斷及治療團隊的治療
+    - 當行為令人擔憂時，應聯絡有診斷與治療飲食疾患經驗、資格的專業人員；並預先建立心理、醫療與營養轉介網絡
+    detail: 異常飲食模式或單獨的閉經，都不能單獨作為飲食疾患的指標；因此正確行動是轉介評估而非自行判定。
+    terms:
+    - strength-and-conditioning-professional
     numbers: []
     concepts:
     - nutrition
     - psychology
-    related: []
-    locator: ''
+    - professional
+    related:
+    - ch10.eating-disorders.i01
+    - ch10.eating-disorders.i03
+    locator: "Feeding and Eating Disorders > Eating Disorders: Management and Care"
   - id: ch10.eating-disorders.i08
-    q: ARFID / Pica / 反芻
+    q: 迴避／限制性食物攝取疾患、異食癖與反芻疾患
     a:
-    - ARFID：因感官/後果恐懼迴避食物
-    - Pica：吞食非食物（泥土/頭髮）≥1 月
-    - 反芻：反覆咀嚼反芻食物
-    detail: ''
-    terms: []
-    numbers: []
+    - 迴避／限制性食物攝取疾患（avoidant/restrictive food intake disorder, ARFID）可表現為缺乏進食興趣、因食物感官特徵而迴避，或害怕進食的不良後果，並持續無法滿足營養或能量需求
+    - 異食癖（pica）是在至少 1 個月內食用非營養物質，例如黏土、洗衣澱粉、冰、菸蒂、頭髮或粉筆
+    - 反芻疾患（rumination disorder）是在至少 1 個月內反覆咀嚼、再吞嚥或吐出逆流食物，且行為與醫療狀況無關
+    detail: ARFID 不能單以食物不足或文化認可的飲食實踐解釋，也不應只在神經性厭食症或神經性貪食症病程中出現；異食癖則建議檢測貧血，因其與缺鐵有關。
+    terms:
+    - avoidant-restrictive-food-intake-disorder
+    - pica
+    - rumination-disorder
+    numbers:
+    - v: 1
+      unit: 個月
+      of: 異食癖食用非營養物質須持續的最低期間
+    - v: 1
+      unit: 個月
+      of: 反芻疾患反覆處理逆流食物須持續的最低期間
     concepts:
     - nutrition
     - psychology
-    related: []
-    locator: ''
+    related:
+    - ch10.eating-disorders.i07
+    locator: Feeding and Eating Disorders
 - id: obesity-assessment
   title: 過重與肥胖評估 Overweight & Obesity Assessment
   desc: ''
   tag: Obesity
   items:
   - id: ch10.obesity-assessment.i01
-    q: BMI 分類
+    q: 身體質量指數（body mass index, BMI）的成人分類
     a:
-    - 過重：25–29.9 kg/m²
-    - 肥胖 I：30–34.9
-    - 肥胖 II：35–39.9
-    - 極端肥胖 III：≥40
-    detail: ''
-    terms: []
-    numbers: []
+    - 過輕：低於 18.5 kg/m²；正常：18.5–24.9 kg/m²；過重：25.0–29.9 kg/m²
+    - 肥胖 I 級：30.0–34.9 kg/m²；肥胖 II 級：35.0–39.9 kg/m²；極端肥胖 III 級：高於 40 kg/m²
+    detail: 教材表 10.5 對極端肥胖 III 級逐字列為「>40」，雖與常見分類的寫法可能不同，這裡依教材表格保留。
+    terms:
+    - body-mass-index
+    numbers:
+    - v: <18.5
+      unit: kg/m²
+      of: 成人 BMI 過輕分類的界值
+    - v: 18.5–24.9
+      unit: kg/m²
+      of: 成人 BMI 正常分類範圍
+    - v: 25.0–29.9
+      unit: kg/m²
+      of: 成人 BMI 過重分類範圍
+    - v: 30.0–34.9
+      unit: kg/m²
+      of: 成人 BMI 肥胖 I 級分類範圍
+    - v: 35.0–39.9
+      unit: kg/m²
+      of: 成人 BMI 肥胖 II 級分類範圍
+    - v: '>40'
+      unit: kg/m²
+      of: 教材表 10.5 的成人 BMI 極端肥胖 III 級界值
     concepts:
     - nutrition
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch10.obesity-assessment.i02
+    locator: Nutrition Strategies for Altering Body Composition > Overweight and Obesity
   - id: ch10.obesity-assessment.i02
-    q: BMI 公式
+    q: BMI 的計算方式與限制
     a:
-    - kg/m²
-    - 或 [lb/in²] × 703
-    - ⚠️ 運動員肌肉多→高估體脂
-    - 老年人→低估體脂
-    - 只作篩選工具，非診斷工具
-    detail: ''
-    terms: []
-    numbers: []
+    - 公制公式為體重（kg）／身高（m）²；英制公式為［體重（lb）／身高（in）²］× 703
+    - BMI 是由身高與體重算出的超重指標，實際測量的是過多體重而不是過多體脂肪，不能區分脂肪、肌肉與骨量
+    - 它只適合初步篩檢與追蹤族群盛行率；肌肉量高的運動員可能被高估，失去肌肉的高齡者可能被低估，應另用皮脂厚度或雙能量 X 光吸收儀等身體組成測量
+    detail: BMI 與體脂肪的關聯還會受到年齡、性別、族群與肌肉量影響；書中明說沒有任何單一體脂肪測量可單獨評估健康、疾病或疾病風險。
+    terms:
+    - body-mass-index
+    numbers:
+    - v: 2
+      unit: 次方
+      of: BMI 兩種公式中身高的平方指數
+    - v: 703
+      unit: 係數
+      of: 英制 BMI 公式將磅與英吋換算為 kg/m² 時使用的乘數
     concepts:
     - nutrition
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch10.obesity-assessment.i01
+    - ch10.obesity-assessment.i07
+    locator: Nutrition Strategies for Altering Body Composition > Overweight and Obesity
   - id: ch10.obesity-assessment.i03
-    q: 腰圍疾病風險
+    q: 腰圍與疾病相對風險
     a:
-    - 男性 >102 cm（40 in）→ 相對風險增加
-    - 女性 >88 cm（35 in）→ 相對風險增加
-    - 即使 BMI 正常，腰圍超標仍代表風險
-    detail: ''
-    terms: []
-    numbers: []
+    - 男性腰圍高於 102 cm（40 in）及女性高於 88 cm（35 in）時，疾病相對風險增加
+    - 即使體重正常，腰圍增加仍可能是風險增加的指標
+    detail: 書中以腰圍作為 BMI 以外的疾病風險測量；表 10.5 的風險是相對於正常體重與較小腰圍者，而不是腰圍本身的診斷。
+    terms:
+    - waist-circumference
+    - body-mass-index
+    numbers:
+    - v: '>102'
+      unit: cm
+      of: 男性腰圍疾病相對風險增加的界值
+    - v: 40
+      unit: in
+      of: 男性腰圍疾病相對風險增加界值的英制表示
+    - v: '>88'
+      unit: cm
+      of: 女性腰圍疾病相對風險增加的界值
+    - v: 35
+      unit: in
+      of: 女性腰圍疾病相對風險增加界值的英制表示
     concepts:
     - nutrition
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch10.obesity-assessment.i01
+    locator: Nutrition Strategies for Altering Body Composition > Overweight and Obesity
   - id: ch10.obesity-assessment.i04
-    q: 肥胖相關疾病
+    q: 過重與肥胖相關的疾病風險
     a:
-    - 高血壓、高血脂、冠心病、第二型糖尿病、睡眠呼吸中止症、骨關節炎、多種癌症（子宮內膜、乳癌、前列腺、大腸）
-    detail: ''
-    terms: []
+    - 過重與肥胖會增加高血壓、血脂異常、冠心病、膽囊疾病、中風、第二型糖尿病、睡眠呼吸中止症、骨關節炎與呼吸問題的罹病風險
+    - 也增加子宮內膜癌、乳癌、前列腺癌與結腸癌的風險
+    detail: 心臟病風險還會與高血壓、高 LDL、低 HDL、高三酸甘油酯、高血糖、身體不活動、早發心臟病家族史或抽菸等風險因子共同升高。
+    terms:
+    - body-mass-index
     numbers: []
     concepts:
     - nutrition
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch10.obesity-assessment.i08
+    locator: Nutrition Strategies for Altering Body Composition > Overweight and Obesity
   - id: ch10.obesity-assessment.i05
-    q: 熱量消耗三大組成
+    q: 每日能量消耗的主要組成
     a:
-    - BMR/RMR（65–70%）：最大
-    - 體力活動（20–30%）：最可變
-    - 食物產熱效應（10–15%）：最小
-    detail: ''
-    terms: []
-    numbers: []
+    - 基礎代謝率（basal metabolic rate, BMR）約占每日能量消耗 65–70%，是最大的組成
+    - 身體活動約占 20–30%，是個人之間最可變的組成，運動員可能更高
+    - 飲食誘發性產熱（diet-induced thermogenesis）約占每日燃燒熱量 10–15%
+    detail: 靜息代謝率（resting metabolic rate, RMR）常因較易量測而取代 BMR，但它不需要隔夜禁食，且會因近期進食或較早的身體活動而比 BMR 高 10–20%。
+    terms:
+    - basal-metabolic-rate
+    - resting-metabolic-rate
+    - diet-induced-thermogenesis
+    numbers:
+    - v: 65–70
+      unit: '%'
+      of: 基礎代謝率占每日總能量消耗的比例
+    - v: 20–30
+      unit: '%'
+      of: 身體活動占每日總能量消耗的比例
+    - v: 10–15
+      unit: '%'
+      of: 飲食誘發性產熱占每日燃燒熱量的比例
+    - v: 10–20
+      unit: '%'
+      of: 靜息代謝率相較基礎代謝率較高的範圍
     concepts:
     - nutrition
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch10.obesity-assessment.i06
+    locator: Nutrition Strategies for Altering Body Composition
   - id: ch10.obesity-assessment.i06
-    q: Cunningham 方程式
+    q: Cunningham 方程式與運動員的能量估算
     a:
-    - RMR = 500 + 22 × LBM(kg)
-    - 比 Harris-Benedict 更適用於運動員（納入瘦體重）
-    detail: ''
-    terms: []
-    numbers: []
+    - 靜息代謝率（resting metabolic rate, RMR）＝ 500 + 22 × 瘦體重（lean body mass, LBM；kg）
+    - Harris-Benedict 方程式以性別、體重、身高與年齡預測 RMR，未納入肌肉量；Cunningham 方程式另納入瘦體重，故較適用於運動員
+    detail: 以 Cunningham 方程式估出 RMR 後，書中建議再用活動係數估計每日總能量消耗；它仍是預測值而不是直接量測。
+    terms:
+    - resting-metabolic-rate
+    - lean-body-mass
+    - cunningham-equation
+    - harris-benedict-equation
+    numbers:
+    - v: 500
+      unit: kcal/日
+      of: Cunningham 靜息代謝率方程式的常數項
+    - v: 22
+      unit: kcal/kg 瘦體重/日
+      of: Cunningham 方程式中每公斤瘦體重的係數
     concepts:
     - nutrition
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch10.obesity-assessment.i05
+    locator: Nutrition Strategies for Altering Body Composition
   - id: ch10.obesity-assessment.i07
-    q: 兒童 BMI
+    q: 兒童 BMI 的年齡百分位分類
     a:
-    - 同計算式，但需按年齡性別百分位解讀：<5th = 過輕，5–85th = 健康，85–95th = 過重，≥95th = 肥胖
-    detail: ''
-    terms: []
-    numbers: []
+    - 兒童 BMI 的計算式與成人相同，但解讀須考量年齡與性別
+    - 低於第 5 百分位為過輕；第 5 至未滿第 85 百分位為健康體重；第 85 至未滿第 95 百分位為過重；第 95 百分位以上為肥胖
+    detail: 書中另指出身高與性成熟也會影響兒童 BMI；因此不能把成人 BMI 界值直接套用到兒童。
+    terms:
+    - body-mass-index
+    numbers:
+    - v: <5
+      unit: 百分位
+      of: 兒童 BMI 過輕分類的界值
+    - v: 5–<85
+      unit: 百分位
+      of: 兒童 BMI 健康體重分類範圍
+    - v: 85–<95
+      unit: 百分位
+      of: 兒童 BMI 過重分類範圍
+    - v: '≥95'
+      unit: 百分位
+      of: 兒童 BMI 肥胖分類的界值
     concepts:
     - nutrition
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch10.obesity-assessment.i02
+    locator: Nutrition Strategies for Altering Body Composition > Overweight and Obesity
   - id: ch10.obesity-assessment.i08
-    q: 肥胖治療
+    q: 過重與肥胖治療的方式與初始目標
     a:
-    - 飲食療法＋運動＋行為治療＋藥物＋手術（多合一）
-    - 初始目標：6 個月內減少 10% 初始體重
-    detail: ''
-    terms: []
-    numbers: []
+    - 有效方式包括飲食治療、改變身體活動型態、行為治療技術、藥物治療與手術，有些患者會合併使用
+    - 過重或肥胖者的初始減重目標應是 6 個月內減去初始體重的 10%
+    detail: 肥胖的成因是基因與環境交互作用，包含社會、行為、文化、代謝、生理與遺傳因素；書中強調不能以同一方式處理所有肥胖者。
+    terms:
+    - body-mass-index
+    numbers:
+    - v: 6
+      unit: 個月
+      of: 過重或肥胖者初始減重目標的時間範圍
+    - v: 10
+      unit: '% 初始體重'
+      of: 過重或肥胖者的初始減重目標
     concepts:
     - nutrition
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch10.obesity-assessment.i04
+    locator: Nutrition Strategies for Altering Body Composition > Overweight and Obesity
 - id: post-competition
   title: 賽後營養 Post-Competition Nutrition
   desc: ''
   tag: Postcompetition
   items:
   - id: ch10.post-competition.i01
-    q: 肝醣再合成 Phase 1
+    q: 運動後糖原再合成的第一階段
     a:
-    - 運動後 30–60 分鐘
-    - 胰島素非依賴性
-    - 速率最快 → 1.0–1.85 g/kg BW/h 碳水，每 15–60 分鐘一次，持續 5 小時
-    detail: ''
-    terms: []
-    numbers: []
+    - 第一階段持續 30–60 分鐘，不依賴胰島素，糖原合成很快
+    - 運動或比賽後立即攝取每小時 1.0–1.85 g/kg 體重碳水化合物，之後每 15–60 分鐘定期補充，最多持續 5 小時，可使糖原快速合成
+    detail: 書中以「大量」碳水化合物且「立即」攝取描述這個快速途徑；是否需要採這種積極策略，取決於下一次訓練或比賽的間隔。
+    terms:
+    - glycogen
+    - glycogenesis
+    - carbohydrate
+    numbers:
+    - v: 30–60
+      unit: 分鐘
+      of: 運動後糖原再合成第一階段持續的時間
+    - v: 1.0–1.85
+      unit: g/kg 體重/小時
+      of: 運動或比賽後快速糖原合成時的碳水化合物攝取量
+    - v: 15–60
+      unit: 分鐘
+      of: 快速糖原合成期間碳水化合物的定期補充間隔
+    - v: 5
+      unit: 小時
+      of: 快速糖原合成攝取方案可持續的最長時間
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch10.post-competition.i03
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Postcompetition Nutrition > Aerobic Endurance Events
   - id: ch10.post-competition.i02
-    q: 肝醣再合成 Phase 2
+    q: 運動後糖原再合成的第二階段
     a:
-    - 數小時後
-    - 胰島素依賴性
-    - 速率較慢 → 若恢復時間 >24h，可在整日分次補充碳水即可
-    detail: ''
-    terms: []
+    - 第二階段持續數小時，糖原合成速率比第一階段慢得多
+    detail: 源書只將第一階段稱為不依賴胰島素，沒有把第二階段標示為「胰島素依賴性」；不能自行補上此分類。
+    terms:
+    - glycogen
+    - glycogenesis
     numbers: []
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch10.post-competition.i01
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Postcompetition Nutrition > Aerobic Endurance Events
   - id: ch10.post-competition.i03
-    q: 碳水攝取時機
+    q: 賽後碳水化合物攝取的時機取決於恢復間隔
     a:
-    - <24h 需再次比賽/訓練 → 立即補充
-    - '>24h 可等待約 2h 後才進食，24h 內補足即可'
-    detail: ''
-    terms: []
-    numbers: []
+    - 有多於 24 小時可恢復者，只要攝取足夠碳水化合物，可在運動後的 24 小時內補回糖原；研究中延後 2 小時開始進食，8 與 24 小時後的糖原再合成率與立即進食組相同
+    - 每天訓練 2 或 3 次，或恢復時間少於 24 小時者，應考慮賽後立即高碳水化合物餐或飲品，並定期補充以加速回補
+    detail: 這不是「任何人都可延後兩小時」的規則；書中將較積極的立即補充特別留給兩次活動間隔很短的情境。
+    terms:
+    - carbohydrate
+    - glycogen
+    numbers:
+    - v: 24
+      unit: 小時
+      of: 有足夠恢復時間時可在其中補回糖原的時段，也是決定是否需要立即補充的界線
+    - v: 2
+      unit: 小時
+      of: 研究中延後開始攝取高升糖餐的時間
+    - v: 8
+      unit: 小時
+      of: 比較立即與延後攝取組糖原再合成率的第一個時間點
+    - v: 2–3
+      unit: 次/日
+      of: 書中列為應考慮立即高碳水化合物補充的每日訓練頻率
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch10.post-competition.i01
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Postcompetition Nutrition > Aerobic Endurance Events
   - id: ch10.post-competition.i04
-    q: 賽後蛋白質
+    q: 不同運動後的蛋白質建議
     a:
-    - 有氧耐力：至少 10 g / 運動後 3h 內
-    - 阻力訓練：年輕人 20–25 g（含 EAA 8.5–10 g）
-    - 老年人 ≥40 g
-    - 含亮氨酸 2–3 g 或 0.05 g/kg BW
-    detail: ''
-    terms: []
-    numbers: []
+    - 耐力運動後，書中一般指引為在 3 小時內至少攝取 10 g 蛋白質；精確劑量與時機尚不清楚，且可能受空腹／進食狀態與賽後總熱量影響
+    - 阻力訓練後，年輕人以 20–25 g 高品質、高亮氨酸、吸收快的蛋白質（約含 8.5–10 g 必需胺基酸）達到最大急性肌肉蛋白合成；年長者可能需要 40 g 以上
+    - 每份含 2–3 g 亮氨酸或每公斤體重 0.05 g 亮氨酸的蛋白質劑量，可使年輕成人肌肉蛋白合成達最大刺激
+    detail: 耐力運動的蛋白質時機不能被寫成精確硬門檻；書中同時指出，延後蛋白質攝取僅 3 小時的研究發現合成效應受鈍化，但理想時間窗仍未釐清。
+    terms:
+    - protein
+    - muscle-protein-synthesis
+    - essential-amino-acid
+    numbers:
+    - v: 10
+      unit: g
+      of: 耐力運動後一般指引的最低蛋白質攝取量
+    - v: 3
+      unit: 小時
+      of: 耐力運動後一般指引的蛋白質攝取時間窗，也是延後攝取研究的時間
+    - v: 20–25
+      unit: g
+      of: 年輕人阻力訓練後最大刺激急性肌肉蛋白合成的高品質蛋白質劑量
+    - v: 8.5–10
+      unit: g
+      of: 上述年輕人蛋白質劑量所提供的必需胺基酸量
+    - v: '≥40'
+      unit: g
+      of: 年長者可能需要以最大刺激急性肌肉蛋白合成的蛋白質劑量
+    - v: 2–3
+      unit: g
+      of: 每份蛋白質中可最大刺激年輕成人肌肉蛋白合成的亮氨酸量
+    - v: 0.05
+      unit: g/kg 體重
+      of: 可最大刺激年輕成人肌肉蛋白合成的亮氨酸相對劑量
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch10.post-competition.i07
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Postcompetition Nutrition
   - id: ch10.post-competition.i05
-    q: 力量/爆發力運動後碳水
+    q: 力量與爆發力運動後的糖原回補案例
     a:
-    - 運動後立即 1.5 g/kg BW＋1 小時後再補一次 → 可使肝醣恢復至賽前 91%（6h 內）
-    detail: ''
-    terms: []
-    numbers: []
+    - 一項阻力訓練研究中，受試者運動後立即及 1 小時後各攝取 1.5 g/kg 體重碳水化合物，6 小時時肌肉糖原由耗竭後的 71% 回到運動前的 91%
+    detail: 這是隔夜禁食後、單腿膝伸展運動的研究結果，並非保證所有力量運動員都會在相同時間恢復到相同比例；所需量取決於強度、時間、體重與肌肉量等因素。
+    terms:
+    - carbohydrate
+    - glycogen
+    numbers:
+    - v: 1.5
+      unit: g/kg 體重
+      of: 研究中阻力訓練後立即及一小時後各次攝取的碳水化合物量
+    - v: 1
+      unit: 小時
+      of: 研究中第二次碳水化合物攝取相對於阻力訓練結束的時間
+    - v: 6
+      unit: 小時
+      of: 研究中評估肌肉糖原回補的運動後時間點
+    - v: 71
+      unit: '% 運動前糖原'
+      of: 研究中阻力訓練後的肌肉糖原水準
+    - v: 91
+      unit: '% 運動前糖原'
+      of: 研究中兩次碳水化合物攝取後六小時的肌肉糖原水準
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch10.during-event.i07
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Postcompetition Nutrition > Strength and Power Sports
   - id: ch10.post-competition.i06
-    q: 蛋白質的碳水節省效果
+    q: 碳水化合物不足時加入蛋白質對糖原的作用
     a:
-    - 碳水攝取 <1.2 g/kg BW/h 時，加入蛋白質可提高肝醣合成速率（補救作用）
-    detail: ''
-    terms: []
-    numbers: []
+    - 當碳水化合物攝取不足（每小時低於 1.2 g/kg 體重）時，運動後加入蛋白質可提高糖原儲存速率
+    detail: 這項作用的適用邊界是碳水化合物不足；書中不是說加入蛋白質在所有碳水化合物攝取量下都一定能額外提高糖原合成。
+    terms:
+    - carbohydrate
+    - protein
+    - glycogen
+    - glycogenesis
+    numbers:
+    - v: <1.2
+      unit: g/kg 體重/小時
+      of: 加入蛋白質可提高糖原儲存速率時所指的不足碳水化合物攝取量
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch10.post-competition.i01
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Postcompetition Nutrition > Aerobic Endurance Events
   - id: ch10.post-competition.i07
-    q: 每餐蛋白質分配
+    q: 成人每餐蛋白質分配
     a:
-    - 成人每餐至少 20–30 g 高亮氨酸蛋白質
-    - 每 3–4 小時進食一次（阻力訓練後肌肉對氨基酸敏感性持續 24–48h）
-    detail: ''
-    terms: []
-    numbers: []
+    - 成人每餐建議至少攝取 20–30 g 蛋白質，且主餐約每 3–4 小時一次
+    - 阻力訓練後，肌肉對胺基酸的敏感性可增加 24–48 小時；但一餐的合成效應約只持續 3–5 小時
+    detail: 這是除了運動後立即補充之外的全天蛋白質安排；兒童不需遵循成人的每餐蛋白質指引，因其蛋白質合成的調控不同。
+    terms:
+    - protein
+    - muscle-protein-synthesis
+    numbers:
+    - v: 20–30
+      unit: g/餐
+      of: 成人每餐建議攝取的最低蛋白質量
+    - v: 3–4
+      unit: 小時
+      of: 成人主餐建議的間隔
+    - v: 24–48
+      unit: 小時
+      of: 阻力訓練後肌肉對胺基酸敏感性增加的持續時間
+    - v: 3–5
+      unit: 小時
+      of: 一餐帶來的合成效應約持續的時間
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch10.post-competition.i04
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Postcompetition Nutrition > Protein at Mealtime
   - id: ch10.post-competition.i08
-    q: 同期訓練 (Concurrent)
+    q: 同時訓練（concurrent training）的營養考量
     a:
-    - 有氧後＋重訓前：補充碳水壓制分解
-    - 有氧後即補充蛋白質
-    - 或在重訓中補充蛋白質
-    detail: ''
-    terms: []
-    numbers: []
+    - 同時訓練是耐力運動與肌力訓練背靠背進行，可能使肌力增進低於只做肌力訓練，卻改善耐力表現的概念
+    - 耐力運動後、舉重前攝取碳水化合物可幫助抑制骨骼肌分解
+    - 運動員應考慮在耐力運動後及舉重前攝取蛋白質，或在舉重訓練中攝取蛋白質；研究所述阻力訓練為超過 2 小時的長時間訓練
+    detail: 書中提醒，同時訓練的營養建議常依據分別研究耐力或阻力訓練的單一研究，直接針對同時訓練的證據仍有限。
+    terms:
+    - concurrent-training
+    - carbohydrate
+    - protein
+    numbers:
+    - v: '>2'
+      unit: 小時
+      of: 書中提到訓練中攝取蛋白質支持較高肌肉蛋白合成率的長時間阻力訓練定義
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch10.post-competition.i04
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Postcompetition Nutrition > Concurrent Training
 - id: pre-competition
   title: 賽前營養 Pre-Competition Nutrition
   desc: ''
   tag: Precompetition
   items:
   - id: ch10.pre-competition.i01
-    q: 主要目的
+    q: 賽前餐（precompetition meal）的主要目的
     a:
-    - 補充水分維持水合狀態
-    - 最大化血糖與肝醣儲存
-    - 避免飢餓感
-    detail: ''
-    terms: []
+    - 提供足夠液體以維持水合狀態
+    - 提供碳水化合物以最大化血糖與儲存糖原，並減少飢餓感
+    detail: 賽前餐對表現的研究結果並不一致；書中建議依時機、餐食與液體組成、項目及個人偏好調整，而非用單一食譜套用所有人。
+    terms:
+    - precompetition-meal
+    - hydration
+    - carbohydrate
+    - glycogen
     numbers: []
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch10.pre-competition.i06
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Precompetition Nutrition
   - id: ch10.pre-competition.i02
-    q: 4 小時前 ≥4h
+    q: 賽前至少 4 小時的餐食與水分
     a:
-    - 碳水 1–4 g/kg BW
-    - 蛋白質 0.15–0.25 g/kg BW
-    - 水分 5–7 ml/kg BW
-    detail: ''
-    terms: []
-    numbers: []
+    - 有氧耐力運動員若在賽前至少 4 小時進食，餐食約含每公斤體重 1–4 g 碳水化合物及 0.15–0.25 g 蛋白質
+    - 水或運動飲料約每公斤體重 5–7 ml
+    detail: 這些是可為其他運動調整的有氧耐力建議；書中特別提到容易噁心、比賽腹瀉、焦慮、從事高強度運動或在高溫比賽者，可考慮較早進食。
+    terms:
+    - carbohydrate
+    - protein
+    - hydration
+    numbers:
+    - v: '≥4'
+      unit: 小時
+      of: 本賽前餐與水分建議適用的最短賽前時間
+    - v: 1–4
+      unit: g/kg 體重
+      of: 賽前至少四小時有氧耐力運動員餐食的碳水化合物量
+    - v: 0.15–0.25
+      unit: g/kg 體重
+      of: 賽前至少四小時有氧耐力運動員餐食的蛋白質量
+    - v: 5–7
+      unit: ml/kg 體重
+      of: 賽前至少四小時建議攝取的水或運動飲料量
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch10.pre-competition.i03
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Precompetition Nutrition > Aerobic Endurance Sports
   - id: ch10.pre-competition.i03
-    q: 2 小時前
+    q: 賽前 2 小時的碳水化合物與水分
     a:
-    - 碳水 ≈1 g/kg BW
-    - 若未達水合：3–5 ml/kg BW
-    detail: ''
-    terms: []
-    numbers: []
+    - 餐食約含每公斤體重 1 g 碳水化合物
+    - 若水合不足，應每公斤體重小口攝取 3–5 ml 液體，並依個人水合計畫調整
+    detail: 源書將此量放在「賽前餐於運動前兩小時」的情境；熱天長時間活動時，另需考量運動飲料的鈉、鉀與碳水化合物濃度。
+    terms:
+    - carbohydrate
+    - hydration
+    numbers:
+    - v: 2
+      unit: 小時
+      of: 本賽前餐與水分建議相對於運動開始的時間
+    - v: 1
+      unit: g/kg 體重
+      of: 賽前兩小時餐食建議的碳水化合物量
+    - v: 3–5
+      unit: ml/kg 體重
+      of: 賽前兩小時、水合不足時建議小口攝取的液體量
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch10.pre-competition.i02
+    - ch10.during-event.i02
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Precompetition Nutrition > Aerobic Endurance Sports
   - id: ch10.pre-competition.i04
-    q: 1 小時前 / <1h
+    q: 接近比賽開始時的賽前餐形式
     a:
-    - 碳水 0.5 g/kg BW
-    - 液態碳水 / 果凍 / gel 較佳（排空快）
-    detail: ''
-    terms: []
-    numbers: []
+    - 越接近比賽開始，應吃較少的食物與液體
+    - 賽前餐在運動前 1 小時時，液態碳水化合物可能比固體食物好，因為從胃排空較快；凝膠、軟糖等碳水來源也消化很快
+    detail: 書中將減量原則與胃不適風險連結，而不是說液態碳水化合物在所有情況都優於固體食物。
+    terms:
+    - carbohydrate
+    numbers:
+    - v: 1
+      unit: 小時
+      of: 書中指出液態碳水化合物可能較適合的賽前餐時間
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch10.pre-competition.i07
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Precompetition Nutrition > Aerobic Endurance Sports
   - id: ch10.pre-competition.i05
-    q: GI 高低選擇
+    q: 賽前高低升糖指數（glycemic index, GI）碳水化合物的選擇
     a:
-    - 高 GI 或低 GI 皆可
-    - 血糖初期下降於運動開始 20 分鐘後通常恢復，不影響表現
-    detail: ''
-    terms: []
-    numbers: []
+    - 高或低 GI 的碳水化合物都可選用；研究沒有顯示其中一種更有利
+    - 迅速升高胰島素的碳水化合物（如葡萄糖）會使運動開始時血糖先下降，但通常約 20 分鐘後回到正常，且不影響表現
+    detail: 這項結論指的是研究未顯示血糖初降造成表現負面影響，不代表所有運動員的個人胃腸感受或食物選擇完全相同。
+    terms:
+    - glycemic-index
+    - carbohydrate
+    numbers:
+    - v: 20
+      unit: 分鐘
+      of: 運動開始後血糖通常回到正常的約略時間
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch10.pre-competition.i06
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Precompetition Nutrition
   - id: ch10.pre-competition.i06
-    q: 食物原則
+    q: 賽前食物與飲料的選擇原則
     a:
-    - 低脂低纖（排空快）
-    - 中等蛋白質（增加飽足感）
-    - 熟悉食物（練習時先試）
-    detail: ''
-    terms: []
+    - 選擇練習中已嘗試過的熟悉食物與飲料
+    - 低脂、低膳食纖維，以利快速胃排空並減少可能的腸胃不適
+    - 蛋白質適量，因蛋白質可帶來較持久的飽足感
+    detail: 食物選擇需要與進食時間一起考量；越接近比賽，書中建議食物與液體量越少。
+    terms:
+    - fiber
+    - protein
     numbers: []
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch10.pre-competition.i01
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Precompetition Nutrition
   - id: ch10.pre-competition.i07
-    q: 腸胃不適預防
+    q: 賽前減少腸胃不適的方法
     a:
-    - 避免高脂高纖
-    - 避免山梨醇/甘露醇（sugar alcohols）
-    - 液態碳水在 1h 前更好
-    detail: ''
-    terms: []
+    - 新食物要先在數次練習中測試；越接近比賽，減少食物與液體量
+    - 避免高脂、高纖食物，因脂肪與纖維會減慢消化，運動時仍在消化的食物可能造成胃痙攣
+    - 避免糖醇（sugar alcohol），特別是山梨醇與甘露醇；它們在腸道未完全吸收，可能造成腸氣、腹脹、痙攣與瀉下效果
+    detail: 對糖醇的反應具有個別差異；書中不是指所有碳水化合物都會造成腸胃問題，而是提醒特定未完全吸收的糖醇來源。
+    terms:
+    - fiber
+    - sugar-alcohol
     numbers: []
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch10.pre-competition.i04
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Precompetition Nutrition > Minimizing Gastrointestinal Issues
   - id: ch10.pre-competition.i08
-    q: 水合指標
+    q: 賽前尿液比重的水合指標
     a:
-    - 賽前尿液比重 USG <1.020 = 適當水合
-    detail: ''
-    terms: []
-    numbers: []
+    - 若需要賽前預先補水，應在運動前數小時進行，以利液體吸收與排尿
+    - 尿液比重（urine specific gravity, USG）讀值應低於 1.020
+    detail: USG 是書中列出的賽前水合讀值；它與賽中的個別化飲水策略配合，而不是取代賽中對體重變化的監測。
+    terms:
+    - urine-specific-gravity
+    - hydration
+    numbers:
+    - v: <1.020
+      unit: USG
+      of: 賽前適當水合的尿液比重讀值
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    related:
+    - ch10.during-event.i01
+    locator: Precompetition, During-Event, and Postcompetition Nutrition > Precompetition Nutrition > Aerobic Endurance Sports
 - id: weight-gain
   title: 體重增加策略 Weight Gain Strategies
   desc: ''
   tag: Weight Gain
   items:
   - id: ch10.weight-gain.i01
-    q: 熱量盈餘原則
+    q: 增重的能量攝取原則
     a:
-    - 每天額外攝取約 +500 kcal
-    - 避免短時間大量增加（易增脂肪）
-    - 在休賽季執行
-    detail: ''
+    - 在休賽季調整飲食以增加體重
+    - 以每天多攝取約 500 kcal 作為可依個人調整的一般指引；若持續大幅增加熱量，可能增加超出預期的脂肪
+    detail: 書中把增重能力歸於許多因素，但可控制的主要是飲食與訓練；500 kcal 是一般起點，不是保證的體重增加速率。
     terms: []
-    numbers: []
+    numbers:
+    - v: 500
+      unit: kcal/日
+      of: 書中作為個別化增重起點的一般額外能量攝取建議
     concepts:
     - nutrition
-    - ergogenic
     related: []
-    locator: ''
+    locator: Nutrition Strategies for Altering Body Composition > Weight Gain
   - id: ch10.weight-gain.i02
-    q: 蛋白質目標
+    q: 增重時最大化瘦體重增加的蛋白質目標
     a:
-    - 1.5–2.0 g/kg BW/day 以最大化瘦體重增加
-    - 高蛋白飲食增加飽足感與產熱效應→執行較困難
-    detail: ''
-    terms: []
-    numbers: []
+    - 每天攝取每公斤體重 1.5–2.0 g 蛋白質，以最大化瘦體重增加
+    - 蛋白質的飽足效果強，且高蛋白飲食的飲食誘發性產熱較高，可能讓增重飲食更難持續
+    detail: 書中並未說「蛋白質越多越好」；重點是同時有足夠的總能量與可持續的飲食，而蛋白質增加飽足感正是執行上的限制。
+    terms:
+    - protein
+    - diet-induced-thermogenesis
+    numbers:
+    - v: 1.5–2.0
+      unit: g/kg 體重/日
+      of: 增重時最大化瘦體重增加的每日蛋白質攝取範圍
     concepts:
     - nutrition
-    - ergogenic
     related: []
-    locator: ''
+    locator: Nutrition Strategies for Altering Body Composition > Weight Gain
   - id: ch10.weight-gain.i03
-    q: 高蛋白過食研究
+    q: 過度餵食研究中蛋白質比例與體重組成
     a:
-    - 正常蛋白（15%）& 高蛋白（25%）→ 約 45% 多餘熱量存為瘦體重
-    - 低蛋白（5%）→ 95% 存為脂肪
-    detail: ''
-    terms: []
-    numbers: []
+    - 一項 8 週代謝病房隨機對照過度餵食研究中，正常蛋白（總熱量 15%）與高蛋白（25%）組約有 45% 的多餘熱量儲為瘦體重
+    - 低蛋白組（總熱量 5%）的多餘熱量有 95% 儲為體脂肪
+    detail: 這是健康成人的受控過度餵食研究結果；它支持「若能持續，過度餵食蛋白質有利」的書中說法，不能直接當成每位運動員的身體組成預測式。
+    terms:
+    - protein
+    - lean-body-mass
+    numbers:
+    - v: 8
+      unit: 週
+      of: 此代謝病房過度餵食研究的期間
+    - v: 15
+      unit: '% 總熱量'
+      of: 研究中正常蛋白飲食的蛋白質比例
+    - v: 25
+      unit: '% 總熱量'
+      of: 研究中高蛋白飲食的蛋白質比例
+    - v: 45
+      unit: '% 多餘熱量'
+      of: 正常與高蛋白組約儲存為瘦體重的比例
+    - v: 5
+      unit: '% 總熱量'
+      of: 研究中低蛋白飲食的蛋白質比例
+    - v: 95
+      unit: '% 多餘熱量'
+      of: 低蛋白組儲存為體脂肪的比例
     concepts:
     - nutrition
-    - ergogenic
     related: []
-    locator: ''
+    locator: Nutrition Strategies for Altering Body Composition > Weight Gain
   - id: ch10.weight-gain.i04
-    q: 策略：增加食物密度
+    q: 增重的飲食執行策略
     a:
-    - 增加份量大小
-    - 提高進食頻率
-    - 選擇高熱量食物（堅果、乾果、全脂乳品）
-    detail: ''
+    - 增加每餐份量
+    - 增加進食頻率
+    - 著重選擇高熱量密度食物
+    detail: 書中只列出這三種策略，沒有在此段指定堅果、乾果或全脂乳品等例子；這裡不以書外食物範例補充。
     terms: []
     numbers: []
     concepts:
     - nutrition
-    - ergogenic
     related: []
-    locator: ''
+    locator: Nutrition Strategies for Altering Body Composition > Weight Gain
   - id: ch10.weight-gain.i05
-    q: 肌酸補充
+    q: 增重時的一水肌酸（creatine monohydrate）
     a:
-    - 肌酸一水化物（Creatine Monohydrate）安全且有效地增加瘦體重（CSCS 必考補充品）
-    detail: ''
-    terms: []
+    - 一水肌酸可安全且有效地增加瘦體重
+    detail: 本章在增重段落只做此安全性與效果的概述；「必考補充品」不是教材原文，故不保留。
+    terms:
+    - creatine-monohydrate
     numbers: []
     concepts:
     - nutrition
     - ergogenic
     related: []
-    locator: ''
+    locator: Nutrition Strategies for Altering Body Composition > Weight Gain
   - id: ch10.weight-gain.i06
-    q: 營養諮詢效益
+    q: 運動營養諮詢對增重的效益
     a:
-    - 接受運動營養師諮詢的運動員，在介入期間及 12 個月後仍有更大的總體重與瘦體重增加
-    detail: ''
-    terms: []
-    numbers: []
+    - 一項 21 名重度訓練菁英運動員的研究中，接受營養諮詢者在 8–12 週增重介入期間與 12 個月後，總體重與瘦體重增加都較大
+    detail: 研究中的比較組是自由進食；結果表示諮詢結束後數月仍可能保有指導效益，而非只代表介入期間的短期改變。
+    terms:
+    - sports-dietitian
+    numbers:
+    - v: 21
+      unit: 名運動員
+      of: 此營養諮詢與自由進食比較研究的菁英運動員人數
+    - v: 8–12
+      unit: 週
+      of: 該研究的增重介入期間
+    - v: 12
+      unit: 個月
+      of: 該研究追蹤營養諮詢效益的時間點
     concepts:
     - nutrition
-    - ergogenic
     related: []
-    locator: ''
+    locator: Nutrition Strategies for Altering Body Composition > Weight Gain
   - id: ch10.weight-gain.i07
-    q: 每日熱量估算
+    q: 依活動程度估計運動員每日熱量需求
     a:
-    - 男性重度訓練：50 kcal/kg/day
-    - 女性重度訓練：44 kcal/kg/day
-    - Cunningham 方程式更精確：RMR = 500 + 22 × LBM kg
-    detail: ''
+    - 表 10.4 估計男性每公斤體重每天的需求：輕度 38、適度 41、重度 50 kcal；女性分別為 35、37、44 kcal
+    detail: 這是快速估計表；書中定義的活動程度包含日常活動與運動，並非只以訓練強度一項判定，也不等同於 Cunningham 方程式的個別化預測。
     terms: []
-    numbers: []
+    numbers:
+    - v: 38/41/50
+      unit: kcal/kg 體重/日
+      of: 表 10.4 中男性輕度、適度、重度活動的估計每日熱量需求
+    - v: 35/37/44
+      unit: kcal/kg 體重/日
+      of: 表 10.4 中女性輕度、適度、重度活動的估計每日熱量需求
     concepts:
     - nutrition
-    - ergogenic
     related: []
-    locator: ''
+    locator: Nutrition Strategies for Altering Body Composition
   - id: ch10.weight-gain.i08
-    q: 考試提示
+    q: 以飲食紀錄估計每日能量需求的方法
     a:
-    - BMR 是最大熱量貢獻（約 65–70%）
-    - 體力活動 20–30%
-    - 食物產熱效應約 10–15%
-    detail: ''
+    - 在體重穩定期間，至少連續記錄 3 天具代表性的飲食攝取；平均每日攝取熱量可假設為每日能量需求
+    detail: 這種方法較費工，且記錄食物本身可能改變平常飲食習慣，人們也未必能精準記錄，因此只是高度投入運動員可採的估計方式。
     terms: []
-    numbers: []
+    numbers:
+    - v: 3
+      unit: 連續天數
+      of: 以飲食紀錄估計每日能量需求時最低的代表性記錄期間
     concepts:
     - nutrition
-    - ergogenic
-    related: []
-    locator: ''
+    related:
+    - ch10.obesity-assessment.i05
+    locator: Nutrition Strategies for Altering Body Composition
 - id: weight-loss
   title: 體重（脂肪）減少策略 Weight Loss Strategies
   desc: ''
   tag: Weight Loss
   items:
   - id: ch10.weight-loss.i01
-    q: 核心原則
+    q: 體脂減少的核心原則
     a:
-    - 無論低碳或低脂，減重關鍵 = 熱量赤字
-    - 飲食依從性（長期堅持）比飲食種類更重要
-    detail: ''
+    - 不論低碳水化合物或低脂飲食，只要攝取熱量少於維持體重所需，都能減重
+    - 總熱量攝取與飲食依從性，是預測成功減重最重要的兩項因素；低碳水化合物與低脂飲食的減重幅度看起來沒有差異
+    detail: 書中不主張一種適合所有人的理想飲食；減脂時相當一部分減重可能來自肌肉，因此對運動員還要考量蛋白質與能量不足對肌肉蛋白合成的影響。
     terms: []
     numbers: []
     concepts:
     - nutrition
     related: []
-    locator: ''
+    locator: Nutrition Strategies for Altering Body Composition > Weight (Fat) Loss
   - id: ch10.weight-loss.i02
-    q: 保肌蛋白質需求
+    q: 減脂時維持肌肉的蛋白質與能量不足建議
     a:
-    - 減脂期間：1.8–2.7 g/kg BW/day（或 2.3–3.1 g/kg 瘦體重/day）＋適度熱量赤字約 500 kcal/day
-    detail: ''
-    terms: []
-    numbers: []
+    - 減脂又希望維持肌肉的運動員，每天約攝取每公斤體重 1.8–2.7 g 蛋白質，或每公斤無脂體重 2.3–3.1 g 蛋白質
+    - 搭配約 500 kcal/日的適度能量不足
+    detail: 這項建議針對「想維持肌肉並減脂」的運動員；書中先指出節食時熱量限制可能降低肌肉蛋白合成，因此不能把一般減重飲食直接視為保肌策略。
+    terms:
+    - protein
+    - fat-free-mass
+    - muscle-protein-synthesis
+    numbers:
+    - v: 1.8–2.7
+      unit: g/kg 體重/日
+      of: 減脂期間維持肌肉的每日蛋白質攝取建議
+    - v: 2.3–3.1
+      unit: g/kg 無脂體重/日
+      of: 減脂期間維持肌肉的每日蛋白質攝取替代表達
+    - v: 500
+      unit: kcal/日
+      of: 減脂期間建議的適度每日能量不足
     concepts:
     - nutrition
     related: []
-    locator: ''
+    locator: Nutrition Strategies for Altering Body Composition > Weight (Fat) Loss
   - id: ch10.weight-loss.i03
-    q: 低碳飲食機制
+    q: 低碳水化合物飲食的初期體重變化與適用界線
     a:
-    - 初期水重下降（肝醣儲水）
-    - 長期靠高蛋白增加飽足感、產熱效應、保留肌肉
-    - 適合胰島素阻抗/第二型糖尿病
-    detail: ''
-    terms: []
-    numbers: []
+    - 顯著減少碳水化合物會耗竭糖原；糖原儲存時伴隨 3–4 份水，因此初期體重快速下降可主要來自水分，重新吃碳水化合物後也可能快速回升
+    - 長期而言，低碳水化合物飲食對某些人可能有效，原因可能是蛋白質增加而提高飽足感、飲食誘發性產熱並保留代謝活躍的瘦肌肉
+    - 對競賽運動員，特別在賽前與比賽期，減少碳水化合物可能不利；但對胰島素阻抗、第二型糖尿病、過重或肥胖者可能非常有效
+    detail: 書中以「可能」描述低碳水化合物對特定人群的效果，且把初期水重變化與脂肪減少區分；不應將快速體重下降全寫成脂肪減少。
+    terms:
+    - low-carbohydrate-diet
+    - glycogen
+    - protein
+    - diet-induced-thermogenesis
+    - insulin-resistance
+    numbers:
+    - v: 3–4
+      unit: 份水
+      of: 每份糖原儲存時伴隨的水分量
     concepts:
     - nutrition
     related: []
-    locator: ''
+    locator: Nutrition Strategies for Altering Body Composition > Weight (Fat) Loss > Low-Carbohydrate Diets
   - id: ch10.weight-loss.i04
-    q: 快速減重定義
+    q: 快速減重（rapid weight loss）的定義與動機
     a:
-    - 超過正常飲食＋運動可達到的速度
-    - 常見於量級運動員（摔角、拳擊、MMA）
-    detail: ''
-    terms: []
+    - 文獻沒有統一定義；一般指在短時間內以單靠降低熱量攝取與增加運動無法達成的速度快速減重
+    - 運動員可能為了參加目標量級、達到教練設定的體重目標或改善表現而採用
+    detail: 書中沒有說快速減重「常見於」某些特定項目，也未列舉拳擊或 MMA；這裡只保留其描述的目的與定義。
+    terms:
+    - rapid-weight-loss
     numbers: []
     concepts:
     - nutrition
     related: []
-    locator: ''
+    locator: Nutrition Strategies for Altering Body Composition > Weight (Fat) Loss > Rapid Weight Loss
   - id: ch10.weight-loss.i05
-    q: 快速減重危險手段
+    q: 快速減重的潛在危險手段
     a:
-    - 禁食、主動脫水（利尿劑/三溫暖）、自我催吐、瀉藥、多穿衣物流汗、過度吐口水
-    detail: ''
-    terms: []
+    - 禁食、流行飲食法與自我催吐
+    - 主動脫水（利尿劑、三溫暖、水分與鹽分操控、穿多層衣物）與過度吐口水
+    - 瀉藥濫用及不當或過量使用產熱增效劑
+    detail: 這些是書中列為「可能危險」的快速減重技術，不是健康減脂方案；主動脫水是其中刻意流失水分的一類做法。
+    terms:
+    - rapid-weight-loss
+    - voluntary-dehydration
     numbers: []
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    - safety
+    related:
+    - ch10.weight-loss.i06
+    locator: Nutrition Strategies for Altering Body Composition > Weight (Fat) Loss > Rapid Weight Loss
   - id: ch10.weight-loss.i06
-    q: 快速減重危害
+    q: 嘗試過快減重的健康與表現危害
     a:
-    - 脫水、熱病、電解質失衡、免疫抑制、腎衰竭（利尿劑）、心律不整、昏厥、死亡（極端）
-    detail: ''
-    terms: []
+    - 可能流失瘦體重、疲勞、頭痛或情緒波動，並危及訓練與表現
+    - 可能出現脫水、熱疾病、肌肉痙攣、疲勞、頭暈、免疫功能受抑、荷爾蒙失衡、高體溫、肌力下降、血漿與血量下降、低血壓與電解質失衡
+    - 利尿劑濫用可能腎衰竭；也可能昏倒，極端案例可死亡
+    detail: 原文列舉的是多項「可能」的嚴重副作用，不能把未列出的心律不整或其他診斷名稱加進這份教材清單。
+    terms:
+    - rapid-weight-loss
+    - dehydration
+    - electrolyte
     numbers: []
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    - safety
+    related:
+    - ch10.weight-loss.i05
+    locator: Nutrition Strategies for Altering Body Composition > Weight (Fat) Loss > Rapid Weight Loss
   - id: ch10.weight-loss.i07
-    q: SC 專業職責
+    q: 肌力與體能專業人員面對快速減重的職責
     a:
-    - 辨識快速減重跡象 → 轉介醫師/RD
-    - 記錄處置步驟（法律保護）
-    - 與醫師共同設定合理體重目標
-    detail: ''
-    terms: []
+    - 應辨識快速減重技術的徵象，轉介給適當專業人員，並向其他教練團隊溝通疑慮
+    - 可記錄已採取的協助步驟以利紀錄保存並避免責任風險；並與醫師或註冊營養師共同依身體組成、節食、醫療與飲食疾患病史設定合適體重目標
+    - 若無法在不危及健康或表現的情況下達標，有些運動員可能須重新考慮參加的量級
+    detail: 專業角色是辨識、溝通、轉介與共同規劃，而不是由肌力與體能專業人員單獨替運動員決定量級或體重。
+    terms:
+    - strength-and-conditioning-professional
+    - registered-dietitian
     numbers: []
     concepts:
     - nutrition
-    related: []
-    locator: ''
+    - professional
+    related:
+    - ch10.weight-loss.i05
+    locator: Nutrition Strategies for Altering Body Composition > Weight (Fat) Loss > Rapid Weight Loss
   - id: ch10.weight-loss.i08
-    q: 個別化飲食要素
+    q: 可長期維持的個別化減脂飲食
     a:
-    - 安全性、足夠蛋白質、符合生活型態、考慮病史（糖尿病/胰島素阻抗）、長期行為療法支持
-    detail: ''
-    terms: []
+    - 飲食應安全、含足夠蛋白質、符合生活型態而容易遵循，並考量飲食習慣、食物偏好、病史及醫療顧慮（包括糖尿病、胰島素阻抗與其他疾病）
+    - 持續的行為治療與支持可改善長期成果
+    detail: 個別化的目的不只是選擇低碳或低脂，而是讓飲食在滿足訓練與表現所需營養的前提下能長期遵循。
+    terms:
+    - protein
+    - insulin-resistance
     numbers: []
     concepts:
     - nutrition
     related: []
-    locator: ''
+    locator: Nutrition Strategies for Altering Body Composition > Weight (Fat) Loss > Low-Carbohydrate Diets
 cards:
-- q: 賽前 ≥4 小時的碳水與蛋白質建議量？
-  a: 碳水 1–4 g/kg BW；蛋白質 0.15–0.25 g/kg BW；水分 5–7 ml/kg BW
+- q: 有氧耐力運動員賽前至少 4 小時的餐食與水分建議為何？
+  a: 碳水化合物 1–4 g/kg 體重、蛋白質 0.15–0.25 g/kg 體重，以及水或運動飲料 5–7 ml/kg 體重。
   tag: 賽前營養
-- q: 賽前 2 小時的碳水建議量？
-  a: 約 1 g/kg BW；若未達水合：補充 3–5 ml/kg BW 水分
+- q: 賽前 2 小時如何安排碳水化合物與液體？
+  a: 約 1 g/kg 體重碳水化合物；若水合不足，依個人計畫小口攝取 3–5 ml/kg 體重液體。
   tag: 賽前營養
-- q: 賽前 1 小時內首選什麼形式的碳水？
-  a: 液態碳水 / gel / 果凍（胃排空快，降低腸胃不適風險）
+- q: 賽前餐接近開賽時應如何調整？
+  a: 越接近開賽，食物與液體量越少；運動前 1 小時時，液態碳水化合物、凝膠與軟糖等因胃排空或消化較快，可能較適合。
   tag: 賽前營養
-- q: 賽前水合達標指標：尿液比重（USG）應低於多少？
-  a: USG < 1.020
+- q: 賽前水合時，尿液比重（USG）讀值應低於多少？
+  a: 低於 1.020。
   tag: 賽前營養
-- q: 高 GI vs 低 GI 碳水賽前效果有差異嗎？
-  a: 研究不支持一者優於另一者；初期血糖下降於運動開始 20 分鐘後通常恢復，不影響表現
+- q: 賽前應選高還是低升糖指數（GI）碳水化合物？
+  a: 兩者皆可，研究未顯示一者較有利；葡萄糖等可能讓運動開始時血糖先下降，但通常約 20 分鐘後恢復正常且不影響表現。
   tag: 賽前營養
-- q: 賽前餐為何要低脂低纖？
-  a: 脂肪與纖維減慢消化速率，增加腸胃不適與痙攣風險
+- q: 為何賽前食品宜低脂、低膳食纖維？
+  a: 脂肪與纖維會減慢消化；運動時若食物仍在消化，可能造成腸胃不適或胃痙攣。
   tag: 賽前營養
-- q: 碳水超補（Carbohydrate Loading）的標準劑量？
-  a: 8–10 g/kg BW/day，賽前 3 天高碳水＋減量訓練；賽前一天完全休息
+- q: 常用碳水化合物超補方案為何？
+  a: 賽前一週減量運動、賽前 3 天高碳水化合物飲食、前一天完全休息；超補期間每天攝取 8–10 g/kg 體重碳水化合物。
   tag: 碳水超補
-- q: 碳水超補可使肌肉肝醣提升多少？
-  a: 20–40% 以上正常水平
+- q: 常用超補方案對肌肉糖原儲存的預期效果？
+  a: 可使肌肉糖原儲存高於正常約 20–40%。
   tag: 碳水超補
-- q: 馬拉松賽前 36–48 小時的碳水特殊建議量？
-  a: 10–12 g/kg BW/day
+- q: 馬拉松前 36–48 小時的較高碳水化合物建議量？
+  a: 每天 10–12 g/kg 體重。
   tag: 碳水超補
-- q: 為何許多女運動員碳水超補效果較差？
-  a: 習慣性熱量攝取不足（<2400 kcal/day），導致碳水總量不達標，並非性別差異本身造成
+- q: 女性超補時為何要考量總能量攝取？
+  a: 習慣每天少於 2,400 kcal 的女性可能難以吃足碳水化合物；可能需把總能量提高到 2,400 kcal 以上並採高碳水飲食。
   tag: 碳水超補
-- q: 碳水超補對爆發力/阻力訓練是否有效？
-  a: 效果不顯著（研究：4 組跳蹲，6.5 g/kg vs 4.4 g/kg，爆發力無差異）
+- q: 一項跳蹲研究中，提高碳水化合物是否改善爆發力表現？
+  a: 沒有；健康年輕男性連續 4 天攝取 6.5 而非 4.4 g/kg 體重碳水化合物後，四組跳蹲的爆發力沒有顯著差異。
   tag: 碳水超補
-- q: 碳水超補的主要副作用？
-  a: 暫時體重增加（肝醣儲水 3–4 倍）；豆類/菊糖食物引起腸脹氣
+- q: 碳水化合物超補有哪些實務限制？
+  a: 可能暫時增重；豆類、洋蔥或添加菊糖等寡糖的食品可被腸道細菌快速發酵，造成腸氣與腹脹。
   tag: 碳水超補
-- q: 賽中脫水超過多少體重比例會影響運動表現？
-  a: 超過 2% BW
+- q: 賽中應避免水分造成的體重流失超過多少？
+  a: 體重的 2%。
   tag: 賽中補給
-- q: 最佳運動飲料的含鈉建議量？
-  a: 20–30 mEq/L（460–690 mg，陰離子為氯離子）
+- q: 熱天長時間活動時，運動飲料每公升的鈉建議量？
+  a: 20–30 mEq；若氯離子為陰離子，為 460–690 mg。
   tag: 賽中補給
-- q: 最佳運動飲料的鉀含量？
-  a: 2–5 mEq/L（78–195 mg）
+- q: 熱天長時間活動時，運動飲料每公升的鉀建議量？
+  a: 2–5 mEq，即 78–195 mg。
   tag: 賽中補給
-- q: 運動飲料碳水濃度超過多少會延遲胃排空？
-  a: 超過 8%；理想濃度為 6–8%
+- q: 何種運動飲料碳水化合物濃度會延遲胃排空？
+  a: 高於 8% 會延遲胃排空並可能引起胃不適；6–8% 可能較理想。
   tag: 賽中補給
-- q: 有氧耐力運動每小時建議攝取多少碳水？
-  a: 28–144 g/h
+- q: 長時間有氧耐力活動中，研究過的每小時碳水化合物攝取範圍？
+  a: 28–144 g；較高量的研究主要見於自行車運動。
   tag: 賽中補給
-- q: 為何賽中應混合多種碳水（葡萄糖＋果糖）而非單一種？
-  a: 不同腸道轉運蛋白；單一碳水轉運蛋白飽和後吸收受限，混合可提高氧化速率（突破 1 g/min 上限）
+- q: 為何賽中可混合多種碳水化合物？
+  a: 不同碳水化合物有不同腸道運輸系統；混合蔗糖、果糖、葡萄糖或麥芽糊精可比等熱量單一糖提高吸收與外源性氧化，但氧化率不超過約 1.0–1.1 g/分鐘。
   tag: 賽中補給
-- q: 碳水漱口（不吞嚥）對運動表現有何效果？
-  a: 約 1 小時的運動可提升表現 2–3%，推測透過中樞神經系統作用
+- q: 不吞下的碳水化合物漱口可能有何效果？
+  a: 約 1 小時運動的表現似乎可改善 2–3%，推測與中樞神經系統有關。
   tag: 賽中補給
-- q: 40 kg 兒童賽中每 20 分鐘建議飲水量？
-  a: 5 oz（148 ml）冷水或含鹽飲料
+- q: 體重 40 kg 的兒童練習中每 20 分鐘應喝多少？
+  a: 5 oz（148 ml）冷水或調味含鹽飲料。
   tag: 賽中補給
-- q: 60 kg 青少年賽中每 20 分鐘建議飲水量？
-  a: 9 oz（256 ml），即使不渴也需飲用
+- q: 體重 60 kg 的青少年練習中每 20 分鐘應喝多少？
+  a: 9 oz（256 ml），即使沒有口渴感。
   tag: 賽中補給
-- q: 肝醣再合成的兩個階段各有何特點？
-  a: Phase 1：前 30–60 min，胰島素非依賴性，速率最快；Phase 2：之後數小時，胰島素依賴性，速率較慢
+- q: 運動後糖原再合成的兩階段如何區分？
+  a: 第一階段為前 30–60 分鐘、不依賴胰島素且合成很快；第二階段持續數小時、合成速度較慢。教材未將第二階段稱為胰島素依賴性。
   tag: 賽後恢復
-- q: 最大化賽後肝醣再合成的補充方案？
-  a: 1.0–1.85 g/kg BW/h 碳水，每 15–60 分鐘補充一次，持續 5 小時
+- q: 要快速糖原回補時，賽後碳水化合物方案為何？
+  a: 結束後立即每小時 1.0–1.85 g/kg 體重，接著每 15–60 分鐘補充，最多 5 小時。
   tag: 賽後恢復
-- q: 若恢復時間 >24 小時，是否需要立即賽後補充碳水？
-  a: 不必立即，可等 2 小時後開始補充，24 小時內補足即可
+- q: 恢復時間超過 24 小時時，是否一定要立刻吃碳水化合物？
+  a: 不一定；只要攝取足夠碳水化合物，可在 24 小時內補回糖原。延後 2 小時開始的研究，在 8 與 24 小時後的再合成率相同。
   tag: 賽後恢復
-- q: 有氧耐力運動後蛋白質攝取的最低建議量與時機？
-  a: 至少 10 g 蛋白質，運動後 3 小時內（越早越好）
+- q: 耐力運動後，書中的蛋白質一般指引為何？
+  a: 在 3 小時內至少 10 g；但精確劑量與時機尚不清楚，可能受空腹／進食狀態與總能量影響。
   tag: 賽後恢復
-- q: 年輕人阻力訓練後最大化肌蛋白合成（FSR）所需蛋白質量？
-  a: 20–25 g 高品質高亮氨酸蛋白（EAA 8.5–10 g，亮氨酸 2–3 g 或 0.05 g/kg BW）
+- q: 年輕人阻力訓練後最大刺激肌肉蛋白合成的蛋白質量？
+  a: 20–25 g 高品質、高亮氨酸、吸收快的蛋白質，約含 8.5–10 g 必需胺基酸；每份約含 2–3 g 亮氨酸或 0.05 g/kg 體重亮氨酸。
   tag: 賽後恢復
-- q: 老年人阻力訓練後最大化肌蛋白合成所需蛋白質量？
-  a: ≥40 g（年輕人的 2 倍）
+- q: 年長者阻力訓練後最大刺激肌肉蛋白合成可能需要多少蛋白質？
+  a: 40 g 以上；教材沒有把它定義為年輕人需要量的固定倍數。
   tag: 賽後恢復
-- q: 阻力訓練後減少蛋白質分解所需的碳水量？
-  a: 30–100 g 高升糖指數碳水
+- q: 碳水化合物不足時，賽後加入蛋白質有何作用？
+  a: 若碳水化合物低於 1.2 g/kg 體重/小時，加入蛋白質可提高糖原儲存速率。
   tag: 賽後恢復
-- q: 力量運動後恢復肝醣的建議補充方案？
-  a: 立即 1.5 g/kg BW 碳水 + 1 小時後再補一次，6 小時內可恢復至賽前 91% 水平
+- q: 阻力訓練研究中的糖原回補案例為何？
+  a: 運動後立即與 1 小時後各攝取 1.5 g/kg 體重碳水化合物，6 小時時肌肉糖原由耗竭後的 71% 回到運動前的 91%。
   tag: 賽後恢復
-- q: BMR 約佔總每日能量消耗的多少比例？
-  a: 65–70%（最大貢獻因子）
+- q: 基礎代謝率（BMR）約占每日總能量消耗多少？
+  a: 65–70%，是最大組成。
   tag: 能量需求
-- q: 體力活動約佔總每日能量消耗的多少比例？
-  a: 20–30%（最可變因子，運動員可更高）
+- q: 身體活動約占每日總能量消耗多少？
+  a: 20–30%，也是個人之間最可變的組成；運動員可能更高。
   tag: 能量需求
-- q: 食物產熱效應（Diet-Induced Thermogenesis）約佔多少比例？
-  a: 10–15%
+- q: 飲食誘發性產熱約占每日燃燒熱量多少？
+  a: 10–15%。
   tag: 能量需求
-- q: Cunningham 方程式計算 RMR 的公式？
-  a: RMR = 500 + 22 × LBM（kg）
+- q: Cunningham 方程式如何估算靜息代謝率（RMR）？
+  a: RMR = 500 + 22 × 瘦體重（LBM；kg）。
   tag: 能量需求
-- q: Cunningham vs Harris-Benedict 方程式的差異？
-  a: Cunningham 納入瘦體重（LBM），更適合運動員；Harris-Benedict 用體重/身高/年齡/性別，未考慮肌肉量
+- q: Cunningham 與 Harris-Benedict 方程式的運動員差異？
+  a: Cunningham 另納入瘦體重，較適用於運動員；Harris-Benedict 使用性別、體重、身高與年齡，未納入肌肉量。
   tag: 能量需求
-- q: 男性重度活動的每日熱量需求估算值？
-  a: 50 kcal/kg/day（輕度 38、中度 41）
+- q: 表 10.4 的男性每日熱量需求估計值？
+  a: 每公斤體重每天：輕度 38、適度 41、重度 50 kcal。
   tag: 能量需求
-- q: 女性重度活動的每日熱量需求估算值？
-  a: 44 kcal/kg/day（輕度 35、中度 37）
+- q: 表 10.4 的女性每日熱量需求估計值？
+  a: 每公斤體重每天：輕度 35、適度 37、重度 44 kcal。
   tag: 能量需求
-- q: 增重建議的每日額外熱量攝取量？
-  a: 約 +500 kcal/day
+- q: 增重的一般每日額外能量攝取起點？
+  a: 約 500 kcal，但應依個人調整；持續大幅增加可能增加超出預期的脂肪。
   tag: 增重策略
-- q: 增重期間最大化瘦體重增加所需蛋白質量？
-  a: 1.5–2.0 g/kg BW/day
+- q: 增重時最大化瘦體重增加的每日蛋白質範圍？
+  a: 1.5–2.0 g/kg 體重。
   tag: 增重策略
-- q: 高蛋白過食研究（低/正常/高蛋白組）結果？
-  a: 正常＋高蛋白組約 45% 多餘熱量存為瘦體重；低蛋白組 95% 多餘熱量存為脂肪
+- q: 8 週過度餵食研究中，蛋白質比例與儲存組成有何差別？
+  a: 正常蛋白（15%）與高蛋白（25%）組約 45% 多餘熱量儲為瘦體重；低蛋白（5%）組有 95% 儲為體脂肪。
   tag: 增重策略
-- q: CSCS 中哪種補充品被認為安全有效地增加瘦體重？
-  a: 肌酸一水化物（Creatine Monohydrate）
+- q: 本章列為可安全且有效增加瘦體重的補充品？
+  a: 一水肌酸（creatine monohydrate）。
   tag: 增重策略
-- q: 減脂期間保留肌肉所需的蛋白質量？
-  a: 1.8–2.7 g/kg BW/day（或 2.3–3.1 g/kg FFM/day）＋ 熱量赤字約 500 kcal/day
+- q: 減脂又要維持肌肉時，蛋白質與能量不足如何安排？
+  a: 蛋白質 1.8–2.7 g/kg 體重/日，或 2.3–3.1 g/kg 無脂體重/日；搭配約 500 kcal/日適度能量不足。
   tag: 減脂策略
-- q: 低碳飲食初期體重快速下降的主要原因？
-  a: 肝醣耗盡→儲存水分減少（肝醣儲水 3–4 倍）→體重快速下降，非真正脂肪減少
+- q: 低碳水化合物飲食初期體重快速下降的主要原因？
+  a: 糖原耗竭及其伴隨水分減少；每份糖原儲存伴隨 3–4 份水，因此不應把初期快速下降全當成脂肪減少。
   tag: 減脂策略
-- q: 成人 BMI 過重與肥胖的分界值？
-  a: 過重：25–29.9 kg/m²；肥胖 I 30–34.9、II 35–39.9、III ≥40
+- q: 教材表 10.5 的成人 BMI 過重與肥胖分類？
+  a: 過重 25.0–29.9；肥胖 I 級 30.0–34.9、II 級 35.0–39.9、極端肥胖 III 級 >40 kg/m²。III 級界值依教材表格保留。
   tag: 肥胖評估
-- q: BMI 在運動員身上的局限性？
-  a: 肌肉質量高者易高估體脂；老年人易低估體脂；只是篩選工具，非診斷工具
+- q: BMI 在運動員與高齡者身上的限制？
+  a: BMI 測量的是過多體重而非過多體脂，不能分辨脂肪、肌肉與骨量；肌肉量高者可能被高估，高齡肌肉流失者可能被低估，只能作初步篩檢。
   tag: 肥胖評估
-- q: 男性與女性腰圍增加疾病風險的切點？
-  a: 男性 >102 cm（40 in）；女性 >88 cm（35 in）
+- q: 腰圍增加疾病相對風險的界值？
+  a: 男性 >102 cm（40 in），女性 >88 cm（35 in）。
   tag: 肥胖評估
-- q: 肥胖（BMI ≥30）相關的主要疾病有哪些？
-  a: 高血壓、高血脂、冠心病、第二型糖尿病、睡眠呼吸中止症、骨關節炎、子宮內膜/乳癌/前列腺/大腸癌
+- q: 過重與肥胖會增加哪些疾病風險？
+  a: 高血壓、血脂異常、冠心病、膽囊疾病、中風、第二型糖尿病、睡眠呼吸中止症、骨關節炎、呼吸問題，以及子宮內膜、乳房、前列腺與結腸癌。
   tag: 肥胖評估
-- q: 快速減重的常見危險手段有哪些？
-  a: 禁食、主動脫水（利尿劑/三溫暖）、自我催吐、瀉藥、多穿衣物流汗、過度吐口水
+- q: 教材列出的快速減重潛在危險手段？
+  a: 禁食、流行飲食法、自我催吐、主動脫水（利尿劑、三溫暖、水鹽操控、多層衣物）、過度吐口水、瀉藥濫用與不當或過量產熱增效劑。
   tag: 減脂策略
-- q: 快速減重的生理危害有哪些？
-  a: 脫水、熱病、電解質失衡、免疫抑制、腎衰竭（利尿劑）、心律不整、昏厥，極端情況可致死
+- q: 嘗試過快減重的主要危害？
+  a: 可危及訓練與表現，並可能脫水、熱疾病、肌肉痙攣、頭暈、免疫功能受抑、荷爾蒙與電解質失衡、低血壓；利尿劑濫用可能腎衰竭，極端案例可死亡。
   tag: 減脂策略
-- q: 肥胖治療的初始體重目標？
-  a: 6 個月內減少 10% 的初始體重
+- q: 過重與肥胖的初始減重目標？
+  a: 6 個月內減去初始體重的 10%。
   tag: 肥胖評估
-- q: 厭食症（Anorexia Nervosa）的核心特徵與流行病學？
-  a: 體像扭曲＋強烈恐懼增重→極度限制熱量；平均發病 19 歲；女性終身盛行率 0.9%；所有精神疾患中死亡率最高
+- q: 神經性厭食症（anorexia nervosa）的核心特徵與統計？
+  a: 體像扭曲、害怕增重或變胖，導致過度限制熱量與嚴重減重；平均發病 19 歲，女性與男性終生盛行率為 0.9% 與 0.3%，且死亡率在精神健康疾患中最高。
   tag: 飲食失調
-- q: 暴食症（Bulimia Nervosa）的診斷標準？
-  a: 反覆暴食後清除（催吐/瀉藥/過度運動）；至少 1 次/週 × 3 個月；平均發病 20 歲；盛行率 0.6%
+- q: 神經性貪食症（bulimia nervosa）的行為與統計？
+  a: 反覆暴食後以催吐、劇烈運動、瀉藥或利尿劑清除，至少每週 1 次、持續 3 個月；平均發病 20 歲，終生盛行率 0.6%。
   tag: 飲食失調
-- q: 暴食失調（BED）與暴食症的主要區別？
-  a: BED 無清除行為→常見過重/肥胖；女性盛行率 3.5%（高於暴食症）；平均發病 25 歲
+- q: 暴食疾患（binge-eating disorder）與神經性貪食症的主要差別？
+  a: 暴食疾患的暴食後沒有清除行為，因此患者常過重或肥胖；教材原文列為每週至少 1 次、持續 3 週，男性與女性終生盛行率 2.0% 與 3.5%，平均發病 25 歲。
   tag: 飲食失調
-- q: 肌力與體能訓練師（SC）面對飲食失調的正確職責？
-  a: 辨識症狀 → 轉介合格醫療/心理/營養師組成的跨專業治療團隊；SC 不負責診斷或治療
+- q: 肌力與體能專業人員面對疑似飲食疾患的正確職責？
+  a: 不診斷或治療；辨識令人擔憂的行為並轉介有資格的專業人員，協助運動員取得正確診斷與心理、醫療、營養治療團隊的協助。
   tag: 飲食失調
