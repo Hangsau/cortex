@@ -8,850 +8,1217 @@ topics:
   tag: Phase 2
   items:
   - id: ch22.fibroblastic-phase.i01
-    q: 時間
+    q: 纖維母細胞修復期（fibroblastic repair phase）的時程與主要過程為何？
     a:
-    - 傷後2天起，持續至約2個月
-    - 適當應力縮短時程
-    detail: ''
-    terms: []
-    numbers: []
+    - 發炎期結束後開始修復；最早可在受傷後 2 天開始，最久可持續至 2 個月
+    - 此期會分解並替換傷後已失去活性的組織，並在傷處形成新毛細血管與結締組織（疤痕組織）
+    detail: '開始與持續時間會隨組織類型與受傷條件而變化；新生組織尚未達到原組織的最佳強度。'
+    terms:
+    - fibroblastic-repair
+    numbers:
+    - v: '2'
+      unit: 天
+      of: 受傷後修復期最早可開始的時間
+    - v: '2'
+      unit: 個月
+      of: 修復期可能持續的最長時間
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch05.connective-tissue.i08
+    locator: Tissue Healing > Fibroblastic Repair Phase
   - id: ch22.fibroblastic-phase.i02
-    q: Type III 膠原
+    q: 修復期的第三型膠原蛋白（Type III collagen）有何特徵？
     a:
-    - 隨機沉積
-    - 新生組織比原始弱
-    - 橫向排列→傳力效率差
-    detail: ''
-    terms: []
+    - 第三型膠原蛋白會沿受傷結構隨機沉積，作為組織再生的架構
+    - 膠原纖維若沿主要受力線縱向排列最強，但許多新纖維是橫向排列，傳力效率受限
+    detail: '隨機且常為橫向的排列，說明新組織比原組織弱，不能將此期視為已恢復完整承載能力。'
+    terms:
+    - type-iii-collagen
+    - collagen
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch05.connective-tissue.i08
+    locator: Tissue Healing > Fibroblastic Repair Phase
   - id: ch22.fibroblastic-phase.i03
-    q: 治療目標
+    q: 修復期的治療目標如何兼顧保護與活動？
     a:
-    - 防止過度肌萎縮＆關節退化
-    - 低負荷應力促進膠原排列
-    detail: ''
-    terms: []
+    - 防止受傷區域過度肌肉萎縮與關節退化
+    - 避免破壞新生膠原纖維，同時逐漸加入低負荷應力以增加膠原合成並避免關節活動度流失
+    detail: '太少活動同樣有害：新生纖維可能無法最佳排列並形成沾黏；早期保護性活動可促進纖維排列與組織活動度。'
+    terms:
+    - collagen
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch14.flexibility-factors.i03
+    locator: Goals of Rehabilitation and Reconditioning > Fibroblastic Repair Phase > Treatment Goal
   - id: ch22.fibroblastic-phase.i04
-    q: 等長訓練 Isometric
+    q: 修復期何時可使用等長運動（isometric exercise）？
     a:
-    - 無痛下進行
-    - 關節角度特異性→多角度操作
-    - 維持神經肌肉功能
-    detail: ''
-    terms: []
+    - 須在隊醫、運動防護員或物理治療師諮詢後，且無痛並有適應症時才可進行
+    - 次最大等長運動可在不破壞新生膠原纖維的低強度下，維持神經肌肉功能並增進肌力
+    - 肌力增益具關節角度特異性；若有適應症，可在多個角度訓練
+    detail: '等長訓練不是對所有受傷部位都自動適用；是否採用先取決於該傷勢的適應症與禁忌症。'
+    terms:
+    - isometric-exercise
+    - neuromuscular-control
+    - collagen
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch02.strength-factors.i07
+    - ch17.exercise-selection.i08
+    locator: Goals of Rehabilitation and Reconditioning > Fibroblastic Repair Phase > Exercise Strategies
   - id: ch22.fibroblastic-phase.i05
-    q: 等速/等張訓練
+    q: 等速運動（isokinetic exercise）的復健限制是什麼？
     a:
-    - Isokinetic（固定速度，功能性有限）
-    - Isotonic（concentric+eccentric，可漸增負荷）
-    detail: ''
-    terms: []
-    numbers: []
+    - 等速設備在指定速度下提供動作阻力，例如 60°/秒或 120°/秒
+    - 運動並非在單一固定速度進行，且多數等速設備僅能做單關節運動
+    detail: '這些特性讓等速運動能集中在特定關節或肌肉，卻不一定是最具功能性的強化方式。'
+    terms:
+    - isokinetic-exercise
+    numbers:
+    - v: '60'
+      unit: °/秒
+      of: 書中舉例的等速運動設定速度
+    - v: '120'
+      unit: °/秒
+      of: 書中舉例的等速運動設定速度
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch12.selection-factors.i02
+    locator: Goals of Rehabilitation and Reconditioning > Fibroblastic Repair Phase > Exercise Strategies
   - id: ch22.fibroblastic-phase.i06
-    q: Neuromuscular Control
+    q: 等張運動（isotonic exercise）在修復期如何施用？
     a:
-    - 本體感覺（proprioception）訓練
-    - 迷你彈簧床/平衡板/閉眼/不穩地面
-    detail: ''
-    terms: []
+    - 等張運動包含向心與離心肌肉動作，外部阻力固定，但移動阻力所需力量會隨關節角度與主動肌長度改變
+    - 可利用重力、啞鈴、槓鈴或插銷式器械；隨組織癒合進展可增加負荷
+    - 較急性的傷勢宜採較慢速度，較後期才可採更快、較具運動特異性的動作
+    detail: '離心運動能比向心運動產生更大力量且耗能較少；這是兩者的比較，不是教材對修復早期的優先處方。'
+    terms:
+    - isotonic-exercise
+    - concentric-action
+    - eccentric-action
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch02.strength-factors.i07
+    - ch17.principles-exam-tips.i01
+    locator: Goals of Rehabilitation and Reconditioning > Fibroblastic Repair Phase > Exercise Strategies
   - id: ch22.fibroblastic-phase.i07
-    q: Eccentric 優勢
+    q: 何謂神經肌肉控制（neuromuscular control），修復期如何訓練？
     a:
-    - 力量產生＞向心
-    - 能量消耗＜向心
-    - 適合早期組織強化
-    detail: ''
-    terms: []
+    - 神經肌肉控制是肌肉回應傳入感覺資訊、維持關節穩定性的能力；受傷後通常會與肌力、柔軟度一起受損
+    - 可藉由改變表面穩定性、視覺與速度進行訓練，例如迷你彈簧床、平衡板、穩定球或閉眼動作
+    detail: '本體感覺是來自皮膚、肌肉、肌腱、韌帶與關節囊受器的傳入資訊；漸進操控三項變數，是為下一期更具挑戰性的動作做準備。'
+    terms:
+    - neuromuscular-control
+    - proprioception
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch01.proprioception.definition
+    - ch13.balance-flexibility-bc.i02
+    locator: Goals of Rehabilitation and Reconditioning > Fibroblastic Repair Phase > Exercise Strategies
   - id: ch22.fibroblastic-phase.i08
-    q: 物理因子
+    q: 修復期的物理因子（physical agents）用途為何？
     a:
-    - 超音波、電刺激、冰敷→促進膠原合成與疼痛管理
-    detail: ''
-    terms: []
+    - 可使用超音波、電刺激與冰敷
+    - 此期使用的目標是支持並加速新組織形成、促進膠原合成及管理疼痛
+    detail: '教材將物理因子列為可使用的選項；是否採用及其具體作法仍須由醫療團隊判定。'
+    terms:
+    - physical-agent
+    - collagen
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch22.inflammatory-phase.i06
+    locator: Goals of Rehabilitation and Reconditioning > Fibroblastic Repair Phase > Treatment Goal
 - id: inflammatory-phase
   title: 發炎期 Inflammatory Response Phase
   desc: ''
   tag: Phase 1
   items:
   - id: ch22.inflammatory-phase.i01
-    q: 時間
+    q: 發炎反應期（inflammatory response phase）通常持續多久？
     a:
-    - 急性傷後2–3天，通常＜1週
-    - 血流供應差或傷害嚴重可延長
-    detail: ''
-    terms: []
-    numbers: []
+    - 急性受傷後通常持續 2 至 3 天，典型情況少於 1 週
+    - 血液供應受損或結構性傷害較嚴重時，可能持續更久
+    detail: '時間不是固定處方；若發炎未在合理時間內結束，後續階段可能無法進行，因而延後復健。'
+    terms:
+    - inflammatory-response
+    numbers:
+    - v: '2-3'
+      unit: 天
+      of: 急性傷後發炎期的典型持續時間
+    - v: '<1'
+      unit: 週
+      of: 發炎期通常持續的時間
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch05.hypertrophy.i03
+    locator: Tissue Healing > Inflammatory Response Phase
   - id: ch22.inflammatory-phase.i02
-    q: 生理事件
+    q: 發炎期如何形成局部紅、腫與水腫（edema）？
     a:
-    - 血管通透性↑ → 組織胺/緩激肽釋放 → 水腫(edema) → 抑制收縮組織
-    detail: ''
-    terms: []
+    - 血管狀態、血流與微血管通透性改變，讓受傷區域出現發紅與腫脹
+    - 局部低氧造成一定程度的組織死亡，釋出組織胺（histamine）與緩激肽（bradykinin）
+    - 這些化學介質進一步增加局部血流與微血管通透性，使液體逸入周圍組織形成水腫
+    detail: '原文的順序是局部低氧與組織死亡後釋出化學介質，再進一步提高血流與通透性；不是由水腫引發介質釋出。'
+    terms:
+    - inflammation
+    - edema
+    - histamine
+    - bradykinin
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch01.cardiovascular.vessels
+    locator: Tissue Healing > Inflammatory Response Phase
   - id: ch22.inflammatory-phase.i03
-    q: Phagocytosis
+    q: 水腫與吞噬作用（phagocytosis）如何影響功能與清除傷區？
     a:
-    - 巨噬細胞清除細胞碎片
-    - 發炎過長→後續phases無法進行
-    detail: ''
-    terms: []
+    - 水腫會抑制收縮組織，顯著限制功能
+    - 增加的血流與吞噬作用會移除組織碎屑與病原體；吞噬作用使巨噬細胞（macrophages）搜尋並移除可能拖慢癒合的細胞碎屑
+    detail: '教材原文將巨噬細胞的釋出連結到吞噬作用；此處按原文保留，不將其延伸為其他未在本章說明的免疫機制。'
+    terms:
+    - edema
+    - phagocytosis
+    - macrophage
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch01.muscle-structure.sarcomere
+    locator: Tissue Healing > Inflammatory Response Phase
   - id: ch22.inflammatory-phase.i04
-    q: 治療目標
+    q: 發炎期的首要治療目標是什麼？
     a:
-    - 最大保護傷區
-    - 防止新組織被破壞
-    - 維持未傷區域功能
-    detail: ''
-    terms: []
+    - 防止新生組織受破壞，並營造有利新組織再生與形成的環境
+    - 最大程度保護受傷結構，同時維持其他身體組織與心肺系統的功能
+    detail: '控制性治療應力在組織癒合中有其角色，但發炎期的優先事項是避免對受傷組織施加額外壓力。'
+    terms:
+    - strength-and-conditioning-professional
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch17.needs-analysis.i03
+    locator: Goals of Rehabilitation and Reconditioning > Inflammatory Response Phase > Treatment Goal
   - id: ch22.inflammatory-phase.i05
-    q: 物理因子
+    q: 發炎期可採用哪些物理因子（physical agents）？其證據界線為何？
     a:
-    - 冰敷、加壓、抬高、電刺激
-    - 減少急性疼痛與組織損傷
-    detail: ''
-    terms: []
+    - 相對休息及冰敷、加壓、抬高、電刺激等物理因子，常是用來減少組織傷害與急性疼痛的主要選項
+    - 這些物理因子的效能研究結果不一致
+    detail: '教材沒有把任何一項物理因子列為保證有效的處置；其使用須放在保護受傷結構的整體目標下。'
+    terms:
+    - physical-agent
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch22.fibroblastic-phase.i08
+    locator: Goals of Rehabilitation and Reconditioning > Inflammatory Response Phase > Treatment Goal
   - id: ch22.inflammatory-phase.i06
-    q: CSCS 任務
+    q: 發炎期肌力與體能專業人員可如何維持整體功能？
     a:
-    - 諮詢ATC確認適應症
-    - 設計未傷部位有氧/無氧/阻力訓練
-    detail: ''
-    terms: []
+    - 先與運動防護員確認特定傷勢的適應症（indication）與禁忌症（contraindication）
+    - 在最大保護受傷結構的前提下，可安排未受傷肢體的一般有氧、無氧與阻力訓練
+    detail: '若受傷肢體活動沒有禁忌症，才可考慮不會使受傷區受壓的近端或遠端孤立運動。'
+    terms:
+    - strength-and-conditioning-professional
+    - indication
+    - contraindication
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch20.program-design.i01
+    - ch17.needs-analysis.i03
+    locator: Goals of Rehabilitation and Reconditioning > Inflammatory Response Phase > Treatment Goal
   - id: ch22.inflammatory-phase.i07
-    q: 可做的運動
+    q: 發炎期有哪些不直接施壓傷區的運動例子？
     a:
-    - 上肢傷→下肢訓練
-    - 膝傷→髖外展/旋轉
-    - 肩傷→肩胛穩定
-    detail: ''
-    terms: []
+    - 下肢受傷時可做上肢運動；可對未受傷肢體進行單腳運動
+    - 若傷肢活動沒有禁忌症，膝傷後可做髖外展與旋轉；盂肱關節傷後可做肩胛穩定運動
+    detail: '例子成立的共同條件是動作不直接涉及或施壓受傷區域，不是以受傷部位名稱自動決定可做的運動。'
+    terms:
+    - contraindication
+    - glenohumeral-joint
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch15.lower-body.i06
+    - ch15.upper-body.i08
+    locator: Goals of Rehabilitation and Reconditioning > Inflammatory Response Phase > Treatment Goal
   - id: ch22.inflammatory-phase.i08
-    q: 禁止
+    q: 發炎期對受傷區直接運動的原則為何？
     a:
-    - 直接涉及或施壓傷區的主動運動
-    - 勿過早主動使用患部
-    detail: ''
-    terms: []
+    - 初期需要讓受傷區相對休息，以保護已受損的組織免於額外傷害
+    - 不建議做直接涉及或施壓受傷區的運動
+    detail: '這是發炎期的原則；不等於整個復健歷程都不活動，後續進展仍取決於癒合期與個別標準。'
+    terms:
+    - inflammatory-response
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch21.active-rest.i04
+    locator: Goals of Rehabilitation and Reconditioning > Inflammatory Response Phase > Exercise Strategies
 - id: injury-prevention
   title: 傷害預防與再傷風險 Injury Prevention
   desc: ''
   tag: Prevention
   items:
   - id: ch22.injury-prevention.i01
-    q: 最大風險因子
+    q: 先前受傷（previous injury）與未來傷害有何關係？
     a:
-    - 先前受傷史（previous injury）是未來傷害最重要的預測因子
-    detail: ''
-    terms: []
+    - 對活動者而言，先前受傷是未來受傷最重要的風險因子之一
+    detail: '教材的表述是「最重要的風險因子之一」，不是唯一或絕對最大的預測因子。'
+    terms:
+    - previous-injury
     numbers: []
     concepts:
     - injury
     - safety
-    related: []
-    locator: ''
+    related:
+    - ch17.needs-analysis.i03
+    - ch21.active-rest.i05
+    locator: Reducing Risk of Injury and Reinjury
   - id: ch22.injury-prevention.i02
-    q: 上肢風險因子
+    q: 上肢傷害的風險因子有哪些？
     a:
-    - 肩關節ROM減少、肩胛運動障礙、肩部肌力不足
-    detail: ''
-    terms: []
+    - 盂肱關節活動範圍（range of motion, ROM）減少
+    - 肩胛骨運動異常（scapular dyskinesis）
+    - 肩部肌力下降
+    detail: '本項列的是上肢傷害的風險因子；教材沒有把它們寫成足以單獨診斷或預測每一種上肢傷害的測驗門檻。'
+    terms:
+    - glenohumeral-joint
+    - range-of-motion
+    - scapular-dyskinesis
     numbers: []
     concepts:
     - injury
     - safety
-    related: []
-    locator: ''
+    related:
+    - ch14.flexibility-factors.i01
+    - ch15.upper-body.i05
+    locator: Reducing Risk of Injury and Reinjury
   - id: ch22.injury-prevention.i03
-    q: 下肢風險因子
+    q: 下肢傷害的風險因子有哪些？
     a:
-    - 平衡↓、落地神經肌肉控制↓、下肢肌力↓
-    detail: ''
-    terms: []
+    - 平衡能力下降
+    - 跳躍落地時神經肌肉控制下降
+    - 下肢肌力下降
+    detail: '這些因素是下肢結構化傷害預防計畫應處理的風險因子；計畫也應符合該運動的需求。'
+    terms:
+    - neuromuscular-control
     numbers: []
     concepts:
     - injury
     - safety
-    related: []
-    locator: ''
+    related:
+    - ch13.balance-flexibility-bc.i01
+    - ch18.safety.i01
+    locator: Reducing Risk of Injury and Reinjury
   - id: ch22.injury-prevention.i04
-    q: Sportsmetrics
+    q: 下肢傷害風險降低計畫應如何設計？
     a:
-    - ACL傷害預防計畫
-    - 改善落地/切位動作
-    - 降低下肢傷害率
-    detail: ''
-    terms: []
+    - 應依運動專項設計
+    - 應著重跳躍落地、切入等活動所需的神經肌肉控制
+    - 教材列舉的可用練習包括增強式運動中的正確跳躍與落地技術，以及強調單側肌力的單腳深蹲
+    detail: '教材將上述動作列為「可用」於降低下肢傷害風險的兩種練習，沒有宣稱這兩個動作單獨構成完整預防計畫。'
+    terms:
+    - neuromuscular-control
+    - plyometric-exercise
     numbers: []
     concepts:
     - injury
     - safety
-    related: []
-    locator: ''
+    related:
+    - ch18.safety.i01
+    - ch19.agility-cod.i05
+    - ch15.lower-body.i01
+    locator: Reducing Risk of Injury and Reinjury
   - id: ch22.injury-prevention.i05
-    q: PEP Program
+    q: Throwers Ten 在上肢傷害預防中的定位為何？
     a:
-    - Prevent Injury & Enhance Performance
-    - 降低ACL與踝扭傷
-    detail: ''
-    terms: []
+    - 關節活動範圍運動與 Throwers Ten 常被用作降低上肢傷害風險的結構化計畫
+    detail: '教材使用「常被使用」的表述；沒有在本章列出 Throwers Ten 的完整動作內容或量化成效。'
+    terms:
+    - range-of-motion
+    - throwers-ten
     numbers: []
     concepts:
     - injury
     - safety
-    related: []
-    locator: ''
+    related:
+    - ch14.dynamic-stretch.i03
+    locator: Reducing Risk of Injury and Reinjury
   - id: ch22.injury-prevention.i06
-    q: 偏心訓練
+    q: Sportsmetrics 與 PEP 計畫在教材中的用途為何？
     a:
-    - 顯著降低腿後肌傷害風險
-    - 早期介入效果佳
-    detail: ''
-    terms: []
+    - Sportsmetrics 與 PEP（Prevent Injury and Enhance Performance）是兩項降低傷害風險的結構化計畫
+    - 兩者著重面向不同，但都導入可處理傷害風險因子的運動與動作
+    - 教材指出這類計畫可降低下肢傷害率，尤其是前十字韌帶傷害與踝關節扭傷
+    detail: '教材沒有說兩項計畫使用完全相同的方法；共同點是針對風險因子安排動作與訓練。'
+    terms:
+    - sportsmetrics
+    - pep
+    - anterior-cruciate-ligament
+    - sprain
     numbers: []
     concepts:
     - injury
     - safety
-    related: []
-    locator: ''
+    related:
+    - ch18.program-design.i01
+    - ch19.program-design-monitoring.i07
+    locator: Reducing Risk of Injury and Reinjury
   - id: ch22.injury-prevention.i07
-    q: 回場後監控
+    q: 離心運動（eccentric exercise）與腿後肌傷害風險有何關係？
     a:
-    - 雙側差異＜10%視為可接受
-    - 與對側或常模比較
-    detail: ''
-    terms: []
+    - 使用離心運動已被證明可大幅降低腿後肌傷害風險
+    detail: '本章只報告離心運動與腿後肌傷害風險降低的結果，沒有指派開始時期、負荷、組數或特定動作。'
+    terms:
+    - eccentric-action
     numbers: []
     concepts:
     - injury
     - safety
-    related: []
-    locator: ''
+    related:
+    - ch19.training-methods.i06
+    - ch02.strength-factors.i07
+    locator: Reducing Risk of Injury and Reinjury
   - id: ch22.injury-prevention.i08
-    q: Throwers Ten
+    q: 回歸運動後應如何檢視殘存缺損？
     a:
-    - 上肢傷害預防結構化計畫
-    - 含ROM訓練
-    detail: ''
-    terms: []
-    numbers: []
+    - 回歸運動後仍可能有肌力、生物力學與功能表現的缺損
+    - 可與對側肢體或既有常模值比較；肌力與功能表現的左右差異小於 10% 可視為可接受
+    detail: '從受監督復健轉為不受限制活動是關鍵時期，團隊必須溝通如何處理仍存在的肌力與表現缺損。'
+    terms:
+    - range-of-motion
+    numbers:
+    - v: '<10'
+      unit: '%'
+      of: 可視為可接受的左右肌力與功能表現差異
     concepts:
     - injury
     - safety
-    related: []
-    locator: ''
+    related:
+    - ch13.test-administration.i08
+    - ch12.why-test.i04
+    - ch22.maturation-phase.i04
+    locator: Reducing Risk of Injury and Reinjury
 - id: injury-types
   title: 傷害類型 Injury Types
   desc: ''
   tag: Injury
   items:
   - id: ch22.injury-types.i01
-    q: Macrotrauma
+    q: 宏觀創傷（macrotrauma）是什麼？
     a:
-    - 單次突發過載傷害
-    - 破壞組織完整性（骨折、脫臼、扭傷、拉傷）
-    detail: ''
-    terms: []
+    - 它是一次特定、突發的組織過載事件，造成組織完整性受破壞
+    detail: '宏觀創傷按受傷組織可表現為不同傷害類型；不能把後述的每一種傷害都當成宏觀創傷的必然結果。'
+    terms:
+    - macrotrauma
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch17.needs-analysis.i03
+    locator: Types of Injury
   - id: ch22.injury-types.i02
-    q: Sprain 扭傷
+    q: 骨與關節的創傷可如何分類？
     a:
-    - 韌帶傷害：1度（部分撕裂無不穩）、2度（部分+輕微不穩）、3度（完全撕裂）
-    detail: ''
-    terms: []
+    - 骨創傷可造成挫傷（contusion）或骨折（fracture）；骨折可分類為閉鎖性、開放性、撕脫性或不完全性
+    - 關節創傷可表現為脫臼（dislocation，關節面完全移位）或半脫臼（subluxation，關節面部分移位），並可能造成關節鬆弛或不穩定
+    detail: '本章列出骨折的分類示例，但沒有提供這些分類的進一步診斷規則。'
+    terms:
+    - contusion
+    - fracture
+    - dislocation
+    - subluxation
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch01.skeleton.synovial-joint
+    - ch02.joint-biomechanics.i04
+    locator: Types of Injury
   - id: ch22.injury-types.i03
-    q: Strain 拉傷
+    q: 韌帶扭傷（sprain）的三級分類為何？
     a:
-    - 肌肉撕裂：1度（強但痛）、2度（弱且痛）、3度（完全撕裂，極弱無痛）
-    detail: ''
-    terms: []
-    numbers: []
+    - 第一度：韌帶部分撕裂，但關節不穩定性未增加
+    - 第二度：部分撕裂，伴隨輕微關節不穩定
+    - 第三度：完全撕裂，伴隨完全關節不穩定
+    detail: '分級的判別重點包含撕裂程度與關節不穩定性，不能只以疼痛程度代替分級。'
+    terms:
+    - sprain
+    numbers:
+    - v: '1'
+      unit: 度
+      of: 關節不穩定性未增加的韌帶部分撕裂
+    - v: '2'
+      unit: 度
+      of: 伴隨輕微關節不穩定的韌帶部分撕裂
+    - v: '3'
+      unit: 度
+      of: 伴隨完全關節不穩定的韌帶完全撕裂
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch01.skeleton.synovial-joint
+    locator: Types of Injury
   - id: ch22.injury-types.i04
-    q: 骨骼傷害
+    q: 肌肉肌腱創傷如何區分挫傷（contusion）與拉傷（strain）？
     a:
-    - Contusion（直接撞擊）或Fracture
-    - 可分closed/open/avulsed/incomplete
-    detail: ''
-    terms: []
+    - 直接創傷造成的肌肉肌腱創傷稱為挫傷
+    - 間接創傷造成的肌肉肌腱創傷稱為拉傷
+    - 肌肉挫傷是受傷肌肉周圍組織中血液與液體過度累積的區域，可能嚴重限制受傷肌肉功能
+    detail: '分類依直接或間接創傷的機制，而不是依當下功能限制的嚴重程度。'
+    terms:
+    - contusion
+    - strain
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch01.muscle-structure.fiber-dimensions
+    locator: Types of Injury
   - id: ch22.injury-types.i05
-    q: 關節傷害
+    q: 肌肉拉傷（muscle strain）的三級分類為何？
     a:
-    - Dislocation（完全位移）vs Subluxation（部分位移）→ 不穩定
-    detail: ''
-    terms: []
-    numbers: []
+    - 第一度：個別纖維部分撕裂，肌肉活動強但疼痛
+    - 第二度：部分撕裂，肌肉活動無力且疼痛
+    - 第三度：纖維完全撕裂，肌肉活動非常無力且無痛
+    detail: '「無痛」是本章對第三度拉傷肌肉活動的原文描述，不能因此推論傷勢較輕。'
+    terms:
+    - strain
+    numbers:
+    - v: '1'
+      unit: 度
+      of: 個別肌纖維部分撕裂且活動強但疼痛的肌肉拉傷
+    - v: '2'
+      unit: 度
+      of: 部分撕裂且活動無力疼痛的肌肉拉傷
+    - v: '3'
+      unit: 度
+      of: 肌纖維完全撕裂且活動非常無力無痛的肌肉拉傷
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch01.muscle-structure.fiber-dimensions
+    locator: Types of Injury
   - id: ch22.injury-types.i06
-    q: Microtrauma
+    q: 為何肌腱較少在腱實質內斷裂？
     a:
-    - 反覆異常壓力
-    - 訓練錯誤/表面/生物力學/柔軟度不足/骨骼排列異常
-    detail: ''
-    terms: []
+    - 當施加於肌腱的張力負荷超過極限，肌腱也可能斷裂
+    - 肌腱膠原纖維通常顯著強於其連接的肌肉纖維，因此失敗較可能發生在肌腹、肌肉肌腱交界或肌腱附著骨處，而非腱實質
+    detail: '這是教材對典型相對強度與常見失敗位置的說明，並非每一次肌腱受傷的絕對位置規則。'
+    terms:
+    - collagen
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch05.connective-tissue.i05
+    locator: Types of Injury
   - id: ch22.injury-types.i07
-    q: Stress Fracture
+    q: 微觀創傷（microtrauma）或過度使用傷害的成因與疲勞性骨折為何？
     a:
-    - 最常見骨骼過用傷害
-    - 訓練量急增或硬地訓練所致
-    detail: ''
-    terms: []
+    - 微觀創傷源於連續訓練或恢復不足時，反覆異常應力作用於組織
+    - 可能與訓練錯誤、訓練表面不佳、動作生物力學或技術問題、動作控制不足、柔軟度不足、骨骼排列或易感性有關
+    - 疲勞性骨折（stress fracture）是最常見的骨過度使用傷害；雖也受體型、營養與代謝影響，常見於訓練量快速增加或硬表面上訓練量過大
+    detail: '教材列出多項可能因素，並未把疲勞性骨折歸因於單一訓練錯誤。'
+    terms:
+    - microtrauma
+    - stress-fracture
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch17.training-volume.i01
+    - ch18.equipment-facility.i01
+    locator: Types of Injury
   - id: ch22.injury-types.i08
-    q: Tendinitis vs Tendinopathy
+    q: 肌腱炎（tendinitis）與肌腱病變（tendinopathy）有何差異？
     a:
-    - -itis = 發炎
-    - tendinopathy = 退化+新血管生成，慢性化
-    detail: ''
-    terms: []
+    - 肌腱炎是肌腱的發炎；字尾 -itis 指發炎狀況
+    - 若未矯正發炎原因，可能發展為慢性肌腱炎或肌腱病變
+    - 肌腱病變是退化性狀況，特徵為發炎極少與新血管生成
+    detail: '「慢性化」的前提是發炎原因未被矯正；教材沒有把兩個名詞寫成可任意互換。'
+    terms:
+    - tendinitis
+    - tendinopathy
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch05.connective-tissue.i05
+    locator: Types of Injury
 - id: kinetic-chain
   title: 動力鏈 OKC / CKC
   desc: ''
   tag: Kinetic
   items:
   - id: ch22.kinetic-chain.i01
-    q: Kinetic Chain 定義
+    q: 動力鏈（kinetic chain）是什麼？
     a:
-    - 兩個以上連續關節共同產生動作的集體作用
-    detail: ''
-    terms: []
+    - 動力鏈是兩個或更多依序相連的關節共同參與以產生動作
+    detail: '定義的重點在連續關節的集體參與，不是單一關節或單一肌肉的孤立作用。'
+    terms:
+    - kinetic-chain
     numbers: []
     concepts:
     - injury
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch02.musculature.i06
+    locator: Goals of Rehabilitation and Reconditioning > Maturation–Remodeling Phase > Exercise Strategies
   - id: ch22.kinetic-chain.i02
-    q: CKC（閉鎖）
+    q: 閉鎖動力鏈運動（closed kinetic chain exercise）如何定義？
     a:
-    - 末端關節受固定阻力不能自由移動
-    - 下肢以「足固定於地面」為主
-    detail: ''
-    terms: []
+    - 末端關節遭遇相當阻力，使其自由活動受到禁止或限制
+    - 也就是遠端關節節段保持固定
+    detail: '下肢閉鎖動力鏈常以雙腳「固定」於地面為例；定義本身不是只有下肢才適用。'
+    terms:
+    - closed-kinetic-chain
     numbers: []
     concepts:
     - injury
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch15.body-positioning.i01
+    locator: Goals of Rehabilitation and Reconditioning > Maturation–Remodeling Phase > Exercise Strategies
   - id: ch22.kinetic-chain.i03
-    q: CKC 優點
+    q: 為何下肢閉鎖動力鏈運動常被視為較具功能性？
     a:
-    - 關節穩定性↑
-    - 功能性動作模式
-    - 多關節協同（髖膝踝）
-    detail: ''
-    terms: []
+    - 多數運動相關活動是在雙腳固定於地面時進行
+    - 閉鎖動力鏈運動的優點包括增加關節穩定性與建立功能性動作模式
+    - 運動中關節通常不會孤立使用，而會和鄰近關節及周圍肌肉協同工作
+    detail: '「常被分類為較具功能性」不是宣稱閉鎖動力鏈在任何情況都比開放動力鏈更適當。'
+    terms:
+    - closed-kinetic-chain
     numbers: []
     concepts:
     - injury
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch15.lower-body.i01
+    - ch02.joint-biomechanics.i05
+    locator: Goals of Rehabilitation and Reconditioning > Maturation–Remodeling Phase > Exercise Strategies
   - id: ch22.kinetic-chain.i04
-    q: OKC（開放）
+    q: 閉鎖動力鏈運動有哪些上下肢例子？
     a:
-    - 末端關節可自由移動
-    - 針對單關節/單肌群強化（例：leg extension）
-    detail: ''
-    terms: []
+    - 深蹲時雙腳固定於地面，提供動作進行的基礎
+    - 伏地挺身是上肢閉鎖動力鏈運動的例子
+    detail: '閉鎖動力鏈雖常被視為下肢運動，也存在上肢版本。'
+    terms:
+    - closed-kinetic-chain
     numbers: []
     concepts:
     - injury
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch15.lower-body.i01
+    - ch16.bodyweight-training.i01
+    locator: Goals of Rehabilitation and Reconditioning > Maturation–Remodeling Phase > Exercise Strategies
   - id: ch22.kinetic-chain.i05
-    q: OKC 優點
+    q: 開放動力鏈運動（open kinetic chain exercise）如何定義？
     a:
-    - 可集中強化特定肌群
-    - 適合某些復健情境
-    detail: ''
-    terms: []
+    - 由依序排列的關節組成，但末端關節可自由活動
+    - 可更集中於某一個關節或肌肉
+    detail: '開放動力鏈的集中性是其用途，不表示它完全沒有多關節動作或功能轉移的限制。'
+    terms:
+    - open-kinetic-chain
     numbers: []
     concepts:
     - injury
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch17.exercise-selection.i02
+    locator: Goals of Rehabilitation and Reconditioning > Maturation–Remodeling Phase > Exercise Strategies
   - id: ch22.kinetic-chain.i06
-    q: 上肢也有CKC
+    q: 腿伸展與深蹲如何說明開放、閉鎖動力鏈的差異？
     a:
-    - 伏地挺身為上肢CKC範例
-    - 不僅限於下肢
-    detail: ''
-    terms: []
+    - 腿伸展時足部與小腿可自由移動，可集中在膝關節的股四頭肌，屬開放動力鏈例子
+    - 深蹲同樣使用股四頭肌與膝關節，也仰賴髖與踝關節的肌肉活動，屬閉鎖動力鏈例子
+    detail: '比較的重點是末端節段與相鄰關節的參與方式，並非兩個動作使用完全不同的肌肉。'
+    terms:
+    - open-kinetic-chain
+    - closed-kinetic-chain
     numbers: []
     concepts:
     - injury
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch15.body-positioning.i05
+    - ch15.lower-body.i01
+    locator: Goals of Rehabilitation and Reconditioning > Maturation–Remodeling Phase > Exercise Strategies
   - id: ch22.kinetic-chain.i07
-    q: 衝刺的例子
+    q: 衝刺如何同時包含開放與閉鎖動力鏈動作？
     a:
-    - 接地腳=CKC
-    - 騰空腳=OKC
-    - 兩者同時存在，都有實用性
-    detail: ''
-    terms: []
+    - 衝刺時，接觸地面的下肢是閉鎖動力鏈，空中的另一肢則是開放動力鏈
+    - 兩種動作可同時存在
+    detail: '因此大多數活動同時涉及開放與閉鎖動力鏈；在某些情況，開放動力鏈也可以是同樣合適的選擇。'
+    terms:
+    - sprinting
+    - open-kinetic-chain
+    - closed-kinetic-chain
     numbers: []
     concepts:
     - injury
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch19.sprint-technique.i04
+    locator: Goals of Rehabilitation and Reconditioning > Maturation–Remodeling Phase > Exercise Strategies
   - id: ch22.kinetic-chain.i08
-    q: CSCS考試重點
+    q: 復健中如何選擇開放或閉鎖動力鏈運動？
     a:
-    - Squat=CKC
-    - Leg Extension=OKC
-    - Push-up=上肢CKC
-    - 兩者互補
-    detail: ''
-    terms: []
+    - 成熟重塑期可採用閉鎖與開放動力鏈運動
+    - 選擇應依運動員的功能需求與個別傷勢限制，而不是把任一動力鏈類型視為一律優先
+    detail: '教材將兩種動力鏈都列為此期可用選項，且明說有些情況開放動力鏈同樣合適。'
+    terms:
+    - open-kinetic-chain
+    - closed-kinetic-chain
     numbers: []
     concepts:
     - injury
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch17.exercise-selection.i05
+    - ch22.sports-medicine-team.i07
+    locator: Goals of Rehabilitation and Reconditioning > Maturation–Remodeling Phase > Exercise Strategies > Rehabilitation and Reconditioning Goals and Strategies
 - id: maturation-phase
   title: 重塑期 Maturation-Remodeling Phase
   desc: ''
   tag: Phase 3
   items:
   - id: ch22.maturation-phase.i01
-    q: 時間
+    q: 成熟重塑期（maturation–remodeling phase）的時程與組織強度為何？
     a:
-    - 可持續數月至數年
-    - 痊癒後組織仍弱於原始組織
-    detail: ''
-    terms: []
+    - 修復期形成的較弱組織會在此期持續被強化
+    - 組織重塑可在受傷後持續數月至數年
+    - 即使膠原纖維與癒合組織的強度改善，仍不及其替代的原組織
+    detail: '時程取決於受傷組織與個別條件；「進入重塑期」不代表組織已恢復原有強度。'
+    terms:
+    - maturation-remodeling
+    - collagen
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch05.connective-tissue.i08
+    - ch21.fitness-fatigue.i07
+    locator: Tissue Healing > Maturation–Remodeling Phase
   - id: ch22.maturation-phase.i02
-    q: Type I 膠原
+    q: 成熟重塑期的第一型膠原蛋白（Type I collagen）如何改變組織？
     a:
-    - 比Type III更強
-    - 沿應力方向排列、肥大→強度↑
-    detail: ''
-    terms: []
+    - 膠原蛋白產生會轉為較強的第一型膠原蛋白，使新生組織有機會改善結構、強度與功能
+    - 增加負荷時，疤痕組織的膠原纖維會肥大並沿受力線排列
+    detail: '較粗且排列較佳的纖維會更強；這是漸進組織負荷的基礎，但不支持超過癒合狀態的過度負荷。'
+    terms:
+    - type-i-collagen
+    - collagen
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch05.connective-tissue.i08
+    locator: Tissue Healing > Maturation–Remodeling Phase
   - id: ch22.maturation-phase.i03
-    q: 治療目標
+    q: 成熟重塑期的主要治療目標是什麼？
     a:
-    - 優化組織功能
-    - 漸進施加運動特異性應力
-    - 準備回場
-    detail: ''
-    terms: []
+    - 最主要目標是最佳化組織功能，並轉銜至回歸比賽或活動
+    - 應持續並進展修復期的運動，再加入較進階、運動專項的運動，讓受傷組織承受漸進應力
+    detail: '運動員可能想「做得太多、太快」；雖然活動時疼痛較少，受傷組織仍未完全癒合。'
+    terms:
+    - maturation-remodeling
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch21.competition-period.i04
+    - ch17.principles-exam-tips.i03
+    locator: Goals of Rehabilitation and Reconditioning > Maturation–Remodeling Phase > Treatment Goal
   - id: ch22.maturation-phase.i04
-    q: 回場標準
+    q: 回歸比賽或活動的決策應依據哪些標準？
     a:
-    - ROM、肌力、功能測試、Patient-Reported Outcome
-    - 不能只靠疼痛消失判斷
-    detail: ''
-    terms: []
+    - 決策應同時理解正常組織癒合的時間範圍，並採用具預定目標的標準導向進程
+    - 目標通常包括關節活動範圍、肌力、功能測試，以及運動員以既定結果表單回報的功能
+    detail: '安全回歸也需要運動醫學團隊溝通、清楚分工與使用回歸指標；此處並非只以疼痛或日曆時間判定。'
+    terms:
+    - range-of-motion
+    - patient-reported-outcome
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch12.why-test.i04
+    - ch13.test-administration.i08
+    - ch22.injury-prevention.i08
+    locator: Goals of Rehabilitation and Reconditioning > Maturation–Remodeling Phase > Treatment Goal
   - id: ch22.maturation-phase.i05
-    q: 注意陷阱
+    q: 為何成熟重塑期不能因疼痛較少就完全恢復活動？
     a:
-    - 疼痛消失≠癒合完成（Fig.22.3）
-    - 過早恢復全量訓練易再傷
-    detail: ''
-    terms: []
+    - 此期活動時可能較不痛，但受傷組織尚未完全癒合，仍需要進一步照護以達完整恢復
+    - 過早做太多可能再次損傷受傷組織
+    detail: '教材將漸進組織負荷連結到膠原纖維排列與肥大；因此保護與逐步增加負荷必須並行。'
+    terms:
+    - collagen
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch21.active-rest.i05
+    - ch22.fibroblastic-phase.i03
+    locator: Goals of Rehabilitation and Reconditioning > Maturation–Remodeling Phase > Treatment Goal
   - id: ch22.maturation-phase.i06
-    q: 訓練方向
+    q: 成熟重塑期的功能性與運動特異性訓練原則為何？
     a:
-    - 由一般→運動特異性
-    - 角度特異性強化
-    - 速度特異性（漸增至比賽速）
-    detail: ''
-    terms: []
+    - 復健與體能調整運動必須具功能性，並反映活動需求
+    - 可使用關節角度特異性強化、速度特異性肌肉活動、閉鎖動力鏈運動，以及進一步增進神經肌肉控制的運動
+    - 強化應從一般運動轉為複製該運動常見動作的運動專項活動
+    detail: '「功能性」在教材中以反映需求來界定，並非限定某一種器械、單關節或多關節動作。'
+    terms:
+    - closed-kinetic-chain
+    - neuromuscular-control
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch17.exercise-selection.i05
+    - ch15.exercise-technique-fundamentals.i02
+    locator: Goals of Rehabilitation and Reconditioning > Maturation–Remodeling Phase > Exercise Strategies
   - id: ch22.maturation-phase.i07
-    q: CKC優先
+    q: 速度特異性訓練如何隨重塑期進展？
     a:
-    - 功能性更高
-    - 關節穩定性佳
-    - 仍需OKC補充單關節強化
-    detail: ''
-    terms: []
+    - 強化動作也應模擬運動速度需求；需較高速度的活動，例如衝刺，應納入較高速度的練習
+    - 以腿後肌拉傷的短跑選手為例，可從柔軟度、離心肌力、向心肌力、動態拉伸，進展至快速等張強化
+    detail: '教材的範例呈現可能的進展順序；實際選擇與進展仍須符合傷勢狀態與運動需求。'
+    terms:
+    - sprinting
+    - eccentric-action
+    - concentric-action
+    - isotonic-exercise
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch19.sprint-technique.i02
+    - ch14.dynamic-stretch.i01
+    locator: Goals of Rehabilitation and Reconditioning > Maturation–Remodeling Phase > Exercise Strategies
   - id: ch22.maturation-phase.i08
-    q: Neuromuscular 進階
+    q: 成熟重塑期如何處理神經肌肉控制訓練？
     a:
-    - 繼續本體感覺訓練
-    - 增加增強式訓練、速度訓練（Ch.18,19）
-    detail: ''
-    terms: []
+    - 修復期引入的神經肌肉控制運動，應在成熟重塑期依需要持續並進展
+    - 教材將增強式與速度訓練分別交由第 18 與第 19 章進一步說明
+    detail: '本章沒有為增強式或速度訓練指定重塑期的固定起始時間或劑量。'
+    terms:
+    - neuromuscular-control
+    - plyometric-exercise
+    - sprinting
     numbers: []
     concepts:
     - injury
-    related: []
-    locator: ''
+    related:
+    - ch18.program-design.i05
+    - ch19.program-design-monitoring.i06
+    locator: Goals of Rehabilitation and Reconditioning > Maturation–Remodeling Phase > Exercise Strategies
 - id: resistance-training-systems
   title: 阻力訓練系統 Resistance Training Systems
   desc: ''
   tag: Program
   items:
   - id: ch22.resistance-training-systems.i01
-    q: De Lorme
+    q: De Lorme 阻力訓練系統的結構為何？
     a:
-    - 3×10
-    - 由輕到重：50%→75%→100% 10RM
-    - 漸進抗阻
-    detail: ''
-    terms: []
-    numbers: []
+    - 採三組、每組 10 下的金字塔設計，由輕到重
+    - 第一組為運動員 10RM 的 50%，第二組為 75%，最後一組為 100%
+    detail: '這是既有的強化處方；本章提醒，運動員復健仍須依各自運動需求個別化。'
+    terms:
+    - de-lorme
+    - repetition-maximum
+    numbers:
+    - v: '3'
+      unit: 組
+      of: De Lorme 系統每個動作的組數
+    - v: '10'
+      unit: 下/組
+      of: De Lorme 系統每組的反覆次數
+    - v: '10'
+      unit: RM
+      of: De Lorme 系統用以設定阻力的反覆次數最大重量
+    - v: '50'
+      unit: '%'
+      of: De Lorme 第一組所用的 10RM 比例
+    - v: '75'
+      unit: '%'
+      of: De Lorme 第二組所用的 10RM 比例
+    - v: '100'
+      unit: '%'
+      of: De Lorme 最後一組所用的 10RM 比例
     concepts:
     - injury
     - program-design
-    related: []
-    locator: ''
+    related:
+    - ch17.load-repetitions.i04
+    - ch17.training-volume.i03
+    locator: Program Design > Resistance Training
   - id: ch22.resistance-training-systems.i02
-    q: Oxford
+    q: Oxford 阻力訓練系統與 De Lorme 有何差異？
     a:
-    - 3×10
-    - 由重到輕：100%→75%→50% 10RM
-    - 與De Lorme相反
-    detail: ''
-    terms: []
-    numbers: []
+    - 同樣採三組、每組 10 下的金字塔設計
+    - 它是 De Lorme 的反向設計：第一組用 10RM 的 100%，第二組 75%，第三組 50%，由重到輕
+    detail: '兩個系統的共同點是三組十下的金字塔形式；差異只在阻力遞進方向。'
+    terms:
+    - oxford
+    - de-lorme
+    - repetition-maximum
+    numbers:
+    - v: '3'
+      unit: 組
+      of: Oxford 系統每個動作的組數
+    - v: '10'
+      unit: 下/組
+      of: Oxford 系統每組的反覆次數
+    - v: '10'
+      unit: RM
+      of: Oxford 系統用以設定阻力的反覆次數最大重量
+    - v: '100'
+      unit: '%'
+      of: Oxford 第一組所用的 10RM 比例
+    - v: '75'
+      unit: '%'
+      of: Oxford 第二組所用的 10RM 比例
+    - v: '50'
+      unit: '%'
+      of: Oxford 第三組所用的 10RM 比例
     concepts:
     - injury
     - program-design
-    related: []
-    locator: ''
+    related:
+    - ch17.load-repetitions.i04
+    locator: Program Design > Resistance Training
   - id: ch22.resistance-training-systems.i03
-    q: DAPRE（Knight）
+    q: Knight 的每日可調整漸進阻力運動（DAPRE）結構為何？
     a:
-    - 4組
-    - 基準為6RM：50%×10→75%×6→100%×最多→調整重量×最多
-    detail: ''
-    terms: []
-    numbers: []
+    - DAPRE 為四組系統，可比 De Lorme 或 Oxford 調整更多強度與訓練量
+    - 第一組以估計 6RM 的 50% 做 10 下；第二組以 75% 做 6 下
+    - 第三組以估計 6RM 的 100% 做最多次數，並依此決定第四組的阻力調整
+    detail: '教材指出最後一組的反覆次數可從 10 下至可能僅 1 下；第四組不是預先固定的重量。'
+    terms:
+    - dapre
+    - repetition-maximum
+    numbers:
+    - v: '4'
+      unit: 組
+      of: DAPRE 系統每個動作的組數
+    - v: '6'
+      unit: RM
+      of: DAPRE 用於估計與設定阻力的反覆次數最大重量
+    - v: '50'
+      unit: '%'
+      of: DAPRE 第一組所用的估計 6RM 比例
+    - v: '10'
+      unit: 下
+      of: DAPRE 第一組的反覆次數
+    - v: '75'
+      unit: '%'
+      of: DAPRE 第二組所用的估計 6RM 比例
+    - v: '6'
+      unit: 下
+      of: DAPRE 第二組的反覆次數
+    - v: '100'
+      unit: '%'
+      of: DAPRE 第三組所用的估計 6RM 比例
     concepts:
     - injury
     - program-design
-    related: []
-    locator: ''
+    related:
+    - ch17.load-repetitions.i08
+    - ch17.training-volume.i01
+    locator: Program Design > Resistance Training
   - id: ch22.resistance-training-systems.i04
-    q: DAPRE 第3組調整表
+    q: DAPRE 第三組完成次數如何決定第四組與下次訓練的阻力？
     a:
-    - 0-2次→降重複做
-    - 3-4→不變
-    - 5-7→同重
-    - 8-12→+5-10lb
-    - 13+→+10-15lb
-    detail: ''
-    terms: []
-    numbers: []
+    - 0–2 下：第四組減 5–10 lb（2.3–4.5 kg）後重做；表中未列下次訓練阻力
+    - 3–4 下：第四組減 0–5 lb（0–2.3 kg）；下次同一阻力
+    - 5–7 下：第四組同一阻力；下次加 5–10 lb（2.3–4.5 kg）
+    - 8–12 下：第四組加 5–10 lb（2.3–4.5 kg）；下次加 5–15 lb（2.3–6.8 kg）
+    - 13 下以上：第四組加 10–15 lb（4.5–6.8 kg）；下次加 10–20 lb（4.5–9 kg）
+    detail: '此表依第三組的實際完成次數調整阻力；0–2 下的下次訓練欄在教材表格中留白。'
+    terms:
+    - dapre
+    numbers:
+    - v: '0-2'
+      unit: 下
+      of: DAPRE 第三組完成次數的第一個調整區間
+    - v: '5-10 (2.3-4.5)'
+      unit: lb (kg)
+      of: 完成 0–2 下時第四組應減少的阻力
+    - v: '3-4'
+      unit: 下
+      of: DAPRE 第三組完成次數的第二個調整區間
+    - v: '0-5 (0-2.3)'
+      unit: lb (kg)
+      of: 完成 3–4 下時第四組應減少的阻力
+    - v: '5-7'
+      unit: 下
+      of: DAPRE 第三組完成次數的第三個調整區間
+    - v: '5-10 (2.3-4.5)'
+      unit: lb (kg)
+      of: 完成 5–7 下時下次訓練應增加的阻力
+    - v: '8-12'
+      unit: 下
+      of: DAPRE 第三組完成次數的第四個調整區間
+    - v: '5-10 (2.3-4.5)'
+      unit: lb (kg)
+      of: 完成 8–12 下時第四組應增加的阻力
+    - v: '5-15 (2.3-6.8)'
+      unit: lb (kg)
+      of: 完成 8–12 下時下次訓練應增加的阻力
+    - v: '13+'
+      unit: 下
+      of: DAPRE 第三組完成次數的第五個調整區間
+    - v: '10-15 (4.5-6.8)'
+      unit: lb (kg)
+      of: 完成 13 下以上時第四組應增加的阻力
+    - v: '10-20 (4.5-9)'
+      unit: lb (kg)
+      of: 完成 13 下以上時下次訓練應增加的阻力
     concepts:
     - injury
     - program-design
-    related: []
-    locator: ''
+    related:
+    - ch17.load-repetitions.i08
+    locator: Program Design > Resistance Training > Table 22.2 Resistance Adjustments for Daily Adjustable Progressive Resistance Exercise (DAPRE) Protocol
   - id: ch22.resistance-training-systems.i05
-    q: SAID 原則
+    q: 為何既有阻力訓練系統仍須為個別運動員調整？
     a:
-    - 身體適應所施加的需求
-    - 訓練目標決定訓練設計
-    detail: ''
-    terms: []
+    - De Lorme、Oxford 與 Knight 系統已證實可增加肌力，也可用於設計復健阻力訓練
+    - 但它們可能過於嚴格，無法讓不同運動項目的運動員充分個別化
+    detail: '教材沒有否定這些系統的強化效果；限制在於固定協定未必符合每位運動員的運動需求。'
+    terms:
+    - de-lorme
+    - oxford
+    - dapre
     numbers: []
     concepts:
     - injury
     - program-design
-    related: []
-    locator: ''
+    related:
+    - ch17.needs-analysis.i01
+    - ch17.exercise-selection.i05
+    locator: Program Design > Resistance Training
   - id: ch22.resistance-training-systems.i06
-    q: 馬拉松選手 vs 舉重選手
+    q: SAID 原則如何用於復健阻力訓練？
     a:
-    - 同樣髕骨傷：馬拉松→2-3×15-20 低強度
-    - 舉重→4-5×3-8 高強度
-    detail: ''
-    terms: []
+    - 特定需求適應（SAID）原則指出，系統會適應所施加的需求
+    - 因此訓練目標應決定阻力訓練設計
+    - 髕股關節復健的馬拉松選手應著重股四頭肌耐力、做較多次數；同傷勢的奧運舉重選手在重塑後期則需較少次高強度運動來準備爆發力需求
+    detail: '比較的是同一傷勢但運動需求不同的設計邏輯，不是給所有跑者或舉重選手的固定組數、次數與強度。'
+    terms:
+    - said
     numbers: []
     concepts:
     - injury
     - program-design
-    related: []
-    locator: ''
+    related:
+    - ch17.principles-exam-tips.i01
+    - ch17.load-repetitions.i04
+    locator: Program Design > Resistance Training
   - id: ch22.resistance-training-systems.i07
-    q: 有氧訓練選擇
+    q: 復健期訓練未受傷肢體有何意義？
     a:
-    - UBE、深水跑步、腳踏車、橢圓機
-    - 依傷部位選擇
-    - 儘早介入
-    detail: ''
-    terms: []
+    - 為了最佳癒合，初期應最小化對癒合組織的壓力，但可對未受傷區域施加相關訓練壓力
+    - 訓練未受傷肢體可改善受傷肢體的肌力
+    detail: '教材以急性右膝傷的足球員為例：可訓練上肢與未受傷左下肢，但左下肢動作仍可能需要調整以保護右下肢。'
+    terms:
+    - strength-and-conditioning-professional
     numbers: []
     concepts:
     - injury
     - program-design
-    related: []
-    locator: ''
+    related:
+    - ch05.neural-adaptations.i07
+    - ch20.special-issues.i01
+    locator: Program Design > Aerobic and Anaerobic Training
   - id: ch22.resistance-training-systems.i08
-    q: 代謝需求匹配
+    q: 復健期的有氧與無氧訓練如何對應運動需求與傷勢？
     a:
-    - 馬拉松→有氧為主
-    - 摔角→間歇
-    - 舉重→無氧為主
-    detail: ''
-    terms: []
+    - 雖尚未確定復健用最佳有氧訓練計畫，通常應盡可能模擬運動專項與代謝需求
+    - 馬拉松選手須立即處理有氧適能；摔角的有氧與無氧需求結合，較適合間歇訓練；奧運舉重選手著重維持無氧適能
+    - 器材選擇取決於受傷部位；可選上肢測功機、深水跑、下肢單車與橢圓機等方式
+    detail: '專項性很重要，但教材也指出可透過其他身體區域的運動增加運動能力，例如以上肢運動改善氧耗。'
+    terms:
+    - interval-training
     numbers: []
     concepts:
     - injury
     - program-design
-    related: []
-    locator: ''
+    related:
+    - ch20.program-design.i01
+    - ch20.training-types.i03
+    locator: Program Design > Aerobic and Anaerobic Training
 - id: sports-medicine-team
   title: 運動醫學團隊 Sports Medicine Team
   desc: ''
   tag: Team
   items:
   - id: ch22.sports-medicine-team.i01
-    q: Team Physician
+    q: 隊醫（team physician）的角色與責任為何？
     a:
-    - MD/DO，最終決定回場，開立處方，負責診斷與轉介
-    detail: ''
-    terms: []
+    - 隊醫通常是醫學博士或骨病醫學博士，為組織、學校或球隊提供醫療照護
+    - 職責可包括賽前檢查、場上緊急照護、傷病評估與診斷，以及需要時轉介其他醫療人員
+    - 雖不負責每日復健，通常最終判定運動員是否可回歸比賽，並可開立所需藥物
+    detail: '隊醫可具家庭醫學、內科、兒科或骨科等訓練背景，但本章強調其應熟悉肌肉骨骼傷害與運動相關醫療狀況。'
+    terms:
+    - team-physician
     numbers: []
     concepts:
     - injury
     - professional
-    related: []
-    locator: ''
+    related:
+    - ch12.safety.i01
+    - ch22.maturation-phase.i04
+    locator: Sports Medicine Team > Sports Medicine Team Members
   - id: ch22.sports-medicine-team.i02
-    q: Athletic Trainer (ATC)
+    q: 運動防護員（athletic trainer, ATC）的主要職責為何？
     a:
-    - 每日照護者
-    - 評估傷害、治療、協調溝通
-    - 督導下執業
-    detail: ''
-    terms: []
+    - 通常負責運動員每日身體健康，並在隊醫督導下工作
+    - 職責包括評估傷害、給予治療性運動加速復健、以治療性物理因子處理傷害，以及管理運動醫學團隊
+    - 也透過與運動員的頻繁接觸，促進團隊、教練與運動員之間的溝通
+    detail: '美國的 ATC 是經 National Athletic Trainers’ Association Board of Certification 認證的 Certified Athletic Trainer；本章同時使用 athletic trainer 或 athletic therapist 的稱呼。'
+    terms:
+    - athletic-trainer
+    - physical-agent
     numbers: []
     concepts:
     - injury
     - professional
-    related: []
-    locator: ''
+    related:
+    - ch12.administration.i01
+    - ch23.design-elements.i02
+    locator: Sports Medicine Team > Sports Medicine Team Members
   - id: ch22.sports-medicine-team.i03
-    q: Physical Therapist (SCS)
+    q: 物理治療師（physical therapist）在運動醫學團隊中的角色為何？
     a:
-    - 制定治療策略、長期復健
-    - ABPTS認證SCS
-    detail: ''
-    terms: []
+    - 具骨科或運動醫學專長者可協助受傷運動員減痛與恢復功能，並可制定特定治療策略或管理長期復健
+    - 在美國，具運動傷害管理專長者可經 American Board of Physical Therapy Specialties 取得運動專科認證（Sports Certified Specialist, SCS）
+    detail: '教材提到這類人員日益參與急性傷害的評估、治療與復健，也可能兼任團隊運動防護員及運動物理治療師。'
+    terms:
+    - physical-therapist
+    - sports-certified-specialist
     numbers: []
     concepts:
     - injury
     - professional
-    related: []
-    locator: ''
+    related:
+    - ch12.safety.i01
+    locator: Sports Medicine Team > Sports Medicine Team Members
   - id: ch22.sports-medicine-team.i04
-    q: CSCS 角色
+    q: 肌力與體能專業人員在復健與體能調整中扮演何種角色？
     a:
-    - 進階復健設計：阻力、增強式、有氧訓練
-    - 銜接回場
-    detail: ''
-    terms: []
+    - 此人通常著重肌力、爆發力與運動表現提升，也在復健與體能調整中扮演重要角色
+    - 在運動防護員或運動物理治療師諮詢下，可運用阻力、增強式與有氧運動的技術與處方，設計讓運動員準備回歸比賽的體能調整計畫
+    detail: '教材理想上建議此人具 NSCA 的 Certified Strength and Conditioning Specialist（CSCS）資格；本章不把其定位為診斷、開藥或最終放行的人員。'
+    terms:
+    - strength-and-conditioning-professional
+    - plyometric-exercise
     numbers: []
     concepts:
     - injury
     - professional
-    related: []
-    locator: ''
+    related:
+    - ch17.exercise-selection.i05
+    - ch18.program-design.i01
+    - ch20.program-design.i01
+    locator: Sports Medicine Team > Sports Medicine Team Members
   - id: ch22.sports-medicine-team.i05
-    q: 其他成員
+    q: 運動醫學團隊還可能包括哪些專業成員？
     a:
-    - Exercise Physiologist、Nutritionist/RD、Sport Psychologist
-    detail: ''
-    terms: []
+    - 運動生理學家可協助設計考量運動代謝反應及其對癒合幫助的體能計畫
+    - 具運動營養背景的營養師或註冊營養師可提供促進組織恢復的飲食選擇指引
+    - 運動背景的合格諮商師、心理學家或精神科醫師可協助運動員因應傷害伴隨的心理壓力
+    detail: '這些成員協助急性期後的復健與體能調整；不同角色處理的是代謝、營養或心理需求，不能互相取代。'
+    terms:
+    - exercise-physiologist
+    - nutritionist
+    - counselor
+    - psychologist
+    - psychiatrist
     numbers: []
     concepts:
     - injury
     - professional
-    related: []
-    locator: ''
+    related:
+    - ch20.program-design.i01
+    - ch12.safety.i01
+    locator: Sports Medicine Team > Sports Medicine Team Members
   - id: ch22.sports-medicine-team.i06
-    q: Indication
+    q: 運動醫學團隊為何必須維持溝通？
     a:
-    - 受傷後仍需執行的訓練（例：肩傷時繼續下肢訓練）
-    detail: ''
-    terms: []
+    - 受傷運動員常最常接觸教練、運動防護員與肌力與體能專業人員；有時也會先向教練或肌力與體能專業人員透露受傷
+    - 團隊可藉每週會議討論運動員目前參與狀態、正在做的活動、限制或調整、進展，以及是否須改變計畫
+    detail: '頻率較低的隊醫、物理治療師、營養師與運動心理人員仍須保持溝通；有效溝通是確保安全與和諧環境的團隊責任。'
+    terms:
+    - athletic-trainer
+    - strength-and-conditioning-professional
     numbers: []
     concepts:
     - injury
     - professional
-    related: []
-    locator: ''
+    related:
+    - ch12.administration.i03
+    - ch15.spotter-communication.i01
+    locator: Sports Medicine Team > Communication
   - id: ch22.sports-medicine-team.i07
-    q: Contraindication
+    q: 適應症（indication）與禁忌症（contraindication）分別是什麼？
     a:
-    - 應避免的動作（例：前肩脫臼後禁止臥推）
-    detail: ''
-    terms: []
+    - 適應症是復健中運動員需要的治療形式；例如肩夾擠的壘球外野手須維持下肢功能，因此下肢肌力、速度、敏捷與爆發力訓練可被列為適應症
+    - 禁忌症是因特定傷勢而不宜或被禁止的活動或做法
+    detail: '肌力與體能專業人員須理解診斷及運動的適應症、禁忌症，才能安全設計受傷運動員的訓練。'
+    terms:
+    - indication
+    - contraindication
     numbers: []
     concepts:
     - injury
     - professional
-    related: []
-    locator: ''
+    related:
+    - ch17.needs-analysis.i03
+    locator: Sports Medicine Team > Communication
   - id: ch22.sports-medicine-team.i08
-    q: 溝通機制
+    q: 禁忌症與溝通表單如何用於安全體能調整？
     a:
-    - 每週團隊會議
-    - 復健轉介表 + S&C摘要表
-    - 確保安全一致
-    detail: ''
-    terms: []
+    - 例如前肩脫臼復健後期可能需要上肢強化，但臥推可能因讓不穩定的前肩處於脆弱位置而成為禁忌症
+    - 復健轉介表可向團隊成員傳達運動的適應症與禁忌症；肌力與體能摘要表可記錄目前活動及運動員對活動的反應
+    detail: '教材將這些表單定位為溝通工具，用來安全有效地安排體能調整，並非由表單本身取代臨床判斷。'
+    terms:
+    - contraindication
     numbers: []
     concepts:
     - injury
     - professional
-    related: []
-    locator: ''
-cards:
+    related:
+    - ch15.upper-body.i01
+    - ch12.administration.i03
+    locator: Sports Medicine Team > Communication
+cards_legacy:
 - q: 運動醫學團隊中，隊醫（team physician）的主要職責是什麼？
   a: MD/DO 背景，負責備賽前檢查、場邊急救、傷病診斷與轉介、藥物處方；最終決定運動員是否可復出競賽。
   tag: sports-medicine-team
@@ -1016,3 +1383,160 @@ cards:
 - q: 復健中，治療儀器（modalities）在各期的使用目的有何不同？
   a: 發炎期：冰敦、壓縮、抬高、電刺激 → 減少疼痛和組織損傷。修復期：超音波、電刺激、冰敦 → 促進膠原合成（目標不同於發炎期）。
   tag: rehab-exercise
+cards:
+- q: 隊醫的最終復健權責？
+  a: 通常最終判定是否可回歸比賽。
+  tag: sports-medicine-team
+- q: 隊醫可負責哪些工作？
+  a: 賽前檢查、場上急救、評估診斷、轉介與藥物處方。
+  tag: sports-medicine-team
+- q: 運動防護員的日常角色？
+  a: 評估與復健傷害、使用治療性物理因子，並促進溝通。
+  tag: sports-medicine-team
+- q: 物理治療師可提供什麼？
+  a: 減痛、恢復功能、治療策略與長期復健管理。
+  tag: sports-medicine-team
+- q: 適應症與禁忌症的意義？
+  a: 前者是需要的治療；後者是因傷不宜或禁止的活動。
+  tag: communication
+- q: 宏觀創傷是什麼？
+  a: 一次突發過載造成組織完整性受破壞。
+  tag: injury-types
+- q: 第一度韌帶扭傷？
+  a: 韌帶部分撕裂，但未增加關節不穩定性。
+  tag: injury-types
+- q: 第三度肌肉拉傷？
+  a: 肌纖維完全撕裂，肌肉活動非常無力且無痛。
+  tag: injury-types
+- q: 脫臼與半脫臼？
+  a: 分別是關節面完全與部分移位。
+  tag: injury-types
+- q: 肌腱常在哪裡斷裂？
+  a: 較可能在肌腹、肌腱交界或附著骨處，而非腱實質。
+  tag: injury-types
+- q: 微觀創傷的成因？
+  a: 反覆異常應力、連續訓練或恢復不足。
+  tag: injury-types
+- q: 疲勞性骨折常見誘因？
+  a: 訓練量快速增加或硬表面上過量訓練。
+  tag: injury-types
+- q: 肌腱炎與肌腱病變？
+  a: 前者是發炎；後者是發炎極少的新血管退化性狀況。
+  tag: injury-types
+- q: 組織癒合三期？
+  a: 發炎反應、纖維母細胞修復、成熟重塑。
+  tag: tissue-healing
+- q: 發炎期通常多久？
+  a: 急性傷後 2 至 3 天，通常少於 1 週。
+  tag: tissue-healing
+- q: 水腫如何形成？
+  a: 化學介質增加血流與微血管通透性，液體逸入周圍組織。
+  tag: tissue-healing
+- q: 水腫的功能影響？
+  a: 抑制收縮組織並顯著限制功能。
+  tag: tissue-healing
+- q: 修復期何時開始？
+  a: 最早可在傷後 2 天開始，最久可至 2 個月。
+  tag: tissue-healing
+- q: 修復期的膠原蛋白？
+  a: 第三型膠原隨機沉積，為組織再生提供架構。
+  tag: tissue-healing
+- q: 重塑期的膠原蛋白？
+  a: 轉為較強的第一型膠原並沿受力線排列。
+  tag: tissue-healing
+- q: 重塑期可維持多久？
+  a: 數月至數年，且組織仍弱於原組織。
+  tag: tissue-healing
+- q: 發炎期首要目標？
+  a: 最大保護受傷結構並防止新組織受破壞。
+  tag: rehab-goals
+- q: 發炎期傷區運動原則？
+  a: 不建議直接涉及或施壓傷區的運動。
+  tag: rehab-goals
+- q: 修復期目標？
+  a: 防止過度萎縮與關節退化，同時漸進加入低負荷。
+  tag: rehab-goals
+- q: 太少活動的後果？
+  a: 新生纖維排列不佳並可能形成沾黏。
+  tag: tissue-healing
+- q: 重塑期回歸決策依據？
+  a: 癒合時程、標準導向進程、活動度、肌力、功能測試與自評功能。
+  tag: rehab-goals
+- q: 修復期等長運動條件？
+  a: 須無痛、有適應症並在醫療團隊諮詢後施用。
+  tag: rehab-exercise
+- q: 等速運動限制？
+  a: 運動並非固定速度，且多數設備只做單關節運動。
+  tag: rehab-exercise
+- q: 離心與向心比較？
+  a: 離心可產生較大力量且耗能較少。
+  tag: rehab-exercise
+- q: 神經肌肉控制是什麼？
+  a: 肌肉回應傳入感覺資訊以維持關節穩定的能力。
+  tag: neuromuscular
+- q: 本體感覺來源？
+  a: 皮膚、肌肉、肌腱、韌帶與關節囊的感覺受器。
+  tag: neuromuscular
+- q: 如何挑戰神經肌肉控制？
+  a: 改變表面穩定性、視覺或動作速度。
+  tag: neuromuscular
+- q: 閉鎖動力鏈定義？
+  a: 末端關節受阻力限制，遠端節段固定。
+  tag: kinetic-chain
+- q: 開放動力鏈例子？
+  a: 腿伸展；末端關節可自由移動。
+  tag: kinetic-chain
+- q: De Lorme 結構？
+  a: 三組十下，由 10RM 的 50%、75% 至 100%。
+  tag: resistance-training-rehab
+- q: Oxford 結構？
+  a: 三組十下，由 10RM 的 100%、75% 至 50%。
+  tag: resistance-training-rehab
+- q: DAPRE 的第三組用途？
+  a: 以估計 6RM 的 100% 做最多次數，決定第四組調整。
+  tag: resistance-training-rehab
+- q: DAPRE 0–2 下怎麼調整？
+  a: 減 5–10 lb（2.3–4.5 kg）後重做第四組。
+  tag: resistance-training-rehab
+- q: SAID 原則？
+  a: 系統會適應所施加的需求，目標決定訓練設計。
+  tag: resistance-training-rehab
+- q: 復健有氧訓練原則？
+  a: 盡可能模擬運動與代謝需求，同時避開傷勢禁忌。
+  tag: aerobic-anaerobic-rehab
+- q: 未受傷肢體訓練效益？
+  a: 可改善受傷肢體的肌力。
+  tag: aerobic-anaerobic-rehab
+- q: 復健五原則之一？
+  a: 癒合組織不得過度受壓。
+  tag: rehab-principles
+- q: 為何疼痛較少仍不可完全活動？
+  a: 受傷組織可能尚未完全癒合。
+  tag: tissue-healing
+- q: 重塑期訓練的特異性？
+  a: 從一般運動轉為反映運動需求的功能性活動。
+  tag: rehab-goals
+- q: 既往受傷的風險意義？
+  a: 是未來受傷最重要的風險因子之一。
+  tag: injury-prevention
+- q: 上肢傷害風險因子？
+  a: 盂肱關節活動度下降、肩胛骨運動異常、肩肌力下降。
+  tag: injury-prevention
+- q: 下肢預防計畫焦點？
+  a: 運動專項的落地與切入神經肌肉控制。
+  tag: injury-prevention
+- q: Sportsmetrics 與 PEP？
+  a: 處理下肢傷害風險因子的結構化計畫。
+  tag: injury-prevention
+- q: 偏心運動的預防效果？
+  a: 已被證明可大幅降低腿後肌傷害風險。
+  tag: injury-prevention
+- q: 復健轉介表的用途？
+  a: 向團隊傳達運動適應症與禁忌症。
+  tag: communication
+- q: 發炎與修復期物理因子差異？
+  a: 前期減少傷害與急性疼痛；修復期支持新組織形成並管理疼痛。
+  tag: rehab-exercise
+- q: 吞噬作用在發炎期的功能？
+  a: 與增加的血流一起清除組織碎屑與病原體。
+  tag: tissue-healing
