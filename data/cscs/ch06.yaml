@@ -8,1039 +8,1492 @@ topics:
   tag: Cardiovascular
   items:
   - id: ch06.acute-cardiovascular.i01
-    q: 心輸出量 (Q̇)
+    q: 心輸出量（cardiac output, Q̇）如何隨有氧運動改變？
     a:
-    - Q̇ = 搏出量 × 心跳率
-    - 最大時可達靜止的 4 倍（約 20–22 L/min）
-    detail: ''
-    terms: []
-    numbers: []
+    - 心輸出量是心臟每分鐘泵出的血量，等於每搏量乘以心率
+    - 從靜息進入穩定狀態有氧運動時，心輸出量先快速、再逐漸增加，之後進入平臺
+    - 最大運動時可由靜息約 5 L/min 增至 20–22 L/min，約為四倍
+    detail: 20–22 L/min 是教材所述的最大值範圍，不是所有人的固定上限；個人的反應還會受訓練狀態影響。
+    terms:
+    - cardiac-output
+    - stroke-volume
+    - heart-rate
+    numbers:
+    - v: 5
+      unit: L/min
+      of: 教材所述的約略靜息心輸出量
+    - v: 20–22
+      unit: L/min
+      of: 最大運動時心輸出量可達的範圍
+    - v: 4
+      unit: 倍
+      of: 最大運動心輸出量相對於靜息值的約略倍數
     concepts:
     - circulation
-    - adaptation
+    - normal-values
     related: []
-    locator: ''
+    locator: Acute Responses to Aerobic Exercise > Cardiovascular Responses > Cardiac Output
   - id: ch06.acute-cardiovascular.i02
-    q: 搏出量 (SV)
+    q: 有氧運動時每搏量（stroke volume, SV）何時進入平臺？
     a:
-    - Frank-Starling 機制：靜脈回流↑ → 心室末期舒張容積↑ → 收縮力↑
-    - VO2 40–50% 時 SV 達到高原
-    detail: ''
-    terms: []
-    numbers: []
+    - 每搏量在運動開始時上升，直到攝氧量約達最大攝氧量的 40–50% 後開始進入平臺
+    - 久坐的大學年齡男性，最大每搏量平均為 100–120 ml/beat；同齡女性約低 25%
+    - 經訓練後，同齡男性可達 150–160 ml/beat，女性約 100–110 ml/beat
+    detail: 教材把女性較低的平均值歸因於平均體型與心肌較小；這些數字限定於大學年齡族群，不能直接當成所有年齡與體型的標準值。
+    terms:
+    - stroke-volume
+    - vo2max
+    numbers:
+    - v: 40–50
+      unit: '% VO₂max'
+      of: 每搏量開始進入平臺時的攝氧量強度
+    - v: 100–120
+      unit: ml/beat
+      of: 久坐大學年齡男性的平均最大每搏量
+    - v: 約低 25
+      unit: '%'
+      of: 久坐大學年齡女性最大每搏量相對同齡男性的差幅
+    - v: 150–160
+      unit: ml/beat
+      of: 經訓練大學年齡男性的最大每搏量
+    - v: 100–110
+      unit: ml/beat
+      of: 經訓練大學年齡女性的最大每搏量
     concepts:
     - circulation
     - adaptation
     related: []
-    locator: ''
+    locator: Acute Responses to Aerobic Exercise > Cardiovascular Responses > Cardiac Output
   - id: ch06.acute-cardiovascular.i03
-    q: 心跳率 (HR)
+    q: 有氧運動時心率（heart rate, HR）如何上升，又如何估算最大心率？
     a:
-    - 與強度線性上升
-    - 最大心跳估算：220－年齡 或 208－(0.7×年齡)
-    detail: ''
-    terms: []
-    numbers: []
+    - 運動前與剛開始時，反射性或預期性的交感神經刺激會使心率上升；之後心率隨有氧運動強度線性增加
+    - 簡易最大心率估算式為 220－年齡；教材也引用健康成人較準確的 208－0.7×年齡
+    detail: 心率的上升速率、實際反應與可達最大值還受體適能、年齡及工作負荷影響。220－年齡只是估計式，教材範例所示的標準差為 ±10–12 beats/min。
+    terms:
+    - heart-rate
+    - maximal-heart-rate
+    - sympathetic
+    numbers:
+    - v: 220－年齡
+      unit: beats/min
+      of: 傳統最大心率估算式
+    - v: 208－0.7×年齡
+      unit: beats/min
+      of: 教材引用、適用於健康成人的最大心率估算式
+    - v: ±10–12
+      unit: beats/min
+      of: 220－年齡估算式周圍的標準差
     concepts:
     - circulation
-    - adaptation
+    - measurement
     related: []
-    locator: ''
+    locator: Acute Responses to Aerobic Exercise > Cardiovascular Responses > Heart Rate > How Can Athletes Estimate Maximal Heart Rate?
   - id: ch06.acute-cardiovascular.i04
-    q: 攝氧量 (VO2)
+    q: 攝氧量（oxygen uptake, V̇O₂）與 Fick 方程式是什麼？
     a:
-    - Fick 方程式：VO2 = Q̇ × a-vO2 difference
-    - 靜止 ≈ 3.5 ml/kg/min（1 MET）
-    detail: ''
-    terms: []
-    numbers: []
+    - 攝氧量是身體組織消耗的氧量；Fick 方程式為 V̇O₂＝心輸出量×動靜脈氧差
+    - 一般人的估計靜息攝氧量為 3.5 ml·kg⁻¹·min⁻¹，定義為 1 代謝當量（metabolic equivalent, MET）
+    - 正常健康者的最大攝氧量一般為 25–80 ml·kg⁻¹·min⁻¹，即 7.1–22.9 METs
+    detail: 最大攝氧量代表全身細胞層級可利用的最大氧量，主要取決於心臟與循環系統運氧的能力，以及組織利用氧的能力；教材將它列為最廣泛接受的心肺適能指標。
+    terms:
+    - oxygen-uptake
+    - fick-equation
+    - arteriovenous-oxygen-difference
+    - cardiac-output
+    - vo2max
+    - metabolic-equivalent
+    numbers:
+    - v: 3.5
+      unit: ml·kg⁻¹·min⁻¹
+      of: 一般人的估計靜息攝氧量
+    - v: 1
+      unit: MET
+      of: 3.5 ml·kg⁻¹·min⁻¹ 靜息攝氧量所定義的代謝當量
+    - v: 25–80
+      unit: ml·kg⁻¹·min⁻¹
+      of: 正常健康者一般的最大攝氧量範圍
+    - v: 7.1–22.9
+      unit: METs
+      of: 正常健康者最大攝氧量範圍換算成代謝當量
     concepts:
     - circulation
-    - adaptation
+    - gas-exchange
+    - measurement
     related: []
-    locator: ''
+    locator: Acute Responses to Aerobic Exercise > Oxygen Uptake
   - id: ch06.acute-cardiovascular.i05
-    q: 靜脈回流機制
+    q: 有氧運動如何增加靜脈回流與每搏量？
     a:
-    - 靜脈收縮＋骨骼肌幫浦＋呼吸幫浦 → 靜脈回流增加 → 搏出量增加
-    detail: ''
-    terms: []
+    - 交感神經活化引起的靜脈收縮、骨骼肌幫浦與呼吸幫浦共同增加靜脈回流
+    - 回心血量增加使舒張末期容積上升，心肌纖維比靜息時拉得更長，收縮與收縮期射血更有力
+    - 這項「收縮力取決於心肌壁纖維長度」的原理稱為 Frank–Starling 機制
+    detail: 教材另列出第二條每搏量調節途徑：腎上腺素與正腎上腺素提高心肌收縮力，使心室收縮更強、收縮期排空更多；因此每搏量不只由回心血量決定。
+    terms:
+    - venous-return
+    - skeletal-muscle-pump
+    - respiratory-pump
+    - end-diastolic-volume
+    - frank-starling-mechanism
+    - epinephrine
+    - norepinephrine
     numbers: []
     concepts:
     - circulation
-    - adaptation
     related: []
-    locator: ''
+    locator: Acute Responses to Aerobic Exercise > Cardiovascular Responses > Stroke Volume
   - id: ch06.acute-cardiovascular.i06
-    q: 收縮壓 (SBP)
+    q: 收縮壓（systolic blood pressure, SBP）與雙乘積如何反映心臟工作？
     a:
-    - 最大有氧運動可升至 220–260 mmHg
-    - Rate-Pressure Product = HR × SBP
-    detail: ''
-    terms: []
-    numbers: []
+    - 收縮壓估計心室收縮、血液被用力射出時對動脈壁施加的壓力
+    - 心率乘以收縮壓稱為率壓乘積或雙乘積（rate–pressure product／double product），用來估計心肌耗氧量與心臟做功
+    - 最大有氧運動時，收縮壓通常可升至 220–260 mmHg
+    detail: 220–260 mmHg 描述最大有氧運動可正常出現的收縮壓範圍，不是靜息血壓標準；判讀時必須保留運動強度情境。
+    terms:
+    - systolic-blood-pressure
+    - double-product
+    - heart-rate
+    numbers:
+    - v: 220–260
+      unit: mmHg
+      of: 最大有氧運動時收縮壓通常可達的範圍
     concepts:
     - circulation
-    - adaptation
+    - measurement
+    - normal-values
     related: []
-    locator: ''
+    locator: Acute Responses to Aerobic Exercise > Blood Pressure
   - id: ch06.acute-cardiovascular.i07
-    q: 舒張壓 (DBP)
+    q: 舒張壓與平均動脈壓在有氧運動中如何判讀？
     a:
-    - 有氧運動時因血管擴張而維持不變或略降
-    - 平均動脈壓 = (SBP-DBP)/3 + DBP
-    detail: ''
-    terms: []
-    numbers: []
+    - 舒張壓（diastolic blood pressure, DBP）估計心室舒張、沒有血液被用力射出時動脈壁承受的壓力，並可反映周邊阻力
+    - 有氧運動造成血管擴張，舒張壓可下降；最大有氧運動時通常維持靜息水準或略降
+    - 平均動脈壓（mean arterial pressure, MAP）＝［（SBP－DBP）÷3］＋DBP
+    detail: 平均動脈壓不是收縮壓與舒張壓的算術平均，因為一個心動週期中，動脈壓停留在接近舒張壓的時間較長。
+    terms:
+    - diastolic-blood-pressure
+    - mean-arterial-pressure
+    - vasodilation
+    numbers:
+    - v: 3
+      unit: 除數
+      of: 平均動脈壓公式中收縮壓與舒張壓差值的除數
     concepts:
     - circulation
-    - adaptation
+    - measurement
     related: []
-    locator: ''
+    locator: Acute Responses to Aerobic Exercise > Blood Pressure
   - id: ch06.acute-cardiovascular.i08
-    q: 局部血流調節
+    q: 劇烈有氧運動如何重新分配局部血流？
     a:
-    - 活動肌肉微動脈擴張
-    - 靜止時 15–20% 心輸出量 → 運動時可達 90% 流向骨骼肌
-    detail: ''
-    terms: []
-    numbers: []
+    - 活動肌肉的局部微動脈擴張，使流入活動肌肉的血量大幅增加；其他器官系統的微動脈同時收縮，血流因而減少
+    - 靜息時骨骼肌獲得 15–20% 的心輸出量，劇烈運動時可升至 90%
+    detail: 血液黏度與血管長度也會影響阻力，但教材指出它們在多數情況下相對固定，因此局部血流主要由血管收縮與擴張調節。
+    terms:
+    - arteriole
+    - vasoconstriction
+    - vasodilation
+    - cardiac-output
+    numbers:
+    - v: 15–20
+      unit: '% cardiac output'
+      of: 靜息時分配至骨骼肌的心輸出量比例
+    - v: 90
+      unit: '% cardiac output'
+      of: 劇烈運動時分配至骨骼肌的心輸出量比例上限
     concepts:
     - circulation
-    - adaptation
     related: []
-    locator: ''
+    locator: Acute Responses to Aerobic Exercise > Control of Local Circulation
 - id: acute-respiratory
   title: 急性呼吸反應 Acute Respiratory Response
   desc: ''
   tag: Respiratory
   items:
   - id: ch06.acute-respiratory.i01
-    q: 每分鐘換氣量 (VE)
+    q: 劇烈有氧運動時分鐘通氣量如何增加？
     a:
-    - 靜止→最大運動可增加 15–25 倍，達 90–150 L/min
-    - = 潮氣容積 × 呼吸頻率
-    detail: ''
-    terms: []
-    numbers: []
+    - 分鐘通氣量（minute ventilation）是每分鐘呼吸的空氣容積，會隨呼吸深度、頻率或兩者增加而上升
+    - 健康年輕成人的呼吸頻率通常由靜息 12–15 breaths/min 增至劇烈運動時 35–45 breaths/min
+    - 潮氣量由靜息 0.4–1 L 增至最多 3 L 或更高，使分鐘通氣量可達靜息值的 15–25 倍，即 90–150 L/min
+    detail: 這些範圍描述健康年輕成人在劇烈運動時的典型反應；增加可來自呼吸更深、呼吸更快或兩者並行，不能只用單一變項解釋。
+    terms:
+    - minute-ventilation
+    - tidal-volume
+    numbers:
+    - v: 12–15
+      unit: breaths/min
+      of: 健康年輕成人的靜息呼吸頻率
+    - v: 35–45
+      unit: breaths/min
+      of: 健康年輕成人劇烈運動時的呼吸頻率
+    - v: 0.4–1
+      unit: L
+      of: 靜息潮氣量範圍
+    - v: 3 或更高
+      unit: L
+      of: 劇烈運動時潮氣量可達的容積
+    - v: 15–25
+      unit: 倍
+      of: 劇烈運動分鐘通氣量相對靜息值的增幅
+    - v: 90–150
+      unit: L/min
+      of: 劇烈運動時分鐘通氣量可達的範圍
     concepts:
     - gas-exchange
-    - adaptation
+    - normal-values
     related: []
-    locator: ''
+    locator: Acute Responses to Aerobic Exercise > Respiratory Responses
   - id: ch06.acute-respiratory.i02
-    q: 潮氣容積 (TV)
+    q: 為什麼增加潮氣量比只增加呼吸頻率更有效率？
     a:
-    - 靜止 0.4–1 L → 最大可達 3 L+
-    - 深呼吸比加快頻率更有效率
-    detail: ''
-    terms: []
+    - 吸氣時，空氣除了進入可交換氣體的肺泡，也會留在鼻、口、氣管、支氣管與細支氣管等解剖死腔
+    - 深呼吸會使呼吸道伸展、解剖死腔增加，但潮氣量增加的比例更大
+    - 因此增加潮氣量所提供的有效通氣，比只提高呼吸頻率更有效率
+    detail: 關鍵不在於深呼吸完全消除死腔，而是新增的潮氣量中，可到達氣體交換區的比例高於快而淺的呼吸。
+    terms:
+    - tidal-volume
+    - anatomical-dead-space
+    - alveolus
     numbers: []
     concepts:
     - gas-exchange
-    - adaptation
     related: []
-    locator: ''
+    locator: Acute Responses to Aerobic Exercise > Respiratory Responses
   - id: ch06.acute-respiratory.i03
-    q: 呼吸頻率
+    q: 換氣當量何時會隨運動強度不成比例地上升？
     a:
-    - 靜止 12–15 次/min → 劇烈運動 35–45 次/min
-    - 高強度時比例更大
-    detail: ''
-    terms: []
-    numbers: []
+    - 換氣當量（ventilatory equivalent）是分鐘通氣量與攝氧量的比值，低至中等強度時為每消耗 1 L 氧需 20–25 L 空氣
+    - 更高強度時，呼吸頻率的作用加大，分鐘通氣量相對攝氧量不成比例地上升，並開始與血乳酸的突然上升平行
+    - 此時換氣當量可增至每消耗 1 L 氧需 35–40 L 空氣
+    detail: 這個轉折的強度因訓練狀態而異：教材列未訓練者約在 45–65% VO₂max 以上，受訓運動員約在 70–90% VO₂max 以上。
+    terms:
+    - ventilatory-equivalent
+    - minute-ventilation
+    - oxygen-uptake
+    - vo2max
+    numbers:
+    - v: 20–25
+      unit: L air/L O₂
+      of: 低至中等強度運動時的換氣當量
+    - v: 35–40
+      unit: L air/L O₂
+      of: 高強度運動時換氣當量可達的範圍
+    - v: 45–65
+      unit: '% VO₂max'
+      of: 未訓練者分鐘通氣量開始不成比例上升的一般強度範圍
+    - v: 70–90
+      unit: '% VO₂max'
+      of: 受訓運動員分鐘通氣量開始不成比例上升的一般強度範圍
     concepts:
     - gas-exchange
-    - adaptation
+    - measurement
     related: []
-    locator: ''
+    locator: Acute Responses to Aerobic Exercise > Respiratory Responses
   - id: ch06.acute-respiratory.i04
-    q: 解剖死腔
+    q: 解剖死腔與生理死腔有何不同？
     a:
-    - 鼻/口/氣管等非氣體交換區域 ≈ 150 ml
-    - 深呼吸時死腔增加但比例小於 TV 增加
-    detail: ''
-    terms: []
-    numbers: []
+    - 解剖死腔（anatomical dead space）是鼻、口、氣管、支氣管與細支氣管等不進行氣體交換的呼吸通道，年輕成人約為 150 ml，並隨年齡增加
+    - 生理死腔（physiological dead space）是因血流差、通氣差或肺泡表面問題而無法有效交換氣體的肺泡
+    - 健康人的生理死腔通常可忽略，因為全部或幾乎全部肺泡都可運作
+    detail: 慢性阻塞性肺病或肺炎可使肺泡功能明顯下降；教材指出生理死腔可增至解剖死腔容積的十倍，因此「通常可忽略」只適用於健康肺部。
+    terms:
+    - anatomical-dead-space
+    - physiological-dead-space
+    - alveolus
+    numbers:
+    - v: 約 150
+      unit: ml
+      of: 年輕成人正常解剖死腔容積
+    - v: 10
+      unit: 倍
+      of: 特定肺病下生理死腔相對解剖死腔可增加的倍數
     concepts:
     - gas-exchange
-    - adaptation
+    - normal-values
     related: []
-    locator: ''
+    locator: Acute Responses to Aerobic Exercise > Respiratory Responses
   - id: ch06.acute-respiratory.i05
-    q: 換氣當量
+    q: 靜息與高強度有氧運動時，組織氣體分壓如何改變？
     a:
-    - 低中強度時 VE/VO2 ≈ 20–25 L/L
-    - 高強度時可升至 35–40 L/L（乳酸急劇上升時）
-    detail: ''
-    terms: []
-    numbers: []
+    - 靜息時，氧分壓由動脈血的 100 mmHg 迅速降至組織間液最低約 40 mmHg；組織間液二氧化碳分壓約為 46 mmHg，高於動脈血
+    - 高強度有氧運動時，組織氧分壓約為 3 mmHg，二氧化碳分壓約為 90 mmHg
+    - 這些濃度與分壓梯度使氧與二氧化碳由高處向低處跨膜擴散
+    detail: 原摘要把「靜息動脈血的 100 mmHg」直接對到「運動組織的 3 mmHg」，漏掉靜息組織間液約 40 mmHg 的比較基準。教材也指出運動時兩種氣體的擴散能力都大幅增加，尤以二氧化碳為甚。
+    terms:
+    - diffusion
+    - partial-pressure
+    numbers:
+    - v: 100
+      unit: mmHg
+      of: 靜息時動脈血氧分壓
+    - v: 最低約 40
+      unit: mmHg
+      of: 靜息時組織間液氧分壓
+    - v: 約 46
+      unit: mmHg
+      of: 靜息時組織間液二氧化碳分壓
+    - v: 約 3
+      unit: mmHg
+      of: 高強度有氧運動時組織氧分壓
+    - v: 約 90
+      unit: mmHg
+      of: 高強度有氧運動時組織二氧化碳分壓
     concepts:
     - gas-exchange
-    - adaptation
     related: []
-    locator: ''
+    locator: Acute Responses to Aerobic Exercise > Gas Responses
   - id: ch06.acute-respiratory.i06
-    q: 氣體擴散
+    q: 氧在血漿與血紅素中各能運送多少？
     a:
-    - 運動時 O2 在組織的分壓從 100 降至 ≈ 3 mmHg
-    - CO2 從 46 升至 ≈ 90 mmHg，促進擴散
-    detail: ''
-    terms: []
-    numbers: []
+    - 氧不易溶於液體，因此每公升血漿只能攜帶約 3 ml 氧；血中大部分氧由血紅素運送
+    - 男性每 100 ml 血液約有 15–16 g 血紅素，女性約 14 g；每克血紅素可攜帶 1.34 ml 氧
+    - 因此男性每 100 ml 血液的攜氧容量約為 20 ml 氧，女性略低
+    detail: 血漿中的溶氧量雖少，仍會形成血液與體液中的氧分壓，參與呼吸調節及氧向肺泡血液與組織細胞擴散的機制。
+    terms:
+    - hemoglobin
+    - partial-pressure
+    numbers:
+    - v: 約 3
+      unit: ml O₂/L plasma
+      of: 血漿可攜帶的溶解氧量
+    - v: 15–16
+      unit: g hemoglobin/100 ml blood
+      of: 男性血液的約略血紅素含量
+    - v: 約 14
+      unit: g hemoglobin/100 ml blood
+      of: 女性血液的約略血紅素含量
+    - v: 1.34
+      unit: ml O₂/g hemoglobin
+      of: 每克血紅素的攜氧量
+    - v: 約 20
+      unit: ml O₂/100 ml blood
+      of: 男性血液的約略攜氧容量
     concepts:
     - gas-exchange
-    - adaptation
+    - circulation
     related: []
-    locator: ''
+    locator: Acute Responses to Aerobic Exercise > Blood Transport of Gases and Metabolic By-Products
   - id: ch06.acute-respiratory.i07
-    q: 血液攜氧
+    q: 二氧化碳主要如何經血液運到肺部？
     a:
-    - 血漿僅攜帶 3 ml/L
-    - 大部分由血紅素攜帶
-    - 男性 ≈ 20 ml O2/100 ml 血液
-    detail: ''
-    terms: []
-    numbers: []
+    - 代謝產生的二氧化碳約有 5% 直接由血漿運送，另有少量經血紅素運送
+    - 最大宗約 70% 與水結合，最後以碳酸氫根（HCO₃⁻）形式送往肺部
+    - 紅血球內的碳酸酐酶會大幅加快二氧化碳與水形成碳酸的反應；碳酸再解離成氫離子與碳酸氫根
+    detail: 血紅素會結合氫離子、協助維持血液 pH；碳酸氫根由紅血球擴散到血漿時，氯離子則進入紅血球補位。
+    terms:
+    - hemoglobin
+    - carbonic-anhydrase
+    numbers:
+    - v: 約 5
+      unit: '% produced CO₂'
+      of: 代謝所產二氧化碳中直接由血漿運送的比例
+    - v: 約 70
+      unit: '% produced CO₂'
+      of: 代謝所產二氧化碳中以碳酸氫根形式移除的比例
     concepts:
     - gas-exchange
-    - adaptation
+    - circulation
     related: []
-    locator: ''
+    locator: Acute Responses to Aerobic Exercise > Blood Transport of Gases and Metabolic By-Products
   - id: ch06.acute-respiratory.i08
-    q: 乳酸代謝 (OBLA)
+    q: 低、中與高強度運動時，乳酸生成與移除如何改變？
     a:
-    - 低中強度時乳酸產生=移除
-    - 高強度時乳酸開始累積（OBLA）
-    - Cori cycle 將乳酸運至肝臟
-    detail: ''
-    terms: []
+    - 低至中等強度時，工作肌肉有足夠氧氣，乳酸移除率大於或等於生成率，因此不會累積
+    - 移除途徑包括 Cori 循環：肌肉產生的乳酸經血液送到肝臟，進行糖質新生
+    - 工作強度更高、單靠有氧代謝不足以跟上乳酸形成時，血乳酸開始上升；這個運動水準稱為血乳酸積累起始點（onset of blood lactate accumulation, OBLA）
+    detail: 教材把 OBLA 定義為血乳酸開始呈現上升的有氧運動水準，沒有在本章為它指定固定濃度門檻；因此此處不額外加入其他章或通說常見的 mmol/L 數字。
+    terms:
+    - cori-cycle
+    - gluconeogenesis
+    - obla
     numbers: []
     concepts:
+    - energy-supply
     - gas-exchange
-    - adaptation
     related: []
-    locator: ''
+    locator: Acute Responses to Aerobic Exercise > Blood Transport of Gases and Metabolic By-Products
 - id: chronic-cardiovascular
   title: 慢性心血管適應 Chronic Cardiovascular Adaptations
   desc: ''
   tag: Cardiovascular
   items:
   - id: ch06.chronic-cardiovascular.i01
-    q: 最大心輸出量↑
+    q: 長期有氧耐力訓練最顯著的心血管改變是什麼？
     a:
-    - 長期訓練（6–12 個月）最顯著改變
-    - 主要來自搏出量增加，非心跳率
-    detail: ''
-    terms: []
-    numbers: []
+    - 長期 6–12 個月有氧耐力訓練最顯著的心血管改變，是最大心輸出量增加
+    - 增加主要來自每搏量改善
+    detail: 最大心率經長期訓練可能略降，因此最大心輸出量的提升關鍵不是把心跳推得更快，而是讓每次收縮送出更多血液。
+    terms:
+    - cardiac-output
+    - stroke-volume
+    - maximal-heart-rate
+    numbers:
+    - v: 6–12
+      unit: 個月
+      of: 教材所述出現最顯著心血管功能改變的長期有氧耐力訓練期
     concepts:
     - adaptation
     - circulation
     related: []
-    locator: ''
+    locator: Chronic Adaptations to Aerobic Exercise > Cardiovascular Adaptations
   - id: ch06.chronic-cardiovascular.i02
-    q: 搏出量↑
+    q: 有氧耐力訓練如何提高次最大與最大運動時的每搏量？
     a:
-    - 左心室腔室容積↑、壁厚↑、收縮力↑
-    - 訓練後男性可達 150–160 ml/beat
-    detail: ''
-    terms: []
+    - 左心室腔室容積與心室壁厚度增加，使心室可容納並泵出更多血液
+    - 心肌收縮力提高，使次最大與最大運動時的每搏量上升
+    detail: 這兩項結構與功能改變，是在最大心率未必增加的情況下，仍能提高最大心輸出量的核心機制。
+    terms:
+    - stroke-volume
+    - cardiac-output
+    - ventricle
+    - myocardium
     numbers: []
     concepts:
     - adaptation
     - circulation
     related: []
-    locator: ''
+    locator: Chronic Adaptations to Aerobic Exercise > Cardiovascular Adaptations
   - id: ch06.chronic-cardiovascular.i03
-    q: 靜止心跳率↓
+    q: 為什麼高度訓練的有氧耐力選手常出現靜息心搏徐緩？
     a:
-    - 副交感神經張力↑
-    - 訓練有素的耐力選手靜止 HR 常為 40–60 次/min（心搏過緩）
-    detail: ''
-    terms: []
-    numbers: []
+    - 有氧耐力訓練增加副交感神經張力，使竇房結放電速率顯著變慢
+    - 每搏量增加後，心臟以較少收縮次數即可維持相同心輸出量
+    - 高度訓練的有氧耐力選手，靜息心率常為 40–60 beats/min
+    detail: 正常竇房結放電速率為每分鐘 60–80 次；教材將訓練者的心搏徐緩同時連到自主神經調節與每搏量提升，而非只歸因於其中一項。
+    terms:
+    - bradycardia
+    - parasympathetic
+    - sa-node
+    - stroke-volume
+    - cardiac-output
+    numbers:
+    - v: 40–60
+      unit: beats/min
+      of: 高度訓練有氧耐力選手常見的靜息心率範圍
+    - v: 60–80
+      unit: discharges/min
+      of: 正常竇房結放電速率範圍
     concepts:
     - adaptation
     - circulation
     related: []
-    locator: ''
+    locator: Chronic Adaptations to Aerobic Exercise > Cardiovascular Adaptations
   - id: ch06.chronic-cardiovascular.i04
-    q: 次最大 HR↓
+    q: 訓練後，固定次最大工作量下的心率如何改變？
     a:
-    - 相同次最大運動強度下 HR 更低
-    - 有訓練的選手 HR 上升速度更慢
-    detail: ''
-    terms: []
+    - 對同一個標準化次最大工作量，訓練後的心率顯著較低
+    - 在相同工作量下，受訓運動員的心率上升也比久坐者慢
+    detail: 這裡比較的是固定的絕對工作量，不是兩人各自相同百分比的最大能力；訓練提高每搏量後，完成同一份工作不需相同的心率反應。
+    terms:
+    - heart-rate
+    - stroke-volume
     numbers: []
     concepts:
     - adaptation
     - circulation
     related: []
-    locator: ''
+    locator: Chronic Adaptations to Aerobic Exercise > Cardiovascular Adaptations
   - id: ch06.chronic-cardiovascular.i05
-    q: 最大 HR
+    q: 長期有氧耐力訓練一定會提高最大心率嗎？
     a:
-    - 最大 HR 可能略微下降（副交感張力↑）
-    - 不影響最大搏出量增加的效益
-    detail: ''
-    terms: []
+    - 不一定；教材指出最大心率經長期訓練後實際上可能略微下降
+    - 這項下降可能與副交感神經張力增加有關
+    detail: 原文對機制使用「perhaps」而非確定因果；最大心率的些微下降也使左心室大小與收縮力對提高每搏量更加關鍵。
+    terms:
+    - maximal-heart-rate
+    - parasympathetic
+    - stroke-volume
     numbers: []
     concepts:
     - adaptation
     - circulation
     related: []
-    locator: ''
+    locator: Chronic Adaptations to Aerobic Exercise > Cardiovascular Adaptations
   - id: ch06.chronic-cardiovascular.i06
-    q: 微血管密度↑
+    q: 肌纖維微血管密度增加有何作用？
     a:
-    - 毛細血管網絡增加 → 擴散距離縮短 → O2 與代謝基質輸送效率提升
-    detail: ''
-    terms: []
+    - 有氧耐力訓練會增加肌纖維微血管密度，反應幅度取決於訓練量與強度
+    - 微血管密度增加會縮短氧與代謝底物的擴散距離
+    detail: 微血管除了輸送氧、營養與荷爾蒙，也負責移除熱與代謝副產物；因此密度增加同時支援供應與清除。
+    terms:
+    - capillary
+    - diffusion
     numbers: []
     concepts:
     - adaptation
     - circulation
     related: []
-    locator: ''
+    locator: Chronic Adaptations to Aerobic Exercise > Cardiovascular Adaptations
   - id: ch06.chronic-cardiovascular.i07
-    q: 呼吸系統適應
+    q: 有氧耐力訓練會如何改變通氣反應？
     a:
-    - 次最大運動時 TV↑、呼吸頻率↓
-    - 最大運動時 TV 與頻率皆↑
-    - 通氣不是有氧運動的限制因素
-    detail: ''
-    terms: []
+    - 通氣一般不會限制有氧運動，且訓練後可能不變或只出現中度改變
+    - 最大運動時，訓練適應包括潮氣量與呼吸頻率增加；次最大運動時則常見呼吸頻率下降、潮氣量增加
+    - 通氣適應對訓練活動高度特異；下肢訓練造成的適應，不太可能在上肢活動中同樣出現
+    detail: 教材將這種活動特異性歸於受訓肌肉的局部、神經或化學適應；不能把某一運動模式的通氣改善直接外推到所有運動。
+    terms:
+    - tidal-volume
+    - minute-ventilation
     numbers: []
     concepts:
     - adaptation
-    - circulation
+    - gas-exchange
     related: []
-    locator: ''
+    locator: Chronic Adaptations to Aerobic Exercise > Respiratory Adaptations
   - id: ch06.chronic-cardiovascular.i08
-    q: 神經系統適應
+    q: 有氧耐力訓練初期有哪些神經系統適應？
     a:
-    - 訓練初期：動作效率↑、疲勞延後
-    - 協同肌輪流活化 → 維持低強度收縮的能量消耗降低
-    detail: ''
-    terms: []
+    - 訓練初期，收縮機制的效率提高，疲勞發生延後
+    - 協同肌之間及單一肌肉的運動單位之間，可輪替神經活動
+    - 協同肌不維持恆定活化，而是在活動與不活動之間交替，以維持低程度肌力並降低移動的能量消耗
+    detail: 這項適應描述的是神經活動的分配更有效率，不是肌肉完全停止工作；結果是相同活動可用較少能量完成。
+    terms:
+    - motor-unit
     numbers: []
     concepts:
     - adaptation
-    - circulation
+    - motor-control
     related: []
-    locator: ''
+    locator: Chronic Adaptations to Aerobic Exercise > Neural Adaptations
 - id: chronic-muscular
   title: 慢性肌肉適應 Chronic Muscular Adaptations
   desc: ''
   tag: Muscular
   items:
   - id: ch06.chronic-muscular.i01
-    q: 粒線體↑
+    q: 有氧耐力訓練如何改變粒線體？
     a:
-    - 粒線體數量與體積均增加（增加有氧 ATP 生產能力）
-    - 配合肌紅素↑更有效利用 O2
-    detail: ''
-    terms: []
+    - 受訓肌肉的粒線體數量與大小都會增加
+    - 粒線體以糖原與游離脂肪酸氧化、有氧產生三磷酸腺苷（ATP）；數量與大小增加會提高這項能力
+    detail: 粒線體適應與肌紅蛋白增加共同作用：前者擴大利用氧製造 ATP 的場所，後者增加可送到粒線體的氧量，使肌肉提取與使用氧的能力提高。
+    terms:
+    - mitochondria
+    - atp
+    - glycogen
     numbers: []
     concepts:
     - adaptation
-    - fiber-type
+    - energy-supply
     related: []
-    locator: ''
+    locator: Chronic Adaptations to Aerobic Exercise > Muscular Adaptations
   - id: ch06.chronic-muscular.i02
-    q: 肌紅素 (myoglobin)↑
+    q: 肌紅蛋白（myoglobin）在有氧訓練適應中扮演什麼角色？
     a:
-    - 細胞內 O2 運輸蛋白
-    - 量增加 → 細胞攝取並利用 O2 能力↑
-    detail: ''
-    terms: []
+    - 肌紅蛋白是在細胞內運送氧的蛋白質
+    - 有氧耐力訓練會增加肌紅蛋白含量，使更多氧可送達粒線體
+    detail: 肌紅蛋白處理的是細胞內的氧運送，不能與血液中負責主要攜氧工作的血紅素混為一談。
+    terms:
+    - myoglobin
+    - mitochondria
+    - hemoglobin
     numbers: []
     concepts:
     - adaptation
-    - fiber-type
+    - gas-exchange
     related: []
-    locator: ''
+    locator: Chronic Adaptations to Aerobic Exercise > Muscular Adaptations
   - id: ch06.chronic-muscular.i03
-    q: Type I 纖維肥大
+    q: 有氧耐力訓練會使第一型肌纖維肥大嗎？
     a:
-    - 選擇性肥大但截面積不如 Type II 明顯
-    - 氧化能力提升（粒線體密度↑）
-    detail: ''
-    terms: []
+    - 會；第一型（Type I）肌纖維因在有氧活動中徵召增加而出現選擇性肥大
+    - 但其橫截面直徑不及經阻力訓練適應的第二型（Type II）肌纖維
+    - 這項變化也小於健美式阻力訓練造成的第一型肌纖維肥大
+    detail: 此處比較的是不同訓練刺激造成的肥大程度；教材沒有把有氧訓練的第一型纖維肥大等同於阻力訓練的肌肥大效果。
+    terms:
+    - slow-twitch
+    - fast-twitch
     numbers: []
     concepts:
     - adaptation
     - fiber-type
     related: []
-    locator: ''
+    locator: Chronic Adaptations to Aerobic Exercise > Muscular Adaptations
   - id: ch06.chronic-muscular.i04
-    q: Type IIx→IIa 轉變
+    q: 有氧耐力訓練會把第二型肌纖維轉成第一型嗎？
     a:
-    - Type II 纖維之間可轉換
-    - IIa 氧化能力優於 IIx，功能特性更接近 Type I
-    detail: ''
-    terms: []
+    - 幾乎沒有證據顯示有氧耐力訓練會使第二型纖維轉成第一型纖維
+    - 第二型纖維的兩個主要亞型之間則可能逐漸由 Type IIx 轉為 Type IIa
+    - Type IIa 的氧化能力高於 Type IIx，功能特性也更接近 Type I，因此可參與有氧耐力表現的纖維變多
+    detail: 原文對 IIx→IIa 使用「may be」而非必然轉換；這項亞型變化不等於 Type II 已轉成 Type I。
+    terms:
+    - fast-twitch
+    - slow-twitch
     numbers: []
     concepts:
     - adaptation
     - fiber-type
     related: []
-    locator: ''
+    locator: Chronic Adaptations to Aerobic Exercise > Muscular Adaptations
   - id: ch06.chronic-muscular.i05
-    q: OBLA 上升
+    q: 訓練後為何能在更高相對強度下延續有氧表現？
     a:
-    - 訓練後 OBLA 可達 VO2max 的 80–90%
-    - 因脂肪利用↑、乳酸生成↓、移除↑、糖原節省
-    detail: ''
-    terms: []
-    numbers: []
+    - 訓練後在相同強度下糖原使用較少、脂肪利用增加，可延長表現；運動員也可能維持更高比例的新最大有氧功率
+    - 血乳酸積累起始點可移到受訓運動員有氧能力的 80–90%
+    - 教材列出的可能原因包括肌纖維類型、降低乳酸生成的局部訓練適應、高強度運動時的荷爾蒙釋放變化，以及乳酸移除加快
+    detail: 糖原節省與脂肪利用用來解釋同強度表現為何延長；教材另列四項可能因素解釋 OBLA 位移。原摘要把兩組機制串成單一因果鏈，會超出原文。
+    terms:
+    - glycogen
+    - obla
+    - vo2max
+    - catecholamine
+    numbers:
+    - v: 80–90
+      unit: '% aerobic capacity'
+      of: 受訓運動員 OBLA 可出現的相對有氧能力範圍
     concepts:
     - adaptation
-    - fiber-type
+    - energy-supply
     related: []
-    locator: ''
+    locator: Chronic Adaptations to Aerobic Exercise > Muscular Adaptations
   - id: ch06.chronic-muscular.i06
-    q: 酶活性↑
+    q: 有氧耐力訓練會如何改變肌肉酵素？
     a:
-    - 檸檬酸合酶、琥珀酸脫氫酶等有氧酶↑
-    - 糖解酶（如 LDH）可能不變或↓
-    detail: ''
-    terms: []
+    - 葡萄糖有氧代謝相關酵素的含量與活性增加
+    - 若長期有氧耐力訓練大量動用快縮纖維，這些纖維的糖解酵素濃度可能降低
+    - 教材總表把磷酸果糖激酶與乳酸去氫酶的反應列為「不一」而非一致上升或下降
+    detail: 原摘要指定檸檬酸合酶、琥珀酸去氫酶上升，雖然 Table 6.2 列出個別研究數值，但正文的一般結論較窄；此處保留正文與總表能共同支持的方向，不把單一表格數值外推成普遍定律。
+    terms:
+    - pfk
+    - lactate-dehydrogenase
     numbers: []
     concepts:
     - adaptation
-    - fiber-type
+    - energy-supply
     related: []
-    locator: ''
+    locator: Chronic Adaptations to Aerobic Exercise > Muscular Adaptations
   - id: ch06.chronic-muscular.i07
-    q: 能源儲存↑
+    q: 有氧耐力訓練後，肌肉內的能量儲存如何改變？
     a:
-    - 肌肉 glycogen↑、三酸甘油酯↑
-    - ATP 及磷酸肌酸儲量略增
-    detail: ''
-    terms: []
+    - 教材總表列出：儲存的 ATP、磷酸肌酸、糖原與三酸甘油酯均增加
+    - 肌肉適應正文也明確指出，糖原與三酸甘油酯儲存增加
+    detail: Table 6.1 只標示「增加」，沒有提供 ATP 或磷酸肌酸的增加幅度；因此刪除原摘要自行加入的「略增」。
+    terms:
+    - atp
+    - creatine-phosphate
+    - glycogen
     numbers: []
     concepts:
     - adaptation
-    - fiber-type
+    - energy-supply
     related: []
-    locator: ''
+    locator: Chronic Adaptations to Aerobic Exercise > Table 6.1 Physiological Adaptations to Aerobic Endurance Training
   - id: ch06.chronic-muscular.i08
-    q: Type I vs II 比較
+    q: 有氧耐力訓練對第一型與第二型肌纖維的有氧潛力有何差異？
     a:
-    - 有氧訓練對 Type I 和 Type II 的有氧潛力相對增加幅度相似
-    - 但 Type I 起點更高
-    detail: ''
-    terms: []
-    numbers: []
+    - 第一型與第二型纖維的有氧潛力可出現相近的相對增幅
+    - 第一型纖維訓練前的有氧能力本來就較高，因此訓練前後的氧化能力都高於第二型纖維
+    - 強度足夠時，快縮纖維、尤其 Type IIx 也會大量參與，其有氧能力也會隨訓練增加
+    detail: 快縮纖維是否適應取決於運動強度是否足以徵召它們；教材以反覆 800 m 間歇跑為例，而不是主張所有低強度耐力活動都同等刺激 Type IIx。
+    terms:
+    - slow-twitch
+    - fast-twitch
+    numbers:
+    - v: 800
+      unit: m
+      of: 教材用來示範足以大量動用快縮纖維的反覆間歇跑距離
     concepts:
     - adaptation
     - fiber-type
     related: []
-    locator: ''
+    locator: Chronic Adaptations to Aerobic Exercise > Muscular Adaptations
 - id: connective-endocrine
   title: 骨骼結締組織 & 內分泌適應 Bone, Connective Tissue & Endocrine
   desc: ''
   tag: Bone / CT
   items:
   - id: ch06.connective-endocrine.i01
-    q: 骨密度
+    q: 哪些有氧運動條件較能刺激骨形成？
     a:
-    - 跑步/高強度有氧最有效
-    - 強度須超過最低閾值且週期性負荷
-    - 不變或略增
-    detail: ''
-    terms: []
+    - 較強烈的活動，如跑步與高強度有氧運動，較能刺激骨生長
+    - 刺激必須明顯高於個人的日常活動，超過骨生長的最低強度與週期性應變頻率門檻
+    - 強度須有系統地增加，持續對骨骼造成超負荷；教材總表將骨密度反應列為「不變或增加」
+    detail: 骨對外力的幅度與加載速率都有反應，因此也要提高肢體移動速率；高強度間歇訓練是兼顧有氧效益與較大成骨刺激的方法之一。當進階強度先受氧輸送系統限制時，只靠有氧運動可能難以繼續增加骨骼超負荷。
+    terms:
+    - bone-mineral-density
+    - progressive-overload
+    - hiit
     numbers: []
     concepts:
     - adaptation
-    - hormone
+    - structure
     related: []
-    locator: ''
+    locator: Chronic Adaptations to Aerobic Exercise > Bone and Connective Tissue Adaptations
   - id: ch06.connective-endocrine.i02
-    q: 韌帶與肌腱
+    q: 成熟成人的肌腱、韌帶與軟骨如何回應有氧運動刺激？
     a:
-    - 強度與運動刺激成正比（尤其負重活動）
-    - 訓練強度需持續超過日常活動負荷
-    detail: ''
-    terms: []
+    - 這些組織生長與增強的程度，與運動刺激強度成比例，尤其是負重活動
+    - 運動強度必須持續超過日常活動對結締組織施加的應變，才會造成改變
+    detail: 這項陳述限定於成熟成人；教材把結締組織與骨、肌肉放在同一超負荷原則下，重點是刺激相對於個人日常負荷是否足夠。
+    terms:
+    - collagen
     numbers: []
     concepts:
     - adaptation
-    - hormone
+    - structure
     related: []
-    locator: ''
+    locator: Chronic Adaptations to Aerobic Exercise > Bone and Connective Tissue Adaptations
   - id: ch06.connective-endocrine.i03
-    q: 軟骨
+    q: 負重與跑步對關節軟骨的證據顯示什麼？
     a:
-    - 負重表面較非負重表面厚
-    - 適度跑步（1 小時/天 × 5 天 × 15 週）可增加軟骨厚度
-    detail: ''
-    terms: []
-    numbers: []
+    - 一般膝關節中，承受最多負重的關節面比不負重的表面厚；負重時完成完整活動範圍，很可能是維持組織存活所必需
+    - 動物研究結果並非單一方向：每次 12.5 miles（20 km）的劇烈跑步使軟骨變薄
+    - 以狗為對象的適度跑步計畫，每天 1 小時、每週 5 天、共 15 週，則增加軟骨厚度並促進骨組織正向重塑
+    detail: 原摘要漏掉「動物研究／狗」這個決定性範圍，容易被誤讀成人體訓練處方。教材同段還列出更長或加重跑步未造成退化性關節病的動物研究，整體證據不能簡化為跑得越多一定越好或越壞。
+    terms:
+    - range-of-motion
+    numbers:
+    - v: 12.5
+      unit: miles/session
+      of: 動物研究中造成軟骨厚度下降的劇烈跑步量
+    - v: 20
+      unit: km/session
+      of: 上述劇烈跑步量的公制換算
+    - v: 1
+      unit: 小時/天
+      of: 狗適度跑步計畫的每日運動時間
+    - v: 5
+      unit: 天/週
+      of: 狗適度跑步計畫的每週頻率
+    - v: 15
+      unit: 週
+      of: 狗適度跑步計畫的持續時間
     concepts:
     - adaptation
-    - hormone
+    - structure
     related: []
-    locator: ''
+    locator: Chronic Adaptations to Aerobic Exercise > Bone and Connective Tissue Adaptations
   - id: ch06.connective-endocrine.i04
-    q: 荷爾蒙 — 次最大
+    q: 受訓運動員在次最大運動時的荷爾蒙反應如何改變？
     a:
-    - 訓練後次最大運動時荷爾蒙反應降低
-    - 相同相對強度時與未訓練者相當
-    detail: ''
-    terms: []
+    - 對固定的次最大絕對工作量，受訓運動員的荷爾蒙反應較弱
+    - 若比較相同的相對次最大強度，受訓者與未訓練者的荷爾蒙濃度相同
+    detail: 「訓練後反應降低」只成立於相同絕對工作量；改以各自能力的相同比例比較時，差異消失。兩種比較基準不可混用。
+    terms:
+    - catecholamine
     numbers: []
     concepts:
     - adaptation
     - hormone
     related: []
-    locator: ''
+    locator: Chronic Adaptations to Aerobic Exercise > Endocrine Adaptations
   - id: ch06.connective-endocrine.i05
-    q: 荷爾蒙 — 最大運動
+    q: 高強度有氧訓練如何影響最大運動時的荷爾蒙分泌？
     a:
-    - 高強度訓練↑最大運動時荷爾蒙分泌（增強耐受高強度能力）
-    detail: ''
-    terms: []
-    numbers: []
+    - 高強度有氧訓練會提高最大運動時許多荷爾蒙的絕對分泌速率
+    - 這種較大的最大運動荷爾蒙反應，似乎會增強運動員耐受並維持長時間高強度有氧運動的能力
+    - 若運動強度很高但只持續 5–10 秒，周邊血液只出現戰或逃反應，例如腎上腺素與正腎上腺素上升
+    detail: 教材對較大荷爾蒙反應的功能使用「appear to augment」，因此保留「似乎」而不改寫為已證實的單一因果機制。
+    terms:
+    - catecholamine
+    - epinephrine
+    - norepinephrine
+    numbers:
+    - v: 5–10
+      unit: 秒
+      of: 極高強度、極短運動只出現戰或逃周邊荷爾蒙變化的持續時間
     concepts:
     - adaptation
     - hormone
     related: []
-    locator: ''
+    locator: Chronic Adaptations to Aerobic Exercise > Endocrine Adaptations
   - id: ch06.connective-endocrine.i06
-    q: 皮質醇 (cortisol)
+    q: 跑步訓練為何常與肌肉淨蛋白分解增加相關？
     a:
-    - 跑步訓練相關蛋白質分解↑
-    - 身體嘗試以睪固酮和 IGF-1 抵消分解效果
-    detail: ''
-    terms: []
+    - 有氧訓練、尤其跑步，常與肌肉淨蛋白分解增加相關
+    - 壓力引起的皮質醇分泌是其中一部分原因
+    - 身體會嘗試增加睪固酮與第一型類胰島素生長因子（insulin-like growth factor I, IGF-I）的合成性荷爾蒙反應加以抵銷
+    detail: 原文說皮質醇「部分」促成分解，並沒有把所有蛋白質分解都歸因於皮質醇；抵銷反應也不代表分解一定完全被消除。
+    terms:
+    - cortisol
+    - testosterone
+    - insulin-like-growth-factor-i
     numbers: []
     concepts:
     - adaptation
     - hormone
     related: []
-    locator: ''
+    locator: Chronic Adaptations to Aerobic Exercise > Endocrine Adaptations
   - id: ch06.connective-endocrine.i07
-    q: 睪固酮 / IGF-1
+    q: 耐力訓練肌肉是否仍可能出現淨蛋白合成？
     a:
-    - 訓練後有氧選手肌肉確實有淨蛋白合成（多為粒線體蛋白，非收縮蛋白）
-    detail: ''
-    terms: []
+    - 教材引用的較新證據指出，耐力訓練運動員的骨骼肌可能出現淨蛋白合成，並可能導致肌肥大
+    - 這些新生蛋白最可能以粒線體蛋白為主，而非收縮蛋白
+    detail: 原文使用「suggests」「may」與「most likely」三層保留語氣；因此不能改寫成「確實合成、一定肥大、完全不是收縮蛋白」的斷言。
+    terms:
+    - mitochondria
     numbers: []
     concepts:
     - adaptation
     - hormone
     related: []
-    locator: ''
+    locator: Chronic Adaptations to Aerobic Exercise > Endocrine Adaptations
   - id: ch06.connective-endocrine.i08
-    q: 體組成
+    q: 有氧耐力訓練通常如何改變體組成？
     a:
-    - 體脂率↓
-    - 去脂體重不變
-    - 長期訓練效果更顯著
-    - 過度訓練會使合成/分解失衡
-    detail: ''
-    terms: []
+    - 在營養攝取適當的前提下，體脂百分比通常下降，去脂體重幾乎沒有或沒有顯著改變
+    - 較長期的訓練計畫可使體脂百分比下降更多
+    - 過量訓練可能使分解代謝占優勢，造成分解與合成過程失衡
+    detail: 體組成變化以「營養攝取適當」為前提；原文對過量訓練使用「may」，並未主張任何高訓練量都必然造成分解失衡。
+    terms:
+    - cortisol
     numbers: []
     concepts:
     - adaptation
-    - hormone
+    - nutrition
     related: []
-    locator: ''
+    locator: Adaptations to Aerobic Endurance Training
 - id: detraining
   title: 去訓練 & 有氧表現提升 Detraining & Performance
   desc: ''
   tag: Detraining
   items:
   - id: ch06.detraining.i01
-    q: 去訓練定義
+    q: 什麼是去訓練（detraining）？
     a:
-    - 訓練刺激不足導致訓練適應部分或完全喪失
-    - 遵循訓練可逆性原則
-    detail: ''
-    terms: []
+    - 去訓練是因訓練刺激不足，造成訓練誘發適應部分或完全喪失
+    - 它遵循訓練可逆性原則：停止或大幅減少訓練，會使適應部分或完全逆轉並損害運動表現
+    detail: 定義的關鍵是刺激「不足」，不要求一定完全停訓，也不以訓練是否有計畫作區分。
+    terms:
+    - detraining
+    - reversibility
     numbers: []
     concepts:
     - adaptation
+    - periodization
     related: []
-    locator: ''
+    locator: 'Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Detraining'
   - id: ch06.detraining.i02
-    q: 短期去訓練 (<4週)
+    q: 高度訓練運動員短期去訓練時，最大攝氧量下降多少？
     a:
-    - 精英選手 VO2max↓ 4–14%
-    - 主因：血量↓、搏出量↓、最大心輸出量↓、次最大 HR↑
-    detail: ''
-    terms: []
-    numbers: []
+    - 教材把短期去訓練界定為 4 週；高度訓練運動員的最大攝氧量下降 4–14%
+    - 下降主要來自血容量、每搏量與最大心輸出量降低，以及次最大運動心率上升
+    detail: 教材明確把短期去訓練界定為四週；下降範圍也限定於高度訓練運動員，不能外推成所有人的固定幅度。
+    terms:
+    - detraining
+    - vo2max
+    - stroke-volume
+    - cardiac-output
+    - heart-rate
+    numbers:
+    - v: 4
+      unit: 週
+      of: 教材所界定的短期去訓練期間
+    - v: 4–14
+      unit: '%'
+      of: 高度訓練運動員短期去訓練後最大攝氧量的下降幅度
     concepts:
     - adaptation
+    - periodization
     related: []
-    locator: ''
+    locator: 'Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Detraining'
   - id: ch06.detraining.i03
-    q: 長期去訓練 (>4週)
+    q: 長期去訓練對最大攝氧量有何影響？
     a:
-    - VO2max↓ 6–20%
-    - 有氧酶活性對停訓最敏感（酶基礎的細胞機制）
-    detail: ''
-    terms: []
-    numbers: []
+    - 教材把長期去訓練界定為超過 4 週；高度訓練運動員的最大攝氧量下降 6–20%
+    - 有氧耐力適應因具有酵素基礎，對不活動期間特別敏感
+    detail: 教材明確說明造成去訓練變化的確切細胞機制仍未知，需要更多研究；「具有酵素基礎」不是已釐清的完整細胞機制。
+    terms:
+    - detraining
+    - vo2max
+    numbers:
+    - v: '>4'
+      unit: 週
+      of: 教材所界定的長期去訓練期間
+    - v: 6–20
+      unit: '%'
+      of: 高度訓練運動員長期去訓練後最大攝氧量的下降幅度
     concepts:
     - adaptation
+    - periodization
     related: []
-    locator: ''
+    locator: 'Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Detraining'
   - id: ch06.detraining.i04
-    q: VO2max 提升
+    q: 有氧耐力訓練可使最大攝氧量提高多少？
     a:
-    - 有氧訓練可提升 5–30%（取決於起始體能）
-    - 6–12 個月內達大部分最大攝氧量提升
-    detail: ''
-    terms: []
-    numbers: []
+    - 有氧耐力訓練可使有氧功率提高 5–30%
+    - 幅度部分取決於起始體適能與個人的遺傳潛能；大部分最大攝氧量適應可在 6–12 個月內達成
+    detail: 這是教材給出的整體範圍，不代表每個人都能達到上限；起點越接近個人生物上限，後續增益通常越小。
+    terms:
+    - vo2max
+    numbers:
+    - v: 5–30
+      unit: '%'
+      of: 有氧耐力訓練可提高有氧功率的範圍
+    - v: 6–12
+      unit: 個月
+      of: 可達成大部分最大攝氧量適應的訓練期間
     concepts:
     - adaptation
     related: []
-    locator: ''
+    locator: Adaptations to Aerobic Endurance Training
   - id: ch06.detraining.i05
-    q: 乳酸閾值 (LT)
+    q: 乳酸閾值提高為何能改善表現？
     a:
-    - 訓練後 OBLA 提升（可至 80–90% VO2max）
-    - 相同 VO2max 的選手，LT 較高者表現更佳
-    detail: ''
-    terms: []
-    numbers: []
+    - 有氧訓練提高絕對乳酸閾值，使高度訓練者能在更高的相對與絕對最大攝氧量百分比下工作
+    - 教材例題中，兩人的 VO₂max 同為 50 ml·kg⁻¹·min⁻¹；若閾值分別為 80% 與 70%，閾值即為 40 與 35 ml·kg⁻¹·min⁻¹
+    - 在其他條件如動作經濟性相同時，前者可維持高出 5 ml·kg⁻¹·min⁻¹ 的功率輸出，因而有較高移動速度與較佳表現
+    detail: 「乳酸閾值較高者表現較佳」在教材中以其他條件相同為前提；若動作經濟性等條件不同，不能只靠閾值預測結果。
+    terms:
+    - lactate-threshold
+    - vo2max
+    - exercise-economy
+    numbers:
+    - v: 50
+      unit: ml·kg⁻¹·min⁻¹
+      of: 教材比較例中兩人的相同最大攝氧量
+    - v: 80/70
+      unit: '% VO₂max'
+      of: 教材比較例中兩人的乳酸閾值比例
+    - v: 40/35
+      unit: ml·kg⁻¹·min⁻¹
+      of: 教材比較例中兩人對應的乳酸閾值攝氧量
+    - v: 5
+      unit: ml·kg⁻¹·min⁻¹
+      of: 較高乳酸閾值者可維持的額外功率輸出等值差
     concepts:
     - adaptation
+    - measurement
     related: []
-    locator: ''
+    locator: Adaptations to Aerobic Endurance Training > What Are the Improvements in Performance From Aerobic Exercise?
   - id: ch06.detraining.i06
-    q: 跑步經濟性
+    q: 最大攝氧量趨於平臺後，耐力表現還能如何改善？
     a:
-    - 6–12 個月後 VO2max 增益趨緩，之後改善主要來自跑步效率↑和 LT↑
-    - 精英選手更明顯
-    detail: ''
-    terms: []
-    numbers: []
+    - 大部分最大攝氧量適應在 6–12 個月內完成後，後續表現改善可來自跑步經濟性與乳酸閾值提高
+    - 有經驗跑者的最大攝氧量可能不再因長期耐力訓練提高，但表現仍可能因跑步經濟性改善而進步
+    detail: 運動經濟性主要取決於生物力學與技術；即使兩位運動員的 VO₂max 與乳酸閾值相同，維持同一功率輸出所需能量較少者仍能維持更久。
+    terms:
+    - vo2max
+    - lactate-threshold
+    - exercise-economy
+    numbers:
+    - v: 6–12
+      unit: 個月
+      of: 可達成大部分最大攝氧量適應的訓練期間
     concepts:
     - adaptation
+    - technique
     related: []
-    locator: ''
+    locator: Adaptations to Aerobic Endurance Training > What Are the Improvements in Performance From Aerobic Exercise?
   - id: ch06.detraining.i07
-    q: 間歇訓練效益
+    q: 高強度間歇的休息長短如何影響適應？
     a:
-    - 短休息間歇訓練可提升 VO2max
-    - 長休息改善衝刺速度而非有氧能力
-    - 恢復期長短關鍵
-    detail: ''
-    terms: []
+    - 短時間高強度間歇衝刺若搭配短休息，可改善最大攝氧量
+    - 衝刺間使用長休息可改善衝刺速度，卻未顯著提高最大有氧功率
+    - 高強度間歇之間採較短恢復期，可改善多項骨骼肌代謝過程與耐力表現
+    detail: 教材的比較重點是工作與恢復的組合；不能只看到「高強度衝刺」就推論一定會改善有氧能力。
+    terms:
+    - interval-training
+    - vo2max
     numbers: []
     concepts:
     - adaptation
+    - program-design
     related: []
-    locator: ''
+    locator: Adaptations to Aerobic Endurance Training
   - id: ch06.detraining.i08
-    q: Tapering vs 去訓練
+    q: 減量訓練（tapering）與去訓練有何不同？
     a:
-    - Tapering：賽前計畫性降低訓練量（維持強度）→ 提升表現
-    - 去訓練：無計畫停訓 → 適應喪失
-    detail: ''
-    terms: []
+    - 減量訓練是賽前或計畫恢復微週期中，有計畫地降低訓練量，通常減少持續時間與頻率，但不降低強度，目的是提升表現與適應
+    - 去訓練則是刺激不足造成適應部分或完全喪失，可能來自停止或大幅減少訓練
+    - 適當的運動變化、強度、維持計畫與主動恢復，可防止嚴重去訓練效應
+    detail: 兩者不是以「有計畫／無計畫」單獨區分；真正差別在於減量仍保留足以維持適應的強度與設計目的，而去訓練的刺激已不足。
+    terms:
+    - tapering
+    - detraining
+    - reversibility
     numbers: []
     concepts:
     - adaptation
+    - periodization
     related: []
-    locator: ''
+    locator: 'Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Detraining'
 - id: external-factors
   title: 外部因素影響 External Factors
   desc: ''
   tag: External Factors
   items:
   - id: ch06.external-factors.i01
-    q: 高海拔 — 急性反應
+    q: 海拔多高開始出現急性生理調整，反應有哪些？
     a:
-    - '>1200 m 時開始：過度換氣（呼吸頻率↑）'
-    - 次最大 HR 與心輸出量↑ 30–50%
-    - 動脈 O2 飽和度↓
-    detail: ''
-    terms: []
-    numbers: []
+    - 高於 3,900 feet（約 1,200 m）時，身體開始因大氣氧分壓降低而出現急性調整
+    - 靜息與運動時過度換氣，初期主要靠呼吸頻率增加；較久後潮氣量也會參與
+    - 早期靜息與次最大運動的心輸出量主要因心率上升而增加；次最大心率與心輸出量可比海平面高 30–50%，每搏量不變或略降
+    detail: 即使有過度換氣與心輸出量增加，急性暴露期的動脈血氧飽和度仍會下降，使最大攝氧量與有氧表現在此高度以上降低。
+    terms:
+    - hyperventilation
+    - partial-pressure
+    - heart-rate
+    - cardiac-output
+    - stroke-volume
+    - vo2max
+    numbers:
+    - v: '>3,900'
+      unit: feet
+      of: 教材所述開始出現急性海拔生理調整的高度
+    - v: 約 >1,200
+      unit: m
+      of: 上述海拔門檻的公制換算
+    - v: 30–50
+      unit: '% above sea-level values'
+      of: 急性海拔暴露時次最大心率與心輸出量相對海平面的增幅
     concepts:
     - adaptation
-    - safety
+    - gas-exchange
     related: []
-    locator: ''
+    locator: External and Individual Factors Influencing Adaptations to Aerobic Endurance Training > Altitude
   - id: ch06.external-factors.i02
-    q: 高海拔 — 慢性適應
+    q: 較長期的高海拔適應包括哪些變化？
     a:
-    - RBC 增加 30–50%
-    - 血紅素↑ 5–15%
-    - 微血管密度↑
-    - 粒線體↑
-    - 適應後 VO2max 可接近海平面
-    detail: ''
-    terms: []
-    numbers: []
+    - 在同一海拔 10–14 天內，因紅血球生成增加，心率與心輸出量開始回到正常值
+    - 長期調整包括血紅素形成通常增加 5–15%、紅血球增加 30–50%、肺膜氧擴散能力提高，以及微血管化增加
+    - 腎臟排出 HCO₃⁻ 並配合過度換氣，協助維持體液酸鹼平衡
+    detail: 教材說這些適應可提高對中、高海拔相對缺氧的耐受，充分適應後運動能力「可能」接近海平面；它不是保證最大攝氧量完全恢復。
+    terms:
+    - hemoglobin
+    - hyperventilation
+    - diffusion
+    - capillary
+    numbers:
+    - v: 10–14
+      unit: 天
+      of: 在同一海拔下心率與心輸出量開始回到正常值的時間
+    - v: 5–15
+      unit: '%'
+      of: 長期海拔適應時血紅素形成的一般增加幅度
+    - v: 30–50
+      unit: '%'
+      of: 長期海拔適應時紅血球增加幅度
     concepts:
     - adaptation
-    - safety
+    - gas-exchange
     related: []
-    locator: ''
+    locator: External and Individual Factors Influencing Adaptations to Aerobic Endurance Training > Altitude
   - id: ch06.external-factors.i03
-    q: 高海拔注意事項
+    q: 中等海拔適應需要多久，回到海平面後又如何？
     a:
-    - 適應需至少 3–6 週（中海拔 2200–3000 m）
-    - 回到海平面後 1 個月恢復
-    - 高度愈高效益愈小
-    detail: ''
-    terms: []
-    numbers: []
+    - 在 2,200–3,000 m 的中等海拔，至少需要 3–6 週適應
+    - 回到海平面後，海拔適應變化約在 1 個月內逆轉
+    - 無論適應多久，海拔暴露時的表現一般仍預期低於海平面
+    detail: 原文同時說充分適應後運動能力「可能接近」海平面，又說表現「一般仍預期較低」；教材原文如此。這反映可能接近不等於通常可完全恢復。
+    terms:
+    - detraining
+    numbers:
+    - v: 2,200–3,000
+      unit: m
+      of: 教材所稱需要至少三至六週適應的中等海拔範圍
+    - v: 3–6
+      unit: 週
+      of: 中等海拔所需的最低適應時間
+    - v: 約 1
+      unit: 個月
+      of: 回到海平面後海拔適應變化逆轉的時間
     concepts:
     - adaptation
     - safety
     related: []
-    locator: ''
+    locator: External and Individual Factors Influencing Adaptations to Aerobic Endurance Training > Altitude
   - id: ch06.external-factors.i04
-    q: 高氧呼吸
+    q: 高氧呼吸是否確定能改善運動表現？
     a:
-    - 爭議性做法
-    - 海平面健康者 Hb 已 95–98% 飽和
-    - 對運動表現的效益尚未明確
-    detail: ''
-    terms: []
-    numbers: []
+    - 在休息期或運動後吸入富氧混合氣體，被提議可改善某些運動表現，但研究結果分歧、做法仍具爭議
+    - 它可能增加血液攜氧量與工作肌肉的氧供應，但機制尚未充分了解
+    - 健康人在海平面呼吸環境空氣時，動脈血紅素氧飽和度已達 95–98%，因此休息期或運動後高氧呼吸的潛在效益仍未完全釐清
+    detail: 原文沒有下「有效」或「無效」的定論；現階段可肯定的是生理提升空間有限，而研究尚未解決這項做法是否穩定改善表現。
+    terms:
+    - hyperoxic-breathing
+    - hemoglobin
+    numbers:
+    - v: 95–98
+      unit: '% saturation'
+      of: 健康人在海平面呼吸環境空氣時的動脈血紅素氧飽和度
     concepts:
-    - adaptation
+    - ergogenic
     - safety
     related: []
-    locator: ''
+    locator: External and Individual Factors Influencing Adaptations to Aerobic Endurance Training > Hyperoxic Breathing
   - id: ch06.external-factors.i05
-    q: 吸菸影響
+    q: 吸菸如何損害運動時的呼吸與攜氧？
     a:
-    - 氣道阻力↑
-    - 纖毛麻痺
-    - CO 與 Hb 結合（碳氧血紅素）→ 攜氧能力↓
-    - 最大運動能力↓
-    detail: ''
-    terms: []
+    - 尼古丁相關的細支氣管收縮，或煙霧刺激造成的分泌液增加與支氣管樹腫脹，會提高氣道阻力
+    - 尼古丁使呼吸道表面纖毛麻痺，限制清除多餘液體與異物，讓碎屑堆積並增加呼吸困難
+    - 一氧化碳對血紅素的親和力高於氧，形成碳氧血紅素並減少可送到工作肌肉的氧
+    detail: 攜氧能力下降「可能」降低最大運動能力，次最大心血管反應也可能為維持供氧而增加；一氧化碳相關的兒茶酚胺釋放則會提高心率與血壓。教材未把表現下降幅度量化。
+    terms:
+    - bronchiole
+    - hemoglobin
+    - carboxyhemoglobin
+    - catecholamine
     numbers: []
     concepts:
-    - adaptation
+    - gas-exchange
     - safety
     related: []
-    locator: ''
+    locator: External and Individual Factors Influencing Adaptations to Aerobic Endurance Training > Smoking
   - id: ch06.external-factors.i06
-    q: 血液禁藥 (EPO/輸血)
+    q: 血液摻假如何進行、可能帶來哪些效果與風險？
     a:
-    - 增加 RBC 質量 → VO2max 可↑ 11%
-    - 次最大運動時 HR↓、血乳酸↓
-    - 高 hematocrit 增加血栓風險
-    detail: ''
-    terms: []
-    numbers: []
+    - 可輸注自己的或他人的紅血球，或施用促紅血球生成素（erythropoietin, EPO）刺激紅血球生成
+    - 兩種方式都被證明可使最大攝氧量提高最多 11%；固定次最大工作量下也與心率、血乳酸下降及 pH 較高相關
+    - 高血比容「理論上可能」增加中風、心肌梗塞、深層靜脈栓塞與肺栓塞等栓塞事件風險
+    detail: 血液摻假被批評為不道德且有嚴重健康風險。輸注可快速增加紅血球量但只維持數週；EPO 要經數週產生變化，並在持續用藥時維持。教材也列出 EPO 可能造成動脈壓升高、類流感症狀與血漿鉀上升。
+    terms:
+    - blood-doping
+    - erythropoietin
+    - vo2max
+    - heart-rate
+    numbers:
+    - v: 最多 11
+      unit: '%'
+      of: 紅血球輸注或 EPO 施用後最大攝氧量的已證實增幅
     concepts:
-    - adaptation
+    - ergogenic
     - safety
     related: []
-    locator: ''
+    locator: External and Individual Factors Influencing Adaptations to Aerobic Endurance Training > Blood Doping
   - id: ch06.external-factors.i07
-    q: 遺傳潛能
+    q: 遺傳潛能與目前訓練狀態如何限制適應幅度？
     a:
-    - 決定適應上限
-    - 越接近上限，每次訓練的邊際增益越小
-    - 精英選手程式設計更重要
-    detail: ''
+    - 個人的遺傳上限會影響訓練適應的絕對幅度，目前訓練狀態也會影響可改變多少
+    - 每個生物系統都有上限；越接近上限，觀察到的增益越小
+    - 菁英運動員可能只剩極小增益，因此訓練計畫設計與監控更為關鍵
+    detail: 教材以某些菁英競賽為例，0.05% 的進步仍可能改變名次；這不是一般訓練可保證的增幅，而是說明上限附近的小差異仍具競賽價值。
     terms: []
-    numbers: []
+    numbers:
+    - v: 0.05
+      unit: '%'
+      of: 教材示例中菁英運動員可能值得投入額外訓練爭取的表現增幅
     concepts:
     - adaptation
-    - safety
+    - population
     related: []
-    locator: ''
+    locator: External and Individual Factors Influencing Adaptations to Aerobic Endurance Training > Genetic Potential
   - id: ch06.external-factors.i08
-    q: 年齡與性別
+    q: 年齡與性別如何影響有氧功率與訓練反應？
     a:
-    - 最大有氧功率隨年齡↓（肌肉量↓、體脂↑）
-    - 女性為男性 73–85%（體脂%↑、Hb↓、心臟較小）
-    - 訓練反應相似
-    detail: ''
-    terms: []
-    numbers: []
+    - 成人最大有氧功率會隨年齡下降，教材列出的伴隨變化包括肌肉量與肌力下降（肌少症）及脂肪量增加
+    - 年齡配對時，女性的平均有氧功率為男性的 73–85%
+    - 可能因素包括女性體脂百分比較高、血紅素較低，以及男性心臟較大、血容量較高；但男女對訓練的一般生理反應相似
+    detail: 73–85% 是按年齡配對後的平均性別比較，不是用來預測任何單一個體；訓練反應相似也不代表兩組起始絕對值相同。
+    terms:
+    - sarcopenia
+    - hemoglobin
+    numbers:
+    - v: 73–85
+      unit: "% of men's values"
+      of: 年齡配對時女性平均有氧功率相對男性的範圍
     concepts:
     - adaptation
-    - safety
+    - population
     related: []
-    locator: ''
+    locator: External and Individual Factors Influencing Adaptations to Aerobic Endurance Training > Age and Sex
 - id: overtraining
   title: 過度訓練症候群 Overtraining Syndrome
   desc: ''
   tag: Overtraining
   items:
   - id: ch06.overtraining.i01
-    q: 定義連續體
+    q: 過度訓練過程如何從功能性過度負荷進展到 OTS？
     a:
-    - 功能性過度負荷（FOR）→ 非功能性過度負荷（NFOR，需數週/月恢復）→ OTS（需數月恢復）
-    detail: ''
-    terms: []
+    - 過度訓練在共識定義中是一個過程，可在短期造成過度負荷，也可長期發展成過度訓練症候群（overtraining syndrome, OTS）
+    - 功能性過度負荷（functional overreaching, FOR）是刻意加劇訓練，先短暫降低表現，經數天至數週恢復後產生超補償改善
+    - 非功能性過度負荷（nonfunctional overreaching, NFOR）使表現停滯或下降，需數週至數月恢復；若仍持續加劇訓練且恢復不足，可進展為需數月恢復的 OTS
+    detail: 三者共同特徵都是表現下降，不能只憑是否「練很累」分類；教材以恢復所需時間與恢復後是否出現超補償區分這條連續體。
+    terms:
+    - overreaching
+    - nonfunctional-overreaching
+    - overtraining-syndrome
     numbers: []
     concepts:
     - adaptation
     - periodization
     related: []
-    locator: ''
+    locator: 'Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers'
   - id: ch06.overtraining.i02
-    q: 主要原因
+    q: OTS 最常見的原因與其他壓力來源是什麼？
     a:
-    - 高強度訓練 + 恢復不足
-    - 其他因素：睡眠不足、環境壓力、人際問題、旅行
-    detail: ''
-    terms: []
+    - 最常見、也是主要原因，是訓練加劇而沒有足夠恢復
+    - OTS 是壓力源的累積總和；其他促成因素包括睡眠不足、熱、冷、海拔與污染等環境因素、人際困難及旅行
+    detail: 原文是 intensified training，不等於只指「高強度」；訓練量、強度或整體負荷加劇，只要恢復不足，都可能推動連續體惡化。
+    terms:
+    - overtraining-syndrome
     numbers: []
     concepts:
     - adaptation
     - periodization
     related: []
-    locator: ''
+    locator: 'Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Strategies for Prevention of Overtraining Syndrome'
   - id: ch06.overtraining.i03
-    q: 盛行率
+    q: NFOR 或 OTS 在大學游泳與其他耐力運動員中有多常見？
     a:
-    - 約 10%（7–21%）大學游泳選手和有氧耐力運動員曾經歷 NFOR 或 OTS
-    detail: ''
-    terms: []
-    numbers: []
+    - 教材引用的一項研究估計，約 10% 的大學游泳選手與其他有氧耐力運動員曾經歷 NFOR 或 OTS，範圍為 7–21%
+    detail: 教材先指出 OTS 盛行率難以測量，再引用這項研究；因此此數字是特定研究的估計，不是所有運動員的確定盛行率。
+    terms:
+    - nonfunctional-overreaching
+    - overtraining-syndrome
+    numbers:
+    - v: 約 10
+      unit: '%'
+      of: 研究估計曾經歷 NFOR 或 OTS 的大學游泳與其他有氧耐力運動員比例
+    - v: 7–21
+      unit: '%'
+      of: 上述 NFOR 或 OTS 盛行率估計的範圍
     concepts:
     - adaptation
     - periodization
     related: []
-    locator: ''
+    locator: 'Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers'
   - id: ch06.overtraining.i04
-    q: 心血管指標
+    q: OTS 可能出現哪些心血管反應？
     a:
-    - 靜止 HR 可增或減
-    - 最大 HR↓
-    - 次最大 HR↓
-    - 心率變異性↓
-    - 訓練量↑不影響靜止血壓
-    detail: ''
-    terms: []
+    - 靜息心率可能下降或上升；心率變異性可能下降，代表副交感輸入減少或交感刺激過度
+    - 過度訓練會降低運動誘發的最大心率，也有研究觀察到固定絕對次最大強度下的心率下降
+    - 訓練量增加通常不影響靜息血壓；訓練強度增加則可提高靜息舒張壓，而不影響靜息收縮壓
+    detail: 同章後面的潛在標記清單又列出「次最大運動心率增加」，與本小節的下降方向並存；教材原文如此。這也支持不能用單一心率方向診斷 OTS。
+    terms:
+    - heart-rate
+    - heart-rate-variability
+    - parasympathetic
+    - sympathetic
+    - systolic-blood-pressure
+    - diastolic-blood-pressure
     numbers: []
     concepts:
     - adaptation
-    - periodization
+    - measurement
     related: []
-    locator: ''
+    locator: 'Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Cardiovascular Responses'
   - id: ch06.overtraining.i05
-    q: 生化指標
+    q: 訓練量過高時，肌酸激酶、乳酸與肌糖原如何改變？
     a:
-    - CK↑（肌肉損傷）
-    - 血乳酸↓或不變
-    - 肌糖原↓（可能因飲食因素）
-    - 血脂不受影響
-    detail: ''
-    terms: []
+    - 異常高訓練量可使肌酸激酶（creatine kinase, CK）升高，表示肌肉損傷
+    - 訓練量增加時，乳酸濃度下降或維持不變；血脂與脂蛋白不變
+    - 長期過度訓練時肌糖原下降，但可能主要受飲食影響；糖原降低也可能促成較低的乳酸反應
+    detail: 肌酸激酶與荷爾蒙等變項往往只反映訓練量，並非 OTS 的專一診斷；飲食又會混淆肌糖原與乳酸，因此需要和表現及其他脈絡一起判讀。
+    terms:
+    - creatine-kinase
+    - glycogen
     numbers: []
     concepts:
     - adaptation
-    - periodization
+    - measurement
     related: []
-    locator: ''
+    locator: 'Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Biochemical Responses'
   - id: ch06.overtraining.i06
-    q: 內分泌指標
+    q: 睪固酮與皮質醇比值能單獨診斷 OTS 嗎？
     a:
-    - 睪固酮↓
-    - 皮質醇↑
-    - 睪固酮/皮質醇比值↓ ≥ 30% 可能是 OTS 標記
-    - 生長激素分泌↓
-    detail: ''
-    terms: []
-    numbers: []
+    - 訓練量增加時，睪固酮／皮質醇比值會下降或不變；游離睪固酮／皮質醇比值曾被報告下降 5–50%
+    - 游離睪固酮／皮質醇比值下降至少 30%，是「可能」的 OTS 標記
+    - 過度訓練時生長激素的腦下垂體分泌下降，這類內分泌反應看來主要源於下視丘功能受損，而非腦下垂體本身
+    detail: 男性總睪固酮在初期上升後可能下降，但教材提醒這是壓力刺激反應，不應直接視為過度訓練指標；原文也沒有說皮質醇一定上升。這些內分泌改變是否造成表現下降仍有爭議。
+    terms:
+    - testosterone
+    - cortisol
+    - growth-hormone
+    - overtraining-syndrome
+    numbers:
+    - v: 5–50
+      unit: '%'
+      of: 訓練量增加時游離睪固酮／皮質醇比值的已報告下降幅度
+    - v: ≥30
+      unit: '%'
+      of: 游離睪固酮／皮質醇比值被提出作為可能 OTS 標記的下降門檻
     concepts:
     - adaptation
-    - periodization
+    - hormone
+    - measurement
     related: []
-    locator: ''
+    locator: 'Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Endocrine Responses'
   - id: ch06.overtraining.i07
-    q: 兒茶酚胺指標
+    q: 過度訓練時兒茶酚胺反應呈現什麼模式？
     a:
-    - 腎上腺素、去甲腎上腺素、多巴胺變化顯著
-    - 嚴重 OTS 呈現副交感型（對兒茶酚胺敏感性↓）
-    detail: ''
-    terms: []
+    - 過度訓練跑者的腎上腺素、正腎上腺素與多巴胺基礎值變化，與自陳抱怨嚴重程度顯著相關
+    - 嚴重訓練量過高可降低夜間腎上腺素；運動前或靜息腎上腺素與正腎上腺素則可不變或升高
+    - 基礎多巴胺與相同絕對工作量下的多巴胺濃度下降；次最大運動的多巴胺反應則不一
+    - 嚴重的有氧耐力訓練量過高可能形成副交感型 OTS，兒茶酚胺敏感性降低，並在進階個案中發展成嚴重 OTS
+    detail: 不同採樣時點、工作量與嚴重度會得到不同方向，因此「兒茶酚胺改變」不是單一上升或下降模式；教材也說這類嚴重狀態常難以記錄。
+    terms:
+    - catecholamine
+    - epinephrine
+    - norepinephrine
+    - dopamine
+    - overtraining-syndrome
     numbers: []
     concepts:
     - adaptation
-    - periodization
+    - hormone
+    - measurement
     related: []
-    locator: ''
+    locator: 'Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Endocrine Responses'
   - id: ch06.overtraining.i08
-    q: 預防策略
+    q: 教練與運動員可如何預防 OTS？
     a:
-    - 監控訓練記錄
-    - 良好營養與睡眠
-    - 訓練量/強度多樣化
-    - 多學科健康團隊（教練/醫師/營養師/心理師）
-    detail: ''
-    terms: []
+    - 遵守良好營養原則，並確保充足睡眠與恢復時間
+    - 追蹤訓練計畫與表現紀錄，讓強度與訓練量具有變化，以便及早發現變化並調整
+    - 讓運動員可向教練、醫師、營養師與心理師組成的跨專業健康團隊討論生活與訓練問題
+    detail: OTS 的確定辨識仍有爭議；教材列出的潛在標記沒有任何一項符合敏感、專一、先於症候群、易精確測量、低侵入且低成本的全部條件，因此預防要依靠持續監控與多面向資訊，而不是等待單一檢驗值越界。
+    terms:
+    - overtraining-syndrome
     numbers: []
     concepts:
-    - adaptation
     - periodization
+    - program-design
     related: []
-    locator: ''
+    locator: 'Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Strategies for Prevention of Overtraining Syndrome > What Are the Markers of Aerobic Overtraining?'
 cards:
-- q: 心輸出量（Q̇）的公式與最大值？
-  a: Q̇ = 搏出量 × 心跳率；靜止約 5 L/min；最大有氧運動可達 20–22 L/min（約靜止的 4 倍）
+- q: 心輸出量（Q̇）如何計算，最大運動時可達多少？
+  a: Q̇＝每搏量×心率；由靜息約 5 L/min 增至最大運動 20–22 L/min，約為四倍，過程是先快速、再逐漸增加，最後進入平臺。
   tag: 急性心血管
-- q: 搏出量在有氧運動中何時達到高原？
-  a: VO2 達到 40–50% VO2max 時 SV 開始停滯；訓練前一般男性最大 SV 100–120 ml/beat，女性約少 25%
+- q: 有氧運動時每搏量何時進入平臺，教材的族群數值是多少？
+  a: 攝氧量約達 40–50% VO₂max 後開始進入平臺；久坐大學年齡男性最大值平均 100–120 ml/beat，同齡女性約低 25%。
   tag: 急性心血管
-- q: Frank-Starling 機制是什麼？
-  a: 靜脈回流↑ → 心室末期舒張容積（EDV）↑ → 心肌纖維伸展↑ → 收縮力↑ → 搏出量↑（類似橡皮筋拉越長彈力越大）
+- q: Frank–Starling 機制如何提高每搏量？
+  a: 靜脈回流增加使舒張末期容積上升，心肌纖維拉得更長，接著產生更有力的收縮與收縮期射血。
   tag: 急性心血管
-- q: 有氧運動中增加靜脈回流的三個機制？
-  a: 靜脈收縮（交感神經）＋骨骼肌幫浦（肌肉收縮配合靜脈瓣）＋呼吸幫浦（呼吸頻率/潮氣量↑改變胸腔壓力）
+- q: 有氧運動增加靜脈回流的三項機制是什麼？
+  a: 交感神經引起的靜脈收縮、肌肉收縮配合單向靜脈瓣形成的骨骼肌幫浦，以及呼吸頻率與潮氣量增加形成的呼吸幫浦。
   tag: 急性心血管
-- q: 最大心跳率的兩種估算公式？
-  a: 傳統：220 − 年齡（標準差 ±10–12 bpm）；更精確：208 − 0.7 × 年齡（適用健康成人）
+- q: 教材列出的兩種最大心率估算式與誤差邊界是什麼？
+  a: 傳統式為 220－年齡，估計值周圍標準差為 ±10–12 beats/min；健康成人可用 208－0.7×年齡，教材稱其較準確。
   tag: 急性心血管
-- q: Fick 方程式的完整展開式？
-  a: VO2 = HR × SV × a-vO2 difference；單位：beats/min × ml/beat × ml O2/100 ml blood；結果除以體重(kg)得 ml·kg⁻¹·min⁻¹
+- q: Fick 方程式如何連結攝氧量與循環功能？
+  a: V̇O₂＝心輸出量×動靜脈氧差，也可展開為心率×每搏量×動靜脈氧差；若要表示為 ml·kg⁻¹·min⁻¹，再除以體重公斤數。
   tag: 急性心血管
-- q: 1 MET 的定義，以及 VO2max 的正常範圍？
-  a: 1 MET = 靜止攝氧量 ≈ 3.5 ml·kg⁻¹·min⁻¹；健康成人 VO2max 一般為 25–80 ml·kg⁻¹·min⁻¹（7.1–22.9 METs）
+- q: 1 MET 如何定義，正常健康者的 VO₂max 一般範圍為何？
+  a: 1 MET 是一般人的估計靜息攝氧量 3.5 ml·kg⁻¹·min⁻¹；正常健康者的 VO₂max 一般為 25–80 ml·kg⁻¹·min⁻¹，即 7.1–22.9 METs。
   tag: 急性心血管
-- q: Rate-Pressure Product（雙乘積）的定義與意義？
-  a: 心跳率 × 收縮壓；用來估算心肌耗氧量（心臟做功）；反映心臟的工作負荷
+- q: 率壓乘積（rate–pressure product）如何計算，有何用途？
+  a: 心率×收縮壓；又稱雙乘積，用來估計心肌耗氧量與心臟做功。
   tag: 急性心血管
-- q: 有氧運動時收縮壓（SBP）與舒張壓（DBP）如何變化？
-  a: 最大有氧運動 SBP 可升至 220–260 mmHg；DBP 因血管擴張維持不變或略降；血流大量導向活動肌肉
+- q: 最大有氧運動時收縮壓與舒張壓通常如何變化？
+  a: 收縮壓通常可升至 220–260 mmHg；舒張壓因血管擴張維持靜息水準或略降。
   tag: 急性心血管
-- q: 平均動脈壓（MAP）公式，以及骨骼肌在運動時獲得的心輸出量比例？
-  a: MAP = (SBP − DBP) ÷ 3 + DBP；靜止時骨骼肌接收 15–20% Q̇；劇烈運動時可達 90%
+- q: 平均動脈壓公式為何，為什麼不是收縮壓與舒張壓的平均？
+  a: MAP＝［（SBP－DBP）÷3］＋DBP；因心動週期中動脈壓停留在接近舒張壓的時間較長，所以不是兩者的算術平均。
   tag: 急性心血管
-- q: 有氧運動時呼吸頻率與潮氣量（TV）如何變化？
-  a: 靜止呼吸頻率 12–15 次/min → 劇烈運動 35–45 次/min；TV 從 0.4–1 L → 可達 3 L 以上
+- q: 健康年輕成人劇烈運動時，呼吸頻率與潮氣量如何改變？
+  a: 呼吸頻率由靜息 12–15 增至 35–45 breaths/min；潮氣量由 0.4–1 L 增至最多 3 L 或更高。
   tag: 急性呼吸
-- q: 分鐘通氣量（minute ventilation）的運動增幅？
-  a: 靜止的 15–25 倍；可達 90–150 L/min；低中強度時 TV 增加為主；高強度時呼吸頻率也顯著↑
+- q: 劇烈運動時分鐘通氣量可增加多少？
+  a: 可達靜息值的 15–25 倍，即 90–150 L/min；增幅可來自呼吸深度、頻率或兩者提高。
   tag: 急性呼吸
-- q: 通氣當量（ventilatory equivalent）的定義與數值？
-  a: 每升 O2 所需的空氣量（L/L O2）；低中強度約 20–25 L/L；高強度時可升至 35–40 L/L（乳酸急增點以上）
+- q: 換氣當量如何定義，低中強度與高強度時各是多少？
+  a: 它是分鐘通氣量與攝氧量的比值；低中強度為 20–25 L air/L O₂，高強度時可升至 35–40 L air/L O₂，並與血乳酸突然上升平行。
   tag: 急性呼吸
-- q: 解剖死腔 vs 生理死腔的差異？
-  a: 解剖死腔：鼻/口/氣管/支氣管（無氣體交換），年輕成人約 150 ml；生理死腔：通氣/灌流不良的肺泡，健康人幾乎可忽略；肺疾病（COPD）時生理死腔可增至解剖的 10 倍
+- q: 解剖死腔與生理死腔有何差異？
+  a: 解剖死腔是鼻、口與傳導氣道等不交換氣體的區域，年輕成人約 150 ml；生理死腔是血流、通氣或肺泡表面有問題的肺泡，健康人通常可忽略，特定肺病時可達解剖死腔的十倍。
   tag: 急性呼吸
-- q: 為何深呼吸比快淺呼吸更有效率？
-  a: 增加 TV 時，解剖死腔的增加比例小於 TV 增加比例，因此有效肺泡通氣量的比例更高
+- q: 為什麼增加潮氣量比只加快呼吸更有效率？
+  a: 深呼吸雖也使解剖死腔增加，但潮氣量的增加比例更大，因此新增空氣中能到達氣體交換區的比例較高。
   tag: 急性呼吸
-- q: 靜止 vs 高強度運動時的組織 PO2 與 PCO2 比較？
-  a: 靜止：間質液 PO2 約 40 mmHg、PCO2 約 46 mmHg；高強度運動：PO2 約 3 mmHg、PCO2 約 90 mmHg → 壓力梯度更大加速氣體交換
+- q: 靜息與高強度運動時，組織氧與二氧化碳分壓如何比較？
+  a: 靜息組織間液 PO₂ 最低約 40 mmHg、PCO₂ 約 46 mmHg；高強度運動時約為 3 與 90 mmHg。靜息動脈血 PO₂ 約 100 mmHg，不可誤當成靜息組織值。
   tag: 急性呼吸
-- q: 血漿攜氧量 vs 血紅素攜氧量？
-  a: 血漿僅攜帶約 3 ml O2/L；大部分由血紅素攜帶；男性約 20 ml O2/100 ml 血液，女性略少（Hb 較低）
+- q: 血漿與血紅素各自如何運送氧？
+  a: 每公升血漿只能攜帶約 3 ml 氧，血中大部分氧由血紅素運送；男性每 100 ml 血液的攜氧容量約 20 ml 氧，女性略低。
   tag: 血液運輸
-- q: CO2 最主要的血液運輸方式？
-  a: 約 70% 以碳酸氫根（HCO3⁻）形式運輸：CO2 + H2O → H2CO3（碳酸酐酶催化）→ H⁺ + HCO3⁻；H⁺ 由血紅素緩衝，HCO3⁻ 擴散至血漿
+- q: 二氧化碳最主要以什麼形式經血液運輸？
+  a: 約 70% 以碳酸氫根形式送往肺部；紅血球內的碳酸酐酶加速反應，血紅素結合氫離子協助緩衝，碳酸氫根則擴散到血漿。
   tag: 血液運輸
-- q: OBLA 定義與 Cori cycle 的功能？
-  a: OBLA（Onset of Blood Lactate Accumulation）：血乳酸開始累積的強度點；Cori cycle：肌肉乳酸 → 血液 → 肝臟 → 糖異生（gluconeogenesis）轉回葡萄糖
+- q: 本章如何定義 OBLA，Cori 循環又負責什麼？
+  a: OBLA 是血乳酸開始上升的有氧運動水準，本章沒有指定固定 mmol/L 門檻；Cori 循環把肌肉乳酸經血液送到肝臟進行糖質新生。
   tag: 血液運輸
-- q: 有氧訓練最重要的長期心血管適應是什麼？
-  a: 最大心輸出量↑（主因：最大搏出量↑）；通常在 6–12 個月長期訓練後達到；心室腔容積↑、壁厚↑、收縮性↑
+- q: 長期 6–12 個月有氧耐力訓練最顯著的心血管改變是什麼？
+  a: 最大心輸出量增加，主因是每搏量改善；左心室腔室容積、壁厚與收縮力增加都是關鍵。
   tag: 慢性心血管
-- q: 有氧訓練後靜止與次最大心跳率的變化？
-  a: 靜止心跳率↓（副交感張力↑ + SV↑）；次最大運動時在相同絕對強度下 HR↓；最大 HR 可能略↓
+- q: 有氧訓練後靜息與固定次最大工作量下的心率如何變化？
+  a: 靜息心率因副交感張力與每搏量增加而下降；固定絕對次最大工作量下，心率較低且上升較慢。最大心率則可能略降。
   tag: 慢性心血管
-- q: 精英有氧耐力運動員的靜止心跳率範圍（bradycardia）？
-  a: 常見 40–60 bpm；原因：副交感神經張力↑（SA 節放電率↓）+ 每跳搏出量↑ → 同樣輸出只需更少次跳動
+- q: 高度訓練有氧耐力選手常見的靜息心率範圍與原因是什麼？
+  a: 常見 40–60 beats/min；副交感張力使竇房結放電變慢，加上每搏量提高，同一心輸出量可用較少次收縮維持。
   tag: 慢性心血管
-- q: 訓練後最大搏出量的數值比較？
-  a: 未訓練男性最大 SV 約 100–120 ml；訓練後可達 150–160 ml；精英運動員可達 187 ml（Table 6.2）
+- q: 長期有氧訓練一定會提高最大心率嗎？
+  a: 不一定；教材說最大心率可能略微下降，且可能與副交感張力增加有關。此時提高最大心輸出量更依賴左心室大小、收縮力與每搏量。
   tag: 慢性心血管
-- q: 有氧訓練後肌肉毛細血管密度增加的意義？
-  a: O2 擴散距離↓ → O2 與代謝基質的輸送效率↑；CO2 與廢物移除↑；受訓練量與強度影響
+- q: 有氧訓練增加肌肉微血管密度有何意義？
+  a: 縮短氧與代謝底物的擴散距離，並支援氧、營養與荷爾蒙輸送，以及熱與代謝副產物移除；增幅受訓練量與強度影響。
   tag: 慢性心血管
-- q: 有氧訓練後粒線體如何適應？
-  a: 粒線體數量↑、大小↑ → 有氧 ATP 生產能力↑；結合肌紅蛋白濃度↑ → 肌肉組織提取與利用 O2 的能力↑
+- q: 有氧耐力訓練後粒線體如何適應？
+  a: 數量與大小都增加，擴大以糖原與游離脂肪酸氧化、有氧製造 ATP 的能力；配合肌紅蛋白增加，肌肉提取與使用氧的能力提高。
   tag: 慢性肌肉
-- q: 肌紅蛋白（myoglobin）的功能，以及訓練後的變化？
-  a: 在細胞內運輸 O2 至粒線體；有氧訓練後肌紅蛋白含量↑ → O2 利用能力↑
+- q: 肌紅蛋白的功能與有氧訓練適應是什麼？
+  a: 它在肌肉細胞內運送氧；訓練後含量增加，使更多氧可送至粒線體。它不同於在血液中攜氧的血紅素。
   tag: 慢性肌肉
-- q: VO2max 的訓練改善幅度因訓練狀態而有何差異？
-  a: 未訓練者可改善最多 20%；精英運動員僅 5–10%（已接近基因上限）；有氧能力可提升 5–30%（6–12 個月訓練）
+- q: 教材對 VO₂max 訓練增幅列出哪些不同範圍？
+  a: 表現小節列菁英運動員約 5–10%、未訓練者最多 20%；另一總述列整體有氧功率可提高 5–30%，取決於起始體適能與遺傳潛能，兩者不是同一族群估計。
   tag: 慢性肌肉
-- q: 乳酸閾值的訓練適應如何影響比賽表現？
-  a: 訓練後 OBLA 在更高的 VO2max % 出現（可達 80–90%）；舉例：同樣 VO2max 50 的兩人，乳酸閾 80% vs 70% → 前者可維持高 5 ml·kg⁻¹·min⁻¹ 的強度
+- q: 同樣 VO₂max 的兩人，乳酸閾值較高者為何可能表現較佳？
+  a: 教材例中兩人 VO₂max 都是 50 ml·kg⁻¹·min⁻¹，閾值 80% 者可到 40，閾值 70% 者只有 35；在運動經濟性等條件相同時，前者可維持高出 5 ml·kg⁻¹·min⁻¹ 的輸出。
   tag: 慢性肌肉
-- q: 有氧訓練後脂肪利用↑與糖原節省（glycogen sparing）的意義？
-  a: 訓練後相同強度下脂肪利用率↑、糖原使用↓ → 可在更高強度維持更長時間；跑馬拉松的 75% VO2max 配速可提升至 80%
+- q: 脂肪利用增加與糖原節省如何延長耐力表現？
+  a: 訓練後在相同強度下使用較多脂肪、較少糖原，可延長表現；這組機制與教材另列的 OBLA 位移可能原因不可合併成單一因果鏈。
   tag: 慢性肌肉
-- q: Type IIx → IIa 纖維轉換的訓練意義？
-  a: 有氧耐力訓練可促使 Type IIx 轉為 Type IIa；IIa 有更高氧化能力且特性更接近 Type I → 更多纖維可參與有氧代謝
+- q: 有氧訓練後 Type IIx 一定會轉成 Type IIa 嗎？
+  a: 原文只說「可能」逐漸由 IIx 轉為 IIa；IIa 氧化能力較高、特性更接近 Type I，但這不等於第二型纖維轉成第一型。
   tag: 慢性肌肉
-- q: 有氧訓練後 Type I 纖維的形態變化？
-  a: 選擇性肥大（因徵召頻率↑）；但增幅小於阻力訓練所致的 Type II 肥大；Type II 纖維面積在有氧訓練後無顯著增加或僅略增
+- q: 有氧耐力訓練對第一型肌纖維的肥大效果如何？
+  a: 因徵召增加而出現選擇性肥大，但橫截面直徑不及經阻力訓練適應的第二型纖維，且變化小於健美式阻力訓練造成的第一型纖維肥大。
   tag: 慢性肌肉
-- q: 有氧訓練後體組成的典型變化？
-  a: 體脂率↓；去脂體重無顯著變化；長期計畫體脂降低效果更佳；過度訓練可使合成/分解失衡，反而促進分解
+- q: 有氧耐力訓練通常如何改變體組成？
+  a: 在營養攝取適當的前提下，體脂百分比通常下降，去脂體重幾乎沒有或沒有顯著改變；較長期計畫可讓體脂降得更多，過量訓練則可能造成分解與合成失衡。
   tag: 慢性肌肉
-- q: 有氧訓練刺激骨生長的關鍵條件？
-  a: 強度必須超過每日正常活動的最低閾值；需週期性應力（cyclical strain）；強度必須系統性漸進；高強度間歇訓練可提供更強的成骨刺激
+- q: 有氧運動要刺激骨形成，必須符合哪些條件？
+  a: 強度明顯高於日常活動、超過最低強度與週期性應變頻率門檻，並有系統地提高強度；提高肢體移動速率或採高強度間歇可增加成骨刺激。
   tag: 骨骼結締組織
-- q: 有氧訓練後睪固酮/皮質醇動態，以及蛋白質合成的類型？
-  a: 有氧訓練（尤其跑步）引發皮質醇↑ → 淨蛋白分解；身體嘗試以 T & IGF-1↑ 補償；但近期研究顯示耐力運動員確有淨蛋白合成，主要是粒線體蛋白，非收縮蛋白
+- q: 教材如何描述耐力訓練的蛋白質分解與合成？
+  a: 跑步常與淨蛋白分解增加相關，皮質醇是部分原因，身體嘗試以睪固酮與 IGF-I 反應抵銷；較新證據僅「指出可能」有淨合成與肌肥大，且最可能以粒線體蛋白為主。
   tag: 內分泌
-- q: 高度影響從哪個海拔開始？最主要的急性生理補償反應？
-  a: '>3,900 英尺（約 1,200 m）開始影響；主要急性反應：①肺通氣過度（hyperventilation，以呼吸頻率↑為主）；②心輸出量↑（心跳率↑，次最大 HR 可升 30–50%）'
+- q: 海拔多高開始出現急性調整，主要反應是什麼？
+  a: 高於 3,900 feet（約 1,200 m）開始；過度換氣初期以呼吸頻率增加為主，心率使靜息與次最大心輸出量上升，次最大心率與心輸出量可比海平面高 30–50%。
   tag: 外在因素
-- q: 高度慢性適應中 RBC 與血紅素的增幅？
-  a: RBC 增加 30–50%；血紅素增加約 5–15%（最高可更多）；腎臟排出 HCO3⁻ 維持酸鹼平衡；毛細血管密度↑
+- q: 長期海拔適應時紅血球與血紅素各增加多少？
+  a: 紅血球增加 30–50%，血紅素形成通常增加 5–15%；另有肺膜氧擴散能力與微血管化提高，以及腎臟排出 HCO₃⁻ 協助酸鹼平衡。
   tag: 外在因素
-- q: 在中等高度（2,200–3,000 m）適應所需最短時間？回海平面後多久恢復？
-  a: 至少 3–6 週完全適應；即使適應後，表現仍通常低於海平面；回到海平面後約 1 個月恢復
+- q: 中等海拔適應與回海平面後逆轉各需多久？
+  a: 在 2,200–3,000 m 至少需 3–6 週適應；回到海平面後約一個月逆轉。充分適應後能力可能接近海平面，但表現一般仍預期較低，教材原文如此。
   tag: 外在因素
-- q: 吸菸影響有氧運動表現的兩個主要機制？
-  a: ①尼古丁導致支氣管收縮或黏膜腫脹 → 呼吸道阻力↑；②尼古丁麻痺呼吸道纖毛 → 無法清除分泌物與異物
+- q: 吸菸如何直接增加呼吸困難？
+  a: 尼古丁相關的細支氣管收縮，或煙霧刺激造成分泌液增加與支氣管樹腫脹，會提高氣道阻力；尼古丁也使呼吸道纖毛麻痺，讓液體、異物與碎屑堆積。
   tag: 外在因素
-- q: 一氧化碳（CO）如何影響運動表現？
-  a: CO（香菸成分）與 Hb 親和力高於 O2 → 形成 carboxyhemoglobin → O2 攜帶量↓；同時促使兒茶酚胺釋放 → HR↑、BP↑
+- q: 香菸中的一氧化碳如何影響運動供氧？
+  a: 一氧化碳對血紅素的親和力高於氧，形成碳氧血紅素並降低攜氧量；這可能降低最大運動能力，次最大心血管反應也可能代償性增加，兒茶酚胺釋放則使心率與血壓上升。
   tag: 外在因素
-- q: 血液摻假（blood doping）的方式與對 VO2max 的影響？
-  a: 方式：①輸注自身或他人 RBC；②注射 EPO 刺激 RBC 生成；VO2max 可提升最多 11%；次最大運動下 HR↓、血乳酸↓、pH↑
+- q: 血液摻假的方式與已觀察到的效果是什麼？
+  a: 輸注自己或他人的紅血球，或施用 EPO 刺激紅血球生成；兩者可使 VO₂max 提高最多 11%，固定次最大工作量下與心率、血乳酸下降及 pH 較高相關，但伴隨倫理與健康風險。
   tag: 外在因素
-- q: OTS（過度訓練症候群）三個階段的定義與恢復時間？
-  a: 功能性過度訓練（FOR）：表現略降，恢復數天至週，帶來超補償；非功能性過度訓練（NFOR）：表現停滯/下降，恢復週至月；OTS：嚴重表現下降，恢復需數月
+- q: FOR、NFOR 與 OTS 如何以表現及恢復時間區分？
+  a: FOR 是刻意加劇訓練後短暫表現下降，數天至數週恢復並超補償；NFOR 表現停滯或下降，需數週至數月；持續加劇且恢復不足可進展為 OTS，需數月恢復。
   tag: 過度訓練
-- q: OTS 在大學游泳選手等耐力運動員的發生率？
-  a: 約 10%（範圍 7–21%）經歷 NFOR 或 OTS
+- q: 大學游泳與其他耐力運動員的 NFOR／OTS 盛行率估計是多少？
+  a: 一項研究估計約 10%，範圍 7–21%；教材先提醒 OTS 盛行率難以測量，因此這不是所有運動員的固定比率。
   tag: 過度訓練
-- q: OTS 時心跳率與心跳率變異性（HRV）如何變化？
-  a: 靜止心跳率可↑或↓；HRV↓（副交感輸入↓或過度交感刺激）；最大 HR↓；次最大運動 HR↓；訓練量↑通常不影響靜止血壓，但訓練強度↑可使靜止 DBP↑
+- q: OTS 的心率方向能作為單一診斷嗎？
+  a: 不能。靜息心率可升或降，HRV 可能下降，最大心率下降；心血管小節說固定絕對次最大強度心率下降，但標記清單又列增加，教材原文如此，必須結合其他證據。
   tag: 過度訓練
-- q: 睪固酮/皮質醇比值作為 OTS 標記的閾值，以及兒茶酚胺的指標意義？
-  a: 游離睪固酮/皮質醇比值下降 ≥30% 可能是 OTS 標記；嚴重量型 OTS 中夜間腎上腺素↓（反映基礎交感張力↓）；多巴胺基礎值↓
+- q: 游離睪固酮／皮質醇比值下降多少被提出為可能的 OTS 標記？
+  a: 至少下降 30%；研究報告的下降範圍為 5–50%。它只是可能標記，總睪固酮下降也可能只是壓力反應，教材沒有說皮質醇一定上升。
   tag: 過度訓練
-- q: OTS 的預防策略有哪些？
-  a: 監控訓練記錄＋定期測量表現；多樣化訓練量/強度；充足睡眠與營養；多學科健康團隊（教練、醫師、營養師、心理師）；早期發現 OTS 標記並調整計畫
+- q: 預防 OTS 的實務策略有哪些？
+  a: 確保營養、睡眠與恢復；追蹤訓練計畫及表現，讓強度與訓練量有變化；讓運動員能向教練、醫師、營養師與心理師組成的跨專業團隊求助。沒有任何單一標記符合全部理想條件。
   tag: 過度訓練
-- q: 去訓練的定義，以及 VO2max 在短期與長期去訓練後的下降幅度？
-  a: 去訓練：訓練刺激不足引起的適應逆轉；短期（<4 週）VO2max 下降 4–14%；長期（>4 週）下降 6–20%；主因：血量↓、SV↓、最大心輸出量↓、次最大 HR↑
+- q: 去訓練如何定義，短期與長期對高度訓練者 VO₂max 的影響為何？
+  a: 刺激不足造成適應部分或完全喪失；教材的短期是 4 週，VO₂max 下降 4–14%，長期是超過 4 週，下降 6–20%。
   tag: 去訓練
-- q: Tapering（減量）與去訓練的區別？
-  a: Tapering：賽前計畫性降低訓練量（通常維持強度）→ 目的是提升表現；去訓練：無計畫停訓 → 引起適應喪失；適當的訓練多樣性、強度維持與主動恢復可防止去訓練效應
+- q: 減量訓練與去訓練真正的差別是什麼？
+  a: 減量是賽前或恢復微週期中有計畫地減少持續時間與頻率、通常保留強度以提升表現；去訓練則是任何使刺激不足並喪失適應的停止或大幅減量，不以是否有計畫單獨區分。
   tag: 去訓練
-- q: 有氧耐力訓練後整體表現改善的複合指標（複合題）？
-  a: ①VO2max↑（未訓練最多 20%，精英 5–10%）；②乳酸閾值↑（OBLA 在更高%VO2max）；③脂肪利用↑（糖原節省）；④跑步效率↑（運動經濟性）；⑤次最大 HR 與呼吸率↓
+- q: 有氧耐力訓練可透過哪些不同途徑改善表現？
+  a: 提高 VO₂max 與乳酸閾值、增加脂肪利用並節省糖原、改善運動經濟性，以及降低固定次最大工作量下的心率與呼吸頻率；各途徑不是同一項指標的重複說法。
   tag: 綜合
-- q: 有氧訓練對呼吸系統的慢性適應，以及適應是否具運動特異性？
-  a: 呼吸系統通常不是有氧運動的限制因素；訓練適應包括：最大運動時 TV↑、頻率↑；次最大運動時頻率↓、TV↑；適應具運動特異性（下肢訓練不一定改善上肢運動）
+- q: 有氧訓練的慢性通氣適應是否能跨運動模式轉移？
+  a: 不一定。最大運動時潮氣量與呼吸頻率增加，次最大時常見頻率下降、潮氣量增加；但適應高度活動特異，下肢訓練不太可能讓上肢活動出現同樣改善。
   tag: 慢性心血管
-- q: 有氧訓練對神經系統的慢性適應：協同肌輪流活化是什麼？
-  a: 訓練早期：動作效率↑、疲勞延後；協同肌輪流活化 = 协同肌之間輪流從主動變為靜止，維持低強度收縮的能量消耗↓ → 運動經濟性↑
+- q: 協同肌與運動單位輪替活化如何改善有氧動作效率？
+  a: 協同肌及單一肌肉內的運動單位在活動與不活動間交替，不必持續恆定活化，仍可維持低程度肌力並降低能量消耗，使訓練初期效率提高、疲勞延後。
   tag: 慢性神經肌肉
-- q: 年齡與性別對有氧像力（VO2max）的影響？
-  a: 最大有氧功率隨年齡↓（肌肉量↓、體脂↑）；男女匹配年齡時，女性 VO2max 為男性 73–85%（體脂%高、Hb低、心臟較小）；訓練生理反應男女相似
+- q: 年齡與性別如何影響最大有氧功率？
+  a: 成人最大有氧功率隨年齡下降；年齡配對時，女性平均為男性的 73–85%，可能與體脂、血紅素、心臟大小及血容量差異有關，但男女對訓練的一般生理反應相似。
   tag: 外在因素
-- q: 有氧運動的急性反應總結（複合題）？
-  a: 心輸出量↑、SV↑、HR↑、VO2↑、SBP↑、骨骼肌血流↑（可達 90% Q̇）；DBP 不變或略降；呼吸頻率↑、TV↑、分鐘通氣量↑ 15–25 倍
+- q: 單次有氧運動的主要急性心血管與呼吸反應是什麼？
+  a: 心輸出量、每搏量、心率、攝氧量、收縮壓與活動肌血流增加，舒張壓維持或略降；呼吸頻率、潮氣量與分鐘通氣量增加，劇烈運動時分鐘通氣量可達靜息的 15–25 倍。
   tag: 急性心血管
