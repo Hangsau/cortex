@@ -24,8 +24,8 @@ topics:
     concepts:
     - structure
     related:
-    - ch01.skeleton.appendicular
-    - ch01.skeleton.vertebral-segments
+    - ch02.planes.i04
+    - ch07.children-growth.i06
     locator: 第 1 章 · Skeleton
   - id: ch01.skeleton.appendicular
     q: 附肢骨骼包含哪些骨頭
@@ -41,7 +41,8 @@ topics:
     concepts:
     - structure
     related:
-    - ch01.skeleton.axial
+    - ch02.musculature.i01
+    - ch15.lower-body.i01
     locator: 第 1 章 · Skeleton
   - id: ch01.skeleton.fibrous-joint
     q: 纖維關節是什麼
@@ -57,8 +58,8 @@ topics:
     - structure
     - measurement
     related:
-    - ch01.skeleton.cartilaginous-joint
-    - ch01.skeleton.synovial-joint
+    - ch14.flexibility-factors.i01
+    - ch15.body-positioning.i06
     locator: 第 1 章 · Skeleton
   - id: ch01.skeleton.cartilaginous-joint
     q: 軟骨關節是什麼
@@ -75,8 +76,8 @@ topics:
     - structure
     - measurement
     related:
-    - ch01.skeleton.fibrous-joint
-    - ch01.skeleton.vertebral-segments
+    - ch02.joint-biomechanics.i02
+    - ch15.weight-belt.i01
     locator: 第 1 章 · Skeleton
   - id: ch01.skeleton.synovial-joint
     q: 滑液關節為什麼活動度最大
@@ -93,8 +94,8 @@ topics:
     concepts:
     - structure
     related:
-    - ch01.skeleton.joint-axes
-    - ch01.skeleton.fibrous-joint
+    - ch02.joint-biomechanics.i04
+    - ch14.flexibility-factors.i01
     locator: 第 1 章 · Skeleton
   - id: ch01.skeleton.joint-axes
     q: 單軸、雙軸、多軸關節怎麼分
@@ -112,7 +113,8 @@ topics:
     - structure
     - measurement
     related:
-    - ch01.skeleton.synovial-joint
+    - ch02.planes.i01
+    - ch02.planes.i03
     locator: 第 1 章 · Skeleton
   - id: ch01.skeleton.vertebral-segments
     q: 脊椎各區段各有幾節
@@ -145,8 +147,8 @@ topics:
     - structure
     - normal-values
     related:
-    - ch01.skeleton.axial
-    - ch01.skeleton.cartilaginous-joint
+    - ch02.joint-biomechanics.i02
+    - ch15.weight-belt.i07
     locator: 第 1 章 · Skeleton
   - id: ch01.skeleton.lever-system
     q: 為什麼肌肉必須透過骨骼才能推東西
@@ -162,8 +164,8 @@ topics:
     - structure
     - force-production
     related:
-    - ch01.muscle-structure.epimysium
-    - ch01.skeleton.synovial-joint
+    - ch02.levers.i05
+    - ch02.levers.i08
     locator: 第 1 章 · Skeleton
   - id: ch01.skeleton.bone-adaptation
     q: 阻力訓練怎麼改變骨骼
@@ -177,7 +179,9 @@ topics:
     concepts:
     - adaptation
     related:
-    - ch01.skeleton.lever-system
+    - ch05.connective-tissue.i01
+    - ch07.older-adults-training.i03
+    - ch04.testosterone.i01
     locator: 第 1 章 · Skeleton
 - id: muscle-structure
   title: 肌肉結構 Muscle Structure
@@ -199,6 +203,7 @@ topics:
     related:
     - ch01.muscle-structure.perimysium
     - ch01.muscle-structure.endomysium
+    - ch05.connective-tissue.i05
     locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
   - id: ch01.muscle-structure.perimysium
     q: 肌束膜包住的是什麼
@@ -218,6 +223,7 @@ topics:
     related:
     - ch01.muscle-structure.epimysium
     - ch01.muscle-structure.endomysium
+    - ch06.chronic-cardiovascular.i06
     locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
   - id: ch01.muscle-structure.endomysium
     q: 肌內膜包住的是什麼
@@ -233,7 +239,8 @@ topics:
     - structure
     related:
     - ch01.muscle-structure.perimysium
-    - ch01.muscle-structure.fiber-dimensions
+    - ch05.hypertrophy.i01
+    - ch22.injury-types.i04
     locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
   - id: ch01.muscle-structure.fiber-dimensions
     q: 一條肌纖維長什麼樣
@@ -255,8 +262,8 @@ topics:
     concepts:
     - structure
     related:
-    - ch01.muscle-structure.sarcomere
-    - ch01.muscle-structure.endomysium
+    - ch05.hypertrophy.i01
+    - ch02.strength-factors.i02
     locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
   - id: ch01.muscle-structure.sarcomere
     q: 肌節是什麼，靜息時多長
@@ -281,7 +288,8 @@ topics:
     - force-production
     related:
     - ch01.muscle-structure.bands
-    - ch01.sliding-filament.band-changes
+    - ch01.sliding-filament.core
+    - ch05.hypertrophy.i01
     locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
   - id: ch01.muscle-structure.myosin
     q: 粗絲肌凝蛋白的構造
@@ -307,8 +315,8 @@ topics:
     - structure
     - force-production
     related:
-    - ch01.muscle-structure.actin
-    - ch01.sliding-filament.power-stroke
+    - ch03.phosphagen.i01
+    - ch11.anabolic-supplements.i01
     locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
   - id: ch01.muscle-structure.actin
     q: 細絲肌動蛋白的構造
@@ -330,8 +338,8 @@ topics:
     - structure
     - force-production
     related:
-    - ch01.muscle-structure.myosin
-    - ch01.sliding-filament.crossbridge-formation
+    - ch03.phosphagen.i01
+    - ch05.hypertrophy.i01
     locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
   - id: ch01.muscle-structure.bands
     q: A 帶、I 帶、H 區、Z 線、M 線各是什麼
@@ -354,7 +362,7 @@ topics:
     - measurement
     related:
     - ch01.muscle-structure.sarcomere
-    - ch01.sliding-filament.band-changes
+    - ch01.sliding-filament.core
     locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
   - id: ch01.muscle-structure.sr-ttubule
     q: 橫小管與肌漿網各做什麼
@@ -372,8 +380,8 @@ topics:
     - structure
     - force-production
     related:
-    - ch01.sliding-filament.crossbridge-formation
-    - ch01.neuromuscular.nmj
+    - ch05.neural-adaptations.i05
+    - ch14.warmup-physiology.i03
     locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
 - id: sliding-filament
   title: 滑動絲理論 Sliding Filament
@@ -416,8 +424,8 @@ topics:
     - force-production
     - energy-supply
     related:
-    - ch01.sliding-filament.power-stroke
-    - ch01.sliding-filament.requirements
+    - ch03.phosphagen.i01
+    - ch11.anabolic-supplements.i01
     locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
   - id: ch01.sliding-filament.crossbridge-formation
     q: 橫橋循環第二步：橫橋形成
@@ -435,8 +443,8 @@ topics:
     concepts:
     - force-production
     related:
-    - ch01.muscle-structure.sr-ttubule
-    - ch01.sliding-filament.relaxation
+    - ch03.phosphagen.i01
+    - ch05.hypertrophy.i04
     locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
   - id: ch01.sliding-filament.power-stroke
     q: 橫橋循環第三步：動力衝程
@@ -454,8 +462,8 @@ topics:
     concepts:
     - force-production
     related:
-    - ch01.sliding-filament.force-determinant
-    - ch01.sliding-filament.dissociation
+    - ch03.phosphagen.i01
+    - ch13.power-tests.i01
     locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
   - id: ch01.sliding-filament.dissociation
     q: 橫橋循環第四步：解離
@@ -472,8 +480,8 @@ topics:
     - force-production
     - energy-supply
     related:
-    - ch01.sliding-filament.atp-cleavage
-    - ch01.sliding-filament.requirements
+    - ch03.phosphagen.i01
+    - ch11.anabolic-supplements.i01
     locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
   - id: ch01.sliding-filament.force-determinant
     q: 肌肉當下的力量由什麼決定
@@ -486,8 +494,8 @@ topics:
     concepts:
     - force-production
     related:
-    - ch01.fiber-types.improve-force
-    - ch01.neuromuscular.recruitment
+    - ch02.strength-factors.i02
+    - ch05.neural-adaptations.i01
     locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
   - id: ch01.sliding-filament.relaxation
     q: 肌肉要放鬆需要什麼條件
@@ -505,7 +513,8 @@ topics:
     - force-production
     - energy-supply
     related:
-    - ch01.sliding-filament.crossbridge-formation
+    - ch14.warmup-physiology.i03
+    - ch18.ssc.i02
     locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
   - id: ch01.sliding-filament.requirements
     q: 收縮循環缺一不可的三樣東西
@@ -522,8 +531,8 @@ topics:
     - force-production
     - energy-supply
     related:
-    - ch01.sliding-filament.atp-cleavage
-    - ch01.sliding-filament.dissociation
+    - ch03.phosphagen.i01
+    - ch11.anabolic-supplements.i01
     locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
   - id: ch01.sliding-filament.band-changes
     q: 收縮時肌節的哪些區段會改變
@@ -566,8 +575,8 @@ topics:
     - motor-control
     - structure
     related:
-    - ch01.neuromuscular.all-or-none
     - ch01.fiber-types.recruitment-order
+    - ch05.neural-adaptations.i02
     locator: 第 1 章 · Activation of Muscles
   - id: ch01.neuromuscular.nmj
     q: 訊號怎麼從神經傳到肌肉
@@ -588,8 +597,8 @@ topics:
     - motor-control
     - force-production
     related:
-    - ch01.muscle-structure.sr-ttubule
-    - ch01.sliding-filament.crossbridge-formation
+    - ch05.neural-adaptations.i05
+    - ch14.warmup-physiology.i03
     locator: 第 1 章 · Activation of Muscles
   - id: ch01.neuromuscular.all-or-none
     q: 全有全無律是什麼
@@ -605,8 +614,8 @@ topics:
     - motor-control
     - force-production
     related:
-    - ch01.neuromuscular.recruitment
-    - ch01.neuromuscular.rate-coding
+    - ch05.neural-adaptations.i01
+    - ch05.neural-adaptations.i04
     locator: 第 1 章 · Activation of Muscles
   - id: ch01.neuromuscular.twitch
     q: 單收縮是什麼
@@ -623,7 +632,8 @@ topics:
     - motor-control
     - force-production
     related:
-    - ch01.neuromuscular.tetanus
+    - ch05.neural-adaptations.i04
+    - ch03.energy-capacity.i02
     locator: 第 1 章 · Activation of Muscles
   - id: ch01.neuromuscular.tetanus
     q: 從單收縮到強直收縮怎麼疊上去
@@ -640,8 +650,8 @@ topics:
     - motor-control
     - force-production
     related:
-    - ch01.neuromuscular.twitch
-    - ch01.neuromuscular.rate-coding
+    - ch05.neural-adaptations.i04
+    - ch13.max-strength.i01
     locator: 第 1 章 · Activation of Muscles
   - id: ch01.neuromuscular.rate-coding
     q: 力量分級途徑一：頻率調節
@@ -657,8 +667,8 @@ topics:
     - motor-control
     - force-production
     related:
-    - ch01.neuromuscular.recruitment
-    - ch01.neuromuscular.unit-size
+    - ch05.neural-adaptations.i04
+    - ch07.children-training-response.i01
     locator: 第 1 章 · Motor Unit Recruitment Patterns
   - id: ch01.neuromuscular.recruitment
     q: 力量分級途徑二：運動單位徵召
@@ -675,8 +685,8 @@ topics:
     - force-production
     - adaptation
     related:
-    - ch01.neuromuscular.rate-coding
-    - ch01.fiber-types.improve-force
+    - ch05.neural-adaptations.i02
+    - ch05.neural-adaptations.i03
     locator: 第 1 章 · Motor Unit Recruitment Patterns
   - id: ch01.neuromuscular.unit-size
     q: 運動單位的大小如何決定精確度
@@ -698,8 +708,8 @@ topics:
     - motor-control
     - structure
     related:
-    - ch01.neuromuscular.rate-coding
-    - ch01.neuromuscular.motor-unit
+    - ch05.neural-adaptations.i02
+    - ch07.children-training-response.i07
     locator: 第 1 章 · Activation of Muscles
 - id: fiber-types
   title: 肌纖維類型 Fiber Types
@@ -724,8 +734,8 @@ topics:
     - fiber-type
     - energy-supply
     related:
-    - ch01.fiber-types.type-iix
-    - ch01.fiber-types.postural-vs-power
+    - ch06.chronic-muscular.i08
+    - ch20.aerobic-performance-factors.i06
     locator: 第 1 章 · Muscle Fiber Types
   - id: ch01.fiber-types.type-iix
     q: Type IIx 快縮肌纖維的特徵
@@ -745,8 +755,9 @@ topics:
     - energy-supply
     - force-production
     related:
-    - ch01.fiber-types.type-i
-    - ch01.fiber-types.recruitment-order
+    - ch05.fiber-type-transitions.i01
+    - ch13.power-tests.i01
+    - ch04.cortisol.i07
     locator: 第 1 章 · Muscle Fiber Types
   - id: ch01.fiber-types.type-iia
     q: Type IIa 與 Type IIx 差在哪
@@ -764,8 +775,8 @@ topics:
     - adaptation
     - energy-supply
     related:
-    - ch01.fiber-types.type-iix
-    - ch01.fiber-types.sport-distribution
+    - ch05.fiber-type-transitions.i01
+    - ch06.chronic-muscular.i04
     locator: 第 1 章 · Muscle Fiber Types
   - id: ch01.fiber-types.recruitment-order
     q: 肌纖維被徵召的順序
@@ -783,8 +794,8 @@ topics:
     - fiber-type
     - motor-control
     related:
-    - ch01.neuromuscular.recruitment
-    - ch01.fiber-types.improve-force
+    - ch05.neural-adaptations.i02
+    - ch17.exercise-selection.i04
     locator: 第 1 章 · Muscle Fiber Types
   - id: ch01.fiber-types.sport-distribution
     q: 不同專項的纖維類型分布
@@ -801,8 +812,8 @@ topics:
     - fiber-type
     - measurement
     related:
-    - ch01.fiber-types.postural-vs-power
-    - ch01.fiber-types.type-iia
+    - ch20.aerobic-performance-factors.i06
+    - ch17.needs-analysis.i02
     locator: 第 1 章 · Muscle Fiber Types
   - id: ch01.fiber-types.postural-vs-power
     q: 姿勢肌與動力肌的纖維差異
@@ -817,8 +828,8 @@ topics:
     - fiber-type
     - structure
     related:
-    - ch01.fiber-types.type-i
-    - ch01.fiber-types.sport-distribution
+    - ch02.joint-biomechanics.i02
+    - ch13.power-tests.i01
     locator: 第 1 章 · Muscle Fiber Types
   - id: ch01.fiber-types.classification-method
     q: 怎麼判定一條纖維是哪一型
@@ -834,7 +845,8 @@ topics:
     - measurement
     - fiber-type
     related:
-    - ch01.fiber-types.type-iia
+    - ch05.fiber-type-transitions.i02
+    - ch06.chronic-muscular.i04
     locator: 第 1 章 · Muscle Fiber Types
   - id: ch01.fiber-types.improve-force
     q: 要提高力量輸出，可以動哪些變項
@@ -852,8 +864,8 @@ topics:
     - force-production
     - motor-control
     related:
-    - ch01.sliding-filament.force-determinant
-    - ch01.fiber-types.recruitment-order
+    - ch02.strength-factors.i02
+    - ch05.neural-adaptations.i01
     locator: 第 1 章 · Muscle Fiber Types
 - id: proprioception
   title: 本體感覺器 Proprioception
@@ -876,8 +888,8 @@ topics:
     - reflex
     - motor-control
     related:
-    - ch01.proprioception.spindle
-    - ch01.proprioception.gto-function
+    - ch14.proprioceptors.i01
+    - ch18.mechanical-models.i04
     locator: 第 1 章 · Proprioception
   - id: ch01.proprioception.spindle
     q: 肌梭偵測什麼
@@ -894,8 +906,8 @@ topics:
     - reflex
     - structure
     related:
-    - ch01.proprioception.stretch-reflex
-    - ch01.proprioception.gto-location
+    - ch14.proprioceptors.i01
+    - ch18.ssc.i06
     locator: 第 1 章 · Muscle Spindles
   - id: ch01.proprioception.stretch-reflex
     q: 牽張反射的迴路
@@ -913,8 +925,8 @@ topics:
     - reflex
     - motor-control
     related:
-    - ch01.proprioception.spindle
-    - ch01.proprioception.spindle-vs-gto
+    - ch14.proprioceptors.i02
+    - ch18.ssc.i06
     locator: 第 1 章 · Muscle Spindles
   - id: ch01.proprioception.gto-location
     q: 高爾基肌腱器長在哪裡
@@ -931,8 +943,8 @@ topics:
     - reflex
     - structure
     related:
-    - ch01.proprioception.gto-function
-    - ch01.proprioception.spindle
+    - ch14.proprioceptors.i03
+    - ch14.pnf-techniques.i04
     locator: 第 1 章 · Golgi Tendon Organs
   - id: ch01.proprioception.gto-function
     q: 高爾基肌腱器怎麼運作
@@ -951,8 +963,8 @@ topics:
     - reflex
     - force-production
     related:
-    - ch01.proprioception.gto-adaptation
-    - ch01.proprioception.spindle-vs-gto
+    - ch14.pnf-techniques.i04
+    - ch14.proprioceptors.i08
     locator: 第 1 章 · Golgi Tendon Organs
   - id: ch01.proprioception.spindle-vs-gto
     q: 肌梭與高爾基肌腱器的對照
@@ -969,8 +981,8 @@ topics:
     - reflex
     - measurement
     related:
-    - ch01.proprioception.stretch-reflex
-    - ch01.proprioception.gto-function
+    - ch14.proprioceptors.i08
+    - ch14.pnf-techniques.i04
     locator: 第 1 章 · Proprioception
   - id: ch01.proprioception.gto-adaptation
     q: 長期重量訓練如何改變高爾基肌腱器的作用
@@ -988,8 +1000,8 @@ topics:
     - reflex
     - motor-control
     related:
-    - ch01.proprioception.gto-function
-    - ch01.neuromuscular.recruitment
+    - ch05.neural-adaptations.i06
+    - ch18.ssc.i06
     locator: 第 1 章 · Golgi Tendon Organs
   - id: ch01.proprioception.intrafusal
     q: 梭內纖維與梭外纖維的差別
@@ -1006,7 +1018,8 @@ topics:
     - structure
     - reflex
     related:
-    - ch01.proprioception.spindle
+    - ch14.proprioceptors.i01
+    - ch18.ssc.i06
     locator: 第 1 章 · Muscle Spindles
 - id: cardiovascular
   title: 心血管系統 Cardiovascular
@@ -1030,8 +1043,8 @@ topics:
     - circulation
     - structure
     related:
-    - ch01.cardiovascular.valves
-    - ch01.cardiovascular.vessels
+    - ch06.acute-cardiovascular.i01
+    - ch06.chronic-cardiovascular.i02
     locator: 第 1 章 · Heart
   - id: ch01.cardiovascular.valves
     q: 心臟瓣膜怎麼防止逆流
@@ -1051,8 +1064,8 @@ topics:
     - circulation
     - structure
     related:
-    - ch01.cardiovascular.heart-chambers
-    - ch01.cardiovascular.conduction
+    - ch06.acute-cardiovascular.i05
+    - ch06.acute-cardiovascular.i01
     locator: 第 1 章 · Valves
   - id: ch01.cardiovascular.conduction
     q: 電訊號在心臟裡走的路徑
@@ -1076,8 +1089,8 @@ topics:
     - circulation
     - structure
     related:
-    - ch01.cardiovascular.pacemaker-hierarchy
-    - ch01.cardiovascular.ecg
+    - ch06.acute-cardiovascular.i03
+    - ch20.hr-calculations.i01
     locator: 第 1 章 · Conduction System
   - id: ch01.cardiovascular.pacemaker-hierarchy
     q: 為什麼是竇房結當節律點
@@ -1104,8 +1117,8 @@ topics:
     - circulation
     - normal-values
     related:
-    - ch01.cardiovascular.conduction
-    - ch01.cardiovascular.heart-rate
+    - ch06.chronic-cardiovascular.i03
+    - ch20.intensity-monitoring.i06
     locator: 第 1 章 · Conduction System
   - id: ch01.cardiovascular.heart-rate
     q: 心率如何被神經調節，正常範圍多少
@@ -1137,8 +1150,9 @@ topics:
     - normal-values
     - adaptation
     related:
-    - ch01.cardiovascular.pacemaker-hierarchy
-    - ch01.cardiovascular.ecg
+    - ch06.chronic-cardiovascular.i04
+    - ch20.hr-calculations.i02
+    - ch04.catecholamines.i02
     locator: 第 1 章 · Conduction System
   - id: ch01.cardiovascular.ecg
     q: 心電圖三個主要波形各代表什麼
@@ -1159,8 +1173,8 @@ topics:
     - circulation
     - measurement
     related:
-    - ch01.cardiovascular.conduction
-    - ch01.cardiovascular.heart-rate
+    - ch12.safety.i02
+    - ch06.acute-cardiovascular.i03
     locator: 第 1 章 · Electrocardiogram
   - id: ch01.cardiovascular.vessels
     q: 血管從心臟出發到回到心臟的順序
@@ -1182,8 +1196,8 @@ topics:
     - circulation
     - structure
     related:
-    - ch01.cardiovascular.blood
-    - ch01.cardiovascular.muscle-pump
+    - ch06.acute-cardiovascular.i08
+    - ch06.chronic-cardiovascular.i06
     locator: 第 1 章 · Blood Vessels
   - id: ch01.cardiovascular.blood
     q: 血液怎麼運送氧氣與二氧化碳
@@ -1200,8 +1214,8 @@ topics:
     - circulation
     - gas-exchange
     related:
-    - ch01.respiratory.gas-exchange
-    - ch01.cardiovascular.vessels
+    - ch06.acute-respiratory.i06
+    - ch11.epo-blood-doping.i01
     locator: 第 1 章 · Blood
   - id: ch01.cardiovascular.muscle-pump
     q: 骨骼肌幫浦怎麼幫血液回心
@@ -1217,7 +1231,8 @@ topics:
     concepts:
     - circulation
     related:
-    - ch01.cardiovascular.vessels
+    - ch06.acute-cardiovascular.i05
+    - ch12.administration.i08
     locator: 第 1 章 · Blood Vessels
 - id: respiratory
   title: 呼吸系統 Respiratory
@@ -1246,8 +1261,8 @@ topics:
     - gas-exchange
     - structure
     related:
-    - ch01.respiratory.gas-exchange
-    - ch01.respiratory.inspiration
+    - ch06.acute-respiratory.i04
+    - ch06.acute-respiratory.i01
     locator: 第 1 章 · Respiratory System
   - id: ch01.respiratory.inspiration
     q: 吸氣是怎麼發生的
@@ -1264,8 +1279,8 @@ topics:
     - gas-exchange
     - structure
     related:
-    - ch01.respiratory.expiration
-    - ch01.respiratory.alveolar-pressure
+    - ch06.acute-respiratory.i01
+    - ch15.breathing.i02
     locator: 第 1 章 · Exchange of Air
   - id: ch01.respiratory.expiration
     q: 呼氣是怎麼發生的
@@ -1281,8 +1296,8 @@ topics:
     - gas-exchange
     - force-production
     related:
-    - ch01.respiratory.inspiration
-    - ch01.respiratory.energy-cost
+    - ch15.breathing.i02
+    - ch06.acute-respiratory.i01
     locator: 第 1 章 · Exchange of Air
   - id: ch01.respiratory.gas-exchange
     q: 氣體交換靠什麼驅動
@@ -1305,8 +1320,8 @@ topics:
     - gas-exchange
     - circulation
     related:
-    - ch01.cardiovascular.blood
-    - ch01.respiratory.airway
+    - ch06.acute-respiratory.i05
+    - ch20.altitude-training.i02
     locator: 第 1 章 · Exchange of Respiratory Gases
   - id: ch01.respiratory.alveolar-pressure
     q: 肺泡壓在呼吸週期中怎麼變
@@ -1323,8 +1338,8 @@ topics:
     - gas-exchange
     - normal-values
     related:
-    - ch01.respiratory.pleural-pressure
-    - ch01.respiratory.inspiration
+    - ch15.breathing.i04
+    - ch06.acute-respiratory.i01
     locator: 第 1 章 · Exchange of Air
   - id: ch01.respiratory.pleural-pressure
     q: 胸膜腔壓為什麼是負的
@@ -1341,7 +1356,7 @@ topics:
     - gas-exchange
     - normal-values
     related:
-    - ch01.respiratory.alveolar-pressure
+    - ch15.breathing.i04
     locator: 第 1 章 · Exchange of Air
   - id: ch01.respiratory.energy-cost
     q: 呼吸本身消耗多少能量
@@ -1363,8 +1378,8 @@ topics:
     - gas-exchange
     - normal-values
     related:
-    - ch01.respiratory.expiration
-    - ch01.respiratory.training
+    - ch06.acute-respiratory.i01
+    - ch20.aerobic-performance-factors.i04
     locator: 第 1 章 · Exchange of Air
   - id: ch01.respiratory.training
     q: 呼吸肌需要另外訓練嗎
@@ -1380,7 +1395,8 @@ topics:
     - adaptation
     - gas-exchange
     related:
-    - ch01.respiratory.energy-cost
+    - ch06.chronic-cardiovascular.i07
+    - ch20.program-design.i03
     locator: 第 1 章 · Exchange of Air
 cards:
 - q: 軸心骨骼（Axial Skeleton）包含哪些？
