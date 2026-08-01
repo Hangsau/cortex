@@ -200,7 +200,19 @@
 - **驗收**：`cscs_check` 全書 ch01–ch20 全 OK 零斷鏈、locator 片段 0 對不上、`detail` 64/64 零複述、**`numbers` 86 個逐個回源書比對零缺**、1 條沒掛 terms 的 item 經正則確認零英文詞、`_terms.yaml` 35 條純新增零刪改、`hugo --minify` exit 0、**`audit.js` 38/38**、渲染實測 ch20 `nb-num-v` 86 / `nb-src` 64 / `nb-rel` 64 / `nb-term` 148 / `nb-detail-p` 64（對照組 ch21 全 0）。
 - **註**：ch20 的 `related` 是 66 條連結／64 條 item（約 1 條），比 ch18 的 184 條稀疏，但 100% 跨章。密度不是硬閘，跨章比才是。
 
-**下一步建議**：① **對帳式補完是唯一剩下的大工程（60 個 topic，ch21–ch24）**——每個 agent 認一章、自己讀 `resources/books/.../chNN_*.md`、**items 與該章 cards 一起重寫**（張數逐章不同，`cscs_make_prompt.py` 已改成從 yaml 現讀，不要手填），一個 topic 填完立刻寫盤，每章跑綠 `cscs_check` 才 commit；ch01–ch20 已走完可當範本，下一章從 **ch21** 接（ch21 已於 2026-08-01 派出，terra @ xhigh，8 topic / 59 條——**本章 item 數與其他章不同**，是 2026-04 就少 5 條，不是被刪過）。**若其他章出現 `principles-exam-tips` 這類「考試重點」性質的 topic id，比照 ch17 辦理**——那不是書上的東西，要改寫成該章真正的原則段落。**驗收每章都要跑不帶章號的全書 `cscs_check`**，因為前面章節已有 60+ 個 `related` 指進 ch19–ch24，那些章重寫若動到 item id 會斷鏈。**驗收必跑尾段標題覆蓋率**（見 ch10 那段，regex 用 `#{1,6}`），這是唯一能抓到「漏讀整節後把正確內容改寫成否定句」的檢查；**數字比對兩側都要去千分位逗號**（已踩三次）。派工 prompt 務必帶上 ch03 那句「每個數字都要回原文確認淨值／總值與單位」——ch03 品質明顯高於 ch01/ch02 就是因為這句；派工也務必帶上兩支驗收閘（`cscs_check.py` + `hugo server`/`audit.js`），ch05 之前只跑第一支；② **欠 ch01–ch03 一次卡片補課**：這三章的卡片只做過點狀修補（`33d7df5` 修了 ch02 三張），從沒回源書整批重寫，等 ch05 起的新工序跑順後補；ch21/ch23/ch24 已重寫過可跳過，**ch13/ch15 不另派**，等輪到該章時一併處理；③（配額）串行派發，一次一個 agent，驗收 + commit 後才派下一個；5H >80% 一律不開新批次，排 shotclock 等下一窗；④ 遮答自測仍是全頁 toggle，「逐條遮／已答對不再遮」需要 localStorage 層，未做；⑤ `layouts/library/book.html` 與書庫其他 layout（library.css / bookshelf.css）調性未對齊。
+### ch21 週期化（2026-08-01，terra @ xhigh，59 條）
+
+- **範圍守住**：8 topic / 59 條 id 與順序零改動（本章本來就是 59 條，2026-04 起就少 5 條，不是被刪）。`_terms.yaml` +27 條純新增（0 刪 0 改）。
+- **補完量**：59/59 補 `locator`（18 個標題片段逐字對得到源書）、59/59 補 `detail` 零複述 `a`、59/59 掛 `terms`、`numbers` 從 **0 個補到 41 個**且逐個回源書比對零缺。
+- **錯誤樣態：把教材明講「不確定／有爭議」的東西寫成定論**。每日波動模型寫成「確定較有效、必然避免神經疲勞」→ 源書是呈現支持者觀點且研究結果互相矛盾；fitness–fatigue 寫成「各有固定曲線」→ 原文只說每個訓練因子「很可能」各有後效反應；SFRA 寫「必須完全恢復後才能訓練」→ 原文明說不一定要完全恢復才能開始新回合。這與 ch20 的 hedge-stripping 是同一類。
+- **憑圖推論**：GAS 那組寫「超補償窗口、太早／太晚會如何」，但那是未轉出的圖像推論，文字實際只強調曲線斜率、幅度與時間點高度個別化。
+- **術語自創**：一般／特殊備賽相原本用書中沒出現的 GPP／SPP 縮寫，已改回源書實際用語 `general preparatory phase` / `specific preparatory phase`。
+- **數字刪除 1 處，已獨立查證屬實**：主動休息項目原掛 `30–85% 1RM`。該值確實印在表 21.2，但腳註 `**` 明寫 "apply to power exercises"，而主動休息欄位是 `Recreational activities (may not involve resistance training)`——掛錯欄，刪得對。（依 ch10 教訓，刪除一律比新增查得更嚴。）
+- **驗收**：`cscs_check` 全書 ch01–ch21 全 OK 零斷鏈、locator 18 個片段 0 對不上、`detail` 59/59 零複述且無過短、`numbers` 41 個逐個回源書零缺、三欄完整性零缺、0 條沒掛 terms、`_terms` 純新增、`hugo --minify` exit 0、**`audit.js` 38/38**、渲染實測 ch21 `nb-src` 59 / `nb-num` 141 / `nb-rel` 118 / 跨章 wiki 連結 93（對照組 ch22 全 0）。
+- **`related` 廣度偏窄（不是缺陷但值得記）**：93 條連結、59/59 有值、**100% 跨章**、0 斷鏈、每條上限 2——跨章下限規則持續生效（ch19 11% → ch20 100% → ch21 100%）。但落點只在 5 章（ch17 43／ch20 24／ch05 17／ch06 8／ch22 1），ch18 同規則下連到 16 章。**已在 ch22 的 prompt 加一段「按方向逐章掃 all-item-ids.md」的鄰居清單**，看能不能把廣度也拉起來。
+- **我方誤報 0 處**：本章 locator 與 numbers 檢查全過，沒有再觸發 Figure/Table 前綴或小數正規化那兩個已知假陽性。簡體字探針又對 `哪` `向` 假陽性（皆為正體字），是我那份字表被污染，不是資料問題。
+
+**下一步建議**：① **對帳式補完是唯一剩下的大工程（59 個 topic，ch22–ch24）**——每個 agent 認一章、自己讀 `resources/books/.../chNN_*.md`、**items 與該章 cards 一起重寫**（張數逐章不同，`cscs_make_prompt.py` 已改成從 yaml 現讀，不要手填），一個 topic 填完立刻寫盤，每章跑綠 `cscs_check` 才 commit；ch01–ch21 已走完可當範本，下一章從 **ch22** 接（ch22 已於 2026-08-01 派出，terra @ xhigh，8 topic / 64 條，源書 375 行 28 標題已確認完整、8 個 topic 全有對應章節）。**若其他章出現 `principles-exam-tips` 這類「考試重點」性質的 topic id，比照 ch17 辦理**——那不是書上的東西，要改寫成該章真正的原則段落。**驗收每章都要跑不帶章號的全書 `cscs_check`**，因為前面章節已有 60+ 個 `related` 指進 ch19–ch24，那些章重寫若動到 item id 會斷鏈。**驗收必跑尾段標題覆蓋率**（見 ch10 那段，regex 用 `#{1,6}`），這是唯一能抓到「漏讀整節後把正確內容改寫成否定句」的檢查；**數字比對兩側都要去千分位逗號**（已踩三次）。派工 prompt 務必帶上 ch03 那句「每個數字都要回原文確認淨值／總值與單位」——ch03 品質明顯高於 ch01/ch02 就是因為這句；派工也務必帶上兩支驗收閘（`cscs_check.py` + `hugo server`/`audit.js`），ch05 之前只跑第一支；② **欠 ch01–ch03 一次卡片補課**：這三章的卡片只做過點狀修補（`33d7df5` 修了 ch02 三張），從沒回源書整批重寫，等 ch05 起的新工序跑順後補；ch21/ch23/ch24 已重寫過可跳過，**ch13/ch15 不另派**，等輪到該章時一併處理；③（配額）串行派發，一次一個 agent，驗收 + commit 後才派下一個；5H >80% 一律不開新批次，排 shotclock 等下一窗；④ 遮答自測仍是全頁 toggle，「逐條遮／已答對不再遮」需要 localStorage 層，未做；⑤ `layouts/library/book.html` 與書庫其他 layout（library.css / bookshelf.css）調性未對齊。
 
 > ↓ 更早
 
