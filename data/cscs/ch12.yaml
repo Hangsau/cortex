@@ -8,974 +8,1251 @@ topics:
   tag: Administration
   items:
   - id: ch12.administration.i01
-    q: 施測者選拔
+    q: 施測者的選拔與訓練
     a:
-    - 需完全了解所有程序
-    - 練習到分數與有經驗者高度相關
-    detail: ''
+    - 施測者應受過良好訓練，並徹底了解所有測驗程序與流程
+    - 新手人員必須練習正確執行與評分，所得分數應與有經驗且可靠人員的分數密切相關
+    - 應盡可能以一致方式說明及執行測驗，並備有器材清單和書面流程
+    detail: 施測者的口頭鼓勵若不一致，會損及信度；因此訓練不只在於會操作，也在於讓不同人員以同一方式施測。
     terms: []
     numbers: []
     concepts:
     - measurement
     - professional
     related: []
-    locator: ''
+    locator: Test Administration > Selection and Training of Testers
   - id: ch12.administration.i02
-    q: 一致性原則
+    q: 測驗格式中的施測者一致性
     a:
-    - 不同組別應由同一人測同一項目
-    - 避免激勵程度差異
-    detail: ''
-    terms: []
+    - 若時間與排程允許，宜由同一人為所有運動員施測同一項目，以排除評分者間信度的問題
+    - 無法由同一人施測時，可由不同人員執行簡單且定義清楚的測驗；需要熟練判斷的測驗應由最具技術與經驗的人員評分
+    detail: 「同一人」是書中的優先做法而非絕對規定；可行的替代作法取決於該測驗是否需要專業判斷。
+    terms:
+    - interrater-reliability
     numbers: []
     concepts:
     - measurement
     - professional
-    related: []
-    locator: ''
+    related:
+    - ch12.reliability.i05
+    locator: Test Administration > Test Format
   - id: ch12.administration.i03
     q: 記錄表單
     a:
-    - 測前設計好表單：記錄結果、環境條件、器材設定細節
-    detail: ''
-    terms: []
-    numbers: []
+    - 應在測驗前製作計分表，預留所有測驗結果及備註欄位
+    - 記錄環境條件與施測設定細節；例如深蹲 1RM 可記下槓鈴所用插銷高度
+    detail: 預先記錄設定可讓施測時間運用更有效率，並降低記錄錯誤；它也使日後重測能重現相同設定。
+    terms:
+    - repetition-maximum
+    numbers:
+    - v: 1
+      unit: 反覆
+      of: 記錄表單中深蹲最大反覆數測驗的反覆數
     concepts:
     - measurement
     - professional
     related: []
-    locator: ''
+    locator: Test Administration > Recording Forms
   - id: ch12.administration.i04
-    q: 準備運動員
+    q: 測前熟悉與準備運動員
     a:
-    - 提前公告日期、目的、流程
-    - 1-3天前辦熟悉練習課
-    detail: ''
-    terms: []
-    numbers: []
+    - 應預先公告測驗組合的日期、時間與目的，讓運動員做好身心準備
+    - 為提高信度，可在測前 1–3 天安排短暫、受監督且低於全力的練習或熟悉課程
+    - 若採用熟悉課程，日後每一次測驗都應重複採用
+    detail: 熟悉課程的目的不是先測出正式成績，而是降低對內容與程序不熟悉造成的變異；可將熟悉納入平時訓練。
+    terms:
+    - reliability
+    - test-battery
+    numbers:
+    - v: 1–3
+      unit: 天
+      of: 測前熟悉或練習課程的建議時間
     concepts:
     - measurement
     - professional
-    related: []
-    locator: ''
+    related:
+    - ch12.reliability.i01
+    locator: Test Administration > Preparing Athletes for Testing
   - id: ch12.administration.i05
-    q: 熱身
+    q: 測前熱身
     a:
-    - 一般熱身→專項熱身
-    - 2-3次活動特定暖身試做→正式計分
-    detail: ''
+    - 有組織的熱身應先做一般熱身，再做特異性熱身；兩者都包含與測驗相似的身體動作
+    - 可依測驗流程允許 2 或 3 次活動特異性的熱身嘗試，之後的嘗試才計入成績
+    detail: 由教練帶領的一般熱身可確保一致性；計分可取熱身後嘗試的最佳值或平均值，須依各測驗流程決定。
     terms: []
-    numbers: []
+    numbers:
+    - v: 2–3
+      unit: 次
+      of: 依測驗流程可允許的活動特異性熱身嘗試次數
     concepts:
     - measurement
     - professional
     related: []
-    locator: ''
+    locator: Test Administration > Preparing Athletes for Testing
   - id: ch12.administration.i06
     q: 指導說明
     a:
-    - 清楚說明目的、動作、暖身、試做次數、計分標準
-    detail: ''
-    terms: []
+    - 指示應清楚簡潔，並說明目的、動作方式、建議熱身、練習與正式嘗試次數、計分、判定嘗試無效的準則，以及如何發揮最佳表現
+    - 能示範時，施測者或合格助理應示範正確動作，並讓運動員在示範前後提問
+    - 應一視同仁地激勵所有運動員；可行時，在每次嘗試後立刻告知成績
+    detail: 清楚的指示會提升測驗的信度與客觀性；公平激勵避免把施測者差異誤當成運動員能力差異。
+    terms:
+    - reliability
+    - objectivity
     numbers: []
     concepts:
     - measurement
     - professional
-    related: []
-    locator: ''
+    related:
+    - ch12.reliability.i05
+    locator: Test Administration > Preparing Athletes for Testing
   - id: ch12.administration.i07
-    q: 休息時間
+    q: 多次嘗試與測驗組合的休息時間
     a:
-    - 接近最大強度組間≥3min
-    - 非最大≥2min
-    - 測驗電池間≥5min
-    detail: ''
-    terms: []
-    numbers: []
+    - 進行多次嘗試時，非接近最大值的嘗試間至少休息 2 分鐘；接近最大值的嘗試間至少休息 3 分鐘
+    - 施行測驗組合時，各測驗至少間隔 5 分鐘，以防疲勞混淆結果
+    detail: 是否「接近最大值」由前一次嘗試或測驗組的相對困難度判斷；書中要求的是讓每次嘗試完整恢復，而非固定所有休息時間。
+    terms:
+    - test-battery
+    numbers:
+    - v: 2
+      unit: 分鐘
+      of: 非接近最大值嘗試之間的至少休息時間
+    - v: 3
+      unit: 分鐘
+      of: 接近最大值嘗試之間的至少休息時間
+    - v: 5
+      unit: 分鐘
+      of: 測驗組合中各測驗之間的至少間隔
     concepts:
     - measurement
     - professional
-    related: []
-    locator: ''
+    related:
+    - ch12.test-sequence.i01
+    locator: Test Administration > Testing Batteries and Multiple Testing Trials
   - id: ch12.administration.i08
     q: 緩和運動
     a:
-    - 劇烈測驗後進行監督緩和
-    - 不可立即坐下或躺下
-    detail: ''
-    terms: []
+    - 對於會大幅提高心率的測驗，應在結束後以及整個測驗組合完成後安排受監督的緩和運動
+    - 可採低強度活動與輕度伸展促進恢復；例如折返跑後不應立刻坐下或躺下
+    detail: 書中將緩和運動放在高心率測驗後的必要收尾，重點是持續低強度活動，而非直接停止活動。
+    terms:
+    - test-battery
     numbers: []
     concepts:
     - measurement
     - professional
     related: []
-    locator: ''
+    locator: Test Administration > Preparing Athletes for Testing
 - id: reliability
   title: 信度 Reliability
   desc: ''
   tag: Test Quality
   items:
   - id: ch12.reliability.i01
-    q: Reliability 定義
+    q: 信度（reliability）的定義與效度關係
     a:
-    - 測驗一致性／重複性
-    - 有信度才有效度，反之不然
-    detail: ''
-    terms: []
+    - 信度是測驗一致性或可重複程度的衡量
+    - 若運動員能力未改變，完全可靠的測驗在兩次測量會得相同分數
+    - 測驗必須可靠才可能有效；但可靠的測驗仍可能沒有測到原先要測的能力
+    detail: 信度不是脫離對象的固定屬性；書中指出，同一測驗可能對某一群運動員高度可靠，對成熟度與技能水準不同的另一群人只有中等可靠。
+    terms:
+    - reliability
+    - validity
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.validity.i01
+    locator: Evaluation of Test Quality > Reliability
   - id: ch12.reliability.i02
-    q: Test-Retest（重測信度）
+    q: 重測信度（test–retest reliability）
     a:
-    - 同組施測兩次，用相關係數估計信度
-    - 分數差異＝測量誤差
-    detail: ''
-    terms: []
+    - 對同一組運動員多次施行同一測驗時，可用兩次施測分數的統計相關衡量重測信度
+    - 兩組分數之間的任何差異都代表測量誤差
+    detail: 本章以兩次施測分數的相關作為估計方式；它處理的是分數是否可再現，不是在宣稱能力本身改變。
+    terms:
+    - test-retest-reliability
     numbers: []
     concepts:
     - measurement
     related: []
-    locator: ''
+    locator: Evaluation of Test Quality > Reliability
   - id: ch12.reliability.i03
-    q: Typical Error（TE，典型誤差）
+    q: 典型測量誤差（typical error of measurement, TE）
     a:
-    - 包含設備誤差與生物變異
-    - 可量化測量不穩定性
-    detail: ''
-    terms: []
+    - 典型測量誤差包含器材誤差與運動員的生物變異
+    detail: TE 是本章列出的另一種可計算統計量；書中明確把器材與生物變異都納入，不能只歸因於其中一方。
+    terms:
+    - typical-error-of-measurement
     numbers: []
     concepts:
     - measurement
     related: []
-    locator: ''
+    locator: Evaluation of Test Quality > Reliability
   - id: ch12.reliability.i04
-    q: Intrasubject Variability（受試者內變異）
+    q: 受試者內變異（intrasubject variability）
     a:
-    - 受試者自身表現不一致（技術不熟、狀態起伏）
-    detail: ''
-    terms: []
+    - 受試者內變異是受測者無法維持一致表現
+    - 它是兩次分數出現差異的可能來源之一
+    detail: 此處談的是受測者表現本身的一致性；它與評分者之間或同一評分者內的變異是不同來源。
+    terms:
+    - intrasubject-variability
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.reliability.i05
+    - ch12.reliability.i06
+    locator: Evaluation of Test Quality > Reliability
   - id: ch12.reliability.i05
-    q: Interrater Reliability（評分者間信度）
+    q: 評分者間信度（interrater reliability）
     a:
-    - 不同評分者之間一致性
-    - 同一受試應由同一人前後測
-    detail: ''
-    terms: []
+    - 評分者間信度（亦稱客觀性或評分者間一致性）是不同評分者在一段時間或重複場合所得結果的一致程度
+    - 清楚定義的評分系統，以及受過訓練、具有測驗經驗的評分者，有助於提升評分者間信度
+    - 為準確衡量進步，同一名評分者應在訓練期開始與結束時測同一組運動員
+    detail: 若前後測評分者的寬嚴不同，數據可能無法用來比較；書中以深蹲深度標準不同，可能讓實際變強的運動員後測分數更低為例。
+    terms:
+    - interrater-reliability
+    - objectivity
+    - interrater-agreement
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.administration.i02
+    locator: Evaluation of Test Quality > Reliability
   - id: ch12.reliability.i06
-    q: Intrarater Variability（評分者內變異）
+    q: 評分者內變異（intrarater variability）
     a:
-    - 同一評分者不一致（前測嚴、後測鬆）
-    - 需標準化程序
-    detail: ''
-    terms: []
+    - 評分者內變異是同一名評分者給出不一致分數，與不同評分者的評分者間信度不同
+    - 成因包括訓練不足、疏忽、注意力不足，以及未遵循器材校正、運動員準備、施測或計分的標準化程序
+    detail: 渴望看到進步的教練可能無意間在後測比前測寬鬆；這正是同一人也可能製造測量變異的原因。
+    terms:
+    - intrarater-variability
+    - interrater-reliability
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.reliability.i05
+    locator: Evaluation of Test Quality > Reliability
   - id: ch12.reliability.i07
-    q: 影響信度因素
+    q: 測驗本身造成的不一致
     a:
-    - 校準設備、激勵方式、技術熟練度、程序標準化
-    detail: ''
+    - 若體能測驗要求運動員尚未建立一致性的技術，測驗本身可能無法提供一致結果
+    - 技術要求較高的測驗通常有較大的結果變異，且需要更多測前練習才能產生一致性
+    detail: 這個限制不能只靠評分者訓練解決；對不熟悉動作的運動員，測驗的技術要求本身就會成為誤差來源。
     terms: []
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.administration.i04
+    locator: Evaluation of Test Quality > Reliability
   - id: ch12.reliability.i08
-    q: 信度 vs 效度
+    q: 可靠不等於有效
     a:
-    - 有信度不代表有效度
-    - 60m衝刺信度高但非有氧測驗
-    detail: ''
-    terms: []
+    - 高度變動的結果意義有限，因此測驗必須可靠才可能有效
+    - 但即使是可靠的場地測驗，仍可能不是評估目標能力的有效測驗
+    detail: 本章以短距離衝刺與中長距離跑為例，說明「結果穩定」和「測到所要能力」是兩個必須分開判斷的品質問題。
+    terms:
+    - reliability
+    - validity
+    - field-test
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.validity.i01
+    locator: Evaluation of Test Quality > Reliability
 - id: safety
   title: 健康安全 Safety
   desc: ''
   tag: Safety
   items:
   - id: ch12.safety.i01
-    q: 醫療轉介症狀
+    q: 何時應轉介醫療處置
     a:
-    - 胸痛、頭暈、混亂、不規則脈搏、噁心、意識喪失→立即就醫
-    detail: ''
+    - 持續出現胸部壓迫、疼痛或不適、倦怠、頭重腳輕、暈眩、混亂、頭痛、深紅或冰冷濕黏皮膚、不規則脈搏、骨或關節疼痛、視力模糊、噁心等症狀時，可能需要醫療轉介
+    - 呼吸急促、脈搏過快或虛弱而與運動量不相稱，或休息後未改善時，也可能需要轉介
+    - 即使症狀只出現一次，若很嚴重（例如失去意識）也須立即就醫
+    detail: 這些症狀可能在運動停止很久後才出現；因此健康觀察必須延續到測驗結束後，不可只看運動當下。
     terms: []
     numbers: []
     concepts:
     - measurement
     - safety
     related: []
-    locator: ''
+    locator: Test Administration > Health and Safety Considerations
   - id: ch12.safety.i02
-    q: 熱傷害風險
+    q: 最大用力測驗的健康風險
     a:
-    - 高溫+高濕度下大量運動
-    - 需輕便透氣衣物＋自由飲水
-    detail: ''
-    terms: []
-    numbers: []
+    - 運動員即使已獲准訓練與競賽，施測者仍須辨識可能威脅健康的條件，以及足以排除施測的健康問題徵象
+    - 最大跑步或 1 次最大反覆數（1RM）測驗等劇烈運動，可能揭露或惡化既有心臟問題，例如心肌血流受損或不規則心跳
+    - 標準醫療篩檢不一定能發現隱藏的心臟問題
+    detail: 書中將安全責任放在最大用力前、中、後持續監測健康狀態，而非把事前醫療許可視為足以排除所有風險。
+    terms:
+    - repetition-maximum
+    numbers:
+    - v: 1
+      unit: 反覆
+      of: 最大用力測驗中 1RM 所代表的反覆數
     concepts:
     - measurement
     - safety
-    related: []
-    locator: ''
+    related:
+    - ch12.safety.i01
+    locator: Test Administration > Health and Safety Considerations
   - id: ch12.safety.i03
-    q: 熱衰竭 / 熱中暑
+    q: 高溫高濕中的熱傷害風險
     a:
-    - 抽筋、頭暈、步態不穩、皮膚潮紅或蒼白、起雞皮疙瘩
-    detail: ''
+    - 高溫環境的大量用力運動有熱傷害風險，濕度高時尤其如此
+    - 溫暖天氣應穿輕便衣物，並在熱中大量用力運動前與運動中依口渴自由飲水
+    - 肌肉骨骼傷害也可能發生；若忽略症狀，恢復期可能大幅延長
+    detail: 本章把熱傷害、心臟問題與肌肉骨骼傷害並列為施測安全問題；安全與測驗品質都會受環境條件影響。
     terms: []
     numbers: []
     concepts:
     - measurement
     - safety
-    related: []
-    locator: ''
+    related:
+    - ch12.selection-factors.i06
+    locator: Test Administration > Health and Safety Considerations
   - id: ch12.safety.i04
-    q: 低血鈉症
+    q: 熱中有氧耐力測驗的安全緩衝
     a:
-    - 過度補水導致血鈉降低
-    - 極度稀釋尿液+意識改變→禁止再補液
-    detail: ''
+    - 應避免極端高溫與高濕的組合，並使用比圖示溫度限制至少低 5 °F（3 °C）的限制，特別是在晴天
+    - 預期溫度超過建議限制時，若可行應使用室內設施，或改在清晨或傍晚溫度可接受時施測
+    detail: 原書的各濕度溫度上限只在圖中呈現，不能由正文核實；可直接採用的正文規則是保留至少 5 °F（3 °C）的安全邊際。
     terms: []
-    numbers: []
+    numbers:
+    - v: 5
+      unit: °F
+      of: 熱中耐力測驗相對於圖示溫度限制所保留的至少安全邊際
+    - v: 3
+      unit: °C
+      of: 同一熱中耐力測驗安全邊際的攝氏表示
     concepts:
     - measurement
     - safety
     related: []
-    locator: ''
+    locator: Test Administration > Health and Safety Considerations > Aerobic Endurance Testing in the Heat
   - id: ch12.safety.i05
-    q: 心臟風險
+    q: 熱適應後再測驗
     a:
-    - 1RM或最大跑步測驗可能引發潛在心臟問題
-    - 需事前醫療篩查
-    detail: ''
+    - 來自涼爽氣候的運動員尤其應先適應高溫與高濕，至少一週後再進行熱中測驗
+    - 應從較短的訓練開始，逐步延長訓練時間
+    detail: 對熱的運動反應高度個別化；書中先要求在受測活動建立體能基準，不能以相同的熱適應進度套用所有運動員。
     terms: []
-    numbers: []
+    numbers:
+    - v: 1
+      unit: 週
+      of: 熱中測驗前至少進行高溫高濕適應的時間
     concepts:
     - measurement
     - safety
     related: []
-    locator: ''
+    locator: Test Administration > Health and Safety Considerations > Aerobic Endurance Testing in the Heat
   - id: ch12.safety.i06
-    q: 熱環境補水
+    q: 熱中有氧測驗前的補水
     a:
-    - 測前24小時充足水分
-    - 運動中補充
-    - <1hr用水、>1hr補電解質
-    detail: ''
-    terms: []
-    numbers: []
+    - 有氧耐力熱中測驗前 24 小時，運動員應確保水分充足
+    - 大量且清澈的尿液是水分充足的良好指標
+    - 一般應避免使用鹽錠
+    detail: 此處的「清澈尿液」是書中提供的實用指標，不是取代其他章所載完整賽前補水評估流程的診斷標準。
+    terms:
+    - hydration
+    numbers:
+    - v: 24
+      unit: 小時
+      of: 熱中有氧耐力測驗前應確保水分充足的期間
     concepts:
     - measurement
     - safety
     related: []
-    locator: ''
+    locator: Test Administration > Health and Safety Considerations > Aerobic Endurance Testing in the Heat
   - id: ch12.safety.i07
-    q: 溫度上限指引
+    q: 熱中運動期間的飲水
     a:
-    - 濕度0%→95°F
-    - 21-50%→85°F
-    - 51-90%→80°F
-    - 91-100%→75°F
-    detail: ''
-    terms: []
-    numbers: []
+    - 應鼓勵運動員在熱中運動期間飲水
+    - 持續時間至多 1 小時的運動，白開水最合適
+    - 較長時間訓練中的點心休息可補充水分，也可能有助於補充電解質；補充量與速度取決於個人流汗速率、持續時間與環境
+    detail: 原文沒有把「超過一小時」改成固定的電解質補充處方；它只指出較長訓練的點心休息可能有助於電解質補充，且應依個別條件調整。
+    terms:
+    - hydration
+    - electrolyte
+    - sweat-rate
+    numbers:
+    - v: 1
+      unit: 小時
+      of: 白開水最適合作為熱中運動飲水的持續時間上限
     concepts:
     - measurement
     - safety
     related: []
-    locator: ''
+    locator: Test Administration > Health and Safety Considerations > Aerobic Endurance Testing in the Heat
   - id: ch12.safety.i08
-    q: 熱適應
+    q: 低血鈉症（hyponatremia）或水中毒
     a:
-    - 涼爽地區來的運動員需至少1週熱適應再進行高強度測驗
-    detail: ''
-    terms: []
+    - 低血鈉症是過量飲水使血鈉降至危險低值、可能致命的狀況
+    - 症狀可包含極度稀釋尿液合併皮膚浮腫、意識改變或失去意識，且體溫不會升高
+    - 受害者絕不可再給予液體，應交由醫師處置
+    detail: 低血鈉症的症狀組合與熱病不同，尤其是沒有體溫升高；書中因此明確禁止繼續補液。
+    terms:
+    - hyponatremia
     numbers: []
     concepts:
     - measurement
     - safety
     related: []
-    locator: ''
+    locator: Test Administration > Health and Safety Considerations > Aerobic Endurance Testing in the Heat
 - id: selection-factors
   title: 測驗選擇因素 Selection Factors
   desc: ''
   tag: Selection
   items:
   - id: ch12.selection-factors.i01
-    q: 能量系統特異性
+    q: 代謝能量系統特異性
     a:
-    - 磷酸原／醣解／氧化系統
-    - 測驗須模擬該運動的能量需求
-    detail: ''
-    terms: []
+    - 有效測驗必須模擬所評估運動的能量需求
+    - 選擇或設計測驗時，應理解磷酸原、醣解與氧化能量系統及其交互關係，並據此運用特異性原則
+    - 例如選籃球跑動測驗時，除了知道籃球主要是無氧跑動運動，也要熟悉比賽中的衝刺距離與方向
+    detail: 書中要求模擬的不是單一能量系統標籤，而是實際比賽同時呈現的動作與能量需求。
+    terms:
+    - phosphagen-system
+    - glycolysis
+    - oxidative-system
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    - energy-supply
+    related:
+    - ch12.selection-factors.i02
+    locator: Test Selection > Metabolic Energy System Specificity
   - id: ch12.selection-factors.i02
-    q: 動作模式特異性
+    q: 生物力學動作模式特異性
     a:
-    - 測驗動作越接近運動動作越好
-    - 垂直跳適合籃球≠曲棍球
-    detail: ''
+    - 在其他條件相同時，測驗與該運動重要動作越相似越好
+    - 垂直跳對籃球與排球很有特異性，對不涉及垂直跳的冰球則較不相關
+    detail: 特異性不只由運動項目決定；同一項運動的不同位置也有不同身體需求，必須另行選擇測驗。
     terms: []
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    - technique
+    related:
+    - ch12.selection-factors.i08
+    locator: Test Selection > Biomechanical Movement Pattern Specificity
   - id: ch12.selection-factors.i03
-    q: 經驗與訓練狀態
+    q: 運動經驗與技術要求
     a:
-    - 技術型測驗僅適合熟練者
-    - 新手技術不穩影響結果
-    detail: ''
+    - 對訓練良好且有經驗的運動員，技術要求高的測驗可以適用，因可假定不佳技術不會損害測驗表現
+    - 對剛學習或剛嘗試某項運動的人，不能作此假定
+    detail: 技術密集測驗的運動專項性可能很高，但是否有效取決於受測者已具備足以穩定完成該技術的經驗。
     terms: []
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    - technique
+    related:
+    - ch12.reliability.i07
+    locator: Test Selection > Experience and Training Status
   - id: ch12.selection-factors.i04
-    q: 年齡因素
+    q: 訓練狀態與測驗內容
     a:
-    - 1.5哩跑適合大學生但不適合青春期前
-    - 應考量成熟度
-    detail: ''
+    - 選擇測驗時也須考量運動員的訓練狀態；不宜在秋季訓練開始前一週，要求主要做間歇與短跑訓練的棒球員進行長距離跑測驗
+    - 若運動員只以腿推訓練，使用平行深蹲的下肢肌力測驗並不理想
+    detail: 本章的判準是受測者是否為該測驗的動作與負荷型態做好準備，而不是把任何常見測驗套用給所有運動員。
     terms: []
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    - technique
+    related:
+    - ch12.selection-factors.i03
+    locator: Test Selection > Experience and Training Status
   - id: ch12.selection-factors.i05
-    q: 性別因素
+    q: 年齡與性別對測驗選擇的影響
     a:
-    - 引體向上適合男性摔角手，女性上肢拉力較差需改良版
-    detail: ''
-    terms: []
+    - 年齡與性別都可能影響測驗的效度與信度；適合大學年齡男女的有氧能力場地測驗，可能不適合青春期前兒童，原因是其持續跑動的經驗與興趣可能不足
+    - 最大引體向上對男性摔角選手可能是測量肘屈曲肌耐力的有效測驗；對女性則可能因上肢拉力差異而無法區分肌耐力水準，可改用雙腳支撐的俯臥拉引體
+    detail: 書中的女性例子不是宣稱女性沒有肌耐力，而是指出該測驗可能無法區辨不同水準；因此可改用較適合的測驗形式。
+    terms:
+    - validity
+    - reliability
+    - field-test
     numbers: []
     concepts:
     - measurement
+    - population
     related: []
-    locator: ''
+    locator: Test Selection > Age and Sex
   - id: ch12.selection-factors.i06
-    q: 溫度 / 濕度
+    q: 溫度與濕度的環境影響
     a:
-    - ≥80°F尤其濕度>50%會損害耐力表現
-    - 需調整或移至室內測驗
-    detail: ''
-    terms: []
-    numbers: []
+    - 高環境溫度合併高濕度，會損害耐力運動表現、增加健康風險，並降低有氧耐力測驗的效度
+    - 溫度接近 80 °F 且濕度超過 50% 時，有氧耐力與間歇衝刺表現可能受損
+    - 戶外溫度變化很大的地點，可在室內跑道、跑步機或固定式腳踏車施行有氧耐力測驗
+    detail: 環境會使不同日期、季節，甚至同一天不同時間的結果難以比較；熱造成的表現下降會讓跑步測驗低估最大攝氧量。
+    terms:
+    - validity
+    - vo2max
+    numbers:
+    - v: 80
+      unit: °F
+      of: 有氧耐力與間歇衝刺表現可能受損時所接近的環境溫度
+    - v: 50
+      unit: '% 相對濕度'
+      of: 上述環境溫度下表現可能受損時所超過的濕度
     concepts:
     - measurement
-    related: []
-    locator: ''
+    - safety
+    related:
+    - ch12.safety.i03
+    locator: Test Selection > Environmental Factors
   - id: ch12.selection-factors.i07
-    q: 海拔高度
+    q: 海拔高度的環境影響
     a:
-    - '>1900ft影響有氧'
-    - 每升3000ft VO₂max約降5%
-    - 需10天適應
-    detail: ''
-    terms: []
-    numbers: []
+    - 海拔會損害有氧耐力測驗表現，但不損害肌力與爆發力測驗表現；在超過 1,900 英尺（580 公尺）的地點施測有氧耐力時，應調整常模
+    - 在約 9,000 英尺以前，最大攝氧量約每升高 3,000 英尺（910 公尺）下降 5%；更高海拔下降更快
+    - 長期住在近海平面而抵達較高海拔的運動員，應至少適應 10 天再接受有氧耐力測驗
+    detail: 海拔不是所有測驗的一律限制；本章只將其效果明確歸於有氧耐力，並要求在解讀結果時記錄和考慮環境條件。
+    terms:
+    - vo2max
+    numbers:
+    - v: 1,900
+      unit: 英尺
+      of: 有氧耐力測驗常模應調整的海拔門檻
+    - v: 580
+      unit: 公尺
+      of: 同一有氧耐力測驗常模調整海拔門檻的公制表示
+    - v: 9,000
+      unit: 英尺
+      of: 最大攝氧量每升高固定海拔約下降 5% 的適用上限
+    - v: 3,000
+      unit: 英尺
+      of: 約 9,000 英尺前最大攝氧量下降約 5% 的每段海拔增加量
+    - v: 910
+      unit: 公尺
+      of: 同一最大攝氧量下降約 5% 的每段海拔增加量公制表示
+    - v: 5
+      unit: '%'
+      of: 約 9,000 英尺前每升高 3,000 英尺時最大攝氧量的約略下降幅度
+    - v: 10
+      unit: 天
+      of: 長住近海平面者抵達較高海拔後接受有氧耐力測驗前至少的適應時間
     concepts:
     - measurement
+    - population
     related: []
-    locator: ''
+    locator: Test Selection > Environmental Factors
   - id: ch12.selection-factors.i08
-    q: 位置特異性
+    q: 運動位置的動作特異性
     a:
-    - 美足線衛需臥推+10碼衝刺
-    - 外接手需30-100碼衝刺
-    detail: ''
+    - 美式足球防守線鋒需要推的肌力以推開對方線鋒，並需要 5–15 碼（5–14 公尺）的衝刺速度以接近四分衛
+    - 外接手較不依賴推的肌力，但必須能快速衝刺 30–100 碼（27–91 公尺）
+    - 因此，臥推和 10 碼衝刺對防守線鋒較相關；30–100 碼衝刺則對外接手較相關
+    detail: 同一運動內的位置需求不同；書中以此說明，不能只用「美式足球」這個總類別決定所有運動員的有效測驗。
     terms: []
-    numbers: []
+    numbers:
+    - v: 5–15
+      unit: 碼
+      of: 美式足球防守線鋒接近四分衛所需的衝刺距離範圍
+    - v: 5–14
+      unit: 公尺
+      of: 同一防守線鋒衝刺距離範圍的公制表示
+    - v: 30–100
+      unit: 碼
+      of: 美式足球外接手須快速衝刺的距離範圍
+    - v: 27–91
+      unit: 公尺
+      of: 同一外接手衝刺距離範圍的公制表示
+    - v: 10
+      unit: 碼
+      of: 對美式足球防守線鋒較相關的衝刺測驗距離
     concepts:
     - measurement
-    related: []
-    locator: ''
+    - technique
+    related:
+    - ch12.selection-factors.i02
+    locator: Test Selection > Biomechanical Movement Pattern Specificity
 - id: terminology
   title: 測驗術語 Terminology
   desc: ''
   tag: Terminology
   items:
   - id: ch12.terminology.i01
-    q: Test 測驗
+    q: 測驗（test）
     a:
-    - 評估特定能力的程序
-    - 可以是標準化或非標準化工具
-    detail: ''
-    terms: []
+    - 測驗是評估某一特定工作或活動能力的程序
+    detail: 本章要求體能與體能訓練專業人員以一致術語與運動員及同事清楚溝通；這是書中採用本定義的目的。
+    terms:
+    - test
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.terminology.i02
+    locator: Testing Terminology
   - id: ch12.terminology.i02
-    q: Measurement 測量
+    q: 場地測驗（field test）
     a:
-    - 收集測驗數據的過程
-    - 提供量化資料供後續分析
-    detail: ''
-    terms: []
+    - 場地測驗是在實驗室外進行的能力測驗，不需要廣泛訓練或昂貴設備
+    detail: 「場地」在本章是以施測地點與所需資源界定，不是指任何非正式或低品質的測驗。
+    terms:
+    - field-test
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.terminology.i01
+    locator: Testing Terminology
   - id: ch12.terminology.i03
-    q: Evaluation 評估
+    q: 測量（measurement）
     a:
-    - 分析測驗結果以做決策（如調整訓練計畫）
-    - 屬於判斷層次
-    detail: ''
-    terms: []
+    - 測量是收集測驗資料的過程
+    detail: 測量只處理資料收集；資料是否用來做決策屬於後續的評估，不應將兩者混為一談。
+    terms:
+    - measurement
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.terminology.i04
+    locator: Testing Terminology
   - id: ch12.terminology.i04
-    q: Pretest 前測
+    q: 評估（evaluation）
     a:
-    - 訓練開始前，確定初始能力水準，用以設計訓練計畫
-    detail: ''
-    terms: []
+    - 評估是為了做決策而分析測驗結果的過程
+    - 例如教練檢視體能表現測驗結果，判斷訓練計畫是否有助於達成目標，或是否需要修改
+    detail: 評估的產出是決策，而非單純報出分數；因此它把測量資料連回訓練目標和計畫調整。
+    terms:
+    - evaluation
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.terminology.i03
+    locator: Testing Terminology
   - id: ch12.terminology.i05
-    q: Midtest 中測
+    q: 前測（pretest）
     a:
-    - 訓練期間評估進度並視需要修改計畫
-    - 屬於 Formative Eval 的一部分
-    detail: ''
-    terms: []
+    - 前測在訓練開始前施行，以判定運動員初始的基本能力水準
+    - 前測讓教練依初始訓練水準與整體計畫目標設計訓練計畫
+    detail: 前測的角色是把訓練設計接到起始能力上，不只是為日後比較留下第一筆分數。
+    terms:
+    - pretest
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.terminology.i06
+    locator: Testing Terminology
   - id: ch12.terminology.i06
-    q: Posttest 後測
+    q: 中測（midtest）
     a:
-    - 訓練結束後評估計畫成功與否
-    - 與前測比較以計算效益
-    detail: ''
-    terms: []
+    - 中測在訓練期間施行一次或多次，用來評估進步情形
+    - 可依需要修改訓練計畫，以使效益最大化
+    detail: 中測是形成性評估所依據的資料來源；它不等同形成性評估本身。
+    terms:
+    - midtest
+    - formative-evaluation
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.terminology.i07
+    locator: Testing Terminology
   - id: ch12.terminology.i07
-    q: Formative Eval
+    q: 形成性評估（formative evaluation）
     a:
-    - 依中測定期重新評估
-    - 監控進度並個別化調整
-    detail: ''
-    terms: []
+    - 形成性評估是根據訓練期間的中測、通常以規律間隔進行的定期再評估
+    - 它可監測進步、依個人需求調整訓練計畫、評估不同訓練方法並收集常模資料
+    - 依形成性評估規律修改計畫，有助於保持訓練新鮮有趣並避免身心僵化
+    detail: 本章把形成性評估定位為持續調整的循環，而不是單一測驗時點；它以中測作為輸入，產生計畫調整。
+    terms:
+    - formative-evaluation
+    - midtest
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.terminology.i06
+    - ch12.why-test.i04
+    locator: Testing Terminology
   - id: ch12.terminology.i08
-    q: Field Test
+    q: 後測（posttest）
     a:
-    - 在實驗室外執行、不需廣泛訓練或昂貴設備
-    - 適合大多數運動場合
-    detail: ''
-    terms: []
+    - 後測在訓練期間結束後施行，以判定訓練計畫達成訓練目標的成功程度
+    detail: 本章的定義限定後測用來評估整段訓練期是否達成目標，未把它定義為任何特定統計比較或效益計算法。
+    terms:
+    - posttest
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.terminology.i05
+    locator: Testing Terminology
 - id: test-sequence
   title: 測驗順序 Test Sequence
   desc: ''
   tag: Sequence
   items:
   - id: ch12.test-sequence.i01
-    q: 排序原則
+    q: 測驗排序與恢復的基本原則
     a:
-    - 前一項測驗不能影響後一項表現
-    - 確保每項最佳發揮
-    detail: ''
-    terms: []
-    numbers: []
+    - 一項測驗不應影響後續測驗的表現，才能讓每項測驗有最佳表現，並能和先前結果有效比較
+    - 極度動用磷酸原能量系統的測驗，完全恢復需要 3–5 分鐘；最大無氧醣解能量系統測驗，完全恢復至少需要 1 小時
+    detail: 排序同時需兼顧信度和效率；後續類別順序是書中所稱「邏輯順序」，並承認可以有一些變化。
+    terms:
+    - phosphagen-system
+    - glycolysis
+    numbers:
+    - v: 3–5
+      unit: 分鐘
+      of: 極度動用磷酸原能量系統測驗完全恢復所需時間
+    - v: 1
+      unit: 小時
+      of: 最大無氧醣解能量系統測驗完全恢復至少所需時間
     concepts:
     - measurement
-    related: []
-    locator: ''
+    - energy-supply
+    related:
+    - ch12.administration.i07
+    locator: Test Administration > Sequence of Tests
   - id: ch12.test-sequence.i02
-    q: ①非疲勞測驗
+    q: 非疲勞測驗應先施行
     a:
-    - 身高、體重、柔軟度、皮下脂肪、圍度、垂直跳
-    - 不消耗能量系統
-    detail: ''
+    - 邏輯順序的第一類是非疲勞測驗，例如身高、體重、柔軟度、皮脂厚度與圍度測量，以及垂直跳
+    detail: 垂直跳雖是動作測驗，原書仍將它列在非疲勞測驗類；不能自行把它改排到最大功率或衝刺類。
     terms: []
     numbers: []
     concepts:
     - measurement
     related: []
-    locator: ''
+    locator: Test Administration > Sequence of Tests
   - id: ch12.test-sequence.i03
-    q: ②敏捷測驗
+    q: 敏捷測驗應在疲勞測驗前
     a:
-    - T-test、Pro agility test
-    - 需高技術、疲勞影響大
-    - 磷酸原系統需3-5min恢復
-    detail: ''
+    - 非疲勞測驗之後施行敏捷測驗，例如 T 測驗與折返敏捷測驗
+    - 像敏捷測驗這類需要高技術動作的測驗，應在可能造成疲勞、混淆後續結果的測驗之前施行
+    detail: 書中以敏捷作為高技術動作的例子；此處的排序理由是避免疲勞干擾，而不是把敏捷測驗一概指定為某個能量系統測驗。
     terms: []
     numbers: []
     concepts:
     - measurement
+    - technique
     related: []
-    locator: ''
+    locator: Test Administration > Sequence of Tests
   - id: ch12.test-sequence.i04
-    q: ③最大肌力 / 爆發力
+    q: 最大爆發力與肌力測驗的排列
     a:
-    - 1RM Power Clean、1RM Squat
-    - 磷酸原系統需3-5min完全恢復
-    detail: ''
-    terms: []
-    numbers: []
+    - 敏捷測驗之後施行最大爆發力與肌力測驗，例如高翻 1RM 與深蹲 1RM
+    detail: 這是書中順序中的第三類；它位於敏捷之後、衝刺之前，不能依一般印象任意互換。
+    terms:
+    - repetition-maximum
+    numbers:
+    - v: 1
+      unit: 反覆
+      of: 書中高翻與深蹲最大肌力測驗例子所用的最大反覆數
     concepts:
     - measurement
+    - technique
     related: []
-    locator: ''
+    locator: Test Administration > Sequence of Tests
   - id: ch12.test-sequence.i05
-    q: ④衝刺測驗
+    q: 衝刺測驗的排列
     a:
-    - 40m衝刺含10m / 20m分段計時
-    - 高強度、短時間磷酸原系統
-    detail: ''
+    - 最大爆發力與肌力測驗之後施行衝刺測驗；書中例子為 40 公尺衝刺，於 10 公尺和 20 公尺記錄分段時間
+    detail: 分段時間是書中列舉的衝刺測驗例子；它不是另外一類獨立測驗，也未被正文指定為某一能量系統的唯一指標。
     terms: []
-    numbers: []
+    numbers:
+    - v: 40
+      unit: 公尺
+      of: 書中作為測驗順序例子的衝刺測驗全程距離
+    - v: 10
+      unit: 公尺
+      of: 該衝刺測驗記錄分段時間的位置之一
+    - v: 20
+      unit: 公尺
+      of: 該衝刺測驗記錄分段時間的位置之一
     concepts:
     - measurement
     related: []
-    locator: ''
+    locator: Test Administration > Sequence of Tests
   - id: ch12.test-sequence.i06
-    q: ⑤局部肌耐力
+    q: 局部肌耐力測驗的排列
     a:
-    - 伏地挺身測驗
-    - 醣解系統為主
-    - 需≥1hr完全恢復
-    detail: ''
+    - 衝刺測驗之後施行局部肌耐力測驗，例如伏地挺身測驗
+    detail: 原書將局部肌耐力獨立列為後段類別；它沒有在這份順序清單中把伏地挺身指定為「以醣解系統為主」。
     terms: []
     numbers: []
     concepts:
     - measurement
     related: []
-    locator: ''
+    locator: Test Administration > Sequence of Tests
   - id: ch12.test-sequence.i07
-    q: ⑥無氧容量
+    q: 疲勞性無氧容量測驗的排列
     a:
-    - 300碼折返跑
-    - 高度疲勞→建議另日施測或排最後
-    detail: ''
+    - 局部肌耐力測驗之後施行疲勞性無氧容量測驗，例如 300 碼（275 公尺）折返跑
+    - 應盡量把疲勞性無氧容量測驗和有氧測驗安排在其他測驗的不同日子
+    detail: 這類測驗接近順序末端，因為其疲勞最可能損害後續測驗表現；與有氧測驗分日是書中的努力方向，而非絕對不可同日。
     terms: []
-    numbers: []
+    numbers:
+    - v: 300
+      unit: 碼
+      of: 書中作為疲勞性無氧容量測驗例子的折返跑距離
+    - v: 275
+      unit: 公尺
+      of: 同一疲勞性無氧容量折返跑距離的公制表示
     concepts:
     - measurement
-    related: []
-    locator: ''
+    - energy-supply
+    related:
+    - ch12.test-sequence.i08
+    locator: Test Administration > Sequence of Tests
   - id: ch12.test-sequence.i08
-    q: ⑦有氧容量
+    q: 有氧容量測驗應最後施行
     a:
-    - 1.5哩跑或Yo-Yo間歇恢復測驗
-    - 必須排最後或另日施測
-    detail: ''
+    - 邏輯順序的最後一類是有氧容量測驗，例如 1.5 英里（2.4 公里）跑或間歇恢復測驗
+    - 若疲勞性無氧容量與有氧測驗必須同日進行，兩者應在延長休息後排在最後
+    - 為減少晝夜節律造成的生理反應波動，測驗應在一天中相同時間施行；建議室內施測以維持氣候與測試表面的一致性
+    detail: 把這類測驗排最後不是只為了方便，而是讓前面所有測驗可在較少疲勞下比較；書中也建議採相同時間與室內條件提高可比性。
     terms: []
-    numbers: []
+    numbers:
+    - v: 1.5
+      unit: 英里
+      of: 書中作為有氧容量測驗例子的跑步距離
+    - v: 2.4
+      unit: 公里
+      of: 同一有氧容量跑步距離的公制表示
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.test-sequence.i07
+    locator: Test Administration > Sequence of Tests
 - id: validity
   title: 效度 Validity
   desc: ''
   tag: Test Quality
   items:
   - id: ch12.validity.i01
-    q: Construct Validity（構念效度）
+    q: 構念效度（construct validity）與有效體能測驗條件
     a:
-    - 測驗整體上確實測量其設計要測的構念
-    - 最核心的效度類型
-    detail: ''
-    terms: []
+    - 構念效度是測驗能代表潛在構念的能力；構念是用來組織及解釋既有知識與觀察的理論
+    - 構念效度指整體效度，也就是測驗確實量到其設計要測內容的程度；表面、內容與效標參照效度都是其佐證
+    - 有效的體能表現測驗應測量運動重要能力、產生可重複結果、原則上一次測一名運動員、看來有意義、難度適當、能區分能力水準、能準確計分、有足夠嘗試次數並能通過統計評估
+    detail: 原書的「一次測一名運動員」有「除非流程另有規定」的但書；兩個都有效時，還應考量施測的簡易性與經濟性。
+    terms:
+    - construct-validity
+    - face-validity
+    - content-validity
+    - criterion-referenced-validity
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.reliability.i01
+    locator: Evaluation of Test Quality > Validity > Construct Validity
   - id: ch12.validity.i02
-    q: Face Validity（表面效度）
+    q: 表面效度（face validity）
     a:
-    - 在運動員眼中「看起來」有意義
-    - 非正式、非量化評估
-    detail: ''
-    terms: []
+    - 表面效度是運動員及其他一般觀察者認為，測驗看起來是否測到它聲稱要測的內容
+    - 具有表面效度時，運動員較可能正向回應；其評估通常非正式且非量化
+    - 在基本運動能力測驗中，表面效度值得追求，因為假定受測者想做好，且會受看似相關能力測驗的激勵
+    detail: 原書特別與心理學領域對比：心理測驗可能刻意降低表面效度以避免受試者操弄答案；這個理由不適用於本章假定的體能測驗情境。
+    terms:
+    - face-validity
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.validity.i03
+    locator: Evaluation of Test Quality > Validity > Face Validity
   - id: ch12.validity.i03
-    q: Content Validity（內容效度）
+    q: 內容效度（content validity）
     a:
-    - 專家確認測驗涵蓋所有相關子能力且比例適當
-    detail: ''
-    terms: []
+    - 內容效度是專家判斷測驗是否以適當比例涵蓋所有相關子主題或組成能力
+    - 運動測驗中，這些能力是某項運動或位置所需的全部組成能力；測驗設計者應列出待評能力並確認皆被代表
+    - 某項能力對總分的比重，應與其對整體表現的重要性成比例
+    detail: 本章明確區分內容效度和表面效度：前者關於實際效度，後者只關於非專家所看到的效度外觀。
+    terms:
+    - content-validity
+    - face-validity
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.validity.i02
+    locator: Evaluation of Test Quality > Validity > Content Validity
   - id: ch12.validity.i04
-    q: Concurrent Validity（同時效度）
+    q: 效標參照效度（criterion-referenced validity）
     a:
-    - 與其他已被接受的同類測驗分數高度相關
-    detail: ''
-    terms: []
+    - 效標參照效度是測驗分數與同一能力的另一種測量之間關聯的程度
+    - 本章列出四種類型：同時效度、聚合效度、預測效度與區辨效度
+    detail: 本章以「與同一能力的另一種測量關聯」定義此效度；四種類型不能用一般統計教材的其他分類自行替換。
+    terms:
+    - criterion-referenced-validity
+    - concurrent-validity
+    - convergent-validity
+    - predictive-validity
+    - discriminant-validity
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.validity.i05
+    - ch12.validity.i06
+    - ch12.validity.i07
+    - ch12.validity.i08
+    locator: Evaluation of Test Quality > Validity > Criterion-Referenced Validity
   - id: ch12.validity.i05
-    q: Convergent Validity（聚合效度）
+    q: 同時效度（concurrent validity）
     a:
-    - 與黃金標準高度正相關
-    - Field test 應具備此效度
-    detail: ''
-    terms: []
+    - 同時效度是測驗分數與其他已被接受、且測量同一能力之測驗分數的關聯程度
+    - 效標參照效度常以統計方式估計
+    detail: 原書以新體脂評估裝置與雙能量 X 光吸收儀結果的皮爾森積差相關，作為同時效度的例子；例子說明的是同一能力的兩種測量比較。
+    terms:
+    - concurrent-validity
+    - criterion-referenced-validity
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.validity.i04
+    locator: Evaluation of Test Quality > Validity > Criterion-Referenced Validity
   - id: ch12.validity.i06
-    q: Predictive Validity（預測效度）
+    q: 聚合效度（convergent validity）
     a:
-    - 測驗分數能預測未來運動表現（如用測驗預測賽季成績）
-    detail: ''
-    terms: []
+    - 聚合效度由待評測驗與該構念公認測量標準之結果高度正相關所證實
+    - 聚合效度是場地測驗應展現的一種同時效度
+    - 若一項測驗與公認標準具聚合效度，但較省時間、器材、費用或專業要求，可能比公認標準更可取
+    detail: 原書的判斷條件是「與標準具聚合效度」再加上資源要求較低；不能把方便本身當成效度證據。
+    terms:
+    - convergent-validity
+    - concurrent-validity
+    - field-test
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.validity.i05
+    locator: Evaluation of Test Quality > Validity > Criterion-Referenced Validity
   - id: ch12.validity.i07
-    q: Discriminant Validity（區辨效度）
+    q: 預測效度（predictive validity）
     a:
-    - 與不同構念測驗低相關，避免重複浪費資源
-    detail: ''
-    terms: []
+    - 預測效度是測驗分數與未來行為或表現相對應的程度
+    - 可將測驗分數與運動本身成功表現的某種測量進行比較來衡量
+    detail: 書中以籃球選才測驗組合總分與實際籃球表現複合指標的統計相關為例；該例的重點是「未來表現」，不是任何單一數據欄位。
+    terms:
+    - predictive-validity
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.validity.i04
+    locator: Evaluation of Test Quality > Validity > Criterion-Referenced Validity
   - id: ch12.validity.i08
-    q: 有效性條件
+    q: 區辨效度（discriminant validity）
     a:
-    - 可重複、一次測一人、難度適中、能區辨能力高低
-    detail: ''
-    terms: []
+    - 區辨效度是測驗區分兩個不同構念的能力，並由待評測驗與不同構念測驗結果之低相關證實
+    - 測驗組合中的測驗最好量到相對獨立的能力成分，例如柔軟度、速度與有氧耐力
+    detail: 測驗組合若有良好區辨效度，可避免把時間、精力與資源花在彼此高度相關的重複測驗上。
+    terms:
+    - discriminant-validity
+    - test-battery
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.validity.i04
+    locator: Evaluation of Test Quality > Validity > Criterion-Referenced Validity
 - id: why-test
   title: 測驗目的 Why Test
   desc: ''
   tag: Why Test
   items:
   - id: ch12.why-test.i01
-    q: 才能評估
+    q: 以測驗評估運動才能
     a:
-    - 識別具備高潛力的運動員
-    - 在訓練前確定能力基準
-    detail: ''
-    terms: []
+    - 教練須判斷個人是否具有在球隊競技層級從事該運動的身體潛力
+    - 當候選人尚未在別處明確展現競技能力，或缺乏該運動經驗時，場地測驗可作為判斷其基本身體能力是否能結合技術訓練與練習、培養成有競爭力選手的工具
+    detail: 已在其他地方表現優異且體型合適的候選人較容易判斷；測驗在本節特別服務於資訊不足的選才情境。
+    terms:
+    - field-test
     numbers: []
     concepts:
     - measurement
+    - professional
     related: []
-    locator: ''
+    locator: Reasons for Testing > Assessment of Athletic Talent
   - id: ch12.why-test.i02
-    q: 能力識別
+    q: 識別需要改善的身體能力
     a:
-    - 找出各項運動能力的優劣差異
-    - 作為個別化訓練的依據
-    detail: ''
+    - 有些身體能力是先天且不易改變，另一些則能透過身體訓練改善
+    - 適當的測驗方法與分析可協助體能與體能訓練專業人員判斷，哪些身體特質可透過規定的運動計畫作為介入目標
+    detail: 書中並未說所有弱項都能以訓練改變；測驗的用途是分辨可作為訓練目標的身體特質。
     terms: []
     numbers: []
     concepts:
     - measurement
+    - professional
     related: []
-    locator: ''
+    locator: Reasons for Testing > Identification of Physical Abilities in Need of Improvement
   - id: ch12.why-test.i03
-    q: 目標設定
+    q: 以基準測量支援目標設定
     a:
-    - 依基準值設定具體可行的短中長期訓練目標
-    detail: ''
-    terms: []
+    - 基準測量可建立起點，據以設定可達成的目標
+    - 定期測驗可追蹤運動員達成目標的進度
+    - 以測驗為目標設定基礎，能為個別運動員設定具體目標；這些個別目標合起來有助於達成團體或球隊目標
+    detail: 本章強調基準值是目標可達成性的起點，並把個別目標與團隊目標連結；未規定短、中、長期目標的分類。
+    terms:
+    - goal-setting
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    - psychology
+    related:
+    - ch12.why-test.i04
+    locator: Reasons for Testing
   - id: ch12.why-test.i04
-    q: 進度追蹤
+    q: 以定期測驗評估進度與計畫
     a:
-    - 透過中測與後測比較前後差異
-    - 量化訓練效益
-    detail: ''
-    terms: []
+    - 定期測驗可追蹤運動員朝目標前進的進度
+    - 測驗與測量也可提供參考值，以評估訓練計畫的有效性
+    detail: 本章把進度追蹤和計畫效果評估都建立在定期取得可比較的測驗資料上，而不是限定必須以某一種前後測統計法計算。
+    terms:
+    - evaluation
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.terminology.i04
+    - ch12.terminology.i07
+    locator: Reasons for Testing
   - id: ch12.why-test.i05
-    q: Field Test
+    q: 場地測驗（field test）作為選才工具
     a:
-    - 在實驗室外執行、不需昂貴設備的能力評估工具
-    - 實用性高
-    detail: ''
-    terms: []
+    - 場地測驗可用於評估候選人是否具備該運動所需的基本身體能力
+    - 依本章定義，場地測驗在實驗室外施行，且不需要廣泛訓練或昂貴設備
+    detail: 場地測驗在「評估運動才能」段落的功能是提供選才判斷工具；其正式定義則在「測驗術語」段落。
+    terms:
+    - field-test
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    - professional
+    related:
+    - ch12.why-test.i01
+    - ch12.terminology.i02
+    locator: Reasons for Testing > Assessment of Athletic Talent
   - id: ch12.why-test.i06
-    q: Formative Eval
+    q: 形成性評估（formative evaluation）的訓練用途
     a:
-    - 訓練期間定期再評估
-    - 讓計畫保持新鮮、避免停滯
-    - 個別化調整依據
-    detail: ''
-    terms: []
+    - 形成性評估根據訓練期間的中測定期再評估，藉此監測進度並依個別需要調整計畫
+    - 它也能評估不同訓練方法、收集常模資料，並讓規律修改後的訓練保持新鮮有趣，避免身心僵化
+    detail: 此項用途需要中測在訓練期間反覆提供資料；它不是訓練結束後才做一次的後測。
+    terms:
+    - formative-evaluation
+    - midtest
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.terminology.i06
+    - ch12.terminology.i07
+    locator: Testing Terminology
   - id: ch12.why-test.i07
-    q: Baseline（基準值）
+    q: 基準測量的角色
     a:
-    - 測驗前基準值
-    - 用來比較訓練後進步幅度
-    - 設計訓練計畫的起點
-    detail: ''
-    terms: []
+    - 基準測量建立可用來設定可達成目標的起點
+    - 定期測驗讓教練與運動員追蹤從這個起點朝目標前進的情形
+    detail: 原書沒有把基準測量定義成另一種獨立施測型態；它描述的是測驗資料在目標設定中的用途。
+    terms:
+    - goal-setting
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch12.why-test.i03
+    locator: Reasons for Testing
   - id: ch12.why-test.i08
-    q: 行政決策
+    q: 測驗與測量在評估中的定位
     a:
-    - 協助教練選拔隊員、分組、分配位置及制定獎懲標準
-    detail: ''
-    terms: []
+    - 測驗與測量可用來評估運動才能、辨識需要改善的身體能力、提供評估訓練計畫有效性的參考值，並設定現實的訓練目標
+    - 要最佳化測驗品質，施測者必須理解並考慮效度與信度
+    detail: 本章把測驗定位為訓練決策的客觀基礎；未列出依測驗結果進行分組、分配位置或獎懲的行政用途。
+    terms:
+    - test
+    - measurement
+    - evaluation
     numbers: []
     concepts:
     - measurement
-    related: []
-    locator: ''
+    - professional
+    related:
+    - ch12.terminology.i01
+    - ch12.terminology.i03
+    - ch12.terminology.i04
+    locator: Conclusion
 cards:
-- q: 對運動員施測的四大目的是什麼？
-  a: 評估運動才能、識別待改善能力、設定訓練目標、追蹤訓練進度。
+- q: 對運動員施測可有哪些用途？
+  a: 可評估運動才能、辨識需要改善的身體能力、設定目標，以及追蹤達成目標的進度。
   tag: why-test
-- q: Field test（場地測驗）的定義為何？
-  a: 在實驗室外執行、不需大量訓練或昂貴設備即可施行的能力評估工具。
+- q: 場地測驗（field test）的定義為何？
+  a: 在實驗室外施行、且不需要廣泛訓練或昂貴設備的能力測驗。
   tag: why-test
-- q: 什麼是 formative evaluation（形成性評估）？
-  a: 訓練期間定期進行的再評估，目的是監控進步、個別調整計畫、避免訓練停滯。
+- q: 什麼是形成性評估（formative evaluation）？
+  a: 根據訓練期間中測、通常以規律間隔進行的定期再評估；可監測進步並依個別需求調整訓練計畫。
   tag: why-test
-- q: Pretest、midtest、posttest 各在什麼時機施行？
-  a: Pretest 在訓練前建立基準；midtest 在訓練中追蹤進度；posttest 在訓練後評估整體成效。
+- q: 前測、中測與後測各在何時施行？
+  a: 前測在訓練開始前判定初始能力；中測在訓練期間一次或多次評估進度；後測在訓練期結束後判定計畫是否達成目標。
   tag: terminology
-- q: 測驗（test）與評估（evaluation）的差異？
-  a: Test 是收集資料的程序；evaluation 是分析測驗結果以做出決策的過程（如調整訓練計畫）。
+- q: 測驗（test）、測量（measurement）與評估（evaluation）如何區分？
+  a: Test 是評估特定活動能力的程序；measurement 是收集測驗資料的過程；evaluation 是為做決策而分析測驗結果的過程。
   tag: terminology
-- q: Measurement（測量）的定義？
-  a: 收集測驗資料的過程，是進行 evaluation（評估）的前提步驟。
+- q: 測量（measurement）的定義為何？
+  a: 收集測驗資料的過程。
   tag: terminology
-- q: Baseline（基準值）的功能為何？
-  a: 作為比較訓練後進步幅度的起始參考點，同時是設計個別化訓練計畫的依據。
+- q: 基準測量在目標設定中的作用為何？
+  a: 建立起點以設定可達成目標，並讓定期測驗可追蹤運動員朝目標前進的進度。
   tag: terminology
-- q: 何謂 test battery（測驗組合）？
-  a: 多個測驗組成的一套評估系統，用以全面評估運動員的多項身體能力。
+- q: 本章為何要求使用一致的測驗術語？
+  a: 使體能與體能訓練專業人員能與運動員及同事清楚溝通。
   tag: terminology
-- q: 為什麼 formative evaluation 有助於避免訓練停滯？
-  a: 因為定期依個別需求調整訓練計畫，讓訓練保持新鮮並持續有效，同時可收集常模資料。
+- q: 形成性評估如何有助於避免身心僵化？
+  a: 依中測規律修改訓練計畫，能保持訓練新鮮有趣，並可依個別需求調整。
   tag: terminology
-- q: 施測在目標設定中扮演什麼角色？
-  a: 基準值確立可行的起始目標；定期施測追蹤進度；讓個別目標與團隊整體目標連結。
+- q: 施測如何支援個別與團隊目標？
+  a: 基準測量可設定個別運動員的具體可達成目標；這些個別目標合起來有助於達成團體或球隊目標。
   tag: why-test
-- q: Validity（效度）的定義為何？
-  a: 測驗確實測量到它應測量之構念的程度，是評估測驗品質最重要的特性之一。
+- q: 效度（validity）的定義為何？
+  a: 測驗或測驗項目測量它應測內容的程度，是評估測驗品質最重要的特徵之一。
   tag: validity
-- q: Construct validity（構念效度）指什麼？
-  a: 測驗整體上確實代表並測量其設計要測量的理論構念；面效度、內容效度和效標效度都是其佐證。
+- q: 構念效度（construct validity）指什麼？
+  a: 測驗代表潛在構念的能力，亦即整體上確實量到其設計要測內容的程度；表面、內容與效標參照效度可提供佐證。
   tag: validity
-- q: Face validity（表面效度）的意義？
-  a: 在運動員和旁觀者眼中「看起來」能測量所宣稱的能力；非量化評估，但能提高受測動機。
+- q: 表面效度（face validity）的意義為何？
+  a: 運動員和一般觀察者看起來，測驗是否測到它宣稱要測的內容；評估通常非正式且非量化。
   tag: validity
-- q: Content validity（內容效度）的定義？
-  a: 專家確認測驗涵蓋所有相關子能力，且各能力的比重與其對整體表現的重要性相符。
+- q: 內容效度（content validity）的定義為何？
+  a: 專家判斷測驗是否以適當比例涵蓋所有相關子主題或組成能力。
   tag: validity
-- q: Criterion-referenced validity（效標效度）的四種類型？
-  a: 同時效度（concurrent）、聚合效度（convergent）、預測效度（predictive）、區辨效度（discriminant）。
+- q: 效標參照效度（criterion-referenced validity）的四種類型為何？
+  a: 同時效度、聚合效度、預測效度與區辨效度。
   tag: validity
-- q: Concurrent validity（同時效度）如何估計？
-  a: 計算新測驗與已接受之同類測驗分數的 Pearson 相關係數；如新體脂測量與 DXA 的相關。
+- q: 同時效度（concurrent validity）如何界定？
+  a: 測驗分數與其他已被接受、且測量同一能力之測驗分數的關聯程度；常以統計方式估計。
   tag: validity
-- q: Convergent validity（聚合效度）的實用意義？
-  a: 場地測驗與黃金標準高度正相關，但更省時省費；是 S&C 專業人員選用 field test 的核心依據。
+- q: 聚合效度（convergent validity）的實用意義為何？
+  a: 待評測驗與該構念公認標準高度正相關；場地測驗應展現此種同時效度，若資源要求較低，可能比公認標準更可取。
   tag: validity
-- q: Predictive validity（預測效度）如何操作化？
-  a: 計算測驗分數與未來運動表現的統計相關；例如選才測驗組合與賽季積分統計的相關程度。
+- q: 預測效度（predictive validity）如何判斷？
+  a: 看測驗分數與未來行為或表現的相對應程度；可和該運動成功表現的某種測量比較。
   tag: validity
-- q: Discriminant validity（區辨效度）的作用？
-  a: 確認測驗與不同構念的測驗低相關，避免在高度相似的測驗上重複耗費時間與資源。
+- q: 區辨效度（discriminant validity）有何作用？
+  a: 證實測驗能區分不同構念，且與不同構念的測驗呈低相關，避免在高度相關的重複測驗浪費時間、精力與資源。
   tag: validity
-- q: 一個有效的體能測驗應具備哪些特性？
-  a: 測量運動重要能力、結果可重複、難度適中、能區辨不同能力水準、允許精確計分、包含足夠次數。
+- q: 有效的體能表現測驗應具備哪些條件？
+  a: 應測量運動重要能力、產生可重複結果、原則上一人一測、看來有意義、難度適當、可區分能力水準、可準確計分、有足夠嘗試並能通過統計評估。
   tag: validity
-- q: 為何 face validity 在運動測驗中特別重要？
-  a: 運動員假設自己想盡力表現，測驗看起來有意義可提高動機；與心理測驗刻意低 face validity 相反。
+- q: 為何基本運動能力測驗需要表面效度？
+  a: 本章假定受測者想做好；看來是在測量相關能力的測驗會激勵運動員正向回應。
   tag: validity
-- q: Content validity 與 face validity 的關鍵差異？
-  a: Content validity 涉及實際效度（由專家評估）；face validity 只涉及非專家眼中的外觀觀感。
+- q: 內容效度與表面效度的關鍵差異為何？
+  a: 內容效度關於專家判斷的實際效度；表面效度關於非專家所見的效度外觀。
   tag: validity
-- q: Reliability（信度）的定義？
-  a: 測驗結果的一致性或可重複程度；能力不變的運動員在可靠測驗中應得到相同分數。
+- q: 信度（reliability）的定義為何？
+  a: 測驗一致性或可重複程度的衡量；能力不變的運動員在完全可靠測驗中兩次測量會得相同分數。
   tag: reliability
-- q: 信度與效度的關係？
-  a: 信度是效度的必要條件（不一致的結果沒有意義），但信度高不保證效度高。
+- q: 信度與效度的關係為何？
+  a: 測驗必須可靠才可能有效，因高度變動的結果意義有限；但可靠測驗仍可能沒有測到它應測的能力。
   tag: reliability
-- q: 何謂 test-retest reliability（再測信度）？
-  a: 同組運動員兩次施測分數的統計相關；兩次分數的差異代表測量誤差。
+- q: 何謂重測信度（test–retest reliability）？
+  a: 同一組運動員重複施行同一測驗時，兩次施測分數的統計相關；兩組分數間的差異代表測量誤差。
   tag: reliability
-- q: Typical error of measurement (TE) 包含哪兩種來源？
-  a: 設備誤差（equipment error）和運動員的生物變異（biological variation）。
+- q: 典型測量誤差（typical error of measurement, TE）包含什麼？
+  a: 器材誤差與運動員的生物變異。
   tag: reliability
-- q: Intrasubject variability（受試者內變異）是什麼？
-  a: 受試者本身表現不一致，如技術不熟練或當日狀態差異，是信度不足的主要原因之一。
+- q: 受試者內變異（intrasubject variability）是什麼？
+  a: 受測者未能維持一致表現，是兩次分數出現差異的可能來源之一。
   tag: reliability
-- q: Interrater reliability（評分者間信度）的定義？
-  a: 不同評分者對同一測驗結果的一致性程度；又稱 objectivity 或 interrater agreement。
+- q: 評分者間信度（interrater reliability）的定義為何？
+  a: 不同評分者在一段時間或重複場合所得測驗結果的一致程度；亦稱客觀性或評分者間一致性。
   tag: reliability
-- q: 影響 interrater reliability 的主要因素有哪些？
-  a: 評分標準是否清晰、評分者訓練與經驗程度、設備校準一致性、給予口頭鼓勵的一致性。
+- q: 什麼會影響評分者間信度？
+  a: 評分系統是否清楚定義、評分者是否受過訓練且有經驗，以及器材校正、運動員準備、執行測驗與激勵是否一致。
   tag: reliability
-- q: Intrarater variability（同一評分者內變異）的常見原因？
-  a: 前後測態度不一致（如後測較寬鬆期待看到進步）、注意力不集中、未遵守標準化施測程序。
+- q: 評分者內變異（intrarater variability）的常見成因為何？
+  a: 訓練不足、疏忽、注意力不足，或未遵循器材校正、運動員準備、施測與計分的標準化程序；期待進步也可能讓後測無意間變寬鬆。
   tag: reliability
-- q: 選擇測驗時需考量的五大因素？
-  a: 代謝能量系統特異性、生物力學動作特異性、運動員經驗與訓練狀態、年齡與性別、環境因素。
+- q: 選擇測驗時必須考量哪五類因素？
+  a: 運動特異性中的代謝能量系統與生物力學動作模式、運動員經驗與訓練狀態、年齡與性別，以及環境因素。
   tag: test-selection
-- q: 為何測驗需具備代謝能量系統特異性？
-  a: 有效測驗應模擬該運動的能量需求；如籃球以磷酸肌酸系統為主，不適合用長距離耐力跑評估。
+- q: 為何測驗須具代謝能量系統特異性？
+  a: 有效測驗必須模擬所評估運動的能量需求；籃球跑動測驗還需考量籃球以無氧跑動為主，以及比賽衝刺的距離與方向。
   tag: test-selection
-- q: 生物力學動作特異性（biomechanical specificity）的例子？
-  a: 垂直跳對籃球/排球高特異性；10 碼衝刺對美式足球防線員特異；廣角接收員應測 30-100 碼衝刺。
+- q: 生物力學動作模式特異性的例子為何？
+  a: 垂直跳對籃球與排球很有特異性，對不涉及垂直跳的冰球較不相關；同一運動內的不同位置也須分別考量。
   tag: test-selection
-- q: 何時適合使用技術密集測驗（technique-intensive test）？
-  a: 訓練有素、有經驗的運動員；初學者因技術不穩定，技術密集測驗信度低，不適用。
+- q: 何時適合使用技術要求高的測驗？
+  a: 適合訓練良好且有經驗的運動員，因可假定不佳技術不會損害表現；剛學習或嘗試該運動的人不能作此假定。
   tag: test-selection
-- q: 為何訓練狀態影響測驗的有效性？
-  a: 若運動員以腿推機訓練，槓鈴深蹲 1RM 就不是理想測驗；測驗應與實際訓練方式一致。
+- q: 為何訓練狀態會影響測驗選擇？
+  a: 測驗內容應與受測者實際的訓練型態相符；只做腿推訓練的運動員，不宜以平行深蹲作下肢肌力測驗。
   tag: test-selection
-- q: 年齡如何影響測驗有效性？
-  a: 1.5 英里跑適合大學生但不適合青少年；引體向上對女性的區辨效度可能不足，可改用雙腳支撐版。
+- q: 年齡如何影響測驗的效度與信度？
+  a: 對大學年齡男女有效且可靠的有氧能力場地測驗，可能不適合青春期前兒童，因其持續跑動的經驗與興趣可能不足。
   tag: test-selection
-- q: 高溫高濕環境如何影響有氧耐力測驗？
-  a: 接近 80°F 且濕度超過 50% 時，有氧耐力表現顯著下降，1.5 英里跑會低估 VO2max。
+- q: 高溫高濕如何影響有氧耐力測驗？
+  a: 溫度接近 80 °F、濕度超過 50% 時，有氧耐力與間歇衝刺表現可能受損；熱造成的表現下降會讓跑步測驗低估最大攝氧量。
   tag: test-selection
-- q: 海拔高度如何影響有氧測驗結果？
-  a: 超過 1,900 英呎（580 m）後每升高 3,000 英呎 VO2max 約下降 5%；應給至少 10 天高原適應期再施測。
+- q: 海拔如何影響有氧耐力測驗？
+  a: 超過 1,900 英尺（580 公尺）應調整有氧耐力常模；約 9,000 英尺以前，最大攝氧量約每升高 3,000 英尺（910 公尺）下降 5%，近海平面抵達高海拔者至少適應 10 天再測。
   tag: test-selection
 - q: 性別如何影響測驗選擇？
-  a: 女性上肢拉力通常低於男性，傳統引體向上可能無法區辨女性肌耐力差異；可改用改良版（雙腳支撐）。
+  a: 最大引體向上對男性摔角選手可能有效，對女性可能因上肢拉力差異而無法區分肌耐力水準；可改用雙腳支撐的俯臥拉引體。
   tag: test-selection
-- q: 施測中應觀察哪些需立即轉介醫療的危險症狀？
-  a: 胸部壓迫/疼痛、頭暈、意識混亂、頭痛、皮膚深紅或濕冷、不規則脈搏、骨關節疼痛、視力模糊。
+- q: 哪些徵象可能需要醫療轉介？
+  a: 持續的胸部不適、倦怠、暈眩、混亂、頭痛、深紅或冰冷濕黏皮膚、不規則脈搏、骨關節疼痛、視力模糊、噁心，或與運動量不相稱且休息後未改善的呼吸急促、脈搏過快或虛弱；嚴重單次症狀如失去意識須立即就醫。
   tag: safety
-- q: 水中毒（hyponatremia）的症狀與處置？
-  a: 極度稀薄尿液合併皮膚浮腫、意識改變、體溫正常；禁止補液，須立即就醫。
+- q: 低血鈉症（hyponatremia）或水中毒的症狀與處置為何？
+  a: 過量飲水使血鈉降到危險低值；極度稀釋尿液合併皮膚浮腫、意識改變或失去意識且體溫不升高時，絕不可再給液體，應由醫師處置。
   tag: safety
-- q: 熱環境有氧施測的核心防護措施（至少 5 項）？
-  a: 避免極端高溫高濕→至少一週熱適應→賽前 24 小時充分補水→測驗中補水→穿吸濕排汗衣→監測心率→備妥醫療資源。
+- q: 熱中有氧耐力施測的防護措施有哪些？
+  a: 避開極端高溫高濕並保留至少 5 °F（3 °C）安全邊際；先建立受測活動體能基準、至少一週熱適應、測前 24 小時補足水分、運動中飲水、穿輕薄透氣衣物、監測心率、留意熱病徵象並備妥醫療支援。
   tag: safety
-- q: 評分者應如何接受訓練以確保施測信度？
-  a: 熟悉所有測試程序和評分標準；與有經驗人員的得分高度相關；給予運動員一致的口頭鼓勵。
+- q: 如何訓練施測者以確保信度？
+  a: 施測者須徹底了解流程；新手應練習正確執行與評分，分數要與有經驗可靠人員密切相關，並以一致方式說明、執行和激勵。
   tag: test-administration
-- q: 施測記錄表應包含哪些核心內容？
-  a: 所有測驗結果、評論欄位、環境條件紀錄（溫濕度）、設備設定細節（如深蹲起槓高度）。
+- q: 施測記錄表應包含哪些內容？
+  a: 應在測前完成，留有所有結果與備註空間，並記錄環境條件和施測設定細節，例如深蹲 1RM 的插銷高度。
   tag: test-administration
-- q: 為何前後測應由同一人施測？
-  a: 不同施測者寬嚴度不一可能扭曲結果；後測評分者更寬鬆會高估進步、更嚴格則會低估進步。
+- q: 為何盡量由同一人完成前後測？
+  a: 不同評分者寬嚴不同會使比較失真；同一評分者測同一組人員的訓練期開始與結束，可較準確衡量進步。
   tag: test-administration
-- q: 1RM 測驗各次嘗試之間的休息時間規範？
-  a: 非接近最大值的嘗試之間至少休息 2 分鐘；接近最大值的嘗試之間至少休息 3 分鐘。
+- q: 多次測驗嘗試的休息時間如何安排？
+  a: 非接近最大值的嘗試間至少休息 2 分鐘；接近最大值的嘗試間至少休息 3 分鐘，以讓每次嘗試完整恢復。
   tag: test-administration
-- q: 測驗電池（test battery）各測驗之間應間隔多久？
-  a: 至少 5 分鐘，以避免前一測驗的疲勞影響後續測驗的結果。
+- q: 測驗組合（test battery）中各測驗之間至少間隔多久？
+  a: 至少 5 分鐘，以防疲勞混淆後續測驗結果。
   tag: test-administration
-- q: 施測前如何準備運動員以提高信度？
-  a: 提前公告日期/目的；1-3 天前安排熟悉練習（低強度）；清楚說明動作要領、暖身規定、嘗試次數與計分方式。
+- q: 測前如何準備運動員以提高信度？
+  a: 預先公告日期、時間與目的；可在測前 1–3 天做短暫、受監督、低於全力的熟悉課程，且未來測驗也重複採用；指示要清楚簡潔。
   tag: test-administration
-- q: 為何測驗應在一天中相同時間施行？
-  a: 生理反應因晝夜節律（circadian rhythm）而異，不同時間施測會影響前後比較的準確性。
+- q: 為何測驗應在一天中的相同時間施行？
+  a: 可避免晝夜節律造成的生理反應波動，使不同測驗日的結果較能比較。
   tag: test-administration
-- q: 暖身對施測信度的影響？
-  a: 適當暖身（一般暖身接活動特異性暖身）可提高信度；可允許 2-3 次特異性熱身嘗試後再計入正式分數。
+- q: 測前熱身如何影響信度？
+  a: 一般熱身後接特異性熱身可提升信度；可依流程允許 2 或 3 次活動特異性熱身嘗試，後續嘗試才計分。
   tag: test-administration
-- q: 推薦的施測順序（7 個類別）？
-  a: ①非疲勞性測驗（身高體重柔韌垂直跳）→②敏捷→③最大肌力功率→④衝刺→⑤局部肌耐力→⑥無氧容量→⑦有氧容量
+- q: 本章建議的測驗類別順序為何？
+  a: 非疲勞測驗→敏捷→最大爆發力與肌力→衝刺→局部肌耐力→疲勞性無氧容量→有氧容量。
   tag: test-sequence
-- q: 為何磷酸肌酸系統測驗與無氧糖解測驗的恢復時間差異巨大？
-  a: 磷酸肌酸系統 3-5 分鐘可完全恢復；無氧糖解系統（如 300 碼折返跑）需至少 1 小時才能完全恢復。
+- q: 磷酸原與最大無氧醣解測驗的完全恢復時間為何？
+  a: 極度動用磷酸原能量系統的測驗需要 3–5 分鐘；最大無氧醣解能量系統測驗至少需要 1 小時。
   tag: test-sequence
-- q: 有氧耐力測驗與無氧容量測驗若必須在同天進行，應如何安排？
-  a: 放在所有其他測驗之後，且必須在充分休息後施行；理想情況下應安排在不同天。
+- q: 有氧容量與疲勞性無氧容量測驗若必須同日，如何安排？
+  a: 應在延長休息後排在所有其他測驗最後；書中仍建議盡量和其他測驗安排在不同日。
   tag: test-sequence
