@@ -89,7 +89,15 @@
 - **驗收**：`cscs_check ch08` 綠、351 條術語零孤兒、44 個 locator 片段全數對得上源書、4 個 numbers 全數回源書確認、`related` 首次出現 4 條且零斷鏈、簡體字 0、渲染實測 `nb-src` 64 / `nb-terms` 64 / `nb-term` 184（未對帳的 ch09 同測法全 0）。
 - **語言掃描的已知假陽性**：「程序」會被大陸用語 blocklist 命中，但「例行程序（routine）」「遵循程序」是正確台灣用法（該禁的是 程式→程序 那個換法）。ch07、ch08 各中一次，都不是錯。
 
-**下一步建議**：① **對帳式補完是唯一剩下的大工程（145 個 topic，ch09–ch24）**——每個 agent 認一章、自己讀 `resources/books/.../chNN_*.md`、**items 與該章 cards 一起重寫**（張數逐章不同，`cscs_make_prompt.py` 已改成從 yaml 現讀，不要手填），一個 topic 填完立刻寫盤，每章跑綠 `cscs_check` 才 commit；ch01–ch07 已走完可當範本，下一章從 **ch09** 接（ch09 已於 2026-08-01 派出，terra @ xhigh）。派工 prompt 務必帶上 ch03 那句「每個數字都要回原文確認淨值／總值與單位」——ch03 品質明顯高於 ch01/ch02 就是因為這句；派工也務必帶上兩支驗收閘（`cscs_check.py` + `hugo server`/`audit.js`），ch05 之前只跑第一支；② **欠 ch01–ch03 一次卡片補課**：這三章的卡片只做過點狀修補（`33d7df5` 修了 ch02 三張），從沒回源書整批重寫，等 ch05 起的新工序跑順後補；ch21/ch23/ch24 已重寫過可跳過，**ch13/ch15 不另派**，等輪到該章時一併處理；③（配額）串行派發，一次一個 agent，驗收 + commit 後才派下一個；5H >80% 一律不開新批次，排 shotclock 等下一窗；④ 遮答自測仍是全頁 toggle，「逐條遮／已答對不再遮」需要 localStorage 層，未做；⑤ `layouts/library/book.html` 與書庫其他 layout（library.css / bookshelf.css）調性未對齊。
+**ch09 對帳完成（2026-08-01，commit `19e12d6`，terra @ xhigh）**：64 條全補、52 張 cards 重寫、`_terms.yaml` 新增 74 條、**`numbers` 137 個**（全書至此最密的一章）。
+
+- **`related` 首次全覆蓋 64/64 且零斷鏈**。ch08 只有 4 條，模板沒改，是章節性質（營養概念彼此高度相扣）。
+- **抽驗深度拉到「歸屬層」而非「存在層」**：數字檢查只證明該值出現在該章，不證明它掛在對的主張上。ch09 挑 10 個高風險每公斤／百分比數字回源書核對「哪個族群、哪個條件、哪個機構的建議」，10/10 全中且但書完整（IOM 歸屬、hot weather、within 30 minutes、even mild dehydration、<12 hours 全部保留）。這層抽驗有價值但吃 Claude 配額，ch10 起維持在高風險數字才做。
+- **`grep -o ".\{150\}pattern.\{180\}"` 在超長行上會不穩定回空**：ch09 差點誤報三個數字（5-6 g/kg、1.5 g/kg、<2% 鉀）是捏造的，實際全部逐字存在。**驗證改用 Python `re.finditer` 掃「去引文、攤平換行」後的全文**，不要用 grep 固定寬度上下文。這是本輪最危險的一次自身錯誤——會產生對正確內容的假指控。
+- **千分位逗號**：源書寫 `15,000` / `2,000`，純數字比對會 MISS，比對前先正規化。
+- **驗收**：`cscs_check ch09` 綠、425 條術語零孤兒、29/29 locator 片段對得上源書真實標題、137 個 numbers 三欄齊全且全數回源書確認、`detail` 64/64 且零複述 `a`、`_terms.yaml` 既有 key 零改動、`hugo --minify` exit 0、渲染實測 ch09 `nb-num-v` 137 / `nb-src` 64 / `nb-rel` 64 / `nb-term` 159（對照組 ch10 全 0）。
+
+**下一步建議**：① **對帳式補完是唯一剩下的大工程（137 個 topic，ch10–ch24）**——每個 agent 認一章、自己讀 `resources/books/.../chNN_*.md`、**items 與該章 cards 一起重寫**（張數逐章不同，`cscs_make_prompt.py` 已改成從 yaml 現讀，不要手填），一個 topic 填完立刻寫盤，每章跑綠 `cscs_check` 才 commit；ch01–ch09 已走完可當範本，下一章從 **ch10** 接（ch10 已於 2026-08-01 派出，terra @ xhigh）。派工 prompt 務必帶上 ch03 那句「每個數字都要回原文確認淨值／總值與單位」——ch03 品質明顯高於 ch01/ch02 就是因為這句；派工也務必帶上兩支驗收閘（`cscs_check.py` + `hugo server`/`audit.js`），ch05 之前只跑第一支；② **欠 ch01–ch03 一次卡片補課**：這三章的卡片只做過點狀修補（`33d7df5` 修了 ch02 三張），從沒回源書整批重寫，等 ch05 起的新工序跑順後補；ch21/ch23/ch24 已重寫過可跳過，**ch13/ch15 不另派**，等輪到該章時一併處理；③（配額）串行派發，一次一個 agent，驗收 + commit 後才派下一個；5H >80% 一律不開新批次，排 shotclock 等下一窗；④ 遮答自測仍是全頁 toggle，「逐條遮／已答對不再遮」需要 localStorage 層，未做；⑤ `layouts/library/book.html` 與書庫其他 layout（library.css / bookshelf.css）調性未對齊。
 
 > ↓ 更早
 
