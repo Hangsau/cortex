@@ -8,1029 +8,1550 @@ topics:
   tag: 多向運動
   items:
   - id: ch19.agility-cod.i01
-    q: 切角影響
+    q: 切入角度如何改變方向改變的身體需求？
     a:
-    - <75°切角：接地時間 <250ms → 類似速度訓練需求
-    - ≥75°：接地時間 >250ms → 需更強離心/最大力量
-    detail: ''
-    terms: []
-    numbers: []
+    - 小於 75° 的淺切入通常接地時間短於 250 ms，身體需求接近速度訓練，但仍須加入知覺—認知訓練
+    - 等於或大於 75° 的較急切入，因煞車需求較大，接地時間常超過 250 ms
+    - 較急的切入應在再加速所需的向心爆發力之外，更強調離心力量與最大力量
+    detail: 這是依切入角度與進入速度而改變的負荷，不是把某一種切入技術當成所有敏捷動作的通則；技術選擇本身也會改變力量與接地時間的需求。
+    terms:
+    - change-of-direction
+    - agility
+    - ground-contact-time
+    - eccentric-action
+    - relative-strength
+    numbers:
+    - v: 75
+      unit: 度
+      of: 區分淺切入與較急方向改變的切入角度
+    - v: 250
+      unit: ms
+      of: 淺切入與較急切入常用的接地時間分界
     concepts:
     - technique
     - motor-control
-    related: []
-    locator: ''
+    related:
+    - ch19.rfd-impulse.i06
+    - ch19.neuromuscular-basis.i06
+    - ch13.agility-speed.i01
+    locator: Agility Performance and Change-of-Direction Ability > Factors Affecting Change of Direction and Perceptual–Cognitive Ability
   - id: ch19.agility-cod.i02
-    q: COD vs Maneuverability
+    q: 方向改變能力與機動性（maneuverability）有何不同？
     a:
-    - COD：急劇方向改變需大幅煞車
-    - 操作性：維持速度繞過障礙（如 Illinois test）
-    detail: ''
-    terms: []
+    - 急劇方向改變需要迅速減速、改變身體朝向，再爆發性地加速
+    - 需要繞錐筒或物體、盡量維持速度的測驗，較可視為機動性測驗
+    - Illinois agility test 與 L-run 的路徑包含彎繞以維持速度，並非都是要求急煞車的方向改變
+    detail: 相近總長度的測驗未必測到同一種方向改變能力；傳統 505、modified 505 與 L-run 的關聯只有中等，選測驗前要先確認運動專項真正需要的是急煞車或機動性。
+    terms:
+    - change-of-direction
+    - maneuverability
+    - five-zero-five-agility-test
+    - illinois-agility-test
+    - l-run
     numbers: []
     concepts:
     - technique
     - motor-control
-    related: []
-    locator: ''
+    related:
+    - ch19.agility-cod.i03
+    - ch19.program-design-monitoring.i08
+    - ch13.agility-speed.i05
+    locator: Agility Performance and Change-of-Direction Ability > Factors Affecting Change of Direction and Perceptual–Cognitive Ability
   - id: ch19.agility-cod.i03
-    q: 測驗選擇
+    q: 何時測到的是方向改變能力，何時才是敏捷？
     a:
-    - 505：COD 速度
-    - T-test：操作性
-    - Illinois：操作性＋代謝
-    - 反應敏捷：有刺激才算真敏捷
-    detail: ''
-    terms: []
+    - 沒有反應成分的測驗應視為方向改變測驗；含有反應刺激的測驗才依定義測到敏捷
+    - Table 19.2 將 reactive agility tests 列為同時測到方向改變速度與知覺—認知能力；505 與 pro agility 測驗只列方向改變速度
+    - T-test、Illinois agility 與 L-run 較著重機動性；測驗時間愈長，代謝需求愈可能影響成績
+    detail: 「agility」出現在測驗名稱並不保證它測的是敏捷；測驗的刺激與路徑決定了其建構內容，因此應依該運動最重要的能力選擇多種測驗共同監控。
+    terms:
+    - agility
+    - change-of-direction
+    - maneuverability
+    - five-zero-five-agility-test
+    - t-test
+    - reactive-agility-test
     numbers: []
     concepts:
     - technique
     - motor-control
-    related: []
-    locator: ''
+    related:
+    - ch19.agility-cod.i02
+    - ch19.program-design-monitoring.i08
+    - ch13.agility-speed.i02
+    - ch13.agility-speed.i05
+    locator: Agility Performance and Change-of-Direction Ability > Factors Affecting Change of Direction and Perceptual–Cognitive Ability > Table 19.2 Aspects of Agility Tested or Trained in Various Drills and Tests
   - id: ch19.agility-cod.i04
-    q: 知覺認知能力
+    q: 知覺—認知能力（perceptual–cognitive ability）包括哪些成分？
     a:
-    - 視覺掃描、預期、模式辨認、情境知識、決策時間準確性、反應時間
-    detail: ''
-    terms: []
+    - 視覺掃描、預期、模式辨識與情境知識
+    - 決策所需時間與正確性，以及反應時間
+    - 這些能力多具運動專項性；本章只在敏捷訓練方法中討論一般性練習
+    detail: 有足夠的身體方向改變能力後，才能把這些知覺—認知成分整合到場上表現；它們不是單靠預先規劃的封閉式方向改變操練就能完整訓練的能力。
+    terms:
+    - perceptual-cognitive-ability
+    - agility
     numbers: []
     concepts:
-    - technique
+    - psychology
     - motor-control
-    related: []
-    locator: ''
+    related:
+    - ch19.core-concepts.i03
+    - ch19.agility-cod.i07
+    - ch19.training-methods.i05
+    locator: Agility Performance and Change-of-Direction Ability > Factors Affecting Change of Direction and Perceptual–Cognitive Ability > Perceptual–Cognitive Ability
   - id: ch19.agility-cod.i05
-    q: 植地相技術
+    q: 變向時煞車與再加速的姿勢原則是什麼？
     a:
-    - 軀幹控制進入煞車
-    - 透過植地相重新定向髖部朝向新方向
-    - 低重心入出切
-    detail: ''
-    terms: []
+    - 進入減速時控制軀幹，避免過大的軀幹動作
+    - 在支撐期將軀幹與髖部重新朝向預定行進方向，以利再加速
+    - 保持踝、膝、髖至軀幹與肩膀的強力排列，並以較低重心進出變向；側向滑步時尤其重要
+    - 膝蓋需在有效關節活動範圍內吸收離心煞車負荷，避免僵直腿式煞車
+    detail: 本章把姿勢視為有效把力量施加到地面的條件；教練可用「把地面推開」這類外部注意焦點來教導封閉式操練，而不是只要求運動員注意某一身體部位。
+    terms:
+    - change-of-direction
+    - eccentric-action
+    - range-of-motion
     numbers: []
     concepts:
     - technique
     - motor-control
-    related: []
-    locator: ''
+    related:
+    - ch19.agility-cod.i06
+    - ch19.training-methods.i06
+    - ch02.joint-biomechanics.i05
+    locator: Agility Performance and Change-of-Direction Ability > Technical Guidelines and Coaching
   - id: ch19.agility-cod.i06
-    q: COD 改善因子
+    q: 較佳方向改變能力的動作特徵有哪些？
     a:
-    - 髖伸展速度↑、重心高度↓、煞車衝量↑、膝屈曲↑、軀幹位移↓、外側軀幹傾斜
-    detail: ''
-    terms: []
-    numbers: []
+    - 較快的髖伸展速度、較低的重心、較大的煞車與推進衝量，以及進入變向時較多的膝屈曲
+    - 減速進入時較小的軀幹角位移；在 180° 變向時則有較大的側向軀幹傾斜
+    - 力量發展應涵蓋動態、等長，尤其是離心力量；高速離心收縮要以其煞車負荷特異地訓練
+    detail: 這是一組與較佳表現相關的特徵，不能化約成單一指標。書中還提醒不同動作（如落地、負重跳接收、高翻或抓舉接槓）對髖、膝、踝施加的離心負荷並不相同。
+    terms:
+    - change-of-direction
+    - impulse
+    - eccentric-action
+    - isometric-action
+    numbers:
+    - v: 180
+      unit: 度
+      of: 與較大側向軀幹傾斜相關的方向改變角度
     concepts:
     - technique
     - motor-control
-    related: []
-    locator: ''
+    related:
+    - ch19.rfd-impulse.i06
+    - ch19.neuromuscular-basis.i07
+    - ch19.training-methods.i06
+    locator: Agility Performance and Change-of-Direction Ability > Factors Affecting Change of Direction and Perceptual–Cognitive Ability > Change-of-Direction Ability
   - id: ch19.agility-cod.i07
-    q: 攻守差異
+    q: 敏捷的進攻與防守情境如何影響決策？
     a:
-    - 進攻：往相反方向
-    - 防守：跟隨刺激方向
-    - 兩者腦部處理策略不同
-    detail: ''
-    terms: []
+    - 知覺—認知需求包括視覺搜尋掃描、預期、決策與反應時間
+    - 戰術情境是進攻或防守，會改變所需的腦部處理策略
+    - 監控決策時間時，防守定義為朝刺激同方向移動；進攻定義為朝刺激相反方向移動
+    detail: 同一位運動員在進攻與防守可能呈現不同的敏捷限制，因此評估不應只報一個籠統的反應時間，而應保留符合比賽情境的刺激與方向規則。
+    terms:
+    - agility
+    - perceptual-cognitive-ability
+    - decision-making-time
     numbers: []
     concepts:
-    - technique
+    - psychology
     - motor-control
-    related: []
-    locator: ''
+    related:
+    - ch19.agility-cod.i04
+    - ch19.program-design-monitoring.i05
+    locator: Agility Development Strategies > Monitoring Agility and Change-of-Direction Ability > Table 19.7 Monitoring Agility Development
   - id: ch19.agility-cod.i08
-    q: 考試關鍵
+    q: 方向改變缺額（change-of-direction deficit）如何計算與解讀？
     a:
-    - ★ COD Deficit = COD 時間 - 直線衝刺時間
-    - 反映 COD 純能力（排除直線速度）
-    detail: ''
-    terms: []
-    numbers: []
+    - 方向改變缺額是等長直線衝刺時間與方向改變測驗時間之差
+    - 書中範例為：從 505 方向改變時間扣除 10 m 直線衝刺時間
+    - 此值用來看方向改變需求讓運動員多花了多少時間
+    detail: 它提供的是相對於直線跑的額外時間，而不是獨立、無誤差的「純能力」分數；宜連同植地接觸時間、入速與出速一起判讀。
+    terms:
+    - change-of-direction-deficit
+    - five-zero-five-agility-test
+    numbers:
+    - v: 10
+      unit: m
+      of: 書中方向改變缺額範例所扣除的直線衝刺距離
     concepts:
-    - technique
-    - motor-control
-    related: []
-    locator: ''
+    - measurement
+    related:
+    - ch19.program-design-monitoring.i03
+    - ch19.program-design-monitoring.i04
+    - ch13.agility-speed.i05
+    locator: Agility Development Strategies > Monitoring Agility and Change-of-Direction Ability > Table 19.7 Monitoring Agility Development
 - id: core-concepts
   title: 三大核心概念 Speed / COD / Agility
   desc: ''
   tag: 定義必考
   items:
   - id: ch19.core-concepts.i01
-    q: Speed 速度
+    q: 速度（speed）在本章的定義是什麼？
     a:
-    - 達成高移動速度所需的技能與能力
-    - 需能加速並達到最大速度
-    detail: ''
-    terms: []
+    - 速度是達成高移動速度所需的技能與能力
+    - 衝刺速度需要能加速並達到最大速度
+    detail: 本章將 speed 用於描述高移動速度的能力；物理上 speed 是只有快慢、沒有方向的純量，不能和同時包含方向的 velocity 混用。
+    terms:
+    - speed
+    - acceleration
+    - velocity
     numbers: []
     concepts:
     - technique
     - motor-control
-    related: []
-    locator: ''
+    related:
+    - ch19.sprint-speed-components.i01
+    - ch19.rfd-impulse.i01
+    locator: Running Speed
   - id: ch19.core-concepts.i02
-    q: Change of Direction（COD）
+    q: 方向改變（change of direction）在本章的定義是什麼？
     a:
-    - 爆發性改變移動方向、速度或模式的能力
-    - 無反應刺激（預先規劃）
-    detail: ''
-    terms: []
+    - 方向改變是爆發性改變移動方向、速度或移動模式所需的技能與能力
+    - 預先決定路徑時，運動員受限於其減速、重新定向與再加速的身體能力
+    detail: 加速只是方向改變能力的一部分；減速能力與移動模式的要求，讓其訓練需求不同於單純直線速度。
+    terms:
+    - change-of-direction
+    - acceleration
     numbers: []
     concepts:
     - technique
     - motor-control
-    related: []
-    locator: ''
+    related:
+    - ch19.agility-cod.i05
+    - ch19.agility-cod.i06
+    locator: Agility Performance and Change-of-Direction Ability
   - id: ch19.core-concepts.i03
-    q: Agility 敏捷
+    q: 敏捷（agility）在本章的定義是什麼？
     a:
-    - 在回應刺激（對手、球）下改變方向/速度/模式
-    - 需加入知覺認知能力
-    detail: ''
-    terms: []
+    - 敏捷是在回應刺激時，改變方向、速度或移動模式所需的技能與能力
+    - 它結合方向改變能力與知覺—認知能力
+    detail: 刺激可以是防守者或球；同樣的身體變向，是否需在刺激下選擇反應，決定它在本章被歸為敏捷或預先規劃的方向改變。
+    terms:
+    - agility
+    - change-of-direction
+    - perceptual-cognitive-ability
     numbers: []
     concepts:
     - technique
     - motor-control
-    related: []
-    locator: ''
+    related:
+    - ch19.agility-cod.i03
+    - ch19.agility-cod.i04
+    - ch13.agility-speed.i01
+    locator: Agility Performance and Change-of-Direction Ability
   - id: ch19.core-concepts.i04
-    q: COD vs Agility 差異
+    q: 為何方向改變與敏捷不能視為同一訓練品質？
     a:
-    - COD：純物理能力（預定路線）
-    - Agility：COD + 知覺認知（反應刺激）
-    detail: ''
-    terms: []
+    - 方向改變可在預先規劃的路徑上檢驗身體能力與技術
+    - 敏捷除了方向改變能力，還要因應刺激所帶來的知覺—認知要求
+    - 敏捷中的時間限制可能縮短可用來產生所需力量與衝量的時間，因而改變身體需求
+    detail: 兩者重疊但不等同；若訓練只安排固定路徑，能發展方向改變的身體與技術面，卻不能完整重現場上敏捷的知覺—認知限制。
+    terms:
+    - agility
+    - change-of-direction
+    - perceptual-cognitive-ability
+    - impulse
     numbers: []
     concepts:
     - technique
     - motor-control
-    related: []
-    locator: ''
+    related:
+    - ch19.rfd-impulse.i06
+    - ch19.training-methods.i05
+    locator: Speed and Agility Mechanics > Practical Implications for Change of Direction and Agility
   - id: ch19.core-concepts.i05
-    q: 線性 vs 多向
+    q: 線性與多向高速移動在運動中的差異是什麼？
     a:
-    - 直線高速＝衝刺
-    - 團隊運動以多向移動為主，需快速高效的 COD
-    detail: ''
-    terms: []
+    - 線性高速移動通常指衝刺，是田徑與開放場地跑動的基礎要求
+    - 團隊運動的比賽主要是多向移動，成功部分仰賴迅速且有效率地因應不斷改變的場上情境
+    detail: 把「跑得快」視為單一能力會掩蓋專項需求：直線衝刺的加速與最大速度，和多向運動的減速、變向及刺激反應都有不同限制。
+    terms:
+    - sprinting
+    - change-of-direction
+    - agility
     numbers: []
     concepts:
     - technique
     - motor-control
-    related: []
-    locator: ''
+    related:
+    - ch19.sprint-technique.i08
+    - ch19.agility-cod.i02
+    locator: Agility Performance and Change-of-Direction Ability
   - id: ch19.core-concepts.i06
-    q: 力量的角色
+    q: 為何速度、方向改變與敏捷都重視快速施力？
     a:
-    - 速度、COD、敏捷均以力量為基礎
-    - 但事件時間短（0–200ms）無法達最大肌力
-    detail: ''
-    terms: []
-    numbers: []
+    - 這些爆發性動作的表現取決於身體能力與技術熟練度，以及在活動限制內使用力量的能力
+    - 最大收縮力至少需 300 ms 才能產生，但許多運動活動只持續 0 至 200 ms
+    - 因此，比起僅有高最大力量，運動情境更重視在有限時間快速施力的能力
+    detail: 本章沒有否定最大力量的重要性，而是指出它不能在多數比賽動作的時間窗內完整表現；訓練應把力量能力轉成符合動作時間限制的施力能力。
+    terms:
+    - rate-of-force-development
+    numbers:
+    - v: 300
+      unit: ms
+      of: 產生最大收縮力至少所需時間
+    - v: 0–200
+      unit: ms
+      of: 多數運動活動的持續時間範圍
     concepts:
     - technique
     - motor-control
-    related: []
-    locator: ''
+    related:
+    - ch19.rfd-impulse.i01
+    - ch19.rfd-impulse.i02
+    - ch13.power-tests.i01
+    locator: Speed and Agility Mechanics > Rate of Force Development
   - id: ch19.core-concepts.i07
-    q: 加速與煞車
+    q: 加速、減速與再加速如何區分速度、方向改變與敏捷？
     a:
-    - 速度→加速為主
-    - COD 需加速＋煞車＋再加速
-    - 敏捷更加入認知限制煞車時間
-    detail: ''
-    terms: []
+    - 速度要求加速並到達最大速度
+    - 方向改變能力要求有效施力以減速，再朝另一方向加速；有時還會改變移動模式
+    - 敏捷同樣需要這些身體能力，但刺激反應會影響可用於煞車與施力的時間
+    detail: 減速不是「負加速」的文字替代而已：在實務上它意味著要控制動量並承受煞車負荷，因此訓練會特別納入離心力量與身體重新定向。
+    terms:
+    - acceleration
+    - change-of-direction
+    - agility
+    - eccentric-action
     numbers: []
     concepts:
     - technique
     - motor-control
-    related: []
-    locator: ''
+    related:
+    - ch19.agility-cod.i05
+    - ch19.rfd-impulse.i05
+    locator: Speed and Agility Mechanics > Practical Implications for Change of Direction and Agility
   - id: ch19.core-concepts.i08
-    q: 考試關鍵
+    q: 敏捷與方向改變能力的關係是什麼？
     a:
-    - ★ Agility = COD ability + perceptual-cognitive ability（常考區分題）
-    detail: ''
-    terms: []
+    - 敏捷需要方向改變能力結合知覺—認知能力
+    - 方向改變的身體能力可以是敏捷的一個成分，但知覺—認知成分會改變其身體需求
+    detail: 這個關係是概念性的組合，不是可直接相加的數學方程式；評估與訓練都須分別查看身體變向與刺激反應兩面。
+    terms:
+    - agility
+    - change-of-direction
+    - perceptual-cognitive-ability
     numbers: []
     concepts:
     - technique
     - motor-control
-    related: []
-    locator: ''
+    related:
+    - ch19.core-concepts.i03
+    - ch19.agility-cod.i03
+    - ch19.program-design-monitoring.i06
+    locator: Agility Performance and Change-of-Direction Ability
 - id: neuromuscular-basis
   title: 神經生理基礎 SSC / SMM / 肌肉剛度
   desc: ''
   tag: 生理機制
   items:
   - id: ch19.neuromuscular-basis.i01
-    q: Neural Drive 神經驅動
+    q: 神經驅動（neural drive）如何與衝刺表現相關？
     a:
-    - 力量訓練 → 提升神經驅動（衝動速率與幅度）→ 增加力量與 RFD
-    detail: ''
-    terms: []
+    - 神經驅動是神經系統送往目標肌肉之衝動的速率與振幅
+    - 力量訓練可提高神經驅動；其增加代表動作電位發生速率上升，並與肌力及力量發展速率的增加相關
+    - 增強式訓練可提高高閾值運動神經元興奮性，也能增進神經驅動
+    detail: 本章以神經驅動串連力量訓練、增強式訓練與衝刺訓練的神經肌肉適應，並將其視為可能促進 RFD 與衝量產生的因素，而非保證單一訓練就會直接提升衝刺成績。
+    terms:
+    - neural-drive
+    - action-potential
+    - rate-of-force-development
+    - motor-neuron
     numbers: []
     concepts:
     - force-production
     - reflex
-    related: []
-    locator: ''
+    related:
+    - ch19.rfd-impulse.i01
+    - ch19.training-methods.i03
+    - ch01.neuromuscular.rate-coding
+    locator: Neurophysiological Basis for Speed > Nervous System
   - id: ch19.neuromuscular-basis.i02
-    q: SSC 伸縮循環
+    q: 伸展—縮短循環（stretch–shortening cycle, SSC）是什麼？
     a:
-    - 離心-向心耦合現象
-    - 肌腱快速被拉長後立即縮短
-    - 增加機械效率與衝量
-    detail: ''
-    terms: []
+    - SSC 是肌肉—肌腱複合體快速且強制地被拉長或預拉伸後，立即以反應性或彈性方式縮短的離心—向心耦合現象
+    - 快速從離心動作轉換到向心動作的跑、跳與爆發性速度改變，特別常見 SSC
+    - 急性 SSC 動作傾向透過彈性能量回收，提高機械效率與衝量
+    detail: 在菁英運動員中，SSC 表現是一項獨立於最大力量的能力；它利用肌肉—肌腱本身特性以及傳回神經系統的力量與長度反射回饋。
+    terms:
+    - stretch-shortening-cycle
+    - eccentric-action
+    - concentric-action
+    - impulse
     numbers: []
     concepts:
     - force-production
     - reflex
-    related: []
-    locator: ''
+    related:
+    - ch19.neuromuscular-basis.i03
+    - ch19.training-methods.i04
+    locator: Neurophysiological Basis for Speed > Stretch–Shortening Cycle
   - id: ch19.neuromuscular-basis.i03
-    q: SSC 訓練標準
+    q: 改善 SSC 表現的訓練活動應符合哪些條件？
     a:
-    - ①多關節技巧動作傳遞力量 ②短組間歇保持品質
-    - 複合訓練（PAP）可增強效果
-    detail: ''
-    terms: []
+    - 動作應是能沿動力鏈傳遞力量並利用彈性—反射機制的技巧性多關節動作
+    - 為管理疲勞、強調工作品質與技術，應安排短工作段或叢集，並穿插頻繁休息
+    - 漸進增強式訓練與重阻力方法的組合可達成這兩個目標；複合訓練是在同一次訓練交替 SSC 任務與重阻力運動
+    detail: 複合訓練的急性後效應被稱為運動後活化增益；書中說它日益流行於進階運動員，但可能不適合初學者或青少年。
+    terms:
+    - stretch-shortening-cycle
+    - complex-training
+    - postactivation-potentiation
+    - multijoint-exercise
     numbers: []
     concepts:
     - force-production
     - reflex
-    related: []
-    locator: ''
+    related:
+    - ch19.neuromuscular-basis.i08
+    - ch19.training-methods.i03
+    locator: Neurophysiological Basis for Speed > Stretch–Shortening Cycle
   - id: ch19.neuromuscular-basis.i04
-    q: Spring-Mass Model（SMM）
+    q: 彈簧—質量模型（spring–mass model, SMM）如何描述直立衝刺？
     a:
-    - 人體跑步如彈簧
-    - 著地壓縮→蓄能→伸展推進
-    - 肌肉剛度是關鍵
-    detail: ''
-    terms: []
+    - SMM 將衝刺描繪成：身體質量的位移源自肌肉架構內類彈簧作用共同捲曲與伸展所傳遞的能量
+    - 一個步態週期中，一側彈簧壓縮並把衝刺者向前推進，另一側則前擺準備接地
+    - 直立衝刺在足部著地後開始壓縮；身體重心越過足部時在中支撐達到最低點，推離時則以彈簧伸展回傳能量與力量
+    detail: SMM 是連結 SSC、肌肉剛度與衝刺的概念框架。書中也指出頂尖衝刺者在最大速度的支撐期可能偏離典型 SMM，因其多數垂直力出現在接地的前半段。
+    terms:
+    - spring-mass-model
+    - stretch-shortening-cycle
+    - ground-reaction-force
     numbers: []
     concepts:
     - force-production
     - reflex
-    related: []
-    locator: ''
+    related:
+    - ch19.neuromuscular-basis.i05
+    - ch19.sprint-technique.i04
+    locator: Neurophysiological Basis for Speed > Spring–Mass Model
   - id: ch19.neuromuscular-basis.i05
-    q: Muscle Stiffness
+    q: 肌肉剛度（muscle stiffness）與步頻有何關係？
     a:
-    - 步頻增加→腿彈簧剛度須增加
-    - 訓練可提升預激活與肌梭敏感度達此效果
-    detail: ''
-    terms: []
+    - 在固定跑速下，步頻提高時，腿部彈簧的一項重要特徵是肌肉剛度提高
+    - 力量與速度訓練的暴露可能與衝刺所用肌群預活化提高有關
+    - 肌梭回饋所需時間改善，與更大的肌肉剛度及肌腱順應性有關
+    detail: 這組生理條件為 SSC 與 SMM 提供支持；本章的實務建議是安排能提高神經驅動、並過負荷 SSC 中髖與膝區肌群的運動。
+    terms:
+    - muscle-stiffness
+    - muscle-spindle
+    - stretch-shortening-cycle
     numbers: []
     concepts:
     - force-production
     - reflex
-    related: []
-    locator: ''
+    related:
+    - ch19.sprint-speed-components.i03
+    - ch19.training-methods.i03
+    - ch01.proprioception.spindle
+    locator: Neurophysiological Basis for Speed > Spring–Mass Model
   - id: ch19.neuromuscular-basis.i06
-    q: COD 地面接觸時間
+    q: 方向改變、敏捷與衝刺的接地時間如何比較？
     a:
-    - COD 植地：0.44–0.72s
-    - Agility：0.23–0.25s
-    - 均長於衝刺（需較長 SSC）
-    detail: ''
-    terms: []
-    numbers: []
+    - 敏捷動作的植地接觸時間為 0.23 至 0.25 秒，方向改變動作為 0.44 至 0.722 秒
+    - 兩者都長於衝刺加速期的 0.17 至 0.20 秒與最大速度期的 0.09 至 0.11 秒
+    - 因此，多數方向改變需要較長的 SSC 活動
+    detail: 接地時間的差異是本章將方向改變的訓練需求與直線衝刺區隔開的理由之一；較長並不代表較好，而是反映煞車、重新定向及再加速的負荷。
+    terms:
+    - ground-contact-time
+    - change-of-direction
+    - agility
+    - stretch-shortening-cycle
+    numbers:
+    - v: 0.23–0.25
+      unit: 秒
+      of: 敏捷動作植地相的接觸時間
+    - v: 0.44–0.722
+      unit: 秒
+      of: 方向改變動作植地相的接觸時間
+    - v: 0.17–0.20
+      unit: 秒
+      of: 衝刺加速期的典型接地時間
+    - v: 0.09–0.11
+      unit: 秒
+      of: 衝刺最大速度期的典型接地時間
     concepts:
     - force-production
     - reflex
-    related: []
-    locator: ''
+    related:
+    - ch19.agility-cod.i01
+    - ch19.rfd-impulse.i04
+    locator: Neurophysiological Basis for Speed > Additional Neurophysiological Considerations for Change-of-Direction and Agility Development
   - id: ch19.neuromuscular-basis.i07
-    q: 離心訓練特異性
+    q: 為何方向改變的煞車須特別訓練高速離心收縮？
     a:
-    - 煞車需高速高力離心收縮
-    - 離心訓練須針對負荷速度具特異性才有效
-    detail: ''
-    terms: []
+    - 有效煞車是敏捷表現的重要部分，應考量高速、高力離心收縮的神經肌肉發展
+    - 離心收縮所動用的適應或運動單位徵召途徑，與向心收縮不同
+    - 離心訓練的適應似乎對離心負荷速度具有特異性
+    detail: 書中因此建議以動作所需的高速離心負荷建立煞車能力；drop landing、負重跳落地與高翻或抓舉接槓都能提供離心負荷，但各自作用於髖、膝、踝的方式不同。
+    terms:
+    - eccentric-action
+    - concentric-action
+    - change-of-direction
+    - depth-jump
+    - power-clean
+    - power-snatch
     numbers: []
     concepts:
     - force-production
     - reflex
-    related: []
-    locator: ''
+    related:
+    - ch19.agility-cod.i06
+    - ch19.training-methods.i06
+    locator: Neurophysiological Basis for Speed > Additional Neurophysiological Considerations for Change-of-Direction and Agility Development
   - id: ch19.neuromuscular-basis.i08
-    q: 考試關鍵
+    q: 複合訓練與運動後活化增益（PAP）的關係是什麼？
     a:
-    - ★ PAP = postactivation potentiation
-    - 複合訓練基礎
-    - 不適合新手/青少年
-    detail: ''
-    terms: []
+    - 複合訓練在同一訓練中交替 SSC 任務與重阻力運動
+    - 此策略的基礎是稱為運動後活化增益的急性後效應
+    - 它日益用於提升進階運動員表現，但可能不適合初學者或青少年
+    detail: 書中只將 PAP 列為這個訓練策略的急性後效應，沒有給出固定的負荷、休息時間或保證效果；安排時仍須以動作品質與運動員訓練狀態為界。
+    terms:
+    - complex-training
+    - postactivation-potentiation
+    - stretch-shortening-cycle
     numbers: []
     concepts:
     - force-production
     - reflex
-    related: []
-    locator: ''
+    related:
+    - ch19.neuromuscular-basis.i03
+    - ch19.training-methods.i04
+    locator: Neurophysiological Basis for Speed > Stretch–Shortening Cycle
 - id: program-design-monitoring
   title: 計畫設計與監控 週期化 / COD Deficit
   desc: ''
   tag: 程式設計
   items:
   - id: ch19.program-design-monitoring.i01
-    q: 週期化變數
+    q: 速度、方向改變與敏捷計畫中可操作的訓練變項有哪些？
     a:
-    - 訓練間距、順序、頻率、強度、休息間隔、組數、總量、功重比
-    - 與重訓週期化概念相同
-    detail: ''
-    terms: []
+    - 工作間隔、運動順序、頻率、強度、恢復間隔、重複次數、組、組數序列與總量
+    - 工作休息比描述組內運動與休息的相對密度；總量負荷則是處方強度下完成的總量密度
+    - 這些變項既要分別考慮，也要連同整體系統與個別運動員的監控反應一起調整
+    detail: 週期化是利用循序訓練階段策略性調整準備狀態，以協調訓練疲勞與適應；本章明確指出第 21 章的阻力訓練週期化概念也可套用於速度、方向改變與敏捷。
+    terms:
+    - periodization
+    - exercise-order
+    - training-frequency
+    - rest-period
+    - set
+    - volume
+    - volume-load
     numbers: []
     concepts:
     - program-design
     - periodization
-    related: []
-    locator: ''
+    related:
+    - ch19.training-methods.i07
+    - ch19.program-design-monitoring.i06
+    - ch21.periodization-hierarchy.i04
+    locator: Program Design
   - id: ch19.program-design-monitoring.i02
-    q: 速度監控指標
+    q: 速度發展可監控哪些步態指標？
     a:
-    - 接地時間、步長、步幅、騰空時間、步幅角度、速度、加速度
-    - 搭配高速攝影機
-    detail: ''
-    terms: []
+    - 可監控接地時間、步長、步幅、騰空時間、步幅角度、速度與加速度
+    - 高速攝影機或以紅外線中斷記錄資料的光學計時系統，可補足只看完賽時間的限制
+    - 接地時間變短且衝刺完成時間改善，通常表示能在較短時間產生較高施力速率；但起跑初期因加速力學，接地時間可能稍長
+    detail: 各數值不是單獨的「越大越好」或「越小越好」：例如騰空時間變長，可能是短時間大垂直力帶來的正確水平位移，也可能是過久施力造成不必要的重心垂直振幅。
+    terms:
+    - ground-contact-time
+    - stride-length
+    - flight-time
+    - speed
+    - acceleration
+    - electronic-timing
     numbers: []
     concepts:
     - program-design
     - periodization
-    related: []
-    locator: ''
+    related:
+    - ch19.sprint-speed-components.i03
+    - ch19.sprint-technique.i03
+    - ch13.agility-speed.i06
+    locator: Speed Development Strategies > Monitoring Sprint Ability > Table 19.6 Monitoring Speed Development
   - id: ch19.program-design-monitoring.i03
-    q: COD Deficit
+    q: 如何以方向改變缺額監控方向改變表現？
     a:
-    - = 505 測驗時間 - 10m 直線時間
-    - 排除直線速度影響，反映純 COD 能力
-    detail: ''
-    terms: []
-    numbers: []
+    - 方向改變缺額是等長直線衝刺與方向改變測驗完成時間的差
+    - 範例是以 505 方向改變測驗時間減去 10 m 直線衝刺時間
+    - 它反映方向改變需求使運動員額外花費的時間
+    detail: 完成整個測驗的時間包含大量直線跑，未必隔離出真正的變向能力；缺額可減少這個混淆，但仍應和植地相接地時間及進、出速度一起監控。
+    terms:
+    - change-of-direction-deficit
+    - change-of-direction
+    - five-zero-five-agility-test
+    numbers:
+    - v: 10
+      unit: m
+      of: 方向改變缺額範例的等長直線衝刺距離
     concepts:
     - program-design
     - periodization
-    related: []
-    locator: ''
+    related:
+    - ch19.agility-cod.i08
+    - ch19.program-design-monitoring.i04
+    - ch13.agility-speed.i05
+    locator: Agility Development Strategies > Monitoring Agility and Change-of-Direction Ability > Table 19.7 Monitoring Agility Development
   - id: ch19.program-design-monitoring.i04
-    q: 出速與入速監控
+    q: 入速與出速如何用於監控方向改變？
     a:
-    - Entry velocity（植地前）＋ Exit velocity（離地後第一步）
-    - 搭配接地時間判斷 RFD
-    detail: ''
-    terms: []
+    - 入速是植地相前的速度，可在數步或進入植地相的最後一步測得
+    - 出速是變向植地推離後、再加速的第一步水平速度，從植地腳趾離地至下一步著地計算
+    - 出速變快且接地時間相同或更快，表示與方向改變改善相關的力量發展速率較佳
+    detail: 入速讓教練知道運動員實際承受的變向需求；若不控制或至少記錄入速，較快出速可能只是以較慢的入速換來，無法解讀為煞車與再加速能力進步。
+    terms:
+    - entry-velocity
+    - exit-velocity
+    - ground-contact-time
+    - rate-of-force-development
     numbers: []
     concepts:
     - program-design
     - periodization
-    related: []
-    locator: ''
+    related:
+    - ch19.rfd-impulse.i06
+    - ch19.agility-cod.i05
+    locator: Agility Development Strategies > Monitoring Agility and Change-of-Direction Ability > Table 19.7 Monitoring Agility Development
   - id: ch19.program-design-monitoring.i05
-    q: 決策時間
+    q: 敏捷測驗的決策時間如何定義與解讀？
     a:
-    - 刺激出現到第一確定踩地間距
-    - 負值＝預測到刺激前已動（只在真人刺激中出現）
-    detail: ''
-    terms: []
+    - 決策時間是兩個事件之間的時間，可為正或負；可量測刺激與運動員第一個明確變向植地之間的時間
+    - 防守為朝刺激同方向移動；進攻為朝刺激相反方向移動
+    - 負決策時間表示運動員在刺激完成動作前就預判變向；這只見於對另一人動作的反應，包括影片或真人刺激
+    detail: 將高速攝影機放在變向側面，可同時捕捉刺激與第一個確定植地。進攻、防守都量能顯示運動員是否只在特定比賽情境需要發展知覺—認知能力。
+    terms:
+    - decision-making-time
+    - agility
+    - perceptual-cognitive-ability
     numbers: []
     concepts:
     - program-design
     - periodization
-    related: []
-    locator: ''
+    related:
+    - ch19.agility-cod.i07
+    - ch19.agility-cod.i04
+    locator: Agility Development Strategies > Monitoring Agility and Change-of-Direction Ability > Table 19.7 Monitoring Agility Development
   - id: ch19.program-design-monitoring.i06
-    q: 敏捷訓練進程
+    q: 敏捷訓練應如何由方向改變操練進展？
     a:
-    - COD 閉式技能（前進煞車→側向煞車→再加速）→ 加入一般刺激 → 加入運動特異刺激
-    detail: ''
-    terms: []
+    - 先以預先規劃的方向改變操練建立身體能力與閉鎖技能的技術，再提高其身體負荷
+    - 然後加入一般刺激，例如哨音、教練口令、指向箭頭或閃光箭頭
+    - 成功後再進展至具運動專項刺激的閃避操練與小場比賽；可逐漸增加時間或空間壓力
+    detail: 書中說隨機安排或只用小場比賽的「運動專項方法」未被發現同樣有效；進階前要先讓運動員有足夠身體與技術能力承受敏捷操練的負荷。
+    terms:
+    - agility
+    - change-of-direction
+    - perceptual-cognitive-ability
+    - small-sided-games
     numbers: []
     concepts:
     - program-design
     - periodization
-    related: []
-    locator: ''
+    related:
+    - ch19.training-methods.i05
+    - ch19.agility-cod.i04
+    - ch19.core-concepts.i08
+    locator: Methods of Developing Agility > Perceptual–Cognitive Ability
   - id: ch19.program-design-monitoring.i07
-    q: 需求分析步驟
+    q: 敏捷發展範例如何利用需求分析安排計畫？
     a:
-    - ①運動需求分析 ②比較標準分→找強弱 ③確定主次訓練目標 ④分配各 block 時間比例
-    detail: ''
-    terms: []
+    - 先做運動需求分析，並配對適當測驗來評估所需能力
+    - 以標準分數和表現標準或團隊平均比較，找出優勢與弱點
+    - 為運動員安排主要與次要發展區域，再依需要分配可用訓練時間
+    - 持續監控方向改變與敏捷的發展，確認訓練區塊的時間比例是否合適
+    detail: 本章範例用籃球員說明，重點不是複製固定百分比，而是直接評估運動員的強弱，鎖定最大的改善窗口；敏捷表現由多項因素支撐，不能只依單一測驗分數。
+    terms:
+    - needs-analysis
+    - z-score
+    - periodization
+    - change-of-direction-deficit
     numbers: []
     concepts:
     - program-design
     - periodization
-    related: []
-    locator: ''
+    related:
+    - ch17.needs-analysis.i01
+    - ch19.program-design-monitoring.i03
+    - ch19.program-design-monitoring.i06
+    locator: Agility Development Strategies > Sample Program of Agility Development
   - id: ch19.program-design-monitoring.i08
-    q: 考試關鍵
+    q: 為何 Illinois agility test 的改善不能直接當作方向改變能力進步？
     a:
-    - ★ Illinois test 改善可能只反映代謝能力提升，非 COD 改善（測驗時間過長）
-    detail: ''
-    terms: []
+    - Illinois agility test 常用於足球運動員，但沒有反應成分，依本章定義應視為方向改變／機動性測驗，而非完整敏捷測驗
+    - 它的測驗長度造成較短測驗沒有的高代謝需求
+    - 因此季前訓練後成績改善，可能反映代謝能力改善，而不一定是方向改變能力變好
+    detail: 測驗本身的長度與路徑會改變被測量的能力。評估時應批判地選擇測驗，搭配不同變向需求與知覺—認知要求的測驗，而非從名稱推定其內容。
+    terms:
+    - agility
+    - change-of-direction
+    - maneuverability
+    - metabolic-specificity
     numbers: []
     concepts:
     - program-design
     - periodization
-    related: []
-    locator: ''
+    related:
+    - ch19.agility-cod.i03
+    - ch19.agility-cod.i02
+    - ch13.agility-speed.i01
+    locator: Agility Performance and Change-of-Direction Ability > Factors Affecting Change of Direction and Perceptual–Cognitive Ability
 - id: rfd-impulse
   title: RFD 與 Impulse 力學基礎
   desc: ''
   tag: 力學核心
   items:
   - id: ch19.rfd-impulse.i01
-    q: RFD 定義
+    q: 力量發展速率（rate of force development, RFD）是什麼？
     a:
-    - Rate of Force Development：最短時間內發展最大力量
-    - = ΔForce / ΔTime
-    detail: ''
-    terms: []
+    - RFD 是以最短時間發展最大力量，通常作為爆發力的指標
+    - 可描述為力量的變化除以時間的變化
+    - 在時間限制決定成敗的運動情境，RFD 可能比最大力量更有助於衡量爆發能力
+    detail: RFD 關注的是施力速度，不是單看力量峰值；這正是它能處理多數競技動作無法等到最大力量出現的原因。
+    terms:
+    - rate-of-force-development
     numbers: []
     concepts:
     - force-production
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch19.core-concepts.i06
+    - ch19.neuromuscular-basis.i01
+    locator: Speed and Agility Mechanics > Rate of Force Development
   - id: ch19.rfd-impulse.i02
-    q: 最大力量時間限制
+    q: 為何最大力量不必然是短時間運動的主要限制？
     a:
-    - 最大收縮力需 ≥300ms
-    - 但多數運動動作僅 0–200ms → RFD 比最大力更重要
-    detail: ''
-    terms: []
-    numbers: []
+    - 產生最大收縮力至少需要 300 ms
+    - 許多運動活動只持續 0 至 200 ms
+    - 功能動作施力通常很短，常為 0.1 至 0.2 秒；絕對最大力量發展可能需 0.6 至 0.8 秒
+    detail: 本章以此時間落差說明 RFD 的實務價值，並非宣稱最大力量沒有用；較大的力量能力仍是快速施力的基礎之一。
+    terms:
+    - rate-of-force-development
+    numbers:
+    - v: 300
+      unit: ms
+      of: 產生最大收縮力至少所需時間
+    - v: 0–200
+      unit: ms
+      of: 多數運動活動的時間範圍
+    - v: 0.1–0.2
+      unit: 秒
+      of: 功能性動作通常施力的時間範圍
+    - v: 0.6–0.8
+      unit: 秒
+      of: 絕對最大力量發展可能所需時間
     concepts:
     - force-production
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch19.core-concepts.i06
+    - ch19.sprint-speed-components.i04
+    locator: Speed and Agility Mechanics > Rate of Force Development > Figure 19.1 Force as a Function of Time
   - id: ch19.rfd-impulse.i03
-    q: Impulse 衝量
+    q: 衝量（impulse）是什麼，如何影響動量？
     a:
-    - = Force × Time
-    - 力-時間曲線下面積
-    - 決定動量變化的大小
-    detail: ''
-    terms: []
+    - 衝量是產生的力量乘以產生該力量所需的時間，也是力量—時間曲線下的面積
+    - 依衝量—動量關係，衝量決定物體動量改變的大小
+    - 跑步每一步的施力大小與施力時間共同改變運動員動量，可用於加速、再加速或減速
+    detail: 衝量把「力多大」與「能施力多久」一起納入；本章建議速度訓練除了 RFD 外，也要聚焦力量—時間曲線下的衝量。
+    terms:
+    - impulse
+    - momentum
+    - rate-of-force-development
     numbers: []
     concepts:
     - force-production
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch19.rfd-impulse.i05
+    - ch19.rfd-impulse.i06
+    locator: Speed and Agility Mechanics > Impulse
   - id: ch19.rfd-impulse.i04
-    q: Ground Contact Time
+    q: 接地時間（ground contact time）在衝刺與方向改變中代表什麼？
     a:
-    - 衝刺著地相 / COD 植地相時，力施加於地面的時間
-    - 越短 → 越需高 RFD
-    detail: ''
-    terms: []
+    - 衝刺支撐期或方向改變植地期中，力量施加到跑步表面的時間稱為接地時間
+    - 此期間的力量與時間乘積形成衝量；改變衝量便會改變動量
+    - 最大速度期的接地時間比加速期短，且其施力不對稱、RFD 很高
+    detail: 接地時間不是單獨追求愈短愈好。它必須配合動作階段和能否產生足夠力量解讀；方向改變的植地時間本來就通常長於衝刺。
+    terms:
+    - ground-contact-time
+    - impulse
+    - rate-of-force-development
+    - change-of-direction
     numbers: []
     concepts:
     - force-production
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch19.neuromuscular-basis.i06
+    - ch19.program-design-monitoring.i02
+    locator: Speed and Agility Mechanics > Impulse
   - id: ch19.rfd-impulse.i05
-    q: Momentum 動量
+    q: 本章如何說明動量與衝量的實務意義？
     a:
-    - = mass × velocity
-    - 衝量變化 → 動量變化
-    - 加速/煞車皆透過衝量調控
-    detail: ''
-    terms: []
+    - 動量定義為物體質量與移動速度的關係
+    - 衝刺時運動員身體質量保持不變；在相同時間窗內，要取得較大衝量只能產生較大的力量
+    - 衝量增加或減少會改變動量，依意圖用於加速、再加速或減速後的變向
+    detail: 本章刻意將焦點放在每一步的力量大小和施力時間，而非僅用導出的功率數值解釋表現。動量改變是衝量變化的結果，也是物體發生移動的原因。
+    terms:
+    - momentum
+    - impulse
     numbers: []
     concepts:
     - force-production
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch19.rfd-impulse.i03
+    - ch19.core-concepts.i07
+    locator: Speed and Agility Mechanics > Impulse
   - id: ch19.rfd-impulse.i06
-    q: Braking Impulse
+    q: 煞車衝量（braking impulse）為何是方向改變與敏捷的重要考量？
     a:
-    - COD/Agility 特有：煞車衝量
-    - 切角越大、入速越快 → 需更大煞車衝量
-    detail: ''
-    terms: []
+    - 除了加速外，方向改變與敏捷操控應考量在一定時間內產生的煞車力量，即煞車衝量
+    - 所需衝量直接反映有效、有效率地改變動量的身體要求
+    - 所需變向角度或進入速度愈高，改變動量所需衝量愈大，動作的身體負荷也愈高
+    detail: 刺激反應造成的時間限制也會減少可用來產生所需煞車力量與衝量的時間，這就是敏捷不只等同於預先規劃方向改變的力學原因。
+    terms:
+    - braking-impulse
+    - impulse
+    - momentum
+    - change-of-direction
+    - agility
     numbers: []
     concepts:
     - force-production
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch19.agility-cod.i01
+    - ch19.agility-cod.i06
+    - ch19.program-design-monitoring.i04
+    locator: Speed and Agility Mechanics > Practical Implications for Change of Direction and Agility
   - id: ch19.rfd-impulse.i07
-    q: Power 的局限
+    q: 本章為何不以功率（power）作為爆發表現的主要指標？
     a:
-    - Power = Force × velocity（衍生值）
-    - 無法單獨說明爆發表現
-    - 書中不採用
-    detail: ''
-    terms: []
+    - 功率源自力量與速度，是一個衍生的力學構念
+    - 單一功率值無法指出該值是由力量還是速度造成
+    - 本章認為力量、RFD 與衝量已是直接量測，不需要再以較複雜的衍生值增加洞見
+    detail: 這是本章對功率用於理解速度與敏捷表現的限制，而非說功率不能量測或完全沒有用途；教材原文如此，重點是其解釋力不足以拆開施力與速度來源。
+    terms:
+    - power
+    - rate-of-force-development
+    - impulse
     numbers: []
     concepts:
     - force-production
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch19.rfd-impulse.i01
+    - ch19.rfd-impulse.i03
+    - ch13.power-tests.i01
+    locator: Speed and Agility Mechanics > Impulse
   - id: ch19.rfd-impulse.i08
-    q: 考試關鍵
+    q: 為何速度訓練應同時關注 RFD 與衝量？
     a:
-    - ★ Impulse = product of force and TIME（選項常混淆 force × velocity）
-    detail: ''
-    terms: []
+    - RFD 描述力量隨時間增加的速率，適用於施力時間極短的動作
+    - 衝量是力量與時間的乘積，代表每一步可改變多少動量
+    - 速度成功依賴短時間內施力，因此訓練不只要提高施力速率，也要重視每一步力量—時間曲線下的衝量
+    detail: 兩者相關但不是同義詞：RFD 專注曲線的斜率，衝量專注曲線下面積。把衝量誤寫成力量乘速度，會把它和功率混淆。
+    terms:
+    - rate-of-force-development
+    - impulse
+    - power
     numbers: []
     concepts:
     - force-production
     - measurement
-    related: []
-    locator: ''
+    related:
+    - ch19.rfd-impulse.i01
+    - ch19.rfd-impulse.i03
+    locator: Speed and Agility Mechanics > Practical Implications for Speed
 - id: sprint-speed-components
   title: 跑步速度構成 步幅 × 步頻
   desc: ''
   tag: 速度決定因子
   items:
   - id: ch19.sprint-speed-components.i01
-    q: 速度公式
+    q: 步幅與步頻如何影響衝刺速度？
     a:
-    - Speed = Stride Length × Stride Frequency
-    - 兩者皆取決於快速力量產生能力
-    detail: ''
-    terms: []
+    - 衝刺速度的經典定義著重步幅與步頻的關係
+    - 速度可藉步幅增加或步頻增加而提高
+    - 讓兩者達到最大化的底層要素是快速力量產生
+    detail: 本章沒有把速度寫成可脫離力學的固定算式，而是進一步以著地期的力量大小、方向與施力時間，說明為何有些運動員能兼具較長步幅與較高步頻。
+    terms:
+    - speed
+    - stride-length
+    - stride-rate
+    - rate-of-force-development
     numbers: []
     concepts:
     - technique
     - force-production
-    related: []
-    locator: ''
+    related:
+    - ch19.sprint-speed-components.i04
+    - ch19.sprint-speed-components.i06
+    locator: Running Speed
   - id: ch19.sprint-speed-components.i02
-    q: 菁英步幅數據
+    q: 本章所列菁英與新手男性衝刺者的最大速度步幅為何？
     a:
-    - 菁英男：2.70m
-    - 新手：2.56m（最大速度時）
-    - 差異來自更好的垂直力施加方向
-    detail: ''
-    terms: []
-    numbers: []
+    - 菁英男性衝刺者在最大速度的步幅為 2.70 m；新手為 2.56 m
+    - 本章將步幅視為身體質量的位移，並指出較佳的垂直力量方向可讓菁英者跑得更遠
+    detail: 這是書中引用的菁英男性與新手比較資料，不可擴大成所有運動員的常模。教材的重點也不是叫人刻意跨大步，而是正確向地面傳遞力量。
+    terms:
+    - stride-length
+    - ground-reaction-force
+    numbers:
+    - v: 2.70
+      unit: m
+      of: 菁英男性衝刺者在最大速度時的步幅
+    - v: 2.56
+      unit: m
+      of: 新手衝刺者在最大速度時的步幅
     concepts:
     - technique
     - force-production
-    related: []
-    locator: ''
+    related:
+    - ch19.sprint-speed-components.i04
+    - ch19.sprint-technique.i05
+    locator: Running Speed
   - id: ch19.sprint-speed-components.i03
-    q: 菁英步頻數據
+    q: 本章所列菁英與新手男性衝刺者的步頻與接地時間為何？
     a:
-    - 菁英男：4.63步/秒
-    - 新手：4.43步/秒
-    - 菁英接地時間更短（0.087 vs 0.101s）
-    detail: ''
-    terms: []
-    numbers: []
+    - 菁英男性的步頻接近每秒 4.63 步；新手為每秒 4.43 步
+    - 在最大速度時，菁英男性接地時間為 0.087 秒；新手為 0.101 秒
+    - 菁英者以較頻繁步頻花更多時間在空中，但擺腿重新就位所需時間與較慢者相近
+    detail: 較快的步頻不是只靠「腳動得更快」；教材把差異連到在更短接地時間內施加力量，以及恰當的垂直施力方向。
+    terms:
+    - stride-rate
+    - ground-contact-time
+    numbers:
+    - v: 4.63
+      unit: 步／秒
+      of: 菁英男性衝刺者在最大速度時的步頻
+    - v: 4.43
+      unit: 步／秒
+      of: 新手衝刺者在最大速度時的步頻
+    - v: 0.087
+      unit: 秒
+      of: 菁英男性衝刺者在最大速度時的接地時間
+    - v: 0.101
+      unit: 秒
+      of: 新手衝刺者在最大速度時的接地時間
     concepts:
     - technique
     - force-production
-    related: []
-    locator: ''
+    related:
+    - ch19.neuromuscular-basis.i05
+    - ch19.rfd-impulse.i04
+    locator: Running Speed
   - id: ch19.sprint-speed-components.i04
-    q: 垂直力的關鍵性
+    q: 本章如何描述垂直力量在衝刺速度中的角色？
     a:
-    - 著地相垂直力大小是提升速度最關鍵因素
-    - 需在最短時間施加（RFD）
-    detail: ''
-    terms: []
+    - 當前衝刺文獻指出，著地期施加到地面的垂直力量量值可能是改善速度最關鍵的成分
+    - 這些較大的力量必須在最短時間內施加，即需要高 RFD
+    - 較快衝刺者能在短支撐期持續施加高力量，形成較長且頻率更高的步幅
+    detail: 教材以「may be」與「suggests」呈現這項文獻結論，並非絕對斷言；技術效率與訓練設計也同樣限制衝刺速度。
+    terms:
+    - ground-reaction-force
+    - rate-of-force-development
+    - ground-contact-time
     numbers: []
     concepts:
     - technique
     - force-production
-    related: []
-    locator: ''
+    related:
+    - ch19.rfd-impulse.i01
+    - ch19.sprint-speed-components.i02
+    locator: Running Speed
   - id: ch19.sprint-speed-components.i05
-    q: 最大速度數值
+    q: 本章比較的菁英與新手男性最大速度為何？
     a:
-    - 菁英男：~12.55 m/s
-    - 新手：~11.25 m/s
-    - 差距來自更大更頻繁的力輸出
-    detail: ''
-    terms: []
-    numbers: []
+    - 菁英男性衝刺者可達約 12.55 m/s；新手受限於約 11.25 m/s
+    - 較快衝刺者在短支撐期持續施加高力量，因此產生較長而頻率較高的步幅
+    - 雖然力量產生可說是限制因素，技術效率與適當訓練也限制衝刺速度
+    detail: 這是教材舉用的族群比較值，並非速度診斷的切點；應搭配步幅、步頻與接地時間，才看得出表現改變發生在哪一個環節。
+    terms:
+    - speed
+    - ground-contact-time
+    numbers:
+    - v: 12.55
+      unit: m／秒
+      of: 菁英男性衝刺者的最大速度
+    - v: 11.25
+      unit: m／秒
+      of: 新手衝刺者的最大速度
     concepts:
     - technique
     - force-production
-    related: []
-    locator: ''
+    related:
+    - ch19.sprint-speed-components.i02
+    - ch19.program-design-monitoring.i02
+    locator: Running Speed
   - id: ch19.sprint-speed-components.i06
-    q: 擺腿時間
+    q: 菁英與新手衝刺者的擺腿重新就位時間有何差異？
     a:
-    - 菁英與新手擺腿重置時間相近
-    - 差異在著地相力量而非空中時間
-    detail: ''
-    terms: []
+    - 菁英衝刺者重新就位擺腿所需時間，與較慢對照者相近
+    - 菁英者能靠正確導向至跑道的垂直力量推進得更遠
+    - 他們的較高膝位置提供較長的施力與後續離地淨空時間，也可能說明多數力量在支撐期前半段出現
+    detail: 這推翻「速度差主要來自空中擺腿更快」的簡化說法；教材將關鍵放在著地期的力量導向與由此形成的技術優勢。
+    terms:
+    - stride-rate
+    - ground-reaction-force
     numbers: []
     concepts:
     - technique
     - force-production
-    related: []
-    locator: ''
+    related:
+    - ch19.sprint-speed-components.i04
+    - ch19.sprint-technique.i03
+    locator: Running Speed
   - id: ch19.sprint-speed-components.i07
-    q: 膝關節高度
+    q: 本章如何解釋較快衝刺者的擺腿膝高？
     a:
-    - 菁英膝蓋抬高更好（非刻意提膝），反映地面反作用力方向更優化
-    detail: ''
-    terms: []
+    - Mann 指出，在恢復腿最大屈曲時較高的膝位置，可能讓垂直力量更妥善導向跑道
+    - 較高膝位置提供更多施力及後續離地淨空的時間
+    - 技術指導不應單純叫運動員「抬膝」；本章指出膝高是地面反作用力的呈現
+    detail: 在技術錯誤表中，教材警告直接提示抬膝可能進一步造成力量傳遞不當，並改變衝刺中自然使用的肌群；應先處理地面施力與步態週期。
+    terms:
+    - ground-reaction-force
+    - sprinting
     numbers: []
     concepts:
     - technique
     - force-production
-    related: []
-    locator: ''
+    related:
+    - ch19.sprint-technique.i06
+    - ch19.sprint-speed-components.i06
+    locator: Running Speed
   - id: ch19.sprint-speed-components.i08
-    q: 考試關鍵
+    q: 衝刺速度改善的核心訓練目標是什麼？
     a:
-    - ★ 步幅增加來自垂直力方向優化，非刻意「大步跑」→ 過步是錯誤
-    detail: ''
-    terms: []
+    - 以正確施力方式達到最佳步幅與步頻
+    - 在短支撐期傳遞高力量，以形成快速步頻
+    - 發展 SSC，讓每一步衝量的幅度增加；頂速優秀者能在較短支撐期內以 SSC 產生高力量
+    detail: 完整舉重動作及其衍生動作被本章列為可用超過自由衝刺力量過負荷 SSC 的關鍵運動；這是訓練目標的例子，不是以刻意放大步幅取代正常步態。
+    terms:
+    - stretch-shortening-cycle
+    - impulse
+    - stride-length
+    - stride-rate
     numbers: []
     concepts:
     - technique
     - force-production
-    related: []
-    locator: ''
+    related:
+    - ch19.training-methods.i03
+    - ch19.training-methods.i04
+    - ch19.sprint-technique.i05
+    locator: Running Speed > Training Goals
 - id: sprint-technique
   title: 衝刺技術指導 起跑 / 加速 / 最大速度
   desc: ''
   tag: 技術應用
   items:
   - id: ch19.sprint-technique.i01
-    q: 起跑姿勢
+    q: 衝刺起跑的 set position 與離開起跑器重點是什麼？
     a:
-    - 前腳脛骨 ~90°
-    - 後腳 ~133°
-    - 雙腿積極伸展
-    - 目標產生高水平速度（推蹬）
-    detail: ''
-    terms: []
-    numbers: []
+    - 以起跑器、三點或四點交錯起跑建立平衡的 set position，利用有助爆發施力的肢段角度分配體重
+    - 菁英衝刺者的前小腿角約為 90°、後小腿角約為 133°
+    - 以雙腿積極伸展，對起跑器或地面全力推蹬，以產生高水平速度
+    - 起跑離開時除了推進身體，還須產生垂直力量承托體重並使重心上升至跑姿
+    detail: 本章將這些角度標為菁英衝刺者資料，不能當作每位運動員的僵硬姿勢標準；起跑的重要原則是平衡且能產生爆發力量的分段位置。
+    terms:
+    - sprinting
+    - force
+    - set-position
+    numbers:
+    - v: 90
+      unit: 度
+      of: 菁英衝刺者起跑時前小腿角
+    - v: 133
+      unit: 度
+      of: 菁英衝刺者起跑時後小腿角
     concepts:
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch19.sprint-technique.i02
+    - ch19.rfd-impulse.i01
+    locator: 'Running Speed > Sprinting Technique Guidelines > Figure 19.9 Sprinting Technique Checklist: Start, Acceleration, and Maximum Velocity'
   - id: ch19.sprint-technique.i02
-    q: 加速階段重點
+    q: 起跑後的加速階段有哪些技術重點？
     a:
-    - 腳跟低位回收
-    - 前傾軀幹
-    - 約 20m 時身體漸直立
-    - 步頻菁英第 2 步 5.26步/秒
-    detail: ''
-    terms: []
-    numbers: []
+    - 起跑離開與加速的最初幾步，擺腿應低位回收，腳趾幾乎不離地
+    - 以持續推地與自然軀幹前傾完成加速；頭部保持放鬆中立，與軀幹以相同速率上升
+    - 約到 20 m 時，身體重心已上升到幾乎直立衝刺的位置
+    - 菁英男性在第二步的步頻為每秒 5.26 步，新手為每秒 3.45 步
+    detail: 低位回收是起跑與初期加速的技術，不是所有衝刺階段的線索。教材連結其目的在減少騰空時間、取得較頻繁接地以增加水平速度。
+    terms:
+    - sprinting
+    - stride-rate
+    numbers:
+    - v: 20
+      unit: m
+      of: 身體重心已幾乎升至直立跑姿的位置
+    - v: 5.26
+      unit: 步／秒
+      of: 菁英男性衝刺者起跑離開後第二步的步頻
+    - v: 3.45
+      unit: 步／秒
+      of: 新手衝刺者起跑離開後第二步的步頻
     concepts:
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch19.sprint-technique.i01
+    - ch19.training-methods.i01
+    locator: 'Running Speed > Sprinting Technique Guidelines > Figure 19.9 Sprinting Technique Checklist: Start, Acceleration, and Maximum Velocity'
   - id: ch19.sprint-technique.i03
-    q: 最大速度姿勢
+    q: 最大速度期的整體姿勢與手臂動作原則是什麼？
     a:
-    - 肩-髖-踝垂直堆疊（stacked joints）
-    - 頭部放鬆中立
-    - 臂腿同頻率擺動
-    detail: ''
-    terms: []
+    - 支撐期應呈現堆疊關節：肩在髖上方、髖在足部上方
+    - 頭部保持放鬆中立、眼睛向正前方；肩膀下沉放鬆
+    - 手臂以與腿部週期相同的速率擺動
+    detail: 堆疊並非「用力挺直」的姿勢，而是使力量能正確傳到跑步表面的對齊。當脛與髖上升至垂直，教材的指導是讓軀幹和頭部一同上升。
+    terms:
+    - sprinting
+    - ground-reaction-force
     numbers: []
     concepts:
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch19.sprint-technique.i06
+    - ch19.sprint-speed-components.i07
+    locator: 'Running Speed > Sprinting Technique Guidelines > Figure 19.9 Sprinting Technique Checklist: Start, Acceleration, and Maximum Velocity'
   - id: ch19.sprint-technique.i04
-    q: 著地相動作
+    q: 最大速度衝刺的飛行與支撐期有哪些基本動作？
     a:
-    - 早期：離心髖屈曲
-    - 中期：向心髖屈曲
-    - 晚期：向心髖伸展＋膝伸展＋蹠屈
-    detail: ''
-    terms: []
+    - 早期飛行以離心髖屈曲減速大腿後擺，並以離心膝伸展減速腿與足後擺
+    - 中飛行以向心髖屈曲加速大腿前擺；晚飛行以向心髖伸展準備足部接觸，離心膝屈曲加速腿後擺並限制伸膝
+    - 早期支撐持續向心髖伸展以減少足部著地的煞車效應，並以離心蹠屈吸收衝擊、控制脛骨前轉
+    - 晚期支撐以向心膝伸展推進重心向前，向心蹠屈協助推進
+    detail: 這些是 Figure 19.10 中「基本動作」的文字列表，不是以單一關節動作取代整體衝刺教學；各相位同時發生的關節動作共同管理煞車、吸震與推進。
+    terms:
+    - eccentric-action
+    - concentric-action
+    - sprinting
     numbers: []
     concepts:
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch19.neuromuscular-basis.i04
+    - ch19.rfd-impulse.i04
+    locator: Running Speed > Sprinting Technique Guidelines > Figure 19.10 Fundamental Movements Occurring in Maximum-Velocity Sprinting
   - id: ch19.sprint-technique.i05
-    q: 常見錯誤：過步
+    q: 過度跨步（overstriding）為何是常見衝刺錯誤，應如何修正？
     a:
-    - 原因：誤解力量施加
-    - 嘗試用大步幅加速 → 增加接地時間 → 抑制 SSC
-    detail: ''
-    terms: []
+    - 過度跨步源於誤解施力方式，企圖用較大的接地時間提高速度
+    - 衝刺成功在於短時間產生高垂直力量；跨步會減弱 SSC 的效果
+    - 可提示運動員「跑在自己的跑道內」，維持自然步態週期
+    detail: 本章也舉例指出，教練若用逐漸拉遠的地面標記要求選手「追更遠」，可能反而誘發過度跨步；修正焦點應回到正確向地面傳力，不是急性拉大步幅。
+    terms:
+    - stretch-shortening-cycle
+    - ground-contact-time
+    - ground-reaction-force
+    - overstriding
     numbers: []
     concepts:
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch19.sprint-speed-components.i02
+    - ch19.sprint-speed-components.i08
+    locator: Running Speed > Technical Errors and Coaching > Table 19.1 Common Sprinting Technique Errors, Causes, and Corrections
   - id: ch19.sprint-technique.i06
-    q: 常見錯誤：手臂
+    q: 衝刺時手臂橫向擺動應如何修正？
     a:
-    - 手臂橫向擺動：應強調手臂向下向後驅動
-    - 維持軀幹直立不扭轉
-    detail: ''
-    terms: []
+    - 手臂在橫斷面出現錯誤動作，常源於對動作模式的誤解
+    - 應強調手臂向下、向後驅動，同時維持直立軀幹
+    - 手臂回收靠近身體中線，可利用肩關節的自然活動範圍
+    detail: 教材指出，速度受限的主因是力學施力而非代謝效率；因此不要只把混亂手臂擺動歸咎於疲勞，應修正其與下肢協調的施力模式。
+    terms:
+    - sprinting
     numbers: []
     concepts:
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch19.sprint-technique.i03
+    - ch19.sprint-technique.i07
+    locator: Running Speed > Technical Errors and Coaching > Table 19.1 Common Sprinting Technique Errors, Causes, and Corrections
   - id: ch19.sprint-technique.i07
-    q: 常見錯誤：腿循環
+    q: 為何不應以「爪地」或腿部循環動作教衝刺？
     a:
-    - 「循環」腿動作（pawing）：應腳向下向後踩地利用垂直力，非水平爪地
-    detail: ''
-    terms: []
+    - 腿部循環使完成擺腿期的時間增加，支撐期時兩膝之間會出現明顯空隙
+    - 應提示運動員將足部向下、向後驅動進跑道，而非用水平方式爪地
+    - 水平爪地會阻礙垂直力量的運用，並過度負荷 SSC
+    detail: 教材說明此錯誤常源於教練把足部看似水平的動作錯誤地提示為爪地；修正時要重視垂直力量與自然步態，而不是模仿足部的表面軌跡。
+    terms:
+    - stretch-shortening-cycle
+    - ground-reaction-force
+    - sprinting
     numbers: []
     concepts:
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch19.sprint-technique.i05
+    - ch19.sprint-speed-components.i04
+    locator: Running Speed > Technical Errors and Coaching > Table 19.1 Common Sprinting Technique Errors, Causes, and Corrections
   - id: ch19.sprint-technique.i08
-    q: 考試關鍵
+    q: 本章如何劃分線性衝刺的技術階段？
     a:
-    - ★ 三階段：Start → Acceleration → Maximum Velocity
-    - 各有不同力學要求
-    detail: ''
-    terms: []
+    - 線性衝刺可分為起跑、加速與最大速度三個子任務
+    - 三階段技術上不同，但都要求下肢經由支撐與飛行期，以最大速度主動移動
+    - 支撐期包含離心煞車期與向心推進期；飛行期包含擺腿的回復與接地準備
+    detail: 階段劃分用來協助教學與評估，不表示階段間有瞬間切換。訓練從加速轉至直立最高速度時，仍要保留連續的步態與正確力量傳遞。
+    terms:
+    - sprinting
+    - eccentric-action
+    - concentric-action
     numbers: []
     concepts:
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch19.sprint-technique.i01
+    - ch19.sprint-technique.i03
+    - ch19.training-methods.i07
+    locator: Running Speed > Sprinting Technique Guidelines
 - id: training-methods
   title: 訓練方法 阻力衝刺 / 力量訓練 / 動作訓練
   desc: ''
   tag: 訓練手段
   items:
   - id: ch19.training-methods.i01
-    q: 阻力衝刺
+    q: 阻力衝刺如何用於加速發展？
     a:
-    - 雪橇拖拉、坡道衝刺、頂風
-    - 強化加速相
-    - 田徑選手速度降低 ≤10–12%
-    - 球類 ≤20–30% BW
-    detail: ''
-    terms: []
-    numbers: []
+    - 雪橇拖拉、風阻、上坡衝刺與推雪橇等阻力方式，旨在改善加速能力
+    - 它們讓運動員呈現較低軀幹、髖與脛角，強調加速期力學，並可能以較高推進力過負荷短距離加速
+    - 田徑衝刺者可用不使跑速下降超過 10% 至 12% 的負荷；需要對抗外部阻力的場上運動員可用體重 20% 至 30% 的負荷改善起動後 5 至 10 m
+    detail: 負荷過重會拉長接地時間、縮短步幅；坡度太陡也會排演錯誤技術。處方應依運動情境與身體狀況，維持非阻力衝刺的正常力學。
+    terms:
+    - sprinting
+    - acceleration
+    - ground-contact-time
+    numbers:
+    - v: 10–12
+      unit: '%'
+      of: 田徑衝刺者使用阻力衝刺時跑速可允許下降的上限範圍
+    - v: 20–30
+      unit: '% 體重'
+      of: 場上運動員阻力衝刺可使用的負荷範圍
+    - v: 5–10
+      unit: m
+      of: 場上運動員以該負荷改善的起動後移動距離
     concepts:
     - program-design
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch19.sprint-technique.i02
+    - ch19.training-methods.i07
+    - ch19.rfd-impulse.i01
+    locator: Methods of Developing Speed > Sprinting > Table 19.3 Assistance and Resistance Training for Speed Development
   - id: ch19.training-methods.i02
-    q: 輔助衝刺風險
+    q: 輔助／超速衝刺（overspeed training）的潛在風險與實務建議是什麼？
     a:
-    - 繩索拖拉/下坡衝刺（過速訓練）：可能縮短著地相、減少肌肉激活
-    - 目前研究支持有限
-    detail: ''
-    terms: []
+    - 繩索拖拉、彈力繩拉引與下坡跑企圖讓運動員以超過無輔助衝刺的速度跑動，假設提高步頻可帶來神經肌肉適應
+    - 輔助衝刺可能過早催促支撐期，減少正確施力時間；與全力跑相比，可能降低肌肉活化與推進力，出現碎步
+    - 牽引可能提高煞車力；下坡跑可能因「尋找地面」而增加不必要離心力並改變 SSC
+    detail: 教材指出目前幾乎沒有研究支持實施超速訓練，建議以考量訓練狀態與最佳生物力學的自然且安全工具發展頂速；採用輔助工具前必須審慎評估。
+    terms:
+    - sprinting
+    - stretch-shortening-cycle
+    - eccentric-action
+    - ground-contact-time
+    - overspeed-training
     numbers: []
     concepts:
     - program-design
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch19.training-methods.i01
+    - ch19.sprint-technique.i05
+    - ch19.neuromuscular-basis.i02
+    locator: Methods of Developing Speed > Sprinting > Table 19.3 Assistance and Resistance Training for Speed Development
   - id: ch19.training-methods.i03
-    q: 力量訓練轉移
+    q: 重量訓練如何可能轉移到衝刺表現？
     a:
-    - weightlifting 動作（clean/snatch/mid-thigh pull）：增強 RFD、肌肉剛度、髖膝協同激活
-    detail: ''
-    terms: []
+    - 力量進步能否轉移到衝刺，取決於運動動作型態、峰值力量、RFD、加速度與速度型態，和運動專項之間的相似程度
+    - 最大力量訓練可能有益，但訓練應結合最大力量與速度—力量品質
+    - 高翻、抓舉、mid-thigh pull 等舉重動作與衍生動作，可能藉由肌肉剛度、RFD 及髖膝周邊肌肉共同活化的生理適應，增進衝刺表現
+    detail: 教材以「may」描述舉重動作的轉移，而不是保證每一種動作都能直接提高速度；訓練特異性要同時看力、速度及動作型態，不只看動作外觀相似。
+    terms:
+    - specificity
+    - rate-of-force-development
+    - muscle-stiffness
+    - power-clean
+    - power-snatch
+    - mid-thigh-pull
     numbers: []
     concepts:
     - program-design
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch19.neuromuscular-basis.i01
+    - ch19.sprint-speed-components.i08
+    - ch15.power-exercises.i01
+    locator: Methods of Developing Speed > Strength
   - id: ch19.training-methods.i04
-    q: Speed 訓練目標
+    q: 本章列出的速度發展訓練目標是什麼？
     a:
-    - 短接地時間→高步頻
-    - 增強 SSC 振幅
-    - weightlifting 動作提供超越自由衝刺的 SSC 超負荷
-    detail: ''
-    terms: []
+    - 強調短地面支撐時間，以達到快速步頻；這需要高爆發力量，並由持續速度訓練與良好力量計畫系統性發展
+    - 發展 SSC，以增加每個衝刺步伐的衝量幅度
+    - 頂速優秀者可在短支撐期以 SSC 產生高力量；完整舉重動作及其衍生動作可用高於自由衝刺的力量過負荷 SSC
+    detail: 這些目標連結步態品質與力量傳遞，並不等於單獨操練「更快腳步」。Fast Feet 操練的文字說明同樣提醒：步頻是短接地時間高垂直力量的副產物。
+    terms:
+    - ground-contact-time
+    - stride-rate
+    - stretch-shortening-cycle
+    - impulse
     numbers: []
     concepts:
     - program-design
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch19.sprint-speed-components.i08
+    - ch19.neuromuscular-basis.i03
+    locator: Running Speed > Training Goals
   - id: ch19.training-methods.i05
-    q: Agility 力量需求
+    q: 敏捷發展需要哪些力量與能力面向？
     a:
-    - 動態力量＋向心爆發＋離心力量（煞車）＋反應力量＋多向力量
-    - 需全方位發展
-    detail: ''
-    terms: []
+    - 動態力量為後續訓練提供基礎，也確保自體重與負重訓練有足夠活動度
+    - 向心爆發力量用於煞車後再加速或維持強壯的變向過渡姿勢；離心力量則用於吸收煞車期負荷
+    - 反應力量有助從高離心負荷轉為向心爆發，多向力量則用於在多種動作要求中維持身體位置
+    - 知覺—認知能力需進展視覺掃描、有效預期與決策
+    detail: Table 19.4 把這些需求配對到新手與進階運動員的重量訓練、場地與球場操練；書中強調先發展身體需求，技術表現才會在之後追上。
+    terms:
+    - agility
+    - eccentric-action
+    - concentric-action
+    - perceptual-cognitive-ability
     numbers: []
     concepts:
     - program-design
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch19.agility-cod.i06
+    - ch19.program-design-monitoring.i06
+    locator: Methods of Developing Agility > Strength > Table 19.4 Comparison of Focus for Agility Development in Novice and Advanced Athletes
   - id: ch19.training-methods.i06
-    q: 離心訓練優先
+    q: 哪些動作可用於方向改變煞車所需的離心負荷？
     a:
-    - Drop landing、負重跳著地、power clean/snatch 接收相：各自對髖膝踝提供不同離心負荷
-    detail: ''
-    terms: []
+    - drop landing、負重跳落地與高翻或抓舉的接槓期，都可用於高速離心負荷的訓練
+    - 這些動作對髖、膝、踝的離心負荷需求不同
+    - 實務上應以高速離心收縮訓練煞車能力，並納入動態、等長與尤其是離心力量的全面發展
+    detail: 本章不把任何一項動作稱為唯一最佳選擇。真正的判準是能否讓神經肌肉系統適應煞車期所需的負荷速率，並與目標方向改變的技術需求相符。
+    terms:
+    - eccentric-action
+    - isometric-action
+    - depth-jump
+    - power-clean
+    - power-snatch
+    - change-of-direction
+    - drop-landing
     numbers: []
     concepts:
     - program-design
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch19.neuromuscular-basis.i07
+    - ch19.agility-cod.i05
+    - ch15.power-exercises.i04
+    locator: Agility Performance and Change-of-Direction Ability > Factors Affecting Change of Direction and Perceptual–Cognitive Ability > Change-of-Direction Ability
   - id: ch19.training-methods.i07
-    q: 短到長訓練模型
+    q: 短到長（short to long）衝刺訓練模型如何安排？
     a:
-    - Short-to-Long：先發展加速能力（短距衝刺）→ 再銜接最大速度（直立跑步力學）
-    detail: ''
-    terms: []
+    - 短到長模型以訓練區塊的順序，先成熟加速能力，再進入最大速度的訓練
+    - 年度開始時，藉短衝刺發展推進力，維持加速期的力學
+    - 後續銜接較長衝刺，以直立跑姿發展頂速；概念是先投資加速發展與最佳化，再讓頂速有更大改善空間
+    detail: 這是教材提出的概念性進展，不是放諸所有專項的唯一週期。範例將心理與身體的衝刺成分按區塊強調與淡化，並在後期仍保留短衝刺以維持加速能力。
+    terms:
+    - periodization
+    - acceleration
+    - sprinting
+    - short-to-long-method
     numbers: []
     concepts:
     - program-design
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch19.program-design-monitoring.i01
+    - ch19.sprint-technique.i08
+    - ch19.training-methods.i01
+    locator: Speed Development Strategies
   - id: ch19.training-methods.i08
-    q: 考試關鍵
+    q: 選用衝刺輔助或阻力工具時，本章的共同原則是什麼？
     a:
-    - ★ 阻力衝刺改善加速
-    - 輔助衝刺效果有限
-    - 兩者均需維持正常生物力學
-    detail: ''
-    terms: []
+    - 阻力方式可為加速期過負荷，但負荷必須保留非阻力衝刺的正常生物力學
+    - 輔助／超速方式理論上讓運動員暴露於更高速度，卻可能縮短施力時間、降低肌肉活化與推進力
+    - 教材認為超速訓練的研究支持很少，應優先選擇自然、安全、符合訓練狀態與最佳力學的頂速訓練工具
+    detail: 兩類工具不是對稱的「一個練加速、一個必然練頂速」。表格對阻力訓練提供保留正常力學的使用建議，對輔助訓練則明確要求在採用前審慎評估其影響。
+    terms:
+    - sprinting
+    - acceleration
+    - ground-contact-time
     numbers: []
     concepts:
     - program-design
     - technique
-    related: []
-    locator: ''
+    related:
+    - ch19.training-methods.i01
+    - ch19.training-methods.i02
+    - ch19.sprint-technique.i05
+    locator: Methods of Developing Speed > Sprinting > Table 19.3 Assistance and Resistance Training for Speed Development
 cards:
-- q: 速度（speed）的定義是什麼？
-  a: 速度是在某一方向以最快速率移動的能力；在田徑中通常指直線衝刺，是力量、技術與神經肌肉效率的整合輸出。
+- q: 本章如何定義速度（speed）？
+  a: 速度是達成高移動速度所需的技能與能力；衝刺速度要求能加速並達到最大速度。物理上 speed 只描述快慢，velocity 才同時包含快慢與方向。
   tag: speed-definition
-- q: 方向改變速度（COD speed）與敏捷性（agility）的核心差異是什麼？
-  a: COD speed 是在預先設計路徑中快速改變方向的能力；agility 額外包含對外部刺激的感知與認知決策，是在不確定情境下的即時反應能力。
+- q: 方向改變與敏捷（agility）的核心差異是什麼？
+  a: 方向改變是在預先規劃路徑上爆發性改變移動方向、速度或模式；敏捷還必須因應刺激，結合方向改變與知覺—認知能力。
   tag: cod-agility-definition
-- q: 力量發展速率（RFD）的定義及其公式為何？
-  a: RFD（Rate of Force Development）= ΔForce / ΔTime，即單位時間內力量的增加量，反映肌肉產生爆發力的速度；高 RFD 對短接觸時間動作（如短跑、跳躍）至關重要。
+- q: 力量發展速率（rate of force development, RFD）是什麼？
+  a: RFD 是在最短時間發展最大力量，通常作為爆發力指標；可描述為力量變化除以時間變化。在時間限制決定成敗的動作中，它可能比最大力量更有用。
   tag: rfd-definition
-- q: 衝量（impulse）與速度改變的關係為何？
-  a: 衝量 = 力 × 時間，依動量定理 Impulse = Δ(mv)；地面反作用力的衝量大小決定身體速度的改變量，因此短跑加速期需要較大衝量（較長接觸時間）。
+- q: 衝量（impulse）與動量改變有何關係？
+  a: 衝量是力量乘以施力時間，也是力量—時間曲線下面積；依衝量—動量關係，它決定動量改變的大小。跑步每一步可藉衝量改變來加速、再加速或減速。
   tag: impulse-momentum
-- q: 短跑中肌肉剛度（stiffness）的功能為何？
-  a: 肌肉與肌腱剛度高，可縮短與地面的接觸時間、提高彈性能量儲存與釋放效率；最大速度階段的接觸時間約 80–100 ms，需要極高肌肉剛度維持。
+- q: 肌肉剛度（muscle stiffness）與衝刺步頻有何關係？
+  a: 在固定跑速下，步頻提高時腿部彈簧的重要特徵是肌肉剛度提高。力量與速度訓練可能提高衝刺肌群預活化，並改善肌梭回饋所需時間。
   tag: muscle-stiffness
-- q: 伸展縮短循環（SSC）在短跑中的具體作用為何？
-  a: 短跑著地時，肌腱與肌肉先離心預伸展（儲存彈性能量），緊接向心收縮釋放能量；SSC 效率越高，代謝成本越低且推進力越大。
+- q: 伸展—縮短循環（stretch–shortening cycle, SSC）在衝刺中是什麼？
+  a: SSC 是肌肉—肌腱複合體快速被拉長後立即以反應性或彈性方式縮短的離心—向心耦合；其急性作用傾向透過彈性能量回收提升機械效率與衝量。
   tag: ssc-sprinting
-- q: 神經驅動（neural drive）如何影響短跑速度？
-  a: 更高的運動神經元放電頻率（rate coding）與更多快縮肌纖維的徵召，使收縮力量與速度提升；高水準短跑選手的神經驅動顯著優於一般訓練者。
+- q: 神經驅動（neural drive）如何與衝刺相關？
+  a: 神經驅動是神經系統送往目標肌肉之衝動的速率與振幅。力量訓練可提升它；增加的動作電位發生速率與肌力及 RFD 增加相關。
   tag: neural-drive
-- q: 運動後增強效應（PAP）的定義及短跑應用為何？
-  a: PAP（Post-Activation Potentiation）：重負荷收縮後，運動單位興奮性暫時提升，可增強後續爆發力動作（如短跑起跑）的輸出；通常在 3–8 分鐘後效果最佳。
+- q: 複合訓練中的運動後活化增益（PAP）是什麼？
+  a: 複合訓練在同一訓練交替 SSC 任務與重阻力運動；其基礎是稱為 PAP 的急性後效應。教材指出它可能不適合初學者或青少年。
   tag: pap-sprinting
-- q: 短跑速度的生物力學公式是什麼？
-  a: 速度 = 步幅（stride length）× 步頻（stride rate）；提升其中任一或兩者皆可提高速度，但菁英短跑選手主要靠較大步幅區分於業餘者。
+- q: 步幅與步頻如何影響衝刺速度？
+  a: 衝刺速度的經典定義著重步幅與步頻的關係；速度可藉步幅增加或步頻增加而提高。讓兩者最大化的底層要素是快速力量產生。
   tag: speed-stride-frequency
-- q: 菁英與一般短跑選手在步幅與步頻的主要差異為何？
-  a: 菁英選手步幅顯著較長，步頻差異較小；長步幅源於更強的髖部伸展力量與更高的地面反作用力，而非腿部擺動速度的差異。
+- q: 本章比較的菁英與新手男性衝刺者步幅、步頻有何差異？
+  a: 最大速度時，菁英男性步幅為 2.70 m、新手為 2.56 m；菁英步頻為每秒 4.63 步、新手為每秒 4.43 步。菁英者擺腿重新就位時間與較慢者相近。
   tag: elite-vs-novice-stride
-- q: 短跑起跑階段（start phase）的技術重點為何？
-  a: 起跑姿勢：低重心、軀幹前傾 45°；強調後腿驅動（hip extension）和爆發性推蹬（push-off）；初始幾步應短而有力，逐漸拉長步幅。
+- q: 衝刺起跑的技術重點為何？
+  a: 用起跑器、三點或四點交錯起跑建立平衡的 set position，讓肢段角度有利爆發施力；雙腿積極伸展並全力推向起跑器或地面，產生高水平速度。
   tag: sprint-start-technique
-- q: 加速階段（acceleration phase）的技術特徵是什麼？
-  a: 加速階段（0–30 m）：身體持續前傾，步幅逐漸增長，接觸時間較長；雙腳在身體後方著地產生向前衝量；強調後方腿的充分伸展。
+- q: 起跑後加速的技術重點是什麼？
+  a: 最初幾步擺腿低位回收、腳趾幾乎不離地，並持續推地；頭部放鬆中立，與軀幹同速上升。約到 20 m 時，重心已升到幾乎直立的衝刺位置。
   tag: sprint-acceleration
-- q: 最大速度階段（max velocity phase）的技術要素是什麼？
-  a: 最大速度期：軀幹接近垂直，步幅最長、步頻最高；著地在身體正下方（midfoot strike）；強調髖屈肌快速前擺與膝部高抬；接觸時間極短（80–100 ms）。
+- q: 最大速度期的姿勢原則是什麼？
+  a: 支撐期維持堆疊關節：肩在髖上方、髖在足部上方；頭部放鬆中立、眼睛看前方、肩膀下沉放鬆，手臂以和腿部週期相同速率擺動。
   tag: sprint-max-velocity
-- q: 短跑常見技術錯誤有哪些？
-  a: 過度向前撲（overstriding）、足跟著地、上肢橫向擺動（cross-body arm swing）、軀幹過度扭轉、頭部位置不穩定——皆會增加制動力並降低推進效率。
+- q: 本章列出的衝刺常見技術錯誤有哪些例子？
+  a: 起跑時髖過高、初始驅動期向側面跨出、手臂過短緊繃、過早直立、過度跨步、刻意延續加速姿勢、腿部循環與手臂橫向錯誤動作，都是表 19.1 所列例子。
   tag: sprint-common-errors
-- q: 手臂動作在短跑中的功能為何？
-  a: 手臂前後擺動（非橫向）協助下肢步頻，維持旋轉平衡（counter-rotation）；肘關節約保持 90°，手放鬆，驅動力主要來自肩關節屈伸而非肘關節。
+- q: 衝刺時手臂動作應如何提示？
+  a: 教材建議手臂向下、向後驅動，並讓手臂回收靠近身體中線；在最大速度期，肩膀保持下沉放鬆，手臂與腿部週期同速擺動。
   tag: arm-action-sprinting
-- q: 方向改變（COD）的生物力學決定因素有哪些？
-  a: 進入切入的速度、切入角度、制動時間、踏地腳的力量與角度，以及重心控制；切入角度越大，速度損失越多，技術需求越高。
+- q: 方向改變表現的身體與動作因素有哪些？
+  a: 較佳表現與較快髖伸展、較低重心、較大煞車與推進衝量、進入時較多膝屈曲及較小軀幹角位移相關。進入速度與切入角度愈大，所需衝量愈大。
   tag: cod-biomechanics
-- q: 敏捷性訓練與 COD 訓練的主要差別為何？
-  a: COD 訓練使用預定路徑（無決策），訓練方向改變的力學與體能；敏捷性訓練引入外部刺激（視覺、聽覺），訓練感知—認知—動作的整合速度。
+- q: 敏捷與方向改變訓練的進展差異是什麼？
+  a: 先用預先規劃的方向改變操練建立身體能力與技術，再加入哨音、口令、箭頭或燈光等一般刺激；之後進展至具運動專項刺激的閃避操練與小場比賽。
   tag: agility-vs-cod-training
-- q: 感知—認知因素（perceptual-cognitive factors）如何影響敏捷性表現？
-  a: 預判能力（anticipation）、反應時間、情境識別（pattern recognition）決定在決策動作前多少時間開始啟動；菁英選手能提早 100–200 ms 讀取對手動作線索。
+- q: 哪些知覺—認知因素構成敏捷？
+  a: 視覺掃描、預期、模式辨識、情境知識、決策時間與正確性，以及反應時間。這些能力多具運動專項性，進攻與防守情境也會改變處理策略。
   tag: perceptual-cognitive-agility
-- q: 常用的 COD 測試有哪些，各測量什麼？
-  a: 505 Agility Test（5 m COD）、T-test（前後左右）、Illinois Agility Test（複雜路徑）、L-drill；主要測量 COD speed，不含反應刺激，無法直接評估敏捷性認知成分。
+- q: 本章的方向改變與敏捷測驗如何分類？
+  a: 表 19.2 將 reactive agility tests 列為同時測量方向改變速度與知覺—認知能力；505 與 pro agility 測驗列為方向改變速度，T-test、Illinois agility 與 L-run 較著重機動性。
   tag: cod-tests
-- q: 阻力短跑（resisted sprinting）的訓練目的與方法為何？
-  a: 阻力短跑（拖橇、阻力傘、坡道上跑）針對加速階段，增強水平推進力（horizontal force production）；阻力不應超過導致明顯技術崩潰的程度（通常速度降低 < 10%）。
+- q: 阻力衝刺的目的與工具是什麼？
+  a: 雪橇拖拉、風阻、上坡衝刺與推雪橇旨在改善加速，並強調較低的軀幹、髖與脛角。負荷過重會延長接地時間與縮短步幅，應保留正常衝刺力學。
   tag: resisted-sprint-training
-- q: 協助短跑（assisted sprinting）的訓練原理是什麼？
-  a: 協助短跑（順坡、彈力帶拉引）使跑速超過選手最大速度（overspeed training）；目標是暴露神經肌肉系統於更高步頻刺激，提升最大速度階段的神經適應。
+- q: 輔助／超速衝刺的理論與限制是什麼？
+  a: 繩索、彈力繩拉引或下坡跑企圖讓運動員以超過無輔助衝刺的速度跑動，假設提高步頻可帶來神經肌肉適應；但可能過早催促支撐期並降低肌肉活化與推進力。
   tag: assisted-overspeed-sprint
-- q: 舉重動作（weightlifting movements）如何轉移至短跑表現？
-  a: 抓舉、上博等動作訓練高速三關節伸展（hip-knee-ankle triple extension），與短跑推蹬動作高度相似；能同時提升力量、RFD 與爆發力。
+- q: 舉重動作如何可能轉移到衝刺？
+  a: 高翻、抓舉與 midthigh pull 等動作及其衍生動作，可能透過肌肉剛度、RFD 與髖膝周邊肌肉共同活化等適應增進衝刺。轉移仍取決於動作、力量與速度型態的特異性。
   tag: weightlifting-sprint-transfer
-- q: 最大肌力（maximal strength）如何影響短跑速度？
-  a: 更高的最大肌力提供更大的力量儲備，允許在短接觸時間內輸出更高推進力；1RM 深蹲與短跑加速表現呈中度至高度相關（r = 0.5–0.8）。
+- q: 本章如何定位最大力量訓練與衝刺？
+  a: 最大力量訓練可能有益，但衝刺訓練應結合最大力量與速度—力量品質；最重要的是能否在動作所限的短時間內，產生所需力量與速度型態。
   tag: max-strength-sprint
-- q: 彈力帶阻力（band-resisted）訓練在速度訓練中的功能？
-  a: 彈力帶提供速度依賴性阻力（阻力隨拉伸增加），可用於加速末段至最大速度區段；也常用於協助（rebound）訓練增加反應速度。
+- q: 彈力繩拉引在本章屬於哪一種衝刺工具？
+  a: 表 19.3 將 bungee cord pulls 列在輔助訓練／超速訓練的例子，目的在讓運動員跑出超過無輔助衝刺的速度；教材同時提醒要審慎評估其力學風險。
   tag: band-resisted-speed
-- q: 速度訓練的訓練量（volume）建議為何？
-  a: 速度訓練應在完全疲勞前結束，每次訓練衝刺距離總量通常 400–800 m（依距離與強度）；每組需充分恢復（1:8–1:12 工作：休息比），確保每趟接近最大努力。
+- q: 本章如何呈現速度訓練的訓練量與休息？
+  a: 速度發展應按訓練區塊處方組、重複、距離與組間休息，例如短到長範例在不同區塊用短衝刺、加速與頂速工作；不應套用未列於本章的固定總距離或工作休息比。
   tag: speed-training-volume
-- q: 速度訓練的強度如何設定？
-  a: 強度應達到最大速度的 95–100%；低強度短跑（< 85% 最大速度）屬技術練習或熱身，不足以刺激神經肌肉最大速度適應。
+- q: 本章如何定義用於發展衝刺能力的衝刺工作？
+  a: 衝刺被描述為通常在短距離與短時間內進行的快速、非配速、最大努力跑動；方法章指出沒有任何運動比最大速度衝刺更能改善跑速。
   tag: speed-training-intensity
-- q: 速度訓練的休息間隔建議為何？
-  a: 完全恢復原則：磷酸肌酸（PCr）系統完全恢復需 3–5 分鐘；速度訓練每組間休息至少 2–5 分鐘（依強度與距離），不可用有氧恢復間歇代替。
+- q: 本章的短到長速度範例如何安排組間休息？
+  a: 休息隨距離與訓練區塊改變：第一區塊的 15 m、20 m 上坡衝刺分別列 1.5、2 分鐘；後續較長的加速、飛跑與速度耐力工作則列較長休息。教材沒有給單一通用休息規則。
   tag: speed-training-rest
-- q: 速度訓練的頻率建議為何？
-  a: 速度訓練每週 2–3 次，需在非疲勞狀態下進行（通常排在每日訓練最前段）；不建議連續兩天進行高強度速度訓練。
+- q: 本章的短到長速度範例如何安排每週訓練？
+  a: 範例在第一至第四區塊都安排週一、週三、週五的衝刺工作，並隨區塊改變加速、頂速、速度耐力與專項耐力的重點；這是範例，不是所有運動員的固定頻率處方。
   tag: speed-training-frequency
-- q: 加速訓練的推薦距離範圍是多少？
-  a: 加速訓練常用 10–30 m；10 m 以內著重起跑爆發，30 m 接近初始加速結束；需要改善最大速度則用 40–60 m 以上。
+- q: 短到長模型如何以距離發展加速與頂速？
+  a: 模型一開始用短距離衝刺發展加速與推進力，後續以較長衝刺銜接直立跑姿的頂速工作；範例也以 acceleration hold 作為從加速力學轉入頂速與速度耐力的橋梁。
   tag: acceleration-training-distance
-- q: 速度訓練的週期化建議是什麼？
-  a: 準備期以技術與力量基礎為主（低量高頻技術跑）；競賽前期引入高強度短跑；競賽期維持速度品質、減少總量；結合力量與爆發力週期同步規劃。
+- q: 速度發展如何運用週期化？
+  a: 速度規劃應按階段強調與淡化特定品質，協調衝刺的身體與心理成分。短到長範例依序成熟加速、長加速與過渡、頂速，並在後期維持加速與加入耐力工作。
   tag: speed-periodization
-- q: 不同切入角度對 COD 訓練的影響是什麼？
-  a: 小角度（< 45°）：速度損失少，技術需求較低，適合初學者；大角度（90°–180°）：需要顯著制動與再加速，對力量與技術要求高；訓練應涵蓋多種角度。
+- q: 切入角度如何影響方向改變訓練？
+  a: 小於 75° 的淺切入通常接地時間短於 250 ms，身體需求接近速度訓練；等於或大於 75° 的較急切入因煞車需求較大，常超過 250 ms，宜更強調離心與最大力量。
   tag: cod-cutting-angles
-- q: 植地（plant）技術在方向改變中的重要性為何？
-  a: 植地腳應在身體外側著地（外展位），膝關節微屈吸震，利用伸膝力量快速推離；過度內旋（knee valgus）增加 ACL 損傷風險。
+- q: 方向改變煞車與再加速的姿勢原則是什麼？
+  a: 減速時控制軀幹，支撐期將軀幹與髖重新朝向行進方向，並以低重心進出變向；膝蓋要在有效活動範圍內吸收離心煞車負荷，避免僵直腿式煞車。
   tag: cod-plant-technique
-- q: 敏捷性測試（agility test）如何設計才能包含認知成分？
-  a: 使用燈號、球或對手動作作為刺激，選手需在刺激後決定方向；例如 Reactive Agility Test（RAT）使用真人對手模擬真實比賽情境，比固定路徑測試更有效度。
+- q: 如何讓方向改變操練成為敏捷操練？
+  a: 在封閉式操練加入需要反應的刺激，例如哨音、教練口令、指向箭頭或閃光箭頭；進階時改用閃避操練、小場比賽等具運動專項刺激的活動，並增加時間或空間壓力。
   tag: reactive-agility-test
-- q: 速度訓練前的動態熱身應包含哪些元素？
-  a: A-skip、B-skip、高抬膝、後踢腿（butt kicks）、動態伸展、短跑漸進加速（build-up runs）；避免靜態伸展在訓練前降低肌腱剛度與爆發力輸出。
+- q: 本章的 A-skip 與 Fast Feet 操練各自要練什麼？
+  a: A-skip 模擬直立衝刺力學與垂直力量產生；Fast Feet 旨在發展步頻。兩者皆要求堆疊關節、足部在髖下著地，且手臂與腿部同速動作。
   tag: speed-warmup
-- q: 速度訓練中技術提示（cues）的使用原則為何？
-  a: 提示應簡短、動作導向（如「抬膝高、腳踩地快」），針對當下最關鍵的技術錯誤；避免一次給多個提示，讓選手有內化時間。
+- q: 本章對衝刺技術提示提供哪些例子？
+  a: 起跑與加速可提示低位腳跟回收、腳向下穿過地面、積極完整的手臂動作，以及頭部與脊柱對齊；修正方向改變可用「把地面推開」的外部注意焦點。
   tag: speed-technique-cues
-- q: 短跑訓練中「分段計時」的用途是什麼？
-  a: 透過 10 m、20 m、30 m 分段計時，可分別評估加速能力（0–10 m）、過渡加速（10–20 m）和最大速度區間（20–30 m）的弱點，指導訓練重點。
+- q: 除完成時間外，如何監控衝刺發展？
+  a: 可用高速攝影機或光學計時系統監控接地時間、步長、步幅、騰空時間、步幅角度、速度與加速度；這些資料可補足手持計時與起跑方式造成的解讀限制。
   tag: split-timing-sprinting
-- q: 坡道短跑（uphill/downhill sprinting）訓練效果為何？
-  a: 上坡跑：增加水平推進力需求，強化加速力學；下坡跑（2–3° 坡）：超速訓練提升最大步頻；坡度不應超過 3–4°，否則導致技術變形。
+- q: 上坡與下坡衝刺在本章的定位是什麼？
+  a: 上坡衝刺是阻力衝刺，可促進加速期較低的軀幹、髖與脛角；下坡跑是超速訓練例子，但可能讓運動員「尋找地面」、增加不必要離心力並改變 SSC。
   tag: hill-sprint-training
-- q: 速度訓練與敏捷性訓練的年齡適應考量為何？
-  a: 青少年（9–12 歲）：神經可塑性高，此階段訓練步頻效果佳；青春期後力量適應成為主要驅動因素；成年運動員需整合力量、爆發力與技術訓練。
+- q: 本章對初學者與青少年使用複合訓練有何提醒？
+  a: 複合訓練以交替 SSC 任務與重阻力運動為基礎，雖日益用於提升進階運動員表現，但教材說它可能不適合初學者或青少年。
   tag: speed-agility-youth
-- q: 競技運動中速度訓練的特殊性原則（specificity）如何應用？
-  a: 訓練動作應模擬比賽中的起跑方向、切入角度與反應情境；足球員需多方向加速，短跑選手著重直線；不同運動的速度訓練設計差異顯著。
+- q: 力量訓練轉移到衝刺時的特異性如何判斷？
+  a: 轉移程度可能來自訓練動作與運動專項在動作型態、峰值力量、RFD、加速度與速度型態上的相似性；因此不應只以動作外觀判定是否特異。
   tag: speed-specificity
-- q: 力量訓練如何為速度訓練提供基礎？
-  a: 最大肌力為爆發力提供力量儲備（force reservoir）；下肢推蹬力量（squat、deadlift、lunge）直接轉移至起跑與加速推進；不充分的力量基礎限制速度適應上限。
+- q: 為何衝刺者仍需要力量訓練？
+  a: 衝刺要求在短時間產生足以承托體重、克服重力並增加速度的力量。最大力量可有益，但教材建議將最大力量與速度—力量品質結合，並依特異性促進轉移。
   tag: strength-base-for-speed
-- q: 增強式訓練（plyometrics）在速度訓練計畫中的定位為何？
-  a: plyometrics 提升 SSC 效率與肌腱剛度，是速度訓練的橋樑；低強度跳躍（繩梯、連續跳）→ 高強度跳躍（depth jump）應循序漸進，最終轉移至短跑動作。
+- q: SSC 訓練活動應如何安排？
+  a: 選擇能沿動力鏈傳遞力量並利用彈性—反射機制的技巧性多關節動作；為管理疲勞與保持品質，使用短工作段或叢集，並穿插頻繁休息。
   tag: plyometrics-speed-bridge
-- q: 速度—耐力訓練（speed endurance）的定義與功能是什麼？
-  a: 速度耐力：在較長距離（60–150 m）維持次最大速度的能力；訓練目的是延緩疲勞對速度的損耗，適合需要多次衝刺的運動（籃球、足球）。
+- q: 短到長速度範例如何安排速度耐力？
+  a: 範例在第三區塊開始暴露速度耐力與專項耐力，並安排在一週較後段，因累積疲勞可能降低神經驅動；第四區塊則持續安排與主要項目相關的速度耐力或專項耐力。
   tag: speed-endurance
-- q: 如何評估運動員的 COD 速度與敏捷性缺失（deficit）？
-  a: COD deficit = COD test 時間 - 等距離直線衝刺時間；正值越大代表方向改變技術或力量弱點越明顯，指引訓練側重點（技術 vs. 力量）。
+- q: 如何計算方向改變缺額（COD deficit）？
+  a: 它是等長直線衝刺與方向改變測驗完成時間的差。書中範例為從 505 方向改變時間扣除 10 m 直線衝刺時間，用以表示方向改變需求額外花費的時間。
   tag: cod-deficit-assessment
-- q: 哪些測試可評估加速能力？
-  a: 10 m 衝刺計時（手動或電子）是最直接指標；也可用 flying start（20–30 m，排除反應時間）單獨測最大速度；雷達槍可記錄速度曲線。
+- q: 本章如何評估與監控衝刺能力？
+  a: 長期常用與專項相關距離的最大努力直線衝刺，例如 40 yards（36.6 m）；完成時間有效但會受手持計時與起跑策略影響，因此可加用高速攝影機或光學計時系統的步態資料。
   tag: acceleration-tests
-- q: 速度訓練的設備需求有哪些？
-  a: 計時門（timing gates）、拖橇（sprint sled）、彈力帶、錐筒、反應燈（reactive light system）；有條件可加 GPS 或加速度計追蹤速度分佈。
+- q: 本章提到哪些速度與敏捷監控設備？
+  a: 衝刺可使用高速攝影機或以紅外線中斷記錄足部接觸資料的光學計時系統；方向改變與敏捷可用每秒超過 100 幀的高速攝影機，搭配手持或電子計時。
   tag: speed-training-equipment
-- q: 速度訓練計畫的週次安排建議？
-  a: 典型週結構：Day 1 最大速度（全力短衝）、Day 2 COD 與敏捷性、Day 3 加速（阻力短跑）；速度訓練排在力量訓練前或獨立日，避免疲勞影響技術品質。
+- q: 本章的短到長範例在週內如何變化？
+  a: 每個區塊以週一、週三、週五安排工作，但工具會逐步由上坡衝刺與起跑，轉為飛跑、加速維持、速度耐力與專項耐力；週內安排服務於該區塊的主要、次要與第三目標。
   tag: speed-weekly-schedule
-- q: 短跑運動員的下肢力量發展重點是什麼？
-  a: 髖部伸展肌群（臀大肌、腿後）是推進力主要來源；膝伸展（股四頭）在加速期重要；踝關節剛度（小腿複合體）在最大速度期關鍵；訓練應三者兼顧。
+- q: 本章對衝刺力量訓練的肌群重點是什麼？
+  a: 教材建議安排可提高神經驅動、並過負荷 SSC 中髖與膝區肌群的運動；舉重動作可能透過髖膝周邊肌肉共同活化、肌肉剛度與 RFD 適應協助衝刺。
   tag: sprint-strength-focus
-- q: 如何進行速度訓練的監控與回饋？
-  a: 每組記錄衝刺時間（timing gate）評估疲勞；技術錯誤用影像回饋（slow-motion video）；RPE 與心率監控恢復狀態；速度下降 > 3% 視為疲勞停訓標準。
+- q: 速度監控應如何解讀步態資料？
+  a: 接地時間縮短且完成時間改善，通常表示較能在短時間產生高施力速率；但加速初期接地時間可能稍長。騰空時間增加也有兩種可能，須分辨是短時大力的有效位移，或過久施力造成不必要的垂直振幅。
   tag: speed-monitoring
-- q: COD 訓練對 ACL 損傷預防的意義為何？
-  a: 訓練正確植地技術（膝外展控制、軀幹位置穩定）可降低 ACL 損傷風險；篩查膝外翻（knee valgus）是前置條件；女性運動員更需重視此訓練。
+- q: 方向改變訓練如何建立煞車能力？
+  a: 先從低量的前向減速操練開始，讓運動員保持低姿勢、犧牲速度以練好位置；再進展側向減速與再加速。需能在膝的有效活動範圍吸收離心煞車負荷，避免僵直腿式煞車。
   tag: cod-acl-prevention
-- q: 速度訓練在不同運動週期的比例應如何調整？
-  a: 一般準備期：低比例速度訓練，以技術與力量為主；特殊準備期：速度比例提升；賽前期：接近比賽速度的高品質短衝；賽季中：維持速度品質，降低總量。
+- q: 短到長速度發展的四個區塊依序強調什麼？
+  a: 第一區塊主攻加速；第二區塊主攻長加速、次要為轉直立跑姿、第三目標為速度耐力；第三區塊開始頂速、維持加速並繼續耐力；第四區塊主攻頂速並維持其餘能力。
   tag: speed-periodization-phases
-- q: 速度訓練和敏捷性訓練的共同安全注意事項有哪些？
-  a: 充分動態熱身、確保場地無濕滑或障礙物、初學者先建立直線速度基礎再進行多方向訓練、疲勞時停止（技術崩潰增加損傷風險）、漸進增加訓練強度與複雜度。
+- q: 本章如何安全地進展敏捷操練？
+  a: 先建立身體與技術勝任度，再由初學者方向改變操練逐步增加進入速度、切入角度、再加速與知覺—認知壓力；煞車任務要從類似初次導入離心任務的低量開始。
   tag: speed-agility-safety
-- q: 什麼是「正式起跑」（set position）的關鍵要素？
-  a: 北布式起跑履階正式起跑：患腹跟尼轉，臀部高於肩部，前腳要筆直低影；壓襉式：規桌點假想，横平控制上身；起跑指令發出後，瞬間推進，前幾步保持低身前傾。
+- q: set position 的關鍵要素是什麼？
+  a: 在起跑器、三點或四點交錯起跑中，用平衡的體重分配與有助爆發施力的肢段角度建立預備姿勢；本章列菁英者前小腿約 90°、後小腿約 133° 作為參考資料。
   tag: set-position-sprint-start
