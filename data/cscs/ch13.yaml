@@ -8,1080 +8,1307 @@ topics:
   tag: Aerobic Capacity
   items:
   - id: ch13.aerobic-capacity.i01
-    q: 有氧容量定義
+    q: 有氧容量（aerobic capacity）的定義
     a:
-    - VO₂max：最大攝氧量，ml·kg⁻¹·min⁻¹
-    - 氧化碳水化合物、脂肪、蛋白質產生能量的最大速率
-    detail: ''
-    terms: []
+    - 最大攝氧量（V̇O2max）是以氧化碳水化合物、脂肪與蛋白質產生能量的最高速率
+    - 通常以每公斤體重每分鐘耗氧量表示
+    detail: 多數體能訓練專業人員沒有直接量測耗氧量的設備，因此本章後續協定主要以場地表現估算。
+    terms: [aerobic-capacity, vo2max]
     numbers: []
-    concepts:
-    - measurement
-    - energy-supply
-    related: []
-    locator: ''
+    concepts: [measurement, energy-supply]
+    related: [ch13.aerobic-capacity.i06]
+    locator: Measuring Parameters of Athletic Performance > Aerobic Capacity
   - id: ch13.aerobic-capacity.i02
-    q: 1.5英里跑（13.14）
+    q: 1.5 英里（2.4 km）跑（13.14）如何施測？
     a:
-    - 2.4公里
-    - 記錄時間後換算VO₂max
-    - 需平坦跑道
-    - 有年齡性別常模表
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - energy-supply
-    related: []
-    locator: ''
+    - 在平坦、標記完成的跑道或路線上，以可勉強維持的穩定配速盡快完成全程
+    - 於終點以分鐘與秒記錄每位跑者時間
+    - 可改用 1.86 英里（3 km）路線
+    detail: 教材建議先讓不熟悉長距離配速的運動員進行熟悉與配速練習；書末換算常模表因轉檔欄位錯置，未採用其中數值。
+    terms: [one-point-five-mile-run, aerobic-capacity]
+    numbers:
+    - v: '1.5/2.4'
+      unit: 英里/km
+      of: 標準跑測全程
+    - v: '1.86/3'
+      unit: 英里/km
+      of: 可替代的跑測路線長度
+    concepts: [measurement, energy-supply]
+    related: [ch13.aerobic-capacity.i01]
+    locator: Measuring Parameters of Athletic Performance > Aerobic Capacity > 1.5-Mile (2.4 km) Run
   - id: ch13.aerobic-capacity.i03
-    q: 12分鐘跑（13.15）
+    q: 12 分鐘跑（13.15）如何計分？
     a:
-    - Cooper Test
-    - 記錄12分鐘內跑距離
-    - 估算VO₂max
-    - 簡單易施測，適合團隊
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - energy-supply
+    - 聽到開始信號後，於 12 分鐘內盡可能以跑步前進；必要時可部分或全程步行
+    - 時間到立即原地停止，依圈數乘以每圈距離計算跑距
+    - 跑道可採 400 m，並每 100 m 設標記
+    detail: 成績是固定時間內的距離，不是完賽時間；教材範例以 5.25 圈乘 400 m 得 2,100 m。
+    terms: [twelve-minute-run, aerobic-capacity]
+    numbers:
+    - v: '12'
+      unit: 分鐘
+      of: 跑測的固定時間
+    - v: '400'
+      unit: m
+      of: 建議跑道每圈長度
+    - v: '100'
+      unit: m
+      of: 跑道標記間距
+    - v: '5.25 × 400 = 2100'
+      unit: m
+      of: 教材的跑距計算示例
+    concepts: [measurement, energy-supply]
     related: []
-    locator: ''
+    locator: Measuring Parameters of Athletic Performance > Aerobic Capacity > 12-Minute Run
   - id: ch13.aerobic-capacity.i04
-    q: Yo-Yo 測試（13.16）
+    q: Yo-Yo 間歇恢復測驗（Yo-Yo intermittent recovery test, IRT）重點
     a:
-    - 間歇性恢復測試
-    - 20公尺來回+10秒休息
-    - 速度逐漸增加至力竭
-    - 適合間歇性運動項目
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - energy-supply
-    related: []
-    locator: ''
+    - IRT1 與 IRT2 都以逐漸加速的 2 × 20 m 折返跑，穿插 10 秒恢復期
+    - IRT1 起始速度為 10 km/h，IRT2 為 13 km/h；教材建議使用 IRT1
+    - 兩次未能在提示音前抵達起跑線或轉折線即終止，記錄最後等級與該等級完成的折返次數
+    detail: 教材認為此測驗模擬團隊運動的短暫高強度爆發與短恢復期，因而可能較具團隊運動專項性；這是建議而非普遍效度結論。
+    terms: [yo-yo-intermittent-recovery-test, aerobic-capacity]
+    numbers:
+    - v: '2 × 20'
+      unit: m
+      of: 每一工作區間的折返跑距離
+    - v: '10'
+      unit: 秒
+      of: 每次折返後的恢復期
+    - v: '10/13'
+      unit: km/h
+      of: IRT1／IRT2 起始速度
+    - v: '2'
+      unit: 次試驗
+      of: 未能維持指定配速而終止的門檻
+    concepts: [measurement, energy-supply]
+    related: [ch13.aerobic-capacity.i03]
+    locator: Measuring Parameters of Athletic Performance > Aerobic Capacity > Yo-Yo Intermittent Recovery Test
   - id: ch13.aerobic-capacity.i05
-    q: MAS測試（13.17）
+    q: 最大有氧速度測驗（maximal aerobic speed test, MAS）（13.17）重點
     a:
-    - 最大有氧速度（Maximal Aerobic Speed）
-    - 確定訓練區間
-    - 遞增速度直到力竭
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - energy-supply
-    related: []
-    locator: ''
+    - 在跑道每隔 25 m 設錐筒；初速依體能設在 8–12 km/h，教材一般建議 10 km/h
+    - 每 2 分鐘增速 1 km/h；能至少維持 2 分鐘的最後速度即為 MAS
+    - 無法連續兩次準時到下一個錐筒時終止；若可完成半個階段，最後完整階段速度加 0.5 km/h
+    - 教材以 V̇O2max = 3.5 × MAS（km/h）計算估計值
+    detail: MAS 是測驗中可維持的最後分級速度；若沒有音檔，教材允許以依速度計算時距的哨音替代。
+    terms: [maximal-aerobic-speed, vo2max]
+    numbers:
+    - v: '25'
+      unit: m
+      of: 跑道錐筒間距
+    - v: '8–12'
+      unit: km/h
+      of: 測驗可採用的初始速度範圍
+    - v: '10'
+      unit: km/h
+      of: 教材一般建議的初始速度
+    - v: '1'
+      unit: km/h
+      of: 每一分級的增速
+    - v: '2'
+      unit: 分鐘
+      of: 每一速度分級長度與維持 MAS 所需時間
+    - v: '0.5'
+      unit: km/h
+      of: 完成半個階段時加到最後完整階段的速度
+    - v: '3.5 × MAS'
+      unit: ml·kg⁻¹·min⁻¹
+      of: 教材估計 V̇O2max 的計算式
+    concepts: [measurement, energy-supply]
+    related: [ch13.aerobic-capacity.i01]
+    locator: Measuring Parameters of Athletic Performance > Aerobic Capacity > Maximal Aerobic Speed Test
   - id: ch13.aerobic-capacity.i06
-    q: VO₂max 估算
+    q: 本章如何取得有氧容量的估計？
     a:
-    - 多數力量訓練師無直接量測設備
-    - 用跑步表現間接估算
-    - 跑距或跑時代入公式
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - energy-supply
-    related: []
-    locator: ''
+    - 直接量測耗氧量需要設備，多數體能訓練專業人員無法直接進行
+    - 可用至少 1 英里（1.6 km）的跑步耐力表現估計
+    - 最大有氧速度測驗與 Yo-Yo 間歇恢復測驗也是教材列出的場地測驗
+    detail: 場地測驗提供的是估計而非直接耗氧量測量；選擇時應配合運動項目的需求。
+    terms: [aerobic-capacity, maximal-aerobic-speed, yo-yo-intermittent-recovery-test]
+    numbers:
+    - v: '1/1.6'
+      unit: 英里/km
+      of: 教材列為有氧耐力跑估計的最低跑距
+    concepts: [measurement, energy-supply]
+    related: [ch13.aerobic-capacity.i01]
+    locator: Measuring Parameters of Athletic Performance > Aerobic Capacity
   - id: ch13.aerobic-capacity.i07
-    q: Yo-Yo vs 12分鐘跑
+    q: Yo-Yo 測驗的恢復段如何執行？
     a:
-    - Yo-Yo：反映間歇恢復能力，更近似球類運動
-    - 12分鐘跑：持續穩定配速，更適合耐力項目
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - energy-supply
-    related: []
-    locator: ''
+    - 通過起跑標記後，運動員慢跑至起跑線後方 5 m 標記再轉回起跑線
+    - 回到起跑線後停下，等待下一個提示音
+    - 每個提示音時，一隻腳必須踏到或越過起跑線或轉折線
+    detail: 恢復段不是靜止休息；其慢跑、轉回與等待的安排是本測驗協定的一部分。
+    terms: [yo-yo-intermittent-recovery-test]
+    numbers:
+    - v: '5'
+      unit: m
+      of: 起跑線後方的恢復段標記距離
+    concepts: [measurement, technique]
+    related: [ch13.aerobic-capacity.i04]
+    locator: Measuring Parameters of Athletic Performance > Aerobic Capacity > Yo-Yo Intermittent Recovery Test
   - id: ch13.aerobic-capacity.i08
-    q: CSCS 考點
+    q: 有氧跑測的施測前準備
     a:
-    - VO₂max單位ml·kg⁻¹·min⁻¹
-    - Cooper=12分鐘跑
-    - Yo-Yo適合間歇型運動
-    - MAS用於訓練區間設定
-    detail: ''
-    terms: []
+    - 1.5 英里跑與 Yo-Yo 測驗都要求先熱身與伸展
+    - Yo-Yo 測驗另要求以次最大努力跑一次路線作練習
+    - 長距離配速經驗有限者宜先在訓練中熟悉配速
+    detail: 教材把熟悉化列為取得有效成績的必要準備；不應把第一次接觸協定的成績當作穩定能力值。
+    terms: [one-point-five-mile-run, yo-yo-intermittent-recovery-test, validity]
     numbers: []
-    concepts:
-    - measurement
-    - energy-supply
-    related: []
-    locator: ''
+    concepts: [measurement, technique]
+    related: [ch13.test-administration.i04]
+    locator: Measuring Parameters of Athletic Performance > Aerobic Capacity > 1.5-Mile (2.4 km) Run
 - id: agility-speed
   title: 敏捷與速度 Agility & Speed
   desc: ''
   tag: Agility / Speed
   items:
   - id: ch13.agility-speed.i01
-    q: 敏捷定義
+    q: 敏捷（agility）的定義與構成
     a:
-    - 對運動特定刺激的快速全身方向或速度改變
-    - 含身體成分（變向速度）與認知成分（預判）
-    detail: ''
-    terms: []
+    - 傳統上指快速停止、起動與改變全身方向的能力
+    - 教材更新的定義是：回應運動專項刺激時，快速改變全身方向或速度
+    - 包含變向速度與認知因素兩個主要成分
+    detail: 本章同時指出敏捷測驗通常限於變向速度等身體能力，或預判等認知成分；單一場地測驗不必然涵蓋兩者。
+    terms: [agility, speed]
     numbers: []
-    concepts:
-    - measurement
-    related: []
-    locator: ''
+    concepts: [measurement]
+    related: [ch13.agility-speed.i02]
+    locator: Measuring Parameters of Athletic Performance > Agility
   - id: ch13.agility-speed.i02
-    q: T測試（13.18）
+    q: T 測驗（T-test）（13.18）流程與計分
     a:
-    - 前衝9.14m→左橫移4.57m→右橫移9.14m→後退
-    - 男<9.5秒優秀
-    - 有描述性常模
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    related: []
-    locator: ''
+    - 從 A 點前衝至 B 點並以右手觸錐筒底部，向左橫移 5 碼觸 C 點
+    - 再向右橫移 10 碼觸 D 點，向左橫移 5 碼回 B 點，最後倒退跑過 A 點
+    - 兩次試驗取最快時間，記至最近 0.1 秒
+    detail: 未觸錐筒底部、橫移時交叉腳，或全程未面向前方都會取消該次試驗資格。
+    terms: [t-test, agility]
+    numbers:
+    - v: '5/10/5'
+      unit: 碼
+      of: T 測驗橫移的左／右／回程距離
+    - v: '2'
+      unit: 次試驗
+      of: 取最快成績的試驗次數
+    - v: '0.1'
+      unit: 秒
+      of: 成績記錄精度
+    concepts: [measurement, technique]
+    related: [ch13.agility-speed.i01]
+    locator: Measuring Parameters of Athletic Performance > Agility > T-Test
   - id: ch13.agility-speed.i03
-    q: 六角形測試（13.19）
+    q: 六角形測驗（hexagon test）（13.19）重點
     a:
-    - 六角形路線連續跳躍
-    - 雙腳同時起落
-    - 記錄完成3圈時間
-    - 評估多方向移動能力
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
+    - 以邊長 24 英吋（61 cm）、內角 120° 的六角形施測
+    - 雙腳連續越過每一邊再跳回中心，順時針完成三圈，共 18 跳
+    - 失去平衡、踩線或改變面向時停止；充分恢復後重做
+    - 三次試驗取最佳時間，記至最近 0.1 秒
+    detail: 本協定要求全程面向相同方向，因此成績反映教材指定跳躍路徑下的完成時間，不能泛稱為所有方向的移動能力。
+    terms: [hexagon-test, agility]
+    numbers:
+    - v: '24/61'
+      unit: 英吋/cm
+      of: 六角形各邊長度
+    - v: '120'
+      unit: °
+      of: 六角形各內角
+    - v: '3/18'
+      unit: 圈／跳
+      of: 完成的圈數與總跳躍次數
+    - v: '3'
+      unit: 次試驗
+      of: 取最佳成績的試驗次數
+    - v: '0.1'
+      unit: 秒
+      of: 成績記錄精度
+    concepts: [measurement, technique]
     related: []
-    locator: ''
+    locator: Measuring Parameters of Athletic Performance > Agility > Hexagon Test
   - id: ch13.agility-speed.i04
-    q: Pro敏捷（13.20）
+    q: Pro 敏捷測驗（pro agility test）（13.20）重點
     a:
-    - 又稱5-10-5
-    - 從中心出發5碼→折返10碼→再折返5碼
-    - 記錄總時間
-    - NFL常用
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    related: []
-    locator: ''
+    - 又稱 20 碼（18.3 m）折返跑
+    - 運動員跨站在中線，以三點式起跑；依序衝刺左方 5 碼、右方 10 碼、回中線 5 碼
+    - 必須以手接觸指定線；兩次試驗取最快時間，記至最近 0.01 秒
+    detail: 教材特別要求兩次試驗的手部接線方式保持一致，否則前後成績不能公平比較。
+    terms: [pro-agility-test, agility]
+    numbers:
+    - v: '20/18.3'
+      unit: 碼/m
+      of: 此測驗別名所示的總跑距
+    - v: '5/10/5'
+      unit: 碼
+      of: 三段衝刺距離
+    - v: '2'
+      unit: 次試驗
+      of: 取最快成績的試驗次數
+    - v: '0.01'
+      unit: 秒
+      of: 成績記錄精度
+    concepts: [measurement, technique]
+    related: [ch13.agility-speed.i05]
+    locator: Measuring Parameters of Athletic Performance > Agility > Pro Agility Test
   - id: ch13.agility-speed.i05
-    q: 505敏捷（13.21）
+    q: 505 敏捷測驗（505 agility test）（13.21）重點
     a:
-    - 15m直線衝刺+在5m處急速180°轉向返回
-    - 評估單方向變向能力
-    - 有描述性常模
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    related: []
-    locator: ''
+    - 從起跑線衝刺 10 m 通過計時燈，再多跑 5 m 至轉折線；一隻腳須踏在線上或越線
+    - 轉身並自線上加速，第二次通過計時燈後才可減速
+    - 兩次取最快時間，記至最近 0.1 秒；可用慣用腳或分別以雙腳轉向
+    detail: 計時區間由兩次穿越計時燈界定，不是從起跑到終點的完整 15 m 跑。
+    terms: [five-zero-five-agility-test, agility]
+    numbers:
+    - v: '10/5'
+      unit: m
+      of: 起跑至計時燈／計時燈至轉折線的距離
+    - v: '2'
+      unit: 次試驗
+      of: 取最快成績的試驗次數
+    - v: '0.1'
+      unit: 秒
+      of: 成績記錄精度
+    concepts: [measurement, technique]
+    related: [ch13.agility-speed.i04]
+    locator: Measuring Parameters of Athletic Performance > Agility > 505 Agility Test
   - id: ch13.agility-speed.i06
-    q: 直線衝刺（13.22）
+    q: 直線衝刺測驗（straight-line sprint tests）（13.22）如何判讀？
     a:
-    - 10m→加速
-    - 40m/40碼→最大速度
-    - 建議電子計時
-    - 手動計時偏快最多0.24秒
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    related: []
-    locator: ''
+    - 靜止起跑的短距離，如 10 碼（9.3 m），反映加速度；較長衝刺如 40 碼（37.1 m）反映最高速度
+    - 一般不超過 100 m，因為更長距離較反映無氧或有氧容量，而非最高移動速度
+    - 協定可記錄兩次試驗中最佳的分段時間，至最近 0.1 秒
+    detail: 分段時間比單一總時間更能讓體能訓練專業人員分辨速度與加速度能力。
+    terms: [straight-line-sprint-test, speed]
+    numbers:
+    - v: '10/9.3'
+      unit: 碼/m
+      of: 教材舉例的加速度衝刺距離
+    - v: '40/37.1'
+      unit: 碼/m
+      of: 教材舉例的最高速度衝刺距離
+    - v: '100'
+      unit: m
+      of: 一般不超過的速度測驗距離
+    - v: '2'
+      unit: 次試驗
+      of: 取最佳分段時間的試驗次數
+    - v: '0.1'
+      unit: 秒
+      of: 成績記錄精度
+    concepts: [measurement]
+    related: [ch13.agility-speed.i07]
+    locator: Measuring Parameters of Athletic Performance > Speed > Straight-Line Sprint Tests
   - id: ch13.agility-speed.i07
-    q: 計時誤差
+    q: 手持碼錶與電子計時的誤差
     a:
-    - 手動碼錶因反應時間延遲，比電子計時快最多0.24秒
-    - 應優先使用電子計時裝置
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    related: []
-    locator: ''
+    - 即使條件理想，碼錶量得的衝刺時間最多可比電子計時快 0.24 秒
+    - 誤差來自起跑按錶的反應延遲，以及終點前預期性提早按錶
+    - 有設備時，教材鼓勵速度與敏捷測驗使用電子計時
+    detail: 手持計時不是只會「慢按」；起跑與終點兩個反應偏差方向不同，合計可使成績偏快。
+    terms: [electronic-timing, speed]
+    numbers:
+    - v: '0.24'
+      unit: 秒
+      of: 碼錶衝刺時間相對電子計時可能偏快的最大值
+    concepts: [measurement]
+    related: [ch13.agility-speed.i06]
+    locator: Measuring Parameters of Athletic Performance > Speed
   - id: ch13.agility-speed.i08
-    q: CSCS 考點
+    q: 速度與敏捷測驗的場地安全條件
     a:
-    - Pro敏捷=5-10-5
-    - 手動計時誤差最多0.24秒快於電子
-    - T測試包含前後左右4方向移動
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    related: []
-    locator: ''
+    - 應穿著適當鞋類並在不滑的表面進行
+    - 直線衝刺終點後應保留至少 20 碼（18 m）減速距離
+    - T 測驗倒退跑處的 A 點後方應設保護員與體操墊
+    detail: 這些條件是協定內的風險控制，不是成績的計分規則；變更場地或減速空間也會改變受測風險。
+    terms: [straight-line-sprint-test, t-test]
+    numbers:
+    - v: '20/18'
+      unit: 碼/m
+      of: 衝刺終點後至少保留的減速距離
+    concepts: [measurement, safety]
+    related: [ch13.test-administration.i01]
+    locator: Measuring Parameters of Athletic Performance > Speed > Straight-Line Sprint Tests
 - id: anaerobic-endurance
   title: 無氧容量與肌耐力 Anaerobic & Muscular Endurance
   desc: ''
   tag: Anaerobic / Endurance
   items:
   - id: ch13.anaerobic-endurance.i01
-    q: 無氧容量定義
+    q: 無氧容量（anaerobic capacity）的定義
     a:
-    - 磷酸原系統+無氧糖解的最大能量產生速率
-    - 持續時間30-90秒
-    - 介於爆發力與有氧測試之間
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - energy-supply
-    related: []
-    locator: ''
+    - 指磷酸原與無氧糖解兩個能量系統合併產能的最高速率
+    - 通常量化為持續 30–90 秒肌肉活動的最高功率輸出
+    - 與只持續數秒的最大無氧功率測驗不同
+    detail: 這是以活動持續時間區分無氧容量與最大無氧功率的操作性定義，不是把任何高強度測驗都歸為無氧容量。
+    terms: [anaerobic-capacity, phosphagen-system, glycolysis]
+    numbers:
+    - v: '30–90'
+      unit: 秒
+      of: 無氧容量量化時的肌肉活動持續時間
+    concepts: [measurement, energy-supply]
+    related: [ch13.power-tests.i01]
+    locator: Measuring Parameters of Athletic Performance > Anaerobic Capacity
   - id: ch13.anaerobic-endurance.i02
-    q: 300碼折返（13.10）
+    q: 300 碼（274 m）折返跑（13.10）流程與計分
     a:
-    - 25碼來回×6次（共300碼）
-    - 記錄完成時間
-    - 休息5分鐘後重複一次，取平均或最佳值
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - energy-supply
-    related: []
-    locator: ''
+    - 兩線相距 25 碼（22.86 m），六個來回全力跑，不停頓
+    - 每個來回為 50 碼，六個來回共 300 碼（274 m）
+    - 第一次後休息 5 分鐘再做一次；記錄兩次平均時間至最近 0.1 秒
+    detail: 本協定指定取兩次平均，不是取最佳時間；受測者可步行與伸展，但休息期間須準備好第二次開始。
+    terms: [three-hundred-yard-shuttle, anaerobic-capacity]
+    numbers:
+    - v: '25/22.86'
+      unit: 碼/m
+      of: 兩條折返線的間距
+    - v: '6 × 50 = 300/274'
+      unit: 碼/m
+      of: 六個來回構成的總跑距
+    - v: '5'
+      unit: 分鐘
+      of: 兩次試驗間的休息時間
+    - v: '0.1'
+      unit: 秒
+      of: 平均成績記錄精度
+    concepts: [measurement, energy-supply]
+    related: [ch13.anaerobic-endurance.i01]
+    locator: Measuring Parameters of Athletic Performance > Anaerobic Capacity > 300-Yard (274 m) Shuttle
   - id: ch13.anaerobic-endurance.i03
-    q: 局部肌耐力定義
+    q: 局部肌耐力（local muscular endurance）的定義
     a:
-    - 特定肌群對次最大阻力的重複收縮能力
-    - 持續數秒至數分鐘
-    - 無休息、無代償動作
-    detail: ''
-    terms: []
+    - 指特定肌肉或肌群在次最大阻力下反覆收縮的能力
+    - 測驗應連續持續數秒至數分鐘，沒有休息期優勢
+    - 不應藉由額外身體動作代償
+    detail: 教材以負荷強度、連續性及無代償三項限定此類測驗；不是以「感到疲勞」作定義。
+    terms: [local-muscular-endurance]
     numbers: []
-    concepts:
-    - measurement
-    - energy-supply
-    related: []
-    locator: ''
+    concepts: [measurement, energy-supply]
+    related: [ch13.anaerobic-endurance.i01]
+    locator: Measuring Parameters of Athletic Performance > Local Muscular Endurance
   - id: ch13.anaerobic-endurance.i04
-    q: 捲腹（13.11）
+    q: 部分捲腹（partial curl-up）（13.11）重點
     a:
-    - 部分捲腹（Partial Curl-Up）
-    - 固定節奏（25次/分鐘）
-    - 記錄最大次數
-    - 評估核心耐力
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - energy-supply
-    related: []
-    locator: ''
+    - 測量腹肌肌耐力；教材偏好它，因為可排除髖屈肌參與
+    - 節拍器設 40 拍／分，做每分鐘 20 次受控捲腹；肩胛離墊、上背每次須回觸地面
+    - 可不停頓做到最多 75 次
+    detail: 年齡影響兩條膠帶間距：未滿 45 歲採 4.7 英吋（12 cm），45 歲以上採 3.1 英吋（8 cm）；不能把所有年齡用同一距離。
+    terms: [partial-curl-up, local-muscular-endurance]
+    numbers:
+    - v: '40/20'
+      unit: 拍／分、次／分
+      of: 節拍器設定與捲腹節奏
+    - v: '75'
+      unit: 次
+      of: 不停頓捲腹的最大次數
+    - v: '45'
+      unit: 歲
+      of: 膠帶間距分組的年齡界線
+    - v: '4.7/12'
+      unit: 英吋/cm
+      of: 未滿 45 歲者的兩條膠帶間距
+    - v: '3.1/8'
+      unit: 英吋/cm
+      of: 45 歲以上者的兩條膠帶間距
+    concepts: [measurement, technique]
+    related: [ch13.anaerobic-endurance.i03]
+    locator: Measuring Parameters of Athletic Performance > Local Muscular Endurance > Partial Curl-Up
   - id: ch13.anaerobic-endurance.i05
-    q: 伏地挺身（13.12）
+    q: 伏地挺身（push-up）（13.12）的 Army 與 ACSM 協定差異
     a:
-    - 完整動作範圍
-    - 腹部不落地
-    - 固定節奏計次
-    - 評估上肢推力耐力
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - energy-supply
-    related: []
-    locator: ''
+    - Army：低點為上臂與地面平行，限時 2 分鐘盡量完成；只可在上撐姿勢暫停
+    - ACSM：連續做到失敗；男性低點胸部碰觸記錄員垂直握拳
+    - ACSM 女性以膝而非腳著地、膝屈 90°且腳踝交叉；教材說女性低點沒有標準準則，建議可碰觸泡棉滾筒
+    detail: 未達協定要求的低點不計次；兩種標準的低點與終止方式不同，成績不可直接混比。
+    terms: [push-up, local-muscular-endurance, army-push-up-standard, acsm-push-up-standard]
+    numbers:
+    - v: '2'
+      unit: 分鐘
+      of: Army 標準的計時測驗時間
+    - v: '90'
+      unit: °
+      of: ACSM 女性起始姿勢的膝屈曲角度
+    concepts: [measurement, technique]
+    related: [ch13.anaerobic-endurance.i03]
+    locator: Measuring Parameters of Athletic Performance > Local Muscular Endurance > Push-Up
   - id: ch13.anaerobic-endurance.i06
-    q: YMCA臥推（13.13）
+    q: YMCA 臥推測驗（YMCA Bench Press Test）（13.13）重點
     a:
-    - 固定重量（男36kg/女16kg）
-    - 固定節奏（60bpm節拍器）
-    - 記錄最大次數
-    - 有常模表
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - energy-supply
-    related: []
-    locator: ''
+    - 男性阻力固定 80 磅（36 kg），女性固定 35 磅（16 kg）
+    - 節拍器設 60 拍／分，形成每分鐘 30 次的上下各一拍節奏
+    - 槓鈴反覆下放至胸部再推起至肘伸直，無法跟上節拍器即結束
+    detail: 成績是能維持指定負荷與節奏的重複次數，不是 1RM；動作須平順且每拍到達最高或最低位置。
+    terms: [ymca-bench-press-test, local-muscular-endurance]
+    numbers:
+    - v: '80/36'
+      unit: 磅/kg
+      of: 男性 YMCA 臥推固定阻力
+    - v: '35/16'
+      unit: 磅/kg
+      of: 女性 YMCA 臥推固定阻力
+    - v: '60/30'
+      unit: 拍／分、次／分
+      of: 節拍器設定與規定重複節奏
+    concepts: [measurement, technique]
+    related: [ch13.max-strength.i02]
+    locator: Measuring Parameters of Athletic Performance > Local Muscular Endurance > YMCA Bench Press Test
   - id: ch13.anaerobic-endurance.i07
-    q: 肌耐力 vs 無氧容量
+    q: 局部肌耐力與無氧容量怎麼區分？
     a:
-    - 肌耐力：次最大負荷多次重複
-    - 無氧容量：全力衝刺30-90秒
-    - 能量系統不同，勿混淆
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - energy-supply
-    related: []
-    locator: ''
+    - 局部肌耐力是特定肌群對次最大阻力的重複收縮
+    - 無氧容量是持續中等時間活動時，磷酸原與無氧糖解合併的最高產能速率
+    - 教材以 300 碼折返跑作無氧容量協定，並以捲腹、伏地挺身和 YMCA 臥推作局部肌耐力協定
+    detail: 兩者都可能造成疲勞，但教材的分類依據是所測能力與協定，而不是主觀疲勞程度。
+    terms: [local-muscular-endurance, anaerobic-capacity]
+    numbers:
+    - v: '300'
+      unit: 碼
+      of: 教材列作無氧容量協定的折返跑總距離
+    concepts: [measurement, energy-supply]
+    related: [ch13.anaerobic-endurance.i02, ch13.anaerobic-endurance.i03]
+    locator: Measuring Parameters of Athletic Performance > Anaerobic Capacity
   - id: ch13.anaerobic-endurance.i08
-    q: CSCS 考點
+    q: 局部肌耐力測驗的教材例子
     a:
-    - 300碼折返→無氧容量
-    - YMCA臥推固定重量（男36kg）
-    - 肌耐力測試無休息、無代償
-    detail: ''
-    terms: []
+    - 可測最大反覆次數的動作包括引體向上、雙槓撐體與伏地挺身
+    - 也可用固定負荷阻力訓練動作施測，例如一定百分比的 1RM 或體重
+    - 測驗需連續完成，不能利用休息期或額外身體動作
+    detail: 教材列舉的是測驗型式與動作例子，沒有為所有動作指定同一固定反覆次數或節奏。
+    terms: [local-muscular-endurance, one-repetition-maximum]
     numbers: []
-    concepts:
-    - measurement
-    - energy-supply
-    related: []
-    locator: ''
+    concepts: [measurement, energy-supply]
+    related: [ch13.anaerobic-endurance.i03]
+    locator: Measuring Parameters of Athletic Performance > Local Muscular Endurance
 - id: balance-flexibility-bc
   title: 平衡・柔軟性・身體組成 Balance / Flexibility / Body Composition
   desc: ''
   tag: Balance / Flexibility / BC
   items:
   - id: ch13.balance-flexibility-bc.i01
-    q: BESS（13.23）
+    q: 平衡錯誤計分系統（Balance Error Scoring System, BESS）（13.23）
     a:
-    - 平衡錯誤計分系統
-    - 6個站姿(雙腳/單腳/串聯步) × 2種面(地面/泡棉)
-    - 錯誤次數越少越好
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    related: []
-    locator: ''
+    - 三種站姿為雙腳併立、非慣用腳單腳站立與串聯站姿；各在硬面與軟面進行，共六種條件
+    - 每種條件閉眼、雙手放髖部維持 20 秒
+    - 開眼、手離髖、非支撐腳碰地、步移或跳動、腳跟或前足離地等均列為錯誤；將錯誤分數加總
+    detail: BESS 的總分是各條件錯誤的加總；教材沒有在協定段落寫成「錯誤越少越好」的評等規則，因此不另加未列常模判讀。
+    terms: [balance-error-scoring-system, balance]
+    numbers:
+    - v: '3 × 2 = 6'
+      unit: 站姿×表面條件
+      of: BESS 的總測驗條件數
+    - v: '20'
+      unit: 秒
+      of: 每一 BESS 條件的維持時間
+    concepts: [measurement, technique]
+    related: [ch13.balance-flexibility-bc.i02]
+    locator: Measuring Parameters of Athletic Performance > Balance and Stability > Balance Error Scoring System (BESS)
   - id: ch13.balance-flexibility-bc.i02
-    q: SEBT（13.24）
+    q: 星形伸展平衡測驗（Star Excursion Balance Test, SEBT）（13.24）
     a:
-    - 星形伸展平衡測試
-    - 單腳站立，另腳向8方向伸展
-    - 以腿長%標準化
-    - 評估動態平衡
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    related: []
-    locator: ''
+    - 在八條各長 120 cm、每隔 45° 的線所構成格網中央，以單腳站立
+    - 另一腳沿各線盡量伸展、觸及最遠點後回到雙腳姿勢，量中心至觸點的距離
+    - 每個條件做三次取平均；每次伸展間休息 15 秒，正式測驗前至少練習四次
+    detail: 起始方向與支撐腳隨機選定；未觸線、支撐腳離中心、失去平衡，或未維持起訖姿勢各一整秒的試驗應捨棄。
+    terms: [star-excursion-balance-test, balance]
+    numbers:
+    - v: '8'
+      unit: 條線
+      of: SEBT 格網的伸展方向數
+    - v: '120'
+      unit: cm
+      of: 各伸展線長度
+    - v: '45'
+      unit: °
+      of: 相鄰伸展線的角度間隔
+    - v: '3'
+      unit: 次試驗
+      of: 每條件取平均的試驗次數
+    - v: '15'
+      unit: 秒
+      of: 各次伸展間休息時間
+    - v: '4'
+      unit: 次試驗
+      of: 正式測驗前最少練習次數
+    concepts: [measurement, technique]
+    related: [ch13.balance-flexibility-bc.i01]
+    locator: Measuring Parameters of Athletic Performance > Balance and Stability > Star Excursion Balance Test (SEBT)
   - id: ch13.balance-flexibility-bc.i03
-    q: 坐姿前彎（13.25）
+    q: 坐姿前彎測驗（sit-and-reach test）（13.25）重點
     a:
-    - 評估下背+髖部柔軟性
-    - 腳頂箱子邊緣
-    - 膝蓋伸直
-    - 緩慢推移不反彈
-    - 有年齡常模
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    related: []
-    locator: ''
+    - 用於評估下背與髖部合併柔軟性
+    - 赤腳坐姿，雙腳相距 12 英吋（30 cm），膝伸直，慢慢雙手前伸並短暫維持
+    - 三次取最佳，記至最近 0.25 英吋或 1 cm
+    detail: 定期重測必須維持同一量測方法；若初測用量尺或尺棒，後續不能改用坐姿前彎箱。彈震式動作不允許。
+    terms: [sit-and-reach-test, flexibility, range-of-motion]
+    numbers:
+    - v: '12/30'
+      unit: 英吋/cm
+      of: 坐姿前彎時雙腳的間距
+    - v: '3'
+      unit: 次試驗
+      of: 取最佳成績的試驗次數
+    - v: '0.25/1'
+      unit: 英吋/cm
+      of: 成績記錄精度
+    concepts: [measurement, technique]
+    related: [ch13.balance-flexibility-bc.i07]
+    locator: Measuring Parameters of Athletic Performance > Flexibility > Sit-and-Reach Test
   - id: ch13.balance-flexibility-bc.i04
-    q: 過頭深蹲（13.26）
+    q: 過頭深蹲（overhead squat）（13.26）如何評估？
     a:
-    - 評估髖/膝/踝雙側活動度+肩/胸椎活動度
-    - 常見動作篩查
-    - 注意足跟離地、軀幹前傾
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    related: []
-    locator: ''
+    - 雙肩完全屈曲、肘鎖定持木棍或槓鈴，握距為肩寬兩倍，腳約肩寬
+    - 髖、膝屈曲下蹲至髖折痕低於膝頂；腳跟全程不離地
+    - 軀幹應直立並與脛骨平行，頭上木棍或槓鈴能舒適維持
+    - 至少做五次，由側面作通過／不通過的質性評估
+    detail: 本章將過頭深蹲列為可評估髖、膝、踝雙側活動度及肩、胸椎的常用動作篩檢，但同時指出目前篩檢結果與傷害間沒有明確建立的關聯。
+    terms: [overhead-squat, flexibility]
+    numbers:
+    - v: '2'
+      unit: 倍肩寬
+      of: 頭上木棍或槓鈴的握距
+    - v: '5'
+      unit: 次
+      of: 最少完成的重複次數
+    concepts: [measurement, technique]
+    related: [ch13.balance-flexibility-bc.i07]
+    locator: Measuring Parameters of Athletic Performance > Flexibility > Overhead Squat
   - id: ch13.balance-flexibility-bc.i05
-    q: 皮褶測量（13.27）
+    q: 皮褶測量（skinfold measurements）（13.27）的效度與誤差
     a:
-    - 最有效率的體脂估算法（r=0.99）
-    - 2室模型（脂肪+瘦體重）
-    - 優於圍度法
-    - DEXA為黃金標準
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    related: []
-    locator: ''
+    - 身體組成通常指脂肪與瘦組織按體重的相對比例；本章常用脂肪／瘦組織二分法
+    - 由受過訓練且勝任的測試者操作時，皮褶法是一般體能訓練專業人員可用方法中最有效度且最可靠者，r = 0.99，且優於圍度法
+    - DEXA 與水中（靜水）秤重常被稱為「黃金標準」
+    detail: r = 0.99 是教材對受訓、勝任測試者操作的陳述，不能把它延伸成任何操作者、任何皮褶方程式都有同等信度。
+    terms: [skinfold-measurement, body-composition, reliability, dual-x-ray-absorptiometry]
+    numbers:
+    - v: '0.99'
+      unit: r
+      of: 受訓且勝任測試者使用皮褶法評估體脂的可靠性相關係數
+    concepts: [measurement]
+    related: [ch13.balance-flexibility-bc.i06]
+    locator: Measuring Parameters of Athletic Performance > Body Composition
   - id: ch13.balance-flexibility-bc.i06
-    q: 圍度測量（13.28）
+    q: 皮褶與圍度測量的協定界線
     a:
-    - 腰圍→腹部脂肪風險（糖尿病/高血壓/心臟病）
-    - 需捲尺+助手
-    - 測量點需標準化
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    related: []
-    locator: ''
+    - 皮褶應在皮膚乾燥、運動前測量；放開卡尺後 1–2 秒讀至最近 0.5 mm
+    - 先各點量一次再做第二次；兩次差異不超過 10% 才平均，否則加測至有兩筆在 10% 內
+    - 圍度以放鬆解剖姿勢量胸、右上臂、右前臂、腰、臀、右大腿及右小腿
+    detail: 皮褶方程式必須依受測族群選擇；教材也提醒沒有普遍接受的身體組成常模，報告時須納入估計標準誤與百分比範圍。
+    terms: [skinfold-measurement, girth-measurement, body-composition]
+    numbers:
+    - v: '1–2'
+      unit: 秒
+      of: 放開卡尺後讀取刻度的時間
+    - v: '0.5'
+      unit: mm
+      of: 皮褶讀值與平均值的精度
+    - v: '10'
+      unit: '%'
+      of: 兩次皮褶讀值可直接平均的最大差異
+    concepts: [measurement]
+    related: [ch13.balance-flexibility-bc.i05]
+    locator: Measuring Parameters of Athletic Performance > Body Composition > Skinfold Measurements
   - id: ch13.balance-flexibility-bc.i07
-    q: 柔軟性測量工具
+    q: 柔軟性（flexibility）的測量原則
     a:
-    - 測角儀（Goniometer）：量關節角度
-    - 坐姿前彎箱：量下背+髖部
-    - 需標準化熱身+靜態拉伸
-    detail: ''
-    terms: []
+    - 柔軟性是身體關節的活動範圍
+    - 手動或電子測角儀測關節角度；坐姿前彎箱評估下背與髖部合併柔軟性
+    - 標準化熱身與靜態伸展可提高量測信度；受測者慢慢進入最大伸展位並維持
+    detail: 教材禁止彈震式伸展，因為其以反彈增加活動範圍，會破壞測驗動作的標準化。
+    terms: [flexibility, range-of-motion, goniometer, reliability]
     numbers: []
-    concepts:
-    - measurement
-    related: []
-    locator: ''
+    concepts: [measurement, technique]
+    related: [ch13.balance-flexibility-bc.i03]
+    locator: Measuring Parameters of Athletic Performance > Flexibility
   - id: ch13.balance-flexibility-bc.i08
-    q: CSCS 考點
+    q: 人體測量（anthropometry）與體重的標準化
     a:
-    - 皮褶r=0.99
-    - BESS錯誤次數越少越好
-    - 腰圍高→代謝疾病風險
-    - 坐姿前彎禁止彈振伸展
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    related: []
-    locator: ''
+    - 人體測量包括身高、體重與選定圍度；身高宜以測高儀量，赤腳量至最近四分之一英吋或半公分
+    - 體重宜用經認證、定期校正的平衡秤；電子秤是可接受替代品
+    - 穿著最少的乾燥衣物、同一時間量測；最可靠時點是早晨起床、排泄後、攝取食物或飲料前
+    detail: 水分狀態會使體重變動；教材建議量測前一天避免高鹽食物並以正常水分狀態入睡，以利後續可比性。
+    terms: [anthropometry, body-composition, hydration]
+    numbers:
+    - v: '1/4'
+      unit: 英吋
+      of: 身高量測的最近精度之一
+    - v: '0.5'
+      unit: cm
+      of: 身高量測的最近精度之一
+    concepts: [measurement]
+    related: [ch13.test-administration.i06]
+    locator: Measuring Parameters of Athletic Performance > Anthropometry
 - id: max-strength
   title: 最大肌力測試 Low-Speed Strength
   desc: ''
   tag: Low-Speed Strength
   items:
   - id: ch13.max-strength.i01
-    q: 1RM 定義
+    q: 低速肌力（low-speed muscular strength）與 1RM
     a:
-    - 最大重量只完成一次完整動作
-    - 反映低速肌力，主要能量來源為 PCr + ATP（2-4 秒）
-    detail: ''
-    terms: []
+    - 最大肌力測驗通常速度較低，反映低速肌力
+    - 肌力是肌肉或肌群在維持正確形式的一次最大努力中可施加的力量
+    - 可用一次反覆最大重量（one-repetition maximum, 1RM）、等長最大力或特定等速速度的最大力定量
+    detail: 1RM 是多數體能訓練專業人員的首選，因為不需昂貴器材，且反映運動所需的動態能力。
+    terms: [low-speed-muscular-strength, one-repetition-maximum, isometric-action]
     numbers: []
-    concepts:
-    - measurement
-    - force-production
-    related: []
-    locator: ''
+    concepts: [measurement, force-production]
+    related: [ch13.max-strength.i06]
+    locator: Measuring Parameters of Athletic Performance > Maximum Muscular Strength (Low-Speed Strength)
   - id: ch13.max-strength.i02
-    q: 臥推（13.1）
+    q: 1RM 臥推（1RM bench press）（13.1）人員與暖身
     a:
-    - 仰臥·雙腳平踩·握距略寬於肩
-    - 需1名保護員
-    - 熱身後3-5次嘗試找到1RM
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - force-production
-    related: []
-    locator: ''
+    - 配置一名保護員與一名記錄員；保護員全程站在長椅頭端協助失敗嘗試與回架
+    - 先以輕至中等負荷做 5–10 次專項暖身
+    - 正式 1RM 前通常至少再做兩組較重的暖身，每組 2–5 次
+    - 暖身後宜在 3–5 次嘗試內量得 1RM
+    detail: 教材明示若暖身後嘗試過多，疲勞可能降低最後成績；因此保護與逐步暖身兼顧安全和成績效度。
+    terms: [one-repetition-maximum, bench-press]
+    numbers:
+    - v: '5–10'
+      unit: 次
+      of: 專項暖身的反覆次數
+    - v: '2–5'
+      unit: 次
+      of: 每組較重暖身的反覆次數
+    - v: '3–5'
+      unit: 次嘗試
+      of: 暖身後量得 1RM 的建議嘗試次數
+    concepts: [measurement, force-production, safety]
+    related: [ch13.max-strength.i05]
+    locator: Measuring Parameters of Athletic Performance > Maximum Muscular Strength (Low-Speed Strength) > 1RM Bench Press
   - id: ch13.max-strength.i03
-    q: 划船（13.2）
+    q: 1RM 臥姿划船（1RM bench pull）（13.2）的有效反覆
     a:
-    - 臥姿划船（Bench Pull）
-    - 測量上背拉力
-    - 注意胸部固定於板上
-    detail: ''
-    terms: []
+    - 俯臥，閉握正握且比肩寬；從槓鈴離地的懸垂位置開始
+    - 將槓鈴拉向下胸或上腹，肘朝上
+    - 有效反覆必須讓槓鈴碰觸長椅底部，再受控下降至手肘完全伸直的懸垂位置，且不碰地
+    - 頭部全程接觸長椅，雙腳全程離地並保持相同位置
+    detail: 握距與頭、腳的位置都要求前後一致；這些限制用來固定動作而不是衡量不同姿勢的最大拉力。
+    terms: [bench-pull, one-repetition-maximum]
     numbers: []
-    concepts:
-    - measurement
-    - force-production
-    related: []
-    locator: ''
+    concepts: [measurement, technique, force-production]
+    related: [ch13.max-strength.i01]
+    locator: Measuring Parameters of Athletic Performance > Maximum Muscular Strength (Low-Speed Strength) > 1RM Bench Pull
   - id: ch13.max-strength.i04
-    q: 後蹲舉（13.3）
+    q: 1RM 後蹲舉（1RM back squat）（13.3）的人員與負荷
     a:
-    - 背槓位置一致
-    - 深度至大腿平行地面
-    - 高技術需求，須充分熟悉
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - force-production
-    related: []
-    locator: ''
+    - 使用可調保護槓的堅固深蹲架；替代作法是槓鈴兩端各一名保護員
+    - 配置兩名保護員與一名記錄員
+    - 暖身組依臥推 1RM 的方式進行，但因後蹲舉通常舉得較重，增重幅度較臥推大
+    detail: 本章協定沒有指定「大腿平行」作為後蹲深度；不能把其他章或常見競技標準補進這一條。
+    terms: [back-squat, one-repetition-maximum]
+    numbers:
+    - v: '2'
+      unit: 名保護員
+      of: 後蹲舉 1RM 協定指定的人員數
+    concepts: [measurement, technique, safety]
+    related: [ch13.max-strength.i02]
+    locator: Measuring Parameters of Athletic Performance > Maximum Muscular Strength (Low-Speed Strength) > 1RM Back Squat
   - id: ch13.max-strength.i05
-    q: 1RM 熱身流程
+    q: 一般 1RM 測試的負荷與休息安排
     a:
-    - ①輕至中等負荷5-10次 → ②2組次最大2-5次 → ③約50%估計1RM → ④逐步加重，3-5次找到
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - force-production
-    related: []
-    locator: ''
+    - 先以數組次最大負荷暖身，第一個正式嘗試通常約為估計 1RM 的 50%
+    - 每次嘗試後，依嘗試難度休息至恢復，通常為 1–5 分鐘，再依前次難易度加重
+    - 熟練的體能訓練專業人員應能在暖身後 3–5 次嘗試內找出接近真值的 1RM
+    detail: 這是一般程序；實際加重幅度由前一次完成難易度決定，教材未規定單一固定公斤數。
+    terms: [one-repetition-maximum]
+    numbers:
+    - v: '50'
+      unit: '% 估計 1RM'
+      of: 第一個正式 1RM 嘗試的通常負荷
+    - v: '1–5'
+      unit: 分鐘
+      of: 各次 1RM 嘗試間通常的休息時間
+    - v: '3–5'
+      unit: 次嘗試
+      of: 暖身後找出 1RM 的建議嘗試次數
+    concepts: [measurement, force-production]
+    related: [ch13.max-strength.i02]
+    locator: Measuring Parameters of Athletic Performance > Maximum Muscular Strength (Low-Speed Strength)
   - id: ch13.max-strength.i06
-    q: 休息時間
+    q: 最大肌力的三種測量型式
     a:
-    - 每次嘗試間休息1-5分鐘，依難度調整
-    - 確保充分恢復再加重
-    detail: ''
-    terms: []
+    - 動態測量：以臥推、後蹲舉等動作的 1RM 量最大可舉重量
+    - 等長測量：用轉換器量對不可動物體施加的最大力
+    - 等速測量：量特定等速速度下可施加的最大力
+    detail: 三者都可量最大肌力；本章只說 1RM 因成本與動態運動相關性而最常被選用，未說其他型式無效。
+    terms: [one-repetition-maximum, isometric-action, low-speed-muscular-strength]
     numbers: []
-    concepts:
-    - measurement
-    - force-production
-    related: []
-    locator: ''
+    concepts: [measurement, force-production]
+    related: [ch13.max-strength.i01]
+    locator: Measuring Parameters of Athletic Performance > Maximum Muscular Strength (Low-Speed Strength)
   - id: ch13.max-strength.i07
-    q: 測試類型比較
+    q: 最大肌力測驗的正確形式為何重要？
     a:
-    - 動態（1RM）最常用
-    - 等長（力量計）
-    - 等速（特定速度下最大力）
-    - 1RM最實際且不需昂貴儀器
-    detail: ''
-    terms: []
+    - 肌力定義中的一次最大努力以維持正確形式為條件
+    - 1RM 測驗的暖身與嘗試須採測試動作的專項技術
+    - 對失敗嘗試的保護與回架協助是臥推協定的必要安排
+    detail: 形式不只是安全問題；教材也把它列為成績效度的必要條件，因此不應以變形反覆換取更大重量。
+    terms: [one-repetition-maximum, validity]
     numbers: []
-    concepts:
-    - measurement
-    - force-production
-    related: []
-    locator: ''
+    concepts: [measurement, technique, safety]
+    related: [ch13.max-strength.i02]
+    locator: Measuring Parameters of Athletic Performance > Maximum Muscular Strength (Low-Speed Strength)
   - id: ch13.max-strength.i08
-    q: CSCS 考點
+    q: 最大肌力測驗的器材增重精度
     a:
-    - 1RM是低速肌力的首選測試
-    - 3-5次嘗試為建議次數
-    - 保護員為必要人員
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - force-production
-    related: []
-    locator: ''
+    - 臥推、臥姿划船與後蹲舉協定都要求槓鈴、槓片與兩個安全扣
+    - 應備有足供最強運動員使用的總重量，以及可形成 5 磅（2.5 kg）級距的不同槓片
+    detail: 級距是器材配置要求，不是要求每次嘗試固定加 5 磅；實際增重仍依前一次完成難易度調整。
+    terms: [one-repetition-maximum]
+    numbers:
+    - v: '5/2.5'
+      unit: 磅/kg
+      of: 協定要求槓片可形成的重量級距
+    concepts: [measurement, safety]
+    related: [ch13.max-strength.i05]
+    locator: Measuring Parameters of Athletic Performance > Maximum Muscular Strength (Low-Speed Strength) > 1RM Bench Press
 - id: power-tests
   title: 爆發力測試 High-Speed Power
   desc: ''
   tag: High-Speed Power
   items:
   - id: ch13.power-tests.i01
-    q: 爆發上搏（13.4）
+    q: 高速肌力（high-speed muscular strength）／最大無氧肌力功率的特性
     a:
-    - 1RM爆發上搏
-    - 高技術需求，需充分熟悉
-    - 能量來源PCr+ATP（<1秒）
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - force-production
-    related: []
-    locator: ''
+    - 指肌肉組織高速收縮時施加高力量的能力
+    - 測驗持續很短、以最大動作速度完成，產生很高功率輸出
+    - 成績例子包括爆發動作 1RM、垂直跳高度與階梯衝刺時間
+    - 爆發動作約 1 秒，低速最大肌力動作通常需 2–4 秒；兩者主要能量來源都是活躍肌肉內儲存的磷酸肌酸與 ATP
+    detail: 教材把「高速肌力」與「最大無氧肌力功率」並列，也常稱最大無氧功率；保持正確技術同時關係成績效度與安全。
+    terms: [high-speed-muscular-strength, maximal-anaerobic-muscular-power, creatine-phosphate, atp]
+    numbers:
+    - v: '1'
+      unit: 秒
+      of: 爆發動作測驗約需的時間
+    - v: '2–4'
+      unit: 秒
+      of: 低速最大肌力測驗通常需的時間
+    concepts: [measurement, force-production, energy-supply]
+    related: [ch13.max-strength.i01]
+    locator: Measuring Parameters of Athletic Performance > Anaerobic or Maximum Muscular Power (High-Speed Strength)
   - id: ch13.power-tests.i02
-    q: 立定跳（13.5）
+    q: 1RM 爆發上搏（1RM power clean）（13.4）的限制
     a:
-    - 水平跳遠距離
-    - 雙腳起跳落地
-    - 測下肢水平爆發力
-    - 以cm或inch記錄
-    detail: ''
-    terms: []
+    - 依第 15 章爆發上搏技術教學執行，暖身與負荷遞增依臥推 1RM 程序
+    - 此動作技術需求高
+    - 肌力功率能力相同的兩位運動員，測得的 1RM 仍可能差異很大
+    detail: 教材因此說明此測驗預測運動表現的價值會降低；不是說爆發上搏 1RM 可以直接當成純肌力功率容量。
+    terms: [power-clean, one-repetition-maximum, high-speed-muscular-strength]
     numbers: []
-    concepts:
-    - measurement
-    - force-production
-    related: []
-    locator: ''
+    concepts: [measurement, technique, force-production]
+    related: [ch13.max-strength.i05]
+    locator: Measuring Parameters of Athletic Performance > Anaerobic or Maximum Muscular Power (High-Speed Strength) > 1RM Power Clean
   - id: ch13.power-tests.i03
-    q: 垂直跳（13.6）
+    q: 立定跳遠（standing long jump）（13.5）如何計分？
     a:
-    - 助跑起跳最高點與站立伸手差值
-    - 反映腿部垂直爆發力
-    - jump mat或Vertec測量
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - force-production
-    related: []
-    locator: ''
+    - 腳尖站在起跳線後，做反向動作後盡可能向前跳
+    - 必須以雙腳落地，否則重做
+    - 從起跳線量至最後方腳跟的後緣
+    - 三次取最佳，記至最近 0.5 英吋或 1 cm
+    detail: 可用預先以半英吋（1 cm）刻度標記的商用跳墊替代量尺；成績仍依同一後腳跟位置判定。
+    terms: [standing-long-jump, high-speed-muscular-strength]
+    numbers:
+    - v: '3'
+      unit: 次試驗
+      of: 取最佳成績的試驗次數
+    - v: '0.5/1'
+      unit: 英吋/cm
+      of: 成績記錄精度
+    concepts: [measurement, technique, force-production]
+    related: [ch13.power-tests.i04]
+    locator: Measuring Parameters of Athletic Performance > Anaerobic or Maximum Muscular Power (High-Speed Strength) > Standing Long Jump
   - id: ch13.power-tests.i04
-    q: 靜態垂直跳（13.7）
+    q: 垂直跳（vertical jump）（13.6）如何計分？
     a:
-    - 無預備動作（無蹲降）
-    - 純同心收縮
-    - 與一般垂直跳比較可評估拉伸縮短循環（SSC）效率
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - force-production
-    related: []
-    locator: ''
+    - 以牆與粉筆時，先標出站立可及高度；不做預備或碎步，反向動作跳起再標第二點
+    - 成績為兩粉筆標記的垂直距離；Vertec 時則為站立觸片與跳躍最高觸片的高度差
+    - 三次取最佳，記至最近 0.5 英吋或 1 cm
+    detail: 反向動作包括快速屈膝與屈髖、軀幹前下移及雙臂後擺；教材並不採「助跑起跳」協定。
+    terms: [vertical-jump, high-speed-muscular-strength, vertec]
+    numbers:
+    - v: '3'
+      unit: 次試驗
+      of: 取最佳成績的試驗次數
+    - v: '0.5/1'
+      unit: 英吋/cm
+      of: 成績記錄精度
+    concepts: [measurement, technique, force-production]
+    related: [ch13.power-tests.i05]
+    locator: Measuring Parameters of Athletic Performance > Anaerobic or Maximum Muscular Power (High-Speed Strength) > Vertical Jump
   - id: ch13.power-tests.i05
-    q: RSI（13.8）
+    q: 靜態垂直跳（static vertical jump）（13.7）與反向動作跳的差異
     a:
-    - Reactive Strength Index = 跳躍高度 / 地面接觸時間
-    - 評估SSC反應效率
-    - 需力板或接觸墊
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - force-production
-    related: []
-    locator: ''
+    - 以接觸墊或測力板站立，去除反向動作
+    - 下蹲至膝角約 110°，維持 2–3 秒後垂直跳
+    - 各次起跳與落地姿勢、跳躍策略應相同；三次取最佳
+    - 可計算反向動作垂直跳高度與深蹲跳高度之比，稱為離心利用比（eccentric utilization ratio）
+    detail: 教材只說可計算離心利用比，沒有把該比值定義為拉伸縮短循環效率或規定其優劣判準。
+    terms: [static-vertical-jump, vertical-jump, eccentric-utilization-ratio]
+    numbers:
+    - v: '110'
+      unit: °
+      of: 靜態垂直跳起跳前約略膝角
+    - v: '2–3'
+      unit: 秒
+      of: 起跳前維持深蹲姿勢的時間
+    - v: '3'
+      unit: 次試驗
+      of: 取最佳成績的試驗次數
+    concepts: [measurement, technique, force-production]
+    related: [ch13.power-tests.i04]
+    locator: Measuring Parameters of Athletic Performance > Anaerobic or Maximum Muscular Power (High-Speed Strength) > Static Vertical Jump
   - id: ch13.power-tests.i06
-    q: Margaria-Kalamen（13.9）
+    q: 反應力量指數（reactive strength index, RSI）（13.8）
     a:
-    - 跑樓梯測無氧功率
-    - 功率 = 體重×樓梯高度÷時間
-    - 適合場地限制場合
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - force-production
-    related: []
-    locator: ''
+    - 由跳躍高度除以接觸時間計算 RSI
+    - 從跳箱向前踏下，落地後以最短接觸時間盡可能跳高
+    - 量得跳躍高度與接觸時間後，三次取最佳
+    - 可改變跳箱高度重複，以取得運動員的伸展耐受概況
+    detail: 教材要求踏下而非跳下或走下，且手放髖部；這使跳落策略在各次試驗間保持一致。
+    terms: [reactive-strength-index, vertical-jump]
+    numbers:
+    - v: '3'
+      unit: 次試驗
+      of: RSI 協定取最佳成績的試驗次數
+    concepts: [measurement, technique, force-production]
+    related: [ch13.power-tests.i05]
+    locator: Measuring Parameters of Athletic Performance > Anaerobic or Maximum Muscular Power (High-Speed Strength) > Reactive Strength Index
   - id: ch13.power-tests.i07
-    q: 功率計算
+    q: Margaria-Kalamen 測驗（13.9）的功率計算
     a:
-    - P = F × v
-    - 體重增加但跳高度不變 → 功率仍增加（需考慮體重）
-    - CSCS常考概念
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - force-production
-    related: []
-    locator: ''
+    - 樓梯至少九階，每階約 7 英吋（18 cm）；由距樓梯底 20 英呎（6 m）處起跑
+    - 計算第三階至第九階的高度差，計時第三階接觸至第九階接觸，至最近 0.01 秒
+    - 功率 P（W）= 體重 w（N）× 高度 h（m）÷ 時間 t（s）
+    - 再做兩次，兩次間恢復 2–3 分鐘
+    detail: 體重換算係數與階高換算係數是公式的一部分：磅乘 4.45、kg 乘 9.807 得牛頓，英吋乘 0.0254 得公尺。
+    terms: [margaria-kalamen-test, power-output]
+    numbers:
+    - v: '9'
+      unit: 階
+      of: 樓梯最少階數
+    - v: '7/18'
+      unit: 英吋/cm
+      of: 每一階約略高度
+    - v: '20/6'
+      unit: 英呎/m
+      of: 起跑點距樓梯底部的距離
+    - v: '3–9'
+      unit: 階
+      of: 計時與計算高度差的階梯範圍
+    - v: '0.01'
+      unit: 秒
+      of: 階梯接觸時間的記錄精度
+    - v: '2–3'
+      unit: 分鐘
+      of: 重複試驗間恢復時間
+    concepts: [measurement, force-production]
+    related: [ch13.power-tests.i01]
+    locator: Measuring Parameters of Athletic Performance > Anaerobic or Maximum Muscular Power (High-Speed Strength) > Margaria-Kalamen Test
   - id: ch13.power-tests.i08
-    q: CSCS 考點
+    q: 體重變化如何影響跳躍功率判讀？
     a:
-    - 爆發力測試<1秒
-    - 能量來自PCr+ATP
-    - 靜態vs動態垂直跳差異評估SSC
-    - RSI=高度/接觸時間
-    detail: ''
-    terms: []
+    - 功率輸出反映力量與速度
+    - 運動員增重後若仍跳到相同高度，表示起跳速度相同，但推動較重身體需要較高功率
+    - 同一原則也適用於跑樓梯等操弄體重的測驗
+    detail: 跳高未增加不等於功率未增加；教材以體重與相同起跳速度的組合說明這個判讀界線。
+    terms: [power-output, vertical-jump]
     numbers: []
-    concepts:
-    - measurement
-    - force-production
-    related: []
-    locator: ''
+    concepts: [measurement, force-production]
+    related: [ch13.power-tests.i04, ch13.power-tests.i07]
+    locator: Measuring Parameters of Athletic Performance > Anaerobic or Maximum Muscular Power (High-Speed Strength)
 - id: statistics
   title: 統計與數據解讀 Statistics & Interpretation
   desc: ''
   tag: Statistics & Interpretation
   items:
   - id: ch13.statistics.i01
-    q: 集中趨勢
+    q: 描述統計（descriptive statistics）與集中趨勢
     a:
-    - 平均數（最常用）·中位數（極端值影響小）·眾數（最少用）
-    - 偏態分布時中位數優於平均數
-    detail: ''
-    terms: []
+    - 描述統計用於已知母體全部資訊時，摘要或描述大量資料；例如測完整支隊伍即可描述該隊
+    - 集中趨勢是資料傾向聚集的數值，包括平均數、中位數與眾數
+    - 平均數是分數總和除以分數數目，也是最常用的集中趨勢量數
+    detail: 集中趨勢、變異性與百分位名次是本章列出的描述統計三類數值測量，不能只以平均數代表所有資料特性。
+    terms: [descriptive-statistics, central-tendency, mean]
     numbers: []
-    concepts:
-    - measurement
-    - normal-values
-    related: []
-    locator: ''
+    concepts: [measurement, normal-values]
+    related: [ch13.statistics.i02]
+    locator: Statistical Evaluation of Test Data > Types of Statistics > Descriptive Statistics > Central Tendency
   - id: ch13.statistics.i02
-    q: 變異數
+    q: 中位數、眾數與變異性（variability）如何解讀？
     a:
-    - 全距：最高-最低（易受極端值影響）
-    - 標準差SD：各分數對平均數離散程度
-    - SD小=分數集中
-    detail: ''
-    terms: []
+    - 中位數是排序後最中間的分數；偶數筆資料時為兩個中間分數的平均
+    - 極高或極低分數使平均數不足以描述多數成員時，中位數可能較佳
+    - 眾數是出現最頻繁的分數；若每個分數僅出現一次則沒有眾數，教材一般認為它最不實用
+    - 變異性是群體分數的離散程度，常用全距與標準差衡量
+    detail: 全距只使用最高與最低兩端，易受單一偏離分數影響；標準差才是圍繞平均數的整組分數變異量。
+    terms: [median, mode, variability, range, standard-deviation]
     numbers: []
-    concepts:
-    - measurement
-    - normal-values
-    related: []
-    locator: ''
+    concepts: [measurement, normal-values]
+    related: [ch13.statistics.i01]
+    locator: Statistical Evaluation of Test Data > Types of Statistics > Descriptive Statistics > Variability
   - id: ch13.statistics.i03
-    q: z 分數
+    q: z 分數（z score）在本章的實際用法
     a:
-    - z = (x − x̄) / SD
-    - 將個別分數轉換為標準差單位
-    - 可跨不同測試比較
-    - 負值=低於平均
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - normal-values
-    related: []
-    locator: ''
+    - z 分數以標準差（SD）單位表示個人分數離平均數的距離
+    - 教材公式印為 z = (x − v̄) / SD
+    - 範例中 40 碼衝刺 4.6 秒，群體平均 5.00 秒、SD 0.33 秒，z 為 −1.2，意為比群體平均快 1.2 個 SD
+    detail: 教材原文如此：同段剛把 x̄ 說明為平均數，公式卻印作 v̄；此處保留原公式字樣，不自行改成其他統計教科書的寫法。負 z 在此例是較快而非較差，須依成績方向判讀。
+    terms: [z-score, standard-deviation]
+    numbers:
+    - v: '4.6'
+      unit: 秒
+      of: 教材 z 分數範例的 40 碼衝刺成績
+    - v: '5.00'
+      unit: 秒
+      of: 教材範例群體的平均衝刺時間
+    - v: '0.33'
+      unit: 秒
+      of: 教材範例群體的衝刺時間標準差
+    - v: '−1.2'
+      unit: SD
+      of: 教材範例運動員的 z 分數
+    concepts: [measurement, normal-values]
+    related: [ch13.statistics.i08]
+    locator: Statistical Evaluation of Test Data > Types of Statistics > Descriptive Statistics > Variability
   - id: ch13.statistics.i04
-    q: 百分位排名
+    q: 百分位名次（percentile rank）的定義
     a:
-    - 該運動員分數高於多少%受測者
-    - 第75百分位→75%的人分數低於他
-    - 需由低至高排列
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - normal-values
-    related: []
-    locator: ''
+    - 是分數低於某位個人的受測者百分比
+    - 計算前須將分數由低至高作序位排列
+    - 位在第 75 百分位代表群體中有 75% 的人分數低於該運動員
+    detail: 百分位名次是相對位置，不是原始分數或正確率；本章以大樣本常模有時等距列出百分位作例子。
+    terms: [percentile-rank]
+    numbers:
+    - v: '75'
+      unit: 百分位
+      of: 教材說明百分位名次的例子
+    - v: '75'
+      unit: '%'
+      of: 該例中分數低於運動員的群體比例
+    concepts: [measurement, normal-values]
+    related: [ch13.statistics.i01]
+    locator: Statistical Evaluation of Test Data > Types of Statistics > Descriptive Statistics > Percentile Rank
   - id: ch13.statistics.i05
-    q: 常態分布
+    q: 推論統計（inferential statistics）與量級統計（magnitude statistics）
     a:
-    - 鐘形曲線
-    - ±1SD≈68%
-    - ±2SD≈95%
-    - ±3SD≈99.7%
-    - SD最有用於常態分布資料
-    detail: ''
-    terms: []
+    - 推論統計以樣本資訊對母體作一般化結論，前提是樣本真正代表母體
+    - 量級統計可協助實務者解讀體能測驗改變的臨床意義
+    - 描述及評估改變量時，最小實質改變與效果量是重要量數
+    detail: 這兩類統計回答的問題不同：前者聚焦由樣本推到母體的前提，後者聚焦改變量對運動員是否有意義。
+    terms: [inferential-statistics, magnitude-statistics, smallest-worthwhile-change, effect-size]
     numbers: []
-    concepts:
-    - measurement
-    - normal-values
-    related: []
-    locator: ''
+    concepts: [measurement, normal-values]
+    related: [ch13.statistics.i06]
+    locator: Statistical Evaluation of Test Data > Types of Statistics > Inferential Versus Magnitude Statistics
   - id: ch13.statistics.i06
-    q: 描述統計 vs 推論統計
+    q: 最小實質改變（smallest worthwhile change）的計算
     a:
-    - 描述統計：已知全體資料時使用（整隊測試）
-    - 推論統計：從樣本推估母體
-    - magnitude-based為新興方法
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - normal-values
-    related: []
-    locator: ''
+    - 是測驗偵測表現最小實務重要改變的能力
+    - 追蹤改變的能力取決於測驗效度與信度
+    - 通常以受試者間標準差的 0.2 計算
+    - 教材例：女性運動員垂直跳 SD 為 10 cm 時，最小實質改變為 2 cm
+    detail: 0.2 SD 是教材說「通常」採用的算法，不是所有運動、測驗與情境都唯一適用的定義。
+    terms: [smallest-worthwhile-change, standard-deviation, validity, reliability]
+    numbers:
+    - v: '0.2'
+      unit: 受試者間 SD
+      of: 最小實質改變的通常計算比例
+    - v: '10'
+      unit: cm
+      of: 教材例中女性運動員垂直跳的標準差
+    - v: '2'
+      unit: cm
+      of: 教材例中計得的最小實質改變
+    concepts: [measurement, normal-values]
+    related: [ch13.statistics.i05]
+    locator: Statistical Evaluation of Test Data > Types of Statistics > Inferential Versus Magnitude Statistics
   - id: ch13.statistics.i07
-    q: 運動員能力剖析
+    q: 效果量（effect size）如何用於訓練成效？
     a:
-    - 將多項測試z分數繪成柱狀圖
-    - 零線=隊伍平均
-    - 視覺化弱點（如耐力、柔軟性）→ 決定訓練優先序
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    - normal-values
-    related: []
-    locator: ''
+    - 可用於計算團體完成訓練後的表現，或比較不同運動員群體
+    - 訓練效果以平均分數差值或改變量除以前測標準差計算
+    - 教材列出小、中、大、很大的參考值為 0.2、0.6、1.2、2.0
+    detail: 這些參考值只是實務起點；教材說已有多種比較量級的尺度，不應把單一門檻當作所有情境的絕對結論。
+    terms: [effect-size, standard-deviation, pretest]
+    numbers:
+    - v: '0.2/0.6/1.2/2.0'
+      unit: 效果量
+      of: 教材列出的小／中／大／很大效果參考值
+    concepts: [measurement, normal-values]
+    related: [ch13.statistics.i06]
+    locator: Statistical Evaluation of Test Data > Types of Statistics > Inferential Versus Magnitude Statistics
   - id: ch13.statistics.i08
-    q: CSCS 考點
+    q: 運動員剖析（athletic profile）如何用於決策？
     a:
-    - z=(x-x̄)/SD
-    - 百分位=低於你的人的比例
-    - 中位數適用偏態
-    - z分數剖析圖幫助找弱點
-    detail: ''
-    terms: []
+    - 是與該運動或位置高品質表現重要能力相關的一組測驗結果
+    - 先選運動專項參數的有效、可靠測驗，並以足夠休息安排測驗組合
+    - 重複測驗後可用圖形呈現；z 分數圖中零值代表隊伍平均
+    - 應把結果實際用於辨識強弱項並設計訓練計畫
+    detail: 評估不應只看進步幅度：起點較高者的適應空間通常較小，而且運動員可能在前測刻意不盡力以膨脹進步分數。
+    terms: [athletic-profile, z-score, validity, reliability]
     numbers: []
-    concepts:
-    - measurement
-    - normal-values
-    related: []
-    locator: ''
+    concepts: [measurement, program-design]
+    related: [ch13.statistics.i03]
+    locator: Statistical Evaluation of Test Data > Developing an Athletic Profile
 - id: test-administration
   title: 測試條件標準化 Test Administration
   desc: ''
   tag: Test Administration
   items:
   - id: ch13.test-administration.i01
-    q: 環境一致性
+    q: 測試環境與器材的一致性
     a:
-    - 每次測試溫度、濕度、地面條件（乾/濕）須相同
-    - 肌力測試架高度需一致
-    - 跳躍測試儀器一致
-    detail: ''
-    terms: []
+    - 為提高信度，同批運動員及同一運動員重測時，條件應盡可能相同
+    - 地面測驗每次應用相同表面，且不可一次乾、一次濕
+    - 最大肌力測驗的架子與同一運動員的支撐高度要一致；跳躍測驗器材也要一致
+    detail: 教材要求的是測試間的一致性，並未列出固定溫度或濕度數字；不能自行補上未載的環境門檻。
+    terms: [reliability, test-retest-reliability]
     numbers: []
-    concepts:
-    - measurement
-    related: []
-    locator: ''
+    concepts: [measurement]
+    related: [ch13.agility-speed.i08]
+    locator: Measuring Parameters of Athletic Performance > Testing Conditions
   - id: ch13.test-administration.i02
-    q: 時間標準化
+    q: 測試時間的標準化
     a:
-    - 同一天的測試應盡量在相同時間進行
-    - 避免因日夜節律差異影響表現
-    detail: ''
-    terms: []
+    - 最好在大致相同的每日時段進行測試與重測
+    - 人體測量後續比較也應在同一時間量體重，穿著相似衣物
+    - 早晨起床、排泄後、攝取食物或飲料前的體重測量最可靠
+    detail: 時間標準化是降低可變條件的措施；教材沒有把它歸因為特定的日夜節律機制。
+    terms: [anthropometry, reliability]
     numbers: []
-    concepts:
-    - measurement
-    related: []
-    locator: ''
+    concepts: [measurement]
+    related: [ch13.balance-flexibility-bc.i08]
+    locator: Measuring Parameters of Athletic Performance > Testing Conditions
   - id: ch13.test-administration.i03
-    q: 疲勞狀態
+    q: 受測前的疲勞、補水與營養控制
     a:
-    - 禁止在疲勞性運動或訓練後測試
-    - 測試前應正常飲食與水分補充
-    - 避免特殊補充品（如肌酸）
-    detail: ''
-    terms: []
+    - 不可在疲勞性運動活動或訓練後測試
+    - 開始測試前，運動員應以正常補水狀態與標準營養到場
+    - 不要在測驗前服用補充品；教材舉例肌酸一水合物可能提高某些測驗表現
+    detail: 這些控制的目的在前後測可比較性；「不服用補充品」是測試前標準化，而非教材對補充品的一般禁令。
+    terms: [creatine-monohydrate, hydration, reliability]
     numbers: []
-    concepts:
-    - measurement
-    related: []
-    locator: ''
+    concepts: [measurement, nutrition]
+    related: [ch13.test-administration.i01]
+    locator: Measuring Parameters of Athletic Performance > Testing Conditions
   - id: ch13.test-administration.i04
-    q: 熱身標準化
+    q: 測試暖身與熟悉化的要求
     a:
-    - 一般動態熱身（慢跑/輕體操）+ 次項目特定熱身
-    - 柔軟性測試前加入靜態伸展
-    - 次最大強度練習
-    detail: ''
-    terms: []
+    - 暖身應標準化，包含慢跑或輕體操等一般動態暖身
+    - 另做與測試動作相似的專項暖身，例如次最大強度練習
+    - 柔軟性測驗可進行伸展；運動員熟悉和練習將施行的測驗是關鍵
+    detail: 教材把熟悉化與練習直接列為關鍵面向；未先練習的結果可能混入不熟悉協定的影響。
+    terms: [reliability, validity]
     numbers: []
-    concepts:
-    - measurement
-    related: []
-    locator: ''
+    concepts: [measurement, technique]
+    related: [ch13.aerobic-capacity.i08]
+    locator: Measuring Parameters of Athletic Performance > Testing Conditions
   - id: ch13.test-administration.i05
-    q: 熟悉度與練習
+    q: 運動專項測驗組合（test battery）的選擇
     a:
-    - 測試前須讓運動員充分熟悉動作
-    - 尤其爆發上搏等高技術動作
-    - 熟悉可提升信度
-    detail: ''
-    terms: []
-    numbers: []
-    concepts:
-    - measurement
-    related: []
-    locator: ''
+    - 選測最貼近該運動或位置身體特徵的參數
+    - 選用有效且可靠的測驗，以適當順序並安排充足休息，促進測試信度
+    - 例：摔角可包含拉力、推力與局部肌耐力；兩個最大反覆次數測驗至少相隔 5 分鐘
+    detail: 本章建議在採用標準程序時儲存結果並建立自己的常模；不是要求所有運動都套用同一組測驗。
+    terms: [test-battery, validity, reliability, local-muscular-endurance]
+    numbers:
+    - v: '5'
+      unit: 分鐘
+      of: 教材摔角測驗組合中兩項最大反覆次數測驗間至少休息時間
+    concepts: [measurement, program-design]
+    related: [ch13.statistics.i08]
+    locator: Statistical Evaluation of Test Data > Developing an Athletic Profile
   - id: ch13.test-administration.i06
-    q: 補充品控制
+    q: 圍度與身體組成測量的可比性
     a:
-    - 肌酸等補充品可增進某些測試表現
-    - 測試前須標準化，不得臨時使用
-    - 確保公平比較
-    detail: ''
-    terms: []
+    - 圍度宜在訓練期開始時量，供後續比較；最可靠的量尺有彈簧拉力裝置以固定張力
+    - 皮褶在運動前、皮膚乾燥時量，以提高效度與信度
+    - 皮褶方程式與測點數應按受測族群選擇
+    detail: 身體組成的不同方程式適用不同族群；即使程序一致，也應報告估計標準誤造成的範圍。
+    terms: [girth-measurement, skinfold-measurement, validity, reliability]
     numbers: []
-    concepts:
-    - measurement
-    related: []
-    locator: ''
+    concepts: [measurement]
+    related: [ch13.balance-flexibility-bc.i06]
+    locator: Measuring Parameters of Athletic Performance > Anthropometry
   - id: ch13.test-administration.i07
-    q: 水分 & 飲食
+    q: 重複表現測驗如何解讀？
     a:
-    - 正常水分狀態（避免高鈉食物）
-    - 標準飲食
-    - 避免飢餓或過飽
-    - 影響體重測量的因素需控制
-    detail: ''
-    terms: []
+    - 可分析個人或群體在訓練週、月或年間的改變
+    - 也可與過去受測的相似個人或群體、團體內成績，以及地方到國際常模比較
+    - 差異分數是兩個測驗時間點成績的差；百分比改變也是可用量數
+    detail: 只以進步幅度評估訓練有兩個限制：訓練程度較高者通常進步較少，且前測可故意不盡力；前後測都應鼓勵最大努力。
+    terms: [difference-score, percent-change, pretest, posttest]
     numbers: []
-    concepts:
-    - measurement
-    related: []
-    locator: ''
+    concepts: [measurement, normal-values]
+    related: [ch13.statistics.i08]
+    locator: Statistical Evaluation of Test Data
   - id: ch13.test-administration.i08
-    q: CSCS 考點
+    q: 測試結果最後應如何使用？
     a:
-    - 最大肌力禁止疲勞後測試
-    - 測試時間點應固定
-    - 肌酸可影響表現須控制
-    - 熟悉度提升信度
-    detail: ''
-    terms: []
+    - 盡量讓更多運動員完成測驗組合
+    - 決定各測驗的最小實質改變，適當時與常模資料比較
+    - 做重複測驗，例如訓練計畫前後測，並以圖形呈現結果
+    - 將結果用來找出強弱項，作為訓練計畫設計依據
+    detail: 教材以「有意義地使用結果」作為評估流程終點；蒐集分數而未影響訓練決策，不構成完整的運動員剖析。
+    terms: [athletic-profile, smallest-worthwhile-change, pretest, posttest]
     numbers: []
-    concepts:
-    - measurement
-    related: []
-    locator: ''
+    concepts: [measurement, program-design]
+    related: [ch13.statistics.i08]
+    locator: Statistical Evaluation of Test Data > Developing an Athletic Profile
 cards:
-- q: 1RM測試的定義與特性？
-  a: 1RM是僅完成一次完整動作的最大重量；反映低速肌力；能量來源為PCr+ATP（2-4秒）；不需昂貴設備的最常用最大肌力測驗。
+- q: 1RM 最大肌力測驗為何是常用選擇？
+  a: 1RM 是維持正確形式時可舉起一次的最大重量；它反映低速肌力、不需昂貴設備，且與運動所需的動態能力相關。
   tag: max-strength
-- q: 1RM測試的熱身程序與嘗試次數建議？
-  a: 輕中等負荷5-10次熱身→2組次最大2-5次→第一次嘗試約50%估計1RM；熱身後3-5次找到1RM。
+- q: 一般 1RM 測試第一個正式嘗試與休息如何安排？
+  a: 第一個正式嘗試通常約為估計 1RM 的 50%；每次後依難度休息至恢復，通常 1–5 分鐘，再調整負荷。
   tag: max-strength
-- q: 臥伏划船（Bench Pull）的效標？
-  a: 有效試驗為槓鈴碰觸板底、再受控下降至懸空位置；腳部全程離地；頭部固定於板上。
+- q: 1RM 臥姿划船的有效反覆必須符合什麼？
+  a: 槓鈴須碰觸長椅底部，再受控下降至手肘全伸的懸垂位置且不碰地；頭接觸長椅、腳全程離地。
   tag: max-strength
-- q: 高速肌力（maximal anaerobic power）的定義與測試例子？
-  a: 肌肉在高速收縮時產生高力的能力；測試包括1RM爆發動作（power clean）、垂直跳、Margaria-Kalamen階梯衝刺。
+- q: 高速肌力測驗有哪些例子？
+  a: 教材列出爆發動作 1RM、垂直跳高度與 Margaria-Kalamen 階梯衝刺時間；這些測驗短暫且以最大速度完成。
   tag: power-tests
-- q: 垂直跳（vertical jump）的施測程序？
-  a: 手指展白筆記體缺高度→重心下降跳起→第二次對筆印記→測量兩次劀記高度差；3次取最佳。
+- q: 垂直跳用牆與粉筆如何計分？
+  a: 先標站立可及高度，再不做預備或碎步而反向動作跳起標第二點；兩點的垂直距離為成績，三次取最佳。
   tag: power-tests
-- q: 靜態垂直跳（static vertical jump）與一般垂直跳的差異？
-  a: 靜態跳去除下蚹重動作；膨度角約110°保扷2-3秒再跳起；可計算鹆屬利用比（eccentric utilization ratio）。
+- q: 靜態垂直跳與一般垂直跳最主要差異？
+  a: 靜態垂直跳去除反向動作；運動員在約 110° 膝角的下蹲姿勢維持 2–3 秒後才起跳。
   tag: power-tests
-- q: Reactive Strength Index（RSI）的公式與意義？
-  a: RSI=跳起高度÷接觸時間；衡量速度力跳能力；接觸時間越短、跳起越高，RSI越佳。
+- q: 反應力量指數（RSI）怎麼算？
+  a: RSI = 跳躍高度 ÷ 接觸時間；協定中由跳箱踏下，落地後以盡量短的接觸時間跳高。
   tag: power-tests
-- q: Margaria-Kalamen階梯衝刺的功率公式？
-  a: P（watts）=（體重×升高）/時間；升高為第3階至第9階的垂直距離；距園前起跩距離為6m衝刺距離。
+- q: Margaria-Kalamen 測驗的功率公式？
+  a: P（W）= 體重 w（N）× 第三階至第九階高度 h（m）÷ 該段時間 t（s）。
   tag: power-tests
-- q: Wingate測試的程序與計算指標？
-  a: 熱身後30秒全力踩車；阻力依體重設定；計算峰値功率、平均功率、疲勞指數（最大÷最小區間功率）。
+- q: 體重增加而跳高不變時，功率如何判讀？
+  a: 功率仍增加；相同跳高表示相同起跳速度，但推動更重身體需要更高功率。
   tag: power-tests
-- q: 輛向量高者加體重後垂直跳高度不變，功率有沒有提升？
-  a: 有。體重增加但起跳速度相同，代表推動較重身體所需功率更大；功率（力×速度）實際提高。
+- q: 1RM 爆發上搏為何有判讀限制？
+  a: 動作技術需求很高，肌力功率能力相同的運動員仍可能測得很不同的 1RM，降低預測運動表現的價值。
   tag: power-tests
-- q: 無氧容量的定義與現場測試？
-  a: 磷酸肌酸+糖解系統結合中熱時間（30-90秒）的最大功率輸出；代表測試為300碼折返跑（300-yard shuttle）。
+- q: 無氧容量如何定義？
+  a: 是磷酸原與無氧糖解系統合併產能的最高速率，通常量化為持續 30–90 秒活動的最高功率輸出。
   tag: anaerobic-endurance
-- q: 300碼折返跑的施測程序？
-  a: 25碼兩端來回共6趤（300碼）全力衝刺；兩次試驗中間休息5分鐘；取兩次平均成績。
+- q: 300 碼折返跑如何施測與計分？
+  a: 在相距 25 碼的兩線間做六個來回，總距離 300 碼；兩次試驗相隔 5 分鐘，記錄兩次平均時間。
   tag: anaerobic-endurance
 - q: 局部肌耐力的定義？
-  a: 特定肌肉對次最大負荷進行重複收縮的能力；測試應持續進行，不允許中途休息或額外動作。
+  a: 特定肌肉或肌群在次最大阻力下反覆收縮的能力；測驗須連續進行，不能利用休息或額外動作代償。
   tag: anaerobic-endurance
-- q: 局部海灘（partial curl-up）的就安設備與節奉？
-  a: 節奉器言40BPM（20次/分）；肩胛離厰30°再回觸；撸至第二段煞帶；45歲以下4.7英吋外矯，45歲以上3.1英吋；最多75次。
+- q: 部分捲腹的節奏與最大次數？
+  a: 節拍器 40 拍／分，完成每分鐘 20 次受控捲腹；不停頓最多做到 75 次。
   tag: anaerobic-endurance
-- q: 例孔挑挑（push-up）軍雊標準與ACSM標準的差異？
-  a: 軍雊：2分鐘內最多次，低點為上臂平行地面；ACSM：持續至疲竭，男性低點等於胸部接觸拳頭、女性接觸泡網筒。
+- q: Army 與 ACSM 伏地挺身協定的終止方式差別？
+  a: Army 在 2 分鐘內盡量完成，僅能在上撐姿勢暫停；ACSM 連續做到失敗。
   tag: anaerobic-endurance
-- q: 有氧容量的定義與常用field測試？
-  a: 运動員每公斤體重每分鐘消耗氧氣量的最大値（ml/kg/min）；常用測試1.5英里跑、Yo-Yo測試、MAS測試。
+- q: YMCA 臥推測驗的固定負荷與節奏？
+  a: 男性 80 磅（36 kg）、女性 35 磅（16 kg）；節拍器 60 拍／分，形成每分鐘 30 次上下動作。
+  tag: anaerobic-endurance
+- q: 有氧容量（aerobic capacity）如何表示？
+  a: 是以氧化碳水化合物、脂肪與蛋白質產能的最高速率，通常以每公斤體重每分鐘耗氧量表示。
   tag: aerobic-capacity
-- q: 1.5英里跑的適用對象與限制？
-  a: 適合大學組男女運動員；不適合青少年（缺乏持續跑的經驗與興趣）；高溫高濕或高海拔會低估VO2max。
+- q: 1.5 英里跑的成績怎麼記錄？
+  a: 在平坦、標記路線上盡快以穩定配速跑完全程，於終點以分鐘與秒記錄時間；也可用 1.86 英里（3 km）替代路線。
   tag: aerobic-capacity
-- q: Yo-Yo測試的特點？
-  a: 游標式有氧復原測試，模擬球類運動間歇衝刺模式；比1.5英里跑更適合團隊運動；可估計VO2max。
+- q: 12 分鐘跑的分數代表什麼？
+  a: 代表固定 12 分鐘內完成的總距離；時間到原地停止，再以圈數乘每圈距離計算。
   tag: aerobic-capacity
-- q: 敏捷的新定義？
-  a: 在運動特異刺激下，快速全身變換方向或速度的能力；包含變換方向速度（物理）與認知因素兩部分。
+- q: Yo-Yo IRT1 與 IRT2 有何差別？
+  a: 都是漸增速的 2 × 20 m 折返跑加 10 秒恢復；IRT1 從 10 km/h 起，IRT2 從 13 km/h 起，教材建議使用 IRT1。
+  tag: aerobic-capacity
+- q: MAS 測驗怎麼決定最大有氧速度？
+  a: 每 2 分鐘加速 1 km/h，最後能至少維持 2 分鐘的速度即 MAS；教材以 V̇O2max = 3.5 × MAS 估算。
+  tag: aerobic-capacity
+- q: Yo-Yo 測驗的停止規則？
+  a: 受測者兩次無法在提示音前抵達起跑線或轉折線即終止，記錄最後等級與該等級完成的折返次數。
+  tag: aerobic-capacity
+- q: 敏捷的新定義是什麼？
+  a: 回應運動專項刺激時，快速改變全身方向或速度的能力；包含變向速度與認知因素。
   tag: agility-speed
-- q: T-測試的設計與評估項目？
-  a: 小樵錄車排成T字型；包括向前衝刺、橫向移動、向後退返回；評估多方向變換的为改方向速度。
+- q: T 測驗中哪些行為會取消試驗資格？
+  a: 未觸錐筒底部、橫移時交叉腳，或未全程面向前方都會取消該次試驗。
   tag: agility-speed
-- q: Pro Agility測試 vs 505 Agility測試的差尌？
-  a: Pro agility：5+10+5碼三段衝刺左右翻轉；505 agility：5公尺衝刺到標記物後180°轉彎返回。
+- q: 六角形測驗的跳躍安排？
+  a: 雙腳越過每一邊再回中心，順時針完成三圈，共 18 跳；踩線、失衡或改變面向須停止並在恢復後重做。
   tag: agility-speed
-- q: 衝刺測試中尺尋計與電子計時的誤差？
-  a: 尺尋計可能比電子計時小0.24秒，因為出發計時有延遲但終點易預予踊按；應儒量使用電子計時。
+- q: Pro 敏捷測驗為何也稱 20 碼折返？
+  a: 它依序跑左方 5 碼、右方 10 碼、回中線 5 碼，三段相加為 20 碼，且每條指定線都要手觸。
   tag: agility-speed
-- q: 衝刺測試的距離選擇與意義？
-  a: 10碼（加速度）、20-40碼（最大速度）；超過100m前後則測量無氧容量或有氧能力，非連加速衝刺速度。
+- q: 505 敏捷測驗的計時區間？
+  a: 從第一次通過 10 m 處計時燈開始，跑至 5 m 外轉折線再轉身，第二次通過計時燈後結束。
   tag: agility-speed
-- q: 柔韌度測試的工具與注意事項？
-  a: 關節角度展速計（goniometer）、sit-and-reach box；測試前需熱身與靜態拉伸；禁止彈振式拉伸（ballistic stretching）。
+- q: 短距離與較長衝刺各反映什麼？
+  a: 靜止起跑的短距離如 10 碼反映加速度；較長距離如 40 碼反映最高速度。
+  tag: agility-speed
+- q: 手持碼錶相對電子計時可有多大誤差？
+  a: 即使理想條件下，碼錶衝刺時間最多可快 0.24 秒，源於起跑反應延遲與終點前預期性提早按錶。
+  tag: agility-speed
+- q: 速度與敏捷測驗的基本場地安全要求？
+  a: 穿適當鞋類、使用不滑表面；直線衝刺終點後至少留 20 碼（18 m）減速距離。
+  tag: agility-speed
+- q: 平衡與穩定性怎麼區分？
+  a: 平衡是維持靜態與動態平衡、或重心在支撐基底上的能力；穩定性是受擾動後回到期望位置的能力。
   tag: balance-flexibility-bc
-- q: 平衡與穩定性的定義差異？
-  a: 平衡：維持静態動態平衡的能力；穩定性：干擾後恢復到指定姿勢的能力；平衡差者下肢傷害風險高。
+- q: BESS 的六種測驗條件如何構成？
+  a: 雙腳、單腳與串聯三種站姿，各在硬面和軟面進行；每種閉眼、雙手放髖維持 20 秒。
   tag: balance-flexibility-bc
-- q: BESS測試和SEBT的對比？
-  a: BESS（平衡錯誤計分系統）：統計各姿勢的平衡錯誤次數；SEBT（星形平衡）：單足立定向常8方向觸碰測距離；兩者信度佳。
+- q: SEBT 的成績如何取得？
+  a: 單腳站在八向格網中央，以另一腳沿各線觸及最遠點；每條件三次取平均，量中心至觸點距離。
   tag: balance-flexibility-bc
-- q: 皮下脸測量的特點與黃金標準？
-  a: 皯事者操作信度高r=0.99；優於周徑法；黃金標準為DXA和水中秤重；可在實審中代替黃金標準，但許多部門不興買黃金標準設備。
+- q: 坐姿前彎重測時最重要的標準化？
+  a: 初測若用量尺或尺棒，後續必須繼續用同一方法，不能改成坐姿前彎箱；三次取最佳。
   tag: balance-flexibility-bc
-- q: 體重測量的標準化方法？
-  a: 穿著相同衣物（鈐片除外）；同一時間點秤重；最佳為早晨起床後排尿前、空腹。筆記骺首前一天避免鸹味食物。
+- q: 過頭深蹲在本章如何評分？
+  a: 至少做五次，由側面做通過／不通過的質性評估；過程中腳跟不離地、髖折痕低於膝頂。
   tag: balance-flexibility-bc
-- q: z分數的公式與用途？
-  a: z=(x-x̄)/SD；將個別分數轉成標準差單位；可跨不同測試比較；正値為高於平均，負値為低於平均。
+- q: 皮褶法的 r = 0.99 代表什麼？
+  a: 由受過訓練且勝任測試者操作時，皮褶法是一般體能訓練專業人員可用方法中最有效度、最可靠者之一，相關係數 r = 0.99。
+  tag: balance-flexibility-bc
+- q: 皮褶讀值何時讀取與何時可平均？
+  a: 放開卡尺後 1–2 秒讀至最近 0.5 mm；兩次讀值差異不超過 10% 時，才平均。
+  tag: balance-flexibility-bc
+- q: 人體測量與體重最可靠的時間點？
+  a: 體重穿最少乾燥衣物量測；最可靠時點為早晨起床、排泄後、攝取食物或飲料前。
+  tag: balance-flexibility-bc
+- q: 平均數、中位數、眾數的差異？
+  a: 平均數是總和除以筆數；中位數是排序後中間值；眾數為最常出現值，教材一般認為最不實用。
   tag: statistics
-- q: 百分位排名的定義與計算方式？
-  a: 分數高於多少％受測者的比例；第75百分位⇒75％的人分數低於他；需由低至高排列再計算。
+- q: 全距與標準差的差異？
+  a: 全距是最低到最高的區間，只用兩端分數；標準差則量整組分數圍繞平均數的變異性。
   tag: statistics
-- q: 常態分布下各標準差範圍包含多少資料？
-  a: 1SD包含68%→2SD包含95%→3SD包含99.7%；適用於常態分布資料的集中趨勢描述。
+- q: 本章 z 分數如何解讀？
+  a: 以 SD 單位表示個人分數離平均數的距離；40 碼衝刺例中 z = −1.2 表示比群體平均快 1.2 個 SD。
   tag: statistics
-- q: 運動能力剖析圖（athletic profile）的制作與用途？
-  a: 將多項測試z分數繪成柱狀圖；零基線=隊伍平均；視覺化各能力弱點，導向訓練優先序決策。
+- q: 百分位名次第 75 百分位表示什麼？
+  a: 將成績由低至高排列後，表示有 75% 的受測者分數低於該運動員。
   tag: statistics
-- q: 遇對偏態分布，集中趨勢應用哪種統計指標？
-  a: 中位數，因為它不受極端値影響；平均數會被極大或極小値拉偏。
+- q: 推論統計的基本前提？
+  a: 用樣本資訊推論母體時，樣本必須真正代表母體。
   tag: statistics
-- q: 測試條件標準化的重要性？
-  a: 環境、表面、設備、熱身、補水與營養、时間點正頭常一致；異影可能讓前後測結果不可比較。
+- q: 最小實質改變通常怎麼算？
+  a: 通常為受試者間標準差的 0.2；例如垂直跳 SD 為 10 cm 時，最小實質改變為 2 cm。
+  tag: statistics
+- q: 效果量怎麼計算訓練成效？
+  a: 以平均分數的改變量除以前測標準差；可用於團體訓練後表現或比較群體。
+  tag: statistics
+- q: 運動員剖析的目的？
+  a: 整合與運動或位置相關的測驗結果，辨識強弱項，並據此設計訓練計畫。
+  tag: statistics
+- q: 為提高重測信度，哪些測試條件要一致？
+  a: 地面表面及乾濕、肌力架與支撐高度、跳躍器材等應保持一致。
   tag: test-administration
-- q: 測試前運動員不應做什麼？
-  a: 不應在疲勞性訓練或比賽後立即測試；應正常補水、標準化食物、不服用能增強表現的補充將（如肌酸）。
+- q: 受測者測試前不應處於何種狀態？
+  a: 不應剛完成疲勞性運動或訓練；應正常補水和採標準營養，且避免在測驗前服用補充品。
   tag: test-administration
-- q: Power clean測試的限制為何？
-  a: 技術需求高，與肌力功率相同的運動員因技術差異可能測得很不同；對預測運動表現的驗證力降低。
-  tag: power-tests
-- q: 測試中自行車倉測試（Wingate）的適用情境？
-  a: 適合傷病無法跑步的運動員；或非體重支撒項目（如劃船、自行車）的運動員；可稏體重標準化。
-  tag: power-tests
-- q: 最大有氧速度測試（MAS）的原理？
-  a: 測量運動員可援持的最大跑步速度；式模定速加快跑道測試，透過最後完成的組限速度估計VO2max。
-  tag: aerobic-capacity
-- q: 運動表現評估中，描述統計與推論統計的區分？
-  a: 描述統計：已知全體資料時使用（整隊測試）；推論統計：從樣本推估母體；新興方法：magnitude-based inference。
-  tag: statistics
-- q: 立定遠跳的施測程序？
-  a: 起跳線跟尖齊正→反向重心下降跳出→雙足落地才計分；測量相山足跟到起跳線的距離；3次取最佳。
-  tag: power-tests
-- q: 體脂兩分區模型的內容？
-  a: 將體重分為脂肪與精甠組織；皮下脸法可估計；不分骨脂原因為設備昂貴。
-  tag: balance-flexibility-bc
-- q: 身體測量封面：腹部周徑與慢性病的關係？
-  a: 腹部周徑越大代表腹部脂肪越多，與二型糖尿病、高血脂、高血壓、心臟病風險正相關。
-  tag: balance-flexibility-bc
-- q: 身體測量學包含哪些測量？
-  a: 包括身高、體重及各部位周徑；身高用測高兑（stadiometer）測量，不穿鞋至最近2分之1英吋或半公分。
-  tag: balance-flexibility-bc
-- q: 屈六邊形測試（hexagon test）的目的？
-  a: 評估動態平衡與辫足敏捷；運動員在六邂形內折返跳起，計體居中心的時間；有職足球等靈活性進行評估。
-  tag: agility-speed
-- q: 1RM臺伏測試需要哪些人員？
-  a: 一名保護員位於樿頂前方，一名記錄員；1RM後蔯譜測試需兩名保護員加一名記錄員。
-  tag: max-strength
-- q: 多次試驗需取最佳還是平均？
-  a: 垂直跳、立定遠跳等取最佳成績；300碼折返跑取兩次平均；測試該討規定取最佳或平均。
+- q: 測試暖身應包含什麼？
+  a: 一般動態暖身，如慢跑或輕體操，加上與測試動作相似的次最大強度專項暖身。
   tag: test-administration
-- q: 電子計時對測驗信度的作用？
-  a: 消除人工計時的反應時間誤差；提供0.01秒以上精度；可同時記錄途中分切時間和最高速度。
-  tag: agility-speed
-- q: 全距鶴尌測試（YMCA bench press test）的施測方式？
-  a: 固定負荷（80磅/女35磅）依節奉器鉀式完成誈數次數；評估上肢局部肌耐力；測試需要標準化起槓高度。
-  tag: anaerobic-endurance
-- q: 滴水測試命名制點與身體組成？
-  a: 前三个字此前里溫度；前三测試和基本量；後五量出；其他常備全體分試差總正常；知道对山尌全醒信度已弄差。
-  tag: balance-flexibility-bc
-- q: 援檔平方分（overhead squat）作為動作筋查的价値？
-  a: 評估雙路肯、膝、踝的活動度以及肩胟臸椎活動度；常用動作筋查項目，但局限性在於尚缺乏與傷害明確相關的共識。
-  tag: balance-flexibility-bc
-- q: 和測驗對象的選驗與成績詣釋？
-  a: 測試須參照同年齡、同性別、同運動項目的常模資料貊成績解釋；描述性資料和常模資料有別。
-  tag: statistics
-- q: 皣測常模尌的定義與用途？
-  a: 常模尌是已知組群的平均值和標準差；描述性資料提供具體連計（平均、SD）；常模資料提供百分位排名供比較。
-  tag: statistics
+- q: 測驗組合如何安排休息？
+  a: 應依運動專項需求選有效、可靠測驗，按適當順序安排充足休息；教材例中兩項最大反覆次數測驗至少相隔 5 分鐘。
+  tag: test-administration
+- q: 重複測驗可做哪些比較？
+  a: 可比較訓練期間的個人或群體改變、過去相似群體、隊內成績與各層級常模；差異分數和百分比改變皆可用。
+  tag: test-administration
+- q: 完整測試流程的最後一步？
+  a: 將結果有意義地用於辨識運動員強弱項，並作為訓練計畫設計依據。
+  tag: test-administration
