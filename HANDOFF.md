@@ -81,7 +81,15 @@
 - **`audit.js` 的 playwright 路徑已固定**：`PLAYWRIGHT_PATH=C:/claudehome/tools/node_modules/playwright`（已寫進 CLAUDE.md）。本 repo 刻意不裝 node_modules；注意 `npm i` 會往上找 `package.json`，在 `tools/pwtool/` 下跑實際會落到 `tools/node_modules`。
 - **新增 `tools/cscs_make_prompt.py`**：章況從 yaml 現讀生成（topic id、item 數、卡片數、卡片 tag、哪些欄位是空的），源書檔名 glob 比對唯一命中。手填出過錯——ch07 我寫 52 張卡實際 53 張。用法 `python tools/cscs_make_prompt.py ch08 --note "本章特別注意：..."`。
 
-**下一步建議**：① **對帳式補完是唯一剩下的大工程（153 個 topic，ch08–ch24）**——每個 agent 認一章、自己讀 `resources/books/.../chNN_*.md`、**items 與該章 cards 一起重寫**（張數逐章不同，ch06 是 52、ch07 是 53，套版前先數，`__NCARDS__` 填錯會誤導 agent），一個 topic 填完立刻寫盤，每章跑綠 `cscs_check` 才 commit；ch01–ch07 已走完可當範本，下一章從 **ch08** 接（ch08 已於 2026-08-01 派出，terra @ xhigh）。派工 prompt 務必帶上 ch03 那句「每個數字都要回原文確認淨值／總值與單位」——ch03 品質明顯高於 ch01/ch02 就是因為這句；派工也務必帶上兩支驗收閘（`cscs_check.py` + `hugo server`/`audit.js`），ch05 之前只跑第一支；② **欠 ch01–ch03 一次卡片補課**：這三章的卡片只做過點狀修補（`33d7df5` 修了 ch02 三張），從沒回源書整批重寫，等 ch05 起的新工序跑順後補；ch21/ch23/ch24 已重寫過可跳過，**ch13/ch15 不另派**，等輪到該章時一併處理；③（配額）串行派發，一次一個 agent，驗收 + commit 後才派下一個；5H >80% 一律不開新批次，排 shotclock 等下一窗；④ 遮答自測仍是全頁 toggle，「逐條遮／已答對不再遮」需要 localStorage 層，未做；⑤ `layouts/library/book.html` 與書庫其他 layout（library.css / bookshelf.css）調性未對齊。
+**ch08 對帳完成（2026-08-01，commit `3d218e2`，terra @ xhigh）**：64 條全補 locator/detail/terms、53 張 cards 重寫、`_terms.yaml` 新增 86 條。
+
+- **模板的 terms 反向要求生效**：覆蓋率從 ch07 的 37/64 拉到 **64/64（184 個引用）**，`_terms.yaml` 從 +18 條變 +86 條。terra 的 terms 弱點已解，不需要為此換回 sol。
+- **`numbers` 只有 4 個是章節性質，不是漏抄**：grep 過源書，ch08 全章只出現一個百分比（50%）。**驗收 numbers 偏低的章節前先 grep 源書數字密度**，不要反射判定 agent 偷懶。
+- **逐章在 `--note` 點名該章最可能的錯誤樣態是有效的**：ch07 寫族群串接、ch08 寫語氣硬化、ch09 寫數字歸屬。ch08 結果守住了——倒 U 理論明列「曲線的通用形狀已受到批評」，`detail` 標明教材不把「中等喚醒最佳」當普遍定律；理論歸屬全部正確（Hull 驅力／Yerkes-Dodson 倒 U／Hanin IZOF／Fazey-Hardy 災難／Kerr 逆轉）。
+- **驗收**：`cscs_check ch08` 綠、351 條術語零孤兒、44 個 locator 片段全數對得上源書、4 個 numbers 全數回源書確認、`related` 首次出現 4 條且零斷鏈、簡體字 0、渲染實測 `nb-src` 64 / `nb-terms` 64 / `nb-term` 184（未對帳的 ch09 同測法全 0）。
+- **語言掃描的已知假陽性**：「程序」會被大陸用語 blocklist 命中，但「例行程序（routine）」「遵循程序」是正確台灣用法（該禁的是 程式→程序 那個換法）。ch07、ch08 各中一次，都不是錯。
+
+**下一步建議**：① **對帳式補完是唯一剩下的大工程（145 個 topic，ch09–ch24）**——每個 agent 認一章、自己讀 `resources/books/.../chNN_*.md`、**items 與該章 cards 一起重寫**（張數逐章不同，`cscs_make_prompt.py` 已改成從 yaml 現讀，不要手填），一個 topic 填完立刻寫盤，每章跑綠 `cscs_check` 才 commit；ch01–ch07 已走完可當範本，下一章從 **ch09** 接（ch09 已於 2026-08-01 派出，terra @ xhigh）。派工 prompt 務必帶上 ch03 那句「每個數字都要回原文確認淨值／總值與單位」——ch03 品質明顯高於 ch01/ch02 就是因為這句；派工也務必帶上兩支驗收閘（`cscs_check.py` + `hugo server`/`audit.js`），ch05 之前只跑第一支；② **欠 ch01–ch03 一次卡片補課**：這三章的卡片只做過點狀修補（`33d7df5` 修了 ch02 三張），從沒回源書整批重寫，等 ch05 起的新工序跑順後補；ch21/ch23/ch24 已重寫過可跳過，**ch13/ch15 不另派**，等輪到該章時一併處理；③（配額）串行派發，一次一個 agent，驗收 + commit 後才派下一個；5H >80% 一律不開新批次，排 shotclock 等下一窗；④ 遮答自測仍是全頁 toggle，「逐條遮／已答對不再遮」需要 localStorage 層，未做；⑤ `layouts/library/book.html` 與書庫其他 layout（library.css / bookshelf.css）調性未對齊。
 
 > ↓ 更早
 
