@@ -210,7 +210,9 @@ hugo server                            # 另開一個視窗
 node tools/audit.js                    # 38 條版型／深度層／概念索引數值斷言
 ```
 
-- `audit.js` 需要 playwright：`PLAYWRIGHT_PATH=<playwright 路徑> node tools/audit.js`
+- `audit.js` 需要 playwright，本 repo 不裝（不進 node_modules）：
+  `PLAYWRIGHT_PATH=C:/claudehome/tools/node_modules/playwright node tools/audit.js`
+  該路徑已裝好；重裝是 `cd C:/claudehome/tools && npm i playwright`（注意 npm 會往上找 `package.json`，實際落點是 `tools/node_modules` 不是當下目錄）。瀏覽器本體已在 `~/AppData/Local/ms-playwright/`。
 - **術語一律常駐可見**，不准塞進 hover 或 details——使用者的原始痛點就是「只有英文沒有中文」，藏起來等於沒解決；定義本身才進展開層
 - **概念軸是第二條閱讀動線**：`concepts` 只能挑 `_concepts.yaml` 的 22 條，且**一條概念至少橫跨兩章**才准存在（只在單章的概念＝把該章抄一遍，`audit.js` 有斷言）。批次上標用 `tools/cscs_tag_concepts.py`（主題級、不覆寫既有值）
 - 補完進度：ch01 已補（68 條全滿），ch02–ch24 只有骨架（`detail`/`terms`/`numbers` 空著時深度層自動不渲染，不會有半成品畫面）
