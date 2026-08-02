@@ -21,9 +21,7 @@ topics:
     numbers: []
     concepts:
     - hormone
-    related:
-    - ch05.endocrine-adaptations.i04
-    - ch06.acute-cardiovascular.i08
+    related: []
     locator: Adrenal Hormones > Catecholamines
   - id: ch04.catecholamines.i02
     q: 生理功能
@@ -43,9 +41,9 @@ topics:
     concepts:
     - hormone
     related:
-    - ch05.endocrine-adaptations.i04
     - ch03.glycolysis.i07
     - ch06.acute-cardiovascular.i08
+    - ch19.core-concepts.i06
     locator: Adrenal Hormones > Catecholamines > Role of Catecholamines
   - id: ch04.catecholamines.i03
     q: 腎上腺素與乳酸
@@ -81,8 +79,9 @@ topics:
     concepts:
     - hormone
     related:
-    - ch05.neural-adaptations.i04
-    - ch13.test-administration.i04
+    - ch14.ramp-protocol.i03
+    - ch18.program-design.i07
+    - ch08.arousal-anxiety-stress.i01
     locator: Adrenal Hormones > Catecholamines > Role of Catecholamines
   - id: ch04.catecholamines.i05
     q: 腎上腺素能耗竭
@@ -99,7 +98,6 @@ topics:
     - periodization
     related:
     - ch05.overtraining.i01
-    - ch06.overtraining.i07
     - ch21.gas-theory.i06
     locator: Adrenal Hormones > Catecholamines > Role of Catecholamines
   - id: ch04.catecholamines.i06
@@ -116,7 +114,6 @@ topics:
     - hormone
     related:
     - ch05.hypertrophy.i03
-    - ch21.sfra-theory.i01
     locator: Adrenal Hormones > Catecholamines
   - id: ch04.catecholamines.i07
     q: 訓練適應
@@ -133,7 +130,6 @@ topics:
     - adaptation
     related:
     - ch05.endocrine-adaptations.i05
-    - ch05.neural-adaptations.i01
     locator: Adrenal Hormones > Catecholamines > Training Adaptations of Catecholamines
   - id: ch04.catecholamines.i08
     q: 胺類特性
@@ -150,7 +146,6 @@ topics:
     - hormone
     - structure
     related:
-    - ch11.beta-agonists-stimulants.i01
     - ch04.endocrinology-basics.i07
     locator: Categories of Hormones > Amine Hormone Interactions
 
@@ -175,7 +170,7 @@ topics:
     - hormone
     related:
     - ch05.overtraining.i08
-    - ch06.overtraining.i06
+    - ch08.arousal-anxiety-stress.i07
     locator: Adrenal Hormones > Cortisol
   - id: ch04.cortisol.i02
     q: 分解代謝作用
@@ -196,7 +191,7 @@ topics:
     related:
     - ch03.substrate.i06
     - ch05.hypertrophy.i01
-    - ch09.carbohydrate.i08
+    - ch06.connective-endocrine.i06
     locator: Adrenal Hormones > Cortisol > Role of Cortisol
   - id: ch04.cortisol.i03
     q: 日夜節律
@@ -214,7 +209,6 @@ topics:
     - measurement
     related:
     - ch13.test-administration.i02
-    - ch05.endocrine-adaptations.i06
     locator: Adrenal Hormones > Cortisol
   - id: ch04.cortisol.i04
     q: 急性 vs 慢性
@@ -231,7 +225,7 @@ topics:
     related:
     - ch05.hypertrophy.i03
     - ch05.overtraining.i03
-    - ch21.sfra-theory.i02
+    - ch22.fibroblastic-phase.i01
     locator: Adrenal Hormones > Cortisol > Resistance Exercise Responses of Cortisol
   - id: ch04.cortisol.i05
     q: T/C 比值
@@ -283,9 +277,8 @@ topics:
     - hormone
     - fiber-type
     related:
-    - ch01.fiber-types.type-iix
     - ch05.hypertrophy.i06
-    - ch05.fiber-type-transitions.i03
+    - ch06.chronic-muscular.i03
     locator: Adrenal Hormones > Cortisol > Role of Cortisol
   - id: ch04.cortisol.i08
     q: 免疫系統影響
@@ -301,8 +294,8 @@ topics:
     - hormone
     - adaptation
     related:
-    - ch05.overtraining.i08
     - ch05.hypertrophy.i03
+    - ch22.inflammatory-phase.i03
     locator: Adrenal Hormones > Cortisol > Role of Cortisol
 
 - id: endocrinology-basics
@@ -322,8 +315,7 @@ topics:
     concepts:
     - hormone
     related:
-    - ch05.endocrine-adaptations.i01
-    - ch11.insulin-hgh.i01
+    - ch04.receptor-mechanisms.i01
     locator: Synthesis, Storage, and Secretion of Hormones
   - id: ch04.endocrinology-basics.i02
     q: 三大類別
@@ -339,8 +331,8 @@ topics:
     - hormone
     - structure
     related:
-    - ch11.anabolic-steroids.i01
-    - ch11.insulin-hgh.i01
+    - ch04.endocrinology-basics.i06
+    - ch04.endocrinology-basics.i07
     locator: Categories of Hormones
   - id: ch04.endocrinology-basics.i03
     q: 分泌途徑
@@ -355,8 +347,6 @@ topics:
     concepts:
     - hormone
     related:
-    - ch05.endocrine-adaptations.i03
-    - ch05.hypertrophy.i02
     - ch04.igf.i03
     locator: Synthesis, Storage, and Secretion of Hormones
   - id: ch04.endocrinology-basics.i04
@@ -374,7 +364,6 @@ topics:
     - structure
     related:
     - ch04.testosterone.i03
-    - ch04.receptor-mechanisms.i06
     locator: Synthesis, Storage, and Secretion of Hormones
   - id: ch04.endocrinology-basics.i05
     q: 鎖鑰理論
@@ -389,7 +378,6 @@ topics:
     - hormone
     - structure
     related:
-    - ch05.endocrine-adaptations.i07
     - ch04.receptor-mechanisms.i01
     locator: Role of Receptors in Mediating Hormonal Changes
   - id: ch04.endocrinology-basics.i06
@@ -407,8 +395,6 @@ topics:
     - structure
     related:
     - ch11.anabolic-steroids.i01
-    - ch05.hypertrophy.i02
-    - ch04.receptor-mechanisms.i07
     locator: Categories of Hormones > Steroid Hormone Interactions
   - id: ch04.endocrinology-basics.i07
     q: 胜肽作用機制
@@ -423,9 +409,7 @@ topics:
     - hormone
     - structure
     related:
-    - ch11.insulin-hgh.i01
-    - ch11.beta-agonists-stimulants.i01
-    - ch04.receptor-mechanisms.i06
+    - ch04.catecholamines.i08
     locator: Categories of Hormones > Polypeptide Hormone Interactions
   - id: ch04.endocrinology-basics.i08
     q: 一般適應症候群（GAS）
@@ -467,9 +451,7 @@ topics:
     concepts:
     - hormone
     - structure
-    related:
-    - ch11.insulin-hgh.i03
-    - ch05.endocrine-adaptations.i01
+    related: []
     locator: Primary Anabolic Hormones > Growth Hormone
   - id: ch04.growth-hormone.i02
     q: GH 超家族
@@ -483,9 +465,7 @@ topics:
     concepts:
     - hormone
     - structure
-    related:
-    - ch11.insulin-hgh.i03
-    - ch05.endocrine-adaptations.i05
+    related: []
     locator: Primary Anabolic Hormones > Growth Hormone
   - id: ch04.growth-hormone.i03
     q: 主要生理功能
@@ -522,8 +502,8 @@ topics:
     - program-design
     related:
     - ch03.lactate.i02
-    - ch05.endocrine-adaptations.i02
     - ch17.rest-periods.i03
+    - ch17.training-volume.i05
     locator: Primary Anabolic Hormones > Growth Hormone > Growth Hormone Responses to Stress
   - id: ch04.growth-hormone.i05
     q: 女性 GH
@@ -540,7 +520,6 @@ topics:
     - population
     related:
     - ch07.female-physiology.i08
-    - ch05.endocrine-adaptations.i05
     locator: Primary Anabolic Hormones > Growth Hormone > Growth Hormone Responses in Women
   - id: ch04.growth-hormone.i06
     q: 分泌模式
@@ -554,9 +533,7 @@ topics:
     numbers: []
     concepts:
     - hormone
-    related:
-    - ch05.endocrine-adaptations.i06
-    - ch21.sfra-theory.i02
+    related: []
     locator: Primary Anabolic Hormones > Growth Hormone
   - id: ch04.growth-hormone.i07
     q: 訓練適應
@@ -571,9 +548,7 @@ topics:
     - hormone
     - adaptation
     related:
-    - ch05.endocrine-adaptations.i05
     - ch17.principles-exam-tips.i03
-    - ch21.preparatory-period.i06
     locator: Primary Anabolic Hormones > Growth Hormone > Training Adaptations of Growth Hormone
   - id: ch04.growth-hormone.i08
     q: 調節機制
@@ -589,9 +564,7 @@ topics:
     concepts:
     - hormone
     - structure
-    related:
-    - ch05.endocrine-adaptations.i03
-    - ch04.igf.i08
+    related: []
     locator: Primary Anabolic Hormones > Growth Hormone
 
 - id: igf
@@ -619,7 +592,6 @@ topics:
     related:
     - ch05.endocrine-adaptations.i03
     - ch05.hypertrophy.i02
-    - ch11.insulin-hgh.i05
     locator: Primary Anabolic Hormones > Insulin-Like Growth Factors
   - id: ch04.igf.i02
     q: IGF 結合蛋白
@@ -638,9 +610,7 @@ topics:
     concepts:
     - hormone
     - structure
-    related:
-    - ch05.endocrine-adaptations.i03
-    - ch11.insulin-hgh.i05
+    related: []
     locator: Primary Anabolic Hormones > Insulin-Like Growth Factors
   - id: ch04.igf.i03
     q: Mechano Growth Factor
@@ -658,7 +628,6 @@ topics:
     related:
     - ch05.endocrine-adaptations.i03
     - ch05.hypertrophy.i04
-    - ch17.principles-exam-tips.i02
     locator: Primary Anabolic Hormones > Insulin-Like Growth Factors > Exercise Responses of Insulin-Like Growth Factors
   - id: ch04.igf.i04
     q: IGF 運動反應
@@ -685,7 +654,6 @@ topics:
     - measurement
     related:
     - ch05.endocrine-adaptations.i05
-    - ch11.insulin-hgh.i05
     locator: Primary Anabolic Hormones > Insulin-Like Growth Factors > Exercise Responses of Insulin-Like Growth Factors
   - id: ch04.igf.i05
     q: 營養的重要性
@@ -702,7 +670,6 @@ topics:
     related:
     - ch09.protein.i03
     - ch10.post-competition.i04
-    - ch04.program-design.i08
     locator: Primary Anabolic Hormones > Insulin-Like Growth Factors > Exercise Responses of Insulin-Like Growth Factors
   - id: ch04.igf.i06
     q: 局部 vs 循環 IGF
@@ -718,7 +685,7 @@ topics:
     - hormone
     - measurement
     related:
-    - ch05.endocrine-adaptations.i03
+    - ch12.validity.i01
     locator: Primary Anabolic Hormones > Insulin-Like Growth Factors > Exercise Responses of Insulin-Like Growth Factors
   - id: ch04.igf.i07
     q: 女性 IGF 適應
@@ -737,7 +704,6 @@ topics:
     - population
     related:
     - ch07.female-physiology.i08
-    - ch05.endocrine-adaptations.i05
     locator: Primary Anabolic Hormones > Insulin-Like Growth Factors > Training Adaptations of Insulin-Like Growth Factors
   - id: ch04.igf.i08
     q: 調控因子
@@ -753,9 +719,7 @@ topics:
     concepts:
     - hormone
     related:
-    - ch11.insulin-hgh.i05
     - ch09.protein.i03
-    - ch10.post-competition.i04
     locator: Primary Anabolic Hormones > Insulin-Like Growth Factors
 
 - id: program-design
@@ -784,9 +748,9 @@ topics:
     - hormone
     - program-design
     related:
+    - ch15.lower-body.i01
+    - ch15.power-exercises.i01
     - ch17.exercise-selection.i03
-    - ch17.load-repetitions.i04
-    - ch17.rest-periods.i03
     locator: How Can Athletes Manipulate the Endocrine System > To Increase Serum Testosterone Concentrations
   - id: ch04.program-design.i02
     q: 最大化 GH（22kDa）
@@ -807,7 +771,7 @@ topics:
     related:
     - ch17.training-volume.i05
     - ch17.rest-periods.i03
-    - ch03.lactate.i02
+    - ch09.protein.i03
     locator: How Can Athletes Manipulate the Endocrine System > To Increase 22 kDa Growth Hormone Concentrations
   - id: ch04.program-design.i03
     q: 優化腎上腺反應
@@ -825,8 +789,9 @@ topics:
     - program-design
     - periodization
     related:
-    - ch21.gas-theory.i06
     - ch05.overtraining.i01
+    - ch18.program-design.i02
+    - ch20.program-design.i06
     locator: How Can Athletes Manipulate the Endocrine System > To Optimize Responses of Adrenal Hormones
   - id: ch04.program-design.i04
     q: 週期化原則
@@ -845,7 +810,7 @@ topics:
     - periodization
     related:
     - ch21.gas-theory.i06
-    - ch21.active-rest.i07
+    - ch21.periodization-models.i02
     locator: How Can Athletes Manipulate the Endocrine System > To Optimize Responses of Adrenal Hormones
   - id: ch04.program-design.i05
     q: 急性變項的重要性
@@ -860,8 +825,6 @@ topics:
     - program-design
     related:
     - ch17.principles-exam-tips.i04
-    - ch17.training-volume.i01
-    - ch17.rest-periods.i01
     locator: Introduction
   - id: ch04.program-design.i06
     q: 募集原則
@@ -877,7 +840,6 @@ topics:
     - motor-control
     related:
     - ch01.neuromuscular.recruitment
-    - ch05.neural-adaptations.i02
     - ch17.exercise-selection.i03
     locator: Heavy Resistance Exercise and Hormonal Increases
   - id: ch04.program-design.i07
@@ -899,7 +861,7 @@ topics:
     - measurement
     related:
     - ch05.overtraining.i08
-    - ch06.overtraining.i06
+    - ch08.arousal-anxiety-stress.i07
     locator: Adrenal Hormones > Cortisol > Resistance Exercise Responses of Cortisol
   - id: ch04.program-design.i08
     q: 營養時機
@@ -917,7 +879,6 @@ topics:
     related:
     - ch09.protein.i03
     - ch10.post-competition.i04
-    - ch11.anabolic-supplements.i04
     locator: Primary Anabolic Hormones > Testosterone > Training Adaptations of Testosterone
 
 - id: receptor-mechanisms
@@ -945,7 +906,6 @@ topics:
     - adaptation
     related:
     - ch05.endocrine-adaptations.i07
-    - ch05.endocrine-adaptations.i08
     locator: Heavy Resistance Exercise and Hormonal Increases
   - id: ch04.receptor-mechanisms.i02
     q: 下調 Downregulation
@@ -981,7 +941,6 @@ topics:
     related:
     - ch05.endocrine-adaptations.i07
     - ch07.female-physiology.i08
-    - ch07.children-training-response.i02
     locator: Primary Anabolic Hormones > Testosterone > Training Adaptations of Testosterone
   - id: ch04.receptor-mechanisms.i04
     q: 受器 vs 血中濃度
@@ -999,7 +958,7 @@ topics:
     - measurement
     related:
     - ch05.endocrine-adaptations.i07
-    - ch17.load-repetitions.i04
+    - ch17.rest-periods.i02
     locator: Hormonal Changes in Peripheral Blood
   - id: ch04.receptor-mechanisms.i05
     q: 神經活化影響
@@ -1014,8 +973,6 @@ topics:
     - motor-control
     related:
     - ch01.neuromuscular.recruitment
-    - ch05.neural-adaptations.i01
-    - ch17.exercise-selection.i03
     locator: Mechanisms of Hormonal Interactions
   - id: ch04.receptor-mechanisms.i06
     q: SHBG 作用
@@ -1031,9 +988,7 @@ topics:
     concepts:
     - hormone
     - structure
-    related:
-    - ch04.testosterone.i03
-    - ch04.endocrinology-basics.i04
+    related: []
     locator: Synthesis, Storage, and Secretion of Hormones
   - id: ch04.receptor-mechanisms.i07
     q: mTOR 途徑
@@ -1052,8 +1007,6 @@ topics:
     - structure
     related:
     - ch05.hypertrophy.i02
-    - ch05.hypertrophy.i01
-    - ch11.anabolic-supplements.i05
     locator: Muscle as the Target for Hormone Interactions
   - id: ch04.receptor-mechanisms.i08
     q: 訓練前營養
@@ -1070,8 +1023,6 @@ topics:
     - nutrition
     related:
     - ch09.protein.i03
-    - ch10.post-competition.i04
-    - ch04.program-design.i08
     locator: Primary Anabolic Hormones > Testosterone > Training Adaptations of Testosterone
 
 - id: testosterone
@@ -1094,8 +1045,6 @@ topics:
     - hormone
     related:
     - ch05.hypertrophy.i01
-    - ch11.anabolic-steroids.i01
-    - ch07.female-physiology.i08
     locator: Primary Anabolic Hormones > Testosterone
   - id: ch04.testosterone.i02
     q: 游離睾固酮
@@ -1116,7 +1065,6 @@ topics:
     - population
     related:
     - ch07.aging-musculoskeletal.i01
-    - ch05.endocrine-adaptations.i01
     locator: Primary Anabolic Hormones > Testosterone > Free Testosterone and Sex Hormone–Binding Globulin
   - id: ch04.testosterone.i03
     q: SHBG
@@ -1133,9 +1081,7 @@ topics:
     concepts:
     - hormone
     - structure
-    related:
-    - ch04.receptor-mechanisms.i06
-    - ch04.endocrinology-basics.i04
+    related: []
     locator: Primary Anabolic Hormones > Testosterone > Free Testosterone and Sex Hormone–Binding Globulin
   - id: ch04.testosterone.i04
     q: 男性反應
@@ -1151,9 +1097,8 @@ topics:
     concepts:
     - hormone
     related:
-    - ch17.exercise-selection.i03
-    - ch17.training-volume.i05
-    - ch17.rest-periods.i03
+    - ch15.lower-body.i03
+    - ch13.test-administration.i02
     locator: Primary Anabolic Hormones > Testosterone
   - id: ch04.testosterone.i05
     q: 女性反應
@@ -1174,8 +1119,6 @@ topics:
     - population
     related:
     - ch07.female-physiology.i08
-    - ch07.female-physiology.i01
-    - ch05.endocrine-adaptations.i07
     locator: Primary Anabolic Hormones > Testosterone > Testosterone Responses in Women
   - id: ch04.testosterone.i06
     q: 升高睾固酮的訓練條件
@@ -1198,7 +1141,6 @@ topics:
     - hormone
     - program-design
     related:
-    - ch17.exercise-selection.i03
     - ch17.load-repetitions.i04
     - ch17.rest-periods.i03
     locator: How Can Athletes Manipulate the Endocrine System > To Increase Serum Testosterone Concentrations
@@ -1215,8 +1157,6 @@ topics:
     - motor-control
     related:
     - ch05.neural-adaptations.i01
-    - ch01.neuromuscular.nmj
-    - ch13.max-strength.i01
     locator: Primary Anabolic Hormones > Testosterone
   - id: ch04.testosterone.i08
     q: 訓練適應
@@ -1233,7 +1173,6 @@ topics:
     - adaptation
     related:
     - ch05.endocrine-adaptations.i05
-    - ch21.preparatory-period.i05
     locator: Primary Anabolic Hormones > Testosterone > Training Adaptations of Testosterone
 
 cards:
