@@ -23,7 +23,6 @@ topics:
     - periodization
     related:
     - ch20.periodization.i04
-    - ch20.periodization.i07
     locator: Periodization Periods > Second Transition Period (Active Rest)
   - id: ch21.active-rest.i02
     q: 主動休息（active rest）的建議持續時間為何？
@@ -59,7 +58,6 @@ topics:
     - periodization
     related:
     - ch20.periodization.i04
-    - ch20.special-issues.i01
     locator: Periodization Periods > Second Transition Period (Active Rest)
   - id: ch21.active-rest.i04
     q: 第二轉換期的恢復目的為何？
@@ -74,7 +72,6 @@ topics:
     concepts:
     - periodization
     related:
-    - ch20.periodization.i07
     - ch22.sports-medicine-team.i04
     locator: Periodization Periods > Second Transition Period (Active Rest)
   - id: ch21.active-rest.i05
@@ -90,8 +87,7 @@ topics:
     numbers: []
     concepts:
     - periodization
-    related:
-    - ch05.overtraining.i01
+    related: []
     locator: Periodization Periods > Second Transition Period (Active Rest)
   - id: ch21.active-rest.i06
     q: 主動休息期過長有何後果？
@@ -108,7 +104,6 @@ topics:
     - periodization
     related:
     - ch05.detraining.i01
-    - ch20.periodization.i07
     locator: Applying Sport Seasons to the Periodization Periods > Postseason
   - id: ch21.active-rest.i07
     q: 主動休息概念如何用作減量週（unloading week）？
@@ -128,7 +123,7 @@ topics:
     concepts:
     - periodization
     related:
-    - ch05.overtraining.i01
+    - ch04.program-design.i04
     - ch06.detraining.i08
     locator: Periodization Periods > Second Transition Period (Active Rest)
   - id: ch21.active-rest.i08
@@ -144,7 +139,7 @@ topics:
     concepts:
     - periodization
     related:
-    - ch17.training-volume.i01
+    - ch17.exercise-selection.i07
     locator: Periodization Periods > Second Transition Period (Active Rest)
 - id: competition-period
   title: 第一轉換期與競賽期
@@ -170,7 +165,7 @@ topics:
     - periodization
     related:
     - ch20.periodization.i02
-    - ch20.periodization.i06
+    - ch18.program-design.i06
     locator: Periodization Periods > First Transition Period
   - id: ch21.competition-period.i02
     q: 肌力／爆發力相（strength/power phase）的阻力訓練處方為何？
@@ -197,7 +192,6 @@ topics:
     - periodization
     related:
     - ch17.training-volume.i04
-    - ch17.load-repetitions.i04
     locator: Periodization Periods > First Transition Period > Strength/Power Phase
   - id: ch21.competition-period.i03
     q: 爆發性動作（power exercise）的負荷為何不能套用一般 %RM—次數關係？
@@ -219,7 +213,6 @@ topics:
     concepts:
     - periodization
     related:
-    - ch17.exercise-selection.i04
     - ch17.principles-exam-tips.i08
     locator: Periodization Periods > First Transition Period > Strength/Power Phase
   - id: ch21.competition-period.i04
@@ -238,8 +231,9 @@ topics:
     concepts:
     - periodization
     related:
-    - ch20.periodization.i05
     - ch17.training-frequency.i08
+    - ch19.program-design-monitoring.i01
+    - ch20.periodization.i03
     locator: Periodization Periods > Competitive Period
   - id: ch21.competition-period.i05
     q: 巔峰調整（peaking）的處方與期限為何？
@@ -270,7 +264,7 @@ topics:
     - periodization
     related:
     - ch06.detraining.i08
-    - ch20.periodization.i05
+    - ch10.pre-competition.i01
     locator: Periodization Periods > Competitive Period
   - id: ch21.competition-period.i06
     q: 維持計畫（maintenance program）如何安排？
@@ -298,7 +292,8 @@ topics:
     - periodization
     related:
     - ch17.training-frequency.i08
-    - ch20.periodization.i05
+    - ch19.program-design-monitoring.i01
+    - ch20.periodization.i03
     locator: Periodization Periods > Competitive Period
   - id: ch21.competition-period.i07
     q: 競賽期的專項訓練如何影響體能訓練時間？
@@ -314,7 +309,6 @@ topics:
     - periodization
     related:
     - ch17.training-frequency.i08
-    - ch20.periodization.i03
     locator: Periodization Periods > Competitive Period
   - id: ch21.competition-period.i08
     q: 長競賽季如何以中週期安排重要賽事前的準備狀態？
@@ -338,8 +332,8 @@ topics:
     concepts:
     - periodization
     related:
-    - ch20.periodization.i05
-    - ch17.training-frequency.i08
+    - ch18.program-design.i06
+    - ch19.program-design-monitoring.i01
     locator: Applying Sport Seasons to the Periodization Periods > In-Season
 - id: fitness-fatigue
   title: Fitness–Fatigue 典範
@@ -360,7 +354,7 @@ topics:
     - periodization
     - adaptation
     related:
-    - ch05.overtraining.i01
+    - ch21.sfra-theory.i01
     locator: Central Concepts Related to Periodization > Fitness–Fatigue Paradigm
   - id: ch21.fitness-fatigue.i02
     q: 訓練負荷最高時，適能、疲勞與準備狀態如何變化？
@@ -376,7 +370,7 @@ topics:
     - periodization
     - adaptation
     related:
-    - ch05.overtraining.i01
+    - ch04.program-design.i07
     locator: Central Concepts Related to Periodization > Fitness–Fatigue Paradigm
   - id: ch21.fitness-fatigue.i03
     q: 訓練工作負荷低時，為何準備狀態仍可能低？
@@ -410,7 +404,7 @@ topics:
     - adaptation
     related:
     - ch06.detraining.i08
-    - ch20.periodization.i05
+    - ch21.competition-period.i05
     locator: Central Concepts Related to Periodization > Fitness–Fatigue Paradigm
   - id: ch21.fitness-fatigue.i05
     q: 為何訓練負荷的排序（sequencing）重要？
@@ -442,8 +436,7 @@ topics:
     concepts:
     - periodization
     - adaptation
-    related:
-    - ch17.principles-exam-tips.i04
+    related: []
     locator: Central Concepts Related to Periodization > Fitness–Fatigue Paradigm
   - id: ch21.fitness-fatigue.i07
     q: 殘留訓練效應（residual training effects）對序列週期化有何意義？
@@ -460,8 +453,7 @@ topics:
     concepts:
     - periodization
     - adaptation
-    related:
-    - ch05.detraining.i05
+    related: []
     locator: Central Concepts Related to Periodization > Fitness–Fatigue Paradigm
   - id: ch21.fitness-fatigue.i08
     q: 為何每日波動週期化可能降低高階運動員的準備狀態？
@@ -480,7 +472,7 @@ topics:
     - adaptation
     related:
     - ch05.overtraining.i01
-    - ch17.training-volume.i01
+    - ch04.program-design.i07
     locator: Undulating Versus Linear Periodization Models
 - id: gas-theory
   title: GAS 一般適應症候群
@@ -502,7 +494,7 @@ topics:
     - periodization
     - adaptation
     related:
-    - ch05.overtraining.i01
+    - ch04.program-design.i04
     locator: Central Concepts Related to Periodization > The General Adaptation Syndrome
   - id: ch21.gas-theory.i02
     q: GAS 的抵抗期（resistance phase）與超補償如何發生？
@@ -536,8 +528,8 @@ topics:
     - periodization
     - adaptation
     related:
-    - ch05.overtraining.i02
-    - ch06.overtraining.i01
+    - ch05.overtraining.i03
+    - ch04.program-design.i07
     locator: Central Concepts Related to Periodization > The General Adaptation Syndrome
   - id: ch21.gas-theory.i04
     q: 教材如何定義超補償（supercompensation）？
@@ -553,7 +545,7 @@ topics:
     - periodization
     - adaptation
     related:
-    - ch05.detraining.i05
+    - ch21.gas-theory.i02
     locator: Central Concepts Related to Periodization > The General Adaptation Syndrome
   - id: ch21.gas-theory.i05
     q: GAS 的訓練反應曲線能否用固定時程安排刺激？
@@ -587,8 +579,7 @@ topics:
     - periodization
     - adaptation
     related:
-    - ch05.overtraining.i07
-    - ch06.overtraining.i02
+    - ch04.program-design.i04
     locator: Central Concepts Related to Periodization > The General Adaptation Syndrome
 - id: periodization-hierarchy
   title: 週期化層級結構
@@ -616,8 +607,7 @@ topics:
     concepts:
     - periodization
     related:
-    - ch20.periodization.i08
-    - ch17.needs-analysis.i04
+    - ch08.goal-setting.i04
     locator: Periodization Hierarchy > Table 21.1 Periodization Cycles
   - id: ch21.periodization-hierarchy.i02
     q: 年度訓練計畫（annual training plan）包含什麼？
@@ -638,7 +628,7 @@ topics:
     concepts:
     - periodization
     related:
-    - ch20.periodization.i08
+    - ch18.program-design.i06
     locator: Periodization Hierarchy > Table 21.1 Periodization Cycles
   - id: ch21.periodization-hierarchy.i03
     q: 大週期（macrocycle）的長度與年度計畫關係為何？
@@ -657,7 +647,7 @@ topics:
     concepts:
     - periodization
     related:
-    - ch20.periodization.i08
+    - ch19.program-design-monitoring.i07
     locator: Periodization Hierarchy > Table 21.1 Periodization Cycles
   - id: ch21.periodization-hierarchy.i04
     q: 中週期（mesocycle）的典型時程與結構為何？
@@ -705,6 +695,7 @@ topics:
     - periodization
     related:
     - ch17.load-repetitions.i06
+    - ch14.ramp-protocol.i07
     locator: Periodization Hierarchy > Table 21.1 Periodization Cycles
   - id: ch21.periodization-hierarchy.i06
     q: 訓練日（training day）如何界定？
@@ -722,8 +713,7 @@ topics:
       of: 訓練日的持續時間
     concepts:
     - periodization
-    related:
-    - ch17.training-frequency.i01
+    related: []
     locator: Periodization Hierarchy > Table 21.1 Periodization Cycles
   - id: ch21.periodization-hierarchy.i07
     q: 訓練節次（training session）如何界定？
@@ -740,7 +730,7 @@ topics:
     concepts:
     - periodization
     related:
-    - ch17.training-frequency.i01
+    - ch14.ramp-protocol.i07
     locator: Periodization Hierarchy > Table 21.1 Periodization Cycles
   - id: ch21.periodization-hierarchy.i08
     q: 週期化如何從全局目標逐步發展為細部安排？
@@ -760,7 +750,8 @@ topics:
     - periodization
     related:
     - ch17.needs-analysis.i06
-    - ch20.periodization.i08
+    - ch12.why-test.i04
+    - ch13.test-administration.i08
     locator: Periodization Hierarchy
 - id: periodization-models
   title: 線性 vs 波動週期化模型
@@ -784,8 +775,7 @@ topics:
     - periodization
     - program-design
     related:
-    - ch17.load-repetitions.i06
-    - ch17.training-volume.i01
+    - ch21.preparatory-period.i08
     locator: Undulating Versus Linear Periodization Models
   - id: ch21.periodization-models.i02
     q: 每日波動週期化（daily undulating periodization, DUP）的特徵為何？
@@ -811,9 +801,7 @@ topics:
     concepts:
     - periodization
     - program-design
-    related:
-    - ch17.load-repetitions.i03
-    - ch17.training-volume.i01
+    related: []
     locator: Undulating Versus Linear Periodization Models
   - id: ch21.periodization-models.i03
     q: 傳統週期化模型如何在一週內調節負荷？
@@ -847,7 +835,6 @@ topics:
     - program-design
     related:
     - ch17.load-repetitions.i06
-    - ch17.training-volume.i01
     locator: Undulating Versus Linear Periodization Models
   - id: ch21.periodization-models.i04
     q: 每日波動模型的支持者如何批評傳統模型？
@@ -901,7 +888,6 @@ topics:
     - program-design
     related:
     - ch05.overtraining.i01
-    - ch17.training-volume.i01
     locator: Undulating Versus Linear Periodization Models
   - id: ch21.periodization-models.i07
     q: 研究對每日波動與傳統週期化模型的比較結論為何？
@@ -916,8 +902,7 @@ topics:
     concepts:
     - periodization
     - program-design
-    related:
-    - ch17.principles-exam-tips.i03
+    related: []
     locator: Undulating Versus Linear Periodization Models
   - id: ch21.periodization-models.i08
     q: 週期化的核心原則如何看待「線性」？
@@ -933,8 +918,7 @@ topics:
     concepts:
     - periodization
     - program-design
-    related:
-    - ch17.load-repetitions.i06
+    related: []
     locator: Undulating Versus Linear Periodization Models
 - id: preparatory-period
   title: 備賽期 Preparatory Period
@@ -956,7 +940,7 @@ topics:
     - periodization
     related:
     - ch20.periodization.i01
-    - ch20.periodization.i06
+    - ch12.terminology.i05
     locator: Periodization Periods > Preparatory Period
   - id: ch21.preparatory-period.i02
     q: 一般備賽相（general preparatory phase）的特徵為何？
@@ -976,6 +960,7 @@ topics:
     - periodization
     related:
     - ch20.periodization.i01
+    - ch03.metabolic-specificity.i01
     - ch17.principles-exam-tips.i05
     locator: Periodization Periods > Preparatory Period
   - id: ch21.preparatory-period.i03
@@ -995,6 +980,7 @@ topics:
     - periodization
     related:
     - ch20.periodization.i06
+    - ch19.program-design-monitoring.i01
     - ch17.principles-exam-tips.i05
     locator: Periodization Periods > Preparatory Period
   - id: ch21.preparatory-period.i04
@@ -1023,6 +1009,7 @@ topics:
     related:
     - ch17.training-volume.i05
     - ch17.load-repetitions.i04
+    - ch10.weight-gain.i02
     locator: Periodization Periods > Preparatory Period > Hypertrophy/Strength Endurance Phase
   - id: ch21.preparatory-period.i05
     q: 基礎肌力相（basic strength phase）的處方與目標為何？
@@ -1069,6 +1056,7 @@ topics:
     related:
     - ch17.needs-analysis.i04
     - ch17.training-volume.i08
+    - ch07.children-growth.i05
     locator: Periodization Periods
   - id: ch21.preparatory-period.i07
     q: 備賽期如何以每日變化與恢復週促進恢復？
@@ -1087,6 +1075,7 @@ topics:
     related:
     - ch17.load-repetitions.i06
     - ch06.detraining.i08
+    - ch04.program-design.i04
     locator: Periodization Periods > Preparatory Period
   - id: ch21.preparatory-period.i08
     q: 為何備賽期的訓練量與強度趨勢不是完全線性？
@@ -1103,8 +1092,7 @@ topics:
     numbers: []
     concepts:
     - periodization
-    related:
-    - ch17.load-repetitions.i06
+    related: []
     locator: Periodization Periods
 - id: sfra-theory
   title: 刺激-疲勞-恢復-適應理論
@@ -1128,6 +1116,7 @@ topics:
     - periodization
     - adaptation
     related:
+    - ch04.program-design.i04
     - ch05.overtraining.i01
     locator: Central Concepts Related to Periodization > Stimulus-Fatigue-Recovery-Adaptation Theory
   - id: ch21.sfra-theory.i02
@@ -1146,7 +1135,6 @@ topics:
     - periodization
     - adaptation
     related:
-    - ch17.load-repetitions.i06
     - ch17.training-frequency.i03
     locator: Central Concepts Related to Periodization > Stimulus-Fatigue-Recovery-Adaptation Theory
   - id: ch21.sfra-theory.i03
@@ -1202,8 +1190,8 @@ topics:
     - periodization
     - adaptation
     related:
-    - ch05.overtraining.i01
-    - ch17.principles-exam-tips.i03
+    - ch19.program-design-monitoring.i01
+    - ch21.fitness-fatigue.i07
     locator: Central Concepts Related to Periodization > Stimulus-Fatigue-Recovery-Adaptation Theory
 cards:
 - q: "週期化（periodization）如何定義？"
