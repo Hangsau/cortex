@@ -17,7 +17,9 @@ topics:
     numbers: []
     concepts:
     - technique
-    related: []
+    related:
+    - ch02.resistance-sources.i01
+    - ch02.size-strength.i01
     locator: Bodyweight Training Methods
   - id: ch16.bodyweight-training.i02
     q: 自體重量訓練的教材列舉優點為何？
@@ -34,7 +36,9 @@ topics:
     numbers: []
     concepts:
     - technique
-    related: []
+    related:
+    - ch22.kinetic-chain.i02
+    - ch02.size-strength.i01
     locator: Bodyweight Training Methods > Benefits of Bodyweight Training
   - id: ch16.bodyweight-training.i03
     q: 自體重量訓練的主要限制與增加強度的代價是什麼？
@@ -49,6 +53,7 @@ topics:
     - force-production
     related:
     - ch16.bodyweight-training.i05
+    - ch17.load-repetitions.i04
     locator: Bodyweight Training Methods
   - id: ch16.bodyweight-training.i04
     q: 教材列舉哪些自體重量訓練活動？
@@ -61,7 +66,9 @@ topics:
     numbers: []
     concepts:
     - technique
-    related: []
+    related:
+    - ch13.anaerobic-endurance.i05
+    - ch22.kinetic-chain.i04
     locator: Bodyweight Training Methods
   - id: ch16.bodyweight-training.i05
     q: 教材如何在不外加負重下提高自體重量動作強度？
@@ -78,6 +85,7 @@ topics:
     - technique
     related:
     - ch16.bodyweight-training.i03
+    - ch02.levers.i06
     locator: Bodyweight Training Methods
 - id: chain-training
   title: 鍊條訓練 Chain-Supplemented Exercises
@@ -100,6 +108,7 @@ topics:
     - force-production
     related:
     - ch16.variable-resistance.i02
+    - ch02.levers.i06
     locator: Variable-Resistance Training Methods > Chain-Supplemented Exercises
   - id: ch16.chain-training.i02
     q: 使用鍊條前，哪些特徵決定其阻力？
@@ -124,7 +133,8 @@ topics:
     - technique
     - measurement
     related:
-    - ch16.chain-training.i03
+    - ch13.max-strength.i08
+    - ch17.training-volume.i01
     locator: Variable-Resistance Training Methods > Chain-Supplemented Exercises > Determining Resistance With Chains
   - id: ch16.chain-training.i03
     q: 教材的鍊條負荷計算範例是什麼？
@@ -157,8 +167,8 @@ topics:
     - technique
     - measurement
     related:
-    - ch16.chain-training.i02
-    - ch16.chain-training.i04
+    - ch17.load-repetitions.i03
+    - ch17.training-volume.i01
     locator: Variable-Resistance Training Methods > Chain-Supplemented Exercises > Determining Resistance With Chains
   - id: ch16.chain-training.i04
     q: 如何把鍊條施加於自由重量動作？
@@ -173,8 +183,8 @@ topics:
     concepts:
     - technique
     related:
-    - ch16.chain-training.i03
-    - ch16.chain-training.i05
+    - ch15.lower-body.i01
+    - ch15.upper-body.i01
     locator: Variable-Resistance Training Methods > Chain-Supplemented Exercises > Applying Chains to Free Weight Exercises
   - id: ch16.chain-training.i05
     q: Baker 對鍊條懸掛方式提出哪三項可能的速度機制？
@@ -193,7 +203,8 @@ topics:
     - technique
     - motor-control
     related:
-    - ch16.chain-training.i04
+    - ch18.ssc.i02
+    - ch19.neuromuscular-basis.i08
     locator: Variable-Resistance Training Methods > Chain-Supplemented Exercises > Applying Chains to Free Weight Exercises
   - id: ch16.chain-training.i06
     q: 教材對鍊條訓練的適用對象有何建議？
@@ -207,7 +218,9 @@ topics:
     concepts:
     - technique
     - safety
-    related: []
+    related:
+    - ch17.needs-analysis.i04
+    - ch15.exercise-technique-fundamentals.i02
     locator: Variable-Resistance Training Methods > Chain-Supplemented Exercises > Determining Resistance With Chains
   - id: ch16.chain-training.i07
     q: 鍊條訓練的科學支持現況為何？
@@ -220,7 +233,9 @@ topics:
     numbers: []
     concepts:
     - measurement
-    related: []
+    related:
+    - ch13.statistics.i07
+    - ch17.principles-exam-tips.i01
     locator: Variable-Resistance Training Methods > Chain-Supplemented Exercises
   - id: ch16.chain-training.i08
     q: 教材區分的三種阻力施加方法是什麼？
@@ -241,7 +256,8 @@ topics:
     - technique
     - force-production
     related:
-    - ch16.variable-resistance.i01
+    - ch02.resistance-sources.i02
+    - ch02.resistance-sources.i06
     locator: Variable-Resistance Training Methods
 - id: core-training
   title: 核心與不穩定訓練
@@ -261,7 +277,9 @@ topics:
     numbers: []
     concepts:
     - structure
-    related: []
+    related:
+    - ch01.skeleton.axial
+    - ch01.skeleton.vertebral-segments
     locator: Core Stability and Balance Training Methods > Anatomical Focus
   - id: ch16.core-training.i02
     q: 隔離核心動作與地面自由重量動作，教材如何比較？
@@ -281,8 +299,8 @@ topics:
     - technique
     - injury
     related:
-    - ch16.core-training.i03
-    - ch16.machine-vs-freeweight.i03
+    - ch17.exercise-selection.i01
+    - ch22.fibroblastic-phase.i04
     locator: Core Stability and Balance Training Methods > Isolation Exercises
   - id: ch16.core-training.i03
     q: 三種穩定球核心動作的主要技術重點是什麼？
@@ -299,7 +317,8 @@ topics:
     concepts:
     - technique
     related:
-    - ch16.core-training.i02
+    - ch15.body-positioning.i08
+    - ch01.proprioception.definition
     locator: Stability Ball Rollout；Stability Ball Pike；Stability Ball Jackknife
 - id: general-guidelines
   title: 一般指導原則
@@ -318,7 +337,9 @@ topics:
     concepts:
     - technique
     - safety
-    related: []
+    related:
+    - ch15.body-positioning.i01
+    - ch24.supervision.i04
     locator: General Guidelines > General Guidelines for Alternative Modes and Nontraditional Implement Exercises
   - id: ch16.general-guidelines.i02
     q: 替代模式動作的呼吸時機為何？
@@ -334,7 +355,8 @@ topics:
     concepts:
     - technique
     related:
-    - ch16.general-guidelines.i04
+    - ch15.breathing.i01
+    - ch15.breathing.i02
     locator: General Guidelines
   - id: ch16.general-guidelines.i03
     q: 替代模式與非傳統器材動作如何選擇握法？
@@ -346,7 +368,9 @@ topics:
     numbers: []
     concepts:
     - technique
-    related: []
+    related:
+    - ch15.grips.i08
+    - ch15.grips.i06
     locator: General Guidelines
   - id: ch16.general-guidelines.i04
     q: 何時可能使用瓦爾薩爾瓦操作（Valsalva maneuver）？
@@ -364,8 +388,8 @@ topics:
     - technique
     - safety
     related:
-    - ch16.general-guidelines.i02
-    - ch16.strongman-training.i03
+    - ch15.breathing.i06
+    - ch16.strongman-training.i02
     locator: General Guidelines > General Guidelines for Alternative Modes and Nontraditional Implement Exercises
 - id: instability-devices
   title: 不穩定裝置訓練 Instability Devices
@@ -385,7 +409,9 @@ topics:
     concepts:
     - technique
     - motor-control
-    related: []
+    related:
+    - ch01.proprioception.definition
+    - ch13.balance-flexibility-bc.i01
     locator: Core Stability and Balance Training Methods > Instability Devices
   - id: ch16.instability-devices.i02
     q: 不穩定訓練如何影響力量、功率與力量發展速率？
@@ -404,7 +430,8 @@ topics:
     concepts:
     - force-production
     related:
-    - ch16.instability-devices.i05
+    - ch02.work-power.i02
+    - ch19.rfd-impulse.i01
     locator: Core Stability and Balance Training Methods > Instability Devices
   - id: ch16.instability-devices.i03
     q: 教材如何定位不穩定裝置在訓練進程中的角色？
@@ -420,8 +447,8 @@ topics:
     concepts:
     - program-design
     related:
-    - ch16.instability-devices.i05
-    - ch16.instability-devices.i07
+    - ch17.exercise-selection.i02
+    - ch17.needs-analysis.i04
     locator: Core Stability and Balance Training Methods > Instability Devices
   - id: ch16.instability-devices.i04
     q: 教材如何描述不穩定裝置在復健與前十字韌帶傷害上的證據？
@@ -440,7 +467,8 @@ topics:
     concepts:
     - injury
     related:
-    - ch16.instability-devices.i08
+    - ch22.injury-prevention.i06
+    - ch22.maturation-phase.i08
     locator: Core Stability and Balance Training Methods > Instability Devices
   - id: ch16.instability-devices.i05
     q: 為何不穩定裝置不一定有利於運動員表現？
@@ -455,8 +483,8 @@ topics:
     concepts:
     - force-production
     related:
-    - ch16.instability-devices.i02
-    - ch16.instability-devices.i03
+    - ch17.principles-exam-tips.i01
+    - ch05.neural-adaptations.i01
     locator: Core Stability and Balance Training Methods > Instability Devices
   - id: ch16.instability-devices.i06
     q: 不穩定裝置訓練為何在肌力體能領域普及？
@@ -470,7 +498,8 @@ topics:
     concepts:
     - injury
     related:
-    - ch16.instability-devices.i04
+    - ch13.balance-flexibility-bc.i02
+    - ch22.injury-prevention.i04
     locator: Core Stability and Balance Training Methods > Instability Devices
   - id: ch16.instability-devices.i07
     q: 教材如何比較地面自由重量與不穩定裝置？
@@ -486,7 +515,8 @@ topics:
     - technique
     - force-production
     related:
-    - ch16.instability-devices.i04
+    - ch17.exercise-selection.i03
+    - ch15.body-positioning.i08
     locator: Core Stability and Balance Training Methods > Instability Devices
   - id: ch16.instability-devices.i08
     q: 關於平衡訓練降低前十字韌帶傷害，教材保留什麼爭議？
@@ -501,7 +531,8 @@ topics:
     - injury
     - measurement
     related:
-    - ch16.instability-devices.i04
+    - ch07.female-acl.i06
+    - ch18.safety.i04
     locator: Core Stability and Balance Training Methods > Instability Devices
 - id: kettlebell-unilateral
   title: 壺鈴與單側訓練
@@ -535,7 +566,8 @@ topics:
     concepts:
     - adaptation
     related:
-    - ch16.kettlebell-unilateral.i03
+    - ch17.exercise-selection.i05
+    - ch13.aerobic-capacity.i01
     locator: Nontraditional Implement Training Methods > Kettlebell Training
   - id: ch16.kettlebell-unilateral.i02
     q: 鑄鐵與競技壺鈴有何差異？
@@ -558,7 +590,9 @@ topics:
       of: 競技壺鈴把手直徑
     concepts:
     - technique
-    related: []
+    related:
+    - ch23.needs-analysis.i02
+    - ch23.safety-electrical.i05
     locator: Nontraditional Implement Training Methods > Kettlebell Training > Types of Kettlebells
   - id: ch16.kettlebell-unilateral.i03
     q: 雙手壺鈴盪（two-arm kettlebell swing）的技術要點是什麼？
@@ -572,7 +606,9 @@ topics:
     numbers: []
     concepts:
     - technique
-    related: []
+    related:
+    - ch15.lower-body.i03
+    - ch23.layout.i03
     locator: Two-Arm Kettlebell Swing
   - id: ch16.kettlebell-unilateral.i04
     q: 雙側缺陷（bilateral deficit）與雙側促進（bilateral facilitation）在教材中如何用於訓練判斷？
@@ -589,7 +625,8 @@ topics:
     - force-production
     - population
     related:
-    - ch16.kettlebell-unilateral.i05
+    - ch05.neural-adaptations.i07
+    - ch17.exercise-selection.i06
     locator: Unilateral Training
   - id: ch16.kettlebell-unilateral.i05
     q: 教材列舉單側訓練（unilateral training）的哪些動作與用途？
@@ -606,7 +643,8 @@ topics:
     - program-design
     - injury
     related:
-    - ch16.kettlebell-unilateral.i04
+    - ch22.resistance-training-systems.i07
+    - ch22.kinetic-chain.i04
     locator: Unilateral Training
 - id: machine-vs-freeweight
   title: 器械 vs 自由重量
@@ -631,7 +669,8 @@ topics:
     concepts:
     - motor-control
     related:
-    - ch16.machine-vs-freeweight.i03
+    - ch02.musculature.i06
+    - ch15.body-positioning.i04
     locator: Core Stability and Balance Training Methods > Machines Versus Free Weight Exercises
   - id: ch16.machine-vs-freeweight.i02
     q: 教材如何描述器械訓練的優勢與運動情境限制？
@@ -644,7 +683,9 @@ topics:
     numbers: []
     concepts:
     - technique
-    related: []
+    related:
+    - ch17.exercise-selection.i02
+    - ch22.kinetic-chain.i08
     locator: Core Stability and Balance Training Methods > Machines Versus Free Weight Exercises
   - id: ch16.machine-vs-freeweight.i03
     q: 為何教材在肌力與功率發展時偏向地面自由重量動作？
@@ -659,8 +700,8 @@ topics:
     - force-production
     - technique
     related:
-    - ch16.machine-vs-freeweight.i01
-    - ch16.instability-devices.i07
+    - ch17.exercise-selection.i01
+    - ch02.resistance-sources.i02
     locator: Core Stability and Balance Training Methods > Machines Versus Free Weight Exercises
   - id: ch16.machine-vs-freeweight.i04
     q: 為何不應把地面自由重量動作再放到不穩定表面？
@@ -677,8 +718,8 @@ topics:
     - force-production
     - safety
     related:
-    - ch16.machine-vs-freeweight.i03
-    - ch16.instability-devices.i04
+    - ch18.safety.i04
+    - ch19.rfd-impulse.i01
     locator: Core Stability and Balance Training Methods > Machines Versus Free Weight Exercises
 - id: resistance-bands
   title: 彈力帶訓練 Resistance Bands
@@ -698,7 +739,8 @@ topics:
     concepts:
     - force-production
     related:
-    - ch16.resistance-bands.i02
+    - ch02.resistance-sources.i06
+    - ch02.strength-factors.i05
     locator: Variable-Resistance Training Methods > Resistance Band Exercises > Determining Resistance With Resistance Bands
   - id: ch16.resistance-bands.i02
     q: 哪些材料特徵與量測資訊會影響彈力帶阻力？
@@ -712,8 +754,8 @@ topics:
     concepts:
     - measurement
     related:
-    - ch16.resistance-bands.i01
-    - ch16.resistance-bands.i03
+    - ch13.max-strength.i08
+    - ch23.maintenance.i04
     locator: Variable-Resistance Training Methods > Resistance Band Exercises > Determining Resistance With Resistance Bands
   - id: ch16.resistance-bands.i03
     q: 教材的彈力帶負荷計算範例是什麼？
@@ -746,8 +788,8 @@ topics:
     - technique
     - measurement
     related:
-    - ch16.resistance-bands.i02
-    - ch16.resistance-bands.i04
+    - ch17.load-repetitions.i03
+    - ch17.training-volume.i01
     locator: Variable-Resistance Training Methods > Resistance Band Exercises > Determining Resistance With Resistance Bands
   - id: ch16.resistance-bands.i04
     q: 如何把彈力帶施加在自由重量動作？
@@ -763,8 +805,8 @@ topics:
     - technique
     - safety
     related:
-    - ch16.resistance-bands.i03
-    - ch16.resistance-bands.i07
+    - ch15.lower-body.i01
+    - ch16.variable-resistance.i02
     locator: Variable-Resistance Training Methods > Resistance Band Exercises > Applying Resistance Bands to Free Weight Exercises
   - id: ch16.resistance-bands.i05
     q: 教材對彈力帶改善功率與力量發展速率的急性證據如何描述？
@@ -789,7 +831,8 @@ topics:
     concepts:
     - force-production
     related:
-    - ch16.resistance-bands.i08
+    - ch02.work-power.i02
+    - ch19.rfd-impulse.i01
     locator: Variable-Resistance Training Methods > Resistance Band Exercises
   - id: ch16.resistance-bands.i06
     q: 看似相同的彈力帶可能有多大張力差異？
@@ -809,7 +852,8 @@ topics:
     concepts:
     - measurement
     related:
-    - ch16.resistance-bands.i02
+    - ch13.test-administration.i01
+    - ch24.facility.i03
     locator: Variable-Resistance Training Methods > Resistance Band Exercises > Determining Resistance With Resistance Bands
   - id: ch16.resistance-bands.i07
     q: 彈力帶背蹲舉（back squat with bands）在底端與頂端的負荷安排為何？
@@ -824,7 +868,8 @@ topics:
     concepts:
     - technique
     related:
-    - ch16.resistance-bands.i04
+    - ch15.lower-body.i01
+    - ch02.resistance-sources.i06
     locator: Back Squat With Bands
   - id: ch16.resistance-bands.i08
     q: 彈力帶訓練的證據有哪些限制與相反結果？
@@ -842,7 +887,8 @@ topics:
     concepts:
     - measurement
     related:
-    - ch16.resistance-bands.i05
+    - ch13.statistics.i07
+    - ch17.principles-exam-tips.i01
     locator: Variable-Resistance Training Methods > Resistance Band Exercises
 - id: strongman-training
   title: 強人訓練
@@ -861,7 +907,9 @@ topics:
     concepts:
     - technique
     - safety
-    related: []
+    related:
+    - ch23.design-elements.i05
+    - ch24.facility.i03
     locator: Nontraditional Implement Training Methods > Strongman Training > Tire Flipping
   - id: ch16.strongman-training.i02
     q: 原木翻舉推舉（log clean and press）的動作與負荷考量是什麼？
@@ -879,7 +927,9 @@ topics:
     concepts:
     - technique
     - force-production
-    related: []
+    related:
+    - ch15.power-exercises.i07
+    - ch23.key-numbers.i02
     locator: Log Clean and Press
   - id: ch16.strongman-training.i03
     q: 農夫走（farmer's walk）的用途與安全邊界為何？
@@ -894,7 +944,9 @@ topics:
     concepts:
     - technique
     - safety
-    related: []
+    related:
+    - ch23.layout.i08
+    - ch24.supervision.i02
     locator: Nontraditional Implement Training Methods > Strongman Training > Farmer’s Walk
   - id: ch16.strongman-training.i04
     q: 教材對強人訓練（strongman training）的整體證據結論是什麼？
@@ -908,8 +960,8 @@ topics:
     concepts:
     - measurement
     related:
-    - ch16.strongman-training.i01
-    - ch16.strongman-training.i03
+    - ch13.anaerobic-endurance.i01
+    - ch13.statistics.i07
     locator: Nontraditional Implement Training Methods > Strongman Training
 - id: variable-resistance
   title: 可變阻力訓練
@@ -935,6 +987,7 @@ topics:
     - technique
     - force-production
     related:
+    - ch02.resistance-sources.i02
     - ch16.chain-training.i08
     locator: Variable-Resistance Training Methods
   - id: ch16.variable-resistance.i02
@@ -951,8 +1004,8 @@ topics:
     concepts:
     - force-production
     related:
-    - ch16.chain-training.i01
-    - ch16.resistance-bands.i04
+    - ch02.levers.i06
+    - ch02.strength-factors.i05
     locator: Variable-Resistance Training Methods
   - id: ch16.variable-resistance.i03
     q: 教材對可變阻力的速度與關節力學效果使用何種限定語？
@@ -965,7 +1018,9 @@ topics:
     numbers: []
     concepts:
     - force-production
-    related: []
+    related:
+    - ch02.size-strength.i06
+    - ch19.rfd-impulse.i03
     locator: Variable-Resistance Training Methods
   - id: ch16.variable-resistance.i04
     q: 鏈條或橡膠帶與傳統自由重量結合時，教材的結論是什麼？
@@ -982,8 +1037,8 @@ topics:
     concepts:
     - program-design
     related:
-    - ch16.chain-training.i06
-    - ch16.resistance-bands.i08
+    - ch17.needs-analysis.i04
+    - ch17.principles-exam-tips.i02
     locator: Variable-Resistance Training Methods；Conclusion
 cards:
 - q: "替代模式與非傳統器材動作的首要姿勢原則是什麼？"
