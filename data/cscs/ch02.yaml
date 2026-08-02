@@ -29,8 +29,8 @@ topics:
     - structure
     - injury
     related:
-    - ch02.joint-biomechanics.i02
-    - ch02.joint-biomechanics.i03
+    - ch15.lower-body.i03
+    - ch22.injury-prevention.i03
     locator: '第 2 章 · Back Injury'
   - id: ch02.joint-biomechanics.i02
     q: 腰椎中立姿勢
@@ -45,8 +45,8 @@ topics:
     - structure
     - technique
     related:
-    - ch02.joint-biomechanics.i01
-    - ch02.joint-biomechanics.i03
+    - ch15.lower-body.i01
+    - ch15.lower-body.i03
     locator: '第 2 章 · Back Injury'
   - id: ch02.joint-biomechanics.i03
     q: 腹內壓 & 腰帶
@@ -63,8 +63,8 @@ topics:
     - technique
     - safety
     related:
-    - ch02.joint-biomechanics.i01
-    - ch02.joint-biomechanics.i02
+    - ch15.weight-belt.i02
+    - ch15.breathing.i06
     locator: '第 2 章 · Intra-Abdominal Pressure and Lifting Belts'
   - id: ch02.joint-biomechanics.i04
     q: 肩關節
@@ -80,7 +80,8 @@ topics:
     - structure
     - safety
     related:
-    - ch02.joint-biomechanics.i01
+    - ch15.upper-body.i05
+    - ch22.injury-prevention.i02
     locator: '第 2 章 · Shoulders'
   - id: ch02.joint-biomechanics.i05
     q: 膝關節
@@ -96,8 +97,8 @@ topics:
     - structure
     - injury
     related:
-    - ch02.levers.i07
-    - ch02.joint-biomechanics.i06
+    - ch18.safety.i02
+    - ch22.kinetic-chain.i06
     locator: '第 2 章 · Knees'
   - id: ch02.joint-biomechanics.i06
     q: 膝蓋護具
@@ -114,7 +115,8 @@ topics:
     - structure
     - technique
     related:
-    - ch02.joint-biomechanics.i05
+    - ch15.lower-body.i01
+    - ch22.injury-prevention.i03
     locator: '第 2 章 · Knees'
   - id: ch02.joint-biomechanics.i07
     q: 深蹲軀幹角度
@@ -129,8 +131,8 @@ topics:
     - structure
     - technique
     related:
-    - ch02.resistance-sources.i01
-    - ch02.levers.i05
+    - ch15.lower-body.i01
+    - ch15.lower-body.i02
     locator: '第 2 章 · Applications to Resistance Training'
   - id: ch02.joint-biomechanics.i08
     q: 阻力訓練傷害率
@@ -153,7 +155,9 @@ topics:
     concepts:
     - structure
     - safety
-    related: []
+    related:
+    - ch15.exercise-technique-fundamentals.i07
+    - ch22.injury-prevention.i01
     locator: '第 2 章 · Joint Biomechanics: Concerns in Resistance Training'
 - id: levers
   title: 槓桿系統 Levers
@@ -177,7 +181,8 @@ topics:
     - force-production
     - structure
     related:
-    - ch02.levers.i04
+    - ch02.levers.i02
+    - ch01.skeleton.lever-system
     locator: '第 2 章 · Levers of the Musculoskeletal System'
   - id: ch02.levers.i02
     q: 第二類槓桿
@@ -195,7 +200,8 @@ topics:
     - force-production
     - structure
     related:
-    - ch02.levers.i04
+    - ch02.levers.i03
+    - ch01.skeleton.lever-system
     locator: '第 2 章 · Levers of the Musculoskeletal System'
   - id: ch02.levers.i03
     q: 第三類槓桿
@@ -212,7 +218,8 @@ topics:
     - force-production
     - structure
     related:
-    - ch02.levers.i04
+    - ch01.skeleton.lever-system
+    - ch15.upper-body.i07
     locator: '第 2 章 · Levers of the Musculoskeletal System'
   - id: ch02.levers.i04
     q: 機械利益 MA
@@ -229,9 +236,8 @@ topics:
     - force-production
     - structure
     related:
-    - ch02.levers.i01
-    - ch02.levers.i02
-    - ch02.levers.i03
+    - ch01.skeleton.lever-system
+    - ch15.body-positioning.i04
     locator: '第 2 章 · Levers of the Musculoskeletal System'
   - id: ch02.levers.i05
     q: 力矩 Torque
@@ -247,8 +253,8 @@ topics:
     - force-production
     - measurement
     related:
-    - ch02.levers.i06
-    - ch02.work-power.i04
+    - ch15.body-positioning.i04
+    - ch19.agility-cod.i05
     locator: '第 2 章 · Levers of the Musculoskeletal System'
   - id: ch02.levers.i06
     q: 動態力臂變化
@@ -264,8 +270,8 @@ topics:
     - force-production
     - technique
     related:
-    - ch02.levers.i05
-    - ch02.resistance-sources.i01
+    - ch15.body-positioning.i06
+    - ch16.variable-resistance.i03
     locator: '第 2 章 · Levers of the Musculoskeletal System'
   - id: ch02.levers.i07
     q: 髕骨的作用
@@ -281,8 +287,8 @@ topics:
     - force-production
     - structure
     related:
-    - ch02.joint-biomechanics.i05
-    - ch02.levers.i06
+    - ch15.lower-body.i08
+    - ch22.kinetic-chain.i06
     locator: '第 2 章 · Levers of the Musculoskeletal System'
   - id: ch02.levers.i08
     q: 人體機械不利的後果
@@ -297,8 +303,8 @@ topics:
     - force-production
     - injury
     related:
-    - ch02.levers.i04
-    - ch02.joint-biomechanics.i01
+    - ch05.connective-tissue.i05
+    - ch22.injury-types.i07
     locator: '第 2 章 · Levers of the Musculoskeletal System'
 - id: musculature
   title: 骨骼肌肉組織 Musculature
@@ -316,8 +322,8 @@ topics:
     concepts:
     - structure
     related:
-    - ch02.musculature.i02
-    - ch02.musculature.i08
+    - ch01.skeleton.lever-system
+    - ch15.exercise-technique-fundamentals.i02
     locator: '第 2 章 · Skeletal Musculature'
   - id: ch02.musculature.i02
     q: 止點 Insertion
@@ -330,7 +336,8 @@ topics:
     concepts:
     - structure
     related:
-    - ch02.musculature.i01
+    - ch01.skeleton.lever-system
+    - ch15.exercise-technique-fundamentals.i02
     locator: '第 2 章 · Skeletal Musculature'
   - id: ch02.musculature.i03
     q: 附著方式
@@ -344,8 +351,8 @@ topics:
     concepts:
     - structure
     related:
-    - ch02.musculature.i01
-    - ch02.musculature.i02
+    - ch05.connective-tissue.i08
+    - ch22.injury-types.i06
     locator: '第 2 章 · Skeletal Musculature'
   - id: ch02.musculature.i04
     q: 主動肌 Agonist
@@ -360,8 +367,8 @@ topics:
     - force-production
     - structure
     related:
-    - ch02.musculature.i05
-    - ch02.musculature.i06
+    - ch15.upper-body.i07
+    - ch17.exercise-selection.i06
     locator: '第 2 章 · Skeletal Musculature'
   - id: ch02.musculature.i05
     q: 拮抗肌 Antagonist
@@ -377,7 +384,8 @@ topics:
     - structure
     - injury
     related:
-    - ch02.musculature.i04
+    - ch05.neural-adaptations.i08
+    - ch19.neuromuscular-basis.i07
     locator: '第 2 章 · Skeletal Musculature'
   - id: ch02.musculature.i06
     q: 協同肌 Synergist
@@ -392,8 +400,8 @@ topics:
     - force-production
     - structure
     related:
-    - ch02.musculature.i04
-    - ch02.musculature.i07
+    - ch15.upper-body.i05
+    - ch16.core-training.i02
     locator: '第 2 章 · Skeletal Musculature'
   - id: ch02.musculature.i07
     q: 雙關節肌注意
@@ -407,7 +415,8 @@ topics:
     - force-production
     - technique
     related:
-    - ch02.musculature.i06
+    - ch15.lower-body.i01
+    - ch15.lower-body.i06
     locator: '第 2 章 · Skeletal Musculature'
   - id: ch02.musculature.i08
     q: 實例：髂腰肌的起止點互換
@@ -421,8 +430,8 @@ topics:
     concepts:
     - structure
     related:
-    - ch02.musculature.i01
-    - ch02.musculature.i02
+    - ch01.skeleton.lever-system
+    - ch19.sprint-technique.i02
     locator: '第 2 章 · Skeletal Musculature'
 - id: planes
   title: 解剖平面與動作 Planes
@@ -442,8 +451,8 @@ topics:
     - structure
     - technique
     related:
-    - ch02.planes.i02
-    - ch02.planes.i03
+    - ch02.planes.i08
+    - ch15.lower-body.i03
     locator: '第 2 章 · Anatomical Planes and Major Body Movements'
   - id: ch02.planes.i02
     q: 冠狀面 Frontal
@@ -458,8 +467,8 @@ topics:
     - structure
     - technique
     related:
-    - ch02.planes.i01
-    - ch02.planes.i03
+    - ch19.agility-cod.i05
+    - ch18.safety.i02
     locator: '第 2 章 · Anatomical Planes and Major Body Movements'
   - id: ch02.planes.i03
     q: 橫切面 Transverse
@@ -474,8 +483,8 @@ topics:
     - structure
     - technique
     related:
-    - ch02.planes.i01
-    - ch02.planes.i02
+    - ch19.agility-cod.i06
+    - ch15.grips.i01
     locator: '第 2 章 · Anatomical Planes and Major Body Movements'
   - id: ch02.planes.i04
     q: 解剖姿勢
@@ -489,9 +498,8 @@ topics:
     concepts:
     - structure
     related:
-    - ch02.planes.i01
-    - ch02.planes.i02
-    - ch02.planes.i03
+    - ch01.skeleton.joint-axes
+    - ch15.body-positioning.i04
     locator: '第 2 章 · Anatomical Planes and Major Body Movements'
   - id: ch02.planes.i05
     q: 常被忽略的動作
@@ -511,7 +519,8 @@ topics:
     - technique
     - program-design
     related:
-    - ch02.planes.i06
+    - ch19.agility-cod.i05
+    - ch15.grips.i01
     locator: '第 2 章 · Anatomical Planes and Major Body Movements'
   - id: ch02.planes.i06
     q: 訓練特殊性
@@ -525,7 +534,8 @@ topics:
     - technique
     - program-design
     related:
-    - ch02.planes.i05
+    - ch17.principles-exam-tips.i01
+    - ch12.selection-factors.i02
     locator: '第 2 章 · Anatomical Planes and Major Body Movements'
   - id: ch02.planes.i07
     q: 平面間遷移
@@ -539,7 +549,8 @@ topics:
     - program-design
     - technique
     related:
-    - ch02.planes.i06
+    - ch17.principles-exam-tips.i05
+    - ch19.training-methods.i03
     locator: '第 2 章 · Anatomical Planes and Major Body Movements'
   - id: ch02.planes.i08
     q: 三個平面各的書中舉例動作
@@ -557,9 +568,8 @@ topics:
     - structure
     - technique
     related:
-    - ch02.planes.i01
-    - ch02.planes.i02
-    - ch02.planes.i03
+    - ch13.power-tests.i04
+    - ch15.upper-body.i07
     locator: '第 2 章 · Anatomical Planes and Major Body Movements'
 - id: resistance-sources
   title: 阻力來源 Resistance Sources
@@ -581,8 +591,8 @@ topics:
     - force-production
     - technique
     related:
-    - ch02.levers.i06
-    - ch02.joint-biomechanics.i07
+    - ch15.lower-body.i01
+    - ch16.machine-vs-freeweight.i02
     locator: '第 2 章 · Gravity'
   - id: ch02.resistance-sources.i02
     q: 自由重量 vs 器械
@@ -597,8 +607,8 @@ topics:
     - technique
     - program-design
     related:
-    - ch02.resistance-sources.i01
-    - ch02.resistance-sources.i07
+    - ch16.machine-vs-freeweight.i01
+    - ch15.body-positioning.i04
     locator: '第 2 章 · Weight-Stack Machines'
   - id: ch02.resistance-sources.i03
     q: 慣性 Inertia
@@ -614,8 +624,8 @@ topics:
     - force-production
     - technique
     related:
-    - ch02.resistance-sources.i01
-    - ch02.resistance-sources.i08
+    - ch15.power-exercises.i03
+    - ch19.training-methods.i01
     locator: '第 2 章 · Inertia'
   - id: ch02.resistance-sources.i04
     q: 摩擦力 Friction
@@ -630,7 +640,8 @@ topics:
     - force-production
     - technique
     related:
-    - ch02.resistance-sources.i01
+    - ch19.training-methods.i01
+    - ch20.intensity-monitoring.i05
     locator: '第 2 章 · Friction'
   - id: ch02.resistance-sources.i05
     q: 流體阻力 Fluid
@@ -646,7 +657,8 @@ topics:
     - force-production
     - technique
     related:
-    - ch02.strength-factors.i07
+    - ch16.machine-vs-freeweight.i02
+    - ch19.neuromuscular-basis.i07
     locator: '第 2 章 · Fluid Resistance'
   - id: ch02.resistance-sources.i06
     q: 彈性 Elasticity
@@ -662,7 +674,8 @@ topics:
     - technique
     - safety
     related:
-    - ch02.resistance-sources.i01
+    - ch16.resistance-bands.i01
+    - ch16.resistance-bands.i07
     locator: '第 2 章 · Elasticity'
   - id: ch02.resistance-sources.i07
     q: Cam器械原理
@@ -679,8 +692,8 @@ topics:
     - force-production
     - technique
     related:
-    - ch02.resistance-sources.i01
-    - ch02.levers.i05
+    - ch15.body-positioning.i04
+    - ch16.machine-vs-freeweight.i02
     locator: '第 2 章 · Weight-Stack Machines'
   - id: ch02.resistance-sources.i08
     q: 括弧訓練法 Bracketing
@@ -697,8 +710,8 @@ topics:
     - technique
     - program-design
     related:
-    - ch02.strength-factors.i06
-    - ch02.resistance-sources.i03
+    - ch19.training-methods.i08
+    - ch17.principles-exam-tips.i08
     locator: '第 2 章 · Inertia'
 - id: size-strength
   title: 肌力與體型比例 Size & Strength
@@ -718,7 +731,8 @@ topics:
     - structure
     - program-design
     related:
-    - ch02.size-strength.i02
+    - ch13.power-tests.i08
+    - ch18.intensity-volume.i08
     locator: '第 2 章 · Strength-to-Mass Ratio'
   - id: ch02.size-strength.i02
     q: 體型 vs 肌力關係
@@ -733,8 +747,8 @@ topics:
     - force-production
     - structure
     related:
-    - ch02.size-strength.i01
-    - ch02.size-strength.i03
+    - ch07.female-physiology.i02
+    - ch13.balance-flexibility-bc.i08
     locator: '第 2 章 · Body Size'
   - id: ch02.size-strength.i03
     q: 跨量級比較公式
@@ -749,8 +763,8 @@ topics:
     - force-production
     - measurement
     related:
-    - ch02.size-strength.i02
-    - ch02.size-strength.i04
+    - ch13.statistics.i03
+    - ch07.female-physiology.i02
     locator: '第 2 章 · Body Size'
   - id: ch02.size-strength.i04
     q: 量級策略
@@ -764,8 +778,8 @@ topics:
     - program-design
     - force-production
     related:
-    - ch02.size-strength.i01
-    - ch02.size-strength.i03
+    - ch17.needs-analysis.i08
+    - ch10.weight-gain.i01
     locator: '第 2 章 · Strength-to-Mass Ratio'
   - id: ch02.size-strength.i05
     q: 肌腱遠附著點的利弊
@@ -780,8 +794,8 @@ topics:
     - force-production
     - structure
     related:
-    - ch02.levers.i04
-    - ch02.strength-factors.i08
+    - ch19.sprint-speed-components.i01
+    - ch21.competition-period.i03
     locator: '第 2 章 · Variations in Tendon Insertion'
   - id: ch02.size-strength.i06
     q: 力-速度關係
@@ -796,8 +810,8 @@ topics:
     - force-production
     - structure
     related:
-    - ch02.size-strength.i05
-    - ch02.strength-factors.i06
+    - ch17.principles-exam-tips.i08
+    - ch18.mechanical-models.i07
     locator: '第 2 章 · Variations in Tendon Insertion'
   - id: ch02.size-strength.i07
     q: 結構的可修改性
@@ -813,8 +827,8 @@ topics:
     - structure
     - adaptation
     related:
-    - ch02.strength-factors.i03
-    - ch02.size-strength.i05
+    - ch05.fiber-type-transitions.i06
+    - ch05.hypertrophy.i01
     locator: '第 2 章 · Variations in Tendon Insertion'
   - id: ch02.size-strength.i08
     q: 精英體操選手的身材特徵
@@ -829,8 +843,8 @@ topics:
     - structure
     - population
     related:
-    - ch02.size-strength.i01
-    - ch02.size-strength.i02
+    - ch13.power-tests.i08
+    - ch18.intensity-volume.i08
     locator: '第 2 章 · Body Size'
 - id: strength-factors
   title: 肌力生物力學因素 Strength Factors
@@ -852,7 +866,8 @@ topics:
     - force-production
     - adaptation
     related:
-    - ch02.strength-factors.i02
+    - ch05.neural-adaptations.i01
+    - ch07.children-training-response.i01
     locator: '第 2 章 · Neural Control'
   - id: ch02.strength-factors.i02
     q: 肌肉橫截面積
@@ -867,8 +882,8 @@ topics:
     - force-production
     - structure
     related:
-    - ch02.strength-factors.i01
-    - ch02.size-strength.i02
+    - ch05.hypertrophy.i01
+    - ch07.female-physiology.i03
     locator: '第 2 章 · Muscle Cross-Sectional Area'
   - id: ch02.strength-factors.i03
     q: 肌纖維排列
@@ -888,8 +903,8 @@ topics:
     - force-production
     - structure
     related:
-    - ch02.strength-factors.i04
-    - ch02.size-strength.i07
+    - ch05.fiber-type-transitions.i06
+    - ch01.muscle-structure.sarcomere
     locator: '第 2 章 · Arrangement of Muscle Fibers'
   - id: ch02.strength-factors.i04
     q: 肌肉長度
@@ -906,8 +921,8 @@ topics:
     - force-production
     - structure
     related:
-    - ch02.strength-factors.i03
-    - ch02.strength-factors.i05
+    - ch01.sliding-filament.force-determinant
+    - ch14.flexibility-factors.i03
     locator: '第 2 章 · Muscle Length'
   - id: ch02.strength-factors.i05
     q: 關節角度
@@ -923,8 +938,8 @@ topics:
     - force-production
     - measurement
     related:
-    - ch02.strength-factors.i04
-    - ch02.strength-factors.i06
+    - ch15.body-positioning.i06
+    - ch13.max-strength.i07
     locator: '第 2 章 · Joint Angle'
   - id: ch02.strength-factors.i06
     q: 收縮速度 力-速度曲線
@@ -943,8 +958,8 @@ topics:
     - force-production
     - technique
     related:
-    - ch02.strength-factors.i07
-    - ch02.size-strength.i06
+    - ch17.principles-exam-tips.i08
+    - ch18.mechanical-models.i07
     locator: '第 2 章 · Muscle Contraction Velocity'
   - id: ch02.strength-factors.i07
     q: 三種肌肉動作
@@ -962,8 +977,8 @@ topics:
     - force-production
     - technique
     related:
-    - ch02.strength-factors.i06
-    - ch02.resistance-sources.i05
+    - ch18.ssc.i01
+    - ch22.injury-prevention.i07
     locator: '第 2 章 · Joint Angular Velocity'
   - id: ch02.strength-factors.i08
     q: 肌腱附著點變異對表現的影響
@@ -978,9 +993,8 @@ topics:
     - force-production
     - structure
     related:
-    - ch02.size-strength.i05
-    - ch02.size-strength.i06
-    - ch02.levers.i04
+    - ch19.training-methods.i03
+    - ch21.competition-period.i03
     locator: '第 2 章 · Variations in Tendon Insertion'
 - id: work-power
   title: 功與功率 Work & Power
@@ -1001,6 +1015,7 @@ topics:
     - measurement
     related:
     - ch02.work-power.i02
+    - ch13.power-tests.i07
     locator: '第 2 章 · Positive Work and Power'
   - id: ch02.work-power.i02
     q: 功率 Power
@@ -1016,8 +1031,8 @@ topics:
     - force-production
     - measurement
     related:
-    - ch02.work-power.i01
-    - ch02.work-power.i06
+    - ch13.power-tests.i01
+    - ch18.mechanical-models.i07
     locator: '第 2 章 · Positive Work and Power'
   - id: ch02.work-power.i03
     q: 正功 vs 負功
@@ -1032,8 +1047,8 @@ topics:
     - force-production
     - measurement
     related:
-    - ch02.work-power.i01
-    - ch02.strength-factors.i07
+    - ch18.ssc.i01
+    - ch22.injury-prevention.i07
     locator: '第 2 章 · Negative Work and Power'
   - id: ch02.work-power.i04
     q: 旋轉功
@@ -1049,8 +1064,8 @@ topics:
     - force-production
     - measurement
     related:
-    - ch02.work-power.i01
-    - ch02.levers.i05
+    - ch15.body-positioning.i04
+    - ch13.power-tests.i07
     locator: '第 2 章 · Angular Work and Power'
   - id: ch02.work-power.i05
     q: SI 單位換算
@@ -1074,7 +1089,9 @@ topics:
       of: 1度換算成弧度的係數
     concepts:
     - measurement
-    related: []
+    related:
+    - ch13.power-tests.i07
+    - ch20.intensity-monitoring.i05
     locator: '第 2 章 · Positive Work and Power'
   - id: ch02.work-power.i06
     q: 肌力 vs 功率的關係
@@ -1090,8 +1107,8 @@ topics:
     - force-production
     - measurement
     related:
-    - ch02.work-power.i02
-    - ch02.strength-factors.i06
+    - ch17.principles-exam-tips.i08
+    - ch13.power-tests.i01
     locator: '第 2 章 · Strength Versus Power'
   - id: ch02.work-power.i07
     q: 舉重 vs 健力的功率比較
@@ -1106,8 +1123,8 @@ topics:
     - force-production
     - measurement
     related:
-    - ch02.work-power.i02
-    - ch02.work-power.i06
+    - ch15.power-exercises-technique.i05
+    - ch21.competition-period.i03
     locator: '第 2 章 · Strength Versus Power'
   - id: ch02.work-power.i08
     q: 計算實例
@@ -1130,9 +1147,8 @@ topics:
     - force-production
     - measurement
     related:
-    - ch02.work-power.i01
-    - ch02.work-power.i02
-    - ch02.resistance-sources.i03
+    - ch13.power-tests.i07
+    - ch20.intensity-monitoring.i05
     locator: '第 2 章 · Positive Work and Power'
 cards:
 - q: 第一/二/三類槓桿各舉一個人體例子？
