@@ -24,7 +24,8 @@ topics:
     - nutrition
     - energy-supply
     related:
-    - ch09.carbohydrate.i02
+    - ch03.glycolysis.i01
+    - ch10.pre-competition.i06
     locator: Macronutrients > Carbohydrate
   - id: ch09.carbohydrate.i02
     q: 糖原（glycogen）的儲存位置與糖原合成（glycogenesis）是什麼？
@@ -50,7 +51,8 @@ topics:
     - nutrition
     - energy-supply
     related:
-    - ch09.carbohydrate.i03
+    - ch03.substrate.i03
+    - ch10.carb-loading.i01
     locator: Macronutrients > Carbohydrate
   - id: ch09.carbohydrate.i03
     q: 運動員的碳水化合物（carbohydrate）攝取與運動後補充建議為何？
@@ -94,8 +96,8 @@ topics:
     - nutrition
     - energy-supply
     related:
-    - ch09.carbohydrate.i02
-    - ch09.protein.i03
+    - ch10.post-competition.i03
+    - ch10.during-event.i04
     locator: Macronutrients > Carbohydrate > Carbohydrate Requirements for Athletes
   - id: ch09.carbohydrate.i04
     q: 升糖指數（glycemic index, GI）如何定義、分級與使用？
@@ -127,7 +129,8 @@ topics:
     - nutrition
     - energy-supply
     related:
-    - ch09.carbohydrate.i05
+    - ch10.pre-competition.i05
+    - ch10.pre-competition.i06
     locator: Macronutrients > Carbohydrate > Glycemic Index and Glycemic Load
   - id: ch09.carbohydrate.i05
     q: 升糖負荷（glycemic load, GL）與升糖指數有何差異？
@@ -147,6 +150,7 @@ topics:
     - nutrition
     - energy-supply
     related:
+    - ch10.pre-competition.i05
     - ch09.carbohydrate.i04
     locator: Macronutrients > Carbohydrate > Glycemic Index and Glycemic Load
   - id: ch09.carbohydrate.i06
@@ -169,6 +173,7 @@ topics:
     concepts:
     - nutrition
     related:
+    - ch10.weight-loss.i08
     - ch09.dietary-reference-standards.i01
     locator: Macronutrients > Carbohydrate > Fiber
   - id: ch09.carbohydrate.i07
@@ -187,7 +192,8 @@ topics:
     - energy-supply
     - adaptation
     related:
-    - ch09.fat.i06
+    - ch03.oxidative.i04
+    - ch10.weight-loss.i03
     locator: Macronutrients > Carbohydrate > Carbohydrate Requirements for Athletes
   - id: ch09.carbohydrate.i08
     q: 糖原（glycogen）充足時如何影響蛋白質（protein）作為燃料？
@@ -209,7 +215,8 @@ topics:
     - nutrition
     - energy-supply
     related:
-    - ch09.protein.i01
+    - ch03.oxidative.i05
+    - ch10.post-competition.i06
     locator: Macronutrients > Protein > Protein Quality and Dietary Recommendations
 - id: dietary-reference-standards
   title: 飲食參考標準 Dietary Reference Standards
@@ -230,10 +237,8 @@ topics:
     - nutrition
     - normal-values
     related:
-    - ch09.dietary-reference-standards.i02
-    - ch09.dietary-reference-standards.i03
-    - ch09.dietary-reference-standards.i04
-    - ch09.dietary-reference-standards.i05
+    - ch09.dietary-reference-standards.i06
+    - ch10.weight-gain.i07
     locator: Standard Nutrition Guidelines > Dietary Reference Intakes
   - id: ch09.dietary-reference-standards.i02
     q: 建議膳食攝取量（Recommended Dietary Allowance, RDA）如何定義？
@@ -247,7 +252,8 @@ topics:
     - nutrition
     - normal-values
     related:
-    - ch09.dietary-reference-standards.i01
+    - ch09.protein.i01
+    - ch10.weight-gain.i02
     locator: Standard Nutrition Guidelines > Dietary Reference Intakes
   - id: ch09.dietary-reference-standards.i03
     q: 足夠攝取量（Adequate Intake, AI）如何定義？
@@ -261,7 +267,8 @@ topics:
     - nutrition
     - normal-values
     related:
-    - ch09.dietary-reference-standards.i01
+    - ch09.hydration.i01
+    - ch09.vitamins-minerals.i04
     locator: Standard Nutrition Guidelines > Dietary Reference Intakes
   - id: ch09.dietary-reference-standards.i04
     q: 可容忍最高攝取量（Tolerable Upper Intake Level, UL）如何定義？
@@ -276,7 +283,8 @@ topics:
     - nutrition
     - normal-values
     related:
-    - ch09.dietary-reference-standards.i01
+    - ch09.vitamins-minerals.i01
+    - ch11.caffeine-energy-drinks.i04
     locator: Standard Nutrition Guidelines > Dietary Reference Intakes
   - id: ch09.dietary-reference-standards.i05
     q: 估計平均需要量（Estimated Average Requirement, EAR）如何定義？
@@ -291,6 +299,7 @@ topics:
     - normal-values
     related:
     - ch09.dietary-reference-standards.i01
+    - ch10.weight-loss.i08
     locator: Standard Nutrition Guidelines > Dietary Reference Intakes
   - id: ch09.dietary-reference-standards.i06
     q: 可接受巨量營養素分布範圍（Acceptable Macronutrient Distribution Range, AMDR）在本章如何用於蛋白質？
@@ -325,6 +334,7 @@ topics:
     - normal-values
     related:
     - ch09.protein.i06
+    - ch10.weight-loss.i02
     locator: Macronutrients > Protein > Protein Quality and Dietary Recommendations
   - id: ch09.dietary-reference-standards.i07
     q: 我的餐盤（MyPlate）對運動員可提供什麼參考？
@@ -345,7 +355,8 @@ topics:
     - nutrition
     - normal-values
     related:
-    - ch09.dietary-reference-standards.i08
+    - ch10.weight-gain.i04
+    - ch10.weight-loss.i08
     locator: Standard Nutrition Guidelines > MyPlate
   - id: ch09.dietary-reference-standards.i08
     q: 排除整個食物群時，本章指出哪些營養風險？
@@ -363,6 +374,7 @@ topics:
     - nutrition
     - population
     related:
+    - ch10.eating-disorders.i06
     - ch09.sports-dietitian-role.i02
     locator: Standard Nutrition Guidelines > MyPlate
 - id: electrolytes
@@ -384,7 +396,8 @@ topics:
     - nutrition
     - safety
     related:
-    - ch09.electrolytes.i04
+    - ch10.during-event.i02
+    - ch09.hydration.i05
     locator: Fluid and Electrolytes > Electrolytes
   - id: ch09.electrolytes.i02
     q: 低血鈉症（hyponatremia）的成因、界線與嚴重後果為何？
@@ -410,7 +423,8 @@ topics:
     - nutrition
     - safety
     related:
-    - ch09.electrolytes.i03
+    - ch10.during-event.i01
+    - ch12.safety.i08
     locator: Fluid and Electrolytes > Electrolytes
   - id: ch09.electrolytes.i03
     q: 本章如何預防運動中的低血鈉症（hyponatremia）？
@@ -426,8 +440,8 @@ topics:
     - nutrition
     - safety
     related:
-    - ch09.electrolytes.i02
-    - ch09.electrolytes.i08
+    - ch10.during-event.i01
+    - ch12.safety.i07
     locator: Fluid and Electrolytes > Electrolytes
   - id: ch09.electrolytes.i04
     q: 汗液鈉流失為何必須個人化評估？
@@ -448,7 +462,8 @@ topics:
     - nutrition
     - measurement
     related:
-    - ch09.electrolytes.i08
+    - ch10.during-event.i02
+    - ch09.hydration.i05
     locator: Fluid and Electrolytes > Electrolytes
   - id: ch09.electrolytes.i05
     q: 運動飲料在鉀補充上扮演什麼角色？
@@ -465,7 +480,8 @@ topics:
     concepts:
     - nutrition
     related:
-    - ch09.electrolytes.i01
+    - ch10.during-event.i02
+    - ch10.pre-competition.i03
     locator: Fluid and Electrolytes > Electrolytes
   - id: ch09.electrolytes.i06
     q: 原文的美式足球案例如何顯示流汗量差異？
@@ -502,7 +518,8 @@ topics:
     - nutrition
     - measurement
     related:
-    - ch09.hydration.i07
+    - ch10.during-event.i01
+    - ch20.program-design.i04
     locator: Fluid and Electrolytes > Fluid Balance
   - id: ch09.electrolytes.i07
     q: 重複高溫運動的熱適應會改變哪些流汗反應？
@@ -519,7 +536,8 @@ topics:
     - adaptation
     - safety
     related:
-    - ch09.hydration.i07
+    - ch12.safety.i05
+    - ch10.during-event.i02
     locator: Fluid and Electrolytes
   - id: ch09.electrolytes.i08
     q: 如何以運動前後體重建立個人化補水計畫？
@@ -538,8 +556,8 @@ topics:
     - nutrition
     - measurement
     related:
-    - ch09.hydration.i03
-    - ch09.hydration.i05
+    - ch10.during-event.i01
+    - ch13.test-administration.i03
     locator: Fluid and Electrolytes > Preventing Dehydration
 - id: fat
   title: 脂肪 Fat
@@ -569,7 +587,8 @@ topics:
     - nutrition
     - energy-supply
     related:
-    - ch09.fat.i02
+    - ch03.oxidative.i04
+    - ch10.pre-competition.i06
     locator: Macronutrients > Fat
   - id: ch09.fat.i02
     q: 必需脂肪酸與 α-亞麻酸（alpha-linolenic acid, ALA）的轉換限制為何？
@@ -595,6 +614,7 @@ topics:
     concepts:
     - nutrition
     related:
+    - ch10.weight-loss.i08
     - ch09.fat.i03
     locator: Macronutrients > Fat
   - id: ch09.fat.i03
@@ -611,6 +631,7 @@ topics:
     concepts:
     - nutrition
     related:
+    - ch22.inflammatory-phase.i01
     - ch09.fat.i02
     locator: Macronutrients > Fat
   - id: ch09.fat.i04
@@ -661,6 +682,7 @@ topics:
     - nutrition
     - normal-values
     related:
+    - ch10.obesity-assessment.i04
     - ch09.fat.i07
     locator: Macronutrients > Fat > Relationship With Cholesterol
   - id: ch09.fat.i05
@@ -682,7 +704,8 @@ topics:
     concepts:
     - nutrition
     related:
-    - ch09.fat.i01
+    - ch10.weight-loss.i08
+    - ch10.weight-gain.i04
     locator: Macronutrients > Fat > Relationship With Cholesterol
   - id: ch09.fat.i06
     q: 脂肪（fat）在運動供能與訓練適應中扮演什麼角色？
@@ -701,7 +724,8 @@ topics:
     - energy-supply
     - adaptation
     related:
-    - ch09.carbohydrate.i07
+    - ch03.oxidative.i04
+    - ch20.aerobic-performance-factors.i05
     locator: Macronutrients > Fat > Fat and Performance
   - id: ch09.fat.i07
     q: 本章列出哪些與血中三酸甘油酯（triglycerides）升高有關的因素？
@@ -715,7 +739,8 @@ topics:
     concepts:
     - nutrition
     related:
-    - ch09.fat.i04
+    - ch10.obesity-assessment.i04
+    - ch10.weight-loss.i01
     locator: Macronutrients > Fat > Relationship With Cholesterol
   - id: ch09.fat.i08
     q: 脂溶性維生素（fat-soluble vitamins）的運輸、儲存與過量風險為何？
@@ -732,6 +757,7 @@ topics:
     - nutrition
     - safety
     related:
+    - ch11.anabolic-supplements.i03
     - ch09.vitamins-minerals.i01
     locator: Vitamins
 - id: hydration
@@ -765,7 +791,8 @@ topics:
     - nutrition
     - normal-values
     related:
-    - ch09.hydration.i07
+    - ch10.pre-competition.i02
+    - ch09.dietary-reference-standards.i03
     locator: Fluid and Electrolytes > Fluid Balance
   - id: ch09.hydration.i02
     q: 脫水（dehydration）對運動表現與生理的影響為何？
@@ -787,7 +814,8 @@ topics:
     - nutrition
     - safety
     related:
-    - ch09.hydration.i03
+    - ch10.during-event.i01
+    - ch12.safety.i06
     locator: Fluid and Electrolytes
   - id: ch09.hydration.i03
     q: 如何評估水合狀態（hydration status），各方法有何限制？
@@ -823,8 +851,8 @@ topics:
     - nutrition
     - measurement
     related:
-    - ch09.electrolytes.i08
-    - ch09.hydration.i04
+    - ch10.pre-competition.i08
+    - ch13.test-administration.i03
     locator: Fluid and Electrolytes > Preventing Dehydration
   - id: ch09.hydration.i04
     q: 運動前如何進行預先補水？
@@ -843,7 +871,8 @@ topics:
     - nutrition
     - measurement
     related:
-    - ch09.hydration.i03
+    - ch10.pre-competition.i02
+    - ch10.pre-competition.i03
     locator: Fluid and Electrolytes > Fluid Intake Guidelines > Before Activity
   - id: ch09.hydration.i05
     q: 熱天長時間運動時，運動飲料與液體補充指引為何？
@@ -878,8 +907,8 @@ topics:
     - measurement
     - safety
     related:
+    - ch10.during-event.i02
     - ch09.electrolytes.i04
-    - ch09.electrolytes.i08
     locator: Fluid and Electrolytes > Fluid Intake Guidelines > During Activity
   - id: ch09.hydration.i06
     q: 運動後如何依恢復時間補回水分與電解質？
@@ -910,6 +939,7 @@ topics:
     - nutrition
     - safety
     related:
+    - ch10.post-competition.i03
     - ch09.electrolytes.i03
     locator: Fluid and Electrolytes > Fluid Intake Guidelines > After Activity
   - id: ch09.hydration.i07
@@ -928,7 +958,8 @@ topics:
     - population
     - safety
     related:
-    - ch09.electrolytes.i06
+    - ch10.weight-loss.i05
+    - ch12.safety.i06
     locator: Fluid and Electrolytes > Fluid Balance
   - id: ch09.hydration.i08
     q: 美國兒科學會對兒童與青少年訓練中飲水的本章指引為何？
@@ -978,7 +1009,8 @@ topics:
     - population
     - safety
     related:
-    - ch09.hydration.i05
+    - ch10.during-event.i03
+    - ch12.safety.i07
     locator: Fluid and Electrolytes > Fluid Intake Guidelines > During Activity
 - id: protein
   title: 蛋白質 Protein
@@ -1008,7 +1040,8 @@ topics:
     - nutrition
     - normal-values
     related:
-    - ch09.protein.i02
+    - ch10.weight-gain.i02
+    - ch09.dietary-reference-standards.i02
     locator: Macronutrients > Protein > Concerns About the RDA for Protein
   - id: ch09.protein.i02
     q: 不同訓練型態運動員的蛋白質（protein）建議量為何？
@@ -1033,8 +1066,8 @@ topics:
     - nutrition
     - population
     related:
-    - ch09.protein.i01
-    - ch09.protein.i03
+    - ch10.post-competition.i04
+    - ch10.weight-loss.i02
     locator: Macronutrients > Fat > Fat and Performance > Macronutrient Guidelines
   - id: ch09.protein.i03
     q: 運動後蛋白質（protein）補充與肌肉蛋白合成（muscle protein synthesis, MPS）的書中建議為何？
@@ -1065,8 +1098,8 @@ topics:
     - nutrition
     - adaptation
     related:
-    - ch09.protein.i02
-    - ch09.carbohydrate.i03
+    - ch05.hypertrophy.i01
+    - ch10.post-competition.i04
     locator: Macronutrients > Protein > Concerns About the RDA for Protein
   - id: ch09.protein.i04
     q: 必需與條件必需胺基酸（amino acids）在本章如何分類？
@@ -1095,7 +1128,8 @@ topics:
     concepts:
     - nutrition
     related:
-    - ch09.protein.i05
+    - ch11.anabolic-supplements.i04
+    - ch03.oxidative.i05
     locator: Macronutrients > Protein
   - id: ch09.protein.i05
     q: 蛋白質品質（protein quality）與 PDCAAS 如何判定？
@@ -1118,7 +1152,8 @@ topics:
     concepts:
     - nutrition
     related:
-    - ch09.protein.i04
+    - ch10.weight-gain.i02
+    - ch10.weight-loss.i02
     locator: Macronutrients > Protein > Protein Quality and Dietary Recommendations
   - id: ch09.protein.i06
     q: 熱量攝取改變時，蛋白質 AMDR（Acceptable Macronutrient Distribution Range）如何判讀？
@@ -1161,6 +1196,7 @@ topics:
     - nutrition
     - normal-values
     related:
+    - ch10.weight-gain.i03
     - ch09.dietary-reference-standards.i06
     locator: Macronutrients > Protein > Protein Quality and Dietary Recommendations
   - id: ch09.protein.i07
@@ -1190,7 +1226,8 @@ topics:
     - nutrition
     - structure
     related:
-    - ch09.vitamins-minerals.i04
+    - ch05.connective-tissue.i03
+    - ch07.aging-musculoskeletal.i04
     locator: Macronutrients > Protein > Concerns About the RDA for Protein
   - id: ch09.protein.i08
     q: 健康運動員高蛋白質（protein）攝取的書中安全性界線與限制為何？
@@ -1213,7 +1250,8 @@ topics:
     - nutrition
     - safety
     related:
-    - ch09.protein.i02
+    - ch11.anabolic-supplements.i04
+    - ch10.weight-loss.i02
     locator: Macronutrients > Protein > Concerns About the RDA for Protein
 - id: sports-dietitian-role
   title: 運動營養師角色 Sports Dietitian Role
@@ -1235,7 +1273,8 @@ topics:
     - nutrition
     - professional
     related:
-    - ch09.sports-dietitian-role.i02
+    - ch24.personnel.i03
+    - ch24.administration.i07
     locator: Role of Sports Nutrition Professionals > Board Certified Specialist in Sports Dietetics (CSSD)
   - id: ch09.sports-dietitian-role.i02
     q: 運動員何時應轉介給團隊醫師或運動營養師（sports dietitian）？
@@ -1252,8 +1291,8 @@ topics:
     - nutrition
     - professional
     related:
-    - ch09.sports-dietitian-role.i03
-    - ch09.sports-dietitian-role.i07
+    - ch24.legal.i07
+    - ch22.sports-medicine-team.i05
     locator: Role of Sports Nutrition Professionals
   - id: ch09.sports-dietitian-role.i03
     q: 肌力與體能專業人員作為運動營養教練時，角色範圍為何？
@@ -1270,8 +1309,8 @@ topics:
     - nutrition
     - professional
     related:
-    - ch09.sports-dietitian-role.i02
-    - ch09.sports-dietitian-role.i04
+    - ch24.legal.i07
+    - ch24.ethics-records.i01
     locator: Role of Sports Nutrition Professionals
   - id: ch09.sports-dietitian-role.i04
     q: 州營養執照法如何限制個人化營養服務？
@@ -1286,7 +1325,8 @@ topics:
     - nutrition
     - professional
     related:
-    - ch09.sports-dietitian-role.i03
+    - ch24.legal.i07
+    - ch24.legal.i02
     locator: Role of Sports Nutrition Professionals
   - id: ch09.sports-dietitian-role.i05
     q: 為何運動營養團隊須遵守 HIPAA？
@@ -1300,7 +1340,8 @@ topics:
     concepts:
     - professional
     related:
-    - ch09.sports-dietitian-role.i02
+    - ch24.ethics-records.i03
+    - ch22.sports-medicine-team.i06
     locator: Role of Sports Nutrition Professionals
   - id: ch09.sports-dietitian-role.i06
     q: 運動營養教練（sports nutrition coach）可取得哪些額外資格？
@@ -1323,7 +1364,8 @@ topics:
     - nutrition
     - professional
     related:
-    - ch09.sports-dietitian-role.i03
+    - ch24.personnel.i03
+    - ch24.administration.i07
     locator: Role of Sports Nutrition Professionals
   - id: ch09.sports-dietitian-role.i07
     q: 運動營養師建立個人化計畫前會評估什麼？
@@ -1340,7 +1382,8 @@ topics:
     - nutrition
     - professional
     related:
-    - ch09.sports-dietitian-role.i02
+    - ch10.weight-loss.i08
+    - ch10.weight-gain.i06
     locator: Role of Sports Nutrition Professionals
   - id: ch09.sports-dietitian-role.i08
     q: 原文如何描述具進階學位的運動營養學家與 IOC 文憑？
@@ -1360,7 +1403,8 @@ topics:
     - nutrition
     - professional
     related:
-    - ch09.sports-dietitian-role.i01
+    - ch24.personnel.i04
+    - ch24.personnel.i03
     locator: Role of Sports Nutrition Professionals
 - id: vitamins-minerals
   title: 維生素與礦物質 Vitamins & Minerals
@@ -1382,6 +1426,7 @@ topics:
     - nutrition
     - safety
     related:
+    - ch11.anabolic-supplements.i03
     - ch09.fat.i08
     locator: Vitamins
   - id: ch09.vitamins-minerals.i02
@@ -1399,6 +1444,7 @@ topics:
     - nutrition
     related:
     - ch09.vitamins-minerals.i08
+    - ch10.weight-loss.i08
     locator: Vitamins
   - id: ch09.vitamins-minerals.i03
     q: 血基質鐵（heme iron）與非血基質鐵（nonheme iron）的吸收差異及影響因素為何？
@@ -1424,7 +1470,8 @@ topics:
     - nutrition
     - circulation
     related:
-    - ch09.vitamins-minerals.i06
+    - ch06.acute-respiratory.i06
+    - ch20.altitude-training.i08
     locator: Minerals > Iron
   - id: ch09.vitamins-minerals.i04
     q: 鈣（calcium）對骨骼與運動員飲食有何重要性？
@@ -1461,7 +1508,8 @@ topics:
     - nutrition
     - population
     related:
-    - ch09.protein.i07
+    - ch07.children-risk-benefits.i06
+    - ch05.connective-tissue.i03
     locator: Minerals > Calcium
   - id: ch09.vitamins-minerals.i05
     q: 本章列出的「關切營養素」與特定族群鐵、葉酸風險為何？
@@ -1483,8 +1531,8 @@ topics:
     - nutrition
     - population
     related:
-    - ch09.carbohydrate.i06
-    - ch09.electrolytes.i05
+    - ch07.female-physiology.i06
+    - ch10.eating-disorders.i06
     locator: Standard Nutrition Guidelines > Dietary Reference Intakes
   - id: ch09.vitamins-minerals.i06
     q: 鐵缺乏（iron deficiency）的階段、表現影響與高風險者為何？
@@ -1510,8 +1558,8 @@ topics:
     - population
     - safety
     related:
-    - ch09.vitamins-minerals.i03
-    - ch09.sports-dietitian-role.i02
+    - ch06.acute-respiratory.i06
+    - ch20.altitude-training.i08
     locator: Minerals > Iron
   - id: ch09.vitamins-minerals.i07
     q: 礦物質（minerals）對運動員的主要功能為何？
@@ -1532,8 +1580,8 @@ topics:
     concepts:
     - nutrition
     related:
-    - ch09.electrolytes.i01
-    - ch09.vitamins-minerals.i03
+    - ch10.during-event.i02
+    - ch06.acute-respiratory.i06
     locator: Minerals
   - id: ch09.vitamins-minerals.i08
     q: 50 歲以上成人為何要特別留意維生素 B12？
@@ -1556,7 +1604,8 @@ topics:
     - nutrition
     - population
     related:
-    - ch09.vitamins-minerals.i02
+    - ch07.aging-musculoskeletal.i01
+    - ch10.weight-loss.i08
     locator: Standard Nutrition Guidelines > Dietary Reference Intakes
 cards:
 - q: "碳水化合物如何依糖單位分類？"
