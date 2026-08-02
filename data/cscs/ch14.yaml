@@ -18,7 +18,8 @@ topics:
     concepts:
     - technique
     related:
-    - ch14.static-stretch.i01
+    - ch18.mechanical-models.i01
+    - ch01.proprioception.stretch-reflex
     locator: Types of Stretching > Ballistic Stretch
   - id: ch14.ballistic-stretch.i02
     q: 彈震式拉伸與牽張反射
@@ -34,7 +35,8 @@ topics:
     - technique
     - reflex
     related:
-    - ch14.proprioceptors.i02
+    - ch01.proprioception.stretch-reflex
+    - ch18.ssc.i06
     locator: Types of Stretching > Ballistic Stretch
   - id: ch14.ballistic-stretch.i03
     q: 對關節活動範圍的效果
@@ -50,7 +52,8 @@ topics:
     concepts:
     - technique
     related:
-    - ch14.static-stretch.i03
+    - ch13.balance-flexibility-bc.i07
+    - ch15.body-positioning.i06
     locator: Types of Stretching > Ballistic Stretch
   - id: ch14.ballistic-stretch.i04
     q: 使用時的風險與準備
@@ -64,7 +67,9 @@ topics:
     concepts:
     - technique
     - safety
-    related: []
+    related:
+    - ch22.injury-prevention.i01
+    - ch18.safety.i03
     locator: Types of Stretching > Ballistic Stretch
   - id: ch14.ballistic-stretch.i05
     q: 與動態拉伸的差異
@@ -80,7 +85,8 @@ topics:
     concepts:
     - technique
     related:
-    - ch14.dynamic-stretch.i02
+    - ch18.program-design.i07
+    - ch19.training-methods.i04
     locator: Types of Stretching > Dynamic Stretch
   - id: ch14.ballistic-stretch.i06
     q: 在柔軟度計畫中的位置
@@ -94,7 +100,8 @@ topics:
     - technique
     - program-design
     related:
-    - ch14.ballistic-stretch.i04
+    - ch17.principles-exam-tips.i01
+    - ch18.program-design.i07
     locator: Types of Stretching > Ballistic Stretch
   - id: ch14.ballistic-stretch.i07
     q: 牽張反射的訓練監控
@@ -112,7 +119,8 @@ topics:
     - reflex
     - professional
     related:
-    - ch14.proprioceptors.i02
+    - ch01.proprioception.stretch-reflex
+    - ch18.ssc.i06
     locator: Types of Stretching > Ballistic Stretch
   - id: ch14.ballistic-stretch.i08
     q: 快速拉伸的反射性限制
@@ -132,8 +140,8 @@ topics:
     - technique
     - reflex
     related:
-    - ch14.proprioceptors.i06
-    - ch14.proprioceptors.i07
+    - ch01.proprioception.spindle
+    - ch18.ssc.i06
     locator: Flexibility > Proprioceptors and Stretching
 - id: dynamic-stretch
   title: 動態拉伸 Dynamic Stretch
@@ -153,7 +161,9 @@ topics:
     numbers: []
     concepts:
     - technique
-    related: []
+    related:
+    - ch19.sprint-technique.i02
+    - ch17.exercise-selection.i05
     locator: Types of Stretching > Dynamic Stretch
   - id: ch14.dynamic-stretch.i02
     q: 與彈震式拉伸的關鍵差異
@@ -169,7 +179,8 @@ topics:
     concepts:
     - technique
     related:
-    - ch14.ballistic-stretch.i05
+    - ch01.proprioception.spindle
+    - ch18.ssc.i05
     locator: Types of Stretching > Dynamic Stretch
   - id: ch14.dynamic-stretch.i03
     q: 熱身時的優點
@@ -186,7 +197,8 @@ topics:
     - technique
     - program-design
     related:
-    - ch14.ramp-protocol.i06
+    - ch18.program-design.i07
+    - ch19.sprint-technique.i02
     locator: Types of Stretching > Dynamic Stretch
   - id: ch14.dynamic-stretch.i04
     q: 設計的起點
@@ -201,7 +213,9 @@ topics:
     concepts:
     - technique
     - program-design
-    related: []
+    related:
+    - ch17.needs-analysis.i01
+    - ch19.training-methods.i04
     locator: Types of Stretching > Dynamic Stretch
   - id: ch14.dynamic-stretch.i05
     q: 重複與進展原則
@@ -220,7 +234,8 @@ topics:
     - technique
     - safety
     related:
-    - ch14.dynamic-stretch.i07
+    - ch18.intensity-volume.i05
+    - ch19.program-design-monitoring.i01
     locator: Types of Stretching > Dynamic Stretch
   - id: ch14.dynamic-stretch.i06
     q: 對靜態 ROM 的限制
@@ -237,8 +252,8 @@ topics:
     concepts:
     - technique
     related:
-    - ch14.static-stretch.i03
-    - ch14.pnf-techniques.i06
+    - ch13.balance-flexibility-bc.i07
+    - ch22.maturation-phase.i06
     locator: Types of Stretching > Dynamic Stretch
   - id: ch14.dynamic-stretch.i07
     q: 動作技術的整合
@@ -252,7 +267,9 @@ topics:
     concepts:
     - technique
     - motor-control
-    related: []
+    related:
+    - ch15.exercise-technique-fundamentals.i02
+    - ch19.sprint-technique.i02
     locator: Types of Stretching > Dynamic Stretch
   - id: ch14.dynamic-stretch.i08
     q: 有效熱身所需時間
@@ -269,7 +286,8 @@ topics:
     - technique
     - program-design
     related:
-    - ch14.ramp-protocol.i04
+    - ch18.program-design.i07
+    - ch12.administration.i05
     locator: Types of Stretching > Dynamic Stretch
 - id: flexibility-factors
   title: 影響柔軟度的因素 Flexibility Factors
@@ -290,7 +308,9 @@ topics:
     numbers: []
     concepts:
     - structure
-    related: []
+    related:
+    - ch01.skeleton.synovial-joint
+    - ch02.joint-biomechanics.i04
     locator: Flexibility > Factors Affecting Flexibility > Joint Structure
   - id: ch14.flexibility-factors.i02
     q: 年齡與性別
@@ -305,7 +325,9 @@ topics:
     concepts:
     - structure
     - population
-    related: []
+    related:
+    - ch07.aging-musculoskeletal.i08
+    - ch07.female-physiology.i08
     locator: Flexibility > Factors Affecting Flexibility > Age and Sex
   - id: ch14.flexibility-factors.i03
     q: 肌肉與結締組織
@@ -320,7 +342,9 @@ topics:
     numbers: []
     concepts:
     - structure
-    related: []
+    related:
+    - ch05.connective-tissue.i06
+    - ch01.muscle-structure.epimysium
     locator: Flexibility > Factors Affecting Flexibility > Muscle and Connective Tissue
   - id: ch14.flexibility-factors.i04
     q: 拉伸耐受度的角色
@@ -334,7 +358,9 @@ topics:
     numbers: []
     concepts:
     - adaptation
-    related: []
+    related:
+    - ch05.connective-tissue.i08
+    - ch13.balance-flexibility-bc.i07
     locator: Flexibility > Factors Affecting Flexibility > Stretch Tolerance
   - id: ch14.flexibility-factors.i05
     q: 神經控制
@@ -349,7 +375,8 @@ topics:
     - motor-control
     - reflex
     related:
-    - ch14.proprioceptors.i01
+    - ch01.proprioception.definition
+    - ch05.neural-adaptations.i06
     locator: Flexibility > Factors Affecting Flexibility > Neural Control
   - id: ch14.flexibility-factors.i06
     q: 阻力訓練
@@ -363,7 +390,9 @@ topics:
     concepts:
     - adaptation
     - program-design
-    related: []
+    related:
+    - ch15.body-positioning.i06
+    - ch17.exercise-selection.i06
     locator: Flexibility > Factors Affecting Flexibility > Resistance Training
   - id: ch14.flexibility-factors.i07
     q: 肌肉量
@@ -377,7 +406,9 @@ topics:
     concepts:
     - structure
     - program-design
-    related: []
+    related:
+    - ch05.hypertrophy.i06
+    - ch02.strength-factors.i02
     locator: Flexibility > Factors Affecting Flexibility > Muscle Bulk
   - id: ch14.flexibility-factors.i08
     q: 活動量的影響
@@ -392,7 +423,8 @@ topics:
     - adaptation
     - program-design
     related:
-    - ch14.flexibility-factors.i06
+    - ch15.body-positioning.i06
+    - ch20.periodization.i04
     locator: Flexibility > Factors Affecting Flexibility > Activity Level
 - id: pnf-techniques
   title: PNF 拉伸技術 Proprioceptive Neuromuscular Facilitation
@@ -422,7 +454,8 @@ topics:
     - technique
     - reflex
     related:
-    - ch14.pnf-techniques.i04
+    - ch01.proprioception.gto-function
+    - ch22.fibroblastic-phase.i04
     locator: Types of Stretching > Proprioceptive Neuromuscular Facilitation Stretch > Hold-Relax
   - id: ch14.pnf-techniques.i02
     q: 收縮－放鬆法的三階段
@@ -445,7 +478,8 @@ topics:
     - technique
     - reflex
     related:
-    - ch14.pnf-techniques.i01
+    - ch01.proprioception.gto-function
+    - ch22.fibroblastic-phase.i06
     locator: Types of Stretching > Proprioceptive Neuromuscular Facilitation Stretch > Contract-Relax
   - id: ch14.pnf-techniques.i03
     q: 保持－放鬆加主動肌收縮法
@@ -463,7 +497,8 @@ topics:
     - technique
     - reflex
     related:
-    - ch14.pnf-techniques.i05
+    - ch01.proprioception.gto-function
+    - ch22.fibroblastic-phase.i07
     locator: Types of Stretching > Proprioceptive Neuromuscular Facilitation Stretch > Hold-Relax With Agonist Contraction
   - id: ch14.pnf-techniques.i04
     q: 自身抑制的機制
@@ -479,7 +514,8 @@ topics:
     - technique
     - reflex
     related:
-    - ch14.proprioceptors.i03
+    - ch01.proprioception.gto-function
+    - ch14.pnf-techniques.i01
     locator: Flexibility > Proprioceptors and Stretching
   - id: ch14.pnf-techniques.i05
     q: 交互抑制的機制
@@ -495,7 +531,8 @@ topics:
     - technique
     - reflex
     related:
-    - ch14.proprioceptors.i05
+    - ch01.proprioception.gto-function
+    - ch14.pnf-techniques.i03
     locator: Flexibility > Proprioceptors and Stretching
   - id: ch14.pnf-techniques.i06
     q: PNF 的實用性與證據
@@ -509,7 +546,9 @@ topics:
     concepts:
     - technique
     - reflex
-    related: []
+    related:
+    - ch22.fibroblastic-phase.i07
+    - ch13.balance-flexibility-bc.i07
     locator: Types of Stretching > Proprioceptive Neuromuscular Facilitation Stretch
   - id: ch14.pnf-techniques.i07
     q: 三種 PNF 技術的共同結構
@@ -529,8 +568,8 @@ topics:
     - technique
     - reflex
     related:
+    - ch01.proprioception.gto-function
     - ch14.pnf-techniques.i01
-    - ch14.pnf-techniques.i02
     locator: Types of Stretching > Proprioceptive Neuromuscular Facilitation Stretch
   - id: ch14.pnf-techniques.i08
     q: 教材對 PNF 效果的結論
@@ -547,8 +586,8 @@ topics:
     - technique
     - reflex
     related:
-    - ch14.pnf-techniques.i03
-    - ch14.pnf-techniques.i06
+    - ch13.balance-flexibility-bc.i07
+    - ch05.connective-tissue.i06
     locator: Types of Stretching > Proprioceptive Neuromuscular Facilitation Stretch > Hold-Relax With Agonist Contraction
 - id: proprioceptors
   title: 本體感覺器 Proprioceptors
@@ -567,7 +606,8 @@ topics:
     concepts:
     - reflex
     related:
-    - ch14.proprioceptors.i02
+    - ch01.proprioception.spindle
+    - ch01.proprioception.intrafusal
     locator: Flexibility > Proprioceptors and Stretching
   - id: ch14.proprioceptors.i02
     q: 牽張反射如何限制 ROM
@@ -583,7 +623,8 @@ topics:
     concepts:
     - reflex
     related:
-    - ch14.ballistic-stretch.i02
+    - ch01.proprioception.stretch-reflex
+    - ch18.ssc.i06
     locator: Flexibility > Proprioceptors and Stretching
   - id: ch14.proprioceptors.i03
     q: 高爾基腱器的位置與功能
@@ -598,7 +639,8 @@ topics:
     concepts:
     - reflex
     related:
-    - ch14.pnf-techniques.i04
+    - ch01.proprioception.gto-location
+    - ch01.proprioception.gto-function
     locator: Flexibility > Proprioceptors and Stretching
   - id: ch14.proprioceptors.i04
     q: 自身抑制
@@ -615,7 +657,8 @@ topics:
     concepts:
     - reflex
     related:
-    - ch14.pnf-techniques.i04
+    - ch01.proprioception.gto-function
+    - ch14.pnf-techniques.i01
     locator: Flexibility > Proprioceptors and Stretching
   - id: ch14.proprioceptors.i05
     q: 交互抑制
@@ -631,7 +674,8 @@ topics:
     concepts:
     - reflex
     related:
-    - ch14.pnf-techniques.i05
+    - ch01.proprioception.gto-function
+    - ch14.pnf-techniques.i03
     locator: Flexibility > Proprioceptors and Stretching
   - id: ch14.proprioceptors.i06
     q: 靜態拉伸與肌梭
@@ -645,7 +689,8 @@ topics:
     concepts:
     - reflex
     related:
-    - ch14.static-stretch.i01
+    - ch01.proprioception.spindle
+    - ch18.ssc.i05
     locator: Flexibility > Proprioceptors and Stretching
   - id: ch14.proprioceptors.i07
     q: 快速拉伸與肌梭
@@ -661,7 +706,8 @@ topics:
     concepts:
     - reflex
     related:
-    - ch14.ballistic-stretch.i04
+    - ch01.proprioception.stretch-reflex
+    - ch18.ssc.i05
     locator: Flexibility > Proprioceptors and Stretching
   - id: ch14.proprioceptors.i08
     q: 三種反射結果的對照
@@ -678,8 +724,8 @@ topics:
     concepts:
     - reflex
     related:
-    - ch14.proprioceptors.i02
-    - ch14.proprioceptors.i03
+    - ch01.proprioception.spindle-vs-gto
+    - ch18.ssc.i06
     locator: Flexibility > Proprioceptors and Stretching
 - id: ramp-protocol
   title: RAMP 熱身架構 Raise, Activate and Mobilize, and Potentiate
@@ -700,7 +746,8 @@ topics:
     - technique
     - program-design
     related:
-    - ch14.warmup-physiology.i01
+    - ch01.cardiovascular.heart-rate
+    - ch03.epoc.i01
     locator: Warm-Up > Targeted and Structured Warm-Ups
   - id: ch14.ramp-protocol.i02
     q: 活化與活動度階段
@@ -715,7 +762,9 @@ topics:
     concepts:
     - technique
     - program-design
-    related: []
+    related:
+    - ch15.lower-body.i01
+    - ch19.training-methods.i05
     locator: Warm-Up > Targeted and Structured Warm-Ups
   - id: ch14.ramp-protocol.i03
     q: 增強階段
@@ -732,6 +781,7 @@ topics:
     - technique
     - program-design
     related:
+    - ch18.ssc.i06
     - ch14.ramp-protocol.i08
     locator: Warm-Up > Targeted and Structured Warm-Ups
   - id: ch14.ramp-protocol.i04
@@ -753,7 +803,8 @@ topics:
     - technique
     - program-design
     related:
-    - ch14.dynamic-stretch.i08
+    - ch13.test-administration.i04
+    - ch18.program-design.i07
     locator: Warm-Up > Components of a Warm-Up
   - id: ch14.ramp-protocol.i05
     q: 靜態拉伸的表現證據
@@ -774,7 +825,8 @@ topics:
     - technique
     - program-design
     related:
-    - ch14.static-stretch.i01
+    - ch13.test-administration.i04
+    - ch19.rfd-impulse.i01
     locator: Warm-Up > Targeted and Structured Warm-Ups
   - id: ch14.ramp-protocol.i06
     q: 活化與活動度階段的活動選擇
@@ -790,7 +842,8 @@ topics:
     - technique
     - program-design
     related:
-    - ch14.dynamic-stretch.i03
+    - ch18.program-design.i07
+    - ch19.sprint-technique.i02
     locator: Warm-Up > Targeted and Structured Warm-Ups
   - id: ch14.ramp-protocol.i07
     q: 熱身的長期規劃
@@ -808,7 +861,8 @@ topics:
     - technique
     - program-design
     related:
-    - ch14.ramp-protocol.i08
+    - ch21.periodization-hierarchy.i07
+    - ch17.principles-exam-tips.i04
     locator: Warm-Up > Targeted and Structured Warm-Ups
   - id: ch14.ramp-protocol.i08
     q: 競賽與訓練熱身的目的
@@ -824,7 +878,8 @@ topics:
     - technique
     - program-design
     related:
-    - ch14.ramp-protocol.i03
+    - ch21.competition-period.i07
+    - ch20.periodization.i03
     locator: Warm-Up > Targeted and Structured Warm-Ups
 - id: static-stretch
   title: 靜態拉伸 Static Stretch
@@ -847,7 +902,8 @@ topics:
     concepts:
     - technique
     related:
-    - ch14.proprioceptors.i06
+    - ch01.proprioception.stretch-reflex
+    - ch22.fibroblastic-phase.i03
     locator: Types of Stretching > Static Stretch
   - id: ch14.static-stretch.i02
     q: 主動 vs 被動
@@ -861,7 +917,9 @@ topics:
     numbers: []
     concepts:
     - technique
-    related: []
+    related:
+    - ch02.musculature.i04
+    - ch15.body-positioning.i06
     locator: Types of Stretching
   - id: ch14.static-stretch.i03
     q: 效果
@@ -875,7 +933,9 @@ topics:
     numbers: []
     concepts:
     - technique
-    related: []
+    related:
+    - ch13.balance-flexibility-bc.i03
+    - ch05.connective-tissue.i06
     locator: Types of Stretching > Static Stretch
   - id: ch14.static-stretch.i04
     q: 最佳拉伸時機
@@ -892,7 +952,9 @@ topics:
       of: 訓練或競賽後進行拉伸的時間窗
     concepts:
     - technique
-    related: []
+    related:
+    - ch20.periodization.i04
+    - ch03.epoc.i03
     locator: Flexibility > When Should an Athlete Stretch?
   - id: ch14.static-stretch.i05
     q: 頻率建議
@@ -914,7 +976,9 @@ topics:
       of: 一次靜態拉伸通常建議的持續時間
     concepts:
     - technique
-    related: []
+    related:
+    - ch17.training-frequency.i01
+    - ch13.balance-flexibility-bc.i07
     locator: Flexibility > Frequency, Duration, and Intensity of Stretching
   - id: ch14.static-stretch.i06
     q: 急性效果
@@ -934,7 +998,8 @@ topics:
     concepts:
     - technique
     related:
-    - ch14.static-stretch.i05
+    - ch13.test-administration.i04
+    - ch21.fitness-fatigue.i04
     locator: Flexibility > Frequency, Duration, and Intensity of Stretching
   - id: ch14.static-stretch.i07
     q: 注意事項
@@ -947,7 +1012,9 @@ topics:
     numbers: []
     concepts:
     - technique
-    related: []
+    related:
+    - ch22.sports-medicine-team.i07
+    - ch22.injury-prevention.i02
     locator: Flexibility > Frequency, Duration, and Intensity of Stretching
   - id: ch14.static-stretch.i08
     q: 拉伸前提
@@ -961,7 +1028,9 @@ topics:
     numbers: []
     concepts:
     - technique
-    related: []
+    related:
+    - ch18.program-design.i07
+    - ch23.layout.i01
     locator: Types of Stretching > Static Stretch
 - id: warmup-physiology
   title: 熱身的生理效益 Warm-Up Physiology
@@ -979,7 +1048,8 @@ topics:
     - technique
     - circulation
     related:
-    - ch14.warmup-physiology.i02
+    - ch01.cardiovascular.blood
+    - ch05.connective-tissue.i06
     locator: Warm-Up
   - id: ch14.warmup-physiology.i02
     q: 非溫度相關效應
@@ -992,7 +1062,9 @@ topics:
     concepts:
     - technique
     - circulation
-    related: []
+    related:
+    - ch01.cardiovascular.muscle-pump
+    - ch19.neuromuscular-basis.i08
     locator: Warm-Up
   - id: ch14.warmup-physiology.i03
     q: 肌肉收縮與放鬆
@@ -1004,7 +1076,9 @@ topics:
     concepts:
     - technique
     - circulation
-    related: []
+    related:
+    - ch01.neuromuscular.nmj
+    - ch05.neural-adaptations.i04
     locator: Warm-Up
   - id: ch14.warmup-physiology.i04
     q: 力量表現的可能改善
@@ -1016,7 +1090,9 @@ topics:
     concepts:
     - technique
     - circulation
-    related: []
+    related:
+    - ch19.rfd-impulse.i01
+    - ch18.mechanical-models.i02
     locator: Warm-Up
   - id: ch14.warmup-physiology.i05
     q: 波耳效應與氧氣輸送
@@ -1029,7 +1105,9 @@ topics:
     concepts:
     - technique
     - circulation
-    related: []
+    related:
+    - ch01.cardiovascular.blood
+    - ch20.aerobic-performance-factors.i01
     locator: Warm-Up
   - id: ch14.warmup-physiology.i06
     q: 黏滯阻力與代謝反應
@@ -1041,7 +1119,9 @@ topics:
     concepts:
     - technique
     - circulation
-    related: []
+    related:
+    - ch03.glycolysis.i05
+    - ch02.joint-biomechanics.i05
     locator: Warm-Up
   - id: ch14.warmup-physiology.i07
     q: 主動與被動加溫
@@ -1053,7 +1133,9 @@ topics:
     concepts:
     - technique
     - circulation
-    related: []
+    related:
+    - ch20.intensity-monitoring.i02
+    - ch18.program-design.i07
     locator: Warm-Up
   - id: ch14.warmup-physiology.i08
     q: 表現與傷害風險的證據
@@ -1067,7 +1149,8 @@ topics:
     - technique
     - circulation
     related:
-    - ch14.ramp-protocol.i06
+    - ch18.safety.i07
+    - ch22.injury-prevention.i04
     locator: Warm-Up
 cards:
 - q: 熱身的溫度相關效益有哪些？
