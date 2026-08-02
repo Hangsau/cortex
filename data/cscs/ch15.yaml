@@ -15,7 +15,9 @@ topics:
     terms: []
     numbers: []
     concepts: [technique, safety]
-    related: []
+    related:
+    - ch02.joint-biomechanics.i02
+    - ch17.exercise-selection.i08
     locator: 'Fundamentals of Exercise Technique > Stable Body and Limb Positioning'
   - id: ch15.body-positioning.i02
     q: 五點身體接觸姿勢（five-point body contact position）包含什麼？
@@ -29,7 +31,9 @@ topics:
       unit: 點
       of: 臥椅坐姿或仰臥動作的身體接觸點
     concepts: [technique, safety]
-    related: []
+    related:
+    - ch02.joint-biomechanics.i02
+    - ch13.max-strength.i02
     locator: 'Fundamentals of Exercise Technique > Stable Body and Limb Positioning'
   - id: ch15.body-positioning.i03
     q: 五點身體接觸的作用
@@ -39,7 +43,10 @@ topics:
     terms: [five-point-body-contact-position]
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.body-positioning.i02]
+    related:
+    - ch02.joint-biomechanics.i02
+    - ch13.max-strength.i07
+    - ch15.body-positioning.i02
     locator: 'Fundamentals of Exercise Technique > Stable Body and Limb Positioning'
   - id: ch15.body-positioning.i04
     q: 有旋轉軸的器械如何對位？
@@ -50,7 +57,9 @@ topics:
     terms: []
     numbers: []
     concepts: [technique, safety]
-    related: []
+    related:
+    - ch02.resistance-sources.i07
+    - ch16.machine-vs-freeweight.i02
     locator: 'Fundamentals of Exercise Technique > Stable Body and Limb Positioning'
   - id: ch15.body-positioning.i05
     q: 腿伸展器械的對位範例
@@ -60,7 +69,9 @@ topics:
     terms: []
     numbers: []
     concepts: [technique, safety]
-    related: []
+    related:
+    - ch02.joint-biomechanics.i05
+    - ch22.kinetic-chain.i06
     locator: 'Fundamentals of Exercise Technique > Stable Body and Limb Positioning'
   - id: ch15.body-positioning.i06
     q: 全關節活動範圍（range of motion, ROM）的原則與界線
@@ -71,7 +82,9 @@ topics:
     terms: [range-of-motion]
     numbers: []
     concepts: [technique, safety]
-    related: []
+    related:
+    - ch14.flexibility-factors.i01
+    - ch22.kinetic-chain.i08
     locator: 'Fundamentals of Exercise Technique > Range of Motion and Speed'
   - id: ch15.body-positioning.i07
     q: 一般與爆發力動作的速度原則
@@ -82,7 +95,10 @@ topics:
     terms: [range-of-motion, power-exercises]
     numbers: []
     concepts: [technique]
-    related: [ch15.body-positioning.i06]
+    related:
+    - ch02.size-strength.i06
+    - ch17.exercise-selection.i04
+    - ch15.body-positioning.i06
     locator: 'Fundamentals of Exercise Technique > Range of Motion and Speed'
   - id: ch15.body-positioning.i08
     q: 為何先建立穩定姿勢？
@@ -92,7 +108,9 @@ topics:
     terms: []
     numbers: []
     concepts: [technique, safety]
-    related: []
+    related:
+    - ch02.joint-biomechanics.i02
+    - ch16.general-guidelines.i01
     locator: 'Fundamentals of Exercise Technique > Stable Body and Limb Positioning'
 - id: breathing
   title: 呼吸技術
@@ -107,7 +125,9 @@ topics:
     terms: [sticking-point]
     numbers: []
     concepts: [technique, safety]
-    related: []
+    related:
+    - ch02.strength-factors.i05
+    - ch17.load-repetitions.i04
     locator: 'Fundamentals of Exercise Technique > Breathing Considerations'
   - id: ch15.breathing.i02
     q: 多數阻力動作的呼吸時機
@@ -117,7 +137,9 @@ topics:
     terms: [sticking-point]
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.breathing.i01]
+    related:
+    - ch16.general-guidelines.i02
+    - ch15.breathing.i01
     locator: 'Fundamentals of Exercise Technique > Breathing Considerations'
   - id: ch15.breathing.i03
     q: 二頭肌彎舉的呼吸範例
@@ -128,7 +150,9 @@ topics:
     terms: [sticking-point]
     numbers: []
     concepts: [technique]
-    related: [ch15.breathing.i02]
+    related:
+    - ch02.levers.i06
+    - ch17.exercise-selection.i02
     locator: 'Fundamentals of Exercise Technique > Breathing Considerations'
   - id: ch15.breathing.i04
     q: 瓦氏動作（Valsalva maneuver）在書中的定義
@@ -139,7 +163,9 @@ topics:
     terms: [valsalva]
     numbers: []
     concepts: [technique, safety]
-    related: []
+    related:
+    - ch02.joint-biomechanics.i03
+    - ch01.respiratory.expiration
     locator: 'Fundamentals of Exercise Technique > Breathing Considerations'
   - id: ch15.breathing.i05
     q: 瓦氏動作的潛在益處
@@ -150,7 +176,9 @@ topics:
     terms: [valsalva, neutral-spine]
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.breathing.i04]
+    related:
+    - ch02.joint-biomechanics.i02
+    - ch15.breathing.i04
     locator: 'Fundamentals of Exercise Technique > Breathing Considerations'
   - id: ch15.breathing.i06
     q: 何時可考慮瓦氏動作？
@@ -160,7 +188,10 @@ topics:
     terms: [valsalva, structural-exercise]
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.breathing.i05]
+    related:
+    - ch17.exercise-selection.i03
+    - ch07.older-adults-training.i07
+    - ch15.breathing.i05
     locator: 'Fundamentals of Exercise Technique > Breathing Considerations'
   - id: ch15.breathing.i07
     q: 瓦氏動作的副作用與憋氣上限
@@ -174,7 +205,10 @@ topics:
       unit: 秒
       of: 瓦氏動作的憋氣期上限
     concepts: [technique, safety]
-    related: [ch15.breathing.i06]
+    related:
+    - ch07.older-adults-training.i07
+    - ch12.safety.i02
+    - ch15.breathing.i06
     locator: 'Fundamentals of Exercise Technique > Breathing Considerations'
   - id: ch15.breathing.i08
     q: 為何不可延長瓦氏動作的憋氣？
@@ -187,7 +221,10 @@ topics:
       unit: 倍
       of: 延長瓦氏動作憋氣時血壓可能相對於靜止值的程度
     concepts: [technique, safety]
-    related: [ch15.breathing.i07]
+    related:
+    - ch01.cardiovascular.heart-rate
+    - ch12.safety.i02
+    - ch15.breathing.i07
     locator: 'Fundamentals of Exercise Technique > Breathing Considerations'
 - id: exercise-technique-fundamentals
   title: 動作技術基本原則
@@ -202,7 +239,9 @@ topics:
     terms: []
     numbers: []
     concepts: [technique, safety]
-    related: []
+    related:
+    - ch24.supervision.i04
+    - ch17.exercise-selection.i08
     locator: 'Fundamentals of Exercise Technique'
   - id: ch15.exercise-technique-fundamentals.i02
     q: 阻力動作技術的共同構成
@@ -213,7 +252,9 @@ topics:
     terms: [free-weight-exercises]
     numbers: []
     concepts: [technique]
-    related: []
+    related:
+    - ch17.exercise-selection.i08
+    - ch02.resistance-sources.i02
     locator: 'Fundamentals of Exercise Technique'
   - id: ch15.exercise-technique-fundamentals.i03
     q: 本章動作清單的適用範圍
@@ -224,7 +265,9 @@ topics:
     terms: []
     numbers: []
     concepts: [technique]
-    related: []
+    related:
+    - ch17.needs-analysis.i01
+    - ch16.machine-vs-freeweight.i02
     locator: 'Fundamentals of Exercise Technique'
   - id: ch15.exercise-technique-fundamentals.i04
     q: 正確身體排列的功能
@@ -234,7 +277,9 @@ topics:
     terms: []
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.body-positioning.i08]
+    related:
+    - ch02.joint-biomechanics.i02
+    - ch15.body-positioning.i08
     locator: 'Fundamentals of Exercise Technique > Stable Body and Limb Positioning'
   - id: ch15.exercise-technique-fundamentals.i05
     q: 器械與臥椅動作的技術起點
@@ -244,7 +289,9 @@ topics:
     terms: [five-point-body-contact-position]
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.body-positioning.i02]
+    related:
+    - ch23.layout.i03
+    - ch16.machine-vs-freeweight.i01
     locator: 'Fundamentals of Exercise Technique > Stable Body and Limb Positioning'
   - id: ch15.exercise-technique-fundamentals.i06
     q: 強迫反覆（forced repetitions）的安全定位
@@ -255,7 +302,9 @@ topics:
     terms: [forced-repetitions, partner-assisted-reps, spotter]
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.spotter-communication.i08]
+    related:
+    - ch24.supervision.i05
+    - ch15.spotter-communication.i08
     locator: 'Spotting Free Weight Exercises'
   - id: ch15.exercise-technique-fundamentals.i07
     q: 強度與體能專業人員的技術教學責任
@@ -265,7 +314,9 @@ topics:
     terms: [weight-belt, spotter]
     numbers: []
     concepts: [technique, safety, professional]
-    related: []
+    related:
+    - ch24.personnel.i06
+    - ch24.supervision.i04
     locator: 'Conclusion'
   - id: ch15.exercise-technique-fundamentals.i08
     q: 正確指導、監督與回饋的訓練效果
@@ -275,7 +326,9 @@ topics:
     terms: []
     numbers: []
     concepts: [technique, safety, professional]
-    related: [ch15.exercise-technique-fundamentals.i07]
+    related:
+    - ch24.supervision.i02
+    - ch12.administration.i06
     locator: 'Conclusion'
 - id: grips
   title: 握法類型與寬度
@@ -290,7 +343,9 @@ topics:
     terms: [pronated-grip]
     numbers: []
     concepts: [technique]
-    related: []
+    related:
+    - ch16.general-guidelines.i03
+    - ch02.planes.i03
     locator: 'Fundamentals of Exercise Technique > Handgrips'
   - id: ch15.grips.i02
     q: 反手握（supinated grip）如何定位？
@@ -300,7 +355,9 @@ topics:
     terms: [supinated-grip]
     numbers: []
     concepts: [technique]
-    related: []
+    related:
+    - ch16.general-guidelines.i03
+    - ch02.planes.i03
     locator: 'Fundamentals of Exercise Technique > Handgrips'
   - id: ch15.grips.i03
     q: 交替握（alternated grip）是什麼？
@@ -310,7 +367,9 @@ topics:
     terms: [alternated-grip, pronated-grip, supinated-grip]
     numbers: []
     concepts: [technique]
-    related: []
+    related:
+    - ch16.general-guidelines.i03
+    - ch17.exercise-selection.i01
     locator: 'Fundamentals of Exercise Technique > Handgrips'
   - id: ch15.grips.i04
     q: 勾握（hook grip）的結構與用途
@@ -321,7 +380,9 @@ topics:
     terms: [hook-grip, pronated-grip, power-exercises]
     numbers: []
     concepts: [technique]
-    related: []
+    related:
+    - ch16.general-guidelines.i03
+    - ch17.exercise-selection.i04
     locator: 'Fundamentals of Exercise Technique > Handgrips'
   - id: ch15.grips.i05
     q: 閉合握與開放／假握（closed vs. open or false grip）的差異
@@ -332,7 +393,9 @@ topics:
     terms: [closed-grip, false-grip]
     numbers: []
     concepts: [technique]
-    related: []
+    related:
+    - ch16.general-guidelines.i03
+    - ch24.facility.i05
     locator: 'Fundamentals of Exercise Technique > Handgrips'
   - id: ch15.grips.i06
     q: 中立握（neutral grip）如何定位？
@@ -343,7 +406,9 @@ topics:
     terms: [neutral-grip, pronated-grip, supinated-grip]
     numbers: []
     concepts: [technique]
-    related: []
+    related:
+    - ch16.general-guidelines.i03
+    - ch02.joint-biomechanics.i04
     locator: 'Fundamentals of Exercise Technique > Handgrips'
   - id: ch15.grips.i07
     q: 高翻握法（clean grip）與抓舉握法（snatch grip）
@@ -354,7 +419,9 @@ topics:
     terms: [clean-grip, snatch-grip, pronated-grip, closed-grip, hook-grip]
     numbers: []
     concepts: [technique]
-    related: [ch15.grips.i04]
+    related:
+    - ch17.exercise-selection.i04
+    - ch15.grips.i04
     locator: 'Fundamentals of Exercise Technique > Handgrips'
   - id: ch15.grips.i08
     q: 握距（grip width）的類型與一般原則
@@ -368,7 +435,9 @@ topics:
       unit: 類
       of: 教材列出的握距類型
     concepts: [technique]
-    related: []
+    related:
+    - ch02.levers.i06
+    - ch17.exercise-selection.i05
     locator: 'Fundamentals of Exercise Technique > Handgrips'
 - id: lower-body
   title: 下肢動作 Lower Body
@@ -387,7 +456,10 @@ topics:
       unit: 種位置
       of: 背蹲舉槓鈴可採用的平衡槓位
     concepts: [technique, safety]
-    related: []
+    related:
+    - ch02.joint-biomechanics.i07
+    - ch17.exercise-selection.i01
+    - ch13.max-strength.i04
     locator: 'Back Squat'
   - id: ch15.lower-body.i02
     q: 前蹲舉（Front Squat）的動作原則
@@ -398,7 +470,10 @@ topics:
     terms: [front-squat, neutral-spine]
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.lower-body.i01]
+    related:
+    - ch02.joint-biomechanics.i07
+    - ch17.exercise-selection.i01
+    - ch15.lower-body.i01
     locator: 'Front Squat'
   - id: ch15.lower-body.i03
     q: 硬舉（Deadlift）的起始與上拉
@@ -415,7 +490,10 @@ topics:
       unit: 公分
       of: 硬舉起始時槓鈴在脛骨前方的約略距離
     concepts: [technique, safety]
-    related: []
+    related:
+    - ch02.joint-biomechanics.i02
+    - ch17.exercise-selection.i03
+    - ch23.layout.i04
     locator: 'Deadlift'
   - id: ch15.lower-body.i04
     q: 羅馬尼亞硬舉（Romanian Deadlift, RDL）的下降與上升
@@ -426,7 +504,10 @@ topics:
     terms: [romanian-deadlift, clean-grip, snatch-grip, neutral-spine]
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.lower-body.i03]
+    related:
+    - ch02.levers.i05
+    - ch22.injury-prevention.i07
+    - ch17.exercise-selection.i02
     locator: 'Romanian Deadlift (RDL)'
   - id: ch15.lower-body.i05
     q: 直腿硬舉（Stiff-Leg Deadlift）的範圍界線
@@ -437,7 +518,9 @@ topics:
     terms: [stiff-leg-deadlift, neutral-spine]
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.lower-body.i03]
+    related:
+    - ch02.joint-biomechanics.i02
+    - ch22.injury-prevention.i07
     locator: 'Stiff-Leg Deadlift'
   - id: ch15.lower-body.i06
     q: 前跨弓步（Forward Step Lunge）的前腳與軀幹控制
@@ -448,7 +531,10 @@ topics:
     terms: [forward-step-lunge, closed-grip, pronated-grip, spotter]
     numbers: []
     concepts: [technique, safety]
-    related: []
+    related:
+    - ch22.kinetic-chain.i03
+    - ch18.safety.i02
+    - ch17.exercise-selection.i02
     locator: 'Forward Step Lunge'
   - id: ch15.lower-body.i07
     q: 踏台（Step-Up）的腳步順序與避免事項
@@ -459,7 +545,9 @@ topics:
     terms: [step-up, closed-grip, pronated-grip, spotter]
     numbers: []
     concepts: [technique, safety]
-    related: []
+    related:
+    - ch22.kinetic-chain.i03
+    - ch18.training-modes.i07
     locator: 'Step-Up'
   - id: ch15.lower-body.i08
     q: 髖部雪橇機（Hip Sled）的下降控制
@@ -470,7 +558,9 @@ topics:
     terms: [hip-sled]
     numbers: []
     concepts: [technique, safety]
-    related: []
+    related:
+    - ch16.machine-vs-freeweight.i02
+    - ch22.kinetic-chain.i08
     locator: 'Hip Sled (Machine)'
 - id: power-exercises-technique
   title: 爆發力動作技術要點
@@ -485,7 +575,9 @@ topics:
     terms: [power-exercises, spotter]
     numbers: []
     concepts: [technique, safety]
-    related: []
+    related:
+    - ch24.supervision.i05
+    - ch23.key-numbers.i06
     locator: 'Spotting Free Weight Exercises > Types of Exercises Performed and Equipment Involved > Do Not Spot Power Exercises'
   - id: ch15.power-exercises-technique.i02
     q: 爆發力動作在槓前方失控時如何處理？
@@ -495,7 +587,10 @@ topics:
     terms: [power-exercises]
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.power-exercises-technique.i01]
+    related:
+    - ch23.key-numbers.i06
+    - ch18.equipment-facility.i03
+    - ch15.power-exercises-technique.i01
     locator: 'Spotting Free Weight Exercises > Types of Exercises Performed and Equipment Involved > Do Not Spot Power Exercises'
   - id: ch15.power-exercises-technique.i03
     q: 爆發力動作在槓於頭後失控時如何處理？
@@ -505,7 +600,10 @@ topics:
     terms: [power-exercises]
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.power-exercises-technique.i01]
+    related:
+    - ch23.key-numbers.i06
+    - ch18.equipment-facility.i03
+    - ch15.power-exercises-technique.i01
     locator: 'Spotting Free Weight Exercises > Types of Exercises Performed and Equipment Involved > Do Not Spot Power Exercises'
   - id: ch15.power-exercises-technique.i04
     q: 做爆發力動作前的場地處理
@@ -515,7 +613,10 @@ topics:
     terms: [power-exercises]
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.power-exercises-technique.i02, ch15.power-exercises-technique.i03]
+    related:
+    - ch23.key-numbers.i06
+    - ch24.facility.i05
+    - ch15.power-exercises-technique.i02
     locator: 'Spotting Free Weight Exercises > Types of Exercises Performed and Equipment Involved > Do Not Spot Power Exercises'
   - id: ch15.power-exercises-technique.i05
     q: 爆發或快速舉重動作的槓鈴速度目標
@@ -525,7 +626,10 @@ topics:
     terms: [power-exercises]
     numbers: []
     concepts: [technique]
-    related: [ch15.body-positioning.i07]
+    related:
+    - ch02.size-strength.i06
+    - ch17.exercise-selection.i04
+    - ch18.mechanical-models.i07
     locator: 'Fundamentals of Exercise Technique > Range of Motion and Speed'
   - id: ch15.power-exercises-technique.i06
     q: 爆發力動作與一般需要保護的自由重量動作差異
@@ -535,7 +639,10 @@ topics:
     terms: [power-exercises, free-weight-exercises, spotter]
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.power-exercises-technique.i01]
+    related:
+    - ch24.supervision.i05
+    - ch17.exercise-selection.i04
+    - ch15.power-exercises-technique.i01
     locator: 'Spotting Free Weight Exercises > Types of Exercises Performed and Equipment Involved'
   - id: ch15.power-exercises-technique.i07
     q: 保護指引如何表述爆發力動作？
@@ -545,7 +652,10 @@ topics:
     terms: [power-exercises, spotter]
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.power-exercises-technique.i01]
+    related:
+    - ch24.supervision.i05
+    - ch18.safety.i08
+    - ch15.power-exercises-technique.i01
     locator: 'Spotting Free Weight Exercises > Communication Between Athlete and Spotter > Amount and Timing of Spotting Assistance > Guidelines for Spotting'
   - id: ch15.power-exercises-technique.i08
     q: 爆發力動作安全教學的重點
@@ -555,7 +665,10 @@ topics:
     terms: [power-exercises]
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.power-exercises-technique.i02, ch15.power-exercises-technique.i03, ch15.power-exercises-technique.i04]
+    related:
+    - ch24.supervision.i04
+    - ch13.power-tests.i02
+    - ch15.power-exercises-technique.i04
     locator: 'Spotting Free Weight Exercises > Types of Exercises Performed and Equipment Involved > Do Not Spot Power Exercises'
 - id: power-exercises
   title: 爆發力動作 Power Exercises
@@ -577,7 +690,10 @@ topics:
       unit: 公分
       of: 高翻起始時槓鈴在脛骨前方的約略距離
     concepts: [technique, safety]
-    related: []
+    related:
+    - ch02.levers.i05
+    - ch17.exercise-selection.i04
+    - ch13.power-tests.i02
     locator: 'Power Clean (and Hang Power Clean Variation)'
   - id: ch15.power-exercises.i02
     q: 高翻（Power Clean）的轉換階段
@@ -588,7 +704,10 @@ topics:
     terms: [power-clean, power-exercises, neutral-spine, romanian-deadlift]
     numbers: []
     concepts: [technique]
-    related: [ch15.lower-body.i04]
+    related:
+    - ch02.size-strength.i06
+    - ch18.ssc.i01
+    - ch15.power-exercises.i01
     locator: 'Power Clean (and Hang Power Clean Variation)'
   - id: ch15.power-exercises.i03
     q: 高翻（Power Clean）的第二拉
@@ -599,7 +718,10 @@ topics:
     terms: [power-clean, power-exercises]
     numbers: []
     concepts: [technique]
-    related: []
+    related:
+    - ch02.work-power.i02
+    - ch17.exercise-selection.i04
+    - ch18.mechanical-models.i07
     locator: 'Power Clean (and Hang Power Clean Variation)'
   - id: ch15.power-exercises.i04
     q: 高翻（Power Clean）的接槓
@@ -613,7 +735,10 @@ topics:
       unit: 蹲
       of: 高翻接槓時髖膝屈曲的深度
     concepts: [technique, safety]
-    related: [ch15.power-exercises.i03]
+    related:
+    - ch18.safety.i01
+    - ch02.joint-biomechanics.i04
+    - ch15.power-exercises.i03
     locator: 'Power Clean (and Hang Power Clean Variation)'
   - id: ch15.power-exercises.i05
     q: 力量抓舉（Power Snatch）的抓握與接槓
@@ -627,7 +752,10 @@ topics:
       unit: 蹲
       of: 力量抓舉接槓時髖膝屈曲的深度
     concepts: [technique, safety]
-    related: []
+    related:
+    - ch02.joint-biomechanics.i04
+    - ch17.exercise-selection.i04
+    - ch13.power-tests.i02
     locator: 'Power Snatch (and Hang Power Snatch Variation)'
   - id: ch15.power-exercises.i06
     q: 懸垂高翻（Hang Power Clean）的起始差異
@@ -637,7 +765,10 @@ topics:
     terms: [power-clean, power-exercises]
     numbers: []
     concepts: [technique]
-    related: [ch15.power-exercises.i01, ch15.power-exercises.i05]
+    related:
+    - ch17.exercise-selection.i04
+    - ch13.power-tests.i02
+    - ch15.power-exercises.i01
     locator: 'Power Clean (and Hang Power Clean Variation)'
   - id: ch15.power-exercises.i07
     q: 推舉（Push Press）的驅動與完成
@@ -648,7 +779,10 @@ topics:
     terms: [push-press, power-exercises, clean-grip]
     numbers: []
     concepts: [technique]
-    related: []
+    related:
+    - ch02.size-strength.i06
+    - ch17.exercise-selection.i04
+    - ch18.training-modes.i04
     locator: 'Push Press'
   - id: ch15.power-exercises.i08
     q: 挺舉推舉（Push Jerk）的接槓與恢復
@@ -659,7 +793,10 @@ topics:
     terms: [push-jerk, power-exercises, clean-grip]
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.power-exercises.i07]
+    related:
+    - ch18.safety.i01
+    - ch17.exercise-selection.i04
+    - ch15.power-exercises.i07
     locator: 'Push Jerk'
 - id: spotter-communication
   title: 運動員與保護者溝通
@@ -674,7 +811,9 @@ topics:
     terms: [spotter]
     numbers: []
     concepts: [safety, technique]
-    related: []
+    related:
+    - ch24.supervision.i05
+    - ch13.test-administration.i04
     locator: 'Spotting Free Weight Exercises > Communication Between Athlete and Spotter'
   - id: ch15.spotter-communication.i02
     q: 未先溝通可能造成什麼問題？
@@ -684,7 +823,9 @@ topics:
     terms: [spotter]
     numbers: []
     concepts: [safety, technique]
-    related: [ch15.spotter-communication.i01]
+    related:
+    - ch24.legal.i04
+    - ch15.spotter-communication.i01
     locator: 'Spotting Free Weight Exercises > Communication Between Athlete and Spotter'
   - id: ch15.spotter-communication.i03
     q: 起槓協助（liftoff）的定義
@@ -694,7 +835,9 @@ topics:
     terms: [liftoff, spotter]
     numbers: []
     concepts: [safety, technique]
-    related: []
+    related:
+    - ch24.supervision.i05
+    - ch13.max-strength.i02
     locator: 'Spotting Free Weight Exercises > Communication Between Athlete and Spotter > Use of a Liftoff'
   - id: ch15.spotter-communication.i04
     q: 通常在哪些動作使用起槓協助？
@@ -704,7 +847,9 @@ topics:
     terms: [liftoff, spotter]
     numbers: []
     concepts: [safety, technique]
-    related: [ch15.spotter-communication.i03]
+    related:
+    - ch13.max-strength.i02
+    - ch24.supervision.i05
     locator: 'Spotting Free Weight Exercises > Communication Between Athlete and Spotter > Use of a Liftoff'
   - id: ch15.spotter-communication.i05
     q: 起槓協助如何事先協調訊號？
@@ -714,7 +859,9 @@ topics:
     terms: [liftoff, spotter]
     numbers: []
     concepts: [safety, technique]
-    related: [ch15.spotter-communication.i03]
+    related:
+    - ch24.supervision.i04
+    - ch15.spotter-communication.i03
     locator: 'Spotting Free Weight Exercises > Communication Between Athlete and Spotter > Use of a Liftoff'
   - id: ch15.spotter-communication.i06
     q: 兩名保護者的起槓與入架分工
@@ -728,7 +875,10 @@ topics:
       unit: 名
       of: 本條所述起槓與入架分工的保護者人數
     concepts: [safety, technique]
-    related: [ch15.spotter-communication.i03]
+    related:
+    - ch24.supervision.i05
+    - ch13.max-strength.i02
+    - ch15.spotter-communication.i03
     locator: 'Spotting Free Weight Exercises > Communication Between Athlete and Spotter > Use of a Liftoff'
   - id: ch15.spotter-communication.i07
     q: 起槓結束時保護者要確認什麼？
@@ -738,7 +888,10 @@ topics:
     terms: [liftoff, spotter]
     numbers: []
     concepts: [safety, technique]
-    related: [ch15.spotter-communication.i03]
+    related:
+    - ch24.supervision.i02
+    - ch13.max-strength.i02
+    - ch15.spotter-communication.i03
     locator: 'Spotting Free Weight Exercises > Communication Between Athlete and Spotter > Use of a Liftoff'
   - id: ch15.spotter-communication.i08
     q: 強迫反覆時如何請求與提供協助？
@@ -749,7 +902,10 @@ topics:
     terms: [forced-repetitions, partner-assisted-reps, spotter, sticking-point]
     numbers: []
     concepts: [safety, technique]
-    related: []
+    related:
+    - ch24.supervision.i05
+    - ch17.training-volume.i03
+    - ch15.exercise-technique-fundamentals.i06
     locator: 'Spotting Free Weight Exercises > Communication Between Athlete and Spotter > Amount and Timing of Spotting Assistance'
 - id: spotting-how
   title: 如何執行保護
@@ -765,7 +921,9 @@ topics:
     terms: [spotter, alternated-grip, supinated-grip, grip-width]
     numbers: []
     concepts: [safety, technique]
-    related: []
+    related:
+    - ch24.supervision.i05
+    - ch13.max-strength.i02
     locator: 'Spotting Free Weight Exercises > Types of Exercises Performed and Equipment Involved > Spotting Over-the-Face Exercises'
   - id: ch15.spotting-how.i02
     q: 啞鈴動作應在哪裡保護？
@@ -776,7 +934,9 @@ topics:
     terms: [spotter]
     numbers: []
     concepts: [safety, technique]
-    related: []
+    related:
+    - ch24.supervision.i05
+    - ch16.machine-vs-freeweight.i01
     locator: 'Spotting Free Weight Exercises > Types of Exercises Performed and Equipment Involved > Spotting Over-the-Face Exercises'
   - id: ch15.spotting-how.i03
     q: 哪些啞鈴動作須直接保護啞鈴？
@@ -786,7 +946,9 @@ topics:
     terms: [spotter]
     numbers: []
     concepts: [safety, technique]
-    related: [ch15.spotting-how.i02]
+    related:
+    - ch24.supervision.i05
+    - ch15.spotting-how.i02
     locator: 'Spotting Free Weight Exercises > Types of Exercises Performed and Equipment Involved > Spotting Over-the-Face Exercises'
   - id: ch15.spotting-how.i04
     q: 過臉動作保護者的身體位置
@@ -796,7 +958,9 @@ topics:
     terms: [spotter, neutral-spine]
     numbers: []
     concepts: [safety, technique]
-    related: []
+    related:
+    - ch24.supervision.i05
+    - ch23.layout.i03
     locator: 'Spotting Free Weight Exercises > Types of Exercises Performed and Equipment Involved > Spotting Over-the-Face Exercises'
   - id: ch15.spotting-how.i05
     q: 如何決定保護者人數？
@@ -810,7 +974,9 @@ topics:
       unit: 名
       of: 負荷仍在單一保護者可有效保護範圍內時的保護者人數
     concepts: [safety, technique]
-    related: []
+    related:
+    - ch24.supervision.i01
+    - ch23.key-numbers.i06
     locator: 'Spotting Free Weight Exercises > Number of Spotters'
   - id: ch15.spotting-how.i06
     q: 為何能單人保護時偏好單人？
@@ -824,7 +990,9 @@ topics:
       unit: 名以上
       of: 需與運動員協調的多名保護者情境
     concepts: [safety, technique]
-    related: [ch15.spotting-how.i05]
+    related:
+    - ch24.supervision.i01
+    - ch24.supervision.i05
     locator: 'Spotting Free Weight Exercises > Number of Spotters'
   - id: ch15.spotting-how.i07
     q: 保護介入的時機與協助量
@@ -835,7 +1003,9 @@ topics:
     terms: [spotter, sticking-point, partner-assisted-reps]
     numbers: []
     concepts: [safety, technique]
-    related: [ch15.spotter-communication.i08]
+    related:
+    - ch24.supervision.i05
+    - ch15.spotter-communication.i08
     locator: 'Spotting Free Weight Exercises > Communication Between Athlete and Spotter > Amount and Timing of Spotting Assistance'
   - id: ch15.spotting-how.i08
     q: 保護者接管槓鈴與運動員的配合
@@ -846,7 +1016,9 @@ topics:
     terms: [spotter]
     numbers: []
     concepts: [safety, technique]
-    related: []
+    related:
+    - ch24.supervision.i05
+    - ch24.emergency.i03
     locator: 'Spotting Free Weight Exercises > Communication Between Athlete and Spotter > Amount and Timing of Spotting Assistance'
 - id: spotting-when
   title: 何時需要保護（Spotting）
@@ -864,7 +1036,10 @@ topics:
       unit: 名以上
       of: 前述自由重量動作通常需要的保護者人數
     concepts: [safety, technique]
-    related: [ch15.spotting-when.i03]
+    related:
+    - ch24.supervision.i05
+    - ch13.max-strength.i04
+    - ch13.max-strength.i02
     locator: 'Spotting Free Weight Exercises > Types of Exercises Performed and Equipment Involved'
   - id: ch15.spotting-when.i02
     q: 保護者的首要責任
@@ -875,7 +1050,9 @@ topics:
     terms: [spotter, forced-repetitions]
     numbers: []
     concepts: [safety, technique]
-    related: []
+    related:
+    - ch24.emergency.i03
+    - ch24.supervision.i02
     locator: 'Spotting Free Weight Exercises'
   - id: ch15.spotting-when.i03
     q: 爆發力動作是否保護？
@@ -885,7 +1062,10 @@ topics:
     terms: [power-exercises, spotter]
     numbers: []
     concepts: [safety, technique]
-    related: [ch15.power-exercises-technique.i01]
+    related:
+    - ch24.supervision.i05
+    - ch23.key-numbers.i06
+    - ch15.power-exercises-technique.i01
     locator: 'Spotting Free Weight Exercises > Types of Exercises Performed and Equipment Involved > Do Not Spot Power Exercises'
   - id: ch15.spotting-when.i04
     q: 為何啞鈴動作的保護通常比槓鈴更難？
@@ -895,7 +1075,9 @@ topics:
     terms: [spotter]
     numbers: []
     concepts: [safety, technique]
-    related: []
+    related:
+    - ch16.machine-vs-freeweight.i01
+    - ch24.supervision.i05
     locator: 'Spotting Free Weight Exercises > Types of Exercises Performed and Equipment Involved'
   - id: ch15.spotting-when.i05
     q: 過頭、背槓與前肩架槓動作的環境與保護者條件
@@ -906,7 +1088,9 @@ topics:
     terms: [spotter]
     numbers: []
     concepts: [safety, technique]
-    related: []
+    related:
+    - ch23.layout.i04
+    - ch24.supervision.i05
     locator: 'Spotting Free Weight Exercises > Types of Exercises Performed and Equipment Involved > Spotting Overhead Exercises and Those With the Bar on the Back or Front Shoulders'
   - id: ch15.spotting-when.i06
     q: 重負荷出架動作的保護條件
@@ -917,7 +1101,9 @@ topics:
     terms: [out-of-the-rack-exercises, spotter]
     numbers: []
     concepts: [safety, technique, professional]
-    related: [ch15.lower-body.i06, ch15.lower-body.i07]
+    related:
+    - ch13.max-strength.i04
+    - ch24.supervision.i05
     locator: 'Spotting Free Weight Exercises > Types of Exercises Performed and Equipment Involved > Spotting Overhead Exercises and Those With the Bar on the Back or Front Shoulders'
   - id: ch15.spotting-when.i07
     q: 保護不當的傷害範圍
@@ -927,7 +1113,9 @@ topics:
     terms: [spotter]
     numbers: []
     concepts: [safety]
-    related: [ch15.spotting-when.i02]
+    related:
+    - ch24.legal.i04
+    - ch24.supervision.i03
     locator: 'Spotting Free Weight Exercises'
   - id: ch15.spotting-when.i08
     q: 保護指引對高風險動作的總結
@@ -938,7 +1126,10 @@ topics:
     terms: [spotter, power-exercises]
     numbers: []
     concepts: [safety, technique]
-    related: [ch15.spotting-when.i01, ch15.spotting-when.i03]
+    related:
+    - ch24.supervision.i05
+    - ch12.safety.i02
+    - ch15.spotting-when.i01
     locator: 'Spotting Free Weight Exercises > Communication Between Athlete and Spotter > Amount and Timing of Spotting Assistance > Guidelines for Spotting'
 - id: upper-body
   title: 上肢推拉 Upper Body
@@ -954,7 +1145,10 @@ topics:
     terms: [bench-press, five-point-body-contact-position, closed-grip, pronated-grip, spotter]
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.body-positioning.i02]
+    related:
+    - ch13.max-strength.i02
+    - ch02.joint-biomechanics.i04
+    - ch15.body-positioning.i02
     locator: 'Flat Barbell Bench Press (and Dumbbell Variation)'
   - id: ch15.upper-body.i02
     q: 上斜啞鈴臥推（Incline Dumbbell Bench Press）的運動員與保護者要點
@@ -968,7 +1162,10 @@ topics:
       unit: 胸部區域
       of: 上斜啞鈴臥推下放時對線的胸部區域
     concepts: [technique, safety]
-    related: [ch15.spotting-how.i02]
+    related:
+    - ch16.machine-vs-freeweight.i01
+    - ch24.supervision.i05
+    - ch15.spotting-how.i02
     locator: 'Incline Dumbbell Bench Press (and Barbell Variation)'
   - id: ch15.upper-body.i03
     q: 俯身划船（Bent-Over Row）的起始與拉槓控制
@@ -979,7 +1176,10 @@ topics:
     terms: [bent-over-row, closed-grip, pronated-grip, alternated-grip, neutral-spine]
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.lower-body.i03]
+    related:
+    - ch02.joint-biomechanics.i02
+    - ch17.exercise-order.i07
+    - ch15.lower-body.i03
     locator: 'Bent-Over Row'
   - id: ch15.upper-body.i04
     q: 背闊肌下拉（Lat Pulldown）的軀幹與槓鈴路徑
@@ -990,7 +1190,9 @@ topics:
     terms: [lat-pulldown, closed-grip, pronated-grip, weight-belt]
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.weight-belt.i03]
+    related:
+    - ch02.joint-biomechanics.i04
+    - ch17.exercise-selection.i02
     locator: 'Lat Pulldown (Machine)'
   - id: ch15.upper-body.i05
     q: 坐姿槓鈴肩推（Seated Barbell Shoulder Press）的槓鈴路徑
@@ -1001,7 +1203,9 @@ topics:
     terms: [seated-barbell-shoulder-press, five-point-body-contact-position, closed-grip, pronated-grip, alternated-grip, spotter]
     numbers: []
     concepts: [technique, safety]
-    related: []
+    related:
+    - ch02.joint-biomechanics.i04
+    - ch17.exercise-selection.i02
     locator: 'Seated Barbell Shoulder Press (and Dumbbell Variation)'
   - id: ch15.upper-body.i06
     q: 直立划船（Upright Row）的手肘與槓鈴路徑
@@ -1012,7 +1216,9 @@ topics:
     terms: [upright-row, closed-grip, pronated-grip, grip-width]
     numbers: []
     concepts: [technique, safety]
-    related: []
+    related:
+    - ch02.joint-biomechanics.i04
+    - ch17.exercise-selection.i02
     locator: 'Upright Row'
   - id: ch15.upper-body.i07
     q: 槓鈴二頭肌彎舉（Barbell Biceps Curl）的控制要點
@@ -1023,7 +1229,10 @@ topics:
     terms: [barbell-biceps-curl, closed-grip, supinated-grip, sticking-point]
     numbers: []
     concepts: [technique]
-    related: [ch15.breathing.i03]
+    related:
+    - ch02.levers.i06
+    - ch17.exercise-selection.i02
+    - ch15.breathing.i03
     locator: 'Barbell Biceps Curl'
   - id: ch15.upper-body.i08
     q: 三頭肌下壓（Triceps Pushdown）的起始與下壓
@@ -1040,7 +1249,9 @@ topics:
       unit: 公分
       of: 三頭肌下壓閉合正手握的握距
     concepts: [technique, safety]
-    related: []
+    related:
+    - ch02.musculature.i04
+    - ch17.exercise-selection.i02
     locator: 'Triceps Pushdown (Machine)'
 - id: weight-belt
   title: 護腰帶使用指引
@@ -1055,7 +1266,9 @@ topics:
     terms: [weight-belt]
     numbers: []
     concepts: [technique, safety]
-    related: []
+    related:
+    - ch02.joint-biomechanics.i03
+    - ch16.general-guidelines.i04
     locator: 'Fundamentals of Exercise Technique > Weight Belts'
   - id: ch15.weight-belt.i02
     q: 建議使用護腰帶的條件
@@ -1065,7 +1278,9 @@ topics:
     terms: [weight-belt]
     numbers: []
     concepts: [technique, safety]
-    related: []
+    related:
+    - ch17.exercise-selection.i03
+    - ch02.joint-biomechanics.i03
     locator: 'Fundamentals of Exercise Technique > Weight Belts'
   - id: ch15.weight-belt.i03
     q: 哪些情況不需要護腰帶？
@@ -1076,7 +1291,9 @@ topics:
     terms: [weight-belt]
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.upper-body.i04, ch15.upper-body.i07]
+    related:
+    - ch16.general-guidelines.i01
+    - ch02.joint-biomechanics.i02
     locator: 'Fundamentals of Exercise Technique > Weight Belts'
   - id: ch15.weight-belt.i04
     q: 太常使用護腰帶的缺點
@@ -1086,7 +1303,9 @@ topics:
     terms: [weight-belt]
     numbers: []
     concepts: [technique]
-    related: []
+    related:
+    - ch17.principles-exam-tips.i03
+    - ch16.machine-vs-freeweight.i03
     locator: 'Fundamentals of Exercise Technique > Weight Belts'
   - id: ch15.weight-belt.i05
     q: 護腰帶使用的判斷原則
@@ -1096,7 +1315,9 @@ topics:
     terms: [weight-belt]
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.weight-belt.i02, ch15.weight-belt.i03]
+    related:
+    - ch17.needs-analysis.i03
+    - ch02.joint-biomechanics.i03
     locator: 'Fundamentals of Exercise Technique > Weight Belts'
   - id: ch15.weight-belt.i06
     q: 護腰帶與安全技術的關係
@@ -1106,7 +1327,9 @@ topics:
     terms: [weight-belt, spotter]
     numbers: []
     concepts: [technique, safety]
-    related: []
+    related:
+    - ch24.supervision.i04
+    - ch02.joint-biomechanics.i02
     locator: 'Fundamentals of Exercise Technique > Weight Belts'
   - id: ch15.weight-belt.i07
     q: 結構性動作（structural exercises）的定義
@@ -1116,7 +1339,10 @@ topics:
     terms: [structural-exercise]
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.breathing.i06]
+    related:
+    - ch17.exercise-selection.i03
+    - ch02.joint-biomechanics.i03
+    - ch15.breathing.i06
     locator: 'Fundamentals of Exercise Technique > Breathing Considerations'
   - id: ch15.weight-belt.i08
     q: 護腰帶使用的總結
@@ -1126,7 +1352,10 @@ topics:
     terms: [weight-belt]
     numbers: []
     concepts: [technique, safety]
-    related: [ch15.weight-belt.i02, ch15.weight-belt.i03]
+    related:
+    - ch17.exercise-selection.i03
+    - ch02.joint-biomechanics.i03
+    - ch15.weight-belt.i02
     locator: 'Fundamentals of Exercise Technique > Weight Belts'
 cards:
 - q: 正手握（pronated grip）如何定位？
