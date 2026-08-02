@@ -22,6 +22,7 @@ topics:
     - gas-exchange
     related:
     - ch06.detraining.i06
+    - ch13.aerobic-capacity.i01
     locator: Factors Related to Aerobic Endurance Performance > Maximal Aerobic Capacity
   - id: ch20.aerobic-performance-factors.i02
     q: 乳酸閾值（lactate threshold, LT）如何界定？
@@ -69,6 +70,7 @@ topics:
     - energy-supply
     related:
     - ch06.chronic-muscular.i05
+    - ch19.sprint-speed-components.i01
     locator: Factors Related to Aerobic Endurance Performance > Exercise Economy
   - id: ch20.aerobic-performance-factors.i05
     q: 脂肪作為燃料的使用效率在本章的定位為何？
@@ -85,6 +87,7 @@ topics:
     - energy-supply
     related:
     - ch03.substrate.i04
+    - ch09.fat.i06
     locator: Factors Related to Aerobic Endurance Performance > Maximal Aerobic Capacity
   - id: ch20.aerobic-performance-factors.i06
     q: Type I 肌纖維與 LSD 訓練的關係為何？
@@ -167,7 +170,7 @@ topics:
     - adaptation
     - gas-exchange
     related:
-    - ch12.selection-factors.i07
+    - ch06.external-factors.i01
     locator: Special Issues Related to Aerobic Endurance Training > Altitude
   - id: ch20.altitude-training.i02
     q: 高度增加為何會影響氣體交換與有氧表現？
@@ -183,7 +186,8 @@ topics:
     - adaptation
     - gas-exchange
     related:
-    - ch01.respiratory.alveolar-pressure
+    - ch01.respiratory.gas-exchange
+    - ch06.external-factors.i01
     locator: Special Issues Related to Aerobic Endurance Training > Altitude
   - id: ch20.altitude-training.i03
     q: 急性高地暴露何時可能開始降低有氧耐力表現？
@@ -200,7 +204,7 @@ topics:
     - adaptation
     - gas-exchange
     related:
-    - ch12.selection-factors.i07
+    - ch06.external-factors.i01
     locator: Special Issues Related to Aerobic Endurance Training > Altitude
   - id: ch20.altitude-training.i04
     q: 中度高度的適應（acclimatization）時間範圍為何？
@@ -222,7 +226,7 @@ topics:
     - adaptation
     - gas-exchange
     related:
-    - ch06.chronic-cardiovascular.i03
+    - ch06.external-factors.i03
     locator: Special Issues Related to Aerobic Endurance Training > Altitude
   - id: ch20.altitude-training.i05
     q: 「高住低練」（live high, train low, LHTL）如何執行？
@@ -241,7 +245,7 @@ topics:
     - adaptation
     - gas-exchange
     related:
-    - ch06.chronic-cardiovascular.i03
+    - ch06.external-factors.i02
     locator: Special Issues Related to Aerobic Endurance Training > Altitude
   - id: ch20.altitude-training.i06
     q: 教材報告的高地訓練低氧劑量為何？
@@ -264,7 +268,7 @@ topics:
     - adaptation
     - gas-exchange
     related:
-    - ch06.chronic-cardiovascular.i03
+    - ch20.altitude-training.i04
     locator: Special Issues Related to Aerobic Endurance Training > Altitude
   - id: ch20.altitude-training.i07
     q: 教材如何描述高地比賽前的抵達建議？
@@ -284,7 +288,7 @@ topics:
     - adaptation
     - gas-exchange
     related:
-    - ch12.selection-factors.i07
+    - ch06.external-factors.i03
     locator: Special Issues Related to Aerobic Endurance Training > Altitude
   - id: ch20.altitude-training.i08
     q: LHTL 可能產生增能效果的理由為何？
@@ -299,7 +303,7 @@ topics:
     - adaptation
     - gas-exchange
     related:
-    - ch06.chronic-cardiovascular.i03
+    - ch06.external-factors.i02
     locator: Special Issues Related to Aerobic Endurance Training > Altitude
 - id: hr-calculations
   title: 心跳率計算 HR Calculations
@@ -338,6 +342,7 @@ topics:
     - normal-values
     related:
     - ch01.cardiovascular.heart-rate
+    - ch20.hr-calculations.i01
     locator: "Designing an Aerobic Endurance Program > Step 3: Training Intensity > Heart Rate"
   - id: ch20.hr-calculations.i03
     q: Karvonen 法如何計算目標心率範圍（target heart rate range, THRR）？
@@ -355,7 +360,7 @@ topics:
     - measurement
     - normal-values
     related:
-    - ch06.acute-cardiovascular.i03
+    - ch20.hr-calculations.i02
     locator: "Designing an Aerobic Endurance Program > Step 3: Training Intensity > Heart Rate"
   - id: ch20.hr-calculations.i04
     q: Karvonen 法的教材範例結果為何？
@@ -391,7 +396,7 @@ topics:
     - measurement
     - normal-values
     related:
-    - ch06.acute-cardiovascular.i03
+    - ch20.hr-calculations.i03
     locator: "Designing an Aerobic Endurance Program > Step 3: Training Intensity > Heart Rate"
   - id: ch20.hr-calculations.i05
     q: 最大心率百分比（percentage of maximal heart rate, MHR）法公式為何？
@@ -408,7 +413,7 @@ topics:
     - measurement
     - normal-values
     related:
-    - ch06.acute-cardiovascular.i03
+    - ch20.hr-calculations.i01
     locator: "Designing an Aerobic Endurance Program > Step 3: Training Intensity > Heart Rate"
   - id: ch20.hr-calculations.i06
     q: 最大心率百分比法的教材範例結果為何？
@@ -440,7 +445,7 @@ topics:
     - measurement
     - normal-values
     related:
-    - ch06.acute-cardiovascular.i03
+    - ch20.hr-calculations.i05
     locator: "Designing an Aerobic Endurance Program > Step 3: Training Intensity > Heart Rate"
   - id: ch20.hr-calculations.i07
     q: 表 20.1 中 V̇O₂max、HRR 與 MHR 百分比的關係為何？
@@ -499,7 +504,8 @@ topics:
     - measurement
     - program-design
     related:
-    - ch13.aerobic-capacity.i04
+    - ch13.aerobic-capacity.i06
+    - ch12.why-test.i04
     locator: "Designing an Aerobic Endurance Program > Step 3: Training Intensity"
   - id: ch20.intensity-monitoring.i02
     q: 心率（heart rate）何時適合用來處方有氧強度？
@@ -570,6 +576,7 @@ topics:
     - program-design
     related:
     - ch06.acute-cardiovascular.i04
+    - ch13.aerobic-capacity.i01
     locator: "Designing an Aerobic Endurance Program > Step 3: Training Intensity > Metabolic Equivalents"
   - id: ch20.intensity-monitoring.i05
     q: 自行車功率量測（power measurement）的優勢與限制為何？
@@ -585,7 +592,7 @@ topics:
     - measurement
     - program-design
     related:
-    - ch13.aerobic-capacity.i04
+    - ch12.reliability.i01
     locator: "Designing an Aerobic Endurance Program > Step 3: Training Intensity > Power Measurement"
   - id: ch20.intensity-monitoring.i06
     q: 以 APMHR 監測強度有哪些限制？
@@ -621,7 +628,7 @@ topics:
     - measurement
     - program-design
     related:
-    - ch13.aerobic-capacity.i01
+    - ch13.aerobic-capacity.i06
     locator: "Designing an Aerobic Endurance Program > Step 3: Training Intensity > Heart Rate"
   - id: ch20.intensity-monitoring.i08
     q: 為何使用表 20.1 比只看相同百分比更合適？
@@ -803,7 +810,7 @@ topics:
     concepts:
     - program-design
     related:
-    - ch12.selection-factors.i02
+    - ch17.exercise-selection.i05
     locator: "Designing an Aerobic Endurance Program > Step 1: Exercise Mode"
   - id: ch20.program-design.i02
     q: 步驟 2：哪些因素決定訓練頻率（training frequency）？
@@ -847,7 +854,7 @@ topics:
     - program-design
     - adaptation
     related:
-    - ch18.intensity-volume.i06
+    - ch17.principles-exam-tips.i02
     locator: "Designing an Aerobic Endurance Program > Step 3: Training Intensity"
   - id: ch20.program-design.i04
     q: 步驟 4：運動持續時間（exercise duration）與強度的例子為何？
@@ -873,7 +880,7 @@ topics:
     concepts:
     - program-design
     related:
-    - ch18.intensity-volume.i06
+    - ch03.lactate.i03
     locator: "Designing an Aerobic Endurance Program > Step 4: Exercise Duration"
   - id: ch20.program-design.i05
     q: 步驟 5：有氧訓練進展（exercise progression）原則為何？
@@ -895,7 +902,7 @@ topics:
     - program-design
     - periodization
     related:
-    - ch17.training-volume.i01
+    - ch17.principles-exam-tips.i03
     locator: "Designing an Aerobic Endurance Program > Step 5: Exercise Progression"
   - id: ch20.program-design.i06
     q: 有氧訓練課之間的恢復原則為何？
@@ -914,6 +921,7 @@ topics:
     - nutrition
     related:
     - ch10.post-competition.i03
+    - ch09.hydration.i06
     locator: "Designing an Aerobic Endurance Program > Step 2: Training Frequency"
   - id: ch20.program-design.i07
     q: 降低頻率時，有氧適能可維持多久？
@@ -969,7 +977,7 @@ topics:
     - program-design
     - safety
     related:
-    - ch06.detraining.i08
+    - ch06.detraining.i03
     locator: Special Issues Related to Aerobic Endurance Training > Cross-Training
   - id: ch20.special-issues.i02
     q: 去訓練（detraining）是什麼，如何減少其影響？
@@ -1004,6 +1012,8 @@ topics:
     - periodization
     related:
     - ch06.detraining.i08
+    - ch10.carb-loading.i01
+    - ch09.hydration.i06
     locator: Special Issues Related to Aerobic Endurance Training > Tapering
   - id: ch20.special-issues.i04
     q: 三種減量訓練模型如何區分？
@@ -1042,6 +1052,7 @@ topics:
     - safety
     related:
     - ch17.needs-analysis.i06
+    - ch05.cardiovascular-adaptations.i08
     locator: Special Issues Related to Aerobic Endurance Training > Resistance Training
   - id: ch20.special-issues.i06
     q: Mikkola 等人研究對不同阻力訓練方式的發現為何？
@@ -1055,7 +1066,7 @@ topics:
     - program-design
     - adaptation
     related:
-    - ch17.training-volume.i06
+    - ch17.load-repetitions.i04
     locator: Special Issues Related to Aerobic Endurance Training > Resistance Training
   - id: ch20.special-issues.i07
     q: 交叉訓練對單項運動員的限制為何？
@@ -1124,6 +1135,7 @@ topics:
     related:
     - ch06.chronic-muscular.i01
     - ch06.chronic-muscular.i04
+    - ch10.during-event.i04
     locator: Types of Aerobic Endurance Training Programs > Long, Slow Distance Training > Table 20.4 Types of Aerobic Endurance Training
   - id: ch20.training-types.i02
     q: 配速／節奏訓練（pace/tempo training）如何進行？
@@ -1175,6 +1187,7 @@ topics:
     - energy-supply
     related:
     - ch03.metabolic-specificity.i02
+    - ch14.ramp-protocol.i08
     locator: Types of Aerobic Endurance Training Programs > Interval Training > Table 20.4 Types of Aerobic Endurance Training
   - id: ch20.training-types.i04
     q: 高強度間歇訓練（high-intensity interval training, HIIT）如何處方？
@@ -1247,7 +1260,7 @@ topics:
     - program-design
     - energy-supply
     related:
-    - ch06.detraining.i07
+    - ch03.metabolic-specificity.i02
     locator: Types of Aerobic Endurance Training Programs > Fartlek Training > Table 20.4 Types of Aerobic Endurance Training
   - id: ch20.training-types.i06
     q: 過度依賴 LSD 訓練的限制為何？
@@ -1331,8 +1344,7 @@ topics:
     concepts:
     - program-design
     - energy-supply
-    related:
-    - ch17.training-frequency.i02
+    related: []
     locator: Types of Aerobic Endurance Training Programs > Table 20.4 Types of Aerobic Endurance Training
 cards:
 - q: 有氧耐力表現的相關因素有哪些？
