@@ -21,7 +21,6 @@ topics:
     - professional
     related:
     - ch24.personnel.i05
-    - ch24.supervision.i04
     locator: Test Administration > Selection and Training of Testers
   - id: ch12.administration.i02
     q: 測驗格式中的施測者一致性
@@ -37,7 +36,6 @@ topics:
     - professional
     related:
     - ch24.personnel.i05
-    - ch24.supervision.i04
     locator: Test Administration > Test Format
   - id: ch12.administration.i03
     q: 記錄表單
@@ -56,7 +54,6 @@ topics:
     - professional
     related:
     - ch24.ethics-records.i02
-    - ch13.test-administration.i01
     locator: Test Administration > Recording Forms
   - id: ch12.administration.i04
     q: 測前熟悉與準備運動員
@@ -75,10 +72,9 @@ topics:
     concepts:
     - measurement
     - professional
+    locator: Test Administration > Preparing Athletes for Testing
     related:
     - ch13.test-administration.i04
-    - ch14.ramp-protocol.i04
-    locator: Test Administration > Preparing Athletes for Testing
   - id: ch12.administration.i05
     q: 測前熱身
     a:
@@ -94,7 +90,6 @@ topics:
     - measurement
     - professional
     related:
-    - ch14.ramp-protocol.i02
     - ch14.dynamic-stretch.i03
     locator: Test Administration > Preparing Athletes for Testing
   - id: ch12.administration.i06
@@ -111,9 +106,7 @@ topics:
     concepts:
     - measurement
     - professional
-    related:
-    - ch15.exercise-technique-fundamentals.i08
-    - ch24.supervision.i04
+    related: []
     locator: Test Administration > Preparing Athletes for Testing
   - id: ch12.administration.i07
     q: 多次嘗試與測驗組合的休息時間
@@ -136,10 +129,9 @@ topics:
     concepts:
     - measurement
     - professional
+    locator: Test Administration > Testing Batteries and Multiple Testing Trials
     related:
     - ch13.max-strength.i05
-    - ch17.rest-periods.i08
-    locator: Test Administration > Testing Batteries and Multiple Testing Trials
   - id: ch12.administration.i08
     q: 緩和運動
     a:
@@ -152,9 +144,7 @@ topics:
     concepts:
     - measurement
     - professional
-    related:
-    - ch14.static-stretch.i04
-    - ch13.test-administration.i03
+    related: []
     locator: Test Administration > Preparing Athletes for Testing
 - id: reliability
   title: 信度 Reliability
@@ -176,7 +166,6 @@ topics:
     - measurement
     related:
     - ch12.validity.i01
-    - ch13.test-administration.i07
     locator: Evaluation of Test Quality > Reliability
   - id: ch12.reliability.i02
     q: 重測信度（test–retest reliability）
@@ -189,10 +178,9 @@ topics:
     numbers: []
     concepts:
     - measurement
+    locator: Evaluation of Test Quality > Reliability
     related:
     - ch13.test-administration.i07
-    - ch21.fitness-fatigue.i01
-    locator: Evaluation of Test Quality > Reliability
   - id: ch12.reliability.i03
     q: 典型測量誤差（typical error of measurement, TE）
     a:
@@ -205,7 +193,6 @@ topics:
     - measurement
     related:
     - ch13.agility-speed.i07
-    - ch24.facility.i03
     locator: Evaluation of Test Quality > Reliability
   - id: ch12.reliability.i04
     q: 受試者內變異（intrasubject variability）
@@ -219,8 +206,8 @@ topics:
     concepts:
     - measurement
     related:
-    - ch13.test-administration.i03
     - ch21.fitness-fatigue.i02
+    - ch13.test-administration.i03
     locator: Evaluation of Test Quality > Reliability
   - id: ch12.reliability.i05
     q: 評分者間信度（interrater reliability）
@@ -237,8 +224,8 @@ topics:
     concepts:
     - measurement
     related:
-    - ch13.balance-flexibility-bc.i05
     - ch24.personnel.i05
+    - ch13.balance-flexibility-bc.i05
     locator: Evaluation of Test Quality > Reliability
   - id: ch12.reliability.i06
     q: 評分者內變異（intrarater variability）
@@ -253,7 +240,6 @@ topics:
     concepts:
     - measurement
     related:
-    - ch13.balance-flexibility-bc.i05
     - ch24.personnel.i05
     locator: Evaluation of Test Quality > Reliability
   - id: ch12.reliability.i07
@@ -268,7 +254,6 @@ topics:
     - measurement
     related:
     - ch15.exercise-technique-fundamentals.i07
-    - ch13.max-strength.i07
     locator: Evaluation of Test Quality > Reliability
   - id: ch12.reliability.i08
     q: 可靠不等於有效
@@ -283,9 +268,7 @@ topics:
     numbers: []
     concepts:
     - measurement
-    related:
-    - ch13.test-administration.i05
-    - ch17.needs-analysis.i05
+    related: []
     locator: Evaluation of Test Quality > Reliability
 - id: safety
   title: 健康安全 Safety
@@ -305,7 +288,6 @@ topics:
     - measurement
     - safety
     related:
-    - ch24.screening.i01
     - ch22.sports-medicine-team.i07
     locator: Test Administration > Health and Safety Considerations
   - id: ch12.safety.i02
@@ -326,7 +308,6 @@ topics:
     - safety
     related:
     - ch24.screening.i03
-    - ch13.max-strength.i02
     locator: Test Administration > Health and Safety Considerations
   - id: ch12.safety.i03
     q: 高溫高濕中的熱傷害風險
@@ -341,7 +322,6 @@ topics:
     - measurement
     - safety
     related:
-    - ch24.emergency.i01
     - ch09.hydration.i02
     locator: Test Administration > Health and Safety Considerations
   - id: ch12.safety.i04
@@ -362,7 +342,6 @@ topics:
     - measurement
     - safety
     related:
-    - ch13.aerobic-capacity.i08
     - ch23.environment.i02
     locator: Test Administration > Health and Safety Considerations > Aerobic Endurance Testing in the Heat
   - id: ch12.safety.i05
@@ -381,7 +360,6 @@ topics:
     - safety
     related:
     - ch09.electrolytes.i07
-    - ch20.program-design.i05
     locator: Test Administration > Health and Safety Considerations > Aerobic Endurance Testing in the Heat
   - id: ch12.safety.i06
     q: 熱中有氧測驗前的補水
@@ -401,7 +379,6 @@ topics:
     - safety
     related:
     - ch09.hydration.i03
-    - ch10.pre-competition.i08
     locator: Test Administration > Health and Safety Considerations > Aerobic Endurance Testing in the Heat
   - id: ch12.safety.i07
     q: 熱中運動期間的飲水
@@ -423,7 +400,6 @@ topics:
     - safety
     related:
     - ch10.during-event.i01
-    - ch09.electrolytes.i04
     locator: Test Administration > Health and Safety Considerations > Aerobic Endurance Testing in the Heat
   - id: ch12.safety.i08
     q: 低血鈉症（hyponatremia）或水中毒
@@ -464,7 +440,6 @@ topics:
     - energy-supply
     related:
     - ch03.metabolic-specificity.i01
-    - ch13.anaerobic-endurance.i01
     locator: Test Selection > Metabolic Energy System Specificity
   - id: ch12.selection-factors.i02
     q: 生物力學動作模式特異性
@@ -1019,8 +994,8 @@ topics:
     concepts:
     - measurement
     related:
-    - ch13.statistics.i08
     - ch17.needs-analysis.i01
+    - ch13.statistics.i08
     locator: Evaluation of Test Quality > Validity > Criterion-Referenced Validity
   - id: ch12.validity.i08
     q: 區辨效度（discriminant validity）
@@ -1057,7 +1032,6 @@ topics:
     - professional
     related:
     - ch17.needs-analysis.i01
-    - ch13.statistics.i08
     locator: Reasons for Testing > Assessment of Athletic Talent
   - id: ch12.why-test.i02
     q: 識別需要改善的身體能力
@@ -1089,7 +1063,6 @@ topics:
     - psychology
     related:
     - ch08.goal-setting.i06
-    - ch17.load-repetitions.i07
     locator: Reasons for Testing
   - id: ch12.why-test.i04
     q: 以定期測驗評估進度與計畫
@@ -1104,7 +1077,6 @@ topics:
     - measurement
     related:
     - ch21.fitness-fatigue.i02
-    - ch17.principles-exam-tips.i03
     locator: Reasons for Testing
   - id: ch12.why-test.i05
     q: 場地測驗（field test）作為選才工具
@@ -1118,9 +1090,7 @@ topics:
     concepts:
     - measurement
     - professional
-    related:
-    - ch13.agility-speed.i02
-    - ch13.power-tests.i04
+    related: []
     locator: Reasons for Testing > Assessment of Athletic Talent
   - id: ch12.why-test.i06
     q: 形成性評估（formative evaluation）的訓練用途
@@ -1134,9 +1104,7 @@ topics:
     numbers: []
     concepts:
     - measurement
-    related:
-    - ch17.load-repetitions.i07
-    - ch21.fitness-fatigue.i01
+    related: []
     locator: Testing Terminology
   - id: ch12.why-test.i07
     q: 基準測量的角色
@@ -1151,7 +1119,6 @@ topics:
     - measurement
     related:
     - ch08.goal-setting.i05
-    - ch17.principles-exam-tips.i03
     locator: Reasons for Testing
   - id: ch12.why-test.i08
     q: 測驗與測量在評估中的定位
@@ -1169,7 +1136,6 @@ topics:
     - professional
     related:
     - ch13.test-administration.i08
-    - ch24.ethics-records.i02
     locator: Conclusion
 cards:
 - q: 對運動員施測可有哪些用途？
