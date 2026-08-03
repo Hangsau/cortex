@@ -33,7 +33,6 @@ topics:
     - normal-values
     related:
     - ch20.aerobic-performance-factors.i01
-    - ch01.cardiovascular.blood
     locator: Acute Responses to Aerobic Exercise > Cardiovascular Responses > Cardiac Output
   - id: ch06.acute-cardiovascular.i02
     q: 有氧運動時每搏量（stroke volume, SV）何時進入平臺？
@@ -65,7 +64,6 @@ topics:
     - circulation
     - adaptation
     related:
-    - ch20.hr-calculations.i07
     - ch05.cardiovascular-adaptations.i01
     locator: Acute Responses to Aerobic Exercise > Cardiovascular Responses > Cardiac Output
   - id: ch06.acute-cardiovascular.i03
@@ -127,7 +125,6 @@ topics:
     - gas-exchange
     - measurement
     related:
-    - ch20.aerobic-performance-factors.i01
     - ch13.aerobic-capacity.i01
     locator: Acute Responses to Aerobic Exercise > Oxygen Uptake
   - id: ch06.acute-cardiovascular.i05
@@ -150,7 +147,6 @@ topics:
     - circulation
     related:
     - ch01.cardiovascular.muscle-pump
-    - ch01.cardiovascular.heart-chambers
     locator: Acute Responses to Aerobic Exercise > Cardiovascular Responses > Stroke Volume
   - id: ch06.acute-cardiovascular.i06
     q: 收縮壓（systolic blood pressure, SBP）與雙乘積如何反映心臟工作？
@@ -173,7 +169,6 @@ topics:
     - normal-values
     related:
     - ch05.cardiovascular-adaptations.i02
-    - ch12.safety.i02
     locator: Acute Responses to Aerobic Exercise > Blood Pressure
   - id: ch06.acute-cardiovascular.i07
     q: 舒張壓與平均動脈壓在有氧運動中如何判讀？
@@ -194,7 +189,6 @@ topics:
     - circulation
     - measurement
     related:
-    - ch05.cardiovascular-adaptations.i02
     - ch01.cardiovascular.vessels
     locator: Acute Responses to Aerobic Exercise > Blood Pressure
   - id: ch06.acute-cardiovascular.i08
@@ -219,7 +213,6 @@ topics:
     - circulation
     related:
     - ch01.cardiovascular.vessels
-    - ch20.intensity-monitoring.i02
     locator: Acute Responses to Aerobic Exercise > Control of Local Circulation
 - id: acute-respiratory
   title: 急性呼吸反應 Acute Respiratory Response
@@ -258,9 +251,7 @@ topics:
     concepts:
     - gas-exchange
     - normal-values
-    related:
-    - ch01.respiratory.airway
-    - ch03.epoc.i02
+    related: []
     locator: Acute Responses to Aerobic Exercise > Respiratory Responses
   - id: ch06.acute-respiratory.i02
     q: 為什麼增加潮氣量比只增加呼吸頻率更有效率？
@@ -277,7 +268,6 @@ topics:
     concepts:
     - gas-exchange
     related:
-    - ch01.respiratory.inspiration
     - ch01.respiratory.airway
     locator: Acute Responses to Aerobic Exercise > Respiratory Responses
   - id: ch06.acute-respiratory.i03
@@ -310,7 +300,6 @@ topics:
     - measurement
     related:
     - ch03.lactate.i04
-    - ch20.aerobic-performance-factors.i02
     locator: Acute Responses to Aerobic Exercise > Respiratory Responses
   - id: ch06.acute-respiratory.i04
     q: 解剖死腔與生理死腔有何不同？
@@ -335,7 +324,6 @@ topics:
     - normal-values
     related:
     - ch01.respiratory.airway
-    - ch20.altitude-training.i02
     locator: Acute Responses to Aerobic Exercise > Respiratory Responses
   - id: ch06.acute-respiratory.i05
     q: 靜息與高強度有氧運動時，組織氣體分壓如何改變？
@@ -424,7 +412,6 @@ topics:
     - circulation
     related:
     - ch01.cardiovascular.blood
-    - ch01.respiratory.gas-exchange
     locator: Acute Responses to Aerobic Exercise > Blood Transport of Gases and Metabolic By-Products
   - id: ch06.acute-respiratory.i08
     q: 低、中與高強度運動時，乳酸生成與移除如何改變？
@@ -442,8 +429,8 @@ topics:
     - energy-supply
     - gas-exchange
     related:
-    - ch03.lactate.i04
-    - ch20.aerobic-performance-factors.i02
+    - ch03.lactate.i05
+    - ch03.lactate.i07
     locator: Acute Responses to Aerobic Exercise > Blood Transport of Gases and Metabolic By-Products
 - id: chronic-cardiovascular
   title: 慢性心血管適應 Chronic Cardiovascular Adaptations
@@ -469,7 +456,6 @@ topics:
     - circulation
     related:
     - ch20.aerobic-performance-factors.i01
-    - ch13.aerobic-capacity.i01
     locator: Chronic Adaptations to Aerobic Exercise > Cardiovascular Adaptations
   - id: ch06.chronic-cardiovascular.i02
     q: 有氧耐力訓練如何提高次最大與最大運動時的每搏量？
@@ -486,9 +472,7 @@ topics:
     concepts:
     - adaptation
     - circulation
-    related:
-    - ch20.aerobic-performance-factors.i01
-    - ch20.training-types.i01
+    related: []
     locator: Chronic Adaptations to Aerobic Exercise > Cardiovascular Adaptations
   - id: ch06.chronic-cardiovascular.i03
     q: 為什麼高度訓練的有氧耐力選手常出現靜息心搏徐緩？
@@ -514,7 +498,6 @@ topics:
     - adaptation
     - circulation
     related:
-    - ch20.intensity-monitoring.i02
     - ch01.cardiovascular.heart-rate
     locator: Chronic Adaptations to Aerobic Exercise > Cardiovascular Adaptations
   - id: ch06.chronic-cardiovascular.i04
@@ -531,8 +514,7 @@ topics:
     - adaptation
     - circulation
     related:
-    - ch20.hr-calculations.i02
-    - ch20.intensity-monitoring.i02
+    - ch06.connective-endocrine.i04
     locator: Chronic Adaptations to Aerobic Exercise > Cardiovascular Adaptations
   - id: ch06.chronic-cardiovascular.i05
     q: 長期有氧耐力訓練一定會提高最大心率嗎？
@@ -550,7 +532,6 @@ topics:
     - circulation
     related:
     - ch20.intensity-monitoring.i06
-    - ch20.hr-calculations.i01
     locator: Chronic Adaptations to Aerobic Exercise > Cardiovascular Adaptations
   - id: ch06.chronic-cardiovascular.i06
     q: 肌纖維微血管密度增加有何作用？
@@ -566,7 +547,6 @@ topics:
     - adaptation
     - circulation
     related:
-    - ch20.aerobic-performance-factors.i05
     - ch05.hypertrophy.i07
     locator: Chronic Adaptations to Aerobic Exercise > Cardiovascular Adaptations
   - id: ch06.chronic-cardiovascular.i07
@@ -583,9 +563,7 @@ topics:
     concepts:
     - adaptation
     - gas-exchange
-    related:
-    - ch20.aerobic-performance-factors.i02
-    - ch03.lactate.i08
+    related: []
     locator: Chronic Adaptations to Aerobic Exercise > Respiratory Adaptations
   - id: ch06.chronic-cardiovascular.i08
     q: 有氧耐力訓練初期有哪些神經系統適應？
@@ -601,8 +579,7 @@ topics:
     - adaptation
     - motor-control
     related:
-    - ch01.cardiovascular.heart-rate
-    - ch20.program-design.i05
+    - ch01.neuromuscular.motor-unit
     locator: Chronic Adaptations to Aerobic Exercise > Neural Adaptations
 - id: chronic-muscular
   title: 慢性肌肉適應 Chronic Muscular Adaptations
@@ -625,7 +602,6 @@ topics:
     - energy-supply
     related:
     - ch03.oxidative.i02
-    - ch20.aerobic-performance-factors.i05
     locator: Chronic Adaptations to Aerobic Exercise > Muscular Adaptations
   - id: ch06.chronic-muscular.i02
     q: 肌紅蛋白（myoglobin）在有氧訓練適應中扮演什麼角色？
@@ -642,7 +618,6 @@ topics:
     - adaptation
     - gas-exchange
     related:
-    - ch20.aerobic-performance-factors.i01
     - ch01.cardiovascular.blood
     locator: Chronic Adaptations to Aerobic Exercise > Muscular Adaptations
   - id: ch06.chronic-muscular.i03
@@ -661,7 +636,6 @@ topics:
     - fiber-type
     related:
     - ch05.hypertrophy.i06
-    - ch20.aerobic-performance-factors.i06
     locator: Chronic Adaptations to Aerobic Exercise > Muscular Adaptations
   - id: ch06.chronic-muscular.i04
     q: 有氧耐力訓練會把第二型肌纖維轉成第一型嗎？
@@ -679,7 +653,6 @@ topics:
     - fiber-type
     related:
     - ch05.fiber-type-transitions.i01
-    - ch01.fiber-types.type-i
     locator: Chronic Adaptations to Aerobic Exercise > Muscular Adaptations
   - id: ch06.chronic-muscular.i05
     q: 訓練後為何能在更高相對強度下延續有氧表現？
@@ -702,7 +675,6 @@ topics:
     - energy-supply
     related:
     - ch03.lactate.i08
-    - ch20.aerobic-performance-factors.i02
     locator: Chronic Adaptations to Aerobic Exercise > Muscular Adaptations
   - id: ch06.chronic-muscular.i06
     q: 有氧耐力訓練會如何改變肌肉酵素？
@@ -720,7 +692,6 @@ topics:
     - energy-supply
     related:
     - ch03.oxidative.i01
-    - ch20.aerobic-performance-factors.i05
     locator: Chronic Adaptations to Aerobic Exercise > Muscular Adaptations
   - id: ch06.chronic-muscular.i07
     q: 有氧耐力訓練後，肌肉內的能量儲存如何改變？
@@ -759,7 +730,6 @@ topics:
     - fiber-type
     related:
     - ch01.fiber-types.type-i
-    - ch20.aerobic-performance-factors.i06
     locator: Chronic Adaptations to Aerobic Exercise > Muscular Adaptations
 - id: connective-endocrine
   title: 骨骼結締組織 & 內分泌適應 Bone, Connective Tissue & Endocrine
@@ -783,7 +753,6 @@ topics:
     - structure
     related:
     - ch05.connective-tissue.i04
-    - ch07.older-adults-training.i03
     locator: Chronic Adaptations to Aerobic Exercise > Bone and Connective Tissue Adaptations
   - id: ch06.connective-endocrine.i02
     q: 成熟成人的肌腱、韌帶與軟骨如何回應有氧運動刺激？
@@ -831,7 +800,6 @@ topics:
     - structure
     related:
     - ch05.connective-tissue.i07
-    - ch22.injury-types.i08
     locator: Chronic Adaptations to Aerobic Exercise > Bone and Connective Tissue Adaptations
   - id: ch06.connective-endocrine.i04
     q: 受訓運動員在次最大運動時的荷爾蒙反應如何改變？
@@ -869,7 +837,6 @@ topics:
     - hormone
     related:
     - ch04.growth-hormone.i04
-    - ch04.catecholamines.i02
     locator: Chronic Adaptations to Aerobic Exercise > Endocrine Adaptations
   - id: ch06.connective-endocrine.i06
     q: 跑步訓練為何常與肌肉淨蛋白分解增加相關？
@@ -888,7 +855,6 @@ topics:
     - hormone
     related:
     - ch09.protein.i02
-    - ch10.post-competition.i04
     locator: Chronic Adaptations to Aerobic Exercise > Endocrine Adaptations
   - id: ch06.connective-endocrine.i07
     q: 耐力訓練肌肉是否仍可能出現淨蛋白合成？
@@ -921,7 +887,6 @@ topics:
     - nutrition
     related:
     - ch10.obesity-assessment.i05
-    - ch07.female-physiology.i04
     locator: Adaptations to Aerobic Endurance Training
 - id: detraining
   title: 去訓練 & 有氧表現提升 Detraining & Performance
@@ -968,8 +933,7 @@ topics:
     - adaptation
     - periodization
     related:
-    - ch20.special-issues.i02
-    - ch13.aerobic-capacity.i06
+    - ch06.chronic-cardiovascular.i02
     locator: 'Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Detraining'
   - id: ch06.detraining.i03
     q: 長期去訓練對最大攝氧量有何影響？
@@ -991,7 +955,6 @@ topics:
     - adaptation
     - periodization
     related:
-    - ch20.special-issues.i02
     - ch05.detraining.i08
     locator: 'Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Detraining'
   - id: ch06.detraining.i04
@@ -1012,7 +975,6 @@ topics:
     concepts:
     - adaptation
     related:
-    - ch20.aerobic-performance-factors.i01
     - ch20.program-design.i05
     locator: Adaptations to Aerobic Endurance Training
   - id: ch06.detraining.i05
@@ -1044,7 +1006,6 @@ topics:
     - measurement
     related:
     - ch03.lactate.i08
-    - ch20.aerobic-performance-factors.i02
     locator: Adaptations to Aerobic Endurance Training > What Are the Improvements in Performance From Aerobic Exercise?
   - id: ch06.detraining.i06
     q: 最大攝氧量趨於平臺後，耐力表現還能如何改善？
@@ -1138,7 +1099,6 @@ topics:
     - gas-exchange
     related:
     - ch20.altitude-training.i01
-    - ch12.selection-factors.i07
     locator: External and Individual Factors Influencing Adaptations to Aerobic Endurance Training > Altitude
   - id: ch06.external-factors.i02
     q: 較長期的高海拔適應包括哪些變化？
@@ -1167,7 +1127,6 @@ topics:
     - gas-exchange
     related:
     - ch20.altitude-training.i05
-    - ch11.epo-blood-doping.i01
     locator: External and Individual Factors Influencing Adaptations to Aerobic Endurance Training > Altitude
   - id: ch06.external-factors.i03
     q: 中等海拔適應需要多久，回到海平面後又如何？
@@ -1192,7 +1151,6 @@ topics:
     - adaptation
     - safety
     related:
-    - ch20.altitude-training.i04
     - ch20.altitude-training.i07
     locator: External and Individual Factors Influencing Adaptations to Aerobic Endurance Training > Altitude
   - id: ch06.external-factors.i04
@@ -1214,7 +1172,6 @@ topics:
     - safety
     related:
     - ch20.altitude-training.i02
-    - ch11.epo-blood-doping.i04
     locator: External and Individual Factors Influencing Adaptations to Aerobic Endurance Training > Hyperoxic Breathing
   - id: ch06.external-factors.i05
     q: 吸菸如何損害運動時的呼吸與攜氧？
@@ -1234,7 +1191,6 @@ topics:
     - safety
     related:
     - ch01.respiratory.gas-exchange
-    - ch20.intensity-monitoring.i02
     locator: External and Individual Factors Influencing Adaptations to Aerobic Endurance Training > Smoking
   - id: ch06.external-factors.i06
     q: 血液摻假如何進行、可能帶來哪些效果與風險？
@@ -1257,7 +1213,6 @@ topics:
     - safety
     related:
     - ch11.epo-blood-doping.i01
-    - ch20.altitude-training.i05
     locator: External and Individual Factors Influencing Adaptations to Aerobic Endurance Training > Blood Doping
   - id: ch06.external-factors.i07
     q: 遺傳潛能與目前訓練狀態如何限制適應幅度？
@@ -1276,7 +1231,6 @@ topics:
     - population
     related:
     - ch20.program-design.i05
-    - ch21.fitness-fatigue.i06
     locator: External and Individual Factors Influencing Adaptations to Aerobic Endurance Training > Genetic Potential
   - id: ch06.external-factors.i08
     q: 年齡與性別如何影響有氧功率與訓練反應？
@@ -1359,7 +1313,6 @@ topics:
     - periodization
     related:
     - ch05.overtraining.i06
-    - ch21.fitness-fatigue.i02
     locator: 'Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers'
   - id: ch06.overtraining.i04
     q: OTS 可能出現哪些心血管反應？
@@ -1381,7 +1334,6 @@ topics:
     - measurement
     related:
     - ch05.overtraining.i04
-    - ch20.intensity-monitoring.i02
     locator: 'Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Cardiovascular Responses'
   - id: ch06.overtraining.i05
     q: 訓練量過高時，肌酸激酶、乳酸與肌糖原如何改變？
@@ -1399,7 +1351,6 @@ topics:
     - measurement
     related:
     - ch03.substrate.i03
-    - ch05.overtraining.i07
     locator: 'Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Biochemical Responses'
   - id: ch06.overtraining.i06
     q: 睪固酮與皮質醇比值能單獨診斷 OTS 嗎？
@@ -1449,7 +1400,6 @@ topics:
     - measurement
     related:
     - ch04.catecholamines.i05
-    - ch05.overtraining.i08
     locator: 'Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Endocrine Responses'
   - id: ch06.overtraining.i08
     q: 教練與運動員可如何預防 OTS？
@@ -1466,7 +1416,6 @@ topics:
     - program-design
     related:
     - ch21.sfra-theory.i01
-    - ch20.periodization.i08
     locator: 'Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Strategies for Prevention of Overtraining Syndrome > What Are the Markers of Aerobic Overtraining?'
 cards:
 - q: 心輸出量（Q̇）如何計算，最大運動時可達多少？
