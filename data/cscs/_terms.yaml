@@ -551,6 +551,16 @@ power-output:
   zh: "功率輸出"
   abbr: ""
   note: "做功的時間速率：P = W/t = F × v（SI單位：瓦特 W）"
+friction:
+  en: "Friction"
+  zh: "摩擦力"
+  abbr: ""
+  note: "兩接觸面相對滑動時的阻力：FR = k × FN（摩擦係數 × 法向力）；啟動摩擦力大於滑動摩擦力"
+strength-to-mass-ratio:
+  en: "Strength-to-mass ratio"
+  zh: "肌力體重比"
+  abbr: ""
+  note: "肌力相對於自身體重的比值；決定衝刺、跳躍等需加速自身體重的運動表現"
 
 # --- 結締組織與骨骼適應（ch05）---
 osteoblast:
@@ -897,6 +907,31 @@ proteolytic-enzyme:
   abbr: ""
   zh: "蛋白水解酶"
   note: "分解蛋白質的酵素；皮質醇可提升其濃度，加速肌肉蛋白質降解"
+intracrine:
+  en: "Intracrine"
+  abbr: ""
+  zh: "胞內分泌"
+  note: "荷爾蒙在合成它的細胞內部直接作用，不釋出細胞外，也不進入血液循環"
+autocrine:
+  en: "Autocrine"
+  abbr: ""
+  zh: "自分泌"
+  note: "細胞分泌的荷爾蒙作用回自身細胞膜上的受器；肌肉局部合成的 IGF-I 走這條途徑"
+paracrine:
+  en: "Paracrine"
+  abbr: ""
+  zh: "旁分泌"
+  note: "分泌的荷爾蒙擴散到鄰近細胞作用，不經血液循環"
+radioimmunoassay:
+  en: "Radioimmunoassay"
+  abbr: "RIA"
+  zh: "放射免疫測定"
+  note: "以放射性標記抗原競爭抗體結合來定量荷爾蒙的方法；測 GH 時只認得 22 kDa 單體"
+enzyme-linked-immunosorbent-assay:
+  en: "Enzyme-linked immunosorbent assay"
+  abbr: "ELISA"
+  zh: "酵素連結免疫吸附測定"
+  note: "以酵素顯色反應定量抗原的免疫分析法；與 RIA 同樣只偵測 22 kDa GH，因此低估生物活性 GH"
 
 # --- 心血管與呼吸（ch05）---
 stroke-volume:
@@ -3340,6 +3375,14 @@ type-iix-muscle-fiber:
   en: Type IIx muscle fiber
   zh: 第二型 IIx 肌纖維
   note: 長期 LSD 訓練所涉及肌肉中，教材描述可最終轉變為 Type I 的肌纖維類型
+type-iia-muscle-fiber:
+  en: Type IIa muscle fiber
+  zh: 第二型 IIa 肌纖維
+  note: 兼具收縮速度與抗疲勞能力的快縮纖維；阻力訓練使 IIx 轉型為 IIa，去訓練後反轉
+pvc-pipe:
+  en: PVC pipe
+  zh: PVC 管
+  note: 聚氯乙烯管；重量極輕，用於兒童或初學者學習動作技術時取代空槓
 altitude:
   en: Altitude
   zh: 海拔高度

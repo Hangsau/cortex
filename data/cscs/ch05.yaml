@@ -177,7 +177,8 @@ topics:
     - 每週交替 6 天分開訓練（3 天阻力＋3 天有氧）或每週 4–6 天高強度合併訓練較容易出現不相容效應；同一次訓練同時做兩者、每週約 3 天且組間留休息日則較少出現不相容
     - 訓練順序也有影響：25 分鐘有氧運動後 30 分鐘做深蹲，反覆次數比未先做有氧時減少 13–36%
     detail: 干擾效應不是「有氧就會抵銷力量」的全稱命題——書中的反例是每週 4 天分開訓練（2 天阻力＋2 天有氧）比每週 2 天合併訓練對腿推 1RM 的效果更好（25% vs 13%），代表安排的頻率與恢復間隔比「有沒有做有氧」本身更關鍵。
-    terms: []
+    terms:
+    - one-repetition-maximum
     numbers:
     - v: 13–36
       unit: '%'
@@ -413,7 +414,9 @@ topics:
     - 等長膝伸展力 –7%、等速向心膝伸展力 –2.3%、垂直跳表現 +1.2%（幾乎無變化）
     - 休閒訓練男性在停訓前 6 週內變化非常小
     detail: 這組數字說明短期停訓（2 週）對訓練有素者的影響其實很輕微，垂直跳甚至沒有下滑——這與「停練馬上退步」的直覺不同，也支持前一條「肌力一般可維持 4 週」的說法。
-    terms: []
+    terms:
+    - one-repetition-maximum
+    - bench-press
     numbers:
     - v: -1.7
       unit: "%"
@@ -434,7 +437,8 @@ topics:
     - 肌力損失伴隨著雙側與單側最大肌電圖（EMG）活性下降
     - 肌力下降初期與神經機制相關，隨去訓練期間拉長，肌肉萎縮才逐漸取代神經因素成為主因
     detail: EMG 下降先於（並先於）明顯的肌肉萎縮，說明肌力流失的順序與獲得時相似——神經適應先變化，結構性適應（肌肉量）的改變在後，這跟本章神經適應主題「肌力增益初期多來自神經」的邏輯剛好對稱。
-    terms: []
+    terms:
+    - electromyography
     numbers:
     - v: 7-12
       unit: "%"
@@ -481,7 +485,8 @@ topics:
     - Hortobagyi 等人對 12 位訓練有素舉重選手的研究：停訓 14 天，快縮纖維 CSA 下降 6.4%，慢縮纖維初期無顯著變化
     - 職業橄欖球聯盟球員：賽季末快縮纖維 CSA 比慢縮大 23%，但停訓 6 週後這個差距只剩 9%
     detail: CSA 與纖維類型分布是兩個獨立指標——「型態沒變」不代表「大小沒變」，快縮纖維的體積流失速度遠快於慢縮纖維，也遠快於纖維類型本身重新分類的速度。
-    terms: []
+    terms:
+    - muscle-cross-sectional-area
     numbers:
     - v: -6.4
       unit: "%"
@@ -558,7 +563,10 @@ topics:
     - IGF-I 對運動的反應延遲，且依賴急性 GH 反應才會啟動
     - 機械生長因子（mechano growth factor）則在機械負荷下獨立於 GH 於骨骼肌內上調
     detail: 「獨立於 GH」是這條的關鍵——它說明肌肉的生長訊號不是單一線性鏈（GH→IGF-I→生長），而是存在一條不需要等待 GH 反應、由機械形變直接觸發的平行路徑。
-    terms: []
+    terms:
+    - growth-hormone
+    - insulin-like-growth-factor-i
+    - mechano-growth-factor
     numbers: []
     concepts:
     - adaptation
@@ -593,7 +601,8 @@ topics:
     - 長期阻力訓練使身體能承受漸增的相對訓練強度，可產生更大肌肉力量
     - 隨之而來的是急性內分泌反應也會反映這種適應提升，此現象在 GH 上被最明顯地觀察到
     detail: 這裡的「慢性改變」指的是急性反應本身隨訓練資歷變得更強，而不是靜息濃度改變——兩者是本主題容易混淆的兩種不同時間尺度變化，下一條會處理靜息濃度的部分。
-    terms: []
+    terms:
+    - growth-hormone
     numbers: []
     concepts:
     - adaptation
@@ -608,7 +617,9 @@ topics:
     - 長期無氧訓練後，睾固酮、GH、IGF-I、皮質醇的靜息濃度變化證據不一致，慢性改變的可能性不高
     - 運動中與運動後的短暫升高，被認為已足以刺激組織重塑，不需要靜息基準值長期偏高
     detail: 這條解釋為何「測靜息激素濃度」不是判斷訓練適應好壞的可靠指標——真正驅動組織重塑的是訓練當下與訓練後的急性波動，靜息值本身反而相對穩定。
-    terms: []
+    terms:
+    - growth-hormone
+    - insulin-like-growth-factor-i
     numbers: []
     concepts:
     - adaptation
@@ -707,7 +718,9 @@ topics:
     - 去訓練造成相反效果：IIx 比例上升、IIa 比例下降
     - 去訓練後 IIx 比例可能出現「overshoot」，高於原本訓練前的水準
     detail: overshoot 現象提醒訓練與去訓練不是單純鏡像對稱——停止訓練後纖維組成不只是「退回原點」，某些情況下會超調到比訓練前更偏向 IIx 的狀態。
-    terms: []
+    terms:
+    - type-iia-muscle-fiber
+    - type-iix-muscle-fiber
     numbers: []
     concepts:
     - adaptation
@@ -736,7 +749,9 @@ topics:
     a:
     - 高強度阻力訓練結合有氧耐力訓練，研究顯示可誘發近乎完全的 IIx → IIa 轉型
     detail: 這是全章唯一報告「近乎完全轉型」的訓練組合，代表結合兩種訓練刺激的效果大於單獨進行阻力訓練，但書中未進一步說明機轉細節。
-    terms: []
+    terms:
+    - type-iia-muscle-fiber
+    - type-iix-muscle-fiber
     numbers: []
     concepts:
     - adaptation
@@ -753,7 +768,8 @@ topics:
     - 力量型運動員的肌束長度也較長；短跑選手的腓腸肌與股外側肌肌束長度長於長跑選手
     - 阻力＋衝刺＋跳躍併用可增加股直肌肌束長度；衝刺＋跳躍可增加股外側肌肌束長度
     detail: 羽狀角與肌束長度是兩個獨立但常一起討論的建築參數——羽狀角影響出力與 CSA 容納空間，肌束長度則與收縮速度和活動範圍有關，這也是短跑選手與長跑選手肌肉外觀差異的結構基礎。
-    terms: []
+    terms:
+    - muscle-cross-sectional-area
     numbers: []
     concepts:
     - adaptation
@@ -869,7 +885,9 @@ topics:
     - 代謝因子：低至中或中高強度、高訓練量、短休息，是健美式訓練的特徵，會刺激糖解系統累積代謝物，並引出最強的合成激素反應
     - 快縮肌蛋白（fast myosin heavy chain）的類型轉換在數次訓練內即開始，但 CSA 要顯著改變需 16 次以上訓練
     detail: 兩條路徑不是互斥選項，而是「肥大的最佳化」需要週期化整合兩種刺激；純機械或純代謝都各自解釋不了健美選手與力量選手不同的肥大特徵。
-    terms: []
+    terms:
+    - mhc
+    - muscle-cross-sectional-area
     numbers:
     - v: 16
       unit: 次
@@ -925,7 +943,8 @@ topics:
     - 微血管密度以相同機制下降，但每條纖維的微血管數量其實略有增加
     - 舉重／健力選手的微血管密度明顯低於對照組，健美選手則與非運動員相近
     detail: 「密度下降」容易被誤讀成微血管或粒線體變少，實際上是分母（CSA）長得比分子快造成的稀釋效果——這也解釋為何純力量取向訓練者的有氧能力表現往往較弱，並非組織真的退化。
-    terms: []
+    terms:
+    - muscle-cross-sectional-area
     numbers: []
     concepts:
     - adaptation
@@ -938,7 +957,9 @@ topics:
     - MacDougall 等人的研究：5 個月阻力訓練（3–5 組 × 8–10 下，組間休息 2 分鐘）後，靜態 CP 增加 28%、ATP 增加 18%
     - 同一研究中肝糖含量最多增加 112%，顯示強調無氧糖解的健美式課表對肝糖儲存也是強力刺激
     detail: 超補償效應說明高能磷酸系統本身也會「訓練適應」——不是只有肌肉大小或神經徵召在變，能量受質儲存容量的擴大同樣是肥大訓練累積數月後才顯現的長期效果。
-    terms: []
+    terms:
+    - atp
+    - creatine-phosphate
     numbers:
     - v: 28
       unit: "%"
@@ -1096,7 +1117,9 @@ topics:
     - 雙側肢體同時出力時常出現「雙側缺失」（bilateral deficit），訓練後此缺失會減少，甚至轉為雙側促進（bilateral facilitation）
     - 衝刺與增強式訓練改變的是拮抗肌協同收縮的時機，而非單純降低其量；彈道式或不熟悉的動作反而可能增加拮抗肌活性以維持關節穩定
     detail: 協同收縮的調整不是單向「越少越好」——降低過度協同收縮能提升淨力輸出，但特定情境（不熟悉動作、需要關節穩定）下適度的拮抗肌活性是保護機制，訓練效果是讓時機與量都更貼合動作需求。
-    terms: []
+    terms:
+    - bilateral-deficit
+    - bilateral-facilitation
     numbers: []
     concepts:
     - adaptation
@@ -1117,7 +1140,10 @@ topics:
     - 依恢復所需時間可分四階段：急性疲勞（數天）→ 功能性過度撐 FOR（數天至數週）→ 非功能性過度撐 NFOR（數週至數月）→ 過度訓練症候群 OTS（數月至數年）
     - 過度訓練的程度不同，表現恢復可能需數週到數月不等
     detail: 這個連續體的重點是「過度撐」本身不是壞事——它是課表設計中刻意使用的短期超負荷工具，真正的問題出在恢復管理失當，導致短期反應演變成長期症候群
-    terms: []
+    terms:
+    - overreaching
+    - nonfunctional-overreaching
+    - overtraining-syndrome
     numbers: []
     concepts:
     - adaptation
@@ -1178,7 +1204,8 @@ topics:
     - 所有過度訓練狀態最終都會走向副交感型，伴隨全身多數生理系統的長期抑制
     - 因為反彈（rebound）是可能的，難以精確判定過度訓練何時轉為慢性；部分運動員對過度撐策略反應正向，對另一些人則可能成為誘發 OTS 的導火線
     detail: 兩型會「先交感、後副交感」依序發展，而不是二選一的分類——這代表交感型症狀出現時，若未介入處理，理論上就是朝副交感型（更難逆轉的終局狀態）前進的早期警訊
-    terms: []
+    terms:
+    - overtraining-syndrome
     numbers: []
     concepts:
     - adaptation
@@ -1194,7 +1221,10 @@ topics:
     - NFOR（數週至數月）：表現停滯或下降；運動協調下降；興奮收縮偶聯改變；肌肉肝醣下降；靜息心率與血壓上升；免疫功能改變；荷爾蒙濃度改變；情緒紊亂
     - OTS（數月至數年）：表現下降；力量產生下降；醣解能力下降；疾病與感染；情緒與睡眠紊亂
     detail: 此表整理自 Fry 等人 1993 年與 Meeusen 等人 2013 年的研究，說明過度訓練不只是單一系統的問題，而是神經、肌肉、代謝、心血管、免疫、內分泌與心理多系統隨階段依序惡化
-    terms: []
+    terms:
+    - overreaching
+    - nonfunctional-overreaching
+    - overtraining-syndrome
     numbers: []
     concepts:
     - adaptation
@@ -1213,7 +1243,9 @@ topics:
     - Fry 等人研究二：10 組 1RM 深蹲、連續 7 天（中間休息一天）→ 73% 受試者 1RM 顯著下降超過 9.9 磅（4.5 公斤）；部分受試者仍持續進步、未進入 NFOR 狀態
     - 這顯示過度撐或過度訓練症狀的發生時程高度取決於個體反應、訓練狀態與基因稟賦
     detail: 兩項 Fry 研究的對照很關鍵——同樣是深蹲高負荷，研究一（95%1RM×8組×6天）只造成非特定性表現下降但 1RM 維持，研究二（1RM×10組×7天）卻讓多數人 1RM 顯著下降，顯示「強度是否達到 1RM 本身」比單純堆疊組數更決定是否誘發 NFOR
-    terms: []
+    terms:
+    - nonfunctional-overreaching
+    - one-repetition-maximum
     numbers:
     - v: 77
       unit: '%'

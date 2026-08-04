@@ -342,7 +342,11 @@ topics:
     - 自分泌（autocrine，作用自身細胞膜受器）
     - 旁分泌（paracrine，作用鄰近細胞）
     detail: IGF-I 可在機械刺激後於肌肉細胞局部合成並自分泌，無須進入血液循環，是肌肉 IGF 的主要作用途徑
-    terms: []
+    terms:
+    - insulin-like-growth-factor-i
+    - intracrine
+    - autocrine
+    - paracrine
     numbers: []
     concepts:
     - hormone
@@ -443,7 +447,10 @@ topics:
     - 最常被 RIA/ELISA 測量的形式
     - 但非生物活性 GH 的主體（聚合體才是）
     detail: 測量技術長期只能偵測 22 kDa 形式（最穩定、最豐富），導致文獻低估了真實 GH 生物活性；高分子量聚合體才是訓練後肌肉合成代謝的主要訊號載體
-    terms: []
+    terms:
+    - growth-hormone
+    - radioimmunoassay
+    - enzyme-linked-immunosorbent-assay
     numbers:
     - v: 191
       unit: 胺基酸
@@ -460,7 +467,10 @@ topics:
     - 生物活性 GH（aggregate forms）濃度遠高於 22 kDa 單體
     - 聚合體才是真正的生物功能主體；無明顯日夜節律
     detail: RIA/ELISA 只偵測 22 kDa，長期低估了真實 GH 的生物活性；高分子量聚合體與不同受器結合，靶組織也不同
-    terms: []
+    terms:
+    - growth-hormone
+    - radioimmunoassay
+    - enzyme-linked-immunosorbent-assay
     numbers: []
     concepts:
     - hormone
@@ -476,7 +486,8 @@ topics:
     - ↑腎臟血漿流量·↑氮/鈉/鉀/磷留存
     - 增強免疫細胞功能
     detail: GH 的代謝邏輯是「以脂肪為燃料、保存蛋白質與糖」：同時促進脂解（↑游離脂肪酸作為燃料）與抑制葡萄糖利用，為肌肉蛋白質合成創造正氮平衡環境
-    terms: []
+    terms:
+    - growth-hormone
     numbers: []
     concepts:
     - hormone
@@ -492,7 +503,9 @@ topics:
     - 10RM（重）＋ 3 組每動作＋短休息（1 分鐘）= 最大 GH 反應
     - 長休息（>3 分鐘）GH 反應↓
     detail: 1 分鐘 vs 3 分鐘休息差異顯著；不達強度閾值（如使用 28% 7RM 的低強度）GH 不增加
-    terms: []
+    terms:
+    - growth-hormone
+    - repetition-maximum
     numbers:
     - v: 1
       unit: 分鐘
@@ -542,7 +555,8 @@ topics:
     - 生物活性 GH 靜息值可能因訓練↑（尤其女性）
     - 長期適應機制仍在研究中
     detail: 22 kDa 急性反應↓是效率的標誌，不是適應變差；訓練者的相對強度對 GH 刺激更小，需提高絕對強度才能維持同等 GH 反應——週期化增加負荷的部分依據在此
-    terms: []
+    terms:
+    - growth-hormone
     numbers: []
     concepts:
     - hormone
@@ -759,7 +773,11 @@ topics:
     - ② 短休息（1 分鐘）→ 關鍵：產生高乳酸＋低 pH
     - ③ 訓練前後補充蛋白質＋碳水化合物
     detail: 短休息的效果不是強度本身，而是累積的乳酸與 H⁺：酸性環境刺激下視丘 GHRH 釋放，同時抑制 Somatostatin；1 分鐘比 3 分鐘的研究顯示此差異顯著
-    terms: []
+    terms:
+    - growth-hormone
+    - GHRH
+    - somatostatin
+    - repetition-maximum
     numbers:
     - v: 1
       unit: 分鐘
@@ -818,7 +836,8 @@ topics:
     - 強度·組數·動作順序·休息時間·動作選擇 → 決定荷爾蒙反應的樣式與幅度
     - 不同組合產生不同合成/分解代謝環境
     detail: 每個急性變項都是一個可調節的「荷爾蒙旋鈕」：長休息偏向神經適應（低代謝壓力），短休息偏向代謝適應（高 GH/皮質醇）；目標不同，旋鈕設定不同
-    terms: []
+    terms:
+    - growth-hormone
     numbers: []
     concepts:
     - hormone
@@ -832,7 +851,9 @@ topics:
     - 只有被神經活化的肌纖維才接受荷爾蒙適應（size principle）
     - 募集越多運動單位 → 全肌肉重塑範圍越大 → 生理系統支援需求越高
     detail: 這是深蹲/硬舉產生更大全身荷爾蒙反應的機制基礎：大肌群動作招募更多運動單位，相應地需要更強的合成代謝支援，因此誘發更大的睾固酮與 GH 分泌
-    terms: []
+    terms:
+    - growth-hormone
+    - size-principle
     numbers: []
     concepts:
     - hormone
@@ -966,7 +987,8 @@ topics:
     - 神經活化肌纖維 → 增加肌肉受器結合親和力
     - 訓練水平影響神經-內分泌整合方式
     detail: 神經活化「打開」了受器對荷爾蒙的敏感性；這說明只有被神經系統主動徵召的肌纖維才能受益於荷爾蒙信號，輕度訓練無法觸及 Type II 纖維，荷爾蒙適應的範圍也因此受限
-    terms: []
+    terms:
+    - type-ii-muscle-fiber
     numbers: []
     concepts:
     - hormone
