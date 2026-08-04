@@ -221,7 +221,7 @@ topics:
     - MA = 肌肉力臂 ÷ 阻力臂
     - 人體大多數肌肉 MA < 1，處於機械不利；因此肌肉內力遠大於外部阻力
     - 理解機械利益原理比槓桿分類更重要
-    detail: 機械不利是人體設計的必然結果（肌腱附著點距關節很近），代價是肌肉與肌腱承受的力遠大於手腳施加在外物上的力，這是肌腱受傷的主要結構性原因。書中明確指出：「understanding the principle of mechanical advantage is of much greater importance than being able to classify levers.」
+    detail: 肌腱附著點離關節很近是人體的通則，代價是肌肉與肌腱承受的內力遠大於手腳施加在外物上的力——這是肌腱過用傷害的結構性根源，也解釋了為何外部負荷看起來不重時，組織仍可能被超載。槓桿分類（第一、二、三類）在實務上幾乎用不到，真正要帶走的是「力臂比決定內力被放大多少倍」這件事。
     terms:
     - mechanical-advantage
     - moment-arm
@@ -519,7 +519,7 @@ topics:
     a:
     - 雖然動作很少只發生在單一平面，在主要平面訓練的效果足以遷移到跨平面動作
     - 因此在三個主要平面內訓練肌肉即可，不需要對每一個斜向動作都設計特定訓練
-    detail: 書中明確指出：「exercising muscles within the planes also strengthens them for movements between the planes.」這為「以平面為框架設計訓練」提供了理論依據，說明不必對每個特定角度的運動動作都設計精確的模擬訓練。
+    detail: 這條是「以平面為框架設計訓練」的理論依據：既然在主平面內的訓練會外溢到平面之間的動作，教練就不必為每一個斜向角度各設計一個模擬動作。實務上這把動作選擇從「窮舉場上所有角度」縮小成「涵蓋三個主平面」，也讓特殊性原則落在可執行的範圍內。
     terms: []
     numbers: []
     concepts:
@@ -634,7 +634,7 @@ topics:
     - FR = k × x（阻力與拉伸距離成正比）
     - 動作起始阻力最低，動作末端阻力最高
     - 這與人體肌力曲線相反：大多數肌群在動作末端ROM時力量最弱
-    detail: 書中明確指出彈性阻力的缺點：「every exercise movement begins with low resistance and ends with high resistance. This is contrary to the force capability patterns of virtually all human muscle groups.」此外，彈性阻力可調整性有限，且跳躍助力帶產品可能在空中施予最大阻力，反而增加落地衝擊傷害風險。
+    detail: 彈力帶的阻力曲線與人體的肌力曲線剛好反向：帶子在動作末端拉得最長、阻力最大，而多數肌群在末端 ROM 反而最弱。這代表單靠彈力帶時，最重的一段落在最沒力的位置，起始段的刺激又不足。另外兩個實務限制是阻力難以精確調整，以及跳躍助力帶這類產品可能在騰空最高點施予最大向下阻力，反而放大落地衝擊。
     terms:
     - elasticity
     - range-of-motion
@@ -653,7 +653,7 @@ topics:
     - 可變半徑凸輪改變重量堆疊的力矩臂長度，使阻力力矩隨關節角度改變
     - 設計目標是讓阻力力矩匹配人體的肌力曲線，全ROM都能達到接近最大刺激
     - 缺點：需要以恆定、緩慢的角速度移動才能如設計作用；且器械常無法準確匹配人體真實扭矩曲線
-    detail: Nautilus 是最早商業化此概念的品牌。書中指出這類器械「frequently fail to match normal human torque capability patterns」，說明理論上的匹配在實際訓練中難以實現，因為人體扭矩曲線個體差異大，且動作速度很少真正恆定。
+    detail: Nautilus 是最早把凸輪概念商業化的品牌，但「阻力曲線貼合肌力曲線」這個理論目標在實際訓練中很難成立：人體扭矩曲線的個體差異大，一顆固定形狀的凸輪不可能同時貼合所有使用者；而且設計前提是等角速度移動，實際推拉時速度隨時在變。凸輪器械該理解成「比固定阻力更接近肌力曲線」，不是「完全匹配」。
     terms:
     - torque
     - moment-arm
@@ -725,7 +725,7 @@ topics:
     a:
     - 古典公式：舉起重量 ÷ 體重^(2/3)，修正體型增大導致的力量/體重比下降
     - 此公式看似對中等體重選手最有利，但書中認為這可能確實反映了中等體重選手的優勢
-    detail: 書中指出這個古典公式後又有其他公式被提出，因為古典公式「seemed to favor athletes of middle body weight」，但書中同時表示，中等體重選手表現最優「may indeed be unbiased」（可能不是公式偏差，而是真實現象），因為人口中體重的正態分布使中等體重群體競爭最密集。
+    detail: 古典公式之後陸續有其他公式被提出，原因是它看起來偏袒中量級選手。但偏袒不等於偏誤——人口體重呈常態分布，中量級的參賽人數最多、競爭最密集，最頂尖的表現本來就更可能出現在這個級別。要判斷公式是否有系統性偏差，得先把這個取樣效應扣掉。
     terms:
     - classic-formula
     numbers: []
@@ -802,7 +802,7 @@ topics:
     a:
     - 精英體操選手通常身材較矮小，因為體型增大時體重增加比肌力快，肌力/體重比下降
     - 體操動作高度依賴支撐自身體重的能力（單槓、吊環、自由式）
-    detail: 書中明確提到這個例子以說明肌力/體重比的實際意義：「This is why most elite gymnasts are not very tall.」這是「body size」一節的應用例。矮小體型使肌力/體重比維持較高，在無法藉外部重量分散成本的動作中有先天優勢。
+    detail: 體操是肌力體重比的教科書案例：吊環、單槓與地板動作幾乎都在支撐或加速自身體重，沒有外部重量可以把體型的成本分攤出去。體型放大時體重（∝ 尺寸³）漲得比肌力（∝ 尺寸²）快，所以矮小身材在這類項目是先天優勢，而不是訓練方式造成的結果。
     terms: []
     numbers: []
     concepts:
@@ -840,7 +840,7 @@ topics:
     a:
     - 肌肉力量與橫截面積（CSA）相關，而非與體積（或長度）相關
     - 相同肱二頭肌圍度的高個與矮個，力量相近，但高個體重更大→磅磅比更低
-    detail: 書中以兩位肌肉圍度相同但身高不同的選手為例說明：「their upper arm muscle cross-sectional areas are about the same... the strength of the two athletes' biceps should be about the same」。這解釋了為何長肌肉（高個子的肌肉）不等於更強的肌肉，強度取決於粗細（CSA），不是長短。
+    detail: 兩位上臂圍度相同但身高不同的選手，肱二頭肌橫截面積相近，能產生的力量也相近——差別在高個子要用同樣的力去移動更重的身體，磅磅比因此更低。這條的重點是「長肌肉不等於強肌肉」：決定力量的是粗細（CSA）不是長度，這也是為什麼肌力測驗除了絕對值還要看相對值。
     terms:
     - crossbridge
     numbers: []
@@ -894,7 +894,7 @@ topics:
     a:
     - 關節可產生的扭矩隨角度非線性變化
     - 影響因素：（1）肌肉長度-力量關係；（2）動態幾何（力臂隨角度改變）；（3）收縮類型；（4）收縮速度
-    detail: 書中指出「the amount of torque that can be exerted about a given body joint varies throughout the joint's range of motion」，並列出四個影響因素。關節角度-扭矩曲線的形狀因動作（等長/等速/等張）不同而異，不能一概而論。
+    detail: 同一條肌肉在整個活動範圍內能輸出的扭矩差很多，而且不是線性變化——所以「某人的肌力是多少」必須指明是在哪個關節角度測的。更麻煩的是曲線形狀還會隨收縮型態（等長／等速／等張）改變，不同測驗方式得到的角度—扭矩曲線不能互相套用。
     terms:
     - torque
     - moment-arm
@@ -949,7 +949,7 @@ topics:
     a:
     - 附著點遠離關節→力臂長→可產生更大扭矩，有利於慢速（健力）
     - 同時，相同縮短量帶來更小的角位移，且需要更高收縮速度→不利於快速動作（如打網球）
-    detail: 書中明確舉健力與網球為對比例子，說明同一解剖特徵在不同速度要求的運動中是優勢還是劣勢。這些骨骼幾何差異是「subtle individual differences in structure」，相對微小卻對運動表現有實質影響。
+    detail: 同一個解剖特徵在不同速度需求的項目裡，可以是優勢也可以是劣勢：附著點遠離關節有利於健力這種慢速大力的項目，卻不利於網球這種要求高角速度的動作。這類骨骼幾何差異在個體之間其實很細微，卻足以影響選材與項目適配——也提醒教練，有些表現差異不是訓練不足造成的。
     terms:
     - moment-arm
     numbers: []
@@ -1057,7 +1057,7 @@ topics:
     - P = F × v，因此若已知力與速度中的任兩個，即可求第三個
     - 肌力（strength）和功率（power）都反映「在特定速度下產力的能力」，不應把肌力只聯繫低速、功率只聯繫高速
     - 要克服高阻力的低速動作，低速肌力重要；要應對低阻力的高速動作，高速肌力重要
-    detail: 書中明確說：「it is not correct to associate strength with low speed and power with high speed.」強調肌力是在任意速度下產力的能力，功率是力與速度的乘積——兩者都是速度相關量，只是描述角度不同。這個澄清對選擇正確的訓練和測試方法至關重要。
+    detail: 把肌力等同低速、功率等同高速是常見的錯誤聯想。肌力指的是在任一速度下產力的能力，功率則是力與速度的乘積；兩者都與速度有關，只是描述的角度不同。這個區分直接決定測驗與課表怎麼開——需要克服高阻力的項目練低速肌力，需要快速動作的項目練高速肌力，而不是「一個練力量、一個練爆發」的二分法。
     terms:
     - power-output
     numbers: []
@@ -1073,7 +1073,7 @@ topics:
     a:
     - 奧林匹克舉重（高速+重量）產生的物理功率高於健力（極重但低速）
     - 「powerlifting」的命名在物理學定義上具有誤導性，產生的 power 反而更低
-    detail: 書中明確指出：「in the sport of powerlifting, which involves high forces but relatively low movement speeds, less mechanical power is produced than in several other sports, including Olympic lifting.」這是一個幫助記憶功率公式（P = F×v）的有效例子。
+    detail: 健力的名字在物理定義上是誤導的：它的力很大但動作速度慢，機械功率反而低於奧林匹克舉重與其他好幾種運動。這組對比是記住 P = F × v 最好的例子——功率不是「力量的高階版」，缺了速度那一項就湊不出高功率。
     terms:
     - power-output
     numbers: []
