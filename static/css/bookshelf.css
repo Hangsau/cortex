@@ -171,44 +171,6 @@
   color: var(--color-text-secondary);
 }
 
-/* 書架底部分隔線 */
-.shelf-divider {
-  margin-bottom: var(--space-8);
-}
-
-/* 快速導覽 */
-.quick-nav {
-  display: flex;
-  gap: var(--space-4);
-}
-
-.quick-nav-item {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-3) var(--space-6);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  color: var(--color-text);
-  text-decoration: none;
-  transition: border-color var(--transition-base);
-}
-
-.quick-nav-item:hover {
-  border-color: var(--color-accent);
-  text-decoration: none;
-  color: var(--color-text);
-}
-
-.quick-nav-icon {
-  font-size: 18px;
-}
-
-.quick-nav-label {
-  font-size: var(--font-size-sm);
-  font-weight: 500;
-}
-
 /* 手機 */
 @media (max-width: 600px) {
   .shelf {

@@ -39,7 +39,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 ### 進入點 / 骨架
 - `layouts/_default/baseof.html`（21 行）— 只管 HTML 骨架，**`.main-content` 有 800px 上限**（見踩雷 §4）
 - `layouts/partials/nav.html` / `footer.html` — 全站 nav/footer
-- `layouts/index.html`（49 行）— 首頁書架
+- `layouts/index.html`（41 行）— 首頁書架
 
 ### Section → layout 路由
 | content 目錄 | layout | 說明 |
@@ -47,7 +47,6 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 | `content/library/` | `layouts/library/{list,book,chapter,single}.html` | 書庫；CSCS 章節頁在 `chapter.html`（351 行，2026-07-31 從 3×3 九宮格改成黏性目次文件版型 + 遮答自測 + 深度層，資料讀 `data/cscs/`；模式切換／scrollspy／錨點展開／閃卡 JS 全內聯）。改動後跑 `tools/audit.js` 迴歸 |
 | 　└ CSCS 概念索引 | `library/cscs-concepts.html`（180 行） | 打散章節的第二條軸：22 概念 × 各自落點（2505 條連結），共用 `.nb` 版型；入口在 book 頁的工具列與每條知識單位的概念標籤 |
 | 　└ 特殊書 | `library/mnfl-{book,toolkit}.html`、`library/ust-{book,handbook,strategies}.html` | 大腦喜歡這樣學 / UST，各自 CSS |
-| `content/notebook/` | `layouts/notebook/{list,single}.html` | 個人筆記 |
 | `content/temperament/` | `layouts/temperament/temperament-main.html`（386 行） | 氣質 section + 測驗（`temperament-quiz.js` 197 行） |
 | `content/vortex/` | `layouts/vortex/*`（見下） | 游泳知識庫，最大最複雜 |
 
@@ -71,7 +70,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 | `vortex/{single,list}.html` | 29/36 | technica/instructional/bridge 散文 fallback | 無 |
 
 ### CSS（static/css/）
-`variables.css`(49) `base.css`(79) `layout.css`(165) `bookshelf.css`(221) `library.css`(140) `cscs-chapter.css`(719) `notebook.css`(59) `vortex.css`(2080) `vortex-techo.css`(158，僅首頁 tx-*) `vortex-nav.css`(159，全站側欄+搜尋框) `vortex-injuries.css`(242) `mnfl.css`(391) `ust.css`(526) `temperament.css`(296)。  
+`variables.css`(49) `base.css`(79) `layout.css`(165) `bookshelf.css`(183) `library.css`(140) `cscs-chapter.css`(719) `vortex.css`(2080) `vortex-techo.css`(158，僅首頁 tx-*) `vortex-nav.css`(159，全站側欄+搜尋框) `vortex-injuries.css`(242) `mnfl.css`(391) `ust.css`(526) `temperament.css`(296)。  
 隔離手法：各 section CSS 用 `body:has(.<prefix>-*)` scope，不互相污染。
 
 ### JS（static/js/）

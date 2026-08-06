@@ -1,5 +1,17 @@
 # HANDOFF — my-site (Cortex)
 
+## 目前狀態（2026-08-07）
+
+**站主提出方向轉向：從「書庫」改成「自己的知識庫」**——首頁的基本單位要從「書」換成「主題」，書降格為來源出處。討論中的判斷：站上最厚的內容（vortex、氣質）在首頁完全看不到，因為 `layouts/index.html` 只讀 `data/books.yaml`；而「打散書、照概念讀」的範式站上已有原型（`cscs-concepts.html` 22 條受控概念 × 24 章）。真正的工作量不在版面，在**跨書的受控詞彙**——CSCS 有 22 條 concepts，mnfl / ust 完全沒有 `concepts` 欄位，vortex 用另一套分類。傾向先立一份 10–15 條的粗略全站主題層再回頭補標，尚未定案。
+
+### ✅ notebook section 已整個移除（2026-08-07）
+
+站主指「筆記根本沒用處」。實測確認是**完全空的**：`content/notebook/` 三個 `_index.md` 只有 frontmatter、零篇筆記、合計 168 bytes，卻佔著 nav 選單一格、首頁 quick-nav 入口、2 個 layout、59 行 CSS。已刪 `content/notebook/`、`layouts/notebook/`、`static/css/notebook.css`，並移除 `hugo.toml` menu 項、`layouts/index.html` 的 quick-nav 區塊、`bookshelf.css` 的 `.quick-nav*` / `.shelf-divider`。全站零殘留引用，`hugo --minify` exit 0。
+
+**⚠ 刪的是空殼實作，不是「自己寫的東西」這個角色**：它空掉的原因是被做成跟書並列的另一個抽屜——沒有動線、沒有入口理由。在主題軸方向裡，自有條目才是「自己的知識庫」跟「別人的書架」的差別，但它應該掛在主題底下跟書的段落、drill 混排，不是獨立 section。日後不要因為「以前有筆記本」就原樣復活。
+
+> ↓ 以下是 2026-08-04 起的累積紀錄
+
 ## 目前狀態（2026-08-04）
 
 **這段時間只在做一件事：CSCS 的 `related`（延伸連結）品質。**站主的一句話定調了整輪——「這是不是應湊出連結啊？不是應該有關係的在連而已嗎？」

@@ -20,14 +20,10 @@ content/
       ch01/ ... ch24/       # 每章只有 _index.md（layout: chapter），內容在 data/cscs/
       highlights.md
       notes.md
-  notebook/                 # 個人筆記
-    coaching/
-    ideas/
 layouts/
   _default/                 # baseof、list、single
   partials/                 # nav、footer
   library/                  # list（書庫列表）、book（單書頁）、chapter（暗記帳文件版型）、single
-  notebook/                 # list、single
   shortcodes/               # flashcard、highlight-quote、callout
 static/
   css/
@@ -37,7 +33,6 @@ static/
     bookshelf.css           # 首頁書架樣式
     library.css             # 書庫 section 樣式
     cscs-chapter.css        # 章節頁（黏性目次正文 + 遮答自測 + 閃卡）與 book.html 的 .home-grid
-    notebook.css            # 筆記本樣式
   js/
     flashcard.js            # 閃卡翻轉（單一功能）
   images/
