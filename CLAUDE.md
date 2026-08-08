@@ -210,7 +210,8 @@ node tools/audit.js                    # 38 條版型／深度層／概念索引
   該路徑已裝好；重裝是 `cd C:/claudehome/tools && npm i playwright`（注意 npm 會往上找 `package.json`，實際落點是 `tools/node_modules` 不是當下目錄）。瀏覽器本體已在 `~/AppData/Local/ms-playwright/`。
 - **術語一律常駐可見**，不准塞進 hover 或 details——使用者的原始痛點就是「只有英文沒有中文」，藏起來等於沒解決；定義本身才進展開層
 - **概念軸是第二條閱讀動線**：`concepts` 只能挑 `_concepts.yaml` 的 22 條，且**一條概念至少橫跨兩章**才准存在（只在單章的概念＝把該章抄一遍，`audit.js` 有斷言）。批次上標用 `tools/cscs_tag_concepts.py`（主題級、不覆寫既有值）
-- **補完進度（2026-08-04 實測）**：24 章全數對帳完成——`detail` / `concepts` / `locator` 各 **1557/1557**、cards 1252 張、`related` 1903 條（跨章 95.6%）。`terms` 1402/1557、`numbers` 514（這兩欄不是覆蓋率目標：沒有英文專有名詞就不掛 terms，沒有數字就不掛 numbers）。欄位空著時深度層自動不渲染，不會有半成品畫面
+- **補完進度（2026-08-08 實測）**：24 章全數對帳完成——`detail` / `concepts` / `locator` 各 **1557/1557**、cards 1252 張、`related` 1908 條（跨章 95.6%）。`terms` 1437/1557、`numbers` 514（這兩欄不是覆蓋率目標：沒有英文專有名詞就不掛 terms，沒有數字就不掛 numbers）。欄位空著時深度層自動不渲染，不會有半成品畫面
+- **`related` 已定稿，不要再開補連結的輪次**：ch08 有 34 條孤立條目（心理技巧、理想表現狀態、喚醒理論那幾組），2026-08-08 的缺口方向輪已證實那是內容自足、全書沒有依賴它們的條目，不是刪過頭。加連結用 `tools/cscs_gap_apply.py`（吃 `來源 id -> 目標 id` 清單），減連結用 `tools/cscs_related_apply.py`
 - **完成後立即更新 HANDOFF**：push + CI 確認後，下一步必須更新 HANDOFF.md（勾選已完成項目、更新下一步建議），不等使用者提醒
 
 ---
