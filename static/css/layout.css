@@ -20,22 +20,15 @@
   text-decoration: none;
 }
 
-.site-nav-links {
-  display: flex;
-  gap: var(--space-6);
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.site-nav-links a {
+/* 站台導覽只留字標與回目次：全站地圖是首頁那份四領域目次，
+   角落再擺一份只涵蓋部分內容的分區清單會變成互相矛盾的第二套分類。 */
+.site-nav-index {
   color: var(--color-text-secondary);
   font-size: var(--font-size-sm);
   transition: color var(--transition-base);
 }
 
-.site-nav-links a:hover,
-.site-nav-links a.active {
+.site-nav-index:hover {
   color: var(--color-accent);
   text-decoration: none;
 }
@@ -158,8 +151,5 @@
   }
   .site-footer {
     padding: var(--space-8) var(--space-4);
-  }
-  .site-nav-links {
-    gap: var(--space-4);
   }
 }

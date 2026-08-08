@@ -39,7 +39,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 
 ### 進入點 / 骨架
 - `layouts/_default/baseof.html`（21 行）— 只管 HTML 骨架，**`.main-content` 有 800px 上限**（見踩雷 §4）
-- `layouts/partials/nav.html` / `footer.html` — 全站 nav/footer
+- `layouts/partials/nav.html` / `footer.html` — 全站 nav/footer；nav 只有字標與「回目次」，`hugo.toml` 刻意無 `[menu]`（全站地圖＝首頁四領域目次，不掛第二套分區清單）
 - `layouts/index.html`（44 行）— 首頁四領域目次頁，讀 `data/home.yaml`
 
 ### Section → layout 路由

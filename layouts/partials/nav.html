@@ -1,10 +1,4 @@
 <nav class="site-nav">
   <a href="{{ .Site.BaseURL }}" class="site-nav-logo">{{ .Site.Title }}</a>
-  <ul class="site-nav-links">
-    {{ range .Site.Menus.main }}
-    <li>
-      <a href="{{ .URL | absURL }}" class="{{ if $.IsMenuCurrent "main" . }}active{{ end }}">{{ .Name }}</a>
-    </li>
-    {{ end }}
-  </ul>
+  {{ if not .IsHome }}<a href="{{ .Site.BaseURL }}" class="site-nav-index">回目次</a>{{ end }}
 </nav>

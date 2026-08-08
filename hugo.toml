@@ -15,16 +15,5 @@ disableKinds = ["taxonomy", "term"]
   description = "個人知識庫"
   author = ""
 
-[menu]
-  [[menu.main]]
-    name = "書庫"
-    url = "/library/"
-    weight = 1
-  [[menu.main]]
-    name = "Vortex"
-    url = "/vortex/"
-    weight = 3
-  [[menu.main]]
-    name = "氣質"
-    url = "/temperament/"
-    weight = 4
+# 沒有 [menu] 是刻意的：全站地圖是首頁的四領域目次（data/home.yaml），
+# nav 只留字標與「回目次」。角落再擺一份只涵蓋部分內容的分區清單＝互相矛盾的第二套分類。

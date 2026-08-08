@@ -18,8 +18,7 @@ content/
     essentials-of-strength-training/
       _index.md             # layout: book
       ch01/ ... ch24/       # 每章只有 _index.md（layout: chapter），內容在 data/cscs/
-      highlights.md
-      notes.md
+      concepts.md           # layout: cscs-concepts
 layouts/
   _default/                 # baseof、list、single
   partials/                 # nav、footer
@@ -99,6 +98,13 @@ tools/
 - 領域識別色透過 `layouts/index.html` 產生的 `<style>` 區塊掛成 `--domain-color`，不寫 inline style
 - 版面刻意無卡片／無陰影／無圓角／無 hover 位移，只有規則線與文字；要加動效前先回頭讀
   `C:\claudehome\resources\notes\DESIGN_SYSTEM.md` 鐵則 I
+- **`hugo.toml` 沒有 `[menu]` 是刻意的**：nav 只有字標與「回目次」。全站地圖就是這份四領域
+  目次，右上角再掛一份「書庫／Vortex／氣質」等於第二套只涵蓋部分內容、又跟四領域對不上的
+  分類。要加全域導覽前先想清楚它跟 `data/home.yaml` 誰是真相源
+- **不要建空殼頁面**。`highlights.md`（重點摘錄）／`notes.md`（讀書筆記）只有 front matter、
+  正文全空，掛在首頁上就是兩條點進去什麼都沒有的連結，2026-08-08 已刪。這是 GitHub Pages
+  靜態站，寫一條筆記＝本機開檔 → commit → push → 等 CI；沒有寫入管道的容器只會一直空著。
+  新入口要先有內容才進 `data/home.yaml`
 
 ### Vortex 分類標籤：一律從資料讀，禁止在 layout 硬編
 
