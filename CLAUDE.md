@@ -30,7 +30,7 @@ static/
     variables.css           # 只放 CSS 變數
     base.css                # reset + 基礎排版
     layout.css              # nav/main/footer 結構
-    bookshelf.css           # 首頁書架樣式
+    home.css                # 首頁四領域目次頁樣式
     library.css             # 書庫 section 樣式
     cscs-chapter.css        # 章節頁（黏性目次正文 + 遮答自測 + 閃卡）與 book.html 的 .home-grid
   js/
@@ -42,7 +42,7 @@ layouts/library/
 layouts/partials/
   cscs-index.html           # 全書 id → 標題/網址 索引（wiki 連結用，partialCached）
 data/
-  books.yaml                # 書目索引（slug 對應 content/library/ 資料夾名）
+  home.yaml                 # 首頁四領域與各自的入口清單（舊 books.yaml 已廢除）
   cscs/
     _terms.yaml             # 全書術語表（en / zh / abbr / note），106 條
     _concepts.yaml          # 受控概念詞彙（封閉集，22 條，含 group / order）
@@ -85,8 +85,20 @@ tools/
 
 ### 加新書的流程
 1. 在 `content/library/<book-slug>/` 建資料夾與 `_index.md`（`layout: book`）
-2. 在 `data/books.yaml` 加一筆（含 slug、color）
-3. 封面圖放 `static/images/covers/`
+2. 在 `data/home.yaml` 找它所屬的領域，往該領域的 `entries` 加一筆（`name` / `note` / `url`）
+
+### 首頁：單位是「領域」不是「書」
+
+`layouts/index.html` 讀 `data/home.yaml` 的四個領域，每個領域自帶編號、識別色、一句定位、
+一行規格與入口清單。**書不是首頁的單位，是領域裡的一筆來源出處**——書架版型逼每個項目都得
+長得像一本書，所以 vortex（18 個子頁）與氣質當初根本沒地方擺，首頁只覆蓋到站上不到一成的
+內容。`data/books.yaml` 與 `static/css/bookshelf.css` 已隨之刪除。
+
+- 領域數維持 ≤7、單一領域的 `entries` 也 ≤7（鐵則 A：同步呈現的入口上限）
+- `spec` 那行的數字必須對得上 `data/` 實況，改資料時一併改，不要留形容詞
+- 領域識別色透過 `layouts/index.html` 產生的 `<style>` 區塊掛成 `--domain-color`，不寫 inline style
+- 版面刻意無卡片／無陰影／無圓角／無 hover 位移，只有規則線與文字；要加動效前先回頭讀
+  `C:\claudehome\resources\notes\DESIGN_SYSTEM.md` 鐵則 I
 
 ### Vortex 分類標籤：一律從資料讀，禁止在 layout 硬編
 

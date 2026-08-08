@@ -1,0 +1,150 @@
+/* home.css — 首頁四領域目次頁 */
+
+body:has(.home-page) { background: #FAF8F3; }
+
+.home-page {
+  --paper: #FAF8F3;
+  --ink: #1F1D1A;
+  --ink-2: #5B564E;
+  --rule: #D9D2C5;
+  color: var(--ink);
+  padding: var(--space-12) 0 var(--space-16);
+}
+
+.home-masthead {
+  border-bottom: 3px solid var(--ink);
+  padding-bottom: var(--space-4);
+  margin-bottom: var(--space-12);
+}
+
+.home-masthead h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  margin: 0 0 var(--space-2);
+}
+
+.home-masthead p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--ink-2);
+  max-width: 34em;
+  margin: 0;
+}
+
+.home-domain {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 0 var(--space-6);
+  padding-bottom: var(--space-12);
+  margin-bottom: var(--space-12);
+  border-bottom: 1px solid var(--rule);
+}
+
+.home-domain:last-of-type {
+  border-bottom: none;
+  margin-bottom: var(--space-8);
+}
+
+.home-domain-no {
+  font-family: var(--font-mono);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--domain-color);
+  margin-top: -0.1em;
+}
+
+.home-domain-name {
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0 0 var(--space-3);
+}
+
+.home-domain-lede {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--ink-2);
+  max-width: 34em;
+  margin: 0 0 var(--space-3);
+}
+
+/* 規格行刻意不用 mono：JetBrains Mono 沒有 CJK 字形，中英交替會逐段掉字型，
+   加上 letter-spacing 又違反 CJK 排版鐵則。改用等寬數字撐住對齊感。 */
+.home-domain-spec {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  font-variant-numeric: tabular-nums;
+  color: var(--domain-color);
+  margin: 0 0 var(--space-6);
+}
+
+.home-entries {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0 var(--space-6);
+  border-top: 1px solid var(--rule);
+}
+
+.home-entry {
+  display: block;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  color: var(--ink);
+  min-height: 44px;
+}
+
+.home-entry-name {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.6;
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 3px;
+}
+
+.home-entry-note {
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+
+.home-entry:hover .home-entry-name {
+  color: var(--domain-color);
+  text-decoration-color: var(--domain-color);
+}
+
+.home-entry:focus-visible {
+  outline: 2px solid var(--domain-color);
+  outline-offset: 2px;
+}
+
+.home-footer {
+  border-top: 3px solid var(--ink);
+  padding-top: var(--space-4);
+}
+
+.home-footer .home-entry {
+  border-bottom: none;
+  --domain-color: #1F1D1A;
+}
+
+@media (max-width: 640px) {
+  .home-domain {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .home-domain-no {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .home-entries {
+    grid-template-columns: 1fr;
+  }
+}

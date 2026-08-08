@@ -21,7 +21,8 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 |-----------|--------|
 | 改全站顏色/字級 | `static/css/variables.css`（只放 CSS 變數） |
 | 改排版結構（nav/main/footer） | `static/css/layout.css` |
-| 加新書（一般風格） | `content/library/<slug>/_index.md` + `data/books.yaml` + 封面圖 |
+| 加新書（一般風格） | `content/library/<slug>/_index.md` + 往 `data/home.yaml` 對應領域的 `entries` 加一筆 |
+| 改首頁（領域、入口、規格數字） | `data/home.yaml`；`layouts/index.html` 只是渲染器，單位是領域不是書 |
 | 加自訂風格書（如 mnfl/ust） | 見 `CLAUDE.md`「自訂風格書籍設計模式」 |
 | 改 vortex 公開內容（泳式/誤區/drill/L 階段） | **不在此 repo！** 改 `TheVortexProject/canonical/` → 跑 `tools/sync_vortex.py` |
 | 改 vortex 呈現（版面/互動/CSS） | `layouts/vortex/*.html` + `static/css/vortex.css`（可直接改） |
@@ -39,7 +40,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 ### 進入點 / 骨架
 - `layouts/_default/baseof.html`（21 行）— 只管 HTML 骨架，**`.main-content` 有 800px 上限**（見踩雷 §4）
 - `layouts/partials/nav.html` / `footer.html` — 全站 nav/footer
-- `layouts/index.html`（41 行）— 首頁書架
+- `layouts/index.html`（44 行）— 首頁四領域目次頁，讀 `data/home.yaml`
 
 ### Section → layout 路由
 | content 目錄 | layout | 說明 |
@@ -70,7 +71,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 | `vortex/{single,list}.html` | 29/36 | technica/instructional/bridge 散文 fallback | 無 |
 
 ### CSS（static/css/）
-`variables.css`(49) `base.css`(79) `layout.css`(165) `bookshelf.css`(183) `library.css`(140) `cscs-chapter.css`(719) `vortex.css`(2080) `vortex-techo.css`(158，僅首頁 tx-*) `vortex-nav.css`(159，全站側欄+搜尋框) `vortex-injuries.css`(242) `mnfl.css`(391) `ust.css`(526) `temperament.css`(296)。  
+`variables.css`(49) `base.css`(79) `layout.css`(165) `home.css`(150) `library.css`(140) `cscs-chapter.css`(719) `vortex.css`(2080) `vortex-techo.css`(158，僅首頁 tx-*) `vortex-nav.css`(159，全站側欄+搜尋框) `vortex-injuries.css`(242) `mnfl.css`(391) `ust.css`(526) `temperament.css`(296)。  
 隔離手法：各 section CSS 用 `body:has(.<prefix>-*)` scope，不互相污染。
 
 ### JS（static/js/）
@@ -79,7 +80,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 
 ### 資料流
 - `tools/sync_vortex.py` — 從 `TheVortexProject/canonical/` 同步到 `data/{vortex,adm,periodization}/`。**單向，勿手改 data/**
-- `data/{mnfl,ust,temperament}/`、`data/books.yaml` — my-site 自有，**可直接改**
+- `data/{mnfl,ust,temperament}/`、`data/home.yaml` — my-site 自有，**可直接改**
 
 ---
 

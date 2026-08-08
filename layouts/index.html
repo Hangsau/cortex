@@ -1,41 +1,45 @@
 {{ define "head-extra" }}
-<link rel="stylesheet" href="{{ .Site.BaseURL }}css/bookshelf.css">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/home.css">
+<style>
+  {{ range (index hugo.Data "home").domains }}
+  .home-domain--{{ .no }} { --domain-color: {{ .color }}; }
+  {{ end }}
+</style>
 {{ end }}
 
 {{ define "main" }}
-<section class="bookshelf-page">
-  <header class="bookshelf-header">
-    <h1 class="bookshelf-title">書庫</h1>
-    <p class="bookshelf-subtitle">{{ .Site.Params.description }}</p>
+<section class="home-page">
+  <header class="home-masthead">
+    <h1>Cortex</h1>
+    <p>{{ (index hugo.Data "home").site_line }}</p>
   </header>
 
-  <div class="shelf">
-    {{ range index hugo.Data "books" }}
-    <a href="{{ printf "%slibrary/%s/" $.Site.BaseURL .slug }}" class="book-card" style="--book-color: {{ .color }}">
-      <div class="book-spine"></div>
-      <div class="book-cover">
-        {{ if .cover }}
-        <div class="book-cover-thumb">
-          <img src="{{ printf "%s%s" $.Site.BaseURL .cover }}" alt="{{ .title }}">
-        </div>
+  {{ range (index hugo.Data "home").domains }}
+  <section class="home-domain home-domain--{{ .no }}">
+    <div class="home-domain-no">{{ .no }}</div>
+    <div class="home-domain-body">
+      <h2 class="home-domain-name">{{ .name }}</h2>
+      <p class="home-domain-lede">{{ .lede }}</p>
+      <p class="home-domain-spec">{{ .spec }}</p>
+      <div class="home-entries">
+        {{ range .entries }}
+        <a class="home-entry" href="{{ printf "%s%s" $.Site.BaseURL .url }}">
+          <span class="home-entry-name">{{ .name }}</span>
+          <span class="home-entry-note">{{ .note }}</span>
+        </a>
         {{ end }}
-        <div class="book-topics">{{ delimit .topics " · " }}</div>
-        <div class="book-card-title">{{ .title }}</div>
-        <div class="book-card-author">{{ .author }}</div>
-        {{ if .edition }}<div class="book-card-edition">{{ .edition }} Ed.</div>{{ end }}
-        <span class="book-card-status book-card-status--{{ .status }}">{{ .status }}</span>
       </div>
+    </div>
+  </section>
+  {{ end }}
+
+  <footer class="home-footer">
+    {{ with (index hugo.Data "home").footer_link }}
+    <a class="home-entry home-entry--footer" href="{{ printf "%s%s" $.Site.BaseURL .url }}">
+      <span class="home-entry-name">{{ .name }}</span>
+      <span class="home-entry-note">{{ .note }}</span>
     </a>
     {{ end }}
-
-    <a href="{{ printf "%slibrary/" $.Site.BaseURL }}" class="book-card book-card--add">
-      <div class="book-spine book-spine--add"></div>
-      <div class="book-cover book-cover--add">
-        <span class="book-add-icon">+</span>
-        <span class="book-add-label">新增書籍</span>
-      </div>
-    </a>
-  </div>
-
+  </footer>
 </section>
 {{ end }}

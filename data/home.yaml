@@ -1,0 +1,94 @@
+# 首頁資料：四個領域 + 各自的入口。
+#
+# 舊的 data/books.yaml（書架卡片）已廢除——首頁的單位不再是「書」而是「領域」，
+# 書降格成領域裡的一筆來源出處。書架隱喻逼每個項目都得長得像一本書，所以 Vortex
+# 這種不是書的東西當初根本沒地方放，首頁只覆蓋到站上不到一成的內容。
+#
+# 新增入口改這裡，不動 layout。spec 那行的數字必須對得上 data/ 實況，不是形容詞。
+
+site_line: "四個領域的知識庫。書是來源，不是單位。"
+
+domains:
+  - no: "01"
+    name: "肌力與體能"
+    color: "#8A3324"
+    lede: "NSCA《Essentials of Strength Training and Conditioning》第四版拆成可查的知識單位。兩條閱讀動線：照章節讀，或打散章節照概念讀。"
+    spec: "24 章 · 1557 條知識單位 · 1252 張閃卡 · 22 條概念軸"
+    entries:
+      - name: "章節目次"
+        note: "24 章，每章含深度層與遮答自測"
+        url: "library/essentials-of-strength-training/"
+      - name: "概念索引"
+        note: "22 條概念軸橫切全書"
+        url: "library/essentials-of-strength-training/concepts/"
+      - name: "重點摘錄"
+        note: "書中原句"
+        url: "library/essentials-of-strength-training/highlights/"
+      - name: "讀書筆記"
+        note: "自己的整理"
+        url: "library/essentials-of-strength-training/notes/"
+
+  - no: "02"
+    name: "游泳教學與水感"
+    color: "#3E574D"
+    lede: "以水感知為核心的游泳教學研究。四式加出發轉身，技術點、教學錯誤、drill 與傷害各成一層。"
+    spec: "176 個 drill · 207 條技術分析 · 102 條教學錯誤 · 47 筆傷害"
+    entries:
+      - name: "Vortex 首頁"
+        note: "全站導覽與研究層"
+        url: "vortex/"
+      - name: "動作庫"
+        note: "176 個 drill，按 7 類篩選"
+        url: "vortex/drills/"
+      - name: "技術分析與教學錯誤"
+        note: "四式加出發轉身逐點對照"
+        url: "vortex/instructional/"
+      - name: "水感指南"
+        note: "四式水感與 L 級技術指標"
+        url: "vortex/technica/"
+      - name: "L0–L6 發展地圖"
+        note: "47 條分級指標"
+        url: "vortex/levels/"
+      - name: "傷害資料庫"
+        note: "47 筆，分 7 類"
+        url: "vortex/injuries/"
+      - name: "ADM 運動員發展矩陣"
+        note: "4 支柱 × 4 階段 + 22 條技術標準"
+        url: "vortex/adm/"
+
+  - no: "03"
+    name: "學習與教學"
+    color: "#1B5E69"
+    lede: "同一位作者的兩本學習科學著作，一本寫給學習者、一本寫給教學者，拆成可查的技法與章節。"
+    spec: "20 個學習技法 · 10 章教學手冊 · 18 條教學策略"
+    entries:
+      - name: "大腦喜歡這樣學"
+        note: "學習者版，5 個主題"
+        url: "library/mind-for-numbers/"
+      - name: "學習技法工具箱"
+        note: "20 個技法，查了就用"
+        url: "library/mind-for-numbers/toolkit/"
+      - name: "Uncommon Sense Teaching"
+        note: "教學者版"
+        url: "library/uncommon-sense-teaching/"
+      - name: "教學手冊"
+        note: "10 章，讀概念"
+        url: "library/uncommon-sense-teaching/handbook/"
+      - name: "教學策略"
+        note: "18 條，分 6 類"
+        url: "library/uncommon-sense-teaching/strategies/"
+
+  - no: "04"
+    name: "氣質與個別差異"
+    color: "#6E5A3C"
+    lede: "Thomas、Chess 與 Birch 的九維度氣質架構，含自測與四型對照。用來解釋同一套教法為什麼在不同人身上結果不同。"
+    spec: "9 個維度 · 4 種類型 · 36 題自測 · 5 套框架對照"
+    entries:
+      - name: "氣質九維度"
+        note: "維度、類型、自測與框架比較"
+        url: "temperament/"
+
+footer_link:
+  name: "全部書目"
+  note: "以書為單位的清單"
+  url: "library/"
