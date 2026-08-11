@@ -3,7 +3,7 @@
 > 結構地圖，給冷啟動讀者（人/LLM）。格式與維護流程見 `C:\claudehome\CODEBASE_MAP_METHODOLOGY.md`。
 > 行為規範見 `CLAUDE.md`；進度/待辦見 `HANDOFF.md`。
 >
-> `last_verified: 2026-07-31`
+> `last_verified: 2026-08-11`
 
 ---
 
@@ -59,37 +59,37 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 |----|----|------|---------|
 | `vortex-home.html` | 70 | 首頁：masthead + hero(什麼是水感) + 處境帶 4 入口 + legend（主題/搜尋都在左欄） | 載 `vortex.js` |
 | `vortex-stroke.html` | 304 | 每式連續文件（vx-doc：moves→drills→errors→tech→levels） | vortex.js doc 分支（scrollspy + chip 篩選） |
-| `vortex-database.html` | 270 | 查資料：全站 8 類單元級撈取，支援 `?q=` | vortex.js `[data-vx-find]` 分支 |
+| `vortex-database.html` | 275 | 查資料：全站 8 類單元級撈取，支援 `?q=` | vortex.js `[data-vx-find]` 分支 |
 | `vortex-drills.html` | 187 | 找練習（139 drill 多軸篩選，label ①②③） | vortex.js `[data-vx-db]` 分支 |
 | `vortex-water-sense.html` | 585 | 水感指南，**全 hardcoded**，vx-doc | vortex.js doc 分支 |
 | `vortex-periodization.html` | 1103 | 週期化期刊頁（最長），vx-doc | vortex.js doc 分支 |
 | `vortex-levels.html` | 137 | 水感 L0–L6，vx-doc | vortex.js doc 分支 |
-| `vortex-breathing.html` | 131 | 呼吸訓練輔助軸，vx-doc | vortex.js doc 分支 |
+| `vortex-breathing.html` | 642 | 呼吸章三條線（感知線只指路去 drills／生理線／喚醒調節線）21 節點，vx-doc；**安全面板置頂且不可收合**，概念地圖 range `data/breathing/_index.yaml` 生成 | vortex.js doc 分支 |
 | `vortex-injuries.html` | 288 | 運動傷害，vx-doc | vortex.js doc 分支 |
 | `vortex-psychology-read.html` | 140 | 心理層連續長文（READ；lookup 頁已退役，/vortex/psychology/ alias 轉址至此） | vortex.js `.vx-read` 分支（進度條+spy） |
 | `vortex-adm-{home,matrix,standards,single}.html` | 74/105/60/28 | ADM 四頁；matrix 為 vx-doc | matrix doc 分支；standards `[data-vx-adm-std]` 分支 |
 | `vortex/{single,list}.html` | 29/36 | technica/instructional/bridge 散文 fallback | 無 |
 
 ### CSS（static/css/）
-`variables.css`(49) `base.css`(79) `layout.css`(165) `home.css`(150) `library.css`(140) `cscs-chapter.css`(719) `vortex.css`(2080) `vortex-techo.css`(158，僅首頁 tx-*) `vortex-nav.css`(159，全站側欄+搜尋框) `vortex-injuries.css`(242) `mnfl.css`(391) `ust.css`(526) `temperament.css`(296)。  
+`variables.css`(49) `base.css`(79) `layout.css`(165) `home.css`(150) `library.css`(140) `cscs-chapter.css`(719) `vortex.css`(2111) `vortex-techo.css`(158，僅首頁 tx-*) `vortex-nav.css`(159，全站側欄+搜尋框) `vortex-injuries.css`(242) `mnfl.css`(391) `ust.css`(526) `temperament.css`(296)。  
 隔離手法：各 section CSS 用 `body:has(.<prefix>-*)` scope，不互相污染。
 
 ### JS（static/js/）
-- `vortex.js`(539) — 單檔依 DOM hook 分派（見 §2 決策索引該列）；`setupCardFilters`/`setupDrillFilters` 為 doc 與 legacy 分支共用；`?q=` 只寫入 `input.value`（XSS-safe）
+- `vortex.js`(555) — 單檔依 DOM hook 分派（見 §2 決策索引該列）；`setupCardFilters`/`setupDrillFilters` 為 doc 與 legacy 分支共用；`?q=` 只寫入 `input.value`（XSS-safe）
 - `temperament-quiz.js`(197) — 氣質測驗純前端計分
 
 ### 資料流
-- `tools/sync_vortex.py` — 從 `TheVortexProject/canonical/` 同步到 `data/{vortex,adm,periodization}/`。**單向，勿手改 data/**
+- `tools/sync_vortex.py` — 從 `TheVortexProject/canonical/` 同步到 `data/{vortex,adm,periodization,breathing}/`。**單向，勿手改 data/**
 - `data/{mnfl,ust,temperament}/`、`data/home.yaml` — my-site 自有，**可直接改**
 
 ---
 
 ## 4. 踩雷點 / 非顯而易見處（讀檔表面看不出）
 
-1. **`static/css/vortex.css` 的 RWD `@media` 集中在檔案後段**（檔案現約 2080 行）。中段讀不到任何 media query → **別下「沒有 RWD / 沒手機版」結論**。同理 `is-hidden`（搜 `is-hidden`，details.vx-card 用）、`.vx-cert`（搜 `vx-cert`）都在中後段。`:focus-visible` 確實沒有、`prefers-color-scheme`（dark mode）確實沒有。
+1. **`static/css/vortex.css` 的 RWD `@media` 集中在檔案後段**（檔案現約 2111 行）。中段讀不到任何 media query → **別下「沒有 RWD / 沒手機版」結論**。同理 `is-hidden`（搜 `is-hidden`，details.vx-card 用）、`.vx-cert`（搜 `vx-cert`）都在中後段。`:focus-visible` 確實沒有、`prefers-color-scheme`（dark mode）確實沒有。
 2. **`vortex.js` 是單一檔依 DOM hook 分派**：`.vx-doc` 文件流（scrollspy）/ legacy 面板切換（**temperament-main.html 仍用 data-target 按鈕，此分支不可刪**）/ `[data-vx-db]` drills / `[data-vx-find]` database / `[data-vx-adm-std]` ADM 標準 / `.vx-read`。改多軸 filter 在 `setupCardFilters`/`setupDrillFilters` 共用函數改。**adm-standards 的 `stdPanel.querySelector('.vx-filters')` 依賴容器 class，layout 改 `.vx-filters` 名會斷 JS**（2026-07-10 audit 確認）。
 3. **`vortex-water-sense.html` 全 hardcoded，從不呼叫 `.Content`**。對應 `content/vortex/technica/water-sense-guide.md` 的 body 是**死碼**（2026-06-15 已清空留註解）。改這頁文案要改 template，不是改 .md。
-4. **`data/vortex|adm|periodization/` 是 canonical-synced**：手改會被下次 `sync_vortex.py` 洗掉。改內容要回 `C:\claudehome\projects\TheVortexProject\canonical/`。
+4. **`data/vortex|adm|periodization|breathing/` 是 canonical-synced**：手改會被下次 `sync_vortex.py` 洗掉。改內容要回 `C:\claudehome\projects\TheVortexProject\canonical/`。`breathing/` 是**整章目錄式搬運**（全 public 無 diagnostic），不是 `data/vortex/` 那種單檔剝離。
 5. **`baseof.html` 的 `.main-content { max-width:800px }` 罩住每一頁**；vortex 頁靠 `vortex.css` 的 `body:has(...) .main-content{max-width:none}` 脫離上限（搜 `main-content`）。改寬度問題先查這條。
 6. **stroke 頁誤區/機制用精確 key 過濾**（`vortex-stroke.html` 搜 `where ... "stroke" $key`）：`stroke: common` 的通用項**不會**自動出現在各式頁——是「可能缺漏」而非「會多出來」。
 7. **stroke 中英名 dict 已抽成共用 partial** `layouts/partials/vortex/stroke-dicts.html`，home/database/standards/drills 4 個 layout 都 `partial` 它（2026-06-23 稽核更正）。`vortex-stroke.html` 不用 partial——它的中英名取自每式 `_index.md` front-matter（`stroke_tag`/`stroke_en`），機制不同。**殘留低優先重複**：key→slug 映射 dict（`free→freestyle`）仍在 stroke/database/drills 各 inline 一份。adm-standards 用另一套 `start`/`turn` 分開 vocabulary，別混。
@@ -102,7 +102,9 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 14. **wiki 連結索引用 `partialCached "cscs-index.html" $book $book.RelPermalink`**：1583 條，每頁重建會拖慢建置；variant key 用 RelPermalink，避免第二本書共用同一份快取。
 15. **`.nb-detail summary` 的 `display` 不是 `list-item`，原生三角會消失**，靠 `::before` 自己畫；改 summary 版面時別把箭頭弄丟（`audit.js` 沒有斷言它，只有人眼看得到）。
 16. **`base.css` 全站 `html { scroll-behavior: smooth }` 會讓錨點落地漂掉**：跳錨點時瀏覽器自己的平滑捲動、頁面既有的平滑捲動、`scrollIntoView()` 三者互搶，實測落點偏離目標 2200px。`chapter.html` / `cscs-concepts.html` 的 `openTarget()` 因此在定位期間暫時把 `documentElement.style.scrollBehavior` 設成 `auto`，下一幀再補一次並還原。**只用 `scrollIntoView({behavior:'auto'})` 不夠**（動畫仍會接手）。
-17. **純計算的 Hugo 迴圈一定要用 `{{- -}}` 夾緊**：不夾的話每次迭代吐出縮排空白，概念頁 22 × 1583 次迭代把 HTML 從 578KB 灌成 1.86MB。看到頁面異常肥先查迴圈空白，不是查內容量。
+17. **Goldmark 在全形標點與 CJK 之間不認粗體閉合符**：`**延腦背側呼吸群（DRG）**主要…` 的收尾 `**` 前是 `）`、後是 `主`，右側 flanking 判定失敗，`**` 原樣印在頁面上。修法是把括號／句號移到粗體外側，**且要修在 canonical 那一側**。⚠ 2026-08-11 全站掃描：`public/` 仍有 222 個未渲染的 `**`（database 90、freestyle 34、udk 18…），**根因不只一種**——數量大的比較像該欄位根本沒過 `markdownify`，要修先分類。掃描方式：對 `public/**/index.html` 數 `**` 出現次數。
+18. **錨點跳進收合的 `<details>` 會落在空白處**：`vx-doc` 模式原本沒有 hash 處理（自動展開只存在於 legacy 面板分支的 `data-anchor`）。`vortex.js` 的 `openTargetDetails()` 在載入與 `hashchange` 時補這件事——加新的「從別頁跳進某節」入口前先確認它還在。
+19. **純計算的 Hugo 迴圈一定要用 `{{- -}}` 夾緊**：不夾的話每次迭代吐出縮排空白，概念頁 22 × 1583 次迭代把 HTML 從 578KB 灌成 1.86MB。看到頁面異常肥先查迴圈空白，不是查內容量。
 
 ---
 
