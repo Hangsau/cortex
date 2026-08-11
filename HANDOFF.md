@@ -1,5 +1,30 @@
 # HANDOFF — my-site (Cortex)
 
+## 目前狀態（2026-08-11）
+
+### ✅ Vortex 呼吸頁重建：5 節點 → 21 節點，導覽改由 canonical 生成
+
+上游 TheVortexProject 把呼吸從 `canonical/health/breathing-training.yaml`（5 節，只有陸上生理）升格成獨立章節 `canonical/breathing/`（21 節，三條線）。本站是下游呈現層，跟著重建。
+
+**三條線是這頁的骨架**（不是三個並列 tab）：① 感知線在水裡，**內容不在這頁**，在 drills FrBr1–FrBr4，這頁只負責指路；② 生理線在陸上（呼吸肌、CO2 耐受）；③ 喚醒調節線在陸上（自律神經，處理賽前緊張）。`physiology` 是三條線共用的機制層。
+
+**同步層**：`tools/sync_vortex.py` 的呼吸從單檔改成目錄式——新增 `sync_breathing()`，把 `canonical/breathing/*.yaml` 六份整檔搬進 `data/breathing/`。**這章全 public、沒有 diagnostic 子樹**，所以不剝離、不改內容；舊的 `data/vortex/breathing-training.yaml` 已 `git rm`。
+
+**版型**（`layouts/vortex/vortex-breathing.html`，131 → 約 505 行）：
+
+- **安全面板置頂且不可收合**。缺氧昏迷是讀其他任何一節的前提——不先講「不要在水下憋氣」，後面 CO2 耐受與循環過度換氣（Wim Hof）那幾節會被誤用。側欄該條掛 `vx-navlink--alert`。同理 `n-wim_hof` 裡 `safety_zh` 被刻意排在 `what_zh` 之前。
+- **全章概念地圖與「查資料」頁的 21 張卡片，都 range `_index.yaml` 生成**，layout 不寫節點名單。這是 CLAUDE.md「Vortex 標籤一律從資料讀」那條鐵則的延伸：Hugo 的 `index` 查不到 key 會**回空字串且不報錯**，硬編一份副本，canonical 一改節點名稱這裡就無聲漂移。
+- 各節的散文欄位名逐節不同（`what_zh` / `mechanism_zh` / `evidence_kox_zh`…），**在 template 裡逐欄列出**，沿用 `vortex-periodization.html` 的做法。不能用 range——Hugo 對 map 是按 key 字母序，敘事順序會被打亂。
+
+**兩個踩到的坑**：
+
+1. **錨點跳進收合的 `<details>` 會落在空白處**。`vx-doc` 模式原本完全沒有 hash 處理（只有舊的 master-detail 模式靠 `data-anchor` 自動展開）。`static/js/vortex.js` 補了 `openTargetDetails()`，載入時與 `hashchange` 各跑一次；這是通用修正，所有 doc-flow 頁面都受益。
+2. **Goldmark 在全形標點與 CJK 字之間不認粗體閉合符**。`**延腦背側呼吸群（DRG）**主要…` 的收尾 `**` 前面是 `）`、後面是 `主`，右側 flanking 判定失敗，`**` 就原樣輸出到頁面。已在 canonical 側改成把括號／句號移到粗體外面（不在本站修——canonical 是唯一真相源）。
+
+**驗收**：`hugo --gc` exit 0；程式化比對 21 個 `id="n-*"` 對 21 個 `href="#n-*"`，零死錨點；巢狀 `<p>` 0；本頁殘留 `**` 0。Playwright 實測點概念地圖連結會自動展開目標 `<details>`，側欄 5 條 scrollspy 就位。
+
+**⚠ 順手發現、尚未處理**：全站掃描顯示**其他 11 個頁面共有 222 個未被渲染的 `**`**（`vortex/database` 90、`freestyle` 34、`underwater-dolphin-kick` 18、`butterfly` 16、`periodization` 16、`temperament` 14…）。這是既有問題不是本次造成的，且根因**可能不只一種**——有些跟上面第 2 點同樣是 Goldmark flanking，有些看數量（database 90）比較像該欄位根本沒過 `markdownify`。要修的話先分類再動，不要一律加 `markdownify` 了事。
+
 ## 目前狀態（2026-08-08）
 
 ### ✅ CSCS 收尾：ch08 缺口方向輪跑完，結論是「上一輪刪對了」

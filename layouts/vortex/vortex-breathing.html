@@ -5,7 +5,13 @@
 {{ end }}
 
 {{ define "main" }}
-{{ $b := index hugo.Data "vortex" "breathing-training" }}
+{{ $base := .Site.BaseURL }}
+{{ $sf  := index hugo.Data "breathing" "safety" }}
+{{ $fw  := index hugo.Data "breathing" "framework" }}
+{{ $ph  := index hugo.Data "breathing" "physiology" }}
+{{ $tr  := index hugo.Data "breathing" "training" }}
+{{ $rg  := index hugo.Data "breathing" "regulation" }}
+{{ $idx := index hugo.Data "breathing" "_index" }}
 
 <div class="vx-stroke vx-shell">
 {{ partial "vortex/sidebar.html" (dict "ctx" . "current" "breathing") }}
@@ -14,114 +20,619 @@
     {{/* ════════ 左側常駐目次（頁內錨點 + scrollspy） ════════ */}}
     <aside class="vx-rail">
       <div class="vx-rail-head">
-        <span class="vx-stroke-zh">呼吸訓練</span>
+        <span class="vx-stroke-zh">呼吸</span>
       </div>
+
+      <div class="vx-rail-group">先讀</div>
       <div class="vx-rail-scroll">
         <ul class="vx-rail-list">
           <li><a class="vx-navlink vx-navlink--top vx-navlink--alert" href="#safety" data-spy="safety"><span class="n">!</span>安全鐵則</a></li>
-          <li><a class="vx-navlink vx-navlink--top" href="#overview" data-spy="overview"><span class="n">◆</span>兩條線（總覽）</a></li>
-          <li><a class="vx-navlink" href="#imt_rmt" data-spy="imt_rmt"><span class="n">1</span>呼吸肌訓練 IMT/RMT</a></li>
-          <li><a class="vx-navlink" href="#co2" data-spy="co2"><span class="n">2</span>CO2 耐受／閉氣表</a></li>
-          <li><a class="vx-navlink" href="#grading" data-spy="grading"><span class="n">3</span>能不能分級？</a></li>
+          <li><a class="vx-navlink vx-navlink--top" href="#overview" data-spy="overview"><span class="n">◆</span>三條線與全章地圖</a></li>
         </ul>
+      </div>
+
+      <div class="vx-rail-group">主題</div>
+      <div class="vx-rail-scroll">
+        <ul class="vx-rail-list">
+          <li><a class="vx-navlink" href="#physiology" data-spy="physiology"><span class="n">1</span>機制層（三條線共用）</a></li>
+          <li><a class="vx-navlink" href="#training" data-spy="training"><span class="n">2</span>生理線 · 訓練法</a></li>
+          <li><a class="vx-navlink" href="#regulation" data-spy="regulation"><span class="n">3</span>喚醒調節線</a></li>
+        </ul>
+      </div>
+
+      <div class="vx-rail-legend">
+        <span class="rl-h">確定性標記</span>
+        🔵 <b>推導／作者綜合</b> · 🟢 <b>近期文獻</b> · 🟡 <b>舊文獻或證據不一致</b> · 🟠 <b>教練觀測</b> · 🔴 <b>待查／無游泳實證</b>
       </div>
     </aside>
 
-    {{/* ════════ 右側內容（連續文件，安全鐵則置頂） ════════ */}}
+    {{/* ════════ 右側內容（連續文件；安全層置頂且全展開） ════════ */}}
     <main class="vx-panels">
 
-      {{/* ── 安全鐵則（預設 active，置頂） ── */}}
-      {{ with $b.safety }}
+      {{/* ════════ 安全鐵則 · 置頂不可折疊 ════════ */}}
       <section class="vx-panel vx-overview" id="safety">
-        <span class="vx-sec-no">呼吸訓練 · 安全</span>
-        <h2>先講最重要的：別在水裡憋氣</h2>
-        <div class="vx-pz-warn">{{ .danger_zh }}</div>
-        <span class="vx-block-label">這不是危言聳聽 {{ .cert }}</span>
-        <p>{{ .evidence_zh }}</p>
-        <span class="vx-block-label vx-block-label--mgmt">三方權威立場</span>
-        <p>{{ .policy_zh }}</p>
-        <div class="vx-pz-author">{{ .rule_zh }}</div>
-        {{ with .source }}<p class="vx-cite"><span class="src">{{ . }}</span></p>{{ end }}
-        <nav class="vx-flow"><a class="nx" href="#overview"><span class="lbl">下一步</span>呼吸的兩條線 →</a></nav>
-      </section>
-      {{ end }}
+        <span class="vx-sec-no">呼吸 · 安全</span>
+        <h2>先講最重要的：不要在水下憋氣</h2>
+        <p class="vx-premise">呼吸這一章和其他章的差別在於它有致命風險。下面兩條不是「其中兩個主題」，是讀本章任何其他內容之前的前提——先讀完，再往下走。</p>
 
-      {{/* ── 總覽：兩條線 ── */}}
-      {{ with $b.overview }}
+        {{ with $sf.hypoxic_blackout }}
+        <div id="n-hypoxic_blackout">
+          <h3>{{ .cert }} 缺氧昏迷（水下憋氣致死機轉）</h3>
+          <div class="vx-pz-warn">{{ .danger_zh | markdownify }}</div>
+          <span class="vx-block-label">這不是危言聳聽</span>
+          <p>{{ .evidence_zh | markdownify }}</p>
+          <span class="vx-block-label vx-block-label--mgmt">三方權威立場</span>
+          <p>{{ .policy_zh | markdownify }}</p>
+          <div class="vx-pz-author">{{ .rule_zh | markdownify }}</div>
+          <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh | markdownify }}</div>
+          {{ with .source }}<p class="vx-cite"><span class="src">來源</span>：{{ . }}</p>{{ end }}
+        </div>
+        {{ end }}
+
+        {{ with $sf.hypocapnia_mechanism }}
+        <div id="n-hypocapnia_mechanism">
+          <h3>{{ .cert }} 血氧正常 ≠ 安全</h3>
+          <span class="vx-block-label">主導機制</span>
+          <p>{{ .mechanism_zh | markdownify }}</p>
+          <span class="vx-block-label">次要機制</span>
+          <p>{{ .secondary_zh | markdownify }}</p>
+          <span class="vx-block-label">波爾效應的定位</span>
+          <p>{{ .bohr_zh | markdownify }}</p>
+          <div class="vx-pz-warn">{{ .misconception_zh | markdownify }}</div>
+          <span class="vx-block-label vx-block-label--mgmt">對教練的意義</span>
+          <p>{{ .coach_meaning_zh | markdownify }}</p>
+          <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh | markdownify }}</div>
+          {{ with .source }}<p class="vx-cite"><span class="src">來源</span>：{{ . }}</p>{{ end }}
+        </div>
+        {{ end }}
+
+        <nav class="vx-flow">
+          <span></span>
+          <a class="nx" href="#overview"><span class="lbl">下一步</span>三條線與全章地圖 →</a>
+        </nav>
+      </section>
+
+      {{/* ════════ 總覽：三條線 + 全章概念地圖 ════════ */}}
       <section class="vx-panel" id="overview">
-        <span class="vx-sec-no">呼吸訓練 · 總覽</span>
-        <h2>呼吸的兩條線：感知 vs 生理</h2>
-        <p class="vx-premise">{{ .premise_zh }}</p>
-        <div class="vx-pz-author">{{ .author_synthesis_zh }}</div>
-        <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh }}</div>
-        <p class="vx-cite"><span class="src">感知線（水中呼吸節律）的練習在 drills 的「呼吸」類：FrBr1 韻律呼吸 · FrBr2 放鬆下沉 · FrBr3 連續涓流吐氣 · FrBr4 兩側換氣。本頁只處理生理線。</span></p>
+        <span class="vx-sec-no">呼吸 · 總覽</span>
+        <h2>呼吸不是一個主題，是三條各自獨立的線</h2>
+
+        {{ with $fw.overview }}
+        <div id="n-overview">
+        <p class="vx-premise">{{ .premise_zh | markdownify }}</p>
+        <ul class="vx-factor-list">
+          {{ range .lines_zh }}<li><span class="vx-factor-txt">{{ . | markdownify }}</span></li>{{ end }}
+        </ul>
+        <div class="vx-pz-author">{{ .author_synthesis_zh | markdownify }}</div>
+        <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh | markdownify }}</div>
+        </div>
+        {{ end }}
+
+        {{/* 全章概念地圖：由 canonical/breathing/_index.yaml 生成，不在此硬編條目 */}}
+        <p class="vx-panel-lead">全章 21 個概念，一句話一個：點任一條直接跳到該節。</p>
+        <div class="vx-br-map">
+          {{ range $group := slice
+              (dict "key" "safety"     "name" "安全鐵則"      "note" "置頂，讀其他之前先讀")
+              (dict "key" "framework"  "name" "章節框架"      "note" "三條線的定位與收錄邊界")
+              (dict "key" "physiology" "name" "機制層"        "note" "三條線共用，各節的「為什麼」都指回這裡")
+              (dict "key" "training"   "name" "生理線 · 訓練法" "note" "陸上進行，按負荷分級")
+              (dict "key" "regulation" "name" "喚醒調節線"    "note" "陸上進行，處理賽前緊張") }}
+          <div class="vx-br-mapgroup">
+            <p class="vx-pz-group">{{ $group.name }}<span class="gsub">{{ $group.note }}</span></p>
+            <ul class="vx-br-maplist">
+            {{ range index $idx $group.key }}
+              {{ $key := index (last 1 (split .id ".")) 0 }}
+              <li><a href="#n-{{ $key }}"><strong>{{ .name_zh }}</strong><span>{{ .gist_zh | markdownify }}</span></a></li>
+            {{ end }}
+            </ul>
+          </div>
+          {{ end }}
+        </div>
+
+        <div class="vx-ladder">
+
+          {{ with $fw.grading }}
+          <details class="vx-level" id="n-grading">
+            <summary>
+              <span class="lv">級</span>
+              <span>
+                <span class="lvname">分級軸（四軸） <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">三條線各有各的分級軸，不共用 L0–L6</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">{{ .premise_zh | markdownify }}</p>
+              <ul class="vx-pz-sub">
+                {{ range .axes_zh }}<li>{{ . | markdownify }}</li>{{ end }}
+              </ul>
+              <span class="vx-block-label vx-block-label--mgmt">教練怎麼用</span>
+              <p>{{ .coach_use_zh | markdownify }}</p>
+              <p class="vx-pz-warn">{{ .caveat_zh | markdownify }}</p>
+              <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh | markdownify }}</div>
+            </div>
+          </details>
+          {{ end }}
+
+          {{ with $fw.boundaries }}
+          <details class="vx-level" id="n-boundaries">
+            <summary>
+              <span class="lv">界</span>
+              <span>
+                <span class="lvname">收錄邊界 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">只收「游泳教練需要知道」的；哪些方法明確不收、為什麼</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">{{ .premise_zh | markdownify }}</p>
+              <ul class="vx-pz-sub">
+                {{ range .excluded_zh }}<li>{{ . | markdownify }}</li>{{ end }}
+              </ul>
+              <span class="vx-block-label">為什麼這樣切</span>
+              <p>{{ .exclusion_reason_zh | markdownify }}</p>
+              <span class="vx-block-label">證據原則</span>
+              <p>{{ .principle_evidence_zh | markdownify }}</p>
+              <span class="vx-block-label">自由潛水原則</span>
+              <p>{{ .principle_freediving_zh | markdownify }}</p>
+              <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh | markdownify }}</div>
+            </div>
+          </details>
+          {{ end }}
+
+        </div>
+
+        <p class="vx-cite"><span class="src">感知線</span>（水中換氣節律）的練習不在本章，在 drills 的自由式 breathing 類：FrBr1 韻律呼吸 · FrBr2 放鬆下沉 · FrBr3 連續涓流吐氣 · FrBr4 兩側換氣。本章處理的是生理線與喚醒調節線，兩者都在陸上。</p>
+
         <nav class="vx-flow">
           <a href="#safety"><span class="lbl">回到</span>← 安全鐵則</a>
-          <a class="nx" href="#imt_rmt"><span class="lbl">下一步</span>呼吸肌訓練 →</a>
+          <a class="nx" href="#physiology"><span class="lbl">下一個主題</span>機制層 →</a>
         </nav>
       </section>
-      {{ end }}
 
-      {{/* ── IMT/RMT ── */}}
-      {{ with $b.imt_rmt }}
-      <section class="vx-panel" id="imt_rmt">
-        <span class="vx-sec-no">呼吸訓練 · 生理線 1</span>
-        <h2>呼吸肌訓練（IMT / RMT） {{ .cert }}</h2>
-        <span class="vx-block-label">是什麼</span>
-        <p>{{ .what_zh }}</p>
-        <span class="vx-block-label">證據（分距離看）</span>
-        <p>{{ .evidence_zh }}</p>
-        <span class="vx-block-label vx-block-label--mgmt">證據導向協議</span>
-        <div class="vx-pz-focus">{{ .protocol_zh }}</div>
-        <span class="vx-block-label">誠實反例</span>
-        <div class="vx-pz-warn">{{ .null_zh }}</div>
-        <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh }}</div>
-        {{ with .source }}<p class="vx-cite"><span class="src">{{ . }}</span></p>{{ end }}
+      {{/* ════════ 主題 1 · 機制層 ════════ */}}
+      <section class="vx-panel vx-move" id="physiology">
+        <span class="vx-sec-no">主題 1 / 3</span>
+        <h2>機制層：三條線共用的「為什麼」</h2>
+        <p class="vx-panel-lead">下面五個機制是三條線共用的底層——訓練法與調節法的每個「為什麼」都指回這裡，不在各自章節重寫一遍。點任一概念就地展開。</p>
+
+        <div class="vx-ladder">
+
+          {{ with $ph.muscles }}
+          <details class="vx-level" id="n-muscles">
+            <summary>
+              <span class="lv">肌</span>
+              <span>
+                <span class="lvname">呼吸肌是骨骼肌 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">橫膈與肋間肌是骨骼肌，所以練得動——這是整條生理線的前提</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">{{ .mechanics_zh | markdownify }}</p>
+              <span class="vx-block-label">吸氣肌</span>
+              <p>{{ .inspiratory_zh | markdownify }}</p>
+              <span class="vx-block-label">吐氣肌</span>
+              <p>{{ .expiratory_zh | markdownify }}</p>
+              <span class="vx-block-label">各自貢獻多少</span>
+              <p>{{ .proportion_zh | markdownify }}</p>
+              <p class="vx-pz-warn">{{ .posture_caveat_zh | markdownify }}</p>
+              <span class="vx-block-label">游泳研究缺口</span>
+              <p>{{ .swimming_gap_zh | markdownify }}</p>
+              <span class="vx-block-label vx-block-label--mgmt">教練看得到的訊號</span>
+              <p>{{ .coaching_signal_zh | markdownify }}</p>
+              {{ with .observation_basis }}<p class="vx-pz-meta"><span class="vx-label">觀察基礎</span>{{ . | markdownify }}</p>{{ end }}
+              <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh | markdownify }}</div>
+              {{ with .source }}<p class="vx-cite"><span class="src">來源</span>：{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+          {{ with $ph.neural_control }}
+          <details class="vx-level" id="n-neural_control">
+            <summary>
+              <span class="lv">神</span>
+              <span>
+                <span class="lvname">呼吸的神經控制 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">呼吸是少數可自主介入的自動化系統——介入有再投資代價</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">{{ .premise_zh | markdownify }}</p>
+              <span class="vx-block-label">腦幹節律</span>
+              <p>{{ .brainstem_zh | markdownify }}</p>
+              <span class="vx-block-label">橋腦調節</span>
+              <p>{{ .pontine_zh | markdownify }}</p>
+              <span class="vx-block-label">皮質介入</span>
+              <p>{{ .cortical_override_zh | markdownify }}</p>
+              <span class="vx-block-label vx-block-label--mgmt">對游泳的意義</span>
+              <p>{{ .swimming_meaning_zh | markdownify }}</p>
+              <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh | markdownify }}</div>
+              {{ with .source }}<p class="vx-cite"><span class="src">來源</span>：{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+          {{ with $ph.chemoreceptors }}
+          <details class="vx-level" id="n-chemoreceptors">
+            <summary>
+              <span class="lv">化</span>
+              <span>
+                <span class="lvname">化學受器與呼吸驅動 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">讓你「想呼吸」的是二氧化碳不是缺氧——安全與 CO₂ 訓練都由這條解釋</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">{{ .premise_zh | markdownify }}</p>
+              <span class="vx-block-label">中樞化學受器</span>
+              <p>{{ .central_zh | markdownify }}</p>
+              <span class="vx-block-label">周邊化學受器</span>
+              <p>{{ .peripheral_zh | markdownify }}</p>
+              <p class="vx-pz-warn">{{ .swimming_safety_zh | markdownify }}</p>
+              <span class="vx-block-label vx-block-label--mgmt">教學上的意義</span>
+              <p>{{ .swimming_teaching_zh | markdownify }}</p>
+              <span class="vx-block-label">CO₂ 耐受訓練想動的是什麼</span>
+              <p>{{ .co2_tolerance_direction_zh | markdownify }}</p>
+              <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh | markdownify }}</div>
+              {{ with .source }}<p class="vx-cite"><span class="src">來源</span>：{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+          {{ with $ph.autonomic_coupling }}
+          <details class="vx-level" id="n-autonomic_coupling">
+            <summary>
+              <span class="lv">自</span>
+              <span>
+                <span class="lvname">呼吸與自律神經耦合 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">吸氣偏交感、吐氣偏副交感——「吐氣長一點會鎮定」的機制基礎</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">{{ .mechanism_zh | markdownify }}</p>
+              <span class="vx-block-label">迷走神經</span>
+              <p>{{ .vagus_zh | markdownify }}</p>
+              <span class="vx-block-label">呼吸性竇性心律不整（RSA）</span>
+              <p>{{ .rsa_zh | markdownify }}</p>
+              <span class="vx-block-label vx-block-label--mgmt">對游泳的意義</span>
+              <p>{{ .swimming_meaning_zh | markdownify }}</p>
+              <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh | markdownify }}</div>
+            </div>
+          </details>
+          {{ end }}
+
+          {{ with $ph.baroreflex_resonance }}
+          <details class="vx-level" id="n-baroreflex_resonance">
+            <summary>
+              <span class="lv">壓</span>
+              <span>
+                <span class="lvname">壓力反射共振 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">族群平均約 0.1 Hz 會共振放大 HRV——但族群平均不是個人處方</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">{{ .premise_zh | markdownify }}</p>
+              <span class="vx-block-label">共振怎麼發生</span>
+              <p>{{ .resonance_zh | markdownify }}</p>
+              <span class="vx-block-label">個體差異</span>
+              <p>{{ .individual_variation_zh | markdownify }}</p>
+              <p class="vx-pz-warn">{{ .swimming_boundary_zh | markdownify }}</p>
+              <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh | markdownify }}</div>
+              {{ with .source }}<p class="vx-cite"><span class="src">來源</span>：{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+        </div>
+
         <nav class="vx-flow">
           <a href="#overview"><span class="lbl">回到</span>← 總覽</a>
-          <a class="nx" href="#co2"><span class="lbl">下一步</span>CO2 耐受 →</a>
+          <a class="nx" href="#training"><span class="lbl">下一個主題</span>生理線 · 訓練法 →</a>
         </nav>
       </section>
-      {{ end }}
 
-      {{/* ── CO2 耐受 ── */}}
-      {{ with $b.co2_tolerance }}
-      <section class="vx-panel" id="co2">
-        <span class="vx-sec-no">呼吸訓練 · 生理線 2</span>
-        <h2>CO2 耐受／閉氣表 {{ .cert }}</h2>
-        <span class="vx-block-label">是什麼</span>
-        <p>{{ .what_zh }}</p>
-        <span class="vx-block-label">對游泳表現的證據</span>
-        <div class="vx-pz-warn">{{ .evidence_zh }}</div>
-        <span class="vx-block-label">安全面</span>
-        <p>{{ .safety_zh }}</p>
-        <div class="vx-pz-author">{{ .verdict_zh }}</div>
-        <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh }}</div>
-        {{ with .source }}<p class="vx-cite"><span class="src">{{ . }}</span></p>{{ end }}
+      {{/* ════════ 主題 2 · 生理線訓練法 ════════ */}}
+      <section class="vx-panel vx-move" id="training">
+        <span class="vx-sec-no">主題 2 / 3</span>
+        <h2>生理線：呼吸肌與 CO₂ 的訓練法</h2>
+        <p class="vx-panel-lead">這條線全部在陸上或水面進行，零水下憋氣。每個方法都分成「是什麼／證據到哪／教練怎麼用」三段，證據不足的地方直接寫出來，不補話。點任一方法就地展開。</p>
+
+        <div class="vx-ladder">
+
+          {{ with $tr.imt }}
+          <details class="vx-level" id="n-imt">
+            <summary>
+              <span class="lv">IMT</span>
+              <span>
+                <span class="lvname">吸氣肌訓練 IMT / RMT <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">肌力一定進步，成績不一定——兩份統合分析結論不一致</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">{{ .what_zh | markdownify }}</p>
+              <span class="vx-block-label">證據</span>
+              <p>{{ .evidence_zh | markdownify }}</p>
+              <span class="vx-block-label">兩份統合分析不一致</span>
+              <p>{{ .conflict_zh | markdownify }}</p>
+              <div class="vx-pz-focus">{{ .protocol_zh | markdownify }}</div>
+              <p class="vx-pz-warn">{{ .correction_zh | markdownify }}</p>
+              <span class="vx-block-label">誠實反例</span>
+              <p>{{ .null_zh | markdownify }}</p>
+              <span class="vx-block-label">機制假說</span>
+              <p>{{ .mechanism_hypothesis_zh | markdownify }}</p>
+              <span class="vx-block-label vx-block-label--mgmt">教練怎麼用</span>
+              <p>{{ .coach_use_zh | markdownify }}</p>
+              <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh | markdownify }}</div>
+              {{ with .source }}<p class="vx-cite"><span class="src">來源</span>：{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+          {{ with $tr.co2_tolerance }}
+          <details class="vx-level" id="n-co2_tolerance">
+            <summary>
+              <span class="lv">CO₂</span>
+              <span>
+                <span class="lvname">CO₂ 耐受表 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">從自由潛水搬來的做法，游泳表現上零實證；陸上做要有人陪，絕不入水</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">{{ .what_zh | markdownify }}</p>
+              {{ with .observation_basis }}<p class="vx-pz-meta"><span class="vx-label">這個做法的來歷</span>{{ . | markdownify }}</p>{{ end }}
+              <span class="vx-block-label">證據</span>
+              <p>{{ .evidence_zh | markdownify }}</p>
+              <span class="vx-block-label">機制方向</span>
+              <p>{{ .mechanism_direction_zh | markdownify }}</p>
+              <div class="vx-pz-warn">{{ .safety_zh | markdownify }}</div>
+              <div class="vx-pz-author">{{ .verdict_zh | markdownify }}</div>
+              <span class="vx-block-label vx-block-label--mgmt">教練怎麼用</span>
+              <p>{{ .coach_use_zh | markdownify }}</p>
+              <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh | markdownify }}</div>
+              {{ with .source }}<p class="vx-cite"><span class="src">來源</span>：{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+          {{ with $tr.buteyko }}
+          <details class="vx-level" id="n-buteyko">
+            <summary>
+              <span class="lv">布</span>
+              <span>
+                <span class="lvname">布泰科呼吸法 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">證據全在氣喘臨床，沒有一篇測游泳；收錄理由是教練會被問到</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">{{ .what_zh | markdownify }}</p>
+              <span class="vx-block-label">系統回顧怎麼說</span>
+              <p>{{ .evidence_review_zh | markdownify }}</p>
+              <span class="vx-block-label">統合分析怎麼說</span>
+              <p>{{ .evidence_meta_zh | markdownify }}</p>
+              <p class="vx-pz-warn">{{ .correction_zh | markdownify }}</p>
+              <span class="vx-block-label">對游泳的意義</span>
+              <p>{{ .swimming_meaning_zh | markdownify }}</p>
+              <span class="vx-block-label vx-block-label--mgmt">教練怎麼用</span>
+              <p>{{ .coach_use_zh | markdownify }}</p>
+              <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh | markdownify }}</div>
+              {{ with .source }}<p class="vx-cite"><span class="src">來源</span>：{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+          {{ with $tr.bolt_test }}
+          <details class="vx-level" id="n-bolt_test">
+            <summary>
+              <span class="lv">BOLT</span>
+              <span>
+                <span class="lvname">BOLT 測試 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">測法可照做，但「理想 40 秒」沒有常模研究支撐，絕不可拿來分級選材</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">{{ .what_zh | markdownify }}</p>
+              <span class="vx-block-label">怎麼測</span>
+              <p>{{ .procedure_zh | markdownify }}</p>
+              <p class="vx-pz-warn">{{ .norms_truth_zh | markdownify }}</p>
+              <span class="vx-block-label">與表現的關係</span>
+              <p>{{ .performance_zh | markdownify }}</p>
+              <span class="vx-block-label vx-block-label--mgmt">教練怎麼用</span>
+              <p>{{ .coach_use_zh | markdownify }}</p>
+              <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh | markdownify }}</div>
+              {{ with .source }}<p class="vx-cite"><span class="src">來源</span>：{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+          {{ with $tr.self_tracking }}
+          <details class="vx-level" id="n-self_tracking">
+            <summary>
+              <span class="lv">追</span>
+              <span>
+                <span class="lvname">自我追蹤 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">看 2–4 週趨勢不看單日；是趨勢工具不是診斷工具</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">{{ .why_zh | markdownify }}</p>
+              <ul class="vx-pz-sub">
+                {{ range .metrics_zh }}<li>{{ . | markdownify }}</li>{{ end }}
+              </ul>
+              <span class="vx-block-label">怎麼解讀</span>
+              <p>{{ .interpretation_zh | markdownify }}</p>
+              <span class="vx-block-label vx-block-label--mgmt">教練怎麼用</span>
+              <p>{{ .coach_use_zh | markdownify }}</p>
+              <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh | markdownify }}</div>
+            </div>
+          </details>
+          {{ end }}
+
+        </div>
+
         <nav class="vx-flow">
-          <a href="#imt_rmt"><span class="lbl">回到</span>← 呼吸肌訓練</a>
-          <a class="nx" href="#grading"><span class="lbl">下一步</span>能不能分級 →</a>
+          <a href="#physiology"><span class="lbl">上一個主題</span>← 機制層</a>
+          <a class="nx" href="#regulation"><span class="lbl">下一個主題</span>喚醒調節線 →</a>
         </nav>
       </section>
-      {{ end }}
 
-      {{/* ── 分級框架 ── */}}
-      {{ with $b.grading }}
-      <section class="vx-panel" id="grading">
-        <span class="vx-sec-no">呼吸訓練 · 分級</span>
-        <h2>純粹的呼吸訓練，能不能分級？</h2>
-        <p class="vx-premise">{{ .premise_zh }}</p>
-        <ul class="vx-factor-list">
-          {{ range .axes_zh }}<li><span class="vx-factor-txt">{{ . }}</span></li>{{ end }}
-        </ul>
-        <div class="vx-pz-warn">{{ .caveat_zh }}</div>
-        <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh }}</div>
+      {{/* ════════ 主題 3 · 喚醒調節線 ════════ */}}
+      <section class="vx-panel vx-move" id="regulation">
+        <span class="vx-sec-no">主題 3 / 3</span>
+        <h2>喚醒調節線：處理「下水前就繃住」</h2>
+
+        {{ with $rg.principle }}
+        <div id="n-principle">
+        <p class="vx-premise">{{ .premise_zh | markdownify }}</p>
+        <div class="vx-pz-warn">{{ .land_only_zh | markdownify }}</div>
+        <span class="vx-block-label">證據邊界</span>
+        <p>{{ .evidence_boundary_zh | markdownify }}</p>
+        <span class="vx-block-label">機制指回哪</span>
+        <p>{{ .mechanism_pointer_zh | markdownify }}</p>
+        <span class="vx-block-label">研究缺口</span>
+        <p>{{ .gap_zh | markdownify }}</p>
+        <span class="vx-block-label vx-block-label--mgmt">教練怎麼用</span>
+        <p>{{ .coach_use_zh | markdownify }}</p>
+        <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh | markdownify }}</div>
+        </div>
+        {{ end }}
+
+        <p class="vx-panel-lead">四個方法按「零練習門檻 → 需要累積練習量」排列；最後一節是判斷網路宣稱的四個樣式。點任一方法就地展開。</p>
+
+        <div class="vx-ladder">
+
+          {{ with $rg.physiological_sigh }}
+          <details class="vx-level" id="n-physiological_sigh">
+            <summary>
+              <span class="lv">嘆</span>
+              <span>
+                <span class="lvname">生理性嘆息 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">兩段吸氣＋長吐氣；零練習門檻、池畔當場可用</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">{{ .what_zh | markdownify }}</p>
+              <div class="vx-pz-focus">{{ .procedure_zh | markdownify }}</div>
+              <span class="vx-block-label">機制</span>
+              <p>{{ .mechanism_zh | markdownify }}</p>
+              <span class="vx-block-label">證據</span>
+              <p>{{ .evidence_zh | markdownify }}</p>
+              <span class="vx-block-label">對游泳的意義</span>
+              <p>{{ .swimming_meaning_zh | markdownify }}</p>
+              <p class="vx-pz-warn">{{ .safety_zh | markdownify }}</p>
+              <span class="vx-block-label vx-block-label--mgmt">教練怎麼用</span>
+              <p>{{ .coach_use_zh | markdownify }}</p>
+              <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh | markdownify }}</div>
+              {{ with .source }}<p class="vx-cite"><span class="src">來源</span>：{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+          {{ with $rg.box_breathing }}
+          <details class="vx-level" id="n-box_breathing">
+            <summary>
+              <span class="lv">箱</span>
+              <span>
+                <span class="lvname">箱式呼吸 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">吸4-閉4-吐4-閉4；坊間「已證實有效」是誤讀</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">{{ .what_zh | markdownify }}</p>
+              <div class="vx-pz-focus">{{ .procedure_zh | markdownify }}</div>
+              <p class="vx-pz-warn">{{ .correction_zh | markdownify }}</p>
+              <span class="vx-block-label vx-block-label--mgmt">教練怎麼用</span>
+              <p>{{ .coach_use_zh | markdownify }}</p>
+              <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh | markdownify }}</div>
+              {{ with .source }}<p class="vx-cite"><span class="src">來源</span>：{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+          {{ with $rg.resonance_breathing }}
+          <details class="vx-level" id="n-resonance_breathing">
+            <summary>
+              <span class="lv">共</span>
+              <span>
+                <span class="lvname">共振呼吸 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">吸吐各 5–6 秒、每天 10–20 分鐘；要累積練習量才有東西</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">{{ .what_zh | markdownify }}</p>
+              <div class="vx-pz-focus">{{ .procedure_zh | markdownify }}</div>
+              <span class="vx-block-label">機制</span>
+              <p>{{ .mechanism_zh | markdownify }}</p>
+              <p class="vx-pz-warn">{{ .evidence_honesty_zh | markdownify }}</p>
+              <span class="vx-block-label">個人化頻率</span>
+              <p>{{ .personalization_zh | markdownify }}</p>
+              <span class="vx-block-label">邊界</span>
+              <p>{{ .boundary_zh | markdownify }}</p>
+              <span class="vx-block-label vx-block-label--mgmt">教練怎麼用</span>
+              <p>{{ .coach_use_zh | markdownify }}</p>
+              <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh | markdownify }}</div>
+              {{ with .source }}<p class="vx-cite"><span class="src">來源</span>：{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+          {{ with $rg.wim_hof }}
+          <details class="vx-level" id="n-wim_hof">
+            <summary>
+              <span class="lv">WH</span>
+              <span>
+                <span class="lvname">Wim Hof 法 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">刻意過度換氣＋閉氣：安全比效果重要，絕不在水中／站立／開車時做</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <div class="vx-pz-warn">{{ .safety_zh | markdownify }}</div>
+              <p class="vx-pz-intro">{{ .what_zh | markdownify }}</p>
+              <span class="vx-block-label">證據：Kox 內毒素研究</span>
+              <p>{{ .evidence_kox_zh | markdownify }}</p>
+              <span class="vx-block-label">證據：期待效應</span>
+              <p>{{ .evidence_expectancy_zh | markdownify }}</p>
+              <span class="vx-block-label">證據：品質最高的一份</span>
+              <p>{{ .evidence_blades_zh | markdownify }}</p>
+              <span class="vx-block-label">證據：與 guru 效應的分辨</span>
+              <p>{{ .evidence_guru_zh | markdownify }}</p>
+              <span class="vx-block-label vx-block-label--mgmt">教練怎麼用</span>
+              <p>{{ .coach_use_zh | markdownify }}</p>
+              <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh | markdownify }}</div>
+              {{ with .source }}<p class="vx-cite"><span class="src">來源</span>：{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+          {{ with $rg.claims_gap }}
+          <details class="vx-level" id="n-claims_gap">
+            <summary>
+              <span class="lv">落</span>
+              <span>
+                <span class="lvname">宣稱與證據的落差 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">學生帶網路宣稱來問時，用這四個樣式判斷</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">{{ .premise_zh | markdownify }}</p>
+              <ul class="vx-pz-sub">
+                {{ range .patterns_zh }}<li>{{ . | markdownify }}</li>{{ end }}
+              </ul>
+              <span class="vx-block-label vx-block-label--mgmt">教練怎麼用</span>
+              <p>{{ .coach_use_zh | markdownify }}</p>
+              <div class="vx-pz-plain"><span class="vx-label">白話</span>{{ .plain_zh | markdownify }}</div>
+            </div>
+          </details>
+          {{ end }}
+
+        </div>
+
         <nav class="vx-flow">
-          <a href="#co2"><span class="lbl">回到</span>← CO2 耐受</a>
+          <a href="#training"><span class="lbl">上一個主題</span>← 生理線 · 訓練法</a>
           <a class="nx" href="#safety"><span class="lbl">回到</span>安全鐵則 ↺</a>
         </nav>
+
+        <footer class="vx-article-footer">
+          <hr class="vx-divider">
+          <a class="vx-back-link" href="{{ $base }}vortex/drills/">→ 感知線的練習在 drills：FrBr 呼吸系列</a>
+        </footer>
       </section>
-      {{ end }}
 
     </main>
   </div>

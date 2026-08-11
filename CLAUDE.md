@@ -122,6 +122,19 @@ tools/
 
 **為什麼是鐵則**：Hugo 的 `{{ index $dict .key }}` 查不到 key 會回**空字串且不報錯**。硬編一份副本，canonical 一加新分類，頁面標籤就無聲消失——2026-07-26 一次抓到兩起（starts-turns 頁 9 張 drill 卡標籤全空、傷害資料庫三個標籤文字漂移）。canonical 側有 E009 擋「條目用了沒宣告的 category」，但擋不住 layout 自己抄一份。
 
+**同一條鐵則也適用「節點清單」**：章節有 `_index.yaml`（目前是 `data/breathing/` 與 `data/periodization/`）時，導覽、概念地圖、查資料頁的卡片一律 range 它生成，不要在 layout 打一份節點名單。`vortex-breathing.html` 的全章地圖與 `vortex-database.html` 的 21 張呼吸卡都是這樣長出來的——canonical 加一節，兩處自動跟上；抄一份就會漏。
+
+### 呼吸章（`data/breathing/`）：三條線 + 安全置頂
+
+真相源 `TheVortexProject/canonical/breathing/`，六份 yaml 由 `sync_vortex.py` 的 `sync_breathing()` **整檔搬運**（全 public、無 diagnostic 子樹，不剝離）。版型 `layouts/vortex/vortex-breathing.html` 有兩條不可改的順序：
+
+- **`#safety` 面板必須第一、且不可收合**。缺氧昏迷是讀其他每一節的前提，收起來或往下移都會讓 CO2 耐受、Wim Hof 那幾節被誤用。
+- **`n-wim_hof` 的 `safety_zh` 排在 `what_zh` 之前**，同理。
+
+各節散文欄位名逐節不同，template 逐欄列出、不用 range（Hugo 對 map 按 key 字母序，range 會打亂敘事順序）——同 `vortex-periodization.html`。
+
+**CJK 粗體陷阱**：Goldmark 對 `**…**` 的右側閉合，若前一字是全形標點、後一字是 CJK，判定失敗，`**` 會原樣印在頁面上（例：`**延腦背側呼吸群（DRG）**主要`）。修在 canonical 側把括號／句號移到粗體外面，不要在 layout 補救。
+
 ### ADM（Athlete Development Matrix）架構
 
 ADM 已從 library（cortex 書庫）遷入 **vortex** section，並改用 vortex 設計語言（一致性 + 好讀性），不再是書庫的獨立風格頁。資料源是 canonical（TheVortexProject）→ `sync_vortex.py` → `data/adm/`。

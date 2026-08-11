@@ -2093,3 +2093,19 @@ html { scroll-behavior: smooth; }
 @media (max-width: 820px) {
   .vx-doc .vx-panel + .vx-panel { margin-top: 56px; padding-top: 32px; }
 }
+
+/* ── 呼吸章：全章概念地圖（由 canonical _index.yaml 生成的 21 節一句話目錄） ── */
+.vx-br-map { margin: 22px 0 8px; }
+.vx-br-maplist { list-style: none; margin: 0; padding: 0; }
+.vx-br-maplist li + li { border-top: 1px solid var(--vx-rule); }
+.vx-br-maplist a {
+  display: grid; grid-template-columns: 190px 1fr; gap: 14px;
+  padding: 10px 2px; text-decoration: none; color: inherit;
+}
+.vx-br-maplist a:hover { background: var(--vx-hover, rgba(0,0,0,0.03)); }
+.vx-br-maplist strong { font-family: var(--vx-display); font-weight: 600; font-size: 15px; }
+.vx-br-maplist span { font-size: 13.5px; line-height: 1.6; color: var(--vx-sub); }
+
+@media (max-width: 820px) {
+  .vx-br-maplist a { grid-template-columns: 1fr; gap: 4px; }
+}

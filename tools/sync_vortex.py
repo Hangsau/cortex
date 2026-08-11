@@ -69,9 +69,11 @@ PSYCHOLOGY_DST = HUGO_ROOT / "data" / "vortex" / "psychology.yaml"
 INJURIES_SRC = VORTEX_SRC / "canonical" / "health" / "injuries.yaml"
 INJURIES_DST = HUGO_ROOT / "data" / "vortex" / "injuries.yaml"
 
-# ── 呼吸訓練（canonical → my-site；全 public，無 diagnostic 層） ──
-BREATHING_SRC = VORTEX_SRC / "canonical" / "health" / "breathing-training.yaml"
-BREATHING_DST = HUGO_ROOT / "data" / "vortex" / "breathing-training.yaml"
+# ── 呼吸（canonical 章節目錄 → my-site data/breathing；全 public，無 diagnostic 層） ──
+# safety 列首：缺氧昏迷是讀其他節點的前提，渲染時必置頂
+BREATHING_SRC_DIR = VORTEX_SRC / "canonical" / "breathing"
+BREATHING_DST_DIR = HUGO_ROOT / "data" / "breathing"
+BREATHING_FILES   = ["safety", "framework", "physiology", "training", "regulation", "_index"]
 
 # ── Layer 設定 ──
 LAYERS = {
@@ -846,36 +848,42 @@ def sync_injuries(dry_run: bool):
 
 
 def sync_breathing(dry_run: bool):
-    """讀 canonical health/breathing-training.yaml，整檔搬進 my-site
-    data/vortex/breathing-training.yaml。
+    """讀 canonical breathing/*.yaml，搬進 my-site data/breathing/。
 
-    呼吸訓練的生理線（IMT/RMT、CO2）是公開知識，canonical 無 public/diagnostic 分層，
-    全部可公開——本函式整檔搬運，不剝離、不改內容。canonical 是 single source of truth。
-    安全鐵則（SWB）置頂節點原樣帶過，layout 渲染時必置頂。
+    呼吸章三條線（感知 / 生理 / 喚醒調節）全是公開知識，canonical 無 public/diagnostic
+    分層——本函式整檔搬運，不剝離、不改內容。canonical 是 single source of truth。
     """
     print()
-    print("=== 呼吸訓練（全 public）===")
-    if not BREATHING_SRC.exists():
-        print(f"  [跳過] 找不到 {BREATHING_SRC}")
+    print("=== 呼吸（全 public）===")
+    if not BREATHING_SRC_DIR.exists():
+        print(f"  [跳過] 找不到 {BREATHING_SRC_DIR}")
         return
 
-    data = yaml.safe_load(BREATHING_SRC.read_text(encoding="utf-8")) or {}
-    top_keys = [k for k in data.keys() if k not in ("domain", "sub", "schema_version")]
-    print(f"  top-level: {', '.join(top_keys)}")
+    if not dry_run:
+        BREATHING_DST_DIR.mkdir(parents=True, exist_ok=True)
 
-    if dry_run:
-        print("  [dry-run，未寫入 data/vortex/breathing-training.yaml]")
-        return
+    for name in BREATHING_FILES:
+        src = BREATHING_SRC_DIR / f"{name}.yaml"
+        if not src.exists():
+            print(f"  [跳過] 找不到 {src.name}")
+            continue
+        data = yaml.safe_load(src.read_text(encoding="utf-8")) or {}
+        top_keys = [k for k in data.keys() if k not in ("domain", "sub", "schema_version")]
+        print(f"  {name:10s} top-level: {', '.join(top_keys)}")
 
-    out = yaml.safe_dump(
-        data,
-        allow_unicode=True,
-        default_flow_style=False,
-        sort_keys=False,
-        width=4096,
-    )
-    BREATHING_DST.write_text(out, encoding="utf-8")
-    print(f"  寫入 {BREATHING_DST.relative_to(HUGO_ROOT)}")
+        if dry_run:
+            continue
+
+        dst = BREATHING_DST_DIR / f"{name}.yaml"
+        out = yaml.safe_dump(
+            data,
+            allow_unicode=True,
+            default_flow_style=False,
+            sort_keys=False,
+            width=4096,
+        )
+        dst.write_text(out, encoding="utf-8")
+        print(f"  寫入 {dst.relative_to(HUGO_ROOT)}")
 
 
 def main():

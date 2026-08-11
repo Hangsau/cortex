@@ -1,5 +1,5 @@
 ---
-title: "呼吸訓練"
+title: "呼吸"
 layout: "vortex-breathing"
 slug: "breathing"
 ---

@@ -137,6 +137,22 @@
         if (sec) spyIO.observe(sec);
       });
     }
+
+    // 錨點指向收合的 <details>（概念地圖 / 查資料頁跳進來）時要自己展開，否則跳過去是空的
+    function openTargetDetails() {
+      var id = location.hash.slice(1);
+      if (!id) return;
+      var el = document.getElementById(id);
+      if (!el) return;
+      var d = el.tagName === 'DETAILS' ? el : el.closest('details');
+      if (d && !d.open) {
+        d.open = true;
+        el.scrollIntoView({ block: 'start' });
+      }
+    }
+    openTargetDetails();
+    window.addEventListener('hashchange', openTargetDetails);
+
     setupCardFilters(root);
     setupDrillFilters(root);
     markRead();

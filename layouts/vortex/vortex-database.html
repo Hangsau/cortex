@@ -22,10 +22,16 @@
 {{ $injuries := (index hugo.Data "vortex" "injuries").injuries }}
 {{ $stds := (index hugo.Data "adm" "standards").standards }}
 {{ $pillars := (index hugo.Data "adm" "matrix").pillars }}
-{{ $breathKeys := slice "safety" "overview" "imt_rmt" "co2_tolerance" "grading" }}
-{{ $breathName := dict "safety" "安全鐵則" "overview" "兩條線框架" "imt_rmt" "吸氣肌訓練 IMT/RMT" "co2_tolerance" "CO₂ 耐受" "grading" "呼吸怎麼分級" }}
-{{ $breathBody := dict "safety" "danger_zh" "overview" "plain_zh" "imt_rmt" "plain_zh" "co2_tolerance" "plain_zh" "grading" "plain_zh" }}
-{{ $bt := index hugo.Data "vortex" "breathing-training" }}
+{{/* 呼吸章：條目與摘要都由 canonical 的 _index.yaml 生成（21 節），不在此列名單 */}}
+{{ $breathGroupZh := dict "safety" "安全" "framework" "框架" "physiology" "機制" "training" "生理線" "regulation" "喚醒調節線" }}
+{{ $breaths := slice }}
+{{ $bidx := index hugo.Data "breathing" "_index" }}
+{{ range $g := slice "safety" "framework" "physiology" "training" "regulation" }}
+  {{ range index $bidx $g }}
+    {{ $key := index (last 1 (split .id ".")) 0 }}
+    {{ $breaths = $breaths | append (dict "g" $g "key" $key "e" . "cert" (index (index hugo.Data "breathing" $g) $key).cert) }}
+  {{ end }}
+{{ end }}
 
 {{ $moves := slice }}
 {{ range $sk := slice "free" "back" "breast" "fly" "udk" "starts-turns" }}
@@ -51,7 +57,7 @@
   (dict "k" "level"  "zh" "水感階段" "n" (len $levels))
   (dict "k" "psych"  "zh" "心理"     "n" (len $themes))
   (dict "k" "injury" "zh" "傷害"     "n" (len $injuries))
-  (dict "k" "breath" "zh" "呼吸"     "n" (len $breathKeys))
+  (dict "k" "breath" "zh" "呼吸"     "n" (len $breaths))
   (dict "k" "adm"    "zh" "發展"     "n" (add (len $stds) (len $pillars)))
   (dict "k" "frame"  "zh" "水感框架" "n" (len $framePages))
   (dict "k" "bridge" "zh" "感知銜接" "n" (len $bridgePages))
@@ -175,15 +181,14 @@
     </details>
     {{ end }}
 
-    {{/* ── 呼吸（摘要 + 連到呼吸訓練） ── */}}
-    {{ range $breathKeys }}
-    {{ $node := index $bt . }}
-    {{ $body := index $node (index $breathBody .) }}
-    <details class="vx-card vx-tech vx-find-card" data-type="breath" data-s="common" data-cat="breath" data-catlabel="生理輔助" data-text="{{ lower (printf "%s %s" (index $breathName .) $body) }}">
-      <summary><span class="vx-cardcat">呼吸 · 生理輔助軸{{ with $node.cert }} · {{ . }}{{ end }}</span><span class="vx-cardtitle">{{ index $breathName . }}</span></summary>
+    {{/* ── 呼吸（21 節概念，摘要來自 canonical _index，連到該節錨點） ── */}}
+    {{ range $breaths }}
+    {{ $e := .e }}
+    <details class="vx-card vx-tech vx-find-card" data-type="breath" data-s="common" data-cat="breath" data-catlabel="呼吸" data-text="{{ lower (printf "%s %s" $e.name_zh $e.gist_zh) }}">
+      <summary><span class="vx-cardcat">呼吸 · {{ index $breathGroupZh .g }}{{ with .cert }} · {{ . }}{{ end }}</span><span class="vx-cardtitle">{{ $e.name_zh }}</span></summary>
       <div class="vx-card-body">
-        {{ with $body }}<p>{{ . }}</p>{{ end }}
-        <a class="vx-find-go" href="{{ $base }}vortex/breathing/">看完整呼吸訓練頁 →</a>
+        <p>{{ $e.gist_zh }}</p>
+        <a class="vx-find-go" href="{{ $base }}vortex/breathing/#n-{{ .key }}">看這一節 →</a>
       </div>
     </details>
     {{ end }}
