@@ -3946,20 +3946,26 @@ injuries:
     trigger_phase: 水母季節/特定海域游泳、礁岩區踩踏、傷口接觸溫暖海水或淡水、暴雨後河口水域
     who: 開放水域/三鐵選手、礁岩淺水區泳者、免疫低下/慢性肝病者（弧菌高危）、暴雨後淡水/河口活動者
   epidemiology:
-    prevalence: 水母螫傷為全球海域最常見海洋生物傷；創傷弧菌台灣為流行區（沿海溫暖海水），免疫低下者壞死性筋膜炎死亡率高（一般文獻 >20%）；鉤端螺旋體三鐵/開放水域賽事群聚案例見諸文獻；台灣為鉤端螺旋體中度流行區
-    certainty: 🟡
+    prevalence: 水母螫傷為全球海域最常見的海洋生物傷，但**無任何族群層級的發生率統計**——Cochrane 2023 只收得到 9 篇處置試驗（574 人），全部不含流行病學。 創傷弧菌壞死性皮膚軟組織感染（VNSSTI）的死亡率**必須連族群一起講**：1966–2018 年 12 篇研究、 1,157 名患者的合併結果顯示，**有慢性肝病者死亡率 53.9%（292/542），無肝病者 16.1%（99/615）**， RR 2.61（95% CI 2.14–3.19）；且 46.8% 的 VNSSTI 患者本身就有肝病。 台灣水域環境確實檢出創傷弧菌分離株，但**台灣本土的年感染人數無公開登記**。 鉤端螺旋體在台灣屬地方流行：疾管署 2007–2014 年通報 10,917 例、確診 665 例（6.1%）， **年平均發生率 0.4/100,000**，集中於高屏（37.3%）與台北（26.2%）。 但確診者的風險輪廓是**職業性與洪災暴露**（農牧獸醫 24.8%、接觸豬 9.4%、接觸鼠 8.6%）， 不是娛樂性游泳；開放水域賽事群聚的證據來自國外（德國三鐵賽事），台灣尚無對應世代。
+    certainty: 🟢
     evidence_grade: B
-    caveat: 各危害流病分散於熱帶醫學/急診/感染科文獻，無統一游泳專屬登記；台灣具體年發生率數字待查
+    caveat: 2026-08-17 修正兩處。**① 來源—宣稱不匹配**：原本「壞死性筋膜炎死亡率 >20%」掛在 src.pmc8147101 下， 但該文是台灣水域**環境分離株**的微生物學研究，沒有任何臨床預後數據；且 >20% 對本條所點名的 肝病族群而言是**嚴重低估**（實為 53.9%）——錯誤方向與本次健檢其他條目的灌水相反。 **② 無來源敘述**：「台灣為鉤端螺旋體中度流行區」原本無任何引用（src.pmc2858141 是德國三鐵群聚， 支撐的是賽事群聚而非台灣流行度），已補 Tsai 2020 全國資料。 另：各危害流病仍分散於熱帶醫學／急診／感染科文獻，無游泳專屬登記；水母螫傷無發生率數據。
     sources:
-    - Vibrio vulnificus infection Taiwan 案例, PMC8147101 (已驗證)
-    - Leptospirosis associated with triathlon/open water, PMC2858141 (已驗證)
-    - Jellyfish envenomation first-aid 系統回顧（種屬特異, 待補具體出處）
+    - Chuang PY et al. (2019). PLoS One 14(10):e0223513 — VNSSTI 死亡率系統回顧與統合分析
+    - Tsai CT et al. (2020). Zoonoses Public Health 67(2):156-166 — 台灣鉤端螺旋體全國資料庫
+    - Lin IC et al. (2021). Antibiotics 10(5):505 — 台灣水域創傷弧菌環境分離株（僅支撐「存在於環境」）
+    - Brockmann S et al. — 三鐵/開放水域賽事鉤端螺旋體群聚, PMC2858141 (已驗證)
+    - McGee RG et al. (2023). Cochrane Database Syst Rev 6(6):CD009688 — 水母螫傷處置回顧
     source_ids:
+    - src.chuang-2019-vibrio-vulnificus-mortality-meta
+    - src.tsai-2020-taiwan-leptospirosis-nationwide
     - src.pmc8147101
     - src.pmc2858141
-    - src.jellyfish-envenomation-first-aid
+    - src.cochrane-2023-jellyfish-interventions
   risk_factors:
-  - text: 免疫低下/慢性肝病（創傷弧菌壞死性筋膜炎）
+  - text: 免疫低下/慢性肝病（創傷弧菌壞死性筋膜炎死亡率 53.9% vs 無肝病 16.1%，RR 2.61）
+    grade: A
+  - text: 肝硬化（末期肝病）——相較非肝硬化 RR 1.84、相較無肝病 RR 2.00
     grade: A
   - text: 皮膚開放傷口接觸海水/淡水
     grade: B
@@ -3990,7 +3996,7 @@ injuries:
     - 螫傷後劇烈全身痛/血壓飆高/瀕死感 → Irukandji 症候群疑慮，緊急就醫
     - 傷口接觸海水後快速紅腫劇痛+水泡+全身發燒 → 創傷弧菌壞死性筋膜炎，緊急外科+抗生素
     - 海水/淡水暴露後發燒+黃疸+肌痛+少尿 → 鉤端螺旋體 Weil's 病，就醫
-    acute: 水母螫傷：離水、移除觸手（勿徒手）、依種屬處置（箱型水母用醋；多數溫帶種海水沖洗，急救法種屬特異有爭議）、熱水浸泡（43–45°C）緩解部分種屬疼痛；過敏反應腎上腺素。棘刺傷：熱水浸泡（去熱不穩定毒素）、移除可見棘刺、影像查殘留、傷口照護+破傷風。創傷弧菌疑慮：緊急就醫，早期廣效抗生素+外科清創（延誤致死）。鉤端螺旋體：就醫，doxycycline/penicillin
+    acute: 水母螫傷：離水、移除觸手（勿徒手）、**勿用淡水沖洗**（滲透壓變化觸發未放電刺絲胞）。 後續處置**證據等級極低**——Cochrane 2023 對所有已試驗的處置方式（熱敷、冷敷、醋、海水、淡水、 嫩肉粉、異丙醇、氨水、碳酸氫鈉）一律給 very low certainty，作者結論是「無法確定任何一種有效」。 其中熱敷相較冷敷僅在僧帽水母（Physalia）止痛上顯著（RR 2.25, CI 1.42–3.56）， 對箱型水母屬則不顯著（RR 1.66, CI 0.56–4.94）；**具體水溫與浸泡時間沒有試驗支持**， 現場依可耐受熱度施行即可，不宜宣稱特定溫度區間。氨水曾造成一度灼傷，不建議。 過敏反應腎上腺素。 棘刺傷：熱水浸泡（去熱不穩定毒素）、移除可見棘刺、影像查殘留、傷口照護+破傷風。 創傷弧菌疑慮：緊急就醫，早期廣效抗生素+外科清創（延誤致死）。 鉤端螺旋體：就醫，doxycycline/penicillin
     pain_rules: null
     rehab: 壞死性筋膜炎術後傷口重建與復健；其餘多為傷口癒合導向
     functional_progression_criteria:
@@ -3999,7 +4005,7 @@ injuries:
     swim_modifications_in_rehab: null
     return_to_train: 傷口完全癒合+無感染 → 回水（防水敷料）
     return_to_compete: null
-    prognosis: 多數水母螫傷/棘刺傷局部處置後完全恢復；過敏性休克/Irukandji/創傷弧菌壞死性筋膜炎可致命，及時治療為關鍵；鉤端螺旋體早期抗生素預後良好，Weil's 病死亡率較高
+    prognosis: 多數水母螫傷/棘刺傷局部處置後完全恢復；過敏性休克/Irukandji 可致命。 創傷弧菌壞死性筋膜炎的預後**取決於有無慢性肝病**：合併分析顯示有肝病者死亡率 53.9%、 無肝病者 16.1%（RR 2.61），肝硬化又較非肝硬化再高（RR 1.84）——對肝病族群這是**高致死疾病**， 不是「風險略高」。及時外科清創與抗生素為關鍵。 鉤端螺旋體早期抗生素預後良好，Weil's 病死亡率較高。
   population_notes:
     age:
       youth: 兒童體表面積比大，水母螫傷全身反應風險相對高
@@ -4015,20 +4021,26 @@ injuries:
     technical_link: null
     perception_link: null
   references:
-  - citation: Vibrio vulnificus necrotizing fasciitis in Taiwan, PMC8147101
+  - citation: 'Chuang PY, Yang TY, Huang TW, Tsai YH, Huang KC, Weng HH (2019). Hepatic disease and the risk of mortality of Vibrio vulnificus necrotizing skin and soft tissue infections: A systematic review and meta-analysis. PLoS One 14(10):e0223513. PMID 31652263'
     certainty: 🟢
     verified: true
-  - citation: Leptospirosis outbreak associated with triathlon/open water swimming, PMC2858141
+  - citation: Tsai CT, Lin JN, Lee CH, et al. (2020). The epidemiology, characteristics and outbreaks of human leptospirosis and the association with animals in Taiwan, 2007-2014. Zoonoses Public Health 67(2):156-166. PMID 31916706
     certainty: 🟢
     verified: true
-  - citation: Jellyfish envenomation and first-aid (species-specific), 系統回顧 待補 DOI
-    certainty: 🟡
-    verified: false
+  - citation: McGee RG, Webster AC, Lewis SR, Welsford M (2023). Interventions for the symptoms and signs resulting from jellyfish stings. Cochrane Database Syst Rev 6(6):CD009688. PMID 37272501
+    certainty: 🟢
+    verified: true
+  - citation: Lin IC, Hussain B, Hsu BM, et al. (2021). Prevalence, Genetic Diversity, Antimicrobial Resistance, and Toxigenic Profile of Vibrio vulnificus Isolated from Aquatic Environments in Taiwan. Antibiotics 10(5):505. PMID 33946739（僅支撐「創傷弧菌存在於台灣水域環境」）
+    certainty: 🟢
+    verified: true
+  - citation: Leptospirosis outbreak associated with triathlon/open water swimming, PMC2858141（德國賽事群聚）
+    certainty: 🟢
+    verified: true
   flags:
     contested:
     - claim: 水母螫傷急救沖洗液（醋 vs 海水 vs 淡水）
-      consensus_source: 箱型水母用醋抑制刺絲胞為共識；勿用淡水（觸發放電）
-      dissent_source: 醋對部分種屬反加重放電——急救法為種屬特異，無單一通則
+      consensus_source: 勿用淡水（滲透壓變化觸發未放電刺絲胞）——此點各地急救指引一致
+      dissent_source: 「箱型水母用醋」的證據層級**低於原本記載**：它出自體外刺絲胞抑制實驗與地區急救指引推論， **不是臨床試驗結論**，原文寫成「為共識」屬高估（2026-08-17 修正）。 Cochrane 2013 年版另有相反方向的發現：醋或嫩肉粉相較熱水**使皮膚外觀更差**（RR 0.31, CI 0.14–0.72）； 2023 年版對所有局部外用皆判定無法確定有效性。急救法仍為種屬特異，無單一通則。
     vintage_warning: false
 - id: poolside-slip-fall
   zh: 池畔濕滑跌倒傷
