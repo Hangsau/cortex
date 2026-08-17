@@ -1649,14 +1649,12 @@ injuries:
     who: SCI 完全性損傷者、輪椅依賴 ≥ 2 年且無規律拉伸介入者、L1–L3 段以上損傷者
     swim_context: SCI 泳者在水中對下肢的本體感覺與主動控制能力有限，無法靠游泳本身展開髖部；陸上拉伸是必要而非選項
   epidemiology:
-    prevalence: SCI 泳者髖屈攣縮幾乎普遍存在；嚴重攣縮（≥ 60°）報告比例 30–50%（依損傷層級與輪椅依賴年限）
-    certainty: 🟠
-    evidence_grade: B
-    caveat: 多數數據來自臨床觀察與小規模個案系列，缺大型流病
-    sources:
-    - Akkurt et al. 2017, J Phys Ther Sci（SCI 髖屈攣縮綜述；待核實具體引用）
-    source_ids:
-    - src.akkurt-2017
+    prevalence: SCI 泳者髖屈攣縮普遍存在（方向性描述，非量化）。**原本寫的「嚴重攣縮（≥ 60°）報告比例 30–50%」已於 2026-08-17 撤除——該數字唯一的引用查無此文獻，屬無來源數字，不得再出現於任何層。**
+    certainty: 🔵
+    evidence_grade: Expert
+    caveat: '**2026-08-17 來源健檢結果**：本條原引 `src.akkurt-2017`（「Akkurt et al. 2017, J Phys Ther Sci，SCI 髖屈攣縮綜述」）， PubMed 檢索該作者×該期刊×該年回傳 0 筆，放寬條件後唯一相符的 Akkurt H 2017 是 Eur J Phys Rehabil Med 的「上肢有氧運動 RCT」（PMID 27824234），期刊、主題、文獻類型三項皆不符， 無法認定為同一篇。故引用已解除、依附其上的 30–50% 數字已撤除。 保留的只有方向性敘述（長期輪椅坐姿 → 髖屈肌短縮 → 俯臥泳姿下肢伸不直）， 這部分是解剖推導 + 臨床通識，不需要那篇不存在的文獻背書。 **若日後要恢復量化盛行率，必須先找到真實可解析的流病來源，不得回填舊數字。** 確定性標記同日由 🟠 改為 🔵：撤掉數字後剩下的是「長期坐姿 → 髖屈肌處於縮短位 → 俯臥泳姿下肢伸不直」 這條解剖／力學推導，本專案並無 SCI 泳者的教學觀察案例可據， 標 🟠（教練觀測）會暗示一個不存在的觀察基礎，標 🔵（推導）才是誠實的位置。'
+    sources: []
+    source_ids: []
   risk_factors:
   - text: 完全性 SCI（vs 不完全性）
     grade: B
@@ -2332,7 +2330,7 @@ injuries:
     evidence_grade: B
     caveat: 被認為是意外落水後最常見的『立即』死因(低體溫需 >30 分才危及生命)；機制證據多為生理實驗，缺大型流病
     sources:
-    - 'Tipton MJ et al., Cold water immersion: sudden death and prolonged survival, Lancet 2003 (已驗證 URL)'
+    - 'Tipton M. (2003). Cold water immersion: sudden death and prolonged survival. Lancet 362 Suppl:s12–13. PMID 14698111（單一作者，兩頁短文性質為評論／概觀，非原始研究）'
     - Lundström et al., 健康青少年冰水面浸心律研究, Physiological Reports 2025, PMC12234767 (已驗證)
     source_ids:
     - src.tipton-mj-et-al-cold-water-immersion-sudden-2003
@@ -2395,8 +2393,8 @@ injuries:
     perception_link: 可接 L0 呼吸感知(冷水喘氣反射的生理意義)
     perception_link_ids: []
   references:
-  - citation: 'Tipton MJ et al., Cold water immersion: sudden death and prolonged survival, Lancet 2003'
-    certainty: 🟢
+  - citation: 'Tipton M. (2003). Cold water immersion: sudden death and prolonged survival. Lancet 362 Suppl:s12–13. PMID 14698111 / DOI 10.1016/s0140-6736(03)15057-x（2026-08-17 更正：單一作者，原記「Tipton MJ et al.」的共同作者不存在）'
+    certainty: 🟡
     verified: true
   - citation: 'Habituation of the cold shock response: systematic review and meta-analysis, 2024, PubMed 38211547'
     certainty: 🟢
@@ -2792,7 +2790,7 @@ injuries:
     evidence_grade: B
     caveat: 同一場賽事可同時出現低體溫與高體溫個案(核心溫變化 −3.1 至 +2.7°C)；多數研究為觀察性無對照
     sources:
-    - Brannigan et al., Hypothermia... Mass Participation Open Water Swimming, Wilderness Environ Med 2009 (已驗證)
+    - Brannigan D, Rogers IR, Jacobs I, et al. (2009). Hypothermia is a significant medical risk of mass participation long-distance open water swimming. Wilderness Environ Med 20(1):14–18. PMID 19364182
     - JSAMS 開放水域/泳池體溫調節, PubMed 40783351 (已驗證)
     - Doha 2024 Masters 3km 核心溫研究（2025 發表）, PubMed 39500300 (已驗證)
     source_ids:
@@ -3291,7 +3289,7 @@ injuries:
     caveat: 「鐵儲備不足」vs「臨床貧血」切點差異大；運動性偽貧血（高血漿量稀釋）會讓 Hb 看似低但其實有益於耐力，要與真鐵缺乏區分
     sources:
     - IOC 共識聲明 — Iron in sport（具體 DOI 待 WebFetch 核實）
-    - Sim et al. 2019, Eur J Appl Physiol（hepcidin 與運動誘發鐵吸收抑制；具體引用待核實）
+    - 'Sim M, Garvican-Lewis LA, Cox GR, et al. (2019). Iron considerations for the athlete: a narrative review. Eur J Appl Physiol 119(7):1463–1478. PMID 31055680（**敘事綜述，非原始研究亦非系統回顧**；hepcidin 只是其中一節，引用時屬綜述轉述層級）'
     source_ids:
     - src.ioc-iron-in-sport-doi-webfetch
     - src.sim-2019
@@ -3356,39 +3354,39 @@ injuries:
   - 骨代謝
   - 肌肉修復
   mechanism:
-    summary: 三相型口服避孕藥（triphasic OC）會抑制內源性雌激素與黃體素的週期性波動，外加合成荷爾蒙的相對穩定。對運動表現的主要影響：交感神經激活下降→ VO₂max 降 10–11%（範圍 6–15%，個人差異大）；體溫基線略升；液體滯留輕度增加。低劑量配方（少 30–40% 荷爾蒙）影響較小。雌激素對運動後肌肉損傷有保護作用（透過抗氧化機制與膜穩定）——OC 使用者運動後 CK 與肌酸激酶較低。
-    driver: 三相型 > 單相型 > 低劑量單相型 對 VO₂max 的影響強度依序遞減
-    trigger_phase: 耐力項目（400m 以上）/ 開放水域 / 鐵人三項
-    who: 服用三相型或高劑量 OC 的女性耐力選手、賽前 12 個月內換配方者、未與教練/運科告知 OC 使用的選手
-    swim_context: 游泳 50/100/200 等爆發/中距離受 VO₂max 影響相對小（無氧為主），但 400m 以上耐力項目受影響顯著；女性選手大量服用 OC（避孕、月經調節、皮膚問題）但對表現影響的諮詢不足
+    summary: 口服避孕藥（OC）抑制內源性雌激素與黃體素的週期性波動，改以外源合成荷爾蒙維持相對穩定濃度。 **可測到的表現影響比一般想像小得多，而且集中在單一指標上。** 目前最直接的證據是一項雙盲安慰劑對照 RCT（Lebrun 2003，**n = 14** 名 VO₂max ≥ 50 ml/kg/min 的高訓練量女性）： 使用三相型 OC 後 **VO₂max 下降 4.7%**（安慰劑組 +1.5%），皮脂厚度總和顯著上升。 **但同一研究直接測量的無氧速度、有氧耐力（90% VO₂max 力竭時間）、等速肌力、最大通氣量、心率、血比容全部沒有顯著差異。** 拉到族群層級，涵蓋 42 篇研究、590 名受試者的系統回顧與統合分析（Elliott-Sale 2020）結論是： OC 使用者的表現**平均可能略遜於自然月經週期女性，但群體層級效果極可能是微不足道的（trivial）**， 且研究間變異大、83% 的納入研究品質為中等以下；作者明言 **「現有證據不足以支持對 OC 使用與否給出通則性建議」，應採個別化評估**。 該分析另指出**表現在 OC 週期內各時點是一致的**。 〔2026-08-17 更正：舊稿寫「VO₂max 降 10–11%（範圍 6–15%）」，實測值是 4.7%， 舊數字疑似誤讀 Lebrun 文中「兩名受試者下降 4 與 9 ml/kg/min」的絕對值；一併撤除。〕
+    driver: 劑量/配方型別與影響強度的高低排序（三相型 > 單相型 > 低劑量）在現有文獻中**尚未建立**——Lebrun 2003 只測了三相型一種配方，Elliott-Sale 2020 指出納入研究配方混雜且異質性高，無法據以排序。此欄保留為待驗證問題，不作為選配方的依據。
+    trigger_phase: 尚無證據指出特定距離或項目受影響較大（見 swim_context）
+    who: 服用 OC 的女性選手（尤其高訓練量者）；以及在未與教練/運科溝通的情況下開始或更換配方者
+    swim_context: '**舊稿的「400m 以上耐力項目受影響顯著」已於 2026-08-17 撤除——它與自己引用的研究直接衝突。** Lebrun 2003 明確測量了有氧耐力（90% VO₂max 力竭時間）並**未發現顯著變化**， 無氧速度測試同樣無差異。也就是說：可測到的是實驗室 VO₂max 這個生理指標下降， **不是**任何一項實際表現指標下降。VO₂max 降低是否會轉譯成 400m 以上項目的成績差異， 現有證據無法回答（Lebrun n=14 且未測比賽表現；Elliott-Sale 2020 的群體效果為 trivial）。 對教練的實務意義：OC 使用不應被當成解釋選手耐力表現起伏的預設原因， 也不應成為建議選手換藥或停藥的理由——那是醫療決策，且證據強度不支持通則。'
   epidemiology:
-    prevalence: 成年女運動員 OC 使用率 30–50%（依族群與年齡）；正在用 OC 的菁英選手與其教練的相關知識落差大
+    prevalence: OC 在女性運動族群中使用普遍（方向性描述）。**舊稿的「使用率 30–50%」已於 2026-08-17 撤除**：它掛在兩個來源下，但一個查無此文獻（`src.bushman-2006`），另一個（Elliott-Sale 2020）是表現統合分析、根本不產出使用率數字。要恢復量化使用率必須另找流行病學調查。
     certainty: 🟡
     evidence_grade: B
-    caveat: 個體反應差異大（雌激素受體多型性）；多數研究 N 小、配方混雜；新一代低劑量配方研究稀少
+    caveat: '**2026-08-17 來源健檢：本條目原有兩層錯誤，均已更正。** ① **引用不存在**：`src.bushman-2006`（「Bushman et al. 2006, Phys Sportsmed，早期 OC × VO₂max 量化」） 在 PubMed 查無——該作者在該期刊 0 筆；唯一真實的 Bushman × OC 文獻是 J Sports Med Phys Fitness 2006 的**無氧功率**研究（PMID 16596112），期刊與測量指標皆不符。VO₂max 數字的真正出處是 Lebrun 2003（已補為 `src.lebrun-2003-triphasic-oc-vo2max`），且實測值 4.7%、非舊稿的 10–11%。 ② **引用與主張不對應**：Elliott-Sale 2020 被誤記為 Br J Sports Med（實為 Sports Med）， 且被用來支撐「使用率 30–50%」——那是表現統合分析，不含使用率資料。 現存證據的固有限制：Lebrun 2003 **n=14**、只測一種三相型配方、未測比賽表現； Elliott-Sale 2020 納入研究 83% 品質中等以下、配方混雜、研究間變異大；新一代低劑量配方研究稀少。'
     sources:
-    - Elliott-Sale et al. 2020, Br J Sports Med（OC 與運動表現綜述；具體引用待核實）
-    - Bushman et al. 2006, Phys Sportsmed（早期 OC × VO₂max 量化）
+    - 'Lebrun CM, et al. (2003). Decreased maximal aerobic capacity with use of a triphasic oral contraceptive in highly active women: a randomised controlled trial. Br J Sports Med 37(4):315–320. PMID 12893716'
+    - 'Elliott-Sale KJ, et al. (2020). The Effects of Oral Contraceptives on Exercise Performance in Women: A Systematic Review and Meta-analysis. Sports Med 50(10):1785–1812. PMID 32666247'
     source_ids:
+    - src.lebrun-2003-triphasic-oc-vo2max
     - src.elliott-sale-2020
-    - src.bushman-2006
   risk_factors:
-  - text: 三相型配方（vs 單相型）
-    grade: B
-  - text: 高劑量配方（每錠 > 35 μg ethinylestradiol）
-    grade: B
-  - text: 耐力為主項目（400m 以上 / 開放水域 / 鐵人三項）
-    grade: B
-  - text: 選手未告知教練/運科 OC 使用
+  - text: 三相型配方——**唯一有 RCT 直接測到 VO₂max 下降的配方型別（Lebrun 2003, n=14）**。但這不等於「三相型比單相型差」：該研究沒有設單相型對照組，跨配方比較尚未做過
+    grade: C
+  - text: 高劑量配方（每錠 > 35 μg ethinylestradiol）——**劑量-反應關係在現有文獻中未建立**，此條原標 B 屬過度宣稱，2026-08-17 降級為待驗證假說
+    grade: Expert
+  - text: 〔已撤除〕「耐力為主項目（400m 以上 / 開放水域 / 鐵人三項）受影響較大」——2026-08-17 撤除：Lebrun 2003 直接測量有氧耐力（90% VO₂max 力竭時間）**未發現顯著變化**，此條與其唯一證據來源相反
+    grade: Expert
+  - text: 選手未告知教練/運科 OC 使用（影響的是基線判讀與溝通，不是生理風險本身）
     grade: Expert
   prevention:
-  - text: 選手與教練在 OC 開始前/換配方前共同諮詢運動醫學醫師
+  - text: 避孕方式的選擇是選手與醫師的醫療決定；教練的角色是知情與配合，不是建議用哪一種
     grade: Expert
-  - text: 對耐力選手優先選擇低劑量單相型或非荷爾蒙避孕（IUD、保險套）
+  - text: 〔已撤除〕「對耐力選手優先選擇低劑量單相型或非荷爾蒙避孕（IUD、保險套）」——2026-08-17 撤除：Elliott-Sale 2020（42 篇研究 / 590 人的統合分析）明確結論為**現有證據不足以支持對 OC 使用與否給出通則性建議，應個別化評估**。以運動表現為由建議特定避孕方式，既無證據支撐，也超出教練的角色界線
     grade: Expert
-  - text: 賽前 12 個月內不換配方（避免賽前出現未知的表現變化）
+  - text: 若要換配方，避開賽季關鍵期較為穩妥（理由是「未知變化不宜疊在關鍵期」的一般性風險管理，**不是**因為已知會掉表現）；舊稿的「賽前 12 個月」是無來源的具體數字，已撤除
     grade: Expert
-  - text: 教練紀錄選手 OC 使用狀況作為 VO₂max 基線校準依據
+  - text: 教練知道選手是否使用 OC，有助於判讀 VO₂max 等實驗室基線的變動；但**不得反過來用 OC 使用解釋成績起伏**——現有證據顯示實際表現指標無顯著差異
     grade: Expert
   management:
     red_flags:
@@ -3399,11 +3397,11 @@ injuries:
     pain_rules: null
     rehab: null
     functional_progression_criteria:
-    - 若懷疑 OC 影響表現：與醫師討論換配方或停用，3 個月後重測 VO₂max 確認
+    - 若選手主動關切 OC 是否影響自己的表現：先確認其他更常見的解釋（訓練量、睡眠、鐵儲存量、能量可用性）已排除，再與醫師討論；任何調整都由醫師決定，並在調整前後各留一次可比較的測驗
     swim_modifications_in_rehab: null
     return_to_train: null
     return_to_compete: null
-    prognosis: OC 對表現的影響可逆——停用或換低劑量配方後 2–3 個月 VO₂max 通常回升；但避孕需求需另行規劃替代方案
+    prognosis: '**現有文獻未回答停用後的恢復問題**：Lebrun 2003 是單向設計（濾泡期 → OC 期），沒有停藥後的追蹤測量。舊稿的「停用後 2–3 個月 VO₂max 通常回升」是無來源的具體時程，已於 2026-08-17 撤除。可以說的只有：該研究觀察到的是 VO₂max 這一項生理指標的變化，而非任何實際表現指標的下降。'
 - id: red-s
   zh: 相對能量不足（RED-S）
   en: Relative Energy Deficiency in Sport (RED-S)
