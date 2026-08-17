@@ -2990,16 +2990,18 @@ injuries:
     trigger_phase: 開放水域競賽/訓練起始高強度段、冷水浸泡、緊身防寒衣壓迫；常於游程中突發呼吸困難、咳嗽、咳粉紅泡沫痰
     who: 鐵人三項/開放水域泳者尤高危；亦見軍事泳訓、SCUBA、健康年輕人
   epidemiology:
-    prevalence: 開放水域/鐵人族群報導發生率範圍待 WebFetch 核實；可能因誤診為溺水/氣喘而低估
+    prevalence: 發生率**高度取決於族群與賽事型態，不存在單一數字**。目前最大的前瞻資料是瑞典 Vansbrosimningen 2016–2019 年 47,573 人次，SIPE 發生率 **0.44%**（CI 0.39–0.51）；同一份資料的性別差距極大—— **女性 0.75% vs 男性 0.09%**（調整後 OR 8.59），並隨年齡上升（18–30 歲 0.08% → ≥61 歲 1.1%，OR 12.74）。 軍事極端負荷族群則高一個數量級：美國海軍 SEAL 儲訓生 2,117 人中 **5.0%**。 2018 年系統回顧納入的 9 篇研究彼此差距近三個數量級（英國鐵人賽 5 年 0.01%、瑞典河賽 0.5%、 以色列海上軍訓計時游 1.8–26.7%），**因異質性過高而無法做量化統合**——任何「SIPE 發生率是 X%」的單一說法都不成立。 另可能因誤診為溺水／運動性氣喘而低估。
     certainty: 🟡
     evidence_grade: B
-    caveat: 常被誤判為近乎溺水或運動性氣喘；真實發生率不明
+    caveat: '**2026-08-17 來源健檢結果**：本條原本的兩個 source_id（`src.sipe`、`src.military-swim-training-sipe`） 顯示字串都寫著「待查」「待 WebFetch 核實」，是佔位字串而非文獻；原 prevalence 欄位也只寫「範圍待核實」。 已查得三篇真實文獻並填入實際數字（Spencer 2018 系統回顧、Hårdstedt 2021 世代、Volk 2021 軍事世代）。 **引用紀律**：① 0.44% 與 5.0% 分屬完全不同族群，相差逾十倍，不可互相取代或平均； ② Hårdstedt 的分母是「游程人次」不是「人數」，且 2016–17 與 2018–19 的診斷方法不同（臨床判斷 vs 肺部超音波）； ③ Spencer 2018 明確寫出「**找不到任何報告 SIPE 死亡的研究**」——本條標 `fatal_acute: true` 是基於機制上的致命潛勢 與臨床急症處置需求，**不是基於已發表的死亡率數據**，兩者不可混為一談。 餘下限制不變：常被誤判為近乎溺水或運動性氣喘。'
     sources:
-    - SIPE 病理生理與鐵人三項案例系列（作者/年份待查）
-    - 軍事泳訓 SIPE 研究（具體文獻待 WebFetch 核實）
+    - 'Spencer S, Dickinson J, Forbes L. (2018). Occurrence, Risk Factors, Prognosis and Prevention of Swimming-Induced Pulmonary Oedema: a Systematic Review. Sports Med Open 4(1):43. PMID 30238206（**僅 9 篇納入、異質性過高無法量化統合**）'
+    - 'Hårdstedt M, et al. (2021). Incidence of Swimming-Induced Pulmonary Edema: A Cohort Study Based on 47,600 Open-Water Swimming Distances. Chest 160(5):1789–1798. PMID 34186036'
+    - Volk C, et al. (2021). Incidence and Impact of Swimming-Induced Pulmonary Edema on Navy SEAL Candidates. Chest 159(5):1934–1941. PMID 33245874
     source_ids:
-    - src.sipe
-    - src.military-swim-training-sipe
+    - src.spencer-2018-sipe-systematic-review
+    - src.hardstedt-2021-sipe-incidence-cohort
+    - src.volk-2021-sipe-navy-seal
   risk_factors:
   - text: 冷水浸泡
     grade: B
@@ -3011,15 +3013,17 @@ injuries:
     grade: B
   - text: 過量賽前補液(增加前負荷)
     grade: C
-  - text: 女性、年齡較長為部分研究指出的相關因子(待核實)
-    grade: C
+  - text: 女性（Hårdstedt 2021：女 0.75% vs 男 0.09%，調整後 OR 8.59）
+    grade: B
+  - text: 年齡較長（同研究 18–30 歲 0.08% → ≥61 歲 1.1%，OR 12.74）
+    grade: B
   prevention:
   - text: 避免冷水中爆發式起泳，漸進加溫加速
     grade: C
   - text: 防寒衣合身不過緊，必要時剪鬆領口/胸口
     grade: C
-  - text: 既往 SIPE 史者就醫評估血壓，討論用藥(如部分研究探討的西地那非，須醫囑)
-    grade: C
+  - text: 既往 SIPE 史者就醫評估血壓（約 30% 會復發）。**西地那非預防復發的建議已於 2026-08-17 撤除**：Spencer 2018 系統回顧指出該用法只有兩篇極小型無對照研究、結論不確定，不足以支撐建議，且用藥決定超出教練角色
+    grade: Expert
   - text: 避免賽前過度補液
     grade: C
   - text: 認識早期症狀(呼吸困難/咳嗽/咳泡沫痰)即停止上岸
@@ -3040,14 +3044,14 @@ injuries:
     - 調整防寒衣鬆緊、賽前補液量
     return_to_train: 症狀緩解 + 心肺評估綠燈 + 誘因矯正(配速/防寒衣/補液) → 漸進回水，避免冷水高強度起泳
     return_to_compete: 心肺專科評估通過 + 既往發作誘因已處理 → 復賽；高復發者需個別風險討論
-    prognosis: 急性發作多在離水後數小時緩解；但復發率高(尤其誘因未矯正)，個別嚴重者需住院
+    prognosis: 急性發作多在離水後 24 小時內緩解（Spencer 2018 納入的三篇研究），惟一篇小型研究觀察到限制型肺功能缺損可持續約一週；約 30% 會復發（兩篇研究），誘因未矯正者更高；個別嚴重者需住院。長期預後只有一篇小型研究，未發現發作者與未發作者有差異
   population_notes:
     age:
       youth: null
       adult_beginner: 成人鐵人/開放水域初入者冷水+高強度起泳組合高危
       masters: 高齡+高血壓增風險
     sex:
-      female: 部分研究指女性風險較高(待核實)
+      female: 女性風險顯著較高：Hårdstedt 2021 的 47,573 人次世代中，SIPE 患者 90% 為女性（參賽性別比接近 1:1），發生率女 0.75% vs 男 0.09%
       male: null
     ability: null
     lifecycle:
@@ -3058,12 +3062,15 @@ injuries:
     perception_link: 可接 L0 呼吸感知/配速感知教育(辨識異常呼吸窘迫 vs 正常喘)
     perception_link_ids: []
   references:
-  - citation: SIPE 病理生理綜述（作者/年份/期刊待 WebFetch 核實）
-    certainty: 🔴
-    verified: false
-  - citation: 鐵人三項 SIPE 案例系列（具體出處待查）
-    certainty: 🟡
-    verified: false
+  - citation: 'Spencer S, Dickinson J, Forbes L. (2018). Occurrence, Risk Factors, Prognosis and Prevention of Swimming-Induced Pulmonary Oedema: a Systematic Review. Sports Med Open 4(1):43. PMID 30238206'
+    certainty: 🟢
+    verified: true
+  - citation: 'Hårdstedt M, et al. (2021). Incidence of Swimming-Induced Pulmonary Edema: A Cohort Study Based on 47,600 Open-Water Swimming Distances. Chest 160(5):1789–1798. PMID 34186036'
+    certainty: 🟢
+    verified: true
+  - citation: Volk C, et al. (2021). Incidence and Impact of Swimming-Induced Pulmonary Edema on Navy SEAL Candidates. Chest 159(5):1934–1941. PMID 33245874
+    certainty: 🟢
+    verified: true
   flags:
     contested:
     - claim: SIPE 與既往高血壓/心臟結構的因果強度
@@ -4046,22 +4053,28 @@ injuries:
   - 肘
   - 皮膚軟組織
   mechanism:
-    summary: 池畔濕磁磚/混凝土摩擦係數驟降——乾混凝土靜摩擦約 0.6（ASTM 建議濕地最低標）、泳池濕區常 <0.4（部分量測濕磁磚低至 0.3），赤足+水膜形成近似潤滑層。失去抓地→滑倒。跌倒生物力學分兩型：向後/側滑頭枕部直接撞硬面（腦震盪/顱內出血）；伸手保護性跌倒（FOOSH）力沿前臂傳致橈骨遠端骨折（Colles），或側髖著地致股骨頸骨折（高齡）。奔跑/嬉戲放大速度與衝量。
+    summary: 池畔濕磁磚/混凝土摩擦係數驟降——ANSI/NFSI B101.1 把**濕態**靜摩擦係數（wet SCOF）分三級：≥ 0.60 高抓地力、0.40–0.60 中等、< 0.40 低抓地力；泳池濕區常落在低抓地力級距，赤足+水膜形成近似潤滑層。失去抓地→滑倒。跌倒生物力學分兩型：向後/側滑頭枕部直接撞硬面（腦震盪/顱內出血）；伸手保護性跌倒（FOOSH）力沿前臂傳致橈骨遠端骨折（Colles），或側髖著地致股骨頸骨折（高齡）。奔跑/嬉戲放大速度與衝量。
     trigger_phase: 出入水梯、起跳台周邊、淋浴更衣濕區、嬉戲奔跑、提重物失衡
     who: 兒童（奔跑嬉戲）、高齡泳者（平衡/骨密度↓）、視覺受限（泳鏡起霧/摘鏡）、地面排水不良場館
   epidemiology:
-    prevalence: 美國泳池相關急診估計每年數十萬件（含各機制），其中滑倒跌落佔相當比例——具體『約 35 萬件/60% 為滑倒』為二手引用、原始登記待查；高齡髖骨折後一年死亡率 20–30%（一般骨科數據，非游泳專屬）
+    prevalence: 池畔滑倒本身**沒有可引用的發生率數字**——原寫的『美國每年約 35 萬件泳池傷害、60% 為滑倒』是二手引用、原始登記查不到，維持不進任何層。可引用的是跌倒**後果**：台灣 ≥60 歲髖骨折住院者年死亡率 1999 年 18.10% → 2009 年 13.98%（健保資料庫 n=143,595）；台灣髖骨折術後族群整體一年死亡率 16.8%（n=5,442，已排除住院中死亡者）；亞太區系統回顧的一年死亡率自新加坡 10.8% 至紐西蘭 23.8%（142 研究 / 1,139,752 人）。以上皆為一般高齡族群，非游泳專屬。
     certainty: 🟡
     evidence_grade: B
-    caveat: 池畔滑倒缺乏獨立流病登記，多併入一般跌倒或泳池傷害統計；摩擦係數數字依材質/清潔/量測法差異大
+    caveat: '**2026-08-17 來源健檢結果，兩處更正**： ① 原寫「高齡髖骨折後一年死亡率 20–30%」，其唯一引用 `src.falls-and-hip-fracture-mortality-pmid` 的顯示字串 本身就寫著「待補具體 PMID」——那是佔位字串，不是文獻。改查真實文獻後發現該數字**對本專案讀者族群偏高約 1.5–2 倍**： 台灣兩份健保資料庫研究給出 13.98–18.10%（粗年死亡率）與 16.8%（術後一年）， 亞太區統合分析則顯示亞洲約為澳紐的一半。20–30% 大致是澳紐等西方族群的上緣。已改寫為分地區、附樣本數的敘述。 ② 原寫「乾混凝土靜摩擦約 0.6（ASTM 建議濕地最低標）」屬張冠李戴——ASTM F2508 規範的是 **步道摩擦計如何校驗**，從未訂定任何摩擦係數門檻；0.60／0.40 的分級出自 **ANSI/NFSI B101.1** 且全是**濕態**值， 不能用來描述乾混凝土。已改為正確歸屬與正確的濕態語意。 餘下限制不變：池畔滑倒缺乏獨立流病登記，多併入一般跌倒或泳池傷害統計；摩擦係數依材質／清潔／量測法差異大。'
     sources:
-    - ASTM F2508 / 防滑摩擦係數標準（工程標準，非流病）
-    - Falls and hip fracture mortality, 一般骨科文獻（待補具體 PMID）
+    - ANSI/NFSI B101.1（2009 初版 / 2022 改版）Test Method for Measuring Wet SCOF of Common Hard-Surface Floor Materials——濕態 SCOF 分級門檻的正確出處
+    - ASTM F2508-23 Standard Practice for Validation of Walkway Tribometry Using Research-based Reference Materials——**摩擦計校驗規範，不含門檻值**
+    - Wang CB, et al. (2013). Excess mortality after hip fracture among the elderly in Taiwan. Bone 56(1):147–153. PMID 23727435
+    - 'Lee TC, et al. (2017). One-Year Readmission Risk and Mortality after Hip Fracture Surgery: A National Population-Based Study in Taiwan. Aging Dis 8(4):402–409. PMID 28840055'
+    - Harvey LA, et al. (2024). Variation in mortality following hip fracture across the Asia Pacific region. Arch Gerontol Geriatr 126:105519. PMID 38941947
     source_ids:
+    - src.ansi-nfsi-b101-1
     - src.astm-f2508
-    - src.falls-and-hip-fracture-mortality-pmid
+    - src.wang-2013-taiwan-hip-fracture-mortality
+    - src.lee-2017-taiwan-hip-fracture-1yr-mortality
+    - src.harvey-2024-asia-pacific-hip-fracture-mortality
   risk_factors:
-  - text: 濕滑硬質地面（摩擦係數 <0.5）
+  - text: 濕滑硬質地面（濕態 SCOF < 0.40，ANSI/NFSI B101.1 低抓地力級距）
     grade: A
   - text: 赤足+水膜
     grade: B
@@ -4074,7 +4087,7 @@ injuries:
   - text: 場館排水不良/無防滑處理
     grade: B
   prevention:
-  - text: 池畔防滑表面（粗糙磁磚/防滑塗層，符合濕地摩擦係數標準）
+  - text: 池畔防滑表面（粗糙磁磚/防滑塗層，目標為濕態 SCOF ≥ 0.60 的高抓地力級距）
     grade: A
   - text: 『池畔禁跑』規則與監督（尤兒童）
     grade: B
@@ -4099,7 +4112,7 @@ injuries:
     swim_modifications_in_rehab: null
     return_to_train: 依傷型癒合（腦震盪逐步/骨折影像確認）後回水
     return_to_compete: 完成回場標準且無症狀 → 復賽
-    prognosis: 輕度挫傷數日恢復；橈骨遠端骨折多良好；高齡股骨頸骨折預後較差（一年死亡率 20–30%，併發症與失能風險高）；頭部撞擊視傷情而定
+    prognosis: 輕度挫傷數日恢復；橈骨遠端骨折多良好；高齡股骨頸骨折預後較差（台灣資料一年死亡率約 14–17%，併發症與失能風險高；西方族群報告可達 23% 上下，地區差異大，引用時須連地區一起說）；頭部撞擊視傷情而定
   population_notes:
     age:
       youth: 奔跑嬉戲滑倒為兒童池畔主要傷因
@@ -4114,17 +4127,26 @@ injuries:
     technical_link: null
     perception_link: null
   references:
-  - citation: ASTM F2508 Standard Practice for Validation of Walkway Tribometers
+  - citation: ANSI/NFSI B101.1 Test Method for Measuring Wet SCOF of Common Hard-Surface Floor Materials（濕態 SCOF ≥0.60 / 0.40–0.60 / <0.40 三級）
     certainty: 🟡
-    verified: false
-  - citation: Hip fracture one-year mortality (general orthopedic literature, PMID 待補)
+    verified: true
+  - citation: ASTM F2508-23 Standard Practice for Validation of Walkway Tribometry Using Research-based Reference Materials（校驗規範，不含門檻值）
     certainty: 🟡
-    verified: false
+    verified: true
+  - citation: 'Wang CB, et al. (2013). Excess mortality after hip fracture among the elderly in Taiwan: a nationwide population-based cohort study. Bone 56(1):147–153. PMID 23727435'
+    certainty: 🟡
+    verified: true
+  - citation: 'Lee TC, et al. (2017). One-Year Readmission Risk and Mortality after Hip Fracture Surgery: A National Population-Based Study in Taiwan. Aging Dis 8(4):402–409. PMID 28840055'
+    certainty: 🟡
+    verified: true
+  - citation: 'Harvey LA, et al. (2024). Variation in mortality following hip fracture across the Asia Pacific region: Systematic review and proportional meta-analysis. Arch Gerontol Geriatr 126:105519. PMID 38941947'
+    certainty: 🟢
+    verified: true
   flags:
     contested:
     - claim: 髖骨折一年死亡率
-      consensus_source: 高齡髖骨折後死亡率顯著升高為骨科共識
-      dissent_source: 20–30% 數字依族群/合併症差異大，非游泳專屬
+      consensus_source: 高齡髖骨折後死亡率顯著升高為骨科共識（台灣 SMR 一年 9.67，Wang 2013）
+      dissent_source: 絕對數字地區差異極大：亞太區系統回顧自新加坡 10.8% 至紐西蘭 23.8%，亞洲約為澳紐一半（Harvey 2024）；舊稿的 20–30% 是西方族群上緣，不適用台灣讀者
     vintage_warning: false
 - id: starting-block-impact
   zh: 出發台 / 牆面 / 水面撞擊傷
