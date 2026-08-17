@@ -534,7 +534,7 @@ injuries:
   - 旋轉肌袖
   mechanism:
     summary: 高度重複過頭划水；前鋸肌疲勞→肩胛骨去穩定(winging)→旋轉肌過載→繼發夾擊/肌腱病。是傘狀總稱，涵蓋肩峰下夾擊、旋轉肌腱病、內夾擊等亞型。
-    trigger_phase: 自由式/蝶式抓水—早期推水（肱骨高度外展+內旋，通過喙肩弓下方）；恢復期高肘崩潰
+    trigger_phase: 自由式抓水—早期推水（肱骨高度外展+內旋，通過喙肩弓下方）；恢復期高肘崩潰。 **蝶式不可沿用同一句**：本描述的來源(StatPearls NBK470589)全篇只處理自由式，無蝶式內容。 蝶式唯一的一手肌電/電影分析(Pink 1993)描述入水時肱骨為**外展、伸展、外旋**， 與「入水即內旋夾擠位置」相反；蝶式的易傷機制在該研究中是**前鋸肌與肩胛下肌全程高激活→易疲勞**， 屬肌肉耐力層而非姿勢夾擠層。蝶式肩位置的具體描述以 Pink 1993 為準，不由自由式外推。
     who: null
   epidemiology:
     prevalence: 菁英泳者肩痛 40–91%
@@ -610,6 +610,9 @@ injuries:
   - citation: Masters 泳者肩超音波研究, PMC7824457
     certainty: 🟡
     verified: false
+  - citation: Pink M, Jobe FW, Perry J, Kerrigan J, Browne A, Scovazzo ML. (1993). The normal shoulder during the butterfly swim stroke. Clin Orthop Relat Res (288):48–59. PMID 8458154
+    certainty: 🟡
+    verified: true
   flags:
     contested:
     - claim: 機制為真正喙肩弓下夾擊 vs 不穩定繼發的肌腱病
@@ -737,38 +740,48 @@ injuries:
   - 鵝足滑囊
   - 內側皺襞
   mechanism:
-    summary: 蛙式踢腿(whip kick)外翻+外旋負荷重複施於膝內側→內側副韌帶反覆應力(最常見子型)；另有髕股關節壓力(PFPS)、鵝足滑囊炎、內側皺襞夾擠。是傘狀總稱，子型機制與處置不同，須先分型。
-    driver: 踢腿外翻角過大、髖外旋不足以代償(代償落到膝)、訓練量驟增
-    trigger_phase: 蛙式踢腿—收腿後外翻外旋蹬夾(propulsive phase)，膝在外翻位承受高扭轉負荷
+    summary: 蛙式踢腿(whip kick)外翻+外旋負荷重複施於膝內側→內側副韌帶反覆應力(最常見子型)；另有髕股關節壓力(PFPS)、鵝足滑囊炎、內側皺襞夾擠。是傘狀總稱，子型機制與處置不同，須先分型。**但須注意：關節鏡研究至今未能找出對應本症候群的特定結構異常，子型分類是臨床分型不是已確立的病理分類。**
+    driver: 踢腿外翻角偏離常態範圍(過小或過大皆然)、髖旋轉活動度受限、蛙式訓練距離增加、暖身距離不足、訓練量驟增
+    trigger_phase: 蛙式踢腿蹬夾動作相關，膝在外翻位承受高扭轉負荷。**時相歸屬有文獻分歧**：早期研究歸咎踢腿終末期，但 Vizsolyi 1987 指出選手主訴疼痛多發生在向後推蹬的**起始期**，本項不指定單一時相。
     who: null
   epidemiology:
-    prevalence: 競技蛙泳者膝痛報導比例高(範圍待 WebFetch 核實)；非蛙式主項者顯著較低
+    prevalence: Vizsolyi 1987 問卷 n=391：蛙式專項者膝痛 73%、**非蛙式專項者亦有 48%**（兩數字必須成對引用，差距是 73 vs 48 而非有 vs 無）。Rovere & Nichols 1985 n=36 蛙式選手：86% 曾有至少一次蛙式相關膝痛，47.2% 每週至少發作一次。
     certainty: 🟡
     evidence_grade: B
-    caveat: 「蛙泳膝」常被當單一診斷統計，未分子型→盛行率混雜不同病理
+    caveat: 「蛙泳膝」常被當單一診斷統計，未分子型→盛行率混雜不同病理。兩篇主要流病文獻皆為 1980 年代、樣本為競技族群、以自陳問卷為主，不可外推到成人初學或休閒族群。
     sources:
-    - Rovere & Nichols 等蛙泳膝經典文獻（作者/年份/期刊待查）
-    - 游泳膝傷流病系統綜述（待 WebFetch 核實）
+    - Vizsolyi P, Taunton J, Robertson G, et al. (1987). Breaststroker's knee. Am J Sports Med 15(1):63–71. (PMID 3812862，已驗證)
+    - Rovere GD, Nichols AW. (1985). Frequency, associated factors, and treatment of breaststroker's knee in competitive swimmers. Am J Sports Med 13(2):99–104. (PMID 3985267，已驗證)
+    - Cheng KY, Chambers H, Dwek JR. (2022). MRI appearance of breaststroker's knee. Pediatr Radiol 52(13):2645–2647. (PMID 35672477，已驗證；n=1 病例，僅供結構層無定論之佐證)
     source_ids:
+    - src.vizsolyi-1987
     - src.rovere-nichols
-    - src.swimmers-knee-epidemiology-sr
+    - src.cheng-2022-breaststrokers-knee-mri
   risk_factors:
-  - text: 蛙式為主項 + 高週踢腿量
+  - text: 蛙式為主項 + 高週踢腿量／蛙式訓練距離增加
     grade: B
-  - text: 踢腿外翻角過大(技術)
+  - text: 競賽年數與年齡增加
     grade: B
-  - text: 髖外旋活動度不足(硬體邊界→代償落膝)
+  - text: 暖身距離不足
+    grade: B
+  - text: 起踢時髖外展角偏離 37°–42° 區間（過小或過大皆然，呈雙峰）——**但同研究的運動學影片分析未達統計顯著，這是待驗證型態，不是實證閾值，不得當作教學角度標準**
+    grade: C
+  - text: 髖關節**內旋**活動度降低（Rovere 1985 在頻繁膝痛者身上觀察到的是內旋受限，不是外旋不足）
     grade: C
   - text: 訓練量/踢腿量急性跳升
     grade: B
   - text: 既往膝內側疼痛史
     grade: C
   prevention:
-  - text: 技術矯正：縮小踢腿外翻角、改善髖外旋帶動(減膝扭轉)
+  - text: 先減蛙式訓練距離——這是 Rovere 1985 明列的第一順位處置，優先於技術矯正
+    grade: B
+  - text: 確保暖身距離足夠（暖身距離減少與膝痛頻率顯著相關）
+    grade: B
+  - text: 髖旋轉活動度訓練（原文為概括的 hip rotation，內旋受限是已觀察到的方向）
     grade: C
-  - text: 髖外旋活動度與臀肌力量訓練(把負荷從膝移回髖)
+  - text: 技術矯正：踢腿外翻角避免走極端；髖帶動以減膝扭轉
     grade: C
-  - text: 踢腿量漸進管理，避免急性跳升
+  - text: 踢腿量漸進管理，賽季初期尤其緩慢增加
     grade: B
   - text: 賽季高蛙量期分散踢腿負荷、混入其他泳式
     grade: C
@@ -782,7 +795,7 @@ injuries:
     rehab: 依子型：MCL 應力→漸進負荷+技術；PFPS→髖膝控制與股四頭/臀肌；鵝足滑囊→離心+負荷管理
     functional_progression_criteria:
     - 全活動度無痛
-    - 髖外旋活動度與臀肌力對稱
+    - 髖旋轉活動度（內旋與外旋皆量）與臀肌力左右對稱
     - 陸上單腿控制測試無代償性外翻
     swim_modifications_in_rehab:
     - 暫以自由式/仰式踢腿替代蛙式蹬夾，卸載膝內側
@@ -800,22 +813,33 @@ injuries:
     ability: null
     lifecycle: null
   links:
-    mechanism_link: 踢腿外翻負荷與髖外旋代償可接『硬體邊界 vs 感知缺陷』判斷(髖活動度=硬體)
+    mechanism_link: 踢腿外翻負荷與髖旋轉活動度可接『硬體邊界 vs 感知缺陷』判斷(髖活動度=硬體)
     mechanism_link_ids: []
-    technical_link: 蛙式踢腿技術分析(外翻角/髖帶動)——待對應 canonical technical 條目
-    technical_link_ids: []
+    technical_link: 蛙式翻腳的四關節拆解——教練說的『腳尖朝外』其實橫跨髖外旋、膝軸旋、距下與橫跗關節，把它當單一關節指令是膝扭轉負荷的來源之一
+    technical_link_ids:
+    - breast.tech.36
+    - breast.tech.37
     perception_link: L2–L4 腳感層(踢腿節律與蹬夾感知)
     perception_link_ids: []
   references:
-  - citation: 蛙泳膝經典流病文獻（作者/年份/期刊全待 WebFetch 核實）
+  - citation: Vizsolyi P, Taunton J, Robertson G, et al. (1987). Breaststroker's knee. An analysis of epidemiological and biomechanical factors. Am J Sports Med 15(1):63–71. PMID 3812862
     certainty: 🟡
-    verified: false
+    verified: true
+  - citation: Rovere GD, Nichols AW. (1985). Frequency, associated factors, and treatment of breaststroker's knee in competitive swimmers. Am J Sports Med 13(2):99–104. PMID 3985267
+    certainty: 🟡
+    verified: true
+  - citation: Cheng KY, Chambers H, Dwek JR. (2022). Magnetic resonance imaging appearance of breaststroker's knee. Pediatr Radiol 52(13):2645–2647. PMID 35672477
+    certainty: 🟡
+    verified: true
   flags:
     contested:
     - claim: 蛙泳膝主要病理是 MCL 應力還是髕股/內側皺襞
-      consensus_source: 多數文獻指向內側結構(MCL)應力為最常見，但子型分布隨研究而異
-      dissent_source: 部分研究強調髕股疼痛症候群在蛙泳膝中比例被低估
-    vintage_warning: false
+      consensus_source: 臨床定位一致指向內側結構——Vizsolyi 1987 指出內側副韌帶與髕骨內下緣受累；Rovere 1985 在每週膝痛者中有 47% 觸及壓痛增厚的內側滑膜皺襞
+      dissent_source: Cheng 2022 指出**關節鏡研究至今未能證實對應本症候群的特定結構異常**。因此這不是資料不足的暫時分歧，而是結構層面尚無定論；任一子型都不得寫成已確立病理
+    - claim: 疼痛發生在踢腿的哪一時相
+      consensus_source: 早期研究歸咎踢腿終末期(terminal phase)
+      dissent_source: Vizsolyi 1987 開宗明義指出選手主訴多發生在向後推蹬的起始期(initial phase of rearward thrust)，此分歧至今未解
+    vintage_warning: true
 - id: extension-low-back-pain
   zh: 伸展型下背痛（蝶泳）
   en: Extension-type low back pain (butterfly)
