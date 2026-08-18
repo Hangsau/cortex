@@ -124,6 +124,19 @@ tools/
 
 **同一條鐵則也適用「節點清單」**：章節有 `_index.yaml`（目前是 `data/breathing/` 與 `data/periodization/`）時，導覽、概念地圖、查資料頁的卡片一律 range 它生成，不要在 layout 打一份節點名單。`vortex-breathing.html` 的全章地圖與 `vortex-database.html` 的 21 張呼吸卡都是這樣長出來的——canonical 加一節，兩處自動跟上；抄一份就會漏。
 
+### 骨關節動作章（`vortex/joints/`）：一份內容兩個入口
+
+`technical-analysis.yaml` 裡 `category: joint` 的 13 條同時出現在兩個地方，**但只有一份資料、一個 ID**：
+
+- **各式頁**（`vortex-stroke.html`）的「深入機制」面板——就地讀，卡片收合。`$techs` 不能用單一 `where`：卡片除了自己的 `stroke`，還可能用 `also_strokes` 宣告它在別式同樣成立（Hugo 的 `where` 表達不了 OR），所以是手動 range 累積，並在 summary 標「跨式通則」。
+- **`vortex/joints/`**（`vortex-joints.html`）——按 `joint_region` 分四組的全展開文件頁，是側欄裡的頂層入口。
+
+**為什麼要有頂層入口**：只掛在各式頁時，讀者得先知道「有這章」才會點進某一式去翻，實測結果是完全找不到。凡是**橫跨多式的主題**（呼吸、傷害、關節）都要在 `layouts/partials/vortex/sidebar.html` 有一條，不能只靠各式頁內的分類 chip。
+
+**左欄與分組卡一律用 `nav_zh` 不用 `title`**：這章的 title 是完整論斷句（40+ 字），拿去做導航會變文字牆。canonical 沒給 `nav_zh` 的條目才 fallback 到 title。
+
+樣式在 `static/css/vortex-joints.css`（`vx-jt-*` 前綴，自足）。**不要 import `vortex-injuries.css`** 去借 `.vx-cat-grid` / `.vx-tag`——那份檔名綁傷害頁，跨頁引用會讓「這條規則歸誰維護」變模糊。
+
 ### 呼吸章（`data/breathing/`）：三條線 + 安全置頂
 
 真相源 `TheVortexProject/canonical/breathing/`，六份 yaml 由 `sync_vortex.py` 的 `sync_breathing()` **整檔搬運**（全 public、無 diagnostic 子樹，不剝離）。版型 `layouts/vortex/vortex-breathing.html` 有兩條不可改的順序：

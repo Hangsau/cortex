@@ -386,12 +386,17 @@ def sync_technical_analysis(dry_run: bool):
         }
         if p.get("also_strokes"):
             rec["also_strokes"] = p["also_strokes"]
+        if p.get("joint_region"):
+            rec["joint_region"] = p["joint_region"]
+        if p.get("nav_zh"):
+            rec["nav_zh"] = p["nav_zh"]
         rec.update(pub)          # 只帶 public 欄位，diagnostic 整塊不取
         points_out.append(rec)
 
     out_data = {
-        "categories": data.get("categories", []),
-        "points":     points_out,
+        "categories":    data.get("categories", []),
+        "joint_regions": data.get("joint_regions", []),
+        "points":        points_out,
     }
 
     by_stroke = {}

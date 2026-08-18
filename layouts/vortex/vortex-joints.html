@@ -1,0 +1,125 @@
+{{ define "head-extra" }}
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+TC:wght@400;500;600;700&family=Quattrocento+Sans:wght@400;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex-nav.css">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex-joints.css">
+{{ end }}
+
+{{ define "main" }}
+{{ $base := .Site.BaseURL }}
+{{ $ta := index hugo.Data "vortex" "technical-analysis" }}
+{{ $regions := $ta.joint_regions }}
+{{ $joints := where $ta.points "category" "joint" }}
+
+{{/* 泳式中文名與各式頁 slug：值域來自 canonical _taxonomy.yaml#stroke */}}
+{{ $strokeZh := dict "free" "自由式" "back" "仰式" "breast" "蛙式" "fly" "蝶式" "udk" "水下海豚腿" "starts-turns" "起跳轉身" "common" "共通" }}
+{{ $strokeSlug := dict "free" "freestyle" "back" "backstroke" "breast" "breaststroke" "fly" "butterfly" "udk" "underwater-dolphin-kick" "starts-turns" "starts-turns" }}
+
+<div class="vx-stroke vx-shell">
+{{ partial "vortex/sidebar.html" (dict "ctx" . "current" "joints") }}
+  <div class="vx-stroke-wrap vx-doc">
+
+    {{/* ════════ 左側常駐目次（按關節部位分組） ════════ */}}
+    <aside class="vx-rail vx-rail--collapsible">
+      <div class="vx-rail-head">
+        <span class="vx-stroke-zh">骨關節動作</span>
+      </div>
+
+      <div class="vx-rail-scroll">
+        <ul class="vx-rail-list">
+          <li><a class="vx-navlink vx-navlink--top" href="#overview" data-spy="overview"><span class="n">◆</span>這章在修什麼</a></li>
+        </ul>
+      </div>
+
+      {{ range $ri, $reg := $regions }}
+      {{ $regJoints := where $joints "joint_region" $reg.key }}
+      <div class="vx-rail-theme" data-theme="r{{ $ri }}">
+        <button class="vx-rail-theme-head" type="button" data-theme-toggle="r{{ $ri }}" aria-expanded="false">
+          <span class="vx-rail-theme-top">
+            <span class="vx-rail-theme-caret" aria-hidden="true"></span>
+            <span class="vx-rail-theme-name">{{ $reg.name_zh }}</span>
+            <span class="vx-rail-theme-count">{{ len $regJoints }}</span>
+          </span>
+        </button>
+        <div class="vx-rail-scroll">
+          <ul class="vx-rail-list">
+            {{ range $regJoints }}
+            <li><a class="vx-navlink" href="#{{ .id }}" data-spy="{{ .id }}" data-theme="r{{ $ri }}">{{ .nav_zh | default .title }}</a></li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+      {{ end }}
+    </aside>
+
+    {{/* ════════ 右側主面板 ════════ */}}
+    <main class="vx-panels">
+
+      <section class="vx-panel vx-overview" id="overview">
+        <span class="vx-sec-no">骨關節動作</span>
+        <h2>骨關節動作 · 命名校正</h2>
+        <p class="vx-premise">游泳教學講的動作名稱，有一部分<strong>在解剖學上是錯的</strong>——不是講得比較白話，是指向了另一個關節、另一個平面，或方向剛好相反。名字錯了，硬體邊界就會查錯地方：以為是柔軟度不足，實際上是那個關節根本沒有那個自由度。</p>
+        <p class="vx-read-howto">怎麼用：整頁是一份從上讀到下的文件，{{ len $joints }} 條按<strong>關節部位</strong>排（不是按泳式），因為讀者通常是先想到「肩」「踝」才想到泳式。每條都寫清楚池畔怎麼講、解剖上實際是什麼、以及知道差別之後教學上該怎麼改。左欄可展開跳任一條。</p>
+
+        <div class="vx-jt-grid">
+          {{ range $regions }}
+          {{ $regJoints := where $joints "joint_region" .key }}
+          {{ if gt (len $regJoints) 0 }}
+          <a class="vx-jt-card" href="#{{ (index $regJoints 0).id }}">
+            <span class="vx-jt-card-zh">{{ .name_zh }}</span>
+            <span class="vx-jt-card-count">{{ len $regJoints }} 條</span>
+            <span class="vx-jt-card-list">{{ range $i, $e := $regJoints }}{{ if $i }}・{{ end }}{{ $e.nav_zh | default $e.title }}{{ end }}</span>
+          </a>
+          {{ end }}
+          {{ end }}
+        </div>
+
+        <p class="vx-cite"><span class="src">怎麼讀確定性標記</span>：🔵 是從解剖結構推導（不需文獻，但推導本身要成立）、🟢🟡 是有文獻支撐、🟠 是教學觀察。這章絕大多數是 🔵——關節有沒有某個自由度是結構問題，不是統計問題。<strong>同一條也會出現在對應的泳式頁</strong>，標「跨式通則」的表示它在多個泳式同樣成立，是同一條、不是複製。</p>
+      </section>
+
+      {{ range $reg := $regions }}
+      {{ $regJoints := where $joints "joint_region" $reg.key }}
+      {{ $nc := len $regJoints }}
+      {{ range $i, $x := $regJoints }}
+      <section class="vx-panel vx-jt-entry" id="{{ $x.id }}">
+        <span class="vx-sec-no">{{ $reg.name_zh }}</span>
+        <h2>{{ $x.title }}</h2>
+
+        <div class="vx-jt-tags">
+          {{ $home := index $strokeSlug $x.stroke }}
+          <a class="vx-jt-tag" href="{{ $base }}vortex/{{ $home }}/">{{ index $strokeZh $x.stroke }}</a>
+          {{ range $x.also_strokes }}<a class="vx-jt-tag" href="{{ $base }}vortex/{{ index $strokeSlug . }}/">{{ index $strokeZh . }}</a>{{ end }}
+          {{ if $x.also_strokes }}<span class="vx-jt-tag vx-jt-tag--cross">跨式通則</span>{{ end }}
+        </div>
+
+        {{ with $x.summary }}<div class="vx-howto">{{ . }}</div>{{ end }}
+
+        {{ with $x.mechanism }}
+        <span class="vx-block-label">解剖機制 {{ .certainty }}</span>
+        <div class="vx-howto">{{ .text }}</div>
+        {{ end }}
+
+        {{ with $x.practical_implication }}
+        <span class="vx-block-label">教學上怎麼改</span>
+        <div class="vx-boundary">{{ . }}</div>
+        {{ end }}
+
+        {{ with $x.evidence }}
+        <span class="vx-block-label">依據</span>
+        {{ range . }}<span class="vx-cite">{{ .certainty }} {{ .text }}{{ with .source }} <span class="src">— {{ . }}</span>{{ end }}{{ with .url }} <a href="{{ . }}" target="_blank" rel="noopener">↗</a>{{ end }}</span>{{ end }}
+        {{ end }}
+
+        <nav class="vx-flow">
+          {{ if gt $i 0 }}<a href="#{{ (index $regJoints (sub $i 1)).id }}"><span class="lbl">上一條</span>← {{ (index $regJoints (sub $i 1)).nav_zh }}</a>{{ else }}<a href="#overview"><span class="lbl">回到</span>← 這章在修什麼</a>{{ end }}
+          {{ if lt (add $i 1) $nc }}<a class="nx" href="#{{ (index $regJoints (add $i 1)).id }}"><span class="lbl">下一條</span>{{ (index $regJoints (add $i 1)).nav_zh }} →</a>{{ end }}
+        </nav>
+      </section>
+      {{ end }}
+      {{ end }}
+
+    </main>
+  </div>
+</div>
+
+<script src="{{ .Site.BaseURL }}js/vortex.js" defer></script>
+{{ end }}

@@ -37,6 +37,15 @@ categories:
   name_zh: 關節命名與解剖校正
 - key: comparison
   name_zh: 四式技術對照
+joint_regions:
+- key: shoulder-arm
+  name_zh: 肩與上肢
+- key: spine-neck
+  name_zh: 脊椎與頸
+- key: hip-knee
+  name_zh: 髖與膝
+- key: ankle-foot
+  name_zh: 踝與足
 points:
 - id: free.tech.1
   stroke: free
@@ -639,6 +648,8 @@ points:
   - back
   - breast
   - fly
+  joint_region: shoulder-arm
+  nav_zh: 上舉平面
   summary: 描述划手時常寫「肩由屈曲轉為外展」，但在手臂上舉的情境下，屈曲與外展是同一個動作在不同平面的兩個名字，差別只在上舉所處的平面。真正需要記錄的是「上舉平面」，而不是在兩個動作名之間切換。此外，手臂經外展路徑上抬時肱骨必然外旋，這個欄位在多數技術描述中被整個漏掉。
   mechanism:
     certainty: 🔵
@@ -663,6 +674,8 @@ points:
   - back
   - breast
   - fly
+  joint_region: shoulder-arm
+  nav_zh: 前臂旋轉
   summary: 技術描述常以「手掌朝後下方」推論「前臂旋前」、以「小指先入水」推論「前臂旋後」。這個推論在解剖學上無效：手掌在空間中的朝向是肱骨軸向旋轉、前臂旋前旋後、腕關節位置三者的合成，單看手掌朝向無法判定其中任何一項。
   mechanism:
     certainty: 🔵
@@ -686,6 +699,8 @@ points:
   - breast
   - fly
   - udk
+  joint_region: ankle-foot
+  nav_zh: 踝的三維擺動
   summary: 描述打水時常寫「踝隨水流輕微內旋／外旋」。踝（距小腿）關節只有一個主要自由度，就是背屈與蹠屈，沒有內外旋這個動作。觀察到的足部擺動是真實的，但正確命名是內翻／外翻，發生位置是距下關節與橫跗關節。
   mechanism:
     certainty: 🔵
@@ -706,6 +721,8 @@ points:
   title: body roll 幾乎不來自腰椎——胸椎每側 25–35°，腰椎僅 5–7°
   also_strokes:
   - back
+  joint_region: spine-neck
+  nav_zh: 轉體的脊椎段
   summary: 「轉體從腰發動」是常見教學語，但脊椎各段的軸向旋轉能力差異極大：胸椎每側約 25–35 度，腰椎每側只有約 5–7 度。body roll 的角度絕大部分來自胸椎與髖／骨盆，腰椎的貢獻極小。
   mechanism:
     certainty: 🟢
@@ -727,6 +744,8 @@ points:
   stroke: free
   category: joint
   title: 轉頭換氣主要是上頸段事件——50–60% 的頸部旋轉集中在寰樞關節
+  joint_region: spine-neck
+  nav_zh: 轉頭的頸段
   summary: 換氣時的頸椎旋轉不是整段頸部平均分攤：約 50–60% 的頭頸軸向旋轉發生在寰樞關節複合體，其餘才分散在 C2 到 C7。把換氣教成「整段脖子轉」在解剖上不準確。
   mechanism:
     certainty: 🟢
@@ -750,6 +769,8 @@ points:
   - breast
   - fly
   - udk
+  joint_region: hip-knee
+  nav_zh: 膝蓋鎖死
   summary: 打水教學常說「膝蓋不要打直鎖死」。但教科書的 locking（screw-home rotation）指的是膝完全伸直時必然發生的正常機轉，伴隨約 10 度外旋，是被動穩定的來源之一——不是需要避免的病態。兩個系統用同一個詞指相反的事。
   mechanism:
     certainty: 🔵
@@ -838,6 +859,8 @@ points:
   stroke: back
   category: joint
   title: 仰式「上踢」在解剖學上是髖屈曲——池畔看到的方向與關節動作名稱相反
+  joint_region: hip-knee
+  nav_zh: 仰式上踢方向
   summary: 仰式打腿的主要推進拍是朝水面的「上踢」。因為身體仰躺，這一拍在解剖學上是髖屈曲，不是髖伸展——與自由式的「下踢」性質相同。大量技術文件在這裡寫錯，根因不是筆誤，是缺少區分「池畔可見方向」與「解剖學動作」的欄位。
   mechanism:
     certainty: 🔵
@@ -2671,6 +2694,8 @@ points:
   stroke: udk
   category: joint
   title: 水下海豚打腿的關節命名隨體位翻轉——仰躺時「下踢」在解剖學上是髖伸展
+  joint_region: hip-knee
+  nav_zh: 體位翻轉的命名
   summary: 水下海豚打腿的動作模式在俯臥與仰躺是同一套，但關節動作的名稱不是。出發後俯臥時，腳往池底的那一拍是髖屈曲；仰式轉身後仰躺做同一拍，解剖學上卻是髖伸展。把俯臥的命名直接套到仰躺，方向會全部相反。關鍵補充：翻轉只發生在髖與軀幹，膝與踝的命名不變。
   mechanism:
     certainty: 🔵
@@ -2699,6 +2724,8 @@ points:
   stroke: breast
   category: joint
   title: 蛙式翻腳的「腳尖朝外」是四個關節的合成，不是踝關節外翻
+  joint_region: ankle-foot
+  nav_zh: 蛙式翻腳
   summary: 蛙式翻腳期常被描述為「踝關節外翻、腳尖轉向外側」。解剖學上這句話錯兩層：外翻不發生在踝（距小腿）關節，而「腳尖朝外」也不是任何單一關節的動作，是髖外旋、膝軸向旋轉、距下與橫跗關節旋前四者的合成結果。更關鍵的是——在水中（非承重）無法用肉眼分辨這四者各出了多少。
   mechanism:
     certainty: 🔵
@@ -2730,6 +2757,8 @@ points:
   stroke: breast
   category: joint
   title: 蛙式專屬硬體邊界——深屈膝時髖伸展被股直肌壓到只剩中立位
+  joint_region: hip-knee
+  nav_zh: 蛙式屈膝與髖
   summary: 髖關節正常可伸展到中立位之後約 20 度。但當膝關節處於完全屈曲時，跨越髖與膝兩個關節的股直肌被拉緊，被動張力把髖伸展壓縮到**只能回到中立位**。蛙式收腿期正是深屈膝，這是自由式與仰式不會遇到的專屬邊界。
   mechanism:
     certainty: 🔵
@@ -2782,6 +2811,8 @@ points:
   stroke: fly
   category: joint
   title: 蝶式移臂漏標外旋的後果比自由式更嚴重——額狀面上舉比肩胛骨平面更強迫外旋
+  joint_region: shoulder-arm
+  nav_zh: 蝶式移臂外旋
   summary: 手臂上舉過頭必然伴隨肱骨外旋，否則大結節會撞上肩峰下空間。這條原理四式通用，但在蝶式後果最大：自由式靠軀幹滾轉把上舉平面帶到較貼近肩胛骨平面，蝶式沒有滾轉，上舉平面留在更接近額狀面處——而教科書明指額狀面上舉與義務性外旋的**耦合更強**。所以蝶式移臂教學漏掉外旋，比自由式漏掉更容易撞。
   mechanism:
     certainty: 🔵
@@ -2832,6 +2863,8 @@ points:
   stroke: starts-turns
   category: joint
   title: 超流線的「脊椎些微伸展」與「hollow body」互相矛盾，必須擇一
+  joint_region: spine-neck
+  nav_zh: 超流線的脊椎
   summary: 超流線姿勢常見的描述是「脊椎維持中立或些微伸展（hollow body 空心姿），避免腰椎過度前凸」。這句話自我矛盾：伸展脊椎會**加深**腰椎前凸，而 hollow body 與「避免拱腰」要的是**壓平**前凸。兩者在同一個軸上指向相反，同一句話裡不可能同時成立。
   mechanism:
     certainty: 🔵
@@ -2853,6 +2886,8 @@ points:
   stroke: starts-turns
   category: joint
   title: 超流線的「肩屈曲 170–180 度」是肩複合體角度，不是肩關節角度——查錯層級會找錯限制
+  joint_region: shoulder-arm
+  nav_zh: 肩複合體角度
   summary: 超流線常寫成「肩關節屈曲 170–180 度」。這個數字本身可達，但它是**肩複合體**的合計角度：其中盂肱關節約 120 度、肩胛胸廓約 60 度。把整個 180 度掛在「肩關節」上，會在學生做不到時往錯的地方找原因——常見的真正限制在肩胛胸廓的上迴旋，不在盂肱。
   mechanism:
     certainty: 🔵

@@ -249,6 +249,9 @@
           <button class="vx-chip is-active" type="button" data-cat="all">全部 {{ len $techs }}</button>
           {{ range $techCats }}<button class="vx-chip" type="button" data-cat="{{ . }}">{{ index $techCatName . }}</button>{{ end }}
         </div>
+        {{ if in $techCats "joint" }}
+        <p class="vx-cite"><span class="src">關節命名</span>底下標「關節命名與解剖校正」的卡，在<a href="{{ .Site.BaseURL }}vortex/joints/">骨關節動作 · 命名校正</a>有按關節部位排的完整章節（六式共 13 條，含跨式通則）。</p>
+        {{ end }}
         {{ range $techs }}
         <details class="vx-card vx-tech" data-cat="{{ .category }}">
           <summary><span class="vx-cardcat">{{ index $techCatName .category }}</span>{{ with .also_strokes }}<span class="vx-cardcat vx-crossstroke">跨式通則</span>{{ end }}<span class="vx-cardtitle">{{ .title }}</span></summary>
