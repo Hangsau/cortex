@@ -12,7 +12,11 @@
 
 {{/* ── 過濾本式的誤區 / 深入 / 水感進程 ── */}}
 {{ $errs := where (index hugo.Data "vortex" "teaching-errors").errors "stroke" $key }}
-{{ $techs := where (index hugo.Data "vortex" "technical-analysis").points "stroke" $key }}
+{{/* 深入機制：本式的卡 + 別式掛 also_strokes 指到本式的卡（一份內容、一個 id，多式共用） */}}
+{{ $techs := slice }}
+{{ range (index hugo.Data "vortex" "technical-analysis").points }}
+  {{ if or (eq .stroke $key) (in (default (slice) .also_strokes) $key) }}{{ $techs = $techs | append . }}{{ end }}
+{{ end }}
 {{ $levels := where (index hugo.Data "vortex" "water-sense-levels").levels "stroke" $key }}
 
 {{/* ── 分類中文名對照 ── */}}
@@ -247,7 +251,7 @@
         </div>
         {{ range $techs }}
         <details class="vx-card vx-tech" data-cat="{{ .category }}">
-          <summary><span class="vx-cardcat">{{ index $techCatName .category }}</span><span class="vx-cardtitle">{{ .title }}</span></summary>
+          <summary><span class="vx-cardcat">{{ index $techCatName .category }}</span>{{ with .also_strokes }}<span class="vx-cardcat vx-crossstroke">跨式通則</span>{{ end }}<span class="vx-cardtitle">{{ .title }}</span></summary>
           <div class="vx-card-body">
             {{ with .summary }}<p>{{ . }}</p>{{ end }}
             {{ with .mechanism }}<span class="vx-label">機制 {{ .certainty }}</span><p>{{ .text }}</p>{{ end }}

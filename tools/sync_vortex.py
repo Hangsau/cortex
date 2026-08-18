@@ -384,6 +384,8 @@ def sync_technical_analysis(dry_run: bool):
             "category": p.get("category"),
             "title":    p.get("title"),
         }
+        if p.get("also_strokes"):
+            rec["also_strokes"] = p["also_strokes"]
         rec.update(pub)          # 只帶 public 欄位，diagnostic 整塊不取
         points_out.append(rec)
 
