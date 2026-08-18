@@ -241,13 +241,13 @@ injuries:
     trigger_phase: 需極端外展外旋角度的入水與過頭恢復相
     who: 女性、雙側症狀者、結締組織鬆弛者、年輕游泳者
   epidemiology:
-    prevalence: MDI 佔所有肩不穩定 <10%；女性佔 MDI 患者約 35.7%(整體肩不穩定男性為 2.7 倍但 MDI 性別趨近)；喙肱距每增 1 mm 風險上升約 20%；游泳者 MDI 盛行率高於其他運動但無精確數字
+    prevalence: MDI 佔所有肩不穩定 <10%；游泳者 MDI 盛行率被認為高於其他運動，但**無精確數字**。 對照 Trikha 等 2022（NCAA D1 泳者）：肩部佔肌肉骨骼傷害 **23.3%（126/540）**， 為第一大部位——但該研究**未區分 MDI 與其他肩病理**，不能當 MDI 盛行率。
     certainty: 🟠
     evidence_grade: C
-    caveat: TOS/旋轉肌袖損傷易混淆；游泳者 MDI 特定盛行率僅為摘要層級無前瞻數據；診斷標準不完全統一
+    caveat: 2026-08-18 更正（來源撐不起數字）：原欄寫「女性佔 MDI 患者約 35.7%」「喙肱距每增 1 mm 風險上升約 20%」， 掛在 Bishop 等 2022（Ann Joint 7:10）之下——**該文是敘事型回顧、以女性運動員視角撰寫、未做統合統計， 摘要中沒有這兩個數字**，已移出流行率欄。要保留須另找原始研究。 另：TOS／旋轉肌袖損傷易混淆；游泳者 MDI 特定盛行率僅為摘要層級無前瞻數據；診斷標準不完全統一。
     sources:
     - Multidirectional instability of the shoulder, StatPearls NBK557726 (已驗證)
-    - MDI management review, Annals of Joint (已驗證)
+    - Bishop ME, et al. (2022). Multidirectional instability of the shoulder（敘事型回顧）. Ann Joint 7:10. PMID 38529164
     source_ids:
     - src.multidirectional-instability-of-the-shoulder
     - src.mdi-management-review-annals-of-joint
@@ -309,7 +309,7 @@ injuries:
   - citation: Multidirectional instability of the shoulder, StatPearls NBK557726
     certainty: 🟢
     verified: true
-  - citation: MDI management and surgical outcomes review, Annals of Joint
+  - citation: Bishop ME, Ode GE, Hurwit DJ, et al. (2022). Multidirectional instability of the shoulder（敘事型回顧，女性運動員視角，無統合統計）. Ann Joint 7:10. PMID 38529164, doi:10.21037/aoj-20-33
     certainty: 🟢
     verified: true
   - citation: Arthroscopic vs open MDI repair outcomes, PMC5611704
@@ -452,7 +452,7 @@ injuries:
     - Belilos E, Jow S, Maxwell M (2023). Descriptive Epidemiology of High School Swimming and Diving Injuries. Clin J Sport Med 33(4):428-434
     - Wolf BR, Ebinger AE, Lawler MP, Britton CL (2009). Injury patterns in Division I collegiate swimming. Am J Sports Med 37(10):2037-42
     source_ids:
-    - src.belilos-2023-hs-swimming-injury-epi
+    - src.pmc10372189
     - src.wolf-2009-ncaa-swimming-injury-patterns
   risk_factors:
   - text: 蝶/蛙拉水技術不正(手肘下垂、過中線)
@@ -1276,16 +1276,14 @@ injuries:
     trigger_phase: 蛙鞋訓練、腳踢板、蛙泳踢腿
     who: 過用蛙鞋者、快速增量者、翻滾轉身技術不良者
   epidemiology:
-    prevalence: 踝部佔游泳整體傷害約 1%；蛙鞋使用者個案報告外側踝骨髓水腫(11 歲女精英)、趾伸支持帶水腫(14 歲女精英)；系統性流行率游泳特定幾乎缺失
+    prevalence: 游泳踝足的專項發生率**目前沒有可引用的來源**。 可對照的是 Trikha 等 2022（NCAA D1 泳者 641 人、1030 件健康事件）： 足／踝／小腿佔肌肉骨骼傷害 **15.0%（81/540）**，排名第三。 蛙鞋相關僅有個案報告（外側踝骨髓水腫、趾伸支持帶水腫，皆為青少年女性精英個案）。
     certainty: 🔵
     evidence_grade: C
-    caveat: 幾乎全靠個案報告與推斷，無控制研究；公開呈現須明標證據等級低；蛙鞋安全劑量無 RCT
+    caveat: 2026-08-18 更正（來源解除）：原引「踝部佔游泳整體傷害約 1%」出自 radiologykey.com， 該站是教科書章節的未授權轉載、無作者／年份／書名，**不可引用，已解除**； 該 1% 數字因此成為孤兒數字，且與 Trikha 2022 的 15.0% 相差一個量級（分組定義不同， 不構成嚴格反證，但足以說明不可再引用）。 另：Vasiliadis 等 2018 的游泳應力性骨折回顧**主題是肋骨，不是踝足**， 不能拿來支撐本條目的踝足流行率。 幾乎全靠個案報告與推斷，無控制研究；公開呈現須明標證據等級低；蛙鞋安全劑量無 RCT。
     sources:
-    - Swimming injury imaging review (踝部約 1%), radiologykey (已驗證)
-    - Stress fractures in swimmers systematic review, journals.aiac.org.au (已驗證)
+    - Trikha R, et al. (2022). Characterizing Health Events and Return to Sport in Collegiate Swimmers. Orthop J Sports Med 10(4):23259671221083588. PMID 35400141
     source_ids:
-    - src.swimming-injury-imaging-review-1-radiologyke
-    - src.stress-fractures-in-swimmers-systematic-revi
+    - src.trikha-2022-collegiate-swimmer-health-events
   risk_factors:
   - text: 蛙鞋過用/尺寸不合
     grade: Expert
@@ -1342,11 +1340,11 @@ injuries:
     technical_link: null
     perception_link: null
   references:
-  - citation: Imaging of swimming injuries (ankle ~1%), radiologykey
-    certainty: 🟠
-    verified: true
-  - citation: Stress fractures in swimmers (systematic review), journals.aiac.org.au
+  - citation: Trikha R, Schroeder GG, Greig DE, Kremen TJ Jr (2022). Characterizing Health Events and Return to Sport in Collegiate Swimmers. Orthop J Sports Med 10(4):23259671221083588. PMID 35400141
     certainty: 🟢
+    verified: true
+  - citation: 'Vasiliadis AV, et al. (2018). Stress fractures in swimmers: systematic review. Int J Kinesiol Sports Sci 6(3):25-31（主題為肋骨，非踝足；僅作對照）'
+    certainty: 🟡
     verified: true
   flags:
     contested:
@@ -2022,13 +2020,13 @@ injuries:
     trigger_phase: 游泳(尤頻繁潛水/開放水域)、高溫潮濕、自行掏耳後
     who: 5–14 歲兒童(發生率最高)、頻繁游泳者、糖尿病/免疫低下者(重症化)、濕疹/乾癬者
   epidemiology:
-    prevalence: 終身盛行率約 10%；美國 2003–2007 年外耳道炎年門診約 240 萬次(每千人 8.1)，5–9 歲最高(每千人 18.6)，逾半數就診者為 20 歲以上成人；游泳者罹患急性外耳道炎風險為非游泳者約 5 倍
+    prevalence: 終身盛行率約 10%；美國 **2007 年單一年度**急性外耳道炎門診約 240 萬次（每千人 8.1）， 5–9 歲最高（每千人 18.6），逾半數就診者為 20 歲以上成人。
     certainty: 🟡
     evidence_grade: B
-    caveat: 美國 CDC 資料為 2003–2007，缺最新全球系統回顧；開放水域 vs 室內泳池分層數據不足
+    caveat: 2026-08-18 更正（期間標錯）：原寫「2003–2007 年年門診約 240 萬次」， 像是五年平均；CDC MMWR 60(19) 的 240 萬／8.1 per 1000 是 **2007 年單一年度**數值，已更正。 **使用邊界**：該分母是**全美總人口**、不是游泳人口， 因此「游泳者風險為非游泳者約 5 倍」**不可能出自此來源**——該倍數目前為 StatPearls 轉述、原始研究待查，已移出本欄。 另：缺最新全球系統回顧；開放水域 vs 室內泳池分層數據不足。
     sources:
     - StatPearls Otitis Externa, PMID 32310515 (已驗證)
-    - CDC MMWR 急性外耳道炎門診資料 2003–2007 (已驗證)
+    - CDC (2011). Estimated Burden of Acute Otitis Externa — United States, 2003-2007. MMWR 60(19):605-9. PMID 21597452
     source_ids:
     - src.pmid-32310515
     - src.cdc-mmwr-2003-2007
@@ -2089,7 +2087,7 @@ injuries:
   - citation: Otitis Externa, StatPearls (Medina-Blasini & Sharman), PMID 32310515
     certainty: 🟢
     verified: true
-  - citation: CDC MMWR Estimated Burden of Acute Otitis Externa United States 2003–2007
+  - citation: CDC (2011). Estimated Burden of Acute Otitis Externa — United States, 2003-2007. MMWR Morb Mortal Wkly Rep 60(19):605-9. PMID 21597452
     certainty: 🟢
     verified: true
   flags:
@@ -2547,10 +2545,10 @@ injuries:
     trigger_phase: 任何涉水情境失去有效呼吸；幼兒於浴缸/充氣泳池、成人於開放水域離岸/水流低估、酒精影響下尤甚
     who: 1–4 歲幼童最高危；男性各年齡死亡率均約女性 2 倍；無泳技或過度自信者；酒精/藥物影響者；獨游者
   epidemiology:
-    prevalence: WHO 2024：2021 全球溺水死亡約 274,200 人(另估 ~30 萬，方法不同)；近半發生於 29 歲以下，五歲以下約佔四分之一
+    prevalence: '**WHO 自己報的數字是每年約 30 萬人**（2021 年約 300,000 起溺水死亡）； 2000 年以來全球溺水死亡率下降約 38%。**274,200 是 GBD／IHME 系列的估計**， 方法與 WHO 不同，兩者不可混用。近半發生於 29 歲以下，五歲以下約佔四分之一。'
     certainty: 🟢
     evidence_grade: A
-    caveat: 死亡常被泛歸「溺水」，特定機制(SWB/冷水休克/心因)難事後分辨；開放水域溺水人數多於泳池(紐西蘭 2020 達 87%)
+    caveat: 2026-08-18 更正（歸屬顛倒）：本欄原寫「WHO 2024：約 274,200 人（另估 ~30 萬）」—— 方向反了，30 萬才是 WHO 的數字，274,200 屬 GBD／IHME。已對調。 另：死亡常被泛歸「溺水」，特定機制(SWB/冷水休克/心因)難事後分辨； 開放水域溺水人數多於泳池(紐西蘭 2020 達 87%)。
     sources:
     - WHO 2024-12-13 新聞稿『Drowning deaths decline globally』(已驗證 URL)
     - Scientific Reports 2025 全球溺水負擔 204 國研究, PMC11954903 (已驗證)
@@ -2670,10 +2668,10 @@ injuries:
     prevalence: 競技運動員(≤35 歲)SCA/SCD 男性約 1.46、女性約 0.30 /10 萬運動員年；≤35 歲青年運動員猝死中 HCM 約佔 36%
     certainty: 🟢
     evidence_grade: B
-    caveat: 游泳池獨立 SCD 數字無可靠單一來源，多依運動員整體數據推算；鐵人三項游泳段每 10 萬數字研究間差異大
+    caveat: 游泳池獨立 SCD 數字無可靠單一來源，多依運動員整體數據推算；鐵人三項游泳段每 10 萬數字研究間差異大。 **使用邊界（2026-08-18 補）**：「3.6→0.4／10 萬、降 89%」出自 Corrado 等 2006（JAMA 296(13):1593-601）， 其資料範圍是**義大利 Veneto 單一大區、1979–2004 年、全體競技運動員**， **不是游泳專項**；且 ECG 全面篩查的成本效益在 ACC／AHA 立場中仍有異議， 引用此數字時須同時呈現該爭議（見 flags.contested）。
     sources:
     - Sex Differences in SCA/SCD in Competitive Athletes 系統綜述+meta, PMC11985649 (已驗證)
-    - 義大利 ECG 篩查自然實驗(SCD 3.6→0.4 /10 萬，降 89%) (已驗證 URL)
+    - Corrado D, Basso C, Pavei A, et al. (2006). Trends in sudden cardiovascular death in young competitive athletes after implementation of a preparticipation screening program. JAMA 296(13):1593-601. PMID 17018804, doi:10.1001/jama.296.13.1593
     - Commotio Cordis in 2023, PMC10356869 (已驗證)
     source_ids:
     - src.pmc11985649
@@ -2755,6 +2753,9 @@ injuries:
     certainty: 🟢
     verified: true
   - citation: Meta-analysis on ECG Screening for SCD in Young Athletes, PMC10478328
+    certainty: 🟢
+    verified: true
+  - citation: Corrado D, Basso C, Pavei A, Michieli P, Schiavon M, Thiene G (2006). Trends in sudden cardiovascular death in young competitive athletes after implementation of a preparticipation screening program. JAMA 296(13):1593-601. PMID 17018804（義大利 Veneto 單區、全體競技運動員、非游泳專項）
     certainty: 🟢
     verified: true
   - citation: Lundström et al. diving reflex arrhythmia 2025, PMC12234767
@@ -3196,12 +3197,12 @@ injuries:
     trigger_phase: 能量赤字長期累積、菁英訓練量、青春期不穩定期
     who: 偏瘦/耐力型女性、菁英訓練量者、青春期中後期者
   epidemiology:
-    prevalence: 女性運動員約 40% 至少有一項三聯症成分；游泳族群約 41% 有三聯症風險(系統性回顧 n=478，17 研究)；完整三聯症(三項全具備)盛行率約 1–4%
+    prevalence: 游泳專項系統性回顧（Buchanan 等 2025, J Womens Sports Med）： **低能量可及性約 51%、低骨密度約 12%**；月經失調比例各研究差距極大。 納入研究數與泳者總人數在文中有兩種讀法（17 篇納入／478 人來自其中報出人數的 11 篇）， **本條目不採用單一「n=478，17 研究」的寫法**。 女性運動員整體「至少有一項三聯症成分」約 40%、完整三聯症約 1–4% 屬跨運動舊估計，非游泳專項。
     certainty: 🟡
     evidence_grade: B
-    caveat: 各研究診斷標準不一；游泳族群月經失調可能含高雄激素型(見 exercise-amenorrhea)，與低雌激素型骨骼影響不同
+    caveat: 2026-08-18 更正：原寫「游泳族群約 41% 有三聯症風險(系統性回顧 n=478，17 研究)」—— 41% 無法在該回顧摘要中對上，樣本描述亦有歧義，已改寫為可對上的 51%／12% 兩項。 另：各研究診斷標準不一；游泳族群月經失調可能含高雄激素型(見 exercise-amenorrhea)， 與低雌激素型骨骼影響不同。
     sources:
-    - Female athlete triad in swimmers systematic review, JWSM (已驗證，無 PMID 記載)
+    - 'Buchanan BK, et al. (2025). Female athlete triad in swimmers: a systematic review. J Womens Sports Med 5(1):30-38. doi:10.53646/ahq2qs39'
     - RED-S Clinical Assessment Tool framework (IOC)
     source_ids:
     - src.female-athlete-triad-in-swimmers-systematic
@@ -3299,12 +3300,10 @@ injuries:
     prevalence: 女性運動員 11–41% 鐵缺乏（範圍取決於切點與族群）；女子泳者報告 ferritin < 20 ng/mL 比例可達 50%（即使口服鐵補充劑加倍從 20 mg → 40 mg/日，盛行率仍未顯著下降，顯示吸收效率才是瓶頸）
     certainty: 🟡
     evidence_grade: B
-    caveat: 「鐵儲備不足」vs「臨床貧血」切點差異大；運動性偽貧血（高血漿量稀釋）會讓 Hb 看似低但其實有益於耐力，要與真鐵缺乏區分
+    caveat: 2026-08-18 更正（查無此文獻）：本欄原掛 `src.ioc-iron-in-sport-doi-webfetch`， 引用「IOC 共識聲明 — Iron in sport」——**IOC 從未發表過以鐵為主題的共識聲明**， 該 source_id 已解除。移除它不影響任何內容，只是拿掉了「有 IOC 背書」的假象。 連帶：**11–41%、50%、20→40 mg 三個數字目前只剩 Sim 2019 這份敘事綜述可掛， 而該文是轉述層級、非原始研究**，三者皆須視為待查，不進 public 數字。 另：「鐵儲備不足」vs「臨床貧血」切點差異大；運動性偽貧血（高血漿量稀釋） 會讓 Hb 看似低但其實有益於耐力，要與真鐵缺乏區分。
     sources:
-    - IOC 共識聲明 — Iron in sport（具體 DOI 待 WebFetch 核實）
     - 'Sim M, Garvican-Lewis LA, Cox GR, et al. (2019). Iron considerations for the athlete: a narrative review. Eur J Appl Physiol 119(7):1463–1478. PMID 31055680（**敘事綜述，非原始研究亦非系統回顧**；hepcidin 只是其中一節，引用時屬綜述轉述層級）'
     source_ids:
-    - src.ioc-iron-in-sport-doi-webfetch
     - src.sim-2019
   risk_factors:
   - text: 女性（月經損失約每月 30 mg）
@@ -3440,13 +3439,11 @@ injuries:
     prevalence: 女性運動員 LEA/三聯症盛行率報導範圍極廣；游泳專項數字待 WebFetch 核實。青少年女子泳者 disordered eating 盛行率 25–31%、月經失調 3–65%（範圍極廣反映定義差異），是同年齡男性與非運動族群的數倍
     certainty: 🟡
     evidence_grade: B
-    caveat: 定義與篩檢工具(LEAF-Q/RED-S CAT2)差異大→盛行率不可橫向比較；男性 RED-S 長期被低估
+    caveat: 2026-08-18 更正（重複登錄）：本欄原掛兩個 source_id，實為同一份 IOC 共識， 已刪去 `src.mountjoy-ioc-consensus-webfetch`，只保留一個——原寫法會讓一份文獻看起來像兩份獨立支撐。 另：引用 IOC 共識必須標版本（2014／2018／2023 三版結論不同），本條目數字尚未逐版對回。 定義與篩檢工具(LEAF-Q／REDs CAT2)差異大→盛行率不可橫向比較；男性 RED-S 長期被低估。
     sources:
-    - IOC RED-S 共識聲明（2014 首版，2018/2023 更新；具體 DOI 待查）
-    - Mountjoy 等 IOC consensus（作者/年份/期刊待 WebFetch 核實）
+    - Mountjoy M, et al. (2023). 2023 IOC consensus statement on REDs. Br J Sports Med 57(17):1073-1097. doi:10.1136/bjsports-2023-106994
     source_ids:
     - src.ioc-red-s-2014-2018-2023-doi
-    - src.mountjoy-ioc-consensus-webfetch
   risk_factors:
   - text: 能量攝取不足以匹配訓練量（有意或無意）
     grade: B
@@ -3539,12 +3536,12 @@ injuries:
     prevalence: 2017 年前僅約 10 篇游泳員應力骨折研究，肋骨最常見(其他:第一肋、恥骨枝、股骨頸、蹠骨)；RED-S 相關:月經失調女性骨折風險 +4.5 倍、兩項以上三聯症成分 +4.7 倍、單項 LEA +1.1 倍
     certainty: 🟠
     evidence_grade: B
-    caveat: 游泳員應力骨折研究量不足以定盛行率；肋骨骨折常誤診為肌肉拉傷延誤 4–6 週；某些倍率數字為二手綜述
+    caveat: 2026-08-18 更正（重複登錄）：原掛的 `src.aiac-ijkss-v-6n-1p-25` 與 `src.stress-fractures-in-swimmers-systematic-revi` 是同一篇 Vasiliadis 2018，已統一到後者。 **使用邊界**：該回顧僅納入 10 篇、多為個案報告、**無合併統計亦無分母**， 可支撐「泳者應力性骨折罕見且以肋骨為主」，**不能導出發生率**；檢索截止 2017 年 1 月（🟡）。 另：肋骨骨折常誤診為肌肉拉傷延誤 4–6 週；某些倍率數字為二手綜述。
     sources:
-    - Stress fractures in swimmers systematic review, IJKSS DOI 10.7575/aiac.ijkss.v.6n.1p.25 (已驗證)
+    - Vasiliadis AV, Lampridis V, Georgiannos D, Bisbinas I. (2018). Swimmers Are At Risk For Stress Fractures? A Systematic Review. Int J Kinesiol Sports Sci 6(3):25-31. doi:10.7575/aiac.ijkss.v.6n.1p.25
     - RED-S and bone stress injury risk, PMID 36479178 / PMC9724109 (已驗證)
     source_ids:
-    - src.aiac-ijkss-v-6n-1p-25
+    - src.stress-fractures-in-swimmers-systematic-revi
     - src.pmc9724109
   risk_factors:
   - text: RED-S/低 BMD
@@ -3739,11 +3736,11 @@ injuries:
     prevalence: 美國每年約 800 起跳水致脊髓損傷(約 90% 永久癱)；90% 發生於水深 <6 英尺(1.83m)、57% <4 英尺(1.22m)；受傷節段 C5 最常見(60.9%)；入院 55% 為完全性四肢癱(AIS A)
     certainty: 🟢
     evidence_grade: B
-    caveat: 「每年 800 起」為多個美國傷害登記的廣泛引用估計(非單一 peer-reviewed 計數)；跳水佔所有脊髓損傷 1.2–22%(族群/登記系統差異大)
+    caveat: 「每年 800 起」為多個美國傷害登記的廣泛引用估計(非單一 peer-reviewed 計數)； 跳水佔所有脊髓損傷 1.2–22%(族群/登記系統差異大)。 **使用邊界（2026-08-18 補）**：Barss 等 2008 的魁北克 44 年研究**回收率僅 44%**， 存在選擇偏誤；其樣本以**私人／住家泳池的休閒式跳水**為主， **不是競賽出發台跳水**——本條目談出發台時不得直接套用其數字。資料涵蓋至 2004 年（🟡）。
     sources:
     - Cervical spine injuries 34 patients(C5 節段數據), PMC2899837 (已驗證)
     - Spinal injuries Aegean Coast(24h 內減壓與恢復), PMC8192199 (已驗證)
-    - Quebec 44-year diving SCI study, ScienceDirect (已驗證)
+    - Barss P, et al. (2008). Risk factors and prevention for spinal cord injury from diving, Quebec 1963-2004. Accid Anal Prev 40(2):787-97. PMID 18329434
     source_ids:
     - src.pmc2899837
     - src.pmc8192199
@@ -4192,13 +4189,13 @@ injuries:
     trigger_phase: 出發起跳相(block phase)、轉身前減速相、密集起跑前數秒
     who: 初學出發動作的青少年競技泳者、技術訓練不足者、泳道秩序混亂(公開水域起跑)
   epidemiology:
-    prevalence: 高中游泳與跳水：563 件傷害 / 2,171,260 次暴露(0.26/1000 AE)；跳水項目頭/臉傷 36.6%、接觸池面/地面傷 68.3%、腦震盪為最常見傷型(31.7%)。游泳/跳水是高中 20 項運動傷害率最低者之一
+    prevalence: 高中游泳與跳水（RIO 監測 2008–2019 學年）：563 件傷害 ／ 2,171,260 次暴露（0.26／1000 AE）； **跳水者頭／臉傷佔 36.6%、接觸池面／地面所致佔 68.3%**。 游泳／跳水是高中運動中傷害率最低者之一。
     certainty: 🟢
     evidence_grade: B
-    caveat: 競賽出發台直接致脊髓損傷的獨立流病數據缺乏(多併入一般跳水傷統計)；『70% 泳池傷害為頭頸部』為二手引用、原始數據源待查
+    caveat: 2026-08-18 更正（兩處）：① 原寫「腦震盪為最常見傷型(31.7%)」—— Belilos 等 2023 摘要**未報出腦震盪佔比**，此數字無來源，已移出； ② 原將 Helmich 等 2024 的 Para 個案寫成「視障選手」—— 該個案實為**肢體缺損（limb deficiency）**組別泳者，且是 **n=1 個案報告**， 不能作為族群風險陳述。 另：競賽出發台直接致脊髓損傷的獨立流病數據缺乏(多併入一般跳水傷統計)； 『70% 泳池傷害為頭頸部』為二手引用、原始數據源待查。
     sources:
-    - Descriptive Epidemiology of High School Swimming and Diving Injuries, PMC10372189 (已驗證)
-    - Neurobehavioral consequences of repetitive head impacts in Para swimming, ScienceDirect 2023/2024 (已驗證)
+    - Belilos E, Jow S, Maxwell M (2023). Descriptive Epidemiology of High School Swimming and Diving Injuries. Clin J Sport Med 33(4):428-434. PMID 36715985
+    - Helmich I, et al. (2024). Neurobehavioural consequences of repetitive head impacts in Para swimming（n=1 個案報告）. J Sci Med Sport 27(1):16-19. PMID 37923648
     source_ids:
     - src.pmc10372189
     - src.neurobehavioral-consequences-of-repetitive-h
@@ -4245,7 +4242,7 @@ injuries:
       masters: null
     sex: null
     ability:
-      para: 視障 Para 選手腦震盪累積風險，需特別監測
+      para: Para 選手反覆頭部撞擊的神經行為後遺——文獻僅有 n=1 個案（肢體缺損組泳者，Helmich 2024），不足以推論族群風險；視障組別的觸牆撞擊風險屬機制推導(🔵)，無流病數據
     lifecycle:
       open_water: 公開水域起跑碰撞為獨特場景
   links:
@@ -4254,20 +4251,20 @@ injuries:
     technical_link_ids: []
     perception_link: null
   references:
-  - citation: Descriptive Epidemiology of High School Swimming and Diving Injuries, PMC10372189
+  - citation: Belilos E, Jow S, Maxwell M (2023). Descriptive Epidemiology of High School Swimming and Diving Injuries. Clin J Sport Med 33(4):428-434. PMID 36715985
     certainty: 🟢
     verified: true
   - citation: Epidemiology NCAA Swimming and Diving, PubMed 34280272
     certainty: 🟢
     verified: true
-  - citation: Neurobehavioral consequences of repetitive head impacts in Para swimming, ScienceDirect 2023/2024
+  - citation: Helmich I, et al. (2024). Neurobehavioural consequences of repetitive head impacts in Para swimming（n=1 個案報告，肢體缺損組）. J Sci Med Sport 27(1):16-19. PMID 37923648
     certainty: 🟡
     verified: true
   flags:
     contested:
     - claim: 腦震盪在游泳的發生率估計
-      consensus_source: 高中數據腦震盪為最常見游泳/跳水傷型
-      dissent_source: 『>50% 泳池傷害為頭部』來源不明，二手引用不應視為流病數據
+      consensus_source: 跳水者頭／臉為最常受傷部位(36.6%)有監測數據支持
+      dissent_source: 『腦震盪為最常見傷型』與『>50% 泳池傷害為頭部』皆無可追溯來源，不應視為流病數據
     vintage_warning: false
 - id: osgood-schlatter
   zh: Osgood-Schlatter 病
