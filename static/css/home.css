@@ -1,150 +1,628 @@
-/* home.css — 首頁四領域目次頁 */
+/* home.css — Cortex 首頁：任務入口 + 四領域工作索引 */
 
-body:has(.home-page) { background: #FAF8F3; }
+body:has(.home-page) {
+  --home-forest: #173C35;
+  --home-paper: #F4F0E7;
+  --home-ink: #17211D;
+  --home-muted: #514C45;
+  --home-rust: #9B3F26;
+  --home-rule: #C9C0B1;
+  --home-on-dark: #F4F0E7;
+  --home-on-dark-muted: #D2CBBF;
+  --home-focus-dark: #F0B49D;
+  --home-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --home-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  --home-latin: "Cormorant Garamond", Georgia, serif;
+  --home-text-sm: 0.875rem;
+  --home-text-body: 1.0625rem;
+  --home-text-heading: 1.375rem;
+  --home-text-display: 1.625rem;
+  background: var(--home-paper);
+  color: var(--home-ink);
+  font-family: var(--home-sans);
+}
+
+body:has(.home-page) .main-content {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+body:has(.home-page) .site-nav {
+  background: var(--home-forest);
+  border-bottom-color: rgba(244, 240, 231, 0.24);
+}
+
+body:has(.home-page) .site-nav-logo {
+  color: var(--home-on-dark);
+  font-family: var(--home-latin);
+  font-size: var(--home-text-body);
+  letter-spacing: 0.04em;
+}
+
+body:has(.home-page) .site-nav-logo:hover {
+  color: var(--home-focus-dark);
+  text-decoration: none;
+}
+
+body:has(.home-page) .site-nav-logo:focus-visible {
+  outline: 3px solid var(--home-focus-dark);
+  outline-offset: 4px;
+}
+
+body:has(.home-page) .site-footer {
+  background: var(--home-paper);
+  border-top-color: var(--home-rule);
+  color: var(--home-muted);
+}
 
 .home-page {
-  --paper: #FAF8F3;
-  --ink: #1F1D1A;
-  --ink-2: #5B564E;
-  --rule: #D9D2C5;
-  color: var(--ink);
-  padding: var(--space-12) 0 var(--space-16);
+  min-width: 0;
+  background: var(--home-paper);
+  color: var(--home-ink);
 }
 
-.home-masthead {
-  border-bottom: 3px solid var(--ink);
-  padding-bottom: var(--space-4);
-  margin-bottom: var(--space-12);
+/* Hero：深綠布面工作台，左邊交代用途，右邊直接開始工作。 */
+.home-hero {
+  background: var(--home-forest);
+  color: var(--home-on-dark);
 }
 
-.home-masthead h1 {
-  font-size: 1.75rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  margin: 0 0 var(--space-2);
-}
-
-.home-masthead p {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: var(--ink-2);
-  max-width: 34em;
-  margin: 0;
-}
-
-.home-domain {
+.home-hero-inner {
   display: grid;
-  grid-template-columns: 4rem 1fr;
-  gap: 0 var(--space-6);
-  padding-bottom: var(--space-12);
-  margin-bottom: var(--space-12);
-  border-bottom: 1px solid var(--rule);
+  grid-template-columns: minmax(0, 7fr) minmax(19rem, 5fr);
+  align-items: center;
+  gap: clamp(3rem, 7vw, 6rem);
+  width: min(100%, 1120px);
+  min-height: min(44rem, calc(100svh - var(--nav-height)));
+  margin: 0 auto;
+  padding: clamp(3.5rem, 8vw, 6rem) var(--space-6);
 }
 
-.home-domain:last-of-type {
-  border-bottom: none;
-  margin-bottom: var(--space-8);
-}
-
-.home-domain-no {
-  font-family: var(--font-mono);
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1;
-  color: var(--domain-color);
-  margin-top: -0.1em;
-}
-
-.home-domain-name {
-  font-size: 1.375rem;
+.home-kicker,
+.home-quick-kicker,
+.home-index-kicker {
+  font-size: var(--home-text-sm);
   font-weight: 700;
   line-height: 1.5;
-  margin: 0 0 var(--space-3);
+  letter-spacing: 0.14em;
 }
 
-.home-domain-lede {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: var(--ink-2);
-  max-width: 34em;
-  margin: 0 0 var(--space-3);
-}
-
-/* 規格行刻意不用 mono：JetBrains Mono 沒有 CJK 字形，中英交替會逐段掉字型，
-   加上 letter-spacing 又違反 CJK 排版鐵則。改用等寬數字撐住對齊感。 */
-.home-domain-spec {
-  font-size: 0.875rem;
-  line-height: 1.7;
-  font-variant-numeric: tabular-nums;
-  color: var(--domain-color);
+.home-kicker {
+  color: var(--home-focus-dark);
   margin: 0 0 var(--space-6);
 }
 
-.home-entries {
+.home-hero-copy h1 {
+  max-width: 15em;
+  margin: 0 0 var(--space-6);
+  font-family: var(--home-serif);
+  font-size: var(--home-text-display);
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.home-hero-lede {
+  max-width: 32em;
+  margin: 0;
+  color: var(--home-on-dark-muted);
+  font-size: var(--home-text-body);
+  line-height: 1.75;
+}
+
+.home-quick-nav {
+  min-width: 0;
+}
+
+.home-quick-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.home-quick-kicker {
+  flex: 0 0 auto;
+  color: var(--home-focus-dark);
+  margin: 0;
+}
+
+.home-quick-heading h2 {
+  color: var(--home-on-dark);
+  font-family: var(--home-serif);
+  font-size: var(--home-text-heading);
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.home-quick-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid rgba(244, 240, 231, 0.32);
+}
+
+.home-quick-list li {
+  margin: 0;
+}
+
+.home-quick {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 0 var(--space-6);
-  border-top: 1px solid var(--rule);
-}
-
-.home-entry {
-  display: block;
+  grid-template-columns: 2.25rem minmax(0, 1fr) 1.5rem;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 64px;
   padding: var(--space-3) 0;
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid rgba(244, 240, 231, 0.32);
+  color: var(--home-on-dark);
   text-decoration: none;
-  color: var(--ink);
-  min-height: 44px;
 }
 
-.home-entry-name {
+.home-quick:hover {
+  color: var(--home-on-dark);
+  text-decoration: none;
+}
+
+.home-quick:focus-visible {
+  outline: 3px solid var(--home-focus-dark);
+  outline-offset: 4px;
+}
+
+.home-quick-no {
+  align-self: start;
+  padding-top: 0.15rem;
+  color: var(--home-focus-dark);
+  font-family: var(--font-mono);
+  font-size: var(--home-text-sm);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5;
+}
+
+.home-quick-copy {
   display: block;
-  font-size: 1rem;
+  min-width: 0;
+}
+
+.home-quick-name,
+.home-quick-note {
+  display: block;
+}
+
+.home-quick-name {
+  font-size: var(--home-text-body);
   font-weight: 600;
   line-height: 1.6;
+}
+
+.home-quick-note {
+  color: var(--home-on-dark-muted);
+  font-size: var(--home-text-sm);
+  line-height: 1.7;
+}
+
+.home-link-arrow {
+  justify-self: end;
+  font-family: var(--font-mono);
+  font-size: var(--home-text-body);
+  line-height: 1;
+}
+
+.home-quick:hover .home-quick-name,
+.home-quick:hover .home-link-arrow {
+  color: var(--home-focus-dark);
+}
+
+/* 第二層：四個領域維持全站地圖職責，但不再搶首屏焦點。 */
+.home-index {
+  background: var(--home-paper);
+}
+
+.home-index-inner {
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  padding: clamp(4rem, 8vw, 6rem) var(--space-6) var(--space-16);
+}
+
+.home-index-heading {
+  display: grid;
+  grid-template-columns: minmax(15rem, 4fr) minmax(0, 7fr);
+  align-items: end;
+  gap: var(--space-12);
+  padding-top: var(--space-6);
+  margin-bottom: var(--space-12);
+  border-top: 4px solid var(--home-ink);
+}
+
+.home-index-kicker {
+  color: var(--home-rust);
+  margin: 0 0 var(--space-2);
+}
+
+.home-index-heading h2 {
+  margin: 0;
+  font-family: var(--home-serif);
+  font-size: var(--home-text-heading);
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.home-index-heading > p {
+  max-width: 34em;
+  margin: 0;
+  color: var(--home-muted);
+  font-size: var(--home-text-body);
+  line-height: 1.8;
+}
+
+.home-domain-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--home-rule);
+  border-left: 1px solid var(--home-rule);
+}
+
+.home-domain {
+  position: relative;
+  min-width: 0;
+  padding: var(--space-8);
+  border-right: 1px solid var(--home-rule);
+  border-bottom: 1px solid var(--home-rule);
+}
+
+.home-domain::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: var(--space-8);
+  left: var(--space-8);
+  height: 4px;
+  background: var(--domain-color);
+}
+
+.home-domain-heading {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  align-items: start;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.home-domain-no {
+  color: var(--domain-color);
+  font-family: var(--font-mono);
+  font-size: var(--home-text-heading);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+
+.home-domain-task {
+  margin: 0 0 var(--space-1);
+  color: var(--home-muted);
+  font-size: var(--home-text-sm);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.home-domain-heading h3 {
+  margin: 0;
+  font-family: var(--home-serif);
+  font-size: var(--home-text-heading);
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.home-domain-lede {
+  max-width: 34em;
+  margin: 0 0 var(--space-3);
+  color: var(--home-muted);
+  font-size: var(--home-text-body);
+  line-height: 1.75;
+}
+
+.home-domain-spec {
+  margin: 0 0 var(--space-6);
+  color: var(--domain-color);
+  font-size: var(--home-text-sm);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.7;
+}
+
+.home-primary-links {
+  border-top: 1px solid var(--home-rule);
+}
+
+.home-primary-link {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1.5rem;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: 72px;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--home-rule);
+  color: var(--home-ink);
+  text-decoration: none;
+}
+
+.home-primary-link:hover {
+  color: var(--home-rust);
+  text-decoration: none;
+}
+
+.home-primary-name,
+.home-primary-note,
+.home-footer-name,
+.home-footer-note {
+  display: block;
+}
+
+.home-primary-name {
+  font-size: var(--home-text-body);
+  font-weight: 700;
+  line-height: 1.6;
   text-decoration: underline;
-  text-decoration-color: var(--rule);
+  text-decoration-color: var(--home-rule);
   text-underline-offset: 3px;
 }
 
-.home-entry-note {
-  display: block;
-  font-size: 0.875rem;
+.home-primary-link:hover .home-primary-name {
+  text-decoration-color: var(--home-rust);
+}
+
+.home-primary-note {
+  color: var(--home-muted);
+  font-size: var(--home-text-sm);
   line-height: 1.7;
-  color: var(--ink-2);
 }
 
-.home-entry:hover .home-entry-name {
-  color: var(--domain-color);
-  text-decoration-color: var(--domain-color);
+.home-primary-link:focus-visible,
+.home-secondary-link:focus-visible,
+.home-footer-link:focus-visible {
+  outline: 3px solid var(--home-rust);
+  outline-offset: 4px;
 }
 
-.home-entry:focus-visible {
-  outline: 2px solid var(--domain-color);
-  outline-offset: 2px;
+.home-secondary {
+  border-bottom: 1px solid var(--home-rule);
+}
+
+.home-secondary summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 48px;
+  padding: var(--space-3) 0;
+  color: var(--home-ink);
+  cursor: pointer;
+  font-size: var(--home-text-sm);
+  font-weight: 600;
+  line-height: 1.6;
+  list-style: none;
+}
+
+.home-secondary summary::-webkit-details-marker {
+  display: none;
+}
+
+.home-secondary summary::marker {
+  content: "";
+}
+
+.home-secondary summary:hover {
+  color: var(--home-rust);
+}
+
+.home-secondary summary:focus-visible {
+  outline: 3px solid var(--home-rust);
+  outline-offset: 4px;
+}
+
+.home-secondary-mark {
+  position: relative;
+  flex: 0 0 1rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+.home-secondary-mark::before,
+.home-secondary-mark::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.75rem;
+  height: 2px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+}
+
+.home-secondary-mark::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  transition: transform 160ms ease-out;
+}
+
+.home-secondary[open] .home-secondary-mark::after {
+  transform: translate(-50%, -50%) rotate(90deg) scaleX(0);
+}
+
+.home-secondary-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 var(--space-6);
+  padding-bottom: var(--space-3);
+}
+
+.home-secondary-link {
+  display: block;
+  min-height: 64px;
+  padding: var(--space-3) 0;
+  border-top: 1px solid var(--home-rule);
+  color: var(--home-ink);
+  text-decoration: none;
+}
+
+.home-secondary-link:hover {
+  color: var(--home-rust);
+  text-decoration: none;
+}
+
+.home-secondary-name,
+.home-secondary-note {
+  display: block;
+}
+
+.home-secondary-name {
+  font-size: var(--home-text-body);
+  font-weight: 600;
+  line-height: 1.6;
+  text-decoration: underline;
+  text-decoration-color: var(--home-rule);
+  text-underline-offset: 3px;
+}
+
+.home-secondary-link:hover .home-secondary-name {
+  text-decoration-color: var(--home-rust);
+}
+
+.home-secondary-note {
+  color: var(--home-muted);
+  font-size: var(--home-text-sm);
+  line-height: 1.7;
 }
 
 .home-footer {
-  border-top: 3px solid var(--ink);
-  padding-top: var(--space-4);
+  margin-top: var(--space-12);
+  border-top: 4px solid var(--home-ink);
 }
 
-.home-footer .home-entry {
-  border-bottom: none;
-  --domain-color: #1F1D1A;
+.home-footer-link {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1.5rem;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: 72px;
+  padding: var(--space-4) 0;
+  color: var(--home-ink);
+  text-decoration: none;
 }
 
-@media (max-width: 640px) {
+.home-footer-link:hover {
+  color: var(--home-rust);
+  text-decoration: none;
+}
+
+.home-footer-name {
+  font-size: var(--home-text-body);
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.home-footer-note {
+  color: var(--home-muted);
+  font-size: var(--home-text-sm);
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .home-hero-inner {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: var(--space-12);
+    min-height: auto;
+  }
+
+  .home-index-heading {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .home-domain-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-hero-inner {
+    gap: var(--space-8);
+    padding: var(--space-12) var(--space-4);
+  }
+
+  .home-kicker {
+    margin-bottom: var(--space-4);
+  }
+
+  .home-hero-copy h1 {
+    margin-bottom: var(--space-4);
+  }
+
+  .home-quick-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .home-quick {
+    grid-template-columns: 1.75rem minmax(0, 1fr) 1.25rem;
+    gap: var(--space-2);
+  }
+
+  .home-index-inner {
+    padding: var(--space-12) var(--space-4) var(--space-12);
+  }
+
+  .home-index-heading {
+    margin-bottom: var(--space-8);
+  }
+
   .home-domain {
+    padding: var(--space-6);
+  }
+
+  .home-domain::before {
+    right: var(--space-6);
+    left: var(--space-6);
+  }
+
+  .home-domain-heading {
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  /* 手機先保留任務、領域名與可操作入口；長說明與統計已在桌面完整呈現，
+     不讓四組重複的補充文字把首頁推成超過三個 viewport 的長目錄。 */
+  .home-domain-lede,
+  .home-domain-spec {
+    display: none;
+  }
+
+  .home-secondary-links {
     grid-template-columns: 1fr;
     gap: 0;
   }
+}
 
-  .home-domain-no {
-    font-size: 1.25rem;
-    margin-bottom: var(--space-2);
+@media (max-width: 340px) {
+  .home-domain {
+    padding: 1.25rem;
   }
 
-  .home-entries {
-    grid-template-columns: 1fr;
+  .home-domain::before {
+    right: 1.25rem;
+    left: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page *,
+  .home-page *::before,
+  .home-page *::after {
+    scroll-behavior: auto;
+    transition-duration: 0.01ms;
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
   }
 }

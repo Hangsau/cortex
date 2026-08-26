@@ -1,45 +1,119 @@
 {{ define "head-extra" }}
+<meta name="theme-color" content="#173C35">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/home.css">
 <style>
   {{ range (index hugo.Data "home").domains }}
-  .home-domain--{{ .no }} { --domain-color: {{ .color }}; }
+  {{ if ne (len (findRE `^#[0-9A-Fa-f]{6}$` .color)) 1 }}{{ errorf "data/home.yaml: domain %s color must be a six-digit hex value" .no }}{{ end }}
+  .home-domain--{{ .no }}, .home-quick--{{ .no }} { --domain-color: {{ .color }}; }
   {{ end }}
 </style>
 {{ end }}
 
 {{ define "main" }}
-<section class="home-page">
-  <header class="home-masthead">
-    <h1>Cortex</h1>
-    <p>{{ (index hugo.Data "home").site_line }}</p>
+{{ $Home := index hugo.Data "home" }}
+<div class="home-page">
+  <header class="home-hero">
+    <div class="home-hero-inner">
+      <div class="home-hero-copy">
+        <p class="home-kicker">{{ $Home.hero.kicker }}</p>
+        <h1>{{ $Home.hero.title }}</h1>
+        <p class="home-hero-lede">{{ $Home.hero.lede }}</p>
+      </div>
+
+      <nav class="home-quick-nav" aria-labelledby="home-quick-title">
+        <div class="home-quick-heading">
+          <p class="home-quick-kicker">START HERE</p>
+          <h2 id="home-quick-title">現在要做什麼？</h2>
+        </div>
+        <ol class="home-quick-list">
+          {{ range $Index, $Action := $Home.quick_actions }}
+          <li>
+            <a class="home-quick home-quick--{{ $Action.domain_no }}" href="{{ printf "%s%s" $.Site.BaseURL $Action.url }}">
+              <span class="home-quick-no">{{ printf "%02d" (add $Index 1) }}</span>
+              <span class="home-quick-copy">
+                <span class="home-quick-name">{{ $Action.name }}</span>
+                <span class="home-quick-note">{{ $Action.note }}</span>
+              </span>
+              <span class="home-link-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          {{ end }}
+        </ol>
+      </nav>
+    </div>
   </header>
 
-  {{ range (index hugo.Data "home").domains }}
-  <section class="home-domain home-domain--{{ .no }}">
-    <div class="home-domain-no">{{ .no }}</div>
-    <div class="home-domain-body">
-      <h2 class="home-domain-name">{{ .name }}</h2>
-      <p class="home-domain-lede">{{ .lede }}</p>
-      <p class="home-domain-spec">{{ .spec }}</p>
-      <div class="home-entries">
-        {{ range .entries }}
-        <a class="home-entry" href="{{ printf "%s%s" $.Site.BaseURL .url }}">
-          <span class="home-entry-name">{{ .name }}</span>
-          <span class="home-entry-note">{{ .note }}</span>
-        </a>
+  <section class="home-index" aria-labelledby="home-index-title">
+    <div class="home-index-inner">
+      <header class="home-index-heading">
+        <div>
+          <p class="home-index-kicker">{{ $Home.index.kicker }}</p>
+          <h2 id="home-index-title">{{ $Home.index.title }}</h2>
+        </div>
+        <p>{{ $Home.index.lede }}</p>
+      </header>
+
+      <div class="home-domain-grid">
+        {{ range $Home.domains }}
+        <article class="home-domain home-domain--{{ .no }}" aria-labelledby="home-domain-{{ .no }}">
+          <header class="home-domain-heading">
+            <span class="home-domain-no" aria-hidden="true">{{ .no }}</span>
+            <div>
+              <p class="home-domain-task">{{ .task }}</p>
+              <h3 id="home-domain-{{ .no }}">{{ .name }}</h3>
+            </div>
+          </header>
+
+          <p class="home-domain-lede">{{ .lede }}</p>
+          <p class="home-domain-spec">{{ .spec }}</p>
+
+          <div class="home-primary-links">
+            {{ range .primary }}
+            <a class="home-primary-link" href="{{ printf "%s%s" $.Site.BaseURL .url }}">
+              <span>
+                <span class="home-primary-name">{{ .name }}</span>
+                <span class="home-primary-note">{{ .note }}</span>
+              </span>
+              <span class="home-link-arrow" aria-hidden="true">→</span>
+            </a>
+            {{ end }}
+          </div>
+
+          {{ with .secondary }}
+          <details class="home-secondary">
+            <summary>
+              <span>展開其餘 {{ len . }} 個入口</span>
+              <span class="home-secondary-mark" aria-hidden="true"></span>
+            </summary>
+            <div class="home-secondary-links">
+              {{ range . }}
+              <a class="home-secondary-link" href="{{ printf "%s%s" $.Site.BaseURL .url }}">
+                <span class="home-secondary-name">{{ .name }}</span>
+                <span class="home-secondary-note">{{ .note }}</span>
+              </a>
+              {{ end }}
+            </div>
+          </details>
+          {{ end }}
+        </article>
         {{ end }}
       </div>
+
+      <footer class="home-footer">
+        {{ with $Home.footer_link }}
+        <a class="home-footer-link" href="{{ printf "%s%s" $.Site.BaseURL .url }}">
+          <span>
+            <span class="home-footer-name">{{ .name }}</span>
+            <span class="home-footer-note">{{ .note }}</span>
+          </span>
+          <span class="home-link-arrow" aria-hidden="true">→</span>
+        </a>
+        {{ end }}
+      </footer>
     </div>
   </section>
-  {{ end }}
-
-  <footer class="home-footer">
-    {{ with (index hugo.Data "home").footer_link }}
-    <a class="home-entry home-entry--footer" href="{{ printf "%s%s" $.Site.BaseURL .url }}">
-      <span class="home-entry-name">{{ .name }}</span>
-      <span class="home-entry-note">{{ .note }}</span>
-    </a>
-    {{ end }}
-  </footer>
-</section>
+</div>
 {{ end }}

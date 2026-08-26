@@ -1,5 +1,40 @@
 # HANDOFF — my-site (Cortex)
 
+## 目前狀態（2026-08-26）
+
+### 🚧 Cortex 首頁重建：四領域平面目次 → 任務入口＋領域索引（部署進行中）
+
+站主在 2026-08-08 的四領域目次版上線後仍不喜歡首頁。這次沒有再換一輪配色，而是先抓結構問題：
+首頁把 **15 個入口全放成同一層**、`Cortex` 在 nav 與 h1 重複、桌面被全站 800px 上限鎖成長單欄；
+Vortex 7 個入口與氣質 1 個入口也被迫用同一模板表達。手機因而成為超長的文字目錄。
+
+**新骨架是兩層，不改四領域裁定**：
+
+1. 深綠 Hero 左側說明 Cortex 是什麼，右側只放 6 個動詞起手的常用任務（找練習、查錯誤、
+   讀 CSCS、沿概念軸複習、找學習技法、做氣質自測）。h1 改成用途主張，不再重複站名。
+2. 第二層維持四領域 atlas。每個領域只攤平 1–2 個 primary，其餘用原生 `<details>` 收合；
+   16 個既有 canonical 目的地全部保留，仍在兩次操作內可達。quick action 只是捷徑，不是第二份真相源。
+
+**資料 schema**：`data/home.yaml` 現為 `hero` / `quick_actions` / `index` / `domains[].primary` /
+`domains[].secondary` / `footer_link`。色碼仍由 layout 掛成 `--domain-color`；URL 都是站內相對路徑。
+首頁無 JavaScript、無新頁面、無圖片，也沒有恢復書架或新增全域搜尋。
+
+**視覺方向**：當代訓練研究室的工作台——深綠布面 `#173C35`、暖色索引紙 `#F4F0E7`、
+鏽紅 `#9B3F26`，沿用 Vortex 的 Cormorant Garamond / Noto Serif TC / Noto Sans TC。桌面首頁
+脫離 800px 上限改 1120px、Hero 7/5、領域 2×2；方角、規則線、無陰影／圓角／hover 位移。
+手機保留任務、領域名與所有入口，隱藏重複的 domain 長說明與統計，把閉合狀態頁長壓到三個 viewport 內。
+
+**新增迴歸閘 `tools/home_audit.js`**：首頁 **28/28**——home.yaml 色碼/URL 格式、6 quick actions、4 domains、16 個目的地
+零遺漏且全部回應、heading 不跳級、代表文字 WCAG AA、25 個互動元件 focus ring 全可見、CLS 0、
+reduced-motion 生效，字級收斂為 14/17/22/26px 四級；768/390/320px 零水平溢出，390px 頁長
+2.76 viewport、320px 2.96。
+既有 `tools/audit.js` 同時維持 **38/38**，首頁 CSS scope 沒有波及 CSCS 章節與概念索引。
+Hugo 0.162.1 production build 130 頁、exit 0。
+
+實作追蹤：`.implementation_cortex-home-redesign.md`。原核准範圍只到本機驗收；站主在 2026-08-26
+確認公開網站也必須同步後，範圍已擴充為 commit、push、等待 GitHub Pages CI 與公開網址複驗。
+部署結果會在 W8 完成後回寫；本機暫存 build、截圖與 log 仍已清理，可由 build／audit 重生。
+
 ## 目前狀態（2026-08-11）
 
 ### ✅ Vortex 呼吸頁重建：5 節點 → 21 節點，導覽改由 canonical 生成

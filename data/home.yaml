@@ -1,23 +1,57 @@
-# 首頁資料：四個領域 + 各自的入口。
+# 首頁資料：任務入口 + 四個領域索引。
 #
-# 舊的 data/books.yaml（書架卡片）已廢除——首頁的單位不再是「書」而是「領域」，
-# 書降格成領域裡的一筆來源出處。書架隱喻逼每個項目都得長得像一本書，所以 Vortex
-# 這種不是書的東西當初根本沒地方放，首頁只覆蓋到站上不到一成的內容。
-#
-# 新增入口改這裡，不動 layout。spec 那行的數字必須對得上 data/ 實況，不是形容詞。
+# 首屏先回答「現在能做什麼」，第二層才展開完整領域。quick_actions 是常用捷徑，
+# 會與 domains 內的 canonical 入口重複；完整目的地清單仍以 domains + footer_link 為準。
+# 新增入口改這裡，不動 layout。色碼只用六位 hex，URL 只用站內相對路徑。
 
-site_line: "四個領域，一條線：身體怎麼適應訓練、動作怎麼教、大腦怎麼學、人為什麼不一樣。"
+hero:
+  kicker: "TRAINING · MOVEMENT · LEARNING"
+  title: "把研究整理成能查、能練、能教的知識工具。"
+  lede: "Cortex 是我的工作知識庫：從肌力與體能、游泳教學，到學習科學與氣質差異。"
+
+quick_actions:
+  - domain_no: "02"
+    name: "找一個游泳練習"
+    note: "176 個練習，按泳式與環節篩選"
+    url: "vortex/drills/"
+  - domain_no: "02"
+    name: "查技術與教學錯誤"
+    note: "四式加出發轉身，逐點對照"
+    url: "vortex/instructional/"
+  - domain_no: "01"
+    name: "讀 CSCS 章節"
+    note: "24 章，含深度層與遮答自測"
+    url: "library/essentials-of-strength-training/"
+  - domain_no: "01"
+    name: "沿概念軸複習"
+    note: "22 條概念橫切全書"
+    url: "library/essentials-of-strength-training/concepts/"
+  - domain_no: "03"
+    name: "找一個學習技法"
+    note: "20 個技法，查了就用"
+    url: "library/mind-for-numbers/toolkit/"
+  - domain_no: "04"
+    name: "做氣質九維度自測"
+    note: "36 題，查看九維度剖面"
+    url: "temperament/"
+
+index:
+  kicker: "DOMAIN INDEX"
+  title: "四個領域，一條工作線"
+  lede: "身體怎麼適應訓練、動作怎麼教、大腦怎麼學，以及人為什麼不一樣。"
 
 domains:
   - no: "01"
     name: "肌力與體能"
     color: "#8A3324"
-    lede: "NSCA《Essentials of Strength Training and Conditioning》第四版拆成可查的知識單位。兩條閱讀動線：照章節讀，或打散章節照概念讀。"
+    task: "理解訓練如何改變身體"
+    lede: "把 NSCA 第四版拆成可查的知識單位，既能照章讀，也能跨章沿概念讀。"
     spec: "24 章 · 1557 條知識單位 · 1252 張閃卡 · 22 條概念軸"
-    entries:
-      - name: "章節目次"
+    primary:
+      - name: "CSCS 章節目次"
         note: "24 章，每章含深度層與遮答自測"
         url: "library/essentials-of-strength-training/"
+    secondary:
       - name: "概念索引"
         note: "22 條概念軸橫切全書"
         url: "library/essentials-of-strength-training/concepts/"
@@ -25,12 +59,14 @@ domains:
   - no: "02"
     name: "游泳教學與水感"
     color: "#3E574D"
-    lede: "以水感知為核心的游泳教學研究。四式加出發轉身，技術點、教學錯誤、drill 與傷害各成一層。"
+    task: "從卡住的位置找到下一步"
+    lede: "以水感知為核心，把泳式技術、教學錯誤、練習、發展與傷害接成一個查找系統。"
     spec: "176 個 drill · 207 條技術分析 · 102 條教學錯誤 · 47 筆傷害"
-    entries:
-      - name: "Vortex 首頁"
-        note: "全站導覽與研究層"
+    primary:
+      - name: "進入 Vortex"
+        note: "全站導覽、研究層與使用情境入口"
         url: "vortex/"
+    secondary:
       - name: "動作庫"
         note: "176 個 drill，按 7 類篩選"
         url: "vortex/drills/"
@@ -53,18 +89,20 @@ domains:
   - no: "03"
     name: "學習與教學"
     color: "#1B5E69"
-    lede: "同一位作者的兩本學習科學著作，一本寫給學習者、一本寫給教學者，拆成可查的技法與章節。"
+    task: "把理解轉成可使用的策略"
+    lede: "同一位作者寫給學習者與教學者的兩本書，分別拆成可理解也可直接使用的工具。"
     spec: "20 個學習技法 · 10 章教學手冊 · 18 條教學策略"
-    entries:
-      - name: "大腦喜歡這樣學"
-        note: "學習者版，5 個主題"
+    primary:
+      - name: "給學習者：大腦喜歡這樣學"
+        note: "從五個主題理解學習機制"
         url: "library/mind-for-numbers/"
+      - name: "給教學者：Uncommon Sense Teaching"
+        note: "從課堂設計與教學問題出發"
+        url: "library/uncommon-sense-teaching/"
+    secondary:
       - name: "學習技法工具箱"
         note: "20 個技法，查了就用"
         url: "library/mind-for-numbers/toolkit/"
-      - name: "Uncommon Sense Teaching"
-        note: "教學者版"
-        url: "library/uncommon-sense-teaching/"
       - name: "教學手冊"
         note: "10 章，讀概念"
         url: "library/uncommon-sense-teaching/handbook/"
@@ -75,14 +113,16 @@ domains:
   - no: "04"
     name: "氣質與個別差異"
     color: "#6E5A3C"
-    lede: "Thomas、Chess 與 Birch 的九維度氣質架構，含自測與四型對照。用來解釋同一套教法為什麼在不同人身上結果不同。"
+    task: "理解同一教法為何反應不同"
+    lede: "以九維度理解個別差異，並用非診斷式自測查看自己或孩子的氣質剖面。"
     spec: "9 個維度 · 4 種類型 · 36 題自測 · 5 套框架對照"
-    entries:
-      - name: "氣質九維度"
+    primary:
+      - name: "理解氣質九維度"
         note: "維度、類型、自測與框架比較"
         url: "temperament/"
+    secondary: []
 
 footer_link:
-  name: "全部書目"
-  note: "以書為單位的清單"
+  name: "按書查看全部書目"
+  note: "保留以來源與書籍為單位的瀏覽方式"
   url: "library/"

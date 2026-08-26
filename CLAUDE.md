@@ -29,7 +29,7 @@ static/
     variables.css           # 只放 CSS 變數
     base.css                # reset + 基礎排版
     layout.css              # nav/main/footer 結構
-    home.css                # 首頁四領域目次頁樣式
+    home.css                # 首頁工作台 Hero + 四領域 atlas + RWD
     library.css             # 書庫 section 樣式
     cscs-chapter.css        # 章節頁（黏性目次正文 + 遮答自測 + 閃卡）與 book.html 的 .home-grid
   js/
@@ -41,7 +41,7 @@ layouts/library/
 layouts/partials/
   cscs-index.html           # 全書 id → 標題/網址 索引（wiki 連結用，partialCached）
 data/
-  home.yaml                 # 首頁四領域與各自的入口清單（舊 books.yaml 已廢除）
+  home.yaml                 # 首頁 Hero / 6 個任務捷徑 / 四領域 canonical 入口（舊 books.yaml 已廢除）
   cscs/
     _terms.yaml             # 全書術語表（en / zh / abbr / note），106 條
     _concepts.yaml          # 受控概念詞彙（封閉集，22 條，含 group / order）
@@ -88,23 +88,29 @@ tools/
 
 ### 首頁：單位是「領域」不是「書」
 
-`layouts/index.html` 讀 `data/home.yaml` 的四個領域，每個領域自帶編號、識別色、一句定位、
-一行規格與入口清單。**書不是首頁的單位，是領域裡的一筆來源出處**——書架版型逼每個項目都得
-長得像一本書，所以 vortex（18 個子頁）與氣質當初根本沒地方擺，首頁只覆蓋到站上不到一成的
-內容。`data/books.yaml` 與 `static/css/bookshelf.css` 已隨之刪除。
+`layouts/index.html` 讀 `data/home.yaml`，首頁分成兩層：首屏的 `quick_actions` 先回答「現在要做
+什麼」，第二層 `domains` 才提供完整四領域索引。**書仍不是首頁單位，而是領域裡的一筆來源**；
+只是完整目錄不再和常用任務搶同一個視覺層級。`data/books.yaml` 與 `static/css/bookshelf.css`
+已廢除，不要恢復。
 
-- 領域數維持 ≤7、單一領域的 `entries` 也 ≤7（鐵則 A：同步呈現的入口上限）
-- `spec` 那行的數字必須對得上 `data/` 實況，改資料時一併改，不要留形容詞
-- 領域識別色透過 `layouts/index.html` 產生的 `<style>` 區塊掛成 `--domain-color`，不寫 inline style
-- 版面刻意無卡片／無陰影／無圓角／無 hover 位移，只有規則線與文字；要加動效前先回頭讀
-  `C:\claudehome\resources\notes\DESIGN_SYSTEM.md` 鐵則 I
+- `quick_actions` 維持 ≤6，名稱以動詞起手；它是常用捷徑，URL 可與 domain canonical 入口重複
+- 領域數維持 ≤7；每個 domain 的 `primary` 維持 1–2 個，`secondary` 維持 ≤7。完整目的地只在
+  `domains` + `footer_link` 定義，quick action 不另造 URL
+- `spec` 的數字必須對得上 `data/` 實況，改資料時一併改，不要留形容詞
+- `color` 只接受六位 hex；領域識別色由 `layouts/index.html` 的 `<style>` 區塊掛成
+  `--domain-color`，禁止 `style` attribute
+- 版面是「深綠工作台 Hero + 方角規則線 atlas」：無陰影、無圓角、無 hover 位移。首頁字型沿用
+  Vortex 的 Cormorant Garamond / Noto Serif TC / Noto Sans TC，並保留 CJK system fallback
+- 手機版刻意隱藏 domain 的長 `lede` 與 `spec`，保留 task、領域名、主入口與可展開完整目錄；
+  這是把首頁壓在三個 viewport 內的資訊層級決策，不是內容遺漏
+- 改 `data/home.yaml`、`layouts/index.html` 或 `static/css/home.css` 後，必跑
+  `node tools/home_audit.js`：16 個 canonical 目的地、6 個 quick actions、4 個 domains、RWD、
+  WCAG 對比、focus、CLS 與 reduced-motion 都是硬閘
 - **`hugo.toml` 沒有 `[menu]` 是刻意的**：nav 只有字標與「回目次」。全站地圖就是這份四領域
   目次，右上角再掛一份「書庫／Vortex／氣質」等於第二套只涵蓋部分內容、又跟四領域對不上的
   分類。要加全域導覽前先想清楚它跟 `data/home.yaml` 誰是真相源
-- **`site_line` 那句要交代四個領域為什麼在一起**，不要拿它講站內資料結構。站名 Cortex 是
-  「第二大腦」那套 PKM 命名慣例，跟內容沒有推導關係（`hugo.toml` 從來沒寫過理由）；改名要
-  連 repo 名與 `hangsau.github.io/cortex/` 一起換、斷掉所有既有連結，成本遠高於收益，所以
-  改由這句話承擔說明：四個領域的共同線是「怎麼把一個人練起來、教會」
+- `hero.title` 要說明網站能做什麼；`hero.lede` 說明 Cortex 是工作知識庫；`index.lede` 才交代
+  四個領域的共同線。不要把其中任何一句拿來朗讀資料結構
 - **不要建空殼頁面**。`highlights.md`（重點摘錄）／`notes.md`（讀書筆記）只有 front matter、
   正文全空，掛在首頁上就是兩條點進去什麼都沒有的連結，2026-08-08 已刪。這是 GitHub Pages
   靜態站，寫一條筆記＝本機開檔 → commit → push → 等 CI；沒有寫入管道的容器只會一直空著。

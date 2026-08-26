@@ -3,7 +3,8 @@
 > 結構地圖，給冷啟動讀者（人/LLM）。格式與維護流程見 `C:\claudehome\CODEBASE_MAP_METHODOLOGY.md`。
 > 行為規範見 `CLAUDE.md`；進度/待辦見 `HANDOFF.md`。
 >
-> `last_verified: 2026-08-11`
+> `last_verified: 2026-08-26`
+> 本次驗證範圍是首頁資料流／版型／CSS／audit；全域 `check_map_freshness.py` 仍回報既有 helper 與部分 Vortex 檔未列入 MAP，未冒充已完成全專案盤點。
 
 ---
 
@@ -22,7 +23,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 | 改全站顏色/字級 | `static/css/variables.css`（只放 CSS 變數） |
 | 改排版結構（nav/main/footer） | `static/css/layout.css` |
 | 加新書（一般風格） | `content/library/<slug>/_index.md` + 往 `data/home.yaml` 對應領域的 `entries` 加一筆 |
-| 改首頁（領域、入口、規格數字） | `data/home.yaml`；`layouts/index.html` 只是渲染器，單位是領域不是書 |
+| 改首頁（Hero、常用任務、領域入口、規格數字） | 真相源 `data/home.yaml` → 渲染 `layouts/index.html` → 樣式 `static/css/home.css`；改完跑 `tools/home_audit.js` |
 | 加自訂風格書（如 mnfl/ust） | 見 `CLAUDE.md`「自訂風格書籍設計模式」 |
 | 改 vortex 公開內容（泳式/誤區/drill/L 階段） | **不在此 repo！** 改 `TheVortexProject/canonical/` → 跑 `tools/sync_vortex.py` |
 | 改 vortex 呈現（版面/互動/CSS） | `layouts/vortex/*.html` + `static/css/vortex.css`（可直接改） |
@@ -40,7 +41,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 ### 進入點 / 骨架
 - `layouts/_default/baseof.html`（21 行）— 只管 HTML 骨架，**`.main-content` 有 800px 上限**（見踩雷 §4）
 - `layouts/partials/nav.html` / `footer.html` — 全站 nav/footer；nav 只有字標與「回目次」，`hugo.toml` 刻意無 `[menu]`（全站地圖＝首頁四領域目次，不掛第二套分區清單）
-- `layouts/index.html`（44 行）— 首頁四領域目次頁，讀 `data/home.yaml`
+- `layouts/index.html`（約 130 行）— 首頁「任務入口＋四領域索引」，讀 `data/home.yaml`；首屏 6 個 quick actions，第二層 domain primary/secondary
 
 ### Section → layout 路由
 | content 目錄 | layout | 說明 |
@@ -71,12 +72,16 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 | `vortex/{single,list}.html` | 29/36 | technica/instructional/bridge 散文 fallback | 無 |
 
 ### CSS（static/css/）
-`variables.css`(49) `base.css`(79) `layout.css`(165) `home.css`(150) `library.css`(140) `cscs-chapter.css`(719) `vortex.css`(2111) `vortex-techo.css`(158，僅首頁 tx-*) `vortex-nav.css`(159，全站側欄+搜尋框) `vortex-injuries.css`(242) `mnfl.css`(391) `ust.css`(526) `temperament.css`(296)。  
+`variables.css`(49) `base.css`(79) `layout.css`(165) `home.css`(約 620，首頁工作台 Hero＋atlas＋RWD，完全 scope 在 `.home-page`) `library.css`(140) `cscs-chapter.css`(719) `vortex.css`(2111) `vortex-techo.css`(158，僅首頁 tx-*) `vortex-nav.css`(159，全站側欄+搜尋框) `vortex-injuries.css`(242) `mnfl.css`(391) `ust.css`(526) `temperament.css`(296)。
 隔離手法：各 section CSS 用 `body:has(.<prefix>-*)` scope，不互相污染。
 
 ### JS（static/js/）
 - `vortex.js`(555) — 單檔依 DOM hook 分派（見 §2 決策索引該列）；`setupCardFilters`/`setupDrillFilters` 為 doc 與 legacy 分支共用；`?q=` 只寫入 `input.value`（XSS-safe）
 - `temperament-quiz.js`(197) — 氣質測驗純前端計分
+
+### 版型驗收（tools/）
+- `home_audit.js` — 首頁 28 項資料＋Playwright 閘：home.yaml 色碼/URL、16 個 canonical 目的地、6 個 quick actions、4 個 domains、連結回應、heading、對比、focus、CLS、reduced-motion 與 768/390/320px RWD
+- `audit.js` — CSCS 章節頁＋概念索引 38 項既有迴歸閘；首頁改動後仍須跑，確認 CSS 隔離沒有波及其他頁
 
 ### 資料流
 - `tools/sync_vortex.py` — 從 `TheVortexProject/canonical/` 同步到 `data/{vortex,adm,periodization,breathing}/`。**單向，勿手改 data/**
@@ -105,6 +110,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 17. **Goldmark 在全形標點與 CJK 之間不認粗體閉合符**：`**延腦背側呼吸群（DRG）**主要…` 的收尾 `**` 前是 `）`、後是 `主`，右側 flanking 判定失敗，`**` 原樣印在頁面上。修法是把括號／句號移到粗體外側，**且要修在 canonical 那一側**。⚠ 2026-08-11 全站掃描：`public/` 仍有 222 個未渲染的 `**`（database 90、freestyle 34、udk 18…），**根因不只一種**——數量大的比較像該欄位根本沒過 `markdownify`，要修先分類。掃描方式：對 `public/**/index.html` 數 `**` 出現次數。
 18. **錨點跳進收合的 `<details>` 會落在空白處**：`vx-doc` 模式原本沒有 hash 處理（自動展開只存在於 legacy 面板分支的 `data-anchor`）。`vortex.js` 的 `openTargetDetails()` 在載入與 `hashchange` 時補這件事——加新的「從別頁跳進某節」入口前先確認它還在。
 19. **純計算的 Hugo 迴圈一定要用 `{{- -}}` 夾緊**：不夾的話每次迭代吐出縮排空白，概念頁 22 × 1583 次迭代把 HTML 從 578KB 灌成 1.86MB。看到頁面異常肥先查迴圈空白，不是查內容量。
+20. **首頁的 quick action 重複 URL 是刻意的，canonical 目的地不是兩份**：`quick_actions` 只是首屏捷徑，完整清單仍由 `domains.primary` / `domains.secondary` + `footer_link` 擁有。`home_audit.js` 允許一個目的地出現兩次，但不允許第三份或規格外 URL。手機版隱藏 domain `lede/spec` 也是刻意的密度裁決；入口與 note 仍完整保留。
 
 ---
 
