@@ -2,7 +2,7 @@
 
 ## 目前狀態（2026-08-26）
 
-### 🚧 Cortex 首頁重建：四領域平面目次 → 任務入口＋領域索引（部署進行中）
+### ✅ Cortex 首頁重建：四領域平面目次 → 任務入口＋領域索引（已部署）
 
 站主在 2026-08-08 的四領域目次版上線後仍不喜歡首頁。這次沒有再換一輪配色，而是先抓結構問題：
 首頁把 **15 個入口全放成同一層**、`Cortex` 在 nav 與 h1 重複、桌面被全站 800px 上限鎖成長單欄；
@@ -32,8 +32,10 @@ reduced-motion 生效，字級收斂為 14/17/22/26px 四級；768/390/320px 零
 Hugo 0.162.1 production build 130 頁、exit 0。
 
 實作追蹤：`.implementation_cortex-home-redesign.md`。原核准範圍只到本機驗收；站主在 2026-08-26
-確認公開網站也必須同步後，範圍已擴充為 commit、push、等待 GitHub Pages CI 與公開網址複驗。
-部署結果會在 W8 完成後回寫；本機暫存 build、截圖與 log 仍已清理，可由 build／audit 重生。
+確認公開網站也必須同步後，已完成 commit `8cc7d3a`、push `hugo-source` 與 GitHub Pages deploy
+run `32928764640`（success）。對 `https://hangsau.github.io/cortex/` 直接重跑 browser audit 為 **28/28**，
+確認公開站已呈現新版，不是只完成本機或只看 CI 綠燈。本機暫存 build、截圖與 log 已清理，
+可由 build／audit 重生。
 
 ## 目前狀態（2026-08-11）
 
