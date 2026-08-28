@@ -1,5 +1,16 @@
 # HANDOFF — my-site (Cortex)
 
+## 待接手：一次性菜單生成器（2026-08-29 規劃完成，未實作）
+
+規劃書 `C:\claudehome\projects\swim-coach\plans\menu_generator_plan.md`。真相源（規則 YAML）在
+swim-coach，**第一個殼在 my-site**：W2 同步規則檔、W3 drill JSON 輸出、W4 interpreter JS、W5 表單頁。
+
+為什麼殼在這裡：`data/vortex/drills.yaml` 已有全部 176 個 drill（9 軸欄位齊全），零後端就能
+過濾＋分配；swim-coach 的 FastAPI 尚未部署。
+**硬限制**：公開站只接受使用者宣告 A/B/C 型，**不得反推診斷**——診斷判讀語屬 Vortex `diagnostic` 層。
+
+接手第一步：讀規劃書，不要直接動手。
+
 ## 目前狀態（2026-08-28）
 
 ### ✅ Vortex 骨關節章：`source_ids` 從機器鍵變成讀者看得到的來源（已部署）
