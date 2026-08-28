@@ -42,6 +42,8 @@ layouts/partials/
   cscs-index.html           # 全書 id → 標題/網址 索引（wiki 連結用，partialCached）
 data/
   home.yaml                 # 首頁 Hero / 6 個任務捷徑 / 四領域 canonical 入口（舊 books.yaml 已廢除）
+  vortex/
+    source-registry.yaml    # canonical/_sources.yaml 的公開白名單視圖（sync 產生，勿手改；internal notes 不帶）
   cscs/
     _terms.yaml             # 全書術語表（en / zh / abbr / note），106 條
     _concepts.yaml          # 受控概念詞彙（封閉集，22 條，含 group / order）
@@ -142,6 +144,16 @@ tools/
 **左欄與分組卡一律用 `nav_zh` 不用 `title`**：這章的 title 是完整論斷句（40+ 字），拿去做導航會變文字牆。canonical 沒給 `nav_zh` 的條目才 fallback 到 title。
 
 樣式在 `static/css/vortex-joints.css`（`vx-jt-*` 前綴，自足）。**不要 import `vortex-injuries.css`** 去借 `.vx-cat-grid` / `.vx-tag`——那份檔名綁傷害頁，跨頁引用會讓「這條規則歸誰維護」變模糊。
+
+### 來源註冊表（`data/vortex/source-registry.yaml`）：白名單視圖，不是整份搬運
+
+canonical 的條目用 `source_ids: [src.xxx]` 這種機器鍵指來源；`sync_vortex.py` 的 `sync_source_registry()` 把 `canonical/_sources.yaml`（532 筆）轉成**以 id 為 key 的 map**，讓 layout 能 `index $reg $sid` 直接查。三條不可改的規則：
+
+- **白名單不是黑名單**。只有 `PUBLIC_SOURCE_FIELDS` 列出的 12 欄會出站。canonical 的 `notes`（503 筆，內含「適用範圍」「**不是泳者來源**」這類**維護者裁決註記**）永不輸出。用白名單是因為 canonical 之後還會加內部欄位，黑名單擋不住還沒被想到的那個。
+- **`link` 在 Python 這層算好**（頂層 url → identifier.url → doi → pmcid → pmid 五路優先序），Hugo template 不做分支。**只有 ISBN 的書就沒有 link，這是正確狀態**——不要為了讓每筆都可點去拼書店或 Google Books 網址，那是編造。
+- **查不到 id 時 layout 必須印出 id 本身**。Hugo 的 `index` 查不到 key 回空字串且不報錯，沒有 fallback 的話來源行會**無聲消失**、讀者以為這條本來就沒來源。同 §「Vortex 分類標籤」那條鐵則的理由。`verification_status: unverified` 也必須標「未查證」（359/532 筆屬此類），專案規範明訂無法查證者不得以肯定句包裝。
+
+目前只有 `vortex-joints.html` 的 `mechanism.source_ids` 接了這份註冊表。`vortex-stroke.html` 的「深入機制」面板對**全部**技術卡通用（`technical-analysis.yaml` 有 251 處 `source_ids`），要接的話是一次點亮六個泳式頁，需獨立的視覺驗收，別順手加。
 
 ### 呼吸章（`data/breathing/`）：三條線 + 安全置頂
 

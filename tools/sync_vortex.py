@@ -40,6 +40,10 @@ TEACHING_ERRORS_DST = HUGO_ROOT / "data" / "vortex" / "teaching-errors.yaml"
 TECH_ANALYSIS_SRC = VORTEX_SRC / "canonical" / "instructional" / "technical-analysis.yaml"
 TECH_ANALYSIS_DST = HUGO_ROOT / "data" / "vortex" / "technical-analysis.yaml"
 
+# ── 來源註冊表（canonical → my-site；只匯出公開白名單欄位，internal notes 不帶） ──
+SOURCES_SRC = VORTEX_SRC / "canonical" / "_sources.yaml"
+SOURCES_DST = HUGO_ROOT / "data" / "vortex" / "source-registry.yaml"
+
 # ── L 指標矩陣（canonical 兩層 → my-site 只 public） ──
 L_INDICATORS_SRC = VORTEX_SRC / "canonical" / "technica" / "l-indicators.yaml"
 L_INDICATORS_DST = HUGO_ROOT / "data" / "vortex" / "l-indicators.yaml"
@@ -422,6 +426,108 @@ def sync_technical_analysis(dry_run: bool):
     )
     TECH_ANALYSIS_DST.write_text(out, encoding="utf-8")
     print(f"  寫入 {TECH_ANALYSIS_DST.relative_to(HUGO_ROOT)}")
+
+
+# 來源註冊表公開白名單：只有列在這裡的欄位會進公開站。
+# 用白名單而非黑名單，因為 canonical 之後可能新增內部欄位——
+# 黑名單（如 del rec["notes"]）擋不住還沒被想到的欄位。
+PUBLIC_SOURCE_FIELDS = (
+    "id", "display", "type", "verification_status",
+    "title", "authors", "et_al", "year", "container",
+    "identifier", "url", "retrieved_on",
+)
+
+
+def _source_link(rec: dict) -> str:
+    """算出一筆來源的可點連結；沒有可解析的識別碼時回空字串。
+
+    順序固定，第一個命中就用：頂層 url → identifier.url → doi → pmcid → pmid。
+    只有 ISBN 的書回空字串是正常狀態——不去拼書店 / Google Books 網址，那是編造。
+    """
+    if rec.get("url"):
+        return str(rec["url"])
+    ident = rec.get("identifier") or {}
+    if not isinstance(ident, dict):
+        return ""
+    if ident.get("url"):
+        return str(ident["url"])
+    if ident.get("doi"):
+        return f"https://doi.org/{ident['doi']}"
+    if ident.get("pmcid"):
+        return f"https://pmc.ncbi.nlm.nih.gov/articles/{ident['pmcid']}/"
+    if ident.get("pmid"):
+        return f"https://pubmed.ncbi.nlm.nih.gov/{ident['pmid']}/"
+    return ""
+
+
+def sync_source_registry(dry_run: bool):
+    """讀 canonical _sources.yaml，只取公開白名單欄位，
+    輸出成以 id 為 key 的 mapping 進 my-site data/vortex/source-registry.yaml。
+
+    公開/內部鐵則：canonical 的 notes 是維護者裁決註記（適用範圍、「不是泳者來源」、
+    計數更正這類判斷），絕不進公開站。本函式用白名單 PUBLIC_SOURCE_FIELDS 過濾——
+    canonical 新增任何內部欄位都不會無聲外洩。
+
+    link 在此層算好（doi / pmcid / pmid / url 五路優先序），Hugo template 不做分支；
+    算不出來就不寫 link 這個 key（只有 ISBN 的書即屬此類）。
+    輸出 map 而非 list，讓 layout 能 `index $reg "src.xxx"` 直接查。
+    """
+    if not SOURCES_SRC.exists():
+        print()
+        print("=== 來源註冊表 ===")
+        print(f"  [跳過] 找不到 {SOURCES_SRC}")
+        return
+
+    data = yaml.safe_load(SOURCES_SRC.read_text(encoding="utf-8")) or {}
+    srcs_in = data.get("sources", []) or []
+
+    sources_out = {}
+    for s in srcs_in:
+        sid = s.get("id")
+        if not sid:
+            print(f"  [WARN] 來源缺 id，跳過：{str(s.get('display'))[:60]}")
+            continue
+        if sid in sources_out:
+            print(f"  [WARN] 來源 id 重複，保留第一筆：{sid}")
+            continue
+        rec = {k: s[k] for k in PUBLIC_SOURCE_FIELDS if k in s}
+        link = _source_link(s)
+        if link:
+            rec["link"] = link
+        sources_out[sid] = rec
+
+    out_data = {
+        "schema_version": 2,
+        "generated_from": "canonical/_sources.yaml",
+    }
+    if data.get("generated_date"):
+        out_data["generated_date"] = str(data["generated_date"])
+    out_data["sources"] = sources_out
+
+    n_verified   = sum(1 for r in sources_out.values() if r.get("verification_status") == "verified")
+    n_unverified = sum(1 for r in sources_out.values() if r.get("verification_status") == "unverified")
+    n_link       = sum(1 for r in sources_out.values() if r.get("link"))
+
+    print()
+    print("=== 來源註冊表（公開白名單）===")
+    print(f"  verified       {n_verified}")
+    print(f"  unverified     {n_unverified}")
+    print(f"  有連結         {n_link}")
+    print(f"  TOTAL          {len(sources_out)}")
+
+    if dry_run:
+        print("  [dry-run，未寫入 data/vortex/source-registry.yaml]")
+        return
+
+    out = yaml.safe_dump(
+        out_data,
+        allow_unicode=True,
+        default_flow_style=False,
+        sort_keys=False,
+        width=4096,
+    )
+    SOURCES_DST.write_text(out, encoding="utf-8")
+    print(f"  寫入 {SOURCES_DST.relative_to(HUGO_ROOT)}")
 
 
 def sync_l_indicators(dry_run: bool):
@@ -968,6 +1074,7 @@ def main():
     sync_drills(dry_run)
     sync_teaching_errors(dry_run)
     sync_technical_analysis(dry_run)
+    sync_source_registry(dry_run)
     sync_l_indicators(dry_run)
     sync_water_sense_levels(dry_run)
     sync_adm_matrix(dry_run)

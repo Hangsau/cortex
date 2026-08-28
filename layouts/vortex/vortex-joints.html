@@ -11,6 +11,11 @@
 {{ $regions := $ta.joint_regions }}
 {{ $joints := where $ta.points "category" "joint" }}
 
+{{/* 來源註冊表：canonical/_sources.yaml 的公開白名單視圖（sync_vortex.py 產生）。
+     檔案不存在時退回空 dict，讓頁面照樣建得起來，不整站 build 失敗。 */}}
+{{ $srcReg := dict }}
+{{ with index hugo.Data "vortex" "source-registry" }}{{ with .sources }}{{ $srcReg = . }}{{ end }}{{ end }}
+
 {{/* 泳式中文名與各式頁 slug：值域來自 canonical _taxonomy.yaml#stroke */}}
 {{ $strokeZh := dict "free" "自由式" "back" "仰式" "breast" "蛙式" "fly" "蝶式" "udk" "水下海豚腿" "starts-turns" "起跳轉身" "common" "共通" }}
 {{ $strokeSlug := dict "free" "freestyle" "back" "backstroke" "breast" "breaststroke" "fly" "butterfly" "udk" "underwater-dolphin-kick" "starts-turns" "starts-turns" }}
@@ -97,6 +102,11 @@
         {{ with $x.mechanism }}
         <span class="vx-block-label">解剖機制 {{ .certainty }}</span>
         <div class="vx-howto">{{ .text }}</div>
+        {{ with .source_ids }}
+        <p class="vx-cite"><span class="src">來源</span>
+          {{ range $si, $sid := . }}{{ if $si }}；{{ end }}{{ $s := index $srcReg $sid }}{{ if $s }}{{ $s.display }}{{ with $s.link }} <a href="{{ . }}" target="_blank" rel="noopener">↗</a>{{ end }}{{ if eq $s.verification_status "unverified" }} <span class="vx-src-unverified">未查證</span>{{ end }}{{ else }}{{ $sid }}{{ end }}{{ end }}
+        </p>
+        {{ end }}
         {{ end }}
 
         {{ with $x.practical_implication }}
