@@ -1,5 +1,36 @@
 # HANDOFF — my-site (Cortex)
 
+## 目前狀態（2026-08-28）
+
+### ✅ Vortex 骨關節章：`source_ids` 從機器鍵變成讀者看得到的來源（已部署）
+
+上游 canonical 一直用 `source_ids: [src.xxx]` 指向 `canonical/_sources.yaml`，這些 ID
+**同步過來了但網站上從未顯示**——讀者只看得到確定性色圓（🔵🟢🟡），無從得知
+「這句話依據哪一本書」。專案規範要求對外頁面能看出來源、確定性與未證範圍，這是缺口。
+
+`sync_vortex.py` 新增 `sync_source_registry()`，把 `_sources.yaml`（532 筆）轉成
+`data/vortex/source-registry.yaml`——**以 id 為 key 的 map**（讓 layout `index $reg $sid` 直接查）、
+只帶 `PUBLIC_SOURCE_FIELDS` 12 欄。三個設計決策的理由寫在 CLAUDE.md 新的「來源註冊表」節，
+擇要：白名單而非黑名單（canonical 的 `notes` 503 筆是維護者裁決註記，且日後還會加內部欄位）、
+`link` 五路優先序在 Python 這層算完（只有 ISBN 的書就沒 link，拼書店網址是編造）、
+layout 查不到 id 時印 id 本身（Hugo `index` 查不到回空字串且不報錯，沒 fallback 會**無聲消失**）。
+
+**目前只接了 `vortex-joints.html` 的 `mechanism.source_ids`**。`vortex-stroke.html` 的
+「深入機制」面板對全部技術卡通用（`technical-analysis.yaml` 有 251 處 `source_ids`），
+接上去等於一次點亮六個泳式頁的所有卡，需要獨立的視覺驗收——刻意留在範圍外，不是漏掉。
+
+順帶補上落後的 canonical 同步：`technical-analysis.yaml`（W1 的 13 張關節卡改寫成
+「解剖事實／泳姿推論／教練應用／尚待實測」四層，傷害推論降級為負荷描述）與
+`dryland.yaml`（柔軟度節改寫 + `src.neumann-2017`）。
+
+**驗收**：註冊表 532 筆、`notes` 外洩 **0**、有 link 210 / unverified 359；`hugo --gc` exit 0；
+joints 頁 13 條來源全渲染、raw `src.` ID **0**；`audit.js` **38/38**、`home_audit.js` **28/28**。
+commit `d0771d6`，另 `143960d` 清掉根目錄 8/18 遺留的四張 `_shot_*.png`。
+deploy run `33156717007` success，`curl` 實測公開站 13 條來源已呈現（不是只看 CI 綠燈）。
+
+`--vx-muted` 不存在，改用既有的 `--vx-sub`（#6B6B63，5.5:1 過 AA）；
+`--vx-faint`（#8A8A80）雖然色值更接近但約 3.0:1，套 0.85em 小字不合格。
+
 ## 目前狀態（2026-08-26）
 
 ### ✅ Cortex 首頁重建：四領域平面目次 → 任務入口＋領域索引（已部署）
