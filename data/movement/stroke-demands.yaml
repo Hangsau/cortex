@@ -2234,3 +2234,177 @@ demands:
   safety_note: '做推蹬與流線姿勢時若出現肩部、腰部、膝部疼痛、卡住、麻木、明顯無力 或不穩應停止，不要為了把手舉得更高或把身體伸得更直而勉強增加上舉 角度、改變肩胛位置或改變腰椎曲度。
 
     '
+- id: movement.demand.starts-turns.breakout.streamline-maintenance-and-deferred-head-lift
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: synthesis-inference
+  source_ids:
+  - src.neumann-2017
+  stroke: starts-turns
+  phase_model: descriptive
+  phase: breakout
+  body_position: prone
+  poolside_direction: 由池畔觀察，泳者由水下浮向水面時雙手仍保持交疊前伸、下巴貼近胸口不抬頭，直到第一划真正開始才分手（教學語稱「不要提前分手」「不要抬頭找水面」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - starts-turns.tech.44
+  action_ids:
+  - movement.action.shoulder-complex.horizontal-adduction
+  - movement.action.shoulder-complex.horizontal-abduction
+  - movement.action.shoulder-complex.elevation
+  - movement.action.elbow.flexion
+  - movement.action.elbow.extension
+  - movement.action.wrist-hand.flexion
+  - movement.action.wrist-hand.extension
+  - movement.action.trunk.flexion
+  - movement.action.trunk.extension
+  muscle_roles:
+  - muscle_id: movement.muscle.scapular-upward-rotators
+    role: '肩胛上迴旋肌群的作用線在解剖上可參與肩胛上迴旋方向的移動，以及 肩複合體上舉位的控制與維持；本筆不由雙手交疊前伸的外觀判定實際 招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.elbow-flexors
+    role: '肘屈肌群的作用線在解剖上可參與肘屈曲方向的移動、位置控制與維持； 本筆不由第一划手肘在身體內側發動的外觀判定實際招募時序、程度或 推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.elbow-extensors
+    role: '肘伸肌群的作用線在解剖上可參與肘伸展方向的移動、位置控制與維持； 本筆不由前伸手肘維持不彎的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.wrist-flexors
+    role: '腕屈肌群的作用線在解剖上可參與腕屈方向的移動，以及腕中立位置的 控制與維持；本筆不由指緊掌平的外觀判定實際招募時序、程度或 推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.wrist-extensors
+    role: '腕伸肌群的作用線在解剖上可參與腕伸方向的移動，以及腕中立位置的 控制與維持；本筆不由指緊掌平的外觀判定實際招募時序、程度或 推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.trunk-sagittal-controllers
+    role: '軀幹矢狀面控制肌群的作用線在解剖上可參與頸椎節段屈伸方向的移動、 位置控制與維持；本筆不由下巴貼胸與抬頭延後的外觀判定實際招募 時序、程度或推進貢獻。
+
+      '
+  name_zh: 出水過渡期的流線維持與頸椎伸展延後
+  description: '本相位素材裡可對到關節的四個要點，全部都是維持已達成的姿勢或延後 某個動作，沒有一個是在本相位新產生的動作。action_ids 列出的九個 動作裡，只有兩個是「做」，其餘七個記錄維持或不做；這串清單不能 讀成要在本相位依序產生九個動作。
+
+    池畔說「手不要太早分開」。解剖上，「維持交疊前伸不提前分手」是 肩複合體維持在水平內收位，同時維持上舉位並讓肘維持伸展。這三個 都是維持，不是在本相位新產生的動作；相關位置在更早的滑行相位 就已達成。
+
+    池畔說「指緊掌平」，解剖上記錄的是腕中立。action_ids 同時列出 movement.action.wrist-hand.flexion 與 movement.action.wrist-hand.extension，兩個都是記錄「不做」，不是 要在本相位做腕屈曲和腕伸展。腕中立是兩側都要避開的位置控制， 不是一個方向的動作。
+
+    池畔說「第一划手肘在身體內側、不外掃」，同一句話包含兩個性質 相反的成分：手肘在內側發動對到 movement.action.elbow.flexion， 這是做肘屈曲；不外掃對到 movement.action.shoulder-complex.horizontal-abduction，這是避免做 肩複合體水平外展。兩者性質不同，不能寫成「肘屈曲加肩水平外展」； 本筆只記錄避開外掃，不寫其後果。
+
+    池畔說「下巴貼胸到出水完成才抬頭」與「不要抬頭看前面」。解剖上， 前者是頸椎節段維持屈曲，action_ids 使用 movement.action.trunk.flexion，此處明確指頸椎節段；後者是延後 頸椎節段伸展，action_ids 使用 movement.action.trunk.extension， 此處同樣明確指頸椎節段。同一關節區域的兩個相反動作同時列出， 一個是維持、一個是延後，並不矛盾。「延後」是時間性質的要求， action_ids 沒有欄位可表達時間，不能只從動作清單讀出這層資訊。
+
+    素材中的「第一划與最後一下海豚下踢同步」與踢法切換時機，是兩個 不屬於本筆的時序要點，記錄在 udk.breakout；本筆只作指路，不重述 其內容。素材中的「第一划不換氣」則是呼吸決策，沒有關節內容， 任何一筆都不寫。
+
+    '
+  limitation_context: '肩複合體水平內收、上舉、肘伸展、腕中立與頸椎屈曲是五個獨立成分， 延後抬頭是第六個時間維度；池畔看到的「還沒破壞流線」是它們的合成， 不能指出限制位於哪一個關節，也不能由浮起的外觀判定任何一個成分 已經到位。第一划的推進內容、踢腿時序與呼吸決策都不在本筆。
+
+    '
+  safety_note: '維持頸椎屈曲與雙臂上舉位時若出現頸部、肩部、腰部疼痛、麻木、 上肢放射症狀、明顯無力或不穩應停止，不要為了維持下巴貼胸或手臂 夾緊的外觀而強行下壓下巴、增加上舉角度或憋住不動。
+
+    '
+- id: movement.demand.udk.breakout.terminal-down-kick-and-first-pull-junction
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: synthesis-inference
+  source_ids:
+  - src.neumann-2017
+  stroke: udk
+  phase_model: descriptive
+  phase: breakout
+  body_position: prone
+  poolside_direction: 由池畔觀察，泳者水下最後一次海豚踢向下打出的同時手臂開始第一划，兩者接在一起沒有空檔；踢腿幅度小、頻率高，臀部沒有大幅上下起伏（教學語稱「最後一踢接第一划」「不要有空窗」「屁股不要亂晃」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - starts-turns.tech.34
+  - starts-turns.tech.44
+  action_ids:
+  - movement.action.hip.flexion
+  - movement.action.knee.extension
+  - movement.action.ankle-foot.plantarflexion
+  muscle_roles:
+  - muscle_id: movement.muscle.hip-flexors
+    role: '髖屈肌群的作用線在解剖上可參與髖屈曲方向的移動、位置控制與維持； 本筆不由最後一次下踢的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.knee-extensors
+    role: '膝伸肌群的作用線在解剖上可參與膝伸展方向的移動、位置控制與維持； 本筆不由下踢末段膝部伸直的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.ankle-plantarflexors
+    role: '踝蹠屈肌群的作用線在解剖上可參與踝蹠屈方向的移動、位置控制與維持； 本筆不由最後一次下踢時足部的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.trunk-sagittal-controllers
+    role: '軀幹矢狀面控制肌群的作用線在解剖上可參與軀幹屈伸方向的移動、 位置控制與維持；本筆不由臀部固定的外觀判定實際招募時序、程度或 推進貢獻。
+
+      '
+  name_zh: 出水划手期的最後一次下踢，與「銜接」不是一個關節動作
+  description: '池畔說「最後一下海豚下踢」，看到腿往池底方向打，直覺容易命名為 伸展。解剖學動作名以解剖姿勢為基準；在俯臥姿勢下，大腿往池底方向 相對軀幹移動是髖屈曲，不是髖伸展。庫內既有方向命名也顯示，仰臥時 腿往水面移動同樣是髖屈曲，俯臥時腿往水面移動才是髖伸展。「往下」 與「往上」是池畔的空間語言，屈曲與伸展是解剖語言，兩者的對應完全 由軀幹的空間朝向決定，不能直接互換。這個對照只說明命名基準；本筆 只記錄素材所屬的俯臥情形，不描述也不推論仰臥出水。
+
+    下踢末段的膝伸展與踝蹠屈在池畔與解剖命名上相符。本筆只記錄下踢 末段的膝伸展；下踢前段的膝屈曲屬於下踢相位本身，庫內已有記錄， 本筆不重述。本筆也不寫三者誰先誰後或誰出力最多，因為出水段沒有 相位化肌電或關節角速度量測。
+
+    池畔說「最後一踢接第一划」「不要有空窗」，也就是最後一次海豚下踢 與第一划同步、不留空檔。這個「銜接」描述兩個事件在時間上的相對位置， 在 joint-local 框架下沒有任何一個關節動作能對應；把它壓成單一動作名 會丟失時序資訊。另一個要求是最後一次海豚踢完成之後才切換成該泳式的 踢法，同樣是時序，也沒有對應的關節動作。第一划本身的關節內容另記在 starts-turns.breakout；本筆只作指路，不重述、不改寫也不節錄。
+
+    池畔說「小幅高頻」，其中振幅是空間量，頻率是時間量，兩者都不是 可命名的關節動作，也不能反推任一關節的屈伸量；同一個可見振幅可以 由不同的髖膝分配組成。本筆不為「小幅高頻」指定任何關節動作。
+
+    池畔說「臀部固定」或「屁股不要亂晃」，描述的是髖活動幅度受到控制， 不是要做髖屈曲，也不是要做髖伸展。action_ids 刻意不列 movement.action.hip.extension；列入就會把限制幅度的素材誤寫成要求 本相位做髖伸展，並非本筆漏列。
+
+    '
+  limitation_context: '髖屈曲、膝伸展與踝蹠屈是三個獨立成分，它們與第一划之間的時間關係 是第四個維度，而該維度在本層沒有任何關節動作可以承載；池畔看到的 「接得很順」是這四者的合成，不能指出限制位於哪一個關節，更不能由 踢腿外觀判定銜接時序是否到位。踢腿振幅、頻率、出水速度與第一划的 推進內容都不在本筆。
+
+    '
+  safety_note: '做最後一次下踢與出水銜接時若出現腰背、髖部、膝部或踝部疼痛、麻木、 明顯無力或不穩應停止，不要為了把踢腿做得更快或把銜接接得更緊而 勉強增加踢腿幅度或改變腰椎曲度。
+
+    '
+- id: movement.demand.fly.entry-pause.position-maintenance-and-pause-naming-conflict
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: synthesis-inference
+  source_ids:
+  - src.neumann-2017
+  - src.riewald-rodeo-2015
+  stroke: fly
+  phase_model: descriptive
+  phase: entry-pause
+  body_position: prone
+  poolside_direction: 由池畔觀察，雙手入水之後手臂不再繼續往前衝，維持前伸位並有一段極短的停住；同時胸口往下沉、手腕微微向下折（教學語稱「入水後要停一下」「胸口壓下去」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - fly.tech.21
+  - fly.tech.1
+  action_ids:
+  - movement.action.shoulder-complex.elevation
+  - movement.action.wrist-hand.flexion
+  - movement.action.trunk.flexion
+  muscle_roles:
+  - muscle_id: movement.muscle.scapular-upward-rotators
+    role: '肩胛上迴旋肌群的作用線在解剖上可參與肩胛上迴旋方向的移動，以及 肩複合體上舉位的控制與維持；本筆不由手臂維持前伸的外觀判定實際 招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.wrist-flexors
+    role: '腕屈肌群的作用線在解剖上可參與腕屈方向的移動、位置控制與維持； 本筆不由手腕微微向下折的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.trunk-sagittal-controllers
+    role: '軀幹矢狀面控制肌群的作用線在解剖上可參與胸椎節段屈伸方向的移動、 位置控制與維持；本筆不由胸口往下沉的外觀判定實際招募時序、程度或 推進貢獻。
+
+      '
+  name_zh: 入水停頓期的位置維持，與「停頓」一詞的命名衝突
+  description: '停頓期能承載的關節內容首先是維持位置。手臂入水後維持在肩複合體 上舉位，這個位置在入水瞬間就已達成；本相位只是不去破壞它，並非 在停頓期新產生肩複合體上舉。
+
+    池畔說「胸口往下壓」，解剖上對到 movement.action.trunk.flexion， 此處明確指胸椎節段；若不標出胸椎節段便無法驗證。同時，池畔看到 「手腕微微向下折」，解剖上是 movement.action.wrist-hand.flexion， 也就是腕輕度屈曲，兩欄命名一致。
+
+    教材也會說「拇指先切入」，並用一個角度描述手切入水面時的朝向。 這是手相對水面的空間姿態，屬於池畔固定參考框架；本筆的 action_reference_frame 則是 joint-local。把這個朝向反推成肩內旋 或前臂旋前，是庫內已判定為無效的推論方式。同一手部朝向可以由 肩旋轉、前臂旋轉、腕位置與整個軀幹滾轉的不同組合產生，單一朝向 不能唯一決定任何一個關節的角度。因此 action_ids 刻意不列 movement.action.shoulder-complex.internal-rotation 與 movement.action.forearm.pronation；這不是漏列，而是禁止由空間朝向 反推關節旋轉。
+
+    「停頓」一詞在庫內有命名衝突。另一筆蝶式動力鏈記錄用「連續」描述 整個划水週期的速度結構，意指沒有蛙式那種明顯的滑行低谷；本筆的 「停頓」則描述入水瞬間的受控減速緩衝。兩者談的是不同時間尺度， 是同一個詞用在不同尺度造成的表面衝突，不是內容矛盾。本筆不裁決 哪一種說法較正確，也不建議改用哪個詞或暗示任一既有記錄需要修正。
+
+    入水瞬間的肩上舉平面與旋轉方向爭議已記錄在蝶式入水相位的既有記錄， 本筆只作指路，不重述、不改寫也不節錄。第一踢的關節內容與時序也已 記錄在蝶式第一踢的既有記錄；本筆不寫停頓對第一踢的任何影響，因為 那是力學後果與速度歸屬，不在本層。
+
+    '
+  limitation_context: '肩複合體上舉維持、胸椎屈曲與腕屈曲是三個獨立成分，它們在時間上的 持續長度是第四個維度，而本層沒有欄位可以承載；池畔看到的「停了一下」 是這四者的合成，不能指出限制位於哪一個關節。手部切入水面的空間朝向、 動量轉換的力學後果與對第一踢的影響都不在本筆，也不得由它們反推任何 關節角度。
+
+    '
+  safety_note: '做入水與停頓時若出現肩部、頸部、胸背部或腕部疼痛、麻木、明顯無力 或不穩應停止，不要為了做出停頓外觀或把胸口壓得更低而勉強增加上舉 角度、加大胸椎彎曲或用力折腕。
+
+    '
