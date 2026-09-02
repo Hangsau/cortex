@@ -1461,7 +1461,7 @@ demands:
   - movement.action.shoulder-complex.scapular-elevation
   muscle_roles:
   - muscle_id: movement.muscle.scapular-upward-rotators
-    role: '肩胛上迴旋肌群的作用線在解剖上可參與肩胛上迴旋方向的移動與位置 控制；本筆不由雙臂夾耳的外觀判定實際招募時序、程度或推進貢獻。
+    role: '肩胛上迴旋肌群的作用線在解剖上可參與肩胛上迴旋、後傾方向的移動 與位置控制；本筆不由雙臂夾耳的外觀判定實際招募時序、程度或推進貢獻。
 
       '
   - muscle_id: movement.muscle.scapular-elevators
@@ -1725,12 +1725,117 @@ demands:
 
     力學條件也不對稱，不只是命名鏡像。髖屈曲的可用範圍遠大於髖伸展， 所以俯臥上踢使用髖的窄邊，仰躺上踢使用髖的寬邊。同一句上踢幅度不足， 在兩種體位下要看的地方不一樣；本層只列出不對稱存在，不提供判別流程。
 
-    膝與踝不翻轉。膝只有屈曲方向可用，踝的蹠屈同理，所以兩種體位下的 解剖命名不變，改變的只是對應的池畔可見方向；不能把整段打腿描述鏡像。
+    膝與踝不翻轉。膝只有屈曲方向可用，踝的蹠屈同理，所以兩種體位下的 解剖命名不變，改變的只是對應的池畔可見方向。唯有髖與軀幹會發生 命名翻轉，因為只有它們在中立位兩側都有可用範圍；不能把整段打腿 描述鏡像。
 
     '
   limitation_context: '髖屈曲、膝伸展與踝蹠屈各自獨立；池畔看到的上踢外觀在兩種體位下 看起來一樣但解剖內容不同，所以任何以池畔外觀建立的判讀，若沒有先 記錄體位，就無法對應到關節。本筆不提供任何幅度目標或角度門檻。
 
     '
   safety_note: '仰躺姿勢下上踢時若出現髖前側、下背、膝或小腿疼痛、抽筋、麻木、 明顯無力或不穩應停止，不要為了加大幅度而讓腰部反折。
+
+    '
+- id: movement.demand.free.catch.elevation-plane-shift-with-rotation-onset
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  stroke: free
+  phase_model: descriptive
+  phase: catch
+  body_position: prone
+  poolside_direction: 由池畔觀察，前伸的手臂開始向外側分開並轉向下方，肘部由較直轉為彎曲（教學語稱「抓水」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - free.tech.28
+  - free.tech.9
+  action_ids:
+  - movement.action.shoulder-complex.elevation
+  - movement.action.shoulder-complex.horizontal-abduction
+  - movement.action.shoulder-complex.internal-rotation
+  - movement.action.elbow.flexion
+  muscle_roles:
+  - muscle_id: movement.muscle.scapular-upward-rotators
+    role: '肩胛上旋肌群的作用線在解剖上可參與肩胛上旋方向的移動與位置控制； 本筆不由手臂向外側分開的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.rotator-cuff
+    role: '旋轉肌袖的作用線在解剖上可參與肱骨上舉與軸向旋轉方向的移動及 盂肱關節位置控制；本筆不由手臂轉向下方的外觀判定實際招募時序、 程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.elbow-flexors
+    role: '肘屈肌群的作用線在解剖上可參與肘屈曲方向的移動與位置控制；本筆 不由肘部由較直轉為彎曲的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  name_zh: 自由式抓水期的上舉平面移動與旋轉起始
+  description: '「由屈曲轉為外展」不是關節角度改變。解剖來源明說，把手臂舉過頭 這個動作，在接近矢狀面時被非正式地稱為屈曲，在接近額狀面或肩胛 平面時被非正式地稱為外展。這是同一個上舉動作的兩個名字，差別在 上舉所處的平面，而且來源本身也把這種用法標注為非正式。
+
+    正確描述是上舉平面由矢狀面移向肩胛平面或額狀面。若手臂已在接近 上舉一半的高度，該平面內的向後移動應改稱水平外展；這個名稱的定義 綁在上舉一半的起始位置。action_ids 同時列出上舉與水平外展，是因為 抓水期橫跨這個界線，適用哪一個名稱取決於當下的上舉高度；本層列舉 兩者，不裁定切換點。
+
+    「開始內旋」這半句成立。內旋是肱骨繞縱軸的動作，與上舉平面是 互相獨立的兩個軸，可以同時發生；肘開始屈曲也成立。
+
+    根因是欄位缺口，不是命名錯誤。原表用「屈曲／外展」單一欄位承載 一個三維動作，缺少獨立的「上舉平面」欄位；只要相位跨越平面， 同一缺陷就會在其他相位重複出現。治本方向是把上舉平面設為獨立 欄位，不是換一個更準的單字。
+
+    '
+  limitation_context: '本筆只承載命名與欄位結構，不含推進歸屬，也不含「高肘抓水／EVF」 的任何內容；後者涉及前臂朝向與推進假設，不在本層。derived_from_ids 指向的兩條記錄描述同一相位，但其流體與推進主張不由本筆繼承。
+
+    '
+  safety_note: '動作中若出現疼痛、卡住、麻木、明顯無力或不穩，應停止，不要勉強 改變手臂方向或增加動作範圍。
+
+    '
+- id: movement.demand.free.catch.palm-orientation-three-source-decomposition
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  stroke: free
+  phase_model: descriptive
+  phase: catch
+  body_position: prone
+  poolside_direction: 由池畔或水下窗觀察，抓水期的掌心轉為朝向後下方（教學語稱「立掌」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - free.tech.28
+  - free.tech.9
+  action_ids:
+  - movement.action.shoulder-complex.internal-rotation
+  - movement.action.forearm.pronation
+  - movement.action.forearm.supination
+  - movement.action.wrist-hand.flexion
+  - movement.action.wrist-hand.extension
+  muscle_roles:
+  - muscle_id: movement.muscle.shoulder-internal-rotator-extensors
+    role: '肩內旋伸展肌群的作用線在解剖上可參與肱骨內旋方向的移動與位置 控制；本筆不由掌心朝向後下方的外觀判定實際招募時序、程度或 推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.forearm-pronators
+    role: '前臂旋前肌群的作用線在解剖上可參與前臂旋前方向的移動與位置控制； 本筆不由掌心朝向後下方的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.forearm-supinators
+    role: '前臂旋後肌群的作用線在解剖上可參與前臂旋後方向的移動與位置控制； 本筆不由掌心朝向後下方的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.wrist-flexors
+    role: '腕屈肌群的作用線在解剖上可參與腕屈方向的移動與位置控制；本筆 不由掌心朝向後下方的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  name_zh: 掌心空間朝向與前臂關節位置是兩個欄位
+  description: '「手掌朝後下方」不能當成「前臂旋前」的證據，這是本筆的全部要點。 教材把可觀察的掌心朝向寫在括號裡，當作關節動作的依據；這個推論 在解剖學上不成立。
+
+    掌心在空間中的朝向是三個獨立來源的合成：肱骨繞縱軸的軸向旋轉、 前臂的旋前旋後，以及腕關節的位置。三者各自都能改變掌心朝向， 單看掌心無法分辨改變來自哪一個。
+
+    解剖來源直接示範過這件事：當手被固定時，看起來像旋前旋後的運動學 本質上可以是盂肱關節主動外旋與內旋的表現。也就是說，同一個掌心 朝向可以完全由肩關節旋轉達成，前臂完全不動。這正是 action_ids 同時列旋前與旋後、同時列腕屈與腕伸的理由；本筆列舉的是能產生 這個觀察值的關節位置組合，不是宣告抓水期處於哪一個方向。
+
+    本層不宣告「前臂旋前」為假。原主張未必錯，本層宣告的是「由掌心 朝向推不出它」。前者是在判定是否為真，後者是指出依據不成立； 把這項裁決寫成教材寫錯了，就超出本層。
+
+    根因是欄位缺口：原表沒有把空間朝向與關節位置分欄。治本方向是拆成 兩欄，手掌空間朝向是池畔可記的觀察值；前臂關節位置則分為旋前、 中立與旋後，需以前臂本身的參考標記或影像另行判定。凡以手掌朝向 反推關節動作的地方都會複製同一個錯，不只抓水期這一處。
+
+    '
+  limitation_context: '本筆只處理「觀察值與關節欄位的對應關係」，不含推進歸屬、不含手部 與手指配置的流體內容；後者涉及流體假設，不在本層。本筆也不含高肘 與 EVF。derived_from_ids 指向的兩條記錄描述同一相位，但其流體與 推進主張不由本筆繼承，也不包含「應該旋前多少」這類門檻。
+
+    '
+  safety_note: '動作中若出現疼痛、卡住、麻木、明顯無力或不穩，應停止。不要為了 做出特定的掌心朝向而勉強改變肩或前臂的旋轉位置。
 
     '
