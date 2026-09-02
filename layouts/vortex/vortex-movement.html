@@ -1,0 +1,443 @@
+{{ define "vortex-movement-honesty" }}
+{{ $item := .item }}
+{{ $claimStatusZh := .claimStatusZh }}
+{{ $actionStatusZh := .actionStatusZh }}
+{{ $evidenceProfileZh := .evidenceProfileZh }}
+{{ if or $item.claim_status $item.action_status $item.evidence_profile }}
+<div class="vx-mv-honesty" aria-label="誠實標記">
+  {{ with $item.claim_status }}
+  {{ $label := index $claimStatusZh . }}{{ if not $label }}{{ $label = . }}{{ end }}
+  <span class="vx-mv-marker"><span class="vx-mv-marker-key">主張</span><span class="vx-mv-marker-value">{{ $label }}</span></span>
+  {{ end }}
+  {{ with $item.action_status }}
+  {{ $label := index $actionStatusZh . }}{{ if not $label }}{{ $label = . }}{{ end }}
+  <span class="vx-mv-marker{{ if eq . "do-not-prescribe" }} vx-mv-marker--stop{{ end }}"><span class="vx-mv-marker-key">行動</span><span class="vx-mv-marker-value">{{ $label }}</span></span>
+  {{ end }}
+  {{ with $item.evidence_profile }}
+  {{ $label := index $evidenceProfileZh . }}{{ if not $label }}{{ $label = . }}{{ end }}
+  <span class="vx-mv-marker"><span class="vx-mv-marker-key">證據</span><span class="vx-mv-marker-value">{{ $label }}</span></span>
+  {{ end }}
+</div>
+{{ end }}
+{{ end }}
+
+{{ define "vortex-movement-source-line" }}
+{{ $ids := .ids }}
+{{ $srcReg := .registry }}
+{{ $label := .label }}
+{{ with $ids }}
+<p class="vx-cite"><span class="src">{{ $label }}</span>
+  {{ range $si, $sid := . }}{{ if $si }}；{{ end }}{{ $s := index $srcReg $sid }}{{ if $s }}{{ with $s.display }}{{ . }}{{ else }}{{ $sid }}{{ end }}{{ with $s.link }} <a href="{{ . }}" target="_blank" rel="noopener">↗</a>{{ end }}{{ with $s.verification_status }}{{ if eq . "unverified" }} <span class="vx-src-unverified">未查證</span>{{ end }}{{ end }}{{ else }}{{ $sid }}{{ end }}{{ end }}
+</p>
+{{ end }}
+{{ end }}
+
+{{ define "head-extra" }}
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+TC:wght@400;500;600;700&family=Quattrocento+Sans:wght@400;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex-nav.css">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex-movement.css">
+{{ end }}
+
+{{ define "main" }}
+{{ $jointRegionZh := dict "shoulder-arm" "肩・臂" "spine-neck" "脊柱・頸" "hip-knee" "髖・膝" "ankle-foot" "踝・足" }}
+{{ $strokeZh := dict "free" "自由式" "back" "仰式" "breast" "蛙式" "fly" "蝶式" "udk" "水下海豚腿" "starts-turns" "起跳轉身" "common" "共通" }}
+{{ $phaseModelZh := dict "descriptive" "描述式分期" "heinlein-2010-phases" "Heinlein 2010 分期" "kudo-power-phase" "Kudo 動力相" "race-club-6phase" "Race Club 六相" }}
+{{ $claimStatusZh := dict "supported" "有來源支持" "partially-supported" "部分支持" "contested" "有爭議" "unsupported" "無來源" }}
+{{ $actionStatusZh := dict "ready" "可用" "provisional" "暫定" "do-not-prescribe" "不得處方" }}
+{{ $evidenceProfileZh := dict "anatomy" "解剖推導" "swimming-emg" "游泳 EMG" "swimming-kinematics" "游泳運動學" "intervention" "介入研究" "practice-observation" "教學觀察" "synthesis-inference" "綜合推論" }}
+{{ $mobilityDecisionZh := dict "routine" "常規" "conditional" "有條件" "not-routine" "非常規" }}
+{{ $referenceFrameZh := dict "joint-local" "關節局部座標" "body-fixed" "體固定座標" "poolside-fixed" "池畔固定座標" }}
+
+{{ $actions := slice }}
+{{ $muscles := slice }}
+{{ $demands := slice }}
+{{ $interventions := slice }}
+{{ with index hugo.Data "movement" }}
+  {{ with index . "actions" }}{{ with .actions }}{{ $actions = . }}{{ end }}{{ end }}
+  {{ with index . "muscle-groups" }}{{ with .muscle_groups }}{{ $muscles = . }}{{ end }}{{ end }}
+  {{ with index . "stroke-demands" }}{{ with .demands }}{{ $demands = . }}{{ end }}{{ end }}
+  {{ with index . "interventions" }}{{ with .interventions }}{{ $interventions = . }}{{ end }}{{ end }}
+{{ end }}
+
+{{ $srcReg := dict }}
+{{ with index hugo.Data "vortex" "source-registry" }}{{ with .sources }}{{ $srcReg = . }}{{ end }}{{ end }}
+
+{{ $actionRegions := slice }}
+{{ range $actions }}
+  {{ with .joint_region }}{{ $actionRegions = $actionRegions | append . }}{{ else }}{{ $actionRegions = $actionRegions | append "__missing__" }}{{ end }}
+{{ end }}
+{{ $actionRegions = $actionRegions | uniq }}
+
+{{ $muscleRegions := slice }}
+{{ range $muscles }}
+  {{ $hasRegion := false }}
+  {{ with .joint_regions }}
+    {{ range . }}{{ with . }}{{ $muscleRegions = $muscleRegions | append . }}{{ $hasRegion = true }}{{ end }}{{ end }}
+  {{ end }}
+  {{ if not $hasRegion }}{{ $muscleRegions = $muscleRegions | append "__missing__" }}{{ end }}
+{{ end }}
+{{ $muscleRegions = $muscleRegions | uniq }}
+
+{{ $demandStrokes := slice }}
+{{ range $demands }}
+  {{ with .stroke }}{{ $demandStrokes = $demandStrokes | append . }}{{ else }}{{ $demandStrokes = $demandStrokes | append "__missing__" }}{{ end }}
+{{ end }}
+{{ $demandStrokes = $demandStrokes | uniq }}
+
+{{ $total := add (add (len $actions) (len $muscles)) (add (len $demands) (len $interventions)) }}
+
+<div class="vx-shell">
+  {{ partial "vortex/sidebar.html" (dict "ctx" . "current" "movement") }}
+  <div class="vx-stroke-wrap vx-doc">
+    <aside class="vx-rail vx-rail--collapsible">
+      <div class="vx-rail-head">
+        <span class="vx-mv-rail-title">動作圖譜</span>
+      </div>
+
+      <div class="vx-rail-scroll">
+        <ul class="vx-rail-list">
+          <li><a class="vx-navlink vx-navlink--top" href="#overview" data-spy="overview">◆ 這章在做什麼</a></li>
+        </ul>
+      </div>
+
+      {{ if gt (len $actions) 0 }}
+      <div class="vx-rail-theme" data-theme="movement-actions">
+        <button class="vx-rail-theme-head" type="button" data-theme-toggle="movement-actions" aria-expanded="false">
+          <span class="vx-rail-theme-top">
+            <span class="vx-rail-theme-caret" aria-hidden="true"></span>
+            <span class="vx-rail-theme-name">動作</span>
+            <span class="vx-rail-theme-count">{{ len $actions }}</span>
+          </span>
+        </button>
+        <div class="vx-rail-scroll">
+          <ul class="vx-rail-list">
+            {{ range $i, $x := $actions }}
+            {{ $anchor := printf "movement-action-%d" $i }}{{ with $x.id }}{{ $anchor = . }}{{ end }}
+            {{ $label := $anchor }}{{ with $x.id }}{{ $label = . }}{{ end }}{{ with $x.name }}{{ $label = . }}{{ end }}{{ with $x.name_zh }}{{ $label = . }}{{ end }}
+            <li><a class="vx-navlink" href="#{{ $anchor }}" data-spy="{{ $anchor }}" data-theme="movement-actions">{{ $label }}</a></li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+      {{ end }}
+
+      {{ if gt (len $muscles) 0 }}
+      <div class="vx-rail-theme" data-theme="movement-muscles">
+        <button class="vx-rail-theme-head" type="button" data-theme-toggle="movement-muscles" aria-expanded="false">
+          <span class="vx-rail-theme-top">
+            <span class="vx-rail-theme-caret" aria-hidden="true"></span>
+            <span class="vx-rail-theme-name">肌群</span>
+            <span class="vx-rail-theme-count">{{ len $muscles }}</span>
+          </span>
+        </button>
+        <div class="vx-rail-scroll">
+          <ul class="vx-rail-list">
+            {{ range $i, $x := $muscles }}
+            {{ $anchor := printf "movement-muscle-%d" $i }}{{ with $x.id }}{{ $anchor = . }}{{ end }}
+            {{ $label := $anchor }}{{ with $x.id }}{{ $label = . }}{{ end }}{{ with $x.name }}{{ $label = . }}{{ end }}{{ with $x.name_zh }}{{ $label = . }}{{ end }}
+            <li><a class="vx-navlink" href="#{{ $anchor }}" data-spy="{{ $anchor }}" data-theme="movement-muscles">{{ $label }}</a></li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+      {{ end }}
+
+      {{ if gt (len $demands) 0 }}
+      <div class="vx-rail-theme" data-theme="movement-demands">
+        <button class="vx-rail-theme-head" type="button" data-theme-toggle="movement-demands" aria-expanded="false">
+          <span class="vx-rail-theme-top">
+            <span class="vx-rail-theme-caret" aria-hidden="true"></span>
+            <span class="vx-rail-theme-name">泳式需求</span>
+            <span class="vx-rail-theme-count">{{ len $demands }}</span>
+          </span>
+        </button>
+        <div class="vx-rail-scroll">
+          <ul class="vx-rail-list">
+            {{ range $i, $x := $demands }}
+            {{ $anchor := printf "movement-demand-%d" $i }}{{ with $x.id }}{{ $anchor = . }}{{ end }}
+            {{ $label := $anchor }}{{ with $x.id }}{{ $label = . }}{{ end }}{{ with $x.name }}{{ $label = . }}{{ end }}{{ with $x.name_zh }}{{ $label = . }}{{ end }}
+            <li><a class="vx-navlink" href="#{{ $anchor }}" data-spy="{{ $anchor }}" data-theme="movement-demands">{{ $label }}</a></li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+      {{ end }}
+
+      {{ if gt (len $interventions) 0 }}
+      <div class="vx-rail-theme" data-theme="movement-interventions">
+        <button class="vx-rail-theme-head" type="button" data-theme-toggle="movement-interventions" aria-expanded="false">
+          <span class="vx-rail-theme-top">
+            <span class="vx-rail-theme-caret" aria-hidden="true"></span>
+            <span class="vx-rail-theme-name">介入</span>
+            <span class="vx-rail-theme-count">{{ len $interventions }}</span>
+          </span>
+        </button>
+        <div class="vx-rail-scroll">
+          <ul class="vx-rail-list">
+            {{ range $i, $x := $interventions }}
+            {{ $anchor := printf "movement-intervention-%d" $i }}{{ with $x.id }}{{ $anchor = . }}{{ end }}
+            {{ $label := $anchor }}{{ with $x.id }}{{ $label = . }}{{ end }}{{ with $x.name }}{{ $label = . }}{{ end }}{{ with $x.name_zh }}{{ $label = . }}{{ end }}
+            <li><a class="vx-navlink" href="#{{ $anchor }}" data-spy="{{ $anchor }}" data-theme="movement-interventions">{{ $label }}</a></li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+      {{ end }}
+    </aside>
+
+    <main class="vx-panels">
+      <section class="vx-panel vx-overview" id="overview">
+        <span class="vx-sec-no">動作圖譜</span>
+        <h2>關節、肌群、泳式與介入怎麼接起來</h2>
+        <p class="vx-premise">先從關節能完成的動作建立共同語言，再列出哪些肌群參與這些動作；接著把它們放回特定泳式與分期，列出那個相位牽涉到什麼。介入層則列舉已知的限制種類，以及各自在什麼情況適用、什麼情況不適用。</p>
+        <p class="vx-read-howto">這是一份<strong>列舉式的圖譜，不是裁定書</strong>。它列出「牽涉到什麼」與「可能的狀況有哪些」，不判定某個相位是誰主導或各出多少力，不判定某個泳者是被哪個結構限制，也不規定要練到什麼程度才算達標——那些判斷需要現場觀察，資料層給不出來。動作與肌群描述一般能力，泳式需求把能力放進明確情境，介入則必須連同適用條件、停止條件與尚未解決的邊界一起讀。</p>
+
+        <span class="vx-block-label">怎麼讀誠實標記</span>
+        <div class="vx-howto">
+          <p><strong>主張狀態（claim_status）</strong>說明這句話獲得多少來源支持；<strong>行動狀態（action_status）</strong>說明它能否進入實作，其中「不得處方（do-not-prescribe）」表示這條不得當成處方使用；<strong>證據輪廓（evidence_profile）</strong>則交代判斷主要來自解剖、泳者量測、介入研究、教學觀察或綜合推論。三者分開標，是為了避免把「有道理」「有研究」與「可以直接拿來做」混成同一件事。</p>
+        </div>
+
+        <span class="vx-block-label">目前收錄到哪裡</span>
+        <div class="vx-mv-coverage">
+          <p>泳式需求這一層目前覆蓋 <strong>13 / 58</strong> 個相位：自由式 4/11、蛙式 4/9、蝶式 3/11、水下海豚腿 1/7、起跳轉身 1/13、<strong>仰式 0/7</strong>。</p>
+          <p>沒有列出的相位代表<strong>這批還沒蒐證到</strong>，不是判定那裡沒有需求、也不是判定它不重要。收錄的條件是該相位已經有經過裁決的證據可依據；沒有依據就不寫，是為了不讓空白被讀成結論。</p>
+        </div>
+
+        {{ if eq $total 0 }}
+        <div class="vx-mv-unpublished" role="status">
+          <strong>資料尚未同步</strong>
+          <p>本章的動作、肌群、泳式需求與介入資料已在 canonical 完成撰寫並開放發布，但本站的 <code>data/movement/</code> 要等下一次同步才會生成，因此目前暫不顯示條目。這是同步流程的先後順序，不代表內容不存在。</p>
+        </div>
+        {{ end }}
+      </section>
+
+      {{ if gt (len $actions) 0 }}
+      <section class="vx-mv-section" id="actions">
+        <header class="vx-mv-section-head">
+          <span class="vx-sec-no">第一層</span>
+          <h2>動作</h2>
+        </header>
+        {{ range $region := $actionRegions }}
+        {{ $regionLabel := "未標示部位" }}
+        {{ if ne $region "__missing__" }}{{ $regionLabel = index $jointRegionZh $region }}{{ if not $regionLabel }}{{ $regionLabel = $region }}{{ end }}{{ end }}
+        {{ $groupActions := slice }}
+        {{ range $ai, $x := $actions }}
+          {{ $itemRegion := "__missing__" }}{{ with $x.joint_region }}{{ $itemRegion = . }}{{ end }}
+          {{ if eq $itemRegion $region }}{{ $groupActions = $groupActions | append (dict "record" $x "index" $ai) }}{{ end }}
+        {{ end }}
+        {{ if gt (len $groupActions) 0 }}
+        <div class="vx-mv-group">
+          <h3 class="vx-mv-group-title">{{ $regionLabel }}</h3>
+          {{ range $member := $groupActions }}
+          {{ $x := $member.record }}{{ $ai := $member.index }}
+          {{ $anchor := printf "movement-action-%d" $ai }}{{ with $x.id }}{{ $anchor = . }}{{ end }}
+          {{ $title := printf "未命名動作 %d" (add $ai 1) }}{{ with $x.id }}{{ $title = . }}{{ end }}{{ with $x.name }}{{ $title = . }}{{ end }}{{ with $x.name_zh }}{{ $title = . }}{{ end }}
+          <article class="vx-panel vx-mv-entry" id="{{ $anchor }}">
+            <span class="vx-sec-no">{{ $regionLabel }}</span>
+            <h2>{{ $title }}</h2>
+            {{ template "vortex-movement-honesty" (dict "item" $x "claimStatusZh" $claimStatusZh "actionStatusZh" $actionStatusZh "evidenceProfileZh" $evidenceProfileZh) }}
+
+            {{ with $x.description }}<p class="vx-howto">{{ . }}</p>{{ end }}
+            {{ with $x.definition }}<span class="vx-block-label">動作定義</span><div class="vx-howto">{{ . }}</div>{{ end }}
+
+            {{ if or $x.plane $x.axis }}
+            <div class="vx-mv-pair">
+              {{ with $x.plane }}<div><span class="vx-block-label">平面</span><p>{{ delimit . "、" }}</p></div>{{ end }}
+              {{ with $x.axis }}<div><span class="vx-block-label">軸線</span><p>{{ delimit . "、" }}</p></div>{{ end }}
+            </div>
+            {{ end }}
+
+            {{ with $x.observable_boundaries }}<span class="vx-block-label">可觀察邊界</span><div class="vx-boundary">{{ . }}</div>{{ end }}
+            {{ with $x.general_anatomical_capacity }}<span class="vx-block-label">一般解剖能力</span><div class="vx-howto">{{ . }}</div>{{ end }}
+            {{ with $x.aliases }}<p class="vx-mv-aliases"><span>別名</span>{{ delimit . "、" }}</p>{{ end }}
+            {{ with $x.safety_note }}<div class="vx-mv-safety-note"><strong>安全提醒</strong><p>{{ . }}</p></div>{{ end }}
+            {{ template "vortex-movement-source-line" (dict "ids" $x.source_ids "registry" $srcReg "label" "來源") }}
+          </article>
+          {{ end }}
+        </div>
+        {{ end }}
+        {{ end }}
+      </section>
+      {{ end }}
+
+      {{ if gt (len $muscles) 0 }}
+      <section class="vx-mv-section" id="muscles">
+        <header class="vx-mv-section-head">
+          <span class="vx-sec-no">第二層</span>
+          <h2>肌群</h2>
+        </header>
+        {{ $muscleSeen := newScratch }}
+        {{ range $region := $muscleRegions }}
+        {{ $regionLabel := "未標示部位" }}
+        {{ if ne $region "__missing__" }}{{ $regionLabel = index $jointRegionZh $region }}{{ if not $regionLabel }}{{ $regionLabel = $region }}{{ end }}{{ end }}
+        {{ $groupMuscles := slice }}
+        {{ range $mi, $x := $muscles }}
+          {{ $belongs := false }}{{ $hasRegion := false }}
+          {{ with $x.joint_regions }}
+            {{ range . }}{{ with . }}{{ $hasRegion = true }}{{ if eq . $region }}{{ $belongs = true }}{{ end }}{{ end }}{{ end }}
+          {{ end }}
+          {{ if and (not $hasRegion) (eq $region "__missing__") }}{{ $belongs = true }}{{ end }}
+          {{ if $belongs }}{{ $groupMuscles = $groupMuscles | append (dict "record" $x "index" $mi) }}{{ end }}
+        {{ end }}
+        {{ if gt (len $groupMuscles) 0 }}
+        <div class="vx-mv-group">
+          <h3 class="vx-mv-group-title">{{ $regionLabel }}</h3>
+          {{ range $member := $groupMuscles }}
+          {{ $x := $member.record }}{{ $mi := $member.index }}
+          {{ $muscleKey := printf "__record-%d" $mi }}{{ $baseAnchor := printf "movement-muscle-%d" $mi }}
+          {{ with $x.id }}{{ $muscleKey = . }}{{ $baseAnchor = . }}{{ end }}
+          {{ $anchor := $baseAnchor }}{{ $seen := $muscleSeen.Get $muscleKey }}
+          {{ if $seen }}{{ $anchor = printf "%s--%s" $baseAnchor ($region | urlize) }}{{ else }}{{ $muscleSeen.Set $muscleKey true }}{{ end }}
+          {{ $title := printf "未命名肌群 %d" (add $mi 1) }}{{ with $x.id }}{{ $title = . }}{{ end }}{{ with $x.name }}{{ $title = . }}{{ end }}{{ with $x.name_zh }}{{ $title = . }}{{ end }}
+          <article class="vx-panel vx-mv-entry" id="{{ $anchor }}">
+            <span class="vx-sec-no">{{ $regionLabel }}</span>
+            <h2>{{ $title }}</h2>
+            {{ template "vortex-movement-honesty" (dict "item" $x "claimStatusZh" $claimStatusZh "actionStatusZh" $actionStatusZh "evidenceProfileZh" $evidenceProfileZh) }}
+
+            {{ with $x.description }}<p class="vx-howto">{{ . }}</p>{{ end }}
+            {{ with $x.cross_joint_characteristics }}<span class="vx-block-label">跨關節特性</span><div class="vx-howto">{{ . }}</div>{{ end }}
+            {{ with $x.general_capabilities }}<span class="vx-block-label">一般能力</span><div class="vx-howto">{{ . }}</div>{{ end }}
+
+            {{ with $x.roles }}
+            <span class="vx-block-label">角色與適用邊界</span>
+            <ul class="vx-mv-roles">
+              {{ range . }}{{ if or .name .boundary }}
+              <li>{{ with .name }}<strong>{{ . }}</strong>{{ end }}{{ with .boundary }}<p class="vx-mv-role-boundary">{{ . }}</p>{{ end }}</li>
+              {{ end }}{{ end }}
+            </ul>
+            {{ end }}
+
+            {{ with $x.aliases }}<p class="vx-mv-aliases"><span>別名</span>{{ delimit . "、" }}</p>{{ end }}
+            {{ with $x.safety_note }}<div class="vx-mv-safety-note"><strong>安全提醒</strong><p>{{ . }}</p></div>{{ end }}
+            {{ template "vortex-movement-source-line" (dict "ids" $x.source_ids "registry" $srcReg "label" "來源") }}
+          </article>
+          {{ end }}
+        </div>
+        {{ end }}
+        {{ end }}
+      </section>
+      {{ end }}
+
+      {{ if gt (len $demands) 0 }}
+      <section class="vx-mv-section" id="demands">
+        <header class="vx-mv-section-head">
+          <span class="vx-sec-no">第三層</span>
+          <h2>泳式需求</h2>
+        </header>
+        {{ range $stroke := $demandStrokes }}
+        {{ $strokeLabel := "未標示泳式" }}
+        {{ if ne $stroke "__missing__" }}{{ $strokeLabel = index $strokeZh $stroke }}{{ if not $strokeLabel }}{{ $strokeLabel = $stroke }}{{ end }}{{ end }}
+        {{ $groupDemands := slice }}
+        {{ range $di, $x := $demands }}
+          {{ $itemStroke := "__missing__" }}{{ with $x.stroke }}{{ $itemStroke = . }}{{ end }}
+          {{ if eq $itemStroke $stroke }}{{ $groupDemands = $groupDemands | append (dict "record" $x "index" $di) }}{{ end }}
+        {{ end }}
+        {{ if gt (len $groupDemands) 0 }}
+        <div class="vx-mv-group">
+          <h3 class="vx-mv-group-title">{{ $strokeLabel }}</h3>
+          {{ range $member := $groupDemands }}
+          {{ $x := $member.record }}{{ $di := $member.index }}
+          {{ $anchor := printf "movement-demand-%d" $di }}{{ with $x.id }}{{ $anchor = . }}{{ end }}
+          {{ $title := printf "未命名泳式需求 %d" (add $di 1) }}{{ with $x.id }}{{ $title = . }}{{ end }}{{ with $x.name }}{{ $title = . }}{{ end }}{{ with $x.name_zh }}{{ $title = . }}{{ end }}
+          <article class="vx-panel vx-mv-entry" id="{{ $anchor }}">
+            <span class="vx-sec-no">{{ $strokeLabel }}</span>
+            <h2>{{ $title }}</h2>
+
+            {{ if and $x.phase $x.phase_model }}
+            {{ $phaseModelLabel := index $phaseModelZh $x.phase_model }}{{ if not $phaseModelLabel }}{{ $phaseModelLabel = $x.phase_model }}{{ end }}
+            <div class="vx-mv-phase"><span>相位</span><strong>{{ $x.phase }}</strong><span>{{ $phaseModelLabel }}</span></div>
+            {{ end }}
+
+            {{ template "vortex-movement-honesty" (dict "item" $x "claimStatusZh" $claimStatusZh "actionStatusZh" $actionStatusZh "evidenceProfileZh" $evidenceProfileZh) }}
+            {{ with $x.description }}<p class="vx-howto">{{ . }}</p>{{ end }}
+
+            {{ if or $x.body_position $x.action_reference_frame }}
+            <dl class="vx-mv-facts">
+              {{ with $x.body_position }}<div><dt>身體位置</dt><dd>{{ . }}</dd></div>{{ end }}
+              {{ with $x.action_reference_frame }}{{ $frameLabel := index $referenceFrameZh . }}{{ if not $frameLabel }}{{ $frameLabel = . }}{{ end }}<div><dt>動作參考座標</dt><dd>{{ $frameLabel }}</dd></div>{{ end }}
+            </dl>
+            {{ end }}
+
+            {{ with $x.poolside_direction }}<span class="vx-block-label">池畔可觀察到什麼</span><div class="vx-howto">{{ . }}</div>{{ end }}
+            {{ with $x.limitation_context }}<span class="vx-block-label">限制情境</span><div class="vx-boundary">{{ . }}</div>{{ end }}
+
+            {{ if or $x.action_ids $x.muscle_roles }}
+            <div class="vx-mv-ref-grid">
+              {{ with $x.action_ids }}
+              <div><span class="vx-block-label">相關動作</span><ul class="vx-mv-refs">{{ range . }}{{ with . }}<li><a href="#{{ . }}">{{ . }}</a></li>{{ end }}{{ end }}</ul></div>
+              {{ end }}
+              {{ with $x.muscle_roles }}
+              <div><span class="vx-block-label">肌群角色</span><ul class="vx-mv-refs">{{ range . }}{{ if or .muscle_id .role }}<li>{{ with .muscle_id }}<a href="#{{ . }}">{{ . }}</a>{{ end }}{{ with .role }}<span>{{ . }}</span>{{ end }}</li>{{ end }}{{ end }}</ul></div>
+              {{ end }}
+            </div>
+            {{ end }}
+
+            {{ with $x.derived_from_ids }}<p class="vx-mv-derived"><span>技術卡依據</span>{{ delimit . "、" }}</p>{{ end }}
+            {{ with $x.measurement_conditions }}<div class="vx-mv-measurement"><strong>量測條件與外推邊界</strong><p>{{ . }}</p></div>{{ end }}
+            {{ with $x.safety_note }}<div class="vx-mv-safety-note"><strong>安全提醒</strong><p>{{ . }}</p></div>{{ end }}
+            {{ template "vortex-movement-source-line" (dict "ids" $x.source_ids "registry" $srcReg "label" "來源") }}
+          </article>
+          {{ end }}
+        </div>
+        {{ end }}
+        {{ end }}
+      </section>
+      {{ end }}
+
+      {{ if gt (len $interventions) 0 }}
+      <section class="vx-mv-section" id="interventions">
+        <header class="vx-mv-section-head">
+          <span class="vx-sec-no">第四層</span>
+          <h2>介入</h2>
+        </header>
+        {{ range $ii, $x := $interventions }}
+        {{ $anchor := printf "movement-intervention-%d" $ii }}{{ with $x.id }}{{ $anchor = . }}{{ end }}
+        {{ $title := printf "未命名介入 %d" (add $ii 1) }}{{ with $x.id }}{{ $title = . }}{{ end }}{{ with $x.name }}{{ $title = . }}{{ end }}{{ with $x.name_zh }}{{ $title = . }}{{ end }}
+        <article class="vx-panel vx-mv-entry vx-mv-entry--intervention" id="{{ $anchor }}">
+          <span class="vx-sec-no">介入</span>
+          <h2>{{ $title }}</h2>
+
+          {{ with $x.safety_stop_conditions }}
+          <div class="vx-mv-stop" role="note">
+            <strong>先看停止條件</strong>
+            <ul>{{ range . }}{{ with . }}<li>{{ . }}</li>{{ end }}{{ end }}</ul>
+          </div>
+          {{ end }}
+
+          {{ with $x.mobility_decision }}{{ $decisionLabel := index $mobilityDecisionZh . }}{{ if not $decisionLabel }}{{ $decisionLabel = . }}{{ end }}<div class="vx-mv-mobility">活動度處置：<strong>{{ $decisionLabel }}</strong></div>{{ end }}
+          {{ template "vortex-movement-honesty" (dict "item" $x "claimStatusZh" $claimStatusZh "actionStatusZh" $actionStatusZh "evidenceProfileZh" $evidenceProfileZh) }}
+
+          {{ with $x.description }}<p class="vx-howto">{{ . }}</p>{{ end }}
+          {{ with $x.limitation_type }}<span class="vx-block-label">這條在處理哪一種限制</span><div class="vx-howto">{{ . }}</div>{{ end }}
+
+          {{ if or $x.works_when_summary $x.fails_when_summary }}
+          <div class="vx-mv-pair vx-mv-pair--decision">
+            {{ with $x.works_when_summary }}<div><span class="vx-block-label">什麼情況適用</span><p>{{ . }}</p></div>{{ end }}
+            {{ with $x.fails_when_summary }}<div><span class="vx-block-label">什麼情況不適用</span><p>{{ . }}</p></div>{{ end }}
+          </div>
+          {{ end }}
+
+          {{ with $x.training_options }}<span class="vx-block-label">訓練選項</span><div class="vx-howto">{{ . }}</div>{{ end }}
+          {{ with $x.remaining_boundary }}<span class="vx-block-label">還沒解決的邊界</span><div class="vx-boundary">{{ . }}</div>{{ end }}
+
+          {{ if or $x.action_ids $x.demand_ids }}
+          <div class="vx-mv-ref-grid">
+            {{ with $x.action_ids }}<div><span class="vx-block-label">相關動作</span><ul class="vx-mv-refs">{{ range . }}{{ with . }}<li><a href="#{{ . }}">{{ . }}</a></li>{{ end }}{{ end }}</ul></div>{{ end }}
+            {{ with $x.demand_ids }}<div><span class="vx-block-label">相關泳式需求</span><ul class="vx-mv-refs">{{ range . }}{{ with . }}<li><a href="#{{ . }}">{{ . }}</a></li>{{ end }}{{ end }}</ul></div>{{ end }}
+          </div>
+          {{ end }}
+
+          {{ with $x.safety_note }}<div class="vx-mv-safety-note"><strong>安全提醒</strong><p>{{ . }}</p></div>{{ end }}
+          {{ template "vortex-movement-source-line" (dict "ids" $x.source_ids "registry" $srcReg "label" "來源") }}
+          {{ template "vortex-movement-source-line" (dict "ids" $x.dosage_source_ids "registry" $srcReg "label" "劑量來源") }}
+        </article>
+        {{ end }}
+      </section>
+      {{ end }}
+    </main>
+  </div>
+</div>
+
+<script src="{{ .Site.BaseURL }}js/vortex.js" defer></script>
+{{ end }}
