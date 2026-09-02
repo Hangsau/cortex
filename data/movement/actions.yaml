@@ -658,3 +658,67 @@ actions:
   safety_note: '轉動足部時若出現踝部或足部疼痛、卡住、麻木、明顯無力或不穩， 應停止，不要以外力強行增加旋前或外翻範圍。
 
     '
+- id: movement.action.shoulder-complex.adduction
+  claim_status: supported
+  action_status: ready
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  name: 肩內收
+  aliases:
+  - 肩關節內收
+  - 肱骨內收
+  - shoulder adduction
+  joint_region: shoulder-arm
+  definition: '肩內收是肱骨在接近額狀面內朝身體中線方向的轉動，繞一條接近前後 方向的軸，並以解剖位置為零度中立參考。
+
+    '
+  plane:
+  - frontal
+  axis:
+  - 肩外展內收的前後軸
+  observable_boundaries: '額狀面內收與水平內收是使用不同基準的兩個動作名稱，既不是同義詞， 也不是彼此的粗細粒度。水平內收由手臂外展接近直角的位置起算，肱骨 繞垂直軸向前移動；額狀面內收則以解剖位置為零度，肱骨在接近額狀面 內朝中線移動。實際發生在體前偏下的朝中線移動，通常同時含有這兩個 成分；兩者可以並存且不互相取代，因此應分別列出。若用單一名稱承載 雙軸動作，後續的活動度比較與陸上輔助動作會對到錯誤的平面。
+
+    '
+  general_anatomical_capacity: '可用範圍受起始上舉角度、軀幹阻擋與軟組織張力共同影響；肱骨越過 身體中線的可能性取決於同時發生的屈伸與旋轉成分。本條不以單一角度 作能力門檻。
+
+    '
+  name_zh: 肩內收
+  description: '肩內收是肱骨在接近額狀面內朝身體中線移動。它與水平內收使用不同 的起始基準和旋轉軸，兩者不是同義詞。手臂在體前偏下朝中線移動時， 可能同時含有額狀面內收與水平內收，因此描述時應分別記錄，不能用 單一名稱代替兩個成分。
+
+    '
+  safety_note: '手臂朝中線移動時若出現肩部疼痛、卡住、麻木、明顯無力或不穩， 應停止，不要強行增加內收範圍。
+
+    '
+- id: movement.action.shoulder-complex.scapular-retraction
+  claim_status: supported
+  action_status: ready
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  name: 肩胛後縮
+  aliases:
+  - 肩胛骨後縮
+  - 肩胛內收
+  - scapular retraction
+  joint_region: shoulder-arm
+  definition: '肩胛後縮是肩胛骨沿胸廓表面朝脊椎方向移動，屬於肩胛胸廓關節的動作， 方向與前伸相反，常出現在把物體拉向身體的動作情境。
+
+    '
+  plane:
+  - frontal
+  axis:
+  - 肩胛骨沿胸廓表面的內外側平移
+  observable_boundaries: '肩胛胸廓關節有三組互相獨立的動作軸：上提與下壓、前伸與後縮、上迴旋 與下迴旋。三組可以同時發生，只描述其中一軸不代表另外兩軸處於中立； 一份只寫後縮的紀錄，正確讀法是後縮這一軸被記錄，而不是另兩軸沒有 移動。肩胛骨同時是肱骨的活動平台，並非獨立於肱骨的動作；肩胛位置會 決定關節盂朝向，因此同一個肱骨動作在不同肩胛位置下，關節內的相對 位置並不相同。描述肩胛動作時必須指明當時的肱骨上舉狀態。
+
+    '
+  general_anatomical_capacity: '可用範圍受胸廓形狀、前伸方向軟組織張力與當時的肱骨上舉角度共同限制。 本條不以單一角度作能力門檻。
+
+    '
+  name_zh: 肩胛後縮
+  description: '肩胛後縮是肩胛骨沿胸廓表面朝脊椎方向移動。肩胛胸廓關節的上提下壓、 前伸後縮與上迴旋下迴旋是三組可同時發生的獨立動作軸；只記後縮， 不表示另外兩軸處於中立。肩胛骨也是肱骨的活動平台，描述後縮時還要 一併記錄當時的肱骨上舉狀態。
+
+    '
+  safety_note: '移動肩胛或手臂時若出現肩部、肩胛周圍疼痛、卡住、麻木、明顯無力 或不穩，應停止，不要強行增加肩胛後縮範圍。
+
+    '

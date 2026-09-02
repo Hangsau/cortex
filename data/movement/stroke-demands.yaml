@@ -1161,3 +1161,281 @@ demands:
   safety_note: '翻腳時若出現膝內側、踝外側、足部或髖部疼痛、卡住、麻木、明顯無力 或不穩應停止，不要靠外力扳轉腳掌來增加朝外的角度。
 
     '
+- id: movement.demand.fly.entry.elevation-plane-and-contested-rotation-direction
+  claim_status: disputed
+  action_status: provisional
+  evidence_profile: synthesis-inference
+  source_ids:
+  - src.neumann-2017
+  - src.pink-1993
+  stroke: fly
+  phase_model: descriptive
+  phase: entry
+  body_position: prone
+  poolside_direction: 由池畔觀察，雙手同步在頭前入水並向前延伸，兩手入水點通常略寬於肩線（教學語稱「入水」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - fly.tech.13
+  - fly.tech.37
+  - fly.tech.38
+  action_ids:
+  - movement.action.shoulder-complex.elevation
+  - movement.action.shoulder-complex.external-rotation
+  - movement.action.shoulder-complex.internal-rotation
+  - movement.action.wrist-hand.flexion
+  muscle_roles:
+  - muscle_id: movement.muscle.scapular-upward-rotators
+    role: '肩胛上迴旋肌群的作用線在解剖上可參與肩複合體上舉方向的移動與 位置控制；本筆不由雙手入水前伸的外觀判定實際招募時序、程度或 推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.rotator-cuff
+    role: '肩袖肌群的作用線在解剖上可參與肱骨軸向旋轉及盂肱位置控制； 本筆不由掌心朝向或入水點寬窄的外觀判定實際招募時序、程度或 推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.wrist-flexors
+    role: '腕屈肌群的作用線在解剖上可參與腕屈曲方向的移動與位置控制； 本筆不由入水時手部外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  name_zh: 蝶式入水的上舉平面、旋轉基準，與旋轉方向的來源分歧
+  description: '手臂前伸過頭不是單一關節事件。盂肱關節本身提供的屈曲範圍有限， 接近完全過頭的上舉必須加上肩胛胸廓關節的上迴旋；因此本筆以肩複合體 上舉承載這個動作，並分別保留盂肱與肩胛胸廓的貢獻，不能把伸到最遠 全部掛在盂肱關節上。
+
+    入水時肱骨略偏離中線的方向描述成立，但不應寫成屈曲再加些微外展。 解剖體系以同一個上舉動作所在的平面命名；蝶式雙手入水點通常略寬於 肩線，正確表述是上舉平面介於矢狀面與肩胛平面之間。把上舉平面資訊 拆成兩個動作名稱，會混用不同的術語系統。
+
+    旋轉名稱必須先說明基準。教材所稱的些微內旋，可能是相對解剖位置的 零度，也可能是相對該上舉角度下依解剖原理應有的外旋量；兩種基準的 意義不同。肩往外展方向上舉時，肱骨會自然伴隨外旋，使大結節從肩峰 後方通過並避開肩峰下空間。接近最大上舉時，外旋是義務性的上舉成分， 不是可選的修飾動作。因此相對後一種基準所說的內旋傾向，實際意思是 比應有的外旋少，不能與相對解剖位置的內旋視為同一件事。旋轉欄位未 標基準便無法判讀，這是本筆維持 disputed 的第一個理由。
+
+    兩個來源對入水旋轉方向的說法不一致。教材敘述入水有些微內旋傾向； 本專案文獻集中唯一一份蝶式肩的一手研究，以十二條肌肉的肌電圖與 電影分析描述入水肱骨為外展併外旋，同時記錄肩胛後縮與上迴旋，為 肱骨備好關節盂平台。蝶式雙手同步且沒有軀幹縱軸滾轉，上舉平面在 推論上較靠近額狀面，而額狀面上舉與義務性外旋的耦合最強。前者是 教材敘述，後者是一手量測；本層把內旋與外旋兩種可能都列出，不裁定 何者正確。掌心在空間中朝哪裡也不能反推肱骨旋轉，因為掌心朝向是 肱骨軸向旋轉、前臂旋前旋後與腕關節位置的合成；判定肱骨旋轉需要 肱骨本身的參考標記或影像。
+
+    腕部的輕度屈曲符合解剖定義，落在一般屈曲可用範圍內，不附帶其他 游泳專屬構念。
+
+    '
+  limitation_context: '上舉平面、上舉角度、旋轉基準、旋轉方向與腕屈曲各有獨立的可用範圍 與判讀條件；池畔看到的雙手入水前伸是這些成分的合成，不能指出限制 位於哪一個關節或哪一個成分，也不能由入水點寬窄反推任何旋轉方向。
+
+    '
+  safety_note: '入水與前伸時若出現肩部疼痛、卡住、麻木、明顯無力或不穩應停止， 不要為了把手伸得更遠而勉強增加上舉角度或改變上舉平面。本筆不對 任何入水角度給出安全或危險的判定。
+
+    '
+- id: movement.demand.fly.arm-outsweep.elevation-plane-with-obligatory-external-rotation
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  stroke: fly
+  phase_model: descriptive
+  phase: arm-outsweep
+  body_position: prone
+  poolside_direction: 由池畔觀察，雙手自入水前伸位置向兩側分開（教學語稱「外掃」或「外划」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - fly.tech.12
+  - fly.tech.13
+  - fly.tech.37
+  action_ids:
+  - movement.action.shoulder-complex.elevation
+  - movement.action.shoulder-complex.external-rotation
+  - movement.action.elbow.flexion
+  muscle_roles:
+  - muscle_id: movement.muscle.scapular-upward-rotators
+    role: '肩胛上迴旋肌群的作用線在解剖上可參與肩複合體上舉方向的移動與 位置控制；本筆不由雙手向外分開的外觀判定實際招募時序、程度或 推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.rotator-cuff
+    role: '肩袖肌群的作用線在解剖上可參與上舉所伴隨的外旋與盂肱位置控制； 本筆不由手部向外移動的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.elbow-flexors
+    role: '肘屈肌群的作用線在解剖上可參與肘屈曲方向的移動與位置控制； 本筆不由外掃時的肘部外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  name_zh: 蝶式外掃的上舉平面命名與必然外旋
+  description: '外掃從接近最大上舉、手臂位於頭前的位置開始。從這個位置讓雙手向外 分開，在解剖體系中是上舉平面由近矢狀面移向肩胛平面或額狀面，不是 從手臂貼在體側起算的額狀面外展。如果外掃進行到上舉角度降至接近 直角，同一平面內向外、向後的移動又要改稱水平外展。因此使用外展 這個名稱前，必須先說清楚起始上舉角度與上舉平面。方向上，肱骨確實 向外側移動；但單一名稱承載不了整段變化，所以本筆只給 partially-supported。蝶式雙手同步且路徑貼近水面，這段上舉角度的 變化尤其難用單一術語概括。
+
+    往外展方向上舉時，肱骨會自然伴隨外旋，使大結節從肩峰後方通過； 因此外旋不是可選的細節，而是上舉本身的必然成分。同一份教材在外掃 期填了旋轉欄位，卻在出水期留白，缺的是欄位紀律而不是知識。在外展 接近直角的位置，外旋的可用範圍比內收位更大，所以外掃期的外旋需求 在一般解剖容量上餘裕充足。
+
+    肘開始屈曲的關節方向成立。教材另有高肘與 EVF 等詞，涉及肘相對 手掌和水面的位置、前臂朝向與推進假設，不在本層裁決範圍；本筆不 描述其做法、好處或判準。
+
+    '
+  limitation_context: '上舉平面、上舉角度、外旋與肘屈曲各自獨立；池畔看到的手向外分開 是它們的合成，不能指出限制在哪一項。外掃幅度大小與推進效果的關係 屬於游泳運動學，不在本層。
+
+    '
+  safety_note: '外掃時若出現肩部疼痛、卡住、麻木、明顯無力或不穩應停止，不要為了 把手分得更開而勉強增加上舉角度或改變上舉平面。
+
+    '
+- id: movement.demand.fly.arm-catch.elbow-flexion-with-rotation-reversal
+  claim_status: supported
+  action_status: provisional
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  stroke: fly
+  phase_model: descriptive
+  phase: arm-catch
+  body_position: prone
+  poolside_direction: 由池畔觀察，雙手停止向外分開、肘彎曲加深，手掌轉向後方（教學語稱「抓水」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - fly.tech.13
+  - fly.tech.14
+  action_ids:
+  - movement.action.elbow.flexion
+  - movement.action.shoulder-complex.internal-rotation
+  muscle_roles:
+  - muscle_id: movement.muscle.elbow-flexors
+    role: '肘屈肌群的作用線在解剖上可參與肘屈曲加深方向的移動與位置控制； 本筆不由抓水時的肘部外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.shoulder-internal-rotator-extensors
+    role: '肩內旋兼伸展肌群的作用線在解剖上可參與肱骨內旋方向的移動與位置 控制；本筆不由手掌轉向後方的外觀判定實際招募時序、程度或推進 貢獻。
+
+      '
+  name_zh: 蝶式抓水的肘屈曲加深與旋轉方向反轉
+  description: '抓水時肘屈曲增加，這是乾淨的關節位置描述，沒有附掛其他成分。同一 動作在外掃記錄中另混入高肘一詞，抓水這一筆則只寫肘屈曲加深；這顯示 原始教材的問題是欄位混填而非知識錯誤，分開記錄即可直接對應關節定義， 混寫時則必須降級。
+
+    外掃期的外旋在抓水期轉為內旋，是肱骨繞縱軸的軸向旋轉方向反轉， 直接對應解剖定義。這條的正確性不依賴從手掌朝向所作的任何反推， 因為教材直接記錄了關節旋轉方向；這正是入水與出水紀錄應採用卻沒有 完整採用的寫法。池畔看到手掌轉向後方仍可作為教學指標，但不能當成 旋轉欄位的填寫依據。
+
+    本筆與外掃、內掃及上划構成外旋轉為內旋、再維持內旋的內部一致序列； 這項序列一致性只描述關節旋轉方向，不承載推進主張。
+
+    '
+  limitation_context: '肘屈曲與肱骨軸向內旋是兩個獨立自由度；池畔看到的抓水是兩者加上 手部空間位置的合成，不能指出限制在哪一項。教材另有 EVF 與划手 路徑模型等構念，涉及推進假設，不在本層。
+
+    '
+  safety_note: '抓水時若出現肩前側疼痛、卡住、麻木、明顯無力或不穩應停止，不要 為了讓手掌更快朝後而加大內旋幅度。
+
+    '
+- id: movement.demand.fly.arm-insweep.dual-axis-adduction-with-scapular-retraction
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  stroke: fly
+  phase_model: descriptive
+  phase: arm-insweep
+  body_position: prone
+  poolside_direction: 由池畔觀察，雙手在胸腹下方朝身體中線收攏並向後移動（教學語稱「內掃」或「內划」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - fly.tech.13
+  - fly.tech.15
+  action_ids:
+  - movement.action.shoulder-complex.adduction
+  - movement.action.shoulder-complex.horizontal-adduction
+  - movement.action.shoulder-complex.internal-rotation
+  - movement.action.shoulder-complex.scapular-retraction
+  muscle_roles:
+  - muscle_id: movement.muscle.shoulder-internal-rotator-extensors
+    role: '肩內旋兼伸展肌群的作用線在解剖上可參與肱骨內旋、伸展與朝中線 移動的位置控制；本筆不由雙手收攏的外觀判定實際招募時序、程度 或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.latissimus-dorsi
+    role: '背闊肌的作用線在解剖上可參與肩內收、伸展與內旋方向的移動及位置 控制；本筆不由雙手在胸腹下方向內移動的外觀判定實際招募時序、 程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.scapular-retractors
+    role: '肩胛後縮肌群的作用線在解剖上可參與肩胛後縮方向的移動與位置控制； 本筆不由雙手收攏或肩胛體表外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  name_zh: 蝶式內掃的雙軸內收、軸向內旋與肩胛後縮
+  description: '蝶式內掃在胸腹下方、體前偏下進行，肱骨朝中線移動時同時含有額狀面 內收與水平內收。兩者繞不同的軸，可以同時發生；只記其中一軸不構成 矛盾，但完整紀錄必須把兩軸都列出。方向描述成立，單一內收名稱卻無法 承載雙軸，這是本筆只給 partially-supported 的理由。
+
+    解剖來源指出，許多肩內旋肌也具有伸展與內收作用，並以游泳的推進 階段作為這組功能的動作情境。因此內旋、伸展與內收的組合具有命名層 與肌肉功能層的教科書旁證，但這不等於已量到蝶式內掃的推進貢獻或 招募時序，也不能據此指定主導肌群或出力排序。
+
+    本筆從教材的複合敘述只承載肩內旋這項關節動作。雙手在胸腹下方向內、 向後掃是手部在水中的空間軌跡，鑰匙孔路徑則是游泳專屬的划手路徑 模型，兩者都超出本層。解剖來源只能說這條軌跡所需的內收、內旋與 伸展在解剖上可行，不能判定該軌跡實際是否發生或是否有效。
+
+    肩胛後縮的方向與把物體拉向身體的動作情境一致，但它只是肩胛胸廓 三組獨立動作軸之一。上提與下壓、前伸與後縮、上迴旋與下迴旋可以 同時發生；只記後縮，代表後縮這一軸被記錄，不代表另外兩軸處於中立。
+
+    '
+  limitation_context: '額狀面內收、水平內收、軸向內旋與肩胛後縮是四個獨立成分；池畔看到 的雙手收攏是四者的合成，不能指出限制在哪一項，也不能由外觀指定 任何肌群的收縮方式或先後。推進歸屬不在本層。
+
+    '
+  safety_note: '內掃時若出現肩前側或肩胛內側疼痛、卡住、麻木、明顯無力或不穩應 停止，不要為了讓雙手更靠近中線而加大內旋或勉強加深內收。
+
+    '
+- id: movement.demand.fly.arm-upsweep.extension-with-sustained-internal-rotation
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  stroke: fly
+  phase_model: descriptive
+  phase: arm-upsweep
+  body_position: prone
+  poolside_direction: 由池畔觀察，雙手自身體下方向後推向大腿方向，肘由彎曲轉為伸直（教學語稱「上划」或「推水」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - fly.tech.11
+  - fly.tech.13
+  action_ids:
+  - movement.action.shoulder-complex.extension
+  - movement.action.shoulder-complex.internal-rotation
+  - movement.action.elbow.extension
+  - movement.action.wrist-hand.extension
+  muscle_roles:
+  - muscle_id: movement.muscle.shoulder-internal-rotator-extensors
+    role: '肩內旋兼伸展肌群的作用線在解剖上可參與肩伸展、內旋方向的移動與 位置控制；本筆不由雙手向後推的外觀判定實際招募時序、程度或推進 貢獻。
+
+      '
+  - muscle_id: movement.muscle.latissimus-dorsi
+    role: '背闊肌的作用線在解剖上可參與肩伸展、內收與內旋方向的移動及位置 控制；本筆不由手部接近大腿的外觀判定實際招募時序、程度或推進 貢獻。
+
+      '
+  - muscle_id: movement.muscle.elbow-extensors
+    role: '肘伸肌群的作用線在解剖上可參與肘伸展方向的移動與位置控制； 本筆不由肘部轉為伸直的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.wrist-extensors
+    role: '腕伸肌群的作用線在解剖上可參與腕伸展方向的移動與位置控制； 本筆不由推水時的手部外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  name_zh: 蝶式上划的肩伸展、內旋維持與肘腕伸展
+  description: '肩伸展的名稱描述移動方向，不是絕對位置；只要肱骨朝解剖位置的後方 旋轉就稱為伸展，不論它尚在往零度靠近或已越過零度。蝶式推水期手臂 由身體下方向大腿移動，肱骨會越過零度進入伸展側。主動可達的額狀面 後方伸展範圍有限，但推水末端所需的伸展量落在一般解剖可用範圍內。
+
+    抓水轉為內旋後，內掃與上划維持同一旋轉方向，內收位的內旋可用範圍 在解剖上餘裕充足。本筆只承載肩內旋持續；原始敘述中的加速屬相位內 速度剖面，大腿外側則是手在空間中的終點，由肩伸展量、內收量與軀幹 姿態合成。兩者都需要游泳專項文獻，本層不承載。
+
+    肘由屈曲位朝零度方向移動稱為伸展，這項命名成立且不附掛游泳構念。 解剖來源把肘伸展與推的動作情境直接連結，與推水的力學語意一致； 但這只是命名層的吻合，不構成對推進機制的支持。
+
+    腕伸展的方向成立，並與入水時的腕屈曲構成互逆的一對。腕伸展終末 受到掌側韌帶僵硬度限制，而且可用範圍本來就比屈曲少；這可供記錄 個別差異，但解剖來源不裁決游泳中該使用多少，不能改寫成建議。
+
+    '
+  limitation_context: '肩伸展、軸向內旋、肘伸展與腕伸展是四個獨立成分；池畔看到的推到 大腿是四者加上軀幹姿態的合成，不能指出限制在哪一項。推進力大小、 加速時序與手部終點位置都不在本層。
+
+    '
+  safety_note: '推水時若出現肩前側或腕部疼痛、卡住、麻木、明顯無力或不穩應停止， 不要為了把手推得更後面而勉強增加肩伸展或腕伸展。
+
+    '
+- id: movement.demand.fly.exit.extension-position-with-blank-rotation-field
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  stroke: fly
+  phase_model: descriptive
+  phase: exit
+  body_position: prone
+  poolside_direction: 由池畔觀察，雙手在大腿旁離開水面，教學語常描述為拇指側先出水（教學語稱「出水」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - fly.tech.20
+  action_ids:
+  - movement.action.shoulder-complex.extension
+  muscle_roles:
+  - muscle_id: movement.muscle.shoulder-internal-rotator-extensors
+    role: '肩內旋兼伸展肌群的作用線在解剖上可參與肩伸展方向的移動與位置 控制；本筆不由拇指側先離水的外觀判定實際招募時序、程度或推進 貢獻。
+
+      '
+  name_zh: 蝶式出水的肩伸展位，與留白的旋轉欄位
+  description: '出水時的肩伸展位與上划連貫，落在主動可達的後方範圍內。這是本筆 唯一能直接承載的關節動作，因此 action_ids 只列肩伸展。
+
+    拇指側先出水不是關節動作，本層不以它填寫動作欄；它描述的是手在 空間中的方位與出水順序。本筆的實際症狀是旋轉欄位留白：教材只寫 肩的屈伸狀態，旋轉欄位空著，而拇指朝向是整條上肢旋轉的合成結果。 解剖來源指出，手部朝向的改變可以完全由肩關節軸向旋轉造成，不需要 前臂旋轉；因此由拇指朝向反推前臂旋後或任何單一關節的旋轉都不成立。 判定旋轉需要肱骨本身的參考標記或影像。
+
+    治本方向是把內旋或外旋設為必填欄位；若量到中立，應明寫中立而不是 留白。旋轉欄位整格空著時，讀者無法分辨是量到中立還是沒有記錄， 兩者在判讀上完全不同。可用的肩伸展描述成立，但旋轉欄位不完整， 這是本筆只給 partially-supported 的理由。
+
+    '
+  limitation_context: '本筆只承載肩伸展位。出水順序、拇指朝向、前臂與腕的旋轉狀態全部 未記錄，不得由本筆推論它們處於中立或任何特定方向。
+
+    '
+  safety_note: '出水時若出現肩後側或肩前側疼痛、卡住、麻木、明顯無力或不穩應停止， 不要為了做出特定的出水手型而改變肩的旋轉位置。
+
+    '
