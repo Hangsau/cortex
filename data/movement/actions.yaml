@@ -398,3 +398,263 @@ actions:
   safety_note: '大腿往後移動時若出現髖部、鼠蹊或腰背疼痛、麻木、明顯無力或不穩， 應停止，不要用骨盆前傾或腰椎過度伸展強行增加路徑。
 
     '
+- id: movement.action.shoulder-complex.external-rotation
+  claim_status: supported
+  action_status: ready
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  name: 肩外旋
+  aliases:
+  - 肩關節外旋
+  - 肱骨外旋
+  - shoulder external rotation
+  joint_region: shoulder-arm
+  definition: '從解剖位置起算，肩外旋是肱骨繞其縱軸向外側轉動的水平面動作。
+
+    '
+  plane:
+  - transverse
+  axis:
+  - 肱骨縱軸
+  observable_boundaries: '肩外旋的可用範圍會隨起始上舉角度改變；由內收位起算與由外展位起算 不是同一個可用範圍。解剖來源指出，肩在往外展方向上舉的過程中， 肱骨會自然伴隨外旋，讓肱骨大結節從肩峰後方通過並避開肩峰下空間。 因此外旋常常不是獨立選擇的動作，而是上舉的必然伴隨成分。
+
+    '
+  general_anatomical_capacity: '在一般解剖條件下，肱骨可繞其縱軸向外旋轉，也可在肩部上舉時以外旋 作為伴隨成分。實際可用範圍會隨起始上舉角度、上舉平面、肩胛固定方式、 主動或被動條件及症狀而變，本條不以單一角度作能力門檻。
+
+    '
+  name_zh: 肩外旋
+  description: '肩外旋是上臂骨繞自身縱軸向外轉。它的可用範圍會隨手臂起始上舉位置 改變，由手臂靠近身側與由手臂已經外展的位置起算，不能直接當成同一 條件比較。解剖來源指出，手臂往外展方向上舉時會自然伴隨外旋，讓 肱骨大結節從肩峰後方通過，因此外旋也是上舉的必然伴隨成分。
+
+    '
+  safety_note: '旋轉或上舉手臂時若出現肩部疼痛、卡住、麻木、明顯無力或不穩， 應停止，不要強行增加外旋或上舉範圍。
+
+    '
+- id: movement.action.shoulder-complex.horizontal-adduction
+  claim_status: supported
+  action_status: ready
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  name: 肩水平內收
+  aliases:
+  - 水平內收
+  - 水平屈曲
+  - shoulder horizontal adduction
+  joint_region: shoulder-arm
+  definition: '肩水平內收以手臂外展接近直角的位置為起始參考，肱骨繞通過盂肱關節 的垂直軸向前、朝身體中線移動，是水平面內的動作。
+
+    '
+  plane:
+  - transverse
+  axis:
+  - 通過盂肱關節的垂直軸
+  observable_boundaries: '肩水平內收與額狀面的內收是兩個使用不同起始基準的名稱。手臂位於體前、 上舉接近直角時朝中線移動，正確名稱是水平內收；用額狀面內收承載一個 實際在水平面進行的動作，會讓後續活動度比較與陸上輔助動作選擇對到 錯的方向。觀察時須先記錄起始上舉角度與肱骨相對軀幹的移動平面。
+
+    '
+  general_anatomical_capacity: '在一般解剖條件下，肱骨可由外展接近直角的位置在水平面朝體前與中線 移動。實際可用範圍會隨肩胛位置、肱骨軸向旋轉、上舉角度、主動或 被動條件及症狀而變，本條不以單一角度作能力門檻。
+
+    '
+  name_zh: 肩水平內收
+  description: '肩水平內收是手臂已上舉到接近直角時，上臂骨在水平面朝體前與中線 移動。它和手臂由身側朝軀幹靠近的額狀面內收使用不同起始基準；若把 兩者混稱，活動度比較與陸上輔助動作就可能對到不同平面的方向。
+
+    '
+  safety_note: '手臂朝體前或中線移動時若出現肩部疼痛、卡住、麻木、明顯無力或 不穩，應停止，不要強行增加水平內收範圍。
+
+    '
+- id: movement.action.hip.abduction
+  claim_status: supported
+  action_status: ready
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  name: 髖外展
+  aliases:
+  - 髖關節外展
+  - 大腿外展
+  - hip abduction
+  joint_region: hip-knee
+  definition: '髖外展是股骨在額狀面遠離身體中線的轉動，以解剖位置為中立參考。
+
+    '
+  plane:
+  - frontal
+  axis:
+  - 髖外展內收的前後軸
+  observable_boundaries: '「大腿分開」這個可見現象的正確歸屬欄位就是髖外展。觀察時仍須比較 股骨與骨盆的相對位置，因為骨盆側傾或軀幹移動也會改變大腿相對身體 中線的外觀，不能只以足部間距替代髖部局部動作。
+
+    '
+  general_anatomical_capacity: '在一般解剖條件下，髖可由中立位置朝外展方向移動；可用範圍主要受 恥股韌帶與內收肌群的被動張力限制。因此髖外展做不出來時，限制源 偏向結構性被動張力，與感知或控制問題屬不同性質， 本條不以單一角度作能力門檻。
+
+    '
+  name_zh: 髖外展
+  description: '髖外展是大腿骨在額狀面遠離身體中線；「大腿分開」應記在這個欄位。 它不等於髖旋轉，足部或腳跟的位置也不能取代大腿骨相對骨盆的量測。 一般解剖條件下，可用範圍主要受恥股韌帶與內收肌群的被動張力限制。
+
+    '
+  safety_note: '大腿向外分開時若出現髖部、鼠蹊或腰背疼痛、卡住、麻木、明顯無力 或不穩，應停止，不要強行增加外展範圍。
+
+    '
+- id: movement.action.hip.external-rotation
+  claim_status: supported
+  action_status: ready
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  name: 髖外旋
+  aliases:
+  - 髖關節外旋
+  - 股骨外旋
+  - hip external rotation
+  joint_region: hip-knee
+  definition: '髖外旋是股骨相對骨盆繞自身縱軸向外轉動的水平面動作，旋轉軸由 股骨頭中心連到膝關節中心。
+
+    '
+  plane:
+  - transverse
+  axis:
+  - 股骨頭中心到膝關節中心的縱軸
+  observable_boundaries: '髖旋轉的縱軸是股骨頭中心到膝關節中心的連線；由於股骨頸傾斜角與 股骨幹前弓，這條軸大部分落在股骨本體之外，沒有任何體表可見標記 直接對應它。小腿與腳跟的位置另外受膝關節軸向旋轉影響，而膝在部分 屈曲時軸向旋轉最自由，因此同一個腳跟位置可由髖旋轉、膝旋轉或兩者 的任意組合達成。可用的判定方式是直接量測股骨繞其縱軸的旋轉，例如 追蹤大腿標記點或影像，或以標準體位徒手測角；不得以腳跟、小腿或 大腿分開的程度反推髖旋轉。
+
+    '
+  general_anatomical_capacity: '在一般解剖條件下，股骨可相對骨盆繞縱軸向外旋轉；力學條件與可用 範圍會隨髖屈曲角度、骨盆固定方式、主動或被動量測及症狀而變。 遠端足部方位不能代表股骨的實際旋轉量，本條不以單一角度作能力門檻。
+
+    '
+  name_zh: 髖外旋
+  description: '髖外旋是大腿骨繞著由股骨頭中心連到膝關節中心的縱軸向外轉。這條 軸大部分不在股骨本體內，也沒有直接對應的體表標記；小腿與腳跟又 會受到膝軸向旋轉影響。因此相同的腳跟位置可能來自髖、膝或兩者的 組合，不能用腳跟、小腿或大腿分開程度反推髖外旋。
+
+    '
+  safety_note: '旋轉大腿時若出現髖部、鼠蹊、膝部或腰背疼痛、卡住、麻木、明顯 無力或不穩，應停止，不要從足部施力強行增加髖外旋。
+
+    '
+- id: movement.action.knee.flexion
+  claim_status: supported
+  action_status: ready
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  name: 膝屈曲
+  aliases:
+  - 屈膝
+  - 膝關節屈曲
+  - knee flexion
+  joint_region: hip-knee
+  definition: '膝屈曲是脛骨與股骨在矢狀面朝夾角減小方向的相對轉動，使小腿朝 大腿後側靠近。
+
+    '
+  plane:
+  - sagittal
+  axis:
+  - 膝屈伸的內外側軸
+  observable_boundaries: '「腳跟朝臀部靠近」就是膝屈曲角度增加的直接定義，與股骨的軸向旋轉 無關。非承重時主要描述脛骨相對股骨移動，承重時則可能是股骨相對 脛骨移動；兩者移動的節段不同，描述與比較時必須指明基準。
+
+    '
+  general_anatomical_capacity: '在一般解剖條件下，膝可由較直位置朝屈曲方向主動或被動移動。實際 可用範圍會隨髖部位置、承重條件、軟組織接觸、主動或被動量測及症狀 而變，本條不以單一角度作能力門檻。
+
+    '
+  name_zh: 膝屈曲
+  description: '膝屈曲是小腿與大腿朝夾角減小方向移動；腳跟朝臀部靠近就是膝屈曲 增加的直接表現，與大腿骨的軸向旋轉無關。非承重時通常是小腿相對 大腿移動，承重時可能改由大腿相對小腿移動，描述時要說清楚基準。
+
+    '
+  safety_note: '屈膝時若出現膝部、腿後側或髖部疼痛、卡住、麻木、明顯無力或不穩， 應停止，不要強行把腳跟壓向臀部。
+
+    '
+- id: movement.action.knee.axial-rotation
+  claim_status: supported
+  action_status: ready
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  name: 膝軸向旋轉
+  aliases:
+  - 膝關節旋轉
+  - 脛骨旋轉
+  - knee axial rotation
+  joint_region: hip-knee
+  definition: '膝軸向旋轉是脛骨相對股骨繞縱軸的旋轉，也是膝關節在矢狀面屈伸之外 的第二個自由度。命名依脛骨粗隆相對股骨遠端前面的位置決定；脛骨粗隆 移向外側稱為外旋。
+
+    '
+  plane:
+  - transverse
+  axis:
+  - 膝關節的縱軸
+  observable_boundaries: '這個自由度只在膝至少些微屈曲時存在，接近完全伸展時被鎖定，部分屈曲 時最自由。因此在深屈膝情境下，它是小腿與足朝外轉的一個獨立且不可 忽略的貢獻源；觀察時仍須以脛骨相對股骨的方位命名，不能用足部朝向 取代膝部局部旋轉。
+
+    '
+  general_anatomical_capacity: '在一般解剖條件下，膝屈曲後可容許脛骨相對股骨向內或向外軸向旋轉， 而接近完全伸展時此自由度受關節鎖定限制。實際可用範圍會隨屈膝位置、 承重條件、主動或被動量測及症狀而變，本條不以單一角度作能力門檻。
+
+    '
+  name_zh: 膝軸向旋轉
+  description: '膝除了屈伸，屈曲後還能讓小腿骨相對大腿骨繞縱軸旋轉；脛骨粗隆移向 外側稱為外旋。這個自由度在膝接近完全伸展時被鎖定，在部分屈曲時 最自由，所以深屈膝時小腿與足朝外轉可能有獨立的膝旋轉貢獻。
+
+    '
+  safety_note: '屈膝並旋轉小腿時若出現膝部疼痛、卡住、麻木、明顯無力或不穩， 應停止，不要從足部施力強行扭轉膝部。
+
+    '
+- id: movement.action.ankle-foot.dorsiflexion
+  claim_status: supported
+  action_status: ready
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  name: 踝背屈
+  aliases:
+  - 背屈
+  - 踝關節背屈
+  - 勾腳
+  - ankle dorsiflexion
+  joint_region: ankle-foot
+  definition: '踝背屈是足相對小腿在矢狀面朝小腿前側靠近的動作，發生在距小腿關節； 中立位定義為足與小腿成直角。
+
+    '
+  plane:
+  - sagittal
+  axis:
+  - 距小腿關節的內外側軸
+  observable_boundaries: '背屈的關節歸屬明確：距小腿關節只有一個主要自由度，背屈與蹠屈就是 這個自由度，這是它與外翻最重要的分界。背屈的可用範圍明顯小於蹠屈。 背屈可用量也受膝角度影響，因為跨過膝與踝的雙關節肌在屈膝時被縮短； 所以屈膝時的背屈與伸膝時的背屈不是同一量測條件，比較前須指明膝角度。
+
+    '
+  general_anatomical_capacity: '在一般解剖條件下，距小腿關節可讓足由中立位朝小腿前側背屈，但可用 範圍明顯小於蹠屈，並會隨膝部位置、主動或被動量測及症狀而變。 不同膝角度下的背屈量不可直接互相比較，本條不以單一角度作能力門檻。
+
+    '
+  name_zh: 踝背屈
+  description: '踝背屈是足在距小腿關節朝小腿前側靠近。距小腿關節的主要自由度是 背屈與蹠屈，外翻則屬於下方的距下與橫跗關節。背屈可用範圍明顯小於 蹠屈，且會隨膝部屈伸位置改變，屈膝與伸膝條件下的結果不能直接相比。
+
+    '
+  safety_note: '勾腳或量測背屈時若出現踝部、小腿或足部疼痛、卡住、麻木、明顯無力 或不穩，應停止，不要強行增加背屈範圍。
+
+    '
+- id: movement.action.ankle-foot.pronation
+  claim_status: supported
+  action_status: ready
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  - src.nordin-frankel-2012
+  name: 距下／橫跗關節旋前
+  aliases:
+  - 旋前
+  - 足旋前
+  - subtalar pronation
+  - foot pronation
+  joint_region: ankle-foot
+  definition: '旋前是單軸三平面運動，主成分為外翻與外展，並含背屈成分；它發生在 距下關節與橫跗關節，而不是距小腿關節。
+
+    '
+  plane:
+  - oblique
+  axis:
+  - 距下關節斜軸
+  - 橫跗關節縱軸與斜軸
+  observable_boundaries: '兩本解剖來源一致指出，外翻不發生在距小腿關節。距小腿關節只有背屈 與蹠屈一個主要自由度；外翻是繞前後軸的額狀面動作，發生在距下關節 與橫跗關節，把它寫成「踝關節外翻」是單一關節誤稱。旋前的三個成分 不可分離，其中任一成分存在，就代表另兩個成分也正在發生；同一相位 把背屈與外翻寫成兩個獨立動作，可能其實是同一個旋前動作的兩個成分 被拆成兩格。主動外翻的可用範圍很小，外踝下伸與較厚的三角韌帶會自然 限制它，所以它不足以單獨造成腳掌明顯朝向外側；腳掌方位的主要來源 在更近端的髖與膝關節。
+
+    '
+  general_anatomical_capacity: '在一般解剖條件下，距下與橫跗關節可繞各自斜軸產生包含外翻、外展與 背屈的旋前。主動外翻可用範圍很小，並受外踝下伸與三角韌帶限制； 實際合成範圍會隨起始足位、承重條件與症狀而變， 本條不以單一角度作能力門檻。
+
+    '
+  name_zh: 距下／橫跗關節旋前
+  description: '足旋前是外翻、外展與背屈不可分離的三平面組合，發生在距下與橫跗 關節。距小腿關節只承擔背屈與蹠屈，把外翻寫成踝關節的單一動作會 誤指關節。主動外翻可用幅度很小，不能單獨讓腳掌明顯朝外；腳掌 方位還需要分開考慮更近端的髖與膝關節。
+
+    '
+  safety_note: '轉動足部時若出現踝部或足部疼痛、卡住、麻木、明顯無力或不穩， 應停止，不要以外力強行增加旋前或外翻範圍。
+
+    '

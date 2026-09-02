@@ -959,3 +959,205 @@ demands:
   safety_note: '下踢時若出現髖部、膝部、踝部或腰背疼痛、卡住、麻木、明顯無力或 不穩，應停止，不要為了增加足部路徑而強行壓向關節終端。
 
     '
+- id: movement.demand.breast.arm-outsweep.elevation-plane-with-obligatory-external-rotation
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  stroke: breast
+  phase_model: descriptive
+  phase: arm-outsweep
+  body_position: prone
+  poolside_direction: 由池畔觀察，雙手自頭前併攏位置向兩側分開（教學語稱「外划」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - breast.tech.3
+  - breast.tech.24
+  action_ids:
+  - movement.action.shoulder-complex.elevation
+  - movement.action.shoulder-complex.external-rotation
+  - movement.action.elbow.flexion
+  - movement.action.wrist-hand.flexion
+  muscle_roles:
+  - muscle_id: movement.muscle.scapular-upward-rotators
+    role: '肩胛上旋肌群的作用線在解剖上可參與上舉時的肩胛上旋與位置控制； 本筆不由雙手向外分開的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.rotator-cuff
+    role: '旋轉肌袖的作用線在解剖上可參與肱骨外旋與盂肱關節位置控制； 本筆不由雙手向外分開的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.elbow-flexors
+    role: '肘屈肌群的作用線在解剖上可參與肘屈曲方向的移動與位置控制； 本筆不由外划路徑的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.wrist-flexors
+    role: '腕屈肌群的作用線在解剖上可參與腕屈曲方向的移動與位置控制； 本筆不由手部向外分開的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  name_zh: 蛙式外划的上舉平面、必然外旋與肘腕輕度屈曲
+  description: '外划起始時雙手位於頭前、手臂接近最大上舉；從這個位置把手向外分開， 在解剖體系裡是上舉平面由矢狀面移向肩胛平面或額狀面，不是從手臂 貼體側起算的額狀面外展。若外划進行到上舉角度降到接近直角，該平面 內的向外移動又要改稱水平外展。因此「外展」這個名稱要能使用，必須 先說清楚起始上舉角度與上舉平面；肱骨向外側移動的方向描述本身成立， 但命名基準尚不足，這正是本筆只給部分支持的原因。
+
+    解剖來源指出，肩往外展方向上舉時，肱骨會自然伴隨外旋，讓肱骨大結節 從肩峰後方通過並避開肩峰下空間。因此外旋不是可選的附加動作；外划期 標出外旋不是多餘細節，而是上舉本身的必然伴隨成分。肘與腕同時可朝 輕度屈曲方向移動，但本筆不指定其水中幅度或時序。
+
+    '
+  limitation_context: '上舉平面、上舉角度、外旋與肘腕屈曲各有獨立的可用範圍與控制條件； 從池畔看到的「手向外分開」是這些的合成，不能指出限制位於哪一個 關節或哪一個成分。
+
+    '
+  safety_note: '外划時若出現肩部疼痛、卡住、麻木、明顯無力或不穩應停止，不要為了 把手分得更開而勉強增加上舉角度或改變上舉平面。
+
+    '
+- id: movement.demand.breast.arm-catch.horizontal-adduction-with-rotation-reversal
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  stroke: breast
+  phase_model: descriptive
+  phase: arm-catch
+  body_position: prone
+  poolside_direction: 由池畔觀察，雙手停止向外分開、開始朝身體中線收攏（教學語稱「捕水」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - breast.tech.4
+  action_ids:
+  - movement.action.shoulder-complex.horizontal-adduction
+  - movement.action.shoulder-complex.internal-rotation
+  - movement.action.elbow.flexion
+  muscle_roles:
+  - muscle_id: movement.muscle.shoulder-internal-rotator-extensors
+    role: '肩內旋伸展肌群的作用線在解剖上可參與肱骨內旋與體前位置控制； 本筆不由雙手朝中線收攏的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.elbow-flexors
+    role: '肘屈肌群的作用線在解剖上可參與肘屈曲方向的移動與位置控制； 本筆不由捕水轉向的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  name_zh: 蛙式捕水的水平內收命名與旋轉方向反轉
+  description: '捕水時肱骨停止遠離中線、開始朝中線移動，這個方向反轉本身描述成立。 但捕水時手臂位於體前、上舉接近直角，肱骨朝中線移動的正確名稱是 水平內收，不是額狀面的內收。用錯基準會讓後續活動度比較與陸上輔助 動作對到不同平面的動作。
+
+    外划期的外旋在捕水期轉為內旋，是肱骨繞自身縱軸的旋轉方向改變， 直接對應解剖定義，而且不依賴任何從手掌朝向做的反推。手掌在空間中 朝哪裡與前臂、肱骨的關節位置是不同欄位，不能彼此取代。
+
+    肘屈曲增加的方向描述成立。教材另有「高肘」一詞，該詞涉及肘相對 手掌的高度、前臂朝向與推進假設，不在本層的裁決範圍；本筆不描述 其做法或判準。
+
+    '
+  limitation_context: '水平內收、軸向內旋與肘屈曲各自獨立；池畔看到的「手收攏」是三者 的合成，不能指出限制在哪一項，也不能由外觀指定任何肌群的收縮方式。
+
+    '
+  safety_note: '捕水時若出現肩前側疼痛、卡住、麻木、明顯無力或不穩應停止，不要 為了讓手更快收攏而加大內旋幅度。
+
+    '
+- id: movement.demand.breast.leg-recovery.hip-flexion-abduction-with-knee-flexion
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  stroke: breast
+  phase_model: descriptive
+  phase: leg-recovery
+  body_position: prone
+  poolside_direction: 由池畔觀察，雙腳跟朝臀部方向收近、雙膝與大腿同時分開（教學語稱「收腿」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - breast.tech.10
+  - breast.tech.13
+  - breast.tech.37
+  action_ids:
+  - movement.action.hip.flexion
+  - movement.action.hip.abduction
+  - movement.action.hip.external-rotation
+  - movement.action.knee.flexion
+  - movement.action.ankle-foot.dorsiflexion
+  muscle_roles:
+  - muscle_id: movement.muscle.hip-flexors
+    role: '髖屈肌群的作用線在解剖上可參與股骨朝髖屈曲方向的移動與位置控制； 本筆不由腳跟收近的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.hip-abductors
+    role: '髖外展肌群的作用線在解剖上可參與股骨朝外展方向的移動與位置控制； 本筆不由大腿分開的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.hip-external-rotators
+    role: '髖外旋肌群的作用線在解剖上可參與股骨外旋方向的移動與位置控制； 本筆不由大腿分開或腳跟位置的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.knee-flexors
+    role: '膝屈肌群的作用線在解剖上可參與膝屈曲方向的移動與位置控制； 本筆不由腳跟靠近臀部的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.ankle-dorsiflexors
+    role: '踝背屈肌群的作用線在解剖上可參與距小腿關節背屈與位置控制； 本筆不由收腿或勾腳的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  name_zh: 蛙式收腿的髖屈曲外展、膝屈曲與踝背屈，以及可見現象的歸屬
+  description: '髖屈曲：大腿朝腹側移動即命名為髖屈曲。這一欄記的是動作方向，不是 關節位置；只要股骨朝前旋轉就稱為屈曲，不論它正往中立位靠近或已經 超過中立位。因此收腿起始時，髖可能仍在伸展位置，卻已經朝屈曲方向 移動。
+
+    髖外展：「大腿分開」的正確歸屬欄位是髖外展，這個可見現象不等於 髖旋轉。
+
+    「腳跟往臀部拉」是膝屈曲，不是髖旋轉。腳跟接近臀部就是膝屈曲角度 增加的直接定義。髖旋轉不能從遠端反推，因為其旋轉軸大部分落在股骨 本體之外，沒有直接對應的體表標記；小腿與腳跟位置又另外受膝軸向 旋轉影響，而膝在部分屈曲時軸向旋轉最自由，收腿正是深屈膝情境。 這不代表收腿期沒有髖外旋；髖外旋在解剖上完全可能，只是「大腿分開」 與「腳跟位置」這兩個可見現象都不是它的證據。
+
+    踝背屈的關節歸屬明確，背屈確實發生在距小腿關節。但收腿期的背屈 是在深屈膝條件下進行，與伸膝時的背屈不是同一條件，兩者不能互相 代表。
+
+    '
+  limitation_context: '髖屈曲、髖外展、髖外旋、膝屈曲與踝背屈各有獨立的可用範圍與控制 條件，其中髖外展的限制源偏向恥股韌帶與內收肌群的被動張力，髖外旋 的可用量隨髖屈曲角度改變。從池畔看到的收腿寬度與腳跟位置是這些的 合成，不能指出限制位於哪一個關節。
+
+    '
+  safety_note: '收腿時若出現髖部、鼠蹊、膝內側、腰背或踝部疼痛、卡住、麻木、明顯 無力或不穩應停止，不要為了把腳跟拉得更近或把膝分得更開而強壓。
+
+    '
+- id: movement.demand.breast.foot-flip.multi-joint-composition-of-toe-out
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  - src.nordin-frankel-2012
+  stroke: breast
+  phase_model: descriptive
+  phase: foot-flip
+  body_position: prone
+  poolside_direction: 由池畔觀察，雙腳掌在收腿末段轉為腳尖朝向外側（教學語稱「翻腳」或「勾腳外轉」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - breast.tech.11
+  - breast.tech.36
+  - breast.tech.25
+  action_ids:
+  - movement.action.ankle-foot.dorsiflexion
+  - movement.action.ankle-foot.pronation
+  - movement.action.hip.external-rotation
+  - movement.action.knee.axial-rotation
+  muscle_roles:
+  - muscle_id: movement.muscle.ankle-dorsiflexors
+    role: '踝背屈肌群的作用線在解剖上可參與距小腿關節背屈與位置控制； 本筆不由腳尖朝外的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.foot-evertors
+    role: '足外翻肌群的作用線在解剖上可參與距下與橫跗關節旋前及位置控制； 本筆不由腳尖朝外的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.hip-external-rotators
+    role: '髖外旋肌群的作用線在解剖上可參與股骨外旋方向的移動與位置控制； 本筆不由腳尖朝外的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.knee-flexors
+    role: '膝屈肌群的作用線在解剖上可參與屈膝時的膝軸向旋轉與位置控制； 本筆不由小腿與足朝外的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  name_zh: 蛙式翻腳的「腳尖朝外」是多關節合成，外翻不發生在距小腿關節
+  description: '關節歸屬更正：兩本解剖來源一致指出，距小腿關節只有背屈與蹠屈一個 主要自由度；外翻是額狀面動作，發生在距下關節與橫跗關節。因此 「踝關節外翻」是誤稱，正確寫法是距下關節／橫跗關節旋前。
+
+    「腳尖朝外」是四個貢獻源的向量和，四者可同時發生；池畔或水下攝影 看到的是合成結果，不能整個歸給任一單一關節。髖外旋是股骨繞縱軸 外轉並帶動整條下肢，就可供腳掌方位改變的一般解剖幅度而言，是四者 中幅度最大的來源，但無法由遠端位置反推。膝軸向旋轉是脛骨相對股骨 外旋，只在膝屈曲時存在，部分屈曲時最自由，而翻腳期膝正處於深屈曲。 距下關節旋前的外展成分會使前足相對小腿轉向外側，但可用幅度很小。 橫跗關節是足部最靈活的關節，具有兩條旋轉軸。
+
+    解剖教科書能直接支持的正面事實是，旋前屬於單軸三平面運動，三個 成分的組合不變；任一成分存在，就代表另兩個也在發生。因此足部外翻 會伴隨腳尖外轉的定性關聯成立；不成立的是把幅度、關節歸屬與因果 全部壓在「踝」這一格。同一相位裡的持續背屈與外翻，也可能是同一個 旋前動作的兩個成分，不必然是兩個獨立動作。
+
+    '
+  limitation_context: '四個貢獻源各有獨立的可用範圍，且髖外旋的可用量隨髖屈曲角度改變、 膝軸向旋轉只在屈膝時存在。看到腳尖朝外的角度不足，不能指出限制 位於髖、膝、距下或橫跗的哪一處；要區分必須逐關節分別量測。
+
+    '
+  safety_note: '翻腳時若出現膝內側、踝外側、足部或髖部疼痛、卡住、麻木、明顯無力 或不穩應停止，不要靠外力扳轉腳掌來增加朝外的角度。
+
+    '
