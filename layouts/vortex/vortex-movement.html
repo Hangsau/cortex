@@ -48,6 +48,8 @@
 {{ $evidenceProfileZh := dict "anatomy" "解剖推導" "swimming-emg" "游泳 EMG" "swimming-kinematics" "游泳運動學" "intervention" "介入研究" "practice-observation" "教學觀察" "synthesis-inference" "綜合推論" }}
 {{ $mobilityDecisionZh := dict "routine" "常規" "conditional" "有條件" "not-routine" "非常規" }}
 {{ $referenceFrameZh := dict "joint-local" "關節局部座標" "body-fixed" "體固定座標" "poolside-fixed" "池畔固定座標" }}
+{{ $bodyPositionZh := dict "prone" "俯臥" "supine" "仰臥" "lateral" "側臥" "vertical" "直立" }}
+{{ $endpointZh := dict "kick-speed" "打腿速度" "uus-speed-and-efficiency" "水下海豚腿速度與效率" "joint-angle" "關節角度" "hip-forward-velocity" "髖部前進速度" "body-wave-phase" "體波相位" "hand-velocity" "手部速度" "passive-drag" "被動阻力" "limb-coordination-timing" "肢段協調時序" "roll-timing" "轉體時序" }}
 
 {{ $actions := slice }}
 {{ $muscles := slice }}
@@ -84,6 +86,18 @@
   {{ with .stroke }}{{ $demandStrokes = $demandStrokes | append . }}{{ else }}{{ $demandStrokes = $demandStrokes | append "__missing__" }}{{ end }}
 {{ end }}
 {{ $demandStrokes = $demandStrokes | uniq }}
+
+{{ $nameById := dict }}
+{{ range $c := (slice $actions $muscles $demands) }}
+  {{ range $r := $c }}
+    {{ with $r.id }}
+      {{ $label := . }}
+      {{ with $r.name }}{{ $label = . }}{{ end }}
+      {{ with $r.name_zh }}{{ $label = . }}{{ end }}
+      {{ $nameById = merge $nameById (dict $r.id $label) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
 
 {{ $total := add (add (len $actions) (len $muscles)) (add (len $demands) (len $interventions)) }}
 
@@ -354,7 +368,7 @@
 
             {{ if or $x.body_position $x.action_reference_frame }}
             <dl class="vx-mv-facts">
-              {{ with $x.body_position }}<div><dt>身體位置</dt><dd>{{ . }}</dd></div>{{ end }}
+              {{ with $x.body_position }}{{ $posLabel := index $bodyPositionZh . }}{{ if not $posLabel }}{{ $posLabel = . }}{{ end }}<div><dt>身體位置</dt><dd>{{ $posLabel }}</dd></div>{{ end }}
               {{ with $x.action_reference_frame }}{{ $frameLabel := index $referenceFrameZh . }}{{ if not $frameLabel }}{{ $frameLabel = . }}{{ end }}<div><dt>動作參考座標</dt><dd>{{ $frameLabel }}</dd></div>{{ end }}
             </dl>
             {{ end }}
@@ -365,16 +379,32 @@
             {{ if or $x.action_ids $x.muscle_roles }}
             <div class="vx-mv-ref-grid">
               {{ with $x.action_ids }}
-              <div><span class="vx-block-label">相關動作</span><ul class="vx-mv-refs">{{ range . }}{{ with . }}<li><a href="#{{ . }}">{{ . }}</a></li>{{ end }}{{ end }}</ul></div>
+              <div><span class="vx-block-label">相關動作</span><ul class="vx-mv-refs">{{ range . }}{{ with . }}{{ $n := index $nameById . }}{{ if not $n }}{{ $n = . }}{{ end }}<li><a href="#{{ . }}">{{ $n }}</a></li>{{ end }}{{ end }}</ul></div>
               {{ end }}
               {{ with $x.muscle_roles }}
-              <div><span class="vx-block-label">肌群角色</span><ul class="vx-mv-refs">{{ range . }}{{ if or .muscle_id .role }}<li>{{ with .muscle_id }}<a href="#{{ . }}">{{ . }}</a>{{ end }}{{ with .role }}<span>{{ . }}</span>{{ end }}</li>{{ end }}{{ end }}</ul></div>
+              <div><span class="vx-block-label">肌群角色</span><ul class="vx-mv-refs">{{ range . }}{{ if or .muscle_id .role }}<li>{{ with .muscle_id }}{{ $n := index $nameById . }}{{ if not $n }}{{ $n = . }}{{ end }}<a href="#{{ . }}">{{ $n }}</a>{{ end }}{{ with .role }}<span>{{ . }}</span>{{ end }}</li>{{ end }}{{ end }}</ul></div>
               {{ end }}
             </div>
             {{ end }}
 
             {{ with $x.derived_from_ids }}<p class="vx-mv-derived"><span>技術卡依據</span>{{ delimit . "、" }}</p>{{ end }}
-            {{ with $x.measurement_conditions }}<div class="vx-mv-measurement"><strong>量測條件與外推邊界</strong><p>{{ . }}</p></div>{{ end }}
+            {{ with $x.measurement_conditions }}
+            <div class="vx-mv-measurement">
+              <strong>量測條件與外推邊界</strong>
+              {{ range $mi, $mc := . }}
+              <div class="vx-mv-mc{{ if $mi }} vx-mv-mc--next{{ end }}">
+                {{ with $mc.endpoint }}{{ $epLabel := index $endpointZh . }}{{ if not $epLabel }}{{ $epLabel = . }}{{ end }}<span class="vx-mv-mc-endpoint">量到的終點：{{ $epLabel }}</span>{{ end }}
+                <dl class="vx-mv-mc-facts">
+                  {{ with $mc.quantity }}<div><dt>量的是什麼</dt><dd>{{ chomp . }}</dd></div>{{ end }}
+                  {{ with $mc.value }}<div><dt>量到多少</dt><dd>{{ chomp . }}</dd></div>{{ end }}
+                  {{ with $mc.conditions }}<div><dt>在什麼條件下量的</dt><dd>{{ chomp . }}</dd></div>{{ end }}
+                  {{ with $mc.extrapolation_boundary }}<div><dt>能推到哪、不能推到哪</dt><dd>{{ chomp . }}</dd></div>{{ end }}
+                </dl>
+                {{ with $mc.source_id }}{{ template "vortex-movement-source-line" (dict "ids" (slice .) "registry" $srcReg "label" "此數據來源") }}{{ end }}
+              </div>
+              {{ end }}
+            </div>
+            {{ end }}
             {{ with $x.safety_note }}<div class="vx-mv-safety-note"><strong>安全提醒</strong><p>{{ . }}</p></div>{{ end }}
             {{ template "vortex-movement-source-line" (dict "ids" $x.source_ids "registry" $srcReg "label" "來源") }}
           </article>
@@ -423,8 +453,8 @@
 
           {{ if or $x.action_ids $x.demand_ids }}
           <div class="vx-mv-ref-grid">
-            {{ with $x.action_ids }}<div><span class="vx-block-label">相關動作</span><ul class="vx-mv-refs">{{ range . }}{{ with . }}<li><a href="#{{ . }}">{{ . }}</a></li>{{ end }}{{ end }}</ul></div>{{ end }}
-            {{ with $x.demand_ids }}<div><span class="vx-block-label">相關泳式需求</span><ul class="vx-mv-refs">{{ range . }}{{ with . }}<li><a href="#{{ . }}">{{ . }}</a></li>{{ end }}{{ end }}</ul></div>{{ end }}
+            {{ with $x.action_ids }}<div><span class="vx-block-label">相關動作</span><ul class="vx-mv-refs">{{ range . }}{{ with . }}{{ $n := index $nameById . }}{{ if not $n }}{{ $n = . }}{{ end }}<li><a href="#{{ . }}">{{ $n }}</a></li>{{ end }}{{ end }}</ul></div>{{ end }}
+            {{ with $x.demand_ids }}<div><span class="vx-block-label">相關泳式需求</span><ul class="vx-mv-refs">{{ range . }}{{ with . }}{{ $n := index $nameById . }}{{ if not $n }}{{ $n = . }}{{ end }}<li><a href="#{{ . }}">{{ $n }}</a></li>{{ end }}{{ end }}</ul></div>{{ end }}
           </div>
           {{ end }}
 

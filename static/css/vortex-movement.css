@@ -171,6 +171,37 @@
 
 .vx-mv-measurement p { margin: 0; }
 
+.vx-mv-mc--next {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--vx-gold);
+}
+
+.vx-mv-mc-endpoint {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 2px 8px;
+  border: 1px solid var(--vx-gold);
+  font-family: var(--vx-mono);
+  font-size: 12px;
+  letter-spacing: .05em;
+  color: var(--vx-gold);
+}
+
+.vx-mv-mc-facts { margin: 0; }
+.vx-mv-mc-facts > div { padding: 0 0 10px; }
+.vx-mv-mc-facts > div:last-child { padding-bottom: 0; }
+
+.vx-mv-mc-facts dt {
+  margin-bottom: 2px;
+  font-family: var(--vx-mono);
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: var(--vx-sub);
+}
+
+.vx-mv-mc-facts dd { margin: 0; white-space: pre-line; }
+
 .vx-mv-safety-note {
   margin: 22px 0;
   padding: 13px 16px;
