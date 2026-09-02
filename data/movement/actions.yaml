@@ -722,3 +722,227 @@ actions:
   safety_note: '移動肩胛或手臂時若出現肩部、肩胛周圍疼痛、卡住、麻木、明顯無力 或不穩，應停止，不要強行增加肩胛後縮範圍。
 
     '
+- id: movement.action.shoulder-complex.scapular-upward-rotation
+  claim_status: supported
+  action_status: ready
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  name: 肩胛骨上迴旋
+  aliases:
+  - 肩胛上迴旋
+  - 肩胛骨上旋
+  - scapular upward rotation
+  joint_region: shoulder-arm
+  definition: '肩胛骨上迴旋是肩胛骨相對胸廓的旋轉，關節窩轉向上方、下角轉離脊椎。 它不是單一關節的動作，而是胸鎖關節的鎖骨上舉與肩鎖關節的肩胛上迴旋 加總而成的肩胛胸廓合成動作；記錄上迴旋條件時須分開考量這兩個關節， 不能把合成結果當成一個關節的單獨貢獻。
+
+    '
+  plane:
+  - frontal
+  axis:
+  - 通過肩胛骨的前後軸
+  observable_boundaries: '肩胛骨上迴旋是手臂舉過頭的必要組成部分，不是可有可無的附加動作。 解剖來源直接把它定義為抬臂過頭的一部分，使關節窩得以支撐並穩定被 舉起的肱骨頭；因此雙臂夾耳的流線姿勢必然包含上迴旋。肩胛骨可以嚴格 在額狀面上迴旋，但多數情況沿其自身的肩胛骨平面行進；所以「上迴旋」 與「上舉平面」是兩個必須分開記錄的欄位。
+
+    '
+  general_anatomical_capacity: '肩胛骨可透過胸鎖與肩鎖關節的合成運動提供手臂過頭所需的上迴旋；實際 可用幅度會隨胸廓形狀、鎖骨活動、肩鎖關節活動與上舉平面而變。 本條不以單一角度作能力門檻。
+
+    '
+  name_zh: 肩胛骨上迴旋
+  description: '肩胛骨上迴旋是關節窩轉向上方、下角轉離脊椎的肩胛胸廓合成動作， 由胸鎖關節的鎖骨上舉與肩鎖關節的肩胛上迴旋共同形成。它是手臂舉 過頭的必要組成部分。上迴旋的方向與手臂採用的上舉平面是兩個不同 欄位，描述時不能互相替代。
+
+    '
+  safety_note: '抬高手臂或調整肩胛時若出現肩部疼痛、卡住、麻木、明顯無力或不穩， 應停止，不要以外力強行增加上舉或肩胛上迴旋範圍。
+
+    '
+- id: movement.action.shoulder-complex.scapular-posterior-tilt
+  claim_status: supported
+  action_status: ready
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  name: 肩胛骨後傾
+  aliases:
+  - 肩胛後傾
+  - posterior tilt
+  - scapular posterior tilting
+  joint_region: shoulder-arm
+  definition: '肩胛骨後傾這個術語的定義層級是肩鎖關節：矢狀面調整繞近內外側軸 發生，外觀上是肩胛骨下角轉離胸廓後表面，命名依據則是關節窩的旋轉 方向，不是下角本身。在姿勢描述中，肩胛骨相對胸廓的最終位置是肩胛 胸廓層級的合成結果；肩鎖關節的定義層級與肩胛胸廓的姿勢層級都須標明。
+
+    '
+  plane:
+  - sagittal
+  axis:
+  - 通過肩胛骨的內外側軸
+  observable_boundaries: '解剖來源指出，上舉過程中上迴旋的肩胛骨必然伴隨不等量的後傾與淨外旋， 以貼合胸廓曲度、讓關節窩朝向手臂預定的上舉平面，並讓喙肩弓遠離前進 中的肱骨頭。肩胛後傾與肱骨外旋是同一個問題的兩個對策：一個轉肩胛， 一個轉肱骨，兩者是獨立欄位而不是重複命名。
+
+    '
+  general_anatomical_capacity: '後傾的幅度隨上舉角度變化，解剖來源以「不等量」描述其伴隨程度。 本條不以單一角度作能力門檻。
+
+    '
+  name_zh: 肩胛骨後傾
+  description: '肩胛骨後傾在術語上定義於肩鎖關節，命名依據是關節窩的旋轉方向； 姿勢上看到的則是肩胛骨相對胸廓的合成位置。手臂上舉時，後傾與 上迴旋相伴，並與肱骨外旋形成兩個方向不同的讓位動作：一個轉肩胛， 一個轉肱骨，描述時應分開記錄。
+
+    '
+  safety_note: '抬高手臂或調整肩胛時若出現肩部疼痛、卡住、麻木、明顯無力或不穩， 應停止，不要以外力強壓肩胛或增加上舉範圍。
+
+    '
+- id: movement.action.shoulder-complex.scapular-elevation
+  claim_status: supported
+  action_status: ready
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  name: 肩胛骨上提
+  aliases:
+  - 肩胛上提
+  - 聳肩
+  - scapular elevation
+  joint_region: shoulder-arm
+  definition: '肩胛骨上提是肩胛骨整體往頭側移動，是胸鎖與肩鎖兩個關節旋轉的合成； 聳肩大部分是肩胛骨跟隨鎖骨繞胸鎖關節上舉的直接結果。
+
+    '
+  plane:
+  - frontal
+  axis:
+  - 通過胸鎖關節的前後軸
+  observable_boundaries: '解剖來源在列舉手臂上舉時肩胛骨的必然伴隨動作時，列的是上迴旋、後傾 與淨外旋，上提不在其中。因此上提在過頭姿勢裡的性質是「容許有一些」， 與上迴旋、後傾的「必然發生」不是同一件事；把三者並列而不區分必然性 程度會造成誤導。
+
+    '
+  general_anatomical_capacity: '鎖骨的上提與下壓大致平行於額狀面、繞近前後軸，兩個方向的可用範圍 明顯不對稱，上提遠大於下壓。本條不以單一角度作能力門檻。
+
+    '
+  name_zh: 肩胛骨上提
+  description: '肩胛骨上提是肩胛骨整體往頭側移動，主要呈現為肩胛骨跟隨鎖骨繞 胸鎖關節上舉。過頭姿勢可以容許一些上提，但解剖來源沒有把上提列入 手臂上舉時的必然伴隨清單；它不能與必然發生的上迴旋和後傾視為等價。
+
+    '
+  safety_note: '聳肩或抬高手臂時若出現肩部疼痛、卡住、麻木、明顯無力或不穩， 應停止，不要以外力強行增加肩胛上提或上舉範圍。
+
+    '
+- id: movement.action.forearm.pronation
+  claim_status: supported
+  action_status: ready
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  name: 前臂旋前
+  aliases:
+  - 旋前
+  - 前臂內轉
+  - forearm pronation
+  joint_region: shoulder-arm
+  definition: '前臂旋前是橈骨相對尺骨繞前臂縱軸的旋轉，使手掌轉向背側方向；動作 發生在近端與遠端橈尺關節，與腕關節和肩關節都是不同的自由度。
+
+    '
+  plane:
+  - transverse
+  axis:
+  - 通過橈骨頭到尺骨莖突的前臂縱軸
+  observable_boundaries: '手固定不動時，看起來像前臂旋前或旋後的動作，本質上可能是盂肱關節 的軸向旋轉；解剖來源明確指出兩者在手固定時可以表現成同一個外觀。 因此手掌在空間中的朝向不是前臂旋轉的證據，而是肱骨軸向旋轉、前臂 旋前旋後與腕關節位置三者的合成。判定前臂旋轉必須直接看橈骨相對尺骨 的位置，不能由手掌朝向反推。
+
+    '
+  general_anatomical_capacity: '前臂可透過近端與遠端橈尺關節的配合，由中間位朝旋前方向移動；實際 可用範圍會隨肘部位置、近端與遠端橈尺關節狀態及量測固定方式而變。 本條不以單一角度作能力門檻。
+
+    '
+  name_zh: 前臂旋前
+  description: '前臂旋前是橈骨相對尺骨繞前臂縱軸轉動，與肩關節旋轉和腕關節位置 都是不同的自由度。手掌在空間中的朝向由這三者合成，因此不能由 手掌朝向反推前臂是否旋前；判定時須直接看橈骨相對尺骨的位置。
+
+    '
+  safety_note: '旋轉前臂時若出現肘、前臂、腕或手部疼痛、卡住、麻木、明顯無力或 不穩，應停止，不要以外力強行增加旋前範圍。
+
+    '
+- id: movement.action.forearm.supination
+  claim_status: supported
+  action_status: ready
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  name: 前臂旋後
+  aliases:
+  - 旋後
+  - 前臂外轉
+  - forearm supination
+  joint_region: shoulder-arm
+  definition: '前臂旋後是旋前的反向動作，橈骨相對尺骨轉回與尺骨平行的位置，使手掌 轉向腹側方向；動作發生在近端與遠端橈尺關節，與腕關節和肩關節都是 不同的自由度。
+
+    '
+  plane:
+  - transverse
+  axis:
+  - 通過橈骨頭到尺骨莖突的前臂縱軸
+  observable_boundaries: '手掌在空間中的朝向是肱骨軸向旋轉、前臂旋前旋後與腕關節位置的合成， 不能由手掌朝向反推前臂旋後。判定前臂旋轉必須直接看橈骨相對尺骨的 位置。旋前與旋後的中間位，也就是前臂中立，是有明確解剖定義的參考位； 但「中立」必須說明是哪一個軸上的中立，單寫「中立」在多軸關節上無法驗證。
+
+    '
+  general_anatomical_capacity: '前臂可透過近端與遠端橈尺關節的配合，由中間位朝旋後方向移動；實際 可用範圍會隨肘部位置、近端與遠端橈尺關節狀態及量測固定方式而變。 本條不以單一角度作能力門檻。
+
+    '
+  name_zh: 前臂旋後
+  description: '前臂旋後是橈骨相對尺骨轉回平行位置的動作。手掌朝向還受到肱骨 軸向旋轉與腕部位置影響，不能用來反推前臂旋後。前臂中間位有明確 解剖定義，但在多軸關節描述「中立」時，仍必須一併指出所指的軸。
+
+    '
+  safety_note: '旋轉前臂時若出現肘、前臂、腕或手部疼痛、卡住、麻木、明顯無力或 不穩，應停止，不要以外力強行增加旋後範圍。
+
+    '
+- id: movement.action.trunk.extension
+  claim_status: supported
+  action_status: ready
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  name: 軀幹伸展
+  aliases:
+  - 脊椎伸展
+  - 腰椎伸展
+  - trunk extension
+  joint_region: spine-neck
+  definition: '軀幹伸展是脊柱在矢狀面往背側方向的旋轉，是屈曲的逆向運動。脊柱 伸展會加深頸椎與腰椎的前凸，同時減少胸椎後凸；因此同一個「伸展」 在不同節段對應相反的曲度變化，不標節段就無法驗證。
+
+    '
+  plane:
+  - sagittal
+  axis:
+  - 各椎節的內外側軸
+  observable_boundaries: '腰椎伸展若合併髖關節完全伸展，被拉長的髖屈肌與關節囊韌帶的被動張力 會對骨盆產生前傾力，進一步加深腰椎前凸。因此下肢完全拉直的姿勢會 放大腰椎伸展的效果，髖部位置與腰椎伸展不是彼此獨立的觀察項目。
+
+    '
+  general_anatomical_capacity: '腰椎在矢狀面的伸展可用範圍明顯小於屈曲，不同節段的可用範圍差異顯著。 本條不以單一角度作能力門檻。
+
+    '
+  name_zh: 軀幹伸展
+  description: '軀幹伸展是脊柱在矢狀面往背側旋轉。它會加深頸椎與腰椎前凸，卻會 減少胸椎後凸，所以描述時必須標明節段。腰椎伸展若與髖完全伸展同時 出現，髖屈肌與關節囊韌帶的被動張力還會促使骨盆前傾並加深腰椎前凸。
+
+    '
+  safety_note: '調整軀幹或腰部時若出現疼痛、向肢端放射的麻木、明顯無力或不穩， 應停止，不要以外力強行增加伸展範圍。
+
+    '
+- id: movement.action.trunk.flexion
+  claim_status: supported
+  action_status: ready
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  name: 軀幹屈曲
+  aliases:
+  - 脊椎屈曲
+  - 腰椎屈曲
+  - trunk flexion
+  joint_region: spine-neck
+  definition: '軀幹屈曲是脊柱在矢狀面往腹側方向的旋轉。其分節段效果與伸展相反： 減少並壓平頸椎與腰椎前凸，同時加深胸椎後凸。
+
+    '
+  plane:
+  - sagittal
+  axis:
+  - 各椎節的內外側軸
+  observable_boundaries: '教學語裡的「下背貼平」「腹部收緊」「空心姿」所指的是腰椎前凸被壓平， 按解剖定義落在屈曲側，不是伸展側。使用這些外觀詞時仍須標明節段、 平面與基準，不能讓外觀詞取代關節動作命名。
+
+    '
+  general_anatomical_capacity: '腰椎屈曲的可用範圍明顯大於伸展，不同脊柱節段仍有不同的可用條件。 本條不以單一角度作能力門檻。
+
+    '
+  name_zh: 軀幹屈曲
+  description: '軀幹屈曲是脊柱在矢狀面往腹側旋轉，會壓平頸椎與腰椎前凸並加深 胸椎後凸。教學語中的下背貼平、腹部收緊或空心姿，按解剖定義落在 腰椎屈曲側；描述時仍須補上節段、平面與基準。
+
+    '
+  safety_note: '調整軀幹或腰部時若出現疼痛、向肢端放射的麻木、明顯無力或不穩， 應停止，不要以外力強行壓平下背或增加屈曲範圍。
+
+    '

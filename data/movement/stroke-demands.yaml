@@ -1439,3 +1439,298 @@ demands:
   safety_note: '出水時若出現肩後側或肩前側疼痛、卡住、麻木、明顯無力或不穩應停止， 不要為了做出特定的出水手型而改變肩的旋轉位置。
 
     '
+- id: movement.demand.udk.streamlined-glide.scapulohumeral-dual-clearance
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  stroke: udk
+  phase_model: descriptive
+  phase: streamlined-glide
+  body_position: prone
+  poolside_direction: 由池畔觀察，推牆後雙臂夾耳伸直、雙手在頭前疊合，身體拉成一直線
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - udk.tech.24
+  action_ids:
+  - movement.action.shoulder-complex.elevation
+  - movement.action.shoulder-complex.external-rotation
+  - movement.action.shoulder-complex.scapular-upward-rotation
+  - movement.action.shoulder-complex.scapular-posterior-tilt
+  - movement.action.shoulder-complex.scapular-elevation
+  muscle_roles:
+  - muscle_id: movement.muscle.scapular-upward-rotators
+    role: '肩胛上迴旋肌群的作用線在解剖上可參與肩胛上迴旋方向的移動與位置 控制；本筆不由雙臂夾耳的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.scapular-elevators
+    role: '肩胛上提肌群的作用線在解剖上可參與肩胛上提方向的移動與位置控制； 本筆不由肩帶靠近耳側的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.rotator-cuff
+    role: '旋轉肌袖的作用線在解剖上可參與肱骨外旋方向的移動與盂肱位置控制； 本筆不由流線姿勢的肩部外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  name_zh: 流線滑行的肩部避讓機制與肩胛三軸必然性差異
+  description: '手臂舉到頭前最大上舉時，解剖來源描述兩個同時發生、方向不同的讓位 動作：肱骨外旋讓肱骨大結節從肩峰後方通過，肩胛骨後傾讓喙肩弓遠離 前進中的肱骨頭。兩者處理的是同一件事，一個轉肱骨、一個轉肩胛； 所以在流線姿勢同時標出外旋與後傾不是重複記錄，而是兩個獨立欄位。
+
+    三個肩胛成分的必然性不同。上迴旋是抬臂過頭的必要組成，後傾是上舉 過程中的必然伴隨成分；肩胛上提不在解剖來源列出的必然清單裡，只是 容許有一些。把三者並列而不區分，會使讀者誤以為需要同等地做出三個動作。
+
+    解剖來源指出，純額狀面上舉與肩胛骨平面上舉的強制外旋耦合程度不同， 額狀面的耦合較強。因此雙臂夾耳但肩胛平面沒有跟上，與整個肩帶沿 肩胛平面上舉，是外旋需求不同的兩種狀況。本層只列出差異存在，不判定 哪一種比較好。
+
+    '
+  limitation_context: '上舉角度、上舉平面、肱骨外旋、肩胛上迴旋、後傾與上提各有獨立的 可用範圍與控制條件；從池畔看到的手臂夾耳伸直是這些成分的合成， 不能指出限制位於哪一個關節或哪一個成分。外旋可用範圍也會隨起始 上舉角度改變，由手臂貼體側起算與由高上舉位起算不是同一個可用範圍， 所以陸上量到的外旋角度不能直接搬到流線姿勢的判讀。教材另有「減少 迎水面積」一類說法，該說法屬水動力學，不在本層裁決範圍。
+
+    '
+  safety_note: '進入或維持流線姿勢時若出現肩部疼痛、卡住、麻木、明顯無力或不穩 應停止，不要靠外力把手臂往耳側壓，也不要為了把手臂夾得更緊而增加 上舉角度。
+
+    '
+- id: movement.demand.udk.streamlined-glide.forearm-rotation-column-gap
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  stroke: udk
+  phase_model: descriptive
+  phase: streamlined-glide
+  body_position: prone
+  poolside_direction: 由池畔觀察，雙肘伸直、雙手在頭前疊合或交握、手指伸直併攏
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - udk.tech.24
+  action_ids:
+  - movement.action.elbow.extension
+  - movement.action.forearm.pronation
+  - movement.action.forearm.supination
+  - movement.action.wrist-hand.flexion
+  - movement.action.wrist-hand.extension
+  muscle_roles:
+  - muscle_id: movement.muscle.elbow-extensors
+    role: '肘伸肌群的作用線在解剖上可參與肘伸展方向的移動與位置控制；本筆 不由雙肘伸直的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.forearm-pronators
+    role: '前臂旋前肌群的作用線在解剖上可參與前臂旋前方向的移動與位置控制； 本筆不由雙手疊合的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.forearm-supinators
+    role: '前臂旋後肌群的作用線在解剖上可參與前臂旋後方向的移動與位置控制； 本筆不由雙手交握的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.wrist-flexors
+    role: '腕屈肌群的作用線在解剖上可參與腕屈曲方向的移動與位置控制；本筆 不由手指伸直併攏的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.wrist-extensors
+    role: '腕伸肌群的作用線在解剖上可參與腕伸展方向的移動與位置控制；本筆 不由手腕外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  name_zh: 流線滑行的肘腕位置與被手部擺法遮蔽的前臂旋轉
+  description: '肘伸展是矢狀面單一自由度的乾淨命名。一般人的肘可以超過中位再往 伸展方向一些，所以完全伸展在不同人身上對應的實際角度略有差異； 教學上不宜用「鎖死」描述，以免誘導停在被動結構末端。
+
+    腕中立在本相位是合格用法，因為腕有明確的關節定義原點，而且此處 只涉及矢狀面屈伸，指涉單一。但這項合格有條件：若日後加入橈偏與 尺偏，中立就必須分兩軸各自標明。這是「中立必須綁定平面」的正面範例。
+
+    本筆的核心是疊手法遮蔽前臂旋轉。掌根相疊、手背相疊與十指交握是 三種不同的手部擺法，對應不同的前臂旋前旋後角度。教材通常只寫雙手 疊合，卻沒有前臂旋轉欄位，等於用手部的空間關係取代關節旋轉描述。
+
+    而且不能從手掌朝向反推。解剖來源明確指出，手固定時看似前臂旋轉的 動作，本質上可能是盂肱關節軸向旋轉。判定前臂旋轉必須直接看橈骨 相對尺骨的位置，由手掌朝哪裡推論旋前或旋後在解剖上無效。
+
+    '
+  limitation_context: '肘伸展、前臂旋轉與腕位置三者獨立；池畔看到的手臂伸直、雙手疊好 是三者的合成，不能指出限制在哪一項。三種疊手法之間的差異在本層 只登錄為對應不同的前臂旋轉角度，本層不判定哪一種疊手法比較好， 因為那需要水動力學或運動學證據，本層沒有。教材另有「延長身體線條」 一類說法，該說法屬外觀與水動力學，不在本層裁決範圍。
+
+    '
+  safety_note: '疊手或伸直手臂時若出現肘、腕或手部疼痛、卡住、麻木、明顯無力或 不穩應停止，不要為了把手疊得更整齊而強行扭轉前臂或壓迫手腕。
+
+    '
+- id: movement.demand.udk.streamlined-glide.lower-chain-neutral-and-terminal-extension
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  stroke: udk
+  phase_model: descriptive
+  phase: streamlined-glide
+  body_position: prone
+  poolside_direction: 由池畔觀察，雙腿併攏伸直、膝不彎、腳尖繃直朝後
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - udk.tech.24
+  action_ids:
+  - movement.action.hip.flexion
+  - movement.action.hip.extension
+  - movement.action.knee.extension
+  - movement.action.knee.axial-rotation
+  - movement.action.ankle-foot.plantarflexion
+  muscle_roles:
+  - muscle_id: movement.muscle.hip-flexors
+    role: '髖屈肌群的作用線在解剖上可參與髖屈曲側的移動與中立位置控制； 本筆不由雙腿拉直的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.hip-extensors
+    role: '髖伸肌群的作用線在解剖上可參與髖伸展側的移動與中立位置控制； 本筆不由髖部外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.knee-extensors
+    role: '膝伸肌群的作用線在解剖上可參與膝伸展方向的移動與位置控制；本筆 不由膝不彎的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.ankle-plantarflexors
+    role: '踝蹠屈肌群的作用線在解剖上可參與踝蹠屈方向的移動與位置控制； 本筆不由腳尖繃直的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  name_zh: 流線滑行的髖中立、膝完全伸展與踝蹠屈
+  description: '髖中立是合格的中立寫法，因為它自帶不屈不伸的補充，等於同時綁定 矢狀面與解剖位置的零點基準。這正是下一筆腰椎基準中不合格的中立 所缺的欄位。髖在中立位之外仍能往伸展方向移動一段，所以流線的髖 中立不是活動範圍末端。
+
+    膝完全伸展不是純矢狀面的單一動作。解剖來源指出，把膝鎖進完全伸展 的最後一段伴隨脛骨相對股骨的軸向外旋，也就是鎖扣機制。用矢狀面 命名膝伸展正確且必要，但整合判讀時仍要知道旋轉成分存在；無法完全 伸膝時，矢狀面活動度受限與旋轉成分受限是兩件不同的事。本層只列出 區分存在，不提供判別方法。
+
+    踝蹠屈是乾淨的單一自由度命名，只使用距小腿關節的矢狀面自由度， 沒有把外翻或內翻併進踝這一格。它是本圖譜中單一關節誤稱的正面對照。
+
+    蹠屈可用範圍在不同量測方法之間差異相當大，所以腳尖能否完全繃直 會隨評估方式得到不同答案。完全蹠屈在解剖上是距小腿關節的鬆弛位； 該位置的相對不穩定性是承重情境的議題，水下流線屬非承重，不構成 本層的風險宣稱。
+
+    '
+  limitation_context: '髖、膝、踝三者各自獨立；池畔看到的腿伸直、腳尖繃直是三者的合成， 不能指出限制位於哪一個關節。教材另有「減少足部迎水面積」一類說法， 該說法屬水動力學，不在本層裁決範圍。
+
+    '
+  safety_note: '伸直下肢或繃腳尖時若出現髖、膝、小腿或足部疼痛、抽筋、麻木、明顯 無力或不穩應停止，不要靠外力壓腳背或把膝往後扳。
+
+    '
+- id: movement.demand.udk.streamlined-glide.lumbar-baseline-two-readings
+  claim_status: disputed
+  action_status: provisional
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  stroke: udk
+  phase_model: descriptive
+  phase: streamlined-glide
+  body_position: prone
+  poolside_direction: 由池畔觀察，軀幹拉成一直線、腰部既不塌陷也不拱起（教學語常稱「腹部收緊」「空心姿」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - udk.tech.24
+  action_ids:
+  - movement.action.trunk.flexion
+  - movement.action.trunk.extension
+  muscle_roles:
+  - muscle_id: movement.muscle.trunk-sagittal-controllers
+    role: '軀幹矢狀面控制肌群的作用線在解剖上可參與屈曲側、伸展側的移動與 位置控制；本筆不由腰部外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  name_zh: 流線滑行的腰椎基準——「中立或些微伸展」與「空心姿」指向相反側
+  description: '常見寫法是「脊椎維持中立或些微伸展（空心姿）」。但按解剖定義， 伸展會加深腰椎前凸，使腰往下沉、腹部前推；空心姿所指的則是腰椎 前凸被壓平、下背貼平，落在屈曲側。兩者不是程度差異，而是中立點 的兩側。用括號把它們寫成同義詞，是實質矛盾，不是措辭鬆散。
+
+    在流線姿勢裡，這個矛盾會被放大。解剖來源指出，腰椎伸展若合併髖 關節完全伸展，被拉長的髖屈肌與關節囊韌帶被動張力會使骨盆前傾， 把腰椎前凸推得更深；流線正是下肢完全拉直的姿勢，所以些微伸展 在此姿勢下不是一個小偏差。
+
+    中立這半句本身也不合格。脊椎有多個平面且分為頸、胸、腰節段， 各節段可用範圍差異顯著；只寫脊椎維持中立，沒有標節段與平面，既 無法驗證也無法教。對照髖中立自帶不屈不伸，已綁定平面與基準，因而合格。
+
+    本層的處置是列出兩個讀法各自指向屈曲側或伸展側，並指出原句缺少 節段、平面、相對於什麼的基準三個欄位。採用哪個讀法屬教學方針決定， 不由解剖來源裁決，所以本筆標為有爭議。這不是說教材錯了，而是現行 寫法無論如何解讀都內含矛盾，本層不選邊。
+
+    '
+  limitation_context: '本筆不提供腰椎應該在哪個角度的答案，也不提供判別某個泳者目前位於 屈曲側或伸展側的方法。凡出現中立、些微、輕度等程度副詞，都必須 補齊節段、平面、基準三欄才有意義；本筆記錄的就是三欄目前缺失。
+
+    '
+  safety_note: '調整腰部姿勢時若出現下背疼痛、放射到腿部的麻木或無力、或明顯不穩 應停止，不要為了做出某一種腰部形狀而強行拱腰或壓平下背。
+
+    '
+- id: movement.demand.udk.up-kick.hip-extension-prone
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  stroke: udk
+  phase_model: descriptive
+  phase: up-kick
+  body_position: prone
+  poolside_direction: 由池畔觀察，雙腳由最低點朝水面方向移動（教學語稱「上踢」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - udk.tech.10
+  - udk.tech.11
+  - udk.tech.15
+  action_ids:
+  - movement.action.hip.extension
+  - movement.action.knee.extension
+  - movement.action.ankle-foot.plantarflexion
+  - movement.action.trunk.extension
+  muscle_roles:
+  - muscle_id: movement.muscle.hip-extensors
+    role: '髖伸肌群的作用線在解剖上可參與髖伸展方向的移動與位置控制；本筆 不由雙腳朝水面移動的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.knee-extensors
+    role: '膝伸肌群的作用線在解剖上可參與膝伸展方向的移動與位置控制；本筆 不由俯臥上踢的膝部外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.ankle-plantarflexors
+    role: '踝蹠屈肌群的作用線在解剖上可參與踝蹠屈方向的移動與位置控制； 本筆不由俯臥上踢的足部外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  name_zh: 俯臥水下海豚腳上踢的髖伸展與可用幅度不對稱
+  description: '俯臥時腹側朝池底，所以腳往水面移動就是腳往背側移動，解剖命名為 髖伸展。這個對應只在俯臥時成立；仰躺版本對應的是相反的髖部動作。
+
+    髖伸展可用範圍明顯小於髖屈曲，而且膝屈曲時會進一步壓縮。跨過髖與 膝兩個關節的股直肌被拉長後，被動張力會把髖伸展可用量壓回接近中位。 因此俯臥上踢使用的是髖矢狀面可用範圍的窄邊。
+
+    在髖伸展可用量有限時，池畔看到的腿部上抬會有相當比例來自腰椎伸展 與骨盆前傾。所以動作清單列出軀幹伸展，不是額外的技術要求，而是 對可見幅度來源進行拆帳的項目。
+
+    膝與踝的命名不隨體位翻轉。膝只有屈曲一個方向可用，踝的蹠屈同理， 因而在俯臥與仰躺下使用相同的解剖動作名，改變的只是它們對應的池畔 可見方向。唯有髖與軀幹會發生命名翻轉，因為只有它們在中立位兩側 都有可用範圍，不能把整段打腿描述全部鏡像。
+
+    '
+  limitation_context: '髖伸展、膝伸展、踝蹠屈與軀幹伸展各有獨立的可用範圍；池畔看到的 上踢幅度不足不能指出限制位於哪一項。教材另有把上踢與推進效益連起來 的說法，那些出自游泳運動學與流體量測，不在本層來源範圍，本筆不描述、 不引用、也不反駁。池畔看到的膝彎曲程度有一個以上的可能來源，包括 踝的可用蹠屈範圍、髖的位置與主動控制，外觀本身不能指定是哪一個。
+
+    '
+  safety_note: '上踢時若出現下背、髖前側、膝或小腿疼痛、抽筋、麻木、明顯無力或 不穩應停止，不要靠加大腰部拱起來換取更大的上踢幅度。
+
+    '
+- id: movement.demand.udk.up-kick.hip-flexion-supine
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  stroke: udk
+  phase_model: descriptive
+  phase: up-kick
+  body_position: supine
+  poolside_direction: 由池畔觀察，雙腳由最低點朝水面方向移動（教學語同樣稱「上踢」，池畔外觀與俯臥時相同）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - udk.tech.10
+  - udk.tech.11
+  action_ids:
+  - movement.action.hip.flexion
+  - movement.action.knee.extension
+  - movement.action.ankle-foot.plantarflexion
+  muscle_roles:
+  - muscle_id: movement.muscle.hip-flexors
+    role: '髖屈肌群的作用線在解剖上可參與髖屈曲方向的移動與位置控制；本筆 不由雙腳朝水面移動的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.knee-extensors
+    role: '膝伸肌群的作用線在解剖上可參與膝伸展方向的移動與位置控制；本筆 不由仰躺上踢的膝部外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.ankle-plantarflexors
+    role: '踝蹠屈肌群的作用線在解剖上可參與踝蹠屈方向的移動與位置控制； 本筆不由仰躺上踢的足部外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  name_zh: 仰躺水下海豚腳上踢——同一個池畔動作對應的是髖屈曲
+  description: '這個情境在日常賽訓中反覆發生：仰式選手每一次轉身後都會在仰躺體位 做水下海豚腳，並不是理論上的邊緣案例。
+
+    仰躺時腹側朝水面，所以腳往水面移動就是腳往腹側移動，解剖命名為 髖屈曲，與俯臥版本的髖伸展完全相反。骨動學命名一律從解剖位置起算， 不隨身體在空間中的朝向改變；這不是兩種說法，而是同一規則在兩個 體位下得到的兩個結果。
+
+    教材常見的「動作模式與蝶式的海豚打腿相同」在這裡會出錯。蝶式是 俯臥，直接照抄等於把俯臥的命名輸出到仰躺。要寫成正確內容，必須先 填體位欄位，不能以同蝶式帶過。
+
+    力學條件也不對稱，不只是命名鏡像。髖屈曲的可用範圍遠大於髖伸展， 所以俯臥上踢使用髖的窄邊，仰躺上踢使用髖的寬邊。同一句上踢幅度不足， 在兩種體位下要看的地方不一樣；本層只列出不對稱存在，不提供判別流程。
+
+    膝與踝不翻轉。膝只有屈曲方向可用，踝的蹠屈同理，所以兩種體位下的 解剖命名不變，改變的只是對應的池畔可見方向；不能把整段打腿描述鏡像。
+
+    '
+  limitation_context: '髖屈曲、膝伸展與踝蹠屈各自獨立；池畔看到的上踢外觀在兩種體位下 看起來一樣但解剖內容不同，所以任何以池畔外觀建立的判讀，若沒有先 記錄體位，就無法對應到關節。本筆不提供任何幅度目標或角度門檻。
+
+    '
+  safety_note: '仰躺姿勢下上踢時若出現髖前側、下背、膝或小腿疼痛、抽筋、麻木、 明顯無力或不穩應停止，不要為了加大幅度而讓腰部反折。
+
+    '
