@@ -79,6 +79,42 @@ BREATHING_SRC_DIR = VORTEX_SRC / "canonical" / "breathing"
 BREATHING_DST_DIR = HUGO_ROOT / "data" / "breathing"
 BREATHING_FILES   = ["safety", "framework", "physiology", "training", "regulation", "_index"]
 
+# ── 動作圖譜（canonical 兩層 → my-site data/movement；只 public，draft/withheld 不出站） ──
+MOVEMENT_SRC_DIR = VORTEX_SRC / "canonical" / "movement"
+MOVEMENT_DST_DIR = HUGO_ROOT / "data" / "movement"
+
+# 不出站的發布狀態。canonical 的 publication_status 值域見
+# TheVortexProject/canonical/_taxonomy.yaml。
+MOVEMENT_HIDDEN_STATUS = frozenset({"draft", "withheld"})
+
+# 每檔的（檔名, 清單鍵, 記錄層公開欄位白名單）。
+# 白名單不是黑名單：canonical 之後還會加內部欄位，黑名單擋不住還沒被想到的那個。
+# 三個誠實標記（claim_status / action_status / evidence_profile）與 source_ids 一律出站——
+# 專案規範要求對外頁面看得出來源、確定性與未證範圍。
+MOVEMENT_COMMON_FIELDS = ("id", "claim_status", "action_status", "evidence_profile", "source_ids")
+MOVEMENT_FILES = (
+    ("actions", "actions", MOVEMENT_COMMON_FIELDS + (
+        "name", "aliases", "joint_region", "definition", "plane", "axis",
+        "observable_boundaries", "general_anatomical_capacity",
+    )),
+    ("muscle-groups", "muscle_groups", MOVEMENT_COMMON_FIELDS + (
+        "name", "aliases", "joint_regions", "cross_joint_characteristics",
+        "general_capabilities", "roles",
+    )),
+    ("stroke-demands", "demands", MOVEMENT_COMMON_FIELDS + (
+        "stroke", "phase_model", "phase", "body_position", "poolside_direction",
+        "action_reference_frame", "derived_from_ids", "action_ids", "muscle_roles",
+        "measurement_conditions",
+    )),
+    # interventions 的記錄層 works_when / fails_when / how_to_identify / action /
+    # affirmative_conclusion 是教練決策層，公開版走 public 子樹的 *_summary 與
+    # training_options，記錄層那幾欄不出站。
+    ("interventions", "interventions", MOVEMENT_COMMON_FIELDS + (
+        "limitation_type", "action_ids", "demand_ids", "mobility_decision",
+        "dosage_source_ids", "safety_stop_conditions", "remaining_boundary",
+    )),
+)
+
 # ── Layer 設定 ──
 LAYERS = {
     "Technica":     {"slug": "technica",     "name": "水感框架"},
@@ -999,6 +1035,103 @@ def sync_breathing(dry_run: bool):
         print(f"  寫入 {dst.relative_to(HUGO_ROOT)}")
 
 
+def _atomic_write_yaml(dst: Path, data) -> None:
+    """先寫同目錄暫存檔再 os.replace，避免中途失敗留下半寫的 yaml 被 Hugo 讀到。"""
+    out = yaml.safe_dump(
+        data,
+        allow_unicode=True,
+        default_flow_style=False,
+        sort_keys=False,
+        width=4096,
+    )
+    tmp = dst.with_suffix(dst.suffix + ".tmp")
+    try:
+        tmp.write_text(out, encoding="utf-8")
+        os.replace(tmp, dst)
+    finally:
+        if tmp.exists():
+            tmp.unlink()
+
+
+def movement_public_record(rec: dict, fields) -> dict:
+    """把單筆 movement 記錄轉成公開版：記錄層只取白名單欄位，再攤平 public 子樹。
+
+    diagnostic 子樹整塊不取。記錄層未列入白名單的欄位（教練決策語、如何辨識限制）
+    一律不出站。
+    """
+    out = {k: rec[k] for k in fields if k in rec}
+    pub = rec.get("public") or {}
+    if isinstance(pub, dict):
+        out.update(pub)
+    return out
+
+
+def movement_public_records(recs, fields) -> list:
+    """過濾未發布狀態並轉公開版。publication_status 缺值視為未發布（保守側）。"""
+    out = []
+    for r in recs or []:
+        if not isinstance(r, dict):
+            continue
+        if r.get("publication_status") in MOVEMENT_HIDDEN_STATUS or "publication_status" not in r:
+            continue
+        out.append(movement_public_record(r, fields))
+    return out
+
+
+def sync_movement(dry_run: bool):
+    """讀 canonical movement/*.yaml（記錄層 + public/diagnostic 兩層），剝除 diagnostic
+    層與未發布記錄，只把 public 層寫進 my-site data/movement/。
+
+    公開/診斷鐵則：被動／主動 ROM 量測、肌力耐力測試、如何分類限制、教練決策樹與
+    個別水中重測判讀只在 canonical 與 swim-coach，不上公開站。本函式是公開站最後
+    一道剝離保險——記錄層走白名單，public 子樹攤平，diagnostic 整塊不取。
+
+    canonical 目錄不存在時安全跳過（movement 分支尚未合併到 master 時的正常狀態）。
+    """
+    print()
+    print("=== 動作圖譜（public 層）===")
+    if not MOVEMENT_SRC_DIR.exists():
+        print(f"  [跳過] 找不到 {MOVEMENT_SRC_DIR}")
+        return
+
+    if not dry_run:
+        MOVEMENT_DST_DIR.mkdir(parents=True, exist_ok=True)
+
+    total_in = total_out = 0
+    for name, list_key, fields in MOVEMENT_FILES:
+        src = MOVEMENT_SRC_DIR / f"{name}.yaml"
+        if not src.exists():
+            print(f"  [跳過] 找不到 {src.name}")
+            continue
+
+        data = yaml.safe_load(src.read_text(encoding="utf-8")) or {}
+        recs_in = data.get(list_key) or []
+        recs_out = movement_public_records(recs_in, fields)
+        total_in += len(recs_in)
+        total_out += len(recs_out)
+
+        held = len(recs_in) - len(recs_out)
+        print(f"  {name:15s} {len(recs_out):3d}/{len(recs_in):3d} 出站"
+              + (f"（{held} 筆 draft/withheld 未出站）" if held else ""))
+
+        if dry_run:
+            continue
+
+        _atomic_write_yaml(MOVEMENT_DST_DIR / f"{name}.yaml", {
+            "domain":      data.get("domain"),
+            "sub":         data.get("sub"),
+            "description": data.get("description"),
+            list_key:      recs_out,
+        })
+
+    print(f"  TOTAL {total_out}/{total_in} 出站")
+    if total_out == 0:
+        print("  [注意] 全部記錄仍是 draft，公開站拿到空清單——這是預期狀態，"
+              "待發布決策後才有內容")
+    if dry_run:
+        print("  [dry-run，未寫入 data/movement/]")
+
+
 def main():
     dry_run = "--dry-run" in sys.argv
     results = {"new": [], "changed": [], "same": [], "unknown": []}
@@ -1083,6 +1216,7 @@ def main():
     sync_psychology(dry_run)
     sync_injuries(dry_run)
     sync_breathing(dry_run)
+    sync_movement(dry_run)
 
     print()
     print("=== 同步摘要 ===")
