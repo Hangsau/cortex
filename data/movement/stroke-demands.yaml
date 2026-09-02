@@ -686,3 +686,276 @@ demands:
   safety_note: '練習滾轉節律時若出現肩部、背部或頸部疼痛、麻木、明顯無力或不穩， 應停止，不要為了加大滾轉而強行扭轉身體。
 
     '
+- id: movement.demand.back.entry.shoulder-elevation-plane
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  stroke: back
+  phase_model: descriptive
+  phase: entry
+  body_position: supine
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - back.tech.8
+  - back.tech.29
+  action_ids:
+  - movement.action.shoulder-complex.elevation
+  - movement.action.wrist-hand.flexion
+  muscle_roles:
+  - muscle_id: movement.muscle.scapular-upward-rotators
+    role: '肩胛上旋肌群的作用線在解剖上可參與上舉時的肩胛上旋與位置控制； 本筆不由此指定水中招募時序、收縮型態或貢獻程度。
+
+      '
+  - muscle_id: movement.muscle.rotator-cuff
+    role: '旋轉肌袖在解剖上可參與肱骨外旋與盂肱關節動態穩定；本筆不由 入水外觀判定個別肌肉的招募、力量或推進貢獻。
+
+      '
+  name_zh: 仰式入水期的肩上舉平面與肱骨外旋需求
+  description: '入水時手臂接近最大上舉，上舉平面落在矢狀面附近。接近上舉終端時， 肱骨必然伴隨外旋，讓大結節通過肩峰後方並避開肩峰下空間；這個外旋 是上舉本身的一部分，不是可任意省略的附加姿勢。腕維持輕度屈曲。 若以小指側先接觸水面描述入水，那只是整條上肢旋轉與腕手位置合成後 的空間結果，不是腕或前臂的關節動作命名，腕屈本身也不決定哪根手指 先觸水。
+
+    '
+  limitation_context: '無法完成上舉可能來自盂肱被動活動度、肩胛上旋主動控制、軟組織長度 或疼痛保護，這些原因的方向並不相同，需要逐項、個別辨識；單一入水 外觀不足以判定限制位於哪一層。
+
+    '
+  safety_note: '入水或手臂接近上舉終端時若出現肩部疼痛、夾擠感、麻木、明顯無力 或不穩，應停止，不要強行把手臂壓向頭後方。
+
+    '
+- id: movement.demand.back.catch.shoulder-rotation-reversal
+  claim_status: supported
+  action_status: provisional
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  - src.schleihauf-1979
+  stroke: back
+  phase_model: descriptive
+  phase: catch
+  body_position: supine
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - back.tech.10
+  action_ids:
+  - movement.action.shoulder-complex.internal-rotation
+  - movement.action.elbow.flexion
+  muscle_roles:
+  - muscle_id: movement.muscle.rotator-cuff
+    role: '旋轉肌袖的作用線在解剖上可參與肱骨軸向旋轉與盂肱關節穩定； 本筆不由旋轉方向反轉推定個別肌肉的招募型態或程度。
+
+      '
+  - muscle_id: movement.muscle.elbow-flexors
+    role: '肘屈肌群在解剖上可參與肘屈曲與前臂位置控制；是否在捕水時採用 這項能力及採用程度，仍需相位化運動學與肌電資料支持。
+
+      '
+  name_zh: 仰式捕水期的肩軸向旋轉方向反轉需求
+  description: '入水時肱骨位於外旋方向，進入捕水後，肱骨繞自身長軸的旋轉方向轉為 內旋。捕水時的受力構型包含前臂而不只有手掌朝向推進方向，使可接觸 水流的表面涵蓋前臂全長與手掌寬度。這裡描述的是肱骨旋轉方向與肢段 朝向，不指定固定深度、距離或推力來源比例。
+
+    '
+  limitation_context: '手掌朝向同時可能受肱骨軸向旋轉、前臂旋轉與腕手位置影響，不能只看 手掌反推肩內旋。肘屈曲與前臂朝向也屬不同層級，單一體表構型不足以 分辨哪個關節條件形成限制。
+
+    '
+  safety_note: '捕水轉向或屈肘時若出現肩部或肘部疼痛、夾擠感、麻木、明顯無力或 不穩，應停止，不要為了維持肢段朝向而強行扭轉肩肘。
+
+    '
+- id: movement.demand.back.pull.forearm-orientation-over-path-shape
+  claim_status: supported
+  action_status: provisional
+  evidence_profile: swimming-kinematics
+  source_ids:
+  - src.maglischo-2003-b
+  - src.gonjo-2020-c
+  stroke: back
+  phase_model: descriptive
+  phase: pull
+  body_position: supine
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - back.tech.11
+  - back.tech.14
+  action_ids:
+  - movement.action.elbow.flexion
+  - movement.action.shoulder-complex.internal-rotation
+  muscle_roles:
+  - muscle_id: movement.muscle.elbow-flexors
+    role: '肘屈肌群的作用線在解剖上可參與明顯屈肘與前臂位置控制；本筆不 由屈肘外觀指定實際收縮型態、招募程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.shoulder-internal-rotator-extensors
+    role: '肩內旋伸展肌群在解剖上可參與肱骨內旋與肩部位置控制；特定拉水 段是否採用這些能力及採用程度，仍需相位化肌電資料支持。
+
+      '
+  name_zh: 仰式拉水期的前臂朝向優先於路徑形狀
+  description: '拉水時肘維持明顯屈曲，手臂沿曲線而非直線路徑移動；具體屈曲位置與 划手路徑有顯著個體差異。強調固定 S 形路徑的指導語已過時，因此可 跨個體保留的是前臂朝向需求，而不是指定每位泳者採用相同路徑形狀。 手臂若只沿直線推進，會縮小可用的受力表面，並使肩關節處在較不利的 力學位置而承受剪力。
+
+    '
+  limitation_context: '前臂朝向是肩內旋、肘屈曲、前臂旋轉與腕手位置的合成結果；其中任一 層的可用範圍或控制條件都可能改變外觀。路徑偏離某個固定形狀本身 不代表存在限制，也不能由單一視角把原因指定給某一關節。
+
+    '
+  safety_note: '拉水時若出現肩部、肘部或腕部疼痛、夾擠感、麻木、明顯無力或不穩， 應停止，不要為了複製固定路徑而強行扭轉上肢。
+
+    '
+- id: movement.demand.back.push.shoulder-extension-internal-rotation
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  stroke: back
+  phase_model: descriptive
+  phase: push
+  body_position: supine
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - back.tech.12
+  action_ids:
+  - movement.action.shoulder-complex.extension
+  - movement.action.shoulder-complex.internal-rotation
+  - movement.action.elbow.extension
+  - movement.action.wrist-hand.extension
+  muscle_roles:
+  - muscle_id: movement.muscle.shoulder-internal-rotator-extensors
+    role: '肩內旋伸展肌群的作用線在解剖上可參與肩伸展與內旋方向；本筆不 由手臂向髖部移動的外觀判定招募程度、關節力矩或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.elbow-extensors
+    role: '肘伸肌群在解剖上可參與肘由屈曲朝伸展方向移動；是否在此相位採用 及採用程度，仍需泳者運動學與相位化肌電資料支持。
+
+      '
+  - muscle_id: movement.muscle.wrist-extensors
+    role: '腕伸肌群在解剖上可參與腕由屈曲轉向中立或輕度伸展；本筆不由 手部空間方位推定收縮型態、力量或推進作用。
+
+      '
+  name_zh: 仰式推水期的肩伸展、內旋與肘伸展需求
+  description: '推水時手臂由體側移向髖部，肱骨相對軀幹向後形成肩伸展，並同時繞 長軸內旋；肘由屈曲位朝伸展方向移動，直到接近完全伸展；腕則由屈曲 轉為中立或輕度伸展。肩內旋、伸展與內收分屬不同軸，可以同時發生。 教學語所說的「打直」在這裡是接近完全伸展，不是要求抵達終末骨性 止點或把肘「鎖死」；肘沒有膝部的旋轉鎖定機制，正常終末是鷹嘴進入 鷹嘴窩的骨性限制。
+
+    '
+  limitation_context: '肩伸展、肱骨內旋、肘伸展與腕部轉向各有獨立的可用範圍與控制條件， 任一層都可能改變手臂靠近髖部時的合成外觀。手部在空間中的朝向也 不能單獨指定為腕動作或肱骨旋轉。
+
+    '
+  safety_note: '推水末段若出現肩部、肘部或腕部疼痛、夾擠感、卡住、麻木、明顯無力 或不穩，應停止，不要強行把肘壓向終末止點或扭轉手腕。
+
+    '
+- id: movement.demand.back.recovery.elevation-path-with-obligatory-rotation
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  stroke: back
+  phase_model: descriptive
+  phase: recovery
+  body_position: supine
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - back.tech.13
+  - back.tech.28
+  action_ids:
+  - movement.action.shoulder-complex.elevation
+  - movement.action.elbow.extension
+  muscle_roles:
+  - muscle_id: movement.muscle.scapular-upward-rotators
+    role: '肩胛上旋肌群的作用線在解剖上可參與回臂上舉時的肩胛上旋與位置 控制；本筆不指定水中招募程度、收縮型態或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.rotator-cuff
+    role: '旋轉肌袖在解剖上可參與上舉伴隨的肱骨外旋與關節穩定；是否在個別 回臂型式中如何作用，仍需相位化運動學與肌電資料支持。
+
+      '
+  - muscle_id: movement.muscle.elbow-extensors
+    role: '肘伸肌群在解剖上可參與肘接近伸展的位置控制；接近伸展的外觀不能 判定實際收縮型態，也不能等同肌力、關節力矩或推進貢獻。
+
+      '
+  name_zh: 仰式回臂期的上舉平面軌跡與必要外旋
+  description: '回臂是手臂繞到頭頂上方的弧形上舉。這段應描述為上舉平面的軌跡： 手臂由伸展側的後方移向額狀面，再移向矢狀面前方；它不是肩伸展、 外展與屈曲三個動作依次接力，而是同一上舉動作跨越不同平面。上舉 過程中肱骨必然伴隨外旋，肩胛骨也可同時上提與上迴旋。肘在大部分 回臂時間接近完全伸展；直臂與彎臂型式都存在，會隨個體與距離而異， 不能把任一型式寫成唯一正確形式。
+
+    '
+  limitation_context: '回臂型式會受到肩部可用上舉範圍影響；可用範圍不足時，強行採用某一 型式與肩部不適有關。這裡只陳述限制的存在，不指定應採用直臂或彎臂， 也不由回臂外觀判定限制來源。
+
+    '
+  safety_note: '回臂或接近頭頂上舉時若出現肩部或肘部疼痛、夾擠感、麻木、明顯無力 或不穩，應停止，不要強行維持特定回臂型式或壓向上舉終端。
+
+    '
+- id: movement.demand.back.up-kick.hip-flexion-with-knee-extension
+  claim_status: supported
+  action_status: provisional
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  stroke: back
+  phase_model: descriptive
+  phase: up-kick
+  body_position: supine
+  poolside_direction: 由池畔觀察，足部由池底側向水面側移動（教學語稱「上踢」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - back.tech.15
+  - back.tech.30
+  action_ids:
+  - movement.action.hip.flexion
+  - movement.action.knee.extension
+  - movement.action.ankle-foot.plantarflexion
+  muscle_roles:
+  - muscle_id: movement.muscle.hip-flexors
+    role: '髖屈肌群的作用線在解剖上可參與股骨朝髖屈曲方向移動與位置控制； 本筆不由上踢外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.knee-extensors
+    role: '膝伸肌群的作用線在解剖上可參與膝朝接近伸展方向移動；特定水中 相位的收縮型態與採用程度仍需運動學及相位化肌電資料支持。
+
+      '
+  - muscle_id: movement.muscle.ankle-plantarflexors
+    role: '踝蹠屈肌群的作用線在解剖上可參與蹠屈位置控制；本筆不由足部朝 水面移動的外觀推定肌力、關節力矩或推進貢獻。
+
+      '
+  name_zh: 仰式上踢的髖屈曲、膝接近伸展與踝蹠屈
+  description: '池畔可見方向：上踢；解剖學動作：髖屈曲。仰躺時朝水面就是朝腹側與 身體前方，因此上踢時股骨朝腹側旋轉，在解剖學上命名為髖屈曲；膝朝 接近完全伸展的方向移動，踝維持蹠屈。池畔可見方向與解剖學動作是 兩個欄位，不是同一件事。踝蹠屈是足部遠離小腿前側，其可用範圍通常 明顯大於背屈，也不因身體在空間中的朝向而改名。若另行選擇陸上輔助 訓練動作，須以解剖學動作欄為準；只照「上踢」字面選擇，會落到矢狀面 方向相反的動作。
+
+    '
+  limitation_context: '髖屈曲、膝朝伸展方向移動與踝蹠屈各有獨立的可用範圍與控制條件； 足部朝水面的合成路徑不能指出限制位於髖、膝或踝，也不能由路徑外觀 指定任何肌群的收縮方式。
+
+    '
+  safety_note: '上踢時若出現髖部、膝部、踝部或腰背疼痛、卡住、麻木、明顯無力或 不穩，應停止，不要為了讓足部更靠近水面而強行伸膝或壓低腳背。
+
+    '
+- id: movement.demand.back.down-kick.hip-extension-with-knee-sequence
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  stroke: back
+  phase_model: descriptive
+  phase: down-kick
+  body_position: supine
+  poolside_direction: 由池畔觀察，足部由水面側向池底側移動（教學語稱「下踢」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - back.tech.30
+  action_ids:
+  - movement.action.hip.extension
+  - movement.action.knee.extension
+  - movement.action.ankle-foot.plantarflexion
+  muscle_roles:
+  - muscle_id: movement.muscle.hip-extensors
+    role: '髖伸肌群的作用線在解剖上可參與股骨朝髖伸展方向移動與位置控制； 本筆不由下踢外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.knee-extensors
+    role: '膝伸肌群的作用線在解剖上可參與膝由屈曲朝伸展方向移動；特定水中 相位的收縮型態與採用程度仍需運動學及相位化肌電資料支持。
+
+      '
+  - muscle_id: movement.muscle.ankle-plantarflexors
+    role: '踝蹠屈肌群的作用線在解剖上可參與維持蹠屈位置；本筆不由足部朝 池底移動的外觀推定肌力、關節力矩或推進貢獻。
+
+      '
+  name_zh: 仰式下踢的髖伸展與膝屈伸序列
+  description: '池畔可見方向：下踢；解剖學動作：髖伸展。仰躺時足部由水面側移向 池底側，股骨相對骨盆朝背側旋轉，在解剖學上命名為髖伸展；這與 自由式上踢落在同一個髖動作。膝先朝屈曲方向移動，再朝伸展方向移動， 此方向序列在矢狀面內成立；踝持續蹠屈。池畔可見方向與解剖學動作是 兩個欄位，不是同一件事，足部空間路徑不能取代關節局部命名。
+
+    '
+  limitation_context: '髖伸展、膝屈伸方向轉換與踝蹠屈各有獨立的可用範圍與控制條件； 足部朝池底的合成路徑混合多個關節，不能單獨指出限制來源，也不能 指定任何肌群的收縮型態或推進作用。
+
+    '
+  safety_note: '下踢時若出現髖部、膝部、踝部或腰背疼痛、卡住、麻木、明顯無力或 不穩，應停止，不要為了增加足部路徑而強行壓向關節終端。
+
+    '

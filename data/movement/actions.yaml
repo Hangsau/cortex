@@ -238,3 +238,163 @@ actions:
   safety_note: '轉動軀幹時若出現背部、腰部或頸部疼痛、麻木、下肢放射症狀、明顯 無力或不穩，應立即停止，不要強行加大旋轉幅度。
 
     '
+- id: movement.action.shoulder-complex.extension
+  claim_status: supported
+  action_status: ready
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  name: 肩伸展
+  aliases:
+  - 肩關節伸展
+  - 肱骨伸展
+  - shoulder extension
+  joint_region: shoulder-arm
+  definition: '肩伸展是肱骨相對軀幹由解剖位置往後旋轉的矢狀面動作。解剖位置是 命名的共同參考，動作名稱取決於肱骨相對軀幹的旋轉方向，不取決於 身體在環境中的朝向或手臂在池畔畫面中的移動方向。
+
+    '
+  plane:
+  - sagittal
+  axis:
+  - 內外側軸（通過肱骨頭）
+  observable_boundaries: '肩伸展描述肱骨相對軀幹的矢狀面位置，以解剖位置為 0° 參考；身體在 空間中的朝向，不論俯臥或仰躺，都不改變這個命名。仰躺時手臂移向 髖部側後方仍是肩伸展。觀察時須直接比較肱骨與軀幹，不能只依手部 相對水面或池底的路徑命名。
+
+    '
+  general_anatomical_capacity: '在一般解剖條件下，肱骨可由解剖位置或前方位置相對軀幹朝後方伸展。 實際可用範圍會隨肩胛骨位置、胸廓姿勢、肱骨旋轉、主動或被動條件 及症狀而變，本條不以單一角度作能力門檻，也不由一般解剖容量推論 特定泳姿的動作幅度或時機。
+
+    '
+  name_zh: 肩伸展
+  description: '肩伸展是上臂相對軀幹往後移動。名稱看的是上臂與軀幹的關係，不是 身體面朝哪裡；即使仰躺在水中，手臂往髖部側後方移動仍稱為肩伸展。 手在畫面中往水面或池底移動，不能單獨決定肩部動作名稱。
+
+    '
+  safety_note: '手臂往後移動時若出現肩部疼痛、夾擠感、麻木、明顯無力或不穩， 應停止，不要強行加大範圍。
+
+    '
+- id: movement.action.shoulder-complex.internal-rotation
+  claim_status: supported
+  action_status: ready
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  name: 肩內旋
+  aliases:
+  - 肩關節內旋
+  - 肱骨內旋
+  - shoulder internal rotation
+  joint_region: shoulder-arm
+  definition: '肩內旋是肱骨在橫切面內繞自身長軸向內旋轉。前臂旋前或旋後與肱骨 內旋或外旋都可能造成相同的手掌朝向外觀，因此不能由手掌朝向反推 是哪一段在轉；要判定肱骨軸向旋轉必須直接觀察肱骨相對肩胛與軀幹 的方位，不能只看手掌。
+
+    '
+  plane:
+  - transverse
+  axis:
+  - 肱骨長軸
+  observable_boundaries: '起點為已明確記錄的肱骨旋轉位置，終點為肱骨繞長軸朝內旋方向可達的 主動或被動位置。肘部姿勢、前臂旋轉與腕手位置都會改變遠端外觀； 只有追蹤肱骨本身，才能把肩內旋與前臂旋轉區分開來。
+
+    '
+  general_anatomical_capacity: '在一般解剖條件下，盂肱關節可繞肱骨長軸向內旋轉；內旋與外旋的可用 範圍並不必然對稱，個體差異也大。實際可用範圍會隨肩上舉平面、肩胛 固定方式、起始位置、主動或被動條件及症狀而變，本條不以單一角度 作能力門檻，也不推論特定泳姿中的旋轉時序。
+
+    '
+  name_zh: 肩內旋
+  description: '肩內旋是上臂骨繞自身長軸向內轉。手掌轉向可能來自上臂旋轉、前臂 旋轉，或兩者合成，所以只看手掌不能判定肩膀是否內旋；需要看上臂骨 相對肩帶與軀幹的方向。
+
+    '
+  safety_note: '旋轉上臂時若出現肩部疼痛、夾擠感、麻木、明顯無力或不穩，應停止， 不要以扭轉前臂或手腕代償並強行增加範圍。
+
+    '
+- id: movement.action.elbow.flexion
+  claim_status: supported
+  action_status: ready
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  name: 肘屈曲
+  aliases:
+  - 屈肘
+  - 肘關節屈曲
+  - elbow flexion
+  joint_region: shoulder-arm
+  definition: '肘屈曲是前臂相對上臂在矢狀面朝彎曲方向轉動，使前臂與上臂的夾角 減小。動作主要繞通過肱骨滑車與小頭的內外側軸發生；前臂旋前或旋後 是另一個軸向動作，不能由手掌朝向替代肘屈曲的命名。
+
+    '
+  plane:
+  - sagittal
+  axis:
+  - 通過肱骨滑車與小頭的內外側軸
+  observable_boundaries: '起點為當下的肘伸屈位置，終點為個體可達的最大主動或被動屈肘位置。 觀察時須比較前臂與上臂，並另外記錄前臂旋轉與肩部位置；手在空間中 的曲線路徑是多個關節合成，不能單獨證明肘屈曲幅度。
+
+    '
+  general_anatomical_capacity: '在一般解剖條件下，肘可由較直位置朝屈曲方向主動或被動移動。實際 可用範圍會隨前臂旋轉、肩部位置、軟組織接觸、主動或被動條件及症狀 而變，本條不以單一角度作能力門檻，也不由一般解剖容量推論特定泳姿 的肘部構型。
+
+    '
+  name_zh: 肘屈曲
+  description: '肘屈曲就是前臂相對上臂朝彎曲方向移動。手掌朝哪裡屬於前臂旋轉與 整條上肢方位的結果，不等於肘屈曲；手在畫面中的路徑也可能同時受到 肩部與前臂動作影響。
+
+    '
+  safety_note: '彎肘時若出現肘部疼痛、卡住、麻木、明顯無力或不穩，應停止，不要 強行壓入更深的屈曲位置。
+
+    '
+- id: movement.action.elbow.extension
+  claim_status: supported
+  action_status: ready
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  name: 肘伸展
+  aliases:
+  - 伸肘
+  - 肘關節伸展
+  - elbow extension
+  joint_region: shoulder-arm
+  definition: '肘伸展是前臂相對上臂在矢狀面由屈曲位置朝較直方向轉動，使前臂與 上臂的夾角增大。動作主要繞通過肱骨滑車與小頭的內外側軸發生；接近 完全伸展描述的是方向與位置，不表示必須撞上終末骨性止點。
+
+    '
+  plane:
+  - sagittal
+  axis:
+  - 通過肱骨滑車與小頭的內外側軸
+  observable_boundaries: '起點為當下的屈肘位置，終點為個體可達的最大主動或被動伸肘位置。 肘的正常終末可受鷹嘴進入鷹嘴窩的骨性接觸與軟組織張力限制，並不是 需要主動追求的「鎖定」；觀察時也須把前臂旋轉與肩部動作另行區分。
+
+    '
+  general_anatomical_capacity: '在一般解剖條件下，肘可由屈曲位置朝伸展方向主動或被動移動。實際 可用範圍會隨起始屈曲位置、前臂旋轉、肩部位置、主動或被動條件及 症狀而變，本條不以單一角度作能力門檻，也不要求任何動作抵達終末 骨性止點。
+
+    '
+  name_zh: 肘伸展
+  description: '肘伸展就是前臂相對上臂由彎曲朝較直方向移動。「接近完全伸展」不等於 必須把肘鎖死；肘部的正常終末有骨性與軟組織限制，不應把碰到止點當成 動作品質的必要條件。
+
+    '
+  safety_note: '伸肘時若出現肘部疼痛、卡住、麻木、明顯無力或不穩，應停止，不要 強行壓向終末位置或反覆撞擊止點。
+
+    '
+- id: movement.action.hip.extension
+  claim_status: supported
+  action_status: ready
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  name: 髖伸展
+  aliases:
+  - 伸髖
+  - 髖關節伸展
+  - hip extension
+  joint_region: hip-knee
+  definition: '髖屈曲與伸展一律依股骨相對骨盆在矢狀面的旋轉方向命名，不隨身體 仰躺或俯臥而翻轉；股骨相對骨盆朝後旋轉即為髖伸展。在本圖譜的池畔 用語中，仰式「上踢」對應髖屈曲、「下踢」對應髖伸展，與自由式相反； 這表示同一組池畔方向詞在兩種身體朝向下對應到相反的關節動作。
+
+    '
+  plane:
+  - sagittal
+  axis:
+  - 通過股骨頭的內外側軸
+  observable_boundaries: '起點為已明確記錄的股骨相對骨盆位置，終點為股骨朝後方可達的主動或 被動位置。觀察時須追蹤股骨與骨盆的相對旋轉；足部朝水面或池底移動 是池畔空間方向，還混合膝與踝動作，不能單獨決定髖伸展的命名。
+
+    '
+  general_anatomical_capacity: '在一般解剖條件下，股骨可相對骨盆朝伸展方向主動或被動移動。實際 可用範圍會隨骨盆與腰椎位置、膝部姿勢、股骨旋轉、主動或被動條件 及症狀而變，本條不以單一角度作能力門檻，也不由池畔方向推論髖部 動作幅度或時序。
+
+    '
+  name_zh: 髖伸展
+  description: '髖伸展是大腿骨相對骨盆往後轉，名稱不會因為身體仰躺或俯臥而改變。 仰式池畔所說的下踢對應髖伸展，上踢則對應髖屈曲；自由式的對應正好 相反，所以不能只照「上、下」字面選擇關節動作。
+
+    '
+  safety_note: '大腿往後移動時若出現髖部、鼠蹊或腰背疼痛、麻木、明顯無力或不穩， 應停止，不要用骨盆前傾或腰椎過度伸展強行增加路徑。
+
+    '
