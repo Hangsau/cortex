@@ -11,7 +11,35 @@ swim-coach，**第一個殼在 my-site**：W2 同步規則檔、W3 drill JSON �
 
 接手第一步：讀規劃書，不要直接動手。
 
-## 目前狀態（2026-08-28）
+## 目前狀態（2026-09-02）
+
+### ✅ movement 動作圖譜同步層已就緒，但**出站 0 筆**（等發布決策）
+
+TheVortexProject 的 W4 Step 19。`sync_vortex.py` 新增 `sync_movement()`，把
+`canonical/movement/` 四份兩層檔（actions / muscle-groups / stroke-demands /
+interventions）剝成公開版寫進 `data/movement/`。commit `c3cd91c`，CI run
+`33604385127` success。
+
+**現在跑會拿到 4 份空清單**：canonical 那 37 筆全是 `publication_status: draft`，
+規格就是 draft/withheld 不出站。這是預期狀態不是 bug——「draft 要不要公開」是
+Vortex Step 21 rollout 的決策點，**Step 20 做版型時要先假定資料為空**，頁面得
+有「尚未發布」的狀態，不能只寫有資料時的分支。
+
+三個不可改的規則（理由同「來源註冊表」節）：
+
+- **記錄層走白名單**。canonical 之後還會加內部欄位，黑名單擋不住還沒被想到的
+  那個。`claim_status` / `action_status` / `evidence_profile` / `source_ids`
+  一律出站，因為專案規範要求對外頁面看得出來源、確定性與未證範圍。
+- **interventions 的記錄層決策語不出站**：`works_when` / `fails_when` /
+  `how_to_identify` / `action` / `affirmative_conclusion` 是教練層，公開版走
+  public 子樹的 `*_summary` 與 `training_options`。版型不要去找那幾欄。
+- **`publication_status` 缺值視為未發布**（保守側），避免漏標的新記錄直接上站。
+
+`tools/test_sync_movement.py` 是本 repo 第一支測試（純 python，不引入 pytest）：
+`python tools/test_sync_movement.py`，8/8。**改 `MOVEMENT_FILES` 白名單後必跑**——
+白名單漏一欄不會報錯，只會安靜地把教練決策語推上公開站。
+
+`_atomic_write_yaml()` 目前只用在 movement，沒有回頭改既有 sync 函式（超出範圍）。
 
 ### ✅ Vortex 骨關節章：`source_ids` 從機器鍵變成讀者看得到的來源（已部署）
 
