@@ -690,6 +690,39 @@ actions:
   safety_note: '手臂朝中線移動時若出現肩部疼痛、卡住、麻木、明顯無力或不穩， 應停止，不要強行增加內收範圍。
 
     '
+- id: movement.action.shoulder-complex.scapular-protraction
+  claim_status: supported
+  action_status: ready
+  evidence_profile: anatomy
+  source_ids:
+  - src.neumann-2017
+  name: 肩胛前伸
+  aliases:
+  - 肩胛骨前伸
+  - 肩胛前突
+  - 肩胛外展
+  - scapular protraction
+  joint_region: shoulder-arm
+  definition: '肩胛前伸是肩胛骨沿胸廓表面朝遠離脊椎的方向移動，屬於肩胛胸廓關節的 動作，方向與後縮相反，常出現在把手臂往前送或往前推的動作情境。
+
+    '
+  plane:
+  - frontal
+  axis:
+  - 肩胛骨沿胸廓表面的內外側平移
+  observable_boundaries: '肩胛胸廓關節有三組互相獨立的動作軸：上提與下壓、前伸與後縮、上迴旋 與下迴旋。三組可以同時發生，只描述其中一軸不代表另外兩軸處於中立； 一份只寫前伸的紀錄，正確讀法是前伸這一軸被記錄，而不是另兩軸沒有 移動。肩胛骨同時是肱骨的活動平台，並非獨立於肱骨的動作；肩胛位置會 決定關節盂朝向，因此同一個肱骨動作在不同肩胛位置下，關節內的相對 位置並不相同。描述肩胛動作時必須指明當時的肱骨上舉狀態。 手臂已上舉到頭頂時再把肩往前送，記錄的是本條加上肩胛上迴旋，不是 盂肱關節的伸展或過度伸展——後者指的是手臂往身體背側去，方向相反。
+
+    '
+  general_anatomical_capacity: '可用範圍受胸廓形狀、後縮方向軟組織張力與當時的肱骨上舉角度共同限制。 本條不以單一角度作能力門檻。
+
+    '
+  name_zh: 肩胛前伸
+  description: '肩胛前伸是肩胛骨沿胸廓表面朝遠離脊椎的方向移動。肩胛胸廓關節的 上提下壓、前伸後縮與上迴旋下迴旋是三組可同時發生的獨立動作軸； 只記前伸，不表示另外兩軸處於中立。肩胛骨也是肱骨的活動平台， 描述前伸時還要一併記錄當時的肱骨上舉狀態。手臂舉過頭後再把肩 往前送，屬於本條與肩胛上迴旋，不是肩關節往後方的伸展。
+
+    '
+  safety_note: '移動肩胛或手臂時若出現肩部、肩胛周圍疼痛、卡住、麻木、明顯無力 或不穩，應停止，不要強行增加肩胛前伸範圍。
+
+    '
 - id: movement.action.shoulder-complex.scapular-retraction
   claim_status: supported
   action_status: ready
