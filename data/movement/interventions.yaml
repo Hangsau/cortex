@@ -1,0 +1,198 @@
+domain: movement
+sub: interventions
+description: 依限制型態整理訓練、活動度／伸展、進退階、劑量來源、水中重測與安全停止條件
+interventions:
+- id: movement.intervention.shoulder-elevation.active-control
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: intervention
+  source_ids:
+  - src.fone-2022
+  - src.muniz-pardos-2019
+  limitation_type: 主動控制不足（肩胛上旋肌群力量或耐力不足，超流線末端無法主動保持）
+  action_ids:
+  - movement.action.shoulder-complex.elevation
+  demand_ids:
+  - movement.demand.starts-turns.underwater-glide.shoulder-elevation
+  mobility_decision: not-routine
+  dosage_source_ids:
+  - src.fone-2022
+  - src.muniz-pardos-2019
+  safety_stop_conditions:
+  - 訓練中出現新發或加劇的肩部疼痛立即停止
+  - 出現麻木、刺痛或無力感
+  - 關節出現明顯不穩定感
+  remaining_boundary: '目前訓練轉移研究以競技泳者為主，不同族群（兒童、鐵人三項、成人初學） 的最佳劑量與進退階時程尚無充分資料。各研究所用訓練類型異質性高， 無法指定單一最佳方法。水中重測的最佳時機與判讀方式缺乏標準。
+
+    '
+  name_zh: 主動末端控制與容量取向訓練
+  description: '若肩膀活動度足夠但超流線位維持不住（塌陷或不對稱），問題可能在 肌肉的「主動控制能力」——肩胛上旋肌群和旋轉肌袖需要足夠的耐力與 協調，才能在高速滑行中維持姿勢。此介入透過漸進式容量訓練 建立這個能力。
+
+    '
+  works_when_summary: '被動活動度已足夠，但主動維持時姿勢崩潰，且無急性傷或夾擠禁忌。
+
+    '
+  fails_when_summary: '被動角度本身不夠，或有急性疼痛、結構性問題，應先處理根本原因。
+
+    '
+  training_options: '從岸上肩胛骨主動控制練習開始（wall slides、Y-T-W 系列）， 進階到阻力帶上舉與水中流線型靜態維持。
+
+    '
+  safety_note: '若訓練中出現疼痛加劇、麻木、刺痛或不穩定感，立即停止，不要強撐。
+
+    '
+- id: movement.intervention.shoulder-elevation.conditional-soft-tissue
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: synthesis-inference
+  source_ids:
+  - src.neumann-2017
+  limitation_type: 確認被動上舉角度不足且已排除禁忌，肩後囊或闊背肌被動限制為主要因素
+  action_ids:
+  - movement.action.shoulder-complex.elevation
+  demand_ids:
+  - movement.demand.starts-turns.underwater-glide.shoulder-elevation
+  mobility_decision: conditional
+  dosage_source_ids: []
+  safety_stop_conditions:
+  - 伸展過程中出現疼痛（不是「感覺張力」而是明確疼痛）立即停止
+  - 出現麻木、刺痛或無力感
+  - 伸展後症狀加重
+  - 有關節不穩或急性傷者禁止使用
+  remaining_boundary: '本條的介入建議是由解剖作用線與臨床慣例推導，尚無游泳族群的直接介入 試驗支撐，證據等級屬綜述推論而非介入研究。 sleeper stretch 的現有研究以投擲選手（特別是棒球投手）為主，直接 轉移到游泳族群（尤其兒童、自由潛水）的證據有限。最佳劑量（頻率、 強度、維持時間）尚無游泳族群專屬資料。伸展是否真能改變泳者的水下 超流線品質，目前尚無直接介入試驗。
+
+    '
+  name_zh: 條件式軟組織介入（肩後囊與闊背肌）
+  description: '若評估確認肩膀活動度本身不足（被動角度達不到超流線需求）， 且主要原因是軟組織限制（肩後囊緊繃或闊背肌較緊），可以考慮針對 性伸展作為輔助。但這是「條件式」的——活動度已正常或過度活動的人， 不應常規使用此介入，因為對他們沒有幫助甚至可能增加不穩定。
+
+    '
+  works_when_summary: '被動活動度確認不足，已排除禁忌，且臨床分流顯示被動軟組織是主要限制。
+
+    '
+  fails_when_summary: '活動度正常或過度、主動控制才是主因、有急性傷或關節不穩時不適用。
+
+    '
+  approach_note: '肩後囊伸展（sleeper stretch）和闊背肌伸展是常見的輔助工具， 從輕微張力感開始，不應追求「拉到痛」。
+
+    '
+  safety_note: '伸展中若出現疼痛（不只是張力感）、麻木、刺痛或不穩定感，立即停止。 有關節不穩或急性傷者禁止使用。
+
+    '
+- id: movement.intervention.ankle-plantarflexion.conditional-mobility
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: synthesis-inference
+  source_ids:
+  - src.neumann-2017
+  - src.pmc9402090-b
+  limitation_type: 確認被動踝蹠屈受限且已排除疼痛、關節不穩與不適合強拉的結構性阻擋
+  action_ids:
+  - movement.action.ankle-foot.plantarflexion
+  demand_ids:
+  - movement.demand.udk.down-kick.ankle-plantarflexion
+  - movement.demand.free.down-kick.ankle-plantarflexion
+  mobility_decision: conditional
+  dosage_source_ids: []
+  safety_stop_conditions:
+  - 活動中出現明確疼痛或原有症狀加劇
+  - 出現麻木、刺痛或明顯無力
+  - 踝關節出現明顯不穩定感
+  - 有急性傷或疼痛性硬阻擋時不得強拉
+  remaining_boundary: '現有直接資料來自小樣本、訓練良好的成人泳者之急性 UDK 條件比較， 沒有能支撐本處方的長期伸展介入試驗；既有急性伸展操作不是訓練試驗， 也不知道最佳方法、劑量或角度上限。一般蹠屈與急性增加蹠屈條件未呈現 顯著表現差異，不能推論超過個人一般範圍仍有收益。研究也未涵蓋兒童、 青少年、鐵人三項與成人初學等本專案受眾；自由式 demand 本身仍缺專屬 踝運動學，不能把 UDK 結果直接當成自由式伸展效果。
+
+    '
+  name_zh: 條件式踝蹠屈活動度介入
+  description: '踝蹠屈幅度與水下蝶式打腿速度有關聯，但這不等於把腳踝拉鬆就會變快， 也不代表越鬆越好。只有在個別評估已確認腳尖向下的被動可用範圍確實 受限，而且沒有疼痛、不穩或其他禁忌時，才可小心嘗試活動度練習， 並確認陸上與水中任務是否真的改變。
+
+    '
+  works_when_summary: '被動可用範圍已確認受限、沒有安全禁忌，而且能用相同任務比較前後變化。
+
+    '
+  fails_when_summary: '未經個別評估確認適用，或碰到疼痛與硬性阻擋時不應使用。蹠屈受限 的原因不只一種，處理方向可能相反；嘗試後原任務沒有改善也不應 繼續加大伸展。
+
+    '
+  approach_note: '從非承重、無疼痛的主動輔助蹠屈開始，不強迫腳掌轉向或腳趾蜷曲； 只有在可用範圍與主動使用都有改善時才進階，並回到原水中任務確認。 本條沒有來源可支持統一的時間、次數、組數或週頻率，因此不提供數字。
+
+    '
+  safety_note: '若出現疼痛、麻木、刺痛、明顯無力或關節不穩，立即停止，不要強拉。 有急性傷或疼痛性硬阻擋者不得使用。
+
+    '
+- id: movement.intervention.ankle-plantarflexion.capacity-control
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: synthesis-inference
+  source_ids:
+  - src.neumann-2017
+  - src.yamakawa-2022
+  - src.fone-2022
+  - src.muniz-pardos-2019
+  limitation_type: 被動蹠屈可用範圍充足，但主動末端維持、換向或反覆控制能力不足
+  action_ids:
+  - movement.action.ankle-foot.plantarflexion
+  demand_ids:
+  - movement.demand.udk.down-kick.ankle-plantarflexion
+  - movement.demand.free.down-kick.ankle-plantarflexion
+  mobility_decision: not-routine
+  dosage_source_ids: []
+  safety_stop_conditions:
+  - 練習中出現新發或加劇的踝部、小腿或跟腱疼痛
+  - 出現麻木、刺痛或明顯無力
+  - 踝關節出現明顯不穩定感
+  - 急性傷期間不得用增加阻力或末端角度測試能力
+  remaining_boundary: 'Yamakawa 研究僅有八名男性國家級競技泳者，使用水槽與三個相對個人 最大速度的次最大條件；結果不能直接外推到靜水比賽、自由式打腿、 女性、兒童、青少年、鐵人三項或成人初學。研究量到的是運動學與肌電， 不是踝容量訓練介入。一般游泳肌力與專項阻力訓練回顧只能支持「轉移 取決於方法與條件」，不能指定本條方法、最佳劑量，或證明這些踝練習 會提升 UDK／自由式速度。
+
+    '
+  name_zh: 踝蹠屈容量與主動控制訓練
+  description: '如果腳踝可被帶到需要的位置，但自己進不到、維持不住或換向時失控， 可把訓練焦點放在蹠屈肌與背屈肌的雙向控制，而不是繼續追求更大的 被動角度。UDK 研究顯示腓腸肌與脛前肌都會參與，但這不等於單練某條 肌肉就能提高打腿效率；訓練後仍要回到原本的水中任務確認是否轉移。
+
+    '
+  works_when_summary: '可用角度已足夠，但腳尖的主動末端、換向或反覆維持品質會流失，且 沒有疼痛、急性傷或不穩。
+
+    '
+  fails_when_summary: '未經個別評估確認有控制缺口，或練習引發症狀時不適用；陸上變強也 不能自行視為水中已改善，原任務沒有改善時需重新評估方向。
+
+    '
+  training_options: '從無痛的主動蹠屈末端、平滑制動與背屈回程開始，再加入輕阻力和 雙向換向；方向穩定後才帶到俯臥流線姿勢與水中原任務。本條沒有 踝專屬劑量來源，因此不提供秒數、次數、組數或週頻率。
+
+    '
+  safety_note: '若出現疼痛、麻木、刺痛、明顯無力或關節不穩，立即停止；急性傷 期間不要用加重阻力或硬壓末端的方式測試能力。
+
+    '
+- id: movement.intervention.breaststroke-breathing.arm-driven-torso-lift
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: synthesis-inference
+  source_ids:
+  - src.riewald-rodeo-2015
+  - src.hall-murphy-2020
+  limitation_type: 換氣時以主動抬頭或拱背當作上身抬起的驅動來源，把動力來源歸錯位置
+  action_ids: []
+  demand_ids:
+  - movement.demand.breast.arm-insweep.breath-event-separation
+  - movement.demand.breast.arm-recovery.pull-to-kick-interval
+  mobility_decision: not-routine
+  dosage_source_ids: []
+  safety_stop_conditions:
+  - 練習中出現新發或加劇的頸部、腰背疼痛
+  - 出現麻木、刺痛、上肢放射症狀或明顯無力
+  - 出現嗆水、呼吸困難或明顯換氣不足
+  - 症狀期間不得以加大抬頭幅度或延長閉氣來測試能力
+  remaining_boundary: '本條的依據全部來自兩本教材的分期描述與一句明確的反向指導，沒有 任何量測直接驗證這個介入。原始清單中的「肩胛帶上提」在三層檢索 中沒有任何肩胛骨量測，教材寫的是體表可見的肩部整體上升，因此 該說法屬證據缺口，不得作為本條的機制或訓練目標。線上可得的蛙式 換氣運動學只量到頭部的空間幅度，沒有肩胛骨與頸椎相對胸廓角， 不能用來支持或反駁本條。兩本教材使用不同分期命名系統，引用時 必須綁 phase_model，不得混用相位名。
+
+    '
+  name_zh: 蛙式換氣：把抬起的驅動交還給手臂
+  description: '很多人換氣換不順時，直覺是更用力把頭抬起來或把腰拱起來。教材對 這一點寫得很直接：上身會被抬起來，是因為手臂在動，不是因為泳者 主動撐頭或拱背。教材也把頭開始上升、臉破出水面、吸氣寫成三個 先後發生的事件，臉破水發生在手往內掃的時候，不會比這更早。所以 換氣練習的方向是讓手臂決定抬起的時間，並把三個事件分開，而不是 練頸部或背部去把自己撐起來。
+
+    '
+  works_when_summary: '看得到在手還沒往內掃之前就先抬頭或先拱腰，或三個換氣事件被擠在 同一瞬間，而且沒有疼痛與神經症狀。
+
+    '
+  fails_when_summary: '有疼痛、急性傷或神經症狀時不適用；如果手臂內掃本身做不出來， 問題不在換氣時序。改了時序而原本的任務沒有改善時，需要重新 評估方向，不要靠加大抬頭幅度硬撐。
+
+    '
+  training_options: '慢速下把換氣拆成三步：先只做手臂內掃並允許上身被帶起、再加入 臉破水、最後才加入吸氣；過程中不主動抬頭也不主動拱腰。之後回到 完整週期，讓抬起的時間由手臂內掃決定，每個週期起訖回到教材說的 body line。本條沒有劑量來源，因此不提供次數、組數或週頻率。
+
+    '
+  safety_note: '若出現頸部或腰背疼痛、麻木、上肢放射症狀、明顯無力、嗆水或 換氣不足，立即停止；不要用延長閉氣或更用力抬頭的方式硬撐。
+
+    '
