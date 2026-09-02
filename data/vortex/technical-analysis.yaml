@@ -3098,7 +3098,11 @@ points:
     certainty: 🟢
     source_ids:
     - src.race-club-pdm-data
-    text: 'Hyperstreamline 比一般 streamline 更激烈——肩關節要做出 sub-luxation 或 hyperextension 把肩往前推，胸腹腔縮窄、皮膚繃緊降低截面，腰椎反弓。約二十人裡只有一個能做到兩肘真正觸碰（「獨角獸」），但近距離已足夠。最常見的崩潰是入水前手沒回到重疊位置——水接觸瞬間若兩臂分開或交叉，水會把姿勢硬撐開、阻力暴漲。
+    text: 'Hyperstreamline 比一般 streamline 更激烈——把肩往前上方送、胸腹腔縮窄、皮膚繃緊降低截面。約二十人裡只有一個能做到兩肘真正觸碰（「獨角獸」），但近距離已足夠。最常見的崩潰是入水前手沒回到重疊位置——水接觸瞬間若兩臂分開或交叉，水會把姿勢硬撐開、阻力暴漲。
+
+      命名更正（教練原話 vs 解剖命名）：來源把「把肩往前推」說成「肩關節做 sub-luxation 或 hyperextension」，這兩個名字在解剖命名下都不成立，而且錯的方向相反。肩的 hyperextension 指的是手臂往身體**後方**去，與超流線要的往前上方送方向相反；sub-luxation（半脫位）是關節面部分失去對合的病理狀態，不是一個可以主動做出來的動作，寫成教學指令等於叫泳者主動製造半脫位。手臂已在頭上時再把肩往前送，發生的是肩胛前突（scapular protraction）加肩胛上迴旋，屬肩胛胸廓那一層，不在盂肱關節——這正是 tech.48 裁決的「180 度是肩複合體合計角度、不可整包掛在肩關節上」同一件事。本條保留教練原話是為了讓聽過這句口令的人找得到，但依此教學時要用解剖命名。
+
+      腰椎位置在此不裁決：來源原文另寫「腰椎反弓」（即腰椎伸展）。tech.47 已裁決「脊椎些微伸展」與「hollow body／避免拱腰」在同一軸上指向相反、同一份教材不能並存，必須擇一並寫明選的是哪一個以及為什麼；該條同時明說「哪一個比較好」是教學政策決定，不是解剖可裁決的事，需要游泳量測才能比較。因此本條不替使用者擇一，只標明此處的「腰椎反弓」落在 tech.47 判為互斥的那一邊，採用前必須先依 tech.47 完成擇一。
 
       髖屈 15° 是入水軌跡控制的關鍵。完全打直入水會用太陡的角度進水（太深、需要更長的水下滑行）；過度髖屈（>30°）也會入水太深。蛙式起跳因為要進水深些做 pullout，髖屈可以放到 20–30°。
 
@@ -3111,7 +3115,11 @@ points:
     source: The Race Club PDM 量測資料
     source_ids:
     - src.race-club-pdm-data
-  practical_implication: 入水訓練要拆開練。Hyperstreamline 在陸上鏡前先設好（手腕重疊位置、肘夾耳、頭夾臂）；髖屈用 Running Dive drill 訓練（助跑潛水自然會學會 hip lift）；腳尖伸直是觀察的最後一道防線——每次起跳訓練都要回看影片檢查腳尖。
+  practical_implication: 入水訓練要拆開練。Hyperstreamline 在陸上鏡前先設好（手腕重疊位置、肘夾耳、頭夾臂）；髖屈用 Running Dive drill 訓練（助跑潛水自然會學會 hip lift）；腳尖伸直是觀察的最後一道防線——每次起跳訓練都要回看影片檢查腳尖。把肩往前送的教學語言要用肩胛前突而非「肩關節 hyperextension／sub-luxation」，後者方向相反且是病理狀態；腰椎那一項在依 tech.47 完成擇一之前不要照本條原文教。
+  cross_ref: starts-turns.tech.47（超流線的脊椎：「些微伸展」與 hollow body 互斥，必須擇一）、starts-turns.tech.48（超流線的肩複合體角度：180 度是合計值不是肩關節值）
+  cross_ref_ids:
+  - starts-turns.tech.47
+  - starts-turns.tech.48
 - id: starts-turns.tech.43
   stroke: starts-turns
   category: coupling
