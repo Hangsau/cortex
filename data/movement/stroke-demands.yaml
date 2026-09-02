@@ -2081,3 +2081,156 @@ demands:
   safety_note: '做超流線與入水姿勢時若出現肩部、頸部或腰部疼痛、卡住、麻木、明顯無力 或不穩，應停止，不要為了把肩往前送得更遠或把手交疊得更緊而勉強增加 上舉角度、改變肩胛位置或改變腰椎曲度。本筆不對任何一種腰椎設置給出 安全或危險的判定。
 
     '
+- id: movement.demand.starts-turns.turn-approach.cervical-non-extension-and-coverage-boundary
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: synthesis-inference
+  source_ids:
+  - src.neumann-2017
+  - src.pmc5260528
+  stroke: starts-turns
+  phase_model: descriptive
+  phase: turn-approach
+  body_position: prone
+  poolside_direction: 由池畔觀察，泳者接近池壁時頭部維持不抬起、視線不轉向牆面（教學語稱「不要抬頭看牆」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - starts-turns.tech.19
+  - starts-turns.tech.20
+  action_ids:
+  - movement.action.trunk.extension
+  muscle_roles:
+  - muscle_id: movement.muscle.trunk-sagittal-controllers
+    role: '軀幹矢狀面控制肌群的作用線在解剖上可參與頸椎屈伸方向的移動與位置 控制；本筆不由進牆時頭部維持不抬起的外觀判定實際招募時序、程度或 推進貢獻。
+
+      '
+  name_zh: 進牆期的頸椎維持不伸展，與本層的覆蓋邊界
+  description: '本相位在本層唯一可承載的關節內容，是頸椎維持不伸展。池畔說的是 「不要抬頭看牆」，解剖上對應頸椎節段的伸展；action_ids 使用 movement.action.trunk.extension，此處指頸椎節段，而本相位的要求是 不做這個動作。列出該動作不表示此相位要產生伸展，而是記錄維持不伸展。
+
+    進牆素材的主體是靠計步判斷距離，以及距離不對時補踢腿。計步屬於 神經控制與感知策略，補踢屬於節奏決策，兩者都沒有可命名的關節內容， 屬於感知層與策略層而不屬於動作圖譜層。本筆不為它們指定任何關節動作， 也不把它們改寫成關節語言；計步內容應在感知層查找，並非此處遺漏。
+
+    素材另有翻滾啟動時機的內容，但那指向翻滾相位，不屬本筆。翻滾尚未 進入本層，因為剛體空間重定向在 joint-local 框架下沒有對應動作， 仍待結構決策；本筆不寫翻滾的任何內容。
+
+    '
+  limitation_context: '本筆只承載頸椎維持不伸展。進牆速度、判距方式、最後一划的完整性與 翻滾啟動時機全部不在本層，也不得由本筆推論其他關節在進牆期處於 中立或任何特定位置。
+
+    '
+  safety_note: '進牆時若出現頸部疼痛、麻木、上肢放射症狀或明顯不穩應停止，不要為了 保持頭不抬而強行下壓下巴或維持不適姿勢。
+
+    '
+- id: movement.demand.starts-turns.wall-contact.knee-flexion-position-and-depth-is-not-a-joint-action
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: synthesis-inference
+  source_ids:
+  - src.neumann-2017
+  - src.pmc6409673-b
+  - src.pmc8960438-d
+  stroke: starts-turns
+  phase_model: descriptive
+  phase: wall-contact
+  body_position: prone
+  poolside_direction: 由池畔觀察，雙腳觸上牆面時膝呈屈曲、腳掌置於某個水下深度（教學語稱「觸牆」或「腳上牆」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - starts-turns.tech.21
+  - starts-turns.tech.22
+  - starts-turns.tech.25
+  action_ids:
+  - movement.action.knee.flexion
+  - movement.action.hip.flexion
+  muscle_roles:
+  - muscle_id: movement.muscle.knee-extensors
+    role: '膝伸肌群的作用線在解剖上可參與膝伸展方向的移動與屈膝位置控制； 本筆不由觸牆時膝呈屈曲的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.hip-flexors
+    role: '髖屈肌群的作用線在解剖上可參與髖屈曲方向的移動與位置控制；本筆 不由腳掌觸牆深度的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  name_zh: 觸牆的膝屈曲位，與「觸牆深度不是關節動作」
+  description: '觸牆時膝處於屈曲位，池畔與解剖命名一致。屈曲量會影響後續蹬伸可用的 力量；這項關係來自肌肉力量隨長度變化的一般解剖關係，不是牆段量測。 本筆只作定性記錄，不寫觸牆時的角度範圍。
+
+    素材針對觸牆屈曲量所述的範圍，與出發台零位沒有跨選手通用最優值的 陳述分屬不同相位：前者適用觸牆，後者適用出發台；兩者都連到同一條 肌肉力量與長度關係，因此不構成矛盾。兩處的角度資料不得跨相位互相 引用，本筆也不引用零位記錄的結論。
+
+    池畔與教材會說「腳要上到多深」，但腳觸牆深度是腳掌在水中的空間位置， 由身體姿態、進牆角度與翻滾幅度共同決定，在 joint-local 框架下沒有 對應的關節動作名。本筆能承載的是否定式的關節內容：不以主動髖屈曲 換取觸牆深度，也就是不讓髖部主動下沉來找牆。action_ids 列出 movement.action.hip.flexion，記錄的是不主動做這個動作，並非要求屈髖。
+
+    「觸牆太深推蹬會偏上」描述的是力學後果，不是關節動作；觸牆深度改變 的是推蹬力向量相對重心的方向。本筆不寫方向偏移的大小，也不寫它對 速度的影響。
+
+    '
+  limitation_context: '膝屈曲量與髖是否主動屈曲是彼此獨立的成分；池畔看到的「觸牆」是它們 加上整體空間位置的合成，不能指出限制位於哪一個關節。觸牆深度、 推蹬力向量與出水速度都不在本層，也不得用來反推任何關節角度。
+
+    '
+  safety_note: '觸牆時若出現膝部、髖部或腰部疼痛、卡住、明顯無力或不穩應停止，不要 為了把腳上到更深或做出某個屈曲外觀而勉強改變姿勢。
+
+    '
+- id: movement.demand.starts-turns.wall-push-off.shoulder-complex-composite-angle-and-streamline-precedence
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: synthesis-inference
+  source_ids:
+  - src.neumann-2017
+  stroke: starts-turns
+  phase_model: descriptive
+  phase: wall-push-off
+  body_position: prone
+  poolside_direction: 由池畔觀察，雙臂在頭前交疊夾緊、身體伸直，雙腿由屈曲蹬直離牆（教學語稱「蹬牆」「推出去」「流線先做好」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - starts-turns.tech.18
+  - starts-turns.tech.22
+  - starts-turns.tech.47
+  - starts-turns.tech.48
+  action_ids:
+  - movement.action.hip.extension
+  - movement.action.knee.extension
+  - movement.action.ankle-foot.plantarflexion
+  - movement.action.shoulder-complex.elevation
+  - movement.action.shoulder-complex.scapular-upward-rotation
+  - movement.action.shoulder-complex.horizontal-adduction
+  - movement.action.elbow.extension
+  muscle_roles:
+  - muscle_id: movement.muscle.hip-extensors
+    role: '髖伸肌群的作用線在解剖上可參與髖伸展方向的移動與位置控制；本筆 不由雙腿蹬直離牆的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.knee-extensors
+    role: '膝伸肌群的作用線在解剖上可參與膝伸展方向的移動與位置控制；本筆 不由膝部蹬直的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.ankle-plantarflexors
+    role: '踝蹠屈肌群的作用線在解剖上可參與踝蹠屈方向的移動與位置控制；本筆 不由足部離牆的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.scapular-upward-rotators
+    role: '肩胛上迴旋肌群的作用線在解剖上可參與肩胛上迴旋方向的移動與位置 控制；本筆不由雙臂在頭前夾緊的外觀判定實際招募時序、程度或 推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.elbow-extensors
+    role: '肘伸肌群的作用線在解剖上可參與肘伸展方向的移動與位置控制；本筆 不由肘部維持伸直的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.trunk-sagittal-controllers
+    role: '軀幹矢狀面控制肌群的作用線在解剖上可參與軀幹屈伸方向的移動與位置 控制；本筆不由推蹬時身體伸直的外觀判定實際招募時序、程度或 推進貢獻。
+
+      '
+  name_zh: 推蹬的肩複合體合計角度分層，與流線先於蹬伸的時序
+  description: '池畔所說「蹬直」是由髖伸展、膝伸展與踝蹠屈組成的下肢伸直序列， 池畔與解剖命名一致。本筆不指定誰先誰後，也不判定哪個關節出力最多； 牆段沒有相位化肌電，也沒有關節角速度量測可支持這些判定。
+
+    池畔與教材會說「手臂要舉到最直、貼緊耳朵」，也會用一個角度描述 「手臂舉到接近極限」。該角度是肩複合體的合計值，不是單一關節角度； 它由盂肱關節本身的貢獻與肩胛胸廓上迴旋的貢獻共同組成，兩層各自提供 一部分，而且拆分比例來自寬廣的估計範圍，不是精確常數。本筆不寫 合計值或分層比例的任何數值。
+
+    若把合計角度整包掛在單一關節上，就會到錯的層級尋找限制。手臂舉不到位 的限制可能在肩胛胸廓層，也可能在盂肱層，兩者的判讀與處理不同；只用 合計角度描述，這項分層差異就會被抹平。因此 action_ids 同時列出 movement.action.shoulder-complex.elevation 與 movement.action.shoulder-complex.scapular-upward-rotation，兩者都不可刪除。
+
+    池畔所說「肘夾緊、雙手交疊」解剖上是肩複合體水平內收，加上肘伸展 的維持，兩欄命名一致。超流線把肩往前送的分層寫在入水相位的記錄裡。
+
+    池畔所說「腳離牆前流線就要做好」描述的是關節間時序，不是單一動作。 流線姿勢在腳離牆前達成，是上肢姿勢達成與下肢蹬伸之間的先後關係； 本層只能記錄此相位存在關節間的先後要求，壓成任何單一動作名都會遺失 資訊。離牆之後身體受水阻影響仍可改變姿勢，這與空中拋體的情況不同， 所以兩個相位的時序要求不能互相套用。
+
+    同一個未解決的擇一在推蹬期同樣適用，記錄在入水相位那一筆。因為腰椎 方向未定，action_ids 刻意不列 movement.action.trunk.extension 或 movement.action.trunk.flexion；列出其中任一動作就等於替擇一選邊， 並非本筆遺漏。
+
+    '
+  limitation_context: '髖伸展、膝伸展、踝蹠屈、肩複合體上舉、肩胛上迴旋、水平內收與肘伸展 是彼此獨立的成分，它們之間的先後次序是另一個獨立維度，腰椎方向則是 尚未確定的獨立維度。池畔看到的「蹬牆推出去」是這些維度的合成，不能 指出限制位於哪一個關節，更不能由手臂舉起的外觀判定限制位於肩胛胸廓 或盂肱層；這正是合計角度會誤導的地方。推蹬力向量與出水速度不在本層。
+
+    '
+  safety_note: '做推蹬與流線姿勢時若出現肩部、腰部、膝部疼痛、卡住、麻木、明顯無力 或不穩應停止，不要為了把手舉得更高或把身體伸得更直而勉強增加上舉 角度、改變肩胛位置或改變腰椎曲度。
+
+    '
