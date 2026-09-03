@@ -2408,3 +2408,410 @@ demands:
   safety_note: '做入水與停頓時若出現肩部、頸部、胸背部或腕部疼痛、麻木、明顯無力 或不穩應停止，不要為了做出停頓外觀或把胸口壓得更低而勉強增加上舉 角度、加大胸椎彎曲或用力折腕。
 
     '
+- id: movement.demand.free.lift.deferred-descent-and-style-time-difference
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: synthesis-inference
+  source_ids:
+  - src.hall-murphy-2020
+  - src.neumann-2017
+  stroke: free
+  phase_model: race-club-6phase
+  phase: lift
+  body_position: prone
+  poolside_direction: 由池畔觀察，手入水之後在身體前方由淺處往前下方移動，準備開始抓水；不同泳者在這一段的做法明顯不同——有人入水後立刻把手往下壓，有人先把手往前送一段才開始下壓（教學語稱「先延伸再抓水」「入水就要抓」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - free.tech.8
+  - free.tech.4
+  - free.tech.5
+  action_ids:
+  - movement.action.shoulder-complex.elevation
+  - movement.action.elbow.extension
+  - movement.action.trunk.axial-rotation
+  muscle_roles:
+  - muscle_id: movement.muscle.scapular-upward-rotators
+    role: '肩胛上迴旋肌群的作用線在解剖上可參與肩胛上迴旋方向的移動，以及肩複合體 上舉位的位置控制與維持；本筆不由入水後手臂前伸的外觀判定實際招募時序、 程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.rotator-cuff
+    role: '旋轉肌袖的共同作用在解剖上可參與肩複合體上舉方向的關節中心控制與維持； 本筆不由手往前送或延後下壓的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.elbow-extensors
+    role: '肘伸肌群的作用線在解剖上可參與肘伸展方向的移動、位置控制與維持；本筆不由 手臂維持前伸的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  name_zh: 升力相的上舉維持與下壓延後，以及風格差異的時間性質
+  description: '本相位的關節內容主體是維持與延後，不是新產生動作。池畔所說「入水後先往前送、 不要急著壓」，由肩複合體維持在上舉位、肘維持伸展，以及下壓開始時間延後構成； 上舉位與肘伸展在入水瞬間已經達成，升力相只是維持而不破壞這些位置。
+
+    池畔用「手走到時鐘指定位置」描述手的軌跡。時鐘位置標示的是手在身體持續前進 時相對靜水的空間位移，不是手相對身體的關節角度，因此不能反推任何一個關節的 角度；相同位置可以由不同的肩、肘與軀幹組合達成。
+
+    池畔所說「這一派入水就抓水，那一派先延伸」，在關節層是同一組動作的時間差， 不是方向差。兩種做法列出的關節動作完全相同，差別只在下壓開始的時間點； action_ids 沒有欄位可表達何時開始，讀者不能只從動作清單讀出兩種風格。本層 不裁決哪一種風格較好或適用於何種情境。
+
+    池畔所說「延伸是把肩膀送出去」看起來像手臂自己往前伸長，解剖上則是軀幹繞 長軸旋轉把該側肩帶送向前方，對到 movement.action.trunk.axial-rotation， 不是肩關節產生額外的前伸角度；兩者不是同一件事。本筆不由此外觀推定轉體幅度 或其力學後果。
+
+    池畔所說「手掌轉向後方準備抓水」是手掌的空間朝向，無法單獨指出肱骨軸向旋轉、 前臂旋轉或腕位置中的哪一項改變，因此 action_ids 刻意不列 movement.action.shoulder-complex.internal-rotation 與 movement.action.forearm.pronation。完整論證見 movement.demand.free.catch.palm-orientation-three-source-decomposition， 本筆只將該限制用於升力相。
+
+    本筆其餘肩、肘成分以關節局部角度命名，但 trunk.axial-rotation 的暴露量是 軀幹繞自身長軸的方位；兩者參考系不同，判讀時不可混用。
+
+    '
+  limitation_context: '肩上舉維持、肘伸展維持與軀幹旋轉是三個獨立成分，「下壓的開始時間」則是額外 的時間維度；池畔看到的「延伸得很好」是這些成分的合成，不能指出限制位於哪一個 關節，也不能由前伸外觀判定任何成分已經到位。划頻、風格歸類、抓水品質與推進力 都不在本筆。
+
+    '
+  safety_note: '維持手臂前伸上舉位與軀幹轉動時若出現肩部、頸部、背部或腰部疼痛、麻木、上肢 放射症狀、明顯無力或不穩應停止，不要為了把手送得更遠而強行增加上舉角度或加大 軀幹扭轉。
+
+    '
+- id: movement.demand.free.rear-quadrant-propulsion.hip-snap-is-trunk-rotation
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: synthesis-inference
+  source_ids:
+  - src.hall-murphy-2020
+  - src.neumann-2017
+  stroke: free
+  phase_model: race-club-6phase
+  phase: rear-quadrant-propulsion
+  body_position: prone
+  poolside_direction: 由池畔觀察，手在身體下方通過之後繼續往後推到大腿附近才離開水面；出手前後身體有一個明顯的轉動，池畔看起來像是髖部往後甩了一下（教學語稱「推到底」「屁股帶一下」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - free.tech.8
+  - free.tech.4
+  action_ids:
+  - movement.action.shoulder-complex.extension
+  - movement.action.elbow.extension
+  - movement.action.trunk.axial-rotation
+  muscle_roles:
+  - muscle_id: movement.muscle.latissimus-dorsi
+    role: '背闊肌的作用線在解剖上可參與肩伸展方向的移動與位置控制；本筆不由手往大腿 附近移動的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.shoulder-internal-rotator-extensors
+    role: '肩內旋伸展肌群的作用線在解剖上可參與肩伸展方向的移動與位置控制；本筆不由 後段推水的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.elbow-extensors
+    role: '肘伸肌群的作用線在解剖上可參與肘伸展方向的移動與位置控制；本筆不由出手前 肘部伸直的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  name_zh: 後象限推進的肩伸展與肘伸展，以及「髖部往後甩」的解剖歸屬
+  description: '本相位可命名的關節動作是肩伸展與肘伸展。手由身體下方往後移動對到 movement.action.shoulder-complex.extension，肘由屈曲轉為伸直對到 movement.action.elbow.extension；兩者的池畔可見方向與解剖命名一致。 本筆不推定兩者的先後，也不判定誰出力較多。
+
+    池畔所說「手走到時鐘指定位置、推到底」是手相對靜水的空間位移，不是任何關節 的角度。時鐘位置不能反推肩、肘或軀幹角度，相同的手部位置可以由不同的關節 組合達成。
+
+    池畔也會說「推進力在這裡最大」。推進力是力學量，不是關節動作，本層不承載 也不裁定；而且素材本身描述推進峰值的位置會隨風格提早或延後，並非固定位置， 因此不能把「這裡最大」寫成本相位的定義性質。本層不比較任何風格的優劣。
+
+    池畔所說「出手時髖部往後甩」，也會表達成「屁股甩一下」或「髖部發力」，直覺 容易把骨盆快速轉過去命名成髖關節動作。解剖上，這是軀幹繞長軸旋轉在骨盆端 呈現的結果，對到 movement.action.trunk.axial-rotation，不是髖關節在做屈曲 或伸展。髖伸展是大腿相對骨盆往背側移動，與這個可見轉動不同，在本相位的該 現象中沒有發生。因此 action_ids 刻意不列 movement.action.hip.extension， 以免把池畔外觀誤寫成此相位要求髖伸展。
+
+    另一個分期模型把接近的時間區段稱為推水相，庫內另有記錄；兩個模型的相位邊界 定義不同、不可互相換算，任何一方的量測數值都不得搬到另一方。本筆只作指路， 不重述另一筆內容。
+
+    本筆的肩、肘成分以關節局部角度命名，但 trunk.axial-rotation 的暴露量是軀幹 繞自身長軸的方位；兩者參考系不同，判讀時不可混用。
+
+    '
+  limitation_context: '肩伸展、肘伸展與軀幹旋轉是三個獨立成分；池畔看到的「推得很紮實」是三者的 合成，不能指出限制位於哪一個關節，也不能由出手位置的外觀判定任何成分已經 到位。推進力大小、峰值位置、風格歸類與划距都不在本筆。
+
+    '
+  safety_note: '做後段推水與軀幹轉動時若出現肩部、肘部、背部或腰部疼痛、麻木、上肢放射症狀、 明顯無力或不穩應停止，不要為了把手推得更後面而強行增加肩伸展幅度或用腰去補 轉動。
+
+    '
+- id: movement.demand.free.push.three-component-power-contribution
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: swimming-kinematics
+  source_ids:
+  - src.kudo-yanai-matsuda-2025
+  - src.hall-murphy-2020
+  stroke: free
+  phase_model: kudo-power-phase
+  phase: push
+  body_position: prone
+  poolside_direction: 由池畔觀察，手掌在身體下方通過之後往後推到出水之前，同時胸口繼續轉過去、肘部逐漸伸直（教學語稱「胸口轉完、手推完、肘伸完同時結束」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - free.tech.16
+  - free.tech.2
+  action_ids:
+  - movement.action.trunk.axial-rotation
+  - movement.action.shoulder-complex.adduction
+  - movement.action.elbow.extension
+  muscle_roles:
+  - muscle_id: movement.muscle.latissimus-dorsi
+    role: '背闊肌的作用線在解剖上可參與肩內收方向的移動與位置控制；本筆不由推水相手臂 往後移動的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.shoulder-internal-rotator-extensors
+    role: '肩內旋伸展肌群的作用線在解剖上可參與肩內收方向的移動與位置控制；本筆不由 胸口轉動與手臂後推的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.elbow-extensors
+    role: '肘伸肌群的作用線在解剖上可參與肘伸展方向的移動與位置控制；本筆不由肘部逐漸 伸直的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  measurement_conditions:
+  - source_id: src.kudo-yanai-matsuda-2025
+    quantity: 推水相中胸廓旋轉、肩內收與肘伸展三個成分對划水功率的相對貢獻；原文為單一組內的功率分解，未設對照組或介入條件
+    value: 約 32%、37%、31%（三個成分在原文報告中的貢獻比例，彼此接近）
+    conditions: 最大強度前爬泳的直接功率分解；本專案未逐字轉錄受試人數、量測協議與族群
+    endpoint: stroke-power
+    extrapolation_boundary: 只支持「推水相的划水功率由三個成分共同構成，且三者貢獻彼此接近」。不支持任一成分為主導、不支持划距、distance per stroke、推進力或競賽速度等其他終點，不支持任何最佳角度、旋轉幅度或訓練劑量，不得反過來寫成加大其中一項就會提高功率，也不得與同一原文的拉水相數值互換，更不得換算到 race-club 六相模型的後象限推進。
+  name_zh: 推水相由胸廓旋轉、肩內收與肘伸展三個成分共同構成
+  description: '胸廓繞長軸旋轉、肩複合體內收與肘伸展在推水相同時進行，不是依序接力。一手功率 分解顯示三個成分對划水功率的貢獻彼此接近；具體量測值只保留在本筆的 measurement_conditions，不放入公開敘述。
+
+    動作圖譜本來就不裁定哪一個成分主導；本筆特別之處在於，一手量測本身顯示沒有 一個壓倒性的成分，可說明為何不作主導判定。貢獻接近只是該組受試者在該量測條件 下的結果，不表示三者一樣重要，也不是平均訓練三者的指示。
+
+    這項量測的終點是划水功率的力學分解，不是關節角度；它沒有量測推水相中任何關節 處於何種角度或活動多少範圍。因此本筆不建立角度目標，action_status 仍是 provisional。
+
+    另一個分期模型把接近的時間區段稱為後象限推進，庫內另有記錄；兩個模型的相位 邊界定義不同、不可互相換算，本筆的量測值只在本模型的推水相內成立。同一原文 另有拉水相的量測值，屬庫內既有的拉水相記錄，本筆不轉錄也不比較。
+
+    本筆的肩、肘成分以關節局部角度命名，但 trunk.axial-rotation 的暴露量是軀幹 繞自身長軸的方位；兩者參考系不同，判讀時不可混用。
+
+    '
+  limitation_context: '軀幹旋轉、肩內收與肘伸展是三個獨立成分，量測給的是它們對功率的貢獻比例，不是 各自的活動範圍；不能由貢獻比例推出應該轉多少、內收多少或伸多少，也不能指出 限制位於哪一個關節。划距、推進力與競賽速度都不在本筆。
+
+    '
+  safety_note: '做後段推水與軀幹轉動時若出現肩部、肘部、背部或腰部疼痛、麻木、上肢放射症狀、 明顯無力或不穩應停止，不要為了讓三個動作同時結束而強行加大轉動或把肘鎖到底。
+
+    '
+- id: movement.demand.free.release.little-finger-orientation-is-not-a-rotation
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: synthesis-inference
+  source_ids:
+  - src.hall-murphy-2020
+  - src.neumann-2017
+  stroke: free
+  phase_model: race-club-6phase
+  phase: release
+  body_position: prone
+  poolside_direction: 由池畔觀察，手推到大腿附近之後從水面拔出來，出水時小指那一側朝上、掌心大致朝向大腿（教學語稱「小指先出水」「掌心貼著大腿滑出來」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - free.tech.8
+  - free.tech.37
+  action_ids:
+  - movement.action.shoulder-complex.extension
+  - movement.action.elbow.flexion
+  muscle_roles:
+  - muscle_id: movement.muscle.latissimus-dorsi
+    role: '背闊肌的作用線在解剖上可參與肩伸展方向的移動與位置控制；本筆不由手在大腿 附近離水的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.elbow-flexors
+    role: '肘屈肌群的作用線在解剖上可參與肘屈曲方向的移動與位置控制；本筆不由手被帶離 水面的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  name_zh: 釋放相的離水動作，與「小指朝上」不能反推關節旋轉
+  description: '本相位可命名的關節內容只有肩複合體處在推水末端的伸展位並開始離開該位置，以及 肘由伸直開始屈曲而把手帶離水面。釋放相在關節層本來就只有這兩件事；內容薄是 相位本身的性質，不是漏寫。
+
+    池畔所說「小指先出水」與「掌心貼著大腿滑出來」描述手的空間朝向。手在空間中的 朝向由肱骨軸向旋轉、前臂旋前旋後與腕位置共同形成，單看朝向無法區分改變來自 哪一個關節來源；完整論證見 movement.demand.free.catch.palm-orientation-three-source-decomposition， 本相位的具體應用是不能由小指朝上的外觀指定旋轉動作。同一外觀可以由不同關節 組合達成，因此 action_ids 刻意不列 movement.action.shoulder-complex.internal-rotation、 movement.action.shoulder-complex.external-rotation、 movement.action.forearm.pronation 與 movement.action.forearm.supination； 這四個動作都不能由該空間朝向單獨判定，並非漏列。
+
+    本層並未宣告「小指先出水」是假的；原主張未必錯，本筆只指出由出水外觀推不出 它對應哪一個關節動作。判定主張真假與指出推論依據不足是兩件不同的事。
+
+    「最小阻力出水」是力學後果，不在本層。出水之後手臂如何移動屬早期回臂，庫內 另有記錄，本筆只作指路而不重述其內容。
+
+    '
+  limitation_context: '肩伸展位置與肘屈曲是兩個獨立成分，手的空間朝向則是不屬於關節層的另一個觀察值； 池畔看到的「小指先出水」不能反推任何一個關節的旋轉方向，也不能指出限制位於 哪一個關節。出水阻力、划水效率與回臂內容都不在本筆。
+
+    '
+  safety_note: '做出水動作時若出現肩部、肘部或腕部疼痛、夾擠感、麻木、明顯無力或不穩應停止， 不要為了做出小指先出水的外觀而強行扭轉手臂。
+
+    '
+- id: movement.demand.free.early-recovery.scapular-upward-rotation-with-wrist-neutral
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: synthesis-inference
+  source_ids:
+  - src.hall-murphy-2020
+  - src.neumann-2017
+  stroke: free
+  phase_model: race-club-6phase
+  phase: early-recovery
+  body_position: prone
+  poolside_direction: 由池畔觀察，手出水之後肘部先抬起來、手掌鬆鬆地跟在後面；背後的肩胛骨明顯往上轉。不同泳者的肘部彎曲程度差很多，有人幾乎打直繞一個大圈，有人肘部彎得很明顯（教學語稱「提肘」「手放輕鬆」「彎臂回臂／直臂回臂」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - free.tech.8
+  - free.tech.32
+  action_ids:
+  - movement.action.shoulder-complex.scapular-upward-rotation
+  - movement.action.elbow.flexion
+  - movement.action.wrist-hand.flexion
+  - movement.action.wrist-hand.extension
+  muscle_roles:
+  - muscle_id: movement.muscle.scapular-upward-rotators
+    role: '肩胛上迴旋肌群的作用線在解剖上可參與肩胛上迴旋方向的移動與位置控制；本筆 不由提肘與肩胛骨往上轉的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.elbow-flexors
+    role: '肘屈肌群的作用線在解剖上可參與肘屈曲方向的移動與位置控制；本筆不由彎臂或 直臂回臂的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.wrist-flexors
+    role: '腕屈肌群的作用線在解剖上可參與腕屈方向的位置控制與維持；本筆不由手腕放鬆 的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.wrist-extensors
+    role: '腕伸肌群的作用線在解剖上可參與腕伸方向的位置控制與維持；本筆不由手腕放鬆 的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  name_zh: 早期回臂的肩胛上旋、肘屈曲光譜與腕中立
+  description: '池畔所說「肩胛骨往上轉」對到 movement.action.shoulder-complex.scapular-upward-rotation，是本相位少數 真正在產生的動作，池畔方向與解剖命名一致。肩胛上旋與盂肱關節動作分屬不同 體節，是兩件事；池畔看到的「提肘」是兩者的合成，不能把兩層當成同一動作。
+
+    池畔所說「手腕放鬆」在本筆記為腕中立。action_ids 同時列出 movement.action.wrist-hand.flexion 與 movement.action.wrist-hand.extension， 兩個都是記錄「不做」，不是要求產生腕屈曲與腕伸展。腕中立是屈伸兩側都要避開 的位置控制，不是一個方向的動作。
+
+    池畔所說「彎臂回臂／直臂回臂」是肘屈曲程度的連續光譜，從明顯屈曲、部分伸展 到幾乎打直之間沒有分界。action_ids 只列 movement.action.elbow.flexion， 承載的是本相位存在肘屈曲且程度可變，不是要求屈曲到特定程度。本層不裁定應選 光譜上的哪一個位置；素材將選位連到距離與專項，屬教學決策。素材中的能量代價 比較是力學量，不是關節動作，本筆不承載也不引用其數值。
+
+    回臂後半段的下落與加速屬晚期回臂，庫內另有記錄；手出水的瞬間屬釋放相，也有 另一筆記錄。本筆對兩者都只作指路，不重述其內容。
+
+    '
+  limitation_context: '肩胛上旋、肘屈曲程度與腕中立是三個獨立成分；池畔看到的「提肘提得很漂亮」是 三者的合成，不能指出限制位於哪一個關節，也不能由肘部高度的外觀判定肩胛上旋 是否到位。回臂的能量代價、適用距離與風格歸類都不在本筆。
+
+    '
+  safety_note: '做回臂動作時若出現肩部疼痛、夾擠感、頸部或上背疼痛、麻木、明顯無力或不穩 應停止，不要為了把肘抬得更高而強行聳肩、加大肩胛動作或把手臂繞得更開。
+
+    '
+- id: movement.demand.free.late-recovery.entry-drive-and-rotation-are-one-linkage
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: synthesis-inference
+  source_ids:
+  - src.hall-murphy-2020
+  - src.neumann-2017
+  stroke: free
+  phase_model: race-club-6phase
+  phase: late-recovery
+  body_position: prone
+  poolside_direction: 由池畔觀察，回臂的手越過肩膀之後在前方落下並且加速，落得越用力的泳者，身體轉向另一側的速度看起來也越快（教學語稱「手砸下去」「手要快」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - free.tech.8
+  - free.tech.29
+  - free.tech.32
+  action_ids:
+  - movement.action.shoulder-complex.elevation
+  - movement.action.elbow.extension
+  - movement.action.wrist-hand.flexion
+  - movement.action.wrist-hand.extension
+  muscle_roles:
+  - muscle_id: movement.muscle.scapular-upward-rotators
+    role: '肩胛上迴旋肌群的作用線在解剖上可參與肩胛上迴旋方向的移動，以及肩複合體 上舉方向的位置控制與維持；本筆不由手臂向前落下的外觀判定實際招募時序、 程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.elbow-extensors
+    role: '肘伸肌群的作用線在解剖上可參與肘伸展方向的移動與位置控制；本筆不由晚期回臂 肘部轉向伸直的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.wrist-flexors
+    role: '腕屈肌群的作用線在解剖上可參與腕屈方向的位置控制與維持；本筆不由手腕放鬆 的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.wrist-extensors
+    role: '腕伸肌群的作用線在解剖上可參與腕伸方向的位置控制與維持；本筆不由手腕放鬆 的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  name_zh: 晚期回臂的上舉與肘伸展，以及「砸水」與「轉體」不是兩個指令
+  description: '本相位可命名的關節動作是肩複合體上舉與肘伸展。手臂越過肩膀後往前落下的過程 對到 movement.action.shoulder-complex.elevation，肘由屈曲轉向伸直則對到 movement.action.elbow.extension；伸展程度隨回臂光譜而異，本層不裁定肘應伸到 哪一個位置。
+
+    池畔所說「靠重力把手砸下去」描述的是作用在手臂上的外力，不是任何關節產生的 動作。action_ids 列的是手臂通過這段軌跡時的關節構型，不是在說明何種力量把 手臂帶下去。
+
+    池畔所說「手砸得越用力、身體轉得越快」，是同一個連動的兩個觀察面。手落下的 強度與軀幹轉向另一側的速度在池畔可以分別看見，但不是兩個可以分別下令的關節 動作；因此本筆不把「轉體」另列成 action，以免讀成可以獨立操作的動作，這不是 漏列軀幹旋轉。本層只記錄兩個表現屬同一連動，不給教學選邊指示。
+
+    池畔所說「手腕放鬆」在本筆記為腕中立。action_ids 同時列出 movement.action.wrist-hand.flexion 與 movement.action.wrist-hand.extension， 兩個都是記錄「不做」，不是要求腕屈曲與腕伸展；腕中立是屈伸兩側都要避開的 位置控制。
+
+    晚期回臂在手接觸水面之前結束，入水瞬間的內容不屬本筆；入水期肩線滾轉見 movement.demand.free.entry.shoulder-line-roll-peak，本筆只作指路而不重述。 入水角度、手部姿態與入水阻力比較都屬入水期，也涉及數值或力學後果，本筆一律 不寫。連動的完整機制以及肩與髖旋轉峰的時間關係屬另一主題，本筆同樣不承載。
+
+    '
+  limitation_context: '肩上舉、肘伸展與腕中立是三個獨立成分，手落下的速度與軀幹轉速是同一個連動的 兩個表現，而不是額外的可操作成分；池畔看到的「砸得很有力」不能指出限制位於 哪一個關節，也不能由落手外觀判定軀幹轉動是否到位。入水姿態、入水阻力與連動 的力學後果都不在本筆。
+
+    '
+  safety_note: '做回臂下落與入水前加速時若出現肩部疼痛、夾擠感、肘部或腕部疼痛、麻木、明顯 無力或不穩應停止，不要為了把手砸得更用力而強行加大擺臂幅度或用力甩腕。
+
+    '
+- id: movement.demand.udk.terminal-down-kick.hip-external-rotation-and-missing-adduction-term
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: synthesis-inference
+  source_ids:
+  - src.neumann-2017
+  stroke: udk
+  phase_model: descriptive
+  phase: terminal-down-kick
+  body_position: prone
+  poolside_direction: 由池畔或水下窗觀察，海豚踢往下打到接近最低點時，兩隻腳往中間靠、腳尖幾乎併在一起，膝蓋這時已經打直（教學語稱「腳尖夾起來」「最後把水擠出去」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - udk.tech.6
+  - udk.tech.9
+  action_ids:
+  - movement.action.hip.external-rotation
+  - movement.action.knee.extension
+  muscle_roles:
+  - muscle_id: movement.muscle.hip-external-rotators
+    role: '髖外旋肌群的作用線在解剖上可參與髖外旋方向的移動與位置控制；本筆不由雙腳 聚攏或腳尖靠近的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.knee-extensors
+    role: '膝伸肌群的作用線在解剖上可參與膝伸展方向的移動與位置控制；本筆不由膝蓋 已經打直的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  name_zh: 下踢末段的髖外旋與膝伸展，以及「雙腳聚攏」缺少的動作詞
+  description: '池畔所說「兩隻腳往中間靠」「腳尖聚攏」直覺上會被叫成內收或夾腿，素材卻把 這個現象歸給髖外旋，兩欄的方向並不相同。素材描述的是大腿繞自身長軸向外轉， 小腿與足因而被帶到相對靠內的位置；看起來像夾，素材實際命名的卻是轉。池畔的 「靠攏」是足部在空間中的位置變化，髖外旋則是大腿繞長軸的旋轉，兩者不是同一個 量，因此不能由足部位置反推髖旋轉的程度。
+
+    足部靠攏這個可見現象除了髖外旋之外，還可能包含髖內收成分，但本專案的動作 詞彙表沒有登錄髖內收，因此該成分在這一層無法被列舉。action_ids 刻意不列 髖外展來反向表示聚攏；列出髖外展會被讀成這個相位要做外展，意思正好相反。 這是動作詞彙表的缺口，不是本筆的疏漏，本筆只如實標示而不要求補詞。
+
+    池畔看到「膝蓋這時已經打直」與膝伸展的解剖命名一致，對到 movement.action.knee.extension，不需要轉譯。下踢前段的膝屈曲屬下踢相位本身， 庫內已有記錄，本筆不重述。踝蹠屈也已由下踢相位的既有記錄承載，因此 action_ids 刻意不列踝蹠屈；這不是表示本相位沒有踝的參與，而是相關通則已記錄在別處， 重複列出會使兩筆內容互相覆蓋。
+
+    池畔所說「踢完會甩出一團水」與「最後把水擠出去」描述的是水流結構，也就是 關節動作在水中造成的流體力學結果，不是一個可以被命名或下指令的關節動作， 因此本層不承載這項結果。
+
+    素材所說「髖啟動→膝踢出→末段聚攏」描述的是事件在時間上的相對位置，屬於 時序；在 joint-local 框架下，沒有任何單一關節動作可以承載這個序列。序列開頭 的髖屈曲屬下踢相位，庫內已有記錄，本筆不重述；本層也不把這串時序改寫成訓練 順序或動作門檻。
+
+    '
+  limitation_context: '髖外旋與膝伸展是兩個獨立成分，足部在空間中的靠攏程度是另一個不屬於關節層的 觀察值，而它的內收成分在本專案的動作詞彙表裡沒有對應項目；池畔看到的「腳尖 夾得很好」是這些成分的合成，不能指出限制位於哪一個關節，也不能由腳尖位置 判定髖外旋是否到位。渦流結構、推進力、踢腿速度與出水銜接都不在本筆。
+
+    '
+  safety_note: '做下踢末段的腿部轉動與伸展時若出現髖部、鼠蹊、膝部、腰背或踝部疼痛、麻木、 明顯無力或不穩應停止，不要為了把腳尖夾得更緊而強行轉動大腿或把膝蓋鎖到底。
+
+    '
+- id: movement.demand.fly.breathing-window.cervical-extension-avoidance-in-an-event-window
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: synthesis-inference
+  source_ids:
+  - src.neumann-2017
+  stroke: fly
+  phase_model: event-window
+  phase: breathing-window
+  body_position: prone
+  poolside_direction: 由池畔觀察，蝶式泳者換氣時下巴沿著水面往前推出去吸氣，臉幾乎是擦著水面出來的，不是把頭仰起來看前方；吸完之後頭很快回到原位（教學語稱「下巴向前不要向上」「吸完馬上把頭放回去」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - fly.tech.16
+  - fly.tech.17
+  - fly.tech.18
+  action_ids:
+  - movement.action.trunk.extension
+  - movement.action.trunk.flexion
+  muscle_roles:
+  - muscle_id: movement.muscle.trunk-sagittal-controllers
+    role: '軀幹矢狀面控制肌群的作用線在解剖上可參與頸椎節段在伸展與屈曲方向的位置 控制與維持；本筆不由下巴向前或頭部回位的外觀判定實際招募時序、程度或推進 貢獻。
+
+      '
+  name_zh: 呼吸視窗的頸椎伸展避免與回復，以及事件視窗這個分期性質
+  description: '呼吸視窗不是從划手週期切出的連續段落，而是全登錄表唯一使用事件視窗分期模型 的相位。它描述在特定時間區間開啟、可以使用也可以不使用的機會窗，不是每個 週期都必然經過的一段動作。因此本筆列出的動作不是「這個相位要做的動作」， 而是「這個視窗被使用時，頸椎會發生什麼」。
+
+    池畔所說「下巴往前推出去」描述的是下巴在空間中的位移，不是關節動作。下巴的 空間位置是頸椎角度、胸椎角度與整個身體在波動中姿態的合成，單看下巴推到 哪裡，推不出頸椎伸展的程度。因此 action_ids 沒有也不可能有一個叫「向前」的 動作；關節動作詞彙描述的是體節相對體節的角度變化，不是體節在空間中的位移。
+
+    池畔所說「不要抬頭」是頸椎伸展的避免。action_ids 所列的 movement.action.trunk.extension 在此明確指頸椎節段；列出這個 id 是為了記錄 視窗使用時要避開頸椎伸展，不是要求做出伸展。這項列舉不主張伸展的力學後果， 也不裁決呼吸方式的優劣。
+
+    池畔所說「吸完馬上把頭放回去」是頸椎屈曲方向的回復。action_ids 所列的 movement.action.trunk.flexion 在此明確指頸椎節段；它表示回到視窗開啟前已有 的位置，不是在視窗裡產生新的屈曲。同一關節區域的相反動作同時出現在 action_ids，一個是避免，一個是回復，並不矛盾，而是這個視窗的實際結構。
+
+    池畔所說「出水到移臂之間那個空檔吸氣」描述的是時序，也是本相位的主體， 不是關節動作。素材所列的整串時間節點是在標示事件的相對位置；joint-local 框架下沒有任何一個關節動作能承載它，本筆列出的頸椎伸展避免與頸椎屈曲回復 不足以描述整個相位，這是相位性質而不是遺漏。本層不把時序改寫成訓練順序、 呼吸長短或換氣頻率策略。手臂的出水與空中移臂在時間上與視窗重疊，庫內另有 記錄，本筆只作指路而不重述。胸椎下壓由蝶式入水停頓的既有記錄承載，本筆不寫 其內容。頭部在不換氣時作為波動起始的角色屬划手週期，不屬本視窗，本筆不寫。
+
+    '
+  limitation_context: '頸椎伸展的避免與頸椎屈曲的回復是兩個成分，視窗的開啟時機與持續長度則是另一個 時間維度，而本層沒有欄位可以承載它；池畔看到的「下巴貼著水面出來」是這些的 合成，不能指出限制位於哪一個節段，也不能由下巴的位置判定頸椎處於什麼角度。 手臂動作、胸椎姿態、呼吸頻率策略與阻力後果都不在本筆。
+
+    '
+  safety_note: '換氣時若出現頸部疼痛、僵硬、頭暈、上肢麻木或放射症狀、明顯無力或不穩應停止， 不要為了把下巴推得更前面而強行仰頭、把頸部往後壓或憋氣硬撐。
+
+    '
