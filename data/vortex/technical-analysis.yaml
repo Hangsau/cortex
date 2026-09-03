@@ -2465,27 +2465,25 @@ points:
   stroke: udk
   category: hardware
   title: 踝關節蹠屈柔韌性是 UDK 速度的硬體上限
-  summary: 踝關節柔韌性設定推進力天花板——無論核心力量和協調性多好，蹠屈範圍決定有效推進面積。
+  summary: 蹠屈範圍不足會壓低腳背的有效推進面積並拖慢速度；但「範圍越大越快」沒有得到支持——實驗中增加蹠屈的條件並未比一般條件更快。這是下限條件，不是可以一直往上推的效能旋鈕。
   mechanism:
     certainty: 🔵
-    text: 蹠屈角度越大，腳背有效推進面積越大；腳尖「指向後方」讓更多腳面面積對準水流方向，直接增加推進力。
+    text: 蹠屈角度決定腳背有多少面積朝向水流，這可以解釋為什麼範圍不足會扣分。但同一個推導只支持「不足會扣分」，不支持「超過一般範圍還能加分」——後者在實驗條件下沒有出現，見下方增加蹠屈條件的結果。
   evidence:
   - certainty: 🟢
-    text: 限制踝關節活動度 30% → 踢腿速度下降 19%
-    source: PubMed 24984154
+    text: 以貼紮把最大蹠屈限制約 30%，游速下降 19.5%；同一研究中蹠屈與內旋柔韌性受限顯著降低 UDK 表現，並伴隨膝往更大屈曲的動作型態改變
+    source: Willems et al. 2014 (PMID 24984154)
     source_ids:
     - src.pmid-24984154
   - certainty: 🟢
-    text: 踝關節蹠屈 + 內旋柔韌性受限，顯著降低 UDK 表現
-    source: ScienceDirect 2014
-    source_ids:
-    - src.sciencedirect-2014
-  - certainty: 🟢
-    text: 踝關節柔韌性直接影響水下波動游速
-    source: PMC9402090, 2022
+    text: 另一組獨立樣本（10 名受過良好訓練的泳者，5 男 5 女）以貼紮限制最大蹠屈 10.42%，游速由 1.20 ± 0.14 降至 1.13 ± 0.13 m/s、踢腿效率由 0.72 ± 0.10 降至 0.69 ± 0.09 m；但「增加蹠屈」條件的游速與效率並未優於一般條件
+    source: Kuhn & Legerlotz 2022 (PMC9402090)
     source_ids:
     - src.pmc9402090-b
-  practical_implication: 踝關節柔韌性訓練是 UDK 長期發展的必要投資，不能以技術口令替代。
+  practical_implication: 可用來排除「範圍不足」這個限制，不能用來推銷加大範圍。介入怎麼做屬於介入層（見 cross_ref），該層已明寫沒有長期伸展介入試驗、也沒有劑量來源；本點不在此另給訓練處方。
+  cross_ref: movement.intervention.ankle-plantarflexion.conditional-mobility（踝蹠屈受限時的條件式活動度介入）
+  cross_ref_ids:
+  - movement.intervention.ankle-plantarflexion.conditional-mobility
 - id: udk.tech.15
   stroke: udk
   category: hardware
@@ -2494,14 +2492,16 @@ points:
   mechanism:
     certainty: 🟢
     source_ids:
-    - src.pmc9402090-a
+    - src.pmc9402090-b
+    - src.pmid-24984154
     text: 腳背無法完整朝後展開 → 泳者加大膝蓋彎曲試圖維持推進 → 膝蓋彎曲產生正面阻力 → 速度反而下降；此代償已在多項研究中重複觀察。
   evidence:
   - certainty: 🟢
     text: 踝關節蹠屈受限 → 上踢相膝蓋彎曲增加，為最具體可觀察指標
-    source: PMC9402090 2022; PubMed 24984154
+    source: Kuhn & Legerlotz 2022 (PMC9402090); Willems et al. 2014 (PMID 24984154)
     source_ids:
-    - src.pmc9402090-a
+    - src.pmc9402090-b
+    - src.pmid-24984154
   practical_implication: 觀察到膝蓋過度彎曲（>40°）時，先排查踝關節蹠屈範圍，再評估技術問題；建議介入順序：踝關節柔韌性評估 → 柔韌性訓練 → 重新評估踢腿技術。
 - id: udk.tech.16
   stroke: udk
@@ -2683,20 +2683,21 @@ points:
 - id: udk.tech.28
   stroke: udk
   category: kick
-  title: 踝關節柔韌性訓練方法
-  summary: 踝關節蹠屈柔韌性需持續時間累積，主要訓練動作包含站姿腳背壓地、坐姿彈力帶阻力蹠屈、踝關節圓周活動。
+  title: 踝關節蹠屈柔韌性：限制實驗支持關聯，伸展訓練效果沒有試驗支持
+  summary: 現有依據是「把活動度限制住會變慢」的反向實驗，不是「拉鬆會變快」的訓練試驗。因此本點不列訓練動作、不給時程與劑量，也不宣稱柔韌性訓練能提升 UDK 表現。
   mechanism:
-    certainty: 🟢
-    source_ids:
-    - src.pmid-24984154
-    text: 踝關節柔韌性提升不是一週見效，需持續數週至數月的系統性伸展訓練。
+    certainty: 🔵
+    text: 限制活動度後表現下降，可以支持「可用蹠屈範圍是表現的必要條件之一」，但不能反推「增加範圍就會增加表現」。前者是從原本未受限的人身上移除既有條件，後者要對原本就受限的人施加訓練並追蹤表現，受試狀態與因果方向都不同，前者不蘊含後者。庫內沒有後者的試驗，所以柔韌性訓練要多久見效、用哪些動作、多少劑量，在本專案都無依據可寫。
   evidence:
   - certainty: 🟢
-    text: 踝關節柔韌性訓練可改善蹠屈範圍，進而提升 UDK 表現
-    source: PubMed 24984154
+    text: 以貼紮把最大蹠屈限制約 30%，游速下降 19.5%。這是在原本未受限的人身上移除既有範圍的限制實驗，支持蹠屈範圍與 UDK 表現之間存在關聯；本點不由此推出伸展訓練能提升表現。另一組樣本中「增加蹠屈」條件並未比一般條件更快（見 udk.tech.14），反向支持這個限度。
+    source: Willems et al. 2014 (PMID 24984154)
     source_ids:
     - src.pmid-24984154
-  practical_implication: 踝關節柔韌性訓練需列入長期週期計畫，不能期待短期見效。
+  practical_implication: 介入怎麼做屬於介入層，不在本點。該層記錄已明寫「沒有能支撐本處方的長期伸展介入試驗；既有急性伸展操作不是訓練試驗」，以及「本條沒有可支撐維持時間、次數、組數或週頻率的來源，因此不給定數字」。本點不另立一套訓練動作與週期時程去繞過那個邊界。
+  cross_ref: movement.intervention.ankle-plantarflexion.conditional-mobility（踝蹠屈受限時的條件式活動度介入，含尚未解決的邊界）
+  cross_ref_ids:
+  - movement.intervention.ankle-plantarflexion.conditional-mobility
 - id: udk.tech.29
   stroke: udk
   category: streamline
