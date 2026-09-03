@@ -1514,22 +1514,34 @@ points:
   stroke: breast
   category: hardware
   title: 髖關節內旋（Hip Internal Rotation）：第二關鍵解剖因子
-  summary: 髖內旋幅度直接決定腳掌能否翻轉到位，不足時無論如何指導「腳掌翻出去」都是無效指令——是物理限制而非理解問題。
+  summary: 髖旋轉幅度直接決定腳掌能否翻轉到位，不足時無論如何指導「腳掌翻出去」都是無效指令——是物理限制而非理解問題。本條的教練觀測把這個旋轉寫成內旋，動作圖譜則把內旋與外旋兩向並列，因為翻腳過程中股骨方位一直在變，兩者可能各自在講不同時點。
   mechanism:
     certainty: 🟠
-    text: 蛙腿踢水時讓腳趾外翻，股骨必須在髖關節做內旋——這是腳掌朝向斜後方的解剖前提；hip internal rotation 不足時，腳掌無法外翻到位，只能靠膝距加寬補償；膝距加寬帶來三重成本：正面阻力增加、踢腿週期延長、腳掌蹬出位置偏離渦流區；限制混合了股骨頸角度（骨骼，固定）和周邊軟組織緊繃（可訓練），需先區分再介入。
+    observation_basis: '觀察者為 The Race Club 的教練群，觀察族群為競技蛙式泳者。 外推邊界：非控制實驗、未報告量測方法與樣本，不適用於一般成人 初學與兒童；本條只作為「髖旋轉可用量會限制翻腳」這個定性關聯的 實務依據，不作為方向歸屬或劑量的依據。
+
+      '
+    text: 蛙腿踢水時讓腳趾外翻，股骨必須在髖關節產生旋轉——這是腳掌朝向斜後方的解剖前提；本條的教練觀測把這個旋轉指為內旋，而解剖來源在同一現象上指的是外旋，動作圖譜兩向並列（見 cross_ref）。可用量不足時，腳掌無法外翻到位，只能靠膝距加寬補償；膝距加寬帶來三重成本：正面阻力增加、踢腿週期延長、腳掌蹬出位置偏離渦流區；限制混合了股骨頸角度（骨骼，固定）和周邊軟組織緊繃（可訓練），需先區分再介入。
   evidence:
   - certainty: 🟠
-    text: 每增加一度 hip internal rotation，推進力增加約 5%（教練觀測，非學術研究控制數字）
+    observation_basis: '觀察者為 The Race Club 的教練群，觀察族群為競技蛙式泳者。 外推邊界：此為教學現場觀察的比例感，非控制實驗數字，未報告 量測方法、樣本數與離散度，不得當作訓練劑量或成效預期使用。
+
+      '
+    text: 每增加一度髖旋轉可用量，推進力增加約 5%（教練觀測，非學術研究控制數字）
     source: The Race Club
     source_ids:
     - src.the-race-club
   - certainty: 🟠
-    text: Adam Peaty 和 Rebecca Soni 能在約 120° 髖-大腿角啟動踢腿；一般選手需要更大角度（100–110°）
+    observation_basis: '觀察者為教練現場觀察，觀察族群為菁英與一般競技蛙式泳者。 外推邊界：個案級觀察，未報告量測方式與參考系，角度值只作為 「菁英能在較小的髖-大腿夾角啟動踢腿」的定性對比，不作為目標值。
+
+      '
+    text: 部分菁英選手能在較小的髖-大腿角啟動踢腿；一般選手需要更大角度
     source: 教練觀測
     source_ids:
     - src.coach-observation
-  practical_implication: 評估泳者前應先區分「解剖固定限制」與「可訓練軟組織限制」，不能給相同的訓練建議；hip internal rotation 是蛙腿技術的解剖前提，而不只是效率因子。
+  practical_implication: 評估泳者前應先區分「解剖固定限制」與「可訓練軟組織限制」，不能給相同的訓練建議；髖旋轉可用量是蛙腿技術的解剖前提，而不只是效率因子。辨識時不要看腳尖朝外的角度就回推髖——翻腳期膝在深屈曲，膝的軸向旋轉最自由，遠端的朝外有相當部分可以完全不經過髖；要判斷髖必須把髖單獨拿出來、在接近水中收腿位的髖屈曲角度下量，內旋與外旋各量一次、左右分開。
+  cross_ref: movement.demand.breast.foot-flip.multi-joint-composition-of-toe-out（腳尖朝外的多關節合成與髖旋轉兩向並列，含四條辨識規則）
+  cross_ref_ids:
+  - movement.demand.breast.foot-flip.multi-joint-composition-of-toe-out
 - id: breast.tech.16
   stroke: breast
   category: hardware
@@ -2487,8 +2499,8 @@ points:
 - id: udk.tech.15
   stroke: udk
   category: hardware
-  title: 踝關節柔韌性不足的代償模式：上踢膝蓋彎曲增加
-  summary: 踝關節蹠屈受限時，泳者以加大膝蓋彎曲代償，但膝蓋彎曲是主要正面阻力來源，代償加速速度下降。
+  title: 踝關節柔韌性不足的代償模式：膝蓋彎曲增加
+  summary: 踝關節蹠屈受限時，泳者以加大膝蓋彎曲代償，但膝蓋彎曲是主要正面阻力來源，代償加速速度下降。辨識重點是先分清「踝硬所以膝彎」還是「技術問題所以膝彎」，兩者水中長得很像。
   mechanism:
     certainty: 🟢
     source_ids:
@@ -2497,12 +2509,27 @@ points:
     text: 腳背無法完整朝後展開 → 泳者加大膝蓋彎曲試圖維持推進 → 膝蓋彎曲產生正面阻力 → 速度反而下降；此代償已在多項研究中重複觀察。
   evidence:
   - certainty: 🟢
-    text: 踝關節蹠屈受限 → 上踢相膝蓋彎曲增加，為最具體可觀察指標
+    text: 踝關節蹠屈受限 → 踢腿時膝蓋彎曲增加，為最具體可觀察指標
     source: Kuhn & Legerlotz 2022 (PMC9402090); Willems et al. 2014 (PMID 24984154)
     source_ids:
     - src.pmc9402090-b
     - src.pmid-24984154
-  practical_implication: 觀察到膝蓋過度彎曲（>40°）時，先排查踝關節蹠屈範圍，再評估技術問題；建議介入順序：踝關節柔韌性評估 → 柔韌性訓練 → 重新評估踢腿技術。
+  - certainty: 🔵
+    text: 代償出現在哪一相（上踢或下踢）在庫內尚未定論——本庫原寫上踢相，而 Kuhn & Legerlotz 2022 討論段轉述 Willems 時寫的是下踢的代償性屈膝。兩者並列，不選邊；辨識時不要靠相位當判準，該看的是同一泳者的膝彎幅度與其陸上蹠屈範圍是否對得起來。
+  practical_implication: '辨識順序（不要從水中的膝角度起手，那個角度在水下本來就估不準，也不需要精確到度數）：
+
+    1. **先在陸上看被動蹠屈**：讓泳者俯臥、膝伸直，放鬆讓腳背往下垂。腳背能否接近與小腿成一直線，一眼可辨；左右不對稱也在這步看得出來。
+
+    2. **再回水中看膝彎**：若陸上蹠屈明顯受限、水中又靠加大膝彎推進，兩邊對得起來 → 硬體邊界，走活動度路線。
+
+    3. **若陸上蹠屈正常但水中仍大幅屈膝** → 不是踝的問題，是踢腿的發動與節律，別再往拉腳踝的方向投時間。
+
+    比較永遠對泳者自己的兩次觀察做（陸上 vs 水中、介入前 vs 介入後），不對一個跨人的角度門檻做。
+
+    '
+  cross_ref: movement.intervention.ankle-plantarflexion.conditional-mobility（踝蹠屈受限時的條件式活動度介入，含尚未解決的邊界）
+  cross_ref_ids:
+  - movement.intervention.ankle-plantarflexion.conditional-mobility
 - id: udk.tech.16
   stroke: udk
   category: hardware
