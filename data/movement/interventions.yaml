@@ -196,3 +196,86 @@ interventions:
   safety_note: '若出現頸部或腰背疼痛、麻木、上肢放射症狀、明顯無力、嗆水或 換氣不足，立即停止；不要用延長閉氣或更用力抬頭的方式硬撐。
 
     '
+- id: movement.intervention.scapular-upward-rotation.serratus-endurance
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: synthesis-inference
+  source_ids:
+  - src.pink-1991-b
+  - src.pink-1993
+  - src.statpearls-2023
+  limitation_type: 前鋸肌耐力／反覆負荷下維持不住肩胛上旋與前引穩定
+  action_ids:
+  - movement.action.shoulder-complex.scapular-upward-rotation
+  - movement.action.shoulder-complex.scapular-protraction
+  demand_ids:
+  - movement.demand.free.early-recovery.scapular-upward-rotation-with-wrist-neutral
+  - movement.demand.fly.aerial-recovery.scapular-stability-without-body-roll
+  - movement.demand.free.early-pull-through.high-elbow-configuration
+  mobility_decision: not-routine
+  dosage_source_ids: []
+  safety_stop_conditions:
+  - 練習中出現新發或加劇的肩部疼痛
+  - 出現麻木、刺痛或明顯無力
+  - 肩關節或肩胛帶出現明顯不穩定感
+  - 急性傷期間不得以增加負荷測試能力
+  remaining_boundary: 'Pink 1991／1993 是描述性肌電研究，不是前鋸肌耐力訓練介入試驗，不能 證明本條練習會改善划手品質或運動表現。游泳肩發生率 35–91% 是流行 病學數字，不能反推「練前鋸肌耐力可降低發生率」。研究族群是競技 泳者，未涵蓋兒童、青少年、鐵人三項與成人初學等本專案涵蓋的全光譜 受眾。最佳方法、劑量、進退階時程與水中轉移仍缺乏直接試驗支持。
+
+    '
+  name_zh: 前鋸肌耐力與反覆穩定控制
+  description: '前鋸肌在游泳划手週期有持續活化需求。若休息時能維持肩胛穩定， 反覆划手後才出現肩胛上旋與前引失穩、高肘或捕水品質崩潰，問題較 符合持續工作的耐力容量，而不是爆發力、最大力量或活動度不足。 拉伸不處理這類容量缺口，因此不是本條的工具。
+
+    '
+  works_when_summary: '休息時姿勢能維持，反覆負荷後才出現肩胛失穩、高肘或捕水品質流失， 且沒有疼痛、急性傷、神經症狀或明顯不穩。
+
+    '
+  fails_when_summary: '肩膀可用活動度本身不足、從第一趟就維持不住，或疲勞前後沒有可重複 差異時不適用；出現疼痛或不穩時也不應繼續。
+
+    '
+  training_options: '從低強度的肩胛上旋與前引持續控制開始，先延長能維持品質的時間， 再增加能保持相同品質的反覆量，不以增加阻力作為進階。品質流失時 就縮短維持、減少反覆量或退回較容易控制的姿勢。本條沒有來源可 支撐統一劑量，因此不提供數字。
+
+    '
+  safety_note: '若出現新發或加劇的肩部疼痛、麻木、刺痛、明顯無力或不穩定感， 立即停止；急性傷期間不要用增加負荷的方式測試能力。
+
+    '
+- id: movement.intervention.trunk-axial-rotation.cross-side-core-capacity
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: intervention
+  source_ids:
+  - src.karpinski-2020
+  - src.psycharakis-2010
+  - src.myers-2021
+  limitation_type: 跨側軀幹抗旋轉容量不足
+  action_ids:
+  - movement.action.trunk.axial-rotation
+  demand_ids:
+  - movement.demand.free.pull.upper-trunk-rotation-hand-velocity
+  - movement.demand.free.rear-quadrant-propulsion.hip-snap-is-trunk-rotation
+  - movement.demand.free.push.three-component-power-contribution
+  mobility_decision: not-routine
+  dosage_source_ids:
+  - src.karpinski-2020
+  safety_stop_conditions:
+  - 練習中肩、腰或髖出現新發或加劇的疼痛
+  - 出現麻木、刺痛或明顯無力
+  - 疼痛期間不以水中速度判定是否加量，先進入疼痛與負荷管理流程
+  remaining_boundary: 'Karpiński 2020 的受試者是國家級男子泳者，改善量為轉身後 5m 0.1 秒與 50m 自由式 0.3 秒，未涵蓋女性、兒童、青少年、鐵人三項 或成人初學，也不能據此指定其他族群的效果。Psycharakis 2010 只直接 量到仰式疲勞時肩旋轉維持、髖旋轉增加；back.tech.24 所列後三階段是 推導延伸，本記錄不能把四階段整串視為實測，也不能直接套到自由式。 Myers 2021 的螺旋線路徑是解剖閱讀框架；跨側訓練是否透過該路徑 起作用，現有素材沒有直接證據。
+
+    '
+  name_zh: 跨側核心容量與抗旋轉控制
+  description: '當陸上單側核心控制明顯不對稱，水中同側也出現旋轉或踢腿延遲時， 可把訓練焦點放在跨側軀幹抗旋轉容量。這是容量與控制問題，不是 活動度問題。螺旋線在此只是一個閱讀對側肩胛、腹斜肌、骨盆與腳部 的解剖框架，不表示力量已被證明會沿這條路徑傳遞。
+
+    '
+  works_when_summary: '陸上單側 deadbug、bird-dog 或 carry 有左右不對稱，水中同側也有 旋轉或踢腿延遲，且沒有疼痛或神經症狀時適用。
+
+    '
+  fails_when_summary: '陸上左右控制接近、只有提高划頻才失同步時，主問題較符合水中相位； 伴隨肩、腰或髖疼痛時則先處理疼痛與負荷，不進入本介入。
+
+    '
+  training_options: '容量分支採 6 週、每週 2–3 次跨側核心訓練，之後重測完整泳姿； 來源未提供組數、次數或每組秒數。若屬水中相位分支，改用低次數、 高品質的 25m，逐步提高划頻並維持肩峰—對側踢的順序。
+
+    '
+  safety_note: '肩、腰或髖若出現新發或加劇的疼痛，或有麻木、刺痛、明顯無力， 立即停止。疼痛期間先進入疼痛與負荷管理流程，不以水中速度判定 是否加量。
+
+    '
