@@ -2409,6 +2409,98 @@ demands:
   safety_note: '維持頸椎屈曲與雙臂上舉位時若出現頸部、肩部、腰部疼痛、麻木、 上肢放射症狀、明顯無力或不穩應停止，不要為了維持下巴貼胸或手臂 夾緊的外觀而強行下壓下巴、增加上舉角度或憋住不動。
 
     '
+- id: movement.demand.starts-turns.breaststroke-pullout.variant-order-differs-joint-composition-does-not
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: synthesis-inference
+  source_ids:
+  - src.neumann-2017
+  - src.hall-murphy-2020
+  - src.pmc9445308
+  - src.pmc8960438-d
+  stroke: starts-turns
+  phase_model: descriptive
+  phase: breaststroke-pullout
+  body_position: prone
+  poolside_direction: 由池畔觀察，泳者推牆後在水下依序做一次海豚踢、一次長划手到大腿下方、收手回身前、再一次蛙腳，然後才破水面（教學語稱「潛泳」「水下拉手」「pullout」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - starts-turns.tech.26
+  - starts-turns.tech.27
+  - starts-turns.tech.35
+  action_ids:
+  - movement.action.knee.flexion
+  - movement.action.knee.extension
+  - movement.action.hip.flexion
+  - movement.action.ankle-foot.plantarflexion
+  - movement.action.trunk.extension
+  - movement.action.trunk.flexion
+  - movement.action.shoulder-complex.extension
+  - movement.action.elbow.flexion
+  - movement.action.elbow.extension
+  - movement.action.shoulder-complex.scapular-protraction
+  muscle_roles:
+  - muscle_id: movement.muscle.knee-flexors
+    role: '膝屈肌群的作用線在解剖上可參與膝屈曲方向的移動與位置控制；本筆 不由收腿外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.knee-extensors
+    role: '膝伸肌群的作用線在解剖上可參與膝伸展方向的移動與位置控制；本筆 不由下踢外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.trunk-sagittal-controllers
+    role: '軀幹矢狀面控制肌群的作用線在解剖上可參與軀幹與頸椎屈伸方向的 移動與位置控制；本筆不由挺胸或下巴貼胸的外觀判定實際招募時序、 程度或分節分配。
+
+      '
+  - muscle_id: movement.muscle.latissimus-dorsi
+    role: '闊背肌的作用線在解剖上可參與肩伸展方向的移動與位置控制；本筆 不由拉手外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  - muscle_id: movement.muscle.elbow-extensors
+    role: '肘伸肌群的作用線在解剖上可參與肘伸展方向的移動與位置控制；本筆 不由手停在大腿下方的外觀判定實際招募時序、程度或推進貢獻。
+
+      '
+  measurement_conditions:
+  - source_id: src.hall-murphy-2020
+    quantity: pullout 海豚踢的膝屈曲上限（教材給的門檻，非量測分布）
+    value: 約 75°（教材寫「不宜超過」）
+    conditions: '教材以自家速度計個案影像為背景，對 pullout 這一次海豚踢給出的 教學門檻。原文沒有交代量測平面、標記點、樣本數與量測方法，也 沒有給出達到或超過此值的成績分布；它是教練書寫下的建議上限， 不是一組量測結果。
+
+      '
+    endpoint: coaching-threshold
+    extrapolation_boundary: '只支持「pullout 的海豚踢在教材中被建議收小」這一方向性描述。 不支持把 75° 當成訓練目標值、評估指標或合格門檻，也不支持反過來 用膝角判斷 pullout 好壞。本層記錄的是膝在此相位有屈曲與伸展兩個 方向，方向本身不依賴這個數字成立；數字在此只作為來源的完整交代， 不進入任何辨識規則。
+
+      '
+  - source_id: src.hall-murphy-2020
+    quantity: 拉手結束時肩帶位置差異造成的被動阻力變化
+    value: 圓肩（hunched）較平肩（squared）減少約 4%
+    conditions: '教材自家被動阻力量測平台的比較，比較的是兩種肩帶姿勢下的整體 阻力，不是任何關節角度的量測。原文沒有交代速度、姿勢固定方式、 受試人數與變異。
+
+      '
+    endpoint: passive-drag
+    extrapolation_boundary: '只支持「拉手收在大腿下方所帶出的肩帶位置，在該平台上量到較低 阻力」。不支持任何關節角度解讀，也不支持把圓肩當成訓練目標—— 這個數字量的是整體阻力，不是肩胛前伸的幅度，兩者之間沒有被 量過的對應關係。
+
+      '
+  name_zh: 蛙式 Pullout：三種變體差在順序不差在關節，胸與腰在同一時刻朝相反方向
+  description: '本相位長期沒有關節層內容，理由被寫成「缺量測」，這個判斷是錯的。 實際情況是教材裡確實有一段用關節語言寫的 pullout 描述，只是先前 沒有翻到；缺的是查找，不是量測。本筆據該段建立。
+
+    第一個要點是三種變體怎麼處理。素材比較的 Combined、Fly-Kick First、 Pull-Down First 三種 pullout，差別在海豚踢與拉手在時間上重不重疊、 誰先誰後，不在於用到哪些關節——三種都要做同一次海豚踢、同一次拉手、 同一次蛙腳。因此本層可以列出關節組成而完全不必裁定哪一種為正， 這與零位姿勢那一筆採用的作法相同（見 cross_ref）。順序與重疊屬時序， action_ids 沒有欄位可表達時間，本筆不寫。
+
+    第二個要點是這個相位的軀幹動作在同一時刻朝兩個相反方向。素材描述 海豚踢前的挺胸時，寫的是腰椎伸展加上胸椎屈曲同時發生。詞彙表對 軀幹伸展的定義是「加深腰椎前凸、同時減少胸椎後凸」，與素材描述的 胸椎方向相反；所以這裡發生的不是一個整段的軀幹伸展，而是兩個節段 朝相反方向。action_ids 因此同時列出 movement.action.trunk.extension 與 movement.action.trunk.flexion：前者指腰椎節段，後者指胸椎節段， 兩者並列不是矛盾，而是詞彙表「不標節段就無法驗證」這條要求在這個 相位實際發生。同一份清單裡的 trunk.flexion 還承載另一個意思—— 下巴貼胸貫穿整個 pullout，那是頸椎節段的維持屈曲。三個意思共用兩個 動作名，讀的時候必須先問是哪一節段。
+
+    第三個要點是拉手。素材寫拉手要像蝶式而不像蛙式划手、高肘、手推到 大腿下方而不是身體兩側。解剖上可記錄的是肱骨相對軀幹往後（肩伸展）、 肘先屈後伸，以及手停在大腿下方時肩帶所處的位置（肩胛前伸）。素材 對這個肩帶位置給的是一個阻力數字，不是關節角度，見 measurement_conditions；本筆不把阻力數字讀成肩胛前伸的幅度。
+
+    pullout 的蛙腳，素材說與游進時「大致相同」。這是動作型態可移轉的 說法，沒有任何一層資料量過兩者的關節角度，因此本筆不重述蛙腳的 關節組成，也不宣稱兩者相同；蛙腳的關節內容在蛙式的收腿、翻腳與 內外划四個相位（見 cross_ref）。同理，收手回身前時素材用的是 「指尖由朝後轉為朝前」「小指朝下」這類手掌朝向的描述，詞彙表明確 指出手掌朝向不能反推是前臂在轉還是肱骨在轉，因此本筆不列任何前臂 或肩軸向旋轉動作。
+
+    推牆下潛角度、滑行深度、四次推進之間的間隔時間、整段 pullout 的 總時長，都是空間量與時間量，不是關節內容，本筆一律不改寫成關節 語言；它們在起跳轉身的技術層。最後那一划與抬頭時機屬出水過渡期， 已有專筆，本筆只作指路。
+
+    '
+  limitation_context: '海豚踢的收腿量、挺胸時的胸腰分配、拉手的肩肘組成與肩帶位置是四個 彼此獨立的成分。池畔看到的「pullout 不順」是這四者加上三個時間 間隔的合成，指不出限制位於哪一個關節。深度、角度、時長與成績都 不在本層，也不得用來反推任何關節角度。
+
+    '
+  safety_note: '做 pullout 時若出現腰部、頸部、肩部或膝部疼痛、麻木、放射症狀、 明顯無力或不穩應停止，不要為了把胸挺高、把手拉得更後面或把踢腿 做得更大而強行加大腰椎伸展或肩伸展範圍。
+
+    '
 - id: movement.demand.udk.breakout.terminal-down-kick-and-first-pull-junction
   claim_status: partially-supported
   action_status: provisional
