@@ -2112,13 +2112,116 @@ demands:
 
     進牆素材的主體是靠計步判斷距離，以及距離不對時補踢腿。計步屬於 神經控制與感知策略，補踢屬於節奏決策，兩者都沒有可命名的關節內容， 屬於感知層與策略層而不屬於動作圖譜層。本筆不為它們指定任何關節動作， 也不把它們改寫成關節語言；計步內容應在感知層查找，並非此處遺漏。
 
-    素材另有翻滾啟動時機的內容，但那指向翻滾相位，不屬本筆。翻滾尚未 進入本層，因為剛體空間重定向在 joint-local 框架下沒有對應動作， 仍待結構決策；本筆不寫翻滾的任何內容。
+    素材另有翻滾啟動時機的內容，但那指向翻滾相位，不屬本筆。翻滾相位 已另立一筆記錄（見 cross_ref），該筆承載的是團身的關節組成，並且 明寫向前滾的那半圈本身不是關節動作；本筆不寫翻滾的任何內容，也不得 由本筆推論翻滾期的任何關節位置。
 
     '
   limitation_context: '本筆只承載頸椎維持不伸展。進牆速度、判距方式、最後一划的完整性與 翻滾啟動時機全部不在本層，也不得由本筆推論其他關節在進牆期處於 中立或任何特定位置。
 
     '
   safety_note: '進牆時若出現頸部疼痛、麻木、上肢放射症狀或明顯不穩應停止，不要為了 保持頭不抬而強行下壓下巴或維持不適姿勢。
+
+    '
+- id: movement.demand.starts-turns.flip.tuck-composition-and-rotation-is-not-a-joint-action
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: synthesis-inference
+  source_ids:
+  - src.neumann-2017
+  - src.pmc5260528
+  stroke: starts-turns
+  phase_model: descriptive
+  phase: flip
+  body_position: prone
+  poolside_direction: 由池畔觀察，泳者在最後一划末端把身體捲起、向前滾約半圈，由俯臥轉為雙腳朝向牆面（教學語稱「翻滾」或「翻身」）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - starts-turns.tech.20
+  - starts-turns.tech.24
+  - starts-turns.tech.38
+  action_ids:
+  - movement.action.trunk.flexion
+  - movement.action.hip.flexion
+  - movement.action.knee.flexion
+  - movement.action.trunk.extension
+  muscle_roles:
+  - muscle_id: movement.muscle.trunk-sagittal-controllers
+    role: '軀幹矢狀面控制肌群的作用線在解剖上可參與軀幹與頸椎屈伸方向的移動 與位置控制；本筆不由翻滾外觀判定實際招募時序、程度或旋轉貢獻。
+
+      '
+  - muscle_id: movement.muscle.hip-flexors
+    role: '髖屈肌群的作用線在解剖上可參與髖屈曲方向的移動與位置控制；本筆 不由團身外觀判定實際招募時序、程度或旋轉貢獻。
+
+      '
+  - muscle_id: movement.muscle.knee-flexors
+    role: '膝屈肌群的作用線在解剖上可參與膝屈曲方向的移動與位置控制；本筆 不由團身外觀判定實際招募時序、程度或旋轉貢獻。
+
+      '
+  name_zh: 翻滾的團身關節組成，以及「翻轉本身不是關節動作」
+  description: '本相位可承載的關節內容是團身，不是翻轉。團身在解剖上由軀幹屈曲、 髖屈曲與膝屈曲共同構成，三者都是近端節段相對的關節動作，可以命名。 action_ids 列出的是這三個。
+
+    向前滾的那半圈不是任何一個關節做出來的。它是整個身體繞空間中一條 橫軸的重定向，在 joint-local 框架下沒有對應動作名，因此刻意不列。 這一點必須寫明，否則讀者會把 movement.action.hip.flexion 讀成 「屈髖等於翻滾」——翻滾時髖確實在屈曲，但那是團身不是翻滾。同理， 團身收得緊不等於翻得快，本筆不對兩者建立任何關係。
+
+    movement.action.trunk.extension 在本筆指頸椎節段，且以否定式列出： 素材指出抬頭看牆會破壞翻滾啟動的旋轉動量，因此本相位記錄的是不做 這個伸展，不是要求產生伸展。進牆相位另有一筆同樣記錄頸椎不伸展 （見 cross_ref），兩筆是同一個否定內容在相鄰兩相位的延續，但各自 獨立，不得互相引用對方的量或推論對方的關節位置。
+
+    素材中的 tuck index 是腳觸牆時臀部距牆的空間距離，不是關節角度。 它可以描述翻滾的空間結果，不能反推團身時髖與膝各屈曲了多少；同一個 tuck index 可以由不同的髖膝組合達成。本筆不寫任何團身角度。
+
+    翻滾啟動太早或太晚所述的後果（觸牆角度偏垂直、推蹬方向偏上、進牆 速度損失）是時序與空間軌跡，不是關節內容，本筆不改寫成關節語言。 仰式轉身素材說翻滾動作與自由式相同，指的是動作型態可移轉，沒有任何 一層資料量過兩式的關節角度，因此本筆不宣稱兩式的團身組成相同。
+
+    '
+  limitation_context: '團身量、頸椎位置與整體旋轉速率是彼此獨立的成分；池畔看到的「翻得 不夠緊」或「翻得慢」是三者加上進牆速度的合成，不能指出限制位於髖、 膝或軀幹的哪一處。tuck index、啟動距離與推蹬方向都不在本層，也不得 用來反推任何關節角度。
+
+    '
+  safety_note: '翻滾時若出現頸部、腰部或膝部疼痛、麻木、明顯無力或不穩應停止， 不要為了把身體團得更緊或翻得更快而強行下壓下巴或加大屈曲。
+
+    '
+- id: movement.demand.starts-turns.wall-rotation.body-orientation-is-not-shoulder-joint-rotation
+  claim_status: partially-supported
+  action_status: provisional
+  evidence_profile: synthesis-inference
+  source_ids:
+  - src.neumann-2017
+  - src.fina-sw64-usas-usms
+  - src.pmc7918682
+  stroke: starts-turns
+  phase_model: descriptive
+  phase: wall-rotation
+  body_position: supine
+  poolside_direction: 由池畔觀察，泳者以仰臥姿觸牆後在牆上快速轉正，離牆時已成俯臥（教學語稱「牆上轉身」，出現在背→蛙的個人混合式轉身）
+  action_reference_frame: joint-local
+  derived_from_ids:
+  - starts-turns.tech.29
+  - starts-turns.tech.30
+  - starts-turns.tech.31
+  - starts-turns.tech.37
+  action_ids:
+  - movement.action.trunk.axial-rotation
+  measurement_conditions:
+  - source_id: src.fina-sw64-usas-usms
+    quantity: 離牆時身體相對水面的方位變化量（規則文字寫作「肩部旋轉」）
+    value: ≥ 90°（合規門檻，非量測所得的關節角）
+    conditions: '競賽規則對背→蛙轉身設定的兩個時間點要求：觸牆時身體仍在仰臥 位置，離牆時身體已轉至俯臥。角度以身體相對水面的朝向認定，由 裁判目視判定，屬池畔固定參考系，不涉及任何關節角度量測。
+
+      '
+    endpoint: rule-compliance
+    extrapolation_boundary: '只支持合規判定。不支持任何關節角度解讀——尤其不得讀成肩關節 旋轉 90°，肱骨相對肩胛的可用旋轉範圍與這個數字沒有關係。不支持 效能主張，不得當作訓練目標值、活動度目標或評估指標；不同轉法 達成這個方位的節段組成不同，本數字對它們一律不作區分。
+
+      '
+  name_zh: 規則裡的「肩部旋轉 ≥90°」是身體方位，不是肩關節動作
+  description: '命名更正，也是本筆存在的主要理由：競賽規則與教材描述背→蛙轉身時 寫的「觸牆時肩部仍在仰式位置」「離牆時肩部已完成 ≥90° 旋轉」， 其中的「肩部」是整個身體方位的代稱，指的是身體相對池壁與水面的 朝向，屬池畔固定參考系。它不是肱骨相對肩胛的關節角，也不是任何 肩關節動作的幅度。同一段規則文字裡的「提前過垂直面」犯規描述也是 身體方位，不是肩關節。
+
+    因此本筆的 action_ids 不列任何 shoulder-complex 動作。詞彙表裡肩的 內旋與外旋都有登錄，能列而刻意不列——記錄的是「這個方向在此不由 肩關節產生」。把身體重定向寫成肩關節旋轉，會讓讀者以為練肩關節 活動度可以改善轉身，那是規則措辭直接誘發的範疇錯誤。
+
+    90° 的身體重定向本身同樣不是關節動作，理由與翻滾相位相同（見 cross_ref）：它是整個身體繞空間中一條縱軸的重定向，joint-local 框架下沒有對應動作名。
+
+    本相位在本層唯一可承載的 joint-local 內容是軀幹軸向旋轉，即胸腰 節段之間的相對旋轉。它在解剖上存在，但三種轉法（Open、Bucket、 Crossover）達成 90° 重定向的作法不同，而素材比較的是推出速度與 7.5 公尺成績，沒有任何一層資料量過任一轉法的節段間旋轉。因此 action_ids 列出 movement.action.trunk.axial-rotation，但不指定幅度、 時序，也不指定它在哪一種轉法出現、出現多少。本筆不設 muscle_roles： 現行肌群層沒有登錄軀幹軸向旋轉肌群，而把軀幹矢狀面控制肌群借來 掛在軸向旋轉上會是錯的歸屬。
+
+    規則的兩個時間點要求、三種轉法的推出速度比較與犯規時序都不是關節 內容，本筆不改寫成關節語言；那些應在起跳轉身的技術層查找。
+
+    '
+  limitation_context: '身體方位、軀幹節段間旋轉與轉法選擇是彼此獨立的成分。池畔看到的 「有沒有轉過去」是身體方位，指不出限制位於哪一個關節，也不能用來 判斷軀幹或肩的活動度。推出速度與 7.5 公尺成績都不在本層，也不得 用來反推任何關節角度。
+
+    '
+  safety_note: '牆上轉身時若出現頸部、腰部或肩部疼痛、卡住、麻木或明顯不穩應停止， 不要為了在觸牆後趕快轉正而強行扭轉軀幹或用手撐牆代償。
 
     '
 - id: movement.demand.starts-turns.wall-contact.knee-flexion-position-and-depth-is-not-a-joint-action
