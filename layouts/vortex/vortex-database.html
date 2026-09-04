@@ -219,14 +219,18 @@
     </details>
     {{ end }}
 
-    {{/* ── 水感框架（technica 散文，摘要 + 連到原頁） ── */}}
+    {{/* ── 水感框架（technica 散文，摘要 + 連到原頁） ──
+         摘要要先 plainify 再判空，不能 `with .Summary`：內容寫死在 layout 的頁面
+         （`water-sense-guide.md` 只有 front matter 加一段 HTML 註解）`.Summary` 非空、
+         plainify 後卻是空字串，卡片就印一個空的 <p>。以下四組卡片同一寫法。 */}}
     {{ range $framePages }}
     {{ $bn := .File.BaseFileName }}{{ $st := "common" }}
     {{ range $strokePrefixes }}{{ if hasPrefix $bn (index . 0) }}{{ $st = index . 1 }}{{ end }}{{ end }}
     <details class="vx-card vx-tech vx-find-card" data-type="frame" data-s="{{ $st }}" data-cat="frame" data-catlabel="水感框架" data-text="{{ lower (printf "%s %s %s" .Title .Description (.Plain | truncate 1500 "")) }}">
       <summary><span class="vx-cardcat">水感框架{{ if ne $st "common" }} · {{ index $strokeZh $st }}{{ end }}</span><span class="vx-cardtitle">{{ .Title }}</span></summary>
       <div class="vx-card-body">
-        {{ with .Summary }}<p>{{ . | plainify }}</p>{{ end }}
+        {{ $sum := .Summary | plainify | strings.TrimSpace }}{{ if not $sum }}{{ $sum = .Description }}{{ end }}
+        {{ with $sum }}<p>{{ . }}</p>{{ end }}
         <a class="vx-find-go" href="{{ .RelPermalink }}">看完整 →</a>
       </div>
     </details>
@@ -239,7 +243,8 @@
     <details class="vx-card vx-tech vx-find-card" data-type="bridge" data-s="{{ $st }}" data-cat="bridge" data-catlabel="感知銜接" data-text="{{ lower (printf "%s %s %s" .Title .Description (.Plain | truncate 1500 "")) }}">
       <summary><span class="vx-cardcat">感知銜接{{ if ne $st "common" }} · {{ index $strokeZh $st }}{{ end }}</span><span class="vx-cardtitle">{{ .Title }}</span></summary>
       <div class="vx-card-body">
-        {{ with .Summary }}<p>{{ . | plainify }}</p>{{ end }}
+        {{ $sum := .Summary | plainify | strings.TrimSpace }}{{ if not $sum }}{{ $sum = .Description }}{{ end }}
+        {{ with $sum }}<p>{{ . }}</p>{{ end }}
         <a class="vx-find-go" href="{{ .RelPermalink }}">看完整 →</a>
       </div>
     </details>
@@ -250,7 +255,8 @@
     <details class="vx-card vx-tech vx-find-card" data-type="period" data-s="common" data-cat="period" data-catlabel="訓練週期" data-text="{{ lower (printf "%s 訓練週期化 %s %s" .Title .Description (.Plain | truncate 1500 "")) }}">
       <summary><span class="vx-cardcat">訓練週期</span><span class="vx-cardtitle">{{ .Title }}</span></summary>
       <div class="vx-card-body">
-        {{ with .Summary }}<p>{{ . | plainify }}</p>{{ end }}
+        {{ $sum := .Summary | plainify | strings.TrimSpace }}{{ if not $sum }}{{ $sum = .Description }}{{ end }}
+        {{ with $sum }}<p>{{ . }}</p>{{ end }}
         <a class="vx-find-go" href="{{ .RelPermalink }}">看完整 →</a>
       </div>
     </details>
@@ -263,7 +269,8 @@
     <details class="vx-card vx-tech vx-find-card" data-type="source" data-s="{{ $st }}" data-cat="source" data-catlabel="教學原文" data-text="{{ lower (printf "%s %s %s" .Title .Description (.Plain | truncate 1500 "")) }}">
       <summary><span class="vx-cardcat">教學原文 · 供查證{{ if ne $st "common" }} · {{ index $strokeZh $st }}{{ end }}</span><span class="vx-cardtitle">{{ .Title }}</span></summary>
       <div class="vx-card-body">
-        {{ with .Summary }}<p>{{ . | plainify }}</p>{{ end }}
+        {{ $sum := .Summary | plainify | strings.TrimSpace }}{{ if not $sum }}{{ $sum = .Description }}{{ end }}
+        {{ with $sum }}<p>{{ . }}</p>{{ end }}
         <a class="vx-find-go" href="{{ .RelPermalink }}">看完整原文 →</a>
       </div>
     </details>

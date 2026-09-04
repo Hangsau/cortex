@@ -214,7 +214,9 @@
         {{ $hasAge := and $age (or $age.youth (or $age.adult_beginner $age.masters)) }}
         {{ $hasSex := and $sex (or $sex.male $sex.female) }}
         {{ $hasAbility := and $ability $ability.para }}
-        {{ if or $hasAge (or $hasSex (or $hasAbility .lifecycle)) }}
+        {{ $life := .lifecycle }}
+        {{ $hasLife := and $life (or $life.open_water $life.freediving) }}
+        {{ if or $hasAge (or $hasSex (or $hasAbility $hasLife)) }}
         <span class="vx-block-label">各族群差異 <span class="vx-fullspectrum">全光譜並列</span></span>
         <div class="vx-pop-grid">
           {{ with $age }}
@@ -227,7 +229,13 @@
           {{ with .female }}<div class="vx-pop-item"><span class="vx-pop-tag">女性</span>{{ . }}</div>{{ end }}
           {{ end }}
           {{ with $ability }}{{ with .para }}<div class="vx-pop-item"><span class="vx-pop-tag">帕拉游泳</span>{{ . }}</div>{{ end }}{{ end }}
-          {{ with .lifecycle }}<div class="vx-pop-item"><span class="vx-pop-tag">生命週期</span>{{ . }}</div>{{ end }}
+          {{/* lifecycle 跟 age／sex／ability 一樣是子鍵 map，不是字串——直接 {{ . }} 會把
+               Go 的 map 表示法原樣印給讀者（`map[open_water:…]`，線上實測 12 筆）。
+               標籤取子鍵的意思，不取分組名，跟上面 `ability.para → 帕拉游泳` 同一套。 */}}
+          {{ with .lifecycle }}
+          {{ with .open_water }}<div class="vx-pop-item"><span class="vx-pop-tag">開放水域</span>{{ . }}</div>{{ end }}
+          {{ with .freediving }}<div class="vx-pop-item"><span class="vx-pop-tag">自由潛水</span>{{ . }}</div>{{ end }}
+          {{ end }}
         </div>
         {{ end }}
         {{ end }}

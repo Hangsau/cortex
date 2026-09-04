@@ -245,7 +245,7 @@
                 {{ range $st.annual_plan_types }}
                   <tr>
                     <td><strong>{{ .name_zh }}</strong><br><span class="vx-pz-en">{{ .name_en }}</span> <span class="vx-cert">{{ .cert }}</span></td>
-                    <td class="vx-pz-num">{{ .peaks }}</td>
+                    <td class="vx-pz-num">{{ if .peaks }}{{ .peaks }}{{ else }}{{ .peaks_note_zh }}{{ end }}</td>
                     <td>
                       {{ with .total_weeks }}全長 {{ . }} 週。{{ end }}
                       {{ with .weeks }}{{ with .preparatory }}準備 {{ .min }}{{ with .max }}–{{ . }}{{ end }} 週 / {{ end }}{{ with .competitive }}競賽 {{ .min }}–{{ .max }} 週 / {{ end }}{{ with .transition }}過渡 {{ .min }}{{ if ne .min .max }}–{{ .max }}{{ end }} 週{{ end }}{{ end }}

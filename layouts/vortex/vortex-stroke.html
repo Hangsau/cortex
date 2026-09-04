@@ -126,12 +126,17 @@
         <p class="vx-panel-lead">{{ $m.one }}</p>
         {{ with $m.l }}<span class="vx-move-meta">水感層級 {{ . }}</span>{{ end }}
 
+        {{/* 標題綁在三個 cue 上，不綁在區塊存在上：有 12 個動作三個 cue 全空（仰漂那兩節
+             講的是安全感不是口令錯誤），那時印出「口訣校正」加一個空容器，讀者會以為漏掉。
+             同 physical_reason 的處理。 */}}
+        {{ if or $m.cue_bad (or $m.cue_why $m.cue_good) }}
         <span class="vx-block-label">口訣校正</span>
         <div class="vx-cues">
           {{ with $m.cue_bad }}<div class="vx-cue vx-cue--bad"><div class="vx-cue-tag">別這樣</div><div class="vx-cue-txt">{{ . }}</div></div>{{ end }}
           {{ with $m.cue_why }}<div class="vx-cue vx-cue--why"><div class="vx-cue-tag">為什麼</div><div class="vx-cue-txt">{{ . }}</div></div>{{ end }}
           {{ with $m.cue_good }}<div class="vx-cue vx-cue--good"><div class="vx-cue-tag">這樣做</div><div class="vx-cue-txt">{{ . }}</div></div>{{ end }}
         </div>
+        {{ end }}
 
         {{ with $m.physical }}
         <span class="vx-block-label">物理原理</span>
