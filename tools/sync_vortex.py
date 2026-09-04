@@ -169,6 +169,54 @@ TITLE_OVERRIDE = {
 }
 
 # ── Stroke 偵測（從檔名關鍵字推斷） ──
+# ── CJK 折行空白 ──────────────────────────────
+# canonical 的散文用摺疊純量（`>-`）在檔案裡折行以便閱讀，YAML 規範把折點接成
+# 一個空白——那條規則是為空白分詞的語言訂的。中文沒有詞間空白，於是每個折點在
+# 網站上都成為句子中間一個看得見的空格（2026-09-05 實測：單一 psychology-read
+# 頁 848 處，全部 vortex 資料 1995 處）。這不是內容，是序列化的副產物。
+#
+# 只在「空白兩側都是漢字、假名或中文標點」時接掉。全形符號兩側的空白（例如
+# `可見方向 ＋ 解剖動作`）是作者有意的排版，所以 ＋＝＜＞ 這類不列入下面的字元集。
+_CJK = (
+    "㐀-䶿一-鿿"                            # 漢字
+    "぀-ヿ"                                          # 假名
+    "、-〃〈-】〔-〟"               # 、。〈〉《》「」『』【】〔〕
+    "！（），．：；？"        # ！（），．：；？
+)
+_CJK_FOLD_SPACE = re.compile("(?<=[" + _CJK + "]) (?=[" + _CJK + "])")
+
+# 破折號與刪節號要單獨處理：中文的 `——`／`…` 一律成對且兩側不留空白，所以緊鄰
+# 它們的空白必定是折點。**只認成對的 `——`**——單一 `—` 在本庫是有意的分隔符
+# （`頭帶平衡 — 面朝下`），把它兩側的空白接掉會改掉作者的排版。
+_CJK_FOLD_DASH = re.compile(
+    "(?<=——) (?=[" + _CJK + "])|(?<=[" + _CJK + "]) (?=——)"
+    "|(?<=…) (?=[" + _CJK + "])|(?<=[" + _CJK + "]) (?=…)"
+)
+
+
+def unfold_cjk(value):
+    """遞迴移除 CJK 折行空白；非字串原樣回傳。"""
+    if isinstance(value, str):
+        return _CJK_FOLD_DASH.sub("", _CJK_FOLD_SPACE.sub("", value))
+    if isinstance(value, dict):
+        return {k: unfold_cjk(v) for k, v in value.items()}
+    if isinstance(value, list):
+        return [unfold_cjk(v) for v in value]
+    return value
+
+
+def dump_yaml(data) -> str:
+    """全檔唯一的 YAML 輸出口：先接掉 CJK 折行空白再 dump。
+    新增 sync_* 函式走這裡，不要直接呼叫 yaml.safe_dump。"""
+    return yaml.safe_dump(
+        unfold_cjk(data),
+        allow_unicode=True,
+        default_flow_style=False,
+        sort_keys=False,
+        width=4096,
+    )
+
+
 def detect_strokes(stem: str) -> list:
     strokes = []
     if "自由式" in stem:
@@ -329,12 +377,8 @@ def sync_drills(dry_run: bool):
         print("  [dry-run，未寫入 drills.yaml]")
         return
 
-    out = yaml.safe_dump(
+    out = dump_yaml(
         {"categories": cat_data.get("categories", []) or [], "drills": all_drills},
-        allow_unicode=True,
-        default_flow_style=False,
-        sort_keys=False,
-        width=4096,
     )
     DRILL_DST.write_text(out, encoding="utf-8")
     print(f"  寫入 {DRILL_DST.relative_to(HUGO_ROOT)}")
@@ -388,12 +432,8 @@ def sync_teaching_errors(dry_run: bool):
         print("  [dry-run，未寫入 teaching-errors.yaml]")
         return
 
-    out = yaml.safe_dump(
+    out = dump_yaml(
         out_data,
-        allow_unicode=True,
-        default_flow_style=False,
-        sort_keys=False,
-        width=4096,
     )
     TEACHING_ERRORS_DST.write_text(out, encoding="utf-8")
     print(f"  寫入 {TEACHING_ERRORS_DST.relative_to(HUGO_ROOT)}")
@@ -453,12 +493,8 @@ def sync_technical_analysis(dry_run: bool):
         print("  [dry-run，未寫入 technical-analysis.yaml]")
         return
 
-    out = yaml.safe_dump(
+    out = dump_yaml(
         out_data,
-        allow_unicode=True,
-        default_flow_style=False,
-        sort_keys=False,
-        width=4096,
     )
     TECH_ANALYSIS_DST.write_text(out, encoding="utf-8")
     print(f"  寫入 {TECH_ANALYSIS_DST.relative_to(HUGO_ROOT)}")
@@ -555,12 +591,8 @@ def sync_source_registry(dry_run: bool):
         print("  [dry-run，未寫入 data/vortex/source-registry.yaml]")
         return
 
-    out = yaml.safe_dump(
+    out = dump_yaml(
         out_data,
-        allow_unicode=True,
-        default_flow_style=False,
-        sort_keys=False,
-        width=4096,
     )
     SOURCES_DST.write_text(out, encoding="utf-8")
     print(f"  寫入 {SOURCES_DST.relative_to(HUGO_ROOT)}")
@@ -616,12 +648,8 @@ def sync_l_indicators(dry_run: bool):
         print("  [dry-run，未寫入 l-indicators.yaml]")
         return
 
-    out = yaml.safe_dump(
+    out = dump_yaml(
         out_data,
-        allow_unicode=True,
-        default_flow_style=False,
-        sort_keys=False,
-        width=4096,
     )
     L_INDICATORS_DST.write_text(out, encoding="utf-8")
     print(f"  寫入 {L_INDICATORS_DST.relative_to(HUGO_ROOT)}")
@@ -677,12 +705,8 @@ def sync_water_sense_levels(dry_run: bool):
         print("  [dry-run，未寫入 water-sense-levels.yaml]")
         return
 
-    out = yaml.safe_dump(
+    out = dump_yaml(
         out_data,
-        allow_unicode=True,
-        default_flow_style=False,
-        sort_keys=False,
-        width=4096,
     )
     WATER_SENSE_LEVELS_DST.write_text(out, encoding="utf-8")
     print(f"  寫入 {WATER_SENSE_LEVELS_DST.relative_to(HUGO_ROOT)}")
@@ -747,12 +771,8 @@ def sync_adm_matrix(dry_run: bool):
         print("  [dry-run，未寫入 data/adm/matrix.yaml]")
         return
 
-    out = yaml.safe_dump(
+    out = dump_yaml(
         {"pillars": pillars_out},
-        allow_unicode=True,
-        default_flow_style=False,
-        sort_keys=False,
-        width=4096,
     )
     ADM_MATRIX_DST.write_text(out, encoding="utf-8")
     print(f"  寫入 {ADM_MATRIX_DST.relative_to(HUGO_ROOT)}")
@@ -799,12 +819,8 @@ def sync_adm_standards(dry_run: bool):
         print("  [dry-run，未寫入 data/adm/standards.yaml]")
         return
 
-    out = yaml.safe_dump(
+    out = dump_yaml(
         out_data,
-        allow_unicode=True,
-        default_flow_style=False,
-        sort_keys=False,
-        width=4096,
     )
     ADM_STANDARDS_DST.write_text(out, encoding="utf-8")
     print(f"  寫入 {ADM_STANDARDS_DST.relative_to(HUGO_ROOT)}")
@@ -840,12 +856,8 @@ def sync_periodization(dry_run: bool):
             continue
 
         dst = PERIODIZATION_DST_DIR / f"{name}.yaml"
-        out = yaml.safe_dump(
+        out = dump_yaml(
             data,
-            allow_unicode=True,
-            default_flow_style=False,
-            sort_keys=False,
-            width=4096,
         )
         dst.write_text(out, encoding="utf-8")
         print(f"             寫入 {dst.relative_to(HUGO_ROOT)}")
@@ -923,12 +935,8 @@ def sync_psychology(dry_run: bool):
         print("  [dry-run，未寫入 data/vortex/psychology.yaml]")
         return
 
-    out = yaml.safe_dump(
+    out = dump_yaml(
         out_data,
-        allow_unicode=True,
-        default_flow_style=False,
-        sort_keys=False,
-        width=4096,
     )
     PSYCHOLOGY_DST.write_text(out, encoding="utf-8")
     print(f"  寫入 {PSYCHOLOGY_DST.relative_to(HUGO_ROOT)}")
@@ -985,12 +993,8 @@ def sync_injuries(dry_run: bool):
         print("  [dry-run，未寫入 data/vortex/injuries.yaml]")
         return
 
-    out = yaml.safe_dump(
+    out = dump_yaml(
         out_data,
-        allow_unicode=True,
-        default_flow_style=False,
-        sort_keys=False,
-        width=4096,
     )
     INJURIES_DST.write_text(out, encoding="utf-8")
     print(f"  寫入 {INJURIES_DST.relative_to(HUGO_ROOT)}")
@@ -1024,12 +1028,8 @@ def sync_breathing(dry_run: bool):
             continue
 
         dst = BREATHING_DST_DIR / f"{name}.yaml"
-        out = yaml.safe_dump(
+        out = dump_yaml(
             data,
-            allow_unicode=True,
-            default_flow_style=False,
-            sort_keys=False,
-            width=4096,
         )
         dst.write_text(out, encoding="utf-8")
         print(f"  寫入 {dst.relative_to(HUGO_ROOT)}")
@@ -1037,12 +1037,8 @@ def sync_breathing(dry_run: bool):
 
 def _atomic_write_yaml(dst: Path, data) -> None:
     """先寫同目錄暫存檔再 os.replace，避免中途失敗留下半寫的 yaml 被 Hugo 讀到。"""
-    out = yaml.safe_dump(
+    out = dump_yaml(
         data,
-        allow_unicode=True,
-        default_flow_style=False,
-        sort_keys=False,
-        width=4096,
     )
     tmp = dst.with_suffix(dst.suffix + ".tmp")
     try:
