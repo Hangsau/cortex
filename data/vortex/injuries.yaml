@@ -216,12 +216,16 @@ injuries:
     verified: true
     source_ids:
     - src.pmc11297363-b
-  - citation: Youth swimmer shoulder prevalence, PMC6961642
+  - citation: 'Feijen S, Tate A, Kuppens K, Claes A, Struyf F. (2020). Swim-Training Volume and Shoulder Pain Across the Life Span of the Competitive Swimmer: A Systematic Review. J Athl Train 55(1):32-41. PMID 31935141 / PMC6961642（2026-09-04 更正：跨生涯期訓練量綜述，不是青少年盛行率研究）'
     certainty: 🟢
     verified: true
-  - citation: Shoulder strengthening programme protective effect, PMC11899141
+    source_ids:
+    - src.feijen-2020
+  - citation: 'Tavares N, Vilas-Boas JP, Castro MA. (2025). Effect of Preventive Exercise Programs for Swimmer''s Shoulder Injury on Rotator Cuff Torque and Balance in Competitive Swimmers: A Randomized Controlled Trial. Healthcare (Basel) 13(5):538. PMID 40077099 / PMC11899141（2026-09-04 更正：終點是力矩與平衡，不是傷害發生率，不得寫成已證實的保護效果）'
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.tavares-2025
   flags:
     contested:
     - claim: 腱病 vs 夾擠(impingement)命名
@@ -317,14 +321,18 @@ injuries:
   - citation: Multidirectional instability of the shoulder, StatPearls NBK557726
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.multidirectional-instability-of-the-shoulder
   - citation: Bishop ME, Ode GE, Hurwit DJ, et al. (2022). Multidirectional instability of the shoulder（敘事型回顧，女性運動員視角，無統合統計）. Ann Joint 7:10. PMID 38529164, doi:10.21037/aoj-20-33
     certainty: 🟢
     verified: true
     source_ids:
     - src.mdi-management-review-annals-of-joint
-  - citation: Arthroscopic vs open MDI repair outcomes, PMC5611704
+  - citation: 'Ruiz Ibán MA, Díaz Heredia J, García Navlet M, Serrano F, Santos Oliete M. (2017). Multidirectional Shoulder Instability: Treatment. Open Orthop J 11:812-825. PMID 28979595 / PMC5611704（2026-09-04 更正：治療綜述，不是關節鏡對開放手術的療效比較研究）'
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.ruiz-iban-2017
   flags:
     contested:
     - claim: 先天 vs 後天鬆弛比例
@@ -425,9 +433,11 @@ injuries:
     verified: true
     source_ids:
     - src.pmc4528289
-  - citation: NATA position on overhead athlete shoulder, PMC5894372
+  - citation: 'Michener LA, Abrams JS, Bliven KCH, et al. (2018). National Athletic Trainers'' Association Position Statement: Evaluation, Management, and Outcomes of and Return-to-Play Criteria for Overhead Athletes With Superior Labral Anterior-Posterior Injuries. J Athl Train 53(3):209-229. PMID 29624450 / PMC5894372'
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.michener-2018
   flags:
     contested:
     - claim: 保守 vs 手術
@@ -1899,7 +1909,7 @@ injuries:
   prevention:
   - text: 訓練前含氟漱口水(臨床共識，無游泳者 RCT)
     grade: Expert
-  - text: 緊貼式防護牙托(內面塗氟/CPP-ACP)
+  - text: 緊貼式防護牙托——保護來自牙托本身；內面塗氟/CPP-ACP 在唯一的離體實驗中各組間無顯著差異，不得當成額外效益宣稱(2026-09-04 更正)
     grade: B
   - text: 游泳後等 30 分待再礦化後再刷牙
     grade: Expert
@@ -1948,9 +1958,11 @@ injuries:
     verified: true
     source_ids:
     - src.pmc10713671
-  - citation: Mouthguard fluoride/CPP-ACP in vitro protection, PMC11425598
+  - citation: Kitsahawong K, Pitiphat W, Thongpaiboon P, Thongpaiboon S, Saengsuwannarot S. (2024). Evaluating the protective effects of mouthguards with neutralizing agents against chlorinated water-induced enamel erosion. Front Oral Health 5:1469228. PMID 39328893 / PMC11425598（2026-09-04 更正：離體實驗，保護來自牙托本身；含氟與 CPP-ACP 各牙托組之間無顯著差異）
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.kitsahawong-2024
   flags:
     contested:
     - claim: pH 中性池水是否仍腐蝕
@@ -2381,9 +2393,11 @@ injuries:
     verified: true
     source_ids:
     - src.pmc5800136
-  - citation: Ultraviolet Light and Skin Cancer in Athletes, PMC3445124
+  - citation: Harrison SC, Bergfeld WF. (2009). Ultraviolet light and skin cancer in athletes. Sports Health 1(4):335-40. PMID 23015891 / PMC3445124
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.harrison-2009
   flags:
     contested:
     - claim: 水面反射『增加劑量』對皮膚癌/翼狀胬肉的獨立貢獻
@@ -2490,6 +2504,8 @@ injuries:
   - citation: 'Habituation of the cold shock response: systematic review and meta-analysis, 2024, PubMed 38211547'
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.barwood-2024
   - citation: Lundström et al., face immersion/body submersion ice-cold water adolescents, Physiol Rep 2025, PMC12234767
     certainty: 🟢
     verified: true
@@ -2609,9 +2625,11 @@ injuries:
     verified: true
     source_ids:
     - src.pmc12847173
-  - citation: Rehydration during Endurance Exercise (IMMDA drink-to-thirst), PMC8001428
+  - citation: 'Armstrong LE. (2021). Rehydration during Endurance Exercise: Challenges, Research, Options, Methods. Nutrients 13(3):887. PMID 33803421 / PMC8001428（drink-to-thirst 是本文討論的內容，不是標題）'
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.armstrong-2021
   flags:
     contested:
     - claim: 補水策略
@@ -2856,9 +2874,11 @@ injuries:
     verified: true
     source_ids:
     - src.pmc10356869
-  - citation: Meta-analysis on ECG Screening for SCD in Young Athletes, PMC10478328
+  - citation: Goff NK, Hutchinson A, Koek W, Kamat D. (2023). Meta-analysis on the Effectiveness of ECG Screening for Conditions Related to Sudden Cardiac Death in Young Athletes. Clin Pediatr (Phila) 62(10):1158-1168. PMID 36797841 / PMC10478328
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.goff-2023
   - citation: Corrado D, Basso C, Pavei A, Michieli P, Schiavon M, Thiene G (2006). Trends in sudden cardiovascular death in young competitive athletes after implementation of a preparticipation screening program. JAMA 296(13):1593-601. PMID 17018804（義大利 Veneto 單區、全體競技運動員、非游泳專項）
     certainty: 🟢
     verified: true
@@ -3389,9 +3409,11 @@ injuries:
   - citation: Female athlete triad prevalence in swimmers, JWSM systematic review
     certainty: 🟢
     verified: true
-  - citation: De Souza et al, Misunderstanding the female athlete triad, PMID 25037200
+  - citation: 'De Souza MJ, Williams NI, Nattiv A, et al. (2014). Misunderstanding the female athlete triad: refuting the IOC consensus statement on Relative Energy Deficiency in Sport (RED-S). Br J Sports Med 48(20):1461-5. PMID 25037200（立場論戰文，非原始研究；作者共 34 人）'
     certainty: 🟡
-    verified: false
+    verified: true
+    source_ids:
+    - src.de-souza-2014
   flags:
     contested:
     - claim: 三聯症 vs RED-S 框架
@@ -3937,9 +3959,11 @@ injuries:
     - starts-turns.tech.13
     perception_link: null
   references:
-  - citation: Prevention of spinal cord injuries in swimming pools, PubMed 9267915
+  - citation: DeVivo MJ, Sekar P. (1997). Prevention of spinal cord injuries that occur in swimming pools. Spinal Cord 35(8):509-15. PMID 9267915
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.devivo-1997
   - citation: Cervical spine injuries 34 patients, PMC2899837
     certainty: 🟢
     verified: true
@@ -3950,9 +3974,11 @@ injuries:
     verified: true
     source_ids:
     - src.pmc8192199
-  - citation: Spinal Cord Injury With Tetraplegia, SAGE 2021, PubMed 32909818
+  - citation: 'Ull C, et al. (2021). Spinal Cord Injury With Tetraplegia in Young Persons After Diving Into Shallow Water: What Has Changed in the Past 10 to 15 Years? Global Spine J 11(8):1238-1247. PMID 32909818（2026-09-04 更正：SAGE 是出版商，期刊為 Global Spine J）'
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.ull-2021
   - citation: World Aquatics 1.35m diving depth rule(STA technical notice 2023)
     certainty: 🟢
     verified: true
@@ -4419,9 +4445,11 @@ injuries:
     verified: true
     source_ids:
     - src.pmc10372189
-  - citation: Epidemiology NCAA Swimming and Diving, PubMed 34280272
+  - citation: 'Boltz AJ, Robison HJ, Morris SN, D''Alonzo BA, Collins CL, Chandran A. (2021). Epidemiology of Injuries in National Collegiate Athletic Association Men''s Swimming and Diving: 2014-2015 Through 2018-2019. J Athl Train 56(7):719-726. PMID 34280272（2026-09-04 更正：只涵蓋男子項目，族群邊界不得擴及女子）'
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.boltz-2021
   - citation: Helmich I, et al. (2024). Neurobehavioural consequences of repetitive head impacts in Para swimming（n=1 個案報告，肢體缺損組）. J Sci Med Sport 27(1):16-19. PMID 37923648
     certainty: 🟡
     verified: true
@@ -4515,6 +4543,8 @@ injuries:
   - citation: Osgood-Schlatter disease, StatPearls NBK441995
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.osgood-schlatter-disease-statpearls-nbk44199
   - citation: OSD incidence in general practice, PMC8869186
     certainty: 🟢
     verified: true
@@ -4610,6 +4640,8 @@ injuries:
   - citation: Salter-Harris fractures, StatPearls NBK430688
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.salter-harris-fractures-statpearls-nbk430688
   flags:
     contested:
     - claim: SH V 型診斷率 / 是否常規 MRI
@@ -4697,6 +4729,8 @@ injuries:
   - citation: Scheuermann disease, StatPearls NBK499966
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.scheuermann-disease-statpearls-nbk499966
   flags:
     contested:
     - claim: 游泳(尤蝶式)與 Scheuermann 因果關係
@@ -4789,6 +4823,8 @@ injuries:
   - citation: Sever's disease, StatPearls NBK441928
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.sever-s-disease-calcaneal-apophysitis-statpe
   - citation: Calcaneal apophysitis in youth football, PMC8827183
     certainty: 🟢
     verified: true
