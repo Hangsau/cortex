@@ -12,7 +12,7 @@
 {{ $errCatName := dict }}{{ range (index hugo.Data "vortex" "teaching-errors").categories }}{{ $errCatName = merge $errCatName (dict .key .name_zh) }}{{ end }}
 {{ $techCatName := dict }}{{ range (index hugo.Data "vortex" "technical-analysis").categories }}{{ $techCatName = merge $techCatName (dict .key .name_zh) }}{{ end }}
 {{ $strokeSlug := dict "free" "freestyle" "back" "backstroke" "breast" "breaststroke" "fly" "butterfly" "udk" "underwater-dolphin-kick" "starts-turns" "starts-turns" }}
-{{ $injCatName := dict }}{{ range (index hugo.Data "vortex" "injuries").categories }}{{ $injCatName = merge $injCatName (dict .id .zh) }}{{ end }}
+{{ $injCatName := dict }}{{ range (index hugo.Data "vortex" "injuries").categories }}{{ $injCatName = merge $injCatName (dict .key .name_zh) }}{{ end }}
 
 {{ $errs := (index hugo.Data "vortex" "teaching-errors").errors }}
 {{ $techs := (index hugo.Data "vortex" "technical-analysis").points }}

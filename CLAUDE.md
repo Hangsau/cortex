@@ -126,7 +126,9 @@ tools/
 {{ $catName := dict }}{{ range (index hugo.Data "vortex" "drills").categories }}{{ $catName = merge $catName (dict .key .name_zh) }}{{ end }}
 ```
 
-（`injuries.yaml` 的欄位名是 `.id` / `.zh`，其餘是 `.key` / `.name_zh`。）
+（五份 `categories` 詞彙表的欄位名一律 `.key` / `.name_zh`。`injuries.yaml` 原本是 `.id` / `.zh`，
+2026-09-04 已對齊——`id` 會讓 canonical 端的 `iter_entries` 把 7 個篩選分類當成知識條目，
+永久掛在 W003 孤兒清單上。）
 
 **為什麼是鐵則**：Hugo 的 `{{ index $dict .key }}` 查不到 key 會回**空字串且不報錯**。硬編一份副本，canonical 一加新分類，頁面標籤就無聲消失——2026-07-26 一次抓到兩起（starts-turns 頁 9 張 drill 卡標籤全空、傷害資料庫三個標籤文字漂移）。canonical 側有 E009 擋「條目用了沒宣告的 category」，但擋不住 layout 自己抄一份。
 

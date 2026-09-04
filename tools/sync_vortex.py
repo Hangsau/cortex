@@ -978,7 +978,7 @@ def sync_injuries(dry_run: bool):
     print()
     print("=== 運動傷害（public 層）===")
     for c in (data.get("categories") or []):
-        print(f"  {c['id']:32s} {by_cat.get(c['id'], 0)}")
+        print(f"  {c['key']:32s} {by_cat.get(c['key'], 0)}")
     print(f"  TOTAL injuries {len(injuries_out)}")
 
     if dry_run:

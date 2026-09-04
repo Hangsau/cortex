@@ -1,18 +1,18 @@
 categories:
-- id: A-shoulder-upper
-  zh: 肩部與上肢
-- id: B-lower-spine-strokespecific
-  zh: 腰椎與泳式特異
-- id: C-nonMSK-medical
-  zh: 非肌骨醫療
-- id: D-systemic-acute
-  zh: 全身急性
-- id: D-endocrine
-  zh: 內分泌與骨骼
-- id: E-acute-trauma
-  zh: 急性外傷
-- id: F-pediatric-growth
-  zh: 兒童生長
+- key: A-shoulder-upper
+  name_zh: 肩部與上肢
+- key: B-lower-spine-strokespecific
+  name_zh: 腰椎與泳式特異
+- key: C-nonMSK-medical
+  name_zh: 非肌骨醫療
+- key: D-systemic-acute
+  name_zh: 全身急性
+- key: D-endocrine
+  name_zh: 內分泌與骨骼
+- key: E-acute-trauma
+  name_zh: 急性外傷
+- key: F-pediatric-growth
+  name_zh: 兒童生長
 certainty_legend: 🔵推導 🟢近期文獻 🟡舊文獻 🟠教練觀測 🔴待查
 evidence_grade_legend: A=RCT/SR B=cohort C=case-series Expert=共識（與 certainty 點獨立）
 injuries:
@@ -96,9 +96,13 @@ injuries:
       para: Para 數據缺失(DATA GAP)
     lifecycle: null
   links:
-    mechanism_link: null
+    mechanism_link: LHB 是在棘上肌功能下降後才代償超載——旋轉肌袖腱病常是本症的上游，風險因子亦列「棘上肌腱病共存」
+    mechanism_link_ids:
+    - rotator-cuff-tendinopathy
     technical_link: null
+    technical_link_ids: []
     perception_link: null
+    perception_link_ids: []
   references:
   - citation: Shoulder pathology in masters swimmers, PMC7824457
     certainty: 🟢
@@ -529,9 +533,15 @@ injuries:
       para: 特定數據缺失(DATA GAP)
     lifecycle: null
   links:
-    mechanism_link: null
-    technical_link: null
+    mechanism_link: 手部麻木需先排除胸廓出口症候群（紅旗鑑別診斷，非共同機轉）
+    mechanism_link_ids:
+    - thoracic-outlet-syndrome
+    technical_link: fly.tech.34 EVF 四式共通概念（蝶/蛙「高肘划水」為誘發相）、free.tech.21 肘部下沉——對應風險因子「手肘下垂、過中線」
+    technical_link_ids:
+    - fly.tech.34
+    - free.tech.21
     perception_link: null
+    perception_link_ids: []
   references:
   - citation: Belilos E, Jow S, Maxwell M (2023). Descriptive Epidemiology of High School Swimming and Diving Injuries. Clin J Sport Med 33(4):428-434. PMID 36715985
     certainty: 🟢
@@ -1085,8 +1095,13 @@ injuries:
     lifecycle: null
   links:
     mechanism_link: null
-    technical_link: null
+    mechanism_link_ids: []
+    technical_link: breast.tech.15 髖關節內旋（對應風險因子「髖 ROM 不足(內旋 <40°)」的硬體邊界）、breast.tech.36 蛙式翻腳「腳尖朝外」是四關節合成——外旋屈曲後內收內旋的組合即夾擊誘發動作
+    technical_link_ids:
+    - breast.tech.15
+    - breast.tech.36
     perception_link: null
+    perception_link_ids: []
   references:
   - citation: Cam morphology in aquatic (water polo/synchro) athletes, PMC7605769
     certainty: 🟢
@@ -1189,8 +1204,13 @@ injuries:
     lifecycle: null
   links:
     mechanism_link: null
-    technical_link: null
+    mechanism_link_ids: []
+    technical_link: breast.tech.13 膝距窄的雙重效益（對應預防「縮小踢腿幅度、窄鞭踢」）、breast.tech.15 髖關節內旋（對應風險因子「髖內旋 ROM 不足(<40°)」）
+    technical_link_ids:
+    - breast.tech.13
+    - breast.tech.15
     perception_link: null
+    perception_link_ids: []
   references:
   - citation: Breaststroke groin injury (Grote 2004), AJSM PMID 14754731
     certainty: 🟡
@@ -1299,8 +1319,13 @@ injuries:
     lifecycle: null
   links:
     mechanism_link: null
-    technical_link: null
+    mechanism_link_ids: []
+    technical_link: fly.tech.29「腰部彎曲代替胸部起波」——該技術錯誤即本症的腰椎過伸機轉本身；fly.tech.26 胸椎活動度是波動觸發的解剖前提，胸椎不足時由腰椎代償
+    technical_link_ids:
+    - fly.tech.29
+    - fly.tech.26
     perception_link: null
+    perception_link_ids: []
   references:
   - citation: Low back pain in swimmers by stroke, PMC11531034
     certainty: 🟢
@@ -1403,9 +1428,16 @@ injuries:
       para: 截肢者殘肢/假肢力學完全不同，標準評估不適用(DATA GAP)
     lifecycle: null
   links:
-    mechanism_link: null
-    technical_link: null
+    mechanism_link: 翻滾轉身腳板接觸不準與推蹬牆是同一組負荷來源，急性端見於轉身/蹬牆傷
+    mechanism_link_ids:
+    - flip-turn-wall-push
+    technical_link: starts-turns.tech.38 翻滾啟動時機、starts-turns.tech.21 觸牆膝屈 100–120°、starts-turns.tech.22 推蹬力向量對齊——對應風險因子「翻滾轉身技術不良」
+    technical_link_ids:
+    - starts-turns.tech.38
+    - starts-turns.tech.21
+    - starts-turns.tech.22
     perception_link: null
+    perception_link_ids: []
   references:
   - citation: Trikha R, Schroeder GG, Greig DE, Kremen TJ Jr (2022). Characterizing Health Events and Return to Sport in Collegiate Swimmers. Orthop J Sports Med 10(4):23259671221083588. PMID 35400141
     certainty: 🟢
@@ -1591,9 +1623,13 @@ injuries:
       para: null
     lifecycle: null
   links:
-    mechanism_link: null
+    mechanism_link: 紅旗條目直接指名：劇痛/畏光/角膜混濁需排除棘阿米巴角膜炎（隱形眼鏡泳者為高風險族群）
+    mechanism_link_ids:
+    - acanthamoeba-keratitis
     technical_link: null
+    technical_link_ids: []
     perception_link: null
+    perception_link_ids: []
   references:
   - citation: Chloramines and ocular irritation in swimming pools, PMC6137694
     certainty: 🟢
@@ -1774,6 +1810,14 @@ injuries:
     return_to_train: 新近介入拉伸計畫 → 立即可訓練；不應因攣縮而停訓，但訓練量與技術期望需依攣縮程度調整
     return_to_compete: null
     prognosis: 早期介入 (傷後 < 6 月) 可有效預防嚴重攣縮；已有 > 60° 攣縮者保守治療效果有限，需手術才能顯著改善
+  links:
+    mechanism_link: null
+    mechanism_link_ids: []
+    technical_link: free.tech.34 流線體線——攣縮使下肢往後伸不直、正面阻力大，是硬體邊界讓基準姿態達不到，不是感知缺陷
+    technical_link_ids:
+    - free.tech.34
+    perception_link: null
+    perception_link_ids: []
 - id: surfers-ear-exostosis
   zh: 外耳道骨瘤 / 骨疣（衝浪耳）
   en: Surfer's ear / external auditory exostosis
@@ -1855,9 +1899,13 @@ injuries:
     lifecycle:
       open_water: 冬泳/開放水域為新興風險族群，無獨立流病資料
   links:
-    mechanism_link: null
+    mechanism_link: 骨性增生阻塞耳道後耳垢與水分積聚→反覆外耳道炎，游泳耳是本症的下游併發
+    mechanism_link_ids:
+    - swimmers-ear
     technical_link: null
+    technical_link_ids: []
     perception_link: null
+    perception_link_ids: []
   references:
   - citation: External Auditory Exostoses, StatPearls, PMID 30521295
     certainty: 🟡
@@ -2502,8 +2550,11 @@ injuries:
       para: 脊髓損傷者自主神經調節已異常，反應難預測
     lifecycle: null
   links:
-    mechanism_link: null
+    mechanism_link: 喘氣反射使深水中呼吸控制喪失易嗆水，「連強壯泳者也可數秒內溺水」即本條與溺水的接點
+    mechanism_link_ids:
+    - drowning
     technical_link: null
+    technical_link_ids: []
     perception_link: 可接 L0 呼吸感知(冷水喘氣反射的生理意義)
     perception_link_ids: []
   references:
@@ -2878,9 +2929,13 @@ injuries:
     lifecycle:
       open_water: 鐵人三項游泳段多重自主神經壓力疊加，為最高 SCD 風險情境之一
   links:
-    mechanism_link: null
+    mechanism_link: 游泳特有的自主神經衝突（面浸潛水反射 × 運動交感激活）與冷水休克為同一機轉，風險因子亦列「冷水+面浸+屏氣」
+    mechanism_link_ids:
+    - cold-water-shock
     technical_link: null
+    technical_link_ids: []
     perception_link: null
+    perception_link_ids: []
   references:
   - citation: 'Sex Differences in the Incidence of SCA/Death in Competitive Athletes: systematic review and meta-analysis, PMC11985649'
     certainty: 🟢
@@ -3005,9 +3060,13 @@ injuries:
     lifecycle:
       open_water: 超距(海峽)泳者核心溫可降 3–4°C 持續數小時
   links:
-    mechanism_link: null
+    mechanism_link: 風險因子列有「脫水(降低循環效率)」——脫水/低鈉血症是本症的加成因子
+    mechanism_link_ids:
+    - dehydration-hyponatremia
     technical_link: null
+    technical_link_ids: []
     perception_link: null
+    perception_link_ids: []
   references:
   - citation: Brannigan D, Rogers IR, Jacobs I, et al. (2009). Hypothermia is a significant medical risk of mass participation long-distance open water swimming. Wilderness Environ Med 20(1):14-18. PMID 19364182
     certainty: 🟢
@@ -3114,8 +3173,13 @@ injuries:
     lifecycle:
       freediving: 自由潛水是 SWB/BO 主場景；競技自由潛水有 surface protocol 與 buddy 規範
   links:
-    mechanism_link: null
+    mechanism_link: 同一機轉在呼吸層的條目：breathing.safety.hypoxic_blackout（缺氧昏迷，本症舊稱 SWB）、breathing.safety.hypocapnia_mechanism（過度換氣造成的低碳酸血症）；水下失去意識後若無即時救援即為溺水
+    mechanism_link_ids:
+    - breathing.safety.hypoxic_blackout
+    - breathing.safety.hypocapnia_mechanism
+    - drowning
     technical_link: null
+    technical_link_ids: []
     perception_link: 可接 L0 呼吸感知層：閉氣與換氣衝動的生理意義屬呼吸感知教育素材
     perception_link_ids: []
   references:
@@ -3232,8 +3296,11 @@ injuries:
     lifecycle:
       freediving: SCUBA/自由潛水浸水亦可誘發(immersion pulmonary edema 同源機制)
   links:
-    mechanism_link: null
+    mechanism_link: 「非吸入溺水」——與溺水的鑑別點在於液體來自肺微血管滲出而非吸入
+    mechanism_link_ids:
+    - drowning
     technical_link: null
+    technical_link_ids: []
     perception_link: 可接 L0 呼吸感知/配速感知教育(辨識異常呼吸窘迫 vs 正常喘)
     perception_link_ids: []
   references:

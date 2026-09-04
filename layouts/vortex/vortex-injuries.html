@@ -34,12 +34,12 @@
       </div>
 
       {{ range $ci, $cat := $cats }}
-      {{ $catInj := where $injuries "category" $cat.id }}
+      {{ $catInj := where $injuries "category" $cat.key }}
       <div class="vx-rail-theme" data-theme="c{{ $ci }}">
         <button class="vx-rail-theme-head" type="button" data-theme-toggle="c{{ $ci }}" aria-expanded="false">
           <span class="vx-rail-theme-top">
             <span class="vx-rail-theme-caret" aria-hidden="true"></span>
-            <span class="vx-rail-theme-name">{{ $cat.zh }}</span>
+            <span class="vx-rail-theme-name">{{ $cat.name_zh }}</span>
             <span class="vx-rail-theme-count">{{ len $catInj }}</span>
           </span>
         </button>
@@ -94,10 +94,10 @@
 
         <div class="vx-cat-grid">
           {{ range $cats }}
-          {{ $catInj := where $injuries "category" .id }}
+          {{ $catInj := where $injuries "category" .key }}
           {{ if gt (len $catInj) 0 }}
           <a class="vx-cat-card" href="#{{ (index $catInj 0).id }}">
-            <span class="vx-cat-zh">{{ .zh }}</span>
+            <span class="vx-cat-zh">{{ .name_zh }}</span>
             <span class="vx-cat-count">{{ len $catInj }} 條</span>
             <span class="vx-cat-list">{{ range $i, $e := $catInj }}{{ if $i }}・{{ end }}{{ $e.zh }}{{ end }}</span>
           </a>
@@ -144,11 +144,11 @@
 
       {{/* ── 各傷害面板 ── */}}
       {{ range $cat := $cats }}
-      {{ $catInj := where $injuries "category" $cat.id }}
+      {{ $catInj := where $injuries "category" $cat.key }}
       {{ $nc := len $catInj }}
       {{ range $i, $x := $catInj }}
       <section class="vx-panel vx-injury" id="{{ $x.id }}">
-        <span class="vx-sec-no">{{ $cat.zh }}{{ with $x.en }} · {{ . }}{{ end }}</span>
+        <span class="vx-sec-no">{{ $cat.name_zh }}{{ with $x.en }} · {{ . }}{{ end }}</span>
         <h2>{{ $x.zh }}</h2>
 
         <div class="vx-injury-tags">
