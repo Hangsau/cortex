@@ -299,3 +299,5 @@ TOKEN=$(gh auth token) && git remote set-url origin "https://$TOKEN@github.com/H
 push 後執行 `gh run list --repo Hangsau/cortex --limit 1` 確認 CI 成功。
 
 **驗線上頁面時：CI 產出的 HTML 是 minify 過的，屬性值沒有引號**（`class=vx-read-concept`，不是 `class="vx-read-concept"`）。拿本機 `hugo` 建置的字串去 grep 線上頁面會**全部回 0，看起來像沒部署**——2026-09-04 心理層那次就是這樣誤判了一次。驗證正則要寫成 `class=vx-xxx\b`，或直接數 class 名的裸出現次數；另外用 Python 讀 curl 存下來的檔要明寫 `encoding='utf-8'`，Windows 預設 cp950 會讓中文字串比對無聲失敗。
+
+**`curl` 一定要同時取 HTTP 狀態碼**（`-w "%{http_code}"`）。對一份 404 頁面 grep 回 0，和對一份正常頁面 grep 回 0，長得完全一樣——2026-09-04 查各式頁時用了 `/vortex/stroke/back/`（正確路徑是 `/vortex/backstroke/`），拿到 404 卻判成「這頁沒問題」，漏掉 12 筆空白列。**內容路徑以 `content/vortex/` 底下的實際資料夾名為準**（`backstroke` / `freestyle` / `breaststroke` / `butterfly`，不是 `stroke/<key>`）。連同上一段，通則是：**grep 回 0 不等於沒問題，先證明你抓到的是那份頁面。**
