@@ -704,6 +704,19 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
   font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
   color: var(--vx-faint); margin-right: 8px;
 }
+.vx-ind--multi { padding: 9px 0; border-top: 1px solid var(--vx-rule); }
+.vx-ind--multi:first-child { border-top: 0; padding-top: 0; }
+.vx-ind--multi .vx-ind-type {
+  display: block; margin: 0 0 6px;
+  font-size: 13px; letter-spacing: 0.02em; font-weight: 700;
+  color: var(--vx-ink);
+}
+.vx-ind-line { display: block; margin-top: 3px; }
+.vx-ind-line b {
+  font-size: 11px; letter-spacing: 0.05em; font-weight: 700;
+  color: var(--vx-faint); margin-right: 8px;
+}
+.vx-ind-exp { color: var(--vx-faint); }
 
 /* 移動：上一/下一動作 */
 .vx-flow {

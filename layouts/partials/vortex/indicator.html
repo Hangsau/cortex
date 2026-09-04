@@ -1,0 +1,11 @@
+{{/* 觀察指標一列。canonical 的 indicators 有兩種 schema，欄位順序照 canonical 不重排。 */}}
+{{ if .text }}
+<div class="vx-ind"><span class="vx-ind-type">{{ .type }}</span>{{ .text }}</div>
+{{ else }}
+<div class="vx-ind vx-ind--multi">
+  <span class="vx-ind-type">{{ .dimension }}</span>
+  {{ with .measure }}<span class="vx-ind-line"><b>怎麼看</b>{{ . }}</span>{{ end }}
+  {{ with .experience }}<span class="vx-ind-line vx-ind-exp"><b>泳者會說</b>「{{ . }}」</span>{{ end }}
+  {{ with .training }}<span class="vx-ind-line"><b>怎麼練</b>{{ . }}</span>{{ end }}
+</div>
+{{ end }}

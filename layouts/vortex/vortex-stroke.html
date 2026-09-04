@@ -292,7 +292,7 @@
               <details class="vx-diag">
                 <summary>教練判讀訊號</summary>
                 <p class="vx-diag-note">以下是診斷用的觀察依據，給帶課的人判斷學生是否到位，不是規定學生「該有什麼感覺」。</p>
-                {{ range . }}<div class="vx-ind"><span class="vx-ind-type">{{ .type }}</span>{{ .text }}</div>{{ end }}
+                {{ range . }}{{ partial "vortex/indicator.html" . }}{{ end }}
               </details>
               {{ end }}
               {{ with .quant }}<p class="vx-diag-note">量化基準：{{ . }}</p>{{ end }}
