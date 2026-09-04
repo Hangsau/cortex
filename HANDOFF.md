@@ -11,6 +11,30 @@ swim-coach，**第一個殼在 my-site**：W2 同步規則檔、W3 drill JSON �
 
 接手第一步：讀規劃書，不要直接動手。
 
+## 目前狀態（2026-09-05）
+
+### ✅ 全站中文句子中間有 1995 個看得見的空格，是 YAML 折行造成的；已在 sync 層接掉，線上實測歸零
+
+canonical 的散文用摺疊純量（`>-`）在檔案裡折行以便閱讀，**YAML 規範把每個折點接成一個空白**——那條規則是為空白分詞的語言訂的。中文沒有詞間空白，於是每個折點在網站上都是句子中間一個看得見的空格。線上實測：`psychology-read` 單頁 848 處、`database` 頁 1244 處，全部 vortex 資料 1995 處。存在多久沒查，但它不是最近才有的。
+
+**修在 sync 層不改 canonical**（commit `8a44888`，CI 綠）：折行是作者為可讀性寫的，空白是序列化副產物、不是內容。新增 `dump_yaml()`，13 個 `yaml.safe_dump` 呼叫點全部改走它，成為 `sync_vortex.py` 唯一輸出口。規則細節與兩條刻意不放寬的邊界寫進 `CLAUDE.md`。
+
+**線上驗收（7 頁全 HTTP 200）**：`psychology-read` 848 → 0，四式頁全 0。`database` 頁用 HTML parser 量到 397，逐筆看過**全部是 `data-text=` 搜尋索引屬性**不是可見內容——判準是那段文字**整串小寫**（`l3`、`a型`、`hangsau`），來自 layout 的 `lower (printf ...)`，而可見文字是 `L3`／`Hangsau`。搜尋索引需要空白當欄位分隔，本來就該留著。四式頁殘留的 2–3 處是 layout 的標籤／值分隔（`水感層級 前置感知`），同理保留。
+
+**量測方法留給下次**：`<[^>]+>` 這種正則拆 HTML 在這裡會誤判——minify 過的屬性值裡有 `>`，正則會提早收尾把屬性內容當成可見文字。要分「可見 vs 屬性」得用 `html.parser`，而且還要再用「整串小寫」這類語意線索交叉確認。
+
+### ✅ 誤區卡的「物理原因」有 20 條印出標題加空段落；canonical 端已還原，layout 端加防線
+
+線上長這樣：`<span class=vx-label>物理原因 🟠</span><p></p>`。根因在 canonical（`teaching-errors.yaml` 的 20 條 `physical_reason` 掉了 `text`，是 2026-05 `beece5a` 那次編輯漏刪，詳見 Vortex repo 的 HANDOFF），內容已逐筆從舊版還原。
+
+**my-site 這側同步加了防線**（`vortex-stroke.html` / `vortex-database.html`）：標題改成綁在 `.text` 上，不綁在區塊存在上。原本 `{{ with .physical_reason }}` 只要區塊在就印標題，而 `observation_basis`（維護者看的證據基礎）不對外輸出，於是「有區塊但無內容」直接變成讀者眼中的內容漏失。線上 5 頁實測 `emptyPR=0`。
+
+### ⚠️ 本機 `hugo` 建置不能用來驗證列點與分段——`core.autocrlf=true` 會讓它跟線上不一致
+
+`data/vortex/*.yaml` 的工作目錄副本是 CRLF（4032 CRLF / 0 純 LF），committed blob 是 LF。**Hugo 的 YAML 解析器把引號純量裡的 `\r` 和 `\n` 當成兩個獨立換行**，k 個折行變成 2k−1 個換行，於是列點之間多出空行、`richblock.html` 正確地判成段落結束而各自封一個 `<ul>`。CI 在 Linux 讀 LF，輸出是正確的單一 `<ul>`。
+
+**凡是與換行、分段、列點有關的呈現驗收一律以線上頁面為準**；本機建置只用來看有沒有 build error。
+
 ## 目前狀態（2026-09-02）
 
 ### ✅ movement 動作圖譜同步層已就緒，但**出站 0 筆**（等發布決策）

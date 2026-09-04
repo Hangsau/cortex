@@ -147,6 +147,17 @@ tools/
 
 樣式在 `static/css/vortex-joints.css`（`vx-jt-*` 前綴，自足）。**不要 import `vortex-injuries.css`** 去借 `.vx-cat-grid` / `.vx-tag`——那份檔名綁傷害頁，跨頁引用會讓「這條規則歸誰維護」變模糊。
 
+### `sync_vortex.py` 的 YAML 輸出只走 `dump_yaml()`，不直接呼叫 `yaml.safe_dump`
+
+canonical 的散文用摺疊純量（`>-`）在檔案裡折行以便閱讀，**YAML 規範把每個折點接成一個空白**——那條規則是為空白分詞的語言訂的。中文沒有詞間空白，所以每個折點在網站上都是句子中間一個看得見的空格。2026-09-05 實測：線上 `psychology-read` 單頁 848 處、`database` 頁 1244 處，全部 vortex 資料 1995 處。
+
+**修在 sync 層，不改 canonical**：折行是作者為了可讀性寫的，空白是序列化副產物，不是內容。`dump_yaml()` 在 dump 之前遞迴接掉它，13 個輸出點全部走這個口；**新增 `sync_*` 函式時照走，不要另開 `yaml.safe_dump`**，否則新資料會帶著空格出站而沒有任何地方會擋。
+
+兩條規則刻意分開，都不能放寬：
+
+- **一般字元只認漢字／假名／中文標點兩側**。全形符號兩側的空白是作者有意的排版（`可見方向 ＋ 解剖動作`、`563 件傷害 ／ 2,171,260 次暴露`），所以 `＋＝＜＞／` 這類不進字元集——修完剩下的 2 處正是這兩筆，那是正確狀態不是漏網。
+- **破折號另立一條，且只認成對的 `——`**。中文的 `——` 一律成對、兩側不留空白，緊鄰它的空白必定是折點（116 處）。但**單一 `—` 在本庫是有意的分隔符**（`頭帶平衡 — 面朝下`），一起接掉會改掉作者的排版。
+
 ### 來源註冊表（`data/vortex/source-registry.yaml`）：白名單視圖，不是整份搬運
 
 canonical 的條目用 `source_ids: [src.xxx]` 這種機器鍵指來源；`sync_vortex.py` 的 `sync_source_registry()` 把 `canonical/_sources.yaml`（532 筆）轉成**以 id 為 key 的 map**，讓 layout 能 `index $reg $sid` 直接查。三條不可改的規則：
