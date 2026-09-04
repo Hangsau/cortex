@@ -302,6 +302,9 @@ points:
     certainty: 🔵
     text: 速度波動需要反覆加減速，加減速消耗能量；持續踢水維持勻速比間歇推進更節能。斜向踢水（oblique kick）抵消回臂產生的橫向力矩，防止蛇行。
   practical_implication: 教學時不應把踢水簡化為「推進工具」；升力功能對下半身位置的影響在長距離尾段特別顯著，疲勞時踢水退化會連鎖引發頭部漂移。
+  cross_ref: free.tech.11（斜向踢水抵消回臂橫向力矩＝六拍踢對側協調抵消蛇行）
+  cross_ref_ids:
+  - free.tech.11
 - id: free.tech.15
   stroke: free
   category: rotation
@@ -454,6 +457,10 @@ points:
     source_ids:
     - src.virag-2014
   practical_implication: 修正感知口令：「保持肘尖朝向游進方向」；dropped elbow 往往引發跨越中線，修正根本錯誤可連帶改善多個表面錯誤。
+  cross_ref: free.tech.20（dropped elbow 引發的跨越中線）、free.tech.23（錯誤連動性的因果鏈起點）
+  cross_ref_ids:
+  - free.tech.20
+  - free.tech.23
 - id: free.tech.22
   stroke: free
   category: errors
@@ -463,6 +470,9 @@ points:
     certainty: 🔵
     text: 入水後的延伸應靠旋轉將肩膀送出去，而非手臂主動向前推水；主動推水讓手在水中失速，無法建立有效的升力相捕水位置。
   practical_implication: 口令：「讓慣性帶手向前滑幾寸，然後立刻轉入捕水——延伸靠旋轉把肩膀送出去，不是手臂主動推水。」
+  cross_ref: free.tech.9（失去的正是 EVF 捕水位置）
+  cross_ref_ids:
+  - free.tech.9
 - id: free.tech.23
   stroke: free
   category: errors
@@ -480,6 +490,11 @@ points:
     source_ids:
     - src.virag-2014
   practical_implication: 診斷時應尋找因果鏈起點，不要同時修正所有表面錯誤；通常修正根本錯誤（如捕水位置或回臂姿勢）能連帶改善 2–3 個下游表面錯誤。
+  cross_ref: 連動鏈上的三個節點：free.tech.21（dropped elbow）、free.tech.20（跨越中線）、free.tech.18（抬頭的連鎖代價）
+  cross_ref_ids:
+  - free.tech.21
+  - free.tech.20
+  - free.tech.18
 - id: free.tech.24
   stroke: free
   category: fatigue
@@ -604,6 +619,10 @@ points:
     text: 不對稱划手造成身體蛇行偏移→需要視覺校正→抬頭觀景頻率上升→腰頸肩負荷累積。對稱划水的核心是雙側拉水力與踢腿力的對等，這需要刻意訓練左右側分別的捕水感與後段推水長度。對稱性不是「左右動作看起來一樣」的外觀層次，而是兩側產生的推進向量相互抵消側分力，讓身體軸線維持直線。
   practical_implication: 對稱划水訓練對所有泳者都有益，對開放水域、鐵人三項、長距離有氧訓練特別重要。單臂 drill（Fr11）、雨刷 drill、catch-up drill 是建立雙側對稱的核心練習。
   perception_signal: 對稱時手背在側躺滑行階段感覺水流均勻向後（不是側壓或亂流）；不對稱時弱側會感覺水流偏一邊或無感
+  cross_ref: Fr11（單臂 drill，文中指名的核心練習）、free.tech.20（不對稱造成的蛇行偏移）
+  cross_ref_ids:
+  - Fr11
+  - free.tech.20
 - id: free.tech.31
   stroke: free
   category: fatigue
@@ -787,6 +806,7 @@ points:
   cross_ref: free.tech.36（同屬技術描述的欄位粒度問題）、back.tech.28（仰式轉體幅度）
   cross_ref_ids:
   - free.tech.36
+  - back.tech.28
 - id: free.tech.40
   stroke: free
   category: joint
@@ -989,6 +1009,9 @@ points:
     certainty: 🔵
     text: 肌肉最適預拉原理（optimal length theory）：肌肉在最適初長度時能產生最大主動張力。旋轉使背闊肌進入此最適預拉狀態。這是基礎肌肉生理學推導，不是仰式特有研究結論。
   practical_implication: 旋轉的訓練意涵不只是幾何上的力臂，也包含肌肉激活質量的最佳化；兩個機制相互強化。
+  cross_ref: back.tech.3（同一旋轉的幾何力臂機制，文中「兩個機制相互強化」）
+  cross_ref_ids:
+  - back.tech.3
 - id: back.tech.5
   stroke: back
   category: rotation
@@ -1025,6 +1048,9 @@ points:
     observation_basis: 本條標題原本就寫「教練觀測」，但本檔沒有記錄是誰的觀測、觀察了哪些選手： 2026-09-04 檢視時沒有掛任何來源。族群依內容判讀為菁英仰式選手。 外推邊界：「仰式無 hip-driven 版本」是從仰式無法做出自由式那種髖驅動時序推導的結論，這部分成立； 但條目提供的划手頻率參考範圍屬於觀測值，缺樣本數與量測條件（長池／短池、比賽／訓練）， 只能當成量級參照，不可當成訓練目標或分級標準。
     text: 仰式是全肩帶驅動（shoulder-driven），無 hip-driven 版本。SR 與 SL 仍是雙主變數，但因不存在像自由式 hip-driven 那樣以低頻率換高 SL 的泳型策略，高頻率是 50m 的核心調節方向。
   practical_implication: 身材較高的泳者頻率通常略低，但差距比想像中小（Matt Grevers 198cm 仍維持 95/分）。實務用途是評估泳者的頻率是否明顯低於參考範圍，而非要求達到固定數字。
+  cross_ref: free.tech.4（文中對照的自由式 hip-driven 低頻高 SL 策略）
+  cross_ref_ids:
+  - free.tech.4
 - id: back.tech.8
   stroke: back
   category: stroke-cycle
@@ -1185,6 +1211,9 @@ points:
     certainty: 🔵
     text: 對側腳上踢與拉水相位對齊，形成對角線推進平衡，穩定旋轉軸（牛頓第三定律角動量守恆推論）。六拍踢提供更密集的旋轉「修正信號」，有助維持旋轉穩定性。此為邏輯推導，尚無針對此相位關係的現代精確量化研究。
   practical_implication: 踢水節律訓練應與划手相位配合考量；六拍踢的功能不只是推進，也是旋轉穩定的調節機制。
+  cross_ref: back.tech.17（六拍踢提供的密集旋轉修正信號）
+  cross_ref_ids:
+  - back.tech.17
 - id: back.tech.20
   stroke: back
   category: errors
@@ -1226,6 +1255,10 @@ points:
     source_ids:
     - src.morais-2019
   practical_implication: 現代訓練優先級：出發+轉身流線型 ≥ 游進技術（至少在 100m 賽事中）。這是舊報告未強調的面向，由近期系統綜述所揭示。
+  cross_ref: back.tech.23（頭部提前抬起的阻力代價）、back.tech.25（由此得出的訓練優先級更新）
+  cross_ref_ids:
+  - back.tech.23
+  - back.tech.25
 - id: back.tech.23
   stroke: back
   category: streamline
@@ -1235,6 +1268,9 @@ points:
     certainty: 🔵
     text: 二次方阻力效應（F ∝ v²）：速度最高時流線型破壞的阻力代價也最高。頭部提前抬起使 Cd 立即上升，疊加最高速度，導致最大速度損耗。「頭部抬起後速度損失 0.3 m/s」的具體數字來自舊研究，定性邏輯是物理必然。
   practical_implication: 訓練重點是建立「維持頭部在水面下直至滑行結束」的習慣；這是投入訓練時間邊際效益最高的技術改善點之一。
+  cross_ref: back.tech.22（被破壞的正是雙臂夾耳、頭完全入水的流線型）
+  cross_ref_ids:
+  - back.tech.22
 - id: back.tech.24
   stroke: back
   category: fatigue
@@ -1252,6 +1288,10 @@ points:
     source_ids:
     - src.psycharakis-2010
   practical_implication: 教練觀察疲勞崩潰時，第一指標是髖旋轉是否顯著增加（而非肩旋轉縮小）；訓練核心旋轉控制能力可延緩崩潰序列。
+  cross_ref: 崩潰序列點名的兩個節點：back.tech.17（六拍退化為四拍/兩拍）、back.tech.19（放棄旋轉連動）
+  cross_ref_ids:
+  - back.tech.17
+  - back.tech.19
 - id: back.tech.25
   stroke: back
   category: concept
@@ -1269,6 +1309,11 @@ points:
     source_ids:
     - src.gonzalez-rave-2025-b
   practical_implication: 訓練資源配置應重新評估；出發技術（起跳力學、背靠牆起跳 vs OSB13 起跳架）和轉身技術（翻轉觸牆、推蹬角度）的專項訓練應提升優先級。
+  cross_ref: back.tech.22（同一份 González-Ravé 2025 的流線型結論）、starts-turns.tech.15（文中點名的背靠牆起跳 vs 起跳架）、starts-turns.tech.24（文中點名的翻轉觸牆轉身技術）
+  cross_ref_ids:
+  - back.tech.22
+  - starts-turns.tech.15
+  - starts-turns.tech.24
 - id: back.tech.26
   stroke: back
   category: comparison
@@ -1289,6 +1334,10 @@ points:
     source_ids:
     - src.maglischo-2003-b
   practical_implication: 仰式分析深度應在「旋轉連動鏈」層面，對應蝶式的「波動連動鏈」；仰式尚需加入出發技術的專項分析（這是蝶式目前缺乏的面向）。
+  cross_ref: back.tech.24（文中「仰式疲勞：維持肩旋轉但增加髖旋轉」）、fly.tech.22（文中「蝶式疲勞：波動鏈中斷序列」）
+  cross_ref_ids:
+  - back.tech.24
+  - fly.tech.22
 - id: back.tech.27
   stroke: back
   category: comparison
@@ -1306,6 +1355,10 @@ points:
     source_ids:
     - src.gonzalez-rave-2025-b
   practical_implication: 若要平行深化蝶式與仰式的技術分析，仰式需加入出發技術（起跳力學）和轉身技術（翻轉觸牆、推蹬角度）的專項研究，以對應蝶式的連動鏈分析深度。
+  cross_ref: back.tech.22（出發轉身佔 100m 近 1/3 的來源結論）、back.tech.26（文中要對應的蝶式連動鏈分析深度）
+  cross_ref_ids:
+  - back.tech.22
+  - back.tech.26
 - id: breast.tech.1
   stroke: breast
   category: concept
@@ -1586,6 +1639,11 @@ points:
     - **胸椎伸展不足但腰椎代償很大，或出現腰背症狀**：採較平路徑；陸上先補胸椎、髖伸展與骨盆控制，再重新測試較大波形。
 
     '
+  cross_ref: 分流的三個目標風格：breast.tech.17（flat）、breast.tech.18（wave）、breast.tech.19（undulating）
+  cross_ref_ids:
+  - breast.tech.17
+  - breast.tech.18
+  - breast.tech.19
 - id: breast.tech.17
   stroke: breast
   category: style
@@ -1603,6 +1661,9 @@ points:
     source_ids:
     - src.colman-1998-b
   practical_implication: 力量強、柔韌性有限的泳者可能在 flat 風格下表現最佳；Ed Moses 為部分代表選手。
+  cross_ref: breast.tech.2（文中「雙峰速度曲線」的來源條目）
+  cross_ref_ids:
+  - breast.tech.2
 - id: breast.tech.18
   stroke: breast
   category: style
@@ -1643,6 +1704,9 @@ points:
     source_ids:
     - src.sanders-1998
   practical_implication: Undulating 是柔韌性超群泳者的特殊最優解（Amanda Beard 為代表）；一般泳者推進損失會蓋過減阻優勢。
+  cross_ref: breast.tech.18（文中「才能超越 wave style」的比較對象）
+  cross_ref_ids:
+  - breast.tech.18
 - id: breast.tech.20
   stroke: breast
   category: undulation
@@ -1661,6 +1725,13 @@ points:
     certainty: 🔵
     text: 踝關節蹠屈柔韌性、髖關節內旋幅度、腰椎伸展幅度三個解剖因子共同決定哪些技術動作物理上可以完成；蛙式三風格的存在本身反映了這三因子個體差異之大，是蛙式個人差異遠大於其他三式的根本原因。
   practical_implication: 評估泳者應先確認解剖邊界狀態，再決定技術指導方向；對限制明確的泳者，先做柔韌性訓練，再在現有邊界內找最優路徑。
+  cross_ref: 三風格 breast.tech.17／18／19，與文中點名的兩個解剖因子 breast.tech.14（踝蹠屈）、breast.tech.15（髖內旋）
+  cross_ref_ids:
+  - breast.tech.17
+  - breast.tech.18
+  - breast.tech.19
+  - breast.tech.14
+  - breast.tech.15
 - id: breast.tech.22
   stroke: breast
   category: tempo
@@ -1678,6 +1749,9 @@ points:
     source_ids:
     - src.gonjo-2023
   practical_implication: 蛙式技術訓練的優先目標是「疲勞下技術穩定性」而非「單次最大速度」；insweep 加速感和滑行效率是最先崩潰的技術元素，也應是訓練的核心關注點。
+  cross_ref: breast.tech.27（文中「insweep 加速感和滑行效率是最先崩潰的技術元素」＝崩潰序列前兩層）
+  cross_ref_ids:
+  - breast.tech.27
 - id: breast.tech.23
   stroke: breast
   category: watersense
@@ -1747,6 +1821,10 @@ points:
     source_ids:
     - src.nicol-2022-c
   practical_implication: 訓練目標是讓第一層崩潰（insweep 加速消失）盡可能晚發生；這也解釋了為什麼「疲勞下技術穩定性」是精英的核心優勢。
+  cross_ref: breast.tech.22（文中「疲勞下技術穩定性是精英核心優勢」）、breast.tech.31（第一崩潰引用的 insweep 腳速 r=0.89 即該條原則①）
+  cross_ref_ids:
+  - breast.tech.22
+  - breast.tech.31
 - id: breast.tech.28
   stroke: breast
   category: streamline
@@ -1790,6 +1868,9 @@ points:
     source_ids:
     - src.tanaka-2025
   practical_implication: 水面蛙腿承受更大的阻力代價，解釋了為什麼流線型滑行在水面下進行以及波動對阻力管理的重要性。
+  cross_ref: starts-turns.tech.32（水下比水面快的無波浪阻力機制，即本條的波阻差異）
+  cross_ref_ids:
+  - starts-turns.tech.32
 - id: breast.tech.31
   stroke: breast
   category: concept
@@ -1804,6 +1885,12 @@ points:
     - breast.tech.29
     text: ① insweep 腳速是推進力直接決定因子（r=0.89），加速度方向正確的前提下速度越快推進力越大；② 收腿是阻力最大時刻，縮短收腿時間是群體共識；③ arm-leg coordination 時序精度是精英和次精英最大差距——是技術問題非解剖問題；④ 滑行管理是蛙式特有的效率變數。
   practical_implication: 評估泳者問題時，應先區分這些解剖無關原則與解剖邊界限制，兩者的介入方向完全不同。
+  cross_ref: 四條原則的承載條目（原 evidence_from）：breast.tech.12、breast.tech.10、breast.tech.8、breast.tech.29
+  cross_ref_ids:
+  - breast.tech.12
+  - breast.tech.10
+  - breast.tech.8
+  - breast.tech.29
 - id: fly.tech.1
   stroke: fly
   category: concept
@@ -1974,6 +2061,12 @@ points:
     source_ids:
     - src.swim-like-a-fish-2025
   practical_implication: 踢水訓練是蝶式的核心不可簡化，踝關節訓練優先於腿部力量訓練。
+  cross_ref: fly.tech.6（兩踢功能不對稱）、fly.tech.24（踝關節作為鞭打硬體上限）、free.tech.11／free.tech.12（文中對照的自由式六拍與兩拍可選節律）
+  cross_ref_ids:
+  - fly.tech.6
+  - fly.tech.24
+  - free.tech.11
+  - free.tech.12
 - id: fly.tech.10
   stroke: fly
   category: stroke-cycle
@@ -2021,7 +2114,8 @@ points:
     - src.kudo-2014
   practical_implication: 外划技術目標應設為「最小必要幅度的捕水位置準備」，不以外划形狀作為技術目標。
   cross_ref: 2024–2025 外划幅度縮小趨勢已成為精英教學主流演進方向
-  cross_ref_ids: []
+  cross_ref_ids:
+  - fly.tech.35
 - id: fly.tech.13
   stroke: fly
   category: stroke-cycle
@@ -2104,6 +2198,10 @@ points:
     certainty: 🔵
     text: 蝶式頭部的雙重角色（低頭觸發波動、抬頭接收波動）使其成為技術診斷的關鍵指標——頭部動作品質直接反映波動鏈的完整性。
   practical_implication: 蝶式換氣教學難點在「向前不向上」的感知建立，與蛙式雖方向相同但觸發機制不同。
+  cross_ref: fly.tech.16（文中「頭部雙重角色：觸發器＋跟隨者」）、fly.tech.17（向前換氣 chin forward）
+  cross_ref_ids:
+  - fly.tech.16
+  - fly.tech.17
 - id: fly.tech.20
   stroke: fly
   category: stroke-cycle
@@ -2140,6 +2238,9 @@ points:
     certainty: 🔵
     text: 各式崩潰觸發點反映其技術最薄弱或協調難度最高的環節；蝶式的複合協調需求（兩踢不對稱+手腳同步+波動維持）使其崩潰最快速且最明顯。
   practical_implication: 了解本式崩潰序列可用於設計針對性的疲勞抗性訓練，優先強化最脆弱的崩潰首環。
+  cross_ref: fly.tech.22（本式的五環崩潰序列）
+  cross_ref_ids:
+  - fly.tech.22
 - id: fly.tech.24
   stroke: fly
   category: hardware
@@ -2178,6 +2279,9 @@ points:
     certainty: 🔵
     text: 胸部下壓是波動鏈的源頭；胸椎活動度限制波動的「發送端」幅度，導致波動能量輸入不足，後續各節點無足夠能量可放大與傳遞。
   practical_implication: 蝶式選手應定期評估胸椎活動度，限制者優先進行胸椎鬆動訓練。
+  cross_ref: fly.tech.4（文中「後續各節點無足夠能量可放大與傳遞」＝六節點動力鏈）
+  cross_ref_ids:
+  - fly.tech.4
 - id: fly.tech.27
   stroke: fly
   category: hardware
@@ -2203,6 +2307,11 @@ points:
     certainty: 🔵
     text: 感知到正確動作不等於能穩定執行；感知目標是教學語言，執行目標是技術原理——混淆兩者是蝶式教學最常見問題。
   practical_implication: 教學語言應從執行目標推導，確保感知目標指向正確的物理機制，避免誤導式口令。
+  cross_ref: 六個感知目標中點名的執行層條目：fly.tech.17（下巴向前）、fly.tech.12（外划）、fly.tech.20（手臂低位飛／空中恢復）
+  cross_ref_ids:
+  - fly.tech.17
+  - fly.tech.12
+  - fly.tech.20
 - id: fly.tech.29
   stroke: fly
   category: errors
@@ -2212,6 +2321,10 @@ points:
     certainty: 🔵
     text: 腰部彎曲是各部位獨立出力的「擺動」模式，無法形成正弦H1波的頭尾方向傳遞；胸部才是波動的發送端，腰部只是傳遞中介節點。
   practical_implication: 診斷時觀察動作起點在胸部還是腰部，不只看幅度大小。
+  cross_ref: fly.tech.3（波動 vs 上下擺動的根本區分）、fly.tech.26（胸部作為波動發送端）
+  cross_ref_ids:
+  - fly.tech.3
+  - fly.tech.26
 - id: fly.tech.30
   stroke: fly
   category: tempo
@@ -2245,6 +2358,10 @@ points:
     source_ids:
     - src.fernandes-2024
   practical_implication: 外划技術優化有最高的 IVV 改善潛力，是精英與非精英差距最大的單一環節。
+  cross_ref: fly.tech.12（外划相是主要變異來源）、fly.tech.20（Recovery 相）
+  cross_ref_ids:
+  - fly.tech.12
+  - fly.tech.20
 - id: fly.tech.32
   stroke: fly
   category: watersense
@@ -2298,6 +2415,13 @@ points:
     source_ids:
     - src.fernandes-2024
   practical_implication: 現代蝶式訓練日益依賴生物力學量化指標，訓練設計應整合 IVV 監控與時序量化工具。
+  cross_ref: 演進趨勢逐項對應：fly.tech.26（胸部起波）、fly.tech.7（第一踢時機）、fly.tech.12（外划幅度縮小）、fly.tech.25（Recovery 低位化與肩活動度）、fly.tech.31（IVV 監控）
+  cross_ref_ids:
+  - fly.tech.26
+  - fly.tech.7
+  - fly.tech.12
+  - fly.tech.25
+  - fly.tech.31
 - id: udk.tech.1
   stroke: udk
   category: concept
@@ -2349,6 +2473,9 @@ points:
     source_ids:
     - src.pla-2021
   practical_implication: 提升 UDK 絕對速度比延長水下距離更關鍵。
+  cross_ref: udk.tech.1（文中「水下確實是速度紅利區間」）
+  cross_ref_ids:
+  - udk.tech.1
 - id: udk.tech.4
   stroke: udk
   category: undulation
@@ -2568,6 +2695,9 @@ points:
     certainty: 🔵
     text: 柔韌性決定腳面對準水流的有效面積；力量決定蹠屈末端能否維持穩定而非「軟掉」；兩者相乘才能完整輸出推進力。
   practical_implication: 踝關節訓練需同時包含蹠屈柔韌性伸展和蹠屈肌群力量訓練，不可偏廢。
+  cross_ref: udk.tech.14（蹠屈柔韌性作為 UDK 速度硬體上限）
+  cross_ref_ids:
+  - udk.tech.14
 - id: udk.tech.17
   stroke: udk
   category: depth
@@ -2652,6 +2782,10 @@ points:
     certainty: 🔵
     text: 長水道長距離超時滑行以有氧系統為主（研究清楚）；短水道短距離極限水下為磷酸 + 無氧系統爆發。**這是基於通用代謝系統知識的推導**——短水道每 15-25m 一轉，水下推進佔總賽程比例極高（每次轉身可貢獻 7-10m 水下），密集無氧爆發累積，乳酸代謝曲線與長水道長距離本質不同。**目前仍是游泳運動科學的真實研究空白**——沒有同時量測短水道菁英選手連續水下段的乳酸動態研究發表。
   practical_implication: 短水道短距離極限水下策略目前缺乏高品質研究依據；不可直接套用長水道乳酸耐受訓練法；實務上以無氧能力訓練（短距重複 + 充分恢復）+ 水下技術效率優化為主，等實證研究出現再調整。
+  cross_ref: 本條界定適用邊界的兩個長水道結論：udk.tech.19（長水下距離的乳酸代價）、udk.tech.20（速度穩定性與乳酸清除）
+  cross_ref_ids:
+  - udk.tech.19
+  - udk.tech.20
 - id: udk.tech.22
   stroke: udk
   category: comparison
@@ -2676,6 +2810,11 @@ points:
     certainty: 🔵
     text: 自由式：中等距離視個人能力；仰式：可能較長（UDK 效率機制較優）；蝶式：可能較短（水下耗體力，出水划手恢復效益大）；蛙式：改為 pullout（規則限制）。
   practical_implication: 各泳式的水下距離策略需個別評估，不可一概而論。
+  cross_ref: 逐式點名：udk.tech.22（仰式 UDK 效率較優）、udk.tech.18（自由式視個人速度衰減曲線）、starts-turns.tech.35（蛙式改為 pullout）
+  cross_ref_ids:
+  - udk.tech.22
+  - udk.tech.18
+  - starts-turns.tech.35
 - id: udk.tech.24
   stroke: udk
   category: streamline
@@ -2708,6 +2847,9 @@ points:
     source_ids:
     - src.yourswimlog-monofin
   practical_implication: Monofin 是上踢訓練最有效的工具之一，可作為上踢弱點的診斷與訓練手段。
+  cross_ref: udk.tech.10（Monofin 暴露的正是上踢這個關鍵預測變數）
+  cross_ref_ids:
+  - udk.tech.10
 - id: udk.tech.26
   stroke: udk
   category: kick
@@ -2736,6 +2878,9 @@ points:
     - udk.tech.13
     text: 穩定節奏訓練能建立一致的踢腿週期，避免疲勞時節律崩潰；強迫超出個人最優踢頻只會降低效率。
   practical_implication: 使用節拍器時設定在選手當前自然踢頻附近，以節律穩定為目標，不設定超出能力的高頻率。
+  cross_ref: udk.tech.13（原 evidence_from：強迫提高踢頻不提升速度）
+  cross_ref_ids:
+  - udk.tech.13
 - id: udk.tech.28
   stroke: udk
   category: kick
@@ -3417,6 +3562,9 @@ points:
     - src.pmid-28975846
     url: https://pubmed.ncbi.nlm.nih.gov/28975846/
   practical_implication: 推廣使用仰式出發台；教學重點在優化起跳水平延伸，而非單純增加推力。
+  cross_ref: starts-turns.tech.12（出發台改善的入水距離即該條的最強預測因子）
+  cross_ref_ids:
+  - starts-turns.tech.12
 - id: starts-turns.tech.16
   stroke: starts-turns
   category: stroke-cycle
@@ -3626,6 +3774,9 @@ points:
     - src.born-2022-im
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC9157519/
   practical_implication: 蝶→背訓練重點：觸牆同時啟動縮腿（不停頓），快速收膝縮短旋轉半徑，全程閉氣。
+  cross_ref: starts-turns.tech.36（文中點名的三大效率損失：停頓、旋轉慢、換氣）
+  cross_ref_ids:
+  - starts-turns.tech.36
 - id: starts-turns.tech.29
   stroke: starts-turns
   category: stroke-cycle
@@ -3707,6 +3858,10 @@ points:
     source_ids:
     - src.frontiers-2021
   practical_implication: UDK 訓練重點在提升踢腿速度，而非追求更長的水下距離。
+  cross_ref: udk.tech.10（上踢是關鍵預測變數）、udk.tech.18（水下距離由速度衰減曲線決定，非越長越好）
+  cross_ref_ids:
+  - udk.tech.10
+  - udk.tech.18
 - id: starts-turns.tech.34
   stroke: starts-turns
   category: kick
@@ -3792,6 +3947,10 @@ points:
     - starts-turns.tech.3
     text: 股四頭肌力–長度關係因個人肌纖維比例與訓練歷程而異；最優預載角度因人而異，研究提供的範圍（100–120°）是群體均值，個人可能在範圍之外仍表現最佳。
   practical_implication: 教練應以雙邊邊界為指引，對個別選手進行膝蓋角度的計時優化，而非套用固定數字。
+  cross_ref: starts-turns.tech.21、starts-turns.tech.3（原 evidence_from：膝蓋角度的兩個承載條目）
+  cross_ref_ids:
+  - starts-turns.tech.21
+  - starts-turns.tech.3
 - id: starts-turns.tech.45
   stroke: starts-turns
   category: comparison
@@ -3801,6 +3960,11 @@ points:
     certainty: 🔵
     text: 起跳後身體速度從入水的 5–6 m/s 開始衰減，水下階段越短/越快、抵達 15m 越快。streamline 緊度與第一下海豚踢時機直接決定衰減曲線；任何 streamline 鬆掉的瞬間阻力暴增（速度平方）。對 S8/S9 等軀幹控制不全的選手，streamline 維持困難造成顯著速度損失，因此這類選手的起跳改善重點不是離台爆發力（無法輕易改善），而是水下姿勢（可大幅改善）。
   practical_implication: 起跳訓練優先序——水下姿勢與第一下海豚踢時機 >> 離台爆發力。對能力較有限的選手（含部分 Paralympic 級別），這個排序差異尤其關鍵。15m 計時應分段測（離台/入水/出水 15m），找出個別選手的衰減瓶頸。
+  cross_ref: starts-turns.tech.12（離台時間與飛行距離的舊預測因子）、starts-turns.tech.39（15m 分段量測指標不一致）、udk.tech.17（第一下海豚踢時機）
+  cross_ref_ids:
+  - starts-turns.tech.12
+  - starts-turns.tech.39
+  - udk.tech.17
 - id: starts-turns.tech.46
   stroke: starts-turns
   category: stroke-cycle
@@ -3826,3 +3990,7 @@ points:
     - src.pmc10813451
     url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10813451/
   practical_implication: 教練處方 SR/SL 前要先評估選手能延伸 stroke 的硬體上限。對軀幹控制不全或肩柔軟度有限的選手，與其追求「拉長划距」不如優化頻率；硬體允許延伸的選手才走划距路線。「Distance Per Stroke 越大越好」是某類選手才適用的部分真理。
+  cross_ref: free.tech.35（SR–SL 負相關與可訓練斜率）、free.tech.3（精英在高划頻下維持划距）
+  cross_ref_ids:
+  - free.tech.35
+  - free.tech.3
