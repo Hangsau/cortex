@@ -20,6 +20,9 @@ imt:
     development_stages:
     - t2c
     - t2w
+    related:
+    - breathing.framework.overview
+    - breathing.physiology.muscles
 co2_tolerance:
   id: breathing.training.co2_tolerance
   cert: 🔴
@@ -38,6 +41,9 @@ co2_tolerance:
     development_stages:
     - t2c
     - t2w
+    related:
+    - breathing.physiology.chemoreceptors
+    - breathing.safety.hypoxic_blackout
 buteyko:
   id: breathing.training.buteyko
   cert: 🟡
@@ -56,6 +62,8 @@ buteyko:
     development_stages:
     - t2t
     - t2c
+    related:
+    - breathing.physiology.chemoreceptors
 bolt_test:
   id: breathing.training.bolt_test
   cert: 🟢
@@ -89,3 +97,5 @@ self_tracking:
     - t2t
     - t2c
     - t2w
+    related:
+    - breathing.training.bolt_test

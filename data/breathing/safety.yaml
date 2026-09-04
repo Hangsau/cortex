@@ -18,6 +18,8 @@ hypoxic_blackout:
     - t2t
     - t2c
     - t2w
+    related:
+    - breathing.framework.overview
 hypocapnia_mechanism:
   id: breathing.safety.hypocapnia_mechanism
   cert: 🟢
@@ -37,3 +39,5 @@ hypocapnia_mechanism:
     - t2t
     - t2c
     - t2w
+    related:
+    - breathing.safety.hypoxic_blackout

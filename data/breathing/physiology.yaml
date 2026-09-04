@@ -60,6 +60,9 @@ chemoreceptors:
     - t2t
     - t2c
     - t2w
+    related:
+    - breathing.training.buteyko
+    - breathing.training.co2_tolerance
 autonomic_coupling:
   id: breathing.physiology.autonomic_coupling
   cert: 🟢
@@ -91,3 +94,6 @@ baroreflex_resonance:
     - t2t
     - t2c
     - t2w
+    related:
+    - breathing.physiology.neural_control
+    - breathing.regulation.resonance_breathing

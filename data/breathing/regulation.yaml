@@ -17,6 +17,12 @@ principle:
     - t2t
     - t2c
     - t2w
+    related:
+    - breathing.framework.boundaries
+    - breathing.physiology.autonomic_coupling
+    - breathing.physiology.baroreflex_resonance
+    - breathing.regulation.wim_hof
+    - breathing.safety.hypoxic_blackout
 physiological_sigh:
   id: breathing.regulation.physiological_sigh
   cert: 🟢
@@ -38,6 +44,11 @@ physiological_sigh:
     - t2t
     - t2c
     - t2w
+    related:
+    - breathing.physiology.neural_control
+    - breathing.regulation.principle
+    - breathing.regulation.wim_hof
+    - breathing.safety.hypoxic_blackout
 resonance_breathing:
   id: breathing.regulation.resonance_breathing
   cert: 🟡
@@ -58,6 +69,10 @@ resonance_breathing:
     - t2t
     - t2c
     - t2w
+    related:
+    - breathing.framework.grading
+    - breathing.physiology.neural_control
+    - breathing.physiology.baroreflex_resonance
 box_breathing:
   id: breathing.regulation.box_breathing
   cert: 🟡
@@ -74,6 +89,10 @@ box_breathing:
     - t2t
     - t2c
     - t2w
+    related:
+    - breathing.regulation.principle
+    - breathing.regulation.physiological_sigh
+    - breathing.training.buteyko
 wim_hof:
   id: breathing.regulation.wim_hof
   cert: 🟡
@@ -96,6 +115,10 @@ wim_hof:
     - t2t
     - t2c
     - t2w
+    related:
+    - breathing.physiology.chemoreceptors
+    - breathing.regulation.claims_gap
+    - breathing.safety.hypoxic_blackout
 claims_gap:
   id: breathing.regulation.claims_gap
   cert: 🔵
@@ -112,3 +135,5 @@ claims_gap:
     - t2t
     - t2c
     - t2w
+    related:
+    - breathing.regulation.principle
