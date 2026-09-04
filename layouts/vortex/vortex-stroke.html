@@ -229,7 +229,10 @@
           <summary><span class="vx-cardcat">{{ index $errCatName .category }}</span><span class="vx-cardtitle">{{ .title }}</span></summary>
           <div class="vx-card-body">
             {{ with .misconception }}<span class="vx-label">常見說法</span><p class="vx-mis">{{ partial "vortex/rich.html" . }}</p>{{ end }}
-            {{ with .physical_reason }}<span class="vx-label">物理原因 {{ .certainty }}</span><p>{{ partial "vortex/rich.html" .text }}</p>{{ end }}
+            {{/* 標題綁在 .text 上，不綁在區塊存在上：physical_reason 可能只有 certainty 與
+                 observation_basis（後者是維護者看的證據基礎，不對外輸出），那時印出
+                 「物理原因 🟠」加一個空段落，讀者會以為內容漏掉 */}}
+            {{ with .physical_reason }}{{ $c := .certainty }}{{ with .text }}<span class="vx-label">物理原因 {{ $c }}</span><p>{{ partial "vortex/rich.html" . }}</p>{{ end }}{{ end }}
             {{ with .correct_concept }}<span class="vx-label">正確觀念</span><div class="vx-correct">{{ partial "vortex/richblock.html" . }}</div>{{ end }}
             {{ with .perception_impact }}<span class="vx-label">感知影響</span><p>{{ partial "vortex/rich.html" . }}</p>{{ end }}
             {{ with .evidence }}<span class="vx-label">依據</span>{{ range . }}<span class="vx-cite">{{ .certainty }} {{ partial "vortex/rich.html" .text }}{{ with .source }} <span class="src">— {{ . }}</span>{{ end }}{{ with .url }} <a href="{{ . }}" target="_blank" rel="noopener">↗</a>{{ end }}</span>{{ end }}{{ end }}
@@ -256,7 +259,9 @@
         <details class="vx-card vx-tech" data-cat="{{ .category }}">
           <summary><span class="vx-cardcat">{{ index $techCatName .category }}</span>{{ with .also_strokes }}<span class="vx-cardcat vx-crossstroke">跨式通則</span>{{ end }}<span class="vx-cardtitle">{{ .title }}</span></summary>
           <div class="vx-card-body">
-            {{ with .summary }}<p>{{ partial "vortex/rich.html" . }}</p>{{ end }}
+            {{/* summary 用區塊版：多數是單句（輸出與舊的 <p> 版一模一樣），但像
+                 fly.tech.23 這種對比型條目的摘要本身就是四條並列，需要列點結構 */}}
+            {{ with .summary }}{{ partial "vortex/richblock.html" . }}{{ end }}
             {{ with .mechanism }}<span class="vx-label">機制 {{ .certainty }}</span>{{ partial "vortex/richblock.html" .text }}{{ end }}
             {{ with .practical_implication }}<span class="vx-label">實務意涵</span><div class="vx-correct">{{ partial "vortex/richblock.html" . }}</div>{{ end }}
             {{ with .evidence }}<span class="vx-label">依據</span>{{ range . }}<span class="vx-cite">{{ .certainty }} {{ partial "vortex/rich.html" .text }}{{ with .source }} <span class="src">— {{ . }}</span>{{ end }}{{ with .url }} <a href="{{ . }}" target="_blank" rel="noopener">↗</a>{{ end }}</span>{{ end }}{{ end }}

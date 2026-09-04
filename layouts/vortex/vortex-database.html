@@ -103,7 +103,9 @@
       <summary><span class="vx-cardcat">誤區 · {{ index $strokeZh .stroke }} · {{ index $errCatName .category }}</span><span class="vx-cardtitle">{{ .title }}</span></summary>
       <div class="vx-card-body">
         {{ with .misconception }}<span class="vx-label">常見說法</span><p class="vx-mis">{{ partial "vortex/rich.html" . }}</p>{{ end }}
-        {{ with .physical_reason }}<span class="vx-label">物理原因 {{ .certainty }}</span><p>{{ partial "vortex/rich.html" .text }}</p>{{ end }}
+        {{/* 同 vortex-stroke.html：標題綁 .text，避免 physical_reason 只有 certainty +
+             observation_basis 時印出空段落 */}}
+        {{ with .physical_reason }}{{ $c := .certainty }}{{ with .text }}<span class="vx-label">物理原因 {{ $c }}</span><p>{{ partial "vortex/rich.html" . }}</p>{{ end }}{{ end }}
         {{ with .correct_concept }}<span class="vx-label">正確觀念</span><div class="vx-correct">{{ partial "vortex/richblock.html" . }}</div>{{ end }}
         {{ with .perception_impact }}<span class="vx-label">感知影響</span><p>{{ partial "vortex/rich.html" . }}</p>{{ end }}
         {{ with .cross_ref }}<span class="vx-label">對應機制</span><p class="vx-xref">{{ . }}</p>{{ end }}
