@@ -13,8 +13,8 @@
 {{ $envZh := dict "pool" "泳池" "open_water" "開放水域" }}
 {{ $sportZh := dict "swim" "競泳／池訓" "open_water_swim" "開放水域游泳" }}
 {{ $gradeZh := dict "A" "A 級·隨機對照/系統綜述" "B" "B 級·世代研究" "C" "C 級·病例系列" "Expert" "專家共識" }}
-{{ $emerg := where $injuries "category" "D-systemic-acute" }}
-{{ $diving := where $injuries "id" "diving-cervical-injury" }}
+{{/* 緊急面板由 canonical 的 fatal_acute 旗標決定，不靠 category 加寫死 id 湊清單 */}}
+{{ $emerg := where $injuries "fatal_acute" true }}
 
 <div class="vx-stroke vx-shell">
 {{ partial "vortex/sidebar.html" (dict "ctx" . "current" "injuries") }}
@@ -127,17 +127,6 @@
             <span class="vx-emerg-card-go">完整處置 →</span>
           </a>
           {{ end }}
-          {{ range $diving }}
-          <a class="vx-emerg-card" href="#{{ .id }}">
-            <span class="vx-emerg-card-zh">{{ .zh }}</span>
-            {{ with .management }}{{ with .red_flags }}
-            <span class="vx-emerg-card-flags">
-              {{ range first 2 . }}<span class="vx-emerg-flag">▸ {{ . }}</span>{{ end }}
-            </span>
-            {{ end }}{{ end }}
-            <span class="vx-emerg-card-go">完整處置 →</span>
-          </a>
-          {{ end }}
         </div>
         <nav class="vx-flow"><a href="#overview"><span class="lbl">回到</span>← 傷害總覽</a></nav>
       </section>
@@ -166,10 +155,12 @@
         <span class="vx-block-label">機制</span>
         <div class="vx-howto">{{ .summary }}</div>
         <div class="vx-mech-meta">
+          {{ with .driver }}<span class="vx-mech-item"><b>嚴重程度取決於</b>{{ . }}</span>{{ end }}
           {{ with .trigger_phase }}<span class="vx-mech-item"><b>觸發時機</b>{{ . }}</span>{{ end }}
           {{ with .who }}<span class="vx-mech-item"><b>誰容易中</b>{{ . }}</span>{{ end }}
           {{ with $x.structures }}<span class="vx-mech-item"><b>受累結構</b>{{ range $si, $s := . }}{{ if $si }}、{{ end }}{{ $s }}{{ end }}</span>{{ end }}
         </div>
+        {{ with .swim_context }}<div class="vx-boundary"><span class="vx-label">放到游泳裡是什麼樣</span>{{ . }}</div>{{ end }}
         {{ end }}
 
         {{/* 流行病學 */}}
