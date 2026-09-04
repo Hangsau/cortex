@@ -326,7 +326,7 @@
                 {{ end }}
                 </tbody>
               </table>
-              <p class="vx-pz-warn">⚠ {{ .residual_caveat_zh }}</p>
+              <p class="vx-pz-warn">⚠ {{ partial "vortex/rich.html" .residual_caveat_zh }}</p>
               <p class="vx-pz-meta">板塊結構（一個完整序列構成一個訓練階段）：</p>
               <ul class="vx-pz-sub">
               {{ range .block_structure }}
@@ -586,7 +586,7 @@
               </span>
             </summary>
             <div class="vx-level-body">
-              <p class="vx-pz-warn">{{ .caveat_zh }}</p>
+              <p class="vx-pz-warn">{{ partial "vortex/rich.html" .caveat_zh }}</p>
               <table class="vx-pz-table">
                 <thead><tr><th>系統</th><th>主導時長</th><th>燃料</th><th>限制因子</th><th>恢復</th><th>主導距離</th></tr></thead>
                 <tbody>
@@ -621,7 +621,7 @@
                 {{ end }}
                 </tbody>
               </table>
-              <p class="vx-pz-warn">{{ .protocol_caveat_zh }}</p>
+              <p class="vx-pz-warn">{{ partial "vortex/rich.html" .protocol_caveat_zh }}</p>
               {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
               <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
             </div>
@@ -813,13 +813,13 @@
                 </tbody>
               </table>
               <p class="vx-pz-meta">{{ .key_numbers_zh }}</p>
-              <p class="vx-pz-meta">{{ .unit_caveat_zh }}</p>
+              <p class="vx-pz-meta">{{ partial "vortex/rich.html" .unit_caveat_zh }}</p>
               <p class="vx-pz-meta">{{ .avoid_middle_zh }}</p>
               <p class="vx-pz-meta">{{ .evidence_zh }}</p>
-              <p class="vx-pz-warn">{{ .causation_caveat_zh }}</p>
+              <p class="vx-pz-warn">{{ partial "vortex/rich.html" .causation_caveat_zh }}</p>
               <div class="vx-pz-swim">
                 <span class="vx-pz-swim-h">🟢 游泳實證挑戰</span>
-                <p>{{ .swim_caveat_zh }}</p>
+                <p>{{ partial "vortex/rich.html" .swim_caveat_zh }}</p>
               </div>
               <p class="vx-pz-author">{{ .author_note_zh }}</p>
               {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
@@ -848,7 +848,7 @@
                 <span class="vx-pz-swim-h">🟡 游泳特殊性</span>
                 <p>{{ .swim_note_zh }}</p>
               </div>
-              <p class="vx-pz-warn">{{ .caveat_zh }}</p>
+              <p class="vx-pz-warn">{{ partial "vortex/rich.html" .caveat_zh }}</p>
               <p class="vx-pz-author">{{ .author_note_zh }}</p>
               {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
               <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
@@ -876,7 +876,7 @@
               <div class="vx-pz-swim">
                 <span class="vx-pz-swim-h">🟢 依距離分流（González-Ravé 2021）</span>
                 {{ with .distance_split_zh }}<p>{{ . }}</p>{{ end }}
-                {{ with .distance_split_caveat_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+                {{ with .distance_split_caveat_zh }}<p class="vx-pz-plain">{{ partial "vortex/rich.html" . }}</p>{{ end }}
               </div>
               <p class="vx-pz-meta">{{ .sprinter_note_zh }}</p>
               {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
@@ -988,7 +988,7 @@
                 {{ end }}
                 </tbody>
               </table>
-              <p class="vx-pz-warn">{{ .caveat_zh }}</p>
+              <p class="vx-pz-warn">{{ partial "vortex/rich.html" .caveat_zh }}</p>
               {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
               <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
             </div>
@@ -1006,9 +1006,9 @@
               </span>
             </summary>
             <div class="vx-level-body">
-              <p>{{ .finding_zh }}</p>
-              <p class="vx-pz-focus">{{ .interpretation_zh }}</p>
-              <p class="vx-pz-warn">{{ .caveat_zh }}</p>
+              <p>{{ partial "vortex/rich.html" .finding_zh }}</p>
+              <p class="vx-pz-focus">{{ partial "vortex/rich.html" .interpretation_zh }}</p>
+              <p class="vx-pz-warn">{{ partial "vortex/rich.html" .caveat_zh }}</p>
               {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
               <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
             </div>
@@ -1090,10 +1090,10 @@
               </span>
             </summary>
             <div class="vx-level-body">
-              <p>{{ .age_zh }}</p>
-              <p>{{ .maturation_zh }}</p>
-              <p class="vx-pz-swim"><span class="vx-pz-swim-h">🟢 游泳專項處方</span>{{ .swim_specific_zh }}</p>
-              <p>{{ .tools_zh }}</p>
+              <p>{{ partial "vortex/rich.html" .age_zh }}</p>
+              <p>{{ partial "vortex/rich.html" .maturation_zh }}</p>
+              <p class="vx-pz-swim"><span class="vx-pz-swim-h">🟢 游泳專項處方</span>{{ partial "vortex/rich.html" .swim_specific_zh }}</p>
+              <p>{{ partial "vortex/rich.html" .tools_zh }}</p>
               <p class="vx-pz-warn">{{ .spectrum_gap_zh }}</p>
               {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
               <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>

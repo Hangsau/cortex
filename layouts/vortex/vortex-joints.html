@@ -97,11 +97,11 @@
           {{ if $x.also_strokes }}<span class="vx-jt-tag vx-jt-tag--cross">跨式通則</span>{{ end }}
         </div>
 
-        {{ with $x.summary }}<div class="vx-howto">{{ . }}</div>{{ end }}
+        {{ with $x.summary }}<div class="vx-howto">{{ partial "vortex/rich.html" . }}</div>{{ end }}
 
         {{ with $x.mechanism }}
         <span class="vx-block-label">解剖機制 {{ .certainty }}</span>
-        <div class="vx-howto">{{ .text }}</div>
+        <div class="vx-howto">{{ partial "vortex/rich.html" .text }}</div>
         {{ with .source_ids }}
         <p class="vx-cite"><span class="src">來源</span>
           {{ range $si, $sid := . }}{{ if $si }}；{{ end }}{{ $s := index $srcReg $sid }}{{ if $s }}{{ $s.display }}{{ with $s.link }} <a href="{{ . }}" target="_blank" rel="noopener">↗</a>{{ end }}{{ if eq $s.verification_status "unverified" }} <span class="vx-src-unverified">未查證</span>{{ end }}{{ else }}{{ $sid }}{{ end }}{{ end }}
@@ -111,12 +111,12 @@
 
         {{ with $x.practical_implication }}
         <span class="vx-block-label">教學上怎麼改</span>
-        <div class="vx-boundary">{{ . }}</div>
+        <div class="vx-boundary">{{ partial "vortex/rich.html" . }}</div>
         {{ end }}
 
         {{ with $x.evidence }}
         <span class="vx-block-label">依據</span>
-        {{ range . }}<span class="vx-cite">{{ .certainty }} {{ .text }}{{ with .source }} <span class="src">— {{ . }}</span>{{ end }}{{ with .url }} <a href="{{ . }}" target="_blank" rel="noopener">↗</a>{{ end }}</span>{{ end }}
+        {{ range . }}<span class="vx-cite">{{ .certainty }} {{ partial "vortex/rich.html" .text }}{{ with .source }} <span class="src">— {{ . }}</span>{{ end }}{{ with .url }} <a href="{{ . }}" target="_blank" rel="noopener">↗</a>{{ end }}</span>{{ end }}
         {{ end }}
 
         <nav class="vx-flow">

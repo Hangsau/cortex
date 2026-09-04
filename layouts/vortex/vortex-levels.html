@@ -87,7 +87,7 @@
               </span>
             </summary>
             <div class="vx-level-body">
-              {{ with .description }}<p>{{ . }}</p>{{ end }}
+              {{ with .description }}<p>{{ partial "vortex/rich.html" . }}</p>{{ end }}
 
               {{ with .methods }}
               <div class="vx-lvl-h">訓練方法</div>

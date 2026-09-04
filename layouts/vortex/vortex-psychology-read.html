@@ -90,13 +90,13 @@
             <summary>想深一點</summary>
             <div class="vx-read-morebody">
               {{ with $c.phenomenon }}{{ with .text }}
-              <div class="vx-read-moreblock"><span class="vx-read-morelabel">研究原文 {{ $c.phenomenon.certainty }}</span><p>{{ . }}</p></div>
+              <div class="vx-read-moreblock"><span class="vx-read-morelabel">研究原文 {{ $c.phenomenon.certainty }}</span><p>{{ partial "vortex/rich.html" . }}</p></div>
               {{ end }}{{ end }}
               {{ with $c.l_note }}
-              <div class="vx-read-moreblock"><span class="vx-read-morelabel">落在哪一段水感發展</span><p>{{ . }}</p></div>
+              <div class="vx-read-moreblock"><span class="vx-read-morelabel">落在哪一段水感發展</span><p>{{ partial "vortex/rich.html" . }}</p></div>
               {{ end }}
               {{ with $c.hardware_boundary }}
-              <div class="vx-read-moreblock"><span class="vx-read-morelabel">生理／證據邊界 {{ .certainty }}</span><p>{{ .text }}</p></div>
+              <div class="vx-read-moreblock"><span class="vx-read-morelabel">生理／證據邊界 {{ .certainty }}</span><p>{{ partial "vortex/rich.html" .text }}</p></div>
               {{ end }}
               {{ with $c.misconception_refs }}
               <div class="vx-read-moreblock"><span class="vx-read-morelabel">教學誤區校正</span>

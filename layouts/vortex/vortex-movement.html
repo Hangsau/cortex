@@ -262,7 +262,7 @@
             <h2>{{ $title }}</h2>
             {{ template "vortex-movement-honesty" (dict "item" $x "claimStatusZh" $claimStatusZh "actionStatusZh" $actionStatusZh "evidenceProfileZh" $evidenceProfileZh) }}
 
-            {{ with $x.description }}<p class="vx-howto">{{ . }}</p>{{ end }}
+            {{ with $x.description }}<p class="vx-howto">{{ partial "vortex/rich.html" . }}</p>{{ end }}
             {{ with $x.definition }}<span class="vx-block-label">動作定義</span><div class="vx-howto">{{ . }}</div>{{ end }}
 
             {{ if or $x.plane $x.axis }}
@@ -319,7 +319,7 @@
             <h2>{{ $title }}</h2>
             {{ template "vortex-movement-honesty" (dict "item" $x "claimStatusZh" $claimStatusZh "actionStatusZh" $actionStatusZh "evidenceProfileZh" $evidenceProfileZh) }}
 
-            {{ with $x.description }}<p class="vx-howto">{{ . }}</p>{{ end }}
+            {{ with $x.description }}<p class="vx-howto">{{ partial "vortex/rich.html" . }}</p>{{ end }}
             {{ with $x.cross_joint_characteristics }}<span class="vx-block-label">跨關節特性</span><div class="vx-howto">{{ . }}</div>{{ end }}
             {{ with $x.general_capabilities }}<span class="vx-block-label">一般能力</span><div class="vx-howto">{{ . }}</div>{{ end }}
 
@@ -374,7 +374,7 @@
             {{ end }}
 
             {{ template "vortex-movement-honesty" (dict "item" $x "claimStatusZh" $claimStatusZh "actionStatusZh" $actionStatusZh "evidenceProfileZh" $evidenceProfileZh) }}
-            {{ with $x.description }}<p class="vx-howto">{{ . }}</p>{{ end }}
+            {{ with $x.description }}<p class="vx-howto">{{ partial "vortex/rich.html" . }}</p>{{ end }}
 
             {{ if or $x.body_position $x.action_reference_frame }}
             <dl class="vx-mv-facts">
@@ -405,10 +405,10 @@
               <div class="vx-mv-mc{{ if $mi }} vx-mv-mc--next{{ end }}">
                 {{ with $mc.endpoint }}{{ $epLabel := index $endpointZh . }}{{ if not $epLabel }}{{ $epLabel = . }}{{ end }}<span class="vx-mv-mc-endpoint">量到的終點：{{ $epLabel }}</span>{{ end }}
                 <dl class="vx-mv-mc-facts">
-                  {{ with $mc.quantity }}<div><dt>量的是什麼</dt><dd>{{ chomp . }}</dd></div>{{ end }}
-                  {{ with $mc.value }}<div><dt>量到多少</dt><dd>{{ chomp . }}</dd></div>{{ end }}
-                  {{ with $mc.conditions }}<div><dt>在什麼條件下量的</dt><dd>{{ chomp . }}</dd></div>{{ end }}
-                  {{ with $mc.extrapolation_boundary }}<div><dt>能推到哪、不能推到哪</dt><dd>{{ chomp . }}</dd></div>{{ end }}
+                  {{ with $mc.quantity }}<div><dt>量的是什麼</dt><dd>{{ partial "vortex/rich.html" (chomp .) }}</dd></div>{{ end }}
+                  {{ with $mc.value }}<div><dt>量到多少</dt><dd>{{ partial "vortex/rich.html" (chomp .) }}</dd></div>{{ end }}
+                  {{ with $mc.conditions }}<div><dt>在什麼條件下量的</dt><dd>{{ partial "vortex/rich.html" (chomp .) }}</dd></div>{{ end }}
+                  {{ with $mc.extrapolation_boundary }}<div><dt>能推到哪、不能推到哪</dt><dd>{{ partial "vortex/rich.html" (chomp .) }}</dd></div>{{ end }}
                 </dl>
                 {{ with $mc.source_id }}{{ template "vortex-movement-source-line" (dict "ids" (slice .) "registry" $srcReg "label" "此數據來源") }}{{ end }}
               </div>
@@ -448,7 +448,7 @@
           {{ with $x.mobility_decision }}{{ $decisionLabel := index $mobilityDecisionZh . }}{{ if not $decisionLabel }}{{ $decisionLabel = . }}{{ end }}<div class="vx-mv-mobility">活動度處置：<strong>{{ $decisionLabel }}</strong></div>{{ end }}
           {{ template "vortex-movement-honesty" (dict "item" $x "claimStatusZh" $claimStatusZh "actionStatusZh" $actionStatusZh "evidenceProfileZh" $evidenceProfileZh) }}
 
-          {{ with $x.description }}<p class="vx-howto">{{ . }}</p>{{ end }}
+          {{ with $x.description }}<p class="vx-howto">{{ partial "vortex/rich.html" . }}</p>{{ end }}
           {{ with $x.limitation_type }}<span class="vx-block-label">這條在處理哪一種限制</span><div class="vx-howto">{{ . }}</div>{{ end }}
 
           {{ if or $x.works_when_summary $x.fails_when_summary }}

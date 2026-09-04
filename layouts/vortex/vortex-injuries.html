@@ -153,29 +153,29 @@
         {{/* 機制 */}}
         {{ with $x.mechanism }}
         <span class="vx-block-label">機制</span>
-        <div class="vx-howto">{{ .summary }}</div>
+        <div class="vx-howto">{{ partial "vortex/rich.html" .summary }}</div>
         <div class="vx-mech-meta">
-          {{ with .driver }}<span class="vx-mech-item"><b>嚴重程度取決於</b>{{ . }}</span>{{ end }}
-          {{ with .trigger_phase }}<span class="vx-mech-item"><b>觸發時機</b>{{ . }}</span>{{ end }}
+          {{ with .driver }}<span class="vx-mech-item"><b>嚴重程度取決於</b>{{ partial "vortex/rich.html" . }}</span>{{ end }}
+          {{ with .trigger_phase }}<span class="vx-mech-item"><b>觸發時機</b>{{ partial "vortex/rich.html" . }}</span>{{ end }}
           {{ with .who }}<span class="vx-mech-item"><b>誰容易中</b>{{ . }}</span>{{ end }}
           {{ with $x.structures }}<span class="vx-mech-item"><b>受累結構</b>{{ range $si, $s := . }}{{ if $si }}、{{ end }}{{ $s }}{{ end }}</span>{{ end }}
         </div>
-        {{ with .swim_context }}<div class="vx-boundary"><span class="vx-label">放到游泳裡是什麼樣</span>{{ . }}</div>{{ end }}
+        {{ with .swim_context }}<div class="vx-boundary"><span class="vx-label">放到游泳裡是什麼樣</span>{{ partial "vortex/rich.html" . }}</div>{{ end }}
         {{ end }}
 
         {{/* 流行病學 */}}
         {{ with $x.epidemiology }}
         <span class="vx-block-label">流行病學 {{ .certainty }}{{ with .evidence_grade }} <span class="vx-grade vx-grade--{{ . }}" title="{{ index $gradeZh . | default . }}">{{ . }}</span>{{ end }}</span>
-        <div class="vx-howto">{{ .prevalence }}</div>
-        {{ with .caveat }}<div class="vx-boundary"><span class="vx-label">解讀注意</span>{{ . }}</div>{{ end }}
-        {{ with .sources }}<p class="vx-cite">{{ range $si, $s := . }}{{ if $si }}　{{ end }}<span class="src">{{ $s }}</span>{{ end }}</p>{{ end }}
+        <div class="vx-howto">{{ partial "vortex/rich.html" .prevalence }}</div>
+        {{ with .caveat }}<div class="vx-boundary"><span class="vx-label">解讀注意</span>{{ partial "vortex/rich.html" . }}</div>{{ end }}
+        {{ with .sources }}<p class="vx-cite">{{ range $si, $s := . }}{{ if $si }}　{{ end }}<span class="src">{{ partial "vortex/rich.html" $s }}</span>{{ end }}</p>{{ end }}
         {{ end }}
 
         {{/* 危險因子 */}}
         {{ with $x.risk_factors }}
         <span class="vx-block-label">危險因子</span>
         <ul class="vx-factor-list">
-          {{ range . }}<li><span class="vx-factor-txt">{{ .text }}</span>{{ with .grade }}<span class="vx-grade vx-grade--{{ . }}" title="{{ index $gradeZh . | default . }}">{{ . }}</span>{{ end }}</li>{{ end }}
+          {{ range . }}<li><span class="vx-factor-txt">{{ partial "vortex/rich.html" .text }}</span>{{ with .grade }}<span class="vx-grade vx-grade--{{ . }}" title="{{ index $gradeZh . | default . }}">{{ . }}</span>{{ end }}</li>{{ end }}
         </ul>
         {{ end }}
 
@@ -183,7 +183,7 @@
         {{ with $x.prevention }}
         <span class="vx-block-label">預防</span>
         <ul class="vx-factor-list vx-factor-list--prevent">
-          {{ range . }}<li><span class="vx-factor-txt">{{ .text }}</span>{{ with .grade }}<span class="vx-grade vx-grade--{{ . }}" title="{{ index $gradeZh . | default . }}">{{ . }}</span>{{ end }}</li>{{ end }}
+          {{ range . }}<li><span class="vx-factor-txt">{{ partial "vortex/rich.html" .text }}</span>{{ with .grade }}<span class="vx-grade vx-grade--{{ . }}" title="{{ index $gradeZh . | default . }}">{{ . }}</span>{{ end }}</li>{{ end }}
         </ul>
         {{ end }}
 
@@ -197,14 +197,14 @@
         </div>
         {{ end }}
         <div class="vx-mgmt-grid">
-          {{ with .acute }}<div class="vx-mgmt-item"><b>急性期</b>{{ . }}</div>{{ end }}
+          {{ with .acute }}<div class="vx-mgmt-item"><b>急性期</b>{{ partial "vortex/rich.html" . }}</div>{{ end }}
           {{ with .pain_rules }}<div class="vx-mgmt-item"><b>疼痛守則</b>{{ . }}</div>{{ end }}
           {{ with .rehab }}<div class="vx-mgmt-item"><b>復健</b>{{ . }}</div>{{ end }}
           {{ with .swim_modifications_in_rehab }}<div class="vx-mgmt-item"><b>復健期游泳調整</b><ul class="vx-mini">{{ range . }}<li>{{ . }}</li>{{ end }}</ul></div>{{ end }}
           {{ with .functional_progression_criteria }}<div class="vx-mgmt-item"><b>進階判準</b><ul class="vx-mini">{{ range . }}<li>{{ . }}</li>{{ end }}</ul></div>{{ end }}
           {{ with .return_to_train }}<div class="vx-mgmt-item"><b>回到訓練</b>{{ . }}</div>{{ end }}
           {{ with .return_to_compete }}<div class="vx-mgmt-item"><b>回到比賽</b>{{ . }}</div>{{ end }}
-          {{ with .prognosis }}<div class="vx-mgmt-item"><b>預後</b>{{ . }}</div>{{ end }}
+          {{ with .prognosis }}<div class="vx-mgmt-item"><b>預後</b>{{ partial "vortex/rich.html" . }}</div>{{ end }}
         </div>
         {{ end }}
 
@@ -240,7 +240,7 @@
         <div class="vx-contested">
           <div class="vx-contested-claim">{{ .claim }}</div>
           <div class="vx-contested-row"><span class="vx-contested-tag vx-contested-tag--con">主流看法</span>{{ .consensus_source }}</div>
-          <div class="vx-contested-row"><span class="vx-contested-tag vx-contested-tag--dis">不同意見</span>{{ .dissent_source }}</div>
+          <div class="vx-contested-row"><span class="vx-contested-tag vx-contested-tag--dis">不同意見</span>{{ partial "vortex/rich.html" .dissent_source }}</div>
         </div>
         {{ end }}
         {{ end }}

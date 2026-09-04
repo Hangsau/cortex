@@ -1,0 +1,8 @@
+{{- /* canonical 散文只用 **粗體** 一種標記。先 htmlEscape 再換，所以 "< 20 ng/mL"
+       這種內容不會被當標籤，也不會有注入路徑；其餘 markdown 語法一律保持字面
+       （這些欄位不是 markdown 文件，不該被當成 markdown 解析）。
+       不用 markdownify 還有一個理由：Goldmark 對 CJK 的 ** 閉合，在右側前一字是
+       全形標點時判定失敗，會把 ** 原樣印出來——這正是要修的那個 bug。 */ -}}
+{{- $s := . | htmlEscape -}}
+{{- $s = $s | replaceRE `\*\*([^*\n]+?)\*\*` "<strong>$1</strong>" -}}
+{{- $s | safeHTML -}}
