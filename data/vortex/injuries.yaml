@@ -1151,7 +1151,7 @@ injuries:
   prevention:
   - text: 技術:縮小踢腿幅度、窄鞭踢
     grade: B
-  - text: Copenhagen 內收肌離心訓練(顯著提升肌力)
+  - text: Copenhagen 內收肌離心訓練(顯著提升肌力；唯一的預防試驗做在男性足球員身上——賽季腹股溝問題盛行率 13.5% vs 對照 21.3%、風險低 41%，泳者無同級證據)
     grade: B
   - text: 充足熱身 ≥900 m
     grade: B
@@ -1197,14 +1197,21 @@ injuries:
     verified: false
     source_ids:
     - src.grote-2004
-  - citation: Adductor strengthening / load management (Coast Sport)
-    certainty: 🟠
+  - citation: 'Thorborg K. (2023). Current Clinical Concepts: Exercise and Load Management of Adductor Strains, Adductor Ruptures, and Long-Standing Adductor-Related Groin Pain. J Athl Train 58(7-8):589-601. PMID 35834724 / PMC10569248（2026-09-04 取代原「Adductor strengthening / load management (Coast Sport)」——後者為診所網頁、無 URL 無作者無年份、不可重取）'
+    certainty: 🟢
     verified: true
+    source_ids:
+    - src.thorborg-2023-adductor-exercise-load-management
+  - citation: 'Harøy J, Clarsen B, Wiger EG, et al. (2019). The Adductor Strengthening Programme prevents groin problems among male football players: a cluster-randomised controlled trial. Br J Sports Med 53(3):150-157. PMID 29891614（族群為男性足球員，非泳者；終點為 OSTRC 自述問題盛行率，非失訓傷害發生率）'
+    certainty: 🟢
+    verified: true
+    source_ids:
+    - src.haroy-2019-adductor-strengthening-programme
   flags:
     contested:
     - claim: Copenhagen 是否足以預防蛙泳者傷害
       consensus_source: Copenhagen 顯著提升內收肌力
-      dissent_source: 季節性傷害預防統計不顯著，依從性為關鍵(PMC12363431 2025 摘要)
+      dissent_source: 季節性傷害預防統計不顯著，依從性為關鍵(PMC12363431 2025 摘要)。且唯一的高品質預防試驗(Harøy 2019, PMID 29891614)族群為男性足球員、終點為自述問題盛行率而非失訓傷害，蛙泳的水中閉鏈內收肌負荷型態與足球差異大，不得直接外推
     vintage_warning: true
 - id: spondylolysis
   zh: 椎弓解離/脊椎滑脫
@@ -1405,9 +1412,11 @@ injuries:
     verified: true
     source_ids:
     - src.trikha-2022-collegiate-swimmer-health-events
-  - citation: 'Vasiliadis AV, et al. (2018). Stress fractures in swimmers: systematic review. Int J Kinesiol Sports Sci 6(3):25-31（主題為肋骨，非踝足；僅作對照）'
+  - citation: 'Vasiliadis AV, Lampridis V, Georgiannos D, Bisbinas I. (2018). Swimmers Are At Risk For Stress Fractures? A Systematic Review. Int J Kinesiol Sports Sci 6(3):25-31（主題為肋骨，非踝足；僅作對照。2026-09-04 更正標題：原寫「Stress fractures in swimmers: systematic review」為改寫非原題）'
     certainty: 🟡
     verified: true
+    source_ids:
+    - src.stress-fractures-in-swimmers-systematic-revi
   flags:
     contested:
     - claim: 游泳是否『保護』踝足
@@ -2741,9 +2750,11 @@ injuries:
     perception_link: 可接 L0 呼吸感知層作為水安全教育素材(非技術介入)
     perception_link_ids: []
   references:
-  - citation: WHO 2024-12-13『Drowning deaths decline globally but the most vulnerable remain at risk』新聞稿
+  - citation: World Health Organization. (2024-12-13). Drowning deaths decline globally, but the most vulnerable remain at risk [news release]. 隨《Global status report on drowning prevention 2024》發布（2026-09-04 補全標題逗號與副標）
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.who-2024-12-13-drowning-deaths-decline-globa-2024
   - citation: Global burden of drowning 204 countries 1990-2021, Sci Rep 2025, PMC11954903
     certainty: 🟢
     verified: true
@@ -3083,7 +3094,7 @@ injuries:
     - 水下泳者靜止不動/沉底/吐氣泡停止 → 立即視為昏迷，馬上下水拉出
     - 拉出後無反應/無正常呼吸 → 立即啟動 EMS + CPR(先給呼吸/通氣，溺水復甦以通氣優先)
     - 曾水下短暫失神但自行恢復 → 仍須就醫評估，勿當沒事繼續下水
-    acute: 離水→評估反應與呼吸→無呼吸即 CPR（溺水演算法：先 5 次人工呼吸再胸外按壓）→呼叫 EMS；恢復後仍須送醫觀察續發性溺水/吸入
+    acute: 離水→評估反應與呼吸→無呼吸即 CPR，溺水復甦採先通氣的 ABC 順序而非一般心停的 CAB：受訓者先給 2 次人工呼吸再進入 30:2 循環（AHA／AAP 2024）；未受訓或不願施行人工呼吸者，僅做胸外按壓仍優於不做→呼叫 EMS；恢復後仍須送醫觀察續發性溺水/吸入。**注意「先 5 次人工呼吸」是歐洲復甦委員會（ERC）的做法，不是 AHA 的數字，兩者不可互相冒名（2026-09-04 更正）**
     pain_rules: null
     rehab: null
     functional_progression_criteria: null
@@ -3118,11 +3129,16 @@ injuries:
     verified: true
     source_ids:
     - src.lippmann-2023-australia-breathhold-fatalities
-  - citation: ILCOR/AHA 溺水復甦演算法（通氣優先），具體版本待查
-    certainty: 🔴
-    verified: false
+  - citation: 'Dezfulian C, McCallin TE, Bierens J, et al. (2024). 2024 American Heart Association and American Academy of Pediatrics Focused Update on Special Circumstances: Resuscitation Following Drowning. Circulation 150(23):e501-e516. PMID 39530204 / doi:10.1161/CIR.0000000000001274（2026-09-04 定版：原登錄為「ILCOR/AHA 溺水復甦演算法，具體版本待查」，現指向 AHA／AAP 2024 聚焦更新，其證據基礎為 ILCOR 2021–2023 系統性回顧）'
+    certainty: 🟢
+    verified: true
+    source_ids:
+    - src.dezfulian-2024
   flags:
     contested:
+    - claim: 溺水 CPR 起始人工呼吸次數
+      consensus_source: 兩大復甦機構一致同意溺水復甦以通氣優先、CPR 須含人工呼吸而非僅胸外按壓（AHA／AAP 2024；證據基礎為 ILCOR 2021–2023 系統性回顧）
+      dissent_source: 起始次數不同：AHA 為 2 次人工呼吸接 30:2；ERC 為 5 次起始人工呼吸（理由是先克服水造成的呼吸道阻塞）。本檔原將 ERC 的 5 次寫成 ILCOR/AHA 的建議，2026-09-04 更正
     - claim: 潛前過度換氣是否為唯一/主要機制
       consensus_source: 主流安全衛教共識：過度換氣去除 CO₂ 警訊是核心可預防因子
       dissent_source: 部分案例無明確過度換氣史，提示重複閉氣的累積缺氧亦可獨立致病
@@ -3422,9 +3438,11 @@ injuries:
     technical_link: null
     perception_link: null
   references:
-  - citation: Female athlete triad prevalence in swimmers, JWSM systematic review
+  - citation: 'Buchanan BK, Bergstein VE, Rothschild EF, Coslick A. (2025). The Female Athlete Triad in Swimmers: a Review of Current Literature. J Womens Sports Med 5(1):30-38. doi:10.53646/ahq2qs39（2026-09-04 更正：原寫「JWSM systematic review」為改寫，原題為 a Review of Current Literature；結論「約 4/10 女性泳者具三聯症風險」是 17 篇異質研究的綜整估計，不是單一族群盛行率）'
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.buchanan-2025-female-athlete-triad-swimmers
   - citation: 'De Souza MJ, Williams NI, Nattiv A, et al. (2014). Misunderstanding the female athlete triad: refuting the IOC consensus statement on Relative Energy Deficiency in Sport (RED-S). Br J Sports Med 48(20):1461-5. PMID 25037200（立場論戰文，非原始研究；作者共 34 人）'
     certainty: 🟡
     verified: true
@@ -3770,9 +3788,11 @@ injuries:
     technical_link: null
     perception_link: null
   references:
-  - citation: Stress fractures in swimmers (systematic review), IJKSS
+  - citation: Vasiliadis AV, Lampridis V, Georgiannos D, Bisbinas I. (2018). Swimmers Are At Risk For Stress Fractures? A Systematic Review. Int J Kinesiol Sports Sci 6(3):25-31
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.stress-fractures-in-swimmers-systematic-revi
   - citation: RED-S and bone stress injury, PMC9724109
     certainty: 🟢
     verified: true
@@ -3933,7 +3953,7 @@ injuries:
   - text: 缺乏正式出發台訓練(競賽情境入水角度過陡)
     grade: Expert
   prevention:
-  - text: 禁止在水深 <1.35m(競賽出發)/<2.74m(一般跳水，美紅十字)水域頭朝下入水
+  - text: 禁止在水深 <1.35m(競賽出發，World Aquatics)/<1.8m(教學跳水，另需前方淨空 7.6m)/<2.74m(一般跳水，美紅十字)水域頭朝下入水——三個門檻對應三種情境，不可互相代換
     grade: A
   - text: 陌生水域一律腳先入水
     grade: A
@@ -3999,9 +4019,11 @@ injuries:
     verified: true
     source_ids:
     - src.ull-2021
-  - citation: World Aquatics 1.35m diving depth rule(STA technical notice 2023)
+  - citation: Safety Training Awards (STA). (2023-03-13). STA Technical Notice Regarding World Aquatics and Change to Diving Depth Rules（競賽出發台最小水深由 0.9 m 提高至 1.35 m，自端牆 1 m 延伸至至少 6 m；教學跳水另為 1.8 m 且前方淨空 7.6 m。屬 STA 對 World Aquatics 規則變更的技術通告，非場館規則原文）
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.sta-2023-world-aquatics-diving-depth
   flags:
     contested:
     - claim: 各組織最低水深標準不一致
@@ -4269,16 +4291,16 @@ injuries:
   - 肘
   - 皮膚軟組織
   mechanism:
-    summary: 池畔濕磁磚/混凝土摩擦係數驟降——ANSI/NFSI B101.1 把**濕態**靜摩擦係數（wet SCOF）分三級：≥ 0.60 高抓地力、0.40–0.60 中等、< 0.40 低抓地力；泳池濕區常落在低抓地力級距，赤足+水膜形成近似潤滑層。失去抓地→滑倒。跌倒生物力學分兩型：向後/側滑頭枕部直接撞硬面（腦震盪/顱內出血）；伸手保護性跌倒（FOOSH）力沿前臂傳致橈骨遠端骨折（Colles），或側髖著地致股骨頸骨折（高齡）。奔跑/嬉戲放大速度與衝量。
+    summary: 池畔濕磁磚/混凝土摩擦係數驟降——NFSI B101.1 把**濕態**靜摩擦係數（wet SCOF）分三級：≥ 0.60 高抓地力、0.40–0.59 中等、< 0.40 低抓地力；泳池濕區常落在低抓地力級距，赤足+水膜形成近似潤滑層。失去抓地→滑倒。跌倒生物力學分兩型：向後/側滑頭枕部直接撞硬面（腦震盪/顱內出血）；伸手保護性跌倒（FOOSH）力沿前臂傳致橈骨遠端骨折（Colles），或側髖著地致股骨頸骨折（高齡）。奔跑/嬉戲放大速度與衝量。
     trigger_phase: 出入水梯、起跳台周邊、淋浴更衣濕區、嬉戲奔跑、提重物失衡
     who: 兒童（奔跑嬉戲）、高齡泳者（平衡/骨密度↓）、視覺受限（泳鏡起霧/摘鏡）、地面排水不良場館
   epidemiology:
     prevalence: 池畔滑倒本身**沒有可引用的發生率數字**——原寫的『美國每年約 35 萬件泳池傷害、60% 為滑倒』是二手引用、原始登記查不到，維持不進任何層。可引用的是跌倒**後果**：台灣 ≥60 歲髖骨折住院者年死亡率 1999 年 18.10% → 2009 年 13.98%（健保資料庫 n=143,595）；台灣髖骨折術後族群整體一年死亡率 16.8%（n=5,442，已排除住院中死亡者）；亞太區系統回顧的一年死亡率自新加坡 10.8% 至紐西蘭 23.8%（142 研究 / 1,139,752 人）。以上皆為一般高齡族群，非游泳專屬。
     certainty: 🟡
     evidence_grade: B
-    caveat: '**2026-08-17 來源健檢結果，兩處更正**： ① 原寫「高齡髖骨折後一年死亡率 20–30%」，其唯一引用 `src.falls-and-hip-fracture-mortality-pmid` 的顯示字串 本身就寫著「待補具體 PMID」——那是佔位字串，不是文獻。改查真實文獻後發現該數字**對本專案讀者族群偏高約 1.5–2 倍**： 台灣兩份健保資料庫研究給出 13.98–18.10%（粗年死亡率）與 16.8%（術後一年）， 亞太區統合分析則顯示亞洲約為澳紐的一半。20–30% 大致是澳紐等西方族群的上緣。已改寫為分地區、附樣本數的敘述。 ② 原寫「乾混凝土靜摩擦約 0.6（ASTM 建議濕地最低標）」屬張冠李戴——ASTM F2508 規範的是 **步道摩擦計如何校驗**，從未訂定任何摩擦係數門檻；0.60／0.40 的分級出自 **ANSI/NFSI B101.1** 且全是**濕態**值， 不能用來描述乾混凝土。已改為正確歸屬與正確的濕態語意。 餘下限制不變：池畔滑倒缺乏獨立流病登記，多併入一般跌倒或泳池傷害統計；摩擦係數依材質／清潔／量測法差異大。'
+    caveat: '**2026-08-17 來源健檢結果，兩處更正**： ① 原寫「高齡髖骨折後一年死亡率 20–30%」，其唯一引用 `src.falls-and-hip-fracture-mortality-pmid` 的顯示字串 本身就寫著「待補具體 PMID」——那是佔位字串，不是文獻。改查真實文獻後發現該數字**對本專案讀者族群偏高約 1.5–2 倍**： 台灣兩份健保資料庫研究給出 13.98–18.10%（粗年死亡率）與 16.8%（術後一年）， 亞太區統合分析則顯示亞洲約為澳紐的一半。20–30% 大致是澳紐等西方族群的上緣。已改寫為分地區、附樣本數的敘述。 ② 原寫「乾混凝土靜摩擦約 0.6（ASTM 建議濕地最低標）」屬張冠李戴——ASTM F2508 規範的是 **步道摩擦計如何校驗**，從未訂定任何摩擦係數門檻；0.60／0.40 的分級出自 **NFSI B101.1** 且全是**濕態**值， 不能用來描述乾混凝土。已改為正確歸屬與正確的濕態語意。 **2026-09-04 第三處更正**：本檔原全篇寫「ANSI/NFSI B101.1」並記為「2009 初版 / 2022 改版」，兩者皆誤。 NFSI 於 2006–2019 年間為 ANSI 認證的標準制定組織，**2020 年終止與 ANSI 的關係轉為獨立 SDO**， 故 2020 版起 designation 是「NFSI B101.1」而非「ANSI/NFSI B101.1」，現行 2022 版**已不是美國國家標準**， 援引時不得借用 ANSI 的權威層級；標題亦在改版時由 Common Hard-Surface Floor **Materials** 改為 Hard-Surface **Walkways**； 沿革實為 2009 → 2020 → 2022 三版。門檻值本身經覆核在 2022 版未變（中等級距原文為 0.40–0.59）。 餘下限制不變：池畔滑倒缺乏獨立流病登記，多併入一般跌倒或泳池傷害統計；摩擦係數依材質／清潔／量測法差異大。'
     sources:
-    - ANSI/NFSI B101.1（2009 初版 / 2022 改版）Test Method for Measuring Wet SCOF of Common Hard-Surface Floor Materials——濕態 SCOF 分級門檻的正確出處
+    - NFSI B101.1-2022 Test Method for Measuring the Wet SCOF of Hard-Surface Walkways（沿革 2009 ANSI/NFSI 初版 → 2020 → 2022）——濕態 SCOF 分級門檻的正確出處
     - ASTM F2508-23 Standard Practice for Validation of Walkway Tribometry Using Research-based Reference Materials——**摩擦計校驗規範，不含門檻值**
     - Wang CB, et al. (2013). Excess mortality after hip fracture among the elderly in Taiwan. Bone 56(1):147–153. PMID 23727435
     - 'Lee TC, et al. (2017). One-Year Readmission Risk and Mortality after Hip Fracture Surgery: A National Population-Based Study in Taiwan. Aging Dis 8(4):402–409. PMID 28840055'
@@ -4290,7 +4312,7 @@ injuries:
     - src.lee-2017-taiwan-hip-fracture-1yr-mortality
     - src.harvey-2024-asia-pacific-hip-fracture-mortality
   risk_factors:
-  - text: 濕滑硬質地面（濕態 SCOF < 0.40，ANSI/NFSI B101.1 低抓地力級距）
+  - text: 濕滑硬質地面（濕態 SCOF < 0.40，NFSI B101.1 低抓地力級距）
     grade: A
   - text: 赤足+水膜
     grade: B
@@ -4343,12 +4365,16 @@ injuries:
     technical_link: null
     perception_link: null
   references:
-  - citation: ANSI/NFSI B101.1 Test Method for Measuring Wet SCOF of Common Hard-Surface Floor Materials（濕態 SCOF ≥0.60 / 0.40–0.60 / <0.40 三級）
+  - citation: NFSI B101.1-2022 Test Method for Measuring the Wet SCOF of Hard-Surface Walkways（濕態 SCOF ≥0.60 高／0.40–0.59 中／<0.40 低三級。2026-09-04 更正：現行版非 ANSI 標準，NFSI 已於 2020 年脫離 ANSI；標題與沿革均已修正）
     certainty: 🟡
     verified: true
+    source_ids:
+    - src.ansi-nfsi-b101-1
   - citation: ASTM F2508-23 Standard Practice for Validation of Walkway Tribometry Using Research-based Reference Materials（校驗規範，不含門檻值）
     certainty: 🟡
     verified: true
+    source_ids:
+    - src.astm-f2508
   - citation: 'Wang CB, et al. (2013). Excess mortality after hip fracture among the elderly in Taiwan: a nationwide population-based cohort study. Bone 56(1):147–153. PMID 23727435'
     certainty: 🟡
     verified: true
