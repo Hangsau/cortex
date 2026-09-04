@@ -230,7 +230,7 @@
           <div class="vx-card-body">
             {{ with .misconception }}<span class="vx-label">常見說法</span><p class="vx-mis">{{ partial "vortex/rich.html" . }}</p>{{ end }}
             {{ with .physical_reason }}<span class="vx-label">物理原因 {{ .certainty }}</span><p>{{ partial "vortex/rich.html" .text }}</p>{{ end }}
-            {{ with .correct_concept }}<span class="vx-label">正確觀念</span><p class="vx-correct">{{ partial "vortex/rich.html" . }}</p>{{ end }}
+            {{ with .correct_concept }}<span class="vx-label">正確觀念</span><div class="vx-correct">{{ partial "vortex/richblock.html" . }}</div>{{ end }}
             {{ with .perception_impact }}<span class="vx-label">感知影響</span><p>{{ partial "vortex/rich.html" . }}</p>{{ end }}
             {{ with .evidence }}<span class="vx-label">依據</span>{{ range . }}<span class="vx-cite">{{ .certainty }} {{ partial "vortex/rich.html" .text }}{{ with .source }} <span class="src">— {{ . }}</span>{{ end }}{{ with .url }} <a href="{{ . }}" target="_blank" rel="noopener">↗</a>{{ end }}</span>{{ end }}{{ end }}
           </div>
@@ -257,8 +257,8 @@
           <summary><span class="vx-cardcat">{{ index $techCatName .category }}</span>{{ with .also_strokes }}<span class="vx-cardcat vx-crossstroke">跨式通則</span>{{ end }}<span class="vx-cardtitle">{{ .title }}</span></summary>
           <div class="vx-card-body">
             {{ with .summary }}<p>{{ partial "vortex/rich.html" . }}</p>{{ end }}
-            {{ with .mechanism }}<span class="vx-label">機制 {{ .certainty }}</span><p>{{ partial "vortex/rich.html" .text }}</p>{{ end }}
-            {{ with .practical_implication }}<span class="vx-label">實務意涵</span><p class="vx-correct">{{ partial "vortex/rich.html" . }}</p>{{ end }}
+            {{ with .mechanism }}<span class="vx-label">機制 {{ .certainty }}</span>{{ partial "vortex/richblock.html" .text }}{{ end }}
+            {{ with .practical_implication }}<span class="vx-label">實務意涵</span><div class="vx-correct">{{ partial "vortex/richblock.html" . }}</div>{{ end }}
             {{ with .evidence }}<span class="vx-label">依據</span>{{ range . }}<span class="vx-cite">{{ .certainty }} {{ partial "vortex/rich.html" .text }}{{ with .source }} <span class="src">— {{ . }}</span>{{ end }}{{ with .url }} <a href="{{ . }}" target="_blank" rel="noopener">↗</a>{{ end }}</span>{{ end }}{{ end }}
           </div>
         </details>

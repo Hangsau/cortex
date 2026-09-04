@@ -663,6 +663,16 @@ details.vx-card[open] > summary { border-bottom: 1px solid var(--vx-rule); }
   border-left: 3px solid var(--vx-accent); padding-left: 14px;
   background: var(--vx-paper2);
 }
+/* richblock.html 的列點：canonical 的「一段引言＋三到五條分流」用的 */
+.vx-rich-list { margin: 6px 0; padding-left: 20px; list-style: none; }
+.vx-rich-list > li {
+  position: relative; margin: 4px 0;
+  font-size: 16px; line-height: 1.7;
+}
+.vx-rich-list > li::before {
+  content: "—"; position: absolute; left: -20px;
+  color: var(--vx-faint);
+}
 .vx-xref { color: var(--vx-sub); font-size: 14px; }
 .vx-card.vx-err > summary { border-left: 3px solid var(--vx-warn); }
 .vx-card.vx-tech > summary { border-left: 3px solid var(--vx-accent); }

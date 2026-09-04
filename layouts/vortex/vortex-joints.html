@@ -101,7 +101,7 @@
 
         {{ with $x.mechanism }}
         <span class="vx-block-label">解剖機制 {{ .certainty }}</span>
-        <div class="vx-howto">{{ partial "vortex/rich.html" .text }}</div>
+        <div class="vx-howto">{{ partial "vortex/richblock.html" .text }}</div>
         {{ with .source_ids }}
         <p class="vx-cite"><span class="src">來源</span>
           {{ range $si, $sid := . }}{{ if $si }}；{{ end }}{{ $s := index $srcReg $sid }}{{ if $s }}{{ $s.display }}{{ with $s.link }} <a href="{{ . }}" target="_blank" rel="noopener">↗</a>{{ end }}{{ if eq $s.verification_status "unverified" }} <span class="vx-src-unverified">未查證</span>{{ end }}{{ else }}{{ $sid }}{{ end }}{{ end }}
@@ -111,7 +111,7 @@
 
         {{ with $x.practical_implication }}
         <span class="vx-block-label">教學上怎麼改</span>
-        <div class="vx-boundary">{{ partial "vortex/rich.html" . }}</div>
+        <div class="vx-boundary">{{ partial "vortex/richblock.html" . }}</div>
         {{ end }}
 
         {{ with $x.evidence }}

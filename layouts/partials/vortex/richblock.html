@@ -1,0 +1,28 @@
+{{- /* 區塊版的 rich.html：同樣只認 **粗體**，另外多認 canonical 散文實際用到的兩種
+       行結構——空行分段、行首 "- " 列點。輸出自帶 <p>／<ul>，呼叫端不要再包 <p>。
+       這是給 practical_implication / mechanism.text / correct_concept 這類「一段引言
+       ＋三到五條分流」的欄位用的；沒有列點的字串會原樣輸出成單一段落。
+       行內串接用換行不用空白，維持與改版前相同的 CJK 斷行行為。 */ -}}
+{{- $s := . | htmlEscape -}}
+{{- $s = $s | replaceRE `\*\*([^*\n]+?)\*\*` "<strong>$1</strong>" -}}
+{{- $lines := split (chomp $s) "\n" -}}
+{{- $n := len $lines -}}
+{{- range $i, $l := $lines -}}
+{{- $t := trim $l " \t" -}}
+{{- $prev := "" -}}{{- if gt $i 0 -}}{{- $prev = trim (index $lines (sub $i 1)) " \t" -}}{{- end -}}
+{{- $next := "" -}}{{- if lt (add $i 1) $n -}}{{- $next = trim (index $lines (add $i 1)) " \t" -}}{{- end -}}
+{{- $isB := hasPrefix $t "- " -}}
+{{- $prevB := hasPrefix $prev "- " -}}
+{{- $nextB := hasPrefix $next "- " -}}
+{{- if eq $t "" -}}
+{{- else if $isB -}}
+{{- if not $prevB }}<ul class="vx-rich-list">{{ end -}}
+<li>{{ substr $t 2 | safeHTML }}</li>
+{{- if not $nextB }}</ul>{{ end -}}
+{{- else -}}
+{{- if or $prevB (eq $prev "") }}<p>{{ end -}}
+{{ $t | safeHTML }}
+{{- if or $nextB (eq $next "") }}</p>{{ else }}
+{{ end -}}
+{{- end -}}
+{{- end -}}

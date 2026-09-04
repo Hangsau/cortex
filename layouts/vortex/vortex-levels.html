@@ -109,10 +109,10 @@
               {{ with .milestone }}<p class="vx-lvl-meta"><strong>里程碑</strong>：{{ . }}</p>{{ end }}
               {{ with .stagnation }}<p class="vx-lvl-meta"><strong>停滯處理</strong>：{{ . }}</p>{{ end }}
 
-              {{ with .four_problems }}<div class="vx-lvl-block">{{ . }}</div>{{ end }}
-              {{ with .state_description }}<div class="vx-lvl-block">{{ . }}</div>{{ end }}
-              {{ with .fatigue_collapse_four_layers }}<div class="vx-lvl-block">{{ . }}</div>{{ end }}
-              {{ with .kaizen }}<div class="vx-lvl-block">{{ . }}</div>{{ end }}
+              {{ with .four_problems }}<div class="vx-lvl-block">{{ partial "vortex/richblock.html" . }}</div>{{ end }}
+              {{ with .state_description }}<div class="vx-lvl-block">{{ partial "vortex/richblock.html" . }}</div>{{ end }}
+              {{ with .fatigue_collapse_four_layers }}<div class="vx-lvl-block">{{ partial "vortex/richblock.html" . }}</div>{{ end }}
+              {{ with .kaizen }}<div class="vx-lvl-block">{{ partial "vortex/richblock.html" . }}</div>{{ end }}
             </div>
           </details>
           {{ end }}
