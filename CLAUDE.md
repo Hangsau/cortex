@@ -297,3 +297,5 @@ TOKEN=$(gh auth token) && git remote set-url origin "https://$TOKEN@github.com/H
 ```
 
 push 後執行 `gh run list --repo Hangsau/cortex --limit 1` 確認 CI 成功。
+
+**驗線上頁面時：CI 產出的 HTML 是 minify 過的，屬性值沒有引號**（`class=vx-read-concept`，不是 `class="vx-read-concept"`）。拿本機 `hugo` 建置的字串去 grep 線上頁面會**全部回 0，看起來像沒部署**——2026-09-04 心理層那次就是這樣誤判了一次。驗證正則要寫成 `class=vx-xxx\b`，或直接數 class 名的裸出現次數；另外用 Python 讀 curl 存下來的檔要明寫 `encoding='utf-8'`，Windows 預設 cp950 會讓中文字串比對無聲失敗。
