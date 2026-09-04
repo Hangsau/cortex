@@ -1857,6 +1857,14 @@ html { scroll-behavior: smooth; }
   font-size: var(--fs-xs); vertical-align: middle;
   margin-left: 4px;
 }
+.vx-read-lvl {
+  font-family: var(--vx-mono); font-size: var(--fs-xs);
+  letter-spacing: .06em; font-weight: 700;
+  color: var(--vx-accent2); vertical-align: middle;
+  margin-left: 8px; padding: 1px 6px;
+  border: 1px solid var(--vx-rule); border-radius: 0;
+  white-space: nowrap;
+}
 .vx-read-body {
   font-size: var(--fs-base); line-height: var(--lh-body);
   color: var(--vx-ink); margin: 0 0 14px;

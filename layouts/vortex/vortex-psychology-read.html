@@ -70,7 +70,7 @@
 
         {{ range $c := $t.concepts }}
         <article class="vx-read-concept" id="{{ replace $c.id "." "-" }}">
-          <h3>{{ $c.name_zh }}{{ with $c.phenomenon }}{{ with .certainty }} <span class="vx-read-cert">{{ . }}</span>{{ end }}{{ end }}</h3>
+          <h3>{{ $c.name_zh }}{{ with $c.phenomenon }}{{ with .certainty }} <span class="vx-read-cert">{{ . }}</span>{{ end }}{{ end }}{{ with $c.l_levels }}<span class="vx-read-lvl" title="這個概念落在水感發展的哪一段">{{ index . 0 }}{{ if gt (len .) 1 }}–{{ index . (sub (len .) 1) }}{{ end }}</span>{{ end }}</h3>
 
           {{ with $c.phenomenon }}
             {{ with .plain_text }}
@@ -84,6 +84,7 @@
           {{ with $c.phenomenon }}{{ with .text }}{{ $hasDepth = true }}{{ end }}{{ end }}
           {{ if or $c.hardware_boundary $c.misconception_refs }}{{ $hasDepth = true }}{{ end }}
           {{ if or $c.intervention_refs $c.population_note }}{{ $hasDepth = true }}{{ end }}
+          {{ if $c.l_note }}{{ $hasDepth = true }}{{ end }}
           {{ if $hasDepth }}
           <details class="vx-read-more">
             <summary>想深一點</summary>
@@ -91,6 +92,9 @@
               {{ with $c.phenomenon }}{{ with .text }}
               <div class="vx-read-moreblock"><span class="vx-read-morelabel">研究原文 {{ $c.phenomenon.certainty }}</span><p>{{ . }}</p></div>
               {{ end }}{{ end }}
+              {{ with $c.l_note }}
+              <div class="vx-read-moreblock"><span class="vx-read-morelabel">落在哪一段水感發展</span><p>{{ . }}</p></div>
+              {{ end }}
               {{ with $c.hardware_boundary }}
               <div class="vx-read-moreblock"><span class="vx-read-morelabel">生理／證據邊界 {{ .certainty }}</span><p>{{ .text }}</p></div>
               {{ end }}
