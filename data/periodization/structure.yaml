@@ -129,6 +129,8 @@ annual_plan_types:
     development_stages:
     - t2c
     - t2w
+    related:
+    - periodization.structure.annual.monocycle
 - id: periodization.structure.annual.tricycle
   key: tri-cycle
   name_zh: 三週期
@@ -210,6 +212,8 @@ macrocycle:
     - t2t
     - t2c
     - t2w
+    related:
+    - periodization.structure.school_block
 microcycle:
   id: periodization.structure.microcycle
   cert: 🟡
@@ -252,6 +256,9 @@ microcycle:
     - t2t
     - t2c
     - t2w
+    related:
+    - periodization.structure.macrocycle
+    - periodization.zones.table_7_1
 general_adaptation_syndrome:
   id: periodization.structure.gas
   cert: 🟢
@@ -399,6 +406,10 @@ schools_overview:
     - t2t
     - t2c
     - t2w
+    related:
+    - periodization.structure.school_block
+    - periodization.zones.olbrecht_model
+    - periodization.zones.school_polarized
 school_block:
   id: periodization.structure.school_block
   cert: 🟡
@@ -466,3 +477,6 @@ perception_periodization_bridge:
     - t2t
     - t2c
     - t2w
+    related:
+    - periodization.structure.school_block
+    - periodization.taper.frequency

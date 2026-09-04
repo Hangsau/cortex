@@ -37,6 +37,9 @@ intensity_zones:
   note_zh: 比賽配速 = zone 2；Bompa 建議每週至少 50% 訓練時間落在比賽配速強度。高於賽配速由無氧供能主導，低於賽配速由有氧供能主導
   tid_dialogue_zh: 🔵 對話（極化派 Seiler）：Bompa『每週 ≥50% 落在比賽配速』與 Seiler『80% 低強度＋20% 高強度、避開中間區』表面上直接衝突，但兩套系統的『區』定義不同，不能直接數字對比——Bompa zone 2（賽配速，80–90% 最大表現）對應的可能是 Seiler 的 Z3（高強度）邊界而非『中間區』。若 Bompa 賽配速＝Seiler Z3，則『50% 在賽配速』比『80/20』要求更多高強度（方向相反）；若＝Seiler Z2，則 Bompa 等於主張大量閾值，與極化派『避中間』直接衝突。這個張力本身就是要呈現的辯論，不強行統一（見 school_polarized）。
   plain_zh: Bompa 把訓練強度分成 6 區，用『佔最大表現的百分比』定義。zone 1 最吃力（90–100%），zone 5 最輕（<50%），recovery 是不下水。比賽配速落在 zone 2。一個好記的原則：每週至少一半的訓練時間要落在比賽配速強度。注意這條原則有爭議——極化派（下面 school_polarized）主張剛好相反：大部分量應該是輕鬆的、少碰中間強度。
+  links:
+    related:
+    - periodization.zones.school_polarized
 hr_vo2_ergogenesis:
   id: periodization.zones.table_11_2
   cert: 🟡
@@ -134,6 +137,8 @@ endurance_periodization:
     - t2t
     - t2c
     - t2w
+    related:
+    - periodization.zones.olbrecht_model
 swim_zones_maglischo:
   id: periodization.zones.swim_maglischo
   cert: 🟢
@@ -267,6 +272,11 @@ energy_systems_primer:
     - t2t
     - t2c
     - t2w
+    related:
+    - periodization.zones.swim_energy_by_distance
+    - periodization.zones.swim_maglischo
+    - periodization.zones.swim_tid
+    - periodization.zones.table_11_1
 swim_energy_by_distance:
   id: periodization.zones.swim_energy_by_distance
   cert: 🟢
@@ -346,6 +356,10 @@ swim_application:
     - t2t
     - t2c
     - t2w
+    related:
+    - periodization.zones.olbrecht_model
+    - periodization.zones.swim_maglischo
+    - periodization.zones.table_11_2
 school_polarized:
   id: periodization.zones.school_polarized
   cert: 🟢
@@ -384,6 +398,8 @@ school_polarized:
     development_stages:
     - t2c
     - t2w
+    related:
+    - periodization.zones.swim_three_zone
 olbrecht_model:
   id: periodization.zones.olbrecht_model
   cert: 🟡
