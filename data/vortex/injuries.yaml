@@ -634,9 +634,11 @@ injuries:
     perception_link: L4–L6 手感與全身張力
     perception_link_ids: []
   references:
-  - citation: Sein ML, Walton J, Linklater J, Appleyard R, Kirkbride B, Kuah D, Murrell G. Br J Sports Med 2010;44(2):105-113
-    certainty: 🔴
-    verified: false
+  - citation: 'Sein ML, Walton J, Linklater J, Appleyard R, Kirkbride B, Kuah D, Murrell G. (2010). Shoulder pain in elite swimmers: primarily due to swim-volume-induced supraspinatus tendinopathy. Br J Sports Med 44(2):105-113. PMID 18463295'
+    certainty: 🟢
+    verified: true
+    source_ids:
+    - src.sein-2010
   - citation: McKenzie 系統綜述 2023, Scand J Med Sci Sports, DOI:10.1111/sms.14454
     certainty: 🔴
     verified: false
@@ -2511,9 +2513,11 @@ injuries:
     verified: true
     source_ids:
     - src.pmc12234767
-  - citation: Farstad & Dunn, Cold Water Immersion Syndrome, Wilderness Environ Med 2019
+  - citation: Farstad DJ, Dunn JA. (2019). Cold Water Immersion Syndrome and Whitewater Recreation Fatalities. Wilderness Environ Med 30(3):321-327. PMID 31178366（2026-09-04 補全：族群是激流泛舟死亡個案，不是泳者）
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.farstad-2019
   flags:
     contested:
     - claim: 『自主神經衝突』作為溺水死亡機制的比重
@@ -2745,15 +2749,21 @@ injuries:
     verified: true
     source_ids:
     - src.pmc11954903
-  - citation: '2024 AHA/AAP Focused Update: Resuscitation Following Drowning, Circulation, doi:10.1161/CIR.0000000000001274'
+  - citation: 'Dezfulian C, et al. (2024). 2024 American Heart Association and American Academy of Pediatrics Focused Update on Special Circumstances: Resuscitation Following Drowning. Circulation 150(23):e501-e516. PMID 39530204 / doi:10.1161/CIR.0000000000001274'
     certainty: 🟢
     verified: true
-  - citation: Wilderness Medical Society CPG for Drowning 2024 Update
+    source_ids:
+    - src.dezfulian-2024
+  - citation: 'Davis CA, et al. (2024). Wilderness Medical Society Clinical Practice Guidelines for the Treatment and Prevention of Drowning: 2024 Update. Wilderness Environ Med 35(1_suppl):94S-111S. PMID 38379489'
     certainty: 🟢
     verified: true
-  - citation: 'StatPearls: Drowning, NCBI NBK430833'
+    source_ids:
+    - src.davis-2024-wms-drowning
+  - citation: 'Gianfrancesco H, Sternard BT. Drowning: Clinical Management. In: StatPearls. NCBI Bookshelf NBK430833（最後更新 2025-09-15；2026-09-04 更正：章名不是「Drowning」）'
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.drowning-clinical-management-statpearls-nbk430833
   flags:
     contested:
     - claim: CPR 通氣優先 vs 壓縮優先
@@ -2866,9 +2876,11 @@ injuries:
     verified: true
     source_ids:
     - src.pmc11985649
-  - citation: Athletic Activity for Patients with Hypertrophic Cardiomyopathy, JACC 2022
+  - citation: 'Semsarian C, et al. (2022). Athletic Activity for Patients With Hypertrophic Cardiomyopathy and Other Inherited Cardiovascular Diseases: JACC Focus Seminar 3/4. J Am Coll Cardiol 80(13):1268-1283. PMID 36075839（綜述，非原始研究；涵蓋範圍不只 HCM）'
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.semsarian-2022
   - citation: Commotio Cordis in 2023, PMC10356869
     certainty: 🟢
     verified: true
@@ -2986,9 +2998,11 @@ injuries:
     technical_link: null
     perception_link: null
   references:
-  - citation: Brannigan et al., Hypothermia is a Significant Medical Risk of Mass Participation Long-Distance Open Water Swimming, Wilderness Environ Med 2009
+  - citation: Brannigan D, Rogers IR, Jacobs I, et al. (2009). Hypothermia is a significant medical risk of mass participation long-distance open water swimming. Wilderness Environ Med 20(1):14-18. PMID 19364182
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.brannigan-2009
   - citation: Thermoregulatory responses open water and pool swimming, JSAMS 2025, PubMed 40783351
     certainty: 🟢
     verified: true
@@ -2999,9 +3013,11 @@ injuries:
     verified: true
     source_ids:
     - src.pmid-39500300
-  - citation: WMS CPG Accidental Hypothermia 2019 Update
+  - citation: 'Dow J, et al. (2019). Wilderness Medical Society Clinical Practice Guidelines for the Out-of-Hospital Evaluation and Treatment of Accidental Hypothermia: 2019 Update. Wilderness Environ Med 30(4S):S47-S69. PMID 31740369'
     certainty: 🟢
     verified: true
+    source_ids:
+    - src.dow-2019
   flags:
     contested:
     - claim: 後降(afterdrop)臨床意義量值
@@ -3647,12 +3663,16 @@ injuries:
     technical_link: null
     perception_link: null
   references:
-  - citation: IOC consensus statement on RED-S（2014 首版/後續更新，作者與 DOI 待 WebFetch 核實）
-    certainty: 🔴
-    verified: false
-  - citation: 女性運動員三聯症 ACSM position stand（年份/作者待查）
-    certainty: 🔴
-    verified: false
+  - citation: Mountjoy M, Ackerman KE, Bailey DM, et al. (2023). 2023 IOC consensus statement on Relative Energy Deficiency in Sport (REDs). Br J Sports Med 57(17):1073-1097. PMID 37752011（2026-09-04 定版：原登錄未標版本，本條固定指向 2023 版；2014／2018 版結論不同，須另建條目）
+    certainty: 🟢
+    verified: true
+    source_ids:
+    - src.ioc-red-s-2014-2018-2023-doi
+  - citation: Nattiv A, Loucks AB, Manore MM, Sanborn CF, Sundgot-Borgen J, Warren MP. (2007). American College of Sports Medicine position stand. The female athlete triad. Med Sci Sports Exerc 39(10):1867-82. PMID 17909417（2026-09-04 定版：原登錄未標年份，本條指定為 2007 現行版；1997 首版 PMID 9140913 為不同文獻）
+    certainty: 🟡
+    verified: true
+    source_ids:
+    - src.nattiv-2007
   flags:
     contested:
     - claim: 三聯症 vs RED-S 框架範圍
