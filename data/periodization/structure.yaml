@@ -343,15 +343,18 @@ swim_annual_structure:
 swim_youth_ltad:
   id: periodization.structure.swim_youth_ltad
   cert: 🟢
-  source: Swimming Canada LTAD 分齡; PHV 文獻; Ford et al. 2011 (PMID 21259156); van Hooren & De Ste Croix 2020
+  source: 'Swimming Canada. Long Term Athlete Development Strategy; Ford, P., De Ste Croix, M., Lloyd, R., Meyers, R., Moosavi, M., Oliver, J., Till, K., & Williams, C. (2011). The long-term athlete development model: physiological evidence and application. Journal of Sports Sciences, 29(4), 389–402; van Hooren, B., & De Ste Croix, M. (2020). Sensitive periods to train general motor abilities in children and adolescents: Do they exist? A critical appraisal. Strength and Conditioning Journal, 42(6), 7–14.'
   source_ids:
+  - src.swimming-canada-ltad-strategy
   - src.pmid-21259156
-  stage_ages_zh: Swimming Canada 分齡（與 ADM 對齊）：學習訓練 L2T 女 8–11/男 9–12；訓練為訓練 T2T 女 11–15/男 12–16；訓練為競賽 T2C 女 15–21/男 16–23；訓練為勝利 T2W 女 18+/男 19+
-  phv_zh: 生長陡增高峰 PHV：女 ≈12.5 歲、男 ≈14 歲（平均值，個體差異大）
+  - src.van-hooren-2020-sensitive-periods
+  stage_ages_zh: Swimming Canada 游泳專項 LTAD 分齡（依該協會 LTAD 策略文件原文）：基礎期 FUNdamentals 女 5–8／男 6–9；學習訓練 L2T 女 8–11／男 9–12；訓練為訓練 T2T 女 11–14／男 12–15；訓練為競賽 T2C 女 14–16／男 15–18；競賽求勝 Compete to Win 女 16+／男 18+。要注意兩件事。第一，該文件把進階條件寫在年齡旁邊，年齡只是參考：進入 T2T 看的是『生長陡增趨緩且技術已掌握』，進入 T2C 看的是『成績與技術精熟度』——所以這張表不是分齡標準，是搭配成熟度判讀用的座標。第二，坊間流通的另一套分齡（T2C 女 15–21／男 16–23、訓練為勝利 T2W 女 18+／男 19+）是跨項目通用的 LTAD 表，不是游泳專項表；兩套差距在青少年後段可以大到五、六歲，混用會直接影響訓練量與專項化時機的判斷。
+  phv_zh: 生長陡增高峰 PHV：女 ≈12.5 歲、男 ≈14 歲（平均值）。這個平均值本身不太有用，真正該記的是它旁邊那句話——同樣是 11 歲的兩名泳者，生物年齡可以一個是 10 歲、另一個是 15 歲，**同齡個體之間的成熟度差距可達五個生物年**。生長陡增本身也不是一個時點而是一段期間，可以持續一年半到五年。因此該文件的建議是每三個月固定量一次身高（含坐高與腿長）、在固定時段測量、從六歲開始建線，用曲線判斷這名泳者到哪了，而不是查表。
   windows_of_trainability_contested: true
-  windows_note_zh: ⚠️ contested：『trainability 關鍵窗口』（某些素質在特定年齡有黃金訓練期）是有爭議的概念。Ford et al. 2011（PMID 21259156）與 van Hooren & De Ste Croix 2020 批判其缺乏可靠實證。引用時必須標明爭議，不可當定論。
-  caution_zh: 🔴 不收分齡 km/週對照表——查無 Swimming Canada 原始數據表；T:C（訓練比賽比）60:40/50:50/25:75 僅 Balyi 二手轉述，標弱不入正文
-  plain_zh: 青少年怎麼分齡練（對齊 ADM 階段）：大致按年齡分學習訓練→訓練為訓練→訓練為競賽→訓練為勝利。生長陡增高峰（長最快的時候）女生約 12.5 歲、男生約 14 歲，可作排訓練的參考。但要特別小心一個流行說法——『某些能力有黃金訓練窗口、錯過就補不回』，這在學界是有爭議的（Ford 2011 等批判它證據不足）。家長和教練別把它當鐵律，以免硬逼小孩在特定年齡猛練某項。
+  windows_note_zh: ⚠️ contested：『trainability 關鍵窗口』（某些素質在特定年齡有黃金訓練期）是有爭議的概念。Ford et al. 2011 指出 LTAD 是單一維度（純生理）的通則模型、缺乏實證基礎，且所依據的資料建立在可疑假設與有瑕疵的方法上，主張把它當『進行中的工作』而非定論；van Hooren & De Ste Croix 2020 對『敏感期是否存在』做了同方向的批判性檢視。這裡有個必須講明的張力：**上面那張分齡表與 PHV 建議，出自同一份主張窗口存在的 Swimming Canada 文件**（它明列耐力窗口在 PHV 起點、力量窗口女生在 PHV 後或初經後、男生在 PHV 後 12–18 個月）。也就是說本節同時引用了一份文件的分齡資料、又引用兩篇批判它核心假設的論文——這不是矛盾，是刻意的：分齡與 PHV 量測是可操作的實務座標，窗口則是它附帶的理論主張，前者可用不代表後者成立。引用時必須標明爭議，不可當定論。
+  volume_zh: 🟡 分齡週泳量（Swimming Canada LTAD 策略文件原文所列）：L2T 8–14 km／週；T2T 24–30 km／週、逐步建立到 40–50 km／週；T2C 40–50+ km／週；Compete to Win 40–50+ km／週（依專項化方向調整）。標 🟡 而非 🟢 的理由：這是單一國家協會的建議值，文件未附推導依據或實證來源，也沒有交代這些數字是怎麼定出來的。可以當作一個有出處的參考錨點，不能當作劑量標準——尤其不要拿它去反推『我的學生沒游到就是量不夠』。
+  caution_zh: 🔴 T:C（訓練比賽比）60:40／50:50／25:75 僅 Balyi 二手轉述，查無原始出處，標弱不入正文。
+  plain_zh: 青少年怎麼分齡練：Swimming Canada 的游泳專項表大致是——女生 8–11 歲學習訓練、11–14 訓練為訓練、14–16 訓練為競賽、16 歲以上競賽求勝；男生各段晚一到兩年。但這張表最該記的其實不是數字。第一，年齡只是座標，該文件自己說進階要看生長趨緩與技術掌握，不是看生日。第二，同樣 11 歲的兩個孩子，身體成熟度可以差到五年——一個像 10 歲、一個像 15 歲，你把他們排在同一組用同一份課表，本來就會有一個被拖著、一個被硬撐。所以建議是每三個月量一次身高畫成曲線，看這個孩子走到哪，比查表可靠得多。第三，有個很流行的說法要特別小心：『某些能力有黃金訓練窗口、錯過就補不回』——這在學界是有爭議的（Ford 2011、van Hooren 2020 都批評它證據不足），而且諷刺的是，提供上面那張分齡表的同一份文件，正是主張有窗口的那一方。表可以用，窗口別當鐵律，不必硬逼小孩在特定年齡猛練某一項。
   links:
     development_stages:
     - l2t
