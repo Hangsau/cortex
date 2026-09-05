@@ -1407,19 +1407,22 @@ points:
   stroke: breast
   category: stroke-cycle
   title: 內划（Insweep）：主推進相與加速時序
-  summary: Insweep 是蛙式划手的主推進相，國際精英比國家選手更早啟動此相，允許更大推進力輸出。
+  summary: Insweep 是蛙式划手的主推進相；世界頂尖與國家級選手的差別不在更早開始內划，而在手臂推進相往滑腿相延伸得更久。
   mechanism:
-    certainty: 🟢
-    source_ids:
-    - src.nicol-2022-breaststroke-systematic-review
-    text: 雙臂加速向內、向後、向上畫弧，肘關節屈曲，手掌在胸口下方匯合；此階段最大加速度；更早啟動 insweep 代表推進力輸出的時間窗更長。
+    certainty: 🔵
+    text: 雙臂加速向內、向後、向上畫弧，肘關節屈曲，手掌在胸口下方匯合；此階段是划手週期中加速度最大的一段。手臂推進相與腿部滑行相重疊多久，決定一個週期裡有效推進的時間窗有多長。
   evidence:
   - certainty: 🟢
-    text: 國際金牌比國家選手更早啟動 insweep（biceps brachii + pectoralis major），輸出更大推進力
+    text: 世界冠軍在滑腿相的胸大肌活化時間明顯長於國家級選手（71% 對 50%），也就是手臂推進延伸進了腿的滑行段（n=4 對 4，屬個案級對照）。原文並未報告「更早啟動內划」，肱二頭肌也不在其列出的區辨指標之中。
+    source: Olstad, B. H., Zinner, C., Vaz, J. R., Cabri, J. M. H., & Kjendlie, P.-L. (2017). Muscle activation in world-champion, world-class, and national breaststroke swimmers. International Journal of Sports Physiology and Performance, 12(4), 538-547.
+    source_ids:
+    - src.olstad-2017-world-champion-breaststroke
+  - certainty: 🟢
+    text: 綜述的肌電整合結論是：划水強度提高會讓肱三頭肌提早活化、外划提早、滑行縮短。那是同一人在不同強度下的變化，不是水準組間的差異。
     source: 'Nicol, E., Pearson, S., Saxby, D., Minahan, C., & Tor, E. (2022). Stroke Kinematics, Temporal Patterns, Neuromuscular Activity, Pacing and Kinetics in Elite Breaststroke Swimming: A Systematic Review. Sports Medicine - Open, 8(1), 75.'
     source_ids:
     - src.nicol-2022-breaststroke-systematic-review
-  practical_implication: insweep 的加速感是蛙式划手的核心感知目標，也是疲勞時最先崩潰的技術環節。
+  practical_implication: insweep 的加速感是蛙式划手的核心感知目標，也是疲勞時最先崩潰的環節；但訓練指向不是「更早開始內划」，而是讓手臂推進在腿滑行時仍持續有效。
 - id: breast.tech.6
   stroke: breast
   category: stroke-cycle
@@ -1753,19 +1756,19 @@ points:
   stroke: breast
   category: watersense
   title: 精英神經肌肉活化：更精省不是更大力
-  summary: 世界冠軍比國家選手的神經肌肉活化更精省（shorter coactivation），差距在時序精度而非力量大小。
+  summary: 世界冠軍與國家級選手的差別在活化時序，以及拮抗肌不互相干擾——不在力量大小。
   mechanism:
     certainty: 🟢
     source_ids:
-    - src.nicol-2022-breaststroke-systematic-review
-    text: 精英差距在肌肉活化時序精度：更早啟動 insweep（biceps brachii + pectoralis major），更精省的 coactivation；腿部方面，世界冠軍 gastrocnemius 踢腿末端更強，rectus femoris 滑行初期更早活化。
+    - src.olstad-2017-world-champion-breaststroke
+    text: 受測的八條肌肉全部呈現組間差異。踢腿推進相：世界級的肱三頭肌活化較少。滑腿相：股直肌與腓腸肌在此相「一開始」就活化（四位世界級全數如此，國家級僅一位），胸大肌活化時間較長。收腿相：股二頭肌活化較多，脛前肌起始較晚、持續較短。整個划水週期裡，世界冠軍的脛前肌與腓腸肌完全沒有共同收縮。
   evidence:
   - certainty: 🟢
-    text: 世界冠軍比國家選手更早啟動 insweep，神經肌肉活化更精省（shorter coactivation）
-    source: 'Nicol, E., Pearson, S., Saxby, D., Minahan, C., & Tor, E. (2022). Stroke Kinematics, Temporal Patterns, Neuromuscular Activity, Pacing and Kinetics in Elite Breaststroke Swimming: A Systematic Review. Sports Medicine - Open, 8(1), 75.'
+    text: 世界級對國家級（各 4 人，含 2 位世界冠軍）：踢腿推進相肱三頭肌較少活化；滑腿相起始即有股直肌與腓腸肌活化、胸大肌活化 71% 對 50%；收腿相股二頭肌 50% 對 20%、脛前肌 40% 對 52%；世界冠軍脛前肌與腓腸肌無共同收縮。原文寫的是「沒有共同收縮」，不是「較短的共同收縮」；腓腸肌的差異也在滑腿相起始，不在踢腿末端。
+    source: Olstad, B. H., Zinner, C., Vaz, J. R., Cabri, J. M. H., & Kjendlie, P.-L. (2017). Muscle activation in world-champion, world-class, and national breaststroke swimmers. International Journal of Sports Physiology and Performance, 12(4), 538-547.
     source_ids:
-    - src.nicol-2022-breaststroke-systematic-review
-  practical_implication: 精英差距的本質是神經控制的時序精度，而非肌力大小；技術訓練應著重建立精確的時序感知，而非增加力量輸出。
+    - src.olstad-2017-world-champion-breaststroke
+  practical_implication: 精英差距的本質是神經控制的時序精度與拮抗肌互不干擾，而非肌力大小；技術訓練應著重建立精確的時序感知，而非增加力量輸出。樣本僅 4 對 4，屬個案級對照，不宜當成群體常模。
 - id: breast.tech.24
   stroke: breast
   category: errors
