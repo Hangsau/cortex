@@ -428,10 +428,10 @@ errors:
     text: 頭部過度旋轉的連鎖代價：頸部肌肉張力升高 → 旋轉連動鏈被打斷 → 換氣側手臂入水位置偏移（常見跨中線） → 重心偏移 → 下半身補償 → 節律干擾。精英是「寄生換氣」：頭部搭身體旋轉的便車，嘴巴轉進弓形波凹陷吸氣，而非主動把頭轉出水面。
   evidence:
   - certainty: 🟠
-    text: 精英換氣時護目鏡另一側鏡片通常沒完全離開水面——這是「最小旋轉換氣」的外部指標。「嘴角剛好露出水面就足夠」，不需看天花板。
-    source: The Race Club
+    text: 換氣時讓一邊的護目鏡、一隻耳朵、一邊臉頰留在水裡——這是「最小旋轉換氣」可以當場自己檢查的外部指標。只露出半張嘴看起來不夠，實際上比想像的多，足以吸到氣，不需看天花板。
+    source: The Race Club — 3 Breathing Tips for Freestyle Swimming
     source_ids:
-    - src.the-race-club
+    - src.the-race-club-3-breathing-tips
   cross_ref: 技術分析 §陸（頭部位置與弓形波）
   cross_ref_ids:
   - free.tech.17
@@ -1867,15 +1867,15 @@ errors:
     text: 選手在流線型滑行時速度下降得非常快。彎膝準備第一下踢的減速量，不管在什麼時間點發生都差不多——等越久，只是在從更慢的速度開始加速而已。近年一份運動生物力學的力學模型也指向同一方向：多數受試菁英泳者的最優轉換速度高於其等速游泳速度，支持盡早起踢的邏輯（該研究樣本為 10 名菁英女性、在水槽 tethered 條件下量測淨力，作者自述為 conceptual model，不宜讀成賽場實證，2026-09-04 更正原文「研究也確認」的定論語氣）。
   evidence:
   - certainty: 🟠
-    text: 以精英選手 Aaron Greenberg（自由式）測試：立刻起踢比短暫滑行快 0.1 秒，比長時間滑行快 0.18 秒（5 公尺成績）。
-    source: The Race Club，velocity meter 實測
+    text: 以精英選手 Aaron Greenberg（自由式）測試：立刻起踢比短暫滑行快 0.1 秒，比長時間滑行快 0.18 秒（5 公尺成績）。同篇另測仰式選手 Amy Bilquist，立刻下踢比短滑行快 0.1 秒、長滑行則慢 0.16 秒。
+    source: The Race Club — Turn Techniques Part I（velocity meter 實測）
     source_ids:
-    - src.the-race-club-velocity-meter-b
+    - src.the-race-club-turn-when-to-start-dolphin-kick
   - certainty: 🟠
     text: 選手在流線型滑行時速度下降得非常快。彎膝準備第一下踢的減速量，不管在什麼時間點發生都差不多。等越久，就只是在從更慢的速度開始加速而已。
-    source: The Race Club
+    source: The Race Club — Turn Techniques Part I
     source_ids:
-    - src.the-race-club
+    - src.the-race-club-turn-when-to-start-dolphin-kick
   - certainty: 🟢
     text: 以冪律擬合流線滑行（SL）／海豚踢（DK）／自由式（FC）三者的淨力–流速曲線，交會速度 USL-DK 與 UDK-FC 即最佳轉換時機；對多數受試者而言這兩個交會速度 **高於**其各自的等速游泳速度（VDK_const、VFC_const），支持盡早起踢的邏輯。樣本為 10 名菁英女性泳者、水槽 tethered 淨力量測，作者提出的是 conceptual model。
     source: Takeda T, et al. (2026). Sports Biomech. PMID 41728809
@@ -1908,10 +1908,10 @@ errors:
     source_ids:
     - src.yourswimlog-b
   - certainty: 🟠
-    text: 大多數選手的水下踢腿速度低於其水面游泳速度，延長水下距離是在拖慢自己。
-    source: The Race Club
+    text: 大多數選手的踢腿速度明顯低於其游泳速度，因此應該用最少的海豚踢數到出水點；延長水下距離是在拖慢自己。
+    source: 'The Race Club — Freestyle Flip Turn: Number of Kicks'
     source_ids:
-    - src.the-race-club
+    - src.the-race-club-flip-turn-kick-count
   cross_ref: 最優水下距離由個人速度衰減曲線決定、長水下距離的代謝代價
   cross_ref_ids:
   - udk.tech.18
