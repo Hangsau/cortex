@@ -574,10 +574,10 @@ indicators:
   framework_state: 壓力下感知失守
   evidence:
   - certainty: 🟢
-    text: 系統綜述
-    source: Nicol et al. 2022
+    text: 統合綜述指出划頻、划距、推進時間、回復時間與滑行時間在不同水準與性別組別間均存在差異；手腳時序參數正是這些差異的集中處
+    source: 'Nicol, E., Pearson, S., Saxby, D., Minahan, C., & Tor, E. (2022). Stroke Kinematics, Temporal Patterns, Neuromuscular Activity, Pacing and Kinetics in Elite Breaststroke Swimming: A Systematic Review. Sports Medicine - Open, 8(1), 75.'
     source_ids:
-    - src.nicol-2022-c
+    - src.nicol-2022-breaststroke-systematic-review
 - id: breast.L4.undulation
   stroke: breast
   level: L4
@@ -614,11 +614,8 @@ indicators:
   indicator: Wave style 俯衝角度可自評（胸口下壓時機穩定）；收腿阻力與滑行感配對
   framework_state: 感知自動化過渡
   evidence:
-  - certainty: 🟢
-    text: Nicol 2022
-    source: Nicol 2022
-    source_ids:
-    - src.nicol-2022-a
+  - certainty: 🔵
+    text: 本綜述收錄的研究中 body undulation 僅作為個別研究的量測參數出現，綜述本身未對波動穩定度做跨研究整合——引用僅及於精英蛙式時相參數的整體描述，波動穩定度本身無直接文獻支撐
   - certainty: 🟢
     text: Tanaka 2024
     source: Tanaka 2024
