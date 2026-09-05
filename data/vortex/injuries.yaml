@@ -925,13 +925,15 @@ injuries:
     prevalence: 蝶式下背痛 33.3–50%、蛙泳 22.2–47%；有下背痛者蝴蝶踢時腰椎過伸角度顯著較大、髂腰肌彈性模量更高；精英泳者脊椎退化率 68% vs 休閒 29%
     certainty: 🟡
     evidence_grade: B
-    caveat: 橫斷面為主，因果方向不明；機制研究(PMID 31141446)與 68% 退化率原始研究為摘要/二手
+    caveat: 橫斷面為主，因果方向不明；機制證據來自 Kitamura 等人（2020）的單一小樣本研究，68% 退化率的原始研究仍為摘要/二手
     sources:
     - Swimming low back pain by stroke, PMC11531034 (已驗證)
     - Competitive swimmers spine degeneration, PMC3435931 (已驗證)
+    - Kitamura, G., Tateuchi, H., & Ichihashi, N. (2020). Greater Lumbar Extension During Dolphin Kick and Psoas Major Tightness in Swimmers With Low Back Pain. Journal of Sport Rehabilitation, 29(6), 716-722.
     source_ids:
     - src.pmc11531034
     - src.pmc3435931
+    - src.kitamura-2020-dolphin-kick-lumbar-extension
   risk_factors:
   - text: 髂腰肌緊縮
     grade: B
@@ -1477,13 +1479,15 @@ injuries:
     trigger_phase: 戴隱形眼鏡游泳/泡水、用自來水洗鏡片或鏡盒、戴鏡淋浴
     who: 隱形眼鏡配戴者(約佔病例 9 成)、配戴軟式日拋未取下即下水者、開放水域/溫泉接觸者
   epidemiology:
-    prevalence: 全球年發生率估約 23,561 例(約 2.9/百萬，PMC11424229)；隱形眼鏡配戴為最大宗危險因子(約佔 85–90% 病例)；約 39% 患者最終視力結果不佳；確診前誤用類固醇為最強不良預後因子
+    prevalence: 依 Aiello 等人（2025）的統合分析（105 篇研究、91,951 眼），對總人口的比率約每百萬 2.34 眼（95% CI 0.98–5.55），2023 年基準推估全球約 12,953 眼；AK 佔非病毒性微生物角膜炎的 1.52%。隱形眼鏡配戴為最大宗危險因子（Garg & Daigavane 2024）；確診前誤用類固醇為最強不良預後因子
     certainty: 🟢
     evidence_grade: B
     caveat: 屬罕見但破壞性極強之眼科急症；發生率受隱形眼鏡使用率與通報品質影響，地區差異大；游泳特異性歸因比例缺精確分母
     sources:
-    - Global incidence of Acanthamoeba keratitis, PMC11424229 (已驗證)
+    - 'Aiello, F., Gallo Afflitto, G., Ceccarelli, F., Turco, M. V., et al. (2025). Perspectives on the Incidence of Acanthamoeba Keratitis: A Systematic Review and Meta-Analysis. Ophthalmology, 132(2), 206-218.'
+    - Garg, D., & Daigavane, S. (2024). A Comprehensive Review on Acanthamoeba Keratitis. Cureus, 16(8), e67803.
     source_ids:
+    - src.aiello-2025-ak-incidence-meta
     - src.pmc11424229
   risk_factors:
   - text: 戴隱形眼鏡游泳/泡水
@@ -1538,7 +1542,7 @@ injuries:
     technical_link: null
     perception_link: null
   references:
-  - citation: Global incidence and prevalence of Acanthamoeba keratitis, PMC11424229
+  - citation: 'Aiello, F., et al. (2025). Perspectives on the Incidence of Acanthamoeba Keratitis: A Systematic Review and Meta-Analysis. Ophthalmology, 132(2), 206-218.'
     certainty: 🟢
     verified: true
     source_ids:
@@ -1768,7 +1772,7 @@ injuries:
     prevalence: SCI 泳者髖屈攣縮普遍存在（方向性描述，非量化）。**原本寫的「嚴重攣縮（≥ 60°）報告比例 30–50%」已於 2026-08-17 撤除——該數字唯一的引用查無此文獻，屬無來源數字，不得再出現於任何層。**
     certainty: 🔵
     evidence_grade: Expert
-    caveat: '**2026-08-17 來源健檢結果**：本條原引「Akkurt et al. 2017, J Phys Ther Sci，SCI 髖屈攣縮綜述」， PubMed 檢索該作者×該期刊×該年回傳 0 筆，放寬條件後唯一相符的 Akkurt H 2017 是 Eur J Phys Rehabil Med 的「上肢有氧運動 RCT」（PMID 27824234），期刊、主題、文獻類型三項皆不符，無法認定為同一篇。故引用已解除、依附其上的 30–50% 數字已撤除。保留的只有方向性敘述（長期輪椅坐姿 → 髖屈肌短縮 → 俯臥泳姿下肢伸不直），這部分是解剖推導 + 臨床通識，不需要那篇不存在的文獻背書。 **若日後要恢復量化盛行率，必須先找到真實可解析的流病來源，不得回填舊數字。** 確定性標記同日由 🟠 改為 🔵：撤掉數字後剩下的是「長期坐姿 → 髖屈肌處於縮短位 → 俯臥泳姿下肢伸不直」這條解剖／力學推導，本專案並無 SCI 泳者的教學觀察案例可據，標 🟠（教練觀測）會暗示一個不存在的觀察基礎，標 🔵（推導）才是誠實的位置。'
+    caveat: '**2026-08-17 來源健檢結果**：本條原引「Akkurt et al. 2017, J Phys Ther Sci，SCI 髖屈攣縮綜述」， PubMed 檢索該作者×該期刊×該年回傳 0 筆，放寬條件後唯一相符的 Akkurt H 2017 是 Eur J Phys Rehabil Med 的「上肢有氧運動 RCT」，期刊、主題、文獻類型三項皆不符，無法認定為同一篇。故引用已解除、依附其上的 30–50% 數字已撤除。保留的只有方向性敘述（長期輪椅坐姿 → 髖屈肌短縮 → 俯臥泳姿下肢伸不直），這部分是解剖推導 + 臨床通識，不需要那篇不存在的文獻背書。 **若日後要恢復量化盛行率，必須先找到真實可解析的流病來源，不得回填舊數字。** 確定性標記同日由 🟠 改為 🔵：撤掉數字後剩下的是「長期坐姿 → 髖屈肌處於縮短位 → 俯臥泳姿下肢伸不直」這條解剖／力學推導，本專案並無 SCI 泳者的教學觀察案例可據，標 🟠（教練觀測）會暗示一個不存在的觀察基礎，標 🔵（推導）才是誠實的位置。'
     sources: []
     source_ids: []
   risk_factors:
@@ -3624,7 +3628,7 @@ injuries:
     prevalence: OC 在女性運動族群中使用普遍（方向性描述）。**舊稿的「使用率 30–50%」已於 2026-08-17 撤除**：它掛在兩個來源下，但一個查無此文獻（Bushman 2006），另一個（Elliott-Sale 2020）是表現統合分析、根本不產出使用率數字。要恢復量化使用率必須另找流行病學調查。
     certainty: 🟡
     evidence_grade: B
-    caveat: '**2026-08-17 來源健檢：本條目原有兩層錯誤，均已更正。** ① **引用不存在**：舊稿引的「Bushman et al. 2006, Phys Sportsmed，早期 OC × VO₂max 量化」在 PubMed 查無——該作者在該期刊 0 筆；唯一真實的 Bushman × OC 文獻是 J Sports Med Phys Fitness 2006 的**無氧功率**研究（PMID 16596112），期刊與測量指標皆不符。VO₂max 數字的真正出處是 Lebrun 2003（已補入來源清單），且實測值 4.7%、非舊稿的 10–11%。 ② **引用與主張不對應**：Elliott-Sale 2020 被誤記為 Br J Sports Med（實為 Sports Med），且被用來支撐「使用率 30–50%」——那是表現統合分析，不含使用率資料。現存證據的固有限制：Lebrun 2003 **n=14**、只測一種三相型配方、未測比賽表現； Elliott-Sale 2020 納入研究 83% 品質中等以下、配方混雜、研究間變異大；新一代低劑量配方研究稀少。'
+    caveat: '**2026-08-17 來源健檢：本條目原有兩層錯誤，均已更正。** ① **引用不存在**：舊稿引的「Bushman et al. 2006, Phys Sportsmed，早期 OC × VO₂max 量化」在 PubMed 查無——該作者在該期刊 0 筆；唯一真實的 Bushman × OC 文獻是 J Sports Med Phys Fitness 2006 的**無氧功率**研究，期刊與測量指標皆不符。VO₂max 數字的真正出處是 Lebrun 2003（已補入來源清單），且實測值 4.7%、非舊稿的 10–11%。 ② **引用與主張不對應**：Elliott-Sale 2020 被誤記為 Br J Sports Med（實為 Sports Med），且被用來支撐「使用率 30–50%」——那是表現統合分析，不含使用率資料。現存證據的固有限制：Lebrun 2003 **n=14**、只測一種三相型配方、未測比賽表現； Elliott-Sale 2020 納入研究 83% 品質中等以下、配方混雜、研究間變異大；新一代低劑量配方研究稀少。'
     sources:
     - 'Lebrun CM, et al. (2003). Decreased maximal aerobic capacity with use of a triphasic oral contraceptive in highly active women: a randomised controlled trial. Br J Sports Med 37(4):315–320. PMID 12893716'
     - 'Elliott-Sale KJ, et al. (2020). The Effects of Oral Contraceptives on Exercise Performance in Women: A Systematic Review and Meta-analysis. Sports Med 50(10):1785–1812. PMID 32666247'
@@ -4232,7 +4236,7 @@ injuries:
     prevalence: 水母螫傷為全球海域最常見的海洋生物傷，但**無任何族群層級的發生率統計**——Cochrane 2023 只收得到 9 篇處置試驗（574 人），全部不含流行病學。創傷弧菌壞死性皮膚軟組織感染（VNSSTI）的死亡率**必須連族群一起講**：1966–2018 年 12 篇研究、 1,157 名患者的合併結果顯示，**有慢性肝病者死亡率 53.9%（292/542），無肝病者 16.1%（99/615）**， RR 2.61（95% CI 2.14–3.19）；且 46.8% 的 VNSSTI 患者本身就有肝病。台灣水域環境確實檢出創傷弧菌分離株，但**台灣本土的年感染人數無公開登記**。鉤端螺旋體在台灣屬地方流行：疾管署 2007–2014 年通報 10,917 例、確診 665 例（6.1%）， **年平均發生率 0.4/100,000**，集中於高屏（37.3%）與台北（26.2%）。但確診者的風險輪廓是**職業性與洪災暴露**（農牧獸醫 24.8%、接觸豬 9.4%、接觸鼠 8.6%），不是娛樂性游泳；開放水域賽事群聚的證據來自國外（德國三鐵賽事），台灣尚無對應世代。
     certainty: 🟢
     evidence_grade: B
-    caveat: 2026-08-17 修正兩處。**① 來源—宣稱不匹配**：原本「壞死性筋膜炎死亡率 >20%」掛在 src.pmc8147101 下，但該文是台灣水域**環境分離株**的微生物學研究，沒有任何臨床預後數據；且 >20% 對本條所點名的肝病族群而言是**嚴重低估**（實為 53.9%）——錯誤方向與本次健檢其他條目的灌水相反。 **② 無來源敘述**：「台灣為鉤端螺旋體中度流行區」原本無任何引用（src.pmc2858141 是德國三鐵群聚，支撐的是賽事群聚而非台灣流行度），已補 Tsai 2020 全國資料。另：各危害流病仍分散於熱帶醫學／急診／感染科文獻，無游泳專屬登記；水母螫傷無發生率數據。
+    caveat: 2026-08-17 修正兩處。**① 來源—宣稱不匹配**：原本「壞死性筋膜炎死亡率 >20%」掛在 Lin 等人（2021）的創傷弧菌環境分離株研究下，但該文是台灣水域**環境分離株**的微生物學研究，沒有任何臨床預後數據；且 >20% 對本條所點名的肝病族群而言是**嚴重低估**（實為 53.9%）——錯誤方向與本次健檢其他條目的灌水相反。 **② 無來源敘述**：「台灣為鉤端螺旋體中度流行區」原本無任何引用（Brockmann 等人 2010 是德國三鐵群聚，支撐的是賽事群聚而非台灣流行度），已補 Tsai 2020 全國資料。另：各危害流病仍分散於熱帶醫學／急診／感染科文獻，無游泳專屬登記；水母螫傷無發生率數據。
     sources:
     - Chuang PY et al. (2019). PLoS One 14(10):e0223513 — VNSSTI 死亡率系統回顧與統合分析
     - Tsai CT et al. (2020). Zoonoses Public Health 67(2):156-166 — 台灣鉤端螺旋體全國資料庫
