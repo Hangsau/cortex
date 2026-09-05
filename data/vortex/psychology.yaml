@@ -712,7 +712,7 @@ themes:
       plain_text: 在腦中想像一個動作，跟真的做這個動作，用的是大腦同一套線路。差別只在意象時沒有真的把肌肉動出來，但動作的規劃、意圖、對感覺的預期，在腦中全都被啟動了。所以「想像」不是空想——它是一種真實的神經預演，大腦等於用想的「走了一遍」這個動作。有研究還發現，程度越高的運動員，想像複雜技能時大腦啟動得越深、越精準，意思是高手的意象效果可能更準，不是更省力。要補一句：這套「同一條線路」是在很多運動上驗證的通則，游泳的「水感」是不是同樣能被想像激活，目前還是研究空白。
     hardware_boundary:
       certainty: 🟢
-      text: 意象不只激活運動皮質，還誘發運動網絡的可塑性變化，並調節脊髓層面的突觸活動——這是意象能促進真實動作改善的神經基礎（PMC7063062）。注意：「功能等價」是跨運動領域的通用發現，游泳情境下「水感神經表徵是否同樣被意象激活」仍是研究空白，外推時需標明。
+      text: 意象不只激活運動皮質，還誘發運動網絡的可塑性變化，並調節脊髓層面的突觸活動——這是意象能促進真實動作改善的神經基礎（Moran 與 O'Shea 2020 的綜述）。注意：「功能等價」是跨運動領域的通用發現，游泳情境下「水感神經表徵是否同樣被意象激活」仍是研究空白，外推時需標明。
     l_levels:
     - L0
     - L1
@@ -723,9 +723,13 @@ themes:
     - L6
     l_note: 貫穿全程：L0–L2 用意象預建入水、呼吸、漂浮的感知腳本；L3–L4 用意象強化手掌/前臂水壓的感知地圖； L5–L6 用意象整合全身場感知。每個 L 級的意象效果受當前技能水平決定，初學者意象精準度低但仍有益。
     sources:
-    - Research/心理/05_意象與心理演練.md#1-功能等價functional-equivalence
+    - Jeannerod, M. (1994). The representing brain. Behavioral and Brain Sciences 17(2):187-202.
+    - Moran, A., & O'Shea, H. (2020). Motor imagery practice and cognitive processes. Frontiers in Psychology 11:394.
+    - Yin, J., Yang, K., Zhou, C., & Dang, J. (2025). Motor expertise modulates cortical activation during imagery. PNAS 122(39).
     source_ids:
-    - src.research-psych-05-a
+    - src.jeannerod-1994-representing-brain
+    - src.moran-oshea-2020-mi-cognitive-processes
+    - src.yin-2025-motor-expertise-imagery
   - id: psych.imagery.pettlep
     name_zh: 意象越像真實情境，效果越強
     nav_zh: PETTLEP
@@ -733,7 +737,7 @@ themes:
     status: complete
     phenomenon:
       certainty: 🟡
-      text: Holmes & Collins（2001）基於功能等價理論提出 PETTLEP 七原則，核心邏輯是：意象情境越接近實際執行，神經激活的重疊度越高，訓練效果越佳。七個元素分別是 Physical（姿勢）、Environment（環境細節）、 Task（肌肉張力與感知細節）、Timing（實際速度而非慢動作）、Learning（隨技能進步更新內容）、 Emotion（競技時的情緒喚醒）、Perspective（視角）。2022 年 20 年回顧已整合動作觀察的新方向； 2025 年日本大學生運動員研究（n≈800）實證 PETTLEP 多維結構，發現 Timing 可細分，視角（第一/第三人稱）為獨立維度。
+      text: Holmes & Collins（2001）基於功能等價理論提出 PETTLEP 七原則，核心邏輯是：意象情境越接近實際執行，神經激活的重疊度越高，訓練效果越佳。七個元素分別是 Physical（姿勢）、Environment（環境細節）、 Task（肌肉張力與感知細節）、Timing（實際速度而非慢動作）、Learning（隨技能進步更新內容）、 Emotion（競技時的情緒喚醒）、Perspective（視角）。Scott 等人（2022）的 20 年回顧已整合動作觀察的新方向； Lee 與 Horino（2025）以日本大學生運動員兩份樣本（n=422、n=378）實證 PETTLEP 多維結構，發現 Timing 可細分為真實／慢速／快速三種，視角（第一/第三人稱）為獨立維度。
       plain_text: 意象不是隨便閉眼想想就好——越逼真，效果越強。有個叫 PETTLEP 的架構，把「逼真」拆成七個要點：擺出真正的划水姿勢（別只是坐著想）、喚起泳池的氣味水聲畫面、在腦中明確包含手掌壓水的感覺、用真實的划水節奏（不要慢動作）、隨技術進步更新想像的內容、比賽前加入競技情緒、選對視角。背後的道理是：想像的情境越接近真的在游，大腦啟動的線路重疊越多，練習效果就越好。所以與其模糊地「想一下游泳」，不如照這七點，把想像做得跟真的下水一樣具體。
     intervention_refs:
     - name: PETTLEP 結構化游泳意象腳本
@@ -741,12 +745,18 @@ themes:
       how_to: P：穿泳衣、採取划水姿勢（手臂在水線位置）進行意象，而非隨意坐著想； E：重現泳池氣味、水聲、視覺，閉眼喚起場景細節； T：在意象中明確包含「手掌感受到的水壓、前臂流動感、肌肉張力」——這是水感的神經表徵層； T（Timing）：按實際划水節奏，不用慢動作； L：隨著技術精進，更新意象腳本（L2 漂浮感知 → L3 手感 → L4 前臂壓力梯度）； E（Emotion）：比賽前加入競技情緒； P（Perspective）：動覺意象以第一人稱（感受自己動）為主，技術分析時輔以第三人稱（觀察姿勢）。
     - name: VR 輔助 PETTLEP 意象（游泳）
       certainty: 🟢
-      how_to: 2025 年 RCT（PMC12229036）顯示，VR 結合 PETTLEP 結構化意象在划臂距離、心率、RPE 等指標均優於傳統訓練。若具備條件，VR 可強化 E（環境）與 T（任務感知）元素的保真度。
+      how_to: Namli 等人（2025）的 RCT 顯示，VR 結合 PETTLEP 結構化意象在划臂距離、心率、RPE 等指標均優於傳統訓練。要注意該研究操弄的是「VR ＋ 影片示範」整包，無法把效果單獨歸給意象成分。若具備條件，VR 可強化 E（環境）與 T（任務感知）元素的保真度。
     population_note: PETTLEP 的 L（Learning）元素是全光譜適用的關鍵：兒童初學的意象內容應保持簡單（入水、吐氣氣泡）；青少年競技與鐵人三項可加入戰術與競技情緒層；成人初學若有水中焦慮，P 元素（姿勢）需謹慎，避免在過度緊張狀態下進行高仿真意象反而強化焦慮記憶。現有 PETTLEP 研究以大學生競技運動員為主，兒童與成人初學適用方式屬素材缺口，不以競技樣本直接外推。
     sources:
-    - Research/心理/05_意象與心理演練.md#2-pettlep-意象模型
+    - Holmes, P. S., & Collins, D. J. (2001). The PETTLEP approach to motor imagery. Journal of Applied Sport Psychology 13(1):60-83.
+    - Scott, M. W., Wright, D. J., Smith, D., & Holmes, P. S. (2022). Twenty years of PETTLEP imagery. Asian Journal of Sport and Exercise Psychology 2(2):70-79.
+    - Lee, S.-M., & Horino, H. (2025). Exploring the incorporation of imagery based on PETTLEP. The Sport Psychologist 39(4):260-270.
+    - Namli, S., Özdemir, K., Sen, I., & Bedir, D. (2025). Virtual reality-supported video modeling for enhancing motor skill acquisition in swimming. BMC Sports Science, Medicine and Rehabilitation 17(1):182.
     source_ids:
-    - src.research-psych-05-b
+    - src.holmes-collins-2001-pettlep
+    - src.scott-2022-twenty-years-pettlep
+    - src.lee-horino-2025-pettlep-multidimensional
+    - src.namli-2025-vr-swimming-imagery
   - id: psych.imagery.kinesthetic_priority
     name_zh: 想「感覺」比想「畫面」更能強化水感
     nav_zh: 動覺優先
@@ -754,7 +764,7 @@ themes:
     status: complete
     phenomenon:
       certainty: 🟡
-      text: '意象可依視角分為：內部視覺意象（第一人稱，看見自己動作）、外部視覺意象（第三人稱，旁觀自己）、動覺意象（感受動作的觸感、阻力、肌肉張力）。Spittle & Morris（2007, PMID: 17566428）發現，感知主導的任務（需即時感知環境回饋的開放技能）偏向內部視角；形式主導的封閉技能偏向外部視角。游泳是封閉技能，但「感知水的阻力、壓力分佈、前臂角度」使其具備高度感知主導的成分，因此動覺意象（KI）與內部視角的組合是強化水感的核心路徑。 2025 年多巴胺研究（n=42，DOI: 10.1007/s00426-025-02225-x）顯示，多巴胺能下降選擇性損害內部視覺意象，而本體感覺準確度保持穩定——提示動覺/本體感覺與視覺意象涉及部分獨立的神經通路，強化了「水感訓練需要動覺意象，而非只靠視覺想象」的理論根據。'
+      text: 意象可依視角分為：內部視覺意象（第一人稱，看見自己動作）、外部視覺意象（第三人稱，旁觀自己）、動覺意象（感受動作的觸感、阻力、肌肉張力）。Spittle 與 Morris（2007）發現，感知主導的任務（需即時感知環境回饋的開放技能）偏向內部視角；形式主導的封閉技能偏向外部視角。游泳是封閉技能，但「感知水的阻力、壓力分佈、前臂角度」使其具備高度感知主導的成分，因此動覺意象（KI）與內部視角的組合是強化水感的核心路徑。 Hejazi Dinan 等人（2025）以雙盲安慰劑對照設計，讓 42 名健康成人服用支鏈胺基酸暫時降低多巴胺能，結果內部視覺意象被選擇性損害，而本體感覺準確度保持穩定——提示動覺/本體感覺與視覺意象涉及部分獨立的神經通路，強化了「水感訓練需要動覺意象，而非只靠視覺想象」的理論根據。
       plain_text: 想像可以分兩種：一種是「看」——看到自己游泳的畫面；另一種是「感覺」——感受手掌的阻力、前臂的水壓、肌肉的張力。要強化水感，關鍵是後者（用感覺去想），不是前者。因為水感本來就是一種「感覺」，光在腦中看自己游泳的樣子，提供的只是動作的外形資訊，不會啟動感覺水的那條通路。所以常見的「多看高手影片、多想幾遍就會了」其實有限——影片看完，要閉上眼睛，去想像手掌入水那個阻力的感覺，而不是想像自己「看起來」是什麼樣子。
     hardware_boundary:
       certainty: 🔵
@@ -765,11 +775,11 @@ themes:
       better: 以影片為輔助工具確認外部形式後，切換到閉眼動覺意象：想像手掌入水的阻力感、前臂的水壓，而非想像自己「看起來」的樣子。
     population_note: 兒童的動覺意象能力（vividness）低於成人，且隨年齡發展；對年幼兒童（6 歲以下）不宜以複雜動覺意象為主，宜以簡單感知描述（吹氣泡、腳踢水）帶領。青少年競技與成人初學的動覺意象能力差異明顯，前者受訓年限長、意象能力通常較強；成人初學若缺乏相關感知基礎，動覺意象內容需從最粗粒度開始建立（如「手放進水裡，感受水的溫度與阻力」）。鐵人三項有游泳基礎，可直接進入細粒度動覺意象訓練。現有量表（VMIQ-2 / MIQ-RS）均為跨運動通用版，游泳專屬動覺意象量測仍是研究空白。
     sources:
-    - Research/心理/05_意象與心理演練.md#4-內部視角-vs-外部視角internal--external-imagery-perspective
-    - Research/心理/05_意象與心理演練.md#c-動覺意象-vs-視覺意象的分離效應
+    - Spittle, M., & Morris, T. (2007). Internal and external imagery perspective measurement and use in imagining open and closed sports skills. Perceptual and Motor Skills 104(2):387-404.
+    - Hejazi Dinan, P., Bahmani, M., Garmanjani, U., Nazemzadegan, G. H., & Fazeli, D. (2025). Dopamine, motor imagery, and proprioception. Psychological Research 90(1).
     source_ids:
-    - src.research-psych-05-d
-    - src.research-psych-05-g
+    - src.spittle-morris-2007-imagery-perspective
+    - src.dinan-2025-dopamine-motor-imagery
   - id: psych.imagery.feedforward_calibration
     name_zh: 意象是乾地上校準水感地圖的工具
     nav_zh: 前饋校準
@@ -777,7 +787,7 @@ themes:
     status: complete
     phenomenon:
       certainty: 🟢
-      text: 'Kilteni 等（2018, PMID: 29691389）的 Nature Communications 研究直接證明：運動意象涉及「預測動作的感知後果」——大腦的前向模型（forward model）在意象中被調用，預測「如果這樣動，感覺會是什麼」。關鍵發現是：想象的自我觸碰會產生與真實觸碰相同的觸覺衰減效應，遵循相同的時空原則。這意味著意象不只是「回放記憶」，而是主動預測感知後果——每一次動覺意象循環都在校準前向模型的「期望感知 vs 實際感知」差距。 2025 年 Frontiers Physiology RCT（n=57 精英游泳者，PMC12433939）進一步在游泳情境直接驗證：閉眼＋運動意象組的腰椎本體感覺準確度顯著優於純技術組，是目前已知在游泳者身上驗證「意象強化本體感覺精準度」的高品質 RCT。'
+      text: Kilteni 等人（2018）的 Nature Communications 研究直接證明：運動意象涉及「預測動作的感知後果」——大腦的前向模型（forward model）在意象中被調用，預測「如果這樣動，感覺會是什麼」。關鍵發現是：想象的自我觸碰會產生與真實觸碰相同的觸覺衰減效應，遵循相同的時空原則。這意味著意象不只是「回放記憶」，而是主動預測感知後果——每一次動覺意象循環都在校準前向模型的「期望感知 vs 實際感知」差距。 Solana-Tramunt 與 Bofill-Ródenas（2025）的 RCT 進一步在游泳情境直接驗證： 57 名精英泳者隨機分組，連續 11 週每週 6 天做腰椎屈伸練習，閉眼＋運動意象組的腰椎本體感覺準確度顯著優於純技術組，是目前已知在游泳者身上驗證「意象強化本體感覺精準度」的高品質 RCT。
       plain_text: 動覺想像不只是「回放」一段記憶，它其實在做一件更主動的事：預測「如果這樣動，感覺會是什麼」。大腦裡有個像預測引擎的東西，每想像一次，就在校準「我以為會有的感覺」和「真實的感覺」之間的差距。有一份找精英泳者做的高品質研究發現：閉眼加上動作想像的那組，身體位置的本體感覺準確度，明顯比只練技術的那組好。這就是為什麼有些人「下水前先在腦中想一遍，反而比較快找到感覺」——他是在乾地上，先把水感的地圖校準好了。（不過「想像能不能直接提升手掌的水壓感知」還沒被直接測過，是 Vortex 想研究的方向。）
     hardware_boundary:
       certainty: 🔵
@@ -789,11 +799,11 @@ themes:
     - L5
     l_note: L2–L3：意象可預先建立「手掌入水時應感受到的阻力」感知腳本，縮短下水後感知地圖建立的時間； L4–L5：意象可精煉前臂壓力梯度、流場感知的細粒度預測，強化高水平感知判斷。
     sources:
-    - Research/心理/05_意象與心理演練.md#5-運動意象與-feedforward-預測模型的關係
-    - Research/心理/05_意象與心理演練.md#a-動覺意象能否預先建立或強化水感
+    - Kilteni, K., Andersson, B. J., Houborg, C., & Ehrsson, H. H. (2018). Motor imagery involves predicting the sensory consequences of the imagined movement. Nature Communications 9(1):1617.
+    - 'Solana-Tramunt, M., & Bofill-Ródenas, A. (2025). Motor imagery enhances core training effects on lumbar proprioception in elite swimmers: a randomized controlled trial. Frontiers in Physiology 16:1667536.'
     source_ids:
-    - src.research-psych-05-e
-    - src.research-psych-05-f
+    - src.kilteni-2018-imagery-sensory-prediction
+    - src.solana-tramunt-2025-mi-lumbar-proprioception
   - id: psych.imagery.functional_types
     name_zh: 意象腳本有目的之分，不能只演練技術
     nav_zh: 意象類型
@@ -801,7 +811,7 @@ themes:
     status: complete
     phenomenon:
       certainty: 🟡
-      text: 'Paivio（1985）與 Hall 等（1998, SIQ）把運動意象的功能分為五類： CS（Cognitive Specific，技能演練）、CG（Cognitive General，策略/戰術）、 MS（Motivational Specific，目標設定）、MG-A（Motivational General-Arousal，情緒與喚醒調節）、 MG-M（Motivational General-Mastery，自信與心理掌控）。在 Vortex 框架中，「演練手掌入水時感知到的壓力與角度」屬 CS 類，直接針對感知技能；「建立對水的信任感與自信」屬 MG-M 類，對恐懼者或長期技術卡關的泳者尤其重要。 2025 年多層次 meta 分析（86 研究 3593 名運動員，PMID: 40426460）發現，意象與 1–2 種其他心理技巧（如放鬆技術）合用效果最佳；單純 CS 意象效果量為中等（d≈0.43）。'
+      text: Paivio（1985）與 Hall 等（1998, SIQ）把運動意象的功能分為五類： CS（Cognitive Specific，技能演練）、CG（Cognitive General，策略/戰術）、 MS（Motivational Specific，目標設定）、MG-A（Motivational General-Arousal，情緒與喚醒調節）、 MG-M（Motivational General-Mastery，自信與心理掌控）。在 Vortex 框架中，「演練手掌入水時感知到的壓力與角度」屬 CS 類，直接針對感知技能；「建立對水的信任感與自信」屬 MG-M 類，對恐懼者或長期技術卡關的泳者尤其重要。 Liu 等人（2025）的多層次 meta 分析（86 個研究、3593 名運動員）發現，意象與 1–2 種其他心理技巧（如放鬆技術）合用效果最佳；單純 CS 意象效果量為中等（d≈0.43）。
       plain_text: 想像不是只有一種用途。它至少有幾種不同的目的：演練技術細節（手掌怎麼壓水）、演練戰術、設定目標、調節情緒和緊張、建立「我做得到」的掌控感。常見的做法是每次都只想「游一趟、把技術走一遍」——但這會漏掉情緒和信心這一層。舉例：一個怕水或長期卡關的人，他需要的可能不是再演練一次技術，而是先在腦中建立「我能做到、我是安全的」那種掌控感，有了這個地基，技術演練才有效。所以該想什麼，要看當下缺什麼：下水前焦慮就先想放鬆、技術卡關就想感知細節、信心低落就想掌控場景。
     misconception_refs:
     - cue: 每次意象都想游一趟，把技術演練一遍就好
@@ -809,9 +819,13 @@ themes:
       better: 依當前需求選擇意象類型：下水前有焦慮 → MG-A（放鬆/喚醒調節）先行；技術卡關 → CS（感知細節演練）；長期信心低落 → MG-M（掌控感場景）。
     population_note: CS 類意象（技能演練）需要足夠的感知基礎，對尚未建立 L2 以下感知的兒童初學者或恐懼者， CS 意象內容可能空洞或反效果（強化恐慌記憶）；應先以 MG-M（安全、掌控）類意象建立情緒基礎。青少年競技與鐵人三項以 CS + CG（戰術）為主；成人初學若有社會評價焦慮，MG-M 類意象（「我游得到」）的優先度高於技術演練。現有功能分類研究以競技運動員為主，兒童與恐懼族群的分類效度是素材缺口。
     sources:
-    - Research/心理/05_意象與心理演練.md#3-意象的功能分類paivio-1985--hall-et-al-1998
+    - Paivio, A. (1985). Cognitive and motivational functions of imagery in human performance. Canadian Journal of Applied Sport Sciences 10:22-28.
+    - 'Hall, C. R., Mack, D. E., Paivio, A., & Hausenblas, H. A. (1998). Imagery use by athletes: Development of the Sport Imagery Questionnaire. International Journal of Sport Psychology 29(1):73-89.'
+    - 'Liu, Y., Zhao, S., Zhang, X., Zhang, X., Liang, T., & Ning, Z. (2025). The effects of imagery practice on athletes'' performance: a multilevel meta-analysis with systematic review. Behavioral Sciences 15(5):685.'
     source_ids:
-    - src.research-psych-05-c
+    - src.paivio-1985-imagery-functions
+    - src.hall-1998-siq
+    - src.liu-2025-imagery-meta
   - id: psych.imagery.off_water_maintenance
     name_zh: 離水時，意象能減緩水感退化
     nav_zh: 離水維持
@@ -819,7 +833,7 @@ themes:
     status: complete
     phenomenon:
       certainty: 🟢
-      text: 'Driediger、Hall & Callow（2006, PMID: 16368636）針對受傷運動員的質性研究發現，運動員在無法練習時主動使用動覺意象「保住」動作感覺，明確意圖是防止技術退化。這與功能等價理論一致：即便沒有真實的身體動作，意象仍在維持運動神經表徵的激活程度。對游泳而言，受傷停水、旅行無法下水、季外訓練低谷期，動覺意象是維持水感神經表徵的可用工具，優先於「等回去再練」。'
+      text: Driediger、Hall 與 Callow（2006）針對受傷運動員的質性研究發現，運動員在無法練習時主動使用動覺意象「保住」動作感覺，明確意圖是防止技術退化。這與功能等價理論一致：即便沒有真實的身體動作，意象仍在維持運動神經表徵的激活程度。對游泳而言，受傷停水、旅行無法下水、季外訓練低谷期，動覺意象是維持水感神經表徵的可用工具，優先於「等回去再練」。
       plain_text: 受傷不能下水、出差碰不到泳池、或季節休息期——這些離水的日子，意象是「保住水感」的工具。有研究發現，受傷的運動員會主動在腦中想像動作的感覺，目的就是不讓技術退化；因為就算身體沒真的動，想像仍在維持那套神經線路的活躍。對游泳來說，與其想著「等回去再說」，不如在離水期間每天花十幾分鐘，照前面 PETTLEP 那套，具體想像手掌壓水、踢水節律的感覺，回到水裡前再加做一組，能縮短重新找回水感的時間。（能維持多久、退化慢多少，游泳裡還沒精確量過，但方向是成立的。）
     hardware_boundary:
       certainty: 🔵
@@ -830,9 +844,9 @@ themes:
       how_to: 每日 10–15 分鐘，依 PETTLEP 原則進行：穿上泳衣或採取划水姿勢（P），重現泳池環境細節（E），明確想象手掌壓水、前臂承壓、踢水節律的感知細節（T），按實際游速進行（T-timing），包含回到水中的情緒期待（E-emotion）。停訓結束後第一次下水前加做一組意象，縮短重新建立水感地圖的時間。
     population_note: 對競技青少年與鐵人三項在停賽/傷後期間最為實用，因為技術退化影響直接反映在成績。兒童初學的「水感」本體感覺地圖尚未鞏固，停訓後意象維持效果理論上低於已建立感知基礎的泳者；成人初學若剛開始建立感知，停訓期意象優先維持 MG-M 類（情緒安全感），而非複雜動覺細節。意象維持方案對所有長期停水族群均有潛在效用，但目前文獻基礎來自受傷競技運動員，其他停水情境（旅行、季外、育兒中斷）的效果是素材缺口。
     sources:
-    - Research/心理/05_意象與心理演練.md#視角與測量
+    - 'Driediger, M., Hall, C., & Callow, N. (2006). Imagery use by injured athletes: a qualitative analysis. Journal of Sports Sciences 24(3):261-271.'
     source_ids:
-    - src.research-psych-05-h
+    - src.driediger-2006-injured-athletes-imagery
 - id: psych.attention
   name_zh: 注意力焦點
   nav_zh: 注意力
