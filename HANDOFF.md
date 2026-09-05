@@ -29,6 +29,25 @@ canonical 的散文用摺疊純量（`>-`）在檔案裡折行以便閱讀，**Y
 
 **my-site 這側同步加了防線**（`vortex-stroke.html` / `vortex-database.html`）：標題改成綁在 `.text` 上，不綁在區塊存在上。原本 `{{ with .physical_reason }}` 只要區塊在就印標題，而 `observation_basis`（維護者看的證據基礎）不對外輸出，於是「有區塊但無內容」直接變成讀者眼中的內容漏失。線上 5 頁實測 `emptyPR=0`。
 
+### ✅ 線上 20 頁全掃，四類「有標題沒內容」的空容器已修（commit `753beea`）
+
+抓法：把 vortex 底下每一頁 curl 下來（先確認全部 HTTP 200），掃 `map[`、空 `<div>`／`<span>`／`<p>`／`<td>`。找到的四類都是同一個病：**標題或格子綁在「區塊存在」上，資料剛好沒有時，讀者看到的是標籤加一片空白**。
+
+| 症狀 | 筆數 | 修法 |
+|---|---|---|
+| 傷害頁印出 Go 的 `map[open_water:…]` | 12 | `lifecycle` 是巢狀 map，layout 用裸 `{{ . }}`。改成照既有 `ability.para → 帕拉游泳` 逐子鍵給標籤 |
+| 各式頁「口訣校正」加空容器 | 12 | 12 個動作三個 cue 全空（仰漂那兩節談的是安全感，不是口令錯誤）。標題改綁在 cue 上 |
+| 查資料頁卡片空 `<p>` | 1 | `water-sense-guide` 內容寫死在 layout，`.Summary` 非空但 plainify 後是空字串 |
+| 週期化表格空格子 | 1 | 多巔峰型沒有固定巔峰數。canonical 補 `peaks_note_zh: 多` |
+
+**剩下的空元素都是正當的**，不要再去「修」：`vx-flow` 的 `<span></span>` 是 flex 撐位、`vx-rail-theme-caret` 是 CSS 畫的箭頭、`vxFindCount`／`vxNeedsCount`／`vxFindCatChips` 是 JS 填的容器。
+
+### ✅ 查資料頁 28 張散文卡片把整頁倒進卡片——Hugo 的 `.Summary` 對中文無效（commit `461e114`）
+
+**Hugo 的自動摘要是照「詞數」切的**，中文沒有詞間空白、整頁被算成一個詞，所以 `.Summary` 回傳的是整頁純文字——連表格攤平、`&amp;mdash;` 這種二次跳脫、換行全部倒進卡片，線上實測 28 張各吐 300–1541 字。四組散文卡片（水感框架／感知銜接／訓練週期／教學原文）改取 front matter 的 `description`（每頁都有），沒有才退回 `truncate 120`。搜尋用的 `data-text` 不動，那本來就該吃整頁。
+
+**錯誤更正**：上一段驗收把 `database` 頁的 1244 處句中空白**全部**判成 `data-text` 屬性、結論「可見文字 0 處」——錯。其中 256 處在可見的卡片 `<p>` 裡，正是這個整頁傾印造成的。教訓：用「在不在 `data-text="…"` 區間內」來分類時，要把落在區間外的那些**逐筆列出來看**，不能只看比例就收尾。
+
 ### ⚠️ 本機 `hugo` 建置不能用來驗證列點與分段——`core.autocrlf=true` 會讓它跟線上不一致
 
 `data/vortex/*.yaml` 的工作目錄副本是 CRLF（4032 CRLF / 0 純 LF），committed blob 是 LF。**Hugo 的 YAML 解析器把引號純量裡的 `\r` 和 `\n` 當成兩個獨立換行**，k 個折行變成 2k−1 個換行，於是列點之間多出空行、`richblock.html` 正確地判成段落結束而各自封一個 `<ul>`。CI 在 Linux 讀 LF，輸出是正確的單一 `<ul>`。
