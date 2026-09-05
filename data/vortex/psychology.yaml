@@ -1539,13 +1539,15 @@ themes:
       why: 這個指令主動要求顯性監控，正是再投資（reinvestment）的觸發機制，實際上阻止行動與覺察融合的發生；對有足夠自動化程度的進階泳者，這會降低表現。
       better: 賽前心像演練的焦點放在整體節律感、水的感覺、身體輕鬆的狀態，而不是動作清單逐步驗核。
     sources:
-    - Research/心理/07_心流與最佳表現.md#1-csikszentmihalyi-心流九大維度
-    - Research/心理/07_心流與最佳表現.md#4-精英運動員心流研究jackson1995-1996
-    - Research/心理/07_心流與最佳表現.md#游泳特異研究-vs-跨運動外推
+    - 'Csikszentmihalyi, M. (1990). Flow: The Psychology of Optimal Experience. Harper & Row.'
+    - Jackson, S. A. (1995). Factors influencing the occurrence of flow state in elite athletes. Journal of Applied Sport Psychology, 7(2), 138-166.
+    - Jackson, S. A. (1996). Toward a conceptual understanding of the flow experience in elite athletes. Research Quarterly for Exercise and Sport, 67(1), 76-90.
+    - 'Bauman, J. (2015). Swimming psychology: merging mind and body. Science of Swimming Faster, Ch. 16.'
     source_ids:
-    - src.research-psych-07-a
-    - src.research-psych-07-c
-    - src.research-psych-07-m
+    - src.csikszentmihalyi-1990-flow
+    - src.jackson-1995-flow-elite-athletes
+    - src.jackson-1996-conceptual-flow
+    - src.bauman-2015-swimming-psychology
   - id: psych.flow.challenge_skill_balance
     name_zh: 太難焦慮、太易無聊、剛好才有心流
     nav_zh: 挑戰平衡
@@ -1572,13 +1574,11 @@ themes:
       why: 技術進步只解決了技能端，挑戰端若沒有跟著調整（任務太易就無聊、太難就焦慮），心流通道仍不會出現；心流發生需要兩端同時匹配，不是等技術夠強就自動開啟。
       better: 每次訓練設計時同時調整挑戰難度（任務難度、距離、限制條件）與評估學員的技能狀態，讓任務落在「剛好做得到但要專注」的帶寬內。
     sources:
-    - Research/心理/07_心流與最佳表現.md#2-挑戰-技能平衡challenge-skill-balance模型演化
-    - Research/心理/07_心流與最佳表現.md#flow-reinvestment-軸線的水感應用
-    - Research/心理/07_心流與最佳表現.md#心流的發展軌跡flow-不是-l6-的專利推導
+    - 'Csikszentmihalyi, M. (1990). Flow: The Psychology of Optimal Experience. Harper & Row.'
+    - Engeser, S., & Rheinberg, F. (2008). Flow, performance and moderators of challenge-skill balance. Motivation and Emotion, 32(3), 158-172.
     source_ids:
-    - src.research-psych-07-b
-    - src.research-psych-07-i
-    - src.research-psych-07-l
+    - src.csikszentmihalyi-1990-flow
+    - src.engeser-rheinberg-2008-challenge-skill
   - id: psych.flow.indirect_control
     name_zh: 心流不能直接命令自己進去
     nav_zh: 間接控制
@@ -1590,11 +1590,11 @@ themes:
       plain_text: 不過要老實說：心流沒辦法用命令直接叫它出現。研究的共識是——你只能去佈置那些「讓它比較容易發生」的前提條件，沒辦法保證它一定來。而且現有研究多半只看到相關，分不清到底是「先進心流才表現好」還是「表現好才覺得進了心流」。所以任何號稱「保證讓你進心流」的方法都超出證據範圍；它是機率性的，你能做的是把成功率往上推，不能下指令。
     population_note: 心流研究嚴重偏向精英運動員，兒童初學、成人初學、鐵人三項業餘選手的心流發生率和形態直接量化數據幾乎缺失（研究空白 🔴）。兒童初學在低技能層級就特別容易進入類心流的吸收狀態（遊戲性、低自我意識），這與精英運動員的心流機制是否相同，目前沒有直接比較研究。
     sources:
-    - Research/心理/07_心流與最佳表現.md#5-swann-等人心流系統回顧2012
-    - Research/心理/07_心流與最佳表現.md#8-心流-表現關係-meta-analysis
+    - Swann, C., Keegan, R. J., Piggott, D., & Crust, L. (2012). A systematic review of the experience, occurrence, and controllability of flow states in elite sport. Psychology of Sport and Exercise, 13(6), 807-819.
+    - Harris, D. J., Allen, K. L., Vine, S. J., & Wilson, M. R. (2021). A systematic review and meta-analysis of the relationship between flow states and performance. International Review of Sport and Exercise Psychology, 16(1), 693-721.
     source_ids:
-    - src.research-psych-07-d
-    - src.research-psych-07-g
+    - src.swann-2012-flow-systematic-review
+    - src.harris-2021-flow-performance-meta
   - id: psych.flow.flow_vs_clutch
     name_zh: 心流是「讓它發生」；clutch 是「讓它成功」
     nav_zh: 心流與關鍵
@@ -1611,9 +1611,15 @@ themes:
     l_note: Clutch 在 L3–L4 競技情境（重大比賽關鍵段）常見；flow 則更常與 L5–L6 的全身場感知並存。但 clutch 也需要一定的基礎自動化（L3+），純 L0–L2 初學者的壓力反應更接近恐懼崩潰，不是 clutch 的費力專注。游泳比賽最後 50 公尺是 clutch 還是 flow 主導，目前無游泳特異研究（🔴）。
     population_note: Flow-Clutch 量表（Swann et al., 2021, 2023）以廣義運動/休閒運動者為樣本，競技游泳場景的適用性尚待游泳專屬研究確認（外推至游泳標 🔵）。對兒童競技與青少年競技：兩種狀態都可能出現，但比例和觸發條件的系統研究缺失。
     sources:
-    - Research/心理/07_心流與最佳表現.md#6-flow-vs-clutch-statesswann-等人2017-2023
+    - 'Swann, C., Crust, L., & Vella, S. A. (2017). New directions in the psychology of optimal performance in sport: Flow and clutch states. Current Opinion in Psychology, 16, 48-53.'
+    - 'Swann, C., Crust, L., Jackman, P., Vella, S. A., Allen, M. S., & Keegan, R. (2017). Psychological states underlying excellent performance in sport: Toward an integrated model of flow and clutch states. Journal of Applied Sport Psychology, 29(4), 375-401.'
+    - 'Swann, C., et al. (2022). The Flow-Clutch Scale: Development and preliminary validation in sport and exercise. Psychology of Sport and Exercise, 58, 102066.'
+    - 'Sanchez Vara, A., Chamorro, J. L., Moreno Castellanos, R., & Alcaraz, S. (2023). Measuring optimal psychological states: Proposal of two brief versions to measure flow and clutch in athletes. Frontiers in Psychology, 14, 1066494.'
     source_ids:
-    - src.research-psych-07-e
+    - src.swann-2017-flow-clutch-directions
+    - src.swann-2017-integrated-model
+    - src.swann-2022-flow-clutch-scale
+    - src.sanchez-vara-2023-brief-flow-clutch
   - id: psych.flow.reinvestment
     name_zh: 壓力讓人重新「想」動作，反而搞砸
     nav_zh: 壓力再投資
@@ -1631,11 +1637,13 @@ themes:
       why: 這個指令在比賽情境中主動觸發再投資，對已有自動化程度的進階泳者會打斷流暢性，導致「分析癱瘓（paralysis by analysis）」；這是行業內廣泛出現的賽前指導語。
       better: 進階泳者賽前焦點應放在整體感覺（節律、輕鬆、水感）而不是動作清單；顯性技術檢查保留在練習中，賽前最後指令選一個感知焦點（如「感覺水幫你」）不選動作清單。
     sources:
-    - Research/心理/07_心流與最佳表現.md#reinvestment-理論masters-1992masters-maxwell-2008
-    - Research/心理/07_心流與最佳表現.md#flow-vs-reinvestment-對照
+    - Masters, R. S. W. (1992). Knowledge, knerves and know-how. British Journal of Psychology, 83(3), 343-358.
+    - Masters, R., & Maxwell, J. (2008). The theory of reinvestment. International Review of Sport and Exercise Psychology, 1(2), 160-183.
+    - 'Beilock, S. L., & Carr, T. H. (2001). On the fragility of skilled performance: What governs choking under pressure? Journal of Experimental Psychology: General, 130(4), 701-725.'
     source_ids:
-    - src.research-psych-07-k
-    - src.research-psych-07-j
+    - src.masters-1992-reinvestment
+    - src.masters-maxwell-2008-reinvestment-theory
+    - src.beilock-carr-2001-choking
   - id: psych.flow.de_reinvestment
     name_zh: 放掉顯性控制，信任習得的感知——L6 的心理開關
     nav_zh: 去再投資
@@ -1654,13 +1662,11 @@ themes:
       why: 去再投資策略用在尚未建立足夠自動化的初學者身上是錯誤的： L0–L2 泳者沒有穩固的隱性程序知識，「讓身體自己來」會讓他們在水中失去方向感；這個指令在初學端造成的是焦慮，不是心流。
       better: 去再投資語言只用在 L4+ 且已有足夠自動化基礎的泳者；初學者需要清晰的顯性感知目標（「試試看，吐氣的時候感覺你的臉放鬆」），不是「不要想」。
     sources:
-    - Research/心理/07_心流與最佳表現.md#flow-reinvestment-軸線的水感應用
-    - Research/心理/07_心流與最佳表現.md#與水感框架-l5-l6-水我合一的連結
-    - Research/心理/07_心流與最佳表現.md#reinvestment-理論masters-1992masters-maxwell-2008
+    - Masters, R., & Maxwell, J. (2008). The theory of reinvestment. International Review of Sport and Exercise Psychology, 1(2), 160-183.
+    - 'Liao, C.-M., & Masters, R. S. W. (2001). Analogy learning: A means to implicit motor learning. Journal of Sports Sciences, 19(5), 307-319.'
     source_ids:
-    - src.research-psych-07-i
-    - src.research-psych-07-n
-    - src.research-psych-07-k
+    - src.masters-maxwell-2008-reinvestment-theory
+    - src.liao-masters-2001-analogy-learning
   - id: psych.flow.hypofrontality
     name_zh: 心流時大腦的「自我監控區」暫時退場
     nav_zh: 額葉退場
@@ -1679,9 +1685,15 @@ themes:
     l_note: 前額葉退位需要動作已達到足夠的自動化程度（L4+），才能將控制權讓給基底核；L0–L3 的動作仍在建立自動化，前額葉的顯性介入在這些層級是必要的，不是問題。
     population_note: 前額葉低激活假說來自成人神經科學研究，兒童前額葉尚未完全成熟（約 25 歲前持續發展），外推至兒童游泳情境需特別謹慎。兒童的「流暢吸收狀態」可能通過不同的神經機制達成，不能直接套用成人前額葉假說。
     sources:
-    - Research/心理/07_心流與最佳表現.md#9-心流的神經認知機制
+    - Dietrich, A. (2004). Neurocognitive mechanisms underlying the experience of flow. Consciousness and Cognition, 13(4), 746-761.
+    - Gold, J., & Ciorciari, J. (2020). A review on the role of the neuroscience of flow states in the modern world. Behavioral Sciences, 10(9), 137.
+    - Floyer-Lea, A., & Matthews, P. M. (2005). Distinguishable brain activation networks for short- and long-term motor skill learning. Journal of Neurophysiology, 94(1), 512-518.
+    - Poldrack, R. A., et al. (2005). The neural correlates of motor skill automaticity. Journal of Neuroscience, 25(22), 5356-5364.
     source_ids:
-    - src.research-psych-07-h
+    - src.dietrich-2004-hypofrontality
+    - src.gold-ciorciari-2020-flow-neuroscience
+    - src.floyer-lea-matthews-2005-brain-networks
+    - src.poldrack-2005-motor-automaticity
   - id: psych.flow.flow_across_levels
     name_zh: 初學者也有心流——挑戰-技能匹配在每個 L 都有觸發點
     nav_zh: 各層心流
@@ -1702,11 +1714,11 @@ themes:
     l_note: 各 L 級的心流「內容」不同：L0–L2 是控制感初獲的吸收；L3–L4 是局部自動化融合； L5–L6 是全身場感知融合。三者都是心流，但描述語言和觸發條件截然不同，不能用 L6 心流的語言去期待 L0 泳者，也不能用 L0 的「浮起來很開心」等同於 L6 的「水我合一」。
     population_note: 兒童初學者低自我意識、遊戲傾向，在 L0–L2 相對容易進入類心流吸收狀態；成人初學者自我意識較高（社會評價壓力），在低技能層級鬆掉監控更難，需要更刻意的難度調節與去評價環境，才能讓早期心流發生。鐵人三項和青少年競技泳者的心流觸發點通常在 L3+ 以上，與初學端不同。各族群跨技能層級的心流量化比較研究在游泳項目中幾乎缺失（研究空白 🔴）。
     sources:
-    - Research/心理/07_心流與最佳表現.md#心流的發展軌跡flow-不是-l6-的專利推導
-    - Research/心理/07_心流與最佳表現.md#2-挑戰-技能平衡challenge-skill-balance模型演化
+    - 'Csikszentmihalyi, M. (1990). Flow: The Psychology of Optimal Experience. Harper & Row.'
+    - Engeser, S., & Rheinberg, F. (2008). Flow, performance and moderators of challenge-skill balance. Motivation and Emotion, 32(3), 158-172.
     source_ids:
-    - src.research-psych-07-l
-    - src.research-psych-07-b
+    - src.csikszentmihalyi-1990-flow
+    - src.engeser-rheinberg-2008-challenge-skill
   - id: psych.flow.water_as_feedback
     name_zh: 水本身就是心流需要的即時回饋
     nav_zh: 水即回饋
@@ -1729,13 +1741,13 @@ themes:
     l_note: L0 的即時回饋主要是「有沒有沉、有沒有憋到」的生存性回饋，不是細緻水感； L1+ 開始建立浮力回饋；L3+ 有划手阻力分佈；L5–L6 達到全身場感知，即時回饋的訊號密度最高，與心流融合的條件最完整。
     population_note: 開放水域游泳（鐵人三項情境）的即時回饋通道與泳池不同：泳池有觸壁回饋、水道線參照、清澈水底；開放水域無觸壁、能見度低、有波浪。即時回饋訊號的稀釋或干擾是否影響心流發生率，目前無研究。
     sources:
-    - Research/心理/07_心流與最佳表現.md#1-csikszentmihalyi-心流九大維度
-    - Research/心理/07_心流與最佳表現.md#游泳特異研究-vs-跨運動外推
-    - Research/心理/07_心流與最佳表現.md#與水感框架-l5-l6-水我合一的連結
+    - 'Csikszentmihalyi, M. (1990). Flow: The Psychology of Optimal Experience. Harper & Row.'
+    - Jackson, S. A. (1995). Factors influencing the occurrence of flow state in elite athletes. Journal of Applied Sport Psychology, 7(2), 138-166.
+    - 'Bauman, J. (2015). Swimming psychology: merging mind and body. Science of Swimming Faster, Ch. 16.'
     source_ids:
-    - src.research-psych-07-a
-    - src.research-psych-07-m
-    - src.research-psych-07-n
+    - src.csikszentmihalyi-1990-flow
+    - src.jackson-1995-flow-elite-athletes
+    - src.bauman-2015-swimming-psychology
   - id: psych.flow.izof_individual_zones
     name_zh: 最佳喚醒不是一個點，也不是人人相同
     nav_zh: 個人喚醒區
@@ -1755,8 +1767,8 @@ themes:
       why: 這個指令預設所有選手的最佳喚醒都在「高激活端」； IZOF 框架表明有選手需要平靜狀態才能表現最佳，強制提高喚醒反而把他們推出最佳區間。
       better: 了解每位選手的個人化最佳喚醒帶（透過系統記錄比賽前情緒狀態與表現的關係），再針對性調整賽前激活/冷靜策略，而不是一套走天下。
     sources:
-    - Research/心理/07_心流與最佳表現.md#7-理想表現狀態ips--the-zone
-    - Research/心理/07_心流與最佳表現.md#游泳特異研究-vs-跨運動外推
+    - Hanin, Y. L. (2000). Individual Zones of Optimal Functioning (IZOF) model. In Emotions in Sport (pp. 65-90). Human Kinetics.
+    - Hardy, L., Jones, G., & Gould, D. (1996). Understanding Psychological Preparation for Sport. John Wiley & Sons.
     source_ids:
-    - src.research-psych-07-f
-    - src.research-psych-07-m
+    - src.hanin-2000-izof
+    - src.hardy-jones-gould-1996-psych-preparation
