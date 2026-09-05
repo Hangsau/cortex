@@ -927,9 +927,9 @@ errors:
   evidence:
   - certainty: 🟠
     text: 蛙式踢腳最常見的誤解之一，是認為它主要是旋轉動作。目標應該是讓腳盡量向後施力推水。往外、往內只是準備和收尾階段；踢腳的主體幾乎是完全向後的。
-    source: U.S. Masters Swimming
+    source: U.S. Masters Swimming — Breaststroke Kick 指南
     source_ids:
-    - src.u-s-masters-swimming
+    - src.usms-breaststroke-kick-guide
   - certainty: 🟢
     text: CFD 研究確認：蛙腿的主推進機制是 outsweep→insweep 兩段渦流合併後向後噴射，而非旋轉拉力。
     source: Tanaka et al. (2024). CFD study. Journal of Biomechanics
@@ -950,10 +950,10 @@ errors:
     text: 問題不在於膝蓋開多寬，而在於腳掌能否外翻對準後方。膝蓋過度外開讓小腿角度偏斜，腳底面無法朝後施力。膝外旋是腳掌翻轉到位的功能性指標，不是膝蓋開角本身。
   evidence:
   - certainty: 🟠
-    text: 最重要的事不是踢多寬，而是能否讓腳充分外翻，以及整個踢腳過程中膝蓋能否保持穩定。
-    source: U.S. Masters Swimming
+    text: 最重要的事不是踢多寬，而是能否讓腳充分外翻，以及整個踢腳過程中膝蓋能否保持穩定。原文另註明腳掌需比膝蓋更寬，才有辦法把腳翻出去向後施力。
+    source: U.S. Masters Swimming — Breaststroke Kick 指南
     source_ids:
-    - src.u-s-masters-swimming
+    - src.usms-breaststroke-kick-guide
   - certainty: 🟠
     text: 膝蓋朝向水線兩側時，小腿的角度讓腳無法有效抓水；你不是在把水往後推，而是在把水往中間推擠。
     source: SwimOutlet
@@ -1142,10 +1142,10 @@ errors:
     text: 手腳的推進階段必須交替發生：划手時腳保持流線，踢腳時手保持流線。如果手臂正在划水時腳在收回，或者腳在踢出時手臂在收回，就等於同時踩油門和踩煞車。手腳協調時序是蛙式效率最敏感的技術變數之一。
   evidence:
   - certainty: 🟠
-    text: 如果手臂正在划水時腳在收回，或者腳在踢出時手臂在收回，就等於同時踩油門和踩煞車。這些動作必須正確配合時機，才能讓速度最大化。
-    source: U.S. Masters Swimming
+    text: 划手發生在收腿期間會在你想加速的時候讓你減速；踢腿發生在收手期間也一樣。原文另指出手腳動作重疊「就像踩了煞車」——本庫把這兩句合併敘述為「同時踩油門和踩煞車」，油門那半是合併時的措辭，不是原文用字。
+    source: U.S. Masters Swimming — Breaststroke Timing 指南
     source_ids:
-    - src.u-s-masters-swimming
+    - src.usms-breaststroke-timing-guide
   - certainty: 🟢
     text: arm-leg coordination 時序與游速的相關性在各項技術指標中最高，是文獻中最有力支持「時機配合是蛙式效率最敏感變數」的直接證據。
     source: 'Nicol, E., Pearson, S., Saxby, D., Minahan, C., & Tor, E. (2022). Stroke Kinematics, Temporal Patterns, Neuromuscular Activity, Pacing and Kinetics in Elite Breaststroke Swimming: A Systematic Review. Sports Medicine - Open, 8(1), 75.'
@@ -1171,10 +1171,10 @@ errors:
     source_ids:
     - src.swimming-world-magazine
   - certainty: 🟠
-    text: 在踢腳剛結束、腿部仍在流線狀態時划手；在手臂收回完成後、划手之前踢腳。
-    source: U.S. Masters Swimming
+    text: 在踢腳剛結束、腿部仍在流線狀態、還沒開始收腿時划手；在手臂收回完成後、划水之前踢腳。
+    source: U.S. Masters Swimming — Breaststroke Timing 指南
     source_ids:
-    - src.u-s-masters-swimming
+    - src.usms-breaststroke-timing-guide
   cross_ref: 技術分析 §2.3
   cross_ref_ids:
   - breast.tech.8
@@ -1536,10 +1536,10 @@ errors:
     source_ids:
     - src.enjoy-swimming-com
   - certainty: 🟠
-    text: 起伏從頭部開始，像波浪般向下傳遞，帶動核心、背部、臀部與強壯的腿部肌群，最後以腳尖的鞭打動作收尾。
-    source: USMS
+    text: 起伏從頭部開始，像波浪般向下傳遞，帶動核心、背部、臀部與強壯的腿部肌群，最後以腳尖的鞭打動作收尾。（同一機構的另外兩篇把起點寫在肋廓下緣或核心軀幹，起點歸屬在該機構內部並未統一。）
+    source: Fish, A. (2025). What Your Hips Need to Do While You Swim Butterfly. U.S. Masters Swimming.
     source_ids:
-    - src.usms
+    - src.usms-fish-2025-butterfly-hips
   - certainty: 🟡
     text: 胸部是波動起點，髖部為波動放大器，能量從頭部向下傳遞至踝。
     source: Sanders, Cappaert & Devlin (1995). Biomechanics of butterfly. J Appl Biomech
@@ -1587,10 +1587,10 @@ errors:
     text: 蝶式競賽規則要求的是「雙臂同時出水並同時入水」，換氣方向並沒有限制。側向換氣讓頭部保持更靠近水面，臀部不易下沉，身體起伏更流暢，正面與波浪阻力大幅降低。
   evidence:
   - certainty: 🟠
-    text: Mel Stewart 以側向換氣在1992年奧運200公尺蝶式奪金。側向換氣讓頭部保持更靠近水面，臀部不易下沉，身體起伏更流暢。
-    source: USMS
+    text: Mel Stewart 以側向換氣在 1992 年奧運 200 公尺蝶式奪金。原文的論點止於：對前方換氣配合不良起伏的人，側向換氣能換到更接近流線的姿勢。「頭部更靠近水面、臀部不易下沉」是本庫的推導（見上方 🔵），不在原文裡。
+    source: Lassen, M. (2018). Breathing Easy to the Side on Butterfly. U.S. Masters Swimming.
     source_ids:
-    - src.usms
+    - src.usms-lassen-2018-butterfly-side-breathing
   - certainty: 🟠
     text: 側向換氣比傳統向前換氣更有效率：頭部幾乎不需要抬出水面，正面與波浪阻力大幅降低。
     source: Brent Rushall, SDSU
@@ -1778,23 +1778,23 @@ errors:
   misconception: 部分教材描述 UDK 的波動「從頭部開始」，教練因此指導學員「頭帶動身體」或讓頭部有明顯的上下起伏，認為這樣才能產生完整的波動感。
   physical_reason:
     certainty: 🔵
-    text: UDK 的力學核心中，頭部的角色是穩定錨點，不是波動的發起點。正確的波動順序是核心→髖→膝→踝→腳尖，頭部固定不動，讓力量能穩定向下傳遞。頭部額外晃動只會增加阻力。水面蝶式中頭部確實有被動跟隨的起伏，但這是划手和呼吸循環的副產品；UDK 沒有這個機制。
+    text: UDK 的力學核心中，頭部的角色是穩定錨點，不是波動的發起點。正確的波動順序是核心→髖→膝→踝→腳尖，頭部受控、不主動發動，讓力量能穩定向下傳遞。頭部無意圖的晃動只會增加阻力。注意「受控」不等於「僵直」——上半身仍會有節律性的微幅移動，要壓掉的是無意圖的晃動而非全部位移。水面蝶式中頭部確實有被動跟隨的起伏，但這是划手和呼吸循環的副產品；UDK 沒有這個機制。
   evidence:
   - certainty: 🟠
-    text: 要有效地做出起伏，泳者必須從身體頂端建立一個穩定平台，從雙手和頭部開始。這只有在你能讓雙手和頭部保持靜止的前提下才有效。
-    source: USMS, Body Alignment Guide
+    text: 要有效地做出起伏，泳者必須從身體頂端建立一個穩定平台，從雙手和頭部開始；把手當成灌進水泥裡、不讓它移動。原文的表述是「只有在雙手和頭部保持靜止時才有效」，但同段隨即補充：確實有菁英水下踢腿者的手是會動的，那是進階版本。
+    source: Sheaff, A. (2022). How to Do Underwater Kicks. U.S. Masters Swimming.
     source_ids:
-    - src.usms-body-alignment-guide-b
+    - src.usms-sheaff-2022-how-to-do-underwater-kicks
   - certainty: 🟠
-    text: 如果雙手、頭部和肩部在沒有控制的情況下上下或左右晃動，你會遭遇大量阻力。但如果能控制這個動作，就能把阻力降到最低。
-    source: USMS
+    text: 如果雙手、頭部和肩部在沒有意圖的情況下上下或左右晃動，你會遭遇大量阻力；能控制這個動作就能把阻力壓低。同一機構在較晚的指南裡把說法收斂成「穩定不等於僵直——雙手與上半身會以節律方式移動，它們不是靜止不動，而是受控」。這一句修正了上一列 2022 年文章的「保持靜止」措辭，本條依較晚的版本。
+    source: U.S. Masters Swimming — Underwater Kick Body Alignment 指南
     source_ids:
-    - src.usms
+    - src.usms-underwater-kick-body-alignment-guide
   cross_ref: UDK 是全身波動，不是腿部踢水、流線型品質是 UDK 速度的底板
   cross_ref_ids:
   - udk.tech.4
   - udk.tech.24
-  correct_concept: 頭部中立、緊貼手臂，雙臂夾耳維持流線型。波動從核心啟動，頭保持靜止不主動引導。
+  correct_concept: 頭部中立、緊貼手臂，雙臂夾耳維持流線型。波動從核心啟動，頭不主動引導。指導語用「受控」而非「僵住」——目標是消除無意圖的晃動，不是把上半身鎖死。
   perception_impact: 頭部主動引導的感知，讓學員把注意力放在頭部位置上，干擾了對「核心→腳尖波動傳遞感」的感知建立。頭部動得越多，干擾越大。
 - id: udk.err6
   stroke: udk
@@ -2006,20 +2006,15 @@ errors:
     text: 流線型品質直接決定 UDK 的速度上限。頭部鬆散晃動的選手，無法製造出快速有力踢腿所需的穩定源頭。大幅度踢腿超出身體輪廓線增加阻力，所有額外的踢腿力量都被自己製造的阻力抵消。在流線型不穩定的前提下練踢腿，等於是在漏水的容器裡加水。
   evidence:
   - certainty: 🟠
-    text: 成功水下踢腿最重要的因素之一，是選手在緊縮的流線型中開始，並在正確的時機起踢。
-    source: USMS
+    text: 原文把「成功的水下踢腿」拆成四個並列要素：建立穩定平台、盡量製造推進、上下兩個方向的推進與節奏對等、維持降低阻力的體態。四項裡有兩項與踢腿力量無關，踢腿力量只佔其中一項。
+    source: Sheaff, A. (2022). How to Do Underwater Kicks. U.S. Masters Swimming.
     source_ids:
-    - src.usms
+    - src.usms-sheaff-2022-how-to-do-underwater-kicks
   - certainty: 🟠
     text: 在水中最快的移動方式，是在緊縮流線型中完美執行水下海豚踢。
     source: MySwimPro
     source_ids:
     - src.myswimpro
-  - certainty: 🟠
-    text: 頭部鬆散晃動的選手，無法製造出快速有力踢腿所需的穩定源頭。
-    source: USMS, Body Alignment Guide
-    source_ids:
-    - src.usms-body-alignment-guide-b
   cross_ref: 流線型品質是 UDK 速度的底板
   cross_ref_ids:
   - udk.tech.24
