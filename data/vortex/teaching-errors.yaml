@@ -1880,7 +1880,7 @@ errors:
     text: 以冪律擬合流線滑行（SL）／海豚踢（DK）／自由式（FC）三者的淨力–流速曲線，交會速度 USL-DK 與 UDK-FC 即最佳轉換時機；對多數受試者而言這兩個交會速度 **高於**其各自的等速游泳速度（VDK_const、VFC_const），支持盡早起踢的邏輯。樣本為 10 名菁英女性泳者、水槽 tethered 淨力量測，作者提出的是 conceptual model。
     source: Takeda T, et al. (2026). Sports Biomech. PMID 41728809
     source_ids:
-    - src.sports-biomechanics-2026
+    - src.takeda-2026
   cross_ref: UDK 起踢規則、出發與轉身的起踢時機差異
   cross_ref_ids:
   - udk.tech.17
@@ -2051,11 +2051,17 @@ errors:
     text: 楔形台普及後，前後腳角色與傳統認知相反：後腳（踩楔形台）主要產生水平速度；前腳（踩台前緣）主要產生垂直速度，負責飛行高度與身體對齊。前腳是方向控制腳，不是水平推力腳。慣用腳放前能更精準控制起跳方向，對成績的貢獻可能超過後腳水平力量的增加。
   evidence:
   - certainty: 🟢
-    text: 「後足的水平衝量顯著高於前足；前足的垂直衝量顯著高於後足。」慣用腳放前緣時 block 時間更短、2m 和 5m 成績更好。
-    source: Takai et al. 2016; PMC8700779 (2021)
+    text: 十一名男性競技泳者做楔形台起跳，三塊測力板分別記錄雙手、前足、後足的反作用力衝量：後足的水平衝量顯著高於前足，前足的垂直衝量顯著高於後足。也就是水平出發速度主要由後足貢獻，垂直出發速度主要由前足貢獻。
+    source: Takeda et al. 2017, Journal of Sports Sciences
     source_ids:
-    - src.takai
+    - src.takai-2016
     url: https://pubmed.ncbi.nlm.nih.gov/27149652/
+  - certainty: 🟢
+    text: 二十名平均 16.1 歲的女性競技泳者在 OSB12 出發台上測試腳位：慣用腳放前緣時 block 時間更短、到 2 m 與 5 m 的時間也更短（效果量大）。這是「慣用腳放前」的直接成績證據，但族群限於青少女，且台型限於 OSB12。
+    source: Matúš et al. 2021, Int J Environ Res Public Health
+    source_ids:
+    - src.pmc8700779
+    url: https://pubmed.ncbi.nlm.nih.gov/34948765/
   cross_ref: 技術分析 §壹 1.3 Kick Start 變體：前後腳角色重新分配
   cross_ref_ids:
   - starts-turns.tech.7

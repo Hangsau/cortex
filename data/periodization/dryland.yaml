@@ -94,13 +94,15 @@ needs_analysis:
 injury_prevention:
   id: periodization.dryland.injury
   cert: 🟢
-  source: McKenzie et al. 2023 SR, Scand J Med Sci Sports (DOI 10.1111/sms.14454); Kabat D2 彈力帶計畫, Frontiers Physiology 2023 (PMC10679734); 綜合傷害預防 RCT (ScienceDirect S1360859225004899)
+  source: McKenzie et al. 2023, Scand J Med Sci Sports 33(12):2396–2412（系統綜述）；Della Tommasina et al. 2023, Front Physiol 14:1275285（Kabat D2 彈力帶 RCT）；Moghadasi & Baziyar 2026, J Bodyw Mov Ther 46:391–403（青少年綜合傷害預防 RCT）
   source_ids:
-  - src.mckenzie-2023-b
+  - src.mckenzie-2023-a
+  - src.della-tommasina-2023-kabat-d2
+  - src.moghadasi-2026-injury-prevention-rct
   risk_factors_zh: 肩部處理分三型：①疼痛或訓練後症狀上升→先降引發症狀的划量與強度；②無痛但外旋肌力、肩胛控制或主動活動度不足→補容量；③鬆弛度高且末端控制差→練末端穩定，不再追求更大被動角度。
-  intervention_zh: 🟢 外旋肌力、肩胛動作或主動活動度不足者，使用8週 Kabat D2 彈力帶與外旋／前鋸肌方案；每週記錄疼痛、ROM、等長肌力與可承受划量，兩週無改善就調整負荷或轉介評估。
-  kinetic_chain_zh: 🟢 青少年出現上肢動態穩定不足、跨側軀幹控制差或完整自由式同側失序時，加入跨側推、拉、carry、deadbug與bird-dog；以動態穩定、15–25m完整泳姿和症狀反應驗收。
-  plain_zh: 有痛先降引發症狀的負荷；無痛但外旋、肩胛或跨側控制不足，就做8週容量方案；鬆但控制差練穩定，不再拉更開。每週用疼痛、ROM、肌力和可承受划量追蹤。
+  intervention_zh: 🟢 外旋肌力、肩胛動作或主動活動度不足者，可用8週 Kabat D2 彈力帶與外旋／前鋸肌方案；每週記錄疼痛、ROM、等長肌力與可承受划量，兩週無改善就調整負荷或轉介評估。**這是低成本可試的選項，不是已證實有效的處方**——該方案的隨機對照試驗只有 22 名男性泳者，外旋肌力雖有改善方向但未達顯著，作者自己的結論是效果輕微、需要更大樣本與更長療程；且該試驗量的是肌力與活動度，沒有量傷害發生率。
+  kinetic_chain_zh: 🟢 青少年出現上肢動態穩定不足、跨側軀幹控制差或完整自由式同側失序時，加入跨側推、拉、carry、deadbug與bird-dog；以動態穩定、15–25m完整泳姿和症狀反應驗收。依據是青少年泳者的隨機對照試驗，改善的是上肢動態穩定與自由式表現，**不是傷害發生率**。
+  plain_zh: 有痛先降引發症狀的負荷；無痛但外旋、肩胛或跨側控制不足，就做8週容量方案；鬆但控制差練穩定，不再拉更開。每週用疼痛、ROM、肌力和可承受划量追蹤。要知道彈力帶那套目前只有小型試驗、效果沒達顯著，值得試但別當成保證。
   links:
     development_stages:
     - l2t

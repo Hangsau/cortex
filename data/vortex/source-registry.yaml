@@ -104,25 +104,13 @@ sources:
     link: https://pubmed.ncbi.nlm.nih.gov/40951636/
   src.liu-2025-core-meta:
     id: src.liu-2025-core-meta
-    display: Liu et al. 2025, youth swimmer core-training meta-analysis
-    type: review
-    verification_status: verified
-    title: 'The effects of core stability training on swimming performance in youth swimmers: a systematic review and meta-analysis'
-    authors:
-    - Shuai Liu
-    - Jian Dai
-    - Peng Gou
-    - Ming Lin
-    year: 2025
-    identifier:
-      doi: 10.1186/s13102-025-01366-1
-      pmid: '41219810'
-      url: https://pubmed.ncbi.nlm.nih.gov/41219810/
-    retrieved_on: '2026-07-29'
-    link: https://pubmed.ncbi.nlm.nih.gov/41219810/
+    display: 【重複登錄，已解除】與 src.liu-2025-core-stability-youth-swimmers 為同一篇文獻
+    type: other
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.takeda-2026:
     id: src.takeda-2026
-    display: Takeda et al. 2026, glide–DK–front-crawl transition
+    display: 'Takeda, T., Koga, D., Tsunokawa, T., Sengoku, Y., & Takagi, H. (2026). Net force analysis during streamlined glide, dolphin kick, and front crawl at high velocities in competitive swimming: implications for optimal propulsion timing. Sports Biomechanics（線上先行版）.'
     type: journal-article
     verification_status: verified
     title: 'Net force analysis during streamlined glide, dolphin kick, and front crawl at high velocities in competitive swimming: implications for optimal propulsion timing'
@@ -135,9 +123,10 @@ sources:
     year: 2026
     container: Sports Biomechanics
     identifier:
+      pmid: '41728809'
       doi: 10.1080/14763141.2026.2627415
       url: https://doi.org/10.1080/14763141.2026.2627415
-    retrieved_on: '2026-07-29'
+    retrieved_on: '2026-09-06'
     link: https://doi.org/10.1080/14763141.2026.2627415
   src.lyttle-2000:
     id: src.lyttle-2000
@@ -600,19 +589,10 @@ sources:
     link: https://pmc.ncbi.nlm.nih.gov/articles/PMC9157519/
   src.brannigan-et-al-hypothermia-mass-participati-2009:
     id: src.brannigan-et-al-hypothermia-mass-participati-2009
-    display: Brannigan D, Rogers IR, Jacobs I, et al. (2009). Hypothermia is a significant medical risk of mass participation long-distance open water swimming. Wilderness Environ Med 20(1):14–18.
-    type: journal-article
-    verification_status: verified
-    authors:
-    - Brannigan D
-    - Rogers IR
-    - Jacobs I
-    et_al: true
-    year: 2009
-    identifier:
-      pmid: '19364182'
-    retrieved_on: '2026-08-17'
-    link: https://pubmed.ncbi.nlm.nih.gov/19364182/
+    display: 【重複登錄，已解除】與 src.brannigan-2009 為同一篇文獻
+    type: other
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.breath-hold-training:
     id: src.breath-hold-training
     display: 【佔位字串，非真實文獻】原記為「美軍/海軍 breath-hold training 安全準則（具體文件待查）」
@@ -1574,7 +1554,7 @@ sources:
     et_al: true
   src.mckenzie-2023-a:
     id: src.mckenzie-2023-a
-    display: McKenzie 2023 系統綜述, Scand J Med Sci Sports, DOI:10.1111/sms.14454（DOI 待 WebFetch 驗證）
+    display: 'McKenzie, A., Larequi, S.-A., Hams, A., Headrick, J., Whiteley, R., & Duhig, S. (2023). Shoulder pain and injury risk factors in competitive swimmers: a systematic review. Scandinavian Journal of Medicine & Science in Sports, 33(12), 2396–2412.'
     type: review
     verification_status: verified
     title: 'Shoulder pain and injury risk factors in competitive swimmers: A systematic review'
@@ -1595,17 +1575,47 @@ sources:
     link: https://pubmed.ncbi.nlm.nih.gov/37515375/
   src.mckenzie-2023-b:
     id: src.mckenzie-2023-b
-    display: McKenzie et al. 2023 SR, Scand J Med Sci Sports (DOI 10.1111/sms.14454); Kabat D2 彈力帶計畫, Frontiers Physiology 2023 (PMC10679734); 綜合傷害預防 RCT (ScienceDirect S1360859225004899)
+    display: 【複合來源鍵，已解除】原字串綁了三篇文獻，已拆為 src.mckenzie-2023-a、src.della-tommasina-2023-kabat-d2、src.moghadasi-2026-injury-prevention-rct
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
+  src.della-tommasina-2023-kabat-d2:
+    id: src.della-tommasina-2023-kabat-d2
+    display: Della Tommasina, I., Trinidad-Morales, A., Martínez-Lozano, P., González-de-la-Flor, Á., & Del-Blanco-Muñiz, J. Á. (2023). Effects of a dry-land strengthening exercise program with elastic bands following the Kabat D2 diagonal flexion pattern for the prevention of shoulder injuries in swimmers. Frontiers in Physiology, 14, 1275285.
+    type: journal-article
+    verification_status: verified
+    title: Effects of a dry-land strengthening exercise program with elastic bands following the Kabat D2 diagonal flexion pattern for the prevention of shoulder injuries in swimmers.
     authors:
-    - McKenzie
-    et_al: true
+    - Della Tommasina I
+    - Trinidad-Morales A
+    - Martínez-Lozano P
+    - González-de-la-Flor Á
+    - Del-Blanco-Muñiz JÁ
     year: 2023
+    container: Frontiers in Physiology
     identifier:
-      doi: 10.1111/sms.14454
+      pmid: '38028779'
       pmcid: PMC10679734
-    link: https://doi.org/10.1111/sms.14454
+      doi: 10.3389/fphys.2023.1275285
+      url: https://pubmed.ncbi.nlm.nih.gov/38028779/
+    retrieved_on: '2026-09-06'
+    link: https://pubmed.ncbi.nlm.nih.gov/38028779/
+  src.moghadasi-2026-injury-prevention-rct:
+    id: src.moghadasi-2026-injury-prevention-rct
+    display: 'Moghadasi, A., & Baziyar, Y. (2026). Comprehensive injury prevention training significantly enhances upper limb dynamic stability and front crawl performance in adolescent swimmers: a randomized controlled trial. Journal of Bodywork and Movement Therapies, 46, 391–403.'
+    type: journal-article
+    verification_status: verified
+    title: 'Comprehensive injury prevention training significantly enhances upper limb dynamic stability and front crawl performance in adolescent swimmers: A randomized controlled trial'
+    authors:
+    - Moghadasi Afshin
+    - Baziyar Yaghoob
+    year: 2026
+    container: Journal of Bodywork and Movement Therapies
+    identifier:
+      doi: 10.1016/j.jbmt.2025.12.002
+      url: https://doi.org/10.1016/j.jbmt.2025.12.002
+    retrieved_on: '2026-09-06'
+    link: https://doi.org/10.1016/j.jbmt.2025.12.002
   src.mdi-management-review-annals-of-joint:
     id: src.mdi-management-review-annals-of-joint
     display: Bishop ME, Patel H, Erickson BJ, Dodson CC. (2022). Multidirectional instability in female athletes. Ann Joint 7:10.
@@ -2990,7 +3000,7 @@ sources:
     link: https://pmc.ncbi.nlm.nih.gov/articles/PMC8607769/
   src.pmc8700779:
     id: src.pmc8700779
-    display: Leg Dominance 研究 2021
+    display: Matúš, I., Ružbarský, P., Vadašová, B., & Čech, P. (2021). Leg dominance and OSB12 kick start performance in young competitive swimmers. International Journal of Environmental Research and Public Health, 18(24), 13156.
     type: journal-article
     verification_status: verified
     title: Leg Dominance and OSB12 Kick Start Performance in Young Competitive Swimmers.
@@ -4537,23 +4547,10 @@ sources:
     verification_status: unverified
   src.sports-biomechanics-2026:
     id: src.sports-biomechanics-2026
-    display: 'Takeda T, Koga D, Tsunokawa T, Sengoku Y, Takagi H. (2026). Net force analysis during streamlined glide, dolphin kick, and front crawl at high velocities in competitive swimming: implications for optimal propulsion timing. Sports Biomech. Online ahead of print 2026-02-23. PMID 41728809 / doi:10.1080/14763141.2026.2627415'
-    type: journal-article
-    verification_status: verified
-    title: 'Net force analysis during streamlined glide, dolphin kick, and front crawl at high velocities in competitive swimming: implications for optimal propulsion timing'
-    authors:
-    - Takeda T
-    - Koga D
-    - Tsunokawa T
-    - Sengoku Y
-    - Takagi H
-    year: 2026
-    container: Sports Biomechanics
-    identifier:
-      pmid: '41728809'
-      doi: 10.1080/14763141.2026.2627415
-    retrieved_on: '2026-09-04'
-    link: https://doi.org/10.1080/14763141.2026.2627415
+    display: 【重複登錄，已解除】與 src.takeda-2026 為同一篇文獻
+    type: other
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.statpearls-2023:
     id: src.statpearls-2023
     display: StatPearls 2023
@@ -4761,20 +4758,13 @@ sources:
     verification_status: unverified
   src.takai:
     id: src.takai
-    display: Takai et al. 2016; PMC8700779 (2021)
+    display: 【複合來源鍵，已解除】原字串綁了兩篇文獻，已拆為 src.takai-2016 與 src.pmc8700779
     type: other
-    verification_status: unverified
-    authors:
-    - Takai
-    et_al: true
-    identifier:
-      pmid: '27149652'
-      pmcid: PMC8700779
-      url: https://pubmed.ncbi.nlm.nih.gov/27149652/
-    link: https://pubmed.ncbi.nlm.nih.gov/27149652/
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.takai-2016:
     id: src.takai-2016
-    display: Takai et al. 2016
+    display: Takeda, T., Sakai, S., Takagi, H., Okuno, K., & Tsubakimoto, S. (2017). Contribution of hand and foot force to take-off velocity for the kick-start in competitive swimming. Journal of Sports Sciences, 35(6), 565–571.
     type: journal-article
     verification_status: verified
     title: Contribution of hand and foot force to take-off velocity for the kick-start in competitive swimming.
