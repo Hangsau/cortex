@@ -392,6 +392,91 @@ sources:
       url: https://pmc.ncbi.nlm.nih.gov/articles/PMC8431432/
     retrieved_on: '2026-07-29'
     link: https://pmc.ncbi.nlm.nih.gov/articles/PMC8431432/
+  src.amaro-2019-dryland-sr:
+    id: src.amaro-2019-dryland-sr
+    display: Amaro, N. M., Morouço, P. G., Marques, M. C., Batalha, N., Neiva, H., & Marinho, D. A. (2019). A systematic review on dry-land strength and conditioning training on swimming performance. Science & Sports, 34(1), e1–e14.
+    type: review
+    verification_status: verified
+    title: A systematic review on dry-land strength and conditioning training on swimming performance
+    authors:
+    - Amaro NM
+    - Morouço PG
+    - Marques MC
+    - Batalha N
+    - Neiva H
+    - Marinho DA
+    year: 2019
+    container: Science & Sports
+    identifier:
+      doi: 10.1016/j.scispo.2018.07.003
+      url: https://doi.org/10.1016/j.scispo.2018.07.003
+    retrieved_on: '2026-09-06'
+    link: https://doi.org/10.1016/j.scispo.2018.07.003
+  src.jin-2024-resistance-front-crawl:
+    id: src.jin-2024-resistance-front-crawl
+    display: 'Jin, G., Jin, Y., Zhang, H., Fu, X., Yang, Y., & Lin, S.-C. (2024). The methodology of resistance training is crucial for improving short-medium distance front crawl performance in competitive swimmers: a systematic review and meta-analysis. Frontiers in Physiology, 15, 1406518.'
+    type: review
+    verification_status: verified
+    title: 'The methodology of resistance training is crucial for improving short-medium distance front crawl performance in competitive swimmers: a systematic review and meta-analysis'
+    authors:
+    - Jin Guoli
+    - Jin Yangqin
+    - Zhang Haoyang
+    - Fu Xueying
+    - Yang Yong
+    - Lin Shu-Cheng
+    year: 2024
+    container: Frontiers in Physiology
+    identifier:
+      pmid: '39129754'
+      doi: 10.3389/fphys.2024.1406518
+      url: https://pubmed.ncbi.nlm.nih.gov/39129754/
+    retrieved_on: '2026-09-06'
+    link: https://pubmed.ncbi.nlm.nih.gov/39129754/
+  src.ramirez-campillo-2022-plyo-water-sports:
+    id: src.ramirez-campillo-2022-plyo-water-sports
+    display: 'Ramirez-Campillo, R., Perez-Castilla, A., Thapa, R. K., Afonso, J., Clemente, F. M., Colado, J. C., de Villarreal, E. S., & Chaabene, H. (2022). Effects of plyometric jump training on measures of physical fitness and sport-specific performance of water sports athletes: a systematic review with meta-analysis. Sports Medicine – Open, 8(1), 108.'
+    type: review
+    verification_status: verified
+    title: 'Effects of Plyometric Jump Training on Measures of Physical Fitness and Sport-Specific Performance of Water Sports Athletes: A Systematic Review with Meta-analysis.'
+    authors:
+    - Ramirez-Campillo R
+    - Perez-Castilla A
+    - Thapa RK
+    - Afonso J
+    - Clemente FM
+    - Colado JC
+    - de Villarreal ES
+    - Chaabene H
+    year: 2022
+    container: Sports Medicine - Open
+    identifier:
+      pmid: '36036301'
+      pmcid: PMC9424421
+      doi: 10.1186/s40798-022-00502-2
+      url: https://pubmed.ncbi.nlm.nih.gov/36036301/
+    retrieved_on: '2026-09-06'
+    link: https://pubmed.ncbi.nlm.nih.gov/36036301/
+  src.yu-kwok-2021-sc-front-crawl:
+    id: src.yu-kwok-2021-sc-front-crawl
+    display: 'Yu Kwok, W., So, B. C. L., Tse, D. H. T., & Ng, S. S. M. (2021). A systematic review and meta-analysis: biomechanical evaluation of the effectiveness of strength and conditioning training programs on front crawl swimming performance. Journal of Sports Science & Medicine, 20(4), 564–585.'
+    type: review
+    verification_status: verified
+    title: 'A Systematic Review and Meta-Analysis: Biomechanical Evaluation of the Effectiveness of Strength and Conditioning Training Programs on Front Crawl Swimming Performance.'
+    authors:
+    - Yu Kwok W
+    - So BCL
+    - Tse DHT
+    - Ng SSM
+    year: 2021
+    container: Journal of Sports Science & Medicine
+    identifier:
+      pmid: '35321128'
+      pmcid: PMC8488830
+      doi: 10.52082/jssm.2021.564
+      url: https://pubmed.ncbi.nlm.nih.gov/35321128/
+    retrieved_on: '2026-09-06'
+    link: https://pubmed.ncbi.nlm.nih.gov/35321128/
   src.2024-2025:
     id: src.2024-2025
     display: 教練觀測 2024–2025
@@ -931,13 +1016,10 @@ sources:
     verification_status: unverified
   src.fphys-2024-1406518:
     id: src.fphys-2024-1406518
-    display: Amaro et al. 系統回顧 (Science & Sports, S0765159718302363); 簡短回顧 (Redalyc 3010); Frontiers Physiology 2024 統合分析 (DOI 10.3389/fphys.2024.1406518)
+    display: 【複合來源鍵，已解除】已拆為 src.jin-2024-resistance-front-crawl、src.amaro-2019-dryland-sr（另一篇無法識別，已刪）
     type: other
-    verification_status: unverified
-    year: 2024
-    identifier:
-      doi: 10.3389/fphys.2024.1406518
-    link: https://doi.org/10.3389/fphys.2024.1406518
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.fractional-drill:
     id: src.fractional-drill
     display: 通用蛙式教學（fractional drill 變體）
@@ -2469,18 +2551,36 @@ sources:
       url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4234766/
       pmid: '25414737'
       doi: 10.2478/hukin-2014-0058
-    retrieved_on: '2026-07-27'
+    retrieved_on: '2026-09-06'
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4234766/
   src.pmc4234766-b:
     id: src.pmc4234766-b
-    display: 'The Backstroke Swimming Start: State of the Art, PMC4234766; PubMed 23688055'
+    display: 【複合來源鍵，已解除】已拆為 src.pmc4234766-a、src.de-jesus-2013-backstroke-start-feet
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
+  src.de-jesus-2013-backstroke-start-feet:
+    id: src.de-jesus-2013-backstroke-start-feet
+    display: de Jesus, K., de Jesus, K., Figueiredo, P., Gonçalves, P., Pereira, S. M., Vilas-Boas, J. P., & Fernandes, R. J. (2013). Backstroke start kinematic and kinetic changes due to different feet positioning. Journal of Sports Sciences, 31(15), 1665–1675.
+    type: journal-article
+    verification_status: verified
+    title: Backstroke start kinematic and kinetic changes due to different feet positioning.
+    authors:
+    - de Jesus K
+    - de Jesus K
+    - Figueiredo P
+    - Gonçalves P
+    - Pereira SM
+    - Vilas-Boas JP
+    - Fernandes RJ
+    year: 2013
+    container: Journal of Sports Sciences
     identifier:
       pmid: '23688055'
-      pmcid: PMC4234766
-      url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4234766/
-    link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4234766/
+      doi: 10.1080/02640414.2013.794298
+      url: https://pubmed.ncbi.nlm.nih.gov/23688055/
+    retrieved_on: '2026-09-06'
+    link: https://pubmed.ncbi.nlm.nih.gov/23688055/
   src.pmc4247626:
     id: src.pmc4247626
     display: LHB and rotator cuff coexistence systematic review, PMC4247626 (已驗證)
@@ -3062,13 +3162,10 @@ sources:
     link: https://doi.org/10.3399/BJGP.2021.0386
   src.pmc8960438-a:
     id: src.pmc8960438-a
-    display: Biomechanical Factors Influencing Breaststroke Turns, Journal of Applied Biomechanics 1998; PMC8960438
+    display: 【誤標來源鍵，已解除】已拆為 src.blanksby-1998-breaststroke-turns
     type: other
-    verification_status: unverified
-    year: 1998
-    identifier:
-      pmcid: PMC8960438
-    link: https://pmc.ncbi.nlm.nih.gov/articles/PMC8960438/
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.pmc8960438-b:
     id: src.pmc8960438-b
     display: 【重複登錄，已解除】與 src.pmc8960438-d 為同一篇文獻
@@ -3078,13 +3175,28 @@ sources:
     retrieved_on: '2026-09-06'
   src.pmc8960438-c:
     id: src.pmc8960438-c
-    display: Journal of Applied Biomechanics 1998; PMC8960438
+    display: 【誤標來源鍵，已解除】已拆為 src.blanksby-1998-breaststroke-turns
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
+  src.blanksby-1998-breaststroke-turns:
+    id: src.blanksby-1998-breaststroke-turns
+    display: Blanksby, B. A., Simpson, J. R., Elliott, B. C., & McElroy, K. (1998). Biomechanical factors influencing breaststroke turns by age-group swimmers. Journal of Applied Biomechanics, 14(2), 180–189.
+    type: journal-article
+    verification_status: verified
+    title: Biomechanical Factors Influencing Breaststroke Turns by Age-Group Swimmers
+    authors:
+    - Brian A. Blanksby
+    - Jennifer R. Simpson
+    - Bruce C. Elliott
+    - Keith McElroy
     year: 1998
+    container: Journal of Applied Biomechanics
     identifier:
-      pmcid: PMC8960438
-    link: https://pmc.ncbi.nlm.nih.gov/articles/PMC8960438/
+      doi: 10.1123/jab.14.2.180
+      url: https://doi.org/10.1123/jab.14.2.180
+    retrieved_on: '2026-09-06'
+    link: https://doi.org/10.1123/jab.14.2.180
   src.pmc8960438-d:
     id: src.pmc8960438-d
     display: Chainok, P., de Jesus, K., Mourão, L., Fonseca, P. F. P., Zacca, R., Fernandes, R. J., & Vilas-Boas, J. P. (2022). Biomechanical features of backstroke to breaststroke transition techniques in age-group swimmers. Frontiers in Sports and Active Living, 4, 802967.
@@ -3150,22 +3262,16 @@ sources:
     link: https://doi.org/10.3389/fspor.2022.948034
   src.pmc9424421-a:
     id: src.pmc9424421-a
-    display: Frontiers Physiology 2025 網絡統合分析 (DOI 10.3389/fphys.2025.1636595); 水上運動增強式 SR (PMC9424421, n=618); 前爬式 S&C 生物力學 SR (PMC8488830)
+    display: 【複合來源鍵，已解除】已拆為 src.wang-2025-training-nma、src.ramirez-campillo-2022-plyo-water-sports、src.yu-kwok-2021-sc-front-crawl
     type: other
-    verification_status: unverified
-    year: 2025
-    identifier:
-      doi: 10.3389/fphys.2025.1636595
-      pmcid: PMC9424421
-    link: https://doi.org/10.3389/fphys.2025.1636595
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.pmc9424421-b:
     id: src.pmc9424421-b
-    display: 簡短回顧 (Redalyc 3010); 增強式水上運動 SR (PMC9424421)
+    display: 【複合來源鍵，已解除】已拆為 src.ramirez-campillo-2022-plyo-water-sports（另一篇無法識別，已刪）
     type: other
-    verification_status: unverified
-    identifier:
-      pmcid: PMC9424421
-    link: https://pmc.ncbi.nlm.nih.gov/articles/PMC9424421/
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.pmc9445308:
     id: src.pmc9445308
     display: 【重複登錄，已解除】與 src.mccabe-2022 為同一篇文獻

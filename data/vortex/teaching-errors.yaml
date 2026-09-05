@@ -2096,14 +2096,20 @@ errors:
   misconception: 仰式起跳的常見教學強調「用力向後拱背」「背部弧線越大越好」，認為弧線大代表跳得遠、姿勢好。部分教練以「背部有沒有出水」作為評判標準。
   physical_reason:
     certainty: 🔵
-    text: 「追求大弧線」等同「追求大起跳角度」，代價相同：過高的弧線讓身體飛行軌跡偏垂直，水平速度損失；入水時腳進水角度偏差，雙腿無法沿同一軌跡入水。真正的關鍵變數是髖部高度（hip height）而非背部弧線幅度——可以髖高但弧線適中。背部弧線本身是仰式起跳的合理組成，問題是刻意最大化弧線。
+    text: 蹬牆的衝量分成水平與垂直兩個分量，總量有限：一直把弧線做大，等於把更多分量放到垂直方向，水平方向能拿到的就少；弧線過大時入水的腳進水角度也偏，雙腿難以沿同一軌跡入水。但這是取捨關係，不是「角度越大成績越差」的單調關係——角度只是外顯結果，同一個角度可以來自完全不同的蹬牆方式（見下方證據：起跳角度較大的那一組 5 m 時間並沒有比較差）。可以操作的變數是髖部高度與蹬牆方向，不是背部弧線的視覺幅度；背部弧線本身是仰式起跳的合理組成，問題是刻意最大化弧線、並拿它當評判標準。
   evidence:
   - certainty: 🟢
-    text: 起跳角度越大，仰式成績越差。
-    source: 'The Backstroke Swimming Start: State of the Art, PMC4234766; PubMed 23688055'
+    text: 六名菁英泳者比較「雙腳沒入水面下」與「雙腳露出水面」兩種仰式出發腳位：腳沒入水的那一組起跳角度較大、hands-off 時的重心水平速度也較大，但兩組的重心水平入水距離、背弓角度與 5 m 出發時間相當。也就是說，起跳角度較大的那一組並沒有比較慢——角度本身不是可以直接讀出成績好壞的指標。
+    source: de Jesus et al. 2013, Journal of Sports Sciences 31(15):1665–1675
     source_ids:
-    - src.pmc4234766-b
-    url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4234766/
+    - src.de-jesus-2013-backstroke-start-feet
+    url: https://pubmed.ncbi.nlm.nih.gov/23688055/
+  - certainty: 🟢
+    text: 彙整 23 份仰式出發文獻的方法學回顧指出：各研究對出發分期的定義沒有共識，計時終點從約 5 m 到 22.86 m 不等，且部分研究的結論已對應到規則改變後不再使用的技術。所以仰式出發的任何單一數值都要先看它用什麼分期與什麼終點測出來的。
+    source: de Jesus et al. 2014, Journal of Human Kinetics（仰式出發文獻回顧）
+    source_ids:
+    - src.pmc4234766-a
+    url: https://pubmed.ncbi.nlm.nih.gov/25414737/
   cross_ref: 技術分析 §壹 1.4 仰式起跳
   cross_ref_ids:
   - starts-turns.tech.14
@@ -2117,13 +2123,14 @@ errors:
   misconception: 接近終點牆時，教練常要求「快點碰牆」，選手和教練把「最快速度碰到牆」視為目標。實際操作上，選手往往在最後一划還沒完整推完水時就收手觸牆——「湊」上去。
   physical_reason:
     certainty: 🔵
-    text: 進牆速度是轉身成績的關鍵變數。任何讓進牆速度下降的行為都會直接影響成績。提前收手觸牆的代價：最後一划推水不完整導致接近牆的速度損失；身體在水中多一個「漂移觸牆」空窗使速度繼續流失；觸牆時身體位置不理想讓縮腿路徑受限，轉身效率下降。
+    text: 轉身的計時是從進牆前幾公尺算到離牆後幾公尺，這一整段裡沒有推進的時間都算在成績內。提前收手觸牆會製造三個代價：最後一划推水不完整，少拿一段推進；身體多一個「漂移觸牆」的空窗，這段時間只有減速沒有推進；觸牆時身體位置不理想，縮腿路徑受限、在牆上停留變久。第三項是有量測支撐的那一項（見下方證據的 pivot time），前兩項是從「這段時間也計分」直接推出來的。
   evidence:
-  - certainty: 🟢
-    text: 進牆速度是轉身成績的關鍵變數。
-    source: Biomechanical Factors Influencing Breaststroke Turns, Journal of Applied Biomechanics 1998; PMC8960438
+  - certainty: 🟡
+    text: 二十三名分齡蛙式泳者的轉身分析（結果變項是進牆前 5 m 到離牆 5 m 的往返時間）：逐步迴歸留下的預測項是出水距離、出水水平速度、pivot time、離牆峰值水平速度與身高。 **其中 pivot time 越長、往返時間越差**——「湊牆」讓身體位置不理想、縮腿路徑受限，付出的代價就在這一項上。要注意的是，這份資料**沒有把進牆速度留在模型裡**，所以「進牆速度直接決定轉身成績」不是它證明的東西；提前收手的問題是在牆上多花時間，不是有文獻量到的進牆速度效應。
+    source: Blanksby et al. 1998, Journal of Applied Biomechanics 14(2):180–189
     source_ids:
-    - src.pmc8960438-a
+    - src.blanksby-1998-breaststroke-turns
+    url: https://doi.org/10.1123/jab.14.2.180
   - certainty: 🟠
     text: 「另一個常見錯誤是靠近牆時彎曲手臂把自己拉過去。正確做法是保持手臂伸直，盡量離牆遠——用伸直的手觸牆。」「最後一划前距牆約半個身體長度；如果太遠，就踢腿補上——不是縮短划手。」
     source: MySwimPro 2022; coachsci.sdsu.edu

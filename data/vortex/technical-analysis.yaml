@@ -3615,20 +3615,21 @@ points:
   stroke: starts-turns
   category: concept
   title: 轉身核心目標：速度損失最小化
-  summary: 轉身的每個決策都圍繞「讓泳者盡快重新達到接近游泳速度的水平速度」；進牆速度是轉身成績的首要預測變數。
+  summary: 轉身的每個決策都圍繞「讓泳者盡快重新達到接近游泳速度的水平速度」；實際量到會影響轉身成績的，主要是離牆側的變數——在牆上停留多久、離牆速度多高、在多遠處出水。
   mechanism:
-    certainty: 🟢
+    certainty: 🟡
     source_ids:
-    - src.pmc8960438-c
+    - src.blanksby-1998-breaststroke-turns
     - src.pmc6409673-b
     - src.pmid-40252339-a
-    text: 進牆速度越高，推出速度越高；推蹬力道解釋成績約 42% 的變異，推蹬方向與流線型解釋其餘 58%。
+    text: 轉身成績由「在牆上花的時間」與「帶著多少速度離開」共同決定：牆上停留越久越差，離牆峰值水平速度與出水時的水平速度越高越好。推蹬力道只解釋其中一部分變異，剩下的由推蹬方向與流線型姿態承擔——這兩項決定同樣的力量有多少變成沿身體軸線的前進速度。
   evidence:
-  - certainty: 🟢
-    text: 進牆速度與推出速度正相關。
-    source: Journal of Applied Biomechanics 1998; PMC8960438
+  - certainty: 🟡
+    text: 二十三名分齡蛙式泳者的轉身分析，結果變項是進牆前 5 m 到離牆 5 m 的往返時間：逐步迴歸留下的預測項是出水距離、出水水平速度、pivot time、離牆峰值水平速度與身高—— **五項裡沒有一項是進牆速度**。轉身本身有淨收益：這 5 m 往返涵蓋 20% 的距離，卻只佔總游泳時間的 18.26%。範圍限制：分齡（青少年）泳者、蛙式、25 m 池，不可外推成所有泳式的轉身通則。
+    source: Blanksby et al. 1998, Journal of Applied Biomechanics 14(2):180–189
     source_ids:
-    - src.pmc8960438-c
+    - src.blanksby-1998-breaststroke-turns
+    url: https://doi.org/10.1123/jab.14.2.180
   - certainty: 🟢
     text: 推蹬力道解釋成績約 42% 的變異。
     source: PMC6409673
@@ -3640,7 +3641,7 @@ points:
     source: Koster, P., Schreven, S., David, S., & Beek, P. J. (2025). Can the tumble turn performance be improved by aligning the push-off force vector to the centre of mass trajectory? Journal of Biomechanics, 185, 112694.
     source_ids:
     - src.pmid-40252339-a
-  practical_implication: 訓練優先順序：流線型時機 → 推蹬方向 → 推蹬力道；進牆前任何減速行為都直接損害成績。
+  practical_implication: 訓練優先順序：流線型時機 → 推蹬方向 → 推蹬力道；並把「在牆上停留多久」當成第一個要縮短的量，那是量測上最穩定的預測項。
 - id: starts-turns.tech.18
   stroke: starts-turns
   category: streamline

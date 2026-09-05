@@ -5,7 +5,7 @@ overview:
   id: periodization.dryland.overview
   cert: 🔵
   premise_zh: 陸訓能提高游泳表現，最佳使用方式是和水中訓練結合：阻力訓練負責提高可用力量，核心與爆發訓練分別補足軀幹傳力、出發與轉身，再由水中賽速訓練把能力接回泳姿。
-  author_synthesis_zh: 🟢 2025網絡統合分析的整體排序以『水中＋陸上阻力訓練』最佳；核心訓練對短距離與轉身有明確用途，爆發訓練主要服務出發與蹬牆。先按掉速段選方法，再用水中段落驗收。
+  author_synthesis_zh: 🟢 2025網絡統合分析的整體排序以『水中＋陸上阻力訓練』最佳。至於各方法各自打到哪一段，證據厚度差很多：核心訓練對短距離與轉身有直接量測支撐；把爆發訓練歸給出發與蹬牆則是依動作特性推出來的分流原則，不是已被分段計時驗證過的結論（見下方 methods 的說明）。先按掉速段選方法，再用水中段落驗收。
   plain_zh: 陸訓要從掉速段開始選：出發慢練爆發，蹬牆與5m慢練下肢力量和核心，水面划水功率不足練最大力量並接水中阻力，肩痛則走疼痛與容量方案。
   links:
     development_stages:
@@ -15,9 +15,10 @@ overview:
 transfer_evidence:
   id: periodization.dryland.transfer
   cert: 🟡
-  source: Amaro et al. 系統回顧 (Science & Sports, S0765159718302363); 簡短回顧 (Redalyc 3010); Frontiers Physiology 2024 統合分析 (DOI 10.3389/fphys.2024.1406518)
+  source: Amaro et al. 2019, Science & Sports 34(1):e1–e14（陸上肌力與體能對游泳表現的系統回顧）；Jin et al. 2024, Frontiers in Physiology 15:1406518（阻力訓練方法與短中距離自由式的統合分析）；Wang et al. 2025, Frontiers in Physiology（訓練方式兩層網絡統合分析，DOI 10.3389/fphys.2025.1636595）
   source_ids:
-  - src.fphys-2024-1406518
+  - src.amaro-2019-dryland-sr
+  - src.jin-2024-resistance-front-crawl
   - src.wang-2025-training-nma
   positive_zh: 🟢 2025網絡統合分析納入36個隨機試驗、844名競技泳者：水中＋陸上組合訓練對100m、游速、划頻與划距的整體效果最高；其中水中＋陸上阻力訓練在50m、100m、游速與划水指標的排序最高。
   negative_zh: 🟡 無反應時的換法規則：只增加臥推或只做一般力量耐力，可能不會改變100m。連續4–6週陸上指標上升、目標水中段落卻兩次重測不變，就停止增加同一陸上劑量，改用水中阻力、賽速協調或直接針對出發／轉身的方案。
@@ -30,9 +31,11 @@ transfer_evidence:
 methods:
   id: periodization.dryland.methods
   cert: 🟢
-  source: Frontiers Physiology 2025 網絡統合分析 (DOI 10.3389/fphys.2025.1636595); 水上運動增強式 SR (PMC9424421, n=618); 前爬式 S&C 生物力學 SR (PMC8488830); Hermosilla et al. 2021, dry-land turn systematic review
+  source: Wang et al. 2025, Frontiers in Physiology（訓練方式兩層網絡統合分析，DOI 10.3389/fphys.2025.1636595）；Ramirez-Campillo et al. 2022, Sports Medicine – Open 8(1):108（水上運動增強式系統回顧，26 篇研究、618 人）；Yu Kwok et al. 2021, Journal of Sports Science & Medicine 20(4):564–585（前爬式肌力與體能訓練的生物力學系統回顧）；Hermosilla et al. 2021, Int J Environ Res Public Health 18(17):9340（陸訓對轉身表現的系統回顧）
   source_ids:
-  - src.pmc9424421-a
+  - src.wang-2025-training-nma
+  - src.ramirez-campillo-2022-plyo-water-sports
+  - src.yu-kwok-2021-sc-front-crawl
   - src.hermosilla-2021
   methods_list:
   - name_zh: 最大力量訓練
@@ -47,7 +50,7 @@ methods:
   - name_zh: 力量耐力
     desc_zh: 高次數、中低負荷，用於後段姿勢或局部容量先失守者；若100m與目標水中段落4–6週不變，轉為最大力量或水中賽速阻力。
     cert: 🟡
-  caveat_zh: 🟢 重要分辨：增強式『有效』指的多半是**出發與轉身**（這兩段確實是爆發力主導），不是『讓你游每一趟都更快』。把增強式對出發的效益,誇大成對整體游速的效益,是常見的解讀錯誤。
+  caveat_zh: 🟢 增強式的效果邊界要照實測講，不要照直覺講。目前最完整的一份水上運動增強式系統回顧（26 篇研究、618 人）量到的是三件事：陸上體能指標改善幅度中到大（深蹲 1RM、立定跳遠、蹲跳、反向跳）；**水中垂直跳與水中敏捷完全沒有改善**；計時泳段速度有**小幅但顯著**的改善。所以「增強式只幫出發與轉身、不會讓你游每一趟更快」這句流傳很廣的說法，並不來自這份證據——該回顧**根本沒有量出發或轉身的分段時間**，而它唯一量到有效的水中項目恰恰是整段計時速度。兩個限制要一起講：受試者是水上運動員的泛稱（含鐵人三項、划船、水球、水上芭蕾），不是純游泳樣本；效果量小，證據確定性最高只到中等。實務上仍用出發、5m 與 15m 分段驗收，那是因為那些分段最容易看出爆發力有沒有變，不是因為已經證明只有那裡有效。
   plain_zh: 出發慢做爆發，推牆或划水產力不足做最大力量，轉身後5m與軀幹控制差做核心，後段姿勢先散才做力量耐力；每一項都用對應水中分段驗收。
   links:
     development_stages:
@@ -151,16 +154,16 @@ flexibility_mobility:
 null_caveats:
   id: periodization.dryland.caveats
   cert: 🟡
-  source: 簡短回顧 (Redalyc 3010); 增強式水上運動 SR (PMC9424421)
+  source: Ramirez-Campillo et al. 2022, Sports Medicine – Open 8(1):108（水上運動增強式系統回顧）
   source_ids:
-  - src.pmc9424421-b
+  - src.ramirez-campillo-2022-plyo-water-sports
   items_zh:
   - 陸上力量上升、水中分段不變：減少一般重量訓練，改接水中阻力與賽速協調。
   - 臥推上升、衝刺不變：停止把臥推當主指標，改測划水功率、15–25m與SR/SL。
   - 力量耐力做滿4–6週、100m後段不變：改最大力量，或直接以後50m配速與技術維持訓練。
-  - 增強式進步、完整游速不變：只保留服務出發與轉身的劑量，用5m與15m分段驗收。
+  - 增強式進步、完整游速不變：把劑量降到維持量，改用出發、5m 與 15m 分段追蹤有沒有任何一段在動；三段都不動就換方法，不是加量。
   takeaway_zh: 🟡 陸訓每4–6週做一次轉移判定：乾地能力、水中目標分段、完整成績依序檢查。哪一層沒有往下傳，就在那一層換方法，不繼續堆同一劑量。
-  plain_zh: 陸上變強卻沒游快，就不要再加同一種重量：把能力接到水中阻力與賽速；臥推不轉移就改測划水功率；增強式只保留給出發和轉身。每4–6週照三層結果換法。
+  plain_zh: 陸上變強卻沒游快，就不要再加同一種重量：把能力接到水中阻力與賽速；臥推不轉移就改測划水功率；增強式不轉移就降到維持量，改看出發與 5m、15m 分段有沒有在動。每4–6週照三層結果換法。
   links:
     development_stages:
     - t2c
