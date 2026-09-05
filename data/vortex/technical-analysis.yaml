@@ -2587,18 +2587,24 @@ points:
   summary: 下踢由髖屈曲啟動，末段髖外旋聚攏腳尖觸發渦流；下踢前膝蓋彎曲是主要減速源，但一定程度的膝屈曲是蓄力必要條件。
   mechanism:
     certainty: 🔵
-    text: 動作序列：髖屈曲啟動 → 膝蓋伸展（股直肌）踢出 → 下踢末段髖外旋 + 雙腳聚攏 + 踝蹠屈最大化 → 渦流噴射推進。最優膝屈曲範圍約 30–40°（下踢啟動前）。
+    text: 動作序列：髖屈曲啟動 → 膝蓋伸展（股直肌）踢出 → 下踢末段髖外旋 + 雙腳聚攏 + 踝蹠屈最大化 → 渦流噴射推進。膝屈曲的最優範圍不是推導得出來的，見下方證據。
   evidence:
   - certainty: 🟢
     text: 從髖到膝到踝的縱向加速度增加，與水平速度最大化直接相關
     source: Kinematic differences research (ResearchGate)
     source_ids:
     - src.researchgate-kinematic-differences
-  - certainty: 🟢
-    text: 下踢前膝蓋彎曲是主要減速來源；最優膝屈曲約 30–40°
-    source: The Race Club
+  - certainty: 🟠
+    text: 下踢前膝蓋彎曲是主要減速來源——腿向前收的速度與膝彎曲的程度對減速量有巨大影響
+    source: The Race Club — More on the Dolphin Kick
     source_ids:
-    - src.the-race-club
+    - src.the-race-club-dolphin-kick-deceleration
+  - certainty: 🟠
+    caveat: '**更正（2026-09-05）**：本條原本寫「最優膝屈曲約 30–40°」並掛在 The Race Club 名下， **與該來源說的相反**——回查原文，它寫的是理想範圍 55–75°，且明講低於 55° 會推進不足。 30–40° 追不到任何來源，等於教人往「推進不足」的方向少彎，已更正為原文數字。原本還標 🟢（近期文獻），也一併改 🟠：theraceclub.com 是教練發表的專欄，不是文獻。'
+    text: 理想膝屈曲約 55–75°；低於 55° 下踢推進不足，高於 75° 弊大於利
+    source: The Race Club — Getting the Freestyle Kick Right
+    source_ids:
+    - src.the-race-club-freestyle-kick-knee-bend
   practical_implication: 教學重點是控制膝蓋彎曲幅度，而非完全消除；過度彎曲造成正面阻力，但零彎曲無法蓄力。
 - id: udk.tech.10
   stroke: udk
