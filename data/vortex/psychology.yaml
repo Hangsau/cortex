@@ -1082,11 +1082,11 @@ themes:
       better: 把注意力模式外化為「這趟你腦子裡在跑什麼」——讓泳者觀察自己的內部話語，再給具體的替換提示語，而非性格評斷。
     population_note: 自我對話研究的受試者高度集中在競技青少年與大學生運動員；兒童初學的自我對話能力受語言與後設認知發展限制，年齡越小效果越難類推，不可用競技成人資料外推；成人初學的干擾性思維多夾雜社會評價（「這年紀才學」），介入切入點與競技族群不同；鐵人三項群體游泳段的焦慮機制又與前述不同，需另行處理。
     sources:
-    - Research/心理/06_自我對話與心理技能訓練.md#核心概念
-    - Research/心理/06_自我對話與心理技能訓練.md#關鍵文獻清單
+    - 'Hatzigeorgiadis, A., Zourbanos, N., Galanis, E., & Theodorakis, Y. (2011). Self-talk and sports performance: a meta-analysis. Perspectives on Psychological Science 6(4):348-356.'
+    - 'Bauman, J. (2015). Swimming psychology: merging mind and body. Science of Swimming Faster, Ch. 16.'
     source_ids:
-    - src.research-psych-06-c
-    - src.research-psych-06-i
+    - src.hatzigeorgiadis-2011-selftalk-meta
+    - src.bauman-2015-swimming-psychology
   - id: psych.self_talk.ist_mst_matching
     name_zh: 指導型配技術任務，激勵型配耐力任務
     nav_zh: 指導配激勵
@@ -1111,11 +1111,11 @@ themes:
       why: 工作記憶同時處理多條指令時反而加重認知負荷，干擾自動化執行。游泳中同時說「手肘高、頭別抬、腿別沉」等於要求泳者分配注意力到三個焦點——感知頻寬被佔滿，水感信號反而進不來。
       better: 每趟只給一個提示詞，讓其餘動作維持自動化執行。
     sources:
-    - Research/心理/06_自我對話與心理技能訓練.md#指導型-vs-激勵型自我對話
-    - Research/心理/06_自我對話與心理技能訓練.md#游泳特異研究-vs-跨運動外推
+    - 'Hatzigeorgiadis, A., Zourbanos, N., Galanis, E., & Theodorakis, Y. (2011). Self-talk and sports performance: a meta-analysis. Perspectives on Psychological Science 6(4):348-356.'
+    - Hatzigeorgiadis, A., Theodorakis, Y., & Zourbanos, N. (2004). Self-talk in the swimming pool. Journal of Applied Sport Psychology 16(2):138-150.
     source_ids:
-    - src.research-psych-06-b
-    - src.research-psych-06-d
+    - src.hatzigeorgiadis-2011-selftalk-meta
+    - src.hatzigeorgiadis-2004-swimming-pool
   - id: psych.self_talk.external_focus_ist
     name_zh: 「把水推後」比「拉手」更有利熟練執行
     nav_zh: 外部焦點語
@@ -1139,11 +1139,11 @@ themes:
       why: 對有一定技術基礎的泳者，身體部位導向的指令把注意力拉向內焦點，觸發有意識的肌肉監控，干擾已建立的自動化動作，反而讓動作退步或僵硬。
       better: 把相同技術意圖轉為流體結果語言：「手肘高提」→「讓掌心一直朝向池底那端」；「進水不過中線」→「讓指尖找到它自己的水，別切到另一邊的水」。
     sources:
-    - Research/心理/06_自我對話與心理技能訓練.md#與水感框架指令層次注意力焦點的連結
-    - Research/心理/06_自我對話與心理技能訓練.md#游泳特異研究-vs-跨運動外推
+    - Freudenheim, A. M., Wulf, G., Madureira, F., Pasetto, S. C., & Corrêa, U. C. (2010). An external focus of attention results in greater swimming speed. International Journal of Sports Science & Coaching 5(4):533-542.
+    - 'Wulf, G. (2013). Attentional focus and motor learning: a review of 15 years. International Review of Sport and Exercise Psychology 6(1):77-104.'
     source_ids:
-    - src.research-psych-06-g
-    - src.research-psych-06-d
+    - src.freudenheim-2010-external-focus-swimming
+    - src.wulf-2013-attentional-focus-review
   - id: psych.self_talk.interfering_thoughts_bandwidth
     name_zh: 負面自我對話佔工作記憶，水感信號進不來
     nav_zh: 干擾佔頻
@@ -1162,11 +1162,9 @@ themes:
       better: 給出具體的感知錨點：「這趟把注意力放在掌心感受水壓這一件事上」。干擾性思維沒有辦法靠命令消除，但可以被明確的感知目標「擠走」。
     population_note: 不同族群的干擾思維來源不同：競技青少年多為成績/排名焦慮；成人初學多為社會評價（「出醜」「這年紀才學」）；鐵人三項在開放水域段的干擾思維有很強的環境觸發成分（看不到底、人群）。介入語言要對應來源，不能套同一個提示詞。
     sources:
-    - Research/心理/06_自我對話與心理技能訓練.md#自我對話的作用機制
-    - Research/心理/06_自我對話與心理技能訓練.md#與水感框架指令層次注意力焦點的連結
+    - 'Hatzigeorgiadis, A., Theodorakis, Y., & Zourbanos, N. (2004). Self-talk in the swimming pool: the effects of self-talk on thought content and performance on water-polo tasks. Journal of Applied Sport Psychology 16(2):138-150.'
     source_ids:
-    - src.research-psych-06-e
-    - src.research-psych-06-g
+    - src.hatzigeorgiadis-2004-swimming-pool
   - id: psych.self_talk.tense_drift
     name_zh: 心思跑去過去或未來，水感就斷線
     nav_zh: 時態漂移
@@ -1183,9 +1181,9 @@ themes:
       better: 把目標語言從結果（「破PR」）轉向當下過程（「這趟的工作是：起跑後第一個臂循環感受水壓，保持節奏到 25m」）。結果目標可以存在，但賽中的自我對話換成過程提示詞。
     population_note: 時態偏移在競技青少年（結果焦慮）與成人初學（社會評價焦慮）都很常見，但觸發源和語言形式不同；兒童競技較少出現複雜結果性自我對話，但父母賽後評價可能在下場前就植入「必須表現好」的時態框架。文獻來源（Bauman, 書籍二手）描述的主要是競技成人泳者情境，對非競技或兒童族群屬外推，需謹慎。
     sources:
-    - Research/心理/06_自我對話與心理技能訓練.md#自我對話的時態框架過去現在未來
+    - 'Bauman, J. (2015). Swimming psychology: merging mind and body. Science of Swimming Faster, Ch. 16.'
     source_ids:
-    - src.research-psych-06-f
+    - src.bauman-2015-swimming-psychology
   - id: psych.self_talk.mst_endurance_efficiency
     name_zh: 激勵型自我對話讓耐力游泳更快，但感覺不到更累
     nav_zh: 激勵耐力
@@ -1193,7 +1191,7 @@ themes:
     status: complete
     phenomenon:
       certainty: 🟢
-      text: 業餘鐵人三項選手的游泳段研究（Matos et al. 2020）顯示：激勵型自我對話（MST）組的游泳成績提升 2.8%，每 150m 配速加快，且自覺費力程度（RPE）與對照組相同——也就是說 MST 在不增加主觀努力感知的情況下提升了耐力游泳表現。此機制符合 MST 的功能定位：延後疲勞的主觀體驗、維持努力強度。這表示耐力游泳段（長距離、鐵人三項游泳）是 MST 直接有效的場景，不需要「感覺更累才有效」的心理準備。
+      text: 業餘鐵人三項選手的游泳段研究（de Matos 等人 2020）顯示：激勵型自我對話（MST）組的游泳成績提升 2.8%，每 150m 配速加快，且自覺費力程度（RPE）與對照組相同——也就是說 MST 在不增加主觀努力感知的情況下提升了耐力游泳表現。此機制符合 MST 的功能定位：延後疲勞的主觀體驗、維持努力強度。這表示耐力游泳段（長距離、鐵人三項游泳）是 MST 直接有效的場景，不需要「感覺更累才有效」的心理準備。
       plain_text: 在耐力游泳裡，激勵型自我對話有個很實際的好處。一項業餘鐵人三項選手的研究發現：用激勵型自我對話那組，游泳成績進步了、配速變快，但他們主觀上「覺得多累」跟對照組一樣——也就是說，它讓人游得更快，卻沒讓人覺得更辛苦。所以長距離、鐵人三項游泳這種場景，激勵型自我對話是直接有用的工具，不需要「要感覺更累才有效」這種誤會。
     l_levels:
     - L2
@@ -1201,13 +1199,11 @@ themes:
     - L4
     - L5
     l_note: 此效果適用於有基礎游泳能力的耐力游泳情境（鐵人三項、中長距離競技、馬拉松游泳）。技術學習期的泳者或 L0–L1 的初學者，主要任務是感知基礎建立而非耐力維持， MST 對這個階段的幫助有限，不可直接類推。
-    population_note: Matos 2020 的受試者為業餘鐵人三項選手，游泳能力中等偏上。對兒童初學或純競技短距離泳者的適用性需獨立研究，目前不可外推；鐵人三項族群是本研究最直接受益的群體，亦是現有游泳專屬研究最薄弱的族群之一——此研究填補了部分缺口。
+    population_note: de Matos 等人 2020 的受試者為業餘鐵人三項選手，游泳能力中等偏上。對兒童初學或純競技短距離泳者的適用性需獨立研究，目前不可外推；鐵人三項族群是本研究最直接受益的群體，亦是現有游泳專屬研究最薄弱的族群之一——此研究填補了部分缺口。
     sources:
-    - Research/心理/06_自我對話與心理技能訓練.md#關鍵文獻清單
-    - Research/心理/06_自我對話與心理技能訓練.md#游泳特異研究-vs-跨運動外推
+    - de Matos, L. F., Bertollo, M., Stefanello, J. M. F., Pires, F. O., da Silva, C. K., Nakamura, F. Y., & Pereira, G. (2020). Motivational self-talk improves time-trial swimming endurance performance in amateur triathletes. International Journal of Sport and Exercise Psychology 19(3):446-459.
     source_ids:
-    - src.research-psych-06-i
-    - src.research-psych-06-d
+    - src.dematos-2020-mst-triathlete-swim
   - id: psych.self_talk.pre_performance_routine
     name_zh: 賽前例行程序讓每次起跑都從相同感知基準線出發
     nav_zh: 賽前例行
@@ -1226,11 +1222,15 @@ themes:
       better: PPR 中的自我對話提示詞要與具體可感知的行為綁定——例如「腳踩啟動點、深呼吸、感覺水溫」的固定序列，而不是漂浮在空中的激勵語言。
     population_note: PPR 文獻以競技成人與大學運動員為主（包含游泳 NCAA D1 研究）；兒童競技泳者的 PPR 設計需考量認知發展限制（序列記憶、後設認知）——過複雜的例行程序可能增加負擔而非減少；成人初學多無比賽情境，PPR 的等效場景是練習前的固定熱身感知校準序列；鐵人三項的 PPR 需同時涵蓋三項間的身心切換，與純游泳 PPR 有結構差異。
     sources:
-    - Research/心理/06_自我對話與心理技能訓練.md#賽前例行程序
-    - Research/心理/06_自我對話與心理技能訓練.md#關鍵文獻清單
+    - 'Rupprecht, A. G. O., Tran, U. S., & Gröpel, P. (2021). The effectiveness of pre-performance routines in sports: a meta-analysis. International Review of Sport and Exercise Psychology 17(1):39-64.'
+    - Gould, D., Guinan, D., Greenleaf, C., Medbery, R., & Peterson, K. (1999). Factors affecting Olympic performance. The Sport Psychologist 13(4):371-394.
+    - Richard, V., Mason, J., Alvarez-Alvarado, S., Perry, I., Lussier, B., & Tenenbaum, G. (2021). Effect of preperformance routine on advanced swimmers' performance and motor efficiency, self-efficacy, and idiosyncratic emotions. The Sport Psychologist 35(2):97-107.
+    - Riewald, S. (2015). Competition-day strategies. Science of Swimming Faster, Ch. 11.
     source_ids:
-    - src.research-psych-06-h
-    - src.research-psych-06-i
+    - src.rupprecht-2021-ppr-meta
+    - src.gould-1999-olympic-teams
+    - src.richard-2021-swimming-ppr
+    - src.riewald-2015-competition-day
   - id: psych.self_talk.systematic_training
     name_zh: 練過的自我對話比臨時起意有效
     nav_zh: 系統練習
@@ -1238,7 +1238,7 @@ themes:
     status: complete
     phenomenon:
       certainty: 🟢
-      text: 41 名競技青少年泳者（平均年齡 14.6 歲）參與的 10 週自我對話訓練研究（Hatzigeorgiadis et al. 2014）顯示：系統性自我對話介入組的游泳表現改善顯著優於無訓練的控制組，且長期訓練介入優於短期。跨運動的元分析（Hatzigeorgiadis et al. 2011）亦顯示，「有接受自我對話訓練」的組別效益高於「未訓練而即興使用」的組別。系統性 PST（心理技能訓練）整體回顧（2023 review of reviews）顯示 12 週 PST 的改善可持續至 6 個月後，長期或個人化 PST 效果優於短期標準化 PST，但現有研究品質普遍偏低（critically low quality），需謹慎詮釋。實用推論：自我對話 cue word 需要在訓練中反覆與特定感知狀態綁定，才能在比賽壓力下被可靠地觸發——臨場被動重複口號幾乎無效。
+      text: 41 名競技青少年泳者（平均年齡 14.6 歲）參與的 10 週自我對話訓練研究（Hatzigeorgiadis et al. 2014）顯示：系統性自我對話介入組的游泳表現改善顯著優於無訓練的控制組，且長期訓練介入優於短期。跨運動的元分析（Hatzigeorgiadis et al. 2011）亦顯示，「有接受自我對話訓練」的組別效益高於「未訓練而即興使用」的組別。系統性 PST（心理技能訓練）的傘狀回顧（Lange-Smith 等人 2023）顯示 12 週 PST 的改善可持續至 6 個月後，長期或個人化 PST 效果優於短期標準化 PST，但現有研究品質普遍偏低（critically low quality），需謹慎詮釋。實用推論：自我對話 cue word 需要在訓練中反覆與特定感知狀態綁定，才能在比賽壓力下被可靠地觸發——臨場被動重複口號幾乎無效。
       plain_text: 一項針對競技青少年泳者、為期十週的訓練研究發現：有系統練過自我對話的那組，進步明顯比沒練的對照組大，而且練得久比練得短更有效。背後的道理是：提示詞要在平常訓練裡反覆跟某個感覺綁在一起，到了比賽壓力下才喚得出來；臨場才被動重複口號，幾乎沒用。實際做法是讓泳者用自己的語言挑提示詞（不是教練幫他定），再分階段導入——先在陸上、再到低壓的練習趟、然後計時趟、最後才帶進比賽。跳過低壓練習直接在比賽試新提示詞，成功率很低。
     intervention_refs:
     - name: 泳者自訂自我對話腳本（customized cue words）
@@ -1247,13 +1247,17 @@ themes:
     - name: 分階段導入（陸上 → 訓練低壓趟 → 高壓趟 → 比賽）
       certainty: 🟢
       how_to: 自我對話技能從陸上練習（識別干擾思維、選 cue word）開始，先在低壓訓練趟中測試，穩定後導入計時趟或模擬賽，最後帶入正式比賽。跳過低壓練習直接在比賽中試用新 cue word，成功率低。
-    population_note: Hatzigeorgiadis 2014 的受試者為競技青少年泳者，是目前游泳直接實證最強的族群；兒童初學者（尤其低齡）的自我對話訓練能力受發展限制，正式 PST 計畫結構對 8 歲以下兒童的適用性需謹慎；成人初學的 PST 結構可完整適用，但干擾思維內容（社會評價）需納入訓練素材；鐵人三項目前有耐力 MST 直接研究支持（Matos 2020），但完整 PST 計畫適用性無直接游泳資料。
+    population_note: Hatzigeorgiadis 2014 的受試者為競技青少年泳者，是目前游泳直接實證最強的族群；兒童初學者（尤其低齡）的自我對話訓練能力受發展限制，正式 PST 計畫結構對 8 歲以下兒童的適用性需謹慎；成人初學的 PST 結構可完整適用，但干擾思維內容（社會評價）需納入訓練素材；鐵人三項目前有耐力 MST 直接研究支持（de Matos 等人 2020），但完整 PST 計畫適用性無直接游泳資料。
     sources:
-    - Research/心理/06_自我對話與心理技能訓練.md#心理技能訓練套裝計畫
-    - Research/心理/06_自我對話與心理技能訓練.md#關鍵文獻清單
+    - Hatzigeorgiadis, A., Galanis, E., Zourbanos, N., & Theodorakis, Y. (2014). Self-talk and competitive sport performance. Journal of Applied Sport Psychology 26(1):82-95.
+    - 'Hatzigeorgiadis, A., Zourbanos, N., Galanis, E., & Theodorakis, Y. (2011). Self-talk and sports performance: a meta-analysis. Perspectives on Psychological Science 6(4):348-356.'
+    - Zach, O. (2024). Self-talk and its application to competitive swimming. Studia Kinanthropologica 24(2-3):67-75.
+    - 'Lange-Smith, S., Cabot, J., Coffee, P., Gunnell, K., & Tod, D. (2023). The efficacy of psychological skills training for enhancing performance in sport: a review of reviews. International Journal of Sport and Exercise Psychology 22(4):1012-1029.'
     source_ids:
-    - src.research-psych-06-a
-    - src.research-psych-06-i
+    - src.hatzigeorgiadis-2014-competitive-selftalk
+    - src.hatzigeorgiadis-2011-selftalk-meta
+    - src.zach-2024-selftalk-swimming
+    - src.lange-smith-2023-pst-review
 - id: psych.arousal
   name_zh: 喚醒、焦慮與壓力崩潰
   nav_zh: 喚醒與崩潰
