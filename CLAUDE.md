@@ -158,6 +158,23 @@ canonical 的散文用摺疊純量（`>-`）在檔案裡折行以便閱讀，**Y
 - **一般字元只認漢字／假名／中文標點兩側**。全形符號兩側的空白是作者有意的排版（`可見方向 ＋ 解剖動作`、`563 件傷害 ／ 2,171,260 次暴露`），所以 `＋＝＜＞／` 這類不進字元集——修完剩下的 2 處正是這兩筆，那是正確狀態不是漏網。
 - **破折號另立一條，且只認成對的 `——`**。中文的 `——` 一律成對、兩側不留空白，緊鄰它的空白必定是折點（116 處）。但**單一 `—` 在本庫是有意的分隔符**（`頭帶平衡 — 面朝下`），一起接掉會改掉作者的排版。
 
+### 中文頁面禁用 Hugo 的 `.Summary`，卡片摘要一律取 front matter 的 `description`
+
+**Hugo 的自動摘要是照「詞數」切的**（預設 70 字），中文沒有詞間空白，整頁被算成一個詞——`.Summary` 回傳的不是摘要而是**整頁純文字**，連表格攤平、`&amp;mdash;` 這種二次跳脫、換行都一起倒出來。2026-09-05 線上實測：查資料頁 28 張散文卡片各吐 300–1541 字。
+
+規則：卡片／清單的摘要取 `.Description`，沒有才 `truncate`。`.Summary` 只有在該頁明確寫了 `<!--more-->` 時才可信，本站沒有任何一頁這樣寫。搜尋索引用的 `data-text` 不受此限——它本來就該吃整頁 `.Plain`。
+
+同一類的還有 `{{ with .Summary }}`：**內容寫死在 layout 的頁面**（如 `water-sense-guide.md`，body 只有一段 HTML 註解）`.Summary` 非空、`plainify` 後卻是空字串，`with` 擋不住，卡片就印一個空的 `<p>`。要判空一律先 `plainify` 再判。
+
+### 「有標題沒內容」是本站最常見的渲染缺陷，標籤一律綁在內容上
+
+`{{ with .physical_reason }}<span>物理原因</span><p>{{ .text }}</p>{{ end }}` 這種寫法，只要區塊存在就印標題——但區塊可能只有 `certainty` 與不對外輸出的 `observation_basis`，讀者拿到的是**標籤加一片空白**，會以為內容漏掉。2026-09-05 線上 20 頁全掃一次抓到四類（傷害頁 Go map 12 筆、各式頁「口訣校正」12 筆、查資料頁卡片 1 筆、週期化表格 1 格）。
+
+- **標題／格子綁在實際會印出來的那個欄位上**，不綁在父區塊存在上。
+- **巢狀 map 不可以用裸 `{{ . }}`**——Hugo 會把 Go 的 `map[k:v]` 字面印給讀者。逐子鍵給標籤（見 `vortex-injuries.html` 的 `ability.para` / `lifecycle`）。
+- **資料真的沒有那個值時，補在 canonical、不要在 layout 硬編 fallback 字串**（多巔峰型的 `peaks_note_zh` 是這樣處理的）。
+- 稽核作法：curl 全部頁面（**先確認 HTTP 200**），掃 `map[`、空 `<div>`／`<span>`／`<p>`／`<td>`。`vx-flow` 的撐位 span、CSS 畫的 caret、JS 填的 `vxFindCount`／`vxNeedsCount` 是正當的空元素，不要修。
+
 ### 來源註冊表（`data/vortex/source-registry.yaml`）：白名單視圖，不是整份搬運
 
 canonical 的條目用 `source_ids: [src.xxx]` 這種機器鍵指來源；`sync_vortex.py` 的 `sync_source_registry()` 把 `canonical/_sources.yaml`（532 筆）轉成**以 id 為 key 的 map**，讓 layout 能 `index $reg $sid` 直接查。三條不可改的規則：
