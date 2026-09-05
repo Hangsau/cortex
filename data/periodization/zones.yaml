@@ -6,9 +6,9 @@ source_repos:
 intensity_zones:
   id: periodization.zones.table_7_1
   cert: 🟡
-  source: Ch7 Table 7.1 Intensity Zones and Training Demand
+  source: Bompa & Buzzichelli 2019，表 7.1（強度分區與訓練需求）
   source_ids:
-  - src.ch7-table-7-1-intensity-zones-and-training-d
+  - src.bompa-buzzichelli-2019
   zones:
   - zone: 1
     demand_zh: 非常高
@@ -43,9 +43,9 @@ intensity_zones:
 hr_vo2_ergogenesis:
   id: periodization.zones.table_11_2
   cert: 🟡
-  source: Ch11 Table 11.2
+  source: Bompa & Buzzichelli 2019，表 11.2
   source_ids:
-  - src.ch11-table-11-2
+  - src.bompa-buzzichelli-2019
   rows:
   - pct_hr_max: 50%
     pct_vo2max: 28%
@@ -75,9 +75,9 @@ hr_vo2_ergogenesis:
 liee_methods:
   id: periodization.zones.table_11_1
   cert: 🟡
-  source: Ch11 Table 11.1 Methods of developing low-intensity exercise endurance
+  source: Bompa & Buzzichelli 2019，表 11.1（低強度耐力發展方法）
   source_ids:
-  - src.ch11-table-11-1-methods-of-developing-low-in
+  - src.bompa-buzzichelli-2019
   warning_zh: LIEE（低強度）與 HIEE（高強度）不可混用；耐力型態選錯會降低專項表現
   methods:
   - key: active_rest
@@ -114,9 +114,9 @@ liee_methods:
 endurance_periodization:
   id: periodization.zones.endurance_phases
   cert: 🟡
-  source: Ch5 Endurance periodization
+  source: Bompa & Buzzichelli 2019，第 5 章（耐力週期化）
   source_ids:
-  - src.ch5-endurance-periodization
+  - src.bompa-buzzichelli-2019
   phases:
   - key: aerobic_endurance
     name_zh: 有氧耐力
@@ -342,10 +342,10 @@ swim_tid:
 swim_application:
   id: periodization.zones.swim
   cert: 🔵
-  source: Ch7 Table 7.1 + Ch11 Table 11.2 框架推導（游泳項目對映）
+  source: 依 Bompa & Buzzichelli 2019 表 7.1 與表 11.2 的框架推導（游泳項目對映）
   source_ids:
-  - src.ch7-table-7-1-ch11-table-11-2
-  pace_mapping_zh: 🔵 游泳組課強度以『比賽配速百分比』表達，直接套 Table 7.1：賽配速=zone 2，高於賽配速（衝刺/乳酸耐受）=zone 1，閾值/節奏=zone 3，有氧基礎=zone 4，恢復游=zone 5
+  - src.bompa-buzzichelli-2019
+  pace_mapping_zh: 🔵 游泳組課強度以『比賽配速百分比』表達，直接套 Bompa & Buzzichelli 的表 7.1：賽配速=zone 2，高於賽配速（衝刺/乳酸耐受）=zone 1，閾值/節奏=zone 3，有氧基礎=zone 4，恢復游=zone 5
   event_metabolic_zh: 🔵 50–100m 偏無氧功率（zone 1–2）；200m 混合（Fig 5.11 bi-cycle 範例即 200m）；400–1500m 為肌耐力主導，需 specific endurance 階段大量 zone 3–4 鋪墊
   weekly_distribution_zh: 🔵 依 Bompa『每週 ≥50% 賽配速』原則，swim-coach 週課表應確保賽配速組（zone 2）占足比重，其餘以 zone 4 有氧基礎與 zone 5 恢復填充
   energy_system_zh: 🔵 swim-coach 生成單組課時，用 hr_vo2_ergogenesis 對照表標記該組主導能量系統，避免賽季階段與能量系統錯配（如競賽期仍堆 50% HR 主動恢復量）

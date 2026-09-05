@@ -8,18 +8,18 @@ phases:
   name_zh: 準備期
   name_en: Preparatory
   cert: 🟡
-  source: Ch5 Periodization Terminology; Ch8 Phases
+  source: Bompa & Buzzichelli 2019，第 5 章（週期化術語）與第 8 章（訓練階段）
   source_ids:
-  - src.ch5-periodization-terminology-ch8-phases
+  - src.bompa-buzzichelli-2019
   purpose_zh: 建立表現的生理基礎；準備期不足則競賽期表現無法最大化
   plain_zh: 準備期＝打底的階段。先把體能基礎建起來，這段練得不夠，後面比賽就拉不出好成績。前半段練得廣、雜一點，後半段越來越專項。
   subphases:
   - key: general
     name_zh: 一般準備
     cert: 🟡
-    source: Ch8
+    source: Bompa & Buzzichelli 2019，第 8 章
     source_ids:
-    - src.ch8
+    - src.bompa-buzzichelli-2019
     share_of_prep: 25–33% of 準備期
     intensity_cap: ≤40% of 總量
     endurance_aerobic_share: 耐力運動 70–80% aerobic
@@ -27,42 +27,42 @@ phases:
   - key: specific
     name_zh: 專項準備
     cert: 🟡
-    source: Ch8
+    source: Bompa & Buzzichelli 2019，第 8 章
     source_ids:
-    - src.ch8
+    - src.bompa-buzzichelli-2019
     sport_specific_share: 70–80% sport-specific work
     focus_zh: 用專項模態發展項目所需特性
 - key: competitive
   name_zh: 競賽期
   name_en: Competitive
   cert: 🟡
-  source: Ch5; Ch8
+  source: Bompa & Buzzichelli 2019，第 5 章與第 8 章
   source_ids:
-  - src.ch5-ch8
+  - src.bompa-buzzichelli-2019
   purpose_zh: 表現能力最大化；維持 90% 專項 / 10% 非專項
   plain_zh: 競賽期＝把表現拉到最高的階段，幾乎全部練專項（90%）。正式比賽都在這段，主賽前面接減量（taper）。
   subphases:
   - key: precompetitive
     name_zh: 賽前
     cert: 🟡
-    source: Ch8
+    source: Bompa & Buzzichelli 2019，第 8 章
     note_zh: 通常僅熱身賽 / 展示賽
     source_ids:
-    - src.ch8
+    - src.bompa-buzzichelli-2019
   - key: main_competitive
     name_zh: 主競賽
     cert: 🟡
-    source: Ch8
+    source: Bompa & Buzzichelli 2019，第 8 章
     note_zh: 所有正式比賽；主賽前接 unloading/taper + special preparation 子階段
     source_ids:
-    - src.ch8
+    - src.bompa-buzzichelli-2019
 - key: transition
   name_zh: 過渡期
   name_en: Transition
   cert: 🟡
-  source: Ch8 Transition Phase
+  source: Bompa & Buzzichelli 2019，第 8 章（過渡期）
   source_ids:
-  - src.ch8-transition-phase
+  - src.bompa-buzzichelli-2019
   duration_weeks:
     min: 2
     max: 4
@@ -78,9 +78,9 @@ annual_plan_types:
   name_zh: 單週期
   name_en: Monocycle
   cert: 🟡
-  source: Ch5 Table 5.1; Ch8 Classifying Annual Plans (Fig 8.4/8.5)
+  source: Bompa & Buzzichelli 2019，表 5.1 與第 8 章（年度計畫分類，圖 8.4／8.5）
   source_ids:
-  - src.ch5-table-5-1-ch8-classifying-annual-plans-f
+  - src.bompa-buzzichelli-2019
   total_weeks: 52
   peaks: 1
   weeks:
@@ -106,9 +106,9 @@ annual_plan_types:
   name_zh: 雙週期
   name_en: Bi-cycle
   cert: 🟡
-  source: Ch5 Table 5.1; Ch8 (Fig 8.6); Ch5 Fig 5.11 (游泳 200m 範例)
+  source: Bompa & Buzzichelli 2019，表 5.1、圖 8.6、圖 5.11（游泳 200 公尺範例）
   source_ids:
-  - src.ch5-table-5-1-ch8-fig-8-6-ch5-fig-5-11-200m
+  - src.bompa-buzzichelli-2019
   total_weeks: 26
   peaks: 2
   weeks:
@@ -136,9 +136,9 @@ annual_plan_types:
   name_zh: 三週期
   name_en: Tri-cycle
   cert: 🟡
-  source: Ch5 Table 5.1; Ch8 (Fig 8.7)
+  source: Bompa & Buzzichelli 2019，表 5.1 與圖 8.7
   source_ids:
-  - src.ch5-table-5-1-ch8-fig-8-7
+  - src.bompa-buzzichelli-2019
   peaks: 3
   weeks_note_zh: 三段分別約 20–24(冬)/16–18(春夏)/4–6(夏)；準備期 12–20/10–12/2–4；競賽期 4–6/8–12/2–4；過渡期 1–2/1–2/3–6
   structure_note_zh: 首準備期最長（含一般準備子階段）；最重要賽事置於第三 cycle；通常僅進階運動員使用
@@ -153,9 +153,9 @@ annual_plan_types:
   name_zh: 多巔峰
   name_en: Multiple-peak
   cert: 🟡
-  source: Ch5 Table 5.1; Ch5 Selective Periodization; Ch8 (Fig 8.8)
+  source: Bompa & Buzzichelli 2019，表 5.1、第 5 章（選擇性週期化）、圖 8.8
   source_ids:
-  - src.ch5-table-5-1-ch5-selective-periodization-ch
+  - src.bompa-buzzichelli-2019
   peaks_note_zh: 多
   weeks:
     per_cycle:
@@ -179,9 +179,9 @@ annual_plan_types:
 macrocycle:
   id: periodization.structure.macrocycle
   cert: 🟡
-  source: Ch7 Planning Training Cycles
+  source: Bompa & Buzzichelli 2019，第 7 章（訓練週期規劃）
   source_ids:
-  - src.ch7-planning-training-cycles
+  - src.bompa-buzzichelli-2019
   duration_weeks:
     min: 2
     max: 6
@@ -218,9 +218,9 @@ macrocycle:
 microcycle:
   id: periodization.structure.microcycle
   cert: 🟡
-  source: Ch7 Planning Training Cycles (Table 7.1 強度分區見 zones.yaml)
+  source: Bompa & Buzzichelli 2019，第 7 章（訓練週期規劃）；表 7.1 的強度分區另見本庫強度分區表
   source_ids:
-  - src.ch7-planning-training-cycles-table-7-1-zones
+  - src.bompa-buzzichelli-2019
   duration: 1 週
   classifications:
   - key: developmental
@@ -293,20 +293,29 @@ general_adaptation_syndrome:
 detraining:
   id: periodization.structure.detraining
   cert: 🟢
-  source: Ch8 Table 8.2; Mujika & Padilla 2000
+  source: Bompa & Buzzichelli (2019)《Periodization》第 6 版第 8 章表 8.2；原始出處：Viru 1995、Coyle 等人 1984、Mujika & Padilla 2000（Part I / Part II）、Izquierdo 等人 2007
   source_ids:
-  - src.ch8-table-8-2-mujika-padilla-2000
+  - src.bompa-buzzichelli-2019
+  - src.viru-1995-adaptation-in-sports-training
+  - src.coyle-1984-loss-of-adaptations
+  - src.mujika-padilla-2000-detraining-part1
+  - src.mujika-padilla-2000-detraining-part2
+  - src.izquierdo-2007-detraining-tapering
   vo2max_loss:
   - days: 4
     loss: 4%
+    source_zh: Viru 1995
   - weeks: 3
     loss: 7%
+    source_zh: Coyle 等人 1984
   - weeks: 4
     loss: 14%
+    source_zh: Mujika & Padilla 2000 Part I
   - weeks: 8
     loss: 20%
-  strength_power_loss_zh: 4 週完全停力量訓練：最大肌力降 6–10%、最大功率降 14–17%；菁英運動員衰退更快
-  endurance_perf_loss_zh: 短期(<4週)停練：力竭時間降 4–25%
+    source_zh: Mujika & Padilla 2000 Part II
+  strength_power_loss_zh: 4 週完全停力量訓練：最大肌力降 6–10%、最大功率降 14–17%（Izquierdo 等人 2007）；菁英運動員衰退更快
+  endurance_perf_loss_zh: 短期(<4週)停練：力竭時間降 4–25%（Mujika & Padilla 2000 Part I）
   reversible_note_zh: 短時間恢復訓練可逆轉；完全停練 <4 週即顯著 detraining → 過渡期務必 active rest
   swim_application_zh: 🔵 游泳排賽季間休 / 傷停課表時，過渡期 >4 週需保留低量 active rest 以免 VO2max 大幅流失
   plain_zh: 完全停練掉得有多快？最大攝氧量：停 4 天掉 4%、停 4 週掉 14%、停 8 週掉 20%。力量也類似（停 4 週最大肌力掉 6–10%）。好消息是這些可以練回來。實務結論：休季或受傷時也別完全躺平，保留一點輕量活動，體能才不會崩。

@@ -6,9 +6,10 @@ source_repos:
 definition:
   id: periodization.taper.definition
   cert: 🟢
-  source: Ch9; Mujika & Padilla 2003 (PMID 12840640)
+  source: Bompa & Buzzichelli 2019，第 9 章；Mujika & Padilla 2003
   source_ids:
-  - src.pmid-12840640-a
+  - src.bompa-buzzichelli-2019
+  - src.mujika-padilla-2003-tapering-strategies
   text_en: A progressive, nonlinear reduction of the training load during a variable period of time, intended to reduce physiological and psychological stress of daily training and optimize sport performance.
   text_zh: 在一段可變期間內，漸進、非線性地降低訓練負荷，目的是移除日常訓練累積的生理與心理壓力、使表現最佳化
   purpose_zh: 讓減量期前累積的訓練適應（fitness）保留，同時消除疲勞（fatigue）→ 表現 = fitness − fatigue 的差值在減量末達最大
@@ -18,9 +19,11 @@ variables:
   key: volume
   name_zh: 訓練量
   cert: 🟢
-  source: Ch9; Mujika & Padilla 2003 (PMID 12840640); Bosquet et al. 2007 (PMID 17762369)
+  source: Bompa & Buzzichelli 2019，第 9 章；Mujika & Padilla 2003；Bosquet 等人 2007
   source_ids:
-  - src.pmid-12840640-b
+  - src.bompa-buzzichelli-2019
+  - src.mujika-padilla-2003-tapering-strategies
+  - src.bosquet-2007-tapering-meta-analysis
   reduction:
     typical: 41–60%
     heavy_pretaper: 60–90%
@@ -31,9 +34,9 @@ variables:
   key: intensity
   name_zh: 訓練強度
   cert: 🟡
-  source: Ch9
+  source: Bompa & Buzzichelli 2019，第 9 章
   source_ids:
-  - src.ch9
+  - src.bompa-buzzichelli-2019
   rule_zh: 維持中高強度以保留適應與技術；強度若一併大降會導致 detraining
   first_week_zh: 減量第一週可微調：功率類 −5–10%、耐力類 −20–30%，之後回拉至接近賽強度
   role_zh: 強度是『保適應』旋鈕，不可大降
@@ -45,9 +48,10 @@ variables:
   key: frequency
   name_zh: 訓練頻率
   cert: 🟡
-  source: Ch9; Mujika & Padilla 2003 (PMID 12840640)
+  source: Bompa & Buzzichelli 2019，第 9 章；Mujika & Padilla 2003
   source_ids:
-  - src.pmid-12840640-a
+  - src.bompa-buzzichelli-2019
+  - src.mujika-padilla-2003-tapering-strategies
   rule_zh: 維持至少約80%平時下水頻率，以保留技術與賽速暴露
   role_zh: 頻率是『保技術』旋鈕
   plain_zh: 總量下降，但下水次數保留至少八成。例如平時每週10次，減量週先維持8次；每次縮短，不把手感與賽速暴露一起砍掉。
@@ -55,9 +59,10 @@ variables:
   key: duration
   name_zh: 減量時長
   cert: 🟢
-  source: Ch9; Mujika & Padilla 2003 (PMID 12840640)
+  source: Bompa & Buzzichelli 2019，第 9 章；Mujika & Padilla 2003
   source_ids:
-  - src.pmid-12840640-a
+  - src.bompa-buzzichelli-2019
+  - src.mujika-padilla-2003-tapering-strategies
   range:
     min_days: 8
     max_days: 14
@@ -69,18 +74,19 @@ taper_types:
   key: linear
   name_zh: 線性遞減
   cert: 🟡
-  source: Ch9
+  source: Bompa & Buzzichelli 2019，第 9 章
   source_ids:
-  - src.ch9
+  - src.bompa-buzzichelli-2019
   note_zh: 負荷等量直線下降；增益低於指數型
   plain_zh: 每天等量往下降一直線。最單純，但效果比指數型差。
 - id: periodization.taper.type.step
   key: step
   name_zh: 階梯式（單次驟降）
   cert: 🟢
-  source: Ch9; Bosquet et al. 2007 (PMID 17762369)
+  source: Bompa & Buzzichelli 2019，第 9 章；Bosquet 等人 2007
   source_ids:
-  - src.pmid-17762369
+  - src.bompa-buzzichelli-2019
+  - src.bosquet-2007-tapering-meta-analysis
   perf_gain: ≈1.2–1.5%
   note_zh: 一次性把負荷砍到固定低水平維持；增益最小
   plain_zh: 一次把量砍到一個低水平就維持不動。最省事，但增益最小（大約進步 1–1.5%）。
@@ -88,9 +94,10 @@ taper_types:
   key: fast_exponential
   name_zh: 快速指數遞減
   cert: 🟢
-  source: Ch9; Bosquet et al. 2007 (PMID 17762369)
+  source: Bompa & Buzzichelli 2019，第 9 章；Bosquet 等人 2007
   source_ids:
-  - src.pmid-17762369
+  - src.bompa-buzzichelli-2019
+  - src.bosquet-2007-tapering-meta-analysis
   perf_gain: ≈4.0–5.0%
   note_zh: 前段快降、後段趨緩；統合研究平均效果最高，作標準首選
   default: true
@@ -98,9 +105,8 @@ taper_types:
 peak:
   id: periodization.taper.peak_window
   cert: 🟡
-  source: Ch9; Bompa & Buzzichelli, Periodization, 6th ed., 2019
+  source: Bompa & Buzzichelli 2019，第 9 章
   source_ids:
-  - src.ch9
   - src.bompa-buzzichelli-2019
   maintainable_days:
     min: 7
