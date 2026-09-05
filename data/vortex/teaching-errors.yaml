@@ -329,9 +329,9 @@ errors:
   evidence:
   - certainty: 🟠
     text: bicycle kick 的問題在膝蓋彎曲過大且主導踢水（膝先動、髖後動），而非膝蓋彎曲本身。最佳膝蓋彎曲角度 55–75°（下踢峰值），低於 55° 推進不足，超過 75° 進入 bicycle kick。
-    source: The Race Club VM 量化
+    source: The Race Club — Getting the Freestyle Kick Right
     source_ids:
-    - src.the-race-club-vm-a
+    - src.the-race-club-freestyle-kick-knee-bend
   cross_ref: 教練說的「膝蓋鎖死」與教科書的 knee locking 意思相反、踝關節柔韌性
   cross_ref_ids:
   - free.tech.41
@@ -408,10 +408,10 @@ errors:
     text: 身體旋轉發生在空氣與水的介面，旋轉動作本身不接觸水（手臂在回臂，不在拉水），因此旋轉本身不產生推進力。旋轉的作用是透過耦合——旋轉速度峰值與划手推力峰值在時間上對齊時能量疊加。旋轉是放大器，不是引擎。沒有時機對齊的旋轉 = 零耦合貢獻 + 額外阻力。
   evidence:
   - certainty: 🟠
-    text: 旋轉速度峰值發生在划手推力峰值的特定時間窗口內時速度提升顯著；窗口外旋轉不帶來速度增益。
-    source: The Race Club Velocity Meter + Pressure Meter
+    text: 壓力計加陀螺儀讓身體與手臂的旋轉角速度可以和划手推力**同時**量到，因此時機好不好第一次變成看得見的東西；四式都要靠耦合動作與推進的時機對齊才游得快。原文停在這裡——它證明時機可被量測、且時機重要，沒有給出「窗口幾毫秒」或「窗口外增益為零」這種量化門檻，那部分是本條上方 mechanism 的推導，不是量測結果。
+    source: The Race Club — Update on Race Club Sensors
     source_ids:
-    - src.the-race-club-velocity-meter-pressure-meter
+    - src.the-race-club-sensors-update
   cross_ref: 技術分析 §伍（Coupling 能量）
   cross_ref_ids:
   - free.tech.16

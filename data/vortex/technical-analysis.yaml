@@ -2744,14 +2744,13 @@ points:
     certainty: 🟢
     source_ids:
     - src.takeda-2026
-    - src.the-race-club-velocity-meter-a
     text: 流線滑行、UDK與水面自由式各有不同的淨力—速度曲線；兩條曲線的交點就是切換速度。高於交點時流線滑行的阻力較小；低於交點後UDK能提供較佳淨力，因此應在交點開始推進。下一個UDK—水面自由式交點同理決定breakout。
   evidence:
   - certainty: 🟠
-    text: 精英選手實測：立刻起踢 vs 短暫滑行快 0.1 秒，vs 長時間滑行快 0.18 秒
-    source: The Race Club velocity meter 實測
+    text: 精英選手實測：自由式 Aaron Greenberg 立刻起踢比短暫滑行快 0.1 秒、比長時間滑行快 0.18 秒（5 公尺）；仰式 Amy Bilquist 立刻下踢比短滑行快 0.1 秒，長滑行則慢 0.16 秒
+    source: The Race Club — Turn Techniques Part I（velocity meter 實測）
     source_ids:
-    - src.the-race-club-velocity-meter-a
+    - src.the-race-club-turn-when-to-start-dolphin-kick
   - certainty: 🟢
     text: 建立「流線型滑行 → UDK → 出水划手」三狀態最優轉換速度模型，確認大多數精英選手最優起踢速度高於水面游泳速度
     source: Takeda et al. 2026, glide–DK–front-crawl transition
@@ -3369,7 +3368,7 @@ points:
   summary: 起跳的推進主力來自雙腳蹬板與雙手上拉，但有三個額外 coupling 動作能放大這些推進力。能量貢獻由大到小：後腿踢（最大，後腿 20–40 磅快速上揚產生大量動能）、繞臂（大圓直臂 > 小圓彎肘 > 停反向 > 直接前推）、抬頭（11 磅頭快速抬升並維持遠視）。三個 coupling 動作的共同特徵：本身不產生推進力，但與雙腳蹬板的時機對齊就放大推進。
   mechanism:
     certainty: 🟠
-    observation_basis: 三個 coupling 動作的方向與訓練法是本專案採用 The Race Club 的教學體系整理的，不是本專案的教練觀測；文中的具體數字（大圓比小圓多 37% peak acceleration、抬頭比低頭遠 0.32 m 且 12 m 快 0.12 秒）全部來自 The Race Club 自行以 Velocity Meter 量測的示範資料，受試者是被點名的單一選手（Niko Obrovac、Amanda Kendall），未經同儕審查、未報告樣本數與重複次數。外推邊界：這些數字只能讀成「該選手在該次量測下的差異」，不是可對其他人預期的增益值；尤其大圓直臂的代價（手臂未及時歸位、雙手交叉）在不同肩活動度與起跳熟練度下並不對等，不得把 37% 當成換技術就會拿到的回報。
+    observation_basis: 三個 coupling 動作的方向與訓練法是本專案採用 The Race Club 的教學體系整理的，不是本專案的教練觀測；文中的具體數字全部來自 The Race Club 自行以 Velocity Meter 量測的示範資料，受試者是被點名的單一選手，未經同儕審查、未報告樣本數與重複次數。抬頭那組（Amanda Kendall，遠 0.32 m、12 m 快 0.15 秒）2026-09-05 已回原文逐值核對，數字相符——**本欄原本寫「快 0.12 秒」是錯的，原文是 0.15 秒**，同日更正。大圓比小圓多 37% peak acceleration 那組（Niko Obrovac）**回原文找不到**：站上談同一對照的公開文章換的是 Zane Grothe（快 2%），37% 這個數字與 Obrovac 這個名字都不在公開頁面上，詳見下方 evidence 的 🔴 註記。下面的 text 保留原敘述，但 37% 目前是待查值不是已證數字。外推邊界：這些數字只能讀成「該選手在該次量測下的差異」，不是可對其他人預期的增益值；尤其大圓直臂的代價（手臂未及時歸位、雙手交叉）在不同肩活動度與起跳熟練度下並不對等，不得把 37% 當成換技術就會拿到的回報。
     text: '後腿踢：起跳瞬間後腿從直放姿勢猛力向上踢到接近垂直、腳尖朝上，重量與速度共同產生大量動能。Brad Tandy 後腿幾乎垂直、前腿被帶到水平以上。多數泳者完全沒意識到自己後腿在幹嘛，是進步空間最大的 coupling。訓練：抓在出發台後方練「驢踢」（單腳支撐踢另一腳）；或起跳台上放沙灘球練踢中。
 
       繞臂：四種等級——直接前推（無能量）→ 停反向（短能量）→ 小圓彎肘（中等，多數選手用）→ 大圓直臂（最大）。大圓直臂的動能與「手臂長度平方 × 角速度平方」成正比，菁英 Niko Obrovac 在 VM 量測下大圓比小圓多 37% 離台 peak acceleration。風險：手沒及時回到重疊位置或兩手交叉——大圓技術代價高但回報也高。
@@ -3379,17 +3378,23 @@ points:
       '
   evidence:
   - certainty: 🟠
-    text: 'Niko Obrovac（克羅埃西亞菁英蛙式）測試大圓直臂 vs 小圓彎肘起跳：peak acceleration 30.14 vs 19.09 m/s²（+37%），到 12m 時間 5.54 vs 5.66 秒（-2%）。
+    text: Amanda Kendall 測試抬頭 vs 低頭起跳：入水距離 2.96 vs 2.64 公尺，到 12 公尺 5.41 vs 5.56 秒（快 0.15 秒，約 3%）。
+    source: 'The Race Club — Improving Your Starts: Head Lift'
+    source_ids:
+    - src.the-race-club-starts-head-lift
+  - certainty: 🟠
+    text: 大圓直臂繞臂的動能來源：把手臂由彎伸直，圓周運動的動能變成四倍；量測示範是 Zane Grothe，大圓比小圓到 12 公尺快 2%（0.1 秒）。
+    source: 'The Race Club — The Coupling Motions of the Start: The Arm Swing'
+    source_ids:
+    - src.the-race-club-start-arm-swing
+  - certainty: 🔴
+    caveat: '**查證失敗（2026-09-05）**：這兩組數字原本掛在「The Race Club VM 量測資料」這個定位不到任何一篇的字串上。回站上找，談同一個大圓／小圓對照的公開文章用的是**另一位選手** （Zane Grothe，2%／0.1 秒），Obrovac 與 Arcila 都不在裡面，30.14／19.09／23.46／22.48 這幾個數字在公開頁面一個都找不到。**沒有證據說它們是錯的**——可能出自 Hall & Murphy 的書或會員牆後的文章；但在追到出處之前，它們是人名加小數點的具體數字卻無來源，正是本專案列為高風險的那一類。降為 🔴 保留、不刪除，也不拿它們支撐任何訓練建議。'
+    text: '待查：Niko Obrovac（克羅埃西亞菁英蛙式）大圓直臂 vs 小圓彎肘：peak acceleration 30.14 vs 19.09 m/s²（+37%），到 12m 5.54 vs 5.66 秒。
 
-      Amanda Kendall 測試抬頭 vs 低頭起跳：入水距離 2.96 vs 2.64 公尺（+11%），到 12m 時間 5.41 vs 5.56 秒（-3%）。
-
-      Isabella Arcila 測試圓背 vs 平背 set position：peak acceleration 23.46 vs 22.48 m/s²，入水距離 2.89 vs 2.75（+5%）。
+      待查：Isabella Arcila 圓背 vs 平背 set position：peak acceleration 23.46 vs 22.48 m/s²，入水距離 2.89 vs 2.75 公尺。
 
       '
-    source: The Race Club VM 量測資料
-    source_ids:
-    - src.the-race-club-vm-b
-  practical_implication: 訓練優先序：① 先確認後腿踢的存在與幅度（多數人忽略，回報最大）；② 教大圓直臂繞臂（需要肩柔軟度，沒有就保留小圓）；③ 抬頭視角訓練。Set position 配合：背要圓不要平（圓背 5% 飛行距離、3% 到 12m 時間）。
+  practical_implication: 訓練優先序：① 先確認後腿踢的存在與幅度（多數人忽略，回報最大）；② 教大圓直臂繞臂（需要肩柔軟度，沒有就保留小圓）；③ 抬頭視角訓練。Set position 的圓背／平背差異暫不列入建議——支撐它的那組數字目前追不到出處（見上方 🔴）。
 - id: starts-turns.tech.44
   stroke: starts-turns
   category: stroke-cycle

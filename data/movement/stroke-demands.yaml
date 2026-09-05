@@ -1917,7 +1917,8 @@ demands:
   evidence_profile: synthesis-inference
   source_ids:
   - src.neumann-2017
-  - src.the-race-club-vm-b
+  - src.the-race-club-starts-head-lift
+  - src.the-race-club-start-arm-swing
   stroke: starts-turns
   phase_model: descriptive
   phase: takeoff
@@ -3168,7 +3169,7 @@ demands:
   source_ids:
   - src.neumann-2017
   - src.hall-murphy-2020
-  - src.the-race-club-velocity-meter-a
+  - src.the-race-club-turn-when-to-start-dolphin-kick
   - src.lyttle-2000
   stroke: udk
   phase_model: descriptive
@@ -3196,7 +3197,7 @@ demands:
   measurement_conditions:
   - source_id: src.hall-murphy-2020
     quantity: 離牆後到 5 公尺的時間與全段最低瞬時速度（同一名泳者，改變起踢延遲）
-    value: '四名精英泳者各自比較「立刻起踢／短滑行／長滑行」。到 5 公尺的時間差約 0.1 秒（短滑行）與約 0.2 秒（長滑行）；同一組比較裡全段最低瞬時速度的落差遠大於時間差，例如其中一名俯臥泳者由 1.25 降到 0.95 再降到 0.33 m/s。
+    value: '四名精英泳者各自比較「立刻起踢／短滑行／長滑行」。到 5 公尺的時間差約 0.1 秒（短滑行）與約 0.2 秒（長滑行）；同一組比較裡全段最低瞬時速度的落差遠大於時間差，例如其中一名俯臥泳者由 1.25 降到 0.95 再降到 0.33 m/s。 2026-09-05 補：這一組數字有一個公開可查的對照——The Race Club 的 Turn Techniques Part I 那篇線上文章列了其中兩人（自由式 Aaron Greenberg、仰式 Amy Bilquist），1.25／0.95／0.33 m/s 就是 Greenberg 的三個谷值。書上是四人，文章只放兩人，兩者不衝突；但這代表這四個數字裡至少有一半能被不持有該書的人自行核對。
 
       '
     conditions: '教材自家速度計對四名精英泳者的比較，俯臥與仰臥都有。原文沒有交代每種條件的重複次數、變異、順序效應、疲勞控制與速度計量測誤差，四人裡有兩人只做了兩種條件、沒有長滑行那一組。它是教練書的實測示範，不是同儕審查的運動學研究。
