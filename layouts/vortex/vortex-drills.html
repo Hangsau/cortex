@@ -26,6 +26,13 @@
 {{ $dtZh := dict "foundation" "基礎" "intermediate" "中階" "advanced" "進階" "elite" "菁英" }}
 {{ $conZh := dict "no_arms" "不用手" "single_arm" "單手" "closed_fist" "握拳" "paddle_amplifier" "手掌板" "no_kick" "不踢" "single_leg" "單腳" "no_breath" "閉氣" "breath_added" "加換氣" "eyes_closed" "閉眼" "tempo_constrained" "限定節奏" "tension_held" "維持張力" }}
 
+{{/* 三型診斷（canonical 的 abc_type）。**不印 A／B／C 這三個字母**——那是框架內部
+     的代號，讀者看到只會是三個沒有意義的字。一律翻成它們指的那件事。
+     canonical 的 null 是「通用，不特別針對某一型」，在這裡給它一個實際的值
+     `general`，否則 data 屬性是空字串、59 個通用練習在這條軸上永遠篩不到。 */}}
+{{ $abcZh := dict "A" "手感" "B" "腳感" "C" "全身張力" "general" "通用" }}
+{{ $abcOrder := slice "A" "B" "C" "general" }}
+
 {{/* 固定排序（避免 hash 順序）*/}}
 {{ $bodyOrder := slice "standing" "vertical" "prone" "supine" "side" "underwater" "transitional" }}
 {{ $mpOrder := slice "static" "progressive" "continuous" "pause_pulse" "alternating" "rotational" }}
@@ -47,6 +54,7 @@
 {{ $taVals := slice }}{{ range $drills }}{{ $taVals = $taVals | append .tactile_anchor }}{{ end }}{{ $taVals = $taVals | uniq }}
 {{ $skVals := slice }}{{ range $drills }}{{ range .skill_focus }}{{ $skVals = $skVals | append . }}{{ end }}{{ end }}{{ $skVals = $skVals | uniq | sort }}
 {{ $conVals := slice }}{{ range $drills }}{{ range .constraints }}{{ $conVals = $conVals | append . }}{{ end }}{{ end }}{{ $conVals = $conVals | uniq | sort }}
+{{ $abcVals := slice }}{{ range $drills }}{{ $abcVals = $abcVals | append (default "general" .abc_type) }}{{ end }}{{ $abcVals = $abcVals | uniq }}
 
 <div class="vx-shell">
 {{ partial "vortex/sidebar.html" (dict "ctx" . "current" "drills") }}
@@ -131,6 +139,14 @@
             {{ range $taOrder }}{{ if in $taVals . }}<button class="vx-chip" type="button" data-val="{{ . }}">{{ index $taZh . }}</button>{{ end }}{{ end }}
           </div>
 
+          {{/* 放進階區不放上面三條主篩選：三型診斷從 L3 才適用，拿它當入口會讓
+               還在 L0–L2 的人以為自己得先分類自己。 */}}
+          <div class="vx-filterbar" data-axis="abc">
+            <span class="vx-filterbar-label">補哪一塊感知</span>
+            <button class="vx-chip is-active" type="button" data-val="all">全部</button>
+            {{ range $abcOrder }}{{ if in $abcVals . }}<button class="vx-chip" type="button" data-val="{{ . }}">{{ index $abcZh . }}</button>{{ end }}{{ end }}
+          </div>
+
         </div>
       </details>
     </div>
@@ -152,7 +168,8 @@
         data-sp="{{ .stroke_phase }}"
         data-ta="{{ .tactile_anchor }}"
         data-sk="{{ delimit .skill_focus " " }}"
-        data-con="{{ delimit .constraints " " }}">
+        data-con="{{ delimit .constraints " " }}"
+        data-abc="{{ default "general" .abc_type }}">
         <summary><span class="vx-cardcat">{{ index $drillCatName .category }}{{ with .l_target }} · {{ delimit . " " }}{{ end }} · {{ range $i, $s := $sk }}{{ if $i }}／{{ end }}{{ index $strokeZh $s }}{{ end }}{{ with .difficulty_tier }} · <span class="vx-tier-{{ . }}">{{ index $dtZh . }}</span>{{ end }}</span><span class="vx-cardtitle">{{ .name_zh }} <span class="vx-card-en">{{ .name_en }}</span></span></summary>
         <div class="vx-card-body">
           {{ with .purpose_zh }}<p>{{ . }}</p>{{ end }}
@@ -170,6 +187,7 @@
             {{ with .movement_pattern }}<span class="vx-fp-tag" data-axis="mp">型態：{{ index $mpZh . }}</span>{{ end }}
             {{ with .stroke_phase }}<span class="vx-fp-tag" data-axis="sp">週期：{{ index $spZh . }}</span>{{ end }}
             {{ with .tactile_anchor }}<span class="vx-fp-tag" data-axis="ta">訊號：{{ index $taZh . }}</span>{{ end }}
+            {{ with .abc_type }}<span class="vx-fp-tag" data-axis="abc">補：{{ index $abcZh . }}</span>{{ end }}
             {{ range .skill_focus }}<span class="vx-fp-tag vx-fp-skill" data-axis="sk">標的：{{ index $skZh . }}</span>{{ end }}
             {{ range .constraints }}<span class="vx-fp-tag vx-fp-con" data-axis="con">限制：{{ index $conZh . }}</span>{{ end }}
           </div>
