@@ -568,16 +568,8 @@ errors:
   title: 拉水越深推進越多——忽略「越深 = 越大阻力」的代價
   misconception: 部分教練教「拉水越深，能抓到的水越多，推進就越多」，立意是強化手部抓水深度。但忽略了「深拉水必然造成上臂偏離游進方向」，導致正面阻力暴增（free.tech.9 已說明上臂是阻力最大部位）。
   physical_reason:
-    certainty: 🟢
-    source_ids:
-    - src.race-club-pdm-elite-general
-    text: 深拉水時手部在深處，但上臂從肩膀往下伸的過程中**必然偏離游進方向**——上臂的截面積（圓形）是身體最大的部位之一，偏離游進方向時其正面阻力與深度成正比增加。所以「深拉水多推進」是局部真相（深處水體積大），但忽略了整體代價（上臂正面阻力暴增）——淨效果常是負的。 EVF（high elbow）的整個物理目標就是「把上臂藏在游進方向裡」，代價是放棄深拉水的局部推進，換取上臂阻力的大幅降低。
-  evidence:
-  - certainty: 🟢
-    text: PDM 量測確認手部主推進來自掌面而非前臂深度；深拉水的上臂阻力代價已在多項菁英研究中量化。
-    source: Race Club PDM；通用菁英研究
-    source_ids:
-    - src.race-club-pdm-elite-general
+    certainty: 🔵
+    text: 深拉水時手部在深處，但上臂從肩膀往下伸的過程中**必然偏離游進方向**——上臂的截面積（圓形）是身體最大的部位之一，偏離游進方向時其正面阻力與深度成正比增加。所以「深拉水多推進」是局部真相（深處水體積大），但忽略了整體代價（上臂正面阻力暴增）——淨效果常是負的。 EVF（high elbow）的整個物理目標就是「把上臂藏在游進方向裡」，代價是放棄深拉水的局部推進，換取上臂阻力的大幅降低。（2026-09-06 由 🟢 改標 🔵：這一整段是幾何與流體阻力的推導，原本掛的來源是「Race Club PDM；通用菁英研究」——一個指不到文件的字串，掛著它反而讓一段自己站得住的推導看起來需要文獻背書。）
   correct_concept: 拉水深度應該以「肘部高於手腕、手腕高於指尖」的相對位置維持，絕對深度依個人條件（衝刺可較深、長距較淺），但不應追求「越深越好」。 EVF 的核心是維持上臂貼游進方向，不是手部抓深。
   perception_impact: 「越深越多」口令把感知焦點放在「手能伸多深」的深度監控，錯失了「上臂截面積朝向哪裡」這個更關鍵的阻力感知。
   cross_ref: free.tech.9（EVF 核心物理）、back.err3（仰式對應誤區）
@@ -713,10 +705,8 @@ errors:
     observation_basis: 觀察者為 The Race Club（Gary Hall Jr.）的仰式彎臂 vs 直臂分析與 USMS 的 Backstroke Pull 指引（即下方 evidence 的來源），族群為競技仰式泳者與 masters。外推邊界：本文已在正文自陳「具體百分比來自教學影片分析，未追溯到同儕審查原始數據」，因此**只支撐方向（彎臂推水路徑較長）不支撐幅度**；末段「直臂常是旋轉不對稱的徵兆而非根因」是教學現場的因果判讀，未經對照設計驗證。
   evidence:
   - certainty: 🟠
+    observation_basis: 觀察者為 The Race Club（Gary Hall Jr.）的仰式彎臂 vs 直臂影像分析與 USMS 的 Backstroke Pull 教學內容，族群為競技仰式泳者與 masters。外推邊界：本專案取回原文的嘗試沒有成功——兩者都只查到機構與主題，查不到可定位的單篇文件，所以**這條只是「兩個教學來源都這樣說」的紀錄**，不是量測結果；「推進力與加速度高於直臂」的方向可用，任何幅度、百分比或適用門檻都不成立。 2026-09-06 撤下原本掛的 source_ids（那是一個指不到文件的複合字串）。
     text: 彎臂（bent-arm / deep-elbow catch）划水的推進力與加速度高於直臂，是精英仰式的主流選擇；直臂多見於休閒與入門泳者。
-    source: Race Club（Gary Hall Jr.）背式彎臂 vs 直臂分析；U.S. Masters Swimming Backstroke Pull guide
-    source_ids:
-    - src.race-club-gary-hall-jr-vs-u-s-masters-swimmi
   cross_ref: 教學誤區 §back.err3（深度與肘位）
   cross_ref_ids:
   - back.err3
@@ -748,16 +738,18 @@ errors:
   title: 腿要打直、膝蓋不能彎——對「腳踏車式踢水」的過度矯正
   misconception: 為糾正初學者「用膝蓋猛踩（腳踏車式踢水）」，教練改下「腿打直、膝蓋不要彎」的反向口令。矯正過度後變成僵直雙腿整條上下擺，失去踢水推進的核心機制。這是教練主動下的反向指令，與 back.err5（踢的方向錯成向下）是不同的錯誤軸。
   physical_reason:
-    certainty: 🟡
+    certainty: 🟠
     source_ids:
-    - src.usms-backstroke-kick-guide
+    - src.wolf-2012-usms-backstroke-pointers
+    observation_basis: 觀察者是 Lisa Wolf（Montgomery Ancient Mariners 與 DC Aquatics Club 的 masters 教練、 USA-S 分齡教練）發表在 USMS 的 Backstroke Pointers，族群是成人學習者與 masters。外推邊界：原文只寫到「踢腿由髖驅動，膝只需要微屈」， **沒有描述上踢末端的鞭打機制**——鞭打那一段是本專案自己接的力學讀法，屬於連動鏈的一般性質，不是這篇支撐的。原文也沒有給任何膝角度或幅度的數值。 2026-09-06 由 🟡 改標 🟠：這是一篇教練撰寫的教學文章，不是研究，原本標成「舊文獻」是把教學內容當成文獻層級在用。
     text: 有效的仰式踢水由髖部啟動，上踢（up-kick）時膝關節自然微屈再伸展，形成末端鞭打；完全僵直的腿失去這個鞭打，推進面消失。但「彎膝」必須是髖驅動下的自然結果，不是主動用膝蓋發力——後者退回腳踏車式踢水。正確狀態介於兩個極端之間：髖啟動、膝自然屈伸、下踢相對直、上踢有鞭打。
   evidence:
-  - certainty: 🟡
-    text: 仰式踢水應由髖啟動，上踢時膝自然微屈形成鞭打，非完全僵直亦非主動屈膝踩踏；單純「從膝蓋踢」會失去推進並增加阻力。
-    source: U.S. Masters Swimming Backstroke Kick guide；多家教學指引一致
+  - certainty: 🟠
+    observation_basis: 同上：Lisa Wolf（2012）在 USMS 的 Backstroke Pointers，族群為成人學習者與 masters。原文踢腿段逐字寫的是「The kick drives from the hip and only a slight bend of the knees is needed」，以及腳尖略內、上下都要撥到水（「boil the water」）。外推邊界：**「單純從膝蓋踢會失去推進並增加阻力」這句原文沒有寫**，是教學共識的推論，本專案沒有查到量化過這個代價的來源。
+    text: 仰式踢水應由髖啟動、膝只需微屈，非完全僵直亦非主動屈膝踩踏。
+    source: Wolf, L. (2012). Backstroke Pointers. U.S. Masters Swimming.
     source_ids:
-    - src.usms-backstroke-kick-guide
+    - src.wolf-2012-usms-backstroke-pointers
   cross_ref: 教學誤區 §back.err5（踢水方向）
   cross_ref_ids:
   - back.err5
@@ -774,10 +766,8 @@ errors:
     observation_basis: 觀察者為三個彼此獨立的教學來源——USMS 的 Backstroke Body Position 指引、swim-teach.com、 enjoy-swimming（即下方 evidence 所載的教學共識），族群為成人學習者與 masters。外推邊界：這是**教材共識**而非實驗結果，三方一致提高了可信度但不改變證據層級；「翹翹板原理」是力學推導，「多家教學指引把拱背列為錯誤」是文獻式事實陳述，兩者都不支撐任何角度或幅度的處方值。
   evidence:
   - certainty: 🟠
+    observation_basis: 觀察者是 USMS 的仰式身體位置教學內容、swim-teach.com 與 enjoy-swimming 三方教材，族群為成人學習者與 masters。外推邊界：這是**教材共識**不是實驗結果，三方一致提高的是可信度不是證據層級；本專案沒有取回任何一份可定位的單篇原文，所以它只支撐「多家教材都把主動拱背列為錯誤」這個文獻式事實，不支撐任何角度、幅度或處方值。2026-09-06 撤下原本掛的 source_ids （那是三個網站名串起來的字串，指不到任何文件）。
     text: 「肚臍露出水面」是常見浮力心像，但不應靠拱背達成；過度拱背非流線。建議核心收住、頭頸中立，靠壓低頭肩讓臀腿自然上浮，背部寧可微圓不要拱。
-    source: U.S. Masters Swimming Backstroke Body Position guide；swim-teach.com；enjoy-swimming（教學共識）
-    source_ids:
-    - src.u-s-masters-swimming-backstroke-body-positio
   cross_ref: 教學誤區 §back.err1（旋轉壓制造成的張力）
   cross_ref_ids:
   - back.err1
@@ -824,10 +814,8 @@ errors:
     observation_basis: 觀察者為 The Race Club Ch 14 與通用菁英影像觀察（即下方 evidence 的來源），族群為菁英仰式選手。外推邊界：「6 點鐘到 7–8 點鐘」是**時鐘方位的教學語言，不是量測角度**，不同參考系（身體軸 vs 池底）讀出來的位置會不同，不可當成目標值；「菁英出水點在大腿外側偏上」是影像觀察的分布印象，未報告樣本數與離散度。推進力分量下降／阻力分量上升那段是流體力學推導，不依賴本觀察。
   evidence:
   - certainty: 🟠
+    observation_basis: 觀察者是 The Race Club 的菁英仰式水下影像教學內容，族群為競技仰式選手。外推邊界：**「0.05–0.1 秒」這個區間要當成影像觀察的印象值，不是量測結果**——本專案 2026-09-06 回頭找原文時只查到「Ch 14」這個章號，沒有書名、年份或作者，無法確認它出自哪一份 Race Club 教材，因此沒有任何樣本數、離散度或量測方法可交代。上面 mechanism 裡「推進力分量下降／阻力分量上升」那段是流體力學推導，不依賴本觀察。
     text: 水下高速攝影分析菁英仰式選手出水時機，多數在手通過臀部後 0.05-0.1 秒內出水，而非繼續拉到大腿底。
-    source: Race Club Ch 14；通用菁英影像觀察
-    source_ids:
-    - src.race-club-ch-14
   cross_ref: 推水、拉水
   cross_ref_ids:
   - back.tech.12
@@ -1967,18 +1955,18 @@ errors:
   misconception: 教練直接用俯式 UDK（自由式/蝶式）的教學口令套用到仰式選手，認為「橫躺」就好，踢法相同。
   physical_reason:
     certainty: 🔵
-    text: 仰式（仰臥/dorsal）與俯式（俯臥/prone）UDK 在效率機制上有關鍵差異。俯式下踢方向向下，與浮力同向，容易過早浮出或需角度朝下補償；仰式下踢方向向上，抵抗浮力，更容易維持深度，速度更穩定。因此仰式踢腿的速度曲線更加平穩，整體效率反而更高。
+    text: 仰式（仰臥/dorsal）與俯式（俯臥/prone）UDK 至少有一項條件不同：下踢方向與浮力的關係。俯式下踢往腹側、與浮力同向，容易過早浮出或需角度朝下補償；仰式下踢往背側、與浮力反向，維持深度較不費力。 **這個幾何差異成立，但它推不出「所以仰式效率較高」**——效率是推進力、阻力與代謝成本的合成，要靠實測。 2026-09-06 更正：本條原本從幾何差異一路寫到「仰式速度曲線更平穩、整體效率反而更高」，那是把一個方向性的力學條件當成結論在用（詳見 udk.tech.22）。誤區本身仍然成立——兩種體位的條件確實不同，口令不能整組平移——但「不同」的內容是浮力關係與感知重點，不是誰比較快。
   evidence:
   - certainty: 🟢
-    text: 仰臥下踢的加速度顯著低於俯臥——但整體速度曲線更加平穩，代表仰臥踢腿的效率反而更高（維持更恆定的速度）。
-    source: SwimSwam / Kinematic Comparison，WKU Digital Commons
+    text: 唯一一份把同一批泳者的俯臥與仰臥全力海豚腳直接對照的運動學研究：水平速度（p=0.774）與踢頻（p=0.730）兩種體位都沒有差異，關節活動度也不受體位影響（p=0.36），結論明文反駁「仰臥海豚腳較有效」的說法。這是 n=6 的會議摘要，沒測到差異不等於兩者相等——它能推翻的是「已有證據支持仰式較優」。 2026-09-06 更正：本條原本引的就是這份研究，卻寫成「仰臥速度曲線更平穩、效率更高」。
+    source: 'Scharborough et al. (2017), International Journal of Exercise Science: Conference Proceedings 2(9), Article 81'
     source_ids:
-    - src.swimswam-wku-kinematic
-  cross_ref: 仰式 UDK 效率高於俯式的物理原因
+    - src.scharborough-2017-dolphin-kick-prone-supine
+  cross_ref: 仰／俯海豚腳的效率差異查無證據
   cross_ref_ids:
   - udk.tech.22
-  correct_concept: 仰式 UDK 的技術指導應強調「對抗浮力的下踢感」和「速度穩定感」，而非套用俯式的「向下爆發感」口令。仰式 UDK 速度維持能力是生物力學上的結構優勢。
-  perception_impact: 用俯式感知訓練仰式 UDK 的學員，往往把注意力放在「踢的力量感」，而非仰式特有的「穩定維持感」——導致仰式水下速度不穩定。
+  correct_concept: 仰式 UDK 的技術指導應強調「對抗浮力的下踢感」和「深度維持感」，而非套用俯式的「向下爆發感」口令——理由是兩個體位的浮力關係不同， **不是因為仰式比較有效率**（那個說法沒有證據支持）。
+  perception_impact: 用俯式感知訓練仰式 UDK 的學員，往往把注意力放在「踢的力量感」，而非仰式特有的「對抗浮力、把深度守住」的感覺——導致仰式水下深度守不住。
 - id: udk.err12
   stroke: udk
   category: concept
@@ -2143,10 +2131,9 @@ errors:
     - src.blanksby-1998-breaststroke-turns
     url: https://doi.org/10.1123/jab.14.2.180
   - certainty: 🟠
+    observation_basis: 兩句都是 MySwimPro（2022）的教學內容原文，族群為成人泳者與 masters。外推邊界：這是教學指導語不是量測——「約半個身體長度」是口訣式的距離提示，沒有報告過族群、身高範圍或誤差；上面 Blanksby 那條才是有模型的證據。 2026-09-06 撤下原本掛的 source_ids（複合字串，另一半 coachsci.sdsu.edu 是 Brent Rushall 的摘要索引站，本身不是原始文獻）。
     text: 「另一個常見錯誤是靠近牆時彎曲手臂把自己拉過去。正確做法是保持手臂伸直，盡量離牆遠——用伸直的手觸牆。」「最後一划前距牆約半個身體長度；如果太遠，就踢腿補上——不是縮短划手。」
-    source: MySwimPro 2022; coachsci.sdsu.edu
-    source_ids:
-    - src.myswimpro-2022-coachsci-sdsu-edu-2022
+    source: MySwimPro（2022）教學內容
   cross_ref: 技術分析 §貳 2.3/2.4 接近與旋轉：完整最後一划
   cross_ref_ids:
   - starts-turns.tech.19

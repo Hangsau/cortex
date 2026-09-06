@@ -2509,13 +2509,7 @@ points:
   summary: UDK 的推進力來自核心發動、向末梢傳遞的全身能量波，而非單純腿部踢水。
   mechanism:
     certainty: 🔵
-    text: 能量傳導鏈：核心 → 髖 → 膝 → 踝 → 腳尖；核心啟動並穩定整個波動，髖是主要驅動節點，膝放大傳遞，踝決定推進面積。
-  evidence:
-  - certainty: 🟢
-    text: 核心力量提升使踝關節力量增加 25%
-    source: yourswimlog 核心力量研究；phantomlattice.com 生物力學分析
-    source_ids:
-    - src.yourswimlog-phantomlattice-core
+    text: 能量傳導鏈：核心 → 髖 → 膝 → 踝 → 腳尖；核心啟動並穩定整個波動，髖是主要驅動節點，膝放大傳遞，踝決定推進面積。這是連動鏈的一般力學性質（近端穩定、遠端加速），不依賴任何量測數字。本條目前沒有量化證據：原先掛在這裡的「核心力量提升使踝關節力量增加 25%」， 2026-09-06 取回所引網頁全文逐字比對後查無此數字（該站也是綜合型內容農場），已整條撤除；核心訓練對水下海豚腳推進的量化效果，本庫目前找不到可引的來源。
   practical_implication: 訓練 UDK 必須從核心穩定性出發，「腿踢更用力」的思路無法觸及推進力的根源。
 - id: udk.tech.5
   stroke: udk
@@ -2820,18 +2814,18 @@ points:
 - id: udk.tech.22
   stroke: udk
   category: comparison
-  title: 仰式 UDK 效率高於俯式的物理原因
-  summary: 仰式 UDK 雖每踢峰值加速度較小，但速度損失少、穩定性高，整體效率反而優於俯式。
+  title: 「仰式 UDK 比俯式有效率」——推導講得通，但唯一直接對照的研究沒測到差異
+  summary: 教學圈常說仰式水下海豚腳的效率優於俯式，理由是兩種體位下踢方向與浮力的幾何關係不同。這個推導本身講得通，但唯一一份把同一批泳者的俯臥與仰臥海豚腳直接對照的運動學研究，速度與踢頻都沒有測到差異。本條保留幾何機制，撤回「效率較優」這個結論。
   mechanism:
     certainty: 🔵
-    text: 俯式下踢方向與浮力同向，合力讓身體易過早浮出，需額外補償；仰式下踢對抗浮力，深度自然平衡，速度損失少，整體效率更高。
+    text: 主張的推導是這樣：俯臥時下踢（往腹側）與浮力同向，合力讓身體傾向往上浮，要維持深度就得額外補償；仰臥時下踢（往背側）與浮力反向，深度較容易自然平衡。這一段能成立的只有「兩個體位的浮力與踢向幾何關係不同」——效率是推進力、阻力與代謝成本的合成，幾何差異要轉換成效率差異必須實測，推不出來。
   evidence:
   - certainty: 🟢
-    text: 俯臥下踢峰值速度超 2 m/s 但速度波動達 0.5 m/s；仰臥速度曲線明顯更平緩
-    source: SwimSwam Junya Koga analysis; WKU Digital Commons Kinematic Comparison
+    text: 把同一批泳者的俯臥與仰臥全力海豚腳做運動學對照：水平速度（p=0.774）與踢頻（p=0.730）兩種體位都沒有差異，關節活動度也不受體位影響（p=0.36）；原文結論直陳「儘管近來有人主張仰臥海豚腳可能比俯臥更有效，本樣本沒有觀察到運動學差異」。注意這是 n=6 的會議摘要，沒測到差異不等於證明兩者相等——它能推翻的是「已有證據支持仰式較優」，不能反過來當成「兩者一樣」的證據。 2026-09-06 更正：本條原本引的就是這份研究，卻寫成支持仰式較優，並掛上原文裡沒有的數字（峰值 2 m/s、波動 0.5 m/s）。
+    source: 'Scharborough et al. (2017), International Journal of Exercise Science: Conference Proceedings 2(9), Article 81'
     source_ids:
-    - src.swimswam-koga-wku-kinematic
-  practical_implication: 仰式選手不應追求下踢的爆發峰值感，而應以速度維持穩定為感知目標。
+    - src.scharborough-2017-dolphin-kick-prone-supine
+  practical_implication: 不要拿「仰式 UDK 本來就比較有效率」當訓練前提，也不要據此給仰式選手排更長的水下距離。「以速度維持穩定為感知目標、不追求單次爆發峰值」仍然可用，但那是通用的水下打腿原則，不是仰／俯優劣的結論。
 - id: udk.tech.23
   stroke: udk
   category: comparison
@@ -2839,9 +2833,9 @@ points:
   summary: 不同泳式因水下耗能與水面效率差異，最優水下距離策略不同；蛙式不適用 UDK。
   mechanism:
     certainty: 🔵
-    text: 自由式：中等距離視個人能力；仰式：可能較長（UDK 效率機制較優）；蝶式：可能較短（水下耗體力，出水划手恢復效益大）；蛙式：改為 pullout（規則限制）。
+    text: 自由式：中等距離視個人能力；仰式：規則允許的水下段與自由式相同，但**不要因為「仰式 UDK 效率較高」而預設排更長**——那個效率主張沒有運動學證據支持（見 udk.tech.22）；蝶式：可能較短（水下耗體力，出水划手恢復效益大）；蛙式：改為 pullout（規則限制）。
   practical_implication: 各泳式的水下距離策略需個別評估，不可一概而論。
-  cross_ref: 逐式點名：udk.tech.22（仰式 UDK 效率較優）、udk.tech.18（自由式視個人速度衰減曲線）、starts-turns.tech.35（蛙式改為 pullout）
+  cross_ref: 逐式點名：udk.tech.22（仰／俯效率差異查無證據）、udk.tech.18（自由式視個人速度衰減曲線）、starts-turns.tech.35（蛙式改為 pullout）
   cross_ref_ids:
   - udk.tech.22
   - udk.tech.18
@@ -2983,6 +2977,7 @@ points:
     certainty: 🔵
     source_ids:
     - src.neumann-2017
+    - src.scharborough-2017-dolphin-kick-prone-supine
     text: '教科書明定：不論移動的是股骨還是骨盆，髖的骨動學一律從解剖位置描述——矢狀面是屈曲／伸展，額狀面是外展／內收，水平面是內旋／外旋。身體在空間中朝哪個方向不進入命名。所以命名規則本身無條件成立，不因俯臥或仰躺而改變。
 
       會改變的是「池畔可見方向」對應到哪個關節動作。逐關節的對照如下：
@@ -2995,11 +2990,11 @@ points:
 
       由此得到的欄位規則：技術表格需要三欄——體位（俯臥／仰躺／側臥）、池畔可見方向、解剖動作，並且對髖、膝、踝分別填。只寫一欄時錯誤會反覆發生，這是欄位缺漏造成的結構性錯誤，不是個別筆誤。
 
-      尚待實測：俯臥與仰躺的水下海豚打腿在關節角度軌跡與相位時間分配上是否為同一套動作模式，屬游泳運動學問題。本專案的游泳文獻集在此主題沒有可用篇目，這一點不由本條下結論。
+      尚待實測：俯臥與仰躺的水下海豚打腿在關節角度軌跡與相位時間分配上是否為同一套動作模式，屬游泳運動學問題，不由本條下結論。2026-09-06 補充：本專案已取得一份直接對照（Scharborough et al. 2017，n=6 會議摘要），它測到髖與膝的活動度不受體位影響、速度與踢頻也沒有差異，但只報告了活動度總量，沒有報告角度軌跡與相位時間分配，所以上面那個問題仍然開著。
 
       '
   practical_implication: 水下海豚打腿的教學文件把「體位」設為必填欄位，並對髖、膝、踝分別採「池畔可見方向 ＋ 解剖動作」雙欄標注。這一步的直接用途是讓陸上輔助訓練的動作選擇不會方向接反——排課前先讀解剖動作那一欄，不要照「上踢」「下踢」的字面去選。尚待實測：某一拍實際由哪些肌群主導需要游泳專項 EMG 才能回答，關節動作方向只能指出「哪些肌群在解剖上可能參與」，不能指出招募程度。同理，動作幅度不足要歸給硬體邊界還是感知協調，須由分層被動與主動測試判定，不能由髖屈曲與髖伸展的正常 ROM 差異直接推得。
-  cross_ref: udk.tech.22（仰式 UDK 效率高於俯式）、back.tech.30（仰式打腿同一命名翻轉）、free.tech.36（骨動學命名鐵律）
+  cross_ref: udk.tech.22（仰／俯海豚腳的效率差異查無證據）、back.tech.30（仰式打腿同一命名翻轉）、free.tech.36（骨動學命名鐵律）
   cross_ref_ids:
   - udk.tech.22
   - back.tech.30
@@ -3865,12 +3860,6 @@ points:
     certainty: 🟠
     observation_basis: 三種轉法的適用情境分類來自 360swim、U.S. Masters Swimming 與 Swimming World 的公開教學內容，不是本專案的教練觀測；族群是成人泳者與 masters 競賽者。外推邊界：「Bucket turn 的 pullout 氧耗高」是教學說法，本專案沒有查到對背→蛙三種轉法做代謝或攝氧量對照的研究，該項只能當作選轉法時的權衡提示，不可寫成已量化的生理代價。
     text: Open turn 旋轉弧度最長但動作穩定；Bucket turn 翻滾後 pullout 氧耗高；Crossover 旋轉複雜，提前過垂直面是犯規高風險點。
-  evidence:
-  - certainty: 🟠
-    text: 適用情境分類來自教練系統觀測。
-    source: 360swim; USMS; Swimming World
-    source_ids:
-    - src.360swim-usms-swimming-world
   practical_implication: 400 IM 疲勞段若無法完整執行 Crossover，改用 Open turn 更穩定；100/200 IM 技術熟練者可考慮 Crossover。
 - id: starts-turns.tech.32
   stroke: starts-turns
@@ -3936,10 +3925,8 @@ points:
     text: 觸牆停頓使旋轉動量歸零需重新加速；腿未收緊時轉動慣量變大，在同樣的角動量下角速度下降、旋轉變慢（2026-09-04 更正原文「旋轉半徑大增加角動量」——角動量在旋轉中是守恆的，收腿改變的是轉動慣量不是角動量）；換氣抬頭破壞旋轉連續性並增加阻力。
   evidence:
   - certainty: 🟠
-    text: 效率損失清單來自教練系統觀測。
-    source: USMS; SGSwim
-    source_ids:
-    - src.usms-sgswim
+    observation_basis: 三項效率損失（觸牆停頓確認、縮腿路徑過長、觸牆後抬頭換氣）是 USMS 與 SGSwim 公開教學內容反覆點名的常見錯誤，不是本專案的教練觀測；族群是成人泳者與 masters 競賽者。外推邊界：這是教材層級的錯誤盤點，**沒有任何一項報告過發生率或造成的時間損失**——它只能用來提示要看哪裡，不能寫成「這三項各佔轉身時間損失的 N%」。上面 mechanism 的轉動慣量推理不依賴這份盤點。
+    text: 觸牆停頓、縮腿路徑過長、觸牆後抬頭換氣，是蝶→背轉身教材最常點名的三個效率損失。
   practical_implication: 訓練口令：觸牆不停頓（同時縮腿）、膝蓋快收向胸口、全程閉氣到出水。
 - id: starts-turns.tech.37
   stroke: starts-turns
