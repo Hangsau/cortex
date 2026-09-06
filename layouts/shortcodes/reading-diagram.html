@@ -1,0 +1,10 @@
+{{ $ID := printf "rd-demo-%d" .Ordinal }}
+<figure class="rd-diagram" data-torque-demo aria-labelledby="{{ $ID }}-caption">
+<svg viewBox="0 0 480 190" role="img" aria-label="一根水平槓桿，左側為轉軸，向下的力作用在轉軸右側。力臂是兩者之間的水平距離。">
+<path class="rd-line" d="M90 100 H430 M65 150 L90 110 L115 150 Z"/><circle cx="90" cy="100" r="7" fill="currentColor"/>
+<text x="18" y="178">轉軸</text><text x="180" y="178">水平距離就是這個例子的力臂</text>
+<g data-force-arrow transform="translate(250,0)"><path class="rd-force" d="M0 32 V96 M-8 80 L0 96 L8 80"/><text x="-44" y="22">20 牛頓</text></g>
+</svg>
+<label for="{{ $ID }}">調整施力位置，觀察力矩（公分）</label><input id="{{ $ID }}" type="range" min="5" max="40" step="1" value="20"><output for="{{ $ID }}" aria-live="polite">力臂 20 公分 × 20 牛頓 = 4.0 牛頓米</output>
+<figcaption id="{{ $ID }}-caption">編者力學示意：固定垂直向下的 20 牛頓外力，只改變施力位置。忽略槓桿自重，顯示的是這一個外力的力矩，並非人體關節的實測負荷。</figcaption>
+</figure>

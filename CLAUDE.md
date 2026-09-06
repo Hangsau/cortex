@@ -323,6 +323,17 @@ node tools/audit.js                    # 38 條版型／深度層／概念索引
 
 ## 部署
 
+### 肌肉骨骼中文讀本（2026-09-06）
+
+- 中文正文 canonical 在 `content/library/kinesiology/chNN/index.md` 與 `content/library/basic-biomechanics/chNN/index.md`；類型 `chapter-guide`，不是全譯。小節 ASCII 錨點與章 ID 不隨重排改名。
+- 章序、書目、PDF 頁範圍 canonical 在 `tools/book_sources.py` 的 BOOKS；`python tools/book_sources.py audit` 生成 `data/reading/books.json` 和來源清冊。不得改 `resources/books` 或原 PDF。
+- 主題、術語、同義詞、跨書對照分別在 `data/reading/{topics,terms,search,pairings}.json`；不在 layout／JS 複製詞表。`python tools/reading_check.py --write-index` 由章文生成 `index.json`（小節來源與反向索引），不手改生成檔。
+- 每節用 `reading-source` shortcode 標示實體 PDF 頁次；不可將其當作印刷頁碼。正文／術語常駐顯示，原書定位用原生 details。新增解釋圖可用 repo-native SVG，編者示意須明示。
+- `reading-*.html` 與 `reading.css` 隔離於 `.rd-page`，Hugo 路徑必須支援 `/cortex/`。公開站只有中文導讀；`tools/book_reader.py` 在 127.0.0.1 提供固定兩書原頁及英文對照，無任意檔案讀寫端點。
+- 必跑 `python tools/reading_check.py`、`python tools/book_reader.py build`、`python tools/reading_check.py --html C:/claudehome/tmp/musculoskeletal-reader-preview`、`python tools/check_book_reader_server.py`、`node tools/audit_book_readers.js`。最後一項需要先啟動本機 8768 服務；詳細操作與語意審閱界線見 `research/book-readers-2026-09-06/REVIEW.md`。本機輔助工具沿用已安裝 Python／PyYAML／PyMuPDF 和 Hugo，公開站無後端依賴。
+
+### 發佈流程
+
 ```bash
 # push 後 GitHub Actions 自動建置部署
 git add . && git commit -m "..." && [push 指令見下]

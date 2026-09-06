@@ -1,0 +1,7992 @@
+{
+  "run": "book-readers-2026-09-06",
+  "checked_at": "2026-09-06T08:25:25.820131+00:00",
+  "method": "Local user-provided textbooks; physical PDF pages are locators. No source-text repair or full-book semantic verification is claimed.",
+  "books": {
+    "neumann": {
+      "source_id": "src.neumann-2017",
+      "discovery_path": "resources\\raw\\pdf\\inbox\\kinesiology-of-the-musculoskeletal-system-3rd-edition-3nbsped-9780323287531-2016032304_compress.pdf",
+      "pdf_sha256": "612c8a1c098e9fbc3596b06ad80309391119809418c89f7dc5dc91484f07348c",
+      "pdf_pages": 792,
+      "metadata_available": true,
+      "abstract_available": false,
+      "fulltext_status": "complete",
+      "readability": "degraded",
+      "page_images_available": 792,
+      "extraction_status": "existing automated extraction; chapter boundaries reassembled by PDF page",
+      "semantic_review": "Selected explanatory passages and figures; not a line-by-line review of the full book",
+      "known_issues": [
+        "OCR/text-layer artifacts",
+        "headings and figure labels mixed",
+        "PDF page numbers differ from printed folios"
+      ],
+      "markdown_sha256": {
+        "000_Front_Cover.md": "23cca08ffe02148dca288af24abf5f935cad9cf65f2529e6c5be76de3cff0f16",
+        "001_Inside_Front_Cover.md": "6b4cacad3bbeb494ba7c588b7ab4fd63a9d5895db55dc575788116ba5fd34775",
+        "002_Copyright_Page.md": "5cd29ea1bce3223865cdd71a95108fc554266e315b889623a9198c081182afbe",
+        "003_About_the_Author.md": "4125a5f8fab48d6fea38345eabe25a9aaab3f256f66812997b48f688eea0675c",
+        "004_About_the_Contributors.md": "c998e3238d2ba04930fb810e0391da9bee337783c316dd269a67c39421cd1144",
+        "005_Reviewers_and_Content_Consultants.md": "5a6f3ef352565baa7e10381a350e6ea6d7abd7f8c4f05976c6f335dd5b457779",
+        "006_Preface.md": "381416f088e3f85370cd8f1179f9895a3949817af38c5c9174fabf02e3fcf46c",
+        "007_Background.md": "dc9330bea2516557a5521452dccc50d15b06246bc18a52e5ddc5f217cd5fb508",
+        "008_Organization.md": "221c27266cdce6755e424d59476a947bb47b75292d676b2ed736d976d8979f01",
+        "009_Table_Of_Contents.md": "afc07bc68c9f0ef85f5a1f62e34cacbcb2b8b5661a259983a9551f6c3f06cbb2",
+        "010_Section_I_Essential_Topics_of_Kinesiology.md": "46f26c22920252e4394535090b93da4d77f4722b1ea3fb49891d6e84e9ff8cb2",
+        "011_1_Getting_Started.md": "a23f963a958dc02abc6dfa5d0f51996480e859bbdae36d0e734cfdbb26de4570",
+        "012_2_Basic_Structure_and_Function_of_Human_Joints.md": "a09208d8497596a505b50388e0b87c60aa2a2e170eca6e90d3da7059f150b0cf",
+        "013_3_Muscle.md": "82cc48555f44c79fbd1d5fa26aeda99dfb3ab0fff8113d43ac72a98ba439d411",
+        "014_4_Biomechanical_Principles.md": "a5b9390c73436692ae85563d5a577315809f90d5c8d610f20f08acef12336871",
+        "015_Appendix_I_Trigonometry_Review_and_Anthropometric_Data.md": "0d190027b5f35b95070ebc72a0fddcdbbe6b1476c55da0067eeba8557959df49",
+        "016_Section_II_Upper_Extremity.md": "ce3f09248a772df2d34bcdda1e0333e98872545813d410bb13a2467f5154edba",
+        "017_5_Shoulder_Complex.md": "7f8399cda8ce18596ce0462ebfff81c7c2d7a2c02f15a262316f46fb9635d9c8",
+        "018_6_Elbow_and_Forearm.md": "67fd1dee6199da5139232d49dbf1c294345528160ed4e02d91447ab42b402329",
+        "019_7_Wrist.md": "6fdba6b0579ceed684d3a5198f296b9534da4ba54e907b558b3447a12a2a8eeb",
+        "020_8_Hand.md": "197add750645c3433253683f9205f33f5942bb4507e750fa6b97e645073ea867",
+        "021_Appendix_II_Reference_Materials_for_Muscle_Attachments_and_Innervation.md": "4a31f1e3c90861e83aad3351a6523c2ffa15b899d2e977a54e7a0b7062f13785",
+        "022_Section_III_Axial_Skeleton.md": "14f27c748225c1cc18f61904f4161be748a1a601ebaae21a0b0d488752200f1f",
+        "023_9_Axial_Skeleton.md": "74d49194975b40a4a3ce3e968cff95fa66da48a6aee909216b9060484b95f4b9",
+        "024_10_Axial_Skeleton.md": "cdae96d4779706e4bcfc09322f3de877504d53c603d42c35d47ab7f253517fa1",
+        "025_11_Kinesiology_of_Mastication_and_Ventilation.md": "1f2f54e471cc401a1be4048e8300912707e512888b3c3e4818c5a07789466010",
+        "026_Appendix_III_Reference_Materials_for_the_Cauda_Equina,_and_Attachments.md": "3f64c77ff45485ef36e13576a5099878fd1f75eacd32fafd179ce049ef82ed2b",
+        "027_Section_IV_Lower_Extremity.md": "075caf711eab18d3ee9edb61bd571307fe5380b3ad4c15076c93cc66725f68c1",
+        "028_12_Hip.md": "a3b238f08385ac08a25ce7b557bf21ad8d0d4b09584f00d95714ce0f2fd590c5",
+        "029_13_Knee.md": "2ba93cacee9471727804293aa0474966a410a56677a586a49c898111180f72be",
+        "030_14_Ankle_and_Foot.md": "a41730d6f37889fae50fd255bffc43bcd1628a2e032f6733da6f123e202c395d",
+        "031_15_Kinesiology_of_Walking.md": "ec2ef9d0e193621fb1192db0569db18b75627a9fb782cddd698374bbc566dcdb",
+        "032_16_Kinesiology_of_Running.md": "b1d9142f5c1d9454e267061d53c187fb1e83ce2cd30a311da487fd3168d50f9c",
+        "033_Appendix_IV_Reference_Materials_for_Muscle_Attachments_and_Innervation.md": "068690c1316fb4bbb730f2d7dff8d9716afb934506095d8e95727829aff65be5",
+        "034_Index.md": "13ef2f770e89bda8466fcce1fb3903ad161a1b7404819968c0185b9d48a3739a",
+        "035_B.md": "dc34bf4cea5083bf8deda8a6d3901539bf34e674131df138d7ab4646018dc46c",
+        "036_D.md": "6538ee7026ade8be25be0a48b42afbcf29f0f835606f5b4e124e2f17f60f037a",
+        "037_E.md": "4cbf4c2ea2217b387be81fcb5262a7b21e45c6e547939e6b99ecd7aa3b68fb33",
+        "038_F.md": "cab9892ca643727d8fa1518295fe61a4e6c41ac81fa7a8be915cca8af315aee4",
+        "039_G.md": "38957e9319628e78ca7a17ec5d4ab72cbdc5ea2e412132eaebb1ec4d3f9f8c94",
+        "040_H.md": "d442119f95b1ff1fa886df72b9f65af9a1eb64de4f34fc329e16fdafbc4d4e5e",
+        "041_I.md": "0f30e1a8c30a7b3299c03afde7725271f16e7f60476545581b87333e69378a4b",
+        "042_J.md": "96936cdc5abf0dde0ac978498b4dc77657029aeb9635e21afcf347137f348af0",
+        "043_L.md": "67db81c4351f061936682eca6484204f40ef0f14581cc42600c1d9972cd1c2e0",
+        "044_M.md": "ac8c36982de50fd94dbc5ad974ad769c43e3dbf13e0c49fbe0d787c2271394d2",
+        "045_N.md": "191eb6e5b2d5bbdda2f0bada7ee0fa3b8aa456092efaa071bd0cd5bb1f50a9f1",
+        "046_O.md": "373b1422253e69f4a7360495f2581ce2ae20b8453354e83dba02185326b5b68d",
+        "047_Q.md": "5ada5b1a3ef9afb5c75876342732fcad231d5447bd9783be72b5c650ff3bafa0",
+        "048_R.md": "75a5945c34b04e619225630e616e19876c3bdb6de9df651b9e8400ed08b79f04",
+        "049_S.md": "0ac33e4594a6f65def75aabd7796aefd67f2aebe8ede398ea06aa6c3b15f13c3",
+        "050_T.md": "f2e505fd1604f9b627fe9f76a34389131e053640dfc3651952e2a78bb82b4a8a",
+        "051_U.md": "7f1a15e48760a29a058b0df8c871ec317be25c94873f277a8790c8733ec3fdd5",
+        "052_V.md": "bc53fa3ec966986fb8b154616b8b112f49c3abb2ccb9075154426b676fc016f2",
+        "053_X.md": "42dc1c93dc1391bd3882574c1ff2dcf2d7c074f6d059d9293d5b16baf3d9bd2a"
+      },
+      "chapter_files": {
+        "1": [
+          "011_1_Getting_Started.md"
+        ],
+        "2": [
+          "012_2_Basic_Structure_and_Function_of_Human_Joints.md"
+        ],
+        "3": [
+          "013_3_Muscle.md"
+        ],
+        "4": [
+          "014_4_Biomechanical_Principles.md"
+        ],
+        "5": [
+          "017_5_Shoulder_Complex.md"
+        ],
+        "6": [
+          "018_6_Elbow_and_Forearm.md"
+        ],
+        "7": [
+          "019_7_Wrist.md"
+        ],
+        "8": [
+          "020_8_Hand.md"
+        ],
+        "9": [
+          "023_9_Axial_Skeleton.md"
+        ],
+        "10": [
+          "024_10_Axial_Skeleton.md"
+        ],
+        "11": [
+          "025_11_Kinesiology_of_Mastication_and_Ventilation.md"
+        ],
+        "12": [
+          "028_12_Hip.md"
+        ],
+        "13": [
+          "029_13_Knee.md"
+        ],
+        "14": [
+          "030_14_Ankle_and_Foot.md"
+        ],
+        "15": [
+          "031_15_Kinesiology_of_Walking.md"
+        ],
+        "16": [
+          "032_16_Kinesiology_of_Running.md"
+        ]
+      },
+      "toc": [
+        [
+          1,
+          "Front Cover",
+          1
+        ],
+        [
+          1,
+          "Inside Front Cover",
+          2
+        ],
+        [
+          1,
+          "Half title page",
+          3
+        ],
+        [
+          1,
+          "Evolve page",
+          4
+        ],
+        [
+          1,
+          "Kinesiology of the Musculoskeletal System",
+          5
+        ],
+        [
+          1,
+          "Copyright Page",
+          6
+        ],
+        [
+          1,
+          "Dedication",
+          7
+        ],
+        [
+          1,
+          "About the Author",
+          9
+        ],
+        [
+          2,
+          "About the Illustrations",
+          9
+        ],
+        [
+          1,
+          "About the Contributors",
+          12
+        ],
+        [
+          1,
+          "Reviewers and Content Consultants",
+          14
+        ],
+        [
+          1,
+          "Preface",
+          15
+        ],
+        [
+          2,
+          "Background",
+          16
+        ],
+        [
+          2,
+          "Approach",
+          16
+        ],
+        [
+          2,
+          "Organization",
+          17
+        ],
+        [
+          2,
+          "Distinctive Features",
+          17
+        ],
+        [
+          2,
+          "Ancillary Educational Materials",
+          17
+        ],
+        [
+          3,
+          "For the Instructor",
+          17
+        ],
+        [
+          3,
+          "For the Student and Instructor",
+          17
+        ],
+        [
+          2,
+          "Acknowledgments",
+          17
+        ],
+        [
+          1,
+          "Table Of Contents",
+          19
+        ],
+        [
+          1,
+          "I Essential Topics of Kinesiology",
+          21
+        ],
+        [
+          2,
+          "Section I Essential Topics of Kinesiology",
+          22
+        ],
+        [
+          3,
+          "Additional Clinical Connections",
+          22
+        ],
+        [
+          3,
+          "Study Questions",
+          22
+        ],
+        [
+          2,
+          "1 Getting Started",
+          23
+        ],
+        [
+          3,
+          "Chapter at a Glance",
+          23
+        ],
+        [
+          3,
+          "What Is Kinesiology?",
+          23
+        ],
+        [
+          3,
+          "Overall Plan of This Textbook",
+          23
+        ],
+        [
+          3,
+          "Kinematics",
+          24
+        ],
+        [
+          4,
+          "Translation Compared with Rotation",
+          24
+        ],
+        [
+          4,
+          "Osteokinematics",
+          25
+        ],
+        [
+          5,
+          "Planes of Motion",
+          25
+        ],
+        [
+          5,
+          "Axis of Rotation",
+          25
+        ],
+        [
+          5,
+          "Degrees of Freedom",
+          25
+        ],
+        [
+          5,
+          "Osteokinematics: A Matter of Perspective",
+          26
+        ],
+        [
+          4,
+          "Arthrokinematics",
+          27
+        ],
+        [
+          5,
+          "Typical Joint Morphology",
+          27
+        ],
+        [
+          5,
+          "Fundamental Movements Between Joint Surfaces",
+          28
+        ],
+        [
+          6,
+          "Roll-and-Slide Movements",
+          28
+        ],
+        [
+          6,
+          "Spin",
+          29
+        ],
+        [
+          6,
+          "Motions That Combine Roll-and-Slide and Spin Arthrokinematics",
+          29
+        ],
+        [
+          5,
+          "Predicting an Arthrokinematic Pattern Based on Joint Morphology",
+          30
+        ],
+        [
+          5,
+          "Close-Packed and Loose-Packed Positions at A Joint",
+          31
+        ],
+        [
+          3,
+          "Kinetics",
+          31
+        ],
+        [
+          4,
+          "Musculoskeletal Forces",
+          31
+        ],
+        [
+          5,
+          "Impact of Forces on the Musculoskeletal System: Introductory Concepts and Terminology",
+          31
+        ],
+        [
+          5,
+          "Internal and External Forces",
+          34
+        ],
+        [
+          4,
+          "Musculoskeletal Torques",
+          35
+        ],
+        [
+          4,
+          "Muscle and Joint Interaction",
+          37
+        ],
+        [
+          5,
+          "Types of Muscle Activation",
+          37
+        ],
+        [
+          5,
+          "Muscle Action at A Joint",
+          38
+        ],
+        [
+          6,
+          "Terminology Related to the Actions of Muscles",
+          40
+        ],
+        [
+          4,
+          "Musculoskeletal Levers",
+          40
+        ],
+        [
+          5,
+          "Three Classes of Levers",
+          40
+        ],
+        [
+          6,
+          "First-Class Lever",
+          40
+        ],
+        [
+          6,
+          "Second-Class Lever",
+          40
+        ],
+        [
+          6,
+          "Third-Class Lever",
+          40
+        ],
+        [
+          5,
+          "Mechanical Advantage",
+          41
+        ],
+        [
+          6,
+          "Dictating the Trade-Off between Force and Distance",
+          43
+        ],
+        [
+          3,
+          "Synopsis",
+          43
+        ],
+        [
+          3,
+          "Glossary",
+          45
+        ],
+        [
+          3,
+          "Study Questions",
+          47
+        ],
+        [
+          3,
+          "References",
+          46
+        ],
+        [
+          2,
+          "2 Basic Structure and Function of Human Joints",
+          48
+        ],
+        [
+          3,
+          "Chapter at a Glance",
+          48
+        ],
+        [
+          3,
+          "Classification of Joints Based on Movement Potential",
+          48
+        ],
+        [
+          4,
+          "Synarthroses",
+          48
+        ],
+        [
+          4,
+          "Diarthroses: Synovial Joints",
+          49
+        ],
+        [
+          3,
+          "Classification of Synovial Joints Based on Mechanical Analogy",
+          50
+        ],
+        [
+          4,
+          "Simplifying the Classification of Synovial Joints: Ovoid and Saddle Joints",
+          53
+        ],
+        [
+          3,
+          "Axis of Rotation",
+          54
+        ],
+        [
+          3,
+          "Histologic Organization of Periarticular Connective Tissues",
+          54
+        ],
+        [
+          4,
+          "Fibrous Proteins",
+          55
+        ],
+        [
+          4,
+          "Ground Substance",
+          56
+        ],
+        [
+          4,
+          "Cells",
+          56
+        ],
+        [
+          3,
+          "Types of Periarticular Connective Tissues",
+          56
+        ],
+        [
+          4,
+          "Dense Connective Tissue",
+          56
+        ],
+        [
+          4,
+          "Articular Cartilage",
+          58
+        ],
+        [
+          4,
+          "Fibrocartilage",
+          59
+        ],
+        [
+          3,
+          "Bone",
+          61
+        ],
+        [
+          3,
+          "Some Effects of Immobilization on the Strength of Periarticular Connective Tissue and Bone",
+          62
+        ],
+        [
+          3,
+          "Brief Overview of Joint Pathology",
+          62
+        ],
+        [
+          3,
+          "A Brief Look at Some Effects of Advanced Aging on Periarticular Connective Tissue and Bone",
+          64
+        ],
+        [
+          3,
+          "Synopsis",
+          64
+        ],
+        [
+          3,
+          "Study Questions",
+          66
+        ],
+        [
+          3,
+          "References",
+          65
+        ],
+        [
+          2,
+          "3 Muscle",
+          67
+        ],
+        [
+          3,
+          "Chapter at a Glance",
+          67
+        ],
+        [
+          3,
+          "Muscle as A Skeletal Stabilizer: Generating an Appropriate Amount of Force at A Given Length",
+          68
+        ],
+        [
+          4,
+          "Introduction to the Structural Organization of Skeletal Muscle",
+          68
+        ],
+        [
+          4,
+          "Muscle Morphology",
+          70
+        ],
+        [
+          4,
+          "Muscle Architecture",
+          70
+        ],
+        [
+          4,
+          "Muscle and Tendon: Generation of Force",
+          71
+        ],
+        [
+          5,
+          "Passive Length-Tension Curve",
+          71
+        ],
+        [
+          5,
+          "Active Length-Tension Curve",
+          73
+        ],
+        [
+          5,
+          "Summation of Active Force and Passive Tension: the Total Length-Tension Curve",
+          75
+        ],
+        [
+          4,
+          "Isometric Muscle Force: Development of the Internal Torque–Joint Angle Curve",
+          76
+        ],
+        [
+          3,
+          "Muscle as A Skeletal Mover: Force Modulation",
+          78
+        ],
+        [
+          4,
+          "Modulating Force through Concentric or Eccentric Activation: Introduction to the Force-Velocity Relationship of Muscle",
+          79
+        ],
+        [
+          5,
+          "Force-Velocity Curve",
+          79
+        ],
+        [
+          5,
+          "Power and Work: Additional Concepts Related to the Force-Velocity Relationship of Muscle",
+          80
+        ],
+        [
+          4,
+          "Activating Muscle via the Nervous System",
+          80
+        ],
+        [
+          5,
+          "Recruitment",
+          81
+        ],
+        [
+          5,
+          "Rate Coding",
+          84
+        ],
+        [
+          3,
+          "Introduction to Electromyography",
+          85
+        ],
+        [
+          4,
+          "Recording of Electromyography",
+          85
+        ],
+        [
+          4,
+          "Analysis and Normalization of Electromyography",
+          86
+        ],
+        [
+          4,
+          "Electromyographic Amplitude During Muscular Activation",
+          87
+        ],
+        [
+          3,
+          "Causes of Muscle Fatigue in Healthy Persons",
+          89
+        ],
+        [
+          3,
+          "Changes in Muscle With Strength Training, Reduced Use, and Advanced Age",
+          90
+        ],
+        [
+          4,
+          "Changes in Muscle with Strength Training",
+          90
+        ],
+        [
+          4,
+          "Changes in Muscle with Reduced Use",
+          91
+        ],
+        [
+          4,
+          "Changes in Muscle with Advanced Age",
+          92
+        ],
+        [
+          3,
+          "Synopsis",
+          92
+        ],
+        [
+          3,
+          "Study Questions",
+          96
+        ],
+        [
+          3,
+          "References",
+          94
+        ],
+        [
+          2,
+          "4 Biomechanical Principles",
+          97
+        ],
+        [
+          3,
+          "Chapter at a Glance",
+          97
+        ],
+        [
+          3,
+          "Newton’s Laws: Underlying Principles of Biomechanics",
+          97
+        ],
+        [
+          4,
+          "Newton’s Laws of Motion",
+          98
+        ],
+        [
+          5,
+          "Newton’s First Law: Law of Inertia",
+          98
+        ],
+        [
+          5,
+          "Newton’s Second Law: Law of Acceleration",
+          99
+        ],
+        [
+          6,
+          "Force (Torque)-Acceleration Relationship",
+          99
+        ],
+        [
+          6,
+          "Impulse-Momentum Relationship",
+          101
+        ],
+        [
+          6,
+          "Work-Energy Relationship",
+          101
+        ],
+        [
+          5,
+          "Newton’s Third Law: Law of Action-Reaction",
+          103
+        ],
+        [
+          3,
+          "Introduction to Movement Analysis: Setting the Stage for Analysis",
+          103
+        ],
+        [
+          4,
+          "Anthropometry",
+          105
+        ],
+        [
+          4,
+          "Free Body Diagram",
+          105
+        ],
+        [
+          5,
+          "Steps for Constructing the Free Body Diagram",
+          105
+        ],
+        [
+          5,
+          "Spatial Reference Frames",
+          106
+        ],
+        [
+          4,
+          "Forces and Torques",
+          108
+        ],
+        [
+          5,
+          "Graphic and Mathematic Methods of Force Analysis",
+          108
+        ],
+        [
+          6,
+          "Composition of Forces",
+          108
+        ],
+        [
+          6,
+          "Resolution of Forces",
+          110
+        ],
+        [
+          5,
+          "Contrasting Internal Versus External Forces and Torques",
+          110
+        ],
+        [
+          5,
+          "Influence of Changing the Angle of the Joint",
+          112
+        ],
+        [
+          5,
+          "Comparing Two Methods for Determining Torque Around A Joint",
+          114
+        ],
+        [
+          6,
+          "Internal Torque",
+          114
+        ],
+        [
+          6,
+          "External Torque",
+          114
+        ],
+        [
+          5,
+          "Manually Applying External Torques During Exercise and Strength Testing",
+          114
+        ],
+        [
+          3,
+          "Introduction to Biomechanics: Finding the Solutions",
+          117
+        ],
+        [
+          4,
+          "Static Analysis",
+          117
+        ],
+        [
+          5,
+          "Guidelines for Problem Solving",
+          117
+        ],
+        [
+          6,
+          "Problem 1",
+          118
+        ],
+        [
+          7,
+          "Resolving Known Forces into X and Y Components",
+          118
+        ],
+        [
+          7,
+          "Solving for Internal Torque and Muscle Force",
+          119
+        ],
+        [
+          7,
+          "Solving for Joint Reaction Force",
+          119
+        ],
+        [
+          7,
+          "Clinical Questions Related to Problem 1",
+          119
+        ],
+        [
+          6,
+          "Problem 2",
+          120
+        ],
+        [
+          7,
+          "Resolving Known Forces into X and Y Components",
+          120
+        ],
+        [
+          7,
+          "Solving for Internal Torque and Muscle Force",
+          121
+        ],
+        [
+          7,
+          "Solving for Joint Reaction Force",
+          121
+        ],
+        [
+          7,
+          "Clinical Questions Related to Problem 2",
+          121
+        ],
+        [
+          6,
+          "Problem 3",
+          121
+        ],
+        [
+          7,
+          "Resolving Known Forces Into X and Y Components",
+          122
+        ],
+        [
+          7,
+          "Solving for Internal Torque and Muscle Force",
+          123
+        ],
+        [
+          7,
+          "Solving for Joint Reaction Force",
+          123
+        ],
+        [
+          7,
+          "Clinical Questions Related to Problem 3",
+          123
+        ],
+        [
+          4,
+          "Dynamic Analysis",
+          123
+        ],
+        [
+          5,
+          "Kinematic Measurement Systems",
+          124
+        ],
+        [
+          6,
+          "Electrogoniometer",
+          124
+        ],
+        [
+          6,
+          "Accelerometer",
+          124
+        ],
+        [
+          6,
+          "Imaging Techniques",
+          125
+        ],
+        [
+          6,
+          "Electromagnetic Tracking Devices",
+          126
+        ],
+        [
+          5,
+          "Kinetic Measurement Systems",
+          126
+        ],
+        [
+          6,
+          "Mechanical Devices",
+          126
+        ],
+        [
+          6,
+          "Transducers",
+          126
+        ],
+        [
+          6,
+          "Electromechanical Devices",
+          126
+        ],
+        [
+          3,
+          "Summary",
+          126
+        ],
+        [
+          3,
+          "Additional Clinical Connections",
+          128
+        ],
+        [
+          3,
+          "References",
+          132
+        ],
+        [
+          3,
+          "Study Questions",
+          132
+        ],
+        [
+          4,
+          "Clinical Questions",
+          133
+        ],
+        [
+          4,
+          "Clinical Questions",
+          134
+        ],
+        [
+          2,
+          "Appendix I Trigonometry Review and Anthropometric Data",
+          135
+        ],
+        [
+          3,
+          "Part A: Basic Review of Right-Angle Trigonometry",
+          135
+        ],
+        [
+          3,
+          "Part B: Anthropometric Data",
+          136
+        ],
+        [
+          1,
+          "II Upper Extremity",
+          137
+        ],
+        [
+          2,
+          "Section II Upper Extremity",
+          138
+        ],
+        [
+          3,
+          "Web-Based Educational Material",
+          138
+        ],
+        [
+          3,
+          "Additional Clinical Connections",
+          138
+        ],
+        [
+          3,
+          "Study Questions",
+          138
+        ],
+        [
+          2,
+          "ALL Videos",
+          138
+        ],
+        [
+          2,
+          "5 Shoulder Complex",
+          139
+        ],
+        [
+          3,
+          "Chapter at a Glance",
+          139
+        ],
+        [
+          3,
+          "Osteology",
+          139
+        ],
+        [
+          4,
+          "Sternum",
+          139
+        ],
+        [
+          4,
+          "Clavicle",
+          140
+        ],
+        [
+          4,
+          "Scapula",
+          140
+        ],
+        [
+          4,
+          "Proximal-to-Mid Humerus",
+          142
+        ],
+        [
+          3,
+          "Arthrology",
+          144
+        ],
+        [
+          4,
+          "Sternoclavicular Joint",
+          145
+        ],
+        [
+          5,
+          "General Features",
+          145
+        ],
+        [
+          5,
+          "Periarticular Connective Tissue",
+          145
+        ],
+        [
+          5,
+          "Kinematics",
+          146
+        ],
+        [
+          6,
+          "Elevation and Depression",
+          147
+        ],
+        [
+          6,
+          "Protraction and Retraction",
+          148
+        ],
+        [
+          6,
+          "Axial (Longitudinal) Rotation of the Clavicle",
+          148
+        ],
+        [
+          4,
+          "Acromioclavicular Joint",
+          148
+        ],
+        [
+          5,
+          "General Features",
+          148
+        ],
+        [
+          5,
+          "Periarticular Connective Tissue",
+          149
+        ],
+        [
+          5,
+          "Kinematics",
+          150
+        ],
+        [
+          6,
+          "Upward and Downward Rotation",
+          150
+        ],
+        [
+          6,
+          "Horizontal and Sagittal Plane “Rotational Adjustment Motions” at the Acromioclavicular Joint",
+          151
+        ],
+        [
+          4,
+          "Scapulothoracic Joint",
+          151
+        ],
+        [
+          5,
+          "Kinematics",
+          151
+        ],
+        [
+          6,
+          "Elevation and Depression",
+          151
+        ],
+        [
+          6,
+          "Protraction and Retraction",
+          152
+        ],
+        [
+          6,
+          "Upward and Downward Rotation",
+          153
+        ],
+        [
+          4,
+          "Glenohumeral Joint",
+          153
+        ],
+        [
+          5,
+          "General Features",
+          153
+        ],
+        [
+          5,
+          "Periarticular Connective Tissue and Other Supporting Structures",
+          154
+        ],
+        [
+          6,
+          "Capsular Ligaments",
+          154
+        ],
+        [
+          6,
+          "Rotator Cuff Muscles and Long Head of the Biceps Brachii",
+          156
+        ],
+        [
+          6,
+          "Glenoid Labrum",
+          158
+        ],
+        [
+          5,
+          "Scapulothoracic Posture and Its Effect on Static Stability",
+          158
+        ],
+        [
+          5,
+          "Coracoacromial Arch and Associated Bursa",
+          159
+        ],
+        [
+          5,
+          "Kinematics",
+          160
+        ],
+        [
+          6,
+          "Abduction and Adduction",
+          160
+        ],
+        [
+          7,
+          "Clinical Relevance of Roll-and-Slide Arthrokinematics at the Glenohumeral Joint",
+          161
+        ],
+        [
+          6,
+          "Flexion and Extension",
+          162
+        ],
+        [
+          6,
+          "Internal and External Rotation",
+          162
+        ],
+        [
+          4,
+          "Overall Kinematics of Shoulder Abduction: Establishing Six Kinematic Principles of the Shoulder Complex",
+          164
+        ],
+        [
+          5,
+          "Scapulohumeral Rhythm",
+          165
+        ],
+        [
+          5,
+          "Sternoclavicular and Acromioclavicular Joints During Full Abduction",
+          165
+        ],
+        [
+          3,
+          "Muscle and Joint Interaction",
+          168
+        ],
+        [
+          4,
+          "Innervation of the Muscles and Joints of the Shoulder Complex",
+          168
+        ],
+        [
+          5,
+          "Introduction to the Brachial Plexus",
+          168
+        ],
+        [
+          5,
+          "Innervation of Muscle",
+          168
+        ],
+        [
+          5,
+          "Sensory Innervation to the Joints",
+          169
+        ],
+        [
+          4,
+          "Action of the Shoulder Muscles",
+          169
+        ],
+        [
+          4,
+          "Muscles of the Scapulothoracic Joint",
+          169
+        ],
+        [
+          5,
+          "Elevators",
+          169
+        ],
+        [
+          5,
+          "Depressors",
+          170
+        ],
+        [
+          5,
+          "Protractors",
+          172
+        ],
+        [
+          5,
+          "Retractors",
+          172
+        ],
+        [
+          5,
+          "Upward and Downward Rotators",
+          173
+        ],
+        [
+          4,
+          "Muscles That Elevate the Arm",
+          173
+        ],
+        [
+          5,
+          "Muscles That Elevate the Arm at the Glenohumeral Joint",
+          173
+        ],
+        [
+          5,
+          "Upward Rotators at the Scapulothoracic Joint",
+          174
+        ],
+        [
+          6,
+          "Trapezius and Serratus Anterior Interaction during Upward Rotation of the Scapula",
+          174
+        ],
+        [
+          6,
+          "Paralysis of the Upward Rotators of the Scapulothoracic Joint",
+          176
+        ],
+        [
+          7,
+          "Trapezius Muscle Weakness",
+          176
+        ],
+        [
+          7,
+          "Serratus Anterior Muscle Weakness",
+          176
+        ],
+        [
+          5,
+          "Function of the Rotator Cuff Muscles During Elevation of the Arm",
+          178
+        ],
+        [
+          6,
+          "Regulators of Dynamic Stability at the Glenohumeral Joint",
+          178
+        ],
+        [
+          6,
+          "Active Controllers of the Arthrokinematics at the Glenohumeral Joint",
+          179
+        ],
+        [
+          4,
+          "Muscles That Adduct and Extend the Shoulder",
+          181
+        ],
+        [
+          4,
+          "Muscles That Internally and Externally Rotate the Shoulder",
+          182
+        ],
+        [
+          5,
+          "Internal Rotator Muscles",
+          182
+        ],
+        [
+          5,
+          "External Rotator Muscles",
+          183
+        ],
+        [
+          3,
+          "Synopsis",
+          184
+        ],
+        [
+          3,
+          "Additional Clinical Connections",
+          185
+        ],
+        [
+          3,
+          "References",
+          191
+        ],
+        [
+          3,
+          "Study Questions",
+          195
+        ],
+        [
+          3,
+          "Additional Video Educational Content",
+          195
+        ],
+        [
+          4,
+          "Clinical Kinesiology Applied to Persons with Quadriplegia (Tetraplegia)",
+          195
+        ],
+        [
+          2,
+          "6 Elbow and Forearm",
+          196
+        ],
+        [
+          3,
+          "Chapter at a Glance",
+          196
+        ],
+        [
+          3,
+          "Osteology",
+          196
+        ],
+        [
+          4,
+          "Mid-to-Distal Humerus",
+          196
+        ],
+        [
+          4,
+          "Ulna",
+          198
+        ],
+        [
+          4,
+          "Radius",
+          198
+        ],
+        [
+          3,
+          "Arthrology",
+          200
+        ],
+        [
+          4,
+          "Joints of the Elbow",
+          200
+        ],
+        [
+          5,
+          "General Features of the Humero-Ulnar and Humeroradial Joints",
+          200
+        ],
+        [
+          6,
+          "Normal “Valgus Angle” of the Elbow",
+          201
+        ],
+        [
+          5,
+          "Periarticular Connective Tissue",
+          201
+        ],
+        [
+          5,
+          "Kinematics",
+          204
+        ],
+        [
+          6,
+          "Functional Considerations of Flexion and Extension",
+          204
+        ],
+        [
+          6,
+          "Arthrokinematics at the Humero-Ulnar Joint",
+          205
+        ],
+        [
+          6,
+          "Arthrokinematics at the Humeroradial Joint",
+          206
+        ],
+        [
+          4,
+          "Structure and Function of the Interosseous Membrane",
+          207
+        ],
+        [
+          4,
+          "Joints of the Forearm",
+          208
+        ],
+        [
+          5,
+          "General Features of the Proximal and Distal Radio-Ulnar Joints",
+          208
+        ],
+        [
+          5,
+          "Joint Structure and Periarticular Connective Tissue",
+          209
+        ],
+        [
+          6,
+          "Proximal Radio-Ulnar Joint",
+          209
+        ],
+        [
+          6,
+          "Distal Radio-Ulnar Joint",
+          210
+        ],
+        [
+          7,
+          "Introduction to the Triangular Fibrocartilage Complex",
+          211
+        ],
+        [
+          5,
+          "Kinematics",
+          211
+        ],
+        [
+          6,
+          "Functional Considerations of Pronation and Supination",
+          211
+        ],
+        [
+          6,
+          "Arthrokinematics at the Proximal and Distal Radio-Ulnar Joints",
+          212
+        ],
+        [
+          7,
+          "Supination",
+          212
+        ],
+        [
+          7,
+          "Pronation",
+          213
+        ],
+        [
+          6,
+          "The Near-Isometric Behavior of the Interosseous Membrane During Pronation and Supination",
+          214
+        ],
+        [
+          6,
+          "Humeroradial Joint: A “Shared” Joint between the Elbow and the Forearm",
+          214
+        ],
+        [
+          6,
+          "Pronation and Supination with the Radius and Hand Held Fixed",
+          215
+        ],
+        [
+          3,
+          "Muscle and Joint Interaction",
+          216
+        ],
+        [
+          4,
+          "Neuroanatomy Overview: Paths of the Musculocutaneous, Radial, Median, and Ulnar Nerves throughout the Elbow, Forearm, Wrist, and Hand",
+          216
+        ],
+        [
+          4,
+          "Innervation of Muscles and Joints of the Elbow and Forearm",
+          216
+        ],
+        [
+          5,
+          "Innervation of Muscle",
+          216
+        ],
+        [
+          5,
+          "Sensory Innervation of Joints",
+          217
+        ],
+        [
+          6,
+          "Humero-Ulnar and Humeroradial Joints",
+          217
+        ],
+        [
+          6,
+          "Proximal and Distal Radio-Ulnar Joints",
+          217
+        ],
+        [
+          4,
+          "Function of the Elbow Muscles",
+          217
+        ],
+        [
+          5,
+          "Elbow Flexors",
+          217
+        ],
+        [
+          6,
+          "Individual Muscle Action of the Elbow Flexors",
+          218
+        ],
+        [
+          6,
+          "Torque Generated by the Elbow Flexor Muscles",
+          219
+        ],
+        [
+          6,
+          "Polyarticular Biceps Brachii: A Physiologic Advantage of Combining Elbow Flexion with Shoulder Extension",
+          221
+        ],
+        [
+          5,
+          "Elbow Extensors",
+          221
+        ],
+        [
+          6,
+          "Muscular Components",
+          221
+        ],
+        [
+          6,
+          "Electromyographic Analysis of Elbow Extension",
+          223
+        ],
+        [
+          6,
+          "Torque Generation by the Elbow Extensors",
+          223
+        ],
+        [
+          4,
+          "Function of the Supinator and Pronator Muscles",
+          225
+        ],
+        [
+          5,
+          "Supinator Muscles",
+          226
+        ],
+        [
+          6,
+          "Supinator versus Biceps Brachii",
+          226
+        ],
+        [
+          5,
+          "Pronator Muscles",
+          229
+        ],
+        [
+          6,
+          "Pronator Teres versus Pronator Quadratus",
+          229
+        ],
+        [
+          3,
+          "Synopsis",
+          230
+        ],
+        [
+          3,
+          "Additional Clinical Connections",
+          232
+        ],
+        [
+          3,
+          "References",
+          236
+        ],
+        [
+          3,
+          "Additional Video Educational Content",
+          238
+        ],
+        [
+          4,
+          "Clinical Kinesiology Applied to Persons With Quadriplegia (Tetraplegia)",
+          238
+        ],
+        [
+          3,
+          "Study Questions",
+          238
+        ],
+        [
+          2,
+          "7 Wrist",
+          239
+        ],
+        [
+          3,
+          "Chapter at a Glance",
+          239
+        ],
+        [
+          3,
+          "Osteology",
+          239
+        ],
+        [
+          4,
+          "Distal Forearm",
+          239
+        ],
+        [
+          4,
+          "Carpal Bones",
+          241
+        ],
+        [
+          5,
+          "Scaphoid",
+          241
+        ],
+        [
+          5,
+          "Lunate",
+          241
+        ],
+        [
+          5,
+          "Triquetrum",
+          241
+        ],
+        [
+          5,
+          "Pisiform",
+          242
+        ],
+        [
+          5,
+          "Capitate",
+          242
+        ],
+        [
+          5,
+          "Trapezium",
+          242
+        ],
+        [
+          5,
+          "Trapezoid",
+          242
+        ],
+        [
+          5,
+          "Hamate",
+          242
+        ],
+        [
+          4,
+          "Carpal Tunnel",
+          242
+        ],
+        [
+          3,
+          "Arthrology",
+          244
+        ],
+        [
+          4,
+          "Joint Structure and Ligaments of the Wrist",
+          244
+        ],
+        [
+          5,
+          "Joint Structure",
+          244
+        ],
+        [
+          6,
+          "Radiocarpal Joint",
+          244
+        ],
+        [
+          6,
+          "Midcarpal Joint",
+          244
+        ],
+        [
+          6,
+          "Intercarpal Joints",
+          245
+        ],
+        [
+          5,
+          "Wrist Ligaments",
+          245
+        ],
+        [
+          6,
+          "Extrinsic Ligaments",
+          245
+        ],
+        [
+          6,
+          "Intrinsic Ligaments",
+          248
+        ],
+        [
+          4,
+          "Kinematics of Wrist Motion",
+          248
+        ],
+        [
+          5,
+          "Osteokinematics",
+          248
+        ],
+        [
+          5,
+          "Arthrokinematics",
+          250
+        ],
+        [
+          6,
+          "Wrist Extension and Flexion",
+          250
+        ],
+        [
+          7,
+          "Dynamic Interaction within the Joints of the Central Column of the Wrist",
+          251
+        ],
+        [
+          6,
+          "Ulnar and Radial Deviation of the Wrist",
+          251
+        ],
+        [
+          7,
+          "Dynamic Interaction Between the Radiocarpal and Midcarpal Joints",
+          251
+        ],
+        [
+          7,
+          "Additional Arthrokinematics Involving the Proximal Row of Carpal Bones",
+          252
+        ],
+        [
+          4,
+          "Carpal Instability",
+          252
+        ],
+        [
+          5,
+          "Rotational Collapse of the Wrist",
+          253
+        ],
+        [
+          5,
+          "Ulnar Translocation of the Carpus",
+          255
+        ],
+        [
+          3,
+          "Muscle and Joint Interaction",
+          255
+        ],
+        [
+          4,
+          "Innervation of the Wrist Muscles and Joints",
+          255
+        ],
+        [
+          5,
+          "Innervation of Muscle",
+          255
+        ],
+        [
+          5,
+          "Sensory Innervation of the Joints",
+          255
+        ],
+        [
+          4,
+          "Function of the Muscles at the Wrist",
+          255
+        ],
+        [
+          5,
+          "Function of the Wrist Extensors",
+          256
+        ],
+        [
+          6,
+          "Muscular Anatomy",
+          256
+        ],
+        [
+          6,
+          "Biomechanical Assessment of Wrist Muscles’ Action and Torque Potential",
+          257
+        ],
+        [
+          6,
+          "Wrist Extensor Activity While Making a Fist",
+          257
+        ],
+        [
+          5,
+          "Function of the Wrist Flexors",
+          259
+        ],
+        [
+          6,
+          "Muscular Anatomy",
+          259
+        ],
+        [
+          6,
+          "Functional Considerations",
+          260
+        ],
+        [
+          5,
+          "Function of the Radial and Ulnar Deviators",
+          261
+        ],
+        [
+          3,
+          "Synopsis",
+          262
+        ],
+        [
+          3,
+          "Additional Clinical Connections",
+          263
+        ],
+        [
+          3,
+          "References",
+          268
+        ],
+        [
+          3,
+          "Additional Video Educational Content",
+          270
+        ],
+        [
+          4,
+          "Clinical Kinesiology Applied to Persons With Quadriplegia (Tetraplegia)",
+          270
+        ],
+        [
+          3,
+          "Study Questions",
+          270
+        ],
+        [
+          2,
+          "8 Hand",
+          271
+        ],
+        [
+          3,
+          "Chapter at a Glance",
+          271
+        ],
+        [
+          3,
+          "Terminology",
+          271
+        ],
+        [
+          3,
+          "Osteology",
+          273
+        ],
+        [
+          4,
+          "Metacarpals",
+          273
+        ],
+        [
+          4,
+          "Phalanges",
+          275
+        ],
+        [
+          4,
+          "Arches of the Hand",
+          275
+        ],
+        [
+          3,
+          "Arthrology",
+          276
+        ],
+        [
+          4,
+          "Carpometacarpal Joints",
+          276
+        ],
+        [
+          5,
+          "Second Through Fifth Carpometacarpal Joints",
+          277
+        ],
+        [
+          6,
+          "General Features and Ligamentous Support",
+          277
+        ],
+        [
+          6,
+          "Joint Structure and Kinematics",
+          278
+        ],
+        [
+          5,
+          "Carpometacarpal Joint of the Thumb",
+          278
+        ],
+        [
+          6,
+          "Capsule and Ligaments of the Thumb Carpometacarpal Joint",
+          279
+        ],
+        [
+          6,
+          "Saddle Joint Structure",
+          279
+        ],
+        [
+          6,
+          "Kinematics",
+          280
+        ],
+        [
+          7,
+          "Abduction and Adduction at the Thumb Carpometacarpal Joint",
+          280
+        ],
+        [
+          7,
+          "Flexion and Extension at the Thumb Carpometacarpal Joint",
+          280
+        ],
+        [
+          7,
+          "Opposition of the Thumb Carpometacarpal Joint",
+          281
+        ],
+        [
+          4,
+          "Metacarpophalangeal Joints",
+          283
+        ],
+        [
+          5,
+          "Fingers",
+          283
+        ],
+        [
+          6,
+          "General Features and Ligaments",
+          283
+        ],
+        [
+          6,
+          "Kinematics",
+          284
+        ],
+        [
+          7,
+          "Osteokinematics",
+          284
+        ],
+        [
+          7,
+          "Arthrokinematics",
+          285
+        ],
+        [
+          5,
+          "Thumb",
+          287
+        ],
+        [
+          6,
+          "General Features and Ligaments",
+          287
+        ],
+        [
+          4,
+          "Interphalangeal Joints",
+          287
+        ],
+        [
+          5,
+          "Fingers",
+          287
+        ],
+        [
+          6,
+          "General Features and Ligaments",
+          288
+        ],
+        [
+          6,
+          "Kinematics",
+          288
+        ],
+        [
+          5,
+          "Thumb",
+          289
+        ],
+        [
+          3,
+          "Muscle and Joint Interaction",
+          289
+        ],
+        [
+          4,
+          "Innervation of Muscles, Skin, and Joints of the Hand",
+          289
+        ],
+        [
+          5,
+          "Muscle and Skin Innervation",
+          289
+        ],
+        [
+          5,
+          "Sensory Innervation to the Joints",
+          290
+        ],
+        [
+          4,
+          "Muscular Function of the Hand",
+          290
+        ],
+        [
+          5,
+          "Extrinsic Flexors of the Digits",
+          291
+        ],
+        [
+          6,
+          "Anatomy and Joint Action of the Extrinsic Flexors of the Digits",
+          291
+        ],
+        [
+          6,
+          "Anatomy and Function of the Flexor Pulleys",
+          294
+        ],
+        [
+          6,
+          "Role of Proximal Stabilizer Muscles during Active Finger Flexion",
+          294
+        ],
+        [
+          6,
+          "Passive Finger Flexion via “Tenodesis Action” of the Extrinsic Digital Flexors",
+          294
+        ],
+        [
+          5,
+          "Extrinsic Extensors of the Fingers",
+          295
+        ],
+        [
+          6,
+          "Muscular Anatomy",
+          295
+        ],
+        [
+          7,
+          "Extensor Mechanism of the Fingers",
+          297
+        ],
+        [
+          6,
+          "Action of the Extrinsic Finger Extensors",
+          298
+        ],
+        [
+          5,
+          "Extrinsic Extensors of the Thumb",
+          298
+        ],
+        [
+          6,
+          "Anatomic Considerations",
+          298
+        ],
+        [
+          6,
+          "Functional Considerations",
+          298
+        ],
+        [
+          5,
+          "Intrinsic Muscles of the Hand",
+          299
+        ],
+        [
+          6,
+          "Muscles of the Thenar Eminence",
+          299
+        ],
+        [
+          7,
+          "Anatomic Considerations",
+          299
+        ],
+        [
+          7,
+          "Functional Considerations",
+          300
+        ],
+        [
+          7,
+          "Implications of Median Nerve Injury",
+          300
+        ],
+        [
+          6,
+          "Muscles of the Hypothenar Eminence",
+          301
+        ],
+        [
+          7,
+          "Anatomic Considerations",
+          301
+        ],
+        [
+          7,
+          "Functional Considerations",
+          301
+        ],
+        [
+          6,
+          "Adductor Pollicis Muscle",
+          301
+        ],
+        [
+          6,
+          "Lumbricals and Interosseus Muscles",
+          301
+        ],
+        [
+          4,
+          "Interaction of the Extrinsic and Intrinsic Muscles of the Fingers",
+          305
+        ],
+        [
+          5,
+          "Opening the Hand: Finger Extension",
+          305
+        ],
+        [
+          6,
+          "Primary Muscular Activity",
+          305
+        ],
+        [
+          6,
+          "Function of Wrist Flexors during Finger Extension",
+          305
+        ],
+        [
+          5,
+          "Closing the Hand: Finger Flexion",
+          307
+        ],
+        [
+          6,
+          "Primary Muscle Action",
+          307
+        ],
+        [
+          6,
+          "Function of Wrist Extensors during Finger Flexion",
+          308
+        ],
+        [
+          3,
+          "Hand as an Effector Organ",
+          308
+        ],
+        [
+          3,
+          "Joint Deformities Typically Caused by Rheumatoid Arthritis",
+          310
+        ],
+        [
+          4,
+          "Zigzag Deformity of the Thumb",
+          310
+        ],
+        [
+          4,
+          "Destruction of the Metacarpophalangeal Joints of the Finger",
+          311
+        ],
+        [
+          5,
+          "Palmar Dislocation of the Metacarpophalangeal Joint",
+          311
+        ],
+        [
+          5,
+          "Ulnar Drift",
+          312
+        ],
+        [
+          4,
+          "Zigzag Deformities of the Fingers",
+          313
+        ],
+        [
+          5,
+          "Swan-Neck Deformity",
+          313
+        ],
+        [
+          5,
+          "Boutonnière Deformity",
+          314
+        ],
+        [
+          3,
+          "Synopsis",
+          315
+        ],
+        [
+          3,
+          "Additional Clinical Connections",
+          317
+        ],
+        [
+          3,
+          "References",
+          322
+        ],
+        [
+          3,
+          "Additional Video Educational Content",
+          324
+        ],
+        [
+          4,
+          "Clinical Kinesiology Applied to Persons With Quadriplegia (Tetraplegia)",
+          324
+        ],
+        [
+          3,
+          "Study Questions",
+          324
+        ],
+        [
+          2,
+          "Appendix II Reference Materials for Muscle Attachments and Innervations, Muscle Cross-Sectional Areas, and Dermatomes of the Upper Extremity",
+          325
+        ],
+        [
+          3,
+          "Part A: Paths of the Peripheral Nerves throughout the Elbow, Wrist, and Hand",
+          325
+        ],
+        [
+          3,
+          "Part B: Spinal Nerve Root Innervation of the Muscles of the Upper Extremity",
+          330
+        ],
+        [
+          3,
+          "Part C: Five Major Nerves and Their Motor Innervation Pattern throughout the Upper Extremity",
+          331
+        ],
+        [
+          3,
+          "Part D: Key Muscles for Testing the Function of Spinal Nerve Roots (C5 to T1)",
+          331
+        ],
+        [
+          3,
+          "Part E: Dermatomes of the Upper Extremity",
+          332
+        ],
+        [
+          3,
+          "Part F: Attachments and Innervation of the Muscles of the Upper Extremity",
+          332
+        ],
+        [
+          4,
+          "Shoulder Musculature",
+          332
+        ],
+        [
+          5,
+          "Coracobrachialis",
+          332
+        ],
+        [
+          5,
+          "Deltoid",
+          332
+        ],
+        [
+          5,
+          "Infraspinatus",
+          332
+        ],
+        [
+          5,
+          "Latissimus Dorsi",
+          332
+        ],
+        [
+          5,
+          "Levator Scapula",
+          332
+        ],
+        [
+          5,
+          "Pectoralis Major",
+          332
+        ],
+        [
+          5,
+          "Pectoralis Minor",
+          332
+        ],
+        [
+          5,
+          "Rhomboid Major and Minor",
+          332
+        ],
+        [
+          5,
+          "Serratus Anterior",
+          332
+        ],
+        [
+          5,
+          "Subclavius",
+          332
+        ],
+        [
+          5,
+          "Subscapularis",
+          333
+        ],
+        [
+          5,
+          "Supraspinatus",
+          333
+        ],
+        [
+          5,
+          "Teres Major",
+          333
+        ],
+        [
+          5,
+          "Teres Minor",
+          333
+        ],
+        [
+          5,
+          "Trapezius",
+          333
+        ],
+        [
+          4,
+          "Elbow and Forearm Musculature",
+          333
+        ],
+        [
+          5,
+          "Anconeus",
+          333
+        ],
+        [
+          5,
+          "Biceps Brachii",
+          333
+        ],
+        [
+          5,
+          "Brachialis",
+          333
+        ],
+        [
+          5,
+          "Brachioradialis",
+          333
+        ],
+        [
+          5,
+          "Pronator Teres",
+          333
+        ],
+        [
+          5,
+          "Pronator Quadratus",
+          333
+        ],
+        [
+          5,
+          "Supinator",
+          333
+        ],
+        [
+          5,
+          "Triceps Brachii",
+          333
+        ],
+        [
+          4,
+          "Wrist Musculature",
+          333
+        ],
+        [
+          5,
+          "Extensor Carpi Radialis Brevis",
+          333
+        ],
+        [
+          5,
+          "Extensor Carpi Radialis Longus",
+          333
+        ],
+        [
+          5,
+          "Extensor Carpi Ulnaris",
+          333
+        ],
+        [
+          5,
+          "Flexor Carpi Radialis",
+          334
+        ],
+        [
+          5,
+          "Flexor Carpi Ulnaris",
+          334
+        ],
+        [
+          5,
+          "Palmaris Longus",
+          334
+        ],
+        [
+          4,
+          "Extrinsic Hand Musculature",
+          334
+        ],
+        [
+          5,
+          "Abductor Pollicis Longus",
+          334
+        ],
+        [
+          5,
+          "Extensor Digitorum",
+          334
+        ],
+        [
+          5,
+          "Extensor Digiti Minimi",
+          334
+        ],
+        [
+          5,
+          "Extensor Indicis",
+          334
+        ],
+        [
+          5,
+          "Extensor Pollicis Brevis",
+          334
+        ],
+        [
+          5,
+          "Extensor Pollicis Longus",
+          334
+        ],
+        [
+          5,
+          "Flexor Digitorum Profundus",
+          334
+        ],
+        [
+          5,
+          "Flexor Digitorum Superficialis",
+          334
+        ],
+        [
+          5,
+          "Flexor Pollicis Longus",
+          334
+        ],
+        [
+          4,
+          "Intrinsic Hand Musculature",
+          334
+        ],
+        [
+          5,
+          "Abductor Digiti Minimi",
+          334
+        ],
+        [
+          5,
+          "Abductor Pollicis Brevis",
+          334
+        ],
+        [
+          5,
+          "Adductor Pollicis",
+          335
+        ],
+        [
+          5,
+          "Dorsal Interossei",
+          335
+        ],
+        [
+          5,
+          "Flexor Digiti Minimi",
+          335
+        ],
+        [
+          5,
+          "Flexor Pollicis Brevis",
+          335
+        ],
+        [
+          5,
+          "Lumbricals",
+          335
+        ],
+        [
+          5,
+          "Opponens Digiti Minimi",
+          335
+        ],
+        [
+          5,
+          "Opponens Pollicis",
+          335
+        ],
+        [
+          5,
+          "Palmaris Brevis",
+          335
+        ],
+        [
+          5,
+          "Palmar Interossei",
+          335
+        ],
+        [
+          3,
+          "Part G: Physiologic Cross-Sectional Areas of Selected Muscles of the Upper Extremity",
+          336
+        ],
+        [
+          1,
+          "III Axial Skeleton",
+          338
+        ],
+        [
+          2,
+          "Section III Axial Skeleton",
+          339
+        ],
+        [
+          2,
+          "Section III",
+          339
+        ],
+        [
+          3,
+          "Web-Based Educational Material",
+          339
+        ],
+        [
+          3,
+          "Additional Clinical Connections",
+          339
+        ],
+        [
+          3,
+          "Study Questions",
+          339
+        ],
+        [
+          2,
+          "All Videos",
+          339
+        ],
+        [
+          2,
+          "9 Axial Skeleton",
+          340
+        ],
+        [
+          3,
+          "Chapter at a Glance",
+          340
+        ],
+        [
+          3,
+          "Osteology",
+          341
+        ],
+        [
+          4,
+          "Components within the Axial Skeleton",
+          341
+        ],
+        [
+          5,
+          "Cranium",
+          341
+        ],
+        [
+          6,
+          "Temporal and Occipital Bones",
+          341
+        ],
+        [
+          5,
+          "Vertebrae: Building Blocks of the Spine",
+          342
+        ],
+        [
+          5,
+          "Ribs",
+          344
+        ],
+        [
+          5,
+          "Sternum",
+          344
+        ],
+        [
+          4,
+          "Vertebral Column as a Whole",
+          345
+        ],
+        [
+          5,
+          "Normal Curvatures Within the Vertebral Column",
+          345
+        ],
+        [
+          5,
+          "Line of Gravity Passing Through the Body",
+          346
+        ],
+        [
+          5,
+          "Ligamentous Support of the Vertebral Column",
+          347
+        ],
+        [
+          4,
+          "Regional Osteologic Features of the Vertebral Column",
+          350
+        ],
+        [
+          5,
+          "Cervical Region",
+          350
+        ],
+        [
+          6,
+          "Typical Cervical Vertebrae (C3 to C6)",
+          350
+        ],
+        [
+          6,
+          "Atypical Cervical Vertebrae (C1, C2, and C7)",
+          354
+        ],
+        [
+          7,
+          "Atlas (C1)",
+          354
+        ],
+        [
+          7,
+          "Axis (C2)",
+          354
+        ],
+        [
+          7,
+          "“Vertebra Prominens” (C7)",
+          354
+        ],
+        [
+          5,
+          "Thoracic Region",
+          355
+        ],
+        [
+          6,
+          "Typical Thoracic Vertebrae (T2 to T9)",
+          355
+        ],
+        [
+          6,
+          "Atypical Thoracic Vertebrae (T1 and T10 to T12)",
+          355
+        ],
+        [
+          5,
+          "Lumbar Region",
+          355
+        ],
+        [
+          5,
+          "Sacrum",
+          356
+        ],
+        [
+          5,
+          "Coccyx",
+          357
+        ],
+        [
+          3,
+          "Arthrology",
+          358
+        ],
+        [
+          4,
+          "Typical Intervertebral Junction",
+          358
+        ],
+        [
+          5,
+          "Terminology Describing Movement",
+          359
+        ],
+        [
+          5,
+          "Structure and Function of the Apophyseal Joints",
+          360
+        ],
+        [
+          5,
+          "Structure and Function of the Interbody Joints",
+          360
+        ],
+        [
+          6,
+          "Structural Considerations of the Lumbar Intervertebral Discs",
+          360
+        ],
+        [
+          6,
+          "Vertebral Endplates",
+          362
+        ],
+        [
+          6,
+          "Intervertebral Disc as a Hydrostatic Pressure Distributor",
+          363
+        ],
+        [
+          6,
+          "In Vivo Pressure Measurements from the Nucleus Pulposus",
+          363
+        ],
+        [
+          6,
+          "Diurnal Fluctuations in the Water Content within the Intervertebral Discs",
+          363
+        ],
+        [
+          3,
+          "Regional Anatomy and Kinematics Across the Vertebral Column",
+          365
+        ],
+        [
+          4,
+          "Introduction to Spinal Coupling",
+          365
+        ],
+        [
+          4,
+          "Craniocervical Region",
+          366
+        ],
+        [
+          5,
+          "Anatomy of Joints",
+          366
+        ],
+        [
+          6,
+          "Atlanto-Occipital Joint",
+          366
+        ],
+        [
+          6,
+          "Atlanto-Axial Joint Complex",
+          367
+        ],
+        [
+          7,
+          "Tectorial Membrane and the Alar Ligaments",
+          367
+        ],
+        [
+          6,
+          "Intracervical Apophyseal Joints (C2 to C7)",
+          368
+        ],
+        [
+          5,
+          "Sagittal Plane Kinematics",
+          368
+        ],
+        [
+          6,
+          "Osteokinematics of Flexion and Extension",
+          369
+        ],
+        [
+          6,
+          "Arthrokinematics of Flexion and Extension",
+          369
+        ],
+        [
+          7,
+          "Atlanto-Occipital Joint",
+          369
+        ],
+        [
+          7,
+          "Atlanto-Axial Joint Complex",
+          370
+        ],
+        [
+          7,
+          "Intracervical Articulations (C2 to C7)",
+          370
+        ],
+        [
+          6,
+          "Osteokinematics of Protraction and Retraction",
+          371
+        ],
+        [
+          5,
+          "Horizontal Plane Kinematics",
+          371
+        ],
+        [
+          6,
+          "Osteokinematics of Axial Rotation",
+          371
+        ],
+        [
+          6,
+          "Arthrokinematics of Axial Rotation",
+          371
+        ],
+        [
+          7,
+          "Atlanto-Axial Joint Complex",
+          371
+        ],
+        [
+          7,
+          "Intracervical Articulations (C2 to C7)",
+          372
+        ],
+        [
+          5,
+          "Frontal Plane Kinematics",
+          373
+        ],
+        [
+          6,
+          "Osteokinematics of Lateral Flexion",
+          373
+        ],
+        [
+          6,
+          "Arthrokinematics of Lateral Flexion",
+          373
+        ],
+        [
+          7,
+          "Atlanto-Occipital Joint",
+          373
+        ],
+        [
+          7,
+          "Intracervical Articulations (C2 to C7)",
+          373
+        ],
+        [
+          5,
+          "Spinal Coupling Between Lateral Flexion and Axial Rotation",
+          373
+        ],
+        [
+          4,
+          "Thoracic Region",
+          375
+        ],
+        [
+          5,
+          "Anatomy of Thoracic Articular Structures",
+          376
+        ],
+        [
+          5,
+          "Kinematics",
+          376
+        ],
+        [
+          6,
+          "Kinematics of Flexion and Extension",
+          376
+        ],
+        [
+          6,
+          "Kinematics of Axial Rotation",
+          377
+        ],
+        [
+          6,
+          "Kinematics of Lateral Flexion",
+          378
+        ],
+        [
+          4,
+          "Lumbar Region",
+          378
+        ],
+        [
+          5,
+          "Anatomy of the Articular Structures",
+          378
+        ],
+        [
+          6,
+          "L1–L4 Region",
+          378
+        ],
+        [
+          6,
+          "L5–S1 Junction",
+          378
+        ],
+        [
+          5,
+          "Kinematics",
+          382
+        ],
+        [
+          6,
+          "Sagittal Plane Kinematics: Flexion and Extension",
+          382
+        ],
+        [
+          7,
+          "Flexion of the Lumbar Region",
+          383
+        ],
+        [
+          7,
+          "Extension of the Lumbar Region",
+          383
+        ],
+        [
+          7,
+          "Lumbopelvic Rhythm during Trunk Flexion and Extension",
+          384
+        ],
+        [
+          8,
+          "Variations of Lumbopelvic Rhythms during Trunk Flexion from a Standing Position: A Kinematic Analysis.",
+          384
+        ],
+        [
+          8,
+          "Lumbopelvic Rhythm during Trunk Extension from a Forward Bent Position: A Muscular Analysis.",
+          385
+        ],
+        [
+          7,
+          "Effect of Pelvic Tilting on the Kinematics of the Lumbar Spine",
+          386
+        ],
+        [
+          8,
+          "Kinesiologic Correlations between Anterior Pelvic Tilt and Increased Lumbar Lordosis.",
+          386
+        ],
+        [
+          8,
+          "Kinesiologic Correlations between Posterior Pelvic Tilt and Decreased Lumbar Lordosis.",
+          389
+        ],
+        [
+          6,
+          "Horizontal Plane Kinematics: Axial Rotation",
+          389
+        ],
+        [
+          6,
+          "Frontal Plane Kinematics: Lateral Flexion",
+          389
+        ],
+        [
+          6,
+          "Sitting Posture and Its Effect on Alignment within the Lumbar and Craniocervical Regions",
+          389
+        ],
+        [
+          3,
+          "Summary of the Kinematics Within the Vertebral Column",
+          391
+        ],
+        [
+          3,
+          "Sacroiliac Joints",
+          392
+        ],
+        [
+          4,
+          "Anatomic Considerations",
+          392
+        ],
+        [
+          5,
+          "Joint Structure",
+          393
+        ],
+        [
+          5,
+          "Ligaments",
+          393
+        ],
+        [
+          5,
+          "Innervation",
+          395
+        ],
+        [
+          5,
+          "Thoracolumbar Fascia",
+          395
+        ],
+        [
+          4,
+          "Kinematics",
+          395
+        ],
+        [
+          5,
+          "Functional Considerations",
+          396
+        ],
+        [
+          6,
+          "Stress Relief",
+          396
+        ],
+        [
+          6,
+          "Stability during Load Transfer: Mechanics of Generating a Nutation Torque at the Sacroiliac Joints",
+          396
+        ],
+        [
+          7,
+          "Stabilizing Effect of Gravity",
+          396
+        ],
+        [
+          7,
+          "Stabilizing Effect of Ligaments and Muscles",
+          397
+        ],
+        [
+          3,
+          "Synopsis",
+          398
+        ],
+        [
+          3,
+          "Additional Clinical Connections",
+          399
+        ],
+        [
+          3,
+          "References",
+          406
+        ],
+        [
+          3,
+          "Additional Video Educational Content",
+          411
+        ],
+        [
+          3,
+          "Study Questions",
+          410
+        ],
+        [
+          2,
+          "10 Axial Skeleton",
+          412
+        ],
+        [
+          3,
+          "Chapter at a Glance",
+          412
+        ],
+        [
+          3,
+          "Innervation of the Muscles and Joints Within the Trunk and Craniocervical Regions",
+          413
+        ],
+        [
+          4,
+          "Ventral Ramus Innervation",
+          414
+        ],
+        [
+          5,
+          "Plexus",
+          414
+        ],
+        [
+          5,
+          "Individual Named Nerves",
+          414
+        ],
+        [
+          6,
+          "Intercostal Nerves (T1 to T12)",
+          414
+        ],
+        [
+          6,
+          "Recurrent Meningeal Nerves",
+          414
+        ],
+        [
+          4,
+          "Dorsal Ramus Innervation",
+          414
+        ],
+        [
+          3,
+          "Trunk and Craniocervical Regions",
+          414
+        ],
+        [
+          4,
+          "Production of Internal Torque",
+          414
+        ],
+        [
+          4,
+          "Special Considerations for the Study of Muscle Actions within the Axial Skeleton",
+          415
+        ],
+        [
+          4,
+          "Muscles of the Trunk: Anatomy and Their Individual Actions",
+          416
+        ],
+        [
+          5,
+          "Set 1: Muscles of the Posterior Trunk (“Back” Muscles)",
+          416
+        ],
+        [
+          6,
+          "Muscles in the Superficial and Intermediate Layers of the Back",
+          417
+        ],
+        [
+          6,
+          "Muscles in the Deep Layer of the Back",
+          417
+        ],
+        [
+          7,
+          "Erector Spinae Group",
+          419
+        ],
+        [
+          8,
+          "Spinalis Muscles.",
+          419
+        ],
+        [
+          8,
+          "Longissimus Muscles.",
+          419
+        ],
+        [
+          8,
+          "Iliocostalis Muscles.",
+          420
+        ],
+        [
+          8,
+          "Summary.",
+          420
+        ],
+        [
+          7,
+          "Transversospinal Muscles",
+          420
+        ],
+        [
+          8,
+          "Semispinalis Muscles.",
+          421
+        ],
+        [
+          8,
+          "Multifidi.",
+          421
+        ],
+        [
+          8,
+          "Rotatores.",
+          422
+        ],
+        [
+          8,
+          "Summary.",
+          422
+        ],
+        [
+          7,
+          "Short Segmental Group of Muscles",
+          422
+        ],
+        [
+          8,
+          "Summary.",
+          422
+        ],
+        [
+          5,
+          "Set 2: Muscles of the Anterior-Lateral Trunk (“Abdominal” Muscles)",
+          422
+        ],
+        [
+          6,
+          "Formation of the Rectus Sheaths and Linea Alba",
+          422
+        ],
+        [
+          6,
+          "Anatomy of the Abdominal Muscles",
+          423
+        ],
+        [
+          6,
+          "Actions of the Abdominal Muscles",
+          424
+        ],
+        [
+          7,
+          "Comparing Trunk Flexor versus Trunk Extensor Peak Torque",
+          426
+        ],
+        [
+          5,
+          "Set 3: Additional Muscles (Iliopsoas and Quadratus Lumborum)",
+          426
+        ],
+        [
+          6,
+          "Iliopsoas",
+          426
+        ],
+        [
+          7,
+          "Function of the Psoas Major at the Lumbosacral Region",
+          426
+        ],
+        [
+          6,
+          "Quadratus Lumborum",
+          427
+        ],
+        [
+          4,
+          "Muscles of the Trunk: Functional Interactions among Muscles",
+          427
+        ],
+        [
+          5,
+          "Muscular-Based Stability of the Trunk",
+          428
+        ],
+        [
+          6,
+          "Intrinsic Muscular Stabilizers of the Trunk",
+          429
+        ],
+        [
+          6,
+          "Extrinsic Muscular Stabilizers of the Trunk",
+          429
+        ],
+        [
+          5,
+          "Performing a Standard Sit-Up Movement",
+          430
+        ],
+        [
+          4,
+          "Muscles of the Craniocervical Region: Anatomy and Their Individual Actions",
+          432
+        ],
+        [
+          5,
+          "Set 1: Muscles of the Anterior-Lateral Craniocervical Region",
+          432
+        ],
+        [
+          6,
+          "Sternocleidomastoid",
+          433
+        ],
+        [
+          6,
+          "Scalenes",
+          434
+        ],
+        [
+          6,
+          "Longus Colli and Longus Capitis",
+          434
+        ],
+        [
+          6,
+          "Rectus Capitis Anterior and Rectus Capitis Lateralis",
+          435
+        ],
+        [
+          5,
+          "Set 2: Muscles of the Posterior Craniocervical Region",
+          435
+        ],
+        [
+          6,
+          "Splenius Cervicis and Capitis",
+          435
+        ],
+        [
+          6,
+          "Suboccipital Muscles",
+          435
+        ],
+        [
+          4,
+          "Muscles of the Craniocervical Region: Functional Interactions among Muscles That Cross the Craniocervical Region",
+          436
+        ],
+        [
+          5,
+          "Stabilizing the Craniocervical Region",
+          436
+        ],
+        [
+          5,
+          "Producing Extensive and Well-Coordinated Movements of the Head and Neck: Optimizing the Placement of the Eyes, Ears, and Nose",
+          439
+        ],
+        [
+          3,
+          "Selected Biomechanical Issues of Lifting: A Focus on Reducing Back Injury",
+          440
+        ],
+        [
+          4,
+          "Muscular Mechanics Associated with Extension of the Low Back during Lifting",
+          440
+        ],
+        [
+          5,
+          "Estimating the Magnitude of Force Imposed on the Low Back During Lifting",
+          441
+        ],
+        [
+          5,
+          "Ways to Reduce the Force Demands on the Back Muscles During Lifting",
+          442
+        ],
+        [
+          5,
+          "Role of Increasing Intra-Abdominal Pressure During Lifting",
+          443
+        ],
+        [
+          5,
+          "Additional Sources of Extension Torque Used for Lifting",
+          443
+        ],
+        [
+          6,
+          "Passive Tension Generation from Stretching the Posterior Ligamentous System",
+          444
+        ],
+        [
+          6,
+          "Muscular-Generated Tension Transferred through the Thoracolumbar Fascia",
+          444
+        ],
+        [
+          4,
+          "Summary of Factors That Likely Contribute to Safe Lifting",
+          445
+        ],
+        [
+          3,
+          "Synopsis",
+          446
+        ],
+        [
+          3,
+          "Additional Clinical Connections",
+          448
+        ],
+        [
+          3,
+          "References",
+          454
+        ],
+        [
+          3,
+          "Additional Video Educational Content",
+          457
+        ],
+        [
+          3,
+          "Study Questions",
+          457
+        ],
+        [
+          2,
+          "11 Kinesiology of Mastication and Ventilation",
+          458
+        ],
+        [
+          3,
+          "Chapter at a Glance",
+          458
+        ],
+        [
+          3,
+          "Part 1: Mastication",
+          458
+        ],
+        [
+          4,
+          "Osteology and Teeth",
+          458
+        ],
+        [
+          5,
+          "Regional Surface Anatomy",
+          458
+        ],
+        [
+          5,
+          "Individual Bones",
+          459
+        ],
+        [
+          6,
+          "Mandible",
+          459
+        ],
+        [
+          6,
+          "Maxilla",
+          460
+        ],
+        [
+          6,
+          "Temporal Bone",
+          460
+        ],
+        [
+          6,
+          "Zygomatic Bone",
+          461
+        ],
+        [
+          6,
+          "Sphenoid Bone",
+          461
+        ],
+        [
+          6,
+          "Hyoid Bone",
+          461
+        ],
+        [
+          5,
+          "Teeth",
+          461
+        ],
+        [
+          4,
+          "Arthrology of the Temporomandibular Joint",
+          462
+        ],
+        [
+          5,
+          "Osseous Structure",
+          462
+        ],
+        [
+          6,
+          "Mandibular Condyle",
+          462
+        ],
+        [
+          6,
+          "Mandibular Fossa",
+          462
+        ],
+        [
+          5,
+          "Articular Disc",
+          462
+        ],
+        [
+          5,
+          "Capsular and Ligamentous Structures",
+          463
+        ],
+        [
+          6,
+          "Fibrous Capsule",
+          463
+        ],
+        [
+          6,
+          "Lateral Ligament",
+          464
+        ],
+        [
+          6,
+          "Accessory Ligaments",
+          464
+        ],
+        [
+          5,
+          "Osteokinematics",
+          464
+        ],
+        [
+          6,
+          "Protrusion and Retrusion",
+          464
+        ],
+        [
+          6,
+          "Lateral Excursion",
+          464
+        ],
+        [
+          6,
+          "Depression and Elevation",
+          464
+        ],
+        [
+          5,
+          "Arthrokinematics",
+          466
+        ],
+        [
+          6,
+          "Protrusion and Retrusion",
+          466
+        ],
+        [
+          6,
+          "Lateral Excursion",
+          466
+        ],
+        [
+          6,
+          "Depression and Elevation",
+          466
+        ],
+        [
+          4,
+          "Muscle and Joint Interaction",
+          467
+        ],
+        [
+          5,
+          "Innervation of the Muscles and Joints",
+          467
+        ],
+        [
+          5,
+          "Muscular Anatomy and Function",
+          467
+        ],
+        [
+          6,
+          "Primary Muscles of Mastication",
+          467
+        ],
+        [
+          7,
+          "Masseter",
+          467
+        ],
+        [
+          7,
+          "Temporalis",
+          468
+        ],
+        [
+          7,
+          "Medial Pterygoid",
+          469
+        ],
+        [
+          7,
+          "Lateral Pterygoid",
+          469
+        ],
+        [
+          6,
+          "Secondary Muscles of Mastication",
+          471
+        ],
+        [
+          6,
+          "Summary of Individual Muscle Action",
+          471
+        ],
+        [
+          6,
+          "Muscular Control of Opening and Closing of the Mouth",
+          471
+        ],
+        [
+          7,
+          "Opening the Mouth",
+          471
+        ],
+        [
+          7,
+          "Closing the Mouth",
+          472
+        ],
+        [
+          4,
+          "Temporomandibular Disorders",
+          472
+        ],
+        [
+          4,
+          "Synopsis",
+          473
+        ],
+        [
+          3,
+          "Part 2: Ventilation",
+          474
+        ],
+        [
+          4,
+          "Arthrology",
+          475
+        ],
+        [
+          5,
+          "Thorax",
+          475
+        ],
+        [
+          5,
+          "Articulations within the Thorax",
+          475
+        ],
+        [
+          6,
+          "Manubriosternal Joint",
+          475
+        ],
+        [
+          6,
+          "Sternocostal Joints",
+          475
+        ],
+        [
+          6,
+          "Interchondral Joints",
+          475
+        ],
+        [
+          6,
+          "Costovertebral Joints",
+          475
+        ],
+        [
+          6,
+          "Thoracic Intervertebral Joints",
+          476
+        ],
+        [
+          5,
+          "Changes in Intrathoracic Volume during Ventilation",
+          476
+        ],
+        [
+          6,
+          "Vertical Changes",
+          476
+        ],
+        [
+          6,
+          "Anterior-Posterior and Medial-Lateral Changes",
+          476
+        ],
+        [
+          4,
+          "Muscular Actions During Ventilation",
+          477
+        ],
+        [
+          5,
+          "Muscles of Quiet Inspiration",
+          477
+        ],
+        [
+          6,
+          "Diaphragm Muscle",
+          478
+        ],
+        [
+          6,
+          "Scalene Muscles",
+          479
+        ],
+        [
+          6,
+          "Intercostales Muscles",
+          479
+        ],
+        [
+          7,
+          "Anatomy",
+          479
+        ],
+        [
+          7,
+          "Function of the Intercostales Externi and Interni Muscles",
+          479
+        ],
+        [
+          5,
+          "Muscles of Forced Inspiration",
+          481
+        ],
+        [
+          5,
+          "Muscles of Forced Expiration",
+          482
+        ],
+        [
+          6,
+          "Abdominal Muscles",
+          482
+        ],
+        [
+          6,
+          "Transversus Thoracis and Intercostales Interni",
+          483
+        ],
+        [
+          4,
+          "Synopsis",
+          483
+        ],
+        [
+          4,
+          "Additional Clinical Connections",
+          485
+        ],
+        [
+          3,
+          "References",
+          487
+        ],
+        [
+          3,
+          "Additional Video Educational Content",
+          489
+        ],
+        [
+          3,
+          "Study Questions",
+          489
+        ],
+        [
+          4,
+          "Part 1: Mastication",
+          489
+        ],
+        [
+          4,
+          "Part 2: Ventilation",
+          489
+        ],
+        [
+          2,
+          "Appendix III Reference Materials for the Cauda Equina, and Attachments, Innervations, and Selected Moment Arms of Muscles of the Axial Skeleton",
+          490
+        ],
+        [
+          3,
+          "Part A: Formation of the Cauda Equina",
+          490
+        ],
+        [
+          3,
+          "Part B: Thoracic Dermatomes of the Trunk",
+          491
+        ],
+        [
+          3,
+          "Part C: Attachments and Innervation of the Muscles of the Axial Skeleton",
+          491
+        ],
+        [
+          4,
+          "Muscles of the Trunk",
+          491
+        ],
+        [
+          5,
+          "Set 1: Muscles of the Posterior Trunk",
+          491
+        ],
+        [
+          6,
+          "Erector Spinae Group (Iliocostalis, Longissimus, and Spinalis Muscles)",
+          491
+        ],
+        [
+          7,
+          "Iliocostalis Lumborum",
+          491
+        ],
+        [
+          7,
+          "Iliocostalis Thoracis",
+          491
+        ],
+        [
+          7,
+          "Iliocostalis Cervicis",
+          491
+        ],
+        [
+          7,
+          "Longissimus Thoracis",
+          491
+        ],
+        [
+          7,
+          "Longissimus Cervicis",
+          491
+        ],
+        [
+          7,
+          "Longissimus Capitis",
+          491
+        ],
+        [
+          7,
+          "Spinalis Thoracis",
+          491
+        ],
+        [
+          7,
+          "Spinalis Cervicis",
+          491
+        ],
+        [
+          7,
+          "Spinalis Capitis (Blends with Semispinalis Capitis)",
+          492
+        ],
+        [
+          6,
+          "Transversospinal Group (Multifidi, Rotatores, and Semispinalis Muscles)",
+          492
+        ],
+        [
+          7,
+          "Multifidi",
+          492
+        ],
+        [
+          7,
+          "Rotatores: Longus and Brevis",
+          492
+        ],
+        [
+          7,
+          "Semispinalis Thoracis",
+          492
+        ],
+        [
+          7,
+          "Semispinalis Cervicis",
+          492
+        ],
+        [
+          7,
+          "Semispinalis Capitis",
+          492
+        ],
+        [
+          6,
+          "Short Segmental Group (Interspinalis and Intertransversarius Muscles)",
+          492
+        ],
+        [
+          7,
+          "Interspinalis Muscles",
+          492
+        ],
+        [
+          7,
+          "Intertransversarius Muscles",
+          492
+        ],
+        [
+          5,
+          "Set 2: Muscles of the Anterior-Lateral Trunk: “Abdominal” Muscles",
+          492
+        ],
+        [
+          6,
+          "Obliquus Externus Abdominis",
+          492
+        ],
+        [
+          6,
+          "Obliquus Internus Abdominis",
+          492
+        ],
+        [
+          6,
+          "Rectus Abdominis",
+          492
+        ],
+        [
+          6,
+          "Transversus Abdominis",
+          492
+        ],
+        [
+          4,
+          "Muscles of the Craniocervical Region",
+          492
+        ],
+        [
+          5,
+          "Set 1: Muscles of the Anterior-Lateral Craniocervical Region",
+          492
+        ],
+        [
+          6,
+          "Longus Capitis",
+          492
+        ],
+        [
+          6,
+          "Longus Colli",
+          492
+        ],
+        [
+          7,
+          "Superior Oblique Portion",
+          492
+        ],
+        [
+          7,
+          "Vertical Portion",
+          493
+        ],
+        [
+          7,
+          "Inferior Oblique Portion",
+          493
+        ],
+        [
+          6,
+          "Rectus Capitis Anterior",
+          493
+        ],
+        [
+          6,
+          "Rectus Capitis Lateralis",
+          493
+        ],
+        [
+          6,
+          "Scalenes",
+          493
+        ],
+        [
+          7,
+          "Scalenus Anterior",
+          493
+        ],
+        [
+          7,
+          "Scalenus Medius",
+          493
+        ],
+        [
+          7,
+          "Scalenus Posterior",
+          493
+        ],
+        [
+          7,
+          "Sternocleidomastoid",
+          493
+        ],
+        [
+          5,
+          "Set 2: Muscles of the Posterior Craniocervical Region",
+          493
+        ],
+        [
+          6,
+          "Splenius Capitis",
+          493
+        ],
+        [
+          6,
+          "Splenius Cervicis",
+          493
+        ],
+        [
+          6,
+          "Suboccipital Muscles",
+          493
+        ],
+        [
+          7,
+          "Obliquus Capitis Inferior",
+          493
+        ],
+        [
+          7,
+          "Obliquus Capitis Superior",
+          493
+        ],
+        [
+          7,
+          "Rectus Capitis Posterior Major",
+          493
+        ],
+        [
+          7,
+          "Rectus Capitis Posterior Minor",
+          493
+        ],
+        [
+          4,
+          "Miscellaneous: Quadratus Lumborum",
+          493
+        ],
+        [
+          5,
+          "Quadratus Lumborum",
+          493
+        ],
+        [
+          4,
+          "Primary Muscles of Mastication",
+          493
+        ],
+        [
+          5,
+          "Masseter: Combined Superficial and Deep Heads",
+          493
+        ],
+        [
+          5,
+          "Temporalis",
+          493
+        ],
+        [
+          5,
+          "Medial Pterygoid: Combined Superficial and Deep Heads",
+          494
+        ],
+        [
+          5,
+          "Lateral Pterygoid (Superior Head)",
+          494
+        ],
+        [
+          5,
+          "Lateral Pterygoid (Inferior Head)",
+          494
+        ],
+        [
+          4,
+          "Suprahyoid Muscles",
+          494
+        ],
+        [
+          5,
+          "Digastric: Posterior Belly",
+          494
+        ],
+        [
+          5,
+          "Digastric: Anterior Belly",
+          494
+        ],
+        [
+          5,
+          "Geniohyoid",
+          494
+        ],
+        [
+          5,
+          "Mylohyoid",
+          494
+        ],
+        [
+          5,
+          "Stylohyoid",
+          494
+        ],
+        [
+          4,
+          "Infrahyoid Muscles",
+          494
+        ],
+        [
+          5,
+          "Omohyoid",
+          494
+        ],
+        [
+          5,
+          "Sternohyoid",
+          494
+        ],
+        [
+          5,
+          "Sternothyroid",
+          494
+        ],
+        [
+          5,
+          "Thyrohyoid",
+          494
+        ],
+        [
+          4,
+          "Muscles Related Primarily to Ventilation",
+          494
+        ],
+        [
+          5,
+          "Diaphragm",
+          494
+        ],
+        [
+          6,
+          "Inferior Attachments",
+          494
+        ],
+        [
+          6,
+          "Superior Attachment",
+          494
+        ],
+        [
+          5,
+          "Intercostales Externi",
+          494
+        ],
+        [
+          5,
+          "Intercostales Interni",
+          494
+        ],
+        [
+          5,
+          "Intercostales Intimi",
+          495
+        ],
+        [
+          5,
+          "Levatores Costarum (Longus and Brevis)",
+          495
+        ],
+        [
+          5,
+          "Serratus Posterior Inferior",
+          495
+        ],
+        [
+          5,
+          "Serratus Posterior Superior",
+          495
+        ],
+        [
+          5,
+          "Transversus Thoracis",
+          495
+        ],
+        [
+          3,
+          "Part D: Moment Arm Data for Selected Craniocervical Muscles",
+          496
+        ],
+        [
+          1,
+          "IV Lower Extremity",
+          498
+        ],
+        [
+          2,
+          "Section IV Lower Extremity",
+          499
+        ],
+        [
+          3,
+          "Web-Based Educational Material",
+          499
+        ],
+        [
+          3,
+          "Additional Clinical Connections",
+          499
+        ],
+        [
+          3,
+          "Study Questions",
+          499
+        ],
+        [
+          2,
+          "All Videos",
+          499
+        ],
+        [
+          2,
+          "12 Hip",
+          500
+        ],
+        [
+          3,
+          "Chapter at a Glance",
+          500
+        ],
+        [
+          3,
+          "Osteology",
+          501
+        ],
+        [
+          4,
+          "Innominate",
+          501
+        ],
+        [
+          5,
+          "Ilium",
+          501
+        ],
+        [
+          5,
+          "Pubis",
+          502
+        ],
+        [
+          5,
+          "Ischium",
+          503
+        ],
+        [
+          5,
+          "Acetabulum",
+          503
+        ],
+        [
+          4,
+          "Femur",
+          504
+        ],
+        [
+          5,
+          "Shape of the Proximal Femur",
+          505
+        ],
+        [
+          6,
+          "Angle of Inclination",
+          505
+        ],
+        [
+          6,
+          "Femoral Torsion",
+          505
+        ],
+        [
+          5,
+          "Internal Structure of the Proximal Femur",
+          507
+        ],
+        [
+          6,
+          "Compact and Cancellous Bone",
+          507
+        ],
+        [
+          3,
+          "Arthrology",
+          507
+        ],
+        [
+          4,
+          "Functional Anatomy of the Hip Joint",
+          507
+        ],
+        [
+          5,
+          "Femoral Head",
+          507
+        ],
+        [
+          5,
+          "Acetabulum",
+          508
+        ],
+        [
+          5,
+          "Acetabular Labrum",
+          508
+        ],
+        [
+          5,
+          "Acetabular Alignment",
+          510
+        ],
+        [
+          6,
+          "Center-Edge Angle",
+          510
+        ],
+        [
+          6,
+          "Acetabular Anteversion Angle",
+          510
+        ],
+        [
+          5,
+          "Capsule and Ligaments of the Hip",
+          511
+        ],
+        [
+          6,
+          "Close-Packed Position of the Hip",
+          512
+        ],
+        [
+          4,
+          "Osteokinematics",
+          513
+        ],
+        [
+          5,
+          "Femoral-on-Pelvic Osteokinematics",
+          515
+        ],
+        [
+          6,
+          "Rotation of the Femur in the Sagittal Plane",
+          515
+        ],
+        [
+          6,
+          "Rotation of the Femur in the Frontal Plane",
+          515
+        ],
+        [
+          6,
+          "Rotation of the Femur in the Horizontal Plane",
+          515
+        ],
+        [
+          5,
+          "Pelvic-on-Femoral Osteokinematics",
+          516
+        ],
+        [
+          6,
+          "Lumbopelvic Rhythm",
+          516
+        ],
+        [
+          6,
+          "Pelvic Rotation in the Sagittal Plane: Anterior and Posterior Pelvic Tilting",
+          516
+        ],
+        [
+          6,
+          "Pelvic Rotation in the Frontal Plane",
+          516
+        ],
+        [
+          6,
+          "Pelvic Rotation in the Horizontal Plane",
+          519
+        ],
+        [
+          4,
+          "Arthrokinematics",
+          519
+        ],
+        [
+          3,
+          "Muscle and Joint Interaction",
+          519
+        ],
+        [
+          4,
+          "Innervation of the Muscles and Joint",
+          519
+        ],
+        [
+          5,
+          "Innervation of Muscles",
+          519
+        ],
+        [
+          6,
+          "Lumbar Plexus",
+          519
+        ],
+        [
+          6,
+          "Sacral Plexus",
+          519
+        ],
+        [
+          5,
+          "Sensory Innervation of the Hip",
+          521
+        ],
+        [
+          4,
+          "Muscular Function at the Hip",
+          521
+        ],
+        [
+          5,
+          "Hip Flexor Muscles",
+          522
+        ],
+        [
+          6,
+          "Anatomy and Individual Actions",
+          522
+        ],
+        [
+          7,
+          "The Iliopsoas and Psoas Minor",
+          522
+        ],
+        [
+          7,
+          "The Remaining Primary Hip Flexors",
+          523
+        ],
+        [
+          6,
+          "Overall Function",
+          524
+        ],
+        [
+          7,
+          "Pelvic-on-Femoral Hip Flexion: Anterior Pelvic Tilt",
+          524
+        ],
+        [
+          7,
+          "Femoral-on-Pelvic Hip Flexion",
+          524
+        ],
+        [
+          5,
+          "Hip Adductor Muscles",
+          524
+        ],
+        [
+          6,
+          "Functional Anatomy",
+          527
+        ],
+        [
+          6,
+          "Overall Function",
+          527
+        ],
+        [
+          7,
+          "Frontal Plane Function",
+          528
+        ],
+        [
+          7,
+          "Sagittal Plane Function",
+          528
+        ],
+        [
+          5,
+          "Hip Internal Rotator Muscles",
+          529
+        ],
+        [
+          6,
+          "Function",
+          529
+        ],
+        [
+          7,
+          "Active Internal Rotation Torque Increases with Hip Flexion",
+          529
+        ],
+        [
+          7,
+          "Biomechanics of the Adductor Muscles as Internal Rotators of the Hip",
+          530
+        ],
+        [
+          5,
+          "Hip Extensor Muscles",
+          530
+        ],
+        [
+          6,
+          "Anatomy and Individual Actions",
+          530
+        ],
+        [
+          6,
+          "Overall Function",
+          531
+        ],
+        [
+          7,
+          "Pelvic-on-Femoral Hip Extension",
+          531
+        ],
+        [
+          8,
+          "Hip Extensors Performing a Posterior Pelvic Tilt.",
+          531
+        ],
+        [
+          8,
+          "Hip Extensors Controlling a Forward Lean of the Body.",
+          532
+        ],
+        [
+          7,
+          "Femoral-on-Pelvic Hip Extension",
+          532
+        ],
+        [
+          5,
+          "Hip Abductor Muscles",
+          533
+        ],
+        [
+          6,
+          "Anatomy and Individual Actions",
+          533
+        ],
+        [
+          6,
+          "Hip Abductor Mechanism: Control of Frontal Plane Stability of the Pelvis during Walking",
+          534
+        ],
+        [
+          6,
+          "Hip Abductor Mechanism: Dominant Role in the Production of Compression Force at the Hip",
+          534
+        ],
+        [
+          6,
+          "Maximal Abduction Torque Varies According to Hip Joint Angle",
+          538
+        ],
+        [
+          5,
+          "Hip External Rotator Muscles",
+          538
+        ],
+        [
+          6,
+          "Functional Anatomy of the “Short External Rotators”",
+          538
+        ],
+        [
+          6,
+          "Overall Function",
+          539
+        ],
+        [
+          5,
+          "Maximal Torque Produced by the Hip Muscles",
+          540
+        ],
+        [
+          3,
+          "Example of Hip Pathology and Selected Therapeutic and Surgical Interventions",
+          540
+        ],
+        [
+          4,
+          "Osteoarthritis of the Hip",
+          540
+        ],
+        [
+          4,
+          "Selected Therapeutic and Surgical Interventions for a Painful, Degenerated, or Mechanically Unstable Hip",
+          541
+        ],
+        [
+          5,
+          "Using a Cane and Proper Methods for Carrying External Loads",
+          541
+        ],
+        [
+          5,
+          "Total Hip Arthroplasty",
+          543
+        ],
+        [
+          5,
+          "Biomechanical Consequences of Coxa Vara and Coxa Valga",
+          543
+        ],
+        [
+          3,
+          "Synopsis",
+          544
+        ],
+        [
+          3,
+          "Additional Clinical Connections",
+          546
+        ],
+        [
+          3,
+          "References",
+          556
+        ],
+        [
+          3,
+          "Additional Video Educational Content",
+          560
+        ],
+        [
+          3,
+          "Study Questions",
+          560
+        ],
+        [
+          2,
+          "13 Knee",
+          561
+        ],
+        [
+          3,
+          "Chapter at a Glance",
+          561
+        ],
+        [
+          3,
+          "Osteology",
+          561
+        ],
+        [
+          4,
+          "Distal Femur",
+          561
+        ],
+        [
+          4,
+          "Proximal Tibia and Fibula",
+          562
+        ],
+        [
+          4,
+          "Patella",
+          563
+        ],
+        [
+          3,
+          "Arthrology",
+          564
+        ],
+        [
+          4,
+          "General Anatomic and Alignment Considerations",
+          564
+        ],
+        [
+          4,
+          "Capsule and Reinforcing Ligaments",
+          565
+        ],
+        [
+          4,
+          "Synovial Membrane, Bursae, and Fat Pads",
+          567
+        ],
+        [
+          4,
+          "Tibiofemoral Joint",
+          567
+        ],
+        [
+          5,
+          "Menisci",
+          567
+        ],
+        [
+          6,
+          "Anatomic Considerations",
+          567
+        ],
+        [
+          6,
+          "Functional Considerations",
+          568
+        ],
+        [
+          6,
+          "Common Mechanisms of Injury",
+          570
+        ],
+        [
+          5,
+          "Osteokinematics at the Tibiofemoral Joint",
+          570
+        ],
+        [
+          6,
+          "Flexion and Extension",
+          570
+        ],
+        [
+          6,
+          "Internal and External (Axial) Rotation",
+          571
+        ],
+        [
+          5,
+          "Arthrokinematics at the Tibiofemoral Joint",
+          571
+        ],
+        [
+          6,
+          "Extension of the Knee",
+          571
+        ],
+        [
+          7,
+          "“Screw-Home” Rotation of the Knee",
+          571
+        ],
+        [
+          6,
+          "Flexion of the Knee",
+          572
+        ],
+        [
+          6,
+          "Internal and External (Axial) Rotation of the Knee",
+          572
+        ],
+        [
+          5,
+          "Medial and Lateral Collateral Ligaments",
+          572
+        ],
+        [
+          6,
+          "Anatomic Considerations",
+          572
+        ],
+        [
+          6,
+          "Functional Considerations",
+          573
+        ],
+        [
+          5,
+          "Anterior and Posterior Cruciate Ligaments",
+          574
+        ],
+        [
+          6,
+          "General Considerations",
+          574
+        ],
+        [
+          5,
+          "Anterior Cruciate Ligament",
+          575
+        ],
+        [
+          6,
+          "Anatomy and Function",
+          575
+        ],
+        [
+          6,
+          "Common Mechanisms of Injury",
+          576
+        ],
+        [
+          5,
+          "Posterior Cruciate Ligament",
+          578
+        ],
+        [
+          6,
+          "Anatomy and Function",
+          578
+        ],
+        [
+          6,
+          "Common Mechanisms of Injury",
+          579
+        ],
+        [
+          4,
+          "Patellofemoral Joint",
+          580
+        ],
+        [
+          5,
+          "Patellofemoral Joint Kinematics",
+          580
+        ],
+        [
+          6,
+          "Path and Area of Patellar Contact on the Femur",
+          580
+        ],
+        [
+          3,
+          "Muscle and Joint Interaction",
+          581
+        ],
+        [
+          4,
+          "Innervation of the Muscles",
+          581
+        ],
+        [
+          4,
+          "Sensory Innervation of the Knee Joint",
+          582
+        ],
+        [
+          4,
+          "Muscular Function at the Knee",
+          582
+        ],
+        [
+          5,
+          "Extensors of the Knee: Quadriceps Femoris Muscle",
+          582
+        ],
+        [
+          6,
+          "Anatomic Considerations",
+          582
+        ],
+        [
+          6,
+          "Functional Considerations",
+          583
+        ],
+        [
+          6,
+          "Quadriceps Action at the Knee: Understanding the Biomechanical Interactions between External and Internal Torques",
+          583
+        ],
+        [
+          7,
+          "External Torque Demands Placed against the Quadriceps: Contrasting “Tibial-on-Femoral” with “Femoral-on-Tibial” Methods of Knee Extension",
+          583
+        ],
+        [
+          7,
+          "Internal Torque–Joint Angle Relationship of the Quadriceps Muscle",
+          585
+        ],
+        [
+          8,
+          "Functional Role of the Patella.",
+          586
+        ],
+        [
+          5,
+          "Patellofemoral Joint Kinetics",
+          587
+        ],
+        [
+          5,
+          "Factors Affecting the Tracking of the Patella Across the Patellofemoral Joint",
+          588
+        ],
+        [
+          6,
+          "Role of the Quadriceps Muscle in Patellar Tracking",
+          588
+        ],
+        [
+          6,
+          "Factors That Naturally Oppose the Lateral Pull of the Quadriceps on the Patella",
+          589
+        ],
+        [
+          7,
+          "Local Factors",
+          589
+        ],
+        [
+          7,
+          "Global Factors",
+          590
+        ],
+        [
+          7,
+          "Summary",
+          592
+        ],
+        [
+          5,
+          "Knee Flexor-Rotator Muscles",
+          593
+        ],
+        [
+          6,
+          "Functional Anatomy",
+          593
+        ],
+        [
+          6,
+          "Group Action of Flexor-Rotator Muscles",
+          593
+        ],
+        [
+          7,
+          "Control of Tibial-on-Femoral Osteokinematics",
+          595
+        ],
+        [
+          7,
+          "Control of Femoral-on-Tibial Osteokinematics",
+          595
+        ],
+        [
+          6,
+          "Maximal Torque Production of the Knee Flexor-Rotator Muscles",
+          596
+        ],
+        [
+          4,
+          "Abnormal Alignment of the Knee",
+          597
+        ],
+        [
+          5,
+          "Frontal Plane",
+          597
+        ],
+        [
+          6,
+          "Genu Varum with Unicompartmental Osteoarthritis of the Knee",
+          597
+        ],
+        [
+          6,
+          "Excessive Genu Valgum",
+          598
+        ],
+        [
+          5,
+          "Sagittal Plane",
+          598
+        ],
+        [
+          6,
+          "Genu Recurvatum",
+          598
+        ],
+        [
+          3,
+          "Synopsis",
+          600
+        ],
+        [
+          3,
+          "Additional Clinical Connections",
+          601
+        ],
+        [
+          3,
+          "References",
+          612
+        ],
+        [
+          3,
+          "Additional Video Educational Content",
+          618
+        ],
+        [
+          3,
+          "Study Questions",
+          618
+        ],
+        [
+          2,
+          "14 Ankle and Foot",
+          619
+        ],
+        [
+          3,
+          "Chapter at A Glance",
+          619
+        ],
+        [
+          3,
+          "Osteology",
+          619
+        ],
+        [
+          4,
+          "Basic Terms and Concepts",
+          619
+        ],
+        [
+          5,
+          "Naming the Joints and Regions",
+          619
+        ],
+        [
+          5,
+          "Osteologic Similarities Between the Distal Leg and the Distal Arm",
+          620
+        ],
+        [
+          4,
+          "Individual Bones",
+          620
+        ],
+        [
+          5,
+          "Fibula",
+          620
+        ],
+        [
+          5,
+          "Distal Tibia",
+          621
+        ],
+        [
+          5,
+          "Tarsal Bones",
+          621
+        ],
+        [
+          6,
+          "Talus",
+          621
+        ],
+        [
+          6,
+          "Calcaneus",
+          622
+        ],
+        [
+          6,
+          "Navicular",
+          623
+        ],
+        [
+          6,
+          "Medial, Intermediate, and Lateral Cuneiforms",
+          623
+        ],
+        [
+          6,
+          "Cuboid",
+          623
+        ],
+        [
+          5,
+          "Rays of the Foot",
+          624
+        ],
+        [
+          6,
+          "Metatarsals",
+          624
+        ],
+        [
+          6,
+          "Phalanges",
+          624
+        ],
+        [
+          3,
+          "Arthrology",
+          624
+        ],
+        [
+          4,
+          "Terminology Used to Describe Movements",
+          624
+        ],
+        [
+          4,
+          "Structure and Function of the Joints Associated with the Ankle",
+          625
+        ],
+        [
+          5,
+          "Proximal Tibiofibular Joint",
+          625
+        ],
+        [
+          5,
+          "Distal Tibiofibular Joint",
+          626
+        ],
+        [
+          5,
+          "Talocrural Joint",
+          626
+        ],
+        [
+          6,
+          "Articular Structure",
+          626
+        ],
+        [
+          6,
+          "Ligaments",
+          626
+        ],
+        [
+          6,
+          "Osteokinematics",
+          628
+        ],
+        [
+          6,
+          "Arthrokinematics",
+          630
+        ],
+        [
+          6,
+          "Progressive Stabilization of the Talocrural Joint Throughout the Stance Phase of Gait",
+          630
+        ],
+        [
+          4,
+          "Structure and Function of the Joints Associated with the Foot",
+          632
+        ],
+        [
+          5,
+          "Subtalar Joint",
+          632
+        ],
+        [
+          6,
+          "Articular Structure",
+          632
+        ],
+        [
+          6,
+          "Ligaments",
+          632
+        ],
+        [
+          6,
+          "Kinematics",
+          633
+        ],
+        [
+          6,
+          "Range of Motion",
+          633
+        ],
+        [
+          5,
+          "Transverse Tarsal Joint (Talonavicular and Calcaneocuboid Joints)",
+          634
+        ],
+        [
+          6,
+          "Articular Structure and Ligamentous Support",
+          635
+        ],
+        [
+          7,
+          "Talonavicular Joint",
+          635
+        ],
+        [
+          7,
+          "Calcaneocuboid Joint",
+          635
+        ],
+        [
+          6,
+          "Kinematics",
+          636
+        ],
+        [
+          7,
+          "Axes of Rotation and Corresponding Movements",
+          636
+        ],
+        [
+          7,
+          "Arthrokinematics",
+          636
+        ],
+        [
+          6,
+          "Medial Longitudinal Arch of the Foot",
+          639
+        ],
+        [
+          7,
+          "Passive Support Mechanism of the Medial Longitudinal Arch",
+          639
+        ],
+        [
+          7,
+          "Pes Planus—“Abnormally Dropped” Medial Longitudinal Arch",
+          641
+        ],
+        [
+          5,
+          "Combined Action of the Subtalar and Transverse Tarsal Joints",
+          643
+        ],
+        [
+          6,
+          "Early to MidStance Phase of Gait: Kinematics of Pronation at the Subtalar Joint",
+          643
+        ],
+        [
+          7,
+          "Biomechanical Benefits of Controlling Pronation during the Stance Phase",
+          645
+        ],
+        [
+          7,
+          "Biomechanical Consequences of Excessive Pronation during the Stance Phase",
+          645
+        ],
+        [
+          6,
+          "Mid-to-Late Stance Phase of Gait: Kinematics of Supination at the Subtalar Joint",
+          645
+        ],
+        [
+          5,
+          "Distal Intertarsal Joints",
+          647
+        ],
+        [
+          6,
+          "Basic Structure and Function",
+          647
+        ],
+        [
+          7,
+          "Cuneonavicular Joint",
+          647
+        ],
+        [
+          7,
+          "Cuboideonavicular Joint",
+          647
+        ],
+        [
+          7,
+          "Intercuneiform and Cuneocuboid Joint Complex",
+          647
+        ],
+        [
+          5,
+          "Tarsometatarsal Joints",
+          647
+        ],
+        [
+          6,
+          "Anatomic Considerations",
+          647
+        ],
+        [
+          6,
+          "Kinematic Considerations",
+          648
+        ],
+        [
+          5,
+          "Intermetatarsal Joints",
+          648
+        ],
+        [
+          6,
+          "Structure and Function",
+          648
+        ],
+        [
+          5,
+          "Metatarsophalangeal Joints",
+          648
+        ],
+        [
+          6,
+          "Anatomic Considerations",
+          648
+        ],
+        [
+          6,
+          "Kinematic Considerations",
+          649
+        ],
+        [
+          6,
+          "Deformities or Trauma Involving the Metatarsophalangeal Joint of the Great Toe",
+          649
+        ],
+        [
+          7,
+          "Hallux Limitus",
+          649
+        ],
+        [
+          7,
+          "Hallux Valgus",
+          650
+        ],
+        [
+          5,
+          "Interphalangeal Joints",
+          651
+        ],
+        [
+          5,
+          "Action of the Joints Within the Forefoot During the Late Stance Phase of Gait",
+          651
+        ],
+        [
+          3,
+          "Muscle and Joint Interaction",
+          652
+        ],
+        [
+          4,
+          "Innervation of Muscles and Joints",
+          652
+        ],
+        [
+          5,
+          "Innervation of Muscles",
+          652
+        ],
+        [
+          5,
+          "Sensory Innervation of the Joints",
+          654
+        ],
+        [
+          4,
+          "Anatomy and Function of the Muscles",
+          654
+        ],
+        [
+          5,
+          "Extrinsic Muscles",
+          654
+        ],
+        [
+          6,
+          "Anterior Compartment Muscles",
+          654
+        ],
+        [
+          7,
+          "Anatomy",
+          654
+        ],
+        [
+          7,
+          "Joint Action",
+          655
+        ],
+        [
+          6,
+          "Lateral Compartment Muscles",
+          656
+        ],
+        [
+          7,
+          "Anatomy",
+          656
+        ],
+        [
+          7,
+          "Joint Action",
+          657
+        ],
+        [
+          6,
+          "Posterior Compartment Muscles",
+          657
+        ],
+        [
+          7,
+          "Anatomy",
+          657
+        ],
+        [
+          8,
+          "Superficial Group.",
+          658
+        ],
+        [
+          8,
+          "Deep Group.",
+          659
+        ],
+        [
+          7,
+          "Joint Action",
+          660
+        ],
+        [
+          8,
+          "Activation of the Plantar Flexor and Supinator Muscles during Walking.",
+          660
+        ],
+        [
+          8,
+          "Plantar Flexion Torque Generated for Propulsion.",
+          660
+        ],
+        [
+          5,
+          "Muscular Paralysis After Injury to the Fibular or Tibial Nerve",
+          662
+        ],
+        [
+          6,
+          "Injury to the Common Fibular Nerve and Its Branches",
+          662
+        ],
+        [
+          6,
+          "Injury to the Tibial Nerve and Its Branches",
+          663
+        ],
+        [
+          5,
+          "Intrinsic Muscles",
+          663
+        ],
+        [
+          6,
+          "Anatomic and Functional Considerations",
+          663
+        ],
+        [
+          7,
+          "Layer 1",
+          664
+        ],
+        [
+          7,
+          "Layer 2",
+          664
+        ],
+        [
+          7,
+          "Layer 3",
+          664
+        ],
+        [
+          7,
+          "Layer 4",
+          665
+        ],
+        [
+          3,
+          "Synopsis",
+          666
+        ],
+        [
+          3,
+          "Additional Clinical Connections",
+          667
+        ],
+        [
+          3,
+          "References",
+          673
+        ],
+        [
+          3,
+          "Additional Video Educational Content",
+          677
+        ],
+        [
+          3,
+          "Study Questions",
+          676
+        ],
+        [
+          2,
+          "15 Kinesiology of Walking",
+          678
+        ],
+        [
+          3,
+          "Chapter at a Glance",
+          678
+        ],
+        [
+          3,
+          "Historical Perspective of Gait Analysis",
+          679
+        ],
+        [
+          3,
+          "Spatial and Temporal Descriptors",
+          681
+        ],
+        [
+          4,
+          "Gait Cycle",
+          681
+        ],
+        [
+          4,
+          "Stance and Swing Phases",
+          685
+        ],
+        [
+          5,
+          "Subdivision of Stance and Swing Phases",
+          686
+        ],
+        [
+          3,
+          "Joint Kinematics",
+          688
+        ],
+        [
+          4,
+          "Sagittal Plane Kinematics",
+          688
+        ],
+        [
+          5,
+          "Pelvis",
+          688
+        ],
+        [
+          5,
+          "Hip",
+          688
+        ],
+        [
+          5,
+          "Knee",
+          689
+        ],
+        [
+          5,
+          "Ankle (Talocrural Joint)",
+          689
+        ],
+        [
+          5,
+          "First Tarsometatarsal Joint",
+          690
+        ],
+        [
+          5,
+          "First Metatarsophalangeal Joint",
+          691
+        ],
+        [
+          4,
+          "Frontal Plane Kinematics",
+          691
+        ],
+        [
+          5,
+          "Pelvis",
+          691
+        ],
+        [
+          5,
+          "Hip",
+          691
+        ],
+        [
+          5,
+          "Knee",
+          691
+        ],
+        [
+          5,
+          "Ankle (Talocrural Joint)",
+          692
+        ],
+        [
+          5,
+          "Foot and Subtalar Joint",
+          692
+        ],
+        [
+          4,
+          "Horizontal Plane Kinematics",
+          694
+        ],
+        [
+          5,
+          "Pelvis",
+          694
+        ],
+        [
+          5,
+          "Femur",
+          694
+        ],
+        [
+          5,
+          "Tibia",
+          694
+        ],
+        [
+          5,
+          "Hip",
+          694
+        ],
+        [
+          5,
+          "Knee",
+          694
+        ],
+        [
+          5,
+          "Ankle and Foot",
+          695
+        ],
+        [
+          4,
+          "Trunk and Upper Extremity Kinematics",
+          695
+        ],
+        [
+          5,
+          "Trunk",
+          695
+        ],
+        [
+          5,
+          "Shoulder",
+          695
+        ],
+        [
+          5,
+          "Elbow",
+          695
+        ],
+        [
+          3,
+          "Displacement and Control of the Body’s Center of Mass",
+          696
+        ],
+        [
+          4,
+          "Displacement of the Center of Mass",
+          697
+        ],
+        [
+          4,
+          "Kinetic and Potential Energy Considerations",
+          698
+        ],
+        [
+          3,
+          "Energy Expenditure",
+          699
+        ],
+        [
+          4,
+          "Energy-Saving Strategies of Walking",
+          699
+        ],
+        [
+          5,
+          "Vertical Displacement of the Center of Mass",
+          699
+        ],
+        [
+          5,
+          "Side-to-Side Displacement of the Center of Mass",
+          700
+        ],
+        [
+          3,
+          "Muscle Activity",
+          701
+        ],
+        [
+          4,
+          "Trunk",
+          701
+        ],
+        [
+          5,
+          "Erector Spinae",
+          701
+        ],
+        [
+          5,
+          "Rectus Abdominis",
+          701
+        ],
+        [
+          4,
+          "Hip",
+          702
+        ],
+        [
+          5,
+          "Hip Extensors",
+          702
+        ],
+        [
+          5,
+          "Hip Flexors",
+          702
+        ],
+        [
+          5,
+          "Hip Abductors",
+          703
+        ],
+        [
+          5,
+          "Hip Adductors and Hip Rotators",
+          703
+        ],
+        [
+          4,
+          "Knee",
+          703
+        ],
+        [
+          5,
+          "Knee Extensors",
+          703
+        ],
+        [
+          5,
+          "Knee Flexors",
+          703
+        ],
+        [
+          4,
+          "Ankle and Foot",
+          704
+        ],
+        [
+          5,
+          "Tibialis Anterior",
+          704
+        ],
+        [
+          5,
+          "Extensor Digitorum and Extensor Hallucis Longus",
+          705
+        ],
+        [
+          5,
+          "Ankle Plantar Flexors",
+          705
+        ],
+        [
+          5,
+          "Tibialis Posterior",
+          705
+        ],
+        [
+          5,
+          "Fibularis Muscles",
+          705
+        ],
+        [
+          5,
+          "Intrinsic Muscles of the Foot",
+          705
+        ],
+        [
+          3,
+          "Kinetics",
+          706
+        ],
+        [
+          4,
+          "Ground Reaction Forces",
+          706
+        ],
+        [
+          5,
+          "Vertical Forces",
+          707
+        ],
+        [
+          5,
+          "Anterior-Posterior Forces",
+          707
+        ],
+        [
+          5,
+          "Medial-Lateral Forces",
+          708
+        ],
+        [
+          4,
+          "Path of the Center of Pressure",
+          708
+        ],
+        [
+          4,
+          "Joint Torques and Powers",
+          709
+        ],
+        [
+          5,
+          "Hip",
+          710
+        ],
+        [
+          5,
+          "Knee",
+          711
+        ],
+        [
+          5,
+          "Ankle-and-Foot",
+          713
+        ],
+        [
+          4,
+          "Joint and Tendon Forces",
+          714
+        ],
+        [
+          3,
+          "Gait Dysfunctions",
+          715
+        ],
+        [
+          3,
+          "Synopsis",
+          721
+        ],
+        [
+          3,
+          "Additional Clinical Connections",
+          723
+        ],
+        [
+          3,
+          "References",
+          727
+        ],
+        [
+          3,
+          "Additional Video Educational Content",
+          731
+        ],
+        [
+          3,
+          "Study Questions",
+          731
+        ],
+        [
+          2,
+          "16 Kinesiology of Running",
+          732
+        ],
+        [
+          3,
+          "Chapter at a Glance",
+          732
+        ],
+        [
+          3,
+          "Spatial and Temporal Descriptors",
+          732
+        ],
+        [
+          4,
+          "Stride Cycle",
+          732
+        ],
+        [
+          4,
+          "Stance and Swing Phases",
+          733
+        ],
+        [
+          5,
+          "Subdivisions of Stance and Swing Phases",
+          733
+        ],
+        [
+          3,
+          "Joint Kinematics",
+          734
+        ],
+        [
+          4,
+          "Sagittal Plane Kinematics",
+          734
+        ],
+        [
+          5,
+          "Trunk",
+          734
+        ],
+        [
+          5,
+          "Pelvis",
+          735
+        ],
+        [
+          5,
+          "Hip",
+          735
+        ],
+        [
+          5,
+          "Knee",
+          735
+        ],
+        [
+          5,
+          "Ankle",
+          735
+        ],
+        [
+          5,
+          "First Metatarsophalangeal Joint",
+          736
+        ],
+        [
+          4,
+          "Frontal Plane Kinematics",
+          736
+        ],
+        [
+          5,
+          "Trunk",
+          736
+        ],
+        [
+          5,
+          "Pelvis",
+          736
+        ],
+        [
+          5,
+          "Hip",
+          736
+        ],
+        [
+          5,
+          "Knee",
+          737
+        ],
+        [
+          5,
+          "Subtalar Joint",
+          737
+        ],
+        [
+          4,
+          "Horizontal Plane Kinematics",
+          737
+        ],
+        [
+          5,
+          "Trunk",
+          737
+        ],
+        [
+          5,
+          "Pelvis",
+          738
+        ],
+        [
+          5,
+          "Hip",
+          738
+        ],
+        [
+          5,
+          "Knee",
+          738
+        ],
+        [
+          4,
+          "Upper Extremity",
+          738
+        ],
+        [
+          5,
+          "Shoulder",
+          738
+        ],
+        [
+          5,
+          "Elbow",
+          738
+        ],
+        [
+          3,
+          "Center of Mass",
+          739
+        ],
+        [
+          4,
+          "Displacement of the Center of Mass",
+          739
+        ],
+        [
+          4,
+          "Potential and Kinetic Energy Considerations",
+          739
+        ],
+        [
+          3,
+          "Energy Expenditure",
+          739
+        ],
+        [
+          3,
+          "Muscle Activity",
+          739
+        ],
+        [
+          4,
+          "Trunk",
+          740
+        ],
+        [
+          5,
+          "Erector Spinae",
+          740
+        ],
+        [
+          5,
+          "Rectus Abdominis",
+          740
+        ],
+        [
+          4,
+          "Hip",
+          740
+        ],
+        [
+          5,
+          "Hip Extensors",
+          740
+        ],
+        [
+          5,
+          "Hip Flexors",
+          741
+        ],
+        [
+          5,
+          "Hip Abductors",
+          741
+        ],
+        [
+          5,
+          "Hip Adductors and Rotators",
+          741
+        ],
+        [
+          4,
+          "Knee",
+          741
+        ],
+        [
+          5,
+          "Knee Extensors",
+          741
+        ],
+        [
+          5,
+          "Knee Flexors",
+          741
+        ],
+        [
+          4,
+          "Ankle-and-Foot",
+          742
+        ],
+        [
+          5,
+          "Tibialis Anterior",
+          742
+        ],
+        [
+          5,
+          "Gastrocnemius and Soleus",
+          742
+        ],
+        [
+          5,
+          "Tibialis Posterior",
+          742
+        ],
+        [
+          5,
+          "Fibularis Muscles",
+          743
+        ],
+        [
+          3,
+          "Kinetics",
+          743
+        ],
+        [
+          4,
+          "Ground Reaction Forces",
+          743
+        ],
+        [
+          5,
+          "Vertical Forces",
+          743
+        ],
+        [
+          5,
+          "Anterior-Posterior Forces",
+          744
+        ],
+        [
+          5,
+          "Medial-Lateral Forces",
+          744
+        ],
+        [
+          4,
+          "Path of the Center of Pressure",
+          744
+        ],
+        [
+          4,
+          "Joint Torques and Powers",
+          744
+        ],
+        [
+          5,
+          "Hip",
+          745
+        ],
+        [
+          5,
+          "Knee",
+          746
+        ],
+        [
+          5,
+          "Ankle-and-Foot",
+          747
+        ],
+        [
+          3,
+          "Factors Affecting Running Mechanics",
+          748
+        ],
+        [
+          4,
+          "Age",
+          748
+        ],
+        [
+          4,
+          "Sex",
+          748
+        ],
+        [
+          4,
+          "Speed",
+          748
+        ],
+        [
+          4,
+          "Surface Incline",
+          748
+        ],
+        [
+          4,
+          "Surface Stiffness",
+          749
+        ],
+        [
+          3,
+          "Synopsis",
+          749
+        ],
+        [
+          3,
+          "Additional Clinical Connections",
+          750
+        ],
+        [
+          3,
+          "References",
+          751
+        ],
+        [
+          3,
+          "Study Questions",
+          753
+        ],
+        [
+          3,
+          "Additional Video Educational Content",
+          753
+        ],
+        [
+          2,
+          "Appendix IV Reference Materials for Muscle Attachments and Innervations, Muscle Cross-Sectional Areas, and Dermatomes of the Lower Extremity",
+          754
+        ],
+        [
+          3,
+          "Part A: Spinal Nerve Root Innervations of the Muscles of the Lower Extremity",
+          755
+        ],
+        [
+          3,
+          "Part B: Key Muscles for Testing the Function of Spinal Nerve Roots (L2 to S3)",
+          756
+        ],
+        [
+          3,
+          "Part C: Dermatomes of the Lower Extremity",
+          756
+        ],
+        [
+          3,
+          "Part D: Attachments and Innervation of the Muscles of the Lower Extremity",
+          757
+        ],
+        [
+          4,
+          "Hip and Knee Musculature",
+          757
+        ],
+        [
+          5,
+          "Adductor Brevis",
+          757
+        ],
+        [
+          5,
+          "Adductor Longus",
+          757
+        ],
+        [
+          5,
+          "Adductor Magnus",
+          757
+        ],
+        [
+          6,
+          "Anterior Head",
+          757
+        ],
+        [
+          6,
+          "Posterior (Extensor) Head",
+          757
+        ],
+        [
+          5,
+          "Articularis Genu",
+          757
+        ],
+        [
+          5,
+          "Biceps Femoris",
+          757
+        ],
+        [
+          6,
+          "Long Head",
+          757
+        ],
+        [
+          6,
+          "Short Head",
+          757
+        ],
+        [
+          5,
+          "Gemellus Inferior",
+          757
+        ],
+        [
+          5,
+          "Gemellus Superior",
+          757
+        ],
+        [
+          5,
+          "Gluteus Maximus",
+          757
+        ],
+        [
+          5,
+          "Gluteus Medius",
+          757
+        ],
+        [
+          5,
+          "Gluteus Minimus",
+          757
+        ],
+        [
+          5,
+          "Gracilis",
+          757
+        ],
+        [
+          5,
+          "Iliopsoas",
+          757
+        ],
+        [
+          6,
+          "Psoas Major",
+          757
+        ],
+        [
+          6,
+          "Iliacus",
+          757
+        ],
+        [
+          5,
+          "Iliocapsularis",
+          757
+        ],
+        [
+          5,
+          "Obturator Externus",
+          757
+        ],
+        [
+          5,
+          "Obturator Internus",
+          758
+        ],
+        [
+          5,
+          "Pectineus",
+          758
+        ],
+        [
+          5,
+          "Piriformis",
+          758
+        ],
+        [
+          5,
+          "Popliteus",
+          758
+        ],
+        [
+          5,
+          "Psoas Minor",
+          758
+        ],
+        [
+          5,
+          "Quadratus Femoris",
+          758
+        ],
+        [
+          5,
+          "Rectus Femoris",
+          758
+        ],
+        [
+          5,
+          "Sartorius",
+          758
+        ],
+        [
+          5,
+          "Semimembranosus",
+          758
+        ],
+        [
+          5,
+          "Semitendinosus",
+          758
+        ],
+        [
+          5,
+          "Tensor Fasciae Latae",
+          758
+        ],
+        [
+          5,
+          "Vastus Intermedius",
+          758
+        ],
+        [
+          5,
+          "Vastus Lateralis",
+          758
+        ],
+        [
+          5,
+          "Vastus Medialis",
+          758
+        ],
+        [
+          4,
+          "Ankle and Foot Musculature",
+          758
+        ],
+        [
+          5,
+          "Extensor Digitorum Longus",
+          758
+        ],
+        [
+          5,
+          "Extensor Hallucis Longus",
+          759
+        ],
+        [
+          5,
+          "Fibularis (Peroneus) Brevis",
+          759
+        ],
+        [
+          5,
+          "Fibularis (Peroneus) Longus",
+          759
+        ],
+        [
+          5,
+          "Fibularis (Peroneus) Tertius",
+          759
+        ],
+        [
+          5,
+          "Flexor Digitorum Longus",
+          759
+        ],
+        [
+          5,
+          "Flexor Hallucis Longus",
+          759
+        ],
+        [
+          5,
+          "Gastrocnemius",
+          759
+        ],
+        [
+          5,
+          "Plantaris",
+          759
+        ],
+        [
+          5,
+          "Soleus",
+          759
+        ],
+        [
+          5,
+          "Tibialis Anterior",
+          759
+        ],
+        [
+          5,
+          "Tibialis Posterior",
+          759
+        ],
+        [
+          4,
+          "Intrinsic Muscles of the Foot",
+          759
+        ],
+        [
+          5,
+          "Extensor Digitorum Brevis",
+          759
+        ],
+        [
+          5,
+          "Layer 1",
+          759
+        ],
+        [
+          6,
+          "Abductor Digiti Minimi",
+          759
+        ],
+        [
+          6,
+          "Abductor Hallucis",
+          759
+        ],
+        [
+          6,
+          "Flexor Digitorum Brevis",
+          759
+        ],
+        [
+          5,
+          "Layer 2",
+          760
+        ],
+        [
+          6,
+          "Lumbricals",
+          760
+        ],
+        [
+          6,
+          "Quadratus Plantae",
+          760
+        ],
+        [
+          5,
+          "Layer 3",
+          760
+        ],
+        [
+          6,
+          "Adductor Hallucis",
+          760
+        ],
+        [
+          7,
+          "Proximal Attachment",
+          760
+        ],
+        [
+          6,
+          "Flexor Digiti Minimi",
+          760
+        ],
+        [
+          6,
+          "Flexor Hallucis Brevis",
+          760
+        ],
+        [
+          5,
+          "Layer 4",
+          760
+        ],
+        [
+          6,
+          "Dorsal Interossei",
+          760
+        ],
+        [
+          7,
+          "Proximal Attachments",
+          760
+        ],
+        [
+          7,
+          "Distal Attachments*",
+          760
+        ],
+        [
+          6,
+          "Plantar Interossei",
+          760
+        ],
+        [
+          7,
+          "Proximal Attachments",
+          760
+        ],
+        [
+          7,
+          "Distal Attachments*",
+          760
+        ],
+        [
+          3,
+          "Part E: Physiologic Cross-Sectional Areas of Selected Muscles of the Lower Extremity",
+          761
+        ],
+        [
+          3,
+          "Part F: Attachments, Innervation, and Actions of the Muscles of the Pelvic Floor",
+          762
+        ],
+        [
+          1,
+          "Index",
+          763
+        ],
+        [
+          2,
+          "A",
+          763
+        ],
+        [
+          2,
+          "B",
+          765
+        ],
+        [
+          2,
+          "C",
+          765
+        ],
+        [
+          2,
+          "D",
+          767
+        ],
+        [
+          2,
+          "E",
+          768
+        ],
+        [
+          2,
+          "F",
+          769
+        ],
+        [
+          2,
+          "G",
+          771
+        ],
+        [
+          2,
+          "H",
+          773
+        ],
+        [
+          2,
+          "I",
+          774
+        ],
+        [
+          2,
+          "J",
+          776
+        ],
+        [
+          2,
+          "K",
+          776
+        ],
+        [
+          2,
+          "L",
+          777
+        ],
+        [
+          2,
+          "M",
+          778
+        ],
+        [
+          2,
+          "N",
+          780
+        ],
+        [
+          2,
+          "O",
+          781
+        ],
+        [
+          2,
+          "P",
+          781
+        ],
+        [
+          2,
+          "Q",
+          783
+        ],
+        [
+          2,
+          "R",
+          784
+        ],
+        [
+          2,
+          "S",
+          785
+        ],
+        [
+          2,
+          "T",
+          788
+        ],
+        [
+          2,
+          "U",
+          790
+        ],
+        [
+          2,
+          "V",
+          791
+        ],
+        [
+          2,
+          "W",
+          791
+        ],
+        [
+          2,
+          "X",
+          792
+        ],
+        [
+          2,
+          "Y",
+          792
+        ],
+        [
+          2,
+          "Z",
+          792
+        ]
+      ]
+    },
+    "nordin": {
+      "source_id": "src.nordin-frankel-2012",
+      "discovery_path": "resources\\raw\\pdf\\inbox\\basic-biomechanics-of-the-musculoskeletal-system-north-american-edition-4nbsped-1609133358-9781609133351_compress.pdf",
+      "pdf_sha256": "fc6c5e535941359bf5eda382e11b41395aae498c7351a082d8708045eaf37482",
+      "pdf_pages": 470,
+      "metadata_available": true,
+      "abstract_available": false,
+      "fulltext_status": "complete",
+      "readability": "degraded",
+      "page_images_available": 470,
+      "extraction_status": "existing automated extraction; chapter boundaries reassembled by PDF page",
+      "semantic_review": "Selected explanatory passages and figures; not a line-by-line review of the full book",
+      "known_issues": [
+        "OCR/text-layer artifacts",
+        "headings and figure labels mixed",
+        "PDF page numbers differ from printed folios"
+      ],
+      "markdown_sha256": {
+        "000_Cover.md": "e31d0c44eeb1640b0fc05b9a2f7215dd3fdf1ba824aeec92d66e4b5564a5da99",
+        "001_Title_Page.md": "8ed267c47a9a2517fa84f6f9dfff56de6f76b0882b51c38ad6d8647fcda6c7cb",
+        "002_Copyright.md": "94fc9e6fec3828cd38afd3f4fc8013d470b004221ebb25b5b71ca7634df3c0ea",
+        "003_Contributors.md": "6516ee2ff5faf05e8521811f2e965ea5613c372157bb8f894a1d6ea5e2f4ec23",
+        "004_Foreword.md": "97d10424503fb114e418998e87230bd8e136fc851841d5bad44ec8f55bc8f2d0",
+        "005_Preface.md": "e906c8edabad1e1dfec5812fc8097c2dbfd48e681a2753c7cc2dbc42f32a431e",
+        "006_Acknowledgments.md": "d91a812096cbebe1a2812e9e9de554d33be1fab271a9eed8c9126ed73c658c96",
+        "007_Contents.md": "29dc16e1013dd55cc20b208e63abdfabb4e23230fcb09961e4c1cea505142c6f",
+        "008_CHAPTER_1__Introduction_to_Biomechanics__Basic_Terminology_and_Concept.md": "cc28c644e16bf6da98ae7b19dc34bf2fa6fa40aa54a2869555bab10bd3ed900d",
+        "009_Introduction.md": "86af51c7a6b54971b28f21b1c7c59a4a13d6244fb604807dc1f2dadfac553647",
+        "010_Basic_Biomechanics_of_the_Musculoskeletal_System.md": "2b7cb59ab389294c17205816a75232ebd3e77314d06ad6f48adeae520c76141a",
+        "011_The_SI_Metric_System.md": "a5d28ad47c0937215c6a93496ff6649f232fee9c0f3b473e075aefc0df041bcb",
+        "012_Standard_Units_Named_for_Scientists.md": "72c0a39105b21d63927e1a53d2a335063f5be1a21f6c1bf0ae0f2ff170ab2108",
+        "013_Converting_to_SI_from_Other_Units_of_Measurement.md": "00cf16a1b0014aed0b674bf75f52f85603ce8deb8d6642ce10b2b37bef34f0ec",
+        "014_SUGGESTED_READING.md": "87603cf737de6f5614f7d5e97b35a699cdc66382a2f47c2f782deb27e20e4fe8",
+        "015_CHAPTER_2__Biomechanics_of_Bone.md": "868b82b77fda1cc0927fec36bbd849219494772750f5b349dc185845c5ec8453",
+        "016_CHAPTER_3__Biomechanics_of_Articular_Cartilage.md": "707f6a28c955cd18ca31ee8ae21ae0f245e462738390a96f7073c2680b357ceb",
+        "017_CHAPTER_4__Biomechanics_of_Tendons_and_Ligaments.md": "d2c6fff63c56d4c9f35670de208e7cdd90243e6e8f1df2a4976692bf1541a1f6",
+        "018_CHAPTER_5__Biomechanics_of_Peripheral_Nerves_and_Spinal_Nerve_Roots.md": "92827a93b36ba106d46ddf3abd16008989af908efe297febb5a7e06d68b00606",
+        "019_CHAPTER_6__Biomechanics_of_Skeletal_Muscle.md": "30a11427b7838f80c42d29d1cd33d12bdfcbb91108643f4c4ae81369756bb0d4",
+        "020_CHAPTER_7__Biomechanics_of_the_Knee.md": "ee1726783b95243393a48a207eb1afc68e88ec61a116fd90098e5f6e2226e78a",
+        "021_CHAPTER_8__Biomechanics_of_the_Hip.md": "57a325aa52fabac390625ea7788cf1a78040321b5bb44c1f702316fe34fb76a2",
+        "022_CHAPTER_9__Biomechanics_of_the_Foot_and_Ankle.md": "8bb3677860c54d474e5f265818667ba7dbd0ab5b4a7ceb754e72d9db78bf71c3",
+        "023_CHAPTER_10__Biomechanics_of_the_Lumbar_Spine.md": "55f0cfddab95d85e62e18ff0028412bea611135da8c8150dbcc448a8c9ee2267",
+        "024_CHAPTER_11__Biomechanics_of_the_Cervical_Spine.md": "b98fbd8050da954eb691586673b49c1d306c794a77193b094f7cb4d11afd04a1",
+        "025_CHAPTER_12__Biomechanics_of_the_Shoulder.md": "3c89f48d4ab4bce2195d4b068981837c90dd5176f4f660d5ebe27953fac9681e",
+        "026_CHAPTER_13__Biomechanics_of_the_Elbow.md": "408cbc54600c8f6878b4601789a66802fe339cd1a2079a5467f8b83708753ca6",
+        "027_CHAPTER_14__Biomechanics_of_the_Wrist_and_Hand.md": "68649b7b7acda5f295902285dcc9df7aa1f3ff2b444150ee8ed775e5a592de6c",
+        "028_CHAPTER_15__Biomechanics_of_Fracture_Fixation.md": "cef62d06451bdcb1ca1f0e0376058b897cc5640339c4566ee7fb28ea283184ca",
+        "029_CHAPTER_16__Biomechanics_of_Arthroplasty.md": "210cdc6d9c0ea35b1a4fa044677ae0b2a5c5a534bc678397ef77cb53462e731c",
+        "030_CHAPTER_17__Biomechanics_of_Gait.md": "8ffd51e165d547552fcb2e20d59258539e3007acb99a1f2f4e5d63cc0215b04b",
+        "031_Index.md": "4e0ee6e44465a0ddb8a1f9ac35b901898aa9f1972e2d1c7a890b50acaf767244"
+      },
+      "chapter_files": {
+        "1": [
+          "008_CHAPTER_1__Introduction_to_Biomechanics__Basic_Terminology_and_Concept.md",
+          "009_Introduction.md",
+          "010_Basic_Biomechanics_of_the_Musculoskeletal_System.md",
+          "011_The_SI_Metric_System.md",
+          "012_Standard_Units_Named_for_Scientists.md",
+          "013_Converting_to_SI_from_Other_Units_of_Measurement.md",
+          "014_SUGGESTED_READING.md"
+        ],
+        "2": [
+          "015_CHAPTER_2__Biomechanics_of_Bone.md"
+        ],
+        "3": [
+          "016_CHAPTER_3__Biomechanics_of_Articular_Cartilage.md"
+        ],
+        "4": [
+          "017_CHAPTER_4__Biomechanics_of_Tendons_and_Ligaments.md"
+        ],
+        "5": [
+          "018_CHAPTER_5__Biomechanics_of_Peripheral_Nerves_and_Spinal_Nerve_Roots.md"
+        ],
+        "6": [
+          "019_CHAPTER_6__Biomechanics_of_Skeletal_Muscle.md"
+        ],
+        "7": [
+          "020_CHAPTER_7__Biomechanics_of_the_Knee.md"
+        ],
+        "8": [
+          "021_CHAPTER_8__Biomechanics_of_the_Hip.md"
+        ],
+        "9": [
+          "022_CHAPTER_9__Biomechanics_of_the_Foot_and_Ankle.md"
+        ],
+        "10": [
+          "023_CHAPTER_10__Biomechanics_of_the_Lumbar_Spine.md"
+        ],
+        "11": [
+          "024_CHAPTER_11__Biomechanics_of_the_Cervical_Spine.md"
+        ],
+        "12": [
+          "025_CHAPTER_12__Biomechanics_of_the_Shoulder.md"
+        ],
+        "13": [
+          "026_CHAPTER_13__Biomechanics_of_the_Elbow.md"
+        ],
+        "14": [
+          "027_CHAPTER_14__Biomechanics_of_the_Wrist_and_Hand.md"
+        ],
+        "15": [
+          "028_CHAPTER_15__Biomechanics_of_Fracture_Fixation.md"
+        ],
+        "16": [
+          "029_CHAPTER_16__Biomechanics_of_Arthroplasty.md"
+        ],
+        "17": [
+          "030_CHAPTER_17__Biomechanics_of_Gait.md"
+        ]
+      },
+      "toc": [
+        [
+          1,
+          "Cover\r",
+          1
+        ],
+        [
+          1,
+          "Half Title Page",
+          3
+        ],
+        [
+          1,
+          "Title Page",
+          5
+        ],
+        [
+          1,
+          "Copyright",
+          6
+        ],
+        [
+          1,
+          "Dedication",
+          7
+        ],
+        [
+          1,
+          "Contributors",
+          8
+        ],
+        [
+          1,
+          "Reviewers",
+          11
+        ],
+        [
+          1,
+          "Foreword",
+          12
+        ],
+        [
+          1,
+          "Preface",
+          13
+        ],
+        [
+          1,
+          "Acknowledgments",
+          15
+        ],
+        [
+          1,
+          "Contents",
+          16
+        ],
+        [
+          1,
+          "Half Title Page",
+          17
+        ],
+        [
+          1,
+          "CHAPTER 1: Introduction to Biomechanics: Basic Terminology and Concepts",
+          18
+        ],
+        [
+          2,
+          "Introduction",
+          19
+        ],
+        [
+          2,
+          "Basic Concepts",
+          19
+        ],
+        [
+          2,
+          "Basic Biomechanics of the Musculoskeletal System",
+          30
+        ],
+        [
+          2,
+          "Summary",
+          30
+        ],
+        [
+          2,
+          "SUGGESTED READING",
+          30
+        ],
+        [
+          1,
+          "APPENDIX A: The International System of Measurement (Le Système International d’Unites)",
+          32
+        ],
+        [
+          2,
+          "The SI Metric System",
+          33
+        ],
+        [
+          2,
+          "Specially Named Units",
+          33
+        ],
+        [
+          2,
+          "Standard Units Named for Scientists",
+          35
+        ],
+        [
+          2,
+          "Converting to SI from Other Units of Measurement",
+          36
+        ],
+        [
+          2,
+          "SUGGESTED READING",
+          37
+        ],
+        [
+          1,
+          "PART 1: Biomechanics of Tissues and Structures of the Musculoskeletal System",
+          39
+        ],
+        [
+          2,
+          "CHAPTER 2: Biomechanics of Bone",
+          40
+        ],
+        [
+          3,
+          "Introduction",
+          41
+        ],
+        [
+          3,
+          "Bone Composition and Structure",
+          41
+        ],
+        [
+          3,
+          "Biomechanical Properties of Bone",
+          44
+        ],
+        [
+          3,
+          "Surgical Effects",
+          65
+        ],
+        [
+          3,
+          "Degenerative Changes in Bone Associated with Aging",
+          68
+        ],
+        [
+          3,
+          "Summary",
+          70
+        ],
+        [
+          3,
+          "Practice Questions",
+          70
+        ],
+        [
+          3,
+          "REFERENCES",
+          71
+        ],
+        [
+          3,
+          "FLOW CHARTS",
+          73
+        ],
+        [
+          2,
+          "CHAPTER 3: Biomechanics of Articular Cartilage",
+          76
+        ],
+        [
+          3,
+          "Introduction",
+          77
+        ],
+        [
+          3,
+          "Composition and Structure of Articular Cartilage",
+          77
+        ],
+        [
+          3,
+          "Biomechanical Behavior of Articular Cartilage",
+          84
+        ],
+        [
+          3,
+          "Lubrication of Articular Cartilage",
+          96
+        ],
+        [
+          3,
+          "Wear of Articular Cartilage",
+          102
+        ],
+        [
+          3,
+          "Hypotheses on the Biomechanics of Cartilage Degeneration",
+          103
+        ],
+        [
+          3,
+          "Functional Tissue Engineering of Articular Cartilage",
+          106
+        ],
+        [
+          3,
+          "Summary",
+          108
+        ],
+        [
+          3,
+          "Practice Questions",
+          108
+        ],
+        [
+          3,
+          "Acknowledgements",
+          109
+        ],
+        [
+          3,
+          "REFERENCES",
+          109
+        ],
+        [
+          3,
+          "FLOW CHARTS",
+          115
+        ],
+        [
+          2,
+          "CHAPTER 4: Biomechanics of Tendons and Ligaments",
+          118
+        ],
+        [
+          3,
+          "Introduction",
+          119
+        ],
+        [
+          3,
+          "Composition and Structure of Tendons",
+          119
+        ],
+        [
+          3,
+          "Composition and Structure of Ligaments",
+          123
+        ],
+        [
+          3,
+          "Biomechanical Properties of Tendons and Ligaments",
+          125
+        ],
+        [
+          3,
+          "Factors That Affect the Biomechanical Properties of Tendons and Ligaments",
+          134
+        ],
+        [
+          3,
+          "Summary",
+          136
+        ],
+        [
+          3,
+          "Practice Questions",
+          136
+        ],
+        [
+          3,
+          "REFERENCES",
+          136
+        ],
+        [
+          3,
+          "FLOW CHARTS",
+          139
+        ],
+        [
+          2,
+          "CHAPTER 5: Biomechanics of Peripheral Nerves and Spinal Nerve Roots",
+          144
+        ],
+        [
+          3,
+          "Introduction",
+          145
+        ],
+        [
+          3,
+          "Anatomy and Physiology of Peripheral Nerves",
+          146
+        ],
+        [
+          3,
+          "Anatomy and Physiology of Spinal Nerve Roots",
+          148
+        ],
+        [
+          3,
+          "Biomechanical Behavior of Peripheral Nerves",
+          151
+        ],
+        [
+          3,
+          "Biomechanical Behavior of Spinal Nerve Roots",
+          156
+        ],
+        [
+          3,
+          "Nerve Injury and Pain",
+          162
+        ],
+        [
+          3,
+          "Summary",
+          162
+        ],
+        [
+          3,
+          "Practice Questions",
+          162
+        ],
+        [
+          3,
+          "REFERENCES",
+          163
+        ],
+        [
+          3,
+          "FLOW CHARTS",
+          165
+        ],
+        [
+          2,
+          "CHAPTER 6: Biomechanics of Skeletal Muscle",
+          166
+        ],
+        [
+          3,
+          "Introduction",
+          167
+        ],
+        [
+          3,
+          "Composition and Structure of Skeletal Muscle",
+          167
+        ],
+        [
+          3,
+          "Molecular Basis of Muscle Contraction",
+          170
+        ],
+        [
+          3,
+          "Mechanics of Muscle Contraction",
+          174
+        ],
+        [
+          3,
+          "Force Production in Muscle",
+          176
+        ],
+        [
+          3,
+          "Muscle Fiber Differentiation",
+          183
+        ],
+        [
+          3,
+          "Muscle Remodeling",
+          185
+        ],
+        [
+          3,
+          "Summary",
+          188
+        ],
+        [
+          3,
+          "Practice Questions",
+          189
+        ],
+        [
+          3,
+          "REFERENCES",
+          189
+        ],
+        [
+          3,
+          "FLOW CHARTS",
+          192
+        ],
+        [
+          1,
+          "PART 2: Biomechanics of Joints",
+          195
+        ],
+        [
+          2,
+          "CHAPTER 7: Biomechanics of the Knee",
+          196
+        ],
+        [
+          3,
+          "Introduction",
+          197
+        ],
+        [
+          3,
+          "Kinematics",
+          198
+        ],
+        [
+          3,
+          "Kinetics",
+          206
+        ],
+        [
+          3,
+          "Summary",
+          219
+        ],
+        [
+          3,
+          "Practice Questions",
+          219
+        ],
+        [
+          3,
+          "REFERENCES",
+          220
+        ],
+        [
+          2,
+          "CHAPTER 8: Biomechanics of the Hip",
+          222
+        ],
+        [
+          3,
+          "Introduction",
+          223
+        ],
+        [
+          3,
+          "Anatomic Considerations",
+          223
+        ],
+        [
+          3,
+          "Kinematics",
+          229
+        ],
+        [
+          3,
+          "Kinetics",
+          232
+        ],
+        [
+          3,
+          "Summary",
+          237
+        ],
+        [
+          3,
+          "Practice Questions",
+          238
+        ],
+        [
+          3,
+          "REFERENCES",
+          238
+        ],
+        [
+          2,
+          "CHAPTER 9: Biomechanics of the Foot and Ankle",
+          240
+        ],
+        [
+          3,
+          "Introduction",
+          241
+        ],
+        [
+          3,
+          "Structural Organization of the Foot and Ankle",
+          241
+        ],
+        [
+          3,
+          "Kinematics of the Foot and Ankle",
+          243
+        ],
+        [
+          3,
+          "Passive Stability of the Ankle and Foot",
+          252
+        ],
+        [
+          3,
+          "Muscle Control of the Ankle and Foot",
+          254
+        ],
+        [
+          3,
+          "Foot and Ankle Motion during Gait",
+          257
+        ],
+        [
+          3,
+          "Muscle Action during Gait",
+          259
+        ],
+        [
+          3,
+          "Kinetics of the Ankle Joint",
+          259
+        ],
+        [
+          3,
+          "Kinetics of the Foot",
+          262
+        ],
+        [
+          3,
+          "Effects of Shoe Wear on Foot/Ankle Biomechanics",
+          264
+        ],
+        [
+          3,
+          "Summary",
+          266
+        ],
+        [
+          3,
+          "Practice Questions",
+          267
+        ],
+        [
+          3,
+          "REFERENCES",
+          267
+        ],
+        [
+          2,
+          "CHAPTER 10: Biomechanics of the Lumbar Spine",
+          270
+        ],
+        [
+          3,
+          "Introduction",
+          271
+        ],
+        [
+          3,
+          "The Motion Segment: The Functional Unit of the Spine",
+          271
+        ],
+        [
+          3,
+          "Kinematics",
+          275
+        ],
+        [
+          3,
+          "Kinetics",
+          282
+        ],
+        [
+          3,
+          "Summary",
+          296
+        ],
+        [
+          3,
+          "Practice Questions",
+          296
+        ],
+        [
+          3,
+          "REFERENCES",
+          297
+        ],
+        [
+          2,
+          "CHAPTER 11: Biomechanics of the Cervical Spine",
+          302
+        ],
+        [
+          3,
+          "Introduction",
+          303
+        ],
+        [
+          3,
+          "Component Anatomy and Biomechanics",
+          303
+        ],
+        [
+          3,
+          "Kinematics",
+          313
+        ],
+        [
+          3,
+          "Applied Biomechanics",
+          322
+        ],
+        [
+          3,
+          "Biomechanics of Cervical Trauma",
+          328
+        ],
+        [
+          3,
+          "Conclusion",
+          332
+        ],
+        [
+          3,
+          "Summary",
+          332
+        ],
+        [
+          3,
+          "Practice Questions",
+          333
+        ],
+        [
+          3,
+          "REFERENCES",
+          333
+        ],
+        [
+          2,
+          "CHAPTER 12: Biomechanics of the Shoulder",
+          338
+        ],
+        [
+          3,
+          "Introduction",
+          339
+        ],
+        [
+          3,
+          "Kinematics and Anatomy",
+          339
+        ],
+        [
+          3,
+          "Kinetics",
+          348
+        ],
+        [
+          3,
+          "Summary",
+          357
+        ],
+        [
+          3,
+          "Practice Questions",
+          357
+        ],
+        [
+          3,
+          "REFERENCES",
+          358
+        ],
+        [
+          2,
+          "CHAPTER 13: Biomechanics of the Elbow",
+          360
+        ],
+        [
+          3,
+          "Introduction",
+          361
+        ],
+        [
+          3,
+          "Anatomy",
+          361
+        ],
+        [
+          3,
+          "Kinematics",
+          362
+        ],
+        [
+          3,
+          "Carrying Angle",
+          364
+        ],
+        [
+          3,
+          "Elbow Stability",
+          365
+        ],
+        [
+          3,
+          "Kinetics",
+          369
+        ],
+        [
+          3,
+          "Electromyography",
+          372
+        ],
+        [
+          3,
+          "Elbow Joint Forces",
+          372
+        ],
+        [
+          3,
+          "Articular Surface Forces",
+          372
+        ],
+        [
+          3,
+          "Calculation of Joint Reaction Forces at the Elbow",
+          373
+        ],
+        [
+          3,
+          "Summary",
+          375
+        ],
+        [
+          3,
+          "Practice Questions",
+          376
+        ],
+        [
+          3,
+          "REFERENCES",
+          376
+        ],
+        [
+          2,
+          "CHAPTER 14: Biomechanics of the Wrist and Hand",
+          380
+        ],
+        [
+          3,
+          "Introduction",
+          381
+        ],
+        [
+          3,
+          "Anatomy of the Wrist and Hand",
+          381
+        ],
+        [
+          3,
+          "Control of the Wrist and Hand",
+          388
+        ],
+        [
+          3,
+          "Kinematics",
+          397
+        ],
+        [
+          3,
+          "Interaction of Wrist and Hand Motion",
+          402
+        ],
+        [
+          3,
+          "Patterns of Prehensile Hand Function",
+          404
+        ],
+        [
+          3,
+          "Summary",
+          407
+        ],
+        [
+          3,
+          "Practice Questions",
+          408
+        ],
+        [
+          3,
+          "REFERENCES",
+          408
+        ],
+        [
+          1,
+          "PART 3: Applied Biomechanics",
+          411
+        ],
+        [
+          2,
+          "CHAPTER 15: Biomechanics of Fracture Fixation",
+          412
+        ],
+        [
+          3,
+          "Introduction",
+          413
+        ],
+        [
+          3,
+          "Fracture Stability and Healing",
+          413
+        ],
+        [
+          3,
+          "Fixation Devices and Methods",
+          415
+        ],
+        [
+          3,
+          "Summary",
+          419
+        ],
+        [
+          3,
+          "Practice Questions",
+          419
+        ],
+        [
+          3,
+          "SUGGESTED READING",
+          419
+        ],
+        [
+          3,
+          "REFERENCES",
+          419
+        ],
+        [
+          2,
+          "CHAPTER 16: Biomechanics of Arthroplasty",
+          420
+        ],
+        [
+          3,
+          "Introduction",
+          421
+        ],
+        [
+          3,
+          "Hip",
+          421
+        ],
+        [
+          3,
+          "Knee",
+          431
+        ],
+        [
+          3,
+          "Summary",
+          438
+        ],
+        [
+          3,
+          "Practice Questions",
+          438
+        ],
+        [
+          3,
+          "REFERENCES",
+          438
+        ],
+        [
+          2,
+          "CHAPTER 17: Biomechanics of Gait",
+          442
+        ],
+        [
+          3,
+          "Introduction",
+          443
+        ],
+        [
+          3,
+          "Anatomic Considerations",
+          443
+        ],
+        [
+          3,
+          "Methods of Gait Analysis",
+          443
+        ],
+        [
+          3,
+          "Gait Cycle",
+          444
+        ],
+        [
+          3,
+          "Time-Distance Variables",
+          445
+        ],
+        [
+          3,
+          "Angular Kinematics",
+          446
+        ],
+        [
+          3,
+          "Segmental Kinetics",
+          451
+        ],
+        [
+          3,
+          "Muscular Control",
+          454
+        ],
+        [
+          3,
+          "Summary",
+          458
+        ],
+        [
+          3,
+          "Practice Questions",
+          459
+        ],
+        [
+          3,
+          "REFERENCES",
+          459
+        ],
+        [
+          1,
+          "Index",
+          461
+        ]
+      ]
+    }
+  },
+  "errors": []
+}

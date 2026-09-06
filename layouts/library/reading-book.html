@@ -1,0 +1,46 @@
+{{ define "head-extra" }}
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/reading.css">
+{{ end }}
+{{ define "main" }}
+{{ $Book := index hugo.Data.reading.books .Params.reader_book }}
+<div class="rd-page rd-book" data-reader-book="{{ .Params.reader_book }}" data-reader-aliases="{{ hugo.Data.reading.search.aliases | jsonify }}">
+  <header class="rd-masthead">
+    <a href="{{ .Site.BaseURL }}library/">← 書庫</a>
+    <p class="rd-kicker">中文讀本 · {{ $Book.edition }}</p>
+    <h1>{{ $Book.title }}</h1>
+    <p class="rd-original-title" lang="en">{{ $Book.title_en }}</p>
+    <p class="rd-muted">{{ $Book.author }}</p>
+    <div class="rd-prose rd-intro">{{ .Content }}</div>
+    <a class="rd-start" href="{{ .RelPermalink }}ch01/">從第 1 章開始讀</a>
+    <a class="rd-resume" hidden href="{{ .RelPermalink }}">接續上次閱讀</a>
+    <p class="rd-topic-entry"><a href="{{ site.BaseURL }}library/kinesiology/topics/">按主題對照兩本書 →</a></p>
+  </header>
+  <section class="rd-directory" aria-labelledby="rd-directory-title">
+    <h2 id="rd-directory-title">{{ len $Book.chapters }} 章閱讀目錄</h2>
+    <form class="rd-search" role="search">
+      <label for="rd-query">找章節、部位或術語</label>
+      <input id="rd-query" type="search" placeholder="例如：肩膀、肌肉、力矩" autocomplete="off">
+      <p id="rd-result-count" role="status" aria-live="polite">依原書順序排列</p>
+    </form>
+    {{ range $Book.chapters }}
+    {{ $Chapter := site.GetPage .path }}
+    {{ if $Chapter }}
+    {{ $Topic := index hugo.Data.reading.topics .group }}
+    {{ $TermText := slice }}{{ range $Chapter.Params.terms }}{{ $Term := index hugo.Data.reading.terms . }}{{ $TermText = $TermText | append $Term.zh | append $Term.en }}{{ end }}
+    <article class="rd-chapter-row" data-reader-search="{{ .title }} {{ $Chapter.Description }} {{ delimit $TermText " " }}">
+      <span class="rd-chapter-number" aria-hidden="true">{{ printf "%02d" (int .number) }}</span>
+      <div><p class="rd-group">{{ $Topic.title }}</p><h3><a href="{{ $Chapter.RelPermalink }}">{{ .title }}</a></h3><p>{{ $Chapter.Description }}</p></div>
+    </article>
+    {{ end }}
+    {{ end }}
+    <p class="rd-no-results" hidden>沒有符合的章節。試試較短的字詞，例如「肩」、「肌肉」或「力」。</p>
+  </section>
+  <aside class="rd-sister" aria-label="另一冊讀本">
+    {{ range $Key, $Other := hugo.Data.reading.books }}{{ if ne $Key $.Params.reader_book }}
+    <h2>換一個角度讀身體</h2><p>{{ $Other.description }}</p>
+    <a href="{{ site.BaseURL }}library/{{ $Other.slug }}/">{{ $Other.title }} →</a>
+    {{ end }}{{ end }}
+  </aside>
+</div>
+{{ end }}
+{{ define "scripts" }}<script src="{{ .Site.BaseURL }}js/reading.js" defer></script>{{ end }}

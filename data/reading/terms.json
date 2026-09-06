@@ -1,0 +1,302 @@
+{
+  "kinematics": {
+    "zh": "運動學",
+    "en": "kinematics",
+    "definition": "描述位置、角度、速度等動作特徵，先不處理造成動作的力。"
+  },
+  "kinetics": {
+    "zh": "動力學",
+    "en": "kinetics",
+    "definition": "研究力與力矩如何影響物體的運動及平衡。"
+  },
+  "osteokinematics": {
+    "zh": "骨運動學",
+    "en": "osteokinematics",
+    "definition": "以骨段之間的相對運動描述屈曲、伸展、旋轉等動作。"
+  },
+  "arthrokinematics": {
+    "zh": "關節面運動學",
+    "en": "arthrokinematics",
+    "definition": "描述關節接觸面之間的滾動、滑動與旋轉。"
+  },
+  "moment": {
+    "zh": "力矩",
+    "en": "torque / moment",
+    "definition": "力使物體繞指定轉軸旋轉的效應；在平面模型中等於力乘垂直力臂。"
+  },
+  "moment-arm": {
+    "zh": "力臂",
+    "en": "moment arm",
+    "definition": "從指定轉軸到力的作用線之間的垂直距離。"
+  },
+  "synovial": {
+    "zh": "滑液關節",
+    "en": "synovial joint",
+    "definition": "具有關節腔、關節囊與滑液的關節；其接觸面由關節軟骨覆蓋。"
+  },
+  "collagen": {
+    "zh": "膠原蛋白",
+    "en": "collagen",
+    "definition": "結締組織的重要纖維蛋白；排列與交聯方式會影響組織的承力特性。"
+  },
+  "cartilage": {
+    "zh": "關節軟骨",
+    "en": "articular cartilage",
+    "definition": "覆蓋滑液關節骨端的組織，由細胞、固體基質與大量液體共同構成。"
+  },
+  "stress": {
+    "zh": "應力",
+    "en": "stress",
+    "definition": "描述材料內部單位面積承受的力；均勻正向受力模型中為力除以面積。"
+  },
+  "strain": {
+    "zh": "應變",
+    "en": "strain",
+    "definition": "形變相對於原有尺寸的比例；單軸長度應變為長度變化除以原長。"
+  },
+  "stiffness": {
+    "zh": "剛性",
+    "en": "stiffness",
+    "definition": "抵抗形變的程度。整體結構的剛性同時取決於材料性質與幾何形狀。"
+  },
+  "modulus": {
+    "zh": "彈性模數",
+    "en": "elastic modulus",
+    "definition": "在所指定彈性範圍內，應力對應變的變化率，用來描述材料本身的性質。"
+  },
+  "viscoelastic": {
+    "zh": "黏彈性",
+    "en": "viscoelasticity",
+    "definition": "材料兼具彈性與時間依賴的反應，受力速度與持續時間會影響形變。"
+  },
+  "creep": {
+    "zh": "蠕變",
+    "en": "creep",
+    "definition": "負荷維持一定時，形變仍隨時間增加的現象。"
+  },
+  "relaxation": {
+    "zh": "應力鬆弛",
+    "en": "stress relaxation",
+    "definition": "形變維持一定時，維持該形變所需的應力隨時間下降。"
+  },
+  "fatigue": {
+    "zh": "材料疲勞",
+    "en": "fatigue",
+    "definition": "反覆負荷累積造成的材料失效；單次負荷可能低於一次破壞所需的負荷。"
+  },
+  "anisotropy": {
+    "zh": "異向性",
+    "en": "anisotropy",
+    "definition": "材料在不同受力方向呈現不同的力學性質。"
+  },
+  "pcsa": {
+    "zh": "生理橫截面積",
+    "en": "physiological cross-sectional area",
+    "definition": "以垂直於肌纖維的截面評估可並聯產力的肌纖維量。"
+  },
+  "motor-unit": {
+    "zh": "運動單位",
+    "en": "motor unit",
+    "definition": "一個運動神經元及它所支配的全部肌纖維。"
+  },
+  "concentric": {
+    "zh": "向心收縮",
+    "en": "concentric activation",
+    "definition": "肌肉主動產力時，其所考慮的肌肉長度正在縮短。"
+  },
+  "eccentric": {
+    "zh": "離心收縮",
+    "en": "eccentric activation",
+    "definition": "肌肉主動產力時，其所考慮的肌肉長度正在增加。"
+  },
+  "isometric": {
+    "zh": "等長收縮",
+    "en": "isometric activation",
+    "definition": "在指定觀察尺度下，肌肉產力而長度近似維持不變。"
+  },
+  "free-body": {
+    "zh": "自由體圖",
+    "en": "free-body diagram",
+    "definition": "把選定物體或骨段獨立畫出，標示其他物體施加在它上面的力與力矩。"
+  },
+  "reaction": {
+    "zh": "關節反作用力",
+    "en": "joint reaction force",
+    "definition": "模型中相鄰骨段透過關節傳遞的合力；需與肌肉力及外力一起求解。"
+  },
+  "force-couple": {
+    "zh": "力偶",
+    "en": "force couple",
+    "definition": "嚴格力學上指等大、反向且作用線分離的一對力；解剖討論也常用來描述共同產生旋轉的肌群合作。"
+  },
+  "scapulohumeral": {
+    "zh": "肩肱節律",
+    "en": "scapulohumeral rhythm",
+    "definition": "手臂抬舉時，盂肱關節運動與肩胛骨運動之間的協調關係。"
+  },
+  "rotator-cuff": {
+    "zh": "旋轉肌袖",
+    "en": "rotator cuff",
+    "definition": "由棘上肌、棘下肌、小圓肌與肩胛下肌構成，參與肩部旋轉與動態穩定。"
+  },
+  "pronation": {
+    "zh": "前臂旋前",
+    "en": "forearm pronation",
+    "definition": "橈骨相對尺骨旋轉，使手掌由解剖姿勢朝向後方；屈肘觀察時常表現為掌心轉向下。"
+  },
+  "supination": {
+    "zh": "前臂旋後",
+    "en": "forearm supination",
+    "definition": "前臂轉回橈尺骨較平行的方向；屈肘觀察時常表現為掌心轉向上。"
+  },
+  "tfcc": {
+    "zh": "三角纖維軟骨複合體",
+    "en": "triangular fibrocartilage complex",
+    "definition": "位於腕部尺側的多組織複合結構，參與遠端橈尺關節穩定及負荷傳遞。"
+  },
+  "opposition": {
+    "zh": "拇指對掌",
+    "en": "thumb opposition",
+    "definition": "拇指跨向手掌並使指腹與其他手指相對接觸的複合動作。"
+  },
+  "pulley": {
+    "zh": "肌腱滑車",
+    "en": "tendon pulley",
+    "definition": "限制肌腱遠離骨面、維持其行徑的纖維性結構。"
+  },
+  "power-grip": {
+    "zh": "力量型抓握",
+    "en": "power grip",
+    "definition": "以穩定握住物體與傳遞較大力量為主的手部操作方式。"
+  },
+  "motion-segment": {
+    "zh": "脊柱運動節段",
+    "en": "spinal motion segment",
+    "definition": "相鄰椎骨及其間的椎間盤、關節與連接組織所構成的功能單位。"
+  },
+  "disc": {
+    "zh": "椎間盤",
+    "en": "intervertebral disc",
+    "definition": "位於相鄰椎體之間的結構，含纖維環與髓核，參與承重及活動。"
+  },
+  "facet": {
+    "zh": "小面關節",
+    "en": "facet / zygapophyseal joint",
+    "definition": "相鄰椎骨關節突形成的滑液關節，與椎間盤一起約束節段的運動。"
+  },
+  "coactivation": {
+    "zh": "共同活化",
+    "en": "coactivation",
+    "definition": "作用方向不同的肌群同時活化，可改變關節剛性與內部負荷。"
+  },
+  "diaphragm": {
+    "zh": "橫膈膜",
+    "en": "diaphragm",
+    "definition": "分隔胸腹腔的穹頂狀肌肉，是安靜吸氣的重要肌肉。"
+  },
+  "tmj": {
+    "zh": "顳顎關節",
+    "en": "temporomandibular joint",
+    "definition": "下顎骨與顳骨之間、含關節盤的關節，張口會結合旋轉與平移。"
+  },
+  "hip-abductors": {
+    "zh": "髖外展肌群",
+    "en": "hip abductors",
+    "definition": "可產生髖外展力矩的肌群；單腳站立時參與平衡骨盆所受的外力矩。"
+  },
+  "patella": {
+    "zh": "髕骨",
+    "en": "patella",
+    "definition": "位於膝伸肌機制中的籽骨，會改變股四頭肌經髕腱傳力的行徑與力臂。"
+  },
+  "meniscus": {
+    "zh": "半月板",
+    "en": "meniscus",
+    "definition": "膝內呈半月形的纖維軟骨結構，參與接觸面配合、負荷分配與穩定。"
+  },
+  "screw-home": {
+    "zh": "終末伸膝鎖定機制",
+    "en": "screw-home mechanism",
+    "definition": "膝接近完全伸直時伴隨的脛股相對旋轉；描述方向時必須交代哪一塊骨相對固定。"
+  },
+  "subtalar": {
+    "zh": "距下關節",
+    "en": "subtalar joint",
+    "definition": "距骨與跟骨之間的關節；其斜向轉軸使運動通常同時涉及多個平面。"
+  },
+  "windlass": {
+    "zh": "絞盤機制",
+    "en": "windlass mechanism",
+    "definition": "腳趾伸展使足底筋膜繞過蹠骨頭而張緊，影響足弓與前足的力學。"
+  },
+  "gait-cycle": {
+    "zh": "步態週期",
+    "en": "gait cycle",
+    "definition": "由同一隻腳的一次指定事件，到下一次相同事件的完整循環，通常以初始接觸為界。"
+  },
+  "ground-reaction": {
+    "zh": "地面反作用力",
+    "en": "ground reaction force",
+    "definition": "地面作用於身體的接觸合力，可分為垂直及水平方向的分量。"
+  },
+  "inverse-dynamics": {
+    "zh": "逆動力學",
+    "en": "inverse dynamics",
+    "definition": "由量得的運動、外力與身體節段參數，反推關節淨力與淨力矩的方法。"
+  },
+  "impulse": {
+    "zh": "衝量",
+    "en": "impulse",
+    "definition": "力對時間的積分；淨衝量對應系統動量的變化。"
+  },
+  "cortical": {
+    "zh": "皮質骨",
+    "en": "cortical bone",
+    "definition": "較緻密的骨組織，形成長骨骨幹外層等承重結構。"
+  },
+  "trabecular": {
+    "zh": "小樑骨",
+    "en": "trabecular bone",
+    "definition": "由互連骨小樑構成的多孔骨結構，常見於椎體與長骨骨端。"
+  },
+  "permeability": {
+    "zh": "滲透率",
+    "en": "permeability",
+    "definition": "描述液體通過多孔材料的難易程度。"
+  },
+  "proteoglycan": {
+    "zh": "蛋白聚醣",
+    "en": "proteoglycan",
+    "definition": "帶有醣胺聚醣鏈的分子，在軟骨基質中參與水分保留與壓縮反應。"
+  },
+  "tendon": {
+    "zh": "肌腱",
+    "en": "tendon",
+    "definition": "將肌肉產生的拉力傳遞至其附著部位的結締組織。"
+  },
+  "ligament": {
+    "zh": "韌帶",
+    "en": "ligament",
+    "definition": "連接骨與骨的結締組織，依位置及張力約束關節的某些運動。"
+  },
+  "perfusion": {
+    "zh": "灌流",
+    "en": "perfusion",
+    "definition": "血液流經組織微循環的過程。"
+  },
+  "load-sharing": {
+    "zh": "負荷分擔",
+    "en": "load sharing",
+    "definition": "多個結構共同承受外加負荷，比例取決於它們的材料、形狀、接觸與連接方式。"
+  },
+  "wear": {
+    "zh": "磨耗",
+    "en": "wear",
+    "definition": "接觸表面在相對運動與負荷下發生材料流失或表面損傷的過程。"
+  },
+  "fixation": {
+    "zh": "固定",
+    "en": "fixation",
+    "definition": "以植入物或外部構造限制骨折部位相對位移；力學效果取決於整體固定結構。"
+  }
+}

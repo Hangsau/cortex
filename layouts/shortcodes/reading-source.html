@@ -1,0 +1,3 @@
+{{- $Book := index hugo.Data.reading.books .Page.Params.reader_book -}}
+{{- $From := int (.Get "from") -}}{{- $To := int (.Get "to" | default $From) -}}
+<details class="rd-source"><summary>原書對照 · 原檔第 {{ $From }}{{ if ne $From $To }}–{{ $To }}{{ end }} 頁</summary><p>{{ $Book.title_en }}，{{ $Book.edition }}，第 {{ .Page.Params.chapter }} 章。</p><p>頁次按 PDF 檔案計算，包含封面與前言。本節為中文講解；原圖與完整英文內容可在本機開啟。</p><div class="rd-local-sources" hidden>{{ range seq $From $To }}<a href="{{ site.BaseURL }}originals/{{ $.Page.Params.reader_book }}/{{ . }}/" target="_blank" rel="noopener">原檔第 {{ . }} 頁 ↗</a>{{ end }}</div></details>

@@ -1,0 +1,25 @@
+{{ define "head-extra" }}<link rel="stylesheet" href="{{ .Site.BaseURL }}css/reading.css">{{ end }}
+{{ define "main" }}
+<div class="rd-page rd-book">
+  <header class="rd-masthead">
+    <a href="{{ site.BaseURL }}library/">← 書庫</a>
+    <p class="rd-kicker">兩冊中文導讀 · 主題索引</p>
+    <h1>{{ .Title }}</h1>
+    <div class="rd-prose">{{ .Content }}</div>
+  </header>
+  <nav class="rd-topic-nav" aria-label="選擇閱讀主題">
+  {{ range hugo.Data.reading.index.topic_order }}{{ $Topic := index hugo.Data.reading.topics . }}<a href="#{{ . }}">{{ $Topic.title }}</a>{{ end }}
+  </nav>
+  {{ range hugo.Data.reading.index.topic_order }}
+  {{ $Key := . }}{{ $Topic := index hugo.Data.reading.topics . }}
+  <section class="rd-topic-section" id="{{ . }}">
+    <h2>{{ $Topic.title }}</h2>
+    {{ range hugo.Data.reading.books }}
+    {{ $Book := . }}{{ $Chapters := where .chapters "group" $Key }}
+    {{ if $Chapters }}<h3><a href="{{ site.BaseURL }}library/{{ .slug }}/">{{ .title }}</a></h3><ul>
+    {{ range $Chapters }}{{ with site.GetPage .path }}<li><a href="{{ .RelPermalink }}">第 {{ .Params.chapter }} 章 · {{ .Title }}</a><span>{{ .Description }}</span></li>{{ end }}{{ end }}
+    </ul>{{ end }}{{ end }}
+  </section>
+  {{ end }}
+</div>
+{{ end }}

@@ -1,0 +1,42 @@
+{{ define "head-extra" }}
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/reading.css">
+{{ end }}
+{{ define "main" }}
+{{ $Book := index hugo.Data.reading.books .Params.reader_book }}
+{{ $Number := int .Params.chapter }}
+{{ $Meta := index $Book.chapters (sub $Number 1) }}
+<div class="rd-page rd-chapter" data-reader-book="{{ .Params.reader_book }}" data-reader-title="{{ .Title }}" data-reader-path="{{ .RelPermalink }}">
+  <header class="rd-masthead">
+    <a href="{{ .Parent.RelPermalink }}">← {{ $Book.title }} · 全書目錄</a>
+    <p class="rd-kicker">第 {{ $Number }} 章 / 共 {{ len $Book.chapters }} 章 · {{ $Book.edition }}</p>
+    <h1>{{ .Title }}</h1>
+    <p class="rd-deck">{{ .Description }}</p>
+    <div class="rd-tools" aria-label="閱讀設定">
+      <label for="rd-font-size">字級</label><select id="rd-font-size"><option value="18">標準</option><option value="20" selected>舒適</option><option value="22">加大</option></select>
+      <label for="rd-color">紙面</label><select id="rd-color"><option value="paper">米白</option><option value="night">夜讀</option></select>
+      <span class="rd-muted">中文導讀 · 原檔第 {{ $Meta.start }}–{{ $Meta.end }} 頁</span>
+    </div>
+  </header>
+  <div class="rd-layout">
+    <aside class="rd-rail" aria-label="章內目錄"><details><summary>這一章怎麼讀</summary>{{ .TableOfContents }}<a href="#rd-terms">中英術語</a><a href="#rd-next">接著讀</a></details></aside>
+    <article class="rd-prose" id="rd-article">
+      {{ .Content }}
+      {{ with .Params.terms }}
+      <section class="rd-terms" id="rd-terms"><h2>中英術語</h2><dl>
+      {{ range . }}{{ $Term := index hugo.Data.reading.terms . }}{{ if $Term }}<div><dt>{{ $Term.zh }} <span lang="en">{{ $Term.en }}</span></dt><dd>{{ $Term.definition }}</dd></div>{{ else }}{{ errorf "Missing reading term %s" . }}{{ end }}{{ end }}
+      </dl></section>{{ end }}
+      <section class="rd-source-note"><h2>關於這份導讀</h2><p>依 {{ $Book.author }}《{{ $Book.title_en }}》{{ $Book.edition }}第 {{ $Number }} 章整理。每節的來源標示使用 <strong>PDF 檔案頁次</strong>，與書上印刷頁碼可能不同。中文講解與標為「編者例子」的說明由本讀本整理；本頁不是逐句全文譯本。</p><p class="rd-local-note">本機閱讀時可由來源連結開啟完整原頁。原文轉檔偶有圖文交錯，核對以原頁圖片為準。</p></section>
+      <nav class="rd-next" id="rd-next" aria-label="接著讀">
+        {{ if gt $Number 1 }}{{ $Prev := index $Book.chapters (sub $Number 2) }}<a href="{{ site.BaseURL }}{{ $Prev.path }}">← 上一章：{{ $Prev.title }}</a>{{ end }}
+        {{ if lt $Number (len $Book.chapters) }}{{ $Next := index $Book.chapters $Number }}<a href="{{ site.BaseURL }}{{ $Next.path }}">下一章：{{ $Next.title }} →</a>{{ else }}<a href="{{ .Parent.RelPermalink }}">回到全書目錄 →</a>{{ end }}
+      </nav>
+      {{ $Related := slice }}
+      {{ range hugo.Data.reading.pairings }}{{ if in . $.Params.id }}{{ range . }}{{ if ne . $.Params.id }}{{ $Related = $Related | append . }}{{ end }}{{ end }}{{ end }}{{ end }}
+      {{ if $Related }}<aside class="rd-related"><h2>另一冊的相關章節</h2><ul>
+      {{ range $Key, $Other := hugo.Data.reading.books }}{{ range $Other.chapters }}{{ if in $Related .id }}{{ with site.GetPage .path }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}{{ end }}{{ end }}{{ end }}
+      </ul></aside>{{ end }}
+    </article>
+  </div>
+</div>
+{{ end }}
+{{ define "scripts" }}<script src="{{ .Site.BaseURL }}js/reading.js" defer></script>{{ end }}
