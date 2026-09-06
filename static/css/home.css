@@ -606,6 +606,12 @@ body:has(.home-page) .site-footer {
 }
 
 @media (max-width: 340px) {
+  .home-hero-inner,
+  .home-index-inner {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+  }
+
   .home-domain {
     padding: 1.25rem;
   }

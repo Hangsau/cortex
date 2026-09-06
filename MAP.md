@@ -83,7 +83,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 - `temperament-quiz.js`(197) — 氣質測驗純前端計分
 
 ### 版型驗收（tools/）
-- `home_audit.js` — 首頁 28 項資料＋Playwright 閘：home.yaml 色碼/URL、16 個 canonical 目的地、6 個 quick actions、4 個 domains、連結回應、heading、對比、focus、CLS、reduced-motion 與 768/390/320px RWD
+- `home_audit.js` — 首頁 30 項資料＋Playwright 閘：home.yaml 色碼/URL、19 個 canonical 目的地、6 個 quick actions、4 個 domains、兩冊讀本常駐入口、連結回應、heading、對比、focus、CLS、reduced-motion 與 768/390/320px RWD（讀本入口範圍於 2026-09-06 已驗）
 - `audit.js` — CSCS 章節頁＋概念索引 38 項既有迴歸閘；首頁改動後仍須跑，確認 CSS 隔離沒有波及其他頁
 
 ### 資料流

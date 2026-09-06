@@ -9,6 +9,9 @@ const { chromium } = require(process.env.PLAYWRIGHT_PATH || 'playwright');
 const BASE_URL = process.env.HOME_URL || 'http://localhost:1313/cortex/';
 const SHOT_DIR = process.env.HOME_AUDIT_SHOTS || '';
 const RELATIVE_ROUTES = [
+  'library/kinesiology/',
+  'library/basic-biomechanics/',
+  'library/kinesiology/topics/',
   'library/essentials-of-strength-training/',
   'library/essentials-of-strength-training/concepts/',
   'vortex/',
@@ -71,10 +74,10 @@ function seconds(value) {
     || value.includes('..')
   );
   check('home.yaml 拒絕格式外色碼與 URL',
-    colors.length === 4 && urls.length === 22 && badColors.length === 0 && badUrls.length === 0,
+    colors.length === 4 && urls.length === RELATIVE_ROUTES.length + 6 && badColors.length === 0 && badUrls.length === 0,
     [
       colors.length !== 4 ? `colors:${colors.length}` : '',
-      urls.length !== 22 ? `urls:${urls.length}` : '',
+      urls.length !== RELATIVE_ROUTES.length + 6 ? `urls:${urls.length}` : '',
       ...badColors.map(value => `color:${value}`),
       ...badUrls.map(value => `url:${value}`),
     ].filter(Boolean).join(', '));
@@ -93,6 +96,12 @@ function seconds(value) {
   await page.goto(BASE_URL, { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);
   await page.waitForTimeout(300);
+
+  const readerRoots = ['library/kinesiology/', 'library/basic-biomechanics/'];
+  const visibleReaders = await page.locator('.home-primary-link').evaluateAll(links =>
+    links.filter(link => !link.closest('details') && getComputedStyle(link).display !== 'none').map(link => new URL(link.href).pathname));
+  check('兩冊中文讀本有常駐首頁入口', readerRoots.every(route => visibleReaders.includes(new URL(route, BASE_URL).pathname)));
+  check('第一個捷徑可進入兩冊主題目錄', (await page.locator('.home-quick').first().getAttribute('href')) === new URL('library/kinesiology/topics/', BASE_URL).href);
 
   if (SHOT_DIR) {
     await page.screenshot({
@@ -163,7 +172,7 @@ function seconds(value) {
   check('四個領域完整渲染', structure.domainCount === 4, String(structure.domainCount));
   check('次要入口預設全部收合', structure.detailsCount === 3 && structure.openDetails === 0,
     `${structure.openDetails}/${structure.detailsCount} 展開`);
-  check('16 個 canonical 目的地各自只定義一次',
+  check(`${RELATIVE_ROUTES.length} 個 canonical 目的地各自只定義一次`,
     missingPaths.length === 0 && unknownCanonical.length === 0 && repeatedCanonical.length === 0,
     [
       ...missingPaths.map(route => `missing:${route}`),
@@ -261,7 +270,7 @@ function seconds(value) {
     linkResults.push({ route, status: response.status(), ok: response.ok() });
   }
   const deadLinks = linkResults.filter(item => !item.ok);
-  check('16 個站內目的地全部可回應', deadLinks.length === 0,
+  check(`${RELATIVE_ROUTES.length} 個站內目的地全部可回應`, deadLinks.length === 0,
     deadLinks.map(item => `${item.route}:${item.status}`).join(', '));
 
   const summaries = page.locator('.home-secondary summary');
@@ -274,7 +283,7 @@ function seconds(value) {
     secondaryLinks: document.querySelectorAll('.home-secondary-link').length,
   }));
   check('原生 details 可展開全部次要入口',
-    detailState.allOpen && detailState.nestedDetails === 0 && detailState.secondaryLinks === 10,
+    detailState.allOpen && detailState.nestedDetails === 0 && detailState.secondaryLinks === 12,
     `${detailState.secondaryLinks} links`);
 
   const targetSizes = await page.evaluate(() =>

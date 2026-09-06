@@ -69,7 +69,7 @@ tools/
 使用者已明確否定目前「任務入口＋四領域」的直覺性與需求覆蓋。研究計畫見
 `research/content-presentation-2026-09-05/PLAN.md`：不預設保留四領域、六捷徑、入口名稱、首頁布局或風格；先做需求／用語探索，再比較組織方案。現有分類是盤點來源，不能當讀者需求真相。
 
-下方首頁規則與 `home_audit.js` 的 4／6／16 固定數字描述現有實作，**不限制本輪研究與選定新方案**；未來改版須同步更新相關規範／audit，保留連結可達、內容來源、可及性等行為要求。本輪目前只修訂研究文件，正式頁面尚未改動。
+首頁原研究記錄的 4／6／16 數字描述當時實作，**不限制本輪研究與選定新方案**；2026-09-06 兩冊肌肉骨骼讀本接入後，現況為 4 領域／6 捷徑／19 目的地。未來改版須同步更新規範／audit，保留連結可達、內容來源、可及性等行為要求；全站重新設計仍屬另案。
 
 後續同日新增`WEBSITE_STUDY.md`與`GROWTH_MAP.md`（同研究目錄）：主題知識館是案頭主案，仍待測；依既有計畫分開已接內容、明確規劃、條件候選與公開撤回。不得把其他repo或Hub可讀資料當成已核准上站；新增內容應驗完整目錄、搜尋、上下文與型別，不只補首頁卡片。
 
@@ -115,7 +115,7 @@ tools/
 - 手機版刻意隱藏 domain 的長 `lede` 與 `spec`，保留 task、領域名、主入口與可展開完整目錄；
   這是把首頁壓在三個 viewport 內的資訊層級決策，不是內容遺漏
 - 改 `data/home.yaml`、`layouts/index.html` 或 `static/css/home.css` 後，必跑
-  `node tools/home_audit.js`：16 個 canonical 目的地、6 個 quick actions、4 個 domains、RWD、
+  `node tools/home_audit.js`：19 個 canonical 目的地、6 個 quick actions、4 個 domains、RWD、
   WCAG 對比、focus、CLS 與 reduced-motion 都是硬閘
 - **`hugo.toml` 沒有 `[menu]` 是刻意的**：nav 只有字標與「回目次」。全站地圖就是這份四領域
   目次，右上角再掛一份「書庫／Vortex／氣質」等於第二套只涵蓋部分內容、又跟四領域對不上的

@@ -10,6 +10,10 @@ hero:
   lede: "Cortex 是我的工作知識庫：從肌力與體能、游泳教學，到學習科學與氣質差異。"
 
 quick_actions:
+  - domain_no: "01"
+    name: "讀肌動學與生物力學"
+    note: "兩冊 33 章中文導讀"
+    url: "library/kinesiology/topics/"
   - domain_no: "02"
     name: "找一個游泳練習"
     note: "176 個練習，按泳式與環節篩選"
@@ -22,10 +26,6 @@ quick_actions:
     name: "讀 CSCS 章節"
     note: "24 章，含深度層與遮答自測"
     url: "library/essentials-of-strength-training/"
-  - domain_no: "01"
-    name: "沿概念軸複習"
-    note: "22 條概念橫切全書"
-    url: "library/essentials-of-strength-training/concepts/"
   - domain_no: "03"
     name: "找一個學習技法"
     note: "20 個技法，查了就用"
@@ -42,19 +42,28 @@ index:
 
 domains:
   - no: "01"
-    name: "肌力與體能"
+    name: "肌力與動作科學"
     color: "#8A3324"
-    task: "理解訓練如何改變身體"
-    lede: "把 NSCA 第四版拆成可查的知識單位，既能照章讀，也能跨章沿概念讀。"
-    spec: "24 章 · 1557 條知識單位 · 1252 張閃卡 · 22 條概念軸"
+    task: "理解身體如何動、如何受力"
+    lede: "從肌動學與生物力學的中文講解，接到 CSCS 肌力與體能訓練；可以依章節讀，也能按身體部位找。"
+    spec: "兩冊 33 章中文導讀 · CSCS 24 章 · 22 條概念軸"
     primary:
+      - name: "肌肉骨骼系統肌動學"
+        note: "16 章中文導讀"
+        url: "library/kinesiology/"
+      - name: "基礎生物力學"
+        note: "17 章中文導讀"
+        url: "library/basic-biomechanics/"
+    secondary:
       - name: "CSCS 章節目次"
         note: "24 章，每章含深度層與遮答自測"
         url: "library/essentials-of-strength-training/"
-    secondary:
       - name: "概念索引"
         note: "22 條概念軸橫切全書"
         url: "library/essentials-of-strength-training/concepts/"
+      - name: "肌動學與生物力學主題對照"
+        note: "從肩、髖、膝等部位，對照兩本書的章節"
+        url: "library/kinesiology/topics/"
 
   - no: "02"
     name: "游泳教學與水感"
