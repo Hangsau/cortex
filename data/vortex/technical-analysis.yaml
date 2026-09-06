@@ -930,20 +930,20 @@ points:
 - id: back.tech.1
   stroke: back
   category: rotation
-  title: 精英仰式泳者肩旋轉與髖旋轉的現代運動學數據
-  summary: Gonjo et al.（2020）3D實測精英男性仰式肩旋轉平均 49.73 ± 5.73°，髖旋轉平均 39.83 ± 7.25°，均具個體差異。
+  title: 競技仰式泳者肩旋轉與髖旋轉的現代運動學數據
+  summary: Gonjo 等人（2020）以三維運動學實測十名男性競技泳者最大速度下的仰式，肩滾轉平均 49.73 ± 5.73°、髖滾轉平均 39.83 ± 7.25°。
   mechanism:
     certainty: 🟢
-    text: 仰式仰臥姿勢下，浮力矩使髖部跟進幅度大於自由式（自由式髖旋轉約 33.79°）；肩髖旋轉差距比自由式小，核心旋轉控制需同時涵蓋兩者。
+    text: 仰式仰臥姿勢下，髖部跟進幅度大於自由式（自由式髖滾轉約 33.79°），而肩滾轉反而小於自由式（52.88°）；肩髖滾轉差距比自由式小，核心旋轉控制需同時涵蓋兩者。
     source_ids:
-    - src.gonjo-2020-c
+    - src.gonjo-2020-upper-body-kinematics
   evidence:
   - certainty: 🟢
-    text: 3D運動學比較自由式與仰式上肢動作，確認仰式肩旋轉 49.73 ± 5.73°、髖旋轉 39.83 ± 7.25°。
+    text: 三維運動學比較自由式與仰式上肢動作，確認仰式肩滾轉 49.73 ± 5.73°、髖滾轉 39.83 ± 7.25°。受試者為十名男性競技泳者（原文 competitive，非 elite），只在最大速度一個條件下量測。
     source: Gonjo et al. 2020
     source_ids:
-    - src.gonjo-2020-c
-  practical_implication: 旋轉幅度有個體最優值，訓練應找到個人的穩定旋轉角度，而非追求固定數字；個體差異（SD ≈ 6°）屬正常範圍。
+    - src.gonjo-2020-upper-body-kinematics
+  practical_implication: 訓練應找到個人的穩定旋轉角度，而非追求固定數字。這裡的 SD ≈ 6° 是十人樣本在同一條件下的離散程度，可以說明「不必都轉到同一個角度」，但原文沒有做個體差異分析，不能拿它宣稱「個體差異顯著」是研究結論。
 - id: back.tech.30
   stroke: back
   category: joint
@@ -974,25 +974,24 @@ points:
   stroke: back
   category: rotation
   title: 仰式在不同速度下維持旋轉幅度（不像自由式縮小）
-  summary: 仰式泳者在速度增加時不縮小旋轉幅度，旋轉穩定性是仰式效率的結構性特徵。
+  summary: 強度上升時自由式的滾轉幅度全面縮小，仰式維持不變；這是兩式之間最清楚的結構性差異。
   mechanism:
     certainty: 🟢
     source_ids:
-    - src.gonjo-2016
-    - src.gonjo-2021-c
-    text: 仰式在增加強度時維持整體旋轉幅度（WBR），但轉移旋轉峰值至划手週期前段；這與自由式高速時縮小旋轉的模式正好相反。
+    - src.gonjo-2021-body-roll
+    text: 十名泳者在最大速度的 83、88、93、100% 四種強度下受測。幅度方面，自由式的全身滾轉（WBR）、肩滾轉、髖滾轉全部隨強度下降，仰式只有浮力矩造成的那一部分（WBRBT）下降、其餘維持。時序方面則反過來：把滾轉峰值往划手週期前段移的是自由式，仰式的峰值時點不隨強度改變。
   evidence:
   - certainty: 🟢
-    text: 仰式在不同速度下肩旋轉與髖旋轉幅度不隨速度改變，後被 2021 期刊研究延伸確認。
-    source: Gonjo et al. 2016
-    source_ids:
-    - src.gonjo-2016
-  - certainty: 🟢
-    text: 仰式在增加強度時維持整體旋轉幅度，旋轉峰值時序轉移至週期前段，是與自由式的關鍵差異。
+    text: 幅度：強度上升時自由式的 WBR、肩滾轉、髖滾轉幅度全部縮小（p ≤ 0.017），仰式維持；仰式只有 WBRBT 一項縮小。
     source: Gonjo et al. 2021
     source_ids:
-    - src.gonjo-2021-c
-  practical_implication: 「衝刺時縮小旋轉以提高頻率」的策略在仰式不適用；疲勞也不應作為縮小旋轉的理由。旋轉幅度的穩定性本身是仰式效率的指標。
+    - src.gonjo-2021-body-roll
+  - certainty: 🟢
+    text: 時序：自由式在強度上升時把 WBR 與髖滾轉的峰值時點往週期前段移，仰式的時點穩定不變。（2026-09-06 更正：本條原本寫成「仰式轉移旋轉峰值至划手週期前段」，把原文的結論寫反了——時序前移是自由式的特徵，不是仰式的。同時刪掉原本掛在本條的 Gonjo 2016，那筆實為 Sanders 等人的量測信度研究，n=3、沒有比較速度，不能支持任何旋轉對速度的主張。）
+    source: Gonjo et al. 2021
+    source_ids:
+    - src.gonjo-2021-body-roll
+  practical_implication: 「衝刺時縮小旋轉以提高頻率」的策略在仰式不適用，疲勞也不應作為縮小旋轉的理由。但兩件事不要跟著推過頭：① 浮力矩造成的滾轉在仰式也會隨強度縮小，仰式不是完全不受速度影響；② 同一份研究裡仰式的划距是隨強度下降的（2.59 → 2.07 m/cycle），「旋轉幅度穩定」不能延伸成「划距穩定」。
 - id: back.tech.3
   stroke: back
   category: rotation
@@ -1017,20 +1016,18 @@ points:
 - id: back.tech.5
   stroke: back
   category: rotation
-  title: 旋轉最優區間：45–50° 為群體中位數，個體差異合理
-  summary: 精英仰式泳者肩旋轉分佈在約 44–56°（平均 ± 1SD），過度旋轉有幾何代價，並非越多越好。
+  title: 旋轉最優區間：45–50° 是實測到的群體平均，個體散佈合理
+  summary: 競技仰式泳者的最大肩滾轉落在約 44–56°（平均 ± 1SD），過度旋轉有幾何代價，並非越多越好。
   mechanism:
-    certainty: 🟢
-    source_ids:
-    - src.gonjo-2020-c
-    text: 過度旋轉的兩個幾何代價：① 身體側傾角增加 → 正面迎水截面積增加 → 水阻上升；② 回臂時間增加 → 划手週期延長 → 划手頻率下降。
+    certainty: 🔵
+    text: 過度旋轉的兩個幾何代價：① 身體側傾角增加 → 正面迎水截面積增加 → 水阻上升；② 回臂行程加長 → 划手週期延長 → 划手頻率下降。（2026-09-06 由 🟢 改標 🔵：這一段是幾何推導，原本掛的 Gonjo 等人 2020 只量了滾轉角與相位時長，沒有量過旋轉幅度對阻力或划頻的影響——掛著它會讓讀者以為這兩個代價有實測支持。推導本身成立，不需要文獻背書。）
   evidence:
   - certainty: 🟢
-    text: 精英仰式泳者肩旋轉平均 49.73 ± 5.73°，個體差異顯著（SD ≈ 6°）。
+    text: 十名男性競技泳者的仰式最大肩滾轉平均 49.73 ± 5.73°，一個標準差涵蓋約 44–56°。
     source: Gonjo et al. 2020
     source_ids:
-    - src.gonjo-2020-c
-  practical_implication: 訓練目標是找到「個人最優旋轉角度」並穩定複現，而非追求某個固定數字。約 45–50° 是群體中位數，不是每人的最優解。
+    - src.gonjo-2020-upper-body-kinematics
+  practical_implication: 訓練目標是找到「個人最優旋轉角度」並穩定複現，而非追求某個固定數字。約 45–50° 是十人樣本的平均值，不是每人的最優解，也不是原文做過的個體差異分析。
 - id: back.tech.6
   stroke: back
   category: rotation
@@ -1095,19 +1092,15 @@ points:
     certainty: 🟢
     source_ids:
     - src.maglischo-2003-swimming-fastest
-    - src.gonjo-2020-c
-    text: 升力＋阻力混合推進，最大化掌面與水流的作用角。Counsilman（1971）的 S 形划手路徑已被 Maglischo（2003）修正為橢圓形路徑；近期研究（Gonjo 2020 等）確認划手路徑個體差異顯著。核心原則（高肘捕水）仍有效，但強調固定形狀路徑的指導語已過時。
+    text: 升力＋阻力混合推進，最大化掌面與水流的作用角。Counsilman（1971）的 S 形划手路徑已被 Maglischo（2003）修正為橢圓形路徑。核心原則（高肘捕水）仍有效，但強調固定形狀路徑的指導語已過時。（2026-09-06 刪除一句幻影引用：原本寫「近期研究（Gonjo 2020 等）確認划手路徑個體差異顯著」，該研究不存在；Gonjo 等人 2020 量的是滾轉角與相位時長，沒有量軌跡形狀。）
   evidence:
   - certainty: 🟡
     text: 修正 S 形划手路徑為橢圓形路徑；定性方向至今有效。
     source: Maglischo 2003
     source_ids:
     - src.maglischo-2003-swimming-fastest
-  - certainty: 🟢
-    text: 近期實測確認划手路徑個體差異顯著，「前臂面向推進方向」比路徑形狀更重要。
-    source: Gonjo et al. 2020
-    source_ids:
-    - src.gonjo-2020-c
+  - certainty: 🔵
+    text: 「前臂面向推進方向」比「路徑走成什麼形狀」更根本：推進力的方向由掌面與前臂的朝向決定，路徑只是這個朝向在空間中走過的痕跡。至於個別泳者的路徑差異有多大，本專案未取得直接量測。
   practical_implication: 不應要求泳者走固定的 S 形或橢圓形軌跡；訓練重點是維持前臂面向推進方向的高肘，路徑隨個人最優化。
 - id: back.tech.12
   stroke: back
@@ -1326,10 +1319,10 @@ points:
     text: 蝶式：全身波動鏈，兩踢與手臂的節律性耦合，每次呼吸需抬頭有阻力代價。仰式：肩旋轉扭力轉換，旋轉在不同速度下穩定維持，持續仰臥呼吸無換氣代價。蝶式疲勞：波動鏈中斷序列（踢水 → 手臂孤立）。仰式疲勞：維持肩旋轉但增加髖旋轉，代償模式截然不同。
   evidence:
   - certainty: 🟢
-    text: 仰式在不同速度下維持旋轉幅度（不像自由式縮小），旋轉是仰式效率的核心機制。
-    source: Gonjo et al. 2020
+    text: 四種強度下，仰式的肩滾轉、髖滾轉與全身滾轉幅度維持不變，自由式則全面縮小。（2026-09-06 改指：本行原本掛 Gonjo 等人 2020，但那篇只測最大速度一個條件，講不了「不同速度下」；跨強度的結果出自同一組作者 2021 年的滾轉研究。）
+    source: Gonjo et al. 2021
     source_ids:
-    - src.gonjo-2020-c
+    - src.gonjo-2021-body-roll
   - certainty: 🟡
     text: 蝶式兩踢功能不對稱（Entry Kick / Power Kick）；蝶式疲勞表現為波動鏈中斷序列。
     source: Maglischo 2003
@@ -1734,21 +1727,21 @@ points:
 - id: breast.tech.22
   stroke: breast
   category: tempo
-  title: 精英優勢在划距穩定性，非划頻
-  summary: 精英與次精英的差距主要在 100m 游進段維持更穩定的划距（SL），而非更高划頻——優勢是「疲勞下技術不崩潰」。
+  title: 精英與次精英的差距在游進段與滑行段速度，pull-out 反而不是
+  summary: 100 m 蛙式中，精英與次精英的速度差距集中在 clean-swimming（游進）段與滑行段；pull-out 段兩組沒有差異。
   mechanism:
     certainty: 🟢
     source_ids:
     - src.gonjo-2023
-    text: 精英選手在 100m 中段（25–75m）維持更穩定的划距，出發/轉身差異反而不顯著；划距穩定代表每划的推進效率維持不變，不靠增加划頻（划頻提高通常代表技術效率下降）來彌補速度損失。
+    text: 精英與次精英男性各七名（FINA 分 772 vs 611）游 100 m 蛙式，以多機位系統取滑行、pull-out、clean-swimming 三段的平均與時間序列速度。精英的 clean-swimming 平均速度在四趟全部較快（差 7–11%），滑行段在第 2、3 趟較快（差約 13%），pull-out 段沒有差異；clean-swimming 段的差距除了最初 5–15% 時間之外全段存在。
   evidence:
   - certainty: 🟢
-    text: 精英比次精英在 100m 游進段有更穩定的划距（SL），出發/轉身差異反而不顯著
+    text: 精英的 clean-swimming 速度在四趟全部較快（7–11%）、滑行段在第 2、3 趟較快（約 13%）、pull-out 段無差異。（2026-09-06 更正：本條原本寫成「精英在 100m 游進段有更穩定的划距（SL）」與「優勢是疲勞下技術不崩潰」，但這篇研究量的是分段速度，沒有量划距、沒有量划頻，也沒有做疲勞穩定性分析。原本正確的只有「出發／轉身段差異反而不顯著」這半句。）
     source: Gonjo & Olstad 2023
     source_ids:
     - src.gonjo-2023
-  practical_implication: 蛙式技術訓練的優先目標是「疲勞下技術穩定性」而非「單次最大速度」；insweep 加速感和滑行效率是最先崩潰的技術元素，也應是訓練的核心關注點。
-  cross_ref: breast.tech.27（文中「insweep 加速感和滑行效率是最先崩潰的技術元素」＝崩潰序列前兩層）
+  practical_implication: 作者自己下的教練指示是：不要假設游進技術好就保證 pull-out 與 clean-swimming 起頭也快，這三段要分開量、分開練。至於「蛙式的訓練優先目標是疲勞下技術穩定性」這個更大的主張，本專案目前沒有可支持的量測，已不再掛在這篇上。
+  cross_ref: breast.tech.27（技術崩潰序列——本條只提供分段速度差距的位置，崩潰順序由該條承擔）
   cross_ref_ids:
   - breast.tech.27
 - id: breast.tech.23

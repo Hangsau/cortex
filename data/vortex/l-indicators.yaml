@@ -96,15 +96,12 @@ indicators:
   stroke: common
   level: L6
   aspect: 自動化完成
-  indicator: 疲勞下仍維持技術穩定性（Gonjo & Olstad 2023 精英特徵）；能感知並即時修正細微偏差；SWOLF 跨距離差距極小
+  indicator: 疲勞下仍維持技術穩定性；能感知並即時修正細微偏差；SWOLF 跨距離差距極小
   framework_state: 感知自動化完成：不需要刻意思考
   quant_ref: SWOLF < 35；精英範圍
   evidence:
-  - certainty: 🟢
-    text: 疲勞下技術穩定性是精英特徵
-    source: Gonjo & Olstad 2023
-    source_ids:
-    - src.gonjo-2023
+  - certainty: 🔵
+    text: 「疲勞下技術仍穩定」是本框架對 L6 的定義性描述，不是量測結果。（2026-09-06 移除誤引：原本掛 Gonjo & Olstad 2023 並寫成「精英特徵」，但那篇量的是 100 m 蛙式三個分段的速度，沒有量划距、沒有量划頻，也沒有做疲勞穩定性分析。）
 - id: free.pre.resistance
   stroke: free
   level: pre
@@ -167,10 +164,10 @@ indicators:
   framework_state: 壓力下感知失守
   evidence:
   - certainty: 🟢
-    text: Gonjo 2020
-    source: Gonjo 2020
+    text: 自由式在強度上升時全身滾轉、肩滾轉、髖滾轉幅度全面縮小，峰值時點也往週期前段移；仰式兩者都不變。（2026-09-06 改指：原本掛 Gonjo 2020，那篇只測最大速度一個條件，說不了「加速後」怎麼變。）
+    source: Gonjo et al. 2021
     source_ids:
-    - src.gonjo-2020-a
+    - src.gonjo-2021-body-roll
 - id: free.L4.sr-sl
   stroke: free
   level: L4
@@ -245,14 +242,11 @@ indicators:
   stroke: free
   level: L6
   aspect: 技術穩定性
-  indicator: 疲勞全程划距穩定（Gonjo & Olstad 2023 精英特徵）；SWOLF 跨速度差異 < 3
+  indicator: 疲勞全程划距穩定；SWOLF 跨速度差異 < 3
   framework_state: 感知自動化完成
   evidence:
-  - certainty: 🟢
-    text: 疲勞全程划距穩定是精英特徵
-    source: Gonjo & Olstad 2023
-    source_ids:
-    - src.gonjo-2023
+  - certainty: 🔵
+    text: 「疲勞全程划距穩定」是本框架對自由式 L6 的定義性描述，本專案沒有對應的量測。（2026-09-06 移除誤引：原本掛 Gonjo & Olstad 2023，那是一篇 100 m **蛙式**分段速度研究——泳式對不上，而且它沒有量划距。）
 - id: back.pre.orientation
   stroke: back
   level: pre
@@ -282,11 +276,8 @@ indicators:
   indicator: 前臂在水下有水壓感知；能描述拉水「有抓住什麼」；入水不跨越中線（蛇行感知）
   framework_state: 水感出現但不穩定
   evidence:
-  - certainty: 🟢
-    text: Gonjo 2020
-    source: Gonjo 2020
-    source_ids:
-    - src.gonjo-2020-a
+  - certainty: 🔵
+    text: 這三項都是感知描述，屬本框架的判讀語，沒有對應的量測研究。（2026-09-06 移除誤引：原本只寫「Gonjo 2020」四個字掛 🟢，但那篇量的是肩髖滾轉角、划距划頻與各相位時長，沒有量前臂水壓感、抓水描述或入水的橫向位置。）
 - id: back.L3.shoulder-roll
   stroke: back
   level: L3
@@ -295,10 +286,10 @@ indicators:
   framework_state: 本體感覺萌芽
   evidence:
   - certainty: 🟢
-    text: 旋轉幅度平均 49.73°
-    source: Gonjo 2020
+    text: 十名男性競技泳者的仰式最大肩滾轉平均 49.73 ± 5.73°（最大速度條件）。本級指標寫的 30–40° 是初學者可自評的範圍，不是這個實測值。
+    source: Gonjo et al. 2020
     source_ids:
-    - src.gonjo-2020-a
+    - src.gonjo-2020-upper-body-kinematics
 - id: back.L4.roll-stability
   stroke: back
   level: L4
@@ -335,15 +326,15 @@ indicators:
   stroke: back
   level: L5
   aspect: 旋轉不隨速縮
-  indicator: 仰式精英特徵：速度增加時旋轉幅度維持（≠ 自由式）；划距穩定
+  indicator: 速度增加時旋轉幅度維持（≠ 自由式）
   framework_state: 感知自動化過渡
-  note: 仰式精英特徵——速度增加時不縮小旋轉幅度（≠ 自由式），是 L5→L6 的關鍵分水嶺。
+  note: 速度增加時不縮小旋轉幅度（≠ 自由式），是 L5→L6 的關鍵分水嶺。
   evidence:
   - certainty: 🟢
-    text: Gonjo 2021
-    source: Gonjo 2021
+    text: 四種強度（最大速度的 83–100%）下，仰式的肩滾轉、髖滾轉與全身滾轉幅度維持，自由式則全面縮小；受試為十名男性競技泳者。（2026-09-06 兩處更正：① 刪掉「划距穩定」——同一份研究裡仰式的划距是隨強度下降的，2.59 → 2.07 m/cycle，原文直接反對這句；② 「精英」改「競技」，原文寫的是 competitive 不是 elite。）
+    source: Gonjo et al. 2021
     source_ids:
-    - src.gonjo-2021-a
+    - src.gonjo-2021-body-roll
 - id: back.L5.start-turn
   stroke: back
   level: L5
@@ -624,11 +615,11 @@ indicators:
   stroke: breast
   level: L6
   aspect: 技術穩定性
-  indicator: 精英特徵：划距穩定；疲勞後 IVV（週期內速度波動）差距極小
+  indicator: 100 m 全程游進段速度不掉；疲勞後 IVV（週期內速度波動）差距極小
   framework_state: 感知自動化完成
   evidence:
   - certainty: 🟢
-    text: 划距穩定是精英特徵
+    text: 100 m 蛙式中，精英的游進段平均速度在四趟全部快於次精英（差 7–11%），滑行段在第 2、3 趟快約 13%，pull-out 段沒有差異。（2026-09-06 更正：原本寫「划距穩定是精英特徵」，但這篇量的是分段速度，沒有量划距；能支持的是「後段游進速度維持」不是「划距維持」。）
     source: Gonjo & Olstad 2023
     source_ids:
     - src.gonjo-2023

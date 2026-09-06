@@ -666,14 +666,24 @@ demands:
   action_ids: []
   muscle_roles: []
   measurement_conditions:
-  - source_id: src.gonjo-2021-body-roll
+  - source_id: src.mccabe-2011-sprint-distance-kinematics
     quantity: 肩線滾轉角度峰值出現的相位位置；肩線是左右肩關節中心連線在橫斷面的投影角
-    value: 峰值落在入水期到接續拉手期的交界（原文為時點定位，非角度門檻）
-    conditions: '10 名男性泳者，四種游泳強度，19 個體表標記，四台水下與兩台水上攝影機重建；量的是體表肩線的投影角，不是脊椎分節旋轉。
+    value: 衝刺自由式的最大肩滾轉峰值落在入水期轉入接續拉手期的交界（時點定位，非角度門檻）
+    conditions: '7 名短距離與 8 名長距離自由式專項選手，各四趟 25 m 衝刺，六台同步攝影機、6.75 立方公尺標定空間三維重建；只有衝刺配速一個條件。
 
       '
     endpoint: roll-timing
-    extrapolation_boundary: '只定位峰值的時點，不支持把峰值寫成整段入水期的狀態，不支持任何滾轉幅度目標或角度門檻，也不得換寫成脊椎或骨盆的分節旋轉。
+    extrapolation_boundary: '只定位峰值的時點，不支持把峰值寫成整段入水期的狀態，不支持任何滾轉幅度目標或角度門檻，也不得換寫成脊椎或骨盆的分節旋轉；只涵蓋衝刺配速的自由式，不涵蓋仰式。（2026-09-06 改指：本行原本掛 Gonjo 等人 2021，但那句「峰值落在入水期到拉手期的交界」在該文是**討論段引用他人**，不是它自己的量測；原始出處是本筆。）
+
+      '
+  - source_id: src.gonjo-2021-body-roll
+    quantity: 肩線滾轉峰值時點是否隨游泳強度改變
+    value: 自由式在強度上升時把全身滾轉與髖滾轉的峰值往週期前段移，仰式的時點不變
+    conditions: '10 名男性泳者，兩種泳式 × 四種強度（最大速度的 83–100%），19 個體表標記，四台水下與兩台水上攝影機重建；量的是體表肩線的投影角，不是脊椎分節旋轉。
+
+      '
+    endpoint: roll-timing
+    extrapolation_boundary: '本筆只支持「峰值時點會不會隨強度移動」，不支持把峰值定位到某個具體相位交界；作者自己寫明目前沒有直接證據支持滾轉幅度與入水期時長之間的關係。
 
       '
   name_zh: 自由式入水期的肩線滾轉峰值時點
@@ -764,7 +774,6 @@ demands:
   evidence_profile: swimming-kinematics
   source_ids:
   - src.maglischo-2003-swimming-fastest
-  - src.gonjo-2020-c
   stroke: back
   phase_model: descriptive
   phase: pull
