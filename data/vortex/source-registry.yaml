@@ -250,7 +250,11 @@ sources:
     - Holloszy JO
     year: 1984
     container: Journal of Applied Physiology
+    identifier:
+      pmid: '6511559'
+      doi: 10.1152/jappl.1984.57.6.1857
     retrieved_on: '2026-09-05'
+    link: https://doi.org/10.1152/jappl.1984.57.6.1857
   src.mujika-padilla-2000-detraining-part1:
     id: src.mujika-padilla-2000-detraining-part1
     display: 'Mujika, I., & Padilla, S. (2000). Detraining: loss of training-induced physiological and performance adaptations. Part I: Short term insufficient training stimulus. Sports Medicine, 30(2), 79-87.'
@@ -262,7 +266,11 @@ sources:
     - Padilla S
     year: 2000
     container: Sports Medicine
+    identifier:
+      pmid: '10966148'
+      doi: 10.2165/00007256-200030020-00002
     retrieved_on: '2026-09-05'
+    link: https://doi.org/10.2165/00007256-200030020-00002
   src.mujika-padilla-2000-detraining-part2:
     id: src.mujika-padilla-2000-detraining-part2
     display: 'Mujika, I., & Padilla, S. (2000). Detraining: loss of training-induced physiological and performance adaptations. Part II: Long term insufficient training stimulus. Sports Medicine, 30(3), 145-154.'
@@ -274,7 +282,11 @@ sources:
     - Padilla S
     year: 2000
     container: Sports Medicine
+    identifier:
+      pmid: '10999420'
+      doi: 10.2165/00007256-200030030-00001
     retrieved_on: '2026-09-05'
+    link: https://doi.org/10.2165/00007256-200030030-00001
   src.izquierdo-2007-detraining-tapering:
     id: src.izquierdo-2007-detraining-tapering
     display: Izquierdo, M., Ibañez, J., González-Badillo, J. J., Ratamess, N. A., Kraemer, W. J., Häkkinen, K., Bonnabau, H., Granados, C., French, D. N., & Gorostiaga, E. M. (2007). Detraining and tapering effects on hormonal responses and strength performance. Journal of Strength and Conditioning Research, 21(3), 768-775.
@@ -294,7 +306,11 @@ sources:
     - Gorostiaga EM
     year: 2007
     container: Journal of Strength and Conditioning Research
+    identifier:
+      pmid: '17685721'
+      doi: 10.1519/R-21136.1
     retrieved_on: '2026-09-05'
+    link: https://doi.org/10.1519/R-21136.1
   src.mujika-padilla-2003-tapering-strategies:
     id: src.mujika-padilla-2003-tapering-strategies
     display: Mujika, I., & Padilla, S. (2003). Scientific bases for precompetition tapering strategies. Medicine & Science in Sports & Exercise, 35(7), 1182-1187.
@@ -306,7 +322,11 @@ sources:
     - Padilla S
     year: 2003
     container: Medicine & Science in Sports & Exercise
+    identifier:
+      pmid: '12840640'
+      doi: 10.1249/01.MSS.0000074448.73931.11
     retrieved_on: '2026-09-05'
+    link: https://doi.org/10.1249/01.MSS.0000074448.73931.11
   src.bosquet-2007-tapering-meta-analysis:
     id: src.bosquet-2007-tapering-meta-analysis
     display: 'Bosquet, L., Montpetit, J., Arvisais, D., & Mujika, I. (2007). Effects of tapering on performance: a meta-analysis. Medicine & Science in Sports & Exercise, 39(8), 1358-1365.'
@@ -320,7 +340,11 @@ sources:
     - Mujika I
     year: 2007
     container: Medicine & Science in Sports & Exercise
+    identifier:
+      pmid: '17762369'
+      doi: 10.1249/mss.0b013e31806010e0
     retrieved_on: '2026-09-05'
+    link: https://doi.org/10.1249/mss.0b013e31806010e0
   src.morouco-2015:
     id: src.morouco-2015
     display: Morouço et al. 2015, fully tethered front crawl
@@ -864,8 +888,8 @@ sources:
     id: src.coach-andrew-sheaff-2022
     display: Coach Andrew Sheaff 2022
     type: other
-    verification_status: unverified
-    year: 2022
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.coach-jozsef-nagy-swimswam-the-breaststroke:
     id: src.coach-jozsef-nagy-swimswam-the-breaststroke
     display: Coach Jozsef Nagy / SwimSwam, The Breaststroke Turn
@@ -901,13 +925,18 @@ sources:
     retrieved_on: '2026-09-06'
   src.cossor-2001:
     id: src.cossor-2001
-    display: Cossor & Mason 2001
-    type: other
-    verification_status: unverified
+    display: 'Cossor, J. M., & Mason, B. R. (2001). Swim start performances at the Sydney 2000 Olympic Games. In J. R. Blackwell & R. H. Sanders (Eds.), Proceedings of Swim Sessions, XIX International Symposium on Biomechanics in Sports (pp. 70-74). San Francisco: University of San Francisco.'
+    type: conference_paper
+    verification_status: verified
+    title: Swim start performances at the Sydney 2000 Olympic Games
     authors:
-    - Cossor
-    - Mason
+    - J. M. Cossor
+    - B. R. Mason
     year: 2001
+    identifier:
+      url: https://ojs.ub.uni-konstanz.de/cpa/article/view/3870
+    retrieved_on: '2026-09-06'
+    link: https://ojs.ub.uni-konstanz.de/cpa/article/view/3870
   src.counsilman-fist-sculling:
     id: src.counsilman-fist-sculling
     display: Counsilman 捕水訓練（fist sculling 為前臂感知標準練習）
@@ -1287,7 +1316,8 @@ sources:
     id: src.how-to-use-backstroke-flags-in-swimming-u-s
     display: How to Use Backstroke Flags in Swimming, U.S. Masters Swimming
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.hvid-2024:
     id: src.hvid-2024
     display: Hvid et al. 2024, Sports, PMC11125574
@@ -5617,28 +5647,29 @@ sources:
     link: https://doi.org/10.1016/j.bone.2013.05.015
   src.ward-2018:
     id: src.ward-2018
-    display: Ward 2018（碩士論文，University of Hawaii at Manoa；亦見 Journal of Swimming Research Vol. 26）
-    type: other
-    verification_status: unverified
+    display: Ward, S. M. (2018). Kinematic analysis of peak velocities in the breaststroke as a function of the timing of the kick [Master of Science thesis, University of Hawaii at Manoa].
+    type: thesis
+    verification_status: verified
+    title: Kinematic Analysis of Peak Velocities in the Breaststroke as a Function of the Timing of the Kick
     authors:
-    - Ward
+    - Susan M. Ward
     year: 2018
+    identifier:
+      url: https://scholarspace.manoa.hawaii.edu/bitstream/10125/62185/1/2018-05-ms-ward.pdf
+    retrieved_on: '2026-09-06'
+    link: https://scholarspace.manoa.hawaii.edu/bitstream/10125/62185/1/2018-05-ms-ward.pdf
   src.ward-2018-b:
     id: src.ward-2018-b
     display: Ward 2018
     type: other
-    verification_status: unverified
-    authors:
-    - Ward
-    year: 2018
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.ward-2018-c:
     id: src.ward-2018-c
     display: Ward 2018；Peaty
     type: other
-    verification_status: unverified
-    authors:
-    - Ward
-    year: 2018
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.waterford-crystal-swimming-club:
     id: src.waterford-crystal-swimming-club
     display: Waterford Crystal Swimming Club
@@ -8974,19 +9005,32 @@ sources:
     display: 'Aiello, F., Gallo Afflitto, G., Ceccarelli, F., Turco, M. V., et al. (2025). Perspectives on the Incidence of Acanthamoeba Keratitis: A Systematic Review and Meta-Analysis. Ophthalmology, 132(2), 206-218.'
     type: journal_article
     verification_status: verified
+    identifier:
+      pmid: '39127408'
+      doi: 10.1016/j.ophtha.2024.08.003
     retrieved_on: '2026-09-05'
+    link: https://doi.org/10.1016/j.ophtha.2024.08.003
   src.kitamura-2020-dolphin-kick-lumbar-extension:
     id: src.kitamura-2020-dolphin-kick-lumbar-extension
     display: Kitamura, G., Tateuchi, H., & Ichihashi, N. (2020). Greater Lumbar Extension During Dolphin Kick and Psoas Major Tightness in Swimmers With Low Back Pain. Journal of Sport Rehabilitation, 29(6), 716-722.
     type: journal_article
     verification_status: verified
+    identifier:
+      pmid: '31141446'
+      doi: 10.1123/jsr.2018-0262
     retrieved_on: '2026-09-05'
+    link: https://doi.org/10.1123/jsr.2018-0262
   src.nicol-2022-breaststroke-systematic-review:
     id: src.nicol-2022-breaststroke-systematic-review
     display: 'Nicol, E., Pearson, S., Saxby, D., Minahan, C., & Tor, E. (2022). Stroke Kinematics, Temporal Patterns, Neuromuscular Activity, Pacing and Kinetics in Elite Breaststroke Swimming: A Systematic Review. Sports Medicine - Open, 8(1), 75.'
     type: review
     verification_status: verified
+    identifier:
+      pmid: '35674850'
+      pmcid: PMC9177912
+      doi: 10.1186/s40798-022-00467-2
     retrieved_on: '2026-09-05'
+    link: https://doi.org/10.1186/s40798-022-00467-2
   src.maglischo-2003-swimming-fastest:
     id: src.maglischo-2003-swimming-fastest
     display: 'Maglischo, E. W. (2003). Swimming Fastest. Champaign, IL: Human Kinetics.'
@@ -9262,3 +9306,35 @@ sources:
       url: https://www.usms.org/fitness-and-training/articles-and-videos/articles/backstroke-pointers
     retrieved_on: '2026-09-06'
     link: https://www.usms.org/fitness-and-training/articles-and-videos/articles/backstroke-pointers
+  src.slawson-2013-osb11-start-categorisation:
+    id: src.slawson-2013-osb11-start-categorisation
+    display: Slawson, S. E., Conway, P. P., Cossor, J., Chakravorti, N., & West, A. A. (2013). The categorisation of swimming start performance with reference to force generation on the main block and footrest components of the Omega OSB11 start blocks. Journal of Sports Sciences, 31(5), 468-478.
+    type: journal_article
+    verification_status: verified
+    title: The categorisation of swimming start performance with reference to force generation on the main block and footrest components of the Omega OSB11 start blocks
+    authors:
+    - S. E. Slawson
+    - P. P. Conway
+    - J. Cossor
+    - N. Chakravorti
+    - A. A. West
+    year: 2013
+    container: Journal of Sports Sciences
+    identifier:
+      pmid: '23131017'
+      doi: 10.1080/02640414.2012.736631
+    retrieved_on: '2026-09-06'
+    link: https://doi.org/10.1080/02640414.2012.736631
+  src.tor-2015-underwater-phase-swimming-start:
+    id: src.tor-2015-underwater-phase-swimming-start
+    display: Tor, E. (2015). Factors affecting the underwater phase of the swimming start [Doctor of Philosophy thesis, Victoria University].
+    type: thesis
+    verification_status: verified
+    title: Factors affecting the underwater phase of the swimming start
+    authors:
+    - Elaine Tor
+    year: 2015
+    identifier:
+      url: https://vuir.vu.edu.au/34057/1/TOR%20Elaine%20-%20thesis_nosignatures.pdf
+    retrieved_on: '2026-09-06'
+    link: https://vuir.vu.edu.au/34057/1/TOR%20Elaine%20-%20thesis_nosignatures.pdf

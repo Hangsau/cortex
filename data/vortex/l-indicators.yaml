@@ -590,11 +590,6 @@ indicators:
     source: Colman 1998
     source_ids:
     - src.colman-1998-a
-  - certainty: 🟠
-    text: Ward 2018 研究
-    source: Ward 2018
-    source_ids:
-    - src.ward-2018-b
 - id: breast.L5.late-kick
   stroke: breast
   level: L5
@@ -602,11 +597,11 @@ indicators:
   indicator: insweep 啟動時才踢腿（比傳統更晚）；速度谷值明顯縮小；%VDO 降低
   framework_state: 感知自動化過渡
   evidence:
-  - certainty: 🟠
-    text: Ward 2018 研究；Peaty 技術
-    source: Ward 2018；Peaty
+  - certainty: 🟢
+    text: 踢腿時機越晚，週期內的髖部速度下降百分比越小（傳統 91.2±4.9、晚踢 86.8±5.0、延遲晚踢 82.5±5.2，兩兩比較 p=0.02、0.01、0.03），速度回復百分比越高（91.1±11.8、96.3±11.6、97.3±10.2）。使用邊界：n=9 大學校隊、單次施測、量的是髖部速度起伏而非游速；且趨勢到「延遲晚踢」仍在改善，所以「多晚才是最好」沒有已知答案，這一級的指標是方向不是定點。 Adam Peaty 的歸屬有原文根據——該論文前言即以他在 2016 奧運以更晚的踢腿時機破世界紀錄為研究動機。
+    source: Ward, S. M. (2018). 碩士論文，University of Hawaii at Manoa
     source_ids:
-    - src.ward-2018-c
+    - src.ward-2018
 - id: breast.L5.undulation-stability
   stroke: breast
   level: L5

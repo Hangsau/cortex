@@ -1467,7 +1467,7 @@ points:
     source_ids:
     - src.nicol-2022-breaststroke-systematic-review
     - src.ward-2018
-    text: 傳統時序為外划時收腿、insweep 時踢腿；Peaty 的 late kick 在 insweep 啟動時才踢腿（比傳統更晚），降低速度谷值，縮小速度波動範圍；核心原則是讓兩個推進峰值（insweep + 腿踢）盡量接近但不重疊——重疊時兩個推進力互相干擾。
+    text: 傳統時序為外划時收腿、insweep 時踢腿；Peaty 的 late kick 在 insweep 啟動時才踢腿（比傳統更晚），週期內的速度谷值較淺、速度回復較完整。兩個推進峰值（手的 insweep 與腿踢）之間該隔多遠，目前文獻沒有一致答案——見下方證據列的爭議說明，不要把「盡量接近但不重疊」當成已定論的原則。
   evidence:
   - certainty: 🟢
     text: arm-leg coordination 時序與游速的相關性在所有技術指標中最高
@@ -1475,11 +1475,11 @@ points:
     source_ids:
     - src.nicol-2022-breaststroke-systematic-review
   - certainty: 🟢
-    text: late kick 有更小的速度下降百分比（%VDO）、更高的速度恢復百分比（%VR）
-    source: Ward 2018（碩士論文，University of Hawaii at Manoa；亦見 Journal of Swimming Research Vol. 26）
+    text: 踢腿越晚，週期內的髖部速度掉得越少、回復得越完整。三種時機（傳統 / 晚踢 / 更晚的延遲晚踢）的速度下降百分比 %VDO 依序為 91.2±4.9、86.8±5.0、82.5±5.2（兩兩比較 p=0.02、0.01、0.03），速度回復百分比 %VR 依序為 91.1±11.8、96.3±11.6、97.3±10.2（前兩組比較 p=0.02、0.01；晚踢與延遲晚踢之間 p=0.39 不顯著）。手產生的髖部峰值速度與腿產生的髖部峰值速度在三組間都沒有顯著差異。使用邊界三條：① 本研究測的是週期內的髖部速度起伏，沒有量測游速或成績，「晚踢比較快」是推論不是量測結果； ② n=9、單次施測、受試者是被口頭提示改變時機，不是慣用晚踢者，不能外推成長期訓練效果； ③ 越晚越好的趨勢到「延遲晚踢」（踢腿推遲到划臂回復早期，兩個推進峰值反而分得更開）仍持續，所以本庫的「兩個峰值盡量接近」說法沒有得到這份研究支持；而 Nicol 2022 的系統性回顧則報告推進重疊型的協調模式與較低的週期內速度變異相關、且距離越短越常見。兩邊量的不是同一件事（髖部速度起伏 vs 週期內速度變異），也不是同一個時間間隔定義，目前無法合併成單一原則。
+    source: Ward, S. M. (2018). 碩士論文，University of Hawaii at Manoa
     source_ids:
     - src.ward-2018
-  practical_implication: 踢腿時機是速度波動管理的關鍵變數；晚踢策略有文獻支持，但需個人化調整。
+  practical_implication: 踢腿時機是速度波動管理的關鍵變數，晚踢方向有文獻支持；但「該多晚」沒有已知最佳點，必須用個人計時測試決定，不能套用固定的時序口令。
 - id: breast.tech.9
   stroke: breast
   category: kick
@@ -1982,12 +1982,6 @@ points:
     certainty: 🟠
     observation_basis: 觀察者是美國泳隊教練 Andrew Sheaff 的公開教學評論（2022），不是本專案的教練觀測，也不是文獻；族群是他所帶的競技蝶式選手。外推邊界：「幅度壓縮但能量傳遞不變」目前沒有對應的運動學量測支持——沒有查到把 50m 與 200m 蝶式的垂直位移、節段時序並列量化的研究，所以「連續體不是開關」是教學判讀，不能寫成已量測的事實。
     text: 50m 的「波動消失」是誤解——能量仍從胸向腳傳遞，只是垂直幅度壓縮，節律更快；波動策略是連續體，不是開關。
-  evidence:
-  - certainty: 🟠
-    text: 50m蝶式的技術不是波動消失，而是波動幅度壓縮後的緊湊版本
-    source: Coach Andrew Sheaff 2022
-    source_ids:
-    - src.coach-andrew-sheaff-2022
   practical_implication: 不同距離的技術差異在於波動幅度與節律調配，不應按距離切換為本質不同的技術。
 - id: fly.tech.6
   stroke: fly
@@ -3247,12 +3241,18 @@ points:
     source: Welcher, Hinrichs & George 2008
     source_ids:
     - src.welcher-2008-a
-  - certainty: 🟠
-    text: 雪梨奧運頂尖選手出發的水下階段佔整體起跑時間約 84%，不同起跳方式在精英層級結果不顯著。
-    source: Cossor & Mason 2001
+  - certainty: 🟢
+    text: 雪梨 2000 奧運決賽與準決賽選手的出發分析：決定出發快慢最顯著的變數，男女組都是水下距離與水下時間；水下距離與 15 公尺時間呈負相關——在規則允許內待在水下越久，到 15 公尺越快。出發本身佔全程比賽時間 0.8%–26.1%，距離越短佔比越高。 2026-09-06 更正：本列原寫「水下階段佔整體起跳時間約 84%，不同起跳方式在精英層級結果不顯著」，兩句都不是這篇的內容——84% 出自 Slawson 等人 2013（見下一列）；「不同起跳方式不顯著」未能在原文查得，已撤除，不要再據以宣稱精英層級無差異。
+    source: Cossor & Mason 2001（ISBS 會議論文，pp. 70–74）
     source_ids:
     - src.cossor-2001
-  practical_implication: 選手技術選擇應依個人計時測試決定；精英層級起跳方式差異不顯著，水下表現才是決定因素。
+  - certainty: 🟡
+    text: 出發的三個次階段（台上、飛行、水下）時間佔比約為 11%、5%、84%——水下是遠遠最長的一段。使用邊界：這組數字本庫是循 Tor 2015 博論第 73 頁對 Slawson 等人 2013 的歸屬取得，未能開啟 Slawson 原文逐字確認，屬二手歸屬。
+    source: Slawson et al. 2013（經 Tor 2015 博論 p.73 歸屬）
+    source_ids:
+    - src.slawson-2013-osb11-start-categorisation
+    - src.tor-2015-underwater-phase-swimming-start
+  practical_implication: 選手技術選擇應依個人計時測試決定。可靠的依據是「水下距離與水下時間」這兩個變數，不是「哪一種起跳姿勢比較好」——後者在本庫目前沒有可引的精英層級比較結果。
 - id: starts-turns.tech.2
   stroke: starts-turns
   category: stroke-cycle
@@ -3960,13 +3960,14 @@ points:
   summary: 不同測量指標（反應時間、入水速度、15m 總時間）對相同起跳技術的評估結論可能相反；精英 vs 非精英樣本差異與個體生物力學差異是主要混淆因素。
   mechanism:
     certainty: 🔵
-    text: 優化反應時間的技術選擇（如前重心）不一定最大化水平速度；水下表現佔整體起跳時間 84%，5m 速度比離台速度更能預測整體成績；跨指標結論不一致是文獻爭議的根本來源。
+    text: 優化反應時間的技術選擇（如前重心）不一定最大化水平速度；水下是三個次階段裡時間佔比最大的一段，5m 速度比離台速度更能預測整體成績；跨指標結論不一致是文獻爭議的根本來源。
   evidence:
-  - certainty: 🟠
-    text: 水下階段佔整體起跳時間約 84%。
-    source: Cossor & Mason 2001
+  - certainty: 🟡
+    text: 出發的三個次階段（台上、飛行、水下）時間佔比約為 11%、5%、84%——水下是遠遠最長的一段。使用邊界：這組數字本庫是循 Tor 2015 博論第 73 頁對 Slawson 等人 2013 的歸屬取得，未能開啟 Slawson 原文逐字確認，屬二手歸屬。 2026-09-06 更正：本列原歸給 Cossor & Mason 2001，那不是該文的數字，已改正。
+    source: Slawson et al. 2013（經 Tor 2015 博論 p.73 歸屬）
     source_ids:
-    - src.cossor-2001
+    - src.slawson-2013-osb11-start-categorisation
+    - src.tor-2015-underwater-phase-swimming-start
   practical_implication: 選手評估起跳技術時應以最終成績指標（15m 時間）為主，不以單一中間指標（如離台速度）判斷優劣。
 - id: starts-turns.tech.40
   stroke: starts-turns
