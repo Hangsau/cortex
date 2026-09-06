@@ -523,11 +523,17 @@ errors:
     certainty: 🔵
     text: 速度不是關鍵變項，真正的分界是「不崩速度」——在這個速度下技術不崩潰（疲勞時低、新鮮時高）。在不崩速度以下游 → 有效技術刺激；超過 → 強化崩潰下的動作模式。技術崩潰有兩種：能量系統崩潰 vs 神經肌肉協調崩潰，兩者訓練介入方向完全不同。長距離後段崩潰更可能是神經肌肉協調崩潰。
   evidence:
-  - certainty: 🟠
-    text: 特異性原則：慢速習得的神經動作模式不能自動遷移至比賽速度。USRPT（Dr. Brent Rushall, SDSU）主張以短距離段落在比賽配速練習，建立比賽速度下的正確神經模式。
-    source: Specificity of Practice；USRPT
+  - certainty: 🟡
+    text: Craig 與 Pendergast（1979）在四式都量到同一件事：提高游速靠的是提高划頻並降低每划距離，而且各式的換法不同（蝶式的加速幾乎全來自划頻，蛙式的每划距離掉得最多）。換句話說，慢游時的划水參數本來就不等於比賽速度下的划水參數。這是運動學證據——它撐得起「慢游練的東西和快游不是同一組參數」，撐不起「慢速習得的神經模式無法遷移」，後者是外推，沒有量測支持。
+    source: Craig, A. B., Jr., & Pendergast, D. R. (1979). Relationships of stroke rate, distance per stroke, and velocity in competitive swimming. Medicine and Science in Sports, 11(3), 278–283.
     source_ids:
-    - src.specificity-of-practice-usrpt
+    - src.craig-pendergast-1979-stroke-rate-distance-velocity
+  - certainty: 🟢
+    text: Rushall 的 USRPT 把上面這件事推到訓練設計上：既然技術隨游速而變，就該盡量在比賽配速下練習。那是他的主張與理由，不是已驗證的結論——Nugent 等（2019）的系統性回顧檢索 1347 篇、全文評估 15 篇後全數排除，因為沒有一篇的介入措施真的是 USRPT，結論是 USRPT 目前並未建立在同行評審文獻上。同一份回顧也指出 USRPT 反對分解式 drill 這一點同樣缺乏證據。本庫是 drill 密集的系統，引用它時不能只取對自己有利的那一半。
+    source: 'Rushall, B. S. (2016). USRPT defined (Version 1.2). Swimming Science Bulletin, 49；Nugent, F., Comyns, T., Kearney, P., & Warrington, G. (2019). Ultra-short race-pace training (USRPT) in swimming: Current perspectives. Open Access Journal of Sports Medicine, 10, 133–144.'
+    source_ids:
+    - src.rushall-2016-usrpt-defined-bulletin-49
+    - src.nugent-2019-usrpt-systematic-review
   cross_ref: 疲勞崩潰序列、水感的本質
   cross_ref_ids:
   - free.tech.24
@@ -1558,18 +1564,23 @@ errors:
   misconception: 傳統教學幾乎一律要求蝶式換氣時頭部往上抬，眼睛看正前方，讓嘴巴離水面夠高才算換氣正確。
   physical_reason:
     certainty: 🔵
-    text: 向上換氣（head up）會讓頸椎後仰、頸肌主動收縮，導致連動鏈在此環斷裂，髖部強制下沉，正面阻力大幅上升。法國研究者 CFD 模擬確認頭部位置改變會顯著改變泳者周圍的尾流結構。成人頭部至少7公斤，垂直向上的抬升動作需要用手臂或踢腿來大力抵消，非常耗能。
+    text: 向上換氣（head up）會讓頸椎後仰、頸肌主動收縮，導致連動鏈在此環斷裂，髖部強制下沉，正面阻力大幅上升。法國研究者 CFD 模擬確認頭部位置改變會顯著改變泳者周圍的尾流結構。把頭頸這一段質量垂直抬離水面，反作用力必須由手臂下壓或踢腿去抵消，那是純粹的能量支出，不產生任何前進。
   evidence:
   - certainty: 🟠
     text: 頭部過度上抬會讓臀部下沉、阻力增大，游泳者基本上是在往上游而非往前游。菲爾普斯的頭部在換氣與不換氣時幾乎完全沒有移動——他的中性頭位就是最好的示範。
     source: USMS Masters Teaching Article
     source_ids:
     - src.usms-masters-teaching-article
-  - certainty: 🟠
-    text: 傳統向前換氣要求頭部垂直向上，成人頭部至少7公斤，這個抬升動作需要用手臂或踢腿來大力抵消——非常耗能。
-    source: Brent Rushall, SDSU
+  - certainty: 🟡
+    text: 頭頸段的質量約占全身體重的 8.1%（Winter 的人體測量表 Table 4.1，頭與頸合併計算）， 70 公斤的成人約 5.7 公斤。這就是抬頭換氣時必須被抵消掉的那一塊。這是平均比例、用來估量級，不是個體實測值。
+    source: Winter, D. A. (2009). Biomechanics and Motor Control of Human Movement (4th ed.), Table 4.1. Wiley.
     source_ids:
-    - src.brent-rushall-sdsu
+    - src.winter-2009-biomechanics-anthropometric-table
+  - certainty: 🟡
+    text: Rushall（1996）以同一個機制反對傳統向前換氣：抬頭的反作用力必須由手臂或踢腿的向下分力抵消，非常耗能。機制成立，但他文中寫的「成人頭部至少 7 公斤」不要照抄——原文沒有附任何量測出處，而且高於人體測量表：7 公斤要體重 86 公斤以上的成人才成立，那還是頭頸合計。這篇是他自編自行發行的教練通訊，不是同行評審文獻。
+    source: Rushall, B. S. (1996). Breathing actions in butterfly swimming. Carlile Coaches' Forum, 2(6).
+    source_ids:
+    - src.rushall-1996-butterfly-breathing-actions
   cross_ref: 技術分析陸6.2 抬頭呼吸；陸6.3 完整呼吸時序；捌8 疲勞崩潰第三環
   cross_ref_ids:
   - fly.tech.17
@@ -1591,11 +1602,11 @@ errors:
     source: Lassen, M. (2018). Breathing Easy to the Side on Butterfly. U.S. Masters Swimming.
     source_ids:
     - src.usms-lassen-2018-butterfly-side-breathing
-  - certainty: 🟠
-    text: 側向換氣比傳統向前換氣更有效率：頭部幾乎不需要抬出水面，正面與波浪阻力大幅降低。
-    source: Brent Rushall, SDSU
+  - certainty: 🟡
+    text: Rushall（1996）主張側向換氣優於傳統向前換氣：在水線以下換氣讓頭部幾乎不必移動，省下手臂與踢腿的抵消成本，也降低正面與波浪阻力。要注意同一篇也寫側向換氣「未完全符合蝶式規則」而裁判予以容忍——那是 1996 年當時對對稱性規則的詮釋，不是現行規則（現行規則只規範雙臂同時出水與入水，見上方物理原因），不可拿 1996 年的描述當現況讀。
+    source: Rushall, B. S. (1996). Breathing actions in butterfly swimming. Carlile Coaches' Forum, 2(6).
     source_ids:
-    - src.brent-rushall-sdsu
+    - src.rushall-1996-butterfly-breathing-actions
   cross_ref: 呼吸方向、頭部雙重角色
   cross_ref_ids:
   - fly.tech.17
