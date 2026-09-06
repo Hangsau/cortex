@@ -645,14 +645,16 @@ sources:
     year: 2002
   src.bompa-buzzichelli-6th-ed-issurin-2008-2010-2:
     id: src.bompa-buzzichelli-6th-ed-issurin-2008-2010-2
-    display: 作者綜合：Bompa & Buzzichelli 6th ed.；Issurin 2008/2010/2016；Seiler 2010；Olbrecht 2000；Sweetenham & Atkinson 2003；Hellard 2019
+    display: 【複合來源鍵，已拆解】已拆：改掛 6 個既有／新增的獨立來源
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.bompa-ch5-ch11-mcardle-exercise-physiology-s:
     id: src.bompa-ch5-ch11-mcardle-exercise-physiology-s
-    display: 公認運動生理學（磷酸原/糖酵解/氧化三系統時程為教科書級共識，如 Bompa Ch5/Ch11、McArdle Exercise Physiology）；游泳項目對映見 swim_energy_by_distance 來源（Toussaint & Hollander 1994 / Rodríguez & Mader 2011）
+    display: 【複合來源鍵，已拆解】已拆為 src.mcardle-katch-exercise-physiology-textbook 等
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.born-2022-im:
     id: src.born-2022-im
     display: 'Born, Romann & Stöggl 2022, Start Fast, Swim Faster, Turn Fastest: Section Analyses and Normative Data for Individual Medley, PMC9157519'
@@ -1337,15 +1339,10 @@ sources:
     link: https://doi.org/10.1136/bjsports-2023-106994
   src.issurin:
     id: src.issurin
-    display: Issurin 2008《Block Periodization》; Issurin 2008 (PMID 18212712); 2010 (DOI 10.2165/11319770); 2016 (PMID 26573916); 2019 (PMID 30411234); Breil 2019 meta (PMID 31802956)
+    display: 【複合來源鍵，已拆解】已拆為 src.issurin-2008-block-periodization-book 等 6 筆
     type: other
-    verification_status: unverified
-    authors:
-    - Issurin
-    identifier:
-      doi: 10.2165/11319770
-      pmid: '18212712'
-    link: https://doi.org/10.2165/11319770
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.jellyfish-envenomation-first-aid:
     id: src.jellyfish-envenomation-first-aid
     display: 【佔位字串，非真實文獻】原記為「Jellyfish envenomation first-aid 系統回顧（種屬特異, 待補具體出處）」
@@ -1881,12 +1878,10 @@ sources:
     year: 2012
   src.olbrecht-2000:
     id: src.olbrecht-2000
-    display: Olbrecht 2000《The Science of Winning》(書摘/訪談重建); Scientific Triathlon EP#198 訪談; TMR Coaching / lactate.com / INSCYD 二手摘要
+    display: 【複合來源鍵，已拆解】已拆為 src.olbrecht-2000-science-of-winning
     type: other
-    verification_status: unverified
-    authors:
-    - Olbrecht
-    year: 2000
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.osgood-schlatter-disease-statpearls-nbk44199:
     id: src.osgood-schlatter-disease-statpearls-nbk44199
     display: 'Smith JM. Osgood-Schlatter Disease. In: StatPearls. Treasure Island (FL): StatPearls Publishing. NCBI Bookshelf NBK441995（最後更新 2023-08-04）。'
@@ -4516,11 +4511,205 @@ sources:
     link: https://pmc.ncbi.nlm.nih.gov/articles/PMC3912323/
   src.selye:
     id: src.selye
-    display: Selye 1974, 1976; 整合進 Bompa 體系（多教練書共識）
+    display: 【複合來源鍵，已拆解】已拆為 src.selye-1974-stress-without-distress 等 4 筆
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
+  src.selye-1974-stress-without-distress:
+    id: src.selye-1974-stress-without-distress
+    display: 'Selye, H. (1974). Stress without Distress. Philadelphia: J. B. Lippincott.'
+    type: book
+    verification_status: verified
+    title: Stress without Distress
     authors:
-    - Selye
+    - Hans Selye
+    year: 1974
+    container: J. B. Lippincott
+    identifier:
+      isbn: 0397010265
+    retrieved_on: '2026-09-06'
+  src.selye-1976-stress-in-health-and-disease:
+    id: src.selye-1976-stress-in-health-and-disease
+    display: 'Selye, H. (1976). Stress in Health and Disease. Boston: Butterworths.'
+    type: book
+    verification_status: verified
+    title: Stress in Health and Disease
+    authors:
+    - Hans Selye
+    year: 1976
+    container: Butterworths
+    identifier:
+      isbn: 0407985107
+    retrieved_on: '2026-09-06'
+  src.buckner-2017-gas-resistance-exercise:
+    id: src.buckner-2017-gas-resistance-exercise
+    display: 'Buckner, S. L., Mouser, J. G., Dankel, S. J., Jessee, M. B., Mattocks, K. T., & Loenneke, J. P. (2017). The General Adaptation Syndrome: Potential misapplications to resistance exercise. Journal of Science and Medicine in Sport, 20(11), 1015–1017.'
+    type: journal-article
+    verification_status: verified
+    title: 'The General Adaptation Syndrome: Potential misapplications to resistance exercise'
+    authors:
+    - Samuel L. Buckner
+    - J. Grant Mouser
+    - Scott J. Dankel
+    - Matthew B. Jessee
+    - Kevin T. Mattocks
+    - Jeremy P. Loenneke
+    year: 2017
+    container: Journal of Science and Medicine in Sport
+    identifier:
+      pmid: '28377133'
+      doi: 10.1016/j.jsams.2017.02.012
+      url: https://pubmed.ncbi.nlm.nih.gov/28377133/
+    retrieved_on: '2026-09-06'
+    link: https://pubmed.ncbi.nlm.nih.gov/28377133/
+  src.kiely-2012-periodization-paradigms:
+    id: src.kiely-2012-periodization-paradigms
+    display: 'Kiely, J. (2012). Periodization paradigms in the 21st century: evidence-led or tradition-driven? International Journal of Sports Physiology and Performance, 7(3), 242–250.'
+    type: journal-article
+    verification_status: verified
+    title: 'Periodization paradigms in the 21st century: evidence-led or tradition-driven?'
+    authors:
+    - John Kiely
+    year: 2012
+    container: International Journal of Sports Physiology and Performance
+    identifier:
+      pmid: '22356774'
+      doi: 10.1123/ijspp.7.3.242
+      url: https://pubmed.ncbi.nlm.nih.gov/22356774/
+    retrieved_on: '2026-09-06'
+    link: https://pubmed.ncbi.nlm.nih.gov/22356774/
+  src.issurin-2008-block-periodization-book:
+    id: src.issurin-2008-block-periodization-book
+    display: 'Issurin, V. (2008). Block Periodization: Breakthrough in Sport Training. Michigan: Ultimate Athlete Concepts.'
+    type: book
+    verification_status: verified
+    title: 'Block Periodization: Breakthrough in Sport Training'
+    authors:
+    - Vladimir Issurin
+    year: 2008
+    container: Ultimate Athlete Concepts
+    identifier:
+      isbn: '9780981718002'
+    retrieved_on: '2026-09-06'
+  src.issurin-2008-block-vs-traditional-review:
+    id: src.issurin-2008-block-vs-traditional-review
+    display: 'Issurin, V. (2008). Block periodization versus traditional training theory: a review. Journal of Sports Medicine and Physical Fitness, 48(1), 65–75.'
+    type: journal-article
+    verification_status: verified
+    title: 'Block periodization versus traditional training theory: a review'
+    authors:
+    - Vladimir Issurin
+    year: 2008
+    container: Journal of Sports Medicine and Physical Fitness
+    identifier:
+      pmid: '18212712'
+      url: https://pubmed.ncbi.nlm.nih.gov/18212712/
+    retrieved_on: '2026-09-06'
+    link: https://pubmed.ncbi.nlm.nih.gov/18212712/
+  src.issurin-2010-new-horizons-periodization:
+    id: src.issurin-2010-new-horizons-periodization
+    display: Issurin, V. B. (2010). New horizons for the methodology and physiology of training periodization. Sports Medicine, 40(3), 189–206.
+    type: journal-article
+    verification_status: verified
+    title: New horizons for the methodology and physiology of training periodization
+    authors:
+    - Vladimir B. Issurin
+    year: 2010
+    container: Sports Medicine
+    identifier:
+      pmid: '20199119'
+      doi: 10.2165/11319770-000000000-00000
+      url: https://pubmed.ncbi.nlm.nih.gov/20199119/
+    retrieved_on: '2026-09-06'
+    link: https://pubmed.ncbi.nlm.nih.gov/20199119/
+  src.issurin-2016-block-benefits-limitations:
+    id: src.issurin-2016-block-benefits-limitations
+    display: 'Issurin, V. B. (2016). Benefits and Limitations of Block Periodized Training Approaches to Athletes'' Preparation: A Review. Sports Medicine, 46(3), 329–338.'
+    type: journal-article
+    verification_status: verified
+    title: 'Benefits and Limitations of Block Periodized Training Approaches to Athletes'' Preparation: A Review'
+    authors:
+    - Vladimir B. Issurin
+    year: 2016
+    container: Sports Medicine
+    identifier:
+      pmid: '26573916'
+      doi: 10.1007/s40279-015-0425-5
+      url: https://pubmed.ncbi.nlm.nih.gov/26573916/
+    retrieved_on: '2026-09-06'
+    link: https://pubmed.ncbi.nlm.nih.gov/26573916/
+  src.issurin-2019-block-biological-background:
+    id: src.issurin-2019-block-biological-background
+    display: 'Issurin, V. B. (2019). Biological Background of Block Periodized Endurance Training: A Review. Sports Medicine, 49(1), 31–39.'
+    type: journal-article
+    verification_status: verified
+    title: 'Biological Background of Block Periodized Endurance Training: A Review'
+    authors:
+    - Vladimir B. Issurin
+    year: 2019
+    container: Sports Medicine
+    identifier:
+      pmid: '30411234'
+      doi: 10.1007/s40279-018-1019-9
+      url: https://pubmed.ncbi.nlm.nih.gov/30411234/
+    retrieved_on: '2026-09-06'
+    link: https://pubmed.ncbi.nlm.nih.gov/30411234/
+  src.molmen-2019-block-endurance-meta:
+    id: src.molmen-2019-block-endurance-meta
+    display: Mølmen, K. S., Øfsteng, S. J., & Rønnestad, B. R. (2019). Block periodization of endurance training – a systematic review and meta-analysis. Open Access Journal of Sports Medicine, 10, 145–160.
+    type: journal-article
+    verification_status: verified
+    title: Block periodization of endurance training - a systematic review and meta-analysis
+    authors:
+    - Knut Sindre Mølmen
+    - Sjur Johansen Øfsteng
+    - Bent R. Rønnestad
+    year: 2019
+    container: Open Access Journal of Sports Medicine
+    identifier:
+      pmid: '31802956'
+      pmcid: PMC6802561
+      doi: 10.2147/OAJSM.S180408
+      url: https://pubmed.ncbi.nlm.nih.gov/31802956/
+    retrieved_on: '2026-09-06'
+    link: https://pubmed.ncbi.nlm.nih.gov/31802956/
+  src.olbrecht-2000-science-of-winning:
+    id: src.olbrecht-2000-science-of-winning
+    display: 'Olbrecht, J. (2000). The Science of Winning: Planning, Periodizing and Optimizing Swim Training. Luton: Swimshop.'
+    type: book
+    verification_status: unverified
+    title: 'The Science of Winning: Planning, Periodizing and Optimizing Swim Training'
+    authors:
+    - Jan Olbrecht
+    year: 2000
+    container: Swimshop
+    retrieved_on: '2026-09-06'
+  src.mcardle-katch-exercise-physiology-textbook:
+    id: src.mcardle-katch-exercise-physiology-textbook
+    display: 'McArdle, W. D., Katch, F. I., & Katch, V. L. Exercise Physiology: Nutrition, Energy, and Human Performance. Philadelphia: Lippincott Williams & Wilkins.'
+    type: book
+    verification_status: unverified
+    title: 'Exercise Physiology: Nutrition, Energy, and Human Performance'
+    authors:
+    - William D. McArdle
+    - Frank I. Katch
+    - Victor L. Katch
+    container: Lippincott Williams & Wilkins
+    retrieved_on: '2026-09-06'
+  src.sweetenham-atkinson-2003-championship-swim-training:
+    id: src.sweetenham-atkinson-2003-championship-swim-training
+    display: 'Sweetenham, B., & Atkinson, J. (2003). Championship Swim Training. Champaign, IL: Human Kinetics.'
+    type: book
+    verification_status: verified
+    title: Championship Swim Training
+    authors:
+    - Bill Sweetenham
+    - John Atkinson
+    year: 2003
+    container: Human Kinetics
+    identifier:
+      isbn: '0736045430'
+    retrieved_on: '2026-09-06'
   src.sever-s-disease-calcaneal-apophysitis-statpe:
     id: src.sever-s-disease-calcaneal-apophysitis-statpe
     display: 'Smith JM. Sever Disease (Calcaneal Apophysitis). In: StatPearls. Treasure Island (FL): StatPearls Publishing. NCBI Bookshelf NBK441928（最後更新 2024-01-11）。'

@@ -262,10 +262,13 @@ microcycle:
     - periodization.zones.table_7_1
 general_adaptation_syndrome:
   id: periodization.structure.gas
-  cert: 🟢
-  source: Selye 1974, 1976; 整合進 Bompa 體系（多教練書共識）
+  cert: 🟡
+  source: Selye (1974) Stress without Distress；Selye (1976) Stress in Health and Disease；批判見 Buckner et al. (2017)、Kiely (2012)
   source_ids:
-  - src.selye
+  - src.selye-1974-stress-without-distress
+  - src.selye-1976-stress-in-health-and-disease
+  - src.buckner-2017-gas-resistance-exercise
+  - src.kiely-2012-periodization-paradigms
   three_stages:
   - key: alarm
     name_zh: 警覺期
@@ -279,9 +282,10 @@ general_adaptation_syndrome:
     name_zh: 耗竭期
     duration_zh: 超出時不可逆
     description_zh: 刺激過大或持續太久，身體無法繼續適應或修復，表現下降、過度訓練症候群、傷病風險暴增；這是過度訓練的生理本質
-  why_periodization_works_zh: 🔵 週期化的核心邏輯：刻意把每段訓練留在「適應期」收完成果就減量恢復，避免進入耗竭期。3:1 macrocycle 結構（3 週堆負荷 + 1 週減量）就是 GAS 三階段的時間骨架——前 3 週走完警覺→適應，第 4 週減量讓身體完成適應、避免耗竭。Unloading 微週期同理。
-  swim_application_zh: 🔵 游泳教練判斷選手是否「練過頭」時的生物學參考——出現持續性表現下降、睡眠品質崩、晨脈異常、技術細節失守，是耗竭期的早期信號；不是「再撐一下」的時機，而是立刻 unloading 的時機。
-  plain_zh: 為什麼週期化要有節奏不能一路往上堆？因為身體對訓練壓力有三個階段：① 警覺期（剛開始幾天，覺得難）、② 適應期（幾週後身體變強）、③ 耗竭期（再撐就崩）。週期化的目標就是每段訓練都停在適應期收成果就減量，不要踩進耗竭期。3 練 1 休的 macrocycle 結構就是這個原理。
+  why_periodization_works_zh: 🔵 教練書用 GAS 講週期化的方式：刻意把每段訓練留在「適應期」收完成果就減量恢復，避免進入耗竭期。3:1 macrocycle 結構（3 週堆負荷 + 1 週減量）被說成是 GAS 三階段的時間骨架——前 3 週走完警覺→適應，第 4 週減量讓身體完成適應。這是一個好記的類比，**但它是類比不是證據**，見下方爭議欄。
+  controversy_zh: 🟡 這個外推在文獻上受到直接挑戰，用它教學時必須知道邊界。Buckner 等（2017）回頭讀 Selye 的原始著作與「把 GAS 引進阻力訓練」的那幾篇奠基論文，指出 Selye 研究的是**毒性劑量的藥理與物理刺激下的全身反應**，受試也不是在訓練的運動員；把三階段直接搬到訓練負荷上「看起來只是鬆散地借用概念」。Kiely（2012）則指出各家週期化模型表面上互不相同，底層卻共用一套歷史沿襲而來、如今已不再站得住的規劃假設，而訓練反應的個體差異極大，通用的規則式決策並不適合。**兩篇都不是在說週期化無效**——Kiely 明說他不主張全盤否定；他們說的是**週期化的有效性不能靠 GAS 來論證**。所以本節的定位是「這是教練界最常用的解釋框架，知道它怎麼被說、也知道它撐不住什麼」，不是「這是週期化的生物學依據」。
+  swim_application_zh: 🔵 這個框架真正站得住的用法是**當成警訊的檢查清單，不是當成排課的公式**：出現持續性表現下降、睡眠品質崩、晨脈異常、技術細節失守，是該減量的信號，不是「再撐一下」的時機。至於「幾週該減量」——那要看眼前這個人的反應，不是從三階段推出來的。
+  plain_zh: 為什麼週期化要有節奏、不能一路往上堆？教練書最常用的解釋是 Selye 的壓力三階段：① 警覺期（剛開始幾天，覺得難）、② 適應期（幾週後身體變強）、③ 耗竭期（再撐就崩），所以每段訓練停在適應期收成果就減量。這個說法好記、方向也對，但要知道兩件事：第一，Selye 當年研究的是把動物暴露在毒性刺激下的反應，不是運動訓練，把它直接套到課表上學界是有意見的；第二，「三週堆、一週減」這種固定節奏不是從這個理論推出來的，每個人的反應差很多。所以請把它當成「什麼時候該減量」的警訊清單——表現一直掉、睡不好、晨脈亂、技術散掉就該減——而不是一張可以照抄的時間表。
   links:
     development_stages:
     - t2t
@@ -364,9 +368,16 @@ swim_youth_ltad:
 schools_overview:
   id: periodization.structure.schools_overview
   cert: 🔵
-  source: 作者綜合：Bompa & Buzzichelli 6th ed.；Issurin 2008/2010/2016；Seiler 2010；Olbrecht 2000；Sweetenham & Atkinson 2003；Hellard 2019
+  source: 作者綜合：Bompa & Buzzichelli (2019) Periodization 6th ed.；Issurin (2008, 2010, 2016)；Seiler (2010)；Olbrecht (2000) The Science of Winning；Sweetenham & Atkinson (2003) Championship Swim Training；Hellard (2019)
   source_ids:
-  - src.bompa-buzzichelli-6th-ed-issurin-2008-2010-2
+  - src.bompa-buzzichelli-2019
+  - src.issurin-2008-block-periodization-book
+  - src.issurin-2010-new-horizons-periodization
+  - src.issurin-2016-block-benefits-limitations
+  - src.seiler
+  - src.olbrecht-2000-science-of-winning
+  - src.sweetenham-atkinson-2003-championship-swim-training
+  - src.hellard
   premise_zh: 週期化不是一套被證明的定論，而是幾套互相辯論的框架。它們問的問題不同、適用的對象不同——把任何一派當『標準答案』都是誤讀。
   schools:
   - key: traditional
@@ -426,9 +437,14 @@ schools_overview:
 school_block:
   id: periodization.structure.school_block
   cert: 🟡
-  source: Issurin 2008《Block Periodization》; Issurin 2008 (PMID 18212712); 2010 (DOI 10.2165/11319770); 2016 (PMID 26573916); 2019 (PMID 30411234); Breil 2019 meta (PMID 31802956)
+  source: Issurin (2008) Block Periodization；Issurin (2008, 2010, 2016, 2019) 期刊回顧；統合分析為 Mølmen, Øfsteng & Rønnestad (2019)
   source_ids:
-  - src.issurin
+  - src.issurin-2008-block-periodization-book
+  - src.issurin-2008-block-vs-traditional-review
+  - src.issurin-2010-new-horizons-periodization
+  - src.issurin-2016-block-benefits-limitations
+  - src.issurin-2019-block-biological-background
+  - src.molmen-2019-block-endurance-meta
   core_mechanism_zh: 板塊派的根本主張：高水準運動員無法在同一階段同時有效提升所有能力，因為許多訓練刺激彼此不相容（有氧 AMPK 路徑 vs 肌力 mTOR 路徑拮抗），會產生衝突反應。解法是『序列集中』——一次只把高度集中的負荷指向極少數相容能力，靠前一塊的殘留效應保住已得適應。
   residual_effects:
   - ability_zh: 有氧耐力
@@ -465,8 +481,8 @@ school_block:
     weeks: ≈1–2（🔴 待核）
   full_stage_weeks: 一個完整『累積→轉化→實現』序列構成一個訓練階段，典型 8–12 週；多階段疊加可靈活安排多峰
   critique_of_traditional_zh: 🟡 對傳統線性（Bompa/Matveyev）的三點批評（Issurin 2010）：(1) 長準備期→競賽期結構難產生現代賽季要求的多峰；(2) 長期混合訓練對已高度適應的菁英進步率遞減（刺激太分散）；(3) 不相容負荷同時練會互相干擾。核心張力：菁英能否從混合訓練持續受益——Bompa 說能（調比例），Issurin 說不能（要序列化高集中負荷）。
-  swim_link_zh: 🟠 游泳早期應用：蘇聯教練 Koshkin 為三屆奧運冠軍 Salnikov 設計 10 週板塊系統（速度技術／肌力／有氧／減量比賽序列）。🔴 此案例廣見於教學材料但一手出處待核。當代游泳文獻多採『傳統模型＋強度分布分析』，較少嚴格依循板塊架構，但『階段專注』概念已廣泛影響備賽設計（對照 Almeida 2022, PMC9536385，400IM 世界級個案採傳統三巨集週期）。
-  limitations_zh: 🟢 學界批評：(1) 殘留效應個體差異大，平均值±SD 難直接套用；(2) 證據基礎有限——Breil 2019 meta（PMID 31802956）證實板塊在 VO2max/最大功率有優越表現，但研究數量少、受試多為高水準耐力選手；(3) 累積/轉化/實現的邊界操作上不夠清晰，教練詮釋差異大。不適合初中級者（達超補償只需 2–3 課，不需長期集中負荷策略）。
+  swim_link_zh: 🟠 游泳早期應用：蘇聯教練 Koshkin 為三屆奧運冠軍 Salnikov 設計 10 週板塊系統（速度技術／肌力／有氧／減量比賽序列）。🔴 此案例廣見於教學材料但一手出處待核。當代游泳文獻多採『傳統模型＋強度分布分析』，較少嚴格依循板塊架構，但『階段專注』概念已廣泛影響備賽設計（對照 Almeida 等 2022 的 400 公尺混合式世界級個案研究，該選手採的是傳統三巨集週期）。
+  limitations_zh: 🟡 學界批評：(1) 殘留效應個體差異大，平均值±SD 難直接套用；(2) **證據基礎比常被轉述的弱得多**——目前唯一的統合分析是 Mølmen、Øfsteng 與 Rønnestad（2019），篩了 2905 篇、納入 20 篇、其中只有 6 篇能併進統合。板塊相對傳統確實佔優，但效果是**小的**：VO2max 標準化平均差 0.40（95% 信賴區間 0.02–0.79）、最大功率 0.28（0.01–0.54），兩個區間的下界都幾乎貼著零。而且**作者自己在摘要裡就警告**納入研究規模小、方法學品質普遍偏低（PEDro 平均 3.7／10），結果須保留看待。受試也多為已受訓到訓練有素的耐力選手，不是游泳專項。因此「板塊比傳統好」這句話目前只能講到「有小幅優勢、證據品質低」，不能講成已被證實；(3) 累積/轉化/實現的邊界操作上不夠清晰，教練詮釋差異大。不適合初中級者（達超補償只需 2–3 課，不需長期集中負荷策略）。
   author_note_zh: 🔵 作者取用：板塊派最值得吸收的不是整套換掉 Bompa，而是『換訓練焦點時用殘留效應當依據』這個操作原則——尤其菁英多峰賽季，比死守 3:1 時間節律更貼生理。但殘留天數要當『量級參考』不是『精確處方』（個體差異＋原始方法論待核）。
   plain_zh: 板塊週期化（Issurin）跟 Bompa 最大的不同：Bompa 主張準備期可以同時把很多能力一起練；Issurin 說高水準選手做不到——很多訓練刺激會互相打架（大量有氧會干擾長肌力），所以要『一次只集中練一兩項』，按順序排。怎麼決定何時換下一項？看『殘留效應』——某能力停練後能撐多久：有氧耐力、最大肌力約撐 30 天，無氧糖解約 18 天，最大速度只撐 ~5 天。所以速度要常常練、有氧可以先放一陣子。一個完整週期（累積→轉化→實現）約 8–12 週。注意：這套是為菁英設計的，新手用不到；那些殘留天數是廣為流傳的參考值，原始實驗依據其實沒查到，別當精確處方。
   links:

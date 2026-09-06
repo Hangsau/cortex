@@ -200,9 +200,10 @@ swim_zones_three:
 energy_systems_primer:
   id: periodization.zones.energy_systems_primer
   cert: 🟡
-  source: 公認運動生理學（磷酸原/糖酵解/氧化三系統時程為教科書級共識，如 Bompa Ch5/Ch11、McArdle Exercise Physiology）；游泳項目對映見 swim_energy_by_distance 來源（Toussaint & Hollander 1994 / Rodríguez & Mader 2011）
+  source: 運動生理學教科書共識（Bompa & Buzzichelli 2019 第 5、11 章；McArdle, Katch & Katch, Exercise Physiology）；游泳項目對映見下方 swim_energy_by_distance
   source_ids:
-  - src.bompa-ch5-ch11-mcardle-exercise-physiology-s
+  - src.bompa-buzzichelli-2019
+  - src.mcardle-katch-exercise-physiology-textbook
   caveat_zh: 🔵 三系統並非開關切換而是連續重疊——任一時刻三者都在供能，差別只在『誰主導』。下列時長為主導窗口的教科書級近似，個體與項目會浮動，不可當精確門檻。
   systems:
   - key: phosphagen
@@ -403,9 +404,9 @@ school_polarized:
 olbrecht_model:
   id: periodization.zones.olbrecht_model
   cert: 🟡
-  source: Olbrecht 2000《The Science of Winning》(書摘/訪談重建); Scientific Triathlon EP#198 訪談; TMR Coaching / lactate.com / INSCYD 二手摘要
+  source: Olbrecht, J. (2000) The Science of Winning——本專案未取得原書，內容由書摘、podcast 訪談與教練網站的二手摘要重建（見下方 caveat）
   source_ids:
-  - src.olbrecht-2000
+  - src.olbrecht-2000-science-of-winning
   optimum_not_max_zh: 🟡 核心命題『最適而非最大』：有氧與無氧代謝都要發展到『最適』而非『最大』水準才有最佳成績。兩系統反向制衡——無氧能力（VLamax）過高會壓低乳酸閾值與脂肪燃燒、延長恢復；過度追求有氧最大化又壓制無氧速度儲備。目標不是把任一曲線推到極限，而是找各事件的最適組合點。
   threshold_critique_zh: 🟡『魔法子彈謬誤』：Olbrecht 指控『在最大乳酸穩態速度訓練就能最優提升耐力』是迷思——耐力成分複雜，單一強度無法覆蓋；他主張閾值訓練在有氧或無氧上都不比均衡計畫有優勢。現場矛盾佐證：有些選手閾值進步了成績卻沒進步，有些看似失去有氧耐力卻游出生涯最佳。
   capacity_power_zh: 🟢 四象限（理解全框架的前提）：有氧能力＝VO2max（引擎排氣量）；有氧功率＝比賽中能動用多少比例有氧能力，近似乳酸閾值（轉速使用率）；無氧能力＝VLamax 最大乳酸生成速率（渦輪峰值）；無氧功率＝維持近最大速度的持久度。關鍵限制：『能力與功率不能同時提升』（Olbrecht 訪談原話），每階段須有主攻方向、分期安排。
