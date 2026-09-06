@@ -20,6 +20,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 
 | 你要做的事 | 動這裡 |
 |-----------|--------|
+| 規劃全站內容呈現／成長／Claude與Codex派工 | `research/content-presentation-2026-09-05/WEBSITE_STUDY.md` → GROWTH_MAP、PLAN、MODEL_WORK_PACKAGES、RESEARCH_LOG與兩組inventory；形態／成長案頭研究已做，主案可讀知識館；W1b需求、W1g成長契約；原型與真人驗證待做 |
 | 改全站顏色/字級 | `static/css/variables.css`（只放 CSS 變數） |
 | 改排版結構（nav/main/footer） | `static/css/layout.css` |
 | 加新書（一般風格） | `content/library/<slug>/_index.md` + 往 `data/home.yaml` 對應領域的 `entries` 加一筆 |
