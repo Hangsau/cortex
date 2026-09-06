@@ -2555,17 +2555,28 @@ points:
   stroke: udk
   category: concept
   title: Strouhal 數與人類 UDK 推進效率
-  summary: 人類 UDK 的 Strouhal 數（~0.80）遠高於最優範圍（0.25–0.35），推進效率天生低於海洋哺乳動物。
+  summary: 人類 UDK 的 Strouhal 數（平均約 0.80）遠高於一般認為的最適區間，推進效率也遠低於鯨豚；但「把 St 降下來就會變快」並沒有被直接證實。
   mechanism:
     certainty: 🔵
-    text: St = 踢腿頻率 × 振幅 ÷ 速度；人類裸泳效率 11–29%，單蛙鞋可達 82%。降低 St 的方法：在相同頻率下增大振幅，或在相同振幅下降低頻率，但兩者均有制約。
+    text: St = 踢腿振幅 × 頻率 ÷ 前進速度。所以 St 偏高有兩條可能來源——踢頻相對速度太高，或振幅相對速度太大。要降 St 只能提高速度、降頻或減幅，三者彼此牽制，不能只調一個。
   evidence:
   - certainty: 🟢
-    text: 人類 UDK St ~0.80；monofin St ~0.34；魚類最優 0.25–0.35
-    source: Zamparo et al. 2009, J Biomech Eng; Rohr & Fish 2004
+    text: von Loebbecke 等人 2009 分析 22 名奧運層級選手的水下影像，人類水下海豚踢的**平均 St 為 0.80**，高於水下波動推進的最適區間；同速下人類踢頻高於鯨豚，每前進一個體長最多要踢五次，鯨豚只要 1.3 次。
+    source: von Loebbecke A, Mittal R, Fish F, Mark R. (2009). Hum Mov Sci 28(1):99-112
     source_ids:
-    - src.zamparo
-  practical_implication: 裸泳提升效率的方向是在現有頻率下改善技術質量（振幅/渦流利用），而非單純追求更快的踢頻。
+    - src.von-loebbecke-2009-kinematics
+  - certainty: 🟢
+    text: 同一組作者以五名奧運層級選手做三維 CFD 模擬，人類推進效率為 **11–29%**，鯨豚約 **56%**。 **但原文明寫這個效率與 Strouhal 數不相關**——效率低與 St 偏高是兩個並存的觀察，不是一個造成另一個。
+    source: von Loebbecke A, Mittal R, Fish F, Mark R. (2009). J Biomech Eng 131(5):054504
+    source_ids:
+    - src.von-loebbecke-2009-propulsive-efficiency
+  - certainty: 🟢
+    text: 參照值：鯨豚實測 St 有 74% 落在 0.20–0.30，比「0.25–0.35 最大效率」的預測值還低約 20% （Rohr & Fish 2004）。單蛙鞋選手中 St 最低者（0.34）同時是速度最快、Froude 效率最高、主動阻力最低的人，效率在 St 近 0.4 處達 ηF=0.82（Nicolas 等人 2007）。 **兩個效率數字不可與上一條的 11–29% 並列比大小**：一個是 Froude 效率，一個是 CFD 推進效率。
+    source: Rohr JJ, Fish FE. (2004). J Exp Biol 207(10):1633-1642; Nicolas G, et al. (2007). Hum Mov Sci 26(3):426-442
+    source_ids:
+    - src.rohr-2004
+    - src.nicolas-2007-monofin-strouhal
+  practical_implication: 可以把 St 當診斷指標（偏高表示踢頻相對速度太高），但**不要把降 St 當訓練目標**——裸泳的 CFD 研究沒有測到 St 與效率的關聯，蛙鞋研究的作者也明說「提高效率與降低阻力本身就有用，與它們如何和 St 相關無關」。可操作的方向是減阻與提升動作質量，速度上去了 St 自然會降。
 - id: udk.tech.9
   stroke: udk
   category: kick

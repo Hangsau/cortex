@@ -6117,12 +6117,64 @@ sources:
     retrieved_on: '2026-09-06'
   src.zamparo:
     id: src.zamparo
-    display: Zamparo et al. 2009, J Biomech Eng; Rohr & Fish 2004
+    display: 【複合來源鍵，已拆解】已拆為 src.von-loebbecke-2009-kinematics、src.von-loebbecke-2009-propulsive-efficiency、src.nicolas-2007-monofin-strouhal 等 3 筆
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
+  src.von-loebbecke-2009-kinematics:
+    id: src.von-loebbecke-2009-kinematics
+    display: von Loebbecke A, Mittal R, Fish F, Mark R. (2009). A comparison of the kinematics of the dolphin kick in humans and cetaceans. Hum Mov Sci 28(1):99-112.
+    type: journal-article
+    verification_status: verified
+    title: A comparison of the kinematics of the dolphin kick in humans and cetaceans
     authors:
-    - Zamparo
-    et_al: true
+    - von Loebbecke A
+    - Mittal R
+    - Fish F
+    - Mark R
+    year: 2009
+    container: Human Movement Science
+    identifier:
+      pmid: '18986721'
+      doi: 10.1016/j.humov.2008.07.005
+    retrieved_on: '2026-09-06'
+    link: https://doi.org/10.1016/j.humov.2008.07.005
+  src.von-loebbecke-2009-propulsive-efficiency:
+    id: src.von-loebbecke-2009-propulsive-efficiency
+    display: von Loebbecke A, Mittal R, Fish F, Mark R. (2009). Propulsive efficiency of the underwater dolphin kick in humans. J Biomech Eng 131(5):054504.
+    type: journal-article
+    verification_status: verified
+    title: Propulsive efficiency of the underwater dolphin kick in humans
+    authors:
+    - von Loebbecke A
+    - Mittal R
+    - Fish F
+    - Mark R
+    year: 2009
+    container: Journal of Biomechanical Engineering
+    identifier:
+      pmid: '19388788'
+      doi: 10.1115/1.3116150
+    retrieved_on: '2026-09-06'
+    link: https://doi.org/10.1115/1.3116150
+  src.nicolas-2007-monofin-strouhal:
+    id: src.nicolas-2007-monofin-strouhal
+    display: Nicolas G, Bideau B, Colobert B, Berton E. (2007). How are Strouhal number, drag, and efficiency adjusted in high level underwater monofin-swimming? Hum Mov Sci 26(3):426-442.
+    type: journal-article
+    verification_status: verified
+    title: How are Strouhal number, drag, and efficiency adjusted in high level underwater monofin-swimming?
+    authors:
+    - Nicolas G
+    - Bideau B
+    - Colobert B
+    - Berton E
+    year: 2007
+    container: Human Movement Science
+    identifier:
+      pmid: '17509711'
+      doi: 10.1016/j.humov.2007.03.002
+    retrieved_on: '2026-09-06'
+    link: https://doi.org/10.1016/j.humov.2007.03.002
   src.pmid-26855425:
     id: src.pmid-26855425
     display: 嘆息迴路定位：Li P, Janczewski WA, Yackle K, et al. (2016). The peptidergic control circuit for sighing. Nature, 530(7590), 293–297.
