@@ -654,17 +654,27 @@ sources:
     link: https://doi.org/10.25035/ijare.01.03.06
   src.benjanuvatra-2007-b:
     id: src.benjanuvatra-2007-b
-    display: 'Benjanuvatra et al. 2007; Biomechanical Analysis of the Swim-Start: A Review'
+    display: 【複合來源鍵，已拆解】已拆為 src.benjanuvatra-2007-a 與 src.vantorre-2014-swim-start-review
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
+  src.vantorre-2014-swim-start-review:
+    id: src.vantorre-2014-swim-start-review
+    display: 'Vantorre J, Chollet D, Seifert L. (2014). Biomechanical Analysis of the Swim-Start: A Review. J Sports Sci Med 13(2):223-231.'
+    type: review
+    verification_status: verified
+    title: 'Biomechanical Analysis of the Swim-Start: A Review'
     authors:
-    - Benjanuvatra
-    et_al: true
-    year: 2007
+    - Vantorre J
+    - Chollet D
+    - Seifert L
+    year: 2014
+    container: Journal of Sports Science & Medicine
     identifier:
+      pmid: '24790473'
       pmcid: PMC3990873
-      url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3990873/
-    link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3990873/
+    retrieved_on: '2026-09-06'
+    link: https://pmc.ncbi.nlm.nih.gov/articles/PMC3990873/
   src.blanksby-2002:
     id: src.blanksby-2002
     display: Blanksby et al. 2002

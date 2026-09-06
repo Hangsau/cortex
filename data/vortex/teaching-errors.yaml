@@ -2013,11 +2013,20 @@ errors:
     text: 起跳角度越高，水平速度越低（力量分量不同）；高弧線帶來較長飛行時間，但入水後水平速度更低。精英選手選擇低平快速入水而非高飛遠落，重點是入水時的水平速度，而非飛行距離。
   evidence:
   - certainty: 🟢
-    text: 精英選手起跳角度約 21.25–27.45°，非精英選手約 39.62°——精英角度遠低於傳統建議的 30–40°。入水的重心水平速度與入水距離是起跑成績的主要預測變數。
-    source: 'Benjanuvatra et al. 2007; Biomechanical Analysis of the Swim-Start: A Review'
+    text: 精英選手起跳角度 27.45 ± 5.99°，非精英 39.62 ± 13.19°——精英角度遠低於傳統建議的 30–40°。
+    source: Benjanuvatra N, Edmunds K, Blanksby B. (2007). Int J Aquat Res Educ 1(3)
     source_ids:
-    - src.benjanuvatra-2007-b
-    url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3990873/
+    - src.benjanuvatra-2007-a
+  - certainty: 🟡
+    text: 另一組精英樣本的起跳角度為 21.25 ± 5.59°（Wilson & Marino 1983），方向一致但年代較早。
+    source: Wilson & Marino 1983
+    source_ids:
+    - src.wilson-1983
+  - certainty: 🟢
+    text: 但出發不是單一變數的最佳化。Vantorre 等人 2014 的綜述把出發描述成**一連串妥協**：空中距離要長（減少水中阻力）與入水姿勢要正確（需要旋轉）這兩個約束彼此拉扯；該綜述區辨高水準出發的因子是反應時間、蹬離期的足部施力控制與方向、滑行時間長度，以及踢腿轉入完整划手的銜接效率——**不是角度**。所以「角度越低越好」不能當成結論，低角度只是精英樣本呈現的傾向。
+    source: Vantorre J, Chollet D, Seifert L. (2014). J Sports Sci Med 13(2):223-231
+    source_ids:
+    - src.vantorre-2014-swim-start-review
   cross_ref: 技術分析 §壹 1.2 推蹬階段：起跳角度數據（精英 21–27°）
   cross_ref_ids:
   - starts-turns.tech.6
