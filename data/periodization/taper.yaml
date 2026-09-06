@@ -118,12 +118,14 @@ peak:
 swim_application:
   id: periodization.taper.swim
   cert: 🟢
-  source: Mujika et al. 1996 (PMID 8775162); Mujika/Padilla/Pyne 2002 (PMID 12439774); Bosquet et al. 2007 (PMID 17762369)
+  source: Mujika et al. 1996 (PMID 8775162, Med Sci Sports Exerc 28(2):251–258); Mujika/Padilla/Pyne 2002 (PMID 12439774, Int J Sports Med 23(8):582–587); Bosquet et al. 2007 (PMID 17762369, Med Sci Sports Exerc 39(8):1358–1365)
   source_ids:
-  - src.mujika
+  - src.mujika-1996-taper-modeling
+  - src.mujika-2002-sydney-taper
+  - src.bosquet-2007-tapering-meta-analysis
   volume_reduction_zh: 🔵 游泳文獻常見賽前 50–90% 量遞減（與 Bompa 41–60%／重負荷 60–90% 區間一致）
   three_week_taper_zh: 🟢 模型化游泳選手研究：三週減量平均 +2.90±1.50%、四週 +3.20±1.70% 表現增益（Mujika et al. 1996, PMID 8775162, N=18）
-  sydney_2000_zh: 🟢 雪梨 2000 奧運游泳：賽前三週減量期間表現平均提升 +2.18±1.50%（男 +2.57%／女 +1.78%，99 筆成績；Mujika/Padilla/Pyne 2002, PMID 12439774）；奧運獎牌的成績差距常在 0.5–1% 量級，故數個百分點的減量增益足以決定名次
+  sydney_2000_zh: 🟢 雪梨 2000 奧運游泳：賽前三週減量期間表現平均提升 +2.18±1.50%（範圍 −1.14% 至 +6.02%；男 +2.57±1.45%／女 +1.78±1.45%，99 筆成績中 91 筆變快、8 筆變慢；Mujika/Padilla/Pyne 2002, PMID 12439774）；奧運獎牌的成績差距常在 0.5–1% 量級，故數個百分點的減量增益足以決定名次。注意那 8 筆變慢的——減量不是保證變快
   practice_zh: 🟢 標準方案：8–14天快速指數減量，總量降41–60%，高量訓練塊後降60–90%，下水頻率維持至少80%，保留短距離賽速暴露
   plain_zh: 沒有個人減量歷史時，直接從標準方案開始：8–14天、快速指數降量、總量少41–60%、下水次數留八成、每堂保留少量賽速。高量訓練後把降量提高到60–90%；停量後容易失速者取8天端並增加短賽速。
   level_stratified_gains_zh: '🟢 表現增益依水準分層（多項研究綜整）：高中／青少年選手減量後常見 5–8% 增益（D''Acquisto 1992 報告 100m 7.96%、400m 5.00%）；大學選手 2.6–3.2%（Costill 1985/91、Johns 1992）；國家／國際級男子減量四週 2.07–2.32%（Bonifazi 2000、Mujika 1996）。
