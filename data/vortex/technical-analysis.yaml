@@ -3735,10 +3735,16 @@ points:
   stroke: starts-turns
   category: stroke-cycle
   title: 仰式轉身：翻滾動作與自由式相同，俯臥觸牆不違規
-  summary: 仰式轉身的翻滾動作與自由式翻滾相同；泳者翻轉成俯臥姿觸牆不違規，FINA 規則允許翻轉後以俯臥姿觸牆但需在轉身過程中連續完成。
+  summary: 仰式轉身的翻滾動作與自由式翻滾相同；泳者翻轉成俯臥姿觸牆不違規，規則允許轉為俯臥後觸牆，但轉身必須連續完成、且離牆時要回到仰臥。
   mechanism:
     certainty: 🔵
     text: 仰式轉身以俯臥姿觸牆後推蹬，利用與自由式相同的翻滾旋轉動量；連續翻轉的力學效率高於停頓後再旋轉。
+  evidence:
+  - certainty: 🟢
+    text: World Aquatics 規則 SW 6.4 原文：轉身時身體須有一部分觸牆；轉身過程中肩部可越過垂直面轉為俯臥，之後只能以「立即連續」的單手或雙手同時划水來啟動轉身；且離牆時必須已回到仰臥姿。所以俯臥觸牆合法，但「轉為俯臥後停頓」與「離牆時未回到仰臥」都是犯規。
+    source: World Aquatics (2023). Swimming Technical Rules 2023–2025, SW 6.4.
+    source_ids:
+    - src.world-aquatics-2023-swimming-technical-rules
   practical_implication: 仰式轉身教學可直接移轉自由式翻滾的肌動學訓練；強調連續性，不在觸牆後停頓。
 - id: starts-turns.tech.25
   stroke: starts-turns
@@ -3823,14 +3829,16 @@ points:
   mechanism:
     certainty: 🟢
     source_ids:
-    - src.fina-sw64-usas-usms
-    text: FINA/World Aquatics 規則明確分離兩個時間點：觸牆時（仰臥）與離牆時（俯臥）；中間旋轉在牆上快速完成。常見犯規是觸牆前提前側滾（疲勞時加快觸牆的捷徑）。
+    - src.usa-swimming-101-6-individual-medley
+    - src.world-aquatics-2023-swimming-technical-rules
+    text: 規則把兩個時間點分開規範：觸牆時必須仍在仰臥、離牆時肩部須已過垂直面轉向俯臥；中間的旋轉在牆上完成。常見犯規是觸牆前提前側滾（疲勞時加快觸牆的捷徑）。
   evidence:
   - certainty: 🟢
-    text: FINA Swimming Technical Rules SW 6.4 確認觸牆/離牆兩點要求。
-    source: FINA/World Aquatics SW 6.4; USA Swimming; USMS
+    text: 明文出自 USA Swimming 規則 101.6.3.B(2)：「觸牆時必須在仰臥；完成合法觸牆後可用任何方式轉身，但離牆時肩部須位於或超過垂直面轉向俯臥，且第一次划手前須成蛙式姿勢。」 World Aquatics 的規則書沒有等價明文，它是 SW 9.4（各段依該式的完成規則）接 SW 6.5 （仰式須以仰臥觸牆）推出來的，只規範觸牆、不規範離牆。
+    source: USA Swimming. Rule 101.6.3.B(2) Individual Medley；World Aquatics (2023). Swimming Technical Rules 2023–2025, SW 9.4 與 SW 6.5.
     source_ids:
-    - src.fina-sw64-usas-usms
+    - src.usa-swimming-101-6-individual-medley
+    - src.world-aquatics-2023-swimming-technical-rules
   practical_implication: 教學需分別訓練兩個時間點的身體位置；長距離 IM 疲勞段需特別注意不提前側滾。
 - id: starts-turns.tech.30
   stroke: starts-turns

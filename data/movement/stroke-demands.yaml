@@ -2182,7 +2182,7 @@ demands:
   evidence_profile: synthesis-inference
   source_ids:
   - src.neumann-2017
-  - src.fina-sw64-usas-usms
+  - src.usa-swimming-101-6-individual-medley
   - src.pmc7918682
   stroke: starts-turns
   phase_model: descriptive
@@ -2198,10 +2198,10 @@ demands:
   action_ids:
   - movement.action.trunk.axial-rotation
   measurement_conditions:
-  - source_id: src.fina-sw64-usas-usms
-    quantity: 離牆時身體相對水面的方位變化量（規則文字寫作「肩部旋轉」）
+  - source_id: src.usa-swimming-101-6-individual-medley
+    quantity: 離牆時身體相對水面的方位變化量（規則文字寫作「肩部位於或超過垂直面」）
     value: ≥ 90°（合規門檻，非量測所得的關節角）
-    conditions: '競賽規則對背→蛙轉身設定的兩個時間點要求：觸牆時身體仍在仰臥位置，離牆時身體已轉至俯臥。角度以身體相對水面的朝向認定，由裁判目視判定，屬池畔固定參考系，不涉及任何關節角度量測。
+    conditions: 'USA Swimming 規則 101.6.3.B(2) 對背→蛙轉身設定的兩個時間點要求：觸牆時身體仍在仰臥位置，離牆時肩部須位於或超過垂直面轉向俯臥。角度以身體相對水面的朝向認定，由裁判目視判定，屬池畔固定參考系，不涉及任何關節角度量測。World Aquatics 規則書沒有等價明文（只有 SW 9.4 接 SW 6.5 規範觸牆），此門檻是 USA Swimming 體系的規定。
 
       '
     endpoint: rule-compliance

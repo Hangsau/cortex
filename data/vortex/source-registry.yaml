@@ -1003,9 +1003,10 @@ sources:
     year: 2024
   src.fina-sw64-usas-usms:
     id: src.fina-sw64-usas-usms
-    display: FINA/World Aquatics SW 6.4; USA Swimming; USMS
+    display: 【複合來源鍵，已拆解】已拆為 src.world-aquatics-2023-swimming-technical-rules 等 2 筆
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.finis-snorkel-based-perception-priming:
     id: src.finis-snorkel-based-perception-priming
     display: FINIS 教練資源（snorkel-based perception priming）
@@ -9031,3 +9032,31 @@ sources:
       url: https://pubmed.ncbi.nlm.nih.gov/1553457/
     retrieved_on: '2026-09-06'
     link: https://pubmed.ncbi.nlm.nih.gov/1553457/
+  src.world-aquatics-2023-swimming-technical-rules:
+    id: src.world-aquatics-2023-swimming-technical-rules
+    display: World Aquatics (2023). Swimming Technical Rules 2023–2025 (valid as of 1 January 2023).
+    type: standard
+    verification_status: verified
+    title: Swimming Technical Rules 2023–2025
+    authors:
+    - World Aquatics
+    year: 2023
+    container: World Aquatics
+    identifier:
+      url: https://resources.fina.org/fina/document/2023/01/04/65961a45-bde5-4217-b666-ca1f5dc2d1f0/1_Swimming-Technical-Rules.04.01.2023.pdf
+    retrieved_on: '2026-09-06'
+    link: https://resources.fina.org/fina/document/2023/01/04/65961a45-bde5-4217-b666-ca1f5dc2d1f0/1_Swimming-Technical-Rules.04.01.2023.pdf
+  src.usa-swimming-101-6-individual-medley:
+    id: src.usa-swimming-101-6-individual-medley
+    display: USA Swimming. Rule 101.6 Individual Medley (medley rules change effective 21 September 2017).
+    type: standard
+    verification_status: verified
+    title: USA Swimming Rule 101.6 – 101.7 Medley Swimming
+    authors:
+    - USA Swimming
+    year: 2017
+    container: USA Swimming
+    identifier:
+      url: https://www.usaswimming.org/docs/default-source/officialsdocuments/officials-training-resources/interpretations-and-recommendations/medley-rules-change-eff092117.pdf
+    retrieved_on: '2026-09-06'
+    link: https://www.usaswimming.org/docs/default-source/officialsdocuments/officials-training-resources/interpretations-and-recommendations/medley-rules-change-eff092117.pdf
