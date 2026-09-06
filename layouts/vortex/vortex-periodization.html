@@ -228,6 +228,44 @@
             </div>
           </details>
 
+          {{/* GAS：教練界最常引用的解釋框架（不是被證實的生理依據） */}}
+          {{ with $st.general_adaptation_syndrome }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">因</span>
+              <span>
+                <span class="lvname">為什麼要有節奏（GAS） <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">教練界最常引用的解釋框架——但它是類比，不是被證實的生理依據</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-intro">Selye 的壓力三階段：身體遇到一個壓力刺激時，依序走過警覺、適應、耗竭。</p>
+              <table class="vx-pz-table">
+                <thead><tr><th>階段</th><th>時程</th><th>發生什麼</th></tr></thead>
+                <tbody>
+                {{ range .three_stages }}
+                  <tr>
+                    <td><strong>{{ .name_zh }}</strong></td>
+                    <td class="vx-pz-num">{{ .duration_zh }}</td>
+                    <td>{{ .description_zh }}</td>
+                  </tr>
+                {{ end }}
+                </tbody>
+              </table>
+              {{ with .why_periodization_works_zh }}<div>{{ . | markdownify }}</div>{{ end }}
+              {{ with .controversy_zh }}<div class="vx-pz-warn">{{ . | markdownify }}</div>{{ end }}
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
+              {{ with .swim_application_zh }}
+              <div class="vx-pz-swim">
+                <span class="vx-pz-swim-h">🔵 游泳應用</span>
+                <div>{{ . | markdownify }}</div>
+              </div>
+              {{ end }}
+              {{ with .source }}<p class="vx-cite"><span class="src">來源</span>：{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
           {{/* 年度計畫類型 */}}
           <details class="vx-level">
             <summary>
