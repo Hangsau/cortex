@@ -15,7 +15,7 @@
     {
       "id": "neumann.ch01",
       "title": "動作的共同語言",
-      "description": "先分清骨段怎麼動、關節面怎麼配合，以及力如何造成旋轉。這是後面每個部位都會用到的語言。",
+      "description": "從平移、旋轉與關節面運動，一路理解組織受力、肌肉活化與槓桿；用完整例子接起後續各章的基礎。",
       "content_type": "chapter-guide",
       "path": "library/kinesiology/ch01/",
       "topic": "foundations",
@@ -26,54 +26,222 @@
         "osteokinematics",
         "arthrokinematics",
         "moment",
-        "moment-arm"
+        "moment-arm",
+        "stress",
+        "strain",
+        "stiffness",
+        "modulus",
+        "viscoelastic",
+        "creep",
+        "concentric",
+        "eccentric",
+        "isometric",
+        "free-body",
+        "reaction",
+        "force-couple"
       ],
-      "body_sha256": "1cb8bd4d85a5e4ef1cb3f7a0cb718f1f1ff57723cfe1d81182869c14304c406f",
+      "body_sha256": "da9b2dba18de248854026da14069470d1c0d274aa6e1e9f676340b2e76fc9a8a",
       "sections": [
         {
-          "id": "neumann.ch01.relative-motion",
-          "title": "先說清楚：誰相對誰在動？",
-          "anchor": "relative-motion",
+          "id": "neumann.ch01.chapter-scope",
+          "title": "肌動學在研究什麼",
+          "anchor": "chapter-scope",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 23,
+              "to": 24
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch01.translation-rotation",
+          "title": "平移與旋轉：描述身體如何移動",
+          "anchor": "translation-rotation",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
               "from": 24,
+              "to": 25
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch01.osteokinematics-planes",
+          "title": "骨運動學、三平面與自由度",
+          "anchor": "osteokinematics-planes",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 25,
+              "to": 26
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch01.relative-motion",
+          "title": "近端對遠端與遠端對近端：相對運動的觀點",
+          "anchor": "relative-motion",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 26,
               "to": 27
             }
           ]
         },
         {
           "id": "neumann.ch01.joint-surfaces",
-          "title": "骨段轉過去，接觸面也要配合",
+          "title": "關節面運動學與三種基本運動",
           "anchor": "joint-surfaces",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
               "from": 27,
+              "to": 29
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch01.roll-slide-spin",
+          "title": "滾動、滑動與旋轉的組合",
+          "anchor": "roll-slide-spin",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 29,
+              "to": 30
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch01.morphology-rule",
+          "title": "由關節形態預測滾滑方向",
+          "anchor": "morphology-rule",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 30,
+              "to": 30
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch01.packed-positions",
+          "title": "緊密位與鬆弛位",
+          "anchor": "packed-positions",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 31,
               "to": 31
             }
           ]
         },
         {
-          "id": "neumann.ch01.force-and-moment",
-          "title": "力與力矩：推拉之外，還有旋轉",
-          "anchor": "force-and-moment",
+          "id": "neumann.ch01.kinetics-loads",
+          "title": "動力學、力與肌肉骨骼負荷",
+          "anchor": "kinetics-loads",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 31,
+              "to": 31
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch01.stress-strain",
+          "title": "應力、應變與組織的時間依賴性",
+          "anchor": "stress-strain",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 32,
+              "to": 33
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch01.productive-antagonism",
+          "title": "被動張力如何轉成有用功",
+          "anchor": "productive-antagonism",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 33,
+              "to": 33
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch01.internal-external-forces",
+          "title": "內外力與系統邊界",
+          "anchor": "internal-external-forces",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
               "from": 34,
+              "to": 35
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch01.force-and-moment",
+          "title": "力、垂直力臂與力矩",
+          "anchor": "force-and-moment",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 35,
               "to": 37
             }
           ]
         },
         {
+          "id": "neumann.ch01.muscle-activation",
+          "title": "力線與肌肉活化三類",
+          "anchor": "muscle-activation",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 36,
+              "to": 38
+            }
+          ]
+        },
+        {
           "id": "neumann.ch01.muscle-task",
-          "title": "肌肉出力，還要看它在完成什麼任務",
+          "title": "關節動作、最自由節段與肌群合作",
           "anchor": "muscle-task",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
-              "from": 37,
+              "from": 38,
+              "to": 40
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch01.musculoskeletal-levers",
+          "title": "骨骼槓桿、三類槓桿與機械利益",
+          "anchor": "musculoskeletal-levers",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 40,
+              "to": 43
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch01.chapter-application",
+          "title": "再看一次拿杯子的動作",
+          "anchor": "chapter-application",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 43,
               "to": 44
             }
           ]
@@ -2399,6 +2567,82 @@
       "nordin.ch12",
       "nordin.ch14"
     ],
+    "stress": [
+      "neumann.ch01",
+      "nordin.ch01",
+      "nordin.ch07"
+    ],
+    "strain": [
+      "neumann.ch01",
+      "nordin.ch01",
+      "nordin.ch05",
+      "nordin.ch15"
+    ],
+    "stiffness": [
+      "neumann.ch01",
+      "neumann.ch02",
+      "nordin.ch02",
+      "nordin.ch05",
+      "nordin.ch11",
+      "nordin.ch15"
+    ],
+    "modulus": [
+      "neumann.ch01",
+      "nordin.ch01"
+    ],
+    "viscoelastic": [
+      "neumann.ch01",
+      "nordin.ch01",
+      "nordin.ch04",
+      "nordin.ch05"
+    ],
+    "creep": [
+      "neumann.ch01",
+      "nordin.ch03",
+      "nordin.ch04"
+    ],
+    "concentric": [
+      "neumann.ch01",
+      "neumann.ch03",
+      "nordin.ch06",
+      "nordin.ch17"
+    ],
+    "eccentric": [
+      "neumann.ch01",
+      "neumann.ch03",
+      "neumann.ch15",
+      "neumann.ch16",
+      "nordin.ch06",
+      "nordin.ch17"
+    ],
+    "isometric": [
+      "neumann.ch01",
+      "neumann.ch03",
+      "nordin.ch06"
+    ],
+    "free-body": [
+      "neumann.ch01",
+      "neumann.ch04",
+      "nordin.ch01",
+      "nordin.ch07",
+      "nordin.ch08",
+      "nordin.ch09"
+    ],
+    "reaction": [
+      "neumann.ch01",
+      "neumann.ch04",
+      "neumann.ch12",
+      "nordin.ch07",
+      "nordin.ch08",
+      "nordin.ch16"
+    ],
+    "force-couple": [
+      "neumann.ch01",
+      "neumann.ch05",
+      "neumann.ch10",
+      "neumann.ch12",
+      "nordin.ch12"
+    ],
     "synovial": [
       "neumann.ch02"
     ],
@@ -2410,13 +2654,6 @@
       "neumann.ch02",
       "nordin.ch03"
     ],
-    "stiffness": [
-      "neumann.ch02",
-      "nordin.ch02",
-      "nordin.ch05",
-      "nordin.ch11",
-      "nordin.ch15"
-    ],
     "pcsa": [
       "neumann.ch03",
       "nordin.ch06"
@@ -2425,47 +2662,11 @@
       "neumann.ch03",
       "nordin.ch06"
     ],
-    "concentric": [
-      "neumann.ch03",
-      "nordin.ch06",
-      "nordin.ch17"
-    ],
-    "eccentric": [
-      "neumann.ch03",
-      "neumann.ch15",
-      "neumann.ch16",
-      "nordin.ch06",
-      "nordin.ch17"
-    ],
-    "isometric": [
-      "neumann.ch03",
-      "nordin.ch06"
-    ],
-    "free-body": [
-      "neumann.ch04",
-      "nordin.ch01",
-      "nordin.ch07",
-      "nordin.ch08",
-      "nordin.ch09"
-    ],
-    "reaction": [
-      "neumann.ch04",
-      "neumann.ch12",
-      "nordin.ch07",
-      "nordin.ch08",
-      "nordin.ch16"
-    ],
     "scapulohumeral": [
       "neumann.ch05"
     ],
     "rotator-cuff": [
       "neumann.ch05",
-      "nordin.ch12"
-    ],
-    "force-couple": [
-      "neumann.ch05",
-      "neumann.ch10",
-      "neumann.ch12",
       "nordin.ch12"
     ],
     "pronation": [
@@ -2567,23 +2768,6 @@
     "impulse": [
       "neumann.ch16"
     ],
-    "stress": [
-      "nordin.ch01",
-      "nordin.ch07"
-    ],
-    "strain": [
-      "nordin.ch01",
-      "nordin.ch05",
-      "nordin.ch15"
-    ],
-    "modulus": [
-      "nordin.ch01"
-    ],
-    "viscoelastic": [
-      "nordin.ch01",
-      "nordin.ch04",
-      "nordin.ch05"
-    ],
     "cortical": [
       "nordin.ch02"
     ],
@@ -2601,10 +2785,6 @@
     ],
     "permeability": [
       "nordin.ch03"
-    ],
-    "creep": [
-      "nordin.ch03",
-      "nordin.ch04"
     ],
     "tendon": [
       "nordin.ch04"
