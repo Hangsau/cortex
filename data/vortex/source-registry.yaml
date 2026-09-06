@@ -1598,20 +1598,27 @@ sources:
     year: 2012
   src.lyttle:
     id: src.lyttle
-    display: Lyttle 1998; Novais et al. 2012
+    display: 【複合來源鍵，已拆解】已拆為 src.lyttle-1998 與 src.novais-2012-glide-depth-cfd
     type: other
-    verification_status: unverified
-    authors:
-    - Lyttle
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.lyttle-1998:
     id: src.lyttle-1998
-    display: Lyttle et al. 1998
-    type: other
-    verification_status: unverified
+    display: Lyttle A, Blanksby B, Elliott B, Lloyd D. (1998). The effect of depth and velocity on drag during the streamlined glide. J Swim Res 13:15-22.
+    type: journal-article
+    verification_status: verified
+    title: The effect of depth and velocity on drag during the streamlined glide
     authors:
-    - Lyttle
-    et_al: true
+    - Lyttle AD
+    - Blanksby BA
+    - Elliott BC
+    - Lloyd DG
     year: 1998
+    container: Journal of Swimming Research
+    identifier:
+      url: https://research-repository.uwa.edu.au/en/publications/the-effect-of-depth-and-velocity-on-drag-in-the-streamlined-glide/
+    retrieved_on: '2026-09-06'
+    link: https://research-repository.uwa.edu.au/en/publications/the-effect-of-depth-and-velocity-on-drag-in-the-streamlined-glide/
   src.maglischo-2003-a:
     id: src.maglischo-2003-a
     display: 【複合來源鍵，已拆解】已併入 src.maglischo-2003-swimming-fastest
@@ -2051,22 +2058,39 @@ sources:
     retrieved_on: '2026-08-17'
   src.novais-2012-a:
     id: src.novais-2012-a
-    display: Novais et al. 2012 (JHK)
+    display: 【重複登錄，已合併】同一篇 Novais 等人 2012，改用 src.novais-2012-glide-depth-cfd
     type: other
-    verification_status: unverified
-    authors:
-    - Novais
-    et_al: true
-    year: 2012
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.novais-2012-b:
     id: src.novais-2012-b
-    display: Novais et al. 2012, Journal of Human Kinetics
+    display: 【重複登錄，已合併】同一篇 Novais 等人 2012，改用 src.novais-2012-glide-depth-cfd
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
+  src.novais-2012-glide-depth-cfd:
+    id: src.novais-2012-glide-depth-cfd
+    display: 'Novais ML, Silva AJ, Mantha VR, Ramos RJ, Rouboa AI, Vilas-Boas JP, Luis SR, Marinho DA. (2012). The Effect of Depth on Drag During the Streamlined Glide: A Three-Dimensional CFD Analysis. J Hum Kinet 33:55-62.'
+    type: journal-article
+    verification_status: verified
+    title: 'The Effect of Depth on Drag During the Streamlined Glide: A Three-Dimensional CFD Analysis'
     authors:
-    - Novais
-    et_al: true
+    - Novais ML
+    - Silva AJ
+    - Mantha VR
+    - Ramos RJ
+    - Rouboa AI
+    - Vilas-Boas JP
+    - Luis SR
+    - Marinho DA
     year: 2012
+    container: Journal of Human Kinetics
+    identifier:
+      pmid: '23487502'
+      pmcid: PMC3588683
+      doi: 10.2478/v10078-012-0044-2
+    retrieved_on: '2026-09-06'
+    link: https://doi.org/10.2478/v10078-012-0044-2
   src.olbrecht-2000:
     id: src.olbrecht-2000
     display: 【複合來源鍵，已拆解】已拆為 src.olbrecht-2000-science-of-winning
@@ -4738,9 +4762,27 @@ sources:
     year: 1979
   src.sciencedirect-wave-drag-study:
     id: src.sciencedirect-wave-drag-study
-    display: ScienceDirect 波浪阻力研究
+    display: 【佔位字串，已取代】原字串只寫平台名，實為 Vennell 等人 2006，改用 src.vennell-2006-wave-drag
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
+  src.vennell-2006-wave-drag:
+    id: src.vennell-2006-wave-drag
+    display: Vennell R, Pease D, Wilson B. (2006). Wave drag on human swimmers. J Biomech 39(4):664-671.
+    type: journal-article
+    verification_status: verified
+    title: Wave drag on human swimmers
+    authors:
+    - Vennell R
+    - Pease D
+    - Wilson B
+    year: 2006
+    container: Journal of Biomechanics
+    identifier:
+      pmid: '16439236'
+      doi: 10.1016/j.jbiomech.2005.01.023
+    retrieved_on: '2026-09-06'
+    link: https://doi.org/10.1016/j.jbiomech.2005.01.023
   src.scott-bay-usms-level-5-coach:
     id: src.scott-bay-usms-level-5-coach
     display: Scott Bay, USMS Level 5 Coach

@@ -2458,27 +2458,27 @@ points:
   stroke: udk
   category: depth
   title: 最優水下深度範圍 0.4–0.6 m
-  summary: 波浪阻力隨深度增加而下降，約 0.4–0.6 m 是實用最優深度範圍。
+  summary: 阻力隨滑行深度增加而下降，約 0.4–0.6 m 是實用最優深度範圍。
   mechanism:
     certainty: 🔵
-    text: 波浪阻力非線性隨深度下降；0.4 m 可獲顯著阻力減少，0.6 m 比水面低約 20%，超過 0.75 m 無額外效益且增加上浮耗時。
+    text: 泳者靠近水面移動時會推出一組尾波，造波要耗掉能量，這部分能量以波浪阻力的形式回頭作用在身上。離水面越遠，身體對水面的擾動越小，這一項就越小；但擾動是隨深度衰減而不是等比遞減，所以效益必然先陡後平，存在一個再往深也不會更省的深度。
   evidence:
   - certainty: 🟢
-    text: 0.4 m 推薦推牆深度；0.6 m 阻力降約 20%（2.2 m/s 測量）
+    text: 拖曳測力，深度取水面與 0.2／0.4／0.6 m、速度 1.6–3.1 m/s：水面總阻力在所有速度下都顯著高於三個水下深度；0.4 與 0.6 m 相對水面降阻 10–20%，0.2 m 只降 7–14%。作者建議轉身後在約 0.4 m 深滑行，速度高於 1.9 m/s 時效益尤其明顯。本研究最深只測到 0.6 m。
     source: Lyttle et al. 1998
     source_ids:
     - src.lyttle-1998
   - certainty: 🟢
-    text: ≥ 0.7 m 波浪阻力 < 5% 總阻力，效益趨穩定
-    source: ScienceDirect 波浪阻力研究
+    text: 拖曳假人模型：波浪阻力是最大的單一阻力項，1.7 m/s 時佔總阻力 50–60%。要讓它降到總阻力 5% 以下，1 m/s 時需深於 0.5 m、2 m/s 時需深於 0.7 m——門檻隨速度變動。
+    source: Vennell et al. 2006, Journal of Biomechanics
     source_ids:
-    - src.sciencedirect-wave-drag-study
+    - src.vennell-2006-wave-drag
   - certainty: 🟢
-    text: '> 0.75 m 無額外效益，反增上浮時間'
-    source: Novais et al. 2012 (JHK)
+    text: 三維 CFD 模擬，深度 0 至 1.0 m 每 0.25 m 一階、速度 1.5–2.5 m/s：阻力隨深度下降，但超過 0.75 m 後幾乎不再變化。
+    source: Novais et al. 2012, Journal of Human Kinetics
     source_ids:
-    - src.novais-2012-a
-  practical_implication: 推牆後目標深度 0.4–0.6 m；過深反而增加上浮時間與能量消耗，應避免。
+    - src.novais-2012-glide-depth-cfd
+  practical_implication: 推牆後把目標深度放在 0.4–0.6 m 就夠，再往深沒有阻力上的回報。要注意這三份研究的取樣深度各不相同（Lyttle 最深只到 0.6 m、Novais 每 0.25 m 一階、Vennell 用胸厚倍數表達），所以 0.4–0.6 m 是幾條證據收斂出來的實用區間，不是任何一篇量出來的單一最佳值。另外沒有任何一篇量過「潛得過深要多花多少時間浮回水面」，那是教練端的取捨，不能寫成研究結論。
 - id: udk.tech.3
   stroke: udk
   category: depth
@@ -3882,14 +3882,19 @@ points:
   summary: 出發/轉身後水下初始速度遠高於游泳速度；水下無波浪阻力；實用深度 0.4–0.6 m，超過 0.75 m 無額外效益。
   mechanism:
     certainty: 🔵
-    text: 水面波浪阻力（wave drag）在水下消失；出發/轉身賦予的初始速度超過游泳速度，使水下階段比水面更快；超過最優深度後轉回水平的能耗抵消深度帶來的低阻優勢。
+    text: 造波要耗能，這部分能量以波浪阻力回頭作用在泳者身上；離水面夠遠時身體幾乎不擾動水面，這一項就趨近消失。出發與轉身賦予的初始速度又高於游泳速度，兩件事疊起來使水下階段比水面快。
   evidence:
   - certainty: 🟢
-    text: 實用深度 0.4–0.6 m；超過 0.75 m 無額外效益。
-    source: Lyttle 1998; Novais et al. 2012
+    text: 拖曳測力顯示水面總阻力在 1.6–3.1 m/s 全區間都顯著高於水下 0.2／0.4／0.6 m，其中 0.4 與 0.6 m 相對水面降阻 10–20%。
+    source: Lyttle et al. 1998
     source_ids:
-    - src.lyttle
-  practical_implication: 出發轉身後維持 0.4–0.6 m 深度進行 UDK，不追求更深的水下路徑。
+    - src.lyttle-1998
+  - certainty: 🟢
+    text: 三維 CFD 模擬顯示阻力隨深度下降，但超過 0.75 m 後幾乎不再變化。
+    source: Novais et al. 2012, Journal of Human Kinetics
+    source_ids:
+    - src.novais-2012-glide-depth-cfd
+  practical_implication: 出發轉身後維持 0.4–0.6 m 深度進行 UDK，不追求更深的水下路徑——再往深換到的阻力好處已接近零。至於「潛太深要多花時間浮回水面」這個常見的反面理由，目前沒有研究量過，只能當取捨提示。
 - id: starts-turns.tech.33
   stroke: starts-turns
   category: kick

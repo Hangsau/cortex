@@ -1814,29 +1814,38 @@ errors:
     certainty: 🟢
     source_ids:
     - src.lyttle-1998
-    - src.sciencedirect-wave-drag-study
-    - src.novais-2012-b
-    text: 波浪阻力確實隨深度下降，但效益非線性且有上限。深度達到 0.6 m 時，波浪阻力比水面降低約 20%；超過 0.7 m 後，波浪阻力已低於總阻力的 5%，再往深追加效益幾乎為零；超過 0.75 m 後反而增加上浮耗時，出水 breakout 角度變差，整體效益下降。
+    - src.vennell-2006-wave-drag
+    - src.novais-2012-glide-depth-cfd
+    text: 阻力確實隨深度下降，但下降是先陡後平的，而且有量到的上限。實測拖曳顯示 0.4 與 0.6 m 相對水面降阻 10–20%，0.2 m 只降 7–14%；假人拖曳顯示波浪阻力要壓到總阻力 5% 以下， 1 m/s 時需深於 0.5 m、2 m/s 時需深於 0.7 m；CFD 模擬則顯示超過 0.75 m 之後阻力幾乎不再變化。也就是說再往深踢，換到的阻力好處已經接近零，剩下的只有代價。
   evidence:
   - certainty: 🟢
-    text: 深度 0.4–0.6 m 可獲得顯著波浪阻力減少；0.6 m 時波浪阻力比水面降低約 20%（2.2 m/s 測量）。
+    text: 拖曳測力，深度取水面與 0.2／0.4／0.6 m、速度 1.6–3.1 m/s：水面總阻力在所有速度下都顯著高於三個水下深度，0.4 與 0.6 m 降阻 10–20%。本研究最深只測到 0.6 m。
     source: Lyttle et al. 1998
     source_ids:
     - src.lyttle-1998
   - certainty: 🟢
-    text: 深度超過 0.7 m 後，波浪阻力已低於總阻力 5%，趨於穩定。
-    source: ScienceDirect 波浪阻力研究
+    text: 拖曳假人模型：波浪阻力在 1.7 m/s 時佔總阻力 50–60%；要壓到 5% 以下，1 m/s 需深於 0.5 m、2 m/s 需深於 0.7 m。
+    source: Vennell et al. 2006, Journal of Biomechanics
     source_ids:
-    - src.sciencedirect-wave-drag-study
+    - src.vennell-2006-wave-drag
   - certainty: 🟢
-    text: 深度超過 0.75 m 無額外效益，反而增加上浮耗時。
+    text: 三維 CFD 模擬，深度 0 至 1.0 m 每 0.25 m 一階：阻力隨深度下降，但超過 0.75 m 後幾乎不再變化。
     source: Novais et al. 2012, Journal of Human Kinetics
     source_ids:
-    - src.novais-2012-b
+    - src.novais-2012-glide-depth-cfd
   cross_ref: 最優水下深度範圍 0.4–0.6 m
   cross_ref_ids:
   - udk.tech.2
-  correct_concept: 實用深度約 0.4–0.6 m，超過 0.75 m 沒有追加效益。推牆後的流線型深度以此範圍為目標，不需要特別往深處去。
+  correct_concept: '實用深度約 0.4–0.6 m，超過 0.75 m 沒有追加效益。推牆後的流線型深度以此範圍為目標，
+
+    不需要特別往深處去。
+
+
+    另外要說清楚一件常被當成理由的事：「潛太深會增加上浮耗時、破壞出水角度」聽起來合理，
+
+    但上面三份研究量的都是阻力，**沒有任何一篇量過上浮時間、出水角度或能量消耗**。
+
+    它可以當成教練端的取捨提示，不能當成已經被證實的代價。'
   perception_impact: 追求「越深越好」的學員，會把注意力放在「往下沉的感覺」，而非「向前推進的感覺」——感知目標方向錯誤。
 - id: udk.err8
   stroke: udk
