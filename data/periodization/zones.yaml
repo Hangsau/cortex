@@ -280,18 +280,19 @@ energy_systems_primer:
     - periodization.zones.table_11_1
 swim_energy_by_distance:
   id: periodization.zones.swim_energy_by_distance
-  cert: 🟢
-  source: Toussaint & Hollander 1994 (Sports Med 18:384–405); Rodríguez & Mader 2011
+  cert: 🟡
+  source: Toussaint & Hollander (1994). Energetics of competitive swimming. Sports Medicine, 18(6), 384–405；Rodríguez & Mader (2011)
   source_ids:
-  - src.toussaint
+  - src.toussaint-hollander-1994-energetics-swimming
+  - src.rodriguez-mader-2011
   events:
   - event: 50m
     aerobic_pct: ≈5–20%
-    cert: 🟢
+    cert: 🟡
     note_zh: 有氧占比低，無氧（磷酸原+糖解）主導 ≈80–95%
   - event: 100m
     aerobic_pct: ≈40–50%
-    cert: 🟢
+    cert: 🟡
     note_zh: 有氧無氧接近各半
   - event: 200m
     aerobic_pct: ≈60–65%
@@ -299,7 +300,7 @@ swim_energy_by_distance:
     note_zh: 🟡 此區間文獻支持較弱，標舊文獻
   - event: 400m
     aerobic_pct: 40–84%
-    cert: 🟢
+    cert: 🟡
     note_zh: 跨研究真實區間：Rodríguez & Mader ≈84% vs Maglischo 40–60%；不可合併成單值
   - event: 800m
     aerobic_pct: 有氧主導
@@ -309,7 +310,7 @@ swim_energy_by_distance:
     aerobic_pct: 有氧主導
     cert: 🟡
     note_zh: 質性有氧主導；精確 % 文獻分歧大，不填單值
-  caution_zh: 🔴 200m 與 800/1500m 的精確 % 為文獻弱項，故意不收單一數字；只標質性主導方向
+  caution_zh: 🔴 200m 與 800/1500m 的精確 % 為文獻弱項，故意不收單一數字；只標質性主導方向。🔴 使用邊界（2026-09-06 查證後降級）：整張表原本標 🟢，掛在 Toussaint & Hollander 1994 名下，但該文摘要講的是游泳能量成本模型與推進效率，並沒有列出各距離的有氧供能百分比；另一半來源 Rodríguez & Mader 2011 在 PubMed 與 Crossref 都查不到記錄。這些數字在游泳訓練文獻裡流傳很廣、方向也與生理常識一致，但本專案尚未回到任何一篇原文核對過具體值，因此全表降為 🟡（舊文獻），引用時只能當量級參考。
   plain_zh: 不同距離靠的能量系統差很多：50m 幾乎全靠無氧（有氧只 5–20%），100m 有氧無氧大概各半，400m 以上開始有氧主導。注意 400m 的有氧占比在不同研究差很大（40% 到 84% 都有人測到），這不是我亂寫，是研究本身的真實分歧——所以保留區間不硬湊成一個數字。實務意義：練 50 自由式衝刺跟練 1500 完全是兩套系統，課表不能共用。
   links:
     development_stages:

@@ -1460,36 +1460,28 @@ sources:
     year: 1998
   src.maglischo-2003-a:
     id: src.maglischo-2003-a
-    display: Maglischo (2003) Swimming Fastest
-    type: book
-    verification_status: unverified
-    authors:
-    - Maglischo
-    year: 2003
+    display: 【複合來源鍵，已拆解】已併入 src.maglischo-2003-swimming-fastest
+    type: other
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.maglischo-2003-b:
     id: src.maglischo-2003-b
-    display: Maglischo 2003
-    type: book
-    verification_status: unverified
-    authors:
-    - Maglischo
-    year: 2003
+    display: 【複合來源鍵，已拆解】已併入 src.maglischo-2003-swimming-fastest
+    type: other
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.maglischo-2003-c:
     id: src.maglischo-2003-c
-    display: Maglischo 2003（屬定性方向參考，量化數字待現代研究更新）
-    type: book
-    verification_status: unverified
-    authors:
-    - Maglischo
-    year: 2003
+    display: 【複合來源鍵，已拆解】已併入 src.maglischo-2003-swimming-fastest
+    type: other
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.maglischo-2003-d:
     id: src.maglischo-2003-d
-    display: Maglischo 2003（量化區間屬歷史參考，現代研究尚未更新具體值）
-    type: book
-    verification_status: unverified
-    authors:
-    - Maglischo
-    year: 2003
+    display: 【複合來源鍵，已拆解】已併入 src.maglischo-2003-swimming-fastest
+    type: other
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.maglischo-2012:
     id: src.maglischo-2012
     display: Maglischo 2012, Training Zones Revisited, J Swimming Research 19(2)（全文）
@@ -1500,24 +1492,28 @@ sources:
     year: 2012
   src.maglischo-swimming-fastest-breaststroke-padd:
     id: src.maglischo-swimming-fastest-breaststroke-padd
-    display: Maglischo Swimming Fastest（breaststroke paddle work）
-    type: book
-    verification_status: unverified
+    display: 【重複登錄，已合併】已併入 src.maglischo-2003-swimming-fastest
+    type: other
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.maglischo-swimming-fastest-butterfly-paddle:
     id: src.maglischo-swimming-fastest-butterfly-paddle
-    display: Maglischo Swimming Fastest（butterfly paddle work）
-    type: book
-    verification_status: unverified
+    display: 【重複登錄，已合併】已併入 src.maglischo-2003-swimming-fastest
+    type: other
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.maglischo-swimming-fastest-paddle-catch-isol:
     id: src.maglischo-swimming-fastest-paddle-catch-isol
-    display: Maglischo Swimming Fastest（paddle catch isolation）
-    type: book
-    verification_status: unverified
+    display: 【重複登錄，已合併】已併入 src.maglischo-2003-swimming-fastest
+    type: other
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.maglischo-swimming-fastest-paddles-for-s-pat:
     id: src.maglischo-swimming-fastest-paddles-for-s-pat
-    display: Maglischo Swimming Fastest（paddles for S-pattern feedback）
-    type: book
-    verification_status: unverified
+    display: 【重複登錄，已合併】已併入 src.maglischo-2003-swimming-fastest
+    type: other
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.marinho-2010:
     id: src.marinho-2010
     display: Marinho et al. (2010), Journal of Applied Biomechanics
@@ -5297,17 +5293,16 @@ sources:
     verification_status: unverified
   src.toussaint:
     id: src.toussaint
-    display: Toussaint & Hollander 1994 (Sports Med 18:384–405); Rodríguez & Mader 2011
+    display: 【複合來源鍵，已拆解】已拆為 src.toussaint-hollander-1994-energetics-swimming 等 2 筆
     type: other
-    verification_status: unverified
-    authors:
-    - Toussaint
-    - Hollander
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.toussaint-colwin-1990-maglischo-2003-swimmin:
     id: src.toussaint-colwin-1990-maglischo-2003-swimmin
-    display: Toussaint, Colwin 等（1990 年代起）；Maglischo (2003) Swimming Fastest
+    display: 【複合來源鍵，已拆解】已拆為 src.toussaint-2002-pumped-up-propulsion 等 3 筆
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.train-daly:
     id: src.train-daly
     display: Train Daly
@@ -8961,3 +8956,78 @@ sources:
     type: review
     verification_status: verified
     retrieved_on: '2026-09-05'
+  src.maglischo-2003-swimming-fastest:
+    id: src.maglischo-2003-swimming-fastest
+    display: 'Maglischo, E. W. (2003). Swimming Fastest. Champaign, IL: Human Kinetics.'
+    type: book
+    verification_status: verified
+    title: Swimming Fastest
+    authors:
+    - Ernest W. Maglischo
+    year: 2003
+    container: Human Kinetics
+    identifier:
+      isbn: 0736031804
+    retrieved_on: '2026-09-06'
+  src.toussaint-hollander-1994-energetics-swimming:
+    id: src.toussaint-hollander-1994-energetics-swimming
+    display: Toussaint, H. M., & Hollander, A. P. (1994). Energetics of competitive swimming. Implications for training programmes. Sports Medicine, 18(6), 384–405.
+    type: journal-article
+    verification_status: verified
+    title: Energetics of competitive swimming. Implications for training programmes
+    authors:
+    - Huub M. Toussaint
+    - A. Peter Hollander
+    year: 1994
+    container: Sports Medicine
+    identifier:
+      pmid: '7886354'
+      doi: 10.2165/00007256-199418060-00004
+      url: https://pubmed.ncbi.nlm.nih.gov/7886354/
+    retrieved_on: '2026-09-06'
+    link: https://pubmed.ncbi.nlm.nih.gov/7886354/
+  src.rodriguez-mader-2011:
+    id: src.rodriguez-mader-2011
+    display: Rodríguez, F. A., & Mader, A. (2011).
+    type: other
+    verification_status: unverified
+    authors:
+    - Ferran A. Rodríguez
+    - Alois Mader
+    year: 2011
+    retrieved_on: '2026-09-06'
+  src.toussaint-2002-pumped-up-propulsion:
+    id: src.toussaint-2002-pumped-up-propulsion
+    display: Toussaint, H. M., Van den Berg, C., & Beek, W. J. (2002). "Pumped-up propulsion" during front crawl swimming. Medicine & Science in Sports & Exercise, 34(2), 314–319.
+    type: journal-article
+    verification_status: verified
+    title: '"Pumped-up propulsion" during front crawl swimming'
+    authors:
+    - Huub M. Toussaint
+    - C. Van den Berg
+    - Wolfgang J. Beek
+    year: 2002
+    container: Medicine & Science in Sports & Exercise
+    identifier:
+      pmid: '11828242'
+      doi: 10.1097/00005768-200202000-00020
+      url: https://pubmed.ncbi.nlm.nih.gov/11828242/
+    retrieved_on: '2026-09-06'
+    link: https://pubmed.ncbi.nlm.nih.gov/11828242/
+  src.toussaint-beek-1992-biomechanics-front-crawl:
+    id: src.toussaint-beek-1992-biomechanics-front-crawl
+    display: Toussaint, H. M., & Beek, P. J. (1992). Biomechanics of competitive front crawl swimming. Sports Medicine, 13(1), 8–24.
+    type: journal-article
+    verification_status: verified
+    title: Biomechanics of competitive front crawl swimming
+    authors:
+    - Huub M. Toussaint
+    - Peter J. Beek
+    year: 1992
+    container: Sports Medicine
+    identifier:
+      pmid: '1553457'
+      doi: 10.2165/00007256-199213010-00002
+      url: https://pubmed.ncbi.nlm.nih.gov/1553457/
+    retrieved_on: '2026-09-06'
+    link: https://pubmed.ncbi.nlm.nih.gov/1553457/

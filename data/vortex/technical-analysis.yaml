@@ -1092,7 +1092,7 @@ points:
   mechanism:
     certainty: 🟢
     source_ids:
-    - src.maglischo-2003-b
+    - src.maglischo-2003-swimming-fastest
     - src.gonjo-2020-c
     text: 升力＋阻力混合推進，最大化掌面與水流的作用角。Counsilman（1971）的 S 形划手路徑已被 Maglischo（2003）修正為橢圓形路徑；近期研究（Gonjo 2020 等）確認划手路徑個體差異顯著。核心原則（高肘捕水）仍有效，但強調固定形狀路徑的指導語已過時。
   evidence:
@@ -1100,7 +1100,7 @@ points:
     text: 修正 S 形划手路徑為橢圓形路徑；定性方向至今有效。
     source: Maglischo 2003
     source_ids:
-    - src.maglischo-2003-b
+    - src.maglischo-2003-swimming-fastest
   - certainty: 🟢
     text: 近期實測確認划手路徑個體差異顯著，「前臂面向推進方向」比路徑形狀更重要。
     source: Gonjo et al. 2020
@@ -1142,14 +1142,14 @@ points:
   mechanism:
     certainty: 🟡
     source_ids:
-    - src.maglischo-2003-c
+    - src.maglischo-2003-swimming-fastest
     text: 上踢時蹠屈使足背面向上方及後方，形成有效推進面，對應自由式的下踢功能。**「上踢是主推進」這個定性結論至今未被推翻**——影像觀察與菁英教練共識一致。原始 70–80% 推進佔比數字來自 Maglischo 2003 整理的舊研究，現代精準量化（如 IMU + EMG 同步）尚未有同等規模的替代研究，所以**具體百分比應視為歷史定性方向，不是當代精確值**。教學決策上「主要推進來自上踢」這個結論已足夠，不需要精確百分比。
   evidence:
   - certainty: 🟡
     text: 仰式上踢是推進主力，定性結論仍被接受；70–80% 佔比的具體量化已過時。
-    source: Maglischo 2003（屬定性方向參考，量化數字待現代研究更新）
+    source: Maglischo, E. W. (2003). Swimming Fastest. Human Kinetics.
     source_ids:
-    - src.maglischo-2003-c
+    - src.maglischo-2003-swimming-fastest
   practical_implication: 訓練上踢時注意蹠屈到位（足背朝後），是踢水產生推進力的前提；踝關節柔韌性不足會直接限制此動作。
 - id: back.tech.16
   stroke: back
@@ -1194,13 +1194,13 @@ points:
     certainty: 🟡
     text: 踢水深度增加時推進力與阻力同步增加，二者存在最優交叉點（約 30–40 cm）。**「最優深度存在、不是越深越好」是定性結論至今有效**；具體 30-40 cm 區間來自 Maglischo 2003 二手整理，現代精準量化方法（如 CFD 模擬）尚未發表同等規模替代研究，故**此區間應視為群體均值參考、不是個人最優值**。實務上不應以固定深度為訓練目標。
     source_ids:
-    - src.maglischo-2003-d
+    - src.maglischo-2003-swimming-fastest
   evidence:
   - certainty: 🟡
     text: 踢水深度約 30–40 cm 推進力最大；同時指出更大深度也增加阻力，存在最優區間（屬群體均值，非個人最優）。
-    source: Maglischo 2003（量化區間屬歷史參考，現代研究尚未更新具體值）
+    source: Maglischo, E. W. (2003). Swimming Fastest. Human Kinetics.
     source_ids:
-    - src.maglischo-2003-d
+    - src.maglischo-2003-swimming-fastest
   practical_implication: 踢水深度是個人最優值，不應以固定數字為目標；感知「推進感」優先於追求視覺上的特定深度。
 - id: back.tech.19
   stroke: back
@@ -1332,7 +1332,7 @@ points:
     text: 蝶式兩踢功能不對稱（Entry Kick / Power Kick）；蝶式疲勞表現為波動鏈中斷序列。
     source: Maglischo 2003
     source_ids:
-    - src.maglischo-2003-b
+    - src.maglischo-2003-swimming-fastest
   practical_implication: 仰式分析深度應在「旋轉連動鏈」層面，對應蝶式的「波動連動鏈」；仰式尚需加入出發技術的專項分析（這是蝶式目前缺乏的面向）。
   cross_ref: back.tech.24（文中「仰式疲勞：維持肩旋轉但增加髖旋轉」）、fly.tech.22（文中「蝶式疲勞：波動鏈中斷序列」）
   cross_ref_ids:
@@ -2014,7 +2014,7 @@ points:
     certainty: 🟢
     source_ids:
     - src.strzala-2017
-    - src.maglischo-2003-b
+    - src.maglischo-2003-swimming-fastest
     text: 第一踢的時機比值（entry-kick temporal index）與游速呈顯著負相關（r=−0.45）——第一踢越早執行，臂推進期越長，阻力越低；下踢使髖部上浮，協助手臂入水延伸對齊（EVF直接相關）。
   evidence:
   - certainty: 🟢
@@ -2026,7 +2026,7 @@ points:
     text: 第一踢是多數泳者最具推進力的踢
     source: Maglischo 2003
     source_ids:
-    - src.maglischo-2003-b
+    - src.maglischo-2003-swimming-fastest
   practical_implication: 第一踢時機是可量化的訓練指標，精英訓練已開始量化其相對時機。
 - id: fly.tech.8
   stroke: fly
