@@ -227,10 +227,11 @@ points:
     text: 上臂是全身最大截面積部位之一；任何讓上臂橫向伸出的動作都製造正面阻力。高肘讓上臂平行游進方向，使手掌成為主推進面而非前臂（前臂是圓形截面，推進效率低於扁平手掌）。
   evidence:
   - certainty: 🟠
-    text: The Race Club PDM 測試確認手掌（非前臂）是推進力的主要來源；三個物理原因（形狀、速度、拳頭測試）均支持此結論。
-    source: Hall Sr. 2020
+    text: 划臂的推進主要來自手掌而非前臂。
+    source: Hall, G., Sr. The Correct Pulling Motion for Sprint Freestyle. The Race Club.
     source_ids:
     - src.hall-sr-2020
+    caveat: 這是教練論述，該文沒有附任何測量；本庫原先寫的「PDM 測試確認」與「三個物理原因（形狀、速度、拳頭測試）均支持」都不在該文內——三個原因散見 The Race Club 其他 Aqua Notes，該機構另處給的「約 90% 來自手掌」是自家估計值，本庫不採用。
   practical_implication: 教學口令應從「讓前臂推水」改為「保持肘尖朝向游進方向」；高肘的訓練限制因素是前鋸肌耐力，而非技術理解。
   cross_ref: free.tech.10（前鋸肌硬體邊界）
   cross_ref_ids:
@@ -1995,8 +1996,8 @@ points:
     text: 兩踢在時機、方向、任務、協調難度上均不同；疲勞時第二踢先崩潰（協調難度最高），第一踢後崩潰；需分別針對性訓練。
   evidence:
   - certainty: 🟠
-    text: 把兩踢當同一動作做兩次是最常見的訓練錯誤
-    source: Swim Like A Fish 2025
+    text: 常見的訓練錯誤是忽略或不重視第二踢——有些泳者為了省力乾脆不踢第二下
+    source: 3 Common Butterfly Mistakes to Fix. Swim Like A Fish.
     source_ids:
     - src.swim-like-a-fish-2025
   practical_implication: 訓練應明確區分兩踢任務，不用單一踢水口令覆蓋兩者。
@@ -2033,8 +2034,8 @@ points:
     text: 第二踢是在對抗上半身出水重力的唯一踢，缺少它手臂必須靠背肩主動拉出水——是蝶式疲勞和肩傷的最常見機制之一；正確時序讓出水「被彈出去」而非「用力拉出去」。
   evidence:
   - certainty: 🟠
-    text: 精英泳者第二踢穩定性是技術持續性的關鍵分界
-    source: Swim Like A Fish 2025
+    text: 第二踢是把划手推到底、並讓手臂在上方順利完成恢復的那一踢
+    source: 3 Common Butterfly Mistakes to Fix. Swim Like A Fish.
     source_ids:
     - src.swim-like-a-fish-2025
   practical_implication: 第二踢與出水的同步是最容易被忽略但影響最大的時序問題，疲勞後需優先維持。
@@ -2042,16 +2043,17 @@ points:
   stroke: fly
   category: kick
   title: 兩踢推進貢獻量化與四式踢水對照
-  summary: 蝶式兩踢合計推進比例約 80%，踢水節律固定為兩踢/划手（不可調整），協調難度為四式最高。
+  summary: 蝶式與蛙式的推進有很大一部分來自腰部以下（教練站台估計上看 80%，但那是含全身波動的整體比例，不是兩次踢腿單獨的貢獻），踢水節律固定為兩踢/划手（不可調整），協調難度為四式最高。
   mechanism:
     certainty: 🔵
     text: 踝關節是蝶式鞭打力學的終點加速器，柔韌性構成硬體上限；相較自由式（可選六拍或兩拍）蝶式踢水節律不可調整，是技術固定性最高的泳式。
   evidence:
   - certainty: 🟠
-    text: 兩踢合計推進比例約 80%
-    source: Swim Like A Fish 2025
+    text: 蝶式與蛙式的推進可有高達 80% 來自腰部以下
+    source: 3 Common Butterfly Mistakes to Fix. Swim Like A Fish.
     source_ids:
     - src.swim-like-a-fish-2025
+    caveat: 80% 是教練站台自述、原文未附出處的估計值；且它指的是腰部以下的整體貢獻（包含全身波動），不能當成兩次踢腿本身的推進比例。
   practical_implication: 踢水訓練是蝶式的核心不可簡化，踝關節訓練優先於腿部力量訓練。
   cross_ref: fly.tech.6（兩踢功能不對稱）、fly.tech.24（踝關節作為鞭打硬體上限）、free.tech.11／free.tech.12（文中對照的自由式六拍與兩拍可選節律）
   cross_ref_ids:
@@ -3658,7 +3660,7 @@ points:
   evidence:
   - certainty: 🟠
     text: 縮臂湊牆被直接列名為轉身錯誤。
-    source: MySwimPro 2022
+    source: MySwimPro (2022). 7 Butterfly & Breaststroke Turn Mistakes to Avoid.
     source_ids:
     - src.myswimpro-2022
   practical_implication: 教學口令：「划完再轉，不夠就踢，不要縮手湊。」

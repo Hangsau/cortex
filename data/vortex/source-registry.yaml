@@ -510,7 +510,8 @@ sources:
     id: src.360swim
     display: 360swim
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.360swim-usms-swimming-world:
     id: src.360swim-usms-swimming-world
     display: 【只有站名，非文獻，已撤下】360swim／USMS／Swimming World 的公開教學內容
@@ -956,14 +957,22 @@ sources:
     verification_status: unverified
   src.danswim:
     id: src.danswim
-    display: DanSwim
-    type: other
-    verification_status: unverified
+    display: 'Novikov, D. Mastering the Dolphin Kick: Techniques for Effortless Speed. DanSwim.'
+    type: web_guide
+    verification_status: verified
+    title: 'Mastering the Dolphin Kick: Techniques for Effortless Speed'
+    authors:
+    - Dan Novikov
+    identifier:
+      url: https://danswim.com/dolphin-kick
+    retrieved_on: '2026-09-06'
+    link: https://danswim.com/dolphin-kick
   src.eatsleepswimcoach:
     id: src.eatsleepswimcoach
     display: EatSleepSwimCoach
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.ecg-scd-3-6-0-4-10-89-url:
     id: src.ecg-scd-3-6-0-4-10-89-url
     display: Corrado D, Basso C, Pavei A, Michieli P, Schiavon M, Thiene G. (2006). Trends in sudden cardiovascular death in young competitive athletes after implementation of a preparticipation screening program. JAMA 296(13):1593-601.
@@ -1013,7 +1022,8 @@ sources:
     id: src.enjoy-swimming-com
     display: enjoy-swimming.com
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.falls-and-hip-fracture-mortality-pmid:
     id: src.falls-and-hip-fracture-mortality-pmid
     display: 【佔位字串，非真實文獻】原記為「Falls and hip fracture mortality, 一般骨科文獻（待補具體 PMID）」——顯示字串本身就寫著「待補 PMID」，從未指向任何一篇可解析文獻
@@ -1252,10 +1262,17 @@ sources:
     link: https://doi.org/10.1177/0363546503258905
   src.hall-sr-2020:
     id: src.hall-sr-2020
-    display: Hall Sr. 2020
-    type: other
-    verification_status: unverified
+    display: Hall, G., Sr. The Correct Pulling Motion for Sprint Freestyle. The Race Club Aqua Notes.
+    type: web_article
+    verification_status: verified
+    title: The Correct Pulling Motion for Sprint Freestyle
+    authors:
+    - Gary Hall Sr.
     year: 2020
+    identifier:
+      url: https://theraceclub.com/aqua_note/pulling-motion-sprint-freestyle/
+    retrieved_on: '2026-09-06'
+    link: https://theraceclub.com/aqua_note/pulling-motion-sprint-freestyle/
   src.harvey-2024-asia-pacific-hip-fracture-mortality:
     id: src.harvey-2024-asia-pacific-hip-fracture-mortality
     display: 'Harvey LA, Payne NL, Tan A, et al. (2024). Variation in mortality following hip fracture across the Asia Pacific region: Systematic review and proportional meta-analysis. Arch Gerontol Geriatr 126:105519.'
@@ -1755,9 +1772,15 @@ sources:
     year: 2024
   src.melton-swimming:
     id: src.melton-swimming
-    display: Melton Swimming
-    type: other
-    verification_status: unverified
+    display: Melton Swimming (2012, September 25). Teaching the Butterfly Stroke.
+    type: web_guide
+    verification_status: verified
+    title: Teaching the Butterfly Stroke
+    year: 2012
+    identifier:
+      url: https://www.meltonswimming.com/teaching-butterfly-stroke/
+    retrieved_on: '2026-09-06'
+    link: https://www.meltonswimming.com/teaching-butterfly-stroke/
   src.military-swim-training-sipe:
     id: src.military-swim-training-sipe
     display: 【佔位字串，非真實文獻】原記為「軍事泳訓 SIPE 研究（具體文獻待 WebFetch 核實）」
@@ -1806,13 +1829,19 @@ sources:
     id: src.myswimpro
     display: MySwimPro
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.myswimpro-2022:
     id: src.myswimpro-2022
-    display: MySwimPro 2022
-    type: other
-    verification_status: unverified
+    display: MySwimPro (2022, December 6). 7 Butterfly & Breaststroke Turn Mistakes to Avoid.
+    type: web_article
+    verification_status: verified
+    title: 7 Butterfly & Breaststroke Turn Mistakes to Avoid
     year: 2022
+    identifier:
+      url: https://blog.myswimpro.com/2022/12/06/7-butterfly-breaststroke-turn-mistakes-to-avoid/
+    retrieved_on: '2026-09-06'
+    link: https://blog.myswimpro.com/2022/12/06/7-butterfly-breaststroke-turn-mistakes-to-avoid/
   src.myswimpro-2022-coachsci-sdsu-edu-2022:
     id: src.myswimpro-2022-coachsci-sdsu-edu-2022
     display: 【只有站名，非文獻，已撤下】MySwimPro 2022／coachsci.sdsu.edu
@@ -4996,23 +5025,40 @@ sources:
     id: src.swim-like-a-fish
     display: Swim Like A Fish
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.swim-like-a-fish-2025:
     id: src.swim-like-a-fish-2025
-    display: Swim Like A Fish 2025
-    type: other
-    verification_status: unverified
-    year: 2025
+    display: 3 Common Butterfly Mistakes to Fix. Swim Like A Fish.
+    type: web_guide
+    verification_status: verified
+    title: 3 Common Butterfly Mistakes to Fix
+    identifier:
+      url: https://swimlikeafish.org/3-common-butterfly-stroke-mistakes-you-might-be-making/
+    retrieved_on: '2026-09-06'
+    link: https://swimlikeafish.org/3-common-butterfly-stroke-mistakes-you-might-be-making/
   src.swim-smart:
     id: src.swim-smart
-    display: Swim Smart
-    type: other
-    verification_status: unverified
+    display: Teaching Butterfly. Swim Smart.
+    type: web_guide
+    verification_status: verified
+    title: Teaching Butterfly
+    identifier:
+      url: https://www.swimsmarttoday.com/pages/teaching-butterfly
+    retrieved_on: '2026-09-06'
+    link: https://www.swimsmarttoday.com/pages/teaching-butterfly
   src.swim-teach-com:
     id: src.swim-teach-com
-    display: swim-teach.com
-    type: other
-    verification_status: unverified
+    display: Young, M. Butterfly Stroke Body Movement Begins At The Head. Swim Teach.
+    type: web_guide
+    verification_status: verified
+    title: Butterfly Stroke Body Movement Begins At The Head
+    authors:
+    - Mark Young
+    identifier:
+      url: https://www.swim-teach.com/butterfly-stroke-body-movement.html
+    retrieved_on: '2026-09-06'
+    link: https://www.swim-teach.com/butterfly-stroke-body-movement.html
   src.swim-teach-com-a3-performance-enjoy-swimming:
     id: src.swim-teach-com-a3-performance-enjoy-swimming
     display: swim-teach.com、A3 Performance、enjoy-swimming 等背式呼吸教學指引（教學共識）
@@ -5020,9 +5066,17 @@ sources:
     verification_status: unverified
   src.swimcoachingblog-com:
     id: src.swimcoachingblog-com
-    display: swimcoachingblog.com
-    type: other
-    verification_status: unverified
+    display: Coach Gary (2022, December 14). Are You Training Dolphin Kick? Or Butterfly Kick? swimcoachingblog.
+    type: web_article
+    verification_status: verified
+    title: Are You Training Dolphin Kick? Or Butterfly Kick?
+    authors:
+    - Coach Gary
+    year: 2022
+    identifier:
+      url: https://swimcoachingblog.com/2022/12/14/are-you-training-dolphin-kick-or-butterfly-kick/
+    retrieved_on: '2026-09-06'
+    link: https://swimcoachingblog.com/2022/12/14/are-you-training-dolphin-kick-or-butterfly-kick/
   src.swimmers-knee-epidemiology-sr:
     id: src.swimmers-knee-epidemiology-sr
     display: 【佔位字串，非可引用來源】游泳膝傷流病系統綜述
@@ -5037,9 +5091,16 @@ sources:
     retrieved_on: '2026-08-18'
   src.swimming-science-livio-cocozza:
     id: src.swimming-science-livio-cocozza
-    display: Swimming Science / Livio Cocozza
-    type: other
-    verification_status: unverified
+    display: Cocozza, L. Undulation Technique to Improve Your Butterfly Stroke. Swimming Science.
+    type: web_article
+    verification_status: verified
+    title: Undulation Technique to Improve Your Butterfly Stroke
+    authors:
+    - Livio Cocozza
+    identifier:
+      url: https://www.swimmingscience.net/undulation-technique-to-improve-your-butterfly-stroke/
+    retrieved_on: '2026-09-06'
+    link: https://www.swimmingscience.net/undulation-technique-to-improve-your-butterfly-stroke/
   src.swimming-world-magazine:
     id: src.swimming-world-magazine
     display: Swimming World Magazine
@@ -5060,9 +5121,15 @@ sources:
     retrieved_on: '2026-09-06'
   src.swimoutlet:
     id: src.swimoutlet
-    display: SwimOutlet
-    type: other
-    verification_status: unverified
+    display: SwimOutlet.com (2024, January 22). Common Breaststroke Mistakes.
+    type: web_guide
+    verification_status: verified
+    title: Common Breaststroke Mistakes
+    year: 2024
+    identifier:
+      url: https://www.swimoutlet.com/blogs/guides/common-breaststroke-mistakes
+    retrieved_on: '2026-09-06'
+    link: https://www.swimoutlet.com/blogs/guides/common-breaststroke-mistakes
   src.swimswam-a:
     id: src.swimswam-a
     display: SwimSwam
@@ -5352,9 +5419,17 @@ sources:
     retrieved_on: '2026-09-06'
   src.train-daly:
     id: src.train-daly
-    display: Train Daly
-    type: other
-    verification_status: unverified
+    display: Daly, D. (2026, February 9). How to Swim Butterfly with Speed and Power. Train Daly.
+    type: web_article
+    verification_status: verified
+    title: How to Swim Butterfly with Speed and Power
+    authors:
+    - Dan Daly
+    year: 2026
+    identifier:
+      url: https://www.traindaly.com/train-daly/blog/how-to-swim-butterfly-with-speed-and-power
+    retrieved_on: '2026-09-06'
+    link: https://www.traindaly.com/train-daly/blog/how-to-swim-butterfly-with-speed-and-power
   src.train-daly-u-s-masters-swimming-5yd-m:
     id: src.train-daly-u-s-masters-swimming-5yd-m
     display: 【複合鍵，已拆解】Train Daly 仰式翻身系統／USMS（旗標距牆 5yd/m）
@@ -5526,9 +5601,17 @@ sources:
     verification_status: retracted
   src.usms-masters-teaching-article:
     id: src.usms-masters-teaching-article
-    display: USMS Masters Teaching Article
-    type: other
-    verification_status: unverified
+    display: McBride, N. (2009, December 18). Teaching Masters to Master the Butterfly. U.S. Masters Swimming.
+    type: web_article
+    verification_status: verified
+    title: Teaching Masters to Master the Butterfly
+    authors:
+    - Nate McBride
+    year: 2009
+    identifier:
+      url: https://www.usms.org/fitness-and-training/articles-and-videos/articles/teaching-masters-to-master-the-butterfly
+    retrieved_on: '2026-09-06'
+    link: https://www.usms.org/fitness-and-training/articles-and-videos/articles/teaching-masters-to-master-the-butterfly
   src.usms-sgswim:
     id: src.usms-sgswim
     display: 【只有站名，非文獻，已撤下】USMS／SGSwim
@@ -5677,9 +5760,14 @@ sources:
     retrieved_on: '2026-09-06'
   src.waterford-crystal-swimming-club:
     id: src.waterford-crystal-swimming-club
-    display: Waterford Crystal Swimming Club
-    type: other
-    verification_status: unverified
+    display: Butterfly. Swimming Technique. Waterford Crystal Swimming Club.
+    type: web_guide
+    verification_status: verified
+    title: Butterfly (Swimming Technique)
+    identifier:
+      url: https://www.gomotionapp.com/team/reczzwcsc/page/swimming-technique/187-butterfly
+    retrieved_on: '2026-09-06'
+    link: https://www.gomotionapp.com/team/reczzwcsc/page/swimming-technique/187-butterfly
   src.welcher-1979:
     id: src.welcher-1979
     display: Welcher et al. 1979（歷史依據）
@@ -5729,9 +5817,14 @@ sources:
     link: https://www.who.int/news/item/13-12-2024-drowning-deaths-decline-globally-but-the-most-vulnerable-remain-at-risk
   src.wikipedia-breaststroke:
     id: src.wikipedia-breaststroke
-    display: Wikipedia Breaststroke
-    type: other
-    verification_status: unverified
+    display: Breaststroke. Wikipedia (English).
+    type: web_article
+    verification_status: verified
+    title: Breaststroke
+    identifier:
+      url: https://en.wikipedia.org/wiki/Breaststroke
+    retrieved_on: '2026-09-06'
+    link: https://en.wikipedia.org/wiki/Breaststroke
   src.wilson-1983:
     id: src.wilson-1983
     display: Wilson & Marino 1983
@@ -5768,7 +5861,8 @@ sources:
     id: src.yourswimlog-b
     display: yourswimlog
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.yourswimlog-com-4-5-tethered-60s-rest-2-3:
     id: src.yourswimlog-com-4-5-tethered-60s-rest-2-3
     display: yourswimlog.com（4×5 tethered, ~60s rest, 2–3×/週）
@@ -9434,3 +9528,114 @@ sources:
       url: https://swimswam.com/my-golden-method-for-teachingimproving-butterfly/
     retrieved_on: '2026-09-06'
     link: https://swimswam.com/my-golden-method-for-teachingimproving-butterfly/
+  src.360swim-common-breaststroke-mistakes:
+    id: src.360swim-common-breaststroke-mistakes
+    display: Do You Know How To Swim Breaststroke? (Top 5 Most Common Breaststroke Mistakes). 360swim.
+    type: web_guide
+    verification_status: verified
+    title: Do You Know How To Swim Breaststroke? (Top 5 Most Common Breaststroke Mistakes)
+    identifier:
+      url: https://360swim.com/blog/how-to-swim-breaststroke
+    retrieved_on: '2026-09-06'
+    link: https://360swim.com/blog/how-to-swim-breaststroke
+  src.360swim-breaststroke-legs:
+    id: src.360swim-breaststroke-legs
+    display: Breaststroke Lesson - How About Them Legs? 360swim.
+    type: web_guide
+    verification_status: verified
+    title: Breaststroke Lesson - How About Them Legs?
+    identifier:
+      url: https://360swim.com/blog/breaststroke-lesson-how-about-them-legs
+    retrieved_on: '2026-09-06'
+    link: https://360swim.com/blog/breaststroke-lesson-how-about-them-legs
+  src.swimlikeafish-breaststroke-momentum:
+    id: src.swimlikeafish-breaststroke-momentum
+    display: 'How to Improve Breaststroke Momentum: 4 Coaching Fixes That Work. Swim Like A Fish.'
+    type: web_guide
+    verification_status: verified
+    title: 'How to Improve Breaststroke Momentum: 4 Coaching Fixes That Work'
+    identifier:
+      url: https://swimlikeafish.org/4-ways-stopping-breaststroke-momentum
+    retrieved_on: '2026-09-06'
+    link: https://swimlikeafish.org/4-ways-stopping-breaststroke-momentum
+  src.swimlikeafish-second-dolphin-kick:
+    id: src.swimlikeafish-second-dolphin-kick
+    display: 'Part II: Focus on Your Second Dolphin Kick. Swim Like A Fish.'
+    type: web_guide
+    verification_status: verified
+    title: 'Part II: Focus on Your Second Dolphin Kick'
+    identifier:
+      url: https://swimlikeafish.org/part-ii-focus-on-your-second-dolphin-kick/
+    retrieved_on: '2026-09-06'
+    link: https://swimlikeafish.org/part-ii-focus-on-your-second-dolphin-kick/
+  src.myswimpro-2020-butterfly-technique:
+    id: src.myswimpro-2020-butterfly-technique
+    display: MySwimPro (2020, September 23). How To Swim Butterfly With Perfect Technique.
+    type: web_article
+    verification_status: verified
+    title: How To Swim Butterfly With Perfect Technique
+    year: 2020
+    identifier:
+      url: https://blog.myswimpro.com/2020/09/23/how-to-swim-butterfly-with-perfect-technique/
+    retrieved_on: '2026-09-06'
+    link: https://blog.myswimpro.com/2020/09/23/how-to-swim-butterfly-with-perfect-technique/
+  src.myswimpro-2023-fastest-way-underwater:
+    id: src.myswimpro-2023-fastest-way-underwater
+    display: 'MySwimPro (2023, August 30). This is the Fastest Way to Move Through the Water (Hint: It''s Not Freestyle).'
+    type: web_article
+    verification_status: verified
+    title: 'This is the Fastest Way to Move Through the Water (Hint: It''s Not Freestyle)'
+    year: 2023
+    identifier:
+      url: https://blog.myswimpro.com/2023/08/30/this-is-the-fastest-way-to-move-through-the-water-hint-its-not-freestyle/
+    retrieved_on: '2026-09-06'
+    link: https://blog.myswimpro.com/2023/08/30/this-is-the-fastest-way-to-move-through-the-water-hint-its-not-freestyle/
+  src.keller-enjoyswimming-butterfly-undulation:
+    id: src.keller-enjoyswimming-butterfly-undulation
+    display: 'Keller, C. (2021, December 29). Butterfly Swimming Technique: The Body Undulation. Enjoy Swimming.'
+    type: web_guide
+    verification_status: verified
+    title: 'Butterfly Swimming Technique: The Body Undulation'
+    authors:
+    - Christophe Keller
+    year: 2021
+    identifier:
+      url: https://www.enjoy-swimming.com/butterfly-swimming.html
+    retrieved_on: '2026-09-06'
+    link: https://www.enjoy-swimming.com/butterfly-swimming.html
+  src.keller-enjoyswimming-butterfly-breathing:
+    id: src.keller-enjoyswimming-butterfly-breathing
+    display: Keller, C. How to Breathe while Swimming Butterfly. Enjoy Swimming.
+    type: web_guide
+    verification_status: verified
+    title: How to Breathe while Swimming Butterfly
+    authors:
+    - Christophe Keller
+    identifier:
+      url: https://www.enjoy-swimming.com/swimming-butterfly.html
+    retrieved_on: '2026-09-06'
+    link: https://www.enjoy-swimming.com/swimming-butterfly.html
+  src.yourswimlog-how-far-underwater-kicking:
+    id: src.yourswimlog-how-far-underwater-kicking
+    display: Poirier-Leroy, O. How Far Underwater Should You Be Dolphin Kicking? YourSwimLog.
+    type: web_article
+    verification_status: verified
+    title: How Far Underwater Should You Be Dolphin Kicking?
+    authors:
+    - Olivier Poirier-Leroy
+    identifier:
+      url: https://www.yourswimlog.com/how-far-underwater-should-you-be-kicking/
+    retrieved_on: '2026-09-06'
+    link: https://www.yourswimlog.com/how-far-underwater-should-you-be-kicking/
+  src.yourswimlog-gretchen-walsh-udk:
+    id: src.yourswimlog-gretchen-walsh-udk
+    display: Poirier-Leroy, O. 3 Things Swimmers Can Learn from Gretchen Walsh's Underwater Dolphin Kick. YourSwimLog.
+    type: web_article
+    verification_status: verified
+    title: 3 Things Swimmers Can Learn from Gretchen Walsh's Underwater Dolphin Kick
+    authors:
+    - Olivier Poirier-Leroy
+    identifier:
+      url: https://www.yourswimlog.com/gretchen-walsh-underwater-dolphin-kick/
+    retrieved_on: '2026-09-06'
+    link: https://www.yourswimlog.com/gretchen-walsh-underwater-dolphin-kick/
