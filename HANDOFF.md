@@ -11,7 +11,7 @@
 - 重要修正：Nordin PDF 第 129 頁圖文錯接會混淆蠕變／應力鬆弛；已目視原圖，導讀和中文圖解保留正確固定條件。
 - 已驗：Hugo 170 頁、500 條生成連結、讀本瀏覽器 97/97、服務重新啟動／路徑檢查 18/18、既有 CSCS 結構與瀏覽器 38/38。
 
-交付邊界、來源抽查與重跑命令見 [`research/book-readers-2026-09-06/REVIEW.md`](research/book-readers-2026-09-06/REVIEW.md)。全站呈現研究與既有 Vortex／CSCS 內容未變。本機驗收完成，公開部署結果將於 CI 後補記。
+交付邊界、來源抽查與重跑命令見 [`research/book-readers-2026-09-06/REVIEW.md`](research/book-readers-2026-09-06/REVIEW.md)。全站呈現研究與既有 Vortex／CSCS 內容未變。實作 commit `d51c108` 已發布，[部署 CI 成功](https://github.com/Hangsau/cortex/actions/runs/34039982688)，正式站驗收 42/42（含全部 33 章 HTTP 200、搜尋、圖解）。推送前已整合遠端 17 筆 Vortex 同步，不曾強制推送。
 
 ## 全內容呈現研究（2026-09-05，網站形態與成長案頭研究完成）
 

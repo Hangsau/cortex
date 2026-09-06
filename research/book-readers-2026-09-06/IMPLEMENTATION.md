@@ -13,7 +13,7 @@
 - [x] W3 [manual]：Hugo 共用書頁與章頁、CSS／JS、中文搜尋與閱讀設定、原生可展開來源。跨檔資料／版型協作由主 session 完成。
 - [x] W4 [manual]：本機原頁對照與可重啟閱讀服務；固定兩本書的允許清單，URL 不拼任意檔案路徑。
 - [x] W5 [manual]：結構與語意抽查、Hugo 建置、手機／桌面瀏覽器驗收與既有頁回歸。
-- [ ] W6 [manual]：更新 CLAUDE／HANDOFF／MAP，交付可直接開啟的閱讀網址及啟動入口。
+- [x] W6 [manual]：更新 CLAUDE／HANDOFF／MAP，交付可直接開啟的閱讀網址及啟動入口；commit `d51c108` 部署 CI 成功，公開站驗收 42/42。
 
 ## 設計
 

@@ -46,6 +46,8 @@ node tools/audit_book_readers.js
 
 本次結果：33 章／133 節／60 術語全部解析，500 條生成 HTML 連結及錨點可解析；新讀本瀏覽器驗收 97/97，既有 CSCS 結構檢查通過，既有 `audit.js` 38/38。既有 audit 的兩個測試網址於執行時改指 8768，原檔及斷言未改。Hugo 建置 170 頁，僅現存 locale 棄用提示。
 
+來源服務實際啟停 2 次，18/18 檢查通過，涵蓋路徑穿越、錯誤書 ID／頁數與重啟後原頁可讀。公開實作 commit `d51c1084f0388b7b862a9513382dc09585255ec1` 的[部署 CI 已成功](https://github.com/Hangsau/cortex/actions/runs/34039982688)；`public-validation.json` 記錄線上 42/42 檢查：33 章、兩冊入口、主題頁及 CSS／JS 全為 HTTP 200，正式站搜尋與中文圖解正常，沒有顯示不可用的本機原頁連結。部署前已整合遠端 17 筆 Vortex 同步，沒有修改其內容或強制推送。
+
 瀏覽器檢查涵蓋 320／390 px、小螢幕大字、桌面、雙主題文字對比、鍵盤、搜尋空結果與特殊字元、損壞／拒絕 localStorage、無 JavaScript 正文、原頁並行請求及不存在的來源。原始截圖與瀏覽器報告留在 `C:/claudehome/tmp/book-reader-review/`，人工看過桌面、手機正文及手機夜讀圖解。
 
 ## 操作與恢復
