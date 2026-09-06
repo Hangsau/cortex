@@ -520,10 +520,10 @@ sources:
     retrieved_on: '2026-09-06'
   src.aap-pediatrics-2020-145-6-e20201011-nsca-you-2020:
     id: src.aap-pediatrics-2020-145-6-e20201011-nsca-you-2020
-    display: AAP Pediatrics 2020;145(6):e20201011; NSCA Youth Resistance Training 立場聲明; Swimming Australia 處方
+    display: 【複合來源鍵，已拆解】已拆為 src.nsca-2009-youth-resistance-training、src.aap-2020-resistance-training-youth、src.swimming-australia-sc-development-swimmers 等 3 筆
     type: other
-    verification_status: unverified
-    year: 2020
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.aaron-peirsol-ryan-murphy:
     id: src.aaron-peirsol-ryan-murphy
     display: Aaron Peirsol / Ryan Murphy 水下影像分析（教練觀測）
@@ -1745,27 +1745,24 @@ sources:
     retrieved_on: '2026-09-06'
   src.mccullough-b:
     id: src.mccullough-b
-    display: McCullough et al. 2009/2010
+    display: 【重複登錄，已解除】與 src.mccullough-2009-a 為同一篇文獻
     type: other
-    verification_status: unverified
-    authors:
-    - McCullough
-    et_al: true
+    verification_status: retracted
+    title: Factors affecting flutter kicking speed in women who are competitive and recreational swimmers.
+    retrieved_on: '2026-09-06'
   src.mccullough-c:
     id: src.mccullough-c
-    display: McCullough 2009/2010 方向
+    display: 【重複登錄，已解除】與 src.mccullough-2009-a 為同一篇文獻
     type: other
-    verification_status: unverified
-    authors:
-    - McCullough
+    verification_status: retracted
+    title: Factors affecting flutter kicking speed in women who are competitive and recreational swimmers.
+    retrieved_on: '2026-09-06'
   src.mccullough-d:
     id: src.mccullough-d
-    display: McCullough et al. 2009/2010 踝活動度與踢水推進相關研究; Pink/Tibone 肩關節基線; 通用瑜伽解剖 / 運動科學共識
+    display: 【複合來源鍵，已拆解】已拆為 src.mccullough-2009-a、src.pink-tibone-2000-painful-shoulder-swimmer，另瑜伽解剖已另列 src.kaminoff-matthews-2007
     type: other
-    verification_status: unverified
-    authors:
-    - McCullough
-    et_al: true
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.mckenzie-2023-a:
     id: src.mckenzie-2023-a
     display: 'McKenzie, A., Larequi, S.-A., Hams, A., Headrick, J., Whiteley, R., & Duhig, S. (2023). Shoulder pain and injury risk factors in competitive swimmers: a systematic review. Scandinavian Journal of Medicine & Science in Sports, 33(12), 2396–2412.'
@@ -6371,6 +6368,129 @@ sources:
       pmcid: PMC6481107
     retrieved_on: '2026-08-17'
     link: https://doi.org/10.1155/2019/9320569
+  src.nsca-2009-youth-resistance-training:
+    id: src.nsca-2009-youth-resistance-training
+    display: 'Faigenbaum AD, Kraemer WJ, Blimkie CJR, Jeffreys I, Micheli LJ, Nitka M, Rowland TW. (2009). Youth resistance training: updated position statement paper from the National Strength and Conditioning Association. J Strength Cond Res 23(5 Suppl):S60-S79.'
+    type: review
+    verification_status: verified
+    title: 'Youth resistance training: updated position statement paper from the National Strength and Conditioning Association'
+    authors:
+    - Faigenbaum AD
+    - Kraemer WJ
+    - Blimkie CJ
+    - Jeffreys I
+    - Micheli LJ
+    - Nitka M
+    - Rowland TW
+    year: 2009
+    container: Journal of Strength and Conditioning Research
+    identifier:
+      pmid: '19620931'
+      doi: 10.1519/JSC.0b013e31819df407
+      url: https://www.nsca.com/globalassets/about/position-statements/position_stand_youth_resistance_training---2009.pdf
+    retrieved_on: '2026-09-06'
+    link: https://www.nsca.com/globalassets/about/position-statements/position_stand_youth_resistance_training---2009.pdf
+  src.aap-2020-resistance-training-youth:
+    id: src.aap-2020-resistance-training-youth
+    display: Stricker PR, Faigenbaum AD, McCambridge TM; Council on Sports Medicine and Fitness. (2020). Resistance Training for Children and Adolescents. Pediatrics 145(6):e20201011.
+    type: review
+    verification_status: verified
+    title: Resistance Training for Children and Adolescents
+    authors:
+    - Stricker PR
+    - Faigenbaum AD
+    - McCambridge TM
+    - Council on Sports Medicine and Fitness
+    year: 2020
+    container: Pediatrics
+    identifier:
+      pmid: '32457216'
+      doi: 10.1542/peds.2020-1011
+    retrieved_on: '2026-09-06'
+    link: https://doi.org/10.1542/peds.2020-1011
+  src.swimming-australia-sc-development-swimmers:
+    id: src.swimming-australia-sc-development-swimmers
+    display: Swimming Australia. Strength & Conditioning Exercises for Development Level Swimmers（16 頁海報式陸上訓練指引，經 Swimming WA 官網發布）。
+    type: web_guide
+    verification_status: verified
+    title: Strength & Conditioning Exercises for Development Level Swimmers
+    authors:
+    - Swimming Australia
+    container: Swimming Australia / Swimming WA
+    identifier:
+      url: https://wa.swimming.org.au/sites/default/files/assets/documents/S%26C%20Exercises%20for%20Development%20Level%20Swimmers.pdf
+    retrieved_on: '2026-09-06'
+    link: https://wa.swimming.org.au/sites/default/files/assets/documents/S%26C%20Exercises%20for%20Development%20Level%20Swimmers.pdf
+  src.lloyd-2014-chronological-vs-biological:
+    id: src.lloyd-2014-chronological-vs-biological
+    display: 'Lloyd RS, Oliver JL, Faigenbaum AD, Myer GD, De Ste Croix MB. (2014). Chronological age vs. biological maturation: implications for exercise programming in youth. J Strength Cond Res 28(5):1454-1464.'
+    type: review
+    verification_status: verified
+    title: 'Chronological age vs. biological maturation: implications for exercise programming in youth'
+    authors:
+    - Lloyd RS
+    - Oliver JL
+    - Faigenbaum AD
+    - Myer GD
+    - De Ste Croix MB
+    year: 2014
+    container: Journal of Strength and Conditioning Research
+    identifier:
+      pmid: '24476778'
+      doi: 10.1519/JSC.0000000000000391
+    retrieved_on: '2026-09-06'
+    link: https://doi.org/10.1519/JSC.0000000000000391
+  src.malina-2011-skeletal-age:
+    id: src.malina-2011-skeletal-age
+    display: Malina RM. (2011). Skeletal age and age verification in youth sport. Sports Med 41(11):925-947.
+    type: review
+    verification_status: verified
+    title: Skeletal age and age verification in youth sport
+    authors:
+    - Malina RM
+    year: 2011
+    container: Sports Medicine
+    identifier:
+      pmid: '21985214'
+      doi: 10.2165/11590300-000000000-00000
+    retrieved_on: '2026-09-06'
+    link: https://doi.org/10.2165/11590300-000000000-00000
+  src.lindholm-2024-bio-banding-hockey:
+    id: src.lindholm-2024-bio-banding-hockey
+    display: 'Lindholm O, Niklasson E, Lind J, Cardinale DA, Lundberg TR. (2024). A pilot study on bio-banding in male youth ice hockey: Players'' perceptions and coaches'' selection preferences. PLoS One 19(8):e0308676.'
+    type: journal-article
+    verification_status: verified
+    title: 'A pilot study on bio-banding in male youth ice hockey: Players'' perceptions and coaches'' selection preferences'
+    authors:
+    - Lindholm O
+    - Niklasson E
+    - Lind J
+    - Cardinale DA
+    - Lundberg TR
+    year: 2024
+    container: PLoS One
+    identifier:
+      pmid: '39133685'
+      pmcid: PMC11318913
+      doi: 10.1371/journal.pone.0308676
+    retrieved_on: '2026-09-06'
+    link: https://doi.org/10.1371/journal.pone.0308676
+  src.pink-tibone-2000-painful-shoulder-swimmer:
+    id: src.pink-tibone-2000-painful-shoulder-swimmer
+    display: Pink MM, Tibone JE. (2000). The painful shoulder in the swimming athlete. Orthop Clin North Am 31(2):247-261.
+    type: review
+    verification_status: verified
+    title: The painful shoulder in the swimming athlete
+    authors:
+    - Pink MM
+    - Tibone JE
+    year: 2000
+    container: Orthopedic Clinics of North America
+    identifier:
+      pmid: '10736394'
+      doi: 10.1016/s0030-5898(05)70145-0
+    retrieved_on: '2026-09-06'
+    link: https://doi.org/10.1016/s0030-5898(05)70145-0
   src.pink-1993:
     id: src.pink-1993
     display: Pink M, Jobe FW, Perry J, Kerrigan J, Browne A, Scovazzo ML. (1993). The normal shoulder during the butterfly swim stroke. An electromyographic and cinematographic analysis of twelve muscles. Clin Orthop Relat Res (288):48–59.
