@@ -208,6 +208,7 @@ indicators:
     source: 整合 Race Club + 通用菁英觀察
     source_ids:
     - src.race-club-c
+    observation_basis: 觀察者為 The Race Club 教練群，量測工具是該單位自有的 Pressure Meter （手部壓力）搭配影像取得的肩／髖角速度，族群為競技自由式泳者。外推邊界：0.2–0.3 秒是**該單位自行量測、未經同儕審查**的區間，未報告樣本數、取樣頻率與量測誤差，因此只能當作「有明確時間差」這個定性判準，不得拿數值做個人比對或訓練門檻；初學者「同步或無時差」的對照組是教學觀察，不是同一批量測。
 - id: free.L5.lift-phase-duration
   stroke: free
   level: L5
@@ -221,6 +222,7 @@ indicators:
     source: 整合 Race Club 量測
     source_ids:
     - src.race-club-d
+    observation_basis: 觀察者為 The Race Club，量測工具是該單位自有的 Velocity Meter，受測者具名為單一個人（Gary Hall Sr.）。外推邊界：**n=1**，且受測者是該單位自己的教練而非現役競技樣本， 0.34 秒是單次讀值、未報告重複與變異；指標欄裡「>0.6 秒 / <0.3 秒」的兩個門檻是由這一點外推出的，**沒有獨立驗證**，使用時只能當風格是否匹配的方向提示，不能當合格線。
 - id: free.L5.serratus
   stroke: free
   level: L5
@@ -328,6 +330,7 @@ indicators:
     source: 通用菁英影像共識
     source_ids:
     - src.elite-video-consensus
+    observation_basis: 觀察者為教練群（無單一具名發布方），素材是公開的菁英仰式比賽影像，族群為 100 m 仰式 sub-1:00 的競技選手。外推邊界：「<3 cm」是**沒有標定尺規的影像目測**，實際上池畔攝影的透視誤差就可能大於這個量級，因此它只能表示「肉眼看不出頭在動」，不得當成可量測的閾值使用或寫進測驗標準；成人初學與兒童在任何配速下都不適用此標準。
 - id: back.L5.roll-invariant
   stroke: back
   level: L5
@@ -493,6 +496,7 @@ indicators:
     source: 通用菁英影像共識
     source_ids:
     - src.elite-video-consensus
+    observation_basis: 觀察者為教練群（無單一具名發布方），素材是 Michael Phelps、Kristóf Milák、 Caeleb Dressel 等少數頂尖個案的公開比賽影像，族群為男子菁英 50/100 m 蝶式。外推邊界：本觀察判讀的是「有沒有可見的滑行空檔」這個定性特徵， **沒有實際計算 IVV**——真正的週期內速度變異需要速度計或標定後的影格分析，本庫沒有這些數據。因此「菁英 IVV 顯著小於非菁英」在本條屬**引自文獻共識的背景敘述**，不是這幾段影像測出來的；三位個案也不構成族群樣本。
 - id: fly.L6.chain-closure
   stroke: fly
   level: L6
