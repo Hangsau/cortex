@@ -221,10 +221,10 @@ errors:
     text: 入水角度受回臂方式、身體旋轉幅度、個人腕部活動度共同決定。直臂回臂選手入水時手腕通常需要更多屈曲才能讓指尖先入水；強制掌心朝下反而製造入水阻力或手腕代償。
   evidence:
   - certainty: 🟠
-    text: 一種手型適合所有人是不存在的。不同回臂方式、身體結構、傷病史都會影響入水時最佳的手腕角度。
-    source: Swimming World Magazine
+    text: 一種手型適合所有人是不存在的（原文用語是「One size fits none!」）。直臂回臂需要比屈臂回臂更多的腕部屈曲才能讓指尖先入水，而傷病史也會改變可用的腕部角度範圍。使用邊界：這是 Swimming World 的技術專欄論述，非對照實驗；原文全篇談自由式，不可外推到其他泳式。
+    source: 'Mullen, G. J. (2011). Science of Performance: Hand Entry. Swimming World.'
     source_ids:
-    - src.swimming-world-magazine
+    - src.mullen-2011-swimmingworld-hand-entry
     url: https://www.swimmingworldmagazine.com/news/science-of-performance-hand-entry/
   cross_ref: 入水手部位置與小指朝下、手掌在水中朝哪裡，不能反推前臂旋前或旋後
   cross_ref_ids:
@@ -1009,20 +1009,14 @@ errors:
     certainty: 🟢
     source_ids:
     - src.nicol-2022-breaststroke-systematic-review
-    - src.swimming-world-magazine
-    - src.usms-wayne-mccauley
+    - src.mccauley-1993-usms-modern-breaststroke
     text: outsweep 的功能是「將手移至最佳捕水起始位置」，不是推進。外划本身推進力很小； insweep（內掃）才是蛙式手部動作的主推進相。世界頂尖與國家級選手的差別，在於手臂推進相往腿的滑行段延伸得更久，不是更早開始內划。
   evidence:
-  - certainty: 🟠
-    text: 外划不需要加速，只需要等速滑出；insweep（內掃）才是真正的推進階段——手部在此加速向下再向內，直到手掌在下巴前合攏。
-    source: Swimming World Magazine
+  - certainty: 🟡
+    text: 外划本身推進力很小；要從外划取得任何推進，手掌必須相對前臂帶出 30–45 度的角度。使用邊界：這是 1993 年美國masters 泳協技術文章的說法，作者的解釋架構是當年主流的升力理論（把手當機翼），與後來以非穩態流體、渦流脫落為主的解釋不同；「外划推進力小」這個結論本身有 Nicol 2022 系統性綜述支持，但這裡的角度數字屬於當年的經驗處方，不是量測值。
+    source: McCauley, W. (1993). The Modern Breaststroke. U.S. Masters Swimming.
     source_ids:
-    - src.swimming-world-magazine
-  - certainty: 🟠
-    text: 外划本身推進力很小；要獲得任何推進力，手部必須以30–45度角對準前臂。
-    source: USMS (Wayne McCauley)
-    source_ids:
-    - src.usms-wayne-mccauley
+    - src.mccauley-1993-usms-modern-breaststroke
   - certainty: 🟢
     text: 系統綜述確認 insweep 是蛙式手部動作的主推進相；外划的功能在定位而非產生推進力。
     source: 'Nicol, E., Pearson, S., Saxby, D., Minahan, C., & Tor, E. (2022). Stroke Kinematics, Temporal Patterns, Neuromuscular Activity, Pacing and Kinetics in Elite Breaststroke Swimming: A Systematic Review. Sports Medicine - Open, 8(1), 75.'
@@ -1043,11 +1037,11 @@ errors:
     certainty: 🔵
     text: 沒有足夠肌力控制的過寬外划，反而讓肘部下沉，破壞後續 insweep 的高肘捕水姿態，降低整體推進效率。外划幅度越大，側向分量越多，向前有效分量佔比下降，同時收腿阻力增加；兩個成本同時出現，超過最優幅度後收益快速遞減。
   evidence:
-  - certainty: 🟠
-    text: outsweep 的寬度取決於選手的上方肌力——選手越強，才能控制越寬的外划。外划最重要的目標是在保持手肘伸直的前提下，讓手掌盡量移離肩胛骨，而不是純粹追求寬度。
-    source: Swimming World Magazine
+  - certainty: 🟡
+    text: 捕水點要拉多寬，取決於選手自身的力量——越強的人才撐得住越寬的外划。使用邊界：這是 1993 年美國 masters 泳協技術文章的教練處方，不是量測結果；原文沒有給出可對照的寬度數值或肌力門檻，只說明寬度是個體變數而非固定標準。
+    source: McCauley, W. (1993). The Modern Breaststroke. U.S. Masters Swimming.
     source_ids:
-    - src.swimming-world-magazine
+    - src.mccauley-1993-usms-modern-breaststroke
   cross_ref: 外划（Outsweep）、外划過寬、捕水（Catch）
   cross_ref_ids:
   - breast.tech.3
@@ -1062,7 +1056,7 @@ errors:
   misconception: 大多數初學教學要求換氣時眼睛正面直視前方，甚至要「看到對面牆壁」才算換氣位置正確。
   physical_reason:
     certainty: 🔵
-    text: 換氣時抬頭直視前方，會讓臀部下沉，身體姿勢把人往上推而不是往前推。競技蛙式換氣應由 insweep 帶動的上胸前衝自然帶出，頭部隨脊柱移動而非獨立仰起。長期正面換氣習慣也容易造成頸部過度仰伸的傷害。
+    text: 換氣時抬頭直視前方，會讓臀部下沉，身體姿勢把人往上推而不是往前推。競技蛙式換氣應由 insweep 帶動的上胸前衝自然帶出，抬升的方向是向前而不是向上。長期正面換氣習慣也容易造成頸部過度仰伸的傷害。要注意的是：「所以頸部角度應該固定、頭跟脊柱一起動」是另一個方向的過度修正——見下方證據列，生物力學觀點反而要求頸部在完整活動範圍內伸展，只是下巴維持在水面高度。
   evidence:
   - certainty: 🟠
     text: 換氣時抬頭直視前方，會讓臀部下沉，身體姿勢把你往上推而不是往前推。換氣時頭部往下調整到45度角，有助於讓臀部維持在水面。
@@ -1070,16 +1064,16 @@ errors:
     source_ids:
     - src.swimoutlet
   - certainty: 🟠
-    text: 頭部是跟著肩胛骨移動的。換氣時的抬升應該是上胸和肩膀作為一個整體向前衝出水面——是向前衝，不是向上抬。
-    source: Swimming World Magazine（Rod Havriluk, PhD biomechanist）
+    text: 生物力學者 Rod Havriluk 明確把「蛙式換氣時不該改變頸部角度」列為技術誤區：有效的換氣動作需要頸部在完整活動範圍內伸展，而伸展的判準是下巴維持在水面高度，不是把整個頭抬離水面。他引 Jon Urbanchek 的說法形容錯誤版本像是「頸部和肩膀打了石膏」。使用邊界：這是專欄形式的生物力學論述，不是對照實驗；本庫先前把他的立場記反了（寫成「頭部隨脊柱移動而非獨立仰起」），2026-09-06 更正。
+    source: 'Havriluk, R. (2017). Technique Misconceptions: Breaststroke and Butterfly Breathing Revisited. Swimming World.'
     source_ids:
-    - src.swimming-world-magazine-rod-havriluk-phd-bio
+    - src.havriluk-2017-breathing-misconceptions-revisited
   cross_ref: 內划（Insweep）、波動的雙重功能
   cross_ref_ids:
   - breast.tech.5
   - breast.tech.20
-  correct_concept: 競技蛙式換氣應由 insweep 帶動的上胸前衝自然帶出，頭部隨脊柱移動而非獨立仰起。眼睛看向水面前方（約45度角），而非直視對岸。
-  perception_impact: 頭部獨立仰起觸發頸部和上背張力，干擾整體流線感知。換氣時突發的感知遮蔽讓 L3–L4 的動作整合不穩定。
+  correct_concept: 競技蛙式換氣應由 insweep 帶動的上胸前衝自然帶出，抬升方向是向前而非向上，眼睛看向水面前方（約45度角）而非直視對岸。頸部本身是要伸展的，判準是下巴停在水面高度——不是把頸部鎖死跟著脊柱走。
+  perception_impact: 把頭往上拔（而非隨上胸向前送）會觸發頸部和上背張力，干擾整體流線感知。換氣時突發的感知遮蔽讓 L3–L4 的動作整合不穩定。
 - id: breast.err8
   stroke: breast
   category: head
@@ -1113,13 +1107,13 @@ errors:
   physical_reason:
     certainty: 🟠
     text: outsweep 時手臂剛開始移動，尚未建立支撐力，此時頭部上抬等同於在最弱的時機增加重心上移負擔。過早抬頭等同於把推進力從水平方向轉為垂直方向，浪費 insweep 的動能。
-    observation_basis: 觀察者為 Swimming World Magazine 的 Rod Havriluk（即下方 evidence 的來源），族群為競技蛙式泳者。外推邊界：Havriluk 的分析屬教練／技術評論層，本條引用的是其時序判斷（抬頭時機相對於 outsweep），**不含任何力或時間的量測值**；「浪費 insweep 動能」是動量方向的推導，不是測到的能量損失比例。
+    observation_basis: 觀察者為生物力學者 Rod Havriluk 在 Swimming World 的技術專欄（即下方 evidence 的來源），族群為競技蛙式泳者。外推邊界：Havriluk 的分析屬技術評論層，本條引用的是其時序判斷（抬頭時機相對於 outsweep），**不含任何力或時間的量測值**；「浪費 insweep 動能」是動量方向的推導，不是測到的能量損失比例。
   evidence:
   - certainty: 🟠
-    text: 外划時就換氣的方式已不再被現代頂尖選手使用，因為效率低落。它造成一種停停走走的節奏，讓身體前後兩段好像各自獨立運作；肩膀上升時臀部自然下沉，整體流暢度大幅下降。
-    source: Swimming World Magazine（Rod Havriluk）
+    text: 划手一開始時頭應維持在流線位置、視線朝正下方，一直到雙手進入視野範圍才開始抬頭——這個延遲大約四分之一秒，而到那個時間點手部已經產生約 10 磅的作用力，也就是說身體已經有支撐可以承接頭部上抬。使用邊界：四分之一秒與 10 磅是原文引用其手部測力量測給出的概數，不是本庫的獨立量測；本庫先前另外掛在此處的「外划換氣已不被現代頂尖選手使用」「停停走走的節奏」兩句，回原文查無，2026-09-06 刪除。
+    source: 'Havriluk, R. (2020). Breaststroke Breathing: Head Timing Delay. Swimming World.'
     source_ids:
-    - src.swimming-world-magazine-rod-havriluk
+    - src.havriluk-2020-breaststroke-head-timing-delay
   cross_ref: 外划（Outsweep）、內划（Insweep）
   cross_ref_ids:
   - breast.tech.3
@@ -1161,9 +1155,6 @@ errors:
   evidence:
   - certainty: 🔵
     text: insweep 結束時開始上踢（腿部收回），讓腿部的向外踢和向內收發生在手臂前伸的期間——那是身體阻力最小的流線階段。
-    source: Swimming World Magazine
-    source_ids:
-    - src.swimming-world-magazine
   - certainty: 🟠
     text: 在踢腳剛結束、腿部仍在流線狀態、還沒開始收腿時划手；在手臂收回完成後、划水之前踢腳。
     source: U.S. Masters Swimming — Breaststroke Timing 指南
@@ -1299,10 +1290,10 @@ errors:
     text: 現代生物力學分析與高速影像顯示，菁英選手的水下划手路徑比過去認為的更接近直線後推，刻意的鑰匙孔路徑增加橫向阻力並拉長外划時間。所謂「鑰匙孔」其實是手臂在三維空間移動加上軀幹起伏後的視覺副產品，而非刻意設計的手部路徑。insweep → upsweep 階段自然產生的小幅度弧線是正常現象，非技術目標，與整條路徑刻意走S形兩者不矛盾。
   evidence:
   - certainty: 🟠
-    text: 強調直線後推（straight back pull），而非過時的「鑰匙孔」、「雪人」或「大-小-大」划法。
-    source: SwimSwam
+    text: 強調直線後推（straight back pull），而非過時的「鑰匙孔」、「雪人」或「大-小-大」划法。使用邊界：出自 SwimSwam 一篇個人教學法投稿，屬教練意見；原文站點目前有付費牆，本庫僅能由檢索索引取得段落，未逐字覆核全文。
+    source: My Golden Method for Teaching/Improving Butterfly. SwimSwam.
     source_ids:
-    - src.swimswam-a
+    - src.swimswam-golden-method-butterfly
   - certainty: 🟠
     text: 近年競技游泳更傾向較直線的划手方式。
     source: Waterford Crystal Swimming Club
@@ -1343,12 +1334,6 @@ errors:
   physical_reason:
     certainty: 🔵
     text: 蝶式的驅動力來源、身體位置與蛙式截然不同。「向外-向內」的刻意夾合路徑容易讓選手在水下浪費時間，破壞節奏，甚至增加肩膀壓力。蝶式外划的功能是定位（讓手臂到達 EVF 的起始位置），而非主動推進；兩者的身體位置與波動機制完全不同，教學語言不可混用。
-  evidence:
-  - certainty: 🟠
-    text: 如果他們太快完成動作，會把划手變成蛙式划水。
-    source: SwimSwam
-    source_ids:
-    - src.swimswam-a
   cross_ref: 外划（Outsweep）功能重建、五階段划水分析（外划→捕水→內划→上划→回臂）、蝶式 vs 蛙式
   cross_ref_ids:
   - fly.tech.12
@@ -2186,15 +2171,10 @@ errors:
     source_ids:
     - src.pmc8960438-d
   - certainty: 🟠
-    text: 「拉著自己靠近牆時會讓髖部下沉，就像放錨一樣。髖部下沉讓你很難啟動轉身。腿必須在髖部不下沉的情況下收回。」
-    source: Coach Jozsef Nagy / SwimSwam, The Breaststroke Turn
+    text: 目標是把腿踢進牆，絕不是把自己拉進牆——拉進去會讓髖部下沉，就像放了錨一樣。使用邊界：這句出自 1998 年美國 masters 泳協的技術文章，屬教練處方而非量測；「放錨」是原文的比喻。本庫先前把這段歸給 SwimSwam 的 Jozsef Nagy，那是錯的歸屬，2026-09-06 更正。
+    source: McCauley, W. (1998). The Complete New Breaststroke Turn. U.S. Masters Swimming.
     source_ids:
-    - src.coach-jozsef-nagy-swimswam-the-breaststroke
-  - certainty: 🟠
-    text: 選手最常見的錯誤，是在接近牆之前減速，並在腿還未完全收回時就讓髖部下落。
-    source: SwimSwam 教練觀察
-    source_ids:
-    - src.swimswam-b
+    - src.mccauley-1998-usms-complete-new-breaststroke-turn
   cross_ref: 技術分析 §貳 2.3/2.4 接觸與推蹬：觸牆深度
   cross_ref_ids:
   - starts-turns.tech.25
@@ -2222,10 +2202,10 @@ errors:
     - src.pmid-40252339-a
     url: https://pubmed.ncbi.nlm.nih.gov/40252339/
   - certainty: 🟠
-    text: 若泳者在推蹬時沒有流線型姿勢，不管推多用力速度都出不去——水的阻力會抵消所有向前的推進力。
-    source: 'Building the Perfect Turn: Push Off Strength, Tritonwear / SwimSwam'
+    text: 若泳者在推蹬時沒有流線型姿勢，不管推多用力速度都出不去——水會反推回來，抵消向前的推進，量到的推蹬強度數值也因此偏低。使用邊界：原文出自穿戴裝置廠商 TritonWear 的部落格，其「Push-Off Strength」是該公司自訂的無單位指標（文中給的菁英區間為女子 29–31、男子 30–33），不是力學單位，不能與文獻中的推蹬力數據互相對照。
+    source: 'Marr, K. (2018). Building the Perfect Turn: Push Off Strength. TritonWear Blog.'
     source_ids:
-    - src.building-the-perfect-turn-push-off-strength
+    - src.marr-2018-tritonwear-push-off-strength
   cross_ref: 技術分析 §貳通用：流線型品質與推蹬方向同等重要
   cross_ref_ids:
   - starts-turns.tech.17

@@ -730,7 +730,8 @@ sources:
     id: src.building-the-perfect-turn-push-off-strength
     display: 'Building the Perfect Turn: Push Off Strength, Tritonwear / SwimSwam'
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.bushman-2006:
     id: src.bushman-2006
     display: 【查無此文獻】原記為「Bushman et al. 2006, Phys Sportsmed（早期 OC × VO₂max 量化）」，該期刊無此作者文獻
@@ -894,7 +895,8 @@ sources:
     id: src.coach-jozsef-nagy-swimswam-the-breaststroke
     display: Coach Jozsef Nagy / SwimSwam, The Breaststroke Turn
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.coach-observation:
     id: src.coach-observation
     display: 教練觀測
@@ -5042,20 +5044,20 @@ sources:
     id: src.swimming-world-magazine
     display: Swimming World Magazine
     type: other
-    verification_status: unverified
-    identifier:
-      url: https://www.swimmingworldmagazine.com/news/science-of-performance-hand-entry/
-    link: https://www.swimmingworldmagazine.com/news/science-of-performance-hand-entry/
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.swimming-world-magazine-rod-havriluk:
     id: src.swimming-world-magazine-rod-havriluk
     display: Swimming World Magazine（Rod Havriluk）
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.swimming-world-magazine-rod-havriluk-phd-bio:
     id: src.swimming-world-magazine-rod-havriluk-phd-bio
     display: Swimming World Magazine（Rod Havriluk, PhD biomechanist）
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.swimoutlet:
     id: src.swimoutlet
     display: SwimOutlet
@@ -5065,12 +5067,14 @@ sources:
     id: src.swimswam-a
     display: SwimSwam
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.swimswam-b:
     id: src.swimswam-b
     display: SwimSwam 教練觀察
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.swimswam-koga-wku-kinematic:
     id: src.swimswam-koga-wku-kinematic
     display: 【殘樁＋引用方向相反，已撤下】SwimSwam Junya Koga analysis／WKU Digital Commons Kinematic Comparison
@@ -5540,7 +5544,8 @@ sources:
     id: src.usms-wayne-mccauley
     display: USMS (Wayne McCauley)
     type: other
-    verification_status: unverified
+    verification_status: retracted
+    retrieved_on: '2026-09-06'
   src.veiga-2022:
     id: src.veiga-2022
     display: Veiga et al. 2022 systematic review
@@ -9338,3 +9343,94 @@ sources:
       url: https://vuir.vu.edu.au/34057/1/TOR%20Elaine%20-%20thesis_nosignatures.pdf
     retrieved_on: '2026-09-06'
     link: https://vuir.vu.edu.au/34057/1/TOR%20Elaine%20-%20thesis_nosignatures.pdf
+  src.havriluk-2020-breaststroke-head-timing-delay:
+    id: src.havriluk-2020-breaststroke-head-timing-delay
+    display: 'Havriluk, R. (2020, December 6). Swimming Technique Concepts: Breaststroke Breathing Head Timing Delay. Swimming World Magazine, December 2020 issue.'
+    type: web_article
+    verification_status: verified
+    title: 'Swimming Technique Concepts: Breaststroke Breathing Head Timing Delay'
+    authors:
+    - Rod Havriluk
+    year: 2020
+    container: Swimming World Magazine
+    identifier:
+      url: https://www.swimmingworldmagazine.com/news/swimming-world-presents-swimming-technique-concepts-breaststroke-breathing-head-timing-delay/
+    retrieved_on: '2026-09-06'
+    link: https://www.swimmingworldmagazine.com/news/swimming-world-presents-swimming-technique-concepts-breaststroke-breathing-head-timing-delay/
+  src.havriluk-2017-breathing-misconceptions-revisited:
+    id: src.havriluk-2017-breathing-misconceptions-revisited
+    display: 'Havriluk, R. (2017, December). Technique Misconceptions: Breaststroke and Butterfly Breathing Revisited. Swimming World Magazine.'
+    type: web_article
+    verification_status: verified
+    title: 'Technique Misconceptions: Breaststroke and Butterfly Breathing Revisited'
+    authors:
+    - Rod Havriluk
+    year: 2017
+    container: Swimming World Magazine
+    identifier:
+      url: https://www.swimmingworldmagazine.com/news/swimming-world-presents-technique-misconceptions-breaststroke-and-butterfly-breathing-revisited/
+    retrieved_on: '2026-09-06'
+    link: https://www.swimmingworldmagazine.com/news/swimming-world-presents-technique-misconceptions-breaststroke-and-butterfly-breathing-revisited/
+  src.mccauley-1993-usms-modern-breaststroke:
+    id: src.mccauley-1993-usms-modern-breaststroke
+    display: McCauley, W. (1993, October 1). The Modern Breaststroke. U.S. Masters Swimming.
+    type: web_article
+    verification_status: verified
+    title: The Modern Breaststroke
+    authors:
+    - Wayne McCauley
+    year: 1993
+    identifier:
+      url: https://www.usms.org/fitness-and-training/articles-and-videos/articles/the-modern-breaststroke
+    retrieved_on: '2026-09-06'
+    link: https://www.usms.org/fitness-and-training/articles-and-videos/articles/the-modern-breaststroke
+  src.mccauley-1998-usms-complete-new-breaststroke-turn:
+    id: src.mccauley-1998-usms-complete-new-breaststroke-turn
+    display: McCauley, W. (1998, January 23). The Complete New Breaststroke Turn. U.S. Masters Swimming.
+    type: web_article
+    verification_status: verified
+    title: The Complete New Breaststroke Turn
+    authors:
+    - Wayne McCauley
+    year: 1998
+    identifier:
+      url: https://www.usms.org/fitness-and-training/articles-and-videos/articles/the-complete-new-breaststroke-turn
+    retrieved_on: '2026-09-06'
+    link: https://www.usms.org/fitness-and-training/articles-and-videos/articles/the-complete-new-breaststroke-turn
+  src.marr-2018-tritonwear-push-off-strength:
+    id: src.marr-2018-tritonwear-push-off-strength
+    display: 'Marr, K. (2018, January 28). Building the Perfect Turn: Push-Off Strength. TritonWear Blog.'
+    type: web_article
+    verification_status: verified
+    title: 'Building the Perfect Turn: Push-Off Strength'
+    authors:
+    - Katie Marr
+    year: 2018
+    identifier:
+      url: https://blog.tritonwear.com/building-perfect-turn-push-off-strength
+    retrieved_on: '2026-09-06'
+    link: https://blog.tritonwear.com/building-perfect-turn-push-off-strength
+  src.mullen-2011-swimmingworld-hand-entry:
+    id: src.mullen-2011-swimmingworld-hand-entry
+    display: 'Mullen, G. J. (2011, October 31). Science of Performance: Hand Entry. Swimming World Magazine.'
+    type: web_article
+    verification_status: verified
+    title: 'Science of Performance: Hand Entry'
+    authors:
+    - G. John Mullen
+    year: 2011
+    container: Swimming World Magazine
+    identifier:
+      url: https://www.swimmingworldmagazine.com/news/science-of-performance-hand-entry/
+    retrieved_on: '2026-09-06'
+    link: https://www.swimmingworldmagazine.com/news/science-of-performance-hand-entry/
+  src.swimswam-golden-method-butterfly:
+    id: src.swimswam-golden-method-butterfly
+    display: My Golden Method for Teaching/Improving Butterfly. SwimSwam.
+    type: web_article
+    verification_status: verified
+    title: My Golden Method for Teaching/Improving Butterfly
+    identifier:
+      url: https://swimswam.com/my-golden-method-for-teachingimproving-butterfly/
+    retrieved_on: '2026-09-06'
+    link: https://swimswam.com/my-golden-method-for-teachingimproving-butterfly/
