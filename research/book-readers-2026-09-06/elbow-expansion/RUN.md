@@ -64,4 +64,4 @@
 - 本批 `browser-checks.json`：48/48，涵蓋原錨點、完整目次、320 px／22 字級、紙本與夜讀、桌面、7 條精確跨書連結、無 JavaScript 與鍵盤 0／0.5／1 公斤。相應 M/J 是 52/32、82/57、112/82 N，零重量隱藏 P 箭頭。
 - 人工檢視手機正文與兩張圖的紙本／夜讀截圖；修正 30 cm 標示與尺寸線相交，確認字體大小及方向。截圖與執行腳本留 `C:/claudehome/tmp/book-translation-elbow/`，既有工具與 canonical 正文保留可重跑入口。
 
-本批發布的 commit、CI 與實際 HTTP／內容檢查結果將記於 `public-validation.json`；原書與暫存翻譯包不在發布內容中。
+實作 `b90aa52a84c094fead1d7b80261f4821eeee657e` 已推送，部署 [34109222690](https://github.com/Hangsau/cortex/actions/runs/34109222690) 成功。正式兩章、CSS、JS 均 HTTP 200，31／19 個正文錨點、兩張新圖與新文字存在，7 條跨書精確落點可解析，正式 CSS／JS 與驗收版內容相同。完整記錄見 `public-validation.json`。原書與暫存翻譯包不在發布內容中。
