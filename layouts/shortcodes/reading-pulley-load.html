@@ -1,0 +1,19 @@
+{{ $ID := printf "rd-pulley-load-%d" .Ordinal }}
+<figure class="rd-diagram rd-pulley-load" data-pulley-load aria-labelledby="{{ $ID }}-caption">
+<svg viewBox="0 0 320 290" role="img" aria-label="兩側肌腱各有10牛頓張力。改變近端指間關節屈曲角度，滑車所需的反向約束力隨兩側張力的夾角改變。">
+<defs><marker id="{{ $ID }}-tendon" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path class="rd-arrow-ink" d="M0 0 L10 5 L0 10 Z"/></marker><marker id="{{ $ID }}-reaction" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path class="rd-arrow-accent" d="M0 0 L10 5 L0 10 Z"/></marker></defs>
+<text x="160" y="25" text-anchor="middle">滑車位置的受力示意</text>
+<path class="rd-angle-reference" d="M145 165 H255"/>
+<path class="rd-line" d="M145 165 H65" marker-end="url(#{{ $ID }}-tendon)"/>
+<path class="rd-line" data-pulley-distal d="M145 165 L185 234.282" marker-end="url(#{{ $ID }}-tendon)"/>
+<path class="rd-force" data-pulley-reaction d="M145 165 L185 95.718" marker-end="url(#{{ $ID }}-reaction)"/>
+<circle class="rd-line" cx="145" cy="165" r="5"/>
+<text x="50" y="145">10 N</text><text x="200" y="244" data-pulley-distal-label>10 N</text>
+<text x="196" y="87" data-pulley-reaction-label>R</text>
+<text x="160" y="282" text-anchor="middle" data-pulley-angle-label>屈曲 60°；肌腱夾角 120°</text>
+</svg>
+<label for="{{ $ID }}">改變示意 PIP 屈曲角度（度）</label>
+<input id="{{ $ID }}" type="range" min="30" max="90" value="60" step="15" disabled>
+<output for="{{ $ID }}" aria-live="polite">屈曲 60° → 約束力 R＝10.0 N（肌腱張力的 1.00 倍）</output>
+<figcaption id="{{ $ID }}-caption">編者依原書算例 14-2 製作。兩側肌腱張力固定各 10 N；屈曲角 θ 與肌腱夾角相加為 180°。R 是維持平衡所需的約束力，與兩股肌腱力的合力等大、反向；大小 R＝20 sin(θ÷2)。屈曲 60° 時 R＝10 N，90° 時約 14.1 N。介面將等張力的幾何模型延伸到 30°–90°，沒有預測實際肌肉張力，也不代表安全活動範圍。虛線表示遠端方向的伸直參照，未畫出真實滑車形狀與接觸分布。</figcaption>
+</figure>

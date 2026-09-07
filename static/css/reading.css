@@ -94,6 +94,12 @@ body:has(.rd-page)[data-reader-color="night"] { --rd-paper:#192427; --rd-ink:#e8
 .rd-shoulder-load > svg { display:block; max-width:400px; margin-inline:auto; }
 .rd-elbow-load > svg { display:block; max-width:440px; margin-inline:auto; }
 .rd-elbow-load text { font-size:22px; }
+.rd-wrist-components > svg, .rd-pulley-load > svg { display:block; max-width:440px; margin-inline:auto; }
+.rd-wrist-components text, .rd-pulley-load text { font-size:22px; }
+.rd-diagram .rd-component-normal { stroke-dasharray:9 5; }
+.rd-diagram .rd-component-shear { stroke-dasharray:2 5; stroke-linecap:round; }
+.rd-diagram .rd-arrow-accent { fill:var(--rd-accent); stroke:none; }
+.rd-diagram .rd-arrow-ink { fill:var(--rd-ink); stroke:none; }
 .rd-diagram .rd-plot-key { list-style:none; padding:0; margin:8px 0; font-size:16px; line-height:1.8; }
 .rd-diagram .rd-plot-key li { display:flex; align-items:center; gap:12px; margin:4px 0; }
 .rd-diagram .rd-plot-key svg { width:40px; height:16px; flex:none; }

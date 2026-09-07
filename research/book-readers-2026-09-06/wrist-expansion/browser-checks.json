@@ -1,0 +1,389 @@
+{
+  "date": "2026-09-07",
+  "base": "http://127.0.0.1:8768/cortex/",
+  "checks": [
+    {
+      "name": "kinesiology/ch07: HTTP",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch07: all section anchors",
+      "pass": true,
+      "detail": 28
+    },
+    {
+      "name": "kinesiology/ch07: preserved anchors",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch07: 320px font22 no overflow",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch07: TOC starts closed",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch07: no extra h1",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch07: TOC contains all sections",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch07: TOC jump",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch07: precise cross-book reading links",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch07: cross-book target #hand-arches",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch07: cross-book target #task-range",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch07: cross-book target #wrist-load-model",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch07: cross-book target #grip-stability",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch07: paper figure fits",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch07: night figure fits",
+      "pass": true
+    },
+    {
+      "name": "wrist: zero tilt output",
+      "pass": true
+    },
+    {
+      "name": "wrist: zero shear hidden",
+      "pass": true
+    },
+    {
+      "name": "wrist: 25 degree source model",
+      "pass": true
+    },
+    {
+      "name": "wrist: vectors sum to total at 0",
+      "pass": true,
+      "detail": {
+        "n": [
+          0,
+          -120
+        ],
+        "t": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "name": "wrist: vectors sum to total at 5",
+      "pass": true,
+      "detail": {
+        "n": [
+          -10.418890660015819,
+          -119.08846518073248
+        ],
+        "t": [
+          10.418890660015819,
+          -0.9115348192675299
+        ]
+      }
+    },
+    {
+      "name": "wrist: vectors sum to total at 10",
+      "pass": true,
+      "detail": {
+        "n": [
+          -20.52120859954013,
+          -116.38155724715449
+        ],
+        "t": [
+          20.52120859954013,
+          -3.6184427528455103
+        ]
+      }
+    },
+    {
+      "name": "wrist: vectors sum to total at 15",
+      "pass": true,
+      "detail": {
+        "n": [
+          -30,
+          -111.96152422706632
+        ],
+        "t": [
+          30,
+          -8.03847577293368
+        ]
+      }
+    },
+    {
+      "name": "wrist: vectors sum to total at 20",
+      "pass": true,
+      "detail": {
+        "n": [
+          -38.56725658119237,
+          -105.96266658713868
+        ],
+        "t": [
+          38.56725658119234,
+          -14.037333412861301
+        ]
+      }
+    },
+    {
+      "name": "wrist: vectors sum to total at 25",
+      "pass": true,
+      "detail": {
+        "n": [
+          -45.96266658713867,
+          -98.56725658119235
+        ],
+        "t": [
+          45.9626665871387,
+          -21.432743418807632
+        ]
+      }
+    },
+    {
+      "name": "wrist: vectors sum to total at 30",
+      "pass": true,
+      "detail": {
+        "n": [
+          -51.96152422706632,
+          -90
+        ],
+        "t": [
+          51.96152422706632,
+          -30
+        ]
+      }
+    },
+    {
+      "name": "wrist: vectors sum to total at 35",
+      "pass": true,
+      "detail": {
+        "n": [
+          -56.38155724715449,
+          -80.5212085995401
+        ],
+        "t": [
+          56.38155724715449,
+          -39.47879140045987
+        ]
+      }
+    },
+    {
+      "name": "wrist: upper endpoint output",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch07: live output and accessible label",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch07: desktop no overflow",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: HTTP",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: all section anchors",
+      "pass": true,
+      "detail": 26
+    },
+    {
+      "name": "basic-biomechanics/ch14: preserved anchors",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: 320px font22 no overflow",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: TOC starts closed",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: no extra h1",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: TOC contains all sections",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: TOC jump",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: precise cross-book reading links",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: cross-book target #proximal-row",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: cross-book target #carpal-instability",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: cross-book target #central-column",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: cross-book target #grip-base",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: paper figure fits",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: night figure fits",
+      "pass": true
+    },
+    {
+      "name": "pulley: 30 degree endpoint",
+      "pass": true
+    },
+    {
+      "name": "pulley: 60 degree source model",
+      "pass": true
+    },
+    {
+      "name": "pulley: 90 degree source model",
+      "pass": true
+    },
+    {
+      "name": "pulley: force balance at 30",
+      "pass": true,
+      "detail": {
+        "d": [
+          69.28203230275511,
+          40
+        ],
+        "r": [
+          10.717967697244887,
+          -40
+        ]
+      }
+    },
+    {
+      "name": "pulley: force balance at 45",
+      "pass": true,
+      "detail": {
+        "d": [
+          56.568542494923804,
+          56.568542494923804
+        ],
+        "r": [
+          23.431457505076196,
+          -56.568542494923804
+        ]
+      }
+    },
+    {
+      "name": "pulley: force balance at 60",
+      "pass": true,
+      "detail": {
+        "d": [
+          40,
+          69.28203230275508
+        ],
+        "r": [
+          40,
+          -69.28203230275508
+        ]
+      }
+    },
+    {
+      "name": "pulley: force balance at 75",
+      "pass": true,
+      "detail": {
+        "d": [
+          20.705523608201645,
+          77.27406610312545
+        ],
+        "r": [
+          59.294476391798355,
+          -77.27406610312546
+        ]
+      }
+    },
+    {
+      "name": "pulley: force balance at 90",
+      "pass": true,
+      "detail": {
+        "d": [
+          0,
+          80
+        ],
+        "r": [
+          80,
+          -80
+        ]
+      }
+    },
+    {
+      "name": "pulley: flexion and included angle differ",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: live output and accessible label",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: desktop no overflow",
+      "pass": true
+    },
+    {
+      "name": "kinesiology: no-JS figure and caption",
+      "pass": true
+    },
+    {
+      "name": "kinesiology: no-JS no overflow",
+      "pass": true
+    },
+    {
+      "name": "kinesiology: no-JS slider disabled",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics: no-JS figure and caption",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics: no-JS no overflow",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics: no-JS slider disabled",
+      "pass": true
+    },
+    {
+      "name": "no runtime errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "passed": 62,
+  "failed": 0
+}

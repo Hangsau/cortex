@@ -1,0 +1,18 @@
+{{ $ID := printf "rd-wrist-components-%d" .Ordinal }}
+<figure class="rd-diagram rd-wrist-components" data-wrist-components aria-labelledby="{{ $ID }}-caption">
+<svg viewBox="0 0 320 285" role="img" aria-label="固定向近端的100牛頓總力，分解成垂直傾斜關節面的分量，以及沿面往尺側的分量。">
+<defs><marker id="{{ $ID }}-arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path class="rd-arrow-accent" d="M0 0 L10 5 L0 10 Z"/></marker><marker id="{{ $ID }}-total" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path class="rd-arrow-ink" d="M0 0 L10 5 L0 10 Z"/></marker></defs>
+<text x="160" y="25" text-anchor="middle">傾斜關節面的力分解</text>
+<path class="rd-angle-reference" d="M60 100 H260"/>
+<path class="rd-line" data-wrist-plane d="M60 141.968 L240 58.032"/>
+<path class="rd-line" d="M150 220 L150 100" marker-end="url(#{{ $ID }}-total)"/>
+<path class="rd-force rd-component-normal" data-wrist-normal d="M150 220 L104.037 121.433" marker-end="url(#{{ $ID }}-arrow)"/>
+<path class="rd-force rd-component-shear" data-wrist-shear d="M150 220 L195.963 198.567" marker-end="url(#{{ $ID }}-arrow)"/>
+<text x="165" y="153">F</text><text data-wrist-normal-label x="99" y="179">N</text><text data-wrist-shear-label x="208" y="208">S</text>
+<text x="160" y="266" text-anchor="middle">固定總力 F＝100 N</text>
+</svg>
+<label for="{{ $ID }}">改變示意關節面的傾角（度）</label>
+<input id="{{ $ID }}" type="range" min="0" max="35" value="25" step="5" disabled>
+<output for="{{ $ID }}" aria-live="polite">傾角 25° → 垂直分量 N＝90.6 N；沿面分量 S＝42.3 N</output>
+<figcaption id="{{ $ID }}-caption">編者依原書圖 7.21 製作的平面幾何模型，固定總力 100 N。水平虛線為角度參照，斜實線為關節面；F 是總力，長虛線 N 是垂直分量，點線 S 是沿面往尺側的分量。N＝100 cos θ，S＝100 sin θ；25° 時分別約 90.6 與 42.3 N，0° 時為 100 與 0 N。兩分量互相垂直，需以向量合成，不能直接相加大小。滑桿範圍為教學設定，未表示人體正常角度範圍、位移量或安全門檻。</figcaption>
+</figure>

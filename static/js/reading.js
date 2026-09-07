@@ -98,4 +98,43 @@
     slider.disabled = false;
     slider.addEventListener('input', update); update();
   });
+  document.querySelectorAll('[data-wrist-components]').forEach(demo => {
+    const slider = demo.querySelector('input');
+    const output = demo.querySelector('output');
+    const update = () => {
+      const degrees = Number(slider.value);
+      const angle = degrees * Math.PI / 180;
+      const normal = 100 * Math.cos(angle), shear = 100 * Math.sin(angle);
+      const nx = 150 - 1.2 * normal * Math.sin(angle), ny = 220 - 1.2 * normal * Math.cos(angle);
+      const sx = 150 + 1.2 * shear * Math.cos(angle), sy = 220 - 1.2 * shear * Math.sin(angle);
+      demo.querySelector('[data-wrist-plane]').setAttribute('d', `M60 ${100 + 90 * Math.tan(angle)} L240 ${100 - 90 * Math.tan(angle)}`);
+      demo.querySelector('[data-wrist-normal]').setAttribute('d', `M150 220 L${nx} ${ny}`);
+      const shearArrow = demo.querySelector('[data-wrist-shear]');
+      shearArrow.setAttribute('d', `M150 220 L${sx} ${sy}`);
+      shearArrow.setAttribute('visibility', degrees ? 'visible' : 'hidden');
+      const nLabel = demo.querySelector('[data-wrist-normal-label]'), sLabel = demo.querySelector('[data-wrist-shear-label]');
+      nLabel.setAttribute('x', (150 + nx) / 2 - 28); nLabel.setAttribute('y', (220 + ny) / 2 + 8);
+      sLabel.setAttribute('x', sx + 12); sLabel.setAttribute('y', sy + 10);
+      sLabel.setAttribute('visibility', degrees ? 'visible' : 'hidden');
+      output.value = `傾角 ${degrees}° → 垂直分量 N＝${normal.toFixed(1)} N；沿面分量 S＝${shear.toFixed(1)} N`;
+    };
+    slider.disabled = false; slider.addEventListener('input', update); update();
+  });
+  document.querySelectorAll('[data-pulley-load]').forEach(demo => {
+    const slider = demo.querySelector('input');
+    const output = demo.querySelector('output');
+    const update = () => {
+      const degrees = Number(slider.value), angle = degrees * Math.PI / 180;
+      const dx = 80 * Math.cos(angle), dy = 80 * Math.sin(angle);
+      const reaction = 20 * Math.sin(angle / 2);
+      demo.querySelector('[data-pulley-distal]').setAttribute('d', `M145 165 L${145 + dx} ${165 + dy}`);
+      demo.querySelector('[data-pulley-reaction]').setAttribute('d', `M145 165 L${225 - dx} ${165 - dy}`);
+      const dLabel = demo.querySelector('[data-pulley-distal-label]'), rLabel = demo.querySelector('[data-pulley-reaction-label]');
+      dLabel.setAttribute('x', 160 + dx); dLabel.setAttribute('y', 175 + dy);
+      rLabel.setAttribute('x', 236 - dx); rLabel.setAttribute('y', 157 - dy);
+      demo.querySelector('[data-pulley-angle-label]').textContent = `屈曲 ${degrees}°；肌腱夾角 ${180 - degrees}°`;
+      output.value = `屈曲 ${degrees}° → 約束力 R＝${reaction.toFixed(1)} N（肌腱張力的 ${(reaction / 10).toFixed(2)} 倍）`;
+    };
+    slider.disabled = false; slider.addEventListener('input', update); update();
+  });
 })();
