@@ -1,0 +1,29 @@
+{{ $ID := printf "rd-length-%d" .Ordinal }}
+{{/* Qualitative samples share one length axis; total is computed, not drawn independently. */}}
+{{ $active := slice 0 0.25 0.55 0.9 1 1 0.85 0.65 0.4 0.18 0 }}
+{{ $passive := slice 0 0 0 0 0.02 0.07 0.16 0.35 0.65 1.05 1.55 }}
+{{ $a := slice }}{{ $p := slice }}{{ $t := slice }}
+{{ range $i, $value := $active }}
+  {{ $x := add 45 (mul $i 25) }}
+  {{ $pv := index $passive $i }}
+  {{ $a = $a | append (printf "%v,%v" $x (sub 180 (mul 95 $value))) }}
+  {{ $p = $p | append (printf "%v,%v" $x (sub 180 (mul 95 $pv))) }}
+  {{ $t = $t | append (printf "%v,%v" $x (sub 180 (mul 95 (add $value $pv)))) }}
+{{ end }}
+<figure class="rd-diagram rd-length-tension" aria-labelledby="{{ $ID }}">
+<svg viewBox="0 0 320 240" role="img" aria-label="主動力先升後降；被動張力在較長位置上升。總張力是同一長度下兩者的和，較大的總張力未必表示主動產力更強。">
+<path class="rd-line" d="M45 22 V180 H301"/>
+<polyline class="rd-curve-total" points="{{ delimit $t " " }}"/>
+<polyline class="rd-curve-active" points="{{ delimit $a " " }}"/>
+<polyline class="rd-curve-passive" points="{{ delimit $p " " }}"/>
+<text x="10" y="57">力</text><text x="10" y="81">量</text>
+<text x="45" y="209">短</text><text x="278" y="209">長</text>
+<text x="107" y="232">肌肉長度 →</text>
+</svg>
+<ul class="rd-plot-key" aria-label="曲線圖例">
+<li><svg viewBox="0 0 40 16" aria-hidden="true"><path class="rd-curve-total" d="M0 8 H40"/></svg>實線：總張力</li>
+<li><svg viewBox="0 0 40 16" aria-hidden="true"><path class="rd-curve-active" d="M0 8 H40"/></svg>虛線：主動力</li>
+<li><svg viewBox="0 0 40 16" aria-hidden="true"><path class="rd-curve-passive" d="M0 8 H40"/></svg>點線：被動張力</li>
+</ul>
+<figcaption id="{{ $ID }}">編者依原書圖 3.11 的概念繪製。折線只示意固定條件下的變化與相加關係；沒有實測刻度，也不代表個人的關節角度或安全伸展範圍。</figcaption>
+</figure>

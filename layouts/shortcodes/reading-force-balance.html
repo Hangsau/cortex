@@ -1,0 +1,16 @@
+{{ $ID := printf "rd-balance-%d" .Ordinal }}
+<figure class="rd-diagram rd-force-balance" aria-labelledby="{{ $ID }}">
+<svg viewBox="0 0 320 310" role="img" aria-label="無重量水平槓桿：轉軸右方4公分處受向上100牛頓，右方20公分處受向下20牛頓，轉軸對槓桿施加向下80牛頓。合力和繞轉軸的合力矩皆為零。">
+<path class="rd-line" d="M50 112 H289"/>
+<circle cx="50" cy="112" r="5" fill="currentColor"/>
+<path class="rd-force" d="M94 112 V36 M86 49 L94 36 L102 49 M50 112 V181 M42 168 L50 181 L58 168 M270 112 V181 M262 168 L270 181 L278 168"/>
+<text x="94" y="22" text-anchor="middle">100 N ↑</text>
+<text x="50" y="203" text-anchor="middle">80 N ↓</text>
+<text x="270" y="203" text-anchor="middle">20 N ↓</text>
+<text x="12" y="97">轉軸</text>
+<path class="rd-measure" d="M50 222 H94 M50 216 V228 M94 216 V228 M50 268 H270 M50 262 V274 M270 262 V274"/>
+<text x="72" y="247" text-anchor="middle">4 cm</text>
+<text x="160" y="298" text-anchor="middle">20 cm</text>
+</svg>
+<figcaption id="{{ $ID }}">編者算例，固定在 20 cm 的位置。箭頭都表示「作用於這根槓桿」的力，長度未按力的大小縮放。100 − 20 − 80＝0 N；100 × 0.04 − 20 × 0.20＝0 N·m。轉軸反作用力通過轉軸，對此軸的力矩為零。</figcaption>
+</figure>

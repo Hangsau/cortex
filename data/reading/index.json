@@ -251,7 +251,7 @@
     {
       "id": "neumann.ch02",
       "title": "關節的結構與功能",
-      "description": "把關節看成由接觸面、包覆組織與液體組成的系統，理解活動與約束從何而來。",
+      "description": "從關節分類與轉軸遷移，讀到膠原、軟骨、骨與固定效應，理解組織如何共同承力。",
       "content_type": "chapter-guide",
       "path": "library/kinesiology/ch02/",
       "topic": "foundations",
@@ -260,55 +260,193 @@
         "synovial",
         "cartilage",
         "collagen",
-        "stiffness"
+        "stiffness",
+        "proteoglycan",
+        "meniscus",
+        "cortical",
+        "trabecular",
+        "tendon",
+        "ligament"
       ],
-      "body_sha256": "9df6674f60f284e5200fa6b4ccc240858a64fbaf0f718cdc4f03f7f4a7022ead",
+      "body_sha256": "e2a9b40fd42e2618a646b0fdfd275599e23bca2764d6c88631186640c5edb0b0",
       "sections": [
         {
           "id": "neumann.ch02.connections",
-          "title": "關節有不同的連接方式",
+          "title": "關節的任務與兩大運動分類",
           "anchor": "connections",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
               "from": 48,
-              "to": 50
+              "to": 49
             }
           ]
         },
         {
           "id": "neumann.ch02.synovial-system",
-          "title": "滑液關節是一個共同工作的系統",
+          "title": "滑液關節的固定構造",
           "anchor": "synovial-system",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
               "from": 49,
-              "to": 51
+              "to": 50
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch02.synovial-accessories",
+          "title": "關節周圍的附加構造",
+          "anchor": "synovial-accessories",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 50,
+              "to": 50
             }
           ]
         },
         {
           "id": "neumann.ch02.shape-and-constraint",
-          "title": "形狀提供活動的可能，周圍組織給出約束",
+          "title": "以機械類比理解滑液關節",
           "anchor": "shape-and-constraint",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
-              "from": 51,
+              "from": 50,
+              "to": 52
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch02.shape-forms",
+          "title": "鞍狀、髁狀與簡化形狀分類",
+          "anchor": "shape-forms",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 52,
+              "to": 54
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch02.axis-migration",
+          "title": "轉軸會遷移：從瞬時軸到平均軸",
+          "anchor": "axis-migration",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 54,
               "to": 55
             }
           ]
         },
         {
           "id": "neumann.ch02.living-materials",
-          "title": "材料性質，讓相同形狀有不同反應",
+          "title": "結締組織的三種基本材料",
           "anchor": "living-materials",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
               "from": 55,
-              "to": 63
+              "to": 57
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch02.tissue-cells",
+          "title": "細胞、基質與水分如何承受負荷",
+          "anchor": "tissue-cells",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 55,
+              "to": 57
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch02.dense-connective-tissue",
+          "title": "緻密結締組織與肌腱傳力",
+          "anchor": "dense-connective-tissue",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 56,
+              "to": 58
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch02.articular-cartilage",
+          "title": "關節軟骨：低摩擦的負重介面",
+          "anchor": "articular-cartilage",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 58,
+              "to": 59
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch02.cartilage-families",
+          "title": "軟骨分層與纖維軟骨",
+          "anchor": "cartilage-families",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 59,
+              "to": 60
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch02.sensory-and-repair",
+          "title": "關節感覺與修復條件",
+          "anchor": "sensory-and-repair",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 59,
+              "to": 61
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch02.bone-and-loading",
+          "title": "骨的結構與負荷傳遞",
+          "anchor": "bone-and-loading",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 61,
+              "to": 62
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch02.immobilization-and-pathology",
+          "title": "固定效應、老化與關節病理",
+          "anchor": "immobilization-and-pathology",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 61,
+              "to": 64
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch02.joint-pathology",
+          "title": "急慢性傷害、OA 與 RA 案例",
+          "anchor": "joint-pathology",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 62,
+              "to": 64
             }
           ]
         }
@@ -317,7 +455,7 @@
     {
       "id": "neumann.ch03",
       "title": "肌肉如何產生力量",
-      "description": "把肌肉架構、長度、速度與神經驅動接在一起，理解為什麼肌力會隨任務改變。",
+      "description": "串起肌肉形態、長度與速度、神經驅動和肌電圖，配中文張力圖理解力量如何改變。",
       "content_type": "chapter-guide",
       "path": "library/kinesiology/ch03/",
       "topic": "foundations",
@@ -327,55 +465,250 @@
         "motor-unit",
         "concentric",
         "eccentric",
-        "isometric"
+        "isometric",
+        "coactivation",
+        "tendon",
+        "moment-arm"
       ],
-      "body_sha256": "23e1abc1c26100af3206b4215ca8baeb7e717e8f0a7c4204fdae81a2763c70bc",
+      "body_sha256": "daab464a41c5632c261da62cb2b08232920a9ad10a37f9020e2a57294f9003a0",
       "sections": [
         {
+          "id": "neumann.ch03.muscle-stabilizer",
+          "title": "肌肉作為骨骼穩定器：在指定長度產生適量力量",
+          "anchor": "muscle-stabilizer",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 67,
+              "to": 68
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch03.muscle-organization",
+          "title": "從肌腹到肌節：肌纖維與結締組織的分層",
+          "anchor": "muscle-organization",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 68,
+              "to": 70
+            }
+          ]
+        },
+        {
           "id": "neumann.ch03.architecture",
-          "title": "纖維的排列，決定力量如何集合",
+          "title": "形態、肌束與生理橫截面積",
           "anchor": "architecture",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
-              "from": 69,
-              "to": 71
+              "from": 70,
+              "to": 72
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch03.passive-length-tension",
+          "title": "被動長度—張力：彈性組件如何抵抗伸長",
+          "anchor": "passive-length-tension",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 72,
+              "to": 73
             }
           ]
         },
         {
           "id": "neumann.ch03.length-and-tension",
-          "title": "主動張力與被動張力要分開看",
+          "title": "主動長度—張力與滑動肌絲",
           "anchor": "length-and-tension",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
+              "from": 73,
+              "to": 75
+            },
+            {
               "from": 72,
-              "to": 77
+              "to": 76
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch03.torque-angle",
+          "title": "等長力量與內力矩—關節角度曲線",
+          "anchor": "torque-angle",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 76,
+              "to": 78
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch03.muscle-task",
+          "title": "肌肉作為骨骼動作者：向心、離心與等長",
+          "anchor": "muscle-task",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 78,
+              "to": 79
             }
           ]
         },
         {
           "id": "neumann.ch03.force-velocity",
-          "title": "出力時的速度，會改變產力條件",
+          "title": "力—速度曲線：速度改變可用的力量",
           "anchor": "force-velocity",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
-              "from": 78,
+              "from": 79,
               "to": 80
+            },
+            {
+              "from": 79,
+              "to": 81
             }
           ]
         },
         {
           "id": "neumann.ch03.neural-drive",
-          "title": "神經系統決定此刻動用多少產力能力",
+          "title": "神經驅動、運動單位與大小原則",
           "anchor": "neural-drive",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
-              "from": 80,
+              "from": 81,
+              "to": 84
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch03.fiber-types",
+          "title": "慢縮、快縮與纖維分類",
+          "anchor": "fiber-types",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 83,
+              "to": 83
+            },
+            {
+              "from": 88,
+              "to": 88
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch03.rate-coding",
+          "title": "放電頻率、抽搐疊加與融合強直",
+          "anchor": "rate-coding",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 84,
               "to": 85
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch03.emg-recording",
+          "title": "肌電圖如何記錄活化",
+          "anchor": "emg-recording",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 85,
+              "to": 86
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch03.emg-normalization",
+          "title": "EMG 的處理、取樣與正規化",
+          "anchor": "emg-normalization",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 86,
+              "to": 87
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch03.emg-force-limits",
+          "title": "為何 EMG 不能直接等同於力量",
+          "anchor": "emg-force-limits",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 87,
+              "to": 89
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch03.muscle-fatigue",
+          "title": "健康人的肌肉疲勞",
+          "anchor": "muscle-fatigue",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 89,
+              "to": 90
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch03.strength-training",
+          "title": "力量訓練：結構與神經的共同適應",
+          "anchor": "strength-training",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 90,
+              "to": 91
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch03.disuse",
+          "title": "減少使用與固定後的肌肉變化",
+          "anchor": "disuse",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 91,
+              "to": 92
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch03.aging",
+          "title": "高齡、肌少症與力量功率下降",
+          "anchor": "aging",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 92,
+              "to": 93
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch03.chapter-synthesis",
+          "title": "把形態、力學與神經控制接成一個模型",
+          "anchor": "chapter-synthesis",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 92,
+              "to": 93
             }
           ]
         }
@@ -384,7 +717,7 @@
     {
       "id": "neumann.ch04",
       "title": "用力學理解動作",
-      "description": "從自由體圖到力矩平衡，循序分清外加重量、肌肉拉力與關節反作用力，並認識模型的限制。",
+      "description": "由牛頓定律與自由體圖走到力矩平衡、逆動力學與共同活化，逐步理解算出的力代表什麼。",
       "content_type": "chapter-guide",
       "path": "library/kinesiology/ch04/",
       "topic": "foundations",
@@ -394,37 +727,166 @@
         "moment",
         "moment-arm",
         "reaction",
-        "kinetics"
+        "kinetics",
+        "kinematics",
+        "inverse-dynamics",
+        "impulse",
+        "coactivation",
+        "hip-abductors"
       ],
-      "body_sha256": "ec723c3092b53ec6e0a2077a6f370d1c6e2ef49476d0f7fd56bd3dbc1f6f0b25",
+      "body_sha256": "4279eaa409ab16c841e6ff77dee7f3086c40d466f6b349a0d1c4d864a512bec0",
       "sections": [
         {
-          "id": "neumann.ch04.choose-system",
-          "title": "第一步：決定你在分析哪一個物體",
-          "anchor": "choose-system",
+          "id": "neumann.ch04.inertia",
+          "title": "慣性：沒有合力就不改變運動",
+          "anchor": "inertia",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
               "from": 98,
-              "to": 107
+              "to": 101
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch04.center-of-mass",
+          "title": "質心、重心與身體姿勢",
+          "anchor": "center-of-mass",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 98,
+              "to": 99
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch04.mass-moment",
+          "title": "質量轉動慣量與角速度",
+          "anchor": "mass-moment",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 99,
+              "to": 101
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch04.newton-second",
+          "title": "牛頓第二定律：合外力決定平移加速度",
+          "anchor": "newton-second",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 99,
+              "to": 101
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch04.angular-law",
+          "title": "旋轉版第二定律：合力矩與角加速度",
+          "anchor": "angular-law",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 99,
+              "to": 103
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch04.newton-third",
+          "title": "作用與反作用屬於不同物體",
+          "anchor": "newton-third",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 103,
+              "to": 106
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch04.choose-system",
+          "title": "先選系統，外力才有意義",
+          "anchor": "choose-system",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 104,
+              "to": 106
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch04.free-body-steps",
+          "title": "自由體圖五步驟",
+          "anchor": "free-body-steps",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 105,
+              "to": 106
+            },
+            {
+              "from": 127,
+              "to": 128
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch04.coordinates",
+          "title": "座標、正負與右手定則",
+          "anchor": "coordinates",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 106,
+              "to": 108
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch04.vector-analysis",
+          "title": "向量合成與分解",
+          "anchor": "vector-analysis",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 108,
+              "to": 110
             }
           ]
         },
         {
           "id": "neumann.ch04.force-components",
-          "title": "第二步：分清力的方向與旋轉效應",
+          "title": "力矩、力臂與角度",
           "anchor": "force-components",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
-              "from": 108,
+              "from": 109,
               "to": 114
             }
           ]
         },
         {
+          "id": "neumann.ch04.posture-leverage",
+          "title": "姿勢如何改變外力矩",
+          "anchor": "posture-leverage",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 114,
+              "to": 116
+            }
+          ]
+        },
+        {
           "id": "neumann.ch04.worked-example",
-          "title": "第三步：用一個完整小例子走過平衡",
+          "title": "編者小例：先解力矩，再解合力",
           "anchor": "worked-example",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
@@ -435,14 +897,86 @@
           ]
         },
         {
+          "id": "neumann.ch04.static-analysis",
+          "title": "靜態解題的固定順序",
+          "anchor": "static-analysis",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 120,
+              "to": 123
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch04.dynamic-analysis",
+          "title": "動態逆動力學",
+          "anchor": "dynamic-analysis",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 123,
+              "to": 128
+            }
+          ]
+        },
+        {
           "id": "neumann.ch04.model-boundary",
-          "title": "第四步：知道你求出的答案代表什麼",
+          "title": "人體測量與模型邊界",
           "anchor": "model-boundary",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
+              "from": 127,
+              "to": 128
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch04.measurement",
+          "title": "運動學與動力學的量測分工",
+          "anchor": "measurement",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 124,
+              "to": 127
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch04.clinical-leverage",
+          "title": "力臂與關節保護的臨床連結",
+          "anchor": "clinical-leverage",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 128,
+              "to": 131
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch04.coactivation",
+          "title": "用數字讀共同活化，而非誤判肌力",
+          "anchor": "coactivation",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 131,
+              "to": 131
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch04.clinical-synthesis",
+          "title": "把一章力學帶回臨床推理",
+          "anchor": "clinical-synthesis",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
               "from": 117,
-              "to": 126
+              "to": 131
             }
           ]
         }
@@ -2532,7 +3066,8 @@
   },
   "by_term": {
     "kinematics": [
-      "neumann.ch01"
+      "neumann.ch01",
+      "neumann.ch04"
     ],
     "kinetics": [
       "neumann.ch01",
@@ -2555,6 +3090,7 @@
     ],
     "moment-arm": [
       "neumann.ch01",
+      "neumann.ch03",
       "neumann.ch04",
       "neumann.ch05",
       "neumann.ch06",
@@ -2654,6 +3190,34 @@
       "neumann.ch02",
       "nordin.ch03"
     ],
+    "proteoglycan": [
+      "neumann.ch02",
+      "nordin.ch03"
+    ],
+    "meniscus": [
+      "neumann.ch02",
+      "neumann.ch13",
+      "nordin.ch07"
+    ],
+    "cortical": [
+      "neumann.ch02",
+      "nordin.ch02"
+    ],
+    "trabecular": [
+      "neumann.ch02",
+      "nordin.ch02"
+    ],
+    "tendon": [
+      "neumann.ch02",
+      "neumann.ch03",
+      "nordin.ch04"
+    ],
+    "ligament": [
+      "neumann.ch02",
+      "nordin.ch04",
+      "nordin.ch11",
+      "nordin.ch13"
+    ],
     "pcsa": [
       "neumann.ch03",
       "nordin.ch06"
@@ -2661,6 +3225,32 @@
     "motor-unit": [
       "neumann.ch03",
       "nordin.ch06"
+    ],
+    "coactivation": [
+      "neumann.ch03",
+      "neumann.ch04",
+      "neumann.ch06",
+      "neumann.ch07",
+      "neumann.ch08",
+      "neumann.ch10",
+      "neumann.ch11",
+      "nordin.ch10",
+      "nordin.ch12"
+    ],
+    "inverse-dynamics": [
+      "neumann.ch04",
+      "neumann.ch15",
+      "nordin.ch16",
+      "nordin.ch17"
+    ],
+    "impulse": [
+      "neumann.ch04",
+      "neumann.ch16"
+    ],
+    "hip-abductors": [
+      "neumann.ch04",
+      "neumann.ch12",
+      "nordin.ch08"
     ],
     "scapulohumeral": [
       "neumann.ch05"
@@ -2676,15 +3266,6 @@
     "supination": [
       "neumann.ch06",
       "nordin.ch13"
-    ],
-    "coactivation": [
-      "neumann.ch06",
-      "neumann.ch07",
-      "neumann.ch08",
-      "neumann.ch10",
-      "neumann.ch11",
-      "nordin.ch10",
-      "nordin.ch12"
     ],
     "tfcc": [
       "neumann.ch07",
@@ -2725,14 +3306,6 @@
     "diaphragm": [
       "neumann.ch11"
     ],
-    "hip-abductors": [
-      "neumann.ch12",
-      "nordin.ch08"
-    ],
-    "meniscus": [
-      "neumann.ch13",
-      "nordin.ch07"
-    ],
     "patella": [
       "neumann.ch13",
       "nordin.ch07"
@@ -2760,39 +3333,14 @@
       "neumann.ch16",
       "nordin.ch17"
     ],
-    "inverse-dynamics": [
-      "neumann.ch15",
-      "nordin.ch16",
-      "nordin.ch17"
-    ],
-    "impulse": [
-      "neumann.ch16"
-    ],
-    "cortical": [
-      "nordin.ch02"
-    ],
-    "trabecular": [
-      "nordin.ch02"
-    ],
     "anisotropy": [
       "nordin.ch02"
     ],
     "fatigue": [
       "nordin.ch02"
     ],
-    "proteoglycan": [
-      "nordin.ch03"
-    ],
     "permeability": [
       "nordin.ch03"
-    ],
-    "tendon": [
-      "nordin.ch04"
-    ],
-    "ligament": [
-      "nordin.ch04",
-      "nordin.ch11",
-      "nordin.ch13"
     ],
     "relaxation": [
       "nordin.ch04"
