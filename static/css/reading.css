@@ -96,6 +96,9 @@ body:has(.rd-page)[data-reader-color="night"] { --rd-paper:#192427; --rd-ink:#e8
 .rd-elbow-load text { font-size:22px; }
 .rd-wrist-components > svg, .rd-pulley-load > svg { display:block; max-width:440px; margin-inline:auto; }
 .rd-wrist-components text, .rd-pulley-load text { font-size:22px; }
+.rd-tendon-moments > svg, .rd-pulley-excursion > svg { display:block; max-width:440px; margin-inline:auto; }
+.rd-tendon-moments text, .rd-pulley-excursion text { font-size:22px; }
+.rd-diagram .rd-moment-bar { stroke:var(--rd-accent); stroke-width:10; fill:none; }
 .rd-diagram .rd-component-normal { stroke-dasharray:9 5; }
 .rd-diagram .rd-component-shear { stroke-dasharray:2 5; stroke-linecap:round; }
 .rd-diagram .rd-arrow-accent { fill:var(--rd-accent); stroke:none; }

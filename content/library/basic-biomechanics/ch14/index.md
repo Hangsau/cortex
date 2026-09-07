@@ -8,7 +8,7 @@ id: nordin.ch14
 status: guide
 content_type: chapter-guide
 created: 2026-09-06
-updated: 2026-09-07
+updated: 2026-09-08
 source_ids: [src.nordin-frankel-2012]
 terms: [tfcc, pulley, power-grip, opposition, moment-arm]
 ---
@@ -112,6 +112,8 @@ terms: [tfcc, pulley, power-grip, opposition, moment-arm]
 
 {{< reading-pulley-load >}}
 
+滑車受力以外，肌腱行徑還影響可用的彎曲角度。可接著看 Neumann 的[力臂與肌腱行程比較]({{< relref "/library/kinesiology/ch08/index.md" >}}#pulley-clinical)，理解為何力臂變大，也可能讓手指難以充分彎曲。
+
 互動圖用原例的等張力條件延伸角度比較，沒有估計每個角度下真實肌肉會拉多少。若實際任務同時改變肌肉張力、接觸位置或關節穩定，滑車負荷也會改變；圖中角度不是個人訓練或安全門檻。
 
 {{< reading-source from="391" to="393" >}}
@@ -155,6 +157,8 @@ PIP 周圍也有掌側板及側方支持，配合較吻合的骨面來限制剪�
 這些小調整與指腹對指腹、指尖對指尖的接觸有關。精細操作的能力，部分來自肌腱系統容許不同關節逐步改變張力，讓指尖更換接觸方式。
 
 {{< reading-source from="394" to="396" >}}
+
+若要把腱膜結構接回主動動作，可對讀 Neumann 的[開手時肌肉如何合作]({{< relref "/library/kinesiology/ch08/index.md" >}}#finger-opening)，看 MCP 的穩定如何幫助更遠端指節伸直。
 
 ## 外在肌提供拉力，內在肌調整手指配置 {#active-control}
 
@@ -226,6 +230,8 @@ PIP 周圍也有掌側板及側方支持，配合較吻合的骨面來限制剪�
 比較包住大把手與捏住小物時，先看哪些指腹接觸，再看拇指旋轉、指列屈曲和手腕角度。接觸方式不同，需要的穩定、力量與微調能力也不同。
 
 {{< reading-source from="401" to="403" >}}
+
+Neumann 的[對掌兩階段路徑]({{< relref "/library/kinesiology/ch08/index.md" >}}#thumb)進一步說明拇指外展、屈曲與內旋如何組合，並補上周邊掌骨的配合。
 
 ## 功能腕部活動弧，要保留研究用了哪些任務 {#task-range}
 

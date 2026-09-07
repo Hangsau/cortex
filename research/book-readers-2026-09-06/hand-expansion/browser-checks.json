@@ -1,0 +1,355 @@
+{
+  "date": "2026-09-08",
+  "base": "http://127.0.0.1:8768/cortex/",
+  "checks": [
+    {
+      "name": "kinesiology/ch08: HTTP",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch08: exact section anchors",
+      "pass": true,
+      "detail": 40
+    },
+    {
+      "name": "kinesiology/ch08: old anchors",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch08: 320px font22 no overflow",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch08: TOC closed",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch08: TOC jump",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch08: target heading in viewport",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch08: precise cross-book links",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch08: target /cortex/library/basic-biomechanics/ch14/#hand-arches",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch08: target /cortex/library/basic-biomechanics/ch14/#pulley-force",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch08: target /cortex/library/basic-biomechanics/ch14/#tenodesis",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch08: target /cortex/library/basic-biomechanics/ch14/#extensor-assembly",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch08: target /cortex/library/basic-biomechanics/ch14/#power-precision",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: HTTP",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: exact section anchors",
+      "pass": true,
+      "detail": 26
+    },
+    {
+      "name": "basic-biomechanics/ch14: old anchors",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: 320px font22 no overflow",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: TOC closed",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: TOC jump",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: target heading in viewport",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: precise cross-book links",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: target /cortex/library/kinesiology/ch07/#proximal-row",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: target /cortex/library/kinesiology/ch07/#carpal-instability",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: target /cortex/library/kinesiology/ch08/#pulley-clinical",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: target /cortex/library/kinesiology/ch08/#finger-opening",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: target /cortex/library/kinesiology/ch07/#central-column",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: target /cortex/library/kinesiology/ch08/#thumb",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch14: target /cortex/library/kinesiology/ch07/#grip-base",
+      "pass": true
+    },
+    {
+      "name": "tendon-moments: paper fits",
+      "pass": true
+    },
+    {
+      "name": "pulley-excursion: paper fits",
+      "pass": true
+    },
+    {
+      "name": "tendon-moments: night fits",
+      "pass": true
+    },
+    {
+      "name": "pulley-excursion: night fits",
+      "pass": true
+    },
+    {
+      "name": "moments: force 0",
+      "pass": true,
+      "detail": {
+        "values": [
+          "0.0",
+          "0.0",
+          "0.0"
+        ],
+        "lengths": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "name": "moments: zero bars hidden",
+      "pass": true
+    },
+    {
+      "name": "moments: force 5",
+      "pass": true,
+      "detail": {
+        "values": [
+          "3.8",
+          "5.0",
+          "6.3"
+        ],
+        "lengths": [
+          20.625,
+          27.5,
+          34.375
+        ]
+      }
+    },
+    {
+      "name": "moments: force 10",
+      "pass": true,
+      "detail": {
+        "values": [
+          "7.5",
+          "10.0",
+          "12.5"
+        ],
+        "lengths": [
+          41.25,
+          55,
+          68.75
+        ]
+      }
+    },
+    {
+      "name": "moments: force 15",
+      "pass": true,
+      "detail": {
+        "values": [
+          "11.3",
+          "15.0",
+          "18.8"
+        ],
+        "lengths": [
+          61.875,
+          82.5,
+          103.125
+        ]
+      }
+    },
+    {
+      "name": "moments: force 20",
+      "pass": true,
+      "detail": {
+        "values": [
+          "15.0",
+          "20.0",
+          "25.0"
+        ],
+        "lengths": [
+          82.5,
+          110,
+          137.5
+        ]
+      }
+    },
+    {
+      "name": "moments: force 25",
+      "pass": true,
+      "detail": {
+        "values": [
+          "18.8",
+          "25.0",
+          "31.3"
+        ],
+        "lengths": [
+          103.125,
+          137.5,
+          171.875
+        ]
+      }
+    },
+    {
+      "name": "moments: force 30",
+      "pass": true,
+      "detail": {
+        "values": [
+          "22.5",
+          "30.0",
+          "37.5"
+        ],
+        "lengths": [
+          123.75,
+          165,
+          206.25
+        ]
+      }
+    },
+    {
+      "name": "moments: force 35",
+      "pass": true,
+      "detail": {
+        "values": [
+          "26.3",
+          "35.0",
+          "43.8"
+        ],
+        "lengths": [
+          144.375,
+          192.5,
+          240.625
+        ]
+      }
+    },
+    {
+      "name": "moments: force 40",
+      "pass": true,
+      "detail": {
+        "values": [
+          "30.0",
+          "40.0",
+          "50.0"
+        ],
+        "lengths": [
+          165,
+          220,
+          275
+        ]
+      }
+    },
+    {
+      "name": "moments: source example",
+      "pass": true
+    },
+    {
+      "name": "excursion: geometry and output r=0.75",
+      "pass": true,
+      "detail": {
+        "radius": 37.5,
+        "arcLength": 75.0007095336914,
+        "output": "力臂 0.75 cm → 轉角 114.6°；若張力 20 N，力矩 15.0 N·cm"
+      }
+    },
+    {
+      "name": "excursion: geometry and output r=1",
+      "pass": true,
+      "detail": {
+        "radius": 50,
+        "arcLength": 75.008056640625,
+        "output": "力臂 1.00 cm → 轉角 85.9°；若張力 20 N，力矩 20.0 N·cm"
+      }
+    },
+    {
+      "name": "excursion: geometry and output r=1.25",
+      "pass": true,
+      "detail": {
+        "radius": 62.5,
+        "arcLength": 75.00215911865234,
+        "output": "力臂 1.25 cm → 轉角 68.8°；若張力 20 N，力矩 25.0 N·cm"
+      }
+    },
+    {
+      "name": "excursion: geometry and output r=1.5",
+      "pass": true,
+      "detail": {
+        "radius": 75,
+        "arcLength": 75.00077056884766,
+        "output": "力臂 1.50 cm → 轉角 57.3°；若張力 20 N，力矩 30.0 N·cm"
+      }
+    },
+    {
+      "name": "figure accessible output rd-diagram rd-tendon-moments",
+      "pass": true
+    },
+    {
+      "name": "figure accessible output rd-diagram rd-pulley-excursion",
+      "pass": true
+    },
+    {
+      "name": "desktop no overflow",
+      "pass": true
+    },
+    {
+      "name": "tendon-moments: no-JS static explanation",
+      "pass": true
+    },
+    {
+      "name": "pulley-excursion: no-JS static explanation",
+      "pass": true
+    },
+    {
+      "name": "no-JS no overflow",
+      "pass": true
+    },
+    {
+      "name": "no runtime errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "passed": 54,
+  "failed": 0
+}

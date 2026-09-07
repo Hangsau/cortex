@@ -1,0 +1,17 @@
+{{ $ID := printf "rd-pulley-excursion-%d" .Ordinal }}
+<figure class="rd-diagram rd-pulley-excursion" data-pulley-excursion aria-labelledby="{{ $ID }}-caption">
+<svg viewBox="0 0 320 265" role="img" aria-label="圓滑輪模型固定肌腱滑行1.5公分。半徑代表力臂；力臂變大時，同長度圓弧對應的轉角變小。">
+<text x="160" y="25" text-anchor="middle">相同滑行，力臂改變結果</text>
+<circle class="rd-measure" data-excursion-circle cx="160" cy="135" r="37.5"/>
+<path class="rd-angle-reference" data-excursion-radius d="M160 135 V97.5"/>
+<path class="rd-line" data-excursion-end d="M160 135 L194.0987 150.6055"/>
+<path class="rd-force" data-excursion-arc d="M160 97.5 A37.5 37.5 0 0 1 194.0987 150.6055"/>
+<circle class="rd-arrow-ink" cx="160" cy="135" r="3"/>
+<text x="139" y="119" data-excursion-r-label>r</text>
+<text x="160" y="245" text-anchor="middle">肌腱滑行 s＝1.5 cm</text>
+</svg>
+<label for="{{ $ID }}">改變示意力臂 r（cm）</label>
+<input id="{{ $ID }}" type="range" min="0.75" max="1.5" value="0.75" step="0.25" disabled>
+<output for="{{ $ID }}" aria-live="polite">力臂 0.75 cm → 轉角 114.6°；若張力 20 N，力矩 15.0 N·cm</output>
+<figcaption id="{{ $ID }}-caption">編者依圖 8.63–8.64 的圓滑輪模型製作：θ＝s ÷ r，θ 的單位為弧度；1 弧度約 57.3°。粗線圓弧長度固定，半徑 r 由 0.75 增至 1.5 cm 時，轉角由約 114.6° 降至 57.3°。另設固定張力 20 N 比較力矩，結果由 15 增至 30 N·cm。圓形代表幾何模型，未描繪真實關節；它假定力臂不隨角度改變，未包含組織伸長、關節活動限制或其他關節的肌腱行程。</figcaption>
+</figure>

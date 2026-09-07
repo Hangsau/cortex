@@ -51,7 +51,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 | `content/library/` | `layouts/library/{list,book,chapter,single}.html` | 書庫；CSCS 章節頁在 `chapter.html`（351 行，2026-07-31 從 3×3 九宮格改成黏性目次文件版型 + 遮答自測 + 深度層，資料讀 `data/cscs/`；模式切換／scrollspy／錨點展開／閃卡 JS 全內聯）。改動後跑 `tools/audit.js` 迴歸 |
 | 　└ CSCS 概念索引 | `library/cscs-concepts.html`（180 行） | 打散章節的第二條軸：22 概念 × 各自落點（2505 條連結），共用 `.nb` 版型；入口在 book 頁的工具列與每條知識單位的概念標籤 |
 | 　└ 特殊書 | `library/mnfl-{book,toolkit}.html`、`library/ust-{book,handbook,strategies}.html` | 大腦喜歡這樣學 / UST，各自 CSS |
-| 　└ 肌肉骨骼兩冊中文讀本 | `library/reading-{book,chapter,topics}.html`、`shortcodes/reading-{source,diagram,viscoelastic,length-tension,force-balance,shoulder-angles,shoulder-load,forearm-load,elbow-load,wrist-components,pulley-load}.html` | 33 章中文導讀，肌動學第 1–7 章與 Nordin 第 12–14 章加深；來源定位、跨書主題；共用 `reading.css`／`reading.js`；本機原頁由 `tools/book_reader.py` 唯讀回應 |
+| 　└ 肌肉骨骼兩冊中文讀本 | `library/reading-{book,chapter,topics}.html`、`shortcodes/reading-{source,diagram,viscoelastic,length-tension,force-balance,shoulder-angles,shoulder-load,forearm-load,elbow-load,wrist-components,pulley-load,tendon-moments,pulley-excursion}.html` | 33 章中文導讀，肌動學第 1–8 章與 Nordin 第 12–14 章加深；來源定位、跨書主題；共用 `reading.css`／`reading.js`；本機原頁由 `tools/book_reader.py` 唯讀回應 |
 | `content/temperament/` | `layouts/temperament/temperament-main.html`（386 行） | 氣質 section + 測驗（`temperament-quiz.js` 197 行） |
 | `content/vortex/` | `layouts/vortex/*`（見下） | 游泳知識庫，最大最複雜 |
 

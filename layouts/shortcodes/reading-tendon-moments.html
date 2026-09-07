@@ -1,0 +1,19 @@
+{{ $ID := printf "rd-tendon-moments-%d" .Ordinal }}
+<figure class="rd-diagram rd-tendon-moments" data-tendon-moments aria-labelledby="{{ $ID }}-caption">
+<svg viewBox="0 0 320 295" role="img" aria-label="同一條指淺屈肌腱的張力，乘上不同關節的力臂，形成不同大小的屈曲力矩。">
+<text x="160" y="25" text-anchor="middle">同一肌腱，三處屈曲力矩</text>
+<text x="20" y="68">PIP</text><text x="300" y="68" text-anchor="end" data-moment-value="pip">15.0</text>
+<path class="rd-moment-bar" data-moment-bar="pip" d="M20 86 H102.5"/>
+<text x="20" y="130">MCP</text><text x="300" y="130" text-anchor="end" data-moment-value="mcp">20.0</text>
+<path class="rd-moment-bar" data-moment-bar="mcp" d="M20 148 H130"/>
+<text x="20" y="192">手腕</text><text x="300" y="192" text-anchor="end" data-moment-value="wrist">25.0</text>
+<path class="rd-moment-bar" data-moment-bar="wrist" d="M20 210 H157.5"/>
+<path class="rd-measure" d="M20 238 H295 M20 233 V243 M157.5 233 V243 M295 233 V243"/>
+<text x="20" y="263" text-anchor="middle">0</text><text x="157.5" y="263" text-anchor="middle">25</text><text x="295" y="263" text-anchor="middle">50</text>
+<text x="160" y="290" text-anchor="middle">力矩（N·cm）</text>
+</svg>
+<label for="{{ $ID }}">改變示意肌腱張力（N）</label>
+<input id="{{ $ID }}" type="range" min="0" max="40" value="20" step="5" disabled>
+<output for="{{ $ID }}" aria-live="polite">張力 20 N → PIP 15.0、MCP 20.0、手腕 25.0 N·cm</output>
+<figcaption id="{{ $ID }}-caption">編者依圖 8.36 的姿勢與力臂製作。PIP 是近側指間關節，MCP 是掌指關節；三處力臂依序固定為 0.75、1、1.25 cm，力矩＝肌腱張力 × 力臂。長條使用同一刻度，只顯示這條肌腱的屈曲作用；其他肌肉與外力仍會影響實際動作。三個數字不能相加成一個關節的力矩。滑桿延伸原例，未表示個人的肌力或訓練負荷。</figcaption>
+</figure>

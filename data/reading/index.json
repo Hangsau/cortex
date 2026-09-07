@@ -2206,53 +2206,489 @@
         "power-grip",
         "coactivation"
       ],
-      "body_sha256": "c5c200490a926c590e4ec49ca43695989c4ff950e89575a00ce0f45667b4e586",
+      "body_sha256": "8f52ad97f457ba88ea54015882d53e676bda865964574ef8c078c8afb4eb5b67",
       "sections": [
         {
-          "id": "neumann.ch08.thumb",
-          "title": "拇指讓接觸面可以彼此相對",
-          "anchor": "thumb",
+          "id": "neumann.ch08.terminology",
+          "title": "先用指列，把掌骨與指骨接成一條鏈",
+          "anchor": "terminology",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 271,
+              "to": 273
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.metacarpal-phalanges",
+          "title": "掌骨與指骨",
+          "anchor": "metacarpal-phalanges",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 273,
+              "to": 275
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.hand-arches",
+          "title": "手的三道骨弓",
+          "anchor": "hand-arches",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
               "from": 275,
-              "to": 282
+              "to": 276
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.cmc-central",
+          "title": "中央 CMC 柱與周邊活動",
+          "anchor": "cmc-central",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 277,
+              "to": 278
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.cmc-ligaments",
+          "title": "CMC 關節的被動支持",
+          "anchor": "cmc-ligaments",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 278,
+              "to": 279
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.hand-motion",
+          "title": "手指動作與拇指方向",
+          "anchor": "hand-motion",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 276,
+              "to": 277
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.thumb-saddle",
+          "title": "拇指鞍狀骨面",
+          "anchor": "thumb-saddle",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 279,
+              "to": 281
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.thumb",
+          "title": "對掌的兩階段路徑",
+          "anchor": "thumb",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 281,
+              "to": 283
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.thumb-load",
+          "title": "拇指基底的穩定，也伴隨內部壓縮力",
+          "anchor": "thumb-load",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 282,
+              "to": 283
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.mcp-support",
+          "title": "MCP 的囊、韌帶與掌側板",
+          "anchor": "mcp-support",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 283,
+              "to": 286
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.mcp-kinematics",
+          "title": "MCP 活動與抓握適形",
+          "anchor": "mcp-kinematics",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 284,
+              "to": 286
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.mcp-immobilization",
+          "title": "MCP 固定的條件限制",
+          "anchor": "mcp-immobilization",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 286,
+              "to": 287
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.thumb-distal-joints",
+          "title": "拇指 MCP 與 IP",
+          "anchor": "thumb-distal-joints",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 283,
+              "to": 283
+            },
+            {
+              "from": 287,
+              "to": 289
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.ip-joints",
+          "title": "指間關節的骨性導引",
+          "anchor": "ip-joints",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 287,
+              "to": 289
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.hand-sensation",
+          "title": "神經分工與精細感覺",
+          "anchor": "hand-sensation",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 289,
+              "to": 290
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.sensory-protection",
+          "title": "感覺缺失與任務安全",
+          "anchor": "sensory-protection",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 289,
+              "to": 290
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.position-of-function",
+          "title": "手部功能位置",
+          "anchor": "position-of-function",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 289,
+              "to": 290
             }
           ]
         },
         {
           "id": "neumann.ch08.tendon-path",
-          "title": "肌腱需要可用的傳力路徑",
+          "title": "外在屈肌與滑液鞘",
           "anchor": "tendon-path",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
-              "from": 291,
+              "from": 290,
+              "to": 294
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.pulley-system",
+          "title": "屈肌滑車的幾何作用",
+          "anchor": "pulley-system",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 292,
+              "to": 294
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.carpal-tunnel",
+          "title": "腕隧道與正中神經",
+          "anchor": "carpal-tunnel",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 293,
+              "to": 294
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.proximal-stability",
+          "title": "只彎一個指節，近端也要有人穩住",
+          "anchor": "proximal-stability",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 294,
+              "to": 294
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.tenodesis",
+          "title": "腕部位置與肌腱固定作用",
+          "anchor": "tenodesis",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 294,
               "to": 295
             }
           ]
         },
         {
+          "id": "neumann.ch08.extensor-mechanism",
+          "title": "外在伸肌與伸肌腱膜",
+          "anchor": "extensor-mechanism",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 296,
+              "to": 298
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.extensor-components",
+          "title": "中央束與側束，把拉力送到不同指節",
+          "anchor": "extensor-components",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 297,
+              "to": 298
+            }
+          ]
+        },
+        {
           "id": "neumann.ch08.coordination",
-          "title": "動一根手指，可能需要平衡手腕的連帶傾向",
+          "title": "伸拇指時，手腕需要平衡橈偏傾向",
           "anchor": "coordination",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
-              "from": 295,
+              "from": 298,
               "to": 300
             }
           ]
         },
         {
+          "id": "neumann.ch08.thenar-hypothenar",
+          "title": "魚際與小魚際",
+          "anchor": "thenar-hypothenar",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 299,
+              "to": 302
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.intrinsic-muscles",
+          "title": "蚓狀肌與骨間肌",
+          "anchor": "intrinsic-muscles",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 302,
+              "to": 304
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.intrinsic-plus",
+          "title": "內在與外在肌的相反姿勢",
+          "anchor": "intrinsic-plus",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 304,
+              "to": 306
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.finger-opening",
+          "title": "開手：伸指時序",
+          "anchor": "finger-opening",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 305,
+              "to": 307
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.finger-closing",
+          "title": "關手：屈指與握拳",
+          "anchor": "finger-closing",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 307,
+              "to": 308
+            }
+          ]
+        },
+        {
           "id": "neumann.ch08.grasp-task",
-          "title": "抓握方式由任務決定",
+          "title": "手作為效應器",
           "anchor": "grasp-task",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
-              "from": 309,
+              "from": 308,
               "to": 310
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.ra-thumb-zigzag",
+          "title": "類風濕的拇指鋸齒變形",
+          "anchor": "ra-thumb-zigzag",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 310,
+              "to": 311
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.ra-mcp",
+          "title": "MCP 掌側脫位與尺偏",
+          "anchor": "ra-mcp",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 311,
+              "to": 313
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.ra-zigzag-fingers",
+          "title": "天鵝頸與鈕扣孔，是不同的關節方向組合",
+          "anchor": "ra-zigzag-fingers",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 313,
+              "to": 315
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.wrist-hand-chain",
+          "title": "腕與手的連鎖失穩",
+          "anchor": "wrist-hand-chain",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 314,
+              "to": 315
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.nerve-clinical-link",
+          "title": "神經損傷與腱移位案例",
+          "anchor": "nerve-clinical-link",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 317,
+              "to": 318
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.radian-excursion",
+          "title": "弧度與肌腱行程",
+          "anchor": "radian-excursion",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 318,
+              "to": 319
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.pulley-clinical",
+          "title": "滑車損傷的路徑機制",
+          "anchor": "pulley-clinical",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 320,
+              "to": 320
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.key-pinch-mechanics",
+          "title": "側捏算例：食指也需要足夠的反向支持",
+          "anchor": "key-pinch-mechanics",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 321,
+              "to": 321
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch08.chapter-synthesis",
+          "title": "把手指接回整條上肢的任務",
+          "anchor": "chapter-synthesis",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 315,
+              "to": 316
             }
           ]
         }
@@ -4048,7 +4484,7 @@
         "opposition",
         "moment-arm"
       ],
-      "body_sha256": "6bc2d785be3639f3fbb57dbeffbf6fedfd5c59cd3c150f3e839e00e23037311a",
+      "body_sha256": "611b1a0de08122d23c915378199b16e3ef0356606773c9656395ea3e20e7e64b",
       "sections": [
         {
           "id": "nordin.ch14.carpal-architecture",

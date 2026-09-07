@@ -120,6 +120,35 @@
     };
     slider.disabled = false; slider.addEventListener('input', update); update();
   });
+  document.querySelectorAll('[data-tendon-moments]').forEach(demo => {
+    const slider = demo.querySelector('input'), output = demo.querySelector('output');
+    const update = () => {
+      const force = Number(slider.value);
+      const moments = { pip: force * 0.75, mcp: force, wrist: force * 1.25 };
+      Object.entries(moments).forEach(([joint, moment], index) => {
+        const bar = demo.querySelector(`[data-moment-bar="${joint}"]`);
+        bar.setAttribute('d', `M20 ${86 + index * 62} H${20 + moment * 5.5}`);
+        bar.setAttribute('visibility', force ? 'visible' : 'hidden');
+        demo.querySelector(`[data-moment-value="${joint}"]`).textContent = moment.toFixed(1);
+      });
+      output.value = `張力 ${force} N → PIP ${moments.pip.toFixed(1)}、MCP ${moments.mcp.toFixed(1)}、手腕 ${moments.wrist.toFixed(1)} N·cm`;
+    };
+    slider.disabled = false; slider.addEventListener('input', update); update();
+  });
+  document.querySelectorAll('[data-pulley-excursion]').forEach(demo => {
+    const slider = demo.querySelector('input'), output = demo.querySelector('output');
+    const update = () => {
+      const arm = Number(slider.value), radius = arm * 50, radians = 1.5 / arm;
+      const x = 160 + radius * Math.sin(radians), y = 135 - radius * Math.cos(radians);
+      demo.querySelector('[data-excursion-circle]').setAttribute('r', radius);
+      demo.querySelector('[data-excursion-radius]').setAttribute('d', `M160 135 V${135 - radius}`);
+      demo.querySelector('[data-excursion-end]').setAttribute('d', `M160 135 L${x} ${y}`);
+      demo.querySelector('[data-excursion-arc]').setAttribute('d', `M160 ${135 - radius} A${radius} ${radius} 0 0 1 ${x} ${y}`);
+      demo.querySelector('[data-excursion-r-label]').setAttribute('y', 138 - radius / 2);
+      output.value = `力臂 ${arm.toFixed(2)} cm → 轉角 ${(radians * 180 / Math.PI).toFixed(1)}°；若張力 20 N，力矩 ${(20 * arm).toFixed(1)} N·cm`;
+    };
+    slider.disabled = false; slider.addEventListener('input', update); update();
+  });
   document.querySelectorAll('[data-pulley-load]').forEach(demo => {
     const slider = demo.querySelector('input');
     const output = demo.querySelector('output');
