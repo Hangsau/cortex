@@ -83,4 +83,19 @@
     };
     slider.addEventListener('input', update); update();
   });
+  document.querySelectorAll('[data-elbow-load]').forEach(demo => {
+    const slider = demo.querySelector('input');
+    const output = demo.querySelector('output');
+    const update = () => {
+      const loadKg = Number(slider.value);
+      const handForce = loadKg * 10;
+      const muscleForce = (20 * 13 + handForce * 30) / 5;
+      const jointForce = muscleForce - 20 - handForce;
+      demo.querySelector('[data-hand-force]').setAttribute('visibility', handForce > 0 ? 'visible' : 'hidden');
+      demo.querySelector('[data-hand-force-label]').textContent = `P＝${handForce} N`;
+      output.value = `手持 ${loadKg} 公斤 → 屈肌 M＝${muscleForce} N；關節 J＝${jointForce} N`;
+    };
+    slider.disabled = false;
+    slider.addEventListener('input', update); update();
+  });
 })();

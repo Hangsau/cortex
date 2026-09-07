@@ -1,0 +1,24 @@
+{{ $ID := printf "rd-forearm-load-%d" .Ordinal }}
+<figure class="rd-diagram rd-forearm-load" aria-labelledby="{{ $ID }}-caption">
+<div class="rd-compare">
+<svg viewBox="0 0 260 375" role="img" aria-label="壓縮時橈骨往近端受推，從橈骨斜向遠端尺骨的中央帶繃緊，以張力分擔負荷。">
+<text x="130" y="25" text-anchor="middle">① 手部往近端壓縮</text>
+<text x="80" y="70" text-anchor="middle">橈骨</text><text x="180" y="70" text-anchor="middle">尺骨</text>
+<rect class="rd-line" x="70" y="90" width="20" height="160" rx="10"/><rect class="rd-line" x="170" y="90" width="20" height="160" rx="10"/>
+<path class="rd-force" data-central-band="taut" d="M90 115 L170 165 M90 150 L170 200 M90 185 L170 235"/>
+<path class="rd-force" data-axial-load="proximal" d="M80 325 V270 M70 285 L80 270 L90 285"/>
+<text x="125" y="291">往肘端</text>
+<text x="130" y="360" text-anchor="middle">中央帶繃緊、傳遞張力</text>
+</svg>
+<svg viewBox="0 0 260 375" role="img" aria-label="牽引時橈骨被往遠端拉，骨間膜中央帶鬆弛，需要其他結構協助限制遠端位移。">
+<text x="130" y="25" text-anchor="middle">② 手部往遠端牽引</text>
+<text x="80" y="70" text-anchor="middle">橈骨</text><text x="180" y="70" text-anchor="middle">尺骨</text>
+<rect class="rd-line" x="70" y="90" width="20" height="160" rx="10"/><rect class="rd-line" x="170" y="90" width="20" height="160" rx="10"/>
+<path class="rd-force" data-central-band="slack" d="M90 125 Q110 115 120 150 T170 165 M90 160 Q110 150 120 185 T170 200 M90 195 Q110 185 120 220 T170 235"/>
+<path class="rd-force" data-axial-load="distal" d="M80 270 V325 M70 310 L80 325 L90 310"/>
+<text x="125" y="311">往手端</text>
+<text x="130" y="360" text-anchor="middle">中央帶鬆弛</text>
+</svg>
+</div>
+<figcaption id="{{ $ID }}-caption">編者依原書圖 6.20–6.21 重繪的方向示意，上方為肘端、下方為手端。中央帶由橈骨斜向遠端尺骨；橈骨往近端受推時可拉緊它，將部分負荷轉給尺骨；往遠端受拉時則使它鬆弛，需其他結構協助約束。曲線用來表示鬆弛狀態，並非實際變形量；箭頭只表示方向。圖中聚焦中央帶，未畫出骨間膜其他纖維、環狀韌帶與肌肉。</figcaption>
+</figure>

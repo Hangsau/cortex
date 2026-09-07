@@ -1,0 +1,213 @@
+{
+  "date": "2026-09-07",
+  "base": "http://127.0.0.1:8768/cortex/",
+  "checks": [
+    {
+      "name": "kinesiology/ch06: HTTP",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch06: all section anchors",
+      "pass": true,
+      "detail": 31
+    },
+    {
+      "name": "kinesiology/ch06: preserved anchors",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch06: 320px font22 no overflow",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch06: TOC starts closed",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch06: no extra h1",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch06: TOC contains all sections",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch06: TOC jump",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch06: precise cross-book reading links",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch06: cross-book target #carrying-angle",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch06: cross-book target #longitudinal-load",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch06: cross-book target #flexor-load-model",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch06: cross-book target #reach-volume",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch06: paper figure fits",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch06: night figure fits",
+      "pass": true
+    },
+    {
+      "name": "forearm: two load directions",
+      "pass": true
+    },
+    {
+      "name": "forearm: tension and slack distinguished",
+      "pass": true
+    },
+    {
+      "name": "forearm: compression upward / traction downward",
+      "pass": true,
+      "detail": [
+        {
+          "name": "proximal",
+          "path": "M80 325 V270 M70 285 L80 270 L90 285"
+        },
+        {
+          "name": "distal",
+          "path": "M80 270 V325 M70 310 L80 325 L90 310"
+        }
+      ]
+    },
+    {
+      "name": "kinesiology/ch06: desktop no overflow",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch13: HTTP",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch13: all section anchors",
+      "pass": true,
+      "detail": 19
+    },
+    {
+      "name": "basic-biomechanics/ch13: preserved anchors",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch13: 320px font22 no overflow",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch13: TOC starts closed",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch13: no extra h1",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch13: TOC contains all sections",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch13: TOC jump",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch13: precise cross-book reading links",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch13: cross-book target #reach-area",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch13: cross-book target #compression-traction",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch13: cross-book target #elbow-torque",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch13: paper figure fits",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch13: night figure fits",
+      "pass": true
+    },
+    {
+      "name": "load: keyboard 1kg gives M112 / J82",
+      "pass": true
+    },
+    {
+      "name": "load: nonzero hand arrow visible",
+      "pass": true
+    },
+    {
+      "name": "load: keyboard 0kg gives M52 / J32",
+      "pass": true
+    },
+    {
+      "name": "load: zero hand arrow hidden",
+      "pass": true
+    },
+    {
+      "name": "load: keyboard 0.5kg gives M82 / J57",
+      "pass": true
+    },
+    {
+      "name": "load: hand label gives force, not mass",
+      "pass": true
+    },
+    {
+      "name": "load: live output and accessible label",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch13: desktop no overflow",
+      "pass": true
+    },
+    {
+      "name": "kinesiology: no-JS figure and caption",
+      "pass": true
+    },
+    {
+      "name": "kinesiology: no-JS no overflow",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics: no-JS figure and caption",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics: no-JS no overflow",
+      "pass": true
+    },
+    {
+      "name": "load: no-JS static endpoint explanation",
+      "pass": true
+    },
+    {
+      "name": "load: no-JS slider disabled",
+      "pass": true
+    },
+    {
+      "name": "no runtime errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "passed": 48,
+  "failed": 0
+}

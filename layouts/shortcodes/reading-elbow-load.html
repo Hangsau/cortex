@@ -1,0 +1,21 @@
+{{ $ID := printf "rd-elbow-load-%d" .Ordinal }}
+<figure class="rd-diagram rd-elbow-load" data-elbow-load aria-labelledby="{{ $ID }}-caption">
+<svg viewBox="0 0 320 315" role="img" aria-label="水平前臂的靜態模型：屈肌力 M 向上，前臂重量 W、手持物重量 P 與肘對前臂的關節反作用力 J 向下。力臂分別為 5、13、30 公分。">
+<path class="rd-line" d="M40 75 V130 H280"/>
+<circle class="rd-line" cx="40" cy="130" r="5"/>
+<path class="rd-force" d="M80 130 V55 M72 67 L80 55 L88 67"/>
+<text x="80" y="35" text-anchor="middle">M 向上</text>
+<path class="rd-force" d="M40 130 V197 M32 185 L40 197 L48 185"/>
+<text x="40" y="220" text-anchor="middle">J</text>
+<path class="rd-force" d="M144 130 V197 M136 185 L144 197 L152 185"/>
+<text x="144" y="220" text-anchor="middle">W＝20 N</text>
+<path class="rd-force" data-hand-force d="M280 130 V197 M272 185 L280 197 L288 185" visibility="hidden"/>
+<text x="280" y="220" text-anchor="middle" data-hand-force-label>P＝0 N</text>
+<path class="rd-measure" d="M40 242 H80 M40 237 V247 M80 237 V247 M40 263 H144 M40 258 V268 M144 258 V268 M40 284 H280 M40 279 V289 M280 279 V289"/>
+<text x="96" y="247">5 cm</text><text x="160" y="268">13 cm</text><text x="160" y="312" text-anchor="middle">30 cm</text>
+</svg>
+<label for="{{ $ID }}">改變手持重量，觀察肌肉力與關節力（公斤）</label>
+<input id="{{ $ID }}" type="range" min="0" max="1" value="0" step="0.25" disabled>
+<output for="{{ $ID }}" aria-live="polite">手持 0 公斤 → 屈肌 M＝52 N；關節 J＝32 N</output>
+<figcaption id="{{ $ID }}-caption">編者依原書算例 13-1 製作，固定肘屈曲 90°、前臂水平，以一條等效屈肌力代表肌肉作用。前臂重 W＝20 N，三個力臂為 5、13、30 公分，採 g 約 10 m/s²。先算 M＝(20×13＋P×30)÷5，再算 J＝M－20－P。空手 M＝52 N、J＝32 N；手持 1 公斤 M＝112 N、J＝82 N。J 為肘作用在前臂上的力；箭頭只表示方向，不按力的大小縮放。未啟用互動時，仍可由以上兩端算例閱讀。</figcaption>
+</figure>
