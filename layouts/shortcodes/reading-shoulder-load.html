@@ -1,0 +1,15 @@
+{{ $ID := printf "rd-shoulder-load-%d" .Ordinal }}
+<figure class="rd-diagram rd-shoulder-load" data-shoulder-load data-body-mass="80" data-arm-fraction="0.05" data-arm-distance="0.30" data-muscle-arm="0.03" data-hand-distance="0.60" data-gravity="9.81" aria-labelledby="{{ $ID }}-caption">
+<svg viewBox="0 0 300 125" role="img" aria-label="在這個簡化模型中，手持重量由零增加至2公斤時，三角肌等效拉力由0.5倍體重力增加至1倍。">
+<text x="150" y="25" text-anchor="middle">三角肌等效拉力 D</text>
+<path class="rd-load-scale" d="M30 62 H250 M30 52 V72 M140 52 V72 M250 52 V72"/>
+<path class="rd-force" data-load-bar d="M30 62 H140"/>
+<text x="30" y="100" text-anchor="middle">0</text>
+<text x="140" y="100" text-anchor="middle">0.5</text>
+<text x="250" y="100" text-anchor="middle">1 BW</text>
+</svg>
+<label for="{{ $ID }}">改變手持重量，觀察模型中的肌肉拉力（公斤）</label>
+<input id="{{ $ID }}" type="range" min="0" max="2" value="0" step="0.25">
+<output for="{{ $ID }}" aria-live="polite">手持 0 公斤 → D 約 392.4 N（0.500 BW）</output>
+<figcaption id="{{ $ID }}-caption">編者依原書算例 12-1 製作。固定體重 80 公斤、手臂重為 0.05 BW；手臂重心、手持負荷、肌肉的力臂分別為 30、60、3 公分，且只計一條等效三角肌力。BW 表示體重力，換算牛頓採 g＝9.81 m/s²。原例兩端為：空手 D＝0.5 BW、手持 2 公斤 D＝1 BW。這裡顯示肌肉力估計；關節反作用力還要由完整向量平衡判斷。</figcaption>
+</figure>

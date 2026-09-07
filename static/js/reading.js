@@ -68,4 +68,19 @@
     const update = () => { const cm = Number(slider.value); const x = 90 + cm * 8; force.setAttribute('transform', `translate(${x},0)`); output.value = `力臂 ${cm} 公分 × 20 牛頓 = ${(cm / 100 * 20).toFixed(1)} 牛頓米`; };
     slider.addEventListener('input', update); update();
   });
+  document.querySelectorAll('[data-shoulder-load]').forEach(demo => {
+    const slider = demo.querySelector('input');
+    const output = demo.querySelector('output');
+    const model = Object.fromEntries(Object.entries(demo.dataset).map(([key, value]) => [key, Number(value)]));
+    const update = () => {
+      const loadKg = Number(slider.value);
+      const bodyWeight = model.bodyMass * model.gravity;
+      const moment = model.armFraction * bodyWeight * model.armDistance + loadKg * model.gravity * model.handDistance;
+      const muscleForce = moment / model.muscleArm;
+      const fraction = muscleForce / bodyWeight;
+      demo.querySelector('[data-load-bar]').setAttribute('d', `M30 62 H${30 + fraction * 220}`);
+      output.value = `手持 ${loadKg} 公斤 → D 約 ${muscleForce.toFixed(1)} N（${fraction.toFixed(3)} BW）`;
+    };
+    slider.addEventListener('input', update); update();
+  });
 })();

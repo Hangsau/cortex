@@ -88,6 +88,10 @@ body:has(.rd-page)[data-reader-color="night"] { --rd-paper:#192427; --rd-ink:#e8
 .rd-diagram .rd-curve-active { stroke:var(--rd-ink); stroke-width:3; stroke-dasharray:9 5; fill:none; }
 .rd-diagram .rd-curve-passive { stroke:var(--rd-ink); stroke-width:3; stroke-dasharray:2 6; stroke-linecap:round; fill:none; }
 .rd-diagram .rd-measure { stroke:var(--rd-muted); stroke-width:1.5; fill:none; }
+.rd-diagram .rd-angle-reference { stroke:var(--rd-muted); stroke-width:2; stroke-dasharray:6 5; fill:none; }
+.rd-diagram .rd-angle-scapula { stroke:var(--rd-ink); stroke-width:2; fill:none; }
+.rd-diagram .rd-angle-arc, .rd-diagram .rd-load-scale { stroke:var(--rd-muted); stroke-width:1.5; fill:none; }
+.rd-shoulder-load > svg { display:block; max-width:400px; margin-inline:auto; }
 .rd-diagram .rd-plot-key { list-style:none; padding:0; margin:8px 0; font-size:16px; line-height:1.8; }
 .rd-diagram .rd-plot-key li { display:flex; align-items:center; gap:12px; margin:4px 0; }
 .rd-diagram .rd-plot-key svg { width:40px; height:16px; flex:none; }

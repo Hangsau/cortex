@@ -1,0 +1,33 @@
+{{ $ID := printf "rd-shoulder-angles-%d" .Ordinal }}
+<figure class="rd-diagram rd-shoulder-angles" aria-labelledby="{{ $ID }}">
+<div class="rd-compare">
+<div>
+<svg viewBox="0 0 300 250" role="img" aria-label="手臂相對垂直線外展70度，肩胛上旋20度；兩方向的夾角為50度。">
+<text x="150" y="25" text-anchor="middle">肩胛上旋 20°</text>
+<path class="rd-angle-reference" d="M100 50 V225"/>
+<path class="rd-angle-scapula" d="M100 50 L154.72 200.35"/>
+<path class="rd-force" d="M100 50 L250.35 104.72"/>
+<path class="rd-angle-arc" d="M133.52 142.09 A98 98 0 0 0 192.09 83.52"/>
+<text x="165" y="145">50°</text>
+<text x="150" y="243" text-anchor="middle">70° − 20° ＝ 50°</text>
+</svg>
+</div>
+<div>
+<svg viewBox="0 0 300 250" role="img" aria-label="手臂同樣外展70度，肩胛改為下旋20度，記作負20度；兩方向的夾角為90度。">
+<text x="150" y="25" text-anchor="middle">肩胛下旋 20°</text>
+<path class="rd-angle-reference" d="M100 50 V225"/>
+<path class="rd-angle-scapula" d="M100 50 L45.28 200.35"/>
+<path class="rd-force" d="M100 50 L250.35 104.72"/>
+<path class="rd-angle-arc" d="M66.48 142.09 A98 98 0 0 0 192.09 83.52"/>
+<text x="144" y="158">90°</text>
+<text x="150" y="243" text-anchor="middle">70° − (−20°) ＝ 90°</text>
+</svg>
+</div>
+</div>
+<ul class="rd-plot-key" aria-label="方向線圖例">
+<li><svg viewBox="0 0 40 16" aria-hidden="true"><path class="rd-force" d="M0 8 H40"/></svg>粗線：肱骨方向，兩圖都是 70°</li>
+<li><svg viewBox="0 0 40 16" aria-hidden="true"><path class="rd-angle-scapula" d="M0 8 H40"/></svg>細實線：肩胛內緣方向</li>
+<li><svg viewBox="0 0 40 16" aria-hidden="true"><path class="rd-angle-reference" d="M0 8 H40"/></svg>虛線：垂直參考線</li>
+</ul>
+<figcaption id="{{ $ID }}">編者依原書圖 5.63 的兩個姿勢重畫角度關係，將方向線移到共同起點便於比較。弧線表示兩方向之差，用來推估盂肱外展角；線條不是骨面或肌肉力線。這是平面量角示意，不能直接當成三維關節量測或疼痛診斷。</figcaption>
+</figure>
