@@ -1,0 +1,48 @@
+{
+  "checked_at": "2026-09-07T09:12:35.222192+00:00",
+  "implementation_commit": "541d2bf086f52bb2df5821d242e2f181e1bacdce",
+  "deployment_run": "https://github.com/Hangsau/cortex/actions/runs/34104569782",
+  "checks": [
+    {
+      "url": "https://hangsau.github.io/cortex/library/kinesiology/ch05/",
+      "http_status": 200,
+      "section_anchors": 34,
+      "missing_anchors": [],
+      "new_figure": "rd-shoulder-angles",
+      "new_text_verified": "總深度的一半",
+      "cross_book_target_verified": "/cortex/library/basic-biomechanics/ch12/#joint-load-model"
+    },
+    {
+      "url": "https://hangsau.github.io/cortex/library/basic-biomechanics/ch12/",
+      "http_status": 200,
+      "section_anchors": 17,
+      "missing_anchors": [],
+      "new_figure": "rd-shoulder-load",
+      "new_text_verified": "D＝(30×0.05＋60×0.025)／3＝1 BW",
+      "cross_book_target_verified": "/cortex/library/kinesiology/ch05/#scapular-dyskinesis-figure"
+    }
+  ],
+  "assets": [
+    {
+      "url": "https://hangsau.github.io/cortex/css/reading.css",
+      "http_status": 200,
+      "normalized_sha256": "003b9924649a407783b947b92d16e1a65d36e9eac0f8b1f958b7c91f0b8602d1",
+      "matches_local": true
+    },
+    {
+      "url": "https://hangsau.github.io/cortex/js/reading.js",
+      "http_status": 200,
+      "normalized_sha256": "3626979d2ad013efda71acdd880096f2cd164cf0e9bcd0bf47c90978488fe8df",
+      "matches_local": true
+    }
+  ],
+  "local_reader_browser_checks": {
+    "passed": 97,
+    "failed": 0
+  },
+  "batch_browser_checks": {
+    "passed": 44,
+    "failed": 0
+  },
+  "translation_status": "Source-located expanded Chinese chapter explanations; not sentence-by-sentence full translations."
+}
