@@ -1,0 +1,54 @@
+{
+  "checked_at": "2026-09-08T00:05:29.058258+00:00",
+  "implementation_commit": "b3b5fa4c1db8b25230652b07a1fa9b3d8471e4e1",
+  "deployment_run": "https://github.com/Hangsau/cortex/actions/runs/34168687218",
+  "checks": [
+    {
+      "url": "https://hangsau.github.io/cortex/library/kinesiology/ch08/",
+      "http_status": 200,
+      "section_anchors": 40,
+      "missing_anchors": [],
+      "change_type": "expanded-chapter-and-two-models"
+    },
+    {
+      "url": "https://hangsau.github.io/cortex/library/basic-biomechanics/ch14/",
+      "http_status": 200,
+      "section_anchors": 26,
+      "missing_anchors": [],
+      "change_type": "three-return-links"
+    }
+  ],
+  "verified_new_cross_book_links": [
+    "/cortex/library/basic-biomechanics/ch14/#hand-arches",
+    "/cortex/library/basic-biomechanics/ch14/#pulley-force",
+    "/cortex/library/basic-biomechanics/ch14/#tenodesis",
+    "/cortex/library/basic-biomechanics/ch14/#extensor-assembly",
+    "/cortex/library/basic-biomechanics/ch14/#power-precision",
+    "/cortex/library/kinesiology/ch08/#pulley-clinical",
+    "/cortex/library/kinesiology/ch08/#finger-opening",
+    "/cortex/library/kinesiology/ch08/#thumb"
+  ],
+  "assets": [
+    {
+      "url": "https://hangsau.github.io/cortex/css/reading.css",
+      "http_status": 200,
+      "normalized_sha256": "053eda84df2ad9c3868fc48ed579007f6dfbb44babe1ba8cd2e77f9238921f7e",
+      "matches_local": true
+    },
+    {
+      "url": "https://hangsau.github.io/cortex/js/reading.js",
+      "http_status": 200,
+      "normalized_sha256": "a7e128c89baf5a9394c2d8b7fe0910a87ea1854b3be74135d320c76047f45703",
+      "matches_local": true
+    }
+  ],
+  "local_reader_browser_checks": {
+    "passed": 97,
+    "failed": 0
+  },
+  "batch_browser_checks": {
+    "passed": 54,
+    "failed": 0
+  },
+  "translation_status": "Source-located expanded Chinese explanations; not sentence-by-sentence full translations."
+}
