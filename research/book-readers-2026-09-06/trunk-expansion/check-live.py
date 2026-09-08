@@ -20,12 +20,17 @@ class Page(HTMLParser):
         self.in_article = False
         self.ids, self.headings, self.links, self.classes = set(), [], [], set()
         self.text, self.inputs = [], {}
+        self.local_sources, self.embeds = [], []
         self.feed(source)
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
         classes = attrs.get("class", "").split()
         self.classes.update(classes)
+        if "rd-local-sources" in classes:
+            self.local_sources.append("hidden" in attrs)
+        if tag in {"img", "iframe", "object", "embed", "script"}:
+            self.embeds.extend(attrs.get(k, "") for k in ["src", "srcset", "data"])
         if "id" in attrs:
             self.ids.add(attrs["id"])
         if tag == "article" and "rd-prose" in classes:
@@ -79,11 +84,16 @@ def main():
         local = Page((PREVIEW / relative / "index.html").read_text(encoding="utf-8"))
         canonical = (ROOT / "content" / relative / "index.md").read_text(encoding="utf-8")
         expected = re.findall(r"^## .+ \{#([a-z0-9-]+)\}", canonical, re.M)
+        expected_sources = len(re.findall(r"\{\{<\s+reading-source\b", canonical))
         check(slug + " all canonical headings in order", live.headings == expected, len(live.headings))
         check(slug + " complete prose equals local accepted build", live.prose() == local.prose(),
               {"characters": len(live.prose()), "sha256": hashlib.sha256(live.prose().encode()).hexdigest()})
         check(slug + " new figure", figure in live.classes)
-        check(slug + " no original-page embedding", "127.0.0.1" not in raw and "/originals/" not in raw and "resources/books/" not in raw)
+        check(slug + " original links hidden and no original-page embedding",
+              len(live.local_sources) == expected_sources > 0 and all(live.local_sources) and
+              "127.0.0.1" not in raw and "resources/books/" not in raw and
+              not any("/originals/" in src for src in live.embeds),
+              {"hidden_source_groups": len(live.local_sources)})
         if slug == "kinesiology":
             sliders = [a for a in live.inputs.values() if a.get("type") == "range"]
             check("lifting slider default and no-JS state", len(sliders) == 1 and

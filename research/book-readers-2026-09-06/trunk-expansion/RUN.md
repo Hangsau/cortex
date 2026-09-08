@@ -48,7 +48,10 @@
 - 圖解編寫時發現剪力反作用方向反轉，已按原書修為沿盤面上坡，修正後才完成數值／幾何驗收。人工目視手機正文、抬舉圖紙色、合力圖夜色，文字可辨且未溢出；截圖留本機 `C:/claudehome/tmp/book-translation-trunk/`。
 - `git diff --check` 通過。結構與瀏覽器檢查不能取代上述來源語意核閱。
 - 全域 `check_map_freshness.py` 仍列出既有 helper／Vortex 遺漏及歷史參照，與MAP頂部已知範圍一致；本批只更新讀本路由及驗收入口，不宣稱全專案地圖完成盤點。
+- 正式頁驗收前兩次38/40；兩項先誤將既有hidden原頁連結當成嵌入原圖，後誤假定每節只有一個來源區塊。依shortcode及loopback健康檢查確認既有設計後，改按canonical的全部來源區塊驗原頁連結群皆hidden、沒有載入原圖的媒體元素或本機網址；保留完整正文與資產相等檢查。這是驗收條件修正，沒有更動公開頁的來源服務設計。
 
 ## 發布與下一批
 
-本機驗收完成，待記錄實作SHA、CI與正式頁驗收。下一批先加深 Nordin 第11章頸椎，與 Neumann 第9／10章精確對讀，再接 Neumann 第11章咀嚼與呼吸；尚未啟動下一批或背景排程。
+實作 `547e26157da158dadcd68f1f7d4764d23f6e8d29` 已推送，按完整SHA查得[部署CI成功](https://github.com/Hangsau/cortex/actions/runs/34287601309)。正式站驗收40/40，於2026-09-08T23:10:38.862831+00:00讀取兩章與跨書目標、CSS／JS；兩章完整正文（正規化排版空白後）與本機驗收版相同，40／29錨點按順序完整，兩圖與預設數值正確，47／33組原頁連結群均hidden，未嵌入原圖或本機網址。CSS／JS內容及雜湊與本機相同。機器證據見public-validation.json；重跑 `python research/book-readers-2026-09-06/trunk-expansion/check-live.py --commit 547e26157da158dadcd68f1f7d4764d23f6e8d29 --run-url https://github.com/Hangsau/cortex/actions/runs/34287601309`。GitHub API及正式頁初次因沙箱網路限制失敗，取得對應網路權限後成功；不是部署故障。額外目視桌面紙色合力圖，向量及圖說清楚。
+
+下一批先加深 Nordin 第11章頸椎，與 Neumann 第9／10章精確對讀，再接 Neumann 第11章咀嚼與呼吸；尚未啟動下一批或背景排程。
