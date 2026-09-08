@@ -120,6 +120,19 @@
     };
     slider.disabled = false; slider.addEventListener('input', update); update();
   });
+  document.querySelectorAll('[data-lifting-load]').forEach(demo => {
+    const slider = demo.querySelector('input'), output = demo.querySelector('output');
+    const update = () => {
+      const cm = Number(slider.value), x = 40 + cm * 4.6;
+      const moment = 520 * 0.13 + 200 * cm / 100;
+      const muscle = moment / 0.05, reaction = muscle + 520 + 200;
+      demo.querySelector('[data-lift-object]').setAttribute('transform', `translate(${x},0)`);
+      demo.querySelector('[data-lift-distance]').setAttribute('d', `M40 203 H${x}`);
+      demo.querySelector('[data-lift-distance-label]').textContent = `D3＝${cm} cm`;
+      output.value = `力臂 ${cm} cm → 外力矩 ${moment.toFixed(1)} N·m；肌力 MF＝${muscle.toFixed(0)} N；壓縮反作用力 RF＝${reaction.toFixed(0)} N`;
+    };
+    slider.disabled = false; slider.addEventListener('input', update); update();
+  });
   document.querySelectorAll('[data-lumbosacral-load]').forEach(demo => {
     const slider = demo.querySelector('input'), output = demo.querySelector('output');
     const update = () => {

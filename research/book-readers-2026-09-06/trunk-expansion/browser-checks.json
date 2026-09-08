@@ -1,0 +1,744 @@
+{
+  "date": "2026-09-08",
+  "base": "http://127.0.0.1:8768/cortex/",
+  "checks": [
+    {
+      "name": "kinesiology HTTP",
+      "pass": true
+    },
+    {
+      "name": "kinesiology all canonical anchors",
+      "pass": true,
+      "detail": 40
+    },
+    {
+      "name": "kinesiology original anchors preserved",
+      "pass": true
+    },
+    {
+      "name": "kinesiology 320px font22 fits",
+      "pass": true
+    },
+    {
+      "name": "kinesiology mobile TOC initially closed",
+      "pass": true
+    },
+    {
+      "name": "kinesiology TOC landing fixed-end",
+      "pass": true
+    },
+    {
+      "name": "kinesiology TOC landing rotation",
+      "pass": true
+    },
+    {
+      "name": "kinesiology TOC landing chapter-bridge",
+      "pass": true
+    },
+    {
+      "name": "kinesiology cross-book links precise",
+      "pass": true,
+      "detail": 8
+    },
+    {
+      "name": "kinesiology cross-book target /cortex/library/basic-biomechanics/ch10/#lateral-rotation",
+      "pass": true
+    },
+    {
+      "name": "kinesiology cross-book target /cortex/library/basic-biomechanics/ch10/#co-contraction",
+      "pass": true
+    },
+    {
+      "name": "kinesiology cross-book target /cortex/library/basic-biomechanics/ch10/#exercise-loading",
+      "pass": true
+    },
+    {
+      "name": "kinesiology cross-book target /cortex/library/basic-biomechanics/ch10/#anticipated-loading",
+      "pass": true
+    },
+    {
+      "name": "kinesiology cross-book target /cortex/library/basic-biomechanics/ch10/#free-body",
+      "pass": true
+    },
+    {
+      "name": "kinesiology cross-book target /cortex/library/basic-biomechanics/ch10/#object-size",
+      "pass": true
+    },
+    {
+      "name": "kinesiology cross-book target /cortex/library/basic-biomechanics/ch10/#abdominal-pressure",
+      "pass": true
+    },
+    {
+      "name": "kinesiology cross-book target /cortex/library/basic-biomechanics/ch10/#stoop-squat",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics HTTP",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics all canonical anchors",
+      "pass": true,
+      "detail": 29
+    },
+    {
+      "name": "basic-biomechanics original anchors preserved",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics 320px font22 fits",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics mobile TOC initially closed",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics TOC landing segment",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics TOC landing bending",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics TOC landing chapter-bridge",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics cross-book links precise",
+      "pass": true,
+      "detail": 14
+    },
+    {
+      "name": "basic-biomechanics cross-book target /cortex/library/kinesiology/ch09/#disc-hydrostatic",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics cross-book target /cortex/library/kinesiology/ch09/#trunk-extension",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics cross-book target /cortex/library/kinesiology/ch10/#lateral-control",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics cross-book target /cortex/library/kinesiology/ch10/#psoas",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics cross-book target /cortex/library/kinesiology/ch10/#abdominal-lines",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics cross-book target /cortex/library/kinesiology/ch10/#stability-scales",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics cross-book target /cortex/library/kinesiology/ch10/#lifting-model",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics cross-book target /cortex/library/kinesiology/ch10/#passive-torque",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics cross-book target /cortex/library/kinesiology/ch10/#lifting-strategies",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics cross-book target /cortex/library/kinesiology/ch10/#curl-up",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics cross-book target /cortex/library/kinesiology/ch10/#pressure-stability",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics cross-book target /cortex/library/kinesiology/ch10/#feedforward",
+      "pass": true
+    },
+    {
+      "name": "rd-lifting-load fits 320 paper",
+      "pass": true
+    },
+    {
+      "name": "rd-lifting-load SVG labels fit 320",
+      "pass": true
+    },
+    {
+      "name": "rd-lifting-load scaled labels at least14 320",
+      "pass": true
+    },
+    {
+      "name": "rd-lifting-load fits 320 night",
+      "pass": true
+    },
+    {
+      "name": "rd-lifting-load SVG labels fit 320",
+      "pass": true
+    },
+    {
+      "name": "rd-lifting-load scaled labels at least14 320",
+      "pass": true
+    },
+    {
+      "name": "rd-lifting-load fits 1360 paper",
+      "pass": true
+    },
+    {
+      "name": "rd-lifting-load SVG labels fit 1360",
+      "pass": true
+    },
+    {
+      "name": "rd-lifting-load scaled labels at least14 1360",
+      "pass": true
+    },
+    {
+      "name": "rd-lifting-load fits 1360 night",
+      "pass": true
+    },
+    {
+      "name": "rd-lifting-load SVG labels fit 1360",
+      "pass": true
+    },
+    {
+      "name": "rd-lifting-load scaled labels at least14 1360",
+      "pass": true
+    },
+    {
+      "name": "rd-lumbar-resultant fits 320 paper",
+      "pass": true
+    },
+    {
+      "name": "rd-lumbar-resultant SVG labels fit 320",
+      "pass": true
+    },
+    {
+      "name": "rd-lumbar-resultant scaled labels at least14 320",
+      "pass": true
+    },
+    {
+      "name": "rd-lumbar-resultant fits 320 night",
+      "pass": true
+    },
+    {
+      "name": "rd-lumbar-resultant SVG labels fit 320",
+      "pass": true
+    },
+    {
+      "name": "rd-lumbar-resultant scaled labels at least14 320",
+      "pass": true
+    },
+    {
+      "name": "rd-lumbar-resultant fits 1360 paper",
+      "pass": true
+    },
+    {
+      "name": "rd-lumbar-resultant SVG labels fit 1360",
+      "pass": true
+    },
+    {
+      "name": "rd-lumbar-resultant scaled labels at least14 1360",
+      "pass": true
+    },
+    {
+      "name": "rd-lumbar-resultant fits 1360 night",
+      "pass": true
+    },
+    {
+      "name": "rd-lumbar-resultant SVG labels fit 1360",
+      "pass": true
+    },
+    {
+      "name": "rd-lumbar-resultant scaled labels at least14 1360",
+      "pass": true
+    },
+    {
+      "name": "C S perpendicular",
+      "pass": true,
+      "detail": {
+        "c": {
+          "a": {
+            "x": 60,
+            "y": 265
+          },
+          "b": {
+            "x": 185.6834716796875,
+            "y": 85.50540161132812
+          },
+          "x": 125.6834716796875,
+          "y": -179.49459838867188
+        },
+        "s": {
+          "a": {
+            "x": 185.6834716796875,
+            "y": 85.50540161132812
+          },
+          "b": {
+            "x": 170.41346740722656,
+            "y": 74.813232421875
+          },
+          "x": -15.270004272460938,
+          "y": -10.692169189453125
+        },
+        "r": {
+          "a": {
+            "x": 60,
+            "y": 265
+          },
+          "b": {
+            "x": 170.41346740722656,
+            "y": 74.813232421875
+          },
+          "x": 110.41346740722656,
+          "y": -190.186767578125
+        },
+        "plane": {
+          "a": {
+            "x": 20,
+            "y": 236.99200439453125
+          },
+          "b": {
+            "x": 110,
+            "y": 300.010009765625
+          },
+          "x": 90,
+          "y": 63.01800537109375
+        }
+      }
+    },
+    {
+      "name": "C S same scale as calculated forces",
+      "pass": true
+    },
+    {
+      "name": "R uses vector sum and common origin",
+      "pass": true
+    },
+    {
+      "name": "R magnitude equals4382 and373 resultant",
+      "pass": true
+    },
+    {
+      "name": "C normal to plane S points uphill",
+      "pass": true
+    },
+    {
+      "name": "net reaction balances muscle and external weight",
+      "pass": true
+    },
+    {
+      "name": "default lifting model reproduced",
+      "pass": true
+    },
+    {
+      "name": "lifting keyboard 10cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 10 cm → 外力矩 87.6 N·m；肌力 MF＝1752 N；壓縮反作用力 RF＝2472 N",
+        "x": 86,
+        "distance": 46
+      }
+    },
+    {
+      "name": "lifting keyboard 11cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 11 cm → 外力矩 89.6 N·m；肌力 MF＝1792 N；壓縮反作用力 RF＝2512 N",
+        "x": 90.5999984741211,
+        "distance": 50.599998474121094
+      }
+    },
+    {
+      "name": "lifting keyboard 12cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 12 cm → 外力矩 91.6 N·m；肌力 MF＝1832 N；壓縮反作用力 RF＝2552 N",
+        "x": 95.19999694824219,
+        "distance": 55.19999694824219
+      }
+    },
+    {
+      "name": "lifting keyboard 13cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 13 cm → 外力矩 93.6 N·m；肌力 MF＝1872 N；壓縮反作用力 RF＝2592 N",
+        "x": 99.80000305175781,
+        "distance": 59.80000305175781
+      }
+    },
+    {
+      "name": "lifting keyboard 14cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 14 cm → 外力矩 95.6 N·m；肌力 MF＝1912 N；壓縮反作用力 RF＝2632 N",
+        "x": 104.4000015258789,
+        "distance": 64.4000015258789
+      }
+    },
+    {
+      "name": "lifting keyboard 15cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 15 cm → 外力矩 97.6 N·m；肌力 MF＝1952 N；壓縮反作用力 RF＝2672 N",
+        "x": 109,
+        "distance": 69
+      }
+    },
+    {
+      "name": "lifting keyboard 16cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 16 cm → 外力矩 99.6 N·m；肌力 MF＝1992 N；壓縮反作用力 RF＝2712 N",
+        "x": 113.5999984741211,
+        "distance": 73.5999984741211
+      }
+    },
+    {
+      "name": "lifting keyboard 17cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 17 cm → 外力矩 101.6 N·m；肌力 MF＝2032 N；壓縮反作用力 RF＝2752 N",
+        "x": 118.19999694824219,
+        "distance": 78.19999694824219
+      }
+    },
+    {
+      "name": "lifting keyboard 18cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 18 cm → 外力矩 103.6 N·m；肌力 MF＝2072 N；壓縮反作用力 RF＝2792 N",
+        "x": 122.80000305175781,
+        "distance": 82.80000305175781
+      }
+    },
+    {
+      "name": "lifting keyboard 19cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 19 cm → 外力矩 105.6 N·m；肌力 MF＝2112 N；壓縮反作用力 RF＝2832 N",
+        "x": 127.4000015258789,
+        "distance": 87.4000015258789
+      }
+    },
+    {
+      "name": "lifting keyboard 20cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 20 cm → 外力矩 107.6 N·m；肌力 MF＝2152 N；壓縮反作用力 RF＝2872 N",
+        "x": 132,
+        "distance": 92
+      }
+    },
+    {
+      "name": "lifting keyboard 21cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 21 cm → 外力矩 109.6 N·m；肌力 MF＝2192 N；壓縮反作用力 RF＝2912 N",
+        "x": 136.60000610351562,
+        "distance": 96.60000610351562
+      }
+    },
+    {
+      "name": "lifting keyboard 22cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 22 cm → 外力矩 111.6 N·m；肌力 MF＝2232 N；壓縮反作用力 RF＝2952 N",
+        "x": 141.1999969482422,
+        "distance": 101.19999694824219
+      }
+    },
+    {
+      "name": "lifting keyboard 23cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 23 cm → 外力矩 113.6 N·m；肌力 MF＝2272 N；壓縮反作用力 RF＝2992 N",
+        "x": 145.8000030517578,
+        "distance": 105.80000305175781
+      }
+    },
+    {
+      "name": "lifting keyboard 24cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 24 cm → 外力矩 115.6 N·m；肌力 MF＝2312 N；壓縮反作用力 RF＝3032 N",
+        "x": 150.39999389648438,
+        "distance": 110.39999389648438
+      }
+    },
+    {
+      "name": "lifting keyboard 25cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 25 cm → 外力矩 117.6 N·m；肌力 MF＝2352 N；壓縮反作用力 RF＝3072 N",
+        "x": 155,
+        "distance": 115
+      }
+    },
+    {
+      "name": "lifting keyboard 26cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 26 cm → 外力矩 119.6 N·m；肌力 MF＝2392 N；壓縮反作用力 RF＝3112 N",
+        "x": 159.60000610351562,
+        "distance": 119.60000610351562
+      }
+    },
+    {
+      "name": "lifting keyboard 27cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 27 cm → 外力矩 121.6 N·m；肌力 MF＝2432 N；壓縮反作用力 RF＝3152 N",
+        "x": 164.1999969482422,
+        "distance": 124.19999694824219
+      }
+    },
+    {
+      "name": "lifting keyboard 28cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 28 cm → 外力矩 123.6 N·m；肌力 MF＝2472 N；壓縮反作用力 RF＝3192 N",
+        "x": 168.8000030517578,
+        "distance": 128.8000030517578
+      }
+    },
+    {
+      "name": "lifting keyboard 29cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 29 cm → 外力矩 125.6 N·m；肌力 MF＝2512 N；壓縮反作用力 RF＝3232 N",
+        "x": 173.39999389648438,
+        "distance": 133.39999389648438
+      }
+    },
+    {
+      "name": "lifting keyboard 30cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 30 cm → 外力矩 127.6 N·m；肌力 MF＝2552 N；壓縮反作用力 RF＝3272 N",
+        "x": 178,
+        "distance": 138
+      }
+    },
+    {
+      "name": "lifting keyboard 31cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 31 cm → 外力矩 129.6 N·m；肌力 MF＝2592 N；壓縮反作用力 RF＝3312 N",
+        "x": 182.60000610351562,
+        "distance": 142.60000610351562
+      }
+    },
+    {
+      "name": "lifting keyboard 32cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 32 cm → 外力矩 131.6 N·m；肌力 MF＝2632 N；壓縮反作用力 RF＝3352 N",
+        "x": 187.1999969482422,
+        "distance": 147.1999969482422
+      }
+    },
+    {
+      "name": "lifting keyboard 33cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 33 cm → 外力矩 133.6 N·m；肌力 MF＝2672 N；壓縮反作用力 RF＝3392 N",
+        "x": 191.8000030517578,
+        "distance": 151.8000030517578
+      }
+    },
+    {
+      "name": "lifting keyboard 34cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 34 cm → 外力矩 135.6 N·m；肌力 MF＝2712 N；壓縮反作用力 RF＝3432 N",
+        "x": 196.39999389648438,
+        "distance": 156.39999389648438
+      }
+    },
+    {
+      "name": "lifting keyboard 35cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 35 cm → 外力矩 137.6 N·m；肌力 MF＝2752 N；壓縮反作用力 RF＝3472 N",
+        "x": 201,
+        "distance": 161
+      }
+    },
+    {
+      "name": "lifting keyboard 36cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 36 cm → 外力矩 139.6 N·m；肌力 MF＝2792 N；壓縮反作用力 RF＝3512 N",
+        "x": 205.60000610351562,
+        "distance": 165.60000610351562
+      }
+    },
+    {
+      "name": "lifting keyboard 37cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 37 cm → 外力矩 141.6 N·m；肌力 MF＝2832 N；壓縮反作用力 RF＝3552 N",
+        "x": 210.1999969482422,
+        "distance": 170.1999969482422
+      }
+    },
+    {
+      "name": "lifting keyboard 38cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 38 cm → 外力矩 143.6 N·m；肌力 MF＝2872 N；壓縮反作用力 RF＝3592 N",
+        "x": 214.8000030517578,
+        "distance": 174.8000030517578
+      }
+    },
+    {
+      "name": "lifting keyboard 39cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 39 cm → 外力矩 145.6 N·m；肌力 MF＝2912 N；壓縮反作用力 RF＝3632 N",
+        "x": 219.39999389648438,
+        "distance": 179.39999389648438
+      }
+    },
+    {
+      "name": "lifting keyboard 40cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 40 cm → 外力矩 147.6 N·m；肌力 MF＝2952 N；壓縮反作用力 RF＝3672 N",
+        "x": 224,
+        "distance": 184
+      }
+    },
+    {
+      "name": "lifting keyboard 41cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 41 cm → 外力矩 149.6 N·m；肌力 MF＝2992 N；壓縮反作用力 RF＝3712 N",
+        "x": 228.60000610351562,
+        "distance": 188.60000610351562
+      }
+    },
+    {
+      "name": "lifting keyboard 42cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 42 cm → 外力矩 151.6 N·m；肌力 MF＝3032 N；壓縮反作用力 RF＝3752 N",
+        "x": 233.1999969482422,
+        "distance": 193.1999969482422
+      }
+    },
+    {
+      "name": "lifting keyboard 43cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 43 cm → 外力矩 153.6 N·m；肌力 MF＝3072 N；壓縮反作用力 RF＝3792 N",
+        "x": 237.8000030517578,
+        "distance": 197.8000030517578
+      }
+    },
+    {
+      "name": "lifting keyboard 44cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 44 cm → 外力矩 155.6 N·m；肌力 MF＝3112 N；壓縮反作用力 RF＝3832 N",
+        "x": 242.39999389648438,
+        "distance": 202.39999389648438
+      }
+    },
+    {
+      "name": "lifting keyboard 45cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 45 cm → 外力矩 157.6 N·m；肌力 MF＝3152 N；壓縮反作用力 RF＝3872 N",
+        "x": 247,
+        "distance": 207
+      }
+    },
+    {
+      "name": "lifting keyboard 46cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 46 cm → 外力矩 159.6 N·m；肌力 MF＝3192 N；壓縮反作用力 RF＝3912 N",
+        "x": 251.60000610351562,
+        "distance": 211.60000610351562
+      }
+    },
+    {
+      "name": "lifting keyboard 47cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 47 cm → 外力矩 161.6 N·m；肌力 MF＝3232 N；壓縮反作用力 RF＝3952 N",
+        "x": 256.20001220703125,
+        "distance": 216.20001220703125
+      }
+    },
+    {
+      "name": "lifting keyboard 48cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 48 cm → 外力矩 163.6 N·m；肌力 MF＝3272 N；壓縮反作用力 RF＝3992 N",
+        "x": 260.79998779296875,
+        "distance": 220.79998779296875
+      }
+    },
+    {
+      "name": "lifting keyboard 49cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 49 cm → 外力矩 165.6 N·m；肌力 MF＝3312 N；壓縮反作用力 RF＝4032 N",
+        "x": 265.3999938964844,
+        "distance": 225.39999389648438
+      }
+    },
+    {
+      "name": "lifting keyboard 50cm formula and geometry",
+      "pass": true,
+      "detail": {
+        "text": "力臂 50 cm → 外力矩 167.6 N·m；肌力 MF＝3352 N；壓縮反作用力 RF＝4072 N",
+        "x": 270,
+        "distance": 230
+      }
+    },
+    {
+      "name": "lifting max endpoint",
+      "pass": true
+    },
+    {
+      "name": "accessible label and live output",
+      "pass": true
+    },
+    {
+      "name": "keyboard focus visible",
+      "pass": true
+    },
+    {
+      "name": "kinesiology no-JS chapter and diagram",
+      "pass": true
+    },
+    {
+      "name": "kinesiology no-JS fits",
+      "pass": true
+    },
+    {
+      "name": "no-JS default retained and disabled",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics no-JS chapter and diagram",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics no-JS fits",
+      "pass": true
+    },
+    {
+      "name": "no runtime errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "passed": 119,
+  "failed": 0
+}

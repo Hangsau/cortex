@@ -1,0 +1,21 @@
+{{ $ID := printf "rd-lifting-load-%d" .Ordinal }}
+<figure class="rd-diagram rd-lifting-load" data-lifting-load aria-labelledby="{{ $ID }}-caption">
+<svg viewBox="0 0 320 270" role="img" aria-label="固定物品重 200 牛頓，改變重力作用線到腰椎轉軸的水平距離 D3。距離越長，外屈曲力矩越大。">
+<defs><marker id="{{ $ID }}-arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path class="rd-arrow-accent" d="M0 0 L10 5 L0 10 Z"/></marker></defs>
+<text x="160" y="26" text-anchor="middle">固定物品重量 P＝200 N</text>
+<path class="rd-measure" d="M40 80 H285 M40 66 V211"/>
+<circle class="rd-lift-axis" cx="40" cy="80" r="5"/>
+<text x="22" y="55">L2</text>
+<g data-lift-object transform="translate(173.4,0)">
+<path class="rd-force" d="M0 80 V155" marker-end="url(#{{ $ID }}-arrow)"/>
+<path class="rd-angle-reference" d="M0 162 V211"/>
+<text x="12" y="127">P</text>
+</g>
+<path class="rd-measure" data-lift-distance d="M40 203 H173.4"/>
+<text x="160" y="251" text-anchor="middle" data-lift-distance-label>D3＝29 cm</text>
+</svg>
+<label for="{{ $ID }}">物品重力作用線到 L2 轉軸的距離（cm）</label>
+<input id="{{ $ID }}" type="range" min="10" max="50" value="29" step="1" disabled>
+<output for="{{ $ID }}" aria-live="polite">力臂 29 cm → 外力矩 125.6 N·m；肌力 MF＝2512 N；壓縮反作用力 RF＝3232 N</output>
+<figcaption id="{{ $ID }}-caption">編者依圖 10.33 的算例重組。圖中只畫可變的物品力臂 D3，固定物品重 200 N、L2 上方身體重 520 N、身體力臂 13 cm、肌肉力臂 5 cm。MF＝(520×0.13＋200×D3)÷0.05，D3 代入公尺；RF＝MF＋520＋200。預設 29 cm 重現原書，滑桿 10–50 cm 是編者設定，並非安全範圍。模型假定所有力鉛直、靜力平衡，不含其他肌群、加速度或組織分擔；RF 是模型的力，不是盤內壓或可搬重量。改距離時只改物品那一項，不模擬人體隨之換姿勢。</figcaption>
+</figure>

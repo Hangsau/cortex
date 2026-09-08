@@ -3351,7 +3351,7 @@
     {
       "id": "neumann.ch10",
       "title": "脊柱的肌肉與動作控制",
-      "description": "理解軀幹肌肉如何隨固定端、動作方向與穩定需求而改變角色，避免把核心只想成單一肌肉。",
+      "description": "從腹背肌與頭頸肌的合作，讀懂固定端、節段穩定與預先活化，再用搬物算例追蹤肌力和腰椎負荷。",
       "content_type": "chapter-guide",
       "path": "library/kinesiology/ch10/",
       "topic": "axial",
@@ -3362,8 +3362,48 @@
         "motion-segment",
         "force-couple"
       ],
-      "body_sha256": "1f1352ce12c8ac77d25f25508ce28c7ee6e7dfe6b4b0a9108e883c8a9d10d071",
+      "body_sha256": "e3b1c9ac681f74abb9bfdf8ed0df37e0074b6a75d7d74b5e672d925b1c26e610",
       "sections": [
+        {
+          "id": "neumann.ch10.muscle-roles",
+          "title": "脊柱肌肉同時處理活動、支承與精細定位",
+          "anchor": "muscle-roles",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 412,
+              "to": 412
+            },
+            {
+              "from": 429,
+              "to": 430
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.innervation",
+          "title": "神經根與前後支，是兩個不同層次",
+          "anchor": "innervation",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 413,
+              "to": 414
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.force-direction",
+          "title": "肌肉斜著拉，必須分方向計算力矩",
+          "anchor": "force-direction",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 415,
+              "to": 415
+            }
+          ]
+        },
         {
           "id": "neumann.ch10.fixed-end",
           "title": "固定的是哪一端，會改變動作結果",
@@ -3371,8 +3411,112 @@
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
-              "from": 416,
+              "from": 415,
+              "to": 416
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.gravity-control",
+          "title": "向前動，不一定是屈肌正在拉",
+          "anchor": "gravity-control",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 415,
+              "to": 416
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.shared-attachments",
+          "title": "肩帶肌也能反過來作用於脊柱",
+          "anchor": "shared-attachments",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 417,
+              "to": 417
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.erector-spinae",
+          "title": "豎脊肌的長距離附著，適合控制大範圍伸展",
+          "anchor": "erector-spinae",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 419,
               "to": 420
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.transversospinal",
+          "title": "橫突棘肌的差別，先看跨過多少節段",
+          "anchor": "transversospinal",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 420,
+              "to": 422
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.short-segmental",
+          "title": "短節段肌的價值包括位置回饋",
+          "anchor": "short-segmental",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 422,
+              "to": 422
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.abdominal-wall",
+          "title": "腹壁透過腱膜與白線，把左右拉力接起來",
+          "anchor": "abdominal-wall",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 422,
+              "to": 424
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.abdominal-lines",
+          "title": "腹斜肌與腹橫肌，不能只按深淺背功能",
+          "anchor": "abdominal-lines",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 424,
+              "to": 426
+            },
+            {
+              "from": 430,
+              "to": 430
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.abdominal-flexion",
+          "title": "腹肌可以拉近胸廓與骨盆，也可以維持兩者距離",
+          "anchor": "abdominal-flexion",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 424,
+              "to": 426
+            },
+            {
+              "from": 430,
+              "to": 431
             }
           ]
         },
@@ -3383,7 +3527,11 @@
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
-              "from": 421,
+              "from": 416,
+              "to": 416
+            },
+            {
+              "from": 425,
               "to": 425
             }
           ]
@@ -3396,19 +3544,331 @@
           "pdf_pages": [
             {
               "from": 425,
-              "to": 428
+              "to": 426
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.psoas",
+          "title": "髂腰肌連接髖與腰，兩處的作用要分開",
+          "anchor": "psoas",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 426,
+              "to": 427
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.quadratus-lumborum",
+          "title": "腰方肌既能側彎，也能抬起骨盆一側",
+          "anchor": "quadratus-lumborum",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 427,
+              "to": 427
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.stability-scales",
+          "title": "節段穩定與整體穩定，是兩個互補尺度",
+          "anchor": "stability-scales",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 428,
+              "to": 430
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.stable-not-unloaded",
+          "title": "穩定增加，不代表內部壓縮一定減少",
+          "anchor": "stable-not-unloaded",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 429,
+              "to": 430
+            },
+            {
+              "from": 443,
+              "to": 443
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.feedforward",
+          "title": "預先活化研究，比較的是肌電開始的時點",
+          "anchor": "feedforward",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 448,
+              "to": 449
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.multifidus-control",
+          "title": "多裂肌的形態與影像，提供的是不同資訊",
+          "anchor": "multifidus-control",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 449,
+              "to": 449
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.curl-up",
+          "title": "捲腹階段，先讓胸廓相對骨盆屈曲",
+          "anchor": "curl-up",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 430,
+              "to": 432
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.sit-up",
+          "title": "完整坐起的後半段，腹肌穩定而髖屈肌轉動骨盆",
+          "anchor": "sit-up",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 431,
+              "to": 432
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.training-framework",
+          "title": "穩定訓練的章內框架包含控制、肌群合作與耐力",
+          "anchor": "training-framework",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 450,
+              "to": 451
             }
           ]
         },
         {
           "id": "neumann.ch10.head-and-trunk",
-          "title": "頭頸與軀幹控制也使用同樣的分析方法",
+          "title": "頭頸控制也要逐區檢查轉軸",
           "anchor": "head-and-trunk",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
-              "from": 429,
-              "to": 441
+              "from": 432,
+              "to": 436
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.sternocleidomastoid",
+          "title": "胸鎖乳突肌可屈下頸，也可伸上頸",
+          "anchor": "sternocleidomastoid",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 433,
+              "to": 434
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.scalenes",
+          "title": "斜角肌在穩定頸部與抬肋之間共享作用",
+          "anchor": "scalenes",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 434,
+              "to": 434
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.deep-neck-flexors",
+          "title": "頸長肌與頭長肌，分別連到椎骨和顱骨",
+          "anchor": "deep-neck-flexors",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 434,
+              "to": 435
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.posterior-neck",
+          "title": "夾肌與枕下肌，讓轉頭和細微修正並行",
+          "anchor": "posterior-neck",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 435,
+              "to": 436
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.gaze-control",
+          "title": "保持視線水平，需要上頸抵消部分耦合運動",
+          "anchor": "gaze-control",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 436,
+              "to": 436
+            },
+            {
+              "from": 439,
+              "to": 440
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.neck-support",
+          "title": "頸部穩定也依賴胸廓與肩帶的支承",
+          "anchor": "neck-support",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 436,
+              "to": 437
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.forward-head",
+          "title": "頭前移是幾何描述，成因仍需另行判讀",
+          "anchor": "forward-head",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 437,
+              "to": 438
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.torticollis",
+          "title": "斜頸例子顯示肌肉方向，也提醒外觀不等於病因",
+          "anchor": "torticollis",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 452,
+              "to": 453
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.lifting-model",
+          "title": "搬物算例先平衡力矩，再求反作用力",
+          "anchor": "lifting-model",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 441,
+              "to": 442
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.load-distance",
+          "title": "物品靠近轉軸，減少的是外屈曲力矩",
+          "anchor": "load-distance",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 442,
+              "to": 443
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.model-limits",
+          "title": "內力臂與加速度，不能簡化成拱腰和慢速口令",
+          "anchor": "model-limits",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 442,
+              "to": 443
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.pressure-stability",
+          "title": "腹內壓的穩定作用，與淨減載要分開推理",
+          "anchor": "pressure-stability",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 443,
+              "to": 443
+            },
+            {
+              "from": 449,
+              "to": 449
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.passive-torque",
+          "title": "被動伸展力矩表，包含不能忽略的破裂條件",
+          "anchor": "passive-torque",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 443,
+              "to": 444
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.thoracolumbar-fascia",
+          "title": "胸腰筋膜能傳遞張力，作用受纖維方向限制",
+          "anchor": "thoracolumbar-fascia",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 444,
+              "to": 445
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.lifting-strategies",
+          "title": "蹲舉與彎身舉，是多個負荷條件的交換",
+          "anchor": "lifting-strategies",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 445,
+              "to": 446
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch10.chapter-bridge",
+          "title": "從肌肉合作接到下一章的呼吸與咀嚼",
+          "anchor": "chapter-bridge",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 446,
+              "to": 447
             }
           ]
         }
@@ -4442,7 +4902,7 @@
     {
       "id": "nordin.ch10",
       "title": "腰椎如何承受負荷",
-      "description": "把椎間盤、小面關節、韌帶和肌肉合成一個節段模型，理解姿勢與外力如何改變負荷分配。",
+      "description": "把椎間盤、小面、韌帶與肌肉放回同一節段，透過壓力量測與搬物算例，分清壓縮、剪力、穩定及負荷條件。",
       "content_type": "chapter-guide",
       "path": "library/basic-biomechanics/ch10/",
       "topic": "axial",
@@ -4454,7 +4914,7 @@
         "moment-arm",
         "coactivation"
       ],
-      "body_sha256": "95def54881ddd2eb8a33f8dcfb32566bbef965351d9e2a201ab09c50dcdf1e69",
+      "body_sha256": "3f253c086c6d014a78d3be91ccc6b5a16e354affa925ac31164a40f649fae651",
       "sections": [
         {
           "id": "nordin.ch10.segment",
@@ -4464,7 +4924,19 @@
           "pdf_pages": [
             {
               "from": 271,
-              "to": 276
+              "to": 271
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.disc-structure",
+          "title": "髓核、纖維環與終板，各用不同方式承力",
+          "anchor": "disc-structure",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 272,
+              "to": 273
             }
           ]
         },
@@ -4476,11 +4948,71 @@
           "pdf_pages": [
             {
               "from": 272,
-              "to": 274
+              "to": 273
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.disc-state",
+          "title": "水分與終板狀態，會改變負荷分布",
+          "anchor": "disc-state",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 272,
+              "to": 273
             },
             {
-              "from": 282,
-              "to": 287
+              "from": 277,
+              "to": 278
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.facets",
+          "title": "小面關節導引活動，也分擔壓縮與剪力",
+          "anchor": "facets",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 273,
+              "to": 275
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.ligaments",
+          "title": "韌帶受拉的排序，隨動作方向改變",
+          "anchor": "ligaments",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 275,
+              "to": 275
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.segment-motion",
+          "title": "節段活動是旋轉與平移的組合",
+          "anchor": "segment-motion",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 275,
+              "to": 278
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.lumbopelvic-motion",
+          "title": "腰椎與骨盆共同完成前彎，節律並非固定兩段",
+          "anchor": "lumbopelvic-motion",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 279,
+              "to": 281
             }
           ]
         },
@@ -4491,8 +5023,48 @@
           "source_id": "src.nordin-frankel-2012",
           "pdf_pages": [
             {
-              "from": 279,
+              "from": 280,
               "to": 281
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.lateral-rotation",
+          "title": "側彎和轉身，兩側肌肉都可能出力",
+          "anchor": "lateral-rotation",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 281,
+              "to": 281
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.muscle-classification",
+          "title": "兩書的肌肉分組，使用的是不同尺度",
+          "anchor": "muscle-classification",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 271,
+              "to": 271
+            },
+            {
+              "from": 279,
+              "to": 279
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.measurement",
+          "title": "盤內壓、肌電與模型力，不是同一種量",
+          "anchor": "measurement",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 282,
+              "to": 282
             }
           ]
         },
@@ -4504,7 +5076,207 @@
           "pdf_pages": [
             {
               "from": 282,
+              "to": 284
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.posture-pressure",
+          "title": "坐姿和站姿的壓力比較，原書保留不同研究結果",
+          "anchor": "posture-pressure",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 284,
+              "to": 285
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.support",
+          "title": "支撐位置會改變受力，靠背不只有有或沒有",
+          "anchor": "support",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 286,
+              "to": 287
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.object-size",
+          "title": "箱子變大，即使同重也可能增加腰部力矩",
+          "anchor": "object-size",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 288,
+              "to": 289
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.body-moment",
+          "title": "上半身前移，自身重量的力矩也會增加",
+          "anchor": "body-moment",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 289,
+              "to": 289
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.free-body",
+          "title": "斜面自由體模型，先求肌力再分壓縮與剪力",
+          "anchor": "free-body",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 290,
               "to": 290
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.resultant",
+          "title": "壓縮與剪力互相垂直，合力要用向量相加",
+          "anchor": "resultant",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 290,
+              "to": 291
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.failure-loading",
+          "title": "破壞試驗量到的極限，不能當成人體安全重量",
+          "anchor": "failure-loading",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 286,
+              "to": 288
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.stoop-squat",
+          "title": "蹲舉與彎身舉，要比較相同任務中的具體條件",
+          "anchor": "stoop-squat",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 288,
+              "to": 288
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.walking",
+          "title": "步行的腰椎負荷，隨步態時相與速度改變",
+          "anchor": "walking",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 288,
+              "to": 291
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.exercise-loading",
+          "title": "腹背肌練習同時改變肌肉刺激與脊柱負荷",
+          "anchor": "exercise-loading",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 291,
+              "to": 293
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.abdominal-pressure",
+          "title": "腹內壓可能提供伸展作用，但也有建立壓力的成本",
+          "anchor": "abdominal-pressure",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 293,
+              "to": 294
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.co-contraction",
+          "title": "共同活化能增加剛性，也可能增加壓縮",
+          "anchor": "co-contraction",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 294,
+              "to": 294
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.anticipated-loading",
+          "title": "預期負荷與突然負荷，差別包括準備時間",
+          "anchor": "anticipated-loading",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 294,
+              "to": 294
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.fatigue-control",
+          "title": "疲勞與持續屈曲，可能改變控制和被動材料反應",
+          "anchor": "fatigue-control",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 280,
+              "to": 280
+            },
+            {
+              "from": 294,
+              "to": 296
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.external-support",
+          "title": "外部護腰的限制效果，不等於已證明能預防傷害",
+          "anchor": "external-support",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 296,
+              "to": 296
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch10.chapter-bridge",
+          "title": "把節段、動作、量測與模型放回同一條推理線",
+          "anchor": "chapter-bridge",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 282,
+              "to": 282
+            },
+            {
+              "from": 296,
+              "to": 296
             }
           ]
         }

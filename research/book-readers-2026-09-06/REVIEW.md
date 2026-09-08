@@ -1,6 +1,6 @@
 # 中文讀本：來源判讀與驗收
 
-2026-09-08 更新：本批加深 Neumann 第 8 章手部至 40 節／9,320 字，由 Luna 初稿、主代理回原文與原圖校核整合。新增同一肌腱跨關節的力矩比較，以及固定肌腱行程下力臂與轉角的互動模型；Nordin 第 14 章增加反向精確連結，未重算為新增完成章。全讀本現為 354 節／98,202 中文字，肌動學第 1–8 章與 Nordin 第 12–14 章已加深，仍為逐章導讀／詳解。來源核對及驗收見 `hand-expansion/RUN.md`；前批紀錄保留於 `ch01-expansion`、`ch02-04-expansion`、`shoulder-expansion`、`elbow-expansion`、`wrist-expansion`。下方 133 節／約 2.4 萬字及初次部署紀錄保留為 2026-09-06 初版快照。
+2026-09-09 更新：本批加深 Neumann 第10章脊柱肌肉至40節／8,061字，Nordin 第10章腰椎至29節／5,736字，主代理核閱原文／原圖後整合。新增固定姿態下負重距離的互動模型，以及腰椎壓縮／剪力合成圖；兩章保留原8個錨點。全讀本現為459節／120,731中文字，肌動學第1–10章與Nordin第10、12–14章已加深，仍為逐章導讀／詳解。來源、條件及本批119/119瀏覽器驗收見 `trunk-expansion/RUN.md`；前批紀錄保留於 `ch01-expansion`、`ch02-04-expansion`、`shoulder-expansion`、`elbow-expansion`、`wrist-expansion`、`hand-expansion`、`spine-expansion`。下方133節／約2.4萬字及初次部署紀錄保留為2026-09-06初版快照。
 
 ## 交付與閱讀界線
 
