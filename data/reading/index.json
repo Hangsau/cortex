@@ -2708,57 +2708,641 @@
         "facet",
         "arthrokinematics"
       ],
-      "body_sha256": "3681a3d412f710407e57836916d39012dbad65a374c8327b2eaa5ccc4a259e3d",
+      "body_sha256": "436df134a27fa801e805ab0c8a7c0b4b8ddbf882e140ffde5916f7b588ce6532",
       "sections": [
         {
-          "id": "neumann.ch09.segments",
-          "title": "先把脊柱看成重複出現的功能單位",
-          "anchor": "segments",
+          "id": "neumann.ch09.axial-skeleton",
+          "title": "先認識這一章的骨架範圍",
+          "anchor": "axial-skeleton",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
               "from": 340,
+              "to": 345
+            },
+            {
+              "from": 392,
+              "to": 392
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.segments",
+          "title": "先把脊柱看成重複出現的運動節段",
+          "anchor": "segments",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 358,
               "to": 359
             }
           ]
         },
         {
+          "id": "neumann.ch09.vertebral-parts",
+          "title": "椎骨的基本零件",
+          "anchor": "vertebral-parts",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 343,
+              "to": 344
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.neural-canal",
+          "title": "椎管與椎間孔，是兩種不同的神經通道",
+          "anchor": "neural-canal",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 342,
+              "to": 343
+            },
+            {
+              "from": 352,
+              "to": 352
+            },
+            {
+              "from": 357,
+              "to": 358
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.ribs-sternum",
+          "title": "肋骨如何把胸椎接到胸骨",
+          "anchor": "ribs-sternum",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 344,
+              "to": 345
+            },
+            {
+              "from": 375,
+              "to": 376
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.curvatures",
+          "title": "前凸與後凸，是有方向的曲線",
+          "anchor": "curvatures",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 345,
+              "to": 346
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.gravity-line",
+          "title": "重力線離轉軸多遠，決定外部力矩",
+          "anchor": "gravity-line",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 346,
+              "to": 347
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.spinal-ligaments",
+          "title": "沿韌帶所在的位置，判斷什麼動作會拉緊它",
+          "anchor": "spinal-ligaments",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 347,
+              "to": 350
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.ligament-elasticity",
+          "title": "黃韌帶為什麼富含彈性纖維",
+          "anchor": "ligament-elasticity",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 347,
+              "to": 349
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.neutral-zone",
+          "title": "中立區：阻力很低的活動範圍",
+          "anchor": "neutral-zone",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 350,
+              "to": 350
+            }
+          ]
+        },
+        {
           "id": "neumann.ch09.disc-facet",
-          "title": "椎間盤與小面關節共同參與活動",
+          "title": "椎間盤與小面關節如何合作",
           "anchor": "disc-facet",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
+              "from": 358,
+              "to": 361
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.motion-terms",
+          "title": "說向左旋轉時，是看椎體前方",
+          "anchor": "motion-terms",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
               "from": 359,
+              "to": 360
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.facet-joints",
+          "title": "小面朝向會引導活動，也會擋住某些方向",
+          "anchor": "facet-joints",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 360,
+              "to": 361
+            },
+            {
+              "from": 370,
+              "to": 370
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.disc-structure",
+          "title": "髓核與纖維環，是連續變化的材料分區",
+          "anchor": "disc-structure",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 360,
+              "to": 362
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.annulus-load",
+          "title": "交錯纖維如何抵抗拉開、滑動與扭轉",
+          "anchor": "annulus-load",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 361,
+              "to": 362
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.endplates",
+          "title": "終板同時傳力，也讓營養通過",
+          "anchor": "endplates",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 362,
+              "to": 362
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.disc-hydrostatic",
+          "title": "壓縮進來，髓核、纖維環與終板一起回應",
+          "anchor": "disc-hydrostatic",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 361,
+              "to": 363
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.disc-pressure",
+          "title": "含水量會隨一天中的負荷變化",
+          "anchor": "disc-pressure",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 363,
               "to": 364
             }
           ]
         },
         {
           "id": "neumann.ch09.regional-differences",
-          "title": "頸、胸、腰的差異有結構背景",
+          "title": "脊柱整體活動的區域差異",
           "anchor": "regional-differences",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
-              "from": 353,
-              "to": 357
+              "from": 365,
+              "to": 366
             },
             {
-              "from": 365,
-              "to": 369
+              "from": 391,
+              "to": 392
             }
           ]
         },
         {
           "id": "neumann.ch09.coupled-motion",
-          "title": "複合運動需要逐區理解",
+          "title": "耦合要逐區理解，不能只背一條方向規則",
           "anchor": "coupled-motion",
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
               "from": 365,
-              "to": 367
+              "to": 366
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.cervical-osteology",
+          "title": "頸椎的一般骨形",
+          "anchor": "cervical-osteology",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 350,
+              "to": 352
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.upper-cervical-bones",
+          "title": "寰椎、樞椎與 C7",
+          "anchor": "upper-cervical-bones",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 353,
+              "to": 354
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.atlanto-occipital",
+          "title": "寰枕關節：頭顱在寰椎上點頭",
+          "anchor": "atlanto-occipital",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 366,
+              "to": 369
+            },
+            {
+              "from": 373,
+              "to": 373
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.atlanto-axial",
+          "title": "寰樞關節：繞齒突旋轉，也需要韌帶約束",
+          "anchor": "atlanto-axial",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 367,
+              "to": 368
+            },
+            {
+              "from": 370,
+              "to": 372
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.lower-cervical",
+          "title": "中下頸椎：沿斜面滑動，形成屈伸與同側耦合",
+          "anchor": "lower-cervical",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 368,
+              "to": 370
+            },
+            {
+              "from": 372,
+              "to": 375
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.cervical-protraction",
+          "title": "頭向前移，不是整段頸椎一起屈曲",
+          "anchor": "cervical-protraction",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 371,
+              "to": 371
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.cervical-foramen",
+          "title": "頸椎孔的變化，要連同角度與面積一起讀",
+          "anchor": "cervical-foramen",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 374,
+              "to": 375
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.thoracic-osteology",
+          "title": "胸椎與肋骨組成一個共同承力的胸廓",
+          "anchor": "thoracic-osteology",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 355,
+              "to": 355
+            },
+            {
+              "from": 375,
+              "to": 376
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.thoracic-kinematics",
+          "title": "胸椎每節動得小，合起來仍能彎與轉",
+          "anchor": "thoracic-kinematics",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 376,
+              "to": 380
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.lumbar-osteology",
+          "title": "腰椎承重骨形",
+          "anchor": "lumbar-osteology",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 355,
+              "to": 356
+            },
+            {
+              "from": 378,
+              "to": 380
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.lumbosacral-shear",
+          "title": "腰薦交界：重量如何分成壓縮與前向剪力",
+          "anchor": "lumbosacral-shear",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 381,
+              "to": 382
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.lumbar-kinematics",
+          "title": "腰椎屈伸，同時改變接觸面積與負荷分配",
+          "anchor": "lumbar-kinematics",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 382,
+              "to": 384
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.lumbar-facet-limit",
+          "title": "腰椎轉得少，原因可以從左右小面看見",
+          "anchor": "lumbar-facet-limit",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 389,
+              "to": 389
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.lumbopelvic-rhythm",
+          "title": "前彎是腰椎與髖部一起完成的",
+          "anchor": "lumbopelvic-rhythm",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 384,
+              "to": 385
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.trunk-extension",
+          "title": "從前彎站起來，外力臂與肌肉分工一起變",
+          "anchor": "trunk-extension",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 385,
+              "to": 386
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.pelvic-tilt",
+          "title": "骨盆前後傾，先固定它相對哪一塊骨",
+          "anchor": "pelvic-tilt",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 386,
+              "to": 387
+            },
+            {
+              "from": 389,
+              "to": 389
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.posture-mechanics",
+          "title": "坐姿如何把骨盆的變化一路接到頭部",
+          "anchor": "posture-mechanics",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 389,
+              "to": 391
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.lumbar-disc-direction",
+          "title": "孔洞變大與髓核形變，可能帶來不同效果",
+          "anchor": "lumbar-disc-direction",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 383,
+              "to": 384
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.disc-clinical",
+          "title": "突出材料的去向與症狀，並非一條單純直線",
+          "anchor": "disc-clinical",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 388,
+              "to": 388
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.sacrum-coccyx",
+          "title": "薦骨把脊柱接到骨盆環",
+          "anchor": "sacrum-coccyx",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 356,
+              "to": 358
+            },
+            {
+              "from": 392,
+              "to": 392
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.sacroiliac-joint",
+          "title": "薦髂關節以貼合承重，也保留少量活動",
+          "anchor": "sacroiliac-joint",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 392,
+              "to": 395
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.si-motion",
+          "title": "薦骨點頭與反點頭：關鍵是相對運動",
+          "anchor": "si-motion",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 395,
+              "to": 396
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.si-closure",
+          "title": "承重產生的點頭力矩，怎樣增加貼合",
+          "anchor": "si-closure",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 396,
+              "to": 397
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.pelvic-load",
+          "title": "薦髂韌帶與肌肉，並非全都朝同一方向繃緊",
+          "anchor": "pelvic-load",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 394,
+              "to": 398
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.disc-degeneration",
+          "title": "退化為何需要同時看力學與生物反應",
+          "anchor": "disc-degeneration",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 364,
+              "to": 364
+            },
+            {
+              "from": 399,
+              "to": 400
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.scoliosis",
+          "title": "側彎是三維變形，Cobb 角只描述其中一個面向",
+          "anchor": "scoliosis",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 401,
+              "to": 403
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.clinical-gravity",
+          "title": "胸椎後凸的算例：先算力矩，再算壓縮力",
+          "anchor": "clinical-gravity",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 403,
+              "to": 405
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch09.chapter-bridge",
+          "title": "把骨關節地圖帶進下一章的肌肉控制",
+          "anchor": "chapter-bridge",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 391,
+              "to": 391
+            },
+            {
+              "from": 398,
+              "to": 398
             }
           ]
         }
@@ -3870,7 +4454,7 @@
         "moment-arm",
         "coactivation"
       ],
-      "body_sha256": "87364cc0994807bf37d7d1a5852d82c8626a1e7e459571d9683bdde08e346a90",
+      "body_sha256": "95def54881ddd2eb8a33f8dcfb32566bbef965351d9e2a201ab09c50dcdf1e69",
       "sections": [
         {
           "id": "nordin.ch10.segment",
@@ -3940,7 +4524,7 @@
         "ligament",
         "stiffness"
       ],
-      "body_sha256": "0658bb76047c3eeff9d6ee8f3d9d460cd29ab1a59e03e9dd0e103e2c3c41b241",
+      "body_sha256": "a96cd4f8bf6c52d39eb5e7ed085b8067c68309763b56017436dc04eeb58a2d7d",
       "sections": [
         {
           "id": "nordin.ch11.upper-cervical",

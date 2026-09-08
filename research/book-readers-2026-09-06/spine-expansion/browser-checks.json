@@ -1,0 +1,416 @@
+{
+  "date": "2026-09-08",
+  "base": "http://127.0.0.1:8768/cortex/",
+  "checks": [
+    {
+      "name": "kinesiology/ch09 HTTP",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch09 all section anchors",
+      "pass": true,
+      "detail": 48
+    },
+    {
+      "name": "kinesiology/ch09 original anchors",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch09 320px font22 no overflow",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch09 TOC closed",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch09 TOC target visible",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch09 precise cross-book links",
+      "pass": true,
+      "detail": 4
+    },
+    {
+      "name": "kinesiology/ch09 target /cortex/library/basic-biomechanics/ch10/#disc-pressure",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch09 target /cortex/library/basic-biomechanics/ch11/#upper-cervical",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch09 target /cortex/library/basic-biomechanics/ch11/#six-directions",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch09 target /cortex/library/basic-biomechanics/ch10/#bending",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch10 HTTP",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch10 all section anchors",
+      "pass": true,
+      "detail": 4
+    },
+    {
+      "name": "basic-biomechanics/ch10 original anchors",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch10 320px font22 no overflow",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch10 TOC closed",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch10 TOC target visible",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch10 precise cross-book links",
+      "pass": true,
+      "detail": 2
+    },
+    {
+      "name": "basic-biomechanics/ch10 target /cortex/library/kinesiology/ch09/#disc-hydrostatic",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch10 target /cortex/library/kinesiology/ch09/#trunk-extension",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch11 HTTP",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch11 all section anchors",
+      "pass": true,
+      "detail": 4
+    },
+    {
+      "name": "basic-biomechanics/ch11 original anchors",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch11 320px font22 no overflow",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch11 TOC closed",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch11 TOC target visible",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch11 precise cross-book links",
+      "pass": true,
+      "detail": 2
+    },
+    {
+      "name": "basic-biomechanics/ch11 target /cortex/library/kinesiology/ch09/#atlanto-axial",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch11 target /cortex/library/kinesiology/ch09/#lower-cervical",
+      "pass": true
+    },
+    {
+      "name": "disc-pressure paper fits",
+      "pass": true
+    },
+    {
+      "name": "disc-pressure SVG labels fit",
+      "pass": true
+    },
+    {
+      "name": "lumbosacral-load paper fits",
+      "pass": true
+    },
+    {
+      "name": "lumbosacral-load SVG labels fit",
+      "pass": true
+    },
+    {
+      "name": "disc-pressure night fits",
+      "pass": true
+    },
+    {
+      "name": "disc-pressure SVG labels fit",
+      "pass": true
+    },
+    {
+      "name": "lumbosacral-load night fits",
+      "pass": true
+    },
+    {
+      "name": "lumbosacral-load SVG labels fit",
+      "pass": true
+    },
+    {
+      "name": "load 0 degrees: formula and orthogonal vectors",
+      "pass": true,
+      "detail": {
+        "normal": {
+          "x": 0,
+          "y": 150
+        },
+        "shear": {
+          "x": 0,
+          "y": 0
+        },
+        "plane": "M75 110 L225 110",
+        "text": "傾角 0° → 壓縮 C＝100.0 N；前向剪力 S＝0.0 N",
+        "shearVisible": "hidden"
+      }
+    },
+    {
+      "name": "zero shear hidden",
+      "pass": true
+    },
+    {
+      "name": "load 5 degrees: formula and orthogonal vectors",
+      "pass": true,
+      "detail": {
+        "normal": {
+          "x": -13.02362060546875,
+          "y": 148.860595703125
+        },
+        "shear": {
+          "x": 13.02362060546875,
+          "y": 1.1394195556640625
+        },
+        "plane": "M75.28539764311908 103.46331929392564 L224.7146023568809 116.53668070607436",
+        "text": "傾角 5° → 壓縮 C＝99.6 N；前向剪力 S＝8.7 N",
+        "shearVisible": "visible"
+      }
+    },
+    {
+      "name": "load 10 degrees: formula and orthogonal vectors",
+      "pass": true,
+      "detail": {
+        "normal": {
+          "x": -25.651512145996094,
+          "y": 145.47694396972656
+        },
+        "shear": {
+          "x": 25.651504516601562,
+          "y": 4.5230560302734375
+        },
+        "plane": "M76.1394185240844 96.97638667498022 L223.86058147591558 123.02361332501978",
+        "text": "傾角 10° → 壓縮 C＝98.5 N；前向剪力 S＝17.4 N",
+        "shearVisible": "visible"
+      }
+    },
+    {
+      "name": "load 15 degrees: formula and orthogonal vectors",
+      "pass": true,
+      "detail": {
+        "normal": {
+          "x": -37.5,
+          "y": 139.951904296875
+        },
+        "shear": {
+          "x": 37.5,
+          "y": 10.048095703125
+        },
+        "plane": "M77.55556302831988 90.58857161731095 L222.44443697168012 129.41142838268905",
+        "text": "傾角 15° → 壓縮 C＝96.6 N；前向剪力 S＝25.9 N",
+        "shearVisible": "visible"
+      }
+    },
+    {
+      "name": "load 20 degrees: formula and orthogonal vectors",
+      "pass": true,
+      "detail": {
+        "normal": {
+          "x": -48.209068298339844,
+          "y": 132.45333862304688
+        },
+        "shear": {
+          "x": 48.209075927734375,
+          "y": 17.546669006347656
+        },
+        "plane": "M79.52305344105687 84.34848925057484 L220.47694655894313 135.65151074942514",
+        "text": "傾角 20° → 壓縮 C＝94.0 N；前向剪力 S＝34.2 N",
+        "shearVisible": "visible"
+      }
+    },
+    {
+      "name": "load 25 degrees: formula and orthogonal vectors",
+      "pass": true,
+      "detail": {
+        "normal": {
+          "x": -57.453330993652344,
+          "y": 123.20907592773438
+        },
+        "shear": {
+          "x": 57.453338623046875,
+          "y": 26.790924072265625
+        },
+        "plane": "M82.02691597225126 78.30363036944755 L217.97308402774874 141.69636963055245",
+        "text": "傾角 25° → 壓縮 C＝90.6 N；前向剪力 S＝42.3 N",
+        "shearVisible": "visible"
+      }
+    },
+    {
+      "name": "load 30 degrees: formula and orthogonal vectors",
+      "pass": true,
+      "detail": {
+        "normal": {
+          "x": -64.951904296875,
+          "y": 112.5
+        },
+        "shear": {
+          "x": 64.951904296875,
+          "y": 37.5
+        },
+        "plane": "M85.0480947161671 72.5 L214.9519052838329 147.5",
+        "text": "傾角 30° → 壓縮 C＝86.6 N；前向剪力 S＝50.0 N",
+        "shearVisible": "visible"
+      }
+    },
+    {
+      "name": "load 35 degrees: formula and orthogonal vectors",
+      "pass": true,
+      "detail": {
+        "normal": {
+          "x": -70.47694396972656,
+          "y": 100.65150451660156
+        },
+        "shear": {
+          "x": 70.47694396972656,
+          "y": 49.34849548339844
+        },
+        "plane": "M88.56359667832561 66.98176727367155 L211.4364033216744 153.01823272632845",
+        "text": "傾角 35° → 壓縮 C＝81.9 N；前向剪力 S＝57.4 N",
+        "shearVisible": "visible"
+      }
+    },
+    {
+      "name": "load 40 degrees: formula and orthogonal vectors",
+      "pass": true,
+      "detail": {
+        "normal": {
+          "x": -73.86058044433594,
+          "y": 88.02362060546875
+        },
+        "shear": {
+          "x": 73.86058044433594,
+          "y": 61.97637939453125
+        },
+        "plane": "M92.54666676607664 61.790929273509555 L207.45333323392336 158.20907072649044",
+        "text": "傾角 40° → 壓縮 C＝76.6 N；前向剪力 S＝64.3 N",
+        "shearVisible": "visible"
+      }
+    },
+    {
+      "name": "load 45 degrees: formula and orthogonal vectors",
+      "pass": true,
+      "detail": {
+        "normal": {
+          "x": -75,
+          "y": 75
+        },
+        "shear": {
+          "x": 75,
+          "y": 75
+        },
+        "plane": "M96.96699141100893 56.96699141100894 L203.03300858899107 163.03300858899107",
+        "text": "傾角 45° → 壓縮 C＝70.7 N；前向剪力 S＝70.7 N",
+        "shearVisible": "visible"
+      }
+    },
+    {
+      "name": "load 50 degrees: formula and orthogonal vectors",
+      "pass": true,
+      "detail": {
+        "normal": {
+          "x": -73.86058044433594,
+          "y": 61.97637939453125
+        },
+        "shear": {
+          "x": 73.86058044433594,
+          "y": 88.02362060546875
+        },
+        "plane": "M101.79092927350955 52.54666676607665 L198.20907072649044 167.45333323392336",
+        "text": "傾角 50° → 壓縮 C＝64.3 N；前向剪力 S＝76.6 N",
+        "shearVisible": "visible"
+      }
+    },
+    {
+      "name": "load 55 degrees: formula and orthogonal vectors",
+      "pass": true,
+      "detail": {
+        "normal": {
+          "x": -70.47694396972656,
+          "y": 49.34849548339844
+        },
+        "shear": {
+          "x": 70.47694396972656,
+          "y": 100.65150451660156
+        },
+        "plane": "M106.98176727367154 48.56359667832562 L193.01823272632845 171.4364033216744",
+        "text": "傾角 55° → 壓縮 C＝57.4 N；前向剪力 S＝81.9 N",
+        "shearVisible": "visible"
+      }
+    },
+    {
+      "name": "load 60 degrees: formula and orthogonal vectors",
+      "pass": true,
+      "detail": {
+        "normal": {
+          "x": -64.951904296875,
+          "y": 37.5
+        },
+        "shear": {
+          "x": 64.951904296875,
+          "y": 112.5
+        },
+        "plane": "M112.5 45.0480947161671 L187.5 174.9519052838329",
+        "text": "傾角 60° → 壓縮 C＝50.0 N；前向剪力 S＝86.6 N",
+        "shearVisible": "visible"
+      }
+    },
+    {
+      "name": "accessible slider output",
+      "pass": true
+    },
+    {
+      "name": "desktop no overflow",
+      "pass": true
+    },
+    {
+      "name": "disc-pressure static no-JS explanation",
+      "pass": true
+    },
+    {
+      "name": "lumbosacral-load static no-JS explanation",
+      "pass": true
+    },
+    {
+      "name": "no-JS default model",
+      "pass": true
+    },
+    {
+      "name": "no-JS no overflow",
+      "pass": true
+    },
+    {
+      "name": "no runtime errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "passed": 58,
+  "failed": 0
+}

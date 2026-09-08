@@ -120,6 +120,26 @@
     };
     slider.disabled = false; slider.addEventListener('input', update); update();
   });
+  document.querySelectorAll('[data-lumbosacral-load]').forEach(demo => {
+    const slider = demo.querySelector('input'), output = demo.querySelector('output');
+    const update = () => {
+      const degrees = Number(slider.value), angle = degrees * Math.PI / 180;
+      const c = Math.cos(angle), s = Math.sin(angle);
+      const nx = 150 - 150 * c * s, ny = 110 + 150 * c * c;
+      const sx = 150 + 150 * s * c, sy = 110 + 150 * s * s;
+      demo.querySelector('[data-sacral-plane]').setAttribute('d', `M${150 - 75 * c} ${110 - 75 * s} L${150 + 75 * c} ${110 + 75 * s}`);
+      demo.querySelector('[data-sacral-normal]').setAttribute('d', `M150 110 L${nx} ${ny}`);
+      const shear = demo.querySelector('[data-sacral-shear]');
+      shear.setAttribute('d', `M150 110 L${sx} ${sy}`);
+      shear.setAttribute('visibility', degrees ? 'visible' : 'hidden');
+      const nLabel = demo.querySelector('[data-sacral-normal-label]'), sLabel = demo.querySelector('[data-sacral-shear-label]');
+      nLabel.setAttribute('x', nx - 23); nLabel.setAttribute('y', ny + 15);
+      sLabel.setAttribute('x', sx + 12); sLabel.setAttribute('y', sy + 20);
+      sLabel.setAttribute('visibility', degrees ? 'visible' : 'hidden');
+      output.value = `傾角 ${degrees}° → 壓縮 C＝${(100 * c).toFixed(1)} N；前向剪力 S＝${(100 * s).toFixed(1)} N`;
+    };
+    slider.disabled = false; slider.addEventListener('input', update); update();
+  });
   document.querySelectorAll('[data-tendon-moments]').forEach(demo => {
     const slider = demo.querySelector('input'), output = demo.querySelector('output');
     const update = () => {

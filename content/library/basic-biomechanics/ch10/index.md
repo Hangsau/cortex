@@ -8,7 +8,7 @@ id: nordin.ch10
 status: guide
 content_type: chapter-guide
 created: 2026-09-06
-updated: 2026-09-06
+updated: 2026-09-08
 source_ids: [src.nordin-frankel-2012]
 terms: [motion-segment, disc, facet, moment-arm, coactivation]
 ---
@@ -28,6 +28,10 @@ terms: [motion-segment, disc, facet, moment-arm, coactivation]
 
 椎間盤壓力是有用的力學量，但它描述特定部位和條件。比較不同姿勢的數字時，必須同時看施加了什麼負荷、如何量測，以及參與者或試件的狀態。
 
+圖 10-4 可以幫助分清外力與局部壓力。先將外加壓縮力除以受力面積，得到平均外加應力；書中腰椎間盤示例的髓核壓力約為它的 1.5 倍。這是在比較兩個「每單位面積承受多少力」的量，並不是整片椎間盤多出 1.5 倍的外力。髓核受壓後向周圍作用，纖維環因此承受環向拉應力；不同組織以不同方式共同承重。
+
+回到肌動學的[椎間盤承力圖解]({{< relref "/library/kinesiology/ch09" >}}#disc-hydrostatic)，可沿髓核、纖維環與終板的位置，追蹤這些作用如何接起來。
+
 {{< reading-source from="272" to="274" >}}
 {{< reading-source from="282" to="287" >}}
 
@@ -36,6 +40,10 @@ terms: [motion-segment, disc, facet, moment-arm, coactivation]
 軀幹前彎會改變上半身重量相對脊柱的力臂，背部肌肉需要控制相應的屈曲傾向。接近較深的屈曲位置時，不同層肌肉和後方被動組織的分工又可能改變。
 
 原書討論屈曲放鬆現象，並指出表層肌肉訊號下降不等於所有深層肌肉都停止工作。這是重要的量測界線：一個位置的肌電訊號，不能直接代表整個區域完全沒有肌肉作用。
+
+圖 10-10 的差別尤其清楚：表層豎脊肌用表面電極記錄，腰方肌與深層腰部豎脊肌則使用肌內線電極。受測者到達未強迫加深的充分前彎時，表層訊號安靜下來，深層肌肉仍可活化；如果再強迫屈曲，表層伸肌也可能重新活化。讀「放鬆」時，要同時帶上肌肉深度與動作條件。
+
+再對照肌動學[從前彎返回直立的分工]({{< relref "/library/kinesiology/ch09" >}}#trunk-extension)，把肌電訊號放回腰椎、髖部與外力臂的變化中理解。
 
 {{< reading-source from="279" to="281" >}}
 

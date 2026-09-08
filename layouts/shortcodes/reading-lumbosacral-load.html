@@ -1,0 +1,19 @@
+{{ $ID := printf "rd-lumbosacral-load-%d" .Ordinal }}
+<figure class="rd-diagram rd-lumbosacral-load" data-lumbosacral-load aria-labelledby="{{ $ID }}-caption">
+<svg viewBox="0 0 320 310" role="img" aria-label="向下的重量 W，分成垂直薦骨上表面的壓縮分量 C，以及沿表面向前的剪力分量 S。圖中前方在右側。">
+<defs><marker id="{{ $ID }}-arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path class="rd-arrow-accent" d="M0 0 L10 5 L0 10 Z"/></marker><marker id="{{ $ID }}-total" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path class="rd-arrow-ink" d="M0 0 L10 5 L0 10 Z"/></marker></defs>
+<text x="160" y="26" text-anchor="middle">薦骨上表面的斜面模型</text>
+<text x="272" y="59" text-anchor="middle">前方 →</text>
+<path class="rd-angle-reference" d="M35 110 H280"/>
+<path class="rd-sacral-surface" data-sacral-plane d="M92.547 61.791 L207.453 158.209"/>
+<path class="rd-line" d="M150 110 V260" marker-end="url(#{{ $ID }}-total)"/>
+<path class="rd-force rd-component-normal" data-sacral-normal d="M150 110 L76.139 198.024" marker-end="url(#{{ $ID }}-arrow)"/>
+<path class="rd-force rd-component-shear" data-sacral-shear d="M150 110 L223.861 171.976" marker-end="url(#{{ $ID }}-arrow)"/>
+<text x="162" y="258">W</text><text data-sacral-normal-label x="53.139" y="213.024">C</text><text data-sacral-shear-label x="235.861" y="191.976">S</text>
+<text x="160" y="298" text-anchor="middle">固定上方重量 W＝100 N</text>
+</svg>
+<label for="{{ $ID }}">改變薦骨上表面相對水平的傾角（度）</label>
+<input id="{{ $ID }}" type="range" min="0" max="60" value="40" step="5" disabled>
+<output for="{{ $ID }}" aria-live="polite">傾角 40° → 壓縮 C＝76.6 N；前向剪力 S＝64.3 N</output>
+<figcaption id="{{ $ID }}-caption">編者依原書圖 9.58A 製作。細斜線表示薦骨上表面，水平虛線為傾角參照。實線 W 為薦骨以上身體重量，這裡另設為 100 N 方便看比例；長虛線 C 垂直斜面，點線 S 沿斜面向前。C＝W cos α，S＝W sin α；40° 時剪力約占 W 的 64%，55° 時約占 82%。兩分量互相垂直，向量合成才等於 W，不能直接相加大小。這是同一重量的分解，未計肌肉、韌帶與小面關節作用，不代表整個節段的淨受力、壓力或滑動量。滑桿範圍是教學設定，不是正常角度或安全門檻。</figcaption>
+</figure>

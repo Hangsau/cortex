@@ -98,6 +98,12 @@ body:has(.rd-page)[data-reader-color="night"] { --rd-paper:#192427; --rd-ink:#e8
 .rd-wrist-components text, .rd-pulley-load text { font-size:22px; }
 .rd-tendon-moments > svg, .rd-pulley-excursion > svg { display:block; max-width:440px; margin-inline:auto; }
 .rd-tendon-moments text, .rd-pulley-excursion text { font-size:22px; }
+.rd-lumbosacral-load > svg, .rd-disc-pressure > svg { display:block; max-width:440px; margin-inline:auto; }
+.rd-lumbosacral-load text { font-size:22px; }
+.rd-disc-pressure text { font-size:20px; }
+.rd-disc-pressure .rd-bone { fill:none; stroke:var(--rd-ink); stroke-width:2; }
+.rd-disc-pressure .rd-soft { fill:var(--rd-paper); stroke:var(--rd-accent); stroke-width:2; }
+.rd-lumbosacral-load .rd-sacral-surface { fill:none; stroke:var(--rd-muted); stroke-width:2; }
 .rd-diagram .rd-moment-bar { stroke:var(--rd-accent); stroke-width:10; fill:none; }
 .rd-diagram .rd-component-normal { stroke-dasharray:9 5; }
 .rd-diagram .rd-component-shear { stroke-dasharray:2 5; stroke-linecap:round; }
