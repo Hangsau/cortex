@@ -1,0 +1,24 @@
+{{ $ID := printf "rd-airflow-%d" .Ordinal }}
+<figure class="rd-diagram rd-airflow" data-airflow aria-labelledby="{{ $ID }}-caption">
+<svg viewBox="0 0 320 350" role="img" aria-labelledby="{{ $ID }}-title {{ $ID }}-desc">
+<title id="{{ $ID }}-title">肺泡壓改變，氣流方向跟著改變</title>
+<desc id="{{ $ID }}-desc">固定外界相對壓力0及阻力2。肺泡壓−1.0公分水柱時，氣流為每秒+0.50公升，從外界流入肺。箭頭只表示方向。</desc>
+<text x="20" y="29">外界（大氣壓）</text>
+<rect class="rd-line" x="18" y="44" width="284" height="54"/>
+<text x="34" y="79">0.0 cmH₂O</text>
+<g data-airflow-arrow>
+<path class="rd-force" data-airflow-line d="M55 120 V200"/>
+<path class="rd-arrow-accent" data-airflow-tip d="M55 213 L47 198 L63 198 Z"/>
+</g>
+<text x="84" y="147" data-airflow-direction>空氣流入肺</text>
+<text x="84" y="181" data-airflow-value>Q＝+0.50 L/s</text>
+<text x="20" y="234">肺泡內</text>
+<rect class="rd-line" x="18" y="249" width="284" height="54"/>
+<text x="34" y="284" data-alveolar-pressure>−1.0 cmH₂O</text>
+<text x="20" y="337">相對壓力；R 固定為 2</text>
+</svg>
+<label for="{{ $ID }}-input">調整肺泡相對壓力（−2至+2 cmH₂O）</label>
+<input id="{{ $ID }}-input" type="range" min="-2" max="2" step="0.1" value="-1" disabled aria-describedby="{{ $ID }}-output {{ $ID }}-caption">
+<output id="{{ $ID }}-output" for="{{ $ID }}-input" aria-live="polite">肺泡壓 −1.0 cmH₂O；Q＝+0.50 L/s（流入）</output>
+<figcaption id="{{ $ID }}-caption">編者固定阻力的瞬間氣流模型：外界壓力為相對零點，R＝2 cmH₂O／（L/s），Q＝（0−肺泡壓）÷2。Q正值流入、負值流出，零值不畫箭頭；箭頭只表方向。滑桿調整的是肺泡壓，未計胸膜腔壓或肺容積。設定值不是個人正常範圍，也不是呼吸訓練目標。</figcaption>
+</figure>

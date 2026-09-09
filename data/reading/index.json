@@ -2708,7 +2708,7 @@
         "facet",
         "arthrokinematics"
       ],
-      "body_sha256": "9f9102a76f675057c3df17c71085611fb27e2ca0237428b28f369f9f337759fd",
+      "body_sha256": "e093c927d36a344b42d25bdb0de6a9830febbec4bf863c5c9411d90e2f7f59c5",
       "sections": [
         {
           "id": "neumann.ch09.axial-skeleton",
@@ -3362,7 +3362,7 @@
         "motion-segment",
         "force-couple"
       ],
-      "body_sha256": "e5052b889bd770136e1002b2b4a97500dcd4ce06a2946c5b0930d0a615ad7a88",
+      "body_sha256": "661b3679c4b6e32a06f14504b1628fcd454910a0f113e952eb14d94e2b0279de",
       "sections": [
         {
           "id": "neumann.ch10.muscle-roles",
@@ -3877,7 +3877,7 @@
     {
       "id": "neumann.ch11",
       "title": "咀嚼與呼吸的肌動學",
-      "description": "從下顎的旋轉與平移，再到胸廓容積和呼吸肌，理解日常活動背後的關節與肌肉協作。",
+      "description": "從顳顎關節的旋轉、滑動與咀嚼肌，接到胸廓、橫膈膜及壓差，理解張口、咬合與四種呼吸情境的合作。",
       "content_type": "chapter-guide",
       "path": "library/kinesiology/ch11/",
       "topic": "axial",
@@ -3888,8 +3888,80 @@
         "arthrokinematics",
         "coactivation"
       ],
-      "body_sha256": "89432c6ba73cdad8ec8d74d9506018b70028a997331a260977491919878de1bd",
+      "body_sha256": "362384aadf92d76b918643e2b4c7a095b65bdcb0b36cb493f856f77f2bd970d7",
       "sections": [
+        {
+          "id": "neumann.ch11.mandible-map",
+          "title": "下顎的兩個關節，共同移動同一塊骨",
+          "anchor": "mandible-map",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 458,
+              "to": 460
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.cranial-attachments",
+          "title": "骨性附著把顱骨、下顎與舌骨接成一組",
+          "anchor": "cranial-attachments",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 460,
+              "to": 461
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.teeth-contact",
+          "title": "牙齒的接觸位置，與關節位置是不同資訊",
+          "anchor": "teeth-contact",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 461,
+              "to": 462
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.tmj-surfaces",
+          "title": "承重的關節隆起，與薄的窩頂不同",
+          "anchor": "tmj-surfaces",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 462,
+              "to": 462
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.disc-structure",
+          "title": "關節盤分出上下腔，也讓接觸面更貼合",
+          "anchor": "disc-structure",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 462,
+              "to": 463
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.disc-restraints",
+          "title": "關節囊與盤後組織，提供有方向的約束",
+          "anchor": "disc-restraints",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 463,
+              "to": 464
+            }
+          ]
+        },
         {
           "id": "neumann.ch11.jaw-motion",
           "title": "張口結合旋轉與平移",
@@ -3897,8 +3969,92 @@
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
-              "from": 459,
+              "from": 466,
               "to": 467
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.opening-path",
+          "title": "沿斜坡向前滑，才把嘴張得更大",
+          "anchor": "opening-path",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 466,
+              "to": 467
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.jaw-measurements",
+          "title": "門齒開口距離，不等於髁突滑了多遠",
+          "anchor": "jaw-measurements",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 464,
+              "to": 467
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.jaw-excursions",
+          "title": "前後移與左右移，各有不同的兩側路徑",
+          "anchor": "jaw-excursions",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 464,
+              "to": 466
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.jaw-sensation",
+          "title": "咀嚼的感覺回饋，同時保護口腔軟組織",
+          "anchor": "jaw-sensation",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 467,
+              "to": 467
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.masseter-temporalis",
+          "title": "咬肌與顳肌，把閉口和回正結合",
+          "anchor": "masseter-temporalis",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 467,
+              "to": 468
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.medial-pterygoid",
+          "title": "內翼肌從內側加入，形成下顎角的肌肉吊帶",
+          "anchor": "medial-pterygoid",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 469,
+              "to": 470
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.lateral-pterygoid",
+          "title": "外翼肌的上下頭，不能只背成同一種張口肌",
+          "anchor": "lateral-pterygoid",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 469,
+              "to": 472
             }
           ]
         },
@@ -3909,7 +4065,79 @@
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
-              "from": 467,
+              "from": 468,
+              "to": 470
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.hyoid-support",
+          "title": "舌骨先獲得支撐，舌骨上肌才能有效協助張口",
+          "anchor": "hyoid-support",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 471,
+              "to": 472
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.opening-closing-load",
+          "title": "張口不是完全被動，閉口負荷也隨食物改變",
+          "anchor": "opening-closing-load",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 471,
+              "to": 472
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.bite-disc-adjustment",
+          "title": "同側咬到硬物時，盤的調節可能不同",
+          "anchor": "bite-disc-adjustment",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 472,
+              "to": 472
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.tmd-context",
+          "title": "顳顎障礙包含多種問題，聲響不是單一診斷",
+          "anchor": "tmd-context",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 470,
+              "to": 473
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.ventilation-scope",
+          "title": "通氣讓空氣進出，氣體交換是接下來的過程",
+          "anchor": "ventilation-scope",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 474,
+              "to": 474
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.lung-volumes",
+          "title": "潮氣量、肺活量與肺總量，量的是不同範圍",
+          "anchor": "lung-volumes",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 474,
               "to": 474
             }
           ]
@@ -3921,8 +4149,132 @@
           "source_id": "src.neumann-2017",
           "pdf_pages": [
             {
+              "from": 474,
+              "to": 475
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.airflow-pressure",
+          "title": "壓差決定方向，阻力影響相同壓差下的流量",
+          "anchor": "airflow-pressure",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 474,
+              "to": 475
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.thoracic-joints",
+          "title": "胸廓的前後連接，讓許多小動作共同擴張",
+          "anchor": "thoracic-joints",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
               "from": 475,
+              "to": 476
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.rib-expansion",
+          "title": "肋骨抬起，同時增加前後徑與左右徑",
+          "anchor": "rib-expansion",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 476,
+              "to": 477
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.thoracic-recoil",
+          "title": "肋軟骨儲存部分彈性能量，回彈協助呼氣",
+          "anchor": "thoracic-recoil",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 476,
+              "to": 477
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.diaphragm-anatomy",
+          "title": "橫膈膜把胸骨、下肋與腰椎連向中央腱",
+          "anchor": "diaphragm-anatomy",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 478,
+              "to": 478
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.diaphragm-abdomen",
+          "title": "腹部阻力改變橫膈膜下一步能拉動什麼",
+          "anchor": "diaphragm-abdomen",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 478,
               "to": 480
+            },
+            {
+              "from": 484,
+              "to": 484
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.scalene-inspiration",
+          "title": "斜角肌在安靜吸氣中就有角色",
+          "anchor": "scalene-inspiration",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 478,
+              "to": 479
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.intercostal-regions",
+          "title": "內肋間肌要再分胸骨旁部與骨間部",
+          "anchor": "intercostal-regions",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 479,
+              "to": 480
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.rib-splinting",
+          "title": "呼吸肌也要支住胸壁與上呼吸道",
+          "anchor": "rib-splinting",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 480,
+              "to": 481
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.accessory-inspiration",
+          "title": "用力吸氣增加幫手，但必須說明固定端",
+          "anchor": "accessory-inspiration",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 481,
+              "to": 481
             }
           ]
         },
@@ -3934,7 +4286,111 @@
           "pdf_pages": [
             {
               "from": 475,
+              "to": 475
+            },
+            {
+              "from": 477,
+              "to": 483
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.abdominal-expiration",
+          "title": "腹肌可直接拉低肋骨，也可把放鬆的橫膈膜推高",
+          "anchor": "abdominal-expiration",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 482,
+              "to": 483
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.breathing-stability",
+          "title": "腹內壓同時連到通氣與軀幹穩定",
+          "anchor": "breathing-stability",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 479,
+              "to": 479
+            },
+            {
+              "from": 482,
               "to": 482
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.compliance-context",
+          "title": "胸廓順應性與肺的彈性回復，需要分開看",
+          "anchor": "compliance-context",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 477,
+              "to": 477
+            },
+            {
+              "from": 484,
+              "to": 484
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.paradoxical-breathing",
+          "title": "矛盾呼吸說明的是協作失衡，不只是橫膈膜有沒有動",
+          "anchor": "paradoxical-breathing",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 480,
+              "to": 480
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.support-context",
+          "title": "支撐的效果，要連同姿勢、時期與功能指標閱讀",
+          "anchor": "support-context",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 480,
+              "to": 480
+            },
+            {
+              "from": 484,
+              "to": 484
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.cough-function",
+          "title": "有效咳嗽與安靜吸氣，依賴的能力不同",
+          "anchor": "cough-function",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 482,
+              "to": 483
+            }
+          ]
+        },
+        {
+          "id": "neumann.ch11.chapter-bridge",
+          "title": "從咀嚼與呼吸，帶走同一套動作分析方法",
+          "anchor": "chapter-bridge",
+          "source_id": "src.neumann-2017",
+          "pdf_pages": [
+            {
+              "from": 473,
+              "to": 474
+            },
+            {
+              "from": 483,
+              "to": 484
             }
           ]
         }

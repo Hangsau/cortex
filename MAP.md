@@ -20,7 +20,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 
 | 你要做的事 | 動這裡 |
 |-----------|--------|
-| 讀／修改肌動學與基礎生物力學中文導讀 | `content/library/{kinesiology,basic-biomechanics}/` → `layouts/library/reading-{book,chapter,topics}.html`；`data/reading/` 詞表與生成索引；`static/css/reading.css`、`static/js/reading.js`；來源／驗收／啟動見 `research/book-readers-2026-09-06/REVIEW.md`，最新批次 `cervical-expansion/RUN.md`（讀本範圍2026-09-09已驗） |
+| 讀／修改肌動學與基礎生物力學中文導讀 | `content/library/{kinesiology,basic-biomechanics}/` → `layouts/library/reading-{book,chapter,topics}.html`；`data/reading/` 詞表與生成索引；`static/css/reading.css`、`static/js/reading.js`；來源／驗收／啟動見 `research/book-readers-2026-09-06/REVIEW.md`，最新批次 `mastication-ventilation-expansion/RUN.md`（讀本範圍2026-09-09已驗） |
 | 規劃全站內容呈現／成長／Claude與Codex派工 | `research/content-presentation-2026-09-05/WEBSITE_STUDY.md` → GROWTH_MAP、PLAN、MODEL_WORK_PACKAGES、RESEARCH_LOG與兩組inventory；形態／成長案頭研究已做，主案可讀知識館；W1b需求、W1g成長契約；原型與真人驗證待做 |
 | 改全站顏色/字級 | `static/css/variables.css`（只放 CSS 變數） |
 | 改排版結構（nav/main/footer） | `static/css/layout.css` |
@@ -51,7 +51,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 | `content/library/` | `layouts/library/{list,book,chapter,single}.html` | 書庫；CSCS 章節頁在 `chapter.html`（351 行，2026-07-31 從 3×3 九宮格改成黏性目次文件版型 + 遮答自測 + 深度層，資料讀 `data/cscs/`；模式切換／scrollspy／錨點展開／閃卡 JS 全內聯）。改動後跑 `tools/audit.js` 迴歸 |
 | 　└ CSCS 概念索引 | `library/cscs-concepts.html`（180 行） | 打散章節的第二條軸：22 概念 × 各自落點（2505 條連結），共用 `.nb` 版型；入口在 book 頁的工具列與每條知識單位的概念標籤 |
 | 　└ 特殊書 | `library/mnfl-{book,toolkit}.html`、`library/ust-{book,handbook,strategies}.html` | 大腦喜歡這樣學 / UST，各自 CSS |
-| 　└ 肌肉骨骼兩冊中文讀本 | `library/reading-{book,chapter,topics}.html`、`shortcodes/reading-{source,diagram,viscoelastic,length-tension,force-balance,shoulder-angles,shoulder-load,forearm-load,elbow-load,wrist-components,pulley-load,tendon-moments,pulley-excursion,lumbosacral-load,disc-pressure,lifting-load,lumbar-resultant,cervical-magnification}.html` | 33章中文導讀，肌動學第1–10章與Nordin第10–14章加深；來源定位、跨書主題；共用 `reading.css`／`reading.js`；本機原頁由 `tools/book_reader.py` 唯讀回應 |
+| 　└ 肌肉骨骼兩冊中文讀本 | `library/reading-{book,chapter,topics}.html`、`shortcodes/reading-{source,diagram,viscoelastic,length-tension,force-balance,shoulder-angles,shoulder-load,forearm-load,elbow-load,wrist-components,pulley-load,tendon-moments,pulley-excursion,lumbosacral-load,disc-pressure,lifting-load,lumbar-resultant,cervical-magnification,airflow}.html` | 33章中文導讀，肌動學第1–11章與Nordin第10–14章加深；來源定位、跨書主題；共用 `reading.css`／`reading.js`；本機原頁由 `tools/book_reader.py` 唯讀回應 |
 | `content/temperament/` | `layouts/temperament/temperament-main.html`（386 行） | 氣質 section + 測驗（`temperament-quiz.js` 197 行） |
 | `content/vortex/` | `layouts/vortex/*`（見下） | 游泳知識庫，最大最複雜 |
 

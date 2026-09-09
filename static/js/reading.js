@@ -211,4 +211,21 @@
     };
     slider.disabled = false; slider.addEventListener('input', update); update();
   });
+  document.querySelectorAll('[data-airflow]').forEach(demo => {
+    const slider = demo.querySelector('input'), output = demo.querySelector('output');
+    const signed = (value, digits) => (value < 0 ? '−' : value > 0 ? '+' : '') + Math.abs(value).toFixed(digits);
+    const update = () => {
+      const pressure = Number(slider.value), flow = -pressure / 2;
+      const direction = flow > 0 ? '流入' : flow < 0 ? '流出' : '無氣流';
+      demo.querySelector('[data-airflow-arrow]').setAttribute('visibility', flow ? 'visible' : 'hidden');
+      demo.querySelector('[data-airflow-line]').setAttribute('d', flow > 0 ? 'M55 120 V200' : 'M55 213 V133');
+      demo.querySelector('[data-airflow-tip]').setAttribute('d', flow > 0 ? 'M55 213 L47 198 L63 198 Z' : 'M55 120 L47 135 L63 135 Z');
+      demo.querySelector('[data-airflow-direction]').textContent = flow > 0 ? '空氣流入肺' : flow < 0 ? '空氣流向外界' : '等壓，無氣流';
+      demo.querySelector('[data-airflow-value]').textContent = `Q＝${signed(flow, 2)} L/s`;
+      demo.querySelector('[data-alveolar-pressure]').textContent = `${signed(pressure, 1)} cmH₂O`;
+      output.value = `肺泡壓 ${signed(pressure, 1)} cmH₂O；Q＝${signed(flow, 2)} L/s（${direction}）`;
+      demo.querySelector('desc').textContent = `固定外界相對壓力0及阻力2。肺泡壓${signed(pressure, 1)}公分水柱時，氣流為每秒${signed(flow, 2)}公升，${direction}。箭頭只表示方向。`;
+    };
+    slider.disabled = false; slider.addEventListener('input', update); update();
+  });
 })();
