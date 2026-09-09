@@ -45,7 +45,7 @@ const anchors = chapter => [...fs.readFileSync(path.join(root, 'content/library'
     await page.locator('#daily-motion').scrollIntoViewIfNeeded();
     await page.screenshot({ path: path.join(shots, 'mobile-daily-motion.png') });
     await page.locator('.rd-prose table').screenshot({ path: path.join(shots, 'mobile-daily-motion-table.png') });
-    check('Nordin original four anchors', ['geometry', 'stance', 'muscle-reaction', 'measurement'].every(a => anchors(chapters[1]).includes(a))); 
+    check('Nordin original four anchors', ['geometry', 'stance', 'muscle-reaction', 'measurement'].every(a => anchors(chapters[1]).includes(a)));
     for (const [href, sourceChapter] of targets) {
       check('cross-link HTTP ' + href, (await page.request.get(href)).status() === 200);
       await page.goto(base + 'library/' + sourceChapter + '/');
