@@ -72,4 +72,8 @@ Hugo170頁、HTML1139條連結成功；既有讀本97/97、原頁服務18/18。�
 
 ## 發布與下一批
 
-發布前本機驗收完成；完整SHA、CI與正式站比對結果於部署後回填。下一批接Neumann第14章與Nordin第9章踝足，不啟動下一批或背景排程。
+實作`2704c6d2ea16ae7b39ff859e53de8e7d52868640`已推送；依完整SHA核對[部署CI成功](https://github.com/Hangsau/cortex/actions/runs/34413580240)，build與deploy皆成功，證據見ci-verification.json。
+
+正式站2026-09-09T22:44:13.425520+00:00（臺灣2026-09-10）驗收29/29：兩章完整正文正規化空白後與本機一致，48／32錨點順序、原八錨點、跨章目標、互動圖滑桿與預設值、hidden原頁來源群及CSS／JS內容均通過；證據見public-validation.json。原PDF、PNG與頁段包仍留本機。提交前`git diff --cached --check`通過，WinError既存空檔未納入或刪除。
+
+下一批接Neumann第14章與Nordin第9章踝足；未啟動下一批或背景排程，保留既有接續／發布授權。
