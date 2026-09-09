@@ -8,7 +8,7 @@ id: neumann.ch10
 status: guide
 content_type: chapter-guide
 created: 2026-09-06
-updated: 2026-09-08
+updated: 2026-09-09
 source_ids: [src.neumann-2017]
 terms: [coactivation, moment, motion-segment, force-couple]
 ---
@@ -249,6 +249,8 @@ terms: [coactivation, moment, motion-segment, force-couple]
 
 完整向右回望還會結合左胸鎖乳突肌、右側夾肌、上段豎脊肌及枕下肌，並由軀幹、骨盆和髖部延伸轉動範圍。因此，眼睛能掃到後方不代表全部角度都由頸椎提供，也不能從頭部外觀沒有側彎，就推論下方關節沒有耦合。
 
+若對照書中棘突箭頭時覺得方向相反，可接著看[椎體與棘突的旋轉參照]({{< relref "/library/basic-biomechanics/ch11" >}}#coupling-direction)：前後兩側的位置不同，描述同一轉動時可以指向不同方向。
+
 {{< reading-source from="436" to="436" >}}
 {{< reading-source from="439" to="440" >}}
 
@@ -257,6 +259,8 @@ terms: [coactivation, moment, motion-segment, force-couple]
 頸部肌群的下端分別連到胸骨、鎖骨、肋骨、肩胛骨與椎柱。若這些底座缺乏適當支承，肌肉就不能按同樣方式控制上方頭頸。圖 10.30 因此不只畫頸部拉索，也提醒讀者肩帶肌必須共同穩定那些下端附著。
 
 強壯的肌肉也需要來得及出力。書中以快速衝擊指出，反應並建立足夠肌力的時間，可能長於事件本身；肌量和最大力量並不能保證避免損傷。這裡的重點是時機和預期性，與軀幹在[預期負荷下的準備]({{< relref "/library/basic-biomechanics/ch10" >}}#anticipated-loading)可互相對照。
+
+Nordin 的[碰撞肌電研究]({{< relref "/library/basic-biomechanics/ch11" >}}#collision-muscles)則補充：肌肉仍可能及時開始活化，並在被拉長時收縮。訊號開始、力量建立和避免損傷是不同終點，兩冊並非在對同一件事作相反判斷。
 
 {{< reading-source from="436" to="437" >}}
 

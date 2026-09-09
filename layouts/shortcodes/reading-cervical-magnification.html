@@ -1,0 +1,18 @@
+{{ $ID := printf "rd-cervical-magnification-%d" .Ordinal }}
+<figure class="rd-diagram rd-cervical-magnification" data-cervical-magnification aria-labelledby="{{ $ID }}-caption">
+<svg viewBox="0 0 320 245" role="img" aria-labelledby="{{ $ID }}-title {{ $ID }}-desc">
+<title id="{{ $ID }}-title">同一位移，兩種影像尺度</title>
+<desc id="{{ $ID }}-desc">實際位移固定為2.70毫米；影像線性放大30%時，影像上量得3.51毫米。兩條線使用相同繪圖比例。</desc>
+<text x="20" y="28">實際位移：2.70 mm</text>
+<path class="rd-line" d="M20 60 H182 M20 50 V70 M182 50 V70"/>
+<text x="20" y="114" data-image-length>影像長度：3.51 mm</text>
+<path class="rd-force" data-image-bar d="M20 146 H230.6 M20 136 V156 M230.6 136 V156"/>
+<path class="rd-angle-reference" d="M182 80 V87 M182 128 V174"/>
+<text x="20" y="204">相同實際位移 × 放大倍率</text>
+<text x="20" y="235">＝影像上量得的長度</text>
+</svg>
+<label for="{{ $ID }}-input">調整影像線性放大率（0–40%）</label>
+<input id="{{ $ID }}-input" type="range" min="0" max="40" step="1" value="30" disabled aria-describedby="{{ $ID }}-output {{ $ID }}-caption">
+<output id="{{ $ID }}-output" for="{{ $ID }}-input" aria-live="polite">放大 30%：2.70 mm × 1.30＝3.51 mm</output>
+<figcaption id="{{ $ID }}-caption">編者依本章影像尺度問題設計的換算圖。固定實際位移2.70 mm，30%放大得到3.51 mm，取一位小數約3.5 mm；滑桿只改影像倍率，不改椎骨位移。虛線標出實際長度的端點。畫面為便於閱讀而放大繪製，不是實體尺規，也不是個人穩定性或安全位移的判定工具。</figcaption>
+</figure>

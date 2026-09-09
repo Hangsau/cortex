@@ -61,6 +61,18 @@
     }, { rootMargin: '-100px 0px -65% 0px' });
     sections.forEach(section => observer.observe(section));
   }
+  document.querySelectorAll('[data-cervical-magnification]').forEach(demo => {
+    const slider = demo.querySelector('input'), output = demo.querySelector('output');
+    const update = () => {
+      const percent = Number(slider.value), scale = 1 + percent / 100;
+      const measured = 2.7 * scale, end = 20 + measured * 60;
+      demo.querySelector('[data-image-bar]').setAttribute('d', `M20 146 H${end} M20 136 V156 M${end} 136 V156`);
+      demo.querySelector('[data-image-length]').textContent = `影像長度：${measured.toFixed(2)} mm`;
+      demo.querySelector('desc').textContent = `實際位移固定為2.70毫米；影像線性放大${percent}%時，影像上量得${measured.toFixed(2)}毫米。兩條線使用相同繪圖比例。`;
+      output.value = `放大 ${percent}%：2.70 mm × ${scale.toFixed(2)}＝${measured.toFixed(2)} mm`;
+    };
+    slider.disabled = false; slider.addEventListener('input', update); update();
+  });
   document.querySelectorAll('[data-torque-demo]').forEach(demo => {
     const slider = demo.querySelector('input');
     const output = demo.querySelector('output');

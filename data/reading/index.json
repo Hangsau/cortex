@@ -2708,7 +2708,7 @@
         "facet",
         "arthrokinematics"
       ],
-      "body_sha256": "436df134a27fa801e805ab0c8a7c0b4b8ddbf882e140ffde5916f7b588ce6532",
+      "body_sha256": "9f9102a76f675057c3df17c71085611fb27e2ca0237428b28f369f9f337759fd",
       "sections": [
         {
           "id": "neumann.ch09.axial-skeleton",
@@ -3362,7 +3362,7 @@
         "motion-segment",
         "force-couple"
       ],
-      "body_sha256": "e3b1c9ac681f74abb9bfdf8ed0df37e0074b6a75d7d74b5e672d925b1c26e610",
+      "body_sha256": "e5052b889bd770136e1002b2b4a97500dcd4ce06a2946c5b0930d0a615ad7a88",
       "sections": [
         {
           "id": "neumann.ch10.muscle-roles",
@@ -5285,7 +5285,7 @@
     {
       "id": "nordin.ch11",
       "title": "頸椎的活動與穩定",
-      "description": "分開理解上頸椎與下頸椎，並用三維運動、韌帶約束與測量條件閱讀頸部力學。",
+      "description": "從上頸椎、椎間盤與韌帶，讀到三維耦合、影像量測、固定與碰撞力學；分清活動角度、穩定條件和研究數值。",
       "content_type": "chapter-guide",
       "path": "library/basic-biomechanics/ch11/",
       "topic": "axial",
@@ -5296,7 +5296,7 @@
         "ligament",
         "stiffness"
       ],
-      "body_sha256": "a96cd4f8bf6c52d39eb5e7ed085b8067c68309763b56017436dc04eeb58a2d7d",
+      "body_sha256": "45e5a89a6009b429b599081dedf9986cabe206d2519fcf57f525e4f65946edb5",
       "sections": [
         {
           "id": "nordin.ch11.upper-cervical",
@@ -5306,7 +5306,191 @@
           "pdf_pages": [
             {
               "from": 303,
+              "to": 305
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.occipital-fit",
+          "title": "寰枕關節靠骨面貼合，容許點頭並限制末端活動",
+          "anchor": "occipital-fit",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 304,
+              "to": 305
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.upper-ligaments",
+          "title": "橫韌帶與翼狀韌帶，分別約束平移與過度旋轉",
+          "anchor": "upper-ligaments",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 304,
+              "to": 306
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.subaxial-segment",
+          "title": "中下頸椎以椎體、椎間盤和後方關節組成節段",
+          "anchor": "subaxial-segment",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 306,
+              "to": 307
+            },
+            {
+              "from": 313,
+              "to": 313
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.uncovertebral",
+          "title": "鉤突與鉤椎關節，增加側方的導引條件",
+          "anchor": "uncovertebral",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 307,
+              "to": 307
+            },
+            {
+              "from": 317,
+              "to": 317
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.disc-composition",
+          "title": "椎間盤把含水核心與纖維約束結合起來",
+          "anchor": "disc-composition",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 307,
+              "to": 309
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.material-properties",
+          "title": "材料的方向效應與時間效應，是兩個不同問題",
+          "anchor": "material-properties",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 304,
+              "to": 304
+            },
+            {
+              "from": 308,
+              "to": 310
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.disc-creep",
+          "title": "蠕變後壓力下降，可能伴隨負荷轉移",
+          "anchor": "disc-creep",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 308,
+              "to": 309
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.ligament-loading",
+          "title": "韌帶的功能要沿纖維方向讀，破壞負荷也要帶條件",
+          "anchor": "ligament-loading",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 309,
+              "to": 310
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.ligamentum-flavum",
+          "title": "黃韌帶的彈性與預張力，讓它不只在末端才工作",
+          "anchor": "ligamentum-flavum",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 309,
+              "to": 309
+            },
+            {
+              "from": 312,
+              "to": 312
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.head-load",
+          "title": "頭頸負荷要先選轉軸，再算重量的力矩",
+          "anchor": "head-load",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 310,
               "to": 311
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.muscle-and-emg",
+          "title": "肌電很低，仍可能存在需要平衡的外部力矩",
+          "anchor": "muscle-and-emg",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 311,
+              "to": 311
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.muscular-support",
+          "title": "肌肉控制把靈活的節段維持成可支承的頸部",
+          "anchor": "muscular-support",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 311,
+              "to": 311
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.neural-space",
+          "title": "神經空間會隨動作改變，骨性管徑不是全部資訊",
+          "anchor": "neural-space",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 312,
+              "to": 313
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.canal-ratio",
+          "title": "椎管與椎體的比值，可能把解剖差異誤當異常",
+          "anchor": "canal-ratio",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 312,
+              "to": 313
             }
           ]
         },
@@ -5318,6 +5502,86 @@
           "pdf_pages": [
             {
               "from": 313,
+              "to": 314
+            },
+            {
+              "from": 317,
+              "to": 319
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.upper-motion",
+          "title": "寰樞關節大量旋轉，也保留屈伸與伴隨平移",
+          "anchor": "upper-motion",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 314,
+              "to": 315
+            },
+            {
+              "from": 316,
+              "to": 317
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.regional-motion",
+          "title": "節段角度和頭部總角度，要用不同尺度閱讀",
+          "anchor": "regional-motion",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 314,
+              "to": 315
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.functional-motion",
+          "title": "日常任務需要的活動，未必等於最大活動度",
+          "anchor": "functional-motion",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 315,
+              "to": 316
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.instant-center",
+          "title": "瞬時轉動中心，幫助辨認小面正在滑動還是分離",
+          "anchor": "instant-center",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 316,
+              "to": 316
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.foraminal-dimensions",
+          "title": "椎間孔直徑與面積，不能用百分比直接互換",
+          "anchor": "foraminal-dimensions",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 316,
+              "to": 316
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.coupling-direction",
+          "title": "棘突偏向右，可能正是椎體向左旋轉",
+          "anchor": "coupling-direction",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 317,
               "to": 319
             }
           ]
@@ -5329,12 +5593,32 @@
           "source_id": "src.nordin-frankel-2012",
           "pdf_pages": [
             {
-              "from": 309,
-              "to": 313
-            },
+              "from": 318,
+              "to": 319
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.columns",
+          "title": "二柱與三柱模型，是追蹤負荷與損傷的分區工具",
+          "anchor": "columns",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 318,
+              "to": 321
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.adi-and-sac",
+          "title": "寰齒間距增大時，也要看脊髓可用空間",
+          "anchor": "adi-and-sac",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
             {
               "from": 319,
-              "to": 323
+              "to": 322
             }
           ]
         },
@@ -5345,8 +5629,136 @@
           "source_id": "src.nordin-frankel-2012",
           "pdf_pages": [
             {
-              "from": 313,
-              "to": 318
+              "from": 315,
+              "to": 315
+            },
+            {
+              "from": 321,
+              "to": 322
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.stability-criteria",
+          "title": "舊穩定性檢核表的角度，必須連同定義閱讀",
+          "anchor": "stability-criteria",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 321,
+              "to": 322
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.decompression",
+          "title": "切除後方構造，會同時改變空間與力學約束",
+          "anchor": "decompression",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 323,
+              "to": 324
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.facetectomy",
+          "title": "小面切除比例相同，其他試驗條件仍可能不同",
+          "anchor": "facetectomy",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 324,
+              "to": 324
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.fixation-and-fusion",
+          "title": "內固定提供早期支承，骨融合仍需要時間",
+          "anchor": "fixation-and-fusion",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 324,
+              "to": 324
+            },
+            {
+              "from": 328,
+              "to": 328
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.adjacent-motion",
+          "title": "融合後的剩餘活動，未必只集中在緊鄰節段",
+          "anchor": "adjacent-motion",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 324,
+              "to": 326
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.implant-interface",
+          "title": "植骨與植入物，要一起看材料、接觸面和宿主骨",
+          "anchor": "implant-interface",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 326,
+              "to": 328
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.collision-loading",
+          "title": "碰撞的載入順序，比單一速度數字更能說明機制",
+          "anchor": "collision-loading",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 328,
+              "to": 330
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.whiplash-shape",
+          "title": "揮鞭機制可能先形成上下頸方向不同的 S 形",
+          "anchor": "whiplash-shape",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 329,
+              "to": 331
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.collision-muscles",
+          "title": "肌肉開始反應，不代表已建立足夠保護力",
+          "anchor": "collision-muscles",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 330,
+              "to": 332
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch11.reading-bridge",
+          "title": "從頭枕位置與影像限制，回到整章的判讀順序",
+          "anchor": "reading-bridge",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 330,
+              "to": 333
             }
           ]
         }

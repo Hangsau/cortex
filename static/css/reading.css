@@ -104,6 +104,8 @@ body:has(.rd-page)[data-reader-color="night"] { --rd-paper:#192427; --rd-ink:#e8
 .rd-lifting-load > svg, .rd-lumbar-resultant > svg { display:block; max-width:440px; margin-inline:auto; }
 .rd-lifting-load text, .rd-lumbar-resultant text { font-size:22px; }
 .rd-lifting-load .rd-lift-axis { fill:var(--rd-ink); }
+.rd-cervical-magnification > svg { display:block; max-width:440px; margin-inline:auto; }
+.rd-cervical-magnification text { font-size:22px; }
 .rd-disc-pressure .rd-bone { fill:none; stroke:var(--rd-ink); stroke-width:2; }
 .rd-disc-pressure .rd-soft { fill:var(--rd-paper); stroke:var(--rd-accent); stroke-width:2; }
 .rd-lumbosacral-load .rd-sacral-surface { fill:none; stroke:var(--rd-muted); stroke-width:2; }

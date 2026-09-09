@@ -8,7 +8,7 @@ id: neumann.ch09
 status: guide
 content_type: chapter-guide
 created: 2026-09-06
-updated: 2026-09-08
+updated: 2026-09-09
 source_ids: [src.neumann-2017]
 terms: [motion-segment, disc, facet, arthrokinematics]
 ---
@@ -271,6 +271,8 @@ C2–C7 小面關節面大約位在額狀面與水平面之間的 45° 斜向位
 側彎或旋轉也會改變左右孔洞的幾何，通常對側有較大的空間。已有骨贅或組織腫脹時，相同動作可能遇到不同限制，所以原書用這些機制解釋某些神經根症狀與姿勢的關係。
 
 後面腰椎引用的是孔洞直徑變化，不能與這裡的面積百分比直接比較。這些是特定研究的空間量測，不是由角度直接計算個人神經壓迫程度的公式。
+
+另一本頸椎章也有[以直徑量測的研究]({{< relref "/library/basic-biomechanics/ch11" >}}#foraminal-dimensions)，可並讀它的角度、試件與量測方式，分清兩組百分比各自回答的問題。
 
 {{< reading-source from="374" to="375" >}}
 
