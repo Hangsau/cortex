@@ -1,0 +1,678 @@
+{
+  "checked_at": "2026-09-09T13:59:26.657Z",
+  "base": "http://127.0.0.1:8768/cortex/",
+  "checks": [
+    {
+      "name": "kinesiology/ch12 HTTP",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch12 canonical anchors in order",
+      "pass": true,
+      "detail": 51
+    },
+    {
+      "name": "kinesiology/ch12 320px font22 fits",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch08 HTTP",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch08 canonical anchors in order",
+      "pass": true,
+      "detail": 26
+    },
+    {
+      "name": "basic-biomechanics/ch08 320px font22 fits",
+      "pass": true
+    },
+    {
+      "name": "original four anchors",
+      "pass": true
+    },
+    {
+      "name": "mobile TOC starts closed",
+      "pass": true
+    },
+    {
+      "name": "TOC actual landing hip-geometry",
+      "pass": true
+    },
+    {
+      "name": "TOC actual landing pelvis-on-femur",
+      "pass": true
+    },
+    {
+      "name": "TOC actual landing hip-balance",
+      "pass": true
+    },
+    {
+      "name": "TOC actual landing joint-load",
+      "pass": true
+    },
+    {
+      "name": "TOC actual landing cane-load",
+      "pass": true
+    },
+    {
+      "name": "TOC actual landing chapter-bridge",
+      "pass": true
+    },
+    {
+      "name": "daily activity table fits",
+      "pass": true
+    },
+    {
+      "name": "Nordin original four anchors",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/basic-biomechanics/ch08/#stance",
+      "pass": true
+    },
+    {
+      "name": "cross-link actual landing /cortex/library/basic-biomechanics/ch08/#stance",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/basic-biomechanics/ch08/#angle-comparison",
+      "pass": true
+    },
+    {
+      "name": "cross-link actual landing /cortex/library/basic-biomechanics/ch08/#angle-comparison",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/kinesiology/ch09/#lumbopelvic-rhythm",
+      "pass": true
+    },
+    {
+      "name": "cross-link actual landing /cortex/library/kinesiology/ch09/#lumbopelvic-rhythm",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/basic-biomechanics/ch08/#reconstruction",
+      "pass": true
+    },
+    {
+      "name": "cross-link actual landing /cortex/library/basic-biomechanics/ch08/#reconstruction",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/basic-biomechanics/ch08/#measurement",
+      "pass": true
+    },
+    {
+      "name": "cross-link actual landing /cortex/library/basic-biomechanics/ch08/#measurement",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/kinesiology/ch12/#hip-abductors",
+      "pass": true
+    },
+    {
+      "name": "cross-link actual landing /cortex/library/kinesiology/ch12/#hip-abductors",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/kinesiology/ch12/#femoral-version",
+      "pass": true
+    },
+    {
+      "name": "cross-link actual landing /cortex/library/kinesiology/ch12/#femoral-version",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/kinesiology/ch12/#acetabular-coverage",
+      "pass": true
+    },
+    {
+      "name": "cross-link actual landing /cortex/library/kinesiology/ch12/#acetabular-coverage",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/kinesiology/ch12/#static-model",
+      "pass": true
+    },
+    {
+      "name": "cross-link actual landing /cortex/library/kinesiology/ch12/#static-model",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/kinesiology/ch12/#trendelenburg",
+      "pass": true
+    },
+    {
+      "name": "cross-link actual landing /cortex/library/kinesiology/ch12/#trendelenburg",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/kinesiology/ch12/#cane-load",
+      "pass": true
+    },
+    {
+      "name": "cross-link actual landing /cortex/library/kinesiology/ch12/#cane-load",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/kinesiology/ch12/#carried-load",
+      "pass": true
+    },
+    {
+      "name": "cross-link actual landing /cortex/library/kinesiology/ch12/#carried-load",
+      "pass": true
+    },
+    {
+      "name": "default static load",
+      "pass": true
+    },
+    {
+      "name": "keyboard C=0 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 0,
+        "text": "C＝0 N；M＝1200 N；R＝1800 N（全身重量的2.50倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力0牛頓，外展肌力1200牛頓，髖反力1800牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝1200 N",
+        "reaction": "髖反力 R＝1800 N",
+        "caneLabel": "C 0",
+        "visibility": "hidden",
+        "muscleLength": 180,
+        "reactionLength": 270
+      }
+    },
+    {
+      "name": "keyboard C=5 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 5,
+        "text": "C＝5 N；M＝1170 N；R＝1765 N（全身重量的2.45倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力5牛頓，外展肌力1170牛頓，髖反力1765牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝1170 N",
+        "reaction": "髖反力 R＝1765 N",
+        "caneLabel": "C 5",
+        "visibility": "visible",
+        "muscleLength": 175.5,
+        "reactionLength": 264.75
+      }
+    },
+    {
+      "name": "keyboard C=10 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 10,
+        "text": "C＝10 N；M＝1140 N；R＝1730 N（全身重量的2.40倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力10牛頓，外展肌力1140牛頓，髖反力1730牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝1140 N",
+        "reaction": "髖反力 R＝1730 N",
+        "caneLabel": "C 10",
+        "visibility": "visible",
+        "muscleLength": 171,
+        "reactionLength": 259.5
+      }
+    },
+    {
+      "name": "keyboard C=15 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 15,
+        "text": "C＝15 N；M＝1110 N；R＝1695 N（全身重量的2.35倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力15牛頓，外展肌力1110牛頓，髖反力1695牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝1110 N",
+        "reaction": "髖反力 R＝1695 N",
+        "caneLabel": "C 15",
+        "visibility": "visible",
+        "muscleLength": 166.5,
+        "reactionLength": 254.25
+      }
+    },
+    {
+      "name": "keyboard C=20 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 20,
+        "text": "C＝20 N；M＝1080 N；R＝1660 N（全身重量的2.31倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力20牛頓，外展肌力1080牛頓，髖反力1660牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝1080 N",
+        "reaction": "髖反力 R＝1660 N",
+        "caneLabel": "C 20",
+        "visibility": "visible",
+        "muscleLength": 162,
+        "reactionLength": 249
+      }
+    },
+    {
+      "name": "keyboard C=25 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 25,
+        "text": "C＝25 N；M＝1050 N；R＝1625 N（全身重量的2.26倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力25牛頓，外展肌力1050牛頓，髖反力1625牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝1050 N",
+        "reaction": "髖反力 R＝1625 N",
+        "caneLabel": "C 25",
+        "visibility": "visible",
+        "muscleLength": 157.5,
+        "reactionLength": 243.75
+      }
+    },
+    {
+      "name": "keyboard C=30 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 30,
+        "text": "C＝30 N；M＝1020 N；R＝1590 N（全身重量的2.21倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力30牛頓，外展肌力1020牛頓，髖反力1590牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝1020 N",
+        "reaction": "髖反力 R＝1590 N",
+        "caneLabel": "C 30",
+        "visibility": "visible",
+        "muscleLength": 153,
+        "reactionLength": 238.5
+      }
+    },
+    {
+      "name": "keyboard C=35 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 35,
+        "text": "C＝35 N；M＝990 N；R＝1555 N（全身重量的2.16倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力35牛頓，外展肌力990牛頓，髖反力1555牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝990 N",
+        "reaction": "髖反力 R＝1555 N",
+        "caneLabel": "C 35",
+        "visibility": "visible",
+        "muscleLength": 148.5,
+        "reactionLength": 233.25
+      }
+    },
+    {
+      "name": "keyboard C=40 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 40,
+        "text": "C＝40 N；M＝960 N；R＝1520 N（全身重量的2.11倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力40牛頓，外展肌力960牛頓，髖反力1520牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝960 N",
+        "reaction": "髖反力 R＝1520 N",
+        "caneLabel": "C 40",
+        "visibility": "visible",
+        "muscleLength": 144,
+        "reactionLength": 228
+      }
+    },
+    {
+      "name": "keyboard C=45 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 45,
+        "text": "C＝45 N；M＝930 N；R＝1485 N（全身重量的2.06倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力45牛頓，外展肌力930牛頓，髖反力1485牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝930 N",
+        "reaction": "髖反力 R＝1485 N",
+        "caneLabel": "C 45",
+        "visibility": "visible",
+        "muscleLength": 139.5,
+        "reactionLength": 222.75
+      }
+    },
+    {
+      "name": "keyboard C=50 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 50,
+        "text": "C＝50 N；M＝900 N；R＝1450 N（全身重量的2.01倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力50牛頓，外展肌力900牛頓，髖反力1450牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝900 N",
+        "reaction": "髖反力 R＝1450 N",
+        "caneLabel": "C 50",
+        "visibility": "visible",
+        "muscleLength": 135,
+        "reactionLength": 217.5
+      }
+    },
+    {
+      "name": "keyboard C=55 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 55,
+        "text": "C＝55 N；M＝870 N；R＝1415 N（全身重量的1.97倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力55牛頓，外展肌力870牛頓，髖反力1415牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝870 N",
+        "reaction": "髖反力 R＝1415 N",
+        "caneLabel": "C 55",
+        "visibility": "visible",
+        "muscleLength": 130.5,
+        "reactionLength": 212.25
+      }
+    },
+    {
+      "name": "keyboard C=60 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 60,
+        "text": "C＝60 N；M＝840 N；R＝1380 N（全身重量的1.92倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力60牛頓，外展肌力840牛頓，髖反力1380牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝840 N",
+        "reaction": "髖反力 R＝1380 N",
+        "caneLabel": "C 60",
+        "visibility": "visible",
+        "muscleLength": 126,
+        "reactionLength": 207
+      }
+    },
+    {
+      "name": "keyboard C=65 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 65,
+        "text": "C＝65 N；M＝810 N；R＝1345 N（全身重量的1.87倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力65牛頓，外展肌力810牛頓，髖反力1345牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝810 N",
+        "reaction": "髖反力 R＝1345 N",
+        "caneLabel": "C 65",
+        "visibility": "visible",
+        "muscleLength": 121.5,
+        "reactionLength": 201.75
+      }
+    },
+    {
+      "name": "keyboard C=70 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 70,
+        "text": "C＝70 N；M＝780 N；R＝1310 N（全身重量的1.82倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力70牛頓，外展肌力780牛頓，髖反力1310牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝780 N",
+        "reaction": "髖反力 R＝1310 N",
+        "caneLabel": "C 70",
+        "visibility": "visible",
+        "muscleLength": 117,
+        "reactionLength": 196.5
+      }
+    },
+    {
+      "name": "keyboard C=75 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 75,
+        "text": "C＝75 N；M＝750 N；R＝1275 N（全身重量的1.77倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力75牛頓，外展肌力750牛頓，髖反力1275牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝750 N",
+        "reaction": "髖反力 R＝1275 N",
+        "caneLabel": "C 75",
+        "visibility": "visible",
+        "muscleLength": 112.5,
+        "reactionLength": 191.25
+      }
+    },
+    {
+      "name": "keyboard C=80 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 80,
+        "text": "C＝80 N；M＝720 N；R＝1240 N（全身重量的1.72倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力80牛頓，外展肌力720牛頓，髖反力1240牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝720 N",
+        "reaction": "髖反力 R＝1240 N",
+        "caneLabel": "C 80",
+        "visibility": "visible",
+        "muscleLength": 108,
+        "reactionLength": 186
+      }
+    },
+    {
+      "name": "keyboard C=85 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 85,
+        "text": "C＝85 N；M＝690 N；R＝1205 N（全身重量的1.67倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力85牛頓，外展肌力690牛頓，髖反力1205牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝690 N",
+        "reaction": "髖反力 R＝1205 N",
+        "caneLabel": "C 85",
+        "visibility": "visible",
+        "muscleLength": 103.5,
+        "reactionLength": 180.75
+      }
+    },
+    {
+      "name": "keyboard C=90 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 90,
+        "text": "C＝90 N；M＝660 N；R＝1170 N（全身重量的1.63倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力90牛頓，外展肌力660牛頓，髖反力1170牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝660 N",
+        "reaction": "髖反力 R＝1170 N",
+        "caneLabel": "C 90",
+        "visibility": "visible",
+        "muscleLength": 99,
+        "reactionLength": 175.5
+      }
+    },
+    {
+      "name": "keyboard C=95 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 95,
+        "text": "C＝95 N；M＝630 N；R＝1135 N（全身重量的1.58倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力95牛頓，外展肌力630牛頓，髖反力1135牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝630 N",
+        "reaction": "髖反力 R＝1135 N",
+        "caneLabel": "C 95",
+        "visibility": "visible",
+        "muscleLength": 94.5,
+        "reactionLength": 170.25
+      }
+    },
+    {
+      "name": "keyboard C=100 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 100,
+        "text": "C＝100 N；M＝600 N；R＝1100 N（全身重量的1.53倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力100牛頓，外展肌力600牛頓，髖反力1100牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝600 N",
+        "reaction": "髖反力 R＝1100 N",
+        "caneLabel": "C 100",
+        "visibility": "visible",
+        "muscleLength": 90,
+        "reactionLength": 165
+      }
+    },
+    {
+      "name": "keyboard C=105 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 105,
+        "text": "C＝105 N；M＝570 N；R＝1065 N（全身重量的1.48倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力105牛頓，外展肌力570牛頓，髖反力1065牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝570 N",
+        "reaction": "髖反力 R＝1065 N",
+        "caneLabel": "C 105",
+        "visibility": "visible",
+        "muscleLength": 85.5,
+        "reactionLength": 159.75
+      }
+    },
+    {
+      "name": "keyboard C=110 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 110,
+        "text": "C＝110 N；M＝540 N；R＝1030 N（全身重量的1.43倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力110牛頓，外展肌力540牛頓，髖反力1030牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝540 N",
+        "reaction": "髖反力 R＝1030 N",
+        "caneLabel": "C 110",
+        "visibility": "visible",
+        "muscleLength": 81,
+        "reactionLength": 154.5
+      }
+    },
+    {
+      "name": "keyboard C=115 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 115,
+        "text": "C＝115 N；M＝510 N；R＝995 N（全身重量的1.38倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力115牛頓，外展肌力510牛頓，髖反力995牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝510 N",
+        "reaction": "髖反力 R＝995 N",
+        "caneLabel": "C 115",
+        "visibility": "visible",
+        "muscleLength": 76.5,
+        "reactionLength": 149.25
+      }
+    },
+    {
+      "name": "keyboard C=120 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "cane": 120,
+        "text": "C＝120 N；M＝480 N；R＝960 N（全身重量的1.33倍）",
+        "desc": "骨盆側自由體，有效重量600牛頓；拐杖支持力120牛頓，外展肌力480牛頓，髖反力960牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。",
+        "muscle": "外展肌 M＝480 N",
+        "reaction": "髖反力 R＝960 N",
+        "caneLabel": "C 120",
+        "visibility": "visible",
+        "muscleLength": 72,
+        "reactionLength": 144
+      }
+    },
+    {
+      "name": "Home returns no cane force",
+      "pass": true
+    },
+    {
+      "name": "End exact values",
+      "pass": true
+    },
+    {
+      "name": "keyboard focus visible",
+      "pass": true
+    },
+    {
+      "name": "label and live result",
+      "pass": true
+    },
+    {
+      "name": "figure fits 320 paper zero",
+      "pass": true
+    },
+    {
+      "name": "labels readable 320 paper zero",
+      "pass": true
+    },
+    {
+      "name": "figure fits 320 paper mid",
+      "pass": true
+    },
+    {
+      "name": "labels readable 320 paper mid",
+      "pass": true
+    },
+    {
+      "name": "figure fits 320 paper max",
+      "pass": true
+    },
+    {
+      "name": "labels readable 320 paper max",
+      "pass": true
+    },
+    {
+      "name": "figure fits 320 night zero",
+      "pass": true
+    },
+    {
+      "name": "labels readable 320 night zero",
+      "pass": true
+    },
+    {
+      "name": "figure fits 320 night mid",
+      "pass": true
+    },
+    {
+      "name": "labels readable 320 night mid",
+      "pass": true
+    },
+    {
+      "name": "figure fits 320 night max",
+      "pass": true
+    },
+    {
+      "name": "labels readable 320 night max",
+      "pass": true
+    },
+    {
+      "name": "figure fits 1360 paper zero",
+      "pass": true
+    },
+    {
+      "name": "labels readable 1360 paper zero",
+      "pass": true
+    },
+    {
+      "name": "figure fits 1360 paper mid",
+      "pass": true
+    },
+    {
+      "name": "labels readable 1360 paper mid",
+      "pass": true
+    },
+    {
+      "name": "figure fits 1360 paper max",
+      "pass": true
+    },
+    {
+      "name": "labels readable 1360 paper max",
+      "pass": true
+    },
+    {
+      "name": "figure fits 1360 night zero",
+      "pass": true
+    },
+    {
+      "name": "labels readable 1360 night zero",
+      "pass": true
+    },
+    {
+      "name": "figure fits 1360 night mid",
+      "pass": true
+    },
+    {
+      "name": "labels readable 1360 night mid",
+      "pass": true
+    },
+    {
+      "name": "figure fits 1360 night max",
+      "pass": true
+    },
+    {
+      "name": "labels readable 1360 night max",
+      "pass": true
+    },
+    {
+      "name": "no-JS complete headings",
+      "pass": true
+    },
+    {
+      "name": "no-JS default diagram",
+      "pass": true
+    },
+    {
+      "name": "no-JS layout fits",
+      "pass": true
+    },
+    {
+      "name": "no runtime errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "passed": 98,
+  "failed": 0
+}

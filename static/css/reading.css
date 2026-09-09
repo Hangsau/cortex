@@ -108,6 +108,12 @@ body:has(.rd-page)[data-reader-color="night"] { --rd-paper:#192427; --rd-ink:#e8
 .rd-cervical-magnification text { font-size:22px; }
 .rd-airflow > svg { display:block; max-width:440px; margin-inline:auto; }
 .rd-airflow text { font-size:22px; }
+.rd-hip-support > svg { display:block; max-width:440px; margin-inline:auto; }
+.rd-hip-support text { font-size:22px; }
+.rd-hip-support .rd-hip-axis { fill:var(--rd-ink); }
+.rd-hip-support .rd-hip-bar { stroke-width:12; fill:none; }
+.rd-hip-support .rd-hip-muscle { stroke:var(--rd-ink); stroke-dasharray:8 4; }
+.rd-hip-support .rd-hip-reaction { stroke:var(--rd-accent); }
 .rd-disc-pressure .rd-bone { fill:none; stroke:var(--rd-ink); stroke-width:2; }
 .rd-disc-pressure .rd-soft { fill:var(--rd-paper); stroke:var(--rd-accent); stroke-width:2; }
 .rd-lumbosacral-load .rd-sacral-surface { fill:none; stroke:var(--rd-muted); stroke-width:2; }

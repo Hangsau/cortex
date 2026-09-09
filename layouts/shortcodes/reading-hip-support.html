@@ -1,0 +1,37 @@
+{{ $ID := printf "rd-hip-support-%d" .Ordinal }}
+<figure class="rd-diagram rd-hip-support" data-hip-support aria-labelledby="{{ $ID }}-caption">
+<svg viewBox="0 0 320 440" role="img" aria-labelledby="{{ $ID }}-title {{ $ID }}-desc">
+<title id="{{ $ID }}-title">拐杖如何減少支撐髖的肌肉與關節力</title>
+<desc id="{{ $ID }}-desc">骨盆側自由體，有效重量600牛頓；無拐杖支持時，外展肌力1200牛頓，髖反力1800牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。</desc>
+<text x="16" y="28">骨盆側自由體（右髖支撐）</text>
+<path class="rd-line" d="M25 126 H289"/>
+<circle class="rd-hip-axis" cx="77" cy="126" r="6"/>
+<text x="55" y="96">右髖</text>
+<path class="rd-force" d="M35 130 V183"/>
+<path class="rd-arrow-accent" d="M35 197 L27 182 L43 182 Z"/>
+<text x="23" y="226">M</text>
+<path class="rd-force" d="M77 197 V144"/>
+<path class="rd-arrow-accent" d="M77 130 L69 145 L85 145 Z"/>
+<text x="67" y="226">R</text>
+<path class="rd-line" d="M153 130 V183"/>
+<path class="rd-arrow-ink" d="M153 197 L145 182 L161 182 Z"/>
+<text x="128" y="226">B 600</text>
+<g data-hip-cane-arrow visibility="hidden">
+<path class="rd-force" d="M277 197 V144"/>
+<path class="rd-arrow-accent" d="M277 130 L269 145 L285 145 Z"/>
+</g>
+<text x="252" y="226" data-hip-cane-label>C 0</text>
+<path class="rd-measure" d="M35 55 H77 M35 49 V61 M77 49 V61 M77 55 H153 M153 49 V61 M153 55 H277 M277 49 V61"/>
+<text x="33" y="48">d</text><text x="110" y="48">b</text><text x="202" y="48">c−b</text>
+<text x="16" y="264">力值（N）；長條同一比例</text>
+<text x="16" y="298" data-hip-muscle-label>外展肌 M＝1200 N</text>
+<path class="rd-hip-bar rd-hip-muscle" data-hip-muscle-bar d="M20 320 H200"/>
+<text x="16" y="361" data-hip-reaction-label>髖反力 R＝1800 N</text>
+<path class="rd-hip-bar rd-hip-reaction" data-hip-reaction-bar d="M20 383 H290"/>
+<text x="16" y="424">d＝5、b＝10、c＝30 cm</text>
+</svg>
+<label for="{{ $ID }}-input">調整對側拐杖向上的支持力（0–120 N）</label>
+<input id="{{ $ID }}-input" type="range" min="0" max="120" step="5" value="0" disabled aria-describedby="{{ $ID }}-output {{ $ID }}-caption">
+<output id="{{ $ID }}-output" for="{{ $ID }}-input" aria-live="polite">C＝0 N；M＝1200 N；R＝1800 N（全身重量的2.50倍）</output>
+<figcaption id="{{ $ID }}-caption">編者靜態垂直力模型：全身重量W＝720 N，扣除支撐腿後B＝600 N。M×0.05＋C×0.30＝600×0.10；R＝600＋M−C。力臂皆從右髖到各力作用線量取；上方位置示意不按長度比例，箭頭只表方向，C＝0時隱藏拐杖箭頭。下方長條以同一比例顯示M與R。模型未計加速度、肌肉斜向分量或共同收縮，數值不是個人持杖指示。</figcaption>
+</figure>

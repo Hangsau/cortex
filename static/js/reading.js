@@ -211,6 +211,23 @@
     };
     slider.disabled = false; slider.addEventListener('input', update); update();
   });
+  document.querySelectorAll('[data-hip-support]').forEach(demo => {
+    const slider = demo.querySelector('input'), output = demo.querySelector('output');
+    const update = () => {
+      const cane = Number(slider.value);
+      const muscle = (600 * 0.10 - cane * 0.30) / 0.05;
+      const reaction = 600 + muscle - cane;
+      demo.querySelector('[data-hip-cane-arrow]').setAttribute('visibility', cane ? 'visible' : 'hidden');
+      demo.querySelector('[data-hip-cane-label]').textContent = `C ${cane}`;
+      demo.querySelector('[data-hip-muscle-label]').textContent = `外展肌 M＝${muscle.toFixed(0)} N`;
+      demo.querySelector('[data-hip-reaction-label]').textContent = `髖反力 R＝${reaction.toFixed(0)} N`;
+      demo.querySelector('[data-hip-muscle-bar]').setAttribute('d', `M20 320 H${20 + muscle * 0.15}`);
+      demo.querySelector('[data-hip-reaction-bar]').setAttribute('d', `M20 383 H${20 + reaction * 0.15}`);
+      output.value = `C＝${cane} N；M＝${muscle.toFixed(0)} N；R＝${reaction.toFixed(0)} N（全身重量的${(reaction / 720).toFixed(2)}倍）`;
+      demo.querySelector('desc').textContent = `骨盆側自由體，有效重量600牛頓；拐杖支持力${cane}牛頓，外展肌力${muscle.toFixed(0)}牛頓，髖反力${reaction.toFixed(0)}牛頓。上方箭頭只表方向，下方兩條長條使用相同力值比例。`;
+    };
+    slider.disabled = false; slider.addEventListener('input', update); update();
+  });
   document.querySelectorAll('[data-airflow]').forEach(demo => {
     const slider = demo.querySelector('input'), output = demo.querySelector('output');
     const signed = (value, digits) => (value < 0 ? '−' : value > 0 ? '+' : '') + Math.abs(value).toFixed(digits);
