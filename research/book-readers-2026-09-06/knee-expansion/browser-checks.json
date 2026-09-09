@@ -1,0 +1,873 @@
+{
+  "checked_at": "2026-09-09T22:42:30.965Z",
+  "base": "http://127.0.0.1:8768/cortex/",
+  "checks": [
+    {
+      "name": "kinesiology/ch13 HTTP",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch13 canonical anchors in order",
+      "pass": true,
+      "detail": 48
+    },
+    {
+      "name": "kinesiology/ch13 original four anchors",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch13 320px font22 fits",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch07 HTTP",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch07 canonical anchors in order",
+      "pass": true,
+      "detail": 32
+    },
+    {
+      "name": "basic-biomechanics/ch07 original four anchors",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch07 320px font22 fits",
+      "pass": true
+    },
+    {
+      "name": "mobile TOC starts closed",
+      "pass": true
+    },
+    {
+      "name": "TOC actual landing knee-motion",
+      "pass": true
+    },
+    {
+      "name": "TOC actual landing meniscus-ligament",
+      "pass": true
+    },
+    {
+      "name": "TOC actual landing patella-leverage",
+      "pass": true
+    },
+    {
+      "name": "TOC actual landing contact-stress",
+      "pass": true
+    },
+    {
+      "name": "TOC actual landing medial-loading",
+      "pass": true
+    },
+    {
+      "name": "TOC actual landing chapter-bridge",
+      "pass": true
+    },
+    {
+      "name": "daily activity table fits",
+      "pass": true
+    },
+    {
+      "name": "daily activity table column spacing",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/basic-biomechanics/ch07/#hoop-transfer",
+      "pass": true
+    },
+    {
+      "name": "cross-link actual landing /cortex/library/basic-biomechanics/ch07/#hoop-transfer",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/basic-biomechanics/ch07/#rotation-laxity",
+      "pass": true
+    },
+    {
+      "name": "cross-link actual landing /cortex/library/basic-biomechanics/ch07/#rotation-laxity",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/basic-biomechanics/ch07/#patellar-force-ratio",
+      "pass": true
+    },
+    {
+      "name": "cross-link actual landing /cortex/library/basic-biomechanics/ch07/#patellar-force-ratio",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/basic-biomechanics/ch07/#compartment-model",
+      "pass": true
+    },
+    {
+      "name": "cross-link actual landing /cortex/library/basic-biomechanics/ch07/#compartment-model",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/kinesiology/ch13/#motion-reference",
+      "pass": true
+    },
+    {
+      "name": "cross-link actual landing /cortex/library/kinesiology/ch13/#motion-reference",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/kinesiology/ch13/#gravity-resistance",
+      "pass": true
+    },
+    {
+      "name": "cross-link actual landing /cortex/library/kinesiology/ch13/#gravity-resistance",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/kinesiology/ch13/#meniscal-roots",
+      "pass": true
+    },
+    {
+      "name": "cross-link actual landing /cortex/library/kinesiology/ch13/#meniscal-roots",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/kinesiology/ch13/#meniscal-injury",
+      "pass": true
+    },
+    {
+      "name": "cross-link actual landing /cortex/library/kinesiology/ch13/#meniscal-injury",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/kinesiology/ch13/#acl-healing",
+      "pass": true
+    },
+    {
+      "name": "cross-link actual landing /cortex/library/kinesiology/ch13/#acl-healing",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/kinesiology/ch13/#q-angle",
+      "pass": true
+    },
+    {
+      "name": "cross-link actual landing /cortex/library/kinesiology/ch13/#q-angle",
+      "pass": true
+    },
+    {
+      "name": "default equal distribution",
+      "pass": true
+    },
+    {
+      "name": "keyboard M=-40 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": -40,
+        "text": "M＝−40 N·m；內側 FM＝400 N；外側 FL＝2000 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩−40牛頓公尺時，內側400牛頓，外側2000牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 400,
+        "lateral": 2000,
+        "momentLabel": "M＝−40 N·m",
+        "medialStart": 184,
+        "lateralStart": 120
+      }
+    },
+    {
+      "name": "keyboard M=-38 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": -38,
+        "text": "M＝−38 N·m；內側 FM＝440 N；外側 FL＝1960 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩−38牛頓公尺時，內側440牛頓，外側1960牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 440,
+        "lateral": 1960,
+        "momentLabel": "M＝−38 N·m",
+        "medialStart": 182.4,
+        "lateralStart": 121.6
+      }
+    },
+    {
+      "name": "keyboard M=-36 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": -36,
+        "text": "M＝−36 N·m；內側 FM＝480 N；外側 FL＝1920 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩−36牛頓公尺時，內側480牛頓，外側1920牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 480,
+        "lateral": 1920,
+        "momentLabel": "M＝−36 N·m",
+        "medialStart": 180.8,
+        "lateralStart": 123.2
+      }
+    },
+    {
+      "name": "keyboard M=-34 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": -34,
+        "text": "M＝−34 N·m；內側 FM＝520 N；外側 FL＝1880 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩−34牛頓公尺時，內側520牛頓，外側1880牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 520,
+        "lateral": 1880,
+        "momentLabel": "M＝−34 N·m",
+        "medialStart": 179.2,
+        "lateralStart": 124.8
+      }
+    },
+    {
+      "name": "keyboard M=-32 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": -32,
+        "text": "M＝−32 N·m；內側 FM＝560 N；外側 FL＝1840 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩−32牛頓公尺時，內側560牛頓，外側1840牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 560,
+        "lateral": 1840,
+        "momentLabel": "M＝−32 N·m",
+        "medialStart": 177.6,
+        "lateralStart": 126.39999999999999
+      }
+    },
+    {
+      "name": "keyboard M=-30 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": -30,
+        "text": "M＝−30 N·m；內側 FM＝600 N；外側 FL＝1800 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩−30牛頓公尺時，內側600牛頓，外側1800牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 600,
+        "lateral": 1800,
+        "momentLabel": "M＝−30 N·m",
+        "medialStart": 176,
+        "lateralStart": 128
+      }
+    },
+    {
+      "name": "keyboard M=-28 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": -28,
+        "text": "M＝−28 N·m；內側 FM＝640 N；外側 FL＝1760 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩−28牛頓公尺時，內側640牛頓，外側1760牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 640,
+        "lateral": 1760,
+        "momentLabel": "M＝−28 N·m",
+        "medialStart": 174.4,
+        "lateralStart": 129.6
+      }
+    },
+    {
+      "name": "keyboard M=-26 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": -26,
+        "text": "M＝−26 N·m；內側 FM＝680 N；外側 FL＝1720 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩−26牛頓公尺時，內側680牛頓，外側1720牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 680,
+        "lateral": 1720,
+        "momentLabel": "M＝−26 N·m",
+        "medialStart": 172.8,
+        "lateralStart": 131.2
+      }
+    },
+    {
+      "name": "keyboard M=-24 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": -24,
+        "text": "M＝−24 N·m；內側 FM＝720 N；外側 FL＝1680 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩−24牛頓公尺時，內側720牛頓，外側1680牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 720,
+        "lateral": 1680,
+        "momentLabel": "M＝−24 N·m",
+        "medialStart": 171.2,
+        "lateralStart": 132.8
+      }
+    },
+    {
+      "name": "keyboard M=-22 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": -22,
+        "text": "M＝−22 N·m；內側 FM＝760 N；外側 FL＝1640 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩−22牛頓公尺時，內側760牛頓，外側1640牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 760,
+        "lateral": 1640,
+        "momentLabel": "M＝−22 N·m",
+        "medialStart": 169.6,
+        "lateralStart": 134.4
+      }
+    },
+    {
+      "name": "keyboard M=-20 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": -20,
+        "text": "M＝−20 N·m；內側 FM＝800 N；外側 FL＝1600 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩−20牛頓公尺時，內側800牛頓，外側1600牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 800,
+        "lateral": 1600,
+        "momentLabel": "M＝−20 N·m",
+        "medialStart": 168,
+        "lateralStart": 136
+      }
+    },
+    {
+      "name": "keyboard M=-18 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": -18,
+        "text": "M＝−18 N·m；內側 FM＝840 N；外側 FL＝1560 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩−18牛頓公尺時，內側840牛頓，外側1560牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 840,
+        "lateral": 1560,
+        "momentLabel": "M＝−18 N·m",
+        "medialStart": 166.4,
+        "lateralStart": 137.6
+      }
+    },
+    {
+      "name": "keyboard M=-16 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": -16,
+        "text": "M＝−16 N·m；內側 FM＝880 N；外側 FL＝1520 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩−16牛頓公尺時，內側880牛頓，外側1520牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 880,
+        "lateral": 1520,
+        "momentLabel": "M＝−16 N·m",
+        "medialStart": 164.8,
+        "lateralStart": 139.2
+      }
+    },
+    {
+      "name": "keyboard M=-14 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": -14,
+        "text": "M＝−14 N·m；內側 FM＝920 N；外側 FL＝1480 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩−14牛頓公尺時，內側920牛頓，外側1480牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 920,
+        "lateral": 1480,
+        "momentLabel": "M＝−14 N·m",
+        "medialStart": 163.2,
+        "lateralStart": 140.8
+      }
+    },
+    {
+      "name": "keyboard M=-12 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": -12,
+        "text": "M＝−12 N·m；內側 FM＝960 N；外側 FL＝1440 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩−12牛頓公尺時，內側960牛頓，外側1440牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 960,
+        "lateral": 1440,
+        "momentLabel": "M＝−12 N·m",
+        "medialStart": 161.6,
+        "lateralStart": 142.4
+      }
+    },
+    {
+      "name": "keyboard M=-10 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": -10,
+        "text": "M＝−10 N·m；內側 FM＝1000 N；外側 FL＝1400 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩−10牛頓公尺時，內側1000牛頓，外側1400牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1000,
+        "lateral": 1400,
+        "momentLabel": "M＝−10 N·m",
+        "medialStart": 160,
+        "lateralStart": 144
+      }
+    },
+    {
+      "name": "keyboard M=-8 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": -8,
+        "text": "M＝−8 N·m；內側 FM＝1040 N；外側 FL＝1360 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩−8牛頓公尺時，內側1040牛頓，外側1360牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1040,
+        "lateral": 1360,
+        "momentLabel": "M＝−8 N·m",
+        "medialStart": 158.4,
+        "lateralStart": 145.6
+      }
+    },
+    {
+      "name": "keyboard M=-6 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": -6,
+        "text": "M＝−6 N·m；內側 FM＝1080 N；外側 FL＝1320 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩−6牛頓公尺時，內側1080牛頓，外側1320牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1080,
+        "lateral": 1320,
+        "momentLabel": "M＝−6 N·m",
+        "medialStart": 156.8,
+        "lateralStart": 147.2
+      }
+    },
+    {
+      "name": "keyboard M=-4 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": -4,
+        "text": "M＝−4 N·m；內側 FM＝1120 N；外側 FL＝1280 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩−4牛頓公尺時，內側1120牛頓，外側1280牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1120,
+        "lateral": 1280,
+        "momentLabel": "M＝−4 N·m",
+        "medialStart": 155.2,
+        "lateralStart": 148.8
+      }
+    },
+    {
+      "name": "keyboard M=-2 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": -2,
+        "text": "M＝−2 N·m；內側 FM＝1160 N；外側 FL＝1240 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩−2牛頓公尺時，內側1160牛頓，外側1240牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1160,
+        "lateral": 1240,
+        "momentLabel": "M＝−2 N·m",
+        "medialStart": 153.6,
+        "lateralStart": 150.4
+      }
+    },
+    {
+      "name": "keyboard M=0 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": 0,
+        "text": "M＝0 N·m；內側 FM＝1200 N；外側 FL＝1200 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩0牛頓公尺時，內側1200牛頓，外側1200牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1200,
+        "lateral": 1200,
+        "momentLabel": "M＝0 N·m",
+        "medialStart": 152,
+        "lateralStart": 152
+      }
+    },
+    {
+      "name": "keyboard M=2 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": 2,
+        "text": "M＝+2 N·m；內側 FM＝1240 N；外側 FL＝1160 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩+2牛頓公尺時，內側1240牛頓，外側1160牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1240,
+        "lateral": 1160,
+        "momentLabel": "M＝+2 N·m",
+        "medialStart": 150.4,
+        "lateralStart": 153.6
+      }
+    },
+    {
+      "name": "keyboard M=4 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": 4,
+        "text": "M＝+4 N·m；內側 FM＝1280 N；外側 FL＝1120 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩+4牛頓公尺時，內側1280牛頓，外側1120牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1280,
+        "lateral": 1120,
+        "momentLabel": "M＝+4 N·m",
+        "medialStart": 148.8,
+        "lateralStart": 155.2
+      }
+    },
+    {
+      "name": "keyboard M=6 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": 6,
+        "text": "M＝+6 N·m；內側 FM＝1320 N；外側 FL＝1080 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩+6牛頓公尺時，內側1320牛頓，外側1080牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1320,
+        "lateral": 1080,
+        "momentLabel": "M＝+6 N·m",
+        "medialStart": 147.2,
+        "lateralStart": 156.8
+      }
+    },
+    {
+      "name": "keyboard M=8 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": 8,
+        "text": "M＝+8 N·m；內側 FM＝1360 N；外側 FL＝1040 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩+8牛頓公尺時，內側1360牛頓，外側1040牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1360,
+        "lateral": 1040,
+        "momentLabel": "M＝+8 N·m",
+        "medialStart": 145.6,
+        "lateralStart": 158.4
+      }
+    },
+    {
+      "name": "keyboard M=10 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": 10,
+        "text": "M＝+10 N·m；內側 FM＝1400 N；外側 FL＝1000 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩+10牛頓公尺時，內側1400牛頓，外側1000牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1400,
+        "lateral": 1000,
+        "momentLabel": "M＝+10 N·m",
+        "medialStart": 144,
+        "lateralStart": 160
+      }
+    },
+    {
+      "name": "keyboard M=12 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": 12,
+        "text": "M＝+12 N·m；內側 FM＝1440 N；外側 FL＝960 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩+12牛頓公尺時，內側1440牛頓，外側960牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1440,
+        "lateral": 960,
+        "momentLabel": "M＝+12 N·m",
+        "medialStart": 142.4,
+        "lateralStart": 161.6
+      }
+    },
+    {
+      "name": "keyboard M=14 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": 14,
+        "text": "M＝+14 N·m；內側 FM＝1480 N；外側 FL＝920 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩+14牛頓公尺時，內側1480牛頓，外側920牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1480,
+        "lateral": 920,
+        "momentLabel": "M＝+14 N·m",
+        "medialStart": 140.8,
+        "lateralStart": 163.2
+      }
+    },
+    {
+      "name": "keyboard M=16 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": 16,
+        "text": "M＝+16 N·m；內側 FM＝1520 N；外側 FL＝880 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩+16牛頓公尺時，內側1520牛頓，外側880牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1520,
+        "lateral": 880,
+        "momentLabel": "M＝+16 N·m",
+        "medialStart": 139.2,
+        "lateralStart": 164.8
+      }
+    },
+    {
+      "name": "keyboard M=18 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": 18,
+        "text": "M＝+18 N·m；內側 FM＝1560 N；外側 FL＝840 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩+18牛頓公尺時，內側1560牛頓，外側840牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1560,
+        "lateral": 840,
+        "momentLabel": "M＝+18 N·m",
+        "medialStart": 137.6,
+        "lateralStart": 166.4
+      }
+    },
+    {
+      "name": "keyboard M=20 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": 20,
+        "text": "M＝+20 N·m；內側 FM＝1600 N；外側 FL＝800 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩+20牛頓公尺時，內側1600牛頓，外側800牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1600,
+        "lateral": 800,
+        "momentLabel": "M＝+20 N·m",
+        "medialStart": 136,
+        "lateralStart": 168
+      }
+    },
+    {
+      "name": "keyboard M=22 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": 22,
+        "text": "M＝+22 N·m；內側 FM＝1640 N；外側 FL＝760 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩+22牛頓公尺時，內側1640牛頓，外側760牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1640,
+        "lateral": 760,
+        "momentLabel": "M＝+22 N·m",
+        "medialStart": 134.4,
+        "lateralStart": 169.6
+      }
+    },
+    {
+      "name": "keyboard M=24 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": 24,
+        "text": "M＝+24 N·m；內側 FM＝1680 N；外側 FL＝720 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩+24牛頓公尺時，內側1680牛頓，外側720牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1680,
+        "lateral": 720,
+        "momentLabel": "M＝+24 N·m",
+        "medialStart": 132.8,
+        "lateralStart": 171.2
+      }
+    },
+    {
+      "name": "keyboard M=26 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": 26,
+        "text": "M＝+26 N·m；內側 FM＝1720 N；外側 FL＝680 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩+26牛頓公尺時，內側1720牛頓，外側680牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1720,
+        "lateral": 680,
+        "momentLabel": "M＝+26 N·m",
+        "medialStart": 131.2,
+        "lateralStart": 172.8
+      }
+    },
+    {
+      "name": "keyboard M=28 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": 28,
+        "text": "M＝+28 N·m；內側 FM＝1760 N；外側 FL＝640 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩+28牛頓公尺時，內側1760牛頓，外側640牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1760,
+        "lateral": 640,
+        "momentLabel": "M＝+28 N·m",
+        "medialStart": 129.6,
+        "lateralStart": 174.4
+      }
+    },
+    {
+      "name": "keyboard M=30 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": 30,
+        "text": "M＝+30 N·m；內側 FM＝1800 N；外側 FL＝600 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩+30牛頓公尺時，內側1800牛頓，外側600牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1800,
+        "lateral": 600,
+        "momentLabel": "M＝+30 N·m",
+        "medialStart": 128,
+        "lateralStart": 176
+      }
+    },
+    {
+      "name": "keyboard M=32 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": 32,
+        "text": "M＝+32 N·m；內側 FM＝1840 N；外側 FL＝560 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩+32牛頓公尺時，內側1840牛頓，外側560牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1840,
+        "lateral": 560,
+        "momentLabel": "M＝+32 N·m",
+        "medialStart": 126.39999999999999,
+        "lateralStart": 177.6
+      }
+    },
+    {
+      "name": "keyboard M=34 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": 34,
+        "text": "M＝+34 N·m；內側 FM＝1880 N；外側 FL＝520 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩+34牛頓公尺時，內側1880牛頓，外側520牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1880,
+        "lateral": 520,
+        "momentLabel": "M＝+34 N·m",
+        "medialStart": 124.8,
+        "lateralStart": 179.2
+      }
+    },
+    {
+      "name": "keyboard M=36 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": 36,
+        "text": "M＝+36 N·m；內側 FM＝1920 N；外側 FL＝480 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩+36牛頓公尺時，內側1920牛頓，外側480牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1920,
+        "lateral": 480,
+        "momentLabel": "M＝+36 N·m",
+        "medialStart": 123.2,
+        "lateralStart": 180.8
+      }
+    },
+    {
+      "name": "keyboard M=38 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": 38,
+        "text": "M＝+38 N·m；內側 FM＝1960 N；外側 FL＝440 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩+38牛頓公尺時，內側1960牛頓，外側440牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 1960,
+        "lateral": 440,
+        "momentLabel": "M＝+38 N·m",
+        "medialStart": 121.6,
+        "lateralStart": 182.4
+      }
+    },
+    {
+      "name": "keyboard M=40 conserves force and moment",
+      "pass": true,
+      "detail": {
+        "moment": 40,
+        "text": "M＝+40 N·m；內側 FM＝2000 N；外側 FL＝400 N",
+        "desc": "兩點等效接觸模型，總力2400牛頓，力矩+40牛頓公尺時，內側2000牛頓，外側400牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。",
+        "medial": 2000,
+        "lateral": 400,
+        "momentLabel": "M＝+40 N·m",
+        "medialStart": 120,
+        "lateralStart": 184
+      }
+    },
+    {
+      "name": "Home favors lateral",
+      "pass": true
+    },
+    {
+      "name": "End favors medial",
+      "pass": true
+    },
+    {
+      "name": "keyboard focus visible",
+      "pass": true
+    },
+    {
+      "name": "label and live result",
+      "pass": true
+    },
+    {
+      "name": "figure fits 320 paper negative",
+      "pass": true
+    },
+    {
+      "name": "labels readable 320 paper negative",
+      "pass": true
+    },
+    {
+      "name": "figure fits 320 paper zero",
+      "pass": true
+    },
+    {
+      "name": "labels readable 320 paper zero",
+      "pass": true
+    },
+    {
+      "name": "figure fits 320 paper positive",
+      "pass": true
+    },
+    {
+      "name": "labels readable 320 paper positive",
+      "pass": true
+    },
+    {
+      "name": "figure fits 320 night negative",
+      "pass": true
+    },
+    {
+      "name": "labels readable 320 night negative",
+      "pass": true
+    },
+    {
+      "name": "figure fits 320 night zero",
+      "pass": true
+    },
+    {
+      "name": "labels readable 320 night zero",
+      "pass": true
+    },
+    {
+      "name": "figure fits 320 night positive",
+      "pass": true
+    },
+    {
+      "name": "labels readable 320 night positive",
+      "pass": true
+    },
+    {
+      "name": "figure fits 1360 paper negative",
+      "pass": true
+    },
+    {
+      "name": "labels readable 1360 paper negative",
+      "pass": true
+    },
+    {
+      "name": "figure fits 1360 paper zero",
+      "pass": true
+    },
+    {
+      "name": "labels readable 1360 paper zero",
+      "pass": true
+    },
+    {
+      "name": "figure fits 1360 paper positive",
+      "pass": true
+    },
+    {
+      "name": "labels readable 1360 paper positive",
+      "pass": true
+    },
+    {
+      "name": "figure fits 1360 night negative",
+      "pass": true
+    },
+    {
+      "name": "labels readable 1360 night negative",
+      "pass": true
+    },
+    {
+      "name": "figure fits 1360 night zero",
+      "pass": true
+    },
+    {
+      "name": "labels readable 1360 night zero",
+      "pass": true
+    },
+    {
+      "name": "figure fits 1360 night positive",
+      "pass": true
+    },
+    {
+      "name": "labels readable 1360 night positive",
+      "pass": true
+    },
+    {
+      "name": "no-JS complete headings kinesiology/ch13",
+      "pass": true
+    },
+    {
+      "name": "no-JS layout fits kinesiology/ch13",
+      "pass": true
+    },
+    {
+      "name": "no-JS complete headings basic-biomechanics/ch07",
+      "pass": true
+    },
+    {
+      "name": "no-JS layout fits basic-biomechanics/ch07",
+      "pass": true
+    },
+    {
+      "name": "no-JS default diagram",
+      "pass": true
+    },
+    {
+      "name": "no runtime errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "passed": 113,
+  "failed": 0
+}

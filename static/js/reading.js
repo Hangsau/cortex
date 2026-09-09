@@ -228,6 +228,21 @@
     };
     slider.disabled = false; slider.addEventListener('input', update); update();
   });
+  document.querySelectorAll('[data-knee-compartments]').forEach(demo => {
+    const slider = demo.querySelector('input'), output = demo.querySelector('output');
+    const update = () => {
+      const moment = Number(slider.value), medial = 1200 + 20 * moment, lateral = 2400 - medial;
+      const signed = (moment < 0 ? '−' : moment > 0 ? '+' : '') + Math.abs(moment);
+      demo.querySelector('[data-knee-moment-label]').textContent = `M＝${signed} N·m`;
+      demo.querySelector('[data-knee-medial-label]').textContent = `${medial} N`;
+      demo.querySelector('[data-knee-lateral-label]').textContent = `${lateral} N`;
+      demo.querySelector('[data-knee-medial-arrow]').setAttribute('d', `M240 ${200 - medial * .04} V190`);
+      demo.querySelector('[data-knee-lateral-arrow]').setAttribute('d', `M80 ${200 - lateral * .04} V190`);
+      output.value = `M＝${signed} N·m；內側 FM＝${medial} N；外側 FL＝${lateral} N`;
+      demo.querySelector('desc').textContent = `兩點等效接觸模型，總力2400牛頓，力矩${signed}牛頓公尺時，內側${medial}牛頓，外側${lateral}牛頓。兩支向下箭頭使用相同比例，表示作用在脛骨側的壓縮力。`;
+    };
+    slider.disabled = false; slider.addEventListener('input', update); update();
+  });
   document.querySelectorAll('[data-airflow]').forEach(demo => {
     const slider = demo.querySelector('input'), output = demo.querySelector('output');
     const signed = (value, digits) => (value < 0 ? '−' : value > 0 ? '+' : '') + Math.abs(value).toFixed(digits);

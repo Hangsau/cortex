@@ -110,6 +110,9 @@ body:has(.rd-page)[data-reader-color="night"] { --rd-paper:#192427; --rd-ink:#e8
 .rd-airflow text { font-size:22px; }
 .rd-hip-support > svg { display:block; max-width:440px; margin-inline:auto; }
 .rd-hip-support text { font-size:22px; }
+.rd-knee-compartments > svg { display:block; max-width:440px; margin-inline:auto; }
+.rd-knee-compartments text { font-size:22px; }
+.rd-page[data-reader-path$="/basic-biomechanics/ch07/"] .rd-prose :is(th, td):first-child { padding-right:16px; text-align:left; }
 .rd-hip-support .rd-hip-axis { fill:var(--rd-ink); }
 .rd-hip-support .rd-hip-bar { stroke-width:12; fill:none; }
 .rd-hip-support .rd-hip-muscle { stroke:var(--rd-ink); stroke-dasharray:8 4; }
