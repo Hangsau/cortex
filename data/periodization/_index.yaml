@@ -2,6 +2,15 @@ domain: periodization
 sub: _index
 schema_version: 1
 structure:
+- id: periodization.structure.gas
+  file: structure.yaml
+  name_zh: 一般適應症候群
+  gist_zh: 用壓力與恢復理解訓練適應的框架；不是個人加量時程的驗證
+  stages:
+  - l2t
+  - t2t
+  - t2c
+  - t2w
 - id: periodization.structure.schools_overview
   file: structure.yaml
   name_zh: 週期化多派概覽
@@ -21,7 +30,7 @@ structure:
 - id: periodization.structure.perception_periodization_bridge
   file: structure.yaml
   name_zh: 感知—週期化橋接
-  gist_zh: 🔵綜合：技能週期化+疲勞損害技能學習有文獻(Branscheidt2019/PoST)；真正🔴空白只剩水感知L0–L6專屬量測
+  gist_zh: 特定手部任務的疲勞學習研究與 PoST 概念框架；跨到游泳及水感知仍需驗證
   stages:
   - l2t
   - t2t
@@ -55,7 +64,7 @@ structure:
 - id: periodization.structure.macrocycle
   file: structure.yaml
   name_zh: 中觀週期
-  gist_zh: 2–6 週的中型週期；最常見 3:1（3 負荷週 + 1 恢復週）
+  gist_zh: 本書數週組成的中型週期；3:1 是選項，依任務與恢復決定
   stages:
   - t2t
   - t2c
@@ -63,7 +72,7 @@ structure:
 - id: periodization.structure.microcycle
   file: structure.yaml
   name_zh: 微觀週期
-  gist_zh: 一週，排課表的最小單位；分發展/競賽/恢復/卸載型
+  gist_zh: 常用一週整理可用課次；每堂依品質與恢復調整，不預設六練一休
   stages:
   - t2t
   - t2c
@@ -249,12 +258,21 @@ zones:
 - id: periodization.zones.swim
   file: zones.yaml
   name_zh: 游泳配速分區應用
-  gist_zh: 組課強度用比賽配速百分比表達；映射 Bompa 不發明數字
+  gist_zh: 組課明列距離、速度、次數與休息；撤回通用賽速分區與每週至少一半賽速配方
   stages:
   - t2t
   - t2c
   - t2w
 dryland:
+- id: periodization.dryland.flexibility
+  file: dryland.yaml
+  name_zh: 柔軟度與活動度介入
+  gist_zh: 先分清被動範圍、主動控制與任務限制，再選介入及水中驗收
+  stages:
+  - l2t
+  - t2t
+  - t2c
+  - t2w
 - id: periodization.dryland.overview
   file: dryland.yaml
   name_zh: 陸訓總覽
@@ -280,7 +298,7 @@ dryland:
 - id: periodization.dryland.concurrent
   file: dryland.yaml
   name_zh: 並行排程殘留疲勞
-  gist_zh: 一般週重陸訓與品質水課隔一晚；掉出基線就拉至24–36h
+  gist_zh: 小樣本隔夜研究未見差異；按同條件表現、RPE 與品質調整，不用通用間隔
   stages:
   - t2c
   - t2w
@@ -312,6 +330,43 @@ dryland:
   file: dryland.yaml
   name_zh: 無反應時的調整規則
   gist_zh: 陸上進步但水中不變就換水中阻力或賽速；每4–6週依乾地→分段→完整成績換法
+  stages:
+  - t2c
+  - t2w
+decisions:
+- id: periodization.decisions.planner
+  file: decisions.yaml
+  anchor: planner
+  name_zh: 套用週期決策
+  gist_zh: 輸入目標、課次、近期反應，取得安排理由、觀察點與調整條件；含三個可試範例
+  stages:
+  - l2t
+  - t2t
+  - t2c
+  - t2w
+- id: periodization.decisions.monitoring
+  file: decisions.yaml
+  anchor: planner-monitoring
+  name_zh: 同條件比較與記錄
+  gist_zh: 計時、RPE、划頻划距與恢復的判讀方向；一張可重用的記錄欄
+  stages:
+  - l2t
+  - t2t
+  - t2c
+  - t2w
+- id: periodization.decisions.set_response
+  file: decisions.yaml
+  anchor: periodization.decisions.set_response
+  name_zh: 2026 組課反應研究
+  gist_zh: 同一乳酸數字可能掩蓋不同生理反應；急性研究不證明長期訓練優劣
+  stages:
+  - t2c
+  - t2w
+- id: periodization.decisions.hrv_response
+  file: decisions.yaml
+  anchor: periodization.decisions.hrv_response
+  name_zh: 2026 HRV 負荷反應研究
+  gist_zh: 加量時 HRV 改變與表現維持可並存，不以單一數字自動加減量
   stages:
   - t2c
   - t2w

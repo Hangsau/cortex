@@ -409,12 +409,12 @@ swim_application:
   source: 依 Bompa & Buzzichelli 2019 表 7.1 與表 11.2 的框架推導（游泳項目對映）
   source_ids:
   - src.bompa-buzzichelli-2019
-  pace_mapping_zh: 🔵 游泳組課強度以『比賽配速百分比』表達，直接套 Bompa & Buzzichelli 的表 7.1：賽配速=zone 2，高於賽配速（衝刺/乳酸耐受）=zone 1，閾值/節奏=zone 3，有氧基礎=zone 4，恢復游=zone 5
+  pace_mapping_zh: 🔵 本庫撤回「所有比賽配速都等於 zone 2」的直接映射。先寫泳式、目標距離、單段秒數或速度（m/s）、次數與休息，再說使用哪套分區；50m 與 1500m 的賽速不能歸為同一生理要求。速度百分比與每段用時百分比互為倒數，不能直接互換。
   event_metabolic_zh: 🔵 50–100m 偏無氧功率（zone 1–2）；200m 混合（Fig 5.11 bi-cycle 範例即 200m）；400–1500m 為肌耐力主導，需 specific endurance 階段大量 zone 3–4 鋪墊
-  weekly_distribution_zh: 🔵 依 Bompa『每週 ≥50% 賽配速』原則，swim-coach 週課表應確保賽配速組（zone 2）占足比重，其餘以 zone 4 有氧基礎與 zone 5 恢復填充
-  energy_system_zh: 🔵 swim-coach 生成單組課時，用 hr_vo2_ergogenesis 對照表標記該組主導能量系統，避免賽季階段與能量系統錯配（如競賽期仍堆 50% HR 主動恢復量）
+  weekly_distribution_zh: 🔵 不把 Bompa 通用表格轉成每週至少 50% 游泳賽配速的自動規則。先定義分母是距離、時間或課次，再依目標、已能承受的負荷與觀察反應安排。
+  energy_system_zh: 🔵 能量系統表可供理解任務需求；生成課程仍需實際速度、距離、次數、休息與個人反應，不能由一個分區名稱推定整組生理反應。
   author_mapping_note_zh: 🔵 誠實標記：這整個節點是『把 Bompa 通用框架推導到游泳』的自製映射（cert 🔵），不是游泳實證——Bompa 的『最大表現百分比』本來不是為游泳設計的。游泳教練實際開課用的是別的語言：Maglischo 用血乳酸六分區（swim_maglischo）；Sweetenham 用 BBM（最大心率以下幾拍，個體化、只需心率不需採血）並主張反向週期化（速度先行當全季校準錨，而非賽季末才碰）；Olbrecht 用個體乳酸測試（olbrecht_model）。要更貼實務，優先用這些游泳專項語言，本節僅作 Bompa 框架的對接橋樑。
-  plain_zh: 游泳怎麼套 Bompa 這套：組課強度用『比賽配速百分比』講——賽配速＝zone 2，比賽更快（衝刺/乳酸耐受）＝zone 1，閾值/節奏＝zone 3，有氧基礎＝zone 4，恢復游＝zone 5。但要老實說：這是把通用理論硬套到游泳的自製對照，不是游泳實證。游泳教練實際上更常用 Maglischo 的乳酸六分區、或 Sweetenham 的 BBM（最大心率以下幾拍）。要貼近現場，優先用那些游泳專用的語言。
+  plain_zh: 組課先寫清楚要游什麼、多久、休多久。比賽配速的意義依泳式和距離改變，不能一律當成同一區，也不套每週至少一半賽速的通用配方。分區是描述工具，還要看實際完成品質與恢復。
   links:
     development_stages:
     - t2t

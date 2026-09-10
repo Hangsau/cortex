@@ -47,6 +47,7 @@
 {{ $bridgePages := (.Site.GetPage "/vortex/bridge").Pages }}
 {{ $sourcePages := (.Site.GetPage "/vortex/instructional").Pages }}
 {{ $periodPage  := .Site.GetPage "/vortex/periodization" }}
+{{ $DecisionIndex := index hugo.Data "periodization" "_index" "decisions" }}
 
 {{ $strokeChips := slice "all" "free" "back" "breast" "fly" "udk" "starts-turns" }}
 {{ $types := slice
@@ -61,7 +62,7 @@
   (dict "k" "adm"    "zh" "發展"     "n" (add (len $stds) (len $pillars)))
   (dict "k" "frame"  "zh" "水感框架" "n" (len $framePages))
   (dict "k" "bridge" "zh" "感知銜接" "n" (len $bridgePages))
-  (dict "k" "period" "zh" "訓練週期" "n" 1)
+  (dict "k" "period" "zh" "訓練週期" "n" (add 1 (len $DecisionIndex)))
   (dict "k" "source" "zh" "教學原文" "n" (len $sourcePages)) }}
 
 <div class="vx-shell">
@@ -249,6 +250,14 @@
         {{ with $sum }}<p>{{ . }}</p>{{ end }}
         <a class="vx-find-go" href="{{ .RelPermalink }}">看完整 →</a>
       </div>
+    </details>
+    {{ end }}
+
+    {{/* 決策入口由 canonical 概念目錄產生，與正文共用落點。 */}}
+    {{ range $DecisionIndex }}
+    <details class="vx-card vx-tech vx-find-card" data-type="period" data-s="common" data-cat="period" data-catlabel="訓練週期" data-text="{{ lower (printf "%s %s" .name_zh .gist_zh) }}">
+      <summary><span class="vx-cardcat">訓練週期</span><span class="vx-cardtitle">{{ .name_zh }}</span></summary>
+      <div class="vx-card-body"><p>{{ .gist_zh }}</p><a class="vx-find-go" href="{{ $periodPage.RelPermalink }}#{{ .anchor }}">開啟這一節 →</a></div>
     </details>
     {{ end }}
 

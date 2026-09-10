@@ -1,0 +1,66 @@
+/* 週期決策工具：沿 Vortex 紙色／銅綠，只作用於本元件。 */
+.vx-planner { font-family: var(--vx-serif); overflow-wrap: anywhere; }
+.vx-planner [hidden] { display: none; }
+.vx-planner h3 { margin: 2rem 0 1rem; font-size: 1.3rem; line-height: 1.6; }
+.vx-planner h4 { margin: 0 0 .6rem; font-size: 1.05rem; line-height: 1.7; }
+.vx-planner p { line-height: 1.85; }
+.vx-planner-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; list-style: none; padding: 0; margin: 2rem 0; counter-reset: planner-step; }
+.vx-planner-flow li { border-top: 2px solid var(--vx-accent); padding-top: .8rem; counter-increment: planner-step; }
+.vx-planner-flow strong { display: block; margin-bottom: .6rem; }
+.vx-planner-flow strong::before { content: "0" counter(planner-step) " / "; color: var(--vx-accent2); font-family: var(--vx-mono); }
+.vx-planner-flow span { display: block; font-size: 1rem; line-height: 1.8; }
+.vx-planner-form { margin: 2rem 0; }
+.vx-planner fieldset { min-width: 0; padding: 1.3rem 0; border: 0; border-top: 1px solid var(--vx-rule2); }
+.vx-planner legend { padding: 0 1rem 0 0; color: var(--vx-accent2); font-weight: 700; }
+.vx-planner-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+.vx-planner-field { min-width: 0; }
+.vx-planner-field label { display: block; margin-bottom: .5rem; font-weight: 600; }
+.vx-planner input, .vx-planner select, .vx-planner textarea { box-sizing: border-box; width: 100%; min-width: 0; padding: .8rem .7rem; border: 1px solid var(--vx-rule2); border-radius: 0; background: var(--vx-paper); color: var(--vx-ink); font: 1rem/1.6 var(--vx-mono); }
+.vx-planner input::placeholder { color: var(--vx-sub); }
+.vx-planner .vx-planner-hint { font: .9rem/1.8 var(--vx-mono); color: var(--vx-sub); margin-top: .6rem; }
+.vx-planner button { min-height: 44px; padding: .65rem 1rem; border: 1px solid var(--vx-accent2); border-radius: 0; font: 1rem/1.6 var(--vx-mono); background: transparent; color: var(--vx-accent2); cursor: pointer; white-space: normal; }
+.vx-planner button:hover { background: var(--vx-paper2); }
+.vx-planner .vx-planner-primary { background: var(--vx-accent2); color: var(--vx-paper); }
+.vx-planner .vx-planner-primary:hover { background: var(--vx-ink); }
+.vx-planner :is(input, select, button, textarea, summary, a, [tabindex]):focus-visible { outline: 3px solid var(--vx-accent2); outline-offset: 3px; }
+.vx-planner-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin: 1.2rem 0; }
+.vx-planner-status { color: var(--vx-accent2); font-family: var(--vx-mono); }
+.vx-planner-status:empty { display: none; }
+.vx-planner-result { margin: 2rem 0; padding: 1.5rem; border: 1px solid var(--vx-rule2); border-top: 4px solid var(--vx-accent2); background: var(--vx-paper); }
+.vx-planner-eyebrow { font: .85rem/1.6 var(--vx-mono); color: var(--vx-accent2); letter-spacing: .12em; }
+.vx-planner-result h3 { margin: .5rem 0 1.3rem; }
+.vx-planner-result h4 { margin: 1.6rem 0 .4rem; color: var(--vx-accent2); }
+.vx-planner-slots { padding-left: 1.5rem; }
+.vx-planner-slots li { margin: .8rem 0; padding-left: .3rem; line-height: 1.85; }
+.vx-planner-slots strong { display: block; }
+.vx-planner-examples { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+.vx-planner-examples article { padding-top: 1rem; border-top: 1px solid var(--vx-rule2); }
+.vx-planner-examples p { font-size: 1rem; }
+.vx-planner-details { border-bottom: 1px solid var(--vx-rule2); padding: 1.25rem 0; }
+.vx-planner summary { cursor: pointer; font-weight: 600; font-size: 1.05rem; line-height: 1.7; }
+.vx-planner-table-wrap { overflow-x: auto; margin-top: 1rem; }
+.vx-planner-table { border-collapse: collapse; min-width: 620px; width: 100%; text-align: left; font-size: 1rem; line-height: 1.85; }
+.vx-planner-table th, .vx-planner-table td { vertical-align: top; border-bottom: 1px solid var(--vx-rule); padding: .8rem; width: 33.33%; }
+.vx-planner-table thead { background: var(--vx-paper2); }
+.vx-planner-table span { display: block; font-weight: 400; margin-top: .7rem; }
+.vx-planner-measures { display: grid; grid-template-columns: 9rem 1fr; gap: 1rem; margin: 1.5rem 0; line-height: 1.85; }
+.vx-planner-measures dt { font-weight: 600; }
+.vx-planner-measures dd { margin: 0; }
+.vx-planner-record, .vx-planner-note { padding: 1rem; border-left: 3px solid var(--vx-accent); background: var(--vx-paper2); }
+.vx-planner-study { margin: 1.5rem 0; }
+.vx-planner-copy { min-height: 18rem; }
+@media (max-width: 1000px) {
+  .vx-planner-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .vx-planner-examples { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .vx-planner-fields { grid-template-columns: 1fr; }
+  .vx-planner-flow { gap: 1rem; }
+  .vx-planner-result { padding: 1rem; }
+  .vx-planner-measures { grid-template-columns: 1fr; gap: .4rem; }
+  .vx-planner-measures dd { margin-bottom: 1rem; }
+}
+@media print {
+  .vx-planner-form, .vx-planner-actions, .vx-planner-examples button, .vx-planner-status, .vx-planner-copy { display: none; }
+  .vx-planner-result { break-inside: avoid; }
+}

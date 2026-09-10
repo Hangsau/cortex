@@ -1,0 +1,382 @@
+domain: periodization
+sub: decisions
+schema_version: 1
+planner:
+  id: periodization.decisions.planner
+  cert: 🔵
+  name_zh: 把週期化變成每週可重用的決策
+  plain_zh: 先選一個目標，用可重複的方式觀察；每次只改一個主要變項，再用表現、完成品質和恢復決定下一步。
+  provenance_zh: 渦流計畫的操作模型；用於整理與試行，尚未經訓練成效試驗驗證。
+  evidence_from:
+  - periodization.decisions.monitoring
+  - periodization.dryland.needs_analysis
+  - periodization.structure.perception_periodization_bridge
+  version: '1.0'
+  steps:
+  - title: 定目標
+    text: 用一件看得見的事描述這段時間要改善什麼，例如同一泳段後半段較少掉速。
+  - title: 排資源
+    text: 先填確實能練的次數與時間，挑一個主重點，其餘只做維持。
+  - title: 看反應
+    text: 在相近條件下比較表現、完成品質、吃力程度與隔日恢復。
+  - title: 決定下一步
+    text: 維持、只推進一項、暫減負荷，或重新檢查訓練有沒有轉移到目標。
+  fields:
+  - key: population
+    label: 最接近的訓練情境
+    group: context
+    options:
+    - key: child
+      label: 兒童學習
+      note: 由教練陪同使用，以願意參與、能理解任務與重複完成為先；競賽與加量由教練依發展狀況調整。
+    - key: youth
+      label: 青少年訓練／競賽
+      note: 把學校、其他運動與成長期的恢復需求一起考慮；比賽與負荷變動交由教練核對。
+    - key: beginner
+      label: 成人初學／重新建立習慣
+      note: 先選目前能自在重複的任務；可把速度目標改成完成品質，不必先做全力測驗。
+    - key: trained
+      label: 成人規律訓練／競賽
+      note: 以自己的近期紀錄和主項需求決定任務；陸訓與其他運動一併計入恢復。
+    - key: masters
+      label: 壯年／高齡泳者
+      note: 依近期訓練史、睡眠與個別限制調整間隔，年齡本身不直接決定強度。
+    - key: triathlon
+      label: 鐵人三項
+      note: 把跑步與自行車的關鍵課一起排進日程；游泳可用次數不等於全週總負荷。
+    - key: adapted
+      label: 身心障礙／需個別調整
+      note: 由熟悉個人狀況的教練協助，採可及的任務與個人基線；本表不換算障別或復健劑量。
+  - key: goal
+    label: 這段時間的第一重點
+    group: context
+    options:
+    - key: skill
+      label: 建立／穩定一項技巧
+      primary: 用能重複完成的短任務，練同一個技巧重點；品質變差時先縮短任務或增加休息。
+      maintenance: 用熟悉的泳姿輕鬆活動，保留已會的能力。
+      measure: 記下任務條件與成功完成的次數；隔一堂課還能完成，才比當場一次做對更有參考價值。
+      progression: 先增加一種情境變化，例如換距離或節奏；仍能重複完成才保留。
+    - key: pace
+      label: 在目標速度下維持動作
+      primary: 在已能掌握的速度附近練短段，對照前後段時間與動作；先找最早失去品質的地方。
+      maintenance: 保留熟悉的技巧及輕鬆游，給下一次品質練習留下恢復空間。
+      measure: 同泳式、池長、出發方式與休息，記每段秒數及動作品質；不把划頻或划距單獨變大當進步。
+      progression: 只改重複次數、單段距離或休息其中一項，速度與品質維持才保留。
+    - key: endurance
+      label: 更從容地完成目標距離
+      primary: 用目前能掌握的距離與休息完成主組，觀察後段是否更吃力或動作開始散掉。
+      maintenance: 保留短段技巧練習，避免只累積距離而失去完成品質。
+      measure: 固定距離與組間休息，記分段秒數、吃力程度及隔日恢復；也可先以穩定完成為目標。
+      progression: 只增加一點可完成的距離或次數，不同時提高速度與縮短休息。
+    - key: race
+      label: 準備一場已知比賽
+      primary: 選主項最需要改善的一段，例如出發、轉身或後段節奏，以熟悉且可恢復的任務練習。
+      maintenance: 保留其他比賽環節的熟悉感與輕鬆活動；近期賽程由下方時間情境一起決定。
+      measure: 固定主項、泳段、出發與計時方式，比較該段及完整任務，避免只看陸上數字。
+      progression: 非近期賽前且恢復良好時，才小幅增加一個專項要求；實際配速依主項及個人紀錄決定。
+  - key: event
+    label: 比賽或目標驗收的時間
+    group: context
+    options:
+    - key: none
+      label: 尚未訂日期
+      note: 先把下一次可比較的觀察排進日程，無須為了套週期而臨時訂比賽。
+    - key: later
+      label: 超過兩週以後
+      note: 現階段先處理主重點，接近事件時再重新填表。
+    - key: soon
+      label: 兩週內
+      note: 兩週只是這版工具辨識近期事件的窗口；實際減量起點和比例需看既有課量、項目與個人經驗。
+  - key: readiness
+    label: 今天與最近的恢復狀態
+    group: response
+    options:
+    - key: normal
+      label: 大致和平常相同
+    - key: fatigued
+      label: 異常疲累／睡眠差，影響完成品質
+    - key: symptoms
+      label: 疼痛或身體不適，已影響活動
+  - key: trend
+    label: 相近條件下，近期觀察到什麼
+    group: response
+    hint: 需有數次可比較的紀錄；只有一次測驗、條件改變或彼此矛盾時，請選「還不確定」。
+    options:
+    - key: unknown
+      label: 還不確定／尚無可比較紀錄
+    - key: improving
+      label: 目標改善，品質與恢復也可承受
+    - key: stable
+      label: 目標大致持平，品質與恢復穩定
+    - key: declining
+      label: 反覆退步，或同樣任務越來越吃力
+    - key: transfer
+      label: 陸上／局部能力變好，目標泳段仍沒改變
+  resources:
+    sessions:
+      label: 每週可用的游泳課次
+      min: 1
+      max: 7
+      default: 3
+      note: 本版支援每週 1–7 次；代表可用機會，不代表應練滿，多於 7 次由教練另排。
+    minutes:
+      label: 每次最多可用幾分鐘
+      min: 1
+      max: 240
+      default: 45
+      note: 包含熱身與收操的時間上限；不要求填滿，不足以完成任務時就縮短主組。
+  rules:
+  - key: stop
+    when:
+    - field: readiness
+      values:
+      - symptoms
+    title: 先停止引發症狀的任務
+    affirmative_conclusion: 此時先處理症狀，原先的進度或比賽目標暫不決定負荷。
+    works_when: 疼痛或不適已影響活動，包括今天看似仍有進步的情況。
+    fails_when: 尚未釐清症狀就用本表安排恢復、重訓或賽前測驗。
+    how_to_identify: 記下何時、哪個任務引發不適及是否持續；不需要忍痛重測來證明。
+    action: 暫停引發症狀的練習，和教練或醫療人員討論；若有胸痛、暈厥或明顯呼吸困難，停止運動並立即求助。
+    next: 症狀原因與可活動範圍釐清後，再以新的可用條件重填。
+    remaining_boundary: 本表無法判斷傷病原因或決定何時可恢復訓練。
+    schedule: none
+  - key: adjust_today
+    when:
+    - field: readiness
+      values:
+      - fatigued
+    title: 今天先降低要求，再看恢復
+    affirmative_conclusion: 一次異常疲勞先改今天，不直接判定整個週期失敗。
+    works_when: 異常疲累或睡眠差已影響品質，但沒有活動受限的疼痛或不適。
+    fails_when: 多次退步持續、休息後仍未恢復，或出現症狀。
+    how_to_identify: 對照睡眠、其他運動和相同任務的吃力程度；HRV 單日下降不等同此分支。
+    action: 縮短或取消今天的主組，恢復良好時才做熟悉且容易完成的任務，取消補課與臨時測最大值。
+    next: 下次練習前再看恢復；若疲勞持續，檢查全週負荷與生活壓力，不硬接原定進度。
+    remaining_boundary: 疲勞成因尚未確定；這是暫時調整，不是過度訓練診斷。
+    schedule: recovery
+  - key: recover
+    when:
+    - field: trend
+      values:
+      - declining
+    title: 回看整週負荷，先恢復可完成的品質
+    affirmative_conclusion: 可比較任務反覆變差，值得暫減要求並檢查負荷配置。
+    works_when: 相近條件下反覆退步、同速 RPE 上升，或品質愈來愈難維持。
+    fails_when: 池長、距離、出發、休息或計時方式不同，尚不能說是反覆退步。
+    how_to_identify: 先確認測試可比，再對照睡眠、陸訓與其他運動是否增加。
+    action: 撤掉額外加量，縮短品質主組或拉開吃力課的間隔；從最近能承受的安排重新觀察。
+    next: 品質與恢復回到個人平常範圍才重談推進；若仍持續變差，請教練協助重查限制與健康狀況。
+    remaining_boundary: 沒有通用的退步百分比，也不以兩次測試直接診斷非功能性過度負荷。
+    schedule: recovery
+  - key: consolidate
+    when:
+    - field: event
+      values:
+      - soon
+    title: 近期要驗收，保留熟悉感與恢復
+    affirmative_conclusion: 接近既定事件時，先整理已有能力，暫不追趕新進度。
+    works_when: 比賽或目標驗收在兩週內，且前面沒有症狀或退步分支需要處理。
+    fails_when: 將兩週窗口視為人人必須減量 14 天，或沒有原課量卻直接套固定減量百分比。
+    how_to_identify: 核對事件日期、熟悉任務與以前的賽前反應；沒經驗就保留不確定性。
+    action: 以熟悉任務確認節奏，保留恢復空間，不補漏課、不新加重訓或大幅改技術；已有減量紀錄者和教練據此調整。
+    next: 事件前觀察是否更從容且品質維持；事件後把實際反應留作下一次依據。
+    remaining_boundary: 未輸入原課量、主項及歷次減量反應，本版不計算減量比例與最佳天數。
+    schedule: familiar
+  - key: baseline
+    when:
+    - field: trend
+      values:
+      - unknown
+    title: 先建立能比較的基線
+    affirmative_conclusion: 資料不足時仍可練習，但先固定觀察方式，保留原本能承受的要求。
+    works_when: 沒有紀錄、只有一次結果，或近期資料互相矛盾。
+    fails_when: 把資料不足當能力不足，因而增加強度或重複全力測驗。
+    how_to_identify: 選一個已能完成的短任務，固定條件並記錄數次，確認自然波動。
+    action: 保留熟悉練習，在其中放入一個可比較的觀察點；先學會記錄，再判斷要加什麼。
+    next: 累積相近條件下的數次紀錄後，重選「改善、持平、退步」；未形成趨勢就繼續觀察。
+    remaining_boundary: 本版不從單次秒數或年齡估計能力，也不保證固定週數就能辨認趨勢。
+    schedule: baseline
+  - key: transfer
+    when:
+    - field: trend
+      values:
+      - transfer
+    title: 檢查能力有沒有用到目標任務
+    affirmative_conclusion: 局部能力改善但目標未變，可先檢查轉移環節，而非繼續堆同一種負荷。
+    works_when: 已在合理觀察期內多次比較，局部能力的改善可重複，目標泳段仍持平。
+    fails_when: 只測兩次就認定方法無效，或目標測試仍在變換條件。
+    how_to_identify: 依序對照局部能力、對應水中段落及完整任務；確認哪一層最先沒有變化。
+    action: 和教練檢查動作時機、阻力、疲勞與任務選擇；保留有用能力，只換一個可能影響轉移的環節。
+    next: 約定符合該能力適應時間的重看日期，再用同一目標任務比較；若仍無變化就重查原限制假設。
+    remaining_boundary: 這個分支提出待驗假設，不代表已證明陸訓無效或該立刻改做水中阻力。
+    schedule: regular
+  - key: progress
+    when:
+    - field: trend
+      values:
+      - improving
+    title: 目前有效，可維持或只推進一項
+    affirmative_conclusion: 目標、完成品質與恢復一起良好時，原安排值得保留，必要時只增加一項要求。
+    works_when: 數次可比較的紀錄顯示改善，且沒有症狀、異常疲勞或近期事件需要優先處理。
+    fails_when: 只有陸上數字、單次最好成績或 HRV 上升，目標任務與恢復尚未改善。
+    how_to_identify: 比較相同任務的結果、品質、RPE 與隔日恢復；進步不必每週出現。
+    action: 可以維持有效安排；想推進時只改一項，其他條件保持可比，不自動每週加固定百分比。
+    next: 改變後仍可承受就保留；若品質或恢復變差，撤回這次新增要求。
+    remaining_boundary: 進步與安排同時發生不等於已證明因果；本表不預測改善幅度。
+    schedule: regular
+  - key: maintain
+    when: []
+    title: 維持安排，約定下一次重看
+    affirmative_conclusion: 品質與恢復穩定、目標暫持平時，可以保留一個清楚重點，不急著加量。
+    works_when: 已有可比較紀錄，暫時持平且沒有前面需要優先處理的條件。
+    fails_when: 沒有約定觀察時間卻無限維持，或把短期持平直接當成平台期。
+    how_to_identify: 檢查是否真的完成預定任務、觀察期是否足夠，以及目標是不是可測量。
+    action: 保留主重點與維持課，約定重看日期；漏課就按剩餘機會續排，不把缺的量擠在一起。
+    next: 到約定時間再看目標與恢復；若持續沒變化，先檢查限制假設和任務，再決定換法。
+    remaining_boundary: 各能力所需時間不同，本表不提供通用的幾週無效門檻。
+    schedule: regular
+  slot_templates:
+    observe:
+      title: 建立／重看觀察點
+      text: 把一個熟悉、可重複的任務放進原有練習，固定條件記錄；不用做全力測驗。
+    primary:
+      title: 本階段主重點
+      text: 先熱身，把精神與可用時間留給主重點；仍需留出收操，不要求填滿時間。
+    maintain:
+      title: 維持與輕鬆練習
+      text: 保留熟悉能力，為下一次主重點練習留下恢復空間。
+    review:
+      title: 同條件再看一次
+      text: 用前次相同方式觀察；條件對不上就只留紀錄，不急著下結論。
+    recovery:
+      title: 視恢復決定是否練
+      text: 可取消這次機會；恢復良好時才做縮短、熟悉的任務，不追趕進度。
+    familiar:
+      title: 熟悉任務與恢復
+      text: 確認既有節奏與比賽環節，依恢復縮短或取消額外要求；不要把每次都排成測驗。
+  cadence:
+    regular:
+    - primary
+    - maintain
+    - review
+    - maintain
+    - primary
+    - maintain
+    - maintain
+    baseline:
+    - observe
+    - maintain
+    - review
+    - maintain
+    - primary
+    - maintain
+    - maintain
+    recovery:
+    - recovery
+    - recovery
+    - recovery
+    - recovery
+    - recovery
+    - recovery
+    - recovery
+    familiar:
+    - familiar
+    - maintain
+    - familiar
+    - maintain
+    - familiar
+    - maintain
+    - maintain
+    none: []
+  scheduling_note: 以下按可用機會列出重點，不指定星期或必練次數。兩次有要求的練習之間保留足夠恢復；只有一次課，就在下一週相近條件重看。漏課不補量。
+  examples:
+  - key: adult-three
+    title: 每週三次，100 公尺後半段掉速
+    situation: 成人已有規律練習，但目前只有一次計時。先找出是配速、動作品質或當天疲勞的問題。
+    inputs:
+      population: trained
+      goal: pace
+      event: none
+      readiness: normal
+      trend: unknown
+      sessions: 3
+      minutes: 45
+    takeaway: 先建立基線：第一次固定條件觀察，第二次維持與輕鬆練習，第三次同條件重看。不直接把掉速判成體能不足。
+  - key: youth-race
+    title: 青少年近期比賽，今天特別疲累
+    situation: 最近成績進步，但睡眠差，今天已難維持動作。
+    inputs:
+      population: youth
+      goal: race
+      event: soon
+      readiness: fatigued
+      trend: improving
+      sessions: 4
+      minutes: 60
+    takeaway: 先調整今天。近期比賽與過去進步都不蓋過眼前的恢復需求；下次練習前再判斷。
+  - key: triathlon-transfer
+    title: 鐵人選手陸上進步，泳段仍持平
+    situation: 局部力量持續改善，游泳目標經數次比較仍未改變，目前恢復正常。
+    inputs:
+      population: triathlon
+      goal: endurance
+      event: later
+      readiness: normal
+      trend: transfer
+      sessions: 2
+      minutes: 40
+    takeaway: 檢查轉移並合看跑騎負荷，只改一個可能限制泳段的環節；下週再安排可比較的觀察。
+  links:
+    related:
+    - periodization.decisions.monitoring
+    - periodization.taper.swim
+    - periodization.dryland.needs_analysis
+monitoring:
+  id: periodization.decisions.monitoring
+  name_zh: 先對齊量測，再判斷進退
+  cert: 🔵
+  evidence_from:
+  - periodization.decisions.set_response
+  - periodization.decisions.hrv_response
+  - periodization.dryland.concurrent
+  plain_zh: 同泳式、池長、出發、距離、休息與計時方法才可比較；先記任務條件，再一起看結果、品質與恢復。
+  measures:
+  - name: 計時與速度
+    reading: 同距離用時變少才是更快；m/s 變大才是更快。「配速下降」必須先說單位。
+  - name: 吃力程度 RPE
+    reading: 同任務、同品質下 RPE 較低可表示較從容；同速越來越吃力才值得回看疲勞。RPE 不是單獨的成效判定。
+  - name: 划頻 SR／划距 SL
+    reading: 兩者要連同速度、泳式及任務判讀，並非越大或越小就越好。
+  - name: 恢復與 HRV
+    reading: 一起記睡眠、症狀和隔日完成品質；HRV 若有量，固定方法比較，不用單日數字直接停課或加量。
+  record: 日期｜任務（泳式、池長、出發、距離×次數、休息）｜各段秒數｜完成品質｜RPE 與量表｜隔日恢復｜今天改了哪一項｜下次重看日期
+  links:
+    related:
+    - periodization.decisions.planner
+set_response:
+  id: periodization.decisions.set_response
+  name_zh: 新研究：同一乳酸數字可能掩蓋不同組課反應
+  cert: 🟢
+  source_ids:
+  - src.nikitakis-toubekis-2026-training-sets
+  source_locator: PubMed 41410759，Abstract Methods / Results / Conclusions
+  plain_zh: 30 名男性泳者（19±3 歲）的急性組課研究指出，單一血乳酸濃度相近時，乳酸累積、酸鹼及自主神經反應仍可能不同。
+  action_zh: 專案應用：先記距離、次數、速度和休息，再把 RPE 與完成品質一起看；不要求一般泳者額外做採血檢查。
+  boundary_zh: 2026 年期刊刊出，2025 年 12 月先上線；本次核到摘要。這是單次反應，沒有證明某套組課帶來更好的長期適應。
+  links:
+    related:
+    - periodization.decisions.monitoring
+hrv_response:
+  id: periodization.decisions.hrv_response
+  name_zh: 新研究：HRV 改變不等於游泳表現變差
+  cert: 🟢
+  source_ids:
+  - src.carvalho-2026-overload-hrv
+  source_locator: PubMed 41348148，Abstract Methods / Results / Conclusions
+  plain_zh: 14 名高水準泳者（17.5±1.5 歲）接受三個七日週期監測；加量期間部分 HRV 指標下降，但睡眠、陸上與游泳表現維持。
+  action_zh: 專案應用：把 HRV 當作負荷反應的補充線索，同看表現與恢復；本工具不設 HRV 自動停課或加量門檻。
+  boundary_zh: 2026 年期刊刊出，2025 年 12 月先上線；本次核到摘要。小樣本短期研究，不能直接產生個人過度訓練診斷。
+  links:
+    related:
+    - periodization.decisions.monitoring

@@ -4,6 +4,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+TC:wght@400;500;600;700&family=Quattrocento+Sans:wght@400;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
 <link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex-nav.css">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex-periodization-planner.css">
 {{ end }}
 
 {{ define "main" }}
@@ -27,6 +28,7 @@
       <div class="vx-rail-scroll">
         <ul class="vx-rail-list">
           <li><a class="vx-navlink" href="#overview" data-spy="overview"><span class="n">0</span>概覽</a></li>
+          <li><a class="vx-navlink" href="#planner" data-spy="planner"><span class="n">→</span>套用週期決策</a></li>
         </ul>
       </div>
 
@@ -53,10 +55,11 @@
       {{/* ── 概覽 ── */}}
       <section class="vx-panel vx-overview" id="overview">
         <span class="vx-sec-no">訓練週期化</span>
-        <h2>週期化 — 不是一套定論，是幾派的辯論</h2>
-        <p class="vx-premise">週期化常被當成「Bompa 那一套標準答案」來教，但它其實是幾套互相辯論的框架：傳統線性（Bompa）、板塊集中（Issurin）、極化分布（Seiler/TID）、能量系統個體化（Olbrecht）、反向週期化（Sweetenham）。它們問的問題不同、適用對象不同——把任何一派當鐵律都是誤讀。本頁先給你一張「幾派在吵什麼」的地圖，再進到年度結構、減量、強度分區的具體內容；每塊都標出哪裡是哪一派的主張、哪裡是作者綜合。它是 <a href="{{ $base }}vortex/adm/matrix/">ADM 發展矩陣</a> 裡「48 週年度計畫 · 一年兩巔峰」背後的可操作理論。整頁是一份從上讀到下的文件，五個主題依序排列；點任一主題直接跳到那一段。</p>
+        <h2>先選訓練重點，再決定怎麼推進</h2>
+        <p class="vx-premise">週期化先從目標、可用時間與實際反應開始。下方工具把這些條件連成可重複使用的流程，給你本輪重點、安排理由和重看條件；再往下，可查傳統、板塊、強度分布等框架，以及年度結構、減量、分區與陸訓的原理。不同框架各有適用範圍，文獻發現與本站的操作模型會分開說明。</p>
         <p class="vx-panel-lead">選一個主題開始：</p>
         <div class="vx-path-list">
+          <a class="vx-path-item" href="#planner"><span class="n">→</span><span><span class="t">套用週期決策</span><span class="o">填目標與近期反應 · 看本輪安排 · 決定何時維持、推進或調整</span></span></a>
           <a class="vx-path-item" href="#schools">
             <span class="n">1</span>
             <span><span class="t">週期化的幾種流派</span><span class="o">五派地圖 · 各派核心問題 · 你要回答哪個問題 · 作者立場 · 感知缺口</span></span>
@@ -80,15 +83,19 @@
         </div>
         <a class="vx-overview-teaser" href="#perception-gap">
           <span class="vx-cert">🔵</span>
-          <span>這頁主體是 Bompa 那一套已出版的生理週期化；但本站認為「感知穩定度本身也該被週期化」。其中「技能可被週期化、疲勞會傷技能學習」這一層其實有文獻撐（Branscheidt 2019、PoST 框架）；真正還沒驗證的，只剩把它收窄成 Vortex「水感知」之後的專屬量測。讀「流派」那節的末段會碰到完整分層。</span>
+          <span>技巧也需要安排建立、重複與應用的時機。特定手部任務的疲勞學習研究及 PoST 概念框架提供線索；如何用於游泳及水感知，仍是本站需要驗證的操作模型。</span>
           <span class="arr">看這個缺口 →</span>
         </a>
-        <p class="vx-legend">確定性：🔵 推導／作者綜合 · 🟢 近期文獻 · 🟡 舊文獻（週期化基礎理論） · 🟠 教練觀測 · 🔴 待查／未驗證假設。本頁為公開週期化理論，描述年度計畫結構與處方原則，不含感知診斷內容。所有數字溯源至 Bompa 原文章節／表格或外部文獻（PMID／DOI）並標確定性；多派立場與作者綜合明確分層標示。</p>
+        <p class="vx-legend">確定性：🔵 推導／作者綜合 · 🟢 近期文獻 · 🟡 舊文獻（週期化基礎理論） · 🟠 教練觀測 · 🔴 待查／未驗證假設。本頁為公開週期化理論，描述年度計畫結構與處方原則，不含感知診斷內容。研究範圍與來源在各節說明；工具的分支與安排屬本站操作模型，後續仍需依使用反應修訂。</p>
         <nav class="vx-flow">
           <span></span>
-          <a class="nx" href="#schools"><span class="lbl">下一個主題</span>週期化的幾種流派 →</a>
+          <a class="nx" href="#planner"><span class="lbl">先試用</span>套用週期決策 →</a>
         </nav>
       </section>
+
+      {{ with index hugo.Data "periodization" "decisions" }}
+        {{ partial "vortex/periodization-planner.html" (dict "guide" . "sources" (index hugo.Data "vortex" "source-registry" "sources")) }}
+      {{ end }}
 
       {{/* ════════ 主題 1 · 週期化的幾種流派 ════════ */}}
       <section class="vx-panel vx-move" id="schools">
@@ -1182,4 +1189,5 @@
 </div>
 
 <script src="{{ .Site.BaseURL }}js/vortex.js" defer></script>
+<script src="{{ .Site.BaseURL }}js/vortex-periodization-planner.js" defer></script>
 {{ end }}

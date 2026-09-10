@@ -1,0 +1,105 @@
+{{ $Guide := .guide }}
+{{ $Planner := $Guide.planner }}
+{{ $Sources := .sources }}
+<section class="vx-panel vx-planner" id="planner" data-vx-planner>
+  <span class="vx-sec-no">先套用 · 再讀原理</span>
+  <h2>{{ $Planner.name_zh }}</h2>
+  <p class="vx-panel-lead">{{ $Planner.plain_zh }}</p>
+  <ol class="vx-planner-flow">
+    {{ range $Planner.steps }}<li><strong>{{ .title }}</strong><span>{{ .text }}</span></li>{{ end }}
+  </ol>
+
+  <form class="vx-planner-form" hidden>
+    <fieldset>
+      <legend>1 · 目標與可用時間</legend>
+      <div class="vx-planner-fields">
+        {{ range $Planner.fields }}{{ if eq .group "context" }}
+        <div class="vx-planner-field">
+          <label for="vp-{{ .key }}">{{ .label }}</label>
+          <select id="vp-{{ .key }}" name="{{ .key }}" required>
+            <option value="">請選擇</option>
+            {{ range .options }}<option value="{{ .key }}">{{ .label }}</option>{{ end }}
+          </select>
+        </div>
+        {{ end }}{{ end }}
+        <div class="vx-planner-field">
+          <label for="vp-goal-note">把目標寫得更具體（選填）</label>
+          <input id="vp-goal-note" name="goal_note" type="text" maxlength="160" placeholder="例如：100 公尺後半段較少掉速">
+        </div>
+        {{ range $Key := slice "sessions" "minutes" }}{{ $Resource := index $Planner.resources $Key }}
+        <div class="vx-planner-field">
+          <label for="vp-{{ $Key }}">{{ $Resource.label }}</label>
+          <input id="vp-{{ $Key }}" name="{{ $Key }}" type="number" step="1" min="{{ $Resource.min }}" max="{{ $Resource.max }}" value="{{ $Resource.default }}" aria-describedby="vp-{{ $Key }}-hint" required>
+          <p id="vp-{{ $Key }}-hint" class="vx-planner-hint">{{ $Resource.note }}</p>
+        </div>
+        {{ end }}
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>2 · 最近的反應</legend>
+      <div class="vx-planner-fields">
+        {{ range $Planner.fields }}{{ if eq .group "response" }}
+        <div class="vx-planner-field">
+          <label for="vp-{{ .key }}">{{ .label }}</label>
+          <select id="vp-{{ .key }}" name="{{ .key }}" required{{ if .hint }} aria-describedby="vp-{{ .key }}-hint"{{ end }}>
+            <option value="">請選擇</option>
+            {{ range .options }}<option value="{{ .key }}">{{ .label }}</option>{{ end }}
+          </select>
+          {{ with .hint }}<p class="vx-planner-hint" id="vp-trend-hint">{{ . }}</p>{{ end }}
+        </div>
+        {{ end }}{{ end }}
+      </div>
+    </fieldset>
+    <div class="vx-planner-actions">
+      <button type="submit" class="vx-planner-primary">產生本輪安排</button>
+      <button type="reset">清空重填</button>
+    </div>
+    <p class="vx-planner-hint">欄位只在此頁運算，不會儲存或送出。下方範例可以直接試填；每週重看時，再依自己的實際紀錄重填。</p>
+  </form>
+  <noscript><p class="vx-planner-note">互動選擇器需要 JavaScript。你仍可用下方決策表，由上往下找第一個符合的情況，再依範例安排與記錄。</p></noscript>
+  <p class="vx-planner-status" role="status" aria-live="polite" data-planner-status></p>
+  <div class="vx-planner-result" hidden data-planner-result>
+    <span class="vx-planner-eyebrow">這次的取捨</span>
+    <h3 tabindex="-1" data-result-title></h3>
+    <div data-result-body></div>
+    <div class="vx-planner-actions"><button type="button" data-copy-plan>複製完整安排</button></div>
+    <textarea class="vx-planner-copy" aria-label="完整安排；可全選複製" readonly hidden data-copy-fallback></textarea>
+  </div>
+
+  <h3>三個情境，試著走一次</h3>
+  <div class="vx-planner-examples">
+    {{ range $Planner.examples }}
+    <article>
+      <h4>{{ .title }}</h4><p>{{ .situation }}</p><p>{{ .takeaway }}</p>
+      <button type="button" data-planner-example="{{ .key }}" hidden>套用這個範例</button>
+    </article>
+    {{ end }}
+  </div>
+  <details class="vx-planner-details" id="planner-rules">
+    <summary>不用工具也能套用：完整決策表</summary>
+    <p>由上往下找第一個符合的情況。症狀、疲勞與反覆退步，優先於比賽和進步；各分支都先確認任務能否比較。</p>
+    <div class="vx-planner-table-wrap" tabindex="0" role="region" aria-label="可橫向捲動的週期決策表">
+      <table class="vx-planner-table">
+        <thead><tr><th scope="col">符合什麼情況</th><th scope="col">現在怎麼做</th><th scope="col">下次改變的條件</th></tr></thead>
+        <tbody>{{ range $Planner.rules }}<tr><th scope="row">{{ .title }}<span>{{ .works_when }}</span></th><td>{{ .action }}</td><td>{{ .next }}<span>{{ .remaining_boundary }}</span></td></tr>{{ end }}</tbody>
+      </table>
+    </div>
+  </details>
+  <details class="vx-planner-details" id="planner-monitoring" open>
+    <summary>{{ $Guide.monitoring.name_zh }}</summary>
+    <p>{{ $Guide.monitoring.plain_zh }}</p>
+    <dl class="vx-planner-measures">{{ range $Guide.monitoring.measures }}<dt>{{ .name }}</dt><dd>{{ .reading }}</dd>{{ end }}</dl>
+    <p class="vx-planner-record">{{ $Guide.monitoring.record }}</p>
+  </details>
+  <details class="vx-planner-details" id="planner-research">
+    <summary>這次補了哪些研究？</summary>
+    {{ range slice $Guide.set_response $Guide.hrv_response }}
+      <article class="vx-planner-study" id="{{ .id }}">
+        <h4>{{ .name_zh }}</h4><p>{{ .plain_zh }}</p><p>{{ .action_zh }}</p><p class="vx-planner-hint">{{ .boundary_zh }}</p>
+        {{ range .source_ids }}{{ with index $Sources . }}<p><a href="{{ .link }}">{{ .display }}</a></p>{{ end }}{{ end }}
+      </article>
+    {{ end }}
+  </details>
+  <p class="vx-planner-hint">{{ $Planner.provenance_zh }} 若要查安排背後的理論，接著讀<a href="#schools">各派框架</a>、<a href="#taper">賽前減量</a>及<a href="#dryland">陸上訓練與轉移</a>。</p>
+  <script type="application/json" data-planner-config>{{ $Guide | jsonify | safeJS }}</script>
+</section>
