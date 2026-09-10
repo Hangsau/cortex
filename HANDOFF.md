@@ -1,6 +1,6 @@
 # HANDOFF — my-site (Cortex)
 
-## 週期決策工具已恢復並通過本機驗收（2026-09-10）
+## 週期決策工具已恢復並部署（2026-09-10）
 
 沿使用者「好，試試著做看看吧」及本次要求接續，找回前輪全部週期相關變更。中斷在 08:05 驗收腳本直接比對 `zones.yaml` 原文；資料同步本身正確，差異只來自既有 `unfold_cjk` 中文折行清理。已修驗收，並在 `C:/claudehome/tmp/periodization-recovery-2026-09-10/` 備份兩 repo 的 29 個原始變更檔。
 
@@ -8,7 +8,9 @@
 
 本機驗收已完成：Hugo 170 頁；canonical 0 ERROR／140 WARN；48 個 ID 與六份同步資料一致；8,820 條件組合／21 項瀏覽器驗收（390/320px、大字、鍵盤、無 JS、複製 fallback、失效結果清除、使用者文字轉義、來源及資料庫落點）全通過。四個新目錄 anchor 均存在；已目視手機表單與桌面結果。證據在 `research/periodization-planner-2026-09-10/`，上游執行紀錄在 `TheVortexProject/plans/periodization-planner-2026-09-10.md`。
 
-待辦：提交並核對 CI／正式站。先推 my-site，再推 canonical，防止自動同步使用舊 allowlist。`WinError` 為既存空檔，不納入本批。下方兩冊教材的踝足工作仍是獨立待辦，本輪沒有啟動。
+my-site 實作 `a37790963e2922b9f2cbd80d2017287ee67a2c90`、上游 `748756ffc4867767ba0399ce6f0a2ba7a655f670` 已依序推送。[網站部署 CI](https://github.com/Hangsau/cortex/actions/runs/34452544465) 與 [上游同步 CI](https://github.com/Hangsau/TheVortexProject/actions/runs/34452546812) 均按完整 SHA 確認成功。[正式工具](https://hangsau.github.io/cortex/vortex/periodization/#planner) 21/21 與 8,820 組驗收通過；內嵌設定、公開 CSS／JS 與本機一致。證據見 `public-validation.json`、`public-assets.json`、`ci-verification.json`；截圖排除長元件擷取時的固定導覽遮擋。
+
+本批完成，後續依試用反應修訂模型。`WinError` 為既存空檔，不納入本批。下方兩冊教材的踝足工作仍是獨立待辦，本輪沒有啟動。
 
 ## 兩冊膝關節詳解已部署（2026-09-10）
 

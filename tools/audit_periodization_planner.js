@@ -168,7 +168,7 @@ check('Reject missing/unknown enum, noninteger, blank and out-of-range resources
     assert.equal(await page.evaluate(() => window.bad), undefined);
     checks.push('User goal is rendered as text, never executable HTML');
     await host.locator('[data-planner-example="adult-three"]').click();
-    await host.locator('[data-planner-result]').screenshot({ path: path.join(destination, 'desktop-result.png'), style: 'header { visibility: hidden !important; }' });
+    await host.locator('[data-planner-result]').screenshot({ path: path.join(destination, 'desktop-result.png'), style: '.site-nav { visibility: hidden !important; }' });
 
     // Keyboard through all controls, including the static fallback table.
     await host.locator('[name=population]').focus();
@@ -189,8 +189,8 @@ check('Reject missing/unknown enum, noninteger, blank and out-of-range resources
       assert.ok(metrics.targets);
       checks.push(width + 'px: no page overflow; button targets at least 44px');
       if (width === 390) {
-        await host.locator('form').screenshot({ path: path.join(destination, 'mobile-form.png'), style: 'header { visibility: hidden !important; }' });
-        await host.locator('[data-planner-result]').screenshot({ path: path.join(destination, 'mobile-result.png'), style: 'header { visibility: hidden !important; }' });
+        await host.locator('form').screenshot({ path: path.join(destination, 'mobile-form.png'), style: '.site-nav { visibility: hidden !important; }' });
+        await host.locator('[data-planner-result]').screenshot({ path: path.join(destination, 'mobile-result.png'), style: '.site-nav { visibility: hidden !important; }' });
       }
     }
     await page.addStyleTag({ content: 'html { font-size: 200%; }' });
