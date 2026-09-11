@@ -13,6 +13,7 @@
 {{ $tp := index hugo.Data "periodization" "taper" }}
 {{ $zn := index hugo.Data "periodization" "zones" }}
 {{ $dl := index hugo.Data "periodization" "dryland" }}
+{{ $sd := index hugo.Data "periodization" "set-design" }}
 
 <div class="vx-stroke vx-pz-stroke vx-shell">
 {{ partial "vortex/sidebar.html" (dict "ctx" . "current" "periodization") }}
@@ -39,7 +40,8 @@
           <li><a class="vx-navlink" href="#structure" data-spy="structure"><span class="n">2</span>年度結構與週期</a></li>
           <li><a class="vx-navlink" href="#taper" data-spy="taper"><span class="n">3</span>賽前減量與達峰</a></li>
           <li><a class="vx-navlink" href="#zones" data-spy="zones"><span class="n">4</span>能量系統與強度分區</a></li>
-          <li><a class="vx-navlink" href="#dryland" data-spy="dryland"><span class="n">5</span>陸上力量訓練</a></li>
+          <li><a class="vx-navlink" href="#set-design" data-spy="set-design"><span class="n">5</span>組課設計完整指南</a></li>
+          <li><a class="vx-navlink" href="#dryland" data-spy="dryland"><span class="n">6</span>陸上力量訓練</a></li>
         </ul>
       </div>
 
@@ -76,8 +78,12 @@
             <span class="n">4</span>
             <span><span class="t">能量系統與強度分區</span><span class="o">三大能量系統運作 · Bompa 六分區 · 極化派 · Olbrecht · 游泳分區 · 各距離供能 · TID</span></span>
           </a>
-          <a class="vx-path-item" href="#dryland">
+          <a class="vx-path-item" href="#set-design">
             <span class="n">5</span>
+            <span><span class="t">組課設計完整指南</span><span class="o">錨點測驗 · 臨界游速的證據與邊界 · 能量系統意圖 · 四變項順序 · USRPT 證據地位 · 週組裝 · 退出規則 · 自動生成參數</span></span>
+          </a>
+          <a class="vx-path-item" href="#dryland">
+            <span class="n">6</span>
             <span><span class="t">陸上力量訓練</span><span class="o">掉速分流 · 訓練模式 · 並行排程 · 游泳肩容量 · 族群安全 · 無反應換法</span></span>
           </a>
         </div>
@@ -99,7 +105,7 @@
 
       {{/* ════════ 主題 1 · 週期化的幾種流派 ════════ */}}
       <section class="vx-panel vx-move" id="schools">
-        <span class="vx-sec-no">主題 1 / 5</span>
+        <span class="vx-sec-no">主題 1 / 6</span>
         <h2>週期化的幾種流派</h2>
         {{ with $st.schools_overview }}
         <p class="vx-panel-lead">{{ .premise_zh }}</p>
@@ -190,7 +196,7 @@
 
       {{/* ════════ 主題 2 · 年度結構與週期 ════════ */}}
       <section class="vx-panel vx-move" id="structure">
-        <span class="vx-sec-no">主題 2 / 5</span>
+        <span class="vx-sec-no">主題 2 / 6</span>
         <h2>年度結構與週期</h2>
         <p class="vx-panel-lead">從一整年怎麼分階段，到一週課表怎麼排。點任一概念就地展開。</p>
 
@@ -506,7 +512,7 @@
 
       {{/* ════════ 主題 3 · 賽前減量與達峰 ════════ */}}
       <section class="vx-panel vx-move" id="taper">
-        <span class="vx-sec-no">主題 3 / 5</span>
+        <span class="vx-sec-no">主題 3 / 6</span>
         <h2>賽前減量與達峰</h2>
         <p class="vx-panel-lead">怎麼在比賽前把疲勞卸掉、把適應推上巔峰。點任一概念就地展開。</p>
 
@@ -612,7 +618,7 @@
 
       {{/* ════════ 主題 4 · 能量系統與強度分區 ════════ */}}
       <section class="vx-panel vx-move" id="zones">
-        <span class="vx-sec-no">主題 4 / 5</span>
+        <span class="vx-sec-no">主題 4 / 6</span>
         <h2>能量系統與強度分區</h2>
         <p class="vx-panel-lead">Bompa 通用分區、極化派（Seiler）與 Olbrecht 的對話，加上游泳專項的分區與供能文獻。點任一概念就地展開。</p>
 
@@ -958,13 +964,415 @@
 
         <nav class="vx-flow">
           <a href="#taper"><span class="lbl">上一個主題</span>← 賽前減量與達峰</a>
+          <a class="nx" href="#set-design"><span class="lbl">下一個主題</span>組課設計完整指南 →</a>
+        </nav>
+      </section>
+
+      {{/* ════════ 主題 5 · 組課設計完整指南 ════════ */}}
+      <section class="vx-panel vx-move" id="set-design">
+        <span class="vx-sec-no">主題 5 / 6</span>
+        <h2>組課設計完整指南</h2>
+        <p class="vx-pz-scope">前面四個主題講的是<strong>一年怎麼分段</strong>；這一節講的是<strong>今天這一組怎麼開</strong>——從量哪些錨點時間開始，一路推到距離、目標秒數、休息、次數，再擺進一週、對到階段、設好停止條件。最後一段是給自動課表生成用的參數表。</p>
+        {{ with $sd.overview }}
+        <p class="vx-panel-lead">{{ .plain_zh }}</p>
+        {{ end }}
+
+        <div class="vx-ladder">
+
+          {{/* 六個步驟 */}}
+          {{ with $sd.overview }}
+          <details class="vx-level" open>
+            <summary>
+              <span class="lv">綜</span>
+              <span>
+                <span class="lvname">組課設計的六個步驟 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">量錨點 → 定意圖 → 填四變項 → 擺進一週 → 對到階段 → 設退出條件</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <table class="vx-pz-table">
+                <thead><tr><th>步驟</th><th>做什麼</th><th>說明</th></tr></thead>
+                <tbody>
+                {{ range .steps }}
+                  <tr>
+                    <td>{{ .step_no }}</td>
+                    <td><strong>{{ .title }}</strong></td>
+                    <td>{{ partial "vortex/rich.html" .text }}</td>
+                  </tr>
+                {{ end }}
+                </tbody>
+              </table>
+              <div class="vx-pz-warn">{{ partial "vortex/richlines.html" .hard_rule_zh }}</div>
+              {{ with .provenance_zh }}<p class="vx-pz-author">{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* 錨點 */}}
+          {{ with $sd.anchors }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">錨</span>
+              <span>
+                <span class="lvname">錨點時間與測驗協議 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">短距離用 25／50／100；耐力用 200＋400 推臨界游速；兩點必須是 200 與 400</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <table class="vx-pz-table">
+                <thead><tr><th>錨點</th><th>用途</th><th>測驗方式</th></tr></thead>
+                <tbody>
+                {{ range .sprint_anchors }}
+                  <tr><td><strong>{{ .name_zh }}</strong></td><td>{{ .use_zh }}</td><td>{{ .protocol_zh }}</td></tr>
+                {{ end }}
+                {{ range .endurance_anchors }}
+                  <tr><td><strong>{{ .name_zh }}</strong></td><td>{{ .use_zh }}</td><td>{{ .protocol_zh }}</td></tr>
+                {{ end }}
+                </tbody>
+              </table>
+              <p class="vx-pz-focus">{{ partial "vortex/rich.html" .css_formula_zh }}</p>
+              <p>{{ partial "vortex/rich.html" .distance_choice_rule_zh }}</p>
+              <p>{{ partial "vortex/rich.html" .reliability_zh }}</p>
+              <p class="vx-pz-warn">{{ partial "vortex/rich.html" .butterfly_limit_zh }}</p>
+              <p>{{ partial "vortex/rich.html" .fallback_zh }}</p>
+              <p>{{ partial "vortex/rich.html" .retest_interval_zh }}</p>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ partial "vortex/rich.html" . }}</p>{{ end }}
+              <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* 臨界游速的證據鏈 */}}
+          {{ with $sd.css_evidence }}
+          <details class="vx-level" id="set-design-css">
+            <summary>
+              <span class="lv">速</span>
+              <span>
+                <span class="lvname">臨界游速的證據鏈與外推邊界 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">它不是有氧閾值——以這個速度一直游，平均 24 分鐘就力竭</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p>{{ partial "vortex/rich.html" .origin_zh }}</p>
+              <p class="vx-pz-warn">{{ partial "vortex/rich.html" .not_mlss_zh }}</p>
+              <div class="vx-pz-focus">{{ partial "vortex/richlines.html" .severe_domain_zh }}</div>
+              <p>{{ partial "vortex/rich.html" .children_zh }}</p>
+              <p>{{ partial "vortex/rich.html" .stroke_bias_zh }}</p>
+              <p>{{ partial "vortex/rich.html" .sensitivity_zh }}</p>
+              <p>{{ partial "vortex/rich.html" .population_bias_zh }}</p>
+              <div class="vx-pz-warn">{{ partial "vortex/richlines.html" .gaps_zh }}</div>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ partial "vortex/rich.html" . }}</p>{{ end }}
+              <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* 能量系統與意圖 */}}
+          {{ with $sd.energy_targets }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">能</span>
+              <span>
+                <span class="lvname">能量系統與組課意圖對照 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">開組前先回答：這組要練最高速度、乳酸生成、乳酸耐受、賽速重複、閾值還是輕鬆有氧</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <table class="vx-pz-table">
+                <thead><tr><th>意圖</th><th>系統</th><th>目的</th><th>每趟時間</th><th>乳酸預期</th><th></th></tr></thead>
+                <tbody>
+                {{ range .intents }}
+                  <tr>
+                    <td><strong>{{ .name_zh }}</strong></td>
+                    <td>{{ .system_zh }}</td>
+                    <td>{{ .goal_zh }}</td>
+                    <td>{{ .duration_zh }}</td>
+                    <td>{{ .lactate_expectation_zh }}</td>
+                    <td><span class="vx-cert">{{ .cert }}</span></td>
+                  </tr>
+                {{ end }}
+                </tbody>
+              </table>
+              <div>{{ partial "vortex/richlines.html" .nsca_table_zh }}</div>
+              <p class="vx-pz-warn">{{ partial "vortex/rich.html" .swim_mapping_caveat_zh }}</p>
+              <div class="vx-pz-focus">{{ partial "vortex/richlines.html" .pace_offsets_zh }}</div>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ partial "vortex/rich.html" . }}</p>{{ end }}
+              <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* 四個變項 */}}
+          {{ with $sd.variables }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">變</span>
+              <span>
+                <span class="lvname">四個變項的決定順序 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">距離 → 目標時間 → 休息 → 次數，順序不可跳</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-focus">{{ partial "vortex/rich.html" .order_rule_zh }}</p>
+              {{ with .var_distance }}
+              <h4 class="vx-pz-subh">{{ .name_zh }}</h4>
+              <div>{{ partial "vortex/richlines.html" .rule_zh }}</div>
+              <p class="vx-pz-warn">{{ partial "vortex/rich.html" .pool_constraint_zh }}</p>
+              {{ end }}
+              {{ with .var_target_time }}
+              <h4 class="vx-pz-subh">{{ .name_zh }}</h4>
+              <div>{{ partial "vortex/richlines.html" .rule_zh }}</div>
+              <p class="vx-pz-warn">{{ partial "vortex/rich.html" .lactate_tolerance_note_zh }}</p>
+              {{ end }}
+              {{ with .var_rest }}
+              <h4 class="vx-pz-subh">{{ .name_zh }}</h4>
+              <div>{{ partial "vortex/richlines.html" .rule_zh }}</div>
+              <p class="vx-pz-warn">{{ partial "vortex/rich.html" .fixed_vs_cycle_zh }}</p>
+              {{ end }}
+              {{ with .var_reps }}
+              <h4 class="vx-pz-subh">{{ .name_zh }}</h4>
+              <div>{{ partial "vortex/richlines.html" .rule_zh }}</div>
+              <p class="vx-pz-focus">{{ partial "vortex/rich.html" .completion_rule_zh }}</p>
+              {{ end }}
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ partial "vortex/rich.html" . }}</p>{{ end }}
+              {{ with .provenance_zh }}<p class="vx-pz-author">{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* USRPT */}}
+          {{ with $sd.usrpt }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">短</span>
+              <span>
+                <span class="lvname">超短距賽速訓練的原始參數與證據地位 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">系統性回顧評估 15 篇、全數排除；「工作休息比 1:1」從來沒有被測量過</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <div class="vx-pz-warn">{{ partial "vortex/richlines.html" .status_zh }}</div>
+              <div>{{ partial "vortex/richlines.html" .original_params_zh }}</div>
+              <div class="vx-pz-focus">{{ partial "vortex/richlines.html" .one_to_one_myth_zh }}</div>
+              <div>{{ partial "vortex/richlines.html" .acute_evidence_zh }}</div>
+              <p>{{ partial "vortex/rich.html" .classification_zh }}</p>
+              <div class="vx-pz-focus">{{ partial "vortex/richlines.html" .worth_keeping_zh }}</div>
+              <div>{{ partial "vortex/richlines.html" .disagreements_zh }}</div>
+              <div class="vx-pz-warn">{{ partial "vortex/richlines.html" .gaps_zh }}</div>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ partial "vortex/rich.html" . }}</p>{{ end }}
+              <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* 週組裝 */}}
+          {{ with $sd.weekly_assembly }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">週</span>
+              <span>
+                <span class="lvname">週組裝與間隔規則 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">重點不是練幾次，是吃力的課有沒有隔開；1–6 課次各有擺法</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <div class="vx-pz-focus">{{ partial "vortex/richlines.html" .spacing_rules_zh }}</div>
+              <div class="vx-pz-warn">{{ partial "vortex/richlines.html" .recovery_gap_zh }}</div>
+              <table class="vx-pz-table">
+                <thead><tr><th>每週課次</th><th>擺法</th></tr></thead>
+                <tbody>
+                {{ range .session_budgets }}
+                  <tr><td><strong>{{ .sessions }} 次</strong></td><td>{{ partial "vortex/rich.html" .layout_zh }}</td></tr>
+                {{ end }}
+                </tbody>
+              </table>
+              <p>{{ partial "vortex/rich.html" .missed_session_rule_zh }}</p>
+              <p>{{ partial "vortex/rich.html" .dryland_note_zh }}</p>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ partial "vortex/rich.html" . }}</p>{{ end }}
+              {{ with .provenance_zh }}<p class="vx-pz-author">{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* 階段配置 */}}
+          {{ with $sd.phase_allocation }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">期</span>
+              <span>
+                <span class="lvname">階段配置與減量銜接 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">同一組課在賽季不同時期份量不同，內部邏輯不變</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <div>{{ partial "vortex/richlines.html" .macro_zh }}</div>
+              <div class="vx-pz-warn">{{ partial "vortex/richlines.html" .phase_proportions_zh }}</div>
+              <table class="vx-pz-table">
+                <thead><tr><th>階段</th><th>本檔的組課重點</th></tr></thead>
+                <tbody>
+                {{ range .intent_by_phase }}
+                  <tr><td><strong>{{ .name_zh }}</strong></td><td>{{ partial "vortex/rich.html" .emphasis_zh }}</td></tr>
+                {{ end }}
+                </tbody>
+              </table>
+              <div class="vx-pz-focus">{{ partial "vortex/richlines.html" .taper_handoff_zh }}</div>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ partial "vortex/rich.html" . }}</p>{{ end }}
+              <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* 退出規則 */}}
+          {{ with $sd.monitoring_exit }}
+          <details class="vx-level">
+            <summary>
+              <span class="lv">停</span>
+              <span>
+                <span class="lvname">退出規則與重測時機 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">「什麼時候停」要在開組之前就寫好，臨場決定會讓這組失去可比較性</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-focus">{{ partial "vortex/rich.html" .why_predeclare_zh }}</p>
+              <table class="vx-pz-table">
+                <thead><tr><th>適用</th><th>停止條件</th><th>為什麼</th></tr></thead>
+                <tbody>
+                {{ range .exit_rules }}
+                  <tr>
+                    <td><strong>{{ .applies_zh }}</strong></td>
+                    <td>{{ partial "vortex/rich.html" .rule_zh }}</td>
+                    <td>{{ partial "vortex/rich.html" .why_zh }}</td>
+                  </tr>
+                {{ end }}
+                </tbody>
+              </table>
+              <div>{{ partial "vortex/richlines.html" .retest_triggers_zh }}</div>
+              <p>{{ partial "vortex/rich.html" .weekly_downshift_zh }}</p>
+              <p class="vx-pz-swim"><span class="vx-pz-swim-h">每組要記的欄位</span>{{ .record_fields_zh }}</p>
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ partial "vortex/rich.html" . }}</p>{{ end }}
+              {{ with .provenance_zh }}<p class="vx-pz-author">{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* 自動生成參數 */}}
+          {{ with $sd.generator }}
+          <details class="vx-level" id="set-design-generator">
+            <summary>
+              <span class="lv">機</span>
+              <span>
+                <span class="lvname">自動課表生成參數 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">把上面各節壓成程式看得懂的表：輸入、推導公式、六種組型、組裝規則、拒絕條件</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <div class="vx-pz-warn">{{ partial "vortex/richlines.html" .contract_zh }}</div>
+
+              <h4 class="vx-pz-subh">輸入</h4>
+              <table class="vx-pz-table">
+                <thead><tr><th>類別</th><th>欄位</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>必填</strong></td><td><code>{{ delimit .inputs.required "</code>、<code>" | safeHTML }}</code></td></tr>
+                  <tr><td>錨點（有才用）</td><td><code>{{ delimit .inputs.anchors_optional "</code>、<code>" | safeHTML }}</code></td></tr>
+                  <tr><td>情境（有才用）</td><td><code>{{ delimit .inputs.context_optional "</code>、<code>" | safeHTML }}</code></td></tr>
+                </tbody>
+              </table>
+
+              <h4 class="vx-pz-subh">推導公式</h4>
+              <table class="vx-pz-table">
+                <thead><tr><th>輸出</th><th>公式</th><th>需要</th><th>說明</th></tr></thead>
+                <tbody>
+                {{ range .derived }}
+                  <tr>
+                    <td><code>{{ .key }}</code></td>
+                    <td><code>{{ .formula }}</code></td>
+                    <td><code>{{ delimit .requires "</code>、<code>" | safeHTML }}</code></td>
+                    <td>{{ with .note_zh }}{{ . }}{{ end }}</td>
+                  </tr>
+                {{ end }}
+                </tbody>
+              </table>
+
+              <h4 class="vx-pz-subh">六種組型</h4>
+              <table class="vx-pz-table">
+                <thead><tr><th>組型</th><th>距離</th><th>目標時間</th><th>淨休息</th><th>量</th><th>退出</th><th>每週上限</th></tr></thead>
+                <tbody>
+                {{ range .set_types }}
+                  <tr>
+                    <td><strong>{{ .key }}</strong> <span class="vx-cert">{{ .cert }}</span></td>
+                    <td>{{ .distance_m.min }}–{{ .distance_m.max }} m{{ with .preferred_distances_m }}<br><span class="vx-pz-note">常用 {{ delimit . " / " }}</span>{{ end }}</td>
+                    <td>{{ .target_rule }}</td>
+                    <td>{{ if .rest_s.rule }}{{ .rest_s.rule }}{{ else }}{{ .rest_s.min }}–{{ .rest_s.max }} 秒{{ end }}</td>
+                    <td>{{ if .volume_rule }}{{ .volume_rule }}{{ else }}{{ .reps.min }}–{{ .reps.max }} 趟{{ with .reps.blocks }}（分 {{ . }} 段）{{ end }}{{ end }}</td>
+                    <td>{{ .exit }}</td>
+                    <td>{{ .weekly_max }}{{ if .requires_fresh }}<br><span class="vx-pz-note">需在疲勞前</span>{{ end }}</td>
+                  </tr>
+                  {{ with .technique_cost_zh }}<tr><td colspan="7" class="vx-pz-note">{{ partial "vortex/rich.html" . }}</td></tr>{{ end }}
+                  {{ with .continuous_note_zh }}<tr><td colspan="7" class="vx-pz-note">{{ partial "vortex/rich.html" . }}</td></tr>{{ end }}
+                {{ end }}
+                </tbody>
+              </table>
+
+              <h4 class="vx-pz-subh">組裝規則</h4>
+              <ul class="vx-rich-list">
+              {{ range .assembly_rules }}<li>{{ partial "vortex/rich.html" . }}</li>{{ end }}
+              </ul>
+
+              <h4 class="vx-pz-subh">拒絕生成的條件</h4>
+              <table class="vx-pz-table">
+                <thead><tr><th>條件</th><th>動作</th></tr></thead>
+                <tbody>
+                {{ range .refusals }}
+                  <tr><td><strong>{{ .condition }}</strong></td><td>{{ .action }}</td></tr>
+                {{ end }}
+                </tbody>
+              </table>
+
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ partial "vortex/rich.html" . }}</p>{{ end }}
+              {{ with .provenance_zh }}<p class="vx-pz-author">{{ . }}</p>{{ end }}
+            </div>
+          </details>
+          {{ end }}
+
+          {{/* 未採用的六個數字 */}}
+          {{ with $sd.unverified_claims }}
+          <details class="vx-level" id="set-design-unverified">
+            <summary>
+              <span class="lv">裁</span>
+              <span>
+                <span class="lvname">查證後未採用的六個數字 <span class="vx-cert">{{ .cert }}</span></span>
+                <span class="lvtag">乳酸 ≥20、恢復 48 小時、衰退 3–5%、減量 2.4%、NSCA 比例表、心率分區表</span>
+              </span>
+            </summary>
+            <div class="vx-level-body">
+              <p class="vx-pz-focus">{{ partial "vortex/rich.html" .purpose_zh }}</p>
+              {{ range .claims }}
+              <div class="vx-pz-claim">
+                <h4 class="vx-pz-subh">{{ .claim_zh }}</h4>
+                <p class="vx-pz-warn">{{ partial "vortex/rich.html" .verdict_zh }}</p>
+                <div>{{ partial "vortex/richlines.html" .detail_zh }}</div>
+                <p class="vx-pz-focus">{{ partial "vortex/rich.html" .replacement_zh }}</p>
+              </div>
+              {{ end }}
+              {{ with .plain_zh }}<p class="vx-pz-plain">{{ partial "vortex/rich.html" . }}</p>{{ end }}
+              <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
+            </div>
+          </details>
+          {{ end }}
+
+        </div>
+
+        <p class="vx-cite"><span class="src">來源</span>：Wakayoshi et al. 1992/1993；Dekerle et al. 2005/2010；Pelarigo et al. 2011；Toubekis et al. 2006/2011/2013；Scott et al. 2024；di Prampero et al. 2008；Nikitakis et al. 2019；Piatrikova et al. 2018；Zacca et al. 2016；Rizzato et al. 2018；Haff &amp; Triplett, NSCA Essentials 4e Ch3 Table 3.6；Mavroudi et al. 2023；Terzi et al. 2021；Hellard et al. 2013/2019；Rushall 自出版通報 47／49；Nugent et al. 2019；Williamson et al. 2020；Papadimitriou et al. 2023/2024/2026；Cuenca-Fernández et al. 2023</p>
+
+        <nav class="vx-flow">
+          <a href="#zones"><span class="lbl">上一個主題</span>← 能量系統與強度分區</a>
           <a class="nx" href="#dryland"><span class="lbl">下一個主題</span>陸上力量訓練 →</a>
         </nav>
       </section>
 
-      {{/* ════════ 主題 5 · 陸上力量訓練 ════════ */}}
+      {{/* ════════ 主題 6 · 陸上力量訓練 ════════ */}}
       <section class="vx-panel vx-move" id="dryland">
-        <span class="vx-sec-no">主題 5 / 5</span>
+        <span class="vx-sec-no">主題 6 / 6</span>
         <h2>陸上力量訓練</h2>
         <p class="vx-pz-scope">本節從<strong>週期化視角</strong>切入陸訓——關鍵全在「何時做、做多少、誰能做」，這正是週期化要回答的；不是陸訓動作的內容總覽。</p>
         {{ with $dl.overview }}
@@ -1174,7 +1582,7 @@
         <p class="vx-cite"><span class="src">來源</span>：Amaro et al. (Science &amp; Sports, S0765159718302363)；Frontiers Physiology 2024/2025 統合分析；JFMK 2023 (PMID 37489300)；McKenzie et al. 2023 (DOI 10.1111/sms.14454)；Haff &amp; Triplett, NSCA Essentials 4e；Kaminoff &amp; Matthews, Yoga Anatomy；Kabat D2 RCT (PMC10679734)；AAP Pediatrics 2020;145(6):e20201011；Swimming Australia 處方；增強式 SR (PMC9424421)</p>
 
         <nav class="vx-flow">
-          <a href="#zones"><span class="lbl">上一個主題</span>← 能量系統與強度分區</a>
+          <a href="#set-design"><span class="lbl">上一個主題</span>← 組課設計完整指南</a>
           <span></span>
         </nav>
 

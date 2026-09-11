@@ -1,0 +1,21 @@
+{{- /* 逐條版：canonical 的規則型欄位用「行首不縮排＝新的一條、行首縮排＝上一條的續行」
+       這個書寫慣例（例：set-design 的 hard_rule_zh、gaps_zh、contract_zh 的 (1)(2)(3)）。
+       richblock.html 只認空行分段與 "- " 列點，遇到這種欄位會壓成一整段，讀者看到的是
+       一長串括號數字連在一起；rich.html 更是整串不斷行。
+       同樣只認 **粗體**，其餘 markdown 語法保持字面（這些欄位不是 markdown 文件）。 */ -}}
+{{- $s := . | htmlEscape -}}
+{{- $s = $s | replaceRE `\*\*([^*\n]+?)\*\*` "<strong>$1</strong>" -}}
+{{- $items := slice -}}
+{{- range $l := split (chomp $s) "\n" -}}
+{{- $t := trim $l " \t" -}}
+{{- if ne $t "" -}}
+{{- if and (gt (len $items) 0) (or (hasPrefix $l " ") (hasPrefix $l "\t")) -}}
+{{- $head := first (sub (len $items) 1) $items -}}
+{{- $last := index $items (sub (len $items) 1) -}}
+{{- $items = append (printf "%s%s" $last $t) $head -}}
+{{- else -}}
+{{- $items = $items | append $t -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- range $items }}<p class="vx-rich-line">{{ . | safeHTML }}</p>{{ end -}}

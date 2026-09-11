@@ -1039,6 +1039,24 @@ details.vx-diag[open] > summary::before { content: "▾ "; }
 }
 .vx-pz-gap p { margin: 6px 0; }
 
+/* 組課設計節：逐條規則（richlines partial 產出 .vx-rich-line），以及 claim 卡 */
+.vx-rich-line { margin: 4px 0; }
+.vx-pz-warn .vx-rich-line:first-child,
+.vx-pz-focus .vx-rich-line:first-child { margin-top: 0; }
+.vx-pz-warn .vx-rich-line:last-child,
+.vx-pz-focus .vx-rich-line:last-child { margin-bottom: 0; }
+.vx-pz-subh {
+  font-family: var(--vx-display); font-weight: 600;
+  font-size: 15px; letter-spacing: 0.02em;
+  color: var(--vx-accent2); margin: 18px 0 4px;
+}
+.vx-pz-note { font-size: 13px; line-height: 1.7; color: var(--vx-sub); }
+.vx-pz-claim {
+  border-left: 2px solid var(--vx-rule);
+  padding-left: 14px; margin: 18px 0;
+}
+.vx-pz-claim .vx-pz-subh { margin-top: 0; }
+
 /* 概覽末尾：指向感知缺口節點的 teaser（① 不搬節點，只露一句 anchor） */
 .vx-overview-teaser {
   display: flex; align-items: baseline; gap: 8px;

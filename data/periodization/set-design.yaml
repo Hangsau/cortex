@@ -1,0 +1,1047 @@
+domain: periodization
+sub: set_design
+schema_version: 1
+overview:
+  id: periodization.set_design.overview
+  cert: 🔵
+  name_zh: 組課設計的六個步驟
+  provenance_zh: 渦流計畫的操作模型；用於整理與試行，尚未經訓練成效試驗驗證。
+  evidence_from:
+  - periodization.set_design.anchors
+  - periodization.set_design.css_evidence
+  - periodization.set_design.energy_targets
+  - periodization.set_design.variables
+  - periodization.set_design.weekly_assembly
+  - periodization.set_design.phase_allocation
+  - periodization.set_design.monitoring_exit
+  version: '1.0'
+  steps:
+  - step_no: 1
+    title: 量錨點
+    text: 先有這個人自己的時間。沒有錨點就沒有目標時間，只能憑感覺開組——這是自動課表生成最先卡住的地方。
+  - step_no: 2
+    title: 定這組要練什麼
+    text: 先講清楚這組的意圖：速度、乳酸生成、乳酸耐受、賽速重複、閾值有氧、輕鬆恢復。意圖決定後面四個數字，反過來不行。
+  - step_no: 3
+    title: 填四個變項
+    text: 順序固定：距離 → 目標時間 → 休息 → 次數。每一步都由前一步推出來，任何一步改了，後面要重算。
+  - step_no: 4
+    title: 擺進一週
+    text: 同一週裡吃力的組要隔開，維持課補中間。可用課次少的時候，先砍次數不砍間隔。
+  - step_no: 5
+    title: 對到階段
+    text: 同一組課在基礎期與賽前期的份量不同。階段只調配比與頻率，不改第 3 步的內部邏輯。
+  - step_no: 6
+    title: 設好退出條件
+    text: 開組之前就要寫好什麼時候停這一組、什麼時候重測錨點、什麼時候整週降載。沒寫退出條件的組課不能自動生成。
+  hard_rule_zh: "\U0001F535 三條不可跳過的前置條件：\n(1) 沒有錨點時間就不產生任何帶目標時間的組——退回成「熟悉任務＋記錄」，\n    不要用年齡、身高或他人成績反推配速。\n(2) 任何一組都要同時寫出距離、次數、目標時間、休息與泳式；缺一項的組不算完整規格，\n    下游沒辦法比較，也沒辦法判斷有沒有進步。\n(3) 有症狀（疼痛、暈眩、明顯呼吸困難）時本檔全部規則失效，\n    走 decisions.yaml 的停止分支。"
+  plain_zh: '一組課不是「今天想練什麼就寫什麼」。它有固定的推導順序：先知道這個人現在能游多快
+
+    （錨點），再決定這組想刺激哪套能量系統，然後照「距離 → 目標時間 → 休息 → 次數」
+
+    把四個數字填出來，接著看這組要擺在一週的哪一天、屬於賽季的哪個階段，最後寫好
+
+    什麼情況要停。少了任何一步，這組課就沒辦法被重複、被比較，也沒辦法交給程式自動生成。'
+  links:
+    development_stages:
+    - l2t
+    - t2t
+    - t2c
+    - t2w
+    related:
+    - periodization.set_design.anchors
+    - periodization.set_design.variables
+    - periodization.decisions.planner
+    - periodization.zones.swim
+anchors:
+  id: periodization.set_design.anchors
+  cert: 🟢
+  name_zh: 錨點時間與測驗協議
+  source: Wakayoshi 等（1993）兩點法原始定義；Scott 等（2024）四泳式信度；Toubekis 等（2006）距離組合選擇；Zacca 等（2016）單次 400 公尺估計；Piatrikova 等（2018）3 分鐘全力法
+  source_ids:
+  - src.wakayoshi-1993-critical-velocity-mlss
+  - src.scott-2024-css-stroke-specific-reliability
+  - src.toubekis-2006-css-distance-selection
+  - src.zacca-2016-400m-single-test-estimate
+  - src.piatrikova-2018-3min-all-out-cs
+  source_locator: PubMed 8425518 / 38380294（PMC10875687）/ 16475057 / 26473520 / 29651887
+  sprint_anchors:
+  - key: t25
+    name_zh: 25 公尺全力
+    use_zh: 推速度組與乳酸生成組的目標時間；也是計時誤差最大的一項
+    protocol_zh: 水中出發（推牆），同一泳式，完全休息後做；取兩趟中較快者。建議電子計時。
+  - key: t50
+    name_zh: 50 公尺全力
+    use_zh: 推乳酸生成組目標時間；50 公尺主項者的賽速基準
+    protocol_zh: 水中出發或跳台出發二選一並固定；兩趟之間至少完全休息 10 分鐘。
+  - key: t100
+    name_zh: 100 公尺全力
+    use_zh: 推 USRPT 型賽速組的分段目標；乳酸耐受組的速度上緣參照
+    protocol_zh: 單次盡全力；與後續任何測驗至少隔一天。
+  endurance_anchors:
+  - key: t200
+    name_zh: 200 公尺盡力
+    use_zh: 臨界游速兩點法的第一點
+    protocol_zh: 與 400 公尺同一次或分兩次皆可；同一次時中間至少完全休息 20–30 分鐘，且先做 200 後做 400 的順序要固定。
+  - key: t400
+    name_zh: 400 公尺盡力
+    use_zh: 臨界游速兩點法的第二點；亦可單獨用於粗估
+    protocol_zh: 同泳式、同池長、同出發方式；配速要求是全程盡力而非前快後爆。
+  css_formula_zh: 🟢 臨界游速（每 100 公尺配速）＝（T400 秒數 − T200 秒數）÷ 2。這個兩點簡化不是後人的商業發明——原始論文的原文就是「以游 200 公尺與 400 公尺所需的兩個時間連線的斜率計算臨界速度」，Swim Smooth 只是把斜率換算成每百公尺秒數，數學上等價。
+  distance_choice_rule_zh: '🟢 兩點必須用 200 與 400 公尺，不可換成 50 或 100。
+
+    20 名青少年泳者（12.9±1.1 歲）的距離組合比較顯示，任何含 50 或 100 公尺的組合
+
+    都讓臨界速度顯著高於乳酸閾值速度，50＋100 的組合偏差最大；200–400 的組合
+
+    才落在略低於 4 mmol 速度的位置。短距離把速度—距離直線的截距吃掉，斜率就失真。'
+  reliability_zh: '🟢 兩點法在四種泳式都可重複：32 名全國級泳者在三週內做 3 次 200 公尺與
+
+    3 次 400 公尺，臨界速度的典型誤差 ≤0.04 m/s、變異係數四式皆 <4%，
+
+    單項 200 與 400 的個人變異係數 <2%。
+
+    ⚠️ 同一份資料顯示「無氧距離容量」（速度—距離直線的截距）**不可靠**：
+
+    典型誤差 4–9 公尺、變異係數 13–45%。本檔只用斜率（臨界游速），不用截距做任何決策。'
+  butterfly_limit_zh: 🟢 蝶式不要擴成三點法。同一研究的可行性資料：能夠（且願意）加做 800 公尺第三點的比例，蝶式只有 39%，蛙式 71%，仰式與自由式 100%。蝶式維持兩點。
+  fallback_zh: '🟢 只拿得到一次 400 公尺時的退路：以 400 公尺平均速度的 0.92 倍估臨界速度
+
+    （14–16 歲樣本，變異係數約 2%）。這是估計值，標註來源與誤差後可用於排課，
+
+    但不可用來宣稱「他的閾值是多少」。
+
+    另有 3 分鐘全力法可用（變異係數 0.9%、與傳統法相關 r＝0.97），
+
+    但它需要嚴格的出發與計時控制，本檔預設仍走 200/400。'
+  retest_interval_zh: 🔵 建議 4–6 週重測一次，不是每 2–4 週。理由見 css_evidence 的敏感度段落：臨界速度對訓練適應的反應遲鈍，太密的重測只會量到當天狀態波動，還占掉一次品質課的名額。
+  plain_zh: '要開有目標時間的組課，得先知道這個人現在游多快。短距離的錨點是 25、50、100 公尺
+
+    的全力成績；耐力的錨點是用 200 和 400 公尺算出來的「臨界游速」——把兩個時間相減
+
+    再除以二，得到每 100 公尺的配速。
+
+    這裡有三個容易踩的坑：① 兩點只能用 200 和 400，換成 50 或 100 算出來會偏快；
+
+    ② 蝶式不要勉強加做 800 公尺當第三點，實測有六成的人做不到或不願意做；
+
+    ③ 只算斜率（配速），不要用截距（所謂「無氧距離容量」），那個數字的誤差大到不能用。
+
+    如果只有一次 400 公尺成績，可以用它的平均速度乘 0.92 先估一個，但要標明是估的。'
+  links:
+    development_stages:
+    - t2t
+    - t2c
+    - t2w
+    related:
+    - periodization.set_design.css_evidence
+    - periodization.set_design.variables
+    - periodization.decisions.monitoring
+css_evidence:
+  id: periodization.set_design.css_evidence
+  cert: 🟢
+  name_zh: 臨界游速的證據鏈與外推邊界
+  source: Wakayoshi 等（1992, 1993）原始推導；Dekerle 等（2005, 2010）與 Pelarigo 等（2011）與最大乳酸穩態的比較；Toubekis 與 Tokmakidis（2013）綜述；Nikitakis 等（2019）兒童與青少年；di Prampero 等（2008）泳式能量學校正；Toubekis 等（2011）訓練敏感度；Rizzato 等（2018）族群偏差
+  source_ids:
+  - src.wakayoshi-1992-critical-velocity-flume
+  - src.wakayoshi-1993-critical-velocity-mlss
+  - src.dekerle-2005-css-not-mlss
+  - src.pelarigo-2011-css-above-mlss
+  - src.dekerle-2010-css-severe-domain
+  - src.toubekis-tokmakidis-2013-css-review
+  - src.nikitakis-2019-css-children-adolescents
+  - src.diprampero-2008-css-energetic-correction
+  - src.toubekis-2011-cv-insensitive-to-training
+  - src.rizzato-2018-css-population-bias
+  source_locator: PubMed 1555562 / 8425518 / 16195984 / 20926340 / 19577514 / 23449237 / 30669295 / 17901978 / 21386726 / 28597620
+  origin_zh: '🟡 起點是四篇常被混講成一篇的論文。1992 年那篇最常被引用的是**水槽**研究
+
+    （9 名泳者、6 種速度游到力竭），距離—時間關係的判定係數 >0.998，臨界速度
+
+    1.166±0.052 m/s，與血乳酸拐點速度的相關 r＝0.949，與 400 公尺平均速度
+
+    相關 r＝0.864——但該研究**沒有量最大乳酸穩態**。
+
+    1993 年那篇才是泳池兩點法的原型，與 4 mmol 速度的相關為 r＝0.914。
+
+    ⚠️ 常見拼接錯誤：把水槽研究的 r＝0.949 說成「兩點法與乳酸閾值的相關」。
+
+    那是兩個不同的方法、不同的比較對象，不可互換敘述。'
+  not_mlss_zh: '🟢 臨界游速**不等於**最大乳酸穩態速度，也不能互相替代。
+
+    以最大有氧速度為分母，臨界游速落在 92.7±2.6%，最大乳酸穩態落在 88.3±2.9%；
+
+    兩者相關 r＝0.87，但一致性界限達 0.07±0.13 m/s——相關高不代表可替換。
+
+    另一份研究的絕對值是臨界速度 1.30±0.08 對最大乳酸穩態 1.22±0.05 m/s（快約 6.6%）。
+
+    綜述的彙整區間是：臨界速度比最大乳酸穩態快 3–6%，比乳酸閾值快 8–11%。
+
+    本庫採用的說法：**臨界游速比最大乳酸穩態快約 3–7%，高度相關但不可互換。**'
+  severe_domain_zh: '🟢 這是本次整合最重要的一次語意更正。
+
+    外部資料把「約能維持 20–30 分鐘的配速」說成「有氧與無氧的分界線（有氧閾值）」。
+
+    數字對得上，語意完全相反。
+
+    原始研究（9 名男性、四點法）測到的是：以臨界速度**持續游到力竭**的時間為
+
+    24.3±7.7 分鐘，過程中血乳酸與攝氧量一路爬升到峰值的 95±5%；
+
+    比臨界速度慢 5% 時可撐 48.9±14.1 分鐘、血乳酸穩定在 3.8±1.9 mmol；
+
+    快 5% 時只剩 8.6±3.1 分鐘。作者的結論是臨界速度落在**重度強度域**。
+
+    也就是說，24 分鐘是**力竭時間**，不是「可穩定維持的閾值」。
+
+    對排課的實際差別：不要開「以臨界游速連續游 30 分鐘」這種組；
+
+    要開就開**間歇**——同一份研究裡 10×400 公尺以臨界速度、休 40 秒是可以完成的
+
+    （總計 53.9±2.7 分鐘），血乳酸維持穩定。'
+  children_zh: '🟢 兒童與青少年要再退一步。10 名兒童（11.5±0.4 歲）與 10 名青少年（15.8±0.7 歲）
+
+    的比較顯示，臨界速度與游泳最大乳酸穩態速度的平均值沒有顯著差異（p＝0.12），
+
+    但**連續**游臨界速度時終末血乳酸顯著較高（兒童 4.0 對 3.4、青少年 4.5 對 3.1 mmol/L），
+
+    部分受試者無法完成 30 分鐘；改成**間歇**（10×200）則與最大乳酸穩態吻合。
+
+    本檔規則：未成年泳者的臨界游速一律只用於間歇組，不開連續長時間定速游。'
+  stroke_bias_zh: 🟡 泳式偏差：以能量學校正後的臨界速度為基準，傳統斜率法高估蝶式約 4%、仰式約 16%、蛙式約 7%、自由式約 11%。因此跨泳式比較臨界游速沒有意義，每個泳式各自建立錨點與趨勢。
+  sensitivity_zh: 🟢 敏感度低：一份 14 週增量訓練的追蹤中，臨界速度幾乎沒動（0.3±0.8%），同期乳酸閾值上升 6.5%。⚠️ 引用限制：本庫只採「臨界速度對訓練適應的敏感度可能低於乳酸閾值」這個定性結論，該百分比在本庫升級為已查證前不對外引用。實務含意就是上面那條——重測間隔拉到 4–6 週。
+  population_bias_zh: 🟢 族群偏差：相對於 4 mmol 速度，菁英泳者的臨界游速偏低估、成人 masters 偏高估。⚠️ 同樣屬待升級引用，只採定性方向。
+  gaps_zh: "\U0001F534 明確查無，不得外推的五個缺口：\n(1) 沒有任何研究驗證任一商業臨界游速訓練系統（配速表、休息秒數、分區偏移）的成效；\n(2) **完全沒有**在初學者或非競技泳者身上的臨界游速效度研究——不要對這兩個族群\n    宣稱臨界游速代表什麼生理意義，本檔只把它當「可重複的個人配速基準」；\n(3) 沒有純女性樣本的臨界速度力竭時間研究（上述 24 分鐘那份全為男性）；\n(4) 沒有開放水域的臨界游速效度與信度研究；\n(5) 兩點法常被歸給 1993 年的一份澳洲教練報告，該報告無數位物件識別碼、\n    未經同儕審查，且兩點簡化在同年的原始論文中已經出現——歸屬應回到原始論文。"
+  plain_zh: '臨界游速很好用，但它不是一般說的「有氧閾值」。實測是：用這個速度一直游，
+
+    平均 24 分鐘就力竭，而且過程中乳酸和耗氧一路往上爬——它落在「重度」強度區，
+
+    不是可以無限維持的線。它也比真正的最大乳酸穩態快了大約 3 到 7 個百分點，
+
+    相關性高但不能互相代替。
+
+    所以正確用法是：拿它當**間歇組的配速基準**（例如 10 趟 400 公尺、休 40 秒，
+
+    這是研究裡實際完成過的），而不是拿它去開 30 分鐘連續定速游。小朋友更要注意，
+
+    連續游會明顯超出他們的穩態，改成間歇就吻合了。
+
+    還有三件事要記得：不同泳式的臨界游速不能互相比；它對訓練的反應很慢，
+
+    別每兩週就重測；初學者身上根本沒有研究，對他們只能當「可重複的個人基準」用。'
+  links:
+    development_stages:
+    - t2t
+    - t2c
+    - t2w
+    related:
+    - periodization.set_design.anchors
+    - periodization.zones.swim_three_zone
+    - periodization.zones.olbrecht_model
+energy_targets:
+  id: periodization.set_design.energy_targets
+  cert: 🟡
+  name_zh: 能量系統與組課意圖對照
+  source: Haff & Triplett 編（2016）《Essentials of Strength Training and Conditioning》第 4 版，第 3 章生物能量學，表 3.6；Terzi 等（2021）衝刺組乳酸；Mavroudi 等（2023）不同衝刺距離乳酸
+  source_ids:
+  - src.haff-triplett-2016
+  - src.terzi-2021-sprint-interval-set
+  - src.mavroudi-2023-sprint-lactate-by-distance
+  source_locator: NSCA 第 4 版第 3 章表 3.6（以最大功率百分比與持續時間索引）；PubMed 34868425 / 37104161
+  nsca_table_zh: '🟡 通用表的原文值（不是游泳專用表，原表未指定運動模式）：
+
+    最大功率 90–100%／磷酸原系統／5–10 秒／work:rest ＝ 1:12–1:20
+
+    最大功率 75–90%／快速糖酵解／15–30 秒／1:3–1:5
+
+    最大功率 30–75%／快速糖酵解＋氧化／1–3 分鐘／1:3–1:4
+
+    最大功率 20–30%／氧化系統／>3 分鐘／1:1–1:3
+
+    ⚠️ 外部資料把這張表抄成「磷酸原 1:6 以上／乳酸生成 1:4–1:6／乳酸耐受 1:1–1:2／
+
+    有氧休息小於工作的 20%」——四列全錯，其中「有氧」那列方向完全相反，
+
+    而「乳酸耐受」這個類別在該表裡根本不存在。詳見 unverified_claims。'
+  swim_mapping_caveat_zh: '🔵 持續時間對得上，比例不能直接抄。
+
+    25 公尺全力約 10–15 秒、50 公尺約 22–30 秒，確實落在表上的前兩列；
+
+    但 1:12–1:20 套在 25 公尺衝刺，休息會是 2–5 分鐘，比多數游泳課的實際安排長很多。
+
+    本檔的處理是：**速度組採信這張表**（見下方 velocity 的休息設定，
+
+    它同時被磷酸肌酸再合成動力學支持）；**有氧組不套這張表**，改用游泳實測
+
+    （臨界游速 10×400 休 40 秒可完成，工作比休息約 8:1，遠短於表上的 1:1–1:3）。'
+  intents:
+  - key: velocity
+    name_zh: 速度／神經肌肉
+    system_zh: 磷酸原
+    goal_zh: 提高最高速度與動作的高速版本，全程動作不可崩
+    duration_zh: 每趟 10–15 秒（10–25 公尺）
+    lactate_expectation_zh: 不追求乳酸堆積；休息足夠時每趟應接近同樣快
+    cert: 🔵
+  - key: lactate_production
+    name_zh: 乳酸生成／衝刺間歇
+    system_zh: 快速糖酵解（產能速率）
+    goal_zh: 提高最大乳酸生成速率與高速下的無氧輸出
+    duration_zh: 每趟 20–35 秒（25–50 公尺）
+    lactate_expectation_zh: 🟢 實測參考：4×50 自由式（休 2 分鐘）男 14.1±3.1、女 15.3±3.1 mmol/L；單次全力 25 公尺 7.0±1.5、35 公尺 9.3±2.2、50 公尺 13.8±2.6 mmol/L
+    cert: 🟢
+  - key: lactate_tolerance
+    name_zh: 乳酸耐受
+    system_zh: 快速糖酵解（緩衝與耐受）
+    goal_zh: 在高乳酸狀態下維持速度與動作
+    duration_zh: 每趟 60–150 秒（75–150 公尺）
+    lactate_expectation_zh: 🟢 典型 10–16 mmol/L，個體上緣偶見 18。⚠️「接近或超過 20」查無出處，見 unverified_claims。
+    cert: 🟠
+    observation_basis: 這個類別不在 NSCA 表內，是游泳教練實務的分類。本檔保留它是因為它對應到實際存在的訓練意圖（200–400 公尺後段掉速），但它的休息秒數與次數沒有文獻處方，屬實務慣例；外推邊界＝有規律訓練、能自行控速的青少年與成人競技泳者，不外推到初學者與兒童。
+  - key: race_pace
+    name_zh: 賽速重複（超短距賽速型）
+    system_zh: 高強度間歇（文獻分類上屬既有 HIIT 家族）
+    goal_zh: 以目標賽速累積大量重複，讓賽速本身成為熟練動作
+    duration_zh: 每趟 8–45 秒（15–75 公尺為主）
+    lactate_expectation_zh: 🟢 20×25 公尺以 100 公尺個人最佳配速做，血乳酸由 7.7±2.4 升到 13.6±3.1 mmol/L，3 分鐘後仍 11.3±2.6——這是高乳酸課，不是低乳酸課
+    cert: 🟢
+  - key: threshold
+    name_zh: 閾值／臨界游速間歇
+    system_zh: 有氧為主，重度強度域邊緣
+    goal_zh: 提高可維持的配速；用臨界游速當基準
+    duration_zh: 每趟 45 秒–6 分鐘（100–400 公尺）
+    lactate_expectation_zh: 🟢 以臨界游速做間歇時血乳酸可維持穩定；連續游則一路爬升（見 css_evidence）
+    cert: 🟢
+  - key: aerobic_easy
+    name_zh: 輕鬆有氧／恢復
+    system_zh: 氧化系統
+    goal_zh: 維持有氧基礎與動作熟悉度，並為下一次品質課留恢復空間
+    duration_zh: 連續或長距重複皆可
+    lactate_expectation_zh: 不量測；以能對話的吃力程度與動作維持為準
+    cert: 🔵
+  pace_offsets_zh: '🟢 以臨界游速為基準的配速偏移，只有三個數字有官方原文可核：
+
+    輕鬆／恢復＝臨界游速每 100 公尺 ＋8 至 ＋10 秒；
+
+    穩定（steady）＝臨界游速 ＋6 秒；
+
+    閾值＝臨界游速本身。
+
+    ⚠️ 完整五區的其餘數值在該來源的頁面圖檔中，本次未能取得，標為未取得；
+
+    **不以第三方計算器網站的數字替代**。
+
+    ⚠️ 更快的區（VO2max 以上）本檔不用臨界游速的負偏移表示，改直接用
+
+    200 公尺賽速——臨界游速以上的偏移沒有游泳專屬驗證。'
+  plain_zh: '開組之前先回答一句話：這組是要練什麼？六個常見答案是——最高速度、乳酸生成、
+
+    乳酸耐受、賽速重複、閾值有氧、輕鬆恢復。每個答案對應不同的每趟時間長度，
+
+    而每趟多長幾乎決定了身體用哪套能量系統。
+
+    有一張很常被引用的工作休息比例表（來自肌力與體能的標準教科書），它的真正數值是
+
+    磷酸原 1:12–1:20、快速糖酵解 1:3–1:5，不是外面流傳的版本。而且那張表不是
+
+    游泳專用的：時間長度對得上，比例卻不能照抄——有氧組如果照它休到 1:1，
+
+    游泳課根本排不下。所以本檔的做法是：速度組照表（同時也符合磷酸肌酸的恢復速度），
+
+    有氧組改用游泳自己的實測數字。'
+  links:
+    development_stages:
+    - t2t
+    - t2c
+    - t2w
+    related:
+    - periodization.set_design.variables
+    - periodization.zones.energy_systems_primer
+    - periodization.zones.swim_energy_by_distance
+    - periodization.set_design.unverified_claims
+variables:
+  id: periodization.set_design.variables
+  cert: 🔵
+  name_zh: 四個變項的決定順序
+  provenance_zh: 渦流計畫的操作模型；把上游的能量系統意圖與錨點時間組裝成可執行組課的規則層。
+  evidence_from:
+  - periodization.set_design.anchors
+  - periodization.set_design.energy_targets
+  - periodization.set_design.usrpt
+  - periodization.set_design.css_evidence
+  order_rule_zh: 🔵 距離 → 目標時間 → 休息 → 次數。距離由意圖的每趟時間長度決定；目標時間由錨點推；休息由能量系統的恢復需求推；次數由「能維持目標時間幾趟」反推，不是先決定總量再硬塞。任何一項被外部條件卡死（例如只有 25 公尺池），從被卡死的那一項往後重算，不要沿用舊次數。
+  var_distance:
+    name_zh: 一、距離
+    rule_zh: 由意圖的每趟時間長度回推。速度組 10–25 公尺；乳酸生成 25–50 公尺；乳酸耐受 75–150 公尺；賽速重複取目標賽距的等分（15/25/50，較少用 75）；閾值 100–400 公尺；輕鬆有氧不限。
+    pool_constraint_zh: 🔵 池長會改寫距離。短池的轉身多、出發後的水下段占比高，同距離成績本來就比長池快；錨點與組課必須同池長比較，跨池長只能各自建立趨勢。
+  var_target_time:
+    name_zh: 二、目標時間
+    rule_zh: "\U0001F535 三條推導路徑，依意圖擇一，不混用：\n(a) 速度與乳酸生成組 → 由 T25／T50 推。目標＝該距離個人最佳成績，容許帶\n    一個明確門檻（見退出規則），不是「盡力就好」。\n(b) 賽速重複組 → 由目標賽距的個人最佳成績 ÷ 該賽距包含幾段。\n    例：目標 100 公尺、以 25 公尺為單位 → 目標每趟＝100 公尺最佳成績 ÷ 4。\n    ⚠️ 用的是個人最佳**總成績**平均分割，不是實際比賽的分段秒數。\n(c) 閾值與輕鬆組 → 由臨界游速推。閾值＝臨界游速配速；穩定＝＋6 秒／100 公尺；\n    輕鬆＝＋8 至 ＋10 秒／100 公尺。"
+    lactate_tolerance_note_zh: 🟠 乳酸耐受組沒有可核的推導公式。實務做法是取 T100 換算配速後放慢一成左右，並以「能不能在指定休息下完成預定次數」回頭校準。標 🟠 是因為這個數字來自教練實務而非文獻處方。
+    observation_basis: 乳酸耐受組目標時間的實務慣例，觀察來源為競技游泳教練現場排課；未見任何文獻給出該類別的配速百分比處方。外推邊界＝有規律訓練、能自行控速的青少年與成人；不外推到兒童、初學者與傷後回歸者。
+  var_rest:
+    name_zh: 三、休息
+    rule_zh: "\U0001F535 按能量系統的恢復需求設定，不按「總時間好算」設定：\n速度組 2–4 分鐘（磷酸肌酸再合成半衰期約 20–30 秒，充分恢復約 3–5 分鐘；\n  與通用表的 1:12–1:20 同向）；\n乳酸生成組 1.5–2.5 分鐘（通用表 1:3–1:5）；\n乳酸耐受組 30–45 秒固定短休（\U0001F7E0 實務慣例，無文獻處方；短休是這類組的定義特徵）；\n賽速重複組 25 公尺約 15 秒、50 公尺以上約 20 秒（見 usrpt 節點的原文）；\n閾值組 20–45 秒（游泳實測：400 公尺以臨界游速做、休 40 秒可完成 10 趟）；\n輕鬆有氧 10–20 秒或連續游。"
+    fixed_vs_cycle_zh: 🔵 一律寫「淨休息秒數」，不寫「出發循環」。兩者換算需要知道每趟實際用時，而實際用時是會變的；用循環寫的組在泳者變慢時休息會自動變短，等於偷偷改了組課性質。文獻裡也出現過同一份資料被描述成 20 秒淨休息與 35 秒循環兩種說法，這種歧義不要帶進規格。
+  var_reps:
+    name_zh: 四、次數
+    rule_zh: "\U0001F535 次數是「在這個目標時間與這個休息下，能維持幾趟」的上限估計，不是配額。\n速度組 6–10 趟（可分 2 組，組間再加長休）；\n乳酸生成組 4–8 趟；\n乳酸耐受組 4–6 趟；\n賽速重複組總量＝目標賽距的 5–6 倍（800／1500 公尺目標改 2–3 倍，400 公尺 3–5 倍），\n  開組時故意開在理論上限，靠退出規則自然結束；\n閾值組總量 2000–4000 公尺，單趟 100–400 公尺；\n輕鬆有氧依可用時間填。"
+    completion_rule_zh: 🔵 整組被輕鬆做完代表太簡單——下次調快目標時間，不是加次數。加次數會把速度組變成耐力組，意圖就跑掉了。
+  plain_zh: '四個數字要照順序填，不能跳。
+
+    先定距離：想練什麼決定每趟該多長，每趟多長就決定距離。
+
+    再定目標時間：短距離的從 25／50 公尺最佳成績推；賽速組的用「目標賽距最佳成績
+
+    除以段數」；閾值和輕鬆的從臨界游速推。
+
+    接著定休息：休息不是為了讓總時間好看，是為了讓身體恢復到能再做一趟同樣品質的程度。
+
+    速度組要休到 2–4 分鐘（聽起來很久，但磷酸肌酸就是要那麼久），乳酸耐受組反而故意
+
+    只休 30–45 秒。休息一律寫「純休息幾秒」，不要寫「幾分幾秒出發」——後者會在人變慢時
+
+    自動縮短休息，等於偷偷換了這組課的性質。
+
+    最後才是次數，而且它是上限不是配額：能維持品質幾趟就幾趟。如果整組輕鬆做完，
+
+    下次把目標時間調快，不要加趟數。'
+  links:
+    development_stages:
+    - t2t
+    - t2c
+    - t2w
+    related:
+    - periodization.set_design.energy_targets
+    - periodization.set_design.monitoring_exit
+    - periodization.set_design.generator
+    - periodization.zones.swim
+usrpt:
+  id: periodization.set_design.usrpt
+  cert: 🟢
+  name_zh: 超短距賽速訓練的原始參數與證據地位
+  source: Rushall 自出版通報第 49 號（USRPT 定義，2016）與第 47 號（逐步規劃，2018）；Nugent 等（2019）系統性回顧；Williamson 等（2020）急性反應實測；Papadimitriou 等（2023）與高強度間歇對照；Cuenca-Fernández 等（2023）與賽速重複對照；Papadimitriou 等（2024）範疇回顧
+  source_ids:
+  - src.rushall-2016-usrpt-defined-bulletin-49
+  - src.rushall-usrpt-planning-bulletin-47
+  - src.nugent-2019-usrpt-systematic-review
+  - src.williamson-2020-usrpt-acute-response
+  - src.papadimitriou-2023-usrpt-vs-hiit-youth
+  - src.cuenca-fernandez-2023-usrpt-vs-rpt
+  - src.papadimitriou-2024-usrpt-scoping-review
+  - src.papadimitriou-2026-sprint-tid
+  source_locator: coachsci.sdsu.edu 通報 49（v1.2, 2016-03-14）與 47（v3.1, 2018-06-27）；PubMed 31632163 / 33312298 / 37755863 / 41269307
+  status_zh: '🟢 先講證據地位，再講參數。
+
+    原始參數只出現在兩份**自出版、未經同儕審查**的通報裡。
+
+    系統性回顧檢索 1347 篇、全文評估 15 篇，最後 15 篇**全部排除**，因為介入措施
+
+    並不符合定義——也就是說回顧的結論是否定性的：沒有合格的介入研究。
+
+    2024 年的範疇回顧篩了 90,612 筆，只有 4 篇合格，**全部是急性反應研究**。
+
+    ⚠️ 唯一一份 8 週對照研究不能算數：它的主要變項是營養補充，而且它的操作方式
+
+    用 25 公尺休 10 秒與 12.5 公尺休 5 秒，同時違反原始定義的距離與休息規則。
+
+    截至 2026 年 9 月，**仍沒有符合原始定義的長期對照試驗**。'
+  original_params_zh: "\U0001F7E2 原文參數（逐字核對後轉述）：\n距離——「通常會是 15、25、50，較少用 75 公尺」。\n休息——「25 碼／公尺的重複固定約 15 秒；50 碼／公尺以上約 20 秒」，\n  並明言短工作後休超過 20 秒「恢復太多」，而更動秒數「就不能再宣稱是本方法」。\n  ⚠️ 沒有 100 公尺專屬規則；100 公尺歸在「50 以上約 20 秒」。\n總量——整組總距離為目標賽距的 5–6 倍；800／1500 公尺改 2–3 倍；400 公尺 3–5 倍。\n  開組時開在理論最大值（例如 30×50 以 200 自配速做，預期第 22 趟左右首次失敗）。\n配速——「先要知道該項目的個人最佳成績，把那個時間除以目標賽距包含幾個重複距離」。\n失敗規則——前 5 趟失敗不計；首次失敗後通常跳過下一趟；\n  出現「失敗—休息—失敗」即連續兩次失敗時結束該組，轉主動恢復。\n  主要進步指標是**首次失敗前的連續成功趟數**。\n  整組被完成代表太簡單，下次加快配速而不是加量。"
+  one_to_one_myth_zh: '🟢「工作休息比約 1:1」從來不是實測出來的性質。
+
+    它是系統性回顧為了把這套方法歸類進既有高強度間歇定義時用的描述語言；
+
+    該回顧本身沒有做任何量測，它引用的生理數據來自一份當時未發表的碩士論文。
+
+    真正把 1:1 當設計變項的，是一份把兩組都**由研究者強制設成 1:1** 的交叉試驗
+
+    ——那是實驗控制，不是這套方法本來就等於 1:1。'
+  acute_evidence_zh: "\U0001F7E2 兩份急性實測放在一起看：\n(a) 14 名泳者做 20×25 公尺、以 100 公尺個人最佳配速：血乳酸 7.7±2.4 → 13.6±3.1 mmol/L，\n    3 分鐘後仍 11.3±2.6；最高心率 188±9；主觀吃力度 8±1.6 → 18±1.6；\n    各趟比第 1 趟慢 3.3–10.8%。作者稱之為「無氧型態的訓練」——\n    **直接反駁原始主張裡「低乳酸或不堆乳酸」的說法**。\n(b) 18 名青少年（13.5±0.1 歲）的隨機平衡交叉試驗：本法 2×10×25 公尺對照\n    高強度間歇 5×50 公尺休 3 分鐘。血乳酸 8.7±0.8／10.0±0.9 對 12.9±0.4；\n    心率 173±1／180±0 對 196±1。本法較快，但**每划距離與划水指數顯著較差**。\n對渦流計畫的直接意義：這類組會用掉動作品質。放進課表時要當成「技術成本高」的組，\n不能無限制堆量。"
+  classification_zh: 🟢 分類上它已被吸收進既有強度分類，不是獨立類別。系統性回顧的原話是這套方法的定義「似乎把它歸為高強度訓練的衍生型」（血乳酸 >4 mmol、約 1:1 工作恢復比、≥88% 最高心率、主觀吃力度 ≥17 全都落在既有定義內）；2026 年的邀稿綜述把它與傳統高強度間歇並列在「乳酸耐受」類，與「乳酸生成」類的衝刺間歇對照。
+  worth_keeping_zh: "\U0001F535 本檔實際採用的三件事（每一件都不是它原創，但組合起來可操作）：\n(1) 以「首次失敗前的連續成功趟數」當單次課的進步指標——這是少數在課中就能記錄、\n    且不需要器材的量化指標；\n(2) 失敗規則自動結束該組——等於逐人逐日的自動調節，不必事先猜今天狀態；\n(3) 總量鎖在賽距的 5–6 倍——給自動生成器一個明確的量上限。"
+  disagreements_zh: "\U0001F7E2 原始主張裡有三個立場，本檔只部分採納：\n(a) 反對分解練習——回顧**部分支持**這個立場（速度特異的動作型態、整體／部分練習的\n    統合分析），而且原始主張並非全面反對部分練習，它主張的是「整體動作、注意力放在\n    某個部分」的變動優先訓練。本檔在 Drills 層維持既有立場，不因此撤掉分解練習。\n(b) 反對陸上訓練與交叉訓練——**有明確反證**：統合研究支持陸上肌力訓練可提升游速，\n    肌力訓練也與較低傷害發生率相關，青少年阻力訓練另有對抗早期專項化的價值。本檔不採納。\n(c) 反對次賽速的量——**有明確反證**：全國到國際級泳者實際上有 86–90% 的量落在\n    低與中強度。⚠️ 但比例問題要留白：一份 7 週的隨機對照試驗把高強度組的低強度量\n    砍半、高強度量加三倍，結果**既無益也無害**，而高強度組只游 17.0 公里／6 小時\n    （對照組 33.4 公里／12 小時）——那支持的是**時間效率**，不是「次賽速的量沒用」。\n⚠️ 回顧另外明白指出原始主張者有立場偏誤，並引了他自己的話「本方法有太多優於傳統\n訓練的好處……令人納悶怎麼還有人要去做傳統訓練」。引用這套方法時應同時呈現這點。"
+  gaps_zh: '🔴 查無，留白不補：
+
+    (1) 100 公尺重複的專屬休息規則；
+
+    (2) 論休息間隔選擇的第 52 號通報全文（未取得，不引用）；
+
+    (3) 上述急性研究裡「35 秒」究竟是淨休息還是出發循環（該數字不採用）；
+
+    (4) 任何符合原始六項準則的長期對照試驗。'
+  plain_zh: '超短距賽速訓練的做法是：用目標賽距的個人最佳成績除以段數當每趟目標，
+
+    25 公尺休 15 秒、50 公尺以上休 20 秒，整組總量抓賽距的 5–6 倍，開組開在上限，
+
+    連續兩趟達不到目標就結束這組。進步看的是「第一次失敗前連續成功幾趟」。
+
+    要注意的是它的證據地位：原始參數只寫在兩份自己出版、沒經審查的文件裡；
+
+    系統性回顧找了一千多篇，最後合格的介入研究是零篇。實測還反過來打臉了原作者的
+
+    兩個說法——它的血乳酸其實很高（20 趟 25 公尺可以到 13.6 mmol），而且和一般
+
+    高強度間歇比起來，青少年做完之後每划距離和划水效率明顯變差。
+
+    所以本檔的用法是：採用它的失敗規則與總量上限（這兩個很好用），
+
+    但把它當成「技術成本高的賽速組」排課，不當成可以取代其他一切的訓練哲學。'
+  links:
+    development_stages:
+    - t2c
+    - t2w
+    related:
+    - periodization.set_design.variables
+    - periodization.set_design.energy_targets
+    - periodization.zones.swim_tid
+weekly_assembly:
+  id: periodization.set_design.weekly_assembly
+  cert: 🔵
+  name_zh: 週組裝與間隔規則
+  provenance_zh: 渦流計畫的操作模型；把單組規格擺進可用課次的規則層，尚未經訓練成效試驗驗證。
+  evidence_from:
+  - periodization.set_design.energy_targets
+  - periodization.set_design.monitoring_exit
+  - periodization.decisions.monitoring
+  spacing_rules_zh: "\U0001F535 四條間隔規則：\n(1) 兩堂「品質課」（乳酸耐受、賽速重複、乳酸生成）之間至少隔一堂輕鬆或技術課。\n(2) 乳酸耐受組每週最多 1 次。\n(3) 速度組不受此限——它的疲勞來自神經而非代謝，休息足夠時可與其他課同週多次，\n    但**不排在已經累的那一天**（速度組在疲勞狀態下練等於練慢動作）。\n(4) 每週至少保留一個可比較的觀察點：同泳式、同池長、同出發、同距離、同休息、\n    同計時方式，用來回答「這幾週有沒有變」。"
+  recovery_gap_zh: '🔵 兩次同型高強度課之間該隔多久，沒有可核的固定時數。
+
+    ⚠️「完全恢復至少 48 小時」查無研究出處（見 unverified_claims）。
+
+    本檔改用可觀察的判準：下一次品質課的熱身段，以同樣條件游同樣距離，
+
+    速度回到平常範圍且動作維持，才進主組；沒回到就改當天做維持課。
+
+    這個判準的好處是它對每個人自動調整，而且不需要相信任何一個時數。'
+  session_budgets:
+  - key: s1
+    sessions: 1
+    layout_zh: 唯一一堂＝當週主重點＋觀察點。不要把三種意圖塞進同一堂；選一個，其餘下週。
+  - key: s2
+    sessions: 2
+    layout_zh: 第一堂主重點（品質），第二堂輕鬆有氧＋技術＋觀察點。
+  - key: s3
+    sessions: 3
+    layout_zh: 品質 → 輕鬆／技術 → 品質（第二個品質換不同意圖，例如週一乳酸耐受、週五賽速重複）。觀察點掛在中間那堂的熱身後。
+  - key: s4
+    sessions: 4
+    layout_zh: 品質 → 輕鬆 → 品質 → 閾值有氧。乳酸耐受仍只放 1 次。
+  - key: s5
+    sessions: 5
+    layout_zh: 品質 → 閾值 → 輕鬆／技術 → 品質 → 長有氧。速度組可另外插在任一堂的主組之前（熱身後、疲勞前）。
+  - key: s6
+    sessions: 6
+    layout_zh: 在 5 次的架構上加一堂輕鬆或技術課，不是加第三堂品質課。加量先加低強度的量。
+  missed_session_rule_zh: 🔵 漏課不補量。按剩餘機會續排，不要把缺的量擠進下一堂——擠量會同時破壞間隔規則與退出規則的判讀基礎。
+  dryland_note_zh: 🔵 陸上訓練的並行排程不在本檔決定，走 dryland.yaml；但本檔的間隔規則要把陸上大重量課算成一堂「品質課」來排間隔。
+  plain_zh: '一週怎麼擺，重點不是「練幾次」而是「吃力的課有沒有隔開」。
+
+    規則很短：兩堂吃力的課中間至少放一堂輕鬆或技術課；乳酸耐受一週最多一次；
+
+    速度組例外（它累的是神經不是代謝），但不要排在已經很累的那天；
+
+    每週留一個條件完全一樣的觀察點，用來看有沒有進步。
+
+    至於兩次高強度課要隔多久——外面常說「至少 48 小時」，但這個數字查不到出處。
+
+    本檔改用一個更實際的判準：下次品質課熱身時，同樣條件游同樣距離，速度回到平常、
+
+    動作也維持，才做主組；沒回到就改做維持課。
+
+    還有一條：漏課就漏了，不要把量補回來。補量會同時破壞間隔和判讀。'
+  links:
+    development_stages:
+    - l2t
+    - t2t
+    - t2c
+    - t2w
+    related:
+    - periodization.set_design.phase_allocation
+    - periodization.decisions.planner
+    - periodization.dryland.concurrent
+    - periodization.structure.microcycle
+phase_allocation:
+  id: periodization.set_design.phase_allocation
+  cert: 🟡
+  name_zh: 階段配置與減量銜接
+  source: Hellard 等（2019）菁英泳者年度結構與強度分布；Hellard 等（2013）賽前六週負荷型態與成績變化
+  source_ids:
+  - src.hellard-2019
+  - src.hellard-2013-optimal-overload-taper
+  source_locator: Frontiers in Physiology 10:363；PubMed 24421726（PMC3873657）
+  macro_zh: '🟡 大週期長度的實務慣例是 14–24 週（單峰偏長、雙峰或三峰偏短）。
+
+    🟢 可核的菁英實證是另一組數字：一年 2–4 個大週期，86–90% 的量落在 4 mmol 以下
+
+    （其中 40–44% 在 2 mmol 以下、44–46% 在 2–4 mmol）。
+
+    ⚠️ 本檔不把上述任一組數字寫成自動規則。zones.yaml 已撤回「每週至少多少比例」
+
+    的通用處方，本檔沿用該立場。'
+  phase_proportions_zh: '🟠 階段比例（一般準備 40–50%／專項準備 20–30%／競賽 10–15%／過渡 5–10%）
+
+    是教練實務慣例，本次未能追到任何原始研究或教科書頁碼。
+
+    本檔保留它作為**排課起點**，但標明它是慣例不是處方，且個人歷次反應優先於它。'
+  observation_basis: 階段比例與大週期長度區間的觀察基礎是競技游泳教練的年度排課慣例（來源筆記彙整自教練社群與訓練平台部落格，非研究文獻）。外推邊界＝有固定賽季與明確主賽的競技泳者；不外推到無比賽目標的成人泳者、兒童學習階段與傷後回歸者。與此衝突時以個人歷次紀錄為準。
+  intent_by_phase:
+  - phase: general_prep
+    name_zh: 一般準備
+    emphasis_zh: 閾值與輕鬆有氧為主；速度組維持（低量、高品質）；賽速重複少量作為動作校準；乳酸耐受不放或極少。
+  - phase: specific_prep
+    name_zh: 專項準備
+    emphasis_zh: 賽速重複與閾值並重；乳酸生成開始進場；乳酸耐受每週至多 1 次；輕鬆有氧的量開始讓位但不歸零。
+  - phase: competition
+    name_zh: 競賽
+    emphasis_zh: 以賽速重複與速度組保持銳利；乳酸耐受在主賽前 10–14 天內不再新增；閾值與輕鬆課負責恢復。
+  - phase: transition
+    name_zh: 過渡
+    emphasis_zh: 不設目標時間；維持下水頻率與動作熟悉度。完全停練 4 週最大攝氧量約掉 14%——過渡不等於躺平（見 structure.yaml）。
+  taper_handoff_zh: "\U0001F7E2 減量的參數走 taper.yaml，本檔只交代銜接。\n⚠️ 常被引用的「賽前六週高負荷加緩降約 2.4% 的進步幅度」需要三處更正：\n(1) 它是**觀察性縱貫研究**（32 名菁英、1–9 個賽季、85 個「最後六週」區段），\n    比較的是預賽與全國賽的成績，不能寫成因果；\n(2) 2.4±1.6% 是**表現最好的那一群集**，全體平均變化是 1.7±1.7%；\n(3) 負荷型態是**兩個峰**不是一個峰——超負荷期第一週一個中等峰後線性下降\n    （約 84→81→80% 最大負荷），減量期第一週再一個峰後下降（約 57→45→38%）。\n同一份研究另一個實務含意：最佳型態隨生涯階段改變——前三個賽季傾向把中等負荷\n帶進減量期，第四個賽季以後傾向更高的超負荷加更陡的下降。"
+  plain_zh: '同一組課在賽季不同時期的份量不一樣，但內部邏輯不變。
+
+    一般準備期以閾值和輕鬆有氧為主，速度組維持著別掉；專項準備期賽速組加重，
+
+    乳酸耐受一週最多一次；競賽期靠賽速和速度組保持銳利，主賽前兩週內不再新增
+
+    乳酸耐受；過渡期不設目標時間，但也不能完全不下水——完全停四週，最大攝氧量
+
+    大約掉一成四。
+
+    階段的比例數字（準備期占四到五成之類）是教練慣例，查不到研究出處，本檔當起點用，
+
+    個人的歷次反應比它重要。
+
+    另外更正一個很常被引用的減量數字：「賽前這樣安排可以進步 2.4%」——那是觀察研究，
+
+    不是因果；2.4% 是表現最好的那一群，全體平均是 1.7%；而且它的負荷長相是兩個峰，
+
+    不是一路往下。'
+  links:
+    development_stages:
+    - t2c
+    - t2w
+    related:
+    - periodization.set_design.weekly_assembly
+    - periodization.taper.swim
+    - periodization.structure.swim_annual
+    - periodization.structure.detraining
+monitoring_exit:
+  id: periodization.set_design.monitoring_exit
+  cert: 🔵
+  name_zh: 退出規則與重測時機
+  provenance_zh: 渦流計畫的操作模型；把「什麼時候停」寫成開組前就決定好的條件。
+  evidence_from:
+  - periodization.set_design.usrpt
+  - periodization.set_design.css_evidence
+  - periodization.decisions.monitoring
+  why_predeclare_zh: 🔵 退出條件必須在開組之前寫好。臨場決定「今天再撐一趟」會讓這組課失去可比較性，也讓下一次的判讀失去基準。自動生成器更是必須：沒有退出條件的組規格不完整，不予輸出。
+  exit_rules:
+  - key: velocity
+    applies_zh: 速度組
+    rule_zh: 門檻＝本組最快一趟 ＋ max(0.5 秒, 3%)，取較大者。連續兩趟未達門檻即結束本組。
+    why_zh: '🔵 為什麼不用單純的百分比：25 公尺衝刺的 3–5% 約 0.3–0.6 秒，已經在手計時的
+
+      誤差範圍內或以下。用絕對秒數設下限，才不會把計時雜訊當成疲勞訊號。
+
+      電子計時可改用純百分比。
+
+      ⚠️「速度衰退超過 3–5% 就停組」查無研究出處（見 unverified_claims）。'
+  - key: lactate_production
+    applies_zh: 乳酸生成組
+    rule_zh: 同上門檻；另加上限——不論是否達標，達到預定次數上限就停。
+    why_zh: 🔵 這類組的疲勞會在最後一兩趟急遽累積，靠門檻判斷容易反應太慢，因此同時設次數硬上限。
+  - key: lactate_tolerance
+    applies_zh: 乳酸耐受組
+    rule_zh: 連續兩趟慢於目標時間即結束；動作明顯崩掉（划距塌陷、換氣節奏亂）也結束，即使秒數還在。
+    why_zh: 🟠 實務慣例。這類組的價值在於「在高乳酸下維持動作」，動作已經維持不住時再多做只是練壞動作。
+    observation_basis: 觀察基礎為競技游泳教練現場對高乳酸組動作崩解的判讀；無文獻處方。外推邊界＝能自行控速並能描述自身動作狀態的青少年與成人；不外推到兒童與初學者。
+  - key: race_pace
+    applies_zh: 賽速重複組
+    rule_zh: 前 5 趟的失敗不計；首次失敗後跳過下一趟；出現連續兩次失敗即結束本組，轉主動恢復。
+    why_zh: 🟢 這是原始定義的原文規則。記錄「首次失敗前的連續成功趟數」當作單次課的進步指標。
+  - key: threshold
+    applies_zh: 閾值組
+    rule_zh: 連續兩趟慢於臨界游速配速 2 秒／100 公尺以上即結束；若整組輕鬆完成，下次重測錨點而非直接加量。
+    why_zh: 🔵 閾值組的目的是累積可維持的配速量；掉速代表今天的可維持配速低於錨點，繼續做只是在做較慢的有氧課。
+  retest_triggers_zh: '🔵 重測錨點的四個觸發條件（任一成立即重測，不必等固定週數）：
+
+    (1) 距上次重測已 4–6 週；
+
+    (2) 同一組課連續兩次被輕鬆完成；
+
+    (3) 同一組課連續兩次在前三趟就觸發退出；
+
+    (4) 訓練條件有結構性改變（換池長、換泳式主項、傷後回歸、長假後復訓）。
+
+    ⚠️ 不建議每 2–4 週重測：臨界游速對訓練適應的反應遲鈍，太密的重測主要量到狀態波動。'
+  weekly_downshift_zh: 🔵 整週降載的觸發不在本檔決定，走 decisions.yaml 的分支（症狀／異常疲勞／反覆退步）。本檔的退出規則只管單一組課。
+  record_fields_zh: 日期｜泳式｜池長｜出發方式｜距離×次數｜目標時間｜淨休息秒數｜各趟實際秒數｜首次未達標的趟次｜結束原因（達上限／連續兩趟未達／動作崩／主動中止）｜主觀吃力度｜隔日恢復
+  plain_zh: '每一組都要在開始之前就寫好「什麼時候停」。理由很簡單：臨場才決定「再撐一趟」，
+
+    這組就失去可比較性，下次也沒有基準可比。
+
+    停組的判準因組而異：速度組和衝刺組看「連續兩趟比本組最快的慢太多」；
+
+    乳酸耐受組多一條——動作崩了就停，即使秒數還撐得住；賽速組用失敗規則
+
+    （前五趟不算，連續兩次失敗就結束）；閾值組看有沒有連續兩趟掉出配速。
+
+    有一個常見說法要更正：「速度掉超過 3–5% 就停」查不到出處，而且 25 公尺的
+
+    3% 大概只有 0.3 秒，比手錶計時的誤差還小。所以本檔改成「慢 0.5 秒或 3%，取大的」。
+
+    至於什麼時候重新測錨點：滿 4–6 週、或同一組連續兩次太輕鬆、或連續兩次前三趟就
+
+    掛掉、或換了池長主項這類結構性改變——四個條件任一成立就重測，不必死等週數。'
+  links:
+    development_stages:
+    - l2t
+    - t2t
+    - t2c
+    - t2w
+    related:
+    - periodization.set_design.variables
+    - periodization.set_design.generator
+    - periodization.decisions.monitoring
+    - periodization.decisions.planner
+generator:
+  id: periodization.set_design.generator
+  cert: 🔵
+  name_zh: 自動課表生成參數
+  provenance_zh: 渦流計畫的操作模型。本區塊是把上面六節的規則壓成可程式化的參數表；語意以上面各節為準，數字衝突時以各節的文字敘述為真。
+  evidence_from:
+  - periodization.set_design.variables
+  - periodization.set_design.energy_targets
+  - periodization.set_design.usrpt
+  - periodization.set_design.weekly_assembly
+  - periodization.set_design.monitoring_exit
+  contract_zh: '🔵 生成器契約（四條，缺一不輸出）：
+
+    (1) 沒有所需錨點就不產生帶目標時間的組，改回傳「需要先測 X」。
+
+    (2) 每組輸出必含：泳式、池長、距離、次數、目標時間、淨休息秒數、退出規則。
+
+    (3) 每組輸出必帶 intent 與 cert，讓下游知道這組的證據等級。
+
+    (4) 不輸出「每週各強度占幾成」的比例配方——上游 zones.yaml 已撤回該類規則。'
+  inputs:
+    required:
+    - stroke
+    - pool_length_m
+    - sessions_per_week
+    - minutes_per_session
+    - phase
+    anchors_optional:
+    - t25_s
+    - t50_s
+    - t100_s
+    - t200_s
+    - t400_s
+    context_optional:
+    - population
+    - event_distance_m
+    - weeks_to_event
+  derived:
+  - key: css_per_100_s
+    formula: (t400_s - t200_s) / 2
+    requires:
+    - t200_s
+    - t400_s
+    note_zh: 首選。同泳式、同池長。
+  - key: css_per_100_s_fallback
+    formula: (t400_s / 4) / 0.92
+    requires:
+    - t400_s
+    note_zh: 只有 400 公尺成績時的估計值；輸出須標「估計」。
+  - key: steady_per_100_s
+    formula: css_per_100_s + 6
+    requires:
+    - css_per_100_s
+    note_zh: 原文為固定值 ＋6 秒，不是區間。
+  - key: easy_per_100_s
+    formula: css_per_100_s + 9
+    requires:
+    - css_per_100_s
+    note_zh: 原文區間為 ＋8 至 ＋10，取中值。
+  - key: race_pace_per_rep_s
+    formula: pb_for_event_s / (event_distance_m / rep_distance_m)
+    requires:
+    - event_distance_m
+    - rep_distance_m
+    note_zh: 用個人最佳總成績平均分割，不用實際比賽分段。
+  set_types:
+  - key: velocity
+    intent: velocity
+    cert: 🔵
+    distance_m:
+      min: 10
+      max: 25
+    target_from:
+    - t25_s
+    target_rule: 該距離個人最佳成績
+    rest_s:
+      min: 120
+      max: 240
+    reps:
+      min: 6
+      max: 10
+      blocks: 2
+    exit: 連續兩趟慢於本組最快趟 max(0.5s, 3%)
+    weekly_max: 3
+    requires_fresh: true
+  - key: lactate_production
+    intent: lactate_production
+    cert: 🟢
+    distance_m:
+      min: 25
+      max: 50
+    target_from:
+    - t25_s
+    - t50_s
+    target_rule: 該距離個人最佳成績
+    rest_s:
+      min: 90
+      max: 150
+    reps:
+      min: 4
+      max: 8
+    exit: 連續兩趟慢於本組最快趟 max(0.5s, 3%)，或達次數上限
+    weekly_max: 2
+    requires_fresh: true
+  - key: lactate_tolerance
+    intent: lactate_tolerance
+    cert: 🟠
+    distance_m:
+      min: 75
+      max: 150
+    target_from:
+    - t100_s
+    target_rule: 由 T100 換算配速後放慢約 10%（實務慣例，無文獻處方）
+    rest_s:
+      min: 30
+      max: 45
+    reps:
+      min: 4
+      max: 6
+    exit: 連續兩趟慢於目標，或動作明顯崩解
+    weekly_max: 1
+    requires_fresh: true
+  - key: race_pace
+    intent: race_pace
+    cert: 🟢
+    distance_m:
+      min: 15
+      max: 75
+    preferred_distances_m:
+    - 15
+    - 25
+    - 50
+    target_from:
+    - event_distance_m
+    target_rule: 目標賽距個人最佳成績 ÷ 段數
+    rest_s:
+      rule: 距離 ≤25 公尺為 15 秒；>25 公尺為 20 秒
+    volume_rule: 總距離＝目標賽距 × 5–6（800/1500 公尺改 2–3；400 公尺改 3–5）
+    exit: 前 5 趟失敗不計；首次失敗後跳一趟；連續兩次失敗結束
+    weekly_max: 3
+    requires_fresh: false
+    technique_cost_zh: 🟢 實測顯示此類組會降低每划距離與划水指數，排課時視為技術成本高的組。
+  - key: threshold
+    intent: threshold
+    cert: 🟢
+    distance_m:
+      min: 100
+      max: 400
+    target_from:
+    - css_per_100_s
+    target_rule: 臨界游速配速
+    rest_s:
+      min: 20
+      max: 45
+    volume_rule: 總量 2000–4000 公尺
+    exit: 連續兩趟慢於配速 2 秒／100 公尺以上
+    weekly_max: 3
+    requires_fresh: false
+    continuous_forbidden_for:
+    - child
+    - youth
+    continuous_note_zh: 🟢 未成年泳者只用間歇，不開以臨界游速連續定速游的組。
+  - key: aerobic_easy
+    intent: aerobic_easy
+    cert: 🔵
+    distance_m:
+      min: 100
+      max: 1500
+    target_from:
+    - easy_per_100_s
+    target_rule: 臨界游速 ＋8 至 ＋10 秒／100 公尺
+    rest_s:
+      min: 10
+      max: 20
+    volume_rule: 依可用時間填
+    exit: 無；以動作維持與可對話的吃力程度為準
+    weekly_max: 7
+    requires_fresh: false
+  assembly_rules:
+  - 兩個 requires_fresh 為真的組不排在相鄰兩堂課。
+  - lactate_tolerance 每週至多 1 次，且不在主賽前 10–14 天內新增。
+  - 每週至少排入一個條件固定的觀察點（同泳式、同池長、同出發、同距離、同休息、同計時方式）。
+  - 漏課不補量：按剩餘課次續排。
+  - 陸上大重量課計為一堂品質課，納入間隔計算。
+  refusals:
+  - condition: 缺 t200_s 或 t400_s 且缺 t400_s
+    action: 不輸出 threshold 與 aerobic_easy 的目標時間，改輸出「需先測 400（或 200＋400）」
+  - condition: 缺 event_distance_m 的個人最佳成績
+    action: 不輸出 race_pace 組
+  - condition: population 為 child 或 beginner
+    action: 不輸出 lactate_tolerance；threshold 僅輸出間歇型；所有目標時間標「估計」
+  - condition: 泳式為蝶式且要求三點錨點
+    action: 退回兩點法（200/400），不要求 800
+  - condition: readiness 有症狀
+    action: 不輸出任何帶目標時間的組，轉 decisions.yaml 停止分支
+  plain_zh: '這一節是把前面六節壓成程式看得懂的表。它規定四件事：沒有錨點就不生成帶目標時間
+
+    的課（改回報「要先測什麼」）；每組輸出一定要有泳式、池長、距離、次數、目標時間、
+
+    純休息秒數和退出規則；每組要標它的證據等級；以及不輸出「每週各強度該占幾成」
+
+    這種比例配方——因為上游已經把那類通用規則撤掉了。
+
+    表裡的六種組各有距離範圍、目標時間怎麼推、休息幾秒、幾趟、什麼時候停、一週最多
+
+    幾次，還有一個「需要在不累的時候做」的旗標，用來自動排間隔。
+
+    最後有一組拒絕條件：缺錨點、缺個人最佳、對象是兒童或初學者、蝶式被要求做三點測驗、
+
+    或者當事人有症狀——各自對應不同的退回方式，而不是硬生一份課表出來。'
+  links:
+    development_stages:
+    - l2t
+    - t2t
+    - t2c
+    - t2w
+    related:
+    - periodization.set_design.variables
+    - periodization.set_design.monitoring_exit
+    - periodization.set_design.overview
+    - periodization.decisions.planner
+unverified_claims:
+  id: periodization.set_design.unverified_claims
+  cert: 🔵
+  name_zh: 查證後未採用的六個數字
+  purpose_zh: 🔵 這些數字在游泳教學材料裡流通很廣。本節不是為了否定它們，是為了讓下一次有人帶同一份資料進來時，查得到為什麼沒採用、以及本檔用什麼取代。
+  source: Haff & Triplett 編（2016）第 3 章表 3.6；Terzi 等（2021）；Mavroudi 等（2023）；Hellard 等（2013）；Swim Smooth 官方部落格〈Understanding Training Zones〉
+  source_ids:
+  - src.haff-triplett-2016
+  - src.terzi-2021-sprint-interval-set
+  - src.mavroudi-2023-sprint-lactate-by-distance
+  - src.hellard-2013-optimal-overload-taper
+  - src.swimsmooth-training-zones-blog
+  claims:
+  - key: lactate_over_20
+    claim_zh: 乳酸耐受組後血乳酸「接近甚至超過 20 mmol/L」
+    verdict_zh: 查無出處，不採用
+    detail_zh: '游泳的第一手實測值：4×50 自由式（休 2 分鐘）男 14.1±3.1、女 15.3±3.1；
+
+      單次全力 25 公尺 7.0±1.5、35 公尺 9.3±2.2、50 公尺 13.8±2.6 mmol/L；
+
+      8×100 公尺約 12 mmol/L。
+
+      本庫原先寫的「12–18」也要註記：那是一篇論文從四份不同研究壓縮出來的二手區間，
+
+      沒有任何單一原始研究量到「12–18」這個範圍本身。
+
+      唯一指向 ≥20 的線索是一份未被索引、無數位物件識別碼的期刊文章，
+
+      宣稱 15 公尺衝刺後 22 mmol/L——生理上不合理。人體上限約 25 mmol/L 的常引數字
+
+      來自 1970 年代的跑步與自行車研究，不是游泳。'
+    replacement_zh: 本檔採用：游泳乳酸耐受組後典型 10–16 mmol/L，個體上緣偶見 18。
+  - key: recovery_48h
+    claim_zh: 乳酸耐受課後「完全恢復需要至少 48 小時」
+    verdict_zh: 只有二手教練講義，無研究出處，不採用
+    detail_zh: '沒有任何研究量過無氧游泳組課後的完整恢復曲線。
+
+      已知的量級反而互相矛盾：血乳酸清除約 30–90 分鐘；肌酸激酶在運動後 5–8 小時
+
+      達峰、24 小時已回落，而且游泳本身產生的肌酸激酶偏低。
+
+      文獻裡的 48 小時屬於**延遲性肌肉痠痛的峰值時間**（離心收縮損傷，24–48 小時），
+
+      高度可能是那條時間軸被搬過來用。'
+    replacement_zh: 本檔採用可觀察判準：下次品質課熱身段，同條件同距離速度回到平常範圍且動作維持，才進主組。
+  - key: decrement_3_to_5
+    claim_zh: 速度衰退超過 3–5% 就停組
+    verdict_zh: 查無出處，屬教練經驗法則，改寫後採用
+    detail_zh: '速度損失門檻的研究全部建立在**槓鈴平均速度**上，不是游泳分段秒數，不可直接搬運。
+
+      週期化教科書在對應章節刻意不給數字，只寫「當功率輸出出現明顯下降時」。
+
+      實務上的問題更直接：25 公尺衝刺的 3–5% 約 0.3–0.6 秒，等於或低於手計時誤差。'
+    replacement_zh: 本檔改寫為：門檻＝本組最快趟 ＋ max(0.5 秒, 3%)，取較大者；電子計時可用純百分比。休息長度改由磷酸肌酸再合成動力學（半衰期約 20–30 秒、充分恢復 3–5 分鐘）與通用表的 1:12–1:20 共同支撐。
+  - key: taper_2_4_percent
+    claim_zh: 賽前六週高負荷加緩降帶來約 2.4% 的進步幅度
+    verdict_zh: 來源為真，但數字身分被說錯，更正後採用
+    detail_zh: '來源是觀察性縱貫研究（32 名菁英、15 女 17 男、1–9 個賽季、85 個「最後六週」區段，
+
+      切成 3 週超負荷加 3 週減量後做群集分析），結果變項是比賽成績（占世界紀錄百分比），
+
+      比較預賽與全國賽。
+
+      三處更正：① 觀察研究，不可寫成因果；② 全體平均變化 1.7±1.7%，
+
+      2.4±1.6% 是表現最好的那一個群集；③ 負荷型態是兩個峰，不是單峰緩降。'
+    replacement_zh: 本檔在 phase_allocation 的 taper_handoff 依更正版敘述；減量參數本身走 taper.yaml。
+  - key: nsca_work_rest_table
+    claim_zh: 工作休息比：磷酸原 1:6 以上／乳酸生成 1:4–1:6／乳酸耐受 1:1–1:2／有氧休息小於工作的 20%
+    verdict_zh: 來源為真，但四列全部抄錯，改用原文值
+    detail_zh: '原表（第 4 版第 3 章表 3.6）的值是：90–100% 最大功率／5–10 秒／1:12–1:20；
+
+      75–90%／15–30 秒／1:3–1:5；30–75%／1–3 分鐘／1:3–1:4；20–30%／>3 分鐘／1:1–1:3。
+
+      對照：磷酸原差了兩倍以上；「乳酸耐受」這一列在原表根本不存在
+
+      （該表不使用這個分類）；「有氧休息小於工作的 20%」方向完全相反。
+
+      另需注意原表未指定運動模式，是一般體能的間歇處方。'
+    replacement_zh: 本檔在 energy_targets 引原文值，並明說速度組採信該表、有氧組改用游泳實測（臨界游速 400 公尺休 40 秒可完成 10 趟，約 8:1）。
+  - key: swimsmooth_hr_zones
+    claim_zh: 某商業教練系統的 Z1–Z5 最大心率百分比分區表（Z1 <65%、Z2 66–74%、Z3 75–79%、Z4 80–82%、Z5 >90%）
+    verdict_zh: 該系統官方頁面沒有這張表，歸屬錯誤，整表刪除
+    detail_zh: '官方〈Understanding Training Zones〉頁面明講：心率「改變了跑步與自行車」，
+
+      但對泳者「從來沒有真正行得通」，因此他們用的是相對於臨界游速的每百公尺秒數偏移。
+
+      該頁面**完全沒有任何最大心率百分比**。
+
+      這張表本身也內部不一致（Z4 上緣 82% 與 Z5 下緣 90% 之間有 8 個百分點的斷層）。'
+    replacement_zh: 本檔只採該來源逐字可核的三個偏移（輕鬆／恢復 ＋8–10 秒、穩定 ＋6 秒、閾值＝臨界游速本身），其餘區值標「官方圖表未取得」，且不以第三方計算器網站的數字替代。該系統為商業教練品牌，屬實務材料而非研究來源。
+  plain_zh: '這一節記的是「查了以後決定不用」的六個數字，因為它們在游泳教材裡流通得很廣，
+
+    下次一定還會有人帶進來。
+
+    分別是：① 乳酸耐受後「超過 20 mmol」——查無出處，實測大多 10–16；
+
+    ② 「至少休 48 小時」——只有教練講義，那個時間其實是肌肉痠痛的峰值時間；
+
+    ③ 「掉速 3–5% 停組」——那是槓鈴研究的門檻，而且 25 公尺的 3% 比碼錶誤差還小；
+
+    ④ 減量「進步 2.4%」——來源是真的，但那是表現最好那一群的數字，全體平均是 1.7%，
+
+    而且是觀察研究不能講因果；⑤ 一張很常被抄的工作休息比例表——原表四列全部被抄錯，
+
+    其中「有氧」那列方向還相反；⑥ 某教練系統的心率分區表——他們官方網頁上根本沒有
+
+    心率分區，明講心率對泳者行不通。
+
+    每一條都寫了本檔改用什麼取代。'
+  links:
+    development_stages:
+    - t2t
+    - t2c
+    - t2w
+    related:
+    - periodization.set_design.energy_targets
+    - periodization.set_design.monitoring_exit
+    - periodization.set_design.phase_allocation
+    - periodization.zones.swim
