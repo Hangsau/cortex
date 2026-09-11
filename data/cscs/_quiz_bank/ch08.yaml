@@ -1,0 +1,193 @@
+meta:
+  chapter: ch08
+  source: data/cscs/ch08.yaml
+questions:
+  # 干擾項對照：同 item 的身體焦慮反應（肌肉緊張、心搏過速與胃部不適）。
+  - id: ch08.arousal-anxiety-stress.i02.q1
+    item: ch08.arousal-anxiety-stress.i02
+    cognitive: recall
+    stem: 下列哪項賽前反應最直接屬於認知焦慮，而非身體焦慮的表現？
+    locator: "Energy Management: Arousal, Anxiety, and Stress > Anxiety"
+    options:
+      - text: 感到肩頸肌肉緊繃，身體難以放鬆
+        correct: false
+        why_wrong: 把焦慮引起的骨骼肌反應當成負面思考；這裡描述的是身體張力，屬於身體焦慮的成分。
+      - text: 察覺心跳明顯加速，胸口怦怦作響
+        correct: false
+        why_wrong: 混淆生理活化與對情境的擔憂；心搏過速是身體反應，並未直接描述運動員如何負面評價即將面對的任務。
+      - text: 反覆擔心自己失誤，害怕受到批評
+        correct: true
+      - text: 覺得胃部不適，腹部出現難受感覺
+        correct: false
+        why_wrong: 將能被自己察覺的症狀都歸為認知成分；胃部不適仍屬身體焦慮，分類依據是反應內容而非是否意識到它。
+
+  # 干擾項對照：ch08.arousal-theories.i01（驅力理論）、i04（倒 U 理論），以及本 item 的帶寬概念。
+  - id: ch08.arousal-theories.i05.q1
+    item: ch08.arousal-theories.i05
+    cognitive: analysis
+    stem: 兩名選手執行相同任務，甲在偏低喚醒時表現穩定，乙在偏高喚醒時表現較好；依個人最佳功能區理論，教練應如何設定賽前調整目標？
+    locator: Influence of Arousal and Anxiety on Performance > Individual Zones of Optimal Functioning Theory
+    options:
+      - text: 分別回顧良好表現，找出各自合適的一段喚醒範圍
+        correct: true
+      - text: 以中等活化作為共同標準，讓兩人都朝連續帶中央靠近
+        correct: false
+        why_wrong: 將倒 U 概念簡化為人人都以中點最佳；個人最佳功能區理論容許不同選手的適當程度不同，不能用同一中點取代個別紀錄。
+      - text: 從各自最佳成績找出唯一數值，把任何偏離都視為失常
+        correct: false
+        why_wrong: 雖然保留個別差異，卻把功能區誤縮成單一固定點；教材容許最佳表現落在一小段帶寬內。
+      - text: 持續提高兩人的興奮程度，利用活化越高表現越好的關係
+        correct: false
+        why_wrong: 套用了驅力理論的線性外推；喚醒並非無限提高都能改善表現，也無法解釋甲在偏低程度時的良好紀錄。
+
+  # 干擾項對照：ch08.attention-concentration.i02（廣外部）、i03（廣內部）、i04（窄內部）。
+  - id: ch08.attention-concentration.i05.q1
+    item: ch08.attention-concentration.i05
+    cognitive: application
+    stem: 防守球員容易被場上的多種刺激分散注意，教練希望他在對位時改用窄外部注意，哪個提示最符合這項調整？
+    locator: Attention and Focus > Attentional Styles
+    options:
+      - text: 在心中整合雙方戰術，形成整體的攻守策略
+        correct: false
+        why_wrong: 這是廣內部注意的資訊整合；雖然也與比賽有關，焦點卻朝向內在策略，沒有縮到少數外在線索。
+      - text: 默想接下來的防守動作，預演自己的執行順序
+        correct: false
+        why_wrong: 混淆注意力的方向；心中預演屬窄內部注意，與直接觀察對手並據以行動不同。
+      - text: 同時掃視全場的站位，掌握多名球員的動向
+        correct: false
+        why_wrong: 這是廣外部注意的情境評估；雖然方向朝外，仍同時處理多個環境元素，沒有完成題目要求的焦點縮窄。
+      - text: 專注對手雙腳的步法，據此判斷移動的時機
+        correct: true
+
+  # 干擾項對照：ch08.goal-setting.i02（結果目標）、i03（短期目標）、i06（具體可量化）。
+  - id: ch08.goal-setting.i01.q1
+    item: ch08.goal-setting.i01
+    cognitive: application
+    stem: 運動員原本只想著擊敗對手，教練要新增一項由自己控制、聚焦技能執行的過程目標，哪個設定最合適？
+    locator: Psychological Techniques for Improved Performance > Goal Setting > Process Goals
+    options:
+      - text: 本週選拔賽的名次要比上次前進兩名
+        correct: false
+        why_wrong: 把期限短且可量化誤當成可由自己控制；排名仍取決於其他人的表現，短期目標也可能是結果取向。
+      - text: 每次起跑練習都依教練提示維持姿勢
+        correct: true
+      - text: 本月決賽要取得個人參加項目的金牌
+        correct: false
+        why_wrong: 混淆明確的成功標準與可控制的行動；獎牌屬競賽結果，即使個人付出努力，仍受對手能力影響。
+      - text: 下一場接力賽要協助隊伍擊敗主要對手
+        correct: false
+        why_wrong: 把協助團隊的意願當成具體執行策略；此目標的判準仍是勝負，沒有指出運動員自己要完成的技術行動。
+
+  # 干擾項對照：ch08.attention-concentration.i06、i08，以及 ch08.ideal-performance-state.i04、i05。
+  - id: ch08.ideal-performance-state.i02.q1
+    item: ch08.ideal-performance-state.i02
+    cognitive: analysis
+    stem: 熟練選手描述一次理想表現時說，自己沒有逐步分析技術，卻能流暢動作並回應關鍵線索；哪個解讀最符合這種經驗？
+    locator: Ideal Performance State
+    options:
+      - text: 刻意檢查每個動作環節，使技術由意識逐步控制
+        correct: false
+        why_wrong: 將認知階段的費力調節套到已熟練的理想表現；題中沒有逐步分析的描述，正好與逐一監控細節相反。
+      - text: 完全排除內外所有刺激，使心智停止處理任何資訊
+        correct: false
+        why_wrong: 把不分析技術誤解為不再注意；自動化仍可聚焦任務相關線索，題中也明確保留了對關鍵訊息的反應。
+      - text: 已熟練技能自動執行，使注意力仍能留在當下任務
+        correct: true
+      - text: 憑主觀掌控感切換狀態，使輕鬆感能按意願隨時出現
+        correct: false
+        why_wrong: 混淆感到有所掌控與能刻意命令狀態發生；教材把不費力感描述為非自願經驗，不能由此推論選手可隨意啟動它。
+
+  # 干擾項對照：本 item 的正增強，以及 ch08.motivation.i06 的正懲罰與負懲罰。
+  - id: ch08.motivation.i05.q1
+    item: ch08.motivation.i05
+    cognitive: application
+    stem: 全隊達到約定的努力標準後，教練免除隊員不喜歡的額外衝刺，此後達標行為增加；這種安排屬於哪一種行為調整方式？
+    locator: Motivation > Positive and Negative Reinforcement in Coaching
+    options:
+      - text: 正增強
+        correct: false
+        why_wrong: 把隊員感到高興當成「正」的判準；此分類看的是添加或移除結果，題中是取消厭惡事件，沒有新增獎品或讚美。
+      - text: 正懲罰
+        correct: false
+        why_wrong: 因為看到衝刺就聯想到處罰，卻忽略它是被免除的；這種分類應是在行為後加入事件以降低行為，與本例的操作及方向都不符。
+      - text: 負懲罰
+        correct: false
+        why_wrong: 只看見移除而忽略被移除事物的性質與行為效果；取消珍惜的特權以減少行為，才符合此類，本例免除的是不喜歡的活動且達標增加。
+      - text: 負增強
+        correct: true
+
+  # 干擾項對照：本 item 的區塊式練習，以及 ch08.motor-skill-acquisition.i05、i06。
+  - id: ch08.motor-skill-acquisition.i04.q1
+    item: ch08.motor-skill-acquisition.i04
+    cognitive: application
+    stem: 運動員已能分別完成傳球、運球與投籃，教練希望在同一堂課改用隨機練習，哪種安排最符合這項要求？
+    locator: Enhancing Motor Skill Acquisition and Learning > Practice Schedule > Random Practice
+    options:
+      - text: 讓三種技能按不固定順序交替，同一堂課多次切換項目
+        correct: true
+      - text: 先連續傳球再連續運球，最後集中完成所有投籃練習
+        correct: false
+        why_wrong: 把一堂課包含多項技能當成隨機安排；連續重複一項後才換下一項，仍是區塊式練習的結構。
+      - text: 全程練投籃但調整出手距離，讓同一技能出現不同變化
+        correct: false
+        why_wrong: 混淆變化練習與隨機練習；前者改變同一技能的變化，題目要求的是多項技能以隨機順序交替。
+      - text: 看完隊友示範後再親自模仿，兩人輪流觀察與實際執行
+        correct: false
+        why_wrong: 把觀察者與執行者輪替誤認為技能順序交替；這是觀察練習結合身體練習，安排本身沒有指定多種技能的隨機順序。
+
+  # 干擾項對照：ch08.psychological-techniques.i01（呼吸）、i02（肌肉收緊與放鬆）、i04（恐懼層級）。
+  - id: ch08.psychological-techniques.i03.q1
+    item: ch08.psychological-techniques.i03
+    cognitive: application
+    stem: 運動員練習漸進式肌肉放鬆時覺得收緊肌群不舒服，教練改用自律訓練，接下來應給哪個提示？
+    locator: Psychological Techniques for Improved Performance > Relaxation Techniques to Control Elevated Arousal and Anxiety > Autogenic Training
+    options:
+      - text: 逐一收緊肌群十至十五秒，再有意識地完全放鬆
+        correct: false
+        why_wrong: 沿用了漸進式肌肉放鬆的張力循環；教材所述替代法正是改以身體感受取代收緊動作，沒有必要重做引起不適的步驟。
+      - text: 將注意力放在某一肢體，感受它的溫暖與沉重
+        correct: true
+      - text: 自然地深吸氣並控制吐氣，持續保持規律節奏
+        correct: false
+        why_wrong: 這是橫膈膜呼吸的引導；它可協助放鬆，也可能作為其他技巧的準備，但沒有呈現自律訓練所專注的肢體感受。
+      - text: 依恐懼層級逐一想像場景，同時持續運用放鬆
+        correct: false
+        why_wrong: 套用了系統減敏感法的程序；該法以放鬆反應取代恐懼反應，並非本題以溫暖和沉重感取代肌肉張力循環的方式。
+
+  # 干擾項對照：ch08.arousal-theories.i01（線性上升）、i04（漸進下降），以及本 item 的恢復限制。
+  - id: ch08.arousal-theories.i06.q1
+    item: ch08.arousal-theories.i06
+    cognitive: analysis
+    stem: 運動員持續擔心失敗，賽前生理喚醒又不斷升高；依災難理論，教練應如何判斷接下來的表現風險？
+    locator: Influence of Arousal and Anxiety on Performance > Catastrophe Theory
+    options:
+      - text: 認知焦慮存在時活化繼續升高，可能使表現突然大幅下跌
+        correct: true
+      - text: 生理喚醒持續增加時成績也會提高，可沿線性關係繼續改善
+        correct: false
+        why_wrong: 套用了驅力理論的單向提升假設；災難模型特別指出，擔憂存在時再提高生理活化，可能觸發急遽衰退。
+      - text: 即使超過最佳程度也只會逐漸退步，不會出現突然的崩落
+        correct: false
+        why_wrong: 將早期倒 U 模型的漸進下降當成風險上限；本題指定的理論容許表現突然下跌，不能只預期平順衰退。
+      - text: 即使成績崩落也只須略微恢復平靜，就能立即回到原來水準
+        correct: false
+        why_wrong: 把降低喚醒當成沿原曲線對稱回復的保證；教材明確指出，恢復一些平靜不一定能回到下跌前的表現。
+
+  # 干擾項對照：同 item 的同步與延遲回饋、初學複雜技能的頻率例外，以及隨熟練遞減的原則。
+  - id: ch08.motor-skill-acquisition.i08.q1
+    item: ch08.motor-skill-acquisition.i08
+    cognitive: analysis
+    stem: 運動員已逐漸熟練一項複雜技能，教練目前優先考量長期學習效果，哪種回饋安排最符合這個目標與學習階段？
+    locator: Enhancing Motor Skill Acquisition and Learning > Feedback
+    options:
+      - text: 每次執行時都持續口頭修正，以維持當下的最佳表現
+        correct: false
+        why_wrong: 把競賽當下適用的同步回饋直接移作學習處方；它可改善即時執行，卻可能損害技能學習，兩種目標必須區分。
+      - text: 動作完成後再提供資訊，隨熟練程度逐漸降低頻率
+        correct: true
+      - text: 沿用初學時每次必給的提示，把高頻率固定到後期
+        correct: false
+        why_wrong: 將初學複雜技能的例外延伸到所有階段；教材容許起初較頻繁，仍要求隨技能提升而遞減，不能永久沿用入門配置。
+      - text: 從下一次起全面取消教練提示，不再依技能進展調整
+        correct: false
+        why_wrong: 將較低頻率誤解為立刻完全停止擴增回饋；本題仍是技能逐漸熟練的過程，教材支持依進展遞減，沒有要求一次取消所有外部資訊。
