@@ -370,3 +370,105 @@ decisions:
   stages:
   - t2c
   - t2w
+set_design:
+- id: periodization.set_design.overview
+  file: set-design.yaml
+  anchor: set-design
+  name_zh: 組課設計六步驟
+  gist_zh: 錨點→意圖→四變項→週組裝→階段→退出條件；三條前置：沒錨點不給目標時間、規格要完整、有症狀全部失效
+  stages:
+  - l2t
+  - t2t
+  - t2c
+  - t2w
+- id: periodization.set_design.anchors
+  file: set-design.yaml
+  anchor: set-design-anchors
+  name_zh: 錨點時間與測驗協議
+  gist_zh: T25/T50/T100 加臨界游速兩點法（T400−T200）÷2；只能用 200/400、蝶式不擴三點、只用斜率不用截距
+  stages:
+  - t2t
+  - t2c
+  - t2w
+- id: periodization.set_design.css_evidence
+  file: set-design.yaml
+  anchor: set-design-css
+  name_zh: 臨界游速的證據與邊界
+  gist_zh: 它不是有氧閾值：以該速度力竭平均 24 分、屬重度強度域；比最大乳酸穩態快 3–7%；初學者零研究
+  stages:
+  - t2t
+  - t2c
+  - t2w
+- id: periodization.set_design.energy_targets
+  file: set-design.yaml
+  anchor: set-design-energy
+  name_zh: 能量系統與組課意圖對照
+  gist_zh: 六種意圖對應每趟時間長度；NSCA 表 3.6 原文值（磷酸原 1:12–1:20）；有氧組不套該表改用游泳實測
+  stages:
+  - t2t
+  - t2c
+  - t2w
+- id: periodization.set_design.variables
+  file: set-design.yaml
+  anchor: set-design-variables
+  name_zh: 四個變項的決定順序
+  gist_zh: 距離→目標時間→休息→次數；一律寫淨休息秒數不寫出發循環；次數是上限不是配額
+  stages:
+  - t2t
+  - t2c
+  - t2w
+- id: periodization.set_design.usrpt
+  file: set-design.yaml
+  anchor: set-design-usrpt
+  name_zh: 超短距賽速訓練的參數與證據地位
+  gist_zh: 原文參數（15/25/50、休 15/20 秒、賽距 5–6 倍、失敗規則）；系統性回顧合格介入研究為零；實測乳酸 13.6 且划距變差
+  stages:
+  - t2c
+  - t2w
+- id: periodization.set_design.weekly_assembly
+  file: set-design.yaml
+  anchor: set-design-weekly
+  name_zh: 週組裝與間隔規則
+  gist_zh: 品質課之間隔一堂輕鬆；乳酸耐受每週最多 1 次；1–6 次課的擺法；漏課不補量
+  stages:
+  - l2t
+  - t2t
+  - t2c
+  - t2w
+- id: periodization.set_design.phase_allocation
+  file: set-design.yaml
+  anchor: set-design-phase
+  name_zh: 階段配置與減量銜接
+  gist_zh: 四階段的意圖權重；階段比例是教練慣例非處方；更正減量 2.4% 的身分（那是最佳群集，全體 1.7%，且兩個峰）
+  stages:
+  - t2c
+  - t2w
+- id: periodization.set_design.monitoring_exit
+  file: set-design.yaml
+  anchor: set-design-exit
+  name_zh: 退出規則與重測時機
+  gist_zh: 開組前先寫好何時停；門檻用 max(0.5秒, 3%) 避開手計時誤差；重測錨點的四個觸發條件
+  stages:
+  - l2t
+  - t2t
+  - t2c
+  - t2w
+- id: periodization.set_design.generator
+  file: set-design.yaml
+  anchor: set-design-generator
+  name_zh: 自動課表生成參數
+  gist_zh: 機器可讀：六種組型的距離/配速推導/休息/次數/退出/週上限，加拒絕條件；缺錨點就回報要先測什麼
+  stages:
+  - l2t
+  - t2t
+  - t2c
+  - t2w
+- id: periodization.set_design.unverified_claims
+  file: set-design.yaml
+  anchor: set-design-unverified
+  name_zh: 查證後未採用的六個數字
+  gist_zh: 乳酸>20/恢復48小時/掉速3–5%/減量2.4%/工作休息比抄錯/心率分區歸屬錯——逐條記錄為何不用與改用什麼
+  stages:
+  - t2t
+  - t2c
+  - t2w
