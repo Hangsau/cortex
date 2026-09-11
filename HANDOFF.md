@@ -1,5 +1,21 @@
 # HANDOFF — my-site (Cortex)
 
+## ⏳ 進行中：CSCS 讀書器＋出題器（桌面看板分頁，2026-09-11）
+
+站主要的是「讀書器＋出題器合一，讀完出題、提取常錯類型、提醒複習」，掛在
+`C:\claudehome\tools\deskboard` 的桌面看板上。規格已寫完並**派給 codex 實作中**
+（背景執行，Claude 5H 當時剩 27%，所以實作全外包、Claude 只出規格與驗收）。
+
+- 規格：`research/cscs-study-app-2026-09-11/SPEC.md`（自足，跨模型交接用）
+- 產出檔：`tools/cscs_study.py`（純邏輯層，**禁止 import tkinter**）、
+  `tools/cscs_study_gui.py`（Tkinter，只暴露 `build_tab(parent)`）、`tools/tests/`
+- **hub.py 不在任何 git repo，且只有三行改動，刻意不派給 codex**——回來要自己加
+- codex 被明確指示**不要 push**：UI 是唯一沒辦法靠測試驗收的部分，要站主看過畫面
+
+**接手第一件事是驗收，不是繼續寫**：跑 `git diff` 看實際產出（不看 exit code），
+再逐條跑 SPEC §12 的驗收指令。codex 已知會「只輸出計畫就 exit 0」，零檔案異動時
+要重派而不是當成完成。
+
 ## CSCS 開出第三、四條動線：考點軸 + 實務判斷層 + 出題器（2026-09-11）
 
 起點是站主想爬一個 CSCS 讀書會社團。沒有做爬蟲，也沒有存任何貼文原文——外部貼文沒有 `locator`，本來就進不了 `data/cscs/`。改成站主逐題貼、我作答、再用社團公布的解答校正，**抽取單位是題型與判讀規則，不是題目**。這輪的產出比題庫有用：題目用一次就沒了，題型可以無限出。
