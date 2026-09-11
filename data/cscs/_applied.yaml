@@ -1,0 +1,152 @@
+# 實務判斷層：由測試數據推導訓練決策的題型與判讀規則
+#
+# 抽取單位是「題型 + 判讀規則 + 課本缺口」，不是題目。
+# 來源為 CSCS 讀書會的情境式討論；原文與作者一律不落盤（見 HANDOFF 的
+# 「內容要吸收後再寫」）。案例只保留去識別化的參數輪廓與比值。
+#
+# 未納入驗收閘：cscs_check.py 只 glob ch*.yaml，本檔的 chapters / domain
+# 參照目前無人解析。要當真相源用就得先擴閘。
+
+meta:
+  created: 2026-09-11
+  source_kind: practitioner-discussion
+  extraction_rule: 一則討論 → 題型分支 + 判讀規則 + textbook_gap，原文不存
+
+templates:
+  - id: applied.test-battery-to-training-decision
+    name: 由測試組合推導訓練決策
+    stem_pattern: >-
+      給定體型（身高／體重）、運動項目與位置，加上一組測試結果
+      （下肢多關節 1RM、爆發式上舉 1RM、上肢推 1RM、縱跳、水平跳、
+      短距衝刺、變向、代謝耐力其中數項），要求判斷下一訓練區塊的
+      動作選擇或訓練重點。
+    task: 先判定限制因子，再由限制因子導出訓練決策
+    answer_axis: 最大肌力不足 ↔ 發力率不足 ↔ 無須變動
+
+    reasoning_chain:
+      - step: 變式換算
+        rule: >-
+          題目給的動作可能是變式，先換回可對常模的基準。前蹲約為背蹲 0.85 倍；
+          trap bar 硬舉與背蹲槓桿不同，不可直接互換比對。
+      - step: 相對肌力
+        rule: 下肢 1RM ÷ 體重，對照該性別與競技層級的常模
+      - step: 力量轉換率
+        rule: >-
+          爆發式上舉 1RM ÷ 下肢 1RM。高於 0.8 表示轉換能力已超前、缺口在最大肌力；
+          低於 0.6 表示力量有但轉換差、缺口在發力率與技術。
+      - step: 課表現況反推
+        rule: >-
+          有 1RM 數據的動作就是現行課表動作。「新增什麼」的選項裡出現它，
+          必定是干擾項。
+      - step: 缺口數量與分布
+        rule: >-
+          關鍵不是單一比值高低，而是偏低指標的數量與分布。多個獨立動作模式
+          （蹲、髖鉸）加上多項爆發測試同時偏低時，爆發低要判為肌力不足的下游
+          結果，不是獨立缺口；只有單一缺項且肌力面站得住時，才判發力率。
+
+    distractor_logic:
+      - type: 限制因子對應型
+        note: 各選項分別對應一種限制因子，答錯反映比值判讀方向錯
+      - type: 課表已有型
+        note: 選項是已在測試組合中出現的動作，考「新增」的語意
+      - type: 維持不變型
+        note: 出現「不做調整」時，考的是能否確認缺口存在，而非排優先序
+
+    branches:
+      - id: branch.strength-base-deficient-with-power-present
+        profile: 高大型項目位置；下肢相對肌力約 1.1 倍體重；轉換率約 0.83；縱跳顯著低於常模
+        verdict: 最大肌力
+        decision: 以下肢多關節最大肌力動作為主要強調
+        why: 轉換率已高於 0.8，爆發表現不是缺口；相對肌力才是跳躍與位移的天花板
+
+      - id: branch.strength-adequate-no-power-movement
+        profile: 下肢相對肌力約 1.28 倍體重；測試組合中無任何爆發式上舉；變向與縱跳尚可
+        verdict: 發力率
+        decision: 新增爆發式上舉（power clean）
+        why: 肌力基礎站得住而課表缺爆發質，邊際效益在提高發力率
+
+      - id: branch.multiple-low-indicators
+        profile: >-
+          蹲與髖鉸兩模式相對肌力同時偏低（換算後約 1.0–1.35 倍體重）；
+          縱跳與水平跳皆偏低；代謝耐力無急迫問題
+        verdict: 最大肌力
+        decision: 訓練區塊重點放最大肌力發展
+        why: >-
+          多個獨立指標同時偏低，爆發低是肌力不足的結果；此水準做爆發專項化
+          缺乏材料。「不做調整」不成立，因缺口明確。
+
+    domain: [d5-program-design, d6-testing]
+    chapters: [ch12, ch13, ch17]
+
+  - id: applied.behavior-modification-quadrant
+    name: 教練行為的操作制約象限判別
+    stem_pattern: >-
+      給定教練目標（提升專注、提高訓練投入、修正技術錯誤），選項各為一種
+      教練行為，要求選出最適當者。
+    task: 先把每個選項歸入操作制約象限，再對照目標方向與 NSCA 的優先序
+    answer_axis: 正強化 ↔ 負強化 ↔ 懲罰
+
+    reasoning_chain:
+      - step: 目標方向
+        rule: >-
+          題目要「增加」某行為（專注、投入）→ 答案在強化側；要「減少」某行為
+          → 才看懲罰側。方向錯的選項先排除。
+      - step: 象限歸類
+        rule: >-
+          給予想要的刺激＝正強化；移除嫌惡刺激＝負強化；移除想要的事物或施加
+          嫌惡刺激＝懲罰。看的是「加或減」與「該刺激是想要或嫌惡」兩軸。
+      - step: 優先序
+        rule: >-
+          NSCA 立場以正強化為首選。懲罰的已知副作用是提高焦慮與失敗恐懼，
+          並把注意力從執行動作轉向避免受罰。
+      - step: 訓練手段不當籌碼
+        rule: >-
+          把體能訓練、訓練特權當獎懲籌碼的選項，即使機制上成立也不選——它會
+          讓該訓練被認知為懲罰，破壞其生理目的。
+
+    distractor_logic:
+      - type: 機制正確方向錯型
+        note: 選項是有效的懲罰，但題目要增加行為，不是減少
+      - type: 訓練當籌碼型
+        note: 包裝成負強化，機制成立但違反訓練手段不作獎懲的原則
+
+    branches:
+      - id: branch.increase-focus-choose-positive-reinforcement
+        profile: 目標為提升高強度區塊中的專注；選項含正強化、以體能為籌碼的負強化、削減特權的懲罰
+        verdict: 正強化
+        decision: 在技術達標的反覆之後給予肯定
+        why: 方向與目標一致，且不動用訓練手段作籌碼
+
+    domain: [d2-sports-psychology]
+    chapters: [ch08]
+
+gaps:
+  - id: gap.test-ratio-to-exercise-priority
+    statement: >-
+      ch13 的常模只回答「這個數字算好算壞」，ch17 的動作選擇原則是從需求分析走，
+      兩章之間沒有「由測試比值推導動作優先序」的顯式決策規則。
+    chapters: [ch13, ch17]
+    evidence: 三則情境討論全數卡在同一接縫，屬系統性缺口而非個案
+    status: open
+
+  - id: gap.lift-variant-conversion-factors
+    statement: >-
+      ch13 的常模表以標準動作（背蹲、臥推）為基準，但實務課表大量使用前蹲、
+      trap bar 硬舉等變式，課本未給變式之間的換算係數，查表時直接卡住。
+    chapters: [ch13]
+    status: open
+
+  - id: gap.training-means-as-reward-or-punishment
+    statement: >-
+      ch08 講操作制約的原則與懲罰的副作用，ch17／ch20 講各訓練手段的生理目的，
+      但兩處之間沒有「不得把訓練手段當獎懲籌碼」的顯式跨章禁令——而這正是
+      情境題最常見的干擾項設計。
+    chapters: [ch08, ch17, ch20]
+    status: open
+
+  - id: gap.symptom-period-vs-test-schedule
+    statement: >-
+      ch12 講測試選擇原則、ch22 講復健與復原，兩章之間沒有「症狀期撞上測試排程」
+      的決策連結（是否延後、改等長、改預測式 multiple-RM）。
+    chapters: [ch12, ch13, ch22]
+    status: open
