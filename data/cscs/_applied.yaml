@@ -29,6 +29,34 @@ meta:
         處方不同；真正的「先建肌力」分支只有第一個（男性高層級 + 相對肌力確實低
         + 轉換率已高於 0.8）。
 
+    - date: 2026-09-11
+      what: >-
+        同日再錯兩題：機動性 drill 加難度判「加閃避」（正解加彎繞）、SEBT 起始
+        方向判「順時針」（正解隨機，且主動論證隨機是錯的）。
+      root_cause: >-
+        兩題的正解都已寫在本庫：ch13.balance-flexibility-bc.i02 的 detail 明寫
+        「起始方向與支撐腳隨機選定」，ch19.agility-cod.i02 明寫機動性是沿彎繞
+        路徑維持速度。錯因不是推理鏈缺步驟，而是根本沒查 canonical，直接用外部
+        帶進來的通則（「標準化＝一切固定」、「加難度＝加認知負荷」）覆蓋來源定義。
+        與 D-III 女性那題（套男性門檻）是同一個根因的第三次發作。
+      fix: >-
+        新增 answering_protocol：查 canonical 列為第 0 步，先於任何推理。並把兩條
+        具體規則各自建成題型（drill 難度進階、測驗流程固定 vs 隨機），加兩條缺口。
+
+answering_protocol:
+  - step: 0. 先查 canonical
+    rule: >-
+      拿到題目先 grep data/cscs/ 找對應知識單位，用它的 detail 與 locator 作答。
+      只有本庫確實沒有該條目時，才進入下面的推理層。
+    failure_mode: >-
+      2026-09-11 一天內三次踩到：三題錯答全部是「憑記憶推理，而正解就寫在檔案裡
+      或與檔案的族群前提衝突」。其中 SEBT 那題我還用外部通則主動論證正解是錯的。
+  - step: 1. 檢查是否在套外部通則
+    rule: >-
+      「標準化＝一切固定」、「加難度＝加認知負荷」、「背蹲 1.5–2.0 倍體重」都是
+      外部帶進來的一般框架。來源的具體定義優先於任何一般框架；框架與來源衝突時
+      一律以來源為準，不是反過來論證來源有問題。
+
 templates:
   - id: applied.test-battery-to-training-decision
     name: 由測試組合推導訓練決策
@@ -155,6 +183,97 @@ templates:
     domain: [d2-sports-psychology]
     chapters: [ch08]
 
+  - id: applied.drill-difficulty-progression
+    name: drill 難度進階的變數選擇
+    stem_pattern: >-
+      給定一個已歸類的 drill（機動性、方向改變、敏捷、增強式其一），問如何提高
+      其難度；選項各為一種加法（加彎繞、加閃避對手、加距離、加負荷、加刺激）。
+    task: 先認出該 drill 所屬的質，再沿該質的定義變數加難度
+    answer_axis: 沿定義變數加深 ↔ 換成另一種質
+
+    reasoning_chain:
+      - step: 認出 drill 屬於哪一質
+        rule: >-
+          機動性＝沿彎繞路徑盡量維持速度；方向改變＝急劇減速、轉向、再加速；
+          敏捷＝在刺激下選擇反應（方向改變 + 知覺—認知）。看的是「有無急煞車」
+          與「有無外部刺激」兩軸，不是看路徑複雜度。
+      - step: 找出該質的定義變數
+        rule: >-
+          機動性的定義變數是彎繞（半徑、數量、入彎速度）；方向改變的是角度與
+          進入速度；敏捷的是刺激的不可預測性與反應窗。
+      - step: 沿定義變數加，不換類別
+        rule: >-
+          「把這個 drill 變難」與「進階到更難的 drill 類別」是兩個問題。加入外部
+          刺激（閃避對手、反應信號）會把機動性或方向改變 drill 變成敏捷 drill——
+          那是換質不是加難度，題目問前者時它是干擾項。
+        failure_mode: >-
+          2026-09-11 實際踩過：機動性 drill 問加難度，選了「加閃避」。閃避是敏捷
+          的定義變數，不是機動性的。
+
+    distractor_logic:
+      - type: 換質型
+        note: 選項是另一種質的定義變數（最常見：對機動性題給敏捷的加法）
+      - type: 一般化超負荷型
+        note: 加距離、加負荷這類通用超負荷，與該 drill 要練的質無對應
+
+    branches:
+      - id: branch.maneuverability-add-bends
+        profile: 已歸類為機動性的 drill；選項含加彎繞、加閃避對手、加衝刺距離
+        verdict: 加彎繞
+        decision: 沿路徑增加彎繞成分（半徑更小、彎數更多）
+        why: >-
+          機動性的定義就是沿彎繞路徑維持速度，彎繞是它的定義變數；加閃避會把它
+          變成敏捷 drill，加距離只是延長同難度的工作。
+
+    domain: [d5-program-design]
+    chapters: [ch17, ch19]
+
+  - id: applied.test-protocol-fixed-vs-randomized
+    name: 測驗流程中哪些固定、哪些隨機
+    stem_pattern: >-
+      給定一個多條件測驗（SEBT 的八個伸展方向、多種跳躍、雙側測試），問某個
+      流程細節該如何設定；選項含固定順序、依某規則排序、隨機、由受測者自選。
+    task: 分清「流程標準化」與「條件順序隨機化」各管什麼
+    answer_axis: 固定（流程） ↔ 隨機（條件順序）
+
+    reasoning_chain:
+      - step: 分辨問的是流程還是條件順序
+        rule: >-
+          流程＝所有受測者與所有重測都必須一致的執行方式（格網尺寸、試驗次數、
+          組間休息、預先練習次數、姿勢維持時間、捨棄試驗的判準）。條件順序＝
+          同一次測驗內多個條件（方向、肢側、變式）的呈現先後。
+      - step: 流程一律固定
+        rule: 流程不一致，跨人與跨時間的比較就失去意義；重測必須沿用初測的量測方法。
+      - step: 條件順序一律隨機
+        rule: >-
+          固定順序會讓疲勞與學習效應系統性地偏壓特定條件（總是最後測的方向永遠
+          最疲勞）。隨機化是在控制順序效應，不是在破壞標準化。
+        failure_mode: >-
+          2026-09-11 實際踩過：把「標準化＝一切固定」當無條件通則，判 SEBT 起始
+          方向為順時針，並主動論證「隨機」選項錯。ch13 的 detail 原文就是隨機選定。
+
+    distractor_logic:
+      - type: 標準化過度推廣型
+        note: >-
+          選項給一個聽起來很嚴謹的固定規則（順時針、由短到長、固定先測優勢側）。
+          「標準化」這個詞的正當性會讓它看起來永遠是對的，實際要看它管的是流程
+          還是條件順序。
+      - type: 受測者自選型
+        note: 交給受測者決定既非標準化也非隨機化，方向上直接錯
+
+    branches:
+      - id: branch.sebt-start-direction-randomized
+        profile: SEBT 八方向格網；問起始伸展方向與支撐腳如何決定
+        verdict: 隨機
+        decision: 起始方向與支撐腳隨機選定
+        why: >-
+          八個方向是八個條件而非流程步驟；固定起始點會讓後測方向承受累積疲勞。
+          該測驗的流程面（每條件三次取平均、間隔 15 秒、至少預先練習四次、捨棄
+          試驗的判準）才是必須固定的部分。
+
+    domain: [d6-testing]
+    chapters: [ch12, ch13]
+
 gaps:
   - id: gap.test-ratio-to-exercise-priority
     statement: >-
@@ -198,6 +317,26 @@ gaps:
       但兩處之間沒有「不得把訓練手段當獎懲籌碼」的顯式跨章禁令——而這正是
       情境題最常見的干擾項設計。
     chapters: [ch08, ch17, ch20]
+    status: open
+
+  - id: gap.standardization-vs-randomization-boundary
+    statement: >-
+      ch12 立了測驗標準化與再測信度的原則，ch13 逐測驗給流程（SEBT 的 detail 就
+      明寫起始方向隨機），但沒有任何一處把「流程要固定、條件順序要隨機」講成
+      顯式規則。只讀 ch12 的原則會把標準化過度推廣成「一切固定」，剛好推翻
+      ch13 的具體流程。
+    chapters: [ch12, ch13]
+    severity: high
+    evidence: 2026-09-11 造成一題判定反向，且是主動論證正解為錯
+    status: open
+
+  - id: gap.progression-variable-per-quality
+    statement: >-
+      ch19 把機動性、方向改變、敏捷三者定義得很清楚，ch17 講超負荷與進階原則，
+      但兩章之間沒有「每一質的難度進階該動哪個變數」的對照——結果是拿通用超負荷
+      或另一質的定義變數去「加難度」，實際上換掉了訓練的質。
+    chapters: [ch17, ch19]
+    severity: high
     status: open
 
   - id: gap.symptom-period-vs-test-schedule
