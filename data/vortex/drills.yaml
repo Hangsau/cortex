@@ -4197,6 +4197,80 @@ drills:
   cognitive_load: low
   tactile_anchor: core_tension_internal
   difficulty_tier: intermediate
+- id: Br35
+  name_en: Tennis Ball Breaststroke
+  name_zh: 網球夾下巴蛙式
+  strokes:
+  - breaststroke
+  category: breathing
+  equipment:
+  - ball
+  l_target:
+  - L2
+  - L3
+  abc_type: C
+  purpose_zh: 用下巴夾住網球當外部限制，一抬頭球就掉——把「不要抬頭」從口頭提醒換成立即回饋
+  how_to:
+  - 把網球輕輕夾在下巴與胸口之間，游蛙式
+  - 划手與踢腿照常，換氣靠內划把肩帶起來，頭不主動往上抬
+  - 只要在任何一刻抬頭，球就會掉出來；球掉了就停下撿球重來
+  - 單趟 25 公尺以內的矯正用途，不拿來練長距離——夾球會限制每次踢腿後的推進與滑行段，整體 stroke 會被拖慢
+  perception_goal: 感覺換氣時下巴往前推而不是往上抬；球在下巴下方的接觸點是頭部位置的即時參考
+  success_signal: 整趟球都沒掉，而且還吸得到氣
+  failure_signal: 球掉出來（抬頭了）；或為了不讓球掉而把頸部整個鎖死、上半身僵硬——球雖然沒掉，卻換來另一個問題
+  deficiency_fixes:
+  - 1
+  source: 'Sica, J. (2025). Swim Drill of the Week: Tennis Ball Breaststroke. Swimming World.'
+  source_ids:
+  - src.sica-2025-swimmingworld-tennis-ball-breaststroke
+  body_position: prone
+  constraints:
+  - tension_held
+  movement_pattern: continuous
+  skill_focus:
+  - streamline_line
+  - breath_rhythm
+  stroke_phase: whole_stroke
+  drill_function: corrective
+  cognitive_load: medium
+  tactile_anchor: equipment_feedback
+  difficulty_tier: intermediate
+- id: Br36
+  name_en: Walking Breaststroke Pull
+  name_zh: 水中步行蛙式划手
+  strokes:
+  - breaststroke
+  category: breathing
+  equipment: []
+  l_target:
+  - L0
+  - L2
+  abc_type: C
+  purpose_zh: 在淺水區用走的做蛙式划手，把「上浮的力量來自手不是脖子」變成直接可感覺的事
+  how_to:
+  - 站在及胸水深，身體前傾把臉放進水裡，雙手前伸
+  - 邊往前走邊做完整蛙式划手：外划、內划、前伸
+  - 內划時手往內往下壓，讓上半身被推起來，等臉自然出水再吸氣
+  - 頭不主動抬；如果壓完了臉還在水裡，是手沒壓夠，不是脖子抬不夠
+  - 走 10–15 公尺，重複 4–6 趟
+  perception_goal: 感覺到「氣是手給的」——上浮來自內划的向下分量，頸部全程不出力
+  success_signal: 臉在內划進行到一半時自己出水；吸完氣頭自己回到水裡
+  failure_signal: 靠仰頭把臉抬出水；或手壓完了臉還在水裡（內划沒有向下分量）
+  deficiency_fixes:
+  - 1
+  source: Vortex 整理（外部限制矯正法；淺水步行版划手）
+  body_position: standing
+  constraints:
+  - no_kick
+  movement_pattern: progressive
+  skill_focus:
+  - forearm_pressure
+  - breath_rhythm
+  stroke_phase: pull
+  drill_function: corrective
+  cognitive_load: medium
+  tactile_anchor: hand_pressure
+  difficulty_tier: foundation
 - id: Fl1
   name_en: Chest Press
   name_zh: 胸部下壓
@@ -5454,6 +5528,46 @@ drills:
   cognitive_load: low
   tactile_anchor: core_tension_internal
   difficulty_tier: foundation
+- id: Fl32
+  name_en: No-Breath / Breath Contrast Fly
+  name_zh: 憋氣對照換氣蝶式
+  strokes:
+  - butterfly
+  category: breathing
+  equipment: []
+  l_target:
+  - L3
+  - L4
+  abc_type: C
+  purpose_zh: 用「後段不換氣」與「全程換氣」交替對照，把換氣這一拍實際造成的軀幹上抬量變成可比較的感覺差
+  how_to:
+  - 游 4 趟 50 公尺蝶式，趟與趟之間休息到完全恢復（原研究給 6 分鐘）
+  - 第 1、3 趟前 25 公尺自由換氣、後 25 公尺完全不換氣
+  - 第 2、4 趟全程自由換氣
+  - 兩趟強度分開：其中一組約 75%、另一組約 95% 個人 100 公尺蝶式最佳配速
+  - 每趟一結束立刻回想：不換氣那 25 公尺，髖與腳的位置跟換氣時差多少
+  - 有同伴從側面看或錄影更好——差的是軀幹上抬的角度，不是手的動作
+  perception_goal: 感覺到換氣那一拍額外把軀幹翹起來多少；這個差值就是換氣目前的成本
+  success_signal: 說得出兩種游法在髖部高度或腳的深度上的具體差別
+  failure_signal: 兩趟感覺一樣——多半是不換氣那段也在抬頭看前面，或換氣時本來就沒有抬頭（那問題不在這裡）
+  deficiency_fixes:
+  - 1
+  - 2
+  source: Alves et al. 1999 實驗設計改寫（Biomechanics and Medicine in Swimming VIII）
+  source_ids:
+  - src.alves-1999-butterfly-inspiratory-kinematics
+  body_position: prone
+  constraints:
+  - no_breath
+  movement_pattern: alternating
+  skill_focus:
+  - breath_rhythm
+  - wave_undulation
+  stroke_phase: whole_stroke
+  drill_function: corrective
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
 - id: Sc1
   name_en: Wide Y Sculling
   name_zh: 寬Y型划水
