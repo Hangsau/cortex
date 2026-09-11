@@ -1,5 +1,42 @@
 # HANDOFF — my-site (Cortex)
 
+## 週期化頁接上「組課設計完整指南」（2026-09-12）
+
+canonical 新增 `periodization/set-design.yaml`（11 節點，Vortex `3ee2bac`），本站接成
+週期化頁的**主題 5**，dryland 順延為 6。commit `4f8e054`，CI 綠，線上已驗。
+
+三個接線點，少一個就靜默失效：
+
+- **`tools/sync_vortex.py:66` 的 `PERIODIZATION_FILES` 是硬編碼清單。** canonical 加新檔
+  不會自動出站——不加名字，sync 跑完照樣回報 `CHANGED: 0`，`data/periodization/` 就是沒有
+  那份檔，而且沒有任何地方會報錯。canonical 端 `tools/build_knowledge_map.py:401` 有同樣
+  一份硬編碼清單，兩邊都要加。
+- **新增 `layouts/partials/vortex/richlines.html`。** canonical 的規則型欄位（`hard_rule_zh`、
+  `gaps_zh`、`contract_zh` 那類 `(1)(2)(3)` 條列）用的書寫慣例是「行首不縮排＝新的一條、
+  行首縮排＝上一條的續行」。`richblock.html` 只認空行分段與 `- ` 列點，遇到這種欄位會壓成
+  一整段，讀者看到一長串括號數字連在一起；`rich.html` 更是整串不斷行。新 partial 逐行判斷
+  縮排，同樣只認 `**粗體**`（這些欄位不是 markdown 文件，其餘語法保持字面）。
+- **續行接合處要檢查黏字。** partial 接續行時不插空白（插了會毀掉 `0.40` ＋
+  `（95% 信賴區間` 這種正當情形），所以 canonical 某行若停在中文、續行開頭是 ASCII，
+  就會渲染成 `走decisions.yaml`。**修在 canonical 的斷行位置，不要在 partial 加啟發式。**
+  已用一支模擬 partial 接合邏輯的腳本掃過全檔，目前只剩 `.usrpt.acute_evidence_zh` 一筆
+  誤報（前一行以 `，` 結尾，接出來是正確中文排版）。
+
+順帶修掉兩類本站常見缺陷：`steady_per_100_s` 缺 `note_zh` 造成的空 `<td>`（補在 canonical，
+不在 layout 硬編 fallback 字串），以及 `vx-pz-plain` 沒過 `rich.html` 導致 `**` 字面外露。
+**只改主題 5 這一節**——structure / zones / dryland 也有同樣的 `**` 外露，那是既有狀態，
+不在本次範圍。
+
+線上驗收（`https://hangsau.github.io/cortex/vortex/periodization/`，HTTP 200，216,558 bytes）：
+主題 5 區段 `<strong>` 84、`vx-rich-line` 161、字面 `**` 0、空 `<p>`／`<td>`／`<span>` 各 0、
+`map[` 0、`ZgotmplZ` 0、六個診斷鍵全頁 0 次外洩，`主題 N / 5` 殘留 0。頁面其他位置那 2 處
+`src.` 是 planner 的內嵌 JSON 資料島（來自 `decisions.yaml`），不是散文，刻意不動。
+
+**push 前先 fetch。** Vortex 那邊的 `notify-mysite` workflow 會自動 commit 一支
+`sync(vortex): update from TheVortexProject@…`，動到 `data/periodization/_index.yaml` 與
+`data/vortex/source-registry.yaml`，和手動 sync 的產出撞同兩個檔。這次就被 reject 一次；
+rebase 後重跑 `sync_vortex.py` 確認 working tree 乾淨再 push。
+
 ## CSCS 桌面讀書器已移出本專案（2026-09-11）
 
 原本規劃把讀書器＋出題器實作放在 `tools/cscs_study*.py`，站主當場糾正：
