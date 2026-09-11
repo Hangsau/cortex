@@ -325,9 +325,19 @@ node tools/audit.js                    # 38 條版型／深度層／概念索引
 #### 考點軸與實務判斷層（第三、四條動線，2026-09-11）
 
 `_domains.yaml` 是考點軸：7 個 domain × 章節對映 + 官方考試權重。**它不放章節標題**——標題的真相源是
-`chNN.yaml`，抄一份副本，章節改名這裡就無聲漂移（同「分類標籤一律從資料讀」那條鐵則）。權重目前是
-二手整理（`verification: secondhand`），拿到官方 PDF 一手核對後才改 `verified`。`cscs_check.py` 會斷言
-每章不重不漏地分進恰好一個 domain——漏一章，按權重配題就靜默少算一章。
+`chNN.yaml`，抄一份副本，章節改名這裡就無聲漂移（同「分類標籤一律從資料讀」那條鐵則）。權重已於
+2026-09-11 用 `resources/raw/pdf/inbox/` 的兩份官方 PDF 一手核對（`verification: verified`，來源檔名與
+頁碼在 `meta.source_files`）。`cscs_check.py` 會斷言每章不重不漏地分進恰好一個 domain——漏一章，按
+權重配題就靜默少算一章。
+
+- **domain id 用 section 前綴（`sf1`–`sf3` / `pa1`–`pa4`）不用連號 `d1`–`d7`**。官方 DCO 的 domain
+  編號在兩個 section 各自從 1 起算，拉平成連號是本檔前一版自己發明的，對照官方文件時會錯位。
+- **`cognitive`（recall / application / analysis）是官方逐 domain 給的認知層級配題，不是估計值**，
+  `cscs_check.py` 斷言三項合計等於該 domain 的 `scored`。它比 `scored` 更能決定怎麼讀：全卷只有
+  23% 是純記憶題，`pa1-program-design` 是 2/44、`pa4-organization` 是 11/16。把 `chNN.yaml` 的事實
+  背熟只覆蓋得到記憶題那一段，其餘四分之三要靠 `_applied.yaml` 的判讀規則。
+- **一手核對推翻了前一版七個 domain 裡的六個**，其中 `pa2-exercise-technique` 從二手的 40 題改成
+  官方的 28 題，把「考得多讀得少」那面旗整個抹掉（真實 drift 只有 +1.0）。舊的二手數字不要再用。
 
 `_applied.yaml` 是實務判斷層，抽取單位是**題型 + 判讀規則 + 課本缺口，不是題目**。外部來源（讀書會
 情境討論）的原文與作者一律不落盤，只留去識別化的參數輪廓；這既是「內容要吸收後再寫」那條規則，

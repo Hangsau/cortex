@@ -134,6 +134,22 @@ def main():
         if total_q != sec["scored"]:
             errors.append(f"section '{sec['id']}' 的 scored 合計 {total_q}，與宣告的 {sec['scored']} 不符")
 
+    # cognitive 是官方 DCO 逐 domain 給的認知層級配題，三項合計必須等於該 domain 的
+    # scored。抄錯一格不會讓任何東西壞掉，只會讓「這個 domain 背得起來嗎」的判斷歪掉。
+    for d in domains["domains"]:
+        cog = d.get("cognitive")
+        if not cog:
+            errors.append(f"domain '{d['id']}' 缺 cognitive")
+            continue
+        if set(cog) != {"recall", "application", "analysis"}:
+            errors.append(f"domain '{d['id']}' 的 cognitive 欄位不是 recall/application/analysis")
+            continue
+        if sum(cog.values()) != d["scored"]:
+            errors.append(
+                f"domain '{d['id']}' 的 cognitive 合計 {sum(cog.values())}，"
+                f"與 scored {d['scored']} 不符"
+            )
+
     # 實務判斷層：chapters / domain 參照要能解析，否則缺口清單會指向空氣
     def check_refs(where, node):
         for ch in node.get("chapters") or []:
@@ -172,6 +188,19 @@ def main():
         flag = "  <<< 考得多讀得少" if drift >= 5 else ("  (內容多考得少)" if drift <= -5 else "")
         print(f"  {d['id']:<24} 內容 {items:>4} 條 {content_share:>5.1f}%  "
               f"考題 {d['scored']:>3} 題 {exam_share:>5.1f}%{flag}")
+
+    # 認知層級決定「這個 domain 背得起來嗎」。recall 佔比高的背了就拿得到分；
+    # 低的把事實背熟也只值那幾題，要靠 _applied.yaml 的判讀規則。
+    cog_total = {k: sum(d["cognitive"][k] for d in domains["domains"])
+                 for k in ("recall", "application", "analysis")}
+    print("\n--- 認知層級（官方 DCO）---")
+    for d in domains["domains"]:
+        c = d["cognitive"]
+        print(f"  {d['id']:<24} 記憶 {c['recall']:>2}  應用 {c['application']:>2}  "
+              f"分析 {c['analysis']:>2}   背得到 {c['recall'] * 100 // d['scored']:>2}%")
+    print(f"  {'全卷':<24} 記憶 {cog_total['recall']:>2}  應用 {cog_total['application']:>2}  "
+          f"分析 {cog_total['analysis']:>2}   背得到 "
+          f"{cog_total['recall'] * 100 // exam_total:>2}%")
 
     if errors:
         print(f"\n--- 錯誤 {len(errors)} ---")

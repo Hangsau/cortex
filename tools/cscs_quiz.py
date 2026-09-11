@@ -12,6 +12,11 @@ locator，答錯能直接回到書上那一段。配題比例來自 _domains.yam
 即使如此，偶爾仍會抽到對本題也成立的敘述，所以每題都印干擾項的來源 id——
 看到可疑的就回去讀那兩條，不要靠工具猜。
 
+涵蓋範圍的硬限制：三型題（fact / number / term）都是從單一知識單位出的記憶題，
+而官方 DCO 的認知層級配題只有 23% 是記憶（pa1 更只有 2/44）。這份模擬考照
+domain 權重配比，但不照認知層級配比——考滿分不代表會過。應用與分析那四分之三
+在 _applied.yaml 的題型分支，那層目前還沒接進出題器。
+
 用法：
   python tools/cscs_quiz.py                      # 190 題全考試權重配比
   python tools/cscs_quiz.py --n 40               # 40 題，仍照權重
@@ -299,6 +304,7 @@ def main():
         return 0
 
     print(f"# CSCS 模擬題（{len(questions)} 題，seed={args.seed}）\n")
+    print("> 全為記憶型題目。官方 DCO 只有 23% 是記憶題，本卷不反映應用與分析的配比。\n")
     for i, q in enumerate(questions, 1):
         print(f"**{i}.**（{q['bucket']} / {q['chapter']} / {q['kind']}）{q['stem']}")
         for j, o in enumerate(q["options"]):

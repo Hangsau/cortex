@@ -4,8 +4,8 @@
 # 來源為 CSCS 讀書會的情境式討論；原文與作者一律不落盤（見 HANDOFF 的
 # 「內容要吸收後再寫」）。案例只保留去識別化的參數輪廓與比值。
 #
-# 未納入驗收閘：cscs_check.py 只 glob ch*.yaml，本檔的 chapters / domain
-# 參照目前無人解析。要當真相源用就得先擴閘。
+# 已納入驗收閘：cscs_check.py 會解析本檔的 chapters / domain 參照，並斷言
+# 每個題型至少有一條分支、每個缺口至少橫跨兩章（單章的是待補內容不是缺口）。
 
 meta:
   created: 2026-09-11
@@ -138,7 +138,7 @@ templates:
           此分支初版判為「最大肌力」，是錯的。三個錯誤疊加：套男性門檻、把接近
           平均的垂直跳和嚴重偏低的水平跳合併成「都差」、完全未納入發力向量。
 
-    domain: [d5-program-design, d6-testing]
+    domain: [pa1-program-design, pa3-program-implementation]
     chapters: [ch12, ch13, ch17]
 
   - id: applied.behavior-modification-quadrant
@@ -180,7 +180,7 @@ templates:
         decision: 在技術達標的反覆之後給予肯定
         why: 方向與目標一致，且不動用訓練手段作籌碼
 
-    domain: [d2-sports-psychology]
+    domain: [sf2-sport-psychology]
     chapters: [ch08]
 
   - id: applied.drill-difficulty-progression
@@ -225,7 +225,7 @@ templates:
           機動性的定義就是沿彎繞路徑維持速度，彎繞是它的定義變數；加閃避會把它
           變成敏捷 drill，加距離只是延長同難度的工作。
 
-    domain: [d5-program-design]
+    domain: [pa1-program-design]
     chapters: [ch17, ch19]
 
   - id: applied.test-protocol-fixed-vs-randomized
@@ -271,7 +271,7 @@ templates:
           該測驗的流程面（每條件三次取平均、間隔 15 秒、至少預先練習四次、捨棄
           試驗的判準）才是必須固定的部分。
 
-    domain: [d6-testing]
+    domain: [pa3-program-implementation]
     chapters: [ch12, ch13]
 
 gaps:

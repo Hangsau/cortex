@@ -6,22 +6,42 @@
 
 四個 commit（`0a4bb1d` / `4a7a82d` / `cc36fb0` / `b1f8c29`）：
 
-- **`data/cscs/_domains.yaml`（考點軸）**——7 個 domain × 章節對映 + 官方權重（SF 80 分：D1 55%、D2 24%、D3 21%；PA 110 分：D4 36%、D5 35%、D6 18%、D7 11%）。**權重是二手整理**（`verification: secondhand`，nsca.com 擋抓取），拿到官方 Exam Content Description PDF 一手核對後才准改 `verified`。不放章節標題，理由同「分類標籤一律從資料讀」。
+- **`data/cscs/_domains.yaml`（考點軸）**——7 個 domain × 章節對映 + 官方權重。初版是二手整理，同日站主指出官方 PDF 就在 `resources/raw/pdf/inbox/`，一手核對後**七個 domain 錯了六個**，整份重寫為 `verification: verified`（詳見下段）。不放章節標題，理由同「分類標籤一律從資料讀」。
 - **`data/cscs/_applied.yaml`（實務判斷層）**——4 個題型、6 條分支、8 條跨章缺口，外加 `answering_protocol`。這是課本缺的那層：ch13 只回答「這個數字算好算壞」，ch17 從需求分析走，兩章之間沒有「由測試比值推導動作優先序」的顯式決策規則。
 - **`tools/cscs_check.py` 擴閘**——原本只 glob `ch*.yaml`，兩份 `_*.yaml` 是無人解析的死檔。現在斷言：每章不重不漏分進恰好一個 domain、各 section 權重合計 100 且題數對得上、`_applied` 的所有 `chapters` / `domain` 參照可解析、缺口至少橫跨兩章。閘一上線就抓到我自己剛寫的兩條單章缺口。
 - **`tools/cscs_quiz.py`（出題器）**——回應站主那句「題目真的有很多，我根本不可能一個一個抓」。190 題模擬考，domain 配比精準命中 44/19/17/40/38/20/12，零重複條目，每題帶 `locator`。
 
-**新資訊：內容佔比 vs 考試佔比的落差**（`cscs_check.py` 現算，不寫死）。這是讀書時間該挪的方向：
+**一手核對（2026-09-11，同日稍晚）推翻了上面那份二手權重的六個 domain。** 來源是
+`resources/raw/pdf/inbox/nsca-certification-handbook.pdf`（p.7 權重表、p.41–47 DCO）與
+`certified-strength-and-conditioning-specialist-job-task-analysis-summary-2025.pdf`，兩份數字一致。
+兩處結構性發現，不只是數字換算：
+
+- **domain id 改用 section 前綴**（`sf1`–`sf3` / `pa1`–`pa4`）。官方編號在兩個 section 各自從 1 起算，
+  前一版拉平成連號 `d1`–`d7` 是自己發明的，對照官方文件會錯位。`_applied.yaml` 的四處參照已同步改名。
+- **PA 的 domain 3 已不叫 Testing and Evaluation，改名 Program Implementation**（新版 DCO 2025-07-01
+  生效），新增任務 3.A「教練帶訓練課」——考動作學習與回饋（內外在提示、示範、進階退階、課後 debrief），
+  那段內容在 **ch08** 不在 ch12／ch13。所以 `pa3` 掛了 `also: [ch08]`；換名之後 ch08 是這個 domain 的一半。
+
+修正後的落差表（`cscs_check.py` 現算，不寫死）。**旗標從兩面變成兩面，但其中一面換了人**：
 
 | domain | 內容 | 考題 | |
 |---|---|---|---|
-| d2-sports-psychology | 4.1% | 10.0% | 考得多讀得少 |
-| d4-exercise-technique | 13.7% | 21.1% | 考得多讀得少 |
-| d1-exercise-science | 29.0% | 23.2% | 內容多考得少 |
+| sf2-sport-psychology | 4.1% | 10.5% | 考得多讀得少 |
+| sf3-nutrition | 12.3% | 6.3% | 內容多考得少 |
+| pa2-exercise-technique | 13.7% | 14.7% | （二手版誤標「考得多讀得少」，真實 drift 只有 +1.0）|
+
+**同時接進來的新軸：`cognitive`（recall / application / analysis）**，官方逐 domain 給的認知層級配題，
+`cscs_check.py` 斷言三項合計等於該 domain 的 `scored`。這比 `scored` 更能決定怎麼讀——**全卷只有 23%
+是純記憶題**：`pa1-program-design` 是 2/44（把 ch17–ch22 的事實背熟只值 2 分），`pa4-organization`
+反過來是 11/16（背了就拿得到）。連帶的結論是 `tools/cscs_quiz.py` 生成的題基本上全是記憶型，
+只覆蓋得到那 23%；其餘四分之三是 `_applied.yaml` 的守備範圍。
 
 **這輪最該記住的是錯誤紀錄，不是產出。** 我答了 7 題錯 3 題，三題共同根因是**憑外部一般框架推理而沒查 `data/cscs/`**：套男性肌力門檻判 D-III 女性、把「標準化＝一切固定」推翻課本的隨機化流程、把「加難度」做成「加認知負荷」。其中 SEBT 那題的正解白紙黑字寫在 `ch13.balance-flexibility-bc.i02` 的 `detail`（「起始方向與支撐腳隨機選定」），我不但沒查還主動論證正解是錯的。已寫成 `answering_protocol` 的第 0 步。**下一個接手的人答題前先讀那一段。**
 
-下一步（依序）：① 拿官方 PDF 核對權重，翻 `verification: verified`；② 錯題軸——`_applied.yaml` 現在只記我的錯誤，站主自己的錯題還沒有落點；③ 考點軸的前端。**②③ 都還沒有內容，不要先進 `data/home.yaml`**（見下方「不要建空殼頁面」）。`WinError` 空檔仍未處置。
+下一步（依序）：① 錯題軸——`_applied.yaml` 現在只記我的錯誤，站主自己的錯題還沒有落點；② 出題器接
+`cognitive`：現在三型（fact / number / term）全是記憶型，要往應用／分析走得從 `_applied.yaml` 的題型
+分支出題，不是從 `chNN.yaml` 的條目出；③ 考點軸的前端。**①②③ 都還沒有內容，不要先進
+`data/home.yaml`**（見下方「不要建空殼頁面」）。`WinError` 空檔仍未處置。
 
 ## 週期決策工具已恢復並部署（2026-09-10）
 
