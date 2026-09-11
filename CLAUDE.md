@@ -47,9 +47,12 @@ data/
   cscs/
     _terms.yaml             # 全書術語表（en / zh / abbr / note），106 條
     _concepts.yaml          # 受控概念詞彙（封閉集，22 條，含 group / order）
+    _domains.yaml           # 考點軸：7 個 domain × 章節對映 + 官方考試權重
+    _applied.yaml           # 實務判斷層：答題協議 / 題型 / 判讀規則 / 跨章缺口
     ch01.yaml ... ch24.yaml # 每章 topics → items（知識單位）+ cards（閃卡）
 tools/
   cscs_check.py             # 交叉參照與完整性驗收閘（改 data/cscs/ 後必跑）
+  cscs_quiz.py              # 由知識單位生成按考試權重配比的模擬題（每題帶 locator）
   cscs_tag_concepts.py      # 主題級批次上概念標（不覆寫既有值，可重複跑）
   audit.js                  # 章節頁 + 概念頁版型數值迴歸閘（Playwright）
 ```
@@ -318,6 +321,31 @@ node tools/audit.js                    # 38 條版型／深度層／概念索引
 - **補完進度（2026-08-08 實測）**：24 章全數對帳完成——`detail` / `concepts` / `locator` 各 **1557/1557**、cards 1252 張、`related` 1908 條（跨章 95.6%）。`terms` 1437/1557、`numbers` 514（這兩欄不是覆蓋率目標：沒有英文專有名詞就不掛 terms，沒有數字就不掛 numbers）。欄位空著時深度層自動不渲染，不會有半成品畫面
 - **`related` 已定稿，不要再開補連結的輪次**：ch08 有 34 條孤立條目（心理技巧、理想表現狀態、喚醒理論那幾組），2026-08-08 的缺口方向輪已證實那是內容自足、全書沒有依賴它們的條目，不是刪過頭。加連結用 `tools/cscs_gap_apply.py`（吃 `來源 id -> 目標 id` 清單），減連結用 `tools/cscs_related_apply.py`
 - **完成後立即更新 HANDOFF**：push + CI 確認後，下一步必須更新 HANDOFF.md（勾選已完成項目、更新下一步建議），不等使用者提醒
+
+#### 考點軸與實務判斷層（第三、四條動線，2026-09-11）
+
+`_domains.yaml` 是考點軸：7 個 domain × 章節對映 + 官方考試權重。**它不放章節標題**——標題的真相源是
+`chNN.yaml`，抄一份副本，章節改名這裡就無聲漂移（同「分類標籤一律從資料讀」那條鐵則）。權重目前是
+二手整理（`verification: secondhand`），拿到官方 PDF 一手核對後才改 `verified`。`cscs_check.py` 會斷言
+每章不重不漏地分進恰好一個 domain——漏一章，按權重配題就靜默少算一章。
+
+`_applied.yaml` 是實務判斷層，抽取單位是**題型 + 判讀規則 + 課本缺口，不是題目**。外部來源（讀書會
+情境討論）的原文與作者一律不落盤，只留去識別化的參數輪廓；這既是「內容要吸收後再寫」那條規則，
+也是結構限制——貼文沒有 `locator`，本來就進不了 `data/cscs/`。
+
+- **`answering_protocol` 是這份檔案最重要的部分，答題前先讀它**。第 0 步是 grep `data/cscs/` 找對應
+  條目，先於任何推理。2026-09-11 一天內三次錯答的共同根因就是憑外部一般框架推理而沒查本庫，其中
+  一次還主動論證「正解是錯的」，而正解就寫在 `ch13.balance-flexibility-bc.i02` 的 `detail` 裡。
+- **判斷錯了就寫進 `meta.revisions` 與 `correction_note`，不要靜默改掉**。修正紀錄本身是判讀規則的
+  來源：`reasoning_chain` 裡的「常模族群對齊」「發力向量對應」兩步、以及取代「缺口數量與分布」的
+  「缺口嚴重度排序」，全部是踩過之後補的。被撤除的規則要留 `supersedes` 說明它為什麼會導致反向。
+- **缺口至少橫跨兩章**（`cscs_check.py` 有斷言）：單章的是待補內容，跨章的接縫才是缺口。
+
+出題用 `python tools/cscs_quiz.py`（預設 190 題，照 `_domains.yaml` 的 `scored` 配比，每題帶 `locator`）。
+兩條刻意的設計，改之前先讀工具 docstring：**干擾項取自同章但不同主題**（同主題的兄弟條目常在講同一
+概念的不同面向，會出現三個選項同時成立的廢題）；**數字干擾項要過同單位 + 五倍內的量級閘**（否則
+「年度訓練計畫的持續時間」會配到「2004 年」這種送分選項）。生成的答案區會印每個干擾項的來源 id，
+看到可疑的回去讀那兩條，不要靠工具猜。
 
 ---
 
