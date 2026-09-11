@@ -1,0 +1,190 @@
+meta:
+  chapter: ch01
+  source: data/cscs/ch01.yaml
+questions:
+  # 干擾項對照：ch01.skeleton.appendicular（肩帶、骨盆帶與四肢）。
+  - id: ch01.skeleton.axial.q1
+    item: ch01.skeleton.axial
+    cognitive: recall
+    stem: 下列哪一組骨頭全部屬於軸心骨骼？
+    locator: 第 1 章 · Skeleton
+    options:
+      - text: 鎖骨、肩胛骨、肱骨
+        correct: false
+        why_wrong: 把肩帶當成身體中軸；肩帶連同上肢都歸入附肢系統，即使靠近胸廓也不改變分類。
+      - text: 髖骨、股骨、髕骨
+        correct: false
+        why_wrong: 將骨盆帶與薦椎混為一談；前者連接下肢而歸入附肢系統，後者才是脊柱的一部分。
+      - text: 頭顱、脊椎、肋骨
+        correct: true
+      - text: 胸骨、橈骨、尺骨
+        correct: false
+        why_wrong: 混入一塊中軸構造不會讓整組都屬同類；前臂的兩塊長骨歸入上肢，因此不符合「全部」的條件。
+
+  # 干擾項對照：ch01.muscle-structure.epimysium、endomysium、fiber-dimensions。
+  - id: ch01.muscle-structure.perimysium.q1
+    item: ch01.muscle-structure.perimysium
+    cognitive: application
+    stem: 解剖時看到一層結締組織包住多條肌纖維組成的一束，而不是整塊肌肉或單一細胞，這一層應判定為何？
+    locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
+    options:
+      - text: 肌外膜
+        correct: false
+        why_wrong: 混淆全肌與一束纖維的尺度；包覆整個器官的最外層並不是題目所指的束狀分隔。
+      - text: 肌束膜
+        correct: true
+      - text: 肌內膜
+        correct: false
+        why_wrong: 將單條細胞周圍的結締組織誤認成包住一群纖維的層次；兩者所包覆的單位不同。
+      - text: 肌細胞膜
+        correct: false
+        why_wrong: 把單一纖維的細胞邊界當成束外的結締組織；肌膜界定的是一個細胞，不能包住整束。
+
+  # 干擾項對照：ch01.sliding-filament.crossbridge-formation、power-stroke、atp-cleavage。
+  - id: ch01.sliding-filament.dissociation.q1
+    item: ch01.sliding-filament.dissociation
+    cognitive: application
+    stem: 橫橋已完成動力衝程且仍接著細絲，接下來哪個事件會直接使橫橋解離？
+    locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
+    options:
+      - text: 鈣離子接上細絲的旋光素
+        correct: false
+        why_wrong: 把開放結合位點的步驟當成鬆脫開關；這項變化促成接合，無法代替新能量分子與頭部的結合。
+      - text: 無機磷酸離開已結合的橫橋
+        correct: false
+        why_wrong: 將啟動拉動的事件誤認為解除接合；此事件觸發頭部彎折，題目所述的拉動階段已經完成。
+      - text: 水解酶分解 ATP 使頭部就位
+        correct: false
+        why_wrong: 把取得能量、準備下一次拉動的步驟當成解離；解除細絲接合直接需要的是新分子先接上，而非其後的水解。
+      - text: 新的 ATP 結合肌凝蛋白頭
+        correct: true
+
+  # 干擾項對照：ch01.neuromuscular.recruitment、ch01.fiber-types.type-iia、ch01.sliding-filament.force-determinant。
+  - id: ch01.neuromuscular.rate-coding.q1
+    item: ch01.neuromuscular.rate-coding
+    cognitive: analysis
+    stem: 同一次短暫收縮中，參與的運動單位數量不變，但相鄰放電的間隔縮短且力量增加，哪個機制最符合這組紀錄？
+    locator: 第 1 章 · Motor Unit Recruitment Patterns
+    options:
+      - text: 原有運動單位增加放電頻率
+        correct: true
+      - text: 額外神經元啟動更多肌纖維
+        correct: false
+        why_wrong: 混淆徵召與頻率調節；前者需要新增參與的單位，與紀錄中數量固定的條件不符。
+      - text: 單條纖維增添肌原纖維數量
+        correct: false
+        why_wrong: 把結構增長誤當成秒級神經調節；肌肉內部收縮材料增加不能解釋同次收縮中脈衝間距縮短的觀察。
+      - text: 快速型纖維轉為較耐疲勞型
+        correct: false
+        why_wrong: 將訓練引起的類型適應與當下出力混淆；IIx 往 IIa 的轉變不是這次短暫刺激中放電加快的機制。
+
+  # 干擾項對照：ch01.fiber-types.type-iix、type-iia。
+  - id: ch01.fiber-types.type-i.q1
+    item: ch01.fiber-types.type-i
+    cognitive: recall
+    stem: 下列哪一組生理特徵最符合第一型慢縮肌纖維？
+    locator: 第 1 章 · Muscle Fiber Types
+    options:
+      - text: 神經元較大、無氧酵素豐富
+        correct: false
+        why_wrong: 套用了 IIx 的特徵；慢縮型由較小的運動神經元支配，且有較強的氧化代謝支持。
+      - text: 啟動門檻低、抗疲勞能力高
+        correct: true
+      - text: 收縮速度快、有氧代謝中等
+        correct: false
+        why_wrong: 這是 IIa 兼有快縮與部分耐力能力的組合；題目所問類型的縮放較慢，適合長時間反覆使用。
+      - text: 纖維直徑粗、微血管較稀少
+        correct: false
+        why_wrong: 將偏向爆發輸出的 IIx 外觀套到慢縮型；後者通常較細，且氧氣供應的血管網更密集。
+
+  - id: ch01.proprioception.spindle-vs-gto.q1
+    item: ch01.proprioception.spindle-vs-gto
+    cognitive: analysis
+    stem: 兩項試驗分別快速拉長肌肉、提高肌腱張力，依本體感覺受器的典型作用，哪個解釋能正確連結構造與反應？
+    locator: 第 1 章 · Proprioception
+    options:
+      - text: 腱內受器與肌肉串聯，受力後增強活動
+        correct: false
+        why_wrong: 串聯的位置沒有錯，但把張力回饋的方向反轉了；高爾基路徑的典型效果是抑制同肌收縮。
+      - text: 梭內組織監測張力，阻止主動肌繼續出力
+        correct: false
+        why_wrong: 把高爾基肌腱器的感測對象及抑制作用移到肌梭；後者主要回應長度變化並促進收縮。
+      - text: 肌梭與肌纖維平行，拉長時促進收縮
+        correct: true
+      - text: 高爾基末梢感受長度，伸展即觸發反射
+        correct: false
+        why_wrong: 將肌梭的牽張反射錯配給腱內受器；肌腱器主要感測負荷產生的張力，不是以肌長作為這條反射的訊號。
+
+  - id: ch01.cardiovascular.ecg.q1
+    item: ch01.cardiovascular.ecg
+    cognitive: recall
+    stem: 心電圖上的 QRS 複合波主要代表下列哪一種電活動？
+    locator: 第 1 章 · Electrocardiogram
+    options:
+      - text: 心室肌的去極化
+        correct: true
+      - text: 心房的電性激發
+        correct: false
+        why_wrong: 混淆 P 波與較大的複合波；心房啟動在前，QRS 對應後續傳至心室的電活動。
+      - text: 心室電位的恢復
+        correct: false
+        why_wrong: 把 T 波所示的再極化當成 QRS；恢復電性與開始激發是不同階段。
+      - text: 心房肌的再極化
+        correct: false
+        why_wrong: 心房恢復電性確實可能被同時段的大波形遮住，但被遮蔽的事件不是這個複合波的主要來源。
+
+  - id: ch01.cardiovascular.conduction.q1
+    item: ch01.cardiovascular.conduction
+    cognitive: application
+    stem: 心臟模型中心房還沒把血液充分推入心室，心室就過早接到電訊號；模型最可能省略哪個部位的傳導延遲？
+    locator: 第 1 章 · Conduction System
+    options:
+      - text: 竇房結
+        correct: false
+        why_wrong: 把起始節律的位置當成房室間的等待站；它負責先啟動心房，並非提供心室充盈時間的主要延遲處。
+      - text: 房室束
+        correct: false
+        why_wrong: 混淆相鄰傳導構造；訊號進入束系統時已經通過主要延遲站，之後朝心室快速傳播。
+      - text: 浦金氏纖維
+        correct: false
+        why_wrong: 把心室內快速同步傳播的網路誤當成延遲來源；該網路讓兩側心室接近同時被激發。
+      - text: 房室結
+        correct: true
+
+  # 干擾項對照：ch01.respiratory.expiration（安靜與用力呼氣）。
+  - id: ch01.respiratory.inspiration.q1
+    item: ch01.respiratory.inspiration
+    cognitive: application
+    stem: 安靜呼吸時，橫膈膜主動收縮下降，接下來哪項變化最能解釋空氣的流向？
+    locator: 第 1 章 · Exchange of Air
+    options:
+      - text: 胸內容積減小，使氣體向外排放
+        correct: false
+        why_wrong: 把呼氣的空間變化套入吸氣；題目的肌肉動作會擴張胸腔，並非讓胸腔回縮。
+      - text: 肺內壓低於外界，氣流進入肺部
+        correct: true
+      - text: 肺泡壓超過大氣，形成吸入氣流
+        correct: false
+        why_wrong: 顛倒了壓力梯度與流向；氣體由高壓往低壓移動，呼吸道內側若壓力較高會傾向向外流。
+      - text: 腹肌擠壓肺部，外界空氣因而進入
+        correct: false
+        why_wrong: 將用力呼氣的輔助肌作用當成吸氣來源；腹壁加壓有助排出氣體，不能解釋本題安靜吸氣的機制。
+
+  # 干擾項對照：ch01.sliding-filament.core、ch01.muscle-structure.bands。
+  - id: ch01.sliding-filament.band-changes.q1
+    item: ch01.sliding-filament.band-changes
+    cognitive: analysis
+    stem: 比較肌節收縮前後影像，發現兩條 Z 線靠近，但 A 帶寬度維持不變，哪個解釋最符合這兩項觀察？
+    locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
+    options:
+      - text: 肌凝蛋白絲自行縮短，帶動邊界靠攏
+        correct: false
+        why_wrong: 把整個收縮單位變短誤當成粗絲自身變短；如果粗絲真的縮短，A 帶也應縮小，與影像不符。
+      - text: 肌動蛋白的長度減少，因此牽引兩端
+        correct: false
+        why_wrong: 把細絲滑向中央誤解為材料本身縮短；滑動絲理論中粗絲與細絲都保持原長，改變的是相互重疊位置。
+      - text: 粗細肌絲互相滑動，使重疊範圍增加
+        correct: true
+      - text: 中央空隙持續擴大，讓收縮單位變短
+        correct: false
+        why_wrong: 將 H 區的變化方向倒置；收縮時未與細絲重疊的區域縮小，不是空隙增加。

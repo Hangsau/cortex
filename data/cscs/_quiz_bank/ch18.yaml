@@ -1,0 +1,191 @@
+meta:
+  chapter: ch18
+  source: data/cscs/ch18.yaml
+questions:
+  # 干擾項對照：ch18.equipment-facility.i01、i02（吸震與接觸時間須同時考量）。
+  - id: ch18.equipment-facility.i07.q1
+    item: ch18.equipment-facility.i07
+    cognitive: analysis
+    stem: 小型彈跳床曾用於復健初階，教練因此想讓未受傷運動員也在上面進行快速落地反彈訓練，哪個判斷最符合教材的用途區分？
+    locator: Safety Considerations > Equipment and Facilities > Landing Surface
+    options:
+      - text: 有助初階平衡練習，就可視為正式功率訓練的等效場地
+        correct: false
+        why_wrong: 將復健引介直接推廣到健康運動員；兩種情境的目的不同，前者可用不代表能滿足快速轉換的要求。
+      - text: 器材越能下陷吸震，就越能改善牽張反射的利用效率
+        correct: false
+        why_wrong: 把緩衝越多視為效益必然越大；彈性表面可能延長過渡階段，妨礙後續立即出力時的反射增強。
+      - text: 復健時可以引介，但延長攤銷期會妨礙健康者的訓練目的
+        correct: true
+      - text: 改用厚度十五公分的運動墊，就能保有短暫觸地的效果
+        correct: false
+        why_wrong: 將厚墊當作兼顧緩衝與快速轉換的替代品；教材也指出達六英吋的墊子會使攤銷期變長，問題並未排除。
+
+  # 干擾項對照：ch18.program-design.i05（漸進配置）、i03（最大努力與恢復）。
+  - id: ch18.intensity-volume.i06.q1
+    item: ch18.intensity-volume.i06
+    cognitive: application
+    stem: 運動員的增強式動作技術穩定，下一階段要提高單次動作強度，教練通常應如何同步調整當次訓練量？
+    locator: Program Design > Intensity
+    options:
+      - text: 減少足部接觸總數，配合較高的動作負荷
+        correct: true
+      - text: 同步增加反覆次數，讓每個超負荷變項都上升
+        correct: false
+        why_wrong: 把漸進原則誤讀成所有設計參數一起增加；教材的一般配置是強度上升時降低量，以管理整體負荷。
+      - text: 維持原有組數與次數，因為量和強度互不影響
+        correct: false
+        why_wrong: 將兩個可分別記錄的變項當成無須協調；強度提高已改變負荷，教材通常建議相應減量。
+      - text: 持續追加跳躍直到疲勞，用力竭次數決定總量
+        correct: false
+        why_wrong: 混用肌耐力累積疲勞的思路；增強式重視最大努力的功率品質，不能以做到力竭取代強度與量的配置。
+
+  # 干擾項對照：ch18.mechanical-models.i04（神經模型）、i08（收縮與並聯成分）。
+  - id: ch18.mechanical-models.i02.q1
+    item: ch18.mechanical-models.i02
+    cognitive: recall
+    stem: 依增強式運動的機械模型，快速預先拉伸後立即向心出力時，額外力量主要來自哪個機制？
+    locator: Plyometric Mechanics and Physiology > Mechanical Model of Plyometric Exercise
+    options:
+      - text: 肌梭先感受快速伸展，再經神經路徑提高活動
+        correct: false
+        why_wrong: 這是神經生理模型的解釋；牽張反射確實可能參與，但題目指定的是彈性組織儲能及釋放的機械機制。
+      - text: 肌動與肌球蛋白形成橫橋，直接執行主動收縮
+        correct: false
+        why_wrong: 把收縮元件本來就有的產力當成預拉伸的儲能增益；橫橋是主動力量來源，並非此處串聯成分回彈的角色。
+      - text: 肌外膜等結締組織受拉，以並聯元件提供被動張力
+        correct: false
+        why_wrong: 混淆並聯與串聯元件；前者在未受刺激肌肉被伸展時提供被動力量，教材強調的可回收儲能主要由串聯部分貢獻。
+      - text: 肌腱等彈性組織先儲能，再回彈協助發力
+        correct: true
+
+  - id: ch18.program-design.i03.q1
+    item: ch18.program-design.i03
+    cognitive: application
+    stem: 深跳課程原本以最大努力的無氧功率為目標，教練縮短休息後發現後續跳躍品質下降，哪個調整最符合恢復原則？
+    locator: Program Design > Recovery
+    options:
+      - text: 縮短每回合間隔，以持續喘息作為訓練目標
+        correct: false
+        why_wrong: 把增強式當成心肺訓練；教材要求足夠恢復以維持最大努力，追求喘息程度改變了本題的課程目的。
+      - text: 拉長組間恢復，讓後續反覆維持最大努力
+        correct: true
+      - text: 在疲勞下追加足部接觸，優先累積更多次數
+        correct: false
+        why_wrong: 將增加訓練量當成恢復不足的補償；更多反覆不會讓已下降的出力品質恢復，也偏離功率訓練的要求。
+      - text: 隔天再練同一肌群，靠密集刺激維持負荷
+        correct: false
+        why_wrong: 混淆頻率增加與充分恢復；教材不建議同一身體部位連續兩天施作，且這種安排無法改善當次組間恢復。
+
+  - id: ch18.safety.i04.q1
+    item: ch18.safety.i04
+    cognitive: application
+    stem: 運動員已通過初次增強式訓練所需的單腳站立測試；若準備進階計畫，應在相同訓練表面再通過哪項平衡要求？
+    locator: Safety Considerations > Pretraining Evaluation of the Athlete > Balance > Table 18.7 Balance Tests
+    options:
+      - text: 雙足併攏直立，連續站好半分鐘
+        correct: false
+        why_wrong: 把較基本的雙腳站姿當成進階門檻；題目所需的是更難的單側半蹲控制，而非增加支撐點。
+      - text: 以一隻腳保持直立姿勢達三十秒
+        correct: false
+        why_wrong: 重複了初次訓練者的入門要求；通過直立測試不能替代進階計畫所要求的屈膝半蹲姿勢。
+      - text: 單腳半蹲並穩定維持三十秒
+        correct: true
+      - text: 兩腳支撐四分之一蹲至半分鐘
+        correct: false
+        why_wrong: 混淆表內的中間難度與進階要求；雙側支撐且蹲幅較淺，沒有驗證單腳半蹲的能力。
+
+  # 干擾項對照：ch18.program-design.i02、i03（一般頻率、組間與課間恢復）。
+  - id: ch18.special-populations.i05.q1
+    item: ch18.special-populations.i05
+    cognitive: application
+    stem: 教練要把一般增強式課表調整給已完成訓練前評估的熟齡運動員，哪個起始修改最符合教材建議？
+    locator: Age Considerations > Masters
+    options:
+      - text: 選五項以內低中強度動作、降低總量，課間隔三至四天
+        correct: true
+      - text: 維持標準課程的跳躍總量，僅把組間休息拉長
+        correct: false
+        why_wrong: 把單次課內等待當成完整的熟齡調整；教材還要求低於標準課程的足部接觸量，並安排數天的課間恢復。
+      - text: 降低單次訓練反覆次數，改為每天連續施作
+        correct: false
+        why_wrong: 誤以為少做幾次就能省略跨日恢復；熟齡課程建議兩次相隔三至四天，不能用每日累積取代。
+      - text: 沿用原有課程的訓練密度，以加高箱子增加刺激
+        correct: false
+        why_wrong: 將一般漸進超負荷優先套到熟齡起始處方；教材此處強調少量低至中強度動作與較充足恢復，不是先升高深跳負荷。
+
+  # 干擾項對照：ch18.ssc.i07（靜態蹲跳與反向跳），ch18.mechanical-models.i04。
+  - id: ch18.ssc.i04.q1
+    item: ch18.ssc.i04
+    cognitive: analysis
+    stem: 兩次落地高度相同，一次立即反彈，另一次停在底部數秒才起跳；後者失去預拉伸增益的主要解釋為何？
+    locator: Plyometric Mechanics and Physiology > Stretch–Shortening Cycle
+    options:
+      - text: 過渡等候加長，使彈性回彈累積得更充分且提高輸出
+        correct: false
+        why_wrong: 把等待當成繼續儲能；離心期之後若未立即轉向，先前存下的能量會散失，並不因停得久而增加。
+      - text: 延後再起跳會讓肌梭持續增敏，提升隨後的向心功率
+        correct: false
+        why_wrong: 將短暫牽張反射誤認為等待越久就越強；未立即銜接動作會失去反射對後續收縮的增強作用。
+      - text: 停頓能保留快速伸展效果，等同立即接續反向跳的表現
+        correct: false
+        why_wrong: 混淆保持蹲姿後起跳與連續反向動作；長停頓切斷快速轉換，不能視為同樣利用拉伸縮短週期。
+      - text: 彈性能轉成熱散失，牽張反射不再增強向心活動
+        correct: true
+
+  # 干擾項對照：本 item 的起始高度限制，以及 ch18.ssc.i07 的靜態蹲跳。
+  - id: ch18.training-modes.i03.q1
+    item: ch18.training-modes.i03
+    cognitive: application
+    stem: 教練希望以設定的箱高進行標準深跳，哪一種動作提示符合執行方式？
+    locator: Program Design > Mode > Lower Body Plyometrics > Table 18.2 Lower Body Plyometric Drills
+    options:
+      - text: 先在平台向上躍起，再利用落地接續反彈
+        correct: false
+        why_wrong: 把跳下與踏下混為一談；先向上跳會額外提高實際落下高度，使原先設定的負荷改變。
+      - text: 從箱上踏出落下，觸地後立刻再次起跳
+        correct: true
+      - text: 蹲低身體後離開箱面，以較短距離觸地
+        correct: false
+        why_wrong: 將降低重心視為標準離箱準備；這會縮短實際落下高度，教材指定從站立姿勢踏下。
+      - text: 落地後停在半蹲姿勢，穩住數秒才向上跳
+        correct: false
+        why_wrong: 移用了靜態蹲跳的停頓作法；深跳需要快速銜接離心與向心，久停會削弱儲能與牽張反射的利用。
+
+  # 干擾項對照：ch18.intensity-volume.i04（接觸次數不是支撐點數）。
+  - id: ch18.intensity-volume.i02.q1
+    item: ch18.intensity-volume.i02
+    cognitive: analysis
+    stem: 同一運動員在高度與速度相近的條件下，把雙腳落地改成單腳落地，對單一肢體負荷的判斷何者最合理？
+    locator: Program Design > Intensity > Table 18.3 Factors Affecting the Intensity of Lower Body Plyometric Drills
+    options:
+      - text: 總體重沒有增加，所以受測肢體的強度相同
+        correct: false
+        why_wrong: 把整體重量固定誤當成每條腿受力固定；改由單側承受時，原先雙側分攤的條件已改變。
+      - text: 每回合的著地腳數減少，因此難度隨之降低
+        correct: false
+        why_wrong: 將接觸點數誤當成訓練量的反覆次數；每次只用一腳支撐通常增加局部壓力，並非少一隻腳就比較輕鬆。
+      - text: 由兩腳分攤改成單側承受，局部組織壓力升高
+        correct: true
+      - text: 箱高保持原來設定，便能抵銷支撐方式的差別
+        correct: false
+        why_wrong: 把高度當成唯一強度因素；教材同時列出接觸點數、速度及體重等條件，高度固定不能消除單側承重的改變。
+
+  # 干擾項對照：ch18.program-design.i03（不得用耐力段取代充分恢復）。
+  - id: ch18.program-design.i08.q1
+    item: ch18.program-design.i08
+    cognitive: analysis
+    stem: 教練同日安排增強式與其他體能訓練，哪個配置最符合維持跳躍功率與充分恢復的原則？
+    locator: Plyometrics and Other Forms of Exercise > Plyometric Exercise and Resistance Training
+    options:
+      - text: 先完成高品質跳躍，再進行有氧耐力課程
+        correct: true
+      - text: 長時間持續跑結束後，才開始最大努力的彈跳
+        correct: false
+        why_wrong: 把有氧耐力段當成爆發訓練前的準備；這類運動可能對功率產生負面影響，教材建議增強式先做。
+      - text: 把耐力段穿插每組爆發動作之間，以避免休息
+        correct: false
+        why_wrong: 混用連續循環課程的安排；穿插耗能段並取消恢復，沒有遵守增強式需要充分恢復以維持最大努力的原則。
+      - text: 高強度蹲舉完立刻接深跳，以完成複合訓練
+        correct: false
+        why_wrong: 只記住阻力後接增強式的次序，卻省略關鍵前提；若採複合訓練，兩者之間仍須充分恢復。

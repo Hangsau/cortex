@@ -1,0 +1,189 @@
+meta:
+  chapter: ch13
+  source: data/cscs/ch13.yaml
+questions:
+  # 干擾項對照：ch13.aerobic-capacity.i02（固定里程）、i05（最後分級速度）。
+  - id: ch13.aerobic-capacity.i03.q1
+    item: ch13.aerobic-capacity.i03
+    cognitive: application
+    stem: 運動員參加固定十二分鐘的跑測，時間到時最後一圈只跑了一部分，教練應如何登錄成績？
+    locator: Measuring Parameters of Athletic Performance > Aerobic Capacity > 12-Minute Run
+    options:
+      - text: 只採完全通過終點的圈數換算跑距
+        correct: false
+        why_wrong: 把圈數記錄誤當成只接受整圈；截止前已跑完的部分圈距也屬於十二分鐘內的成果，不能捨去。
+      - text: 整圈換成公尺後，加上最後一段跑距
+        correct: true
+      - text: 換算完成一點五英里所需的秒數
+        correct: false
+        why_wrong: 混用固定路程測驗的計分方式；本題固定的是時間，應記錄到時實際前進的總距離。
+      - text: 登錄結束時所達到的最高跑步配速
+        correct: false
+        why_wrong: 將分級增速跑測的終點指標套入本題；十二分鐘跑沒有以最後速度階段作為成績的協定。
+
+  - id: ch13.agility-speed.i05.q1
+    item: ch13.agility-speed.i05
+    cognitive: application
+    stem: 施測 505 敏捷測驗時，運動員先加速十公尺穿過計時燈，再跑五公尺轉身返回，正式成績應採哪一段時間？
+    locator: Measuring Parameters of Athletic Performance > Agility > 505 Agility Test
+    options:
+      - text: 起跑至單腳第一次踩到轉折線
+        correct: false
+        why_wrong: 將前段助跑計入，卻漏掉轉向後的加速；本協定的計時起點在閘門，且包含往返轉折線的區間。
+      - text: 越過回程閘門直到完全停止跑動
+        correct: false
+        why_wrong: 把通過終點後的減速階段當成測量區間；教材要求第二次穿燈後才減速，減速過程不納入成績。
+      - text: 從原始起點出發直到回到同處
+        correct: false
+        why_wrong: 混淆整條行進路線與正式計時段；前十公尺用來加速，回程也只需以再次穿燈界定計時終點。
+      - text: 第一次穿燈至轉身後再度通過
+        correct: true
+
+  # 干擾項對照：ch13.agility-speed.i02、i04（兩次取最快）；勿移用到折返耐力測驗。
+  - id: ch13.anaerobic-endurance.i02.q1
+    item: ch13.anaerobic-endurance.i02
+    cognitive: application
+    stem: 運動員完成兩次三百碼折返跑，中間休息五分鐘且兩次用時不同，教練應以哪種方式合併成績？
+    locator: Measuring Parameters of Athletic Performance > Anaerobic Capacity > 300-Yard (274 m) Shuttle
+    options:
+      - text: 兩趟完成時間的算術平均
+        correct: true
+      - text: 較快一次的用時作為成績
+        correct: false
+        why_wrong: 移用了 T 測驗等敏捷測驗的取最佳規則；三百碼折返跑的指定協定要求平均兩次結果。
+      - text: 以後一趟的秒數代表表現
+        correct: false
+        why_wrong: 把第二次的疲勞表現當成唯一評分依據；教材雖要求再跑一次，仍須把第一次一起納入平均。
+      - text: 把兩回合耗時相加再登錄
+        correct: false
+        why_wrong: 混淆加總與平均；各回合都已是完整三百碼，合計後還須除以測驗次數才符合計分規則。
+
+  - id: ch13.balance-flexibility-bc.i01.q1
+    item: ch13.balance-flexibility-bc.i01
+    cognitive: recall
+    stem: 進行平衡錯誤計分系統測驗時，下列哪個行為應記為一次錯誤？
+    locator: Measuring Parameters of Athletic Performance > Balance and Stability > Balance Error Scoring System (BESS)
+    options:
+      - text: 眼睛閉合且雙手保持在髖部
+        correct: false
+        why_wrong: 把降低視覺輔助的施測要求當成失誤；本協定正是要求閉眼並固定手的位置。
+      - text: 在軟面完成規定的串聯站姿
+        correct: false
+        why_wrong: 混淆較難的測試條件與違規動作；軟面及串聯站立都是六種正式條件的一部分。
+      - text: 單腳站立時非支撐腳碰到地面
+        correct: true
+      - text: 雙腳併攏並持續保持二十秒
+        correct: false
+        why_wrong: 將正式的雙腳條件誤判成站距太窄；併立是規定姿勢之一，每個條件本來就應維持指定時間。
+
+  - id: ch13.max-strength.i03.q1
+    item: ch13.max-strength.i03
+    cognitive: application
+    stem: 運動員做 1RM 臥姿划船時抬頭並以腳蹬地，其餘動作正確；下一次應採哪種修正，才能符合有效反覆的協定？
+    locator: Measuring Parameters of Athletic Performance > Maximum Muscular Strength (Low-Speed Strength) > 1RM Bench Pull
+    options:
+      - text: 容許抬頭發力以增加槓鈴上拉行程
+        correct: false
+        why_wrong: 把增加可拉動重量或行程當成測驗目標；協定要求固定頭的位置，不能靠改變姿勢取得不同條件的最大拉力。
+      - text: 維持頭部貼椅並讓雙腳持續懸空
+        correct: true
+      - text: 腳掌支撐地板讓軀幹取得額外穩定
+        correct: false
+        why_wrong: 把一般支撐求穩的做法移到這項特定測驗；本協定要求腳離地且位置固定，以免借用下肢支撐改變施力條件。
+      - text: 每次將重量放回地面後重新起拉
+        correct: false
+        why_wrong: 混淆懸垂起始與從地板重新起拉；下放應受控回到肘伸直的位置，槓鈴不可碰地，也沒有修正頭腳位置的問題。
+
+  # 干擾項對照：ch13.power-tests.i04（跳高成績）、i07（含體重的階梯功率公式）。
+  - id: ch13.power-tests.i06.q1
+    item: ch13.power-tests.i06
+    cognitive: analysis
+    stem: 同一運動員兩次落地反彈的跳高相同，第一回合接觸地面零點二秒，第二回合零點三秒，哪項比較正確？
+    locator: Measuring Parameters of Athletic Performance > Anaerobic or Maximum Muscular Power (High-Speed Strength) > Reactive Strength Index
+    options:
+      - text: 第二回合的評分反而增加
+        correct: false
+        why_wrong: 把接觸時間誤當成乘數；RSI 是跳高除以觸地秒數，分母變大而分子不變時，數值會下降。
+      - text: 兩次因離地高度相同而同分
+        correct: false
+        why_wrong: 將單看垂直高度的跳躍成績當成反應力量指數；RSI 同時考慮觸地時間，不能只比跳多高。
+      - text: 還要知道體重才能比較指數
+        correct: false
+        why_wrong: 移用了階梯功率計算中的重量需求；RSI 的定義只需高度與接觸時間，本題資訊已足夠比較。
+      - text: 前者的反應力量指數較高
+        correct: true
+
+  # 干擾項對照：ch13.statistics.i04（百分位名次）。
+  - id: ch13.statistics.i03.q1
+    item: ch13.statistics.i03
+    cognitive: analysis
+    stem: 一位運動員的四十碼衝刺時間換算成 z 分數為 −1.2，若此測驗用時越短代表表現越好，應如何解讀？
+    locator: Statistical Evaluation of Test Data > Types of Statistics > Descriptive Statistics > Variability
+    options:
+      - text: 完成用時比平均少，表現快了 1.2 個標準差
+        correct: true
+      - text: 位在較差的一側，速度落後全隊 1.2 個標準差
+        correct: false
+        why_wrong: 把負號一律視為較差；此例標準化的是完成時間，低於平均代表更快，必須依測驗的好壞方向解讀。
+      - text: 比同組快了 1.2 秒，可直接當成原始時間差
+        correct: false
+        why_wrong: 混淆標準化單位與秒；要回推實際快多少時間，還須乘上該群體的 SD，不能直接拿 z 值當秒數。
+      - text: 排名超過隊上 1.2% 的人，屬百分位的意義
+        correct: false
+        why_wrong: 把離平均幾個 SD 與受測者相對名次混為一談；z 分數本身不是低於某人的人數百分比。
+
+  - id: ch13.test-administration.i01.q1
+    item: ch13.test-administration.i01
+    cognitive: analysis
+    stem: 某隊訓練後的敏捷測驗變快，但前測場地潮濕、後測地面乾燥；要評估訓練成效，哪個處理最合理？
+    locator: Measuring Parameters of Athletic Performance > Testing Conditions
+    options:
+      - text: 將秒數改成百分比後，直接歸因課表有效
+        correct: false
+        why_wrong: 將換算數字誤當成控制測試條件；百分比仍由原始時間計算，無法排除地面狀態不同的影響。
+      - text: 保留較快的一次紀錄，用來證明訓練進步
+        correct: false
+        why_wrong: 混用取最佳試次與比較介入效果的目的；挑選快的結果不能讓兩次施測環境變得一致。
+      - text: 暫緩歸因並以相同場地條件追蹤後續訓練成效
+        correct: true
+      - text: 只對照同隊其他人的排名，判定方案優劣
+        correct: false
+        why_wrong: 把群內相對位置當成環境控制的替代；名次可用於描述隊內差異，仍不足以將這次時間變化單獨歸因於訓練。
+
+  # 干擾項對照：ch13.aerobic-capacity.i02、i03、i05，皆為真實有氧跑測協定。
+  - id: ch13.aerobic-capacity.i04.q1
+    item: ch13.aerobic-capacity.i04
+    cognitive: application
+    stem: 教練想用含短暫高強度折返及固定短恢復的跑測，模擬團隊比賽反覆加速的需求，哪一種施測安排最符合目的？
+    locator: Measuring Parameters of Athletic Performance > Aerobic Capacity > Yo-Yo Intermittent Recovery Test
+    options:
+      - text: 連續跑滿十二分鐘，以累積距離計算成績
+        correct: false
+        why_wrong: 這是固定時間的持續跑測；它可以估計有氧容量，但缺少題目要求的折返與規律短恢復安排。
+      - text: 二十公尺往返後，安排十秒恢復再出發
+        correct: true
+      - text: 每兩分鐘調快一公里時速，逐階跑到力竭
+        correct: false
+        why_wrong: 套用了最大有氧速度的連續分級程序；雖然也會加速，卻沒有每輪折返間固定十秒的間歇恢復。
+      - text: 維持可負擔配速，盡快完成一點五英里
+        correct: false
+        why_wrong: 這是固定里程跑的作法，強調可維持的穩定配速；不能取代本題需要的短暫爆發與恢復交替。
+
+  # 干擾項對照：ch13.statistics.i01（平均數），其餘同來源 item。
+  - id: ch13.statistics.i02.q1
+    item: ch13.statistics.i02
+    cognitive: analysis
+    stem: 多數隊員的測驗分數相近，但一名隊員有極高分；教練想描述典型成員的中心位置並降低極端值影響，應優先用哪個統計量？
+    locator: Statistical Evaluation of Test Data > Types of Statistics > Descriptive Statistics > Variability
+    options:
+      - text: 平均數
+        correct: false
+        why_wrong: 將最常用的中心指標視為所有分布都合適；它會被極高分拉動，本題已有明確偏離分數，排序後的中間值較符合目的。
+      - text: 眾數
+        correct: false
+        why_wrong: 混淆最常出現與居中的位置；分數相近不表示有重複次數最多的一筆，也無法由題目確定存在可代表多數人的眾數。
+      - text: 全距
+        correct: false
+        why_wrong: 將離散程度當成中心位置；這個量只看最大與最小兩端，反而直接受到題中極高分牽動。
+      - text: 中位數
+        correct: true
