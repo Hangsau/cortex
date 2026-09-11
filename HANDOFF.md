@@ -1,20 +1,26 @@
 # HANDOFF — my-site (Cortex)
 
-## ⏳ 進行中：CSCS 讀書器＋出題器（桌面看板分頁，2026-09-11）
+## CSCS 桌面讀書器已移出本專案（2026-09-11）
 
-站主要的是「讀書器＋出題器合一，讀完出題、提取常錯類型、提醒複習」，掛在
-`C:\claudehome\tools\deskboard` 的桌面看板上。規格已寫完並**派給 codex 實作中**
-（背景執行，Claude 5H 當時剩 27%，所以實作全外包、Claude 只出規格與驗收）。
+原本規劃把讀書器＋出題器實作放在 `tools/cscs_study*.py`，站主當場糾正：
 
-- 規格：`research/cscs-study-app-2026-09-11/SPEC.md`（自足，跨模型交接用）
-- 產出檔：`tools/cscs_study.py`（純邏輯層，**禁止 import tkinter**）、
-  `tools/cscs_study_gui.py`（Tkinter，只暴露 `build_tab(parent)`）、`tools/tests/`
-- **hub.py 不在任何 git repo，且只有三行改動，刻意不派給 codex**——回來要自己加
-- codex 被明確指示**不要 push**：UI 是唯一沒辦法靠測試驗收的部分，要站主看過畫面
+> 但這是我自己的讀書器 跟my-site 沒有關係吧 那邊 只是我離開電腦時可以唸書的地方
 
-**接手第一件事是驗收，不是繼續寫**：跑 `git diff` 看實際產出（不看 exit code），
-再逐條跑 SPEC §12 的驗收指令。codex 已知會「只輸出計畫就 exit 0」，零檔案異動時
-要重派而不是當成完成。
+糾正成立，已改建成獨立專案 **`C:\claudehome\projects\cscs-study\`**（Tkinter 桌面 app，
+掛 deskboard 分頁）。本專案是 Hugo 呈現層（手機閱讀），桌面工具不屬於它。
+codex 當時已在 my-site 寫了兩行 `.gitignore` 和一個空的 `tools/tests/__init__.py`，
+已 revert，本 repo 乾淨。`research/cscs-study-app-2026-09-11/SPEC.md` 是初版規格，
+已搬到新專案 `docs/SPEC-v1.md` 並改掉全部路徑，這裡留著只當歷史紀錄。
+
+**對本專案的影響：`data/cscs/` 多了一個唯讀消費端。** cscs-study 用
+`CSCS_DATA_DIR` / `CSCS_TOOLS_DIR` 兩個常數指過來，並 import `tools/cscs_quiz.py`
+的 `load` / `collect` / `pick_distractors` / `allocate` 等函式。**改這些函式的簽名
+或改 yaml 欄位名時，記得那邊會跟著壞**；它不在本 repo 的驗收閘裡。
+
+canonical 資料**刻意沒有一起搬走**：Hugo 直接讀 `data/` 不需建置步驟，手機閱讀零延遲；
+搬走就得多一道 sync。代價是「呈現層持有 canonical 資料」的反向依賴仍在，要不要改成
+資料獨立成知識專案（同 TheVortexProject → my-site 的 sync 模式）由站主決定，
+選項寫在 `cscs-study/HANDOFF.md`。
 
 ## CSCS 開出第三、四條動線：考點軸 + 實務判斷層 + 出題器（2026-09-11）
 
