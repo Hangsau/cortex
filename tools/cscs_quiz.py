@@ -27,6 +27,7 @@ domain 權重配比，但不照認知層級配比——考滿分不代表會過�
 import argparse
 import json
 import random
+import re
 import sys
 from pathlib import Path
 
@@ -108,22 +109,30 @@ def q_fact(ch_id, topic_id, item, by_chapter, rng):
     }
 
 
+# 帶這些記號的值不是單一純量：比例（'4:1'）、雙單位並列（'20/18.3' 碼/m）、
+# 算式（'5.25 × 400 = 2100'、'220－年齡'）、概數（'數百'、'3 或更高'）、
+# 混單位區間（'30 秒–1' 分鐘）。硬抽第一個數字會得到一個與題意無關的量級，
+# 比解析失敗更危險，所以一律不給量級，交由 in_scale 擋掉。
+NOT_SCALAR = ("/", ":", "：", "×", "=", "＝", "數", "或", "年齡", "秒")
+
+
 def magnitude(v):
-    """取數值的量級參考。區間（'15–19'、'5-10'）取第一個數。"""
-    head = str(v).replace(",", "").replace("≥", "").replace("≤", "")
-    for sep in ("–", "-", "~"):
-        if sep in head[1:]:
-            head = head[0] + head[1:].split(sep)[0]
-            break
-    try:
-        return abs(float(head))
-    except ValueError:
+    """取數值的量級參考。取第一個數字：區間（'15–19'）取下界，修飾語
+    （'約 206'、'> 100'、'最多 150'、'93 ± 6'、'US$1,000'）一律略過。"""
+    text = str(v).replace(",", "")
+    if any(mark in text for mark in NOT_SCALAR):
         return None
+    found = re.search(r"\d+(?:\.\d+)?", text)
+    if not found:
+        return None
+    return abs(float(found.group()))
 
 
 def in_scale(a, b):
+    # 解析不出量級時一律排除，不是放行。放行等於整個五倍閘無聲消失——正解 5 m
+    # 的題目配到「約 >1,200 m」就是這樣來的。寧可少出一題，不出送分題。
     if a is None or b is None:
-        return True
+        return False
     if a == 0 or b == 0:
         return a == b
     return 0.2 <= a / b <= 5
