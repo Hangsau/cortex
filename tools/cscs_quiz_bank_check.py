@@ -199,7 +199,10 @@ def check_bank(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
             ):
                 fail(path, qid, "G7", "locator 必須與來源 item 完全相同且非空")
 
-            # G6：完整問句的形式門檻，且禁止完整搬用來源 q 字串。
+            # G6：完整問句的形式門檻，且題幹必須在來源標題句之外自己貢獻一個子句。
+            # 不用「包含即失敗」：218 條來源 q 短於 8 字，其中多數是純主題名詞
+            # （膝關節、第一類槓桿），寫那個主題的題目必然會用到那幾個字。真正要擋的是
+            # 「把 q 加個『是什麼？』就當題幹」，那是扣掉 q 之後所剩無幾的那種。
             stem = question.get("stem")
             if not isinstance(stem, str) or len(stem) < 12 or not stem.endswith("？"):
                 fail(path, qid, "G6", "stem 必須至少 12 字且以「？」結尾")
@@ -207,8 +210,12 @@ def check_bank(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
                 source_q = item.get("q")
                 if not isinstance(source_q, str) or not source_q:
                     fail(path, qid, "G7", "來源 item 缺少非空字串 q，無法驗收 G6")
-                elif isinstance(stem, str) and source_q in stem:
-                    fail(path, qid, "G6", "stem 完整包含來源 item 的 q 字串")
+                elif (
+                    isinstance(stem, str)
+                    and source_q in stem
+                    and len(stem) - len(source_q) < 12
+                ):
+                    fail(path, qid, "G6", "stem 扣掉來源 q 之後不足 12 字，等於把標題句改寫成問句")
 
             # G8：同章、同 item 的 stem 不得重複，即使題目 id 不同亦然。
             if isinstance(item_id, str) and isinstance(stem, str):
