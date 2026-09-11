@@ -168,8 +168,9 @@ gaps:
     statement: >-
       ch13 的常模未分層到可直接判讀的程度：同一個相對肌力數字，對男性高層級是
       不足、對大專女性是適當，但表格沒把「該族群的適當區間」擺在判讀位置上，
-      很容易拿錯尺。
-    chapters: [ch13]
+      很容易拿錯尺。ch07 才是講性別與年齡差異的地方，但它的族群框架沒有被帶進
+      ch13 的判讀位置——兩章之間斷開，查表時就會拿別的族群的尺。
+    chapters: [ch07, ch13]
     severity: high
     evidence: 2026-09-11 實際造成一題判定反向
     status: open
@@ -186,8 +187,9 @@ gaps:
   - id: gap.lift-variant-conversion-factors
     statement: >-
       ch13 的常模表以標準動作（背蹲、臥推）為基準，但實務課表大量使用前蹲、
-      trap bar 硬舉等變式，課本未給變式之間的換算係數，查表時直接卡住。
-    chapters: [ch13]
+      trap bar 硬舉等變式，課本未給變式之間的換算係數，查表時直接卡住。ch15 教
+      這些變式的動作技術，但不談它們與標準動作在負荷上的對應關係。
+    chapters: [ch13, ch15]
     status: open
 
   - id: gap.training-means-as-reward-or-punishment

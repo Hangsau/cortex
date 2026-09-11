@@ -1,0 +1,91 @@
+# 考點軸：CSCS 考試的七個 domain 與章節對映
+#
+# 這是第三條閱讀動線的座標（章節軸 → 概念軸 → 考點軸）。用途是讓複習與出題
+# 能照真實考試權重配比，而不是照章節數平均分配。
+#
+# 不放章節標題：標題的真相源是 chNN.yaml，這裡只放 id。同「分類標籤一律從
+# 資料讀」那條鐵則——抄一份副本，章節改名這裡就無聲漂移。
+#
+# 權重來源為 NSCA 官方 Exam Content Description 的二手整理（2026-09-11 查）。
+# 官方站擋了直接抓取，數字未經一手核對；以官方 PDF 為準時要回來改這裡。
+
+meta:
+  source: NSCA CSCS Exam Content Description
+  retrieved: 2026-09-11
+  verification: secondhand
+  note: 待用官方 PDF 一手核對後把 verification 改為 verified
+  passing: 兩個 section 分開計，各需 scaled score 70 以上
+
+sections:
+  - id: sf
+    name_en: Scientific Foundations
+    name_zh: 科學基礎
+    scored: 80
+  - id: pa
+    name_en: Practical/Applied
+    name_zh: 實務應用
+    scored: 110
+    unscored: 15
+
+domains:
+  - id: d1-exercise-science
+    section: sf
+    name_en: Exercise Science
+    name_zh: 運動科學
+    weight_pct: 55
+    scored: 44
+    chapters: [ch01, ch02, ch03, ch04, ch05, ch06, ch07]
+
+  - id: d2-sports-psychology
+    section: sf
+    name_en: Sports Psychology
+    name_zh: 運動心理學
+    weight_pct: 24
+    scored: 19
+    chapters: [ch08]
+
+  - id: d3-nutrition
+    section: sf
+    name_en: Nutrition
+    name_zh: 營養
+    weight_pct: 21
+    scored: 17
+    chapters: [ch09, ch10, ch11]
+
+  - id: d4-exercise-technique
+    section: pa
+    name_en: Exercise Technique
+    name_zh: 動作技術
+    weight_pct: 36
+    scored: 40
+    chapters: [ch14, ch15, ch16]
+    also: [ch18, ch19]
+    also_note: 增強式與速度敏捷兩章同時含技術與課程設計，技術段歸此 domain
+
+  - id: d5-program-design
+    section: pa
+    name_en: Program Design
+    name_zh: 課程設計
+    weight_pct: 35
+    scored: 38
+    chapters: [ch17, ch18, ch19, ch20, ch21, ch22]
+
+  - id: d6-testing
+    section: pa
+    name_en: Testing and Evaluation
+    name_zh: 測驗與評估
+    weight_pct: 18
+    scored: 20
+    chapters: [ch12, ch13]
+
+  - id: d7-organization
+    section: pa
+    name_en: Organization and Administration
+    name_zh: 組織與行政
+    weight_pct: 11
+    scored: 12
+    chapters: [ch23, ch24]
+
+# 讀法：content_share 是該 domain 佔 1557 條知識單位的比例，exam_share 是佔
+# 190 題計分題的比例。兩者落差就是讀書時間該往哪邊挪的訊號——內容多但考得少
+# 的章節不必逐條精讀，反之要加練。實際數字由 cscs_check.py 現算，不寫死在這裡。

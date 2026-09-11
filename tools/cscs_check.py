@@ -49,6 +49,8 @@ def main():
     only = sys.argv[1] if len(sys.argv) > 1 else None
     terms = load("_terms")
     concepts = load("_concepts")
+    domains = load("_domains")
+    applied = load("_applied")
     chapters = {p.stem: load(p.stem) for p in sorted(DATA.glob("ch*.yaml"))}
 
     all_ids = set()
@@ -101,10 +103,75 @@ def main():
         if not t.get("en"):
             errors.append(f"術語 '{key}' 缺英文全稱")
 
+    # 考點軸：章節必須不重不漏地分進 domain，否則按權重配題會靜默少算一章
+    section_ids = {s["id"] for s in domains["sections"]}
+    domain_ids = set()
+    primary_of = {}
+    for d in domains["domains"]:
+        domain_ids.add(d["id"])
+        if d["section"] not in section_ids:
+            errors.append(f"domain '{d['id']}': section '{d['section']}' 未定義")
+        for ch in d["chapters"]:
+            if ch not in chapters:
+                errors.append(f"domain '{d['id']}': chapters 指向不存在的章節 '{ch}'")
+            elif ch in primary_of:
+                errors.append(f"章節 {ch} 同時是 '{primary_of[ch]}' 與 '{d['id']}' 的主 domain")
+            else:
+                primary_of[ch] = d["id"]
+        for ch in d.get("also") or []:
+            if ch not in chapters:
+                errors.append(f"domain '{d['id']}': also 指向不存在的章節 '{ch}'")
+
+    for ch in chapters:
+        if ch not in primary_of:
+            errors.append(f"章節 {ch} 沒有被分進任何 domain（按權重配題會漏掉它）")
+
+    for sec in domains["sections"]:
+        total_w = sum(d["weight_pct"] for d in domains["domains"] if d["section"] == sec["id"])
+        if total_w != 100:
+            errors.append(f"section '{sec['id']}' 的 weight_pct 合計 {total_w}，不是 100")
+        total_q = sum(d["scored"] for d in domains["domains"] if d["section"] == sec["id"])
+        if total_q != sec["scored"]:
+            errors.append(f"section '{sec['id']}' 的 scored 合計 {total_q}，與宣告的 {sec['scored']} 不符")
+
+    # 實務判斷層：chapters / domain 參照要能解析，否則缺口清單會指向空氣
+    def check_refs(where, node):
+        for ch in node.get("chapters") or []:
+            if ch not in chapters:
+                errors.append(f"{where}: chapters 指向不存在的章節 '{ch}'")
+        for dom in node.get("domain") or []:
+            if dom not in domain_ids:
+                errors.append(f"{where}: domain 指向未定義的 '{dom}'")
+
+    for tpl in applied["templates"]:
+        check_refs(f"題型 '{tpl['id']}'", tpl)
+        if not tpl.get("branches"):
+            errors.append(f"題型 '{tpl['id']}' 沒有任何分支")
+    for gap in applied["gaps"]:
+        check_refs(f"缺口 '{gap['id']}'", gap)
+        if len(gap.get("chapters") or []) < 2:
+            errors.append(f"缺口 '{gap['id']}' 只掛一章：跨章缺口才是缺口，單章的是待補內容")
+
     print(f"章節 {len(chapters)} / 知識單位 {total} / 已補 detail {filled}"
           f"（{filled * 100 // total}%）")
     print(f"術語表 {len(terms)} 條，被引用 {len(used_terms)} 條")
     print(f"概念表 {len(concepts)} 條，被引用 {len(used_concepts)} 條")
+    print(f"題型 {len(applied['templates'])} 個 / 分支 "
+          f"{sum(len(t['branches']) for t in applied['templates'])} 條 / "
+          f"缺口 {len(applied['gaps'])} 條")
+
+    # 內容佔比 vs 考試佔比：落差就是讀書時間該挪的方向
+    n_items = {ch: sum(len(t["items"]) for t in c["topics"]) for ch, c in chapters.items()}
+    exam_total = sum(d["scored"] for d in domains["domains"])
+    print("\n--- 考點軸：內容佔比 vs 考試佔比 ---")
+    for d in domains["domains"]:
+        items = sum(n_items[ch] for ch in d["chapters"])
+        content_share = items * 100 / total
+        exam_share = d["scored"] * 100 / exam_total
+        drift = exam_share - content_share
+        flag = "  <<< 考得多讀得少" if drift >= 5 else ("  (內容多考得少)" if drift <= -5 else "")
+        print(f"  {d['id']:<24} 內容 {items:>4} 條 {content_share:>5.1f}%  "
+              f"考題 {d['scored']:>3} 題 {exam_share:>5.1f}%{flag}")
 
     if errors:
         print(f"\n--- 錯誤 {len(errors)} ---")
