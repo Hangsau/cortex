@@ -19,9 +19,9 @@ W24 已完成 `/vortex/problems/`：73 題四欄卡，六式／canonical 環節�
 頁面功能與原有資料庫誤區篩選皆通過，JS error 0。
 `476089d` 已推送；Hugo 0.159.1 的 [CI 34697248838](https://github.com/Hangsau/cortex/actions/runs/34697248838) 成功。
 對 `https://hangsau.github.io/cortex/` 重跑同一瀏覽器驗收，73 題／309 連結／9 頁與四種寬度全部通過。
-本站先前推送審查問題已透過遠端與提交範圍查驗解決。Vortex W25 `6894568` 仍在本機，
-推送 canonical `master` 被自動審查要求使用者明確授權；僅兩字用字校正尚未進遠端 canonical，
-W25 覆蓋統計與執行文件也待同次推送。後续同步前依 Vortex 執行清單確認，勿把本機資料狀態當成遠端已更新。
+使用者明確授權後，Vortex W25 `6894568` 與交接 `d9b14b6` 已推至 canonical master；
+[同步 CI 34701654801](https://github.com/Hangsau/TheVortexProject/actions/runs/34701654801) 成功，
+回報 `No public content changes.`。網站公開資料與 canonical 已對齊，E 組 W18–W25 結案。
 
 ## 週期化頁接上「組課設計完整指南」（2026-09-12）
 
