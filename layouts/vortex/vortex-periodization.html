@@ -390,7 +390,7 @@
                 <span class="vx-pz-swim-h">🟠 游泳應用</span>
                 <p>{{ .swim_link_zh }}</p>
               </div>
-              <p class="vx-pz-warn">{{ .limitations_zh }}</p>
+              <p class="vx-pz-warn">{{ partial "vortex/rich.html" .limitations_zh }}</p>
               <p class="vx-pz-author">{{ .author_note_zh }}</p>
               {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
               <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
@@ -493,8 +493,8 @@
             <div class="vx-level-body">
               <p class="vx-pz-intro">青少年怎麼按年齡分階段練，對齊 ADM 發展階段。</p>
               <p class="vx-pz-meta">{{ .stage_ages_zh }}</p>
-              <p class="vx-pz-meta">{{ .phv_zh }}</p>
-              {{ with .windows_note_zh }}<p class="vx-pz-warn">{{ . }}</p>{{ end }}
+              <p class="vx-pz-meta">{{ partial "vortex/rich.html" .phv_zh }}</p>
+              {{ with .windows_note_zh }}<p class="vx-pz-warn">{{ partial "vortex/rich.html" . }}</p>{{ end }}
               {{ with .caution_zh }}<p class="vx-pz-warn">{{ . }}</p>{{ end }}
               {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
               <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
@@ -666,7 +666,7 @@
                 {{ range .training_protocols }}
                   <tr>
                     <td><strong>{{ .name_zh }}</strong> <span class="vx-cert">{{ .cert }}</span></td>
-                    <td>{{ .protocol_zh }}</td>
+                    <td>{{ partial "vortex/rich.html" .protocol_zh }}</td>
                     <td><span class="vx-pz-en">{{ .source }}</span></td>
                   </tr>
                 {{ end }}
@@ -863,7 +863,7 @@
                 {{ end }}
                 </tbody>
               </table>
-              <p class="vx-pz-meta">{{ .key_numbers_zh }}</p>
+              <p class="vx-pz-meta">{{ partial "vortex/rich.html" .key_numbers_zh }}</p>
               <p class="vx-pz-meta">{{ partial "vortex/rich.html" .unit_caveat_zh }}</p>
               <p class="vx-pz-meta">{{ .avoid_middle_zh }}</p>
               <p class="vx-pz-meta">{{ .evidence_zh }}</p>
@@ -1023,10 +1023,10 @@
                 <thead><tr><th>錨點</th><th>用途</th><th>測驗方式</th></tr></thead>
                 <tbody>
                 {{ range .sprint_anchors }}
-                  <tr><td><strong>{{ .name_zh }}</strong></td><td>{{ .use_zh }}</td><td>{{ .protocol_zh }}</td></tr>
+                  <tr><td><strong>{{ .name_zh }}</strong></td><td>{{ .use_zh }}</td><td>{{ partial "vortex/rich.html" .protocol_zh }}</td></tr>
                 {{ end }}
                 {{ range .endurance_anchors }}
-                  <tr><td><strong>{{ .name_zh }}</strong></td><td>{{ .use_zh }}</td><td>{{ .protocol_zh }}</td></tr>
+                  <tr><td><strong>{{ .name_zh }}</strong></td><td>{{ .use_zh }}</td><td>{{ partial "vortex/rich.html" .protocol_zh }}</td></tr>
                 {{ end }}
                 </tbody>
               </table>
@@ -1535,8 +1535,8 @@
             </summary>
             <div class="vx-level-body">
               <p>{{ .risk_factors_zh }}</p>
-              <p class="vx-pz-focus">{{ .intervention_zh }}</p>
-              <p>{{ .kinetic_chain_zh }}</p>
+              <p class="vx-pz-focus">{{ partial "vortex/rich.html" .intervention_zh }}</p>
+              <p>{{ partial "vortex/rich.html" .kinetic_chain_zh }}</p>
               {{ with .plain_zh }}<p class="vx-pz-plain">{{ . }}</p>{{ end }}
               <p class="vx-cite"><span class="src">來源</span>：{{ .source }}</p>
             </div>
