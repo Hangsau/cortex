@@ -15,6 +15,7 @@ import json
 import os
 import re
 import sys
+import tempfile
 from datetime import date
 from pathlib import Path
 
@@ -35,6 +36,12 @@ DRILL_DST     = HUGO_ROOT / "data" / "vortex" / "drills.yaml"
 # ── 教學誤區（canonical 兩層 → my-site 只 public） ──
 TEACHING_ERRORS_SRC = VORTEX_SRC / "canonical" / "instructional" / "teaching-errors.yaml"
 TEACHING_ERRORS_DST = HUGO_ROOT / "data" / "vortex" / "teaching-errors.yaml"
+
+PROBLEMS_SRC = VORTEX_SRC / "canonical" / "instructional" / "problems.yaml"
+PROBLEMS_DST = HUGO_ROOT / "data" / "vortex" / "problems.yaml"
+PROBLEM_FIELDS = ("id", "stroke", "category", "title", "links", "cross_ref", "cross_ref_ids", "coverage_gap")
+PROBLEM_PUBLIC_FIELDS = frozenset({"observable", "mechanism_summary"})
+PROBLEM_LINK_FIELDS = ("technical_analysis", "drills", "interventions", "water_interventions")
 
 # ── 技術分析（canonical → my-site；全 public，diagnostic 仍剝離保險） ──
 TECH_ANALYSIS_SRC = VORTEX_SRC / "canonical" / "instructional" / "technical-analysis.yaml"
@@ -437,6 +444,119 @@ def sync_teaching_errors(dry_run: bool):
     )
     TEACHING_ERRORS_DST.write_text(out, encoding="utf-8")
     print(f"  寫入 {TEACHING_ERRORS_DST.relative_to(HUGO_ROOT)}")
+
+
+def problem_public_data(data):
+    """Strict public projection. Unknown record siblings never leave canonical.
+
+    public is flattened only after its keys and scalar types are checked, so
+    neither IDs nor links can be overwritten by a future public field.
+    """
+    if not isinstance(data, dict) or data.get("domain") != "instructional" or data.get("sub") != "problems" or type(data.get("schema_version")) is not int or data["schema_version"] != 1:
+        raise ValueError("Invalid problems document/version")
+    if not isinstance(data.get("problems"), list) or not isinstance(data.get("categories"), list):
+        raise ValueError("problems and categories must be lists")
+    categories = []
+    category_keys = set()
+    for category in data["categories"]:
+        if not isinstance(category, dict) or any(not isinstance(category.get(k), str) or not category[k].strip() for k in ("key", "name_zh")):
+            raise ValueError("Invalid problem category")
+        if category["key"] in category_keys:
+            raise ValueError("Duplicate problem category")
+        category_keys.add(category["key"])
+        categories.append({k: category[k] for k in ("key", "name_zh")})
+    records, ids = [], set()
+    for entry in data["problems"]:
+        if not isinstance(entry, dict) or any(k not in entry for k in PROBLEM_FIELDS):
+            raise ValueError("Missing required problem field")
+        rec = {k: entry[k] for k in PROBLEM_FIELDS}
+        if any(not isinstance(rec[k], str) for k in ("id", "stroke", "category", "title", "cross_ref")):
+            raise ValueError("Problem labels must be strings")
+        if not re.fullmatch(r"prob\.[a-z]+(?:-[a-z]+)*\.[a-z0-9]+(?:-[a-z0-9]+)*", rec["id"]) or rec["id"] in ids:
+            raise ValueError("Invalid or duplicate problem ID")
+        if rec["stroke"] != rec["id"].split(".")[1] or rec["category"] not in category_keys or not rec["title"].strip():
+            raise ValueError("Invalid problem stroke/category/title")
+        ids.add(rec["id"])
+        public = entry.get("public")
+        if not isinstance(public, dict) or set(public) != PROBLEM_PUBLIC_FIELDS or any(not isinstance(v, str) for v in public.values()) or not public["observable"].strip():
+            raise ValueError("Invalid or unexpected public problem field")
+        links = rec["links"]
+        if not isinstance(links, dict) or set(links) != set(PROBLEM_LINK_FIELDS):
+            raise ValueError("Invalid problem relation fields")
+        for value in [links[k] for k in PROBLEM_LINK_FIELDS] + [rec["cross_ref_ids"], rec["coverage_gap"]]:
+            if not isinstance(value, list) or any(not isinstance(v, str) or not v for v in value) or len(set(value)) != len(value):
+                raise ValueError("Problem references/gaps must be unique string lists")
+        expected = {gap for key, gap in (("technical_analysis", "no_mechanism"), ("interventions", "no_intervention"), ("drills", "no_drill")) if not links[key]}
+        if set(rec["coverage_gap"]) != expected or bool(public["mechanism_summary"]) != bool(links["technical_analysis"]):
+            raise ValueError("Problem coverage disagrees with links")
+        rec.update(public)
+        records.append(rec)
+    return {"schema_version": 1, "categories": categories, "problems": records}
+
+
+def problem_source_targets():
+    """Use current source IDs even on a first, unwritten dry run."""
+    def records(path, key):
+        return yaml.safe_load(path.read_text(encoding="utf-8"))[key]
+
+    interventions = records(MOVEMENT_SRC_DIR / "interventions.yaml", "interventions")
+    intervention_ids = {r["id"] for r in interventions
+                        if r.get("publication_status") == "published"
+                        and r.get("action_status") != "do-not-prescribe"}
+    return {
+        "technical_analysis": {r["id"] for r in records(TECH_ANALYSIS_SRC, "points")},
+        "drills": {r["id"] for stroke in DRILL_STROKES
+                   for r in records(DRILL_SRC_DIR / f"drills_{stroke}.yaml", "drills")},
+        "interventions": intervention_ids,
+        "water_interventions": intervention_ids,
+        "cross_ref_ids": {r["id"] for r in records(TEACHING_ERRORS_SRC, "errors")},
+    }
+
+
+def sync_problems(dry_run: bool):
+    """Resolve only against exported targets; replace the destination atomically."""
+    if not PROBLEMS_SRC.exists():
+        if PROBLEMS_DST.exists():
+            raise ValueError("Problem source missing while public output exists")
+        print("  [skip] No problem source in this version")
+        return
+    data = problem_public_data(yaml.safe_load(PROBLEMS_SRC.read_text(encoding="utf-8")))
+    source_targets = problem_source_targets() if data["problems"] else {}
+    # These have just been synchronized by main(). A hidden intervention cannot
+    # survive merely because its ID still exists in canonical.
+    target_files = {
+        "technical_analysis": (TECH_ANALYSIS_DST, "points"),
+        "drills": (DRILL_DST, "drills"),
+        "interventions": (MOVEMENT_DST_DIR / "interventions.yaml", "interventions"),
+        "water_interventions": (MOVEMENT_DST_DIR / "interventions.yaml", "interventions"),
+        "cross_ref_ids": (TEACHING_ERRORS_DST, "errors"),
+    }
+    for relation, (path, key) in target_files.items():
+        references = {target for entry in data["problems"] for target in (entry[relation] if relation == "cross_ref_ids" else entry["links"][relation])}
+        if not references:
+            continue
+        known = source_targets[relation]
+        if not dry_run:
+            targets = yaml.safe_load(path.read_text(encoding="utf-8"))
+            known = known & {entry["id"] for entry in targets[key]}
+        if references - known:
+            raise ValueError(f"Unpublished/missing {relation} targets: {sorted(references - known)}")
+    out = dump_yaml(data)
+    print(f"=== 問題索引：{len(data['problems'])} 筆 ===")
+    if dry_run:
+        print("  [dry-run，未寫入 problems.yaml]")
+        return
+    PROBLEMS_DST.parent.mkdir(parents=True, exist_ok=True)
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=PROBLEMS_DST.parent, prefix=".problems-", suffix=".tmp", delete=False) as handle:
+            temporary = Path(handle.name)
+            handle.write(out)
+        temporary.replace(PROBLEMS_DST)
+    finally:
+        if temporary is not None and temporary.exists():
+            temporary.unlink()
+    print(f"  寫入 {PROBLEMS_DST}")
 
 
 def sync_technical_analysis(dry_run: bool):
@@ -1213,6 +1333,7 @@ def main():
     sync_injuries(dry_run)
     sync_breathing(dry_run)
     sync_movement(dry_run)
+    sync_problems(dry_run)
 
     print()
     print("=== 同步摘要 ===")

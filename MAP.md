@@ -29,6 +29,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 | 加自訂風格書（如 mnfl/ust） | 見 `CLAUDE.md`「自訂風格書籍設計模式」 |
 | 改 vortex 公開內容（泳式/誤區/drill/L 階段） | **不在此 repo！** 改 `TheVortexProject/canonical/` → 跑 `tools/sync_vortex.py` |
 | 改 vortex 呈現（版面/互動/CSS） | `layouts/vortex/*.html` + `static/css/vortex.css`（可直接改） |
+| 同步問題索引／驗公開邊界 | `tools/sync_vortex.py` 的 `problem_public_data` / `sync_problems` → `data/vortex/problems.yaml`；`tools/test_sync_problems.py`（2026-09-12 已驗） |
 | 改 ADM / 週期化內容 | 同 vortex：canonical-synced，改 canonical 再 sync |
 | 改氣質 section 內容 | `data/temperament/*.yaml`（my-site 自有，**可直接改**） |
 | 改 CSCS 內容 / 閃卡 | `data/cscs/chNN.yaml`（唯一真相源）→ 跑 `python tools/cscs_check.py` |

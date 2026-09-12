@@ -1,5 +1,14 @@
 # HANDOFF — my-site (Cortex)
 
+## E 組問題索引：W23 公開同步（2026-09-12）
+
+`canonical/instructional/problems.yaml` 的 73 題已經 `sync_problems()` 白名單投影至
+`data/vortex/problems.yaml`；來源與 public 欄位嚴格驗證，ID 對照本次來源及實際出站目標。
+陸上 `interventions` 與水中 `water_interventions` 分開，缺口不互相抵銷。
+先完整驗證再以同目錄暫存檔原子替換；失敗保留有效輸出。dry-run 可在首次同步前驗來源。
+驗收：`python -X utf8 tools/test_sync_problems.py` 11/11；movement 8/8；全庫同步成功。
+W24 網頁與 W25 覆蓋報告接續，尚未在此 checkpoint 宣告上線完成。
+
 ## 週期化頁接上「組課設計完整指南」（2026-09-12）
 
 canonical 新增 `periodization/set-design.yaml`（11 節點，Vortex `3ee2bac`），本站接成
