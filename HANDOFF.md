@@ -24,8 +24,22 @@ canonical 新增 `periodization/set-design.yaml`（11 節點，Vortex `3ee2bac`�
 
 順帶修掉兩類本站常見缺陷：`steady_per_100_s` 缺 `note_zh` 造成的空 `<td>`（補在 canonical，
 不在 layout 硬編 fallback 字串），以及 `vx-pz-plain` 沒過 `rich.html` 導致 `**` 字面外露。
-**只改主題 5 這一節**——structure / zones / dryland 也有同樣的 `**` 外露，那是既有狀態，
-不在本次範圍。
+
+**`**` 外露的全頁清理（`d6af0bd`，2026-09-12 追加）。** 上一版只修主題 5、把 structure /
+zones / dryland 的同類外露記成「既有狀態、不在範圍」；回頭量出來是**全頁 18 個字面星號**，
+讀者看得到，所以一起修了。根因是同一份 layout 裡 partial 的套用**不一致**——同一個區塊內
+`unit_caveat_zh` 走 `rich.html`、隔壁 `key_numbers_zh` 卻是裸 `{{ . }}`。修正七處：
+`structure.limitations_zh` / `phv_zh` / `windows_note_zh`、`zones.key_numbers_zh` 與
+`protocol_zh`（3 處表格格）、`dryland.intervention_zh` / `kinetic_chain_zh`。全頁字面 `**`
+18 → 0、`<strong>` 108 → 225。
+
+- **不要改用 `markdownify` 統一。** 本檔「CJK 粗體陷阱」那條已記：Goldmark 對 `**…**` 的
+  右側閉合，在前一字是全形標點、後一字是 CJK 時判定失敗，會原樣印出星號。`rich.html` 用
+  純 regex 取代，沒有這個問題。dryland 的 `shoulder_zh` / `hip_zh` / `ankle_zh` / `protocol_zh`
+  / `caveat_zh` 五處目前仍是 `markdownify`（需要區塊級結構），是潛在的同類風險點。
+- **稽核作法**：canonical 端 `walk()` 全樹找含 `**` 的字串欄位，對照 layout 該欄位的渲染
+  方式；線上端直接數整頁 `**` 出現次數，**不要只數自己剛改的那一節**——分節計數正是這次
+  漏掉 18 個的原因。
 
 線上驗收（`https://hangsau.github.io/cortex/vortex/periodization/`，HTTP 200，216,558 bytes）：
 主題 5 區段 `<strong>` 84、`vx-rich-line` 161、字面 `**` 0、空 `<p>`／`<td>`／`<span>` 各 0、
