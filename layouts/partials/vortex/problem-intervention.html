@@ -1,0 +1,11 @@
+{{ $x := .entry }}
+<div class="vx-problem-option">
+  <h4><a href="{{ .base }}vortex/movement/#{{ $x.id }}">{{ $x.name_zh }}</a></h4>
+  {{ with $x.works_when_summary }}<span class="vx-label">適用條件</span>{{ partial "vortex/richblock.html" . }}{{ end }}
+  {{ with $x.fails_when_summary }}<span class="vx-label">不適用時</span>{{ partial "vortex/richblock.html" . }}{{ end }}
+  {{ with $x.training_options }}<span class="vx-label">動作方向</span>{{ partial "vortex/richblock.html" . }}{{ end }}
+  {{ with $x.approach_note }}<span class="vx-label">嘗試方式</span>{{ partial "vortex/richblock.html" . }}{{ end }}
+  {{ with $x.safety_note }}<span class="vx-label">停止條件</span>{{ partial "vortex/richblock.html" . }}{{ end }}
+  {{ with $x.remaining_boundary }}<details class="vx-problem-boundary"><summary>證據與適用邊界</summary>{{ partial "vortex/richblock.html" . }}</details>{{ end }}
+  <p><a href="{{ .base }}vortex/movement/#{{ $x.id }}">閱讀完整介入與來源 ↗</a></p>
+</div>

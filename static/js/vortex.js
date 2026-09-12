@@ -309,6 +309,25 @@
         });
       });
       applyNeeds();
+
+      // Linked drills must open even after an earlier filter hid the target.
+      function openDrillTarget() {
+        var id;
+        try { id = decodeURIComponent(location.hash.slice(1)); } catch (_) { return; }
+        var target = document.getElementById(id);
+        if (!target || needsCards.indexOf(target) === -1) return;
+        needsBars.forEach(function (bar) {
+          needsActive[bar.getAttribute('data-axis')] = 'all';
+          bar.querySelectorAll('.vx-chip').forEach(function (chip) {
+            chip.classList.toggle('is-active', chip.getAttribute('data-val') === 'all');
+          });
+        });
+        applyNeeds();
+        target.open = true;
+        requestAnimationFrame(function () { target.scrollIntoView({ block: 'start', behavior: 'instant' }); });
+      }
+      window.addEventListener('hashchange', openDrillTarget);
+      openDrillTarget();
     }
 
     // Zone 2：三類資料 tab + 泳式篩選 + 搜尋

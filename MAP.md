@@ -30,6 +30,7 @@ deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./p
 | 改 vortex 公開內容（泳式/誤區/drill/L 階段） | **不在此 repo！** 改 `TheVortexProject/canonical/` → 跑 `tools/sync_vortex.py` |
 | 改 vortex 呈現（版面/互動/CSS） | `layouts/vortex/*.html` + `static/css/vortex.css`（可直接改） |
 | 同步問題索引／驗公開邊界 | `tools/sync_vortex.py` 的 `problem_public_data` / `sync_problems` → `data/vortex/problems.yaml`；`tools/test_sync_problems.py`（2026-09-12 已驗） |
+| 改找問題頁與跨頁定位 | `content/vortex/problems/_index.md` → `layouts/vortex/vortex-problems.html` + `layouts/partials/vortex/problem-intervention.html`；`static/css/vortex-problems.css`、`static/js/vortex-problems.js`；入口在 database／sidebar，目標錨點在 vortex-stroke／vortex-drills，drill 展開在 `static/js/vortex.js`；驗收 `tools/audit_vortex_problems.js`（2026-09-12 本機已驗） |
 | 改 ADM / 週期化內容 | 同 vortex：canonical-synced，改 canonical 再 sync |
 | 改氣質 section 內容 | `data/temperament/*.yaml`（my-site 自有，**可直接改**） |
 | 改 CSCS 內容 / 閃卡 | `data/cscs/chNN.yaml`（唯一真相源）→ 跑 `python tools/cscs_check.py` |

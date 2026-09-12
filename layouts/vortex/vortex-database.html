@@ -51,6 +51,7 @@
 
 {{ $strokeChips := slice "all" "free" "back" "breast" "fly" "udk" "starts-turns" }}
 {{ $types := slice
+  (dict "k" "problem" "zh" "問題" "n" (len (index hugo.Data "vortex" "problems").problems) "href" (.Site.GetPage "/vortex/problems").RelPermalink)
   (dict "k" "err"    "zh" "誤區"     "n" (len $errs))
   (dict "k" "tech"   "zh" "機制"     "n" (len $techs))
   (dict "k" "ind"    "zh" "L 指標"   "n" (len $inds))
@@ -69,12 +70,12 @@
 {{ partial "vortex/sidebar.html" (dict "ctx" . "current" "database") }}
 <div class="vx-find" data-vx-find>
   <h1 class="vx-list-title">查資料</h1>
-  <p class="vx-list-desc">不用翻一整頁。<strong>先選一個類型</strong>（再選泳式或打字搜尋），把你要看的那一類撈出來。涵蓋全站內容（誤區、機制、技術動作、水感階段、心理、傷害、呼吸、發展、水感框架、感知銜接、訓練週期、教學原文）；唯一不在這裡的是<a href="{{ $base }}vortex/drills/">找練習</a>。</p>
+  <p class="vx-list-desc">不用翻一整頁。<strong>先選一個類型</strong>（再選泳式或打字搜尋），把你要看的那一類撈出來。涵蓋誤區、機制、技術動作、水感階段、心理、傷害、呼吸、發展、水感框架、感知銜接、訓練週期與教學原文。想從現象開始，前往<a href="{{ $base }}vortex/problems/">找問題</a>；練習可到<a href="{{ $base }}vortex/drills/">找練習</a>另查。</p>
 
   <div class="vx-find-facets">
     <div class="vx-filterbar vx-find-types" data-axis="type">
       <span class="vx-filterbar-label">① 選類型</span>
-      {{ range $types }}<button class="vx-chip vx-chip--type" type="button" data-val="{{ .k }}">{{ .zh }} <b>{{ .n }}</b></button>{{ end }}
+      {{ range $types }}{{ if .href }}<a class="vx-chip" href="{{ .href }}">{{ .zh }} <b>{{ .n }}</b> ↗</a>{{ else }}<button class="vx-chip vx-chip--type" type="button" data-val="{{ .k }}">{{ .zh }} <b>{{ .n }}</b></button>{{ end }}{{ end }}
     </div>
     <div class="vx-filterbar" data-axis="s">
       <span class="vx-filterbar-label">② 限定泳式（可不選）</span>

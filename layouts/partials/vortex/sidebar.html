@@ -50,6 +50,8 @@
         <a href="{{ $base }}vortex/injuries/"><span class="vxnav-n">傷</span>運動傷害 · 防護</a></li>
 
       <li class="vxnav-sect">查找</li>
+      <li class="vxnav-item{{ if eq $cur "problems" }} is-current{{ end }}">
+        <a href="{{ $base }}vortex/problems/"><span class="vxnav-n">問</span>找問題</a></li>
       <li class="vxnav-item{{ if eq $cur "drills" }} is-current{{ end }}">
         <a href="{{ $base }}vortex/drills/"><span class="vxnav-n">練</span>找練習</a></li>
       <li class="vxnav-item{{ if eq $cur "database" }} is-current{{ end }}">

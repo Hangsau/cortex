@@ -1,0 +1,31 @@
+/* Problem index: reuse Vortex cards, typography, chips and navigation. */
+.vx-problems { min-width: 0; }
+.vx-problem-filters { margin: 24px 0; }
+.vx-problem-filters label { font-size: 14px; color: var(--vx-sub); }
+.vx-problem-filters input[type="checkbox"] { accent-color: var(--vx-accent); }
+.vx-problem-search { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 14px; }
+.vx-problem-search .vx-db-input { flex: 1 1 220px; width: auto; min-width: 0; }
+.vx-problem-card { scroll-margin-top: 80px; }
+.vx-problem-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.vx-problem-column { min-width: 0; overflow-wrap: anywhere; }
+.vx-problem-column + .vx-problem-column { border-left: 1px solid var(--vx-rule); padding-left: 20px; }
+.vx-problem-column h3 { font-size: 17px; margin: 18px 0; }
+.vx-problem-column h3 span { color: var(--vx-faint); font-family: var(--vx-display); }
+.vx-problem-column h4 { font-size: 15px; line-height: 1.7; margin: 0 0 8px; }
+.vx-problem-column .vx-problem-gap { color: var(--vx-sub); }
+.vx-problem-links { padding-left: 18px; font-size: 14px; line-height: 1.8; }
+.vx-problem-links li { margin: 0 0 12px; }
+.vx-problem-option + .vx-problem-option { border-top: 1px dotted var(--vx-rule); padding-top: 18px; margin-top: 18px; }
+.vx-problem-boundary { font-size: 14px; }
+.vx-problem-boundary > summary { cursor: pointer; color: var(--vx-sub); }
+.vx-problem-empty { padding: 24px; border: 1px solid var(--vx-rule); }
+.vx-problems :is(button, input, summary, a):focus-visible { outline: 2px solid var(--vx-accent); outline-offset: 3px; }
+@media (max-width: 1200px) {
+  .vx-problem-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .vx-problem-column:nth-child(3) { border-left: 0; padding-left: 0; }
+}
+@media (max-width: 680px) {
+  .vx-problem-grid { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .vx-problem-column + .vx-problem-column { border-left: 0; padding-left: 0; border-top: 1px solid var(--vx-rule); }
+  .vx-problem-search .vx-db-input { flex-basis: 100%; }
+}

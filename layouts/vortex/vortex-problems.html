@@ -1,0 +1,118 @@
+{{ define "head-extra" }}
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+TC:wght@400;500;600;700&family=Quattrocento+Sans:wght@400;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex.css">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex-nav.css">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/vortex-problems.css">
+{{ end }}
+
+{{ define "main" }}
+{{ $base := .Site.BaseURL }}
+{{ $data := index hugo.Data "vortex" "problems" }}
+{{ $dicts := partial "vortex/stroke-dicts.html" . }}
+{{ $strokeSlug := dict "free" "freestyle" "back" "backstroke" "breast" "breaststroke" "fly" "butterfly" "udk" "underwater-dolphin-kick" "starts-turns" "starts-turns" }}
+{{ $categories := dict }}{{ range $data.categories }}{{ $categories = merge $categories (dict .key .name_zh) }}{{ end }}
+{{ $tech := dict }}{{ range (index hugo.Data "vortex" "technical-analysis").points }}{{ $tech = merge $tech (dict .id .) }}{{ end }}
+{{ $errors := dict }}{{ range (index hugo.Data "vortex" "teaching-errors").errors }}{{ $errors = merge $errors (dict .id .) }}{{ end }}
+{{ $drills := dict }}{{ range (index hugo.Data "vortex" "drills").drills }}{{ $drills = merge $drills (dict .id .) }}{{ end }}
+{{ $interventions := dict }}{{ range (index hugo.Data "movement" "interventions").interventions }}{{ $interventions = merge $interventions (dict .id .) }}{{ end }}
+
+<div class="vx-shell">
+{{ partial "vortex/sidebar.html" (dict "ctx" . "current" "problems") }}
+<div class="vx-db vx-problems" data-vx-problems>
+  <h1 class="vx-list-title">找問題</h1>
+  <p class="vx-list-desc">從看得到的現象，查解釋與練習。展開一題，依序看現象、力學解釋、陸上動作與水中 drill。相同外觀可能有不同原因，選練習前先核對適用條件，再回到原本的水中任務比較。</p>
+  <div class="vx-problem-filters">
+    <div class="vx-filterbar" data-problem-axis="stroke" role="group" aria-label="泳式篩選">
+      <span class="vx-filterbar-label">泳式</span>
+      <button class="vx-chip is-active" type="button" data-value="all" aria-pressed="true">全部</button>
+      {{ range slice "free" "back" "breast" "fly" "udk" "starts-turns" }}
+      <button class="vx-chip" type="button" data-value="{{ . }}" aria-pressed="false">{{ index $dicts.strokeZh . }}</button>
+      {{ end }}
+    </div>
+    <div class="vx-filterbar" data-problem-axis="category" role="group" aria-label="環節篩選">
+      <span class="vx-filterbar-label">環節</span>
+      <button class="vx-chip is-active" type="button" data-value="all" aria-pressed="true">全部</button>
+      {{ range $data.categories }}<button class="vx-chip" type="button" data-value="{{ .key }}" aria-pressed="false">{{ .name_zh }}</button>{{ end }}
+    </div>
+    <div class="vx-filterbar">
+      <span class="vx-filterbar-label">已有練習</span>
+      <label><input type="checkbox" data-problem-has="land"> 有陸上動作</label>
+      <label><input type="checkbox" data-problem-has="drill"> 有水中 drill</label>
+    </div>
+    <div class="vx-problem-search">
+      <label for="vxProblemSearch">搜尋現象與解釋</label>
+      <input class="vx-db-input" id="vxProblemSearch" type="search" autocomplete="off" placeholder="例如：抬頭、下沉、停頓">
+      <button class="vx-chip" type="button" data-problem-reset>清除篩選</button>
+    </div>
+  </div>
+  <p class="vx-needs-count" data-problem-count role="status" aria-live="polite">共 {{ len $data.problems }} 個問題</p>
+  <p class="vx-problem-empty" data-problem-empty hidden>沒有符合條件的問題，試著放寬泳式、環節或練習條件。</p>
+  <noscript><p>啟用 JavaScript 可使用篩選；目前仍可展開下方所有問題。</p></noscript>
+
+  {{ range $data.problems }}
+  {{ $problem := . }}
+  <details class="vx-card vx-problem-card" id="{{ .id }}" data-stroke="{{ .stroke }}" data-category="{{ .category }}" data-land="{{ if .links.interventions }}yes{{ else }}no{{ end }}" data-drill="{{ if .links.drills }}yes{{ else }}no{{ end }}" data-search="{{ lower (printf "%s %s %s" .title .observable .mechanism_summary) }}">
+    <summary><span class="vx-cardcat">{{ index $dicts.strokeZh .stroke }} · {{ index $categories .category }}</span><span class="vx-cardtitle">{{ .title }}</span></summary>
+    <div class="vx-card-body">
+      <div class="vx-problem-grid">
+        <section class="vx-problem-column" aria-label="現象">
+          <h3><span>01</span> 現象</h3>
+          {{ partial "vortex/richblock.html" .observable }}
+          <p><a href="#{{ .id }}">此問題連結</a></p>
+        </section>
+        <section class="vx-problem-column" aria-label="力學解釋">
+          <h3><span>02</span> 力學解釋</h3>
+          {{ if .links.technical_analysis }}
+            {{ partial "vortex/richblock.html" .mechanism_summary }}
+            <span class="vx-label">深入機制與依據</span>
+            <ul class="vx-problem-links">
+            {{ range .links.technical_analysis }}
+              {{ $id := . }}{{ with index $tech . }}
+              <li><a href="{{ $base }}vortex/{{ index $strokeSlug .stroke }}/#{{ .id }}">{{ .title }}</a>{{ with .mechanism.certainty }} <span>{{ . }}</span>{{ end }}</li>
+              {{ else }}{{ errorf "Problem %s: missing technical target %s" $problem.id $id }}{{ end }}
+            {{ end }}
+            </ul>
+          {{ else }}<p class="vx-problem-gap">目前庫內沒有符合門檻的技術機制條目。</p>{{ end }}
+          {{ with .cross_ref_ids }}
+            <span class="vx-label">相關教學誤區</span>
+            <ul class="vx-problem-links">
+            {{ range . }}
+              {{ $id := . }}{{ with index $errors . }}
+              <li><a href="{{ $base }}vortex/{{ index $strokeSlug .stroke }}/#{{ .id }}">{{ .title }}</a></li>
+              {{ else }}{{ errorf "Problem %s: missing error target %s" $problem.id $id }}{{ end }}
+            {{ end }}
+            </ul>
+          {{ end }}
+        </section>
+        <section class="vx-problem-column" aria-label="陸上動作">
+          <h3><span>03</span> 陸上動作</h3>
+          {{ range .links.interventions }}
+            {{ $id := . }}{{ with index $interventions . }}
+              {{ partial "vortex/problem-intervention.html" (dict "entry" . "base" $base) }}
+            {{ else }}{{ errorf "Problem %s: missing land target %s" $problem.id $id }}{{ end }}
+          {{ else }}<p class="vx-problem-gap">目前沒有符合門檻的陸上介入；不能只憑這個外觀指定伸展或肌力動作。</p>{{ end }}
+        </section>
+        <section class="vx-problem-column" aria-label="水中 drill">
+          <h3><span>04</span> 水中 drill</h3>
+          {{ range .links.drills }}
+            {{ $id := . }}{{ with index $drills . }}
+              <div class="vx-problem-option"><h4><a href="{{ $base }}vortex/drills/#{{ .id }}">{{ .name_zh }}</a></h4>{{ with .purpose_zh }}{{ partial "vortex/richblock.html" . }}{{ end }}</div>
+            {{ else }}{{ errorf "Problem %s: missing drill target %s" $problem.id $id }}{{ end }}
+          {{ else }}<p class="vx-problem-gap">目前尚未連到適用的水中 drill。</p>{{ end }}
+          {{ with .links.water_interventions }}<span class="vx-label">水中介入</span>
+            {{ range . }}
+              {{ $id := . }}{{ with index $interventions . }}
+                {{ partial "vortex/problem-intervention.html" (dict "entry" . "base" $base) }}
+              {{ else }}{{ errorf "Problem %s: missing water target %s" $problem.id $id }}{{ end }}
+            {{ end }}
+          {{ end }}
+        </section>
+      </div>
+    </div>
+  </details>
+  {{ else }}<p>問題索引整理中，目前尚無公開問題。</p>{{ end }}
+  <p class="vx-legend">機制依據：🔵 推導 · 🟢 近期文獻 · 🟡 舊文獻 · 🟠 教練觀測 · 🔴 待查</p>
+</div>
+</div>
+<script src="{{ .Site.BaseURL }}js/vortex-problems.js" defer></script>
+{{ end }}

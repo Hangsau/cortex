@@ -156,7 +156,7 @@
     <div class="vx-needs-results" id="vxNeedsResults">
       {{ range $drills }}
       {{ $sk := slice }}{{ range .strokes }}{{ with index $drillKey . }}{{ $sk = $sk | append . }}{{ end }}{{ end }}
-      <details class="vx-card vx-drillcard"
+      <details class="vx-card vx-drillcard" id="{{ .id }}"
         data-cat="{{ .category }}"
         data-level="{{ delimit .l_target " " }}"
         data-s="{{ delimit $sk " " }}"
