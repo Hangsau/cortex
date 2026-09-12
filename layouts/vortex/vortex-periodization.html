@@ -1130,7 +1130,9 @@
               {{ with .var_rest }}
               <h4 class="vx-pz-subh">{{ .name_zh }}</h4>
               <div>{{ partial "vortex/richlines.html" .rule_zh }}</div>
+              {{ with .stroke_economy_zh }}<div class="vx-pz-focus">{{ partial "vortex/richlines.html" . }}</div>{{ end }}
               <p class="vx-pz-warn">{{ partial "vortex/rich.html" .fixed_vs_cycle_zh }}</p>
+              {{ with .source }}<p class="vx-cite"><span class="src">來源</span>：{{ . }}</p>{{ end }}
               {{ end }}
               {{ with .var_reps }}
               <h4 class="vx-pz-subh">{{ .name_zh }}</h4>
@@ -1336,7 +1338,9 @@
                 {{ end }}
                 </tbody>
               </table>
+              {{ with .extrapolation_model_zh }}<div class="vx-pz-focus">{{ partial "vortex/richlines.html" . }}</div>{{ end }}
               {{ with .embedded_test_zh }}<div class="vx-pz-warn">{{ partial "vortex/richlines.html" . }}</div>{{ end }}
+              {{ with .source }}<p class="vx-cite"><span class="src">來源</span>：{{ . }}</p>{{ end }}
               {{ end }}
 
               {{ with .degradations }}
