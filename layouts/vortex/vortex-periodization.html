@@ -1123,6 +1123,9 @@
               <h4 class="vx-pz-subh">{{ .name_zh }}</h4>
               <div>{{ partial "vortex/richlines.html" .rule_zh }}</div>
               <p class="vx-pz-warn">{{ partial "vortex/rich.html" .lactate_tolerance_note_zh }}</p>
+              {{ with .offset_provenance_zh }}<div class="vx-pz-warn">{{ partial "vortex/richlines.html" . }}</div>{{ end }}
+              {{ with .offset_scaling_zh }}<div class="vx-pz-focus">{{ partial "vortex/richlines.html" . }}</div>{{ end }}
+              {{ with .race_pace_caveat_zh }}<div class="vx-pz-warn">{{ partial "vortex/richlines.html" . }}</div>{{ end }}
               {{ end }}
               {{ with .var_rest }}
               <h4 class="vx-pz-subh">{{ .name_zh }}</h4>
@@ -1318,7 +1321,37 @@
               {{ range .assembly_rules }}<li>{{ partial "vortex/rich.html" . }}</li>{{ end }}
               </ul>
 
-              <h4 class="vx-pz-subh">拒絕生成的條件</h4>
+              {{ with .anchor_tiers }}
+              <h4 class="vx-pz-subh">沒有錨點時怎麼辦：四級降級</h4>
+              <div class="vx-pz-focus">{{ partial "vortex/richlines.html" .principle_zh }}</div>
+              <table class="vx-pz-table">
+                <thead><tr><th>手上有什麼</th><th>目標時間怎麼給</th><th>標示</th></tr></thead>
+                <tbody>
+                {{ range .tiers }}
+                  <tr>
+                    <td><strong>{{ .have_zh }}</strong></td>
+                    <td>{{ partial "vortex/rich.html" .target_time_zh }}</td>
+                    <td>{{ .label_zh }}</td>
+                  </tr>
+                {{ end }}
+                </tbody>
+              </table>
+              {{ with .embedded_test_zh }}<div class="vx-pz-warn">{{ partial "vortex/richlines.html" . }}</div>{{ end }}
+              {{ end }}
+
+              {{ with .degradations }}
+              <h4 class="vx-pz-subh">降級處理（資料不足，不拒絕）</h4>
+              <table class="vx-pz-table">
+                <thead><tr><th>條件</th><th>動作</th></tr></thead>
+                <tbody>
+                {{ range . }}
+                  <tr><td><strong>{{ .condition }}</strong></td><td>{{ .action }}</td></tr>
+                {{ end }}
+                </tbody>
+              </table>
+              {{ end }}
+
+              <h4 class="vx-pz-subh">真正拒絕生成的兩種情況</h4>
               <table class="vx-pz-table">
                 <thead><tr><th>條件</th><th>動作</th></tr></thead>
                 <tbody>
@@ -1327,6 +1360,7 @@
                 {{ end }}
                 </tbody>
               </table>
+              {{ with .refusal_scope_zh }}<div class="vx-pz-focus">{{ partial "vortex/richlines.html" . }}</div>{{ end }}
 
               {{ with .plain_zh }}<p class="vx-pz-plain">{{ partial "vortex/rich.html" . }}</p>{{ end }}
               {{ with .provenance_zh }}<p class="vx-pz-author">{{ . }}</p>{{ end }}
