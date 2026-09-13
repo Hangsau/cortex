@@ -1,0 +1,617 @@
+{
+  "checked_at": "2026-09-12T23:50:27.956Z",
+  "base": "http://127.0.0.1:8768/cortex/",
+  "checks": [
+    {
+      "name": "kinesiology/ch14 HTTP",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch14 full canonical heading order",
+      "pass": true,
+      "detail": 51
+    },
+    {
+      "name": "kinesiology/ch14 original four anchors",
+      "pass": true
+    },
+    {
+      "name": "kinesiology/ch14 320px font22 fits",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch09 HTTP",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch09 full canonical heading order",
+      "pass": true,
+      "detail": 31
+    },
+    {
+      "name": "basic-biomechanics/ch09 original four anchors",
+      "pass": true
+    },
+    {
+      "name": "basic-biomechanics/ch09 320px font22 fits",
+      "pass": true
+    },
+    {
+      "name": "mobile TOC starts closed",
+      "pass": true
+    },
+    {
+      "name": "TOC landing foot-map",
+      "pass": true
+    },
+    {
+      "name": "TOC landing adaptation",
+      "pass": true
+    },
+    {
+      "name": "TOC landing windlass",
+      "pass": true
+    },
+    {
+      "name": "TOC landing foot-muscles",
+      "pass": true
+    },
+    {
+      "name": "TOC landing tiptoe-lever",
+      "pass": true
+    },
+    {
+      "name": "TOC landing chapter-bridge",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/basic-biomechanics/ch09/#loaded-stability",
+      "pass": true
+    },
+    {
+      "name": "cross-link landing /cortex/library/basic-biomechanics/ch09/#loaded-stability",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/basic-biomechanics/ch09/#fusion-coupling",
+      "pass": true
+    },
+    {
+      "name": "cross-link landing /cortex/library/basic-biomechanics/ch09/#fusion-coupling",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/basic-biomechanics/ch09/#arch",
+      "pass": true
+    },
+    {
+      "name": "cross-link landing /cortex/library/basic-biomechanics/ch09/#arch",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/basic-biomechanics/ch09/#timing-coupling",
+      "pass": true
+    },
+    {
+      "name": "cross-link landing /cortex/library/basic-biomechanics/ch09/#timing-coupling",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/basic-biomechanics/ch09/#tiptoe-model",
+      "pass": true
+    },
+    {
+      "name": "cross-link landing /cortex/library/basic-biomechanics/ch09/#tiptoe-model",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/basic-biomechanics/ch09/#tiptoe-experiment",
+      "pass": true
+    },
+    {
+      "name": "cross-link landing /cortex/library/basic-biomechanics/ch09/#tiptoe-experiment",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/basic-biomechanics/ch09/#plantar-pressure",
+      "pass": true
+    },
+    {
+      "name": "cross-link landing /cortex/library/basic-biomechanics/ch09/#plantar-pressure",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/kinesiology/ch14/#plantar-fascia",
+      "pass": true
+    },
+    {
+      "name": "cross-link landing /cortex/library/kinesiology/ch14/#plantar-fascia",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/kinesiology/ch14/#midfoot-rigidity",
+      "pass": true
+    },
+    {
+      "name": "cross-link landing /cortex/library/kinesiology/ch14/#midfoot-rigidity",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/kinesiology/ch14/#muscular-sling",
+      "pass": true
+    },
+    {
+      "name": "cross-link landing /cortex/library/kinesiology/ch14/#muscular-sling",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/kinesiology/ch14/#pcfd",
+      "pass": true
+    },
+    {
+      "name": "cross-link landing /cortex/library/kinesiology/ch14/#pcfd",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/kinesiology/ch14/#tiptoe-lever",
+      "pass": true
+    },
+    {
+      "name": "cross-link landing /cortex/library/kinesiology/ch14/#tiptoe-lever",
+      "pass": true
+    },
+    {
+      "name": "cross-link HTTP http://127.0.0.1:8768/cortex/library/kinesiology/ch14/#chapter-bridge",
+      "pass": true
+    },
+    {
+      "name": "cross-link landing /cortex/library/kinesiology/ch14/#chapter-bridge",
+      "pass": true
+    },
+    {
+      "name": "default d=10 forces",
+      "pass": true
+    },
+    {
+      "name": "keyboard d=5 force/moment equilibrium and scales",
+      "pass": true,
+      "detail": {
+        "d": 5,
+        "text": "d＝5 cm；跟腱力 A＝600 N；踝反力 J＝1200 N",
+        "desc": "足部平行力模型，地面反作用力600牛頓，跟腱力臂5公分，前足力臂5公分；跟腱力600牛頓，踝反力1200牛頓。上圖箭頭只表方向，下方長條按相同力值比例。",
+        "tendon": 600,
+        "joint": 1200,
+        "contact": 160,
+        "tendonBar": 48,
+        "jointBar": 96
+      }
+    },
+    {
+      "name": "keyboard d=5.5 force/moment equilibrium and scales",
+      "pass": true,
+      "detail": {
+        "d": 5.5,
+        "text": "d＝5.5 cm；跟腱力 A＝660 N；踝反力 J＝1260 N",
+        "desc": "足部平行力模型，地面反作用力600牛頓，跟腱力臂5公分，前足力臂5.5公分；跟腱力660牛頓，踝反力1260牛頓。上圖箭頭只表方向，下方長條按相同力值比例。",
+        "tendon": 660,
+        "joint": 1260,
+        "contact": 166,
+        "tendonBar": 52.80000000000001,
+        "jointBar": 100.80000000000001
+      }
+    },
+    {
+      "name": "keyboard d=6 force/moment equilibrium and scales",
+      "pass": true,
+      "detail": {
+        "d": 6,
+        "text": "d＝6 cm；跟腱力 A＝720 N；踝反力 J＝1320 N",
+        "desc": "足部平行力模型，地面反作用力600牛頓，跟腱力臂5公分，前足力臂6公分；跟腱力720牛頓，踝反力1320牛頓。上圖箭頭只表方向，下方長條按相同力值比例。",
+        "tendon": 720,
+        "joint": 1320,
+        "contact": 172,
+        "tendonBar": 57.599999999999994,
+        "jointBar": 105.60000000000002
+      }
+    },
+    {
+      "name": "keyboard d=6.5 force/moment equilibrium and scales",
+      "pass": true,
+      "detail": {
+        "d": 6.5,
+        "text": "d＝6.5 cm；跟腱力 A＝780 N；踝反力 J＝1380 N",
+        "desc": "足部平行力模型，地面反作用力600牛頓，跟腱力臂5公分，前足力臂6.5公分；跟腱力780牛頓，踝反力1380牛頓。上圖箭頭只表方向，下方長條按相同力值比例。",
+        "tendon": 780,
+        "joint": 1380,
+        "contact": 178,
+        "tendonBar": 62.400000000000006,
+        "jointBar": 110.4
+      }
+    },
+    {
+      "name": "keyboard d=7 force/moment equilibrium and scales",
+      "pass": true,
+      "detail": {
+        "d": 7,
+        "text": "d＝7 cm；跟腱力 A＝840 N；踝反力 J＝1440 N",
+        "desc": "足部平行力模型，地面反作用力600牛頓，跟腱力臂5公分，前足力臂7公分；跟腱力840牛頓，踝反力1440牛頓。上圖箭頭只表方向，下方長條按相同力值比例。",
+        "tendon": 840,
+        "joint": 1440,
+        "contact": 184,
+        "tendonBar": 67.2,
+        "jointBar": 115.19999999999999
+      }
+    },
+    {
+      "name": "keyboard d=7.5 force/moment equilibrium and scales",
+      "pass": true,
+      "detail": {
+        "d": 7.5,
+        "text": "d＝7.5 cm；跟腱力 A＝900 N；踝反力 J＝1500 N",
+        "desc": "足部平行力模型，地面反作用力600牛頓，跟腱力臂5公分，前足力臂7.5公分；跟腱力900牛頓，踝反力1500牛頓。上圖箭頭只表方向，下方長條按相同力值比例。",
+        "tendon": 900,
+        "joint": 1500,
+        "contact": 190,
+        "tendonBar": 72,
+        "jointBar": 120
+      }
+    },
+    {
+      "name": "keyboard d=8 force/moment equilibrium and scales",
+      "pass": true,
+      "detail": {
+        "d": 8,
+        "text": "d＝8 cm；跟腱力 A＝960 N；踝反力 J＝1560 N",
+        "desc": "足部平行力模型，地面反作用力600牛頓，跟腱力臂5公分，前足力臂8公分；跟腱力960牛頓，踝反力1560牛頓。上圖箭頭只表方向，下方長條按相同力值比例。",
+        "tendon": 960,
+        "joint": 1560,
+        "contact": 196,
+        "tendonBar": 76.80000000000001,
+        "jointBar": 124.80000000000001
+      }
+    },
+    {
+      "name": "keyboard d=8.5 force/moment equilibrium and scales",
+      "pass": true,
+      "detail": {
+        "d": 8.5,
+        "text": "d＝8.5 cm；跟腱力 A＝1020 N；踝反力 J＝1620 N",
+        "desc": "足部平行力模型，地面反作用力600牛頓，跟腱力臂5公分，前足力臂8.5公分；跟腱力1020牛頓，踝反力1620牛頓。上圖箭頭只表方向，下方長條按相同力值比例。",
+        "tendon": 1020,
+        "joint": 1620,
+        "contact": 202,
+        "tendonBar": 81.60000000000002,
+        "jointBar": 129.6
+      }
+    },
+    {
+      "name": "keyboard d=9 force/moment equilibrium and scales",
+      "pass": true,
+      "detail": {
+        "d": 9,
+        "text": "d＝9 cm；跟腱力 A＝1080 N；踝反力 J＝1680 N",
+        "desc": "足部平行力模型，地面反作用力600牛頓，跟腱力臂5公分，前足力臂9公分；跟腱力1080牛頓，踝反力1680牛頓。上圖箭頭只表方向，下方長條按相同力值比例。",
+        "tendon": 1080,
+        "joint": 1680,
+        "contact": 208,
+        "tendonBar": 86.4,
+        "jointBar": 134.4
+      }
+    },
+    {
+      "name": "keyboard d=9.5 force/moment equilibrium and scales",
+      "pass": true,
+      "detail": {
+        "d": 9.5,
+        "text": "d＝9.5 cm；跟腱力 A＝1140 N；踝反力 J＝1740 N",
+        "desc": "足部平行力模型，地面反作用力600牛頓，跟腱力臂5公分，前足力臂9.5公分；跟腱力1140牛頓，踝反力1740牛頓。上圖箭頭只表方向，下方長條按相同力值比例。",
+        "tendon": 1140,
+        "joint": 1740,
+        "contact": 214,
+        "tendonBar": 91.19999999999999,
+        "jointBar": 139.20000000000002
+      }
+    },
+    {
+      "name": "keyboard d=10 force/moment equilibrium and scales",
+      "pass": true,
+      "detail": {
+        "d": 10,
+        "text": "d＝10 cm；跟腱力 A＝1200 N；踝反力 J＝1800 N",
+        "desc": "足部平行力模型，地面反作用力600牛頓，跟腱力臂5公分，前足力臂10公分；跟腱力1200牛頓，踝反力1800牛頓。上圖箭頭只表方向，下方長條按相同力值比例。",
+        "tendon": 1200,
+        "joint": 1800,
+        "contact": 220,
+        "tendonBar": 96,
+        "jointBar": 144
+      }
+    },
+    {
+      "name": "keyboard d=10.5 force/moment equilibrium and scales",
+      "pass": true,
+      "detail": {
+        "d": 10.5,
+        "text": "d＝10.5 cm；跟腱力 A＝1260 N；踝反力 J＝1860 N",
+        "desc": "足部平行力模型，地面反作用力600牛頓，跟腱力臂5公分，前足力臂10.5公分；跟腱力1260牛頓，踝反力1860牛頓。上圖箭頭只表方向，下方長條按相同力值比例。",
+        "tendon": 1260,
+        "joint": 1860,
+        "contact": 226,
+        "tendonBar": 100.80000000000001,
+        "jointBar": 148.8
+      }
+    },
+    {
+      "name": "keyboard d=11 force/moment equilibrium and scales",
+      "pass": true,
+      "detail": {
+        "d": 11,
+        "text": "d＝11 cm；跟腱力 A＝1320 N；踝反力 J＝1920 N",
+        "desc": "足部平行力模型，地面反作用力600牛頓，跟腱力臂5公分，前足力臂11公分；跟腱力1320牛頓，踝反力1920牛頓。上圖箭頭只表方向，下方長條按相同力值比例。",
+        "tendon": 1320,
+        "joint": 1920,
+        "contact": 232,
+        "tendonBar": 105.60000000000002,
+        "jointBar": 153.6
+      }
+    },
+    {
+      "name": "keyboard d=11.5 force/moment equilibrium and scales",
+      "pass": true,
+      "detail": {
+        "d": 11.5,
+        "text": "d＝11.5 cm；跟腱力 A＝1380 N；踝反力 J＝1980 N",
+        "desc": "足部平行力模型，地面反作用力600牛頓，跟腱力臂5公分，前足力臂11.5公分；跟腱力1380牛頓，踝反力1980牛頓。上圖箭頭只表方向，下方長條按相同力值比例。",
+        "tendon": 1380,
+        "joint": 1980,
+        "contact": 238,
+        "tendonBar": 110.4,
+        "jointBar": 158.4
+      }
+    },
+    {
+      "name": "keyboard d=12 force/moment equilibrium and scales",
+      "pass": true,
+      "detail": {
+        "d": 12,
+        "text": "d＝12 cm；跟腱力 A＝1440 N；踝反力 J＝2040 N",
+        "desc": "足部平行力模型，地面反作用力600牛頓，跟腱力臂5公分，前足力臂12公分；跟腱力1440牛頓，踝反力2040牛頓。上圖箭頭只表方向，下方長條按相同力值比例。",
+        "tendon": 1440,
+        "joint": 2040,
+        "contact": 244,
+        "tendonBar": 115.19999999999999,
+        "jointBar": 163.20000000000002
+      }
+    },
+    {
+      "name": "keyboard d=12.5 force/moment equilibrium and scales",
+      "pass": true,
+      "detail": {
+        "d": 12.5,
+        "text": "d＝12.5 cm；跟腱力 A＝1500 N；踝反力 J＝2100 N",
+        "desc": "足部平行力模型，地面反作用力600牛頓，跟腱力臂5公分，前足力臂12.5公分；跟腱力1500牛頓，踝反力2100牛頓。上圖箭頭只表方向，下方長條按相同力值比例。",
+        "tendon": 1500,
+        "joint": 2100,
+        "contact": 250,
+        "tendonBar": 120,
+        "jointBar": 168
+      }
+    },
+    {
+      "name": "keyboard d=13 force/moment equilibrium and scales",
+      "pass": true,
+      "detail": {
+        "d": 13,
+        "text": "d＝13 cm；跟腱力 A＝1560 N；踝反力 J＝2160 N",
+        "desc": "足部平行力模型，地面反作用力600牛頓，跟腱力臂5公分，前足力臂13公分；跟腱力1560牛頓，踝反力2160牛頓。上圖箭頭只表方向，下方長條按相同力值比例。",
+        "tendon": 1560,
+        "joint": 2160,
+        "contact": 256,
+        "tendonBar": 124.80000000000001,
+        "jointBar": 172.8
+      }
+    },
+    {
+      "name": "keyboard d=13.5 force/moment equilibrium and scales",
+      "pass": true,
+      "detail": {
+        "d": 13.5,
+        "text": "d＝13.5 cm；跟腱力 A＝1620 N；踝反力 J＝2220 N",
+        "desc": "足部平行力模型，地面反作用力600牛頓，跟腱力臂5公分，前足力臂13.5公分；跟腱力1620牛頓，踝反力2220牛頓。上圖箭頭只表方向，下方長條按相同力值比例。",
+        "tendon": 1620,
+        "joint": 2220,
+        "contact": 262,
+        "tendonBar": 129.6,
+        "jointBar": 177.6
+      }
+    },
+    {
+      "name": "keyboard d=14 force/moment equilibrium and scales",
+      "pass": true,
+      "detail": {
+        "d": 14,
+        "text": "d＝14 cm；跟腱力 A＝1680 N；踝反力 J＝2280 N",
+        "desc": "足部平行力模型，地面反作用力600牛頓，跟腱力臂5公分，前足力臂14公分；跟腱力1680牛頓，踝反力2280牛頓。上圖箭頭只表方向，下方長條按相同力值比例。",
+        "tendon": 1680,
+        "joint": 2280,
+        "contact": 268,
+        "tendonBar": 134.4,
+        "jointBar": 182.4
+      }
+    },
+    {
+      "name": "keyboard d=14.5 force/moment equilibrium and scales",
+      "pass": true,
+      "detail": {
+        "d": 14.5,
+        "text": "d＝14.5 cm；跟腱力 A＝1740 N；踝反力 J＝2340 N",
+        "desc": "足部平行力模型，地面反作用力600牛頓，跟腱力臂5公分，前足力臂14.5公分；跟腱力1740牛頓，踝反力2340牛頓。上圖箭頭只表方向，下方長條按相同力值比例。",
+        "tendon": 1740,
+        "joint": 2340,
+        "contact": 274,
+        "tendonBar": 139.20000000000002,
+        "jointBar": 187.20000000000002
+      }
+    },
+    {
+      "name": "keyboard d=15 force/moment equilibrium and scales",
+      "pass": true,
+      "detail": {
+        "d": 15,
+        "text": "d＝15 cm；跟腱力 A＝1800 N；踝反力 J＝2400 N",
+        "desc": "足部平行力模型，地面反作用力600牛頓，跟腱力臂5公分，前足力臂15公分；跟腱力1800牛頓，踝反力2400牛頓。上圖箭頭只表方向，下方長條按相同力值比例。",
+        "tendon": 1800,
+        "joint": 2400,
+        "contact": 280,
+        "tendonBar": 144,
+        "jointBar": 192
+      }
+    },
+    {
+      "name": "End maximum",
+      "pass": true
+    },
+    {
+      "name": "Home minimum",
+      "pass": true
+    },
+    {
+      "name": "focus visible",
+      "pass": true
+    },
+    {
+      "name": "label and live output",
+      "pass": true
+    },
+    {
+      "name": "figure fits 320papershort",
+      "pass": true
+    },
+    {
+      "name": "labels legible 320papershort",
+      "pass": true
+    },
+    {
+      "name": "figure fits 320papermiddle",
+      "pass": true
+    },
+    {
+      "name": "labels legible 320papermiddle",
+      "pass": true
+    },
+    {
+      "name": "figure fits 320paperlong",
+      "pass": true
+    },
+    {
+      "name": "labels legible 320paperlong",
+      "pass": true
+    },
+    {
+      "name": "figure fits 320nightshort",
+      "pass": true
+    },
+    {
+      "name": "labels legible 320nightshort",
+      "pass": true
+    },
+    {
+      "name": "figure fits 320nightmiddle",
+      "pass": true
+    },
+    {
+      "name": "labels legible 320nightmiddle",
+      "pass": true
+    },
+    {
+      "name": "figure fits 320nightlong",
+      "pass": true
+    },
+    {
+      "name": "labels legible 320nightlong",
+      "pass": true
+    },
+    {
+      "name": "figure fits 1360papershort",
+      "pass": true
+    },
+    {
+      "name": "labels legible 1360papershort",
+      "pass": true
+    },
+    {
+      "name": "figure fits 1360papermiddle",
+      "pass": true
+    },
+    {
+      "name": "labels legible 1360papermiddle",
+      "pass": true
+    },
+    {
+      "name": "figure fits 1360paperlong",
+      "pass": true
+    },
+    {
+      "name": "labels legible 1360paperlong",
+      "pass": true
+    },
+    {
+      "name": "figure fits 1360nightshort",
+      "pass": true
+    },
+    {
+      "name": "labels legible 1360nightshort",
+      "pass": true
+    },
+    {
+      "name": "figure fits 1360nightmiddle",
+      "pass": true
+    },
+    {
+      "name": "labels legible 1360nightmiddle",
+      "pass": true
+    },
+    {
+      "name": "figure fits 1360nightlong",
+      "pass": true
+    },
+    {
+      "name": "labels legible 1360nightlong",
+      "pass": true
+    },
+    {
+      "name": "no-JS complete headings kinesiology/ch14",
+      "pass": true
+    },
+    {
+      "name": "no-JS complete paragraphs kinesiology/ch14",
+      "pass": true
+    },
+    {
+      "name": "no-JS fits kinesiology/ch14",
+      "pass": true
+    },
+    {
+      "name": "no-JS complete headings basic-biomechanics/ch09",
+      "pass": true
+    },
+    {
+      "name": "no-JS complete paragraphs basic-biomechanics/ch09",
+      "pass": true
+    },
+    {
+      "name": "no-JS fits basic-biomechanics/ch09",
+      "pass": true
+    },
+    {
+      "name": "no-JS static diagram",
+      "pass": true
+    },
+    {
+      "name": "no runtime errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "passed": 99,
+  "failed": 0
+}

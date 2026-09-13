@@ -243,6 +243,23 @@
     };
     slider.disabled = false; slider.addEventListener('input', update); update();
   });
+  document.querySelectorAll('[data-ankle-load]').forEach(demo => {
+    const slider = demo.querySelector('input'), output = demo.querySelector('output');
+    const update = () => {
+      const distance = Number(slider.value), tendon = 600 * distance / 5, joint = tendon + 600;
+      const contact = 100 + distance * 12;
+      demo.querySelector('[data-ankle-ground]').setAttribute('transform', `translate(${contact} 0)`);
+      demo.querySelector('[data-ankle-distance]').setAttribute('d', `M100 380 H${contact} M100 372 V388 M${contact} 372 V388`);
+      demo.querySelector('[data-ankle-distance-label]').textContent = `d＝${distance} cm`;
+      demo.querySelector('[data-ankle-tendon-bar]').setAttribute('d', `M60 490 H${60 + tendon * .08}`);
+      demo.querySelector('[data-ankle-joint-bar]').setAttribute('d', `M60 560 H${60 + joint * .08}`);
+      demo.querySelector('[data-ankle-tendon-label]').textContent = `${tendon} N`;
+      demo.querySelector('[data-ankle-joint-label]').textContent = `${joint} N`;
+      output.value = `d＝${distance} cm；跟腱力 A＝${tendon} N；踝反力 J＝${joint} N`;
+      demo.querySelector('desc').textContent = `足部平行力模型，地面反作用力600牛頓，跟腱力臂5公分，前足力臂${distance}公分；跟腱力${tendon}牛頓，踝反力${joint}牛頓。上圖箭頭只表方向，下方長條按相同力值比例。`;
+    };
+    slider.disabled = false; slider.addEventListener('input', update); update();
+  });
   document.querySelectorAll('[data-airflow]').forEach(demo => {
     const slider = demo.querySelector('input'), output = demo.querySelector('output');
     const signed = (value, digits) => (value < 0 ? '−' : value > 0 ? '+' : '') + Math.abs(value).toFixed(digits);

@@ -1,0 +1,37 @@
+{{ $ID := printf "rd-ankle-load-%d" .Ordinal }}
+<figure class="rd-diagram rd-ankle-load" data-ankle-load aria-labelledby="{{ $ID }}-caption">
+<svg viewBox="0 0 320 610" role="img" aria-labelledby="{{ $ID }}-title {{ $ID }}-desc">
+<title id="{{ $ID }}-title">前足力臂與踝內部負荷</title>
+<desc id="{{ $ID }}-desc">足部平行力模型，地面反作用力600牛頓，跟腱力臂5公分，前足力臂10公分；跟腱力1200牛頓，踝反力1800牛頓。上圖箭頭只表方向，下方長條按相同力值比例。</desc>
+<text x="16" y="32">足的三力平衡</text>
+<text x="16" y="70">A：跟腱　J：踝反力</text>
+<text x="16" y="104">G：地面反作用力</text>
+<text x="40" y="152" text-anchor="middle">A</text>
+<text x="100" y="144" text-anchor="middle">J</text>
+<path class="rd-line" d="M40 260 V180"/>
+<path class="rd-arrow-ink" d="M40 170 L33 180 L47 180 Z"/>
+<path class="rd-force" d="M100 160 V250"/>
+<path class="rd-arrow-accent" d="M100 260 L93 250 L107 250 Z"/>
+<path class="rd-line" d="M24 264 H290"/>
+<g data-ankle-ground transform="translate(220 0)">
+<path class="rd-line" d="M0 350 V284"/>
+<path class="rd-arrow-ink" d="M0 274 L-7 284 L7 284 Z"/>
+<text x="18" y="350">G</text>
+</g>
+<path class="rd-measure" d="M40 308 H100 M40 300 V316 M100 300 V316"/>
+<text x="70" y="340" text-anchor="middle">5 cm</text>
+<path class="rd-measure" data-ankle-distance d="M100 380 H220 M100 372 V388 M220 372 V388"/>
+<text x="160" y="416" text-anchor="middle" data-ankle-distance-label>d＝10 cm</text>
+<text x="16" y="456">下方長度表示力的大小</text>
+<text x="16" y="498">A</text>
+<path class="rd-line rd-ankle-bar" data-ankle-tendon-bar d="M60 490 H156"/>
+<text x="60" y="528" data-ankle-tendon-label>1200 N</text>
+<text x="16" y="568">J</text>
+<path class="rd-force rd-ankle-bar" data-ankle-joint-bar d="M60 560 H204"/>
+<text x="60" y="598" data-ankle-joint-label>1800 N</text>
+</svg>
+<label for="{{ $ID }}-input">調整前足地面力到踝的力臂d（5至15公分）</label>
+<input id="{{ $ID }}-input" type="range" min="5" max="15" step="0.5" value="10" disabled aria-describedby="{{ $ID }}-output {{ $ID }}-caption">
+<output id="{{ $ID }}-output" for="{{ $ID }}-input" aria-live="polite">d＝10 cm；跟腱力 A＝1200 N；踝反力 J＝1800 N</output>
+<figcaption id="{{ $ID }}-caption">編者平行力模型：足為自由體，忽略足重與加速度；G固定600 N，A與G向上，J向下。A×0.05＝G×d，J＝A＋G（公式中d用公尺）。上圖水平線是等效足部構件，箭頭只表方向；作用點間距與下方兩條力值長度各用一致比例。未模擬足骨形變或肌肉共同收縮，不是原書斜向三力圖，也不是個人負荷測量。</figcaption>
+</figure>
