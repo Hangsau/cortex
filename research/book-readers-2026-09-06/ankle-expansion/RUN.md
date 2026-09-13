@@ -57,4 +57,8 @@ Hugo0.162.1完整建置172頁；讀本1228條HTML連結有效；既有瀏覽器9
 
 ## 發布與下一批
 
-本機驗收已通過，待提交後按完整SHA核對部署並記錄正式頁面比對結果。下一批接Neumann第15章步行與Nordin第17章步態，再接Neumann第16章跑步。其餘待加深章為Nordin第1–6、15–16章；不要把已存在的短導讀算作詳解完成。既有接續與發布授權保留。
+實作`00eb2e5ee87aee47e6b9f8ad8f4a8be8643fd9e0`已推送；依完整SHA核對[部署CI成功](https://github.com/Hangsau/cortex/actions/runs/34736975606)，build與deploy皆成功，證據見`ci-verification.json`。
+
+正式站2026-09-13T04:04:25.088913+00:00驗收32/32：兩章完整正文正規化空白後與本機一致，51／31錨點順序、原八錨點、跨章目標、互動圖滑桿與預設值、hidden原頁來源群及CSS／JS均通過；證據見`public-validation.json`。原PDF、PNG與英文頁段仍留本機。提交前`git diff --cached --check`通過，先fetch確認遠端一致，再以程序內暫時憑證推送，未保存token或改遠端URL。
+
+下一批接Neumann第15章步行與Nordin第17章步態，再接Neumann第16章跑步。其餘待加深章為Nordin第1–6、15–16章；不要把已存在的短導讀算作詳解完成。既有接續與發布授權保留。

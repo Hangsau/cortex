@@ -1,6 +1,6 @@
 # HANDOFF — my-site (Cortex)
 
-## 兩冊踝足詳解：本機驗收完成（2026-09-13）
+## 兩冊踝足詳解已部署（2026-09-13）
 
 沿使用者接續兩冊肌肉骨骼繁中讀本、途中「繼續」及既有編輯／發布授權，完成Neumann第14章與Nordin第9章。Neumann由4節／692字增至51節／10,069中文字；Nordin由4節／651字增至31節／6,238字。本批82節／16,307字，原八錨點完整；全讀本33章、742節／178,277中文字。Neumann第1–14章與Nordin第7–14章已加深，仍為逐章詳解／導讀。
 
@@ -8,7 +8,7 @@
 
 主代理核閱Neumann619–672與Nordin240–266正文／臨床算例，目視12張必要原PNG。Nordin261／266缺文及Neumann667／672雙欄交錯已回原圖核對；文獻頁不計原始研究全文精讀，外部來源核閱層級詳列RUN。本輪未新開代理或宣稱成本節省；原PDF、英文頁段與PNG留本機。
 
-已驗Hugo172頁、1228連結、既有讀本97/97、原頁服務18/18，本批手機大字／82錨點／跨書點擊／21步鍵盤平衡／兩尺寸兩色三狀態／無JS99/99。來源／語意決策與驗收見`research/book-readers-2026-09-06/ankle-expansion/{RUN.md,content-counts.json,browser-checks.json}`。待提交後補完整SHA、CI及正式正文比對結果。
+已驗Hugo172頁、1228連結、既有讀本97/97、原頁服務18/18，本批手機大字／82錨點／跨書點擊／21步鍵盤平衡／兩尺寸兩色三狀態／無JS99/99。來源／語意決策與驗收見`research/book-readers-2026-09-06/ankle-expansion/{RUN.md,content-counts.json,browser-checks.json}`。實作`00eb2e5ee87aee47e6b9f8ad8f4a8be8643fd9e0`已推送；依完整SHA核對[部署CI成功](https://github.com/Hangsau/cortex/actions/runs/34736975606)。正式站2026-09-13T04:04:25Z驗收32/32：完整正文與51／31錨點順序、原八錨點、跨章目標、滑桿範圍與預設值、hidden原頁來源群及CSS／JS均與本機驗收版一致。證據見同目錄`ci-verification.json`與`public-validation.json`。
 
 下一批接Neumann第15章步行與Nordin第17章步態，再接Neumann第16章跑步；Nordin第1–6、15–16章仍待加深。既有接續／發布授權與便宜模型初稿偏好保留，不重問。8768唯讀預覽可用；工作樹起始乾淨，未見舊紀錄的WinError空檔。建置沿已安裝Hugo核准執行，推送採程序內暫時驗證。
 
