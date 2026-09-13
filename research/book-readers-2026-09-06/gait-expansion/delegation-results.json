@@ -1,0 +1,452 @@
+{
+  "checked_at": "2026-09-13T09:26:06.548835+00:00",
+  "delegate": "Claude Code CLI 2.1.121",
+  "draft_model": "claude-sonnet-4-6",
+  "background_model_note": "CLI also reports small Haiku helper usage; this is not a substitute draft model.",
+  "parts": [
+    {
+      "book": "neumann",
+      "part": "a",
+      "started_at": "2026-09-13T09:07:43.475560+00:00",
+      "finished_at": "2026-09-13T09:10:37.700285+00:00",
+      "elapsed_seconds": 174.2,
+      "exit_code": 0,
+      "thinking_budget_tokens_per_request": 2048,
+      "is_error": false,
+      "num_turns": 9,
+      "usage": {
+        "input_tokens": 50,
+        "cache_creation_input_tokens": 61762,
+        "cache_read_input_tokens": 254655,
+        "output_tokens": 8443,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 61762,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "",
+        "iterations": [
+          {
+            "input_tokens": 8,
+            "output_tokens": 367,
+            "cache_read_input_tokens": 60526,
+            "cache_creation_input_tokens": 1236,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1236
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "model_usage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1422,
+          "outputTokens": 21,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.0015270000000000001,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-sonnet-4-6": {
+          "inputTokens": 50,
+          "outputTokens": 8443,
+          "cacheReadInputTokens": 254655,
+          "cacheCreationInputTokens": 61762,
+          "webSearchRequests": 0,
+          "costUSD": 0.434799,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        }
+      },
+      "reported_api_equivalent_usd": 0.43632600000000005,
+      "permission_denials": [],
+      "actual_model": "claude-sonnet-4-6",
+      "source_packets_read": [
+        "source-678-682.md",
+        "source-683-687.md"
+      ],
+      "submitted_sections": 10,
+      "submitted_sha256": "5ef0b63f193c72b31f5fd1dadb3a3fb9f622eb9bccc55bbe293f788ad7389c43",
+      "reviewed_sha256": "af7dbf18b4aa0a229794baed7644762e989ad6d38af139cdda046d2ffb3d05ec"
+    },
+    {
+      "book": "neumann",
+      "part": "b",
+      "started_at": "2026-09-13T09:11:59.428094+00:00",
+      "finished_at": "2026-09-13T09:15:15.891519+00:00",
+      "elapsed_seconds": 196.5,
+      "exit_code": 0,
+      "thinking_budget_tokens_per_request": 2048,
+      "is_error": false,
+      "num_turns": 10,
+      "usage": {
+        "input_tokens": 50,
+        "cache_creation_input_tokens": 65726,
+        "cache_read_input_tokens": 280422,
+        "output_tokens": 8847,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 65726,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "",
+        "iterations": [
+          {
+            "input_tokens": 8,
+            "output_tokens": 452,
+            "cache_read_input_tokens": 68151,
+            "cache_creation_input_tokens": 1537,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1537
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "model_usage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1442,
+          "outputTokens": 33,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.001607,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-sonnet-4-6": {
+          "inputTokens": 50,
+          "outputTokens": 8847,
+          "cacheReadInputTokens": 280422,
+          "cacheCreationInputTokens": 65726,
+          "webSearchRequests": 0,
+          "costUSD": 0.46345410000000004,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        }
+      },
+      "reported_api_equivalent_usd": 0.4650611,
+      "permission_denials": [],
+      "actual_model": "claude-sonnet-4-6",
+      "source_packets_read": [
+        "source-688-692.md",
+        "source-693-697.md",
+        "source-698-700.md"
+      ],
+      "submitted_sections": 14,
+      "submitted_sha256": "96eb5d2d4f230abdbbfcedd6c6920a96758974ed601fda568981ee870a6e7518",
+      "reviewed_sha256": "4afe70dd24673d2c48dd3484a83e156111fb29eba19ae4a6e0f62ad462fd1147"
+    },
+    {
+      "book": "neumann",
+      "part": "c",
+      "started_at": "2026-09-13T09:14:56.463878+00:00",
+      "finished_at": "2026-09-13T09:18:25.846147+00:00",
+      "elapsed_seconds": 209.4,
+      "exit_code": 0,
+      "thinking_budget_tokens_per_request": 2048,
+      "is_error": false,
+      "num_turns": 9,
+      "usage": {
+        "input_tokens": 58,
+        "cache_creation_input_tokens": 61378,
+        "cache_read_input_tokens": 316440,
+        "output_tokens": 9670,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 61378,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "",
+        "iterations": [
+          {
+            "input_tokens": 8,
+            "output_tokens": 52,
+            "cache_read_input_tokens": 63802,
+            "cache_creation_input_tokens": 1538,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1538
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "model_usage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1412,
+          "outputTokens": 23,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.0015270000000000001,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-sonnet-4-6": {
+          "inputTokens": 58,
+          "outputTokens": 9670,
+          "cacheReadInputTokens": 316440,
+          "cacheCreationInputTokens": 61378,
+          "webSearchRequests": 0,
+          "costUSD": 0.4703235,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        }
+      },
+      "reported_api_equivalent_usd": 0.47185050000000006,
+      "permission_denials": [],
+      "actual_model": "claude-sonnet-4-6",
+      "source_packets_read": [
+        "source-701-705.md",
+        "source-706-709.md"
+      ],
+      "submitted_sections": 11,
+      "submitted_sha256": "ce0ca2a2932cefb53e0fc9a9018ec8618e3e527bb05d0778e3edef44157e3f6d",
+      "reviewed_sha256": "4fcbac6e1b62d0c0138eb4ef3e9996aae068c62d1ce260acbec01fd081629906"
+    },
+    {
+      "book": "neumann",
+      "part": "d",
+      "started_at": "2026-09-13T09:15:24.304502+00:00",
+      "finished_at": "2026-09-13T09:18:22.421553+00:00",
+      "elapsed_seconds": 178.1,
+      "exit_code": 0,
+      "thinking_budget_tokens_per_request": 2048,
+      "is_error": false,
+      "num_turns": 11,
+      "usage": {
+        "input_tokens": 58,
+        "cache_creation_input_tokens": 63118,
+        "cache_read_input_tokens": 325664,
+        "output_tokens": 9201,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 63118,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "",
+        "iterations": [
+          {
+            "input_tokens": 8,
+            "output_tokens": 590,
+            "cache_read_input_tokens": 65802,
+            "cache_creation_input_tokens": 1278,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1278
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "model_usage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1467,
+          "outputTokens": 26,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.001597,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-sonnet-4-6": {
+          "inputTokens": 58,
+          "outputTokens": 9201,
+          "cacheReadInputTokens": 325664,
+          "cacheCreationInputTokens": 63118,
+          "webSearchRequests": 0,
+          "costUSD": 0.4725807,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        }
+      },
+      "reported_api_equivalent_usd": 0.4741777,
+      "permission_denials": [],
+      "actual_model": "claude-sonnet-4-6",
+      "source_packets_read": [
+        "source-710-714.md",
+        "source-715-719.md",
+        "source-720-724.md",
+        "source-725-726.md"
+      ],
+      "submitted_sections": 14,
+      "submitted_sha256": "b1842ca199a975f44ea907bfd84f65b8e1601813b894e5199888e2174719e90c",
+      "reviewed_sha256": "d2b652e3d3ee41cad841408e17f9a6d0ac4cf4522667f4887828a4bf0b64d3c8"
+    },
+    {
+      "book": "nordin",
+      "part": "a",
+      "started_at": "2026-09-13T09:02:37.752326+00:00",
+      "finished_at": "2026-09-13T09:06:27.548278+00:00",
+      "elapsed_seconds": 229.8,
+      "exit_code": 0,
+      "thinking_budget_tokens_per_request": null,
+      "is_error": false,
+      "num_turns": 8,
+      "usage": {
+        "input_tokens": 7,
+        "cache_creation_input_tokens": 64777,
+        "cache_read_input_tokens": 198124,
+        "output_tokens": 12309,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 64777,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "",
+        "iterations": [
+          {
+            "input_tokens": 1,
+            "output_tokens": 162,
+            "cache_read_input_tokens": 63268,
+            "cache_creation_input_tokens": 1509,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1509
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "model_usage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1397,
+          "outputTokens": 23,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.001512,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-sonnet-4-6": {
+          "inputTokens": 7,
+          "outputTokens": 12309,
+          "cacheReadInputTokens": 198124,
+          "cacheCreationInputTokens": 64777,
+          "webSearchRequests": 0,
+          "costUSD": 0.48700695000000005,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        }
+      },
+      "reported_api_equivalent_usd": 0.48851895,
+      "permission_denials": [],
+      "actual_model": "claude-sonnet-4-6",
+      "source_packets_read": [
+        "source-442-446.md",
+        "source-447-450.md"
+      ],
+      "submitted_sections": 12,
+      "submitted_sha256": "35004a0c61bef5945727524da34f7f4b07641621d83b5c55a0395f25c9ef3b29",
+      "reviewed_sha256": "78770b1d43792eae6fa642e57deaeef2d97b1be974788925fc1bb6b4d71780b5"
+    },
+    {
+      "book": "nordin",
+      "part": "b",
+      "started_at": "2026-09-13T09:07:53.654126+00:00",
+      "finished_at": "2026-09-13T09:13:02.078986+00:00",
+      "elapsed_seconds": 308.4,
+      "exit_code": 0,
+      "thinking_budget_tokens_per_request": 2048,
+      "is_error": false,
+      "num_turns": 12,
+      "usage": {
+        "input_tokens": 74,
+        "cache_creation_input_tokens": 65367,
+        "cache_read_input_tokens": 437055,
+        "output_tokens": 15004,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 65367,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "",
+        "iterations": [
+          {
+            "input_tokens": 8,
+            "output_tokens": 151,
+            "cache_read_input_tokens": 67911,
+            "cache_creation_input_tokens": 1418,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1418
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "model_usage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1409,
+          "outputTokens": 22,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.0015190000000000002,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-sonnet-4-6": {
+          "inputTokens": 74,
+          "outputTokens": 15004,
+          "cacheReadInputTokens": 437055,
+          "cacheCreationInputTokens": 65367,
+          "webSearchRequests": 0,
+          "costUSD": 0.6015247499999999,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        }
+      },
+      "reported_api_equivalent_usd": 0.60304375,
+      "permission_denials": [],
+      "actual_model": "claude-sonnet-4-6",
+      "source_packets_read": [
+        "source-451-455.md",
+        "source-456-458.md"
+      ],
+      "submitted_sections": 19,
+      "submitted_sha256": "af318672b666d30084568577dc820bd736cbe14fa1e4f27a51c67924fe87edc9",
+      "reviewed_sha256": "207cf564422dc0aa961e138556b6d586a7b07a206c05c89ad5855526c056f154"
+    }
+  ],
+  "successful_calls_api_equivalent_usd": 2.938978,
+  "total_batch_cost_known": false,
+  "cost_boundary": "Reported API-equivalent amounts are not subscription charges or quota percentages. Interrupted whole-chapter attempts have no final usage result, so successful calls are not the whole batch total. Codex usage was not measured."
+}
