@@ -1,0 +1,144 @@
+{
+  "checked_at": "2026-09-13T14:38:36.686677+00:00",
+  "baseline": "804700c22fa612f63a0d2575408729b235886764",
+  "chapter": {
+    "path": "content/library/kinesiology/ch16/index.md",
+    "before": {
+      "sections": 4,
+      "chinese_characters": 764
+    },
+    "after": {
+      "sections": 34,
+      "chinese_characters": 7644
+    },
+    "original_anchors_preserved": true
+  },
+  "shared_style_files": [
+    {
+      "path": "layouts/library/reading-book.html",
+      "unchanged": true,
+      "sha256": "8bc215a54900c193ae6a17311e4f77dec4fa4f89656d428a2e7054f9649ce57b"
+    },
+    {
+      "path": "layouts/library/reading-chapter.html",
+      "unchanged": true,
+      "sha256": "0b49aa79d9a62695dd19e47a6492081e46be7fb4d894d1cdc28f7bf6c23c94ab"
+    },
+    {
+      "path": "layouts/library/reading-topics.html",
+      "unchanged": true,
+      "sha256": "061c9cb6f48a61036eba1bf484766456573cfcd725ae39ae4ddef72c3feb1424"
+    },
+    {
+      "path": "static/css/reading.css",
+      "unchanged": true,
+      "sha256": "ebe98ba8129c571b151e751050c7e5ac2129535ff9affbd6f37141b329fbfea5"
+    },
+    {
+      "path": "static/js/reading.js",
+      "unchanged": true,
+      "sha256": "7be83e627a8010969890faa5a58758fc1c82bab396eca2cf69e496c24146a279"
+    }
+  ],
+  "validation": {
+    "reading": {
+      "chapters": 33,
+      "sections": 846,
+      "chinese_characters": 207045,
+      "terms": 60,
+      "topics": 7,
+      "cross_book_pairings": 18,
+      "checked_html_links": 1361,
+      "semantic_limit": "33 main-chapter guides; selected main concepts, not full translation or full semantic verification; appendices and front/back matter have no separate guide",
+      "errors": []
+    },
+    "hugo_pages": 172,
+    "reader_audit": {
+      "passed": 97,
+      "failed": 0
+    },
+    "original_server": {
+      "restart_cycles": 2,
+      "passed": 18
+    },
+    "chapter_browser": {
+      "passed": 36,
+      "failed": 0
+    },
+    "manually_viewed_screenshots": [
+      "kinesiology-ch16-paper.png",
+      "kinesiology-ch16-night.png",
+      "kinesiology-ch16-desktop.png"
+    ]
+  },
+  "claude_trial": {
+    "started": "2026-09-13T14:21:16.544189+00:00",
+    "elapsed_seconds": 54.6,
+    "exit_code": 0,
+    "timeout": false,
+    "is_error": false,
+    "usage": {
+      "input_tokens": 43,
+      "cache_creation_input_tokens": 44801,
+      "cache_read_input_tokens": 169513,
+      "output_tokens": 2028,
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 44801,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "",
+      "iterations": [
+        {
+          "input_tokens": 10,
+          "output_tokens": 157,
+          "cache_read_input_tokens": 44641,
+          "cache_creation_input_tokens": 160,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 160
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard"
+    },
+    "model_usage": {
+      "claude-haiku-4-5-20251001": {
+        "inputTokens": 1059,
+        "outputTokens": 19,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.001154,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000
+      },
+      "claude-sonnet-4-6": {
+        "inputTokens": 43,
+        "outputTokens": 2028,
+        "cacheReadInputTokens": 169513,
+        "cacheCreationInputTokens": 44801,
+        "webSearchRequests": 0,
+        "costUSD": 0.24940665000000004,
+        "contextWindow": 200000,
+        "maxOutputTokens": 32000
+      }
+    },
+    "reported_api_equivalent_usd": 0.25056065,
+    "num_turns": 6,
+    "permission_denials": []
+  },
+  "trial_decision": {
+    "calls": 1,
+    "draft_sections": 3,
+    "expanded_delegation": false,
+    "accepted_without_substantive_revision": 0,
+    "reason": "Step/stride definition, rate units, and percentage-versus-duration wording required substantive correction. Codex rewrote three trial sections and authored the remainder; no retry.",
+    "quota_limit": "API-equivalent cost is not subscription quota usage. Codex quota is not measured; one chapter cannot be directly compared with the prior two-chapter batch."
+  }
+}
