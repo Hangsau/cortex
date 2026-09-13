@@ -37,4 +37,4 @@ Hugo172頁、生成HTML1,361連結／錨點無錯；原頁服務18/18（啟停�
 
 計數、樣式雜湊、合作用量在`validation.json`；逐項瀏覽器結果在`browser-checks.json`。可重跑專案必跑命令，再執行本目錄`check-browser.js`。這些程式驗結構及呈現，沒有宣稱驗證每句醫學語意。原書、PNG、英文頁包、提示、草稿、截圖與事件檔均留本機，不提交。
 
-發布證據於部署後回填。
+實作`79f7a143358b68c342af922f692314fd073484f5`已部署；依完整SHA核對[CI 34763392045](https://github.com/Hangsau/cortex/actions/runs/34763392045)建置與發布成功。正式站於2026-09-14台灣時間驗收18/18：完整正文、34節順序、原四錨點、跨章目標、hidden來源群及CSS／JS均與本機驗收版一致。證據見`ci-verification.json`與`public-validation.json`。

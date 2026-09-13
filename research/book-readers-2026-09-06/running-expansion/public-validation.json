@@ -1,0 +1,104 @@
+{
+  "checked_at": "2026-09-13T22:33:20.392927+00:00",
+  "implementation_commit": "79f7a143358b68c342af922f692314fd073484f5",
+  "deployment_run_url": "https://github.com/Hangsau/cortex/actions/runs/34763392045",
+  "ci_verification": "Full SHA and conclusion checked separately with gh run",
+  "base": "https://hangsau.github.io/cortex/",
+  "checks": [
+    {
+      "name": "HTTP https://hangsau.github.io/cortex/library/kinesiology/ch16/",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "kinesiology/ch16 headings in order",
+      "pass": true,
+      "detail": 34
+    },
+    {
+      "name": "kinesiology/ch16 full prose equals accepted local build",
+      "pass": true,
+      "detail": {
+        "characters": 13286,
+        "sha256": "53a44f05a6153d09976402c61e0719055059518cc857e86c5eaff8c0ad57c84f"
+      }
+    },
+    {
+      "name": "kinesiology/ch16 original source links hidden and no original media",
+      "pass": true,
+      "detail": 38
+    },
+    {
+      "name": "kinesiology/ch16 original four headings",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "kinesiology/ch16 cross-chapter links match",
+      "pass": true,
+      "detail": 5
+    },
+    {
+      "name": "HTTP https://hangsau.github.io/cortex/library/basic-biomechanics/ch17/",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "cross-chapter anchor /cortex/library/basic-biomechanics/ch17/#moments",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "HTTP https://hangsau.github.io/cortex/library/kinesiology/ch14/",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "cross-chapter anchor /cortex/library/kinesiology/ch14/#loaded-pronation",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "cross-chapter anchor /cortex/library/kinesiology/ch14/#windlass",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "HTTP https://hangsau.github.io/cortex/library/kinesiology/ch15/",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "cross-chapter anchor /cortex/library/kinesiology/ch15/#cycle",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "cross-chapter anchor /cortex/library/kinesiology/ch15/#muscle-tendon-fiber",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "HTTP https://hangsau.github.io/cortex/css/reading.css",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "css/reading.css equals accepted local asset",
+      "pass": true,
+      "detail": "ebe98ba8129c571b151e751050c7e5ac2129535ff9affbd6f37141b329fbfea5"
+    },
+    {
+      "name": "HTTP https://hangsau.github.io/cortex/js/reading.js",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "js/reading.js equals accepted local asset",
+      "pass": true,
+      "detail": "7be83e627a8010969890faa5a58758fc1c82bab396eca2cf69e496c24146a279"
+    }
+  ],
+  "passed": 18,
+  "failed": 0
+}
