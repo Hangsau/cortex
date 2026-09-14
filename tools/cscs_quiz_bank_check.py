@@ -28,6 +28,19 @@ QUALIFIERS_EN = re.compile(
 )
 OPTION_COUNT = 3  # NSCA 官方樣題一律三選項；四選一是坊間題庫的習慣，不是本考試的格式
 TOLERANCE = 1  # 配題表允許的每格誤差
+LENGTH_RATIO = 1.5  # G4：最長 / 最短選項。2.0 放行了「muscles pull only」這種電報體正解
+
+# G17：把希臘字母當英文單字的縮寫（ν 代替 frequency、ΔP 代替 pressure difference）是湊長度的手法，
+# 不是術語。合法用法一律帶連字號接續（α-motor unit、γ-motor neuron）或是 µ 開頭的單位（µm）。
+GREEK = re.compile(r"[Ͱ-Ͽἀ-῿∆]")
+GREEK_OK = re.compile(r"[Ͱ-Ͽἀ-῿](?=-\w)|[μµ](?=[a-zA-Z])")
+
+# G18：數字題的三個選項必須量同一件事。同單位擋不掉「250 µm 肌纖維直徑 vs 2 µm 肌節長度」，
+# 但擋得掉混用量級單位（nm vs µm）這種最常見的湊選項手法。只認長度／質量／時間／體積，
+# 不認 %／reps／sets——課程設計題的選項本來就會同時出現那幾個。
+MEASURE_UNIT = re.compile(
+    r"(?<![A-Za-z])(nm|µm|μm|um|mm|cm|km|m|kg|lb|mg|g|ms|min|hr|h|s|mL|L)(?![A-Za-z])"
+)
 
 
 def _allocation():
@@ -384,6 +397,13 @@ def check_bank(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
                 if isinstance(text, str) and (";" in text or "；" in text):
                     fail(path, qid, "G16", f"選項 {index} 含分號，選項必須是單一片語")
 
+                # G17：希臘字母只能當術語的一部分，不能拿來替代英文單字。
+                if isinstance(text, str):
+                    stripped = GREEK_OK.sub("", text)
+                    bad = GREEK.findall(stripped)
+                    if bad:
+                        fail(path, qid, "G17", f"選項 {index} 把希臘字母當縮寫用：{''.join(sorted(set(bad)))}")
+
                 # G5：每個非正解須有錯因，與自身選項的字元 Jaccard 不得 > 0.6。
                 if option.get("correct") is not True:
                     why_wrong = option.get("why_wrong")
@@ -391,6 +411,16 @@ def check_bank(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
                         fail(path, qid, "G5", f"干擾項 {index} 缺少非空 why_wrong")
                     elif isinstance(text, str) and jaccard(why_wrong, text) > 0.6:
                         fail(path, qid, "G5", f"干擾項 {index} 的錯因重疊率 {jaccard(why_wrong, text):.3f} > 0.6")
+
+                    # G19：錯因要說清楚考生犯了哪個思考錯誤。`Structure ≠ actuator.` 這種
+                    # 電報體在字元重疊率上完全合格，對讀的人卻等於沒寫。
+                    if isinstance(why_wrong, str) and why_wrong.strip():
+                        short = (
+                            len(why_wrong.split()) < 8 if lang == "en"
+                            else len(why_wrong) < 12
+                        )
+                        if short:
+                            fail(path, qid, "G19", f"干擾項 {index} 的 why_wrong 過短，要寫出思考錯誤")
 
             if len(options) != OPTION_COUNT or not valid_texts:
                 continue
@@ -409,9 +439,18 @@ def check_bank(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
             if cv > 0.4:
                 fail(path, qid, "G3", f"選項長度變異係數 {cv:.3f} > 0.4")
 
-            # G4：最長者不得超過最短者的 2.0 倍。
-            if max(lengths) > min(lengths) * 2:
-                fail(path, qid, "G4", f"最長選項 {max(lengths)} > 最短選項 {min(lengths)} × 2.0")
+            # G4：最長者不得超過最短者的 1.5 倍。三個選項要一起改寫到同一長度帶，
+            # 不是把兩個寫滿、剩一個縮成電報體。
+            if max(lengths) > min(lengths) * LENGTH_RATIO:
+                fail(
+                    path, qid, "G4",
+                    f"最長選項 {max(lengths)} > 最短選項 {min(lengths)} × {LENGTH_RATIO}",
+                )
+
+            # G18：帶度量單位的選項必須用同一個單位，否則三個選項量的不是同一件事。
+            units = {unit for text in texts for unit in MEASURE_UNIT.findall(text)}
+            if len(units) > 1:
+                fail(path, qid, "G18", f"選項混用度量單位 {sorted(units)}，數字選項必須同單位")
 
             # G9：逐一檢查全部三組選項配對，字元 Jaccard 不得 > 0.6。
             for left, right in combinations(range(OPTION_COUNT), 2):

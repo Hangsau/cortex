@@ -56,15 +56,36 @@ def dco_list(chid: str) -> str:
     return "\n".join(lines).rstrip()
 
 
+def write_prompt(name: str, text: str) -> None:
+    left = sorted(set(re.findall(r"__[A-Z]+__", text)))
+    if left:
+        sys.exit(f"仍有未替換的佔位符：{left}")
+    dest = ROOT / ".prompts" / f"{name}.md"
+    dest.parent.mkdir(exist_ok=True)
+    io.open(dest, "w", encoding="utf-8", newline="\n").write(text)
+    print(f"{dest}  ({len(text)} chars)")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("chid", help="例：ch08")
+    parser.add_argument(
+        "--review", action="store_true",
+        help="改套第二輪的審查 prompt（抓閘門擋不到的爛干擾項），輸出 chNN-quiz-review.md",
+    )
     args = parser.parse_args()
 
     if not re.fullmatch(r"ch\d{2}", args.chid):
         sys.exit(f"chid 格式應為 chNN，收到 {args.chid!r}")
     if args.chid not in ALLOCATION:
         sys.exit(f"{args.chid} 不在配題表內")
+
+    if args.review:
+        template = io.open(
+            ROOT / "tools" / "cscs_quiz_review_prompt.md", encoding="utf-8"
+        ).read()
+        write_prompt(f"{args.chid}-quiz-review", template.replace("__CHID__", args.chid))
+        return
 
     source = ROOT / "data" / "cscs" / f"{args.chid}.yaml"
     raw = io.open(source, encoding="utf-8").read()
@@ -96,14 +117,7 @@ def main() -> None:
         .replace("__BATTERY__", battery)
         .replace("__DCOLIST__", dco_list(args.chid))
     )
-    left = sorted(set(re.findall(r"__[A-Z]+__", out)))
-    if left:
-        sys.exit(f"仍有未替換的佔位符：{left}")
-
-    dest = ROOT / ".prompts" / f"{args.chid}-quiz.md"
-    dest.parent.mkdir(exist_ok=True)
-    io.open(dest, "w", encoding="utf-8", newline="\n").write(out)
-    print(f"{dest}  ({len(out)} chars)")
+    write_prompt(f"{args.chid}-quiz", out)
     print(f"{args.chid}：{len(items)} 條 item → {total} 題（{recall}/{application}/{analysis}，英文 {english}）")
 
 
