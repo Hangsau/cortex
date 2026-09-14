@@ -1,0 +1,598 @@
+meta:
+  chapter: ch06
+  source: data/cscs/ch06.yaml
+questions:
+  - id: ch06.acute-cardiovascular.i02.q1
+    item: ch06.acute-cardiovascular.i02
+    dco: sf1.G.2
+    lang: zh
+    cognitive: recall
+    stem: 書中以攝氧量百分比描述每搏量進入平臺的強度門檻，該門檻約為最大攝氧量的多少？
+    locator: Acute Responses to Aerobic Exercise > Cardiovascular Responses > Cardiac Output
+    options:
+      - text: 約 40 至 50 個百分點
+        correct: true
+      - text: 僅落在 20 至 30 個百分點
+        correct: false
+        why_wrong: 教材載明的門檻區間為 40 至 50 個百分點，不是更低的熱身強度帶。
+      - text: 高至 70 至 80 個百分點
+        correct: false
+        why_wrong: 那與受訓者 OBLA 範圍接近，與 SV 何時進入平臺屬於不同的強度門檻。
+
+  - id: ch06.acute-cardiovascular.i03.q1
+    item: ch06.acute-cardiovascular.i03
+    dco: sf1.G.2
+    lang: en
+    cognitive: recall
+    stem: According to the textbook, what standard deviation surrounds the traditional 220 minus age maximal heart rate estimate?
+    locator: Acute Responses to Aerobic Exercise > Cardiovascular Responses > Heart Rate > How Can Athletes Estimate Maximal Heart Rate?
+    options:
+      - text: 散布 10 至 12 bpm
+        correct: true
+      - text: 狹窄 2 至 4 bpm
+        correct: false
+        why_wrong: 數字低估到文件記載的數分之一，與教材描述的散布不一致。
+      - text: 拉寬 20 至 24 bpm
+        correct: false
+        why_wrong: 把變異推成文件記載的兩倍以上，書中沒有給到那麼寬的範圍。
+
+  - id: ch06.acute-cardiovascular.i04.q1
+    item: ch06.acute-cardiovascular.i04
+    dco: sf1.G.1
+    lang: zh
+    cognitive: recall
+    stem: 書中定義 1 MET 為一般人的估計靜息攝氧量，其數值約為多少？
+    locator: Acute Responses to Aerobic Exercise > Oxygen Uptake
+    options:
+      - text: 約 3.5 毫升每公斤每分鐘
+        correct: true
+      - text: 約 1.0 毫升每公斤每分鐘
+        correct: false
+        why_wrong: 數字低估到實際值的三分之一附近，教材定義 1 MET 為 3.5 毫升每公斤每分鐘的靜息攝氧量。
+      - text: 約 7.0 毫升每公斤每分鐘
+        correct: false
+        why_wrong: 那已是健康者最大攝氧量低端，不是靜息消耗量；MET 定義比該數字低得多。
+
+  - id: ch06.acute-cardiovascular.i06.q1
+    item: ch06.acute-cardiovascular.i06
+    dco: sf1.G.2
+    lang: zh
+    cognitive: recall
+    stem: 書中描述最大有氧運動時收縮壓通常可達的範圍為何？
+    locator: Acute Responses to Aerobic Exercise > Blood Pressure
+    options:
+      - text: 最大有氧峰值為收縮壓 220 至 260
+        correct: true
+      - text: 平常靜息區間為 120 至 140
+        correct: false
+        why_wrong: 那是健康成人常見的靜息收縮壓區間，與最大有氧運動時的數字差距甚大。
+      - text: 阻力測試極端級為 300 至 340
+        correct: false
+        why_wrong: 那是阻力訓練極端測試的量級，不是書中所列有氧運動時的收縮壓峰值。
+
+  - id: ch06.acute-cardiovascular.i08.q1
+    item: ch06.acute-cardiovascular.i08
+    dco: sf1.G.2
+    lang: zh
+    cognitive: recall
+    stem: 書中指出靜息時骨骼肌接受心輸出量的比例約為多少？劇烈運動時可升至多少？
+    locator: Acute Responses to Aerobic Exercise > Control of Local Circulation
+    options:
+      - text: 15-20% 升至 90%
+        correct: true
+      - text: 約 5% 只到 30%
+        correct: false
+        why_wrong: 兩端都低估到接近無血流的狀態，教材所載的兩端差距遠大於此區間。
+      - text: 近 50% 至 70%
+        correct: false
+        why_wrong: 把靜息比例放大到教科書值的數倍，書中靜息只有 15 至 20，不是接近一半。
+
+  - id: ch06.acute-respiratory.i01.q1
+    item: ch06.acute-respiratory.i01
+    dco: sf1.G.2
+    lang: en
+    cognitive: recall
+    stem: According to the textbook, what respiratory rate range is typical for a healthy young adult at rest, and what range does it reach during intense exercise?
+    locator: Acute Responses to Aerobic Exercise > Respiratory Responses
+    options:
+      - text: Quiet cadence 12 to 15, exertion cadence 35 to 45
+        correct: true
+      - text: Tidal volume half liter resting, two liter hard work
+        correct: false
+        why_wrong: Names per-breath lung dimension, not a respiratory cadence.
+      - text: Heart-rate ceiling near 190 at 25 years, near 165 at 55
+        correct: false
+        why_wrong: Reads cardiovascular ceiling, not the cadence range the chapter gives.
+
+  - id: ch06.acute-respiratory.i04.q1
+    item: ch06.acute-respiratory.i04
+    dco: sf1.G.1
+    lang: zh
+    cognitive: recall
+    stem: 書中描述年輕成人正常解剖死腔的容積約為多少？
+    locator: Acute Responses to Aerobic Exercise > Respiratory Responses
+    options:
+      - text: 解剖死腔為 150 毫升
+        correct: true
+      - text: 低估到 15 毫升級
+        correct: false
+        why_wrong: 低估到實際值十分之一，書中年輕成人解剖死腔為 150 毫升級，不是 15 毫升級。
+      - text: 對到肺活量 500 毫升級
+        correct: false
+        why_wrong: 對到肺活量等級，那是肺容量級的數字，不是傳導氣道級。
+
+  - id: ch06.chronic-cardiovascular.i03.q1
+    item: ch06.chronic-cardiovascular.i03
+    dco: sf1.H.2
+    lang: en
+    cognitive: recall
+    stem: According to the chapter, what resting heart rate range is commonly observed in highly trained aerobic endurance athletes, and what causes it?
+    locator: Chronic Adaptations to Aerobic Exercise > Cardiovascular Adaptations
+    options:
+      - text: Cardioinhibitory tone, 40-60
+        correct: true
+      - text: Adrenergic surge, 90-110
+        correct: false
+        why_wrong: Wrong autonomic driver. Endurance adaptation stems from cardioinhibitory behavior, not excitatory adrenergic outflow.
+      - text: Default SA-nodal output
+        correct: false
+        why_wrong: Wrong baseline reference. Trained pacing drifts beneath ordinary SA-nodal output, not equivalence with it.
+
+  - id: ch06.detraining.i02.q1
+    item: ch06.detraining.i02
+    dco: sf1.H.2
+    lang: zh
+    cognitive: recall
+    stem: 依書中對短期去訓練的界定與高度訓練運動員的數據，短期去訓練後最大攝氧量的下降幅度約為多少？
+    locator: "Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Detraining"
+    options:
+      - text: 約 4 至 14 個百分點
+        correct: true
+      - text: 約 1 至 3 個百分點
+        correct: false
+        why_wrong: 大幅低估下降幅度，書中把短期去訓練界定為 4 週，下降區間為 4 至 14，不是 1 至 3。
+      - text: 約 20 至 30 個百分點
+        correct: false
+        why_wrong: 推到長期去訓練或更高的等級，書中長期去訓練下降為 6 至 20，短期更窄。
+
+  - id: ch06.external-factors.i02.q1
+    item: ch06.external-factors.i02
+    dco: sf1.H.2
+    lang: en
+    cognitive: recall
+    stem: According to the textbook, by approximately what percentage does long-term altitude acclimatization increase red blood cell count, and what range is typical for hemoglobin formation?
+    locator: External and Individual Factors Influencing Adaptations to Aerobic Endurance Training > Altitude
+    options:
+      - text: Red cells up 30 to 50, hemoglobin up 5 to 15
+        correct: true
+      - text: Cells up 5 to 15, hemoglobin up 30 to 50
+        correct: false
+        why_wrong: Swaps the two figures. The chapter assigns the larger percentage to red cells and the smaller to hemoglobin formation.
+      - text: Both rise by roughly 2 to 4 above sea level values
+        correct: false
+        why_wrong: Treats altitude acclimatization as a marginal hematological shift. The documented 30 to 50 rise in red cells is well above that narrow range.
+
+  - id: ch06.acute-cardiovascular.i01.q1
+    item: ch06.acute-cardiovascular.i01
+    dco: sf1.G.2
+    lang: zh
+    cognitive: application
+    stem: 從靜息進入穩定狀態有氧運動時，書中對心輸出量變化模式的描述，最先出現的階段為何？
+    locator: Acute Responses to Aerobic Exercise > Cardiovascular Responses > Cardiac Output
+    options:
+      - text: 快速增加的階段
+        correct: true
+      - text: 逐漸增加的階段
+        correct: false
+        why_wrong: 把第二階段誤當成最先出現，書中描述先快速增加、再逐漸增加，順序顛倒。
+      - text: 進入平臺的階段
+        correct: false
+        why_wrong: 把末段的平臺誤當成首段，書中說明之後進入平臺，是最後階段，不是最先。
+
+  - id: ch06.acute-cardiovascular.i05.q1
+    item: ch06.acute-cardiovascular.i05
+    dco: sf1.G.2
+    lang: en
+    cognitive: application
+    stem: Which combination of mechanisms does the textbook identify as the primary driver of venous return during aerobic exercise?
+    locator: Acute Responses to Aerobic Exercise > Cardiovascular Responses > Stroke Volume
+    options:
+      - text: Vein squeeze plus muscle and breathing pumps
+        correct: true
+      - text: Backward capillary leak into venous side
+        correct: false
+        why_wrong: Wrong anatomical route. Textbook cites three forward mechanisms, not retrograde filtration.
+      - text: Rising hematocrit from plasma water loss
+        correct: false
+        why_wrong: Different mechanism entirely. Hematocrit change is a consequence, not a driver of cardiac preload.
+
+  - id: ch06.acute-cardiovascular.i07.q1
+    item: ch06.acute-cardiovascular.i07
+    dco: sf1.G.1
+    lang: zh
+    cognitive: application
+    stem: 書中對平均動脈壓公式中除數為 3 的主要解釋為何？
+    locator: Acute Responses to Aerobic Exercise > Blood Pressure
+    options:
+      - text: 一個心動週期中動脈壓停留在接近舒張壓的時間較長
+        correct: true
+      - text: 心室收縮期與舒張期的時間大致相等且各占一半
+        correct: false
+        why_wrong: 假設心動週期兩段時間等長，書中說明收縮期遠短於舒張期，所以才用三分之一權重。
+      - text: 收縮壓與舒張壓的算術平均最能代表平均動脈壓
+        correct: false
+        why_wrong: 把除數 3 對應到相加除以 2，書中明確指出平均動脈壓不是算術平均，不是用兩點平均的權重。
+
+  - id: ch06.acute-respiratory.i02.q1
+    item: ch06.acute-respiratory.i02
+    dco: sf1.G.1
+    lang: zh
+    cognitive: application
+    stem: 書中解釋為何增加潮氣量比只加快呼吸頻率更有效率，最關鍵的因素為何？
+    locator: Acute Responses to Aerobic Exercise > Respiratory Responses
+    options:
+      - text: 死腔增但潮氣量增更多
+        correct: true
+      - text: 深呼吸完全消除死腔
+        correct: false
+        why_wrong: 把效益擴大成死腔歸零，書中說明的是新增空氣中能到達氣體交換區的比例提高。
+      - text: 快而淺推到危險肺壓
+        correct: false
+        why_wrong: 引入書中沒有的肺壓危險，教材沒有把快而淺的呼吸與肺泡壓風險連結。
+
+  - id: ch06.acute-respiratory.i03.q1
+    item: ch06.acute-respiratory.i03
+    dco: sf1.G.2
+    lang: en
+    cognitive: application
+    stem: According to the textbook, above what exercise intensity does minute ventilation primarily begin to rise disproportionately to oxygen uptake in trained athletes, and what equivalent range marks this shift?
+    locator: Acute Responses to Aerobic Exercise > Respiratory Responses
+    options:
+      - text: Trained threshold 70–90% VO2max, R climbs 35–40
+        correct: true
+      - text: Warm-up zone near 20–30%, RER instead 50–60
+        correct: false
+        why_wrong: Wrong intensity placement. The chapter sets the trained breakpoint at 70–90%, not warm-up zone.
+      - text: Only beyond 95% effort, R pinned low 20–25
+        correct: false
+        why_wrong: Mislocates the rise as a near-maximum event. The trained breakpoint lies well below 95%, per the textbook.
+
+  - id: ch06.acute-respiratory.i06.q1
+    item: ch06.acute-respiratory.i06
+    dco: sf1.G.1
+    lang: zh
+    cognitive: application
+    stem: 書中描述血漿與血紅素對氧的運輸分工，下列敘述何者最符合？
+    locator: Acute Responses to Aerobic Exercise > Blood Transport of Gases and Metabolic By-Products
+    options:
+      - text: 血漿每公升只攜約 3 毫升氧，多數氧由血紅素運送
+        correct: true
+      - text: 血漿與血紅素各負責一半的氧運輸工作
+        correct: false
+        why_wrong: 把血漿的溶氧能力放大到接近血紅素，書中明示血漿每公升只攜約 3 毫升，大部分由血紅素負責。
+      - text: 血紅素只負責二氧化碳運輸，不負責氧氣的輸送
+        correct: false
+        why_wrong: 把血紅素功能限縮到二氧化碳，書中清楚指出血紅素是主要攜氧工具，並同時協助二氧化碳與氫離子緩衝。
+
+  - id: ch06.acute-respiratory.i07.q1
+    item: ch06.acute-respiratory.i07
+    dco: sf1.G.1
+    lang: en
+    cognitive: application
+    stem: According to the textbook, which transport pathway carries the largest share of metabolic carbon dioxide to the lungs?
+    locator: Acute Responses to Aerobic Exercise > Blood Transport of Gases and Metabolic By-Products
+    options:
+      - text: Bicarbonate via the anhydrase reaction
+        correct: true
+      - text: Plasma dissolution in the liquid phase
+        correct: false
+        why_wrong: Understates plasma fraction. About five percent dissolves there, far below the dominant bicarbonate cargo.
+      - text: Carbamino-bound on globin side chains
+        correct: false
+        why_wrong: Names minor route. Textbook lists carbamino binding as small fraction, not the largest transport share.
+
+  - id: ch06.acute-respiratory.i08.q1
+    item: ch06.acute-respiratory.i08
+    dco: sf1.G.1
+    lang: zh
+    cognitive: application
+    stem: 書中如何定義 OBLA，與低至中等強度時乳酸移除率的描述最主要的差異為何？
+    locator: Acute Responses to Aerobic Exercise > Blood Transport of Gases and Metabolic By-Products
+    options:
+      - text: OBLA 是血乳酸開始上升的有氧運動強度門檻
+        correct: true
+      - text: OBLA 是乳酸濃度固定的 mmol/L 門檻
+        correct: false
+        why_wrong: 替 OBLA 加上書中本章沒指定的固定濃度門檻，本章刻意不給 mmol/L 數字。
+      - text: OBLA 與運動強度無關，純粹由運動時間長短決定
+        correct: false
+        why_wrong: 把 OBLA 的決定因子從強度移到時間，書中把它放在運動水準之下，與強度耦合，不是只看時間。
+
+  - id: ch06.chronic-cardiovascular.i01.q1
+    item: ch06.chronic-cardiovascular.i01
+    dco: sf1.H.2
+    lang: zh
+    cognitive: application
+    stem: 依教材，長期 6 至 12 個月有氧耐力訓練最顯著的心血管改變為何？其主要來源是什麼？
+    locator: Chronic Adaptations to Aerobic Exercise > Cardiovascular Adaptations
+    options:
+      - text: 最大心輸出量增加，主要來自每搏量改善
+        correct: true
+      - text: 最大心率持續上升，使心輸出量倍增
+        correct: false
+        why_wrong: 把長期訓練效果放在最大心率上升，書中指出最大心率實際可能略降，不是持續上升。
+      - text: 心室腔室容積縮小，使每搏量被迫下降
+        correct: false
+        why_wrong: 與訓練適應方向相反，書中描述心室腔室容積與壁厚增加，每搏量因此上升而非下降。
+
+  - id: ch06.chronic-cardiovascular.i02.q1
+    item: ch06.chronic-cardiovascular.i02
+    dco: sf1.H.2
+    lang: zh
+    cognitive: application
+    stem: 依教材，有氧耐力訓練如何使次最大與最大運動時的每搏量提高？最關鍵的心臟結構變化為何？
+    locator: Chronic Adaptations to Aerobic Exercise > Cardiovascular Adaptations
+    options:
+      - text: 左心室腔室容積與心室壁厚度都增加
+        correct: true
+      - text: 心室壁厚度減少以降低耗氧
+        correct: false
+        why_wrong: 與訓練適應方向相反，書中明確指出壁厚增加，每搏量提升靠的是容量與厚度同時增加。
+      - text: 瓣膜口徑縮小迫使心室快速排空
+        correct: false
+        why_wrong: 把結構變化推成病理性縮小，書中描述的適應是腔室與壁厚的正向重塑，不是瓣膜口徑變化。
+
+  - id: ch06.chronic-cardiovascular.i05.q1
+    item: ch06.chronic-cardiovascular.i05
+    dco: sf1.H.2
+    lang: en
+    cognitive: application
+    stem: According to the textbook, what primarily happens to maximal heart rate after long-term aerobic endurance training?
+    locator: Chronic Adaptations to Aerobic Exercise > Cardiovascular Adaptations
+    options:
+      - text: Vagal drop, slight
+        correct: true
+      - text: Two-fold rise every year
+        correct: false
+        why_wrong: Wrong shape of change pattern observed. Author documents a downward drift of the actual peak, not a two-fold climb each new year.
+      - text: Pinned by author formula
+        correct: false
+        why_wrong: Wrong rigidity. Author chapter studies a downward slide of the actual peak, not a fixed output pinned by a population formula.
+
+  - id: ch06.chronic-muscular.i02.q1
+    item: ch06.chronic-muscular.i02
+    dco: sf1.H.2
+    lang: zh
+    cognitive: application
+    stem: 書中指出肌紅蛋白在有氧訓練適應中扮演什麼角色，最主要的生理意義為何？
+    locator: Chronic Adaptations to Aerobic Exercise > Muscular Adaptations
+    options:
+      - text: 在細胞內運送氧，使更多氧可送達粒線體
+        correct: true
+      - text: 儲存肝醣作為長時間運動的能量備用
+        correct: false
+        why_wrong: 把肌紅蛋白功能誤換為肝醣儲存，那是糖原的工作，書中描述肌紅蛋白負責細胞內氧的運送。
+      - text: 直接合成 ATP 以取代粒線體的有氧代謝
+        correct: false
+        why_wrong: 替肌紅蛋白加上書中本章沒有的 ATP 合成功能，書中只把它定位為細胞內氧的運輸蛋白。
+
+  - id: ch06.chronic-muscular.i04.q1
+    item: ch06.chronic-muscular.i04
+    dco: sf1.H.2
+    lang: en
+    cognitive: application
+    stem: According to the textbook, what primarily happens to fast-twitch muscle fibers as a result of aerobic endurance training?
+    locator: Chronic Adaptations to Aerobic Exercise > Muscular Adaptations
+    options:
+      - text: Type IIx shifts toward Type IIa, with little conversion to Type I
+        correct: true
+      - text: All Type II fibers convert directly into Type I fibers
+        correct: false
+        why_wrong: Confuses subtype drift with full conversion. The textbook states the IIx to IIa shift is gradual, while wholesale conversion to Type I is largely absent.
+      - text: Type II fibers shrink and lose all oxidative capacity
+        correct: false
+        why_wrong: Treats endurance training as a pure atrophy signal. The chapter emphasizes IIa oxidative gains rather than wholesale loss of capacity.
+
+  - id: ch06.chronic-muscular.i05.q1
+    item: ch06.chronic-muscular.i05
+    dco: sf1.H.2
+    lang: en
+    cognitive: application
+    stem: According to the textbook, why can trained athletes primarily sustain a higher relative intensity before blood lactate begins to accumulate?
+    locator: Chronic Adaptations to Aerobic Exercise > Muscular Adaptations
+    options:
+      - text: Less glycogen use and more fat oxidation extend steady work, with OBLA shifting up
+        correct: true
+      - text: Anaerobic glycolysis speeds up so lactate disappears immediately
+        correct: false
+        why_wrong: Reads faster glycolysis as lactate removal. The textbook lists substrate shifts and clearance as the sources, not accelerated lactate production.
+      - text: Heart rate max rises so lactate production is mechanically suppressed
+        correct: false
+        why_wrong: Re-anchors the explanation to maximal heart rate. The chapter locates the shift in substrate use and clearance, not in mechanical HR suppression.
+
+  - id: ch06.connective-endocrine.i04.q1
+    item: ch06.connective-endocrine.i04
+    dco: sf1.H.2
+    lang: zh
+    cognitive: application
+    stem: 書中對受訓運動員在固定次最大絕對工作量下的荷爾蒙反應描述，主要差異為何？
+    locator: Chronic Adaptations to Aerobic Exercise > Endocrine Adaptations
+    options:
+      - text: 荷爾蒙反應較弱，因相同工作量對受訓者壓力較低
+        correct: true
+      - text: 荷爾蒙反應更強烈，因為訓練使內分泌系統過度敏感
+        correct: false
+        why_wrong: 把方向推成過度敏感，書中說明相同絕對工作量下受訓者荷爾蒙反應較弱，不是更強烈。
+      - text: 荷爾蒙種類會完全改變，出現書中沒有的新胜肽
+        correct: false
+        why_wrong: 引入書中本章沒描述的新胜肽，教材只談相同荷爾蒙的濃度變化，不是種類替換。
+
+  - id: ch06.detraining.i03.q1
+    item: ch06.detraining.i03
+    dco: sf1.H.2
+    lang: zh
+    cognitive: application
+    stem: 教材把長期去訓練界定為超過 4 週；依此，高度訓練運動員的最大攝氧量下降範圍約為多少？
+    locator: "Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Detraining"
+    options:
+      - text: 約 6 至 20 個百分點
+        correct: true
+      - text: 約 2 至 4 個百分點
+        correct: false
+        why_wrong: 低估到接近短期去訓練區間，書中把長期去訓練的下降界定為 6 至 20，不是 2 至 4。
+      - text: 約 30 至 40 個百分點
+        correct: false
+        why_wrong: 推到完全停止訓練的等級，書中記載的高度訓練者長期下降沒有達到 30 至 40 那麼大。
+
+  - id: ch06.detraining.i07.q1
+    item: ch06.detraining.i07
+    dco: sf1.H.2
+    lang: en
+    cognitive: application
+    stem: According to the textbook, what primarily determines whether high-intensity interval training improves VO2max or sprint speed?
+    locator: Adaptations to Aerobic Endurance Training
+    options:
+      - text: Short intervals with brief rest favor VO2max, long rest favors sprint speed
+        correct: true
+      - text: Long intervals with brief rest favor VO2max, long rest favors sprint speed
+        correct: false
+        why_wrong: Reverses the rest length effect. The textbook pairs brief rest with VO2max gains and longer rest with sprint speed, not the opposite pairing.
+      - text: Interval structure does not matter, only total weekly volume drives adaptation
+        correct: false
+        why_wrong: Dismisses interval structure as a modulator. The chapter highlights rest length as the key lever between aerobic power and sprint adaptations.
+
+  - id: ch06.external-factors.i01.q1
+    item: ch06.external-factors.i01
+    dco: sf1.H.2
+    lang: zh
+    cognitive: application
+    stem: 依書中描述，海拔高到何種程度開始出現急性生理調整，最主要的觸發因素為何？
+    locator: External and Individual Factors Influencing Adaptations to Aerobic Endurance Training > Altitude
+    options:
+      - text: 約 1200 公尺以上，因大氣氧分壓降低
+        correct: true
+      - text: 約 200 公尺以下，因海平面鹽分升高
+        correct: false
+        why_wrong: 海拔描述方向相反，書中把門檻放在 1200 公尺以上，不是 200 公尺以下的低海拔。
+      - text: 約 5000 公尺以上，因紫外線強度增加
+        correct: false
+        why_wrong: 把觸發因素換成書中本章沒強調的紫外線，教材強調的是大氣氧分壓降低，不是紫外線。
+
+  - id: ch06.overtraining.i04.q1
+    item: ch06.overtraining.i04
+    dco: sf1.I.1
+    lang: zh
+    cognitive: application
+    stem: 書中對 OTS 可能出現的心血管反應描述，最關鍵的自律神經變化為何？
+    locator: "Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Cardiovascular Responses"
+    options:
+      - text: 心率變異性下降
+        correct: true
+      - text: 心率變異性顯著上升
+        correct: false
+        why_wrong: 把方向推成正向恢復，書中指出 OTS 的關鍵變化是心率變異性下降，不是上升。
+      - text: 心血管完全與壓力荷爾蒙無關
+        correct: false
+        why_wrong: 否認書中本章描述的荷爾蒙相關性，教材明確指出心血管自律神經變化與壓力狀態耦合。
+
+  - id: ch06.overtraining.i06.q1
+    item: ch06.overtraining.i06
+    dco: sf1.I.1
+    lang: en
+    cognitive: application
+    stem: According to the textbook, can the testosterone to cortisol ratio alone diagnose overtraining syndrome?
+    locator: "Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Endocrine Responses"
+    options:
+      - text: No, the ratio drops with load and is only a possible marker at best
+        correct: true
+      - text: Yes, a single morning ratio above a threshold confirms OTS
+        correct: false
+        why_wrong: Upgrades a possible marker into a stand-alone test. The textbook states the decline is a possible marker, not a confirmed diagnostic criterion.
+      - text: Yes, the ratio always rises sharply once OTS develops
+        correct: false
+        why_wrong: Reverses the direction of the change. The chapter documents a decline or no change under heavy training, not a sharp rise.
+
+  - id: ch06.chronic-cardiovascular.i04.q1
+    item: ch06.chronic-cardiovascular.i04
+    dco: sf1.H.2
+    lang: zh
+    cognitive: analysis
+    stem: 教材指出訓練後固定次最大工作量下的心率反應主要改變為何？對日常訓練監控的意義為何？
+    locator: Chronic Adaptations to Aerobic Exercise > Cardiovascular Adaptations
+    options:
+      - text: 次大心率降且慢升
+        correct: true
+      - text: 次大心率顯著上升
+        correct: false
+        why_wrong: 把方向推成負面變化，書中指出訓練後次最大心率顯著下降與上升變慢，是監控進度的正向指標。
+      - text: 次大心率完全不變
+        correct: false
+        why_wrong: 否認書中本章描述的次最大心率變化，教材把次最大心率下降列為可量測的訓練指標。
+
+  - id: ch06.chronic-muscular.i08.q1
+    item: ch06.chronic-muscular.i08
+    dco: sf1.H.2
+    lang: zh
+    cognitive: analysis
+    stem: 依教材，第一型與第二型肌纖維訓練前後的有氧潛力差異，最主要的比較結論為何？
+    locator: Chronic Adaptations to Aerobic Exercise > Muscular Adaptations
+    options:
+      - text: 兩者增幅相近，但第一型絕對值仍較高
+        correct: true
+      - text: 只有第二型纖維的有氧潛力增加
+        correct: false
+        why_wrong: 把適應限縮到第二型，書中指出兩型都可增加，第一型基線本就較高，不是不變。
+      - text: 兩型纖維的有氧能力在訓練後完全相等
+        correct: false
+        why_wrong: 把相對增幅相近誤讀成絕對相等，書中說明第一型基線較高，訓練後絕對值仍高於第二型。
+
+  - id: ch06.connective-endocrine.i06.q1
+    item: ch06.connective-endocrine.i06
+    dco: sf1.H.2
+    lang: zh
+    cognitive: analysis
+    stem: 跑步訓練為何常伴隨肌肉淨蛋白分解增加？身體最主要的對應荷爾蒙反應為何？
+    locator: Chronic Adaptations to Aerobic Exercise > Endocrine Adaptations
+    options:
+      - text: 皮質醇增對抗同化
+        correct: true
+      - text: 胰島素大增停止合成
+        correct: false
+        why_wrong: 把方向推成合成停止，書中描述的是皮質醇與睪固酮、IGF-I 的合成性對抗，不是胰島素讓一切停工。
+      - text: 甲狀腺素完全主導
+        correct: false
+        why_wrong: 把主導荷爾蒙換成書中本章沒強調的甲狀腺素，教材聚焦的是皮質醇與同化荷爾蒙的對抗。
+
+  - id: ch06.detraining.i05.q1
+    item: ch06.detraining.i05
+    dco: sf1.H.2
+    lang: en
+    cognitive: analysis
+    stem: According to the textbook example, why does a higher lactate threshold primarily translate into better endurance performance when two athletes share the same VO2max?
+    locator: Adaptations to Aerobic Endurance Training > What Are the Improvements in Performance From Aerobic Exercise?
+    options:
+      - text: They sustain a higher absolute workload and a faster moving speed
+        correct: true
+      - text: They develop a higher resting heart rate that boosts stroke volume
+        correct: false
+        why_wrong: Anchors the explanation to resting heart rate. The textbook ties the gain to higher sustainable workload and moving speed, not resting heart rate.
+      - text: They rely on anaerobic glycolysis for the entire endurance effort
+        correct: false
+        why_wrong: Replaces the aerobic explanation with anaerobic glycolysis. The chapter emphasizes lactate clearance and threshold shift within aerobic metabolism, not wholesale anaerobic reliance.
+
+  - id: ch06.external-factors.i08.q1
+    item: ch06.external-factors.i08
+    dco: sf1.J.1
+    lang: en
+    cognitive: analysis
+    stem: According to the textbook, what primarily explains why age-matched women typically show 73 to 85 percent of male aerobic power, while responding similarly to training?
+    locator: External and Individual Factors Influencing Adaptations to Aerobic Endurance Training > Age and Sex
+    options:
+      - text: Higher body fat, lower hemoglobin, smaller heart and blood volume
+        correct: true
+      - text: Genetic inability of women to improve VO2max regardless of training
+        correct: false
+        why_wrong: Claims a genetic ceiling for women. The textbook states the general physiological response to training is similar between sexes, not that women cannot improve.
+      - text: Strictly cultural factors that prevent women from training at all
+        correct: false
+        why_wrong: Reduces the gap to cultural factors alone. The chapter lists physiological variables (body composition, hemoglobin, heart size) as the main explanations.
