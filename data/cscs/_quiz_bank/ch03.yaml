@@ -1,0 +1,241 @@
+meta:
+  chapter: ch03
+  source: data/cscs/ch03.yaml
+questions:
+  - id: ch03.energy-capacity.i07.q1
+    item: ch03.energy-capacity.i07
+    dco: sf1.E.1
+    lang: zh
+    cognitive: recall
+    stem: 依書中 Table 3.3 的速率排名（1 = 最快）與容量排名（1 = 最大），磷酸原系統在兩個排名中的位置為何？
+    locator: 第 3 章 · Energy Production and Capacity
+    options:
+      - text: 磷酸原速率排名首位、容量排名末位
+        correct: true
+      - text: 磷酸原在速率端墊底，在容量端居冠
+        correct: false
+        why_wrong: 把兩條排名的方向整個倒過來讀；磷酸原一秒內就能供應能量，但總儲量在三大系統中最少，兩端位置正好與此選項相反。
+      - text: 磷酸原在兩個排名皆居中段，無明顯反差
+        correct: false
+        why_wrong: 將反差關係誤讀成「兩個系統各自居中」；事實上磷酸原在速率端居首、在容量端居末，兩個位置極端相反，並非位於中段。
+
+  - id: ch03.glycolysis.i04.q1
+    item: ch03.glycolysis.i04
+    dco: sf1.E.1
+    lang: en
+    cognitive: recall
+    stem: Why does glycolysis starting from muscle glycogen yield one more net ATP than glycolysis starting from blood glucose?
+    locator: 第 3 章 · Energy Yield of Glycolysis
+    options:
+      - text: "Hexokinase consumes one ATP per free cytosolic glucose"
+        correct: true
+      - text: "Branching enzyme harvests extra high-energy phosphate"
+        correct: false
+        why_wrong: Invents a chemical step that does not exist; gain comes from skipping a cytosolic investment upstream, not from any extra phosphate inside the glycogenolysis machinery.
+      - text: "GLUT4 translocation requires direct ATP hydrolysis"
+        correct: false
+        why_wrong: Conflates passive entry with active transport; carriers ferry sugar along its existing gradient without burning any cellular fuel, so the per-glucose tally is unaffected.
+
+  - id: ch03.lactate.i05.q1
+    item: ch03.lactate.i05
+    dco: sf1.E.1
+    lang: en
+    cognitive: recall
+    stem: Which blood-lactate scenario corresponds to the second lactate inflection that defines the onset of blood lactate accumulation (OBLA)?
+    locator: 第 3 章 · Lactate Threshold and Onset of Blood Lactate Accumulation
+    options:
+      - text: "Graded cycling reveals a second upward inflection in blood lactate"
+        correct: true
+      - text: "Repeated-sprint pushes lactate to severe exhaustion levels"
+        correct: false
+        why_wrong: That target is the upper asymptote, beyond the deflection that marks OBLA; severe depletion belongs to all-out bouts after the bend has already appeared.
+      - text: "Overnight rest brings arterial lactate back to a quiet baseline"
+        correct: false
+        why_wrong: Misreads the resting baseline as the threshold; the cited quietude reflects post-absorptive metabolism, not the inflection that defines the OBLA boundary.
+
+  - id: ch03.substrate.i02.q1
+    item: ch03.substrate.i02
+    dco: sf1.E.1
+    lang: zh
+    cognitive: recall
+    stem: 高強度運動後，ATP 與 CP 完全再合成各需要大約多少時間？
+    locator: 第 3 章 · Phosphagens
+    options:
+      - text: ATP 復元約需 3 至 5 分鐘，CP 完全再合成約需 8 分鐘
+        correct: true
+      - text: ATP 與 CP 皆可在 30 至 60 秒內完全復元，靠磷酸原內部轉換
+        correct: false
+        why_wrong: 把整體復元時間壓縮到幾十秒；磷酸原的再合成主要由有氧代謝供能，其攀升速度遠追不上這個時程，光靠系統內部的轉換補不回耗掉的儲量。
+      - text: ATP 復元約需 8 分鐘，CP 約需 3 至 5 分鐘（皆以糖解供能復元）
+        correct: false
+        why_wrong: 把兩者的時程對調，又把供能路徑錯記成糖解；先回到基準線的是 ATP 而非 CP，而且兩者的再合成都主要仰賴有氧代謝，糖解只在高強度後扮演次要角色。
+
+  - id: ch03.energy-capacity.i02.q1
+    item: ch03.energy-capacity.i02
+    dco: sf1.E.1
+    lang: zh
+    cognitive: application
+    stem: 一名舉重選手完成一次 4 秒的抓舉試舉。下列何者最能代表此極短爆發活動的主要 ATP 供應來源？
+    locator: 第 3 章 · Energy Production and Capacity
+    options:
+      - text: 儲存於肌肉內的 ATP 與 CP
+        correct: true
+      - text: 糖解系統經多步驟反應快速生成的 ATP
+        correct: false
+        why_wrong: 把糖解當作 4 秒抓舉的主力；但糖解系統要花數秒鐘才充分活化，此時磷酸原尚未耗竭，糖解尚未介入供能。
+      - text: 氧化系統於粒線體內建立的穩態 ATP 生成
+        correct: false
+        why_wrong: 把氧化路徑套用到爆發動作上；氧化系統的 ATP 生成速率不足以支撐 4 秒抓舉所需的峰值功率需求。
+
+  - id: ch03.epoc.i04.q1
+    item: ch03.epoc.i04
+    dco: sf1.E.1
+    lang: zh
+    cognitive: application
+    stem: 一位教練希望在賽季備戰期以長時間中等強度跑步，誘發最大的運動後過量攝氧量（EPOC）。下列哪組條件最能達成此目標？
+    locator: 第 3 章 · Excess Postexercise Oxygen Consumption Is Intensity, Duration, and Mode Dependent
+    options:
+      - text: 強度大於百分之 50 至 60 VO2max，時間長於 40 分鐘
+        correct: true
+      - text: 強度低於百分之 30 VO2max，時間拉長到 2 小時以上
+        correct: false
+        why_wrong: 把強度壓得太低；EPOC 主要由強度驅動而非僅由時間驅動，單純拉長時間在低強度下無法誘發顯著 EPOC。
+      - text: 強度提高到超過百分之 100 VO2max，以數十秒的超極量間歇進行
+        correct: false
+        why_wrong: 抓到的是另一條誘發途徑：超極量短暫間歇確實能用很少的總工作量堆出 EPOC，但題幹要的是長時間中等強度跑步，這組處方連跑步都不是。
+
+  - id: ch03.glycolysis.i05.q1
+    item: ch03.glycolysis.i05
+    dco: sf1.E.1
+    lang: zh
+    cognitive: application
+    stem: 即時監測發現肌細胞內 ATP 大量被消耗而 AMP 濃度同步上升。此時 PFK（磷酸果糖激酶）最可能的即時反應為何？
+    locator: 第 3 章 · Control of Glycolysis
+    options:
+      - text: PFK 加速糖解，因 AMP 是其強力的別構活化劑
+        correct: true
+      - text: PFK 減速糖解，因 ATP 是其別構抑制劑
+        correct: false
+        why_wrong: 把 PFK 調控視為只受 ATP 抑制的單向關係，但 PFK 同時具有 AMP 別構活化位點；此情境下 AMP 上升的活化效應會主導反應方向。
+      - text: PFK 活性不變，因高強度下 ATP 濃度大致不變
+        correct: false
+        why_wrong: 假設 ATP 濃度大致穩定，但 ADP 與 AMP 的相對上升才是 PFK 的即時調控信號，ATP 大量消耗必然伴隨 ADP 與 AMP 上升。
+
+  - id: ch03.lactate.i01.q1
+    item: ch03.lactate.i01
+    dco: sf1.E.1
+    lang: zh
+    cognitive: application
+    stem: 一名田徑選手在高強度間歇訓練後抱怨大腿出現明顯「燒灼感」。教練想引用本章的代謝觀念向選手說明此現象。下列何種解釋最符合本章的論點？
+    locator: 第 3 章 · Glycolysis and the Formation of Lactate
+    options:
+      - text: ATP 水解釋出的 H+ 是灼感主因，LDH 反應同時消耗 H+
+        correct: true
+      - text: 乳酸直接堆在肌細胞質內並酸化肌纖維，造成局部灼熱與疲勞感
+        correct: false
+        why_wrong: 沿用「乳酸＝疲勞」的傳統印象；本章指出 LDH 反應實際消耗 H+，乳酸更常作為能量基質而非酸化元兇。
+      - text: 乳酸堆積刺激肌間神經末梢，干擾傳導訊號而引發灼熱不適感
+        correct: false
+        why_wrong: 把乳酸的角色想成透過神經傳導中介酸性感覺；本章聚焦於 H+ 對興奮收縮耦合與糖解酶的影響，並未把神經傳導列為主路徑。
+
+  - id: ch03.metabolic-specificity.i03.q1
+    item: ch03.metabolic-specificity.i03
+    dco: sf1.E.2
+    lang: en
+    cognitive: application
+    stem: A strength coach is designing a sprint-interval session whose primary training target is the phosphagen system. Which work-to-rest ratio most appropriately targets this system?
+    locator: 第 3 章 · Interval Training
+    options:
+      - text: "1:18, six-second sprints"
+        correct: true
+      - text: "1:3, twenty-second hard bouts"
+        correct: false
+        why_wrong: Reaches for the fast glycolytic prescription, where recovery runs only three to five times the effort and lactate is deliberately allowed to climb.
+      - text: "1:1, five-minute easy runs"
+        correct: false
+        why_wrong: Reaches for the oxidative prescription, where recovery merely matches the effort because a sustained pace never drains the immediate phosphate reserve.
+
+  - id: ch03.oxidative.i03.q1
+    item: ch03.oxidative.i03
+    dco: sf1.E.1
+    lang: en
+    cognitive: application
+    stem: An endurance athlete oxidizes one molecule of blood glucose completely, for a gross yield of 40 ATP. Which process regenerates most of that yield?
+    locator: 第 3 章 · Glucose and Glycogen Oxidation
+    options:
+      - text: "oxidative phosphorylation"
+        correct: true
+      - text: "the 4 ATP from glycolysis"
+        correct: false
+        why_wrong: Stops counting at the cytosolic pay-off phase; those four molecules are a tenth of the gross tally, and the rest waits on the mitochondria.
+      - text: "substrate-level Krebs-cycle ATP"
+        correct: false
+        why_wrong: Credits the citric acid cycle with its own direct output, which is only two molecules; its real contribution arrives later as reduced carriers.
+
+  - id: ch03.phosphagen.i02.q1
+    item: ch03.phosphagen.i02
+    dco: sf1.E.1
+    lang: zh
+    cognitive: application
+    stem: 短距離衝刺起跑的頭 5 秒內，選手需要最大瞬時功率輸出。下列何者最能代表此時主要的 ATP 供應反應？
+    locator: 第 3 章 · Phosphagen System
+    options:
+      - text: 肌酸激酶將 CP 上的磷酸基轉給 ADP 快速再合成 ATP
+        correct: true
+      - text: 己糖激酶將血糖磷酸化以啟動糖解路徑，緩慢生成 ATP
+        correct: false
+        why_wrong: 把糖解起動酶當作即時功率來源；己糖激酶位於糖解上游多步驟路徑的入口，反應速率遠低於肌酸激酶單步反應，起跑頭幾秒不需要糖解介入。
+      - text: 氧化磷酸化透過粒線體內電子傳遞鏈建立質子梯度後生成 ATP
+        correct: false
+        why_wrong: 氧化磷酸化需先建立質子梯度與穩定的電子流；起跑頭幾秒有氧系統尚未爬升，無法供應最大瞬時功率。
+
+  - id: ch03.substrate.i05.q1
+    item: ch03.substrate.i05
+    dco: sf1.E.1
+    lang: zh
+    cognitive: application
+    stem: 一名馬拉松選手在高強度長跑訓練結束後，希望儘速回補肌糖原以銜接下一個高強度區塊。下列何種運動後補碳策略最能符合本章指引？
+    locator: 第 3 章 · Glycogen
+    options:
+      - text: 每 2 小時攝取每公斤 0.7 至 3.0 公克的碳水，前 4 至 6 小時提高進食頻率
+        correct: true
+      - text: 運動結束後立刻一次吞下每公斤 5 公克的碳水化合物，之後就不再進食避免多餘攝取
+        correct: false
+        why_wrong: 把所有碳水集中在運動後一次攝取；腸道吸收效率有限，分次攝取才能在前 4 至 6 小時窗口達到最大回補速率。
+      - text: 極低頻率地攝取每公斤 0.1 至 0.3 公克的碳水化合物，連續吃上 48 小時以維持基本回補
+        correct: false
+        why_wrong: 攝取頻率過低且單次量過少，無法達到指引中的 5 至 6 毫莫耳／克濕肌肉／小時回補速率，整體回補時間會被拖長。
+
+  - id: ch03.metabolic-specificity.i07.q1
+    item: ch03.metabolic-specificity.i07
+    dco: sf1.E.2
+    lang: zh
+    cognitive: analysis
+    stem: 一名教練為 100 公尺短跑選手規劃夏季訓練，計畫在原本的無氧爆發力課表外加入大量長跑區段以提升「恢復能力」。下列何種結果最可能在此安排下出現？
+    locator: 第 3 章 · Combination Training
+    options:
+      - text: 最大肌力、爆發力與速度等無氧表現可能受到抑制，恢復提升未必對等
+        correct: true
+      - text: 無氧表現全面提升，因為有氧訓練為神經與代謝恢復打下基礎
+        correct: false
+        why_wrong: 預期兩種訓練無條件互補；本章明確指出有氧耐力訓練可能降低無氧運動員的最大肌力與爆發力，並非單純相輔相成。
+      - text: 只會影響肌糖原與疲勞恢復，不會波及肌力與爆發力等指標
+        correct: false
+        why_wrong: 把風險限縮在肌糖原與疲勞層面；本章同步說明有氧耐力訓練可能同時削弱肌力、肌圍度、速度與爆發力，風險範圍比想像中更廣。
+
+  - id: ch03.epoc.i06.q1
+    item: ch03.epoc.i06
+    dco: sf1.E.1
+    lang: en
+    cognitive: analysis
+    stem: A cyclist performs a maximal-effort bout on a cycle ergometer lasting 90 seconds. According to Table 3.5, what best describes the energy system contribution at this time point?
+    locator: 第 3 章 · Oxygen Uptake and the Aerobic and Anaerobic Contributions to Exercise
+    options:
+      - text: "Oxidative phosphorylation leads by 90s"
+        correct: true
+      - text: "Glycolysis peaks around 30s"
+        correct: false
+        why_wrong: Wrong phase; that peak belongs to the early anaerobic window, not the ninety-second mark of a maximal bout.
+      - text: "Phosphocreatine satisfies demand at 5s"
+        correct: false
+        why_wrong: Wrong window; that description belongs to the opening burst, not the ninety-second mark.
