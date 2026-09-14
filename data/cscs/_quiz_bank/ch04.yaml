@@ -30,12 +30,12 @@ questions:
     options:
       - text: no feedback regulation
         correct: true
-      - text: needs hypothalamic input
+      - text: gated by the pituitary axis
         correct: false
-        why_wrong: Quotes pituitary biology for an adrenal product. Chromaffin vesicles clear through plasma in roughly two minutes, not over a weekly span.
-      - text: stored for many weeks
+        why_wrong: Imports the hypothalamic-pituitary control pattern that fits polypeptide hormones but not the adrenal medulla; chromaffin cells receive direct sympathetic signals, not pituitary gating.
+      - text: synthesized only on demand
         correct: false
-        why_wrong: Circulating half-life of catecholamines is sub-minute. They do not persist like steroid hormones, so a weeks-long framing is wrong by an order of magnitude.
+        why_wrong: Inverts the storage pattern; chromaffin cells pre-make and stockpile catecholamines in vesicles, so a sympathetic burst empties a standing reserve rather than starting fresh synthesis.
 
   - id: ch04.catecholamines.i03.q1
     item: ch04.catecholamines.i03
@@ -49,7 +49,7 @@ questions:
         correct: true
       - text: 訓練後下視丘皮質醇分泌持續正回饋
         correct: false
-        why_wrong: 把皮質醇分泌的 HPA 軸中繼模式套到髓質兒茶酚胺上；且高皮質醇會抑制而非刺激兒茶酚胺釋放。
+        why_wrong: 把皮質醇分泌的 HPA 軸中繼模式套到髓質兒茶酚胺上；髓質受交感神經直接支配，不必等垂體或下視丘轉手，源檔把恢復期的持續升高歸因於乳酸而非皮質醇。
       - text: 肌肉肝糖完全耗盡後兒茶酚胺補償分泌
         correct: false
         why_wrong: 兒茶酚胺升高是運動期間與運動後短暫現象，與肝糖耗盡後的代謝補償機制無關。
@@ -111,17 +111,17 @@ questions:
     dco: sf1.F.1
     lang: en
     cognitive: application
-    stem: Cortisol's catabolic effect during chronic elevation is most pronounced on which fiber type, and most directly limits which adaptation?
+    stem: A lifter held in a chronically elevated cortisol block loses cross-sectional area fastest in Type II fibers. Which property of those fibers most directly explains that pattern?
     locator: Adrenal Hormones > Cortisol > Role of Cortisol
     options:
-      - text: Type II fibers, limiting hypertrophy
+      - text: they carry the largest protein store
         correct: true
-      - text: postural stabilizers, capping endurance gains
+      - text: they are recruited at every workload
         correct: false
-        why_wrong: Reverse-flips the adaptation; the cortisol catabolic track acts on contractile protein, not oxidative phosphorylation, so the named outcome here is not the adaptation cortisol primarily limits.
-      - text: CSA in trained oxidative fibers
+        why_wrong: Borrows the recruitment profile of Type I fibers, which do work at every intensity; Type II fibers sit at the high-threshold end, and recruitment order is not what decides how much protein a fiber has to lose.
+      - text: they use slow myosin isoforms only
         correct: false
-        why_wrong: Confuses a measurable outcome (CSA loss) with a limited adaptation (hypertrophy); cortisol-driven CSA decline hits Type II, not the oxidative fibers named here.
+        why_wrong: Names the marker that defines Type I fibers, so the statement contradicts the fiber type in the stem; isoform identity also says nothing about the size of the protein pool cortisol draws down.
 
   - id: ch04.cortisol.i04.q1
     item: ch04.cortisol.i04
@@ -131,14 +131,14 @@ questions:
     stem: A novice lifter's first week shows a small acute cortisol rise after each session with no strength loss; an elite lifter shows the same rise after each session and reports ongoing strength decline. Which interpretation best fits the elite pattern?
     locator: Adrenal Hormones > Cortisol > Resistance Exercise Responses of Cortisol
     options:
-      - text: chronic push tipped toward breakdown
+      - text: the excess is now chronic
         correct: true
-      - text: single spike alone ends gain
+      - text: any single rise is harmful
         correct: false
-        why_wrong: Treats every surge as a permanent block; in the novice pattern the same surge is part of normal remodeling, so a quit view fails.
-      - text: the hormone quit braking entirely
+        why_wrong: Reads one session's rise as the damaging agent, but the novice in the stem shows exactly the same rise and keeps her strength; an acute rise clears damaged protein and belongs to normal remodeling.
+      - text: cortisol quit clearing debris
         correct: false
-        why_wrong: Quashes phase swap; cortisol does not pivot to a wholly opposite job, sustained excess just overpowers the protein-synthesis balance.
+        why_wrong: Assumes the clean-up job switched off, when the chronic problem is the reverse; cortisol keeps removing protein and simply removes more than the athlete can rebuild, which is what drags strength down.
 
   - id: ch04.cortisol.i05.q1
     item: ch04.cortisol.i05
@@ -155,7 +155,7 @@ questions:
         why_wrong: 把生理振幅上緣當成警訊；皮質醇日夜節律擺動可達兩三倍，常模上界遠高於此基準。
       - text: 飆至 1500 nmol/L 須警覺
         correct: false
-        why_wrong: 把內分泌專科病理警訊的 1500 門檻當成訓練紅線；常模運動員皮質醇升高幅度遠低於此病理區。
+        why_wrong: 把門檻拉到源檔標定值的近兩倍；源檔只給 800 nmol/L 這一條警戒線，等升到這個數字才警覺，整段過度訓練的窗口都已經錯過。
 
   # ── Endocrinology Basics ──
   - id: ch04.endocrinology-basics.i02.q1
@@ -180,17 +180,17 @@ questions:
     dco: sf1.F.2
     lang: en
     cognitive: recall
-    stem: According to the general adaptation syndrome, in which sequence do the three stages of the stress response occur?
+    stem: In the general adaptation syndrome, what marks the resistance stage that follows the alarm reaction?
     locator: Introduction
     options:
-      - text: alarm, resistance, exhaustion
+      - text: performance rises past baseline
         correct: true
-      - text: flight, brace, slow collapse
+      - text: the stressor is withdrawn early
         correct: false
-        why_wrong: Names a single-phase sequence that mirrors perceived distress rather than the documented three stages; GAS proceeds through alarm, resistance, then exhaustion, not a flight-and-brace ladder.
-      - text: shock, push, slow burnout
+        why_wrong: Describes the coaching move that keeps an athlete out of the third stage rather than the stage itself; during resistance the training stress is still being applied and the body is adapting under it.
+      - text: adrenal reserves finally run dry
         correct: false
-        why_wrong: Treats shock as the entry stage and re-uses the middle slot for endurance under load; documented adaptation names resistance, not a sustained push that mirrors the entry term.
+        why_wrong: Jumps to the exhaustion stage, which is reached only when the stress is never lifted; resistance is the window where the athlete is coping well enough to exceed the starting level.
 
   - id: ch04.endocrinology-basics.i07.q1
     item: ch04.endocrinology-basics.i07
@@ -219,9 +219,9 @@ questions:
     options:
       - text: 調節游離荷爾蒙的可得比例與保護循環
         correct: true
-      - text: 主動攻擊目標細胞膜受器引發基因轉錄
+      - text: 維持荷爾蒙在結合態才具生物活性
         correct: false
-        why_wrong: 把結合蛋白誤當成主動訊號源；除 SHBG 等少數特例，結合蛋白本身不具攻擊受器引發轉錄的能力。
+        why_wrong: 把游離荷爾蒙假說整個倒過來；源檔寫的是多數荷爾蒙必須脫離結合蛋白、處於游離態才有活性，結合態是暫存與保護的形式而非作用形式。
       - text: 將荷爾蒙從血液主動運輸進細胞核內部
         correct: false
         why_wrong: 把結合蛋白與載體蛋白混為一談；結合蛋白的功能是循環層面的保護，不是把荷爾蒙送進細胞核。
@@ -308,9 +308,9 @@ questions:
       - text: lower 22 kDa pulse frequency only
         correct: false
         why_wrong: Inverts the direction; women show greater 22 kDa pulse amplitude at rest than men, so the lower-only framing is wrong.
-      - text: no sex difference at rest in 22 kDa
+      - text: bioactive GH is missing in women
         correct: false
-        why_wrong: Denies a documented sex difference; published resting profiles show women have larger 22 kDa amplitude pulses than men, so same-sex framing is wrong.
+        why_wrong: Erases a form that women do carry; the chapter reports resting bioactive GH climbing with resistance training in women, so the aggregate form is present rather than absent and is not what separates the sexes at rest.
 
   - id: ch04.growth-hormone.i02.q1
     item: ch04.growth-hormone.i02
@@ -377,9 +377,9 @@ questions:
       - text: 訓練前是否攝取大量蛋白質
         correct: false
         why_wrong: 歸因於蛋白質攝取；蛋白質影響 IGF-I 整體輸出但不決定運動後急性變化幅度。
-      - text: 訓練當日室溫與濕度的高低變化
+      - text: 訓練當下肝臟釋放 IGF-I 的速率
         correct: false
-        why_wrong: 引入無關的環境因素；IGF-I 對運動的急性反應主要取決於循環起始濃度。
+        why_wrong: 把肝臟當成急性反應的來源；源檔寫肝臟受 GH 刺激後要 8 至 24 小時才產生並釋放 IGF-I，運動後立刻量到的升幅來自脂肪與肌肉細胞的破壞，不是肝臟當下的速率。
 
   - id: ch04.igf.i06.q1
     item: ch04.igf.i06
@@ -391,9 +391,9 @@ questions:
     options:
       - text: 機械生長因子以自分泌方式作用不入血液
         correct: true
-      - text: 血液 IGF-I 在抽血後會被酶立即降解
+      - text: 肌肉間質液的 IGF-I 濃度與血中同步
         correct: false
-        why_wrong: 歸因於檢體處理；IGF-I 測定有標準處理流程，問題不在降解而在訊號本身不入血。
+        why_wrong: 假定間質液與血液是同一個池，剛好把題目要問的前提消掉；源檔說循環 IGF-I 上升不一定反映肌肉間質液或肌內的訊號，兩者可以脫鉤才是血液指標失準的原因。
       - text: IGF-I 必須在肝臟轉化才能進入肌纖維
         correct: false
         why_wrong: 把肝臟的角色與肌內自分泌混淆；IGF-I 不需要再經肝臟加工才能作用於肌纖維。
@@ -421,7 +421,7 @@ questions:
     dco: sf1.F.2
     lang: zh
     cognitive: application
-    stem: 阻力訓練課表中，欲讓急性血中睾固酮反應最大化，下列哪項休息時間的設定最能配合上述處方？
+    stem: 某課表已採深蹲、硬舉等大肌群動作並以 85 至 95% 1RM 進行多組訓練，欲讓急性血中睾固酮反應最大化，組間休息設定成下列何者最恰當？
     locator: How Can Athletes Manipulate the Endocrine System > To Increase Serum Testosterone Concentrations
     options:
       - text: 維持 30 至 60 秒的短組間休息
@@ -478,9 +478,9 @@ questions:
     options:
       - text: AR density rises after each training bout
         correct: true
-      - text: ligand-binding domain mutates
+      - text: AR transcripts collapse post-exercise
         correct: false
-        why_wrong: Reverses the direction of the early response; receptor number rises within one or two sessions, it does not drop.
+        why_wrong: Inverts the gene-expression direction; resistance training elevates, rather than suppresses, AR transcript levels in skeletal muscle.
       - text: testosterone spills over into estrogen
         correct: false
         why_wrong: Brings steroid conversion into a receptor-upregulation story; the adaptation is on the receptor side, not on hormone conversion.
@@ -493,14 +493,14 @@ questions:
     stem: An athlete runs heavy singles at one to two RM with five to seven minutes rest and shows no serum testosterone rise, yet gains strength over eight weeks. Which mechanism most plausibly explains the adaptation?
     locator: Hormonal Changes in Peripheral Blood
     options:
-      - text: α-AR density rises in trained fibers
+      - text: receptor state, not serum level, decides
         correct: true
-      - text: the HPA axis silences and LH output stops
+      - text: SHBG released a larger free fraction
         correct: false
-        why_wrong: Invokes adrenal medulla depletion for a low-volume, high-rest protocol; that protocol is the opposite of the chronic stress that drives depletion.
-      - text: cortisol suppresses all anabolic pathways
+        why_wrong: Stays on the serum side of the ledger; even a bigger free fraction is still a concentration story, and the chapter's point is that this protocol works through receptor number while circulating testosterone holds steady.
+      - text: the assay missed a brief serum spike
         correct: false
-        why_wrong: Overstates cortisol's reach; cortisol modulates mTOR antagonism but does not block every anabolic pathway in low-stress training.
+        why_wrong: Blames the measurement instead of accepting the finding; the chapter reports low-volume heavy work producing adaptation with circulating testosterone genuinely unchanged, which is exactly why receptor status carries the explanation.
 
   - id: ch04.receptor-mechanisms.i07.q1
     item: ch04.receptor-mechanisms.i07
@@ -529,12 +529,12 @@ questions:
     options:
       - text: extra AR availability lets each androgen act longer
         correct: true
-      - text: women produce testosterone at the same rate as men
+      - text: training raises binding affinity, not receptor count
         correct: false
-        why_wrong: Reverses the starting condition; women produce far less testosterone, which is exactly why receptor kinetics matter for compensation.
-      - text: women bypass testosterone by relying solely on IGF-I
+        why_wrong: 'Picks the lever the chapter rules out. Training moves maximum AR number; sensitivity stays put. The 1-hour female upregulation is about how many sites exist, not how firmly each one holds.'
+      - text: women rely primarily on IGF-I rather than testosterone signaling
         correct: false
-        why_wrong: Removes testosterone from the picture; women still use testosterone, they just amplify its effect through quicker receptor upregulation.
+        why_wrong: Names a peptide hormone as the female driver; the documented women-specific offset sits at the AR.
 
   # ── Testosterone ──
   - id: ch04.testosterone.i03.q1
@@ -564,29 +564,29 @@ questions:
     options:
       - text: 雄激素受器上調速度快可放大有限睾固酮效用
         correct: true
-      - text: 女性體內的睾固酮濃度事實上等同於男性
+      - text: 女性睾固酮可在血液中更高效地轉化為 DHT
         correct: false
-        why_wrong: 反轉實際濃度差；女性睾固酮濃度約為男性的十五至二十分之一，並不相當。
-      - text: 女性主要靠皮質醇提供合成代謝驅動訊號
+        why_wrong: 把 5α-reductase 的轉化誤當成受器放大的替代機制；女性肌肥大的主要解釋是受器上調速度，不是 DHT 轉化率差異。
+      - text: 皮質醇在女性阻力訓練中提供主要的合成代謝訊號
         correct: false
-        why_wrong: 把皮質醇當成合成代謝訊號源；皮質醇本質是分解代謝荷爾蒙，不能解釋肌肥大。
+        why_wrong: 皮質醇本質是分解代謝荷爾蒙；女性肌肥大依賴的是雄激素受器上調帶來的睾固酮利用效率，不是皮質醇訊號。
 
   - id: ch04.testosterone.i06.q1
     item: ch04.testosterone.i06
     dco: sf1.F.2
     lang: en
     cognitive: application
-    stem: Which combination of training variables most effectively produces an acute rise in serum testosterone during a resistance training session?
+    stem: An athlete squats and deadlifts at 90 percent of 1RM and keeps her rests to one minute, yet she performs a single set of each lift and sees no acute testosterone rise. Which change most directly supplies the element she is still missing?
     locator: How Can Athletes Manipulate the Endocrine System > To Increase Serum Testosterone Concentrations
     options:
-      - text: compound lifts using 85 to 95 percent 1RM
+      - text: do more sets per exercise
         correct: true
-      - text: single-joint isolation at half-max loading
+      - text: push each lift closer to 1RM
         correct: false
-        why_wrong: Substitutes low-load isolation; the testosterone response tracks large muscle mass plus high neural-metabolic demand, not light isolation.
-      - text: bodyweight circuits kept light with short rests
+        why_wrong: Adds intensity to a prescription that is already heavy enough; one maximal set still leaves total work far below the threshold, and load is not the variable this athlete leaves unsatisfied.
+      - text: move to single-joint machines
         correct: false
-        why_wrong: Brings endurance-circuit demands into a strength-endocrine question; that format targets a different hormonal profile entirely.
+        why_wrong: Trades away the recruited muscle mass that drives the response; isolating one joint cuts the motor units under work and removes a part of the stimulus that was already in place.
 
   - id: ch04.testosterone.i08.q1
     item: ch04.testosterone.i08
@@ -600,7 +600,7 @@ questions:
         correct: true
       - text: 訓練使睪丸失去對 LH 的反應能力
         correct: false
-        why_wrong: 反轉軸線適應的方向；LH 與 FSH 上升反映的是上游驅動增強，不是睪丸失去反應。
-      - text: 訓練後的睾固酮濃度其實大幅下降
+        why_wrong: 睪丸若真的對 LH 失去反應，靜息睾固酮應該往下掉；題幹寫的是小幅上升，末端仍在照訊號幹活。
+      - text: LH/FSH 同步上升反映性腺軸負回饋失效
         correct: false
-        why_wrong: 把小幅上升誤讀為下降；研究記錄的是小幅上升，不是負向變化。
+        why_wrong: 負回饋失效的樣子是促性腺激素一路攀高而末端產物追不上；這裡兩端同向、幅度都溫和，是整條軸調高了工作點而非調節鬆脫。
