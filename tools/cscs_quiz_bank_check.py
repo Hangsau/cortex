@@ -18,6 +18,14 @@ SOURCE_DIR = ROOT / "data" / "cscs"
 BANK_DIR = SOURCE_DIR / "_quiz_bank"
 COGNITIVE_LEVELS = ("recall", "application", "analysis")
 LANGS = ("zh", "en")
+# G15：比較限定詞。R3 是本考試的核心出題特徵——沒有這類詞的 application / analysis 題，
+# 幾乎一定是真假判斷題，干擾項一眼就死。中文用字面比對，英文用詞邊界避免 most 誤中 almost。
+QUALIFIERS_ZH = ("最", "首先", "優先", "第一步", "主要", "首要")
+QUALIFIERS_EN = re.compile(
+    r"\b(most|least|primary|primarily|best|greatest|first|highest|lowest|"
+    r"minimum|maximum|largest|smallest|main)\b",
+    re.IGNORECASE,
+)
 OPTION_COUNT = 3  # NSCA 官方樣題一律三選項；四選一是坊間題庫的習慣，不是本考試的格式
 TOLERANCE = 1  # 配題表允許的每格誤差
 
@@ -313,6 +321,15 @@ def check_bank(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
             elif len(stem) < 12 or not stem.endswith("？"):
                 fail(path, qid, "G6", "中文 stem 必須至少 12 字且以全形「？」結尾")
 
+            # G15：推理題的題幹必須要求排序而非判真假。recall 題不受此限。
+            if isinstance(stem, str) and cognitive in ("application", "analysis"):
+                has_qualifier = (
+                    bool(QUALIFIERS_EN.search(stem)) if lang == "en"
+                    else any(word in stem for word in QUALIFIERS_ZH)
+                )
+                if not has_qualifier:
+                    fail(path, qid, "G15", f"{cognitive} 題的題幹缺少比較限定詞（最／most／primary…）")
+
             # G14：否定題（EXCEPT / 何者不是）鑑別力低又容易漏看否定詞，每章至多 1 題。
             if isinstance(stem, str) and ("EXCEPT" in stem or "不是" in stem or "何者不" in stem):
                 negative_stems[chapter].append((path, qid))
@@ -362,6 +379,10 @@ def check_bank(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
                     fail(path, qid, "G1", f"選項 {index} 的 text 必須是非空字串")
                 if type(option.get("correct")) is not bool:
                     fail(path, qid, "G1", f"選項 {index} 的 correct 必須是布林值")
+
+                # G16：分號等於把兩個子句塞進一格，是為了湊長度而不是為了說清楚。
+                if isinstance(text, str) and (";" in text or "；" in text):
+                    fail(path, qid, "G16", f"選項 {index} 含分號，選項必須是單一片語")
 
                 # G5：每個非正解須有錯因，與自身選項的字元 Jaccard 不得 > 0.6。
                 if option.get("correct") is not True:
