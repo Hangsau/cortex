@@ -17,6 +17,37 @@ ROOT = Path(__file__).resolve().parent.parent
 SOURCE_DIR = ROOT / "data" / "cscs"
 BANK_DIR = SOURCE_DIR / "_quiz_bank"
 COGNITIVE_LEVELS = ("recall", "application", "analysis")
+LANGS = ("zh", "en")
+OPTION_COUNT = 3  # NSCA 官方樣題一律三選項；四選一是坊間題庫的習慣，不是本考試的格式
+TOLERANCE = 1  # 配題表允許的每格誤差
+
+
+def _allocation():
+    """章 → (總題數, recall, application, analysis, 英文題數)，來源是 cscs_quiz_spec.md 第六節。
+
+    配題直接複製該 domain 的官方認知層級配比，所以這張表改動前要先改規格，
+    不是反過來——規格是派工時送出去的那份，工具只是它的機器版本。
+    """
+    table = {}
+
+    def assign(chapters, total, recall, application, analysis, english):
+        for chapter in chapters:
+            table[chapter] = (total, recall, application, analysis, english)
+
+    def span(first, last):
+        return [f"ch{n:02d}" for n in range(first, last + 1)]
+
+    assign(span(1, 7), 14, 4, 8, 2, 5)
+    assign(["ch08"], 40, 12, 24, 4, 13)
+    assign(span(9, 11), 8, 2, 4, 2, 3)
+    assign(span(12, 13), 22, 3, 12, 7, 7)
+    assign(span(14, 16), 19, 3, 10, 6, 6)
+    assign(span(17, 22), 15, 1, 7, 7, 5)
+    assign(span(23, 24), 16, 11, 5, 0, 5)
+    return table
+
+
+ALLOCATION = _allocation()
 
 
 class StrictLoader(yaml.SafeLoader):
@@ -89,13 +120,64 @@ def novel_chars(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
         used = set()
         try:
             with path.open(encoding="utf-8") as handle:
-                walk_strings(yaml.safe_load(handle), used)
+                data = yaml.safe_load(handle)
         except (OSError, UnicodeError, yaml.YAMLError):
             continue
+        # 英文題的 why_wrong 仍可能寫中文，但題幹與選項是英文；整份掃會把英文題裡
+        # 引用的專有名詞漢字一併倒進來。只掃 lang != en 的題目。
+        if isinstance(data, dict) and isinstance(data.get("questions"), list):
+            data = [
+                question for question in data["questions"]
+                if not (isinstance(question, dict) and question.get("lang") == "en")
+            ]
+        walk_strings(data, used)
         unseen = used - corpus
         if unseen:
             result[path.name] = "".join(sorted(unseen))
     return result
+
+
+def load_dco(source_dir: Path = SOURCE_DIR):
+    """G12 用：回傳 (合法 dco id 集合, domain 前綴 → 該 domain 涵蓋的章節集合)。
+
+    dco id 接受 task 層（sf1.A）與 knowledge 層（sf1.A.1）兩種粒度；章節歸屬取自
+    `_domains.yaml` 的 chapters 與 also——`also` 是「這章也被該 domain 考到」的次要歸屬，
+    不納入的話跨章主題（例如營養章被課程設計考到）會被誤判成填錯 dco。
+    """
+    ids = set()
+    chapters = defaultdict(set)
+    try:
+        with (source_dir / "_dco.yaml").open(encoding="utf-8") as handle:
+            dco = yaml.safe_load(handle)
+        with (source_dir / "_domains.yaml").open(encoding="utf-8") as handle:
+            domains = yaml.safe_load(handle)
+    except (OSError, UnicodeError, yaml.YAMLError):
+        return None, None
+
+    if not isinstance(dco, dict) or not isinstance(dco.get("domains"), list):
+        return None, None
+    for domain in dco["domains"]:
+        if not isinstance(domain, dict) or not isinstance(domain.get("tasks"), list):
+            continue
+        for task in domain["tasks"]:
+            if not isinstance(task, dict) or not isinstance(task.get("id"), str):
+                continue
+            ids.add(task["id"])
+            for knowledge in task.get("knowledge") or []:
+                if isinstance(knowledge, dict) and isinstance(knowledge.get("id"), str):
+                    ids.add(knowledge["id"])
+
+    if not isinstance(domains, dict) or not isinstance(domains.get("domains"), list):
+        return None, None
+    for domain in domains["domains"]:
+        if not isinstance(domain, dict) or not isinstance(domain.get("id"), str):
+            continue
+        prefix = domain["id"].split("-", 1)[0]
+        for key in ("chapters", "also"):
+            for chapter in domain.get(key) or []:
+                if isinstance(chapter, str):
+                    chapters[prefix].add(chapter)
+    return ids, chapters
 
 
 def check_bank(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
@@ -105,6 +187,8 @@ def check_bank(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
     chapters = set()
     stems_seen = {}
     chapter_questions = defaultdict(list)
+    negative_stems = defaultdict(list)
+    dco_ids, dco_chapters = load_dco(source_dir)
 
     def fail(path, question_id, rule, explanation):
         try:
@@ -185,7 +269,24 @@ def check_bank(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
             cognitive = question.get("cognitive")
             if cognitive not in COGNITIVE_LEVELS:
                 fail(path, qid, "G10", "cognitive 必須是 recall / application / analysis")
-            chapter_questions[chapter].append((path, qid, cognitive))
+
+            # G13：語言標記；章內中英題數於全部題目讀完後驗收。
+            lang = question.get("lang")
+            if lang not in LANGS:
+                fail(path, qid, "G13", "lang 必須是 zh 或 en")
+            chapter_questions[chapter].append((path, qid, cognitive, lang))
+
+            # G12：dco 必須是 _dco.yaml 裡真實存在的 task 或 knowledge id，
+            # 且其 domain 要涵蓋本章——否則「運動科學 48 題」可能全擠在肌肉解剖。
+            dco = question.get("dco")
+            if dco_ids is None:
+                fail(path, qid, "G12", "無法讀取 _dco.yaml / _domains.yaml，G12 未執行")
+            elif not isinstance(dco, str) or dco not in dco_ids:
+                fail(path, qid, "G12", f"dco 不存在於 _dco.yaml：{dco}")
+            else:
+                prefix = dco.split(".", 1)[0]
+                if chapter not in dco_chapters.get(prefix, set()):
+                    fail(path, qid, "G12", f"{dco} 所屬的 {prefix} 不涵蓋 {chapter}")
 
             # G7：item 必須存在於對應章節，locator 必須逐字相同。
             item_id = question.get("item")
@@ -204,9 +305,20 @@ def check_bank(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
             # （膝關節、第一類槓桿），寫那個主題的題目必然會用到那幾個字。真正要擋的是
             # 「把 q 加個『是什麼？』就當題幹」，那是扣掉 q 之後所剩無幾的那種。
             stem = question.get("stem")
-            if not isinstance(stem, str) or len(stem) < 12 or not stem.endswith("？"):
-                fail(path, qid, "G6", "stem 必須至少 12 字且以「？」結尾")
-            if item is not None:
+            if not isinstance(stem, str) or not stem.strip():
+                fail(path, qid, "G6", "stem 必須是非空字串")
+            elif lang == "en":
+                if len(stem.split()) < 8 or not stem.endswith("?"):
+                    fail(path, qid, "G6", "英文 stem 必須至少 8 個詞且以「?」結尾")
+            elif len(stem) < 12 or not stem.endswith("？"):
+                fail(path, qid, "G6", "中文 stem 必須至少 12 字且以全形「？」結尾")
+
+            # G14：否定題（EXCEPT / 何者不是）鑑別力低又容易漏看否定詞，每章至多 1 題。
+            if isinstance(stem, str) and ("EXCEPT" in stem or "不是" in stem or "何者不" in stem):
+                negative_stems[chapter].append((path, qid))
+
+            # 扣掉來源 q 的自帶內容檢查只對中文題成立：來源 q 是中文，英文題不會包含它。
+            if item is not None and lang != "en":
                 source_q = item.get("q")
                 if not isinstance(source_q, str) or not source_q:
                     fail(path, qid, "G7", "來源 item 缺少非空字串 q，無法驗收 G6")
@@ -225,13 +337,13 @@ def check_bank(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
                 else:
                     stems_seen[key] = qid
 
-            # G1：恰好四個選項、恰好一個布林 true，並驗收選項基本型別。
+            # G1：恰好三個選項、恰好一個布林 true，並驗收選項基本型別。
             options = question.get("options")
             if not isinstance(options, list):
-                fail(path, qid, "G1", "options 必須是四個選項的清單")
+                fail(path, qid, "G1", f"options 必須是 {OPTION_COUNT} 個選項的清單")
                 continue
-            if len(options) != 4:
-                fail(path, qid, "G1", f"選項數量為 {len(options)}，必須恰好 4 個")
+            if len(options) != OPTION_COUNT:
+                fail(path, qid, "G1", f"選項數量為 {len(options)}，必須恰好 {OPTION_COUNT} 個")
             correct_indices = [
                 index for index, option in enumerate(options)
                 if isinstance(option, dict) and option.get("correct") is True
@@ -259,19 +371,19 @@ def check_bank(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
                     elif isinstance(text, str) and jaccard(why_wrong, text) > 0.6:
                         fail(path, qid, "G5", f"干擾項 {index} 的錯因重疊率 {jaccard(why_wrong, text):.3f} > 0.6")
 
-            if len(options) != 4 or not valid_texts:
+            if len(options) != OPTION_COUNT or not valid_texts:
                 continue
             texts = [option["text"] for option in options]
             lengths = [len(text) for text in texts]
 
-            # G2：正解長度不得超過其餘三個選項最長者的 1.15 倍。
+            # G2：正解長度不得超過其餘兩個選項最長者的 1.15 倍。
             if len(correct_indices) == 1:
                 correct_index = correct_indices[0]
                 other_max = max(length for i, length in enumerate(lengths) if i != correct_index)
                 if lengths[correct_index] * 100 > other_max * 115:
                     fail(path, qid, "G2", f"正解長度 {lengths[correct_index]} > 干擾項最大長度 {other_max} × 1.15")
 
-            # G3：四個選項是完整母體；使用母體標準差 / 平均，門檻 0.4。
+            # G3：三個選項是完整母體；使用母體標準差 / 平均，門檻 0.4。
             cv = pstdev(lengths) / mean(lengths)
             if cv > 0.4:
                 fail(path, qid, "G3", f"選項長度變異係數 {cv:.3f} > 0.4")
@@ -280,18 +392,45 @@ def check_bank(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
             if max(lengths) > min(lengths) * 2:
                 fail(path, qid, "G4", f"最長選項 {max(lengths)} > 最短選項 {min(lengths)} × 2.0")
 
-            # G9：逐一檢查全部六組選項配對，字元 Jaccard 不得 > 0.6。
-            for left, right in combinations(range(4), 2):
+            # G9：逐一檢查全部三組選項配對，字元 Jaccard 不得 > 0.6。
+            for left, right in combinations(range(OPTION_COUNT), 2):
                 overlap = jaccard(texts[left], texts[right])
                 if overlap > 0.6:
                     fail(path, qid, "G9", f"選項 {left + 1} / {right + 1} 的重疊率 {overlap:.3f} > 0.6")
 
-    # G10：按章彙總，恰好 40% 可通過；違規章的 recall 題逐題列出。
-    for chapter, rows in chapter_questions.items():
-        recall_rows = [row for row in rows if row[2] == "recall"]
-        if len(recall_rows) * 5 > len(rows) * 2:
-            for path, qid, _ in recall_rows:
-                fail(path, qid, "G10", f"{chapter} 的 recall 比例 {len(recall_rows)}/{len(rows)} > 40%")
+    # G10 / G13：按章彙總對照配題表。誤差容許 ±1 題，逐格回報差在哪裡。
+    # 章沒寫完就會亮紅燈，這是刻意的——配題表是驗收基準不是建議值，
+    # 差 3 題的章節和完全沒寫的章節一樣都還沒過。
+    for chapter, rows in sorted(chapter_questions.items()):
+        target = ALLOCATION.get(chapter)
+        if target is None:
+            fail(BANK_DIR / f"{chapter}.yaml", "-", "G10", f"{chapter} 不在配題表內")
+            continue
+        expected_total, *expected_levels, expected_en = target
+        if abs(len(rows) - expected_total) > TOLERANCE:
+            fail(
+                BANK_DIR / f"{chapter}.yaml", "-", "G10",
+                f"{chapter} 共 {len(rows)} 題，配題表要求 {expected_total} 題（±{TOLERANCE}）",
+            )
+        for level, expected in zip(COGNITIVE_LEVELS, expected_levels):
+            actual = sum(1 for row in rows if row[2] == level)
+            if abs(actual - expected) > TOLERANCE:
+                fail(
+                    BANK_DIR / f"{chapter}.yaml", "-", "G10",
+                    f"{chapter} 的 {level} 有 {actual} 題，配題表要求 {expected} 題（±{TOLERANCE}）",
+                )
+        actual_en = sum(1 for row in rows if row[3] == "en")
+        if abs(actual_en - expected_en) > TOLERANCE:
+            fail(
+                BANK_DIR / f"{chapter}.yaml", "-", "G13",
+                f"{chapter} 的英文題有 {actual_en} 題，配題表要求 {expected_en} 題（±{TOLERANCE}）",
+            )
+
+    # G14：否定題每章至多 1 題。語料 47 題裡只有 2 題是 EXCEPT，比例本來就低。
+    for chapter, rows in sorted(negative_stems.items()):
+        if len(rows) > 1:
+            for path, qid in rows:
+                fail(path, qid, "G14", f"{chapter} 有 {len(rows)} 題否定題，每章至多 1 題")
 
     return errors, total, len(chapters)
 
