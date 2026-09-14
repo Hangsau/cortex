@@ -58,13 +58,13 @@ def _allocation():
     def span(first, last):
         return [f"ch{n:02d}" for n in range(first, last + 1)]
 
-    assign(span(1, 7), 14, 4, 8, 2, 5)
-    assign(["ch08"], 40, 12, 24, 4, 13)
-    assign(span(9, 11), 8, 2, 4, 2, 3)
-    assign(span(12, 13), 22, 3, 12, 7, 7)
-    assign(span(14, 16), 19, 3, 10, 6, 6)
-    assign(span(17, 22), 15, 1, 7, 7, 5)
-    assign(span(23, 24), 16, 11, 5, 0, 5)
+    assign(span(1, 7), 35, 10, 20, 5, 13)
+    assign(["ch08"], 100, 30, 60, 10, 33)
+    assign(span(9, 11), 20, 5, 10, 5, 8)
+    assign(span(12, 13), 55, 8, 30, 17, 18)
+    assign(span(14, 16), 48, 8, 25, 15, 15)
+    assign(span(17, 22), 38, 3, 18, 17, 13)
+    assign(span(23, 24), 40, 28, 12, 0, 13)
     return table
 
 

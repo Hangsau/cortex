@@ -20,8 +20,8 @@ sys.path.insert(0, str(ROOT / "tools"))
 from cscs_quiz_bank_check import ALLOCATION  # noqa: E402
 
 # R6 的測驗組合題下限，來源是 cscs_quiz_spec.md 第六節；驗收工具驗不到，靠 prompt 交代。
-BATTERY_MINIMUM = {**{f"ch{n:02d}": 6 for n in (12, 13)},
-                   **{f"ch{n:02d}": 4 for n in range(17, 23)}}
+BATTERY_MINIMUM = {**{f"ch{n:02d}": 15 for n in (12, 13)},
+                   **{f"ch{n:02d}": 10 for n in range(17, 23)}}
 
 
 def dco_list(chid: str) -> str:
