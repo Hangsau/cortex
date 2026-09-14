@@ -1,5 +1,43 @@
 # HANDOFF — my-site (Cortex)
 
+## CSCS 題庫重寫：ch01／ch02 完成，ch03–ch24 串行中（2026-09-14）
+
+依使用者「先擴充題庫再接讀書器、中英都要、合併成一份、按 CSCS 出題邏輯」的指示，把
+`data/cscs/_quiz_bank/chNN.yaml` 從四選項改寫為 NSCA 實際的**三選項**，並照官方 DCO 的
+認知層級配比（全卷 recall 45／application 97／analysis 48）逐章配題。取材只准用
+`data/cscs/chNN.yaml` 的 1557 條知識單位，每題帶 `item` / `dco` / `lang` / `locator`。
+
+**目前狀態**：ch01（`463eeee`）、ch02（`845e458`）各 14 題、19 道閘全綠並人工逐題抽驗過。
+ch03–ch24 尚未完成，照章號串行，每章跑完兩輪 + 人工抽驗 + commit 才派下一章。
+
+發包管道是 `claude-m3 -p --permission-mode bypassPermissions < .prompts/chNN-quiz.md`
+（MiniMax-M3，不吃 Claude 配額；`.prompts/` 已 gitignore）。每章兩輪，中間不省：
+
+```
+python tools/cscs_quiz_make_prompt.py chNN            # 第一輪：出題
+python tools/cscs_quiz_make_prompt.py chNN --review   # 第二輪：只抓爛干擾項
+python -X utf8 tools/cscs_quiz_bank_check.py          # 19 道閘，該章要 0 錯
+```
+
+**這輪最重要的結論，接手前先讀**：`tools/cscs_quiz_spec.md` 第三節末的「兩輪發包」。
+ch01 試作證實**寫在散文裡而沒有對應閘門的規則，發包出去一律不會生效**；同一份 prompt
+裡有閘門的兩項當場被改好，純散文的四項一項都沒動。所以新規則一律做成閘（本輪新增
+G17 希臘字母、G18 混用度量單位、G19 電報體 `why_wrong`，並把 G4 從 2.0 收到 1.5）。
+但**過閘 ≠ 合格**：ch02 全綠之後人工逐題看仍抓到三題（只有正解是術語、正解只是把題幹
+換句話說、選項語法不平行）。對這類機器驗不到的缺陷，有效的做法是**把具體例子點名寫進
+`tools/cscs_quiz_review_prompt.md`**——審查者對 prompt 裡點名的每個例子都動手改了，
+對通則式的散文則否。新抓到的缺陷照此辦理，不要寫成通則。
+
+英文題的選項受 G9（兩兩字元 Jaccard ≤ 0.6）限制，短片語幾乎必然超標，手改時直接寫
+一支窮舉腳本掃候選組合、同時算 G2/G3/G4/G9 再挑，比逐句試快得多。
+
+**接下來**：ch03 → ch24 走完（第一輪已派 ch03）；之後才是把 287 題的舊
+`CSCS_Full_QuestionBank.md` 併進來（對映 item id + dco、轉三選項、不合規的丟掉，併完
+刪掉 `raw/notes/` 的原檔），最後才接 `cscs-quest`——使用者明確要求這個順序。接讀書器時
+注意 `cscs_quest/catalog.py` 從沒載過 `_quiz_bank`，它的 `validate_question` 是另一套
+schema（`kind` 只收 recall/choice、2–8 個選項、`correct` 是整數索引）。
+另有待辦：本庫沒有常模表，spec R7 目前全面禁止百分位數字，R6 的測驗組合題因此少一段。
+
 ## 跑步詳解已部署，合作試行結案（2026-09-14）
 
 沿使用者「再一次合作看看，繼續下一部分」及既有發布授權，完成Neumann第16章跑步34節／7,644中文字，保留原四錨點及guide契約。Neumann第1–16章均已加深；全讀本33章、846節／207,045字。共用版型、字型、CSS／JS五檔與基線804700c完全相同。
