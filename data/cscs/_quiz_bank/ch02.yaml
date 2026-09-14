@@ -2,191 +2,251 @@ meta:
   chapter: ch02
   source: data/cscs/ch02.yaml
 questions:
-  # 干擾項對照：ch02.levers.i04、i05、i07（肌肉力矩臂與外部阻力臂的區別）。
-  - id: ch02.joint-biomechanics.i05.q1
-    item: ch02.joint-biomechanics.i05
-    cognitive: application
-    stem: 在伸膝模型中，移除髕骨後肌腱更靠近膝關節旋轉軸；若股四頭肌拉力保持相同，最可能出現哪項變化？
-    locator: 第 2 章 · Knees
-    options:
-      - text: 肌腱路徑變短，便能以相同拉力產生更大的旋轉效果
-        correct: false
-        why_wrong: 把傳力路徑較短當成省力的條件；關節力矩取決於作用線到支點的垂直距離，肌腱靠近軸心反而失去槓桿優勢。
-      - text: 外部負重沒有改變，因此肌肉對關節的力矩也不變
-        correct: false
-        why_wrong: 混淆外部阻力與肌肉產生的旋轉效果；即使負重固定，內部施力的幾何條件改變，肌肉仍無法維持原有力矩。
-      - text: 肌肉力矩臂縮短，使同樣拉力產生的伸膝力矩減少
-        correct: true
-      - text: 施力位置越靠近支點，機械利益越高而伸膝能力越強
-        correct: false
-        why_wrong: 將縮短阻力臂的省力效果套到肌肉側；機械利益以肌肉力臂為分子，這一側縮短會使比值下降。
-
-  # 干擾項對照：ch02.levers.i06、ch02.resistance-sources.i01、ch02.work-power.i01。
-  - id: ch02.levers.i05.q1
-    item: ch02.levers.i05
-    cognitive: application
-    stem: 運動員手持啞鈴，前臂斜向上且保持靜止；計算啞鈴重力對肘關節的力矩時，應採用哪個距離？
+  # ── 槓桿系統（sf1.C 生物力學）──
+  - id: ch02.levers.i01.q1
+    item: ch02.levers.i01
+    dco: sf1.C.2
+    lang: zh
+    cognitive: recall
+    stem: 第一類槓桿在結構上的最明顯特徵為何？
     locator: 第 2 章 · Levers of the Musculoskeletal System
     options:
-      - text: 肘部支點沿著前臂量至握把的長度
-        correct: false
-        why_wrong: 把肢段本身的長度當成力矩臂；前臂傾斜時，這段斜向距離並不垂直於重力作用線。
-      - text: 重量作用線到肘關節的水平間距
+      - text: 支點居於肌力與阻力兩端之間
         correct: true
-      - text: 啞鈴重心在垂直方向高出肘部的距離
+      - text: 阻力落在支點和肌腱附著端的中間
         correct: false
-        why_wrong: 將舉起高度與旋轉所需的幾何距離混為一談；垂直高度可用於計算重力位能變化，此處須取與向下重力垂直的距離。
-      - text: 肌腱拉力方向與關節軸間的垂直間隔
+        why_wrong: 第二類的阻力在中段而非支點在中段；第一類的判定依據是支點居於肌力與阻力之間。
+      - text: 肌腱與阻力同側，且肌腱靠近支點
         correct: false
-        why_wrong: 量到了肌肉側的力矩臂；本題要計算外部重量的作用，必須從重力的作用線量至肘軸，不能改用肌腱的作用線。
+        why_wrong: 第三類的特徵是肌力與阻力同側且肌腱靠近支點；題幹問的是支點居中，而非肌腱與阻力的相對位置。
 
-  # 干擾項對照：ch02.musculature.i04、i05、i06、i08（主動、拮抗、協同作用與固定端）。
-  - id: ch02.musculature.i07.q1
-    item: ch02.musculature.i07
-    cognitive: application
-    stem: 蹲起時股直肌協助伸膝，卻也會對髖部產生屈曲作用；臀大肌的同步活動主要應如何解釋？
-    locator: 第 2 章 · Skeletal Musculature
+  - id: ch02.work-power.i05.q1
+    item: ch02.work-power.i05
+    dco: sf1.C.2
+    lang: zh
+    cognitive: recall
+    stem: 書中表2.1所列「一磅」換算成牛頓的係數為何？
+    locator: 第 2 章 · Positive Work and Power
     options:
-      - text: 臀部肌群加強髖屈，使兩塊肌肉拉動方向一致
-        correct: false
-        why_wrong: 把協助完成動作誤解為在每個關節都同向施力；本題需要抵消雙關節肌在髖部的屈曲效果，才能順利站起。
-      - text: 以屈膝力矩抑制腿部伸直，保護關節避免過伸
-        correct: false
-        why_wrong: 套用了拮抗肌在快速動作末段煞車的角色；此處臀大肌的協同作用在髖部，不是以膝屈來阻止蹲起所需的膝伸。
-      - text: 固定骨盆後使股直肌改為髖伸，同時協助起立
-        correct: false
-        why_wrong: 把較固定端的變換誤當成關節作用反轉；改變哪一端移動不會讓股直肌的髖屈力矩自動變成伸展，仍須髖伸肌配合。
-      - text: 以髖部伸展抵消屈曲，讓膝伸與起身順利配合
+      - text: 4.448 N
         correct: true
+      - text: 9.807 N
+        correct: false
+        why_wrong: 把公斤力換算成牛頓的常數當成磅到牛頓的係數；書中表2.1的同一張表確實有 kgf → N，但這不是 lb → N。
+      - text: 0.454 N
+        correct: false
+        why_wrong: 把磅換算成公斤的常數直接當作牛頓數值；缺少乘上 9.807 m/s² 的重力加速度。
 
-  # 干擾項對照：ch02.planes.i01、i02、i03、i05（不同平面與關節動作的需求）。
-  - id: ch02.planes.i06.q1
-    item: ch02.planes.i06
+  - id: ch02.strength-factors.i07.q1
+    item: ch02.strength-factors.i07
+    dco: sf1.A.2
+    lang: en
+    cognitive: recall
+    stem: In which type of muscle action does the muscle produce force without any change in length?
+    locator: 第 2 章 · Joint Angular Velocity
+    options:
+      - text: an isometric hold against a fixed bar
+        correct: true
+      - text: concentric work while the belly shortens
+        correct: false
+        why_wrong: Picks the phase where fibers pull the joint through its range; force there arrives with visible shortening, which the stem rules out.
+      - text: eccentric action, muscle gives way slowly
+        correct: false
+        why_wrong: Picks the phase where the load wins and fibers stretch under tension; that yielding is still a change in muscle length.
+
+  - id: ch02.joint-biomechanics.i08.q1
+    item: ch02.joint-biomechanics.i08
+    dco: sf1.D.2
+    lang: zh
+    cognitive: recall
+    stem: 書中所列阻力訓練的傷害發生率，每千小時大約為多少次？
+    locator: '第 2 章 · Joint Biomechanics: Concerns in Resistance Training'
+    options:
+      - text: 平均每千小時約四件傷害
+        correct: true
+      - text: 全季賽事約二十件傷害
+        correct: false
+        why_wrong: 把單一賽季總件數當成每千小時發生率；賽季總件數與時率是完全不同的統計量。
+      - text: 職業足球員每千小時上百件傷害
+        correct: false
+        why_wrong: 把團隊運動等高傷害率活動的數量級搬到阻力訓練；書中強調阻力訓練屬於低傷害率運動。
+
+  # ── 動態力臂（sf1.C 生物力學）──
+  - id: ch02.levers.i06.q1
+    item: ch02.levers.i06
+    dco: sf1.C.2
+    lang: zh
     cognitive: application
-    stem: 影片分析顯示投擲選手需要加強肩部的內旋與外旋；依關節動作的特異性，哪個訓練方向最符合這項需求？
+    stem: 手持啞鈴做彎舉時，啞鈴對肘關節的阻力矩在哪個前臂位置最大？
+    locator: 第 2 章 · Levers of the Musculoskeletal System
+    options:
+      - text: 前臂與地面平行，啞鈴遠離肘關節時
+        correct: true
+      - text: 前臂向上舉至垂直，指尖朝向天花板時
+        correct: false
+        why_wrong: 假設上舉到頂阻力矩最大；前臂朝上垂直時啞鈴與肘關節幾乎同一水平線，阻力臂接近零。
+      - text: 前臂自然下垂於身側，啞鈴貼近大腿時
+        correct: false
+        why_wrong: 把起始位置當成阻力矩最大；前臂下垂時啞鈴作用線大致通過肘關節旋轉軸，阻力臂極短。
+
+  # ── 平面（sf1.C 生物力學）──
+  - id: ch02.planes.i01.q1
+    item: ch02.planes.i01
+    dco: sf1.C.1
+    lang: en
+    cognitive: application
+    stem: A sprinter accelerates down the track with hips and knees extending in a forward-backward direction. In which plane does this lower-body action primarily occur?
     locator: 第 2 章 · Anatomical Planes and Major Body Movements
     options:
-      - text: 安排肩部旋轉阻力練習，涵蓋橫切面的動作
+      - text: sagittal
         correct: true
-      - text: 增加站姿側平舉的負荷，以冠狀面的外展取代
+      - text: frontal
         correct: false
-        why_wrong: 把同一關節的其他動作當成等效刺激；側向抬臂主要訓練外展，增加重量不能取代題目指定的內外旋需求。
-      - text: 提高向前抬臂的阻力，用矢狀面屈曲涵蓋旋轉
+        why_wrong: Names the plane that divides the body into front and back halves; sprint action is forward-backward, not side-to-side.
+      - text: transverse
         correct: false
-        why_wrong: 混淆肩屈與肩旋轉；兩者雖然都由肩部完成，主要平面與動作方向不同，選擇負荷前須先對準目標動作。
-      - text: 加重站立槓鈴彎舉，藉肘部屈曲補足肩部需求
-        correct: false
-        why_wrong: 將上肢整體變強視為已涵蓋每個關節功能；彎舉以肘屈為主，不能據此認定已訓練投擲所需的肩內外旋。
+        why_wrong: Names the plane that divides upper and lower halves and governs rotation; hip and knee action is linear, not rotational.
 
-  # 干擾項對照：ch02.resistance-sources.i01、ch02.work-power.i08（重力與加速力的計算）。
+  # ── 拮抗肌（sf1.C 肌肉角色）──
+  - id: ch02.musculature.i05.q1
+    item: ch02.musculature.i05
+    dco: sf1.C.3
+    lang: zh
+    cognitive: application
+    stem: 投擲末期，肱二頭肌對剛完成伸肘的前臂產生作用的主要目的為何？
+    locator: 第 2 章 · Skeletal Musculature
+    options:
+      - text: 在動作末段煞車，保護關節免受衝擊
+        correct: true
+      - text: 提供向心加速，協助把球推得更遠
+        correct: false
+        why_wrong: 假設末段需要更多主動力；此時前臂已在極高速度下延伸，再加速並非肌力可及，反而應減速。
+      - text: 預先啟動準備下一投的向心收縮
+        correct: false
+        why_wrong: 把拮抗肌的角色誤當成下一動作的準備；末段的作用是煞車與穩定，不是預先啟動向心收縮。
+
+  # ── 彈性阻力（sf1.C 阻力來源）──
+  - id: ch02.resistance-sources.i06.q1
+    item: ch02.resistance-sources.i06
+    dco: sf1.C.2
+    lang: zh
+    cognitive: application
+    stem: 與人體肌力曲線相比，彈力帶最主要的缺點是什麼？
+    locator: 第 2 章 · Elasticity
+    options:
+      - text: 末端阻力最大，但多數肌群末端力量最弱
+        correct: true
+      - text: 阻力隨動作一直線下降，需中途加力
+        correct: false
+        why_wrong: 把彈性阻力曲線的方向顛倒；彈力帶阻力隨拉伸距離增加，並非隨動作下降。
+      - text: 阻力完全不受拉伸距離影響，與橡皮筋不同
+        correct: false
+        why_wrong: 把彈力帶當作不受距離影響的器械；彈性阻力定義就是隨拉伸距離增加，這條假設違背定義。
+
+  # ── 雙關節肌（sf1.C 肌肉角色）──
+  - id: ch02.musculature.i07.q1
+    item: ch02.musculature.i07
+    dco: sf1.C.3
+    lang: en
+    cognitive: application
+    stem: During a heavy squat the rectus femoris pulls the shank up but also bends the hip. Which muscle most needs to contract at the same time to keep the trunk upright?
+    locator: 第 2 章 · Skeletal Musculature
+    options:
+      - text: gluteus maximus
+        correct: true
+      - text: tibialis anterior
+        correct: false
+        why_wrong: this muscle dorsiflexes the ankle; it has no action at the hip and so cannot oppose hip flexion caused by the rectus femoris during the squat.
+      - text: gastrocnemius
+        correct: false
+        why_wrong: this muscle plantarflexes the ankle; its actions are at the ankle and knee and do not include hip extension, so it cannot directly oppose the rectus femoris at the hip.
+
+  # ── 慣性（sf1.C 阻力來源）──
   - id: ch02.resistance-sources.i03.q1
     item: ch02.resistance-sources.i03
+    dco: sf1.C.2
+    lang: zh
     cognitive: application
-    stem: 質量一百公斤的槓鈴正以每秒平方兩公尺向上加速，取重力加速度為每秒平方九點八公尺且忽略其他外力，運動員須施加多大的向上力？
+    stem: 爆發上搏的加速段，運動員對槓鈴的向上施力最主要必須包含哪個分量？
     locator: 第 2 章 · Inertia
     options:
-      - text: 九百八十牛頓，僅將槓片質量換算成重量
-        correct: false
-        why_wrong: 把支撐重量所需的力當成加速時的全部需求；只抵銷重力會使合力為零，還須額外提供向上的加速分量。
-      - text: 兩百牛頓，只取質量乘上向上的加速度
-        correct: false
-        why_wrong: 將合力誤認為雙手施力；質量乘加速度得到的是向上施力扣除重力後的結果，不能省略承重所需的部分。
-      - text: 七百八十牛頓，從承重需求扣除慣性分量
-        correct: false
-        why_wrong: 把向上移動但正在減速的情況套到本題；題目給的是向上加速度，運動員施力應大於重量，不能從重量中減去加速需求。
-      - text: 一千一百八十牛頓，把重力與加速所需力相加
+      - text: 對抗重力加上向上加速度的慣性分量
         correct: true
+      - text: 只對抗槓鈴靜重，讓合力恰為零
+        correct: false
+        why_wrong: 把等速托住當成加速時的需求；合力為零時槓鈴並未向上加速，無法完成爆發上搏的加速段。
+      - text: 略小於槓鈴重量，由拮抗肌協助煞車
+        correct: false
+        why_wrong: 套用下放階段的力學；下放是減速（施力小於重量），但爆發上搏的加速段需要施力大於重量。
 
-  # 干擾項對照：ch02.resistance-sources.i05、ch02.work-power.i02（流體阻力與功率定義）。
-  - id: ch02.resistance-sources.i04.q1
-    item: ch02.resistance-sources.i04
-    cognitive: analysis
-    stem: 比較摩擦制動式腳踏車測功計的兩段穩定踩踏，若摩擦係數與接觸面壓緊力固定，第二段滑動速度較高，阻力與功率輸出應如何改變？
-    locator: 第 2 章 · Friction
-    options:
-      - text: 滑動阻力跟著增大，因而需要更高的做功速率
-        correct: false
-        why_wrong: 套用了流體器械的速度依賴特性；本題採滑動摩擦模型，係數與法向力固定時，提高速度本身不會增加摩擦力。
-      - text: 接觸面摩擦保持原值，因此每秒做功也維持不變
-        correct: false
-        why_wrong: 把阻力固定當成功率固定；相同的力在每秒推進更長距離時，做功速率仍會上升。
-      - text: 摩擦力大致不變，但速度提高使功率輸出增加
-        correct: true
-      - text: 踏得越快所需阻力越小，功率輸出因此保持固定
-        correct: false
-        why_wrong: 反向套用功率等於力乘速度，先假定功率受控才令阻力下降；題目固定的是摩擦條件，沒有恆定功率控制的前提。
-
-  - id: ch02.size-strength.i01.q1
-    item: ch02.size-strength.i01
-    cognitive: analysis
-    stem: 一位運動員的體重增加百分之十五，同一肌力測驗的成績增加百分之十；與訓練前相比，應如何判斷他的肌力體重比？
-    locator: 第 2 章 · Strength-to-Mass Ratio
-    options:
-      - text: 肌力成績已有進步，故相對力量也提高一成
-        correct: false
-        why_wrong: 把絕對肌力的增幅直接當成比值的增幅；分母的體重也變大，而且增加比例高於分子，不能只看測驗成績。
-      - text: 每單位體重可用力量減少，因為增重比例較大
-        correct: true
-      - text: 肌肉與身體都變大，因此兩者比值維持原狀
-        correct: false
-        why_wrong: 將兩項數值同向增加誤認為等比例增加；比值要維持原狀，肌力與體重須有相同百分比的變化，本題並不符合。
-      - text: 將兩項增幅相加，相對力量可視為提升兩成五
-        correct: false
-        why_wrong: 混淆比值變化與百分比相加；新舊比值應以 1.10 除以 1.15 比較，體重上升不能直接加成力量優勢。
-
-  # 干擾項對照：本 item 的平行與串聯肌節，以及 ch02.size-strength.i06 的速度需求。
-  - id: ch02.strength-factors.i03.q1
-    item: ch02.strength-factors.i03
-    cognitive: analysis
-    stem: 比較兩種肌肉構造時，一種具有較多平行排列的肌節，但串聯的肌節較少；這種組合最可能帶來哪項取捨？
-    locator: 第 2 章 · Arrangement of Muscle Fibers
-    options:
-      - text: 可同時產力的單位增加，但縮短速度上限較低
-        correct: true
-      - text: 沿長軸連接單位變少，使整條肌肉縮短得更快
-        correct: false
-        why_wrong: 顛倒了串聯肌節數與縮短速度的關係；串聯單位的縮短速度可相加，數量較少不會帶來較高的速度上限。
-      - text: 斜向排列代表可用橫橋減少，最大力量因而下降
-        correct: false
-        why_wrong: 只把斜向當成力量損失，漏掉平行肌節較多的結構優勢；羽狀排列能容納更多同時產力的單位，不能據角度就推論總力量較低。
-      - text: 並排單位增多同時拉長肌纖維，力量與速度都提高
-        correct: false
-        why_wrong: 將平行排列的增加誤當成長軸串聯的增加；前者主要支持較大力量，並不表示纖維更長或能抵銷串聯肌節較少的速度限制。
-
-  # 干擾項對照：ch02.levers.i05、ch02.work-power.i02（力矩、位移與時間的不同用途）。
+  # ── 功與功率（sf1.C 生物力學）──
   - id: ch02.work-power.i01.q1
     item: ch02.work-power.i01
+    dco: sf1.C.2
+    lang: en
     cognitive: application
-    stem: 運動員以恆定高度和速度水平搬運重物，雙手的托力始終垂直向上；只計這股托力對重物所做的機械功，哪個判斷正確？
+    stem: An athlete carries a heavy box across a level room at constant speed. The supporting force on the box is purely vertical while the motion is purely horizontal. What does this supporting force primarily contribute to the box?
     locator: 第 2 章 · Positive Work and Power
     options:
-      - text: 以向上托力乘上水平路程，得到這段搬運的正功
-        correct: false
-        why_wrong: 把總路程直接代入而忽略方向；功只計沿施力方向的位移分量，水平移動不能算成垂直托力推進的距離。
-      - text: 用手臂的力矩臂乘以重量，作為托住物體的做功量
-        correct: false
-        why_wrong: 將力矩計算當成能量計算；作用線到關節的垂直距離描述旋轉效果，並不是物體沿受力方向移動的路程。
-      - text: 把支撐時間乘上所需力量，表示維持姿勢所做的功
-        correct: false
-        why_wrong: 混用時間與位移的角色；機械功須有沿力方向的位移，持續出力的秒數不能直接代替距離，即使肌肉仍會消耗能量。
-      - text: 托力與移動方向互相垂直，因此這股力不做機械功
+      - text: no work done on the box at all
         correct: true
+      - text: positive work equal to weight times path
+        correct: false
+        why_wrong: Multiplies weight by the distance walked, ignoring that work counts only the force component lying along the displacement.
+      - text: added kinetic energy from the carry
+        correct: false
+        why_wrong: Mistakes steady horizontal travel for a gain in speed; the box never accelerates, so its kinetic energy holds constant.
 
-  # 干擾項對照：ch02.work-power.i01、i06（功、功率與力量的區分）。
-  - id: ch02.work-power.i02.q1
-    item: ch02.work-power.i02
+  # ── 摩擦力（sf1.C 阻力來源）──
+  - id: ch02.resistance-sources.i04.q1
+    item: ch02.resistance-sources.i04
+    dco: sf1.C.2
+    lang: zh
     cognitive: application
-    stem: 一次上舉中，運動員以恆定五百牛頓的向上力使重物向上移動兩公尺，歷時四秒；這股力在此段的平均功率輸出是多少？
-    locator: 第 2 章 · Positive Work and Power
+    stem: 摩擦制動式腳踏車測功計，係數與壓緊力固定時，若踩踏速度加倍，平均功率輸出最主要會如何改變？
+    locator: 第 2 章 · Friction
     options:
-      - text: 一千瓦特，將施力乘上向上移動的距離
-        correct: false
-        why_wrong: 算出了這段動作的機械功，卻把焦耳當成瓦特；做功量還須除以完成所需秒數，才能得到平均做功速率。
-      - text: 五百瓦特，以維持上舉的力量代表輸出
-        correct: false
-        why_wrong: 混淆牛頓與瓦特；力量本身不足以決定做功快慢，還要考慮移動速度，不能將施力數值直接當成功率。
-      - text: 兩百五十瓦特，以總功除以上舉所需秒數
+      - text: 摩擦力大致不變，平均功率約為原來的兩倍
         correct: true
-      - text: 四千瓦特，把完成的功再乘上持續時間
+      - text: 摩擦阻力加倍，平均功率則會膨脹為四倍
         correct: false
-        why_wrong: 把時間誤當成累積功率的乘數；相同做功量若耗時更久，平均速率應下降，因此應除以時間而非相乘。
+        why_wrong: 把流體阻力隨速度增加的特性套到滑動摩擦；滑動摩擦的力只看法向力與係數，速度本身不會放大阻力。
+      - text: 阻力與踏速互相抵銷，平均功率因此保持不變
+        correct: false
+        why_wrong: 假設阻力與踏速反向變動可使功率不變；同樣的功若在更短時間完成，功率仍會上升。
+
+  # ── 肌力/體重比（sf1.C 結構與功能）──
+  - id: ch02.size-strength.i01.q1
+    item: ch02.size-strength.i01
+    dco: sf1.C.2
+    lang: zh
+    cognitive: analysis
+    stem: 一位跳遠選手經過八週阻力訓練後，體重增加一成，垂直跳成績提升五成，但肌力測驗只進步兩成；最可能反映的問題是什麼？
+    locator: 第 2 章 · Strength-to-Mass Ratio
+    options:
+      - text: 肌力體重比不增反降，因為肌力增幅跑不贏體重增幅
+        correct: true
+      - text: 垂直跳成績顯著進步，肌力體重比必然隨之提升
+        correct: false
+        why_wrong: 把絕對成績進步當成相對比值進步；肌力測驗只進步兩成而體重增加一成，分子增幅並未超越分母，比值實際下降。
+      - text: 肌力測驗分數提高，代表肌力體重比已經水漲船高
+        correct: false
+        why_wrong: 把肌力測驗的絕對分數變化直接等同於比值變化；題幹的比值分母是體重而非測驗分數，分子增幅未超越分母則比值下滑。
+
+  # ── 肌腱遠附著點（sf1.C 結構與功能）──
+  - id: ch02.size-strength.i05.q1
+    item: ch02.size-strength.i05
+    dco: sf1.C.2
+    lang: en
+    cognitive: analysis
+    stem: An athlete's tendon attaches farther from the joint than average. What is the primary trade-off that this longer moment arm creates?
+    locator: 第 2 章 · Variations in Tendon Insertion
+    options:
+      - text: more torque, but a smaller joint sweep
+        correct: true
+      - text: more force and more speed together
+        correct: false
+        why_wrong: Reads a longer moment arm as a free upgrade; the book's figure shows the joint turning only 34° where the shorter arm turns 37°.
+      - text: weaker leverage, yet a wider sweep
+        correct: false
+        why_wrong: Flips the geometry around; moving the attachment away from the axis lengthens the moment arm instead of shrinking it.
