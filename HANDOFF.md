@@ -1,14 +1,23 @@
 # HANDOFF — my-site (Cortex)
 
-## CSCS 題庫重寫：ch01／ch02 完成，ch03–ch24 串行中（2026-09-14）
+## CSCS 題庫重寫：ch01–ch03 完成，配題表已上調 2.5 倍，ch04 起用新額度（2026-09-14）
 
 依使用者「先擴充題庫再接讀書器、中英都要、合併成一份、按 CSCS 出題邏輯」的指示，把
 `data/cscs/_quiz_bank/chNN.yaml` 從四選項改寫為 NSCA 實際的**三選項**，並照官方 DCO 的
 認知層級配比（全卷 recall 45／application 97／analysis 48）逐章配題。取材只准用
 `data/cscs/chNN.yaml` 的 1557 條知識單位，每題帶 `item` / `dco` / `lang` / `locator`。
 
-**目前狀態**：ch01（`463eeee`）、ch02（`845e458`）各 14 題、19 道閘全綠並人工逐題抽驗過。
-ch03–ch24 尚未完成，照章號串行，每章跑完兩輪 + 人工抽驗 + commit 才派下一章。
+**目前狀態**：ch01（`463eeee`）、ch02（`845e458`）、ch03（`dd52dc2`）各 14 題、19 道閘全綠
+並人工逐題對源檔查證過。ch04–ch24 尚未完成，照章號串行，每章跑完兩輪 + 人工查證 + commit
+才派下一章。
+
+**配題表已上調（`dc1267c`）**：全庫 385 → 967 題，比例不動只等比放大 2.5 倍，
+ch01–07 各 14→35、ch08 40→100、ch09–11 8→20、ch12–13 22→55、ch14–16 19→48、
+ch17–22 15→38、ch23–24 16→40。理由寫在 `cscs_quiz_spec.md` 第六節：發包的固定成本
+與該次寫 14 題或 35 題幾乎無關，人工查證成本則按題數線性、與發包次數無關。
+**ch01–ch03 是舊額度下做的，`cscs_quiz_bank_check.py` 現在會對這三章報 G10/G13 紅字，
+那是預期狀態**——等 ch04–ch24 走完再跑一輪追加題把它們補到 35，既有題目不重寫
+（需要一份 append-only 的 prompt 變體，現行 `cscs_quiz_delegate_prompt.md` 寫的是整份覆寫）。
 
 發包管道是 `claude-m3 -p --permission-mode bypassPermissions < .prompts/chNN-quiz.md`
 （MiniMax-M3，不吃 Claude 配額；`.prompts/` 已 gitignore）。每章兩輪，中間不省：
@@ -28,10 +37,21 @@ G17 希臘字母、G18 混用度量單位、G19 電報體 `why_wrong`，並把 G
 `tools/cscs_quiz_review_prompt.md`**——審查者對 prompt 裡點名的每個例子都動手改了，
 對通則式的散文則否。新抓到的缺陷照此辦理，不要寫成通則。
 
+**第二輪回報「0 修改」一律不採信**。ch03 的審查者就是這樣回的，我自己逐題對
+`data/cscs/ch03.yaml` 查證後仍抓到五處，其中三類是新的、已補進審查 prompt：
+① `why_wrong` 裡編造機制與術語（「CP 復元需完整有氧週期」——「有氧週期」不存在，
+且源檔說 ATP 與 CP 都主要靠有氧代謝）；② 把源檔敘述改幾個數字變成半真半假的干擾項
+（源檔「>100% VO₂max 的短暫間歇」被寫成「>90% VO₂max、5 分鐘間歇」，錯因還稱它是
+「另一條正確路徑」）；③ 跨 item 撞同一個正解概念（`oxidative.i03` 與 `glycolysis.i04`
+都考 hexokinase 耗 1 ATP——閘只擋同一 item 底下的重複題幹）。
+驗收的正解是**逐題把選項與 `why_wrong` 的每個因果句拿回源檔 item 的 `a` / `detail` 對**。
+
 英文題的選項受 G9（兩兩字元 Jaccard ≤ 0.6）限制，短片語幾乎必然超標，手改時直接寫
 一支窮舉腳本掃候選組合、同時算 G2/G3/G4/G9 再挑，比逐句試快得多。
 
-**接下來**：ch03 → ch24 走完（第一輪已派 ch03）；之後才是把 287 題的舊
+**接下來**：ch04 → ch24 走完（ch04 第一輪已用 35 題的新額度派出，若 M3 在單次發包內寫不完
+35 題，再考慮加 `--part K/N` 的分批機制；目前刻意不預先加，因為分批會把剛省下的固定成本吃回去）；
+走完後補 ch01–ch03 的追加題；之後才是把 287 題的舊
 `CSCS_Full_QuestionBank.md` 併進來（對映 item id + dco、轉三選項、不合規的丟掉，併完
 刪掉 `raw/notes/` 的原檔），最後才接 `cscs-quest`——使用者明確要求這個順序。接讀書器時
 注意 `cscs_quest/catalog.py` 從沒載過 `_quiz_bank`，它的 `validate_question` 是另一套
