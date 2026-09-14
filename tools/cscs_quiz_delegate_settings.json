@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "deny": ["Bash(git:*)"]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -X utf8 C:/claudehome/projects/my-site/tools/cscs_quiz_delegate_deny_git.py"
+          }
+        ]
+      }
+    ]
+  }
+}
