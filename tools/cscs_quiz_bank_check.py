@@ -42,6 +42,20 @@ MEASURE_UNIT = re.compile(
     r"(?<![A-Za-z])(nm|µm|μm|um|mm|cm|km|m|kg|lb|mg|g|ms|min|hr|h|s|mL|L)(?![A-Za-z])"
 )
 
+# G20：干擾項不准在文字裡評價自己。ch05 與 ch06 各出現一批「選項尾巴掛一句錯因」的送分題：
+# `Direction reverses, reads the analysis as a 5 to 10 percent rise`、
+# 「FOR → 急性疲勞 → NFOR → OTS，順序顛倒、恢復時間錯置」、
+# 「荷爾蒙種類會完全改變，出現書中沒有的新胜肽」。
+# 這些全部過得了其他 19 道閘，但考生不必讀書就能刪掉它們。
+# 選項只陳述一個說法，評價它是 why_wrong 的工作。
+# 只收「一望即知是在講自己錯了」的字眼；「相反」「下降」這類可以是正當的內容敘述，不收。
+GIVEAWAY = re.compile(
+    r"顛倒|反轉|錯置|誤植|張冠李戴|書中沒有|書中未|教材沒有|與書中不符|並非書中|"
+    r"\b(reverses|reversed|inverted|inflates|inflated|overstates|overstated|"
+    r"understates|understated|misreads|misread|mistakenly|erroneously|incorrectly)\b",
+    re.IGNORECASE,
+)
+
 
 def _allocation():
     """章 → (總題數, recall, application, analysis, 英文題數)，來源是 cscs_quiz_spec.md 第六節。
@@ -396,6 +410,12 @@ def check_bank(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
                 # G16：分號等於把兩個子句塞進一格，是為了湊長度而不是為了說清楚。
                 if isinstance(text, str) and (";" in text or "；" in text):
                     fail(path, qid, "G16", f"選項 {index} 含分號，選項必須是單一片語")
+
+                # G20：選項文字不准評價自己。錯因的語言放 why_wrong，不放 text。
+                if isinstance(text, str):
+                    tell = GIVEAWAY.search(text)
+                    if tell:
+                        fail(path, qid, "G20", f"選項 {index} 在文字裡自承錯誤（{tell.group(0)}），改成中性敘述")
 
                 # G17：希臘字母只能當術語的一部分，不能拿來替代英文單字。
                 if isinstance(text, str):
