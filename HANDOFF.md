@@ -1,6 +1,6 @@
 # HANDOFF — my-site (Cortex)
 
-## CSCS 題庫重寫：ch01–ch06 完成，配題表已上調 2.5 倍（2026-09-15）
+## CSCS 題庫重寫：ch01–ch07 完成，配題表已上調 2.5 倍（2026-09-15）
 
 依使用者「先擴充題庫再接讀書器、中英都要、合併成一份、按 CSCS 出題邏輯」的指示，把
 `data/cscs/_quiz_bank/chNN.yaml` 從四選項改寫為 NSCA 實際的**三選項**，並照官方 DCO 的
@@ -13,7 +13,9 @@
 19 道閘 0 錯）。**ch05 同樣完成 35 題並已逐題查證**（`a9fd2cf`；19 application /
 10 recall / 6 analysis，12 EN / 23 ZH，19 道閘 0 錯）。**ch06 完成 35 題並已逐題查證**
 （`cb8a692` 修到零閘錯誤、`e2dd9f1` 逐題內容修正；20 application / 10 recall / 5 analysis，
-14 EN / 21 ZH，20 道閘 0 錯）。ch07–ch24 尚未完成，照章號串行，
+14 EN / 21 ZH，20 道閘 0 錯）。**ch07 完成 35 題並已逐題查證**（`fc75749`；
+20 application / 10 recall / 5 analysis，12 EN / 23 ZH，20 道閘 0 錯）。
+ch08–ch24 尚未完成，照章號串行，
 **每章跑完兩輪 + 人工逐題查證 + commit 才派下一章**。
 
 **配題表已上調（`dc1267c`）**：全庫 385 → 967 題，比例不動只等比放大 2.5 倍，
@@ -21,8 +23,12 @@ ch01–07 各 14→35、ch08 40→100、ch09–11 8→20、ch12–13 22→55、c
 ch17–22 15→38、ch23–24 16→40。理由寫在 `cscs_quiz_spec.md` 第六節：發包的固定成本
 與該次寫 14 題或 35 題幾乎無關，人工查證成本則按題數線性、與發包次數無關。
 **ch01–ch03 是舊額度下做的，`cscs_quiz_bank_check.py` 現在會對這三章報 G10/G13 紅字，
-那是預期狀態**——等 ch04–ch24 走完再跑一輪追加題把它們補到 35，既有題目不重寫
-（需要一份 append-only 的 prompt 變體，現行 `cscs_quiz_delegate_prompt.md` 寫的是整份覆寫）。
+那是預期狀態**——等 ch04–ch24 走完再跑一輪追加題把它們補到 35，既有題目不重寫。
+**補題管道已就緒（`e9afd6b`）**：`tools/cscs_quiz_topup_prompt.md` 是 append-only 的
+prompt 變體，`cscs_quiz_make_prompt.py --topup chNN` 套版。它逐欄算差額
+（cognitive 三欄 + zh/en）而不讓 agent 自己減，並把新題的可用 item **限定在本章從沒出過題
+的那批**——撞題在結構上不可能發生。三份 prompt 已生成（ch01/ch02/ch03 各補 21 題，
+可用 item 54/50/50）。**不要與另一個正在寫 `_quiz_bank/` 的任務同時跑。**
 
 發包管道是 `claude-m3 -p --permission-mode bypassPermissions < .prompts/chNN-quiz.md`
 （MiniMax-M3，不吃 Claude 配額；`.prompts/` 已 gitignore）。每章兩輪，中間不省：
@@ -113,10 +119,31 @@ ch05 的第 ① 類缺陷做成閘——按「散文規則不會生效」那條�
 就是最大有氧運動，考生照標籤挑即可。**數字題一律只留數值、單位移進題幹**（`220-260`／
 `120-140`／`300-340`），這同時解掉中文數字題撞 G9 的老問題。
 
-**接下來**：**下一章是 ch07**（35 題＝10/20/5）。
+**ch07 全綠、第二輪回報「0 修改」（已依鐵則不採信並中止），人工逐題抓到 12 處**
+（`fc75749`），歸成四類，其中兩類是新的、要補進 review prompt：
+① **數值選項的參照族群逐項不同**——`aging-musculoskeletal.i04` 三個選項分別以
+「年輕成人平均」「50 歲族群」「年長族群」為基準，題幹只問一個基準，考生照基準就能刷掉兩個。
+**數字題的三個選項必須是同一個量的三個數值**（同單位、同被測對象），這條已進 delegate/topup prompt。
+② **正解在句法上是唯一的異類**——`older-adults-training.i06` 兩個干擾項以動名詞起手
+（`Doing`／`Completing`）、正解以數字起手，且只有正解把 `one repetition maximum` 拼全。
+③ **干擾項在本章之外其實成立**（第二次遇到，ch06 的 OBLA 是第一次）——
+`aging-musculoskeletal.i05` 拿「視力退化」當跌倒風險的干擾項，但它在一般老年醫學裡
+確實是內在跌倒因子。④ **為了滿足 G15 比較限定詞而寫壞的題幹**——
+`program-design-populations.i03` 兩個修飾語疊在一起沒有連接詞、
+`children-training-response.i08` 的 `why does an early maturer primarily and only briefly
+outperform…` 已不成句，且它的第三個干擾項與題幹自相矛盾（題幹說 briefly、選項說 always maintain）。
+另修 `children-training-response.i04`：標 `analysis` 但實際是純記憶題，已改寫成真正的推論題。
+純數字中文題再次逼出 G9：`1.0 至 1.5` vs `5.0 至 8.0` 的字元 Jaccard 是 0.714，
+**帶單位字與「至」的數字區間必撞**，唯一解仍是**只留單一數值**（`1.5`／`6.0`／`0.2`，
+YAML 要用雙引號包住否則會被讀成 float）。
+
+順手修了 `data/cscs/ch07.yaml` line 616 的錯字（`同性交` → `同性別`），那字直接顯示在線上頁面。
+
+**接下來**：**下一章是 ch08**（100 題＝舊 10 題試作整份重寫，這是全庫最大的一章）。
 發包一律帶 `--settings tools/cscs_quiz_delegate_settings.json`——那是 git 禁令閘。
-ch07 → ch24 走完（若 M3 在單次發包內寫不完 35 題，再考慮加 `--part K/N` 的分批機制；
-目前刻意不預先加，因為分批會把剛省下的固定成本吃回去）。
+ch08 → ch24 走完（ch08 要 100 題，若 M3 在單次發包內寫不完，才考慮加 `--part K/N` 的
+分批機制；目前刻意不預先加，因為分批會把剛省下的固定成本吃回去。ch07 的 35 題是
+單次發包寫完的，100 題是第一個真正的壓力測試）。
 `_quiz_bank/ch08.yaml`、`ch13.yaml`、`ch18.yaml` 是更早的 10 題試作，還帶著四選項、
 `lang: None`、`dco: None` 的紅字，輪到該章時整份重寫，不必另外處理。
 走完後補 ch01–ch03 的追加題；之後才是把 287 題的舊
