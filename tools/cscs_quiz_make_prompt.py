@@ -56,6 +56,16 @@ def dco_list(chid: str) -> str:
     return "\n".join(lines).rstrip()
 
 
+def battery_note(chid: str) -> str:
+    minimum = BATTERY_MINIMUM.get(chid)
+    if not minimum:
+        return "本章不強制測驗組合題。"
+    return (
+        f"**本章至少 {minimum} 題必須是運動員測驗組合題**（規格 R6）：運動項目 + 身高體重 + "
+        "4–6 項測驗結果，問「哪一項最需要改善 / 下一個區塊該加什麼」，三個選項是三個訓練標的。"
+    )
+
+
 def write_prompt(name: str, text: str) -> None:
     left = sorted(set(re.findall(r"__[A-Z]+__", text)))
     if left:
@@ -66,12 +76,84 @@ def write_prompt(name: str, text: str) -> None:
     print(f"{dest}  ({len(text)} chars)")
 
 
+def write_topup(chid: str) -> None:
+    """補題：既有題目一條不動，只在 questions 後面接上差額。
+
+    差額逐欄算（cognitive 三欄 + zh/en），不讓 agent 自己減；新題的 item 限定在
+    「本章從沒出過題」的那批，撞題就結構上不可能發生。
+    """
+    source = ROOT / "data" / "cscs" / f"{chid}.yaml"
+    raw = io.open(source, encoding="utf-8").read()
+    items = [item for topic in yaml.safe_load(raw)["topics"] for item in topic["items"]]
+
+    bank_path = ROOT / "data" / "cscs" / "_quiz_bank" / f"{chid}.yaml"
+    if not bank_path.exists():
+        sys.exit(f"{chid} 還沒有題庫，補題無從補起——先跑不帶 --topup 的整章出題")
+    questions = yaml.safe_load(io.open(bank_path, encoding="utf-8").read())["questions"]
+
+    total, recall, application, analysis, english = ALLOCATION[chid]
+    have = {key: sum(1 for q in questions if q.get("cognitive") == key)
+            for key in ("recall", "application", "analysis")}
+    have_en = sum(1 for q in questions if q.get("lang") == "en")
+
+    need = {
+        "recall": recall - have["recall"],
+        "application": application - have["application"],
+        "analysis": analysis - have["analysis"],
+    }
+    need_en = english - have_en
+    need_zh = (total - english) - (len(questions) - have_en)
+    new_total = total - len(questions)
+
+    if new_total <= 0:
+        sys.exit(f"{chid} 已有 {len(questions)} 題，達到配額 {total}，不需補題")
+    short = [f"{k} 少 {v}" for k, v in {**need, "en": need_en, "zh": need_zh}.items() if v < 0]
+    if short:
+        sys.exit(f"{chid} 既有題目超出配額（{'、'.join(short)}），補題補不回來，需重寫整章")
+    if sum(need.values()) != new_total or need_en + need_zh != new_total:
+        sys.exit(f"{chid} 差額對不上：cognitive {need}、en {need_en}、zh {need_zh}、總計 {new_total}")
+
+    used = {q["item"] for q in questions}
+    free = [item for item in items if item["id"] not in used]
+    if len(free) < new_total:
+        sys.exit(f"{chid} 只剩 {len(free)} 條未出過題的 item，補不了 {new_total} 題")
+
+    template = io.open(ROOT / "tools" / "cscs_quiz_topup_prompt.md", encoding="utf-8").read()
+    out = (
+        template.replace("__CHID__", chid)
+        .replace("__NNEW__", str(new_total))
+        .replace("__NOLD__", str(len(questions)))
+        .replace("__NTOTAL__", str(total))
+        .replace("__NRECALL__", str(need["recall"]))
+        .replace("__NAPPLICATION__", str(need["application"]))
+        .replace("__NANALYSIS__", str(need["analysis"]))
+        .replace("__NENGLISH__", str(need_en))
+        .replace("__NZH__", str(need_zh))
+        .replace("__NITEMS__", str(len(items)))
+        .replace("__NLINES__", str(raw.count("\n") + 1))
+        .replace("__BATTERY__", battery_note(chid))
+        .replace("__FREEITEMS__", "\n".join(f"- `{i['id']}` {i['q']}" for i in free))
+        .replace("__DCOLIST__", dco_list(chid))
+    )
+    write_prompt(f"{chid}-quiz-topup", out)
+    print(
+        f"{chid}：既有 {len(questions)} 題 → 補 {new_total} 題"
+        f"（{need['recall']}/{need['application']}/{need['analysis']}，"
+        f"英文 {need_en}、中文 {need_zh}），可用 item {len(free)} 條"
+    )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("chid", help="例：ch08")
     parser.add_argument(
         "--review", action="store_true",
         help="改套第二輪的審查 prompt（抓閘門擋不到的爛干擾項），輸出 chNN-quiz-review.md",
+    )
+    parser.add_argument(
+        "--topup", action="store_true",
+        help="補題：既有題目不動，只補到配額（給 ch01–ch03 這種舊配額寫成的章），"
+             "輸出 chNN-quiz-topup.md",
     )
     args = parser.parse_args()
 
@@ -87,6 +169,10 @@ def main() -> None:
         write_prompt(f"{args.chid}-quiz-review", template.replace("__CHID__", args.chid))
         return
 
+    if args.topup:
+        write_topup(args.chid)
+        return
+
     source = ROOT / "data" / "cscs" / f"{args.chid}.yaml"
     raw = io.open(source, encoding="utf-8").read()
     data = yaml.safe_load(raw)
@@ -96,13 +182,7 @@ def main() -> None:
     if total > len(items) * 2:
         sys.exit(f"{args.chid} 只有 {len(items)} 條 item，出不到 {total} 題（每 item 上限 2 題）")
 
-    minimum = BATTERY_MINIMUM.get(args.chid)
-    battery = (
-        f"**本章至少 {minimum} 題必須是運動員測驗組合題**（規格 R6）：運動項目 + 身高體重 + "
-        "4–6 項測驗結果，問「哪一項最需要改善 / 下一個區塊該加什麼」，三個選項是三個訓練標的。"
-        if minimum
-        else "本章不強制測驗組合題。"
-    )
+    battery = battery_note(args.chid)
 
     template = io.open(ROOT / "tools" / "cscs_quiz_delegate_prompt.md", encoding="utf-8").read()
     out = (
