@@ -29,29 +29,29 @@ questions:
     options:
       - text: 散布 10 至 12 bpm
         correct: true
-      - text: 狹窄 2 至 4 bpm
+      - text: Narrow 2 to 4 bpm
         correct: false
-        why_wrong: 數字低估到文件記載的數分之一，與教材描述的散布不一致。
-      - text: 拉寬 20 至 24 bpm
+        why_wrong: The figure undershoots the documented variance to roughly a fifth, far below the textbook range of about ten to twelve.
+      - text: Wide 20 to 24 bpm
         correct: false
-        why_wrong: 把變異推成文件記載的兩倍以上，書中沒有給到那麼寬的範圍。
+        why_wrong: The figure doubles the published variance, overshooting the textbook spread by roughly the same factor.
 
   - id: ch06.acute-cardiovascular.i04.q1
     item: ch06.acute-cardiovascular.i04
     dco: sf1.G.1
     lang: zh
     cognitive: recall
-    stem: 書中定義 1 MET 為一般人的估計靜息攝氧量，其數值約為多少？
+    stem: 書中把 1 MET 定義為一般人的估計靜息攝氧量。以 ml·kg⁻¹·min⁻¹ 為單位時，該數值是多少？
     locator: Acute Responses to Aerobic Exercise > Oxygen Uptake
     options:
-      - text: 約 3.5 毫升每公斤每分鐘
+      - text: "3.5"
         correct: true
-      - text: 約 1.0 毫升每公斤每分鐘
+      - text: "1.0"
         correct: false
-        why_wrong: 數字低估到實際值的三分之一附近，教材定義 1 MET 為 3.5 毫升每公斤每分鐘的靜息攝氧量。
-      - text: 約 7.0 毫升每公斤每分鐘
+        why_wrong: 把代謝當量的倍數本身當成攝氧量的數值。1 是 MET 的倍數，對應的攝氧量是每公斤每分鐘 3.5 毫升。
+      - text: "25"
         correct: false
-        why_wrong: 那已是健康者最大攝氧量低端，不是靜息消耗量；MET 定義比該數字低得多。
+        why_wrong: 拿最大攝氧量的下限來回答靜息值。教材所列健康者最大攝氧量為每公斤每分鐘 25 到 80 毫升，靜息值遠低於此。
 
   - id: ch06.acute-cardiovascular.i06.q1
     item: ch06.acute-cardiovascular.i06
@@ -75,17 +75,17 @@ questions:
     dco: sf1.G.2
     lang: zh
     cognitive: recall
-    stem: 書中指出靜息時骨骼肌接受心輸出量的比例約為多少？劇烈運動時可升至多少？
+    stem: 書中指出靜息時骨骼肌接受 15-20% 的心輸出量。劇烈運動時這個比例可升到多少？
     locator: Acute Responses to Aerobic Exercise > Control of Local Circulation
     options:
-      - text: 15-20% 升至 90%
+      - text: 90%
         correct: true
-      - text: 約 5% 只到 30%
+      - text: 30%
         correct: false
-        why_wrong: 兩端都低估到接近無血流的狀態，教材所載的兩端差距遠大於此區間。
-      - text: 近 50% 至 70%
+        why_wrong: 只把靜息比例往上推一個級距就停住，忽略了活動肌微動脈擴張同時其他器官微動脈收縮所造成的重分配幅度。
+      - text: 55%
         correct: false
-        why_wrong: 把靜息比例放大到教科書值的數倍，書中靜息只有 15 至 20，不是接近一半。
+        why_wrong: 假設運動時心輸出量在骨骼肌與內臟之間大致對半分配，但教材記載劇烈運動時骨骼肌可拿到九成。
 
   - id: ch06.acute-respiratory.i01.q1
     item: ch06.acute-respiratory.i01
@@ -129,48 +129,48 @@ questions:
     stem: According to the chapter, what resting heart rate range is commonly observed in highly trained aerobic endurance athletes, and what causes it?
     locator: Chronic Adaptations to Aerobic Exercise > Cardiovascular Adaptations
     options:
-      - text: Cardioinhibitory tone, 40-60
+      - text: Raised parasympathetic tone slows the node to 40 to 60 beats per minute
         correct: true
-      - text: Adrenergic surge, 90-110
+      - text: Heightened sympathetic outflow drives the node above 100 beats per minute
         correct: false
-        why_wrong: Wrong autonomic driver. Endurance adaptation stems from cardioinhibitory behavior, not excitatory adrenergic outflow.
-      - text: Default SA-nodal output
+        why_wrong: Picks the excitatory branch of autonomic control. Endurance training raises vagal restraint on pacemaker discharge rather than adrenergic drive.
+      - text: The node holds its ordinary rate of 60 to 80 discharges per minute
         correct: false
-        why_wrong: Wrong baseline reference. Trained pacing drifts beneath ordinary SA-nodal output, not equivalence with it.
+        why_wrong: Treats the trained resting rate as identical to the untrained baseline. Highly conditioned athletes settle well beneath that ordinary discharge range.
 
   - id: ch06.detraining.i02.q1
     item: ch06.detraining.i02
     dco: sf1.H.2
     lang: zh
     cognitive: recall
-    stem: 依書中對短期去訓練的界定與高度訓練運動員的數據，短期去訓練後最大攝氧量的下降幅度約為多少？
+    stem: 教材把短期去訓練界定為 4 週。依此，高度訓練運動員最大攝氧量的下降幅度為何？
     locator: "Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Detraining"
     options:
-      - text: 約 4 至 14 個百分點
+      - text: 4-14%
         correct: true
-      - text: 約 1 至 3 個百分點
+      - text: 2-5%
         correct: false
-        why_wrong: 大幅低估下降幅度，書中把短期去訓練界定為 4 週，下降區間為 4 至 14，不是 1 至 3。
-      - text: 約 20 至 30 個百分點
+        why_wrong: 把四週不練當成只夠讓血容量略減的程度。教材記載的跌幅起點就已經接近這個區間的上緣。
+      - text: 6-20%
         correct: false
-        why_wrong: 推到長期去訓練或更高的等級，書中長期去訓練下降為 6 至 20，短期更窄。
+        why_wrong: 拿超過四週的長期去訓練區間來回答四週的問題，兩段期程在教材裡是分開列出的兩組數字。
 
   - id: ch06.external-factors.i02.q1
     item: ch06.external-factors.i02
     dco: sf1.H.2
     lang: en
     cognitive: recall
-    stem: According to the textbook, by approximately what percentage does long-term altitude acclimatization increase red blood cell count, and what range is typical for hemoglobin formation?
+    stem: According to the textbook, by approximately what percentage does long-term altitude acclimatization increase red blood cell count?
     locator: External and Individual Factors Influencing Adaptations to Aerobic Endurance Training > Altitude
     options:
-      - text: Red cells up 30 to 50, hemoglobin up 5 to 15
+      - text: Red cell count climbs 30 to 50 percent
         correct: true
-      - text: Cells up 5 to 15, hemoglobin up 30 to 50
+      - text: The count gains just 5 to 15 percent
         correct: false
-        why_wrong: Swaps the two figures. The chapter assigns the larger percentage to red cells and the smaller to hemoglobin formation.
-      - text: Both rise by roughly 2 to 4 above sea level values
+        why_wrong: Borrows the figure the chapter attaches to hemoglobin formation. Erythrocyte numbers move through a considerably wider band than that.
+      - text: A marginal shift of 2 to 4 percent occurs
         correct: false
-        why_wrong: Treats altitude acclimatization as a marginal hematological shift. The documented 30 to 50 rise in red cells is well above that narrow range.
+        why_wrong: Assumes altitude changes blood composition only slightly. The chapter documents a substantial erythrocyte response alongside greater capillarization.
 
   - id: ch06.acute-cardiovascular.i01.q1
     item: ch06.acute-cardiovascular.i01
@@ -384,14 +384,14 @@ questions:
     stem: According to the textbook, what primarily happens to fast-twitch muscle fibers as a result of aerobic endurance training?
     locator: Chronic Adaptations to Aerobic Exercise > Muscular Adaptations
     options:
-      - text: Type IIx shifts toward Type IIa, with little conversion to Type I
+      - text: Type IIx fibers gradually take on Type IIa characteristics
         correct: true
-      - text: All Type II fibers convert directly into Type I fibers
+      - text: Most fast-twitch fibers are replaced by slow-twitch fibers
         correct: false
-        why_wrong: Confuses subtype drift with full conversion. The textbook states the IIx to IIa shift is gradual, while wholesale conversion to Type I is largely absent.
-      - text: Type II fibers shrink and lose all oxidative capacity
+        why_wrong: Reads a subtype drift as a change of major fiber class. Almost no evidence supports crossing that boundary through aerobic work alone.
+      - text: Fast-twitch cross-sectional area falls as oxidative capacity drops
         correct: false
-        why_wrong: Treats endurance training as a pure atrophy signal. The chapter emphasizes IIa oxidative gains rather than wholesale loss of capacity.
+        why_wrong: Pairs endurance work with a decline in aerobic machinery. The subtype that expands here carries higher oxidative capability, not lower.
 
   - id: ch06.chronic-muscular.i05.q1
     item: ch06.chronic-muscular.i05
@@ -401,14 +401,14 @@ questions:
     stem: According to the textbook, why can trained athletes primarily sustain a higher relative intensity before blood lactate begins to accumulate?
     locator: Chronic Adaptations to Aerobic Exercise > Muscular Adaptations
     options:
-      - text: Less glycogen use and more fat oxidation extend steady work, with OBLA shifting up
+      - text: Glycogen sparing and greater fat use push OBLA to 80 to 90 percent
         correct: true
-      - text: Anaerobic glycolysis speeds up so lactate disappears immediately
+      - text: Faster anaerobic glycolysis clears lactate as quickly as it appears
         correct: false
-        why_wrong: Reads faster glycolysis as lactate removal. The textbook lists substrate shifts and clearance as the sources, not accelerated lactate production.
-      - text: Heart rate max rises so lactate production is mechanically suppressed
+        why_wrong: Treats the pathway that produces lactate as the one that removes it. Clearance is listed separately from glycolytic rate among the candidate mechanisms.
+      - text: A higher maximal heart rate mechanically suppresses lactate production
         correct: false
-        why_wrong: Re-anchors the explanation to maximal heart rate. The chapter locates the shift in substrate use and clearance, not in mechanical HR suppression.
+        why_wrong: Anchors a metabolic threshold to a cardiac ceiling. Substrate selection and local muscular adaptations carry this shift, not pump capacity.
 
   - id: ch06.connective-endocrine.i04.q1
     item: ch06.connective-endocrine.i04
@@ -422,27 +422,27 @@ questions:
         correct: true
       - text: 荷爾蒙反應更強烈，因為訓練使內分泌系統過度敏感
         correct: false
-        why_wrong: 把方向推成過度敏感，書中說明相同絕對工作量下受訓者荷爾蒙反應較弱，不是更強烈。
-      - text: 荷爾蒙種類會完全改變，出現書中沒有的新胜肽
+        why_wrong: 把訓練適應想成把內分泌系統的增益調高。教材描述的方向相反：同一份絕對負荷對受訓者構成的壓力變小，反應也跟著變小。
+      - text: 荷爾蒙濃度與未受訓者相同，因為兩者的相對強度一致
         correct: false
-        why_wrong: 引入書中本章沒描述的新胜肽，教材只談相同荷爾蒙的濃度變化，不是種類替換。
+        why_wrong: 把「相同相對強度下濃度相同」這條結論錯搬到絕對工作量的情境。教材把兩種比較基準分開列，混用會得到反向答案。
 
   - id: ch06.detraining.i03.q1
     item: ch06.detraining.i03
     dco: sf1.H.2
     lang: zh
     cognitive: application
-    stem: 教材把長期去訓練界定為超過 4 週；依此，高度訓練運動員的最大攝氧量下降範圍約為多少？
+    stem: 教材把長期去訓練界定為超過 4 週。依此，高度訓練運動員最大攝氧量的下降幅度為何？
     locator: "Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Detraining"
     options:
-      - text: 約 6 至 20 個百分點
+      - text: 6-20%
         correct: true
-      - text: 約 2 至 4 個百分點
+      - text: 4-14%
         correct: false
-        why_wrong: 低估到接近短期去訓練區間，書中把長期去訓練的下降界定為 6 至 20，不是 2 至 4。
-      - text: 約 30 至 40 個百分點
+        why_wrong: 拿四週以內的短期去訓練區間來回答超過四週的問題，教材把兩段期程列成兩組不同的數字。
+      - text: 30-45%
         correct: false
-        why_wrong: 推到完全停止訓練的等級，書中記載的高度訓練者長期下降沒有達到 30 至 40 那麼大。
+        why_wrong: 把長期不活動想成有氧能力退回未訓練水準。教材記載的跌幅上緣只到兩成，並未出現這個量級。
 
   - id: ch06.detraining.i07.q1
     item: ch06.detraining.i07
@@ -452,14 +452,14 @@ questions:
     stem: According to the textbook, what primarily determines whether high-intensity interval training improves VO2max or sprint speed?
     locator: Adaptations to Aerobic Endurance Training
     options:
-      - text: Short intervals with brief rest favor VO2max, long rest favors sprint speed
+      - text: The length of the recovery period between efforts
         correct: true
-      - text: Long intervals with brief rest favor VO2max, long rest favors sprint speed
+      - text: The total number of weeks spent in the training block
         correct: false
-        why_wrong: Reverses the rest length effect. The textbook pairs brief rest with VO2max gains and longer rest with sprint speed, not the opposite pairing.
-      - text: Interval structure does not matter, only total weekly volume drives adaptation
+        why_wrong: Looks to program duration for a distinction the chapter draws inside a single session. Brief recovery and long recovery pull toward different qualities.
+      - text: The muscle group recruited during each sprint
         correct: false
-        why_wrong: Dismisses interval structure as a modulator. The chapter highlights rest length as the key lever between aerobic power and sprint adaptations.
+        why_wrong: Attributes the split to which limbs are working. What separates aerobic power gains from speed gains here is how much rest sits between bouts.
 
   - id: ch06.external-factors.i01.q1
     item: ch06.external-factors.i01
@@ -483,34 +483,34 @@ questions:
     dco: sf1.I.1
     lang: zh
     cognitive: application
-    stem: 書中對 OTS 可能出現的心血管反應描述，最關鍵的自律神經變化為何？
+    stem: 書中描述 OTS 的心血管反應時，最符合教材記載的是哪一項？
     locator: "Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Cardiovascular Responses"
     options:
-      - text: 心率變異性下降
+      - text: 心率變異性降低，反映副交感輸入減少
         correct: true
-      - text: 心率變異性顯著上升
+      - text: 靜息舒張壓會因訓練量增加而顯著上升
         correct: false
-        why_wrong: 把方向推成正向恢復，書中指出 OTS 的關鍵變化是心率變異性下降，不是上升。
-      - text: 心血管完全與壓力荷爾蒙無關
+        why_wrong: 把強度帶來的血壓效果掛到訓練量頭上。教材指出量的增加通常不動靜息血壓，舒張壓那條是強度提高才出現的。
+      - text: 運動誘發的最大心率會隨過度訓練提高
         correct: false
-        why_wrong: 否認書中本章描述的荷爾蒙相關性，教材明確指出心血管自律神經變化與壓力狀態耦合。
+        why_wrong: 以為疲勞狀態會讓心臟被推得更高。教材記載的方向相反，過度訓練壓低的正是運動所能誘發的最大心率。
 
   - id: ch06.overtraining.i06.q1
     item: ch06.overtraining.i06
     dco: sf1.I.1
     lang: en
     cognitive: application
-    stem: According to the textbook, can the testosterone to cortisol ratio alone diagnose overtraining syndrome?
+    stem: According to the textbook, what is the most defensible use of the testosterone to cortisol ratio when assessing overtraining syndrome?
     locator: "Overtraining: Definition, Prevalence, Diagnosis, and Potential Markers > Endocrine Responses"
     options:
-      - text: No, the ratio drops with load and is only a possible marker at best
+      - text: As one possible marker among several, since the ratio falls or holds steady under load
         correct: true
-      - text: Yes, a single morning ratio above a threshold confirms OTS
+      - text: As a confirmatory test, since a fall of at least 30 percent establishes the syndrome
         correct: false
-        why_wrong: Upgrades a possible marker into a stand-alone test. The textbook states the decline is a possible marker, not a confirmed diagnostic criterion.
-      - text: Yes, the ratio always rises sharply once OTS develops
+        why_wrong: Promotes a threshold the chapter offers tentatively into a diagnostic verdict. No single endocrine measure carries that weight on its own here.
+      - text: As a ruling-out test, since the ratio climbs whenever the syndrome is present
         correct: false
-        why_wrong: Reverses the direction of the change. The chapter documents a decline or no change under heavy training, not a sharp rise.
+        why_wrong: Expects the ratio to move upward under accumulated stress. Reported changes run the other way, which makes a rise useless for exclusion.
 
   - id: ch06.chronic-cardiovascular.i04.q1
     item: ch06.chronic-cardiovascular.i04
