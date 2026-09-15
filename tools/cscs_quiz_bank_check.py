@@ -117,6 +117,46 @@ def jaccard(a: str, b: str) -> float:
     return len(left & right) / len(union) if union else 0.0
 
 
+def jaccard_words(a: str, b: str) -> float:
+    """英文用：依詞集合計算，大小寫不敏感。
+
+    英文的字元集合量的是字母表重疊，不是相似度——`Capillary density increases markedly`
+    與 `Mitochondrial volume declines sharply` 一個詞都不共用，字元 Jaccard 卻是 0.667。
+    ch04–ch06 的英文題被 G9 判失敗的 16 對裡有 13 對是這種誤殺。
+    改用詞集合後，真正的近重複（鏡像句、只改一個動詞）落在 0.556–0.750，
+    語意不同的落在 0.000–0.333，兩組分得開。
+    """
+    left = set(re.findall(r"\w+", a.lower()))
+    right = set(re.findall(r"\w+", b.lower()))
+    union = left | right
+    return len(left & right) / len(union) if union else 0.0
+
+
+def option_overlap(a: str, b: str, lang: str) -> tuple:
+    """回傳 (重疊率, 上限)。中文沿用字元集合——中文沒有詞間空白，單字本身就是語素，
+    字元重疊確實反映語意重疊（平行數字三連的 0.938 是真陽性）。
+
+    實測 ch04–ch05 已查證合格的內容：中文選項兩兩字元重疊平均 0.201，餘裕很大；
+    英文同一算法平均 0.486、最高 0.593，永遠貼著 0.6 這條線走——那不是內容有問題，
+    是算法在英文上量錯了東西。
+    """
+    if lang == "en":
+        return jaccard_words(a, b), 0.5
+    return jaccard(a, b), 0.6
+
+
+def why_wrong_overlap(why: str, text: str, lang: str) -> tuple:
+    """G5 用。同 `option_overlap` 的理由：英文比詞，中文比字元。
+
+    英文上限取 0.45——合格內容的詞重疊最高 0.238，而「錯因只是把選項加個 not 複述一次」
+    落在 0.5，兩者分得開。更細緻的複述抓不到是預期的，那本來就該由第二輪審查與人工查證負責；
+    字元版連「完全不同的兩句話」都在擋，抓到的是雜訊不是複述。
+    """
+    if lang == "en":
+        return jaccard_words(why, text), 0.45
+    return jaccard(why, text), 0.6
+
+
 def cjk(text: str) -> set:
     return {c for c in text if "一" <= c <= "鿿"}
 
@@ -429,8 +469,10 @@ def check_bank(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
                     why_wrong = option.get("why_wrong")
                     if not isinstance(why_wrong, str) or not why_wrong.strip():
                         fail(path, qid, "G5", f"干擾項 {index} 缺少非空 why_wrong")
-                    elif isinstance(text, str) and jaccard(why_wrong, text) > 0.6:
-                        fail(path, qid, "G5", f"干擾項 {index} 的錯因重疊率 {jaccard(why_wrong, text):.3f} > 0.6")
+                    elif isinstance(text, str):
+                        rate, limit = why_wrong_overlap(why_wrong, text, lang)
+                        if rate > limit:
+                            fail(path, qid, "G5", f"干擾項 {index} 的錯因重疊率 {rate:.3f} > {limit}")
 
                     # G19：錯因要說清楚考生犯了哪個思考錯誤。`Structure ≠ actuator.` 這種
                     # 電報體在字元重疊率上完全合格，對讀的人卻等於沒寫。
@@ -472,11 +514,14 @@ def check_bank(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
             if len(units) > 1:
                 fail(path, qid, "G18", f"選項混用度量單位 {sorted(units)}，數字選項必須同單位")
 
-            # G9：逐一檢查全部三組選項配對，字元 Jaccard 不得 > 0.6。
+            # G9：逐一檢查全部三組選項配對。英文比詞（上限 0.5），中文比字元（上限 0.6）。
             for left, right in combinations(range(OPTION_COUNT), 2):
-                overlap = jaccard(texts[left], texts[right])
-                if overlap > 0.6:
-                    fail(path, qid, "G9", f"選項 {left + 1} / {right + 1} 的重疊率 {overlap:.3f} > 0.6")
+                overlap, limit = option_overlap(texts[left], texts[right], lang)
+                if overlap > limit:
+                    fail(
+                        path, qid, "G9",
+                        f"選項 {left + 1} / {right + 1} 的重疊率 {overlap:.3f} > {limit}",
+                    )
 
     # G10 / G13：按章彙總對照配題表。誤差容許 ±1 題，逐格回報差在哪裡。
     # 章沒寫完就會亮紅燈，這是刻意的——配題表是驗收基準不是建議值，
