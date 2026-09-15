@@ -28,14 +28,14 @@ questions:
     stem: Which secretory-control feature most clearly distinguishes amine hormones from polypeptide hormones?
     locator: Categories of Hormones > Amine Hormone Interactions
     options:
-      - text: no feedback regulation
+      - text: They are not under direct negative feedback control
         correct: true
-      - text: gated by the pituitary axis
+      - text: The anterior pituitary gates each release event
         correct: false
-        why_wrong: Imports the hypothalamic-pituitary control pattern that fits polypeptide hormones but not the adrenal medulla; chromaffin cells receive direct sympathetic signals, not pituitary gating.
-      - text: synthesized only on demand
+        why_wrong: Applies the hypothalamic and pituitary chain that governs polypeptide hormones to cells the sympathetic nerves drive directly.
+      - text: They bind to receptors inside the target cell nucleus
         correct: false
-        why_wrong: Inverts the storage pattern; chromaffin cells pre-make and stockpile catecholamines in vesicles, so a sympathetic burst empties a standing reserve rather than starting fresh synthesis.
+        why_wrong: Moves the amine group onto the steroid pattern of entering the cell, when these hormones act at the surface like polypeptides.
 
   - id: ch04.catecholamines.i03.q1
     item: ch04.catecholamines.i03
@@ -114,12 +114,12 @@ questions:
     stem: A lifter held in a chronically elevated cortisol block loses cross-sectional area fastest in Type II fibers. Which property of those fibers most directly explains that pattern?
     locator: Adrenal Hormones > Cortisol > Role of Cortisol
     options:
-      - text: they carry the largest protein store
+      - text: They hold the largest store of protein
         correct: true
-      - text: they are recruited at every workload
+      - text: They are recruited at nearly every workload
         correct: false
         why_wrong: Borrows the recruitment profile of Type I fibers, which do work at every intensity; Type II fibers sit at the high-threshold end, and recruitment order is not what decides how much protein a fiber has to lose.
-      - text: they use slow myosin isoforms only
+      - text: They rely on slow myosin heavy chain isoforms
         correct: false
         why_wrong: Names the marker that defines Type I fibers, so the statement contradicts the fiber type in the stem; isoform identity also says nothing about the size of the protein pool cortisol draws down.
 
@@ -131,14 +131,14 @@ questions:
     stem: A novice lifter's first week shows a small acute cortisol rise after each session with no strength loss; an elite lifter shows the same rise after each session and reports ongoing strength decline. Which interpretation best fits the elite pattern?
     locator: Adrenal Hormones > Cortisol > Resistance Exercise Responses of Cortisol
     options:
-      - text: the excess is now chronic
+      - text: The elevation has become chronic rather than acute
         correct: true
-      - text: any single rise is harmful
+      - text: Any single post-session rise is itself damaging to muscle
         correct: false
-        why_wrong: Reads one session's rise as the damaging agent, but the novice in the stem shows exactly the same rise and keeps her strength; an acute rise clears damaged protein and belongs to normal remodeling.
-      - text: cortisol quit clearing debris
+        why_wrong: The novice in the stem shows the same acute pattern and keeps her strength, so one session cannot be the agent here.
+      - text: Cortisol has stopped clearing damaged protein
         correct: false
-        why_wrong: Assumes the clean-up job switched off, when the chronic problem is the reverse; cortisol keeps removing protein and simply removes more than the athlete can rebuild, which is what drags strength down.
+        why_wrong: The clean-up job never switches off. Under a sustained load it removes more tissue than the athlete can rebuild.
 
   - id: ch04.cortisol.i05.q1
     item: ch04.cortisol.i05
@@ -458,14 +458,14 @@ questions:
     stem: Why do heavy squats and deadlifts typically provoke the largest whole-body hormonal response compared with an equally heavy bench press?
     locator: Heavy Resistance Exercise and Hormonal Increases
     options:
-      - text: drives many more myofibers into work
+      - text: They activate far more muscle fibers at once
         correct: true
-      - text: puts axial load through the spine
+      - text: They place axial load directly on the spine
         correct: false
-        why_wrong: Trades bearing for the upstream driver; the signal rides on myofiber recruitment, not bar weight.
-      - text: lifters choose wide gaps to refill ATP-PCr
+        why_wrong: Points at what the bar does to the skeleton rather than how much tissue is switched on. Bearing is not the trigger.
+      - text: They are usually performed with longer rest periods
         correct: false
-        why_wrong: Reverses the direction; squats and deadlifts are usually run with shorter rests than bench isolation blocks, and shorter rests amplify, not dampen, the response.
+        why_wrong: Rest length does change the response, but these lifts are normally run with shorter gaps, not longer ones.
 
   # ── Receptor Mechanisms ──
   - id: ch04.receptor-mechanisms.i01.q1
@@ -493,12 +493,12 @@ questions:
     stem: An athlete runs heavy singles at one to two RM with five to seven minutes rest and shows no serum testosterone rise, yet gains strength over eight weeks. Which mechanism most plausibly explains the adaptation?
     locator: Hormonal Changes in Peripheral Blood
     options:
-      - text: receptor state, not serum level, decides
+      - text: Receptor number rose while serum levels held steady
         correct: true
-      - text: SHBG released a larger free fraction
+      - text: A larger free fraction was released from SHBG
         correct: false
         why_wrong: Stays on the serum side of the ledger; even a bigger free fraction is still a concentration story, and the chapter's point is that this protocol works through receptor number while circulating testosterone holds steady.
-      - text: the assay missed a brief serum spike
+      - text: The blood draw missed a brief testosterone spike between sets
         correct: false
         why_wrong: Blames the measurement instead of accepting the finding; the chapter reports low-volume heavy work producing adaptation with circulating testosterone genuinely unchanged, which is exactly why receptor status carries the explanation.
 
