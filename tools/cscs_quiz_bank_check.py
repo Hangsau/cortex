@@ -41,9 +41,13 @@ GREEK_OK = re.compile(r"[Ͱ-Ͽἀ-῿](?=-\w)|[μµ](?=[a-zA-Z])")
 # G18：數字題的三個選項必須量同一件事。同單位擋不掉「250 µm 肌纖維直徑 vs 2 µm 肌節長度」，
 # 但擋得掉混用量級單位（nm vs µm）這種最常見的湊選項手法。只認長度／質量／時間／體積，
 # 不認 %／reps／sets——課程設計題的選項本來就會同時出現那幾個。
-MEASURE_UNIT = re.compile(
-    r"(?<![A-Za-z])(nm|µm|μm|um|mm|cm|km|m|kg|lb|mg|g|ms|min|hr|h|s|mL|L)(?![A-Za-z])"
-)
+#
+# 斜線接續的比值是**一個**單位，不是兩個：`g/kg`、`mL/kg/min` 量的是單一件事，
+# 拆成 g 與 kg 會把營養章整批正常題判成混用單位（ch10 的蛋白質攝取題就是這樣誤殺的，
+# 而章節來源自己就把它寫成 `unit: g/kg 體重/日`）。比值與絕對量混用仍然擋得住——
+# `g/kg` 與 `kg` 是兩個不同的 token。
+_UNIT = r"(?:nm|µm|μm|um|mm|cm|km|m|kg|lb|mg|g|ms|min|hr|h|s|mL|L)"
+MEASURE_UNIT = re.compile(rf"(?<![A-Za-z]){_UNIT}(?:/{_UNIT})*(?![A-Za-z])")
 
 # G20：干擾項不准在文字裡評價自己。ch05 與 ch06 各出現一批「選項尾巴掛一句錯因」的送分題：
 # `Direction reverses, reads the analysis as a 5 to 10 percent rise`、
@@ -133,6 +137,30 @@ def jaccard_words(a: str, b: str) -> float:
     right = set(re.findall(r"\w+", b.lower()))
     union = left | right
     return len(left & right) / len(union) if union else 0.0
+
+
+NUMERIC_CHARS = re.compile(r"[0-9,.\-–—~%]+")
+
+
+def differ_only_in_numbers(a: str, b: str) -> bool:
+    """兩個選項是不是「只有數值不同」——扣掉數字與其分隔符後剩下的文字完全一樣。
+
+    G9 要擋的是**考生不必讀書就能刪掉**的近重複：鏡像句、只換一個動詞。
+    數值選項不屬於這一類：`560–700 g` 與 `210–280 g` 的字元重疊率 0.667、
+    `2,040 kcal per day` 與 `2,480 kcal per day` 的詞重疊率 0.667，
+    但兩者的差別正是題目要考的那個量，看得懂單位也刪不掉任何一個。
+    最極端的一筆是 ch10 的每日能量消耗組成題：三個選項是同三個百分比帶的不同配對，
+    字元集合完全相同、重疊率 1.000，而它是本章最好的一題。
+
+    這跟 `jaccard_words` 的理由是同一條——重疊率量錯了東西就會誤殺，
+    修的是度量不是內容。條件收得很緊（扣掉數字後必須**完全**相同，且數字本身要有差異），
+    所以「只換一個動詞」那類仍然照擋。
+    """
+    if a == b:
+        return False
+    residue_a = NUMERIC_CHARS.sub("", a)
+    residue_b = NUMERIC_CHARS.sub("", b)
+    return residue_a == residue_b
 
 
 def option_overlap(a: str, b: str, lang: str) -> tuple:
@@ -531,6 +559,8 @@ def check_bank(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
 
             # G9：逐一檢查全部三組選項配對。英文比詞（上限 0.5），中文比字元（上限 0.6）。
             for left, right in combinations(range(OPTION_COUNT), 2):
+                if differ_only_in_numbers(texts[left], texts[right]):
+                    continue
                 overlap, limit = option_overlap(texts[left], texts[right], lang)
                 if overlap > limit:
                     fail(
