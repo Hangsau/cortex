@@ -1,6 +1,6 @@
 # HANDOFF — my-site (Cortex)
 
-## CSCS 題庫重寫：ch01–ch07 完成、ch08 待查證，發包改走直呼 API（2026-09-16）
+## CSCS 題庫重寫：ch01–ch07 完成、ch08 待人工查證，出題與審查全改走直呼 API（2026-09-17）
 
 依使用者「先擴充題庫再接讀書器、中英都要、合併成一份、按 CSCS 出題邏輯」的指示，把
 `data/cscs/_quiz_bank/chNN.yaml` 從四選項改寫為 NSCA 實際的**三選項**，並照官方 DCO 的
@@ -42,6 +42,7 @@ monthly Coding Plan，不吃 Claude 配額），一發串流呼叫拿一整批�
 python -X utf8 tools/cscs_quiz_direct.py chNN                # 整章
 python -X utf8 tools/cscs_quiz_direct.py chNN --part 1/3     # 大章分批
 python -X utf8 tools/cscs_quiz_direct.py chNN --fix-only     # 只修既有題庫（含補配額缺口）
+python -X utf8 tools/cscs_quiz_direct.py chNN --review       # 第二輪內容審查（每 20 題一批）
 python -X utf8 tools/cscs_quiz_direct.py chNN --dry-run      # 只印 prompt 不發請求
 python -X utf8 tools/cscs_quiz_direct.py --smoke             # 驗端點與 cache_control
 python -X utf8 tools/cscs_quiz_bank_check.py                 # 22 道閘，該章要 0 錯
@@ -179,11 +180,48 @@ YAML 要用雙引號包住否則會被讀成 float）。
 
 順手修了 `data/cscs/ch07.yaml` line 616 的錯字（`同性交` → `同性別`），那字直接顯示在線上頁面。
 
-**接下來**：**ch08 已出題過閘（`69e17f3`），但還沒人工逐題查證**——100 題、22 道閘 0 錯、
-配額 recall 30 / application 60 / analysis 10、EN 33 / ZH 67，100 個 id 全唯一、無 item
-超過 2 題。查證用 `python -X utf8 tools/cscs_quiz_verify_dump.py ch08`，前七章的經驗是
-過閘後人工仍會抓到 12–17 處缺陷，**這一步不能跳**。查證修完再 commit，然後才是 ch09。
+### 第二輪內容審查也搬進直呼管線：`--review chNN`（2026-09-17，`40c9280`）
+
+ch01–ch07 的第二輪是派 Claude Code sub-agent 讀 `tools/cscs_quiz_review_prompt.md` 跑的，
+吃 Claude 5H 配額、而且慢。現在 `run_review()` 走同一條 MiniMax 直呼路徑：**審查準則直接
+從那份 prompt 切 `## 第二步`–`## 第四步` 之間的字串**（`review_criteria()`，5,390 字元），
+所以往後新缺陷照舊只寫進 review prompt 一處，不會有第二份副本漂掉。第一步（叫 agent 去讀
+三個檔）與第四步（叫它自己跑閘）是 harness 的事，切片時刻意丟掉。
+
+**實測 ch08 100 題：145 秒、cache read 佔總輸入 58.9%、Claude 配額零消耗。**
+每批 20 題（`REVIEW_CHUNK`）、每批用全新 `messages`（對話不累積，穩定前綴才吃得到 cache），
+每批寫盤一次。cache 有寫入延遲：第 1／2／5 批 cache_read 只有 128，第 3／4 批才 51,840。
+
+**三個機械護欄，因為散文指示會被繞過**（同「散文規則不會生效」那條鐵則）：
+
+- `FIXED_FIELDS` 鎖 `id`／`item`／`dco`／`lang`／`cognitive`／`locator`，模型改了就還原並印出
+  改了幾個。**`stem` 刻意不鎖**——「正解只是把題幹換句話說」這類缺陷要靠改提問角度才救得回來。
+- 每批只收該批 id 的 patch，批外的丟掉。
+- `flag_self_admitted()` 掃改寫過的 `why_wrong`，抓「確實是／同屬教材／本身正確」這類自承。
+
+**首輪跑出來的教訓已固化成 `REVIEW_PRIORITY`**：模型做到第二步的第 1 問（干擾項要夠像真的）
+就停手，把明顯假的干擾項換成**教材真述**，`why_wrong` 還自己寫「這兩項確實是教材列舉的喚醒
+指標」——36 個改寫的干擾項裡 4 個這樣，三個選項全部成立。原因是第 1 問排第一、第 3 問
+（正解要唯一）排第四。修法是**點名那兩題**（規則檔的通則沒用，具名例子才有用）加一句
+「干擾項讓人猶豫靠的是錯得像對的，不是靠真的對」。重跑後自承數 0。
+
+**它的第二個變通還沒做成閘**：優先序規則就位後，它改成把題幹翻成否定式
+（「下列何者**最不**屬於…」）來規避——邏輯上成立，但官方樣題全是正向提問。100 題裡出現 2 次，
+都在第 1 批，已手動改回正向（順帶修掉 `i02.q1` 的選項層級混用：兩項描述選手、一項陳述通則）。
+下次遇到考慮做成閘。
+
+**接下來**：**ch08 已過閘且跑完第二輪審查（`40c9280`），但還沒人工逐題查證**——100 題、
+22 道閘 0 錯、配額 recall 30 / application 60 / analysis 10、EN 33 / ZH 67，100 個 id 全唯一、
+無 item 超過 2 題。查證用 `python -X utf8 tools/cscs_quiz_verify_dump.py ch08`，前七章的經驗是
+過閘後人工仍會抓到 12–17 處缺陷，**這一步不能跳**。
 ch08 是分三批（`--part K/N`）寫的，100 題單發會超出單次輸出上限。
+
+審查輪跑完會留下一批 G3／G4 長度閘錯誤（本次 26 條，修正尾巴收斂到 8 條就停），
+型態一致：**英文題正解是短名詞、干擾項被改寫成長句**。手改的做法是把三個選項寫成同一個
+句法層級的名詞片語（`Lower`／`Higher`／`Equal`；`Short-term goals`／`Outcome goals`／
+`Long-range goals`），改完 `why_wrong` 要跟著重寫。**注意 G9 英文比的是詞集合**，
+`Lower than the elite lifter's` vs `Higher than the elite lifter's` = 0.667 直接紅字，
+所以平行選項要短到只剩差異詞。
 
 ch09 → ch24 照章號串行，每章「`cscs_quiz_direct.py` 出題 → 過閘 → 人工逐題查證 →
 commit」才派下一章。`_quiz_bank/ch13.yaml`、`ch18.yaml` 仍是更早的 10 題試作，還帶著
