@@ -28,6 +28,9 @@ QUALIFIERS_EN = re.compile(
 )
 OPTION_COUNT = 3  # NSCA 官方樣題一律三選項；四選一是坊間題庫的習慣，不是本考試的格式
 TOLERANCE = 1  # 配題表允許的每格誤差
+# G22：同一個 item 至多幾題。章節來源只有 60–70 條 item 卻要出 100 題，同 item 出 2 題
+# 是設計的一部分；第 3 題就開始在同一句話上打轉，鑑別的是題目而不是知識。
+MAX_ITEM_QUESTIONS = 2
 LENGTH_RATIO = 1.5  # G4：最長 / 最短選項。2.0 放行了「muscles pull only」這種電報體正解
 
 # G17：把希臘字母當英文單字的縮寫（ν 代替 frequency、ΔP 代替 pressure difference）是湊長度的手法，
@@ -263,6 +266,8 @@ def check_bank(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
     stems_seen = {}
     chapter_questions = defaultdict(list)
     negative_stems = defaultdict(list)
+    ids_seen = {}  # G21：(章, 題目 id) → 先出現的題號
+    item_usage = defaultdict(lambda: defaultdict(list))  # G22：章 → item → 用到它的題目 id
     dco_ids, dco_chapters = load_dco(source_dir)
 
     def fail(path, question_id, rule, explanation):
@@ -339,6 +344,14 @@ def check_bank(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
             if not isinstance(qid, str) or not qid.strip():
                 qid = number
                 fail(path, qid, "G1", "每題必須有非空字串 id")
+            else:
+                # G21：題目 id 全章唯一。模型把同一個 item 的兩題都命名成 `<item>.q1` 時，
+                # 每一題本身都合法，靠 G1–G20 一條都擋不下來，但按 id 做局部修正時
+                # 會無聲吃掉其中一題。id 該由出題腳本機械指派，這道閘負責證明它有做到。
+                if (chapter, qid) in ids_seen:
+                    fail(path, qid, "G21", f"題目 id 重複（與第 {ids_seen[(chapter, qid)]} 題相同）")
+                else:
+                    ids_seen[(chapter, qid)] = number
 
             # G10：認知層級須為指定的三者之一；章內比例於全部題目讀完後驗收。
             cognitive = question.get("cognitive")
@@ -366,6 +379,8 @@ def check_bank(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
             # G7：item 必須存在於對應章節，locator 必須逐字相同。
             item_id = question.get("item")
             item = items.get(item_id) if isinstance(item_id, str) else None
+            if isinstance(item_id, str):
+                item_usage[chapter][item_id].append(qid)  # G22，讀完整章後才判
             if item is None:
                 fail(path, qid, "G7", f"對應章節找不到 item：{item_id}")
             elif (
@@ -550,6 +565,16 @@ def check_bank(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
                 BANK_DIR / f"{chapter}.yaml", "-", "G13",
                 f"{chapter} 的英文題有 {actual_en} 題，配題表要求 {expected_en} 題（±{TOLERANCE}）",
             )
+
+    # G22：同一個 item 至多 MAX_ITEM_QUESTIONS 題。章級規則，回報時列出是哪幾題。
+    for chapter, usage in sorted(item_usage.items()):
+        for item_id, qids in sorted(usage.items()):
+            if len(qids) > MAX_ITEM_QUESTIONS:
+                fail(
+                    BANK_DIR / f"{chapter}.yaml", "-", "G22",
+                    f"item {item_id} 出了 {len(qids)} 題，至多 {MAX_ITEM_QUESTIONS} 題"
+                    f"（{'、'.join(str(q) for q in qids)}）",
+                )
 
     # G14：否定題每章至多 1 題。語料 47 題裡只有 2 題是 EXCEPT，比例本來就低。
     for chapter, rows in sorted(negative_stems.items()):

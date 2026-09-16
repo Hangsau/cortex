@@ -2,192 +2,1603 @@ meta:
   chapter: ch08
   source: data/cscs/ch08.yaml
 questions:
-  # 干擾項對照：同 item 的身體焦慮反應（肌肉緊張、心搏過速與胃部不適）。
-  - id: ch08.arousal-anxiety-stress.i02.q1
-    item: ch08.arousal-anxiety-stress.i02
-    cognitive: recall
-    stem: 下列哪項賽前反應最直接屬於認知焦慮，而非身體焦慮的表現？
-    locator: "Energy Management: Arousal, Anxiety, and Stress > Anxiety"
-    options:
-      - text: 感到肩頸肌肉緊繃，身體難以放鬆
-        correct: false
-        why_wrong: 把焦慮引起的骨骼肌反應當成負面思考；這裡描述的是身體張力，屬於身體焦慮的成分。
-      - text: 察覺心跳明顯加速，胸口怦怦作響
-        correct: false
-        why_wrong: 混淆生理活化與對情境的擔憂；心搏過速是身體反應，並未直接描述運動員如何負面評價即將面對的任務。
-      - text: 反覆擔心自己失誤，害怕受到批評
-        correct: true
-      - text: 覺得胃部不適，腹部出現難受感覺
-        correct: false
-        why_wrong: 將能被自己察覺的症狀都歸為認知成分；胃部不適仍屬身體焦慮，分類依據是反應內容而非是否意識到它。
-
-  # 干擾項對照：ch08.arousal-theories.i01（驅力理論）、i04（倒 U 理論），以及本 item 的帶寬概念。
-  - id: ch08.arousal-theories.i05.q1
-    item: ch08.arousal-theories.i05
-    cognitive: analysis
-    stem: 兩名選手執行相同任務，甲在偏低喚醒時表現穩定，乙在偏高喚醒時表現較好；依個人最佳功能區理論，教練應如何設定賽前調整目標？
-    locator: Influence of Arousal and Anxiety on Performance > Individual Zones of Optimal Functioning Theory
-    options:
-      - text: 分別回顧良好表現，找出各自合適的一段喚醒範圍
-        correct: true
-      - text: 以中等活化作為共同標準，讓兩人都朝連續帶中央靠近
-        correct: false
-        why_wrong: 將倒 U 概念簡化為人人都以中點最佳；個人最佳功能區理論容許不同選手的適當程度不同，不能用同一中點取代個別紀錄。
-      - text: 從各自最佳成績找出唯一數值，把任何偏離都視為失常
-        correct: false
-        why_wrong: 雖然保留個別差異，卻把功能區誤縮成單一固定點；教材容許最佳表現落在一小段帶寬內。
-      - text: 持續提高兩人的興奮程度，利用活化越高表現越好的關係
-        correct: false
-        why_wrong: 套用了驅力理論的線性外推；喚醒並非無限提高都能改善表現，也無法解釋甲在偏低程度時的良好紀錄。
-
-  # 干擾項對照：ch08.attention-concentration.i02（廣外部）、i03（廣內部）、i04（窄內部）。
-  - id: ch08.attention-concentration.i05.q1
-    item: ch08.attention-concentration.i05
-    cognitive: application
-    stem: 防守球員容易被場上的多種刺激分散注意，教練希望他在對位時改用窄外部注意，哪個提示最符合這項調整？
-    locator: Attention and Focus > Attentional Styles
-    options:
-      - text: 在心中整合雙方戰術，形成整體的攻守策略
-        correct: false
-        why_wrong: 這是廣內部注意的資訊整合；雖然也與比賽有關，焦點卻朝向內在策略，沒有縮到少數外在線索。
-      - text: 默想接下來的防守動作，預演自己的執行順序
-        correct: false
-        why_wrong: 混淆注意力的方向；心中預演屬窄內部注意，與直接觀察對手並據以行動不同。
-      - text: 同時掃視全場的站位，掌握多名球員的動向
-        correct: false
-        why_wrong: 這是廣外部注意的情境評估；雖然方向朝外，仍同時處理多個環境元素，沒有完成題目要求的焦點縮窄。
-      - text: 專注對手雙腳的步法，據此判斷移動的時機
-        correct: true
-
-  # 干擾項對照：ch08.goal-setting.i02（結果目標）、i03（短期目標）、i06（具體可量化）。
-  - id: ch08.goal-setting.i01.q1
-    item: ch08.goal-setting.i01
-    cognitive: application
-    stem: 運動員原本只想著擊敗對手，教練要新增一項由自己控制、聚焦技能執行的過程目標，哪個設定最合適？
-    locator: Psychological Techniques for Improved Performance > Goal Setting > Process Goals
-    options:
-      - text: 本週選拔賽的名次要比上次前進兩名
-        correct: false
-        why_wrong: 把期限短且可量化誤當成可由自己控制；排名仍取決於其他人的表現，短期目標也可能是結果取向。
-      - text: 每次起跑練習都依教練提示維持姿勢
-        correct: true
-      - text: 本月決賽要取得個人參加項目的金牌
-        correct: false
-        why_wrong: 混淆明確的成功標準與可控制的行動；獎牌屬競賽結果，即使個人付出努力，仍受對手能力影響。
-      - text: 下一場接力賽要協助隊伍擊敗主要對手
-        correct: false
-        why_wrong: 把協助團隊的意願當成具體執行策略；此目標的判準仍是勝負，沒有指出運動員自己要完成的技術行動。
-
-  # 干擾項對照：ch08.attention-concentration.i06、i08，以及 ch08.ideal-performance-state.i04、i05。
-  - id: ch08.ideal-performance-state.i02.q1
-    item: ch08.ideal-performance-state.i02
-    cognitive: analysis
-    stem: 熟練選手描述一次理想表現時說，自己沒有逐步分析技術，卻能流暢動作並回應關鍵線索；哪個解讀最符合這種經驗？
-    locator: Ideal Performance State
-    options:
-      - text: 刻意檢查每個動作環節，使技術由意識逐步控制
-        correct: false
-        why_wrong: 將認知階段的費力調節套到已熟練的理想表現；題中沒有逐步分析的描述，正好與逐一監控細節相反。
-      - text: 完全排除內外所有刺激，使心智停止處理任何資訊
-        correct: false
-        why_wrong: 把不分析技術誤解為不再注意；自動化仍可聚焦任務相關線索，題中也明確保留了對關鍵訊息的反應。
-      - text: 已熟練技能自動執行，使注意力仍能留在當下任務
-        correct: true
-      - text: 憑主觀掌控感切換狀態，使輕鬆感能按意願隨時出現
-        correct: false
-        why_wrong: 混淆感到有所掌控與能刻意命令狀態發生；教材把不費力感描述為非自願經驗，不能由此推論選手可隨意啟動它。
-
-  # 干擾項對照：本 item 的正增強，以及 ch08.motivation.i06 的正懲罰與負懲罰。
-  - id: ch08.motivation.i05.q1
-    item: ch08.motivation.i05
-    cognitive: application
-    stem: 全隊達到約定的努力標準後，教練免除隊員不喜歡的額外衝刺，此後達標行為增加；這種安排屬於哪一種行為調整方式？
-    locator: Motivation > Positive and Negative Reinforcement in Coaching
-    options:
-      - text: 正增強
-        correct: false
-        why_wrong: 把隊員感到高興當成「正」的判準；此分類看的是添加或移除結果，題中是取消厭惡事件，沒有新增獎品或讚美。
-      - text: 正懲罰
-        correct: false
-        why_wrong: 因為看到衝刺就聯想到處罰，卻忽略它是被免除的；這種分類應是在行為後加入事件以降低行為，與本例的操作及方向都不符。
-      - text: 負懲罰
-        correct: false
-        why_wrong: 只看見移除而忽略被移除事物的性質與行為效果；取消珍惜的特權以減少行為，才符合此類，本例免除的是不喜歡的活動且達標增加。
-      - text: 負增強
-        correct: true
-
-  # 干擾項對照：本 item 的區塊式練習，以及 ch08.motor-skill-acquisition.i05、i06。
-  - id: ch08.motor-skill-acquisition.i04.q1
-    item: ch08.motor-skill-acquisition.i04
-    cognitive: application
-    stem: 運動員已能分別完成傳球、運球與投籃，教練希望在同一堂課改用隨機練習，哪種安排最符合這項要求？
-    locator: Enhancing Motor Skill Acquisition and Learning > Practice Schedule > Random Practice
-    options:
-      - text: 讓三種技能按不固定順序交替，同一堂課多次切換項目
-        correct: true
-      - text: 先連續傳球再連續運球，最後集中完成所有投籃練習
-        correct: false
-        why_wrong: 把一堂課包含多項技能當成隨機安排；連續重複一項後才換下一項，仍是區塊式練習的結構。
-      - text: 全程練投籃但調整出手距離，讓同一技能出現不同變化
-        correct: false
-        why_wrong: 混淆變化練習與隨機練習；前者改變同一技能的變化，題目要求的是多項技能以隨機順序交替。
-      - text: 看完隊友示範後再親自模仿，兩人輪流觀察與實際執行
-        correct: false
-        why_wrong: 把觀察者與執行者輪替誤認為技能順序交替；這是觀察練習結合身體練習，安排本身沒有指定多種技能的隨機順序。
-
-  # 干擾項對照：ch08.psychological-techniques.i01（呼吸）、i02（肌肉收緊與放鬆）、i04（恐懼層級）。
-  - id: ch08.psychological-techniques.i03.q1
-    item: ch08.psychological-techniques.i03
-    cognitive: application
-    stem: 運動員練習漸進式肌肉放鬆時覺得收緊肌群不舒服，教練改用自律訓練，接下來應給哪個提示？
-    locator: Psychological Techniques for Improved Performance > Relaxation Techniques to Control Elevated Arousal and Anxiety > Autogenic Training
-    options:
-      - text: 逐一收緊肌群十至十五秒，再有意識地完全放鬆
-        correct: false
-        why_wrong: 沿用了漸進式肌肉放鬆的張力循環；教材所述替代法正是改以身體感受取代收緊動作，沒有必要重做引起不適的步驟。
-      - text: 將注意力放在某一肢體，感受它的溫暖與沉重
-        correct: true
-      - text: 自然地深吸氣並控制吐氣，持續保持規律節奏
-        correct: false
-        why_wrong: 這是橫膈膜呼吸的引導；它可協助放鬆，也可能作為其他技巧的準備，但沒有呈現自律訓練所專注的肢體感受。
-      - text: 依恐懼層級逐一想像場景，同時持續運用放鬆
-        correct: false
-        why_wrong: 套用了系統減敏感法的程序；該法以放鬆反應取代恐懼反應，並非本題以溫暖和沉重感取代肌肉張力循環的方式。
-
-  # 干擾項對照：ch08.arousal-theories.i01（線性上升）、i04（漸進下降），以及本 item 的恢復限制。
-  - id: ch08.arousal-theories.i06.q1
-    item: ch08.arousal-theories.i06
-    cognitive: analysis
-    stem: 運動員持續擔心失敗，賽前生理喚醒又不斷升高；依災難理論，教練應如何判斷接下來的表現風險？
-    locator: Influence of Arousal and Anxiety on Performance > Catastrophe Theory
-    options:
-      - text: 認知焦慮存在時活化繼續升高，可能使表現突然大幅下跌
-        correct: true
-      - text: 生理喚醒持續增加時成績也會提高，可沿線性關係繼續改善
-        correct: false
-        why_wrong: 套用了驅力理論的單向提升假設；災難模型特別指出，擔憂存在時再提高生理活化，可能觸發急遽衰退。
-      - text: 即使超過最佳程度也只會逐漸退步，不會出現突然的崩落
-        correct: false
-        why_wrong: 將早期倒 U 模型的漸進下降當成風險上限；本題指定的理論容許表現突然下跌，不能只預期平順衰退。
-      - text: 即使成績崩落也只須略微恢復平靜，就能立即回到原來水準
-        correct: false
-        why_wrong: 把降低喚醒當成沿原曲線對稱回復的保證；教材明確指出，恢復一些平靜不一定能回到下跌前的表現。
-
-  # 干擾項對照：同 item 的同步與延遲回饋、初學複雜技能的頻率例外，以及隨熟練遞減的原則。
-  - id: ch08.motor-skill-acquisition.i08.q1
-    item: ch08.motor-skill-acquisition.i08
-    cognitive: analysis
-    stem: 運動員已逐漸熟練一項複雜技能，教練目前優先考量長期學習效果，哪種回饋安排最符合這個目標與學習階段？
-    locator: Enhancing Motor Skill Acquisition and Learning > Feedback
-    options:
-      - text: 每次執行時都持續口頭修正，以維持當下的最佳表現
-        correct: false
-        why_wrong: 把競賽當下適用的同步回饋直接移作學習處方；它可改善即時執行，卻可能損害技能學習，兩種目標必須區分。
-      - text: 動作完成後再提供資訊，隨熟練程度逐漸降低頻率
-        correct: true
-      - text: 沿用初學時每次必給的提示，把高頻率固定到後期
-        correct: false
-        why_wrong: 將初學複雜技能的例外延伸到所有階段；教材容許起初較頻繁，仍要求隨技能提升而遞減，不能永久沿用入門配置。
-      - text: 從下一次起全面取消教練提示，不再依技能進展調整
-        correct: false
-        why_wrong: 將較低頻率誤解為立刻完全停止擴增回饋；本題仍是技能逐漸熟練的過程，教材支持依進展遞減，沒有要求一次取消所有外部資訊。
+- id: ch08.arousal-anxiety-stress.i01.q1
+  item: ch08.arousal-anxiety-stress.i01
+  dco: sf2.A.1
+  lang: zh
+  cognitive: recall
+  stem: 下列何者最符合教材對「喚醒（arousal）」的測量指標描述？
+  locator: 'Energy Management: Arousal, Anxiety, and Stress > Arousal'
+  options:
+  - text: 心率與自陳量表並列
+    correct: true
+  - text: 只看選手的最大肌力表現
+    correct: false
+    why_wrong: 最大肌力屬於表現變項；教材列舉的指標聚焦於生理活化與主觀知覺，不是肌力輸出本身。
+  - text: 以比賽得分高低作為喚醒指標
+    correct: false
+    why_wrong: 比賽得分受對手與戰術等多重因素影響，無法單獨對應到個人的活化程度。
+- id: ch08.arousal-anxiety-stress.i02.q1
+  item: ch08.arousal-anxiety-stress.i02
+  dco: sf2.A.2
+  lang: zh
+  cognitive: recall
+  stem: 根據教材，焦慮與單純喚醒最重要的區分為何？
+  locator: 'Energy Management: Arousal, Anxiety, and Stress > Anxiety'
+  options:
+  - text: 是否帶有對情境的負面知覺
+    correct: true
+  - text: 是否伴隨心跳加速等生理反應
+    correct: false
+    why_wrong: 心跳加速屬於一般喚醒現象，無法區分焦慮與非焦慮狀態；教材強調焦慮需要負面知覺才成立。
+  - text: 是否能在訓練中測量到數值
+    correct: false
+    why_wrong: 可測量性只是研究便利條件，不是教材界定焦慮的本質條件。
+- id: ch08.arousal-anxiety-stress.i03.q1
+  item: ch08.arousal-anxiety-stress.i03
+  dco: sf2.A.2
+  lang: zh
+  cognitive: recall
+  stem: 教材對「狀態焦慮與表現關係」的最忠實描述為何？
+  locator: 'Energy Management: Arousal, Anxiety, and Stress > Anxiety'
+  options:
+  - text: 可能正負或無
+    correct: true
+  - text: 一律有害表現
+    correct: false
+    why_wrong: 教材保留正、負、無三種可能；用「一律有害」會抹平受技能、人格與任務複雜度調節的事實。
+  - text: 一律助於表現
+    correct: false
+    why_wrong: 教材並未把狀態焦慮畫上正面等號，無條件地說全正面同樣是過度延伸。
+- id: ch08.arousal-anxiety-stress.i04.q1
+  item: ch08.arousal-anxiety-stress.i04
+  dco: sf2.A.2
+  lang: zh
+  cognitive: application
+  stem: 一名特質焦慮偏高的桌球選手在關鍵決勝局頻頻漏接，最可能的解釋為何？
+  locator: 'Energy Management: Arousal, Anxiety, and Stress > Anxiety'
+  options:
+  - text: 與任務無關的想法占用注意力容量
+    correct: true
+  - text: 桌球動作的肌肉協調已自動失效
+    correct: false
+    why_wrong: 失誤源自注意力被認知干擾，而非技術本身喪失；肌肉協調問題屬於動作學習或技術層次，與特質焦慮的主張不同層次。
+  - text: 桌球屬於低度競賽、無須專注的運動
+    correct: false
+    why_wrong: 桌球需要快速辨識旋轉與落點，正屬於需要選擇性注意的運動；把桌球當低注意力任務會誤判干擾來源。
+- id: ch08.arousal-anxiety-stress.i06.q1
+  item: ch08.arousal-anxiety-stress.i06
+  dco: sf2.B.2
+  lang: zh
+  cognitive: recall
+  stem: 下列對「壓力」與「壓力源」的定義，何者最正確？
+  locator: 'Energy Management: Arousal, Anxiety, and Stress > Stress'
+  options:
+  - text: 壓力是需求與因應能力失衡的狀態
+    correct: true
+  - text: 壓力源等同於個人主觀的焦慮感受
+    correct: false
+    why_wrong: 焦慮是對壓力源知覺後的反應，不是壓力源本身；把兩者畫上等號會失去「是否產生焦慮取決於知覺」這個關鍵。
+  - text: 壓力只發生在身體需求未被滿足時
+    correct: false
+    why_wrong: 教材把身體與心理需求並列；只看身體需求會漏掉賽前心理負擔、教練期待等純心理性壓力源。
+- id: ch08.arousal-anxiety-stress.i07.q1
+  item: ch08.arousal-anxiety-stress.i07
+  dco: sf2.A.2
+  lang: zh
+  cognitive: application
+  stem: 選手將一場關鍵比賽解讀為嚴重威脅，並出現心跳加速與反覆擔憂失誤。教練最適當的回應應聚焦於？
+  locator: 'Energy Management: Arousal, Anxiety, and Stress > Stress'
+  options:
+  - text: 處理其對壓力源的負面知覺
+    correct: true
+  - text: 立即減少所有體能訓練量
+    correct: false
+    why_wrong: 減少訓練量並未觸及「把威脅解讀為負面」這個核心知覺；也可能打斷備戰節奏，與心理介入無關。
+  - text: 要求選手完全壓抑焦慮反應
+    correct: false
+    why_wrong: 要求壓抑反應並未改變他對情境的評估；教材不主張壓制活化，而是先處理產生焦慮的知覺層。
+- id: ch08.arousal-anxiety-stress.i08.q1
+  item: ch08.arousal-anxiety-stress.i08
+  dco: sf2.A.3
+  lang: en
+  cognitive: recall
+  stem: Which description of eustress best matches the textbook's definition?
+  locator: 'Energy Management: Arousal, Anxiety, and Stress > Stress'
+  options:
+  - text: Positive psychological energy and arousal
+    correct: true
+  - text: A state that must include cognitive anxiety
+    correct: false
+    why_wrong: The textbook separates eustress from anxiety and does not list cognitive or somatic anxiety under it; insisting on cognitive anxiety contradicts the text.
+  - text: A state with no physiological activation
+    correct: false
+    why_wrong: Eustress still involves physiological arousal; denying activation would reduce it to a purely mental label.
+- id: ch08.arousal-theories.i01.q1
+  item: ch08.arousal-theories.i01
+  dco: sf2.A.1
+  lang: en
+  cognitive: recall
+  stem: Which of the following best describes the limitation of drive theory as presented in the textbook?
+  locator: Influence of Arousal and Anxiety on Performance > Drive Theory
+  options:
+  - text: Higher arousal may impair performance
+    correct: true
+  - text: It applies only to endurance tasks
+    correct: false
+    why_wrong: Drive theory is not restricted by energy system or task duration in the textbook; the limitation concerns arousal level, not sport type.
+  - text: It excludes skilled performers entirely
+    correct: false
+    why_wrong: Skilled performers are still affected by arousal; the theory is critiqued for overgeneralization, not for excluding experts.
+- id: ch08.arousal-theories.i02.q1
+  item: ch08.arousal-theories.i02
+  dco: sf2.A.1
+  lang: en
+  cognitive: application
+  stem: A novice cyclist visibly loses line control when a strong crosswind appears. Which explanation from the textbook best fits this scene?
+  locator: Influence of Arousal and Anxiety on Performance > Drive Theory > Skill Level
+  options:
+  - text: Attention is consumed by movement details
+    correct: true
+  - text: The athlete lacks sensation-seeking traits
+    correct: false
+    why_wrong: The textbook frames skill-level effects through attention capacity, not sensation-seeking personality traits.
+  - text: The athlete has an unusually low lactate threshold
+    correct: false
+    why_wrong: Lactate threshold belongs to energy systems and does not explain line control loss during a wind gust.
+- id: ch08.arousal-theories.i03.q1
+  item: ch08.arousal-theories.i03
+  dco: sf2.A.1
+  lang: zh
+  cognitive: application
+  stem: 兩名選手同樣在高噪音環境下比賽：甲跑的是已熟練的 400 公尺，乙要即時判斷戰術的格鬥選手。教練的差異化處置最可能依據？
+  locator: Influence of Arousal and Anxiety on Performance > Drive Theory > Task Complexity
+  options:
+  - text: 任務所需的有意識決策負荷
+    correct: true
+  - text: 兩人外在動作型態的視覺複雜度
+    correct: false
+    why_wrong: 教材強調的關鍵是「有意識決策」而非單純的動作控制；用視覺複雜度判斷會誤把跑步也算進高喚醒需求。
+  - text: 兩人過去的訓練總時數
+    correct: false
+    why_wrong: 訓練時數代表練習量，無法區分任務本身是否需要高度決策；教材沒把訓練時數當作喚醒需求的主要調節變項。
+- id: ch08.arousal-theories.i04.q1
+  item: ch08.arousal-theories.i04
+  dco: sf2.A.1
+  lang: en
+  cognitive: application
+  stem: A coach is using the inverted-U concept to explain why an athlete struggles both when overly hyped and when flat before competition. Which qualification from the textbook best refines this explanation?
+  locator: Influence of Arousal and Anxiety on Performance > Inverted-U Theory
+  options:
+  - text: The curve is moderated by skill and task
+    correct: true
+  - text: Only beginners respond to arousal level
+    correct: false
+    why_wrong: The textbook does not limit arousal effects to novices; skilled athletes still have a curve, just with a wider tolerance band.
+  - text: The curve assumes identical personalities
+    correct: false
+    why_wrong: While individual differences matter, the textbook's named critique is skill, ability, experience, and task complexity, not personality per se.
+- id: ch08.arousal-theories.i05.q1
+  item: ch08.arousal-theories.i05
+  dco: sf2.A.1
+  lang: zh
+  cognitive: application
+  stem: 教練若想用 Hanin 的個人最佳功能區（IZOF）幫助網球選手備賽，最關鍵的調整為何？
+  locator: Influence of Arousal and Anxiety on Performance > Individual Zones of Optimal Functioning Theory
+  options:
+  - text: 找出每位選手的最佳喚醒帶寬
+    correct: true
+  - text: 把所有選手的目標喚醒統一為中等
+    correct: false
+    why_wrong: 教材批評「中等喚醒最佳」並指出每個人最佳點不同；統一中等會抹平 IZOF 強調的個別差異。
+  - text: 只監測客觀生理指標，忽略情緒自陳
+    correct: false
+    why_wrong: IZOF 同時容許情緒被不同運動員正向或負向知覺；只看生理指標會失去情緒自陳所提供的訊息。
+- id: ch08.arousal-theories.i06.q1
+  item: ch08.arousal-theories.i06
+  dco: sf2.A.1
+  lang: zh
+  cognitive: application
+  stem: 一名選手在認知焦慮升高時，一旦生理喚醒跟著攀升，表現常突然崩塌。下列何者最能描述這個現象？
+  locator: Influence of Arousal and Anxiety on Performance > Catastrophe Theory
+  options:
+  - text: 表現突然大幅下滑
+    correct: true
+  - text: 表現以平穩斜率下滑
+    correct: false
+    why_wrong: 教材明列災難理論反對漸進衰退；用平穩斜率描述會把災難模型誤畫成簡單倒 U 的延伸。
+  - text: 表現從此不再恢復
+    correct: false
+    why_wrong: 教材只說「恢復一些平靜不一定能回到下跌前水準」，未主張永遠不可逆；說成「不再恢復」是過度延伸。
+- id: ch08.arousal-theories.i07.q1
+  item: ch08.arousal-theories.i07
+  dco: sf2.A.1
+  lang: zh
+  cognitive: application
+  stem: 同一場高張力比賽中，甲把觀眾噪音視為「很興奮」，乙把它視為「很不舒服」。教材最可能用哪個概念來解釋這種差異？
+  locator: Influence of Arousal and Anxiety on Performance > Reversal Theory
+  options:
+  - text: 喚醒效果取決於個人如何詮釋
+    correct: true
+  - text: 兩人天生的生理喚醒閾值不同
+    correct: false
+    why_wrong: 天生閾值屬於生理層次，無法解釋為何同一強度刺激會被兩人貼上截然不同的情緒標籤。
+  - text: 觀眾噪音對運動表現毫無影響
+    correct: false
+    why_wrong: 題幹已說明同一環境在兩人身上產生不同效果；說「毫無影響」與題幹情境直接衝突。
+- id: ch08.attention-concentration.i01.q1
+  item: ch08.attention-concentration.i01
+  dco: sf2.A.2
+  lang: zh
+  cognitive: application
+  stem: 一名羽球選手在比賽時抱怨「腦袋一片空白，只想著剛才那顆失誤球」。下列何者最適合用來描述他的困難？
+  locator: Attention and Focus
+  options:
+  - text: 選擇性注意被任務無關想法占據
+    correct: true
+  - text: 長期記憶容量不足以提取戰術
+    correct: false
+    why_wrong: 題幹描述的是當下被失誤想法占據，屬於注意力與工作記憶層次；長期記憶容量是另一個獨立機制。
+  - text: 視覺搜尋速度下降到生理極限
+    correct: false
+    why_wrong: 視覺搜尋屬於外在線索處理層次；「想著失誤球」是內在認知占用，無法用視覺疲勞解釋。
+- id: ch08.attention-concentration.i02.q1
+  item: ch08.attention-concentration.i02
+  dco: sf2.A.2
+  lang: en
+  cognitive: recall
+  stem: According to Nideffer's framework, which attentional style is used when surveying multiple elements of the playing environment?
+  locator: Attention and Focus > Attentional Styles
+  options:
+  - text: Broad-external focus
+    correct: true
+  - text: Narrow-external focus
+    correct: false
+    why_wrong: Narrow-external focus isolates one or two cues for action; surveying many elements describes breadth, not narrowing.
+  - text: Broad-internal focus
+    correct: false
+    why_wrong: Broad-internal focus is about internally integrating many pieces of information, not scanning the external environment.
+- id: ch08.attention-concentration.i03.q1
+  item: ch08.attention-concentration.i03
+  dco: sf2.A.2
+  lang: en
+  cognitive: application
+  stem: A soccer coach wants a player to internally compare several tactical options before receiving the ball. Which attentional style best fits this intent?
+  locator: Attention and Focus > Attentional Styles
+  options:
+  - text: Broad-internal focus
+    correct: true
+  - text: Narrow-internal focus
+    correct: false
+    why_wrong: Narrow-internal focus is used to mentally rehearse an imminent action, not to integrate multiple tactical options.
+  - text: Broad-external focus
+    correct: false
+    why_wrong: Broad-external focus scans the environment, not the player's own internal analysis of options.
+- id: ch08.attention-concentration.i04.q1
+  item: ch08.attention-concentration.i04
+  dco: sf2.A.2
+  lang: en
+  cognitive: recall
+  stem: According to the textbook, when is narrow-internal attentional focus most appropriate for an athlete?
+  locator: Attention and Focus > Attentional Styles
+  options:
+  - text: While mentally rehearsing an upcoming action
+    correct: true
+  - text: While surveying many environmental cues at once
+    correct: false
+    why_wrong: Surveying many environmental cues describes breadth, not the narrow focus used to mentally rehearse one action.
+  - text: While filtering out a single opponent cue
+    correct: false
+    why_wrong: Filtering out a single opponent cue is an external focus task, not an internal mental-rehearsal task.
+- id: ch08.attention-concentration.i05.q1
+  item: ch08.attention-concentration.i05
+  dco: sf2.A.2
+  lang: zh
+  cognitive: application
+  stem: 一位拳擊手容易被對手假動作淹沒，教練想用注意力策略協助他聚焦。最符合 Nideffer 框架的處置為？
+  locator: Attention and Focus > Attentional Styles
+  options:
+  - text: 引導他聚焦單一外在線索
+    correct: true
+  - text: 要求他在腦中預演全套戰術
+    correct: false
+    why_wrong: 在腦中預演全套戰術屬於廣內部注意，可能反而加重認知負荷，與「被刺激淹沒」的問題相反。
+  - text: 同時觀察場上所有外在元素
+    correct: false
+    why_wrong: 同時觀察所有元素正是他被淹沒的原因；擴大外在廣度會讓處理負擔更重，違背處置目的。
+- id: ch08.attention-concentration.i06.q1
+  item: ch08.attention-concentration.i06
+  dco: sf2.A.2
+  lang: zh
+  cognitive: application
+  stem: 一名剛學深蹲的新手在課堂上明顯吃力，每一下都要「邊想邊做」。根據 Fitts 與 Posner 的階段，他最可能處於哪個階段？
+  locator: Attention and Focus
+  options:
+  - text: 認知階段
+    correct: true
+  - text: 聯結階段
+    correct: false
+    why_wrong: 聯結階段仍把注意力放在任務上，但已較不會被動作細節占住；題幹描述「邊想邊做」屬於最費力的初始階段。
+  - text: 自動化階段
+    correct: false
+    why_wrong: 自動化階段心智放鬆、技能可無須思考執行，與新手必須有意識調節的現象相反。
+- id: ch08.attention-concentration.i08.q1
+  item: ch08.attention-concentration.i08
+  dco: sf2.A.2
+  lang: zh
+  cognitive: analysis
+  stem: 一位資深泳者在比賽後段能同時監控划水節奏與對手位置，但仍保持動作順暢。這最能用哪一個概念解釋？
+  locator: Attention and Focus
+  options:
+  - text: 自動化讓心智得以釋放給外在線索
+    correct: true
+  - text: 動作細節已佔據全部注意力容量
+    correct: false
+    why_wrong: 若細節仍占據全部注意力，他就不可能同時監控對手；題幹情境與「細節占滿」假設矛盾。
+  - text: 注意力已徹底切離所有外在刺激
+    correct: false
+    why_wrong: 教材強調自動化是「自動濾除不相關線索」，並非徹底切離所有外在刺激；說「徹底切離」是過度延伸。
+- id: ch08.goal-setting.i01.q1
+  item: ch08.goal-setting.i01
+  dco: sf2.A.1
+  lang: zh
+  cognitive: application
+  stem: 一名體態過重的運動員想減重，下列何者最符合「過程目標」的設定方式？
+  locator: Psychological Techniques for Improved Performance > Goal Setting > Process Goals
+  options:
+  - text: 設定每週有氧與飲食的執行項目
+    correct: true
+  - text: 設定年底前減重到某個體重數字
+    correct: false
+    why_wrong: 體重結果受飲食、訓練、睡眠等多重因素影響，並非運動員可完全控制；這正是教材把結果目標與過程目標區分的關鍵。
+  - text: 設定在比賽中拿下前三名
+    correct: false
+    why_wrong: 競賽名次取決於對手與裁判等不可控因素；把它當作單一目標違反教材對「過程目標在運動員控制之內」的界定。
+- id: ch08.goal-setting.i02.q1
+  item: ch08.goal-setting.i02
+  dco: sf2.A.1
+  lang: en
+  cognitive: analysis
+  stem: A coach is concerned that focusing only on winning may occupy attention capacity and disrupt coordination. Which feature of outcome goals best explains this concern?
+  locator: Psychological Techniques for Improved Performance > Goal Setting > Outcome Goals
+  options:
+  - text: Attention is drawn to fixed standards
+    correct: true
+  - text: Outcomes are always within the athlete's control
+    correct: false
+    why_wrong: Outcomes depend on opponents and circumstances; the coach's concern assumes the opposite of this option.
+  - text: Outcomes replace all process goals automatically
+    correct: false
+    why_wrong: The textbook recommends combining outcome and process goals, not that outcomes replace process goals.
+- id: ch08.goal-setting.i03.q1
+  item: ch08.goal-setting.i03
+  dco: sf2.A.1
+  lang: zh
+  cognitive: recall
+  stem: 下列對「短期目標」的心理功能之描述，何者最符合教材？
+  locator: Psychological Techniques for Improved Performance > Goal Setting > Short-Term Goals
+  options:
+  - text: 提高自信、自我效能與動機
+    correct: true
+  - text: 完全取代長期目標的存在
+    correct: false
+    why_wrong: 教材把短期目標視為通往長期目標的一串可達成標準，並非取代關係；用「完全取代」會切斷兩者的連結。
+  - text: 主要功能是增加對比賽結果的掌控
+    correct: false
+    why_wrong: 對比賽結果的掌控屬於結果目標範疇；短期目標的心理功能教材聚焦於自信與動機提升。
+- id: ch08.goal-setting.i05.q1
+  item: ch08.goal-setting.i05
+  dco: sf2.A.1
+  lang: zh
+  cognitive: application
+  stem: 教練解釋「為什麼系統性目標設定能改善表現」，下列何者最同時涵蓋教材所列的三個理由？
+  locator: Psychological Techniques for Improved Performance > Goal Setting
+  options:
+  - text: 注意力、努力與正向回饋
+    correct: true
+  - text: 天賦、營養與恢復時間
+    correct: false
+    why_wrong: 天賦、營養、恢復屬於體能與生理背景，不是教材列在目標設定功能下的三項理由；混用會失去鑑別度。
+  - text: 戰術、體能與心理諮商次數
+    correct: false
+    why_wrong: 戰術與體能是訓練內容；教材沒有把心理諮商次數列為目標設定影響表現的機制。
+- id: ch08.goal-setting.i07.q1
+  item: ch08.goal-setting.i07
+  dco: sf2.A.1
+  lang: zh
+  cognitive: application
+  stem: 選手面對漫長的奧運備戰期，教練希望兼顧方向感與持續動力。最符合教材指引的目標設計為？
+  locator: Psychological Techniques for Improved Performance > Goal Setting > Long-Term Goals
+  options:
+  - text: 串接短期達成與長期方向
+    correct: true
+  - text: 只設長期目標，要求每天自律
+    correct: false
+    why_wrong: 只設長期目標會讓日常訓練失去可達成的階段感，教材強調短期目標建立精熟感與自信，不能省略。
+  - text: 同時設定多個無關的長期目標
+    correct: false
+    why_wrong: 多個無關的長期目標會分散努力方向，違背教材「長期目標統整一系列彼此連結的短期目標」的主張。
+- id: ch08.ideal-performance-state.i03.q1
+  item: ch08.ideal-performance-state.i03
+  dco: sf2.A.2
+  lang: zh
+  cognitive: application
+  stem: 一位選手在關鍵時刻感到「眼裡只剩眼前的這一拍，其他什麼都看不到」。根據教材，這最屬於理想表現狀態的哪一特徵？
+  locator: Ideal Performance State
+  options:
+  - text: 注意力狹窄且集中於當下活動
+    correct: true
+  - text: 注意力廣泛掃描所有場上元素
+    correct: false
+    why_wrong: 廣泛掃描屬於廣外部注意，與題幹「只剩眼前這一拍」的狹窄集中相反；放在這裡會與教材描述衝突。
+  - text: 注意力完全脫離身體感受
+    correct: false
+    why_wrong: 教材說注意力集中於正在進行的活動，並未主張脫離身體感受；用「完全脫離」會把焦點窄化擴大成失聯。
+- id: ch08.ideal-performance-state.i07.q1
+  item: ch08.ideal-performance-state.i07
+  dco: sf2.A.2
+  lang: en
+  cognitive: recall
+  stem: Beyond freedom from fear and time distortion, which set of features also characterizes the ideal performance state?
+  locator: Ideal Performance State
+  options:
+  - text: Adaptive focus on task-relevant cues
+    correct: true
+  - text: Constant analysis of technique
+    correct: false
+    why_wrong: The textbook lists the absence of analysis as a feature; constant analysis would contradict the ideal performance state.
+  - text: Reliance on external coach cues only
+    correct: false
+    why_wrong: The ideal performance state emphasizes the athlete's internal focus and confidence, not reliance on coach cues.
+- id: ch08.motivation.i04.q1
+  item: ch08.motivation.i04
+  dco: sf2.A.1
+  lang: zh
+  cognitive: recall
+  stem: 教材對 MAS 主導者偏好的挑戰情境，最忠實的描述為何？
+  locator: Motivation > Achievement Motivation
+  options:
+  - text: 約五成勝率、可評估自身能力
+    correct: true
+  - text: 必須有十足把握才會選擇
+    correct: false
+    why_wrong: 教材明說 MAS 對極高把握的情境興趣較低；用「十足把握」會把偏好情境完全寫反。
+  - text: 必須是不可能成功的艱難挑戰
+    correct: false
+    why_wrong: MAS 偏好的是中等勝率以評估能力，而非明顯不可能的艱難挑戰；這是 MAF 的舒適區。
+- id: ch08.motivation.i05.q1
+  item: ch08.motivation.i05
+  dco: sf2.A.1
+  lang: zh
+  cognitive: application
+  stem: 教練想增加選手準時出席晨練的機會。下列哪一種做法最屬於「負增強」？
+  locator: Motivation > Positive and Negative Reinforcement in Coaching
+  options:
+  - text: 全隊準時後免做收操衝刺
+    correct: true
+  - text: 對準時者頒發本月最佳出席獎
+    correct: false
+    why_wrong: 頒獎是在行為後給予正向事件，屬於正增強；這裡誤把添加事件當成移除事件，與教材定義衝突。
+  - text: 對遲到者公開責備並要求加練
+    correct: false
+    why_wrong: 公開責備並加練是在行為後呈現嫌惡事件，屬於正懲罰；用懲罰機制會降低而非增強出席行為。
+- id: ch08.motivation.i07.q1
+  item: ch08.motivation.i07
+  dco: sf2.A.2
+  lang: zh
+  cognitive: application
+  stem: 教練想說明「為何採用增強而非懲罰」的注意力理由，下列哪一項最涵蓋教材主張？
+  locator: Motivation > Positive and Negative Reinforcement in Coaching > How Should Positive and Negative Reinforcement Be Applied?
+  options:
+  - text: 增強聚焦做對的事、保留任務相關焦點
+    correct: true
+  - text: 懲罰永遠比增強更能提升自我效能
+    correct: false
+    why_wrong: 教材明說增強有助自我效能；說「懲罰永遠更能」直接與教材偏好正向取向的主張衝突。
+  - text: 懲罰可消除一切任務無關注意力
+    correct: false
+    why_wrong: 教材指出懲罰會讓注意力被無關線索占滿，而非消除；說成可「消除一切」會把懲罰效用反向化。
+- id: ch08.motivation.i08.q1
+  item: ch08.motivation.i08
+  dco: sf2.A.2
+  lang: en
+  cognitive: application
+  stem: A strength coach wants athletes to feel ownership over how they structure parts of a session. Which arrangement best supports self-controlled practice?
+  locator: Motivation > Motivational Aspects of Skill Learning (Self-Controlled Practice)
+  options:
+  - text: Let athletes choose which drill to attempt first
+    correct: true
+  - text: Prescribe every drill order and rest interval
+    correct: false
+    why_wrong: Prescribing every detail removes athlete decision-making and is the opposite of self-controlled practice.
+  - text: Deliver feedback only at season end
+    correct: false
+    why_wrong: The textbook frames self-control as including timing of feedback; withholding it entirely removes a key motivational lever.
+- id: ch08.motor-skill-acquisition.i04.q1
+  item: ch08.motor-skill-acquisition.i04
+  dco: pa3.A.2
+  lang: zh
+  cognitive: application
+  stem: 教練安排新手在同一堂課中隨機交替練三種傳球動作，初期單一動作表現下滑。下列哪個解釋最貼近教材？
+  locator: Enhancing Motor Skill Acquisition and Learning > Practice Schedule > Random Practice
+  options:
+  - text: 練習中表現下降但有助於學習
+    correct: true
+  - text: 表示三種動作彼此毫無遷移
+    correct: false
+    why_wrong: 隨機練習下降不等於無遷移；教材強調隨機練習的當下表現下降，正因其干擾效應有利於長期學習。
+  - text: 表示此安排不適合任何階段
+    correct: false
+    why_wrong: 教材反而推薦以少量重複後轉換的混合方式；說完全不適合任何階段會誤把練習安排的彈性抹平。
+- id: ch08.arousal-anxiety-stress.i05.q1
+  item: ch08.arousal-anxiety-stress.i05
+  dco: sf2.A.1
+  lang: zh
+  cognitive: application
+  stem: 一名田徑選手在焦慮狀態下難以自主調節喚醒，此時最主要的困難最可能來自何處？
+  locator: 'Energy Management: Arousal, Anxiety, and Stress > Anxiety'
+  options:
+  - text: 對情境成敗的不確定感
+    correct: true
+  - text: 骨骼肌爆發力相對不足
+    correct: false
+    why_wrong: 焦慮時的喚醒主要受不確定感干擾，而不是肌力不足；把它歸因於體能會誤判介入方向。
+  - text: 尚未學習任何放鬆技巧
+    correct: false
+    why_wrong: 焦慮喚醒失控源自內在的不確定感，並非單純因為未採用放鬆技巧。
+- id: ch08.attention-concentration.i07.q1
+  item: ch08.attention-concentration.i07
+  dco: sf2.A.2
+  lang: zh
+  cognitive: application
+  stem: 一名短跑選手在聯結階段學習起跑反應，教練最優先應觀察哪一個注意力特徵？
+  locator: Attention and Focus
+  options:
+  - text: 動作細節已不再占住全部注意空間
+    correct: true
+  - text: 技能完全不必思考即可執行
+    correct: false
+    why_wrong: 「完全自動化」屬於自動化階段的特徵；聯結階段仍須有意識地把注意放在任務上。
+  - text: 焦點已能掃描場上所有隊友位置
+    correct: false
+    why_wrong: 把注意力焦點的廣度當成聯結階段的特徵；此處敘述的是場地掃描，屬於廣外部注意。
+- id: ch08.goal-setting.i04.q1
+  item: ch08.goal-setting.i04
+  dco: sf2.A.1
+  lang: zh
+  cognitive: application
+  stem: 一名馬拉松選手正在準備半年內的賽事，長期與短期目標應以何種關係安排最能提升動機？
+  locator: Psychological Techniques for Improved Performance > Goal Setting > Long-Term Goals
+  options:
+  - text: 短期目標的達成應導向長期目標
+    correct: true
+  - text: 兩者獨立設定、彼此不互相參照
+    correct: false
+    why_wrong: 兩者相互依存而非獨立；短期目標脫離長期方向會失去練習的整體意義。
+  - text: 僅依短期目標訓練即可，不需長期目標
+    correct: false
+    why_wrong: 缺乏長期目標使短期目標失去方向與意義，教材強調兩者必須連結。
+- id: ch08.goal-setting.i06.q1
+  item: ch08.goal-setting.i06
+  dco: sf2.A.1
+  lang: zh
+  cognitive: application
+  stem: 教材舉出跑步目標時，最具體可量化的設定為何？
+  locator: Psychological Techniques for Improved Performance > Goal Setting > Long-Term Goals
+  options:
+  - text: 連續跑25分鐘心率受監測
+    correct: true
+  - text: 每天要有好心情去練習
+    correct: false
+    why_wrong: 以模糊情緒做為目標，無法提供成功與失敗的具體回饋。
+  - text: 把比賽名次列為唯一目標
+    correct: false
+    why_wrong: 比賽名次屬於結果目標，達成不只取決於個人努力。
+- id: ch08.goal-setting.i08.q1
+  item: ch08.goal-setting.i08
+  dco: sf2.A.3
+  lang: zh
+  cognitive: application
+  stem: 一名四百公尺跑者想透過目標設定縮短成績，教練在設計目標時最需要納入哪一類知識？
+  locator: Psychological Techniques for Improved Performance > Goal Setting > Long-Term Goals
+  options:
+  - text: 該跑者代謝與生物力學特徵
+    correct: true
+  - text: 該跑者最喜歡的音樂類型
+    correct: false
+    why_wrong: 音樂偏好與運動表現目標的設計無直接關聯。
+  - text: 該跑者人格特質完整光譜
+    correct: false
+    why_wrong: 人格特質雖與動機相關，但教材強調目標須對齊運動科學子領域。
+- id: ch08.ideal-performance-state.i02.q1
+  item: ch08.ideal-performance-state.i02
+  dco: sf2.A.2
+  lang: zh
+  cognitive: application
+  stem: 一名資深網球選手在比賽關鍵分時報告「完全不去想動作怎麼打」，此經驗最符合理想表現狀態的哪一特徵？
+  locator: Ideal Performance State
+  options:
+  - text: 不去思考或分析表現
+    correct: true
+  - text: 強烈的自我效能感
+    correct: false
+    why_wrong: 自我效能感描述的是對能力的信心，與「不去想動作」這種主觀經驗並非同一特徵。
+  - text: 對觀眾評價高度敏感
+    correct: false
+    why_wrong: 對觀眾評價敏感與「不去想動作」的方向相反。
+- id: ch08.ideal-performance-state.i04.q1
+  item: ch08.ideal-performance-state.i04
+  dco: sf2.A.2
+  lang: zh
+  cognitive: application
+  stem: 教材指出理想表現狀態的「輕鬆感」與一般可命令式放鬆最主要的差異為何？
+  locator: Ideal Performance State
+  options:
+  - text: 它是一種非自願發生的經驗
+    correct: true
+  - text: 它主要靠意志命令自己產生
+    correct: false
+    why_wrong: 教材明指這種放鬆感是非自願的經驗，不能像開關般命令自己進入。
+  - text: 它必須透過外部回饋才會出現
+    correct: false
+    why_wrong: 教材未把此經驗與外部回饋掛勾；它是主觀、不由命令產生的狀態。
+- id: ch08.ideal-performance-state.i05.q1
+  item: ch08.ideal-performance-state.i05
+  dco: sf2.A.2
+  lang: en
+  cognitive: application
+  stem: Which subjective experience is most directly described by the athlete's sense of personal control during the ideal performance state?
+  locator: Ideal Performance State
+  options:
+  - text: feeling in control of the performance
+    correct: true
+  - text: consciously planning every movement detail
+    correct: false
+    why_wrong: planning every detail belongs to the cognitive stage of learning, not the typical report of the ideal performance state.
+  - text: reducing selective attention to task cues
+    correct: false
+    why_wrong: the ideal performance state actually calls for adaptively focusing on task-relevant cues rather than reducing them.
+- id: ch08.ideal-performance-state.i08.q1
+  item: ch08.ideal-performance-state.i08
+  dco: sf2.A.3
+  lang: en
+  cognitive: application
+  stem: Which foundation does the textbook most emphasize when using Kobe Bryant to illustrate the ideal performance state?
+  locator: Ideal Performance State
+  options:
+  - text: solid physical training plus past successful performances
+    correct: true
+  - text: a relaxed pregame routine inherited from his coach
+    correct: false
+    why_wrong: the textbook ties Bryant's state to physical training and success history, not specifically to a pregame routine.
+  - text: unusually low baseline anxiety before competition
+    correct: false
+    why_wrong: the illustration points to physical preparation and past success, not to baseline anxiety levels.
+- id: ch08.motivation.i01.q1
+  item: ch08.motivation.i01
+  dco: sf2.A.1
+  lang: zh
+  cognitive: application
+  stem: 一名選手即使沒有獎金或獎牌仍每日自主訓練，教練最可能據此判斷該選手的哪一種動機最為活躍？
+  locator: Motivation > Intrinsic and Extrinsic Motivation
+  options:
+  - text: 來自內在的自主動機
+    correct: true
+  - text: 外在懲罰恐懼驅動的動機
+    correct: false
+    why_wrong: 「外在」與懲罰恐懼驅動屬於外在動機的範疇，與題幹所述無酬也練習的行為相反。
+  - text: 受同儕壓力驅動的外在動機
+    correct: false
+    why_wrong: 同儕壓力屬於外部社會影響；教材指出此情境更符合內在動機驅動的行為。
+- id: ch08.motivation.i03.q1
+  item: ch08.motivation.i03
+  dco: sf2.A.1
+  lang: zh
+  cognitive: application
+  stem: 一名選手總是主動挑選剛好能測試自身能力的比賽強度，動機理論最可能將他歸類為哪一型？
+  locator: Motivation > Achievement Motivation
+  options:
+  - text: 追求成功動機主導
+    correct: true
+  - text: 完全沒有成就動機
+    correct: false
+    why_wrong: 教材指出每個人都有 MAS 與 MAF 兩個相對動機，此處敘述其實是 MAS 主導。
+  - text: 僅由外在懲罰恐懼驅動
+    correct: false
+    why_wrong: 追求能力評估屬於 MAS 的核心特徵，並非來自懲罰恐懼的外部動機。
+- id: ch08.motivation.i06.q1
+  item: ch08.motivation.i06
+  dco: sf2.A.2
+  lang: zh
+  cognitive: application
+  stem: 一名選手在練習中不斷出現甩手與逃避伸展的行為，教練想降低此行為頻率，最直接屬於哪一類操作策略？
+  locator: Motivation > Positive and Negative Reinforcement in Coaching
+  options:
+  - text: 正懲罰
+    correct: true
+  - text: 正增強
+    correct: false
+    why_wrong: 正增強是「在目標行為後給予正向事件以增加行為」，方向與題幹相反。
+  - text: 負增強
+    correct: false
+    why_wrong: 負增強同樣是為了「增加目標行為」，而非降低逃避伸展的頻率。
+- id: ch08.motor-skill-acquisition.i01.q1
+  item: ch08.motor-skill-acquisition.i01
+  dco: pa3.A.2
+  lang: zh
+  cognitive: application
+  stem: 教練在評估運動員是否「學會」一個動作時，最應避免哪一類的判斷依據？
+  locator: Enhancing Motor Skill Acquisition and Learning > Learning–Performance Distinction
+  options:
+  - text: 單次練習當下的表現結果
+    correct: true
+  - text: 多次練習後技能的相對永久改變
+    correct: false
+    why_wrong: 教材定義學習為相對永久的改變，多次練習趨勢才是學習的判準。
+  - text: 運動員回報的內在動機變化
+    correct: false
+    why_wrong: 動機影響表現卻不等同於技能是否學會；單看動機仍非教材的主要判準。
+- id: ch08.motor-skill-acquisition.i02.q1
+  item: ch08.motor-skill-acquisition.i02
+  dco: pa3.A.2
+  lang: zh
+  cognitive: application
+  stem: 教練想把弓箭步動作的兩個高度相關的下肢環節拆開分練，教材最建議改用哪一種練習安排？
+  locator: Enhancing Motor Skill Acquisition and Learning > Practice Schedule > Whole Versus Part Practice
+  options:
+  - text: 整體練習
+    correct: true
+  - text: 部分練習
+    correct: false
+    why_wrong: 子成分高度相互關聯時，教材反而建議整體練習以免妨礙重新組合。
+  - text: 純粹意象
+    correct: false
+    why_wrong: 內心預演屬於意象練習，並非教材針對高度關聯動作所建議的動作實作安排。
+- id: ch08.motor-skill-acquisition.i05.q1
+  item: ch08.motor-skill-acquisition.i05
+  dco: pa3.A.2
+  lang: en
+  cognitive: application
+  stem: A coach plans to improve an athlete's ability to transfer a learned skill to unfamiliar tactical contexts. Which practice arrangement is most consistent with the textbook's guidance?
+  locator: Enhancing Motor Skill Acquisition and Learning > Practice Schedule > Variable Practice
+  options:
+  - text: include variable practice of the skill within a session
+    correct: true
+  - text: repeat the same drill unchanged in every set
+    correct: false
+    why_wrong: repeating unchanged drills blocks variation and is closer to constant practice, which does not build contextual flexibility.
+  - text: shorten the session to remove all skill variations
+    correct: false
+    why_wrong: removing variation eliminates the contextual transfer that variable practice is designed to develop.
+- id: ch08.motor-skill-acquisition.i06.q1
+  item: ch08.motor-skill-acquisition.i06
+  dco: pa3.A.2
+  lang: zh
+  cognitive: application
+  stem: 一對搭檔在重量訓練室輪流執行抓舉，另一人在休息時仔細觀察搭檔動作。這項安排最符合教材所稱的哪一種練習益處？
+  locator: Enhancing Motor Skill Acquisition and Learning > Practice Schedule > Observational Learning
+  options:
+  - text: 觀察結合身體練習
+    correct: true
+  - text: 純粹的意象演練
+    correct: false
+    why_wrong: 教材所述的觀察練習是觀看執行中的動作或影片，與純粹在心中演練的意象不同。
+  - text: 隨機練習安排
+    correct: false
+    why_wrong: 隨機練習強調在同一節課交替多項技能，與教材描述的觀察與實作搭配並非同義。
+- id: ch08.motor-skill-acquisition.i07.q1
+  item: ch08.motor-skill-acquisition.i07
+  dco: pa3.A.2
+  lang: en
+  cognitive: application
+  stem: A novice lifter is preparing for a high-pressure competition and the coach wants to minimize attentional overload. Which instructional style is most aligned with the textbook's guidance for this context?
+  locator: Enhancing Motor Skill Acquisition and Learning > Instructions
+  options:
+  - text: explicit instructions with concrete cues
+    correct: true
+  - text: discovery style with minimal direction
+    correct: false
+    why_wrong: discovery style leaves athletes to explore solutions, which can overload attention in a high-pressure novice context.
+  - text: guided discovery without any concrete cues
+    correct: false
+    why_wrong: omitting concrete cues still leans toward discovery, whereas the textbook warns this can impair performance under pressure.
+- id: ch08.motor-skill-acquisition.i08.q1
+  item: ch08.motor-skill-acquisition.i08
+  dco: pa3.A.3
+  lang: zh
+  cognitive: application
+  stem: 一名已能穩定完成深蹲的運動員，教練若最重視長期技能學習，應採取哪一種回饋安排？
+  locator: Enhancing Motor Skill Acquisition and Learning > Feedback
+  options:
+  - text: 嘗試後再給予延遲回饋
+    correct: true
+  - text: 每次動作中即時給予同步回饋
+    correct: false
+    why_wrong: 教材指出同步回饋可增進當下表現但損害長期學習，與題幹目標不一致。
+  - text: 在每次嘗試後都給予大量即時回饋
+    correct: false
+    why_wrong: 高頻率的即時回饋會損害技能習得，尤其是技能愈趨自動化時。
+- id: ch08.psychological-techniques.i03.q1
+  item: ch08.psychological-techniques.i03
+  dco: sf2.A.2
+  lang: en
+  cognitive: application
+  stem: An older athlete with a recovering shoulder cannot tolerate high muscle tension during relaxation drills. Which technique is most consistent with the textbook's recommendation for this situation?
+  locator: Psychological Techniques for Improved Performance > Relaxation Techniques to Control Elevated Arousal and Anxiety > Autogenic Training
+  options:
+  - text: autogenic training focusing on warmth and heaviness
+    correct: true
+  - text: progressive muscle relaxation with maximal contractions
+    correct: false
+    why_wrong: maximal contractions in PMR reintroduce high tension that the athlete cannot tolerate, the opposite of what is needed.
+  - text: systematic desensitization before any skill imagery
+    correct: false
+    why_wrong: systematic desensitization still relies on prior PMR and imagery; for this athlete the textbook favors the autogenic alternative.
+- id: ch08.psychological-techniques.i05.q1
+  item: ch08.psychological-techniques.i05
+  dco: sf2.A.2
+  lang: en
+  cognitive: application
+  stem: Based on the textbook, which combination best represents the recommended imagery practice for an athlete just beginning to use mental imagery?
+  locator: Psychological Techniques for Improved Performance > Imagery
+  options:
+  - text: start with familiar static images and gradually add sensory complexity
+    correct: true
+  - text: use exclusively third-person perspectives throughout training
+    correct: false
+    why_wrong: the textbook notes imagery literature cannot determine that third-person is superior to first-person; prescribing exclusivity overstates the evidence.
+  - text: rely on mental imagery as a complete substitute for physical practice
+    correct: false
+    why_wrong: mental imagery augments but does not entirely replace physical practice in skill acquisition.
+- id: ch08.psychological-techniques.i07.q1
+  item: ch08.psychological-techniques.i07
+  dco: sf2.A.2
+  lang: zh
+  cognitive: application
+  stem: 一名新手選手在練習中對自己重複「肘部抬高、把槓貼身」，教練最應注意這屬於哪一種類型的自我對話？
+  locator: Psychological Techniques for Improved Performance > Self-Talk
+  options:
+  - text: 指導性自我對話
+    correct: true
+  - text: 鼓勵性自我對話
+    correct: false
+    why_wrong: 正向自我對話強調鼓勵、動機與增強，「肘部抬高、把槓貼身」屬具體的表現線索。
+  - text: 負向自我對話
+    correct: false
+    why_wrong: 負向自我對話反映憤怒、沮喪、懷疑，「肘部抬高、把槓貼身」並非此類情緒評價。
+- id: ch08.motor-skill-acquisition.i05.q2
+  item: ch08.motor-skill-acquisition.i05
+  dco: pa3.A.2
+  lang: zh
+  cognitive: recall
+  stem: 變化練習（variable practice）最主要的特徵為何？
+  locator: Enhancing Motor Skill Acquisition and Learning > Practice Schedule > Variable Practice
+  options:
+  - text: 同節課中改變同一技能變化
+    correct: true
+  - text: 嚴格固定一種技術動作操作
+    correct: false
+    why_wrong: 嚴格固定單一變化是常數練習的特徵，反而與變化練習相反。
+  - text: 同時隨機穿插多項技能
+    correct: false
+    why_wrong: 隨機穿插多項技能屬於隨機練習的安排，與本題變化同一技能不同變化的概念不同。
+- id: ch08.motor-skill-acquisition.i06.q2
+  item: ch08.motor-skill-acquisition.i06
+  dco: pa3.A.2
+  lang: en
+  cognitive: recall
+  stem: Which finding from research cited in the textbook best supports combining observational practice with physical practice during power cleans?
+  locator: Enhancing Motor Skill Acquisition and Learning > Practice Schedule > Observational Learning
+  options:
+  - text: the combination improved technique versus physical practice alone
+    correct: true
+  - text: observation alone outperformed all forms of physical practice
+    correct: false
+    why_wrong: the textbook cites added benefit over physical practice alone, not observation alone outdoing all practice forms.
+  - text: observational practice had no effect on lifting performance
+    correct: false
+    why_wrong: the textbook's cited research links observational plus physical practice to improved high-pull technique, contradicting no effect.
+- id: ch08.motor-skill-acquisition.i07.q2
+  item: ch08.motor-skill-acquisition.i07
+  dco: pa3.A.2
+  lang: zh
+  cognitive: recall
+  stem: 依教材定義，「引導發現」指示風格最主要的訊息內容為何？
+  locator: Enhancing Motor Skill Acquisition and Learning > Instructions
+  options:
+  - text: 整體動作目標與重要提示
+    correct: true
+  - text: 完整的執行規則與具體處方
+    correct: false
+    why_wrong: 完整規則與具體處方屬於明確指示的內容，與引導發現的訊息範圍不同。
+  - text: 完全不提供任何方向
+    correct: false
+    why_wrong: 完全不提供方向屬於發現法的極端；引導發現仍會給予重要提示協助學習。
+- id: ch08.motor-skill-acquisition.i02.q2
+  item: ch08.motor-skill-acquisition.i02
+  dco: pa3.A.2
+  lang: zh
+  cognitive: recall
+  stem: 依教材所舉例，弓箭步動作最不適合拆解分練，最主要原因為何？
+  locator: Enhancing Motor Skill Acquisition and Learning > Practice Schedule > Whole Versus Part Practice
+  options:
+  - text: 兩個下肢動作高度相互關聯
+    correct: true
+  - text: 弓箭步的子成分數量過少
+    correct: false
+    why_wrong: 教材以高度相互關聯為拆分與否的依據，並未把子成分數量列為關鍵變因。
+  - text: 弓箭步需要最大肌力才能執行
+    correct: false
+    why_wrong: 肌力門檻不是教材決定整體或部分練習的標準，教材只看子成分關聯性與風險代價。
+- id: ch08.psychological-techniques.i02.q1
+  item: ch08.psychological-techniques.i02
+  dco: sf2.A.2
+  lang: zh
+  cognitive: recall
+  stem: 漸進式肌肉放鬆中，每個肌群最大收緊的建議時間最接近哪一個？
+  locator: Psychological Techniques for Improved Performance > Relaxation Techniques to Control Elevated Arousal and Anxiety > Progressive Muscular Relaxation
+  options:
+  - text: 10至15秒
+    correct: true
+  - text: 30至45秒
+    correct: false
+    why_wrong: 教材把時間帶界定在 10 至 15 秒，把收緊拖到 30 至 45 秒已超出此區間一倍以上。
+  - text: 60至90秒
+    correct: false
+    why_wrong: 教材未要求把最大收緊持續到一分鐘以上；收緊是短暫的，隨後立即進行有意識放鬆。
+- id: ch08.psychological-techniques.i06.q1
+  item: ch08.psychological-techniques.i06
+  dco: sf2.A.2
+  lang: zh
+  cognitive: recall
+  stem: Bandura 列出的自我效能來源共有幾項？
+  locator: Psychological Techniques for Improved Performance > Self-Efficacy
+  options:
+  - text: 六項
+    correct: true
+  - text: 三項
+    correct: false
+    why_wrong: 教材列出過去表現成就、替代經驗、口語說服、意象、生理狀態與情緒狀態共六項來源。
+  - text: 兩項
+    correct: false
+    why_wrong: 僅列六項中的兩項會明顯低估 Bandura 所提的自我效能來源範圍。
+- id: ch08.ideal-performance-state.i01.q1
+  item: ch08.ideal-performance-state.i01
+  dco: sf2.A.2
+  lang: zh
+  cognitive: recall
+  stem: 在理想表現狀態的典型報告中，「無恐懼」最主要指運動員沒有什麼？
+  locator: Ideal Performance State
+  options:
+  - text: 對失敗的恐懼感受
+    correct: true
+  - text: 對所有競賽風險感受
+    correct: false
+    why_wrong: 教材只把焦點放在「失敗恐懼」上，並未主張對所有競賽風險都毫無感受。
+  - text: 對身體受傷的擔憂
+    correct: false
+    why_wrong: 把無恐懼擴大成對身體受傷也無感，超出教材對此典型特徵的界定範圍。
+- id: ch08.ideal-performance-state.i06.q1
+  item: ch08.ideal-performance-state.i06
+  dco: sf2.A.2
+  lang: zh
+  cognitive: recall
+  stem: 教材中提及的理想表現狀態之時間與空間扭曲，最具體描述為何？
+  locator: Ideal Performance State
+  options:
+  - text: 感到時間似乎變慢
+    correct: true
+  - text: 空間距離判斷變精確
+    correct: false
+    why_wrong: 教材僅提到時間變慢的主觀感覺，並未特別描述空間距離感變精確。
+  - text: 心跳明顯與動作節奏同步
+    correct: false
+    why_wrong: 心跳與動作節奏同步並非教材對時間與空間扭曲所列的內容。
+- id: ch08.motivation.i02.q1
+  item: ch08.motivation.i02
+  dco: sf2.A.1
+  lang: en
+  cognitive: recall
+  stem: Which item is most clearly an example of an extrinsic reward in sport, according to the textbook?
+  locator: Motivation > Intrinsic and Extrinsic Motivation
+  options:
+  - text: receiving a trophy for placing first
+    correct: true
+  - text: enjoying the activity itself
+    correct: false
+    why_wrong: enjoying the activity is the textbook's hallmark example of intrinsic rather than extrinsic motivation.
+  - text: feeling competent during practice
+    correct: false
+    why_wrong: feeling competent is tied to intrinsic drives such as autonomy and competence, not to extrinsic rewards.
+- id: ch08.psychological-techniques.i04.q1
+  item: ch08.psychological-techniques.i04
+  dco: sf2.A.2
+  lang: en
+  cognitive: analysis
+  stem: A gymnast fears the balance beam and the sport psychologist first helps her master progressive muscle relaxation and imagery, then guides her through imagined scenes from least to most intimidating while staying relaxed. Which technique is this most consistent with?
+  locator: Psychological Techniques for Improved Performance > Relaxation Techniques to Control Elevated Arousal and Anxiety > Systematic Desensitization
+  options:
+  - text: systematic desensitization using counterconditioning
+    correct: true
+  - text: operant positive reinforcement of fearless attempts
+    correct: false
+    why_wrong: positive reinforcement would target a specific behavior after it occurs, not substitute a relaxation response for fear across an imagined hierarchy.
+  - text: autogenic training focused on warmth and heaviness
+    correct: false
+    why_wrong: autogenic training centers on bodily sensations, not on systematically pairing imagined fearful scenes with relaxation.
+- id: ch08.psychological-techniques.i08.q1
+  item: ch08.psychological-techniques.i08
+  dco: sf2.A.2
+  lang: en
+  cognitive: analysis
+  stem: A penalty taker routinely checks breathing, scans the goal, and rehearses leg position before each kick. Based on the textbook, this habit most directly functions to do what during performance?
+  locator: Attention and Focus
+  options:
+  - text: protect selective attention from task-irrelevant worries
+    correct: true
+  - text: eliminate all conscious processing during the kick
+    correct: false
+    why_wrong: routines still rely on conscious thought; they do not eliminate cognition but redirect it toward controllable cues.
+  - text: replace arousal regulation techniques entirely
+    correct: false
+    why_wrong: routines work alongside arousal regulation; they do not replace techniques like diaphragmatic breathing or PMR.
+- id: ch08.arousal-theories.i08.q1
+  item: ch08.arousal-theories.i08
+  dco: sf2.A.2
+  lang: zh
+  cognitive: application
+  stem: 一名教練即將帶領首次參加全國錦標賽的高中舉重選手，賽前最重要的工作應優先聚焦於哪一項？
+  locator: Influence of Arousal and Anxiety on Performance > Drive Theory > Skill Level
+  options:
+  - text: 簡化任務並降低決策負擔
+    correct: true
+  - text: 安排高強度模擬賽製造壓力
+    correct: false
+    why_wrong: 高壓模擬對新手屬於過量決策負荷，會占用已被動作細節占用的注意力容量，與本章對新手的教練策略相反。
+  - text: 要求選手反覆自我分析動作細節
+    correct: false
+    why_wrong: 新手尚未自動化，強迫有意識分析會占滿工作記憶，讓選手更易焦慮超載，而非協助其在高壓下維持表現。
+- id: ch08.motor-skill-acquisition.i01.q2
+  item: ch08.motor-skill-acquisition.i01
+  dco: pa3.A.3
+  lang: zh
+  cognitive: analysis
+  stem: 教練在一次訓練課後觀察到選手的動作表現下滑，最不應該將這次表現直接解讀為什麼？
+  locator: Enhancing Motor Skill Acquisition and Learning > Learning–Performance Distinction
+  options:
+  - text: 選手尚未學會該項技能
+    correct: true
+  - text: 選手當天喚醒程度偏高
+    correct: false
+    why_wrong: 單次表現受喚醒與動機等多重因素影響，偏高的喚醒確實可能壓低當下表現，但這是表現問題，不是學習問題。
+  - text: 選手對該任務動機不足
+    correct: false
+    why_wrong: 動機不足會影響當下表現的能量投入，仍屬於表現層次的暫時變化，未必反映技能能力的永久改變。
+- id: ch08.motor-skill-acquisition.i03.q2
+  item: ch08.motor-skill-acquisition.i03
+  dco: pa3.A.2
+  lang: zh
+  cognitive: recall
+  stem: 教練採用分段法（segmentation）拆解技術時，最主要的拆解依據為何？
+  locator: Enhancing Motor Skill Acquisition and Learning > Practice Schedule > Whole Versus Part Practice
+  options:
+  - text: 技能中清楚可辨的間斷點
+    correct: true
+  - text: 同時發生的子動作
+    correct: false
+    why_wrong: 同時發生的子動作是分化法（fractionalization）的拆解邏輯，與分段法的依據不同。
+  - text: 改變動作速度以降低難度
+    correct: false
+    why_wrong: 改變速度或器材以降低難度屬於簡化法（simplification）的處理方式，不是分段法的拆解原則。
+- id: ch08.motor-skill-acquisition.i04.q2
+  item: ch08.motor-skill-acquisition.i04
+  dco: pa3.A.2
+  lang: zh
+  cognitive: analysis
+  stem: 教練在一次訓練中隨機交替安排三項投籃變化，選手單一變化的當下命中率明顯下降，此時教練最恰當的解讀為何？
+  locator: Enhancing Motor Skill Acquisition and Learning > Practice Schedule > Random Practice
+  options:
+  - text: 此安排對長期學習有利，表現下滑是隨機練習的可預期代價
+    correct: true
+  - text: 選手尚未具備投籃基本能力，需回到區塊式反覆練習
+    correct: false
+    why_wrong: 教材明列隨機練習初期單一技能表現下降是正常現象，並非能力不足；若據此退回區塊式會錯失學習效果。
+  - text: 練習密度過高，應停止當日訓練以避免習得無助
+    correct: false
+    why_wrong: 隨機練習當下表現下降不等於練習過度，教材未把此現象連結到須停止訓練的程度，停止訓練並非書中建議。
+- id: ch08.motor-skill-acquisition.i08.q2
+  item: ch08.motor-skill-acquisition.i08
+  dco: pa3.A.3
+  lang: zh
+  cognitive: application
+  stem: 教練希望最大化選手的長期技能學習，最應優先採用哪種回饋安排？
+  locator: Enhancing Motor Skill Acquisition and Learning > Feedback
+  options:
+  - text: 延遲且降低頻率
+    correct: true
+  - text: 每次立即同步
+    correct: false
+    why_wrong: 教材明列同步回饋可增進當下表現但損害學習，與本題追求長期學習的目標相反。
+  - text: 競賽中即時提示
+    correct: false
+    why_wrong: 即時口頭提示屬於同步回饋，有利競賽表現但不利技能習得，不符合本題的長期學習取向。
+- id: ch08.psychological-techniques.i01.q1
+  item: ch08.psychological-techniques.i01
+  dco: sf2.A.2
+  lang: zh
+  cognitive: application
+  stem: 一名田徑選手在比賽前因緊張而肌肉僵硬，最應優先安排下列哪一項技巧以降低生理喚醒並建立任務相關焦點？
+  locator: Psychological Techniques for Improved Performance > Relaxation Techniques to Control Elevated Arousal and Anxiety > Diaphragmatic Breathing
+  options:
+  - text: 橫膈膜呼吸搭配控制吐氣
+    correct: true
+  - text: 高強度熱身衝刺以提高心率
+    correct: false
+    why_wrong: 教材把腹式呼吸定位為降低喚醒的前置技巧，提高心率與降低生理喚醒的方向相反，無法處理肌肉僵硬。
+  - text: 默念比賽對手的姓名與戰術代號
+    correct: false
+    why_wrong: 背誦對手資料屬於賽前戰術準備，教材並未把此活動列為降低喚醒或建立任務相關焦點的主要方法。
+- id: ch08.psychological-techniques.i01.q2
+  item: ch08.psychological-techniques.i01
+  dco: sf2.A.2
+  lang: en
+  cognitive: recall
+  stem: Which technique is described as a prerequisite for nearly all other mental training techniques?
+  locator: Psychological Techniques for Improved Performance > Relaxation Techniques to Control Elevated Arousal and Anxiety > Diaphragmatic Breathing
+  options:
+  - text: Diaphragmatic breathing
+    correct: true
+  - text: Progressive muscular relaxation
+    correct: false
+    why_wrong: PMR is one of the techniques built on top of breathing, not the prerequisite step the chapter identifies first.
+  - text: Systematic desensitization
+    correct: false
+    why_wrong: Systematic desensitization explicitly assumes the athlete has already practiced breathing and PMR; it cannot be the prerequisite.
+- id: ch08.psychological-techniques.i03.q2
+  item: ch08.psychological-techniques.i03
+  dco: sf2.A.2
+  lang: en
+  cognitive: application
+  stem: A coach is selecting a relaxation method for an older athlete recovering from a hamstring strain. Which technique is most appropriate given that the athlete should avoid sustained high muscle tension?
+  locator: Psychological Techniques for Improved Performance > Relaxation Techniques to Control Elevated Arousal and Anxiety > Autogenic Training
+  options:
+  - text: Autogenic relaxation training
+    correct: true
+  - text: Progressive muscle relaxation
+    correct: false
+    why_wrong: PMR requires high tension for 10 to 15 seconds per group, which the chapter flags as a reason to choose the alternative.
+  - text: Systematic desensitization
+    correct: false
+    why_wrong: Systematic desensitization presupposes a fear hierarchy and is not the low-tension option for injured athletes.
+- id: ch08.psychological-techniques.i04.q2
+  item: ch08.psychological-techniques.i04
+  dco: sf2.A.2
+  lang: zh
+  cognitive: application
+  stem: 一名選手對罰球點的觀眾噪音有強烈恐懼反應，最適合採用下列哪一種介入策略？
+  locator: Psychological Techniques for Improved Performance > Relaxation Techniques to Control Elevated Arousal and Anxiety > Systematic Desensitization
+  options:
+  - text: 系統減敏感法，結合放鬆反應與恐懼情境的階層想像
+    correct: true
+  - text: 漸進式肌肉放鬆單獨實施，不搭配任何情境想像
+    correct: false
+    why_wrong: PMR 雖是系統減敏感法的先備技巧，但若不搭配恐懼階層想像，仍無法用放鬆取代恐懼反應。
+  - text: 高增強式重複暴露在真實比賽觀眾下
+    correct: false
+    why_wrong: 教材描述的是受控、可分級的想像暴露搭配放鬆，以反制約克服恐懼；真實觀眾的高強度暴露並非本章建議的作法。
+- id: ch08.psychological-techniques.i05.q2
+  item: ch08.psychological-techniques.i05
+  dco: sf2.A.2
+  lang: zh
+  cognitive: application
+  stem: 一名選手在心理意象練習上已能熟練想像單一靜態畫面，下一步最應優先發展的能力為何？
+  locator: Psychological Techniques for Improved Performance > Imagery
+  options:
+  - text: 增加影像的動態控制與多感官複雜度
+    correct: true
+  - text: 固定使用內在第一人稱視角，放棄其他視角
+    correct: false
+    why_wrong: 教材指出文獻未能確定哪一種視角較優，且建議採較投入且自然的視角，固定單一視角並非教材進階指引。
+  - text: 轉為只使用視覺影像，排除其他感官投入
+    correct: false
+    why_wrong: 教材明列意象理想上應使用所有感官模擬運動表現，僅用視覺會削弱其效果。
+- id: ch08.psychological-techniques.i07.q2
+  item: ch08.psychological-techniques.i07
+  dco: sf2.A.2
+  lang: zh
+  cognitive: application
+  stem: 一名網球選手在發球前反覆出現「我又會 double fault」的內在話語，最應優先引導其採用下列哪一項自我對話策略？
+  locator: Psychological Techniques for Improved Performance > Self-Talk
+  options:
+  - text: 指導性自我對話
+    correct: true
+  - text: 鼓勵性正向對話
+    correct: false
+    why_wrong: 教材指出對部分人而言，正向自我對話反而可能降低自我效能，泛用的鼓勵未必能解決此選手的問題。
+  - text: 完全停止自我對話
+    correct: false
+    why_wrong: 自我對話是自然出現的內在溝通，教材並未建議完全停止，而是引導其改為建設性內容。
+- id: ch08.arousal-anxiety-stress.i01.q2
+  item: ch08.arousal-anxiety-stress.i01
+  dco: sf2.A.2
+  lang: en
+  cognitive: recall
+  stem: Which of the following is listed in the chapter as an indicator used to measure a person's arousal level?
+  locator: 'Energy Management: Arousal, Anxiety, and Stress > Arousal'
+  options:
+  - text: Catecholamine
+    correct: true
+  - text: Vertical jump
+    correct: false
+    why_wrong: Vertical jump is a performance test of power, not one of the physiological or self-report markers the chapter lists for arousal.
+  - text: Skinfold thickness
+    correct: false
+    why_wrong: Skinfold thickness is a body composition measure; the chapter does not list it among arousal indicators.
+- id: ch08.arousal-anxiety-stress.i02.q2
+  item: ch08.arousal-anxiety-stress.i02
+  dco: sf2.A.2
+  lang: en
+  cognitive: application
+  stem: A gymnast reports dreading an upcoming competition and notices her heart is pounding and her stomach feels uneasy. Which component of anxiety is best illustrated by these bodily reactions?
+  locator: 'Energy Management: Arousal, Anxiety, and Stress > Anxiety'
+  options:
+  - text: Somatic anxiety
+    correct: true
+  - text: Cognitive anxiety
+    correct: false
+    why_wrong: Cognitive anxiety centers on negative perceptions and worry about the situation, not on bodily reactions such as muscle tension or stomach upset.
+  - text: Trait anxiety
+    correct: false
+    why_wrong: Trait anxiety is a stable tendency to perceive environments as threatening, not a single bout of bodily symptoms before a meet.
+- id: ch08.arousal-anxiety-stress.i04.q2
+  item: ch08.arousal-anxiety-stress.i04
+  dco: sf2.A.2
+  lang: en
+  cognitive: application
+  stem: A coach wants to predict which athletes are most likely to flood their working memory with catastrophic thoughts during complex decisions. Which individual difference best fits this concern?
+  locator: 'Energy Management: Arousal, Anxiety, and Stress > Anxiety'
+  options:
+  - text: High trait anxiety
+    correct: true
+  - text: Low intrinsic motivation
+    correct: false
+    why_wrong: Intrinsic motivation relates to why athletes engage in the activity; it does not specifically predict catastrophic, self-focused cognitions under pressure.
+  - text: High automaticity
+    correct: false
+    why_wrong: Automaticity frees attention, so high automaticity would reduce rather than increase the risk of flooding attention with worry.
+- id: ch08.arousal-anxiety-stress.i06.q2
+  item: ch08.arousal-anxiety-stress.i06
+  dco: sf2.A.2
+  lang: zh
+  cognitive: recall
+  stem: 下列何者最符合書中對壓力源（stressor）的定義？
+  locator: 'Energy Management: Arousal, Anxiety, and Stress > Stress'
+  options:
+  - text: 引發壓力反應的事件
+    correct: true
+  - text: 壓力造成的生理喚醒
+    correct: false
+    why_wrong: 生理喚醒是壓力反應的一部分，教材把壓力源定位為引發反應的事件，而非反應本身的組成。
+  - text: 對失敗的羞恥感
+    correct: false
+    why_wrong: 羞恥感屬於動機章節對 MAF 的描述，教材沒有把羞恥感列為壓力源的定義。
+- id: ch08.arousal-theories.i01.q2
+  item: ch08.arousal-theories.i01
+  dco: sf2.A.2
+  lang: en
+  cognitive: recall
+  stem: According to Hull's drive theory as summarized in the chapter, which statement is most accurate?
+  locator: Influence of Arousal and Anxiety on Performance > Drive Theory
+  options:
+  - text: Higher arousal can help performance up to a point, beyond which it can be harmful
+    correct: true
+  - text: Higher arousal always produces better performance regardless of skill level
+    correct: false
+    why_wrong: The chapter explicitly limits the upward drive relationship and rejects the idea that more arousal is always better.
+  - text: Arousal and performance are unrelated across all skill levels
+    correct: false
+    why_wrong: Drive theory claims arousal and performance are related; the chapter only rejects the idea that the relationship is uniformly positive.
+- id: ch08.arousal-theories.i02.q2
+  item: ch08.arousal-theories.i02
+  dco: sf2.A.2
+  lang: en
+  cognitive: application
+  stem: A novice lifter is learning the clean and jerk. Compared with an elite lifter performing the same lift, where is the novice's optimal arousal level most likely to sit?
+  locator: Influence of Arousal and Anxiety on Performance > Drive Theory > Skill Level
+  options:
+  - text: Lower
+    correct: true
+  - text: Higher
+    correct: false
+    why_wrong: The chapter links higher skill with a wider tolerable arousal band; it does not say novices need higher arousal.
+  - text: Average
+    correct: false
+    why_wrong: Optimal arousal depends on skill level and task complexity, not just on averaging novice and elite levels.
+- id: ch08.arousal-theories.i04.q2
+  item: ch08.arousal-theories.i04
+  dco: sf2.A.2
+  lang: zh
+  cognitive: recall
+  stem: 倒 U 理論（inverted-U theory）在教材中最主要的保留為何？
+  locator: Influence of Arousal and Anxiety on Performance > Inverted-U Theory
+  options:
+  - text: 通用曲線的形狀因人而異而受批評
+    correct: true
+  - text: 曲線完全無法描述任何運動情境
+    correct: false
+    why_wrong: 教材保留此理論的概念性用途，並未主張其完全無效，僅批評其通用形狀。
+  - text: 曲線只在團隊運動中成立
+    correct: false
+    why_wrong: 教材並未把倒 U 理論的適用範圍限於團隊運動，這是對該理論限制的自行延伸。
+- id: ch08.arousal-theories.i07.q2
+  item: ch08.arousal-theories.i07
+  dco: sf2.A.2
+  lang: zh
+  cognitive: application
+  stem: 教練希望協助一名在賽前把高喚醒視為「緊張失控」的選手重新解讀同樣的生理活化，最適合引用的理論為何？
+  locator: Influence of Arousal and Anxiety on Performance > Reversal Theory
+  options:
+  - text: 逆轉理論
+    correct: true
+  - text: 驅力理論
+    correct: false
+    why_wrong: 驅力理論聚焦在喚醒量與表現的關係，未涵蓋個人對喚醒的詮釋差異。
+  - text: 災難理論
+    correct: false
+    why_wrong: 災難理論描述高認知焦慮下的突然崩跌現象，未提出改變詮釋的介入策略。
+- id: ch08.attention-concentration.i01.q2
+  item: ch08.attention-concentration.i01
+  dco: pa3.A.2
+  lang: zh
+  cognitive: application
+  stem: 選手在罰球線上被觀眾噓聲分散，教練最希望選手發展的核心能力為何？
+  locator: Attention and Focus
+  options:
+  - text: 選擇性注意
+    correct: true
+  - text: 廣外部注意
+    correct: false
+    why_wrong: 廣外部注意是評估情境的注意風格，與抑制無關線索、聚焦任務相關線索的功能並不相同。
+  - text: 高度驅力喚醒
+    correct: false
+    why_wrong: 驅力理論處理喚醒與表現的關係，並非處理觀眾噓聲分散時想要發展的能力。
+- id: ch08.attention-concentration.i04.q2
+  item: ch08.attention-concentration.i04
+  dco: pa3.A.2
+  lang: zh
+  cognitive: recall
+  stem: 下列何者最能描述窄內部注意（narrow internal）的用途？
+  locator: Attention and Focus > Attentional Styles
+  options:
+  - text: 在心中預演即將進行的動作
+    correct: true
+  - text: 在內心整合多項資訊並形成策略
+    correct: false
+    why_wrong: 整合多項資訊並形成策略屬於廣內部注意的功能，與窄內部注意的單一預演不同。
+  - text: 專注於一或兩個外在線索以產生動作
+    correct: false
+    why_wrong: 專注於一或兩個外在線索屬於窄外部注意，方向與窄內部注意相反。
+- id: ch08.attention-concentration.i06.q2
+  item: ch08.attention-concentration.i06
+  dco: pa3.A.2
+  lang: en
+  cognitive: application
+  stem: A beginner weightlifter is easily overwhelmed when the coach adds a new cue. Which Fitts and Posner stage best explains this vulnerability to anxiety-driven overload?
+  locator: Attention and Focus
+  options:
+  - text: Cognitive stage
+    correct: true
+  - text: Associative stage
+    correct: false
+    why_wrong: In the associative stage the athlete still focuses on the task but movement details occupy less attention, so overload from anxiety is less likely.
+  - text: Automaticity stage
+    correct: false
+    why_wrong: In the automaticity stage skills run without conscious thought, so a new cue would not normally crowd out attention the way it does for a beginner.
+- id: ch08.attention-concentration.i08.q2
+  item: ch08.attention-concentration.i08
+  dco: pa3.A.2
+  lang: zh
+  cognitive: application
+  stem: 教練希望選手在高強度比賽中能自然濾除不相關線索，最終追求的注意力階段為何？
+  locator: Attention and Focus
+  options:
+  - text: 自動化階段，技能不須思考即可執行
+    correct: true
+  - text: 認知階段，必須有意識分析動作細節
+    correct: false
+    why_wrong: 認知階段仍須有意識處理每個動作細節，未達成教材所述自然濾除不相關線索的狀態。
+  - text: 聯結階段，注意力幾乎從任務上移開
+    correct: false
+    why_wrong: 聯結階段選手仍須把注意力放在任務上，並非注意力從任務移開。
+- id: ch08.goal-setting.i03.q2
+  item: ch08.goal-setting.i03
+  dco: sf2.A.1
+  lang: en
+  cognitive: application
+  stem: A coach wants to use goal setting to combat the boredom of a long training block while keeping success probability high. Which type of goal is most appropriate?
+  locator: Psychological Techniques for Improved Performance > Goal Setting > Short-Term Goals
+  options:
+  - text: Short-term goals
+    correct: true
+  - text: Outcome goals
+    correct: false
+    why_wrong: Outcome goals such as championship placement depend largely on factors outside the athlete's control and do not address within-block boredom.
+  - text: Long-term goals
+    correct: false
+    why_wrong: Long-term goals provide direction but the chapter ties combating boredom and raising success probability to short-term goals.
+- id: ch08.goal-setting.i04.q2
+  item: ch08.goal-setting.i04
+  dco: sf2.A.1
+  lang: zh
+  cognitive: recall
+  stem: 教材中短期目標與長期目標之間最主要的連結原則為何？
+  locator: Psychological Techniques for Improved Performance > Goal Setting > Long-Term Goals
+  options:
+  - text: 長期目標統整一系列彼此連結的短期目標
+    correct: true
+  - text: 短期目標獨立運作，無需與長期目標對齊
+    correct: false
+    why_wrong: 教材明確指出長期與短期目標相互依存，短期目標並非獨立於整體方向。
+  - text: 長期目標必須每年重新設定
+    correct: false
+    why_wrong: 教材並未規定長期目標需每年重新設定，這是對其制定週期的自行延伸。
+- id: ch08.goal-setting.i06.q2
+  item: ch08.goal-setting.i06
+  dco: sf2.A.1
+  lang: en
+  cognitive: application
+  stem: A coach is choosing between telling an athlete to go for a run and giving a more specific target. Which target best fits the chapter's principle that goals should be specific and quantifiable?
+  locator: Psychological Techniques for Improved Performance > Goal Setting > Long-Term Goals
+  options:
+  - text: Run 25 min at 160 to 170 bpm
+    correct: true
+  - text: Run a little farther today
+    correct: false
+    why_wrong: Without measurable distance, duration, or intensity, this target lacks the quantifiable feedback the chapter requires.
+  - text: Run when you feel motivated
+    correct: false
+    why_wrong: Tying success to motivation alone removes the concrete success-failure feedback that makes specific goals effective.
+- id: ch08.ideal-performance-state.i03.q2
+  item: ch08.ideal-performance-state.i03
+  dco: sf2.A.2
+  lang: zh
+  cognitive: recall
+  stem: 教材中對理想表現狀態的注意力焦點之描述為何？
+  locator: Ideal Performance State
+  options:
+  - text: 注意力範圍狹窄，集中於正在進行的活動
+    correct: true
+  - text: 注意力範圍寬廣，整合多項戰術與環境資訊
+    correct: false
+    why_wrong: 寬廣的注意力整合屬於廣內部或廣外部注意風格，與教材描述的理想表現狀態狹窄注意力焦點相反。
+  - text: 注意力完全不處理任何外部刺激
+    correct: false
+    why_wrong: 教材描述的是聚焦於當下活動，並未說完全不處理任何外部刺激。
+- id: ch08.motivation.i04.q2
+  item: ch08.motivation.i04
+  dco: sf2.A.1
+  lang: zh
+  cognitive: recall
+  stem: 教材中 MAS 主導者最傾向選擇的挑戰類型為何？
+  locator: Motivation > Achievement Motivation
+  options:
+  - text: 成功機率約五成且具挑戰性的不確定情境
+    correct: true
+  - text: 極易成功、無需評估自身能力的情境
+    correct: false
+    why_wrong: 極易成功且無需評估能力的情境是 MAF 主導者的偏好，與 MAS 主導者的傾向不同。
+  - text: 完全無成敗壓力的純趣味練習
+    correct: false
+    why_wrong: 無成敗壓力的情境剝奪了 MAS 主導者用來評估自身能力的機會，並非教材描述的偏好。
+- id: ch08.arousal-anxiety-stress.i05.q2
+  item: ch08.arousal-anxiety-stress.i05
+  dco: sf2.A.2
+  lang: zh
+  cognitive: analysis
+  stem: 一名田徑選手在焦慮狀態下，骨骼肌緊張、心跳加速同時出現，且反覆想著「萬一輸了怎麼辦」。下列哪一項最能說明此現象的最核心來源？
+  locator: 'Energy Management: Arousal, Anxiety, and Stress > Anxiety'
+  options:
+  - text: 對成敗後果的高度自我涉入與不確定感
+    correct: true
+  - text: 缺乏任何可運用的生理指標監測喚醒
+    correct: false
+    why_wrong: 教材把焦慮時的喚醒失控歸因於對情境的不確定感，並非單純因為缺少監測手段。
+  - text: 本身訓練量過低導致的心肺功能不足
+    correct: false
+    why_wrong: 心肺能力不足屬於體能層次，與教材所稱焦慮喚醒受不確定感驅動的機制不同。
+- id: ch08.arousal-anxiety-stress.i08.q2
+  item: ch08.arousal-anxiety-stress.i08
+  dco: sf2.A.2
+  lang: zh
+  cognitive: analysis
+  stem: 兩名選手面對同一場關鍵比賽：甲解讀為「令人期待的舞台」，產生正向心理能量與生理喚醒；乙解讀為「可能毀掉一個賽季的威脅」，出現認知與身體焦慮。教材最能用哪一個對比說明兩人差異？
+  locator: 'Energy Management: Arousal, Anxiety, and Stress > Stress'
+  options:
+  - text: 正負壓力是否伴隨焦慮
+    correct: true
+  - text: 兩人天生生理閾值高低
+    correct: false
+    why_wrong: 教材並未把壓力反應的差異歸因於天生閾值，而是歸因於對壓力源的知覺。
+  - text: 兩人訓練總時數多寡
+    correct: false
+    why_wrong: 訓練時數屬於練習量層次，未被教材列為正向與負向壓力分野的依據。
+- id: ch08.arousal-theories.i06.q2
+  item: ch08.arousal-theories.i06
+  dco: sf2.A.2
+  lang: zh
+  cognitive: analysis
+  stem: 教練注意到，旗下選手在認知焦慮升高時，只要生理喚醒也跟著攀升，表現便從穩定變成突然大幅下滑。下列何者最是教材對此現象所強調的特徵？
+  locator: Influence of Arousal and Anxiety on Performance > Catastrophe Theory
+  options:
+  - text: 認知焦慮與生理喚醒同時升高致崩塌
+    correct: true
+  - text: 表現沿平穩斜率隨喚醒線性下滑
+    correct: false
+    why_wrong: 教材明列災難理論反對漸進式衰退，平穩斜率屬於簡單倒 U 的延伸，與災難模型不同。
+  - text: 認知焦慮升高時生理喚醒反而下降
+    correct: false
+    why_wrong: 教材描述的是生理喚醒在認知焦慮存在時升高並造成崩跌，與「反而下降」的描述相反。
+- id: ch08.motivation.i07.q2
+  item: ch08.motivation.i07
+  dco: sf2.A.2
+  lang: zh
+  cognitive: analysis
+  stem: 教練希望比較「增強」與「懲罰」對選手注意力結構的長期影響，下列哪一項最能體現教材主張的差異？
+  locator: Motivation > Positive and Negative Reinforcement in Coaching > How Should Positive and Negative Reinforcement Be Applied?
+  options:
+  - text: 增強留焦點在任務，懲罰易塞錯誤
+    correct: true
+  - text: 懲罰更能擴大任務相關注意力容量
+    correct: false
+    why_wrong: 教材指出懲罰會讓注意力容量被任務無關線索占滿，與此處描述的方向相反。
+  - text: 增強與懲罰對注意力結構無差別
+    correct: false
+    why_wrong: 教材明列兩者在注意力與自我效能上有差異，並未主張兩者效果相當。
+- id: ch08.arousal-anxiety-stress.i07.q2
+  item: ch08.arousal-anxiety-stress.i07
+  dco: sf2.A.2
+  lang: en
+  cognitive: application
+  stem: A lifter interprets a major meet as a severe threat and develops both mental worry and physical symptoms. Which component set is most directly produced by this negative interpretation of the stressor?
+  locator: 'Energy Management: Arousal, Anxiety, and Stress > Stress'
+  options:
+  - text: Cognitive anxiety and somatic anxiety
+    correct: true
+  - text: Trait anxiety and automaticity
+    correct: false
+    why_wrong: Trait anxiety is a stable tendency and automaticity is a skill stage; the chapter lists anxiety components under distress, not these.
+  - text: Broad-external focus and broad-internal focus
+    correct: false
+    why_wrong: These are attentional styles from a different section; they are not the affective components produced by distress.
+- id: ch08.arousal-theories.i03.q2
+  item: ch08.arousal-theories.i03
+  dco: sf2.A.2
+  lang: en
+  cognitive: application
+  stem: A sprint coach and a wrestling coach each receive the same noisy crowd before competition. According to the chapter's criterion, who is most justified in keeping arousal lower?
+  locator: Influence of Arousal and Anxiety on Performance > Drive Theory > Task Complexity
+  options:
+  - text: The wrestling coach
+    correct: true
+  - text: The sprint coach
+    correct: false
+    why_wrong: Sprinting relies on a practiced skill without heavy conscious decision load, so the chapter allows a relatively higher arousal ceiling.
+  - text: Both coaches equally
+    correct: false
+    why_wrong: The chapter ties the appropriate arousal ceiling to conscious decision load, which differs between the two tasks.
+- id: ch08.motivation.i06.q2
+  item: ch08.motivation.i06
+  dco: sf2.A.2
+  lang: en
+  cognitive: application
+  stem: An athlete repeatedly skips cool-down stretching, and the coach wants to reduce this avoidance behavior using an operant approach. Which pairing most directly targets reducing that behavior?
+  locator: Motivation > Positive and Negative Reinforcement in Coaching
+  options:
+  - text: Add a corrective drill after the avoidance response
+    correct: true
+  - text: Award a sticker for attending every session
+    correct: false
+    why_wrong: A sticker after attendance would reinforce attending, not directly suppress skipping cool-down stretching.
+  - text: Cancel a drill when the team completes stretching
+    correct: false
+    why_wrong: Removing an aversive drill after the desired response is negative reinforcement that increases the desired behavior, not suppression of skipping.
