@@ -999,6 +999,89 @@ def review_message(chid: str, ids: list) -> str:
     )
 
 
+def sibling_of(questions: list, qid: str):
+    """同一個 `item` 底下的另一題（同 item 最多兩題，所以最多一個）。"""
+    target = next((q for q in questions if isinstance(q, dict) and q.get("id") == qid), None)
+    if not target:
+        return None
+    for other in questions:
+        if isinstance(other, dict) and other.get("item") == target.get("item") \
+                and other.get("id") != qid:
+            return other
+    return None
+
+
+def render_question(question: dict) -> str:
+    lines = [f"  題幹：{question.get('stem', '')}"]
+    for option in question.get("options") or []:
+        mark = "正解" if option.get("correct") else "干擾"
+        lines.append(f"  [{mark}] {option.get('text', '')}")
+    return "\n".join(lines)
+
+
+def redo_message(chid: str, questions: list, targets: list) -> str:
+    """重出輪：點名的題目與它的同 item 兄弟題在考同一件事，要改考別的事實。
+
+    章節配額比可用 item 多時（ch08 是 100 題 / 54 個 item），規格允許同一個 item 出兩題，
+    但沒有任何閘門檢查那兩題是不是同一題——ch08 實測 36 對裡有 24 對是把第一題翻成另一個
+    語言或換句話說。閘門只數 id 唯一與每 item ≤2 題，這一類只有讀內容才看得出來。
+
+    `targets` 是 `(id, 指定考點)` 的清單。第一輪只給散文（「挑沒被考過的那條」）的結果是
+    17 題裡 12 題換了場景與語言、正解還是同一個事實——跟審查輪一樣，**沒有點名到具體哪一
+    條事實的規則等於沒下**。所以這裡把來源條目的 `a` 逐條編號攤在題目旁邊，再由呼叫端用
+    `--ids-file` 的 `id | 指定考點` 指定要考哪一條。`lang` / `cognitive` 鎖住綁章節配額。
+    """
+    items = {item["id"]: item for item in chapter_items(chid)}
+    blocks = []
+    for qid, directive in targets:
+        target = next((q for q in questions if isinstance(q, dict) and q.get("id") == qid), None)
+        if not target:
+            continue
+        sibling = sibling_of(questions, qid)
+        part = [f"### `{qid}`（{target.get('lang')} / {target.get('cognitive')}），"
+                f"來源條目 `{target.get('item')}`"]
+
+        item = items.get(target.get("item")) or {}
+        facts = [f"  F{index}. {text}" for index, text in enumerate(item.get("a") or [], 1)]
+        if item.get("detail"):
+            facts.append(f"  D. {item['detail']}")
+        if facts:
+            part.append(f"\n來源條目可考的事實（`{item.get('q', '')}`）：\n")
+            part.append("\n".join(facts))
+
+        if sibling:
+            part.append(f"\n**同 item 的另一題 `{sibling.get('id')}`"
+                        f"（{sibling.get('lang')} / {sibling.get('cognitive')}）已經考掉的內容："
+                        "這題不准再考一次**\n")
+            part.append(render_question(sibling))
+        part.append("\n**要重出的就是下面這題**（它跟上面那題在考同一件事）：\n")
+        part.append(render_question(target))
+        if directive:
+            part.append(f"\n**這題指定改考：{directive}**")
+        blocks.append("\n".join(part))
+
+    return (
+        f"# 本輪要重出的題目（{len(blocks)} 題）\n\n"
+        "下面每一題都跟它同一個來源條目底下的另一題**在考同一個事實**——"
+        "有的是直接翻成另一個語言，有的是換句話說。這種題目過得了全部驗收閘"
+        "（id 唯一、每個 item ≤2 題都成立），但等於把題庫的一半浪費掉。\n\n"
+        "**要做的是換一個考點，不是把題幹改寫得漂亮一點。**"
+        "每一題下面都列了來源條目可考的事實（F1、F2…與 `detail` 的 D），"
+        "並寫明兄弟題已經考掉哪一條、這題指定改考哪一條。"
+        "**照指定的那一條出，不要自己換一條，也不要回頭考兄弟題那條。**\n\n"
+        "四條硬限制：\n\n"
+        "- **`lang` 與 `cognitive` 一個字都不能改**，它們綁著章節的中英比與認知層級配比。\n"
+        "- 新題的正解不可以跟上面列出的那一題的正解是同一個概念，"
+        "**也不可以只是把它換成另一個語言**——換個運動項目、換個場景都不算換考點。\n"
+        "- **正解只能寫來源事實裡出現過的東西**，不要補上教材沒寫的量表名稱、數字或專有名詞。\n"
+        "- 干擾項照舊必須是錯的。寫得出「這確實也是教材說的」就是廢題。\n\n"
+        "---\n\n"
+        + "\n\n".join(blocks)
+        + "\n\n---\n\n"
+        + patch_output_format("**輸出上面點名的每一題的完整新版**")
+    )
+
+
 def lock_fixed_fields(questions: list, patches: list):
     """審查輪只准改 `stem` 與 `options`，其餘欄位一律用原題的值蓋回去。
 
@@ -1652,6 +1735,105 @@ def run_review(chid: str) -> int:
     return 0 if not errors else 1
 
 
+def run_redo(chid: str, targets: list) -> int:
+    """重出點名的題目，讓它跟同 item 的兄弟題考不一樣的事實。
+
+    跟 `run_review` 共用同一條「快取前綴 + 局部替換」管道，差別只在這輪要求整題換考點，
+    所以 `stem` 必須改、`lock_fixed_fields` 照舊擋住 `lang` / `cognitive`（綁章節配比）。
+    一批最多 REVIEW_CHUNK 題：重出比審查吃 output，一次太多會截斷。
+    """
+    quota = quota_for(chid, None)
+    questions = load_bank(chid)
+    if not questions:
+        sys.exit(f"{chid} 還沒有題庫，--redo 沒有東西可以重出")
+    known = {q.get("id") for q in questions if isinstance(q, dict)}
+    ids = [qid for qid, _ in targets]
+    missing = [qid for qid in ids if qid not in known]
+    if missing:
+        sys.exit(f"{chid} 題庫裡沒有這些 id：" + "、".join(missing))
+
+    item_ids = {item["id"] for item in chapter_items(chid)}
+    allowed_dco = dco_allowed(chid)
+    label = f"{chid} redo"
+    print(f"{label}：要重出 {len(ids)} 題")
+
+    stable, _ = build_sections(chid, quota, [], None, bank=questions)
+    totals = {"input_tokens": 0, "output_tokens": 0, "cache_read_input_tokens": 0}
+    elapsed_total = 0.0
+    batches = [targets[start:start + REVIEW_CHUNK] for start in range(0, len(targets), REVIEW_CHUNK)]
+    chunks = [[qid for qid, _ in batch] for batch in batches]
+    changed = 0
+    flagged = []
+    errors = []
+
+    for number, (batch, chunk) in enumerate(zip(batches, chunks), 1):
+        blocks = build_blocks(stable, [("本輪要重出的題目", redo_message(chid, questions, batch))])
+        messages = [{"role": "user", "content": blocks}]
+        raw_text, usage, elapsed = stream_call(
+            messages, MAX_TOKENS, f"{label} 第 {number}/{len(chunks)} 批"
+        )
+        save_raw(chid, raw_text)
+        accumulate(totals, usage)
+        elapsed_total += elapsed
+        report(f"{label} 第 {number}/{len(chunks)} 批", usage, elapsed)
+
+        patches, problems = parse_patch(raw_text)
+        if problems:
+            print(f"{label} 第 {number} 批解析失敗（{problems[0]}），跳過這批")
+            continue
+
+        outside = [p.get("id") for p in patches if isinstance(p, dict) and p.get("id") not in chunk]
+        if outside:
+            print(f"{label} 第 {number} 批交回 {len(outside)} 題不在本批名單內，丟棄："
+                  + "、".join(str(qid) for qid in outside[:6]))
+            patches = [p for p in patches if isinstance(p, dict) and p.get("id") in chunk]
+        skipped = [qid for qid in chunk if qid not in {p.get("id") for p in patches}]
+        if skipped:
+            print(f"{label} 第 {number} 批沒有交回 {len(skipped)} 題，維持原樣："
+                  + "、".join(skipped))
+        if not patches:
+            continue
+
+        merged, problems = apply_patch(questions, lock_fixed_fields(questions, patches))
+        if not problems:
+            structural, broken = validate_questions(merged, chid, item_ids, allowed_dco)
+            if broken:
+                problems = structural
+        if problems:
+            print(f"{label} 第 {number} 批的輸出有 {len(problems)} 條問題，不寫檔")
+            print_errors(problems)
+            continue
+
+        questions = merged
+        write_bank(chid, [], questions)
+        changed += len(patches)
+        flagged += flag_self_admitted(patches)
+        all_ids = {q.get("id") for q in questions if isinstance(q, dict)}
+        errors, _, _ = gate_errors(chid, all_ids, None)
+        print(f"{label} 第 {number} 批：重出 {len(patches)} 題，"
+              f"閘門錯誤 {len(errors)} 條（累計 {changed} 題）")
+
+    print(f"\n{label}：共重出 {changed} 題。")
+    if flagged:
+        print(f"下列 {len(flagged)} 題的 `why_wrong` 自承干擾項其實是對的，逐題看過再收："
+              + "、".join(str(qid) for qid in flagged))
+    if errors:
+        print_errors(errors)
+        stable, _ = build_sections(chid, quota, [], None, bank=questions)
+        blocks = build_blocks(stable, [
+            ("本輪要修的題目", patch_fix_message(errors, length_hints(questions, errors))),
+        ])
+        messages = [{"role": "user", "content": blocks}]
+        _, errors, fix_elapsed = patch_loop(
+            chid, label, messages, [], questions,
+            item_ids, allowed_dco, None, totals, errors, armed=True,
+        )
+        elapsed_total += fix_elapsed
+
+    print_totals(totals, elapsed_total, errors)
+    return 0 if not errors else 1
+
+
 def select_test(chid: str, part=None) -> int:
     """離線驗挑選邏輯：拿既有題庫當候選池，印「挑哪些、丟哪些、各欄是否剛好相符」。
 
@@ -1762,6 +1944,40 @@ def parse_part(value: str):
     return index, parts
 
 
+def collect_ids(chid: str, values: list, path: str | None) -> list:
+    """把 --ids / --ids-file 收成去重後的 `(完整 id, 指定考點)` 清單（保留給定順序）。
+
+    `--ids-file` 一行一題，`id | 指定考點` 的後半可省略；`--ids` 只收 id（逗號或空白分隔）。
+    指定考點不是可有可無的裝飾——見 `redo_message` 的 docstring，不點名就會換湯不換藥。
+    """
+    raw = []
+    for value in values:
+        raw.extend((token, "") for token in re.split(r"[,\s]+", value))
+    if path:
+        text = Path(path).read_text(encoding="utf-8")
+        for line in text.splitlines():
+            line = line.split("#", 1)[0].strip()
+            if not line:
+                continue
+            token, _, directive = line.partition("|")
+            raw.append((token.strip(), directive.strip()))
+    targets = []
+    seen = set()
+    for token, directive in raw:
+        token = token.strip()
+        if not token:
+            continue
+        if not token.startswith(f"{chid}."):
+            token = f"{chid}.{token}"
+        if token in seen:
+            continue
+        seen.add(token)
+        targets.append((token, directive))
+    if not targets:
+        sys.exit("--redo 要用 --ids 或 --ids-file 指定要重出哪幾題")
+    return targets
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="單次 API 直送出題")
     parser.add_argument("chid", nargs="?", help="例：ch08")
@@ -1770,6 +1986,12 @@ def main() -> int:
                         help="不出題，只對既有題庫跑「閘 → 局部修正」（整章，不做批次過濾）")
     parser.add_argument("--review", nargs="?", const=True, metavar="chNN",
                         help="第二輪：逐題審內容、改爛干擾項（分批點名，閘門由本腳本收尾）")
+    parser.add_argument("--redo", nargs="?", const=True, metavar="chNN",
+                        help="重出點名的題目（同 item 兩題撞考點時用），id 由 --ids / --ids-file 給")
+    parser.add_argument("--ids", action="append", default=[], metavar="ID[,ID...]",
+                        help="--redo 的題目 id，逗號或空白分隔，可重複給；省略 chNN. 前綴會自動補上")
+    parser.add_argument("--ids-file", metavar="PATH",
+                        help="--redo 的題目 id 清單檔，一行一個（`#` 開頭為註解）")
     parser.add_argument("--dry-run", action="store_true", help="只組 prompt 印大小，不呼叫 API")
     parser.add_argument("--smoke", action="store_true", help="極小串流請求，驗 SSE 解析")
     parser.add_argument("--select-test", action="store_true",
@@ -1782,10 +2004,12 @@ def main() -> int:
     # `ch08 --fix-only` 與 `--fix-only ch08` 兩種寫法都收。
     fix_only = bool(args.fix_only)
     review = bool(args.review)
+    redo = bool(args.redo)
     chid = (
         args.chid
         or (args.fix_only if isinstance(args.fix_only, str) else None)
         or (args.review if isinstance(args.review, str) else None)
+        or (args.redo if isinstance(args.redo, str) else None)
     )
     if not chid:
         parser.error("要指定 chid（或用 --smoke）")
@@ -1793,16 +2017,20 @@ def main() -> int:
         sys.exit(f"chid 格式應為 chNN，收到 {chid!r}")
     if chid not in ALLOCATION:
         sys.exit(f"{chid} 不在配題表內")
-    if (fix_only or review) and args.part:
-        sys.exit("--fix-only / --review 一次看整章，不能跟 --part 併用")
-    if fix_only and review:
-        sys.exit("--fix-only 與 --review 是兩輪不同的事，分兩次跑")
+    if (fix_only or review or redo) and args.part:
+        sys.exit("--fix-only / --review / --redo 一次看整章，不能跟 --part 併用")
+    if sum([fix_only, review, redo]) > 1:
+        sys.exit("--fix-only / --review / --redo 是三輪不同的事，分開跑")
+    if (args.ids or args.ids_file) and not redo:
+        sys.exit("--ids / --ids-file 只有 --redo 用得到")
 
     part = parse_part(args.part) if args.part else None
     if args.select_test:
         return select_test(chid, part)
     if args.dry_run:
         return dry_run(chid, part)
+    if redo:
+        return run_redo(chid, collect_ids(chid, args.ids, args.ids_file))
     if review:
         return run_review(chid)
     if fix_only:
