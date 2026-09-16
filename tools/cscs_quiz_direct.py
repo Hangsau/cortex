@@ -583,6 +583,23 @@ def strip_fence(text: str) -> str:
     return body.strip()
 
 
+def strip_strings(value):
+    """遞迴把所有字串的頭尾空白去掉。
+
+    模型會把題幹寫成 `stem: 'Which ... sugar units? '`——**引號裡的尾端空白 YAML 會原樣保留**，
+    而 G6 用 `stem.endswith("?")` 判句尾。結果是題幹看起來完全正確卻一直不過閘，
+    模型也修不動（它看不見那個空白）：ch09 第一次生成就這樣燒完五輪修正、停在 13 條錯誤。
+    這種「看不見的字元」只能機械清掉，寫進提示沒有用。
+    """
+    if isinstance(value, str):
+        return value.strip()
+    if isinstance(value, list):
+        return [strip_strings(entry) for entry in value]
+    if isinstance(value, dict):
+        return {key: strip_strings(entry) for key, entry in value.items()}
+    return value
+
+
 def parse_questions(text: str):
     """回傳 (questions, 錯誤清單)。解析不出來時 questions 為 None。"""
     try:
@@ -594,7 +611,7 @@ def parse_questions(text: str):
     questions = data.get("questions")
     if not isinstance(questions, list) or not questions:
         return None, ["questions 必須是非空清單"]
-    return questions, []
+    return strip_strings(questions), []
 
 
 def validate_questions(questions: list, chid: str, item_ids: set, allowed_dco: set):
@@ -725,9 +742,19 @@ def write_bank(chid: str, base_questions: list, questions: list, raw_text=None) 
         backup.open("w", encoding="utf-8", newline="\n").write(read_text(path))
         print(f"既有題庫已備份到 {backup.relative_to(ROOT).as_posix()}")
 
-    if base_questions or raw_text is None:
+    # 原文只有在「解析回來跟 questions 一模一樣」時才可信：strip_strings 清掉的尾端空白
+    # 就住在原文裡，照抄等於把剛修好的東西寫回去。
+    verbatim = False
+    if raw_text is not None and not base_questions:
+        try:
+            parsed = yaml.safe_load(strip_fence(raw_text))
+            verbatim = isinstance(parsed, dict) and parsed.get("questions") == questions
+        except yaml.YAMLError:
+            verbatim = False
+
+    if not verbatim:
         # 要跟先前批次合併、或題目已被局部修正過，就只能重新序列化；
-        # 只有「第 0 輪、沒有 base」那一種情形能直接寫原文，保留模型輸出的排版（空行分題）。
+        # 只有「第 0 輪、沒有 base、且原文已經是乾淨的」才能直接寫原文，保留模型輸出的排版。
         body = yaml.safe_dump(
             {
                 "meta": {"chapter": chid, "source": f"data/cscs/{chid}.yaml"},

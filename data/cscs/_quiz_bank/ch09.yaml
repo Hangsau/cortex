@@ -1,0 +1,324 @@
+meta:
+  chapter: ch09
+  source: data/cscs/ch09.yaml
+questions:
+- id: ch09.carbohydrate.i01.q1
+  item: ch09.carbohydrate.i01
+  dco: sf3.A.2
+  lang: en
+  cognitive: recall
+  stem: Which class of carbohydrate contains sucrose based on its number of sugar units?
+  locator: Macronutrients > Carbohydrate
+  options:
+  - text: disaccharides
+    correct: true
+  - text: monosaccharides
+    correct: false
+    why_wrong: Treats sucrose as a single sugar unit; sucrose is two monosaccharides joined together, so it does not belong in the monosaccharide class.
+  - text: polysaccharides
+    correct: false
+    why_wrong: Treats sucrose as a long chain of glucose units; polysaccharides such as starch, glycogen, and dietary fiber contain many glucose units, not just two.
+- id: ch09.carbohydrate.i02.q1
+  item: ch09.carbohydrate.i02
+  dco: sf3.A.2
+  lang: en
+  cognitive: recall
+  stem: Approximately what fraction of total body glycogen is stored in skeletal muscle?
+  locator: Macronutrients > Carbohydrate
+  options:
+  - text: about three-fourths in muscle
+    correct: true
+  - text: about one-fourth in muscle
+    correct: false
+    why_wrong: Applies the liver's share to muscle; the liver holds about one-fourth of total glycogen, while skeletal muscle holds the remaining three-fourths.
+  - text: evenly split between muscle and liver
+    correct: false
+    why_wrong: Splits total glycogen evenly between the two tissues; the textbook describes a roughly three-to-one ratio favoring skeletal muscle, not an even split.
+- id: ch09.carbohydrate.i03.q1
+  item: ch09.carbohydrate.i03
+  dco: sf3.A.2
+  lang: en
+  cognitive: application
+  stem: A 60 kg endurance athlete trains at 70 to 80 percent of VO2max for at least 90 minutes daily. Which daily carbohydrate intake best fits this athlete's requirement?
+  locator: Macronutrients > Carbohydrate > Carbohydrate Requirements for Athletes
+  options:
+  - text: 480 to 600 g per day
+    correct: true
+  - text: 300 to 360 g per day
+    correct: false
+    why_wrong: Applies the 5 to 6 g/kg range for strength and sprint athletes to an endurance athlete; endurance work calls for the higher 8 to 10 g/kg band.
+  - text: 120 to 180 g per day
+    correct: false
+    why_wrong: Uses only 2 to 3 g/kg, which sits below both the strength and endurance ranges; even the lower strength range of 5 g/kg gives 300 g for this athlete.
+- id: ch09.carbohydrate.i04.q1
+  item: ch09.carbohydrate.i04
+  dco: sf3.A.2
+  lang: zh
+  cognitive: recall
+  stem: 依本章表格，食物升糖指數（GI）為 65 時，應歸類於下列何者？
+  locator: Macronutrients > Carbohydrate > Glycemic Index and Glycemic Load
+  options:
+  - text: 中 GI
+    correct: true
+  - text: 低 GI
+    correct: false
+    why_wrong: 把 65 歸到低 GI；表中低 GI 為 55 或以下，65 已超過低 GI 的上限。
+  - text: 高 GI
+    correct: false
+    why_wrong: 把 65 誤判為高 GI；表中高 GI 為 70 或以上，65 還差 5 才達到該分級。
+- id: ch09.carbohydrate.i05.q1
+  item: ch09.carbohydrate.i05
+  dco: sf3.A.2
+  lang: en
+  cognitive: application
+  stem: A serving has a glycemic index of 60 and contains 50 g of carbohydrate. Compared with its GI alone, the glycemic load of this serving is most accurately which value?
+  locator: Macronutrients > Carbohydrate > Glycemic Index and Glycemic Load
+  options:
+  - text: '30'
+    correct: true
+  - text: '1.2'
+    correct: false
+    why_wrong: Divides the glycemic index by the grams of carbohydrate; the formula multiplies GI by carbohydrate grams and then divides that product by 100.
+  - text: '60'
+    correct: false
+    why_wrong: Returns the glycemic index itself as the answer; glycemic load requires folding in the carbohydrate amount of the serving, not the index alone.
+- id: ch09.carbohydrate.i06.q1
+  item: ch09.carbohydrate.i06
+  dco: sf3.A.2
+  lang: zh
+  cognitive: recall
+  stem: 依本章所列 DRI，成年男性每日膳食纖維建議攝取量最接近下列何者？
+  locator: Macronutrients > Carbohydrate > Fiber
+  options:
+  - text: 依年齡 30–38 g
+    correct: true
+  - text: 依狀態 21–29 g
+    correct: false
+    why_wrong: 把女性的 DRI 範圍直接套用到成年男性；該 21–29 g 對應女性依年齡、懷孕與哺乳狀態的範圍，男性範圍更高。
+  - text: 每日固定 25 g
+    correct: false
+    why_wrong: 把男性膳食纖維攝取簡化為單一固定值；本章列的是依年齡 30–38 g 的範圍，不是固定 25 g。
+- id: ch09.carbohydrate.i07.q1
+  item: ch09.carbohydrate.i07
+  dco: sf3.A.2
+  lang: zh
+  cognitive: application
+  stem: 原本習慣攝取碳水化合物的耐力運動員，若持續改採高脂低碳水化合物飲食數週後，最可能出現下列何種運動供能改變？
+  locator: Macronutrients > Carbohydrate > Carbohydrate Requirements for Athletes
+  options:
+  - text: 運動時更依賴脂肪作為燃料
+    correct: true
+  - text: 有氧運動改以碳水化合物為主
+    correct: false
+    why_wrong: 這是尚未適應低碳飲食時的狀態，本章把它列為習慣攝取碳水化合物者的供能方式，長期低碳之後這個比例反而下降。
+  - text: 耐力表現可望隨之穩定提升
+    correct: false
+    why_wrong: 本章只描述燃料利用如何適應，並指出高脂低碳飲食的表現效果依個人而異，不能從燃料比例改變推得表現會提升。
+- id: ch09.carbohydrate.i08.q1
+  item: ch09.carbohydrate.i08
+  dco: sf3.A.2
+  lang: en
+  cognitive: application
+  stem: During prolonged exercise with depleted glycogen stores, the contribution of protein as an energy source is most likely to reach which percentage of total energy expenditure?
+  locator: Macronutrients > Protein > Protein Quality and Dietary Recommendations
+  options:
+  - text: up to 10 percent
+    correct: true
+  - text: about 1 to 6 percent
+    correct: false
+    why_wrong: Applies the typical, glycogen-adequate range to a glycogen-depleted state; this range applies to most conditions, while depletion can raise protein's contribution.
+  - text: about 30 percent
+    correct: false
+    why_wrong: Triples the highest value reported for any condition; even glycogen-depleted prolonged exercise caps protein's contribution at about 10 percent of total energy expenditure.
+- id: ch09.dietary-reference-standards.i02.q1
+  item: ch09.dietary-reference-standards.i02
+  dco: sf3.A.2
+  lang: zh
+  cognitive: recall
+  stem: 建議膳食攝取量（RDA）在定義上，最適用於下列何種對象？
+  locator: Standard Nutrition Guidelines > Dietary Reference Intakes
+  options:
+  - text: 依生命期與性別分組的健康人
+    correct: true
+  - text: 接受個人化醫療營養治療的病人
+    correct: false
+    why_wrong: 把 RDA 套用到需要醫療營養治療的病人；RDA 對象是健康個人，個人化醫療照護屬於運動營養師的範疇。
+  - text: 所有疾病與訓練狀態的運動員
+    correct: false
+    why_wrong: 把 RDA 視為所有疾病與訓練狀態的通用處方；RDA 不是為所有疾病、訓練狀態或個人化飲食問題量身訂做的數值。
+- id: ch09.dietary-reference-standards.i06.q1
+  item: ch09.dietary-reference-standards.i06
+  dco: sf3.A.2
+  lang: zh
+  cognitive: application
+  stem: 一位大專田徑短跑選手的教練在查蛋白質的攝取區間，依本章所列 AMDR，下列哪一組年齡層與蛋白質占總熱量範圍的對應最正確？
+  locator: Macronutrients > Protein > Protein Quality and Dietary Recommendations
+  options:
+  - text: 18 歲以上成人為 10–35%
+    correct: true
+  - text: 1–3 歲兒童為 10–30%
+    correct: false
+    why_wrong: 幼兒的蛋白質上限只到總熱量的 20%，把學齡兒童與青少年那一段的上限往下套到幼兒身上，會高估這個年齡層的可接受量。
+  - text: 4–18 歲青少年為 5–20%
+    correct: false
+    why_wrong: 學齡兒童與青少年的下限是總熱量的 10% 而非 5%，把幼兒較寬的下限搬過來會低估這個年齡層的蛋白質攝取底線。
+- id: ch09.electrolytes.i02.q1
+  item: ch09.electrolytes.i02
+  dco: sf3.A.2
+  lang: zh
+  cognitive: application
+  stem: 一名跑者在 35°C 賽事中只以大量純水補水而未補鈉，出現頭痛與噁心，他的血鈉濃度（mmol/L）最可能落在下列何者？
+  locator: Fluid and Electrolytes > Electrolytes
+  options:
+  - text: 已低於 125
+    correct: true
+  - text: 仍高於 130
+    correct: false
+    why_wrong: 血鈉還在這個水準時連低血鈉症都不成立，本章把稀釋成立的界線放在該濃度，頭痛與噁心要再低一階才會出現。
+  - text: 已跌破 120
+    correct: false
+    why_wrong: 掉到這個水準對應的是腦水腫、癲癇與昏迷那一類更嚴重的後果，頭痛與噁心不必等到血鈉降得這麼低就會出現。
+- id: ch09.electrolytes.i05.q1
+  item: ch09.electrolytes.i05
+  dco: sf3.A.2
+  lang: zh
+  cognitive: application
+  stem: 一名教練希望運動員從平日飲食增加鉀攝取，根據本章最直接的建議應優先選擇下列何者？
+  locator: Fluid and Electrolytes > Electrolytes
+  options:
+  - text: 番茄、香蕉與牛奶等富鉀食物
+    correct: true
+  - text: 完全依賴運動飲料作為鉀來源
+    correct: false
+    why_wrong: 把運動飲料當成主要的鉀來源；本章指出運動飲料只補回汗液流失的少量鉀，並非總鉀攝取的重要來源。
+  - text: 額外服用高單位鉀補充品
+    correct: false
+    why_wrong: 跳過日常食物而直接訴求高單位補充品；本章建議從番茄、柑橘、香蕉等富鉀食物增加攝取，並未把高單位補充品列為優先。
+- id: ch09.electrolytes.i06.q1
+  item: ch09.electrolytes.i06
+  dco: sf3.A.2
+  lang: en
+  cognitive: application
+  stem: In the NFL practice data, which positional group shows the highest mean hourly sweat rate between the two groups compared?
+  locator: Fluid and Electrolytes > Fluid Balance
+  options:
+  - text: linemen, at about 2.25 L per hour
+    correct: true
+  - text: running backs, at about 1.4 L per hour
+    correct: false
+    why_wrong: Chooses the smaller positional group despite the reported higher hourly rate for linemen; running backs and receivers average 1.4 L/h versus linemen at 2.25 L/h.
+  - text: both groups, equal at 1.8 L per hour
+    correct: false
+    why_wrong: Assumes no positional difference in sweat rate; the chapter reports a higher mean hourly rate for linemen than for running backs and receivers.
+- id: ch09.electrolytes.i08.q1
+  item: ch09.electrolytes.i08
+  dco: sf3.A.2
+  lang: zh
+  cognitive: application
+  stem: 一名選手在一小時劇烈練習前體重 70.0 kg，練習中飲水 1.2 L，練習後排尿 0.3 L，練習後擦乾秤重為 69.4 kg，他的排汗量最接近下列何者（單位：公升）？
+  locator: Fluid and Electrolytes > Preventing Dehydration
+  options:
+  - text: '1.5'
+    correct: true
+  - text: '0.6'
+    correct: false
+    why_wrong: 只算了前後體重差就當成排汗量，漏掉練習中喝進去的水與排掉的尿，這樣會把實際流失的汗量低估。
+  - text: '1.8'
+    correct: false
+    why_wrong: 把飲水量加回體重差之後忘了再扣掉尿量，尿液本來就不是經由排汗流失的，留著會把汗量算大。
+- id: ch09.hydration.i02.q1
+  item: ch09.hydration.i02
+  dco: sf3.A.2
+  lang: zh
+  cognitive: application
+  stem: 一名選手在一場練習後體重減少約 2%，核心體溫上升，自覺費力增加，最可能與下列何種現象關聯最大？
+  locator: Fluid and Electrolytes
+  options:
+  - text: 輕度脫水已足以影響運動表現
+    correct: true
+  - text: 長期熱適應使流汗電解質濃度升高
+    correct: false
+    why_wrong: 把熱適應描述成汗液電解質濃度升高；原文指出反覆熱暴露後汗液電解質濃度下降，而非上升。
+  - text: 低血鈉症已達到腦水腫風險增加的臨界
+    correct: false
+    why_wrong: 把體重減少 2% 直接跳到腦水腫風險增加的臨界；2% 屬於輕度脫水，腦水腫風險增加的臨界是血鈉低於 120 mmol/L，兩者不是同一條線。
+- id: ch09.electrolytes.i07.q1
+  item: ch09.electrolytes.i07
+  dco: sf3.A.2
+  lang: en
+  cognitive: analysis
+  stem: A team begins preseason camp after summer break, and several players show dehydration and heat strain early on. Which adaptation status best explains this vulnerability?
+  locator: Fluid and Electrolytes
+  options:
+  - text: They have not yet undergone repeated heat exposure, so sweating starts at a higher core temperature and sweat electrolytes stay elevated.
+    correct: true
+  - text: They are already fully heat acclimatized, so their sweat rate is too low to cool them during the first sessions.
+    correct: false
+    why_wrong: Treats the athletes as fully acclimatized and blames a low sweat rate; heat acclimatization raises sweat volume and lowers sweat electrolyte concentration, which is the opposite of what these athletes show.
+  - text: They trained in cool environments all summer, so plasma volume has expanded and shut down sweating for the early sessions.
+    correct: false
+    why_wrong: Frames preseason vulnerability as expanded plasma volume and absent sweating; the chapter links preseason risk to higher sweat onset temperature and higher sweat electrolyte concentration, not absent sweat output.
+- id: ch09.protein.i02.q1
+  item: ch09.protein.i02
+  dco: sf3.A.2
+  lang: en
+  cognitive: analysis
+  stem: A 70 kg sprinter enters a four-week dieting phase to drop body fat while preserving lean mass. According to the chapter, which daily protein intake is most appropriate for this athlete?
+  locator: Macronutrients > Fat > Fat and Performance > Macronutrient Guidelines
+  options:
+  - text: 126 to 189 g per day
+    correct: true
+  - text: 98 to 119 g per day
+    correct: false
+    why_wrong: Applies the strength athlete band of about 1.4 to 1.7 g/kg and ignores the dieting phase, which the chapter lists as its own category at roughly 1.8 to 2.7 g/kg.
+  - text: 210 to 280 g per day
+    correct: false
+    why_wrong: Pushes intake to roughly 3 to 4 g/kg, above every band the chapter lists; even the caloric restriction category stops near 2.7 g/kg for this body mass.
+- id: ch09.fat.i06.q1
+  item: ch09.fat.i06
+  dco: sf3.A.2
+  lang: zh
+  cognitive: analysis
+  stem: 比較低強度長時間有氧訓練與高強度間歇訓練的燃料使用，最能顯示下列何種供能變化？
+  locator: Macronutrients > Fat > Fat and Performance
+  options:
+  - text: 強度提高後，燃料由脂肪轉向碳水化合物
+    correct: true
+  - text: 強度提高後，脂肪氧化比例反而升高
+    correct: false
+    why_wrong: 把強度提升與脂肪氧化上升畫上等號；本章指出隨強度提高，燃料偏好會由脂肪逐漸轉向碳水化合物，而非脂肪氧化繼續升高。
+  - text: 強度提高後，蛋白質成為主要供能來源
+    correct: false
+    why_wrong: 把蛋白質視為高強度運動的主要燃料；本章指出多數情況下蛋白質僅占總熱量 1–6%，主要燃料切換發生在脂肪與碳水化合物之間。
+- id: ch09.protein.i05.q1
+  item: ch09.protein.i05
+  dco: sf3.A.2
+  lang: zh
+  cognitive: analysis
+  stem: 一名教練想以單一植物性蛋白質來源滿足運動員的必需胺基酸需求，依本章應最優先納入下列何者？
+  locator: Macronutrients > Protein > Protein Quality and Dietary Recommendations
+  options:
+  - text: 大豆
+    correct: true
+  - text: 白米
+    correct: false
+    why_wrong: 把米當成含全部必需胺基酸的植物性蛋白質來源；本章指出大豆是唯一含全部 9 種必需胺基酸的植物性蛋白質，白米並不在此列。
+  - text: 全穀
+    correct: false
+    why_wrong: 把全穀視為含全部必需胺基酸的單一植物來源；本章的單一例外是大豆，全穀並未列為完整必需胺基酸來源。
+- id: ch09.vitamins-minerals.i05.q1
+  item: ch09.vitamins-minerals.i05
+  dco: sf3.A.2
+  lang: zh
+  cognitive: analysis
+  stem: 一名營養師檢視運動員三日飲食紀錄後，發現纖維與鉀的攝取量偏低。依本章所述，這個結果最可能反映下列何種狀況？
+  locator: Standard Nutrition Guidelines > Dietary Reference Intakes
+  options:
+  - text: 個人飲食與原文所稱人口攝取不足情況一致
+    correct: true
+  - text: 運動員已被診斷為纖維與鉀的臨床缺乏
+    correct: false
+    why_wrong: 把人口層級的攝取不足直接升級為臨床缺乏；本章把纖維、鉀等列為關切營養素是描述人口攝取狀況，個人是否缺乏仍須個別評估。
+  - text: 運動員的高蛋白質攝取已造成鉀流失
+    correct: false
+    why_wrong: 把鉀攝取偏低歸因於高蛋白質攝取；本章未把高蛋白質列為鉀流失的原因，鉀攝取偏低反映的是飲食組成與全人口攝取狀況。
