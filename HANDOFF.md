@@ -1,6 +1,6 @@
 # HANDOFF — my-site (Cortex)
 
-## CSCS 題庫重寫：ch01–ch07 完成、ch08 待人工查證，出題與審查全改走直呼 API（2026-09-17）
+## CSCS 題庫重寫：ch01–ch08 完成，出題／審查／重出全改走直呼 API（2026-09-17）
 
 依使用者「先擴充題庫再接讀書器、中英都要、合併成一份、按 CSCS 出題邏輯」的指示，把
 `data/cscs/_quiz_bank/chNN.yaml` 從四選項改寫為 NSCA 實際的**三選項**，並照官方 DCO 的
@@ -15,7 +15,8 @@
 （`cb8a692` 修到零閘錯誤、`e2dd9f1` 逐題內容修正；20 application / 10 recall / 5 analysis，
 14 EN / 21 ZH，20 道閘 0 錯）。**ch07 完成 35 題並已逐題查證**（`fc75749`；
 20 application / 10 recall / 5 analysis，12 EN / 23 ZH，20 道閘 0 錯）。
-**ch08 已出題過閘（`69e17f3`）但尚未人工查證**（100 題／22 道閘 0 錯；30 recall /
+**ch08 完成 100 題並已逐題查證**（`69e17f3` 出題過閘、`40c9280` 第二輪審查、
+`6164d90` 查證後重出 17 題並修掉同 item 撞考點；22 道閘 0 錯，30 recall /
 60 application / 10 analysis，33 EN / 67 ZH）。ch09–ch24 尚未開始，照章號串行，
 **每章跑完出題 + 過閘 + 人工逐題查證 + commit 才做下一章**。
 
@@ -43,6 +44,7 @@ python -X utf8 tools/cscs_quiz_direct.py chNN                # 整章
 python -X utf8 tools/cscs_quiz_direct.py chNN --part 1/3     # 大章分批
 python -X utf8 tools/cscs_quiz_direct.py chNN --fix-only     # 只修既有題庫（含補配額缺口）
 python -X utf8 tools/cscs_quiz_direct.py chNN --review       # 第二輪內容審查（每 20 題一批）
+python -X utf8 tools/cscs_quiz_direct.py chNN --redo --ids-file ids.txt   # 重出點名的題目（換考點）
 python -X utf8 tools/cscs_quiz_direct.py chNN --dry-run      # 只印 prompt 不發請求
 python -X utf8 tools/cscs_quiz_direct.py --smoke             # 驗端點與 cache_control
 python -X utf8 tools/cscs_quiz_bank_check.py                 # 22 道閘，該章要 0 錯
@@ -210,18 +212,48 @@ ch01–ch07 的第二輪是派 Claude Code sub-agent 讀 `tools/cscs_quiz_review
 都在第 1 批，已手動改回正向（順帶修掉 `i02.q1` 的選項層級混用：兩項描述選手、一項陳述通則）。
 下次遇到考慮做成閘。
 
-**接下來**：**ch08 已過閘且跑完第二輪審查（`40c9280`），但還沒人工逐題查證**——100 題、
-22 道閘 0 錯、配額 recall 30 / application 60 / analysis 10、EN 33 / ZH 67，100 個 id 全唯一、
-無 item 超過 2 題。查證用 `python -X utf8 tools/cscs_quiz_verify_dump.py ch08`，前七章的經驗是
-過閘後人工仍會抓到 12–17 處缺陷，**這一步不能跳**。
-ch08 是分三批（`--part K/N`）寫的，100 題單發會超出單次輸出上限。
-
 審查輪跑完會留下一批 G3／G4 長度閘錯誤（本次 26 條，修正尾巴收斂到 8 條就停），
 型態一致：**英文題正解是短名詞、干擾項被改寫成長句**。手改的做法是把三個選項寫成同一個
-句法層級的名詞片語（`Lower`／`Higher`／`Equal`；`Short-term goals`／`Outcome goals`／
-`Long-range goals`），改完 `why_wrong` 要跟著重寫。**注意 G9 英文比的是詞集合**，
-`Lower than the elite lifter's` vs `Higher than the elite lifter's` = 0.667 直接紅字，
-所以平行選項要短到只剩差異詞。
+句法層級的名詞片語（`Lower`／`Higher`／`Equal`），改完 `why_wrong` 要跟著重寫。
+**注意 G9 英文比的是詞集合**，`Lower than the elite lifter's` vs
+`Higher than the elite lifter's` = 0.667 直接紅字，所以平行選項要短到只剩差異詞；
+`Short-term` vs `Long-term` 剛好 0.5 卡在邊界上，寧可改成 `Long-range`。
+
+ch08 是分三批（`--part K/N`）寫的，100 題單發會超出單次輸出上限。
+
+### ch08 人工查證抓到的主缺陷：同 item 兩題在考同一件事 → `--redo`（2026-09-17，`6164d90`）
+
+**ch08 已完成人工逐題查證**，最大的一類缺陷在任何閘門的視野之外：ch08 配額 100 題但只有
+54 個可用 item，所以 36 對「同一個 item 出兩題」——其中 **24 對在考同一個事實**，多半是把
+第一題翻成另一個語言，少數是同語言換句話說。G21 只驗 id 唯一、G22 只擋每 item 超過 2 題，
+兩者都成立。**ch01–ch07 幾乎沒有兩題 item（ch04 只有 1 個）**，所以這一類從沒被驗過；
+根因是配額除以可用 item 數，**ch13（55 題）與 ch18（38 題）輪到時會更嚴重**，先查再出。
+
+`--redo` 把同 item 兩題並排餵回模型要求換考點，走的是 `--review` 同一條快取前綴管道
+（`lock_fixed_fields` 照舊鎖 `lang`／`cognitive`，它們綁章節配比；`stem` 必須改）。
+**第一輪只給散文規則（「挑沒被考過的那條 `a`」），17 題裡 12 題只換了運動項目與語言、
+正解還是同一個事實**——跟審查輪的 `REVIEW_PRIORITY` 完全同一條教訓：**沒點名到具體哪一條
+事實的規則等於沒下**。修法兩層，缺一不可：
+
+- 機械層：把來源條目的 `a` 逐條編號（F1、F2…加 `detail` 的 D）攤在那兩題旁邊，模型不必回頭
+  翻章節素材。
+- 指定層：`--ids-file` 一行一題寫 `id | 指定改考的事實`，由人先讀過來源條目再指定。
+
+重跑 12 題全部換到真正沒被考過的事實，35 秒、cache read 32%。**指定考點那一欄不是裝飾**，
+留空就會退回第一輪那種換湯不換藥。
+
+重出後三處手修（模型做不到的部分）：① 題幹把答案寫進去（`…where it sits on a continuum?`
+配正解 `A continuum from…`）；② 兩個干擾項靠絕對詞（`在所有情境下都必然`／`對任何運動員都
+不會`）就能刪掉；③ **重出的題目可能跟別的 item 撞**——`attention-concentration.i06.q2` 換到
+「注意力被動作細節占滿」後與 `arousal-theories.i02.q1` 同一個機制，因為教材本身在兩處講同
+一件事。裁決是把該機制歸給 Fitts／Posner 那個 item，`i02.q1` 改考它自己沒被考過的 F1
+（技能愈成熟、可容許的喚醒範圍愈大）。**重出後要跨全章掃一次正解相似度，不只看那一對。**
+
+`arousal-anxiety-stress.i08.q1`（eustress 排除焦慮）與 `i07.q2`（distress 產生焦慮）正解字面
+高度重疊但**刻意保留**：兩題考的是同一組對比的正反兩面，干擾項完全不同。
+
+還沒處理：Check F 掃到 31 個選項含絕對詞（`all`／`only`／`永遠`／`完全`／`唯一`），多數是正當
+描述而非「不讀書也能刪」的破綻，要逐題判斷，優先序排在重複問題之後。
 
 ch09 → ch24 照章號串行，每章「`cscs_quiz_direct.py` 出題 → 過閘 → 人工逐題查證 →
 commit」才派下一章。`_quiz_bank/ch13.yaml`、`ch18.yaml` 仍是更早的 10 題試作，還帶著
