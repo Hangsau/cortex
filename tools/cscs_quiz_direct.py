@@ -15,6 +15,7 @@ MiniMax 當 agent 跑：prompt 只有 5.6KB，卻要它自己用工具去讀 spe
     python -X utf8 tools/cscs_quiz_direct.py ch08                # 出題 + 自動修到過閘
     python -X utf8 tools/cscs_quiz_direct.py ch08 --part 1/3     # 分批出題
     python -X utf8 tools/cscs_quiz_direct.py ch08 --fix-only     # 只修既有題庫（整章）
+    python -X utf8 tools/cscs_quiz_direct.py ch08 --review       # 第二輪：逐題審內容改干擾項
     python -X utf8 tools/cscs_quiz_direct.py ch08 --dry-run      # 只組 prompt 印大小
     python -X utf8 tools/cscs_quiz_direct.py ch08 --select-test  # 離線試挑選，不呼叫 API
     python -X utf8 tools/cscs_quiz_direct.py --smoke             # 極小串流請求驗 SSE 解析
@@ -56,6 +57,9 @@ PROGRESS_STEP = 2000  # 每收這麼多字元更新一次 stderr 進度
 SYSTEM = "你是 CSCS 考題撰寫者。只輸出 YAML，不要任何說明文字，不要 markdown code fence。"
 
 REQUIRED_FIELDS = ("id", "item", "dco", "lang", "cognitive", "stem", "locator", "options")
+# 審查輪不准動的欄位（`stem` 不在內：正解只是把題幹換句話說時要靠改提問角度救）。
+FIXED_FIELDS = ("id", "item", "dco", "lang", "cognitive", "locator")
+REVIEW_CHUNK = 20  # 一輪審幾題：太多會讓模型只挑幾題交差，太少則每題攤到的往返成本上升
 
 
 # ---------------------------------------------------------------- 資料讀取
@@ -867,24 +871,14 @@ def length_hints(questions: list, errors: list) -> str:
     )
 
 
-def patch_fix_message(errors: list, hints: str = "") -> str:
-    """局部修正：只要被點名的那幾題。
-
-    整份重出有兩個實測到的代價——output 每輪 7k tokens，而且沒被點名的題目會被連帶改掉
-    （ch08 第一批重出後 analysis 從 3 題漂到 13 題）。只收回被點名的題目，兩件事一起解掉。
-
-    `hints` 是 `length_hints()` 算出的字數目標，接在清單後面當額外指示，不取代清單
-    （其他閘號的錯誤還是靠那份清單）。
-    """
+def patch_output_format(lead: str) -> str:
+    """局部替換的輸出格式。修正輪與審查輪共用一份，兩邊只有開頭那句不同。"""
     return (
-        "驗收閘 `tools/cscs_quiz_bank_check.py` 對你剛才的輸出回報下列錯誤，"
-        "每行格式是 `檔案:題目id:閘號:說明`（閘號對照規格第七節的表）：\n\n"
-        + format_errors(errors)
-        + hints
-        + "\n\n**只輸出需要修正的那幾題**，格式是一個 YAML list，每個元素就是完整的一題"
+        lead
+        + "，格式是一個 YAML list，每個元素就是完整的一題"
         "（欄位與原本相同：id / item / dco / lang / cognitive / stem / locator / options）。"
         "\n\n- `id` 必須與原本那題**完全相同**，我會照 id 逐題替換。"
-        "\n- **不要輸出 `meta`**，**不要輸出沒被點名的題目**。"
+        "\n- **不要輸出 `meta`**，**不要輸出沒有要改的題目**。"
         "\n- 不要改動 `cognitive` 與 `lang`，那兩欄改了會讓全批配比失衡。"
         "\n- 只輸出 YAML，不要說明文字、不要 code fence。"
         "\n\n格式範例：\n\n"
@@ -909,7 +903,128 @@ def patch_fix_message(errors: list, hints: str = "") -> str:
     )
 
 
-def parse_patch(text: str):
+def patch_fix_message(errors: list, hints: str = "") -> str:
+    """局部修正：只要被點名的那幾題。
+
+    整份重出有兩個實測到的代價——output 每輪 7k tokens，而且沒被點名的題目會被連帶改掉
+    （ch08 第一批重出後 analysis 從 3 題漂到 13 題）。只收回被點名的題目，兩件事一起解掉。
+
+    `hints` 是 `length_hints()` 算出的字數目標，接在清單後面當額外指示，不取代清單
+    （其他閘號的錯誤還是靠那份清單）。
+    """
+    return (
+        "驗收閘 `tools/cscs_quiz_bank_check.py` 對你剛才的輸出回報下列錯誤，"
+        "每行格式是 `檔案:題目id:閘號:說明`（閘號對照規格第七節的表）：\n\n"
+        + format_errors(errors)
+        + hints
+        + "\n\n"
+        + patch_output_format("**只輸出需要修正的那幾題**")
+    )
+
+
+def review_criteria(chid: str) -> str:
+    """從 `tools/cscs_quiz_review_prompt.md` 取「第二步」與「第三步」兩節。
+
+    那份檔案原本是寫給 agent 的：第一步叫它自己開三個檔、第四步叫它跑閘門改到全綠。
+    新管道把題庫與章節素材都放進快取前綴、閘門由本腳本跑，那兩節是 harness 指令不是
+    審查準則，帶進來只會讓模型去找它沒有的工具。中間兩節（七個問題 + 可改欄位）才是內容。
+    """
+    text = read_text(ROOT / "tools" / "cscs_quiz_review_prompt.md").replace("__CHID__", chid)
+    start = text.find("## 第二步")
+    end = text.find("## 第四步")
+    if start < 0 or end < 0:
+        sys.exit("cscs_quiz_review_prompt.md 找不到「第二步」或「第四步」標題，無法切出審查準則")
+    return text[start:end].rstrip().rstrip("-").rstrip()
+
+
+# 審查準則第 1 問（「會不會有人選它」）單獨拿去執行，會把干擾項改成「真的對」而不是
+# 「錯得像對的」。2026-09-17 ch08 第一批實測：18 題裡 2 題變成三個選項同時成立。
+# 第 3 問本來就擋得住，但它排在後面，模型照順序做到第 1 問就收手了——所以另立一節寫在最後。
+REVIEW_PRIORITY = """## 這一輪的優先序（與上面第 1 問衝突時以本節為準）
+
+第 1 問要求干擾項「像對的」，但它有一條不可跨越的界線：**干擾項必須是錯的**。
+凡是你在 `why_wrong` 裡寫得出「這確實是教材說的」「這也是教材列舉的一項」「本身沒錯，
+只是不夠全面／不是最佳答案」的選項，一律不准當干擾項——那不是難題，是沒有正解的題。
+
+下面兩個反例都是 2026-09-17 這一輪自己改出來的，改完比改前更糟：
+
+- 題幹「下列何者最符合教材對『喚醒』的測量指標描述？」，正解「心率與自陳量表並列」，
+  干擾項被改成「血壓與兒茶酚胺濃度」「腦電圖與肌電圖」——這兩組**都是**教材列的喚醒指標，
+  三個選項同時成立，考生沒有辦法選。
+- 題幹「教材對『狀態焦慮與表現關係』的最忠實描述為何？」，正解「可能正負或無」，
+  干擾項被改成「受運動員技能程度調節」「受任務複雜度調節」——兩個都是教材寫的調節變項。
+
+**正確的改法是把鄰近概念錯置**：方向講反、層次搞混、把 A 的機制安到 B 身上。
+同一批裡改對的那一題長這樣：漏接的原因從「桌球屬於低度競賽、無須專注」（不必讀書就知道是假的）
+改成「高特質焦慮使其運動單位徵召失敗」——聽起來專業、考生會猶豫，但教材沒有這個連結，它是錯的。
+干擾項讓人猶豫靠的是**錯得像對的**，不是靠**真的對**。"""
+
+# 模型改壞的時候會在 `why_wrong` 裡自己承認（「確實是教材列舉的」），這些詞是最省的訊號。
+# 只印不擋：措辭會變，當成閘門一定有漏網，但印出來至少不會無聲通過。
+ADMISSION_PATTERN = re.compile(
+    r"確實是|確實為|同屬教材|也是教材|教材提到的|教材列舉的另|本身沒錯|本身正確|雖然正確|說法正確"
+)
+
+
+def flag_self_admitted(patches: list) -> list:
+    """挑出 `why_wrong` 自承「這個干擾項其實是對的」的題目 id。"""
+    flagged = []
+    for patch in patches:
+        if not isinstance(patch, dict):
+            continue
+        options = patch.get("options")
+        if not isinstance(options, list):
+            continue
+        for option in options:
+            if isinstance(option, dict) and ADMISSION_PATTERN.search(str(option.get("why_wrong", ""))):
+                flagged.append(patch.get("id"))
+                break
+    return flagged
+
+
+def review_message(chid: str, ids: list) -> str:
+    listing = "\n".join(f"- `{qid}`" for qid in ids)
+    return (
+        f"# 本輪要審的題目（{len(ids)} 題）\n\n"
+        "上面那份題庫已經過完全部驗收閘：題數配比、`locator`、`dco`、認知層級都對了。"
+        "**本輪不要重新檢查那些**，只抓閘門擋不到的東西——內容上站不住腳的干擾項。\n\n"
+        "本輪只審下列 id，其他題一個字都不要動：\n\n"
+        + listing
+        + "\n\n---\n\n"
+        + review_criteria(chid)
+        + "\n\n---\n\n"
+        + REVIEW_PRIORITY
+        + "\n\n---\n\n"
+        + patch_output_format("**只輸出你實際改過的那幾題**；這一批若一題都不用改就輸出 `[]`")
+    )
+
+
+def lock_fixed_fields(questions: list, patches: list):
+    """審查輪只准改 `stem` 與 `options`，其餘欄位一律用原題的值蓋回去。
+
+    提示裡寫「不准動」擋不住模型順手改 `cognitive`——那一欄漂一題，整章認知配比就不合格，
+    而閘門要到章級統計才看得出來（那時已經不知道是哪一題漂的）。機械覆蓋比事後抓便宜。
+    """
+    by_id = {
+        question["id"]: question for question in questions
+        if isinstance(question, dict) and isinstance(question.get("id"), str)
+    }
+    locked = []
+    reverted = 0
+    for patch in patches:
+        original = by_id.get(patch.get("id")) if isinstance(patch, dict) else None
+        if original is None:
+            locked.append(patch)
+            continue
+        fixed = {field: original[field] for field in FIXED_FIELDS if field in original}
+        reverted += sum(1 for field, value in fixed.items() if patch.get(field) != value)
+        locked.append({**patch, **fixed})
+    if reverted:
+        print(f"審查輪改動了 {reverted} 個不准改的欄位，已還原成原值")
+    return locked
+
+
+def parse_patch(text: str, allow_empty: bool = False):
     """回傳 (題目 list, 錯誤清單)。接受裸 list，也接受被包進 `questions:` 的 list。"""
     try:
         data = yaml.safe_load(strip_fence(text))
@@ -920,7 +1035,8 @@ def parse_patch(text: str):
     if not isinstance(data, list):
         return None, ["修正輪的輸出必須是一個 YAML list，每個元素是完整的一題"]
     if not data:
-        return None, ["修正輪回傳 0 題；至少要輸出一題被點名的題目"]
+        # 審查輪的空 list 是合法答案（這批沒有要改的），修正輪的不是（點名了就得交）。
+        return ([], []) if allow_empty else (None, ["修正輪回傳 0 題；至少要輸出一題被點名的題目"])
     return data, []
 
 
@@ -1433,6 +1549,109 @@ def run_fix_only(chid: str) -> int:
     return 0 if not errors else 1
 
 
+def run_review(chid: str) -> int:
+    """第二輪：逐題審內容，抓閘門擋不到的爛干擾項。
+
+    舊管道這一輪是派 agent 讀 `tools/cscs_quiz_review_prompt.md` 自己改檔；這裡改成
+    同一條「快取前綴 + 局部替換」的管道。分批點名是因為一次叫它審一百題，它會挑幾題
+    交差；每批寫一次盤，中途斷掉只損失進行中那一批。
+
+    快取前綴裡的題庫是**開跑那一刻的版本**，不隨各批改動更新——重建前綴等於每批都
+    重算兩萬多 token。代價是後面的批次看到的前面題目是舊文字，只影響「跨題撞概念」
+    那一問；換掉整份快取不值得。
+    """
+    quota = quota_for(chid, None)
+    questions = load_bank(chid)
+    if not questions:
+        sys.exit(f"{chid} 還沒有題庫，--review 沒有東西可以審")
+    item_ids = {item["id"] for item in chapter_items(chid)}
+    allowed_dco = dco_allowed(chid)
+    label = f"{chid} review"
+
+    all_ids = {q.get("id") for q in questions if isinstance(q, dict)}
+    errors, _, counting = gate_errors(chid, all_ids, None)
+    print(f"{label}：現有 {len(questions)} 題；題目級錯誤 {len(errors)} 條、"
+          f"章級統計錯誤 {len(counting)} 條")
+    if errors:
+        print("提醒：審查輪是給已經過閘的題庫用的，先跑 --fix-only 把閘門修綠比較省事。")
+
+    stable, _ = build_sections(chid, quota, [], None, bank=questions)
+    totals = {"input_tokens": 0, "output_tokens": 0, "cache_read_input_tokens": 0}
+    elapsed_total = 0.0
+
+    ids = [q["id"] for q in questions if isinstance(q, dict) and isinstance(q.get("id"), str)]
+    chunks = [ids[start:start + REVIEW_CHUNK] for start in range(0, len(ids), REVIEW_CHUNK)]
+    changed = 0
+    flagged = []
+
+    for number, chunk in enumerate(chunks, 1):
+        blocks = build_blocks(stable, [("本輪要審的題目", review_message(chid, chunk))])
+        messages = [{"role": "user", "content": blocks}]
+        raw_text, usage, elapsed = stream_call(
+            messages, MAX_TOKENS, f"{label} 第 {number}/{len(chunks)} 批"
+        )
+        save_raw(chid, raw_text)
+        accumulate(totals, usage)
+        elapsed_total += elapsed
+        report(f"{label} 第 {number}/{len(chunks)} 批", usage, elapsed)
+
+        patches, problems = parse_patch(raw_text, allow_empty=True)
+        if problems:
+            print(f"{label} 第 {number} 批解析失敗（{problems[0]}），跳過這批")
+            continue
+        if not patches:
+            print(f"{label} 第 {number} 批：模型判定這 {len(chunk)} 題都不用改")
+            continue
+
+        outside = [p.get("id") for p in patches if isinstance(p, dict) and p.get("id") not in chunk]
+        if outside:
+            print(f"{label} 第 {number} 批交回 {len(outside)} 題不在本批名單內，丟棄："
+                  + "、".join(str(qid) for qid in outside[:6]))
+            patches = [p for p in patches if isinstance(p, dict) and p.get("id") in chunk]
+        if not patches:
+            continue
+
+        merged, problems = apply_patch(questions, lock_fixed_fields(questions, patches))
+        if not problems:
+            structural, broken = validate_questions(merged, chid, item_ids, allowed_dco)
+            if broken:
+                problems = structural
+        if problems:
+            print(f"{label} 第 {number} 批的輸出有 {len(problems)} 條問題，不寫檔")
+            print_errors(problems)
+            continue
+
+        questions = merged
+        write_bank(chid, [], questions)
+        changed += len(patches)
+        flagged += flag_self_admitted(patches)
+        all_ids = {q.get("id") for q in questions if isinstance(q, dict)}
+        errors, _, _ = gate_errors(chid, all_ids, None)
+        print(f"{label} 第 {number} 批：改了 {len(patches)} 題，"
+              f"閘門錯誤 {len(errors)} 條（累計改 {changed} 題）")
+
+    print(f"\n{label}：{len(chunks)} 批審完，共改 {changed} 題。")
+    if flagged:
+        print(f"下列 {len(flagged)} 題的 `why_wrong` 自承干擾項其實是對的，逐題看過再收："
+              + "、".join(str(qid) for qid in flagged))
+    if errors:
+        # 審查是照內容改的，改完撞回長度閘很正常；照原本那條局部修正管道收尾。
+        print_errors(errors)
+        stable, _ = build_sections(chid, quota, [], None, bank=questions)
+        blocks = build_blocks(stable, [
+            ("本輪要修的題目", patch_fix_message(errors, length_hints(questions, errors))),
+        ])
+        messages = [{"role": "user", "content": blocks}]
+        _, errors, fix_elapsed = patch_loop(
+            chid, label, messages, [], questions,
+            item_ids, allowed_dco, None, totals, errors, armed=True,
+        )
+        elapsed_total += fix_elapsed
+
+    print_totals(totals, elapsed_total, errors)
+    return 0 if not errors else 1
+
+
 def select_test(chid: str, part=None) -> int:
     """離線驗挑選邏輯：拿既有題庫當候選池，印「挑哪些、丟哪些、各欄是否剛好相符」。
 
@@ -1549,6 +1768,8 @@ def main() -> int:
     parser.add_argument("--part", help="分批出題，格式 K/N")
     parser.add_argument("--fix-only", nargs="?", const=True, metavar="chNN",
                         help="不出題，只對既有題庫跑「閘 → 局部修正」（整章，不做批次過濾）")
+    parser.add_argument("--review", nargs="?", const=True, metavar="chNN",
+                        help="第二輪：逐題審內容、改爛干擾項（分批點名，閘門由本腳本收尾）")
     parser.add_argument("--dry-run", action="store_true", help="只組 prompt 印大小，不呼叫 API")
     parser.add_argument("--smoke", action="store_true", help="極小串流請求，驗 SSE 解析")
     parser.add_argument("--select-test", action="store_true",
@@ -1560,21 +1781,30 @@ def main() -> int:
 
     # `ch08 --fix-only` 與 `--fix-only ch08` 兩種寫法都收。
     fix_only = bool(args.fix_only)
-    chid = args.chid or (args.fix_only if isinstance(args.fix_only, str) else None)
+    review = bool(args.review)
+    chid = (
+        args.chid
+        or (args.fix_only if isinstance(args.fix_only, str) else None)
+        or (args.review if isinstance(args.review, str) else None)
+    )
     if not chid:
         parser.error("要指定 chid（或用 --smoke）")
     if not re.fullmatch(r"ch\d{2}", chid):
         sys.exit(f"chid 格式應為 chNN，收到 {chid!r}")
     if chid not in ALLOCATION:
         sys.exit(f"{chid} 不在配題表內")
-    if fix_only and args.part:
-        sys.exit("--fix-only 一次看整章，不能跟 --part 併用")
+    if (fix_only or review) and args.part:
+        sys.exit("--fix-only / --review 一次看整章，不能跟 --part 併用")
+    if fix_only and review:
+        sys.exit("--fix-only 與 --review 是兩輪不同的事，分兩次跑")
 
     part = parse_part(args.part) if args.part else None
     if args.select_test:
         return select_test(chid, part)
     if args.dry_run:
         return dry_run(chid, part)
+    if review:
+        return run_review(chid)
     if fix_only:
         return run_fix_only(chid)
     return run_chapter(chid, part)
