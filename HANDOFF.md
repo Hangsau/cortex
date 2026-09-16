@@ -1,6 +1,6 @@
 # HANDOFF — my-site (Cortex)
 
-## CSCS 題庫重寫：ch01–ch07 完成，配題表已上調 2.5 倍（2026-09-15）
+## CSCS 題庫重寫：ch01–ch07 完成、ch08 待查證，發包改走直呼 API（2026-09-16）
 
 依使用者「先擴充題庫再接讀書器、中英都要、合併成一份、按 CSCS 出題邏輯」的指示，把
 `data/cscs/_quiz_bank/chNN.yaml` 從四選項改寫為 NSCA 實際的**三選項**，並照官方 DCO 的
@@ -15,8 +15,9 @@
 （`cb8a692` 修到零閘錯誤、`e2dd9f1` 逐題內容修正；20 application / 10 recall / 5 analysis，
 14 EN / 21 ZH，20 道閘 0 錯）。**ch07 完成 35 題並已逐題查證**（`fc75749`；
 20 application / 10 recall / 5 analysis，12 EN / 23 ZH，20 道閘 0 錯）。
-ch08–ch24 尚未完成，照章號串行，
-**每章跑完兩輪 + 人工逐題查證 + commit 才派下一章**。
+**ch08 已出題過閘（`69e17f3`）但尚未人工查證**（100 題／22 道閘 0 錯；30 recall /
+60 application / 10 analysis，33 EN / 67 ZH）。ch09–ch24 尚未開始，照章號串行，
+**每章跑完出題 + 過閘 + 人工逐題查證 + commit 才做下一章**。
 
 **配題表已上調（`dc1267c`）**：全庫 385 → 967 題，比例不動只等比放大 2.5 倍，
 ch01–07 各 14→35、ch08 40→100、ch09–11 8→20、ch12–13 22→55、ch14–16 19→48、
@@ -30,14 +31,44 @@ prompt 變體，`cscs_quiz_make_prompt.py --topup chNN` 套版。它逐欄算差
 的那批**——撞題在結構上不可能發生。三份 prompt 已生成（ch01/ch02/ch03 各補 21 題，
 可用 item 54/50/50）。**不要與另一個正在寫 `_quiz_bank/` 的任務同時跑。**
 
-發包管道是 `claude-m3 -p --permission-mode bypassPermissions < .prompts/chNN-quiz.md`
-（MiniMax-M3，不吃 Claude 配額；`.prompts/` 已 gitignore）。每章兩輪，中間不省：
+**發包管道已於 2026-09-16 換成直呼 API（`69e17f3`），舊的 `claude-m3 -p` 路徑停用。**
+使用者的觀察是對的：出題慢又吃流量的瓶頸從來不在 MiniMax，在包在外面的 **agent
+harness**——每次 tool round-trip 都重送整份對話，而 prompt 又要求 agent 去讀 111KB 教材、
+跑十幾輪。`tools/cscs_quiz_direct.py` 直接打
+`https://api.minimax.io/anthropic/v1/messages`（token 在 `~/.minimax-token`，
+monthly Coding Plan，不吃 Claude 配額），一發串流呼叫拿一整批題：
 
 ```
-python tools/cscs_quiz_make_prompt.py chNN            # 第一輪：出題
-python tools/cscs_quiz_make_prompt.py chNN --review   # 第二輪：只抓爛干擾項
-python -X utf8 tools/cscs_quiz_bank_check.py          # 19 道閘，該章要 0 錯
+python -X utf8 tools/cscs_quiz_direct.py chNN                # 整章
+python -X utf8 tools/cscs_quiz_direct.py chNN --part 1/3     # 大章分批
+python -X utf8 tools/cscs_quiz_direct.py chNN --fix-only     # 只修既有題庫（含補配額缺口）
+python -X utf8 tools/cscs_quiz_direct.py chNN --dry-run      # 只印 prompt 不發請求
+python -X utf8 tools/cscs_quiz_direct.py --smoke             # 驗端點與 cache_control
+python -X utf8 tools/cscs_quiz_bank_check.py                 # 22 道閘，該章要 0 錯
 ```
+
+實測（ch08）：一批 33 題約 190 秒，MiniMax 5H 只動 1%；`--fix-only` 整輪 42 秒。
+**prompt cache 要自己開**——第一版沒帶 `cache_control` 時 cache_read 卡在 146，
+加上 ephemeral content block 後 cache_read 佔總輸入 82–84%。斷點必須切在「規格 + 教材 +
+章節 yaml + dco 白名單 + 輸出格式」之後（77,693 字元 ≈ 27,664 tokens），把配額表、已用
+item 這類每批都變的東西擺前面等於每次都從零算起。
+
+**三條從實跑學到、不要改回去的設計**：
+
+- **模型不會數數**。叫它「出 100 題，recall 30 / application 60 / analysis 10」會連五輪
+  都在配額上漂（35 → 12 → 7）。改成**超量生成 1.4 倍再由腳本機械挑到配額格**
+  （`target_grid` 最大餘數法 + `select_questions` 最緊格優先），一次到位。
+- **修正輪只回收被點名的那幾題**。整份重出的代價實測到兩項：每輪 output 7k tokens，
+  而且沒被點名的題會被連帶改掉（ch08 第一批重出後 analysis 從 3 題漂到 13 題）。
+- **題目 id 由腳本指派**（`<item>.q1` / `.q2`）。模型會把同一個 item 的兩題都命名成
+  `.q1`——ch08 一度有 29 個重複 id、4 個 item 出到 3 題。同 item ≤2 題是硬上限，
+  填不滿就照實回報缺口去發補件請求，不放寬。
+
+G2／G4（選項長度比）是**純計數約束**，同樣撞到「模型不會數數」。解法不是放寬門檻，是把
+目標算好餵給它：修正訊息會附「三個選項都改寫成 N 字」的可達區間（`[a, floor(1.15a)]`，
+a 取現有長度中位數）。25 條錯誤靠這個降到 5 條，最後 3 題手動改掉。
+**模型的收斂上限在第 4 輪**——之後它會逐字複製自己前一輪的失敗答案，剩零星幾條直接手改
+比再跑一輪快。
 
 **這輪最重要的結論，接手前先讀**：`tools/cscs_quiz_spec.md` 第三節末的「兩輪發包」。
 ch01 試作證實**寫在散文裡而沒有對應閘門的規則，發包出去一律不會生效**；同一份 prompt
@@ -148,13 +179,15 @@ YAML 要用雙引號包住否則會被讀成 float）。
 
 順手修了 `data/cscs/ch07.yaml` line 616 的錯字（`同性交` → `同性別`），那字直接顯示在線上頁面。
 
-**接下來**：**下一章是 ch08**（100 題＝舊 10 題試作整份重寫，這是全庫最大的一章）。
-發包一律帶 `--settings tools/cscs_quiz_delegate_settings.json`——那是 git 禁令閘。
-ch08 → ch24 走完（ch08 要 100 題，若 M3 在單次發包內寫不完，才考慮加 `--part K/N` 的
-分批機制；目前刻意不預先加，因為分批會把剛省下的固定成本吃回去。ch07 的 35 題是
-單次發包寫完的，100 題是第一個真正的壓力測試）。
-`_quiz_bank/ch08.yaml`、`ch13.yaml`、`ch18.yaml` 是更早的 10 題試作，還帶著四選項、
-`lang: None`、`dco: None` 的紅字，輪到該章時整份重寫，不必另外處理。
+**接下來**：**ch08 已出題過閘（`69e17f3`），但還沒人工逐題查證**——100 題、22 道閘 0 錯、
+配額 recall 30 / application 60 / analysis 10、EN 33 / ZH 67，100 個 id 全唯一、無 item
+超過 2 題。查證用 `python -X utf8 tools/cscs_quiz_verify_dump.py ch08`，前七章的經驗是
+過閘後人工仍會抓到 12–17 處缺陷，**這一步不能跳**。查證修完再 commit，然後才是 ch09。
+ch08 是分三批（`--part K/N`）寫的，100 題單發會超出單次輸出上限。
+
+ch09 → ch24 照章號串行，每章「`cscs_quiz_direct.py` 出題 → 過閘 → 人工逐題查證 →
+commit」才派下一章。`_quiz_bank/ch13.yaml`、`ch18.yaml` 仍是更早的 10 題試作，還帶著
+四選項、`lang: None`、`dco: None` 的紅字，輪到該章時整份重寫，不必另外處理。
 走完後補 ch01–ch03 的追加題；之後才是把 287 題的舊
 `CSCS_Full_QuestionBank.md` 併進來（對映 item id + dco、轉三選項、不合規的丟掉，併完
 刪掉 `raw/notes/` 的原檔），最後才接 `cscs-quest`——使用者明確要求這個順序。接讀書器時
