@@ -36,7 +36,11 @@
 15 EN / 33 ZH，精準命中配題表；48 題落在 47 個 item，只有 `dynamic-stretch.i02` 出兩題；
 閘全綠之後靠跨題掃描與人工查證抓出 3 條缺陷——一題有兩個正確選項、兩組跨 item 撞考點，
 另外揪出 5 題英文題配中文 `why_wrong`，見下節）。
-ch15–ch24 尚未開始，照章號串行，
+**ch15 完成 48 題並已逐題查證**（22 道閘 0 錯，8 recall / 25 application / 15 analysis，
+15 EN / 33 ZH，精準命中配題表；48 題落在 48 個 item，沒有任何 item 出兩題；
+12 個 topic 全數覆蓋——**首次出題時 `upper-body` 掛零而 `body-positioning` 佔 8 題，
+閘與配題表都看不到這件事**，見下節；人工查證另抓出 3 條缺陷）。
+ch16–ch24 尚未開始，照章號串行，
 **每章跑完出題 + 過閘 + 人工逐題查證 + commit 才做下一章**。
 
 **配題表已上調（`dc1267c`）**：全庫 385 → 967 題，比例不動只等比放大 2.5 倍，
@@ -486,8 +490,66 @@ i03 的獨有點是 `detail` 的「兩種抑制機制的主次不可對調」，
 **遺留的組成問題（同 ch12／ch13，不阻擋）**：PNF 與彈震式那兩組題幹過度模板化，
 「教練……最優先……為何？」的骨架讓 18 對落在 0.55–0.74。內容各自不同，連讀時像同一題。
 
-ch15 → ch24 照章號串行，每章「`cscs_quiz_direct.py` 出題 → 過閘 → 人工逐題查證 →
-commit」才派下一章。`_quiz_bank/ch18.yaml` 仍是更早的 10 題試作，還帶著
+### ch15：`_dco.yaml` 的 `*` 模板沒展開，整批候選全滅（`9fc23a1`，2026-09-17）
+
+出題前先踩到的是這個：**ch15 三批有兩批 22/22 候選全數丟棄、以 0 題收尾**。
+`_dco.yaml` 在 `pa2.B` 底下用 `pa2.B.*.a` 存模板，`*` 代表四個器材類別之一，
+該處註解也寫明「展開成 `pa2.B.1.a` 這種 id」——但**兩個讀取端都沒展開**：
+`dco_list()` 把帶 `*` 的模板原樣印進 prompt，模型很合理地代成 `pa2.B.1.a`，
+接著被同樣沒展開的白名單判定「不在本章白名單」而整批退回。
+ch14 之前沒事是因為它整章落在 `pa2.A`／`pa2.E`，從沒碰到 `pa2.B`；
+**ch15 開始的阻力訓練技術章正好以 `pa2.B` 為主，一碰就全滅**。
+兩端都已改成讀 `equipment_classes` 展開成 12 個真實 id（`dco_allowed()` 解析
+`dco_list()` 的輸出跟著一起好，G12 的 `load_dco()` 另外改一次）。
+**通則：候選被整批退回時先印白名單，不要先懷疑模型。**
+
+### ch15：22 道閘與配題表都看不到「主題分布」，以及 G7 擋不住的 item 掛錯（2026-09-17）
+
+**本章最大的發現：閘全綠、配題表精準命中，整章仍可以有一個主題一題都沒考到。**
+ch15 有 12 個 topic、每個 topic 各 8 條 item，首次出題的結果是 `body-positioning` 8 題、
+`upper-body` **0 題**——等於上肢器材動作（臥推、划船、下拉、肩推、直立划船、彎舉、
+三頭下壓）整組不在題庫裡。22 道閘只看單題品質與 `cognitive`／`lang`／`dco` 的邊際，
+配題表也只管那三欄，**沒有任何一道閘看得到 topic**。跨題掃描的 `-- topic 分布 --`
+那一段是唯一會顯示它的地方，出題後一定要看。
+
+**修在挑選器（`aadeab3`），不要每章手工補**：`select_questions()` 的排序鍵從
+`(item_count, error_count, position)` 改成 `(item_count, topic_count, error_count, position)`，
+且**每挑一題就重算名次**（原本是一次 `sorted()` 再照順序拿，格內完全不會自我修正，
+25 題的 application 格可以整格擠在同一個 topic）。topic 排在 item 之後不能對調：
+「同一個 item 出第二題」比「主題偏一點」更傷。驗證用合成池——某格 alpha 10 個候選、
+beta 4 個、要 6 題，舊行為是 alpha 6／beta 0，新行為是 3／3。
+
+**被換掉的四題正好就是跨題掃描標出來的重複**（`etf.i02.q1` 題幹在三組相似對裡出現、
+`breathing.i03` 與 `i02` 考同一個黏滯點、`etf.i08.q2` 與 `i01.q1` 題幹 0.682、
+`bp.i08.q1` 與 `lower-body.i03.q1` 0.556），一次解決兩個問題。**換題腳本要自己寫**：
+`--redo` 受 `lock_fixed_fields` 保護，`FIXED_FIELDS` 含 `item`／`locator`，
+**改不了題目歸屬的 item**。手改 yaml 時 `locator` 一律從 `data/cscs/chNN.yaml` 抄，
+不要手打（G7 要求逐字相等）。
+
+**人工查證抓出 3 條閘看不到的缺陷，全是「話說得通但對不上原文」**：
+① `grips.i03.q1` 題幹自己拆自己——情境說運動員「mixed grip 一直滑」，正解叫他改用
+closed alternated grip，而 **mixed grip 就是 alternated grip**；更根本的是源檔 `detail`
+明寫「本章定義交替握，但**沒有**把它限定為或宣稱用於防止任何特定動作的槓鈴滾動」，
+整個情境前提是教材沒說過的話。改成純握法辨識，不帶假前提。
+② `spotting-how.i01.q1` 的錯因把原文講反：原文是「保護時也可改用反手握，**但不是
+必要條件**」，錯因卻寫成 only permitted when the lift's path requires it。
+③ `etf.i02.q1` 考的是 **i01** 的內容（「正確執行動作」→ 免於傷害的成果與時間效率），
+而 `etf.i01.q1` 已經在考同一句。**G7 只比對 `locator`，這兩條 item 的 `locator` 剛好
+相同（都是 `Fundamentals of Exercise Technique`），所以掛錯 item 過得了閘**——
+locator 粒度比 item 粗的章節，item 歸屬只能靠人工查證。
+
+**手改題庫的固定作法**：patch 腳本 `sys.path.insert` 進 `tools/` 後
+`from cscs_quiz_bank_check import option_overlap, why_wrong_overlap`，用閘自己的度量做
+斷言。這次差點自己重寫成 `min()` 分母——`jaccard()` 用的是**聯集**分母，重寫必漂移。
+順帶更正兩條舊筆記：**G16 全形 `；` 也擋**（`";" in text or "；" in text`）；
+**G20 只掃 `text` 不掃 `why_wrong`**，所以錯因裡可以寫「教材沒有……」。
+
+**遺留的組成問題（同 ch12–ch14，不阻擋）**：3 對題幹落在 0.586–0.593，
+「……下列哪一項最符合教材……？」的骨架重複，內容各自不同。兩對正解相似度
+（0.600／0.500）是短字串的字元子集假訊號。
+
+ch16 → ch24 照章號串行，每章「`cscs_quiz_direct.py` 出題 → 過閘 → 跨題掃描 →
+人工逐題查證 → commit」才派下一章。`_quiz_bank/ch18.yaml` 仍是更早的 10 題試作，還帶著
 四選項、`lang: None`、`dco: None` 的紅字，輪到該章時整份重寫，不必另外處理。
 走完後補 ch01–ch03 的追加題；之後才是把 287 題的舊
 `CSCS_Full_QuestionBank.md` 併進來（對映 item id + dco、轉三選項、不合規的丟掉，併完
