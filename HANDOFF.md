@@ -424,8 +424,10 @@ ch13 收尾時回 `[]`。
 
 **所以每章查證的固定前置動作現在是三件事**（都在人工逐題讀之前跑）：
 ① 配比／同 item 題數／topic 分布；② 正解與題幹的跨題相似度掃描（門檻 0.45／0.55）；
-③ 重複 `why_wrong` 掃描。人工查證本身用 `python -X utf8 tools/cscs_quiz_verify_dump.py chNN`
-（已存在，別再另寫一支）。
+③ 重複 `why_wrong` 掃描。**這三件加上 ch14 才加的語言一致性檢查，已經做成
+`python -X utf8 tools/cscs_quiz_cross_scan.py chNN`**（2026-09-17 收 ch14 時建；
+ch13／ch14 都是先在 `tmp/` 現寫一支才想到該留下來，別再重寫第三次）。
+人工查證本身用 `python -X utf8 tools/cscs_quiz_verify_dump.py chNN`（已存在，別另寫一支）。
 
 **G2 在極短選項上無解時要整題重寫，不要硬拉長度**。`statistics.i02.q1` 的三個選項是
 標準差（3 字）／全距（2 字）／眾數（2 字），任何拉長都變成硬湊；改成三句平行敘述
