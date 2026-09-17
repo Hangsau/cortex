@@ -75,6 +75,16 @@ def chapter_items(chid: str) -> list:
     return [item for topic in data["topics"] for item in topic["items"]]
 
 
+def topic_of(item_id) -> str:
+    """item id 是 `chNN.topic-slug.item-slug`，中間那段就是 topic。
+
+    取不到就回空字串，讓所有異常 id 落在同一組——挑選器只拿它做排序鍵，
+    在這裡 sys.exit 會把「有一筆 id 沒寫好」放大成整批出題失敗。
+    """
+    parts = item_id.split(".") if isinstance(item_id, str) else []
+    return parts[1] if len(parts) > 2 else ""
+
+
 def dco_allowed(chid: str) -> set:
     """從 dco_list() 的輸出抽出合法 id 集合。
 
@@ -152,7 +162,12 @@ def select_questions(pool: list, grid: dict, used_items=(), error_counts=None):
     """從候選池挑出剛好符合 grid 的組合，回傳 (選中, 丟棄, 各格缺口)。
 
     挑選順序：候選最緊的格子先挑（寬鬆的格子後面還有得選）；格內優先保留 item 還沒用過的
-    題目，其次是閘門錯誤少的，最後照原順序穩定排序。
+    題目，其次是所屬 topic 出得最少的，再其次是閘門錯誤少的，最後照原順序穩定排序。
+
+    topic 那一層是 ch15 補上的。這個函式只保證 cognitive × lang 兩條邊際，主題分布整個
+    交給模型決定——ch15 實跑的結果是 body-positioning 8 題、upper-body 0 題，而 12 個
+    topic 各有 8 條 item，等於整章有一個主題的器材動作完全沒考到。它排在 item 之後：
+    「同一個 item 出第二題」比「主題偏一點」更傷，優先序不能對調。
 
     `MAX_ITEM_QUESTIONS` 是硬上限，填不滿就照實回報 shortfall。曾經有一條「填不滿就放寬」
     的路徑，它正是 ch08 那 4 個 item 各出 3 題的來源；而修剪既有題庫時把第 3 題丟掉本來
@@ -165,6 +180,7 @@ def select_questions(pool: list, grid: dict, used_items=(), error_counts=None):
             buckets[(question.get("cognitive"), question.get("lang"))].append(position)
 
     item_count = Counter(used_items)
+    topic_count = Counter(topic_of(item) for item in used_items)
     chosen = set()
     shortfall = {}
 
@@ -172,6 +188,7 @@ def select_questions(pool: list, grid: dict, used_items=(), error_counts=None):
         question = pool[position]
         return (
             item_count[question.get("item")],
+            topic_count[topic_of(question.get("item"))],
             error_counts.get(question.get("id"), 0),
             position,
         )
@@ -180,14 +197,24 @@ def select_questions(pool: list, grid: dict, used_items=(), error_counts=None):
         need = grid[cell]
         if need <= 0:
             continue
+        # 每挑一題就重算名次，不是一次排好再照順序拿——item_count / topic_count 會被
+        # 自己的挑選改變，用固定順序的話格內就完全不會自我修正（25 題的 application
+        # 格全擠在同一個 topic 也照樣挑完）。候選池只有幾十筆，重排的代價可以忽略。
         picked = []
-        for position in sorted(buckets.get(cell, []), key=rank):
-            if len(picked) >= need:
+        remaining = list(buckets.get(cell, []))
+        while len(picked) < need and remaining:
+            remaining.sort(key=rank)
+            position = None
+            for candidate in remaining:
+                if item_count[pool[candidate].get("item")] < MAX_ITEM_QUESTIONS:
+                    position = candidate
+                    break
+            if position is None:
                 break
-            if item_count[pool[position].get("item")] >= MAX_ITEM_QUESTIONS:
-                continue
+            remaining.remove(position)
             picked.append(position)
             item_count[pool[position].get("item")] += 1
+            topic_count[topic_of(pool[position].get("item"))] += 1
         if len(picked) < need:
             shortfall[cell] = need - len(picked)
         chosen.update(picked)
