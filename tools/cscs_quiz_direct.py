@@ -586,6 +586,60 @@ def strip_fence(text: str) -> str:
     return body.strip()
 
 
+ITEM_DASH = re.compile(r"^(\s*)- id:")
+
+
+def reindent_block_sequence(text: str) -> str:
+    """把 `- id: …` 的破折號縮排對齊到它自己欄位的縮排減 2。
+
+    模型偶爾會讓第一題的破折號掉到第 0 欄，欄位卻跟其他題一樣縮 4 格：
+
+        - id: ch13.statistics.i04.q1
+            item: ch13.statistics.i04
+          - id: ch13.statistics.i06.q1
+            item: ch13.statistics.i06
+
+    第 2 題起完全合法，只有第一題的破折號對不齊，YAML 就整份報
+    `mapping values are not allowed here`——ch13 第 1 批就是這樣把 5 題 analysis
+    連同整包丟掉，內容其實沒問題。這是看不見的字元問題，寫進提示沒有用
+    （同 `strip_strings` 的尾端空白），只能機械修。
+
+    只認 `- id:`（每題的第一個欄位固定是 id），所以選項的 `- text:` 不會被動到；
+    而且只在 `yaml.safe_load` 已經失敗、輸出本來就要被丟掉時才呼叫。
+    """
+    lines = text.split("\n")
+    fixed = list(lines)
+    changed = False
+
+    for index, line in enumerate(lines):
+        match = ITEM_DASH.match(line)
+        if not match:
+            continue
+        body = next(
+            (len(l) - len(l.lstrip(" ")) for l in lines[index + 1:] if l.strip()),
+            None,
+        )
+        if body is None or body < 2:
+            continue
+        want = body - 2
+        if want != len(match.group(1)):
+            fixed[index] = " " * want + line.lstrip(" ")
+            changed = True
+
+    return "\n".join(fixed) if changed else text
+
+
+def load_yaml_lenient(text: str):
+    """先照原樣解析，失敗才套機械修排版再試一次。"""
+    try:
+        return yaml.safe_load(text)
+    except yaml.YAMLError:
+        repaired = reindent_block_sequence(text)
+        if repaired == text:
+            raise
+        return yaml.safe_load(repaired)
+
+
 def strip_strings(value):
     """遞迴把所有字串的頭尾空白去掉。
 
@@ -606,7 +660,7 @@ def strip_strings(value):
 def parse_questions(text: str):
     """回傳 (questions, 錯誤清單)。解析不出來時 questions 為 None。"""
     try:
-        data = yaml.safe_load(strip_fence(text))
+        data = load_yaml_lenient(strip_fence(text))
     except yaml.YAMLError as exc:
         return None, [f"YAML 解析失敗：{' '.join(str(exc).splitlines())}"]
     if not isinstance(data, dict):
@@ -1140,7 +1194,7 @@ def lock_fixed_fields(questions: list, patches: list):
 def parse_patch(text: str, allow_empty: bool = False):
     """回傳 (題目 list, 錯誤清單)。接受裸 list，也接受被包進 `questions:` 的 list。"""
     try:
-        data = yaml.safe_load(strip_fence(text))
+        data = load_yaml_lenient(strip_fence(text))
     except yaml.YAMLError as exc:
         return None, [f"YAML 解析失敗：{' '.join(str(exc).splitlines())}"]
     if isinstance(data, dict):
