@@ -2,188 +2,883 @@ meta:
   chapter: ch13
   source: data/cscs/ch13.yaml
 questions:
-  # 干擾項對照：ch13.aerobic-capacity.i02（固定里程）、i05（最後分級速度）。
-  - id: ch13.aerobic-capacity.i03.q1
-    item: ch13.aerobic-capacity.i03
-    cognitive: application
-    stem: 運動員參加固定十二分鐘的跑測，時間到時最後一圈只跑了一部分，教練應如何登錄成績？
-    locator: Measuring Parameters of Athletic Performance > Aerobic Capacity > 12-Minute Run
-    options:
-      - text: 只採完全通過終點的圈數換算跑距
-        correct: false
-        why_wrong: 把圈數記錄誤當成只接受整圈；截止前已跑完的部分圈距也屬於十二分鐘內的成果，不能捨去。
-      - text: 整圈換成公尺後，加上最後一段跑距
-        correct: true
-      - text: 換算完成一點五英里所需的秒數
-        correct: false
-        why_wrong: 混用固定路程測驗的計分方式；本題固定的是時間，應記錄到時實際前進的總距離。
-      - text: 登錄結束時所達到的最高跑步配速
-        correct: false
-        why_wrong: 將分級增速跑測的終點指標套入本題；十二分鐘跑沒有以最後速度階段作為成績的協定。
-
-  - id: ch13.agility-speed.i05.q1
-    item: ch13.agility-speed.i05
-    cognitive: application
-    stem: 施測 505 敏捷測驗時，運動員先加速十公尺穿過計時燈，再跑五公尺轉身返回，正式成績應採哪一段時間？
-    locator: Measuring Parameters of Athletic Performance > Agility > 505 Agility Test
-    options:
-      - text: 起跑至單腳第一次踩到轉折線
-        correct: false
-        why_wrong: 將前段助跑計入，卻漏掉轉向後的加速；本協定的計時起點在閘門，且包含往返轉折線的區間。
-      - text: 越過回程閘門直到完全停止跑動
-        correct: false
-        why_wrong: 把通過終點後的減速階段當成測量區間；教材要求第二次穿燈後才減速，減速過程不納入成績。
-      - text: 從原始起點出發直到回到同處
-        correct: false
-        why_wrong: 混淆整條行進路線與正式計時段；前十公尺用來加速，回程也只需以再次穿燈界定計時終點。
-      - text: 第一次穿燈至轉身後再度通過
-        correct: true
-
-  # 干擾項對照：ch13.agility-speed.i02、i04（兩次取最快）；勿移用到折返耐力測驗。
-  - id: ch13.anaerobic-endurance.i02.q1
-    item: ch13.anaerobic-endurance.i02
-    cognitive: application
-    stem: 運動員完成兩次三百碼折返跑，中間休息五分鐘且兩次用時不同，教練應以哪種方式合併成績？
-    locator: Measuring Parameters of Athletic Performance > Anaerobic Capacity > 300-Yard (274 m) Shuttle
-    options:
-      - text: 兩趟完成時間的算術平均
-        correct: true
-      - text: 較快一次的用時作為成績
-        correct: false
-        why_wrong: 移用了 T 測驗等敏捷測驗的取最佳規則；三百碼折返跑的指定協定要求平均兩次結果。
-      - text: 以後一趟的秒數代表表現
-        correct: false
-        why_wrong: 把第二次的疲勞表現當成唯一評分依據；教材雖要求再跑一次，仍須把第一次一起納入平均。
-      - text: 把兩回合耗時相加再登錄
-        correct: false
-        why_wrong: 混淆加總與平均；各回合都已是完整三百碼，合計後還須除以測驗次數才符合計分規則。
-
-  - id: ch13.balance-flexibility-bc.i01.q1
-    item: ch13.balance-flexibility-bc.i01
-    cognitive: recall
-    stem: 進行平衡錯誤計分系統測驗時，下列哪個行為應記為一次錯誤？
-    locator: Measuring Parameters of Athletic Performance > Balance and Stability > Balance Error Scoring System (BESS)
-    options:
-      - text: 眼睛閉合且雙手保持在髖部
-        correct: false
-        why_wrong: 把降低視覺輔助的施測要求當成失誤；本協定正是要求閉眼並固定手的位置。
-      - text: 在軟面完成規定的串聯站姿
-        correct: false
-        why_wrong: 混淆較難的測試條件與違規動作；軟面及串聯站立都是六種正式條件的一部分。
-      - text: 單腳站立時非支撐腳碰到地面
-        correct: true
-      - text: 雙腳併攏並持續保持二十秒
-        correct: false
-        why_wrong: 將正式的雙腳條件誤判成站距太窄；併立是規定姿勢之一，每個條件本來就應維持指定時間。
-
-  - id: ch13.max-strength.i03.q1
-    item: ch13.max-strength.i03
-    cognitive: application
-    stem: 運動員做 1RM 臥姿划船時抬頭並以腳蹬地，其餘動作正確；下一次應採哪種修正，才能符合有效反覆的協定？
-    locator: Measuring Parameters of Athletic Performance > Maximum Muscular Strength (Low-Speed Strength) > 1RM Bench Pull
-    options:
-      - text: 容許抬頭發力以增加槓鈴上拉行程
-        correct: false
-        why_wrong: 把增加可拉動重量或行程當成測驗目標；協定要求固定頭的位置，不能靠改變姿勢取得不同條件的最大拉力。
-      - text: 維持頭部貼椅並讓雙腳持續懸空
-        correct: true
-      - text: 腳掌支撐地板讓軀幹取得額外穩定
-        correct: false
-        why_wrong: 把一般支撐求穩的做法移到這項特定測驗；本協定要求腳離地且位置固定，以免借用下肢支撐改變施力條件。
-      - text: 每次將重量放回地面後重新起拉
-        correct: false
-        why_wrong: 混淆懸垂起始與從地板重新起拉；下放應受控回到肘伸直的位置，槓鈴不可碰地，也沒有修正頭腳位置的問題。
-
-  # 干擾項對照：ch13.power-tests.i04（跳高成績）、i07（含體重的階梯功率公式）。
-  - id: ch13.power-tests.i06.q1
-    item: ch13.power-tests.i06
-    cognitive: analysis
-    stem: 同一運動員兩次落地反彈的跳高相同，第一回合接觸地面零點二秒，第二回合零點三秒，哪項比較正確？
-    locator: Measuring Parameters of Athletic Performance > Anaerobic or Maximum Muscular Power (High-Speed Strength) > Reactive Strength Index
-    options:
-      - text: 第二回合的評分反而增加
-        correct: false
-        why_wrong: 把接觸時間誤當成乘數；RSI 是跳高除以觸地秒數，分母變大而分子不變時，數值會下降。
-      - text: 兩次因離地高度相同而同分
-        correct: false
-        why_wrong: 將單看垂直高度的跳躍成績當成反應力量指數；RSI 同時考慮觸地時間，不能只比跳多高。
-      - text: 還要知道體重才能比較指數
-        correct: false
-        why_wrong: 移用了階梯功率計算中的重量需求；RSI 的定義只需高度與接觸時間，本題資訊已足夠比較。
-      - text: 前者的反應力量指數較高
-        correct: true
-
-  # 干擾項對照：ch13.statistics.i04（百分位名次）。
-  - id: ch13.statistics.i03.q1
-    item: ch13.statistics.i03
-    cognitive: analysis
-    stem: 一位運動員的四十碼衝刺時間換算成 z 分數為 −1.2，若此測驗用時越短代表表現越好，應如何解讀？
-    locator: Statistical Evaluation of Test Data > Types of Statistics > Descriptive Statistics > Variability
-    options:
-      - text: 完成用時比平均少，表現快了 1.2 個標準差
-        correct: true
-      - text: 位在較差的一側，速度落後全隊 1.2 個標準差
-        correct: false
-        why_wrong: 把負號一律視為較差；此例標準化的是完成時間，低於平均代表更快，必須依測驗的好壞方向解讀。
-      - text: 比同組快了 1.2 秒，可直接當成原始時間差
-        correct: false
-        why_wrong: 混淆標準化單位與秒；要回推實際快多少時間，還須乘上該群體的 SD，不能直接拿 z 值當秒數。
-      - text: 排名超過隊上 1.2% 的人，屬百分位的意義
-        correct: false
-        why_wrong: 把離平均幾個 SD 與受測者相對名次混為一談；z 分數本身不是低於某人的人數百分比。
-
-  - id: ch13.test-administration.i01.q1
-    item: ch13.test-administration.i01
-    cognitive: analysis
-    stem: 某隊訓練後的敏捷測驗變快，但前測場地潮濕、後測地面乾燥；要評估訓練成效，哪個處理最合理？
-    locator: Measuring Parameters of Athletic Performance > Testing Conditions
-    options:
-      - text: 將秒數改成百分比後，直接歸因課表有效
-        correct: false
-        why_wrong: 將換算數字誤當成控制測試條件；百分比仍由原始時間計算，無法排除地面狀態不同的影響。
-      - text: 保留較快的一次紀錄，用來證明訓練進步
-        correct: false
-        why_wrong: 混用取最佳試次與比較介入效果的目的；挑選快的結果不能讓兩次施測環境變得一致。
-      - text: 暫緩歸因並以相同場地條件追蹤後續訓練成效
-        correct: true
-      - text: 只對照同隊其他人的排名，判定方案優劣
-        correct: false
-        why_wrong: 把群內相對位置當成環境控制的替代；名次可用於描述隊內差異，仍不足以將這次時間變化單獨歸因於訓練。
-
-  # 干擾項對照：ch13.aerobic-capacity.i02、i03、i05，皆為真實有氧跑測協定。
-  - id: ch13.aerobic-capacity.i04.q1
-    item: ch13.aerobic-capacity.i04
-    cognitive: application
-    stem: 教練想用含短暫高強度折返及固定短恢復的跑測，模擬團隊比賽反覆加速的需求，哪一種施測安排最符合目的？
-    locator: Measuring Parameters of Athletic Performance > Aerobic Capacity > Yo-Yo Intermittent Recovery Test
-    options:
-      - text: 連續跑滿十二分鐘，以累積距離計算成績
-        correct: false
-        why_wrong: 這是固定時間的持續跑測；它可以估計有氧容量，但缺少題目要求的折返與規律短恢復安排。
-      - text: 二十公尺往返後，安排十秒恢復再出發
-        correct: true
-      - text: 每兩分鐘調快一公里時速，逐階跑到力竭
-        correct: false
-        why_wrong: 套用了最大有氧速度的連續分級程序；雖然也會加速，卻沒有每輪折返間固定十秒的間歇恢復。
-      - text: 維持可負擔配速，盡快完成一點五英里
-        correct: false
-        why_wrong: 這是固定里程跑的作法，強調可維持的穩定配速；不能取代本題需要的短暫爆發與恢復交替。
-
-  # 干擾項對照：ch13.statistics.i01（平均數），其餘同來源 item。
-  - id: ch13.statistics.i02.q1
-    item: ch13.statistics.i02
-    cognitive: analysis
-    stem: 多數隊員的測驗分數相近，但一名隊員有極高分；教練想描述典型成員的中心位置並降低極端值影響，應優先用哪個統計量？
-    locator: Statistical Evaluation of Test Data > Types of Statistics > Descriptive Statistics > Variability
-    options:
-      - text: 平均數
-        correct: false
-        why_wrong: 將最常用的中心指標視為所有分布都合適；它會被極高分拉動，本題已有明確偏離分數，排序後的中間值較符合目的。
-      - text: 眾數
-        correct: false
-        why_wrong: 混淆最常出現與居中的位置；分數相近不表示有重複次數最多的一筆，也無法由題目確定存在可代表多數人的眾數。
-      - text: 全距
-        correct: false
-        why_wrong: 將離散程度當成中心位置；這個量只看最大與最小兩端，反而直接受到題中極高分牽動。
-      - text: 中位數
-        correct: true
+- id: ch13.max-strength.i01.q1
+  item: ch13.max-strength.i01
+  dco: pa3.B.1
+  lang: zh
+  cognitive: application
+  stem: 一名大學美式足球員希望評估其低速最大肌力，最適合的單一測驗為何？
+  locator: Measuring Parameters of Athletic Performance > Maximum Muscular Strength (Low-Speed Strength)
+  options:
+  - text: 1RM 臥推
+    correct: true
+  - text: 等速伸膝最大力矩
+    correct: false
+    why_wrong: 等速測量需昂貴儀器，本庫情境下非首選；教材把 1RM 列為多數體能專業人員首選。
+  - text: 反應力量指數測驗
+    correct: false
+    why_wrong: RSI 屬高速肌力／爆發力範疇，測的是彈跳高度與接觸時間比，並非低速最大肌力。
+- id: ch13.max-strength.i02.q1
+  item: ch13.max-strength.i02
+  dco: pa3.B.2
+  lang: zh
+  cognitive: recall
+  stem: 1RM 臥推的專項暖身最常先以多少次輕至中等負荷的反覆為主？
+  locator: Measuring Parameters of Athletic Performance > Maximum Muscular Strength (Low-Speed Strength) > 1RM Bench Press
+  options:
+  - text: 5 至 10 次
+    correct: true
+  - text: 1 至 2 次
+    correct: false
+    why_wrong: 太少，無法有效熱開動作模式與溫度；暖身須足以讓運動員熟悉節奏。
+  - text: 20 至 30 次
+    correct: false
+    why_wrong: 太多，容易在正式測驗前累積疲勞並降低嘗試表現。
+- id: ch13.max-strength.i04.q1
+  item: ch13.max-strength.i04
+  dco: pa3.B.2
+  lang: zh
+  cognitive: recall
+  stem: 1RM 後蹲舉測驗的人員配置為何？
+  locator: Measuring Parameters of Athletic Performance > Maximum Muscular Strength (Low-Speed Strength) > 1RM Back Squat
+  options:
+  - text: 兩名保護員與一名記錄員
+    correct: true
+  - text: 兩名計時員與一名計分員
+    correct: false
+    why_wrong: 後蹲舉協定的人員角色是保護員與記錄員，計時與計分並非教材配置。
+  - text: 一名保護員搭配一名助理
+    correct: false
+    why_wrong: 教材明示後蹲舉需兩名保護員以兼顧安全，僅一名不足以執行。
+- id: ch13.max-strength.i05.q1
+  item: ch13.max-strength.i05
+  dco: pa3.B.1
+  lang: en
+  cognitive: application
+  stem: During a general 1RM testing session, an athlete's first formal attempt is most commonly set at approximately what percent of the estimated 1RM?
+  locator: Measuring Parameters of Athletic Performance > Maximum Muscular Strength (Low-Speed Strength)
+  options:
+  - text: 50%
+    correct: true
+  - text: 80%
+    correct: false
+    why_wrong: That load is too aggressive for the opening formal attempt and risks pre-fatiguing the athlete before true maximal trials.
+  - text: 95%
+    correct: false
+    why_wrong: Beginning at 95% leaves no room for load progression and defeats the purpose of graded attempts.
+- id: ch13.power-tests.i01.q1
+  item: ch13.power-tests.i01
+  dco: pa3.B.1
+  lang: zh
+  cognitive: application
+  stem: 下列哪一項最能用來評估高速肌力與最大無氧肌力功率？
+  locator: Measuring Parameters of Athletic Performance > Anaerobic or Maximum Muscular Power (High-Speed Strength)
+  options:
+  - text: 垂直跳最大跳躍高度
+    correct: true
+  - text: 80% 1RM 反覆至力竭
+    correct: false
+    why_wrong: 這是局部肌耐力測驗，反映次最大阻力下的反覆能力，並非高速最大功率。
+  - text: 1.5 英里跑完賽時間
+    correct: false
+    why_wrong: 這是有氧容量測驗，反映耐力表現，與短時間高速爆發的功率輸出不同。
+- id: ch13.power-tests.i02.q1
+  item: ch13.power-tests.i02
+  dco: pa3.C.1
+  lang: zh
+  cognitive: analysis
+  stem: 為什麼 1RM 爆發上搏作為爆發力指標的價值最為有限？
+  locator: Measuring Parameters of Athletic Performance > Anaerobic or Maximum Muscular Power (High-Speed Strength) > 1RM Power Clean
+  options:
+  - text: 動作技術需求高，相同功率者測得值仍可能差距大
+    correct: true
+  - text: 該動作僅能做為暖身，無法正式測得 1RM
+    correct: false
+    why_wrong: 教材允許以 1RM 爆發上搏作為測驗，並未禁止；限制在於技術門檻而非程序。
+  - text: 此動作只反映低速肌力，無法測得功率
+    correct: false
+    why_wrong: 爆發上搏本身即為高速爆發動作；教材限制在於技術變異而非速度分類。
+- id: ch13.power-tests.i03.q1
+  item: ch13.power-tests.i03
+  dco: pa3.B.2
+  lang: en
+  cognitive: recall
+  stem: In the standing long jump, from which point on the landing is the best distance measured?
+  locator: Measuring Parameters of Athletic Performance > Anaerobic or Maximum Muscular Power (High-Speed Strength) > Standing Long Jump
+  options:
+  - text: The posterior edge of the rearmost heel
+    correct: true
+  - text: The tip of the longest toe at landing
+    correct: false
+    why_wrong: That reference point overstates jump distance and is not the protocol's measurement landmark.
+  - text: The body's nearest point to the take-off line
+    correct: false
+    why_wrong: The protocol fixes on a clear anatomical landmark; nearest-body-point rules are inconsistent across trials.
+- id: ch13.power-tests.i05.q1
+  item: ch13.power-tests.i05
+  dco: pa3.B.1
+  lang: zh
+  cognitive: application
+  stem: 靜態垂直跳與一般反向動作垂直跳最主要的差別為何？
+  locator: Measuring Parameters of Athletic Performance > Anaerobic or Maximum Muscular Power (High-Speed Strength) > Static Vertical Jump
+  options:
+  - text: 去除反向動作後才起跳
+    correct: true
+  - text: 採用助跑以增加起跳速度
+    correct: false
+    why_wrong: 教材明示不採助跑協定，靜態垂直跳亦不允許。
+  - text: 改以單腳起跳量測不對稱
+    correct: false
+    why_wrong: 教材協定為雙腳於測力板上完成，並無單腳變化式。
+- id: ch13.power-tests.i06.q1
+  item: ch13.power-tests.i06
+  dco: pa3.B.1
+  lang: en
+  cognitive: application
+  stem: The reactive strength index is calculated primarily from which pair of measurements in the drop-jump protocol?
+  locator: Measuring Parameters of Athletic Performance > Anaerobic or Maximum Muscular Power (High-Speed Strength) > Reactive Strength Index
+  options:
+  - text: Jump height divided by ground contact time
+    correct: true
+  - text: Flight time multiplied by total body mass
+    correct: false
+    why_wrong: RSI is jump height divided by ground contact time. Neither flight time nor body mass enters the formula.
+  - text: Peak ground reaction force at touchdown
+    correct: false
+    why_wrong: Peak ground reaction force requires force-plate instrumentation beyond this drop-jump field test. RSI needs only jump height and ground contact time.
+- id: ch13.power-tests.i07.q1
+  item: ch13.power-tests.i07
+  dco: pa3.B.1
+  lang: zh
+  cognitive: application
+  stem: Margaria-Kalamen 階梯測驗的功率計算，最主要是採用哪段高度差？
+  locator: Measuring Parameters of Athletic Performance > Anaerobic or Maximum Muscular Power (High-Speed Strength) > Margaria-Kalamen Test
+  options:
+  - text: 第三階至第九階的垂直高度差
+    correct: true
+  - text: 起跑線至第九階的全程高度
+    correct: false
+    why_wrong: 教材只量第三階至第九階區段，起跑加速段不含於功率計算。
+  - text: 起跑線至第三階的加速高度
+    correct: false
+    why_wrong: 此區段為加速階段，非穩定功率輸出區，教材未將其納入計算。
+- id: ch13.power-tests.i08.q1
+  item: ch13.power-tests.i08
+  dco: pa3.C.2
+  lang: zh
+  cognitive: analysis
+  stem: 運動員增重後跳躍高度不變，下列哪一項對功率輸出的判讀最為正確？
+  locator: Measuring Parameters of Athletic Performance > Anaerobic or Maximum Muscular Power (High-Speed Strength)
+  options:
+  - text: 起跳速度相同但功率實際增加
+    correct: true
+  - text: 跳高不變代表功率完全沒變
+    correct: false
+    why_wrong: 跳高不變只代表起跳速度相近，功率＝力×速度，體重增加即力增加，功率必升。
+  - text: 應改用抓舉 1RM 來判讀
+    correct: false
+    why_wrong: 抓舉 1RM 量的是最大肌力而非爆發功率輸出，與本判讀問題無關。
+- id: ch13.balance-flexibility-bc.i05.q1
+  item: ch13.balance-flexibility-bc.i05
+  dco: pa3.C.1
+  lang: en
+  cognitive: analysis
+  stem: A skinfold measurement is performed by a newly hired volunteer with no prior training. Which statement about the resulting reliability coefficient is most accurate?
+  locator: Measuring Parameters of Athletic Performance > Body Composition
+  options:
+  - text: r = 0.99 cannot be assumed because the operator lacks training
+    correct: true
+  - text: r = 0.99 applies to any tester regardless of training level
+    correct: false
+    why_wrong: The text qualifies r = 0.99 for trained and proficient testers, so applying it to any tester regardless of training level overstates reliability.
+  - text: r = 0.99 refers to the validity of DEXA and hydrostatic weighing
+    correct: false
+    why_wrong: DEXA and hydrostatic weighing are described as gold standards rather than the source of the 0.99 correlation in this passage.
+- id: ch13.statistics.i01.q1
+  item: ch13.statistics.i01
+  dco: pa3.C.2
+  lang: zh
+  cognitive: application
+  stem: 一支隊伍完整測完所有選手後，體能訓練員最應以下列何種統計描述該隊？
+  locator: Statistical Evaluation of Test Data > Types of Statistics > Descriptive Statistics > Central Tendency
+  options:
+  - text: 描述統計
+    correct: true
+  - text: 推論統計
+    correct: false
+    why_wrong: 推論統計用於由樣本推論母體，本情境已掌握全隊資料。
+  - text: 量級統計
+    correct: false
+    why_wrong: 量級統計用於評估改變量的實質意義，並非描述整批資料的集中趨勢。
+- id: ch13.statistics.i03.q1
+  item: ch13.statistics.i03
+  dco: pa3.C.2
+  lang: en
+  cognitive: analysis
+  stem: A sprinter's 40-yard dash time is 4.6 s against a group mean of 5.00 s with SD 0.33 s. What does the resulting z-score of −1.2 most likely indicate?
+  locator: Statistical Evaluation of Test Data > Types of Statistics > Descriptive Statistics > Variability
+  options:
+  - text: The sprinter is 1.2 SDs faster than the group mean
+    correct: true
+  - text: A negative z means below-average sprint performance here
+    correct: false
+    why_wrong: Lower sprint times are better in this example, so a negative z indicates better-than-average performance rather than below-average performance.
+  - text: The sprinter ranks at the 12th percentile
+    correct: false
+    why_wrong: z-score is not percentile rank; converting requires normal-distribution assumptions not assumed in this passage.
+- id: ch13.test-administration.i03.q1
+  item: ch13.test-administration.i03
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 下列哪一項最符合教材對測試前受測者狀態的要求？
+  locator: Measuring Parameters of Athletic Performance > Testing Conditions
+  options:
+  - text: 正常補水與標準營養，不可疲勞
+    correct: true
+  - text: 空腹 12 小時以排除食物熱效應
+    correct: false
+    why_wrong: 教材要求標準營養狀態，並未指示測前禁食。
+  - text: 測驗前服用肌酸一水合物以利表現
+    correct: false
+    why_wrong: 教材明列測驗前不應服用補充品，肌酸一水合物並被點名為可能影響成績的範例。
+- id: ch13.test-administration.i07.q1
+  item: ch13.test-administration.i07
+  dco: pa3.C.2
+  lang: zh
+  cognitive: analysis
+  stem: 訓練程度較高的運動員在同一測驗組合上的進步幅度通常較小，下列哪一項最能解釋這個現象？
+  locator: Statistical Evaluation of Test Data
+  options:
+  - text: 起點較高者適應空間較小
+    correct: true
+  - text: 訓練程度與量級統計無關
+    correct: false
+    why_wrong: 量級統計正是用來評估改變是否實質，與起點高低密切相關。
+  - text: 高訓練程度者前測一定刻意保留
+    correct: false
+    why_wrong: 教材只提這是可能來源之一，並未稱為必然行為。
+- id: ch13.balance-flexibility-bc.i06.q1
+  item: ch13.balance-flexibility-bc.i06
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 兩次皮褶讀值差異達 12% 時，最符合教材規定的處理方式為何？
+  locator: Measuring Parameters of Athletic Performance > Body Composition > Skinfold Measurements
+  options:
+  - text: 加測至取得兩筆差在 10% 內
+    correct: true
+  - text: 不加測而直接取兩次讀值平均
+    correct: false
+    why_wrong: 教材要求兩次差異在 10% 以內才可平均，12% 已超出容許範圍，不加測而直接取平均會把超標的讀值帶進結果。
+  - text: 直接採用較大的那一次皮褶讀值
+    correct: false
+    why_wrong: 教材未授權以較大的單次皮褶讀值替代平均或加測，採用最大值會系統性高估皮褶厚度。
+- id: ch13.aerobic-capacity.i01.q1
+  item: ch13.aerobic-capacity.i01
+  dco: pa3.B.1
+  lang: zh
+  cognitive: recall
+  stem: 有氧容量的代表性指標 V̇O2max 通常以哪一種單位表示？
+  locator: Measuring Parameters of Athletic Performance > Aerobic Capacity
+  options:
+  - text: 每公斤體重每分鐘耗氧毫升
+    correct: true
+  - text: 每分鐘總耗氧的公升數
+    correct: false
+    why_wrong: 未把體重標準化；不同體重的運動員無法直接互比，這正是教材採用相對單位的原因。
+  - text: 12 分鐘跑的最大跑距公尺
+    correct: false
+    why_wrong: 把場地測驗結果直接當作 V̇O2max 的單位；跑距是 V̇O2max 的間接推估值，不是表達單位。
+- id: ch13.aerobic-capacity.i03.q1
+  item: ch13.aerobic-capacity.i03
+  dco: pa3.B.2
+  lang: en
+  cognitive: application
+  stem: When administering the 12-minute run, what quantity is most appropriate to score?
+  locator: Measuring Parameters of Athletic Performance > Aerobic Capacity > 12-Minute Run
+  options:
+  - text: The total distance covered in 12 minutes
+    correct: true
+  - text: The fixed time to complete one lap on a track
+    correct: false
+    why_wrong: Treats the 12-minute run like a fixed-distance time trial; the protocol fixes time and measures distance, not the other way around.
+  - text: The pace recorded every 100 m on the track
+    correct: false
+    why_wrong: Pace is a derived ratio that the protocol does not record as the official score; segment marks are pacing aids only.
+- id: ch13.aerobic-capacity.i04.q1
+  item: ch13.aerobic-capacity.i04
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 安排球隊執行 Yo-Yo IRT1 與 IRT2 兩種協定，下列哪一項最值得優先採用？
+  locator: Measuring Parameters of Athletic Performance > Aerobic Capacity > Yo-Yo Intermittent Recovery Test
+  options:
+  - text: IRT1
+    correct: true
+  - text: IRT2
+    correct: false
+    why_wrong: 選擇了起跑速度更快、技術門檻更高的版本；教材一般建議使用起始速度較低、模擬團隊運動反覆衝刺的 IRT1。
+  - text: IRT3
+    correct: false
+    why_wrong: 誤把 IRT 視為可任意編號的版本；教材只列出 IRT1 與 IRT2，並未提供第三種編號。
+- id: ch13.aerobic-capacity.i05.q1
+  item: ch13.aerobic-capacity.i05
+  dco: pa3.B.2
+  lang: en
+  cognitive: application
+  stem: During the maximal aerobic speed test, which criterion best determines the final MAS value?
+  locator: Measuring Parameters of Athletic Performance > Aerobic Capacity > Maximal Aerobic Speed Test
+  options:
+  - text: The last stage sustained for at least 2 minutes
+    correct: true
+  - text: The fastest stage reached even if under 2 minutes
+    correct: false
+    why_wrong: A stage held for less than 2 minutes does not count toward MAS. The protocol defines MAS as the last speed the athlete sustained for a full stage.
+  - text: The speed at which the athlete fails to hit a cone twice
+    correct: false
+    why_wrong: Failing to reach a cone on time twice is the termination criterion, not the MAS value. The termination speed is excluded, and MAS is the last fully sustained stage.
+- id: ch13.agility-speed.i03.q1
+  item: ch13.agility-speed.i03
+  dco: pa3.B.2
+  lang: en
+  cognitive: application
+  stem: During the hexagon test, which sequence best describes the required jumping pattern?
+  locator: Measuring Parameters of Athletic Performance > Agility > Hexagon Test
+  options:
+  - text: Three clockwise circuits totaling 18 jumps
+    correct: true
+  - text: Two clockwise circuits totaling 12 jumps
+    correct: false
+    why_wrong: Misstates both the number of circuits and the jump count; the protocol specifies three clockwise circuits totaling 18 jumps.
+  - text: Alternating clockwise and counterclockwise circuits
+    correct: false
+    why_wrong: Invents a pattern not in the protocol; the hexagon test requires maintaining the same facing direction throughout, so the direction is fixed.
+- id: ch13.agility-speed.i06.q1
+  item: ch13.agility-speed.i06
+  dco: pa3.C.2
+  lang: zh
+  cognitive: analysis
+  stem: 比較 10 碼衝刺與 40 碼衝刺的分段時間，下列哪一項最能反映兩者的差異？
+  locator: Measuring Parameters of Athletic Performance > Speed > Straight-Line Sprint Tests
+  options:
+  - text: 較短距離反映加速度，較長距離反映最高速度
+    correct: true
+  - text: 兩段距離測得的都是同一種最高移動速度
+    correct: false
+    why_wrong: 把兩段距離的判讀混為一談；教材明示靜止起跑的較短距離反映加速度，只有較長距離才觀察得到最高移動速度。
+  - text: 兩段距離同樣反映無氧容量表現
+    correct: false
+    why_wrong: 把分段時間對應的能力誤判為無氧容量；教材指出超過 100 公尺的距離才較反映無氧或有氧容量，10 至 40 碼的衝刺仍在速度範圍內。
+- id: ch13.anaerobic-endurance.i05.q1
+  item: ch13.anaerobic-endurance.i05
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 某支球隊想統一伏地挺身測驗的施測標準，下列何種選擇最符合教材對兩種協定的區分？
+  locator: Measuring Parameters of Athletic Performance > Local Muscular Endurance > Push-Up
+  options:
+  - text: Army 標準限時 2 分鐘，ACSM 標準連續做到失敗
+    correct: true
+  - text: 兩種標準的低點與終止方式相同，僅口令不同
+    correct: false
+    why_wrong: 誤以為 Army 與 ACSM 只是用語差別；教材指出兩者的低點位置與終止條件不同，成績不可直接互比。
+  - text: 僅 ACSM 標準允許女性以膝著地，Army 不允許
+    correct: false
+    why_wrong: 把差異窄化為性別姿勢；教材說明的差異是測驗終止方式與低點判定，與女性是否跪地無關。
+- id: ch13.anaerobic-endurance.i06.q1
+  item: ch13.anaerobic-endurance.i06
+  dco: pa3.B.2
+  lang: en
+  cognitive: recall
+  stem: In the YMCA bench press test, what resistance is prescribed for male athletes?
+  locator: Measuring Parameters of Athletic Performance > Local Muscular Endurance > YMCA Bench Press Test
+  options:
+  - text: 80 lb barbell load
+    correct: true
+  - text: 35 lb barbell load
+    correct: false
+    why_wrong: States the female resistance value instead of the male value; the protocol fixes different loads for men and women.
+  - text: A percentage of the 1RM
+    correct: false
+    why_wrong: Treats YMCA like a relative-load test; the protocol requires a fixed absolute resistance, not a percentage of 1RM.
+- id: ch13.anaerobic-endurance.i07.q1
+  item: ch13.anaerobic-endurance.i07
+  dco: pa3.B.1
+  lang: zh
+  cognitive: analysis
+  stem: 一名教練把 300 碼折返跑與 YMCA 臥推都歸為疲勞性測驗，下列哪一項最能說明教材為何仍把兩者分屬不同類別？
+  locator: Measuring Parameters of Athletic Performance > Anaerobic Capacity
+  options:
+  - text: 看測到的能力與所用協定
+    correct: true
+  - text: 看受測者主觀的疲勞程度
+    correct: false
+    why_wrong: 教材明說兩類測驗都可能造成疲勞，主觀疲勞程度區分不出類別；以疲勞感歸類會把 YMCA 臥推誤放進無氧容量。
+  - text: 看受測者當下的訓練水準
+    correct: false
+    why_wrong: 訓練水準影響的是成績高低，不影響測驗歸屬哪一類能力；同一個測驗用在不同水準的運動員身上，分類仍然相同。
+- id: ch13.anaerobic-endurance.i08.q1
+  item: ch13.anaerobic-endurance.i08
+  dco: pa3.B.1
+  lang: zh
+  cognitive: application
+  stem: 在排定肌耐力測驗的動作選擇時，下列何種動作最適合用最大反覆次數評估局部肌耐力？
+  locator: Measuring Parameters of Athletic Performance > Local Muscular Endurance
+  options:
+  - text: 伏地挺身
+    correct: true
+  - text: 立定跳遠
+    correct: false
+    why_wrong: 把爆發力測驗誤當肌耐力測驗；立定跳遠是高速肌力測驗，不以最大反覆次數評估局部肌耐力。
+  - text: 階梯衝刺
+    correct: false
+    why_wrong: 以為階梯衝刺可做最大反覆次數評估；該測驗目的是短時間衝刺後的功率計算，與反覆次數無關。
+- id: ch13.balance-flexibility-bc.i02.q1
+  item: ch13.balance-flexibility-bc.i02
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 為返賽運動員安排 SEBT，支撐腳與起始伸展方向的選擇最合適的是？
+  locator: Measuring Parameters of Athletic Performance > Balance and Stability > Star Excursion Balance Test (SEBT)
+  options:
+  - text: 起始方向與支撐腳隨機選定
+    correct: true
+  - text: 統一由前向伸展開始，依慣用腳為支撐腳
+    correct: false
+    why_wrong: 把測驗簡化為固定順序與固定腳；教材明示方向與支撐腳要隨機，以避免系統性偏差。
+  - text: 由非慣用腳支撐，先測右向再測左向
+    correct: false
+    why_wrong: 把隨機規則誤解為左右對稱的固定安排；教材要求隨機以排除預期效應，不是要訂左右對稱。
+- id: ch13.balance-flexibility-bc.i04.q1
+  item: ch13.balance-flexibility-bc.i04
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 執行過頭深蹲動作篩檢時，下列哪一項最符合教材規定的評估程序？
+  locator: Measuring Parameters of Athletic Performance > Flexibility > Overhead Squat
+  options:
+  - text: 五次通過／不通過評估
+    correct: true
+  - text: 只做一次即作出判定
+    correct: false
+    why_wrong: 把最低次數誤判為一次；教材明示過頭深蹲篩檢須至少完成五次以利側面觀察評估。
+  - text: 改為量化地面反作用力
+    correct: false
+    why_wrong: 把質性篩檢當作儀器化測驗；過頭深蹲評估是通過／不通過的動作觀察，不是量化地面反作用力。
+- id: ch13.max-strength.i03.q1
+  item: ch13.max-strength.i03
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 進行 1RM 臥姿划船的試驗時，下列哪一項最符合有效反覆的判定？
+  locator: Measuring Parameters of Athletic Performance > Maximum Muscular Strength (Low-Speed Strength) > 1RM Bench Pull
+  options:
+  - text: 槓鈴觸底再回放至肘完全伸直
+    correct: true
+  - text: 只要拉離地板且肘部高於軀幹
+    correct: false
+    why_wrong: 放寬了回放到底與下降到底的條件；教材要求回程必須回到肘完全伸直的懸垂位置才算有效反覆。
+  - text: 拉至手肘與地面平行即可
+    correct: false
+    why_wrong: 把肘部高度當作合格標準；教材明示必須回放觸底才算有效，與肘高無關。
+- id: ch13.max-strength.i07.q1
+  item: ch13.max-strength.i07
+  dco: pa3.C.1
+  lang: zh
+  cognitive: analysis
+  stem: 若選手以變形的反覆換取更大重量完成 1RM 嘗試，試驗結果最可能反映出下列何者？
+  locator: Measuring Parameters of Athletic Performance > Maximum Muscular Strength (Low-Speed Strength)
+  options:
+  - text: 成績效度被犧牲
+    correct: true
+  - text: 肌耐力被同步提升
+    correct: false
+    why_wrong: 把變形反覆的負面效應誤讀為肌耐力訓練效果；變形動作只能讓當下重量看起來較大，與肌耐力無關。
+  - text: 保護員的工作量減輕
+    correct: false
+    why_wrong: 以為變形動作較安全；事實上變形常意味動作偏離標準軌道，反而增加保護員介入的風險與難度。
+- id: ch13.power-tests.i04.q1
+  item: ch13.power-tests.i04
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 為某隊安排牆與粉筆法的垂直跳測驗，下列何種程序最符合教材要求？
+  locator: Measuring Parameters of Athletic Performance > Anaerobic or Maximum Muscular Power (High-Speed Strength) > Vertical Jump
+  options:
+  - text: 先標站立高度再反向動作跳
+    correct: true
+  - text: 三步助跑起跳再標最高點
+    correct: false
+    why_wrong: 加入助跑起跳；教材的牆與粉筆法不採助跑，預設動作必須是反向動作跳起。
+  - text: 五步碎步後雙腳起跳觸頂
+    correct: false
+    why_wrong: 把預備與碎步當作標準動作的一部分；教材明示不做預備或碎步，只以反向動作起跳。
+- id: ch13.statistics.i08.q1
+  item: ch13.statistics.i08
+  dco: pa3.C.2
+  lang: en
+  cognitive: analysis
+  stem: On an athletic profile plotted as z-scores, what does a value of zero most directly represent?
+  locator: Statistical Evaluation of Test Data > Developing an Athletic Profile
+  options:
+  - text: The mean score of the entire team group
+    correct: true
+  - text: The published national norm for that test
+    correct: false
+    why_wrong: A profile z-score is computed against the athlete's own group, so zero marks the team mean rather than any published national norm.
+  - text: A score of zero on the raw test itself
+    correct: false
+    why_wrong: Zero on this plot is a standardized value rather than a raw test score, so it does not mean the athlete scored nothing on the test itself.
+- id: ch13.test-administration.i08.q1
+  item: ch13.test-administration.i08
+  dco: pa3.C.3
+  lang: en
+  cognitive: analysis
+  stem: Which step best represents the terminal action of a complete testing program?
+  locator: Statistical Evaluation of Test Data > Developing an Athletic Profile
+  options:
+  - text: Use results to find strengths and weaknesses and design training
+    correct: true
+  - text: Store the data and stop once the report is filed
+    correct: false
+    why_wrong: Treats data filing as the end point; the textbook warns that collecting scores without using them does not constitute a complete profile.
+  - text: Rank the athletes publicly based on the most recent scores
+    correct: false
+    why_wrong: Replaces design use with public ranking; the textbook prioritizes training decisions and cautions about how rankings are used.
+- id: ch13.aerobic-capacity.i06.q1
+  item: ch13.aerobic-capacity.i06
+  dco: pa3.B.1
+  lang: zh
+  cognitive: application
+  stem: 一位體能教練手邊沒有氣體分析設備，最適合用來估計運動員有氧容量的場地測驗為下列何者？
+  locator: Measuring Parameters of Athletic Performance > Aerobic Capacity
+  options:
+  - text: 至少 1 英里的跑步耐力表現
+    correct: true
+  - text: 單次最大努力的 40 碼衝刺時間
+    correct: false
+    why_wrong: 40 碼衝刺反映的是加速度與最高速度，與有氧容量無關；用衝刺時間估計有氧容量會把訓練目標鎖在錯誤的能力上。
+  - text: 三次全力垂直跳的平均高度
+    correct: false
+    why_wrong: 垂直跳是高速肌力的測驗，無法用來推估有氧能量供應；把它當作有氧容量指標會把訓練方向誤導到爆發力。
+- id: ch13.aerobic-capacity.i07.q1
+  item: ch13.aerobic-capacity.i07
+  dco: pa3.B.2
+  lang: en
+  cognitive: recall
+  stem: In the Yo-Yo intermittent recovery test, how is the recovery segment between bouts executed?
+  locator: Measuring Parameters of Athletic Performance > Aerobic Capacity > Yo-Yo Intermittent Recovery Test
+  options:
+  - text: jog to a mark 5 m behind the line, then return to start
+    correct: true
+  - text: stand still at the start line until the next beep
+    correct: false
+    why_wrong: The protocol specifies an active jog to a 5 m mark and back, not passive standing; treating the recovery as rest changes the physiological demand of the test.
+  - text: walk a full lap around the track before the next beep
+    correct: false
+    why_wrong: Recovery is a short jog to a mark 5 m behind the line, not a full track lap; extending recovery changes the work-to-rest ratio the protocol is built on.
+- id: ch13.agility-speed.i01.q1
+  item: ch13.agility-speed.i01
+  dco: pa3.B.1
+  lang: zh
+  cognitive: analysis
+  stem: 一名教練以預先告知路線的折返跑來評估球員敏捷，對照教材的敏捷定義，這種做法最主要的落差是什麼？
+  locator: Measuring Parameters of Athletic Performance > Agility
+  options:
+  - text: 缺少對專項刺激作出反應的成分
+    correct: true
+  - text: 缺少測量最高直線速度的環節
+    correct: false
+    why_wrong: 最高直線速度屬於速度測驗而非敏捷測驗，教材的敏捷定義本來就不要求直線速度的測量環節，因此缺少它不構成落差。
+  - text: 缺少重複測驗之間的恢復時間
+    correct: false
+    why_wrong: 重複測驗之間的恢復時間屬於施測流程安排，與敏捷定義是否涵蓋對專項刺激的反應無關，因此不是定義層面的落差。
+- id: ch13.agility-speed.i02.q1
+  item: ch13.agility-speed.i02
+  dco: pa3.B.2
+  lang: zh
+  cognitive: recall
+  stem: T 測驗施測時，下列哪一項行為會取消該次試驗資格？
+  locator: Measuring Parameters of Athletic Performance > Agility > T-Test
+  options:
+  - text: 橫移時雙腳交叉跨步
+    correct: true
+  - text: 衝刺時未盡全力
+    correct: false
+    why_wrong: 取消資格的條件是技術違規，未盡全力只是影響成績並非取消試驗；把它列為取消條件會把動機問題當成技術問題處理。
+  - text: 恢復時間少於三分鐘
+    correct: false
+    why_wrong: 教材未對 T 測驗恢復時間作 3 分鐘門檻；把它當作取消條件會自行補上未規定的恢復規定。
+- id: ch13.agility-speed.i05.q1
+  item: ch13.agility-speed.i05
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 一支球隊施測 505 敏捷測驗時，最應優先注意的計時區間為下列何者？
+  locator: Measuring Parameters of Athletic Performance > Agility > 505 Agility Test
+  options:
+  - text: 兩次通過 10 m 處計時燈之間
+    correct: true
+  - text: 從起跑線到終點的完整 15 m
+    correct: false
+    why_wrong: 505 的計時區間是兩次穿越計時燈的時間，不是整段 15 m；用全程時間會把轉身後的減速段也納入成績。
+  - text: 從轉身線到第二次通過計時燈的時間
+    correct: false
+    why_wrong: 區間應從第一次穿越計時燈起算，到第二次穿越計時燈結束；只算轉身後的單段會漏掉加速段。
+- id: ch13.agility-speed.i07.q1
+  item: ch13.agility-speed.i07
+  dco: pa3.C.1
+  lang: zh
+  cognitive: analysis
+  stem: 一名體能教練同時使用碼錶與電子計時施測 40 碼衝刺，下列哪一項最能說明兩種計時可能出現差異的主要來源？
+  locator: Measuring Parameters of Athletic Performance > Speed
+  options:
+  - text: 反應延遲早按
+    correct: true
+  - text: 計時員身高差
+    correct: false
+    why_wrong: 教材指出的偏差來源是按錶反應與預期性早按，不是計時員生理條件；用計時員特徵解釋會誤把焦點放在人員差而非器材差。
+  - text: 跑道摩擦變化
+    correct: false
+    why_wrong: 跑道溫度對雙方計時同樣影響成績，不會造成兩種計時間的差異；把環境因素當作差異來源會忽略教材指出的反應偏差。
+- id: ch13.agility-speed.i08.q1
+  item: ch13.agility-speed.i08
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 一支球隊準備施測直線衝刺與 T 測驗，下列哪一項場地安排最符合教材的安全要求？
+  locator: Measuring Parameters of Athletic Performance > Speed > Straight-Line Sprint Tests
+  options:
+  - text: 終點後保留至少二十碼
+    correct: true
+  - text: 用濕滑地面模擬抓地
+    correct: false
+    why_wrong: 教材明示表面要不滑；用濕滑地面模擬比賽會把受傷風險直接帶進測驗，失去協定要求的安全條件。
+  - text: 移除 A 點後方保護員
+    correct: false
+    why_wrong: 教材要求 T 測驗 A 點後方設保護員與體操墊；移除保護員會讓倒退跑段失去減緩跌倒風險的安排。
+- id: ch13.anaerobic-endurance.i02.q1
+  item: ch13.anaerobic-endurance.i02
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 一支球隊準備施測 300 碼折返跑，下列哪一項安排最符合教材指定的計分方式？
+  locator: Measuring Parameters of Athletic Performance > Anaerobic Capacity > 300-Yard (274 m) Shuttle
+  options:
+  - text: 兩次相隔五分鐘平均
+    correct: true
+  - text: 取三次最佳一次
+    correct: false
+    why_wrong: 教材指定兩次平均並非取最佳；以最佳單次成績取代平均會改變協定的計分邏輯。
+  - text: 只記錄第一次時間
+    correct: false
+    why_wrong: 教材要求兩次都納入平均；只取第一次會把第二次正式試驗當作練習而失去協定的平均結構。
+- id: ch13.anaerobic-endurance.i03.q1
+  item: ch13.anaerobic-endurance.i03
+  dco: pa3.B.1
+  lang: zh
+  cognitive: recall
+  stem: 教材對局部肌耐力（local muscular endurance）的定義，最強調下列何者？
+  locator: Measuring Parameters of Athletic Performance > Local Muscular Endurance
+  options:
+  - text: 特定肌群在次最大阻力下連續反覆收縮
+    correct: true
+  - text: 全身在最高攝氧量下的持續運動時間
+    correct: false
+    why_wrong: 局部肌耐力針對特定肌群，不是全身最高攝氧量下的運動；用全身有氧耐力定義會把測驗對象與程度區分換掉。
+  - text: 一次最大努力能舉起的最重負荷
+    correct: false
+    why_wrong: 一次最大努力屬於最大肌力而非肌耐力；用 1RM 定義肌耐力會把目標從反覆次數換成單次最大重量。
+- id: ch13.balance-flexibility-bc.i03.q1
+  item: ch13.balance-flexibility-bc.i03
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 一支球隊為了長期追蹤球員下背與髖部柔軟性，重測坐姿前彎時最應優先維持下列哪一項？
+  locator: Measuring Parameters of Athletic Performance > Flexibility > Sit-and-Reach Test
+  options:
+  - text: 沿用初測的量尺
+    correct: true
+  - text: 改用坐姿前彎箱
+    correct: false
+    why_wrong: 教材明示初測若用量尺，後續不能改用坐姿前彎箱；中途換器材會讓前後成績失去可比性。
+  - text: 以彈震式伸展取代
+    correct: false
+    why_wrong: 教材禁止彈震式伸展；用它取代慢速前伸會破壞測驗的標準化，也違背柔軟性測量原則。
+- id: ch13.balance-flexibility-bc.i08.q1
+  item: ch13.balance-flexibility-bc.i08
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 體能教練安排長期追蹤球員體重，下列哪一時點與穿著最能確保前後測的可比性？
+  locator: Measuring Parameters of Athletic Performance > Anthropometry
+  options:
+  - text: 早晨起床排泄後攝食前，穿同樣最少乾燥衣物量測
+    correct: true
+  - text: 訓練後立刻量測以反映訓練刺激的即時水分流失
+    correct: false
+    why_wrong: 訓練後立刻量測會同時受排汗失水與訓練中補水影響；把測量時點放在訓練後，會把當下的水分波動當成真正的體重變化。
+  - text: 攝取高鹽飲食後隔日量測以掌握鈉平衡
+    correct: false
+    why_wrong: 教材建議量測前一天避免高鹽食物以維持正常水分狀態；用高鹽飲食後的體重當基準會把水分滯留納入正式紀錄。
+- id: ch13.statistics.i02.q1
+  item: ch13.statistics.i02
+  dco: pa3.C.2
+  lang: zh
+  cognitive: analysis
+  stem: 一支球隊垂直跳成績中有一位明顯偏低的離群值，教練想了解整隊分散程度，最應採用下列哪一個統計量？
+  locator: Statistical Evaluation of Test Data > Types of Statistics > Descriptive Statistics > Variability
+  options:
+  - text: 圍繞平均數的標準差
+    correct: true
+  - text: 最高與最低分的全距
+    correct: false
+    why_wrong: 全距只用到最高與最低兩端分數，受單一偏離分數影響極大；用全距會讓離群值主導整隊的變異估計。
+  - text: 出現最頻繁的眾數
+    correct: false
+    why_wrong: 眾數只反映出現最頻繁的分數，無法描述分散程度；用它會把焦點從變異性換成集中趨勢。
+- id: ch13.statistics.i06.q1
+  item: ch13.statistics.i06
+  dco: pa3.C.2
+  lang: zh
+  cognitive: application
+  stem: 一支球隊女性運動員垂直跳成績的標準差為 8 cm，教練最應採用的最小實質改變門檻為下列何者？
+  locator: Statistical Evaluation of Test Data > Types of Statistics > Inferential Versus Magnitude Statistics
+  options:
+  - text: 1.6 cm
+    correct: true
+  - text: 4.0 cm
+    correct: false
+    why_wrong: 教材示範的算法是 0.2 倍 SD；用 SD 的一半當門檻會把最小實質改變放得過大，低估實際可偵測的進步。
+  - text: 0.2 cm
+    correct: false
+    why_wrong: 教材示範的算法是 0.2 倍 SD；直接用 0.2 cm 會把最小實質改變設得過小，產生誤判為有意義的微小波動。
+- id: ch13.statistics.i07.q1
+  item: ch13.statistics.i07
+  dco: pa3.C.2
+  lang: en
+  cognitive: analysis
+  stem: After a training block, a team reports an average effect size of 0.3. Which interpretation best matches the chapter's reference thresholds?
+  locator: Statistical Evaluation of Test Data > Types of Statistics > Inferential Versus Magnitude Statistics
+  options:
+  - text: small effect, between the small and moderate reference values
+    correct: true
+  - text: very large effect that exceeds the largest listed threshold
+    correct: false
+    why_wrong: The chapter lists 2.0 as the very large threshold; an effect size of 0.3 is far smaller and cannot be classified as very large.
+  - text: moderate effect that sits squarely on the listed moderate value
+    correct: false
+    why_wrong: The moderate reference value is 0.6; 0.3 is below moderate and should not be reported as sitting on the moderate threshold.
+- id: ch13.test-administration.i06.q1
+  item: ch13.test-administration.i06
+  dco: pa3.B.2
+  lang: zh
+  cognitive: analysis
+  stem: 一支球隊由不同助理輪流測量大腿圍，前後測結果難以互相比較，下列哪一項器材選擇最能改善可比性？
+  locator: Measuring Parameters of Athletic Performance > Anthropometry
+  options:
+  - text: 附彈簧拉力裝置的量尺
+    correct: true
+  - text: 刻度較密的一般布尺
+    correct: false
+    why_wrong: 刻度較密只提升讀數精度，無法固定每次拉緊的張力；不同助理仍會用不同鬆緊拉出不同圍度，可比性問題沒有解決。
+  - text: 可自動記錄的電子卡尺
+    correct: false
+    why_wrong: 電子卡尺是皮褶測量器材而非圍度量尺；自動記錄解決的是抄寫誤差，與各次張力不一致這個誤差來源無關。
+- id: ch13.anaerobic-endurance.i04.q1
+  item: ch13.anaerobic-endurance.i04
+  dco: pa3.B.2
+  lang: en
+  cognitive: analysis
+  stem: A coach wants to assess abdominal endurance while minimizing hip flexor involvement. Which protocol is most appropriate?
+  locator: Measuring Parameters of Athletic Performance > Local Muscular Endurance > Partial Curl-Up
+  options:
+  - text: partial curl-up with a metronome cadence of 40 beats per minute
+    correct: true
+  - text: sit-up to full elbow-to-knee with hands behind the head
+    correct: false
+    why_wrong: Full sit-ups with hands behind the head allow the hip flexors to dominate; this protocol shifts the test away from abdominal endurance into hip flexor work.
+  - text: plank held to failure with no cadence control
+    correct: false
+    why_wrong: The plank is an isometric core test, not the curl-up cadence protocol; substituting it removes the specified abdominal endurance movement and cadence structure.
+- id: ch13.aerobic-capacity.i02.q1
+  item: ch13.aerobic-capacity.i02
+  dco: pa3.B.2
+  lang: en
+  cognitive: application
+  stem: A coach cannot secure the standard 1.5-mile course. Which alternative best fits the chapter's protocol?
+  locator: Measuring Parameters of Athletic Performance > Aerobic Capacity > 1.5-Mile (2.4 km) Run
+  options:
+  - text: use a 1.86-mile alternative course on flat, marked ground
+    correct: true
+  - text: substitute a repeated track sprint ladder with short rests
+    correct: false
+    why_wrong: Repeat sprint ladders are an interval protocol, not the steady endurance run the chapter specifies, and substituting them shifts the test to a different energy system.
+  - text: use a treadmill at a fixed 70 percent of V̇O2max pace
+    correct: false
+    why_wrong: The chapter requires an outdoor flat course; using a treadmill with a fixed percent of VO2max substitutes a laboratory setup for the field protocol.
+- id: ch13.aerobic-capacity.i08.q1
+  item: ch13.aerobic-capacity.i08
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 體能教練安排 1.5 英里跑施測前，最應優先完成下列哪一項準備？
+  locator: Measuring Parameters of Athletic Performance > Aerobic Capacity > 1.5-Mile (2.4 km) Run
+  options:
+  - text: 熟悉配速與熱身伸展
+    correct: true
+  - text: 賽前高蛋白飲食控制
+    correct: false
+    why_wrong: 1.5 英里跑的施測前準備是熟悉配速與熱身伸展，並未要求賽前蛋白質控制；把營養策略誤當作施測前必要程序會偏離教材指定的流程。
+  - text: 受測前停止所有飲水
+    correct: false
+    why_wrong: 教材要求受測者以正常補水狀態到場；測前限水會影響有氧耐力表現，也違背施測前的標準化要求。
+- id: ch13.agility-speed.i04.q1
+  item: ch13.agility-speed.i04
+  dco: pa3.B.2
+  lang: en
+  cognitive: recall
+  stem: In the pro-agility test, which of the following best describes the required sprint sequence?
+  locator: Measuring Parameters of Athletic Performance > Agility > Pro Agility Test
+  options:
+  - text: 5 yd left, 10 yd right, 5 yd back
+    correct: true
+  - text: 10 yd left, 5 yd right, 5 yd back
+    correct: false
+    why_wrong: The prescribed sequence is 5-10-5 yd; reversing the first and second segments to 10-5-5 changes the test layout and the recorded time.
+  - text: 10 yd forward, then backpedal, then shuffle
+    correct: false
+    why_wrong: The pro-agility test is a lateral sprint sequence with hand touches, not a forward-backpedal shuffle mix; substituting different movement patterns breaks the protocol.
+- id: ch13.anaerobic-endurance.i01.q1
+  item: ch13.anaerobic-endurance.i01
+  dco: pa3.B.1
+  lang: zh
+  cognitive: analysis
+  stem: 一名體能教練想用 30 至 90 秒內完成的測驗評估無氧容量，下列哪一項測驗最符合教材定義？
+  locator: Measuring Parameters of Athletic Performance > Anaerobic Capacity
+  options:
+  - text: 300 碼折返跑
+    correct: true
+  - text: 12 分鐘跑
+    correct: false
+    why_wrong: 12 分鐘跑屬於有氧容量測驗；用 12 分鐘跑評估無氧容量會把測驗持續時間拉遠超過 30–90 秒區間。
+  - text: YMCA 臥推測驗
+    correct: false
+    why_wrong: YMCA 臥推屬於局部肌耐力測驗；用它評估無氧容量會把測量對象從全身能量系統換成局部肌群。
+- id: ch13.aerobic-capacity.i05.q2
+  item: ch13.aerobic-capacity.i05
+  dco: pa3.B.2
+  lang: en
+  cognitive: application
+  stem: A coach sets up the maximal aerobic speed test on a track without an audio file. Which adjustment best fits the chapter's protocol?
+  locator: Measuring Parameters of Athletic Performance > Aerobic Capacity > Maximal Aerobic Speed Test
+  options:
+  - text: use a whistle cadence timed to the required speeds
+    correct: true
+  - text: let athletes self-pace to a perceived maximum
+    correct: false
+    why_wrong: Self-pacing removes the standardized increments the protocol uses to identify MAS; replacing the cadence with perception changes how MAS is defined.
+  - text: shorten each stage to 30 seconds to fit the available track
+    correct: false
+    why_wrong: The chapter fixes each stage at 2 minutes; shortening stages changes the time at each speed and breaks the increment structure.
