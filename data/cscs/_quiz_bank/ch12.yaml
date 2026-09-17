@@ -1,0 +1,788 @@
+meta:
+  chapter: ch12
+  source: data/cscs/ch12.yaml
+questions:
+- id: ch12.administration.i01.q1
+  item: ch12.administration.i01
+  dco: pa3.B.2
+  lang: en
+  cognitive: recall
+  stem: Which of the following is the primary purpose of training new test administrators before they assess athletes independently?
+  locator: Test Administration > Selection and Training of Testers
+  options:
+  - text: Ensure consistent execution and scoring across administrators
+    correct: true
+  - text: Reduce the number of trials each athlete must complete
+    correct: false
+    why_wrong: Trial count is set by the test protocol, not by administrator skill; this confuses test design with personnel training.
+  - text: Calibrate the timing lights and measuring tapes before each session
+    correct: false
+    why_wrong: Equipment calibration is a separate preparation step; administrator training addresses human judgment and procedural consistency, not hardware.
+- id: ch12.administration.i02.q1
+  item: ch12.administration.i02
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 一支大學隊伍的 1RM 深蹲測驗須在三天內完成 30 名運動員，最主要應採用哪種施測安排以優先保障評分者間信度？
+  locator: Test Administration > Test Format
+  options:
+  - text: 由同一位資深施測者為全隊施測同一項目
+    correct: true
+  - text: 由三名施測者分工，每人負責 10 名運動員
+    correct: false
+    why_wrong: 分工會引入評分者間變異；除非該測驗定義極為簡單，否則不能假設不同施測者會得到可比的結果。
+  - text: 由運動員依報到順序輪流進入不同測試站
+    correct: false
+    why_wrong: 輪站制會讓同一名運動員在不同站被不同施測者評分，反而放大施測者差異對資料的污染。
+- id: ch12.administration.i03.q1
+  item: ch12.administration.i03
+  dco: pa3.B.2
+  lang: zh
+  cognitive: recall
+  stem: 測驗前製作計分表時，最主要應預留哪一類欄位以利後續重測重現相同條件？
+  locator: Test Administration > Recording Forms
+  options:
+  - text: 環境條件與器材設定細節的記錄欄
+    correct: true
+  - text: 運動員最喜歡的暖身動作代號欄
+    correct: false
+    why_wrong: 把無關於測驗變異的偏好資訊塞進記錄欄，會稀釋真正影響再現性的設定欄位，反而干擾資料整理。
+  - text: 施測者輪班簽到與午餐休息欄
+    correct: false
+    why_wrong: 排班資訊屬於後勤管理，與測驗結果的可重現性無直接關聯；記錄欄的設計應聚焦在影響分數的變因。
+- id: ch12.administration.i04.q1
+  item: ch12.administration.i04
+  dco: pa3.B.2
+  lang: en
+  cognitive: recall
+  stem: What is the recommended timing window for a supervised familiarization session intended to improve reliability before formal testing?
+  locator: Test Administration > Preparing Athletes for Testing
+  options:
+  - text: 1 to 3 days before the test
+    correct: true
+  - text: On the morning of the test day
+    correct: false
+    why_wrong: Same-day familiarization conflates practice fatigue with the formal test performance and offers little time to correct technique errors.
+  - text: Two weeks before the test
+    correct: false
+    why_wrong: Too early a familiarization loses its consolidation effect by the test day; the book specifies a short, supervised pre-test window.
+- id: ch12.administration.i08.q1
+  item: ch12.administration.i08
+  dco: pa3.B.2
+  lang: zh
+  cognitive: recall
+  stem: 對於會大幅提高心率的測驗，施測者最主要應安排下列何種收尾？
+  locator: Test Administration > Preparing Athletes for Testing
+  options:
+  - text: 受監督的低強度活動與輕度伸展
+    correct: true
+  - text: 立即請運動員坐下或躺下休息
+    correct: false
+    why_wrong: 突然停止高心率活動會妨礙恢復；規範明確指出折返跑後不應立刻坐下或躺下。
+  - text: 讓運動員自行決定是否做伸展
+    correct: false
+    why_wrong: 緩和運動屬於施測標準化流程的一部分，不能任由運動員選擇；自行決定會引入恢復差異。
+- id: ch12.reliability.i01.q1
+  item: ch12.reliability.i01
+  dco: pa3.C.1
+  lang: zh
+  cognitive: application
+  stem: 教練想評估新導入的敏捷測驗是否適合不同成熟度的運動員，最主要應檢驗測驗的哪一項品質？
+  locator: Evaluation of Test Quality > Reliability
+  options:
+  - text: 對不同群體的可信程度
+    correct: true
+  - text: 施測流程是否簡便
+    correct: false
+    why_wrong: 施測便利屬於行政考量，與規範要求的效度與信度判斷屬於不同層次。
+  - text: 測驗名稱是否吸引人
+    correct: false
+    why_wrong: 名稱好感屬於表面印象層面，並非本章判斷測驗品質的核心依據。
+- id: ch12.reliability.i02.q1
+  item: ch12.reliability.i02
+  dco: pa3.C.1
+  lang: en
+  cognitive: recall
+  stem: What does a difference between two scores of the same athletes on the same test, with no real change in ability, most directly represent?
+  locator: Evaluation of Test Quality > Reliability
+  options:
+  - text: Measurement error in the test
+    correct: true
+  - text: A genuine training adaptation
+    correct: false
+    why_wrong: If ability is held constant, any score difference is by definition not a real adaptation; that conclusion contradicts the test–retest premise.
+  - text: A failure of the warm-up protocol
+    correct: false
+    why_wrong: Warm-up influences performance but cannot be inferred as the sole cause of every score difference on retest.
+- id: ch12.reliability.i03.q1
+  item: ch12.reliability.i03
+  dco: pa3.C.1
+  lang: zh
+  cognitive: recall
+  stem: 典型測量誤差（typical error of measurement, TE）主要包含下列哪兩類變異來源？
+  locator: Evaluation of Test Quality > Reliability
+  options:
+  - text: 器材誤差與運動員的生物變異
+    correct: true
+  - text: 施測者的學歷與運動員的性別
+    correct: false
+    why_wrong: 施測者學歷與運動員性別都不是典型測量誤差公式中的變異來源；兩者與單次分數差異的關係屬於其他品質向度。
+  - text: 場地大小與天氣季節
+    correct: false
+    why_wrong: 場地與天氣屬於施測環境變因，與典型測量誤差在統計上處理的誤差來源不同層級。
+- id: ch12.reliability.i04.q1
+  item: ch12.reliability.i04
+  dco: pa3.C.1
+  lang: zh
+  cognitive: application
+  stem: 兩名運動員在同日 20 公尺衝刺分數相差 0.3 秒，但每人單趟三次計時的標準差極小，最可能反映的誤差來源為何？
+  locator: Evaluation of Test Quality > Reliability
+  options:
+  - text: 兩人之間的內部變異
+    correct: true
+  - text: 兩位施測者的評分一致性
+    correct: false
+    why_wrong: 評分者間信度反映不同評分者給分差異，與單趟內部計時穩定的事實無關。
+  - text: 計時硬體的系統性偏差
+    correct: false
+    why_wrong: 硬體偏差通常會在單次計時產生異常值，無法解釋運動員間穩定的分數差異。
+- id: ch12.reliability.i05.q1
+  item: ch12.reliability.i05
+  dco: pa3.C.1
+  lang: zh
+  cognitive: application
+  stem: 兩位施測者對同一場垂直跳獨立評分，平均分數出現系統性差距，最主要反映下列哪一項測驗品質問題？
+  locator: Evaluation of Test Quality > Reliability
+  options:
+  - text: 兩位評分者之間的一致性不足
+    correct: true
+  - text: 同一受測者表現的不穩定性
+    correct: false
+    why_wrong: 受試者內變異描述同一運動員表現的不一致，無法解釋兩位施測者之間的系統差距。
+  - text: 測驗項目是否涵蓋相關能力
+    correct: false
+    why_wrong: 內容效度關於測驗項目與相關能力的對應，與兩位施測者給分差距的現象無直接關聯。
+- id: ch12.reliability.i06.q1
+  item: ch12.reliability.i06
+  dco: pa3.C.1
+  lang: zh
+  cognitive: application
+  stem: 深蹲 1RM 施測者在前後測期間對運動員變得較寬鬆，最主要會威脅哪一種測驗品質？
+  locator: Evaluation of Test Quality > Reliability
+  options:
+  - text: 評分者內變異
+    correct: true
+  - text: 建構效度
+    correct: false
+    why_wrong: 建構效度涉及測驗內容與構念的對應，與施測者寬嚴不一並無直接關聯。
+  - text: 區辨效度
+    correct: false
+    why_wrong: 區辨效度比較測驗與不同構念的相關，無法解釋同一施測者前後差距的現象。
+- id: ch12.reliability.i07.q1
+  item: ch12.reliability.i07
+  dco: pa3.C.1
+  lang: zh
+  cognitive: application
+  stem: 對尚未熟悉高翻技術的大學新鮮人進行 1RM 高翻測驗時，最主要的結果變異來源為何？
+  locator: Evaluation of Test Quality > Reliability
+  options:
+  - text: 測驗本身的技術要求
+    correct: true
+  - text: 器材插銷高度的誤差
+    correct: false
+    why_wrong: 插銷高度屬於設定變因，可在測前固定；對技術生疏者而言並非主要變異來源。
+  - text: 施測者指示的音量大小
+    correct: false
+    why_wrong: 指示音量影響理解程度，但無法解釋技術要求高的測驗中常見的大幅結果變異。
+- id: ch12.reliability.i08.q1
+  item: ch12.reliability.i08
+  dco: pa3.C.1
+  lang: zh
+  cognitive: analysis
+  stem: 某場地測驗在短距衝刺與中距跑都高度穩定，但對運動表現的解釋力有限，最主要反映下列哪一項測驗品質的問題？
+  locator: Evaluation of Test Quality > Reliability
+  options:
+  - text: 測驗可靠但缺乏效度
+    correct: true
+  - text: 信度與效度皆不足
+    correct: false
+    why_wrong: 高度穩定的分數代表信度已建立；同時否認兩者會與題幹中『高度穩定』的事實矛盾。
+  - text: 僅有區辨效度而無聚合效度
+    correct: false
+    why_wrong: 區辨與聚合屬於效標參照效度的子類，與題幹描述的『可靠但解釋力有限』並非同一層次判斷。
+- id: ch12.safety.i02.q1
+  item: ch12.safety.i02
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 即便運動員已通過醫療篩檢，施測者在 1RM 測驗前最主要仍應持續關注下列何者？
+  locator: Test Administration > Health and Safety Considerations
+  options:
+  - text: 可能威脅健康的條件與排除施測的徵象
+    correct: true
+  - text: 施測者的口頭鼓勵音量大小
+    correct: false
+    why_wrong: 施測者音量屬於施測一致性問題，與健康安全的辨識責任無直接關聯。
+  - text: 場地燈光的色溫是否符合拍攝需求
+    correct: false
+    why_wrong: 燈光色溫對施測安全影響極小，把它列為最大用力前的關注焦點會模糊真正的安全責任。
+- id: ch12.safety.i03.q1
+  item: ch12.safety.i03
+  dco: pa3.B.2
+  lang: zh
+  cognitive: recall
+  stem: 在高溫高濕環境下施行大量用力測驗時，最主要的額外風險為下列何者？
+  locator: Test Administration > Health and Safety Considerations
+  options:
+  - text: 熱傷害的風險升高
+    correct: true
+  - text: 器材接縫的疲勞裂紋加速
+    correct: false
+    why_wrong: 器材裂紋屬於維護問題，與高溫高濕環境對生理的直接威脅無直接關聯。
+  - text: 場地畫線的反光程度改變
+    correct: false
+    why_wrong: 畫線反光屬於視覺與施測條件差異，並非規範在高溫高濕段落強調的主要風險。
+- id: ch12.safety.i04.q1
+  item: ch12.safety.i04
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 教練要在午後 32°C 烈日下施行有氧耐力測驗，最主要應採取下列哪一項安全措施？
+  locator: Test Administration > Health and Safety Considerations > Aerobic Endurance Testing in the Heat
+  options:
+  - text: 改至清晨或傍晚，或移至室內場地施測
+    correct: true
+  - text: 讓運動員穿深色吸熱衣物以加速熱適應
+    correct: false
+    why_wrong: 深色衣物會增加熱吸收並提高熱傷害風險；規範要求穿輕便衣物而非深色衣物。
+  - text: 完全不調整時間並維持原訂午後場次
+    correct: false
+    why_wrong: 完全忽視極端高溫高濕的組合違反規範的至少 5°F（3°C）安全邊際原則。
+- id: ch12.safety.i05.q1
+  item: ch12.safety.i05
+  dco: pa3.B.2
+  lang: zh
+  cognitive: recall
+  stem: 來自涼爽氣候的運動員在高溫高濕環境接受有氧耐力測驗前，最少應先適應多久？
+  locator: Test Administration > Health and Safety Considerations > Aerobic Endurance Testing in the Heat
+  options:
+  - text: 1 週
+    correct: true
+  - text: 1 天
+    correct: false
+    why_wrong: 一天不足以建立高溫高濕下的體能基準；規範對熱適應有至少一週的明確建議。
+  - text: 1 個月
+    correct: false
+    why_wrong: 一個月雖可適應，但會延誤正常的測驗時程；規範只要求最低時程，並未要求更長。
+- id: ch12.safety.i06.q1
+  item: ch12.safety.i06
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 教練在熱中有氧耐力測驗前 24 小時評估運動員水分狀態時，最主要應以下列何者作為水分充足的實用指標？
+  locator: Test Administration > Health and Safety Considerations > Aerobic Endurance Testing in the Heat
+  options:
+  - text: 大量且清澈的尿液
+    correct: true
+  - text: 體重較日常下降幅度
+    correct: false
+    why_wrong: 體重微降可能反映脫水或正常波動；規範提供的水分充足指標是尿液外觀而非體重。
+  - text: 主觀口渴感的強度
+    correct: false
+    why_wrong: 口渴感在熱環境下容易延遲出現，不能作為水分充足的可靠實用指標。
+- id: ch12.safety.i07.q1
+  item: ch12.safety.i07
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 在熱環境下持續時間不超過一小時的有氧耐力測驗中，最主要的飲水選擇應為下列何者？
+  locator: Test Administration > Health and Safety Considerations > Aerobic Endurance Testing in the Heat
+  options:
+  - text: 白開水作為主要飲品
+    correct: true
+  - text: 高糖高電解質運動飲料
+    correct: false
+    why_wrong: 高糖高電解質飲料適用於更長時間的運動；一小時內的白開水才是規範建議。
+  - text: 含咖啡因的能量飲料
+    correct: false
+    why_wrong: 咖啡因會增加心血管與代謝負擔，與熱中測驗的安全考量背道而馳。
+- id: ch12.safety.i08.q1
+  item: ch12.safety.i08
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 一名跑者在熱中長跑後出現意識改變、極度稀釋尿液與皮膚浮腫，但體溫未升高，施測者最主要的處置應為何？
+  locator: Test Administration > Health and Safety Considerations > Aerobic Endurance Testing in the Heat
+  options:
+  - text: 立即停止補液並由醫師處置
+    correct: true
+  - text: 繼續大量飲水以避免脫水
+    correct: false
+    why_wrong: 繼續大量飲水會惡化低血鈉；規範明確禁止在低血鈉症狀下再給予液體。
+  - text: 以冰水浴快速降低體溫
+    correct: false
+    why_wrong: 體溫未升高代表問題不是中暑；冰水浴是針對高體溫的處置，與低血鈉的處置方向不符。
+- id: ch12.selection-factors.i01.q1
+  item: ch12.selection-factors.i01
+  dco: pa1.A.3
+  lang: zh
+  cognitive: application
+  stem: 教練為一名 400 公尺短跑選手選擇測驗時，最主要的考量應為下列何者？
+  locator: Test Selection > Metabolic Energy System Specificity
+  options:
+  - text: 測驗是否模擬該距離所動用的能量系統組合
+    correct: true
+  - text: 測驗是否為所有運動員通用的場地測驗
+    correct: false
+    why_wrong: 通用性不是能量系統特異性的考量；規範要求依單項運動的能量需求挑選測驗。
+  - text: 測驗是否使用最新型的穿戴式紀錄器
+    correct: false
+    why_wrong: 器材新穎與否與能量系統模擬程度無關；規範把重點放在測驗與運動的能量對應。
+- id: ch12.selection-factors.i03.q1
+  item: ch12.selection-factors.i03
+  dco: pa1.A.3
+  lang: zh
+  cognitive: application
+  stem: 對剛接觸舉重的大學新鮮人施測 1RM 抓舉，最主要的疑慮為下列何者？
+  locator: Test Selection > Experience and Training Status
+  options:
+  - text: 技術不純熟可能影響結果
+    correct: true
+  - text: 抓舉所需的暖身時間過長
+    correct: false
+    why_wrong: 暖身時間屬於行政安排，與技術純熟度影響測驗效度的核心疑慮無關。
+  - text: 抓舉測驗所需的器材成本過高
+    correct: false
+    why_wrong: 器材成本是資源問題，與技術經驗是否足以穩定完成測驗的判斷屬於不同層面。
+- id: ch12.selection-factors.i04.q1
+  item: ch12.selection-factors.i04
+  dco: pa1.A.3
+  lang: zh
+  cognitive: application
+  stem: 教練要在秋季訓練開始前一週為棒球員安排下肢測驗，最不適合的安排為下列何者？
+  locator: Test Selection > Experience and Training Status
+  options:
+  - text: 要求棒球員進行長距離跑步測驗
+    correct: true
+  - text: 要求棒球員進行 10 碼衝刺測驗
+    correct: false
+    why_wrong: 10 碼衝刺與棒球場上的衝刺距離相近，符合訓練狀態與測驗內容對應的原則。
+  - text: 要求棒球員進行平行深蹲 1RM 測驗
+    correct: false
+    why_wrong: 平行深蹲與棒球員常見的下肢推蹬動作相關，屬於可接受的測驗選擇。
+- id: ch12.selection-factors.i05.q1
+  item: ch12.selection-factors.i05
+  dco: pa1.A.3
+  lang: zh
+  cognitive: application
+  stem: 教練要評估女性划船選手的上肢肌耐力，最主要應選擇下列哪一種測驗形式以避免無法區辨不同水準？
+  locator: Test Selection > Age and Sex
+  options:
+  - text: 雙腳支撐的俯臥拉引體
+    correct: true
+  - text: 最大反覆引體向上測驗
+    correct: false
+    why_wrong: 規範明確指出引體向上對女性可能無法區分肌耐力水準；選它違背性別考量原則。
+  - text: 站立單手啞鈴彎舉測驗
+    correct: false
+    why_wrong: 啞鈴彎舉動員的是肘屈肌，與划船選手上肢拉的重複動作模式不相符。
+- id: ch12.selection-factors.i06.q1
+  item: ch12.selection-factors.i06
+  dco: pa1.A.3
+  lang: zh
+  cognitive: application
+  stem: 教練在溫度接近 80°F、濕度超過 50% 的戶外場地要施測有氧耐力，最主要應採取下列哪一項處置？
+  locator: Test Selection > Environmental Factors
+  options:
+  - text: 改至室內跑道或跑步機施測
+    correct: true
+  - text: 在同樣條件下連續多日重測取平均
+    correct: false
+    why_wrong: 連續重測無法解決環境對表現的直接影響；規範指出環境條件會降低有氧耐力效度。
+  - text: 讓運動員脫水以減輕熱負荷
+    correct: false
+    why_wrong: 脫水會惡化熱傷害風險；規範要求保留安全邊際並提供水分，而非讓運動員脫水。
+- id: ch12.test-sequence.i01.q1
+  item: ch12.test-sequence.i01
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 教練規劃一節含多項測驗的施測日，最主要的排序原則應為下列何者？
+  locator: Test Administration > Sequence of Tests
+  options:
+  - text: 確保前一項測驗不影響後續測驗的表現
+    correct: true
+  - text: 由最累的測驗開始以便後段節省時間
+    correct: false
+    why_wrong: 由最累的測驗開始會污染後續分數並降低可比性，違反排序原則的核心要求。
+  - text: 依字母順序排列測驗以方便記憶
+    correct: false
+    why_wrong: 字母排序與疲勞恢復無關；規範要求依能量系統與技術干擾安排順序。
+- id: ch12.test-sequence.i03.q1
+  item: ch12.test-sequence.i03
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 教練規劃 T 測驗與 300 碼折返跑的施測順序時，最主要應採用下列何種安排？
+  locator: Test Administration > Sequence of Tests
+  options:
+  - text: T 測驗排在 300 碼折返跑之前
+    correct: true
+  - text: 300 碼折返跑排在 T 測驗之前
+    correct: false
+    why_wrong: 高技術動作的敏捷測驗應排在疲勞測驗前；把疲勞測驗排在前會干擾敏捷表現。
+  - text: 兩者同日任意穿插安排即可
+    correct: false
+    why_wrong: 規範明確指出技術要求高的測驗須排在疲勞測驗之前，不可任意穿插。
+- id: ch12.test-sequence.i07.q1
+  item: ch12.test-sequence.i07
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 教練要把 300 碼折返跑與有氧耐力測驗排在同一天，最主要的處置應為下列何者？
+  locator: Test Administration > Sequence of Tests
+  options:
+  - text: 盡量安排在不同日並延長休息
+    correct: true
+  - text: 兩者排在測驗日最前段以利表現
+    correct: false
+    why_wrong: 把疲勞性無氧與有氧測驗排在最前段會污染其他測驗分數，違背順序邏輯。
+  - text: 兩者隨意穿插於其他測驗之間
+    correct: false
+    why_wrong: 疲勞性測驗穿插於其他測驗之間會干擾後續表現；規範要求集中在後段並延長休息。
+- id: ch12.validity.i01.q1
+  item: ch12.validity.i01
+  dco: pa3.C.1
+  lang: zh
+  cognitive: application
+  stem: 教練評估一套新測驗時，最主要的判斷依據應為下列何者？
+  locator: Evaluation of Test Quality > Validity > Construct Validity
+  options:
+  - text: 測驗是否量到其設計要測的構念
+    correct: true
+  - text: 測驗施測所需的時間長短
+    correct: false
+    why_wrong: 施測時間是行政考量而非效度判斷；規範要求以構念對應為核心標準。
+  - text: 運動員對測驗名稱的熟悉程度
+    correct: false
+    why_wrong: 名稱熟悉屬於表面印象，與構念效度的判斷屬於不同層次。
+- id: ch12.validity.i06.q1
+  item: ch12.validity.i06
+  dco: pa3.C.1
+  lang: zh
+  cognitive: application
+  stem: 一名新場地垂直跳裝置的分數與實驗室測力板高度呈高度正相關且所需資源較低，最主要支持下列何種效度？
+  locator: Evaluation of Test Quality > Validity > Criterion-Referenced Validity
+  options:
+  - text: 聚合效度
+    correct: true
+  - text: 區辨效度
+    correct: false
+    why_wrong: 區辨效度要求與不同構念的測量呈低相關，與題幹中的高度正相關描述相反。
+  - text: 預測效度
+    correct: false
+    why_wrong: 預測效度要求與未來表現相對應，題幹中比較的對象是當下的實驗室測量而非未來表現。
+- id: ch12.why-test.i08.q1
+  item: ch12.why-test.i08
+  dco: pa1.A.4
+  lang: zh
+  cognitive: analysis
+  stem: 教練將測驗結果彙整為四類用途：選才、辨識需改善能力、評估計畫、設定目標，最主要對應本章結論段所列的測驗功能嗎？
+  locator: Conclusion
+  options:
+  - text: 對應，本章結論段將這四者列為施測主要用途
+    correct: true
+  - text: 只對應前三項，設定目標不在本章結論中
+    correct: false
+    why_wrong: 規範把設定目標明列為施測的用途之一；只承認前三項會漏列一項主要功能。
+  - text: 只對應選才與計畫評估，其餘兩項屬於其他章節
+    correct: false
+    why_wrong: 辨識需改善能力與設定目標同屬本章結論段列出的施測用途；縮減範圍會與規範不一致。
+- id: ch12.administration.i07.q1
+  item: ch12.administration.i07
+  dco: pa3.B.2
+  lang: en
+  cognitive: application
+  stem: A coach is arranging a test battery that includes a 1RM back squat, a vertical jump, and a 40-meter sprint. What is the minimum rest interval between the back squat and the next test in the battery?
+  locator: Test Administration > Testing Batteries and Multiple Testing Trials
+  options:
+  - text: 5 minutes
+    correct: true
+  - text: 1 minute
+    correct: false
+    why_wrong: One minute is insufficient to dissipate fatigue between distinct tests in a battery; the chapter specifies a 5-minute minimum to prevent contamination of subsequent results.
+  - text: 15 minutes
+    correct: false
+    why_wrong: Fifteen minutes provides more recovery than required for a standard battery transition and would unnecessarily extend the session.
+- id: ch12.selection-factors.i02.q1
+  item: ch12.selection-factors.i02
+  dco: pa1.A.3
+  lang: en
+  cognitive: analysis
+  stem: A women's collegiate volleyball program is selecting a movement-pattern specific test for its middle blockers. Which assessment is most aligned with the biomechanical specificity principle for this position?
+  locator: Test Selection > Biomechanical Movement Pattern Specificity
+  options:
+  - text: Vertical jump height
+    correct: true
+  - text: 1.5-mile run time
+    correct: false
+    why_wrong: The 1.5-mile run tests aerobic endurance, not the vertical jump pattern that dominates blocking and attacking; it does not share the primary movement pattern.
+  - text: Sit-and-reach distance
+    correct: false
+    why_wrong: Sit-and-reach measures hamstring flexibility; while useful in a broader battery, it does not reflect the jump-specific movement pattern prioritized for middle blockers.
+- id: ch12.reliability.i05.q2
+  item: ch12.reliability.i05
+  dco: pa3.C.1
+  lang: en
+  cognitive: application
+  stem: Two trained testers score the same broad jump attempts independently and produce nearly identical mean scores with a small standard deviation across attempts. Which test quality is most clearly demonstrated?
+  locator: Evaluation of Test Quality > Reliability
+  options:
+  - text: High interrater reliability
+    correct: true
+  - text: High predictive validity
+    correct: false
+    why_wrong: Predictive validity relates current scores to a future outcome such as sport performance; the observation describes agreement between raters on the same day, not future performance.
+  - text: Low intrarater variability only
+    correct: false
+    why_wrong: The comparison is between two raters, not within a single rater; the scenario describes interrater agreement rather than a single rater's internal consistency.
+- id: ch12.test-sequence.i08.q1
+  item: ch12.test-sequence.i08
+  dco: pa3.B.2
+  lang: en
+  cognitive: application
+  stem: A coach schedules both the 300-yard shuttle and the 1.5-mile run on the same test day. What is the best placement strategy within the day's logical sequence?
+  locator: Test Administration > Sequence of Tests
+  options:
+  - text: Place them last after an extended rest interval
+    correct: true
+  - text: Place them at the start before any other tests
+    correct: false
+    why_wrong: Starting with the most fatiguing tests contaminates all subsequent scores; the chapter specifically advises placing aerobic and fatiguing anaerobic capacity tests last.
+  - text: Interleave them between non-fatiguing tests to save time
+    correct: false
+    why_wrong: Interleaving fatiguing tests among others allows fatigue to spill into the surrounding scores, defeating the purpose of the logical sequence.
+- id: ch12.administration.i06.q1
+  item: ch12.administration.i06
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 施測者在測驗前向運動員說明指示時，最主要的內容應包含下列何者？
+  locator: Test Administration > Preparing Athletes for Testing
+  options:
+  - text: 測驗目的、動作方式與計分方式
+    correct: true
+  - text: 施測者個人的背景與執照字號
+    correct: false
+    why_wrong: 施測者背景與受測者表現無關；把行政資訊塞進指示會稀釋真正影響表現的內容。
+  - text: 運動員過去的訓練與受傷紀錄
+    correct: false
+    why_wrong: 受測者病史屬於篩檢階段資料，與當次測驗指示的內容層次不同。
+- id: ch12.selection-factors.i07.q1
+  item: ch12.selection-factors.i07
+  dco: pa1.A.3
+  lang: en
+  cognitive: analysis
+  stem: A team based near sea level travels to a training camp at 7,500 feet and plans an aerobic capacity test one day after arrival. What is the most appropriate adjustment?
+  locator: Test Selection > Environmental Factors
+  options:
+  - text: Allow at least 10 days of acclimatization before conducting the aerobic test
+    correct: true
+  - text: Proceed with the test but interpret results using sea-level norms
+    correct: false
+    why_wrong: Using sea-level norms above 1,900 feet systematically misreads the lower VO2max values caused by altitude; the chapter requires norm adjustment, not unchanged interpretation.
+  - text: Switch the test to a maximal strength assessment since altitude does not affect strength
+    correct: false
+    why_wrong: Altitude does not affect strength, but switching tests does not deliver the information the team originally needed from the aerobic assessment.
+- id: ch12.safety.i01.q1
+  item: ch12.safety.i01
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 運動員在測驗結束 30 分鐘後出現持續性暈眩與不規則脈搏，施測者最主要應採取下列何種處置？
+  locator: Test Administration > Health and Safety Considerations
+  options:
+  - text: 立即安排醫療轉介處置
+    correct: true
+  - text: 請運動員臥躺休息並等候觀察
+    correct: false
+    why_wrong: 持續性暈眩合併不規則脈搏已達需要醫療處置的門檻；單純觀察會延誤處置並違背規範的轉介條件。
+  - text: 以冰敷額頭並補充電解質飲料
+    correct: false
+    why_wrong: 把心臟相關症狀當作熱病處理會誤導處置方向；規範要求辨識條件後轉介而非自我處置。
+- id: ch12.selection-factors.i08.q1
+  item: ch12.selection-factors.i08
+  dco: pa1.A.3
+  lang: zh
+  cognitive: application
+  stem: 為美式足球防守線鋒與外接手挑選測驗時，最主要應以下列哪一項作為差異化依據？
+  locator: Test Selection > Biomechanical Movement Pattern Specificity
+  options:
+  - text: 該位置的衝刺距離與推開需求
+    correct: true
+  - text: 兩者都做相同的全身最大肌力測驗
+    correct: false
+    why_wrong: 規範強調同一運動內不同位置的身體需求不同；用相同測驗會忽略位置差異。
+  - text: 兩者都做相同距離的衝刺測驗
+    correct: false
+    why_wrong: 防守線鋒與外接手的衝刺距離需求不同；套用單一距離的衝刺測驗違背位置特異性。
+- id: ch12.why-test.i08.q2
+  item: ch12.why-test.i08
+  dco: pa1.A.4
+  lang: en
+  cognitive: analysis
+  stem: 'A coach cites four reasons for testing: evaluating talent, identifying weaknesses, evaluating program effectiveness, and setting goals. How most accurately does this list align with the chapter''s conclusion?'
+  locator: Conclusion
+  options:
+  - text: It matches all four purposes listed in the conclusion
+    correct: true
+  - text: It omits one purpose, since the conclusion lists only three
+    correct: false
+    why_wrong: The chapter explicitly enumerates four testing purposes; reducing them to three misrepresents the conclusion's scope.
+  - text: It adds a purpose not supported by the conclusion
+    correct: false
+    why_wrong: Each of the four reasons maps directly onto a stated purpose; treating any of them as extra misreads the conclusion.
+- id: ch12.why-test.i02.q1
+  item: ch12.why-test.i02
+  dco: pa1.A.4
+  lang: zh
+  cognitive: application
+  stem: 教練想區分哪些運動員的弱點可透過訓練改善、哪些屬於先天限制，最主要的施測目的為下列何者？
+  locator: Reasons for Testing > Identification of Physical Abilities in Need of Improvement
+  options:
+  - text: 辨識可作為訓練目標的特質
+    correct: true
+  - text: 決定運動員是否要退出校隊
+    correct: false
+    why_wrong: 規範列出的施測目的不包含退隊決策；把它列為主要目的會把測驗用於行政而非訓練介入。
+  - text: 為運動員排名作為獎懲依據
+    correct: false
+    why_wrong: 規範未把排名或獎懲列為施測目的；把它列為主要目的會扭曲測驗的訓練意圖。
+- id: ch12.why-test.i02.q2
+  item: ch12.why-test.i02
+  dco: pa1.A.4
+  lang: zh
+  cognitive: analysis
+  stem: 一名 5 呎 6 吋、169 磅（76.7 公斤）的 D3 女子冰球員測驗結果如下：1RM 前蹲 175 磅（79.4 公斤）、1RM 槓鈴六角槓硬舉 225 磅（103 公斤）、垂直跳 17.5 吋（44.5 公分）、立定跳遠 58 吋（148 公分）、300 碼折返跑 65 秒、1RM 臥推 115 磅（52 公斤）。冰球員首要需要的能力是水平方向的爆發力，下一訓練區塊最主要應加入下列何項？
+  locator: Reasons for Testing > Identification of Physical Abilities in Need of Improvement
+  options:
+  - text: 水平爆發力的專項訓練
+    correct: true
+  - text: 上肢推的最大肌力訓練
+    correct: false
+    why_wrong: 冰球員的測驗組合顯示上肢推並非首要缺口；把它列為下一區塊重點會忽略水平爆發力這一更迫切的需求。
+  - text: 延長有氧耐力的長距離跑步
+    correct: false
+    why_wrong: 冰球屬於反覆衝刺的無氧主導項目；加入長距離跑步無法對應測驗組合所呈現的爆發力缺口。
+- id: ch12.reliability.i08.q2
+  item: ch12.reliability.i08
+  dco: pa3.C.1
+  lang: en
+  cognitive: analysis
+  stem: A speed test produces highly repeatable scores across two trials for a college soccer team, yet those scores correlate only weakly with match running performance. Which combination of qualities most accurately characterizes this test?
+  locator: Evaluation of Test Quality > Reliability
+  options:
+  - text: Reliable but not valid for match running
+    correct: true
+  - text: Valid but unreliable across trials
+    correct: false
+    why_wrong: The scenario explicitly states scores are highly repeatable, so reliability is established; describing the test as unreliable contradicts the observed repeatability.
+  - text: Neither reliable nor valid overall
+    correct: false
+    why_wrong: High repeatability rules out the 'neither' conclusion; a test can lack validity for a specific outcome while still being reliable in its measurement.
+- id: ch12.terminology.i07.q1
+  item: ch12.terminology.i07
+  dco: pa3.C.2
+  lang: zh
+  cognitive: application
+  stem: 教練在季中每隔四週對球員重測一次垂直跳並據以調整訓練量，最主要屬於下列何種施測類型？
+  locator: Testing Terminology
+  options:
+  - text: 形成性
+    correct: true
+  - text: 前測
+    correct: false
+    why_wrong: 前測發生於訓練開始前；季中重測已超出前測的時間範圍。
+  - text: 後測
+    correct: false
+    why_wrong: 後測發生於整段訓練期結束後；季中重測不屬於後測的功能定位。
+- id: ch12.why-test.i04.q1
+  item: ch12.why-test.i04
+  dco: pa1.A.4
+  lang: zh
+  cognitive: analysis
+  stem: 教練在 12 週訓練期結束後對球員再測一次 40 碼衝刺，最主要用以評估下列何者？
+  locator: Reasons for Testing
+  options:
+  - text: 訓練計畫達成目標的程度
+    correct: true
+  - text: 球員是否需要更換位置
+    correct: false
+    why_wrong: 規範未把位置調整列為定期施測的主要目的；把它列為主要目的會模糊測驗的評估定位。
+  - text: 比賽場地的天氣風險
+    correct: false
+    why_wrong: 天氣風險屬於環境管理範疇，與定期施測的功能定位無直接關聯。
+- id: ch12.why-test.i04.q2
+  item: ch12.why-test.i04
+  dco: pa1.A.4
+  lang: en
+  cognitive: analysis
+  stem: A coach repeats a vertical jump test every three weeks during a 12-week training block and adjusts the program based on each retest. How most accurately does this practice relate to the chapter's definitions of test types?
+  locator: Reasons for Testing
+  options:
+  - text: Formative evaluation driven by midtests
+    correct: true
+  - text: Posttest because it occurs after training begins
+    correct: false
+    why_wrong: A posttest is defined as occurring at the end of the training period to judge overall success; repeating tests every three weeks to adjust the program fits the midtest-driven cycle, not posttest timing.
+  - text: Pretest because it establishes the baseline each cycle
+    correct: false
+    why_wrong: A pretest is administered before the training period to determine the starting ability level; repeating tests within the block does not establish a new pretest each time.
+- id: ch12.administration.i06.q2
+  item: ch12.administration.i06
+  dco: pa3.B.2
+  lang: en
+  cognitive: application
+  stem: Before delivering the standardized instructions for a new balance test, what should the administrator most prioritize to maximize reliability and objectivity?
+  locator: Test Administration > Preparing Athletes for Testing
+  options:
+  - text: Clear, concise instructions covering purpose, technique, and scoring
+    correct: true
+  - text: A long motivational speech designed to inspire maximum effort
+    correct: false
+    why_wrong: Motivation should be applied uniformly and briefly; a long speech varies between testers and becomes a source of interrater variability rather than a reliability asset.
+  - text: Sharing personal anecdotes about past athletes who excelled
+    correct: false
+    why_wrong: Personal anecdotes distract from the standardized script and create inconsistency between administrations; the chapter emphasizes uniform delivery.
+- id: ch12.test-sequence.i02.q1
+  item: ch12.test-sequence.i02
+  dco: pa3.B.2
+  lang: zh
+  cognitive: application
+  stem: 教練在一節測驗組合的最開始要安排垂直跳測驗，最主要的理由為下列何者？
+  locator: Test Administration > Sequence of Tests
+  options:
+  - text: 垂直跳屬於非疲勞測驗
+    correct: true
+  - text: 垂直跳的計分需要疲勞校正
+    correct: false
+    why_wrong: 規範並未把垂直跳定位為疲勞校正測驗；它的位置在排序上是因為不產生疲勞。
+  - text: 垂直跳的技術最難須留到最後
+    correct: false
+    why_wrong: 技術難度高的測驗通常要避免疲勞干擾；把垂直跳留到最後與規範排序相反。
+- id: ch12.administration.i05.q1
+  item: ch12.administration.i05
+  dco: pa3.B.2
+  lang: en
+  cognitive: application
+  stem: When preparing athletes for a power test, what warm-up structure best aligns with the chapter's guidance to improve reliability?
+  locator: Test Administration > Preparing Athletes for Testing
+  options:
+  - text: General warm-up followed by 2 to 3 activity-specific attempts
+    correct: true
+  - text: Only a static-stretching routine for ten minutes
+    correct: false
+    why_wrong: Static stretching alone does not prepare athletes for the dynamic, activity-specific demands of a power test; the chapter pairs general and specific warm-ups.
+  - text: One maximal practice attempt counted as the first test score
+    correct: false
+    why_wrong: Counting the practice attempt conflates familiarization with the formal test; the chapter specifies that scoring attempts come after the specific warm-up attempts.

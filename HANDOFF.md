@@ -343,6 +343,26 @@ ch11 生成停在 5 條錯誤、修 5 輪不動，人工接手看四題，**沒�
 （本章 0.625）。修法是把其中一題改問同一 item 的另一個數字（肌酸的 0.5–2 kg 體重增加）。
 **這個掃描從 ch12 起併進每章查證的固定動作**，指令與 item 唯一性、配比一起跑。
 
+### ⚠ ch12 做到一半停在 MiniMax 配額耗盡（2026-09-17，未完成）
+
+`data/cscs/_quiz_bank/ch12.yaml` 已 commit 但**是半成品，不要當完成品用**。第 3 輪修正
+發 HTTP 429：`Token Plan usage limit reached: Upgrade your Token Plan or purchase Credits
+for more usage. (2056)`——這是**方案 token 額度用盡，不是每分鐘限流**，訊息沒給重置時間，
+`deskboard` 的 `llm_usage.read_minimax()` 目前回 `status='unavailable'` 讀不到窗。
+**依既有規則不重試、不自行換管道**，等使用者決定（等重置／加值／換 provider）。
+
+停下來時的狀態：49 題（配題表要 55），application 32（要 30）、analysis **9（要 17）**、
+recall 8（要 8），英文 13（要 18）。缺口主要在 analysis 與英文題，**不是補 6 題就好，
+要再跑幾輪生成**。另有 4 條非配額的閘錯誤留著沒修（`reliability.i06.q1` G2、
+`reliability.i08.q2` G2、`terminology.i07.q1` G2、`test-sequence.i03.q1` G9 重疊率 1.000）
+——**刻意不手修**，因為下一輪生成很可能整題換掉，現在修等於白做。
+六個 item 各出了兩題（`reliability.i05` / `i08`、`why-test.i02` / `i04` / `i08`、
+`administration.i06`），在 `MAX_ITEM_QUESTIONS = 2` 之內，但查證時要確認兩題不撞同一考點。
+**人工逐題查證還沒開始。**
+
+恢復方式：MiniMax 有額度後直接 `python tools/cscs_quiz_direct.py ch12`，它會讀現有
+yaml 只補／修不足的部分（既有題庫每輪自動備份到 `.prompts/backup/`）。
+
 ch12 → ch24 照章號串行，每章「`cscs_quiz_direct.py` 出題 → 過閘 → 人工逐題查證 →
 commit」才派下一章。`_quiz_bank/ch13.yaml`、`ch18.yaml` 仍是更早的 10 題試作，還帶著
 四選項、`lang: None`、`dco: None` 的紅字，輪到該章時整份重寫，不必另外處理。
