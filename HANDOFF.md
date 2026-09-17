@@ -1,6 +1,6 @@
 # HANDOFF — my-site (Cortex)
 
-## CSCS 題庫重寫：ch01–ch11 完成，出題／審查／重出全改走直呼 API（2026-09-17）
+## CSCS 題庫重寫：ch01–ch12 完成，出題／審查／重出全改走直呼 API（2026-09-17）
 
 依使用者「先擴充題庫再接讀書器、中英都要、合併成一份、按 CSCS 出題邏輯」的指示，把
 `data/cscs/_quiz_bank/chNN.yaml` 從四選項改寫為 NSCA 實際的**三選項**，並照官方 DCO 的
@@ -25,7 +25,11 @@
 **ch11 完成 20 題並已逐題查證**（22 道閘 0 錯，5 recall / 10 application / 5 analysis，
 7 EN / 13 ZH（英文數在 8±1 容差內），20 題落在 20 個不同 item；閘停在 5 條錯誤時
 人工修掉 4 題，查證再抓出 3 條閘擋不掉的缺陷，見下節）。
-ch12–ch24 尚未開始，照章號串行，
+**ch12 完成 55 題並已逐題查證**（22 道閘 0 錯，8 recall / 30 application / 17 analysis，
+18 EN / 37 ZH，精準命中配題表；55 題落在 54 個 item，只有 `administration.i02` 出兩題；
+**這是第一章用 `--part K/N` 分批出題的**——不分批連跑兩次都只有 49 題、analysis 9 再 4，
+見下節）。
+ch13–ch24 尚未開始，照章號串行，
 **每章跑完出題 + 過閘 + 人工逐題查證 + commit 才做下一章**。
 
 **配題表已上調（`dc1267c`）**：全庫 385 → 967 題，比例不動只等比放大 2.5 倍，
@@ -343,27 +347,52 @@ ch11 生成停在 5 條錯誤、修 5 輪不動，人工接手看四題，**沒�
 （本章 0.625）。修法是把其中一題改問同一 item 的另一個數字（肌酸的 0.5–2 kg 體重增加）。
 **這個掃描從 ch12 起併進每章查證的固定動作**，指令與 item 唯一性、配比一起跑。
 
-### ⚠ ch12 做到一半停在 MiniMax 配額耗盡（2026-09-17，未完成）
+### ch12：40 題以上的章一律分批出，以及 429 的誤判更正（2026-09-17）
 
-`data/cscs/_quiz_bank/ch12.yaml` 已 commit 但**是半成品，不要當完成品用**。第 3 輪修正
-發 HTTP 429：`Token Plan usage limit reached: Upgrade your Token Plan or purchase Credits
-for more usage. (2056)`——這是**方案 token 額度用盡，不是每分鐘限流**，訊息沒給重置時間，
-`deskboard` 的 `llm_usage.read_minimax()` 目前回 `status='unavailable'` 讀不到窗。
-**依既有規則不重試、不自行換管道**，等使用者決定（等重置／加值／換 provider）。
+**更正一條先前寫錯的判斷**：第 3 輪修正發的 HTTP 429（`Token Plan usage limit reached:
+Upgrade your Token Plan or purchase Credits for more usage. (2056)`）我判成「方案 token
+額度用盡」並寫進本檔，**這是錯的**——幾分鐘後一個最小 probe 就回 200 OK，實際行為是
+**短窗限流**。MiniMax 這個訊息的字面不可信；`deskboard` 的 `llm_usage.read_minimax()`
+回 `status='unavailable'`（`ValueError`）也讀不到窗，**唯一可靠的訊號是發一個最小 probe**。
 
-停下來時的狀態：49 題（配題表要 55），application 32（要 30）、analysis **9（要 17）**、
-recall 8（要 8），英文 13（要 18）。缺口主要在 analysis 與英文題，**不是補 6 題就好，
-要再跑幾輪生成**。另有 4 條非配額的閘錯誤留著沒修（`reliability.i06.q1` G2、
-`reliability.i08.q2` G2、`terminology.i07.q1` G2、`test-sequence.i03.q1` G9 重疊率 1.000）
-——**刻意不手修**，因為下一輪生成很可能整題換掉，現在修等於白做。
-六個 item 各出了兩題（`reliability.i05` / `i08`、`why-test.i02` / `i04` / `i08`、
-`administration.i06`），在 `MAX_ITEM_QUESTIONS = 2` 之內，但查證時要確認兩題不撞同一考點。
-**人工逐題查證還沒開始。**
+**真正的問題不是配額，是不分批出不到配比。** ch12 不分批連跑兩次，都停在 49／55 題，
+analysis 一次 9／17、一次 4／17，18 個 item 從沒被用到。工具內建的補題輪
+（`topup_message` / `grid_shortfall` / `free_item_ids` / `merge_topup`）兩次都有觸發，
+**觸發了還是不夠**。改走 `--part 1/3` `2/3` `3/3` 一次命中 55 題、8／30／17、英文 18。
 
-恢復方式：MiniMax 有額度後直接 `python tools/cscs_quiz_direct.py ch12`，它會讀現有
-yaml 只補／修不足的部分（既有題庫每輪自動備份到 `.prompts/backup/`）。
+- `quota_for()` 對每個 cognitive 欄各跑 `split_int` 再加總，所以分批不會把配比算歪。
+- `base_questions = load_bank(chid) if part and part[0] > 1 else []`：**`--part 1/N` 是從零
+  開始（會蓋掉現有題庫），第 2 批起才是 append**。順序不能顛倒。
+- **40 題以上的章從 ch12 起預設分批**，不要先試不分批再補救。
+- prompt cache 在分批下照樣有效（ch12 三批 cache read 77–87%）。
 
-ch12 → ch24 照章號串行，每章「`cscs_quiz_direct.py` 出題 → 過閘 → 人工逐題查證 →
+**人工逐題查證抓出 2 條閘擋不掉的，兩條都是新樣態**：
+
+- **「最不可能」型題幹，只要正解在同章別的 item 被列為真實原因就無解**。
+  `reliability.i04.q1` 問兩次衝刺成績差異「最不可能歸因於」哪一類，正解是「施測者口令不同」
+  ——但 `administration.i01` 的 detail 明寫「施測者的口頭鼓勵若不一致，會損及信度」，
+  三個選項全是教材列出的真實來源。**這是跨 item 的矛盾，逐題閘看不到**。修法是把題幹從
+  「排除法」改成「情境已控制其他來源」（同一施測者＋電子計時＋相同暖身），只剩受試者內變異。
+- **why_wrong 可以在講別的選項，G5 測不出來**。`test-sequence.i02.q1` 的干擾項文字是
+  「場地性肌力測驗」，它的 why_wrong 整段在講敏捷。**G5 只比對 why_wrong 與自己選項的字面
+  重疊，不驗語意對應**，所以這種張冠李戴一定得靠人工讀。修法是改選項文字去對齊 why_wrong
+  （「敏捷性技術測驗」），不是改 why_wrong——後者會把一條正確的錯因解釋刪掉。
+
+最後一條 G4 `--fix-only` 修 5 輪修不動（`reliability.i05.q1`，`face validity` 只有 13 字元、
+對 22 字元的正解是 1.69 倍），手動把它換成長度相近的 `test-retest reliability`，順帶也是
+更好的干擾項（題幹講兩名施測者，同一施測者重複施測分得開）。**同 ch11 的結論：G2/G4 不合時
+寫長干擾項，不砍正解。**
+
+正解相似度掃描（ch11 立的固定動作）在 ch12 只命中一對 0.500，判為假陽性：
+`test-sequence.i04.q1`（敏捷之後、衝刺之前）vs `i06.q1`（衝刺之後、無氧容量之前），來源
+item 不同、答案實質不同，相似度來自順序題本來就共用「之後／之前」骨架。
+
+**未處理的組成問題**：55 題裡 8 題出自 `test-sequence`，其中 5 題（i02–i06）是同一個
+「第 X 類排在哪」的模子，而全章 8 道 recall 有 5 道是順序題。現行工具改不動——
+`FIXED_FIELDS` 鎖住 `item`，`--redo` 無法把題目換到別的來源 item，而這幾條來源 item
+本身就只有排序這個事實。要修得改工具或手寫換題。
+
+ch13 → ch24 照章號串行，每章「`cscs_quiz_direct.py` 出題 → 過閘 → 人工逐題查證 →
 commit」才派下一章。`_quiz_bank/ch13.yaml`、`ch18.yaml` 仍是更早的 10 題試作，還帶著
 四選項、`lang: None`、`dco: None` 的紅字，輪到該章時整份重寫，不必另外處理。
 走完後補 ch01–ch03 的追加題；之後才是把 287 題的舊
