@@ -269,9 +269,21 @@ def load_dco(source_dir: Path = SOURCE_DIR):
             if not isinstance(task, dict) or not isinstance(task.get("id"), str):
                 continue
             ids.add(task["id"])
+            # pa2.B 的 knowledge id 是 `pa2.B.*.a` 這種模板，`*` 代表四個器材類別之一；
+            # 展開後才是真實 id（`_dco.yaml` 該處註解寫的就是這個意思）。
+            classes = [
+                cls for cls in task.get("equipment_classes") or []
+                if isinstance(cls, dict) and isinstance(cls.get("id"), str)
+            ]
             for knowledge in task.get("knowledge") or []:
-                if isinstance(knowledge, dict) and isinstance(knowledge.get("id"), str):
-                    ids.add(knowledge["id"])
+                if not (isinstance(knowledge, dict) and isinstance(knowledge.get("id"), str)):
+                    continue
+                kid = knowledge["id"]
+                if "*" in kid and classes:
+                    for cls in classes:
+                        ids.add(kid.replace("*", cls["id"].rsplit(".", 1)[-1]))
+                else:
+                    ids.add(kid)
 
     if not isinstance(domains, dict) or not isinstance(domains.get("domains"), list):
         return None, None

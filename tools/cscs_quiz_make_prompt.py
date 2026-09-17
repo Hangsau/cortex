@@ -50,8 +50,18 @@ def dco_list(chid: str) -> str:
                 lines.append(f"- `{task['id']}` {task['text']}")
                 continue
             lines.append(f"- `{task['id']}` {task['text']}")
+            # pa2.B 官方在四個器材類別底下各掛同一組 a/b/c，_dco.yaml 用 `pa2.B.*.a`
+            # 存模板以免抄四遍。這裡展開成真實 id——把 `*` 原樣餵給模型，它會自己代成
+            # `pa2.B.1.a`，然後被白名單（同樣沒展開）整批退回。ch15 三批裡有兩批
+            # 22/22 候選全丟就是這樣來的。
+            classes = task.get("equipment_classes") or []
             for entry in knowledge:
-                lines.append(f"  - `{entry['id']}` {entry['text']}")
+                if "*" in entry["id"] and classes:
+                    for cls in classes:
+                        eid = entry["id"].replace("*", cls["id"].rsplit(".", 1)[-1])
+                        lines.append(f"  - `{eid}` {cls['text']} — {entry['text']}")
+                else:
+                    lines.append(f"  - `{entry['id']}` {entry['text']}")
         lines.append("")
     return "\n".join(lines).rstrip()
 
