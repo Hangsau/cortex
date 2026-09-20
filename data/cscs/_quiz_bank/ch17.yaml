@@ -1,0 +1,612 @@
+meta:
+  chapter: ch17
+  source: data/cscs/ch17.yaml
+questions:
+- id: ch17.needs-analysis.i01.q1
+  item: ch17.needs-analysis.i01
+  dco: pa1.A.1
+  lang: zh
+  cognitive: recall
+  stem: 阻力訓練需求分析中，運動評估（evaluation of the sport）至少包含哪三項分析？
+  locator: 'Step 1: Needs Analysis > Evaluation of the Sport'
+  options:
+  - text: 動作分析、生理分析、傷害分析
+    correct: true
+  - text: 動作分析、肌力測試、心肺測試
+    correct: false
+    why_wrong: 把測試方法當成評估面向；需求分析要的是分析角度（動作／生理／傷害），不是要做的測驗項目。
+  - text: 訓練頻率、訓練量、休息期
+    correct: false
+    why_wrong: 這三項是課程設計的變項（步驟三／六／七），屬於需求分析之後的處方階段，不在運動評估的最低必要內容中。
+- id: ch17.training-frequency.i03.q1
+  item: ch17.training-frequency.i03
+  dco: pa1.G.2
+  lang: en
+  cognitive: application
+  stem: A coach schedules full-body resistance sessions on Monday and Thursday. According to the recovery-day principle for the same muscle group, this spacing is most appropriate because the two sessions are separated by how many rest days?
+  locator: 'Step 3: Training Frequency > Training Status'
+  options:
+  - text: 2 to 3 days
+    correct: true
+  - text: Exactly 1 day
+    correct: false
+    why_wrong: Treats 1 day as the target; the principle allows up to 3 days between sessions for the same muscle group, so a Monday–Thursday split still fits.
+  - text: 5 or more days
+    correct: false
+    why_wrong: Reads the upper bound as a recommendation to leave as many days as possible; spacing longer than 3 days risks losing the training stimulus.
+- id: ch17.training-frequency.i07.q1
+  item: ch17.training-frequency.i07
+  dco: pa1.G.3
+  lang: zh
+  cognitive: application
+  stem: 一名中階舉重運動員採上、下肢分部位課表，每週共四節；若週一與週四排下肢，週二與週五應安排哪一類訓練以最符合 2–3 日恢復原則？
+  locator: 'Step 3: Training Frequency > Training Status'
+  options:
+  - text: 上肢訓練
+    correct: true
+  - text: 全身循環
+    correct: false
+    why_wrong: 把全身循環插在兩次下肢訓練之間；下肢剛做完一天再被全身刺激壓迫，破壞局部恢復。
+  - text: 全身爆發
+    correct: false
+    why_wrong: 把全身爆發放在兩次下肢訓練之間；全身爆發同時壓迫下肢與神經系統，下肢恢復不足。
+- id: ch17.exercise-order.i01.q1
+  item: ch17.exercise-order.i01
+  dco: pa1.D.1
+  lang: zh
+  cognitive: application
+  stem: 一堂阻力訓練課包含高翻、深蹲、啞鈴彎舉三個動作，依本章對動作順序的建議，最先做的應是哪一個？
+  locator: 'Step 4: Exercise Order > Power, Other Core, Then Assistance Exercises'
+  options:
+  - text: 高翻（爆發性動作）
+    correct: true
+  - text: 深蹲（其他核心動作）
+    correct: false
+    why_wrong: 把核心動作排在爆發性動作之前；爆發性動作最需技術與專注，先做可保持動作品質並降低傷害風險。
+  - text: 啞鈴彎舉（輔助動作）
+    correct: false
+    why_wrong: 把輔助動作當作開場；輔助動作是能量與技術門檻較低的收尾工作，不應在代謝最新鮮時先做。
+- id: ch17.exercise-order.i03.q1
+  item: ch17.exercise-order.i03
+  dco: pa1.D.2
+  lang: en
+  cognitive: application
+  stem: A coach places a bench press immediately before a seated row instead of scheduling two pulling movements back-to-back. Which reasoning best supports that ordering?
+  locator: 'Step 4: Exercise Order > “Push” and “Pull” Exercises (Alternated)'
+  options:
+  - text: Alternating a push with a pull keeps consecutive exercises off the same muscles
+    correct: true
+  - text: Power exercises should precede other core exercises within one session
+    correct: false
+    why_wrong: The power-before-core rule ranks exercise types by technical demand and says nothing about pairing a pushing movement with a pulling one.
+  - text: Exercises that stress the lower back are placed at the end of a session
+    correct: false
+    why_wrong: Lower-back placement is a separate ordering concern and does not justify putting a pressing movement directly before a rowing movement.
+- id: ch17.load-repetitions.i05.q1
+  item: ch17.load-repetitions.i05
+  dco: pa1.E.1
+  lang: zh
+  cognitive: application
+  stem: 一名肌力課表運動員的核心動作採 2RM 高強度，輔助動作允許的最重負荷上限為何？
+  locator: 'Step 5: Training Load and Repetitions > 1RM and Multiple-RM Testing Options > Multiple-RM Testing Based on Goal Repetitions'
+  options:
+  - text: 8RM
+    correct: true
+  - text: 2RM
+    correct: false
+    why_wrong: 把輔助動作當成核心動作處理；以 2RM 訓練輔助動作會對單一關節與結締組織施加過大的孤立壓力。
+  - text: 12RM
+    correct: false
+    why_wrong: 認為越輕越安全因而把上限放到 12RM；教材明確設 8RM 為輔助動作的最重負荷，輕於 8RM 並未違規但 12RM 已偏離教材定義。
+- id: ch17.rest-periods.i05.q1
+  item: ch17.rest-periods.i05
+  dco: pa1.G.1
+  lang: en
+  cognitive: analysis
+  stem: In a strength-focused session, a lifter performs a 4RM bench press followed by a 12RM lateral raise. Which rest-period assignment best matches the principle that rest should reflect the actual load of each exercise?
+  locator: 'Step 7: Rest Periods'
+  options:
+  - text: About 4 minutes for the bench press and about 1 minute for the lateral raise
+    correct: true
+  - text: About 1 minute for both exercises to keep the session moving
+    correct: false
+    why_wrong: Treats the entire session as one block; the bench press at 4RM demands longer recovery than a 12RM accessory lift of the same session.
+  - text: About 4 minutes for both exercises because both belong to a strength session
+    correct: false
+    why_wrong: Applies the strength goal uniformly; a 12RM lateral raise is well outside the strength load range, so the longer rest is unnecessary for it.
+- id: ch17.exercise-selection.i06.q1
+  item: ch17.exercise-selection.i06
+  dco: pa1.C.1
+  lang: zh
+  cognitive: analysis
+  stem: 一名田徑選手的腿後肌群肌力遠低於股四頭肌，依本章對肌肉平衡的定義，最應優先加入課表的動作類型為何？
+  locator: 'Step 2: Exercise Selection > Movement Analysis of the Sport > Muscle Balance'
+  options:
+  - text: 強化腿後肌群的動作
+    correct: true
+  - text: 強化股四頭肌的動作
+    correct: false
+    why_wrong: 在已明顯不對稱的情況下繼續加重較強側；肌肉平衡要求補上較弱的腿後肌，而不是再加重股四頭肌。
+  - text: 只做全身爆發性動作
+    correct: false
+    why_wrong: 用爆發性動作同時處理平衡問題；爆發性動作的負荷與技術需求不適合用來單獨拉抬弱側肌群。
+- id: ch17.needs-analysis.i06.q1
+  item: ch17.needs-analysis.i06
+  dco: pa1.A.2
+  lang: en
+  cognitive: analysis
+  stem: A collegiate soccer player is preparing for the competitive season. According to the chapter's off-season, pre-season, and in-season framework, which resistance-training emphasis is most appropriate during pre-season?
+  locator: 'Step 1: Needs Analysis > Assessment of the Athlete > Primary Resistance Training Goal'
+  options:
+  - text: Sport- and movement-specific strength, power, or endurance work at moderate priority for both training modes
+    correct: true
+  - text: Hypertrophy and endurance as the top priority while sport practice is de-emphasized
+    correct: false
+    why_wrong: Applies the early off-season priority at the wrong time; hypertrophy and endurance belong to the early off-season block.
+  - text: Maintenance of pre-season gains with resistance training reduced to low priority behind sport practice
+    correct: false
+    why_wrong: Confuses pre-season with in-season; in-season maintains pre-season gains at lower priority, not pre-season itself.
+- id: ch17.exercise-selection.i07.q1
+  item: ch17.exercise-selection.i07
+  dco: pa1.C.1
+  lang: zh
+  cognitive: application
+  stem: 一名足球員在主力阻力訓練後希望促進恢復，依本章對恢復性動作（recovery exercise）的界定，最適合的安排為何？
+  locator: 'Step 2: Exercise Selection > Movement Analysis of the Sport > Exercises to Promote Recovery'
+  options:
+  - text: 輕負荷收尾
+    correct: true
+  - text: 爆發收尾
+    correct: false
+    why_wrong: 把恢復與高神經肌肉壓力混為一談；高強度爆發性動作會妨礙恢復，與恢復目的相反。
+  - text: 最大肌力組
+    correct: false
+    why_wrong: 把恢復性動作誤解為主力訓練的延伸；以最大肌力組執行會再施加高肌肉壓力，違反恢復目的。
+- id: ch17.training-volume.i02.q1
+  item: ch17.training-volume.i02
+  dco: pa1.F
+  lang: zh
+  cognitive: analysis
+  stem: 兩位運動員在同一節訓練中完成相同的訓練量負荷，但其中一位以較多組數與較多次數、較輕重量完成；這在功率輸出估計上最可能產生何種差異？
+  locator: 'Step 6: Volume'
+  options:
+  - text: 平均負荷較低
+    correct: true
+  - text: 訓練量變高
+    correct: false
+    why_wrong: 題幹已設定兩人訓練量負荷相等；計算公式不會因組數配置改變訓練量負荷的值。
+  - text: 耗時大幅縮短
+    correct: false
+    why_wrong: 反過來推論；以較多組數與較多次數完成的訓練通常耗時更久，而非縮短。
+- id: ch17.principles-exam-tips.i02.q1
+  item: ch17.principles-exam-tips.i02
+  dco: pa1.A.1
+  lang: zh
+  cognitive: analysis
+  stem: 一名運動員按計畫完成一整個訓練區塊但沒有明顯進步，最可能缺失的訓練原則為何？
+  locator: Principles of Anaerobic Exercise Prescription
+  options:
+  - text: 超負荷（overload）
+    correct: true
+  - text: 恢復（recovery）
+    correct: false
+    why_wrong: 把問題歸因於恢復不足；但題幹說課表都做完了，重點在訓練刺激是否高於既有適應，而不是休息安排。
+  - text: 評估（assessment）
+    correct: false
+    why_wrong: 推測是因為沒有評估；題幹描述的是有計畫地完成區塊但沒進步，最直接缺的是刺激強度，不是測試流程。
+- id: ch17.exercise-order.i02.q1
+  item: ch17.exercise-order.i02
+  dco: pa1.D.1
+  lang: zh
+  cognitive: application
+  stem: 一堂課的可用時間有限，教練想用最短總時間完成上肢與下肢動作組合，最適合採用的安排方式為何？
+  locator: 'Step 4: Exercise Order > Upper and Lower Body Exercises (Alternated)'
+  options:
+  - text: 上下肢交替輪換，動作間僅休息 20 至 30 秒
+    correct: true
+  - text: 把所有下肢動作集中做完，再換成所有上肢動作
+    correct: false
+    why_wrong: 這讓相同部位連續受壓，未利用交替換部位帶來的恢復紅利，總時間反而拉長。
+  - text: 依爆發、核心、輔助三段式排序，不特別輪換上下肢
+    correct: false
+    why_wrong: 三段式是按動作品質排序的原則，與縮短總時間的目的沒有直接關聯。
+- id: ch17.exercise-order.i08.q1
+  item: ch17.exercise-order.i08
+  dco: pa1.D.1
+  lang: zh
+  cognitive: analysis
+  stem: 同一堂阻力訓練課中，先安排深蹲再安排仰臥腿彎舉，與先安排腿彎舉再安排深蹲相比，最主要的差異為何？
+  locator: 'Step 4: Exercise Order'
+  options:
+  - text: 深蹲在代謝較新鮮時完成，後續動作較不受疲勞拖累
+    correct: true
+  - text: 先做腿彎舉可以讓後續的深蹲舉起更大的負荷量
+    correct: false
+    why_wrong: 順序顛倒會先疲勞膝屈肌群，深蹲的出力品質只會下降，不會因此提高可舉負荷。
+  - text: 腿彎舉在前能讓整堂課的總訓練量負荷明顯提高
+    correct: false
+    why_wrong: 訓練量負荷由組數、次數與重量決定，只調換兩個動作的先後並不會改變它。
+- id: ch17.exercise-selection.i03.q1
+  item: ch17.exercise-selection.i03
+  dco: pa1.C.1
+  lang: zh
+  cognitive: application
+  stem: 下列哪一個動作最符合教材對結構性動作（structural exercise）的定義？
+  locator: 'Step 2: Exercise Selection > Exercise Type > Structural and Power Exercises'
+  options:
+  - text: 背蹲舉，須以肌肉穩定軀幹維持脊椎中立
+    correct: true
+  - text: 啞鈴側平舉，針對三角肌單關節操作
+    correct: false
+    why_wrong: 側平舉屬輔助動作的單關節操作，並非直接負荷脊椎的結構性動作。
+  - text: 跑步機快走，以低負荷提升心率
+    correct: false
+    why_wrong: 有氧動作並非阻力訓練結構性動作的範例，教材定義聚焦在脊椎承重與姿勢穩定。
+- id: ch17.load-repetitions.i03.q1
+  item: ch17.load-repetitions.i03
+  dco: pa1.E.1
+  lang: en
+  cognitive: application
+  stem: When the resistance training program calls for 6 repetitions per set, which test result is most appropriate for assigning load directly?
+  locator: 'Step 5: Training Load and Repetitions > 1RM and Multiple-RM Testing Options > Multiple-RM Testing Based on Goal Repetitions'
+  options:
+  - text: A 6RM performed with correct technique
+    correct: true
+  - text: A 10RM test, then applying an estimation formula
+    correct: false
+    why_wrong: Using a 10RM plus estimation introduces extra error when the goal reps are 6; estimating adds an unneeded step.
+  - text: A 1RM test followed by a fixed percentage table
+    correct: false
+    why_wrong: Directly testing 1RM is more stressful and is restricted by training status; the goal-rep method is specifically designed to avoid this.
+- id: ch17.principles-exam-tips.i05.q1
+  item: ch17.principles-exam-tips.i05
+  dco: pa1.B.1
+  lang: en
+  cognitive: application
+  stem: A coach wants to maximize transfer to a high-speed explosive sporting action. According to the specificity principle, the most appropriate training emphasis is which of the following?
+  locator: Principles of Anaerobic Exercise Prescription
+  options:
+  - text: Activate the same motor units used in the sport at the highest feasible velocity
+    correct: true
+  - text: Mimic every biomechanical detail of the sport while lifting maximal external load
+    correct: false
+    why_wrong: Specificity does not require copying every detail; maximal external load can compromise the velocity needed here.
+  - text: Train only the prime movers with slow, controlled contractions for hypertrophy
+    correct: false
+    why_wrong: Slow hypertrophy work sits at the wrong end of the velocity spectrum and ignores speed specificity.
+- id: ch17.rest-periods.i01.q1
+  item: ch17.rest-periods.i01
+  dco: pa1.G.1
+  lang: zh
+  cognitive: analysis
+  stem: 為一名體能狀態不佳的肌力訓練運動員安排首週阻力訓練課表，最應該如何處理組間休息期？
+  locator: 'Step 7: Rest Periods'
+  options:
+  - text: 從較典型指派更長的休息期開始
+    correct: true
+  - text: 完全沿用肌耐力課表的極短休息期以節省時間
+    correct: false
+    why_wrong: 短休息適用輕負荷肌耐力課表；體能狀態不佳的肌力訓練者不應被推到該區間。
+  - text: 把每個動作的休息固定為 30 秒以方便排課
+    correct: false
+    why_wrong: 30 秒是肌耐力區間的常用上限，把它均套用在所有動作並不符合個別化考量。
+- id: ch17.rest-periods.i06.q1
+  item: ch17.rest-periods.i06
+  dco: pa1.G.1
+  lang: zh
+  cognitive: application
+  stem: 教材引述的背蹲舉研究中，組間休息 3 分鐘比 30 秒最能帶來何種訓練結果的差異？
+  locator: 'Step 7: Rest Periods > Strength and Power'
+  options:
+  - text: 較大的肌力增進
+    correct: true
+  - text: 較高的肌肥大反應
+    correct: false
+    why_wrong: 研究結果聚焦在肌力增益，並未直接支持 3 分鐘休息對肌肥大的效果。
+  - text: 較短的整體訓練時間
+    correct: false
+    why_wrong: 3 分鐘的休息明顯長於 30 秒，總訓練時間必然更長而非更短。
+- id: ch17.training-volume.i01.q1
+  item: ch17.training-volume.i01
+  dco: pa1.F
+  lang: zh
+  cognitive: application
+  stem: 若一節阻力訓練課每組的舉起重量不同，要計算總訓練量負荷（volume-load）最正確的方式為何？
+  locator: 'Step 6: Volume'
+  options:
+  - text: 先依各組重量、次數、組數分別計算，再加總
+    correct: true
+  - text: 把全部組數乘以最大那組的重量
+    correct: false
+    why_wrong: 最大重只適用於那組；以最大組代表全部組會高估訓練量負荷。
+  - text: 把所有次數加總再乘以第一組的熱身重量
+    correct: false
+    why_wrong: 熱身重量不屬實際工作組，以它代表後續工作組會嚴重低估訓練量。
+- id: ch17.principles-exam-tips.i08.q1
+  item: ch17.principles-exam-tips.i08
+  dco: pa1.E.1
+  lang: zh
+  cognitive: analysis
+  stem: 教材說明力量－速度關係時，抓舉、高翻等可高度負荷的舉重衍生動作，最有效的爆發力訓練負荷約為多少？
+  locator: 'Step 5: Training Load and Repetitions > Assigning Load and Repetitions Based on the Training Goal > Percentage of the 1RM'
+  options:
+  - text: 75% 至 90% 1RM
+    correct: true
+  - text: 體重到三成 1RM
+    correct: false
+    why_wrong: 體重至 30% 1RM 是非舉重式多關節動作的峰值功率範圍，不是高翻、抓舉的實務建議。
+  - text: 逼近 1RM 的 95%
+    correct: false
+    why_wrong: 過度接近最大負荷會犧牲動作速度與功率輸出，教材未把它列為爆發力訓練的實務建議。
+- id: ch17.training-volume.i07.q1
+  item: ch17.training-volume.i07
+  dco: pa1.F
+  lang: en
+  cognitive: analysis
+  stem: According to the chapter, which set-rep scheme is most appropriate for further strength gains in an intermediate lifter?
+  locator: 'Step 6: Volume > Multiple Versus Single Sets'
+  options:
+  - text: 3 sets of 10 reps taken close to but not to failure
+    correct: true
+  - text: 1 set of 8 to 12 reps taken to voluntary muscular failure
+    correct: false
+    why_wrong: A single set to voluntary failure under-doses intermediate lifters and contradicts the chapter's comparison.
+  - text: 5 sets of 3 reps at near-maximal load every session
+    correct: false
+    why_wrong: Heavy near-maximal 3-rep schemes are relevant, but at 5 sets per session they no longer match the specific 3×10 comparison the chapter highlights.
+- id: ch17.exercise-order.i04.q1
+  item: ch17.exercise-order.i04
+  dco: pa1.D.1
+  lang: zh
+  cognitive: recall
+  stem: 超級組（superset）在阻力訓練課表中是如何安排的？
+  locator: 'Step 4: Exercise Order > Supersets and Compound Sets'
+  options:
+  - text: 連續做兩個訓練主動肌與拮抗肌的動作
+    correct: true
+  - text: 連續做兩個訓練同一肌群的不同動作
+    correct: false
+    why_wrong: 那是複合組的定義；複合組刻意疊加同一肌群的壓力，與超級組交替相反肌群的設計不同。
+  - text: 兩個動作之間安排完整的 3 至 5 分鐘恢復
+    correct: false
+    why_wrong: 超級組刻意縮短動作間休息以提高訓練密度；3 至 5 分鐘是肌力與爆發力課表的標準組間休息，與超級組無關。
+- id: ch17.exercise-selection.i01.q1
+  item: ch17.exercise-selection.i01
+  dco: pa1.C.1
+  lang: zh
+  cognitive: application
+  stem: 一名教練想安排直接應用於運動本身的多關節動作，最應優先選擇下列哪一類？
+  locator: 'Step 2: Exercise Selection > Exercise Type > Core and Assistance Exercises'
+  options:
+  - text: 核心動作
+    correct: true
+  - text: 輔助動作
+    correct: false
+    why_wrong: 輔助動作通常只涉及單一關節與較小肌群，特異性較低，難以直接遷移到運動本身的多關節需求。
+  - text: 恢復性動作
+    correct: false
+    why_wrong: 恢復性動作刻意採用低肌肉與神經壓力，目的在促進恢復而非刺激專項表現。
+- id: ch17.exercise-selection.i05.q1
+  item: ch17.exercise-selection.i05
+  dco: pa1.C.1
+  lang: zh
+  cognitive: analysis
+  stem: 一名籃球選手的目標是提升垂直跳表現，背蹲舉相較於腿推更被優先採用，最主要的原因為何？
+  locator: 'Step 2: Exercise Selection > Movement Analysis of the Sport > Sport-Specific Exercises'
+  options:
+  - text: 背蹲舉的站立姿勢與承重特徵與跳躍更相近
+    correct: true
+  - text: 腿推屬於輔助動作而背蹲舉屬於核心動作
+    correct: false
+    why_wrong: 兩者皆屬於多關節的核心動作；分類本身不是背蹲舉較相關於跳躍的原因。
+  - text: 背蹲舉使用的重量通常低於腿推所以風險較小
+    correct: false
+    why_wrong: 教材強調的是動作與運動的相似度，而非絕對負荷的高低；腿推也可以很重，且安全性並非選擇此處的鑑別點。
+- id: ch17.load-repetitions.i01.q1
+  item: ch17.load-repetitions.i01
+  dco: pa1.E.1
+  lang: zh
+  cognitive: analysis
+  stem: 一名中階阻力訓練者技術穩定但無 1RM 測試經驗，教練希望取得最大肌力資料，最適合採用哪一種測試方式？
+  locator: 'Step 5: Training Load and Repetitions > 1RM and Multiple-RM Testing Options > Testing the 1RM'
+  options:
+  - text: 直接以正確技術完成一次的最大重量測試
+    correct: true
+  - text: 由 10RM 反覆測試結果以方程式換算 1RM
+    correct: false
+    why_wrong: 預測法適用於不適合直接最大肌力測試者；中階且技術穩定者已具備直接測試條件，採用預測反而犧牲準確度。
+  - text: 以多次反覆至力竭方式測試 15RM 估計值
+    correct: false
+    why_wrong: 教材指出高反覆測試易使大肌群動作疲勞而失準；15RM 已超過 10RM 方程式適用範圍，估計將不可靠。
+- id: ch17.load-repetitions.i08.q1
+  item: ch17.load-repetitions.i08
+  dco: pa1.H
+  lang: en
+  cognitive: analysis
+  stem: A larger, more advanced athlete is progressing a lower-body lift at roughly three sets of five to ten reps. Which absolute load increase best fits the textbook guidance?
+  locator: 'Step 5: Training Load and Repetitions > Progression of the Training Load > Quantity of Load Increases'
+  options:
+  - text: 10 to 15 lb
+    correct: true
+  - text: 2.5 to 5 lb
+    correct: false
+    why_wrong: This increment is reserved for smaller, weaker, or less trained athletes on upper-body lifts; for a larger, advanced lifter on a lower-body lift, the prescribed jump is much larger.
+  - text: 5 to 10 lb
+    correct: false
+    why_wrong: This increment is suggested for smaller lifters on lower-body work or for upper-body work on larger lifters, not for advanced lower-body progression.
+- id: ch17.needs-analysis.i07.q1
+  item: ch17.needs-analysis.i07
+  dco: pa1.A.2
+  lang: zh
+  cognitive: application
+  stem: 一名新進選手有 5 年短跑經驗但從未做過阻力訓練，教練在評估其訓練背景時，下列哪一項最應納入考量？
+  locator: 'Step 1: Needs Analysis > Assessment of the Athlete > Training Status'
+  options:
+  - text: 阻力訓練動作的技術經驗
+    correct: true
+  - text: 上一賽季的平均心率
+    correct: false
+    why_wrong: 心率屬於生理監測指標；訓練背景評估聚焦於先前的訓練類型、規律性與動作技術經驗，並不涵蓋逐日心率資料。
+  - text: 該選手偏好的運動鞋品牌
+    correct: false
+    why_wrong: 裝備品牌與訓練能力及傷害風險判斷無關；教材列出的訓練背景項目均為訓練與技術相關資訊。
+- id: ch17.needs-analysis.i08.q1
+  item: ch17.needs-analysis.i08
+  dco: pa1.A.5
+  lang: en
+  cognitive: analysis
+  stem: A collegiate sprinter in the off-season wants to gain both maximal strength and lower-body hypertrophy simultaneously. Which approach best reflects the textbook's primary-goal guidance?
+  locator: 'Step 1: Needs Analysis > Assessment of the Athlete > Primary Resistance Training Goal'
+  options:
+  - text: Concentrate on one main outcome for the season and sequence the other later
+    correct: true
+  - text: Alternate strength and hypertrophy blocks on a daily basis within the same week
+    correct: false
+    why_wrong: Daily alternation blurs the primary stimulus and dilutes both adaptations; the textbook advises concentrating each season on one main training outcome.
+  - text: Combine both goals in every session by using the same load for both
+    correct: false
+    why_wrong: Strength and hypertrophy require distinct loading schemes; using the same load for both compromises the specific stimulus for each adaptation.
+- id: ch17.principles-exam-tips.i01.q1
+  item: ch17.principles-exam-tips.i01
+  dco: pa1.B.1
+  lang: zh
+  cognitive: analysis
+  stem: 阻力訓練選手的課表強調「所施予的需求決定所產生的適應」，此一概念最符合下列哪一個原則？
+  locator: Principles of Anaerobic Exercise Prescription
+  options:
+  - text: SAID 原則
+    correct: true
+  - text: 漸進超負荷原則
+    correct: false
+    why_wrong: 漸進超負荷講的是系統性提高訓練刺激的幅度，與本題強調的「需求類型決定適應類型」不是同一回事。
+  - text: 變化與週期原則
+    correct: false
+    why_wrong: 變化與週期安排處理的是訓練刺激隨時間的調配，教材未用它說明需求與適應之間的對應。
+- id: ch17.principles-exam-tips.i03.q1
+  item: ch17.principles-exam-tips.i03
+  dco: pa1.H
+  lang: zh
+  cognitive: application
+  stem: 一名教練為初學者安排阻力訓練課表，最應以何種方式引入漸進？
+  locator: Principles of Anaerobic Exercise Prescription
+  options:
+  - text: 依訓練狀態循序且系統地提高刺激
+    correct: true
+  - text: 每週同時提高負荷、頻率與動作數
+    correct: false
+    why_wrong: 同時拉高所有變項會讓初學者的恢復跟不上，違背「循序且系統」的精神。
+  - text: 等到運動員主動提出再加難度
+    correct: false
+    why_wrong: 漸進是由教練依專業判斷主動安排，不能等待運動員自行提出。
+- id: ch17.rest-periods.i02.q1
+  item: ch17.rest-periods.i02
+  dco: pa1.G.1
+  lang: zh
+  cognitive: application
+  stem: 一名肌力訓練選手正在進行下肢背蹲舉 4RM 的課表，組間休息最應安排為下列何者？
+  locator: 'Step 7: Rest Periods > Strength and Power'
+  options:
+  - text: 2 分鐘至 5 分鐘
+    correct: true
+  - text: 30 秒至 1.5 分鐘
+    correct: false
+    why_wrong: 那是肌肥大課表的休息範圍，下肢 4RM 的高負荷無法在這麼短的時間內完成足夠恢復。
+  - text: 30 秒或更短的間隔
+    correct: false
+    why_wrong: 這是肌耐力課表的休息指引，用在 4RM 背蹲舉會讓後續組無法以正確技術完成指定負荷。
+- id: ch17.rest-periods.i04.q1
+  item: ch17.rest-periods.i04
+  dco: pa1.G.1
+  lang: en
+  cognitive: application
+  stem: An athlete's program is designed to develop local muscular endurance using light loads and high repetitions. Which rest-period range best preserves the intended training stimulus?
+  locator: 'Step 7: Rest Periods > Muscular Endurance'
+  options:
+  - text: 30 seconds or less
+    correct: true
+  - text: about 30 to 90 seconds
+    correct: false
+    why_wrong: That is the hypertrophy prescription; allowing that much recovery removes the metabolic stress muscular-endurance work depends on.
+  - text: roughly 2 to 5 minutes
+    correct: false
+    why_wrong: That is the strength and power prescription; with light loads such long rest allows near-full recovery and abolishes the stimulus.
+- id: ch17.training-frequency.i02.q1
+  item: ch17.training-frequency.i02
+  dco: pa1.G.3
+  lang: en
+  cognitive: application
+  stem: A well-trained athlete is entering the competition phase of the season. Which weekly resistance-training frequency range is most consistent with the textbook's season-specific guidance?
+  locator: 'Step 3: Training Frequency > Sport Season'
+  options:
+  - text: 1 to 3 sessions per week
+    correct: true
+  - text: 4 to 6 sessions per week
+    correct: false
+    why_wrong: That is the off-season frequency for trained athletes; during the competition phase, practice demands take priority and weight-room time is intentionally reduced.
+  - text: 3 to 4 sessions per week
+    correct: false
+    why_wrong: That is the pre-season frequency for trained athletes; it sits between the off-season and in-season targets and is too high for the competition phase.
+- id: ch17.training-frequency.i08.q1
+  item: ch17.training-frequency.i08
+  dco: pa1.G.3
+  lang: en
+  cognitive: analysis
+  stem: A team-sport athlete remains in the competition phase and can no longer fit four weight-room sessions per week into the schedule. Which adjustment best reflects the textbook's reasoning?
+  locator: 'Step 3: Training Frequency > Sport Season'
+  options:
+  - text: Accept fewer sessions because sport practice takes priority during the season
+    correct: true
+  - text: Cut sport practice to keep four resistance-training sessions per week
+    correct: false
+    why_wrong: The textbook explicitly states that during the competition phase, practice demands take priority; sacrificing practice to preserve weight-room frequency inverts that hierarchy.
+  - text: Add an extra early-morning resistance session to compensate
+    correct: false
+    why_wrong: Adding sessions ignores the recovery cost of the existing sport-practice load and contradicts the season-specific frequency guidance.
+- id: ch17.training-volume.i08.q1
+  item: ch17.training-volume.i08
+  dco: pa1.F
+  lang: zh
+  cognitive: analysis
+  stem: 一名阻力訓練新手在前兩個月順利適應課表後想增加刺激，下列哪一種做法最符合教材指引？
+  locator: 'Step 6: Volume > Training Status'
+  options:
+  - text: 先從 1 至 2 組逐步增加組數
+    correct: true
+  - text: 一次把所有動作都升到 4 至 5 組
+    correct: false
+    why_wrong: 教材強調加組要循序進行；初學者一次拉高所有動作的組數，會超過其恢復與技術承受範圍。
+  - text: 直接把所有動作改成做到力竭
+    correct: false
+    why_wrong: 力竭會犧牲動作技術且不利於長期進展；教材沒有把力竭列為加組的配套做法。
+- id: ch17.training-volume.i03.q1
+  item: ch17.training-volume.i03
+  dco: pa1.F
+  lang: zh
+  cognitive: analysis
+  stem: 同一張肌力課表把核心動作訂在 2 至 6 組，輔助動作的組數指引最接近下列何者？
+  locator: 'Step 6: Volume > Primary Resistance Training Goal > Strength and Power'
+  options:
+  - text: 通常為 1 至 3 組
+    correct: true
+  - text: 同樣是 2 至 6 組
+    correct: false
+    why_wrong: 2 至 6 組是核心動作的範圍，教材另外指出輔助動作通常採用較低的組數。
+  - text: 固定在 4 至 6 組
+    correct: false
+    why_wrong: 把組數想成越多越好，教材對輔助動作給的是較低而非固定偏高的組數範圍。
+- id: ch17.load-repetitions.i04.q1
+  item: ch17.load-repetitions.i04
+  dco: pa1.E.1
+  lang: en
+  cognitive: recall
+  stem: According to the chapter's goal-based prescription, what repetition range per set is assigned for muscular hypertrophy training?
+  locator: 'Step 5: Training Load and Repetitions > Assigning Load and Repetitions Based on the Training Goal > Percentage of the 1RM'
+  options:
+  - text: 6 to 12 repetitions
+    correct: true
+  - text: 1 to 2 repetitions
+    correct: false
+    why_wrong: 1 to 2 repetitions is the single-effort power prescription, not hypertrophy.
+  - text: 12 or more repetitions
+    correct: false
+    why_wrong: 12 or more repetitions is the muscular endurance lower bound, not hypertrophy.
