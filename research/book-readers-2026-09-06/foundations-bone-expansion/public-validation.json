@@ -1,0 +1,127 @@
+{
+  "checked_at": "2026-09-20T23:21:12.075964+00:00",
+  "implementation_commit": "543561af709514bfbe65d3827bd05d8737b0675f",
+  "deployment_run_url": "https://github.com/Hangsau/cortex/actions/runs/35544339904",
+  "ci_verification": "Full SHA and conclusion checked separately with gh run",
+  "base": "https://hangsau.github.io/cortex/",
+  "checks": [
+    {
+      "name": "HTTP https://hangsau.github.io/cortex/library/basic-biomechanics/ch01/",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "basic-biomechanics/ch01 headings in order",
+      "pass": true,
+      "detail": 31
+    },
+    {
+      "name": "basic-biomechanics/ch01 full prose equals accepted local build",
+      "pass": true,
+      "detail": {
+        "characters": 11749,
+        "sha256": "82dc10f9b4d8b0e913cea98b06474ba23a094f13aef51555b07fac3427d3644b"
+      }
+    },
+    {
+      "name": "basic-biomechanics/ch01 original source links hidden and no original media",
+      "pass": true,
+      "detail": 32
+    },
+    {
+      "name": "basic-biomechanics/ch01 original four headings",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "basic-biomechanics/ch01 cross-chapter links match",
+      "pass": true,
+      "detail": 4
+    },
+    {
+      "name": "HTTP https://hangsau.github.io/cortex/library/basic-biomechanics/ch02/",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "cross-chapter anchor /cortex/library/basic-biomechanics/ch02/#fatigue-repair",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "cross-chapter anchor /cortex/library/basic-biomechanics/ch02/#structure-and-material",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "HTTP https://hangsau.github.io/cortex/library/kinesiology/ch04/",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "cross-chapter anchor /cortex/library/kinesiology/ch04/#mass-moment",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "cross-chapter anchor /cortex/library/kinesiology/ch04/#worked-example",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "basic-biomechanics/ch02 headings in order",
+      "pass": true,
+      "detail": 38
+    },
+    {
+      "name": "basic-biomechanics/ch02 full prose equals accepted local build",
+      "pass": true,
+      "detail": {
+        "characters": 14104,
+        "sha256": "0695e9f3089b1decdfccd7dfd55baf993d4dbb682e5af49d9dd330aa538c989f"
+      }
+    },
+    {
+      "name": "basic-biomechanics/ch02 original source links hidden and no original media",
+      "pass": true,
+      "detail": 40
+    },
+    {
+      "name": "basic-biomechanics/ch02 original four headings",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "basic-biomechanics/ch02 cross-chapter links match",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "name": "cross-chapter anchor /cortex/library/basic-biomechanics/ch01/#modulus-and-stiffness",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "HTTP https://hangsau.github.io/cortex/css/reading.css",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "css/reading.css equals accepted local asset",
+      "pass": true,
+      "detail": "ebe98ba8129c571b151e751050c7e5ac2129535ff9affbd6f37141b329fbfea5"
+    },
+    {
+      "name": "HTTP https://hangsau.github.io/cortex/js/reading.js",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "js/reading.js equals accepted local asset",
+      "pass": true,
+      "detail": "7be83e627a8010969890faa5a58758fc1c82bab396eca2cf69e496c24146a279"
+    }
+  ],
+  "passed": 22,
+  "failed": 0
+}

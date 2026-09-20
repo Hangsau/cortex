@@ -670,13 +670,13 @@ ch19 → ch24 照章號串行，每章「`cscs_quiz_direct.py` 出題 → 過閘
 schema（`kind` 只收 recall/choice、2–8 個選項、`correct` 是整數索引）。
 另有待辦：本庫沒有常模表，spec R7 目前全面禁止百分位數字，R6 的測驗組合題因此少一段。
 
-## Nordin 力學基礎與骨組織詳解完成，本機驗收通過（2026-09-21）
+## Nordin 力學基礎與骨組織詳解已部署（2026-09-21）
 
 接續使用者「兩冊肌肉骨骼教材繁體中文」及既有編輯／發布授權，完成 Nordin 第1章31節／5,835中文字、第2章38節／7,249字，本批69節／13,084字，原八錨點保留。全讀本33章、907節／218,591字；Neumann1–16及Nordin1–2、7–14、17均已加深，仍為guide／chapter-guide。
 
 本輪由Codex撰寫核閱，未再派Claude或其他代理，也不宣稱額度節省。主要核閱Nordin19–30、41–70，另讀附錄A33–37；目視10張原PNG，補回病例缺文與微米符號。正文區分材料／結構曲線、方向／負荷模式、疲勞／修復，編者回算梁的剛性與強度比、縮徑三／四次方；保留原書小樑骨50%應變、脛骨量測方位、循環／里程等疑點，不猜補通則。單位表功率與psf錯誤對照BIPM／NIST校核，未把舊病例時程或治療建議當現代處方。
 
-Hugo172頁、1,429連結／錨點、既有閱讀器97/97、原頁服務18/18、本批閱讀／樣式60/60均通過；已目視兩章手機兩色與桌面六張截圖。五份共用版型／CSS／JS與基線af19c5d相同。來源與驗收見`research/book-readers-2026-09-06/foundations-bone-expansion/{RUN.md,validation.json,browser-checks.json}`。發布證據待本批部署後回填。
+Hugo172頁、1,429連結／錨點、既有閱讀器97/97、原頁服務18/18、本批閱讀／樣式60/60均通過；已目視兩章手機兩色與桌面六張截圖。五份共用版型／CSS／JS與基線af19c5d相同。來源與驗收見`research/book-readers-2026-09-06/foundations-bone-expansion/{RUN.md,validation.json,browser-checks.json}`。實作`543561af709514bfbe65d3827bd05d8737b0675f`已部署；依完整SHA核對[CI 35544339904](https://github.com/Hangsau/cortex/actions/runs/35544339904)建置與發布成功。正式站驗收22/22：兩章完整正文、31／38節順序、原八錨點、跨章目標、hidden原頁來源群及CSS／JS均與本機驗收版一致。證據見`ci-verification.json`與`public-validation.json`。
 
 下一批接Nordin第3章關節軟骨、第4章肌腱與韌帶，再續第5–6、15–16章；已加深各章無需重寫。8768本機唯讀預覽已啟動。保留既有發布授權與風格；原PDF、抽文頁包、PNG及截圖留本機。下方為歷史批次，勿以舊「下一批1–6章」覆蓋本段。
 
