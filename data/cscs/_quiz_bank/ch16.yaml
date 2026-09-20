@@ -1,0 +1,772 @@
+meta:
+  chapter: ch16
+  source: data/cscs/ch16.yaml
+questions:
+- id: ch16.kettlebell-unilateral.i05.q1
+  item: ch16.kettlebell-unilateral.i05
+  dco: pa2.B.3.c
+  lang: zh
+  cognitive: application
+  locator: Unilateral Training
+  stem: 左右腿肌力不對稱時，下列哪一項處理最貼近教材給單側動作的定位？
+  options:
+  - text: 以弓步蹲、登階與單腿深蹲納入課表
+    correct: true
+  - text: 只用雙側槓鈴深蹲加大總負荷
+    correct: false
+    why_wrong: 加大雙側負荷不會處理左右差距，教材把單側動作列為減少不對稱的作法。
+  - text: 完全停止下肢訓練直到左右差距消失
+    correct: false
+    why_wrong: 停止訓練並非教材選項，教材說單側動作可在不同程度上納入課表或作為復健工具。
+- id: ch16.bodyweight-training.i03.q1
+  item: ch16.bodyweight-training.i03
+  dco: pa2.B.3.c
+  lang: en
+  cognitive: application
+  stem: A coach increases repetition volume on a bodyweight squat to make the exercise harder. Which training quality is most likely to become the new primary emphasis?
+  locator: Bodyweight Training Methods
+  options:
+  - text: Muscular endurance
+    correct: true
+  - text: Absolute strength
+    correct: false
+    why_wrong: Assumes that adding repetitions expands absolute strength; the text states that absolute strength is generally unaffected because resistance is capped by body weight.
+  - text: Maximal power
+    correct: false
+    why_wrong: Treats added repetitions as a power stimulus; power requires higher force at higher velocities, which raising reps without external load does not deliver.
+- id: ch16.chain-training.i01.q1
+  item: ch16.chain-training.i01
+  dco: pa2.B.3.a
+  lang: zh
+  cognitive: application
+  stem: 一名教練希望改變槓鈴深蹲原本恆定的負荷曲線，使阻力隨關節角度變化，下列何種作法最符合教材所述的可變阻力原理？
+  locator: Variable-Resistance Training Methods > Chain-Supplemented Exercises
+  options:
+  - text: 在槓鈴上加掛鍊條
+    correct: true
+  - text: 改用史密斯機固定軌道
+    correct: false
+    why_wrong: 把固定軌道誤認為可變阻力；史密斯機屬於恆定外部阻力，且其穩定肌活化還比自由重量低，並未改變阻力曲線。
+  - text: 在地板下加裝震動平台
+    correct: false
+    why_wrong: 將阻力來源誤放到地板震動；震動屬於不穩定刺激，並非教材所述可變阻力的施加方式。
+- id: ch16.chain-training.i03.q1
+  item: ch16.chain-training.i03
+  dco: pa2.B.3.a
+  lang: zh
+  cognitive: analysis
+  stem: 一名運動員無鍊條時的臥推 5RM 為 120 公斤，加掛的鍊條在動作底端阻力為 0 公斤、頂端為 11.1 公斤，目標仍是 5RM 處方負荷。教練最應將槓鈴加到多少公斤？
+  locator: Variable-Resistance Training Methods > Chain-Supplemented Exercises > Determining Resistance With Chains
+  options:
+  - text: 114 至 115 公斤
+    correct: true
+  - text: 120 公斤（不加調整）
+    correct: false
+    why_wrong: 忽略了鍊條平均阻力對槓鈴負荷的扣除；教材範例明確以平均值調整槓鈴，使整體負荷仍落在處方範圍。
+  - text: 131 至 132 公斤
+    correct: false
+    why_wrong: 把平均阻力誤加成加項；正確作法是用目標扣除平均值而非相加，否則整體負荷會超出原處方。
+- id: ch16.chain-training.i05.q1
+  item: ch16.chain-training.i05
+  dco: pa2.B.3.c
+  lang: en
+  cognitive: application
+  stem: A coach suspends chains so the links touch the floor at the bottom of a back squat. According to Baker's proposed mechanisms, which effect is most likely to occur during the lift?
+  locator: Variable-Resistance Training Methods > Chain-Supplemented Exercises > Applying Chains to Free Weight Exercises
+  options:
+  - text: Faster bar acceleration at the bottom position
+    correct: true
+  - text: A slower amortization phase at the bottom
+    correct: false
+    why_wrong: Predicts a longer amortization phase; Baker suggests the unloading at the bottom may shorten the amortization phase of the stretch-shortening cycle.
+  - text: Reduced neuromuscular activation at the bottom
+    correct: false
+    why_wrong: Treats bottom unloading as reducing activation; Baker proposes greater neuromuscular activation may occur as the bar mass decreases over the chains.
+- id: ch16.core-training.i02.q1
+  item: ch16.core-training.i02
+  dco: pa2.B.1.c
+  lang: en
+  cognitive: analysis
+  stem: An experienced athlete's goal is to transfer strength gains to sport performance. Which approach is most supported by the textbook regarding core training?
+  locator: Core Stability and Balance Training Methods > Isolation Exercises
+  options:
+  - text: Ground-based free weight exercises
+    correct: true
+  - text: Isolation mat exercises alone
+    correct: false
+    why_wrong: Selects isolation exercises for sport transfer; the textbook notes that isolation exercises have limited evidence for transferring to sport performance.
+  - text: Single-joint machine core drills
+    correct: false
+    why_wrong: Assumes single-joint machines best mimic sport demands; the textbook states that in sport contexts muscles rarely act in such isolated patterns.
+- id: ch16.core-training.i03.q1
+  item: ch16.core-training.i03
+  dco: pa2.B.3.a
+  lang: zh
+  cognitive: application
+  stem: 進行穩定球前滾（stability ball rollout）時，下列哪一項是教材強調的主要技術邊界？
+  locator: Stability Ball Rollout；Stability Ball Pike；Stability Ball Jackknife
+  options:
+  - text: 軀幹等長剛性且髖不下沉
+    correct: true
+  - text: 收下巴使頭部明顯前傾
+    correct: false
+    why_wrong: 讓頭部偏離中立；教材在穩定球系列動作中要求頭部維持中立，並未指示明顯前傾。
+  - text: 滾球時屈肘縮短力臂
+    correct: false
+    why_wrong: 違反教材要求伸肘、屈肩把球滾出的技術；縮短力臂會降低核心刺激且與教材動作要點相反。
+- id: ch16.instability-devices.i02.q1
+  item: ch16.instability-devices.i02
+  dco: pa2.B.3.c
+  lang: zh
+  cognitive: application
+  stem: 教材指出，在不穩定裝置上進行阻力訓練時，主動肌的整體產力與功率相對穩定條件最可能的範圍為何？
+  locator: Core Stability and Balance Training Methods > Instability Devices
+  options:
+  - text: 低於穩定時可達的七成
+    correct: true
+  - text: 高於穩定時可達的一倍
+    correct: false
+    why_wrong: 把不穩定條件誤判為提升整體輸出；教材指出整體產力與功率「可能」低於穩定條件所能達到的水準，並未聲稱會超越穩定條件。
+  - text: 與穩定條件完全相同
+    correct: false
+    why_wrong: 忽略穩定肌活化增加伴隨的代價；教材明確指出主動肌的力量生成會下降，整體輸出並非與穩定條件相同。
+- id: ch16.kettlebell-unilateral.i02.q1
+  item: ch16.kettlebell-unilateral.i02
+  dco: pa2.B.1.a
+  lang: zh
+  cognitive: recall
+  stem: 下列何者正確描述鑄鐵壺鈴與競技壺鈴的差異？
+  locator: Nontraditional Implement Training Methods > Kettlebell Training > Types of Kettlebells
+  options:
+  - text: 鑄鐵壺鈴尺寸隨重量改變
+    correct: true
+  - text: 鑄鐵壺鈴尺寸固定不變
+    correct: false
+    why_wrong: 將尺寸特性對調；教材明示鑄鐵壺鈴尺寸隨重量改變，競技壺鈴無論重量尺寸均相同。
+  - text: 兩者皆以顏色標示重量
+    correct: false
+    why_wrong: 把以顏色區分重量的特徵套到鑄鐵壺鈴；教材指出以顏色表示重量是競技壺鈴的做法。
+- id: ch16.kettlebell-unilateral.i04.q1
+  item: ch16.kettlebell-unilateral.i04
+  dco: pa2.B.1.c
+  lang: zh
+  cognitive: analysis
+  stem: 一名訓練有素的舉重運動員希望繼續發展最大肌力，根據教材對雙側反應的描述，下列何種安排最符合其訓練狀態？
+  locator: Unilateral Training
+  options:
+  - text: 以雙側動作發展肌力
+    correct: true
+  - text: 改採單側動作訓練
+    correct: false
+    why_wrong: 將適用對象誤指給訓練有素者；教材指出訓練有素者傾向出現雙側促進，不應以單側方法發展肌力。
+  - text: 隨機混用雙側與單側動作
+    correct: false
+    why_wrong: 把雙側反應判斷為隨機；教材依訓練程度區分雙側促進與雙側缺陷，並未建議隨機混用。
+- id: ch16.machine-vs-freeweight.i01.q1
+  item: ch16.machine-vs-freeweight.i01
+  dco: pa2.B.2.a
+  lang: en
+  cognitive: recall
+  stem: According to Anderson and Behm as cited in the textbook, by approximately how much is back stabilizer muscle activity lower in a Smith machine back squat compared with a free-weight back squat?
+  locator: Core Stability and Balance Training Methods > Machines Versus Free Weight Exercises
+  options:
+  - text: 30%
+    correct: true
+  - text: 5%
+    correct: false
+    why_wrong: Underestimates the reported difference; the text reports that back stabilizer activity is about 30% lower in the Smith machine squat.
+  - text: 70%
+    correct: false
+    why_wrong: Confuses the Smith machine deficit with the instability-device threshold; 70% is the figure associated with instability devices, not the Smith machine.
+- id: ch16.resistance-bands.i01.q1
+  item: ch16.resistance-bands.i01
+  dco: pa2.B.3.a
+  lang: zh
+  cognitive: application
+  stem: 彈力帶的張力主要依據虎克定律（Hooke's law）由哪兩個變項決定？
+  locator: Variable-Resistance Training Methods > Resistance Band Exercises > Determining Resistance With Resistance Bands
+  options:
+  - text: 帶子的剛性與形變量
+    correct: true
+  - text: 帶子的顏色與品牌標示
+    correct: false
+    why_wrong: 把視覺特徵當成張力來源；張力取決於材料剛性與拉伸長度，並非顏色或品牌標示。
+  - text: 運動員的體重與抓握寬度
+    correct: false
+    why_wrong: 把張力來源誤指為運動員本身；彈力帶張力由帶子本身的材料特性與拉伸量決定，與抓握寬度或體重無關。
+- id: ch16.resistance-bands.i06.q1
+  item: ch16.resistance-bands.i06
+  dco: pa2.B.3.a
+  lang: en
+  cognitive: analysis
+  stem: Two resistance bands appear identical but are not. According to the textbook, what is the most likely impact on training load?
+  locator: Variable-Resistance Training Methods > Resistance Band Exercises > Determining Resistance With Resistance Bands
+  options:
+  - text: Average tension may differ by 8 to 19%
+    correct: true
+  - text: Loads will be exactly equal despite appearance
+    correct: false
+    why_wrong: Assumes identical appearance guarantees equal tension; the text reports meaningful variation even between visually similar bands.
+  - text: The stiffer band will always be the longer one
+    correct: false
+    why_wrong: Imposes a fixed relationship between length and stiffness; the text does not claim any such correspondence between visual size and stiffness.
+- id: ch16.strongman-training.i01.q1
+  item: ch16.strongman-training.i01
+  dco: pa2.B.3.b
+  lang: zh
+  cognitive: application
+  stem: 翻轉輪胎時，教材對輪胎選擇最主要的限制為何？
+  locator: Nontraditional Implement Training Methods > Strongman Training > Tire Flipping
+  options:
+  - text: 輪胎高度不應高於運動員直立時的身高
+    correct: true
+  - text: 輪胎必須有明顯胎紋以增加阻力
+    correct: false
+    why_wrong: 將胎紋誤列為阻力來源；教材指出明顯胎紋反而可能有割痕、碎屑或外露金屬而增加受傷風險，並非提升阻力的要件。
+  - text: 輪胎直徑必須等於運動員手臂長度
+    correct: false
+    why_wrong: 把限制套到手臂長度上；教材只規定輪胎高度對運動員身高的關係，並未提及手臂長度。
+- id: ch16.strongman-training.i03.q1
+  item: ch16.strongman-training.i03
+  dco: pa2.B.3.b
+  lang: zh
+  cognitive: analysis
+  stem: 教材對農夫走（farmer's walk）作為肌力體能工具的證據與安全邊界，最主要的結論為何？
+  locator: Nontraditional Implement Training Methods > Strongman Training > Farmer’s Walk
+  options:
+  - text: 宜由進階運動員嘗試
+    correct: true
+  - text: 已有大量安全性研究
+    correct: false
+    why_wrong: 把研究現況倒過來講；教材明示「未見安全性研究」，並限定由具高肌力的進階運動員嘗試，不可推廣為所有運動員皆宜。
+  - text: 完全不該納入肌力體能課表
+    correct: false
+    why_wrong: 把教材的安全邊界擴大成全面禁用；教材只要求遵循一般安全原則並限進階者嘗試，並未主張全面排除。
+- id: ch16.bodyweight-training.i05.q1
+  item: ch16.bodyweight-training.i05
+  dco: pa2.B.3.a
+  lang: en
+  cognitive: application
+  stem: A coach wants to progress a bodyweight push-up without adding external load. Which modification is most consistent with the textbook for increasing intensity?
+  locator: Bodyweight Training Methods
+  options:
+  - text: Elevating the feet during the push-up
+    correct: true
+  - text: Shortening the tempo of each repetition
+    correct: false
+    why_wrong: Adjusting tempo changes time under tension and neural demand but is not the textbook's listed way to increase resistance in a bodyweight push-up.
+  - text: Switching to a unilateral squat jump on flat ground
+    correct: false
+    why_wrong: Changing the exercise changes the movement pattern being trained and does not progress the push-up itself, so it does not address the goal of increasing push-up intensity.
+- id: ch16.chain-training.i08.q1
+  item: ch16.chain-training.i08
+  dco: pa2.B.3.a
+  lang: zh
+  cognitive: analysis
+  stem: 教材把恆定外部阻力、適應性阻力與可變阻力區分開來，最主要是依據下列何者？
+  locator: Variable-Resistance Training Methods
+  options:
+  - text: 阻力在整個動作範圍內的施加方式與變化模式
+    correct: true
+  - text: 訓練器材的品牌名稱與外觀造型的明顯差異
+    correct: false
+    why_wrong: 教材依阻力施加方式分類，與器材品牌或造型無關；把分類依據放在外觀會錯失真正的判準。
+  - text: 訓練場地的占地坪數與團隊參與人數多寡
+    correct: false
+    why_wrong: 教材未把場地與人數列為區分依據；它的分類核心是阻力隨動作如何變化。
+- id: ch16.core-training.i01.q1
+  item: ch16.core-training.i01
+  dco: pa2.A.1
+  lang: zh
+  cognitive: recall
+  stem: 下列何者最符合教材對「解剖學核心」範圍的界定？
+  locator: Core Stability and Balance Training Methods > Anatomical Focus
+  options:
+  - text: 軸心骨骼與其上所有近端附著的軟組織
+    correct: true
+  - text: 僅指腹直肌與豎脊肌這兩條軀幹淺層肌肉
+    correct: false
+    why_wrong: 教材把核心界定為一個結構範圍，未收窄到只有特定肌肉；只挑兩條淺層肌會丟失其他重要結構。
+  - text: 僅涵蓋腰椎段的椎體與椎間盤結構
+    correct: false
+    why_wrong: 教材核心範圍含骨盆帶與肩帶等整個軸心骨骼，並非只限於腰椎單一節段。
+- id: ch16.general-guidelines.i01.q1
+  item: ch16.general-guidelines.i01
+  dco: pa2.A.1
+  lang: zh
+  cognitive: application
+  stem: 安排替代模式或非傳統器材動作時，下列何者最符合教材所說的首要姿勢原則？
+  locator: General Guidelines > General Guidelines for Alternative Modes and Nontraditional Implement Exercises
+  options:
+  - text: 選擇能在動作中達成並維持安全、正確身體排列的穩定姿勢
+    correct: true
+  - text: 無論動作為何，一律採取最寬的雙腳站距以降低重心
+    correct: false
+    why_wrong: 教材並未要求所有動作一律最寬站距；其原則是能否維持安全排列，使用不穩定裝置時還可能要調整身體位置。
+  - text: 為了發展本體感覺，所有動作都必須改用單腳站姿
+    correct: false
+    why_wrong: 教材未要求所有動作都改為單腳站姿；單腳與否應依動作與排列需求而定。
+- id: ch16.general-guidelines.i03.q1
+  item: ch16.general-guidelines.i03
+  dco: pa2.A.1
+  lang: zh
+  cognitive: application
+  stem: 為非傳統器材（如壺鈴、鍊條、農夫走把手）選擇握法時，最符合教材所述的考量為何？
+  locator: General Guidelines
+  options:
+  - text: 依個別動作需求挑選合適握法，並留意握力可能成為限制
+    correct: true
+  - text: 因為是非傳統器材，必須放棄第 15 章所有傳統握法
+    correct: false
+    why_wrong: 教材明示替代模式與非傳統器材「通常」採用第 15 章的傳統握法，並未要求全部改用其他握法。
+  - text: 為求方便，全程都用正握（overhand grip）一種即可
+    correct: false
+    why_wrong: 教材並未把所有非傳統器材簡化為單一握法；握法的選擇仍應配合動作需求。
+- id: ch16.general-guidelines.i04.q1
+  item: ch16.general-guidelines.i04
+  dco: pa2.B.3.b
+  lang: en
+  cognitive: analysis
+  stem: During the pull and catch phases of a log lift, which breathing strategy is most consistent with the textbook guidance on the Valsalva maneuver?
+  locator: General Guidelines > General Guidelines for Alternative Modes and Nontraditional Implement Exercises
+  options:
+  - text: Hold the breath, then exhale once standing upright again
+    correct: true
+  - text: Exhale continuously throughout every phase to keep the core relaxed
+    correct: false
+    why_wrong: The textbook notes the Valsalva maneuver raises intra-abdominal pressure for spinal stability during the heavy phases; continuous exhalation contradicts that intent.
+  - text: Inhale sharply at the catch and hold it until the eccentric phase
+    correct: false
+    why_wrong: The textbook example calls for holding the breath during the pull and catch and exhaling after standing, not inhaling at the catch.
+- id: ch16.instability-devices.i03.q1
+  item: ch16.instability-devices.i03
+  dco: pa2.B.3.c
+  lang: zh
+  cognitive: analysis
+  stem: 教材最明確把靜態平衡活動定位為何種訓練階段的「入門步驟」？
+  locator: Core Stability and Balance Training Methods > Instability Devices
+  options:
+  - text: 在動態爆發性穩定地面動作之前的核心入門
+    correct: true
+  - text: 取代奧運舉重與深蹲的進階爆發力動作安排
+    correct: false
+    why_wrong: 教材把它定位為入門步驟，並非用來取代奧運舉重等進階爆發力動作；把它升級為取代會錯置其角色。
+  - text: 所有運動員每日執行的主要課表固定內容
+    correct: false
+    why_wrong: 教材未規定每人每天都要做；對進階運動員而言此類刺激可能不足以帶來表現增益。
+- id: ch16.kettlebell-unilateral.i03.q1
+  item: ch16.kettlebell-unilateral.i03
+  dco: pa2.B.3.c
+  lang: zh
+  cognitive: application
+  stem: 雙手壺鈴盪向上時，下列哪一個終點最符合教材所述的技術要求？
+  locator: Two-Arm Kettlebell Swing
+  options:
+  - text: 眼睛高度且肘伸直、中立脊椎
+    correct: true
+  - text: 肩膀正上方且手肘完全屈曲靠近軀幹
+    correct: false
+    why_wrong: 教材的終點是眼睛高度且肘伸直，把手肘屈曲至肩上會同時違反高度與肘位的規範。
+  - text: 下巴下方且手腕最大屈曲以延續擺盪
+    correct: false
+    why_wrong: 教材明示終點為眼睛高度，且未要求手腕屈曲；停在下巴下方並加上手腕屈曲違反動作要求。
+- id: ch16.machine-vs-freeweight.i02.q1
+  item: ch16.machine-vs-freeweight.i02
+  dco: pa2.B.2.a
+  lang: zh
+  cognitive: analysis
+  stem: 教材指出器械訓練能讓訓練者「更能針對特定肌群」，但在同一段也提出一個對運動表現情境的重要保留。下列何者最接近該保留？
+  locator: Core Stability and Balance Training Methods > Machines Versus Free Weight Exercises
+  options:
+  - text: 在運動表現情境中肌肉很少以如此孤立的方式運作
+    correct: true
+  - text: 在運動表現情境中所有肌群都必須以孤立方式被徵召
+    correct: false
+    why_wrong: 教材刻意保留的是「肌肉很少以如此孤立方式運作」，並未主張運動表現要求完全孤立的徵召。
+  - text: 在運動表現情境中單關節動作必然優於多關節動作
+    correct: false
+    why_wrong: 教材未下這種優劣結論；它只是質疑「如此孤立的方式」與真實運動情境是否對應。
+- id: ch16.machine-vs-freeweight.i03.q1
+  item: ch16.machine-vs-freeweight.i03
+  dco: pa2.B.1.a
+  lang: en
+  cognitive: recall
+  stem: According to the textbook, why do ground-based free weight exercises receive priority when the training goal is strength and power development?
+  locator: Core Stability and Balance Training Methods > Machines Versus Free Weight Exercises
+  options:
+  - text: They offer an ideal combination of specificity and instability
+    correct: true
+  - text: They remove the need for any core stabilization by the athlete
+    correct: false
+    why_wrong: The textbook emphasizes that ground-based free weights already provide meaningful instability; it does not state they remove the need for stabilization.
+  - text: They are inherently safer than all machine exercises in every context
+    correct: false
+    why_wrong: The textbook frames ground-based free weights as offering ideal specificity and instability for strength/power; it does not claim universal safety superiority over machines.
+- id: ch16.resistance-bands.i07.q1
+  item: ch16.resistance-bands.i07
+  dco: pa2.B.3.c
+  lang: zh
+  cognitive: application
+  stem: 依教材說明，安排「彈力帶背蹲舉」時帶子在底端最應處於下列何種狀態？
+  locator: Back Squat With Bands
+  options:
+  - text: 完全鬆弛、不對槓鈴增加額外負荷
+    correct: true
+  - text: 拉到接近最大拉伸以預先建立最高張力
+    correct: false
+    why_wrong: 教材明示底端帶子應鬆到沒有張力、不對槓鈴加負荷；先預先拉到最大拉伸會違反這個安排原則。
+  - text: 由底部到頂端全程保持完全相同張力
+    correct: false
+    why_wrong: 教材描述的是變動張力而非恆定張力：底端鬆弛、頂端最高，全程一致與此相違。
+- id: ch16.strongman-training.i02.q1
+  item: ch16.strongman-training.i02
+  dco: pa2.B.3.c
+  lang: en
+  cognitive: application
+  stem: During the clean phase of a log clean and press, where should the log most appropriately be racked before the press?
+  locator: Log Clean and Press
+  options:
+  - text: Front rack resting on the clavicles and anterior deltoids
+    correct: true
+  - text: Behind the neck with the elbows high to mimic a back squat
+    correct: false
+    why_wrong: The textbook describes front racking on the clavicles and anterior deltoids at quarter- to half-squat depth; behind-the-neck racking contradicts that position.
+  - text: At arm's length overhead with the elbows extended before pressing
+    correct: false
+    why_wrong: The log is caught in a front rack at the shoulders before the press; holding it at arm's length overhead is already the top of the press, not the catch position.
+- id: ch16.variable-resistance.i03.q1
+  item: ch16.variable-resistance.i03
+  dco: pa2.B.1.a
+  lang: en
+  cognitive: analysis
+  stem: Which statement best reflects how the textbook qualifies the claimed speed and joint-mechanical benefits of variable resistance?
+  locator: Variable-Resistance Training Methods
+  options:
+  - text: May compensate for joint-angle disadvantage and add compensatory acceleration
+    correct: true
+  - text: Has been definitively proven to add exactly 20 percent to bench press 1RM
+    correct: false
+    why_wrong: The textbook uses tentative language such as 'may' and 'it has been suggested'; asserting a fixed percentage gain contradicts that wording.
+  - text: Eliminates the eccentric phase of every repetition in every lift
+    correct: false
+    why_wrong: The textbook says variable resistance may affect speed and joint mechanics; it does not state that it removes the eccentric phase entirely.
+- id: ch16.variable-resistance.i04.q1
+  item: ch16.variable-resistance.i04
+  dco: pa2.B.1.a
+  lang: zh
+  cognitive: application
+  stem: 對進階運動員，教材對鏈條或橡膠帶加在傳統自由重量的結論最接近下列何者？
+  locator: Variable-Resistance Training Methods；Conclusion
+  options:
+  - text: 可能讓傳統訓練方法承受較大的訓練刺激
+    correct: true
+  - text: 已被證實能完全取代傳統阻力訓練
+    correct: false
+    why_wrong: 教材僅以「可能」表達對進階運動員可能帶來較大刺激，並未宣稱能完全取代傳統阻力訓練。
+  - text: 必然導致每位運動員的動作技術退步
+    correct: false
+    why_wrong: 教材未把可變阻力的影響寫成必然造成技術退步；它對技術的影響描述是針對中階與菁英的額外負荷挑戰。
+- id: ch16.instability-devices.i07.q1
+  item: ch16.instability-devices.i07
+  dco: pa2.B.1.a
+  lang: zh
+  cognitive: application
+  stem: 教材將深蹲、硬舉與奧運舉重等地面自由重量動作與不穩定裝置動作相比，最可能的下一步教練決策為何？
+  locator: Core Stability and Balance Training Methods > Instability Devices
+  options:
+  - text: 優先以地面自由重量作為核心穩定與運動表現的主要刺激
+    correct: true
+  - text: 把全部地面動作搬到不穩定表面上以提升表現
+    correct: false
+    why_wrong: 教材明示地面自由重量已提供足夠不穩定，將其搬上不穩定表面會放大力量、功率與力量發展速率的下降。
+  - text: 立即停止所有自由重量，改用不穩定裝置為唯一的訓練方式
+    correct: false
+    why_wrong: 教材的結論是優先使用地面自由重量來發展核心穩定與表現，並未主張放棄自由重量或全用不穩定裝置。
+- id: ch16.bodyweight-training.i04.q1
+  item: ch16.bodyweight-training.i04
+  dco: pa2.B.3.a
+  lang: zh
+  cognitive: recall
+  locator: Bodyweight Training Methods
+  stem: 教材在介紹自體重量訓練方法時，點名了哪一組活動作為例子？
+  options:
+  - text: 伏地挺身、引體向上與蹲撐
+    correct: true
+  - text: 臥推、硬舉與壺鈴盪
+    correct: false
+    why_wrong: 臥推與硬舉屬於外加負重的自由重量動作，不在教材列舉的自體重量活動內。
+  - text: 划船機、飛輪車與跑步機
+    correct: false
+    why_wrong: 這些是有氧器材而非阻力訓練活動，教材列的是徒手體操與競技體操那一類。
+- id: ch16.bodyweight-training.i05.q2
+  item: ch16.bodyweight-training.i05
+  dco: pa2.B.3.a
+  lang: zh
+  cognitive: recall
+  stem: 下列何種做法最不適合用來提高自體重量動作的阻力？
+  locator: Bodyweight Training Methods
+  options:
+  - text: 持續增加反覆次數
+    correct: true
+  - text: 把雙腳抬高改變動作模式
+    correct: false
+    why_wrong: 抬高腿部屬於教材提出的改變動作模式以增加阻力的方法。
+  - text: 改用懸吊裝置進行伏地挺身
+    correct: false
+    why_wrong: 教材指出懸吊裝置伏地挺身的肌肉活化的確高於穩定地面的傳統做法。
+- id: ch16.chain-training.i04.q1
+  item: ch16.chain-training.i04
+  dco: pa2.B.3.a
+  lang: zh
+  cognitive: application
+  stem: 深蹲底部使用主鍊條並讓較細的支撐鍊條懸掛，主要的阻力變化最符合下列何種描述？
+  locator: Variable-Resistance Training Methods > Chain-Supplemented Exercises > Applying Chains to Free Weight Exercises
+  options:
+  - text: 底端阻力較低、頂端阻力線性增加
+    correct: true
+  - text: 底端阻力最高、頂端阻力逐漸下降
+    correct: false
+    why_wrong: 這是反向描述；教材指出鍊節在底端接觸地面而減重，向上時鍊節離地阻力才線性增加。
+  - text: 全動作範圍的阻力維持固定
+    correct: false
+    why_wrong: 這是恆定外部阻力的特徵，不是懸掛式鍊條的行為。
+- id: ch16.chain-training.i06.q1
+  item: ch16.chain-training.i06
+  dco: pa2.B.3.a
+  lang: zh
+  cognitive: analysis
+  stem: 一名動作技術仍不穩定的新手運動員希望加入鍊條訓練，根據教材，最主要的疑慮為何？
+  locator: Variable-Resistance Training Methods > Chain-Supplemented Exercises > Determining Resistance With Chains
+  options:
+  - text: 鍊條可能帶來影響動作技術的負荷挑戰
+    correct: true
+  - text: 鍊條沒有任何已被驗證的肌力訓練效果
+    correct: false
+    why_wrong: 教材並未否認鍊條在部分研究顯示有利，只是科學支持整體尚未充分。
+  - text: 鍊條只能用於奧運舉重動作
+    correct: false
+    why_wrong: 教材提到部分研究使用臥推等動作，並未限定只能配合奧運舉重。
+- id: ch16.general-guidelines.i02.q1
+  item: ch16.general-guidelines.i02
+  dco: pa2.A.1
+  lang: zh
+  cognitive: application
+  stem: 在替代模式動作中，下列何種呼吸時機最符合教材建議？
+  locator: General Guidelines
+  options:
+  - text: 在黏滯點的向心動作呼氣
+    correct: true
+  - text: 在壓力較大的離心階段呼氣
+    correct: false
+    why_wrong: 教材建議在壓力較小的離心動作吸氣，不是把高壓區段換成呼氣。
+  - text: 在壓力較大的向心動作持續吸氣
+    correct: false
+    why_wrong: 教材明示向心動作的呼氣應在黏滯點而非全程吸氣，此選項把吸氣整段放到高壓向心，違反原則。
+- id: ch16.instability-devices.i04.q1
+  item: ch16.instability-devices.i04
+  dco: pa2.B.3.a
+  lang: zh
+  cognitive: recall
+  stem: 教材引述 Fitzgerald 等人的發現，使用擾動式平衡裝置的復健運動員最顯著的增加為何？
+  locator: Core Stability and Balance Training Methods > Instability Devices
+  options:
+  - text: 重返競技的機率高出五倍
+    correct: true
+  - text: 受傷率下降至五分之一
+    correct: false
+    why_wrong: 教材說的是重返競技的機率高出五倍，不是把受傷率換成五分之一的反向描述。
+  - text: 最大肌力輸出提高五倍
+    correct: false
+    why_wrong: 五倍的結論是針對重返競技的機率，教材並未主張肌力輸出達到五倍。
+- id: ch16.instability-devices.i05.q1
+  item: ch16.instability-devices.i05
+  dco: pa2.B.3.a
+  lang: zh
+  cognitive: analysis
+  stem: 為何不穩定裝置最可能不利於運動員的肌力與功率表現？
+  locator: Core Stability and Balance Training Methods > Instability Devices
+  options:
+  - text: 訓練時力量、功率與力量發展速率可能下降
+    correct: true
+  - text: 教材認定所有裝置都已證實完全無效
+    correct: false
+    why_wrong: 教材用的是「未必最有利」與「研究有限」，不是「完全無效」的二分法。
+  - text: 不穩定裝置會永久破壞動作的運動技術
+    correct: false
+    why_wrong: 教材沒有聲稱裝置會造成永久的技術破壞，只是說對運動表現未必最有利。
+- id: ch16.instability-devices.i08.q1
+  item: ch16.instability-devices.i08
+  dco: pa2.B.3.a
+  lang: zh
+  cognitive: analysis
+  stem: 關於平衡訓練降低前十字韌帶傷害的爭議，教材最中肯的描述為何？
+  locator: Core Stability and Balance Training Methods > Instability Devices
+  options:
+  - text: 不同研究結論不一致，不能單方面寫成定論
+    correct: true
+  - text: Caraffa 等人已證實平衡訓練一定可降低傷害
+    correct: false
+    why_wrong: 教材並列 Grimm 等人的相反結論，並未把任一方寫成定論。
+  - text: Grimm 等人的回顧已完全否定所有相關研究
+    correct: false
+    why_wrong: 教材並未聲稱 Grimm 等人的回顧完全否定所有相關研究，只是對 Caraffa 等人的結論提出異議。
+- id: ch16.kettlebell-unilateral.i01.q1
+  item: ch16.kettlebell-unilateral.i01
+  dco: pa2.B.3.a
+  lang: en
+  cognitive: analysis
+  stem: According to the textbook, how do traditional weight training and kettlebell training most appropriately compare in their impact on jump and strength performance?
+  locator: Nontraditional Implement Training Methods > Kettlebell Training
+  options:
+  - text: Both showed gains, but weight training produced larger increases in the cited study.
+    correct: true
+  - text: Kettlebell training produced larger gains than weight training in every measured outcome.
+    correct: false
+    why_wrong: The textbook reports weight training produced larger jumps and squat strength gains than kettlebell training in the cited intervention.
+  - text: Neither modality produced any measurable change in jump or squat strength.
+    correct: false
+    why_wrong: Both modalities produced measurable gains; the textbook contrasts their magnitudes rather than reporting zero change.
+- id: ch16.kettlebell-unilateral.i03.q2
+  item: ch16.kettlebell-unilateral.i03
+  dco: pa2.B.3.a
+  lang: zh
+  cognitive: application
+  stem: 雙手壺鈴盪的下擺與反轉，教材最強調的時機為何？
+  locator: Two-Arm Kettlebell Swing
+  options:
+  - text: 壺鈴越過身體垂直線後才伸髖伸膝
+    correct: true
+  - text: 壺鈴一離開起始位置就立刻伸膝
+    correct: false
+    why_wrong: 教材要求等壺鈴通過身體垂直線之後才反轉，過早伸膝會失去擺盪的節奏。
+  - text: 軀幹保持直立並以屈肘帶動壺鈴
+    correct: false
+    why_wrong: 教材規定肘部保持伸直、由髖主導發力，屈肘帶動並非此動作的作法。
+- id: ch16.machine-vs-freeweight.i04.q1
+  item: ch16.machine-vs-freeweight.i04
+  dco: pa2.B.1.a
+  lang: en
+  cognitive: application
+  stem: When designing a program focused on maximal strength and power, what is the textbook's primary recommendation regarding instability surfaces during ground-based free weight exercises?
+  locator: Core Stability and Balance Training Methods > Machines Versus Free Weight Exercises
+  options:
+  - text: Avoid adding instability surfaces as the lifts already provide sufficient stimulus
+    correct: true
+  - text: Add instability surfaces to maximize strength and power development
+    correct: false
+    why_wrong: The textbook warns that adding instability surfaces decreases force, RFD, and power output further.
+  - text: Replace free weight exercises entirely with instability device exercises
+    correct: false
+    why_wrong: The textbook does not recommend replacing ground-based free weight exercises with instability device work for these goals.
+- id: ch16.resistance-bands.i03.q1
+  item: ch16.resistance-bands.i03
+  dco: pa2.B.3.a
+  lang: zh
+  cognitive: application
+  stem: 教材示範的 5RM 150 kg 背蹲舉以彈力帶輔助時，底端帶子阻力 0 kg、頂端 26.6 kg，調整後加到槓鈴的負荷最接近下列何值？
+  locator: Variable-Resistance Training Methods > Resistance Band Exercises > Determining Resistance With Resistance Bands
+  options:
+  - text: 136 至 137 kg
+    correct: true
+  - text: 150 至 151 kg
+    correct: false
+    why_wrong: 沒有扣除彈力帶的平均阻力，把目標 5RM 直接放上槓鈴。
+  - text: 123 至 124 kg
+    correct: false
+    why_wrong: 誤把整段動作都當作最高頂端阻力扣除，把平均值用成最大值。
+- id: ch16.strongman-training.i04.q1
+  item: ch16.strongman-training.i04
+  dco: pa2.B.3.a
+  lang: zh
+  cognitive: analysis
+  stem: 相較於其他訓練模式，教材對強人訓練的整體證據持何種最為中肯的結論？
+  locator: Nontraditional Implement Training Methods > Strongman Training
+  options:
+  - text: 部分證據支持高強度刺激，但成效研究仍相對少
+    correct: true
+  - text: 已有大量縱向研究證實其優於傳統阻力訓練
+    correct: false
+    why_wrong: 教材明示直接探究成效的研究仍相對少，並未聲稱有大量縱向研究支持其優越性。
+  - text: 教材完全否定強人訓練的整體價值
+    correct: false
+    why_wrong: 教材保留部分證據支持的正面觀察，並未全面否定強人訓練。
+- id: ch16.variable-resistance.i02.q1
+  item: ch16.variable-resistance.i02
+  dco: pa2.B.3.a
+  lang: zh
+  cognitive: application
+  stem: 教材認為可變阻力方法可能有用，最主要的理由為何？
+  locator: Variable-Resistance Training Methods
+  options:
+  - text: 傳統固定負荷無法配合肌肉施力的變化
+    correct: true
+  - text: 肌肉施力在整個動作範圍完全恆定
+    correct: false
+    why_wrong: 教材正是指出肌肉施力會隨關節機械優勢改變，不是全程恆定。
+  - text: 外部負荷會隨疲勞程度自動下降
+    correct: false
+    why_wrong: 可變阻力調整的是器材施加的阻力，與疲勞造成的自然下降無關。
+- id: ch16.resistance-bands.i04.q1
+  item: ch16.resistance-bands.i04
+  dco: pa2.B.3.a
+  lang: en
+  cognitive: application
+  stem: When applying resistance bands to a free weight exercise, which anchoring approach most appropriately controls band tension across the range of motion?
+  locator: Variable-Resistance Training Methods > Resistance Band Exercises > Applying Resistance Bands to Free Weight Exercises
+  options:
+  - text: Anchor the band to a fixed rack point so it lengthens through the lift
+    correct: true
+  - text: Tie both band ends to the bar without any external anchor
+    correct: false
+    why_wrong: Without an external anchor the band cannot build tension progressively across the lift.
+  - text: Loop the band only around the lifter's wrists to keep it tight
+    correct: false
+    why_wrong: Wrist-only anchoring is a safety hazard and does not control band length or tension the way a fixed anchor point does.
+- id: ch16.resistance-bands.i04.q2
+  item: ch16.resistance-bands.i04
+  dco: pa2.B.3.a
+  lang: en
+  cognitive: application
+  stem: An athlete asks where a band adds the most load during a banded back squat. Which description best matches the textbook?
+  locator: Variable-Resistance Training Methods > Resistance Band Exercises > Applying Resistance Bands to Free Weight Exercises
+  options:
+  - text: Peak tension and total resistance occur at the top of the movement
+    correct: true
+  - text: Peak tension occurs at the bottom, where the band is slack
+    correct: false
+    why_wrong: The band is least stretched at the bottom, so that is where it adds the least load, not the most.
+  - text: Resistance stays level because the band is fixed to both bar ends
+    correct: false
+    why_wrong: Attaching a band at both bar ends without a fixed anchor does not hold the length needed to build tension.
+- id: ch16.bodyweight-training.i01.q2
+  item: ch16.bodyweight-training.i01
+  dco: pa2.B.3.a
+  lang: en
+  cognitive: application
+  stem: A coach is designing a low-equipment circuit and wants a resistance source that travels with the athlete and requires no external load. Which training method most appropriately matches that requirement?
+  locator: Bodyweight Training Methods
+  options:
+  - text: Bodyweight training
+    correct: true
+  - text: Barbell back squat training
+    correct: false
+    why_wrong: Treats a fixed barbell setup as portable; the barbell requires a rack and external weight, so it does not meet the no-external-load, travels-with-the-athlete requirement.
+  - text: Resistance band training
+    correct: false
+    why_wrong: Conflates portability with bodyweight; bands are a separate category and still require an external implement, which violates the no-external-load requirement.
+- id: ch16.bodyweight-training.i02.q2
+  item: ch16.bodyweight-training.i02
+  dco: pa2.B.3.c
+  lang: zh
+  cognitive: recall
+  stem: 教材列舉自體重量訓練的優點時，下列哪一項屬於教材明確提到的內容？
+  locator: Bodyweight Training Methods > Benefits of Bodyweight Training
+  options:
+  - text: 常含閉鎖鏈動作並同時強化多個肌群
+    correct: true
+  - text: 必然完全消除所有運動傷害風險
+    correct: false
+    why_wrong: 把優勢誇大成零風險；教材僅列舉符合人體測量、閉鎖鏈、相對肌力等多項優點，並未主張傷害風險歸零。
+  - text: 訓練目標永遠只會落在最大肌力
+    correct: false
+    why_wrong: 把單一訓練目標硬套到自體重量訓練上；教材指出阻力受限，實際訓練目標常受反覆次數影響而轉向肌耐力。
