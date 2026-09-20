@@ -2,190 +2,611 @@ meta:
   chapter: ch18
   source: data/cscs/ch18.yaml
 questions:
-  # 干擾項對照：ch18.equipment-facility.i01、i02（吸震與接觸時間須同時考量）。
-  - id: ch18.equipment-facility.i07.q1
-    item: ch18.equipment-facility.i07
-    cognitive: analysis
-    stem: 小型彈跳床曾用於復健初階，教練因此想讓未受傷運動員也在上面進行快速落地反彈訓練，哪個判斷最符合教材的用途區分？
-    locator: Safety Considerations > Equipment and Facilities > Landing Surface
-    options:
-      - text: 有助初階平衡練習，就可視為正式功率訓練的等效場地
-        correct: false
-        why_wrong: 將復健引介直接推廣到健康運動員；兩種情境的目的不同，前者可用不代表能滿足快速轉換的要求。
-      - text: 器材越能下陷吸震，就越能改善牽張反射的利用效率
-        correct: false
-        why_wrong: 把緩衝越多視為效益必然越大；彈性表面可能延長過渡階段，妨礙後續立即出力時的反射增強。
-      - text: 復健時可以引介，但延長攤銷期會妨礙健康者的訓練目的
-        correct: true
-      - text: 改用厚度十五公分的運動墊，就能保有短暫觸地的效果
-        correct: false
-        why_wrong: 將厚墊當作兼顧緩衝與快速轉換的替代品；教材也指出達六英吋的墊子會使攤銷期變長，問題並未排除。
-
-  # 干擾項對照：ch18.program-design.i05（漸進配置）、i03（最大努力與恢復）。
-  - id: ch18.intensity-volume.i06.q1
-    item: ch18.intensity-volume.i06
-    cognitive: application
-    stem: 運動員的增強式動作技術穩定，下一階段要提高單次動作強度，教練通常應如何同步調整當次訓練量？
-    locator: Program Design > Intensity
-    options:
-      - text: 減少足部接觸總數，配合較高的動作負荷
-        correct: true
-      - text: 同步增加反覆次數，讓每個超負荷變項都上升
-        correct: false
-        why_wrong: 把漸進原則誤讀成所有設計參數一起增加；教材的一般配置是強度上升時降低量，以管理整體負荷。
-      - text: 維持原有組數與次數，因為量和強度互不影響
-        correct: false
-        why_wrong: 將兩個可分別記錄的變項當成無須協調；強度提高已改變負荷，教材通常建議相應減量。
-      - text: 持續追加跳躍直到疲勞，用力竭次數決定總量
-        correct: false
-        why_wrong: 混用肌耐力累積疲勞的思路；增強式重視最大努力的功率品質，不能以做到力竭取代強度與量的配置。
-
-  # 干擾項對照：ch18.mechanical-models.i04（神經模型）、i08（收縮與並聯成分）。
-  - id: ch18.mechanical-models.i02.q1
-    item: ch18.mechanical-models.i02
-    cognitive: recall
-    stem: 依增強式運動的機械模型，快速預先拉伸後立即向心出力時，額外力量主要來自哪個機制？
-    locator: Plyometric Mechanics and Physiology > Mechanical Model of Plyometric Exercise
-    options:
-      - text: 肌梭先感受快速伸展，再經神經路徑提高活動
-        correct: false
-        why_wrong: 這是神經生理模型的解釋；牽張反射確實可能參與，但題目指定的是彈性組織儲能及釋放的機械機制。
-      - text: 肌動與肌球蛋白形成橫橋，直接執行主動收縮
-        correct: false
-        why_wrong: 把收縮元件本來就有的產力當成預拉伸的儲能增益；橫橋是主動力量來源，並非此處串聯成分回彈的角色。
-      - text: 肌外膜等結締組織受拉，以並聯元件提供被動張力
-        correct: false
-        why_wrong: 混淆並聯與串聯元件；前者在未受刺激肌肉被伸展時提供被動力量，教材強調的可回收儲能主要由串聯部分貢獻。
-      - text: 肌腱等彈性組織先儲能，再回彈協助發力
-        correct: true
-
-  - id: ch18.program-design.i03.q1
-    item: ch18.program-design.i03
-    cognitive: application
-    stem: 深跳課程原本以最大努力的無氧功率為目標，教練縮短休息後發現後續跳躍品質下降，哪個調整最符合恢復原則？
-    locator: Program Design > Recovery
-    options:
-      - text: 縮短每回合間隔，以持續喘息作為訓練目標
-        correct: false
-        why_wrong: 把增強式當成心肺訓練；教材要求足夠恢復以維持最大努力，追求喘息程度改變了本題的課程目的。
-      - text: 拉長組間恢復，讓後續反覆維持最大努力
-        correct: true
-      - text: 在疲勞下追加足部接觸，優先累積更多次數
-        correct: false
-        why_wrong: 將增加訓練量當成恢復不足的補償；更多反覆不會讓已下降的出力品質恢復，也偏離功率訓練的要求。
-      - text: 隔天再練同一肌群，靠密集刺激維持負荷
-        correct: false
-        why_wrong: 混淆頻率增加與充分恢復；教材不建議同一身體部位連續兩天施作，且這種安排無法改善當次組間恢復。
-
-  - id: ch18.safety.i04.q1
-    item: ch18.safety.i04
-    cognitive: application
-    stem: 運動員已通過初次增強式訓練所需的單腳站立測試；若準備進階計畫，應在相同訓練表面再通過哪項平衡要求？
-    locator: Safety Considerations > Pretraining Evaluation of the Athlete > Balance > Table 18.7 Balance Tests
-    options:
-      - text: 雙足併攏直立，連續站好半分鐘
-        correct: false
-        why_wrong: 把較基本的雙腳站姿當成進階門檻；題目所需的是更難的單側半蹲控制，而非增加支撐點。
-      - text: 以一隻腳保持直立姿勢達三十秒
-        correct: false
-        why_wrong: 重複了初次訓練者的入門要求；通過直立測試不能替代進階計畫所要求的屈膝半蹲姿勢。
-      - text: 單腳半蹲並穩定維持三十秒
-        correct: true
-      - text: 兩腳支撐四分之一蹲至半分鐘
-        correct: false
-        why_wrong: 混淆表內的中間難度與進階要求；雙側支撐且蹲幅較淺，沒有驗證單腳半蹲的能力。
-
-  # 干擾項對照：ch18.program-design.i02、i03（一般頻率、組間與課間恢復）。
-  - id: ch18.special-populations.i05.q1
-    item: ch18.special-populations.i05
-    cognitive: application
-    stem: 教練要把一般增強式課表調整給已完成訓練前評估的熟齡運動員，哪個起始修改最符合教材建議？
-    locator: Age Considerations > Masters
-    options:
-      - text: 選五項以內低中強度動作、降低總量，課間隔三至四天
-        correct: true
-      - text: 維持標準課程的跳躍總量，僅把組間休息拉長
-        correct: false
-        why_wrong: 把單次課內等待當成完整的熟齡調整；教材還要求低於標準課程的足部接觸量，並安排數天的課間恢復。
-      - text: 降低單次訓練反覆次數，改為每天連續施作
-        correct: false
-        why_wrong: 誤以為少做幾次就能省略跨日恢復；熟齡課程建議兩次相隔三至四天，不能用每日累積取代。
-      - text: 沿用原有課程的訓練密度，以加高箱子增加刺激
-        correct: false
-        why_wrong: 將一般漸進超負荷優先套到熟齡起始處方；教材此處強調少量低至中強度動作與較充足恢復，不是先升高深跳負荷。
-
-  # 干擾項對照：ch18.ssc.i07（靜態蹲跳與反向跳），ch18.mechanical-models.i04。
-  - id: ch18.ssc.i04.q1
-    item: ch18.ssc.i04
-    cognitive: analysis
-    stem: 兩次落地高度相同，一次立即反彈，另一次停在底部數秒才起跳；後者失去預拉伸增益的主要解釋為何？
-    locator: Plyometric Mechanics and Physiology > Stretch–Shortening Cycle
-    options:
-      - text: 過渡等候加長，使彈性回彈累積得更充分且提高輸出
-        correct: false
-        why_wrong: 把等待當成繼續儲能；離心期之後若未立即轉向，先前存下的能量會散失，並不因停得久而增加。
-      - text: 延後再起跳會讓肌梭持續增敏，提升隨後的向心功率
-        correct: false
-        why_wrong: 將短暫牽張反射誤認為等待越久就越強；未立即銜接動作會失去反射對後續收縮的增強作用。
-      - text: 停頓能保留快速伸展效果，等同立即接續反向跳的表現
-        correct: false
-        why_wrong: 混淆保持蹲姿後起跳與連續反向動作；長停頓切斷快速轉換，不能視為同樣利用拉伸縮短週期。
-      - text: 彈性能轉成熱散失，牽張反射不再增強向心活動
-        correct: true
-
-  # 干擾項對照：本 item 的起始高度限制，以及 ch18.ssc.i07 的靜態蹲跳。
-  - id: ch18.training-modes.i03.q1
-    item: ch18.training-modes.i03
-    cognitive: application
-    stem: 教練希望以設定的箱高進行標準深跳，哪一種動作提示符合執行方式？
-    locator: Program Design > Mode > Lower Body Plyometrics > Table 18.2 Lower Body Plyometric Drills
-    options:
-      - text: 先在平台向上躍起，再利用落地接續反彈
-        correct: false
-        why_wrong: 把跳下與踏下混為一談；先向上跳會額外提高實際落下高度，使原先設定的負荷改變。
-      - text: 從箱上踏出落下，觸地後立刻再次起跳
-        correct: true
-      - text: 蹲低身體後離開箱面，以較短距離觸地
-        correct: false
-        why_wrong: 將降低重心視為標準離箱準備；這會縮短實際落下高度，教材指定從站立姿勢踏下。
-      - text: 落地後停在半蹲姿勢，穩住數秒才向上跳
-        correct: false
-        why_wrong: 移用了靜態蹲跳的停頓作法；深跳需要快速銜接離心與向心，久停會削弱儲能與牽張反射的利用。
-
-  # 干擾項對照：ch18.intensity-volume.i04（接觸次數不是支撐點數）。
-  - id: ch18.intensity-volume.i02.q1
-    item: ch18.intensity-volume.i02
-    cognitive: analysis
-    stem: 同一運動員在高度與速度相近的條件下，把雙腳落地改成單腳落地，對單一肢體負荷的判斷何者最合理？
-    locator: Program Design > Intensity > Table 18.3 Factors Affecting the Intensity of Lower Body Plyometric Drills
-    options:
-      - text: 總體重沒有增加，所以受測肢體的強度相同
-        correct: false
-        why_wrong: 把整體重量固定誤當成每條腿受力固定；改由單側承受時，原先雙側分攤的條件已改變。
-      - text: 每回合的著地腳數減少，因此難度隨之降低
-        correct: false
-        why_wrong: 將接觸點數誤當成訓練量的反覆次數；每次只用一腳支撐通常增加局部壓力，並非少一隻腳就比較輕鬆。
-      - text: 由兩腳分攤改成單側承受，局部組織壓力升高
-        correct: true
-      - text: 箱高保持原來設定，便能抵銷支撐方式的差別
-        correct: false
-        why_wrong: 把高度當成唯一強度因素；教材同時列出接觸點數、速度及體重等條件，高度固定不能消除單側承重的改變。
-
-  # 干擾項對照：ch18.program-design.i03（不得用耐力段取代充分恢復）。
-  - id: ch18.program-design.i08.q1
-    item: ch18.program-design.i08
-    cognitive: analysis
-    stem: 教練同日安排增強式與其他體能訓練，哪個配置最符合維持跳躍功率與充分恢復的原則？
-    locator: Plyometrics and Other Forms of Exercise > Plyometric Exercise and Resistance Training
-    options:
-      - text: 先完成高品質跳躍，再進行有氧耐力課程
-        correct: true
-      - text: 長時間持續跑結束後，才開始最大努力的彈跳
-        correct: false
-        why_wrong: 把有氧耐力段當成爆發訓練前的準備；這類運動可能對功率產生負面影響，教材建議增強式先做。
-      - text: 把耐力段穿插每組爆發動作之間，以避免休息
-        correct: false
-        why_wrong: 混用連續循環課程的安排；穿插耗能段並取消恢復，沒有遵守增強式需要充分恢復以維持最大努力的原則。
-      - text: 高強度蹲舉完立刻接深跳，以完成複合訓練
-        correct: false
-        why_wrong: 只記住阻力後接增強式的次序，卻省略關鍵前提；若採複合訓練，兩者之間仍須充分恢復。
+- id: ch18.safety.i01.q1
+  item: ch18.safety.i01
+  dco: pa2.C.1
+  lang: zh
+  cognitive: application
+  stem: 學員從箱上跳下落地時，最應優先觀察的下肢排列為何？
+  locator: Safety Considerations > Pretraining Evaluation of the Athlete > Technique
+  options:
+  - text: 肩在膝上方、膝在腳趾上方
+    correct: true
+  - text: 膝蓋在腳跟正上方、髖部過度後傾
+    correct: false
+    why_wrong: 膝蓋應對齊腳趾而非腳跟；髖部後傾會把重量推離支撐基底，妨礙落地緩衝並提高傷害風險。
+  - text: 腳尖朝外超過四十五度以增加穩定
+    correct: false
+    why_wrong: 過度外八會把膝蓋推離腳趾正上方而進入動態膝外翻，是教材明列的膝傷風險因子。
+- id: ch18.intensity-volume.i08.q1
+  item: ch18.intensity-volume.i08
+  dco: pa1.J
+  lang: en
+  cognitive: application
+  stem: A 235 lb (107 kg) linebacker with no prior knee injury is being evaluated for a lower body plyometric program. Which of the following depth jump heights is most appropriate to include in his initial training block?
+  locator: Safety Considerations > Pretraining Evaluation of the Athlete > Physical Characteristics
+  options:
+  - text: 16 inches (41 cm)
+    correct: true
+  - text: 30 inches (76 cm)
+    correct: false
+    why_wrong: 30 inches exceeds the 18-inch ceiling the text sets for athletes above 220 lb; loading at this height adds joint compression without a documented benefit for this population.
+  - text: 48 inches (122 cm)
+    correct: false
+    why_wrong: 48 inches is the height the text flags as overloading for most athletes; combining that with a body weight above 220 lb compounds compressive load and injury risk.
+- id: ch18.special-populations.i01.q1
+  item: ch18.special-populations.i01
+  dco: pa1.J
+  lang: zh
+  cognitive: application
+  stem: 一名骨骺板尚未閉合的十歲田徑選手想加入下肢增強式課程，最應優先遵守的限制為何？
+  locator: Age Considerations > Adolescents
+  options:
+  - text: 暫不安排深跳與其他高強度下肢動作
+    correct: true
+  - text: 直接進入與青少年相同的進階訓練量
+    correct: false
+    why_wrong: 教材對青春期前兒童的禁忌限定在深跳與高強度動作；訓練量也不應直接套用青少年進階課表。
+  - text: 只要暖身充足就可以做 30 公分深跳
+    correct: false
+    why_wrong: 充分暖身並不能改變骨骺板未閉合的事實；高強度落地壓縮力仍可能干擾生長板，是教材明列的禁忌情境。
+- id: ch18.special-populations.i05.q1
+  item: ch18.special-populations.i05
+  dco: pa1.J
+  lang: en
+  cognitive: application
+  stem: A 58-year-old recreational runner with no surgical history is starting a plyometric program. Which of the following best reflects the recommended weekly structure for her training?
+  locator: Age Considerations > Masters
+  options:
+  - text: Up to 5 low to moderate drills, 3 to 4 days rest
+    correct: true
+  - text: 8 to 10 mixed drills, 2 to 3 sessions weekly
+    correct: false
+    why_wrong: 8 to 10 drills exceeds the 5-drill ceiling for masters athletes, and 2 to 3 sessions per week falls short of the 3 to 4 day inter-session recovery the text specifies.
+  - text: 3 to 4 high-intensity drills, back to back days
+    correct: false
+    why_wrong: High-intensity drills and consecutive-day scheduling both violate the masters prescription; the program should stay low to moderate with at least 3 to 4 days between sessions.
+- id: ch18.mechanical-models.i05.q1
+  item: ch18.mechanical-models.i05
+  dco: pa2.D.2
+  lang: zh
+  cognitive: analysis
+  stem: 學員做完反向跳落地後刻意停住、站穩再起跳，最主要的力學後果為何？
+  locator: Plyometric Mechanics and Physiology > Mechanical Model of Plyometric Exercise
+  options:
+  - text: 前期儲存的彈性能以熱散失，牽張反射增強效果被抵銷
+    correct: true
+  - text: 串聯彈性成分被過度拉伸而喪失彈性，永久失去儲能能力
+    correct: false
+    why_wrong: 教材只說停住會讓本次儲能以熱散失，並未指出串聯彈性成分會永久喪失彈性。
+  - text: 攤銷期延長反而提高阿爾法運動神經元的徵召量
+    correct: false
+    why_wrong: 攤銷期延長會縮減而非增強阿爾法運動神經元在後續向心期的反射性徵召，這正是教材要避免的時間錯誤。
+- id: ch18.equipment-facility.i01.q1
+  item: ch18.equipment-facility.i01
+  dco: pa1.C.3
+  lang: zh
+  cognitive: application
+  stem: 為一名校隊排球選手安排下肢增強式課表，下列哪一種落地面最符合教材建議？
+  locator: Safety Considerations > Equipment and Facilities > Landing Surface
+  options:
+  - text: 鋪設橡膠墊的訓練室
+    correct: true
+  - text: 拋光處理的硬木地板
+    correct: false
+    why_wrong: 硬木地板吸震性不足，教材與落地面相關段落明列其為不建議的下肢增強式表面。
+  - text: 未上漆的混凝土面
+    correct: false
+    why_wrong: 混凝土吸震性極差，是教材明列不適合下肢增強式訓練的表面；長期使用會把落地衝擊直接傳入關節。
+- id: ch18.equipment-facility.i07.q1
+  item: ch18.equipment-facility.i07
+  dco: pa1.C.3
+  lang: en
+  cognitive: analysis
+  stem: A college sprinter with no current injury asks whether she should add mini-trampoline bounds to her lower body plyometric session. Which of the following is the most appropriate response based on the textbook?
+  locator: Safety Considerations > Equipment and Facilities > Landing Surface
+  options:
+  - text: Decline the addition because the elastic surface will lengthen the amortization phase and waste stored elastic energy
+    correct: true
+  - text: Add the mini-trampoline bounds because elastic surfaces reduce ground reaction force and therefore lower injury risk
+    correct: false
+    why_wrong: The text does not endorse elastic surfaces for uninjured plyometrics; reducing ground reaction force is not the reason to accept mini-trampoline work, and the surface itself creates the very amortization problem the book warns against.
+  - text: Substitute the mini-trampoline for all depth jumps because it replicates the eccentric load of a drop landing
+    correct: false
+    why_wrong: Mini-trampoline surfaces do not replicate the eccentric demand of a depth jump; the text limits trampoline use to early rehabilitation contexts, not replacements for depth jumps.
+- id: ch18.program-design.i02.q1
+  item: ch18.program-design.i02
+  dco: pa1.G.3
+  lang: zh
+  cognitive: application
+  stem: 替一名進階籃球選手排定增強式訓練時，最應優先採用下列哪一項頻率與恢復安排？
+  locator: Program Design > Frequency
+  options:
+  - text: 每週 2 至 3 次，課間至少 48 小時恢復
+    correct: true
+  - text: 每週 5 次，盡量在連續兩天完成以維持刺激
+    correct: false
+    why_wrong: 教材建議兩次訓練間至少 48 至 72 小時恢復；連續兩天排課會把這條原則直接破掉，傷害風險升高。
+  - text: 每週 1 次，但單次安排到 250 次足部接觸
+    correct: false
+    why_wrong: 教材對進階者單次建議量為 120 至 140 次足部接觸；硬把單次量推到 250 次會違反強度與訓練量反比的原則。
+- id: ch18.training-modes.i02.q1
+  item: ch18.training-modes.i02
+  dco: pa1.C.1
+  lang: zh
+  cognitive: recall
+  stem: 教材將下肢增強式動作歸納為六種類型，下列何者不在這六類之中？
+  locator: Program Design > Mode > Lower Body Plyometrics
+  options:
+  - text: 阻力撬衝刺
+    correct: true
+  - text: 跨步跳動作
+    correct: false
+    why_wrong: 跨步跳是教材明列的六類下肢增強式動作之一，不在「何者不在」的範圍。
+  - text: 箱上跳動作
+    correct: false
+    why_wrong: 箱上動作是教材列出的六類之一；把它誤判為不在範圍會失分，因為箱上動作正是下肢分類的代表。
+- id: ch18.safety.i07.q1
+  item: ch18.safety.i07
+  dco: pa2.C.2
+  lang: zh
+  cognitive: analysis
+  stem: 校隊在磁磚走廊進行增強式訓練時發生學員落地扭傷，最應優先檢討的系統性原因是？
+  locator: Safety Considerations
+  options:
+  - text: 落地面吸震性不足，違反教材場地選擇原則
+    correct: true
+  - text: 學員肌纖維組成天生決定傷害結果
+    correct: false
+    why_wrong: 肌纖維組成是無法現場調整的體質因素；教材把傷害風險連結到訓練程序與場地器材，而非歸因於天生組成。
+  - text: 增強式訓練本質上屬高風險活動，無法降低傷害
+    correct: false
+    why_wrong: 教材明確指出在正確執行的前提下，增強式訓練並非本質危險，違反場地或程序才是風險來源。
+- id: ch18.program-design.i08.q1
+  item: ch18.program-design.i08
+  dco: pa1.D.1
+  lang: en
+  cognitive: analysis
+  stem: A soccer coach wants to pair lower body resistance training with upper body plyometrics in the same session for a collegiate midfielder. Which of the following is the most appropriate ordering rationale based on the textbook?
+  locator: Plyometrics and Other Forms of Exercise > Plyometric Exercise and Resistance Training
+  options:
+  - text: Pair lower body resistance with upper body plyometrics so fatigue in one region does not compromise the other
+    correct: true
+  - text: Perform upper body resistance and upper body plyometrics back to back to maximize upper body power transfer
+    correct: false
+    why_wrong: Back-to-back upper body work creates local muscular fatigue that compromises plyometric technique; the text specifically recommends pairing opposing regions, not stacking upper body work.
+  - text: Always perform plyometrics before any aerobic conditioning in the same session, but place them after resistance training to pre-fatigue the target muscles
+    correct: false
+    why_wrong: Pre-fatiguing the target muscles contradicts the text's caution about combining high-intensity resistance with plyometrics on the same day without adequate recovery.
+- id: ch18.ssc.i02.q1
+  item: ch18.ssc.i02
+  dco: pa2.D.2
+  lang: zh
+  cognitive: analysis
+  stem: 拉伸－縮短週期的攤銷期中，脊髓層級最主要發生的事件為何？
+  locator: Plyometric Mechanics and Physiology > Stretch–Shortening Cycle
+  options:
+  - text: 傳入神經與阿爾法運動神經元形成突觸
+    correct: true
+  - text: 主動肌纖維開始縮短並產生向心力量
+    correct: false
+    why_wrong: 肌纖維縮短屬於第三階段的向心期，攤銷期是離心與向心之間的過渡，本身不產生動作。
+  - text: 串聯彈性成分開始被拉長並儲存能量
+    correct: false
+    why_wrong: 彈性成分被拉長發生在第一階段的離心期，進入過渡階段時能量已經儲存完畢。
+- id: ch18.equipment-facility.i02.q1
+  item: ch18.equipment-facility.i02
+  dco: pa1.C.3
+  lang: zh
+  cognitive: application
+  stem: 教練在體操館鋪了 20 公分厚的運動墊當作增強式訓練的落地面，最主要的問題為何？
+  locator: Safety Considerations > Equipment and Facilities > Landing Surface
+  options:
+  - text: 墊子過厚會使接觸時間拉長
+    correct: true
+  - text: 厚度越高的墊子緩衝越好越安全
+    correct: false
+    why_wrong: 教材以 6 英吋（15 公分）為界，超過這個厚度的墊子並不會更安全，而是讓落地後的轉換變慢。
+  - text: 墊子厚度只影響舒適度與訓練成本
+    correct: false
+    why_wrong: 厚度在教材裡是影響落地力學的條件，不是舒適或成本問題，太厚會讓儲存的彈性能白白散失。
+- id: ch18.intensity-volume.i03.q1
+  item: ch18.intensity-volume.i03
+  dco: pa1.B.2
+  lang: zh
+  cognitive: application
+  stem: 一名初進增強式訓練課表的學員，下肢動作只允許從最低強度開始。下列哪一動作最符合此階段的選擇？
+  locator: Program Design > Intensity
+  options:
+  - text: 原地跳躍步等低強度動作
+    correct: true
+  - text: 由 30 英吋箱進行的雙腳深跳
+    correct: false
+    why_wrong: 把深跳當成起點動作；教材以跳躍步為低強度代表，深跳則對肌肉與關節造成高壓力。
+  - text: 單腳多次跳並跨越欄架的高強度動作
+    correct: false
+    why_wrong: 同時把高接觸強度與單腳負擔疊加在初學者身上，遠超過教材所列的低強度範圍。
+- id: ch18.intensity-volume.i05.q1
+  item: ch18.intensity-volume.i05
+  dco: pa1.F
+  lang: zh
+  cognitive: application
+  stem: 一名具備部分增強式經驗的中階大學美式足球員，每次訓練的下肢起始足部接觸次數，最適當的範圍為何？
+  locator: Program Design > Volume > Table 18.4 Appropriate Plyometric Volumes
+  options:
+  - text: 80–100 次
+    correct: false
+    why_wrong: 把它當成中階起點；這個區間在教材表 18.4 中屬於無經驗初學者的起始訓練量。
+  - text: 100–120 次
+    correct: true
+  - text: 120–140 次
+    correct: false
+    why_wrong: 把進階者的起始訓練量誤配給中階者；此區間保留給已具相當經驗的進階運動員。
+- id: ch18.mechanical-models.i03.q1
+  item: ch18.mechanical-models.i03
+  dco: pa1.B.2
+  lang: zh
+  cognitive: application
+  stem: 在增強式動作的離心期，串聯彈性成分主要扮演的功能為何？
+  locator: Plyometric Mechanics and Physiology > Mechanical Model of Plyometric Exercise
+  options:
+  - text: 像彈簧般被拉長並儲存彈性能
+    correct: true
+  - text: 負責主動向心收縮並產生動作
+    correct: false
+    why_wrong: 把串聯彈性成分當成主動收縮者；主動向心收縮由收縮成分執行，教材對兩者有明確區分。
+  - text: 抑制肌梭活動以避免反射干擾
+    correct: false
+    why_wrong: 與教材對肌梭與牽張反射的描述相反；串聯彈性成分儲能，並不負責抑制肌梭。
+- id: ch18.mechanical-models.i06.q1
+  item: ch18.mechanical-models.i06
+  dco: pa1.B.2
+  lang: en
+  cognitive: analysis
+  stem: After reviewing the research summary, which statement best reflects the textbook's conclusion about how plyometric training produces strength and power gains?
+  locator: Conclusion
+  options:
+  - text: Both mechanical and neurophysiological mechanisms may contribute, but their exact contributions remain unclear
+    correct: true
+  - text: Strength gains are driven almost entirely by muscle hypertrophy in the first weeks of training
+    correct: false
+    why_wrong: Overstates hypertrophy as the dominant early plyometric adaptation; the textbook attributes early changes to neural and elastic mechanisms.
+  - text: Neurophysiological adaptations are irrelevant because plyometrics depend only on tendon elasticity
+    correct: false
+    why_wrong: Dismisses the neurophysiological model entirely; the textbook presents both models as plausible contributors.
+- id: ch18.program-design.i06.q1
+  item: ch18.program-design.i06
+  dco: pa1.G.3
+  lang: zh
+  cognitive: recall
+  stem: 研究尚未定出最佳的增強式課程長度，教材對多數課程實際採用的週數如何描述？
+  locator: Program Design > Program Length
+  options:
+  - text: 多數課程 6 至 10 週
+    correct: true
+  - text: 多數課程 12 至 16 週
+    correct: false
+    why_wrong: 把它拉長為一般肌肥大課程的時程；教材對增強式課程的長度描述明顯較短。
+  - text: 多數課程 2 至 4 週
+    correct: false
+    why_wrong: 把課程長度壓得太短，教材指出多數增強式課程為 6 至 10 週，不是 2 至 4 週。
+- id: ch18.safety.i03.q1
+  item: ch18.safety.i03
+  dco: pa1.A.2
+  lang: en
+  cognitive: analysis
+  stem: A coach is deciding whether a youth athlete can begin lower-body plyometrics. Which factor does the textbook consider most important to evaluate first?
+  locator: Safety Considerations > Pretraining Evaluation of the Athlete > Strength
+  options:
+  - text: Competent movement technique rather than meeting an arbitrary 1.5-times-bodyweight squat standard
+    correct: true
+  - text: Whether the athlete can squat exactly 1.5 times bodyweight as a strict prerequisite
+    correct: false
+    why_wrong: Treats the old 1.5-times-bodyweight threshold as a current rule; the textbook calls it a prior suggestion and prioritizes technique instead.
+  - text: Whether the athlete has reached a specific chronological age before any plyometric exposure
+    correct: false
+    why_wrong: Fixates on age as the gating factor; the textbook does not set a single age cutoff and emphasizes movement quality.
+- id: ch18.special-populations.i06.q1
+  item: ch18.special-populations.i06
+  dco: pa1.C.1
+  lang: zh
+  cognitive: analysis
+  stem: 一名熟齡跑者曾接受部分半月板切除，目前無明顯退化。教練為其安排增強式動作時，最符合教材建議的選擇為何？
+  locator: Age Considerations > Masters
+  options:
+  - text: 避免深跳與單腳增強式，其他動作亦須謹慎使用
+    correct: true
+  - text: 直接安排高強度單腳深跳以提升跑步表現
+    correct: false
+    why_wrong: 無視半月板切除史；教材針對有此膝手術史的熟齡跑者，將深跳與單腳動作列為禁忌。
+  - text: 完全排除所有下肢增強式動作而不做其他評估
+    correct: false
+    why_wrong: 把教材的「謹慎使用」與「視為禁忌」混為一談；對此族群教材允許其他動作謹慎執行。
+- id: ch18.ssc.i03.q1
+  item: ch18.ssc.i03
+  dco: pa1.B.2
+  lang: zh
+  cognitive: analysis
+  stem: 增強式動作中，當離心期儲存的彈性能順利轉為向心期助力時，最可能觀察到下列何種結果？
+  locator: Plyometric Mechanics and Physiology > Stretch–Shortening Cycle > Table 18.1 Stretch-Shortening Cycle Phase
+  options:
+  - text: 向心期所產生的力量高於孤立向心收縮
+    correct: true
+  - text: 向心期動員的肌纖維數量大幅下降
+    correct: false
+    why_wrong: 把它誤讀為動員減少；教材指出儲能與反射皆有助於提升向心期肌力，並非降低徵召。
+  - text: 向心期必須以等長方式完成以維持力量
+    correct: false
+    why_wrong: 把向心期誤認為等長收縮；教材定義向心期為主動肌纖維縮短，與等長收縮不同。
+- id: ch18.ssc.i06.q1
+  item: ch18.ssc.i06
+  dco: pa1.B.2
+  lang: en
+  cognitive: application
+  stem: During a plyometric drill, which sequence best describes the neurophysiological contribution to force production?
+  locator: Plyometric Mechanics and Physiology > Neurophysiological Model of Plyometric Exercise
+  options:
+  - text: Rapid stretch activates spindles, which trigger the stretch reflex to boost agonist activity
+    correct: true
+  - text: Rapid stretch lengthens tendons with no neural involvement at all
+    correct: false
+    why_wrong: Removes the neural link entirely; the textbook neurophysiological model is built on spindle activation and the stretch reflex.
+  - text: Muscle spindles inhibit agonist activity to protect the muscle from rapid loading
+    correct: false
+    why_wrong: Reverses the reflex effect; the textbook states the stretch reflex increases agonist activity rather than inhibiting it.
+- id: ch18.training-modes.i01.q1
+  item: ch18.training-modes.i01
+  dco: pa1.B.2
+  lang: zh
+  cognitive: analysis
+  stem: 一名教練準備為一名長跑選手安排增強式課表。下列哪項陳述最能反映教材對耐力運動員使用下肢增強式的立場？
+  locator: Program Design > Mode > Lower Body Plyometrics
+  options:
+  - text: 下肢增強式可讓耐力運動員以較少能量產生更多力量
+    correct: true
+  - text: 下肢增強式會顯著降低耐力表現，應予排除
+    correct: false
+    why_wrong: 把教材的支持立場讀成負面；教材明確指出耐力運動員可受益於下肢增強式，並非排除。
+  - text: 下肢增強式只對籃球與排球等跳躍項目有價值
+    correct: false
+    why_wrong: 把適用範圍窄化為跳躍項目；教材列舉的運動包括田徑投擲、短跑與長跑、三項等耐力運動。
+- id: ch18.training-modes.i03.q1
+  item: ch18.training-modes.i03
+  dco: pa1.B.2
+  lang: en
+  cognitive: application
+  stem: A coach wants to perform a depth jump that maximizes the use of gravity and body mass. Which execution best fits the textbook?
+  locator: Program Design > Mode > Lower Body Plyometrics > Table 18.2 Lower Body Plyometric Drills
+  options:
+  - text: Step off the box, land, and rebound up or forward without delay
+    correct: true
+  - text: Jump up onto the box first, then step off to begin the drill
+    correct: false
+    why_wrong: Adds a jump-up that changes the effective drop height and departs from the textbook's step-off starting position.
+  - text: Lower the body slowly with a long pause before exploding upward
+    correct: false
+    why_wrong: Stretches the amortization phase, which the textbook warns against for plyometric intent.
+- id: ch18.equipment-facility.i03.q1
+  item: ch18.equipment-facility.i03
+  dco: pa1.C.3
+  lang: zh
+  cognitive: application
+  stem: 一間只有 12 公尺長但挑高充足的室內場地，最不適合安排下列哪一類動作？
+  locator: Safety Considerations > Equipment and Facilities > Training Area
+  options:
+  - text: 需要直線距離的跨步跳訓練
+    correct: true
+  - text: 地面面積需求較小的箱上動作
+    correct: false
+    why_wrong: 箱上動作所需的地面面積小，12 公尺長的場地足以容納，真正受限的是需要長直線的動作。
+  - text: 原地起跳落地的立定跳
+    correct: false
+    why_wrong: 立定跳在原地完成，場地長度不是它的限制條件，教材把直線距離需求歸給跨步跳與跑動訓練。
+- id: ch18.equipment-facility.i05.q1
+  item: ch18.equipment-facility.i05
+  dco: pa1.C.3
+  lang: zh
+  cognitive: application
+  stem: 教練準備自製跳箱，下列哪一種頂面防滑作法最符合教材所列舉的選項？
+  locator: Safety Considerations > Equipment and Facilities > Equipment
+  options:
+  - text: 在頂面塗上一層光面亮漆
+    correct: false
+    why_wrong: 光面漆會降低摩擦係數，與教材要求的防滑目的相反；亮漆並非教材列舉的處理方式。
+  - text: 將橡膠地板固定於頂面
+    correct: true
+  - text: 在頂面鋪一層光滑金屬板
+    correct: false
+    why_wrong: 光滑金屬板摩擦力不足，反而增加滑倒風險；教材列舉的防滑作法皆為增加表面摩擦力。
+- id: ch18.equipment-facility.i06.q1
+  item: ch18.equipment-facility.i06
+  dco: pa2.C.2
+  lang: zh
+  cognitive: application
+  stem: 一位側向動作為主的籃球員選錯了鞋具，下列哪一項鞋具特徵最容易引發其踝部問題？
+  locator: Safety Considerations > Equipment and Facilities > Proper Footwear
+  options:
+  - text: 寬闊且防滑的鞋底
+    correct: false
+    why_wrong: 寬闊防滑鞋底是教材要求的特徵之一，並非造成踝部問題的原因。
+  - text: 良好的足部支撐
+    correct: false
+    why_wrong: 教材明列足部支撐為必備條件；缺乏支撐才是風險因子，此選項把支撐寫成負向。
+  - text: 窄鞋底且支撐差
+    correct: true
+- id: ch18.intensity-volume.i01.q1
+  item: ch18.intensity-volume.i01
+  dco: pa1.E.1
+  lang: zh
+  cognitive: analysis
+  stem: 當教練為一名菁英短跑選手設計增強式課表時，動作類型的選擇最主要影響下列哪一項？
+  locator: Program Design > Intensity
+  options:
+  - text: 動作的協調難度
+    correct: false
+    why_wrong: 教材把強度定義為施加在肌肉、結締組織與關節上的壓力；協調難度屬技術層面而非此定義的核心。
+  - text: 肌肉與關節的受力
+    correct: true
+  - text: 訓練場地的需求
+    correct: false
+    why_wrong: 場地需求屬設備與設施變項，並非教材此處對「強度」的定義所指。
+- id: ch18.intensity-volume.i02.q1
+  item: ch18.intensity-volume.i02
+  dco: pa1.E.1
+  lang: en
+  cognitive: application
+  stem: A coach wants to raise the intensity of a lower-body plyometric drill without changing the drill type. Which adjustment most directly increases the stress on the athlete's musculoskeletal system?
+  locator: Program Design > Intensity > Table 18.3 Factors Affecting the Intensity of Lower Body Plyometric Drills
+  options:
+  - text: Switching from bilateral to single-leg variation
+    correct: true
+  - text: Slowing the movement tempo of each rep
+    correct: false
+    why_wrong: Slower tempos reduce the mechanical stress on the muscle-tendon system during the stretch-shortening cycle.
+  - text: Shortening the total distance covered per set
+    correct: false
+    why_wrong: Total distance affects training volume rather than the per-repetition stress defined as intensity in the manual.
+- id: ch18.intensity-volume.i07.q1
+  item: ch18.intensity-volume.i07
+  dco: pa1.C.1
+  lang: zh
+  cognitive: analysis
+  stem: 一所大學球隊打算以 48 英吋的箱子進行深跳訓練，依教材所述最主要的顧慮為何？
+  locator: Safety Considerations > Equipment and Facilities > Depth Jumping
+  options:
+  - text: 落下過高且攤銷期延長
+    correct: true
+  - text: 該高度低於建議下限
+    correct: false
+    why_wrong: 48 英吋高於建議的 16 至 42 英吋範圍，並非低於下限；此選項把方向寫反了。
+  - text: 已超出天花板安全高度
+    correct: false
+    why_wrong: 教材的天花板要求是針對立定跳、箱上動作與深跳區的 3 至 4 公尺；48 英吋不等於該值，無法據此判斷違規。
+- id: ch18.mechanical-models.i02.q1
+  item: ch18.mechanical-models.i02
+  dco: pa1.B.2
+  lang: zh
+  cognitive: application
+  stem: 選手完成一個跨步跳後落地並立刻向上跳起，依機械模型來看，下列哪一項最能解釋第二次起跳力量較大的原因？
+  locator: Plyometric Mechanics and Physiology > Mechanical Model of Plyometric Exercise
+  options:
+  - text: 肌肉纖維的數量增加
+    correct: false
+    why_wrong: 肌纖維數量屬長期訓練適應，無法在單一動作的離心與向心轉換間即時增加。
+  - text: 串聯彈性儲能即時釋放
+    correct: true
+  - text: 骨骼長度在著地時延長
+    correct: false
+    why_wrong: 骨骼在著地時不會延長；教材所指的彈性儲存發生在肌腱與肌肉成分。
+- id: ch18.mechanical-models.i08.q1
+  item: ch18.mechanical-models.i08
+  dco: pa1.B.2
+  lang: en
+  cognitive: analysis
+  stem: During the concentric phase of a plyometric action, which component of the mechanical model is the primary source of the active muscle force generated?
+  locator: Plyometric Mechanics and Physiology > Mechanical Model of Plyometric Exercise > Figure 18.1 Mechanical model of skeletal muscle function
+  options:
+  - text: Contractile component
+    correct: true
+  - text: Series elastic component
+    correct: false
+    why_wrong: The series elastic component contributes stored elastic energy rather than the active cross-bridge force during concentric action.
+  - text: Parallel elastic component
+    correct: false
+    why_wrong: The parallel elastic component only provides passive force when the muscle is stretched in an unstimulated state, not during active shortening.
+- id: ch18.program-design.i01.q1
+  item: ch18.program-design.i01
+  dco: pa1.A.1
+  lang: zh
+  cognitive: analysis
+  stem: 一位美式足球防守邊鋒與一位排球舉球員同時接受增強式訓練評估，教練最主要的區分依據為何？
+  locator: Program Design > Needs Analysis
+  options:
+  - text: 兩人是否在同一個訓練場地
+    correct: false
+    why_wrong: 場地屬設備變項，教材把需求分析的前置工作定位在運動、位置與訓練狀態的評估。
+  - text: 兩人的訓練年齡與受傷史
+    correct: false
+    why_wrong: 訓練年齡與受傷史雖屬需求分析的一部分，但教材首先強調的是依運動與位置區分動作需求。
+  - text: 兩人的運動項目與場上位置
+    correct: true
+- id: ch18.program-design.i03.q1
+  item: ch18.program-design.i03
+  dco: pa1.G.1
+  lang: en
+  cognitive: application
+  stem: A strength coach is programming depth jumps for a trained athlete. Which rest interval most closely matches the manual's recommended work-to-rest ratio for this drill?
+  locator: Program Design > Recovery
+  options:
+  - text: 5–10 s between reps, 120–180 s between sets
+    correct: true
+  - text: 30 s between reps, 60 s between sets
+    correct: false
+    why_wrong: Thirty-second intra-repetition rest defeats the purpose of depth jumps and falls below the 1:5 to 1:10 work-to-rest ratio.
+  - text: 5–10 s between reps, 300–360 s between sets
+    correct: false
+    why_wrong: Inter-set rest of 300 to 360 seconds exceeds the 120 to 180 second ceiling and disrupts the prescribed work-to-rest ratio.
+- id: ch18.safety.i02.q1
+  item: ch18.safety.i02
+  dco: pa2.C.3
+  lang: en
+  cognitive: analysis
+  stem: A coach observes a female basketball athlete's landing technique during a depth jump session and notes that her knees drift inward at the moment of ground contact. Which injury risk is most directly elevated by this observation?
+  locator: Safety Considerations > Pretraining Evaluation of the Athlete > Technique
+  options:
+  - text: Patellofemoral pain and ACL injury
+    correct: true
+  - text: Lumbar disc herniation from spinal loading
+    correct: false
+    why_wrong: The manual ties dynamic valgus to knee injuries rather than to spinal disc loading; this answer attributes the wrong joint region.
+  - text: Rotator cuff strain from compensation
+    correct: false
+    why_wrong: Rotator cuff strain involves the shoulder, not the knee mechanism described as dynamic valgus in the manual.
+- id: ch18.special-populations.i04.q1
+  item: ch18.special-populations.i04
+  dco: pa1.A.2
+  lang: zh
+  cognitive: analysis
+  stem: 一位 55 歲、希望改善跑步表現的業餘跑者向教練報名增強式課程，過去有右膝關節退化與一次關節鏡手術史。教練在設計課表前最應優先處理哪一項？
+  locator: Age Considerations > Masters
+  options:
+  - text: 確認既有骨科問題並調整風險判斷
+    correct: true
+  - text: 直接安排與年輕跑者相同的標準課表
+    correct: false
+    why_wrong: 教材要求熟齡運動員應考量既有骨科問題並調整課程；套用標準課表並未依其病史調整風險判斷。
+  - text: 完全排除所有增強式動作
+    correct: false
+    why_wrong: 教材並未要求一律排除熟齡運動員，而是要求依病史謹慎使用；此選項把調整誤寫成全面禁止。
+- id: ch18.safety.i04.q1
+  item: ch18.safety.i04
+  dco: pa1.A.3
+  lang: zh
+  cognitive: analysis
+  stem: 一名初次參與增強式訓練的學員在四分之一蹲時難以維持單腳站立 30 秒，教練最應優先採取的處理方式為何？
+  locator: Safety Considerations > Pretraining Evaluation of the Athlete > Balance > Table 18.7 Balance Tests
+  options:
+  - text: 先回到基本平衡能力，再加入進階動作
+    correct: true
+  - text: 略過平衡測試直接進入深跳訓練
+    correct: false
+    why_wrong: 把平衡門檻視為可省略；教材要求初次訓練者必須能單腳站立 30 秒，直接跳過會把未通過者送進高風險動作。
+  - text: 在不同地面完成測試即可通過該項
+    correct: false
+    why_wrong: 把測試表面當成可任意切換；教材規定測試表面必須與增強式動作所用表面相同，換地面無法驗證該場地的可用度。
+- id: ch18.training-modes.i06.q1
+  item: ch18.training-modes.i06
+  dco: pa1.F
+  lang: en
+  cognitive: recall
+  stem: When tracking the volume of lower body bounding drills in a plyometric program, which unit of measurement is most appropriate?
+  locator: Program Design > Mode > Lower Body Plyometrics > Table 18.2 Lower Body Plyometric Drills
+  options:
+  - text: Total distance covered in meters per session
+    correct: true
+  - text: Time under tension measured in seconds
+    correct: false
+    why_wrong: Time under tension applies to resistance training prescriptions, not to bounding volume as described in the plyometric section.
+  - text: Rating of perceived exertion scored 0 to 10
+    correct: false
+    why_wrong: RPE captures session effort rather than the prescribed volume unit the text assigns to bounding drills.
