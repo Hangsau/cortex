@@ -7417,7 +7417,7 @@
     {
       "id": "nordin.ch01",
       "title": "力學的基本工具",
-      "description": "從力、力矩與自由體圖，走到應力、應變和黏彈性；先掌握各種量究竟在描述什麼。",
+      "description": "從向量與自由體圖走到應力、應變、材料曲線與疲勞；用受力邊界、控制條件和單位讀懂生物力學。",
       "content_type": "chapter-guide",
       "path": "library/basic-biomechanics/ch01/",
       "topic": "foundations",
@@ -7425,13 +7425,31 @@
       "terms": [
         "free-body",
         "moment",
+        "moment-arm",
         "stress",
         "strain",
+        "stiffness",
         "modulus",
-        "viscoelastic"
+        "viscoelastic",
+        "creep",
+        "relaxation",
+        "fatigue",
+        "anisotropy"
       ],
-      "body_sha256": "931d6f7e13376dddc7385e051362f7662f10a7717b13173731dedcbe0d7db363",
+      "body_sha256": "b54972b5579f1c78c910430f0314d1fa7509b672002f44f5f4c33e74cdc0aaa2",
       "sections": [
+        {
+          "id": "nordin.ch01.experiments-and-models",
+          "title": "實驗、模型與應用各自補上什麼",
+          "anchor": "experiments-and-models",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 19,
+              "to": 19
+            }
+          ]
+        },
         {
           "id": "nordin.ch01.force-description",
           "title": "力要同時交代大小、方向與作用位置",
@@ -7440,7 +7458,79 @@
           "pdf_pages": [
             {
               "from": 19,
+              "to": 20
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.scalars-vectors-tensors",
+          "title": "純量、向量與張量是不同的描述方式",
+          "anchor": "scalars-vectors-tensors",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 19,
+              "to": 19
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.moment-arm",
+          "title": "力臂是到作用線的垂直距離",
+          "anchor": "moment-arm",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 20,
               "to": 21
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.moment-direction",
+          "title": "力矩也有方向，彎曲與扭轉只是用途不同",
+          "anchor": "moment-direction",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 20,
+              "to": 21
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.newton-translation",
+          "title": "牛頓定律先看合力，再看加速度",
+          "anchor": "newton-translation",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 21,
+              "to": 22
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.rotational-inertia",
+          "title": "旋轉分析需要轉動慣量",
+          "anchor": "rotational-inertia",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 21,
+              "to": 22
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.action-reaction",
+          "title": "作用與反作用分別落在兩個物體上",
+          "anchor": "action-reaction",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 21,
+              "to": 22
             }
           ]
         },
@@ -7457,6 +7547,54 @@
           ]
         },
         {
+          "id": "nordin.ch01.equilibrium",
+          "title": "平衡同時要求合力與合力矩為零",
+          "anchor": "equilibrium",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 22,
+              "to": 22
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.elbow-example",
+          "title": "編者算例：很小的力臂需要很大的肌肉力",
+          "anchor": "elbow-example",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 20,
+              "to": 23
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.indeterminate-models",
+          "title": "肌肉越多，平衡式不一定足以求出各肌力量",
+          "anchor": "indeterminate-models",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 22,
+              "to": 23
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.deformation-modes",
+          "title": "拉伸、壓縮、剪切、彎曲與扭轉",
+          "anchor": "deformation-modes",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 23,
+              "to": 23
+            }
+          ]
+        },
+        {
           "id": "nordin.ch01.stress-strain",
           "title": "從整體負荷，走進材料內部",
           "anchor": "stress-strain",
@@ -7464,7 +7602,103 @@
           "pdf_pages": [
             {
               "from": 23,
+              "to": 24
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.shear-stress",
+          "title": "剪應力必須相對某個截面來說",
+          "anchor": "shear-stress",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 24,
+              "to": 24
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.normal-strain",
+          "title": "應變把伸長量放回原有尺寸",
+          "anchor": "normal-strain",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 24,
+              "to": 25
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.shear-strain",
+          "title": "剪應變記錄原本直角偏離了多少",
+          "anchor": "shear-strain",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 25,
+              "to": 25
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.curve-landmarks",
+          "title": "一條材料曲線包含多個不同界線",
+          "anchor": "curve-landmarks",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 25,
               "to": 26
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.elastic-plastic",
+          "title": "彈性回復與塑性殘留要看卸載路徑",
+          "anchor": "elastic-plastic",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 26,
+              "to": 27
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.modulus-and-stiffness",
+          "title": "彈性模數描述材料，剛性還包含結構",
+          "anchor": "modulus-and-stiffness",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 26,
+              "to": 28
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.strength-and-toughness",
+          "title": "強度、延展性與韌性不能只用「硬」概括",
+          "anchor": "strength-and-toughness",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 27,
+              "to": 28
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.homogeneity-isotropy",
+          "title": "均質與等向性是兩個獨立假設",
+          "anchor": "homogeneity-isotropy",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 28,
+              "to": 28
             }
           ]
         },
@@ -7476,7 +7710,103 @@
           "pdf_pages": [
             {
               "from": 26,
+              "to": 27
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.creep-and-recovery",
+          "title": "蠕變試驗固定負荷，觀察形變",
+          "anchor": "creep-and-recovery",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 27,
+              "to": 27
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.stress-relaxation",
+          "title": "應力鬆弛固定形變，觀察維持它需要的力",
+          "anchor": "stress-relaxation",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 27,
+              "to": 28
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.energy-loss",
+          "title": "加載與卸載路徑可以揭示能量耗散",
+          "anchor": "energy-loss",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 26,
+              "to": 28
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.principal-stresses",
+          "title": "主應力幫助找方向，失效仍需材料條件",
+          "anchor": "principal-stresses",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 28,
               "to": 29
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.fatigue-and-endurance",
+          "title": "材料疲勞把負荷幅度與循環次數放在一起",
+          "anchor": "fatigue-and-endurance",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 29,
+              "to": 29
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.endurance-boundary",
+          "title": "有些材料的耐久極限不能直接搬到骨",
+          "anchor": "endurance-boundary",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 29,
+              "to": 30
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.units-and-corrections",
+          "title": "用單位檢查公式，也檢查原書表格",
+          "anchor": "units-and-corrections",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 33,
+              "to": 37
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch01.reading-sequence",
+          "title": "把工具串成一次完整的閱讀",
+          "anchor": "reading-sequence",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 26,
+              "to": 30
             }
           ]
         }
@@ -7485,7 +7815,7 @@
     {
       "id": "nordin.ch02",
       "title": "骨：有結構的承重材料",
-      "description": "骨的承力能力同時來自材料、排列、外形與負荷歷史；從這四件事理解骨的力學。",
+      "description": "從礦物與膠原、皮質與小樑，走到彎扭負荷、疲勞修復及植入物；分清骨材性質與整根骨的承力能力。",
       "content_type": "chapter-guide",
       "path": "library/basic-biomechanics/ch02/",
       "topic": "tissues",
@@ -7493,11 +7823,17 @@
       "terms": [
         "cortical",
         "trabecular",
+        "collagen",
         "anisotropy",
         "stiffness",
-        "fatigue"
+        "stress",
+        "strain",
+        "modulus",
+        "viscoelastic",
+        "fatigue",
+        "fixation"
       ],
-      "body_sha256": "9df56e4562c4ecc980610638049f4c7db533e1c2cbc2b315a4039298343c93f8",
+      "body_sha256": "65800ab1ddf29b53b8ea88c7b9d653b8eae34541107252094b7f74413ebc7925",
       "sections": [
         {
           "id": "nordin.ch02.bone-architecture",
@@ -7507,7 +7843,103 @@
           "pdf_pages": [
             {
               "from": 41,
+              "to": 44
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.composition",
+          "title": "礦物、膠原與水：先看百分比的分母",
+          "anchor": "composition",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 41,
+              "to": 41
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.composite-material",
+          "title": "複合材料的能力來自成分之間的配合",
+          "anchor": "composite-material",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 44,
+              "to": 46
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.osteons",
+          "title": "骨單位把層板與血管組成微小結構",
+          "anchor": "osteons",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 41,
+              "to": 43
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.lamellae-and-cracks",
+          "title": "層板、黏合線與裂縫傳遞",
+          "anchor": "lamellae-and-cracks",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 42,
+              "to": 43
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.bone-forms-and-cells",
+          "title": "編織骨、層板骨與負責更新的細胞",
+          "anchor": "bone-forms-and-cells",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 43,
+              "to": 45
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.structure-and-material",
+          "title": "整根骨與一小塊骨材，要用不同的曲線回答",
+          "anchor": "structure-and-material",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 44,
               "to": 47
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.yield-and-microdamage",
+          "title": "骨的降伏涉及微結構損傷",
+          "anchor": "yield-and-microdamage",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 47,
+              "to": 50
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.apparent-density",
+          "title": "表觀密度包含了骨材之間的孔隙",
+          "anchor": "apparent-density",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 48,
+              "to": 50
             }
           ]
         },
@@ -7518,7 +7950,115 @@
           "source_id": "src.nordin-frankel-2012",
           "pdf_pages": [
             {
-              "from": 48,
+              "from": 49,
+              "to": 50
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.directional-values",
+          "title": "一張骨材數值表需要保留方向與負荷模式",
+          "anchor": "directional-values",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 57,
+              "to": 57
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.tension",
+          "title": "拉伸負荷可在肌腱附著處形成撕脫",
+          "anchor": "tension",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 51,
+              "to": 51
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.compression",
+          "title": "壓縮負荷同樣受骨材與結構限制",
+          "anchor": "compression",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 51,
+              "to": 52
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.shear-and-planes",
+          "title": "軸向受力也可能在斜面上形成剪應力",
+          "anchor": "shear-and-planes",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 52,
+              "to": 53
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.bending-stress",
+          "title": "彎曲把拉伸與壓縮放在不同側",
+          "anchor": "bending-stress",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 53,
+              "to": 54
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.three-four-point-bending",
+          "title": "三點彎曲與四點彎曲的高負荷區不同",
+          "anchor": "three-four-point-bending",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 53,
+              "to": 55
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.torsion",
+          "title": "扭轉同時帶出剪應力與斜向正應力",
+          "anchor": "torsion",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 55,
+              "to": 56
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.combined-loading",
+          "title": "步行與慢跑呈現的是局部混合負荷",
+          "anchor": "combined-loading",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 56,
+              "to": 57
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.callus",
+          "title": "骨痂讓修復中的材料分布離軸更遠",
+          "anchor": "callus",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 57,
               "to": 57
             }
           ]
@@ -7531,7 +8071,67 @@
           "pdf_pages": [
             {
               "from": 58,
-              "to": 61
+              "to": 58
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.fracture-energy",
+          "title": "破壞前吸收更多能量，可能伴隨更嚴重的破壞",
+          "anchor": "fracture-energy",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 58,
+              "to": 59
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.muscle-stress-distribution",
+          "title": "肌肉可減少一側拉應力，同時增加壓縮",
+          "anchor": "muscle-stress-distribution",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 58,
+              "to": 59
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.fatigue-insufficiency",
+          "title": "疲勞性與不足性骨折的起點不同",
+          "anchor": "fatigue-insufficiency",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 60,
+              "to": 62
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.fatigue-repair",
+          "title": "疲勞損傷與修復在活骨內同時進行",
+          "anchor": "fatigue-repair",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 60,
+              "to": 64
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.fatigue-cases",
+          "title": "病例說明負荷歷史，不能變成固定里程門檻",
+          "anchor": "fatigue-cases",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 60,
+              "to": 62
             }
           ]
         },
@@ -7543,6 +8143,154 @@
           "pdf_pages": [
             {
               "from": 62,
+              "to": 64
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.disuse",
+          "title": "固定實驗要保留物種、時間與終點",
+          "anchor": "disuse",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 63,
+              "to": 64
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.area-moment",
+          "title": "截面二次矩描述骨材離中性軸多遠",
+          "anchor": "area-moment",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 64,
+              "to": 65
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.beam-example",
+          "title": "同面積梁：剛性十六倍不等於強度十六倍",
+          "anchor": "beam-example",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 64,
+              "to": 65
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.length-and-tubes",
+          "title": "長度與中空外形一起決定彎曲反應",
+          "anchor": "length-and-tubes",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 65,
+              "to": 66
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.polar-moment",
+          "title": "抗扭能力還要看截面是否保持完整",
+          "anchor": "polar-moment",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 65,
+              "to": 67
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.stress-raisers",
+          "title": "螺釘孔的影響超過少掉一點面積",
+          "anchor": "stress-raisers",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 65,
+              "to": 67
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.open-section-defects",
+          "title": "長槽使閉合截面變成開口截面",
+          "anchor": "open-section-defects",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 66,
+              "to": 68
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.stress-shielding",
+          "title": "植入物分擔負荷，也會改變骨收到的刺激",
+          "anchor": "stress-shielding",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 67,
+              "to": 68
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.diameter-scaling",
+          "title": "直徑的四次方與三次方回答不同問題",
+          "anchor": "diameter-scaling",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 65,
+              "to": 68
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.aging-and-toughness",
+          "title": "老化可能先改變變形與抗裂能力",
+          "anchor": "aging-and-toughness",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 68,
+              "to": 70
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.bone-quality-case",
+          "title": "骨量檢查與力學脆弱性仍有尺度差別",
+          "anchor": "bone-quality-case",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 62,
+              "to": 64
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch02.reading-bone-evidence",
+          "title": "讀一項骨力學結果的固定順序",
+          "anchor": "reading-bone-evidence",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 49,
+              "to": 50
+            },
+            {
+              "from": 58,
               "to": 70
             }
           ]
@@ -11298,6 +12046,7 @@
       "neumann.ch12",
       "neumann.ch13",
       "neumann.ch14",
+      "nordin.ch01",
       "nordin.ch08",
       "nordin.ch10",
       "nordin.ch12",
@@ -11306,17 +12055,20 @@
     "stress": [
       "neumann.ch01",
       "nordin.ch01",
+      "nordin.ch02",
       "nordin.ch07"
     ],
     "strain": [
       "neumann.ch01",
       "nordin.ch01",
+      "nordin.ch02",
       "nordin.ch05",
       "nordin.ch15"
     ],
     "stiffness": [
       "neumann.ch01",
       "neumann.ch02",
+      "nordin.ch01",
       "nordin.ch02",
       "nordin.ch05",
       "nordin.ch11",
@@ -11324,16 +12076,19 @@
     ],
     "modulus": [
       "neumann.ch01",
-      "nordin.ch01"
+      "nordin.ch01",
+      "nordin.ch02"
     ],
     "viscoelastic": [
       "neumann.ch01",
       "nordin.ch01",
+      "nordin.ch02",
       "nordin.ch04",
       "nordin.ch05"
     ],
     "creep": [
       "neumann.ch01",
+      "nordin.ch01",
       "nordin.ch03",
       "nordin.ch04"
     ],
@@ -11388,6 +12143,7 @@
     ],
     "collagen": [
       "neumann.ch02",
+      "nordin.ch02",
       "nordin.ch03"
     ],
     "proteoglycan": [
@@ -11533,23 +12289,27 @@
       "neumann.ch16",
       "nordin.ch17"
     ],
-    "anisotropy": [
-      "nordin.ch02"
+    "relaxation": [
+      "nordin.ch01",
+      "nordin.ch04"
     ],
     "fatigue": [
+      "nordin.ch01",
       "nordin.ch02"
+    ],
+    "anisotropy": [
+      "nordin.ch01",
+      "nordin.ch02"
+    ],
+    "fixation": [
+      "nordin.ch02",
+      "nordin.ch15"
     ],
     "permeability": [
       "nordin.ch03"
     ],
-    "relaxation": [
-      "nordin.ch04"
-    ],
     "perfusion": [
       "nordin.ch05"
-    ],
-    "fixation": [
-      "nordin.ch15"
     ],
     "load-sharing": [
       "nordin.ch15",

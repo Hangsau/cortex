@@ -1,0 +1,152 @@
+{
+  "checked_at": "2026-09-20T23:19:46.333267+00:00",
+  "baseline": "af19c5dee0b10e24cf39786aa37a50445af45a6e",
+  "chapters": [
+    {
+      "path": "content/library/basic-biomechanics/ch01/index.md",
+      "before": {
+        "sections": 4,
+        "chinese_characters": 854
+      },
+      "after": {
+        "sections": 31,
+        "chinese_characters": 5835
+      },
+      "original_anchors_preserved": true
+    },
+    {
+      "path": "content/library/basic-biomechanics/ch02/index.md",
+      "before": {
+        "sections": 4,
+        "chinese_characters": 684
+      },
+      "after": {
+        "sections": 38,
+        "chinese_characters": 7249
+      },
+      "original_anchors_preserved": true
+    }
+  ],
+  "shared_style_files": [
+    {
+      "path": "layouts/library/reading-book.html",
+      "unchanged": true,
+      "sha256": "8bc215a54900c193ae6a17311e4f77dec4fa4f89656d428a2e7054f9649ce57b"
+    },
+    {
+      "path": "layouts/library/reading-chapter.html",
+      "unchanged": true,
+      "sha256": "0b49aa79d9a62695dd19e47a6492081e46be7fb4d894d1cdc28f7bf6c23c94ab"
+    },
+    {
+      "path": "layouts/library/reading-topics.html",
+      "unchanged": true,
+      "sha256": "061c9cb6f48a61036eba1bf484766456573cfcd725ae39ae4ddef72c3feb1424"
+    },
+    {
+      "path": "static/css/reading.css",
+      "unchanged": true,
+      "sha256": "ebe98ba8129c571b151e751050c7e5ac2129535ff9affbd6f37141b329fbfea5"
+    },
+    {
+      "path": "static/js/reading.js",
+      "unchanged": true,
+      "sha256": "7be83e627a8010969890faa5a58758fc1c82bab396eca2cf69e496c24146a279"
+    }
+  ],
+  "source_review": {
+    "book": "nordin",
+    "body_pages": [
+      [
+        19,
+        30
+      ],
+      [
+        41,
+        70
+      ]
+    ],
+    "appendix_units_pages": [
+      33,
+      37
+    ],
+    "original_png_pages_viewed": [
+      28,
+      36,
+      42,
+      48,
+      55,
+      57,
+      61,
+      62,
+      64,
+      68
+    ],
+    "profile": "textual_interpretive",
+    "full_translation": false,
+    "cited_original_studies_fulltext_reviewed": false,
+    "external_sources": [
+      {
+        "url": "https://www.bipm.org/en/measurement-units",
+        "scope": "SI definitions and watt dimensions, relevant page text"
+      },
+      {
+        "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8",
+        "scope": "pound-force per square foot conversion row"
+      }
+    ]
+  },
+  "validation": {
+    "reading": {
+      "chapters": 33,
+      "sections": 907,
+      "chinese_characters": 218591,
+      "terms": 60,
+      "topics": 7,
+      "cross_book_pairings": 18,
+      "checked_html_links": 1429,
+      "semantic_limit": "33 main-chapter guides; selected main concepts, not full translation or full semantic verification; appendices and front/back matter have no separate guide",
+      "errors": []
+    },
+    "hugo_pages": 172,
+    "reader_audit": {
+      "passed": 97,
+      "failed": 0
+    },
+    "original_server": {
+      "restart_cycles": 2,
+      "passed": 18
+    },
+    "chapter_browser": {
+      "passed": 60,
+      "failed": 0
+    },
+    "manually_viewed_screenshots": [
+      "basic-biomechanics-ch01-paper.png",
+      "basic-biomechanics-ch01-night.png",
+      "basic-biomechanics-ch01-desktop.png",
+      "basic-biomechanics-ch02-paper.png",
+      "basic-biomechanics-ch02-night.png",
+      "basic-biomechanics-ch02-desktop.png"
+    ]
+  },
+  "editor_arithmetic": {
+    "elbow_muscle_N": 200,
+    "elbow_joint_N": -180,
+    "beam_I_ratios": [
+      1,
+      4,
+      16
+    ],
+    "beam_section_modulus_ratios": [
+      1,
+      2,
+      4
+    ],
+    "diameter_ratio": 0.8,
+    "torsional_rigidity_ratio": 0.4096,
+    "failure_torque_ratio": 0.512,
+    "conditions": "constant material and length; geometrically similar circular cross-sections"
+  },
+  "delegation": "No agent delegation or external model calls; no subscription savings claim."
+}
