@@ -11,7 +11,7 @@
 - [x] 核閱主要正文與必要圖表，記錄來源品質及語意決策。
 - [x] 完成兩章連續繁中詳解，保留術語、數據條件、原錨點與來源。
 - [x] 生成索引，完成建置、來源服務、瀏覽器與目視驗收。
-- [ ] 更新交接、發布並核對完整SHA與正式站。
+- [x] 更新交接、發布並核對完整SHA與正式站。
 
 ## 來源與語意決策
 
@@ -55,4 +55,6 @@
 
 `python -X utf8 tools/check_book_reader_server.py`啟停兩次18/18；`node tools/audit_book_readers.js`97/97；本目錄`node check-browser.js`初驗58/58，包括原八錨點、完整節次、跨章落點、320／390／1360寬度、22px、兩色、無JS及既有章樣式比較。目視兩章手機兩色與桌面六張截圖，發現行內code數學式在夜色對比不足，改成正文strong；未改共用CSS。重建並重驗兩章，最終結果見`browser-checks.json`。
 
-五份共用版型／CSS／JS與基線一致，保留來源唯讀服務及既有黏彈性圖。原PDF、抽文頁包、PNG及截圖留本機tmp；詳細計數、雜湊、驗收與來源界線見`validation.json`。發布後另記完整SHA、CI及正式站逐章正文比對結果。
+五份共用版型／CSS／JS與基線一致，保留來源唯讀服務及既有黏彈性圖。原PDF、抽文頁包、PNG及截圖留本機tmp；詳細計數、雜湊、驗收與來源界線見`validation.json`。公式格式修正後兩章最終58/58，紙色／夜色截圖確認可讀。
+
+實作`8d0dc1d9dd4c1e30be3a1a155c12dc018bfbfe52`已部署；按完整SHA核對[CI 35573939823](https://github.com/Hangsau/cortex/actions/runs/35573939823)的build及deploy成功，記錄在`ci-verification.json`。`python -X utf8 research/book-readers-2026-09-06/cartilage-tendon-expansion/check-live.py --commit 8d0dc1d9dd4c1e30be3a1a155c12dc018bfbfe52 --run-url https://github.com/Hangsau/cortex/actions/runs/35573939823`正式站21/21通過，包含兩章完整正文、41／42節順序、原八錨點、跨章目標、隱藏原頁來源群及CSS／JS，證據在`public-validation.json`。
