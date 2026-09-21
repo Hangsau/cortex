@@ -1,0 +1,158 @@
+{
+  "checked_at": "2026-09-21T22:58:58.395041+00:00",
+  "baseline": "42eb7aca7752a244817cb4d0dd9aff7f1e4816ef",
+  "chapters": [
+    {
+      "path": "content/library/basic-biomechanics/ch05/index.md",
+      "before": {
+        "sections": 4,
+        "chinese_characters": 637
+      },
+      "after": {
+        "sections": 33,
+        "chinese_characters": 7314
+      },
+      "original_anchors_preserved": true,
+      "sha256": "6fb6adbc0044fe191a399fe64e63f95902306c3f7d5fe292c490ce0228c98ce2"
+    },
+    {
+      "path": "content/library/basic-biomechanics/ch06/index.md",
+      "before": {
+        "sections": 4,
+        "chinese_characters": 686
+      },
+      "after": {
+        "sections": 43,
+        "chinese_characters": 9508
+      },
+      "original_anchors_preserved": true,
+      "sha256": "a84e1604b32f5bdc2461779e1344ecc9b4b64df65f33ae903197bce5ab9d6abd"
+    }
+  ],
+  "shared_style_files": [
+    {
+      "path": "layouts/library/reading-book.html",
+      "unchanged": true,
+      "sha256": "8bc215a54900c193ae6a17311e4f77dec4fa4f89656d428a2e7054f9649ce57b"
+    },
+    {
+      "path": "layouts/library/reading-chapter.html",
+      "unchanged": true,
+      "sha256": "0b49aa79d9a62695dd19e47a6492081e46be7fb4d894d1cdc28f7bf6c23c94ab"
+    },
+    {
+      "path": "layouts/library/reading-topics.html",
+      "unchanged": true,
+      "sha256": "061c9cb6f48a61036eba1bf484766456573cfcd725ae39ae4ddef72c3feb1424"
+    },
+    {
+      "path": "static/css/reading.css",
+      "unchanged": true,
+      "sha256": "ebe98ba8129c571b151e751050c7e5ac2129535ff9affbd6f37141b329fbfea5"
+    },
+    {
+      "path": "static/js/reading.js",
+      "unchanged": true,
+      "sha256": "7be83e627a8010969890faa5a58758fc1c82bab396eca2cf69e496c24146a279"
+    }
+  ],
+  "source_catalog_unchanged": true,
+  "source_review": {
+    "book": "nordin",
+    "main_body_pages": [
+      [
+        145,
+        162
+      ],
+      [
+        167,
+        189
+      ]
+    ],
+    "original_png_pages_viewed": [
+      147,
+      148,
+      152,
+      169,
+      173,
+      179,
+      181,
+      185,
+      187
+    ],
+    "profile": "textual_interpretive",
+    "full_translation": false,
+    "all_cited_studies_fulltext_reviewed": false,
+    "external_sources": [
+      {
+        "id": "src.reisman-2009",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/19043681/",
+        "scope": "Abstract: passive torque and proposed titin/crossbridge contributions; no molecular force partition"
+      },
+      {
+        "id": "src.smerdu-1994",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/7545970/",
+        "scope": "Abstract: human histochemical IIb and IIx MHC transcripts"
+      },
+      {
+        "id": "src.westerblad-1993",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/8397180/",
+        "scope": "Abstract: isolated mouse fiber low-frequency fatigue and calcium; not general human fatigue"
+      },
+      {
+        "id": "src.thom-2007",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/17530274/",
+        "scope": "Abstract: 9 older / 15 younger men, plantarflexor testing and modeled maximum values"
+      }
+    ],
+    "review_decisions": "RUN.md: 19 selected high-impact claim rows; not exhaustive pair coverage"
+  },
+  "validation": {
+    "reading": {
+      "chapters": 33,
+      "sections": 1050,
+      "chinese_characters": 248291,
+      "terms": 60,
+      "topics": 7,
+      "cross_book_pairings": 18,
+      "checked_html_links": 1584,
+      "semantic_limit": "33 main-chapter guides; selected main concepts, not full translation or full semantic verification; appendices and front/back matter have no separate guide",
+      "errors": []
+    },
+    "hugo_pages": 172,
+    "reader_audit": {
+      "passed": 97,
+      "failed": 0
+    },
+    "original_server": {
+      "restart_cycles": 2,
+      "passed": 18
+    },
+    "chapter_browser": {
+      "passed": 67,
+      "failed": 0
+    },
+    "manually_viewed_screenshots": [
+      "basic-biomechanics-ch05-paper.png",
+      "basic-biomechanics-ch05-night.png",
+      "basic-biomechanics-ch05-desktop.png",
+      "basic-biomechanics-ch06-paper.png",
+      "basic-biomechanics-ch06-night.png",
+      "basic-biomechanics-ch06-desktop.png"
+    ],
+    "semantic_limit": "Structural and browser checks do not establish medical or semantic truth; manual decisions and source limits are recorded in RUN.md."
+  },
+  "editor_arithmetic": {
+    "strain_relative_to_in_situ_percent": 24.774774774774766,
+    "ellipse_area_ratio": 1.0,
+    "fiber_pcsa_cm2": 30.0,
+    "fiber_force_N": 600.0,
+    "tendon_force_N": 519.6152422706632,
+    "joint_moment_Nm": 20.784609690826528,
+    "linear_power_W": 50.0,
+    "rotational_power_W": 100,
+    "mean_force_development_N_per_s": 2000.0,
+    "conditions": "Illustrative shared strain reference; constant-area ellipse; uniform fiber length and assumed specific tension; 30-degree projection once; fixed moment arm. No individual physiological or safety limit."
+  },
+  "delegation": "Main agent only; no subscription savings claim."
+}
