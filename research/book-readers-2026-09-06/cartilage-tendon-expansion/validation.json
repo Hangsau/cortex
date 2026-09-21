@@ -1,0 +1,145 @@
+{
+  "checked_at": "2026-09-21T07:38:21.289168+00:00",
+  "baseline": "8312a4048a23db51687dc32984837785329d54d4",
+  "chapters": [
+    {
+      "path": "content/library/basic-biomechanics/ch03/index.md",
+      "before": {
+        "sections": 4,
+        "chinese_characters": 664
+      },
+      "after": {
+        "sections": 41,
+        "chinese_characters": 7680
+      },
+      "original_anchors_preserved": true,
+      "sha256": "d2f1b3e4a2aec4e5d1c9d9902a0f040af389efc300c630c39699f913cf29b3ec"
+    },
+    {
+      "path": "content/library/basic-biomechanics/ch04/index.md",
+      "before": {
+        "sections": 4,
+        "chinese_characters": 676
+      },
+      "after": {
+        "sections": 42,
+        "chinese_characters": 7861
+      },
+      "original_anchors_preserved": true,
+      "sha256": "1da6fff8ff78c27dc6f7377f0e72dbefec199a4fec124d5c8a0b0a6f2ed5c921"
+    }
+  ],
+  "shared_style_files": [
+    {
+      "path": "layouts/library/reading-book.html",
+      "unchanged": true,
+      "sha256": "8bc215a54900c193ae6a17311e4f77dec4fa4f89656d428a2e7054f9649ce57b"
+    },
+    {
+      "path": "layouts/library/reading-chapter.html",
+      "unchanged": true,
+      "sha256": "0b49aa79d9a62695dd19e47a6492081e46be7fb4d894d1cdc28f7bf6c23c94ab"
+    },
+    {
+      "path": "layouts/library/reading-topics.html",
+      "unchanged": true,
+      "sha256": "061c9cb6f48a61036eba1bf484766456573cfcd725ae39ae4ddef72c3feb1424"
+    },
+    {
+      "path": "static/css/reading.css",
+      "unchanged": true,
+      "sha256": "ebe98ba8129c571b151e751050c7e5ac2129535ff9affbd6f37141b329fbfea5"
+    },
+    {
+      "path": "static/js/reading.js",
+      "unchanged": true,
+      "sha256": "7be83e627a8010969890faa5a58758fc1c82bab396eca2cf69e496c24146a279"
+    }
+  ],
+  "source_catalog_unchanged": true,
+  "source_review": {
+    "book": "nordin",
+    "main_body_pages": [
+      [
+        77,
+        109
+      ],
+      [
+        119,
+        136
+      ]
+    ],
+    "original_png_pages_viewed": [
+      81,
+      85,
+      86,
+      88,
+      101,
+      107,
+      123,
+      126,
+      127,
+      129,
+      133
+    ],
+    "profile": "textual_interpretive",
+    "full_translation": false,
+    "all_cited_studies_fulltext_reviewed": false,
+    "external_sources": [
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2853978/",
+        "scope": "Theory framework and confined compression equations 36-37 plus neighboring assumptions; not full reproduction of FE model"
+      },
+      {
+        "url": "https://www.ncbi.nlm.nih.gov/gene/1311",
+        "scope": "Summary classification of COMP as noncollagenous extracellular matrix protein"
+      }
+    ]
+  },
+  "validation": {
+    "reading": {
+      "chapters": 33,
+      "sections": 982,
+      "chinese_characters": 232792,
+      "terms": 60,
+      "topics": 7,
+      "cross_book_pairings": 18,
+      "checked_html_links": 1508,
+      "semantic_limit": "33 main-chapter guides; selected main concepts, not full translation or full semantic verification; appendices and front/back matter have no separate guide",
+      "errors": []
+    },
+    "hugo_pages": 172,
+    "reader_audit": {
+      "passed": 97,
+      "failed": 0
+    },
+    "original_server": {
+      "restart_cycles": 2,
+      "passed": 18
+    },
+    "chapter_browser": {
+      "passed": 58,
+      "failed": 0
+    },
+    "manually_viewed_screenshots": [
+      "basic-biomechanics-ch03-paper.png",
+      "basic-biomechanics-ch03-night.png",
+      "basic-biomechanics-ch03-desktop.png",
+      "basic-biomechanics-ch04-paper.png",
+      "basic-biomechanics-ch04-night.png",
+      "basic-biomechanics-ch04-desktop.png"
+    ],
+    "presentation_fix": "Inline formula code had poor night contrast; switched only these chapters to prose strong, rebuilt and reran scoped browser and HTML checks."
+  },
+  "editor_arithmetic": {
+    "darcy_microliters_per_second": 0.02,
+    "stress_MPa": 10.0,
+    "strain": 0.04,
+    "modulus_MPa": 250.0,
+    "stiffness_N_per_mm": 100.0,
+    "energy_J": 0.2,
+    "thickness_doubled_time_ratio": 4,
+    "conditions": "Darcy: k=2e-15 m4/(N s), A=100 mm2, h=1 mm, pressure difference=0.1 MPa, fixed for illustrative steady flow only. Tensile: uniform axial linear approximation with F=200 N, A=20 mm2, L=50 mm, extension=2 mm. Time scaling holds H_A, k and drainage boundary fixed."
+  },
+  "delegation": "Main agent only; no subscription savings claim."
+}
