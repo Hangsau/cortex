@@ -11,7 +11,7 @@
 - [x] 核閱來源與必要圖表，整理條件、數值及圖文差異。
 - [x] 完成兩章連續繁中詳解、來源定位與編者算例。
 - [x] 完成結構、建置、閱讀與目視驗收。
-- [ ] 更新交接、發布並比對CI與正式站。
+- [x] 更新交接、發布並比對CI與正式站。
 
 ## 來源與語意決策
 
@@ -60,4 +60,4 @@
 
 本批瀏覽器67/67通過，六張截圖皆已目視，正文、標題及來源連結在兩色可讀；桌面目次與正文沿用既有樣式。第5章33節／7,314字，第6章43節／9,508字，共76節／16,822字。五份共用檔及來源catalog與基線一致，詳見`validation.json`；可重跑`python -X utf8 research/book-readers-2026-09-06/nerve-muscle-expansion/record-validation.py`彙整既有檢查與檔案不變條件。
 
-正式發布結果待完成後補入；尚未宣稱部署完成。
+實作`acffbd8103710f971cda283706bb276febe4fd9c`已部署；按完整SHA核對[CI 35665543946](https://github.com/Hangsau/cortex/actions/runs/35665543946)的build及deploy成功，見`ci-verification.json`。`python -X utf8 research/book-readers-2026-09-06/nerve-muscle-expansion/check-live.py --commit acffbd8103710f971cda283706bb276febe4fd9c --run-url https://github.com/Hangsau/cortex/actions/runs/35665543946`正式站28/28：兩章完整正文、33／43節順序、原八錨點、跨章目標、原頁來源群隱藏及CSS／JS與本機一致，證據見`public-validation.json`。

@@ -670,13 +670,13 @@ ch19 → ch24 照章號串行，每章「`cscs_quiz_direct.py` 出題 → 過閘
 schema（`kind` 只收 recall/choice、2–8 個選項、`correct` 是整數索引）。
 另有待辦：本庫沒有常模表，spec R7 目前全面禁止百分位數字，R6 的測驗組合題因此少一段。
 
-## Nordin 周邊神經與骨骼肌詳解完成，發布驗證中（2026-09-22）
+## Nordin 周邊神經與骨骼肌詳解已部署（2026-09-22）
 
 沿使用者「繼續」及既有編輯／發布授權，完成Nordin第5章33節／7,314中文字、第6章43節／9,508字，本批76節／16,822字；原八錨點保留。全讀本33章、1,050節／248,291字，Neumann1–16及Nordin1–14、17已加深，仍為guide／chapter-guide。
 
 主代理核閱145–162、167–189主要正文，回看9張原PNG。第5章分清應變基準、血流／傳導／斷裂、側向截面形變、壓迫邊緣與神經根雙處供血；第6章保留肌節→運動單位→整肌→力矩，校核titin引文、ATP方框、IIb／IIx、PCSA投影及老化力矩／速度配對。四篇原始研究僅核摘要，正文及RUN明示；不把動物閾值、病例或歷史介入當現行處方。
 
-Hugo172頁、HTML1,584連結／錨點、既有閱讀器97/97、原頁服務18/18、本批67/67通過。已目視兩章手機紙色／夜色及桌面六張截圖，22px可讀；五份共用版型／CSS／JS與基線42eb7aca一致。來源與驗收見`research/book-readers-2026-09-06/nerve-muscle-expansion/{RUN.md,validation.json,browser-checks.json}`。正式部署及全文比對待完成後補錄。
+Hugo172頁、HTML1,584連結／錨點、既有閱讀器97/97、原頁服務18/18、本批67/67通過。已目視兩章手機紙色／夜色及桌面六張截圖，22px可讀；五份共用版型／CSS／JS與基線42eb7aca一致。來源與驗收見`research/book-readers-2026-09-06/nerve-muscle-expansion/{RUN.md,validation.json,browser-checks.json}`。實作`acffbd8103710f971cda283706bb276febe4fd9c`已部署，完整SHA對應[CI 35665543946](https://github.com/Hangsau/cortex/actions/runs/35665543946)的build／deploy成功。正式站28/28通過，兩章全文、33／43節順序、原八錨點、跨章目標、原頁群隱藏及共用CSS／JS與本機一致，證據見同目錄`ci-verification.json`與`public-validation.json`。
 
 下一批接Nordin第15–16章；本批與已有詳解章不需重寫。8768本機唯讀預覽可用，既有風格及發布授權沿用；原PDF、抽文、PNG與截圖留本機。下方為歷史快照，勿使用舊「下一批5–6章」取代本段。
 
