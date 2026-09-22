@@ -85,6 +85,55 @@ def topic_of(item_id) -> str:
     return parts[1] if len(parts) > 2 else ""
 
 
+def chapter_topics(chid: str) -> list:
+    """回傳本章 topic slug 清單，保持 yaml 內的順序。"""
+    data = yaml.safe_load(read_text(ROOT / "data" / "cscs" / f"{chid}.yaml"))
+    return [topic_of(topic["items"][0]["id"]) for topic in data["topics"] if topic.get("items")]
+
+
+def topic_spread_note(chid: str, total: int, used_items) -> str:
+    """要模型把題目攤到每個 topic，並點名目前覆蓋不足的那幾個。
+
+    挑選器（select_questions）雖然把 topic 當第二順位排序鍵，但它只能在模型交出的候選池裡
+    挑——池子裡本來就沒有某個 topic，balance 這一層就無事可做。ch19 實跑：8 個 topic 拿到
+    7/7/7/7/6/2/1/1，`sprint-technique` 與 `sprint-speed-components` 這兩個「速度與敏捷」
+    章最核心的執行主題各只有 1 題，而閘與配題表都看不到主題分布（它們只驗 cognitive／lang
+    邊際）。所以要求必須下到 prompt 這一層。
+    """
+    topics = chapter_topics(chid)
+    if not topics:
+        return ""
+    target = total / len(topics)
+    floor, ceiling = max(1, int(target) - 1), int(target) + 2
+    done = Counter(topic_of(i) for i in used_items)
+    lines = [
+        f"# 主題覆蓋（本章 {len(topics)} 個 topic，全章共 {total} 題）",
+        "",
+        f"**每個 topic 全章要有 {floor}–{ceiling} 題**，不要把題目擠在少數幾個概念型主題上。"
+        "動作執行、技術、測驗這類主題和機制類主題一樣要考到。"
+        "**攤開主題不是放寬欄位要求**——冷門主題的題目照樣要有 `locator` 等必填欄位，"
+        "也照樣要湊滿本批的英文題數。",
+        "",
+    ]
+    if done:
+        lines += ["| topic | 先前批次已出 |", "|---|---|"]
+        lines += [f"| `{t}` | {done.get(t, 0)} |" for t in topics]
+        lead = max(done.get(t, 0) for t in topics)
+        lack = [t for t in topics if done.get(t, 0) < lead]
+        if lack:
+            lines += [
+                "",
+                "先前批次的覆蓋並不平均。**本批請優先從下列落後的 topic 取材**"
+                "（每個都要有候選題，而且要寫足餘裕讓我挑得動）：",
+                "",
+                "\n".join(f"- `{t}`（目前 {done.get(t, 0)} 題，領先的 topic 已有 {lead} 題）"
+                          for t in lack),
+            ]
+    else:
+        lines += ["\n".join(f"- `{t}`" for t in topics)]
+    return "\n".join(lines)
+
+
 def dco_allowed(chid: str) -> set:
     """從 dco_list() 的輸出抽出合法 id 集合。
 
@@ -354,6 +403,8 @@ def build_sections(chid: str, quota, used_items: list, part, bank=None):
         "- **盡量每題用不同的 item**（同一個 item 最多 2 題）——我挑選時優先保留不重複的。",
         "- 每題選項**恰好 3 個**（不是 4 個）。",
         "",
+        topic_spread_note(chid, ALLOCATION[chid][0], used_items),
+        "",
         battery_note(chid),
         "",
         TOP_GATES,
@@ -480,6 +531,8 @@ questions:
 - **不要自己拼術語**。只用本章 yaml 出現過的詞，或該領域公認的標準術語。
 - **`locator` 逐字複製**來源 item 的 `locator`。
 - **中文題不可出現簡體字**；**英文題不是中文題的翻譯**，同一 item 的中英題要問不同角度。
+- **`lang: en` 的題目，`stem`／選項 `text`／`why_wrong` 三者全部寫英文**，一個中文字都不要出現
+  （`why_wrong` 最容易漏，它也要是完整英文句子、至少 8 個詞）；`lang: zh` 則三者全部寫中文。
 - **同一個 item 最多出 2 題**，題幹不得重複。
 - 否定題（`EXCEPT` /「何者不是」）**本章至多 1 題**，可以完全不寫。
 - **不要寫任何百分位、族群平均、常模門檻的數字**——本庫沒有常模表，寫了就是編造。"""
