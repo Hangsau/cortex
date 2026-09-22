@@ -610,3 +610,54 @@ questions:
   - text: maintain frequency and intensity but drop the exercise duration to zero
     correct: false
     why_wrong: Stops duration completely while keeping intensity; removing the primary training stimulus is the opposite of the strategy that minimizes detraining effects.
+- id: ch20.intensity-monitoring.i02.q2
+  item: ch20.intensity-monitoring.i02
+  dco: pa1.E.1
+  lang: en
+  cognitive: application
+  pool: extra
+  stem: During aerobic endurance interval training, a coach uses heart rate telemetry and blood lactate testing to gauge the session. What does this monitoring most directly indicate about the athlete's workload?
+  locator: 'Designing an Aerobic Endurance Program > Step 3: Training Intensity > Heart Rate'
+  options:
+  - text: How closely the work rate approaches the lactate threshold or a set heart-rate ceiling.
+    correct: true
+  - text: How effectively blood glucose remains steady across repeated high-intensity bouts.
+    correct: false
+    why_wrong: Candidates confuse metabolic fuel regulation with aerobic effort, but heart rate and lactate readings describe intensity rather than glucose control.
+  - text: Whether the interval session preserves bone mineral density over time.
+    correct: false
+    why_wrong: Candidates think any training metric reflects skeletal health, yet bone density shifts over months, not within a single monitored session.
+- id: ch20.training-types.i04.q2
+  item: ch20.training-types.i04
+  dco: pa1.A.4
+  lang: en
+  cognitive: application
+  pool: extra
+  stem: A strength and conditioning professional is briefing university basketball coaches on preseason HIIT prescription. For 15-second work bouts targeting the fast-glycolytic system, which rest range most appropriately matches the work-to-rest ratio in Table 20.4?
+  locator: Types of Aerobic Endurance Training Programs > High-Intensity Interval Training > Table 20.4 Types of Aerobic Endurance Training
+  options:
+  - text: 45 to 75 seconds of rest between 15-second work bouts.
+    correct: true
+  - text: 15 to 180 seconds of rest between 15-second work bouts.
+    correct: false
+    why_wrong: A coach fixates on the bare 1:1 language of the interval-training row and stretches the range to cover nearly any short rest, but Table 20.4's HIIT row calls for a 1:5 work-to-rest ratio, not a 1:1 one.
+  - text: 30 to 45 seconds of rest between 15-second work bouts.
+    correct: false
+    why_wrong: The trainee remembers 'short rest for HIIT' and halves the recommended range, but 30–45 seconds only matches a 1:2 ratio and under-rests the athlete relative to the prescribed 1:5 work-to-rest ratio.
+- id: ch20.hr-calculations.i03.q2
+  item: ch20.hr-calculations.i03
+  dco: pa1.E.2
+  lang: en
+  cognitive: recall
+  pool: extra
+  stem: In the Karvonen target heart rate formula, THR = (HRR × intensity) + RHR, which variable must be combined with maximum heart rate to calculate HRR?
+  locator: 'Designing an Aerobic Endurance Program > Step 3: Training Intensity > Heart Rate'
+  options:
+  - text: The athlete's resting heart rate, subtracted from estimated maximum heart rate
+    correct: true
+  - text: Total body mass in kilograms, used to scale heart rate reserve output
+    correct: false
+    why_wrong: Body mass does not enter the Karvonen equation, so choosing it tempts test takers who confuse cardiovascular dosing with workload prescriptions that do scale to body weight.
+  - text: Lactate threshold percentage, substituted for the training intensity multiplier
+    correct: false
+    why_wrong: Lactate threshold can set the training intensity percentage but is not the second component added or subtracted in HRR; choosing it appeals to those who recall that LT is mentioned in heart rate discussions.

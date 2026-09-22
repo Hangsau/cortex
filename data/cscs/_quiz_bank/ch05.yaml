@@ -2,565 +2,563 @@ meta:
   chapter: ch05
   source: data/cscs/ch05.yaml
 questions:
-  - id: ch05.cardiovascular-adaptations.i01.q1
-    item: ch05.cardiovascular-adaptations.i01
-    dco: sf1.G.2
-    lang: zh
-    cognitive: recall
-    stem: MacDougall 等人在 95% 1RM 腿推測試中記錄到的血壓與心率峰值各為多少？
-    locator: Cardiovascular and Respiratory Responses to Anaerobic Exercise > Acute Cardiovascular Responses to Anaerobic Exercise
-    options:
-      - text: 血壓 320/250 mmHg，心率 170 bpm
-        correct: true
-      - text: 日常阻力訓練範圍約血壓 180/100 mmHg，心率 130 bpm
-        correct: false
-        why_wrong: 把這個極端測試值低估到一般阻力訓練的常見範圍；書中記錄的峰值遠高於此，不是日常阻力訓練的常態。
-      - text: 該研究的另一項紀錄為血壓 220/110 mmHg，心率 200 bpm
-        correct: false
-        why_wrong: 心率 200 bpm 高於書中記載的 170 bpm 峰值；這組搭配並非該研究的記錄數字。
-  - id: ch05.cardiovascular-adaptations.i04.q1
-    item: ch05.cardiovascular-adaptations.i04
-    dco: sf1.G.2
-    lang: en
-    cognitive: recall
-    stem: According to the chapter's meta-analysis, by approximately how much do systolic and diastolic blood pressure each decrease with resistance training?
-    locator: Cardiovascular and Respiratory Responses to Anaerobic Exercise > Chronic Cardiovascular Adaptations at Rest
-    options:
-      - text: Both drop by 2 to 4 percent
-        correct: true
-      - text: Each falls about 12 percent
-        correct: false
-        why_wrong: Overstates a modest finding by roughly fourfold. The pooled analysis lands at 2 to 4 percent, and the largest effects appear in people whose starting pressure was already high.
-      - text: Around a 25 percent reduction
-        correct: false
-        why_wrong: Reads the resistance-training effect as if it matched drug therapy. A quarter off resting pressure is an order of magnitude beyond the 2 to 4 percent the meta-analysis reports.
-  - id: ch05.connective-tissue.i02.q1
-    item: ch05.connective-tissue.i02
-    dco: sf1.D.1
-    lang: zh
-    cognitive: recall
-    stem: 書中如何描述最小必要應變（MES）相對於折斷骨頭所需力量的大小？
-    locator: Connective Tissue Adaptations > General Bone Physiology
-    options:
-      - text: 推估約為折斷骨頭所需力量的十分之一
-        correct: true
-      - text: 大約是折斷該骨頭所需力量的一半
-        correct: false
-        why_wrong: 把門檻拉到骨折力量的中段；書中的推估值只有十分之一，日常活動因此才會普遍落在門檻之下。
-      - text: 與使骨頭斷裂的力量大致相等
-        correct: false
-        why_wrong: 把成骨門檻等同於骨折點，等於要先把骨頭弄斷才會長骨；MES 明確位在折斷力量之下。
-  - id: ch05.detraining.i02.q1
-    item: ch05.detraining.i02
-    dco: sf1.H.2
-    lang: zh
-    cognitive: recall
-    stem: 依書中描述，阻力訓練停止後一般肌力通常可維持多久？哪些肌力素質可能在高度訓練運動員身上更早衰退？
-    locator: Detraining
-    options:
-      - text: 約 4 週，菁英的離心收縮與專項爆發力會更早衰退
-        correct: true
-      - text: 2 週即全面退場，不分對象、素質或運動員等級
-        correct: false
-        why_wrong: 把保護期砍半，並抹除菁英與一般之間的區分。書中保留早期衰退給高度訓練運動員的離心與爆發輸出。
-      - text: 3 個月過去，所有素質仍維持原樣
-        correct: false
-        why_wrong: 把保護期擴大三倍。3 個月屬於中期流失，不是初始維持窗口。
-  - id: ch05.endocrine-adaptations.i01.q1
-    item: ch05.endocrine-adaptations.i01
-    dco: sf1.F.1
-    lang: zh
-    cognitive: recall
-    stem: 阻力訓練後，男性睾固酮、GH 分子變體與皮質醇濃度可維持升高多久？
-    locator: Endocrine Responses and Adaptations to Anaerobic Training > Acute Anabolic Hormone Responses
-    options:
-      - text: 長達 30 分鐘
-        correct: true
-      - text: 約 1 分鐘便回到基準
-        correct: false
-        why_wrong: 把持續時間壓縮到急性期之外；書中明示升高反應可維持約 30 分鐘，不是 1 分鐘內消退。
-      - text: 約 2 小時以上
-        correct: false
-        why_wrong: 把持續時間延伸到接近全日；急性反應是指運動結束後短暫窗口，不是長效的慢性上升。
-  - id: ch05.fiber-type-transitions.i02.q1
-    item: ch05.fiber-type-transitions.i02
-    dco: sf1.A.3
-    lang: en
-    cognitive: recall
-    stem: In Staron's 8-week training study, what was the overall change in Type IIx fiber proportion, and which sex reached a significant decrease first?
-    locator: Muscular Adaptations > Fiber Type Transitions
-    options:
-      - text: Down from 18% to 7%, women first
-        correct: true
-      - text: Unchanged at 18% in both sexes
-        correct: false
-        why_wrong: Denies that any transition took place. The 8-week program moved both sexes from roughly 18% down to about 7%, and the women crossed significance two weeks ahead of the men.
-      - text: Climbed to 28%, led by male lifters
-        correct: false
-        why_wrong: Reverses both the direction and the order. Resistance training pushes the IIx share downward rather than upward, and it was the women who reached a significant drop earlier.
-  - id: ch05.hypertrophy.i08.q1
-    item: ch05.hypertrophy.i08
-    dco: sf1.A.2
-    lang: zh
-    cognitive: recall
-    stem: MacDougall 等人的 5 個月阻力訓練研究中，肌肝糖含量的最大增加幅度為多少？
-    locator: Muscular Adaptations > Other Muscular Adaptations
-    options:
-      - text: 112%
-        correct: true
-      - text: 208%
-        correct: false
-        why_wrong: 把超補償幅度誇大到兩倍以上；書中記錄的肝糖最大增幅是 112%，沒有超過 200%。
-      - text: 47%
-        correct: false
-        why_wrong: 把肝糖增幅壓到接近 CP 的 28% 與 ATP 的 18% 那個量級；肝糖是三項中反應最大的，最多增加 112%。
-  - id: ch05.neural-adaptations.i01.q1
-    item: ch05.neural-adaptations.i01
-    dco: sf1.B.1
-    lang: en
-    cognitive: recall
-    stem: What proportion of muscle can untrained individuals recruit on average during a maximal voluntary contraction?
-    locator: Neural Adaptations to Anaerobic Training > Central Adaptations
-    options:
-      - text: Roughly 71 percent of the muscle pool
-        correct: true
-      - text: Only about 30 percent of available fibers
-        correct: false
-        why_wrong: Treats the recruitment ceiling as if two-thirds of muscle is permanently unavailable; the cited figure leaves roughly a quarter of the pool untapped, not two-thirds.
-      - text: Nearly all of it, around 95 percent
-        correct: false
-        why_wrong: Invents a near-complete untrained recruitment ceiling; resistance training raises it, but untrained individuals sit closer to roughly 71 percent, not 95.
-  - id: ch05.overtraining.i01.q1
-    item: ch05.overtraining.i01
-    dco: sf1.H.2
-    lang: zh
-    cognitive: recall
-    stem: 依書中過度訓練連續體的四階段，由短至長的恢復時間順序為何？
-    locator: Overtraining
-    options:
-      - text: 急性疲勞 → FOR → NFOR → OTS，恢復時程由數天遞增到數年
-        correct: true
-      - text: FOR → 急性疲勞 → NFOR → OTS，恢復期最短者需數週
-        correct: false
-        why_wrong: 把功能性過負荷當成連續體的起點，等於認定訓練後的正常疲勞已屬過負荷；急性疲勞只需數天即可回復，排在 FOR 之前。
-      - text: OTS → NFOR → FOR → 急性疲勞，最末階段幾天內即可復原
-        correct: false
-        why_wrong: 依症狀嚴重度由重排到輕，卻把恢復時程一併倒過來讀；OTS 需要數月至數年，位在連續體的最末端而非開端。
-  - id: ch05.overtraining.i06.q1
-    item: ch05.overtraining.i06
-    dco: sf1.H.2
-    lang: en
-    cognitive: recall
-    stem: According to one survey cited in the chapter, what percentage of overtrained individuals also engaged in sports requiring high strength, speed, or coordination?
-    locator: Overtraining
-    options:
-      - text: 77%
-        correct: true
-      - text: 23%
-        correct: false
-        why_wrong: Treats the cited share of strength/speed/coordination athletes as a minority; the survey reports a clear majority, not a small fraction.
-      - text: 12%
-        correct: false
-        why_wrong: Shrinks the cited figure to an implausibly low level; the documented share is far higher than a fringe group.
-
-  - id: ch05.hypertrophy.i04.q1
-    item: ch05.hypertrophy.i04
-    dco: sf1.A.2
-    lang: zh
-    cognitive: application
-    stem: 一名健力選手的目標是壯大肌纖維 CSA，下列哪一種訓練刺激路線最符合書中機械因子的建議？
-    locator: Muscular Adaptations > Muscular Growth
-    options:
-      - text: 重負荷、偏離心、低至中訓練量
-        correct: true
-      - text: 高訓練量、短休息的代謝壓力式課表
-        correct: false
-        why_wrong: 套用的是代謝因子路徑；書中把代謝刺激歸給追求代謝物堆積與合成激素反應的健美式訓練。
-      - text: 中高強度搭配最長組間休息以純化肌力
-        correct: false
-        why_wrong: 把長休息當成機械因子的核心；機械因子強調重負荷與離心收縮本身，不是休息長度。
-  - id: ch05.connective-tissue.i04.q1
-    item: ch05.connective-tissue.i04
-    dco: sf1.D.1
-    lang: zh
-    cognitive: application
-    stem: 為刺激骨骼生長，下列哪一項負荷區間與動作選擇的搭配最符合書中原則？
-    locator: Connective Tissue Adaptations > Principles of Training to Increase Bone Strength
-    options:
-      - text: 1–10 RM 的重負荷，搭配多關節結構性動作
-        correct: true
-      - text: 15 RM 以上的輕負荷高反覆，搭配單關節孤立動作
-        correct: false
-        why_wrong: 把負荷壓到輕負荷區、把動作限縮到單關節；書中兩條皆明示要避開。
-      - text: 以等長收縮為主、不需軸向力的固定動作
-        correct: false
-        why_wrong: 把等長動作當成骨骼刺激首選；等長訓練缺乏軸向承重與骨形變，不是書中強調的動作。
-  - id: ch05.neural-adaptations.i03.q1
-    item: ch05.neural-adaptations.i03
-    dco: sf1.B.2
-    lang: en
-    cognitive: application
-    stem: According to the chapter, what is the approximate maximum countermovement-to-takeoff duration for ballistic movements to selectively recruit fast-twitch motor units?
-    locator: Neural Adaptations to Anaerobic Training > Motor Unit Recruitment, Firing Rate, and Synchronization
-    options:
-      - text: Cap it near 0.4 s to keep ballistic intent
-        correct: true
-      - text: Allow up to 2 s, plenty for slow-strength lifts
-        correct: false
-        why_wrong: Extends the window into the slow-strength range; countermovement jumps that long lose the ballistic character needed for selective recruitment of fast-twitch units.
-      - text: Stretch to 10 s, the slow-strength ceiling
-        correct: false
-        why_wrong: Treats the movement as endurance-strength territory; ballistic, time-pressured contractions sit well under a second, not in the multi-second window.
-  - id: ch05.overtraining.i03.q1
-    item: ch05.overtraining.i03
-    dco: sf1.H.2
-    lang: zh
-    cognitive: application
-    stem: 依書中描述，過度訓練症候群（OTS）最短持續時間的下限為何？
-    locator: Overtraining
-    options:
-      - text: 6 個月以上
-        correct: true
-      - text: 約 2 週即進入
-        correct: false
-        why_wrong: 把 OTS 的時間框架壓到去訓練的初期範圍。OTS 是數月到數年的長期症候群，不是停訓數周的層級。
-      - text: 約 6 週左右
-        correct: false
-        why_wrong: 落在 NFOR 的恢復區間。NFOR 持續數週至數月，而 OTS 的下限更高，需 6 個月以上。
-  - id: ch05.fiber-type-transitions.i01.q1
-    item: ch05.fiber-type-transitions.i01
-    dco: sf1.A.3
-    lang: zh
-    cognitive: application
-    stem: 高閾值運動單位反覆被徵召後，書中所描述最典型的肌纖維亞型訓練誘發方向為何？
-    locator: Muscular Adaptations > Fiber Type Transitions
-    options:
-      - text: 沿 IIx → IIax → IIa 方向位移
-        correct: true
-      - text: 沿相反方向由 IIa 退回 IIx
-        correct: false
-        why_wrong: 把訓練誘發的轉型方向反轉；反覆徵召高閾值運動單位是把纖維推向氧化能力較高的 IIa，不是退回 IIx。
-      - text: 由 Type I 轉為 Type II 大類
-        correct: false
-        why_wrong: 把可訓練的範圍放大到大類型；書中明示 Type I 與 Type II 的比例主要由遺傳決定，訓練只改得動 II 型的三個亞型。
-  - id: ch05.detraining.i03.q1
-    item: ch05.detraining.i03
-    dco: sf1.H.2
-    lang: en
-    cognitive: application
-    stem: In the 14-day detraining study of trained weightlifters cited in the chapter, what most accurately describes the typical changes in bench press 1RM, squat 1RM, and vertical jump performance?
-    locator: Detraining
-    options:
-      - text: "All three barely moved, under 2%"
-        correct: true
-      - text: "All three fell by roughly 15%"
-        correct: false
-        why_wrong: Treats a fortnight off as enough to erase years of training. The cited weightlifters lost fractions of a percent, an order of magnitude below this.
-      - text: "Bench held, but the jump fell 20%"
-        correct: false
-        why_wrong: Assumes explosive output collapses first. In this cohort the vertical jump actually edged up slightly while the bench press was the lift that moved most.
-  - id: ch05.cardiovascular-adaptations.i02.q1
-    item: ch05.cardiovascular-adaptations.i02
-    dco: sf1.G.2
-    lang: zh
-    cognitive: application
-    stem: 阻力訓練一組結束後的前 5 秒，心率呈現何種變化最符合書中描述？
-    locator: Cardiovascular and Respiratory Responses to Anaerobic Exercise > Acute Cardiovascular Responses to Anaerobic Exercise
-    options:
-      - text: 心率反而高於動作中，Valsalva 延後效應
-        correct: true
-      - text: 組間心率下降低於基準，進入恢復低點階段
-        correct: false
-        why_wrong: 把組間休息視為心率低點。書中指出 Valsalva 機制會把血流動力反應延後到組間休息才出現。
-      - text: 心率與動作進行中相同，組間休息未見顯著變化
-        correct: false
-        why_wrong: 忽略向心與離心期的相位差。書中強調血流高峰不在動作當下，組間前幾秒會明顯上升。
-  - id: ch05.endocrine-adaptations.i07.q1
-    item: ch05.endocrine-adaptations.i07
-    dco: sf1.F.2
-    lang: en
-    cognitive: application
-    stem: After resistance training, within what earliest time window do muscle-fiber androgen receptor (AR) levels most typically begin to up-regulate?
-    locator: Endocrine Responses and Adaptations to Anaerobic Training > Hormone Receptor Changes
-    options:
-      - text: 48–72 hours post-exercise
-        correct: true
-      - text: Within an hour after the session ends
-        correct: false
-        why_wrong: Confuses the up-regulation window with the down-regulation window. One hour is when high-volume sessions show the drop, not the climb back up.
-      - text: Not until more than a week has passed
-        correct: false
-        why_wrong: Stretches the up-regulation to a week-long scale. The cited window is forty-eight to seventy-two hours, far sooner.
-  - id: ch05.detraining.i06.q1
-    item: ch05.detraining.i06
-    dco: sf1.H.2
-    lang: zh
-    cognitive: application
-    stem: 對力量型運動員而言，停訓 14 天後肌纖維類型分布通常呈現最典型的何種變化？
-    locator: Detraining
-    options:
-      - text: 大致不變，肌纖維類型分布尚未明顯改變
-        correct: true
-      - text: IIx 比例立刻飆升，IIa 比例大幅下滑
-        correct: false
-        why_wrong: 把中長期去訓練效應壓到 14 天；overshoot 與 IIx 上升是數週以上的趨勢，不是停訓兩週的可見變化。
-      - text: 全部纖維類型同時萎縮且比例完全重組
-        correct: false
-        why_wrong: 把分布重組與橫截面積萎縮混為一談；停訓 14 天纖維分布大致不變，會變的是 CSA 等其他維度。
-  - id: ch05.hypertrophy.i06.q1
-    item: ch05.hypertrophy.i06
-    dco: sf1.A.3
-    lang: zh
-    cognitive: application
-    stem: 教練觀察到先天快縮纖維比例較高的選手肌肉量成長較快。下列哪一項機制最能解釋此傾向？
-    locator: Muscular Adaptations > Fiber Size Changes
-    options:
-      - text: Type II 徵召門檻較高，啟動後 CSA 擴增大
-        correct: true
-      - text: Type II 的微血管密度較高，養分供給較快
-        correct: false
-        why_wrong: 把肥大差異歸到血流供應；書中的解釋是徵召門檻與大小原則，快縮纖維的微血管密度其實低於慢縮纖維。
-      - text: Type II 依大小原則會被最先徵召，刺激累積較多
-        correct: false
-        why_wrong: 把大小原則的順序反過來用；低閾值的 Type I 才是最先被徵召的，Type II 要到負荷夠高才進場。
-  - id: ch05.neural-adaptations.i06.q1
-    item: ch05.neural-adaptations.i06
-    dco: sf1.B.2
-    lang: zh
-    cognitive: application
-    stem: 阻力訓練後，書中記載的反射性肌肉活化增益提升幅度最接近下列哪一區間？
-    locator: Neural Adaptations to Anaerobic Training > Reflex Potentiation
-    options:
-      - text: 提升幅度 19%–55%
-        correct: true
-      - text: 提升幅度僅 3%–8%
-        correct: false
-        why_wrong: 把反射增益壓到幾乎測不出來的程度；書中記載的下緣就已經是 19%，遠高於個位數。
-      - text: 提升可達 65%–90%
-        correct: false
-        why_wrong: 把上緣往外推了一截；書中觀察到的最大值是 55%，沒有到六成以上。
-  - id: ch05.connective-tissue.i05.q1
-    item: ch05.connective-tissue.i05
-    dco: sf1.D.1
-    lang: en
-    cognitive: application
-    stem: According to Kubo and colleagues' study cited in the chapter, what was the primary magnitude of Achilles tendon stiffness change after eight weeks of resistance training?
-    locator: Connective Tissue Adaptations > Adaptations of Tendons, Ligaments, and Fascia to Anaerobic Training
-    options:
-      - text: Rose by roughly 15–19 percent
-        correct: true
-      - text: Barely budged at 1–3 percent
-        correct: false
-        why_wrong: Shrinks the stiffness gain to near-undetectable levels. Kubo's study measured a 15–19% rise, far above 1–3%.
-      - text: Lost 5–8 percent stiffness
-        correct: false
-        why_wrong: Reverses the direction to a loss. Resistance training raises tendon stiffness rather than lowering it.
-  - id: ch05.overtraining.i05.q1
-    item: ch05.overtraining.i05
-    dco: sf1.H.2
-    lang: zh
-    cognitive: application
-    stem: 書中將 NFOR 視為一個階段。下列何者最能代表該階段最具特徵的全身性模式？
-    locator: Overtraining
-    options:
-      - text: 肝糖耗盡，舉重量平，晨脈微升，內分泌偏移
-        correct: true
-      - text: 精神奕奕、週訓練噸數逐週走高、安靜血壓漂亮
-        correct: false
-        why_wrong: 把 NFOR 寫成恢復期表現；書中定義為停滯或衰退的多系統症狀群，不是反向的進步曲線。
-      - text: 各項監測一律落在進場時的區間內、毫無偏移
-        correct: false
-        why_wrong: 把 NFOR 描述為無聲無息；書中在該階段明確列出多項可測量的多系統漂移。
-  - id: ch05.hypertrophy.i02.q1
-    item: ch05.hypertrophy.i02
-    dco: sf1.A.2
-    lang: zh
-    cognitive: application
-    stem: 阻力訓練後，肌蛋白合成率上升可維持多久，最符合書中數字？
-    locator: Muscular Adaptations > Muscular Growth
-    options:
-      - text: 約 48 小時
-        correct: true
-      - text: 1 小時內即回基準
-        correct: false
-        why_wrong: 把合成率上升的時間壓到一小時內。書中明示急性阻力運動後合成率可維持上升長達 48 小時。
-      - text: 1 週以上仍高檔不退
-        correct: false
-        why_wrong: 把時間延伸到週尺度。合成率上升是急性反應，48 小時後逐漸消退。
-  - id: ch05.cardiovascular-adaptations.i03.q1
-    item: ch05.cardiovascular-adaptations.i03
-    dco: sf1.G.2
-    lang: en
-    cognitive: application
-    stem: According to the chapter, what is the minimum percentage of maximal voluntary contraction at which muscle contraction starts to compress intramuscular capillaries?
-    locator: Cardiovascular and Respiratory Responses to Anaerobic Exercise > Acute Cardiovascular Responses to Anaerobic Exercise
-    options:
-      - text: Capillaries compress from 20% MVC upward
-        correct: true
-      - text: Threshold sits well below five percent
-        correct: false
-        why_wrong: Sets the capillary-compression threshold far too low. The chapter places the boundary at 20% MVC, below which contractions do not block flow.
-      - text: Blockage only emerges near all-out effort
-        correct: false
-        why_wrong: Sets the threshold near maximal effort. 20% MVC is far lower, so ordinary resistance work already crosses the boundary.
-  - id: ch05.fiber-type-transitions.i08.q1
-    item: ch05.fiber-type-transitions.i08
-    dco: sf1.A.3
-    lang: en
-    cognitive: application
-    stem: Which prescription best matches the cited range of buffer-capacity gains for H-ion tolerance?
-    locator: Muscular Adaptations > Other Muscular Adaptations
-    options:
-      - text: Intervals above threshold, gain 16–38 percent
-        correct: true
-      - text: Low-intensity long runs, gain 50–70 percent
-        correct: false
-        why_wrong: Pairs buffer-capacity gains with easy volume. The chapter attributes those gains to above-threshold high-intensity intervals instead.
-      - text: Steady running near VO2max, gain around five percent
-        correct: false
-        why_wrong: Credits continuous aerobic work with the adaptation and understates the size of the gain. The chapter ties buffering increases to repeated bouts above the lactate threshold, such as sprint or cycle intervals.
-  - id: ch05.endocrine-adaptations.i08.q1
-    item: ch05.endocrine-adaptations.i08
-    dco: sf1.F.2
-    lang: zh
-    cognitive: application
-    stem: Ratamess 等人比較單組與六組深蹲，對雄激素受器（AR）的影響最符合下列何者？
-    locator: Endocrine Responses and Adaptations to Anaerobic Training > Hormone Receptor Changes
-    options:
-      - text: 單組不變，六組 1 小時後下調
-        correct: true
-      - text: 兩種課表都立即上調，受測者無差異
-        correct: false
-        why_wrong: 把 AR 走向寫成無差別上調。書中單組無差異，六組則出現下調，方向與時程都和此相反。
-      - text: 兩種課表都下調，組別間無明顯差別
-        correct: false
-        why_wrong: 把下調泛化為不論課表都出現。單組未見 AR 差異，高量課表才觀察到下調。
-  - id: ch05.overtraining.i07.q1
-    item: ch05.overtraining.i07
-    dco: sf1.H.2
-    lang: en
-    cognitive: application
-    stem: Per the OTS checklist in the chapter, which finding most clearly belongs to a category that should be ruled out before labeling the athlete overtrained?
-    locator: Overtraining > What Are the Markers of Anaerobic Overtraining?
-    options:
-      - text: Anemia, infection, elevated CK, or endocrine disease
-        correct: true
-      - text: Persistent fatigue, higher RPE, and disrupted sleep
-        correct: false
-        why_wrong: Lists symptoms the chapter puts inside the OTS symptom track, not the medical causes that should be excluded first.
-      - text: Sharp jumps in training volume, intensity, or monotony
-        correct: false
-        why_wrong: Attributes the problem to programming mistakes rather than to a separate medical cause. The chapter files these under design errors, not under the findings to be excluded first.
-  - id: ch05.detraining.i04.q1
-    item: ch05.detraining.i04
-    dco: sf1.H.2
-    lang: zh
-    cognitive: application
-    stem: 訓練有素的力量型運動員停訓 8 至 12 週後，肌力下滑幅度通常最接近下列哪一區間？
-    locator: Detraining
-    options:
-      - text: 受限在 7% 至 12% 之間
-        correct: true
-      - text: 完全回到未訓練前的基準
-        correct: false
-        why_wrong: 假設中等期去訓練就把累積的肌力全部洗掉；書中殘留效應明示肌力很少低於原始水準。
-      - text: 立刻下滑 30% 至 50%
-        correct: false
-        why_wrong: 把中期停訓的損失放大到長期停訓的量級；書中健力選手停訓 7 個月後纖維平均萎縮 37.1%，8 至 12 週遠不到這個程度。
-  - id: ch05.cardiovascular-adaptations.i08.q1
-    item: ch05.cardiovascular-adaptations.i08
-    dco: sf1.G.3
-    lang: zh
-    cognitive: analysis
-    stem: 選手同步進行有氧與無氧訓練時，肌力進步可能受干擾效應影響。書中指出下列哪個因素最能決定干擾能否被壓低？
-    locator: Compatibility of Aerobic and Anaerobic Modes of Training
-    options:
-      - text: 課表之間的間隔是否留足恢復時間
-        correct: true
-      - text: 那一週是否完全沒有排到任何有氧量
-        correct: false
-        why_wrong: 把干擾當作全有全無的開關；書中強調的是課表排程的相對佈局，而不是全面禁止有氧訓練。
-      - text: 選手的實際年齡比課程排序更具決定性
-        correct: false
-        why_wrong: 把歲數當成主要變數；書中點出恢復間隔才是承重的關鍵，年齡並未排到首位。
-  - id: ch05.detraining.i07.q1
-    item: ch05.detraining.i07
-    dco: sf1.H.2
-    lang: zh
-    cognitive: analysis
-    stem: 停訓初期，肌纖維橫截面積（CSA）的變化與肌纖維類型分布的變化呈現最典型的何種對比？
-    locator: Detraining
-    options:
-      - text: CSA 快縮纖維明顯下滑，分布短期不變
-        correct: true
-      - text: CSA 與纖維類型分布同步下滑同等速度
-        correct: false
-        why_wrong: 把兩個獨立指標壓成單一進度。書中明示 CSA 流失比類型分布變化快得多。
-      - text: CSA 不變但纖維類型分布快速重組
-        correct: false
-        why_wrong: 把方向反過來寫成 CSA 不變。停訓初期 CSA（尤其快縮纖維）會下滑，分布則仍在原有範圍。
-  - id: ch05.overtraining.i04.q1
-    item: ch05.overtraining.i04
-    dco: sf1.H.2
-    lang: zh
-    cognitive: analysis
-    stem: 依書中描述，過度訓練症候群兩型（交感型與副交感型）的發展關係最典型為何？
-    locator: Overtraining
-    options:
-      - text: 交感型先，副交感型為最終走向
-        correct: true
-      - text: 副交感型先出現，再退回交感型
-        correct: false
-        why_wrong: 把時序反轉。書中交感型通常先發展，副交感型是最終走向，不是反向退回。
-      - text: 兩型彼此獨立、不互相轉變
-        correct: false
-        why_wrong: 將兩型視為互不影響的分類。書中明示所有過度訓練狀態最終走向副交感型。
-  - id: ch05.hypertrophy.i05.q1
-    item: ch05.hypertrophy.i05
-    dco: sf1.A.2
-    lang: zh
-    cognitive: analysis
-    stem: 為什麼書中認為人類「肌纖維增生」證據相比動物實驗最不具決定性？
-    locator: Muscular Adaptations > Muscular Growth
-    options:
-      - text: 動物能拆出整塊肌肉連續切片，人類只能靠針穿刺取樣
-        correct: true
-      - text: 人類肌纖維在遺傳上被鎖死，無法沿長軸分裂出新細胞
-        correct: false
-        why_wrong: 把增生視為生理不可能；書中駁斥此觀點，記載即便是已證實的人類案例，所佔受刺激肌組織比例仍低於一成。
-      - text: 整個概念未經任何臨床前研究支持，僅是教科書層級的推測
-        correct: false
-        why_wrong: 把支持證據抹掉。實驗室工作已記錄到肌纖維分裂的現象，爭議只發生在人類測量層面。
-
-  - id: ch05.hypertrophy.i03.q1
-    item: ch05.hypertrophy.i03
-    dco: sf1.A.2
-    lang: en
-    cognitive: analysis
-    stem: A lifter's muscle shows disrupted myofibrils and sarcomeres after heavy anaerobic work. Which sequence does the chapter give as the primary order in which the tissue is rebuilt?
-    locator: Muscular Adaptations > Muscular Growth
-    options:
-      - text: Fluid uptake, then noncontractile protein
-        correct: true
-      - text: Myofibrils rebuild before any fluid shift
-        correct: false
-        why_wrong: "Puts contractile tissue first because that is what the lifter wants back. The chapter's 3-step order runs fluid, then noncontractile protein, then contractile protein; myofibril repair closes the sequence."
-      - text: Glycogen storage leads the whole cascade
-        correct: false
-        why_wrong: "Imports the refuelling logic of energy metabolism into structural repair. The chapter names 3 steps (fluid, noncontractile protein, contractile protein); glycogen is not among them."
-  - id: ch05.detraining.i08.q1
-    item: ch05.detraining.i08
-    dco: sf1.H.2
-    lang: zh
-    cognitive: analysis
-    stem: 依書中對一位頂尖健美選手長期停訓 13.5 個月的觀察，下列何者最能凸顯圍度測量在偵測肌纖維萎縮上的局限？
-    locator: Detraining
-    options:
-      - text: 大腿圍約 –0.5%，但纖維面積 –8.3%，落差說明圍度鈍於內部萎縮
-        correct: true
-      - text: 大腿圍與肌纖維面積同步下滑約 8%，兩個指標變化幅度幾乎完全一致
-        correct: false
-        why_wrong: 把兩條指標壓成同一進度；書中記錄的圍度變化遠小於內部纖維萎縮率。
-      - text: 大腿圍下滑遠大於肌纖維萎縮，外觀測量會大幅高估肌纖維流失
-        correct: false
-        why_wrong: 反轉兩條指標的相對幅度；圍度下滑幅度實測遠低於纖維萎縮，不是高估。
+- id: ch05.cardiovascular-adaptations.i01.q1
+  item: ch05.cardiovascular-adaptations.i01
+  dco: sf1.G.2
+  lang: zh
+  cognitive: recall
+  stem: MacDougall 等人在 95% 1RM 腿推測試中記錄到的血壓與心率峰值各為多少？
+  locator: Cardiovascular and Respiratory Responses to Anaerobic Exercise > Acute Cardiovascular Responses to Anaerobic Exercise
+  options:
+  - text: 血壓 320/250 mmHg，心率 170 bpm
+    correct: true
+  - text: 日常阻力訓練範圍約血壓 180/100 mmHg，心率 130 bpm
+    correct: false
+    why_wrong: 把這個極端測試值低估到一般阻力訓練的常見範圍；書中記錄的峰值遠高於此，不是日常阻力訓練的常態。
+  - text: 該研究的另一項紀錄為血壓 220/110 mmHg，心率 200 bpm
+    correct: false
+    why_wrong: 心率 200 bpm 高於書中記載的 170 bpm 峰值；這組搭配並非該研究的記錄數字。
+- id: ch05.cardiovascular-adaptations.i04.q1
+  item: ch05.cardiovascular-adaptations.i04
+  dco: sf1.G.2
+  lang: en
+  cognitive: recall
+  stem: According to the chapter's meta-analysis, by approximately how much do systolic and diastolic blood pressure each decrease with resistance training?
+  locator: Cardiovascular and Respiratory Responses to Anaerobic Exercise > Chronic Cardiovascular Adaptations at Rest
+  options:
+  - text: Both drop by 2 to 4 percent
+    correct: true
+  - text: Each falls about 12 percent
+    correct: false
+    why_wrong: Overstates a modest finding by roughly fourfold. The pooled analysis lands at 2 to 4 percent, and the largest effects appear in people whose starting pressure was already high.
+  - text: Around a 25 percent reduction
+    correct: false
+    why_wrong: Reads the resistance-training effect as if it matched drug therapy. A quarter off resting pressure is an order of magnitude beyond the 2 to 4 percent the meta-analysis reports.
+- id: ch05.connective-tissue.i02.q1
+  item: ch05.connective-tissue.i02
+  dco: sf1.D.1
+  lang: zh
+  cognitive: recall
+  stem: 書中如何描述最小必要應變（MES）相對於折斷骨頭所需力量的大小？
+  locator: Connective Tissue Adaptations > General Bone Physiology
+  options:
+  - text: 推估約為折斷骨頭所需力量的十分之一
+    correct: true
+  - text: 大約是折斷該骨頭所需力量的一半
+    correct: false
+    why_wrong: 把門檻拉到骨折力量的中段；書中的推估值只有十分之一，日常活動因此才會普遍落在門檻之下。
+  - text: 與使骨頭斷裂的力量大致相等
+    correct: false
+    why_wrong: 把成骨門檻等同於骨折點，等於要先把骨頭弄斷才會長骨；MES 明確位在折斷力量之下。
+- id: ch05.detraining.i02.q1
+  item: ch05.detraining.i02
+  dco: sf1.H.2
+  lang: zh
+  cognitive: recall
+  stem: 依書中描述，阻力訓練停止後一般肌力通常可維持多久？哪些肌力素質可能在高度訓練運動員身上更早衰退？
+  locator: Detraining
+  options:
+  - text: 約 4 週，菁英的離心收縮與專項爆發力會更早衰退
+    correct: true
+  - text: 2 週即全面退場，不分對象、素質或運動員等級
+    correct: false
+    why_wrong: 把保護期砍半，並抹除菁英與一般之間的區分。書中保留早期衰退給高度訓練運動員的離心與爆發輸出。
+  - text: 3 個月過去，所有素質仍維持原樣
+    correct: false
+    why_wrong: 把保護期擴大三倍。3 個月屬於中期流失，不是初始維持窗口。
+- id: ch05.endocrine-adaptations.i01.q1
+  item: ch05.endocrine-adaptations.i01
+  dco: sf1.F.1
+  lang: zh
+  cognitive: recall
+  stem: 阻力訓練後，男性睾固酮、GH 分子變體與皮質醇濃度可維持升高多久？
+  locator: Endocrine Responses and Adaptations to Anaerobic Training > Acute Anabolic Hormone Responses
+  options:
+  - text: 長達 30 分鐘
+    correct: true
+  - text: 約 1 分鐘便回到基準
+    correct: false
+    why_wrong: 把持續時間壓縮到急性期之外；書中明示升高反應可維持約 30 分鐘，不是 1 分鐘內消退。
+  - text: 約 2 小時以上
+    correct: false
+    why_wrong: 把持續時間延伸到接近全日；急性反應是指運動結束後短暫窗口，不是長效的慢性上升。
+- id: ch05.fiber-type-transitions.i02.q1
+  item: ch05.fiber-type-transitions.i02
+  dco: sf1.A.3
+  lang: en
+  cognitive: recall
+  stem: In Staron's 8-week training study, what was the overall change in Type IIx fiber proportion, and which sex reached a significant decrease first?
+  locator: Muscular Adaptations > Fiber Type Transitions
+  options:
+  - text: Down from 18% to 7%, women first
+    correct: true
+  - text: Unchanged at 18% in both sexes
+    correct: false
+    why_wrong: Denies that any transition took place. The 8-week program moved both sexes from roughly 18% down to about 7%, and the women crossed significance two weeks ahead of the men.
+  - text: Climbed to 28%, led by male lifters
+    correct: false
+    why_wrong: Reverses both the direction and the order. Resistance training pushes the IIx share downward rather than upward, and it was the women who reached a significant drop earlier.
+- id: ch05.hypertrophy.i08.q1
+  item: ch05.hypertrophy.i08
+  dco: sf1.A.2
+  lang: zh
+  cognitive: recall
+  stem: MacDougall 等人的 5 個月阻力訓練研究中，肌肝糖含量的最大增加幅度為多少？
+  locator: Muscular Adaptations > Other Muscular Adaptations
+  options:
+  - text: 112%
+    correct: true
+  - text: 208%
+    correct: false
+    why_wrong: 把超補償幅度誇大到兩倍以上；書中記錄的肝糖最大增幅是 112%，沒有超過 200%。
+  - text: 47%
+    correct: false
+    why_wrong: 把肝糖增幅壓到接近 CP 的 28% 與 ATP 的 18% 那個量級；肝糖是三項中反應最大的，最多增加 112%。
+- id: ch05.neural-adaptations.i01.q1
+  item: ch05.neural-adaptations.i01
+  dco: sf1.B.1
+  lang: en
+  cognitive: recall
+  stem: What proportion of muscle can untrained individuals recruit on average during a maximal voluntary contraction?
+  locator: Neural Adaptations to Anaerobic Training > Central Adaptations
+  options:
+  - text: Roughly 71 percent of the muscle pool
+    correct: true
+  - text: Only about 30 percent of available fibers
+    correct: false
+    why_wrong: Treats the recruitment ceiling as if two-thirds of muscle is permanently unavailable; the cited figure leaves roughly a quarter of the pool untapped, not two-thirds.
+  - text: Nearly all of it, around 95 percent
+    correct: false
+    why_wrong: Invents a near-complete untrained recruitment ceiling; resistance training raises it, but untrained individuals sit closer to roughly 71 percent, not 95.
+- id: ch05.overtraining.i01.q1
+  item: ch05.overtraining.i01
+  dco: sf1.H.2
+  lang: zh
+  cognitive: recall
+  stem: 依書中過度訓練連續體的四階段，由短至長的恢復時間順序為何？
+  locator: Overtraining
+  options:
+  - text: 急性疲勞 → FOR → NFOR → OTS，恢復時程由數天遞增到數年
+    correct: true
+  - text: FOR → 急性疲勞 → NFOR → OTS，恢復期最短者需數週
+    correct: false
+    why_wrong: 把功能性過負荷當成連續體的起點，等於認定訓練後的正常疲勞已屬過負荷；急性疲勞只需數天即可回復，排在 FOR 之前。
+  - text: OTS → NFOR → FOR → 急性疲勞，最末階段幾天內即可復原
+    correct: false
+    why_wrong: 依症狀嚴重度由重排到輕，卻把恢復時程一併倒過來讀；OTS 需要數月至數年，位在連續體的最末端而非開端。
+- id: ch05.overtraining.i06.q1
+  item: ch05.overtraining.i06
+  dco: sf1.H.2
+  lang: en
+  cognitive: recall
+  stem: According to one survey cited in the chapter, what percentage of overtrained individuals also engaged in sports requiring high strength, speed, or coordination?
+  locator: Overtraining
+  options:
+  - text: 77%
+    correct: true
+  - text: 23%
+    correct: false
+    why_wrong: Treats the cited share of strength/speed/coordination athletes as a minority; the survey reports a clear majority, not a small fraction.
+  - text: 12%
+    correct: false
+    why_wrong: Shrinks the cited figure to an implausibly low level; the documented share is far higher than a fringe group.
+- id: ch05.hypertrophy.i04.q1
+  item: ch05.hypertrophy.i04
+  dco: sf1.A.2
+  lang: zh
+  cognitive: application
+  stem: 一名健力選手的目標是壯大肌纖維 CSA，下列哪一種訓練刺激路線最符合書中機械因子的建議？
+  locator: Muscular Adaptations > Muscular Growth
+  options:
+  - text: 重負荷、偏離心、低至中訓練量
+    correct: true
+  - text: 高訓練量、短休息的代謝壓力式課表
+    correct: false
+    why_wrong: 套用的是代謝因子路徑；書中把代謝刺激歸給追求代謝物堆積與合成激素反應的健美式訓練。
+  - text: 中高強度搭配最長組間休息以純化肌力
+    correct: false
+    why_wrong: 把長休息當成機械因子的核心；機械因子強調重負荷與離心收縮本身，不是休息長度。
+- id: ch05.connective-tissue.i04.q1
+  item: ch05.connective-tissue.i04
+  dco: sf1.D.1
+  lang: zh
+  cognitive: application
+  stem: 為刺激骨骼生長，下列哪一項負荷區間與動作選擇的搭配最符合書中原則？
+  locator: Connective Tissue Adaptations > Principles of Training to Increase Bone Strength
+  options:
+  - text: 1–10 RM 的重負荷，搭配多關節結構性動作
+    correct: true
+  - text: 15 RM 以上的輕負荷高反覆，搭配單關節孤立動作
+    correct: false
+    why_wrong: 把負荷壓到輕負荷區、把動作限縮到單關節；書中兩條皆明示要避開。
+  - text: 以等長收縮為主、不需軸向力的固定動作
+    correct: false
+    why_wrong: 把等長動作當成骨骼刺激首選；等長訓練缺乏軸向承重與骨形變，不是書中強調的動作。
+- id: ch05.neural-adaptations.i03.q1
+  item: ch05.neural-adaptations.i03
+  dco: sf1.B.2
+  lang: en
+  cognitive: application
+  stem: According to the chapter, what is the approximate maximum countermovement-to-takeoff duration for ballistic movements to selectively recruit fast-twitch motor units?
+  locator: Neural Adaptations to Anaerobic Training > Motor Unit Recruitment, Firing Rate, and Synchronization
+  options:
+  - text: Cap it near 0.4 s to keep ballistic intent
+    correct: true
+  - text: Allow up to 2 s, plenty for slow-strength lifts
+    correct: false
+    why_wrong: Extends the window into the slow-strength range; countermovement jumps that long lose the ballistic character needed for selective recruitment of fast-twitch units.
+  - text: Stretch to 10 s, the slow-strength ceiling
+    correct: false
+    why_wrong: Treats the movement as endurance-strength territory; ballistic, time-pressured contractions sit well under a second, not in the multi-second window.
+- id: ch05.overtraining.i03.q1
+  item: ch05.overtraining.i03
+  dco: sf1.H.2
+  lang: zh
+  cognitive: application
+  stem: 依書中描述，過度訓練症候群（OTS）最短持續時間的下限為何？
+  locator: Overtraining
+  options:
+  - text: 6 個月以上
+    correct: true
+  - text: 約 2 週即進入
+    correct: false
+    why_wrong: 把 OTS 的時間框架壓到去訓練的初期範圍。OTS 是數月到數年的長期症候群，不是停訓數周的層級。
+  - text: 約 6 週左右
+    correct: false
+    why_wrong: 落在 NFOR 的恢復區間。NFOR 持續數週至數月，而 OTS 的下限更高，需 6 個月以上。
+- id: ch05.fiber-type-transitions.i01.q1
+  item: ch05.fiber-type-transitions.i01
+  dco: sf1.A.3
+  lang: zh
+  cognitive: application
+  stem: 高閾值運動單位反覆被徵召後，書中所描述最典型的肌纖維亞型訓練誘發方向為何？
+  locator: Muscular Adaptations > Fiber Type Transitions
+  options:
+  - text: 沿 IIx → IIax → IIa 方向位移
+    correct: true
+  - text: 沿相反方向由 IIa 退回 IIx
+    correct: false
+    why_wrong: 把訓練誘發的轉型方向反轉；反覆徵召高閾值運動單位是把纖維推向氧化能力較高的 IIa，不是退回 IIx。
+  - text: 由 Type I 轉為 Type II 大類
+    correct: false
+    why_wrong: 把可訓練的範圍放大到大類型；書中明示 Type I 與 Type II 的比例主要由遺傳決定，訓練只改得動 II 型的三個亞型。
+- id: ch05.detraining.i03.q1
+  item: ch05.detraining.i03
+  dco: sf1.H.2
+  lang: en
+  cognitive: application
+  stem: In the 14-day detraining study of trained weightlifters cited in the chapter, what most accurately describes the typical changes in bench press 1RM, squat 1RM, and vertical jump performance?
+  locator: Detraining
+  options:
+  - text: All three barely moved, under 2%
+    correct: true
+  - text: All three fell by roughly 15%
+    correct: false
+    why_wrong: Treats a fortnight off as enough to erase years of training. The cited weightlifters lost fractions of a percent, an order of magnitude below this.
+  - text: Bench held, but the jump fell 20%
+    correct: false
+    why_wrong: Assumes explosive output collapses first. In this cohort the vertical jump actually edged up slightly while the bench press was the lift that moved most.
+- id: ch05.cardiovascular-adaptations.i02.q1
+  item: ch05.cardiovascular-adaptations.i02
+  dco: sf1.G.2
+  lang: zh
+  cognitive: application
+  stem: 阻力訓練一組結束後的前 5 秒，心率呈現何種變化最符合書中描述？
+  locator: Cardiovascular and Respiratory Responses to Anaerobic Exercise > Acute Cardiovascular Responses to Anaerobic Exercise
+  options:
+  - text: 心率反而高於動作中，Valsalva 延後效應
+    correct: true
+  - text: 組間心率下降低於基準，進入恢復低點階段
+    correct: false
+    why_wrong: 把組間休息視為心率低點。書中指出 Valsalva 機制會把血流動力反應延後到組間休息才出現。
+  - text: 心率與動作進行中相同，組間休息未見顯著變化
+    correct: false
+    why_wrong: 忽略向心與離心期的相位差。書中強調血流高峰不在動作當下，組間前幾秒會明顯上升。
+- id: ch05.endocrine-adaptations.i07.q1
+  item: ch05.endocrine-adaptations.i07
+  dco: sf1.F.2
+  lang: en
+  cognitive: application
+  stem: After resistance training, within what earliest time window do muscle-fiber androgen receptor (AR) levels most typically begin to up-regulate?
+  locator: Endocrine Responses and Adaptations to Anaerobic Training > Hormone Receptor Changes
+  options:
+  - text: 48–72 hours post-exercise
+    correct: true
+  - text: Within an hour after the session ends
+    correct: false
+    why_wrong: Confuses the up-regulation window with the down-regulation window. One hour is when high-volume sessions show the drop, not the climb back up.
+  - text: Not until more than a week has passed
+    correct: false
+    why_wrong: Stretches the up-regulation to a week-long scale. The cited window is forty-eight to seventy-two hours, far sooner.
+- id: ch05.detraining.i06.q1
+  item: ch05.detraining.i06
+  dco: sf1.H.2
+  lang: zh
+  cognitive: application
+  stem: 對力量型運動員而言，停訓 14 天後肌纖維類型分布通常呈現最典型的何種變化？
+  locator: Detraining
+  options:
+  - text: 大致不變，肌纖維類型分布尚未明顯改變
+    correct: true
+  - text: IIx 比例立刻飆升，IIa 比例大幅下滑
+    correct: false
+    why_wrong: 把中長期去訓練效應壓到 14 天；overshoot 與 IIx 上升是數週以上的趨勢，不是停訓兩週的可見變化。
+  - text: 全部纖維類型同時萎縮且比例完全重組
+    correct: false
+    why_wrong: 把分布重組與橫截面積萎縮混為一談；停訓 14 天纖維分布大致不變，會變的是 CSA 等其他維度。
+- id: ch05.hypertrophy.i06.q1
+  item: ch05.hypertrophy.i06
+  dco: sf1.A.3
+  lang: zh
+  cognitive: application
+  stem: 教練觀察到先天快縮纖維比例較高的選手肌肉量成長較快。下列哪一項機制最能解釋此傾向？
+  locator: Muscular Adaptations > Fiber Size Changes
+  options:
+  - text: Type II 徵召門檻較高，啟動後 CSA 擴增大
+    correct: true
+  - text: Type II 的微血管密度較高，養分供給較快
+    correct: false
+    why_wrong: 把肥大差異歸到血流供應；書中的解釋是徵召門檻與大小原則，快縮纖維的微血管密度其實低於慢縮纖維。
+  - text: Type II 依大小原則會被最先徵召，刺激累積較多
+    correct: false
+    why_wrong: 把大小原則的順序反過來用；低閾值的 Type I 才是最先被徵召的，Type II 要到負荷夠高才進場。
+- id: ch05.neural-adaptations.i06.q1
+  item: ch05.neural-adaptations.i06
+  dco: sf1.B.2
+  lang: zh
+  cognitive: application
+  stem: 阻力訓練後，書中記載的反射性肌肉活化增益提升幅度最接近下列哪一區間？
+  locator: Neural Adaptations to Anaerobic Training > Reflex Potentiation
+  options:
+  - text: 提升幅度 19%–55%
+    correct: true
+  - text: 提升幅度僅 3%–8%
+    correct: false
+    why_wrong: 把反射增益壓到幾乎測不出來的程度；書中記載的下緣就已經是 19%，遠高於個位數。
+  - text: 提升可達 65%–90%
+    correct: false
+    why_wrong: 把上緣往外推了一截；書中觀察到的最大值是 55%，沒有到六成以上。
+- id: ch05.connective-tissue.i05.q1
+  item: ch05.connective-tissue.i05
+  dco: sf1.D.1
+  lang: en
+  cognitive: application
+  stem: According to Kubo and colleagues' study cited in the chapter, what was the primary magnitude of Achilles tendon stiffness change after eight weeks of resistance training?
+  locator: Connective Tissue Adaptations > Adaptations of Tendons, Ligaments, and Fascia to Anaerobic Training
+  options:
+  - text: Rose by roughly 15–19 percent
+    correct: true
+  - text: Barely budged at 1–3 percent
+    correct: false
+    why_wrong: Shrinks the stiffness gain to near-undetectable levels. Kubo's study measured a 15–19% rise, far above 1–3%.
+  - text: Lost 5–8 percent stiffness
+    correct: false
+    why_wrong: Reverses the direction to a loss. Resistance training raises tendon stiffness rather than lowering it.
+- id: ch05.overtraining.i05.q1
+  item: ch05.overtraining.i05
+  dco: sf1.H.2
+  lang: zh
+  cognitive: application
+  stem: 書中將 NFOR 視為一個階段。下列何者最能代表該階段最具特徵的全身性模式？
+  locator: Overtraining
+  options:
+  - text: 肝糖耗盡，舉重量平，晨脈微升，內分泌偏移
+    correct: true
+  - text: 精神奕奕、週訓練噸數逐週走高、安靜血壓漂亮
+    correct: false
+    why_wrong: 把 NFOR 寫成恢復期表現；書中定義為停滯或衰退的多系統症狀群，不是反向的進步曲線。
+  - text: 各項監測一律落在進場時的區間內、毫無偏移
+    correct: false
+    why_wrong: 把 NFOR 描述為無聲無息；書中在該階段明確列出多項可測量的多系統漂移。
+- id: ch05.hypertrophy.i02.q1
+  item: ch05.hypertrophy.i02
+  dco: sf1.A.2
+  lang: zh
+  cognitive: application
+  stem: 阻力訓練後，肌蛋白合成率上升可維持多久，最符合書中數字？
+  locator: Muscular Adaptations > Muscular Growth
+  options:
+  - text: 約 48 小時
+    correct: true
+  - text: 1 小時內即回基準
+    correct: false
+    why_wrong: 把合成率上升的時間壓到一小時內。書中明示急性阻力運動後合成率可維持上升長達 48 小時。
+  - text: 1 週以上仍高檔不退
+    correct: false
+    why_wrong: 把時間延伸到週尺度。合成率上升是急性反應，48 小時後逐漸消退。
+- id: ch05.cardiovascular-adaptations.i03.q1
+  item: ch05.cardiovascular-adaptations.i03
+  dco: sf1.G.2
+  lang: en
+  cognitive: application
+  stem: According to the chapter, what is the minimum percentage of maximal voluntary contraction at which muscle contraction starts to compress intramuscular capillaries?
+  locator: Cardiovascular and Respiratory Responses to Anaerobic Exercise > Acute Cardiovascular Responses to Anaerobic Exercise
+  options:
+  - text: Capillaries compress from 20% MVC upward
+    correct: true
+  - text: Threshold sits well below five percent
+    correct: false
+    why_wrong: Sets the capillary-compression threshold far too low. The chapter places the boundary at 20% MVC, below which contractions do not block flow.
+  - text: Blockage only emerges near all-out effort
+    correct: false
+    why_wrong: Sets the threshold near maximal effort. 20% MVC is far lower, so ordinary resistance work already crosses the boundary.
+- id: ch05.fiber-type-transitions.i08.q1
+  item: ch05.fiber-type-transitions.i08
+  dco: sf1.A.3
+  lang: en
+  cognitive: application
+  stem: Which prescription best matches the cited range of buffer-capacity gains for H-ion tolerance?
+  locator: Muscular Adaptations > Other Muscular Adaptations
+  options:
+  - text: Intervals above threshold, gain 16–38 percent
+    correct: true
+  - text: Low-intensity long runs, gain 50–70 percent
+    correct: false
+    why_wrong: Pairs buffer-capacity gains with easy volume. The chapter attributes those gains to above-threshold high-intensity intervals instead.
+  - text: Steady running near VO2max, gain around five percent
+    correct: false
+    why_wrong: Credits continuous aerobic work with the adaptation and understates the size of the gain. The chapter ties buffering increases to repeated bouts above the lactate threshold, such as sprint or cycle intervals.
+- id: ch05.endocrine-adaptations.i08.q1
+  item: ch05.endocrine-adaptations.i08
+  dco: sf1.F.2
+  lang: zh
+  cognitive: application
+  stem: Ratamess 等人比較單組與六組深蹲，對雄激素受器（AR）的影響最符合下列何者？
+  locator: Endocrine Responses and Adaptations to Anaerobic Training > Hormone Receptor Changes
+  options:
+  - text: 單組不變，六組 1 小時後下調
+    correct: true
+  - text: 兩種課表都立即上調，受測者無差異
+    correct: false
+    why_wrong: 把 AR 走向寫成無差別上調。書中單組無差異，六組則出現下調，方向與時程都和此相反。
+  - text: 兩種課表都下調，組別間無明顯差別
+    correct: false
+    why_wrong: 把下調泛化為不論課表都出現。單組未見 AR 差異，高量課表才觀察到下調。
+- id: ch05.overtraining.i07.q1
+  item: ch05.overtraining.i07
+  dco: sf1.H.2
+  lang: en
+  cognitive: application
+  stem: Per the OTS checklist in the chapter, which finding most clearly belongs to a category that should be ruled out before labeling the athlete overtrained?
+  locator: Overtraining > What Are the Markers of Anaerobic Overtraining?
+  options:
+  - text: Anemia, infection, elevated CK, or endocrine disease
+    correct: true
+  - text: Persistent fatigue, higher RPE, and disrupted sleep
+    correct: false
+    why_wrong: Lists symptoms the chapter puts inside the OTS symptom track, not the medical causes that should be excluded first.
+  - text: Sharp jumps in training volume, intensity, or monotony
+    correct: false
+    why_wrong: Attributes the problem to programming mistakes rather than to a separate medical cause. The chapter files these under design errors, not under the findings to be excluded first.
+- id: ch05.detraining.i04.q1
+  item: ch05.detraining.i04
+  dco: sf1.H.2
+  lang: zh
+  cognitive: application
+  stem: 訓練有素的力量型運動員停訓 8 至 12 週後，肌力下滑幅度通常最接近下列哪一區間？
+  locator: Detraining
+  options:
+  - text: 受限在 7% 至 12% 之間
+    correct: true
+  - text: 完全回到未訓練前的基準
+    correct: false
+    why_wrong: 假設中等期去訓練就把累積的肌力全部洗掉；書中殘留效應明示肌力很少低於原始水準。
+  - text: 立刻下滑 30% 至 50%
+    correct: false
+    why_wrong: 把中期停訓的損失放大到長期停訓的量級；書中健力選手停訓 7 個月後纖維平均萎縮 37.1%，8 至 12 週遠不到這個程度。
+- id: ch05.cardiovascular-adaptations.i08.q1
+  item: ch05.cardiovascular-adaptations.i08
+  dco: sf1.G.3
+  lang: zh
+  cognitive: analysis
+  stem: 選手同步進行有氧與無氧訓練時，肌力進步可能受干擾效應影響。書中指出下列哪個因素最能決定干擾能否被壓低？
+  locator: Compatibility of Aerobic and Anaerobic Modes of Training
+  options:
+  - text: 課表之間的間隔是否留足恢復時間
+    correct: true
+  - text: 那一週是否完全沒有排到任何有氧量
+    correct: false
+    why_wrong: 把干擾當作全有全無的開關；書中強調的是課表排程的相對佈局，而不是全面禁止有氧訓練。
+  - text: 選手的實際年齡比課程排序更具決定性
+    correct: false
+    why_wrong: 把歲數當成主要變數；書中點出恢復間隔才是承重的關鍵，年齡並未排到首位。
+- id: ch05.detraining.i07.q1
+  item: ch05.detraining.i07
+  dco: sf1.H.2
+  lang: zh
+  cognitive: analysis
+  stem: 停訓初期，肌纖維橫截面積（CSA）的變化與肌纖維類型分布的變化呈現最典型的何種對比？
+  locator: Detraining
+  options:
+  - text: CSA 快縮纖維明顯下滑，分布短期不變
+    correct: true
+  - text: CSA 與纖維類型分布同步下滑同等速度
+    correct: false
+    why_wrong: 把兩個獨立指標壓成單一進度。書中明示 CSA 流失比類型分布變化快得多。
+  - text: CSA 不變但纖維類型分布快速重組
+    correct: false
+    why_wrong: 把方向反過來寫成 CSA 不變。停訓初期 CSA（尤其快縮纖維）會下滑，分布則仍在原有範圍。
+- id: ch05.overtraining.i04.q1
+  item: ch05.overtraining.i04
+  dco: sf1.H.2
+  lang: zh
+  cognitive: analysis
+  stem: 依書中描述，過度訓練症候群兩型（交感型與副交感型）的發展關係最典型為何？
+  locator: Overtraining
+  options:
+  - text: 交感型先，副交感型為最終走向
+    correct: true
+  - text: 副交感型先出現，再退回交感型
+    correct: false
+    why_wrong: 把時序反轉。書中交感型通常先發展，副交感型是最終走向，不是反向退回。
+  - text: 兩型彼此獨立、不互相轉變
+    correct: false
+    why_wrong: 將兩型視為互不影響的分類。書中明示所有過度訓練狀態最終走向副交感型。
+- id: ch05.hypertrophy.i05.q1
+  item: ch05.hypertrophy.i05
+  dco: sf1.A.2
+  lang: zh
+  cognitive: analysis
+  stem: 為什麼書中認為人類「肌纖維增生」證據相比動物實驗最不具決定性？
+  locator: Muscular Adaptations > Muscular Growth
+  options:
+  - text: 動物能拆出整塊肌肉連續切片，人類只能靠針穿刺取樣
+    correct: true
+  - text: 人類肌纖維在遺傳上被鎖死，無法沿長軸分裂出新細胞
+    correct: false
+    why_wrong: 把增生視為生理不可能；書中駁斥此觀點，記載即便是已證實的人類案例，所佔受刺激肌組織比例仍低於一成。
+  - text: 整個概念未經任何臨床前研究支持，僅是教科書層級的推測
+    correct: false
+    why_wrong: 把支持證據抹掉。實驗室工作已記錄到肌纖維分裂的現象，爭議只發生在人類測量層面。
+- id: ch05.hypertrophy.i03.q1
+  item: ch05.hypertrophy.i03
+  dco: sf1.A.2
+  lang: en
+  cognitive: analysis
+  stem: A lifter's muscle shows disrupted myofibrils and sarcomeres after heavy anaerobic work. Which sequence does the chapter give as the primary order in which the tissue is rebuilt?
+  locator: Muscular Adaptations > Muscular Growth
+  options:
+  - text: Fluid uptake, then noncontractile protein
+    correct: true
+  - text: Myofibrils rebuild before any fluid shift
+    correct: false
+    why_wrong: Puts contractile tissue first because that is what the lifter wants back. The chapter's 3-step order runs fluid, then noncontractile protein, then contractile protein; myofibril repair closes the sequence.
+  - text: Glycogen storage leads the whole cascade
+    correct: false
+    why_wrong: Imports the refuelling logic of energy metabolism into structural repair. The chapter names 3 steps (fluid, noncontractile protein, contractile protein); glycogen is not among them.
+- id: ch05.detraining.i08.q1
+  item: ch05.detraining.i08
+  dco: sf1.H.2
+  lang: zh
+  cognitive: analysis
+  stem: 依書中對一位頂尖健美選手長期停訓 13.5 個月的觀察，下列何者最能凸顯圍度測量在偵測肌纖維萎縮上的局限？
+  locator: Detraining
+  options:
+  - text: 大腿圍約 –0.5%，但纖維面積 –8.3%，落差說明圍度鈍於內部萎縮
+    correct: true
+  - text: 大腿圍與肌纖維面積同步下滑約 8%，兩個指標變化幅度幾乎完全一致
+    correct: false
+    why_wrong: 把兩條指標壓成同一進度；書中記錄的圍度變化遠小於內部纖維萎縮率。
+  - text: 大腿圍下滑遠大於肌纖維萎縮，外觀測量會大幅高估肌纖維流失
+    correct: false
+    why_wrong: 反轉兩條指標的相對幅度；圍度下滑幅度實測遠低於纖維萎縮，不是高估。

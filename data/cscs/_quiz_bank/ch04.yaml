@@ -2,605 +2,580 @@ meta:
   chapter: ch04
   source: data/cscs/ch04.yaml
 questions:
-  # ── Catecholamines ──
-  - id: ch04.catecholamines.i01.q1
-    item: ch04.catecholamines.i01
-    dco: sf1.F.2
-    lang: zh
-    cognitive: recall
-    stem: 兒茶酚胺主要由腎上腺髓質分泌，其分泌調節與多數荷爾蒙有何關鍵不同？
-    locator: Adrenal Hormones > Catecholamines
-    options:
-      - text: 受交感神經直接支配，無需荷爾蒙中繼
-        correct: true
-      - text: 由前腦垂體 ACTH 刺激後再分泌
-        correct: false
-        why_wrong: 把皮質醇這類皮質類固醇的調控模式套用到髓質兒茶酚胺上。
-      - text: 受下視丘釋放激素調控後再分泌
-        correct: false
-        why_wrong: 把胜肽類荷爾蒙的釋放激素調控路徑套用到髓質兒茶酚胺上。
-
-  - id: ch04.catecholamines.i08.q1
-    item: ch04.catecholamines.i08
-    dco: sf1.F.1
-    lang: en
-    cognitive: recall
-    stem: Which secretory-control feature most clearly distinguishes amine hormones from polypeptide hormones?
-    locator: Categories of Hormones > Amine Hormone Interactions
-    options:
-      - text: They are not under direct negative feedback control
-        correct: true
-      - text: The anterior pituitary gates each release event
-        correct: false
-        why_wrong: Applies the hypothalamic and pituitary chain that governs polypeptide hormones to cells the sympathetic nerves drive directly.
-      - text: They bind to receptors inside the target cell nucleus
-        correct: false
-        why_wrong: Moves the amine group onto the steroid pattern of entering the cell, when these hormones act at the surface like polypeptides.
-
-  - id: ch04.catecholamines.i03.q1
-    item: ch04.catecholamines.i03
-    dco: sf1.F.2
-    lang: zh
-    cognitive: application
-    stem: 高強度短休息阻力訓練結束後五分鐘，哪項最能解釋兒茶酚胺濃度仍維持升高的現象？
-    locator: Adrenal Hormones > Catecholamines > Role of Catecholamines
-    options:
-      - text: 乳酸與氫離子持續刺激腎上腺髓質分泌
-        correct: true
-      - text: 訓練後下視丘皮質醇分泌持續正回饋
-        correct: false
-        why_wrong: 把皮質醇分泌的 HPA 軸中繼模式套到髓質兒茶酚胺上；髓質受交感神經直接支配，不必等垂體或下視丘轉手，源檔把恢復期的持續升高歸因於乳酸而非皮質醇。
-      - text: 肌肉肝糖完全耗盡後兒茶酚胺補償分泌
-        correct: false
-        why_wrong: 兒茶酚胺升高是運動期間與運動後短暫現象，與肝糖耗盡後的代謝補償機制無關。
-
-  - id: ch04.catecholamines.i05.q1
-    item: ch04.catecholamines.i05
-    dco: sf1.F.2
-    lang: en
-    cognitive: application
-    stem: An athlete who has trained six heavy sessions per week for three months with identical volume now shows declining epinephrine release and persistent fatigue; which weekly change most directly addresses the primary cause?
-    locator: Adrenal Hormones > Catecholamines > Role of Catecholamines
-    options:
-      - text: cut weekly volume and add full rest days
-        correct: true
-      - text: add 5 kg to every lift in the next block
-        correct: false
-        why_wrong: Treats the symptom as inadequate stimulus; the listed pattern is unvaried chronic stress, so adding load deepens the very fatigue mechanism already failing.
-      - text: use caffeine 30 minutes before sessions
-        correct: false
-        why_wrong: Masks the underlying depletion rather than allowing adrenal medulla recovery; the catecholamine response adapts downward because the system needs rest, not more drive.
-
-  # ── Cortisol ──
-  - id: ch04.cortisol.i01.q1
-    item: ch04.cortisol.i01
-    dco: sf1.F.2
-    lang: zh
-    cognitive: recall
-    stem: 皮質醇由腎上腺皮質分泌，其上游的關鍵刺激荷爾蒙是哪一個？
-    locator: Adrenal Hormones > Cortisol
-    options:
-      - text: 由前腦垂體釋放的 ACTH 刺激分泌
-        correct: true
-      - text: 由下視丘分泌的生長激素釋放激素 GHRH
-        correct: false
-        why_wrong: 把 GH 的下視丘調控路徑當成皮質醇的上游；GH 的釋放激素管不到腎上腺皮質。
-      - text: 由腎上腺髓質分泌的正腎上腺素 NE
-        correct: false
-        why_wrong: 腎上腺髓質分泌兒茶酚胺，與腎上腺皮質分泌糖皮質素是兩條獨立路徑，並不互相觸發。
-
-  - id: ch04.cortisol.i06.q1
-    item: ch04.cortisol.i06
-    dco: sf1.F.2
-    lang: zh
-    cognitive: application
-    stem: 阻力訓練後若希望皮質醇急性反應最大化，下列哪種訓練處方最能達到此目的？
-    locator: Adrenal Hormones > Cortisol > Resistance Exercise Responses of Cortisol
-    options:
-      - text: 大肌群動作加上大訓練量與短組間休息
-        correct: true
-      - text: 小肌群孤立動作配合中等負荷長休息
-        correct: false
-        why_wrong: 把肌肉量與代謝壓力的需求反過來；孤立動作動員太少肌纖維，無法啟動足夠的 HPA 軸反應。
-      - text: 高反覆次數低負荷伸展訓練搭配長休息
-        correct: false
-        why_wrong: 把伸展耐力訓練的溫和代謝壓力當成皮質醇刺激；此類訓練的皮質醇反應極小。
-
-  - id: ch04.cortisol.i07.q1
-    item: ch04.cortisol.i07
-    dco: sf1.F.1
-    lang: en
-    cognitive: application
-    stem: A lifter held in a chronically elevated cortisol block loses cross-sectional area fastest in Type II fibers. Which property of those fibers most directly explains that pattern?
-    locator: Adrenal Hormones > Cortisol > Role of Cortisol
-    options:
-      - text: They hold the largest store of protein
-        correct: true
-      - text: They are recruited at nearly every workload
-        correct: false
-        why_wrong: Borrows the recruitment profile of Type I fibers, which do work at every intensity; Type II fibers sit at the high-threshold end, and recruitment order is not what decides how much protein a fiber has to lose.
-      - text: They rely on slow myosin heavy chain isoforms
-        correct: false
-        why_wrong: Names the marker that defines Type I fibers, so the statement contradicts the fiber type in the stem; isoform identity also says nothing about the size of the protein pool cortisol draws down.
-
-  - id: ch04.cortisol.i04.q1
-    item: ch04.cortisol.i04
-    dco: sf1.F.2
-    lang: en
-    cognitive: application
-    stem: A novice lifter's first week shows a small acute cortisol rise after each session with no strength loss; an elite lifter shows the same rise after each session and reports ongoing strength decline. Which interpretation best fits the elite pattern?
-    locator: Adrenal Hormones > Cortisol > Resistance Exercise Responses of Cortisol
-    options:
-      - text: The elevation has become chronic rather than acute
-        correct: true
-      - text: Any single post-session rise is itself damaging to muscle
-        correct: false
-        why_wrong: The novice in the stem shows the same acute pattern and keeps her strength, so one session cannot be the agent here.
-      - text: Cortisol has stopped clearing damaged protein
-        correct: false
-        why_wrong: The clean-up job never switches off. Under a sustained load it removes more tissue than the athlete can rebuild.
-
-  - id: ch04.cortisol.i05.q1
-    item: ch04.cortisol.i05
-    dco: sf1.F.2
-    lang: zh
-    cognitive: application
-    stem: 運動員長期監測早晨血中皮質醇，當數值持續高於哪個閾值時最需警覺過度訓練的可能？
-    locator: Adrenal Hormones > Cortisol > Resistance Exercise Responses of Cortisol
-    options:
-      - text: 持續高於 800 nmol/L 須警覺
-        correct: true
-      - text: 偶發波動至 200 nmol/L 須警覺
-        correct: false
-        why_wrong: 把生理振幅上緣當成警訊；皮質醇日夜節律擺動可達兩三倍，常模上界遠高於此基準。
-      - text: 飆至 1500 nmol/L 須警覺
-        correct: false
-        why_wrong: 把門檻拉到源檔標定值的近兩倍；源檔只給 800 nmol/L 這一條警戒線，等升到這個數字才警覺，整段過度訓練的窗口都已經錯過。
-
-  # ── Endocrinology Basics ──
-  - id: ch04.endocrinology-basics.i02.q1
-    item: ch04.endocrinology-basics.i02
-    dco: sf1.F.1
-    lang: zh
-    cognitive: recall
-    stem: 依化學結構與作用機制，荷爾蒙的三大類別依序為何？
-    locator: Categories of Hormones
-    options:
-      - text: 類固醇、胜肽或蛋白質、胺類
-        correct: true
-      - text: 糖皮質素、鹽皮質素、性荷爾蒙
-        correct: false
-        why_wrong: 把類固醇的內部分類當成荷爾蒙整體分類；糖皮質素與鹽皮質素都屬於類固醇這一類底下。
-      - text: 胜肽、醣類、胺基酸衍生
-        correct: false
-        why_wrong: 把化學元素分類誤當荷爾蒙分類；荷爾蒙依結構與受器位置分為類固醇、胜肽、胺類三大類，沒有「醣類荷爾蒙」。
-
-  - id: ch04.endocrinology-basics.i08.q1
-    item: ch04.endocrinology-basics.i08
-    dco: sf1.F.2
-    lang: en
-    cognitive: recall
-    stem: In the general adaptation syndrome, what marks the resistance stage that follows the alarm reaction?
-    locator: Introduction
-    options:
-      - text: performance rises past baseline
-        correct: true
-      - text: the stressor is withdrawn early
-        correct: false
-        why_wrong: Describes the coaching move that keeps an athlete out of the third stage rather than the stage itself; during resistance the training stress is still being applied and the body is adapting under it.
-      - text: adrenal reserves finally run dry
-        correct: false
-        why_wrong: Jumps to the exhaustion stage, which is reached only when the stress is never lifted; resistance is the window where the athlete is coping well enough to exceed the starting level.
-
-  - id: ch04.endocrinology-basics.i07.q1
-    item: ch04.endocrinology-basics.i07
-    dco: sf1.F.1
-    lang: zh
-    cognitive: application
-    stem: 胜肽荷爾蒙因水溶性而無法穿過細胞膜，下列何者最能說明其訊號如何傳入細胞內部？
-    locator: Categories of Hormones > Polypeptide Hormone Interactions
-    options:
-      - text: 與膜受器結合後活化二級傳訊分子
-        correct: true
-      - text: 直接由膜上孔洞被動擴散入細胞質
-        correct: false
-        why_wrong: 與水溶性胜肽的物理特性矛盾；胜肽無法穿過磷脂雙層，被動擴散需要脂溶性前提。
-      - text: 被膜上運輸蛋白主動攜帶進入細胞核
-        correct: false
-        why_wrong: 把胜肽類與甲狀腺素這類脂溶性但需載體的荷爾蒙機制混淆；胜肽的作用位置在膜外，二級訊使在膜內傳訊。
-
-  - id: ch04.endocrinology-basics.i04.q1
-    item: ch04.endocrinology-basics.i04
-    dco: sf1.F.1
-    lang: zh
-    cognitive: application
-    stem: 血液中的荷爾蒙結合蛋白除了延長半衰期之外，另一項最關鍵的核心功能為何？
-    locator: Synthesis, Storage, and Secretion of Hormones
-    options:
-      - text: 調節游離荷爾蒙的可得比例與保護循環
-        correct: true
-      - text: 維持荷爾蒙在結合態才具生物活性
-        correct: false
-        why_wrong: 把游離荷爾蒙假說整個倒過來；源檔寫的是多數荷爾蒙必須脫離結合蛋白、處於游離態才有活性，結合態是暫存與保護的形式而非作用形式。
-      - text: 將荷爾蒙從血液主動運輸進細胞核內部
-        correct: false
-        why_wrong: 把結合蛋白與載體蛋白混為一談；結合蛋白的功能是循環層面的保護，不是把荷爾蒙送進細胞核。
-
-  - id: ch04.endocrinology-basics.i05.q1
-    item: ch04.endocrinology-basics.i05
-    dco: sf1.F.1
-    lang: zh
-    cognitive: analysis
-    stem: 依據鎖鑰理論，一個訓練者在血中睾固酮濃度充足時仍可能無明顯合成代謝反應，最可能的原因是什麼？
-    locator: Role of Receptors in Mediating Hormonal Changes
-    options:
-      - text: 目標細胞的雄激素受器數量或敏感性不足
-        correct: true
-      - text: 血中睾固酮的化學結構在循環中被酶分解
-        correct: false
-        why_wrong: 把鎖鑰機制誤認為血液中荷爾蒙的化學穩定性問題；鎖鑰的重點是受器側的識別，不是循環中的分解。
-      - text: 睾固酮必須先在血液中被還原為二氫睾固酮
-        correct: false
-        why_wrong: 把 5α-reductase 的轉化誤當成受器不足的替代解釋；缺乏受器時即使 DHT 也無處結合。
-
-  # ── Growth Hormone ──
-  - id: ch04.growth-hormone.i01.q1
-    item: ch04.growth-hormone.i01
-    dco: sf1.F.1
-    lang: zh
-    cognitive: recall
-    stem: 由前腦垂體 somatotroph 分泌、最常被 RIA 或 ELISA 測量到的 22 kDa 生長激素單體，其胜肽鏈長度為何？
-    locator: Primary Anabolic Hormones > Growth Hormone
-    options:
-      - text: 由 191 個胺基酸構成單體
-        correct: true
-      - text: 70 個胺基酸短鏈形成胜肽
-        correct: false
-        why_wrong: 把 IGF-I 的 70 個胺基酸長度誤套到 GH 單體上；兩者不是同一條胜肽。
-      - text: 22 個殘基摺疊成片段
-        correct: false
-        why_wrong: 把 22 kDa 分子量誤當成 22 個胺基酸鏈長；分子量與殘基數是兩個維度。
-
-  - id: ch04.growth-hormone.i06.q1
-    item: ch04.growth-hormone.i06
-    dco: sf1.F.1
-    lang: en
-    cognitive: recall
-    stem: Which pattern best describes the secretion of 22 kDa growth hormone across a normal day?
-    locator: Primary Anabolic Hormones > Growth Hormone
-    options:
-      - text: pulsatile release peaking during sleep
-        correct: true
-      - text: continuous secretion with steady-state levels
-        correct: false
-        why_wrong: Models GH on a tonic hormone pattern such as cortisol averaged over the day; GH instead fires in discrete pulses.
-      - text: secretion only in response to meals
-        correct: false
-        why_wrong: Anchors GH to feeding; the dominant pulse is the nocturnal one tied to slow-wave sleep, not to food intake.
-
-  - id: ch04.growth-hormone.i04.q1
-    item: ch04.growth-hormone.i04
-    dco: sf1.F.2
-    lang: zh
-    cognitive: application
-    stem: 阻力訓練課表中若希望 22 kDa 生長激素反應最大化，下列哪項訓練變項組合最能達成？
-    locator: Primary Anabolic Hormones > Growth Hormone > Growth Hormone Responses to Stress
-    options:
-      - text: 10RM 高強度 3 組搭配 1 分鐘休息
-        correct: true
-      - text: 低強度高反覆耐力訓練搭配 3 分鐘長休息
-        correct: false
-        why_wrong: 把強度反過來並把休息拉長；這兩個變項都會削弱乳酸與氫離子累積，無法觸發 GH 脈衝。
-      - text: 中等強度孤立動作搭配 5 分鐘休息
-        correct: false
-        why_wrong: 用孤立動作取代多關節動力動作，把代謝壓力降到 GH 反應門檻之下。
-
-  - id: ch04.growth-hormone.i05.q1
-    item: ch04.growth-hormone.i05
-    dco: sf1.F.3
-    lang: en
-    cognitive: application
-    stem: Which characteristic most reliably distinguishes the female growth hormone profile from the male profile at rest?
-    locator: Primary Anabolic Hormones > Growth Hormone > Growth Hormone Responses in Women
-    options:
-      - text: higher 22 kDa amplitude at rest
-        correct: true
-      - text: lower 22 kDa pulse frequency only
-        correct: false
-        why_wrong: Inverts the direction; women show greater 22 kDa pulse amplitude at rest than men, so the lower-only framing is wrong.
-      - text: bioactive GH is missing in women
-        correct: false
-        why_wrong: Erases a form that women do carry; the chapter reports resting bioactive GH climbing with resistance training in women, so the aggregate form is present rather than absent and is not what separates the sexes at rest.
-
-  - id: ch04.growth-hormone.i02.q1
-    item: ch04.growth-hormone.i02
-    dco: sf1.J.3
-    lang: zh
-    cognitive: analysis
-    stem: 為何單獨以 22 kDa 單體的 RIA 或 ELISA 測量結果，最可能系統性低估訓練後的真實生長激素活性？
-    locator: Primary Anabolic Hormones > Growth Hormone
-    options:
-      - text: 真實生物活性 GH 主要以聚合體形式存在
-        correct: true
-      - text: 22 kDa 形式在運動後會被腎臟加速清除
-        correct: false
-        why_wrong: 歸因於清除速率；RIA 與 ELISA 偵測的是存量而非清除率，且聚合體才是被低估的活性主體。
-      - text: 運動後血液中 GH 主要被皮質醇結合而失活
-        correct: false
-        why_wrong: 引入無關的結合假說；GH 與皮質醇在循環中不形成會干擾 RIA 偵測的結合複合物。
-
-  # ── IGF ──
-  - id: ch04.igf.i01.q1
-    item: ch04.igf.i01
-    dco: sf1.F.1
-    lang: zh
-    cognitive: recall
-    stem: IGF-I 是由肝臟在生長激素刺激下產生的多肽，其胜肽鏈長度為何？
-    locator: Primary Anabolic Hormones > Insulin-Like Growth Factors
-    options:
-      - text: 70 個胺基酸構成單體
-        correct: true
-      - text: 191 個胺基酸鏈形成 GH
-        correct: false
-        why_wrong: 把 22 kDa GH 的 191 個胺基酸長度誤套到 IGF-I；兩者是不同長度的胜肽。
-      - text: 67 個胺基酸形成片段
-        correct: false
-        why_wrong: 把 IGF-II 的長度當成 IGF-I；IGF-II 是 67 個胺基酸，IGF-I 是 70 個。
-
-  - id: ch04.igf.i03.q1
-    item: ch04.igf.i03
-    dco: sf1.F.1
-    lang: zh
-    cognitive: application
-    stem: 機械負荷或伸展刺激後，肌肉細胞合成的 IGF-I 主要以何種方式作用，又被稱為什麼？
-    locator: Primary Anabolic Hormones > Insulin-Like Growth Factors > Exercise Responses of Insulin-Like Growth Factors
-    options:
-      - text: 以自分泌方式作用，稱為機械生長因子
-        correct: true
-      - text: 透過血液循環遠端送達肝臟再回饋
-        correct: false
-        why_wrong: 把肌肉局部合成誤當成需經肝臟中繼；MGF 的意義正是跳過血液循環這條遠端路徑。
-      - text: 由內分泌途徑送至全身各肌肉均分
-        correct: false
-        why_wrong: 把局部自分泌與全身內分泌混淆；機械刺激下的 IGF-I 不進入血液循環。
-
-  - id: ch04.igf.i04.q1
-    item: ch04.igf.i04
-    dco: sf1.F.2
-    lang: zh
-    cognitive: application
-    stem: 阻力訓練後 IGF-I 的急性變化幅度，最受運動員何種起始狀態的影響？
-    locator: Primary Anabolic Hormones > Insulin-Like Growth Factors > Exercise Responses of Insulin-Like Growth Factors
-    options:
-      - text: 起始 IGF-I 靜息濃度的高低
-        correct: true
-      - text: 訓練前是否攝取大量蛋白質
-        correct: false
-        why_wrong: 歸因於蛋白質攝取；蛋白質影響 IGF-I 整體輸出但不決定運動後急性變化幅度。
-      - text: 訓練當下肝臟釋放 IGF-I 的速率
-        correct: false
-        why_wrong: 把肝臟當成急性反應的來源；源檔寫肝臟受 GH 刺激後要 8 至 24 小時才產生並釋放 IGF-I，運動後立刻量到的升幅來自脂肪與肌肉細胞的破壞，不是肝臟當下的速率。
-
-  - id: ch04.igf.i06.q1
-    item: ch04.igf.i06
-    dco: sf1.J.3
-    lang: zh
-    cognitive: analysis
-    stem: 為何以循環血液 IGF-I 的變化最無法準確反映肌內實際的合成代謝訊號強度？
-    locator: Primary Anabolic Hormones > Insulin-Like Growth Factors > Exercise Responses of Insulin-Like Growth Factors
-    options:
-      - text: 機械生長因子以自分泌方式作用不入血液
-        correct: true
-      - text: 肌肉間質液的 IGF-I 濃度與血中同步
-        correct: false
-        why_wrong: 假定間質液與血液是同一個池，剛好把題目要問的前提消掉；源檔說循環 IGF-I 上升不一定反映肌肉間質液或肌內的訊號，兩者可以脫鉤才是血液指標失準的原因。
-      - text: IGF-I 必須在肝臟轉化才能進入肌纖維
-        correct: false
-        why_wrong: 把肝臟的角色與肌內自分泌混淆；IGF-I 不需要再經肝臟加工才能作用於肌纖維。
-
-  # ── Program Design ──
-  - id: ch04.program-design.i01.q1
-    item: ch04.program-design.i01
-    dco: sf1.F.2
-    lang: zh
-    cognitive: recall
-    stem: 欲在阻力訓練中急性升高血中睾固酮，下列哪一組條件屬於該處方的核心要件？
-    locator: How Can Athletes Manipulate the Endocrine System > To Increase Serum Testosterone Concentrations
-    options:
-      - text: 大肌群動作加上 85 至 95% 1RM 重負荷
-        correct: true
-      - text: 小肌群孤立動作搭配 50 至 60% 1RM
-        correct: false
-        why_wrong: 把肌肉量與負荷強度都換成刺激最弱的那一端；孤立低負荷無法驅動睾固酮急性上升。
-      - text: 伸展動作搭配 20% 1RM 高反覆次數
-        correct: false
-        why_wrong: 引入伸展耐力訓練；其代謝壓力、神經徵召與睾固酮反應都與重訓處方不同。
-
-  - id: ch04.program-design.i01.q2
-    item: ch04.program-design.i01
-    dco: sf1.F.2
-    lang: zh
-    cognitive: application
-    stem: 某課表已採深蹲、硬舉等大肌群動作並以 85 至 95% 1RM 進行多組訓練，欲讓急性血中睾固酮反應最大化，組間休息設定成下列何者最恰當？
-    locator: How Can Athletes Manipulate the Endocrine System > To Increase Serum Testosterone Concentrations
-    options:
-      - text: 維持 30 至 60 秒的短組間休息
-        correct: true
-      - text: 設定 5 至 7 分鐘的長組間休息
-        correct: false
-        why_wrong: 把最大化睾固酮反應的休息設定換成最大化神經恢復；長休息會稀釋代謝壓力，睾固酮反應下降。
-      - text: 完全不休息連續做完所有組數
-        correct: false
-        why_wrong: 把代謝壓力推到無法維持重負荷的程度；完全不休息無法撐完 85 至 95% 1RM 的多組訓練。
-
-  - id: ch04.program-design.i07.q1
-    item: ch04.program-design.i07
-    dco: sf1.F.2
-    lang: en
-    cognitive: application
-    stem: Which combination of signs most strongly suggests an athlete is sliding into nonfunctional overreaching rather than normal fatigue?
-    locator: Adrenal Hormones > Cortisol > Resistance Exercise Responses of Cortisol
-    options:
-      - text: cortisol above 800 nmol/L with falling T/C ratio
-        correct: true
-      - text: an isolated post-exertion surge on day one
-        correct: false
-        why_wrong: Treats one exertion's hormone bump as chronic alarm; a brief surge without ongoing drift is normal remodeling, not the sliding pattern of nonfunctional overreaching.
-      - text: DOMS that fades by the second morning
-        correct: false
-        why_wrong: Reads ordinary post-training stiffness as chronic endocrine alarm; brief soreness without hormonal and performance drift is part of normal training, not a sign of nonfunctional overreaching.
-
-  - id: ch04.program-design.i06.q1
-    item: ch04.program-design.i06
-    dco: sf1.H.1
-    lang: en
-    cognitive: analysis
-    stem: Why do heavy squats and deadlifts typically provoke the largest whole-body hormonal response compared with an equally heavy bench press?
-    locator: Heavy Resistance Exercise and Hormonal Increases
-    options:
-      - text: They activate far more muscle fibers at once
-        correct: true
-      - text: They place axial load directly on the spine
-        correct: false
-        why_wrong: Points at what the bar does to the skeleton rather than how much tissue is switched on. Bearing is not the trigger.
-      - text: They are usually performed with longer rest periods
-        correct: false
-        why_wrong: Rest length does change the response, but these lifts are normally run with shorter gaps, not longer ones.
-
-  # ── Receptor Mechanisms ──
-  - id: ch04.receptor-mechanisms.i01.q1
-    item: ch04.receptor-mechanisms.i01
-    dco: sf1.H.1
-    lang: en
-    cognitive: application
-    stem: Which statement best describes the rapid androgen-receptor adaptation that occurs in skeletal muscle after just one or two resistance training sessions?
-    locator: Heavy Resistance Exercise and Hormonal Increases
-    options:
-      - text: AR density rises after each training bout
-        correct: true
-      - text: AR transcripts collapse post-exercise
-        correct: false
-        why_wrong: Inverts the gene-expression direction; resistance training elevates, rather than suppresses, AR transcript levels in skeletal muscle.
-      - text: testosterone spills over into estrogen
-        correct: false
-        why_wrong: Brings steroid conversion into a receptor-upregulation story; the adaptation is on the receptor side, not on hormone conversion.
-
-  - id: ch04.receptor-mechanisms.i04.q1
-    item: ch04.receptor-mechanisms.i04
-    dco: sf1.F.2
-    lang: en
-    cognitive: application
-    stem: An athlete runs heavy singles at one to two RM with five to seven minutes rest and shows no serum testosterone rise, yet gains strength over eight weeks. Which mechanism most plausibly explains the adaptation?
-    locator: Hormonal Changes in Peripheral Blood
-    options:
-      - text: Receptor number rose while serum levels held steady
-        correct: true
-      - text: A larger free fraction was released from SHBG
-        correct: false
-        why_wrong: Stays on the serum side of the ledger; even a bigger free fraction is still a concentration story, and the chapter's point is that this protocol works through receptor number while circulating testosterone holds steady.
-      - text: The blood draw missed a brief testosterone spike between sets
-        correct: false
-        why_wrong: Blames the measurement instead of accepting the finding; the chapter reports low-volume heavy work producing adaptation with circulating testosterone genuinely unchanged, which is exactly why receptor status carries the explanation.
-
-  - id: ch04.receptor-mechanisms.i07.q1
-    item: ch04.receptor-mechanisms.i07
-    dco: sf1.F.1
-    lang: zh
-    cognitive: application
-    stem: 阻力訓練後若希望皮質醇與睾固酮對 mTOR 訊號的淨效應偏向合成代謝，最關鍵的調控層級為何？
-    locator: Muscle as the Target for Hormone Interactions
-    options:
-      - text: 兩者在 DNA 元件上競爭結合位點的相對佔比
-        correct: true
-      - text: 兩者在血液循環中的絕對濃度高低
-        correct: false
-        why_wrong: 把焦點放在循環濃度；細胞核內的結合位點佔比才是 mTOR 上下游的決定因素。
-      - text: 兩者在細胞膜上各自結合 G 蛋白偶聯受器
-        correct: false
-        why_wrong: 引入錯誤的受器類型；皮質醇與睾固酮皆通過胞內受器作用，不走 G 蛋白偶聯受器路徑。
-
-  - id: ch04.receptor-mechanisms.i03.q1
-    item: ch04.receptor-mechanisms.i03
-    dco: sf1.F.3
-    lang: en
-    cognitive: application
-    stem: Why does faster androgen-receptor upregulation in skeletal muscle most effectively offset women's much lower circulating testosterone during resistance training?
-    locator: Primary Anabolic Hormones > Testosterone > Training Adaptations of Testosterone
-    options:
-      - text: extra AR availability lets each androgen act longer
-        correct: true
-      - text: training raises binding affinity, not receptor count
-        correct: false
-        why_wrong: 'Picks the lever the chapter rules out. Training moves maximum AR number; sensitivity stays put. The 1-hour female upregulation is about how many sites exist, not how firmly each one holds.'
-      - text: women rely primarily on IGF-I rather than testosterone signaling
-        correct: false
-        why_wrong: Names a peptide hormone as the female driver; the documented women-specific offset sits at the AR.
-
-  # ── Testosterone ──
-  - id: ch04.testosterone.i03.q1
-    item: ch04.testosterone.i03
-    dco: sf1.F.1
-    lang: zh
-    cognitive: recall
-    stem: 性荷爾蒙結合球蛋白（SHBG）在血液中除了攜帶睾固酮外，還具備哪項特殊功能？
-    locator: Primary Anabolic Hormones > Testosterone > Free Testosterone and Sex Hormone–Binding Globulin
-    options:
-      - text: 與膜受器結合後啟動 cAMP 訊號途徑
-        correct: true
-      - text: 主動將循環中的睾固酮水解成 DHT
-        correct: false
-        why_wrong: 把 SHBG 的載體角色誤當成代謝酶功能；SHBG 不催化 5α-reductase 反應。
-      - text: 把游離態的睾固酮完全鎖進循環不釋出
-        correct: false
-        why_wrong: 把結合與隔離混為一談；結合蛋白延長半衰期並調節游離比例，不是把荷爾蒙排除循環。
-
-  - id: ch04.testosterone.i05.q1
-    item: ch04.testosterone.i05
-    dco: sf1.F.3
-    lang: zh
-    cognitive: application
-    stem: 女性阻力訓練後血中睾固酮的急性反應常不明顯，但肌肥大仍可發生，下列何者最能解釋此現象？
-    locator: Primary Anabolic Hormones > Testosterone > Testosterone Responses in Women
-    options:
-      - text: 雄激素受器上調速度快可放大有限睾固酮效用
-        correct: true
-      - text: 女性睾固酮可在血液中更高效地轉化為 DHT
-        correct: false
-        why_wrong: 把 5α-reductase 的轉化誤當成受器放大的替代機制；女性肌肥大的主要解釋是受器上調速度，不是 DHT 轉化率差異。
-      - text: 皮質醇在女性阻力訓練中提供主要的合成代謝訊號
-        correct: false
-        why_wrong: 皮質醇本質是分解代謝荷爾蒙；女性肌肥大依賴的是雄激素受器上調帶來的睾固酮利用效率，不是皮質醇訊號。
-
-  - id: ch04.testosterone.i06.q1
-    item: ch04.testosterone.i06
-    dco: sf1.F.2
-    lang: en
-    cognitive: application
-    stem: An athlete squats and deadlifts at 90 percent of 1RM and keeps her rests to one minute, yet she performs a single set of each lift and sees no acute testosterone rise. Which change most directly supplies the element she is still missing?
-    locator: How Can Athletes Manipulate the Endocrine System > To Increase Serum Testosterone Concentrations
-    options:
-      - text: do more sets per exercise
-        correct: true
-      - text: push each lift closer to 1RM
-        correct: false
-        why_wrong: Adds intensity to a prescription that is already heavy enough; one maximal set still leaves total work far below the threshold, and load is not the variable this athlete leaves unsatisfied.
-      - text: move to single-joint machines
-        correct: false
-        why_wrong: Trades away the recruited muscle mass that drives the response; isolating one joint cuts the motor units under work and removes a part of the stimulus that was already in place.
-
-  - id: ch04.testosterone.i08.q1
-    item: ch04.testosterone.i08
-    dco: sf1.H.1
-    lang: zh
-    cognitive: analysis
-    stem: 菁英舉重選手經兩年系統訓練後靜息睾固酮僅小幅上升，但 LH 與 FSH 同步上升，下列何者最能詮釋此變化？
-    locator: Primary Anabolic Hormones > Testosterone > Training Adaptations of Testosterone
-    options:
-      - text: 整個下視丘垂體性腺軸的容量都被強化
-        correct: true
-      - text: 訓練使睪丸失去對 LH 的反應能力
-        correct: false
-        why_wrong: 睪丸若真的對 LH 失去反應，靜息睾固酮應該往下掉；題幹寫的是小幅上升，末端仍在照訊號幹活。
-      - text: LH/FSH 同步上升反映性腺軸負回饋失效
-        correct: false
-        why_wrong: 負回饋失效的樣子是促性腺激素一路攀高而末端產物追不上；這裡兩端同向、幅度都溫和，是整條軸調高了工作點而非調節鬆脫。
+- id: ch04.catecholamines.i01.q1
+  item: ch04.catecholamines.i01
+  dco: sf1.F.2
+  lang: zh
+  cognitive: recall
+  stem: 兒茶酚胺主要由腎上腺髓質分泌，其分泌調節與多數荷爾蒙有何關鍵不同？
+  locator: Adrenal Hormones > Catecholamines
+  options:
+  - text: 受交感神經直接支配，無需荷爾蒙中繼
+    correct: true
+  - text: 由前腦垂體 ACTH 刺激後再分泌
+    correct: false
+    why_wrong: 把皮質醇這類皮質類固醇的調控模式套用到髓質兒茶酚胺上。
+  - text: 受下視丘釋放激素調控後再分泌
+    correct: false
+    why_wrong: 把胜肽類荷爾蒙的釋放激素調控路徑套用到髓質兒茶酚胺上。
+- id: ch04.catecholamines.i08.q1
+  item: ch04.catecholamines.i08
+  dco: sf1.F.1
+  lang: en
+  cognitive: recall
+  stem: Which secretory-control feature most clearly distinguishes amine hormones from polypeptide hormones?
+  locator: Categories of Hormones > Amine Hormone Interactions
+  options:
+  - text: They are not under direct negative feedback control
+    correct: true
+  - text: The anterior pituitary gates each release event
+    correct: false
+    why_wrong: Applies the hypothalamic and pituitary chain that governs polypeptide hormones to cells the sympathetic nerves drive directly.
+  - text: They bind to receptors inside the target cell nucleus
+    correct: false
+    why_wrong: Moves the amine group onto the steroid pattern of entering the cell, when these hormones act at the surface like polypeptides.
+- id: ch04.catecholamines.i03.q1
+  item: ch04.catecholamines.i03
+  dco: sf1.F.2
+  lang: zh
+  cognitive: application
+  stem: 高強度短休息阻力訓練結束後五分鐘，哪項最能解釋兒茶酚胺濃度仍維持升高的現象？
+  locator: Adrenal Hormones > Catecholamines > Role of Catecholamines
+  options:
+  - text: 乳酸與氫離子持續刺激腎上腺髓質分泌
+    correct: true
+  - text: 訓練後下視丘皮質醇分泌持續正回饋
+    correct: false
+    why_wrong: 把皮質醇分泌的 HPA 軸中繼模式套到髓質兒茶酚胺上；髓質受交感神經直接支配，不必等垂體或下視丘轉手，源檔把恢復期的持續升高歸因於乳酸而非皮質醇。
+  - text: 肌肉肝糖完全耗盡後兒茶酚胺補償分泌
+    correct: false
+    why_wrong: 兒茶酚胺升高是運動期間與運動後短暫現象，與肝糖耗盡後的代謝補償機制無關。
+- id: ch04.catecholamines.i05.q1
+  item: ch04.catecholamines.i05
+  dco: sf1.F.2
+  lang: en
+  cognitive: application
+  stem: An athlete who has trained six heavy sessions per week for three months with identical volume now shows declining epinephrine release and persistent fatigue; which weekly change most directly addresses the primary cause?
+  locator: Adrenal Hormones > Catecholamines > Role of Catecholamines
+  options:
+  - text: cut weekly volume and add full rest days
+    correct: true
+  - text: add 5 kg to every lift in the next block
+    correct: false
+    why_wrong: Treats the symptom as inadequate stimulus; the listed pattern is unvaried chronic stress, so adding load deepens the very fatigue mechanism already failing.
+  - text: use caffeine 30 minutes before sessions
+    correct: false
+    why_wrong: Masks the underlying depletion rather than allowing adrenal medulla recovery; the catecholamine response adapts downward because the system needs rest, not more drive.
+- id: ch04.cortisol.i01.q1
+  item: ch04.cortisol.i01
+  dco: sf1.F.2
+  lang: zh
+  cognitive: recall
+  stem: 皮質醇由腎上腺皮質分泌，其上游的關鍵刺激荷爾蒙是哪一個？
+  locator: Adrenal Hormones > Cortisol
+  options:
+  - text: 由前腦垂體釋放的 ACTH 刺激分泌
+    correct: true
+  - text: 由下視丘分泌的生長激素釋放激素 GHRH
+    correct: false
+    why_wrong: 把 GH 的下視丘調控路徑當成皮質醇的上游；GH 的釋放激素管不到腎上腺皮質。
+  - text: 由腎上腺髓質分泌的正腎上腺素 NE
+    correct: false
+    why_wrong: 腎上腺髓質分泌兒茶酚胺，與腎上腺皮質分泌糖皮質素是兩條獨立路徑，並不互相觸發。
+- id: ch04.cortisol.i06.q1
+  item: ch04.cortisol.i06
+  dco: sf1.F.2
+  lang: zh
+  cognitive: application
+  stem: 阻力訓練後若希望皮質醇急性反應最大化，下列哪種訓練處方最能達到此目的？
+  locator: Adrenal Hormones > Cortisol > Resistance Exercise Responses of Cortisol
+  options:
+  - text: 大肌群動作加上大訓練量與短組間休息
+    correct: true
+  - text: 小肌群孤立動作配合中等負荷長休息
+    correct: false
+    why_wrong: 把肌肉量與代謝壓力的需求反過來；孤立動作動員太少肌纖維，無法啟動足夠的 HPA 軸反應。
+  - text: 高反覆次數低負荷伸展訓練搭配長休息
+    correct: false
+    why_wrong: 把伸展耐力訓練的溫和代謝壓力當成皮質醇刺激；此類訓練的皮質醇反應極小。
+- id: ch04.cortisol.i07.q1
+  item: ch04.cortisol.i07
+  dco: sf1.F.1
+  lang: en
+  cognitive: application
+  stem: A lifter held in a chronically elevated cortisol block loses cross-sectional area fastest in Type II fibers. Which property of those fibers most directly explains that pattern?
+  locator: Adrenal Hormones > Cortisol > Role of Cortisol
+  options:
+  - text: They hold the largest store of protein
+    correct: true
+  - text: They are recruited at nearly every workload
+    correct: false
+    why_wrong: Borrows the recruitment profile of Type I fibers, which do work at every intensity; Type II fibers sit at the high-threshold end, and recruitment order is not what decides how much protein a fiber has to lose.
+  - text: They rely on slow myosin heavy chain isoforms
+    correct: false
+    why_wrong: Names the marker that defines Type I fibers, so the statement contradicts the fiber type in the stem; isoform identity also says nothing about the size of the protein pool cortisol draws down.
+- id: ch04.cortisol.i04.q1
+  item: ch04.cortisol.i04
+  dco: sf1.F.2
+  lang: en
+  cognitive: application
+  stem: A novice lifter's first week shows a small acute cortisol rise after each session with no strength loss; an elite lifter shows the same rise after each session and reports ongoing strength decline. Which interpretation best fits the elite pattern?
+  locator: Adrenal Hormones > Cortisol > Resistance Exercise Responses of Cortisol
+  options:
+  - text: The elevation has become chronic rather than acute
+    correct: true
+  - text: Any single post-session rise is itself damaging to muscle
+    correct: false
+    why_wrong: The novice in the stem shows the same acute pattern and keeps her strength, so one session cannot be the agent here.
+  - text: Cortisol has stopped clearing damaged protein
+    correct: false
+    why_wrong: The clean-up job never switches off. Under a sustained load it removes more tissue than the athlete can rebuild.
+- id: ch04.cortisol.i05.q1
+  item: ch04.cortisol.i05
+  dco: sf1.F.2
+  lang: zh
+  cognitive: application
+  stem: 運動員長期監測早晨血中皮質醇，當數值持續高於哪個閾值時最需警覺過度訓練的可能？
+  locator: Adrenal Hormones > Cortisol > Resistance Exercise Responses of Cortisol
+  options:
+  - text: 持續高於 800 nmol/L 須警覺
+    correct: true
+  - text: 偶發波動至 200 nmol/L 須警覺
+    correct: false
+    why_wrong: 把生理振幅上緣當成警訊；皮質醇日夜節律擺動可達兩三倍，常模上界遠高於此基準。
+  - text: 飆至 1500 nmol/L 須警覺
+    correct: false
+    why_wrong: 把門檻拉到源檔標定值的近兩倍；源檔只給 800 nmol/L 這一條警戒線，等升到這個數字才警覺，整段過度訓練的窗口都已經錯過。
+- id: ch04.endocrinology-basics.i02.q1
+  item: ch04.endocrinology-basics.i02
+  dco: sf1.F.1
+  lang: zh
+  cognitive: recall
+  stem: 依化學結構與作用機制，荷爾蒙的三大類別依序為何？
+  locator: Categories of Hormones
+  options:
+  - text: 類固醇、胜肽或蛋白質、胺類
+    correct: true
+  - text: 糖皮質素、鹽皮質素、性荷爾蒙
+    correct: false
+    why_wrong: 把類固醇的內部分類當成荷爾蒙整體分類；糖皮質素與鹽皮質素都屬於類固醇這一類底下。
+  - text: 胜肽、醣類、胺基酸衍生
+    correct: false
+    why_wrong: 把化學元素分類誤當荷爾蒙分類；荷爾蒙依結構與受器位置分為類固醇、胜肽、胺類三大類，沒有「醣類荷爾蒙」。
+- id: ch04.endocrinology-basics.i08.q1
+  item: ch04.endocrinology-basics.i08
+  dco: sf1.F.2
+  lang: en
+  cognitive: recall
+  stem: In the general adaptation syndrome, what marks the resistance stage that follows the alarm reaction?
+  locator: Introduction
+  options:
+  - text: performance rises past baseline
+    correct: true
+  - text: the stressor is withdrawn early
+    correct: false
+    why_wrong: Describes the coaching move that keeps an athlete out of the third stage rather than the stage itself; during resistance the training stress is still being applied and the body is adapting under it.
+  - text: adrenal reserves finally run dry
+    correct: false
+    why_wrong: Jumps to the exhaustion stage, which is reached only when the stress is never lifted; resistance is the window where the athlete is coping well enough to exceed the starting level.
+- id: ch04.endocrinology-basics.i07.q1
+  item: ch04.endocrinology-basics.i07
+  dco: sf1.F.1
+  lang: zh
+  cognitive: application
+  stem: 胜肽荷爾蒙因水溶性而無法穿過細胞膜，下列何者最能說明其訊號如何傳入細胞內部？
+  locator: Categories of Hormones > Polypeptide Hormone Interactions
+  options:
+  - text: 與膜受器結合後活化二級傳訊分子
+    correct: true
+  - text: 直接由膜上孔洞被動擴散入細胞質
+    correct: false
+    why_wrong: 與水溶性胜肽的物理特性矛盾；胜肽無法穿過磷脂雙層，被動擴散需要脂溶性前提。
+  - text: 被膜上運輸蛋白主動攜帶進入細胞核
+    correct: false
+    why_wrong: 把胜肽類與甲狀腺素這類脂溶性但需載體的荷爾蒙機制混淆；胜肽的作用位置在膜外，二級訊使在膜內傳訊。
+- id: ch04.endocrinology-basics.i04.q1
+  item: ch04.endocrinology-basics.i04
+  dco: sf1.F.1
+  lang: zh
+  cognitive: application
+  stem: 血液中的荷爾蒙結合蛋白除了延長半衰期之外，另一項最關鍵的核心功能為何？
+  locator: Synthesis, Storage, and Secretion of Hormones
+  options:
+  - text: 調節游離荷爾蒙的可得比例與保護循環
+    correct: true
+  - text: 維持荷爾蒙在結合態才具生物活性
+    correct: false
+    why_wrong: 把游離荷爾蒙假說整個倒過來；源檔寫的是多數荷爾蒙必須脫離結合蛋白、處於游離態才有活性，結合態是暫存與保護的形式而非作用形式。
+  - text: 將荷爾蒙從血液主動運輸進細胞核內部
+    correct: false
+    why_wrong: 把結合蛋白與載體蛋白混為一談；結合蛋白的功能是循環層面的保護，不是把荷爾蒙送進細胞核。
+- id: ch04.endocrinology-basics.i05.q1
+  item: ch04.endocrinology-basics.i05
+  dco: sf1.F.1
+  lang: zh
+  cognitive: analysis
+  stem: 依據鎖鑰理論，一個訓練者在血中睾固酮濃度充足時仍可能無明顯合成代謝反應，最可能的原因是什麼？
+  locator: Role of Receptors in Mediating Hormonal Changes
+  options:
+  - text: 目標細胞的雄激素受器數量或敏感性不足
+    correct: true
+  - text: 血中睾固酮的化學結構在循環中被酶分解
+    correct: false
+    why_wrong: 把鎖鑰機制誤認為血液中荷爾蒙的化學穩定性問題；鎖鑰的重點是受器側的識別，不是循環中的分解。
+  - text: 睾固酮必須先在血液中被還原為二氫睾固酮
+    correct: false
+    why_wrong: 把 5α-reductase 的轉化誤當成受器不足的替代解釋；缺乏受器時即使 DHT 也無處結合。
+- id: ch04.growth-hormone.i01.q1
+  item: ch04.growth-hormone.i01
+  dco: sf1.F.1
+  lang: zh
+  cognitive: recall
+  stem: 由前腦垂體 somatotroph 分泌、最常被 RIA 或 ELISA 測量到的 22 kDa 生長激素單體，其胜肽鏈長度為何？
+  locator: Primary Anabolic Hormones > Growth Hormone
+  options:
+  - text: 由 191 個胺基酸構成單體
+    correct: true
+  - text: 70 個胺基酸短鏈形成胜肽
+    correct: false
+    why_wrong: 把 IGF-I 的 70 個胺基酸長度誤套到 GH 單體上；兩者不是同一條胜肽。
+  - text: 22 個殘基摺疊成片段
+    correct: false
+    why_wrong: 把 22 kDa 分子量誤當成 22 個胺基酸鏈長；分子量與殘基數是兩個維度。
+- id: ch04.growth-hormone.i06.q1
+  item: ch04.growth-hormone.i06
+  dco: sf1.F.1
+  lang: en
+  cognitive: recall
+  stem: Which pattern best describes the secretion of 22 kDa growth hormone across a normal day?
+  locator: Primary Anabolic Hormones > Growth Hormone
+  options:
+  - text: pulsatile release peaking during sleep
+    correct: true
+  - text: continuous secretion with steady-state levels
+    correct: false
+    why_wrong: Models GH on a tonic hormone pattern such as cortisol averaged over the day; GH instead fires in discrete pulses.
+  - text: secretion only in response to meals
+    correct: false
+    why_wrong: Anchors GH to feeding; the dominant pulse is the nocturnal one tied to slow-wave sleep, not to food intake.
+- id: ch04.growth-hormone.i04.q1
+  item: ch04.growth-hormone.i04
+  dco: sf1.F.2
+  lang: zh
+  cognitive: application
+  stem: 阻力訓練課表中若希望 22 kDa 生長激素反應最大化，下列哪項訓練變項組合最能達成？
+  locator: Primary Anabolic Hormones > Growth Hormone > Growth Hormone Responses to Stress
+  options:
+  - text: 10RM 高強度 3 組搭配 1 分鐘休息
+    correct: true
+  - text: 低強度高反覆耐力訓練搭配 3 分鐘長休息
+    correct: false
+    why_wrong: 把強度反過來並把休息拉長；這兩個變項都會削弱乳酸與氫離子累積，無法觸發 GH 脈衝。
+  - text: 中等強度孤立動作搭配 5 分鐘休息
+    correct: false
+    why_wrong: 用孤立動作取代多關節動力動作，把代謝壓力降到 GH 反應門檻之下。
+- id: ch04.growth-hormone.i05.q1
+  item: ch04.growth-hormone.i05
+  dco: sf1.F.3
+  lang: en
+  cognitive: application
+  stem: Which characteristic most reliably distinguishes the female growth hormone profile from the male profile at rest?
+  locator: Primary Anabolic Hormones > Growth Hormone > Growth Hormone Responses in Women
+  options:
+  - text: higher 22 kDa amplitude at rest
+    correct: true
+  - text: lower 22 kDa pulse frequency only
+    correct: false
+    why_wrong: Inverts the direction; women show greater 22 kDa pulse amplitude at rest than men, so the lower-only framing is wrong.
+  - text: bioactive GH is missing in women
+    correct: false
+    why_wrong: Erases a form that women do carry; the chapter reports resting bioactive GH climbing with resistance training in women, so the aggregate form is present rather than absent and is not what separates the sexes at rest.
+- id: ch04.growth-hormone.i02.q1
+  item: ch04.growth-hormone.i02
+  dco: sf1.J.3
+  lang: zh
+  cognitive: analysis
+  stem: 為何單獨以 22 kDa 單體的 RIA 或 ELISA 測量結果，最可能系統性低估訓練後的真實生長激素活性？
+  locator: Primary Anabolic Hormones > Growth Hormone
+  options:
+  - text: 真實生物活性 GH 主要以聚合體形式存在
+    correct: true
+  - text: 22 kDa 形式在運動後會被腎臟加速清除
+    correct: false
+    why_wrong: 歸因於清除速率；RIA 與 ELISA 偵測的是存量而非清除率，且聚合體才是被低估的活性主體。
+  - text: 運動後血液中 GH 主要被皮質醇結合而失活
+    correct: false
+    why_wrong: 引入無關的結合假說；GH 與皮質醇在循環中不形成會干擾 RIA 偵測的結合複合物。
+- id: ch04.igf.i01.q1
+  item: ch04.igf.i01
+  dco: sf1.F.1
+  lang: zh
+  cognitive: recall
+  stem: IGF-I 是由肝臟在生長激素刺激下產生的多肽，其胜肽鏈長度為何？
+  locator: Primary Anabolic Hormones > Insulin-Like Growth Factors
+  options:
+  - text: 70 個胺基酸構成單體
+    correct: true
+  - text: 191 個胺基酸鏈形成 GH
+    correct: false
+    why_wrong: 把 22 kDa GH 的 191 個胺基酸長度誤套到 IGF-I；兩者是不同長度的胜肽。
+  - text: 67 個胺基酸形成片段
+    correct: false
+    why_wrong: 把 IGF-II 的長度當成 IGF-I；IGF-II 是 67 個胺基酸，IGF-I 是 70 個。
+- id: ch04.igf.i03.q1
+  item: ch04.igf.i03
+  dco: sf1.F.1
+  lang: zh
+  cognitive: application
+  stem: 機械負荷或伸展刺激後，肌肉細胞合成的 IGF-I 主要以何種方式作用，又被稱為什麼？
+  locator: Primary Anabolic Hormones > Insulin-Like Growth Factors > Exercise Responses of Insulin-Like Growth Factors
+  options:
+  - text: 以自分泌方式作用，稱為機械生長因子
+    correct: true
+  - text: 透過血液循環遠端送達肝臟再回饋
+    correct: false
+    why_wrong: 把肌肉局部合成誤當成需經肝臟中繼；MGF 的意義正是跳過血液循環這條遠端路徑。
+  - text: 由內分泌途徑送至全身各肌肉均分
+    correct: false
+    why_wrong: 把局部自分泌與全身內分泌混淆；機械刺激下的 IGF-I 不進入血液循環。
+- id: ch04.igf.i04.q1
+  item: ch04.igf.i04
+  dco: sf1.F.2
+  lang: zh
+  cognitive: application
+  stem: 阻力訓練後 IGF-I 的急性變化幅度，最受運動員何種起始狀態的影響？
+  locator: Primary Anabolic Hormones > Insulin-Like Growth Factors > Exercise Responses of Insulin-Like Growth Factors
+  options:
+  - text: 起始 IGF-I 靜息濃度的高低
+    correct: true
+  - text: 訓練前是否攝取大量蛋白質
+    correct: false
+    why_wrong: 歸因於蛋白質攝取；蛋白質影響 IGF-I 整體輸出但不決定運動後急性變化幅度。
+  - text: 訓練當下肝臟釋放 IGF-I 的速率
+    correct: false
+    why_wrong: 把肝臟當成急性反應的來源；源檔寫肝臟受 GH 刺激後要 8 至 24 小時才產生並釋放 IGF-I，運動後立刻量到的升幅來自脂肪與肌肉細胞的破壞，不是肝臟當下的速率。
+- id: ch04.igf.i06.q1
+  item: ch04.igf.i06
+  dco: sf1.J.3
+  lang: zh
+  cognitive: analysis
+  stem: 為何以循環血液 IGF-I 的變化最無法準確反映肌內實際的合成代謝訊號強度？
+  locator: Primary Anabolic Hormones > Insulin-Like Growth Factors > Exercise Responses of Insulin-Like Growth Factors
+  options:
+  - text: 機械生長因子以自分泌方式作用不入血液
+    correct: true
+  - text: 肌肉間質液的 IGF-I 濃度與血中同步
+    correct: false
+    why_wrong: 假定間質液與血液是同一個池，剛好把題目要問的前提消掉；源檔說循環 IGF-I 上升不一定反映肌肉間質液或肌內的訊號，兩者可以脫鉤才是血液指標失準的原因。
+  - text: IGF-I 必須在肝臟轉化才能進入肌纖維
+    correct: false
+    why_wrong: 把肝臟的角色與肌內自分泌混淆；IGF-I 不需要再經肝臟加工才能作用於肌纖維。
+- id: ch04.program-design.i01.q1
+  item: ch04.program-design.i01
+  dco: sf1.F.2
+  lang: zh
+  cognitive: recall
+  stem: 欲在阻力訓練中急性升高血中睾固酮，下列哪一組條件屬於該處方的核心要件？
+  locator: How Can Athletes Manipulate the Endocrine System > To Increase Serum Testosterone Concentrations
+  options:
+  - text: 大肌群動作加上 85 至 95% 1RM 重負荷
+    correct: true
+  - text: 小肌群孤立動作搭配 50 至 60% 1RM
+    correct: false
+    why_wrong: 把肌肉量與負荷強度都換成刺激最弱的那一端；孤立低負荷無法驅動睾固酮急性上升。
+  - text: 伸展動作搭配 20% 1RM 高反覆次數
+    correct: false
+    why_wrong: 引入伸展耐力訓練；其代謝壓力、神經徵召與睾固酮反應都與重訓處方不同。
+- id: ch04.program-design.i01.q2
+  item: ch04.program-design.i01
+  dco: sf1.F.2
+  lang: zh
+  cognitive: application
+  stem: 某課表已採深蹲、硬舉等大肌群動作並以 85 至 95% 1RM 進行多組訓練，欲讓急性血中睾固酮反應最大化，組間休息設定成下列何者最恰當？
+  locator: How Can Athletes Manipulate the Endocrine System > To Increase Serum Testosterone Concentrations
+  options:
+  - text: 維持 30 至 60 秒的短組間休息
+    correct: true
+  - text: 設定 5 至 7 分鐘的長組間休息
+    correct: false
+    why_wrong: 把最大化睾固酮反應的休息設定換成最大化神經恢復；長休息會稀釋代謝壓力，睾固酮反應下降。
+  - text: 完全不休息連續做完所有組數
+    correct: false
+    why_wrong: 把代謝壓力推到無法維持重負荷的程度；完全不休息無法撐完 85 至 95% 1RM 的多組訓練。
+- id: ch04.program-design.i07.q1
+  item: ch04.program-design.i07
+  dco: sf1.F.2
+  lang: en
+  cognitive: application
+  stem: Which combination of signs most strongly suggests an athlete is sliding into nonfunctional overreaching rather than normal fatigue?
+  locator: Adrenal Hormones > Cortisol > Resistance Exercise Responses of Cortisol
+  options:
+  - text: cortisol above 800 nmol/L with falling T/C ratio
+    correct: true
+  - text: an isolated post-exertion surge on day one
+    correct: false
+    why_wrong: Treats one exertion's hormone bump as chronic alarm; a brief surge without ongoing drift is normal remodeling, not the sliding pattern of nonfunctional overreaching.
+  - text: DOMS that fades by the second morning
+    correct: false
+    why_wrong: Reads ordinary post-training stiffness as chronic endocrine alarm; brief soreness without hormonal and performance drift is part of normal training, not a sign of nonfunctional overreaching.
+- id: ch04.program-design.i06.q1
+  item: ch04.program-design.i06
+  dco: sf1.H.1
+  lang: en
+  cognitive: analysis
+  stem: Why do heavy squats and deadlifts typically provoke the largest whole-body hormonal response compared with an equally heavy bench press?
+  locator: Heavy Resistance Exercise and Hormonal Increases
+  options:
+  - text: They activate far more muscle fibers at once
+    correct: true
+  - text: They place axial load directly on the spine
+    correct: false
+    why_wrong: Points at what the bar does to the skeleton rather than how much tissue is switched on. Bearing is not the trigger.
+  - text: They are usually performed with longer rest periods
+    correct: false
+    why_wrong: Rest length does change the response, but these lifts are normally run with shorter gaps, not longer ones.
+- id: ch04.receptor-mechanisms.i01.q1
+  item: ch04.receptor-mechanisms.i01
+  dco: sf1.H.1
+  lang: en
+  cognitive: application
+  stem: Which statement best describes the rapid androgen-receptor adaptation that occurs in skeletal muscle after just one or two resistance training sessions?
+  locator: Heavy Resistance Exercise and Hormonal Increases
+  options:
+  - text: AR density rises after each training bout
+    correct: true
+  - text: AR transcripts collapse post-exercise
+    correct: false
+    why_wrong: Inverts the gene-expression direction; resistance training elevates, rather than suppresses, AR transcript levels in skeletal muscle.
+  - text: testosterone spills over into estrogen
+    correct: false
+    why_wrong: Brings steroid conversion into a receptor-upregulation story; the adaptation is on the receptor side, not on hormone conversion.
+- id: ch04.receptor-mechanisms.i04.q1
+  item: ch04.receptor-mechanisms.i04
+  dco: sf1.F.2
+  lang: en
+  cognitive: application
+  stem: An athlete runs heavy singles at one to two RM with five to seven minutes rest and shows no serum testosterone rise, yet gains strength over eight weeks. Which mechanism most plausibly explains the adaptation?
+  locator: Hormonal Changes in Peripheral Blood
+  options:
+  - text: Receptor number rose while serum levels held steady
+    correct: true
+  - text: A larger free fraction was released from SHBG
+    correct: false
+    why_wrong: Stays on the serum side of the ledger; even a bigger free fraction is still a concentration story, and the chapter's point is that this protocol works through receptor number while circulating testosterone holds steady.
+  - text: The blood draw missed a brief testosterone spike between sets
+    correct: false
+    why_wrong: Blames the measurement instead of accepting the finding; the chapter reports low-volume heavy work producing adaptation with circulating testosterone genuinely unchanged, which is exactly why receptor status carries the explanation.
+- id: ch04.receptor-mechanisms.i07.q1
+  item: ch04.receptor-mechanisms.i07
+  dco: sf1.F.1
+  lang: zh
+  cognitive: application
+  stem: 阻力訓練後若希望皮質醇與睾固酮對 mTOR 訊號的淨效應偏向合成代謝，最關鍵的調控層級為何？
+  locator: Muscle as the Target for Hormone Interactions
+  options:
+  - text: 兩者在 DNA 元件上競爭結合位點的相對佔比
+    correct: true
+  - text: 兩者在血液循環中的絕對濃度高低
+    correct: false
+    why_wrong: 把焦點放在循環濃度；細胞核內的結合位點佔比才是 mTOR 上下游的決定因素。
+  - text: 兩者在細胞膜上各自結合 G 蛋白偶聯受器
+    correct: false
+    why_wrong: 引入錯誤的受器類型；皮質醇與睾固酮皆通過胞內受器作用，不走 G 蛋白偶聯受器路徑。
+- id: ch04.receptor-mechanisms.i03.q1
+  item: ch04.receptor-mechanisms.i03
+  dco: sf1.F.3
+  lang: en
+  cognitive: application
+  stem: Why does faster androgen-receptor upregulation in skeletal muscle most effectively offset women's much lower circulating testosterone during resistance training?
+  locator: Primary Anabolic Hormones > Testosterone > Training Adaptations of Testosterone
+  options:
+  - text: extra AR availability lets each androgen act longer
+    correct: true
+  - text: training raises binding affinity, not receptor count
+    correct: false
+    why_wrong: Picks the lever the chapter rules out. Training moves maximum AR number; sensitivity stays put. The 1-hour female upregulation is about how many sites exist, not how firmly each one holds.
+  - text: women rely primarily on IGF-I rather than testosterone signaling
+    correct: false
+    why_wrong: Names a peptide hormone as the female driver; the documented women-specific offset sits at the AR.
+- id: ch04.testosterone.i03.q1
+  item: ch04.testosterone.i03
+  dco: sf1.F.1
+  lang: zh
+  cognitive: recall
+  stem: 性荷爾蒙結合球蛋白（SHBG）在血液中除了攜帶睾固酮外，還具備哪項特殊功能？
+  locator: Primary Anabolic Hormones > Testosterone > Free Testosterone and Sex Hormone–Binding Globulin
+  options:
+  - text: 與膜受器結合後啟動 cAMP 訊號途徑
+    correct: true
+  - text: 主動將循環中的睾固酮水解成 DHT
+    correct: false
+    why_wrong: 把 SHBG 的載體角色誤當成代謝酶功能；SHBG 不催化 5α-reductase 反應。
+  - text: 把游離態的睾固酮完全鎖進循環不釋出
+    correct: false
+    why_wrong: 把結合與隔離混為一談；結合蛋白延長半衰期並調節游離比例，不是把荷爾蒙排除循環。
+- id: ch04.testosterone.i05.q1
+  item: ch04.testosterone.i05
+  dco: sf1.F.3
+  lang: zh
+  cognitive: application
+  stem: 女性阻力訓練後血中睾固酮的急性反應常不明顯，但肌肥大仍可發生，下列何者最能解釋此現象？
+  locator: Primary Anabolic Hormones > Testosterone > Testosterone Responses in Women
+  options:
+  - text: 雄激素受器上調速度快可放大有限睾固酮效用
+    correct: true
+  - text: 女性睾固酮可在血液中更高效地轉化為 DHT
+    correct: false
+    why_wrong: 把 5α-reductase 的轉化誤當成受器放大的替代機制；女性肌肥大的主要解釋是受器上調速度，不是 DHT 轉化率差異。
+  - text: 皮質醇在女性阻力訓練中提供主要的合成代謝訊號
+    correct: false
+    why_wrong: 皮質醇本質是分解代謝荷爾蒙；女性肌肥大依賴的是雄激素受器上調帶來的睾固酮利用效率，不是皮質醇訊號。
+- id: ch04.testosterone.i06.q1
+  item: ch04.testosterone.i06
+  dco: sf1.F.2
+  lang: en
+  cognitive: application
+  stem: An athlete squats and deadlifts at 90 percent of 1RM and keeps her rests to one minute, yet she performs a single set of each lift and sees no acute testosterone rise. Which change most directly supplies the element she is still missing?
+  locator: How Can Athletes Manipulate the Endocrine System > To Increase Serum Testosterone Concentrations
+  options:
+  - text: do more sets per exercise
+    correct: true
+  - text: push each lift closer to 1RM
+    correct: false
+    why_wrong: Adds intensity to a prescription that is already heavy enough; one maximal set still leaves total work far below the threshold, and load is not the variable this athlete leaves unsatisfied.
+  - text: move to single-joint machines
+    correct: false
+    why_wrong: Trades away the recruited muscle mass that drives the response; isolating one joint cuts the motor units under work and removes a part of the stimulus that was already in place.
+- id: ch04.testosterone.i08.q1
+  item: ch04.testosterone.i08
+  dco: sf1.H.1
+  lang: zh
+  cognitive: analysis
+  stem: 菁英舉重選手經兩年系統訓練後靜息睾固酮僅小幅上升，但 LH 與 FSH 同步上升，下列何者最能詮釋此變化？
+  locator: Primary Anabolic Hormones > Testosterone > Training Adaptations of Testosterone
+  options:
+  - text: 整個下視丘垂體性腺軸的容量都被強化
+    correct: true
+  - text: 訓練使睪丸失去對 LH 的反應能力
+    correct: false
+    why_wrong: 睪丸若真的對 LH 失去反應，靜息睾固酮應該往下掉；題幹寫的是小幅上升，末端仍在照訊號幹活。
+  - text: LH/FSH 同步上升反映性腺軸負回饋失效
+    correct: false
+    why_wrong: 負回饋失效的樣子是促性腺激素一路攀高而末端產物追不上；這裡兩端同向、幅度都溫和，是整條軸調高了工作點而非調節鬆脫。
+- id: ch04.growth-hormone.i03.q2
+  item: ch04.growth-hormone.i03
+  dco: sf1.F.1
+  lang: en
+  cognitive: recall
+  pool: extra
+  stem: Which anterior pituitary hormone promotes linear growth and stimulates fat utilization?
+  locator: Primary Anabolic Hormones > Growth Hormone
+  options:
+  - text: Growth hormone, which increases protein synthesis and enhances fatty acid mobilization for fuel.
+    correct: true
+  - text: Insulin, which lowers blood glucose by promoting cellular glucose uptake from the bloodstream.
+    correct: false
+    why_wrong: Insulin is strongly associated with energy metabolism, so a test-taker may pick it when asked about a metabolic hormone, not recalling that insulin lowers rather than liberates fatty acids.
+  - text: Cortisol, which is released from the adrenal cortex during physiological stress responses.
+    correct: false
+    why_wrong: Cortisol is often linked to fat and protein metabolism, so a reader may select it expecting a stress-related metabolic hormone, not noticing it is adrenal rather than pituitary.

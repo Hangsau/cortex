@@ -562,3 +562,139 @@ questions:
   - text: 功率僅取決於肌力大小，與速度無關
     correct: false
     why_wrong: 把 P = F × v 中的速度項忽略；功率若與速度無關，公式就退化成單純的力學描述。
+- id: ch02.levers.i02.q2
+  item: ch02.levers.i02
+  dco: sf1.A.1
+  lang: en
+  cognitive: recall
+  pool: extra
+  stem: In which class of lever are the muscle force and the resistive force located on the same side of the fulcrum, with the muscle force moment arm longer than the resistive force moment arm?
+  locator: 第 2 章 · Levers of the Musculoskeletal System
+  options:
+  - text: Second-class lever, muscle force arm exceeds the resistive load arm
+    correct: true
+  - text: First-class lever, muscle and load sit on opposing fulcrum sides
+    correct: false
+    why_wrong: A first-class lever places the muscle force and the resistive force on opposite sides of the fulcrum, so the arrangement described in the stem does not apply.
+  - text: Third-class lever, muscle arm is shorter than the load arm throughout the lift
+    correct: false
+    why_wrong: A third-class lever also has both forces on the same side of the fulcrum, but the muscle force moment arm is shorter, not longer, than the resistive force moment arm.
+- id: ch02.levers.i03.q1
+  item: ch02.levers.i03
+  dco: sf1.A.1
+  lang: en
+  cognitive: recall
+  pool: extra
+  stem: In the biceps curl example, which trade-off best explains why the third-class lever arrangement is so common in human movement?
+  locator: 第 2 章 · Levers of the Musculoskeletal System
+  options:
+  - text: A small muscle shortening produces a large and fast arc at the distal end of the limb.
+    correct: true
+  - text: The muscle must generate far less force than the external load it overcomes.
+    correct: false
+    why_wrong: This is the second-class lever profile (mechanical advantage greater than 1), where the muscle effort arm is longer than the load arm; the biceps curl has a shorter effort arm, so force is not amplified.
+  - text: It keeps muscular energy expenditure low by aligning the effort arm with the load arm.
+    correct: false
+    why_wrong: Third-class levers have mechanical advantage below 1, so the muscle force is several times the external load; readers are drawn to 'energy saving' because the limb moves easily, but the muscle still has to generate a large internal force.
+- id: ch02.planes.i02.q2
+  item: ch02.planes.i02
+  dco: sf1.A.1
+  lang: en
+  cognitive: recall
+  pool: extra
+  stem: Which anatomical plane divides the body into anterior and posterior halves, and primarily contains abduction and adduction movements?
+  locator: 第 2 章 · Anatomical Planes and Major Body Movements
+  options:
+  - text: The frontal plane, dividing anterior from posterior
+    correct: true
+  - text: The sagittal plane, dividing left from right halves
+    correct: false
+    why_wrong: A learner familiar with the term 'sagittal' may remember it as a major body plane and assume it is the answer because the question mentions dividing the body, even though sagittal plane separates left from right.
+  - text: The transverse plane, dividing superior from inferior halves
+    correct: false
+    why_wrong: A learner may default to transverse because it is the remaining major plane, overlooking that the transverse plane separates superior from inferior rather than anterior from posterior.
+- id: ch02.musculature.i05.q2
+  item: ch02.musculature.i05
+  dco: sf1.C.1
+  lang: en
+  cognitive: application
+  pool: extra
+  stem: During the concentric phase of a standing barbell biceps curl, which role best describes the triceps brachii as it lengthens to control elbow flexion?
+  locator: 第 2 章 · Skeletal Musculature
+  options:
+  - text: Antagonist opposing the elbow flexors across the joint
+    correct: true
+  - text: Agonist, since the muscle is actively engaged while the elbow flexes
+    correct: false
+    why_wrong: A learner may choose agonist because the triceps is contracting during the curl and assume any contracting muscle must be the prime mover rather than recognizing its opposing action.
+  - text: Fixator, since it steadies the shoulder while the elbow flexes upward
+    correct: false
+    why_wrong: A learner familiar with the term fixator from other contexts may apply it here, not recognizing that shoulder stabilization is performed by other muscles and the triceps role here is opposition of movement.
+- id: ch02.work-power.i01.q2
+  item: ch02.work-power.i01
+  dco: sf1.A.2
+  lang: en
+  cognitive: recall
+  pool: extra
+  stem: Which expression correctly defines mechanical work as used in biomechanics?
+  locator: 第 2 章 · Positive Work and Power
+  options:
+  - text: Force multiplied by the displacement of the object in the direction of the force
+    correct: true
+  - text: Force multiplied by the velocity of the object, which gives power rather than work
+    correct: false
+    why_wrong: A learner may confuse work with power because both involve force, choosing the force-times-velocity expression and forgetting that power already has time built into its definition.
+  - text: Mass divided by acceleration, which expresses a ratio with no physical unit of energy
+    correct: false
+    why_wrong: A learner unfamiliar with Newton's second law may treat mass-divided-by-acceleration as plausible because it contains familiar kinematic quantities, not recognizing it lacks any units of energy.
+- id: ch02.joint-biomechanics.i03.q2
+  item: ch02.joint-biomechanics.i03
+  dco: sf1.C.2
+  lang: en
+  cognitive: recall
+  pool: extra
+  stem: During a heavy resistance training set performed with a closed-glottis Valsalva maneuver, what is the most likely acute cardiovascular effect?
+  locator: 第 2 章 · Intra-Abdominal Pressure and Lifting Belts
+  options:
+  - text: Intra-thoracic and intra-abdominal pressures surge upward, sharply elevating arterial blood pressure.
+    correct: true
+  - text: Both systolic and diastolic blood pressure drop to low values across the entire working set.
+    correct: false
+    why_wrong: The closed-glottis strain traps air in the thorax and pushes abdominal contents outward, so pressure inside both compartments rises rather than falls, ruling out a drop in pressure.
+  - text: Heart rate plunges to zero and remains flat for the rest of the set under strain.
+    correct: false
+    why_wrong: A Valsalva maneuver raises intrathoracic pressure and triggers a sympathetic surge that speeds the heart, so a sustained drop to zero is not the expected cardiovascular response.
+- id: ch02.planes.i03.q1
+  item: ch02.planes.i03
+  dco: sf1.A.1
+  lang: en
+  cognitive: recall
+  pool: extra
+  stem: Which anatomical plane separates the body into superior and inferior portions?
+  locator: 第 2 章 · Anatomical Planes and Major Body Movements
+  options:
+  - text: Transverse plane, dividing the body into upper and lower halves.
+    correct: true
+  - text: Frontal plane, which sets apart the front half from the back half.
+    correct: false
+    why_wrong: A reader who remembers that the frontal plane is a familiar reference plane may select it, not recalling that it splits the body front-to-back rather than top-to-bottom.
+  - text: Sagittal plane, splitting the left side away from the right side.
+    correct: false
+    why_wrong: The sagittal plane is another standard term, so a test-taker may choose it without distinguishing that it separates left from right rather than top from bottom.
+- id: ch02.strength-factors.i07.q2
+  item: ch02.strength-factors.i07
+  dco: sf1.A.1
+  lang: en
+  cognitive: application
+  pool: extra
+  stem: During the downward phase of a barbell back squat, what joint action and muscle action does the quadriceps primarily use to control the descent?
+  locator: 第 2 章 · Joint Angular Velocity
+  options:
+  - text: Knee flexion with eccentric quadriceps control of the descent
+    correct: true
+  - text: Knee flexion with concentric quadriceps shortening on the way down
+    correct: false
+    why_wrong: A trainee often pictures the quadriceps as the muscle that extends the knee on the way up, so they assume the same shortening is happening on the way down; that mental shortcut pulls them toward this option even though the muscle is lengthening, not shortening, here.
+  - text: Knee extension with isometric quadriceps bracing at the bottom range
+    correct: false
+    why_wrong: The lift is moving downward, so the trainee reads 'knee bending' as 'quads relaxing' and picks the joint action they expect during a static wall sit; both the joint motion and the constant-length assumption are wrong for this phase.

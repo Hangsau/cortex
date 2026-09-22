@@ -314,11 +314,19 @@ def apply_verdicts() -> int:
     for entry in accepted:
         by_chapter[str(entry["item"]).split(".")[0]].append(entry)
 
-    added, skipped = 0, []
+    # locator 照教材原文填，不採信裁決裡那一行。G7 要求與來源條目逐字相同，模型卻常
+    # 自己補上「第 8 章 ·」這種前綴或改寫階層。這是抄寫不是判斷，機械填才不會漂。
+    locators = {item["id"]: item.get("locator", "") for item in load_items()}
+
+    added, skipped, duplicated = 0, [], []
     for chapter, entries in sorted(by_chapter.items()):
         path = BANK_DIR / f"{chapter}.yaml"
         bank = yaml.safe_load(io.open(path, encoding="utf-8").read())
         questions = bank["questions"]
+
+        # 題幹已經在題庫裡的不再寫第二次。試點那 20 題是先手動併進題庫才跑全量裁決的，
+        # 裁決檔仍留著它們的 accept，重跑 --apply 會原樣再生一題（實測 4 題撞 G8）。
+        stems = {str(q.get("stem", "")).strip() for q in questions}
 
         # 一條目至多兩題（G22）。這是計數約束，交給模型自律就會破——試點 20 題裡
         # 就有一題落在已經有兩題的條目上。滿額的在這裡直接擋掉，不寫進檔案。
@@ -328,9 +336,14 @@ def apply_verdicts() -> int:
         written = 0
         for entry in entries:
             item = entry["item"]
+            stem = str(entry["stem"]).strip()
+            if stem in stems:
+                duplicated.append((entry["n"], item))
+                continue
             if per_item[item] >= MAX_ITEM_QUESTIONS:
                 skipped.append((entry["n"], item))
                 continue
+            stems.add(stem)
             per_item[item] += 1
             index = 1
             while f"{item}.q{index}" in used:
@@ -344,8 +357,8 @@ def apply_verdicts() -> int:
                 "lang": entry.get("lang", "en"),
                 "cognitive": entry["cognitive"],
                 "pool": "extra",
-                "stem": entry["stem"],
-                "locator": entry["locator"],
+                "stem": stem,
+                "locator": locators.get(item, entry["locator"]),
                 "options": entry["options"],
             })
             added += 1
@@ -359,6 +372,8 @@ def apply_verdicts() -> int:
     print(f"合計寫入 {added} 題（accept {len(accepted)} 題）")
     if skipped:
         print("條目已滿額而丟掉：" + "、".join(f"#{n} {item}" for n, item in skipped))
+    if duplicated:
+        print("題幹已在題庫而丟掉：" + "、".join(f"#{n} {item}" for n, item in duplicated))
     return 0
 
 
