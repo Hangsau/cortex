@@ -1482,6 +1482,7 @@ def patch_loop(chid, label, messages, base_questions, questions, item_ids, allow
     會把錯誤清單跟快取前綴併在同一則送出，省一次往返）。
     """
     elapsed_total = 0.0
+    previous = None
 
     for round_no in range(1, MAX_FIX_ROUNDS + 1):
         if armed:
@@ -1528,6 +1529,16 @@ def patch_loop(chid, label, messages, base_questions, questions, item_ids, allow
             print(f"{label}：全綠。")
             return questions, [], elapsed_total
         print_errors(errors)
+
+        # 模型每輪都交得出修正、錯誤清單卻一字不變 = 它修不動這幾題（ch01 空轉了 5 輪）。
+        # 這類卡關一律是機械性限制（裸標籤選項字元重疊、中英名詞長度天生差距），
+        # 再跑幾輪只是重複同一個失敗，直接停下來交給人工改比較快。
+        signature = frozenset(errors)
+        if signature == previous:
+            print(f"{label}：第 {round_no} 輪的錯誤與上一輪完全相同，判定模型修不動，"
+                  f"提前停在 {len(errors)} 條交人工。")
+            return questions, errors, elapsed_total
+        previous = signature
 
     print(f"{label}：用完 {MAX_FIX_ROUNDS} 輪修正仍有 {len(errors)} 條錯誤，停在這裡。")
     return questions, errors, elapsed_total
