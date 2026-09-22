@@ -2,249 +2,563 @@ meta:
   chapter: ch01
   source: data/cscs/ch01.yaml
 questions:
-  # ── 骨骼系統（sf1.D 骨與結締組織解剖）──
-  - id: ch01.skeleton.axial.q1
-    item: ch01.skeleton.axial
-    dco: sf1.D.1
-    lang: zh
-    cognitive: recall
-    stem: 全身骨頭的中軸由哪些構造組成？
-    locator: 第 1 章 · Skeleton
-    options:
-      - text: 頭顱、脊椎、肋骨與胸骨
-        correct: true
-      - text: 鎖骨、肩胛骨、肱骨、橈骨
-        correct: false
-        why_wrong: 把肩帶與上肢長骨當成中軸；肩胛與鎖骨歸入附肢系統，靠近胸廓也不改變分類。
-      - text: 髖骨、股骨、脛骨、腓骨
-        correct: false
-        why_wrong: 將骨盆帶與下肢長骨混為中軸；髖骨與下肢骨歸入附肢系統，與中軸骨骼的歸屬不同。
-
-  - id: ch01.skeleton.synovial-joint.q1
-    item: ch01.skeleton.synovial-joint
-    dco: sf1.D.1
-    lang: zh
-    cognitive: recall
-    stem: 為什麼滑液關節能兼顧活動度與穩定？
-    locator: 第 1 章 · Skeleton
-    options:
-      - text: 由透明軟骨與韌帶協助穩定，而非靠骨頭卡住
-        correct: true
-      - text: 靠骨頭互相卡住以承受各種方向的張力
-        correct: false
-        why_wrong: 把骨骼卡住當成穩定來源；這種做法犧牲活動度，正是滑液關節要避免的機制。
-      - text: 由纖維結締組織直接相連以完全限制動作
-        correct: false
-        why_wrong: 把纖維關節的限制機制搬過來；纖維關節幾乎不能動，無法滿足滑液關節對活動度的要求。
-
-  # ── 槓桿系統（sf1.C 生物力學）──
-  - id: ch01.skeleton.lever-system.q1
-    item: ch01.skeleton.lever-system
-    dco: sf1.C.2
-    lang: en
-    cognitive: recall
-    stem: Why must skeletal muscle act through the skeletal system to move an external load?
-    locator: 第 1 章 · Skeleton
-    options:
-      - text: muscles can only pull, never push
-        correct: true
-      - text: the widening belly wedges bone away
-        correct: false
-        why_wrong: Reads the thickening of a contracting belly as an outward push; force still travels along the line of pull, not sideways into the bone.
-      - text: tendons stiffen to thrust joints open
-        correct: false
-        why_wrong: Assumes tendon tissue can drive a limb by itself; it merely relays the pull that the muscle belly has already produced.
-
-  # ── 肌肉結構（sf1.A 解剖）──
-  - id: ch01.muscle-structure.sarcomere.q1
-    item: ch01.muscle-structure.sarcomere
-    dco: sf1.A.1
-    lang: en
-    cognitive: recall
-    stem: What is the resting length of a single sarcomere in skeletal muscle?
-    locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
-    options:
-      - text: about 2.5 µm from one Z-line to the next
-        correct: true
-      - text: around 1.6 µm across the A-band
-        correct: false
-        why_wrong: Takes the A-band width for the whole unit; that band spans only the thick filaments sitting inside one sarcomere.
-      - text: roughly 0.1 µm for the Z-disc width
-        correct: false
-        why_wrong: Reads the boundary marker as the unit it bounds; the Z-disc only marks where one sarcomere ends and the next starts.
-
-  # ── 滑動絲理論（sf1.A 肌肉動態）──
-  - id: ch01.sliding-filament.core.q1
-    item: ch01.sliding-filament.core
-    dco: sf1.A.2
-    lang: zh
-    cognitive: application
-    stem: 顯微鏡下觀察正在收縮的肌節，最穩定的判讀依據是哪一個？
-    locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
-    options:
-      - text: A 帶始終維持原本長度
-        correct: true
-      - text: I 帶的長度始終不變
-        correct: false
-        why_wrong: I 帶在收縮時會縮小，並非始終不變；這個「不變」特徵屬於 A 帶，不是 I 帶。
-      - text: H 區長度會持續變大
-        correct: false
-        why_wrong: 收縮時 H 區會縮小而非變大；方向剛好顛倒，誤把放鬆時的變化套用到收縮階段。
-
-  - id: ch01.sliding-filament.atp-cleavage.q1
-    item: ch01.sliding-filament.atp-cleavage
-    dco: sf1.A.2
-    lang: zh
-    cognitive: application
-    stem: 能量主要是在橫橋循環的哪一步取得的？
-    locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
-    options:
-      - text: 肌凝蛋白 ATP 水解酶分解 ATP 的那一刻
-        correct: true
-      - text: 細絲被主動拉向肌節正中央的那個動力衝程階段
-        correct: false
-        why_wrong: 把出力當成取能；衝程階段釋放的是先前水解時儲存的構型能，不是當下才取得能量。
-      - text: 鈣離子從肌漿網絡釋放到肌漿內部的那個瞬間
-        correct: false
-        why_wrong: 將鈣釋放視為能量供應；鈣是開關訊號，本身不為橫橋提供機械能。
-
-  - id: ch01.sliding-filament.relaxation.q1
-    item: ch01.sliding-filament.relaxation
-    dco: sf1.A.2
-    lang: en
-    cognitive: application
-    stem: For a muscle to return to its resting length after a contraction, what event must occur first?
-    locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
-    options:
-      - text: Ca²⁺ re-enters the SR
-        correct: true
-      - text: myosin ATPase binds actin
-        correct: false
-        why_wrong: Wrong trigger; relaxation requires calcium reuptake, not re-engagement.
-      - text: ACh stays in the synaptic cleft
-        correct: false
-        why_wrong: Wrong trigger; sustained ACh keeps the junction firing rather than enabling relaxation.
-
-  # ── 神經肌肉（sf1.B）──
-  - id: ch01.neuromuscular.tetanus.q1
-    item: ch01.neuromuscular.tetanus
-    dco: sf1.B.2
-    lang: zh
-    cognitive: application
-    stem: 提高刺激頻率能讓單一運動單位產生比單收縮更大的力量，最主要的機制是什麼？
-    locator: 第 1 章 · Activation of Muscles
-    options:
-      - text: 鈣離子還沒被完全收回，下一波又疊上來
-        correct: true
-      - text: 運動單位數量在頻率提高時被強迫加倍
-        correct: false
-        why_wrong: 違反全有全無律；同一條神經支配的肌纖維總量固定，並不會因頻率提高而多出單位。
-      - text: 單條肌纖維每次收縮可以擠出更多 ATP
-        correct: false
-        why_wrong: 將力量增加歸因於能量產出變多；力量的疊加來自橫橋作用時間延長，與 ATP 量的多寡無關。
-
-  - id: ch01.neuromuscular.recruitment.q1
-    item: ch01.neuromuscular.recruitment
-    dco: sf1.B.2
-    lang: en
-    cognitive: application
-    stem: Which mechanism is the primary way large muscles like the quadriceps increase force production?
-    locator: 第 1 章 · Motor Unit Recruitment Patterns
-    options:
-      - text: recruit additional alpha-motor units
-        correct: true
-      - text: raise the firing rate of existing units
-        correct: false
-        why_wrong: Confuses rate coding with recruitment; firing rate carries the load only in small muscles holding very few motor units.
-      - text: grow CSA through chronic fiber hypertrophy
-        correct: false
-        why_wrong: Attributes acute output to chronic remodeling; added cross-sectional area cannot change force inside a single contraction.
-
-  # ── 肌纖維類型（sf1.B 解剖）──
-  - id: ch01.fiber-types.recruitment-order.q1
-    item: ch01.fiber-types.recruitment-order
-    dco: sf1.B.1
-    lang: zh
-    cognitive: application
-    stem: 想透過阻力訓練徵召到 Type IIx，最直接的訓練變項為何？
-    locator: 第 1 章 · Muscle Fiber Types
-    options:
-      - text: 用足夠大的負荷或夠快的速度使動作達到高強度
-        correct: true
-      - text: 採用低負荷、多次反覆並延長組間休息時間
-        correct: false
-        why_wrong: 低強度只徵召 Type I；無論做幾下或休多久，只要沒跨過高閾值，IIx 都不會被叫醒。
-      - text: 只延長暖身時間，不改變訓練的負荷與速度
-        correct: false
-        why_wrong: 把暖身視為徵召手段；暖身只能降低傷害風險，不會單獨決定徵召到哪一型纖維。
-
-  # ── 本體感覺（sf1.B 解剖）──
-  - id: ch01.proprioception.gto-function.q1
-    item: ch01.proprioception.gto-function
-    dco: sf1.B.1
-    lang: zh
-    cognitive: application
-    stem: 高爾基肌腱器被活化後，最立即的作用是什麼？
-    locator: 第 1 章 · Golgi Tendon Organs
-    options:
-      - text: 抑制支配該肌肉的運動神經元
-        correct: true
-      - text: 刺激支配拮抗肌的運動神經元
-        correct: false
-        why_wrong: 把 GTO 的抑制方向顛倒，並誤把作用對象換成拮抗肌；GTO 抑制的是同一條主動肌而非對側。
-      - text: 增強同一條肌肉的收縮強度
-        correct: false
-        why_wrong: 與 GTO 的功能方向相反；GTO 是保護性的抑制機制，目的是降低張力而非放大出力。
-
-  # ── 心血管（sf1.G）──
-  - id: ch01.cardiovascular.conduction.q1
-    item: ch01.cardiovascular.conduction
-    dco: sf1.G.1
-    lang: zh
-    cognitive: analysis
-    stem: 若心臟的電訊號仍正常由竇房結傳到房室結，但兩側心室收縮不再幾乎同步，最可能受損的是哪個構造？
-    locator: 第 1 章 · Conduction System
-    options:
-      - text: 遍布心室的浦金氏纖維
-        correct: true
-      - text: 啟動心臟節律的竇房結
-        correct: false
-        why_wrong: 把心室同步問題歸因於啟動節律；SA 結控制速率與起點，與兩心室同步收縮的時序無直接關聯。
-      - text: 位於心房與心室間的房室結
-        correct: false
-        why_wrong: 將房室間的延遲誤認為心室同步機制；AV 結只延遲心房與心室之間的訊號，並非同步兩心室。
-
-  - id: ch01.cardiovascular.heart-rate.q1
-    item: ch01.cardiovascular.heart-rate
-    dco: sf1.G.1
-    lang: zh
-    cognitive: analysis
-    stem: 為何耐力訓練有成的運動員安靜心率長期低於 60，卻不被視為病態，最主要的生理原因是什麼？
-    locator: 第 1 章 · Conduction System
-    options:
-      - text: 副交感張力提高使竇房結放電變慢
-        correct: true
-      - text: 竇房結出現病理性阻滯，訊號傳導變慢
-        correct: false
-        why_wrong: 把訓練適應誤判成傳導系統的病變；真正的阻滯會讓心律變得不規則，運動員的低心率卻是規則的。
-      - text: 心室幾乎只受副交感支配而被持續抑制
-        correct: false
-        why_wrong: 把兩套神經的分布寫反，而且心率由竇房結決定；心室受哪一套支配都不改變安靜心率的快慢。
-
-  # ── 呼吸（sf1.G）──
-  - id: ch01.respiratory.gas-exchange.q1
-    item: ch01.respiratory.gas-exchange
-    dco: sf1.G.1
-    lang: en
-    cognitive: application
-    stem: What is the primary force driving the movement of oxygen from the alveoli into the pulmonary capillaries?
-    locator: 第 1 章 · Exchange of Respiratory Gases
-    options:
-      - text: diffusion along the partial pressure gradient
-        correct: true
-      - text: ATP-powered carrier pumps O2 across the wall
-        correct: false
-        why_wrong: Models a gas on ion transport; oxygen is lipid-soluble and crosses the respiratory membrane without any carrier protein.
-      - text: inspiratory airflow carries O2 into capillaries
-        correct: false
-        why_wrong: Carries bulk airflow past its endpoint; convection stops inside the alveolus and diffusion takes over from that point.
+- id: ch01.skeleton.axial.q1
+  item: ch01.skeleton.axial
+  dco: sf1.D.1
+  lang: zh
+  cognitive: recall
+  stem: 全身骨頭的中軸由哪些構造組成？
+  locator: 第 1 章 · Skeleton
+  options:
+  - text: 頭顱、脊椎、肋骨與胸骨
+    correct: true
+  - text: 鎖骨、肩胛骨、肱骨、橈骨
+    correct: false
+    why_wrong: 把肩帶與上肢長骨當成中軸；肩胛與鎖骨歸入附肢系統，靠近胸廓也不改變分類。
+  - text: 髖骨、股骨、脛骨、腓骨
+    correct: false
+    why_wrong: 將骨盆帶與下肢長骨混為中軸；髖骨與下肢骨歸入附肢系統，與中軸骨骼的歸屬不同。
+- id: ch01.skeleton.synovial-joint.q1
+  item: ch01.skeleton.synovial-joint
+  dco: sf1.D.1
+  lang: zh
+  cognitive: recall
+  stem: 為什麼滑液關節能兼顧活動度與穩定？
+  locator: 第 1 章 · Skeleton
+  options:
+  - text: 由透明軟骨與韌帶協助穩定，而非靠骨頭卡住
+    correct: true
+  - text: 靠骨頭互相卡住以承受各種方向的張力
+    correct: false
+    why_wrong: 把骨骼卡住當成穩定來源；這種做法犧牲活動度，正是滑液關節要避免的機制。
+  - text: 由纖維結締組織直接相連以完全限制動作
+    correct: false
+    why_wrong: 把纖維關節的限制機制搬過來；纖維關節幾乎不能動，無法滿足滑液關節對活動度的要求。
+- id: ch01.skeleton.lever-system.q1
+  item: ch01.skeleton.lever-system
+  dco: sf1.C.2
+  lang: en
+  cognitive: recall
+  stem: Why must skeletal muscle act through the skeletal system to move an external load?
+  locator: 第 1 章 · Skeleton
+  options:
+  - text: muscles can only pull, never push
+    correct: true
+  - text: the widening belly wedges bone away
+    correct: false
+    why_wrong: Reads the thickening of a contracting belly as an outward push; force still travels along the line of pull, not sideways into the bone.
+  - text: tendons stiffen to thrust joints open
+    correct: false
+    why_wrong: Assumes tendon tissue can drive a limb by itself; it merely relays the pull that the muscle belly has already produced.
+- id: ch01.muscle-structure.sarcomere.q1
+  item: ch01.muscle-structure.sarcomere
+  dco: sf1.A.1
+  lang: en
+  cognitive: recall
+  stem: What is the resting length of a single sarcomere in skeletal muscle?
+  locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
+  options:
+  - text: about 2.5 µm from one Z-line to the next
+    correct: true
+  - text: around 1.6 µm across the A-band
+    correct: false
+    why_wrong: Takes the A-band width for the whole unit; that band spans only the thick filaments sitting inside one sarcomere.
+  - text: roughly 0.1 µm for the Z-disc width
+    correct: false
+    why_wrong: Reads the boundary marker as the unit it bounds; the Z-disc only marks where one sarcomere ends and the next starts.
+- id: ch01.sliding-filament.core.q1
+  item: ch01.sliding-filament.core
+  dco: sf1.A.2
+  lang: zh
+  cognitive: application
+  stem: 顯微鏡下觀察正在收縮的肌節，最穩定的判讀依據是哪一個？
+  locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
+  options:
+  - text: A 帶始終維持原本長度
+    correct: true
+  - text: I 帶的長度始終不變
+    correct: false
+    why_wrong: I 帶在收縮時會縮小，並非始終不變；這個「不變」特徵屬於 A 帶，不是 I 帶。
+  - text: H 區長度會持續變大
+    correct: false
+    why_wrong: 收縮時 H 區會縮小而非變大；方向剛好顛倒，誤把放鬆時的變化套用到收縮階段。
+- id: ch01.sliding-filament.atp-cleavage.q1
+  item: ch01.sliding-filament.atp-cleavage
+  dco: sf1.A.2
+  lang: zh
+  cognitive: application
+  stem: 能量主要是在橫橋循環的哪一步取得的？
+  locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
+  options:
+  - text: 肌凝蛋白 ATP 水解酶分解 ATP 的那一刻
+    correct: true
+  - text: 細絲被主動拉向肌節正中央的那個動力衝程階段
+    correct: false
+    why_wrong: 把出力當成取能；衝程階段釋放的是先前水解時儲存的構型能，不是當下才取得能量。
+  - text: 鈣離子從肌漿網絡釋放到肌漿內部的那個瞬間
+    correct: false
+    why_wrong: 將鈣釋放視為能量供應；鈣是開關訊號，本身不為橫橋提供機械能。
+- id: ch01.sliding-filament.relaxation.q1
+  item: ch01.sliding-filament.relaxation
+  dco: sf1.A.2
+  lang: en
+  cognitive: application
+  stem: For a muscle to return to its resting length after a contraction, what event must occur first?
+  locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
+  options:
+  - text: Ca²⁺ re-enters the SR
+    correct: true
+  - text: myosin ATPase binds actin
+    correct: false
+    why_wrong: Wrong trigger; relaxation requires calcium reuptake, not re-engagement.
+  - text: ACh stays in the synaptic cleft
+    correct: false
+    why_wrong: Wrong trigger; sustained ACh keeps the junction firing rather than enabling relaxation.
+- id: ch01.neuromuscular.tetanus.q1
+  item: ch01.neuromuscular.tetanus
+  dco: sf1.B.2
+  lang: zh
+  cognitive: application
+  stem: 提高刺激頻率能讓單一運動單位產生比單收縮更大的力量，最主要的機制是什麼？
+  locator: 第 1 章 · Activation of Muscles
+  options:
+  - text: 鈣離子還沒被完全收回，下一波又疊上來
+    correct: true
+  - text: 運動單位數量在頻率提高時被強迫加倍
+    correct: false
+    why_wrong: 違反全有全無律；同一條神經支配的肌纖維總量固定，並不會因頻率提高而多出單位。
+  - text: 單條肌纖維每次收縮可以擠出更多 ATP
+    correct: false
+    why_wrong: 將力量增加歸因於能量產出變多；力量的疊加來自橫橋作用時間延長，與 ATP 量的多寡無關。
+- id: ch01.neuromuscular.recruitment.q1
+  item: ch01.neuromuscular.recruitment
+  dco: sf1.B.2
+  lang: en
+  cognitive: application
+  stem: Which mechanism is the primary way large muscles like the quadriceps increase force production?
+  locator: 第 1 章 · Motor Unit Recruitment Patterns
+  options:
+  - text: recruit additional alpha-motor units
+    correct: true
+  - text: raise the firing rate of existing units
+    correct: false
+    why_wrong: Confuses rate coding with recruitment; firing rate carries the load only in small muscles holding very few motor units.
+  - text: grow CSA through chronic fiber hypertrophy
+    correct: false
+    why_wrong: Attributes acute output to chronic remodeling; added cross-sectional area cannot change force inside a single contraction.
+- id: ch01.fiber-types.recruitment-order.q1
+  item: ch01.fiber-types.recruitment-order
+  dco: sf1.B.1
+  lang: zh
+  cognitive: application
+  stem: 想透過阻力訓練徵召到 Type IIx，最直接的訓練變項為何？
+  locator: 第 1 章 · Muscle Fiber Types
+  options:
+  - text: 用足夠大的負荷或夠快的速度使動作達到高強度
+    correct: true
+  - text: 採用低負荷、多次反覆並延長組間休息時間
+    correct: false
+    why_wrong: 低強度只徵召 Type I；無論做幾下或休多久，只要沒跨過高閾值，IIx 都不會被叫醒。
+  - text: 只延長暖身時間，不改變訓練的負荷與速度
+    correct: false
+    why_wrong: 把暖身視為徵召手段；暖身只能降低傷害風險，不會單獨決定徵召到哪一型纖維。
+- id: ch01.proprioception.gto-function.q1
+  item: ch01.proprioception.gto-function
+  dco: sf1.B.1
+  lang: zh
+  cognitive: application
+  stem: 高爾基肌腱器被活化後，最立即的作用是什麼？
+  locator: 第 1 章 · Golgi Tendon Organs
+  options:
+  - text: 抑制支配該肌肉的運動神經元
+    correct: true
+  - text: 刺激支配拮抗肌的運動神經元
+    correct: false
+    why_wrong: 把 GTO 的抑制方向顛倒，並誤把作用對象換成拮抗肌；GTO 抑制的是同一條主動肌而非對側。
+  - text: 增強同一條肌肉的收縮強度
+    correct: false
+    why_wrong: 與 GTO 的功能方向相反；GTO 是保護性的抑制機制，目的是降低張力而非放大出力。
+- id: ch01.cardiovascular.conduction.q1
+  item: ch01.cardiovascular.conduction
+  dco: sf1.G.1
+  lang: zh
+  cognitive: analysis
+  stem: 若心臟的電訊號仍正常由竇房結傳到房室結，但兩側心室收縮不再幾乎同步，最可能受損的是哪個構造？
+  locator: 第 1 章 · Conduction System
+  options:
+  - text: 遍布心室的浦金氏纖維
+    correct: true
+  - text: 啟動心臟節律的竇房結
+    correct: false
+    why_wrong: 把心室同步問題歸因於啟動節律；SA 結控制速率與起點，與兩心室同步收縮的時序無直接關聯。
+  - text: 位於心房與心室間的房室結
+    correct: false
+    why_wrong: 將房室間的延遲誤認為心室同步機制；AV 結只延遲心房與心室之間的訊號，並非同步兩心室。
+- id: ch01.cardiovascular.heart-rate.q1
+  item: ch01.cardiovascular.heart-rate
+  dco: sf1.G.1
+  lang: zh
+  cognitive: analysis
+  stem: 為何耐力訓練有成的運動員安靜心率長期低於 60，卻不被視為病態，最主要的生理原因是什麼？
+  locator: 第 1 章 · Conduction System
+  options:
+  - text: 副交感張力提高使竇房結放電變慢
+    correct: true
+  - text: 竇房結出現病理性阻滯，訊號傳導變慢
+    correct: false
+    why_wrong: 把訓練適應誤判成傳導系統的病變；真正的阻滯會讓心律變得不規則，運動員的低心率卻是規則的。
+  - text: 心室幾乎只受副交感支配而被持續抑制
+    correct: false
+    why_wrong: 把兩套神經的分布寫反，而且心率由竇房結決定；心室受哪一套支配都不改變安靜心率的快慢。
+- id: ch01.respiratory.gas-exchange.q1
+  item: ch01.respiratory.gas-exchange
+  dco: sf1.G.1
+  lang: en
+  cognitive: application
+  stem: What is the primary force driving the movement of oxygen from the alveoli into the pulmonary capillaries?
+  locator: 第 1 章 · Exchange of Respiratory Gases
+  options:
+  - text: diffusion along the partial pressure gradient
+    correct: true
+  - text: ATP-powered carrier pumps O2 across the wall
+    correct: false
+    why_wrong: Models a gas on ion transport; oxygen is lipid-soluble and crosses the respiratory membrane without any carrier protein.
+  - text: inspiratory airflow carries O2 into capillaries
+    correct: false
+    why_wrong: Carries bulk airflow past its endpoint; convection stops inside the alveolus and diffusion takes over from that point.
+- id: ch01.muscle-structure.fiber-dimensions.q1
+  item: ch01.muscle-structure.fiber-dimensions
+  dco: sf1.A.1
+  lang: zh
+  cognitive: recall
+  stem: 一條骨骼肌纖維的直徑大約落在哪個範圍？
+  locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
+  options:
+  - text: 50 至 100 微米
+    correct: true
+  - text: 5 至 10 微米
+    correct: false
+    why_wrong: 把直徑少算了一個零；紅血球才落在那個範圍，肌纖維是肉眼可見的細絲，遠比血球粗。
+  - text: 500 至 1000 微米
+    correct: false
+    why_wrong: 把直徑多算了一個零；這個範圍已是肉眼可見的細繩層級，超過一條肌纖維的實際粗細。
+- id: ch01.muscle-structure.endomysium.q1
+  item: ch01.muscle-structure.endomysium
+  dco: sf1.A.1
+  lang: en
+  cognitive: recall
+  stem: Which connective tissue layer lies directly outside the sarcolemma of a single muscle fiber?
+  locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
+  options:
+  - text: Endomysium
+    correct: true
+  - text: Perimysium
+    correct: false
+    why_wrong: Confusing the scale of wrapping; perimysium surrounds a fasciculus of many fibers, not a single fiber.
+  - text: Epimysium
+    correct: false
+    why_wrong: Confusing the scale of wrapping; epimysium encloses the whole muscle, far outside any single fiber.
+- id: ch01.muscle-structure.bands.q1
+  item: ch01.muscle-structure.bands
+  dco: sf1.A.1
+  lang: zh
+  cognitive: application
+  stem: 要向學員指出單一肌節的範圍從哪裡到哪裡，最該看的是哪個構造？
+  locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
+  options:
+  - text: Z 線，細絲固定於此
+    correct: true
+  - text: M 線，固定相鄰粗絲
+    correct: false
+    why_wrong: 把肌節中央的構造當成邊界；M 線位在肌節正中間，固定的是相鄰的粗絲，不是兩個肌節的交界。
+  - text: H 區，中央只有粗絲
+    correct: false
+    why_wrong: 把一個會變動的空隙當成邊界；H 區是肌節中央沒有細絲的區段，收縮時還會縮小，標不出固定範圍。
+- id: ch01.muscle-structure.sr-ttubule.q1
+  item: ch01.muscle-structure.sr-ttubule
+  dco: sf1.A.1
+  lang: en
+  cognitive: application
+  stem: An action potential must reach the deep interior of a muscle fiber almost simultaneously with the surface. Which structure most directly enables this synchronization?
+  locator: 第 1 章 · Musculoskeletal Macrostructure and Microstructure
+  options:
+  - text: Transverse tubule
+    correct: true
+  - text: Sarcoplasmic reticulum
+    correct: false
+    why_wrong: Confuses conduction with storage; the sarcoplasmic reticulum stores and releases calcium, it does not carry the action potential inward.
+  - text: Surface sarcolemma
+    correct: false
+    why_wrong: Confuses surface conduction with inward spread; the sarcolemma carries the impulse along the outside of the fiber, but only the transverse tubules deliver it to the core.
+- id: ch01.sliding-filament.crossbridge-formation.q1
+  item: ch01.sliding-filament.crossbridge-formation
+  dco: sf1.A.2
+  lang: zh
+  cognitive: application
+  stem: 電訊號要變成實際的肌絲滑動，鈣離子扮演的最關鍵角色是哪一項？
+  locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
+  options:
+  - text: 解除細絲上對結合位點的遮蔽
+    correct: true
+  - text: 直接為動力衝程提供能量
+    correct: false
+    why_wrong: 把鈣與 ATP 的角色混為一談；ATP 水解才是動力衝程的能量來源，鈣只是開關。
+  - text: 把肌凝蛋白頭從細絲上拆下
+    correct: false
+    why_wrong: 把鈣與 ATP 在解離步驟的角色對調；讓橫橋脫開的是新接上的 ATP，不是鈣。
+- id: ch01.sliding-filament.power-stroke.q1
+  item: ch01.sliding-filament.power-stroke
+  dco: sf1.A.2
+  lang: zh
+  cognitive: recall
+  stem: 下列哪一個分子事件直接觸發肌凝蛋白頭的動力衝程？
+  locator: 第 1 章 · Sliding-Filament Theory of Muscular Contraction
+  options:
+  - text: 無機磷酸從肌凝蛋白頭釋出
+    correct: true
+  - text: 新的 ATP 接上肌凝蛋白頭
+    correct: false
+    why_wrong: 把解離步驟誤當作動力衝程的起點；ATP 接上是讓頭放鬆回位，不是啟動拉動。
+  - text: 鈣離子被泵回肌漿網儲存
+    correct: false
+    why_wrong: 把收縮終止的步驟誤當作拉動的觸發；鈣回收是收縮結束的訊號。
+- id: ch01.neuromuscular.motor-unit.q1
+  item: ch01.neuromuscular.motor-unit
+  dco: sf1.B.1
+  lang: zh
+  cognitive: recall
+  stem: 一個運動單位在解剖學上由哪些構造組成？
+  locator: 第 1 章 · Activation of Muscles
+  options:
+  - text: 一個運動神經元與它支配的所有肌纖維
+    correct: true
+  - text: 一束肌纖維加上包覆的肌束膜
+    correct: false
+    why_wrong: 漏掉了神經元這一端；肌束與肌束膜是結構單元，不是神經肌肉的功能單元。
+  - text: 一條肌纖維加上該纖維的所有肌內膜
+    correct: false
+    why_wrong: 把單一纖維誤當作整個運動單位；一個運動單位涵蓋的是該神經元支配的全部肌纖維，不只一條。
+- id: ch01.neuromuscular.all-or-none.q1
+  item: ch01.neuromuscular.all-or-none
+  dco: sf1.B.2
+  lang: en
+  cognitive: application
+  stem: Each motor unit contracts maximally once it fires, yet a whole muscle can produce graded levels of force. Which mechanism is primarily responsible?
+  locator: 第 1 章 · Activation of Muscles
+  options:
+  - text: The nervous system recruits more motor units and changes firing frequency
+    correct: true
+  - text: Each triggered motor unit produces a stronger twitch when stimulated harder
+    correct: false
+    why_wrong: Misreading the all-or-none law; once a motor unit fires, its fibers contract fully and cannot contract harder on a single stimulus.
+  - text: Individual muscle fibers within a unit can be activated selectively
+    correct: false
+    why_wrong: Treating fibers inside one unit as independently controllable; by definition all fibers of a motor unit share the same neuron and fire together.
+- id: ch01.neuromuscular.twitch.q1
+  item: ch01.neuromuscular.twitch
+  dco: sf1.B.2
+  lang: zh
+  cognitive: application
+  stem: 記錄到一段肌肉力量曲線，要判定它是一次單收縮，最關鍵的特徵在哪裡？
+  locator: 第 1 章 · Activation of Muscles
+  options:
+  - text: 由單一動作電位引發的一次短暫峰值
+    correct: true
+  - text: 力量曲線從頭到尾平坦，看不出起伏
+    correct: false
+    why_wrong: 把完全強直的曲線特徵套到單收縮上；單收縮只有一次峰值，力量會在達峰後隨鈣回收而下降。
+  - text: 峰值出現後力量停在高點不再下降
+    correct: false
+    why_wrong: 把力量能停在高點當成單收縮的特徵；鈣在達峰前就已開始被泵回，一次刺激撐不住高原期。
+- id: ch01.fiber-types.type-iix.q1
+  item: ch01.fiber-types.type-iix
+  dco: sf1.B.1
+  lang: en
+  cognitive: application
+  stem: A sprinter relies on Type IIx fibers at the start of a maximal effort. Which combination of features most directly explains this reliance?
+  locator: 第 1 章 · Muscle Fiber Types
+  options:
+  - text: Large motor neuron, high threshold, fast contraction
+    correct: true
+  - text: Small motor neuron, low threshold, high oxidative capacity
+    correct: false
+    why_wrong: Describes Type I fibers; Type IIx has the opposite profile and would be inappropriate for a maximal sprint.
+  - text: Moderate motor neuron, intermediate threshold, mixed metabolism
+    correct: false
+    why_wrong: Describes Type IIa, which sits between Type I and Type IIx rather than matching the maximal-effort profile.
+- id: ch01.fiber-types.type-iia.q1
+  item: ch01.fiber-types.type-iia
+  dco: sf1.B.1
+  lang: zh
+  cognitive: application
+  stem: 拳擊選手要在多個回合裡反覆出重拳，最符合這項需求的肌纖維具備什麼特性？
+  locator: 第 1 章 · Muscle Fiber Types
+  options:
+  - text: 收縮快、抗疲勞中等
+    correct: true
+  - text: 收縮慢、極耐疲勞
+    correct: false
+    why_wrong: 把耐力型纖維的側寫誤當成答案；收縮慢的纖維雖然耐疲勞，但出不了重拳需要的力量與速度。
+  - text: 收縮最快、極易疲勞
+    correct: false
+    why_wrong: 把純爆發型纖維的側寫誤當成答案；它速度最快，卻在幾拳之內就掉速，撐不完一個回合。
+- id: ch01.fiber-types.improve-force.q1
+  item: ch01.fiber-types.improve-force
+  dco: sf1.B.2
+  lang: en
+  cognitive: analysis
+  stem: A novice lifter gains strength rapidly during the first weeks of training without visible muscle growth. Which neural adaptation most directly explains this early gain?
+  locator: 第 1 章 · Muscle Fiber Types
+  options:
+  - text: Improved recruitment of high-threshold motor units
+    correct: true
+  - text: Conversion of Type I fibers into Type IIa fibers
+    correct: false
+    why_wrong: Treats fiber-type conversion as the dominant early adaptation; this shift is slow and does not explain rapid early strength gains.
+  - text: Permanent enlargement of the muscle spindle
+    correct: false
+    why_wrong: Conflates proprioceptive remodeling with force output; spindle changes alter reflex gain, not the force a muscle can produce.
+- id: ch01.proprioception.spindle.q1
+  item: ch01.proprioception.spindle
+  dco: sf1.B.1
+  lang: en
+  cognitive: recall
+  stem: Which two variables does the muscle spindle most directly detect?
+  locator: 第 1 章 · Muscle Spindles
+  options:
+  - text: Muscle length and its rate of change
+    correct: true
+  - text: Muscle tension and joint position
+    correct: false
+    why_wrong: Attributes tension sensing to the spindle; tension is the domain of the Golgi tendon organ, not the spindle.
+  - text: Muscle temperature and blood flow
+    correct: false
+    why_wrong: Lists variables that no proprioceptor in this chapter measures; neither spindle nor GTO senses temperature or perfusion.
+- id: ch01.proprioception.stretch-reflex.q1
+  item: ch01.proprioception.stretch-reflex
+  dco: sf1.B.2
+  lang: zh
+  cognitive: application
+  stem: 膝跳反射從叩擊到下肢踢出幾乎沒有延遲，最主要的解釋是哪一項？
+  locator: 第 1 章 · Muscle Spindles
+  options:
+  - text: 訊號在脊髓就直接折返，不必上到大腦
+    correct: true
+  - text: 運動神經元以最大傳導速度發送訊號
+    correct: false
+    why_wrong: 把速度歸因於傳導速度的個別差異；延遲極短的根本原因是路徑短，不是訊號特別快。
+  - text: 骨骼肌纖維在反射中以等長方式收縮
+    correct: false
+    why_wrong: 把反射的時間特徵與收縮型態混為一談；膝跳時股四頭肌其實是向心收縮。
+- id: ch01.proprioception.gto-adaptation.q1
+  item: ch01.proprioception.gto-adaptation
+  dco: sf1.H.1
+  lang: en
+  cognitive: application
+  stem: After months of heavy resistance training, a lifter can exceed forces that would have triggered protective inhibition earlier. Which adaptation most directly explains this?
+  locator: 第 1 章 · Golgi Tendon Organs
+  options:
+  - text: The motor cortex learns to override GTO-mediated inhibition
+    correct: true
+  - text: The Golgi tendon organ physically enlarges and stops firing
+    correct: false
+    why_wrong: Treats the GTO as a structure that shuts off; it continues to fire, but its inhibitory signal can be overridden by descending drive.
+  - text: Type I fibers replace Type II fibers in trained muscle
+    correct: false
+    why_wrong: Confuses fiber-type shifts with neural adaptation; the override is a neural change, not a swap of fiber populations.
+- id: ch01.cardiovascular.pacemaker-hierarchy.q1
+  item: ch01.cardiovascular.pacemaker-hierarchy
+  dco: sf1.G.1
+  lang: zh
+  cognitive: application
+  stem: 竇房結一旦失效，心臟通常不會停止跳動，而是改由下一層接手變慢。下列哪一項最能解釋這個現象？
+  locator: 第 1 章 · Conduction System
+  options:
+  - text: 下游節律點固有頻率較慢但都能自發
+    correct: true
+  - text: 下游組織必須由竇房結發出訊號才能收縮
+    correct: false
+    why_wrong: 否認下游節律點的自主性；若必須依賴竇房結，竇房結一停，心跳就停。
+  - text: 心室的肌肉細胞只有在被刺激時才會跳動
+    correct: false
+    why_wrong: 低估心室的自發能力；心室肌的固有放電頻率雖慢，仍足以維持基本節律。
+- id: ch01.cardiovascular.ecg.q1
+  item: ch01.cardiovascular.ecg
+  dco: sf1.G.1
+  lang: zh
+  cognitive: application
+  stem: 看心電圖時，QRS 複合波結束後最直接對應到心臟的哪一個動作？
+  locator: 第 1 章 · Electrocardiogram
+  options:
+  - text: 心室收縮
+    correct: true
+  - text: 心房收縮
+    correct: false
+    why_wrong: 把心房事件誤配到 QRS 之後；心房事件對應的是 P 波，且發生在 QRS 之前。
+  - text: 心室再極化
+    correct: false
+    why_wrong: 把再極化誤放在收縮的位置；心室再極化對應的是 T 波，發生在收縮之後。
+- id: ch01.respiratory.inspiration.q1
+  item: ch01.respiratory.inspiration
+  dco: sf1.G.1
+  lang: zh
+  cognitive: application
+  stem: 安靜吸氣時，最直接把空氣推進肺裡的是哪一股力量？
+  locator: 第 1 章 · Exchange of Air
+  options:
+  - text: 大氣壓與肺內負壓的壓力差
+    correct: true
+  - text: 橫膈膜主動把空氣往下拉
+    correct: false
+    why_wrong: 把肌肉的動作誤當作氣體的推力；橫膈膜做的是撐大胸腔產生壓力差，不是吸氣。
+  - text: 肺泡壁細胞主動運輸氧氣
+    correct: false
+    why_wrong: 把氣體交換的主動運輸誤套到整體通氣；通氣靠壓力差，不是主動運輸。
+- id: ch01.respiratory.alveolar-pressure.q1
+  item: ch01.respiratory.alveolar-pressure
+  dco: sf1.G.1
+  lang: zh
+  cognitive: analysis
+  stem: 氣胸患者若胸壁破裂使外界與胸膜腔相通，最危險的後果為何？
+  locator: 第 1 章 · Exchange of Air
+  options:
+  - text: 胸膜腔負壓消失，肺失去支撐而塌陷
+    correct: true
+  - text: 肺泡主動把空氣排出造成過度換氣
+    correct: false
+    why_wrong: 把肺泡誤當作主動排氣的器官；肺泡沒有主動排氣的機制。
+  - text: 氣管分支代數減少導致氣流阻塞
+    correct: false
+    why_wrong: 把氣胸誤當作結構性阻塞；氣胸破壞的是壓力平衡，不是氣道分支。
+- id: ch01.respiratory.energy-cost.q1
+  item: ch01.respiratory.energy-cost
+  dco: sf1.G.2
+  lang: en
+  cognitive: analysis
+  stem: During very high-intensity exercise, which factor most directly turns the metabolic cost of breathing into a meaningful drain on performance?
+  locator: 第 1 章 · Exchange of Air
+  options:
+  - text: Respiratory muscles themselves consume a large share of total oxygen delivery
+    correct: true
+  - text: Breathing rate replaces heart rate as the limiting cardiovascular variable
+    correct: false
+    why_wrong: Treats breathing rate as a substitute for cardiac output; cardiac output remains the central delivery variable regardless of breathing.
+  - text: Oxygen uptake falls because hemoglobin stops binding oxygen at high ventilation
+    correct: false
+    why_wrong: Invents a hemoglobin effect that does not exist; oxygen binding is not switched off by high ventilation.
+- id: ch01.skeleton.appendicular.q1
+  item: ch01.skeleton.appendicular
+  dco: sf1.A.1
+  lang: zh
+  cognitive: recall
+  stem: 下列哪一組骨骼全部屬於附肢骨骼？
+  locator: 第 1 章 · Skeleton
+  options:
+  - text: 肩胛骨、肱骨、股骨
+    correct: true
+  - text: 顱骨、脊椎、肋骨
+    correct: false
+    why_wrong: 把軸心骨骼誤當作附肢骨骼；顱骨、脊椎、肋骨都是中軸的構成。
+  - text: 胸骨、薦椎、尾椎
+    correct: false
+    why_wrong: 把已融合的軸心骨骼誤當作附肢；胸骨、薦椎、尾椎都屬於中軸。
