@@ -1,0 +1,111 @@
+{
+  "conclusion": "success",
+  "headSha": "7d4b329e0567094378b9ffa1cf92f8fca7a9e0d3",
+  "jobs": [
+    {
+      "completedAt": "2026-09-22T08:27:05Z",
+      "conclusion": "success",
+      "databaseId": 106671172755,
+      "name": "build",
+      "startedAt": "2026-09-22T08:26:53Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-09-22T08:26:55Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-09-22T08:26:54Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-22T08:26:57Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 2,
+          "startedAt": "2026-09-22T08:26:55Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-22T08:26:59Z",
+          "conclusion": "success",
+          "name": "Install Hugo",
+          "number": 3,
+          "startedAt": "2026-09-22T08:26:57Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-22T08:27:01Z",
+          "conclusion": "success",
+          "name": "Build",
+          "number": 4,
+          "startedAt": "2026-09-22T08:26:59Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-22T08:27:03Z",
+          "conclusion": "success",
+          "name": "Upload Pages artifact",
+          "number": 5,
+          "startedAt": "2026-09-22T08:27:01Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-22T08:27:03Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 10,
+          "startedAt": "2026-09-22T08:27:03Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-22T08:27:03Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 11,
+          "startedAt": "2026-09-22T08:27:03Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/Hangsau/cortex/actions/runs/35704841803/job/106671172755"
+    },
+    {
+      "completedAt": "2026-09-22T08:27:19Z",
+      "conclusion": "success",
+      "databaseId": 106671247177,
+      "name": "deploy",
+      "startedAt": "2026-09-22T08:27:09Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-09-22T08:27:11Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-09-22T08:27:10Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-22T08:27:18Z",
+          "conclusion": "success",
+          "name": "Deploy to GitHub Pages",
+          "number": 2,
+          "startedAt": "2026-09-22T08:27:11Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-09-22T08:27:18Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 3,
+          "startedAt": "2026-09-22T08:27:18Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/Hangsau/cortex/actions/runs/35704841803/job/106671247177"
+    }
+  ],
+  "status": "completed",
+  "url": "https://github.com/Hangsau/cortex/actions/runs/35704841803",
+  "checked_at": "2026-09-22T09:23:03.584609+00:00"
+}
