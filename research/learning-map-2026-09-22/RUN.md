@@ -14,7 +14,7 @@
 - [x] 逐站閱讀指定小節，核對提示與先備關係。
 - [x] 地圖版型、手機樣式與雙向導航。
 - [x] 結構、錯誤資料、HTML、瀏覽器與既有閱讀器驗收。
-- [ ] 交接、發布與正式站確認。
+- [x] 交接、發布與正式站確認。
 
 ## 設計判斷
 
@@ -40,3 +40,5 @@
 本輪 Windows 沙箱對 inline Python 啟動 Hugo 回傳 WinError 5；同一組 fixtures 經權限提升後完成，finally 已還原資料。截圖最初拍在原生平滑捲動完成前，驗收已改為等待目標到達視窗內；無 JS 情境改由 Node 輪詢位置，避免依賴被停用的 requestAnimationFrame。
 
 最終驗收：`check_learning_map.py --self-test` 的 17 個負面資料案例全通過；Hugo 173 頁；`reading_check.py --html` 33 章／1,106 節、2,021 個站內連結與錨點，0 錯；原頁服務 18/18；既有閱讀器瀏覽器 97/97；學習地圖瀏覽器 90/90（含 320／390 px、22px、紙色／夜色、鍵盤、無 JavaScript、拒絕／損壞 localStorage、33 章返回連結）。截圖存於 `C:/claudehome/tmp/learning-map-review/screenshots/`。
+
+發布：提交 `a17c2604d6f863720e65911e84d6c135d364f477` 已推送至 `Hangsau/cortex` 的 `hugo-source`；部署 CI [35740295588](https://github.com/Hangsau/cortex/actions/runs/35740295588) 的 build／deploy 成功。正式站 5 個入口均 HTTP 200，學習地圖標題、25 站與兩冊／章頁入口均可見；正式站 URL 為 `https://hangsau.github.io/cortex/library/kinesiology/learning-map/`。完整摘要見 `publication-status.json`。
