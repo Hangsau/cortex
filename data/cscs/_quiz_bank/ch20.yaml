@@ -1,0 +1,612 @@
+meta:
+  chapter: ch20
+  source: data/cscs/ch20.yaml
+questions:
+- id: ch20.hr-calculations.i04.q1
+  item: ch20.hr-calculations.i04
+  dco: pa1.E.2
+  lang: zh
+  cognitive: application
+  stem: 一名 30 歲運動員安靜心率為 60 bpm，若以 Karvonen 法計算 60% 至 70% 功能能力的目標心率範圍，最主要的每分鐘心跳應為何？
+  locator: 'Designing an Aerobic Endurance Program > Step 3: Training Intensity > Heart Rate'
+  options:
+  - text: 138 至 151 下
+    correct: true
+  - text: 114 至 133 下
+    correct: false
+    why_wrong: 把 MHR 百分比法套進 Karvonen 公式，未先把強度乘以 HRR 再加回安靜心率，結果低估了目標心率區間。
+  - text: 162 至 175 下
+    correct: false
+    why_wrong: 以 APMHR 直接乘以強度上限並外推到上限附近，未扣掉 RHR，也未以 HRR 計算，因此高估了目標心率。
+- id: ch20.hr-calculations.i06.q1
+  item: ch20.hr-calculations.i06
+  dco: pa1.E.2
+  lang: zh
+  cognitive: application
+  stem: 一名 20 歲運動員以最大心率百分比法進行 70% 至 85% 最大心率的訓練時，每 10 秒心跳監測應落在哪個範圍？
+  locator: 'Designing an Aerobic Endurance Program > Step 3: Training Intensity > Heart Rate'
+  options:
+  - text: 23 至 28 下
+    correct: true
+  - text: 14 至 17 下
+    correct: false
+    why_wrong: 把 beats/min 直接當成每 10 秒的數值，未除以 6 進行換算，使監測讀值遠低於實際目標。
+  - text: 35 至 41 下
+    correct: false
+    why_wrong: 誤以為每分鐘心跳即每 10 秒心跳的倍數，把 beats/min 乘以某個倍數而非除以 6，讀值被人為放大。
+- id: ch20.intensity-monitoring.i02.q1
+  item: ch20.intensity-monitoring.i02
+  dco: pa1.E.2
+  lang: zh
+  cognitive: application
+  stem: 若教練無法安排實驗室 V̇O₂max 測試，但仍希望以心率處方有氧強度，最可靠的替代依據為何？
+  locator: 'Designing an Aerobic Endurance Program > Step 3: Training Intensity > Heart Rate'
+  options:
+  - text: 以乳酸閾值對應的特定心率為目標
+    correct: true
+  - text: 以 APMHR 公式直接乘以固定百分比
+    correct: false
+    why_wrong: 僅依年齡推估最大心率處方，忽略 APMHR 對運動模式與適能水準的解釋力僅約 75%，無法對應乳酸閾值強度。
+  - text: 以 RPE 6 至 7 的主觀感覺為唯一依據
+    correct: false
+    why_wrong: RPE 受音樂、影片、環境溫度、海拔與外部回饋影響，只用主觀感覺處方會把情境干擾當成強度訊號。
+- id: ch20.training-types.i04.q1
+  item: ch20.training-types.i04
+  dco: pa1.B.1
+  lang: zh
+  cognitive: application
+  stem: 教練依表 20.4 為選手安排工作段 30 至 90 秒的高強度間歇訓練，下列哪一組工作與休息時間最符合教材給的比例？
+  locator: Types of Aerobic Endurance Training Programs > High-Intensity Interval Training > Table 20.4 Types of Aerobic Endurance Training
+  options:
+  - text: 工作 60 秒、休息 300 秒
+    correct: true
+  - text: 工作 60 秒、休息 60 秒
+    correct: false
+    why_wrong: 這是一比一的安排，恢復時間遠短於表 20.4 給的比例；休息不夠會讓後面的工作段掉速，受傷風險也跟著墊高。
+  - text: 工作 60 秒、休息 12 秒
+    correct: false
+    why_wrong: 把比例整個顛倒過來，恢復只剩工作段的五分之一；選手撐不完整堂課，也就累積不到教材要求的高強度時間。
+- id: ch20.training-types.i07.q1
+  item: ch20.training-types.i07
+  dco: pa1.H
+  lang: zh
+  cognitive: analysis
+  stem: 一名跑步新手在尚未建立穩定有氧基礎前，教練即安排每週多次間歇訓練，最可能忽略的首要風險為何？
+  locator: Types of Aerobic Endurance Training Programs > Interval Training
+  options:
+  - text: 過度訓練與傷害風險升高
+    correct: true
+  - text: 脂肪作為燃料的利用率下降
+    correct: false
+    why_wrong: 把代謝層面的長期適應當成短期風險，忽略間歇訓練在缺乏有氧基礎時的主要問題是負荷過高與恢復不足。
+  - text: Type I 肌纖維徵召比例過低
+    correct: false
+    why_wrong: 將焦點放在徵召型態而非恢復與傷害；教材強調的是節制使用與建立基礎，而非直接操控徵召比例。
+- id: ch20.periodization.i01.q1
+  item: ch20.periodization.i01
+  dco: pa1.I.2
+  lang: zh
+  cognitive: analysis
+  stem: 一名長跑選手進入休季初期，教練將每週訓練頻率訂為 5 至 6 次、低至中等強度、長持續時間，最應再補上哪一條持續時間進展原則以避免反效果？
+  locator: Application of Program Design to Training Seasons > Off-Season (Base Training) > Table 20.5 Sport Season Objectives and Program Design Assignments
+  options:
+  - text: 每週增幅不超過 10%
+    correct: true
+  - text: 每週增幅不超過 30%
+    correct: false
+    why_wrong: 把持續時間的進展幅度放大到教材上限的三倍；休季基礎期以這種速度累加里程，恢復跟不上，有氧耐力表現反而會被拖下來。
+  - text: 每週增幅不超過 50%
+    correct: false
+    why_wrong: 約等於每兩週就把訓練量翻倍，遠超教材給的漸進上限，長跑選手在這種安排下最容易出現過度訓練與傷害。
+- id: ch20.special-issues.i03.q1
+  item: ch20.special-issues.i03
+  dco: pa1.I.2
+  lang: zh
+  cognitive: recall
+  stem: 一名游泳選手準備在錦標賽達到巔峰，教練開始系統性降低訓練持續時間與強度，並把重心移到技術與營養，依教材所述這段減量期的典型長度為何？
+  locator: Special Issues Related to Aerobic Endurance Training > Tapering
+  options:
+  - text: 7 至 28 天
+    correct: true
+  - text: 3 至 5 天
+    correct: false
+    why_wrong: 把減量期縮到一週以內，無法完整執行教材所述的技術工作與營養介入，也不足以完成肝醣回補。
+  - text: 8 至 12 週
+    correct: false
+    why_wrong: 把減量期拉長到數月，已超出教材所述的典型範圍，反而會流失訓練量誘發的適應。
+- id: ch20.special-issues.i04.q1
+  item: ch20.special-issues.i04
+  dco: pa1.I.2
+  lang: en
+  cognitive: analysis
+  stem: A swimmer 14 days out from championships wants the largest possible drop in total training volume while keeping intensity and frequency constant. Which tapering model best matches this goal?
+  locator: Special Issues Related to Aerobic Endurance Training > Tapering
+  options:
+  - text: Step taper with an immediate reduction of at least 50%
+    correct: true
+  - text: Linear taper with equal daily volume reductions
+    correct: false
+    why_wrong: A linear taper spreads the reduction evenly across the whole period, so it never produces the large single drop in total training volume that the swimmer wants.
+  - text: Progressive taper with an immediate 10 to 15% cut
+    correct: false
+    why_wrong: A progressive taper starts with a much smaller drop than 50%, so the volume reduction in 14 days is too modest for the swimmer's stated goal.
+- id: ch20.program-design.i07.q1
+  item: ch20.program-design.i07
+  dco: pa1.G.3
+  lang: zh
+  cognitive: application
+  stem: 一名受傷的耐力選手希望在維持訓練強度的前提下減少訓練量，最安全的頻率調整為何？
+  locator: 'Designing an Aerobic Endurance Program > Step 5: Exercise Progression'
+  options:
+  - text: 每週至少維持 2 次訓練
+    correct: true
+  - text: 完全停止所有訓練直到傷癒
+    correct: false
+    why_wrong: 完全停訓會迅速失去部分訓練誘發的適應；教材建議保留主要模式、降低頻率與強度，而非一刀切停掉所有刺激。
+  - text: 把每週頻率降到 1 次以避免再度過載
+    correct: false
+    why_wrong: 把頻率降到每週 1 次低於教材所述維持有氧適能的 2 次門檻，將使適能在短時間內明顯流失。
+- id: ch20.aerobic-performance-factors.i02.q1
+  item: ch20.aerobic-performance-factors.i02
+  dco: pa1.A.1
+  lang: zh
+  cognitive: analysis
+  stem: 兩名 V̇O₂max 相近的長跑選手在比賽中表現明顯不同，最可能解釋此差異的下一個評估指標為何？
+  locator: Factors Related to Aerobic Endurance Performance > Lactate Threshold
+  options:
+  - text: 乳酸閾值對應速度
+    correct: true
+  - text: 身高與四肢比例
+    correct: false
+    why_wrong: 把焦點放在解剖測量而非生理門檻；當 V̇O₂max 接近時，教材建議進一步比較的是 LT，而非外型參數。
+  - text: 安靜心率絕對值
+    correct: false
+    why_wrong: 把監測指標誤當成表現差異的解釋變項；安靜心率屬於處方輔助，無法直接說明 V̇O₂max 接近時的表現落差。
+- id: ch20.altitude-training.i05.q1
+  item: ch20.altitude-training.i05
+  dco: pa1.B.2
+  lang: zh
+  cognitive: application
+  stem: 欲同時取得高度適應與海平面訓練刺激的耐力選手，最符合教材描述的安排為何？
+  locator: Special Issues Related to Aerobic Endurance Training > Altitude
+  options:
+  - text: 居住於高海拔，訓練回到平地
+    correct: true
+  - text: 平地作息，每天上山完成課表
+    correct: false
+    why_wrong: 把居住與訓練的高度對調；上到高地訓練會讓速度與強度被稀薄空氣限制住，也拿不到長時間待在低氧環境才有的適應。
+  - text: 整季都待在高海拔地區生活訓練
+    correct: false
+    why_wrong: 整季留在高地雖然能適應低氧，但訓練速度同樣被高度壓低，失去了在接近海平面處維持高強度刺激的那一半效益。
+- id: ch20.aerobic-performance-factors.i05.q1
+  item: ch20.aerobic-performance-factors.i05
+  dco: pa1.A.1
+  lang: en
+  cognitive: analysis
+  stem: Two endurance athletes match on V̇O₂max and lactate threshold, yet one clearly outperforms the other during long steady-state races. Which factor is most likely to explain the remaining gap in aerobic endurance performance?
+  locator: Factors Related to Aerobic Endurance Performance > Maximal Aerobic Capacity
+  options:
+  - text: Greater efficiency of using fat as a fuel during prolonged exercise
+    correct: true
+  - text: A higher proportion of Type IIx muscle fibers in the working muscles
+    correct: false
+    why_wrong: Interprets fiber-type distribution opposite to the textbook; a higher Type IIx share is associated with less, not more, efficient fat oxidation during steady-state endurance work.
+  - text: Lower maximal heart rate so the athlete stays sub-lactate threshold
+    correct: false
+    why_wrong: Reduces the problem to a single cardiovascular ceiling; the textbook treats fuel-use efficiency as a distinct performance factor that still operates once lactate threshold is held comparable.
+- id: ch20.aerobic-performance-factors.i07.q1
+  item: ch20.aerobic-performance-factors.i07
+  dco: pa1.A.1
+  lang: zh
+  cognitive: analysis
+  stem: 一名 V̇O₂max 已達 78 ml·kg⁻¹·min⁻¹ 的耐力選手持續以中等強度的長距離慢跑為主要訓練，教練欲進一步提升其競賽表現，最應優先加入何種訓練？
+  locator: Factors Related to Aerobic Endurance Performance > Maximal Aerobic Capacity
+  options:
+  - text: 高強度間歇訓練
+    correct: true
+  - text: 更多長距離慢跑
+    correct: false
+    why_wrong: 對 V̇O₂max 已極高的選手，繼續累積慢跑量通常難以帶來明顯表現提升，反而強化了低於競賽強度的適應。
+  - text: 完全停止有氧訓練
+    correct: false
+    why_wrong: 停訓會迅速讓既有的有氧與代謝適應朝訓練前水準退去，並非教材所指「已高度發展」狀態下的合理選擇。
+- id: ch20.altitude-training.i01.q1
+  item: ch20.altitude-training.i01
+  dco: pa1.A.1
+  lang: zh
+  cognitive: recall
+  stem: 教材將海拔高度分類為若干層級，下列哪一項是教材所列「中度」分類的海拔範圍？
+  locator: Special Issues Related to Aerobic Endurance Training > Altitude
+  options:
+  - text: 大於 2,000 至 3,000 m
+    correct: true
+  - text: 大於 500 至 2,000 m
+    correct: false
+    why_wrong: 把低度分類的範圍誤認為中度；該範圍在教材中對應的是低度而非中度高度。
+  - text: 大於 3,000 至 5,500 m
+    correct: false
+    why_wrong: 把高度分類的範圍誤認為中度；這個區間在教材中對應的是高度而非中度高度。
+- id: ch20.altitude-training.i02.q1
+  item: ch20.altitude-training.i02
+  dco: pa1.A.1
+  lang: zh
+  cognitive: analysis
+  stem: 教練向選手說明：「高海拔的空氣氧氣比例變少，所以耐力表現下降。」這句話最主要是忽略了哪一個關鍵生理變項？
+  locator: Special Issues Related to Aerobic Endurance Training > Altitude
+  options:
+  - text: 大氣壓下降使氧分壓下降
+    correct: true
+  - text: 二氧化碳分壓同步上升
+    correct: false
+    why_wrong: 重點不是 CO₂ 分壓上升，而是總大氣壓下降使進入肺部的氧分壓驅動力變小。
+  - text: 血紅素對氧的親和力上升
+    correct: false
+    why_wrong: 急性高地反應是氧分壓驅動力下降，而不是血紅素親和力改變；親和力也通常因 2,3-DPG 變化而下降而非上升。
+- id: ch20.intensity-monitoring.i03.q1
+  item: ch20.intensity-monitoring.i03
+  dco: pa1.E.2
+  lang: zh
+  cognitive: application
+  stem: 一位 30 歲跑者在攝氏 32 度下進行長距離慢跑，他回報 RPE 為 9。下列何者最可能是影響他此次 RPE 評分的外在因素？
+  locator: 'Designing an Aerobic Endurance Program > Step 3: Training Intensity > Ratings of Perceived Exertion Scales > Table 20.2 Rating of Perceived Exertion (RPE) Scale'
+  options:
+  - text: 環境溫度偏高
+    correct: true
+  - text: 攝氧量的絕對值
+    correct: false
+    why_wrong: 把內在生理負荷當成 RPE 的外在影響因子；RPE 才是感知量，被攝氧量本身並不會「影響」這個評分。
+  - text: 心率儲備的計算方式
+    correct: false
+    why_wrong: 這是處方強度的計算方法，不是教材明列的 RPE 影響因素。
+- id: ch20.intensity-monitoring.i04.q1
+  item: ch20.intensity-monitoring.i04
+  dco: pa1.E.2
+  lang: en
+  cognitive: application
+  stem: A coach prescribes a training activity reported as 10 METs for an athlete whose maximal oxygen uptake has been estimated. What does the 10 MET value most directly represent for this prescription?
+  locator: 'Designing an Aerobic Endurance Program > Step 3: Training Intensity > Metabolic Equivalents'
+  options:
+  - text: A multiple of the resting oxygen uptake value
+    correct: true
+  - text: The athlete's individual lactate threshold value
+    correct: false
+    why_wrong: MET is a multiple of resting oxygen uptake, not an estimate of an individual's lactate threshold expressed in absolute units.
+  - text: A percentage of the athlete's age-predicted maximal heart rate
+    correct: false
+    why_wrong: MET is defined relative to resting oxygen uptake; it is not derived from or expressed as a percentage of maximal heart rate.
+- id: ch20.intensity-monitoring.i06.q1
+  item: ch20.intensity-monitoring.i06
+  dco: pa1.E.2
+  lang: zh
+  cognitive: analysis
+  stem: 兩位同齡跑者使用相同的 Karvonen 公式處方目標心率區間，但實驗室測得的最大心率差異顯著。下列何者最能解釋以年齡推估最大心率在實務上的限制？
+  locator: 'Designing an Aerobic Endurance Program > Step 3: Training Intensity > Heart Rate'
+  options:
+  - text: 年齡僅解釋心率變異的一部分
+    correct: true
+  - text: Karvonen 公式不採用安靜心率
+    correct: false
+    why_wrong: 教材明說 Karvonen 法需先以 APMHR 減去 RHR 得到 HRR，與此敘述相反。
+  - text: 安靜心率不會影響任何計算結果
+    correct: false
+    why_wrong: 安靜心率是 Karvonen 公式的輸入項，會直接改變算出的目標心率，不能說沒有影響。
+- id: ch20.periodization.i02.q1
+  item: ch20.periodization.i02
+  dco: pa1.I.2
+  lang: zh
+  cognitive: application
+  stem: 一支大學長跑隊即將進入季前訓練期，總教練應最優先採取下列哪一項課表調整？
+  locator: Application of Program Design to Training Seasons > Preseason > Table 20.5 Sport Season Objectives and Program Design Assignments
+  options:
+  - text: 提高強度並納入所有有氧訓練類型
+    correct: true
+  - text: 把每週訓練次數降至兩次以下
+    correct: false
+    why_wrong: 季前的方向是增加而非大幅降低頻率；每週少於兩次的研究結果是關於 V̇O₂max 提升的最低門檻，不是季前建議。
+  - text: 維持與休季完全相同的訓練處方
+    correct: false
+    why_wrong: 季前須提高強度、納入所有有氧訓練類型，照搬休季處方無法對應季前的目標。
+- id: ch20.periodization.i03.q1
+  item: ch20.periodization.i03
+  dco: pa1.I.2
+  lang: en
+  cognitive: application
+  stem: A collegiate distance runner is in the competitive season and has a race scheduled in 48 hours. According to the in-season prescription in Table 20.5, how should the training day immediately before competition most appropriately be programmed?
+  locator: Application of Program Design to Training Seasons > In-Season (Competition) > Table 20.5 Sport Season Objectives and Program Design Assignments
+  options:
+  - text: Low intensity with a short duration to allow full recovery
+    correct: true
+  - text: High-intensity intervals at or above V̇O₂max
+    correct: false
+    why_wrong: This describes a HIIT or interval session, not the pre-competition day in-season prescription, which calls for low intensity and short duration to recover.
+  - text: A long, slow distance run at the weekly maximum volume
+    correct: false
+    why_wrong: Maximum-volume LSD belongs to the off-season emphasis; the day before competition should be short and low intensity to enable recovery.
+- id: ch20.program-design.i02.q1
+  item: ch20.program-design.i02
+  dco: pa1.G.3
+  lang: zh
+  cognitive: application
+  stem: 一名訓練年資較淺的休閒跑者目前每週慢跑一次，想把 V̇O₂max 拉上來，依教材引用的頻率研究，最直接的調整是下列哪一項？
+  locator: 'Designing an Aerobic Endurance Program > Step 2: Training Frequency'
+  options:
+  - text: 把頻率提高到每週兩次以上
+    correct: true
+  - text: 維持每週一次但拉長單次時間
+    correct: false
+    why_wrong: 教材引用的研究講的是每週次數，不是單次課表長度；把一次課拉長並不落在那條提高攝氧量的條件裡。
+  - text: 直接提高到每週六次以上
+    correct: false
+    why_wrong: 每週超過五次被教材連到較高的傷害率，對訓練狀態還淺的跑者等於一次把恢復日全部拿掉。
+- id: ch20.program-design.i03.q1
+  item: ch20.program-design.i03
+  dco: pa1.E.1
+  lang: en
+  cognitive: analysis
+  stem: A coach notices that an endurance athlete has been training for several weeks at a very low intensity, and the athlete's V̇O₂max has plateaued. According to the textbook, which adjustment is most justified by the interaction of intensity and duration?
+  locator: 'Designing an Aerobic Endurance Program > Step 3: Training Intensity'
+  options:
+  - text: Increase training intensity while allowing duration to shorten
+    correct: true
+  - text: Continue at the same low intensity and extend duration further
+    correct: false
+    why_wrong: The textbook states that intensity too low fails to provide overload and induce target adaptations; extending only duration will not break the plateau.
+  - text: Reduce both intensity and duration to permit greater recovery
+    correct: false
+    why_wrong: Reducing both variables removes overload further and is the opposite of what is needed to drive adaptation.
+- id: ch20.program-design.i06.q1
+  item: ch20.program-design.i06
+  dco: pa1.G.2
+  lang: zh
+  cognitive: application
+  stem: 一名長跑選手在週日完成一次 90 分鐘、80% V̇O₂max 的高強度長課後，隔天週一的訓練課最應如何安排？
+  locator: 'Designing an Aerobic Endurance Program > Step 2: Training Frequency'
+  options:
+  - text: 主動休息或低強度恢復
+    correct: true
+  - text: 安排一次 90 分鐘的 LSD
+    correct: false
+    why_wrong: 在困難訓練後再做高訓練量，違反教材明列的恢復與再水化原則。
+  - text: 安排一次全力衝刺間歇
+    correct: false
+    why_wrong: 在高強度長課隔天再施加間歇課，等於連續兩天高負荷，違背每週至少安排一天恢復或主動休息的原則。
+- id: ch20.training-types.i06.q1
+  item: ch20.training-types.i06
+  dco: pa1.B.2
+  lang: en
+  cognitive: analysis
+  stem: A novice endurance runner has been prescribed only long, slow distance runs for several months and wants to compete in a 10K race run well above her usual training pace. According to the textbook, what is the most important limitation of relying on LSD alone in this case?
+  locator: Types of Aerobic Endurance Training Programs > Long, Slow Distance Training
+  options:
+  - text: LSD does not develop the recruitment patterns required at race pace
+    correct: true
+  - text: LSD fails to improve cardiovascular function at any intensity
+    correct: false
+    why_wrong: The textbook acknowledges LSD improves cardiovascular and thermoregulatory function; the limitation is the lack of race-specific recruitment patterns.
+  - text: LSD always causes a decrease in fat utilization over time
+    correct: false
+    why_wrong: The textbook states LSD may increase fat utilization and spare muscle glycogen; it does not say LSD always decreases fat use.
+- id: ch20.aerobic-performance-factors.i01.q1
+  item: ch20.aerobic-performance-factors.i01
+  dco: pa1.A.1
+  lang: en
+  cognitive: application
+  stem: For a well-trained marathon runner whose V̇O₂max is already high, which factor is most likely to determine the next improvement in race performance?
+  locator: Factors Related to Aerobic Endurance Performance > Maximal Aerobic Capacity
+  options:
+  - text: the ability to sustain a higher speed in training and racing
+    correct: true
+  - text: further increases in maximal stroke volume at maximal effort
+    correct: false
+    why_wrong: Confuses a marginally higher V̇O₂max with the actual performance limiter once the ceiling is already high; the textbook notes small capacity gains may not matter at this stage.
+  - text: elimination of type I fibers in favor of fast-twitch use
+    correct: false
+    why_wrong: Reverses the fiber-type relationship the chapter describes; type I fibers support endurance, so reducing them would harm, not help, marathon performance.
+- id: ch20.altitude-training.i06.q1
+  item: ch20.altitude-training.i06
+  dco: pa1.B.2
+  lang: en
+  cognitive: application
+  stem: According to the textbook's reported protocol, what is the minimum recommended altitude exposure per day for an endurance athlete to gain from this type of training?
+  locator: Special Issues Related to Aerobic Endurance Training > Altitude
+  options:
+  - text: at least 12 hours daily at 2,100–2,500 m for 3 weeks
+    correct: true
+  - text: 90 minutes daily at sea level for 6 weeks straight
+    correct: false
+    why_wrong: Reads altitude training like a normal sea-level endurance workout; the protocol requires hypoxic dose per day, not just any training time at sea level.
+  - text: 4 hours weekly above 5,500 m for 2 weeks
+    correct: false
+    why_wrong: Combines an extreme-altitude location with a too-short schedule and too-few hours; the chapter's reported dose is daily hours across weeks at moderate altitude.
+- id: ch20.altitude-training.i08.q1
+  item: ch20.altitude-training.i08
+  dco: pa1.B.1
+  lang: en
+  cognitive: analysis
+  stem: A coach adopts live high, train low for an elite endurance athlete. Which combination of adaptations is the textbook most likely to attribute to this strategy?
+  locator: Special Issues Related to Aerobic Endurance Training > Altitude
+  options:
+  - text: metabolic and hematologic shifts plus neuromuscular gains
+    correct: true
+  - text: permanent gains in lung vital capacity regardless of load
+    correct: false
+    why_wrong: The chapter does not claim such structural shifts; only potential metabolic and neuromuscular effects.
+  - text: loss of type I fibers in exchange for better anaerobic power
+    correct: false
+    why_wrong: Living at altitude does not shift toward losing the type I fibers that endurance performance depends on.
+- id: ch20.hr-calculations.i01.q1
+  item: ch20.hr-calculations.i01
+  dco: pa1.E.2
+  lang: zh
+  cognitive: application
+  stem: 一名 35 歲、未做過實驗室測試的選手欲以年齡預估公式估計最大心率，下列哪個數值最為合適？
+  locator: 'Designing an Aerobic Endurance Program > Step 3: Training Intensity > Heart Rate'
+  options:
+  - text: 185 次／分
+    correct: true
+  - text: 175 次／分
+    correct: false
+    why_wrong: 把 APMHR 公式（220 − 年齡）算成 35 歲應為 175；該結果其實對應的是 45 歲，未依本章給出的 220 減年齡公式計算。
+  - text: 165 次／分
+    correct: false
+    why_wrong: 把 APMHR 公式（220 − 年齡）算成 35 歲應為 165；該結果其實對應的是 55 歲，並非本章的 220 減年齡公式結果。
+- id: ch20.hr-calculations.i03.q1
+  item: ch20.hr-calculations.i03
+  dco: pa1.E.2
+  lang: en
+  cognitive: application
+  stem: An athlete 30 years old with a resting heart rate of 60 beats/min trains at 60 to 70 percent of functional capacity. What is the most likely target heart rate range produced by the Karvonen method?
+  locator: 'Designing an Aerobic Endurance Program > Step 3: Training Intensity > Heart Rate'
+  options:
+  - text: 138 to 151 beats per minute
+    correct: true
+  - text: 152 to 165 beats per minute
+    correct: false
+    why_wrong: Uses too high an intensity range in the Karvonen formula; the textbook example shows the 60 to 70 percent range falls in the 138 to 151 beats/min interval.
+  - text: 114 to 133 beats per minute
+    correct: false
+    why_wrong: Computes the Karvonen formula as if subtracting too much from the lower intensity bound; the example shows the bottom of the range is 138, not 114.
+- id: ch20.hr-calculations.i07.q1
+  item: ch20.hr-calculations.i07
+  dco: pa1.E.2
+  lang: en
+  cognitive: analysis
+  stem: A coach prescribes running at 70 percent of V̇O₂max using the Karvonen method. According to Table 20.1, which percentage of maximal heart rate most closely aligns with this intensity?
+  locator: 'Designing an Aerobic Endurance Program > Step 3: Training Intensity > Heart Rate > Table 20.1 Relationship between VO2max, HRR, and MHR'
+  options:
+  - text: an MHR percentage higher than the 70 percent V̇O₂max value
+    correct: true
+  - text: exactly the same 70 percent value used for V̇O₂max and HRR
+    correct: false
+    why_wrong: Treats MHR and HRR percentages as interchangeable labels at submaximal intensities; Table 20.1 shows the MHR percent is higher than the V̇O₂max and HRR percent in the same row.
+  - text: an MHR percentage below 50 percent of maximal heart rate
+    correct: false
+    why_wrong: Pushes the MHR value too far below the intensity being prescribed; at 70 percent V̇O₂max the corresponding MHR percentage is higher, not lower than that row.
+- id: ch20.intensity-monitoring.i08.q1
+  item: ch20.intensity-monitoring.i08
+  dco: pa1.E.2
+  lang: zh
+  cognitive: analysis
+  stem: 教材表 20.1 顯示，同一 V̇O₂max 百分比對應的 HRR 與 MHR 百分比並不相同，教練據此做處方時最容易犯的錯誤為何？
+  locator: 'Designing an Aerobic Endurance Program > Step 3: Training Intensity > Heart Rate > Table 20.1 Relationship between VO2max, HRR, and MHR'
+  options:
+  - text: 把同一個百分比同時當作 HRR 與 MHR 百分比使用
+    correct: true
+  - text: 完全忽略 HRR 直接以跑步速度作為處方依據
+    correct: false
+    why_wrong: 把對照錯誤簡化為完全不使用 HRR；教材問題不是 HRR 被刪掉，而是數值不能跨欄直接套用。
+  - text: 把表中的 MHR 百分比反過來記成比 HRR 還低
+    correct: false
+    why_wrong: 記錯了表的方向（本章明列 MHR 百分比較高），而不是教材要點出的處方誤用類型。
+- id: ch20.periodization.i07.q1
+  item: ch20.periodization.i07
+  dco: pa1.I.2
+  lang: en
+  cognitive: analysis
+  stem: During postseason active rest, which combination of tasks best matches the chapter's description of what should still be done?
+  locator: Application of Program Design to Training Seasons > Postseason (Active Rest)
+  options:
+  - text: rehabilitate season injuries and address weak muscle groups
+    correct: true
+  - text: add a peaking taper in preparation for championship play
+    correct: false
+    why_wrong: Places a peaking taper in the postseason block; tapering belongs later in a competition-prep phase, while postseason is for recovery and gap-filling work.
+  - text: cut all resistance training to ensure full muscular rest
+    correct: false
+    why_wrong: Suggests cutting resistance work entirely; the chapter explicitly retains strength maintenance and rehab, not a complete cut of all training.
+- id: ch20.program-design.i01.q1
+  item: ch20.program-design.i01
+  dco: pa1.C.1
+  lang: zh
+  cognitive: analysis
+  stem: 教練替一位自由車選手設計有氧耐力課表，在選擇運動模式時，最合適的優先考量為何？
+  locator: 'Designing an Aerobic Endurance Program > Step 1: Exercise Mode'
+  options:
+  - text: 選擇能挑戰競賽所需肌纖維及能量系統的活動
+    correct: true
+  - text: 以任何會讓選手心率上升的活動取代賽專項動作
+    correct: false
+    why_wrong: 把模式選擇簡化成「讓心率上升就好」；教材明列重點是模仿競賽動作模式，並對所需肌纖維與能量系統施壓。
+  - text: 固定只使用一種器材以簡化監測工作
+    correct: false
+    why_wrong: 把器材一致性當成最高原則；教材強調活動應貼近競賽模式，而不是為求便利而限制選手的模式選擇。
+- id: ch20.special-issues.i05.q1
+  item: ch20.special-issues.i05
+  dco: pa1.B.1
+  lang: zh
+  cognitive: application
+  stem: 教練希望讓已具備良好有氧耐力的公路跑選手在比賽末段更具衝刺能力，下列何者最可能是加入阻力訓練的主要效益？
+  locator: Special Issues Related to Aerobic Endurance Training > Resistance Training
+  options:
+  - text: 在短時間內提升騎車或跑步的運動表現
+    correct: true
+  - text: 顯著且保證地提高選手的最大攝氧量
+    correct: false
+    why_wrong: 把可能效益誤讀為 V̇O₂max 必然提升；教材引述的研究顯示阻力訓練未提高高度訓練選手的 V̇O₂max。
+  - text: 完全取代所有跑步訓練以避免過度使用傷害
+    correct: false
+    why_wrong: 把阻力訓練當成跑步訓練的全權替代；教材把它定位為補充而非取代有氧耐力訓練。
+- id: ch20.training-types.i05.q1
+  item: ch20.training-types.i05
+  dco: pa1.B.2
+  lang: zh
+  cognitive: application
+  stem: 教練安排 Fartlek 訓練時，下列哪種設計最符合教材所述的強度變化模式？
+  locator: Types of Aerobic Endurance Training Programs > Fartlek Training > Table 20.4 Types of Aerobic Endurance Training
+  options:
+  - text: 輕鬆跑中不定時穿插數次快跑
+    correct: true
+  - text: 固定三分鐘快跑接三分鐘慢跑
+    correct: false
+    why_wrong: 這是間歇訓練的工作與休息循環，長度與比例都事先排好；法特雷克的特徵正是變速時機不固定。
+  - text: 全程維持同一配速直到結束
+    correct: false
+    why_wrong: 同一配速從頭跑到尾屬於長距離慢跑或配速訓練，整趟沒有任何強度起伏，與速度遊戲的定義正好相反。
+- id: ch20.aerobic-performance-factors.i04.q1
+  item: ch20.aerobic-performance-factors.i04
+  dco: pa1.A.4
+  lang: zh
+  cognitive: analysis
+  stem: 兩位馬拉松選手 V̇O₂max 與乳酸閾值非常接近，但甲選手在比賽末段耗能明顯高於乙選手，最可能的合理解釋為何？
+  locator: Factors Related to Aerobic Endurance Performance > Exercise Economy
+  options:
+  - text: 乙選手的運動經濟性較佳，同一速度下耗能較少
+    correct: true
+  - text: 甲選手的最大心率系統性高於乙選手
+    correct: false
+    why_wrong: 把相同配速下耗能差異歸於最大心率本身；本章強調運動經濟性是給定速度的能量成本，不是由最大心率決定。
+  - text: 甲選手的脂肪作為燃料的使用效率明顯高於乙選手
+    correct: false
+    why_wrong: 把耗能偏高的方向歸到「脂肪效率」；脂肪效率較高通常有助維持有氧供能，並不能解釋末段耗能較高。
+- id: ch20.training-types.i02.q1
+  item: ch20.training-types.i02
+  dco: pa1.B.1
+  lang: zh
+  cognitive: analysis
+  stem: 一名已具備穩定有氧基礎的跑者希望在賽前建立競賽配速感，下列哪一項最符合教材對配速訓練的處方？
+  locator: Types of Aerobic Endurance Training Programs > Pace/Tempo Training > Table 20.4 Types of Aerobic Endurance Training
+  options:
+  - text: 在乳酸閾值或競賽配速下連續或間歇進行 20 至 30 分鐘
+    correct: true
+  - text: 在大於 V̇O₂max 強度下進行 30 至 90 秒的工作段
+    correct: false
+    why_wrong: 把配速訓練的工作段時長與強度套到 HIIT；HIIT 是大於 V̇O₂max、30 至 90 秒，並非配速訓練的 LT 強度處方。
+  - text: 在 70% V̇O₂max 連續慢跑 30 至 120 分鐘
+    correct: false
+    why_wrong: 把 LSD 的時長與強度套到配速訓練；70% V̇O₂max、30 至 120 分鐘是 LSD 的處方，不是配速訓練的 LT 配速。
+- id: ch20.special-issues.i02.q1
+  item: ch20.special-issues.i02
+  dco: pa1.G.3
+  lang: en
+  cognitive: recall
+  stem: According to the textbook, what is the primary strategy that minimizes the effects of a full training interruption when it is feasible to continue exercising?
+  locator: Special Issues Related to Aerobic Endurance Training > Detraining
+  options:
+  - text: continue the primary exercise mode but reduce frequency and intensity
+    correct: true
+  - text: switch entirely to cross-training at a higher weekly volume
+    correct: false
+    why_wrong: Replaces the primary mode with cross-training at higher volume; the chapter keeps the primary mode and only reduces frequency and intensity to limit detraining.
+  - text: maintain frequency and intensity but drop the exercise duration to zero
+    correct: false
+    why_wrong: Stops duration completely while keeping intensity; removing the primary training stimulus is the opposite of the strategy that minimizes detraining effects.
