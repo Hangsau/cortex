@@ -19,6 +19,7 @@ content/
       _index.md             # layout: book
       ch01/ ... ch24/       # 每章只有 _index.md（layout: chapter），內容在 data/cscs/
       concepts.md           # layout: cscs-concepts
+      quiz.md               # layout: cscs-quiz（選擇題練習，唯讀吃 data/cscs/_quiz_bank/）
 layouts/
   _default/                 # baseof、list、single
   partials/                 # nav、footer
@@ -32,12 +33,15 @@ static/
     home.css                # 首頁工作台 Hero + 四領域 atlas + RWD
     library.css             # 書庫 section 樣式
     cscs-chapter.css        # 章節頁（黏性目次正文 + 遮答自測 + 閃卡）與 book.html 的 .home-grid
+    cscs-quiz.css           # 選擇題練習頁（cq-*，沿用 cscs-chapter 的暗記帳語言）
   js/
     flashcard.js            # 閃卡翻轉（單一功能）
+    cscs-quiz.js            # 選擇題作答（抓分章 JSON、前端重排選項、localStorage 錯題）
   images/
     cscs-cover.jpg
 layouts/library/
   cscs-concepts.html        # 概念索引頁（打散章節，照概念讀）
+  cscs-quiz.html            # 選擇題練習頁；順便發 /cscs-quiz/chNN.json（24 支，前端按章抓）
 layouts/partials/
   cscs-index.html           # 全書 id → 標題/網址 索引（wiki 連結用，partialCached）
 data/
@@ -50,6 +54,7 @@ data/
     _domains.yaml           # 考點軸：7 個 domain × 章節對映 + 官方考試權重
     _applied.yaml           # 實務判斷層：答題協議 / 題型 / 判讀規則 / 跨章缺口
     ch01.yaml ... ch24.yaml # 每章 topics → items（知識單位）+ cards（閃卡）
+    _quiz_bank/chNN.yaml    # 三選項題庫 1033 題（967 pool: exam ＋ 66 pool: extra）
 tools/
   cscs_check.py             # 交叉參照與完整性驗收閘（改 data/cscs/ 後必跑）
   cscs_quiz.py              # 由知識單位生成按考試權重配比的模擬題（每題帶 locator）
@@ -356,6 +361,21 @@ node tools/audit.js                    # 38 條版型／深度層／概念索引
 概念的不同面向，會出現三個選項同時成立的廢題）；**數字干擾項要過同單位 + 五倍內的量級閘**（否則
 「年度訓練計畫的持續時間」會配到「2004 年」這種送分選項）。生成的答案區會印每個干擾項的來源 id，
 看到可疑的回去讀那兩條，不要靠工具猜。
+
+#### 網站版選擇題練習（`quiz.md` + `cscs-quiz.html`）
+
+題庫 `data/cscs/_quiz_bank/` 的網站消費端，全庫 1033 題可在手機作答。兩條設計不要改回去：
+
+- **題目按章發成 24 支 `/cscs-quiz/chNN.json`**（layout 用 `resources.FromString`，單章約 25KB），
+  前端選哪章才 fetch 哪章。全庫 812KB 嵌進 HTML 的話，手機每次開頁都得先吞完整題庫。
+  所以這頁也只做單章練習——一輪一次 fetch；跨章組卷是 cscs-quest 桌面端的事。
+- **選項重排在前端出題當下做，JSON 維持原檔順序**。原檔 1033 題有 1015 題把正解寫在第一個，
+  照原序出等於答案永遠是 A；而固定順序（哪怕洗過一次）練久了會變成記位置。
+  cscs-quest 桌面端是同一個決定（那邊放在 `engine.present()`）。
+
+作答紀錄在 `localStorage('cscs-quiz-v1')`，只支撐「只練錯過的／沒做過的」兩個過濾器，
+**與 cscs-quest 的 SQLite 學習進度互不相通**，不要試圖對接。回課本的連結靠章節頁每個 item
+的 `id="<item-id>"`，改章節頁錨點會無聲打斷它。
 
 ---
 

@@ -1,0 +1,120 @@
+{{ define "head-extra" }}
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/cscs-chapter.css">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/cscs-quiz.css">
+{{ end }}
+
+{{ define "main" }}
+{{ $book := .Parent }}
+{{ $cscs := index hugo.Data "cscs" }}
+{{ $bank := index $cscs "_quiz_bank" }}
+
+{{/* 每章各發一支 JSON，練哪章才抓哪章。全庫 1033 題接近 1MB，
+     全部塞進頁面等於手機每次開頁都要先吞完整題庫才看得到第一題。 */}}
+{{ $index := slice }}
+{{ $total := 0 }}
+{{- range $ch := $book.Sections.ByWeight -}}
+  {{- $cid := path.Base ($ch.RelPermalink | strings.TrimRight "/") -}}
+  {{- with index $bank $cid -}}
+    {{- $qs := slice -}}
+    {{- range .questions -}}
+      {{- $opts := slice -}}{{- $why := slice -}}{{- $correct := 0 -}}
+      {{- range $i, $o := .options -}}
+        {{- $opts = $opts | append $o.text -}}
+        {{- $why = $why | append (printf "%v" (default "" $o.why_wrong)) -}}
+        {{- if $o.correct -}}{{- $correct = $i -}}{{- end -}}
+      {{- end -}}
+      {{- $qs = $qs | append (dict "id" .id "item" .item "stem" .stem
+                                  "loc" (default "" .locator) "lang" (default "zh" .lang)
+                                  "pool" (default "exam" .pool)
+                                  "opts" $opts "correct" $correct "why" $why) -}}
+    {{- end -}}
+    {{- $res := resources.FromString (printf "cscs-quiz/%s.json" $cid)
+                 (dict "chapter" $cid "title" $ch.Title "url" $ch.RelPermalink "questions" $qs | jsonify) -}}
+    {{- $total = add $total (len $qs) -}}
+    {{- $index = $index | append (dict "id" $cid "title" $ch.Title "url" $ch.RelPermalink
+                                       "json" $res.RelPermalink "n" (len $qs)) -}}
+  {{- end -}}
+{{- end }}
+
+<div class="nb">
+
+  <nav class="nb-crumb" aria-label="麵包屑">
+    <a href="{{ $book.RelPermalink }}">{{ $book.Title }}</a>
+    <span aria-hidden="true">›</span>
+    <span class="nb-crumb-now">{{ .Title }}</span>
+  </nav>
+
+  <h1 class="nb-title">{{ .Title }}</h1>
+  <p class="nb-lead">全書 {{ $total }} 題，一次練一章。答完會說明其他選項錯在哪裡，
+    並給一個回到該章原文的入口。選項每次重排，記位置沒有用。</p>
+
+  <div class="cq" id="cq">
+
+    <section class="cq-setup" id="cqSetup">
+      <div class="cq-opts-row" role="group" aria-label="題數">
+        <span class="cq-opts-k">題數</span>
+        <button type="button" class="cq-pill is-on" data-count="10">10</button>
+        <button type="button" class="cq-pill" data-count="20">20</button>
+        <button type="button" class="cq-pill" data-count="0">整章</button>
+      </div>
+      <div class="cq-opts-row" role="group" aria-label="範圍">
+        <span class="cq-opts-k">範圍</span>
+        <button type="button" class="cq-pill is-on" data-scope="all">全部</button>
+        <button type="button" class="cq-pill" data-scope="wrong">只練錯過的</button>
+        <button type="button" class="cq-pill" data-scope="fresh">沒做過的</button>
+      </div>
+
+      <div class="cq-setup-head">
+        <h2 class="cq-h2">選一章開始</h2>
+        <button type="button" class="cq-textbtn" id="cqRandom">隨機一章</button>
+      </div>
+
+      <div class="cq-chs" id="cqChs">
+        {{ range $index }}
+        <button type="button" class="cq-ch" data-ch="{{ .id }}" data-json="{{ .json }}"
+                data-url="{{ .url }}" data-title="{{ .title }}">
+          <span class="cq-ch-t">{{ .title }}</span>
+          <span class="cq-ch-n">{{ .n }} 題</span>
+        </button>
+        {{ end }}
+      </div>
+
+      <p class="cq-note" id="cqNote">紀錄只存在這台裝置的瀏覽器裡，不會上傳，換裝置不會同步。</p>
+      <p class="cq-note"><button type="button" class="cq-textbtn" id="cqReset">清除本機作答紀錄</button></p>
+    </section>
+
+    <section class="cq-run" id="cqRun" hidden>
+      <div class="cq-bar">
+        <button type="button" class="cq-textbtn" id="cqQuit">← 換一章</button>
+        <span class="cq-prog" id="cqProg"></span>
+      </div>
+
+      <p class="cq-loc" id="cqLoc"></p>
+      <h2 class="cq-stem" id="cqStem"></h2>
+
+      <div class="cq-answers" id="cqAnswers"></div>
+
+      <div class="cq-after" id="cqAfter" hidden>
+        <p class="cq-verdict" id="cqVerdict"></p>
+        <div class="cq-why" id="cqWhy"></div>
+        <p class="cq-src"><a id="cqSrc" href="#">回到課本這一條 →</a></p>
+        <button type="button" class="cq-next" id="cqNext">下一題</button>
+      </div>
+    </section>
+
+    <section class="cq-done" id="cqDone" hidden>
+      <h2 class="cq-h2" id="cqScore"></h2>
+      <div class="cq-recap" id="cqRecap"></div>
+      <div class="cq-doneacts">
+        <button type="button" class="cq-next" id="cqAgain">再練這一章</button>
+        <button type="button" class="cq-textbtn" id="cqBack">換一章</button>
+      </div>
+    </section>
+
+    <noscript><p class="cq-note">這頁要開啟 JavaScript 才能作答。</p></noscript>
+  </div>
+</div>
+
+<script id="cqIndex" type="application/json">{{ $index | jsonify | safeJS }}</script>
+<script src="{{ .Site.BaseURL }}js/cscs-quiz.js" defer></script>
+{{ end }}

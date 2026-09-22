@@ -77,7 +77,9 @@ ch03（`a5c2002`）各補 21 題到 35 題，原有 14 題逐題比對確認未�
 全為舊題彼此或兩字英文正解的機械假陽性。**全庫 24 章 967 題到齊**。
 **舊的 287 題題庫也已併完**（`d5f77a4`）：裁決通過 94 題、實際寫進 70 題、
 人工查證後留下 66 題，全部掛 `pool: extra`，與原本 967 題的 `pool: exam` 分開，
-**全庫 1033 題 / 24 章、22 道閘 0 錯**。下一步是接進 cscs-quest。
+**全庫 1033 題 / 24 章、22 道閘 0 錯**。
+**兩個消費端都接完了**：桌面端 cscs-quest（`bank:` 載入器）與網站端的
+`/library/essentials-of-strength-training/quiz/`，都在 2026-09-22，見文末兩節。
 **每章跑完出題 + 過閘 + 跨題掃描 + 人工逐題查證 + commit 才做下一章**。
 
 **配題表已上調（`dc1267c`）**：全庫 385 → 967 題，比例不動只等比放大 2.5 倍，
@@ -2549,3 +2551,42 @@ Claude Code 讀 `resources/books/Essentials_of_Strength_Training_and_Conditionin
 2. CSCS 所有 24 章閃卡已全部完成（ch01–ch24）
 3. 若需要 ADM Appendix B，直接用 adm-single layout 加一頁即可
 4. 大腦喜歡這樣學 × 渦流計劃連結：使用者確認 wiki 需求後再設計（可在技法卡新增「在游泳教學中的應用」欄位）
+
+---
+
+## CSCS 題庫上線：網站版選擇題練習（2026-09-22）
+
+使用者要求「題庫要能在 my-site 上練，讓我離開電腦也能做」。
+`/library/essentials-of-strength-training/quiz/` 已上線，全庫 1033 題可在手機作答。
+
+**四個新檔**：`content/library/essentials-of-strength-training/quiz.md`（只有 front matter，
+`layout: cscs-quiz`，weight 2）、`layouts/library/cscs-quiz.html`、`static/css/cscs-quiz.css`、
+`static/js/cscs-quiz.js`。`data/cscs/` 一個字都沒動——這頁純粹是唯讀消費端。
+
+- **書頁入口是自動長出來的**：`book.html` 把 `.RegularPages.ByWeight` 渲成工具卡，
+  `quiz.md` 一建好就跟「概念索引」並排出現，不用另外接線。
+- **題目按章分檔，不整包塞進頁面**。layout 用 `resources.FromString` 每章發一支
+  `/cortex/cscs-quiz/chNN.json`（24 支、合計 812KB、單章約 25KB），前端選哪章才 fetch 哪章。
+  全庫 812KB 全嵌在 HTML 裡，等於手機每次開頁都要先吞完整題庫才看得到第一題。
+- **選項重排在前端出題當下做，JSON 保持原檔順序**。這跟 cscs-quest 桌面端是同一個決定：
+  原檔 1033 題有 1015 題把正解寫在第一個，照原序出等於答案永遠是 A；而固定順序
+  （哪怕是洗過一次的固定順序）練久了會變成記位置。實測整章 38 題，正解落點 A13/B13/C12。
+- **作答紀錄存 localStorage**（`cscs-quiz-v1`，每題記答對/答錯次數），支撐「只練錯過的」
+  與「沒做過的」兩個範圍。換裝置不同步，頁面有寫明。**這跟桌面端的 SQLite 進度完全無關，
+  兩邊不互通**——網站版定位是離開電腦時的練習，正式學習紀錄仍在 cscs-quest。
+- **每題答完給回課本的入口**：章節頁的每個 item 都有 `id="<item-id>"`，題目的 `item` 欄
+  直接拼成 `<章節頁>#<item-id>`。實測 24 章錨點都解析得到。
+- **作答時收掉頁首標題與導言**（`.nb.is-answering`）：手機上那兩塊吃掉三分之一畫面，
+  不收的話題目會被推到摺線下。
+
+**視覺方向沿用 `cscs-chapter.css` 的暗記帳語言，沒有另創風格**——同一本書的另一個操作面，
+換語言會讀起來像另一個網站。唯一新增 `--cq-ok: #1B6B4A`（答對，對比 6.4:1），
+答錯沿用既有的 `--nb-mask-e`；對錯另外各帶 ✓/✗ 與文字，不只靠顏色分辨。
+
+**驗證**：`tools/cscs_check.py` 24 章 OK、`tools/audit.js` 既有 38 條版型迴歸全綠、
+另外用 Playwright 在 390 與 1280 兩個寬度各跑 19 項實際操作檢查（選章、作答、判定、
+錯項說明、回課本連結 HTTP 200 且錨點存在、走完整輪結算、localStorage 寫入、
+只練錯過的、觸控目標 ≥44px、console 無錯誤），38/38 通過。
+
+**還沒做的**：跨章練習（目前一次只練一章，刻意的——每輪只要一次 fetch；
+跨章組卷留給桌面端）；錯題本身沒有獨立頁面，只有「只練錯過的」這個範圍過濾器。
