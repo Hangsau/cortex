@@ -104,7 +104,9 @@ def topic_spread_note(chid: str, total: int, used_items) -> str:
     if not topics:
         return ""
     target = total / len(topics)
-    floor, ceiling = max(1, int(target) - 1), int(target) + 2
+    # ch23 實跑 7/7/5/5/4/4/4/4：舊的 -1/+2 區間（4–7）把兩倍差都算合規，
+    # 等於沒有約束。收成 ±1 讓「攤平」這件事在 prompt 層真的有下限。
+    floor, ceiling = max(1, round(target) - 1), round(target) + 1
     done = Counter(topic_of(i) for i in used_items)
     lines = [
         f"# 主題覆蓋（本章 {len(topics)} 個 topic，全章共 {total} 題）",
@@ -398,8 +400,17 @@ def build_sections(chid: str, quota, used_items: list, part, bank=None):
         f"| analysis | {over['analysis']} | {analysis} |",
         f"| 英文題（`lang: en`） | {over['english']} | {english} |",
         "",
+        "**我挑選時看的是下面這張交叉表，不是上面那兩條邊際**——"
+        "`cognitive` 總數與英文題總數都對、但某一格是 0，我就湊不出合格的組合：",
+        "",
+        "| `cognitive` × `lang` | 請至少寫 | （我最後只會留） |",
+        "|---|---|---|",
+        *[f"| `cognitive: {cog}` ＋ `lang: {lang}` | {max(1, int(round(count * OVERGEN_RATIO))) if count else 0}"
+          f" | {count} |"
+          for (cog, lang), count in sorted(target_grid(quota).items())],
+        "",
         "- **不要為了湊數量而犧牲品質**，寧可每題都寫好；數量由我挑，你負責品質。",
-        "- 英文題請平均分布在三個認知層級，不要全擠在 recall。",
+        "- 上表「我最後只會留」是 0 的格子**一題都不要寫**；不是 0 的格子**每一格都要有餘裕**。",
         "- **盡量每題用不同的 item**（同一個 item 最多 2 題）——我挑選時優先保留不重複的。",
         "- 每題選項**恰好 3 個**（不是 4 個）。",
         "",
