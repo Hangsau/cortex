@@ -128,6 +128,7 @@ def check(write_index: bool, html_root: Path | None) -> dict:
         pages = [html_root / u["path"] / "index.html" for u in units]
         pages += [html_root / "library" / b["slug"] / "index.html" for b in books.values()]
         pages += [html_root / "library/kinesiology/topics/index.html"]
+        pages += [html_root / "library/kinesiology/learning-map/index.html"]
         parsed = {}
         for path in pages:
             require(path.is_file(), f"Missing rendered page: {path}")

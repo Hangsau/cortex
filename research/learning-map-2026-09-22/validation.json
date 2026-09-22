@@ -1,0 +1,78 @@
+{
+  "errors": [],
+  "semantic_limit": "Structure and traceability only; editorial prompts require human source review.",
+  "routes": 5,
+  "stations": 25,
+  "chapters": 33,
+  "reading_links": 82,
+  "negative_cases": [
+    {
+      "name": "empty stations",
+      "passed": true
+    },
+    {
+      "name": "empty routes",
+      "passed": true
+    },
+    {
+      "name": "partial station",
+      "passed": true
+    },
+    {
+      "name": "missing anchor",
+      "passed": true
+    },
+    {
+      "name": "wrong field type",
+      "passed": true
+    },
+    {
+      "name": "malformed route member",
+      "passed": true
+    },
+    {
+      "name": "null route members",
+      "passed": true
+    },
+    {
+      "name": "unknown route station",
+      "passed": true
+    },
+    {
+      "name": "duplicate station",
+      "passed": true
+    },
+    {
+      "name": "self prerequisite",
+      "passed": true
+    },
+    {
+      "name": "missing prerequisite",
+      "passed": true
+    },
+    {
+      "name": "route continuation cycle",
+      "passed": true
+    },
+    {
+      "name": "unsafe ID",
+      "passed": true
+    },
+    {
+      "name": "answer outside reading",
+      "passed": true
+    },
+    {
+      "name": "oversized station list",
+      "passed": true
+    },
+    {
+      "name": "too many readings",
+      "passed": true
+    },
+    {
+      "name": "new unsupported schema",
+      "passed": true
+    }
+  ]
+}

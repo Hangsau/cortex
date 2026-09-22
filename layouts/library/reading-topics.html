@@ -6,6 +6,7 @@
     <p class="rd-kicker">兩冊中文導讀 · 主題索引</p>
     <h1>{{ .Title }}</h1>
     <div class="rd-prose">{{ .Content }}</div>
+    <p class="rd-topic-entry"><a href="{{ (site.GetPage "/library/kinesiology/learning-map").RelPermalink }}">想知道先讀什麼？跟著學習地圖走 →</a></p>
   </header>
   <nav class="rd-topic-nav" aria-label="選擇閱讀主題">
   {{ range hugo.Data.reading.index.topic_order }}{{ $Topic := index hugo.Data.reading.topics . }}<a href="#{{ . }}">{{ $Topic.title }}</a>{{ end }}

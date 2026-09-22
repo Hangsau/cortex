@@ -1,0 +1,905 @@
+{
+  "schema": 1,
+  "provenance": "editorial-learning-route",
+  "start": "motion",
+  "routes": [
+    {
+      "id": "foundations",
+      "title": "建立共同語言",
+      "role": "從這裡開始",
+      "description": "從看見的動作，走到力、肌肉與組織。先用同一個拿杯子或坐站的例子，反覆練習。",
+      "stations": [
+        "motion",
+        "joint",
+        "moment",
+        "muscle",
+        "material",
+        "cartilage",
+        "tendon",
+        "nerve"
+      ],
+      "next_route": "lower"
+    },
+    {
+      "id": "lower",
+      "title": "從站立走到跑步",
+      "role": "接續主線",
+      "description": "把髖、膝與足踝放在同一條支撐鏈，再用時間線讀步態與跑步。",
+      "stations": [
+        "hip",
+        "knee",
+        "foot",
+        "gait",
+        "power",
+        "running"
+      ],
+      "next_route": ""
+    },
+    {
+      "id": "upper",
+      "title": "伸手、持物與抓握",
+      "role": "部位分支",
+      "description": "沿著肩、肘、腕與手，理解定位、穩定與精細操作如何合作。",
+      "stations": [
+        "shoulder",
+        "elbow",
+        "wrist",
+        "hand"
+      ],
+      "next_route": ""
+    },
+    {
+      "id": "axial",
+      "title": "軀幹、頭頸與日常動作",
+      "role": "部位分支",
+      "description": "從脊柱節段走到肌肉控制，再把同一套問題用在呼吸與咀嚼。",
+      "stations": [
+        "spine",
+        "trunk",
+        "neck",
+        "breathing",
+        "jaw"
+      ],
+      "next_route": ""
+    },
+    {
+      "id": "applied",
+      "title": "固定與人工關節",
+      "role": "進階專題",
+      "description": "有了組織與下肢受力基礎，再理解重建如何改變幾何、約束與負荷分擔。",
+      "stations": [
+        "fixation",
+        "arthroplasty"
+      ],
+      "next_route": ""
+    }
+  ],
+  "stations": [
+    {
+      "id": "motion",
+      "title": "先把動作說清楚",
+      "question": "坐下與站起來時，究竟是哪一段相對哪一段在動？",
+      "prerequisites": [],
+      "readings": [
+        {
+          "section": "neumann.ch01.translation-rotation",
+          "purpose": "先分清整體位置移動與骨段轉動。"
+        },
+        {
+          "section": "neumann.ch01.osteokinematics-planes",
+          "purpose": "替看見的動作找到平面與方向。"
+        },
+        {
+          "section": "neumann.ch01.relative-motion",
+          "purpose": "說明你把哪一端當作參考。"
+        }
+      ],
+      "task": "畫出坐下與站起來的側面簡圖，選髖或膝，標示參考骨段與相對運動方向。",
+      "recall": "腳留在地面時，還能只用「小腿往後彎」描述所有屈膝動作嗎？",
+      "answer": "不能。屈膝描述兩骨段的相對關係；腳固定時，可以是股骨相對脛骨移動。說清楚移動端與參考端，才能把相同的關節動作放回不同任務。",
+      "answer_sources": [
+        "neumann.ch01.translation-rotation",
+        "neumann.ch01.osteokinematics-planes",
+        "neumann.ch01.relative-motion"
+      ],
+      "advance": "能用「哪一段，相對哪一段，往哪個方向」說明自己的圖，就接著讀關節。"
+    },
+    {
+      "id": "joint",
+      "title": "關節如何容許與約束動作",
+      "question": "兩塊骨頭接在一起，為什麼既能動又不會任意滑開？",
+      "prerequisites": [
+        "motion"
+      ],
+      "readings": [
+        {
+          "section": "neumann.ch02.synovial-system",
+          "purpose": "辨認滑液關節的基本構造。"
+        },
+        {
+          "section": "neumann.ch02.shape-and-constraint",
+          "purpose": "用形狀理解容許的活動與限制。"
+        },
+        {
+          "section": "neumann.ch01.roll-slide-spin",
+          "purpose": "把整段骨頭轉動與接觸面的相對運動分開。"
+        }
+      ],
+      "task": "畫兩個接觸面，以不同箭頭標出整段骨的動作，以及接觸面上的滾動、滑動或旋轉。",
+      "recall": "看見骨段轉過一個角度，就能認定接觸面只有純滾動嗎？",
+      "answer": "不能。骨運動學描述骨段的相對位置；關節面運動學描述接觸面的滾動、滑動與旋轉。真實關節常以組合運動維持接觸，不能只靠外觀角度判定全部接觸路徑。",
+      "answer_sources": [
+        "neumann.ch02.synovial-system",
+        "neumann.ch02.shape-and-constraint",
+        "neumann.ch01.roll-slide-spin"
+      ],
+      "advance": "能分清「骨段怎麼動」與「接觸面怎麼移動」，再把力加進來。"
+    },
+    {
+      "id": "moment",
+      "title": "同樣重量，為何換位置就吃力",
+      "question": "手持同一件物品，改變位置為什麼可能改變關節的需求？",
+      "prerequisites": [
+        "motion"
+      ],
+      "readings": [
+        {
+          "section": "neumann.ch01.force-and-moment",
+          "purpose": "先建立力、旋轉軸與力臂的關係。"
+        },
+        {
+          "section": "nordin.ch01.moment-arm",
+          "purpose": "用垂直距離核對你的力臂。"
+        },
+        {
+          "section": "neumann.ch04.choose-system",
+          "purpose": "先決定要分析哪個骨段。"
+        },
+        {
+          "section": "neumann.ch04.free-body-steps",
+          "purpose": "依步驟把受力畫完整。"
+        }
+      ],
+      "task": "選一個靜止持物姿勢，畫出前臂與物品的邊界、肘軸和外力作用線，標出垂直力臂。",
+      "recall": "力不變、垂直力臂加倍時，該力對指定軸的力矩如何改變？作用線穿過轉軸時呢？",
+      "answer": "在相同參考軸下，力矩大小 M＝F×d，所以力臂加倍，該力的力矩也加倍。作用線穿過軸時，這個力對該軸的力矩為零；力本身仍存在。這還不是個別肌肉力或關節接觸力的完整答案。",
+      "answer_sources": [
+        "neumann.ch01.force-and-moment",
+        "nordin.ch01.moment-arm",
+        "neumann.ch04.choose-system",
+        "neumann.ch04.free-body-steps"
+      ],
+      "advance": "能找對軸、作用線與垂直力臂，再讀肌肉如何回應需求。"
+    },
+    {
+      "id": "muscle",
+      "title": "肌肉可以推動，也可以煞車",
+      "question": "手臂慢慢放下物品時，正在變長的肌肉能不能仍然用力？",
+      "prerequisites": [
+        "moment"
+      ],
+      "readings": [
+        {
+          "section": "neumann.ch03.muscle-task",
+          "purpose": "依主動肌肉的長度變化區分工作方式。"
+        },
+        {
+          "section": "nordin.ch06.contraction-modes",
+          "purpose": "對照兩冊對向心、離心與等長的說法。"
+        },
+        {
+          "section": "neumann.ch03.force-velocity",
+          "purpose": "加入速度，理解產力能力的條件。"
+        }
+      ],
+      "task": "選肘屈肌，分別畫出抬起、停住與慢慢放下同一物品時的肌肉工作方式。",
+      "recall": "肌肉主動拉住負荷，卻被拉長，應稱向心、離心還是等長？",
+      "answer": "這是離心工作。向心、離心與等長按主動肌肉縮短、拉長或長度近似不變區分，不能只看整個人向上或向下移動。力量還受肌長、速度與活化條件影響。",
+      "answer_sources": [
+        "neumann.ch03.muscle-task",
+        "nordin.ch06.contraction-modes",
+        "neumann.ch03.force-velocity"
+      ],
+      "advance": "能說明肌肉如何在動作方向相反時仍提供控制，再往組織內部看。"
+    },
+    {
+      "id": "material",
+      "title": "同樣的力，材料反應為何不同",
+      "question": "一樣大的拉力作用在粗、細不同的組織上，可以直接說負荷一樣嗎？",
+      "prerequisites": [
+        "moment"
+      ],
+      "readings": [
+        {
+          "section": "nordin.ch01.stress-strain",
+          "purpose": "區分外加力量與材料內部的應力、應變。"
+        },
+        {
+          "section": "nordin.ch01.normal-strain",
+          "purpose": "把位移除以原始長度，理解相對變形。"
+        },
+        {
+          "section": "nordin.ch01.modulus-and-stiffness",
+          "purpose": "區分材料性質與整體結構剛性。"
+        },
+        {
+          "section": "nordin.ch02.structure-and-material",
+          "purpose": "把差別放回整根骨與骨材試件。"
+        }
+      ],
+      "task": "把「力、應力、位移、應變、剛性、彈性模數」分成三對，寫出每對多考慮了哪些尺寸或條件。",
+      "recall": "在均勻單軸拉伸近似下，同樣拉力、截面積減半，平均應力會如何改變？",
+      "answer": "平均正應力為力除以截面積，因此在這個近似下加倍。剛性描述整個結構的力與位移關係，還受幾何尺寸影響；彈性模數描述指定條件下材料的應力與應變關係。不能把平均值當成所有局部位置的應力。",
+      "answer_sources": [
+        "nordin.ch01.stress-strain",
+        "nordin.ch01.normal-strain",
+        "nordin.ch01.modulus-and-stiffness",
+        "nordin.ch02.structure-and-material"
+      ],
+      "advance": "能交代數值的分母與模型條件，再讀不同組織如何承力。"
+    },
+    {
+      "id": "cartilage",
+      "title": "軟骨怎麼把水也用來承重",
+      "question": "軟骨含有很多水，為什麼仍能承受關節負荷？",
+      "prerequisites": [
+        "joint",
+        "material"
+      ],
+      "readings": [
+        {
+          "section": "neumann.ch02.articular-cartilage",
+          "purpose": "先把軟骨放回關節接觸面。"
+        },
+        {
+          "section": "nordin.ch03.matrix",
+          "purpose": "辨認細胞、膠原、蛋白聚醣與水的關係。"
+        },
+        {
+          "section": "nordin.ch03.biphasic",
+          "purpose": "追蹤固體基質與液體如何分擔載荷。"
+        }
+      ],
+      "task": "畫出軟骨固體網絡和其中的水，以箭頭表示承重後壓力與排液的變化。",
+      "recall": "剛載入與維持負荷一段時間後，固體和液體的分擔一定相同嗎？",
+      "answer": "不一定。受載時液體壓力可分擔負荷；隨排液與變形發展，固液分擔會改變。時間、排液邊界與材料狀態都影響反應，所以不能只用「含水很多」推定它很軟或無法承重。",
+      "answer_sources": [
+        "neumann.ch02.articular-cartilage",
+        "nordin.ch03.matrix",
+        "nordin.ch03.biphasic"
+      ],
+      "advance": "能把承重與時間連起來，再比較肌腱和韌帶。"
+    },
+    {
+      "id": "tendon",
+      "title": "先看固定的是力還是長度",
+      "question": "拉住一段組織不動，和保持同樣拉力，是同一種試驗嗎？",
+      "prerequisites": [
+        "material"
+      ],
+      "readings": [
+        {
+          "section": "nordin.ch04.roles",
+          "purpose": "從連接的構造理解肌腱與韌帶的工作。"
+        },
+        {
+          "section": "nordin.ch04.time-tests",
+          "purpose": "先辨認試驗固定的物理量。"
+        },
+        {
+          "section": "nordin.ch04.stress-relaxation",
+          "purpose": "看長度固定時，力量如何隨時間改變。"
+        }
+      ],
+      "task": "畫兩張時間圖：固定負荷時看長度；固定長度時看力量。每張都標出被控制的量。",
+      "recall": "固定長度後，維持它所需的力逐步下降，叫蠕變還是應力鬆弛？",
+      "answer": "叫應力鬆弛；蠕變是在固定負荷下觀察變形隨時間增加。兩者的控制條件不同。曲線描述材料在試驗中的反應，不能單憑力下降就認定組織已修復。",
+      "answer_sources": [
+        "nordin.ch04.roles",
+        "nordin.ch04.time-tests",
+        "nordin.ch04.stress-relaxation"
+      ],
+      "advance": "能先問「固定什麼、量什麼」，再讀神經的負荷與功能。"
+    },
+    {
+      "id": "nerve",
+      "title": "組織完整與功能正常分開看",
+      "question": "神經沒有被拉斷，就代表它的傳導與供應完全正常嗎？",
+      "prerequisites": [
+        "material",
+        "tendon"
+      ],
+      "readings": [
+        {
+          "section": "nordin.ch05.nerve-structure",
+          "purpose": "辨認神經纖維、包覆與血管。"
+        },
+        {
+          "section": "nordin.ch05.stretch-function",
+          "purpose": "分開看血流、傳導與結構破壞。"
+        },
+        {
+          "section": "nordin.ch05.root-gliding",
+          "purpose": "區分位置滑移與組織本身伸長。"
+        }
+      ],
+      "task": "列出神經的三種觀察：位置變化、組織形變、功能變化，各用一句話說明量到什麼。",
+      "recall": "影像看見神經移動了幾毫米，可以直接換成相同數值的伸長嗎？",
+      "answer": "不能。滑移描述神經相對周圍組織的位置改變；伸長描述神經本身長度改變。血流或傳導變化也可能早於拉斷，因此完整外觀與正常功能需要分開判斷。",
+      "answer_sources": [
+        "nordin.ch05.nerve-structure",
+        "nordin.ch05.stretch-function",
+        "nordin.ch05.root-gliding"
+      ],
+      "advance": "能分清位移、應變與功能，就完成基礎主線；接著從髖開始整合下肢。"
+    },
+    {
+      "id": "hip",
+      "title": "單腳承重，骨盆如何被支持",
+      "question": "單腳站立時，外展肌為什麼要工作？",
+      "prerequisites": [
+        "moment",
+        "muscle",
+        "joint"
+      ],
+      "readings": [
+        {
+          "section": "neumann.ch12.abductor-control",
+          "purpose": "先看外展肌控制骨盆的任務。"
+        },
+        {
+          "section": "nordin.ch08.single-stance",
+          "purpose": "畫出重量對支撐髖的外力矩。"
+        },
+        {
+          "section": "nordin.ch08.muscle-reaction",
+          "purpose": "把肌肉力量放回關節內負荷。"
+        }
+      ],
+      "task": "畫單腳支持的正面圖，標出支撐髖、身體重量作用線與外展肌的反向力矩。",
+      "recall": "外展肌幫忙維持骨盆，是否也可能增加髖關節內的負荷？",
+      "answer": "是。在簡化平衡模型中，外展肌需要產生反向力矩，其拉力也參與髖部合力平衡。肌肉能支持動作，同時增加部分內部負荷；體重並不是關節接觸力的全部來源。",
+      "answer_sources": [
+        "neumann.ch12.abductor-control",
+        "nordin.ch08.single-stance",
+        "nordin.ch08.muscle-reaction"
+      ],
+      "advance": "能同時談支持作用與內部負荷，再沿下肢走到膝。"
+    },
+    {
+      "id": "knee",
+      "title": "膝的動作與負荷分開讀",
+      "question": "膝彎到同一角度，伸肌需求就會一樣嗎？",
+      "prerequisites": [
+        "hip",
+        "cartilage"
+      ],
+      "readings": [
+        {
+          "section": "neumann.ch13.gravity-resistance",
+          "purpose": "先比較阻力的位置與方向。"
+        },
+        {
+          "section": "neumann.ch13.patella-leverage",
+          "purpose": "看髕骨如何改變伸肌傳力幾何。"
+        },
+        {
+          "section": "nordin.ch07.two-articulations",
+          "purpose": "區分脛股與髕股接觸。"
+        },
+        {
+          "section": "neumann.ch13.contact-stress",
+          "purpose": "把接觸力與接觸應力分開。"
+        }
+      ],
+      "task": "畫兩個膝角相近、阻力作用線不同的情境；再用兩種顏色區分脛股與髕股接觸。",
+      "recall": "只知道膝角度，足以判斷股四頭肌力和髕股接觸應力嗎？",
+      "answer": "不足。還要看外力大小與力臂、伸肌傳力幾何和肌肉策略。接觸應力又與接觸面積及分布有關；相同角度不保證相同力矩，更不保證相同局部應力。",
+      "answer_sources": [
+        "neumann.ch13.gravity-resistance",
+        "neumann.ch13.patella-leverage",
+        "nordin.ch07.two-articulations",
+        "neumann.ch13.contact-stress"
+      ],
+      "advance": "能分清角度、力矩、接觸力與應力，再追到足踝。"
+    },
+    {
+      "id": "foot",
+      "title": "足部如何在支撐與推進間轉換",
+      "question": "踮腳時，為什麼跟腱力不能直接等同體重？",
+      "prerequisites": [
+        "knee",
+        "moment"
+      ],
+      "readings": [
+        {
+          "section": "neumann.ch14.plantar-fascia",
+          "purpose": "先理解足跟、前足與足弓的連接。"
+        },
+        {
+          "section": "neumann.ch14.plantarflexor-control",
+          "purpose": "沿時間看蹠屈肌控制小腿與推進。"
+        },
+        {
+          "section": "nordin.ch09.tiptoe-model",
+          "purpose": "用足部自由體分清三種力。"
+        }
+      ],
+      "task": "畫踮腳時的足部自由體，分別標出地面作用、跟腱拉力與踝部作用，說明選了哪個系統。",
+      "recall": "若地面支持力已知，為什麼仍不能直接把它當成跟腱力？",
+      "answer": "兩者作用位置與方向不同，對踝產生的力矩也不同。跟腱力需要連同力臂與力矩平衡求得；踝部作用再參與合力平衡。分析整個人與只分析足部，外力清單也不同。",
+      "answer_sources": [
+        "neumann.ch14.plantar-fascia",
+        "neumann.ch14.plantarflexor-control",
+        "nordin.ch09.tiptoe-model"
+      ],
+      "advance": "能分清地面力、肌腱力與關節力，就能把關節接到步態時間線。"
+    },
+    {
+      "id": "gait",
+      "title": "把所有曲線放回同一步",
+      "question": "同一個步態百分比，兩張圖一定表示同一時刻嗎？",
+      "prerequisites": [
+        "foot"
+      ],
+      "readings": [
+        {
+          "section": "neumann.ch15.cycle",
+          "purpose": "先選定一側肢體與週期起點。"
+        },
+        {
+          "section": "neumann.ch15.weight-acceptance",
+          "purpose": "理解承重初期的任務。"
+        },
+        {
+          "section": "nordin.ch17.gait-phases",
+          "purpose": "用接觸與離地事件對齊分期。"
+        },
+        {
+          "section": "nordin.ch17.moments",
+          "purpose": "辨認圖上是淨內力矩還是外力矩。"
+        }
+      ],
+      "task": "畫一條從同側足接觸到再次接觸的時間線，標出站立與擺盪，將一段關節角度與力矩對齊。",
+      "recall": "一張圖用整個步態週期，另一張只用站立期，兩者的 50% 可以直接對照嗎？",
+      "answer": "不可以，百分比的分母不同。先以接觸與離地事件對齊，再比較角度、力矩和肌肉活動。力矩還必須交代內外力矩、座標與正負方向，才能與動作連起來。",
+      "answer_sources": [
+        "neumann.ch15.cycle",
+        "neumann.ch15.weight-acceptance",
+        "nordin.ch17.gait-phases",
+        "nordin.ch17.moments"
+      ],
+      "advance": "能對齊事件、分母與方向，再加入功率。"
+    },
+    {
+      "id": "power",
+      "title": "關節在產生還是吸收能量",
+      "question": "肌肉正在用力，關節功率就一定是正值嗎？",
+      "prerequisites": [
+        "gait",
+        "muscle"
+      ],
+      "readings": [
+        {
+          "section": "nordin.ch17.power",
+          "purpose": "把淨力矩方向與角速度相乘。"
+        },
+        {
+          "section": "nordin.ch17.work-energy",
+          "purpose": "區分瞬時功率和一段時間的作功。"
+        },
+        {
+          "section": "nordin.ch17.coactivation",
+          "purpose": "看相同淨力矩背後的不同肌肉組合。"
+        }
+      ],
+      "task": "畫關節轉動方向與淨內力矩：一組同向、一組反向，分別預測功率的正負。",
+      "recall": "負的淨關節功率能否直接證明某一條肌肉正在以同樣功率離心工作？",
+      "answer": "不能。淨力矩與角速度反向時，在一致符號約定下得到負功率，表示該關節層次的淨能量吸收。但共同活化、多關節肌與彈性組織等因素，使淨關節結果不能直接分配給單一肌肉。",
+      "answer_sources": [
+        "nordin.ch17.power",
+        "nordin.ch17.work-energy",
+        "nordin.ch17.coactivation"
+      ],
+      "advance": "能分清關節淨結果與個別肌肉工作，再比較行走和跑步。"
+    },
+    {
+      "id": "running",
+      "title": "跑步改變了哪些條件",
+      "question": "跑得更快時，應該先比較哪幾個量？",
+      "prerequisites": [
+        "power"
+      ],
+      "readings": [
+        {
+          "section": "neumann.ch16.support-flight",
+          "purpose": "比較支持、雙腳支持與騰空的組織方式。"
+        },
+        {
+          "section": "neumann.ch16.vertical-force",
+          "purpose": "分開看垂直反力峰值與上升速率。"
+        },
+        {
+          "section": "neumann.ch16.fore-aft-force",
+          "purpose": "用前後向衝量理解速度變化。"
+        }
+      ],
+      "task": "用兩條時間線比較走與跑；在一張反力圖上分別圈出峰值、斜率與時間積分所代表的範圍。",
+      "recall": "峰值相同的兩條力曲線，上升速率與衝量一定相同嗎？",
+      "answer": "不一定。峰值是最高點，上升速率描述力隨時間改變的快慢，衝量是力對時間的積分。曲線的寬度和形狀可以不同，還需保留速度、方向與接觸條件才能比較。",
+      "answer_sources": [
+        "neumann.ch16.support-flight",
+        "neumann.ch16.vertical-force",
+        "neumann.ch16.fore-aft-force"
+      ],
+      "advance": "能用事件、方向與曲線形狀解釋差異，就完成下肢主線；可選上肢或軀幹繼續。"
+    },
+    {
+      "id": "shoulder",
+      "title": "抬手是一組關節的合作",
+      "question": "手舉過頭時，哪些地方一起讓出活動空間？",
+      "prerequisites": [
+        "joint",
+        "muscle",
+        "moment"
+      ],
+      "readings": [
+        {
+          "section": "neumann.ch05.shoulder-links",
+          "purpose": "先建立肩部四個連結的地圖。"
+        },
+        {
+          "section": "neumann.ch05.rhythm",
+          "purpose": "理解肩肱節律的概括與適用範圍。"
+        },
+        {
+          "section": "neumann.ch05.muscle-cooperation",
+          "purpose": "畫出前鋸肌與斜方肌如何共同促成肩胛上旋。"
+        },
+        {
+          "section": "nordin.ch12.force-couples",
+          "purpose": "把肌肉拉力方向接到肩帶協作。"
+        }
+      ],
+      "task": "畫胸廓、鎖骨、肩胛與肱骨，用箭頭表示抬臂時的合作；另外標出肩胛上旋的肌力偶。",
+      "recall": "肩肱節律常提到的約 2:1，能當成抬臂每一瞬間的固定比例嗎？",
+      "answer": "不能。它是特定觀察條件下整段抬舉的概括，分段比例會受活動階段、平面與個體等條件影響。讀抬手時，要同時追蹤肩胛、鎖骨與盂肱關節，不能只把手臂總角度分成固定份數。",
+      "answer_sources": [
+        "neumann.ch05.shoulder-links",
+        "neumann.ch05.rhythm",
+        "neumann.ch05.muscle-cooperation",
+        "nordin.ch12.force-couples"
+      ],
+      "advance": "能把肩部連結與肌肉方向畫在同一張圖，再讀肘如何定位手。"
+    },
+    {
+      "id": "elbow",
+      "title": "肘改變距離，前臂改變方向",
+      "question": "把杯子送到嘴邊與轉動杯口，需要哪些不同的動作？",
+      "prerequisites": [
+        "shoulder"
+      ],
+      "readings": [
+        {
+          "section": "neumann.ch06.two-tasks",
+          "purpose": "分開屈伸與前臂旋轉的任務。"
+        },
+        {
+          "section": "neumann.ch06.rotation-reference",
+          "purpose": "先固定上臂，避免把肩旋轉混進來。"
+        },
+        {
+          "section": "nordin.ch13.flexor-load-model",
+          "purpose": "由力矩平衡估計簡化肌肉拉力。"
+        },
+        {
+          "section": "nordin.ch13.joint-reaction",
+          "purpose": "再把所有力放回合力平衡。"
+        }
+      ],
+      "task": "畫手持物的簡化肘模型，寫出先平衡力矩、再平衡力的兩個步驟。",
+      "recall": "算出屈肌拉力後，是否已經得到肘關節反作用力？",
+      "answer": "還沒有。屈肌力是模型中的一個作用力；求關節反作用力，仍須把肌肉、前臂重量及手持負荷等放入同一套向量平衡。兩個結果回答不同問題，不能只因單位都是牛頓就互換。",
+      "answer_sources": [
+        "neumann.ch06.two-tasks",
+        "neumann.ch06.rotation-reference",
+        "nordin.ch13.flexor-load-model",
+        "nordin.ch13.joint-reaction"
+      ],
+      "advance": "能說清楚角度的參考與模型中的各種力，再往手腕讀。"
+    },
+    {
+      "id": "wrist",
+      "title": "抓握為什麼需要手腕配合",
+      "question": "手指握住物品時，手腕伸肌為什麼也會工作？",
+      "prerequisites": [
+        "elbow",
+        "muscle"
+      ],
+      "readings": [
+        {
+          "section": "neumann.ch07.grip-base",
+          "purpose": "看手指屈肌在腕部同時造成的作用。"
+        },
+        {
+          "section": "neumann.ch07.grip-length",
+          "purpose": "理解腕位對屈指肌長度與阻力的影響。"
+        },
+        {
+          "section": "nordin.ch14.grip-stability",
+          "purpose": "把手腕穩定放回抓握任務。"
+        }
+      ],
+      "task": "畫一條跨過手腕的屈指肌腱，標示它對手指與腕的作用；再加入腕伸肌的平衡作用。",
+      "recall": "手指用力時，手腕保持不動，代表腕部沒有肌肉在出力嗎？",
+      "answer": "不代表。屈指肌也會帶來屈腕傾向，腕伸肌可提供反向作用，使腕維持可用的位置。腕位還會改變屈指肌的長度與被動阻力；看不到動作，不等於沒有力矩需求。",
+      "answer_sources": [
+        "neumann.ch07.grip-base",
+        "neumann.ch07.grip-length",
+        "nordin.ch14.grip-stability"
+      ],
+      "advance": "能把操作與穩定一起解釋，再看手指的精細傳力。"
+    },
+    {
+      "id": "hand",
+      "title": "肌腱路徑如何變成手指動作",
+      "question": "肌肉有力，為什麼還需要滑車、對掌與不同接觸方式？",
+      "prerequisites": [
+        "wrist"
+      ],
+      "readings": [
+        {
+          "section": "neumann.ch08.thumb",
+          "purpose": "辨認拇指對掌的組合路徑。"
+        },
+        {
+          "section": "neumann.ch08.pulley-system",
+          "purpose": "理解滑車如何讓肌腱貼近骨頭。"
+        },
+        {
+          "section": "nordin.ch14.pulley-force",
+          "purpose": "看改變行徑的構造本身也要承受力。"
+        }
+      ],
+      "task": "畫一根手指與屈肌腱，標出滑車限制的路徑；另畫拇指如何移到能接觸其他手指的位置。",
+      "recall": "滑車只引導肌腱、不必承受肌腱造成的作用力，這句話哪裡有問題？",
+      "answer": "肌腱在滑車處改變方向，兩側張力的合成會對滑車產生作用。路徑、力臂與組織承力彼此連結，不能把滑車當成沒有受力的導線環；抓握還需要拇指位置與接觸面配合。",
+      "answer_sources": [
+        "neumann.ch08.thumb",
+        "neumann.ch08.pulley-system",
+        "nordin.ch14.pulley-force"
+      ],
+      "advance": "能從接觸任務追到肌腱路徑與支承，就完成上肢路線。"
+    },
+    {
+      "id": "spine",
+      "title": "把脊柱拆成可理解的運動節段",
+      "question": "前彎時，椎間盤與後方關節各參與了什麼？",
+      "prerequisites": [
+        "joint",
+        "cartilage"
+      ],
+      "readings": [
+        {
+          "section": "neumann.ch09.segments",
+          "purpose": "先選一個運動節段作為分析單位。"
+        },
+        {
+          "section": "neumann.ch09.disc-structure",
+          "purpose": "辨認髓核、纖維環與終板。"
+        },
+        {
+          "section": "neumann.ch09.endplates",
+          "purpose": "把上下椎體與椎間盤之間的傳力界面補進圖中。"
+        },
+        {
+          "section": "nordin.ch10.disc-pressure",
+          "purpose": "理解局部壓力量測能回答什麼。"
+        }
+      ],
+      "task": "畫相鄰兩椎骨、椎間盤與後方小面關節；寫出「節段動作」與「盤內壓」各自描述什麼。",
+      "recall": "量到某處盤內壓，就等於知道整個脊柱的負荷和損傷風險嗎？",
+      "answer": "不等於。盤內壓是指定位置與條件下的局部反應，整個節段還包含後方關節、肌肉與韌帶等傳力路徑。比較數值時要保留姿勢、外力、量測位置及組織狀態。",
+      "answer_sources": [
+        "neumann.ch09.segments",
+        "neumann.ch09.disc-structure",
+        "neumann.ch09.endplates",
+        "nordin.ch10.disc-pressure"
+      ],
+      "advance": "能分清局部量測與整體節段，再加入肌肉控制。"
+    },
+    {
+      "id": "trunk",
+      "title": "穩定和減少負荷是兩個問題",
+      "question": "身體向前彎時，背部伸肌為什麼仍可能工作？",
+      "prerequisites": [
+        "spine",
+        "muscle"
+      ],
+      "readings": [
+        {
+          "section": "nordin.ch10.bending",
+          "purpose": "看前彎時重力、伸肌與被動組織如何重新分工。"
+        },
+        {
+          "section": "neumann.ch10.stable-not-unloaded",
+          "purpose": "分開穩定性與內部壓縮。"
+        },
+        {
+          "section": "nordin.ch10.co-contraction",
+          "purpose": "理解共同活化造成的交換。"
+        }
+      ],
+      "task": "畫重力造成前彎的力矩與伸肌的反向作用，再寫出共同活化可能同時帶來的兩種結果。",
+      "recall": "用力繃緊軀幹，可以直接推論脊柱壓縮一定更低嗎？",
+      "answer": "不能。共同活化可以提高剛性與抵抗擾動的能力，同時也可能增加壓縮。前彎動作可能由重力帶動、伸肌提供控制；肌肉功能應由受力與任務判斷，不能只看移動方向。",
+      "answer_sources": [
+        "nordin.ch10.bending",
+        "neumann.ch10.stable-not-unloaded",
+        "nordin.ch10.co-contraction"
+      ],
+      "advance": "能把「支持穩定」與「內部負荷」分開，就能把同樣方法用到頭頸。"
+    },
+    {
+      "id": "neck",
+      "title": "看頭的位置，也看各節段的方向",
+      "question": "頭往前移時，上頸與下頸必然朝同一方向轉嗎？",
+      "prerequisites": [
+        "spine",
+        "moment"
+      ],
+      "readings": [
+        {
+          "section": "neumann.ch10.forward-head",
+          "purpose": "把外觀姿勢拆成區域配置。"
+        },
+        {
+          "section": "nordin.ch11.head-load",
+          "purpose": "先選參考軸，再描述頭部重量力矩。"
+        },
+        {
+          "section": "nordin.ch11.regional-motion",
+          "purpose": "分開頭部總角度與節段角度。"
+        }
+      ],
+      "task": "畫一個頭前移但視線仍朝前的簡圖，分別標上頸、下頸與胸廓；圈出你計算力矩的參考軸。",
+      "recall": "頭部總角度沒有改變，是否代表每個頸椎節段都沒有動？",
+      "answer": "不是。不同區域可能以相反方向的活動維持視線或總姿態。頭部位置會改變相對指定軸的重量力矩，但外觀幾何本身仍不能單獨確定疼痛來源或病因。",
+      "answer_sources": [
+        "neumann.ch10.forward-head",
+        "nordin.ch11.head-load",
+        "nordin.ch11.regional-motion"
+      ],
+      "advance": "能分清位置、區域角度與總角度，再選呼吸或咀嚼來練習同一套分析。"
+    },
+    {
+      "id": "breathing",
+      "title": "從胸廓動作追到空氣流動",
+      "question": "呼吸肌改變胸廓後，空氣為什麼會流入或流出？",
+      "prerequisites": [
+        "trunk"
+      ],
+      "readings": [
+        {
+          "section": "neumann.ch11.ventilation",
+          "purpose": "先理解肌肉、胸廓與壓力的連接。"
+        },
+        {
+          "section": "neumann.ch11.airflow-pressure",
+          "purpose": "以壓差和阻力解釋氣流。"
+        },
+        {
+          "section": "neumann.ch11.expiration",
+          "purpose": "分清安靜呼氣與用力呼氣。"
+        }
+      ],
+      "task": "用箭頭串起肌肉作用、胸廓條件、壓差和氣流；在安靜與用力呼氣旁註明不同的肌肉需求。",
+      "recall": "安靜呼氣可由彈性回復協助，是否表示所有呼氣都不需要主動肌肉作用？",
+      "answer": "不表示。安靜呼氣與用力呼氣的任務不同；用力呼氣可增加呼氣肌作用。氣流方向由肺泡與外界的壓差決定，而相同壓差下的流量還受氣道阻力影響。",
+      "answer_sources": [
+        "neumann.ch11.ventilation",
+        "neumann.ch11.airflow-pressure",
+        "neumann.ch11.expiration"
+      ],
+      "advance": "能完整說出動作到氣流的連鎖，再把固定端的觀念用到下顎。"
+    },
+    {
+      "id": "jaw",
+      "title": "一塊下顎，兩側關節一起動",
+      "question": "張大嘴巴是下顎單純繞一根固定軸旋轉嗎？",
+      "prerequisites": [
+        "joint",
+        "muscle"
+      ],
+      "readings": [
+        {
+          "section": "neumann.ch11.jaw-motion",
+          "purpose": "分開旋轉與平移的組合。"
+        },
+        {
+          "section": "neumann.ch11.hyoid-support",
+          "purpose": "看看肌肉拉力的另一端如何得到支持。"
+        },
+        {
+          "section": "neumann.ch11.mastication",
+          "purpose": "把左右兩側放回同一個咀嚼任務。"
+        }
+      ],
+      "task": "畫張口時旋轉與向前平移的組合，另標出舌骨受到支持時，舌骨上肌能如何作用於下顎。",
+      "recall": "同一條肌肉，固定端改變後，可以仍只背一個動作名稱嗎？",
+      "answer": "不能只靠固定名稱判斷結果。肌肉拉近附著兩端，哪一端得到支持、關節如何容許移動，都會影響可見動作。張口還包括雙側關節的旋轉與平移，咀嚼則需要兩側協調。",
+      "answer_sources": [
+        "neumann.ch11.jaw-motion",
+        "neumann.ch11.hyoid-support",
+        "neumann.ch11.mastication"
+      ],
+      "advance": "能用構造、固定端與肌群協作解釋咀嚼，就完成軀幹與日常動作路線。"
+    },
+    {
+      "id": "fixation",
+      "title": "固定要控制的是哪一種移動",
+      "question": "骨折間隙移動相同距離，對局部組織的意義會一樣嗎？",
+      "prerequisites": [
+        "material",
+        "tendon",
+        "hip",
+        "knee"
+      ],
+      "readings": [
+        {
+          "section": "nordin.ch15.fracture-motion",
+          "purpose": "先辨認要限制的相對移動。"
+        },
+        {
+          "section": "nordin.ch15.local-strain",
+          "purpose": "把位移放回原本間隙長度。"
+        },
+        {
+          "section": "nordin.ch15.sharing",
+          "purpose": "追蹤骨與裝置的負荷分擔。"
+        }
+      ],
+      "task": "畫兩個不同寬度的間隙，各標上相同位移，比較位移相對間隙的比例；另畫癒合前後的傳力路徑。",
+      "recall": "相同位移，在較小間隙內代表較大還是較小的應變？這能直接給出個人的活動額度嗎？",
+      "answer": "在相同應變定義下，位移除以初始間隙，較小間隙得到較大比例。但局部組織狀態、癒合方式與固定構造仍會改變解讀；這個機制比較不能直接換成個人的承重或活動額度。",
+      "answer_sources": [
+        "nordin.ch15.fracture-motion",
+        "nordin.ch15.local-strain",
+        "nordin.ch15.sharing"
+      ],
+      "advance": "能連同分母、組織狀態與傳力路徑解釋固定，再讀人工關節。"
+    },
+    {
+      "id": "arthroplasty",
+      "title": "重建關節也改變了傳力路徑",
+      "question": "裝置分擔更多負荷，對周圍骨與接觸面各代表什麼？",
+      "prerequisites": [
+        "fixation",
+        "power"
+      ],
+      "readings": [
+        {
+          "section": "nordin.ch16.stress-shielding",
+          "purpose": "先看植入物與骨之間的剛性及負荷分擔。"
+        },
+        {
+          "section": "nordin.ch16.conformity",
+          "purpose": "比較接觸吻合、壓力與活動約束。"
+        },
+        {
+          "section": "nordin.ch16.wear",
+          "purpose": "把磨耗放回路徑、材料與反覆負荷。"
+        }
+      ],
+      "task": "畫骨與植入物的兩條傳力路徑，再寫出提高接觸吻合度可能同時改變的兩個條件。",
+      "recall": "接觸面更吻合、平均壓力較低，是否就能保證所有失效風險都下降？",
+      "answer": "不能。較高吻合度可增加接觸面積、降低部分接觸壓力，同時也可能提高運動約束或改變介面負荷。磨耗還受材料、接觸路徑與循環歷程影響；應力遮蔽則涉及骨與植入物的負荷分擔，兩者不能混為一談。",
+      "answer_sources": [
+        "nordin.ch16.stress-shielding",
+        "nordin.ch16.conformity",
+        "nordin.ch16.wear"
+      ],
+      "advance": "能說出幾何、材料與任務之間的交換，就可回到原章延伸閱讀研究與案例。"
+    }
+  ]
+}

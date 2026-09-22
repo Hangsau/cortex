@@ -21,7 +21,9 @@ jobs:
           sudo dpkg -i hugo.deb
 
       - name: Build
-        run: hugo --minify
+        run: |
+          python3 tools/check_learning_map.py
+          hugo --minify
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

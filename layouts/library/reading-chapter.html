@@ -5,12 +5,16 @@
 {{ $Book := index hugo.Data.reading.books .Params.reader_book }}
 {{ $Number := int .Params.chapter }}
 {{ $Meta := index $Book.chapters (sub $Number 1) }}
+{{ $Learning := partialCached "reading/map-index.html" . }}
+{{ $MapPage := site.GetPage "/library/kinesiology/learning-map" }}
+{{ $Stops := index $Learning.by_chapter .Params.id }}
 <div class="rd-page rd-chapter" data-reader-book="{{ .Params.reader_book }}" data-reader-title="{{ .Title }}" data-reader-path="{{ .RelPermalink }}">
   <header class="rd-masthead">
     <a href="{{ .Parent.RelPermalink }}">← {{ $Book.title }} · 全書目錄</a>
     <p class="rd-kicker">第 {{ $Number }} 章 / 共 {{ len $Book.chapters }} 章 · {{ $Book.edition }}</p>
     <h1>{{ .Title }}</h1>
     <p class="rd-deck">{{ .Description }}</p>
+    <p class="rd-topic-entry"><a href="{{ $MapPage.RelPermalink }}">學習地圖：帶著問題讀這一章 →</a></p>
     <div class="rd-tools" aria-label="閱讀設定">
       <label for="rd-font-size">字級</label><select id="rd-font-size"><option value="18">標準</option><option value="20" selected>舒適</option><option value="22">加大</option></select>
       <label for="rd-color">紙面</label><select id="rd-color"><option value="paper">米白</option><option value="night">夜讀</option></select>
@@ -18,7 +22,7 @@
     </div>
   </header>
   <div class="rd-layout">
-    <aside class="rd-rail" aria-label="章內目錄"><details><summary>這一章怎麼讀</summary>{{ .TableOfContents }}<a href="#rd-terms">中英術語</a><a href="#rd-next">接著讀</a></details></aside>
+    <aside class="rd-rail" aria-label="章內目錄"><details><summary>這一章怎麼讀</summary>{{ .TableOfContents }}<a href="#rd-terms">中英術語</a><a href="#rd-next">接著讀</a><h2>學習地圖</h2>{{ range $Stops }}<a class="rd-map-return" href="{{ $MapPage.RelPermalink }}#{{ . }}">{{ (index $Learning.stations .).title }}</a>{{ end }}</details></aside>
     <article class="rd-prose" id="rd-article">
       {{ .Content }}
       {{ with .Params.terms }}
