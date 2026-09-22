@@ -1,0 +1,612 @@
+meta:
+  chapter: ch22
+  source: data/cscs/ch22.yaml
+questions:
+- id: ch22.fibroblastic-phase.i02.q1
+  item: ch22.fibroblastic-phase.i02
+  dco: pa1.J
+  lang: zh
+  cognitive: analysis
+  stem: 修復期內新生疤痕組織的第三型膠原纖維最主要的排列特徵為何？
+  locator: Tissue Healing > Fibroblastic Repair Phase
+  options:
+  - text: 隨機沉積且常為橫向
+    correct: true
+  - text: 沿受力線完全縱向排列
+    correct: false
+    why_wrong: 預設修復期膠原已具備重塑後的縱向排列；但第三型膠原仍以隨機與橫向為主，縱向排列須待重塑期。
+  - text: 規則網格狀均勻分布
+    correct: false
+    why_wrong: 把修復期新生纖維的排列描寫成過於整齊；實際上是隨機沉積，並非規則網格。
+- id: ch22.inflammatory-phase.i04.q1
+  item: ch22.inflammatory-phase.i04
+  dco: pa1.J
+  lang: zh
+  cognitive: application
+  stem: 籃球員右踝二級扭傷 36 小時後回診，下列何者應是發炎期最優先的處理原則？
+  locator: Goals of Rehabilitation and Reconditioning > Inflammatory Response Phase > Treatment Goal
+  options:
+  - text: 最大程度保護受傷結構
+    correct: true
+  - text: 立即加入最大阻力訓練
+    correct: false
+    why_wrong: 忽略發炎期組織尚未穩定的事實，直接把重阻力套用上去；此時施加高壓力會破壞新生組織並延後癒合。
+  - text: 全面測試關節活動度極限
+    correct: false
+    why_wrong: 在急性發炎期就要求拉到活動度極限，容易再次破壞受傷結構；此舉違背發炎期保護優先的原則。
+- id: ch22.injury-types.i03.q1
+  item: ch22.injury-types.i03
+  dco: pa1.A.1
+  lang: en
+  cognitive: analysis
+  stem: A basketball player has a lateral ankle sprain with complete ligament tearing and obvious joint instability on examination. Which grade of sprain best describes this injury?
+  locator: Types of Injury
+  options:
+  - text: Third degree
+    correct: true
+  - text: First degree
+    correct: false
+    why_wrong: Confuses the lowest grade of sprain with the presentation of complete tearing; first degree involves partial tearing without added instability.
+  - text: Second degree
+    correct: false
+    why_wrong: Picks a middle grade that implies only mild instability; complete tearing with full instability exceeds second degree.
+- id: ch22.injury-types.i05.q1
+  item: ch22.injury-types.i05
+  dco: pa1.A.1
+  lang: zh
+  cognitive: application
+  stem: 一名短跑選手腿後肌受間接創傷後，觸診仍可勉強收縮但明顯無力且疼痛，最可能是哪一度的肌肉拉傷？
+  locator: Types of Injury
+  options:
+  - text: 第二度
+    correct: true
+  - text: 第一度
+    correct: false
+    why_wrong: 以為勉強能收縮代表傷勢輕微；第一度的特徵是活動強但疼痛，而不是活動已經明顯無力。
+  - text: 第三度
+    correct: false
+    why_wrong: 把完全撕裂、活動非常無力且無痛的第三度拉傷，誤套用在仍明顯疼痛的個案上。
+- id: ch22.kinetic-chain.i06.q1
+  item: ch22.kinetic-chain.i06
+  dco: pa1.C.1
+  lang: en
+  cognitive: application
+  stem: A physical therapist wants to isolate the quadriceps at the knee joint for a post-operative patient. Which exercise best fits this goal?
+  locator: Goals of Rehabilitation and Reconditioning > Maturation–Remodeling Phase > Exercise Strategies
+  options:
+  - text: Leg extension
+    correct: true
+  - text: Barbell squat
+    correct: false
+    why_wrong: In the squat the foot stays fixed on the floor while the hip and ankle work with the knee, so the quadriceps are not isolated at a single joint.
+  - text: Leg press
+    correct: false
+    why_wrong: Pushing against a fixed platform keeps the foot planted and recruits hip and ankle musculature, which is the closed chain pattern rather than free distal movement.
+- id: ch22.maturation-phase.i02.q1
+  item: ch22.maturation-phase.i02
+  dco: pa1.J
+  lang: zh
+  cognitive: application
+  stem: 治療師為重塑期的選手逐步加重負荷，依教材所述，受傷部位的疤痕最主要會出現下列哪一種改變？
+  locator: Tissue Healing > Maturation–Remodeling Phase
+  options:
+  - text: 纖維變粗並沿受力線排列
+    correct: true
+  - text: 纖維維持隨機而鬆散的網狀
+    correct: false
+    why_wrong: 這是修復期的狀態，重塑期的重點正是在負荷之下讓纖維改變粗細與方向，停在鬆散網狀等於沒有進入這一期。
+  - text: 纖維被第三型膠原取代
+    correct: false
+    why_wrong: 方向正好寫反，教材說的是較弱的第三型膠原被較強的第一型取代，不是反過來。
+- id: ch22.maturation-phase.i06.q1
+  item: ch22.maturation-phase.i06
+  dco: pa1.B.2
+  lang: en
+  cognitive: analysis
+  stem: A sprinter returning from a hamstring strain has restored strength and range of motion. Which progression principle best matches the text's guidance for the maturation-remodeling phase?
+  locator: Goals of Rehabilitation and Reconditioning > Maturation–Remodeling Phase > Exercise Strategies
+  options:
+  - text: Exercises that replicate the movements common to the athlete's sport
+    correct: true
+  - text: General strength work held at the level reached earlier in rehab
+    correct: false
+    why_wrong: Holding the earlier level stalls the progression this phase requires; the text moves strengthening toward the demands of competition.
+  - text: Isolated single-joint machine work in place of whole-body drills
+    correct: false
+    why_wrong: Machine-based single-joint work narrows the program when the phase asks for functional, closed-chain, and speed-specific tasks.
+- id: ch22.resistance-training-systems.i04.q1
+  item: ch22.resistance-training-systems.i04
+  dco: pa1.B.2
+  lang: en
+  cognitive: application
+  stem: A rehabilitation patient's fourth DAPRE set is about to be loaded. What primarily determines that resistance?
+  locator: Program Design > Resistance Training > Table 22.2 Resistance Adjustments for Daily Adjustable Progressive Resistance Exercise (DAPRE) Protocol
+  options:
+  - text: The repetitions completed on set three
+    correct: true
+  - text: A load fixed before the session starts
+    correct: false
+    why_wrong: The protocol adjusts that load from performance, so it cannot be set in advance; the chapter states the final set is not a predetermined weight.
+  - text: The athlete's one-repetition maximum
+    correct: false
+    why_wrong: The estimated 6RM anchors only the first three sets; the adjustment table keys off repetitions rather than a one-repetition maximum.
+- id: ch22.injury-prevention.i07.q1
+  item: ch22.injury-prevention.i07
+  dco: pa1.C.2
+  lang: zh
+  cognitive: analysis
+  stem: 對田徑短跑選手而言，下列哪一種訓練方式在教材中最被明確支持來降低腿後肌傷害風險？
+  locator: Reducing Risk of Injury and Reinjury
+  options:
+  - text: 離心運動訓練
+    correct: true
+  - text: 純等長收縮訓練
+    correct: false
+    why_wrong: 把等長運動誤套為腿後肌傷害預防的主要處方；本章只明確支持離心運動可降低此風險。
+  - text: 長時間被動伸展
+    correct: false
+    why_wrong: 把柔軟度工作誤認為傷害預防的核心；本章並未把被動伸展列為降低腿後肌傷害風險的主要方式。
+- id: ch22.sports-medicine-team.i07.q1
+  item: ch22.sports-medicine-team.i07
+  dco: pa1.J
+  lang: zh
+  cognitive: application
+  stem: 一位壘球外野手有肩部夾擠，仍須持續衝刺與接高飛球。依教材所述，此時針對其下肢安排阻力課程，在運動醫學團隊的溝通上主要屬於哪一種歸類？
+  locator: Sports Medicine Team > Communication
+  options:
+  - text: 列為適應症
+    correct: true
+  - text: 列為禁忌症
+    correct: false
+    why_wrong: 這把運動員實際需要的訓練當成因傷禁止的項目，肩部的夾擠並沒有讓下肢的肌力與速度訓練變成不宜進行。
+  - text: 屬預防性措施
+    correct: false
+    why_wrong: 這一段談的是治療的必要性歸類，不是賽前的風險降低措施，教材把它放在運動醫學團隊的溝通脈絡裡。
+- id: ch22.injury-prevention.i03.q1
+  item: ch22.injury-prevention.i03
+  dco: pa1.C.2
+  lang: zh
+  cognitive: analysis
+  stem: 一名高中籃球員接受下肢傷害預防篩檢，下列哪一項屬於本章列為下肢傷害的主要風險因子？
+  locator: Reducing Risk of Injury and Reinjury
+  options:
+  - text: 平衡能力不足
+    correct: true
+  - text: 慣用側握力下降
+    correct: false
+    why_wrong: 把上肢末端的握力誤套為下肢傷害風險因子，本章下肢風險聚焦於平衡、落地控制與肌力，並未列入握力。
+  - text: 眼球追蹤下降
+    correct: false
+    why_wrong: 把視知覺功能誤置於下肢傷害風險因子的處置清單，本章只把平衡、落地神經肌肉控制與下肢肌力列為下肢風險因子。
+- id: ch22.fibroblastic-phase.i01.q1
+  item: ch22.fibroblastic-phase.i01
+  dco: pa1.J
+  lang: zh
+  cognitive: recall
+  stem: 纖維母細胞修復期最久可持續至受傷後多久？
+  locator: Tissue Healing > Fibroblastic Repair Phase
+  options:
+  - text: 傷後最早約 2 天開始
+    correct: false
+    why_wrong: 題目問的是最久可持續多久，不是最早從何時開始；發炎期才以天為單位描述起點。
+  - text: 最久可持續至 2 個月
+    correct: true
+  - text: 多數情況超過 6 個月
+    correct: false
+    why_wrong: 把重塑期才有的數月到數年時程，誤放到修復期的最大值；本章只給到 2 個月上限。
+- id: ch22.fibroblastic-phase.i07.q1
+  item: ch22.fibroblastic-phase.i07
+  dco: pa1.B.2
+  lang: zh
+  cognitive: analysis
+  stem: 一名足球員前十字韌帶術後進入修復期，教練以單腳站於平衡板、雙眼睜開開始神經肌肉控制訓練。最能反映「漸進操控三項變數」的下一步調整為何？
+  locator: Goals of Rehabilitation and Reconditioning > Fibroblastic Repair Phase > Exercise Strategies
+  options:
+  - text: 改在穩定球上單腳站立，並閉眼
+    correct: true
+  - text: 回到雙腳站於硬地面，持續增加組數
+    correct: false
+    why_wrong: 把「漸進」簡化為只增加訓練量；表面穩定性與視覺輸入沒有被操控，沒有挑戰神經肌肉控制。
+  - text: 直接換成動態跳躍落地以銜接運動特異性
+    correct: false
+    why_wrong: 將「運動特異性」誤以為要在修復期立即執行；跳躍落地屬較高應力，本章強調先操控穩定性、視覺、速度三項變數。
+- id: ch22.inflammatory-phase.i02.q1
+  item: ch22.inflammatory-phase.i02
+  dco: pa1.J
+  lang: zh
+  cognitive: analysis
+  stem: 一名長跑選手小腿挫傷後傷區腫脹。下列對發炎期水腫因果順序的描述，何者最符合本章所列過程？
+  locator: Tissue Healing > Inflammatory Response Phase
+  options:
+  - text: 通透性增加使液體逸入組織
+    correct: true
+  - text: 水腫直接破壞所有新生膠原
+    correct: false
+    why_wrong: 將發炎期的水腫功能擴大成修復期的膠原破壞；兩者屬不同癒合階段。
+  - text: 巨噬細胞先清除後才出現腫脹
+    correct: false
+    why_wrong: 倒置了化學介質造成水腫、再由吞噬作用清理的順序。
+- id: ch22.inflammatory-phase.i07.q1
+  item: ch22.inflammatory-phase.i07
+  dco: pa1.J
+  lang: en
+  cognitive: analysis
+  stem: A basketball player has just entered the inflammatory phase after a left knee sprain with no contraindications. Which activity best fits the chapter's examples of training that does not directly stress the injured region?
+  locator: Goals of Rehabilitation and Reconditioning > Inflammatory Response Phase > Treatment Goal
+  options:
+  - text: Upper-body resistance exercise
+    correct: true
+  - text: Heavy bilateral back squat at 85% of 1RM
+    correct: false
+    why_wrong: Applies maximal mechanical load through the injured knee; the chapter explicitly discourages movements that directly load the injured region during this phase.
+  - text: Plyometric depth jumps onto a hard surface
+    correct: false
+    why_wrong: Selects a high-impact landing task that loads the injured knee; this exceeds what the inflammatory-phase examples allow even without contraindications.
+- id: ch22.injury-prevention.i04.q1
+  item: ch22.injury-prevention.i04
+  dco: pa1.C.2
+  lang: zh
+  cognitive: analysis
+  stem: 某大學女足校隊欲降低比賽中前十字韌帶與踝關節扭傷的發生率。下列設計下肢傷害預防計畫的取向，何者最符合本章所述？
+  locator: Reducing Risk of Injury and Reinjury
+  options:
+  - text: 依該運動專項設計，並強調落地與切入的神經肌肉控制
+    correct: true
+  - text: 以大量離心腿後肌訓練取代所有切入訓練
+    correct: false
+    why_wrong: 把「離心訓練可降低腿後肌風險」誤擴大成可取代切入與落地的神經肌肉控制；本章仍強調專項性與神經肌肉控制。
+  - text: 僅安排每週一次的固定式腳踏車訓練即足以降低風險
+    correct: false
+    why_wrong: 以低強度有氧取代落地與切入動作的專項性訓練；本章強調以該運動實際出現的動作設計預防計畫。
+- id: ch22.injury-types.i07.q1
+  item: ch22.injury-types.i07
+  dco: pa1.A.1
+  lang: zh
+  cognitive: application
+  stem: 一名跑者在硬跑道突然將每週里程增加約 40%，數週後出現小腿中段疼痛，影像確診為疲勞性骨折。下列成因描述何者最符合本章？
+  locator: Types of Injury
+  options:
+  - text: 訓練量急增於硬地面，使骨反覆異常受力
+    correct: true
+  - text: 疲勞性骨折主要由鞋子鬆脫造成
+    correct: false
+    why_wrong: 將多因素結果簡化為單一外因；本章列出表面與訓練量等多種可能。
+  - text: 只要柔軟度足夠就不會發生疲勞性骨折
+    correct: false
+    why_wrong: 將過度使用傷害歸因到單一變數；柔軟度僅為可能因素之一。
+- id: ch22.resistance-training-systems.i01.q1
+  item: ch22.resistance-training-systems.i01
+  dco: pa1.E.1
+  lang: zh
+  cognitive: application
+  stem: 一名肌力與體能教練為股四頭肌術後復健選手採用 De Lorme 系統，第一組以 10RM 的 50% 進行。依本章所述，三組的阻力設計最符合 De Lorme 的完整設定為何？
+  locator: Program Design > Resistance Training
+  options:
+  - text: 50%、75% 至 100% 的 10RM
+    correct: true
+  - text: 100%、75% 至 50% 的 10RM
+    correct: false
+    why_wrong: 把 De Lorme 與 Oxford 順序對調；由重到輕是 Oxford 系統，De Lorme 為由輕到重。
+  - text: 75%、85% 至 100% 的 6RM
+    correct: false
+    why_wrong: 把估計反覆次數與組數換成 DAPRE 才用的 6RM 設定；De Lorme 是以 10RM 為基準。
+- id: ch22.resistance-training-systems.i03.q1
+  item: ch22.resistance-training-systems.i03
+  dco: pa1.F
+  lang: en
+  cognitive: analysis
+  stem: A strength and conditioning professional implements Knight's DAPRE system for an athlete's knee-extension rehabilitation. The athlete completes 6 repetitions on the third working set at an estimated 6RM load. Which adjustment best matches the chapter's protocol?
+  locator: Program Design > Resistance Training
+  options:
+  - text: Keep same load (5 to 7 reps range)
+    correct: true
+  - text: Reduce 5 to 10 lb (0 to 2 reps)
+    correct: false
+    why_wrong: Selects the prescription the chapter ties to 0 to 2 reps on the third set, not 6 reps.
+  - text: Add 10 to 20 lb next session (13 plus reps)
+    correct: false
+    why_wrong: Pulls the largest jump from the 13+ band and applies it to a third-set count of 6 reps.
+- id: ch22.sports-medicine-team.i04.q1
+  item: ch22.sports-medicine-team.i04
+  dco: pa1.J
+  lang: zh
+  cognitive: application
+  stem: 一名足球員右膝前十字韌帶術後 5 個月，防護員與物理治療師已提供禁忌症清單。肌力與體能教練最合適的角色為何？
+  locator: Sports Medicine Team > Sports Medicine Team Members
+  options:
+  - text: 在團隊諮詢下設計回歸體能調整計畫
+    correct: true
+  - text: 逕行決定選手回歸並開立止痛藥
+    correct: false
+    why_wrong: 把隊醫的放行與藥物處方誤歸給肌力與體能專業人員。
+  - text: 完全不參與復健，只負責賽季體能調整
+    correct: false
+    why_wrong: 將復健與體能調整切割；本章強調此人員在兩階段皆扮演要角。
+- id: ch22.sports-medicine-team.i08.q1
+  item: ch22.sports-medicine-team.i08
+  dco: pa1.K
+  lang: zh
+  cognitive: application
+  stem: 一名投手前肩脫臼復健後期，物理治療師記錄「臥推」為禁忌症。肌力與體能專業人員收到轉介表後最合適的處置為何？
+  locator: Sports Medicine Team > Communication
+  options:
+  - text: 避免臥推並以其他符合禁忌症動作替代
+    correct: true
+  - text: 仍安排臥推並以較輕重量繞過禁忌症
+    correct: false
+    why_wrong: 將禁忌症視為可藉減量繞過；本章以臥推為例，禁忌不因減重消失。
+  - text: 撤掉所有上肢訓練以避免任何風險
+    correct: false
+    why_wrong: 將單一動作禁忌誤推為全模組取消；轉介表旨在溝通安排，不是取消訓練。
+- id: ch22.maturation-phase.i03.q1
+  item: ch22.maturation-phase.i03
+  dco: pa1.H
+  lang: en
+  cognitive: application
+  stem: A collegiate wrestler is progressing into the maturation-remodeling phase after a shoulder reconstruction. Which program design adjustment best reflects the chapter's primary treatment goal for this phase?
+  locator: Goals of Rehabilitation and Reconditioning > Maturation–Remodeling Phase > Treatment Goal
+  options:
+  - text: Progress exercises toward sport-specific movements while continuing prior-phase work
+    correct: true
+  - text: Discontinue prior-phase exercises to focus solely on sport-specific drills
+    correct: false
+    why_wrong: Frames the transition as a replacement; the chapter states that prior-phase exercises should continue and progress, not be stopped, during this phase.
+  - text: Maintain the same load and volume used at the end of the fibroblastic phase
+    correct: false
+    why_wrong: Treats progression as flat; the chapter calls for progressing toward sports-specific activities with gradual tissue loading rather than holding load fixed.
+- id: ch22.fibroblastic-phase.i05.q1
+  item: ch22.fibroblastic-phase.i05
+  dco: pa1.J
+  lang: zh
+  cognitive: analysis
+  stem: 一名運動員在修復期使用等速設備做膝關節訓練，設定速度為 60°/秒，這項選擇最主要的限制為何？
+  locator: Goals of Rehabilitation and Reconditioning > Fibroblastic Repair Phase > Exercise Strategies
+  options:
+  - text: 動作並非固定速度且多為單關節動作
+    correct: true
+  - text: 無法對股四頭肌產生任何肌力刺激
+    correct: false
+    why_wrong: 等速設備仍能對目標肌群施力；問題出在速度與單關節特性，而非是否產生肌力刺激。
+  - text: 阻力過大並壓迫新生膠原致二度受傷
+    correct: false
+    why_wrong: 60°/秒 屬書中舉例的設定速度，教材並未在此速度下指明阻力過大的風險；限制敘述應回到章節原文依據。
+- id: ch22.inflammatory-phase.i05.q1
+  item: ch22.inflammatory-phase.i05
+  dco: pa1.J
+  lang: zh
+  cognitive: application
+  stem: 一名足球員在前場比賽中扭傷足踝，發炎期的物理因子處置最應優先選擇哪一組合？
+  locator: Goals of Rehabilitation and Reconditioning > Inflammatory Response Phase > Treatment Goal
+  options:
+  - text: 相對休息、冰敷、加壓、抬高
+    correct: true
+  - text: 高強度阻力訓練與增強式跳躍
+    correct: false
+    why_wrong: 高強度與衝擊性動作會對受傷結構施加額外壓力，違反發炎期最大保護受傷結構的優先原則。
+  - text: 高溫熱敷搭配深層按摩以加速循環
+    correct: false
+    why_wrong: 教材並未把高溫熱敷與深層按摩列為發炎期的主要物理因子；本期的目標是減少急性傷害與疼痛管理。
+- id: ch22.inflammatory-phase.i06.q1
+  item: ch22.inflammatory-phase.i06
+  dco: pa1.J
+  lang: en
+  cognitive: analysis
+  stem: After confirming indications and contraindications with the athletic trainer, what is the most appropriate role for the strength and conditioning professional during the inflammatory response phase?
+  locator: Goals of Rehabilitation and Reconditioning > Inflammatory Response Phase > Treatment Goal
+  options:
+  - text: Train uninjured body regions while protecting the injured structure
+    correct: true
+  - text: Mobilize the injured joint aggressively to restore range of motion now
+    correct: false
+    why_wrong: Aggressive direct mobilization of the injured area is contraindicated in this phase; the priority is protecting the healing tissue, not accelerating motion.
+  - text: Prescribe medications to manage inflammation at the injury site
+    correct: false
+    why_wrong: Prescribing medication is outside the scope of the strength and conditioning professional and belongs to the medical staff.
+- id: ch22.injury-prevention.i06.q1
+  item: ch22.injury-prevention.i06
+  dco: pa1.C.2
+  lang: zh
+  cognitive: application
+  stem: 教材同時舉出 Sportsmetrics 與 PEP 兩項計畫，依教材所述，這兩者最主要的共同點為何？
+  locator: Reducing Risk of Injury and Reinjury
+  options:
+  - text: 都針對風險因子安排動作
+    correct: true
+  - text: 使用完全相同的訓練方法
+    correct: false
+    why_wrong: 兩項計畫著重的面向並不相同，教材只說它們都把處理風險因子的運動與動作納進來。
+  - text: 以賽後恢復為主要內容
+    correct: false
+    why_wrong: 把預防前置的訓練誤讀成賽後的恢復手段，教材談的是降低下肢受傷與扭傷發生率的事前安排。
+- id: ch22.injury-types.i04.q1
+  item: ch22.injury-types.i04
+  dco: pa1.A.1
+  lang: zh
+  cognitive: analysis
+  stem: 一名籃球員的股四頭肌受到鈍器直接撞擊後出現局部腫脹與出血，另一名短跑選手在加速時大腿後側突然劇痛。對照本章定義，兩者的傷害分類最主要的差異為何？
+  locator: Types of Injury
+  options:
+  - text: 直接創傷為挫傷，間接為拉傷
+    correct: true
+  - text: 兩者皆歸為相同分類與機制
+    correct: false
+    why_wrong: 兩個情境的創傷機制不同，挫傷屬直接、拉傷屬間接，將兩者歸為同一類別會把本章分類方式寫得不一致。
+  - text: 兩者皆屬肌腱發炎症狀
+    correct: false
+    why_wrong: 肌腱炎是肌腱的發炎症狀，與本章描述的肌肉肌腱急性創傷機制不同。
+- id: ch22.kinetic-chain.i01.q1
+  item: ch22.kinetic-chain.i01
+  dco: pa1.B.2
+  lang: zh
+  cognitive: recall
+  stem: 一名治療師在說明復健動作為何要串起多個關節時，引用了本章對動力鏈（kinetic chain）的定義。該定義最主要是下列哪一項？
+  locator: Goals of Rehabilitation and Reconditioning > Maturation–Remodeling Phase > Exercise Strategies
+  options:
+  - text: 兩個以上關節依序共同參與產生動作
+    correct: true
+  - text: 單一關節與主動肌獨立收縮產生動作
+    correct: false
+    why_wrong: 單一關節與其主動肌獨立收縮不是本章的動力鏈定義；定義的核心是多關節依序共同參與。
+  - text: 上肢與下肢肌肉同時全部等長收縮
+    correct: false
+    why_wrong: 全身同步等長收縮並非本章敘述的動力鏈機制；此選項把定義擴張至教材未涵蓋的內容。
+- id: ch22.kinetic-chain.i04.q1
+  item: ch22.kinetic-chain.i04
+  dco: pa1.C.1
+  lang: zh
+  cognitive: application
+  stem: 為桌球選手設計上肢閉鎖動力鏈訓練，下列哪一動作最適合？
+  locator: Goals of Rehabilitation and Reconditioning > Maturation–Remodeling Phase > Exercise Strategies
+  options:
+  - text: 伏地挺身
+    correct: true
+  - text: 啞鈴彎舉
+    correct: false
+    why_wrong: 啞鈴彎舉時手部自由移動屬開放動力鏈，與本題閉鎖動力鏈的訓練目的不符。
+  - text: 滑輪下推
+    correct: false
+    why_wrong: 滑輪下推的末端關節可自由移動，屬開放動力鏈而非本章閉鎖動力鏈的例子。
+- id: ch22.kinetic-chain.i07.q1
+  item: ch22.kinetic-chain.i07
+  dco: pa1.B.2
+  lang: zh
+  cognitive: analysis
+  stem: 田徑短跑選手在加速過程中雙腳交替接觸與離開地面，下列哪一描述最符合本章的說明？
+  locator: Goals of Rehabilitation and Reconditioning > Maturation–Remodeling Phase > Exercise Strategies
+  options:
+  - text: 接地下肢為閉鎖，空中為開放
+    correct: true
+  - text: 雙腳同時離地時全身單一閉鎖
+    correct: false
+    why_wrong: 雙腳同時離地時並非本章描述的單一閉鎖動力鏈狀態；該選項把動作分類的方式簡化錯置。
+  - text: 衝刺僅屬開放動力鏈全身動作
+    correct: false
+    why_wrong: 本章明確指出衝刺同時包含開放與閉鎖動力鏈；僅歸為開放動力鏈會把分類寫得不完整。
+- id: ch22.maturation-phase.i04.q1
+  item: ch22.maturation-phase.i04
+  dco: pa1.A.5
+  lang: en
+  cognitive: application
+  stem: A basketball player is approaching return to play after ACL reconstruction. Which set of criteria best aligns with the chapter's return-to-play decision framework in the maturation–remodeling phase?
+  locator: Goals of Rehabilitation and Reconditioning > Maturation–Remodeling Phase > Treatment Goal
+  options:
+  - text: Healing timeframes combined with criteria-based progression through objective tests
+    correct: true
+  - text: Pain-free walking as the single clearance standard, with no objective testing at all
+    correct: false
+    why_wrong: Walking without pain is one indicator, but the chapter pairs healing timeframes with predetermined goals for range of motion, strength, and function before clearance.
+  - text: A calendar date fixed at the time of surgery, applied regardless of test results
+    correct: false
+    why_wrong: Fixing the return date at surgery ignores how the athlete actually tests; the source blends tissue healing timeframes with measured progress.
+- id: ch22.resistance-training-systems.i06.q1
+  item: ch22.resistance-training-systems.i06
+  dco: pa1.C.4
+  lang: en
+  cognitive: application
+  stem: Two athletes are recovering from identical patellofemoral injuries but compete in different sports. According to the SAID principle in this chapter, which plan best reflects the principle for each athlete?
+  locator: Program Design > Resistance Training
+  options:
+  - text: The marathoner trains quadriceps endurance at higher repetitions while the lifter shifts to fewer high-intensity efforts
+    correct: true
+  - text: Both athletes follow one identical prescription of sets, repetitions, and intensities because the injured site matches
+    correct: false
+    why_wrong: One prescription for both ignores that adaptation follows the demands each sport imposes, which is the contrast the chapter uses to argue for individualization.
+  - text: Resistance work is dropped for the weightlifter, whose sport is assumed to preserve strength by itself
+    correct: false
+    why_wrong: The chapter spells out programming for the lifter as well, so removing loaded training from that athlete runs against the source.
+- id: ch22.sports-medicine-team.i03.q1
+  item: ch22.sports-medicine-team.i03
+  dco: pa1.J
+  lang: zh
+  cognitive: analysis
+  stem: 一名 ACL 術後田徑選手由具運動專科認證的物理治療師長期管理復健；對照本章，物理治療師最適合的角色為何？
+  locator: Sports Medicine Team > Sports Medicine Team Members
+  options:
+  - text: 協助減痛、恢復功能並管理長期復健
+    correct: true
+  - text: 取代隊醫做最終回歸比賽判定
+    correct: false
+    why_wrong: 最終判定權責保留於隊醫；把該權責轉給物理治療師會違反本章的角色分工。
+  - text: 僅提供心理支持而不涉及肌力恢復
+    correct: false
+    why_wrong: 物理治療師在教材中的描述涵蓋恢復功能與治療策略；將其限於心理支持會縮減其職責範圍。
+- id: ch22.injury-prevention.i02.q1
+  item: ch22.injury-prevention.i02
+  dco: pa1.A.4
+  lang: en
+  cognitive: analysis
+  stem: Which combination of screening findings would most directly map to the upper-extremity injury risk factors listed in this chapter?
+  locator: Reducing Risk of Injury and Reinjury
+  options:
+  - text: Reduced glenohumeral ROM, scapular dyskinesis, and shoulder strength deficits
+    correct: true
+  - text: Reduced balance, poor landing neuromuscular control, and lower-extremity weakness
+    correct: false
+    why_wrong: The three findings listed are lower-extremity risk factors from the chapter, not the upper-extremity category the stem asks about.
+  - text: Prior hamstring strain, poor balance, and history of ankle sprain
+    correct: false
+    why_wrong: The listed findings describe lower-extremity history and impairments rather than the shoulder-focused risk factors in this item.
+- id: ch22.injury-types.i06.q1
+  item: ch22.injury-types.i06
+  dco: pa1.A.1
+  lang: zh
+  cognitive: application
+  stem: 一名跑者的跟腱在張力負荷超過極限時斷裂，依教材所述，下列哪一個位置最不可能是失敗點？
+  locator: Types of Injury
+  options:
+  - text: 腱實質內部
+    correct: true
+  - text: 肌肉肌腱交界
+    correct: false
+    why_wrong: 教材把這裡列為常見的失敗位置，因為肌腱的膠原纖維通常比相連的肌肉纖維強得多。
+  - text: 肌腱附著骨處
+    correct: false
+    why_wrong: 附著於骨的位置同樣被列在常見的失敗點之中，並不是機率最低的那一處。
+- id: ch22.fibroblastic-phase.i03.q2
+  item: ch22.fibroblastic-phase.i03
+  dco: pa1.J
+  lang: zh
+  cognitive: analysis
+  stem: 一名排球員右肩二級扭傷進入修復期，防護員希望同時兼顧「保護新生膠原」與「避免活動度流失」。下列哪一處置最符合本章所列的雙重目標？
+  locator: Goals of Rehabilitation and Reconditioning > Fibroblastic Repair Phase > Treatment Goal
+  options:
+  - text: 漸進加入低負荷應力以促進膠原合成
+    correct: true
+  - text: 完全固定不動直到疼痛完全消失
+    correct: false
+    why_wrong: 完全不活動同樣會妨礙新生纖維的排列並造成關節活動度流失，違反修復期保護與活動並行的原則。
+  - text: 直接以最大阻力加速恢復肌力
+    correct: false
+    why_wrong: 高阻力可能破壞新生膠原纖維；本章強調的是逐漸加入低負荷應力，而非盡早施加最大負荷。
+- id: ch22.maturation-phase.i06.q2
+  item: ch22.maturation-phase.i06
+  dco: pa1.B.2
+  lang: en
+  cognitive: application
+  stem: A tennis player regains shoulder strength only near mid-range after a labral repair. Which reconditioning option in this phase's exercise strategies most directly addresses that narrow band?
+  locator: Goals of Rehabilitation and Reconditioning > Maturation–Remodeling Phase > Exercise Strategies
+  options:
+  - text: Joint-angle-specific strengthening at the deficient positions
+    correct: true
+  - text: General whole-range endurance circuits for the shoulder
+    correct: false
+    why_wrong: Broad conditioning does not target the joint angles where the athlete is still weak, and this phase calls for angle-specific loading.
+  - text: Passive stretching held at the end of each session
+    correct: false
+    why_wrong: Holding a stretch adds no strengthening stimulus, and the exercise strategies listed here are active loading tasks rather than passive ones.
+- id: ch22.kinetic-chain.i02.q2
+  item: ch22.kinetic-chain.i02
+  dco: pa1.C.1
+  lang: en
+  cognitive: recall
+  stem: Which feature most precisely defines a closed kinetic chain exercise according to this chapter?
+  locator: Goals of Rehabilitation and Reconditioning > Maturation–Remodeling Phase > Exercise Strategies
+  options:
+  - text: The distal segment is fixed against resistance
+    correct: true
+  - text: The distal segment moves freely in space
+    correct: false
+    why_wrong: Free distal motion describes an open kinetic chain; the chapter ties the closed chain specifically to a fixed distal segment under resistance.
+  - text: Only one joint is involved in the movement
+    correct: false
+    why_wrong: Single-joint movement is not the defining trait the chapter gives; closed kinetic chains are described by distal fixation, not by joint count.
