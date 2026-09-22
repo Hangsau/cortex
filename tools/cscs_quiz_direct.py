@@ -1334,9 +1334,15 @@ def parse_patch(text: str, allow_empty: bool = False):
 def apply_patch(questions: list, patches: list):
     """按 id 逐題替換，回傳 (替換後的題目 list, 錯誤清單)。
 
-    擋兩件事：回傳的 id 不在本批題庫裡（模型自己編了新題或改了 id），以及一題都沒替換到。
-    有任何一條不成立就整批不套用——半套的替換會讓檔案停在說不清楚的狀態。
+    擋三件事：回傳的 id 不在本批題庫裡（模型自己編了新題或改了 id）、一題都沒替換到、
+    以及把題目的 `cognitive` / `lang` / `item` 改掉。有任何一條不成立就整批不套用——
+    半套的替換會讓檔案停在說不清楚的狀態。
+
+    格子欄位那一條是 ch02 補上的：修正輪為了修一條選項重疊，把兩題英文題整個翻成中文，
+    全章英文題就從 13 掉到 11。挑選階段保證的邊際被修正輪默默改掉，而章級題數是
+    「只印不修」的閘，所以它不會擋下來，要到人工看跨題掃描才發現。
     """
+    LOCKED = ("cognitive", "lang", "item")
     index_of = {
         question.get("id"): position
         for position, question in enumerate(questions)
@@ -1356,6 +1362,15 @@ def apply_patch(questions: list, patches: list):
             continue
         if qid in applied:
             errors.append(f"修正輪把 `{qid}` 回傳了兩次")
+            continue
+        original = questions[index_of[qid]]
+        changed = [
+            f"{field} 從 `{original.get(field)}` 改成 `{patch.get(field)}`"
+            for field in LOCKED if patch.get(field) != original.get(field)
+        ]
+        if changed:
+            errors.append(f"修正輪把 `{qid}` 的格子欄位改掉了（{'、'.join(changed)}）；"
+                          f"這些欄位由挑選階段決定，修正時必須原樣保留")
             continue
         applied.add(qid)
         merged[index_of[qid]] = patch
