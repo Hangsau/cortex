@@ -18,6 +18,7 @@ SOURCE_DIR = ROOT / "data" / "cscs"
 BANK_DIR = SOURCE_DIR / "_quiz_bank"
 COGNITIVE_LEVELS = ("recall", "application", "analysis")
 LANGS = ("zh", "en")
+POOLS = ("exam", "extra")
 # G15：比較限定詞。R3 是本考試的核心出題特徵——沒有這類詞的 application / analysis 題，
 # 幾乎一定是真假判斷題，干擾項一眼就死。中文用字面比對，英文用詞邊界避免 most 誤中 almost。
 QUALIFIERS_ZH = ("最", "首先", "優先", "第一步", "主要", "首要")
@@ -402,7 +403,16 @@ def check_bank(bank_dir: Path = BANK_DIR, source_dir: Path = SOURCE_DIR):
             lang = question.get("lang")
             if lang not in LANGS:
                 fail(path, qid, "G13", "lang 必須是 zh 或 en")
-            chapter_questions[chapter].append((path, qid, cognitive, lang))
+
+            # pool：`exam` 是照官方 DCO 權重配出來的模擬卷，G10/G13 的配題表只驗這一池。
+            # `extra` 是額外練習題（目前來源是併進來的舊題庫），逐題閘一視同仁，
+            # 但不進配題表計數——否則模擬卷的格子會變成「舊檔剛好有幾題」的倒影，
+            # 配題表就不再是驗收基準了。G22 的同 item 上限仍然兩池合計。
+            pool = question.get("pool", "exam")
+            if pool not in POOLS:
+                fail(path, qid, "G10", f"pool 必須是 {' / '.join(sorted(POOLS))}")
+            if pool == "exam":
+                chapter_questions[chapter].append((path, qid, cognitive, lang))
 
             # G12：dco 必須是 _dco.yaml 裡真實存在的 task 或 knowledge id，
             # 且其 domain 要涵蓋本章——否則「運動科學 48 題」可能全擠在肌肉解剖。

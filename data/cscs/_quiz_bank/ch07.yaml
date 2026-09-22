@@ -2,597 +2,580 @@ meta:
   chapter: ch07
   source: data/cscs/ch07.yaml
 questions:
-  - id: ch07.children-growth.i04.q1
-    item: ch07.children-growth.i04
-    dco: sf1.D.3
-    lang: zh
-    cognitive: recall
-    stem: 教材中女性通常達到峰值身高速度（PHV）的年齡，約為幾歲？
-    locator: Children > The Growing Child > Chronological Age Versus Biological Age
-    options:
-      - text: "12"
-        correct: true
-      - text: "10"
-        correct: false
-        why_wrong: 把 PHV 出現的年齡整體往前挪了兩歲，女性通常達到 PHV 的時間點晚於此。
-      - text: "14"
-        correct: false
-        why_wrong: 把女性的 PHV 推到男性之後；教材給女性的 PHV 年齡比男性早，而非晚。
-
-  - id: ch07.children-growth.i01.q1
-    item: ch07.children-growth.i01
-    dco: sf1.A.3
-    lang: en
-    cognitive: recall
-    stem: According to the textbook, what is the approximate maximum spread in body mass that can appear among a group of fourteen year old children?
-    locator: Children > The Growing Child > Chronological Age Versus Biological Age
-    options:
-      - text: About 18 kg
-        correct: true
-      - text: About 4 kg
-        correct: false
-        why_wrong: Treats the spread as nearly negligible, which would erase the textbook's reason for preferring biological over chronological age.
-      - text: Around 40 kg
-        correct: false
-        why_wrong: Overshoots the documented spread; fourteen year olds of the same chronological age vary far less than this in body mass.
-
-  - id: ch07.children-growth.i03.q1
-    item: ch07.children-growth.i03
-    dco: sf1.A.3
-    lang: zh
-    cognitive: recall
-    stem: 教材把 Tanner 分期分為幾個階段，最末階段代表什麼狀態？
-    locator: Children > The Growing Child > Chronological Age Versus Biological Age
-    options:
-      - text: 5 期，最末階段代表完全性成熟
-        correct: true
-      - text: 3 期，最末階段代表青春發身結束
-        correct: false
-        why_wrong: 把青春期前、中、後當成全部階段；教材把分期切得更細，總數不止三個。
-      - text: 7 期，最末是生長發育完成
-        correct: false
-        why_wrong: 把分期切得比教材更多；教材並未使用七期的分類，最末階段也非第七期。
-
-  - id: ch07.children-growth.i02.q1
-    item: ch07.children-growth.i02
-    dco: sf1.A.3
-    lang: en
-    cognitive: recall
-    stem: According to the textbook, what site is used by trained radiologists to score skeletal age when comparing a child to reference films?
-    locator: Children > The Growing Child > Chronological Age Versus Biological Age
-    options:
-      - text: The left wrist
-        correct: true
-      - text: The right knee
-        correct: false
-        why_wrong: Picks a load-bearing joint instead of the one the chapter names; the textbook reserves skeletal age scoring to the wrist.
-      - text: The lumbar spine
-        correct: false
-        why_wrong: Shifts scoring to the trunk, but the chapter limits the comparison film work to the left wrist x-ray.
-
-  - id: ch07.aging-musculoskeletal.i04.q1
-    item: ch07.aging-musculoskeletal.i04
-    dco: sf1.D.1
-    lang: zh
-    cognitive: recall
-    stem: 教材把骨質疏鬆症界定為骨密度低於年輕成人平均值多少個標準差（SD）？
-    locator: Older Adults > Age-Related Changes in Musculoskeletal Health
-    options:
-      - text: "2.5"
-        correct: true
-      - text: "1.0"
-        correct: false
-        why_wrong: 那落在骨質減少症區間的起點，教材把骨質疏鬆的切點設在更低的骨密度位置。
-      - text: "4.0"
-        correct: false
-        why_wrong: 教材的骨密度分類沒有用到這個切點，門檻被推到比實際記載更嚴重的位置。
-
-  - id: ch07.aging-musculoskeletal.i02.q1
-    item: ch07.aging-musculoskeletal.i02
-    dco: sf1.A.3
-    lang: en
-    cognitive: recall
-    stem: According to the textbook, what percentage of women aged 75 to 84 in the reported cohort could not lift about 4.5 kilograms?
-    locator: Older Adults > Age-Related Changes in Musculoskeletal Health
-    options:
-      - text: 65 percent
-        correct: true
-      - text: 40 percent
-        correct: false
-        why_wrong: Borrows the figure attached to the youngest cohort. The chapter assigns that share to 55 to 64 year old women, not the oldest band.
-      - text: 20 percent
-        correct: false
-        why_wrong: Understates the documented loss in the oldest women; the chapter puts the share near two thirds for that age band.
-
-  - id: ch07.aging-musculoskeletal.i07.q1
-    item: ch07.aging-musculoskeletal.i07
-    dco: sf1.A.3
-    lang: zh
-    cognitive: recall
-    stem: 教材記載競技舉重能力在約 70 歲之前，隨年齡每年最多下降百分之幾？
-    locator: Older Adults
-    options:
-      - text: "1.5"
-        correct: true
-      - text: "6.0"
-        correct: false
-        why_wrong: 把年下降率放大到教材記載的數倍，那樣的速率幾年內就會抹掉整個競技水準。
-      - text: "0.2"
-        correct: false
-        why_wrong: 把年下降率壓到教材記載的十分之一，等於否認舉重能力有明顯的年齡效應。
-
-  - id: ch07.children-risk-benefits.i03.q1
-    item: ch07.children-risk-benefits.i03
-    dco: sf1.D.3
-    lang: en
-    cognitive: recall
-    stem: According to the textbook, what share of overuse injuries in children is estimated to be preventable through simple measures such as coach education and delayed specialization?
-    locator: Children > Youth Resistance Training > Potential Benefits
-    options:
-      - text: More than 50 percent
-        correct: true
-      - text: About 10 percent
-        correct: false
-        why_wrong: Treats the preventable share as a small slice. The chapter places the estimate well above half of all overuse injuries.
-      - text: Nearly 100 percent
-        correct: false
-        why_wrong: Reads the chapter as if every overuse injury is avoidable, which is stronger than the documented estimate.
-
-  - id: ch07.female-acl.i01.q1
-    item: ch07.female-acl.i01
-    dco: sf1.C.4
-    lang: zh
-    cognitive: recall
-    stem: 教材引用的多份報告中，女性運動員發生前十字韌帶撕裂的可能性約為男性的幾倍？
-    locator: Female Athletes > Program Design Considerations for Women > Anterior Cruciate Ligament Injury in Females
-    options:
-      - text: 約 6 倍
-        correct: true
-      - text: 約 2 倍
-        correct: false
-        why_wrong: 把女性 ACL 撕裂的相對風險低估到僅約男性的兩倍；教材給的倍率比這個高。
-      - text: 約 15 倍
-        correct: false
-        why_wrong: 把女性 ACL 撕裂的相對風險高估到教材記載的好幾倍；教材引用的倍數遠低於此。
-
-  - id: ch07.program-design-populations.i02.q1
-    item: ch07.program-design-populations.i02
-    dco: sf1.A.3
-    lang: en
-    cognitive: recall
-    stem: According to the textbook, what weekly frequency of nonconsecutive resistance training is recommended for children?
-    locator: Children > Program Design Considerations for Children > Youth Resistance Training Guidelines
-    options:
-      - text: Two or three sessions per week
-        correct: true
-      - text: Five or six sessions per week
-        correct: false
-        why_wrong: Mirrors the cadence reserved for advanced adult programs. The chapter places children's weekly frequency well below five sessions.
-      - text: One session per week
-        correct: false
-        why_wrong: Sets the cadence at the floor for children. The chapter recommends a nonconsecutive two or three sessions for the typical pediatric trainee.
-
-  - id: ch07.children-training-response.i01.q1
-    item: ch07.children-training-response.i01
-    dco: sf1.B.3
-    lang: zh
-    cognitive: application
-    stem: 對青春期前兒童而言，短期阻力訓練的肌力增益最主要歸因於哪一類因素？
-    locator: Children > Youth Resistance Training > Responsiveness to Resistance Training in Children
-    options:
-      - text: 神經因素，例如運動單位活化與同步增加
-        correct: true
-      - text: 肌肉肥大，源自肌纖維橫截面積增加
-        correct: false
-        why_wrong: 把兒童肌力增益的機制搬到肌肉肥大；教材明說至少二十週內肌肉肥大不是青春期前肌力增益的主因。
-      - text: 結締組織重塑，源自肌腱與韌帶變厚
-        correct: false
-        why_wrong: 把結構性變化當成兒童短期肌力增益的主要來源；教材把這段期的肌力來源放在神經層面。
-
-  - id: ch07.children-training-response.i06.q1
-    item: ch07.children-training-response.i06
-    dco: sf1.H.1
-    lang: zh
-    cognitive: application
-    stem: 教材引用的研究中，每週只訓練一天者的平均肌力增益，最接近每週訓練兩天者的百分之多少？
-    locator: Children > Youth Resistance Training > Responsiveness to Resistance Training in Children
-    options:
-      - text: "67"
-        correct: true
-      - text: "33"
-        correct: false
-        why_wrong: 把單日訓練的相對效益低估到僅約三成；教材給的平均比例明顯高於這個。
-      - text: "100"
-        correct: false
-        why_wrong: 假設訓練天數不會影響肌力增益；教材記載的差距顯示頻率拉高會帶來實質差異。
-
-  - id: ch07.children-training-response.i03.q1
-    item: ch07.children-training-response.i03
-    dco: sf1.H.1
-    lang: zh
-    cognitive: application
-    stem: 教材中未訓練青春期前兒童完成 8 至 20 週阻力訓練後，典型肌力增幅主要落在哪個範圍？
-    locator: Children > Youth Resistance Training > Responsiveness to Resistance Training in Children
-    options:
-      - text: 約 30% 至 40%
-        correct: true
-      - text: 約 5% 至 10%
-        correct: false
-        why_wrong: 把典型增幅低估到僅約一成；教材記載的典型區間明顯高於此。
-      - text: 約 70% 至 90%
-        correct: false
-        why_wrong: 把典型增幅推到接近文獻報告的最大值；教材把這條作為極端案例，不是典型值。
-
-  - id: ch07.children-risk-benefits.i07.q1
-    item: ch07.children-risk-benefits.i07
-    dco: sf1.A.3
-    lang: en
-    cognitive: application
-    stem: According to the textbook, which feature of resistance training most likely explains why obese adolescents seem to enjoy participating in it?
-    locator: Children > Youth Resistance Training > Potential Benefits
-    options:
-      - text: It avoids the high aerobic load other activities impose
-        correct: true
-      - text: It drives the body fat losses documented in obese youth
-        correct: false
-        why_wrong: Conflates the documented fat reduction with the enjoyment factor. The textbook lists reduced aerobic demand and success experiences as the reasons obese adolescents prefer this mode.
-      - text: It delivers the insulin sensitivity gains reported for this group
-        correct: false
-        why_wrong: Borrows a documented physiological outcome and treats it as the reason for enjoyment; the chapter separates measured benefits from why these adolescents prefer the mode.
-
-  - id: ch07.children-risk-benefits.i05.q1
-    item: ch07.children-risk-benefits.i05
-    dco: sf1.A.3
-    lang: zh
-    cognitive: application
-    stem: 教材對年幼時就只從事單一運動的兒童，列為最重要的風險為何？
-    locator: Children > Youth Resistance Training > Potential Benefits
-    options:
-      - text: 肌肉失衡、過度使用傷害與過度訓練風險升高
-        correct: true
-      - text: 心肺有氧能力下降與最大攝氧量倒退
-        correct: false
-        why_wrong: 把專項化的後果放在心肺耐力上；教材列出的早期專項化風險以肌肉失衡與過度使用傷害為主。
-      - text: 骨骼生長板提早融合，導致成年身高受限
-        correct: false
-        why_wrong: 把風險推到生長板提前關閉；教材未把提早融合列為單一運動專項化的直接後果。
-
-  - id: ch07.children-risk-benefits.i06.q1
-    item: ch07.children-risk-benefits.i06
-    dco: sf1.D.2
-    lang: zh
-    cognitive: application
-    stem: 教材中阻力訓練對兒童與青少年骨骼健康最主要的實證效益為何？
-    locator: Children > Youth Resistance Training > Potential Benefits
-    options:
-      - text: 骨礦物質密度提升，且菁英舉重選手明顯高於同齡對照組
-        correct: true
-      - text: 骨骼形狀永久重塑，遺傳決定的最終身高明顯上修
-        correct: false
-        why_wrong: 把效益推到改變遺傳決定的高度；教材明說阻力訓練不會改變最終的身高上限。
-      - text: 生長板提早融合，讓骨密度集中在成熟骨骼上
-        correct: false
-        why_wrong: 把生長板提早融合當成正向效益；教材把這件事視為風險，不是骨骼健康的提升。
-
-  - id: ch07.aging-musculoskeletal.i06.q1
-    item: ch07.aging-musculoskeletal.i06
-    dco: sf1.B.3
-    lang: zh
-    cognitive: application
-    stem: 教材指出高齡者以共同收縮代償平衡困難時，主要的代價是什麼？
-    locator: Older Adults > Age-Related Changes in Neuromotor Function
-    options:
-      - text: 淨關節力矩與主動肌力量輸出降低
-        correct: true
-      - text: 反應時間延長，使動作協調變得更不穩定
-        correct: false
-        why_wrong: 把代償的代價推到反應時間層面；教材把共同收縮的成本放在淨力矩與主動肌輸出上。
-      - text: 肌腱順應性下降，關節活動範圍明顯受限
-        correct: false
-        why_wrong: 把代償的代價推到肌腱順應性；教材描述的代價是動態穩定策略本身的力學成本。
-
-  - id: ch07.aging-musculoskeletal.i05.q1
-    item: ch07.aging-musculoskeletal.i05
-    dco: sf1.B.3
-    lang: zh
-    cognitive: application
-    stem: 教材列為高齡者跌倒的內在風險因子，主要包含哪些變化？
-    locator: Older Adults > Age-Related Changes in Neuromotor Function
-    options:
-      - text: 肌力與爆發力下降、反應時間變慢、平衡與姿勢穩定性受損
-        correct: true
-      - text: 骨礦物質密度下降、肌內脂肪增加、肌腱順應性下降
-        correct: false
-        why_wrong: 這些是老化的肌骨結構變化，決定的是跌倒之後的骨折後果，不是讓人跌倒的內在因子。
-      - text: 攝氧量下降、肌耐力降低、乳酸閾值下移
-        correct: false
-        why_wrong: 把焦點換成有氧耐力的變化；教材把跌倒的內在風險放在神經肌骨與姿勢控制，而不是有氧能力。
-
-  - id: ch07.female-physiology.i02.q1
-    item: ch07.female-physiology.i02
-    dco: sf1.A.3
-    lang: zh
-    cognitive: application
-    stem: 教材指出以去脂體重表示肌力時，男女差異最可能的傾向為何？
-    locator: Female Athletes > Sex Differences > Strength and Power Output
-    options:
-      - text: 男女肌力差異傾向消失
-        correct: true
-      - text: 女性上肢肌力反而略高於男性
-        correct: false
-        why_wrong: 把校正後的結論推到女性反超男性；教材給的描述是差距縮小到幾乎消失，不是反轉。
-      - text: 兩性肌力差距與絕對肌力相同
-        correct: false
-        why_wrong: 把標準化後的結果誤當成絕對肌力的差距；教材明說以去脂體重表示時差距傾向消失。
-
-  - id: ch07.female-physiology.i05.q1
-    item: ch07.female-physiology.i05
-    dco: sf1.A.3
-    lang: zh
-    cognitive: application
-    stem: 教材中競技女性舉重選手在抓舉或翻舉拉起動作中，相對總體重的爆發力輸出，最接近男性的百分之多少？
-    locator: Female Athletes > Sex Differences > Strength and Power Output
-    options:
-      - text: "63"
-        correct: true
-      - text: "45"
-        correct: false
-        why_wrong: 把女性爆發力相對男性的比例低估到僅約四成五；教材記載的數字明顯高於這個。
-      - text: "85"
-        correct: false
-        why_wrong: 把女性的爆發力比例推向接近男性；教材記載女性相對體重的爆發力輸出遠低於此。
-
-  - id: ch07.female-physiology.i07.q1
-    item: ch07.female-physiology.i07
-    dco: sf1.F.3
-    lang: zh
-    cognitive: application
-    stem: 教材將停經（amenorrhea）定義為月經週期中斷超過多久，並主要歸因於哪個內分泌變化？
-    locator: Female Athletes > Resistance Training for Female Athletes > Female Athlete Triad
-    options:
-      - text: 超過 3 個月，黃體生成素分泌頻率降低
-        correct: true
-      - text: 超過 1 個月，雌激素分泌顯著下降
-        correct: false
-        why_wrong: 把中斷的時間門檻縮短到一個月，並把機制換成雌激素變化；教材給的時間更長，機制也不同。
-      - text: 超過 6 個月，睪固酮濃度顯著上升
-        correct: false
-        why_wrong: 把時間門檻拉到比教材記載更久，並把機制換成睪固酮變化；教材聚焦的是 LH 分泌頻率。
-
-  - id: ch07.female-acl.i02.q1
-    item: ch07.female-acl.i02
-    dco: sf1.B.3
-    lang: en
-    cognitive: application
-    stem: According to the textbook, which factor does it identify as the most important contributor to the higher rate of anterior cruciate ligament injury in female athletes?
-    locator: Female Athletes > Program Design Considerations for Women > Anterior Cruciate Ligament Injury in Females
-    options:
-      - text: A neuromuscular deficit that produces dynamic knee valgus
-        correct: true
-      - text: A structural difference in the intercondylar notch size
-        correct: false
-        why_wrong: Picks one of the listed possible contributors and ranks it first. The chapter downgrades structural candidates in favor of the neuromuscular deficit mechanism.
-      - text: A hormonal pattern unique to the luteal phase
-        correct: false
-        why_wrong: Borrows the hormonal candidate and elevates it above the neuromuscular deficit. The textbook does not place hormonal changes at the top of the list.
-
-  - id: ch07.older-adults-training.i01.q1
-    item: ch07.older-adults-training.i01
-    dco: sf1.H.1
-    lang: en
-    cognitive: application
-    stem: After twelve weeks of resistance training, what is the greatest strength change the textbook reports for the knee extensors of previously sedentary older men?
-    locator: Older Adults > Resistance Training for Older Adults > Responsiveness to Resistance Training in Older Adults
-    options:
-      - text: More than a doubling of knee extensor strength
-        correct: true
-      - text: An increase of roughly 10 percent over baseline
-        correct: false
-        why_wrong: Treats a previously sedentary group as responding only marginally; the reported extensor gain is far larger than a tenth.
-      - text: A tripling of strength in those same extensor muscles
-        correct: false
-        why_wrong: Moves the threefold figure onto the extensors; the chapter assigns that larger multiple to the knee flexors.
-
-  - id: ch07.older-adults-training.i05.q1
-    item: ch07.older-adults-training.i05
-    dco: sf1.H.1
-    lang: zh
-    cognitive: application
-    stem: 教材對高齡者阻力訓練初始適應期的每週頻率與每次起始量，最主要的建議為何？
-    locator: Older Adults > Resistance Training for Older Adults > Program Design Considerations for Older Adults
-    options:
-      - text: 每週 2 次，1 組 8 至 12 次作起步
-        correct: true
-      - text: 每週 5 次，4 組 3 至 5 次為進階
-        correct: false
-        why_wrong: 把頻率與訓練量都推到進階期才適合的水準；教材明說這是高齡者的初始量，遠低於進階處方。
-      - text: 每週 1 次，5 組 15 至 20 次作主項
-        correct: false
-        why_wrong: 把頻率砍半並把反覆次數拉到肌耐力區間；教材給的初始頻率與次數都與此不同。
-
-  - id: ch07.older-adults-training.i06.q1
-    item: ch07.older-adults-training.i06
-    dco: sf1.H.1
-    lang: en
-    cognitive: application
-    stem: According to the textbook, what set and rep scheme primarily defines the power prescription for healthy older adults who have completed a general resistance training program?
-    locator: Older Adults > Resistance Training for Older Adults > Program Design Considerations for Older Adults
-    options:
-      - text: 1 to 3 sets of 6 to 10 reps at 40 to 60 percent 1RM
-        correct: true
-      - text: 4 to 5 sets of 3 to 5 reps at 80 to 90 percent 1RM
-        correct: false
-        why_wrong: Lifts the load into the maximal strength zone, which the chapter assigns to a different training goal than power.
-      - text: 6 to 8 sets of 12 to 15 reps at 20 to 30 percent 1RM
-        correct: false
-        why_wrong: Drops the load into high volume endurance work, well below the intensity the chapter pairs with power training.
-
-  - id: ch07.older-adults-training.i02.q1
-    item: ch07.older-adults-training.i02
-    dco: sf1.H.1
-    lang: en
-    cognitive: application
-    stem: According to the textbook, what is the primary advantage of high velocity power training compared with traditional slow velocity resistance training in older adults?
-    locator: Older Adults > Resistance Training for Older Adults > Responsiveness to Resistance Training in Older Adults
-    options:
-      - text: A larger gain in peak power output
-        correct: true
-      - text: A larger gain in maximal strength
-        correct: false
-        why_wrong: Reverses the documented split. The chapter places the larger effect on peak power, not maximal strength, with this training mode.
-      - text: A larger gain in muscle cross sectional area
-        correct: false
-        why_wrong: Assumes the velocity emphasis drives size change, but the chapter reports its edge in peak power rather than cross sectional area.
-
-  - id: ch07.program-design-populations.i03.q1
-    item: ch07.program-design-populations.i03
-    dco: sf1.A.3
-    lang: zh
-    cognitive: application
-    stem: 教材建議，當女性運動員因上肢力量不足而難以完成多關節自由重量動作時，最主要的調整方向為何？
-    locator: Female Athletes > Program Design Considerations for Women > Upper Body Strength Development
-    options:
-      - text: 加 1 至 2 個上肢動作或多做 1 至 2 組
-        correct: true
-      - text: 把上肢動作全面改用機器式固定軌跡式器材訓練
-        correct: false
-        why_wrong: 把調整方式換成動作形態的全面替換；教材只在量上建議增加，並未要求全面改用器械。
-      - text: 暫停上肢訓練直至能完成原本需要的多關節動作
-        correct: false
-        why_wrong: 把上肢受限當成該區域暫停訓練的理由；教材的調整方向是增加上肢動作與組數，不是停止訓練。
-
-  - id: ch07.program-design-populations.i05.q1
-    item: ch07.program-design-populations.i05
-    dco: sf1.A.3
-    lang: zh
-    cognitive: application
-    stem: 教材對高齡者開始運動計畫前最優先要求的程序為何？
-    locator: Older Adults > Resistance Training for Older Adults > Program Design Considerations for Older Adults
-    options:
-      - text: 完成病史與風險因子問卷，視需要取得醫師核可
-        correct: true
-      - text: 先做最大肌力測驗以決定訓練起始強度
-        correct: false
-        why_wrong: 把高齡者起步的程序直接推到最大肌力測驗；教材把醫療史與風險篩檢列在前，最大肌力測驗不在第一線。
-      - text: 報名團體課程以建立社交動機，再開始阻力訓練
-        correct: false
-        why_wrong: 用社交動機取代醫療篩檢；教材強調高齡者起步前必須先做風險評估，不是先排團課。
-
-  - id: ch07.program-design-populations.i06.q1
-    item: ch07.program-design-populations.i06
-    dco: sf1.A.3
-    lang: en
-    cognitive: application
-    stem: According to the textbook, what warm-up duration and inter-session recovery interval are primarily recommended for older adults engaging in resistance training?
-    locator: Older Adults > Resistance Training for Older Adults > Program Design Considerations for Older Adults > What Are the Safety Recommendations for Resistance Training for Older Adults?
-    options:
-      - text: 5 to 10 minutes warm-up with 48 to 72 hours between sessions
-        correct: true
-      - text: 20 to 30 minutes warm-up with 12 to 24 hours between sessions
-        correct: false
-        why_wrong: Inflates both ends of the prescription. The chapter lists a shorter warm-up and a longer inter-session recovery window than this.
-      - text: No formal warm-up with sessions on consecutive days
-        correct: false
-        why_wrong: Reads the recommendation as if older adults need no warm-up or recovery gap, which runs opposite to the chapter's safety guidance.
-
-  - id: ch07.children-growth.i07.q1
-    item: ch07.children-growth.i07
-    dco: sf1.D.3
-    lang: zh
-    cognitive: application
-    stem: 教材指出女孩通常比男孩早幾年達到完全骨成熟，多數骨頭最可能在何年齡前融合？
-    locator: Children > The Growing Child > Muscle and Bone Growth
-    options:
-      - text: 早 2 至 3 年，多數骨在 20 歲出頭融合
-        correct: true
-      - text: 早 5 至 6 年，融合時間多在 15 歲前
-        correct: false
-        why_wrong: 把性別差距放大並把融合時間往前推；教材給的差距是二至三年，融合時間也比這晚。
-      - text: 晚 2 至 3 年，骨頭約在 25 歲後才融合
-        correct: false
-        why_wrong: 把性別順序反過來並把融合時間推後；教材記載的是女孩比男孩早，而非晚。
-
-  - id: ch07.children-training-response.i04.q1
-    item: ch07.children-training-response.i04
-    dco: sf1.F.3
-    lang: zh
-    cognitive: analysis
-    stem: 教材引用的統合分析顯示青少年可達的肌力增加幾乎比兒童高 50%，這最主要說明什麼？
-    locator: Children > The Growing Child > Developmental Changes in Muscular Strength
-    options:
-      - text: 訓練後可期待的肌力增幅與成熟度有關
-        correct: true
-      - text: 兒童的阻力訓練缺乏實證支持，應延後開始
-        correct: false
-        why_wrong: 把兩群體增幅的差距讀成兒童不該訓練；教材列出的兒童訓練效益與安全條件都與此相反。
-      - text: 青少年的增幅全部來自睪固酮濃度上升
-        correct: false
-        why_wrong: 把差距單一歸因於睪固酮；教材在引用這份統合分析時並未給出這個歸因。
-
-  - id: ch07.female-acl.i05.q1
-    item: ch07.female-acl.i05
-    dco: sf1.B.3
-    lang: zh
-    cognitive: analysis
-    stem: 教材對女性運動員 ACL 傷害預防介入的時機，最主要的論點為何？
-    locator: Female Athletes > Program Design Considerations for Women > Anterior Cruciate Ligament Injury in Females
-    options:
-      - text: 青春期前的預備體能訓練可能有助最佳化適應並降低風險
-        correct: true
-      - text: 介入時機不影響效益，青春期後開始仍有相同效果
-        correct: false
-        why_wrong: 把介入時機中性化；教材明說青春期前介入看來有助於提升預防計畫的效果。
-      - text: 應等到成年後再介入，青春期介入會干擾荷爾蒙變化
-        correct: false
-        why_wrong: 把介入時機推到成年後；教材反而主張早介入，把青春期視為介入效果的關鍵期。
-
-  - id: ch07.children-training-response.i08.q1
-    item: ch07.children-training-response.i08
-    dco: sf1.A.3
-    lang: en
-    cognitive: analysis
-    stem: Which factor best explains why an early maturer can out-lift a late maturer of the same chronological age?
-    locator: Children > The Growing Child > Developmental Changes in Muscular Strength
-    options:
-      - text: Greater muscle mass at the same chronological age
-        correct: true
-      - text: A higher weekly training volume than late maturers
-        correct: false
-        why_wrong: Explains the gap through accumulated practice, but the chapter ties the early edge to biological maturity instead.
-      - text: An ectomorphic build that favors absolute strength
-        correct: false
-        why_wrong: Assigns the ectomorphic build to the wrong group; the chapter links that somatotype to late maturers.
-
-  - id: ch07.older-adults-training.i08.q1
-    item: ch07.older-adults-training.i08
-    dco: sf1.H.1
-    lang: zh
-    cognitive: analysis
-    stem: 教材對單獨阻力訓練預防高齡者跌倒的看法，最主要的結論為何？
-    locator: Older Adults > Age-Related Changes in Neuromotor Function
-    options:
-      - text: 單獨阻力訓練無法預防跌倒，須多面向計畫
-        correct: true
-      - text: 阻力訓練單獨即足以全面預防高齡者跌倒風險
-        correct: false
-        why_wrong: 把單獨阻力訓練的效果推到萬能；教材明說單獨阻力訓練無法預防跌倒，必須與平衡柔軟度訓練並用。
-      - text: 只要提高整體身體活動量即可降低跌倒率
-        correct: false
-        why_wrong: 教材明說單純增加身體活動量不足以預防跌倒，關鍵在遵從包含阻力與平衡的多面向計畫。
-
-  - id: ch07.children-training-response.i07.q1
-    item: ch07.children-training-response.i07
-    dco: sf1.B.3
-    lang: zh
-    cognitive: analysis
-    stem: 教材指出運動神經元髓鞘化未完成時，對兒童表現與訓練反應最主要的影響為何？
-    locator: Children > The Growing Child > Developmental Changes in Muscular Strength
-    options:
-      - text: 快速反應與熟練動作無法成功，高水準肌力也不可能
-        correct: true
-      - text: 兒童反而因神經未成熟而比成人更易爆發出最大肌力
-        correct: false
-        why_wrong: 把神經未成熟的影響反過來讀成優勢；教材明說髓鞘化未完成會限制高水準表現。
-      - text: 髓鞘化只影響感覺神經，運動表現因此不受限制
-        correct: false
-        why_wrong: 把髓鞘化的作用限縮在感覺側；教材談的正是運動神經元髓鞘化對出力與技巧的限制。
+- id: ch07.children-growth.i04.q1
+  item: ch07.children-growth.i04
+  dco: sf1.D.3
+  lang: zh
+  cognitive: recall
+  stem: 教材中女性通常達到峰值身高速度（PHV）的年齡，約為幾歲？
+  locator: Children > The Growing Child > Chronological Age Versus Biological Age
+  options:
+  - text: '12'
+    correct: true
+  - text: '10'
+    correct: false
+    why_wrong: 把 PHV 出現的年齡整體往前挪了兩歲，女性通常達到 PHV 的時間點晚於此。
+  - text: '14'
+    correct: false
+    why_wrong: 把女性的 PHV 推到男性之後；教材給女性的 PHV 年齡比男性早，而非晚。
+- id: ch07.children-growth.i01.q1
+  item: ch07.children-growth.i01
+  dco: sf1.A.3
+  lang: en
+  cognitive: recall
+  stem: According to the textbook, what is the approximate maximum spread in body mass that can appear among a group of fourteen year old children?
+  locator: Children > The Growing Child > Chronological Age Versus Biological Age
+  options:
+  - text: About 18 kg
+    correct: true
+  - text: About 4 kg
+    correct: false
+    why_wrong: Treats the spread as nearly negligible, which would erase the textbook's reason for preferring biological over chronological age.
+  - text: Around 40 kg
+    correct: false
+    why_wrong: Overshoots the documented spread; fourteen year olds of the same chronological age vary far less than this in body mass.
+- id: ch07.children-growth.i03.q1
+  item: ch07.children-growth.i03
+  dco: sf1.A.3
+  lang: zh
+  cognitive: recall
+  stem: 教材把 Tanner 分期分為幾個階段，最末階段代表什麼狀態？
+  locator: Children > The Growing Child > Chronological Age Versus Biological Age
+  options:
+  - text: 5 期，最末階段代表完全性成熟
+    correct: true
+  - text: 3 期，最末階段代表青春發身結束
+    correct: false
+    why_wrong: 把青春期前、中、後當成全部階段；教材把分期切得更細，總數不止三個。
+  - text: 7 期，最末是生長發育完成
+    correct: false
+    why_wrong: 把分期切得比教材更多；教材並未使用七期的分類，最末階段也非第七期。
+- id: ch07.children-growth.i02.q1
+  item: ch07.children-growth.i02
+  dco: sf1.A.3
+  lang: en
+  cognitive: recall
+  stem: According to the textbook, what site is used by trained radiologists to score skeletal age when comparing a child to reference films?
+  locator: Children > The Growing Child > Chronological Age Versus Biological Age
+  options:
+  - text: The left wrist
+    correct: true
+  - text: The right knee
+    correct: false
+    why_wrong: Picks a load-bearing joint instead of the one the chapter names; the textbook reserves skeletal age scoring to the wrist.
+  - text: The lumbar spine
+    correct: false
+    why_wrong: Shifts scoring to the trunk, but the chapter limits the comparison film work to the left wrist x-ray.
+- id: ch07.aging-musculoskeletal.i04.q1
+  item: ch07.aging-musculoskeletal.i04
+  dco: sf1.D.1
+  lang: zh
+  cognitive: recall
+  stem: 教材把骨質疏鬆症界定為骨密度低於年輕成人平均值多少個標準差（SD）？
+  locator: Older Adults > Age-Related Changes in Musculoskeletal Health
+  options:
+  - text: '2.5'
+    correct: true
+  - text: '1.0'
+    correct: false
+    why_wrong: 那落在骨質減少症區間的起點，教材把骨質疏鬆的切點設在更低的骨密度位置。
+  - text: '4.0'
+    correct: false
+    why_wrong: 教材的骨密度分類沒有用到這個切點，門檻被推到比實際記載更嚴重的位置。
+- id: ch07.aging-musculoskeletal.i02.q1
+  item: ch07.aging-musculoskeletal.i02
+  dco: sf1.A.3
+  lang: en
+  cognitive: recall
+  stem: According to the textbook, what percentage of women aged 75 to 84 in the reported cohort could not lift about 4.5 kilograms?
+  locator: Older Adults > Age-Related Changes in Musculoskeletal Health
+  options:
+  - text: 65 percent
+    correct: true
+  - text: 40 percent
+    correct: false
+    why_wrong: Borrows the figure attached to the youngest cohort. The chapter assigns that share to 55 to 64 year old women, not the oldest band.
+  - text: 20 percent
+    correct: false
+    why_wrong: Understates the documented loss in the oldest women; the chapter puts the share near two thirds for that age band.
+- id: ch07.aging-musculoskeletal.i07.q1
+  item: ch07.aging-musculoskeletal.i07
+  dco: sf1.A.3
+  lang: zh
+  cognitive: recall
+  stem: 教材記載競技舉重能力在約 70 歲之前，隨年齡每年最多下降百分之幾？
+  locator: Older Adults
+  options:
+  - text: '1.5'
+    correct: true
+  - text: '6.0'
+    correct: false
+    why_wrong: 把年下降率放大到教材記載的數倍，那樣的速率幾年內就會抹掉整個競技水準。
+  - text: '0.2'
+    correct: false
+    why_wrong: 把年下降率壓到教材記載的十分之一，等於否認舉重能力有明顯的年齡效應。
+- id: ch07.children-risk-benefits.i03.q1
+  item: ch07.children-risk-benefits.i03
+  dco: sf1.D.3
+  lang: en
+  cognitive: recall
+  stem: According to the textbook, what share of overuse injuries in children is estimated to be preventable through simple measures such as coach education and delayed specialization?
+  locator: Children > Youth Resistance Training > Potential Benefits
+  options:
+  - text: More than 50 percent
+    correct: true
+  - text: About 10 percent
+    correct: false
+    why_wrong: Treats the preventable share as a small slice. The chapter places the estimate well above half of all overuse injuries.
+  - text: Nearly 100 percent
+    correct: false
+    why_wrong: Reads the chapter as if every overuse injury is avoidable, which is stronger than the documented estimate.
+- id: ch07.female-acl.i01.q1
+  item: ch07.female-acl.i01
+  dco: sf1.C.4
+  lang: zh
+  cognitive: recall
+  stem: 教材引用的多份報告中，女性運動員發生前十字韌帶撕裂的可能性約為男性的幾倍？
+  locator: Female Athletes > Program Design Considerations for Women > Anterior Cruciate Ligament Injury in Females
+  options:
+  - text: 約 6 倍
+    correct: true
+  - text: 約 2 倍
+    correct: false
+    why_wrong: 把女性 ACL 撕裂的相對風險低估到僅約男性的兩倍；教材給的倍率比這個高。
+  - text: 約 15 倍
+    correct: false
+    why_wrong: 把女性 ACL 撕裂的相對風險高估到教材記載的好幾倍；教材引用的倍數遠低於此。
+- id: ch07.program-design-populations.i02.q1
+  item: ch07.program-design-populations.i02
+  dco: sf1.A.3
+  lang: en
+  cognitive: recall
+  stem: According to the textbook, what weekly frequency of nonconsecutive resistance training is recommended for children?
+  locator: Children > Program Design Considerations for Children > Youth Resistance Training Guidelines
+  options:
+  - text: Two or three sessions per week
+    correct: true
+  - text: Five or six sessions per week
+    correct: false
+    why_wrong: Mirrors the cadence reserved for advanced adult programs. The chapter places children's weekly frequency well below five sessions.
+  - text: One session per week
+    correct: false
+    why_wrong: Sets the cadence at the floor for children. The chapter recommends a nonconsecutive two or three sessions for the typical pediatric trainee.
+- id: ch07.children-training-response.i01.q1
+  item: ch07.children-training-response.i01
+  dco: sf1.B.3
+  lang: zh
+  cognitive: application
+  stem: 對青春期前兒童而言，短期阻力訓練的肌力增益最主要歸因於哪一類因素？
+  locator: Children > Youth Resistance Training > Responsiveness to Resistance Training in Children
+  options:
+  - text: 神經因素，例如運動單位活化與同步增加
+    correct: true
+  - text: 肌肉肥大，源自肌纖維橫截面積增加
+    correct: false
+    why_wrong: 把兒童肌力增益的機制搬到肌肉肥大；教材明說至少二十週內肌肉肥大不是青春期前肌力增益的主因。
+  - text: 結締組織重塑，源自肌腱與韌帶變厚
+    correct: false
+    why_wrong: 把結構性變化當成兒童短期肌力增益的主要來源；教材把這段期的肌力來源放在神經層面。
+- id: ch07.children-training-response.i06.q1
+  item: ch07.children-training-response.i06
+  dco: sf1.H.1
+  lang: zh
+  cognitive: application
+  stem: 教材引用的研究中，每週只訓練一天者的平均肌力增益，最接近每週訓練兩天者的百分之多少？
+  locator: Children > Youth Resistance Training > Responsiveness to Resistance Training in Children
+  options:
+  - text: '67'
+    correct: true
+  - text: '33'
+    correct: false
+    why_wrong: 把單日訓練的相對效益低估到僅約三成；教材給的平均比例明顯高於這個。
+  - text: '100'
+    correct: false
+    why_wrong: 假設訓練天數不會影響肌力增益；教材記載的差距顯示頻率拉高會帶來實質差異。
+- id: ch07.children-training-response.i03.q1
+  item: ch07.children-training-response.i03
+  dco: sf1.H.1
+  lang: zh
+  cognitive: application
+  stem: 教材中未訓練青春期前兒童完成 8 至 20 週阻力訓練後，典型肌力增幅主要落在哪個範圍？
+  locator: Children > Youth Resistance Training > Responsiveness to Resistance Training in Children
+  options:
+  - text: 約 30% 至 40%
+    correct: true
+  - text: 約 5% 至 10%
+    correct: false
+    why_wrong: 把典型增幅低估到僅約一成；教材記載的典型區間明顯高於此。
+  - text: 約 70% 至 90%
+    correct: false
+    why_wrong: 把典型增幅推到接近文獻報告的最大值；教材把這條作為極端案例，不是典型值。
+- id: ch07.children-risk-benefits.i07.q1
+  item: ch07.children-risk-benefits.i07
+  dco: sf1.A.3
+  lang: en
+  cognitive: application
+  stem: According to the textbook, which feature of resistance training most likely explains why obese adolescents seem to enjoy participating in it?
+  locator: Children > Youth Resistance Training > Potential Benefits
+  options:
+  - text: It avoids the high aerobic load other activities impose
+    correct: true
+  - text: It drives the body fat losses documented in obese youth
+    correct: false
+    why_wrong: Conflates the documented fat reduction with the enjoyment factor. The textbook lists reduced aerobic demand and success experiences as the reasons obese adolescents prefer this mode.
+  - text: It delivers the insulin sensitivity gains reported for this group
+    correct: false
+    why_wrong: Borrows a documented physiological outcome and treats it as the reason for enjoyment; the chapter separates measured benefits from why these adolescents prefer the mode.
+- id: ch07.children-risk-benefits.i05.q1
+  item: ch07.children-risk-benefits.i05
+  dco: sf1.A.3
+  lang: zh
+  cognitive: application
+  stem: 教材對年幼時就只從事單一運動的兒童，列為最重要的風險為何？
+  locator: Children > Youth Resistance Training > Potential Benefits
+  options:
+  - text: 肌肉失衡、過度使用傷害與過度訓練風險升高
+    correct: true
+  - text: 心肺有氧能力下降與最大攝氧量倒退
+    correct: false
+    why_wrong: 把專項化的後果放在心肺耐力上；教材列出的早期專項化風險以肌肉失衡與過度使用傷害為主。
+  - text: 骨骼生長板提早融合，導致成年身高受限
+    correct: false
+    why_wrong: 把風險推到生長板提前關閉；教材未把提早融合列為單一運動專項化的直接後果。
+- id: ch07.children-risk-benefits.i06.q1
+  item: ch07.children-risk-benefits.i06
+  dco: sf1.D.2
+  lang: zh
+  cognitive: application
+  stem: 教材中阻力訓練對兒童與青少年骨骼健康最主要的實證效益為何？
+  locator: Children > Youth Resistance Training > Potential Benefits
+  options:
+  - text: 骨礦物質密度提升，且菁英舉重選手明顯高於同齡對照組
+    correct: true
+  - text: 骨骼形狀永久重塑，遺傳決定的最終身高明顯上修
+    correct: false
+    why_wrong: 把效益推到改變遺傳決定的高度；教材明說阻力訓練不會改變最終的身高上限。
+  - text: 生長板提早融合，讓骨密度集中在成熟骨骼上
+    correct: false
+    why_wrong: 把生長板提早融合當成正向效益；教材把這件事視為風險，不是骨骼健康的提升。
+- id: ch07.aging-musculoskeletal.i06.q1
+  item: ch07.aging-musculoskeletal.i06
+  dco: sf1.B.3
+  lang: zh
+  cognitive: application
+  stem: 教材指出高齡者以共同收縮代償平衡困難時，主要的代價是什麼？
+  locator: Older Adults > Age-Related Changes in Neuromotor Function
+  options:
+  - text: 淨關節力矩與主動肌力量輸出降低
+    correct: true
+  - text: 反應時間延長，使動作協調變得更不穩定
+    correct: false
+    why_wrong: 把代償的代價推到反應時間層面；教材把共同收縮的成本放在淨力矩與主動肌輸出上。
+  - text: 肌腱順應性下降，關節活動範圍明顯受限
+    correct: false
+    why_wrong: 把代償的代價推到肌腱順應性；教材描述的代價是動態穩定策略本身的力學成本。
+- id: ch07.aging-musculoskeletal.i05.q1
+  item: ch07.aging-musculoskeletal.i05
+  dco: sf1.B.3
+  lang: zh
+  cognitive: application
+  stem: 教材列為高齡者跌倒的內在風險因子，主要包含哪些變化？
+  locator: Older Adults > Age-Related Changes in Neuromotor Function
+  options:
+  - text: 肌力與爆發力下降、反應時間變慢、平衡與姿勢穩定性受損
+    correct: true
+  - text: 骨礦物質密度下降、肌內脂肪增加、肌腱順應性下降
+    correct: false
+    why_wrong: 這些是老化的肌骨結構變化，決定的是跌倒之後的骨折後果，不是讓人跌倒的內在因子。
+  - text: 攝氧量下降、肌耐力降低、乳酸閾值下移
+    correct: false
+    why_wrong: 把焦點換成有氧耐力的變化；教材把跌倒的內在風險放在神經肌骨與姿勢控制，而不是有氧能力。
+- id: ch07.female-physiology.i02.q1
+  item: ch07.female-physiology.i02
+  dco: sf1.A.3
+  lang: zh
+  cognitive: application
+  stem: 教材指出以去脂體重表示肌力時，男女差異最可能的傾向為何？
+  locator: Female Athletes > Sex Differences > Strength and Power Output
+  options:
+  - text: 男女肌力差異傾向消失
+    correct: true
+  - text: 女性上肢肌力反而略高於男性
+    correct: false
+    why_wrong: 把校正後的結論推到女性反超男性；教材給的描述是差距縮小到幾乎消失，不是反轉。
+  - text: 兩性肌力差距與絕對肌力相同
+    correct: false
+    why_wrong: 把標準化後的結果誤當成絕對肌力的差距；教材明說以去脂體重表示時差距傾向消失。
+- id: ch07.female-physiology.i05.q1
+  item: ch07.female-physiology.i05
+  dco: sf1.A.3
+  lang: zh
+  cognitive: application
+  stem: 教材中競技女性舉重選手在抓舉或翻舉拉起動作中，相對總體重的爆發力輸出，最接近男性的百分之多少？
+  locator: Female Athletes > Sex Differences > Strength and Power Output
+  options:
+  - text: '63'
+    correct: true
+  - text: '45'
+    correct: false
+    why_wrong: 把女性爆發力相對男性的比例低估到僅約四成五；教材記載的數字明顯高於這個。
+  - text: '85'
+    correct: false
+    why_wrong: 把女性的爆發力比例推向接近男性；教材記載女性相對體重的爆發力輸出遠低於此。
+- id: ch07.female-physiology.i07.q1
+  item: ch07.female-physiology.i07
+  dco: sf1.F.3
+  lang: zh
+  cognitive: application
+  stem: 教材將停經（amenorrhea）定義為月經週期中斷超過多久，並主要歸因於哪個內分泌變化？
+  locator: Female Athletes > Resistance Training for Female Athletes > Female Athlete Triad
+  options:
+  - text: 超過 3 個月，黃體生成素分泌頻率降低
+    correct: true
+  - text: 超過 1 個月，雌激素分泌顯著下降
+    correct: false
+    why_wrong: 把中斷的時間門檻縮短到一個月，並把機制換成雌激素變化；教材給的時間更長，機制也不同。
+  - text: 超過 6 個月，睪固酮濃度顯著上升
+    correct: false
+    why_wrong: 把時間門檻拉到比教材記載更久，並把機制換成睪固酮變化；教材聚焦的是 LH 分泌頻率。
+- id: ch07.female-acl.i02.q1
+  item: ch07.female-acl.i02
+  dco: sf1.B.3
+  lang: en
+  cognitive: application
+  stem: According to the textbook, which factor does it identify as the most important contributor to the higher rate of anterior cruciate ligament injury in female athletes?
+  locator: Female Athletes > Program Design Considerations for Women > Anterior Cruciate Ligament Injury in Females
+  options:
+  - text: A neuromuscular deficit that produces dynamic knee valgus
+    correct: true
+  - text: A structural difference in the intercondylar notch size
+    correct: false
+    why_wrong: Picks one of the listed possible contributors and ranks it first. The chapter downgrades structural candidates in favor of the neuromuscular deficit mechanism.
+  - text: A hormonal pattern unique to the luteal phase
+    correct: false
+    why_wrong: Borrows the hormonal candidate and elevates it above the neuromuscular deficit. The textbook does not place hormonal changes at the top of the list.
+- id: ch07.older-adults-training.i01.q1
+  item: ch07.older-adults-training.i01
+  dco: sf1.H.1
+  lang: en
+  cognitive: application
+  stem: After twelve weeks of resistance training, what is the greatest strength change the textbook reports for the knee extensors of previously sedentary older men?
+  locator: Older Adults > Resistance Training for Older Adults > Responsiveness to Resistance Training in Older Adults
+  options:
+  - text: More than a doubling of knee extensor strength
+    correct: true
+  - text: An increase of roughly 10 percent over baseline
+    correct: false
+    why_wrong: Treats a previously sedentary group as responding only marginally; the reported extensor gain is far larger than a tenth.
+  - text: A tripling of strength in those same extensor muscles
+    correct: false
+    why_wrong: Moves the threefold figure onto the extensors; the chapter assigns that larger multiple to the knee flexors.
+- id: ch07.older-adults-training.i05.q1
+  item: ch07.older-adults-training.i05
+  dco: sf1.H.1
+  lang: zh
+  cognitive: application
+  stem: 教材對高齡者阻力訓練初始適應期的每週頻率與每次起始量，最主要的建議為何？
+  locator: Older Adults > Resistance Training for Older Adults > Program Design Considerations for Older Adults
+  options:
+  - text: 每週 2 次，1 組 8 至 12 次作起步
+    correct: true
+  - text: 每週 5 次，4 組 3 至 5 次為進階
+    correct: false
+    why_wrong: 把頻率與訓練量都推到進階期才適合的水準；教材明說這是高齡者的初始量，遠低於進階處方。
+  - text: 每週 1 次，5 組 15 至 20 次作主項
+    correct: false
+    why_wrong: 把頻率砍半並把反覆次數拉到肌耐力區間；教材給的初始頻率與次數都與此不同。
+- id: ch07.older-adults-training.i06.q1
+  item: ch07.older-adults-training.i06
+  dco: sf1.H.1
+  lang: en
+  cognitive: application
+  stem: According to the textbook, what set and rep scheme primarily defines the power prescription for healthy older adults who have completed a general resistance training program?
+  locator: Older Adults > Resistance Training for Older Adults > Program Design Considerations for Older Adults
+  options:
+  - text: 1 to 3 sets of 6 to 10 reps at 40 to 60 percent 1RM
+    correct: true
+  - text: 4 to 5 sets of 3 to 5 reps at 80 to 90 percent 1RM
+    correct: false
+    why_wrong: Lifts the load into the maximal strength zone, which the chapter assigns to a different training goal than power.
+  - text: 6 to 8 sets of 12 to 15 reps at 20 to 30 percent 1RM
+    correct: false
+    why_wrong: Drops the load into high volume endurance work, well below the intensity the chapter pairs with power training.
+- id: ch07.older-adults-training.i02.q1
+  item: ch07.older-adults-training.i02
+  dco: sf1.H.1
+  lang: en
+  cognitive: application
+  stem: According to the textbook, what is the primary advantage of high velocity power training compared with traditional slow velocity resistance training in older adults?
+  locator: Older Adults > Resistance Training for Older Adults > Responsiveness to Resistance Training in Older Adults
+  options:
+  - text: A larger gain in peak power output
+    correct: true
+  - text: A larger gain in maximal strength
+    correct: false
+    why_wrong: Reverses the documented split. The chapter places the larger effect on peak power, not maximal strength, with this training mode.
+  - text: A larger gain in muscle cross sectional area
+    correct: false
+    why_wrong: Assumes the velocity emphasis drives size change, but the chapter reports its edge in peak power rather than cross sectional area.
+- id: ch07.program-design-populations.i03.q1
+  item: ch07.program-design-populations.i03
+  dco: sf1.A.3
+  lang: zh
+  cognitive: application
+  stem: 教材建議，當女性運動員因上肢力量不足而難以完成多關節自由重量動作時，最主要的調整方向為何？
+  locator: Female Athletes > Program Design Considerations for Women > Upper Body Strength Development
+  options:
+  - text: 加 1 至 2 個上肢動作或多做 1 至 2 組
+    correct: true
+  - text: 把上肢動作全面改用機器式固定軌跡式器材訓練
+    correct: false
+    why_wrong: 把調整方式換成動作形態的全面替換；教材只在量上建議增加，並未要求全面改用器械。
+  - text: 暫停上肢訓練直至能完成原本需要的多關節動作
+    correct: false
+    why_wrong: 把上肢受限當成該區域暫停訓練的理由；教材的調整方向是增加上肢動作與組數，不是停止訓練。
+- id: ch07.program-design-populations.i05.q1
+  item: ch07.program-design-populations.i05
+  dco: sf1.A.3
+  lang: zh
+  cognitive: application
+  stem: 教材對高齡者開始運動計畫前最優先要求的程序為何？
+  locator: Older Adults > Resistance Training for Older Adults > Program Design Considerations for Older Adults
+  options:
+  - text: 完成病史與風險因子問卷，視需要取得醫師核可
+    correct: true
+  - text: 先做最大肌力測驗以決定訓練起始強度
+    correct: false
+    why_wrong: 把高齡者起步的程序直接推到最大肌力測驗；教材把醫療史與風險篩檢列在前，最大肌力測驗不在第一線。
+  - text: 報名團體課程以建立社交動機，再開始阻力訓練
+    correct: false
+    why_wrong: 用社交動機取代醫療篩檢；教材強調高齡者起步前必須先做風險評估，不是先排團課。
+- id: ch07.program-design-populations.i06.q1
+  item: ch07.program-design-populations.i06
+  dco: sf1.A.3
+  lang: en
+  cognitive: application
+  stem: According to the textbook, what warm-up duration and inter-session recovery interval are primarily recommended for older adults engaging in resistance training?
+  locator: Older Adults > Resistance Training for Older Adults > Program Design Considerations for Older Adults > What Are the Safety Recommendations for Resistance Training for Older Adults?
+  options:
+  - text: 5 to 10 minutes warm-up with 48 to 72 hours between sessions
+    correct: true
+  - text: 20 to 30 minutes warm-up with 12 to 24 hours between sessions
+    correct: false
+    why_wrong: Inflates both ends of the prescription. The chapter lists a shorter warm-up and a longer inter-session recovery window than this.
+  - text: No formal warm-up with sessions on consecutive days
+    correct: false
+    why_wrong: Reads the recommendation as if older adults need no warm-up or recovery gap, which runs opposite to the chapter's safety guidance.
+- id: ch07.children-growth.i07.q1
+  item: ch07.children-growth.i07
+  dco: sf1.D.3
+  lang: zh
+  cognitive: application
+  stem: 教材指出女孩通常比男孩早幾年達到完全骨成熟，多數骨頭最可能在何年齡前融合？
+  locator: Children > The Growing Child > Muscle and Bone Growth
+  options:
+  - text: 早 2 至 3 年，多數骨在 20 歲出頭融合
+    correct: true
+  - text: 早 5 至 6 年，融合時間多在 15 歲前
+    correct: false
+    why_wrong: 把性別差距放大並把融合時間往前推；教材給的差距是二至三年，融合時間也比這晚。
+  - text: 晚 2 至 3 年，骨頭約在 25 歲後才融合
+    correct: false
+    why_wrong: 把性別順序反過來並把融合時間推後；教材記載的是女孩比男孩早，而非晚。
+- id: ch07.children-training-response.i04.q1
+  item: ch07.children-training-response.i04
+  dco: sf1.F.3
+  lang: zh
+  cognitive: analysis
+  stem: 教材引用的統合分析顯示青少年可達的肌力增加幾乎比兒童高 50%，這最主要說明什麼？
+  locator: Children > The Growing Child > Developmental Changes in Muscular Strength
+  options:
+  - text: 訓練後可期待的肌力增幅與成熟度有關
+    correct: true
+  - text: 兒童的阻力訓練缺乏實證支持，應延後開始
+    correct: false
+    why_wrong: 把兩群體增幅的差距讀成兒童不該訓練；教材列出的兒童訓練效益與安全條件都與此相反。
+  - text: 青少年的增幅全部來自睪固酮濃度上升
+    correct: false
+    why_wrong: 把差距單一歸因於睪固酮；教材在引用這份統合分析時並未給出這個歸因。
+- id: ch07.female-acl.i05.q1
+  item: ch07.female-acl.i05
+  dco: sf1.B.3
+  lang: zh
+  cognitive: analysis
+  stem: 教材對女性運動員 ACL 傷害預防介入的時機，最主要的論點為何？
+  locator: Female Athletes > Program Design Considerations for Women > Anterior Cruciate Ligament Injury in Females
+  options:
+  - text: 青春期前的預備體能訓練可能有助最佳化適應並降低風險
+    correct: true
+  - text: 介入時機不影響效益，青春期後開始仍有相同效果
+    correct: false
+    why_wrong: 把介入時機中性化；教材明說青春期前介入看來有助於提升預防計畫的效果。
+  - text: 應等到成年後再介入，青春期介入會干擾荷爾蒙變化
+    correct: false
+    why_wrong: 把介入時機推到成年後；教材反而主張早介入，把青春期視為介入效果的關鍵期。
+- id: ch07.children-training-response.i08.q1
+  item: ch07.children-training-response.i08
+  dco: sf1.A.3
+  lang: en
+  cognitive: analysis
+  stem: Which factor best explains why an early maturer can out-lift a late maturer of the same chronological age?
+  locator: Children > The Growing Child > Developmental Changes in Muscular Strength
+  options:
+  - text: Greater muscle mass at the same chronological age
+    correct: true
+  - text: A higher weekly training volume than late maturers
+    correct: false
+    why_wrong: Explains the gap through accumulated practice, but the chapter ties the early edge to biological maturity instead.
+  - text: An ectomorphic build that favors absolute strength
+    correct: false
+    why_wrong: Assigns the ectomorphic build to the wrong group; the chapter links that somatotype to late maturers.
+- id: ch07.older-adults-training.i08.q1
+  item: ch07.older-adults-training.i08
+  dco: sf1.H.1
+  lang: zh
+  cognitive: analysis
+  stem: 教材對單獨阻力訓練預防高齡者跌倒的看法，最主要的結論為何？
+  locator: Older Adults > Age-Related Changes in Neuromotor Function
+  options:
+  - text: 單獨阻力訓練無法預防跌倒，須多面向計畫
+    correct: true
+  - text: 阻力訓練單獨即足以全面預防高齡者跌倒風險
+    correct: false
+    why_wrong: 把單獨阻力訓練的效果推到萬能；教材明說單獨阻力訓練無法預防跌倒，必須與平衡柔軟度訓練並用。
+  - text: 只要提高整體身體活動量即可降低跌倒率
+    correct: false
+    why_wrong: 教材明說單純增加身體活動量不足以預防跌倒，關鍵在遵從包含阻力與平衡的多面向計畫。
+- id: ch07.children-training-response.i07.q1
+  item: ch07.children-training-response.i07
+  dco: sf1.B.3
+  lang: zh
+  cognitive: analysis
+  stem: 教材指出運動神經元髓鞘化未完成時，對兒童表現與訓練反應最主要的影響為何？
+  locator: Children > The Growing Child > Developmental Changes in Muscular Strength
+  options:
+  - text: 快速反應與熟練動作無法成功，高水準肌力也不可能
+    correct: true
+  - text: 兒童反而因神經未成熟而比成人更易爆發出最大肌力
+    correct: false
+    why_wrong: 把神經未成熟的影響反過來讀成優勢；教材明說髓鞘化未完成會限制高水準表現。
+  - text: 髓鞘化只影響感覺神經，運動表現因此不受限制
+    correct: false
+    why_wrong: 把髓鞘化的作用限縮在感覺側；教材談的正是運動神經元髓鞘化對出力與技巧的限制。
+- id: ch07.children-growth.i01.q2
+  item: ch07.children-growth.i01
+  dco: sf1.D.1
+  lang: en
+  cognitive: application
+  pool: extra
+  stem: When designing long-term progression models and resistance training programs for youth athletes, which age milestone is most appropriate for grouping and individualizing the prescription?
+  locator: Children > The Growing Child > Chronological Age Versus Biological Age
+  options:
+  - text: Chronological age based on birth date alone
+    correct: false
+    why_wrong: A coach anchored to calendar birthdays alone may pair kids whose bodies are years apart in maturity, because the same birth year often conceals wide gaps in stature and mass within one squad.
+  - text: Biological age reflecting maturation status
+    correct: true
+  - text: Social age drawn from school grade placement
+    correct: false
+    why_wrong: A learner drawn to classroom grade placement assumes peers are biologically comparable, even though the chapter shows body development out of sync with calendar time, not social grouping, shapes readiness and safety.

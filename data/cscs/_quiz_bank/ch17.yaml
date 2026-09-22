@@ -610,3 +610,20 @@ questions:
   - text: 12 or more repetitions
     correct: false
     why_wrong: 12 or more repetitions is the muscular endurance lower bound, not hypertrophy.
+- id: ch17.load-repetitions.i04.q2
+  item: ch17.load-repetitions.i04
+  dco: pa1.A.2
+  lang: en
+  cognitive: application
+  pool: extra
+  stem: An athlete performs 10 repetitions of a back squat at 250 lb. Using the Epley prediction that the chapter cites when a load-rep table falls outside its listed range, which value is the best estimate of the 1RM?
+  locator: 'Step 5: Training Load and Repetitions > Assigning Load and Repetitions Based on the Training Goal > Percentage of the 1RM'
+  options:
+  - text: ~285 lb
+    correct: false
+    why_wrong: This is what the equation returns if the athlete plugs in roughly four repetitions instead of ten, so the added fraction of the load is far too small.
+  - text: ~310 lb
+    correct: false
+    why_wrong: This matches a seven-repetition input, a common slip when the lifter counts only the repetitions that felt hard rather than all ten that were completed.
+  - text: ~333 lb
+    correct: true
