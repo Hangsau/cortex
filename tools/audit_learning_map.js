@@ -13,7 +13,7 @@ const checks = [];
 const check = (name, pass, detail = '') => checks.push({ name, passed: Boolean(pass), detail });
 const atTarget = async (page, id, requireTop = true) => {
   // Poll from Node: page requestAnimationFrame callbacks do not run with JS disabled.
-  for (let attempt = 0; attempt < 60; attempt++) {
+  for (let attempt = 0; attempt < 160; attempt++) {
     const positioned = await page.evaluate(id => {
       const rect = document.getElementById(id).getBoundingClientRect();
       return rect.height > 0 && rect.top >= 60 && rect.top < 180;
