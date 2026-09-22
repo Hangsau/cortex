@@ -209,6 +209,39 @@ def target_grid(quota) -> dict:
     return grid
 
 
+def topup_plan(chid: str, base_questions: list):
+    """補題模式的 (配額, 目標格)：全章目標格減掉既有題庫已經佔掉的格子。
+
+    **不可以在「差額」上重跑 `target_grid()`**。最大餘額法對差額各自進位，加回既有題庫
+    不會等於全章目標——`--part` 就是這樣錯的：ch24 三批各自算出 10/18/3/9，而全章目標是
+    9/19/4/8，`run_chapter` 又把這個漂掉的格子餵給 `select_questions`。這裡改成先展開
+    全章目標再扣既有，配額由扣完的格子加總反推，兩者依定義一致。
+    """
+    grid = target_grid(ALLOCATION[chid])
+    have = Counter(
+        (q.get("cognitive"), q.get("lang"))
+        for q in base_questions if isinstance(q, dict)
+    )
+    remain = {key: value - have[key] for key, value in grid.items()}
+    over = [
+        f"{cog}/{lang} 已有 {have[(cog, lang)]} 題、全章目標只有 {grid[(cog, lang)]} 題"
+        for (cog, lang), value in sorted(remain.items()) if value < 0
+    ]
+    if over:
+        sys.exit(f"{chid} 既有題庫已超出全章目標，補題補不了（要先 --fix-only 修剪）："
+                 + "；".join(over))
+    quota = (
+        sum(remain.values()),
+        remain[("recall", "en")] + remain[("recall", "zh")],
+        remain[("application", "en")] + remain[("application", "zh")],
+        remain[("analysis", "en")] + remain[("analysis", "zh")],
+        sum(value for (_, lang), value in remain.items() if lang == "en"),
+    )
+    if quota[0] <= 0:
+        sys.exit(f"{chid} 既有 {len(base_questions)} 題已經滿足配題表，不需要補題")
+    return quota, remain
+
+
 def select_questions(pool: list, grid: dict, used_items=(), error_counts=None):
     """從候選池挑出剛好符合 grid 的組合，回傳 (選中, 丟棄, 各格缺口)。
 
@@ -341,7 +374,7 @@ def describe_grid(grid: dict) -> str:
 # ---------------------------------------------------------------- prompt 組裝
 
 
-def build_sections(chid: str, quota, used_items: list, part, bank=None):
+def build_sections(chid: str, quota, used_items: list, part, bank=None, grid=None):
     """回傳 (穩定前綴段落, 變動段落)，兩者都是 [(段名, 內容)]。
 
     切分點就是 cache 斷點：前面那組同一章的每一批、每一輪修正都逐字相同，後面那組
@@ -407,7 +440,7 @@ def build_sections(chid: str, quota, used_items: list, part, bank=None):
         "|---|---|---|",
         *[f"| `cognitive: {cog}` ＋ `lang: {lang}` | {max(1, int(round(count * OVERGEN_RATIO))) if count else 0}"
           f" | {count} |"
-          for (cog, lang), count in sorted(target_grid(quota).items())],
+          for (cog, lang), count in sorted((grid or target_grid(quota)).items())],
         "",
         "- **不要為了湊數量而犧牲品質**，寧可每題都寫好；數量由我挑，你負責品質。",
         "- 上表「我最後只會留」是 0 的格子**一題都不要寫**；不是 0 的格子**每一格都要有餘裕**。",
@@ -1512,22 +1545,25 @@ def print_totals(totals: dict, elapsed: float, errors: list) -> None:
     )
 
 
-def run_chapter(chid: str, part) -> int:
-    quota = quota_for(chid, part)
+def run_chapter(chid: str, part, topup: bool = False) -> int:
+    base_questions = load_bank(chid) if topup or (part and part[0] > 1) else []
+    if topup:
+        quota, grid = topup_plan(chid, base_questions)
+    else:
+        quota = quota_for(chid, part)
+        grid = target_grid(quota)
     total = quota[0]
     over_total = int(round(total * OVERGEN_RATIO))
-    grid = target_grid(quota)
     item_ids = {item["id"] for item in chapter_items(chid)}
     allowed_dco = dco_allowed(chid)
 
-    base_questions = load_bank(chid) if part and part[0] > 1 else []
     used_items = sorted({q.get("item") for q in base_questions if isinstance(q, dict)})
 
-    stable, volatile = build_sections(chid, quota, used_items, part)
+    stable, volatile = build_sections(chid, quota, used_items, part, grid=grid)
     blocks = build_blocks(stable, volatile)
     messages = [{"role": "user", "content": blocks}]
 
-    label = chid if part is None else f"{chid} {part[0]}/{part[1]}"
+    label = f"{chid} 補題" if topup else (chid if part is None else f"{chid} {part[0]}/{part[1]}")
     prompt_chars = sum(len(block["text"]) for block in blocks)
     print(f"{label}：要 {over_total} 題、挑 {total} 題"
           f"（{quota[1]}/{quota[2]}/{quota[3]}，英文 {quota[4]}）"
@@ -2157,6 +2193,8 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="單次 API 直送出題")
     parser.add_argument("chid", nargs="?", help="例：ch08")
     parser.add_argument("--part", help="分批出題，格式 K/N")
+    parser.add_argument("--topup", action="store_true",
+                        help="補題：既有題庫一題不動，只補到配題表差額（目標格由全章目標減既有）")
     parser.add_argument("--fix-only", nargs="?", const=True, metavar="chNN",
                         help="不出題，只對既有題庫跑「閘 → 局部修正」（整章，不做批次過濾）")
     parser.add_argument("--review", nargs="?", const=True, metavar="chNN",
@@ -2194,6 +2232,8 @@ def main() -> int:
         sys.exit(f"{chid} 不在配題表內")
     if (fix_only or review or redo) and args.part:
         sys.exit("--fix-only / --review / --redo 一次看整章，不能跟 --part 併用")
+    if args.topup and (args.part or fix_only or review or redo):
+        sys.exit("--topup 是單批接在既有題庫後面，不能跟 --part / --fix-only / --review / --redo 併用")
     if sum([fix_only, review, redo]) > 1:
         sys.exit("--fix-only / --review / --redo 是三輪不同的事，分開跑")
     if (args.ids or args.ids_file) and not redo:
@@ -2210,7 +2250,7 @@ def main() -> int:
         return run_review(chid)
     if fix_only:
         return run_fix_only(chid)
-    return run_chapter(chid, part)
+    return run_chapter(chid, part, topup=args.topup)
 
 
 if __name__ == "__main__":
