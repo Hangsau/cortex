@@ -13155,7 +13155,7 @@
     {
       "id": "nordin.ch15",
       "title": "骨折固定的力學原理",
-      "description": "從骨折處的相對移動、負荷分擔與固定構造，理解裝置和骨為什麼必須一起分析。",
+      "description": "從骨折間隙、癒合與血流，到螺釘、骨板、髓內釘及外固定架，讀懂固定構造如何控制移動與分擔負荷。",
       "content_type": "chapter-guide",
       "path": "library/basic-biomechanics/ch15/",
       "topic": "applied",
@@ -13166,12 +13166,36 @@
         "stiffness",
         "strain"
       ],
-      "body_sha256": "7b0bd3deffca9f4c338cdca0e048ea12c5f8a6d330362abbcb8dc59c7c3e57f8",
+      "body_sha256": "e38fa1a28b6d2549ecde1c82a6b57befcdbe61c5a75e5fdd2297e90ad15195a5",
       "sections": [
         {
           "id": "nordin.ch15.fracture-motion",
           "title": "要控制的是骨折處的相對移動",
           "anchor": "fracture-motion",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 413,
+              "to": 414
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch15.alignment-and-contact",
+          "title": "對位、接觸與固定分別回答不同問題",
+          "anchor": "alignment-and-contact",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 413,
+              "to": 414
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch15.motion-and-healing",
+          "title": "微小移動的作用取決於癒合方式與組織狀態",
+          "anchor": "motion-and-healing",
           "source_id": "src.nordin-frankel-2012",
           "pdf_pages": [
             {
@@ -13188,7 +13212,163 @@
           "pdf_pages": [
             {
               "from": 413,
+              "to": 414
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch15.healing-stages",
+          "title": "修復過程會持續改寫固定系統的力學性質",
+          "anchor": "healing-stages",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 413,
+              "to": 414
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch15.callus-geometry",
+          "title": "骨痂的外徑可以補償一部分材料不足",
+          "anchor": "callus-geometry",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 413,
+              "to": 414
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch15.vascularity",
+          "title": "血流保存與機械穩定需要一起考慮",
+          "anchor": "vascularity",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 413,
               "to": 415
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch15.sharing",
+          "title": "負荷分擔會隨骨片接觸與癒合而變化",
+          "anchor": "sharing",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 413,
+              "to": 415
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch15.fatigue",
+          "title": "反覆負荷把裝置壽命帶進問題",
+          "anchor": "fatigue",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 414,
+              "to": 415
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch15.evaluation",
+          "title": "實驗、電腦模型與臨床追蹤各自補上一部分",
+          "anchor": "evaluation",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 414,
+              "to": 415
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch15.materials",
+          "title": "材料選擇同時涉及剛性、強度與時間",
+          "anchor": "materials",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 415,
+              "to": 416
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch15.wires",
+          "title": "鋼絲固定靠張力與接觸維持位置",
+          "anchor": "wires",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 415,
+              "to": 416
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch15.pins-and-staples",
+          "title": "骨釘與克氏針的方向決定哪些移動仍被允許",
+          "anchor": "pins-and-staples",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 416,
+              "to": 416
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch15.tension-band",
+          "title": "張力帶把拉力接到骨片間的壓縮",
+          "anchor": "tension-band",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 416,
+              "to": 416
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch15.screw-purchase",
+          "title": "螺釘的握持力來自螺紋周圍的骨材",
+          "anchor": "screw-purchase",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 416,
+              "to": 417
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch15.lag-screw",
+          "title": "拉力螺釘需要讓近端骨片可以向遠端靠攏",
+          "anchor": "lag-screw",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 416,
+              "to": 417
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch15.screw-torque-and-direction",
+          "title": "旋緊力矩與骨折面方向會改變固定效果",
+          "anchor": "screw-torque-and-direction",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 416,
+              "to": 417
             }
           ]
         },
@@ -13199,20 +13379,116 @@
           "source_id": "src.nordin-frankel-2012",
           "pdf_pages": [
             {
-              "from": 415,
+              "from": 417,
               "to": 418
             }
           ]
         },
         {
-          "id": "nordin.ch15.sharing",
-          "title": "負荷分擔讓材料與生物反應相連",
-          "anchor": "sharing",
+          "id": "nordin.ch15.plate-bending",
+          "title": "同一塊骨板，沿不同方向彎曲可以差很多",
+          "anchor": "plate-bending",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 417,
+              "to": 417
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch15.plate-thickness-example",
+          "title": "增加厚度能否補償較低模數，要把三次方算進去",
+          "anchor": "plate-thickness-example",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 417,
+              "to": 419
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch15.compression-and-locking",
+          "title": "壓縮骨板與鎖定骨板建立不同的連接",
+          "anchor": "compression-and-locking",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 417,
+              "to": 418
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch15.bridging-defects",
+          "title": "橋接缺損會讓裝置承擔更長的傳力路徑",
+          "anchor": "bridging-defects",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 418,
+              "to": 418
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch15.sliding-hip-devices",
+          "title": "髖部滑動裝置允許的是受控制的靠攏",
+          "anchor": "sliding-hip-devices",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 418,
+              "to": 419
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch15.intramedullary-nails",
+          "title": "髓內釘的位置、直徑與骨內接觸共同影響負荷",
+          "anchor": "intramedullary-nails",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 418,
+              "to": 419
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch15.interlocking-and-frames",
+          "title": "交鎖與外固定架把幾何約束接到骨上",
+          "anchor": "interlocking-and-frames",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 418,
+              "to": 419
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch15.junctions",
+          "title": "連接處可能比主要桿件更早成為限制",
+          "anchor": "junctions",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 419,
+              "to": 419
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch15.clinical-examples",
+          "title": "將病例、機制與個別結果放在各自的位置",
+          "anchor": "clinical-examples",
           "source_id": "src.nordin-frankel-2012",
           "pdf_pages": [
             {
               "from": 413,
-              "to": 418
+              "to": 419
             }
           ]
         }
@@ -13221,7 +13497,7 @@
     {
       "id": "nordin.ch16",
       "title": "人工關節的力學原理",
-      "description": "從關節力、植入物與骨的負荷分配，到接觸面的磨耗，理解人工關節的長期力學問題。",
+      "description": "從人工髖與人工膝的量測、肌肉力模型和重建幾何，追蹤步態、骨重塑、接觸路徑與聚乙烯磨耗的關係。",
       "content_type": "chapter-guide",
       "path": "library/basic-biomechanics/ch16/",
       "topic": "applied",
@@ -13232,12 +13508,60 @@
         "reaction",
         "inverse-dynamics"
       ],
-      "body_sha256": "d15d1f6db909545ff23c8113f2dd573980db16a301759d99857594376bcfcb34",
+      "body_sha256": "b65f1128cf8b22064291e57fe001c30e3e64be688526f80d967a7f664ec6ab21",
       "sections": [
         {
           "id": "nordin.ch16.implant-loads",
           "title": "人工關節仍承受肌肉與外力的共同作用",
           "anchor": "implant-loads",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 421,
+              "to": 424
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.direct-measurement",
+          "title": "感測植入物量到的是特定位置的負荷",
+          "anchor": "direct-measurement",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 421,
+              "to": 423
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.hip-force-values",
+          "title": "體重倍數必須連著受試者、任務與時間閱讀",
+          "anchor": "hip-force-values",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 421,
+              "to": 424
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.force-and-moment",
+          "title": "接觸力較大與扭轉較大，可能出現在不同任務",
+          "anchor": "force-and-moment",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 421,
+              "to": 424
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.inverse-dynamics",
+          "title": "步態逆動力學先求淨需求，再推估內部如何分工",
+          "anchor": "inverse-dynamics",
           "source_id": "src.nordin-frankel-2012",
           "pdf_pages": [
             {
@@ -13259,18 +13583,326 @@
           ]
         },
         {
+          "id": "nordin.ch16.reduction-and-optimization",
+          "title": "簡化肌群與最佳化是兩種不同的解法",
+          "anchor": "reduction-and-optimization",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 422,
+              "to": 425
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.solution-space",
+          "title": "參數法保留一個可行範圍，動態法把時間納入",
+          "anchor": "solution-space",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 423,
+              "to": 425
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.model-validation",
+          "title": "接觸力量測可以驗模型，但驗證範圍要對齊",
+          "anchor": "model-validation",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 423,
+              "to": 425
+            },
+            {
+              "from": 434,
+              "to": 436
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.gait-after-arthroplasty",
+          "title": "疼痛改善、活動恢復與步態恢復不是同一個終點",
+          "anchor": "gait-after-arthroplasty",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 424,
+              "to": 427
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.contralateral-loading",
+          "title": "左右下肢彼此影響，但關聯不等於單一路徑的因果",
+          "anchor": "contralateral-loading",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 425,
+              "to": 426
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.reconstructed-geometry",
+          "title": "重建幾何同時改變外力矩與肌肉的力臂",
+          "anchor": "reconstructed-geometry",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 426,
+              "to": 427
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.abductor-levers",
+          "title": "外展肌力臂變短與身體側傾，改的是不同邊",
+          "anchor": "abductor-levers",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 422,
+              "to": 422
+            },
+            {
+              "from": 426,
+              "to": 427
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.gait-and-geometry",
+          "title": "影像幾何與行走方式提供互補的資訊",
+          "anchor": "gait-and-geometry",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 427,
+              "to": 428
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.steps-and-cycles",
+          "title": "活動量必須先釐清步數與單側週期",
+          "anchor": "steps-and-cycles",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 427,
+              "to": 429
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.activity-extrapolation",
+          "title": "短期步數可以外推，但不等於量了一整年",
+          "anchor": "activity-extrapolation",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 427,
+              "to": 429
+            }
+          ]
+        },
+        {
           "id": "nordin.ch16.stress-shielding",
           "title": "植入物與骨的相對剛性會改變負荷分擔",
           "anchor": "stress-shielding",
           "source_id": "src.nordin-frankel-2012",
           "pdf_pages": [
             {
-              "from": 421,
-              "to": 423
+              "from": 428,
+              "to": 430
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.particle-osteolysis",
+          "title": "磨耗顆粒引起的骨溶解，是另一條骨量流失路徑",
+          "anchor": "particle-osteolysis",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 429,
+              "to": 430
             },
             {
-              "from": 428,
+              "from": 437,
+              "to": 438
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.limb-unloading",
+          "title": "整條腿使用減少，也會改變骨的機械環境",
+          "anchor": "limb-unloading",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 429,
+              "to": 430
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.bearing-materials",
+          "title": "耐磨耗提高，不代表所有失效模式一起消失",
+          "anchor": "bearing-materials",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 430,
               "to": 431
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.knee-freedom",
+          "title": "人工膝需要在活動自由與約束之間取得配合",
+          "anchor": "knee-freedom",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 431,
+              "to": 432
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.rollback-model",
+          "title": "滾動、滑動與旋轉共同形成接觸路徑",
+          "anchor": "rollback-model",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 431,
+              "to": 432
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.task-dependent-motion",
+          "title": "四連桿模型說明約束，實際步行仍由負荷驅動",
+          "anchor": "task-dependent-motion",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 432,
+              "to": 433
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.rotation-reference",
+          "title": "旋轉方向要先說清楚哪個骨相對哪個骨",
+          "anchor": "rotation-reference",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 432,
+              "to": 433
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.knee-motion-measurement",
+          "title": "量測工具會限制能看到的膝部運動",
+          "anchor": "knee-motion-measurement",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 431,
+              "to": 433
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.knee-kinetics",
+          "title": "膝部外力矩、肌肉與前後滑移互相影響",
+          "anchor": "knee-kinetics",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 433,
+              "to": 435
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.medial-lateral-loading",
+          "title": "內收力矩影響兩側分擔，卻不是內側壓力的直接讀數",
+          "anchor": "medial-lateral-loading",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 433,
+              "to": 435
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.shear-forces",
+          "title": "人工膝的切向力不能因為較小就省略",
+          "anchor": "shear-forces",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 433,
+              "to": 435
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.knee-measured-loads",
+          "title": "膝部感測資料要按分量與研究條件對照",
+          "anchor": "knee-measured-loads",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 434,
+              "to": 436
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.activity-specific-load",
+          "title": "活動種類同時改變峰值、角度與累積負荷",
+          "anchor": "activity-specific-load",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 434,
+              "to": 436
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.conformity",
+          "title": "接觸吻合度較高，可能同時減壓與增加約束",
+          "anchor": "conformity",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 437,
+              "to": 437
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.component-rotation",
+          "title": "組件旋轉的研究不能改寫成單一骨段的門檻",
+          "anchor": "component-rotation",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 437,
+              "to": 437
             }
           ]
         },
@@ -13281,8 +13913,60 @@
           "source_id": "src.nordin-frankel-2012",
           "pdf_pages": [
             {
-              "from": 434,
-              "to": 439
+              "from": 437,
+              "to": 438
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.wear-mechanisms",
+          "title": "疲勞剝落與黏著、磨粒磨耗有不同的起點",
+          "anchor": "wear-mechanisms",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 437,
+              "to": 438
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.cross-shear",
+          "title": "交叉剪切讓相同滑動距離也可能產生不同磨耗",
+          "anchor": "cross-shear",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 438,
+              "to": 438
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.simulator-inputs",
+          "title": "模擬器的輸入必須反映所要研究的活動",
+          "anchor": "simulator-inputs",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 437,
+              "to": 438
+            }
+          ]
+        },
+        {
+          "id": "nordin.ch16.chapter-bridge",
+          "title": "把人工關節重新放回完整動作來理解",
+          "anchor": "chapter-bridge",
+          "source_id": "src.nordin-frankel-2012",
+          "pdf_pages": [
+            {
+              "from": 421,
+              "to": 421
+            },
+            {
+              "from": 438,
+              "to": 438
             }
           ]
         }
