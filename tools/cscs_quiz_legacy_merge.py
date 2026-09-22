@@ -546,9 +546,15 @@ def main():
         merge_usage(usage_total, usage)
         elapsed_total += elapsed
 
-        parsed = load_yaml_lenient(strip_fence(text))
+        # 一批解析不動不該把整輪拖下來：存原文、記下編號、繼續跑，最後再補。
+        try:
+            parsed = load_yaml_lenient(strip_fence(text))
+        except yaml.YAMLError as exc:
+            parsed = None
+            print(f"[{label}] YAML 解析失敗：{' '.join(str(exc).splitlines())[:160]}",
+                  file=sys.stderr)
         if not isinstance(parsed, list):
-            print(f"[{label}] 回應不是清單，整批跳過", file=sys.stderr)
+            print(f"[{label}] 整批跳過，原文存到 legacy_batch{index}_raw.txt", file=sys.stderr)
             (WORK / f"legacy_batch{index}_raw.txt").write_text(text, encoding="utf-8")
             continue
         wanted = {r["n"] for r in batch}

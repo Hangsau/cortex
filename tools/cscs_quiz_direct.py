@@ -753,15 +753,47 @@ def reindent_block_sequence(text: str) -> str:
     return "\n".join(fixed) if changed else text
 
 
+UNQUOTED_VALUE = re.compile(r"^(\s*(?:-\s+)?[A-Za-z_][\w-]*:[ \t]+)(?![\"'|>&*!])(.*\S)[ \t]*$")
+
+
+def quote_colon_values(text: str) -> str:
+    """把「沒加引號、值裡又有冒號」的那幾行補上雙引號。
+
+    本書的 locator 長這樣：`Step 1: Needs Analysis > Evaluation of the Sport`。
+    模型照抄進 YAML 時常忘了加引號，解析器看到第二個冒號就判 mapping 巢狀錯誤，
+    整批回應報廢——舊題庫那輪 53 批跑到第 24 批就是這樣整個掉下來的。
+    提示裡已經寫了要加引號，但這是「輸出格式細節」不是內容判斷，寫幾次都還是會漏，
+    機械補回來比較可靠。只在解析已經失敗時才套。
+    """
+    lines, changed = [], False
+    for line in text.split("\n"):
+        match = UNQUOTED_VALUE.match(line)
+        value = match.group(2) if match else ""
+        if match and (": " in value or value.endswith(":")):
+            escaped = value.replace("\\", "\\\\").replace('"', '\\"')
+            lines.append(f'{match.group(1)}"{escaped}"')
+            changed = True
+        else:
+            lines.append(line)
+    return "\n".join(lines) if changed else text
+
+
 def load_yaml_lenient(text: str):
-    """先照原樣解析，失敗才套機械修排版再試一次。"""
-    try:
-        return yaml.safe_load(text)
-    except yaml.YAMLError:
-        repaired = reindent_block_sequence(text)
-        if repaired == text:
-            raise
-        return yaml.safe_load(repaired)
+    """先照原樣解析，失敗才逐步套機械修補再試。"""
+    attempts = [text]
+    for repair in (reindent_block_sequence, quote_colon_values):
+        attempts += [repair(candidate) for candidate in list(attempts)]
+
+    seen, failure = set(), None
+    for candidate in attempts:
+        if candidate in seen:
+            continue
+        seen.add(candidate)
+        try:
+            return yaml.safe_load(candidate)
+        except yaml.YAMLError as exc:
+            failure = failure or exc
+    raise failure
 
 
 def strip_strings(value):
