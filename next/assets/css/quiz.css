@@ -1,4 +1,4 @@
-/* T1：CSCS 選擇題練習頁樣式（Claude 手寫，2026-09-26）
+/* T1：CSCS 選擇題練習頁樣式（MiniMax-M3 實作（依 Claude 規格），2026-09-26）
    只用 tokens 變數；按鈕 1px 規則線邊框、圓角 ≤4px、紙白底；主按鈕填系列色。 */
 
 .cq-setup {
@@ -30,12 +30,12 @@ select#cqChapter {
 .cq-next,
 .cq-textbtn {
   min-height: var(--tap); padding: 0 var(--s3);
+  display: inline-flex; align-items: center; justify-content: center;
   background: var(--paper); color: var(--ink);
   border: 1px solid var(--rule); border-radius: 4px;
   font: 500 var(--fs-m)/1 var(--f-sans); cursor: pointer;
 }
-.cq-pill.is-on {
-  background: var(--ink); color: var(--paper); border-color: var(--ink);
+.cq-pill.is-on { background: var(--series); border-color: var(--series); color: var(--paper);
 }
 .cq-start,
 .cq-next {

@@ -615,9 +615,65 @@ def t4():
     global_checks()
 
 
+
+def p4():
+    """全站連結稽核：每個站內連結的目標頁必須存在；帶 #錨點者，目標頁必須有該 id。"""
+    import urllib.parse
+    build_next()
+    base = "/cortex/next/"
+    ids_cache = {}
+
+    def ids_of(f):
+        if f not in ids_cache:
+            doc = f.read_text(encoding="utf-8")
+            ids_cache[f] = set(re.findall(r'\sid="?([^"\s>]+)', doc))
+        return ids_cache[f]
+
+    pages_n = links_n = 0
+    broken, bad_anchor = [], []
+    for f in OUT.rglob("*.html"):
+        pages_n += 1
+        doc = f.read_text(encoding="utf-8")
+        here = "/" + f.parent.relative_to(OUT).as_posix()
+        for href in re.findall(r'href="?([^"\s>]+)', doc):
+            href = html.unescape(href)
+            if href.startswith(("http:", "https:", "mailto:", "javascript:", "data:")):
+                continue
+            path, _, frag = href.partition("#")
+            if path == "":
+                target = f
+            elif path.startswith(base):
+                rel = urllib.parse.unquote(path[len(base):])
+                target = OUT / rel
+                if rel.endswith((".css", ".js", ".json", ".png", ".jpg", ".svg", ".xml")):
+                    if not target.exists():
+                        broken.append(f"{here} → {href}")
+                    continue
+                target = target / "index.html"
+            elif path.startswith("/"):
+                broken.append(f"{here} → {href}（不在 {base} 底下）")
+                continue
+            else:
+                continue  # 相對連結（Markdown 長文內）另由 global_checks 規範
+            links_n += 1
+            if not target.exists():
+                broken.append(f"{here} → {href}")
+                continue
+            if frag and urllib.parse.unquote(frag) not in ids_of(target):
+                bad_anchor.append(f"{here} → {href}")
+    print(f"稽核 {pages_n} 頁、{links_n} 條站內連結")
+    for b in sorted(set(broken))[:40]:
+        fail(f"斷連結：{b}")
+    for b in sorted(set(bad_anchor))[:40]:
+        fail(f"錨點不存在：{b}")
+    if len(set(broken)) > 40 or len(set(bad_anchor)) > 40:
+        fail(f"（共 {len(set(broken))} 條斷連結、{len(set(bad_anchor))} 條錨點錯誤，只列前 40）")
+    global_checks()
+
+
 if __name__ == "__main__":
     step = (sys.argv[1] if len(sys.argv) > 1 else "").upper()
-    fn = {"L1": l1, "L3": l3, "L4": l4, "L5": l5, "V2": v2, "V3": v3, "V4": v4, "V5": v5, "V6": v6, "V7": v7, "T1": t1, "T2": t2, "T3": t3, "T4": t4, "W1": w1, "W3": w3, "W4": w4, "W5": w5, "W6": w6, "W7": w7, "W8": w8}.get(step)
+    fn = {"P4": p4, "L1": l1, "L3": l3, "L4": l4, "L5": l5, "V2": v2, "V3": v3, "V4": v4, "V5": v5, "V6": v6, "V7": v7, "T1": t1, "T2": t2, "T3": t3, "T4": t4, "W1": w1, "W3": w3, "W4": w4, "W5": w5, "W6": w6, "W7": w7, "W8": w8}.get(step)
     if not fn:
         sys.exit("用法：check.py L1|W1|W3|W4|W5|W6|W7|W8")
     fn()

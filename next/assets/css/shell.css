@@ -7,6 +7,7 @@ body {
   font: 400 var(--fs-m)/var(--lh-ui) var(--f-sans);
   border-left: var(--band) solid var(--series);
   min-height: 100vh;
+  overflow-wrap: break-word;   /* 資料裡的長網址、長英數串不可撐破手機版面 */
 }
 a { color: var(--series); text-underline-offset: 3px; }
 a:hover { text-decoration-thickness: 2px; }

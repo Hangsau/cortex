@@ -34,6 +34,8 @@
   {{- end }}
 {{- end }}
 
+{{- $libcss := resources.Get "css/library.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $libcss.RelPermalink }}">
 {{- $css := resources.Get "css/quiz.css" | fingerprint }}
 {{- $js := resources.Get "js/cscs-quiz.js" | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
