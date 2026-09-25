@@ -152,10 +152,10 @@ Vortex 的站內搜尋保留在首頁與清單頁，當輔助工具。
 | 誰 | 做什麼 | 為什麼 |
 |---|---|---|
 | Claude | 本規劃、每個工作單的自足規格、設計 token 檔（<100 行）、驗收（`git diff`＋截圖＋數字核對）、commit | 設計判斷與驗收不外包 |
-| MiniMax-M3（`claude-m3 -p`） | 依規格實作：Python 連結索引、Hugo content adapter、layout、CSS、驗收腳本 | 月費 Coding Plan，不吃 Claude 配額；能讀多檔、跑 hugo |
+| MiniMax-M3（`claude-m3-lite -p`） | 依規格實作：Python 連結索引、Hugo content adapter、layout、CSS、驗收腳本 | 月費 Coding Plan，不吃 Claude 配額；能讀多檔、跑 hugo |
 
 **規則**
-- 1 個工作單 = 1 次 `claude-m3 -p`，產出限定在規格列出的檔案；
+- 1 個工作單 = 1 次 `claude-m3-lite -p`（精簡版，不讀 CLAUDE.md，所以每張規格必須自足），產出限定在規格列出的檔案；
 - prompt 開頭禁止所有 git 操作；
 - 要求每寫完一個檔就存盤；
 - 驗收一律看 `git diff` 與實際畫面，不看 exit code。
@@ -164,14 +164,14 @@ Vortex 的站內搜尋保留在首頁與清單頁，當輔助工具。
 
 | W | 內容 | 產出檔 | 派工 |
 |---|---|---|---|
-| W1 | 雙向連結索引：解析 §2 所有連結類型（含中文名與序號的隱含連結）→ 每個 id 的 out／in 分組清單；附斷言（動作 → drill 103/103 解析成功等） | `tools/build_vortex_links.py`、`tools/test_vortex_links.py` → `data/vortex/_links.json` | `[delegate: claude-m3]` |
+| W1 | 雙向連結索引：解析 §2 所有連結類型（含中文名與序號的隱含連結）→ 每個 id 的 out／in 分組清單；附斷言（動作 → drill 103/103 解析成功等） | `tools/build_vortex_links.py`、`tools/test_vortex_links.py` → `data/vortex/_links.json` | `[delegate: claude-m3-lite]` |
 | W2 | 設計 token 與外殼 CSS | `next/assets/css/tokens.css`、`shell.css` | `[claude]` |
-| W3 | 預覽建置：`hugo.next.toml`（module mount 指向 `next/`，baseURL `/cortex/next/`）＋ CI 第二次建置 | `hugo.next.toml`、`.github/workflows/deploy.yml` | `[delegate: claude-m3]` |
-| W4 | Vortex 知識點頁 content adapter（§3.1 各集合） | `next/content/vortex/_content.gotmpl` | `[delegate: claude-m3]` |
-| W5 | 條目頁 layout（§3.2 五層＋接著看） | `next/layouts/vortex/unit.html`、`next/assets/css/unit.css` | `[delegate: claude-m3]` |
-| W6 | 泳式樞紐頁 | `next/layouts/vortex/stroke.html` | `[delegate: claude-m3]` |
-| W7 | 集合清單頁＋篩選 | `next/layouts/vortex/list.html`、`next/assets/js/filter.js` | `[delegate: claude-m3]` |
-| W8 | Vortex 首頁 | `next/layouts/vortex/home.html` | `[delegate: claude-m3]` |
+| W3 | 預覽建置：`hugo.next.toml`（module mount 指向 `next/`，baseURL `/cortex/next/`）＋ CI 第二次建置 | `hugo.next.toml`、`.github/workflows/deploy.yml` | `[delegate: claude-m3-lite]` |
+| W4 | Vortex 知識點頁 content adapter（§3.1 各集合） | `next/content/vortex/_content.gotmpl` | `[delegate: claude-m3-lite]` |
+| W5 | 條目頁 layout（§3.2 五層＋接著看） | `next/layouts/vortex/unit.html`、`next/assets/css/unit.css` | `[delegate: claude-m3-lite]` |
+| W6 | 泳式樞紐頁 | `next/layouts/vortex/stroke.html` | `[delegate: claude-m3-lite]` |
+| W7 | 集合清單頁＋篩選 | `next/layouts/vortex/list.html`、`next/assets/js/filter.js` | `[delegate: claude-m3-lite]` |
+| W8 | Vortex 首頁 | `next/layouts/vortex/home.html` | `[delegate: claude-m3-lite]` |
 | W9 | 驗收：截圖桌機與手機、跑下列指標、交使用者看 `/next/` | — | `[claude]` |
 
 **P1 驗收指標**
