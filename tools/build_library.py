@@ -110,6 +110,9 @@ def build_kinesiology():
             {"title": "跨書主題對照",
              "desc": "同一個主題在兩本書怎麼講",
              "path": "library/kinesiology/topics/"},
+            {"title": "學習地圖",
+             "desc": "從問題出發，找到該讀的章與小節",
+             "path": "library/kinesiology/learning-map/"},
         ],
     }
 
@@ -211,6 +214,12 @@ def build_cscs():
             {"title": "概念索引",
              "desc": f"{concept_count} 條概念，跨章節照概念讀",
              "path": "library/essentials-of-strength-training/concepts/"},
+            {"title": "選擇題練習",
+             "desc": "三選一，按章練，錯題會記住",
+             "path": "library/essentials-of-strength-training/quiz/"},
+            {"title": "閃卡",
+             "desc": "翻面自測，還不熟的卡會再出現",
+             "path": "library/essentials-of-strength-training/cards/"},
         ],
     }
 
@@ -349,7 +358,11 @@ def build_temperament():
         "chapters": chapters,
         "entries_label": "維度",
         "entries": entries,
-        "tools": [],
+        "tools": [
+            {"title": "氣質自測",
+             "desc": "幫孩子測或測自己，得到九維度剖面（非診斷）",
+             "path": "temperament/quiz/"},
+        ],
     }
 
 

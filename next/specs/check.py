@@ -632,8 +632,10 @@ def p4():
     pages_n = links_n = 0
     broken, bad_anchor = [], []
     for f in OUT.rglob("*.html"):
-        pages_n += 1
         doc = f.read_text(encoding="utf-8")
+        if "此頁已搬移" in doc:
+            continue  # 舊網址轉址頁，指向切換後的正式網址
+        pages_n += 1
         here = "/" + f.parent.relative_to(OUT).as_posix()
         for href in re.findall(r'href="?([^"\s>]+)', doc):
             href = html.unescape(href)
