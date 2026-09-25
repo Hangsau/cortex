@@ -1,0 +1,50 @@
+{{- /* 跨書主題對照（Claude 手寫）：6 個主題，每個主題並列兩本書的對應章，再列兩書對讀配對。資料：data/reading/{topics,books,pairings}.json */ -}}
+{{- $p := .page -}}
+{{- $r := hugo.Data.reading -}}
+{{- $css := resources.Get "css/library.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{- $books := slice (dict "key" "neumann" "b" $r.books.neumann) (dict "key" "nordin" "b" $r.books.nordin) -}}
+{{- $chap := dict -}}
+{{- range $books }}{{ range .b.chapters }}{{ $chap = merge $chap (dict .id .) }}{{ end }}{{ end -}}
+<article class="lib-series lib-topics">
+  <header class="ls-hero">
+    <p class="kicker">肌力與動作 · 兩本讀本</p>
+    <h1 class="ls-title">{{ $p.Title }}</h1>
+    {{- with $p.Description }}<p class="ls-lead">{{ . }}</p>{{ end }}
+  </header>
+  {{- range $key := slice "foundations" "tissues" "upper" "axial" "lower" "gait" }}
+    {{- with index $r.topics $key }}
+  <section class="ls-sec" id="{{ $key }}" aria-labelledby="tp-{{ $key }}">
+    <h2 id="tp-{{ $key }}">{{ .title }}</h2>
+    <div class="tp-cols">
+      {{- range $books }}
+        {{- $b := .b }}
+        {{- $cs := where $b.chapters "group" $key }}
+      <div class="tp-col">
+        <p class="ls-part">{{ $b.title }}</p>
+        {{- with $cs }}
+        <ol class="ls-toc ls-toc--single">
+          {{- range . }}
+          <li><a class="ls-ch" href="{{ relURL .path }}"><span class="ls-n">{{ .number }}</span><span class="ls-ch-body"><span class="ls-ch-t">{{ .title }}</span></span></a></li>
+          {{- end }}
+        </ol>
+        {{- else }}
+        <p class="muted">這本書沒有獨立章節處理這個主題。</p>
+        {{- end }}
+      </div>
+      {{- end }}
+    </div>
+    {{- $pairs := slice }}
+    {{- range $r.pairings }}{{ $a := index $chap (index . 0) }}{{ $b := index $chap (index . 1) }}{{ if and $a $b (or (eq $a.group $key) (eq $b.group $key)) }}{{ $pairs = $pairs | append (dict "a" $a "b" $b) }}{{ end }}{{ end }}
+    {{- with $pairs }}
+    <p class="ls-part">建議對讀</p>
+    <ul class="tp-pairs">
+      {{- range . }}
+      <li><a href="{{ relURL .a.path }}">肌動學 {{ .a.number }}　{{ .a.title }}</a><span aria-hidden="true">⇄</span><a href="{{ relURL .b.path }}">生物力學 {{ .b.number }}　{{ .b.title }}</a></li>
+      {{- end }}
+    </ul>
+    {{- end }}
+  </section>
+    {{- end }}
+  {{- end }}
+</article>

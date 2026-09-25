@@ -285,9 +285,63 @@ def l1():
             fail(f"library.json 出現 {needle!r}")
 
 
+def l3():
+    import yaml
+    build_next()
+    base = "library/essentials-of-strength-training"
+    concepts = yaml.safe_load((ROOT / "data/cscs/_concepts.yaml").read_text(encoding="utf-8"))
+    by_concept = {k: 0 for k in concepts}
+    rng = random.Random(3)
+    rel_samples = []
+    for n in range(1, 25):
+        key = f"ch{n:02d}"
+        ch = yaml.safe_load((ROOT / f"data/cscs/{key}.yaml").read_text(encoding="utf-8"))
+        doc = page(f"{base}/{key}")
+        if not doc:
+            continue
+        items = [i for t in ch["topics"] for i in t["items"]]
+        got = doc.count("ck-item")
+        if got < len(items):
+            fail(f"{key} ck-item {got} < {len(items)}")
+        for t in ch["topics"]:
+            if f"#{t['id']}" not in doc:
+                fail(f"{key} 左側目錄缺小節錨點 #{t['id']}")
+                break
+        miss = [i["id"] for i in items if i["id"] not in doc]
+        if miss:
+            fail(f"{key} 缺 item 錨點 {len(miss)} 個，例 {miss[:2]}")
+        with_terms = sum(1 for i in items if i.get("terms"))
+        if with_terms and doc.count("ck-terms") < with_terms:
+            fail(f"{key} 術語列 {doc.count('ck-terms')} < 有術語的 item {with_terms}")
+        if "ck-quiz-toggle" not in doc or "cscs" not in doc:
+            fail(f"{key} 缺自測按鈕或 cscs.js")
+        for i in items:
+            for c in i.get("concepts") or []:
+                by_concept[c] = by_concept.get(c, 0) + 1
+            for r in i.get("related") or []:
+                rel_samples.append((key, i["id"], r))
+    for key, src, r in rng.sample(rel_samples, min(25, len(rel_samples))):
+        doc = page(f"{base}/{key}")
+        target_ch = r.split(".")[0]
+        if target_ch == key:
+            if f"#{r}" not in doc:
+                fail(f"{src} 缺同章相關連結 #{r}")
+        elif f"{target_ch}/#{r}" not in doc:
+            fail(f"{src} 缺跨章相關連結 {target_ch}/#{r}")
+    doc = page(f"{base}/concepts")
+    for k, n in by_concept.items():
+        if f"id={k}" not in doc and f'id="{k}"' not in doc:
+            fail(f"概念頁缺 #{k}")
+    links = doc.count(f"{base}/ch")
+    total = sum(by_concept.values())
+    if links < total:
+        fail(f"概念頁 item 連結 {links} < 應有 {total}")
+    global_checks()
+
+
 if __name__ == "__main__":
     step = (sys.argv[1] if len(sys.argv) > 1 else "").upper()
-    fn = {"L1": l1, "W1": w1, "W3": w3, "W4": w4, "W5": w5, "W6": w6, "W7": w7, "W8": w8}.get(step)
+    fn = {"L1": l1, "L3": l3, "W1": w1, "W3": w3, "W4": w4, "W5": w5, "W6": w6, "W7": w7, "W8": w8}.get(step)
     if not fn:
         sys.exit("用法：check.py L1|W1|W3|W4|W5|W6|W7|W8")
     fn()

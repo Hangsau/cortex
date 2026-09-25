@@ -44,11 +44,14 @@ main { min-width: 0; }
 .rail-a.is-here { border-left-color: var(--series); color: var(--series); font-weight: 700; }
 .rail-a.is-open { font-weight: 700; }
 .rail-sub { margin: 0 0 var(--s1) var(--s2); }
-.rail-a--sub { min-height: 36px; font-size: var(--fs-s); color: var(--ink-2); }
+.rail-a--sub { min-height: 36px; padding-top: 4px; padding-bottom: 4px; font-size: var(--fs-s); line-height: 1.5; color: var(--ink-2); }
 @media (min-width: 1000px) {
-  .rail { border-bottom: 0; border-right: 1px solid var(--rule); }
+  .rail {
+    border-bottom: 0; border-right: 1px solid var(--rule);
+    position: sticky; top: 0; align-self: start; max-height: 100vh; overflow-y: auto;
+  }
   .rail-toggle { display: none; }
-  .rail nav { position: sticky; top: 0; max-height: 100vh; overflow-y: auto; padding: var(--s2) var(--s3) var(--s5); }
+  .rail nav { padding: var(--s2) var(--s3) var(--s5); }
 }
 
 /* ---------- 內容欄與字 ---------- */
@@ -83,3 +86,6 @@ mark { background: none; color: inherit; font-weight: 700; text-decoration: unde
   .site-head { padding: 0 var(--s2); }
   .page { padding: var(--s4) var(--s2) var(--s5); }
 }
+.rail-n { display: inline-block; min-width: 1.8em; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.rail-a.is-here .rail-n { color: var(--series); }
+.rail-series { font: 700 var(--fs-m)/1.4 var(--f-serif); margin-top: var(--s1); }

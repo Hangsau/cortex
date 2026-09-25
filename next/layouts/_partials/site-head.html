@@ -1,15 +1,22 @@
 {{- $isHome := .IsHome -}}
 {{- $isVortexHome := eq .RelPermalink (relURL "vortex/") -}}
 {{- $isVortex := or (eq .Section "vortex") (hasPrefix .RelPermalink (relURL "vortex/")) -}}
+{{- $s := partial "library/series-of.html" . -}}
+{{- $isSeriesHome := and $s (eq .RelPermalink (relURL $s.path)) -}}
 <header class="site-head">
   <a class="site-name" href="{{ relURL "" }}">Cortex</a>
   {{- if $isVortex }}
   <a class="series-name" href="{{ relURL "vortex/" }}">Vortex 水感</a>
+  {{- else if $s }}
+  <a class="series-name" href="{{ relURL $s.path }}">{{ $s.title }}</a>
   {{- end }}
-  {{- if not (or $isHome $isVortexHome) }}
+  {{- if not (or $isHome $isVortexHome $isSeriesHome) }}
   <nav class="crumbs" aria-label="路徑">
     {{- range .Ancestors.Reverse }}
-      {{- if and (not .IsHome) (ne .RelPermalink (relURL "vortex/")) }}
+      {{- $skip := or .IsHome (eq .RelPermalink (relURL "vortex/")) (eq .RelPermalink (relURL "library/")) }}
+      {{- with $s }}{{ if eq $.RelPermalink (relURL .path) }}{{ $skip = true }}{{ end }}{{ end }}
+      {{- if and $s (eq .RelPermalink (relURL $s.path)) }}{{ $skip = true }}{{ end }}
+      {{- if not $skip }}
     <a href="{{ .RelPermalink }}">{{ .Title }}</a> › 
       {{- end }}
     {{- end }}

@@ -1,6 +1,1 @@
-{{ define "main" }}
-<div class="page">
-  <h1>{{ .Title }}</h1>
-  <div class="read">{{ .Content }}</div>
-</div>
-{{ end }}
+{{ define "main" }}{{ partial "library/dispatch.html" . }}{{ end }}

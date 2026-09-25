@@ -1,0 +1,14 @@
+{{- /* 書房頁面分派：系列首頁／讀本章節／指定 role（由 content adapter 設定）／通用文章 */ -}}
+{{- $s := partial "library/series-of.html" . -}}
+{{- $role := .Params.role | default "" -}}
+{{- if and $s (eq .RelPermalink (relURL $s.path)) -}}
+  {{- partial "library/series-home.html" (dict "page" . "series" $s) -}}
+{{- else if and $s (eq .Params.layout "reading-chapter") -}}
+  {{- partial "library/reader-chapter.html" (dict "page" . "series" $s) -}}
+{{- else if eq .Params.layout "reading-topics" -}}
+  {{- partial "library/reader-topics.html" (dict "page" . "series" $s) -}}
+{{- else if $role -}}
+  {{- partial (printf "library/%s.html" $role) (dict "page" . "series" $s) -}}
+{{- else -}}
+<article class="page"><h1>{{ .Title }}</h1><div class="read">{{ .Content }}</div></article>
+{{- end -}}

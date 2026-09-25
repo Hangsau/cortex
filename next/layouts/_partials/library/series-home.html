@@ -1,0 +1,68 @@
+{{- /* 系列首頁（Claude 手寫）：書名展示標題 → 書目資訊 → 導言 → 工具 → 目錄（依篇分組）→ 條目（依分組） */ -}}
+{{- $p := .page -}}
+{{- $s := .series -}}
+{{- $css := resources.Get "css/library.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+<article class="lib-series">
+  <header class="ls-hero">
+    <p class="kicker">{{ $s.group_name }}</p>
+    <h1 class="ls-title">{{ $s.title }}</h1>
+    {{- $meta := slice }}{{ range slice $s.title_en $s.author $s.edition }}{{ with . }}{{ $meta = $meta | append . }}{{ end }}{{ end }}
+    {{- with $meta }}<p class="ls-meta">{{ delimit . " · " }}</p>{{ end }}
+    <p class="ls-lead">{{ $s.lead }}</p>
+    <p class="ls-stats">
+      {{- with $s.chapters }}<span><b>{{ len . }}</b> {{ $s.chapters_label | default "章" }}</span>{{ end }}
+      {{- with $s.entries }}<span><b>{{ len . }}</b> 個{{ $s.entries_label }}</span>{{ end }}
+      {{- with $s.tools }}<span><b>{{ len . }}</b> 個工具</span>{{ end }}
+    </p>
+  </header>
+
+  {{- with $p.Content }}{{ if ne (trim (plainify .) " \n") "" }}
+  <section class="ls-intro read">{{ . }}</section>
+  {{- end }}{{ end }}
+
+  {{- with $s.tools }}
+  <section class="ls-sec" aria-labelledby="ls-tools">
+    <h2 id="ls-tools">工具</h2>
+    <div class="ls-tools">
+    {{- range . }}
+      <a class="ls-tool" href="{{ relURL .path }}"><span class="ls-tool-t">{{ .title }}</span><span class="ls-tool-d">{{ .desc }}</span></a>
+    {{- end }}
+    </div>
+  </section>
+  {{- end }}
+
+  {{- with $s.chapters }}
+  <section class="ls-sec" aria-labelledby="ls-toc">
+    <h2 id="ls-toc">目錄</h2>
+    {{- $last := "__none__" }}
+    {{- range $i, $c := . }}
+      {{- if ne $c.part $last }}
+        {{- if ne $i 0 }}</ol>{{ end }}
+        {{- with $c.part }}<h3 class="ls-part">{{ . }}</h3>{{ end }}
+    <ol class="ls-toc">
+        {{- $last = $c.part }}
+      {{- end }}
+      <li><a class="ls-ch" href="{{ relURL $c.path }}"><span class="ls-n">{{ $c.n }}</span><span class="ls-ch-body"><span class="ls-ch-t">{{ $c.title }}</span><span class="ls-ch-d">{{ $c.desc }}</span></span></a></li>
+    {{- end }}
+    </ol>
+  </section>
+  {{- end }}
+
+  {{- with $s.entries }}
+  <section class="ls-sec" aria-labelledby="ls-entries">
+    <h2 id="ls-entries">全部{{ $s.entries_label }}</h2>
+    {{- $last := "__none__" }}
+    {{- range $i, $e := . }}
+      {{- if ne $e.group_name $last }}
+        {{- if ne $i 0 }}</div>{{ end }}
+    <h3 class="ls-part">{{ $e.group_name }}</h3>
+    <div class="ls-entries">
+        {{- $last = $e.group_name }}
+      {{- end }}
+      <a class="ls-entry" href="{{ relURL $e.path }}"><span class="ls-entry-t">{{ $e.title }}</span><span class="ls-entry-d">{{ $e.desc }}</span></a>
+    {{- end }}
+    </div>
+  </section>
+  {{- end }}
+</article>

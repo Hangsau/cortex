@@ -27,11 +27,11 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap", "robotsTXT"]
   [[module.mounts]]
     source = "content/library/kinesiology"
     target = "content/library/kinesiology"
-    excludeFiles = ["learning-map.md", "topics.md"]
+    excludeFiles = ["learning-map.md"]
   [[module.mounts]]
     source = "content/library/basic-biomechanics"
     target = "content/library/basic-biomechanics"
-    excludeFiles = ["learning-map.md", "topics.md"]
+    excludeFiles = ["learning-map.md"]
   [[module.mounts]]
     source = "layouts/shortcodes"
     target = "layouts/_shortcodes"

@@ -29,6 +29,18 @@ for _ch in "yYnNoO":
     ]
 
 
+# 讀本 books.json 的 chapter group 是英文代碼，網站顯示用中文篇名
+PART_ZH = {
+    "foundations": "基礎：動作的共同語言",
+    "tissues": "組織：骨、軟骨、肌腱與肌肉",
+    "upper": "上肢",
+    "axial": "中軸：脊柱與軀幹",
+    "lower": "下肢",
+    "applied": "應用：固定與置換",
+    "gait": "行走與跑步",
+}
+
+
 def load_yaml(path):
     return yaml.load(path.read_text(encoding="utf-8"), Loader=StrLoader)
 
@@ -78,7 +90,7 @@ def build_kinesiology():
             "title": ch["title"],
             "desc": _chapter_desc("kinesiology", nn),
             "path": ch["path"],
-            "part": ch.get("group", "") or "",
+            "part": PART_ZH.get(ch.get("group", "") or "", ch.get("group", "") or ""),
         })
     return {
         "id": "kinesiology",
@@ -115,7 +127,7 @@ def build_basic_biomechanics():
             "title": ch["title"],
             "desc": _chapter_desc("basic-biomechanics", nn),
             "path": ch["path"],
-            "part": ch.get("group", "") or "",
+            "part": PART_ZH.get(ch.get("group", "") or "", ch.get("group", "") or ""),
         })
     tools = []
     topics_md = CONTENT_DIR / "library" / "basic-biomechanics" / "topics" / "index.md"

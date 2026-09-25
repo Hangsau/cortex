@@ -1,0 +1,33 @@
+/* 讀本解說圖（reading-* shortcode 的 SVG）。語意對照舊站：力線＝系列色粗線、骨／基準＝墨色、量測＝次要色細線。
+   Claude 手寫，2026-09-26；用新版 token，日夜兩版自動切換。 */
+.rd-diagram { margin: var(--s4) 0; padding: var(--s3) 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); font-family: var(--f-sans); }
+.rd-diagram svg { width: 100%; height: auto; overflow: visible; }
+.rd-diagram > svg, .rd-diagram > div > svg { display: block; max-width: 440px; margin-inline: auto; }
+.rd-diagram text { fill: var(--ink); font-size: 18px; }
+.rd-diagram .rd-line { stroke: var(--ink); stroke-width: 3; fill: none; }
+.rd-diagram .rd-force, .rd-diagram .rd-curve-total { stroke: var(--series); stroke-width: 4; fill: none; }
+.rd-diagram .rd-curve-active { stroke: var(--ink); stroke-width: 3; stroke-dasharray: 9 5; fill: none; }
+.rd-diagram .rd-curve-passive { stroke: var(--ink); stroke-width: 3; stroke-dasharray: 2 6; stroke-linecap: round; fill: none; }
+.rd-diagram .rd-measure, .rd-diagram .rd-angle-arc, .rd-diagram .rd-load-scale { stroke: var(--ink-2); stroke-width: 1.5; fill: none; }
+.rd-diagram .rd-angle-reference { stroke: var(--ink-2); stroke-width: 2; stroke-dasharray: 6 5; fill: none; }
+.rd-diagram .rd-angle-scapula { stroke: var(--ink); stroke-width: 2; fill: none; }
+.rd-diagram .rd-moment-bar { stroke: var(--series); stroke-width: 10; fill: none; }
+.rd-diagram .rd-component-normal { stroke-dasharray: 9 5; }
+.rd-diagram .rd-component-shear { stroke-dasharray: 2 5; stroke-linecap: round; }
+.rd-diagram .rd-arrow-accent { fill: var(--series); stroke: none; }
+.rd-diagram .rd-arrow-ink { fill: var(--ink); stroke: none; }
+.rd-diagram .rd-bone { fill: none; stroke: var(--ink); stroke-width: 2; }
+.rd-diagram .rd-soft { fill: var(--paper); stroke: var(--series); stroke-width: 2; }
+.rd-diagram .rd-sacral-surface { fill: none; stroke: var(--ink-2); stroke-width: 2; }
+.rd-diagram .rd-hip-axis, .rd-diagram .rd-lift-axis { fill: var(--ink); }
+.rd-diagram .rd-hip-bar { stroke-width: 12; fill: none; }
+.rd-diagram .rd-hip-muscle { stroke: var(--ink); stroke-dasharray: 8 4; }
+.rd-diagram .rd-hip-reaction { stroke: var(--series); }
+.rd-diagram .rd-plot-key { list-style: none; padding: 0; margin: var(--s1) 0; font-size: var(--fs-s); line-height: 1.8; }
+.rd-diagram .rd-plot-key li { display: flex; align-items: center; gap: 12px; margin: 4px 0; }
+.rd-diagram .rd-plot-key svg { width: 40px; height: 16px; flex: none; }
+.rd-diagram figcaption { font-size: var(--fs-s); line-height: 1.8; margin-top: var(--s2); color: var(--ink-2); }
+.rd-diagram input { width: 100%; accent-color: var(--series); min-height: var(--tap); }
+.rd-diagram label, .rd-diagram output { display: block; font-size: var(--fs-s); line-height: 1.8; }
+.rd-compare { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s2); }
+@media (max-width: 600px) { .rd-compare { grid-template-columns: 1fr; } }

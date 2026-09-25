@@ -1,0 +1,41 @@
+{{- /* 讀本章節（Claude 手寫）：Markdown canonical + 解說圖 shortcode；頁尾中英術語、上下章。
+       article 帶 rd-page 是為了讓 diagrams.js 的拉桿互動掛得上，不載任何舊 CSS。 */ -}}
+{{- $p := .page -}}
+{{- $s := .series -}}
+{{- $css := resources.Get "css/library.css" | fingerprint -}}
+{{- $dcss := resources.Get "css/diagram.css" | fingerprint -}}
+{{- $js := resources.Get "js/diagrams.js" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+<link rel="stylesheet" href="{{ $dcss.RelPermalink }}">
+{{- $idx := -1 }}{{ range $i, $c := $s.chapters }}{{ if eq (relURL $c.path) $p.RelPermalink }}{{ $idx = $i }}{{ end }}{{ end }}
+<article class="lib-chapter rd-page">
+  <header class="lc-head">
+    <p class="kicker">{{ $s.title }}{{ with $p.Params.chapter }} · 第 {{ . }} 章{{ end }}{{ if ge $idx 0 }}{{ with (index $s.chapters $idx).part }} · {{ . }}{{ end }}{{ end }}</p>
+    <h1>{{ $p.Title }}</h1>
+    {{- with $p.Description }}<p class="lc-lead">{{ . }}</p>{{ end }}
+  </header>
+  <div class="lc-body read">{{ $p.Content }}</div>
+
+  {{- $terms := slice }}
+  {{- with $p.Params.terms }}{{ range . }}{{ with index hugo.Data.reading.terms . }}{{ $terms = $terms | append . }}{{ end }}{{ end }}{{ end }}
+  {{- with $terms }}
+  <section class="lc-terms" aria-labelledby="lc-terms-h">
+    <h2 id="lc-terms-h">本章術語</h2>
+    <dl>
+    {{- range . }}
+      <div><dt>{{ .zh }} <span lang="en">{{ .en }}</span></dt><dd>{{ .definition }}</dd></div>
+    {{- end }}
+    </dl>
+  </section>
+  {{- end }}
+
+  <nav class="lc-pager" aria-label="上下章">
+    {{- if gt $idx 0 }}{{ with index $s.chapters (sub $idx 1) }}
+    <a class="lc-prev" href="{{ relURL .path }}"><span class="muted">上一章</span><span>{{ .n }}　{{ .title }}</span></a>
+    {{- end }}{{ end }}
+    {{- if and (ge $idx 0) (lt (add $idx 1) (len $s.chapters)) }}{{ with index $s.chapters (add $idx 1) }}
+    <a class="lc-next" href="{{ relURL .path }}"><span class="muted">下一章</span><span>{{ .n }}　{{ .title }}</span></a>
+    {{- end }}{{ end }}
+  </nav>
+</article>
+<script src="{{ $js.RelPermalink }}" defer></script>
