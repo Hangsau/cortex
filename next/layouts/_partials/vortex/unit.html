@@ -1,10 +1,10 @@
 {{- /*
   unit.html — 知識點頁版型（W5）。
   依 type 渲染 hook / 是什麼或怎麼做 / 為什麼 / 證據與來源 / 接著看。
-  資料來源：$.Site.Data.vortex_links。<id> 由 .Params.unit_id 傳入。
+  資料來源：hugo.Data.vortex_links。<id> 由 .Params.unit_id 傳入。
 */ -}}
 {{- $id := .Params.unit_id -}}
-{{- $links := $.Site.Data.vortex_links -}}
+{{- $links := hugo.Data.vortex_links -}}
 {{- $u := index $links.units $id -}}
 {{- $record := $u.record -}}
 {{- $type := $u.type -}}

@@ -853,3 +853,94 @@ PASS V6
 **驗收**
 - `python -X utf8 next/specs/check.py V7` → `PASS V7`（22/26 個有資料的 level 頁含 `layer-indicators`，超過門檻 10；global_checks 全通）。
 PASS V7
+[09-26 05:27:44] V7 通過並已 push
+[09-26 05:27:44] --- T1 開始 ---
+[09-26 05:27:44] T1 第 1 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 81｜input 403221｜cache_read 3317632｜output 57788
+
+FAIL T1（27 項）
+ - hugo next 建置失敗（exit 1）：
+Start building sites … 
+hugo v0.162.1-bba860e3eda3091efe8c6d1a96bc49a29ad2d5f6+extended windows/amd64 BuildDate=2026-05-28T17:40:44Z VendorInfo=gohugoio
+
+Total in 3923 ms
+ERROR error building site: render: [en v1.0.0 guest] failed to render pages: render of "C:/claudehome/projects/my-site/next/content/library/essentials-of-strength-training/quiz.md" failed: "C:\claudehome\projects\my-site\next\layouts\page.html:1:22": execute of template failed: template: page.html:1:22: executing "main" at <partial "library/dispatch.html" .>: error calling partial: "C:\claudehome\projects\my-site\next\layouts\_partials\library\dispatch.html:11:6": execute of template failed: template: _partials/library/dispatch.html:11:6: executing "_partials/library/dispatch.html" at <partial (printf "library/%s.html" $role) (dict "page" . "series" $s)>: error calling partial: "C:\claudehome\projects\my-site\next\layouts\_partials\library\cscs-quiz.html:38:45": execute of template failed: template: _partials/library/cscs-quiz.html:38:45: executing "_partials/library/cscs-quiz.html" at <fingerprint>: error calling fingerprint: <nil> can not be transformed
+ - 缺頁面：public/next/library/essentials-of-strength-training/quiz/index.html
+ - 缺 quiz/ch01.json
+ - 缺 quiz/ch02.json
+ - 缺 quiz/ch03.json
+ - 缺 quiz/ch04.json
+ - 缺 quiz/ch05.json
+ - 缺 quiz/ch06.json
+ - 缺 quiz/ch07.json
+ - 缺 quiz/ch08.json
+ - 缺 quiz/ch09.json
+ - 缺 quiz/ch10.json
+ - 缺 quiz/ch11.json
+ - 缺 quiz/ch12.json
+ - 缺 quiz/ch13.json
+ - 缺 quiz/ch14.json
+ - 缺 quiz/ch15.json
+ - 缺 quiz/ch16.json
+ - 缺 quiz/ch17.json
+ - 缺 quiz/ch18.json
+ - 缺 quiz/ch19.json
+ - 缺 quiz/ch20.json
+ - 缺 quiz/ch21.json
+ - 缺 quiz/ch22.json
+ - 缺 quiz/ch23.json
+ - 缺 quiz/ch24.json
+ - 題庫 JSON 共 0 題，題庫原檔 1033 題
+[09-26 05:37:06] T1 第 1 次驗收未過
+[09-26 05:37:06] T1 第 2 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 81｜input 78972｜cache_read 3169280｜output 41519
+
+FAIL T1（27 項）
+ - hugo next 建置失敗（exit 1）：
+Start building sites … 
+hugo v0.162.1-bba860e3eda3091efe8c6d1a96bc49a29ad2d5f6+extended windows/amd64 BuildDate=2026-05-28T17:40:44Z VendorInfo=gohugoio
+
+Total in 3862 ms
+ERROR error building site: render: [en v1.0.0 guest] failed to render pages: render of "C:/claudehome/projects/my-site/next/content/library/essentials-of-strength-training/quiz.md" failed: "C:\claudehome\projects\my-site\next\layouts\page.html:1:22": execute of template failed: template: page.html:1:22: executing "main" at <partial "library/dispatch.html" .>: error calling partial: "C:\claudehome\projects\my-site\next\layouts\_partials\library\dispatch.html:11:6": execute of template failed: template: _partials/library/dispatch.html:11:6: executing "_partials/library/dispatch.html" at <partial (printf "library/%s.html" $role) (dict "page" . "series" $s)>: error calling partial: "C:\claudehome\projects\my-site\next\layouts\_partials\library\cscs-quiz.html:29:18": execute of template failed: template: _partials/library/cscs-quiz.html:29:18: executing "_partials/library/cscs-quiz.html" at <$p.Resources.FromString>: can't evaluate field FromString in type resource.Resources
+ - 缺頁面：public/next/library/essentials-of-strength-training/quiz/index.html
+ - 缺 quiz/ch01.json
+ - 缺 quiz/ch02.json
+ - 缺 quiz/ch03.json
+ - 缺 quiz/ch04.json
+ - 缺 quiz/ch05.json
+ - 缺 quiz/ch06.json
+ - 缺 quiz/ch07.json
+ - 缺 quiz/ch08.json
+ - 缺 quiz/ch09.json
+ - 缺 quiz/ch10.json
+ - 缺 quiz/ch11.json
+ - 缺 quiz/ch12.json
+ - 缺 quiz/ch13.json
+ - 缺 quiz/ch14.json
+ - 缺 quiz/ch15.json
+ - 缺 quiz/ch16.json
+ - 缺 quiz/ch17.json
+ - 缺 quiz/ch18.json
+ - 缺 quiz/ch19.json
+ - 缺 quiz/ch20.json
+ - 缺 quiz/ch21.json
+ - 缺 quiz/ch22.json
+ - 缺 quiz/ch23.json
+ - 缺 quiz/ch24.json
+ - 題庫 JSON 共 0 題，題庫原檔 1033 題
+[09-26 05:54:05] T1 第 2 次驗收未過
+[09-26 05:54:05] T1 第 3 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 36｜input 31431｜cache_read 636928｜output 4850
+Verification passes.
+
+## 回報
+
+**修改檔**：
+- `next/layouts/_partials/library/cscs-quiz.html`：將 `$p.Resources.FromString`（page resource 上的方法不存在）改用全域 `resources.FromString`；把 JSON 輸出路徑改成 `library/essentials-of-strength-training/quiz/<cid>.json`（spec 預期位置）；把結果區的 `<h2 id="cqScore"></h2>` 拆成靜態 h2 + `<p id="cqScore">` 以避免空標題被驗收抓到。
+- `next/assets/css/quiz.css`：新增 `.cq-score` 樣式承接原本 `.cq-h2` 的視覺。
+
+**驗收**：`python -X utf8 next/specs/check.py T1` → **PASS T1**（24 支題庫 JSON 共 1033 題全部就位、頁面骨架齊全）。
+PASS T1

@@ -1,0 +1,154 @@
+/* T1：CSCS 選擇題練習頁樣式（Claude 手寫，2026-09-26）
+   只用 tokens 變數；按鈕 1px 規則線邊框、圓角 ≤4px、紙白底；主按鈕填系列色。 */
+
+.cq-setup {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: var(--s3) 0;
+  margin: var(--s4) 0 var(--s5);
+  display: grid; gap: var(--s2);
+}
+.cq-row {
+  display: flex; flex-wrap: wrap; gap: var(--s2);
+  align-items: center;
+}
+.cq-k {
+  font-size: var(--fs-s); color: var(--ink-2);
+  letter-spacing: .12em; font-weight: 700;
+  min-width: 4em;
+}
+select#cqChapter {
+  flex: 1 1 220px; min-height: var(--tap);
+  padding: 0 var(--s2);
+  font: 500 var(--fs-m)/1.4 var(--f-sans);
+  background: var(--paper); color: var(--ink);
+  border: 1px solid var(--rule); border-radius: 4px;
+}
+
+.cq-pill,
+.cq-start,
+.cq-next,
+.cq-textbtn {
+  min-height: var(--tap); padding: 0 var(--s3);
+  background: var(--paper); color: var(--ink);
+  border: 1px solid var(--rule); border-radius: 4px;
+  font: 500 var(--fs-m)/1 var(--f-sans); cursor: pointer;
+}
+.cq-pill.is-on {
+  background: var(--ink); color: var(--paper); border-color: var(--ink);
+}
+.cq-start,
+.cq-next {
+  background: var(--series); color: var(--paper); border-color: var(--series);
+  font-weight: 700;
+}
+.cq-textbtn {
+  border: 1px solid transparent; background: transparent;
+  color: var(--series); padding: 0;
+  min-height: var(--tap); display: inline-flex; align-items: center;
+}
+.cq-textbtn:hover { color: var(--ink); }
+
+.cq-note {
+  font-size: var(--fs-s); color: var(--ink-2);
+  margin: 0; padding: var(--s1) 0 0;
+}
+
+.cq-run { margin: var(--s5) 0; }
+.cq-bar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: var(--s1) 0; border-bottom: 1px solid var(--rule);
+  margin-bottom: var(--s3);
+}
+.cq-prog {
+  font: 700 var(--fs-m)/1 var(--f-sans);
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+.cq-loc {
+  font-size: var(--fs-s); color: var(--ink-2);
+  margin: 0 0 var(--s2);
+}
+.cq-stem {
+  font: 500 var(--fs-l)/1.55 var(--f-serif);
+  margin: 0 0 var(--s3);
+}
+.cq-answers { display: grid; gap: var(--s2); margin-bottom: var(--s3); }
+.cq-opt {
+  display: flex; gap: var(--s2); align-items: flex-start;
+  min-height: var(--tap); width: 100%;
+  padding: var(--s2) var(--s3);
+  background: var(--paper); color: var(--ink);
+  border: 1px solid var(--rule); border-radius: 4px;
+  font: 400 var(--fs-m)/1.5 var(--f-sans);
+  text-align: left; cursor: pointer;
+}
+.cq-opt-k {
+  font-weight: 700; color: var(--series); min-width: 1.6em;
+  font-variant-numeric: tabular-nums;
+}
+.cq-opt-t { flex: 1 1 auto; }
+.cq-opt.is-ok { border-color: var(--series); border-width: 2px; padding: calc(var(--s2) - 1px) calc(var(--s3) - 1px); }
+.cq-opt.is-ng { border-color: var(--ink); border-width: 2px; padding: calc(var(--s2) - 1px) calc(var(--s3) - 1px); }
+.cq-opt.is-dim { opacity: .55; }
+.cq-opt:disabled { cursor: default; }
+
+.cq-after {
+  border-top: 1px solid var(--rule);
+  padding-top: var(--s3); margin-top: var(--s2);
+}
+.cq-verdict {
+  font: 700 var(--fs-m)/1.4 var(--f-sans);
+  margin: 0 0 var(--s2);
+}
+.cq-verdict.is-ok { color: var(--series); }
+.cq-verdict.is-ng { color: var(--ink); }
+.cq-verdict::before {
+  content: "✓ ";
+  display: inline-block;
+  border: 2px solid currentColor;
+  margin-right: var(--s1);
+  font-size: var(--fs-s);
+  padding: 0 6px; line-height: 1.6;
+}
+.cq-verdict.is-ng::before { content: "✗ "; }
+
+.cq-why { margin: 0 0 var(--s3); padding: 0; }
+.cq-why p {
+  font-size: var(--fs-s); color: var(--ink-2);
+  margin: 0 0 var(--s1); font-family: var(--f-serif); line-height: 1.7;
+}
+.cq-why b { color: var(--ink); margin-right: var(--s1); }
+.cq-src { font-size: var(--fs-s); margin: 0 0 var(--s3); }
+.cq-next { display: inline-flex; align-items: center; }
+
+.cq-done { margin: var(--s5) 0; }
+.cq-h2 {
+  font: 700 var(--fs-l)/1.4 var(--f-serif);
+  margin: 0 0 var(--s3);
+}
+.cq-score {
+  font: 700 var(--fs-l)/1.4 var(--f-serif);
+  margin: 0 0 var(--s3);
+}
+.cq-recap { margin: 0 0 var(--s3); display: grid; gap: var(--s2); }
+.cq-recap-i {
+  display: block;
+  padding: var(--s2);
+  border: 1px solid var(--rule); border-radius: 4px;
+  color: var(--ink); text-decoration: none;
+  font-family: var(--f-serif); line-height: 1.6;
+}
+.cq-recap-i:hover { border-color: var(--series); }
+.cq-recap-i b { display: block; margin-bottom: var(--s1); font-weight: 700; }
+
+.cq-doneacts {
+  display: flex; gap: var(--s2); align-items: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .cq-k { width: 100%; }
+  select#cqChapter { flex: 1 1 100%; }
+  .cq-pill { flex: 1 1 calc(50% - var(--s2)); text-align: center; justify-content: center; display: inline-flex; }
+}

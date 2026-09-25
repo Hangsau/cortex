@@ -1,0 +1,105 @@
+{{- /* T1：CSCS 選擇題練習。
+   - 為每一章從 data/cscs/_quiz_bank/chNN.yaml 抽出題目，resources.FromString 產出 24 支 JSON。
+   - 發佈路徑：library/essentials-of-strength-training/quiz/chNN.json
+   - 頁面端只放殼與索引；題目與選項隨機化都由前端處理。 */ -}}
+{{- $p := .page -}}
+{{- $s := .series -}}
+{{- $bank := index hugo.Data.cscs "_quiz_bank" -}}
+{{- $total := 0 -}}
+{{- $index := slice -}}
+{{- range $s.chapters }}
+  {{- $cid := .id }}
+  {{- $cdata := index $bank $cid }}
+  {{- if $cdata }}
+    {{- $qs := slice }}
+    {{- range $cdata.questions }}
+      {{- $opts := slice -}}
+      {{- $why := slice -}}
+      {{- $correct := 0 -}}
+      {{- range $i, $o := .options }}
+        {{- $opts = $opts | append $o.text -}}
+        {{- $why = $why | append (printf "%v" (default "" $o.why_wrong)) -}}
+        {{- if $o.correct }}{{ $correct = $i }}{{ end -}}
+      {{- end }}
+      {{- $qs = $qs | append (dict "id" .id "item" .item "stem" .stem
+                                  "loc" (default "" .locator) "lang" (default "zh" .lang)
+                                  "pool" (default "exam" .pool)
+                                  "opts" $opts "correct" $correct "why" $why) }}
+    {{- end }}
+    {{- $res := resources.FromString (printf "library/essentials-of-strength-training/quiz/%s.json" $cid)
+                 (dict "chapter" $cid "title" .title "url" (relURL .path) "questions" $qs | jsonify) -}}
+    {{- $total = add $total (len $qs) }}
+    {{- $index = $index | append (dict "id" $cid "title" .title "url" (relURL .path)
+                                       "json" $res.RelPermalink "n" (len $qs)) }}
+  {{- end }}
+{{- end }}
+
+{{- $css := resources.Get "css/quiz.css" | fingerprint }}
+{{- $js := resources.Get "js/cscs-quiz.js" | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+
+<article class="lib-chapter cq" id="cq">
+  <header class="lc-head">
+    <p class="kicker">肌力與體能訓練精要 · 工具</p>
+    <h1>{{ $p.Title }}</h1>
+    <p class="lc-lead">全書 {{ $total }} 題，一次練一章。作答後說明其他選項錯在哪，並連回課本該條原文。選項每次重新洗牌，背位置沒有用。</p>
+  </header>
+
+  <section class="cq-setup" id="cqSetup">
+    <div class="cq-row">
+      <label class="cq-k" for="cqChapter">章節</label>
+      <select id="cqChapter">
+        {{- range $index }}
+        <option value="{{ .id }}">{{ .title }}</option>
+        {{- end }}
+      </select>
+    </div>
+
+    <div class="cq-row" role="group" aria-label="過濾">
+      <span class="cq-k">過濾</span>
+      <button type="button" class="cq-pill is-on" data-scope="all">全部</button>
+      <button type="button" class="cq-pill" data-scope="wrong">只練錯過的</button>
+      <button type="button" class="cq-pill" data-scope="fresh">只練沒做過的</button>
+    </div>
+
+    <div class="cq-row">
+      <button type="button" class="cq-start" id="cqStart">開始作答</button>
+    </div>
+
+    <p class="cq-note" id="cqNote">作答紀錄只存在這台裝置的瀏覽器裡，不會上傳。</p>
+  </section>
+
+  <section class="cq-run" id="cqRun" hidden>
+    <div class="cq-bar">
+      <button type="button" class="cq-textbtn" id="cqQuit">← 換一章</button>
+      <span class="cq-prog" id="cqProg"></span>
+    </div>
+
+    <p class="cq-loc" id="cqLoc"></p>
+    <p class="cq-stem" id="cqStem"></p>
+
+    <div class="cq-answers" id="cqAnswers"></div>
+
+    <div class="cq-after" id="cqAfter" hidden>
+      <p class="cq-verdict" id="cqVerdict"></p>
+      <div class="cq-why" id="cqWhy"></div>
+      <p class="cq-src"><a id="cqSrc" href="#">回課本這一條 →</a></p>
+      <button type="button" class="cq-next" id="cqNext">下一題</button>
+    </div>
+  </section>
+
+  <section class="cq-done" id="cqDone" hidden>
+    <h2 class="cq-h2">本輪作答結果</h2>
+    <p class="cq-score" id="cqScore"></p>
+    <div class="cq-recap" id="cqRecap"></div>
+    <div class="cq-doneacts">
+      <button type="button" class="cq-next" id="cqAgain">再練錯題</button>
+      <button type="button" class="cq-textbtn" id="cqBack">換一章</button>
+    </div>
+  </section>
+
+  <noscript><p class="cq-note">這頁需要開啟 JavaScript 才能作答。</p></noscript>
+</article>
+
+<script id="cqIndex" type="application/json">{{ $index | jsonify | safeJS }}</script>
+<script src="{{ $js.RelPermalink }}" defer></script>
