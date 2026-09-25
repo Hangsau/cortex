@@ -1,0 +1,93 @@
+{{- /* T2：CSCS 閃卡。
+   - 為每一章從 data/cscs/chNN.yaml 的 cards[] 抽出閃卡，resources.FromString 產出 24 支 JSON。
+   - 發佈路徑：library/essentials-of-strength-training/cards/chNN.json
+   - 頁面端只放殼與索引；翻面、計分、與 localStorage 還原都由前端處理。 */ -}}
+{{- $p := .page -}}
+{{- $s := .series -}}
+{{- $cscs := hugo.Data.cscs -}}
+{{- $total := 0 -}}
+{{- $index := slice -}}
+{{- range $s.chapters }}
+  {{- $cid := .id }}
+  {{- $ch := index $cscs $cid }}
+  {{- if and $ch $ch.cards }}
+    {{- $cs := slice }}
+    {{- range $i, $c := $ch.cards }}
+      {{- $cs = $cs | append (dict "k" (printf "%s-%d" $cid $i) "q" $c.q "a" $c.a "tag" $c.tag) }}
+    {{- end }}
+    {{- $res := resources.FromString (printf "library/essentials-of-strength-training/cards/%s.json" $cid)
+                 (dict "chapter" $cid "title" .title "url" (relURL .path) "cards" $cs | jsonify) -}}
+    {{- $total = add $total (len $cs) }}
+    {{- $index = $index | append (dict "id" $cid "title" .title "url" (relURL .path)
+                                       "json" $res.RelPermalink "n" (len $cs)) }}
+  {{- end }}
+{{- end }}
+
+{{- $css := resources.Get "css/cards.css" | fingerprint }}
+{{- $js := resources.Get "js/cscs-cards.js" | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+
+<article class="lib-chapter cd" id="cd">
+  <header class="lc-head">
+    <p class="kicker">肌力與體能訓練精要 · 工具</p>
+    <h1>{{ $p.Title }}</h1>
+    <p class="lc-lead">全書 {{ $total }} 張閃卡，挑一章後按「開始」。正面是問題，按「翻面」或點卡片看解答；「還不熟」的卡會放回本輪隊尾，直到這一輪全部記住才結束。</p>
+  </header>
+
+  <section class="cd-setup" id="cdSetup">
+    <div class="cd-row">
+      <label class="cd-k" for="cdChapter">章節</label>
+      <select id="cdChapter">
+        {{- range $index }}
+        <option value="{{ .id }}">{{ .title }}（{{ .n }} 張）</option>
+        {{- end }}
+      </select>
+    </div>
+
+    <div class="cd-row">
+      <label class="cd-toggle">
+        <input type="checkbox" id="cdShuffle">
+        <span>打亂順序</span>
+      </label>
+    </div>
+
+    <div class="cd-row">
+      <button type="button" class="cd-start" id="cdStart">開始</button>
+    </div>
+
+    <p class="cd-note">作答紀錄只存在這台裝置的瀏覽器裡，不會上傳。</p>
+  </section>
+
+  <section class="cd-run" id="cdRun" hidden>
+    <div class="cd-bar">
+      <button type="button" class="cd-textbtn" id="cdQuit">← 換一章</button>
+      <span class="cd-prog" id="cdProg"></span>
+    </div>
+
+    <div class="cd-card" id="cdCard" tabindex="0" role="button" aria-pressed="false">
+      <p class="cd-tag" id="cdTag"></p>
+      <div class="cd-face cd-front" id="cdFront"></div>
+      <div class="cd-face cd-back" id="cdBack" hidden></div>
+    </div>
+
+    <div class="cd-actions">
+      <button type="button" class="cd-flip" id="cdFlip">翻面</button>
+      <button type="button" class="cd-no" id="cdNo">還不熟</button>
+      <button type="button" class="cd-yes" id="cdYes">記住了</button>
+    </div>
+  </section>
+
+  <section class="cd-done" id="cdDone" hidden>
+    <h2 class="cd-h2">本輪結束</h2>
+    <p class="cd-score" id="cdScore"></p>
+    <div class="cd-doneacts">
+      <button type="button" class="cd-start" id="cdRetry">只複習還不熟</button>
+      <button type="button" class="cd-textbtn" id="cdBack">換一章</button>
+    </div>
+  </section>
+
+  <noscript><p class="cd-note">這頁需要開啟 JavaScript 才能抽卡。</p></noscript>
+</article>
+
+<script id="cdIndex" type="application/json">{{ $index | jsonify | safeJS }}</script>
+<script src="{{ $js.RelPermalink }}" defer></script>

@@ -944,3 +944,20 @@ Verification passes.
 
 **驗收**：`python -X utf8 next/specs/check.py T1` → **PASS T1**（24 支題庫 JSON 共 1033 題全部就位、頁面骨架齊全）。
 PASS T1
+[09-26 05:56:21] T1 通過並已 push
+[09-26 05:56:21] --- T2 開始 ---
+[09-26 05:56:21] T2 第 1 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 61｜input 71323｜cache_read 2876116｜output 9809
+All four files are in place and the T2 check passes.
+
+**完成回報：**
+
+寫了 4 個檔：
+- `next/content/library/essentials-of-strength-training/cards.md`（title 閃卡、description 含總張數 1252、role: cscs-cards）
+- `next/layouts/_partials/library/cscs-cards.html`（用 `resources.FromString` 為 24 章各產一支 JSON 到 `library/essentials-of-strength-training/cards/chNN.json`，前端殼含章節 select、打亂順序核取、開始、卡面、翻面/還不熟/記住了、完成畫面）
+- `next/assets/js/cscs-cards.js`（fetch 章節 JSON、洗牌、翻面以 opacity 200ms 切換（含 prefers-reduced-motion 處理）、「還不熟」回鍋隊尾、「記住了」移除、localStorage key `cscs-cards-next-v1` 以 `chNN-序號` 存、`<noscript>` 提示、鍵盤 Enter/空白翻面）
+- `next/assets/css/cards.css`（全用 tokens 變數、按鈕 `min-height: var(--tap)`、圓角 ≤4px、無 `!important`、無 inline style、窄螢幕調整）
+
+驗收：`python -X utf8 next/specs/check.py T2` 印出 `PASS T2`（並驗證 T1、L3 也仍然通過）。
+PASS T2
