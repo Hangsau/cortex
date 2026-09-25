@@ -1,0 +1,193 @@
+{{- /* 學習地圖（reader-map）：從 data/reading/learning-map.json 讀 routes / stations，
+       透過 data/reading/index.json 將 station 的 section ID 對應到新站章節與錨點。
+       接收 (dict "page" . "series" $s)。整頁用 lib-series 骨架，hero 顯示路線總數。 */ -}}
+{{- $p := .page -}}
+{{- $s := .series -}}
+{{- $map := index hugo.Data "reading" "learning-map" -}}
+{{- $idx := index hugo.Data "reading" "index" -}}
+{{- $css := resources.Get "css/library.css" | fingerprint -}}
+{{- $mcss := resources.Get "css/learning-map.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+<link rel="stylesheet" href="{{ $mcss.RelPermalink }}">
+
+{{- /* section id → {path, anchor, title, unitID, chapterN}
+       unit id 形如 neumann.ch01；拆兩半再把 "ch01" 換成 "1"（去前導零，避免 "08" 觸發 Hugo 的 int() 八進位判斷失敗）。
+       對外顯示仍還原成兩位數字串，例如「第 08 章」。 */ -}}
+{{- $sec := dict -}}
+{{- range $u := $idx.units }}
+  {{- $parts := split $u.id "." -}}
+  {{- $chKey := index $parts 1 -}}
+  {{- $chDigits := strings.TrimLeft "0" (replace $chKey "ch" "") -}}
+  {{- if eq $chDigits "" }}{{ $chDigits = "0" }}{{ end -}}
+  {{- $chapN := int $chDigits -}}
+  {{- $chapDisp := $chKey -}}
+  {{- range $sg := $u.sections }}
+    {{- $entry := dict "path" $u.path "anchor" $sg.anchor "title" $sg.title "unitID" $u.id "chapterN" $chapN "chapterDisp" $chapDisp -}}
+    {{- $sec = merge $sec (dict $sg.id $entry) -}}
+  {{- end }}
+{{- end }}
+
+{{- /* station id → station；route id → route */ -}}
+{{- $stMap := dict -}}
+{{- range $st := $map.stations }}{{ $stMap = merge $stMap (dict $st.id $st) }}{{ end }}
+{{- $rMap := dict -}}
+{{- range $r := $map.routes }}{{ $rMap = merge $rMap (dict $r.id $r) }}{{ end }}
+
+<article class="lib-series reader-map">
+  <header class="ls-hero lm-hero">
+    <p class="kicker">{{ $s.title }} · 學習地圖</p>
+    <h1 class="ls-title">{{ $p.Title }}</h1>
+    <p class="ls-lead">{{ $p.Description }}</p>
+    <p class="ls-stats">
+      <span><b>{{ len $map.routes }}</b> 條路線</span>
+      <span><b>{{ len $map.stations }}</b> 個學習站</span>
+      <span><b>2</b> 冊讀本</span>
+    </p>
+  </header>
+
+  {{- with $p.Content }}{{ if ne (trim (plainify .) " \n") "" }}
+  <section class="ls-intro read lm-intro">{{ . }}</section>
+  {{- end }}{{ end }}
+
+  <nav class="lm-start" aria-label="從起點開始">
+    {{- $first := index $stMap $map.start }}
+    <a class="lm-start-link" href="#station-{{ $map.start }}">從這裡開始：{{ $first.title }} →</a>
+  </nav>
+
+  <section class="lm-method" aria-labelledby="lm-method-title">
+    <h2 id="lm-method-title">每次走一站</h2>
+    <ol class="lm-cycle">
+      <li><strong>先想</strong><span>帶著問題，先猜一個解釋。</span></li>
+      <li><strong>再讀</strong><span>依序讀指定小節；讀到下一個同層標題就停。</span></li>
+      <li><strong>合上書</strong><span>畫圖、用自己的話回答，再展開核對提示。</span></li>
+      <li><strong>接著走</strong><span>說不清楚就回讀；下一次先回想上一站。</span></li>
+    </ol>
+    <p class="muted">可先試每次 20–30 分鐘，依理解速度調整。讀完小節後，用瀏覽器返回，或由章內「學習地圖」回到這一站。</p>
+  </section>
+
+  <nav class="lm-overview" id="routes" aria-label="選擇學習路線">
+    <h2>你想從哪裡理解身體？</h2>
+    <p class="muted">建議順序：建立共同語言 → 從站立走到跑步。其他路線可依興趣選讀。</p>
+    <ol class="lm-route-list">
+      {{- range $r := $map.routes }}
+      <li>
+        <a class="lm-route-card" href="#route-{{ .id }}">
+          <span class="kicker">{{ .role }} · {{ len .stations }} 站</span>
+          <strong>{{ .title }}</strong>
+          <span class="muted">{{ .description }}</span>
+        </a>
+      </li>
+      {{- end }}
+    </ol>
+  </nav>
+
+  {{- range $r := $map.routes }}
+  {{- $Route := . }}
+  <section class="lm-route" id="route-{{ .id }}" aria-labelledby="route-title-{{ .id }}">
+    <header class="lm-route-head">
+      <p class="kicker">{{ .role }}</p>
+      <h2 id="route-title-{{ .id }}">{{ .title }}</h2>
+      <p class="muted">{{ .description }}</p>
+    </header>
+    <nav class="lm-stops" aria-label="{{ .title }}的學習站">
+      <ol class="lm-stops-list">
+        {{- range .stations }}{{ $st := index $stMap . }}
+        <li><a href="#station-{{ . }}">{{ $st.title }}</a></li>
+        {{- end }}
+      </ol>
+    </nav>
+
+    {{- range $pos, $sid := .stations }}
+    {{- $st := index $stMap $sid }}
+    <details class="lm-station" id="station-{{ $sid }}"{{ if eq $sid $map.start }} open{{ end }}>
+      <summary>
+        <span class="lm-station-n">{{ add $pos 1 }} / {{ len $Route.stations }}</span>
+        <span class="lm-station-t">{{ $st.title }}</span>
+        <span class="lm-open-hint">展開閱讀任務</span>
+      </summary>
+      <div class="lm-station-body read">
+        <h3 class="lm-q">{{ $st.question }}</h3>
+
+        {{- with $st.prerequisites }}
+        <div class="lm-prereq">
+          <span class="kicker">先備概念</span>
+          <ul>
+            {{- range . }}{{ $p2 := index $stMap . }}
+            <li><a href="#station-{{ . }}">{{ $p2.title }}</a></li>
+            {{- end }}
+          </ul>
+        </div>
+        {{- else }}
+        <p class="muted">這是起點；先選一個熟悉的日常動作來觀察。</p>
+        {{- end }}
+
+        <h4>依序讀這幾節</h4>
+        <ol class="lm-readings">
+          {{- range $st.readings }}
+            {{- $info := index $sec .section }}
+            {{- if $info }}
+          <li>
+            <a href="{{ relURL $info.path }}#{{ $info.anchor }}">{{ $info.title }}</a>
+            <span class="muted">{{ $info.unitID }} · 第 {{ $info.chapterDisp }} 章</span>
+            <p>{{ .purpose }}</p>
+          </li>
+            {{- end }}
+          {{- end }}
+        </ol>
+
+        <h4>合上書，動手解釋</h4>
+        <p>{{ $st.task }}</p>
+
+        <h4>換個條件，再想一次</h4>
+        <p>{{ $st.recall }}</p>
+
+        <details class="lm-answer">
+          <summary>想過之後，展開核對提示</summary>
+          <p>{{ $st.answer }}</p>
+          <p class="kicker">回到教材核對</p>
+          <ul>
+            {{- range $st.answer_sources }}
+              {{- $info := index $sec . }}
+              {{- if $info }}
+            <li><a href="{{ relURL $info.path }}#{{ $info.anchor }}">{{ $info.title }}</a></li>
+              {{- end }}
+            {{- end }}
+          </ul>
+        </details>
+
+        <p class="lm-advance">{{ $st.advance }}</p>
+
+        <nav class="lm-next" aria-label="{{ $st.title }}的接續方向">
+          {{- if gt $pos 0 }}{{ $prev := index $Route.stations (sub $pos 1) }}{{ $prevSt := index $stMap $prev }}
+          <a class="lm-prev" href="#station-{{ $prev }}"><span class="muted">← 上一站</span><span>{{ $prevSt.title }}</span></a>
+          {{- end }}
+          {{- if lt (add $pos 1) (len $Route.stations) }}{{ $next := index $Route.stations (add $pos 1) }}{{ $nextSt := index $stMap $next }}
+          <a class="lm-next-link" href="#station-{{ $next }}"><span class="muted">下一站</span><span>{{ $nextSt.title }} →</span></a>
+          {{- else }}
+            {{- with $Route.next_route }}{{ $nxt := index $rMap . }}
+            <a class="lm-next-link" href="#route-{{ . }}"><span class="muted">接著走</span><span>{{ $nxt.title }} →</span></a>
+            {{- else }}
+            <a class="lm-next-link" href="#routes"><span class="muted">回地圖</span><span>選另一條路線 →</span></a>
+            {{- end }}
+          {{- end }}
+        </nav>
+      </div>
+    </details>
+    {{- end }}
+
+    <a class="lm-back" href="#routes">↑ 回路線總覽</a>
+  </section>
+  {{- end }}
+
+  <footer class="lm-foot">
+    <h2>沿著地圖，也能回到完整章節</h2>
+    <p class="read">這是依既有教材安排的學習路線，涵蓋兩冊全部 33 個主章的選讀入口。每站精選幾節；完整論述、其他圖表與原書頁次仍在章內。核對提示協助你檢查解釋，閱讀順序與任務由本讀本編排。</p>
+    <p>
+      <a href="{{ relURL "library/kinesiology/" }}">肌動學全書目錄</a>
+      ·
+      <a href="{{ relURL "library/basic-biomechanics/" }}">基礎生物力學全書目錄</a>
+      ·
+      <a href="{{ relURL "library/kinesiology/topics/" }}">按主題找章節</a>
+    </p>
+  </footer>
+</article>

@@ -968,3 +968,28 @@ PASS T2
 [claude-m3-lite] turns 81｜input 586432｜cache_read 4646528｜output 32821
 
 PASS T3
+[09-26 06:06:24] T3 通過並已 push
+[09-26 06:06:24] --- T4 開始 ---
+[09-26 06:06:24] T4 第 1 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 81｜input 68705｜cache_read 2826087｜output 17937
+
+FAIL T4（3 項）
+ - hugo next 建置失敗（exit 1）：
+Start building sites … 
+hugo v0.162.1-bba860e3eda3091efe8c6d1a96bc49a29ad2d5f6+extended windows/amd64 BuildDate=2026-05-28T17:40:44Z VendorInfo=gohugoio
+
+Total in 3961 ms
+ERROR error building site: render: [en v1.0.0 guest] failed to render pages: render of "C:/claudehome/projects/my-site/next/content/library/kinesiology/learning-map.md" failed: "C:\claudehome\projects\my-site\next\layouts\page.html:1:22": execute of template failed: template: page.html:1:22: executing "main" at <partial "library/dispatch.html" .>: error calling partial: "C:\claudehome\projects\my-site\next\layouts\_partials\library\dispatch.html:11:6": execute of template failed: template: _partials/library/dispatch.html:11:6: executing "_partials/library/dispatch.html" at <partial (printf "library/%s.html" $role) (dict "page" . "series" $s)>: error calling partial: "C:\claudehome\projects\my-site\next\layouts\_partials\library\reader-map.html:20:16": execute of template failed: template: _partials/library/reader-map.html:20:16: executing "_partials/library/reader-map.html" at <int $chDigits>: error calling int: unable to cast "08" of type string to int: strconv.ParseInt: parsing "08": invalid syntax
+ - 缺頁面：public/next/library/kinesiology/learning-map/index.html
+ - 學習地圖沒有任何章節連結
+[09-26 06:09:27] T4 第 1 次驗收未過
+[09-26 06:09:27] T4 第 2 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 15｜input 17134｜cache_read 175616｜output 3067
+T4 通過驗收。
+
+**修了什麼**：`next/layouts/_partials/library/reader-map.html` 把 `chKey="ch08"` 去掉 "ch" 之後得到 `"08"`，`int "08"` 在 Hugo v0.162 會走八進位判斷而解析失敗。改成先用 `strings.TrimLeft "0"` 去掉前導零後再 `int()`，並用 `chapterDisp`（原 `ch08` 字串）顯示「第 08 章」。
+
+**驗收結果**：`python -X utf8 next/specs/check.py T4` 印出 `PASS T4`。學習地圖頁存在（55.8 KB），涵蓋 ch01–ch16 共 16 章連結，全部指向已建好的章節頁。
+PASS T4

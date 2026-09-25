@@ -1,0 +1,124 @@
+/* 學習地圖（reader-map）：lib-series 內的擴充樣式。
+   路線總覽卡片、學習站 details、起點連結、底部回到章節連結。
+   只用設計 token；無陰影、無圓角大於 4px、無 hover 位移。 */
+
+/* 起點 banner */
+.lm-hero .ls-stats { margin-top: var(--s2); }
+.lm-intro { max-width: var(--measure); margin-top: var(--s5); }
+
+.lm-start { margin: var(--s5) 0 0; }
+.lm-start-link {
+  display: inline-flex; align-items: center;
+  padding: var(--s2) var(--s3); min-height: var(--tap);
+  border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink);
+  color: var(--series); font: 700 var(--fs-l)/1.3 var(--f-serif);
+  text-decoration: none;
+}
+.lm-start-link:hover { text-decoration: underline; text-decoration-thickness: 2px; }
+
+/* 每次走一站：四步循環 */
+.lm-method { margin-top: var(--s6); }
+.lm-method > h2 { border-top: 2px solid var(--ink); padding-top: var(--s2); margin: 0 0 var(--s3); }
+.lm-cycle {
+  list-style: none; margin: 0 0 var(--s3); padding: 0;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s2) var(--s4); border-top: 1px solid var(--rule);
+}
+.lm-cycle li { display: grid; grid-template-columns: 4em 1fr; gap: var(--s2); padding: var(--s2) 0; border-bottom: 1px solid var(--rule); font-family: var(--f-serif); line-height: 1.7; }
+.lm-cycle li strong { font: 700 var(--fs-m)/1.3 var(--f-serif); color: var(--series); }
+
+/* 路線總覽 */
+.lm-overview { margin-top: var(--s6); }
+.lm-overview > h2 { border-top: 2px solid var(--ink); padding-top: var(--s2); margin: 0 0 var(--s3); }
+.lm-route-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0 var(--s4); }
+.lm-route-card {
+  display: flex; flex-direction: column; gap: 4px;
+  padding: var(--s2) 0; border-top: 1px solid var(--rule);
+  color: var(--ink); text-decoration: none; min-height: var(--tap);
+}
+.lm-route-card strong { font: 700 var(--fs-l)/1.35 var(--f-serif); }
+.lm-route-card:hover strong { color: var(--series); text-decoration: underline; }
+
+/* 路線章節 */
+.lm-route { margin-top: var(--s6); padding-top: var(--s4); border-top: 2px solid var(--ink); }
+.lm-route-head h2 { margin: 0 0 var(--s2); font: 700 var(--fs-xl)/1.3 var(--f-serif); }
+.lm-route-head .kicker { margin-bottom: var(--s1); }
+.lm-stops { margin-top: var(--s4); padding: var(--s3); background: var(--tint); border-left: var(--band) solid var(--series); }
+.lm-stops-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--s1) var(--s2); }
+.lm-stops-list li { margin: 0; }
+.lm-stops-list a {
+  display: inline-flex; align-items: center; min-height: var(--tap);
+  padding: 0 var(--s2); border: 1px solid var(--rule); border-radius: 2px;
+  color: var(--ink); text-decoration: none; font-family: var(--f-serif);
+}
+.lm-stops-list a:hover { border-color: var(--series); color: var(--series); }
+
+/* 學習站 details */
+.lm-station { border-top: 1px solid var(--rule); margin-top: var(--s3); }
+.lm-station > summary {
+  display: grid; grid-template-columns: 4em 1fr auto; gap: var(--s2); align-items: center;
+  min-height: var(--tap); padding: 0 var(--s1); cursor: pointer; list-style: none;
+  font: 700 var(--fs-l)/1.4 var(--f-serif); color: var(--ink);
+}
+.lm-station > summary::before { content: ""; }
+.lm-station-n { font: 700 var(--fs-m)/1 var(--f-sans); color: var(--series); text-align: right; letter-spacing: .08em; font-variant-numeric: tabular-nums; }
+.lm-station-t { font-weight: 700; }
+.lm-open-hint { font-size: var(--fs-s); color: var(--ink-2); font-weight: 400; }
+.lm-station[open] > summary { border-bottom: 1px solid var(--rule); }
+.lm-station-body { padding: var(--s4) var(--s3); max-width: var(--measure); }
+.lm-q { font: 700 var(--fs-l)/1.45 var(--f-serif); margin: 0 0 var(--s4); }
+.lm-station-body h4 { font: 700 var(--fs-m)/1.4 var(--f-sans); margin: var(--s4) 0 var(--s1); color: var(--series); }
+.lm-prereq { margin: var(--s3) 0; padding: var(--s2) var(--s3); background: var(--tint); border-left: var(--band) solid var(--series); }
+.lm-prereq .kicker { margin-bottom: var(--s1); }
+.lm-prereq ul { list-style: none; margin: 0; padding: 0; }
+.lm-prereq li { font-family: var(--f-serif); padding: var(--s1) 0; border-bottom: 1px solid var(--rule); }
+.lm-prereq li:last-child { border-bottom: 0; }
+
+.lm-readings { list-style: none; margin: 0; padding: 0; counter-reset: lmreading; }
+.lm-readings li { position: relative; padding: var(--s2) 0 var(--s2) 2.4em; border-top: 1px solid var(--rule); font-family: var(--f-serif); }
+.lm-readings li::before {
+  counter-increment: lmreading; content: counter(lmreading);
+  position: absolute; left: 0; top: var(--s2);
+  font: 700 var(--fs-m)/1 var(--f-serif); color: var(--series);
+}
+.lm-readings li a { display: block; font: 700 var(--fs-m)/1.4 var(--f-serif); color: var(--ink); text-decoration: none; }
+.lm-readings li a:hover { color: var(--series); text-decoration: underline; }
+.lm-readings li .muted { display: block; margin-top: 2px; }
+.lm-readings li p { margin: var(--s1) 0 0; color: var(--ink-2); line-height: 1.7; }
+
+.lm-station-body > p { margin: var(--s2) 0; line-height: 1.8; }
+
+.lm-answer { margin-top: var(--s3); padding: 0; border: 1px solid var(--rule); }
+.lm-answer > summary { padding: 0 var(--s3); min-height: var(--tap); font-weight: 500; color: var(--series); }
+.lm-answer > div, .lm-answer > p, .lm-answer > ul { padding: 0 var(--s3) var(--s3); }
+.lm-answer .kicker { padding-top: var(--s3); }
+.lm-answer ul { list-style: none; margin: 0; padding-left: var(--s3); padding-right: var(--s3); }
+.lm-answer ul li { padding: var(--s1) 0; border-top: 1px solid var(--rule); font-family: var(--f-serif); }
+.lm-answer ul li:first-child { border-top: 1px solid var(--rule); }
+
+.lm-advance { margin-top: var(--s3); padding: var(--s2) var(--s3); background: var(--tint); border-left: var(--band) solid var(--series); font-family: var(--f-serif); }
+
+.lm-next {
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--s2);
+  margin-top: var(--s4); padding-top: var(--s2); border-top: 2px solid var(--ink);
+}
+.lm-next a { display: flex; flex-direction: column; gap: 4px; min-height: var(--tap); padding: var(--s1) 0; color: var(--ink); text-decoration: none; font: 700 var(--fs-m)/1.5 var(--f-serif); }
+.lm-next a:hover span:last-child { color: var(--series); text-decoration: underline; }
+.lm-next-link { grid-column: 2; text-align: right; }
+.lm-next .lm-prev:only-child, .lm-next .lm-next-link:only-child { grid-column: 1 / -1; }
+
+.lm-back {
+  display: inline-block; margin-top: var(--s4);
+  color: var(--ink-2); font-size: var(--fs-s); text-decoration: underline;
+}
+
+.lm-foot { margin-top: var(--s6); padding-top: var(--s4); border-top: 2px solid var(--ink); }
+.lm-foot h2 { margin: 0 0 var(--s3); }
+
+@media (max-width: 720px) {
+  .lm-cycle { grid-template-columns: 1fr; }
+  .lm-station > summary { grid-template-columns: 3em 1fr; }
+  .lm-open-hint { display: none; }
+  .lm-next { grid-template-columns: 1fr; }
+  .lm-next-link { grid-column: 1; text-align: left; }
+}
