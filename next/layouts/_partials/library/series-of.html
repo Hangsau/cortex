@@ -1,0 +1,9 @@
+{{- /* 回傳目前頁面所屬的書房系列（next/data/library.json 的一筆 series），不屬於任何系列回傳空 dict */ -}}
+{{- $found := dict -}}
+{{- $here := .RelPermalink -}}
+{{- with hugo.Data.library -}}
+  {{- range .series -}}
+    {{- if hasPrefix $here (relURL .path) -}}{{- $found = . -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $found -}}

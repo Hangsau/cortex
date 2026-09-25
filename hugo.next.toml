@@ -23,3 +23,15 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap", "robotsTXT"]
   [[module.mounts]]
     source = "next/data"
     target = "data"
+  # 讀本章節是 Markdown canonical（含解說圖 shortcode），直接掛進新版；版面由 next/layouts 重做
+  [[module.mounts]]
+    source = "content/library/kinesiology"
+    target = "content/library/kinesiology"
+    excludeFiles = ["learning-map.md", "topics.md"]
+  [[module.mounts]]
+    source = "content/library/basic-biomechanics"
+    target = "content/library/basic-biomechanics"
+    excludeFiles = ["learning-map.md", "topics.md"]
+  [[module.mounts]]
+    source = "layouts/shortcodes"
+    target = "layouts/_shortcodes"

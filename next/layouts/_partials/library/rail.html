@@ -1,0 +1,49 @@
+{{- /* 書房系列的常駐目錄：系列首頁 → 章節（目前章展開小節）→ 條目（依分組）→ 工具。桌機黏著、手機收合。 */ -}}
+{{- $p := .page -}}
+{{- $s := .series -}}
+{{- $here := $p.RelPermalink -}}
+<details class="rail" id="rail">
+  <summary class="rail-toggle">{{ $s.title }} 目錄</summary>
+  <nav aria-label="{{ $s.title }} 目錄">
+    <a class="rail-a rail-series{{ if eq $here (relURL $s.path) }} is-here{{ end }}" href="{{ relURL $s.path }}">{{ $s.title }}</a>
+    {{- with $s.chapters }}
+    <p class="rail-h">{{ $s.chapters_label | default "章節" }}</p>
+      {{- range . }}
+        {{- $cp := relURL .path }}
+    <a class="rail-a{{ if eq $here $cp }} is-here{{ end }}" href="{{ $cp }}">{{ with .n }}<span class="rail-n">{{ . }}</span>{{ end }}{{ .title }}</a>
+        {{- if eq $here $cp }}
+          {{- $hs := slice }}
+          {{- range $p.Fragments.Headings }}{{ if eq .Level 2 }}{{ $hs = $hs | append . }}{{ end }}{{ range .Headings }}{{ if eq .Level 2 }}{{ $hs = $hs | append . }}{{ end }}{{ end }}{{ end }}
+          {{- with $hs }}
+    <div class="rail-sub">
+            {{- range . }}
+      <a class="rail-a rail-a--sub" href="#{{ .ID }}">{{ .Title | plainify }}</a>
+            {{- end }}
+    </div>
+          {{- end }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
+    {{- with $s.entries }}
+      {{- $last := "" }}
+      {{- range . }}
+        {{- if ne .group_name $last }}
+    <p class="rail-h">{{ .group_name }}</p>
+          {{- $last = .group_name }}
+        {{- end }}
+        {{- $ep := relURL .path }}
+    <a class="rail-a rail-a--sub{{ if eq $here $ep }} is-here{{ end }}" href="{{ $ep }}">{{ .title }}</a>
+      {{- end }}
+    {{- end }}
+    {{- with $s.tools }}
+    <p class="rail-h">工具</p>
+      {{- range . }}
+        {{- $tp := relURL .path }}
+    <a class="rail-a{{ if eq $here $tp }} is-here{{ end }}" href="{{ $tp }}">{{ .title }}</a>
+      {{- end }}
+    {{- end }}
+    <p class="rail-h">其他系列</p>
+    <a class="rail-a rail-a--sub" href="{{ relURL "" }}">回書房</a>
+  </nav>
+</details>
+<script>(function(){var r=document.getElementById('rail');if(r&&window.matchMedia('(min-width: 1000px)').matches){r.open=true;}})();</script>

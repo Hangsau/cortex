@@ -345,3 +345,19 @@ All checks pass.
 PASS W8
 [09-25 23:56:52] W8 通過並已 push
 [09-25 23:56:52] === 佇列全部完成 ===
+[09-26 03:56:10] === 佇列開始（起點 L1）===
+[09-26 03:56:10] --- L1 開始 ---
+[09-26 03:56:10] L1 第 1 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 63｜input 65767｜cache_read 2637753｜output 27721
+完成。
+
+## 摘要
+
+- **產出檔**：`tools/build_library.py`（單一檔案），執行後產生 `next/data/library.json`。
+- **驗收結果**：`python -X utf8 next/specs/check.py L1` → `PASS L1`，exit 0。
+- 動態實算的數字：CSCS 知識單位 1,557 條、概念 22 條；MNFL 20 個技法／5 主題；UST 10 章／18 策略。
+- 書房兩個系列的 chapter `desc` 取自 `content/library/{slug}/chNN/index.md` 的 front matter `description`；CSCS 章 desc 取前三個 topic title 加「等」；MNFL 與 UST entry desc為 essence 去 `**` 後截 60 字。
+- `data/temperament/traits.yaml` 用自訂 `StrLoader`，把 `yes/no/on/off` 解析器移除，避免 `no` 被當成布林 key。
+- `next/data/library.json` 不含任何 `map[`、`False`、`None`、`**`，所有 path 以 `/` 結尾、不含 baseURL、不重複。
+PASS L1
