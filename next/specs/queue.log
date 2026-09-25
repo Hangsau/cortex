@@ -315,3 +315,10 @@ PASS W5
 - W4、W5 也同步 PASS（確認無連帶影響）
 - 額外抽檢：6 頁 mv-row 數量 8/9/11/9/7/7 與各泳式 moves 數量一致；h2 出現順序符合預期；無 `map[`、無 inline `style=`、無空標題。
 PASS W6
+[09-25 23:46:40] W6 通過並已 push
+[09-25 23:46:40] --- W7 開始 ---
+[09-25 23:46:40] W7 第 1 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 81｜input 52708｜cache_read 3286656｜output 16675
+
+PASS W7

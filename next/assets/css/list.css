@@ -1,0 +1,106 @@
+/* Cortex next — list 集合清單頁（W7）。只在清單頁載入。 */
+
+.list > h1 { margin-bottom: var(--s3); }
+.list-count { margin: 0 0 var(--s3); }
+
+/* ===== 篩選列 ===== */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2) var(--s3);
+  padding: var(--s2) 0;
+  margin: 0 0 var(--s4);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  overflow-x: auto;
+}
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s1);
+  min-width: 0;
+}
+.filter-label {
+  font-size: var(--fs-s);
+  font-weight: 600;
+  color: var(--ink-2);
+  letter-spacing: .04em;
+  margin-right: var(--s1);
+}
+.filter-group button {
+  appearance: none;
+  font: inherit;
+  font-size: var(--fs-s);
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0 var(--s2);
+  min-height: var(--tap);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.filter-group button[aria-pressed="true"] {
+  background: var(--series);
+  color: var(--paper);
+  border-color: var(--series);
+}
+.filter-group button:focus-visible {
+  outline: 3px solid var(--series);
+  outline-offset: 2px;
+}
+
+/* ===== 清單 ===== */
+.items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.items > li {
+  border-bottom: 1px solid var(--rule);
+  min-height: var(--tap);
+  padding: var(--s2) 0;
+}
+.items > li:last-child { border-bottom: 0; }
+.items li[hidden] { display: none; }
+
+.item-title {
+  display: inline-block;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: var(--fs-m);
+}
+.item-title:hover strong { text-decoration: underline; }
+.item-title strong { font-weight: 700; }
+.item-hook {
+  margin: var(--s1) 0 0;
+  font-family: var(--f-serif);
+  line-height: 1.6;
+}
+
+/* psy/psyc 縮排 */
+.items > li[data-indent="1"] {
+  padding-left: var(--s3);
+  border-bottom-color: transparent;
+  min-height: 0;
+  padding-top: var(--s1);
+  padding-bottom: var(--s1);
+}
+.items > li[data-indent="1"] .item-title { font-size: var(--fs-s); }
+.items > li[data-indent="1"] .item-title strong { font-weight: 600; }
+.items > li[data-indent="1"] .item-hook { display: none; }
+
+/* 空狀態 */
+.empty {
+  padding: var(--s4) 0;
+  text-align: center;
+}
+.empty[hidden] { display: none; }
+
+@media (max-width: 600px) {
+  .filters { padding: var(--s1) 0; }
+  .filter-group { flex-wrap: nowrap; }
+  .filter-group button { padding: 0 var(--s1); }
+  .items > li[data-indent="1"] { padding-left: var(--s2); }
+}

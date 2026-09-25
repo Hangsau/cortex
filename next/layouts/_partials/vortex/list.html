@@ -1,4 +1,191 @@
-<div class="page">
+{{- /*
+  list.html — 集合清單頁版型（W7）。
+  依 .Params.list_type（move / drill / tech / error / problem / injury / level / psy）列出項目。
+  篩選互動交給 assets/js/filter.js（defer 載入）；樣式見 assets/css/list.css。
+*/ -}}
+{{- $type := .Params.list_type -}}
+{{- $links := $.Site.Data.vortex_links -}}
+{{- $units := $links.units -}}
+{{- $strokes := $links.strokes -}}
+
+{{- $strokeName := dict
+  "free" "自由式"
+  "back" "仰式"
+  "breast" "蛙式"
+  "fly" "蝶式"
+  "udk" "水下海豚腿"
+  "starts-turns" "出發與轉身"
+-}}
+
+{{- $css := resources.Get "css/list.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
+
+{{- /* 收集該類型的所有項目，依 stroke 與 id 排序；psy 另處理 */ -}}
+{{- $strokeOrder := slice "free" "back" "breast" "fly" "udk" "starts-turns" -}}
+{{- $strokePos := dict "free" 0 "back" 1 "breast" 2 "fly" 3 "udk" 4 "starts-turns" 5 -}}
+
+{{- /* drill 的 strokes（資料）→ 內部 key；多值用空白串接成 data-stroke */ -}}
+{{- $strokeToKey := dict
+  "freestyle" "free"
+  "backstroke" "back"
+  "breaststroke" "breast"
+  "butterfly" "fly"
+  "underwater_dolphin_kick" "udk"
+  "starts_turns" "starts-turns"
+-}}
+
+{{- /* 統計該類型實際出現的泳式與類別 */ -}}
+{{- $usedStrokes := dict -}}
+{{- $usedCategories := dict -}}
+{{- range $uid, $u := $units -}}
+  {{- if eq $u.type $type -}}
+    {{- if eq $type "drill" -}}
+      {{- range $s := $u.record.strokes -}}
+        {{- $k := index $strokeToKey $s -}}
+        {{- if $k -}}
+          {{- $usedStrokes = merge $usedStrokes (dict $k true) -}}
+        {{- end -}}
+      {{- end -}}
+    {{- else if $u.stroke -}}
+      {{- $usedStrokes = merge $usedStrokes (dict $u.stroke true) -}}
+    {{- end -}}
+    {{- if and $u.category_name (ne $u.category_name "") -}}
+      {{- $usedCategories = merge $usedCategories (dict $u.category_name true) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* 篩選維度：哪些要輸出 */ -}}
+{{- $hasStrokeFilter := in (slice "move" "drill" "tech" "error" "problem" "level") $type -}}
+{{- $hasCategoryFilter := in (slice "drill" "tech" "error" "problem" "injury") $type -}}
+{{- $hasEquipFilter := eq $type "drill" -}}
+
+{{- /* 整理 items，依 stroke 順序與 id 排序 */ -}}
+{{- $items := slice -}}
+{{- if eq $type "psy" -}}
+  {{- $psyList := slice -}}
+  {{- range $uid, $u := $units -}}
+    {{- if eq $u.type "psy" -}}
+      {{- $psyList = $psyList | append $uid -}}
+    {{- end -}}
+  {{- end -}}
+  {{- range $pid := $psyList -}}
+    {{- $items = $items | append (dict "uid" $pid "stroke" "" "category" "" "equip" "" "indent" 0) -}}
+    {{- range $e := index $links.in $pid -}}
+      {{- if eq $e.rel "part_of" -}}
+        {{- $items = $items | append (dict "uid" $e.from "stroke" "" "category" "" "equip" "" "indent" 1) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- else -}}
+  {{- $typed := slice -}}
+  {{- range $uid, $u := $units -}}
+    {{- if eq $u.type $type -}}
+      {{- $strokeKey := $u.stroke -}}
+      {{- $pos := -1 -}}
+      {{- if $strokeKey -}}
+        {{- $pos = index $strokePos $strokeKey | default -1 -}}
+      {{- end -}}
+      {{- $typed = $typed | append (dict "uid" $uid "stroke" $strokeKey "pos" $pos "category" $u.category_name) -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $typed = sort $typed "pos" "asc" -}}
+  {{- $typed = sort $typed "uid" "asc" -}}
+  {{- range $t := $typed -}}
+    {{- $items = $items | append (dict "uid" $t.uid "stroke" $t.stroke "category" $t.category "equip" "" "indent" 0) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $count := len $items -}}
+
+<article class="page page--wide list" data-list data-type="{{ $type }}">
   <h1>{{ .Title }}</h1>
-  <p class="muted">（版型建置中：list）</p>
-</div>
+  <p class="muted list-count">共 <span class="count-n">{{ $count }}</span> 條</p>
+
+  {{- if or $hasStrokeFilter $hasCategoryFilter $hasEquipFilter }}
+  <div class="filters" role="group" aria-label="篩選">
+
+    {{- if $hasStrokeFilter }}
+    <div class="filter-group" data-filter-group="stroke">
+      <span class="filter-label">泳式</span>
+      <button type="button" aria-pressed="true" data-filter="stroke" data-value="">全部</button>
+      {{- range $sk := $strokeOrder -}}
+        {{- if index $usedStrokes $sk -}}
+          {{- $nm := index $strokeName $sk -}}
+          <button type="button" aria-pressed="false" data-filter="stroke" data-value="{{ $sk }}">{{ $nm }}</button>
+        {{- end -}}
+      {{- end -}}
+    </div>
+    {{- end -}}
+
+    {{- if $hasCategoryFilter }}
+    <div class="filter-group" data-filter-group="category">
+      <span class="filter-label">類別</span>
+      <button type="button" aria-pressed="true" data-filter="category" data-value="">全部</button>
+      {{- range $c := index $links.categories $type -}}
+        {{- if index $usedCategories $c.name_zh -}}
+          <button type="button" aria-pressed="false" data-filter="category" data-value="{{ $c.key }}">{{ $c.name_zh }}</button>
+        {{- end -}}
+      {{- end -}}
+    </div>
+    {{- end -}}
+
+    {{- if $hasEquipFilter }}
+    <div class="filter-group" data-filter-group="equip">
+      <span class="filter-label">器材</span>
+      <button type="button" aria-pressed="true" data-filter="equip" data-value="">全部</button>
+      <button type="button" aria-pressed="false" data-filter="equip" data-value="none">不需器材</button>
+      <button type="button" aria-pressed="false" data-filter="equip" data-value="some">需要器材</button>
+    </div>
+    {{- end -}}
+
+  </div>
+  {{- end -}}
+
+  <ol class="items">
+    {{- range $it := $items -}}
+      {{- $uid := $it.uid -}}
+      {{- $u := index $units $uid -}}
+      {{- if $u -}}
+        {{- $dataStroke := $it.stroke -}}
+        {{- $dataCategory := "" -}}
+        {{- $dataEquip := $it.equip -}}
+        {{- if eq $type "drill" -}}
+          {{- $strokeList := slice -}}
+          {{- range $s := $u.record.strokes -}}
+            {{- $k := index $strokeToKey $s -}}
+            {{- if $k -}}
+              {{- $strokeList = $strokeList | append $k -}}
+            {{- end -}}
+          {{- end -}}
+          {{- $dataStroke = delimit $strokeList " " -}}
+          {{- $eq := $u.record.equipment -}}
+          {{- if not $eq -}}
+            {{- $dataEquip = "none" -}}
+          {{- else if eq (len $eq) 0 -}}
+            {{- $dataEquip = "none" -}}
+          {{- else -}}
+            {{- $dataEquip = "some" -}}
+          {{- end -}}
+          {{- $dataCategory = $u.record.category -}}
+        {{- else -}}
+          {{- $dataCategory = $u.category -}}
+        {{- end -}}
+        <li data-uid="{{ $uid }}" data-stroke="{{ $dataStroke }}" data-category="{{ $dataCategory }}" data-equip="{{ $dataEquip }}" data-indent="{{ $it.indent }}">
+          <a class="item-title" href="{{ relURL $u.path }}">
+            <strong>{{ $u.title }}</strong>
+          </a>
+          {{- with $u.hook -}}
+            {{- $h := . | plainify | strings.TrimSpace -}}
+            {{- if $h -}}<p class="muted item-hook">{{ . | markdownify }}</p>{{- end -}}
+          {{- end -}}
+        </li>
+      {{- end -}}
+    {{- end -}}
+  </ol>
+
+  <p class="empty muted" hidden>沒有符合的項目</p>
+</article>
+
+{{- $js := resources.Get "js/filter.js" | fingerprint -}}
+<script defer src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous"></script>
