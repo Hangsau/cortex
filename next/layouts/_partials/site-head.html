@@ -1,0 +1,19 @@
+{{- $isHome := .IsHome -}}
+{{- $isVortexHome := eq .RelPermalink (relURL "vortex/") -}}
+{{- $isVortex := or (eq .Section "vortex") (hasPrefix .RelPermalink (relURL "vortex/")) -}}
+<header class="site-head">
+  <a class="site-name" href="{{ relURL "" }}">Cortex</a>
+  {{- if $isVortex }}
+  <a class="series-name" href="{{ relURL "vortex/" }}">Vortex 水感</a>
+  {{- end }}
+  {{- if not (or $isHome $isVortexHome) }}
+  <nav class="crumbs" aria-label="路徑">
+    {{- range .Ancestors.Reverse }}
+      {{- if and (not .IsHome) (ne .RelPermalink (relURL "vortex/")) }}
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a> › 
+      {{- end }}
+    {{- end }}
+    <span>{{ .Title }}</span>
+  </nav>
+  {{- end }}
+</header>

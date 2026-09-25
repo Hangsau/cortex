@@ -1,0 +1,237 @@
+[09-25 23:14:18] === 佇列開始（起點 W1）===
+[09-25 23:14:18] --- W1 開始 ---
+[09-25 23:14:18] W1 第 1 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 81｜input 63279｜cache_read 2729735｜output 23579
+
+FAIL W1（3 項）
+ - tools/build_vortex_links.py 失敗：
+C:\Users\hangs\AppData\Local\Programs\Python\Python312\python.exe: can't open file 'C:\\claudehome\\projects\\my-site\\tools\\build_vortex_links.py': [Errno 2] No such file or directory
+
+ - tools/test_vortex_links.py 失敗：
+C:\Users\hangs\AppData\Local\Programs\Python\Python312\python.exe: can't open file 'C:\\claudehome\\projects\\my-site\\tools\\test_vortex_links.py': [Errno 2] No such file or directory
+
+ - 缺 next/data/vortex_links.json（先跑 tools/build_vortex_links.py）
+[09-25 23:16:41] W1 第 1 次驗收未過
+[09-25 23:16:41] W1 第 2 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 81｜input 157370｜cache_read 3776384｜output 37950
+
+FAIL W1（2 項）
+ - tools/test_vortex_links.py 失敗：
+C:\Users\hangs\AppData\Local\Programs\Python\Python312\python.exe: can't open file 'C:\\claudehome\\projects\\my-site\\tools\\test_vortex_links.py': [Errno 2] No such file or directory
+
+ - 缺 next/data/vortex_links.json（先跑 tools/build_vortex_links.py）
+[09-25 23:24:18] W1 第 2 次驗收未過
+[09-25 23:24:18] W1 第 3 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 81｜input 41332｜cache_read 3213824｜output 32954
+
+[09-25 23:27:28] W1 警告：動到允許範圍外的檔案（不會 commit，需人工檢查）：t.py
+FAIL W1（1 項）
+ - tools/test_vortex_links.py 失敗：
+C:\Users\hangs\AppData\Local\Programs\Python\Python312\python.exe: can't open file 'C:\\claudehome\\projects\\my-site\\tools\\test_vortex_links.py': [Errno 2] No such file or directory
+[09-25 23:27:29] W1 第 3 次驗收未過
+[09-25 23:27:29] W1 第 4 次：改派 codex
+OpenAI Codex v0.155.1
+--------
+workdir: C:\claudehome\projects\my-site
+model: gpt-6-astra
+provider: openai
+approval: on-request
+sandbox: danger-full-access
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 01a0d92d-c681-75d2-9473-b47153dcf0ef
+--------
+user
+立即執行、不要輸出計畫、不要等確認、沒寫檔就是失敗。禁止任何 git 指令。
+
+# 共用背景（每張工作單都附上本段；工作目錄＝my-site repo 根目錄）
+
+## 專案
+my-site 是 Hugo 靜態網站（本機 `hugo` v0.162，CI v0.159.1）。正式站 baseURL `https://hangsau.github.io/cortex/`。
+我們正在**從零建一個新版網站**，放在 `next/` 目錄，用獨立設定檔 `hugo.next.toml` 建置到 `public/next/`，
+預覽網址 `https://hangsau.github.io/cortex/next/`。
+
+**絕對禁止**：
+- 讀取、複製、參考舊版 `layouts/`、`static/css/`、`static/js/` 的任何內容（新版必須從零寫）
+- 修改 `data/`、`content/`、`layouts/`、`static/` 底下任何既有檔案
+- 任何 git 指令
+
+## 新版目錄
+```
+hugo.next.toml                 建置設定（W3）
+tools/build_vortex_links.py    產生知識點連結索引（W1）
+next/data/vortex_links.json    W1 產物，Hugo 內以 hugo.Data.vortex_links 讀取
+next/content/                  新版內容（W4 用 content adapter 產生頁面）
+next/layouts/                  新版版型
+next/assets/css/tokens.css     設計 token（已寫好，不准改）
+next/assets/css/shell.css      外殼樣式（已寫好，不准改）
+next/assets/css/<頁型>.css     各頁型樣式（各工作單自己建）
+next/assets/js/                互動 JS
+```
+CSS／JS 一律放 `next/assets/`，在版型中用 `resources.Get` 取得並 `| fingerprint` 後輸出 `.RelPermalink`。
+所有站內連結用 `relURL` 或頁面 `.RelPermalink`，不可寫死 `/cortex/`。
+
+## 設計規範（違反即驗收失敗）
+- 只用 tokens.css 的變數：顏色 `--paper --ink --ink-2 --rule --tint --series --link`；字級只用 `--fs-s/m/l/xl`；間距用 `--s1..--s6`
+- 長段文字容器加 class `read`（襯線、行高 1.8）；正文欄寬用 `.page`（已限制約 36 字）
+- 不准：`!important`、inline `style=` 屬性、陰影、圓角大於 4px、emoji 圖示、hover 位移動畫、`font-style: italic` 用在中文
+- 點擊目標（連結列、按鈕、summary）最小高度 `var(--tap)`
+- 手機 320px 寬不得出現水平捲動
+- 每頁 `<body class="series-vortex">`（Vortex 頁）
+- `<html lang="zh-Hant">`，標題層級不跳級（h1→h2→h3）
+
+## 內容呈現鐵則（違反即驗收失敗）
+1. **有標題就要有內容**：區塊標題只在該欄位實際有非空值時才輸出。判空用 `{{ with }}`，字串先 `plainify | strings.TrimSpace` 再判
+2. **絕不把 map 直接印出**（會出現 `map[...]`）。欄位可能是字串、清單或 map，一律交給共用 partial `next/layouts/_partials/value.html`（W5 建立）遞迴處理
+3. 不用 Hugo 的 `.Summary`
+4. 文字欄位一律過 `markdownify`（資料中有 `**粗體**`）
+5. `certainty`、`verification_status: unverified` 等確定性標記要顯示，不可省略；`unverified` 顯示「未查證」
+6. 呼吸、安全相關內容不可預設收合（本批次不涉及呼吸頁，但原則保留）
+
+## Vortex 資料（`data/vortex/*.yaml`，唯讀）
+| 單位 type | 來源 | id | 標題欄 | 數量 |
+|---|---|---|---|---|
+| move | `free.yaml back.yaml breast.yaml fly.yaml udk.yaml starts-turns.yaml` 的 `moves[]`（欄位 n,name,one,l,physical,boundary,drills,lnote,cue_bad,cue_why,cue_good）；頂層 `premise` 是該式導言字串 | `{stroke}.move.{n}`，stroke＝檔名去 .yaml | name | 51 |
+| drill | `drills.yaml` 的 `drills[]`（id,name_zh,name_en,strokes,category,equipment,l_target,purpose_zh,how_to,perception_goal,success_signal,failure_signal,deficiency_fixes,difficulty_tier,source_ids…）；`categories[]` 有 key,name_zh | id（如 `Fr1`） | name_zh | 179 |
+| tech | `technical-analysis.yaml` 的 `points[]`（id,stroke,category,title,nav_zh,summary,mechanism,practical_implication,perception_signal,evidence,cross_ref_ids）；`categories[]` | id（如 `free.tech.4`） | nav_zh 優先，否則 title | 222 |
+| error | `teaching-errors.yaml` 的 `errors[]`（id,stroke,category,title,misconception,physical_reason,correct_concept,perception_impact,evidence,cross_ref_ids）；`categories[]` | id（如 `free.err1`） | title | 104 |
+| problem | `problems.yaml` 的 `problems[]`（id,stroke,category,title,observable,mechanism_summary,links{technical_analysis[],drills[],interventions[],water_interventions[]},cross_ref_ids）；`categories[]` | id | title | 73 |
+| injury | `injuries.yaml` 的 `injuries[]`（id,zh,en,category,mechanism,epidemiology,risk_factors,prevention,management,links{mechanism_link_ids,technical_link_ids,perception_link_ids},…）；`categories[]` | id | zh | 47 |
+| level | `water-sense-levels.yaml` 的 `levels[]`（id,stroke,level,name_zh,tagline,description,indicators,methods[{name,detail,cue}],stagnation,milestone） | id（如 `free.L0`、`breast.pre`） | name_zh | 26 |
+| psy | `psychology.yaml` 的 `themes[]`（id,name_zh,nav_zh,when_zh,lead_zh,premise,concepts[]） | id（如 `psych.fear`） | name_zh | 8 |
+| psyc | 上述每個 theme 的 `concepts[]`（id,name_zh,phenomenon,misconception_refs[{cue,why,better}],intervention_refs[{name,certainty,how_to}],l_levels） | id | name_zh | 62 |
+
+泳式 key 與中文名：`free` 自由式、`back` 仰式、`breast` 蛙式、`fly` 蝶式、`udk` 水下海豚腿、`starts-turns` 出發與轉身。
+drill 的 `strokes` 用另一套值：`freestyle→free`、`backstroke→back`、`breaststroke→breast`、`butterfly→fly`、`underwater_dolphin_kick→udk`、`starts_turns→starts-turns`。
+
+## 網址規則（W1 算好寫進 JSON，其他單照用）
+| type | 路徑（相對站根，不含 baseURL） |
+|---|---|
+| move | `vortex/moves/{stroke}-{n}/` |
+| drill | `vortex/drills/{slug}/` |
+| tech | `vortex/tech/{slug}/` |
+| error | `vortex/errors/{slug}/` |
+| problem | `vortex/problems/{slug}/` |
+| injury | `vortex/injuries/{slug}/` |
+| level | `vortex/levels/{slug}/` |
+| psy / psyc | `vortex/mind/{slug}/` |
+| 泳式樞紐頁 | `vortex/{stroke}/` |
+| 集合清單頁 | `vortex/drills/`、`vortex/tech/`、`vortex/errors/`、`vortex/problems/`、`vortex/injuries/`、`vortex/levels/`、`vortex/mind/` |
+
+slug＝id 轉小寫，`.` 與 `_` 換成 `-`。
+
+---
+
+# W1：Vortex 知識點雙向連結索引
+
+## 產出檔（只准建立這兩個）
+- `tools/build_vortex_links.py`
+- `tools/test_vortex_links.py`
+執行 build 後產生 `next/data/vortex_links.json`。
+
+## build_vortex_links.py 規格
+Python 3，只依賴 PyYAML 與標準函式庫。讀 `data/vortex/*.yaml`（見共用背景的表），輸出 UTF-8 JSON（`ensure_ascii=False`，`indent=None`，`separators=(",",":")`）。
+可用 `python -X utf8 tools/build_vortex_links.py` 執行；repo 根目錄由 `Path(__file__).resolve().parents[1]` 推得，不依賴 cwd。
+
+### JSON 結構
+```json
+{
+  "units": {
+    "<id>": {
+      "type": "move|drill|tech|error|problem|injury|level|psy|psyc",
+      "title": "<標題>",
+      "hook": "<一句話，見下>",
+      "stroke": "<泳式 key 或空字串>",
+      "category": "<category key 或空字串>",
+      "category_name": "<該集合 categories 對應的 name_zh，查不到就用 key 本身>",
+      "path": "<網址路徑，見網址規則>",
+      "record": { 原始資料整筆（psy 的 record 要刪掉 concepts 欄位以免重複） }
+    }
+  },
+  "out": { "<id>": [ {"to": "<id>", "rel": "<關係>"} ] },
+  "in":  { "<id>": [ {"from": "<id>", "rel": "<關係>"} ] },
+  "strokes": { "<stroke>": {"name_zh": "...", "premise": "<該式 yaml 的 premise>", "moves": ["<move id>", ...依 n 排序]} },
+  "categories": { "<type>": [ {"key": "...", "name_zh": "..."} ] },
+  "stats": { "units_by_type": {}, "edges_by_rel": {}, "unresolved": [ {"from": "<id>", "ref": "<原始值>", "field": "<欄位>"} ] }
+}
+```
+- 每個 unit 都要在 `out` 與 `in` 出現（沒有連結就是空陣列）。
+- 同一對 (from, to, rel) 只記一次；不記自己連自己。
+- `in` 必須恰好是 `out` 的反向。
+
+### hook（一句話）取值，依序取第一個非空字串，去掉 `**`，截到 80 字（超過加「…」）
+- move：one　- drill：purpose_zh　- tech：summary　- error：misconception
+- problem：observable（若是清單取第一項）→ mechanism_summary　- injury：en
+- level：tagline　- psy：when_zh → lead_zh　- psyc：phenomenon
+
+### 連結解析（rel 值照寫）
+1. `practice`：move → drill。move 的 `drills` 是 drill 的**中文名**清單；以 `name_zh` 完全相等比對。若同名 drill 超過一個，取 `strokes` 含該 move 泳式者；仍多於一個就全部連並記入 unresolved（field=`drills-ambiguous`）。找不到記 unresolved。
+2. `fixes`：drill → move。drill 的 `deficiency_fixes` 是整數清單，代表該泳式 move 的 `n`。對 drill 的每個泳式（先轉成 key）找 `{stroke}.move.{n}`，存在就連；該 n 在所有泳式都不存在時記 unresolved。
+3. `level`：drill → level。對 drill 每個泳式 key 與每個 `l_target`（如 `L3`），若 `{stroke}.{L}` 是 level id 就連（蛙式、蝶式沒有 L0、L1，找不到不算錯誤、不記 unresolved）。
+4. `ref`：`cross_ref_ids`（tech、error、problem）中每個 id；目標必須存在於 units，否則記 unresolved。
+5. `ref`：problem 的 `links.technical_analysis[]`、`links.drills[]`（drill 用 id）。`interventions`、`water_interventions` 不是 Vortex 單位，略過不記。
+6. `ref`：injury 的 `links.mechanism_link_ids`、`technical_link_ids`、`perception_link_ids`（可能是 null 或空）。
+7. `part_of`：psyc → 所屬 psy。
+8. 任何其他欄位的文字都不要做模糊比對，只解析上面列出的欄位。
+
+`strokes`：6 式各一筆，moves 依 n 排序。`categories`：drill、tech、error、problem、injury 各自的 categories 清單原樣。
+
+執行結束印一行摘要：各 type 數量、各 rel 數量、unresolved 數量。
+
+## test_vortex_links.py 規格
+執行 build（import 或 subprocess 皆可）後載入 JSON，逐條 assert，全部通過印 `ALL PASS` 並 exit 0，任一失敗印出原因並 exit 1：
+1. 各 type 數量：move 51、drill 179、tech 222、error 104、problem 73、injury 47、level 26、psy 8、psyc 62（數字要從 yaml 重新計算後比對，不要只寫死；寫死值與重算值都要相等）
+2. `practice` 邊數 == 所有 move 的 `drills` 名稱總數（103），且 unresolved 中沒有 field 為 `drills` 的項目
+3. 每條 out 邊的目標存在；in 恰好是 out 的反向（集合相等）
+4. 每個 unit 的 path 以 `vortex/` 開頭、以 `/` 結尾，且全部唯一
+5. 至少 140 個 drill 有 `fixes` 邊
+6. 每個 drill 至少有一條 `level` 邊，或其所有泳式都沒有對應 level（udk、starts-turns 沒有 level）
+7. JSON 中找不到字串 `map[`
+
+## 驗收指令（必須實際跑且通過）
+```
+python -X utf8 tools/build_vortex_links.py
+python -X utf8 tools/test_vortex_links.py
+```
+
+## 完成條件
+你必須實際執行 `python -X utf8 next/specs/check.py W1`，直到它印出 `PASS W1`。不准修改 next/specs/ 底下任何檔案。
+
+## 上一次嘗試的驗收失敗輸出（請修正這些問題；檔案已在磁碟上，接著改即可）
+```
+FAIL W1（1 項）
+ - tools/test_vortex_links.py 失敗：
+C:\Users\hangs\AppData\Local\Programs\Python\Python312\python.exe: can't open file 'C:\\claudehome\\projects\\my-site\\tools\\test_vortex_links.py': [Errno 2] No such file or directory
+```
+
+ERROR: You’ve hit your usage limit. Upgrade to Pro (https://chatgpt.com/explore/pro), visit https://chatgpt.com/codex/settings/usage to purchase more credits or try again at Sep 28th, 2026 6:58 AM.
+ERROR: You’ve hit your usage limit. Upgrade to Pro (https://chatgpt.com/explore/pro), visit https://chatgpt.com/codex/settings/usage to purchase more credits or try again at Sep 28th, 2026 6:58 AM.
+[09-25 23:27:36] W1 警告：動到允許範圍外的檔案（不會 commit，需人工檢查）：t.py
+FAIL W1（1 項）
+ - tools/test_vortex_links.py 失敗：
+C:\Users\hangs\AppData\Local\Programs\Python\Python312\python.exe: can't open file 'C:\\claudehome\\projects\\my-site\\tools\\test_vortex_links.py': [Errno 2] No such file or directory
+[09-25 23:27:37] W1 第 4 次驗收未過
+[09-25 23:27:37] W1 失敗，佇列停止
+[09-25 23:29:34] === 佇列開始（起點 W3）===
+[09-25 23:29:34] --- W3 開始 ---
+[09-25 23:29:34] W3 第 1 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 40｜input 16659｜cache_read 584064｜output 5256
+完成。W3 已通過驗收。
+
+**產出檔：**
+- `hugo.next.toml`（新建）
+- `.github/workflows/deploy.yml`（在 Build 與 Upload 之間插入 `Build next preview` 步驟）
+- `next/layouts/baseof.html`、`home.html`、`page.html`、`section.html`（新建）
+- `next/layouts/_partials/head.html`、`site-head.html`（新建；site-head 含系列名、crumbs 排除首頁/vortex 首頁）
+- `next/content/_index.md`（title: Cortex）、`next/content/vortex/_index.md`（title: Vortex 水感 + description + params.role=home）
+
+**驗收結果：** `python -X utf8 next/specs/check.py W3` 印出 `PASS W3`。
+- Hugo 新版建置成功（2 頁、201 ms）
+- 正式站 `hugo --minify` 仍正常建置，未受影響
+
+**注意：** W3 工作單明令禁止 git 操作，所以不會自動 commit；attribution 提醒僅在 commit/PR 時適用，本任務未觸發。
+PASS W3

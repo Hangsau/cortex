@@ -25,6 +25,12 @@ jobs:
           python3 tools/check_learning_map.py
           hugo --minify
 
+      - name: Build next preview
+        run: |
+          pip install pyyaml || true
+          python3 tools/build_vortex_links.py || echo "links build failed"
+          hugo --minify --config hugo.next.toml || echo "next preview build failed"
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

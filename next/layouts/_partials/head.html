@@ -1,0 +1,19 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{- $isHome := .IsHome -}}
+<title>{{ if $isHome }}Cortex{{ else }}{{ .Title }} · Cortex{{ end }}</title>
+{{- with .Description }}
+<meta name="description" content="{{ . }}">
+{{- end }}
+{{- $tokens := resources.Get "css/tokens.css" | fingerprint }}
+{{- $shell := resources.Get "css/shell.css" | fingerprint }}
+<link rel="stylesheet" href="{{ $tokens.RelPermalink }}" integrity="{{ $tokens.Data.Integrity }}" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ $shell.RelPermalink }}" integrity="{{ $shell.Data.Integrity }}" crossorigin="anonymous">
+{{- with .Params.css }}
+  {{- range . }}
+    {{- $extra := resources.Get (printf "css/%s" .) | fingerprint }}
+    {{- if $extra }}
+<link rel="stylesheet" href="{{ $extra.RelPermalink }}" integrity="{{ $extra.Data.Integrity }}" crossorigin="anonymous">
+    {{- end }}
+  {{- end }}
+{{- end }}

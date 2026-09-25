@@ -1,0 +1,25 @@
+baseURL = "https://hangsau.github.io/cortex/next/"
+languageCode = "zh-Hant"
+title = "Cortex"
+publishDir = "public/next"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap", "robotsTXT"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[module]
+  [[module.mounts]]
+    source = "next/content"
+    target = "content"
+  [[module.mounts]]
+    source = "next/layouts"
+    target = "layouts"
+  [[module.mounts]]
+    source = "next/assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "data"
+    target = "data"
+  [[module.mounts]]
+    source = "next/data"
+    target = "data"
