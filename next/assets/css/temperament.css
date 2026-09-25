@@ -1,0 +1,76 @@
+/* L5：兒童九種氣質（temperament）專用樣式（Claude 手寫）。
+   只用 tokens；不卡片框、不陰影、圓角 0。
+   覆寫 / 補充 library.css 與 entry.css 既有類別的視覺。 */
+
+/* ---------- 維度比較表 ---------- */
+.t-dims {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-s);
+  margin: 0;
+}
+.t-dims thead th { border-top: 2px solid var(--ink); padding: var(--s1); text-align: left; font-weight: 700; }
+.t-dims tbody th,
+.t-dims tbody td { border-top: 1px solid var(--rule); padding: var(--s1); vertical-align: top; }
+.t-dims tbody th { font: 700 var(--fs-m)/1.4 var(--f-serif); white-space: nowrap; }
+.t-dims tbody th a { color: var(--ink); text-decoration: none; }
+.t-dims tbody th a:hover { color: var(--series); text-decoration: underline; }
+
+/* 每列末的確定性（用 list 形式放在表格下，避免 mobile 直排時混在一起） */
+.t-certs { list-style: none; margin: var(--s3) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s1) var(--s3); font-size: var(--fs-s); }
+.t-certs li { display: flex; gap: var(--s1); align-items: baseline; border-top: 1px solid var(--rule); padding: var(--s1) 0; min-height: var(--tap); }
+.t-certs li a { color: var(--ink); text-decoration: none; }
+.t-certs li a:hover { color: var(--series); text-decoration: underline; }
+.t-certs li .cert { margin-left: auto; }
+
+/* ---------- 兩極並排（偏高時 / 偏低時）---------- */
+.t-poles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s4);
+}
+.t-poles section { border-top: 2px solid var(--series); padding-top: var(--s2); }
+.t-poles section h3 { font: 700 var(--fs-m)/1.4 var(--f-sans); color: var(--series); margin: 0 0 var(--s2); letter-spacing: .06em; }
+.t-poles section p { margin: 0; }
+
+/* ---------- 適配度：教學應用區段 ---------- */
+.le-subblock { margin-top: var(--s4); }
+.le-subblock > h3 { font: 700 var(--fs-l)/1.3 var(--f-serif); margin: 0 0 var(--s2); border-top: 1px solid var(--rule); padding-top: var(--s2); }
+.le-subblock:first-of-type > h3 { border-top: 0; padding-top: 0; }
+.le-subblock .t-note { margin-top: var(--s3); padding-top: var(--s2); border-top: 1px solid var(--rule); }
+
+/* 九維度教學著力點（名稱 + 說明的 dl） */
+.t-dim-table { margin: 0; }
+.t-dim-table > div { padding: var(--s2) 0; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 7em 1fr; gap: var(--s2); }
+.t-dim-table > div:first-child { border-top: 0; }
+.t-dim-table dt { font: 700 var(--fs-m)/1.4 var(--f-serif); margin: 0; }
+.t-dim-table dd { margin: 0; font-family: var(--f-serif); line-height: 1.8; }
+.t-dim-table dd p { margin: 0; }
+
+/* INSIGHTS 四型列表 */
+.t-insights-types li { font-family: var(--f-serif); }
+
+/* ---------- 參考文獻 ---------- */
+.t-refs { list-style: decimal; padding-left: 1.6em; margin: 0; font-size: var(--fs-s); }
+.t-refs li { font-family: var(--f-serif); line-height: 1.7; margin-bottom: var(--s1); }
+.t-refs li .cert { display: inline-block; min-width: 1.6em; margin-right: .4em; }
+
+/* ---------- 確定性圖例 ---------- */
+.t-legend { margin-top: var(--s5); }
+
+/* ---------- 條目頁備註 ---------- */
+.t-note { margin-top: var(--s3); }
+
+/* ---------- 手機：表格直排、兩極單欄、dl 直排 ---------- */
+@media (max-width: 600px) {
+  .t-certs { grid-template-columns: 1fr; }
+  .t-poles { grid-template-columns: 1fr; gap: var(--s3); }
+  .t-dim-table > div { grid-template-columns: 1fr; gap: var(--s1); }
+  .t-dims { display: block; }
+  .t-dims thead { display: none; }
+  .t-dims tbody, .t-dims tr, .t-dims th, .t-dims td { display: block; width: 100%; }
+  .t-dims tbody tr { border-top: 2px solid var(--ink); padding-top: var(--s2); margin-bottom: var(--s2); }
+  .t-dims tbody th { white-space: normal; padding: 0 0 var(--s1); }
+  .t-dims tbody td { border-top: 0; padding: var(--s1) 0; }
+  .t-dims tbody td::before { content: attr(data-pole); display: block; font-size: var(--fs-s); color: var(--ink-2); margin-bottom: 4px; }
+}

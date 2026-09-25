@@ -51,7 +51,7 @@ def load_json(path):
 
 def load_front(path):
     text = path.read_text(encoding="utf-8")
-    m = re.match(r"^---\s*\n(.*?)\n---\s*\n", text, re.DOTALL)
+    m = re.match(r"^---\s*\n(.*?)\n---\s*(?:\n|$)", text, re.DOTALL)
     if not m:
         return {}
     return yaml.load(m.group(1), Loader=StrLoader)

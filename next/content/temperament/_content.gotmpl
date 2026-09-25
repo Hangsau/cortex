@@ -1,0 +1,41 @@
+{{- /*
+  L5：兒童九種氣質（temperament）content adapter。
+  - 5 個文章頁：traits / types / frameworks / fit / critique
+  - 9 個維度頁：traits/<key>
+  順序／desc 來自 next/data/library.json 的 temperament 系列；data 從 data/temperament/*.yaml 讀。
+  gotmpl 本身已位於 temperament/ 之下，AddPage 用相對路徑即可。
+*/ -}}
+
+{{- $temp := index $.Site.Data "temperament" -}}
+{{- $lib := index $.Site.Data "library" -}}
+{{- $series := "" }}
+{{- range $s := $lib.series }}{{ if eq $s.id "temperament" }}{{ $series = $s }}{{ end }}{{ end }}
+
+{{- /* 文章頁：path = <id 去 "temp." 前綴>，title／desc 從 library.json 取 */ -}}
+{{- range $c := $series.chapters }}
+  {{- $slug := strings.TrimPrefix "temp." $c.id }}
+  {{- $.AddPage (dict
+      "path"        $slug
+      "kind"        "page"
+      "title"       $c.title
+      "description" $c.desc
+      "params"      (dict
+        "role"    "temp-article"
+        "article" $slug
+      )
+    ) }}
+{{- end }}
+
+{{- /* 9 個維度頁：path traits/<key>，title＝name_zh，params.key=<key>、description=definition */ -}}
+{{- range $d := $temp.traits.dimensions }}
+  {{- $.AddPage (dict
+      "path"        (printf "traits/%s" $d.key)
+      "kind"        "page"
+      "title"       $d.name_zh
+      "description" $d.definition
+      "params"      (dict
+        "role" "temp-dimension"
+        "key"  $d.key
+      )
+    ) }}
+{{- end }}

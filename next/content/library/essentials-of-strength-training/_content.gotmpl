@@ -4,7 +4,9 @@
     - 24 個章節頁（path ch01…ch24）
     - 1 個概念索引頁（path concepts）
 */ -}}
-{{- $cscs := $.Site.Data.cscs -}}
+{{- $cscs := hugo.Data.cscs -}}
+{{- $libTitles := dict -}}
+{{- range hugo.Data.library.series }}{{ if eq .id "cscs" }}{{ range .chapters }}{{ $libTitles = merge $libTitles (dict .id .title) }}{{ end }}{{ end }}{{ end -}}
 
 {{- /* 章節頁：path 為相對於本檔目錄（library/essentials-of-strength-training/） */ -}}
 {{- range $n := slice 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 }}
@@ -18,7 +20,7 @@
   {{- $.AddPage (dict
       "path"        $key
       "kind"        "page"
-      "title"       $ch.title
+      "title"       (index $libTitles $key | default $ch.title)
       "description" $description
       "params"      (dict
         "role"        "cscs-chapter"

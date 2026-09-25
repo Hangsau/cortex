@@ -494,3 +494,10 @@ L4 驗收通過。
 
 **驗收結果：** `python -X utf8 next/specs/check.py L4` 印出 `PASS L4`（首次建置後即通過，無失敗項）。
 PASS L4
+[09-26 04:16:49] L4 通過並已 push
+[09-26 04:16:49] --- L5 開始 ---
+[09-26 04:16:49] L5 第 1 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 81｜input 61700｜cache_read 3442432｜output 14618
+
+PASS L5

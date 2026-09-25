@@ -1,0 +1,62 @@
+{{- /* L5：氣質維度頁（traits/<key>）。左右兩極、提醒、全部九個維度導覽。 */ -}}
+{{- $p := .page -}}
+{{- $s := .series -}}
+{{- $key := $p.Params.key -}}
+{{- $temp := index hugo.Data "temperament" -}}
+{{- $dim := "" }}
+{{- range $d := $temp.traits.dimensions }}{{ if eq $d.key $key }}{{ $dim = $d }}{{ end }}{{ end }}
+{{- $dims := $temp.traits.dimensions -}}
+{{- $no := int $dim.no -}}
+{{- $css := resources.Get "css/library.css" | fingerprint -}}
+{{- $ecss := resources.Get "css/entry.css" | fingerprint -}}
+{{- $tcss := resources.Get "css/temperament.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+<link rel="stylesheet" href="{{ $ecss.RelPermalink }}">
+<link rel="stylesheet" href="{{ $tcss.RelPermalink }}">
+
+<article class="lib-chapter lib-entry">
+  <header class="lc-head">
+    <p class="kicker">兒童九種氣質 · 第 {{ $no }} 個維度</p>
+    <h1>{{ $dim.name_zh }}</h1>
+    <p class="muted">{{ $dim.name_en }}</p>
+    <p class="lc-lead">{{ $dim.definition | markdownify }}<span class="cert">　{{ $dim.cert }}</span></p>
+  </header>
+
+  <section class="le-block">
+    <h2>兩極</h2>
+    <div class="t-poles">
+      <section>
+        <h3>偏高時</h3>
+        <p class="read">{{ $dim.high | markdownify }}</p>
+      </section>
+      <section>
+        <h3>偏低時</h3>
+        <p class="read">{{ $dim.low | markdownify }}</p>
+      </section>
+    </div>
+    {{- with $dim.note }}
+    <p class="muted t-note">{{ . | markdownify }}</p>
+    {{- end }}
+  </section>
+
+  <section class="le-block">
+    <p class="le-claim">偏高或偏低都不是問題本身；要看的是這個特性和孩子所處的環境要求合不合得來。<br><a href="{{ relURL "temperament/fit/" }}">看適配度怎麼應用 →</a></p>
+  </section>
+
+  <nav class="le-siblings" aria-label="九個維度">
+    <p class="kicker">全部九個維度</p>
+    <ul>
+      {{- range $d := $dims }}
+      <li>
+        {{- if eq $d.key $key }}
+        <a aria-current="page"><b>{{ $d.no }}. {{ $d.name_zh }}</b><span class="muted">{{ $d.definition }}</span></a>
+        {{- else }}
+        <a href="{{ relURL (printf "temperament/traits/%s/" $d.key) }}"><b>{{ $d.no }}. {{ $d.name_zh }}</b><span class="muted">{{ $d.definition }}</span></a>
+        {{- end }}
+      </li>
+      {{- end }}
+    </ul>
+  </nav>
+
+  <p class="t-legend muted">確定性：🔵 經典 · 🟢 驗證 · 🟡 待查 · 🟠 新興 · 🔴 延伸</p>
+</article>

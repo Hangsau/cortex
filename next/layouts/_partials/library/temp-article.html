@@ -1,0 +1,213 @@
+{{- /* L5：氣質系列文章頁（traits / types / frameworks / fit / critique）。
+       依 .Params.article 分支到五種呈現；頁尾有上下篇 lc-pager ＋ 確定性圖例。 */ -}}
+{{- $p := .page -}}
+{{- $s := .series -}}
+{{- $art := $p.Params.article -}}
+{{- $temp := index hugo.Data "temperament" -}}
+{{- $css := resources.Get "css/library.css" | fingerprint -}}
+{{- $ecss := resources.Get "css/entry.css" | fingerprint -}}
+{{- $tcss := resources.Get "css/temperament.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+<link rel="stylesheet" href="{{ $ecss.RelPermalink }}">
+<link rel="stylesheet" href="{{ $tcss.RelPermalink }}">
+
+{{- /* 在 chapters 序列中找自己，以便做 pager */ -}}
+{{- $idx := -1 }}
+{{- range $i, $c := $s.chapters }}{{ if eq (relURL $c.path) $p.RelPermalink }}{{ $idx = $i }}{{ end }}{{ end }}
+
+<article class="lib-chapter">
+  <header class="lc-head">
+    <p class="kicker">兒童九種氣質 · 第 {{ add $idx 1 }} 篇</p>
+    <h1>{{ $p.Title }}</h1>
+    {{- with $p.Description }}<p class="lc-lead">{{ . }}</p>{{ end }}
+  </header>
+
+  {{- if eq $art "traits" }}
+    {{- /* 九個維度：導言 + 比較表 */ -}}
+  <section class="le-block">
+    <p class="read">九個維度來自 Thomas 與 Chess 的紐約縱貫研究（NYLS）。每個維度都是一把尺，孩子落在哪裡沒有好壞，重要的是環境怎麼配合。</p>
+  </section>
+  <section class="le-block">
+    <h2>九個維度一覽</h2>
+    <table class="t-dims">
+      <thead>
+        <tr><th scope="col">維度</th><th scope="col">偏高時</th><th scope="col">偏低時</th></tr>
+      </thead>
+      <tbody>
+        {{- range $d := $temp.traits.dimensions }}
+        <tr>
+          <th scope="row">
+            <a href="{{ relURL (printf "temperament/traits/%s/" $d.key) }}">{{ $d.name_zh }}<span class="muted"> {{ $d.name_en }}</span></a>
+          </th>
+          <td data-pole="偏高時">{{ $d.high }}</td>
+          <td data-pole="偏低時">{{ $d.low }}</td>
+        </tr>
+        {{- end }}
+      </tbody>
+    </table>
+    <ul class="t-certs" aria-label="維度確定性">
+      {{- range $d := $temp.traits.dimensions }}
+      <li><a href="{{ relURL (printf "temperament/traits/%s/" $d.key) }}">{{ $d.name_zh }}</a><span class="cert">{{ $d.cert }}</span></li>
+      {{- end }}
+    </ul>
+  </section>
+
+  {{- else if eq $art "types" }}
+    {{- /* 三型傾向：note + 每型一塊 */ -}}
+    {{- with $temp.types.note }}
+  <section class="le-block">
+    <p class="le-claim">{{ . | markdownify }}</p>
+  </section>
+    {{- end }}
+    {{- range $t := $temp.types.types }}
+  <section class="le-block">
+    <h2>{{ $t.name_zh }}<span class="muted"> {{ $t.name_en }}</span><span class="cert">{{ $t.ratio }}　{{ $t.cert }}</span></h2>
+    <p class="read"><b>{{ $t.summary | markdownify }}</b></p>
+    <p class="read">{{ $t.detail | markdownify }}</p>
+  </section>
+    {{- end }}
+
+  {{- else if eq $art "frameworks" }}
+    {{- /* 現代框架：每框架一塊 */ -}}
+    {{- range $f := $temp.frameworks.frameworks }}
+  <section class="le-block">
+    <h2>{{ $f.name_zh }}<span class="cert">{{ $f.cert }}</span></h2>
+    <p class="muted">{{ $f.name_en }}</p>
+    <p class="le-claim">{{ $f.lead | markdownify }}</p>
+    <ul class="le-points">
+      {{- range $f.points }}<li>{{ . | markdownify }}</li>{{ end }}
+    </ul>
+  </section>
+    {{- end }}
+
+  {{- else if eq $art "fit" }}
+    {{- /* 適配度應用：核心 / 配合策略 / 教室 / 三線合 / 教學應用 */ -}}
+  <section class="le-block">
+    <h2>核心</h2>
+    <p class="le-claim">{{ $temp.fit.thesis | markdownify }}</p>
+  </section>
+
+  <section class="le-block">
+    <h2>不同氣質怎麼配合</h2>
+    {{- range $st := $temp.fit.strategies }}
+    <section class="le-subblock">
+      <h3>{{ $st.name_zh }}<span class="cert">{{ $st.cert }}</span></h3>
+      <p class="read">{{ $st.body | markdownify }}</p>
+    </section>
+    {{- end }}
+  </section>
+
+  <section class="le-block">
+    <h2>教室</h2>
+    <p class="read">{{ $temp.fit.classroom | markdownify }}</p>
+  </section>
+
+  <section class="le-block">
+    <h2>三條線怎麼合起來</h2>
+    <ul class="le-points">
+      {{- range $temp.fit.synthesis }}<li>{{ . | markdownify }}</li>{{ end }}
+    </ul>
+  </section>
+
+  <section class="le-block">
+    <h2>教學應用</h2>
+    {{- with $temp.fit.teaching.lead }}
+    <p class="read">{{ . | markdownify }}</p>
+    {{- end }}
+
+    {{- /* Keogh 的三個教學相關氣質 */ -}}
+    <section class="le-subblock">
+      <h3>Keogh 的三個教學相關氣質</h3>
+      <ul class="le-points">
+        {{- range $temp.fit.teaching.keogh }}
+        <li><b>{{ .name_zh }}</b><span class="cert">{{ .cert }}</span><br>{{ .body | markdownify }}</li>
+        {{- end }}
+      </ul>
+      {{- with $temp.fit.teaching.keogh_note }}
+      <p class="muted t-note">{{ . | markdownify }}</p>
+      {{- end }}
+    </section>
+
+    {{- /* 九個維度的教學著力點 */ -}}
+    <section class="le-subblock">
+      <h3>九個維度的教學著力點</h3>
+      <dl class="t-dim-table">
+        {{- range $temp.fit.teaching.dimensions }}
+        <div><dt>{{ .name_zh }}</dt><dd>{{ .body | markdownify }}</dd></div>
+        {{- end }}
+      </dl>
+    </section>
+
+    {{- /* 三型在教學現場的常見誤判 */ -}}
+    <section class="le-subblock">
+      <h3>三型在教學現場的常見誤判</h3>
+      <ul class="le-points">
+        {{- range $temp.fit.teaching.types }}
+        <li><b>{{ .name_zh }}</b><br>{{ .body | markdownify }}</li>
+        {{- end }}
+      </ul>
+      {{- with $temp.fit.teaching.types_note }}
+      <p class="muted t-note">{{ . | markdownify }}</p>
+      {{- end }}
+    </section>
+
+    {{- /* INSIGHTS 校園方案 */ -}}
+    <section class="le-subblock">
+      <h3>INSIGHTS：把氣質帶進校園的隨機對照試驗</h3>
+      {{- with $temp.fit.teaching.insights.lead }}
+      <p class="read">{{ . | markdownify }}</p>
+      {{- end }}
+      <ul class="le-points t-insights-types">
+        {{- range $temp.fit.teaching.insights.types }}<li>{{ . | markdownify }}</li>{{ end }}
+      </ul>
+    </section>
+
+    {{- /* 兩個常見陷阱 */ -}}
+    <section class="le-subblock">
+      <h3>兩個常見陷阱</h3>
+      <ul class="le-points">
+        {{- range $temp.fit.teaching.traps }}<li>{{ . | markdownify }}</li>{{ end }}
+      </ul>
+    </section>
+
+    {{- /* 帶進水裡 */ -}}
+    <section class="le-subblock">
+      <h3>帶進水裡</h3>
+      {{- with $temp.fit.teaching.sport.lead }}
+      <p class="read">{{ . | markdownify }}</p>
+      {{- end }}
+      <ul class="le-points">
+        {{- range $temp.fit.teaching.sport.points }}<li>{{ . | markdownify }}</li>{{ end }}
+      </ul>
+    </section>
+  </section>
+
+  {{- else if eq $art "critique" }}
+    {{- /* 批判與邊界：每項一塊 + 參考文獻 */ -}}
+    {{- range $it := $temp.critique.items }}
+  <section class="le-block">
+    <h2>{{ $it.name_zh }}<span class="cert">{{ $it.cert }}</span></h2>
+    <p class="read">{{ $it.body | markdownify }}</p>
+  </section>
+    {{- end }}
+  <section class="le-block">
+    <h2>參考文獻</h2>
+    <ol class="t-refs">
+      {{- range $r := $temp.refs.refs }}
+      <li><span class="cert">{{ $r.cert }}</span>{{ $r.text }}</li>
+      {{- end }}
+    </ol>
+  </section>
+  {{- end }}
+
+  <nav class="lc-pager" aria-label="上下篇">
+    {{- if gt $idx 0 }}{{ with index $s.chapters (sub $idx 1) }}
+    <a class="lc-prev" href="{{ relURL .path }}"><span class="muted">上一篇</span><span>{{ .title }}</span></a>
+    {{- end }}{{ end }}
+    {{- if and (ge $idx 0) (lt (add $idx 1) (len $s.chapters)) }}{{ with index $s.chapters (add $idx 1) }}
+    <a class="lc-next" href="{{ relURL .path }}"><span class="muted">下一篇</span><span>{{ .title }}</span></a>
+    {{- end }}{{ end }}
+  </nav>
+
+  <p class="t-legend muted">確定性：🔵 經典 · 🟢 驗證 · 🟡 待查 · 🟠 新興 · 🔴 延伸</p>
+</article>
