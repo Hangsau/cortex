@@ -1,0 +1,277 @@
+{{- /* 動作圖譜（V6）。四個集合各一個 ls-sec：動作、肌群、泳式需求、介入。各筆元素 id 屬性等於資料 id；泳式需求依泳式分組；資料有交叉參照時以小字連到同頁錨點 #<id>。 */ -}}
+{{- $css1 := resources.Get "css/library.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css1.RelPermalink }}">
+{{- $css2 := resources.Get "css/topics-extra.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css2.RelPermalink }}">
+
+{{- $actions := slice -}}
+{{- $muscles := slice -}}
+{{- $demands := slice -}}
+{{- $interventions := slice -}}
+{{- with index hugo.Data "movement" "actions" -}}{{- with .actions -}}{{- $actions = . -}}{{- end -}}{{- end -}}
+{{- with index hugo.Data "movement" "muscle-groups" -}}{{- with .muscle_groups -}}{{- $muscles = . -}}{{- end -}}{{- end -}}
+{{- with index hugo.Data "movement" "stroke-demands" -}}{{- with .demands -}}{{- $demands = . -}}{{- end -}}{{- end -}}
+{{- with index hugo.Data "movement" "interventions" -}}{{- with .interventions -}}{{- $interventions = . -}}{{- end -}}{{- end -}}
+
+{{- $nameById := dict -}}
+{{- range $src := (slice $actions $muscles $demands $interventions) -}}
+  {{- range $e := $src -}}
+    {{- if $e.id -}}
+      {{- $label := "" -}}
+      {{- with $e.name_zh -}}{{- $label = . -}}{{- end -}}
+      {{- if $label -}}{{- $nameById = merge $nameById (dict $e.id $label) -}}{{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $demandByAction := dict -}}{{- $demandByMuscle := dict -}}
+{{- range $d := $demands -}}
+  {{- range $aid := $d.action_ids -}}
+    {{- $cur := index $demandByAction $aid -}}
+    {{- if not $cur -}}{{- $cur = slice -}}{{- end -}}
+    {{- $cur = $cur | append $d.id -}}
+    {{- $demandByAction = merge $demandByAction (dict $aid $cur) -}}
+  {{- end -}}
+  {{- range $mr := $d.muscle_roles -}}
+    {{- $mid := $mr.muscle_id -}}
+    {{- $cur := index $demandByMuscle $mid -}}
+    {{- if not $cur -}}{{- $cur = slice -}}{{- end -}}
+    {{- $cur = $cur | append $d.id -}}
+    {{- $demandByMuscle = merge $demandByMuscle (dict $mid $cur) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $interventionByAction := dict -}}{{- $interventionByDemand := dict -}}
+{{- range $iv := $interventions -}}
+  {{- range $aid := $iv.action_ids -}}
+    {{- $cur := index $interventionByAction $aid -}}
+    {{- if not $cur -}}{{- $cur = slice -}}{{- end -}}
+    {{- $cur = $cur | append $iv.id -}}
+    {{- $interventionByAction = merge $interventionByAction (dict $aid $cur) -}}
+  {{- end -}}
+  {{- range $did := $iv.demand_ids -}}
+    {{- $cur := index $interventionByDemand $did -}}
+    {{- if not $cur -}}{{- $cur = slice -}}{{- end -}}
+    {{- $cur = $cur | append $iv.id -}}
+    {{- $interventionByDemand = merge $interventionByDemand (dict $did $cur) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $actionRegions := slice -}}{{- $actionSeenRegions := dict -}}
+{{- range $a := $actions -}}
+  {{- $r := "" -}}{{- with $a.joint_region -}}{{- $r = . -}}{{- end -}}
+  {{- if not $r -}}{{- $r = "_none" -}}{{- end -}}
+  {{- if not (index $actionSeenRegions $r) -}}{{- $actionSeenRegions = merge $actionSeenRegions (dict $r true) -}}{{- $actionRegions = $actionRegions | append $r -}}{{- end -}}
+{{- end -}}
+
+{{- $muscleRegions := slice -}}{{- $muscleSeenRegions := dict -}}
+{{- range $m := $muscles -}}
+  {{- $regions := $m.joint_regions -}}
+  {{- if not $regions -}}{{- $regions = (slice "_none") -}}{{- end -}}
+  {{- range $r := $regions -}}
+    {{- if not $r -}}{{- $r = "_none" -}}{{- end -}}
+    {{- if not (index $muscleSeenRegions $r) -}}{{- $muscleSeenRegions = merge $muscleSeenRegions (dict $r true) -}}{{- $muscleRegions = $muscleRegions | append $r -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $demandStrokes := slice -}}{{- $demandSeenStrokes := dict -}}
+{{- range $d := $demands -}}
+  {{- $s := "" -}}{{- with $d.stroke -}}{{- $s = . -}}{{- end -}}
+  {{- if not $s -}}{{- $s = "_none" -}}{{- end -}}
+  {{- if not (index $demandSeenStrokes $s) -}}{{- $demandSeenStrokes = merge $demandSeenStrokes (dict $s true) -}}{{- $demandStrokes = $demandStrokes | append $s -}}{{- end -}}
+{{- end -}}
+
+{{- $total := add (add (len $actions) (len $muscles)) (add (len $demands) (len $interventions)) -}}
+
+<article class="lib-series vx-mv">
+  <header class="ls-hero">
+    <p class="kicker">Vortex · 動作圖譜</p>
+    <h1 class="ls-title">{{ .Title }}</h1>
+    {{- with .Description }}<p class="ls-lead">{{ . }}</p>{{ end }}
+    <p class="ls-stats">
+      <span><b>{{ len $actions }}</b> 動作</span>
+      <span><b>{{ len $muscles }}</b> 肌群</span>
+      <span><b>{{ len $demands }}</b> 泳式需求</span>
+      <span><b>{{ len $interventions }}</b> 介入</span>
+    </p>
+  </header>
+
+  {{- /* ===== 動作 ===== */ -}}
+  {{- if gt (len $actions) 0 -}}
+  <section class="ls-sec mv-sec" id="actions-sec" aria-labelledby="actions-h">
+    <h2 id="actions-h">動作（{{ len $actions }}）</h2>
+
+    {{- range $region := $actionRegions -}}
+      {{- $groupActions := slice -}}
+      {{- range $a := $actions -}}
+        {{- $r := "" -}}
+        {{- with $a.joint_region -}}{{- $r = . -}}{{- end -}}
+        {{- if not $r -}}{{- $r = "_none" -}}{{- end -}}
+        {{- if eq $r $region -}}{{- $groupActions = $groupActions | append $a -}}{{- end -}}
+      {{- end -}}
+      {{- if gt (len $groupActions) 0 -}}
+        {{- $label := $region -}}
+        {{- if eq $region "shoulder-arm" -}}{{- $label = "肩・臂" -}}{{- end -}}
+        {{- if eq $region "spine-neck" -}}{{- $label = "脊柱・頸" -}}{{- end -}}
+        {{- if eq $region "hip-knee" -}}{{- $label = "髖・膝" -}}{{- end -}}
+        {{- if eq $region "ankle-foot" -}}{{- $label = "踝・足" -}}{{- end -}}
+        {{- if eq $region "_none" -}}{{- $label = "未標示部位" -}}{{- end -}}
+    <div class="mv-group">
+      <p class="ls-part">{{ $label }}（{{ len $groupActions }}）</p>
+      <ul class="mv-list">
+        {{- range $a := $groupActions -}}
+        <li id="{{ $a.id }}">
+          {{- $title := "" -}}
+          {{- with $a.name_zh -}}{{- $title = . -}}{{- end -}}
+          {{- if not $title -}}{{- with $a.name -}}{{- $title = . -}}{{- end -}}{{- end -}}
+          {{- if not $title -}}{{- $title = $a.id -}}{{- end -}}
+          <span class="mv-name">{{ $title }}</span>
+          {{- with $a.claim_status }}<span class="mv-cert">主張：{{ . }}</span>{{- end -}}
+          {{- if $a.description -}}<p class="mv-desc">{{ $a.description | plainify | strings.TrimSpace }}</p>{{- end -}}
+          {{- $linked := index $demandByAction $a.id -}}
+          {{- if $linked -}}<p class="mv-xref"><span class="mv-xref-label">相關泳式需求</span>
+            {{- range $lid := $linked -}}{{- $n := index $nameById $lid -}}{{- if not $n -}}{{- $n = $lid -}}{{- end -}}<a href="#{{ $lid }}">{{ $n }}</a>
+            {{- end -}}</p>{{- end -}}
+          {{- $ivLinked := index $interventionByAction $a.id -}}
+          {{- if $ivLinked -}}<p class="mv-xref"><span class="mv-xref-label">相關介入</span>
+            {{- range $lid := $ivLinked -}}{{- $n := index $nameById $lid -}}{{- if not $n -}}{{- $n = $lid -}}{{- end -}}<a href="#{{ $lid }}">{{ $n }}</a>
+            {{- end -}}</p>{{- end -}}
+        </li>
+        {{- end -}}
+      </ul>
+    </div>
+      {{- end -}}
+    {{- end -}}
+  </section>
+  {{- end -}}
+
+  {{- /* ===== 肌群 ===== */ -}}
+  {{- if gt (len $muscles) 0 -}}
+  <section class="ls-sec mv-sec" id="muscles-sec" aria-labelledby="muscles-h">
+    <h2 id="muscles-h">肌群（{{ len $muscles }}）</h2>
+
+    {{- range $region := $muscleRegions -}}
+      {{- $groupMuscles := slice -}}
+      {{- range $m := $muscles -}}
+        {{- $regions := $m.joint_regions -}}
+        {{- $hit := false -}}
+        {{- if not $regions -}}
+          {{- if eq $region "_none" -}}{{- $hit = true -}}{{- end -}}
+        {{- else -}}
+          {{- if in $regions $region -}}{{- $hit = true -}}{{- end -}}
+        {{- end -}}
+        {{- if $hit -}}{{- $groupMuscles = $groupMuscles | append $m -}}{{- end -}}
+      {{- end -}}
+      {{- if gt (len $groupMuscles) 0 -}}
+        {{- $label := $region -}}
+        {{- if eq $region "shoulder-arm" -}}{{- $label = "肩・臂" -}}{{- end -}}
+        {{- if eq $region "spine-neck" -}}{{- $label = "脊柱・頸" -}}{{- end -}}
+        {{- if eq $region "hip-knee" -}}{{- $label = "髖・膝" -}}{{- end -}}
+        {{- if eq $region "ankle-foot" -}}{{- $label = "踝・足" -}}{{- end -}}
+        {{- if eq $region "_none" -}}{{- $label = "未標示部位" -}}{{- end -}}
+    <div class="mv-group">
+      <p class="ls-part">{{ $label }}（{{ len $groupMuscles }}）</p>
+      <ul class="mv-list">
+        {{- range $m := $groupMuscles -}}
+        <li id="{{ $m.id }}">
+          {{- $title := "" -}}
+          {{- with $m.name_zh -}}{{- $title = . -}}{{- end -}}
+          {{- if not $title -}}{{- with $m.name -}}{{- $title = . -}}{{- end -}}{{- end -}}
+          {{- if not $title -}}{{- $title = $m.id -}}{{- end -}}
+          <span class="mv-name">{{ $title }}</span>
+          {{- with $m.claim_status }}<span class="mv-cert">主張：{{ . }}</span>{{- end -}}
+          {{- if $m.description -}}<p class="mv-desc">{{ $m.description | plainify | strings.TrimSpace }}</p>{{- end -}}
+          {{- $linked := index $demandByMuscle $m.id -}}
+          {{- if $linked -}}<p class="mv-xref"><span class="mv-xref-label">相關泳式需求</span>
+            {{- range $lid := $linked -}}{{- $n := index $nameById $lid -}}{{- if not $n -}}{{- $n = $lid -}}{{- end -}}<a href="#{{ $lid }}">{{ $n }}</a>
+            {{- end -}}</p>{{- end -}}
+        </li>
+        {{- end -}}
+      </ul>
+    </div>
+      {{- end -}}
+    {{- end -}}
+  </section>
+  {{- end -}}
+
+  {{- /* ===== 泳式需求：依泳式分組 ===== */ -}}
+  {{- if gt (len $demands) 0 -}}
+  <section class="ls-sec mv-sec" id="demands-sec" aria-labelledby="demands-h">
+    <h2 id="demands-h">泳式需求（{{ len $demands }}）</h2>
+
+    {{- range $stroke := $demandStrokes -}}
+      {{- $groupDemands := slice -}}
+      {{- range $d := $demands -}}
+        {{- $s := "" -}}
+        {{- with $d.stroke -}}{{- $s = . -}}{{- end -}}
+        {{- if not $s -}}{{- $s = "_none" -}}{{- end -}}
+        {{- if eq $s $stroke -}}{{- $groupDemands = $groupDemands | append $d -}}{{- end -}}
+      {{- end -}}
+      {{- if gt (len $groupDemands) 0 -}}
+        {{- $label := $stroke -}}
+        {{- if eq $stroke "free" -}}{{- $label = "自由式" -}}{{- end -}}
+        {{- if eq $stroke "back" -}}{{- $label = "仰式" -}}{{- end -}}
+        {{- if eq $stroke "breast" -}}{{- $label = "蛙式" -}}{{- end -}}
+        {{- if eq $stroke "fly" -}}{{- $label = "蝶式" -}}{{- end -}}
+        {{- if eq $stroke "udk" -}}{{- $label = "水下海豚腿" -}}{{- end -}}
+        {{- if eq $stroke "starts-turns" -}}{{- $label = "起跳轉身" -}}{{- end -}}
+        {{- if eq $stroke "_none" -}}{{- $label = "未標示泳式" -}}{{- end -}}
+    <div class="mv-group">
+      <p class="ls-part">{{ $label }}（{{ len $groupDemands }}）</p>
+      <ul class="mv-list">
+        {{- range $d := $groupDemands -}}
+        <li id="{{ $d.id }}">
+          {{- $title := "" -}}
+          {{- with $d.name_zh -}}{{- $title = . -}}{{- end -}}
+          {{- if not $title -}}{{- with $d.name -}}{{- $title = . -}}{{- end -}}{{- end -}}
+          {{- if not $title -}}{{- $title = $d.id -}}{{- end -}}
+          <span class="mv-name">{{ $title }}</span>
+          {{- with $d.claim_status }}<span class="mv-cert">主張：{{ . }}</span>{{- end -}}
+          {{- if $d.description -}}<p class="mv-desc">{{ $d.description | plainify | strings.TrimSpace }}</p>{{- end -}}
+          {{- if $d.action_ids -}}<p class="mv-xref"><span class="mv-xref-label">相關動作</span>
+            {{- range $lid := $d.action_ids -}}{{- $n := index $nameById $lid -}}{{- if not $n -}}{{- $n = $lid -}}{{- end -}}<a href="#{{ $lid }}">{{ $n }}</a>
+            {{- end -}}</p>{{- end -}}
+          {{- if $d.muscle_roles -}}<p class="mv-xref"><span class="mv-xref-label">相關肌群</span>
+            {{- range $mr := $d.muscle_roles -}}{{- $mid := $mr.muscle_id -}}{{- $n := index $nameById $mid -}}{{- if not $n -}}{{- $n = $mid -}}{{- end -}}<a href="#{{ $mid }}">{{ $n }}</a>
+            {{- end -}}</p>{{- end -}}
+          {{- $ivLinked := index $interventionByDemand $d.id -}}
+          {{- if $ivLinked -}}<p class="mv-xref"><span class="mv-xref-label">相關介入</span>
+            {{- range $lid := $ivLinked -}}{{- $n := index $nameById $lid -}}{{- if not $n -}}{{- $n = $lid -}}{{- end -}}<a href="#{{ $lid }}">{{ $n }}</a>
+            {{- end -}}</p>{{- end -}}
+        </li>
+        {{- end -}}
+      </ul>
+    </div>
+      {{- end -}}
+    {{- end -}}
+  </section>
+  {{- end -}}
+
+  {{- /* ===== 介入 ===== */ -}}
+  {{- if gt (len $interventions) 0 -}}
+  <section class="ls-sec mv-sec" id="interventions-sec" aria-labelledby="interventions-h">
+    <h2 id="interventions-h">介入（{{ len $interventions }}）</h2>
+    <ul class="mv-list">
+      {{- range $iv := $interventions -}}
+      <li id="{{ $iv.id }}">
+        {{- $title := "" -}}
+        {{- with $iv.name_zh -}}{{- $title = . -}}{{- end -}}
+        {{- if not $title -}}{{- with $iv.name -}}{{- $title = . -}}{{- end -}}{{- end -}}
+        {{- if not $title -}}{{- $title = $iv.id -}}{{- end -}}
+        <span class="mv-name">{{ $title }}</span>
+        {{- with $iv.claim_status }}<span class="mv-cert">主張：{{ . }}</span>{{- end -}}
+        {{- if $iv.description -}}<p class="mv-desc">{{ $iv.description | plainify | strings.TrimSpace }}</p>{{- end -}}
+        {{- if $iv.action_ids -}}<p class="mv-xref"><span class="mv-xref-label">相關動作</span>
+          {{- range $lid := $iv.action_ids -}}{{- $n := index $nameById $lid -}}{{- if not $n -}}{{- $n = $lid -}}{{- end -}}<a href="#{{ $lid }}">{{ $n }}</a>
+          {{- end -}}</p>{{- end -}}
+        {{- if $iv.demand_ids -}}<p class="mv-xref"><span class="mv-xref-label">相關泳式需求</span>
+          {{- range $lid := $iv.demand_ids -}}{{- $n := index $nameById $lid -}}{{- if not $n -}}{{- $n = $lid -}}{{- end -}}<a href="#{{ $lid }}">{{ $n }}</a>
+          {{- end -}}</p>{{- end -}}
+      </li>
+      {{- end -}}
+    </ul>
+  </section>
+  {{- end -}}
+
+  {{- if eq $total 0 -}}<p class="muted">（資料尚未同步）</p>{{- end -}}
+</article>

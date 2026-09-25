@@ -1,0 +1,136 @@
+/* V6 三頁專用樣式（Claude 手寫，2026-09-26）。
+   心理層長讀、骨關節動作、動作圖譜三頁共用的補充樣式；
+   沿用 library.css 的 lib-chapter / lib-series / lc-* / ls-* 與 entry.css 的 le-*；
+   只用 tokens。 */
+
+/* ============================================================
+   心理層長讀（psychology-read）
+   ============================================================ */
+
+/* 頁內目次：le-points 風格的兩欄網格，主題連結清單 */
+.psy-toc {
+  list-style: none;
+  margin: 0 0 var(--s5);
+  padding: var(--s3) 0 var(--s3);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  counter-reset: psytoc;
+}
+.psy-toc > li {
+  counter-increment: psytoc;
+  padding: var(--s1) 0;
+  border-top: 1px solid var(--rule);
+  font-family: var(--f-serif);
+  line-height: 1.8;
+  display: grid;
+  grid-template-columns: 2.6em 1fr;
+  gap: var(--s2);
+  align-items: baseline;
+}
+.psy-toc > li:first-child { border-top: 0; }
+.psy-toc > li::before {
+  content: counter(psytoc);
+  font: 700 var(--fs-m)/1 var(--f-serif);
+  color: var(--series);
+  text-align: right;
+}
+.psy-toc a { color: var(--ink); text-decoration: none; min-height: var(--tap); }
+.psy-toc a:hover { color: var(--series); text-decoration: underline; }
+.psy-toc .psy-toc-l {
+  display: block;
+  font: 700 var(--fs-s)/1 var(--f-sans);
+  letter-spacing: .08em;
+  color: var(--ink-2);
+  margin-top: 2px;
+}
+
+/* 概念清單：主題區塊內的「概念 → 現象首句」連結 */
+.psy-concepts { list-style: none; margin: var(--s3) 0; padding: 0; }
+.psy-concepts > li {
+  padding: var(--s2) 0;
+  border-top: 1px solid var(--rule);
+  font-family: var(--f-serif);
+  line-height: 1.8;
+}
+.psy-concepts > li:first-child { border-top: 0; }
+.psy-concepts .psy-c-t { font: 700 var(--fs-m)/1.5 var(--f-serif); color: var(--ink); text-decoration: none; min-height: var(--tap); display: inline-block; }
+.psy-concepts .psy-c-t:hover { color: var(--series); text-decoration: underline; }
+.psy-concepts .psy-c-d { display: block; color: var(--ink-2); font-size: var(--fs-s); line-height: 1.7; margin-top: 2px; }
+.psy-concepts .psy-c-cert {
+  display: inline-block;
+  margin-left: 4px;
+  font: 400 var(--fs-s)/1 var(--f-sans);
+  color: var(--ink-2);
+}
+
+/* 序章 / 尾聲段落 */
+.psy-intro,
+.psy-outro { font-family: var(--f-serif); line-height: 1.8; }
+.psy-outro { border-top: 2px solid var(--ink); padding-top: var(--s3); margin-top: var(--s6); }
+
+/* ============================================================
+   骨關節動作（joints）
+   ============================================================ */
+
+.jt-region { margin-top: var(--s5); }
+.jt-region > .ls-part {
+  font: 700 var(--fs-m)/1.4 var(--f-sans);
+  color: var(--series);
+  margin: 0 0 var(--s2);
+  letter-spacing: .06em;
+  border-top: 2px solid var(--ink);
+  padding-top: var(--s2);
+}
+.jt-region .ls-entries { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 900px) {
+  .jt-region .ls-entries { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   動作圖譜（movement）
+   ============================================================ */
+
+.mv-list { list-style: none; margin: 0; padding: 0; }
+.mv-list > li {
+  padding: var(--s2) 0;
+  border-top: 1px solid var(--rule);
+  scroll-margin-top: var(--s3);
+}
+.mv-list > li:first-child { border-top: 1px solid var(--rule); }
+.mv-list .mv-name {
+  font: 700 var(--fs-m)/1.5 var(--f-serif);
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-block;
+  min-height: var(--tap);
+}
+.mv-list .mv-name:hover { color: var(--series); text-decoration: underline; }
+.mv-list .mv-cert { font: 400 var(--fs-s)/1 var(--f-sans); color: var(--ink-2); margin-left: var(--s1); }
+.mv-list .mv-desc {
+  margin: var(--s1) 0 0;
+  color: var(--ink-2);
+  font: var(--fs-s)/1.7 var(--f-sans);
+}
+.mv-list .mv-xref {
+  margin: var(--s1) 0 0;
+  font-size: var(--fs-s);
+  color: var(--ink-2);
+  font-family: var(--f-sans);
+}
+.mv-list .mv-xref a { color: var(--series); text-decoration: none; }
+.mv-list .mv-xref a:hover { text-decoration: underline; }
+.mv-list .mv-xref-label { color: var(--ink-2); margin-right: 4px; }
+
+/* 泳式需求依泳式分組 */
+.mv-group { margin-top: var(--s4); }
+.mv-group > h3 {
+  font: 700 var(--fs-m)/1.4 var(--f-sans);
+  color: var(--series);
+  margin: 0 0 var(--s2);
+  letter-spacing: .06em;
+}
+
+@media (max-width: 600px) {
+  .psy-toc { padding: var(--s2) 0; }
+  .psy-toc > li { grid-template-columns: 2.4em 1fr; gap: var(--s1); }
+}

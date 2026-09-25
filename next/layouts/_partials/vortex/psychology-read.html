@@ -1,0 +1,129 @@
+{{- /* 心理層長讀（V6）。
+     結構：lc-head → 頁內目次（主題連結）→ intro_zh → 每主題 le-block → outro_zh。
+     每主題區塊含：name_zh（連到主題單頁）、lead_zh、premise.one_line、
+                  概念清單（每概念連到它的單頁，附現象首句）、bridge_zh（le-claim）。
+     文字走 markdownify；certainty 顯示在概念清單。 */ -}}
+{{- $css1 := resources.Get "css/library.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css1.RelPermalink }}">
+{{- $css2 := resources.Get "css/topics-extra.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css2.RelPermalink }}">
+
+{{- $d := hugo.Data.vortex_links -}}
+{{- $psy := index hugo.Data "vortex" "psychology" -}}
+
+{{- /* 主題依 order 排序；先彙整連結索引 */ -}}
+{{- $themes := sort $psy.themes ".order" "asc" -}}
+
+<article class="lib-chapter vx-psy">
+  <header class="lc-head">
+    <p class="kicker">Vortex · 心理層</p>
+    <h1>心理層</h1>
+    {{- with .Description }}<p class="lc-lead">{{ . }}</p>{{ end }}
+  </header>
+
+  {{- /* ===== 頁內目次 ===== */ -}}
+  <nav aria-label="頁內目次">
+    <ol class="psy-toc">
+      {{- range $themes -}}
+        {{- $u := index $d.units .id -}}
+        {{- $path := "" -}}
+        {{- if $u -}}{{- $path = $u.path -}}{{- end -}}
+        <li>
+          <a href="{{ relURL $path }}">{{ .name_zh }}</a>
+          <span class="psy-toc-l">{{ .l_band }}</span>
+        </li>
+      {{- end -}}
+    </ol>
+  </nav>
+
+  {{- /* ===== 序章 ===== */ -}}
+  {{- with $psy.intro_zh -}}
+    {{- $t := . | plainify | strings.TrimSpace -}}
+    {{- if $t -}}
+    <section class="le-block psy-intro">
+      <p>{{ . | markdownify }}</p>
+    </section>
+    {{- end -}}
+  {{- end -}}
+
+  {{- /* ===== 各主題 ===== */ -}}
+  {{- range $themes -}}
+    {{- $theme := . -}}
+    {{- $u := index $d.units $theme.id -}}
+    {{- $path := "" -}}
+    {{- if $u -}}{{- $path = $u.path -}}{{- end -}}
+  <section class="le-block" id="{{ $theme.id }}">
+    <h2>
+      {{- if $path -}}<a href="{{ relURL $path }}">{{ $theme.name_zh }}</a>{{- else -}}{{ $theme.name_zh }}{{- end -}}
+      {{- with $theme.premise -}}{{- with .certainty }}<span class="cert">{{ . }}</span>{{- end -}}{{- end -}}
+    </h2>
+
+    {{- with $theme.lead_zh -}}
+      {{- $t := . | plainify | strings.TrimSpace -}}
+      {{- if $t -}}
+      <p class="lc-lead">{{ . | markdownify }}</p>
+      {{- end -}}
+    {{- end -}}
+
+    {{- with $theme.premise -}}
+      {{- with .one_line -}}
+        {{- $t := . | plainify | strings.TrimSpace -}}
+        {{- if $t -}}
+        <p class="read">{{ . | markdownify }}</p>
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- /* 概念清單：每概念連到單頁，附現象首句（plain_text，取首句） */ -}}
+    {{- if $theme.concepts -}}
+    <ul class="psy-concepts">
+      {{- range $theme.concepts -}}
+        {{- $cu := index $d.units .id -}}
+        {{- $cpath := "" -}}
+        {{- if $cu -}}{{- $cpath = $cu.path -}}{{- end -}}
+        {{- /* 現象首句：用 plain_text，若空才退回 text */ -}}
+        {{- $first := "" -}}
+        {{- with .phenomenon -}}
+          {{- $first = .plain_text -}}
+          {{- if not $first -}}{{- $first = .text -}}{{- end -}}
+          {{- if $first -}}
+            {{- $parts := split $first "。" -}}
+            {{- $first = index $parts 0 -}}
+            {{- if eq (len $parts) 1 -}}{{- $parts = split $first "！" -}}{{- end -}}
+            {{- if eq (len $parts) 1 -}}{{- $parts = split $first "？" -}}{{- end -}}
+            {{- $first = index $parts 0 -}}
+          {{- end -}}
+        {{- end -}}
+      <li>
+        {{- if $cpath -}}
+          <a class="psy-c-t" href="{{ relURL $cpath }}">{{ .name_zh }}</a>
+        {{- else -}}
+          <span class="psy-c-t">{{ .name_zh }}</span>
+        {{- end -}}
+        {{- with .phenomenon.certainty }}<span class="psy-c-cert">{{ . }}</span>{{- end -}}
+        {{- if $first -}}<span class="psy-c-d">{{ $first }}。</span>{{- end -}}
+      </li>
+      {{- end -}}
+    </ul>
+    {{- end -}}
+
+    {{- /* 與下一章的橋接句：以 le-claim 形式呈現 */ -}}
+    {{- with $theme.bridge_zh -}}
+      {{- $t := . | plainify | strings.TrimSpace -}}
+      {{- if $t -}}
+      <p class="le-claim">{{ . | markdownify }}</p>
+      {{- end -}}
+    {{- end -}}
+  </section>
+  {{- end -}}
+
+  {{- /* ===== 尾聲 ===== */ -}}
+  {{- with $psy.outro_zh -}}
+    {{- $t := . | plainify | strings.TrimSpace -}}
+    {{- if $t -}}
+    <footer class="psy-outro">
+      <p>{{ . | markdownify }}</p>
+    </footer>
+    {{- end -}}
+  {{- end -}}
+</article>

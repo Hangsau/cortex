@@ -766,3 +766,77 @@ All V5 validation passed, and the framework tests (W3, W4, W5) still pass. Summa
 
 **驗收結果**：`python -X utf8 next/specs/check.py V5` → `PASS V5`；同時確認 W3 / W4 / W5 未受影響。
 PASS V5
+[09-26 05:09:37] V5 通過並已 push
+[09-26 05:09:38] --- V6 開始 ---
+[09-26 05:09:38] V6 第 1 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 81｜input 90636｜cache_read 3994880｜output 8725
+
+FAIL V6（22 項）
+ - hugo next 建置失敗（exit 1）：
+Start building sites … 
+hugo v0.162.1-bba860e3eda3091efe8c6d1a96bc49a29ad2d5f6+extended windows/amd64 BuildDate=2026-05-28T17:40:44Z VendorInfo=gohugoio
+
+Total in 4089 ms
+ERROR error building site: render: [en v1.0.0 guest] failed to render pages: render of "C:/claudehome/projects/my-site/next/content/vortex/joints.md" failed: "C:\claudehome\projects\my-site\next\layouts\vortex\page.html:8:16": execute of template failed: template: vortex/page.html:8:16: executing "main" at <partial (printf "vortex/%s.html" $role) .>: error calling partial: partial "vortex/joints.html" not found
+render of "C:/claudehome/projects/my-site/next/content/vortex/movement.md" failed: "C:\claudehome\projects\my-site\next\layouts\vortex\page.html:8:16": execute of template failed: template: vortex/page.html:8:16: executing "main" at <partial (printf "vortex/%s.html" $role) .>: error calling partial: partial "vortex/movement.html" not found
+render of "C:/claudehome/projects/my-site/next/content/vortex/psychology.md" failed: "C:\claudehome\projects\my-site\next\layouts\vortex\page.html:8:16": execute of template failed: template: vortex/page.html:8:16: executing "main" at <partial (printf "vortex/%s.html" $role) .>: error calling partial: partial "vortex/psychology-read.html" not found
+ - 缺頁面：public/next/vortex/psychology/index.html
+ - 心理長讀缺連結 vortex/mind/psych-fear/
+ - 缺頁面：public/next/vortex/joints/index.html
+ - 骨關節頁缺 vortex/tech/free-tech-36/
+ - 骨關節頁缺 vortex/tech/free-tech-37/
+ - 骨關節頁缺 vortex/tech/free-tech-38/
+ - 骨關節頁缺 vortex/tech/free-tech-39/
+ - 骨關節頁缺 vortex/tech/free-tech-40/
+ - 骨關節頁缺 vortex/tech/free-tech-41/
+ - 骨關節頁缺 vortex/tech/back-tech-30/
+ - 骨關節頁缺 vortex/tech/udk-tech-30/
+ - 骨關節頁缺 vortex/tech/breast-tech-36/
+ - 骨關節頁缺 vortex/tech/breast-tech-37/
+ - 骨關節頁缺 vortex/tech/fly-tech-37/
+ - 骨關節頁缺 vortex/tech/starts-turns-tech-47/
+ - 骨關節頁缺 vortex/tech/starts-turns-tech-48/
+ - 缺頁面：public/next/vortex/movement/index.html
+ - 動作圖譜 actions 缺錨點 33/33，例 ['movement.action.shoulder-complex.elevation', 'movement.action.ankle-foot.plantarflexion', 'movement.action.wrist-hand.flexion']
+ - 動作圖譜 muscle-groups 缺錨點 22/22，例 ['movement.muscle.scapular-upward-rotators', 'movement.muscle.rotator-cuff', 'movement.muscle.latissimus-dorsi']
+ - 動作圖譜 stroke-demands 缺錨點 66/66，例 ['movement.demand.starts-turns.underwater-glide.shoulder-elevation', 'movement.demand.udk.down-kick.ankle-plantarflexion', 'movement.demand.free.down-kick.ankle-plantarflexion']
+ - 動作圖譜 interventions 缺錨點 7/7，例 ['movement.intervention.shoulder-elevation.active-control', 'movement.intervention.shoulder-elevation.conditional-soft-tissue', 'movement.intervention.ankle-plantarflexion.conditional-mobility']
+[09-26 05:13:34] V6 第 1 次驗收未過
+[09-26 05:13:34] V6 第 2 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 81｜input 88923｜cache_read 5512704｜output 35397
+
+FAIL V6（20 項）
+ - hugo next 建置失敗（exit 1）：
+Start building sites … 
+hugo v0.162.1-bba860e3eda3091efe8c6d1a96bc49a29ad2d5f6+extended windows/amd64 BuildDate=2026-05-28T17:40:44Z VendorInfo=gohugoio
+
+Total in 3887 ms
+ERROR error building site: render: [en v1.0.0 guest] failed to render pages: render of "C:/claudehome/projects/my-site/next/content/vortex/joints.md" failed: "C:\claudehome\projects\my-site\next\layouts\vortex\page.html:8:16": execute of template failed: template: vortex/page.html:8:16: executing "main" at <partial (printf "vortex/%s.html" $role) .>: error calling partial: "C:\claudehome\projects\my-site\next\layouts\_partials\vortex\joints.html:89:31": execute of template failed: template: _partials/vortex/joints.html:89:31: executing "_partials/vortex/joints.html" at <$desc>: range can't iterate over 描述划手時常寫「肩由屈曲轉為外展」，但在手臂上舉的情境下，屈曲與外展是同一個動作在不同平面的兩個名字，差別只在上舉所處的平面。真正需要記錄的是「上舉平面」，而不是在兩個動作名之間切換。此外，手臂經外展路徑上抬時肱骨必然外旋，這個欄位在多數技術描述中被整個漏掉。
+render of "C:/claudehome/projects/my-site/next/content/vortex/movement.md" failed: "C:\claudehome\projects\my-site\next\layouts\vortex\page.html:8:16": execute of template failed: template: vortex/page.html:8:16: executing "main" at <partial (printf "vortex/%s.html" $role) .>: error calling partial: partial "vortex/movement.html" not found
+ - 缺頁面：public/next/vortex/joints/index.html
+ - 骨關節頁缺 vortex/tech/free-tech-36/
+ - 骨關節頁缺 vortex/tech/free-tech-37/
+ - 骨關節頁缺 vortex/tech/free-tech-38/
+ - 骨關節頁缺 vortex/tech/free-tech-39/
+ - 骨關節頁缺 vortex/tech/free-tech-40/
+ - 骨關節頁缺 vortex/tech/free-tech-41/
+ - 骨關節頁缺 vortex/tech/back-tech-30/
+ - 骨關節頁缺 vortex/tech/udk-tech-30/
+ - 骨關節頁缺 vortex/tech/breast-tech-36/
+ - 骨關節頁缺 vortex/tech/breast-tech-37/
+ - 骨關節頁缺 vortex/tech/fly-tech-37/
+ - 骨關節頁缺 vortex/tech/starts-turns-tech-47/
+ - 骨關節頁缺 vortex/tech/starts-turns-tech-48/
+ - 缺頁面：public/next/vortex/movement/index.html
+ - 動作圖譜 actions 缺錨點 33/33，例 ['movement.action.shoulder-complex.elevation', 'movement.action.ankle-foot.plantarflexion', 'movement.action.wrist-hand.flexion']
+ - 動作圖譜 muscle-groups 缺錨點 22/22，例 ['movement.muscle.scapular-upward-rotators', 'movement.muscle.rotator-cuff', 'movement.muscle.latissimus-dorsi']
+ - 動作圖譜 stroke-demands 缺錨點 66/66，例 ['movement.demand.starts-turns.underwater-glide.shoulder-elevation', 'movement.demand.udk.down-kick.ankle-plantarflexion', 'movement.demand.free.down-kick.ankle-plantarflexion']
+ - 動作圖譜 interventions 缺錨點 7/7，例 ['movement.intervention.shoulder-elevation.active-control', 'movement.intervention.shoulder-elevation.conditional-soft-tissue', 'movement.intervention.ankle-plantarflexion.conditional-mobility']
+[09-26 05:17:16] V6 第 2 次驗收未過
+[09-26 05:17:16] V6 第 3 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 81｜input 215324｜cache_read 5156250｜output 48180
+
+PASS V6

@@ -1,0 +1,99 @@
+{{- /* 骨關節動作（V6）：把 technical-analysis.yaml 中 category: joint 的 13 條
+     依 joint_region 分組（joint_regions 給的順序優先），每條連到 tech 單頁。
+     標題用 nav_zh（沒有才用 title），描述用 summary 前 60 字。 */ -}}
+{{- $css1 := resources.Get "css/library.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css1.RelPermalink }}">
+{{- $css2 := resources.Get "css/topics-extra.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css2.RelPermalink }}">
+
+{{- $d := hugo.Data.vortex_links -}}
+{{- $tech := index hugo.Data "vortex" "technical-analysis" -}}
+
+{{- /* 收集 13 條 joint 點，依 joint_region 分組 */
+-}}
+{{- $grouped := dict -}}
+{{- $order := slice -}}
+{{- range $tech.points -}}
+  {{- if eq .category "joint" -}}
+    {{- $region := .joint_region -}}
+    {{- if not $region -}}{{- $region = "未分類" -}}{{- end -}}
+    {{- if not (index $grouped $region) -}}
+      {{- $grouped = merge $grouped (dict $region (slice)) -}}
+      {{- $order = $order | append $region -}}
+    {{- end -}}
+    {{- $list := index $grouped $region -}}
+    {{- $list = $list | append . -}}
+    {{- $grouped = merge $grouped (dict $region $list) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* 用 joint_regions 給定優先順序，未列出的 region 維持原順序 */ -}}
+{{- $preferred := slice -}}
+{{- range $tech.joint_regions -}}
+  {{- if index $grouped .key -}}
+    {{- $preferred = $preferred | append .key -}}
+  {{- end -}}
+{{- end -}}
+{{- $extras := slice -}}
+{{- range $r := $order -}}
+  {{- if not (in $preferred $r) -}}
+    {{- $extras = $extras | append $r -}}
+  {{- end -}}
+{{- end -}}
+{{- $orderedRegions := $preferred | append $extras -}}
+
+{{- $regionName := dict -}}
+{{- range $tech.joint_regions -}}
+  {{- $regionName = merge $regionName (dict .key .name_zh) -}}
+{{- end -}}
+
+<article class="lib-series vx-joints">
+  <header class="ls-hero">
+    <p class="kicker">Vortex · 骨關節</p>
+    <h1 class="ls-title">{{ .Title }}</h1>
+    {{- with .Description }}<p class="ls-lead">{{ . }}</p>{{ end }}
+    <p class="ls-stats">
+      {{- $total := 0 -}}
+      {{- range $r := $orderedRegions -}}{{- $total = add $total (len (index $grouped $r)) -}}{{- end -}}
+      <span><b>{{ $total }}</b> 條</span>
+      <span><b>{{ len $orderedRegions }}</b> 個關節部位</span>
+    </p>
+  </header>
+
+  {{- range $r := $orderedRegions -}}
+    {{- $items := index $grouped $r -}}
+    {{- $regionLabel := index $regionName $r -}}
+    {{- if not $regionLabel -}}{{- $regionLabel = $r -}}{{- end -}}
+  <section class="ls-sec jt-region" aria-label="{{ $regionLabel }}">
+    <p class="ls-part">{{ $regionLabel }}（{{ len $items }}）</p>
+    <div class="ls-entries">
+      {{- range $items -}}
+        {{- $u := index $d.units .id -}}
+        {{- $path := "" -}}
+        {{- if $u -}}{{- $path = $u.path -}}{{- end -}}
+        {{- /* 導航標籤：nav_zh 優先，沒有才用 title */ -}}
+        {{- $nav := "" -}}
+        {{- with .nav_zh -}}
+          {{- $t := . | plainify | strings.TrimSpace -}}
+          {{- if $t -}}{{- $nav = . -}}{{- end -}}
+        {{- end -}}
+        {{- if not $nav -}}{{- $nav = .title -}}{{- end -}}
+        {{- $desc := "" -}}
+        {{- with .summary -}}
+          {{- $desc = . | plainify | strings.TrimSpace -}}
+        {{- end -}}
+        {{- if $desc -}}
+          {{- /* summary 前 60 個字（用 truncate） */ -}}
+          {{- $desc = strings.Truncate 60 $desc -}}
+        {{- end -}}
+        {{- if $path -}}
+        <a class="ls-entry" href="{{ relURL $path }}">
+          <span class="ls-entry-t">{{ $nav }}</span>
+          {{- if $desc -}}<span class="ls-entry-d">{{ $desc }}</span>{{- end -}}
+        </a>
+        {{- end -}}
+      {{- end -}}
+    </div>
+  </section>
+  {{- end -}}
+</article>
