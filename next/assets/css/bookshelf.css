@@ -1,0 +1,36 @@
+/* 全站首頁／書房（Claude 手寫，2026-09-26）。一個焦點：Vortex 區塊；書房用各系列色的上緣粗線分格。 */
+.bs { max-width: 1040px; margin: 0 auto; padding: var(--s6) var(--s4); }
+.bs-hero { padding-bottom: var(--s5); }
+.bs-title { font: 700 var(--fs-display)/1 var(--f-serif); letter-spacing: .02em; margin: 0 0 var(--s3); }
+.bs-lead { font: 500 var(--fs-l)/1.75 var(--f-serif); max-width: 30em; margin: 0; }
+
+.bs-vortex { border-left: 4px solid var(--series); padding: var(--s4) 0 var(--s4) var(--s4); background: var(--tint); }
+.bs-v-title { font: 700 clamp(34px, 5vw, 56px)/1.15 var(--f-serif); margin: 0 0 var(--s2); }
+.bs-v-title a { color: var(--ink); text-decoration: none; }
+.bs-v-title a:hover { color: var(--series); }
+.bs-v-lead { font: 400 var(--fs-m)/1.8 var(--f-serif); max-width: 34em; margin: 0 0 var(--s3); }
+.bs-stats { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s4); margin: 0 0 var(--s3); color: var(--ink-2); font-size: var(--fs-s); }
+.bs-stats b { font: 700 var(--fs-l)/1 var(--f-serif); color: var(--ink); margin-right: 4px; }
+.bs-v-strokes { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s3); margin-bottom: var(--s2); }
+.bs-v-strokes a { display: inline-flex; align-items: center; min-height: var(--tap); font: 700 var(--fs-m)/1 var(--f-serif); color: var(--ink); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 6px; }
+.bs-v-strokes a:hover { color: var(--series); text-decoration-color: var(--series); }
+.bs-go { font-weight: 700; }
+
+.bs-shelf { margin-top: var(--s6); }
+.bs-shelf > h2 { border-top: 2px solid var(--ink); padding-top: var(--s2); margin: 0 0 var(--s1); font-size: var(--fs-xl); }
+.bs-shelf-lead { color: var(--ink-2); margin: 0 0 var(--s3); max-width: 36em; }
+.bs-group { font: 700 var(--fs-m)/1.4 var(--f-sans); color: var(--series); letter-spacing: .08em; margin: var(--s5) 0 var(--s2); }
+.bs-books { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s4); }
+.bs-book { display: flex; flex-direction: column; gap: var(--s1); padding-top: var(--s2); border-top: 3px solid var(--series); color: var(--ink); text-decoration: none; min-height: var(--tap); }
+.bs-book-t { font: 700 var(--fs-l)/1.35 var(--f-serif); }
+.bs-book-m { font-size: var(--fs-s); color: var(--ink-2); }
+.bs-book-l { font: 400 var(--fs-m)/1.7 var(--f-serif); }
+.bs-book-c { margin-top: auto; padding-top: var(--s1); font-size: var(--fs-s); color: var(--series); font-weight: 700; }
+.bs-book:hover .bs-book-t { color: var(--series); text-decoration: underline; }
+
+@media (max-width: 900px) { .bs-books { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) {
+  .bs { padding: var(--s4) var(--s2) var(--s5); }
+  .bs-books { grid-template-columns: 1fr; }
+  .bs-vortex { padding-left: var(--s2); }
+}

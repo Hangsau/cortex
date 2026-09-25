@@ -1,0 +1,21 @@
+{{- /* Vortex 長文（技術深探／感知橋接／水感框架等 Markdown），Claude 手寫。沿用書房章節的 lc-* 版式；上下篇限同一分類。 */ -}}
+{{- $css := resources.Get "css/library.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{- $desc := .Description -}}
+{{- $isLatin := and $desc (not (findRE `[\p{Han}]` $desc 1)) -}}
+<article class="lib-chapter vx-article">
+  <header class="lc-head">
+    <p class="kicker">Vortex{{ with .Params.layer_name }} · {{ . }}{{ end }}{{ with .Params.strokes }} · {{ delimit . "、" }}{{ end }}</p>
+    <h1>{{ .Title }}</h1>
+    {{- if $isLatin }}<p class="muted" lang="en">{{ $desc }}</p>{{ else }}{{ with $desc }}<p class="lc-lead">{{ . }}</p>{{ end }}{{ end }}
+  </header>
+  <div class="lc-body read">{{ .Content }}</div>
+  {{- with .Parent }}
+    {{- $sib := .RegularPages.ByWeight }}
+    {{- $i := -1 }}{{ range $k, $v := $sib }}{{ if eq $v.RelPermalink $.RelPermalink }}{{ $i = $k }}{{ end }}{{ end }}
+  <nav class="lc-pager" aria-label="上下篇">
+    {{- if gt $i 0 }}{{ with index $sib (sub $i 1) }}<a class="lc-prev" href="{{ .RelPermalink }}"><span class="muted">上一篇</span><span>{{ .Title }}</span></a>{{ end }}{{ end }}
+    {{- if and (ge $i 0) (lt (add $i 1) (len $sib)) }}{{ with index $sib (add $i 1) }}<a class="lc-next" href="{{ .RelPermalink }}"><span class="muted">下一篇</span><span>{{ .Title }}</span></a>{{ end }}{{ end }}
+  </nav>
+  {{- end }}
+</article>

@@ -1,0 +1,122 @@
+{{- /* CSCS 概念索引：依 group 分組，列出每個概念的所有 item，依章分組。 */ -}}
+{{- $p := .page -}}
+{{- $s := .series -}}
+{{- $cscs := hugo.Data.cscs -}}
+{{- $concepts := index $cscs "_concepts" -}}
+{{- $css := resources.Get "css/library.css" | fingerprint -}}
+{{- $ccss := resources.Get "css/cscs.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+<link rel="stylesheet" href="{{ $ccss.RelPermalink }}">
+{{- /* 建立 concept key → list of (chapter_id, item_id, q, path) */ -}}
+{{- $byConcept := dict }}
+{{- $conceptCount := dict }}{{/* 各概念 item 總數 */}}
+{{- $conceptChapters := dict }}{{/* 各概念出現的章數 */}}
+{{- $chPaths := dict }}{{/* chapter id → chapter path */}}
+{{- range $s.chapters }}{{ $chPaths = merge $chPaths (dict .id .path) }}{{ end }}
+{{- range $kk, $cv := $cscs }}
+  {{- if not (hasPrefix $kk "_") }}
+    {{- if isset $cv "topics" }}
+      {{- range $cv.topics }}
+        {{- range .items }}
+          {{- $itmid := .id }}
+          {{- $itmq := .q }}
+          {{- $itmch := $kk }}
+          {{- range .concepts }}
+            {{- $lst := index $byConcept . | default slice }}
+            {{- $lst = $lst | append (dict "ch" $itmch "item_id" $itmid "q" $itmq "path" (index $chPaths $itmch)) }}
+            {{- $byConcept = merge $byConcept (dict . $lst) }}
+          {{- end }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- /* 計算每個概念的章數與條目數 */ -}}
+{{- range $k, $lst := $byConcept }}
+  {{- $chs := dict }}
+  {{- range $lst }}{{ $chs = merge $chs (dict .ch true) }}{{ end }}
+  {{- $conceptChapters = merge $conceptChapters (dict $k (len $chs)) }}
+  {{- $conceptCount = merge $conceptCount (dict $k (len $lst)) }}
+{{- end }}
+{{- /* 依 group 分組，每組依 group 內最小 order 排序 */ -}}
+{{- $grouped := dict }}
+{{- range $k, $c := $concepts }}
+  {{- $g := $c.group }}
+  {{- $lst := index $grouped $g | default slice }}
+  {{- $lst = $lst | append (dict "key" $k "order" $c.order) }}
+  {{- $grouped = merge $grouped (dict $g $lst) }}
+{{- end }}
+{{- $sortedGroups := slice }}
+{{- range $g, $lst := $grouped }}
+  {{- $minOrder := 99999 }}
+  {{- range $lst }}{{ if lt .order $minOrder }}{{ $minOrder = .order }}{{ end }}{{ end }}
+  {{- $sortedGroups = $sortedGroups | append (dict "name" $g "order" $minOrder) }}
+{{- end }}
+{{- /* 概念總數 */ -}}
+{{- $cTotal := len $concepts }}
+<article class="lib-series ck-concepts">
+  <header class="ls-hero">
+    <p class="kicker">肌力與體能訓練精要</p>
+    <h1 class="ls-title">概念索引</h1>
+    <p class="ls-lead">{{ $cTotal }} 條概念，每條橫跨多章；照概念讀，可以把散在各章的同一件事串起來。</p>
+  </header>
+
+  {{- range sort $sortedGroups "order" "asc" }}
+    {{- $gname := .name }}
+    {{- $glist := index $grouped $gname }}
+    {{- $sorted := sort $glist "order" "asc" }}
+    <section class="ls-sec">
+      <h2>{{ $gname }}</h2>
+      {{- range $sorted }}
+        {{- $k := .key }}
+        {{- $c := index $concepts $k }}
+        {{- $items := index $byConcept $k }}
+        {{- $total := index $conceptCount $k }}
+        {{- $chN := index $conceptChapters $k }}
+        <section class="ck-concept" id="{{ $k }}">
+          <h3>{{ $c.zh }}</h3>
+          <p class="muted">{{ $c.desc }}</p>
+          <p class="ck-concept-count">出現在 {{ $chN }} 章、{{ $total }} 條</p>
+          {{- $showRest := false }}
+          {{- $visibleItems := $items }}
+          {{- if gt (len $items) 12 }}{{ $visibleItems = first 12 $items }}{{ $showRest = true }}{{ end }}
+          {{- /* 依章分組 */ -}}
+          {{- $byCh := dict }}
+          {{- range $visibleItems }}{{ $clst := index $byCh .ch | default slice }}{{ $clst = $clst | append . }}{{ $byCh = merge $byCh (dict .ch $clst) }}{{ end }}
+          {{- $chList := slice }}
+          {{- range $kkk, $cvv := $byCh }}{{ $chList = $chList | append (dict "key" $kkk "items" $cvv) }}{{ end }}
+          {{- $chList = sort $chList "key" "asc" }}
+          {{- range $chList }}
+            {{- $chKey := .key }}
+            {{- $chTitle := "" }}{{ $chNo := 0 }}
+            {{- range $s.chapters }}{{ if eq .id $chKey }}{{ $chTitle = .title }}{{ $chNo = .n }}{{ end }}{{ end }}
+            <p class="ck-concept-ch">第 {{ $chNo }} 章 · {{ $chTitle }}</p>
+            <ul class="ck-concept-items">
+              {{- range .items }}<li><a href="{{ relURL .path }}#{{ .item_id }}">{{ .q }}</a></li>{{ end }}
+            </ul>
+          {{- end }}
+          {{- if $showRest }}
+            {{- $restItems := after 12 $items }}
+            {{- $byCh2 := dict }}
+            {{- range $restItems }}{{ $clst := index $byCh2 .ch | default slice }}{{ $clst = $clst | append . }}{{ $byCh2 = merge $byCh2 (dict .ch $clst) }}{{ end }}
+            {{- $chList2 := slice }}
+            {{- range $kkk, $cvv := $byCh2 }}{{ $chList2 = $chList2 | append (dict "key" $kkk "items" $cvv) }}{{ end }}
+            {{- $chList2 = sort $chList2 "key" "asc" }}
+            <details>
+              <summary>看全部 {{ $total }} 條</summary>
+              {{- range $chList2 }}
+                {{- $chKey := .key }}
+                {{- $chTitle := "" }}{{ $chNo := 0 }}
+                {{- range $s.chapters }}{{ if eq .id $chKey }}{{ $chTitle = .title }}{{ $chNo = .n }}{{ end }}{{ end }}
+                <p class="ck-concept-ch">第 {{ $chNo }} 章 · {{ $chTitle }}</p>
+                <ul class="ck-concept-items">
+                  {{- range .items }}<li><a href="{{ relURL .path }}#{{ .item_id }}">{{ .q }}</a></li>{{ end }}
+                </ul>
+              {{- end }}
+            </details>
+          {{- end }}
+        </section>
+      {{- end }}
+    </section>
+  {{- end }}
+</article>

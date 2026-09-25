@@ -78,3 +78,12 @@ slug＝id 轉小寫，`.` 與 `_` 換成 `-`。
 - 先讀本單列出的檔案與 `next/data/vortex_links.json` 的前幾個 unit 了解結構；不要整份讀大型 yaml（有些超過 200KB），需要時用 python 抽樣
 - 寫完產出檔**立刻**跑驗收指令，依失敗訊息逐條修；不要在沒跑驗收前反覆重構
 - 不要建立臨時檔在 repo 根目錄（如 t.py）；需要試算用 `python -X utf8 -c "..."`
+
+## P2 共通（V／T 系列工作單適用）
+- **頁面怎麼建**：在 `next/content/...` 放 Markdown 檔（front matter 帶 `params: {role: <名稱>}`），分派規則會渲染對應 partial：
+  - 路徑在 `vortex/` 底下 → `next/layouts/_partials/vortex/<role>.html`（partial 收到的是頁面本身）
+  - 書房系列（路徑落在 `hugo.Data.library.series[].path` 底下，或 `temperament/`）→ `next/layouts/_partials/library/<role>.html`（收到 `(dict "page" <頁面> "series" <系列>)`）
+  - 沒有 role 的 vortex 一般頁 → `vortex/article.html`（Markdown 長文版型，Claude 寫，可直接用）
+- **可直接沿用的版式 class**（`next/assets/css/library.css`、`entry.css`，Claude 寫，不准修改這兩檔）：`lib-chapter`（文章頁容器）、`lc-head`、`lc-lead`、`lc-body read`、`lc-pager`（`a.lc-prev`／`a.lc-next`）、`lib-series`（總覽頁容器）、`ls-hero`、`ls-title`、`ls-lead`、`ls-stats`、`ls-sec`、`ls-part`、`ls-entries`／`a.ls-entry`（`.ls-entry-t`／`.ls-entry-d`）、`ls-toc`／`a.ls-ch`（`.ls-n`／`.ls-ch-body`／`.ls-ch-t`／`.ls-ch-d`）、`lib-entry`、`le-block`、`le-steps`、`le-points`、`le-claim`、`le-siblings`、`kicker`、`read`、`muted`、`cert`。需要新樣式時另建本單列出的 CSS 檔，只用 tokens 變數。
+- 載入 CSS／JS：在 partial 內 `resources.Get "css/xxx.css" | fingerprint`，輸出 `<link rel="stylesheet" href="{{ .RelPermalink }}">`；JS 用 `<script src defer>`。
+- **本系列例外**：為了搬內容與互動邏輯，**可以讀**舊檔（`layouts/`、`static/js/`、`content/`）了解欄位順序、文案與計算邏輯；但**不准沿用舊的 class 名、CSS、HTML 結構**，也不准修改任何舊檔。

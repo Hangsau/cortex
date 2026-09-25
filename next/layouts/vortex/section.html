@@ -1,12 +1,10 @@
 {{ define "main" }}
-{{- $role := .Params.role | default "unit" -}}
-{{- if eq $role "home" -}}
-  {{- partial "vortex/home.html" . -}}
-{{- else if eq $role "list" -}}
-  {{- partial "vortex/list.html" . -}}
-{{- else if eq $role "stroke" -}}
-  {{- partial "vortex/stroke.html" . -}}
-{{- else -}}
-  {{- partial "vortex/unit.html" . -}}
+{{- $role := .Params.role | default "" -}}
+{{- if not $role -}}{{- if .Params.unit_id -}}{{- $role = "unit" -}}{{- else if .IsSection -}}{{- $role = "reading-list" -}}{{- else -}}{{- $role = "article" -}}{{- end -}}{{- end -}}
+{{- if eq $role "home" -}}{{- partial "vortex/home.html" . -}}
+{{- else if eq $role "list" -}}{{- partial "vortex/list.html" . -}}
+{{- else if eq $role "stroke" -}}{{- partial "vortex/stroke.html" . -}}
+{{- else if eq $role "unit" -}}{{- partial "vortex/unit.html" . -}}
+{{- else -}}{{- partial (printf "vortex/%s.html" $role) . -}}
 {{- end -}}
 {{ end }}

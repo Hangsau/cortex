@@ -1,0 +1,38 @@
+{{- /*
+  L3：CSCS 章節頁與概念索引 content adapter。
+  從 hugo.Data.cscs 讀全部 24 章 + 概念表，建立：
+    - 24 個章節頁（path ch01…ch24）
+    - 1 個概念索引頁（path concepts）
+*/ -}}
+{{- $cscs := $.Site.Data.cscs -}}
+
+{{- /* 章節頁：path 為相對於本檔目錄（library/essentials-of-strength-training/） */ -}}
+{{- range $n := slice 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 }}
+  {{- $key := printf "ch%02d" $n }}
+  {{- $ch := index $cscs $key }}
+  {{- $sections := slice }}
+  {{- range $ch.topics }}{{ $sections = $sections | append (dict "id" .id "title" .title) }}{{ end }}
+  {{- $descTitles := slice }}
+  {{- range first 3 $ch.topics }}{{ $descTitles = $descTitles | append .title }}{{ end }}
+  {{- $description := delimit $descTitles "、" }}
+  {{- $.AddPage (dict
+      "path"        $key
+      "kind"        "page"
+      "title"       $ch.title
+      "description" $description
+      "params"      (dict
+        "role"        "cscs-chapter"
+        "chapter_key" $key
+        "chapter_no"  $n
+        "sections"    $sections
+      )
+    ) }}
+{{- end }}
+
+{{- /* 概念索引頁 */ -}}
+{{- $.AddPage (dict
+    "path"   "concepts"
+    "kind"   "page"
+    "title"  "概念索引"
+    "params" (dict "role" "cscs-concepts")
+  ) }}

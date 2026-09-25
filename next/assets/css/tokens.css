@@ -25,20 +25,20 @@
   --tap: 48px;               /* 最小點擊高度（池邊濕手） */
   --band: 4px;               /* 拇指索引色帶寬 */
 }
-body.series-vortex   { --series: #0B6E8A; }
-body.series-strength { --series: #A23B1F; }
-body.series-learning { --series: #2F6B3A; }
-body.series-temperament { --series: #8A6A12; }
+.series-vortex   { --series: #0B6E8A; }
+.series-strength { --series: #A23B1F; }
+.series-learning { --series: #2F6B3A; }
+.series-temperament { --series: #8A6A12; }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --paper: #121416; --ink: #E6E4DF; --ink-2: #A9ADB3;
     --rule: #2C3034; --tint: #1B1E21;
   }
-  body.series-vortex   { --series: #5BB8D4; }
-  body.series-strength { --series: #E08A6E; }
-  body.series-learning { --series: #7FC08C; }
-  body.series-temperament { --series: #D6B45A; }
+  .series-vortex   { --series: #5BB8D4; }
+  .series-strength { --series: #E08A6E; }
+  .series-learning { --series: #7FC08C; }
+  .series-temperament { --series: #D6B45A; }
 }
 
 @media (prefers-reduced-motion: reduce) {

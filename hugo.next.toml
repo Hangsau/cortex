@@ -35,3 +35,18 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap", "robotsTXT"]
   [[module.mounts]]
     source = "layouts/shortcodes"
     target = "layouts/_shortcodes"
+  # Vortex 長文（技術深探／感知橋接／水感框架）是 TheVortexProject 同步來的 Markdown，直接掛入
+  [[module.mounts]]
+    source = "content/vortex/instructional"
+    target = "content/vortex/instructional"
+  [[module.mounts]]
+    source = "content/vortex/bridge"
+    target = "content/vortex/bridge"
+  [[module.mounts]]
+    source = "content/vortex/technica"
+    target = "content/vortex/technica"
+    excludeFiles = ["water-sense-guide.md"]
+  [[module.mounts]]
+    source = "content/vortex/adm"
+    target = "content/vortex/adm"
+    excludeFiles = ["_index.md", "matrix.md", "standards.md"]

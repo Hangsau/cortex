@@ -43,7 +43,8 @@ def build_next():
         shutil.rmtree(OUT)
     proc, secs = run(["hugo", "--minify", "--config", "hugo.next.toml"])
     if proc.returncode != 0:
-        fail(f"hugo next 建置失敗（exit {proc.returncode}）：\n{(proc.stdout + proc.stderr)[-3000:]}")
+        out = "\n".join(l for l in (proc.stdout + proc.stderr).splitlines() if not l.startswith("WARN"))
+        fail(f"hugo next 建置失敗（exit {proc.returncode}）：\n{out[-4000:]}")
     return secs
 
 
@@ -339,9 +340,278 @@ def l3():
     global_checks()
 
 
+def _lib_series(sid):
+    d = json.loads(LIB.read_text(encoding="utf-8"))
+    return next(s for s in d["series"] if s["id"] == sid)
+
+
+def l4():
+    import yaml
+    build_next()
+    for sid in ("mnfl", "ust"):
+        s = _lib_series(sid)
+        home = page(s["path"].strip("/"))
+        for e in s["entries"] + s["chapters"]:
+            if e["path"] not in home:
+                fail(f"{sid} 系列首頁缺連結 {e['path']}")
+            doc = page(e["path"].strip("/"))
+            if doc and e["title"] not in text_of(doc):
+                fail(f"{e['path']} 看不到標題 {e['title']}")
+            if doc and "lib-entry" not in doc and "lib-chapter" not in doc:
+                fail(f"{e['path']} 未使用 lib-entry／lib-chapter 骨架")
+    strat = yaml.safe_load((ROOT / "data/ust/strategies.yaml").read_text(encoding="utf-8"))["strategies"]
+    for n in range(1, 11):
+        doc = page(f"library/uncommon-sense-teaching/ch{n:02d}")
+        for s in strat:
+            if int(s["chapter"]) == n and f"strategies/{s['id']}/" not in doc:
+                fail(f"UST 第 {n} 章缺本章策略 {s['id']}")
+    for s in strat:
+        doc = page(f"library/uncommon-sense-teaching/strategies/{s['id']}")
+        if f"uncommon-sense-teaching/ch{int(s['chapter']):02d}/" not in doc:
+            fail(f"策略 {s['id']} 沒有連回出處章")
+    idx = page("library/uncommon-sense-teaching/strategies")
+    if sum(1 for s in strat if f"strategies/{s['id']}/" in idx) != len(strat):
+        fail("UST 策略總表未列出全部策略")
+    for f in (ROOT / "next/assets/css").glob("entry.css"):
+        if "#1B5E69" in f.read_text(encoding="utf-8") or "#2B4A7A" in f.read_text(encoding="utf-8"):
+            fail("entry.css 使用了資料裡的 color")
+    global_checks()
+
+
+def l5():
+    build_next()
+    s = _lib_series("temperament")
+    home = page("temperament")
+    for c in s["chapters"] + s["entries"]:
+        if c["path"] not in home:
+            fail(f"氣質首頁缺連結 {c['path']}")
+        doc = page(c["path"].strip("/"))
+        if not doc:
+            continue
+        if "確定性：🔵 經典" not in text_of(doc):
+            fail(f"{c['path']} 缺確定性圖例")
+        for raw in (">keogh<", ">lead<", ">strategies<", ">synthesis<", ">teaching<", ">classroom<"):
+            if raw in doc:
+                fail(f"{c['path']} 把英文 key {raw} 印給讀者")
+    traits = page("temperament/traits")
+    for e in s["entries"]:
+        if e["path"] not in traits:
+            fail(f"九個維度頁缺連到 {e['path']}")
+    fit = text_of(page("temperament/fit"))
+    for needle in ("適配", "教室"):
+        if needle not in fit:
+            fail(f"適配度頁缺「{needle}」內容")
+    global_checks()
+
+
+
+def _yaml(rel):
+    import yaml
+    return yaml.safe_load((ROOT / rel).read_text(encoding="utf-8"))
+
+
+def _ids_in(doc, ids, label):
+    miss = [i for i in ids if f"id={i}" not in doc and f'id="{i}"' not in doc]
+    if miss:
+        fail(f"{label} 缺錨點 {len(miss)}/{len(ids)}，例 {miss[:3]}")
+
+
+def _index_ids(rel):
+    d = _yaml(rel)
+    out = []
+    def walk(o):
+        if isinstance(o, dict):
+            if "id" in o and isinstance(o["id"], str):
+                out.append(o["id"])
+            for v in o.values():
+                walk(v)
+        elif isinstance(o, list):
+            for v in o:
+                walk(v)
+    walk(d)
+    return out
+
+
+def v2():
+    build_next()
+    doc = page("vortex/water-sense")
+    if not doc:
+        return
+    old = (ROOT / "layouts/vortex/vortex-water-sense.html").read_text(encoding="utf-8")
+    old = re.sub(r"\{\{.*?\}\}", " ", old, flags=re.S)
+    sents = [s for s in re.split(r"[。！？\n]", text_of(old)) if len(re.findall(r"[\u4e00-\u9fff]", s)) >= 12]
+    new = re.sub(r"\s+", "", text_of(doc))
+    hit = sum(1 for s in sents if re.sub(r"\s+", "", s) in new)
+    if sents and hit / len(sents) < 0.95:
+        fail(f"水感導讀文字保留 {hit}/{len(sents)}（需 ≥95%）")
+    global_checks()
+
+
+def v3():
+    build_next()
+    doc = page("vortex/breathing")
+    if not doc:
+        return
+    i_safe = doc.find("br-safety")
+    i_block = doc.find("le-block")
+    if i_safe < 0 or (i_block >= 0 and i_block < i_safe):
+        fail("安全段落不是第一個內容區塊")
+    else:
+        seg = doc[i_safe:doc.find("</section>", i_safe)]
+        if "<details" in seg:
+            fail("安全段落被放進可收合區塊")
+    _ids_in(doc, _index_ids("data/breathing/_index.yaml"), "呼吸章")
+    global_checks()
+
+
+def v4():
+    build_next()
+    doc = page("vortex/periodization")
+    if not doc:
+        return
+    _ids_in(doc, _index_ids("data/periodization/_index.yaml"), "週期化章")
+    for needle in ("id=planner", "planner", "pz-table"):
+        if needle not in doc:
+            fail(f"週期化頁缺 {needle}")
+    global_checks()
+
+
+def v5():
+    build_next()
+    for rel in ("vortex/adm", "vortex/adm/matrix", "vortex/adm/standards", "vortex/adm/background"):
+        page(rel)
+    m = text_of(page("vortex/adm/matrix"))
+    for stage in ("學習訓練", "訓練為訓練", "訓練為競賽", "訓練為勝利"):
+        if stage not in m:
+            fail(f"矩陣缺階段 {stage}")
+    std = _yaml("data/adm/standards.yaml")
+    n = len(std if isinstance(std, list) else next(v for v in std.values() if isinstance(v, list)))
+    got = page("vortex/adm/standards").count("data-stroke")
+    if got < n:
+        fail(f"技術標準項目 {got} < {n}")
+    home = page("vortex/adm")
+    for sub in ("adm/matrix/", "adm/standards/", "adm/background/"):
+        if sub not in home:
+            fail(f"ADM 總覽缺連結 {sub}")
+    global_checks()
+
+
+def v6():
+    build_next()
+    d = load_links()
+    if not d:
+        return
+    doc = page("vortex/psychology")
+    for u in d["units"].values():
+        if u["type"] in ("psy", "psyc") and u["path"] not in doc:
+            fail(f"心理長讀缺連結 {u['path']}")
+            break
+    joints = page("vortex/joints")
+    for u in d["units"].values():
+        if u["type"] == "tech" and u["category"] == "joint" and u["path"] not in joints:
+            fail(f"骨關節頁缺 {u['path']}")
+    mv = page("vortex/movement")
+    total = 0
+    for f in ("actions", "muscle-groups", "stroke-demands", "interventions"):
+        data = _yaml(f"data/movement/{f}.yaml")
+        lists = [v for v in data.values() if isinstance(v, list)] if isinstance(data, dict) else [data]
+        ids = [e["id"] for l in lists for e in l if isinstance(e, dict) and "id" in e]
+        total += len(ids)
+        _ids_in(mv, ids, f"動作圖譜 {f}")
+    if total == 0:
+        fail("動作圖譜讀不到任何 id")
+    global_checks()
+
+
+def v7():
+    build_next()
+    d = load_links()
+    if not d:
+        return
+    lv = [u for u in d["units"].values() if u["type"] == "level"]
+    has = sum(1 for u in lv if "layer-indicators" in page(u["path"].strip("/")))
+    if has < 10:
+        fail(f"只有 {has}/{len(lv)} 個級別頁有指標區塊")
+    global_checks()
+
+
+def _chapter_json(sub, key):
+    total = 0
+    for n in range(1, 25):
+        f = OUT / "library/essentials-of-strength-training" / sub / f"ch{n:02d}.json"
+        if not f.exists():
+            fail(f"缺 {sub}/ch{n:02d}.json")
+            continue
+        try:
+            data = json.loads(f.read_text(encoding="utf-8"))
+        except Exception as e:
+            fail(f"{sub}/ch{n:02d}.json 不是合法 JSON：{e}")
+            continue
+        items = data if isinstance(data, list) else next((v for v in data.values() if isinstance(v, list)), [])
+        total += len(items)
+    return total
+
+
+def t1():
+    build_next()
+    doc = page("library/essentials-of-strength-training/quiz")
+    if doc and "cscs-quiz" not in doc:
+        fail("選擇題頁沒有載入 cscs-quiz.js")
+    want = 0
+    for n in range(1, 25):
+        b = _yaml(f"data/cscs/_quiz_bank/ch{n:02d}.yaml")
+        want += len(b if isinstance(b, list) else next(v for v in b.values() if isinstance(v, list)))
+    got = _chapter_json("quiz", "questions")
+    if got != want:
+        fail(f"題庫 JSON 共 {got} 題，題庫原檔 {want} 題")
+    global_checks()
+
+
+def t2():
+    build_next()
+    doc = page("library/essentials-of-strength-training/cards")
+    if doc and "cscs-cards" not in doc:
+        fail("閃卡頁沒有載入 cscs-cards.js")
+    want = sum(len(_yaml(f"data/cscs/ch{n:02d}.yaml").get("cards") or []) for n in range(1, 25))
+    got = _chapter_json("cards", "cards")
+    if got != want:
+        fail(f"閃卡 JSON 共 {got} 張，原檔 {want} 張")
+    global_checks()
+
+
+def t3():
+    build_next()
+    doc = page("temperament/quiz")
+    if not doc:
+        return
+    m = re.search(r'<script[^>]*id=["]?tq-data["]?[^>]*>(.*?)</script>', doc, re.S)
+    if not m:
+        fail("缺 tq-data 嵌入資料")
+    else:
+        try:
+            json.loads(m.group(1))
+        except Exception as e:
+            fail(f"tq-data 不是合法 JSON：{e}")
+    if "temp-quiz" not in doc:
+        fail("自測頁沒有載入 temp-quiz.js")
+    global_checks()
+
+
+def t4():
+    build_next()
+    doc = page("library/kinesiology/learning-map")
+    links = set(re.findall(r"library/kinesiology/(ch\d\d)/", doc))
+    if not links:
+        fail("學習地圖沒有任何章節連結")
+    for c in links:
+        if not (OUT / "library/kinesiology" / c / "index.html").exists():
+            fail(f"學習地圖連到不存在的章 {c}")
+    global_checks()
+
+
 if __name__ == "__main__":
     step = (sys.argv[1] if len(sys.argv) > 1 else "").upper()
-    fn = {"L1": l1, "L3": l3, "W1": w1, "W3": w3, "W4": w4, "W5": w5, "W6": w6, "W7": w7, "W8": w8}.get(step)
+    fn = {"L1": l1, "L3": l3, "L4": l4, "L5": l5, "V2": v2, "V3": v3, "V4": v4, "V5": v5, "V6": v6, "V7": v7, "T1": t1, "T2": t2, "T3": t3, "T4": t4, "W1": w1, "W3": w3, "W4": w4, "W5": w5, "W6": w6, "W7": w7, "W8": w8}.get(step)
     if not fn:
         sys.exit("用法：check.py L1|W1|W3|W4|W5|W6|W7|W8")
     fn()

@@ -1,0 +1,20 @@
+{{- /* Vortex 長文分類頁（技術深探／感知橋接／水感框架）：導言 + 該分類全部文章。Claude 手寫。 */ -}}
+{{- $css := resources.Get "css/library.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+<article class="lib-series">
+  <header class="ls-hero">
+    <p class="kicker">Vortex · 深入閱讀</p>
+    <h1 class="ls-title">{{ .Title }}</h1>
+    {{- with .Description }}<p class="ls-lead">{{ . }}</p>{{ end }}
+    <p class="ls-stats"><span><b>{{ len .RegularPages }}</b> 篇</span></p>
+  </header>
+  <section class="ls-sec">
+    <h2>全部文章</h2>
+    <div class="ls-entries">
+    {{- range .RegularPages.ByWeight }}
+      {{- $d := .Description }}{{ if and $d (not (findRE `[\p{Han}]` $d 1)) }}{{ $d = "" }}{{ end }}
+      <a class="ls-entry" href="{{ .RelPermalink }}"><span class="ls-entry-t">{{ .Title }}</span>{{ with $d }}<span class="ls-entry-d">{{ . }}</span>{{ end }}{{ with .Params.strokes }}<span class="ls-entry-d">{{ delimit . "、" }}</span>{{ end }}</a>
+    {{- end }}
+    </div>
+  </section>
+</article>

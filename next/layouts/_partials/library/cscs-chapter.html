@@ -1,0 +1,120 @@
+{{- /* CSCS 章節頁：toolbar 自測、本章主題與所有知識單位、上下章導覽。 */ -}}
+{{- $p := .page -}}
+{{- $s := .series -}}
+{{- $key := $p.Params.chapter_key -}}
+{{- $n := int $p.Params.chapter_no -}}
+{{- $ch := index hugo.Data.cscs $key -}}
+{{- $terms := index hugo.Data.cscs "_terms" -}}
+{{- $concepts := index hugo.Data.cscs "_concepts" -}}
+{{- $css := resources.Get "css/library.css" | fingerprint -}}
+{{- $ccss := resources.Get "css/cscs.css" | fingerprint -}}
+{{- $js := resources.Get "js/cscs.js" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+<link rel="stylesheet" href="{{ $ccss.RelPermalink }}">
+{{- /* 取得同系列其他章的 q 給 related 用；建立 item id → q 與 item id → chapter id */ -}}
+{{- $itemTitles := dict }}
+{{- $itemCh := dict }}
+{{- range $kk, $cv := hugo.Data.cscs }}
+  {{- if not (hasPrefix $kk "_") }}
+    {{- if isset $cv "topics" }}
+      {{- range $cv.topics }}{{ range .items }}{{ $itemTitles = merge $itemTitles (dict .id .q) }}{{ $itemCh = merge $itemCh (dict .id $kk) }}{{ end }}{{ end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- $idx := -1 }}
+{{- range $i, $c := $s.chapters }}{{ if eq (relURL $c.path) $p.RelPermalink }}{{ $idx = $i }}{{ end }}{{ end }}
+<article class="lib-chapter ck-chapter">
+  <header class="lc-head">
+    <p class="kicker">肌力與體能訓練精要 · 第 {{ $n }} 章</p>
+    <h1>{{ $ch.title }}</h1>
+    {{- $topicCount := len $ch.topics }}
+    {{- $itemCount := 0 }}
+    {{- range $ch.topics }}{{ $itemCount = add $itemCount (len .items) }}{{ end }}
+    <p class="lc-lead">本章 {{ $topicCount }} 個主題、{{ $itemCount }} 條知識單位。</p>
+  </header>
+
+  <div class="ck-toolbar">
+    <button type="button" class="ck-quiz-toggle" aria-pressed="false">遮住答案自測</button>
+    <span class="muted">按下後答案先收起，點一下題目才顯示</span>
+  </div>
+
+  {{- range $ch.topics }}
+  <section class="ck-topic" id="{{ .id }}">
+    <h2>{{ .title }}</h2>
+    {{- with .desc }}{{ if ne (trim (plainify .) " \n") "" }}
+    <p class="ck-topic-desc">{{ . | markdownify }}</p>
+    {{- end }}{{ end }}
+    {{- range .items }}
+    <section class="ck-item" id="{{ .id }}">
+      <h3 class="ck-q">{{ .q }}</h3>
+      {{- with .a }}
+      <ul class="ck-a">
+        {{- range . }}<li>{{ . | markdownify }}</li>{{ end }}
+      </ul>
+      {{- end }}
+      {{- with .numbers }}
+      {{- $ns := slice }}
+      {{- range . }}{{ $ns = $ns | append (printf "%s：<b>%s</b> %s" .of .v .unit) }}{{ end }}
+      <p class="ck-numbers">{{ delimit $ns "；" | safeHTML }}</p>
+      {{- end }}
+      {{- with .terms }}
+      {{- $ts := slice }}
+      {{- range . }}
+        {{- $t := index $terms . }}
+        {{- $zh := . }}{{ $en := "" }}
+        {{- if $t }}{{ $zh = $t.zh }}{{ $en = $t.en }}{{ end }}
+        {{- $ts = $ts | append (printf "%s <span lang=\"en\">%s</span>" $zh $en) }}
+      {{- end }}
+      <p class="ck-terms">{{ delimit $ts "、" | safeHTML }}</p>
+      {{- end }}
+      {{- with .detail }}
+      <details class="ck-detail">
+        <summary>為什麼／代表什麼</summary>
+        <div class="read">{{ . | markdownify }}</div>
+      </details>
+      {{- end }}
+      {{- with .concepts }}
+      {{- $cs := slice }}
+      {{- range . }}
+        {{- $cz := . }}
+        {{- $cd := index $concepts . }}
+        {{- if $cd }}{{ $cz = $cd.zh }}{{ end }}
+        {{- $cs = $cs | append (printf "<a href=\"concepts/#%s\">%s</a>" . $cz) }}
+      {{- end }}
+      <p class="ck-concepts">{{ delimit $cs "、" | safeHTML }}</p>
+      {{- end }}
+      {{- with .related }}
+      {{- $rs := slice }}
+      {{- range . }}
+        {{- $targetCh := index $itemCh . }}
+        {{- $href := "" }}
+        {{- if eq $targetCh $key }}{{ $href = printf "#%s" . }}
+        {{- else }}
+          {{- $tpath := "" }}
+          {{- range $s.chapters }}{{ if eq .id $targetCh }}{{ $tpath = .path }}{{ end }}{{ end }}
+          {{- $href = printf "%s#%s" (relURL $tpath) . }}
+        {{- end }}
+        {{- $label := "" }}
+        {{- if isset $itemTitles . }}{{ $label = index $itemTitles . }}{{ else }}{{ $label = . }}{{ end }}
+        {{- $rs = $rs | append (printf "<a href=\"%s\">%s</a>" $href $label) }}
+      {{- end }}
+      <p class="ck-related">相關：{{ delimit $rs "、" | safeHTML }}</p>
+      {{- end }}
+      {{- with .locator }}
+      <p class="ck-locator muted">原書：{{ . }}</p>
+      {{- end }}
+    </section>
+    {{- end }}
+  </section>
+  {{- end }}
+
+  <nav class="lc-pager" aria-label="上下章">
+    {{- if gt $idx 0 }}{{ with index $s.chapters (sub $idx 1) }}
+    <a class="lc-prev" href="{{ relURL .path }}"><span class="muted">上一章</span><span>{{ .n }}　{{ .title }}</span></a>
+    {{- end }}{{ end }}
+    {{- if and (ge $idx 0) (lt (add $idx 1) (len $s.chapters)) }}{{ with index $s.chapters (add $idx 1) }}
+    <a class="lc-next" href="{{ relURL .path }}"><span class="muted">下一章</span><span>{{ .n }}　{{ .title }}</span></a>
+    {{- end }}{{ end }}
+  </nav>
+</article>
+<script src="{{ $js.RelPermalink }}" defer></script>

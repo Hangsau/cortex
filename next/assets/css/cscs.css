@@ -1,0 +1,103 @@
+/* CSCS 章節頁與概念索引頁（Claude 手寫，2026-09-26）。
+   只用 tokens 變數；不引入卡片框、陰影、圓角 > 4px。 */
+
+/* ---------- 章節頁（toolbar / topic / item） ---------- */
+.ck-toolbar {
+  display: flex; flex-wrap: wrap; gap: var(--s2);
+  align-items: center; margin: 0 0 var(--s5);
+  padding: var(--s2) 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+}
+.ck-quiz-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: var(--tap); padding: 0 var(--s3);
+  background: var(--paper); color: var(--ink);
+  border: 1px solid var(--rule); border-radius: 4px;
+  font: 500 var(--fs-m)/1 var(--f-sans); cursor: pointer;
+}
+.ck-quiz-toggle[aria-pressed="true"] {
+  background: var(--series); color: var(--paper); border-color: var(--series);
+}
+
+.ck-topic { margin: 0; }
+.ck-topic > h2 {
+  border-top: 2px solid var(--ink);
+  padding-top: var(--s2);
+  margin: var(--s6) 0 var(--s3);
+  font: 700 var(--fs-l)/1.35 var(--f-serif);
+}
+.ck-topic-desc { color: var(--ink-2); font-family: var(--f-serif); line-height: var(--lh-read); margin: 0 0 var(--s4); }
+
+.ck-item {
+  border-top: 1px solid var(--rule);
+  padding: var(--s3) 0;
+  scroll-margin-top: var(--s3);
+}
+.ck-q {
+  font: 700 var(--fs-l)/1.4 var(--f-serif);
+  margin: 0 0 var(--s2);
+}
+.is-quiz .ck-q { cursor: pointer; }
+
+.ck-a {
+  font-family: var(--f-serif); line-height: var(--lh-read);
+  margin: 0 0 var(--s2); padding-left: 1.4em;
+}
+.ck-a li { margin: 0 0 var(--s1); }
+
+.ck-numbers { font-size: var(--fs-s); color: var(--ink-2); margin: 0 0 var(--s2); }
+.ck-numbers b { color: var(--series); font-weight: 700; }
+
+.ck-terms,
+.ck-concepts,
+.ck-related,
+.ck-locator { font-size: var(--fs-s); margin: 0 0 var(--s2); color: var(--ink-2); }
+.ck-concepts a { color: var(--series); text-decoration: none; border: 0; }
+.ck-concepts a:hover { text-decoration: underline; }
+.ck-related a { color: var(--series); }
+.ck-locator { color: var(--ink-2); }
+
+.ck-detail { border-top: 1px solid var(--rule); margin: 0; }
+.ck-detail > summary {
+  min-height: var(--tap);
+  font-weight: 500;
+}
+.ck-detail[open] > summary { color: var(--series); }
+.ck-detail > div.read {
+  padding: 0 0 var(--s2);
+  font-size: var(--fs-m);
+  color: var(--ink);
+}
+
+/* Quiz 模式遮罩 */
+.is-quiz .ck-item:not(.is-revealed) .ck-a,
+.is-quiz .ck-item:not(.is-revealed) .ck-numbers,
+.is-quiz .ck-item:not(.is-revealed) .ck-detail { display: none; }
+.is-quiz .ck-item.is-revealed .ck-q { color: var(--series); }
+
+/* ---------- 概念索引頁 ---------- */
+.ck-concept {
+  border-top: 1px solid var(--rule);
+  padding: var(--s3) 0;
+}
+.ck-concept:first-of-type { border-top: 0; }
+.ck-concept > h3 { margin: 0 0 var(--s1); }
+.ck-concept-count { font-size: var(--fs-s); color: var(--ink-2); margin: 0 0 var(--s2); }
+.ck-concept-ch {
+  font-size: var(--fs-s); color: var(--series); font-weight: 700;
+  letter-spacing: .06em; margin: var(--s2) 0 var(--s1);
+}
+.ck-concept-items { list-style: none; padding: 0; margin: 0 0 var(--s2); }
+.ck-concept-items li {
+  padding: var(--s1) 0;
+  border-top: 1px solid var(--rule);
+  font-family: var(--f-serif);
+}
+.ck-concept-items li:first-child { border-top: 0; }
+.ck-concept-items a { color: var(--ink); text-decoration: none; }
+.ck-concept-items a:hover { color: var(--series); text-decoration: underline; }
+
+/* 窄螢幕微調 */
+@media (max-width: 600px) {
+  .ck-toolbar { gap: var(--s1); }
+  .ck-toolbar .muted { width: 100%; }
+}

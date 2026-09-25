@@ -220,7 +220,7 @@ def build_mnfl():
     theme_total = len(d["themes"])
     lead = (
         f"給學習者的方法書。{tech_total} 個讓學習更有效的技法，"
-        f"依{theme_total}個主題分組，每個技法都寫了原理與做法。"
+        f"依 {theme_total} 個主題分組，每個技法都寫了原理與做法。"
     )
     return {
         "id": "mnfl",

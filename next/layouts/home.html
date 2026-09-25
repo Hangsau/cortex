@@ -1,9 +1,1 @@
-{{ define "main" }}
-<div class="page">
-  <h1>Cortex</h1>
-  <div class="read">
-    <p>個人知識庫的新版預覽。目前先完成 Vortex 水感知識庫；其他系列（CSCS、肌動學、基礎生物力學、大腦喜歡這樣學、UST、氣質）會在下一階段接入。</p>
-  </div>
-  <p><a href="{{ relURL "vortex/" }}">進入 Vortex 水感知識庫 →</a></p>
-</div>
-{{ end }}
+{{ define "main" }}{{ partial "library/bookshelf.html" . }}{{ end }}

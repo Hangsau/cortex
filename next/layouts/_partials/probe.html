@@ -1,0 +1,9 @@
+{{- $d := dict -}}
+{{- range slice 1 2 3 -}}
+  {{- $d = merge $d (dict (printf "k%d" .) .) -}}
+{{- end -}}
+{{- range $k, $v := $d -}}
+  {{ $k }}={{ $v }}|
+{{- end -}}
+{{- $x := index $d "k1" -}}
+|key1={{ $x }}|total={{ len $d }}|

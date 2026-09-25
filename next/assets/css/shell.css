@@ -8,7 +8,7 @@ body {
   border-left: var(--band) solid var(--series);
   min-height: 100vh;
 }
-a { color: var(--link); text-underline-offset: 3px; }
+a { color: var(--series); text-underline-offset: 3px; }
 a:hover { text-decoration-thickness: 2px; }
 :focus-visible { outline: 3px solid var(--series); outline-offset: 2px; }
 img { max-width: 100%; height: auto; }

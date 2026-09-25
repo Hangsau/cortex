@@ -37,6 +37,21 @@
       {{- $lp := relURL (printf "vortex/%s/" .p) }}
     <a class="rail-a{{ if hasPrefix $here $lp }} is-here{{ end }}" href="{{ $lp }}">{{ .t }}</a>
     {{- end }}
+    <p class="rail-h">深入閱讀</p>
+    {{- range slice (dict "p" "instructional" "t" "技術深探") (dict "p" "bridge" "t" "感知橋接") (dict "p" "technica" "t" "水感框架") }}
+      {{- $sp := relURL (printf "vortex/%s/" .p) }}
+    <a class="rail-a{{ if eq $here $sp }} is-here{{ else if hasPrefix $here $sp }} is-open{{ end }}" href="{{ $sp }}">{{ .t }}</a>
+      {{- if and (hasPrefix $here $sp) (ne $here $sp) }}
+    <div class="rail-sub">
+      <a class="rail-a rail-a--sub is-here" href="{{ $here }}">{{ $.Title }}</a>
+        {{- range $.Fragments.Headings }}{{ range .Headings }}{{ if eq .Level 2 }}
+      <a class="rail-a rail-a--sub" href="#{{ .ID }}">{{ .Title | plainify }}</a>
+        {{- end }}{{ end }}{{ if eq .Level 2 }}
+      <a class="rail-a rail-a--sub" href="#{{ .ID }}">{{ .Title | plainify }}</a>
+        {{- end }}{{ end }}
+    </div>
+      {{- end }}
+    {{- end }}
   </nav>
 </details>
 <script>(function(){var r=document.getElementById('rail');if(r&&window.matchMedia('(min-width: 1000px)').matches){r.open=true;}})();</script>

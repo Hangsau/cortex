@@ -1,0 +1,55 @@
+{{- /* 全站首頁／書房（Claude 手寫）：Cortex 定位 → Vortex（主力研究）→ 書房（依領域分組的各系列）。站首頁與 /library/ 共用。 */ -}}
+{{- $css := resources.Get "css/bookshelf.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{- $v := hugo.Data.vortex_links -}}
+{{- $vc := dict -}}{{- range $v.units -}}{{- $vc = merge $vc (dict .type (add (index $vc .type | default 0) 1)) -}}{{- end -}}
+{{- $vl := 0 -}}{{- range $v.out -}}{{- $vl = add $vl (len .) -}}{{- end -}}
+{{- $lib := hugo.Data.library -}}
+<article class="bs">
+  <header class="bs-hero">
+    <p class="kicker">CORTEX · 個人知識庫</p>
+    <h1 class="bs-title">Cortex</h1>
+    <p class="bs-lead">把讀過、研究過的東西整理成查得到、讀得下去、彼此連得起來的知識。主力是游泳教學的水感研究，另有肌力與動作、學習與教學、兒童氣質的整本讀書整理。</p>
+  </header>
+
+  <section class="bs-vortex series-vortex" aria-labelledby="bs-v">
+    <p class="kicker">主要研究</p>
+    <h2 id="bs-v" class="bs-v-title"><a href="{{ relURL "vortex/" }}">Vortex 水感</a></h2>
+    <p class="bs-v-lead">技術是水感的輸出，不是要照抄的動作。六種泳式拆成一個個動作，每個動作都接到怎麼練、常見的錯誤想法、背後的物理，以及練不起來時該看哪裡。</p>
+    <p class="bs-stats">
+      <span><b>{{ index $vc "move" }}</b> 個動作</span>
+      <span><b>{{ index $vc "drill" }}</b> 個練習</span>
+      <span><b>{{ index $vc "error" }}</b> 條教學誤區</span>
+      <span><b>{{ index $vc "tech" }}</b> 條技術分析</span>
+      <span><b>{{ lang.FormatNumber 0 $vl }}</b> 條知識連結</span>
+    </p>
+    <nav class="bs-v-strokes" aria-label="六種泳式">
+      {{- range slice "free" "back" "breast" "fly" "udk" "starts-turns" }}
+      <a href="{{ relURL (printf "vortex/%s/" .) }}">{{ (index $v.strokes .).name_zh }}</a>
+      {{- end }}
+    </nav>
+    <p><a class="bs-go" href="{{ relURL "vortex/" }}">進入 Vortex 水感 →</a></p>
+  </section>
+
+  <section class="bs-shelf" aria-labelledby="bs-shelf-h">
+    <h2 id="bs-shelf-h">書房</h2>
+    <p class="bs-shelf-lead">一本書一個系列，各自有完整目錄；書裡的知識點彼此連結，相近的書之間也可以對照著讀。</p>
+    {{- $last := "" }}
+    {{- range $i, $s := $lib.series }}
+      {{- if ne $s.group_name $last }}
+        {{- if ne $i 0 }}</div>{{ end }}
+    <h3 class="bs-group series-{{ $s.group }}">{{ $s.group_name }}</h3>
+    <div class="bs-books">
+        {{- $last = $s.group_name }}
+      {{- end }}
+      <a class="bs-book series-{{ $s.group }}" href="{{ relURL $s.path }}">
+        <span class="bs-book-t">{{ $s.title }}</span>
+        {{- $meta := slice }}{{ range slice $s.title_en $s.author }}{{ with . }}{{ $meta = $meta | append . }}{{ end }}{{ end }}
+        <span class="bs-book-m">{{ delimit $meta " · " }}</span>
+        <span class="bs-book-l">{{ $s.lead | truncate 90 }}</span>
+        <span class="bs-book-c">{{ with $s.chapters }}{{ len . }} {{ $s.chapters_label | default "章" }}{{ end }}{{ if and $s.chapters $s.entries }} · {{ end }}{{ with $s.entries }}{{ len . }} 個{{ $s.entries_label }}{{ end }}</span>
+      </a>
+    {{- end }}
+    </div>
+  </section>
+</article>

@@ -363,3 +363,113 @@ PASS W8
 PASS L1
 [09-26 03:58:15] L1 通過並已 push
 [09-26 03:58:15] === 佇列全部完成 ===
+[09-26 04:03:29] === 佇列開始（起點 L3）===
+[09-26 04:03:29] --- L3 開始 ---
+[09-26 04:03:29] L3 第 1 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 81｜input 64149｜cache_read 3160825｜output 23763
+
+FAIL L3（46 項）
+ - hugo next 建置失敗（exit 1）：
+Start building sites … 
+hugo v0.162.1-bba860e3eda3091efe8c6d1a96bc49a29ad2d5f6+extended windows/amd64 BuildDate=2026-05-28T17:40:44Z VendorInfo=gohugoio
+
+Total in 1196 ms
+WARN  deprecated: project config key languageCode was deprecated in Hugo v0.158.0 and will be removed in a future release. Use locale instead.
+WARN  deprecated: module.mounts.excludeFiles was deprecated in Hugo v0.153.0 and will be removed in a future release. Replaced by the simpler 'files' setting, see https://gohugo.io/configuration/module/#files
+WARN  deprecated: .Site.Data was deprecated in Hugo v0.156.0 and will be removed in a future release. Use hugo.Data instead.
+ERROR error building site: render: [en v1.0.0 guest] failed to render pages: render of "C:/claudehome/projects/my-site/next/content/library/essentials-of-strength-training/_content.gotmpl:/library/essentials-of-strength-training/concepts" failed: "C:\claudehome\projects\my-site\next\layouts\page.html:1:22": execute of template failed: template: page.html:1:22: executing "main" at <partial "library/dispatch.html" .>: error calling partial: "C:\claudehome\projects\my-site\next\layouts\_partials\library\dispatch.html:11:6": execute of template failed: template: _partials/library/dispatch.html:11:6: executing "_partials/library/dispatch.html" at <partial (printf "library/%s.html" $role) (dict "page" . "series" $s)>: error calling partial: "C:\claudehome\projects\my-site\next\layouts\_partials\library\cscs-concepts.html:84:21": execute of template failed: template: _partials/library/cscs-concepts.html:84:21: executing "_partials/library/cscs-concepts.html" at <len $items>: error calling len: reflect: call of reflect.Value.Type on zero Value
+
+ - ch06.connective-endocrine.i06 缺跨章相關連結 ch09/#ch09.protein.i02
+ - ch16.chain-training.i06 缺跨章相關連結 ch17/#ch17.needs-analysis.i04
+ - ch15.breathing.i05 缺跨章相關連結 ch02/#ch02.joint-biomechanics.i02
+ - ch10.weight-gain.i01 缺跨章相關連結 ch05/#ch05.hypertrophy.i01
+ - ch24.facility.i06 缺跨章相關連結 ch09/#ch09.sports-dietitian-role.i02
+ - ch16.kettlebell-unilateral.i01 缺跨章相關連結 ch17/#ch17.exercise-selection.i05
+ - ch13.balance-flexibility-bc.i01 缺跨章相關連結 ch18/#ch18.safety.i04
+ - ch17.exercise-selection.i03 缺跨章相關連結 ch02/#ch02.joint-biomechanics.i02
+ - ch15.upper-body.i05 缺跨章相關連結 ch02/#ch02.joint-biomechanics.i04
+ - ch02.resistance-sources.i03 缺跨章相關連結 ch19/#ch19.training-methods.i01
+ - ch16.kettlebell-unilateral.i04 缺跨章相關連結 ch05/#ch05.neural-adaptations.i07
+ - ch24.ethics-records.i02 缺跨章相關連結 ch12/#ch12.administration.i03
+ - ch22.fibroblastic-phase.i04 缺跨章相關連結 ch02/#ch02.strength-factors.i07
+ - ch13.agility-speed.i06 缺跨章相關連結 ch19/#ch19.program-design-monitoring.i02
+ - ch07.children-growth.i02 缺跨章相關連結 ch18/#ch18.special-populations.i08
+ - ch06.chronic-muscular.i08 缺跨章相關連結 ch01/#ch01.fiber-types.type-i
+ - ch05.fiber-type-transitions.i01 缺跨章相關連結 ch01/#ch01.fiber-types.type-iia
+ - ch18.training-modes.i07 缺跨章相關連結 ch17/#ch17.exercise-selection.i08
+ - ch13.agility-speed.i08 缺跨章相關連結 ch23/#ch23.design-elements.i05
+ - ch15.body-positioning.i04 缺跨章相關連結 ch02/#ch02.resistance-sources.i07
+ - ch15.exercise-technique-fundamentals.i07 缺跨章相關連結 ch08/#ch08.motor-skill-acquisition.i07
+ - 缺頁面：public/next/library/essentials-of-strength-training/concepts/index.html
+ - 概念頁缺 #structure
+ - 概念頁缺 #force-production
+ - 概念頁缺 #fiber-type
+ - 概念頁缺 #motor-control
+ - 概念頁缺 #reflex
+ - 概念頁缺 #energy-supply
+ - 概念頁缺 #circulation
+ - 概念頁缺 #gas-exchange
+ - 概念頁缺 #hormone
+ - 概念頁缺 #adaptation
+ - 概念頁缺 #periodization
+ - 概念頁缺 #program-design
+ - 概念頁缺 #technique
+ - 概念頁缺 #measurement
+ - 概念頁缺 #normal-values
+ - 概念頁缺 #nutrition
+ - 概念頁缺 #ergogenic
+ - 概念頁缺 #psychology
+ - 概念頁缺 #population
+ - 概念頁缺 #injury
+ - 概念頁缺 #safety
+ - 概念頁缺 #professional
+ - 概念頁 item 連結 0 < 應有 2697
+[09-26 04:07:38] L3 第 1 次驗收未過
+[09-26 04:07:39] L3 第 2 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 81｜input 125671｜cache_read 3638426｜output 16156
+
+FAIL L3（14 項）
+ - hugo next 建置失敗（exit 1）：
+Start building sites … 
+hugo v0.162.1-bba860e3eda3091efe8c6d1a96bc49a29ad2d5f6+extended windows/amd64 BuildDate=2026-05-28T17:40:44Z VendorInfo=gohugoio
+
+Total in 3569 ms
+WARN  deprecated: project config key languageCode was deprecated in Hugo v0.158.0 and will be removed in a future release. Use locale instead.
+WARN  deprecated: module.mounts.excludeFiles was deprecated in Hugo v0.153.0 and will be removed in a future release. Replaced by the simpler 'files' setting, see https://gohugo.io/configuration/module/#files
+WARN  deprecated: .Site.Data was deprecated in Hugo v0.156.0 and will be removed in a future release. Use hugo.Data instead.
+ERROR error building site: render: [en v1.0.0 guest] failed to render pages: render of "C:/claudehome/projects/my-site/next/content/library/essentials-of-strength-training/_content.gotmpl:/library/essentials-of-strength-training/ch05" failed: "C:\claudehome\projects\my-site\next\layouts\page.html:1:22": execute of template failed: template: page.html:1:22: executing "main" at <partial "library/dispatch.html" .>: error calling partial: "C:\claudehome\projects\my-site\next\layouts\_partials\library\dispatch.html:11:6": execute of template failed: template: _partials/library/dispatch.html:11:6: executing "_partials/library/dispatch.html" at <partial (printf "library/%s.html" $role) (dict "page" . "series" $s)>: error calling partial: "C:\claudehome\projects\my-site\next\layouts\_partials\library\cscs-chapter.html:28:4": execute of template failed: template: _partials/library/cscs-chapter.html:28:4: executing "_partials/library/cscs-chapter.html" at <partial "library/_probe.html" .>: error calling partial: partial "library/_probe.html" not found
+
+ - 缺頁面：public/next/library/essentials-of-strength-training/ch12/index.html
+ - 缺頁面：public/next/library/essentials-of-strength-training/ch13/index.html
+ - 缺頁面：public/next/library/essentials-of-strength-training/ch14/index.html
+ - 缺頁面：public/next/library/essentials-of-strength-training/ch15/index.html
+ - 缺頁面：public/next/library/essentials-of-strength-training/ch16/index.html
+ - 缺頁面：public/next/library/essentials-of-strength-training/ch17/index.html
+ - 缺頁面：public/next/library/essentials-of-strength-training/ch18/index.html
+ - 缺頁面：public/next/library/essentials-of-strength-training/ch19/index.html
+ - 缺頁面：public/next/library/essentials-of-strength-training/ch20/index.html
+ - 缺頁面：public/next/library/essentials-of-strength-training/ch21/index.html
+ - 缺頁面：public/next/library/essentials-of-strength-training/ch22/index.html
+ - 缺頁面：public/next/library/essentials-of-strength-training/ch23/index.html
+ - 缺頁面：public/next/library/essentials-of-strength-training/ch24/index.html
+[09-26 04:11:28] L3 第 2 次驗收未過
+[09-26 04:11:28] L3 第 3 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 41｜input 53851｜cache_read 861005｜output 8745
+All required output files are in place and `python -X utf8 next/specs/check.py L3` returns PASS.
+
+**Summary**
+
+修了 `next/layouts/_partials/library/cscs-chapter.html` 第 26–28 行：
+
+- 第 27 行：拿掉 `$dbg` 變數（`index $itemCh "ch09.protein.i02"`）和第 28 行 debug 用的 `$dbg2`
+- 第 28 行：移除 `{{- partial "library/_probe.html" . -}}` — 這個不存在的 partial 是上次寫的暫存，導致 Hugo 在渲染每一個章節頁時都跳 exit 1，因為 `cscs-chapter.html` 在第 3 行就被錯誤終止，所以 `ch01..ch24` 全部沒產出 `public/next/library/essentials-of-strength-training/chNN/index.html`
+
+清理後：
+- `next/layouts/_partials/library/cscs-chapter.html`：保留原本的 toolbar、topic／item、terms／numbers／detail／concepts／related／locator 區塊與上下章 pager
+- 其他產出檔（`_index.md`、`_content.gotmpl`、`cscs-concepts.html`、`cscs.css`、`cscs.js`）未動
+
+驗收指令 `python -X utf8 next/specs/check.py L3` 實際輸出 `PASS L3`。
+PASS L3
