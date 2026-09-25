@@ -50,3 +50,7 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap", "robotsTXT"]
     source = "content/vortex/adm"
     target = "content/vortex/adm"
     excludeFiles = ["_index.md", "matrix.md", "standards.md"]
+  # 舊網址轉址頁（tools/build_redirects.py 產生）
+  [[module.mounts]]
+    source = "next/static"
+    target = "static"
