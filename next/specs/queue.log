@@ -235,3 +235,28 @@ C:\Users\hangs\AppData\Local\Programs\Python\Python312\python.exe: can't open fi
 
 **注意：** W3 工作單明令禁止 git 操作，所以不會自動 commit；attribution 提醒僅在 commit/PR 時適用，本任務未觸發。
 PASS W3
+[09-25 23:30:39] W3 通過並已 push
+[09-25 23:30:39] --- W4 開始 ---
+[09-25 23:30:39] W4 第 1 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 47｜input 33167｜cache_read 1003485｜output 10356
+All required files in place. Summary:
+
+## 完成回報
+
+### 新建檔案
+- `next/content/vortex/_content.gotmpl`：用 `$.AddPage` 從 `hugo.Data.vortex_links` 產生 8 個集合清單頁（section）、6 個泳式樞紐頁（page）、772 個知識點頁（page）。hook 寫到 page級 `description`，讓 `<head>` 的 meta tag 也吃到一句話 hook。
+- `next/layouts/vortex/page.html`：kind=page 的版型分派（依 `.Params.role` 選 partial）。
+- `next/layouts/vortex/section.html`：kind=section 的版型分派（同上）。
+- `next/layouts/_partials/vortex/{unit,stroke,list,home}.html`：四個占位 partial，輸出 `<div class="page"><h1>{{ .Title }}</h1><p class="muted">（版型建置中：role 名稱）</p></div>`。
+
+### 版型套用確認
+`next/layouts/vortex/page.html` 確實套到深層頁。實測 `public/next/vortex/drills/fr1/index.html` 內含 `版型建置中：unit` 字串，且帶正確的 `<title>`與從 hook 來的 `<meta name="description">`。
+
+### 驗收
+- `python -X utf8 tools/build_vortex_links.py`：`drill=179 error=104 injury=47 level=26 move=51 problem=73 psy=8 psyc=62 tech=222`
+- `python -X utf8 next/specs/check.py W4`：**PASS W4**（建置 1 秒，788 頁，全 9 種 type 頁數正確，8 清單 + 6 泳式頁齊全，無 map[、無 inline style、無空標題、無 !important）。
+
+### 未做部分
+占位 partial（unit/卒中/list/home）只輸出標題與「版型建置中」字樣；後續 W5（unit內容）、W6（stroke樞紐）、W7（list 集合）、W8（home 首頁）會各別重寫。
+PASS W4

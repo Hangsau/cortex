@@ -1,0 +1,50 @@
+{{- /*
+  Vortex 知識點頁 content adapter（W4）。
+  從 hugo.Data.vortex_links 讀索引，建立：
+    - 8 個集合清單頁（kind=section，role=list）
+    - 6 個泳式樞紐頁（kind=page，role=stroke）
+    - 全部知識點頁（kind=page，role=unit）
+*/ -}}
+{{- $links := $.Site.Data.vortex_links -}}
+
+{{- /* 集合清單頁（8 個） */ -}}
+{{- $sections := dict
+  "drills"    (dict "title" "練習"         "list_type" "drill")
+  "tech"      (dict "title" "技術分析"     "list_type" "tech")
+  "errors"    (dict "title" "教學誤區"     "list_type" "error")
+  "problems"  (dict "title" "找問題"       "list_type" "problem")
+  "injuries"  (dict "title" "運動傷害"     "list_type" "injury")
+  "levels"    (dict "title" "水感發展級別" "list_type" "level")
+  "mind"      (dict "title" "心理層"       "list_type" "psy")
+  "moves"     (dict "title" "全部動作"     "list_type" "move")
+-}}
+{{- range $path, $info := $sections }}
+{{- $.AddPage (dict
+    "path"   $path
+    "kind"   "section"
+    "title"  $info.title
+    "params" (dict "role" "list" "list_type" $info.list_type)
+  ) }}
+{{- end }}
+
+{{- /* 泳式樞紐頁（6 個） */ -}}
+{{- range $stroke, $meta := $links.strokes }}
+{{- $.AddPage (dict
+    "path"   $stroke
+    "kind"   "page"
+    "title"  $meta.name_zh
+    "params" (dict "role" "stroke" "stroke" $stroke)
+  ) }}
+{{- end }}
+
+{{- /* 知識點頁（每個 unit 一頁） */ -}}
+{{- range $id, $u := $links.units }}
+{{- $relpath := strings.TrimPrefix "vortex/" $u.path -}}
+{{- $relpath = strings.TrimSuffix "/" $relpath -}}
+{{- $params := dict "role" "unit" "unit_id" $id "unit_type" $u.type -}}
+{{- $pdict := dict "path" $relpath "kind" "page" "title" $u.title "params" $params -}}
+{{- with $u.hook }}
+  {{- $pdict = merge $pdict (dict "description" .) -}}
+{{- end -}}
+{{- $.AddPage $pdict }}
+{{- end }}
