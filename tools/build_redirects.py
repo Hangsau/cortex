@@ -19,7 +19,7 @@ import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-LEGACY = ROOT / "next" / "data" / "legacy_urls.txt"
+LEGACY = ROOT / "next" / "legacy_urls.txt"
 STATIC = ROOT / "next" / "static"
 BASE = "/cortex/"
 
