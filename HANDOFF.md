@@ -11,6 +11,9 @@
 - 進度看 `next/specs/STATUS.md`、細節 `next/specs/queue.log`
 - 佇列 2026-09-25 從 W1 啟動（Claude 5H 當時 90%）。接手：讀 STATUS.md → 失敗就讀 queue.log 修規格或手修後 `run_queue.sh W<n>` 續跑 → 全過後 W9：Playwright 截圖桌機 390/1440、檢查 320px 溢出、對照 PLAN §6 驗收指標，交使用者看 `/next/`
 - 使用者指示：不要用 shotclock 排程接手，由當前 session 自己監控
+- **2026-09-25 23:57 P1 完成**：W1–W8 全過並部署（CI 綠），W9 已驗：6 種頁 × 1440/390/320 無水平溢出；修兩處（`{text,certainty}` 欄位直接印內文、`<mark>` 改系列色底線，`880fccc`）。W1 由 Claude 修正：drills 變數錯指、`deficiency_fixes` 是外部書本編號非動作序號（已移除該類連結）。連結網 1,110 條雙向（practice 103／level 321／ref 624／part_of 62）
+- **下一步：等使用者看 `https://hangsau.github.io/cortex/next/vortex/` 定案**，才開 P2（其他系列）。已知可改進：誤區頁「為什麼」內文字體不一致（部分走 sans）；首頁 10 誤區列表較密
+- M3 成本觀察：每單 42–81 回合，input 4–28 萬＋cache_read 130–380 萬；多數單會用滿 `--max-turns 80`
 
 
 ## CSCS 題庫重寫：ch01–ch14 完成，出題／審查／重出全改走直呼 API（2026-09-17）
