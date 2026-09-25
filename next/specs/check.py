@@ -73,6 +73,12 @@ def global_checks():
         rel = p.relative_to(OUT).as_posix()
         if "map[" in doc:
             fail(f"{rel} 出現 map[（直接印出 map）")
+        if "%!" in doc:
+            fail(f"{rel} 出現 Go 格式錯誤 %!（printf 型別不符）")
+        for href in re.findall(r'href="?([a-z][^" >#]*/)#', doc):
+            if not href.startswith(("http", "mailto")):
+                fail(f"{rel} 有相對路徑錨點連結 {href}#…（應用 relURL）")
+                break
         if re.search(r"\sstyle=", doc):
             fail(f"{rel} 有 inline style 屬性")
         if re.search(r"<h[23][^>]*>\s*</h[23]>", doc):

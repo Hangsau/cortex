@@ -155,6 +155,18 @@ def build_basic_biomechanics():
     }
 
 
+def cscs_title(n, fallback):
+    """CSCS 章名：data/cscs 的 title 有幾章是英文，中文章名在舊內容檔 chNN/_index.md。
+    去掉「Ch.N 」前綴（頁面另有「第 N 章」），兩處都沒有時才用 yaml 原值。"""
+    import re
+    md = ROOT / "content" / "library" / "essentials-of-strength-training" / f"ch{n:02d}" / "_index.md"
+    title = fallback
+    if md.exists():
+        fm = load_front(md)
+        title = fm.get("title") or fallback
+    return re.sub(r"^Ch\.?\s*\d+\s*", "", str(title)).strip()
+
+
 def build_cscs():
     chapters = []
     total_items = 0
@@ -169,7 +181,7 @@ def build_cscs():
         chapters.append({
             "n": n,
             "id": f"ch{n:02d}",
-            "title": d.get("title", ""),
+            "title": cscs_title(n, d.get("title", "")),
             "desc": desc,
             "path": f"library/essentials-of-strength-training/ch{n:02d}/",
             "part": "",

@@ -1,0 +1,58 @@
+{{- /* MNFL 技法頁（L4）：header + 為什麼有效 + 怎麼做 + 同主題其他技法 + 全部技法連結。 */ -}}
+{{- $p := .page -}}
+{{- $s := .series -}}
+{{- $tid := $p.Params.technique_id -}}
+{{- $mnfl := index hugo.Data "mnfl" -}}
+{{- $tech := "" }}
+{{- $theme := "" }}
+{{- $siblings := slice }}
+{{- range $t := $mnfl.techniques.themes }}
+  {{- range $tt := $t.techniques }}
+    {{- if eq $tt.id $tid }}{{ $tech = $tt }}{{ $theme = $t }}{{ end }}
+    {{- if eq $t.id $p.Params.theme_id }}{{ if ne $tt.id $tid }}{{ $siblings = $siblings | append $tt }}{{ end }}{{ end }}
+  {{- end }}
+{{- end }}
+{{- $css := resources.Get "css/library.css" | fingerprint -}}
+{{- $ecss := resources.Get "css/entry.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+<link rel="stylesheet" href="{{ $ecss.RelPermalink }}">
+<article class="lib-chapter lib-entry">
+  <header class="lc-head">
+    <p class="kicker">大腦喜歡這樣學{{ with $theme.name }} · {{ . }}{{ end }}</p>
+    <h1>{{ $tech.name }}</h1>
+    <p class="lc-lead">{{ $tech.essence }}</p>
+  </header>
+
+  {{- with $tech.why }}{{ if ne (trim (plainify .) " \n") "" }}
+  <section class="le-block">
+    <h2>為什麼有效</h2>
+    <div class="read">{{ . | markdownify }}</div>
+  </section>
+  {{- end }}{{ end }}
+
+  {{- with $tech.how }}
+  <section class="le-block">
+    <h2>怎麼做</h2>
+    <ol class="le-steps">
+      {{- range . }}<li>{{ . | markdownify }}</li>{{ end }}
+    </ol>
+  </section>
+  {{- end }}
+
+  {{- with $siblings }}
+  <nav class="le-siblings" aria-label="同主題其他技法">
+    <p class="kicker">同一主題的其他技法</p>
+    <ul>
+      {{- range . }}
+      <li>
+        <a href="{{ relURL (printf "library/mind-for-numbers/%s/" .id) }}">
+          <b>{{ .name }}</b>
+          <span class="muted">{{ .essence }}</span>
+        </a>
+      </li>
+      {{- end }}
+    </ul>
+    <p><a href="{{ relURL "library/mind-for-numbers/" }}">看全部 {{ len $s.entries }} 個技法 →</a></p>
+  </nav>
+  {{- end }}
+</article>

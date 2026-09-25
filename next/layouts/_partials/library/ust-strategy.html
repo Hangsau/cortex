@@ -1,0 +1,87 @@
+{{- /* UST 策略頁（L4）：params.index=true 時輸出策略總表，否則輸出單一策略頁。 */ -}}
+{{- $p := .page -}}
+{{- $s := .series -}}
+{{- $ust := index hugo.Data "ust" -}}
+{{- $css := resources.Get "css/library.css" | fingerprint -}}
+{{- $ecss := resources.Get "css/entry.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+<link rel="stylesheet" href="{{ $ecss.RelPermalink }}">
+{{- if $p.Params.index }}
+{{- $strats := $ust.strategies.strategies }}
+{{- $cats := $ust.strategies.categories }}
+{{- $stCount := len $strats }}
+<article class="lib-series">
+  <header class="ls-hero">
+    <p class="kicker">大腦喜歡這樣學・強效教學版</p>
+    <h1 class="ls-title">{{ $p.Title }}</h1>
+    <p class="ls-lead">{{ $stCount }} 個可以直接帶進課堂的策略，依用途分組。</p>
+  </header>
+
+  {{- range $cat := $cats }}
+    {{- $list := slice }}
+    {{- range $st := $strats }}{{ if eq $st.category $cat.id }}{{ $list = $list | append $st }}{{ end }}{{ end }}
+    {{- with $list }}
+  <section class="ls-sec" id="{{ $cat.id }}" aria-labelledby="ls-cat-{{ $cat.id }}">
+    <h3 class="ls-part" id="ls-cat-{{ $cat.id }}">{{ $cat.name }}</h3>
+    <div class="ls-entries">
+      {{- range . }}
+      <a class="ls-entry" href="{{ relURL (printf "library/uncommon-sense-teaching/strategies/%s/" .id) }}"><span class="ls-entry-t">{{ .name }}</span><span class="ls-entry-d">{{ .essence }}</span></a>
+      {{- end }}
+    </div>
+  </section>
+    {{- end }}
+  {{- end }}
+</article>
+{{- else }}
+{{- $sid := $p.Params.strategy_id -}}
+{{- $strats := $ust.strategies.strategies }}
+{{- $st := "" }}
+{{- range $x := $strats }}{{ if eq $x.id $sid }}{{ $st = $x }}{{ end }}{{ end }}
+{{- $catName := "" }}
+{{- if $st }}{{ range $c := $ust.strategies.categories }}{{ if eq $c.id $st.category }}{{ $catName = $c.name }}{{ end }}{{ end }}{{ end }}
+{{- $siblings := slice }}
+{{- if $st }}{{ range $x := $strats }}{{ if and (eq $x.category $st.category) (ne $x.id $sid) }}{{ $siblings = $siblings | append $x }}{{ end }}{{ end }}{{ end }}
+{{- $chNo := 0 }}{{ if $st }}{{ $chNo = int $st.chapter }}{{ end }}
+{{- $chTitle := "" }}{{ range $c := $ust.chapters.chapters }}{{ if eq $c.num $chNo }}{{ $chTitle = $c.title }}{{ end }}{{ end }}
+{{- $stCount := len $strats }}
+<article class="lib-chapter lib-entry">
+  <header class="lc-head">
+    <p class="kicker">大腦喜歡這樣學・強效教學版{{ with $catName }} · {{ . }}{{ end }}</p>
+    <h1>{{ $st.name }}</h1>
+    <p class="lc-lead">{{ $st.essence }}</p>
+  </header>
+
+  {{- with $st.how }}
+  <section class="le-block">
+    <h2>怎麼做</h2>
+    <ol class="le-steps">
+      {{- range . }}<li>{{ . | markdownify }}</li>{{ end }}
+    </ol>
+  </section>
+  {{- end }}
+
+  {{- if $st }}
+  <section class="le-block">
+    <h2>出自</h2>
+    <p><a href="{{ relURL (printf "library/uncommon-sense-teaching/ch%02d/" $chNo) }}">第 {{ $chNo }} 章　{{ $chTitle }}</a></p>
+  </section>
+  {{- end }}
+
+  {{- with $siblings }}
+  <nav class="le-siblings" aria-label="同分類其他策略">
+    <p class="kicker">同分類的其他策略</p>
+    <ul>
+      {{- range . }}
+      <li>
+        <a href="{{ relURL (printf "library/uncommon-sense-teaching/strategies/%s/" .id) }}">
+          <b>{{ .name }}</b>
+          <span class="muted">{{ .essence }}</span>
+        </a>
+      </li>
+      {{- end }}
+    </ul>
+    <p><a href="{{ relURL "library/uncommon-sense-teaching/strategies/" }}">看全部 {{ $stCount }} 個策略 →</a></p>
+  </nav>
+  {{- end }}
+</article>
+{{- end }}

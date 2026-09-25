@@ -54,7 +54,7 @@
       {{- end }}
       {{- with .numbers }}
       {{- $ns := slice }}
-      {{- range . }}{{ $ns = $ns | append (printf "%s：<b>%s</b> %s" .of .v .unit) }}{{ end }}
+      {{- range . }}{{ $ns = $ns | append (printf "%v：<b>%v</b> %v" .of .v .unit) }}{{ end }}
       <p class="ck-numbers">{{ delimit $ns "；" | safeHTML }}</p>
       {{- end }}
       {{- with .terms }}
@@ -79,7 +79,7 @@
         {{- $cz := . }}
         {{- $cd := index $concepts . }}
         {{- if $cd }}{{ $cz = $cd.zh }}{{ end }}
-        {{- $cs = $cs | append (printf "<a href=\"concepts/#%s\">%s</a>" . $cz) }}
+        {{- $cs = $cs | append (printf "<a href=\"%s#%s\">%s</a>" (relURL "library/essentials-of-strength-training/concepts/") . $cz) }}
       {{- end }}
       <p class="ck-concepts">{{ delimit $cs "、" | safeHTML }}</p>
       {{- end }}

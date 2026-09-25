@@ -473,3 +473,24 @@ All required output files are in place and `python -X utf8 next/specs/check.py L
 
 驗收指令 `python -X utf8 next/specs/check.py L3` 實際輸出 `PASS L3`。
 PASS L3
+[09-26 04:13:52] L3 通過並已 push
+[09-26 04:13:52] === 佇列全部完成 ===
+[09-26 04:14:27] === 佇列開始（起點 L4）===
+[09-26 04:14:27] --- L4 開始 ---
+[09-26 04:14:27] L4 第 1 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 70｜input 78745｜cache_read 3616237｜output 13023
+L4 驗收通過。
+
+**完成的工作（寫入磁碟的檔案）：**
+- `next/content/library/mind-for-numbers/_index.md`（系列首頁）
+- `next/content/library/mind-for-numbers/_content.gotmpl`（20 個技法頁的 content adapter）
+- `next/content/library/uncommon-sense-teaching/_index.md`（系列首頁）
+- `next/content/library/uncommon-sense-teaching/_content.gotmpl`（10 章 + 1 策略總表 + 18 策略頁的 content adapter）
+- `next/layouts/_partials/library/mnfl-technique.html`（技法頁：kicker／為什麼有效／怎麼做／同主題其他技法）
+- `next/layouts/_partials/library/ust-chapter.html`（章節頁：核心主張／重點／課堂試試看／本章策略／上下章 pager）
+- `next/layouts/_partials/library/ust-strategy.html`（依 `params.index` 切換策略總表 vs 單一策略頁）
+- `next/assets/css/entry.css`（`.le-steps`、`.le-points`、`.le-claim`、`.le-siblings` 等只用 tokens 的小區塊樣式）
+
+**驗收結果：** `python -X utf8 next/specs/check.py L4` 印出 `PASS L4`（首次建置後即通過，無失敗項）。
+PASS L4

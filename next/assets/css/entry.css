@@ -1,0 +1,70 @@
+/* 書房條目頁（MNFL 技法 / UST 章節 / UST 策略）的共用小區塊樣式。
+   只用 tokens；不卡片框、不陰影、圓角 0。 */
+
+/* 編號清單：le-steps */
+.le-steps { list-style: none; margin: 0; padding: 0; counter-reset: lestep; }
+.le-steps li {
+  position: relative;
+  padding: var(--s2) 0 var(--s2) 2.6em;
+  border-top: 1px solid var(--rule);
+  font-family: var(--f-serif);
+  line-height: 1.8;
+}
+.le-steps li:first-child { border-top: 1px solid var(--rule); }
+.le-steps li::before {
+  counter-increment: lestep;
+  content: counter(lestep);
+  position: absolute; left: 0; top: var(--s2);
+  font: 700 var(--fs-l)/1 var(--f-serif);
+  color: var(--series);
+}
+
+/* 一般要點：le-points */
+.le-points { padding-left: 1.4em; margin: 0; }
+.le-points li { font-family: var(--f-serif); line-height: 1.8; margin-bottom: var(--s2); }
+
+/* 章節核心主張：le-claim */
+.le-claim {
+  font: 500 var(--fs-l)/1.8 var(--f-serif);
+  border-left: 4px solid var(--series);
+  padding-left: var(--s3);
+  margin: 0;
+}
+
+/* 條目頁底部導覽：le-siblings */
+.le-siblings {
+  margin-top: var(--s6);
+  border-top: 2px solid var(--ink);
+  padding-top: var(--s2);
+}
+.le-siblings > p.kicker { margin: 0 0 var(--s2); }
+.le-siblings ul { list-style: none; margin: 0; padding: 0; }
+.le-siblings li { border-top: 1px solid var(--rule); }
+.le-siblings li:first-child { border-top: 1px solid var(--rule); }
+.le-siblings li a {
+  display: flex; flex-direction: column; gap: 4px;
+  padding: var(--s2) 0;
+  color: var(--ink);
+  text-decoration: none;
+  min-height: var(--tap);
+}
+.le-siblings li a b {
+  font: 700 var(--fs-m)/1.5 var(--f-serif);
+  color: var(--ink);
+}
+.le-siblings li a span { font-size: var(--fs-s); line-height: 1.6; }
+.le-siblings li a:hover b { color: var(--series); text-decoration: underline; }
+
+/* 章節內策略／技法連結列表（簡化版） */
+.le-siblings-list { list-style: none; margin: 0; padding: 0; }
+.le-siblings-list li { border-top: 1px solid var(--rule); }
+.le-siblings-list li a {
+  display: flex; flex-direction: column; gap: 4px;
+  padding: var(--s2) 0;
+  color: var(--ink);
+  text-decoration: none;
+  min-height: var(--tap);
+}
+.le-siblings-list li a b { font: 700 var(--fs-m)/1.5 var(--f-serif); color: var(--ink); }
+.le-siblings-list li a span { font-size: var(--fs-s); line-height: 1.6; }
+.le-siblings-list li a:hover b { color: var(--series); text-decoration: underline; }

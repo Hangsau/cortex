@@ -1,0 +1,72 @@
+{{- /* UST 章節頁（L4）：核心主張 / 重點 / 課堂試試看 / 本章策略 + 上下章 pager。 */ -}}
+{{- $p := .page -}}
+{{- $s := .series -}}
+{{- $n := int $p.Params.chapter_no -}}
+{{- $ust := index hugo.Data "ust" -}}
+{{- $ch := "" }}
+{{- range $c := $ust.chapters.chapters }}{{ if eq $c.num $n }}{{ $ch = $c }}{{ end }}{{ end }}
+{{- $strats := slice }}
+{{- range $st := $ust.strategies.strategies }}{{ if eq (int $st.chapter) $n }}{{ $strats = $strats | append $st }}{{ end }}{{ end }}
+{{- $css := resources.Get "css/library.css" | fingerprint -}}
+{{- $ecss := resources.Get "css/entry.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+<link rel="stylesheet" href="{{ $ecss.RelPermalink }}">
+{{- $idx := -1 }}
+{{- range $i, $c := $s.chapters }}{{ if eq (relURL $c.path) $p.RelPermalink }}{{ $idx = $i }}{{ end }}{{ end }}
+<article class="lib-chapter lib-entry">
+  <header class="lc-head">
+    <p class="kicker">大腦喜歡這樣學・強效教學版 · 第 {{ $n }} 章</p>
+    <h1>{{ $ch.title }}</h1>
+    <p class="lc-lead">{{ $ch.subtitle }}</p>
+  </header>
+
+  {{- with $ch.claim }}{{ if ne (trim (plainify .) " \n") "" }}
+  <section class="le-block">
+    <h2>核心主張</h2>
+    <p class="read le-claim">{{ . | markdownify }}</p>
+  </section>
+  {{- end }}{{ end }}
+
+  {{- with $ch.keys }}
+  <section class="le-block">
+    <h2>重點</h2>
+    <ul class="le-points">
+      {{- range . }}<li>{{ . | markdownify }}</li>{{ end }}
+    </ul>
+  </section>
+  {{- end }}
+
+  {{- with $ch.try }}
+  <section class="le-block">
+    <h2>課堂試試看</h2>
+    <ul class="le-points">
+      {{- range . }}<li>{{ . | markdownify }}</li>{{ end }}
+    </ul>
+  </section>
+  {{- end }}
+
+  {{- with $strats }}
+  <section class="le-block">
+    <h2>本章策略</h2>
+    <ul class="le-siblings-list">
+      {{- range . }}
+      <li>
+        <a href="{{ relURL (printf "library/uncommon-sense-teaching/strategies/%s/" .id) }}">
+          <b>{{ .name }}</b>
+          <span class="muted">{{ .essence }}</span>
+        </a>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+
+  <nav class="lc-pager" aria-label="上下章">
+    {{- if gt $idx 0 }}{{ with index $s.chapters (sub $idx 1) }}
+    <a class="lc-prev" href="{{ relURL .path }}"><span class="muted">上一章</span><span>{{ .n }}　{{ .title }}</span></a>
+    {{- end }}{{ end }}
+    {{- if and (ge $idx 0) (lt (add $idx 1) (len $s.chapters)) }}{{ with index $s.chapters (add $idx 1) }}
+    <a class="lc-next" href="{{ relURL .path }}"><span class="muted">下一章</span><span>{{ .n }}　{{ .title }}</span></a>
+    {{- end }}{{ end }}
+  </nav>
+</article>

@@ -1,0 +1,21 @@
+{{- /*
+  L4：MNFL 技法頁 content adapter。
+  從 hugo.Data.mnfl.techniques 讀全部 5 個主題、20 個技法，
+  為每個技法建立一頁，path 為 technique id。
+*/ -}}
+{{- $mnfl := index $.Site.Data "mnfl" -}}
+{{- range $theme := $mnfl.techniques.themes }}
+  {{- range $tech := $theme.techniques }}
+    {{- $.AddPage (dict
+        "path"        $tech.id
+        "kind"        "page"
+        "title"       $tech.name
+        "description" $tech.essence
+        "params"      (dict
+          "role"         "mnfl-technique"
+          "technique_id" $tech.id
+          "theme_id"     $theme.id
+        )
+      ) }}
+  {{- end }}
+{{- end }}

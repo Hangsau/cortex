@@ -1,0 +1,45 @@
+{{- /*
+  L4：UST 章節頁與策略頁 content adapter。
+  從 hugo.Data.ust.chapters / strategies 讀，建立：
+    - 10 個章節頁（path ch01…ch10）
+    - 18 個策略頁（path strategies/<id>）
+    - 1 個策略總表頁（path strategies）
+*/ -}}
+{{- $ust := index $.Site.Data "ust" -}}
+
+{{- /* 章節頁 */ -}}
+{{- range $ch := $ust.chapters.chapters }}
+  {{- $key := printf "ch%02d" $ch.num }}
+  {{- $.AddPage (dict
+      "path"        $key
+      "kind"        "page"
+      "title"       $ch.title
+      "description" $ch.subtitle
+      "params"      (dict
+        "role"        "ust-chapter"
+        "chapter_no"  $ch.num
+      )
+    ) }}
+{{- end }}
+
+{{- /* 策略總表頁（path strategies） */ -}}
+{{- $.AddPage (dict
+    "path"   "strategies"
+    "kind"   "page"
+    "title"  "課堂策略"
+    "params" (dict "role" "ust-strategy" "index" true)
+  ) }}
+
+{{- /* 策略頁（path strategies/<id>） */ -}}
+{{- range $s := $ust.strategies.strategies }}
+  {{- $.AddPage (dict
+      "path"        (printf "strategies/%s" $s.id)
+      "kind"        "page"
+      "title"       $s.name
+      "description" $s.essence
+      "params"      (dict
+        "role"        "ust-strategy"
+        "strategy_id" $s.id
+      )
+    ) }}
+{{- end }}
