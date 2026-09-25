@@ -1,0 +1,87 @@
+{{- /*
+  value.html — 遞迴渲染任意值（字串／數字／清單／map）。
+  輸入 dict {v: <值>, depth: <int>}。
+  規則見 W5 §value.html。
+*/ -}}
+{{- $v := .v -}}
+{{- $depth := .depth | default 0 -}}
+{{- if and $v (le $depth 4) -}}
+  {{- if reflect.IsMap $v -}}
+    {{- if $v -}}
+      {{- $labels := dict
+        "name" "名稱"
+        "detail" "說明"
+        "cue" "口令"
+        "how_to" "做法"
+        "certainty" "確定性"
+        "why" "為什麼"
+        "better" "更好的說法"
+        "note" "備註"
+        "text" "內容"
+        "summary" "摘要"
+        "population" "族群"
+        "structures" "結構"
+        "mechanism" "機制"
+        "prevention" "預防"
+        "management" "處理"
+        "risk_factors" "風險因子"
+        "epidemiology" "流行病學"
+        "observation" "觀察"
+        "intervention" "介入"
+        "quant" "量化參考"
+        "indicator" "指標"
+      -}}
+      {{- $skipExact := dict
+        "id" 1 "source" 1 "sources" 1 "source_ids" 1
+        "cross_ref" 1 "cross_ref_ids" 1 "links" 1
+        "observation_basis" 1 "notes" 1
+      -}}
+      <dl class="value-dl">
+      {{- range $k, $vv := $v -}}
+        {{- $skip := false -}}
+        {{- if index $skipExact $k -}}{{- $skip = true -}}{{- end -}}
+        {{- if not $skip -}}
+          {{- if hasSuffix $k "_ids" -}}{{- $skip = true -}}{{- end -}}
+        {{- end -}}
+        {{- if not $skip -}}
+          {{- $inner := partial "value.html" (dict "v" $vv "depth" (add $depth 1)) -}}
+          {{- $hasContent := false -}}
+          {{- if $inner -}}
+            {{- if ne (trim (plainify $inner) " \n\t\r") "" -}}
+              {{- $hasContent = true -}}
+            {{- end -}}
+          {{- end -}}
+          {{- if $hasContent -}}
+            {{- $label := index $labels $k -}}
+            {{- if not $label -}}{{- $label = $k -}}{{- end -}}
+            <dt>{{ $label }}</dt>
+            <dd>{{ $inner | safeHTML }}</dd>
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+      </dl>
+    {{- end -}}
+  {{- else if reflect.IsSlice $v -}}
+    {{- if gt (len $v) 0 -}}
+      <ul class="value-ul">
+      {{- range $v -}}
+        {{- $inner := partial "value.html" (dict "v" . "depth" (add $depth 1)) -}}
+        {{- $hasContent := false -}}
+        {{- if $inner -}}
+          {{- if ne (trim (plainify $inner) " \n\t\r") "" -}}
+            {{- $hasContent = true -}}
+          {{- end -}}
+        {{- end -}}
+        {{- if $hasContent -}}
+          <li>{{ $inner | safeHTML }}</li>
+        {{- end -}}
+      {{- end -}}
+      </ul>
+    {{- end -}}
+  {{- else -}}
+    {{- $t := printf "%v" $v | plainify | strings.TrimSpace -}}
+    {{- if $t -}}
+      <p>{{ $v | markdownify }}</p>
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

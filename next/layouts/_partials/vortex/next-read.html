@@ -1,0 +1,162 @@
+{{- /*
+  next-read.html — 知識點頁「接著看」區塊。
+  輸入 dict {id: <unit id>, data: <vortex_links 整體>}。
+  規則見 W5 §next-read.html。
+*/ -}}
+{{- $id := .id -}}
+{{- $data := .data -}}
+{{- if not $data -}}
+  {{- $data = $.Site.Data.vortex_links -}}
+{{- end -}}
+{{- $units := $data.units -}}
+{{- $out := index $data.out $id -}}
+{{- $in := index $data.in $id -}}
+
+{{- /* 合併 out 與 in 邊的對方 id（去重） */ -}}
+{{- $neighbors := dict -}}
+{{- if $out -}}
+  {{- range $out -}}
+    {{- $otherId := .to -}}
+    {{- if index $units $otherId -}}
+      {{- $neighbors = merge $neighbors (dict $otherId true) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if $in -}}
+  {{- range $in -}}
+    {{- $otherId := .from -}}
+    {{- if index $units $otherId -}}
+      {{- $neighbors = merge $neighbors (dict $otherId true) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* 分組順序與標題 */ -}}
+{{- $groupOrder := slice
+  (dict "types" (slice "drill") "title" "怎麼練這個")
+  (dict "types" (slice "move") "title" "相關動作")
+  (dict "types" (slice "error") "title" "常見的錯誤想法")
+  (dict "types" (slice "tech") "title" "背後的機制")
+  (dict "types" (slice "problem") "title" "練不起來時")
+  (dict "types" (slice "level") "title" "這是哪一級的事")
+  (dict "types" (slice "injury") "title" "相關傷害風險")
+  (dict "types" (slice "psy" "psyc") "title" "心理層")
+-}}
+
+{{- /* 收集各群組 */ -}}
+{{- $groups := slice -}}
+{{- range $g := $groupOrder -}}
+  {{- $ids := slice -}}
+  {{- range $nid, $_ := $neighbors -}}
+    {{- if in $g.types (index $units $nid).type -}}
+      {{- $ids = $ids | append $nid -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $groups = $groups | append (dict "title" $g.title "ids" $ids) -}}
+{{- end -}}
+
+{{- $hasAny := false -}}
+{{- range $g := $groups -}}
+  {{- if gt (len $g.ids) 0 -}}
+    {{- $hasAny = true -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* 找目前 unit 的 stroke 與所屬 list 連結 */ -}}
+{{- $self := index $units $id -}}
+{{- $stroke := $self.stroke -}}
+{{- $strokeName := "" -}}
+{{- if $stroke -}}
+  {{- $strokeName = index $data.strokes $stroke "name_zh" -}}
+{{- end -}}
+{{- $selfType := $self.type -}}
+{{- $segList := "" -}}
+{{- $segTitle := "" -}}
+{{- if eq $selfType "move" -}}
+  {{- $segList = "moves" -}}
+  {{- $segTitle = "動作" -}}
+{{- else if eq $selfType "drill" -}}
+  {{- $segList = "drills" -}}
+  {{- $segTitle = "練習" -}}
+{{- else if eq $selfType "tech" -}}
+  {{- $segList = "tech" -}}
+  {{- $segTitle = "技術分析" -}}
+{{- else if eq $selfType "error" -}}
+  {{- $segList = "errors" -}}
+  {{- $segTitle = "教學誤區" -}}
+{{- else if eq $selfType "problem" -}}
+  {{- $segList = "problems" -}}
+  {{- $segTitle = "找問題" -}}
+{{- else if eq $selfType "injury" -}}
+  {{- $segList = "injuries" -}}
+  {{- $segTitle = "運動傷害" -}}
+{{- else if eq $selfType "level" -}}
+  {{- $segList = "levels" -}}
+  {{- $segTitle = "水感發展級別" -}}
+{{- else if or (eq $selfType "psy") (eq $selfType "psyc") -}}
+  {{- $segList = "mind" -}}
+  {{- $segTitle = "心理層" -}}
+{{- end -}}
+
+{{- if or $hasAny $stroke $segList -}}
+<section class="next-read" aria-labelledby="nr-h">
+  <h2 id="nr-h">接著看</h2>
+  {{- range $g := $groups -}}
+    {{- if gt (len $g.ids) 0 -}}
+      <div class="nr-group">
+        <h3>{{ $g.title }}</h3>
+        {{- $first4 := first 4 $g.ids -}}
+        {{- $rest := after 4 $g.ids -}}
+        <ol class="nr-list">
+          {{- range $nid := $first4 -}}
+            {{- $u := index $units $nid -}}
+            <li>
+              <a class="nr-item" href="{{ relURL $u.path }}">
+                <span class="nr-title">{{ $u.title }}</span>
+                {{- with $u.hook -}}
+                  {{- $h := . | plainify | strings.TrimSpace -}}
+                  {{- if $h -}}
+                  <span class="nr-hook">{{ . | markdownify }}</span>
+                  {{- end -}}
+                {{- end -}}
+              </a>
+            </li>
+          {{- end -}}
+        </ol>
+        {{- if gt (len $rest) 0 -}}
+          <details class="nr-more">
+            <summary>看全部 {{ len $g.ids }} 條</summary>
+            <ol class="nr-list">
+              {{- range $nid := $rest -}}
+                {{- $u := index $units $nid -}}
+                <li>
+                  <a class="nr-item" href="{{ relURL $u.path }}">
+                    <span class="nr-title">{{ $u.title }}</span>
+                    {{- with $u.hook -}}
+                      {{- $h := . | plainify | strings.TrimSpace -}}
+                      {{- if $h -}}
+                      <span class="nr-hook">{{ . | markdownify }}</span>
+                      {{- end -}}
+                    {{- end -}}
+                  </a>
+                </li>
+              {{- end -}}
+            </ol>
+          </details>
+        {{- end -}}
+      </div>
+    {{- end -}}
+  {{- end -}}
+  {{- if or $stroke $segList }}
+  <p class="nr-tail">
+    {{- if $stroke }}
+    <a href="{{ relURL (printf "vortex/%s/" $stroke) }}">看{{ $strokeName }}的全部內容 →</a>
+    {{- if $segList }}　{{ end -}}
+    {{- end -}}
+    {{- if $segList }}
+    <a href="{{ relURL (printf "vortex/%s/" $segList) }}">看全部{{ $segTitle }} →</a>
+    {{- end -}}
+  </p>
+  {{- end -}}
+</section>
+{{- end -}}

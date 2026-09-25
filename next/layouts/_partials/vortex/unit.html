@@ -1,4 +1,532 @@
-<div class="page">
-  <h1>{{ .Title }}</h1>
-  <p class="muted">（版型建置中：unit）</p>
-</div>
+{{- /*
+  unit.html — 知識點頁版型（W5）。
+  依 type 渲染 hook / 是什麼或怎麼做 / 為什麼 / 證據與來源 / 接著看。
+  資料來源：$.Site.Data.vortex_links。<id> 由 .Params.unit_id 傳入。
+*/ -}}
+{{- $id := .Params.unit_id -}}
+{{- $links := $.Site.Data.vortex_links -}}
+{{- $u := index $links.units $id -}}
+{{- $record := $u.record -}}
+{{- $type := $u.type -}}
+
+{{- $css := resources.Get "css/unit.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
+
+{{- $strokeKey := $u.stroke -}}
+{{- $strokeName := "" -}}
+{{- if $strokeKey -}}
+  {{- $strokeName = index $links.strokes $strokeKey "name_zh" -}}
+{{- end -}}
+{{- $typeZh := (dict
+  "move" "動作"
+  "drill" "練習"
+  "tech" "技術分析"
+  "error" "教學誤區"
+  "problem" "找問題"
+  "injury" "運動傷害"
+  "level" "水感級別"
+  "psy" "心理主題"
+  "psyc" "心理概念"
+) -}}
+
+<article class="page unit">
+  <p class="unit-kicker">
+    {{- if $strokeName -}}<span>{{ $strokeName }}</span>{{- if or $u.category_name $type -}}<span class="sep">·</span>{{- end -}}{{- end -}}
+    {{- if $u.category_name -}}<span>{{ $u.category_name }}</span>{{- if $type -}}<span class="sep">·</span>{{- end -}}{{- end -}}
+    {{- if $type -}}<span>{{ index $typeZh $type }}</span>{{- end -}}
+  </p>
+
+  <h1>{{ $u.title }}</h1>
+
+  {{- /* hook：error 拆兩段；其他用 record.one 或 hook。
+        文字不過 markdownify（保留原始前綴與標點），逐行輸出為多個 <p>。*/ -}}
+  {{- if eq $type "error" -}}
+    {{- with $record.misconception -}}
+      {{- $t := . | plainify | strings.TrimSpace -}}
+      {{- if $t -}}
+        <p class="unit-hook read">很多人以為：{{ . }}</p>
+      {{- end -}}
+    {{- end -}}
+    {{- with $record.correct_concept -}}
+      {{- $t := . | plainify | strings.TrimSpace -}}
+      {{- if $t -}}
+        <p class="unit-hook read">其實：{{ . }}</p>
+      {{- end -}}
+    {{- end -}}
+  {{- else -}}
+    {{- $hook := "" -}}
+    {{- with $record.one -}}
+      {{- $t := . | plainify | strings.TrimSpace -}}
+      {{- if $t -}}{{- $hook = . -}}{{- end -}}
+    {{- end -}}
+    {{- if not $hook -}}
+      {{- with $u.hook -}}
+        {{- $t := . | plainify | strings.TrimSpace -}}
+        {{- if $t -}}{{- $hook = . -}}{{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- with $hook -}}
+      {{- $first := true -}}
+      {{- range $line := split . "\n" -}}
+        {{- $line = $line | strings.TrimSpace -}}
+        {{- if $line -}}
+          <p class="unit-hook read">{{ $line }}</p>
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- /* ===== 是什麼／怎麼做 ===== */ -}}
+  {{- $whatOpen := false -}}
+  {{- if eq $type "move" -}}
+    {{- $whatOpen = or $whatOpen (or $record.cue_bad $record.cue_why $record.cue_good) -}}
+    {{- with $record.boundary }}{{ $t := . | plainify | strings.TrimSpace }}{{ if $t }}{{ $whatOpen = true }}{{ end }}{{ end -}}
+    {{- with $record.l }}{{ $t := . | plainify | strings.TrimSpace }}{{ if $t }}{{ $whatOpen = true }}{{ end }}{{ end -}}
+  {{- else if eq $type "drill" -}}
+    {{- with $record.how_to }}{{ if gt (len .) 0 }}{{ $whatOpen = true }}{{ end }}{{ end -}}
+    {{- if $record.equipment }}{{ if gt (len $record.equipment) 0 }}{{ $whatOpen = true }}{{ end }}{{ end -}}
+    {{- with $record.perception_goal }}{{ $t := . | plainify | strings.TrimSpace }}{{ if $t }}{{ $whatOpen = true }}{{ end }}{{ end -}}
+    {{- with $record.success_signal }}{{ $t := . | plainify | strings.TrimSpace }}{{ if $t }}{{ $whatOpen = true }}{{ end }}{{ end -}}
+    {{- with $record.failure_signal }}{{ $t := . | plainify | strings.TrimSpace }}{{ if $t }}{{ $whatOpen = true }}{{ end }}{{ end -}}
+  {{- else if eq $type "tech" -}}
+    {{- with $record.practical_implication }}{{ $t := . | plainify | strings.TrimSpace }}{{ if $t }}{{ $whatOpen = true }}{{ end }}{{ end -}}
+    {{- with $record.perception_signal }}{{ $t := . | plainify | strings.TrimSpace }}{{ if $t }}{{ $whatOpen = true }}{{ end }}{{ end -}}
+  {{- else if eq $type "problem" -}}
+    {{- with $record.observable }}{{ $t := . | plainify | strings.TrimSpace }}{{ if $t }}{{ $whatOpen = true }}{{ end }}{{ end -}}
+  {{- else if eq $type "injury" -}}
+    {{- if or $record.mechanism $record.prevention $record.management }}{{ $whatOpen = true }}{{ end -}}
+  {{- else if eq $type "level" -}}
+    {{- with $record.description }}{{ $t := . | plainify | strings.TrimSpace }}{{ if $t }}{{ $whatOpen = true }}{{ end }}{{ end -}}
+    {{- if or $record.indicators $record.methods }}{{ $whatOpen = true }}{{ end -}}
+    {{- with $record.milestone }}{{ $t := . | plainify | strings.TrimSpace }}{{ if $t }}{{ $whatOpen = true }}{{ end }}{{ end -}}
+    {{- with $record.stagnation }}{{ $t := . | plainify | strings.TrimSpace }}{{ if $t }}{{ $whatOpen = true }}{{ end }}{{ end -}}
+  {{- else if eq $type "psy" -}}
+    {{- if or $record.premise $record.when_zh }}{{ $whatOpen = true }}{{ end -}}
+    {{- $partOfEdges := slice -}}
+    {{- range $e := index $links.in $id -}}
+      {{- if eq $e.rel "part_of" -}}
+        {{- $partOfEdges = $partOfEdges | append $e.from -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if gt (len $partOfEdges) 0 }}{{ $whatOpen = true }}{{ end -}}
+  {{- else if eq $type "psyc" -}}
+    {{- if or $record.phenomenon $record.misconception_refs $record.intervention_refs }}{{ $whatOpen = true }}{{ end -}}
+  {{- end -}}
+
+
+  {{- if $whatOpen }}
+  <section class="layer layer-what">
+    {{- if eq $type "move" }}<h2>怎麼做</h2>
+    {{- else if eq $type "level" }}<h2>是什麼</h2>
+    {{- else if eq $type "injury" }}<h2>是什麼與怎麼處理</h2>
+    {{- else if eq $type "psy" }}<h2>是什麼</h2>
+    {{- else }}<h2>怎麼做</h2>
+    {{- end }}
+
+    {{- if eq $type "move" -}}
+      {{- if or $record.cue_bad $record.cue_why $record.cue_good }}
+      <div class="layer-move-grid">
+        {{- with $record.cue_bad -}}
+          {{- $t := . | plainify | strings.TrimSpace -}}
+          {{- if $t -}}
+            <div class="mg-cell">
+              <h3>常見說法</h3>
+              <p class="read">{{ . | markdownify }}</p>
+            </div>
+          {{- end -}}
+        {{- end -}}
+        {{- with $record.cue_why -}}
+          {{- $t := . | plainify | strings.TrimSpace -}}
+          {{- if $t -}}
+            <div class="mg-cell">
+              <h3>為什麼不好</h3>
+              <p class="read">{{ . | markdownify }}</p>
+            </div>
+          {{- end -}}
+        {{- end -}}
+        {{- with $record.cue_good -}}
+          {{- $t := . | plainify | strings.TrimSpace -}}
+          {{- if $t -}}
+            <div class="mg-cell mg-good">
+              <h3>更好的說法</h3>
+              <p class="read">{{ . | markdownify }}</p>
+            </div>
+          {{- end -}}
+        {{- end -}}
+      </div>
+      {{- end }}
+      {{- with $record.boundary -}}
+        {{- $t := . | plainify | strings.TrimSpace -}}
+        {{- if $t -}}
+          <h3>邊界</h3>
+          <p class="read">{{ . | markdownify }}</p>
+        {{- end -}}
+      {{- end }}
+      {{- with $record.l -}}
+        {{- $t := . | plainify | strings.TrimSpace -}}
+        {{- if $t -}}
+          <p class="muted">對應級別：{{ . | markdownify }}</p>
+        {{- end -}}
+      {{- end }}
+
+    {{- else if eq $type "drill" -}}
+      {{- with $record.how_to -}}
+        {{- if gt (len .) 0 }}
+        <ol class="how-to-list">
+          {{- range . }}
+          <li><p class="read">{{ . | markdownify }}</p></li>
+          {{- end }}
+        </ol>
+        {{- end }}
+      {{- end }}
+      {{- $equip := $record.equipment -}}
+      {{- if not $equip -}}<p class="muted">器材：不需器材</p>
+      {{- else if eq (len $equip) 0 -}}<p class="muted">器材：不需器材</p>
+      {{- else -}}<p class="muted">器材：{{ range $equip }}{{ . }}　{{ end }}</p>
+      {{- end }}
+      {{- with $record.perception_goal -}}
+        {{- $t := . | plainify | strings.TrimSpace -}}
+        {{- if $t -}}<h3>要感覺到的</h3><p class="read">{{ . | markdownify }}</p>{{- end -}}
+      {{- end }}
+      {{- with $record.success_signal -}}
+        {{- $t := . | plainify | strings.TrimSpace -}}
+        {{- if $t -}}<h3>做對的訊號</h3><p class="read">{{ . | markdownify }}</p>{{- end -}}
+      {{- end }}
+      {{- with $record.failure_signal -}}
+        {{- $t := . | plainify | strings.TrimSpace -}}
+        {{- if $t -}}<h3>做錯的訊號</h3><p class="read">{{ . | markdownify }}</p>{{- end -}}
+      {{- end }}
+
+    {{- else if eq $type "tech" -}}
+      {{- with $record.practical_implication -}}
+        {{- $t := . | plainify | strings.TrimSpace -}}
+        {{- if $t -}}<h3>實際意義</h3><p class="read">{{ . | markdownify }}</p>{{- end -}}
+      {{- end }}
+      {{- with $record.perception_signal -}}
+        {{- $t := . | plainify | strings.TrimSpace -}}
+        {{- if $t -}}<h3>感覺訊號</h3><p class="read">{{ . | markdownify }}</p>{{- end -}}
+      {{- end }}
+
+    {{- else if eq $type "problem" -}}
+      {{- with $record.observable -}}
+        {{- $t := . | plainify | strings.TrimSpace -}}
+        {{- if $t -}}<h3>看得到的現象</h3><p class="read">{{ . | markdownify }}</p>{{- end -}}
+      {{- end }}
+
+
+    {{- else if eq $type "injury" -}}
+      {{- if $record.mechanism }}
+        <h3>機制</h3>
+        {{- partial "value.html" (dict "v" $record.mechanism "depth" 0) -}}
+      {{- end }}
+      {{- if $record.prevention }}
+        <h3>預防</h3>
+        {{- partial "value.html" (dict "v" $record.prevention "depth" 0) -}}
+      {{- end }}
+      {{- if $record.management }}
+        <h3>處理</h3>
+        {{- partial "value.html" (dict "v" $record.management "depth" 0) -}}
+      {{- end }}
+
+    {{- else if eq $type "level" -}}
+      {{- with $record.description -}}
+        {{- $t := . | plainify | strings.TrimSpace -}}
+        {{- if $t -}}<h3>描述</h3><p class="read">{{ . | markdownify }}</p>{{- end -}}
+      {{- end }}
+      {{- if or $record.indicators $record.methods }}
+        {{- with $record.indicators -}}
+          {{- if gt (len .) 0 }}
+          <h3>指標</h3>
+          {{- partial "value.html" (dict "v" . "depth" 0) -}}
+          {{- end -}}
+        {{- end -}}
+        {{- with $record.methods -}}
+          {{- if gt (len .) 0 }}
+          <h3>做法</h3>
+          <ul class="method-list">
+            {{- range . }}
+            <li>
+              {{- with .name }}<p class="m-name">{{ . | markdownify }}</p>{{- end }}
+              {{- with .detail }}<p class="m-detail read">{{ . | markdownify }}</p>{{- end }}
+              {{- with .cue }}<p class="m-cue">「{{ . | markdownify }}」</p>{{- end }}
+            </li>
+            {{- end }}
+          </ul>
+          {{- end -}}
+        {{- end -}}
+      {{- end }}
+      {{- with $record.milestone -}}
+        {{- $t := . | plainify | strings.TrimSpace -}}
+        {{- if $t -}}<h3>里程碑</h3><p class="read">{{ . | markdownify }}</p>{{- end -}}
+      {{- end }}
+      {{- with $record.stagnation -}}
+        {{- $t := . | plainify | strings.TrimSpace -}}
+        {{- if $t -}}<h3>停滯訊號</h3><p class="read">{{ . | markdownify }}</p>{{- end -}}
+      {{- end }}
+
+    {{- else if eq $type "psy" -}}
+      {{- if $record.premise }}
+        <h3>前提</h3>
+        {{- partial "value.html" (dict "v" $record.premise "depth" 0) -}}
+      {{- end }}
+      {{- with $record.when_zh -}}
+        {{- $t := . | plainify | strings.TrimSpace -}}
+        {{- if $t -}}<h3>什麼時候會碰到</h3><p class="read">{{ . | markdownify }}</p>{{- end -}}
+      {{- end }}
+      {{- /* 列出其 concepts（從 in 邊 rel=part_of 取得） */ -}}
+      {{- $concepts := slice -}}
+      {{- range $e := index $links.in $id -}}
+        {{- if eq $e.rel "part_of" -}}
+          {{- $concepts = $concepts | append $e.from -}}
+        {{- end -}}
+      {{- end -}}
+      {{- if gt (len $concepts) 0 }}
+        <h3>本章概念</h3>
+        <ul class="concept-list">
+          {{- range $cid := $concepts -}}
+            {{- $cu := index $links.units $cid -}}
+            {{- if $cu }}
+            <li>
+              <a href="{{ relURL $cu.path }}">
+                <span class="concept-title">{{ $cu.title }}</span>
+                {{- with $cu.hook -}}
+                  {{- $h := . | plainify | strings.TrimSpace -}}
+                  {{- if $h -}}
+                  <span class="concept-hook">{{ . | markdownify }}</span>
+                  {{- end -}}
+                {{- end -}}
+              </a>
+            </li>
+            {{- end -}}
+          {{- end -}}
+        </ul>
+      {{- end }}
+
+    {{- else if eq $type "psyc" -}}
+      {{- with $record.phenomenon -}}
+        {{- if reflect.IsMap . -}}
+          {{- if .text -}}
+            <h3>現象</h3>
+            {{- partial "value.html" (dict "v" . "depth" 0) -}}
+          {{- else if .plain_text -}}
+            <h3>現象</h3>
+            <p class="read">{{ .plain_text | markdownify }}</p>
+          {{- end -}}
+        {{- else -}}
+          {{- $t := printf "%v" . | plainify | strings.TrimSpace -}}
+          {{- if $t -}}<h3>現象</h3><p class="read">{{ . | markdownify }}</p>{{- end -}}
+        {{- end -}}
+      {{- end }}
+      {{- with $record.misconception_refs -}}
+        {{- if gt (len .) 0 }}
+        <h3>常見說法 vs 更好的說法</h3>
+        <ul class="misc-list">
+          {{- range . }}
+          <li>
+            {{- with .cue }}<p class="mc-cue">「{{ . | markdownify }}」</p>{{- end }}
+            {{- with .why }}<p class="mc-why read">為什麼：{{ . | markdownify }}</p>{{- end }}
+            {{- with .better }}<p class="mc-better read">更好的說法：{{ . | markdownify }}</p>{{- end }}
+          </li>
+          {{- end }}
+        </ul>
+        {{- end }}
+      {{- end }}
+      {{- with $record.intervention_refs -}}
+        {{- if gt (len .) 0 }}
+        <h3>介入方式</h3>
+        <ul class="intv-list">
+          {{- range . }}
+          <li>
+            {{- with .name }}<p class="in-name">{{ . | markdownify }}</p>{{- end }}
+            {{- with .how_to }}<p class="in-howto read">{{ . | markdownify }}</p>{{- end }}
+            {{- with .certainty }}<span class="in-cert">{{ . }}</span>{{- end }}
+          </li>
+          {{- end }}
+        </ul>
+        {{- end }}
+      {{- end }}
+    {{- end }}
+  </section>
+  {{- end }}
+
+
+  {{- /* ===== 為什麼 ===== */ -}}
+  {{- $whyOpen := false -}}
+  {{- if eq $type "move" -}}
+    {{- with $record.physical }}{{ $t := . | plainify | strings.TrimSpace }}{{ if $t }}{{ $whyOpen = true }}{{ end }}{{ end -}}
+    {{- with $record.lnote }}{{ $t := . | plainify | strings.TrimSpace }}{{ if $t }}{{ $whyOpen = true }}{{ end }}{{ end -}}
+  {{- else if eq $type "error" -}}
+    {{- with $record.physical_reason }}{{ $t := printf "%v" . | plainify | strings.TrimSpace }}{{ if $t }}{{ $whyOpen = true }}{{ end }}{{ end -}}
+    {{- with $record.perception_impact }}{{ $t := . | plainify | strings.TrimSpace }}{{ if $t }}{{ $whyOpen = true }}{{ end }}{{ end -}}
+  {{- else if eq $type "tech" -}}
+    {{- with $record.mechanism }}{{ $whyOpen = true }}{{ end -}}
+  {{- else if eq $type "problem" -}}
+    {{- with $record.mechanism_summary }}{{ $t := . | plainify | strings.TrimSpace }}{{ if $t }}{{ $whyOpen = true }}{{ end }}{{ end -}}
+  {{- else if eq $type "injury" -}}
+    {{- with $record.epidemiology }}{{ $whyOpen = true }}{{ end -}}
+    {{- with $record.risk_factors }}{{ $whyOpen = true }}{{ end -}}
+  {{- end -}}
+
+  {{- if $whyOpen }}
+  <section class="layer layer-why">
+    <h2>為什麼</h2>
+    {{- if eq $type "move" -}}
+      {{- with $record.physical -}}
+        {{- $t := . | plainify | strings.TrimSpace -}}
+        {{- if $t -}}<p class="read">{{ . | markdownify }}</p>{{- end -}}
+      {{- end }}
+      {{- with $record.lnote -}}
+        {{- $t := . | plainify | strings.TrimSpace -}}
+        {{- if $t -}}<p class="muted">{{ . | markdownify }}</p>{{- end -}}
+      {{- end }}
+    {{- else if eq $type "error" -}}
+      {{- with $record.physical_reason -}}
+        {{- $t := printf "%v" . | plainify | strings.TrimSpace -}}
+        {{- if $t -}}
+          <h3>物理原因</h3>
+          {{- partial "value.html" (dict "v" . "depth" 0) -}}
+        {{- end -}}
+      {{- end }}
+      {{- with $record.perception_impact -}}
+        {{- $t := . | plainify | strings.TrimSpace -}}
+        {{- if $t -}}<h3>對感知的影響</h3><p class="read">{{ . | markdownify }}</p>{{- end -}}
+      {{- end }}
+    {{- else if eq $type "tech" -}}
+      {{- if $record.mechanism -}}
+        {{- partial "value.html" (dict "v" $record.mechanism "depth" 0) -}}
+      {{- end }}
+    {{- else if eq $type "problem" -}}
+      {{- with $record.mechanism_summary -}}
+        {{- $t := . | plainify | strings.TrimSpace -}}
+        {{- if $t -}}<p class="read">{{ . | markdownify }}</p>{{- end -}}
+      {{- end }}
+    {{- else if eq $type "injury" -}}
+      {{- if $record.epidemiology }}
+        <h3>流行病學</h3>
+        {{- partial "value.html" (dict "v" $record.epidemiology "depth" 0) -}}
+      {{- end }}
+      {{- if $record.risk_factors }}
+        <h3>風險因子</h3>
+        {{- partial "value.html" (dict "v" $record.risk_factors "depth" 0) -}}
+      {{- end }}
+    {{- end }}
+  </section>
+  {{- end }}
+
+
+  {{- /* ===== 證據與來源 ===== */ -}}
+  {{- $hasEvidence := false -}}
+  {{- if $record.evidence -}}
+    {{- if or (reflect.IsMap $record.evidence) (reflect.IsSlice $record.evidence) -}}
+      {{- if $record.evidence -}}{{- $hasEvidence = true -}}{{- end -}}
+    {{- else -}}
+      {{- $t := printf "%v" $record.evidence | plainify | strings.TrimSpace -}}
+      {{- if $t -}}{{- $hasEvidence = true -}}{{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $hasSrcIds := false -}}
+  {{- if eq $type "tech" -}}
+    {{- if $record.cross_ref_ids }}{{ if gt (len $record.cross_ref_ids) 0 }}{{ $hasSrcIds = true }}{{ end }}{{ end -}}
+  {{- else if eq $type "error" -}}
+    {{- if $record.cross_ref_ids }}{{ if gt (len $record.cross_ref_ids) 0 }}{{ $hasSrcIds = true }}{{ end }}{{ end -}}
+  {{- else if eq $type "problem" -}}
+    {{- if $record.cross_ref_ids }}{{ if gt (len $record.cross_ref_ids) 0 }}{{ $hasSrcIds = true }}{{ end }}{{ end -}}
+  {{- else if eq $type "injury" -}}
+    {{- if $record.references }}{{ if gt (len $record.references) 0 }}{{ $hasSrcIds = true }}{{ end }}{{ end -}}
+  {{- else if eq $type "drill" -}}
+    {{- if $record.source_ids }}{{ if gt (len $record.source_ids) 0 }}{{ $hasSrcIds = true }}{{ end }}{{ end -}}
+  {{- else if eq $type "psyc" -}}
+    {{- if $record.source_ids }}{{ if gt (len $record.source_ids) 0 }}{{ $hasSrcIds = true }}{{ end }}{{ end -}}
+  {{- end -}}
+  {{- $hasCert := false -}}
+  {{- if eq $type "tech" -}}
+    {{- if and $record.mechanism $record.mechanism.certainty }}{{ $hasCert = true }}{{ end -}}
+  {{- else if eq $type "error" -}}
+    {{- if and $record.physical_reason (reflect.IsMap $record.physical_reason) }}{{ if $record.physical_reason.certainty }}{{ $hasCert = true }}{{ end }}{{ end -}}
+  {{- else if eq $type "injury" -}}
+    {{- if and $record.epidemiology $record.epidemiology.certainty }}{{ $hasCert = true }}{{ end -}}
+  {{- else if eq $type "psy" -}}
+    {{- if and $record.premise $record.premise.certainty }}{{ $hasCert = true }}{{ end -}}
+  {{- else if eq $type "psyc" -}}
+    {{- if and $record.phenomenon $record.phenomenon.certainty }}{{ $hasCert = true }}{{ end -}}
+  {{- end -}}
+
+  {{- if or $hasEvidence $hasSrcIds $hasCert }}
+  <details class="layer layer-evidence" id="evidence">
+    <summary>證據與來源</summary>
+    {{- if $hasEvidence }}
+      {{- partial "value.html" (dict "v" $record.evidence "depth" 0) -}}
+    {{- end -}}
+    {{- if eq $type "tech" -}}
+      {{- with $record.cross_ref_ids -}}
+        {{- if gt (len .) 0 }}
+        <h3>交叉引用</h3>
+        <ul class="value-ul">
+          {{- range . }}<li><code>{{ . }}</code></li>{{- end }}
+        </ul>
+        {{- end }}
+      {{- end -}}
+    {{- else if eq $type "error" -}}
+      {{- with $record.cross_ref_ids -}}
+        {{- if gt (len .) 0 }}
+        <h3>交叉引用</h3>
+        <ul class="value-ul">
+          {{- range . }}<li><code>{{ . }}</code></li>{{- end }}
+        </ul>
+        {{- end }}
+      {{- end -}}
+    {{- else if eq $type "problem" -}}
+      {{- with $record.cross_ref_ids -}}
+        {{- if gt (len .) 0 }}
+        <h3>交叉引用</h3>
+        <ul class="value-ul">
+          {{- range . }}<li><code>{{ . }}</code></li>{{- end }}
+        </ul>
+        {{- end }}
+      {{- end -}}
+    {{- else if eq $type "injury" -}}
+      {{- if $record.references -}}
+        {{- if gt (len $record.references) 0 }}
+        <h3>來源</h3>
+        {{- partial "value.html" (dict "v" $record.references "depth" 0) -}}
+        {{- end -}}
+      {{- end -}}
+    {{- else if eq $type "drill" -}}
+      {{- with $record.source_ids -}}
+        {{- if gt (len .) 0 }}
+        <h3>來源</h3>
+        <ul class="value-ul">
+          {{- range . }}<li><code>{{ . }}</code></li>{{- end }}
+        </ul>
+        {{- end }}
+      {{- end }}
+    {{- else if eq $type "psyc" -}}
+      {{- with $record.source_ids -}}
+        {{- if gt (len .) 0 }}
+        <h3>來源</h3>
+        <ul class="value-ul">
+          {{- range . }}<li><code>{{ . }}</code></li>{{- end }}
+        </ul>
+        {{- end }}
+      {{- end }}
+    {{- end -}}
+    {{- if $hasCert }}
+    <p class="muted"><span class="muted-cert">確定性標記：</span>
+      {{- if and (eq $type "tech") $record.mechanism -}}
+        {{- with $record.mechanism.certainty }}{{ . }}{{ end }}
+      {{- else if and (eq $type "error") (reflect.IsMap $record.physical_reason) -}}
+        {{- with $record.physical_reason.certainty }}{{ . }}{{ end }}
+      {{- else if eq $type "injury" -}}
+        {{- with $record.epidemiology }}{{ with .certainty }}{{ . }}{{ end }}{{ end }}
+      {{- else if eq $type "psy" -}}
+        {{- with $record.premise }}{{ with .certainty }}{{ . }}{{ end }}{{ end }}
+      {{- else if eq $type "psyc" -}}
+        {{- with $record.phenomenon }}{{ with .certainty }}{{ . }}{{ end }}{{ end }}
+      {{- end -}}
+    </p>
+    {{- end -}}
+  </details>
+  {{- end }}
+
+  {{- partial "vortex/next-read.html" (dict "id" $id "data" $links) -}}
+</article>

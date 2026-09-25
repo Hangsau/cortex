@@ -1,0 +1,202 @@
+/* Cortex next — unit 知識點頁（W5）。只在知識點頁載入。 */
+.unit-kicker {
+  font-size: var(--fs-s);
+  color: var(--series);
+  font-weight: 600;
+  margin: 0 0 var(--s1);
+  letter-spacing: .04em;
+}
+.unit-kicker .sep { color: var(--ink-2); margin: 0 .35em; }
+.unit-hook {
+  font-family: var(--f-serif);
+  font-size: var(--fs-l);
+  line-height: 1.7;
+  margin: var(--s2) 0 var(--s3);
+}
+.unit-hook + h1 { margin-top: 0; }
+.unit > h1 { margin-bottom: var(--s3); }
+
+.layer { margin-top: var(--s4); }
+.layer > h2 { margin-top: 0; margin-bottom: var(--s2); font-size: var(--fs-l); }
+.layer.layer-evidence { border-top: 1px solid var(--rule); }
+.layer.layer-evidence > summary { margin-top: 0; }
+.layer.layer-evidence[open] { padding-bottom: var(--s2); }
+
+.read p { margin: 0 0 var(--s2); }
+.read p:last-child { margin-bottom: 0; }
+
+/* move 三格並列 */
+.layer-move-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s3);
+  margin-bottom: var(--s3);
+}
+.layer-move-grid .mg-cell {
+  border-top: 2px solid var(--rule);
+  padding-top: var(--s2);
+}
+.layer-move-grid .mg-cell h3 {
+  font-size: var(--fs-s);
+  margin: 0 0 var(--s1);
+  color: var(--ink-2);
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+.layer-move-grid .mg-cell.mg-good { border-top-color: var(--series); }
+.layer-move-grid .mg-cell.mg-good h3 { color: var(--series); }
+@media (max-width: 600px) {
+  .layer-move-grid { grid-template-columns: 1fr; gap: var(--s2); }
+}
+
+/* drill 編號清單 */
+.how-to-list {
+  list-style: none;
+  counter-reset: hstep;
+  padding: 0; margin: 0 0 var(--s3);
+}
+.how-to-list > li {
+  counter-increment: hstep;
+  display: grid;
+  grid-template-columns: 2em 1fr;
+  gap: var(--s2);
+  padding: var(--s1) 0;
+  border-bottom: 1px solid var(--rule);
+}
+.how-to-list > li:last-child { border-bottom: 0; }
+.how-to-list > li::before {
+  content: counter(hstep);
+  color: var(--series);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  font-size: var(--fs-s);
+  line-height: var(--lh-read);
+}
+
+/* level methods */
+.method-list {
+  list-style: none;
+  padding: 0; margin: 0 0 var(--s3);
+}
+.method-list > li {
+  border-top: 1px solid var(--rule);
+  padding: var(--s2) 0;
+}
+.method-list > li:first-child { border-top: 0; padding-top: 0; }
+.method-list .m-name {
+  font-weight: 700;
+  font-size: var(--fs-m);
+  margin-bottom: var(--s1);
+}
+.method-list .m-detail { margin: 0 0 var(--s1); }
+.method-list .m-cue {
+  font-family: var(--f-serif);
+  line-height: var(--lh-read);
+  color: var(--ink-2);
+  margin: 0;
+}
+
+/* psyc misconception / intervention */
+.misc-list, .intv-list { list-style: none; padding: 0; margin: 0 0 var(--s3); }
+.misc-list > li, .intv-list > li {
+  border-top: 1px solid var(--rule);
+  padding: var(--s2) 0;
+}
+.misc-list > li:first-child, .intv-list > li:first-child { border-top: 0; padding-top: 0; }
+.misc-list .mc-cue, .intv-list .in-name {
+  font-weight: 700;
+  font-size: var(--fs-m);
+  margin: 0 0 var(--s1);
+}
+.misc-list .mc-why, .misc-list .mc-better { margin: 0 0 var(--s1); }
+.intv-list .in-howto { margin: var(--s1) 0 0; }
+.intv-list .in-cert { color: var(--series); margin-left: var(--s1); font-size: var(--fs-s); }
+
+/* 概念列表（psy 子概念） */
+.concept-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.concept-list > li {
+  border-top: 1px solid var(--rule);
+}
+.concept-list > li:first-child { border-top: 0; }
+.concept-list a {
+  display: block;
+  min-height: var(--tap);
+  padding: var(--s1) 0;
+  text-decoration: none;
+  color: var(--ink);
+}
+.concept-list a:hover .concept-title { text-decoration: underline; }
+.concept-title { font-weight: 600; }
+.concept-hook { color: var(--ink-2); font-size: var(--fs-s); }
+
+/* 接著看 */
+.next-read { margin-top: var(--s5); border-top: 1px solid var(--rule); padding-top: var(--s3); }
+.next-read > h2 { margin: 0 0 var(--s2); font-size: var(--fs-l); }
+.nr-group { margin-bottom: var(--s3); }
+.nr-group > h3 {
+  font-size: var(--fs-s);
+  font-weight: 600;
+  color: var(--ink-2);
+  letter-spacing: .04em;
+  margin: 0 0 var(--s1);
+}
+.nr-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.nr-item {
+  display: block;
+  min-height: var(--tap);
+  padding: var(--s1) 0;
+  text-decoration: none;
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+}
+.nr-item .nr-title {
+  display: block;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nr-item:hover .nr-title { text-decoration: underline; }
+.nr-item .nr-hook {
+  display: block;
+  color: var(--ink-2);
+  font-size: var(--fs-s);
+  font-family: var(--f-serif);
+  line-height: 1.6;
+}
+.nr-more summary { font-size: var(--fs-s); min-height: var(--tap); padding-left: 0; }
+.nr-tail { font-size: var(--fs-s); margin-top: var(--s3); color: var(--ink-2); }
+.nr-tail a { color: var(--link); }
+
+/* value.html 遞迴輔助樣式 */
+.value-dl { margin: 0 0 var(--s2); }
+.value-dl dt {
+  font-size: var(--fs-s);
+  font-weight: 600;
+  color: var(--ink-2);
+  letter-spacing: .04em;
+  margin-top: var(--s1);
+}
+.value-dl dd { margin: 0 0 var(--s1); }
+.value-dl dd > p:first-child { margin-top: 0; }
+.value-dl dd > p:last-child { margin-bottom: 0; }
+.value-ul { margin: 0 0 var(--s2); padding-left: var(--s3); }
+.value-ul li { margin-bottom: var(--s1); }
+.value-ul li > p:first-child { margin-top: 0; }
+.value-ul li > p:last-child { margin-bottom: 0; }
+
+/* misc helper */
+.muted-cert { color: var(--series); font-size: var(--fs-s); }
+.kicker-prefix { color: var(--series); }
+
+@media (max-width: 600px) {
+  .layer { margin-top: var(--s3); }
+  .unit-hook { font-size: var(--fs-l); }
+}

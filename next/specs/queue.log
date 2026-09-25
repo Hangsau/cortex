@@ -260,3 +260,36 @@ All required files in place. Summary:
 ### 未做部分
 占位 partial（unit/卒中/list/home）只輸出標題與「版型建置中」字樣；後續 W5（unit內容）、W6（stroke樞紐）、W7（list 集合）、W8（home 首頁）會各別重寫。
 PASS W4
+[09-25 23:32:51] W4 通過並已 push
+[09-25 23:32:51] --- W5 開始 ---
+[09-25 23:32:51] W5 第 1 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 81｜input 107724｜cache_read 4635939｜output 61251
+
+FAIL W5（6 項）
+ - prob.back.overlong-push 看不到一句話 hook「- 手到髖旁後仍繼續」
+ - prob.starts-turns.deep-turn 看不到一句話 hook「- 蛙式觸牆後先刻意」
+ - prob.back.misaligned-entry 看不到一句話 hook「- 從泳者頭端看，手」
+ - prob.fly.head-lift-hip-drop 看不到一句話 hook「- 吸氣時下巴向上、」
+ - prob.back.lateral-pull 看不到一句話 hook「- 划手在水下刻意向」
+ - surfers-ear-exostosis 看不到一句話 hook「Surfer's e」
+[09-25 23:40:57] W5 第 1 次驗收未過
+[09-25 23:40:57] W5 第 2 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 42｜input 100095｜cache_read 1298513｜output 14005
+All hooks now render with the original `- ` prefix and the literal `'` apostrophe.
+
+**完成回報：**
+
+修改檔案：
+- `next/layouts/_partials/vortex/unit.html`：重新改寫 hook 區塊渲染邏輯
+  - error 的兩段（misconception / correct_concept）改用直接輸出文字（去掉 `markdownify`），避免 smartypants 把 `'` 變成 `&rsquo;`，並保持中文前綴「很多人以為：」「其實：」原樣
+  - 其他型別的 hook：先去空白逐行 `split "\n"`，每個非空行單獨包成 `<p class="unit-hook read">`，完全跳過 `markdownify`。這樣 problem 的 `- 手到髖旁後仍繼續...` 等條列式 hook 才能保留前綴；injury hook 也不再被 smartypants 改成 curly quote
+
+驗收結果：
+- `python -X utf8 next/specs/check.py W5` → `PASS W5`
+- 重跑 `W1 / W3 / W4` → 全 PASS（確認本單沒影響其他已過項目）
+- `W6 / W7 / W8` 仍 FAIL，但那屬於其他工作單（泳式樞紐頁、集清單頁、首頁），與 W5 無關，已未動
+
+仍未完成的部分：上面 W6/W7/W8 失敗項是下一輪工作單要處理的，本單只在 unit 知識點頁範圍內。
+PASS W5
