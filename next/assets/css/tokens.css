@@ -1,0 +1,45 @@
+/* Cortex next — 設計 token（W2，Claude 手寫；來歷見 research/redesign-2026-09-24/PLAN.md §5）
+   方向「野外圖鑑」：統一版式、左緣拇指索引色帶、高對比、字級四級。 */
+:root {
+  --paper: #FAFAF7;
+  --ink: #14171A;
+  --ink-2: #4A5058;          /* 次要文字，對 --paper 約 7.6:1 */
+  --rule: #DAD7CF;           /* 髮絲線 */
+  --tint: #F1F0EA;           /* 收合區、選取底 */
+  --series: #0B6E8A;         /* 系列色，由 body.series-* 覆寫 */
+  --link: var(--series);
+
+  --f-serif: "Source Serif 4", "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  --f-sans: "Source Sans 3", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+
+  --fs-s: 14px;              /* 輔助說明硬底線 */
+  --fs-m: 17px;              /* 內文 */
+  --fs-l: 21px;              /* 小標 */
+  --fs-xl: 27px;             /* 頁標題；比例 1.25 */
+  --lh-read: 1.8;            /* CJK 長讀 */
+  --lh-ui: 1.5;
+
+  --s1: 8px; --s2: 16px; --s3: 24px; --s4: 32px; --s5: 48px; --s6: 64px;
+  --measure: 36em;           /* 正文欄，約每行 36 字 */
+  --tap: 48px;               /* 最小點擊高度（池邊濕手） */
+  --band: 4px;               /* 拇指索引色帶寬 */
+}
+body.series-vortex   { --series: #0B6E8A; }
+body.series-strength { --series: #A23B1F; }
+body.series-learning { --series: #2F6B3A; }
+body.series-temperament { --series: #8A6A12; }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #121416; --ink: #E6E4DF; --ink-2: #A9ADB3;
+    --rule: #2C3034; --tint: #1B1E21;
+  }
+  body.series-vortex   { --series: #5BB8D4; }
+  body.series-strength { --series: #E08A6E; }
+  body.series-learning { --series: #7FC08C; }
+  body.series-temperament { --series: #D6B45A; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0s; transition-duration: 0s; scroll-behavior: auto; }
+}

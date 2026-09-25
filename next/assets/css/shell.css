@@ -1,0 +1,49 @@
+/* Cortex next — 全站外殼（W2，Claude 手寫）。頁型樣式另檔（unit.css / list.css / stroke.css / home.css）。 */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: var(--fs-m)/var(--lh-ui) var(--f-sans);
+  border-left: var(--band) solid var(--series);   /* 拇指索引 */
+  min-height: 100vh;
+}
+a { color: var(--link); text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--series); outline-offset: 2px; }
+img { max-width: 100%; height: auto; }
+
+.site-head {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--s1) var(--s2);
+  padding: var(--s2) var(--s3); border-bottom: 1px solid var(--rule);
+}
+.site-head a { color: var(--ink); text-decoration: none; min-height: var(--tap); display: inline-flex; align-items: center; }
+.site-name { font-weight: 700; letter-spacing: .04em; }
+.site-head .series-name { color: var(--series); font-weight: 600; }
+.crumbs { width: 100%; font-size: var(--fs-s); color: var(--ink-2); }
+.crumbs a { color: var(--ink-2); min-height: 0; text-decoration: underline; }
+
+.page { max-width: calc(var(--measure) + 2 * var(--s3)); margin: 0 auto; padding: var(--s4) var(--s3) var(--s6); }
+.page--wide { max-width: 1120px; }
+h1, h2, h3 { font-family: var(--f-sans); line-height: 1.35; margin: 0; }
+h1 { font-size: var(--fs-xl); }
+h2 { font-size: var(--fs-l); margin-top: var(--s5); }
+h3 { font-size: var(--fs-m); margin-top: var(--s3); }
+.read { font-family: var(--f-serif); line-height: var(--lh-read); }
+.read p { margin: 0 0 var(--s2); }
+.muted { color: var(--ink-2); font-size: var(--fs-s); }
+
+details { border-top: 1px solid var(--rule); }
+details > summary {
+  cursor: pointer; min-height: var(--tap); display: flex; align-items: center;
+  font-weight: 600; list-style: none;
+}
+details > summary::before { content: "＋"; width: 1.5em; color: var(--series); }
+details[open] > summary::before { content: "－"; }
+details > summary::-webkit-details-marker { display: none; }
+
+.site-foot { border-top: 1px solid var(--rule); padding: var(--s3); font-size: var(--fs-s); color: var(--ink-2); text-align: center; }
+
+@media (max-width: 600px) {
+  .site-head { padding: var(--s1) var(--s2); }
+  .page { padding: var(--s3) var(--s2) var(--s5); }
+}
