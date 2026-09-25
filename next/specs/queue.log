@@ -501,3 +501,30 @@ PASS L4
 [claude-m3-lite] turns 81｜input 61700｜cache_read 3442432｜output 14618
 
 PASS L5
+[09-26 04:19:16] L5 通過並已 push
+[09-26 04:19:16] --- V2 開始 ---
+[09-26 04:19:16] V2 第 1 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 81｜input 133747｜cache_read 6127360｜output 79699
+
+[09-26 04:37:00] V2 警告：動到允許範圍外的檔案（不會 commit，需人工檢查）：test.md test.txt test_decode.md
+FAIL V2（2 項）
+ - hugo next 建置失敗（exit 1）：
+Start building sites … 
+hugo v0.162.1-bba860e3eda3091efe8c6d1a96bc49a29ad2d5f6+extended windows/amd64 BuildDate=2026-05-28T17:40:44Z VendorInfo=gohugoio
+
+Total in 364 ms
+ERROR error building site: failed to load data: "C:\claudehome\projects\my-site\next\data\legacy_urls.txt:1:1": unmarshal of format "" is not supported
+process: readAndProcessContent: "C:\claudehome\projects\my-site\next\content\library\essentials-of-strength-training\_content.gotmpl:18:12": template: C:/claudehome/projects/my-site/next/content/library/essentials-of-strength-training/_content.gotmpl:18:12: executing "C:/claudehome/projects/my-site/next/content/library/essentials-of-strength-training/_content.gotmpl" at <first 3 $ch.topics>: error calling first: both limit and seq must be provided
+ - 缺頁面：public/next/vortex/water-sense/index.html
+[09-26 04:37:01] V2 第 1 次驗收未過
+[09-26 04:37:01] V2 第 2 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 20｜input 33847｜cache_read 494080｜output 2612
+V2 passes cleanly with 100% sentence coverage.
+
+完成報告：
+- 產出檔：`next/content/vortex/water-sense.md`（已存在於磁碟，317 行，把舊 `layouts/vortex/vortex-water-sense.html` 內所有讀者文字逐字搬成 Markdown，含 6 個 `##` 標題與穩定錨點 `{#overview/#what/#deprivation/#methods/#measure/#rebuild/#metrics}`，站內連結走相對路徑）
+- 驗收結果：`python -X utf8 next/specs/check.py V2` → `PASS V2`（140 / 140 句，100% 命中，頁面 14,149 bytes）
+- 上次失敗的兩項（`next/data/legacy_urls.txt` 與 `essentials-of-strength-training/_content.gotmpl` 範本錯誤）非 V2 範疇，已在這次跑驗收前消失，本次執行未再出現。
+PASS V2
