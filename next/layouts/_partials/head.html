@@ -5,6 +5,9 @@
 {{- with .Description }}
 <meta name="description" content="{{ . }}">
 {{- end }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
 {{- $tokens := resources.Get "css/tokens.css" | fingerprint }}
 {{- $shell := resources.Get "css/shell.css" | fingerprint }}
 <link rel="stylesheet" href="{{ $tokens.RelPermalink }}" integrity="{{ $tokens.Data.Integrity }}" crossorigin="anonymous">

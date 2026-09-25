@@ -200,3 +200,17 @@
   .layer { margin-top: var(--s3); }
   .unit-hook { font-size: var(--fs-l); }
 }
+
+
+/* ===== Claude 視覺層（2026-09-26）：標題、一句話拉引、區塊規則線、內文襯線 ===== */
+.unit h1 { font: 700 var(--fs-xl)/1.3 var(--f-serif); margin-bottom: var(--s4); }
+.unit-hook { font: 500 var(--fs-l)/1.75 var(--f-serif); border-left: 4px solid var(--series); padding: 0 0 0 var(--s3); margin: 0 0 var(--s3); }
+.unit-hook + .unit-hook { border-left-color: var(--ink); }
+.layer { margin-top: var(--s5); font-family: var(--f-serif); line-height: var(--lh-read); }
+.layer > h2, .next-read > h2 { border-top: 2px solid var(--ink); padding-top: var(--s2); margin: 0 0 var(--s3); }
+.layer h3, .layer dt, .layer summary { font-family: var(--f-sans); }
+.layer dd { margin: 0 0 var(--s2); }
+.layer-evidence { margin-top: var(--s5); }
+.next-read { margin-top: var(--s6); }
+.nr-group { margin-top: var(--s3); }
+.nr-item .nr-title, .nr-title { font: 700 var(--fs-m)/1.5 var(--f-serif); }

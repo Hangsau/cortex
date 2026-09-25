@@ -96,3 +96,24 @@ details.stroke-more[open] { padding-bottom: var(--s1); }
   }
   .mv-n { font-size: var(--fs-l); }
 }
+
+
+/* ===== Claude 視覺層（2026-09-26）：展示標題、動作脊線、區塊規則線 ===== */
+.stroke > h1 { font: 700 var(--fs-display)/1 var(--f-serif); margin: 0 0 var(--s3); }
+.stroke > .read, .stroke > .read p { font-size: var(--fs-l); line-height: 1.75; }
+.stroke-section { margin-top: var(--s6); }
+.stroke-section > h2 { border-top: 2px solid var(--ink); padding-top: var(--s2); margin: 0 0 var(--s3); }
+.mv-list { position: relative; }
+.mv-list::before { content: ""; position: absolute; top: 8px; bottom: 8px; left: calc(1.5em - 1px); border-left: 2px solid var(--rule); }
+.mv-row { position: relative; grid-template-columns: 3em 1fr; border-bottom: 0; padding: var(--s2) 0 var(--s3); }
+.mv-n {
+  position: relative; z-index: 1; justify-self: center; display: inline-flex; align-items: center; justify-content: center;
+  width: 2.2em; height: 2.2em; background: var(--paper); border: 2px solid var(--series);
+  font: 700 var(--fs-m)/1 var(--f-serif);
+}
+.mv-name { font: 700 var(--fs-l)/1.35 var(--f-serif); }
+.mv-one { font: 400 var(--fs-m)/1.7 var(--f-serif); color: var(--ink-2); }
+.stroke-list { list-style: none; padding: 0; margin: 0; }
+.stroke-list li { padding: var(--s2) 0; border-top: 1px solid var(--rule); }
+.sl-title { font: 700 var(--fs-m)/1.5 var(--f-serif); color: var(--ink); text-decoration: none; }
+.sl-title:hover { color: var(--series); text-decoration: underline; }

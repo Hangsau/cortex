@@ -219,12 +219,12 @@ def w8():
         if f"vortex/{s}/" not in doc:
             fail(f"首頁缺泳式 {s}")
     errs = {u["path"] for u in d["units"].values() if u["type"] == "error" and u["path"] in doc}
-    if len(errs) < 10:
-        fail(f"首頁誤區連結只有 {len(errs)} 條（要 10）")
+    if len(errs) < 7:  # 2026-09-26 視覺重做：一大六小
+        fail(f"首頁誤區連結只有 {len(errs)} 條（要 7）")
     for lv in ["free.L0", "free.L6"]:
         if d["units"][lv]["path"] not in doc:
             fail(f"首頁缺級別 {lv}")
-    for s in LISTS:
+    for s in ["drills", "errors", "tech", "problems", "injuries", "mind"]:  # moves 由泳式頁進、levels 由階梯進
         if f"vortex/{s}/" not in doc:
             fail(f"首頁缺集合 {s}")
     global_checks()

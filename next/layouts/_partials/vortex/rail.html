@@ -1,0 +1,42 @@
+{{- /* Vortex 常駐目錄（鐵則 G：參考型內容要有空間化導航）。桌機左欄黏著；手機收成「Vortex 目錄」。 */ -}}
+{{- $d := hugo.Data.vortex_links -}}
+{{- $here := .RelPermalink -}}
+{{- $cur := "" -}}
+{{- with .Params.stroke }}{{ $cur = . }}{{ end -}}
+{{- with .Params.unit_id }}{{ with index $d.units . }}{{ $cur = .stroke }}{{ end }}{{ end -}}
+{{- $order := slice "free" "back" "breast" "fly" "udk" "starts-turns" -}}
+{{- $lists := slice
+  (dict "p" "drills" "t" "練習" "n" "drill")
+  (dict "p" "errors" "t" "教學誤區" "n" "error")
+  (dict "p" "tech" "t" "技術分析" "n" "tech")
+  (dict "p" "problems" "t" "找問題" "n" "problem")
+  (dict "p" "injuries" "t" "運動傷害" "n" "injury")
+  (dict "p" "mind" "t" "心理層" "n" "psy")
+  (dict "p" "levels" "t" "水感發展級別" "n" "level") -}}
+<details class="rail" id="rail">
+  <summary class="rail-toggle">Vortex 目錄</summary>
+  <nav aria-label="Vortex 目錄">
+    <p class="rail-h">開始</p>
+    <a class="rail-a{{ if eq $here (relURL "vortex/") }} is-here{{ end }}" href="{{ relURL "vortex/" }}">水感是什麼</a>
+    <p class="rail-h">六種泳式</p>
+    {{- range $order }}
+      {{- $s := index $d.strokes . }}
+      {{- $sp := relURL (printf "vortex/%s/" .) }}
+    <a class="rail-a{{ if eq $here $sp }} is-here{{ end }}{{ if eq $cur . }} is-open{{ end }}" href="{{ $sp }}">{{ $s.name_zh }}</a>
+      {{- if eq $cur . }}
+    <div class="rail-sub">
+        {{- range $s.moves }}{{ with index $d.units . }}
+      {{- $mp := relURL .path }}
+      <a class="rail-a rail-a--sub{{ if eq $here $mp }} is-here{{ end }}" href="{{ $mp }}">{{ .record.n }}　{{ .title }}</a>
+        {{- end }}{{ end }}
+    </div>
+      {{- end }}
+    {{- end }}
+    <p class="rail-h">查找</p>
+    {{- range $lists }}
+      {{- $lp := relURL (printf "vortex/%s/" .p) }}
+    <a class="rail-a{{ if hasPrefix $here $lp }} is-here{{ end }}" href="{{ $lp }}">{{ .t }}</a>
+    {{- end }}
+  </nav>
+</details>
+<script>(function(){var r=document.getElementById('rail');if(r&&window.matchMedia('(min-width: 1000px)').matches){r.open=true;}})();</script>

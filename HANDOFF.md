@@ -13,6 +13,7 @@
 - 使用者指示：不要用 shotclock 排程接手，由當前 session 自己監控
 - **2026-09-25 23:57 P1 完成**：W1–W8 全過並部署（CI 綠），W9 已驗：6 種頁 × 1440/390/320 無水平溢出；修兩處（`{text,certainty}` 欄位直接印內文、`<mark>` 改系列色底線，`880fccc`）。W1 由 Claude 修正：drills 變數錯指、`deficiency_fixes` 是外部書本編號非動作序號（已移除該類連結）。連結網 1,110 條雙向（practice 103／level 321／ref 624／part_of 62）
 - **下一步：等使用者看 `https://hangsau.github.io/cortex/next/vortex/` 定案**，才開 P2（其他系列）。已知可改進：誤區頁「為什麼」內文字體不一致（部分走 sans）；首頁 10 誤區列表較密
+- **2026-09-26 使用者看 P1 後評「好爛、退化」→ 視覺層由 Claude 親自重做（不再外包）**。根因：W3 規格禁網路字型（Windows 退回正黑體）、拿掉 Vortex 左側目錄（違反鐵則 G）、首頁 4,400px 等重清單無焦點、規格只寫結構沒有真正的視覺設計、交付前沒並排比對新舊。修法：載 Noto Serif/Sans TC、新增常駐左側目錄 `next/layouts/_partials/vortex/rail.html`（桌機黏著、手機收合、自動展開所在泳式的動作）、首頁重寫（展示標題、六式 3×2、誤區一大六小、L0–L6 階梯、大數字索引）、unit/stroke/list 的 CSS 末段「Claude 視覺層」。**之後視覺設計一律 Claude 自做，M3 只接資料與結構工作**
 - M3 成本觀察：每單 42–81 回合，input 4–28 萬＋cache_read 130–380 萬；多數單會用滿 `--max-turns 80`
 
 

@@ -9,13 +9,14 @@
   --series: #0B6E8A;         /* 系列色，由 body.series-* 覆寫 */
   --link: var(--series);
 
-  --f-serif: "Source Serif 4", "Noto Serif TC", "Songti TC", "PMingLiU", serif;
-  --f-sans: "Source Sans 3", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --f-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  --f-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
 
   --fs-s: 14px;              /* 輔助說明硬底線 */
   --fs-m: 17px;              /* 內文 */
-  --fs-l: 21px;              /* 小標 */
-  --fs-xl: 27px;             /* 頁標題；比例 1.25 */
+  --fs-l: 22px;              /* 小標、導言 */
+  --fs-xl: 34px;             /* 頁標題；比例約 1.28 */
+  --fs-display: clamp(56px, 11vw, 112px); /* 只給首頁與泳式頁的展示標題 */
   --lh-read: 1.8;            /* CJK 長讀 */
   --lh-ui: 1.5;
 
