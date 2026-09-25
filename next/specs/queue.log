@@ -322,3 +322,24 @@ PASS W6
 [claude-m3-lite] turns 81｜input 52708｜cache_read 3286656｜output 16675
 
 PASS W7
+[09-25 23:49:26] W7 通過並已 push
+[09-25 23:49:26] --- W8 開始 ---
+[09-25 23:49:26] W8 第 1 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 79｜input 277346｜cache_read 2702976｜output 36690
+All checks pass.
+
+**完成回報：**
+
+**改了/新增的檔（只動這兩個，符合工作單限制）：**
+- `next/layouts/_partials/vortex/home.html` — 整個重寫：5 個區塊（開頭導言、六種泳式、10 個反直覺的誤區、水感一級一級長出來、全部內容）
+- `next/assets/css/home.css` — 新建：限定只在 `vx-home` 內生效的列/區塊樣式
+
+**實作要點：**
+- 六種泳式列的「premise 第一句」用 `plainify` 去掉 HTML 後，用 `findRE "[^。]+。"` 抽出到第一個「。」為止
+- 10 條誤區照規格「依泳式輪流、每式依 id 尾段數字順序」：free, back, breast, fly, udk, starts-turns, free, back, breast, fly（誤區 1–10），misconception 前 50 字用 `strings.Truncate 50`，未超過 50 字的不加 …
+- counts 全部從 `$links.units` 實算（drill 透過 `$drillStrokeMap` 把 "freestyle" 等映回 free/back/...）
+- 級別代號 L0–L6 用 `color: var(--series)` 強調，其餘強調一律用 `--series`（連結與級別代號）
+
+**驗收：** `python -X utf8 next/specs/check.py W8` → `PASS W8`；同步確認 W1/W3/W4/W5/W6/W7 仍全數 PASS。輸出頁面 `public/next/vortex/index.html` 內無 `map[`、無 inline `style=`、無空標題。
+PASS W8

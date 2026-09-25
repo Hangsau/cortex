@@ -1,4 +1,191 @@
-<div class="page">
-  <h1>{{ .Title }}</h1>
-  <p class="muted">（版型建置中：home）</p>
-</div>
+{{- /*
+  vortex/home.html — Vortex 首頁版型（W8）。
+  對象：任何人（教練、選手、家長、初學者、路過的人）。
+  區塊：開頭導言 / 六種泳式 / 10 個反直覺的誤區 /
+        水感怎麼一級一級長出來 / 全部內容。
+  資料：$.Site.Data.vortex_links。
+*/ -}}
+{{- $links := $.Site.Data.vortex_links -}}
+{{- $strokeOrder := slice "free" "back" "breast" "fly" "udk" "starts-turns" -}}
+
+{{- $css := resources.Get "css/home.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
+
+<article class="page page--wide vx-home">
+
+  {{- /* ===== 1. 開頭 ===== */ -}}
+  <h1>水感</h1>
+  <div class="read">
+    <p>技術是水感的輸出，不是要照抄的動作。這裡把六種泳式拆成一個個動作，每個動作都接到怎麼練、常見的錯誤想法、背後的物理，以及練不起來時該看哪裡。從任何一頁開始都可以，每一頁都會告訴你接著看什麼。</p>
+  </div>
+
+
+  {{- /* ===== 2. 六種泳式 ===== */ -}}
+  {{- $drillStrokeMap := dict
+    "freestyle" "free"
+    "backstroke" "back"
+    "breaststroke" "breast"
+    "butterfly" "fly"
+    "underwater_dolphin_kick" "udk"
+    "starts_turns" "starts-turns"
+  -}}
+  {{- $strokeStats := dict -}}
+  {{- range $sk := $strokeOrder -}}
+    {{- $mv := 0 -}}
+    {{- $dr := 0 -}}
+    {{- $er := 0 -}}
+    {{- range $uid, $u := $links.units -}}
+      {{- if eq $u.type "move" -}}
+        {{- if eq $u.stroke $sk -}}{{- $mv = add $mv 1 -}}{{- end -}}
+      {{- else if eq $u.type "error" -}}
+        {{- if eq $u.stroke $sk -}}{{- $er = add $er 1 -}}{{- end -}}
+      {{- else if eq $u.type "drill" -}}
+        {{- range $s2 := $u.record.strokes -}}
+          {{- if eq (index $drillStrokeMap $s2) $sk -}}{{- $dr = add $dr 1 -}}{{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $strokeStats = merge $strokeStats (dict $sk (dict "mv" $mv "dr" $dr "er" $er)) -}}
+  {{- end -}}
+
+  <section class="vx-section">
+    <h2>六種泳式</h2>
+    <div class="vx-rows">
+      {{- range $sk := $strokeOrder -}}
+        {{- $s := index $links.strokes $sk -}}
+        {{- $stat := index $strokeStats $sk -}}
+        {{- $first := "" -}}
+        {{- with $s.premise -}}
+          {{- $plain := . | plainify -}}
+          {{- $matches := findRE "[^。]+。" $plain -}}
+          {{- if $matches -}}{{- $first = index $matches 0 -}}{{- end -}}
+        {{- end -}}
+        <div class="vx-row vx-stroke-row">
+          <a class="vx-row-title" href="{{ relURL (printf "vortex/%s/" $sk) }}">{{ $s.name_zh }}</a>
+          {{- if $first -}}<p class="vx-row-text">{{ $first }}</p>{{- end -}}
+          <p class="vx-row-meta muted">{{ $stat.mv }} 個動作 · {{ $stat.dr }} 個練習 · {{ $stat.er }} 條誤區</p>
+        </div>
+      {{- end -}}
+    </div>
+  </section>
+
+
+  {{- /* ===== 3. 10 個反直覺的誤區（依泳式輪流各取一條） ===== */ -}}
+  {{- /* 預先按「id 尾段數字」遞增排序各泳式的誤區 id */ -}}
+  {{- $errorsByStroke := dict -}}
+  {{- range $sk := $strokeOrder -}}
+    {{- $tmp := slice -}}
+    {{- range $uid, $u := $links.units -}}
+      {{- if and (eq $u.type "error") (eq $u.stroke $sk) -}}
+        {{- $n := 0 -}}
+        {{- $nums := findRE "[0-9]+" $uid -}}
+        {{- if gt (len $nums) 0 -}}{{- $n = index $nums (sub (len $nums) 1) | int -}}{{- end -}}
+        {{- $tmp = $tmp | append (dict "id" $uid "n" $n) -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $tmp = sort $tmp ".n" "asc" -}}
+    {{- $errorsByStroke = merge $errorsByStroke (dict $sk $tmp) -}}
+  {{- end -}}
+  {{- $pickedIds := slice -}}
+  {{- $cursorByStroke := dict -}}
+  {{- range $sk := $strokeOrder -}}
+    {{- $cursorByStroke = merge $cursorByStroke (dict $sk 0) -}}
+  {{- end -}}
+  {{- range $round := (seq 0 9) -}}
+    {{- if lt (len $pickedIds) 10 -}}
+      {{- range $sk := $strokeOrder -}}
+        {{- if lt (len $pickedIds) 10 -}}
+          {{- $cursor := index $cursorByStroke $sk -}}
+          {{- $list := index $errorsByStroke $sk -}}
+          {{- if lt $cursor (len $list) -}}
+            {{- $eid := index $list $cursor "id" -}}
+            {{- $pickedIds = $pickedIds | append $eid -}}
+            {{- $cursorByStroke = merge $cursorByStroke (dict $sk (add $cursor 1)) -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  <section class="vx-section">
+    <h2>10 個反直覺的誤區</h2>
+    <div class="vx-rows">
+      {{- range $eid := $pickedIds -}}
+        {{- $u := index $links.units $eid -}}
+        {{- $snippet := "" -}}
+        {{- with $u.record.misconception -}}
+          {{- $plain := . | plainify | strings.TrimSpace -}}
+          {{- if $plain -}}
+            {{- $snippet = strings.Truncate 50 $plain -}}
+          {{- end -}}
+        {{- end -}}
+        <div class="vx-row vx-err-row">
+          <a class="vx-row-title" href="{{ relURL $u.path }}">{{ $u.title }}</a>
+          {{- if $snippet -}}<p class="vx-row-meta">很多人以為：{{ $snippet }}</p>{{- end -}}
+        </div>
+      {{- end -}}
+    </div>
+  </section>
+
+
+  {{- /* ===== 4. 水感怎麼一級一級長出來（以自由式為例） ===== */ -}}
+  {{- $freeLevels := slice "free.L0" "free.L1" "free.L2" "free.L3" "free.L4" "free.L5" "free.L6" -}}
+  <section class="vx-section">
+    <h2>水感怎麼一級一級長出來</h2>
+    <div class="vx-rows">
+      {{- range $lid := $freeLevels -}}
+        {{- $u := index $links.units $lid -}}
+        {{- $lv := $u.record -}}
+        <div class="vx-row vx-level-row">
+          <span class="vx-row-tag">{{ $lv.level }}</span>
+          <a class="vx-row-title" href="{{ relURL $u.path }}">{{ $lv.name_zh }}</a>
+          {{- with $lv.tagline -}}
+            {{- $t := . | plainify | strings.TrimSpace -}}
+            {{- if $t -}}<p class="vx-row-text">{{ $lv.tagline }}</p>{{- end -}}
+          {{- end -}}
+        </div>
+      {{- end -}}
+      <div class="vx-row vx-tail">
+        <p class="muted">仰式、蛙式、蝶式的級別見各泳式頁</p>
+      </div>
+    </div>
+  </section>
+
+
+  {{- /* ===== 5. 全部內容 ===== */ -}}
+  {{- /* 統計各類型總數；mind 同時含 psy + psyc */ -}}
+  {{- $totalDrill := 0 -}}
+  {{- $totalTech := 0 -}}
+  {{- $totalError := 0 -}}
+  {{- $totalProblem := 0 -}}
+  {{- $totalInjury := 0 -}}
+  {{- $totalLevel := 0 -}}
+  {{- $totalMind := 0 -}}
+  {{- $totalMove := 0 -}}
+  {{- range $uid, $u := $links.units -}}
+    {{- if eq $u.type "drill" -}}{{- $totalDrill = add $totalDrill 1 -}}
+    {{- else if eq $u.type "tech" -}}{{- $totalTech = add $totalTech 1 -}}
+    {{- else if eq $u.type "error" -}}{{- $totalError = add $totalError 1 -}}
+    {{- else if eq $u.type "problem" -}}{{- $totalProblem = add $totalProblem 1 -}}
+    {{- else if eq $u.type "injury" -}}{{- $totalInjury = add $totalInjury 1 -}}
+    {{- else if eq $u.type "level" -}}{{- $totalLevel = add $totalLevel 1 -}}
+    {{- else if eq $u.type "move" -}}{{- $totalMove = add $totalMove 1 -}}
+    {{- else if or (eq $u.type "psy") (eq $u.type "psyc") -}}{{- $totalMind = add $totalMind 1 -}}
+    {{- end -}}
+  {{- end -}}
+
+  <section class="vx-section">
+    <h2>全部內容</h2>
+    <div class="vx-rows">
+      <div class="vx-row"><a class="vx-row-title" href="{{ relURL "vortex/drills/" }}">練習</a><p class="vx-row-meta muted">{{ $totalDrill }} 條</p></div>
+      <div class="vx-row"><a class="vx-row-title" href="{{ relURL "vortex/tech/" }}">技術分析</a><p class="vx-row-meta muted">{{ $totalTech }} 條</p></div>
+      <div class="vx-row"><a class="vx-row-title" href="{{ relURL "vortex/errors/" }}">教學誤區</a><p class="vx-row-meta muted">{{ $totalError }} 條</p></div>
+      <div class="vx-row"><a class="vx-row-title" href="{{ relURL "vortex/problems/" }}">找問題</a><p class="vx-row-meta muted">{{ $totalProblem }} 條</p></div>
+      <div class="vx-row"><a class="vx-row-title" href="{{ relURL "vortex/injuries/" }}">運動傷害</a><p class="vx-row-meta muted">{{ $totalInjury }} 條</p></div>
+      <div class="vx-row"><a class="vx-row-title" href="{{ relURL "vortex/levels/" }}">水感發展級別</a><p class="vx-row-meta muted">{{ $totalLevel }} 條</p></div>
+      <div class="vx-row"><a class="vx-row-title" href="{{ relURL "vortex/mind/" }}">心理層</a><p class="vx-row-meta muted">{{ $totalMind }} 條</p></div>
+      <div class="vx-row"><a class="vx-row-title" href="{{ relURL "vortex/moves/" }}">全部動作</a><p class="vx-row-meta muted">{{ $totalMove }} 條</p></div>
+    </div>
+  </section>
+
+</article>

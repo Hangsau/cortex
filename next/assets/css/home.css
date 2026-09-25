@@ -1,0 +1,80 @@
+/* Cortex next — Vortex 首頁（W8）。只在 vortex/ 首頁載入。
+   設計鐵則：不准卡片框、陰影、大色塊；強調只用 --series（連結與級別代號）。 */
+
+/* ===== 開頭 ===== */
+.vx-home > h1 {
+  margin-bottom: var(--s2);
+}
+.vx-home > .read {
+  font-size: var(--fs-l);
+  line-height: var(--lh-read);
+  max-width: var(--measure);
+  margin: 0 0 var(--s6);
+}
+.vx-home > .read p { margin: 0; }
+
+/* ===== 各區塊 ===== */
+.vx-section { margin-top: var(--s6); }
+.vx-section > h2 {
+  font-size: var(--fs-l);
+  margin: 0 0 var(--s3);
+}
+
+/* ===== 列 ===== */
+.vx-rows { margin: 0; padding: 0; }
+.vx-row {
+  padding: var(--s2) 0;
+  border-bottom: 1px solid var(--rule);
+  min-height: var(--tap);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s1);
+}
+.vx-row:last-child { border-bottom: 0; padding-bottom: 0; }
+
+.vx-row-title {
+  font-weight: 700;
+  font-size: var(--fs-l);
+  color: var(--ink);
+  text-decoration: none;
+}
+.vx-row-title:hover { text-decoration: underline; }
+.vx-row-text {
+  flex-basis: 100%;
+  margin: var(--s1) 0 0;
+  color: var(--ink);
+  line-height: 1.6;
+}
+.vx-row-meta {
+  flex-basis: 100%;
+  margin: var(--s1) 0 0;
+}
+
+/* ===== 級別代號強調（--series） ===== */
+.vx-level-row .vx-row-tag {
+  color: var(--series);
+  font-weight: 700;
+  font-size: var(--fs-l);
+  font-variant-numeric: tabular-nums;
+  margin-right: var(--s1);
+}
+
+/* ===== 誤區「很多人以為」可讀性 ===== */
+.vx-err-row .vx-row-meta {
+  color: var(--ink);
+  line-height: 1.6;
+  font-size: var(--fs-m);
+}
+
+/* ===== 結尾提示列（不放大、不加粗） ===== */
+.vx-row.vx-tail { min-height: var(--tap); }
+.vx-row.vx-tail .muted { font-size: var(--fs-s); }
+
+/* ===== 手機（≤600px）微調 ===== */
+@media (max-width: 600px) {
+  .vx-home > .read { font-size: var(--fs-m); }
+  .vx-row-title { font-size: var(--fs-m); }
+  .vx-level-row .vx-row-tag { font-size: var(--fs-m); }
+  .vx-section { margin-top: var(--s5); }
+}
