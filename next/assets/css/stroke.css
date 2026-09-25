@@ -1,0 +1,98 @@
+/* Cortex next — stroke 泳式樞紐頁（W6）。只在泳式頁載入。 */
+
+.stroke > h1 { margin-bottom: var(--s3); }
+.stroke-section { margin-top: var(--s4); }
+.stroke-section > h2 { margin: 0 0 var(--s3); font-size: var(--fs-l); }
+
+/* 段落：premise 與尾部連結 */
+.stroke .read { max-width: var(--measure); }
+.stroke-tail {
+  font-size: var(--fs-s);
+  margin: var(--s3) 0 0;
+}
+
+/* ===== 動作（mv-row） ===== */
+.mv-list { margin: 0; }
+.mv-row {
+  display: grid;
+  grid-template-columns: 3em 1fr;
+  gap: var(--s2);
+  padding: var(--s2) 0;
+  border-bottom: 1px solid var(--rule);
+}
+.mv-row:first-of-type { padding-top: 0; }
+.mv-row:last-of-type { border-bottom: 0; padding-bottom: 0; }
+.mv-n {
+  color: var(--series);
+  font-size: var(--fs-xl);
+  line-height: 1;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.mv-body { min-width: 0; }
+.mv-name {
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+}
+.mv-name:hover { text-decoration: underline; }
+.mv-one {
+  margin: var(--s1) 0 0;
+}
+.mv-practice {
+  font-size: var(--fs-s);
+  margin: var(--s1) 0 0;
+}
+.mv-practice .mv-more { color: var(--ink-2); }
+
+/* ===== 通用 stroke-list ===== */
+.stroke-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--s3);
+}
+.stroke-list > li {
+  padding: var(--s2) 0;
+  border-bottom: 1px solid var(--rule);
+  min-height: var(--tap);
+}
+.stroke-list > li:last-child { border-bottom: 0; }
+.stroke-list .sl-title {
+  display: block;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+}
+.stroke-list .sl-title:hover { text-decoration: underline; }
+.stroke-list .sl-hook {
+  margin: var(--s1) 0 0;
+  font-family: var(--f-serif);
+  line-height: 1.6;
+}
+
+/* details 內列：同樣保持最小點擊高度但不另加框（外層 details 已有上框線） */
+details.stroke-more > summary {
+  font-size: var(--fs-s);
+  font-weight: 600;
+  color: var(--series);
+  min-height: var(--tap);
+}
+details.stroke-more[open] { padding-bottom: var(--s1); }
+
+/* 技術分析：群組小標 */
+.stroke-tech h3 {
+  margin: var(--s3) 0 var(--s2);
+  font-size: var(--fs-m);
+  font-weight: 700;
+  color: var(--ink);
+}
+.stroke-tech h3:first-of-type { margin-top: var(--s2); }
+
+/* 手機：保持 mv-row 兩欄，僅微調內距 */
+@media (max-width: 600px) {
+  .mv-row {
+    grid-template-columns: 2.5em 1fr;
+    gap: var(--s1);
+  }
+  .mv-n { font-size: var(--fs-l); }
+}

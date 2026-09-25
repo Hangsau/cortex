@@ -1,4 +1,318 @@
-<div class="page">
-  <h1>{{ .Title }}</h1>
-  <p class="muted">（版型建置中：stroke）</p>
-</div>
+{{- /*
+  stroke.html — 泳式樞紐頁版型（W6）。
+  資料來源：$.Site.Data.vortex_links。泳式 key 在 .Params.stroke。
+  區塊依序：h1 + premise、動作、常見誤區、技術分析（依 category 分組）、
+           練不起來時、這一式的練習、水感發展級別；空區不出。
+*/ -}}
+{{- $stroke := .Params.stroke -}}
+{{- $links := $.Site.Data.vortex_links -}}
+{{- $s := index $links.strokes $stroke -}}
+
+{{- $css := resources.Get "css/stroke.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
+
+<article class="page page--wide stroke">
+  <h1>{{ $s.name_zh }}</h1>
+  {{- with $s.premise -}}
+    {{- $t := . | plainify | strings.TrimSpace -}}
+    {{- if $t -}}
+      <p class="read">{{ . | markdownify }}</p>
+    {{- end -}}
+  {{- end -}}
+
+
+  {{- /* ===== 動作 ===== */ -}}
+  {{- $moves := $s.moves -}}
+  {{- if $moves -}}
+    {{- if gt (len $moves) 0 }}
+    <section class="stroke-section stroke-moves">
+      <h2>動作</h2>
+      <div class="mv-list">
+        {{- range $mid := $moves -}}
+          {{- $mu := index $links.units $mid -}}
+          {{- if $mu }}
+          <div class="mv-row">
+            <div class="mv-n">{{ $mu.record.n }}</div>
+            <div class="mv-body">
+              <a class="mv-name" href="{{ relURL $mu.path }}">{{ $mu.title }}</a>
+              {{- with $mu.record.one -}}
+                {{- $t := . | plainify | strings.TrimSpace -}}
+                {{- if $t -}}<p class="muted mv-one">{{ . | markdownify }}</p>{{- end -}}
+              {{- end -}}
+              {{- $practiceIds := slice -}}
+              {{- range $e := index $links.out $mid -}}
+                {{- if eq $e.rel "practice" -}}
+                  {{- $practiceIds = $practiceIds | append $e.to -}}
+                {{- end -}}
+              {{- end -}}
+              {{- if gt (len $practiceIds) 0 }}
+              <p class="mv-practice">
+                {{- range $i, $pid := $practiceIds -}}
+                  {{- if lt $i 3 -}}
+                    {{- if $i }}　{{ end -}}
+                    {{- $pu := index $links.units $pid -}}
+                    {{- if $pu -}}<a href="{{ relURL $pu.path }}">{{ $pu.title }}</a>{{- end -}}
+                  {{- end -}}
+                {{- end -}}
+                {{- $extra := sub (len $practiceIds) 3 -}}
+                {{- if gt $extra 0 -}}
+                  　<a class="mv-more" href="{{ relURL $mu.path }}">＋{{ $extra }}</a>
+                {{- end -}}
+              </p>
+              {{- end -}}
+            </div>
+          </div>
+          {{- end -}}
+        {{- end -}}
+      </div>
+    </section>
+    {{- end -}}
+  {{- end -}}
+
+
+  {{- /* ===== 這一式的常見誤區 ===== */ -}}
+  {{- $errorIds := slice -}}
+  {{- range $uid, $u := $links.units -}}
+    {{- if and (eq $u.type "error") (eq $u.stroke $stroke) -}}
+      {{- $n := 0 -}}
+      {{- $nums := findRE "[0-9]+" $uid -}}
+      {{- if gt (len $nums) 0 -}}
+        {{- $n = index $nums (sub (len $nums) 1) | int -}}
+      {{- end -}}
+      {{- $errorIds = $errorIds | append (dict "id" $uid "n" $n) -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $errorIds = sort $errorIds ".n" "asc" -}}
+  {{- if gt (len $errorIds) 0 }}
+  <section class="stroke-section stroke-errors">
+    <h2>這一式的常見誤區</h2>
+    {{- $firstErr := first 6 $errorIds -}}
+    {{- $restErr := after 6 $errorIds -}}
+    <ul class="stroke-list">
+      {{- range $e := $firstErr -}}
+        {{- $u := index $links.units $e.id -}}
+        <li>
+          <a class="sl-title" href="{{ relURL $u.path }}">{{ $u.title }}</a>
+          {{- with $u.hook -}}
+            {{- $t := . | plainify | strings.TrimSpace -}}
+            {{- if $t -}}<p class="muted sl-hook">{{ . | markdownify }}</p>{{- end -}}
+          {{- end -}}
+        </li>
+      {{- end -}}
+    </ul>
+    {{- if gt (len $restErr) 0 }}
+    <details class="stroke-more">
+      <summary>看全部 {{ len $errorIds }} 條誤區</summary>
+      <ul class="stroke-list">
+        {{- range $e := $restErr -}}
+          {{- $u := index $links.units $e.id -}}
+          <li>
+            <a class="sl-title" href="{{ relURL $u.path }}">{{ $u.title }}</a>
+            {{- with $u.hook -}}
+              {{- $t := . | plainify | strings.TrimSpace -}}
+              {{- if $t -}}<p class="muted sl-hook">{{ . | markdownify }}</p>{{- end -}}
+            {{- end -}}
+          </li>
+        {{- end -}}
+      </ul>
+    </details>
+    {{- end -}}
+  </section>
+  {{- end -}}
+
+
+  {{- /* ===== 技術分析（依 category 分組）=====
+       排序：先依 categories 給的順序，再用單元 id 的數字序 */ -}}
+  {{- $techByCat := dict -}}
+  {{- $catOrder := slice -}}
+  {{- range $uid, $u := $links.units -}}
+    {{- if and (eq $u.type "tech") (eq $u.stroke $stroke) -}}
+      {{- $cat := $u.category_name -}}
+      {{- if not $cat -}}{{- $cat = "未分類" -}}{{- end -}}
+      {{- if not (index $techByCat $cat) -}}
+        {{- $techByCat = merge $techByCat (dict $cat (slice)) -}}
+        {{- $catOrder = $catOrder | append $cat -}}
+      {{- end -}}
+      {{- $n := 0 -}}
+      {{- $nums := findRE "[0-9]+" $uid -}}
+      {{- if gt (len $nums) 0 -}}
+        {{- $n = index $nums (sub (len $nums) 1) | int -}}
+      {{- end -}}
+      {{- $list := index $techByCat $cat -}}
+      {{- $list = $list | append (dict "id" $uid "n" $n) -}}
+      {{- $techByCat = merge $techByCat (dict $cat $list) -}}
+    {{- end -}}
+  {{- end -}}
+  {{- /* 用 categories.tech 給定優先順序，未列出的類別維持原順序（自然出現） */ -}}
+  {{- $preferredOrder := slice -}}
+  {{- range $c := index $links.categories "tech" -}}
+    {{- if index $techByCat $c.name_zh -}}
+      {{- $preferredOrder = $preferredOrder | append $c.name_zh -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $extras := slice -}}
+  {{- range $cat := $catOrder -}}
+    {{- if not (in $preferredOrder $cat) -}}
+      {{- $extras = $extras | append $cat -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $orderedCats := $preferredOrder | append $extras -}}
+  {{- $hasTech := false -}}
+  {{- range $cat := $orderedCats -}}
+    {{- $list := index $techByCat $cat -}}
+    {{- if gt (len $list) 0 -}}{{- $hasTech = true -}}{{- end -}}
+  {{- end -}}
+  {{- if $hasTech }}
+  <section class="stroke-section stroke-tech">
+    <h2>技術分析</h2>
+    {{- range $cat := $orderedCats -}}
+      {{- $items := index $techByCat $cat -}}
+      {{- if gt (len $items) 0 }}
+      <h3>{{ $cat }}</h3>
+        {{- $items = sort $items ".n" "asc" -}}
+        {{- $first := first 5 $items -}}
+        {{- $rest := after 5 $items -}}
+        <ul class="stroke-list">
+          {{- range $it := $first -}}
+            {{- $u := index $links.units $it.id -}}
+            <li>
+              <a class="sl-title" href="{{ relURL $u.path }}">{{ $u.title }}</a>
+            </li>
+          {{- end -}}
+        </ul>
+        {{- if gt (len $rest) 0 }}
+        <details class="stroke-more">
+          <summary>看全部 {{ len $items }} 條</summary>
+          <ul class="stroke-list">
+            {{- range $it := $rest -}}
+              {{- $u := index $links.units $it.id -}}
+              <li>
+                <a class="sl-title" href="{{ relURL $u.path }}">{{ $u.title }}</a>
+              </li>
+            {{- end -}}
+          </ul>
+        </details>
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  </section>
+  {{- end -}}
+
+
+  {{- /* ===== 練不起來時（problem） ===== */ -}}
+  {{- $probIds := slice -}}
+  {{- range $uid, $u := $links.units -}}
+    {{- if and (eq $u.type "problem") (eq $u.stroke $stroke) -}}
+      {{- $probIds = $probIds | append $uid -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if gt (len $probIds) 0 }}
+  <section class="stroke-section stroke-problems">
+    <h2>練不起來時</h2>
+    <ul class="stroke-list">
+      {{- range $uid := $probIds -}}
+        {{- $u := index $links.units $uid -}}
+        <li>
+          <a class="sl-title" href="{{ relURL $u.path }}">{{ $u.title }}</a>
+          {{- with $u.hook -}}
+            {{- $t := . | plainify | strings.TrimSpace -}}
+            {{- if $t -}}<p class="muted sl-hook">{{ . | markdownify }}</p>{{- end -}}
+          {{- end -}}
+        </li>
+      {{- end -}}
+    </ul>
+  </section>
+  {{- end -}}
+
+
+  {{- /* ===== 這一式的練習（drill，按 strokes 對應） ===== */ -}}
+  {{- $strokeMap := dict
+    "freestyle" "free"
+    "backstroke" "back"
+    "breaststroke" "breast"
+    "butterfly" "fly"
+    "underwater_dolphin_kick" "udk"
+    "starts_turns" "starts-turns"
+  -}}
+  {{- $drillIds := slice -}}
+  {{- range $uid, $u := $links.units -}}
+    {{- if eq $u.type "drill" -}}
+      {{- $match := false -}}
+      {{- range $s2 := $u.record.strokes -}}
+        {{- if eq (index $strokeMap $s2) $stroke -}}
+          {{- $match = true -}}
+        {{- end -}}
+      {{- end -}}
+      {{- if $match -}}
+        {{- $n := 0 -}}
+        {{- $nums := findRE "[0-9]+" $uid -}}
+        {{- if gt (len $nums) 0 -}}
+          {{- $n = index $nums (sub (len $nums) 1) | int -}}
+        {{- end -}}
+        {{- $drillIds = $drillIds | append (dict "id" $uid "n" $n) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $drillIds = sort $drillIds ".n" "asc" -}}
+  {{- if gt (len $drillIds) 0 }}
+  <section class="stroke-section stroke-drills">
+    <h2>這一式的練習</h2>
+    {{- $firstDr := first 8 $drillIds -}}
+    {{- $restDr := after 8 $drillIds -}}
+    <ul class="stroke-list">
+      {{- range $it := $firstDr -}}
+        {{- $u := index $links.units $it.id -}}
+        <li>
+          <a class="sl-title" href="{{ relURL $u.path }}">{{ $u.title }}</a>
+        </li>
+      {{- end -}}
+    </ul>
+    {{- if gt (len $restDr) 0 }}
+    <details class="stroke-more">
+      <summary>看全部 {{ len $drillIds }} 條</summary>
+      <ul class="stroke-list">
+        {{- range $it := $restDr -}}
+          {{- $u := index $links.units $it.id -}}
+          <li>
+            <a class="sl-title" href="{{ relURL $u.path }}">{{ $u.title }}</a>
+          </li>
+        {{- end -}}
+      </ul>
+    </details>
+    {{- end -}}
+    <p class="stroke-tail"><a href="{{ relURL "vortex/drills/" }}">在練習清單中篩選 →</a></p>
+  </section>
+  {{- end -}}
+
+
+  {{- /* ===== 水感發展級別（level） ===== */ -}}
+  {{- $levelIds := slice -}}
+  {{- range $uid, $u := $links.units -}}
+    {{- if and (eq $u.type "level") (eq $u.stroke $stroke) -}}
+      {{- $n := 0 -}}
+      {{- $nums := findRE "[0-9]+" $uid -}}
+      {{- if gt (len $nums) 0 -}}
+        {{- $n = index $nums (sub (len $nums) 1) | int -}}
+      {{- end -}}
+      {{- $levelIds = $levelIds | append (dict "id" $uid "n" $n) -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $levelIds = sort $levelIds ".n" "asc" -}}
+  {{- if gt (len $levelIds) 0 }}
+  <section class="stroke-section stroke-levels">
+    <h2>水感發展級別</h2>
+    <ul class="stroke-list">
+      {{- range $it := $levelIds -}}
+        {{- $u := index $links.units $it.id -}}
+        <li>
+          <a class="sl-title" href="{{ relURL $u.path }}">{{ $u.title }}</a>
+          {{- with $u.hook -}}
+            {{- $t := . | plainify | strings.TrimSpace -}}
+            {{- if $t -}}<p class="muted sl-hook">{{ . | markdownify }}</p>{{- end -}}
+          {{- end -}}
+        </li>
+      {{- end -}}
+    </ul>
+  </section>
+  {{- end -}}
+</article>

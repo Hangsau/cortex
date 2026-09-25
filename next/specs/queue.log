@@ -293,3 +293,25 @@ All hooks now render with the original `- ` prefix and the literal `'` apostroph
 
 仍未完成的部分：上面 W6/W7/W8 失敗項是下一輪工作單要處理的，本單只在 unit 知識點頁範圍內。
 PASS W5
+[09-25 23:44:13] W5 通過並已 push
+[09-25 23:44:14] --- W6 開始 ---
+[09-25 23:44:14] W6 第 1 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 69｜input 43903｜cache_read 2488832｜output 20863
+完成。
+
+**寫入的兩個檔：**
+- `next/layouts/_partials/vortex/stroke.html`（重寫）
+- `next/assets/css/stroke.css`（新建）
+
+**做法重點：**
+- `stroke.html` 完全用資料驅動：透過 `.Params.stroke` 取得泳式 key，從 `hugo.Data.vortex_links` 讀 strokes/units/out，依序輸出 premise、動作（`mv-row`，序號+名稱連結+`one`+ practice drills 連結列，超過 3 個時顯示「＋N」連到 move 頁）、常見誤區（前 6 條直接顯示，餘進 `<details>`）、技術分析（依 `categories.tech` 給定優先順序，再用 `record.id` 的尾數排序，每組前 5 條顯示）、練不起來時、這一式的練習（含「在練習清單中篩選 →」連結 `vortex/drills/`）、水感發展級別。
+- 用 `findRE "[0-9]+"` + `int` 做自然排序；drill 的 strokes 用本地映射 dict 對到泳式 key。
+- 條件區塊都有用 `{{ with }}` + `plainify | strings.TrimSpace` 判空；空區整段不出（已驗證 udk/starts-turns 不會印出「水感發展級別」）。
+- `stroke.css` 遵守 tokens.css 變數、`.mv-row` 用 `3em 1fr` grid、序號 `--fs-xl`/行高 1、清單列與 details summary 都用 `var(--tap)`、無 `!important`/陰影/位移動畫。
+
+**驗收結果：**
+- `python -X utf8 next/specs/check.py W6` → **PASS W6**
+- W4、W5 也同步 PASS（確認無連帶影響）
+- 額外抽檢：6 頁 mv-row 數量 8/9/11/9/7/7 與各泳式 moves 數量一致；h2 出現順序符合預期；無 `map[`、無 inline `style=`、無空標題。
+PASS W6
