@@ -10,10 +10,11 @@ SPECS="$REPO/next/specs"
 LOG="$SPECS/queue.log"
 STATUS="$SPECS/STATUS.md"
 QUEUE=(W1 W3 W4 W5 W6 W7 W8)
-ALLOWED='^(next/|tools/build_vortex_links\.py|tools/test_vortex_links\.py|hugo\.next\.toml|\.github/workflows/deploy\.yml)'
+ALLOWED='^(next/|tools/build_vortex_links\.py|tools/test_vortex_links\.py|tools/build_library\.py|hugo\.next\.toml|\.github/workflows/deploy\.yml)'
 
 cd "$REPO" || exit 2
-start="${1:-W1}"; started=0
+# 用法：run_queue.sh W3（從 W3 跑到 W8）或 run_queue.sh --only L1 L3（只跑列出的單）
+if [ "${1:-}" = "--only" ]; then shift; QUEUE=("$@"); start="${1:-}"; else start="${1:-W1}"; fi; started=0
 
 log() { echo "[$(date '+%m-%d %H:%M:%S')] $*" | tee -a "$LOG"; }
 status() { echo "- $(date '+%m-%d %H:%M') $*" >> "$STATUS"; }
@@ -76,10 +77,10 @@ for W in "${QUEUE[@]}"; do
     log "$W 失敗，佇列停止"; status "❌ $W 驗收未過，佇列停止（見 queue.log）"
     exit 1
   fi
-  git add -A -- next hugo.next.toml .github/workflows/deploy.yml tools/build_vortex_links.py tools/test_vortex_links.py 2>/dev/null
+  git add -A -- next hugo.next.toml .github/workflows/deploy.yml tools/build_vortex_links.py tools/test_vortex_links.py tools/build_library.py 2>/dev/null
   git commit -q -m "新版預覽站 $W：驗收通過（MiniMax-M3 實作，check.py 驗收）
 
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>" && push
   log "$W 通過並已 push"; status "✅ $W 通過（$(git log --oneline -1 | cut -c1-7)）"
 done
-log "=== 佇列全部完成 ==="; status "🏁 W1–W8 全部通過"
+log "=== 佇列全部完成 ==="; status "🏁 佇列（${QUEUE[*]}）全部通過"

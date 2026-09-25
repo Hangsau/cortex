@@ -230,11 +230,66 @@ def w8():
     global_checks()
 
 
+LIB = ROOT / "next" / "data" / "library.json"
+LIB_EXPECT = {"kinesiology": (16, 0), "basic-biomechanics": (17, 0), "cscs": (24, 0),
+              "mnfl": (0, 20), "ust": (10, 18), "temperament": (5, 9)}
+
+
+def l1():
+    proc, _ = run([sys.executable, "-X", "utf8", "tools/build_library.py"])
+    if proc.returncode != 0:
+        fail("build_library.py 失敗：" + (proc.stdout + proc.stderr)[-3000:])
+        return
+    if not LIB.exists():
+        fail("缺 next/data/library.json")
+        return
+    raw = LIB.read_text(encoding="utf-8")
+    d = json.loads(raw)
+    ids = [s["id"] for s in d.get("series", [])]
+    if ids != list(LIB_EXPECT):
+        fail(f"series 順序／內容錯：{ids}")
+    keys = {"id", "group", "group_name", "title", "title_en", "author", "edition", "lead", "path",
+            "chapters_label", "chapters", "entries_label", "entries", "tools"}
+    paths = []
+    for s in d.get("series", []):
+        miss = keys - set(s)
+        if miss:
+            fail(f"{s.get('id')} 缺欄位 {sorted(miss)}")
+            continue
+        want = LIB_EXPECT.get(s["id"], (None, None))
+        if (len(s["chapters"]), len(s["entries"])) != want:
+            fail(f"{s['id']} chapters/entries = {len(s['chapters'])}/{len(s['entries'])}，應為 {want}")
+        if not s["title"] or not s["lead"]:
+            fail(f"{s['id']} 缺 title 或 lead")
+        for c in s["chapters"]:
+            if not c.get("title") or not c.get("desc"):
+                fail(f"{s['id']} 章 {c.get('id')} 缺 title 或 desc")
+            paths.append(c.get("path", ""))
+            if s["id"] in ("kinesiology", "basic-biomechanics"):
+                md = ROOT / "content" / c["path"] / "index.md"
+                if not md.exists():
+                    fail(f"{c['path']} 對不到 content 檔")
+        for e in s["entries"]:
+            if not e.get("title") or not e.get("desc") or not e.get("group_name"):
+                fail(f"{s['id']} 條目 {e.get('id')} 缺 title／desc／group_name")
+            paths.append(e.get("path", ""))
+        paths.append(s["path"])
+    bad = [p for p in paths if not p.endswith("/") or p.startswith("/") or "cortex" in p]
+    if bad:
+        fail(f"path 格式錯：{bad[:5]}")
+    dup = {p for p in paths if paths.count(p) > 1}
+    if dup:
+        fail(f"path 重複：{sorted(dup)[:5]}")
+    for needle in ["map[", "False", "None", "**"]:
+        if needle in raw:
+            fail(f"library.json 出現 {needle!r}")
+
+
 if __name__ == "__main__":
     step = (sys.argv[1] if len(sys.argv) > 1 else "").upper()
-    fn = {"W1": w1, "W3": w3, "W4": w4, "W5": w5, "W6": w6, "W7": w7, "W8": w8}.get(step)
+    fn = {"L1": l1, "W1": w1, "W3": w3, "W4": w4, "W5": w5, "W6": w6, "W7": w7, "W8": w8}.get(step)
     if not fn:
-        sys.exit("用法：check.py W1|W3|W4|W5|W6|W7|W8")
+        sys.exit("用法：check.py L1|W1|W3|W4|W5|W6|W7|W8")
     fn()
     if FAILS:
         print(f"FAIL {step}（{len(FAILS)} 項）")
