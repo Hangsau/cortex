@@ -1,0 +1,114 @@
+{{- /* T3：氣質自測（家長版／成人版）
+     - 資料：data/temperament/quiz.yaml（scoring、prototypes、items_child、items_self、advice、type_text、type_label）
+     - 題目由伺服器端渲染為 fieldsets/labels；計分與結果完全在 client 端做。
+     - 維度頁連結：temperament/traits/<key>/（由 L5 提供）。
+     - 計分邏輯同舊版（static/js/temperament-quiz.js）：
+       * reverse=true 時 score = 6 - raw
+       * 每維度取平均分
+       * band：score < band_low=2.34 → low；> band_high=3.66 → high；其餘 mid
+       * 三型最近距離 < second.d + between_threshold(0.5) → between
+       * typeText.between / self_between 用 {a} {b} 替換為型別中文標籤
+*/ -}}
+{{- $p := .page -}}
+{{- $s := .series -}}
+{{- $quiz := index hugo.Data.temperament "quiz" -}}
+{{- $traits := index hugo.Data.temperament.traits "dimensions" -}}
+{{- $css := resources.Get "css/temp-quiz.css" | fingerprint -}}
+{{- $js := resources.Get "js/temp-quiz.js" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+
+{{- /* 維度中英文 + 連結網址，作為 dimMeta 一部分送到 client */ -}}
+{{- $dimMeta := slice -}}
+{{- range $d := $traits }}
+  {{- $dimMeta = $dimMeta | append (dict
+        "key" $d.key
+        "no" $d.no
+        "name_zh" $d.name_zh
+        "name_en" $d.name_en
+        "cert" $d.cert
+        "url" (relURL (printf "temperament/traits/%s/" $d.key))
+      ) -}}
+{{- end -}}
+
+{{- /* 組裝 tq-data：scoring / prototypes / items / advice / typeText / typeLabel / dimMeta */ -}}
+{{- $payload := dict
+      "scoring" $quiz.scoring
+      "prototypes" $quiz.prototypes
+      "protoDims" $quiz.scoring.proto_dims
+      "items_child" $quiz.items_child
+      "items_self" $quiz.items_self
+      "advice" $quiz.advice
+      "typeText" $quiz.type_text
+      "typeLabel" $quiz.type_label
+      "dimMeta" $dimMeta -}}
+
+<article class="lib-chapter tq" id="tq">
+  <header class="lc-head">
+    <p class="kicker">兒童九種氣質 · 工具</p>
+    <h1>{{ $p.Title }}</h1>
+    {{- with $p.Description }}<p class="lc-lead">{{ . }}</p>{{ end }}
+  </header>
+
+  <section class="tq-disclaimer tq-disclaimer-top read">
+    <p>這是<strong>自我覺察工具，不是診斷或分類</strong>。它只反映你此刻的觀察，幫你認識孩子（或自己）的起點，不是給孩子貼標籤或評好壞。氣質沒有好壞，決定發展的是「氣質與環境要求之間的適配度」——同一個孩子在對的環境裡發展得好，在錯的環境裡容易受挫。</p>
+    <p>結果是<strong>九維度剖面（主要參考）</strong>＋<strong>三型傾向（輔助）</strong>＋<strong>環境配合建議</strong>——絕不輸出好壞分數。</p>
+  </section>
+
+  <section class="tq-app" id="tqApp"
+           data-band-low="{{ $quiz.scoring.band_low }}"
+           data-band-high="{{ $quiz.scoring.band_high }}"
+           data-between="{{ $quiz.scoring.between_threshold }}">
+
+    <div class="tq-mode" role="tablist" aria-label="測驗對象">
+      <button type="button" class="tq-mode-btn is-on" data-mode="child" role="tab" aria-selected="true">幫孩子測</button>
+      <button type="button" class="tq-mode-btn" data-mode="self" role="tab" aria-selected="false">測自己</button>
+    </div>
+
+    <p class="tq-scale-note">每題請選最接近的程度：<strong>1 幾乎不會 → 5 幾乎總是</strong>。</p>
+
+    <form class="tq-form" onsubmit="return false">
+      <div class="tq-items" data-mode="child">
+        {{- range $i, $q := $quiz.items_child }}
+        <fieldset class="tq-item" data-dim="{{ $q.dim }}" data-reverse="{{ $q.reverse }}">
+          <legend><span class="tq-qn">{{ add $i 1 }}</span>{{ $q.text }}</legend>
+          <div class="tq-likert">
+            {{- range $v := (seq 1 5) }}
+            <label class="tq-opt"><input type="radio" name="child-{{ $i }}" value="{{ $v }}"><span>{{ $v }}</span></label>
+            {{- end }}
+          </div>
+        </fieldset>
+        {{- end }}
+      </div>
+
+      <div class="tq-items" data-mode="self" hidden>
+        {{- range $i, $q := $quiz.items_self }}
+        <fieldset class="tq-item" data-dim="{{ $q.dim }}" data-reverse="{{ $q.reverse }}">
+          <legend><span class="tq-qn">{{ add $i 1 }}</span>{{ $q.text }}</legend>
+          <div class="tq-likert">
+            {{- range $v := (seq 1 5) }}
+            <label class="tq-opt"><input type="radio" name="self-{{ $i }}" value="{{ $v }}"><span>{{ $v }}</span></label>
+            {{- end }}
+          </div>
+        </fieldset>
+        {{- end }}
+      </div>
+
+      <p class="tq-warn" id="tqWarn" hidden>還有題目沒作答——已用底色標出，補完再看結果。</p>
+
+      <div class="tq-actions">
+        <button type="button" class="tq-submit" id="tqSubmit">看結果</button>
+      </div>
+    </form>
+
+    <section class="tq-result" id="tqResult" hidden aria-live="polite"></section>
+
+    <p class="tq-disclaimer tq-disclaimer-bottom muted">作答紀錄只存在這台裝置的瀏覽器裡（localStorage），不會上傳任何地方。</p>
+  </section>
+
+  <noscript>
+    <p class="tq-note">這頁需要開啟 JavaScript 才能作答並產生結果。沒開 JavaScript 的話，下面的說明仍然有效：氣質沒有好壞，九個維度是描述孩子的九把尺，三型傾向只是其中一種分類的參考。</p>
+  </noscript>
+</article>
+
+<script id="tq-data" type="application/json">{{ $payload | jsonify | safeJS }}</script>
+<script src="{{ $js.RelPermalink }}" defer></script>

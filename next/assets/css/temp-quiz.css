@@ -1,0 +1,297 @@
+/* T3：氣質自測頁樣式（Claude 手寫，2026-09-26）
+   只用 tokens 變數；按鈕 1px 規則線邊框、圓角 ≤4px、紙白底。
+   兩種模式（幫孩子測／測自己）共用版面，維度結果用文字＋長條同時呈現（不只靠顏色）。 */
+
+/* ── 開頭與底部聲明 ── */
+.tq-disclaimer {
+  font-family: var(--f-serif);
+  line-height: 1.75;
+  margin: var(--s4) 0 var(--s4);
+  padding: var(--s3) var(--s3);
+  border-left: 4px solid var(--series);
+  background: var(--tint);
+}
+.tq-disclaimer p { margin: 0 0 var(--s2); }
+.tq-disclaimer p:last-child { margin: 0; }
+.tq-disclaimer strong { font-weight: 700; }
+.tq-disclaimer-bottom {
+  background: transparent;
+  border-left-color: var(--rule);
+  font-size: var(--fs-s);
+  color: var(--ink-2);
+  padding-left: var(--s3);
+  margin-top: var(--s5);
+}
+
+/* ── 模式切換（幫孩子測／測自己） ── */
+.tq-mode {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--s1);
+  margin: var(--s4) 0 var(--s2);
+}
+.tq-mode-btn {
+  min-height: var(--tap);
+  padding: 0 var(--s3);
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  font: 500 var(--fs-m)/1 var(--f-sans);
+  cursor: pointer;
+}
+.tq-mode-btn.is-on {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+.tq-scale-note {
+  font-size: var(--fs-s);
+  color: var(--ink-2);
+  margin: 0 0 var(--s3);
+}
+.tq-scale-note strong { color: var(--ink); font-weight: 700; }
+
+/* ── 表單 / 題組 ── */
+.tq-form { margin: 0; }
+
+.tq-items {
+  display: grid;
+  gap: var(--s2);
+  margin: 0 0 var(--s4);
+}
+
+.tq-item {
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: var(--s3);
+  background: var(--paper);
+  margin: 0;
+}
+.tq-item legend {
+  font: 500 var(--fs-m)/1.7 var(--f-serif);
+  color: var(--ink);
+  padding: 0;
+  margin: 0 0 var(--s2);
+}
+.tq-qn {
+  display: inline-block;
+  font: 700 var(--fs-m)/1 var(--f-sans);
+  color: var(--series);
+  font-variant-numeric: tabular-nums;
+  margin-right: var(--s1);
+  min-width: 1.6em;
+}
+
+.tq-likert {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1);
+}
+.tq-opt {
+  flex: 1 1 0;
+  min-width: 48px;
+  min-height: var(--tap);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--s2);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--ink);
+  font: 500 var(--fs-m)/1 var(--f-sans);
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+.tq-opt input { position: absolute; opacity: 0; pointer-events: none; }
+.tq-opt span { display: inline-block; }
+.tq-opt:hover { border-color: var(--series); }
+.tq-opt:has(input:checked) {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+.tq-item.is-missing {
+  background: var(--tint);
+  border-color: var(--series);
+}
+
+.tq-warn {
+  font: 700 var(--fs-m)/1.5 var(--f-sans);
+  color: var(--ink);
+  margin: var(--s2) 0;
+  padding: var(--s2) var(--s3);
+  border-left: 4px solid var(--series);
+  background: var(--tint);
+}
+
+/* ── 主按鈕 ── */
+.tq-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  align-items: center;
+  margin: var(--s3) 0 var(--s4);
+}
+.tq-submit,
+.tq-redo {
+  min-height: var(--tap);
+  padding: 0 var(--s4);
+  background: var(--series);
+  color: var(--paper);
+  border: 1px solid var(--series);
+  border-radius: 4px;
+  font: 700 var(--fs-m)/1 var(--f-sans);
+  cursor: pointer;
+}
+.tq-redo {
+  background: var(--paper);
+  color: var(--series);
+}
+
+/* ── 結果區 ── */
+.tq-result { margin-top: var(--s5); border-top: 2px solid var(--ink); padding-top: var(--s4); }
+
+.tq-type {
+  margin: 0 0 var(--s5);
+  padding-bottom: var(--s4);
+  border-bottom: 1px solid var(--rule);
+}
+.tq-h2 {
+  font: 700 var(--fs-l)/1.4 var(--f-serif);
+  margin: 0 0 var(--s3);
+  color: var(--ink);
+}
+.tq-h2--profile { margin-top: var(--s5); }
+.tq-type-text {
+  font: 500 var(--fs-l)/1.8 var(--f-serif);
+  margin: 0;
+  color: var(--ink);
+}
+.tq-type-text strong { font-weight: 700; }
+
+/* ── 九維度剖面 ── */
+.tq-profile {
+  display: grid;
+  gap: var(--s3);
+}
+.tq-row {
+  padding: var(--s2) 0;
+  border-top: 1px solid var(--rule);
+}
+.tq-row-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s1) var(--s2);
+  margin-bottom: var(--s1);
+}
+.tq-dim-name {
+  font: 700 var(--fs-m)/1.5 var(--f-serif);
+  color: var(--ink);
+  text-decoration: none;
+}
+.tq-dim-name:hover { color: var(--series); text-decoration: underline; }
+.tq-dim-en {
+  font-size: var(--fs-s);
+  color: var(--ink-2);
+}
+.tq-band-tag {
+  margin-left: auto;
+  display: inline-block;
+  min-width: 2em;
+  text-align: center;
+  padding: 2px 8px;
+  font: 700 var(--fs-s)/1.3 var(--f-sans);
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  color: var(--ink);
+  background: var(--paper);
+}
+.tq-band-num {
+  font: 500 var(--fs-s)/1.3 var(--f-sans);
+  font-variant-numeric: tabular-nums;
+}
+
+/* 帶狀：以色塊 + 文字 + 長條三重提示（不只靠顏色） */
+.tq-row.tq-band-high .tq-band-tag { background: var(--ink); color: var(--paper); }
+.tq-row.tq-band-low  .tq-band-tag { background: var(--paper); color: var(--ink); border-style: dashed; }
+.tq-row.tq-band-mid  .tq-band-tag { background: var(--paper); color: var(--ink); }
+
+/* 長條：以「左定位 + 寬度刻度」組合，呈現 1-5 分的位置（不只是高低） */
+.tq-bar {
+  position: relative;
+  display: block;
+  height: 14px;
+  margin: var(--s1) 0;
+}
+.tq-bar-track {
+  position: absolute;
+  left: 0; right: 0; top: 6px;
+  height: 2px;
+  background: var(--rule);
+}
+.tq-bar-fill {
+  position: absolute;
+  top: 2px;
+  width: 4px;
+  height: 10px;
+  background: var(--series);
+  transform: translateX(-2px);
+}
+.tq-bar-marker {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 14px;
+  background: var(--ink-2);
+  transform: translateX(-0.5px);
+}
+
+/* 環境配合建議 */
+.tq-advice {
+  font-size: var(--fs-s);
+  font-family: var(--f-serif);
+  line-height: 1.7;
+  color: var(--ink-2);
+  margin: var(--s1) 0 0;
+  padding: var(--s2) var(--s3);
+  border-left: 3px solid var(--rule);
+  background: var(--paper);
+}
+.tq-advice strong { color: var(--ink); font-weight: 700; }
+
+.tq-foot-note {
+  font-size: var(--fs-s);
+  font-family: var(--f-serif);
+  line-height: 1.7;
+  color: var(--ink-2);
+  margin: var(--s4) 0 var(--s3);
+}
+
+/* noscript 與小提示 */
+.tq-note {
+  font-size: var(--fs-s);
+  color: var(--ink-2);
+  margin: var(--s3) 0;
+  padding: var(--s2) var(--s3);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--tint);
+}
+
+@media (max-width: 600px) {
+  .tq-mode { width: 100%; }
+  .tq-mode-btn { flex: 1 1 calc(50% - var(--s1)); text-align: center; }
+  .tq-likert { flex-wrap: nowrap; }
+  .tq-opt { flex: 1 1 0; min-width: 0; padding: 0 var(--s1); }
+  .tq-row-top { gap: var(--s1); }
+  .tq-band-tag { margin-left: 0; }
+  .tq-dim-en { width: 100%; }
+}
+
+
