@@ -740,3 +740,29 @@ FAIL V4（1 項）
  - 週期化章 缺錨點 5/59，例 ['periodization.structure.annual.bicycle', 'periodization.structure.annual.tricycle', 'periodization.dryland.flexibility']
 [09-26 05:06:12] V4 第 4 次驗收未過
 [09-26 05:06:12] V4 失敗，佇列停止
+[09-26 05:07:32] === 佇列開始（起點 V5）===
+[09-26 05:07:32] --- V5 開始 ---
+[09-26 05:07:32] V5 第 1 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 66｜input 96776｜cache_read 3818026｜output 13576
+All V5 validation passed, and the framework tests (W3, W4, W5) still pass. Summary of files created:
+
+**Content files (next/content/vortex/adm/):**
+- `_index.md` — ADM 系列首頁，role=adm-home
+- `matrix.md` — 發展矩陣頁，role=adm-matrix
+- `standards.md` — 技術標準頁，role=adm-standards
+
+**Layout partials (next/layouts/_partials/vortex/):**
+- `adm-home.html` — `lib-series` 三入口（matrix/standards/background）
+- `adm-matrix.html` — `lib-chapter adm-wide` 表格；列為四大支柱，欄為四個階段，每個 `<td>` 帶 `data-label="<階段中文名>"`，格內 summary + points
+- `adm-standards.html` — `lib-series[data-list]` 容器；泳式篩選（沿用 `filter.js`，DOM 介面是 `article[data-list] ol.items li[data-stroke]` ＋ `.filters button[data-filter]`）；22 項 `<li data-stroke="...">` 對應資料中的 `id` 第二段
+
+**Stylesheet (next/assets/css/adm.css):**
+- `.adm-wide { max-width: 1040px; }`
+- `.adm-table` 100% 寬、`--fs-s`、上緣 2px `--ink`、格線 1px `--rule`、格內 `var(--s1)`
+- ≤900px：thead隱藏，tbody/tr/td 改 `display: block`；`td::before { content: attr(data-label) }` 顯示階段名
+- `.adm-std-*` 給技術標準頁（cat／title／note／phase／criteria 排版）
+- 全部只用 tokens 變數、無 `!important`、無 inline style
+
+**驗收結果**：`python -X utf8 next/specs/check.py V5` → `PASS V5`；同時確認 W3 / W4 / W5 未受影響。
+PASS V5

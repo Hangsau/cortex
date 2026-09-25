@@ -1,11 +1,11 @@
 {{- /*
   stroke.html — 泳式樞紐頁版型（W6）。
-  資料來源：$.Site.Data.vortex_links。泳式 key 在 .Params.stroke。
+  資料來源：hugo.Data.vortex_links。泳式 key 在 .Params.stroke。
   區塊依序：h1 + premise、動作、常見誤區、技術分析（依 category 分組）、
            練不起來時、這一式的練習、水感發展級別；空區不出。
 */ -}}
 {{- $stroke := .Params.stroke -}}
-{{- $links := $.Site.Data.vortex_links -}}
+{{- $links := hugo.Data.vortex_links -}}
 {{- $s := index $links.strokes $stroke -}}
 
 {{- $css := resources.Get "css/stroke.css" | fingerprint -}}

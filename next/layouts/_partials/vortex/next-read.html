@@ -6,7 +6,7 @@
 {{- $id := .id -}}
 {{- $data := .data -}}
 {{- if not $data -}}
-  {{- $data = $.Site.Data.vortex_links -}}
+  {{- $data = hugo.Data.vortex_links -}}
 {{- end -}}
 {{- $units := $data.units -}}
 {{- $out := index $data.out $id -}}

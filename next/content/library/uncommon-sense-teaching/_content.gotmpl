@@ -5,7 +5,7 @@
     - 18 個策略頁（path strategies/<id>）
     - 1 個策略總表頁（path strategies）
 */ -}}
-{{- $ust := index $.Site.Data "ust" -}}
+{{- $ust := index hugo.Data "ust" -}}
 
 {{- /* 章節頁 */ -}}
 {{- range $ch := $ust.chapters.chapters }}

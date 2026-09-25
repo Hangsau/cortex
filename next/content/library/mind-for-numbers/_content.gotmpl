@@ -3,7 +3,7 @@
   從 hugo.Data.mnfl.techniques 讀全部 5 個主題、20 個技法，
   為每個技法建立一頁，path 為 technique id。
 */ -}}
-{{- $mnfl := index $.Site.Data "mnfl" -}}
+{{- $mnfl := index hugo.Data "mnfl" -}}
 {{- range $theme := $mnfl.techniques.themes }}
   {{- range $tech := $theme.techniques }}
     {{- $.AddPage (dict

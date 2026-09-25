@@ -1,0 +1,70 @@
+{{- /* ADM 技術標準頁（V5）：22 項技術基準，泳式篩選沿用 filter.js。 */ -}}
+{{- $css1 := resources.Get "css/library.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css1.RelPermalink }}">
+{{- $css2 := resources.Get "css/list.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css2.RelPermalink }}">
+{{- $css3 := resources.Get "css/adm.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css3.RelPermalink }}">
+
+{{- $std := index hugo.Data "adm" "standards" -}}
+{{- $strokeName := dict
+  "free" "自由式"
+  "back" "仰式"
+  "breast" "蛙式"
+  "fly" "蝶式"
+  "start" "出發"
+  "turn" "轉身" -}}
+{{- $strokeOrder := slice "all" "free" "back" "breast" "fly" "start" "turn" -}}
+
+{{- /* 收集實際用到的泳式 chips */ -}}
+{{- $used := dict -}}
+{{- range $std.standards }}{{ $sk := index (split .id ".") 1 }}{{ $used = merge $used (dict $sk true) }}{{ end -}}
+
+<article class="page page--wide adm-std" data-list data-type="adm-std">
+  <header class="lc-head">
+    <p class="kicker">Vortex · 長期規劃</p>
+    <h1>{{ .Title }}</h1>
+    {{- with .Description }}<p class="lc-lead">{{ . }}</p>{{ end }}
+  </header>
+
+  <p class="muted">共 <span class="count-n">{{ len $std.standards }}</span> 項 · 框架：{{ $std.framework }} · {{ $std.applies_note }}</p>
+
+  <div class="filters" role="group" aria-label="篩選">
+    <div class="filter-group" data-filter-group="stroke">
+      <span class="filter-label">泳式</span>
+      <button type="button" aria-pressed="true" data-filter="stroke" data-value="">全部</button>
+      {{- range $sk := (slice "free" "back" "breast" "fly" "start" "turn") }}
+        {{- if index $used $sk }}
+          {{- $nm := index $strokeName $sk }}
+          <button type="button" aria-pressed="false" data-filter="stroke" data-value="{{ $sk }}">{{ $nm }}</button>
+        {{- end }}
+      {{- end }}
+    </div>
+  </div>
+
+  <ol class="items adm-std-items">
+    {{- range $std.standards }}
+    {{- $sk := index (split .id ".") 1 }}
+    <li data-stroke="{{ $sk }}">
+      <div class="adm-std-head">
+        <span class="adm-std-cat">{{ index $strokeName $sk }} · {{ upper .applies_from }} 起</span>
+        <strong class="adm-std-t">{{ .title }}</strong>
+      </div>
+      {{- with .note }}<p class="adm-std-note muted">{{ . }}</p>{{ end }}
+      {{- range .phases }}
+      <div class="adm-std-phase">
+        <span class="adm-std-phasename">{{ .name }}</span>
+        <ul class="adm-std-criteria">
+          {{- range .criteria }}<li>{{ . | markdownify }}</li>{{ end }}
+        </ul>
+      </div>
+      {{- end }}
+    </li>
+    {{- end }}
+  </ol>
+
+  <p class="empty muted" hidden>沒有符合的項目</p>
+</article>
+
+{{- $js := resources.Get "js/filter.js" | fingerprint -}}
+<script defer src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous"></script>

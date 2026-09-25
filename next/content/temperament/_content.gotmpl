@@ -6,8 +6,8 @@
   gotmpl 本身已位於 temperament/ 之下，AddPage 用相對路徑即可。
 */ -}}
 
-{{- $temp := index $.Site.Data "temperament" -}}
-{{- $lib := index $.Site.Data "library" -}}
+{{- $temp := index hugo.Data "temperament" -}}
+{{- $lib := index hugo.Data "library" -}}
 {{- $series := "" }}
 {{- range $s := $lib.series }}{{ if eq $s.id "temperament" }}{{ $series = $s }}{{ end }}{{ end }}
 

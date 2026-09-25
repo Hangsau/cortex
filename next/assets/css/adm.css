@@ -1,0 +1,143 @@
+/* ADM（運動員發展矩陣）頁樣式（V5，Claude 手寫）。只用 tokens 變數。 */
+
+/* === 矩陣頁：寬表格；≤900px 直排 === */
+.adm-wide { max-width: 1040px; }
+
+.adm-pre { font-family: var(--f-serif); line-height: 1.7; margin: 0 0 var(--s4); max-width: var(--measure); }
+.adm-caption {
+  font: 700 var(--fs-s)/1.4 var(--f-sans);
+  letter-spacing: .12em;
+  text-align: left;
+  color: var(--ink-2);
+  padding: 0 0 var(--s2);
+}
+
+.adm-table {
+  width: 100%;
+  font-size: var(--fs-s);
+  border-collapse: collapse;
+  margin: 0 0 var(--s4);
+}
+.adm-table thead th {
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+  padding: var(--s1);
+  text-align: left;
+  vertical-align: bottom;
+  font: 700 var(--fs-s)/1.4 var(--f-sans);
+  color: var(--ink);
+  background: var(--paper);
+}
+.adm-table tbody th.adm-pillar {
+  font: 700 var(--fs-m)/1.3 var(--f-serif);
+  color: var(--series);
+  border-top: 1px solid var(--rule);
+  border-bottom: 0;
+  padding: var(--s1);
+  vertical-align: top;
+  width: 8em;
+  min-width: 6em;
+}
+.adm-table tbody td {
+  border: 1px solid var(--rule);
+  border-top: 0;
+  padding: var(--s1);
+  vertical-align: top;
+}
+.adm-table tbody td > p:first-child { margin-top: 0; }
+.adm-table tbody td > p:last-child { margin-bottom: 0; }
+.adm-sum { font-weight: 700; color: var(--ink); margin: 0 0 var(--s2); font-family: var(--f-serif); line-height: 1.55; }
+.adm-points { margin: 0; padding-left: 1.4em; }
+.adm-points li { margin-bottom: var(--s1); line-height: 1.6; font-family: var(--f-serif); }
+.adm-points li:last-child { margin-bottom: 0; }
+
+.adm-age {
+  display: block;
+  font: 400 var(--fs-s)/1.4 var(--f-sans);
+  color: var(--ink-2);
+  letter-spacing: 0;
+  margin-top: 4px;
+}
+
+@media (max-width: 900px) {
+  .adm-table,
+  .adm-table thead,
+  .adm-table tbody,
+  .adm-table tr,
+  .adm-table th,
+  .adm-table td { display: block; }
+  .adm-table thead { display: none; }
+  .adm-table tbody tr { border-top: 1px solid var(--rule); padding: var(--s1) 0; }
+  .adm-table tbody tr:first-child { border-top: 0; }
+  .adm-table tbody th.adm-pillar {
+    width: auto;
+    border: 0;
+    padding: var(--s1) 0 var(--s1);
+    color: var(--ink);
+    font-size: var(--fs-l);
+  }
+  .adm-table tbody td {
+    border: 0;
+    padding: var(--s1) 0 var(--s3);
+    border-bottom: 1px dashed var(--rule);
+  }
+  .adm-table tbody td:last-child { border-bottom: 0; }
+  .adm-table tbody td::before {
+    content: attr(data-label);
+    display: block;
+    font: 700 var(--fs-s)/1.4 var(--f-sans);
+    color: var(--series);
+    letter-spacing: .08em;
+    margin-bottom: var(--s1);
+  }
+}
+
+/* === 技術標準頁 === */
+.adm-std .lc-lead { margin-bottom: var(--s4); }
+.adm-std-items > li { padding: var(--s3) 0; }
+.adm-std-head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: var(--s2);
+}
+.adm-std-cat {
+  font-size: var(--fs-s);
+  color: var(--ink-2);
+  letter-spacing: .04em;
+}
+.adm-std-t {
+  font: 700 var(--fs-l)/1.35 var(--f-serif);
+  color: var(--ink);
+  font-weight: 700;
+}
+.adm-std-note { margin: 0 0 var(--s3); font-family: var(--f-serif); }
+.adm-std-phase { margin-top: var(--s2); }
+.adm-std-phase:first-of-type { margin-top: 0; }
+.adm-std-phasename {
+  display: block;
+  font: 700 var(--fs-s)/1.4 var(--f-sans);
+  color: var(--series);
+  letter-spacing: .06em;
+  margin-bottom: var(--s1);
+}
+.adm-std-criteria {
+  margin: 0;
+  padding-left: 1.4em;
+}
+.adm-std-criteria li {
+  margin-bottom: var(--s1);
+  font-family: var(--f-serif);
+  line-height: 1.7;
+}
+.adm-std-criteria li:last-child { margin-bottom: 0; }
+
+@media (min-width: 900px) {
+  .adm-std-head {
+    flex-direction: row;
+    align-items: baseline;
+    gap: var(--s2);
+    flex-wrap: wrap;
+  }
+  .adm-std-cat { min-width: 8em; }
+}

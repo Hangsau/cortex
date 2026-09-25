@@ -1,0 +1,29 @@
+{{- /* ADM 系列首頁（V5）。lib-series 容器：ls-hero + ls-entries 三入口。 */ -}}
+{{- $css := resources.Get "css/library.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+
+<article class="lib-series">
+  <header class="ls-hero">
+    <p class="kicker">Vortex · 長期規劃</p>
+    <h1 class="ls-title">{{ .Title }}</h1>
+    {{- with .Description }}<p class="ls-lead">{{ . }}</p>{{ end }}
+  </header>
+
+  <section class="ls-sec" aria-labelledby="adm-entries">
+    <h2 id="adm-entries">三個入口</h2>
+    <div class="ls-entries">
+      <a class="ls-entry" href="{{ relURL "vortex/adm/matrix/" }}">
+        <span class="ls-entry-t">發展矩陣</span>
+        <span class="ls-entry-d">四大支柱 × 四階段。選一個支柱，讀它從 L2T 到 T2W 的完整發展軌跡。</span>
+      </a>
+      <a class="ls-entry" href="{{ relURL "vortex/adm/standards/" }}">
+        <span class="ls-entry-t">技術標準</span>
+        <span class="ls-entry-d">四式 + 起跳轉身的理想技術基準，按泳式篩選。T2T 階段應達成並持續維持。</span>
+      </a>
+      <a class="ls-entry" href="{{ relURL "vortex/adm/background/" }}">
+        <span class="ls-entry-t">背景與發展架構</span>
+        <span class="ls-entry-d">LTD 模型、獎牌台路徑、四大支柱定義與審閱 ADM 的八大考量。</span>
+      </a>
+    </div>
+  </section>
+</article>

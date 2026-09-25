@@ -4,7 +4,7 @@
   篩選互動交給 assets/js/filter.js（defer 載入）；樣式見 assets/css/list.css。
 */ -}}
 {{- $type := .Params.list_type -}}
-{{- $links := $.Site.Data.vortex_links -}}
+{{- $links := hugo.Data.vortex_links -}}
 {{- $units := $links.units -}}
 {{- $strokes := $links.strokes -}}
 
