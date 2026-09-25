@@ -43,7 +43,7 @@ v2 依據：使用者 2026-09-25 的方向，加上本檔 §2 對 Vortex 資料�
 | 技術分析 → 技術分析 | 142 條 |
 | 問題 → 技術分析／誤區／drill | 108／86／61 條 |
 | 動作 → drill（以中文名連結） | 103 條，**103/103 全部對得上** |
-| drill → 動作（`deficiency_fixes`） | 142 個 drill 有 |
+| ~~drill → 動作（`deficiency_fixes`）~~ | **2026-09-25 更正：錯誤**。該欄是外部書本缺陷編號（Vortex 已退役），不是動作序號；drill ↔ 動作改用上一列的反向 |
 | drill → 發展級別（`l_target`） | 179/179 |
 | 心理概念 → 誤區／介入 | 有（`misconception_refs`、`intervention_refs`） |
 

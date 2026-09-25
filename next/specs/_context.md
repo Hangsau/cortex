@@ -73,3 +73,8 @@ drill 的 `strokes` 用另一套值：`freestyle→free`、`backstroke→back`�
 | 集合清單頁 | `vortex/drills/`、`vortex/tech/`、`vortex/errors/`、`vortex/problems/`、`vortex/injuries/`、`vortex/levels/`、`vortex/mind/` |
 
 slug＝id 轉小寫，`.` 與 `_` 換成 `-`。
+
+## 效率要求（每回合都在耗額度）
+- 先讀本單列出的檔案與 `next/data/vortex_links.json` 的前幾個 unit 了解結構；不要整份讀大型 yaml（有些超過 200KB），需要時用 python 抽樣
+- 寫完產出檔**立刻**跑驗收指令，依失敗訊息逐條修；不要在沒跑驗收前反覆重構
+- 不要建立臨時檔在 repo 根目錄（如 t.py）；需要試算用 `python -X utf8 -c "..."`
