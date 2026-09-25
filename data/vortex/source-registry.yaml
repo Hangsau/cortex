@@ -1500,13 +1500,26 @@ sources:
     - Hayashi
   src.hayashi-2025:
     id: src.hayashi-2025
-    display: Hayashi et al. 2025
-    type: other
-    verification_status: unverified
+    display: Koga, D., Tsunokawa, T., Kawai, E., Nakazono, Y., Sengoku, Y., & Takagi, H. (2026). Relationship between 3D lower-limb kinematics and foot propulsive force during breaststroke kicking. Sports Biomechanics, 25(5), 773–790.
+    type: journal-article
+    verification_status: verified
+    title: Relationship between 3D lower-limb kinematics and foot propulsive force during breaststroke kicking.
     authors:
-    - Hayashi
+    - Koga D
+    - Tsunokawa T
+    - Kawai E
+    - Nakazono Y
+    - Sengoku Y
+    - Takagi H
     et_al: true
-    year: 2025
+    year: 2026
+    container: Sports biomechanics
+    identifier:
+      pmid: '41211735'
+      doi: 10.1080/14763141.2025.2580379
+      url: https://pubmed.ncbi.nlm.nih.gov/41211735/
+    retrieved_on: '2026-09-26'
+    link: https://pubmed.ncbi.nlm.nih.gov/41211735/
   src.hellard:
     id: src.hellard
     display: 【複合來源鍵，已拆解】已拆為 src.hellard-2019、src.gonzalez-rave-2022-400im-case 等 2 筆
@@ -5588,30 +5601,35 @@ sources:
     link: https://pubmed.ncbi.nlm.nih.gov/27149652/
   src.tanaka-2024-a:
     id: src.tanaka-2024-a
-    display: Tanaka 2024
+    display: 【重複鍵，已併入 src.tanaka-2024-c】
     type: other
-    verification_status: unverified
-    authors:
-    - Tanaka
-    year: 2024
+    verification_status: retracted
+    retrieved_on: '2026-09-26'
   src.tanaka-2024-b:
     id: src.tanaka-2024-b
-    display: Tanaka et al. (2024). CFD study. Journal of Biomechanics
+    display: 【重複鍵，已併入 src.tanaka-2024-c】
     type: other
-    verification_status: unverified
-    authors:
-    - Tanaka
-    et_al: true
-    year: 2024
+    verification_status: retracted
+    retrieved_on: '2026-09-26'
   src.tanaka-2024-c:
     id: src.tanaka-2024-c
-    display: Tanaka et al. 2024
-    type: other
-    verification_status: unverified
+    display: Tanaka, T., Hayashi, T., & Isaka, T. (2024). Simulating vortex generation to investigate the propulsive and braking mechanisms of breaststroke kick using computational fluid dynamics on a breaststroke swimmer. Journal of Biomechanics, 176, 112329.
+    type: journal-article
+    verification_status: verified
+    title: Simulating vortex generation to investigate the propulsive and braking mechanisms of breaststroke kick using computational fluid dynamics on a breaststroke swimmer.
     authors:
-    - Tanaka
+    - Tanaka T
+    - Hayashi T
+    - Isaka T
     et_al: true
     year: 2024
+    container: Journal of biomechanics
+    identifier:
+      pmid: '39305856'
+      doi: 10.1016/j.jbiomech.2024.112329
+      url: https://pubmed.ncbi.nlm.nih.gov/39305856/
+    retrieved_on: '2026-09-26'
+    link: https://pubmed.ncbi.nlm.nih.gov/39305856/
   src.tanaka-2025:
     id: src.tanaka-2025
     display: Tanaka et al. 2025

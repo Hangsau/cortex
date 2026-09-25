@@ -1478,26 +1478,25 @@ points:
 - id: breast.tech.9
   stroke: breast
   category: kick
-  title: 蛙腿推進機制：渦流整合而非反作用力
-  summary: 蛙腿的主要推進力來自 outsweep 與 insweep 兩階段渦流合併後向後噴射的動量傳遞，不是「向後蹬水的反作用力」。
+  title: 蛙腿推進機制：外擺加速、內夾維持，渦流合併後向後脫落
+  summary: 蛙腿在外擺階段產生讓身體加速的渦流、在內夾階段產生維持速度的渦流，兩段渦流在內夾後合併並向後脫落。這是用流體的語言描述「把水往後推」，不是和它對立的另一種解釋。
   mechanism:
     certainty: 🟢
     source_ids:
     - src.tanaka-2024-c
-    - src.hayashi-2025
-    text: outsweep 階段足背側和小腿後外側產生渦流，有獨立前向推進力；insweep 階段大腿和小腿側面繼續產生渦流；兩個階段渦流合併後向後噴出，是主推進力輸出時刻；CFD 2024 首次以計算流體力學完整確認此機制。
+    text: 外擺時足背與小腿後外側產生渦流，前進速度增加；內夾時大腿、小腿側面與足背外側產生渦流，前進速度維持；外擺到內夾產生的渦流在內夾結束後合併，相對游進方向向後脫落。向後脫落的渦流帶走向後的動量，身體因此獲得向前的推力——所以「渦流」與「向後推水的反作用力」是同一件事的兩種描述。研究邊界：一位男性選手、一次踢腿的電腦模擬，原文沒有量化哪一段是主推進。
   evidence:
   - certainty: 🟢
-    text: CFD 完整分析蛙腿渦流：outsweep（足背 + 小腿後外側）→ insweep（大腿側 + 足背）→ 渦流合併後向後噴射是主推進機制
-    source: Tanaka et al. 2024
+    text: CFD 模擬一位男性蛙式選手的一次踢腿：外擺（足背＋小腿後外側）渦流使速度增加，內夾（大腿與小腿側面＋足背外側）渦流維持速度，兩段渦流在內夾後合併並向後脫落
+    source: Tanaka, Hayashi & Isaka 2024
     source_ids:
     - src.tanaka-2024-c
   - certainty: 🟢
-    text: insweep 腳速與推進力 r=0.89
-    source: Hayashi et al. 2025
+    text: 內夾階段腳的合成速度與腳底推進力相關 r=0.89（14 名男性、水槽內扶板踢腿、左腳 8 個壓力感測器估算）
+    source: Koga et al. 2025
     source_ids:
     - src.hayashi-2025
-  practical_implication: 渦流整合機制解釋了為什麼 insweep 的加速度方向正確性比力量更重要，也解釋了膝距窄的雙重效益。
+  practical_implication: 腳掌翻到朝後之後，外擺與內夾都在做功；內夾時腳越快、腳底推進力越大（相關，非因果）。訓練重點是腳掌方向到位之後的加速，不是把圈畫大，也不是單純用力。
 - id: breast.tech.10
   stroke: breast
   category: kick
@@ -1538,20 +1537,20 @@ points:
 - id: breast.tech.12
   stroke: breast
   category: kick
-  title: insweep 腳速是推進力的直接決定因子
-  summary: insweep 階段腳速與推進力的相關性達 r=0.89，是蛙腿所有運動學變數中最強的推進力預測因子。
+  title: 內夾腳速與腳底推進力高度相關
+  summary: 內夾階段腳的合成速度與腳底推進力相關 r=0.89，是該研究報告的運動學變數中相關最強的一項。
   mechanism:
     certainty: 🟢
     source_ids:
     - src.hayashi-2025
-    text: 渦流合併後向後噴射的動量與腳掌加速度直接相關；膝伸展角速度峰值則與推進力負相關（r=-0.54），代表更快「蹬出去」不等於更大推進力——加速度方向正確是前提。
+    text: 14 名男性選手在水槽內扶板踢腿：內夾階段腳速 r=0.89；膝伸展階段踝蹠屈角速度峰值 r=0.59、膝伸展角速度峰值 r=-0.54——更快把膝蓋蹬直，反而伴隨較小的腳底推進力。推進力是左腳 8 個壓力感測器的估算值，不是整體推進；這些都是相關，不是因果。
   evidence:
   - certainty: 🟢
-    text: insweep 腳速 r=0.89；踝蹠屈角速度 r=0.59；膝伸展角速度峰值負相關 r=-0.54
-    source: Hayashi et al. 2025
+    text: 內夾階段腳合成速度 r=0.89；膝伸展階段踝蹠屈角速度峰值 r=0.59、膝伸展角速度峰值 r=-0.54
+    source: Koga et al. 2025
     source_ids:
     - src.hayashi-2025
-  practical_implication: 訓練目標是「渦流方向正確的加速」而非「更大的蹬腿力量」；夾腿沒有加速是推進力渙散的根本原因。
+  practical_implication: 訓練目標是腳掌方向到位後、內夾時的加速，而不是更用力把膝蓋蹬直——後者在這項研究中與較小的推進力同時出現。
 - id: breast.tech.13
   stroke: breast
   category: kick
@@ -1571,7 +1570,7 @@ points:
     source_ids:
     - src.strzala-2013-c
     - src.hayashi-2025
-    text: 踝蹠屈角速度與 insweep 推進力正相關（r=0.59）；踝關節柔韌性不足時腳掌無法朝後，推進面積大幅縮小；柔韌性嚴重不足時腳掌方向造成制動而非推進；踝關節柔韌性主要靠軟組織訓練可以改善（蛙鞋、陸上伸展）。
+    text: 膝伸展階段踝蹠屈角速度峰值與腳底推進力正相關（r=0.59）；踝關節柔韌性不足時腳掌無法朝後，推進面積大幅縮小；柔韌性嚴重不足時腳掌方向造成制動而非推進；踝關節柔韌性主要靠軟組織訓練可以改善（蛙鞋、陸上伸展）。
   evidence:
   - certainty: 🟡
     text: 踝關節柔韌性是蛙腿游速的獨立預測因子
@@ -1579,8 +1578,8 @@ points:
     source_ids:
     - src.strzala-2013-c
   - certainty: 🟢
-    text: 踝蹠屈角速度與推進力 r=0.59
-    source: Hayashi et al. 2025
+    text: 膝伸展階段踝蹠屈角速度峰值與腳底推進力 r=0.59
+    source: Koga et al. 2025
     source_ids:
     - src.hayashi-2025
   practical_implication: 訓練優先級：踝關節柔韌性 > 踢腿力量——這是文獻一致的結論，且與多數業餘訓練習慣相反。

@@ -905,23 +905,25 @@ errors:
   title: 踢腳主要是旋轉動作——上、外、繞回來才是核心
   misconception: 「上、外、繞回來」幾乎是全球通行的蛙式踢腳口令，讓學員誤以為「畫圓」是踢腳的主體動作。
   physical_reason:
-    certainty: 🔵
-    text: 外、內擺動是踢腳的啟動設定與收攏，不是推進的主角。蛙腿的主推進機制是 outsweep→insweep 兩段渦流合併後向後噴射，而非旋轉拉力。「踢腳是旋轉動作」的說法從根本否定了這個物理機制。
+    certainty: 🟢
+    source_ids:
+    - src.tanaka-2024-c
+    text: 口令描述的軌跡本身沒錯，錯在讓人以為畫圈就是推進。CFD 模擬看到的是：外擺階段足背與小腿後外側產生渦流，身體加速；內夾階段大腿、小腿側面與足部產生渦流，速度維持；兩段的渦流在內夾結束後合併、向後脫落。推進發生在外擺與內夾兩段，前提是腳掌已經翻到朝後——圈畫得大不會多產生推進，腳掌沒翻到位就開始掃，兩段都會失效。這項模擬只有一位選手、一次踢腿，是目前唯一直接看到蛙腿渦流的研究。
   evidence:
   - certainty: 🟠
-    text: 蛙式踢腳最常見的誤解之一，是認為它主要是旋轉動作。目標應該是讓腳盡量向後施力推水。往外、往內只是準備和收尾階段；踢腳的主體幾乎是完全向後的。
+    text: 蛙式踢腳最常見的誤解之一，是認為它主要是旋轉動作；目標應該是每一踢都盡量向後對水施力。
     source: U.S. Masters Swimming — Breaststroke Kick 指南
     source_ids:
     - src.usms-breaststroke-kick-guide
   - certainty: 🟢
-    text: CFD 研究確認：蛙腿的主推進機制是 outsweep→insweep 兩段渦流合併後向後噴射，而非旋轉拉力。
-    source: Tanaka et al. (2024). CFD study. Journal of Biomechanics
+    text: CFD 模擬一位男性蛙式選手的一次踢腿：外擺階段的渦流使前進速度增加，內夾階段的渦流維持前進速度；外擺到內夾產生的渦流在內夾後合併並向後脫落。
+    source: Tanaka, Hayashi & Isaka 2024, Journal of Biomechanics
     source_ids:
-    - src.tanaka-2024-b
+    - src.tanaka-2024-c
   cross_ref: 蛙腿推進機制
   cross_ref_ids:
   - breast.tech.9
-  correct_concept: 踢腳的目標是「直接向後推水」。旋轉感是動作設定和收腳帶來的副產品，不應被誇大為主要目標。
+  correct_concept: 重點不是畫圈，而是腳掌翻到朝後之後，在外擺與內夾的過程中持續向後對水施力，並在內夾時加速。旋轉的軌跡是腳掌帶著方向走的路徑，不是目標本身。
   perception_impact: 誤以為旋轉是主體，腳掌回饋的方向感就會從「後方壓力」偏移至「畫圓阻力感」。 L2–L3 的腳感校準起點整個跑掉。
 - id: breast.err2
   stroke: breast

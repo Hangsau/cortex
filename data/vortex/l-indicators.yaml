@@ -519,12 +519,12 @@ indicators:
   evidence:
   - certainty: 🟢
     text: CFD 渦流分析
-    source: Tanaka 2024
+    source: Tanaka et al. 2024
     source_ids:
-    - src.tanaka-2024-a
+    - src.tanaka-2024-c
   - certainty: 🟡
     text: 踝柔韌性主導
-    source: Hayashi 2025；Strzała 2013
+    source: Koga et al. 2025；Strzała 2013
     source_ids:
     - src.hayashi
 - id: breast.L2.hand-support
@@ -545,10 +545,10 @@ indicators:
   framework_state: 水感出現但不穩定——推進感
   evidence:
   - certainty: 🟢
-    text: 渦流合併機制
-    source: Tanaka 2024
+    text: 外擺到內夾的渦流在內夾後合併並向後脫落（單一選手 CFD）
+    source: Tanaka et al. 2024
     source_ids:
-    - src.tanaka-2024-a
+    - src.tanaka-2024-c
 - id: breast.L3.recovery-drag
   stroke: breast
   level: L3
@@ -607,10 +607,10 @@ indicators:
   - certainty: 🔵
     text: 本綜述收錄的研究中 body undulation 僅作為個別研究的量測參數出現，綜述本身未對波動穩定度做跨研究整合——引用僅及於精英蛙式時相參數的整體描述，波動穩定度本身無直接文獻支撐
   - certainty: 🟢
-    text: Tanaka 2024
-    source: Tanaka 2024
+    text: CFD 看到收腿期小腿與腳產生使前進速度下降的渦流——只支撐本條「收腿阻力」那一半，與波動穩定度無關（單一選手模擬）
+    source: Tanaka et al. 2024
     source_ids:
-    - src.tanaka-2024-a
+    - src.tanaka-2024-c
 - id: breast.L6.stability
   stroke: breast
   level: L6
