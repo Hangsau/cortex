@@ -47,3 +47,7 @@ details > summary::-webkit-details-marker { display: none; }
   .site-head { padding: var(--s1) var(--s2); }
   .page { padding: var(--s3) var(--s2) var(--s5); }
 }
+
+/* 資料中的 <mark> 是作者標重點：用系列色底線取代瀏覽器預設螢光黃 */
+mark { background: none; color: inherit; font-weight: 600; text-decoration: underline 2px var(--series); text-underline-offset: 3px; }
+.cert { font-size: var(--fs-s); color: var(--ink-2); white-space: nowrap; }

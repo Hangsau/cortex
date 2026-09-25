@@ -6,7 +6,11 @@
 {{- $v := .v -}}
 {{- $depth := .depth | default 0 -}}
 {{- if and $v (le $depth 4) -}}
-  {{- if reflect.IsMap $v -}}
+  {{- if and (reflect.IsMap $v) (isset $v "text") -}}
+    {{- /* {text, certainty, …} 這類「內容＋確定性」包裝：直接印內文，確定性跟在後面，不出小標 */ -}}
+    {{- with $v.text -}}{{ . | markdownify }}{{- end -}}
+    {{- with $v.certainty -}} <span class="cert">確定性 {{ . }}</span>{{- end -}}
+  {{- else if reflect.IsMap $v -}}
     {{- if $v -}}
       {{- $labels := dict
         "name" "名稱"
