@@ -350,6 +350,55 @@
   {{- end }}
 
 
+  {{- /* ===== L 級指標區塊，僅 level 頁（V7） ===== */ -}}
+  {{- if eq $type "level" -}}
+    {{- $indsAll := index hugo.Data.vortex "l-indicators" "indicators" -}}
+    {{- $matched := slice -}}
+    {{- if $indsAll -}}
+      {{- range $indsAll -}}
+        {{- if and (eq .stroke $strokeKey) (eq .level $record.level) -}}
+          {{- $matched = $matched | append . -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if gt (len $matched) 0 }}
+    <section class="layer layer-indicators">
+      <h2>這一級看得到的指標</h2>
+      {{- range $matched }}
+      <div class="indicator-item">
+        <h3>{{ .aspect }}</h3>
+        <p class="read">{{ .indicator | markdownify }}</p>
+        {{- with .framework_state -}}
+          {{- $t := . | plainify | strings.TrimSpace -}}
+          {{- if $t -}}<p class="muted">{{ . | markdownify }}</p>{{- end -}}
+        {{- end -}}
+        {{- with .evidence }}
+        <ul class="indicator-evidence">
+          {{- range . }}
+          <li>
+            {{- with .text -}}
+              {{- $t := . | plainify | strings.TrimSpace -}}
+              {{- if $t -}}<span>{{ . | markdownify }}</span>　{{- end -}}
+            {{- end -}}
+            {{- with .certainty -}}
+              {{- $t := printf "%v" . | plainify | strings.TrimSpace -}}
+              {{- if $t -}}<span class="cert">{{ . }}</span>　{{- end -}}
+            {{- end -}}
+            {{- with .source -}}
+              {{- $t := printf "%v" . | plainify | strings.TrimSpace -}}
+              {{- if $t -}}<span class="source">{{ . }}</span>{{- end -}}
+            {{- end -}}
+          </li>
+          {{- end }}
+        </ul>
+        {{- end }}
+      </div>
+      {{- end }}
+    </section>
+    {{- end -}}
+  {{- end -}}
+
+
   {{- /* ===== 為什麼 ===== */ -}}
   {{- $whyOpen := false -}}
   {{- if eq $type "move" -}}

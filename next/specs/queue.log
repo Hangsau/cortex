@@ -840,3 +840,16 @@ render of "C:/claudehome/projects/my-site/next/content/vortex/movement.md" faile
 [claude-m3-lite] turns 81｜input 215324｜cache_read 5156250｜output 48180
 
 PASS V6
+[09-26 05:23:57] V6 通過並已 push
+[09-26 05:23:57] --- V7 開始 ---
+[09-26 05:23:57] V7 第 1 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 62｜input 60269｜cache_read 2285892｜output 17960
+完成。
+
+**改了什麼**
+- `next/layouts/_partials/vortex/unit.html`：在 layer-what（level 頁的「是什麼」區塊）之後，新增「L 級指標區塊」，僅在 `$type == "level"` 時輸出。從 `data/vortex/l-indicators.yaml` 用 `index hugo.Data.vortex "l-indicators" "indicators"` 取得清單（hyphenated 檔名要直接當字串 key 取），對 `stroke` 與 `record.level` 都相同者納入；沒有對應指標時整塊不渲染。每個指標輸出 `<h3>aspect`／`<p class="read">indicator`／可選 muted `framework_state`／`evidence` 清單（text＋certainty＋source，皆過 plainify 判空）。
+
+**驗收**
+- `python -X utf8 next/specs/check.py V7` → `PASS V7`（22/26 個有資料的 level 頁含 `layer-indicators`，超過門檻 10；global_checks 全通）。
+PASS V7
