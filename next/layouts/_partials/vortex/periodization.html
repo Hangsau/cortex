@@ -1,0 +1,1036 @@
+{{- /* 訓練週期化章：59 個節點依 data/periodization/_index.yaml 順序輸出；表格型資料走 pz-table + pz-scroll；規劃器走 planner.js。 */ -}}
+{{- $css1 := resources.Get "css/library.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css1.RelPermalink }}">
+{{- $css2 := resources.Get "css/periodization.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css2.RelPermalink }}">
+{{- $js  := resources.Get "js/planner.js" | fingerprint -}}
+{{- $idx  := index hugo.Data "periodization" "_index" -}}
+{{- $str  := index hugo.Data "periodization" "structure" -}}
+{{- $tap  := index hugo.Data "periodization" "taper" -}}
+{{- $zon  := index hugo.Data "periodization" "zones" -}}
+{{- $dry  := index hugo.Data "periodization" "dryland" -}}
+{{- $dec  := index hugo.Data "periodization" "decisions" -}}
+{{- $set  := index hugo.Data "periodization" "set-design" -}}
+
+{{- $names := dict -}}
+{{- $order := slice -}}
+{{- range $g := (slice "structure" "taper" "zones" "dryland" "decisions" "set_design") -}}
+  {{- range $node := index $idx $g -}}
+    {{- $names = merge $names (dict $node.id $node.name_zh) -}}
+    {{- $order = $order | append $node.id -}}
+  {{- end -}}
+{{- end -}}
+
+<article class="lib-chapter pz">
+  <header class="lc-head">
+    <p class="kicker">Vortex · 長期規劃</p>
+    <h1>訓練週期化</h1>
+    {{- with .Description }}<p class="lc-lead">{{ . }}</p>{{ end }}
+  </header>
+
+  <nav class="pz-toc" aria-label="頁內目次">
+    <ol>
+      {{- range $id := $order -}}
+        <li><a href="#{{ $id }}">{{ index $names $id }}</a></li>
+      {{- end -}}
+    </ol>
+  </nav>
+
+  {{ with $str.general_adaptation_syndrome }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    {{ with .three_stages }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">階段</th><th scope="col">時間尺度</th><th scope="col">說明</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .name_zh }}</th><td>{{ .duration_zh }}</td><td>{{ .description_zh | markdownify }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p>{{ .why_periodization_works_zh | markdownify }}</p>
+    <p>{{ .controversy_zh | markdownify }}</p>
+    <p>{{ .swim_application_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $str.schools_overview }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .premise_zh | markdownify }}</p>
+    {{ with .schools }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">流派</th><th scope="col">核心問句</th><th scope="col">強項</th><th scope="col">弱項</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .name_zh }}<span class="cert">{{ .cert }}</span></th><td>{{ .core_q_zh | markdownify }}</td><td>{{ .strength_zh | markdownify }}</td><td>{{ .weakness_zh | markdownify }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    {{ with .reader_questions_ }}<ul class="le-points">{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>{{ end }}
+    <p>{{ .author_synthesis_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $str.school_block }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .core_mechanism_zh | markdownify }}</p>
+    {{ with .residual_effects }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">能力</th><th scope="col">殘留效應天數</th><th scope="col">證據等級</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .ability_zh }}</th><td>{{ .days }}</td><td><span class="cert">{{ .cert }}</span></td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p>{{ .residual_caveat_zh | markdownify }}</p>
+    {{ with .block_structure }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">板塊</th><th scope="col">焦點</th><th scope="col">負荷</th><th scope="col">週數</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .name_zh }}</th><td>{{ .focus_zh | markdownify }}</td><td>{{ .load_zh | markdownify }}</td><td>{{ .weeks }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p>{{ .full_stage_weeks | markdownify }}</p>
+    <p>{{ .critique_of_traditional_zh | markdownify }}</p>
+    <p>{{ .swim_link_zh | markdownify }}</p>
+    <p>{{ .limitations_zh | markdownify }}</p>
+    <p>{{ .author_note_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $str.perception_periodization_bridge }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .gap_zh | markdownify }}</p>
+    <p>{{ .hypothesis_zh | markdownify }}</p>
+    <p>{{ .why_it_matters_zh | markdownify }}</p>
+    <p>{{ .status_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{- $annual_keys := slice "monocycle" "bicycle" "tricycle" "multipeak" -}}
+  {{- range $key := $annual_keys -}}
+  {{- $target := printf "periodization.structure.annual.%s" $key -}}
+  {{- range where $idx.structure "id" $target -}}
+    {{- $node := . -}}
+    {{- $entry := "" -}}
+    {{- range $str.annual_plan_types -}}
+      {{- if eq .id $target -}}
+        {{- $entry = . -}}
+      {{- end -}}
+    {{- end -}}
+    {{- with $entry -}}
+    <section class="le-block" id="{{ $node.id }}">
+      <h2>{{ $node.name_zh }}<span class="cert">{{ .cert }}</span></h2>
+      {{ with .total_weeks }}<p>總週數：{{ . }}</p>{{ end }}
+      {{ with .peaks }}<p>高峰數：{{ . }}</p>{{ end }}
+      {{ with .weeks }}
+      <div class="pz-scroll"><table class="pz-table">
+        <thead><tr><th scope="col">區段</th><th scope="col">週數區間</th><th scope="col">備註</th></tr></thead>
+        <tbody>
+          {{ range $seg, $val := . }}
+          <tr>
+            <th scope="row">{{ $seg }}</th>
+            <td>{{ if and $val.min $val.max }}{{ $val.min }}–{{ $val.max }}{{ else if $val.min }}{{ $val.min }}{{ else }}{{ $val.max }}{{ end }}</td>
+            <td>{{ with $val.note }}{{ . | markdownify }}{{ end }}</td>
+          </tr>
+          {{ end }}
+        </tbody>
+      </table></div>
+      {{ end }}
+      {{ with .weeks_note_zh }}<p>{{ . | markdownify }}</p>{{ end }}
+      {{ with .peaks_note_zh }}<p>{{ . | markdownify }}</p>{{ end }}
+      {{ with .structure_note_zh }}<p>{{ . | markdownify }}</p>{{ end }}
+      <p>{{ .suited_for_zh | markdownify }}</p>
+      <p>{{ .swim_application_zh | markdownify }}</p>
+      <p class="read">{{ .plain_zh | markdownify }}</p>
+    </section>
+    {{- end -}}
+  {{- end -}}
+  {{- end -}}
+
+  {{ with $str.macrocycle }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>時長 {{ .duration_weeks.min }}–{{ .duration_weeks.max }} 週（準備期 macrocycle {{ .duration_weeks.prep_macrocycle.min }}–{{ .duration_weeks.prep_macrocycle.max }} 週）。</p>
+    {{ with .loading_patterns }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">負荷比</th><th scope="col">用途</th><th scope="col">證據等級</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .ratio }}</th><td>{{ .note_zh | markdownify }}</td><td><span class="cert">{{ .cert }}</span></td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p>{{ .swim_application_zh | markdownify }}</p>
+    <p>{{ .block_dialogue_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $str.microcycle }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .duration | markdownify }}</p>
+    {{ with .classifications }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">分類</th><th scope="col">說明</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .name_zh }}<span class="cert">{{ .cert }}</span></th><td>{{ with .note_zh }}{{ . | markdownify }}{{ else }}—{{ end }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    {{ with .rest_day_patterns }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">休息模式</th><th scope="col">說明</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .name_zh }}<span class="cert">{{ .cert }}</span></th><td>{{ with .note_zh }}{{ . | markdownify }}{{ else }}—{{ end }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p>{{ .swim_application_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $str.detraining }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    {{ with .vo2max_loss }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">停練天數／週</th><th scope="col">VO2max 損失</th><th scope="col">來源</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ with .days }}{{ . }} 天{{ else }}{{ .weeks }} 週{{ end }}</th><td>{{ .loss }}</td><td>{{ .source_zh | markdownify }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p>{{ .strength_power_loss_zh | markdownify }}</p>
+    <p>{{ .endurance_perf_loss_zh | markdownify }}</p>
+    <p>{{ .reversible_note_zh | markdownify }}</p>
+    <p>{{ .swim_application_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $str.swim_annual_structure }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .macrocycles_per_year | markdownify }}</p>
+    <p>{{ .macrocycle_length_weeks | markdownify }}</p>
+    <p>{{ .fastest_pattern_zh | markdownify }}</p>
+    <p>{{ .low_intensity_volume_share | markdownify }}</p>
+    <p>{{ .case_400im_zh | markdownify }}</p>
+    <p>{{ .caution_zh | markdownify }}</p>
+    <p>{{ .open_water_distance_buffer_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $str.swim_youth_ltad }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .stage_ages_zh | markdownify }}</p>
+    <p>{{ .phv_zh | markdownify }}</p>
+    {{ if .windows_of_trainability_contested }}<p>trainability 窗口有爭議，須慎用。</p>{{ end }}
+    <p>{{ .windows_note_zh | markdownify }}</p>
+    <p>{{ .volume_zh | markdownify }}</p>
+    <p>{{ .caution_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $tap.definition }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .text_zh | markdownify }}</p>
+    <p>{{ .purpose_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $tap.variables }}
+  <section class="le-block" id="periodization.taper.variables">
+    <h2>減量四變項<span class="cert">{{ index $tap.variables 0 "cert" }}</span></h2>
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">變項</th><th scope="col">建議降幅</th><th scope="col">角色</th></tr></thead>
+      <tbody>
+        {{ range . }}
+        <tr>
+          <th scope="row">{{ .name_zh }}<span class="cert">{{ .cert }}</span></th>
+          <td>
+            {{ with .reduction }}降 {{ .typical }}{{ with .heavy_pretaper }}（重負荷可至 {{ . }}）{{ end }}{{ end }}
+            {{ with .range }}{{ .min_days }}–{{ .max_days }} 天{{ end }}
+            {{ with .rule_zh }}{{ . | markdownify }}{{ end }}
+            {{ with .first_week_zh }}{{ . | markdownify }}{{ end }}
+          </td>
+          <td>{{ .role_zh | markdownify }}</td>
+        </tr>
+        {{ end }}
+      </tbody>
+    </table></div>
+    <p>依資料順序：體積 → 強度 → 頻率 → 時長。每一變項的判定請見同章各節。</p>
+  </section>
+
+  {{- $taper_var_ids := slice "volume" "intensity" "frequency" "duration" -}}
+  {{- range $var := $taper_var_ids -}}
+    {{- $target := printf "periodization.taper.%s" $var -}}
+    {{- range where $idx.taper "id" $target -}}
+      {{- $node := . -}}
+      {{- $entry := "" -}}
+      {{- range $tap.variables -}}
+        {{- if eq .key $var -}}
+          {{- $entry = . -}}
+        {{- end -}}
+      {{- end -}}
+      {{- with $entry -}}
+      <section class="le-block" id="{{ $node.id }}">
+        <h2>{{ $node.name_zh }}<span class="cert">{{ .cert }}</span></h2>
+        {{ with .reduction }}
+        <p>降 {{ .typical }}{{ with .heavy_pretaper }}（重負荷可至 {{ . }}）{{ end }}{{ with .note_zh }}：{{ . | markdownify }}{{ end }}</p>
+        {{ end }}
+        {{ with .range }}
+        <p>{{ .min_days }}–{{ .max_days }} 天{{ with .note_zh }}：{{ . | markdownify }}{{ end }}</p>
+        {{ end }}
+        {{ with .rule_zh }}<p>{{ . | markdownify }}</p>{{ end }}
+        {{ with .first_week_zh }}<p>{{ . | markdownify }}</p>{{ end }}
+        <p>{{ .role_zh | markdownify }}</p>
+        {{ with .plain_zh }}<p class="read">{{ . | markdownify }}</p>{{ end }}
+      </section>
+      {{- else -}}
+      <section class="le-block" id="{{ $node.id }}">
+        <h2>{{ $node.name_zh }}</h2>
+        <p>（資料未載）</p>
+      </section>
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{ end }}
+
+  {{- $taper_type_keys := slice "linear" "step" "fast_exponential" -}}
+  {{- range $key := $taper_type_keys -}}
+    {{- $target := printf "periodization.taper.type.%s" $key -}}
+    {{- range where $idx.taper "id" $target -}}
+      {{- $node := . -}}
+      {{- $entry := "" -}}
+      {{- range $tap.taper_types -}}
+        {{- if eq .key $key -}}
+          {{- $entry = . -}}
+        {{- end -}}
+      {{- end -}}
+      {{- with $entry -}}
+      <section class="le-block" id="{{ $node.id }}">
+        <h2>{{ $node.name_zh }}<span class="cert">{{ .cert }}</span></h2>
+        <p>{{ .note_zh | markdownify }}</p>
+        <p class="read">{{ .plain_zh | markdownify }}</p>
+      </section>
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{ with $tap.peak }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .definition_zh | markdownify }}</p>
+    <p>可維持天數：{{ .maintainable_days.min }}–{{ .maintainable_days.max }} 天（{{ .maintainable_days.note_zh | markdownify }}）</p>
+    <p>{{ .warning_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $tap.swim_application }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .volume_reduction_zh | markdownify }}</p>
+    <p>{{ .three_week_taper_zh | markdownify }}</p>
+    <p>{{ .sydney_2000_zh | markdownify }}</p>
+    <p>{{ .practice_zh | markdownify }}</p>
+    <p>{{ .level_stratified_gains_zh | markdownify }}</p>
+    <p>{{ .no_event_specificity_zh | markdownify }}</p>
+    <p>{{ .psychological_aspect_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $zon.school_polarized }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .three_zone_basis_zh | markdownify }}</p>
+    {{ with .distribution }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">型態</th><th scope="col">Z1</th><th scope="col">Z2</th><th scope="col">Z3</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .name_zh }}</th><td>{{ .z1 }}</td><td>{{ .z2 }}</td><td>{{ .z3 }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p>{{ .key_numbers_zh | markdownify }}</p>
+    <p>{{ .unit_caveat_zh | markdownify }}</p>
+    <p>{{ .avoid_middle_zh | markdownify }}</p>
+    <p>{{ .evidence_zh | markdownify }}</p>
+    <p>{{ .causation_caveat_zh | markdownify }}</p>
+    <p>{{ .swim_caveat_zh | markdownify }}</p>
+    <p>{{ .author_note_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $zon.olbrecht_model }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .optimum_not_max_zh | markdownify }}</p>
+    <p>{{ .threshold_critique_zh | markdownify }}</p>
+    <p>{{ .capacity_power_zh | markdownify }}</p>
+    <p>{{ .individualization_zh | markdownify }}</p>
+    <p>{{ .periodization_order_zh | markdownify }}</p>
+    <p>{{ .swim_note_zh | markdownify }}</p>
+    <p>{{ .caveat_zh | markdownify }}</p>
+    <p>{{ .author_note_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $zon.intensity_zones }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    {{ with .zones }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">區</th><th scope="col">表現需求</th><th scope="col">最大表現 %</th><th scope="col">強度</th><th scope="col">訓練目的</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .zone }}</th><td>{{ .demand_zh }}</td><td>{{ .pct_max_performance }}</td><td>{{ .intensity_zh | markdownify }}</td><td>{{ .purpose_zh | markdownify }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p>{{ .note_zh | markdownify }}</p>
+    <p>{{ .tid_dialogue_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $zon.energy_systems_primer }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .caveat_zh | markdownify }}</p>
+    {{ with .systems }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">系統</th><th scope="col">主導窗口</th><th scope="col">主導距離</th><th scope="col">訓練方向</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .name_zh }}</th><td>{{ .dominant_window_zh }}</td><td>{{ .distance_zh }}</td><td>{{ .training_zh | markdownify }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    {{ with .training_protocols }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">對應組型</th><th scope="col">主系統</th><th scope="col">建議趟長</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .name_zh }}</th><td>{{ .system_zh }}</td><td>{{ .interval_zh }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p>{{ .protocol_caveat_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $zon.hr_vo2_ergogenesis }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    {{ with .rows }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">%HRmax</th><th scope="col">%VO2max</th><th scope="col">主導系統</th><th scope="col">目標</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .pct_hr_max }}</th><td>{{ .pct_vo2max }}</td><td>{{ .system_zh }}</td><td>{{ .target_zh | markdownify }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $zon.liee_methods }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .warning_zh | markdownify }}</p>
+    {{ with .methods }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">方法</th><th scope="col">頻率／週</th><th scope="col">時長</th><th scope="col">說明</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .name_zh }}</th><td>{{ .freq_per_wk }}</td><td>{{ .duration }}</td><td>{{ .desc_zh | markdownify }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $zon.endurance_periodization }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    {{ with .phases }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">階段</th><th scope="col">時機</th><th scope="col">焦點</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .name_zh }}</th><td>{{ .when_zh }}</td><td>{{ .focus_zh | markdownify }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p>{{ .olbrecht_dialogue_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $zon.swim_zones_maglischo }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>無氧閾區：{{ .anaerobic_threshold_mmol }}</p>
+    {{ with .zones }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">區</th><th scope="col">名稱</th><th scope="col">焦點</th><th scope="col">血乳酸 (mmol)</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .name_zh }}</th><td>{{ .key }}</td><td>{{ .focus_zh | markdownify }}</td><td>{{ with .lactate_mmol }}{{ . }}{{ else }}—{{ end }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p>{{ .sprint_note_zh | markdownify }}</p>
+    <p>{{ .caution_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $zon.swim_zones_three }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    {{ with .zones }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">區</th><th scope="col">血乳酸 mmol</th><th scope="col">名稱</th><th scope="col">焦點</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .zone }}</th><td>{{ .lactate_mmol }}</td><td>{{ .name_zh }}</td><td>{{ .focus_zh | markdownify }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $zon.swim_energy_by_distance }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    {{ with .events }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">距離</th><th scope="col">有氧 %</th><th scope="col">說明</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .event }}</th><td>{{ .aerobic_pct }}<span class="cert">{{ .cert }}</span></td><td>{{ .note_zh | markdownify }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p>{{ .caution_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $zon.swim_tid }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    {{ with .archetypes }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">型態</th><th scope="col">說明</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .name_zh }}</th><td>{{ .note_zh | markdownify }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p>{{ .not_polarized_zh | markdownify }}</p>
+    <p>{{ .distance_split_zh | markdownify }}</p>
+    <p>{{ .distance_split_caveat_zh | markdownify }}</p>
+    <p>{{ .sprinter_note_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $zon.swim_application }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .pace_mapping_zh | markdownify }}</p>
+    <p>{{ .event_metabolic_zh | markdownify }}</p>
+    <p>{{ .weekly_distribution_zh | markdownify }}</p>
+    <p>{{ .energy_system_zh | markdownify }}</p>
+    <p>{{ .author_mapping_note_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $dry.flexibility_mobility }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .premise_zh | markdownify }}</p>
+    <p>{{ .shoulder_zh | markdownify }}</p>
+    <p>{{ .hip_zh | markdownify }}</p>
+    <p>{{ .ankle_zh | markdownify }}</p>
+    <p>{{ .protocol_zh | markdownify }}</p>
+    <p>{{ .caveat_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $dry.overview }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .premise_zh | markdownify }}</p>
+    <p>{{ .author_synthesis_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $dry.transfer_evidence }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .positive_zh | markdownify }}</p>
+    <p>{{ .negative_zh | markdownify }}</p>
+    <p>{{ .conditions_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $dry.methods }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    {{ with .methods_list }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">模式</th><th scope="col">用途與做法</th><th scope="col">證據等級</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .name_zh }}</th><td>{{ .desc_zh | markdownify }}</td><td><span class="cert">{{ .cert }}</span></td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p>{{ .caveat_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $dry.concurrent_scheduling }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .finding_zh | markdownify }}</p>
+    <p>{{ .interpretation_zh | markdownify }}</p>
+    <p>{{ .caveat_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $dry.needs_analysis }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .premise_zh | markdownify }}</p>
+    <p>{{ .workflow_zh | markdownify }}</p>
+    <p>{{ .criteria_progression_zh | markdownify }}</p>
+    <p>{{ .practical_example_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $dry.injury_prevention }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .risk_factors_zh | markdownify }}</p>
+    <p>{{ .intervention_zh | markdownify }}</p>
+    <p>{{ .kinetic_chain_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $dry.youth_safety }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .age_zh | markdownify }}</p>
+    <p>{{ .maturation_zh | markdownify }}</p>
+    <p>{{ .swim_specific_zh | markdownify }}</p>
+    <p>{{ .tools_zh | markdownify }}</p>
+    <p>{{ .spectrum_gap_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $dry.null_caveats }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    {{ with .items_zh }}<ul class="le-points">{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>{{ end }}
+    <p>{{ .takeaway_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{- $Planner := $dec.planner -}}
+  {{- $Monitoring := $dec.monitoring -}}
+  <section class="le-block pz-planner" id="planner">
+    <span id="periodization.decisions.planner"></span>
+    <h2>{{ $Planner.name_zh }}<span class="cert">{{ $Planner.cert }}</span></h2>
+    <p class="lc-lead">{{ $Planner.plain_zh | markdownify }}</p>
+    <ol class="pz-planner-flow">
+      {{ range $Planner.steps }}<li><strong>{{ .title }}</strong><span>{{ .text | markdownify }}</span></li>{{ end }}
+    </ol>
+
+    <form class="pz-planner-form" hidden>
+      <fieldset>
+        <legend>1 · 目標與可用時間</legend>
+        <div class="pz-planner-fields">
+          {{ range $Planner.fields }}{{ if eq .group "context" }}
+          <div class="pz-planner-field">
+            <label for="pz-{{ .key }}">{{ .label }}</label>
+            <select id="pz-{{ .key }}" name="{{ .key }}" required>
+              <option value="">請選擇</option>
+              {{ range .options }}<option value="{{ .key }}">{{ .label }}</option>{{ end }}
+            </select>
+          </div>
+          {{ end }}{{ end }}
+          <div class="pz-planner-field">
+            <label for="pz-goal-note">把目標寫得更具體（選填）</label>
+            <input id="pz-goal-note" name="goal_note" type="text" maxlength="160" placeholder="例如：100 公尺後半段較少掉速">
+          </div>
+          {{ range $Key := slice "sessions" "minutes" }}{{ $Resource := index $Planner.resources $Key }}
+          <div class="pz-planner-field">
+            <label for="pz-{{ $Key }}">{{ $Resource.label }}</label>
+            <input id="pz-{{ $Key }}" name="{{ $Key }}" type="number" step="1" min="{{ $Resource.min }}" max="{{ $Resource.max }}" value="{{ $Resource.default }}" aria-describedby="pz-{{ $Key }}-hint" required>
+            <p id="pz-{{ $Key }}-hint" class="pz-planner-hint">{{ $Resource.note }}</p>
+          </div>
+          {{ end }}
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>2 · 最近的反應</legend>
+        <div class="pz-planner-fields">
+          {{ range $Planner.fields }}{{ if eq .group "response" }}
+          <div class="pz-planner-field">
+            <label for="pz-{{ .key }}">{{ .label }}</label>
+            <select id="pz-{{ .key }}" name="{{ .key }}" required{{ if .hint }} aria-describedby="pz-{{ .key }}-hint"{{ end }}>
+              <option value="">請選擇</option>
+              {{ range .options }}<option value="{{ .key }}">{{ .label }}</option>{{ end }}
+            </select>
+            {{ with .hint }}<p class="pz-planner-hint" id="pz-trend-hint">{{ . }}</p>{{ end }}
+          </div>
+          {{ end }}{{ end }}
+        </div>
+      </fieldset>
+      <div class="pz-planner-actions">
+        <button type="submit" class="pz-planner-primary">產生本輪安排</button>
+        <button type="reset">清空重填</button>
+      </div>
+      <p class="pz-planner-hint">欄位只在此頁運算，不會儲存或送出。下方範例可以直接試填；每週重看時，再依自己的實際紀錄重填。</p>
+    </form>
+    <noscript><p class="pz-planner-note">這個工具需要 JavaScript。</p></noscript>
+    <p class="pz-planner-status" role="status" aria-live="polite" data-pz-status></p>
+    <div class="pz-planner-result" hidden data-pz-result>
+      <span class="pz-planner-eyebrow">這次的取捨</span>
+      <h3 tabindex="-1" data-pz-result-title>本輪安排</h3>
+      <div data-pz-result-body></div>
+      <div class="pz-planner-actions"><button type="button" data-pz-copy>複製完整安排</button></div>
+      <textarea class="pz-planner-copy" aria-label="完整安排；可全選複製" readonly hidden data-pz-copy-fallback></textarea>
+    </div>
+
+    <h3>三個情境，試著走一次</h3>
+    <div class="pz-planner-examples">
+      {{ range $Planner.examples }}
+      <article>
+        <h4>{{ .title }}</h4>
+        <p>{{ .situation | markdownify }}</p>
+        <p>{{ .takeaway | markdownify }}</p>
+        <button type="button" data-pz-example="{{ .key }}" hidden>套用這個範例</button>
+      </article>
+      {{ end }}
+    </div>
+
+    <details class="pz-planner-details" id="planner-rules">
+      <summary>不用工具也能套用：完整決策表</summary>
+      <p>由上往下找第一個符合的情況。症狀、疲勞與反覆退步，優先於比賽和進步；各分支都先確認任務能否比較。</p>
+      <div class="pz-scroll" tabindex="0" role="region" aria-label="可橫向捲動的週期決策表">
+        <table class="pz-table">
+          <thead><tr><th scope="col">符合什麼情況</th><th scope="col">現在怎麼做</th><th scope="col">下次改變的條件</th></tr></thead>
+          <tbody>
+            {{ range $Planner.rules }}<tr><th scope="row">{{ .title }}<span>{{ .works_when | markdownify }}</span></th><td>{{ .action | markdownify }}</td><td>{{ .next | markdownify }}<span>{{ .remaining_boundary | markdownify }}</span></td></tr>{{ end }}
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <span id="periodization.decisions.monitoring"></span>
+    <details class="pz-planner-details" id="planner-monitoring" open>
+      <summary>{{ $Monitoring.name_zh }}</summary>
+      <p>{{ $Monitoring.plain_zh | markdownify }}</p>
+      <dl class="pz-planner-measures">
+        {{ range $Monitoring.measures }}<dt>{{ .name }}</dt><dd>{{ .reading | markdownify }}</dd>{{ end }}
+      </dl>
+      <p class="pz-planner-record">{{ $Monitoring.record | markdownify }}</p>
+    </details>
+
+    <details class="pz-planner-details" id="planner-research">
+      <summary>這次補了哪些研究？</summary>
+      {{ range slice $dec.set_response $dec.hrv_response }}
+      <article class="pz-planner-study" id="{{ .id }}">
+        <h4>{{ .name_zh }}</h4>
+        <p>{{ .plain_zh | markdownify }}</p>
+        <p>{{ .action_zh | markdownify }}</p>
+        <p class="pz-planner-hint">{{ .boundary_zh | markdownify }}</p>
+        {{ with .source_locator }}<p>出處：{{ . }}</p>{{ end }}
+      </article>
+      {{ end }}
+    </details>
+
+    <p class="pz-planner-hint">{{ $Planner.provenance_zh | markdownify }} 若要查安排背後的理論，接著讀<a href="#periodization.structure.schools_overview">各派框架</a>、<a href="#periodization.taper.swim">賽前減量</a>及<a href="#periodization.dryland.overview">陸上訓練與轉移</a>。</p>
+    <script type="application/json" data-pz-config>{{ $dec | jsonify | safeJS }}</script>
+  </section>
+
+  {{ with $set.overview }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .hard_rule_zh | markdownify }}</p>
+    {{ with .steps }}<ol class="le-steps">{{ range . }}<li><strong>{{ .title }}</strong>：{{ .text | markdownify }}</li>{{ end }}</ol>{{ end }}
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $set.anchors }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    {{ with .sprint_anchors }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">短距離錨點</th><th scope="col">用途</th><th scope="col">測驗協議</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .name_zh }}</th><td>{{ .use_zh | markdownify }}</td><td>{{ .protocol_zh | markdownify }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    {{ with .endurance_anchors }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">耐力錨點</th><th scope="col">用途</th><th scope="col">測驗協議</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .name_zh }}</th><td>{{ .use_zh | markdownify }}</td><td>{{ .protocol_zh | markdownify }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p>{{ .css_formula_zh | markdownify }}</p>
+    <p>{{ .distance_choice_rule_zh | markdownify }}</p>
+    <p>{{ .reliability_zh | markdownify }}</p>
+    <p>{{ .butterfly_limit_zh | markdownify }}</p>
+    <p>{{ .fallback_zh | markdownify }}</p>
+    <p>{{ .retest_interval_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $set.css_evidence }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .origin_zh | markdownify }}</p>
+    <p>{{ .not_mlss_zh | markdownify }}</p>
+    <p>{{ .severe_domain_zh | markdownify }}</p>
+    <p>{{ .children_zh | markdownify }}</p>
+    <p>{{ .stroke_bias_zh | markdownify }}</p>
+    <p>{{ .sensitivity_zh | markdownify }}</p>
+    <p>{{ .population_bias_zh | markdownify }}</p>
+    <p>{{ .gaps_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $set.energy_targets }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .nsca_table_zh | markdownify }}</p>
+    <p>{{ .swim_mapping_caveat_zh | markdownify }}</p>
+    {{ with .intents }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">意圖</th><th scope="col">建議趟長</th><th scope="col">休息</th><th scope="col">備註</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .name_zh }}</th><td>{{ .interval_zh }}</td><td>{{ .rest_zh }}</td><td>{{ .note_zh | markdownify }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p>{{ .pace_offsets_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $set.variables }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .order_rule_zh | markdownify }}</p>
+    {{ with .var_distance }}
+    <h3>{{ .name_zh }}</h3>
+    <p>{{ .rule_zh | markdownify }}</p>
+    {{ with .pool_constraint_zh }}<p>{{ . | markdownify }}</p>{{ end }}
+    {{ end }}
+    {{ with .var_target_time }}
+    <h3>{{ .name_zh }}</h3>
+    <p>{{ .rule_zh | markdownify }}</p>
+    {{ with .lactate_tolerance_note_zh }}<p>{{ . | markdownify }}</p>{{ end }}
+    {{ with .observation_basis }}<p>{{ . | markdownify }}</p>{{ end }}
+    {{ with .offset_provenance_zh }}<p>{{ . | markdownify }}</p>{{ end }}
+    {{ with .offset_scaling_zh }}<p>{{ . | markdownify }}</p>{{ end }}
+    {{ with .race_pace_caveat_zh }}<p>{{ . | markdownify }}</p>{{ end }}
+    {{ end }}
+    {{ with .var_rest }}
+    <h3>{{ .name_zh }}</h3>
+    <p>{{ .rule_zh | markdownify }}</p>
+    {{ with .stroke_economy_zh }}<p>{{ . | markdownify }}</p>{{ end }}
+    {{ with .fixed_vs_cycle_zh }}<p>{{ . | markdownify }}</p>{{ end }}
+    {{ end }}
+    {{ with .var_reps }}
+    <h3>{{ .name_zh }}</h3>
+    <p>{{ .rule_zh | markdownify }}</p>
+    {{ with .completion_rule_zh }}<p>{{ . | markdownify }}</p>{{ end }}
+    {{ end }}
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $set.usrpt }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .status_zh | markdownify }}</p>
+    <p>{{ .original_params_zh | markdownify }}</p>
+    <p>{{ .one_to_one_myth_zh | markdownify }}</p>
+    <p>{{ .acute_evidence_zh | markdownify }}</p>
+    <p>{{ .classification_zh | markdownify }}</p>
+    <p>{{ .worth_keeping_zh | markdownify }}</p>
+    <p>{{ .disagreements_zh | markdownify }}</p>
+    <p>{{ .gaps_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $set.weekly_assembly }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .spacing_rules_zh | markdownify }}</p>
+    <p>{{ .recovery_gap_zh | markdownify }}</p>
+    {{ with .session_budgets }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">每週課次</th><th scope="col">配置建議</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .sessions }}</th><td>{{ .pattern_zh | markdownify }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p>{{ .missed_session_rule_zh | markdownify }}</p>
+    <p>{{ .dryland_note_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $set.phase_allocation }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .macro_zh | markdownify }}</p>
+    <p>{{ .phase_proportions_zh | markdownify }}</p>
+    {{ with .observation_basis }}<p>{{ . | markdownify }}</p>{{ end }}
+    {{ with .intent_by_phase }}
+    <h3>各階段意圖</h3>
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">階段</th><th scope="col">強調點</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .name_zh }}</th><td>{{ .emphasis_zh | markdownify }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p>{{ .taper_handoff_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $set.monitoring_exit }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .why_predeclare_zh | markdownify }}</p>
+    {{ with .exit_rules }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">情境</th><th scope="col">退出條件</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .name_zh }}</th><td>{{ .rule_zh | markdownify }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p>{{ .retest_triggers_zh | markdownify }}</p>
+    <p>{{ .weekly_downshift_zh | markdownify }}</p>
+    <p>{{ .record_fields_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $set.generator }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .contract_zh | markdownify }}</p>
+    {{ with .inputs }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">類別</th><th scope="col">欄位</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">必填</th><td>{{ delimit .required "、" }}</td></tr>
+        <tr><th scope="row">錨點（有才用）</th><td>{{ delimit .anchors_optional "、" }}</td></tr>
+        <tr><th scope="row">情境（有才用）</th><td>{{ delimit .context_optional "、" }}</td></tr>
+      </tbody>
+    </table></div>
+    {{ end }}
+    {{ with .derived }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">輸出</th><th scope="col">公式</th><th scope="col">需要</th><th scope="col">說明</th></tr></thead>
+      <tbody>
+        {{ range . }}
+        <tr>
+          <th scope="row">{{ .key }}</th>
+          <td>{{ .formula | markdownify }}</td>
+          <td>{{ delimit .requires "、" }}</td>
+          <td>{{ with .note_zh }}{{ . | markdownify }}{{ end }}</td>
+        </tr>
+        {{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    {{ with .set_types }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">組型</th><th scope="col">距離</th><th scope="col">目標時間</th><th scope="col">淨休息</th><th scope="col">量</th><th scope="col">退出</th><th scope="col">每週上限</th></tr></thead>
+      <tbody>
+        {{ range . }}
+        <tr>
+          <th scope="row">{{ .key }}<span class="cert">{{ .cert }}</span></th>
+          <td>{{ .distance_m.min }}–{{ .distance_m.max }} m{{ with .preferred_distances_m }}（常用 {{ delimit . " / " }}）{{ end }}</td>
+          <td>{{ .target_rule | markdownify }}</td>
+          <td>{{ if .rest_s.rule }}{{ .rest_s.rule | markdownify }}{{ else }}{{ .rest_s.min }}–{{ .rest_s.max }} 秒{{ end }}</td>
+          <td>{{ if .volume_rule }}{{ .volume_rule | markdownify }}{{ else }}{{ .reps.min }}–{{ .reps.max }} 趟{{ with .reps.blocks }}（分 {{ . }} 段）{{ end }}{{ end }}</td>
+          <td>{{ .exit | markdownify }}</td>
+          <td>{{ .weekly_max }}{{ if .requires_fresh }}（需在疲勞前）{{ end }}</td>
+        </tr>
+        {{ with .technique_cost_zh }}<tr><td colspan="7">{{ . | markdownify }}</td></tr>{{ end }}
+        {{ with .continuous_note_zh }}<tr><td colspan="7">{{ . | markdownify }}</td></tr>{{ end }}
+        {{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    {{ with .refusals }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">拒絕情境</th><th scope="col">說明</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .condition | markdownify }}</th><td>{{ .action | markdownify }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p>{{ .refusal_scope_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $set.unverified_claims }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .purpose_zh | markdownify }}</p>
+    {{ with .claims }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">未採用的數字</th><th scope="col">改用什麼</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .claim }}</th><td>{{ .replace_zh | markdownify }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+</article>
+
+<script src="{{ $js.RelPermalink }}" defer></script>

@@ -556,3 +556,187 @@ PASS V3
 
 實際額外驗證：21 個 `breathing.*` 錨點全部出現、`br-safety` 位於 `le-block` 之前、安全區段不含 `<details>`、無 `map[` 洩漏、無 inline style、無空 `<h2>`。
 PASS V3
+[09-26 04:49:27] V3 通過並已 push
+[09-26 04:49:27] --- V4 開始 ---
+[09-26 04:49:27] V4 第 1 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 81｜input 174961｜cache_read 6482672｜output 26602
+
+FAIL V4（2 項）
+ - hugo next 建置失敗（exit 1）：
+Start building sites … 
+hugo v0.162.1-bba860e3eda3091efe8c6d1a96bc49a29ad2d5f6+extended windows/amd64 BuildDate=2026-05-28T17:40:44Z VendorInfo=gohugoio
+
+Total in 3998 ms
+ERROR error building site: render: [en v1.0.0 guest] failed to render pages: render of "C:/claudehome/projects/my-site/next/content/vortex/periodization.md" failed: "C:\claudehome\projects\my-site\next\layouts\vortex\page.html:8:16": execute of template failed: template: vortex/page.html:8:16: executing "main" at <partial (printf "vortex/%s.html" $role) .>: error calling partial: partial "vortex/periodization.html" not found
+ - 缺頁面：public/next/vortex/periodization/index.html
+[09-26 04:54:03] V4 第 1 次驗收未過
+[09-26 04:54:03] V4 第 2 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 81｜input 140209｜cache_read 6261640｜output 76971
+
+FAIL V4（2 項）
+ - hugo next 建置失敗（exit 1）：
+Start building sites … 
+hugo v0.162.1-bba860e3eda3091efe8c6d1a96bc49a29ad2d5f6+extended windows/amd64 BuildDate=2026-05-28T17:40:44Z VendorInfo=gohugoio
+
+Total in 4055 ms
+ERROR error building site: render: [en v1.0.0 guest] failed to render pages: render of "C:/claudehome/projects/my-site/next/content/vortex/periodization.md" failed: "C:\claudehome\projects\my-site\next\layouts\vortex\page.html:8:16": execute of template failed: template: vortex/page.html:8:16: executing "main" at <partial (printf "vortex/%s.html" $role) .>: error calling partial: "C:\claudehome\projects\my-site\next\layouts\_partials\vortex\periodization.html:127:38": execute of template failed: template: _partials/vortex/periodization.html:127:38: executing "_partials/vortex/periodization.html" at <$.id>: can't evaluate field id in type *hugolib.pageState
+ - 缺頁面：public/next/vortex/periodization/index.html
+[09-26 04:59:06] V4 第 2 次驗收未過
+[09-26 04:59:06] V4 第 3 次：派 claude-m3-lite
+[claude-code:unrecognized_model] {"model":"MiniMax-M3","query_source":"sdk"}
+[claude-m3-lite] turns 81｜input 97175｜cache_read 4181376｜output 20272
+
+FAIL V4（1 項）
+ - 週期化章 缺錨點 5/59，例 ['periodization.structure.annual.bicycle', 'periodization.structure.annual.tricycle', 'periodization.dryland.flexibility']
+[09-26 05:06:01] V4 第 3 次驗收未過
+[09-26 05:06:01] V4 第 4 次：改派 codex
+OpenAI Codex v0.155.1
+--------
+workdir: C:\claudehome\projects\my-site
+model: gpt-6-astra
+provider: openai
+approval: on-request
+sandbox: danger-full-access
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 01a0da63-b37a-7be3-8c74-48e7b02517f4
+--------
+user
+立即執行、不要輸出計畫、不要等確認、沒寫檔就是失敗。禁止任何 git 指令。
+
+# 共用背景（每張工作單都附上本段；工作目錄＝my-site repo 根目錄）
+
+## 專案
+my-site 是 Hugo 靜態網站（本機 `hugo` v0.162，CI v0.159.1）。正式站 baseURL `https://hangsau.github.io/cortex/`。
+我們正在**從零建一個新版網站**，放在 `next/` 目錄，用獨立設定檔 `hugo.next.toml` 建置到 `public/next/`，
+預覽網址 `https://hangsau.github.io/cortex/next/`。
+
+**絕對禁止**：
+- 讀取、複製、參考舊版 `layouts/`、`static/css/`、`static/js/` 的任何內容（新版必須從零寫）
+- 修改 `data/`、`content/`、`layouts/`、`static/` 底下任何既有檔案
+- 任何 git 指令
+
+## 新版目錄
+```
+hugo.next.toml                 建置設定（W3）
+tools/build_vortex_links.py    產生知識點連結索引（W1）
+next/data/vortex_links.json    W1 產物，Hugo 內以 hugo.Data.vortex_links 讀取
+next/content/                  新版內容（W4 用 content adapter 產生頁面）
+next/layouts/                  新版版型
+next/assets/css/tokens.css     設計 token（已寫好，不准改）
+next/assets/css/shell.css      外殼樣式（已寫好，不准改）
+next/assets/css/<頁型>.css     各頁型樣式（各工作單自己建）
+next/assets/js/                互動 JS
+```
+CSS／JS 一律放 `next/assets/`，在版型中用 `resources.Get` 取得並 `| fingerprint` 後輸出 `.RelPermalink`。
+所有站內連結用 `relURL` 或頁面 `.RelPermalink`，不可寫死 `/cortex/`。
+
+## 設計規範（違反即驗收失敗）
+- 只用 tokens.css 的變數：顏色 `--paper --ink --ink-2 --rule --tint --series --link`；字級只用 `--fs-s/m/l/xl`；間距用 `--s1..--s6`
+- 長段文字容器加 class `read`（襯線、行高 1.8）；正文欄寬用 `.page`（已限制約 36 字）
+- 不准：`!important`、inline `style=` 屬性、陰影、圓角大於 4px、emoji 圖示、hover 位移動畫、`font-style: italic` 用在中文
+- 點擊目標（連結列、按鈕、summary）最小高度 `var(--tap)`
+- 手機 320px 寬不得出現水平捲動
+- 每頁 `<body class="series-vortex">`（Vortex 頁）
+- `<html lang="zh-Hant">`，標題層級不跳級（h1→h2→h3）
+
+## 內容呈現鐵則（違反即驗收失敗）
+1. **有標題就要有內容**：區塊標題只在該欄位實際有非空值時才輸出。判空用 `{{ with }}`，字串先 `plainify | strings.TrimSpace` 再判
+2. **絕不把 map 直接印出**（會出現 `map[...]`）。欄位可能是字串、清單或 map，一律交給共用 partial `next/layouts/_partials/value.html`（W5 建立）遞迴處理
+3. 不用 Hugo 的 `.Summary`
+4. 文字欄位一律過 `markdownify`（資料中有 `**粗體**`）
+5. `certainty`、`verification_status: unverified` 等確定性標記要顯示，不可省略；`unverified` 顯示「未查證」
+6. 呼吸、安全相關內容不可預設收合（本批次不涉及呼吸頁，但原則保留）
+
+## Vortex 資料（`data/vortex/*.yaml`，唯讀）
+| 單位 type | 來源 | id | 標題欄 | 數量 |
+|---|---|---|---|---|
+| move | `free.yaml back.yaml breast.yaml fly.yaml udk.yaml starts-turns.yaml` 的 `moves[]`（欄位 n,name,one,l,physical,boundary,drills,lnote,cue_bad,cue_why,cue_good）；頂層 `premise` 是該式導言字串 | `{stroke}.move.{n}`，stroke＝檔名去 .yaml | name | 51 |
+| drill | `drills.yaml` 的 `drills[]`（id,name_zh,name_en,strokes,category,equipment,l_target,purpose_zh,how_to,perception_goal,success_signal,failure_signal,deficiency_fixes,difficulty_tier,source_ids…）；`categories[]` 有 key,name_zh | id（如 `Fr1`） | name_zh | 179 |
+| tech | `technical-analysis.yaml` 的 `points[]`（id,stroke,category,title,nav_zh,summary,mechanism,practical_implication,perception_signal,evidence,cross_ref_ids）；`categories[]` | id（如 `free.tech.4`） | nav_zh 優先，否則 title | 222 |
+| error | `teaching-errors.yaml` 的 `errors[]`（id,stroke,category,title,misconception,physical_reason,correct_concept,perception_impact,evidence,cross_ref_ids）；`categories[]` | id（如 `free.err1`） | title | 104 |
+| problem | `problems.yaml` 的 `problems[]`（id,stroke,category,title,observable,mechanism_summary,links{technical_analysis[],drills[],interventions[],water_interventions[]},cross_ref_ids）；`categories[]` | id | title | 73 |
+| injury | `injuries.yaml` 的 `injuries[]`（id,zh,en,category,mechanism,epidemiology,risk_factors,prevention,management,links{mechanism_link_ids,technical_link_ids,perception_link_ids},…）；`categories[]` | id | zh | 47 |
+| level | `water-sense-levels.yaml` 的 `levels[]`（id,stroke,level,name_zh,tagline,description,indicators,methods[{name,detail,cue}],stagnation,milestone） | id（如 `free.L0`、`breast.pre`） | name_zh | 26 |
+| psy | `psychology.yaml` 的 `themes[]`（id,name_zh,nav_zh,when_zh,lead_zh,premise,concepts[]） | id（如 `psych.fear`） | name_zh | 8 |
+| psyc | 上述每個 theme 的 `concepts[]`（id,name_zh,phenomenon,misconception_refs[{cue,why,better}],intervention_refs[{name,certainty,how_to}],l_levels） | id | name_zh | 62 |
+
+泳式 key 與中文名：`free` 自由式、`back` 仰式、`breast` 蛙式、`fly` 蝶式、`udk` 水下海豚腿、`starts-turns` 出發與轉身。
+drill 的 `strokes` 用另一套值：`freestyle→free`、`backstroke→back`、`breaststroke→breast`、`butterfly→fly`、`underwater_dolphin_kick→udk`、`starts_turns→starts-turns`。
+
+## 網址規則（W1 算好寫進 JSON，其他單照用）
+| type | 路徑（相對站根，不含 baseURL） |
+|---|---|
+| move | `vortex/moves/{stroke}-{n}/` |
+| drill | `vortex/drills/{slug}/` |
+| tech | `vortex/tech/{slug}/` |
+| error | `vortex/errors/{slug}/` |
+| problem | `vortex/problems/{slug}/` |
+| injury | `vortex/injuries/{slug}/` |
+| level | `vortex/levels/{slug}/` |
+| psy / psyc | `vortex/mind/{slug}/` |
+| 泳式樞紐頁 | `vortex/{stroke}/` |
+| 集合清單頁 | `vortex/drills/`、`vortex/tech/`、`vortex/errors/`、`vortex/problems/`、`vortex/injuries/`、`vortex/levels/`、`vortex/mind/` |
+
+slug＝id 轉小寫，`.` 與 `_` 換成 `-`。
+
+## 效率要求（每回合都在耗額度）
+- 先讀本單列出的檔案與 `next/data/vortex_links.json` 的前幾個 unit 了解結構；不要整份讀大型 yaml（有些超過 200KB），需要時用 python 抽樣
+- 寫完產出檔**立刻**跑驗收指令，依失敗訊息逐條修；不要在沒跑驗收前反覆重構
+- 不要建立臨時檔在 repo 根目錄（如 t.py）；需要試算用 `python -X utf8 -c "..."`
+
+## P2 共通（V／T 系列工作單適用）
+- **頁面怎麼建**：在 `next/content/...` 放 Markdown 檔（front matter 帶 `params: {role: <名稱>}`），分派規則會渲染對應 partial：
+  - 路徑在 `vortex/` 底下 → `next/layouts/_partials/vortex/<role>.html`（partial 收到的是頁面本身）
+  - 書房系列（路徑落在 `hugo.Data.library.series[].path` 底下，或 `temperament/`）→ `next/layouts/_partials/library/<role>.html`（收到 `(dict "page" <頁面> "series" <系列>)`）
+  - 沒有 role 的 vortex 一般頁 → `vortex/article.html`（Markdown 長文版型，Claude 寫，可直接用）
+- **可直接沿用的版式 class**（`next/assets/css/library.css`、`entry.css`，Claude 寫，不准修改這兩檔）：`lib-chapter`（文章頁容器）、`lc-head`、`lc-lead`、`lc-body read`、`lc-pager`（`a.lc-prev`／`a.lc-next`）、`lib-series`（總覽頁容器）、`ls-hero`、`ls-title`、`ls-lead`、`ls-stats`、`ls-sec`、`ls-part`、`ls-entries`／`a.ls-entry`（`.ls-entry-t`／`.ls-entry-d`）、`ls-toc`／`a.ls-ch`（`.ls-n`／`.ls-ch-body`／`.ls-ch-t`／`.ls-ch-d`）、`lib-entry`、`le-block`、`le-steps`、`le-points`、`le-claim`、`le-siblings`、`kicker`、`read`、`muted`、`cert`。需要新樣式時另建本單列出的 CSS 檔，只用 tokens 變數。
+- 載入 CSS／JS：在 partial 內 `resources.Get "css/xxx.css" | fingerprint`，輸出 `<link rel="stylesheet" href="{{ .RelPermalink }}">`；JS 用 `<script src defer>`。
+- **本系列例外**：為了搬內容與互動邏輯，**可以讀**舊檔（`layouts/`、`static/js/`、`content/`）了解欄位順序、文案與計算邏輯；但**不准沿用舊的 class 名、CSS、HTML 結構**，也不准修改任何舊檔。
+
+---
+
+# V4：訓練週期化章 ＋ 週期規劃器
+
+## 產出檔（只准建立這些）
+- `next/content/vortex/periodization.md`（`title: 訓練週期化`、`description:` 一句中文、`params: {role: periodization}`）
+- `next/layouts/_partials/vortex/periodization.html`
+- `next/assets/css/periodization.css`
+- `next/assets/js/planner.js`
+
+## 資料與舊檔（唯讀）
+`data/periodization/`：`_index.yaml`（節點）、`structure.yaml`、`zones.yaml`、`set-design.yaml`、`taper.yaml`、`dryland.yaml`、`decisions.yaml`。舊版型 `layouts/vortex/vortex-periodization.html`（1100 行，了解每節欄位與順序）、舊規劃器 `layouts/partials/vortex/periodization-planner.html` ＋ `static/js/vortex-periodization-planner.js`（了解規劃器的輸入、計算與輸出）。
+
+## 規格（`<article class="lib-chapter pz">`，載入 `css/library.css`、`css/periodization.css`、`js/planner.js` defer）
+- `lc-head`：kicker「Vortex · 長期規劃」、`<h1>`、`lc-lead`
+- 頁內目次 `<nav class="pz-toc">`（同 V3 的 br-toc 形式），列出所有節點
+- 每個節點一個 `<section class="le-block" id="<id>">`，欄位依舊版型順序逐欄輸出（不 range map）；表格型資料（區間、強度區、週期結構）輸出成 `<table class="pz-table">`，外包 `<div class="pz-scroll">`
+- **規劃器**：`<section class="le-block pz-planner" id="planner">`，`<h2>週期規劃器</h2>`；與舊規劃器相同的輸入與計算邏輯，輸出結果區；邏輯移植到 `planner.js`（可參考舊 JS 的演算法，但 DOM 選擇器改用新 class `pz-planner-*`）；無 JS 時 `<noscript><p class="muted">這個工具需要 JavaScript。</p></noscript>`
+- 所有文字 markdownify；certainty 顯示
+
+## periodization.css
+- `.pz-table`：寬 100%、`border-collapse: collapse`、`--fs-s`；表頭上 2px `--ink`、列上 1px `--rule`；`.pz-scroll { overflow-x: auto; }`，頁面本身不可水平捲動
+- `.pz-toc` 同 br-toc 形式；規劃器的 input／select／button：`min-height: var(--tap)`、1px `--rule` 邊框、圓角 ≤4px；主按鈕背景 `--series`、字 `--paper`
+
+## 驗收
+```
+python -X utf8 next/specs/check.py V4
+```
+
+## 完成條件
+你必須實際執行 `python -X utf8 next/specs/check.py V4`，直到它印出 `PASS V4`。不准修改 next/specs/ 底下任何檔案。
+
+## 上一次嘗試的驗收失敗輸出（請修正這些問題；檔案已在磁碟上，接著改即可）
+```
+FAIL V4（1 項）
+ - 週期化章 缺錨點 5/59，例 ['periodization.structure.annual.bicycle', 'periodization.structure.annual.tricycle', 'periodization.dryland.flexibility']
+```
+
+ERROR: You’ve hit your usage limit. Upgrade to Pro (https://chatgpt.com/explore/pro), visit https://chatgpt.com/codex/settings/usage to purchase more credits or try again at Sep 28th, 2026 6:58 AM.
+ERROR: You’ve hit your usage limit. Upgrade to Pro (https://chatgpt.com/explore/pro), visit https://chatgpt.com/codex/settings/usage to purchase more credits or try again at Sep 28th, 2026 6:58 AM.
+FAIL V4（1 項）
+ - 週期化章 缺錨點 5/59，例 ['periodization.structure.annual.bicycle', 'periodization.structure.annual.tricycle', 'periodization.dryland.flexibility']
+[09-26 05:06:12] V4 第 4 次驗收未過
+[09-26 05:06:12] V4 失敗，佇列停止
