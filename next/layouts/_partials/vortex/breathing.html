@@ -1,0 +1,383 @@
+{{- /* 呼吸章：三條線 + 安全置頂。
+順序：lc-head > br-toc > br-safety（不可收合）> le-block × 19。
+各節點欄位依 data/breathing/<file>.yaml 的出現順序逐欄輸出（不走 range）。
+文字欄位一律 markdownify；cert 顯示在該段後面。 */ -}}
+{{- $css1 := resources.Get "css/library.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css1.RelPermalink }}">
+{{- $css2 := resources.Get "css/breathing.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css2.RelPermalink }}">
+
+{{- $idx := index hugo.Data "breathing" "_index" -}}
+{{- $sf  := index hugo.Data "breathing" "safety" -}}
+{{- $fw  := index hugo.Data "breathing" "framework" -}}
+{{- $ph  := index hugo.Data "breathing" "physiology" -}}
+{{- $tr  := index hugo.Data "breathing" "training" -}}
+{{- $rg  := index hugo.Data "breathing" "regulation" -}}
+
+{{- $names := dict -}}
+{{- $order := slice -}}
+{{- range $g := (slice "safety" "framework" "physiology" "training" "regulation") -}}
+  {{- range $node := index $idx $g -}}
+    {{- $names = merge $names (dict $node.id $node.name_zh) -}}
+    {{- $order = $order | append $node.id -}}
+  {{- end -}}
+{{- end -}}
+
+<article class="lib-chapter vx-br">
+  <header class="lc-head">
+    <p class="kicker">Vortex · 呼吸</p>
+    <h1>呼吸</h1>
+    {{- with .Description }}<p class="lc-lead">{{ . }}</p>{{ end }}
+  </header>
+
+  <nav class="br-toc" aria-label="頁內目次">
+    <ol>
+      {{- range $id := $order -}}
+        <li><a href="#{{ $id }}">{{ index $names $id }}</a></li>
+      {{- end -}}
+    </ol>
+  </nav>
+
+  <section class="br-safety" id="safety">
+    <p class="br-safety-tag">安全</p>
+    <h2>先講最重要的：不要在水下憋氣</h2>
+    <p class="lc-lead">呼吸這一章和其他章的差別在於它有致命風險。下面兩條不是「其中兩個主題」，是讀本章任何其他內容之前的前提——先讀完，再往下走。</p>
+
+    {{ with $sf.hypoxic_blackout }}
+    <section id="{{ .id }}" class="br-safety-item">
+      <h3>{{ .name_zh }}<span class="cert">{{ .cert }}</span></h3>
+      <p class="br-warn">{{ .danger_zh | markdownify }}</p>
+      <p class="br-label">這不是危言聳聽</p>
+      <p>{{ .evidence_zh | markdownify }}</p>
+      <p class="br-label br-label--mgmt">三方權威立場</p>
+      <p>{{ .policy_zh | markdownify }}</p>
+      <p>{{ .policy_boundary_zh | markdownify }}</p>
+      <p class="br-rule">{{ .rule_zh | markdownify }}</p>
+      <p class="br-plain"><span class="br-plain-tag">白話</span>{{ .plain_zh | markdownify }}</p>
+      {{ with .source }}<p class="br-src"><span class="br-src-tag">來源</span>{{ . }}</p>{{ end }}
+    </section>
+    {{ end }}
+
+    {{ with $sf.hypocapnia_mechanism }}
+    <section id="{{ .id }}" class="br-safety-item">
+      <h3>{{ .name_zh }}<span class="cert">{{ .cert }}</span></h3>
+      <p class="br-label">主導機制</p>
+      <p>{{ .mechanism_zh | markdownify }}</p>
+      <p class="br-label">次要機制</p>
+      <p>{{ .secondary_zh | markdownify }}</p>
+      <p class="br-label">波爾效應的定位</p>
+      <p>{{ .bohr_zh | markdownify }}</p>
+      <p class="br-warn">{{ .misconception_zh | markdownify }}</p>
+      <p class="br-label br-label--mgmt">對教練的意義</p>
+      <p>{{ .coach_meaning_zh | markdownify }}</p>
+      <p class="br-plain"><span class="br-plain-tag">白話</span>{{ .plain_zh | markdownify }}</p>
+      {{ with .source }}<p class="br-src"><span class="br-src-tag">來源</span>{{ . }}</p>{{ end }}
+    </section>
+    {{ end }}
+  </section>
+
+  {{ with $fw.overview }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .premise_zh | markdownify }}</p>
+    {{ with .lines_zh }}<ul class="le-points">{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>{{ end }}
+    <p class="br-author">{{ .author_synthesis_zh | markdownify }}</p>
+    <p class="br-plain"><span class="br-plain-tag">白話</span>{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $fw.grading }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .premise_zh | markdownify }}</p>
+    {{ with .axes_zh }}<ul class="le-points">{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>{{ end }}
+    <p class="br-label br-label--mgmt">教練怎麼用</p>
+    <p>{{ .coach_use_zh | markdownify }}</p>
+    <p class="br-warn">{{ .caveat_zh | markdownify }}</p>
+    <p class="br-plain"><span class="br-plain-tag">白話</span>{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $fw.boundaries }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .premise_zh | markdownify }}</p>
+    {{ with .excluded_zh }}<ul class="le-points">{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>{{ end }}
+    <p class="br-label">為什麼這樣切</p>
+    <p>{{ .exclusion_reason_zh | markdownify }}</p>
+    <p class="br-label">證據原則</p>
+    <p>{{ .principle_evidence_zh | markdownify }}</p>
+    <p class="br-label">自由潛水原則</p>
+    <p>{{ .principle_freediving_zh | markdownify }}</p>
+    <p class="br-plain"><span class="br-plain-tag">白話</span>{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+  {{ with $ph.muscles }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .mechanics_zh | markdownify }}</p>
+    <p class="br-label">吸氣肌</p>
+    <p>{{ .inspiratory_zh | markdownify }}</p>
+    <p class="br-label">吐氣肌</p>
+    <p>{{ .expiratory_zh | markdownify }}</p>
+    <p class="br-label">各自貢獻多少</p>
+    <p>{{ .proportion_zh | markdownify }}</p>
+    <p class="br-warn">{{ .posture_caveat_zh | markdownify }}</p>
+    <p class="br-label">游泳研究缺口</p>
+    <p>{{ .swimming_gap_zh | markdownify }}</p>
+    <p class="br-label br-label--mgmt">教練看得到的訊號</p>
+    <p>{{ .coaching_signal_zh | markdownify }}</p>
+    {{ with .observation_basis }}<p class="br-meta"><span class="br-meta-tag">觀察基礎</span>{{ . | markdownify }}</p>{{ end }}
+    <p class="br-plain"><span class="br-plain-tag">白話</span>{{ .plain_zh | markdownify }}</p>
+    {{ with .source }}<p class="br-src"><span class="br-src-tag">來源</span>{{ . }}</p>{{ end }}
+  </section>
+  {{ end }}
+
+  {{ with $ph.neural_control }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .premise_zh | markdownify }}</p>
+    <p class="br-label">腦幹節律</p>
+    <p>{{ .brainstem_zh | markdownify }}</p>
+    <p class="br-label">橋腦調節</p>
+    <p>{{ .pontine_zh | markdownify }}</p>
+    <p class="br-label">皮質介入</p>
+    <p>{{ .cortical_override_zh | markdownify }}</p>
+    <p class="br-label br-label--mgmt">對游泳的意義</p>
+    <p>{{ .swimming_meaning_zh | markdownify }}</p>
+    <p class="br-plain"><span class="br-plain-tag">白話</span>{{ .plain_zh | markdownify }}</p>
+    {{ with .source }}<p class="br-src"><span class="br-src-tag">來源</span>{{ . }}</p>{{ end }}
+  </section>
+  {{ end }}
+
+  {{ with $ph.chemoreceptors }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .premise_zh | markdownify }}</p>
+    <p class="br-label">中樞化學受器</p>
+    <p>{{ .central_zh | markdownify }}</p>
+    <p class="br-label">周邊化學受器</p>
+    <p>{{ .peripheral_zh | markdownify }}</p>
+    <p class="br-warn">{{ .swimming_safety_zh | markdownify }}</p>
+    <p class="br-label br-label--mgmt">教學上的意義</p>
+    <p>{{ .swimming_teaching_zh | markdownify }}</p>
+    <p class="br-label">CO₂ 耐受訓練想動的是什麼</p>
+    <p>{{ .co2_tolerance_direction_zh | markdownify }}</p>
+    <p class="br-plain"><span class="br-plain-tag">白話</span>{{ .plain_zh | markdownify }}</p>
+    {{ with .source }}<p class="br-src"><span class="br-src-tag">來源</span>{{ . }}</p>{{ end }}
+  </section>
+  {{ end }}
+
+  {{ with $ph.autonomic_coupling }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .mechanism_zh | markdownify }}</p>
+    <p class="br-label">迷走神經</p>
+    <p>{{ .vagus_zh | markdownify }}</p>
+    <p class="br-label">呼吸性竇性心律不整（RSA）</p>
+    <p>{{ .rsa_zh | markdownify }}</p>
+    <p class="br-label br-label--mgmt">對游泳的意義</p>
+    <p>{{ .swimming_meaning_zh | markdownify }}</p>
+    <p class="br-plain"><span class="br-plain-tag">白話</span>{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $ph.baroreflex_resonance }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .premise_zh | markdownify }}</p>
+    <p class="br-label">共振怎麼發生</p>
+    <p>{{ .resonance_zh | markdownify }}</p>
+    <p class="br-label">個體差異</p>
+    <p>{{ .individual_variation_zh | markdownify }}</p>
+    <p class="br-warn">{{ .swimming_boundary_zh | markdownify }}</p>
+    <p class="br-plain"><span class="br-plain-tag">白話</span>{{ .plain_zh | markdownify }}</p>
+    {{ with .source }}<p class="br-src"><span class="br-src-tag">來源</span>{{ . }}</p>{{ end }}
+  </section>
+  {{ end }}
+  {{ with $tr.imt }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .what_zh | markdownify }}</p>
+    <p class="br-label">證據</p>
+    <p>{{ .evidence_zh | markdownify }}</p>
+    <p class="br-label">兩份統合分析不一致</p>
+    <p>{{ .conflict_zh | markdownify }}</p>
+    {{ with .reconciliation_zh }}<p>{{ . | markdownify }}</p>{{ end }}
+    {{ with .distance_zh }}<p>{{ . | markdownify }}</p>{{ end }}
+    <p class="br-focus">{{ .protocol_zh | markdownify }}</p>
+    <p class="br-warn">{{ .correction_zh | markdownify }}</p>
+    <p class="br-label">誠實反例</p>
+    <p>{{ .null_zh | markdownify }}</p>
+    <p class="br-label">機制假說</p>
+    <p>{{ .mechanism_hypothesis_zh | markdownify }}</p>
+    <p class="br-label br-label--mgmt">教練怎麼用</p>
+    <p>{{ .coach_use_zh | markdownify }}</p>
+    <p class="br-plain"><span class="br-plain-tag">白話</span>{{ .plain_zh | markdownify }}</p>
+    {{ with .source }}<p class="br-src"><span class="br-src-tag">來源</span>{{ . }}</p>{{ end }}
+  </section>
+  {{ end }}
+
+  {{ with $tr.co2_tolerance }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p class="br-warn">{{ .safety_zh | markdownify }}</p>
+    <p>{{ .what_zh | markdownify }}</p>
+    {{ with .observation_basis }}<p class="br-meta"><span class="br-meta-tag">這個做法的來歷</span>{{ . | markdownify }}</p>{{ end }}
+    <p class="br-label">證據</p>
+    <p>{{ .evidence_zh | markdownify }}</p>
+    <p class="br-label">機制方向</p>
+    <p>{{ .mechanism_direction_zh | markdownify }}</p>
+    <p class="br-author">{{ .verdict_zh | markdownify }}</p>
+    <p class="br-label br-label--mgmt">教練怎麼用</p>
+    <p>{{ .coach_use_zh | markdownify }}</p>
+    <p class="br-plain"><span class="br-plain-tag">白話</span>{{ .plain_zh | markdownify }}</p>
+    {{ with .source }}<p class="br-src"><span class="br-src-tag">來源</span>{{ . }}</p>{{ end }}
+  </section>
+  {{ end }}
+
+  {{ with $tr.buteyko }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .what_zh | markdownify }}</p>
+    <p class="br-label">系統回顧怎麼說</p>
+    <p>{{ .evidence_review_zh | markdownify }}</p>
+    <p class="br-label">統合分析怎麼說</p>
+    <p>{{ .evidence_meta_zh | markdownify }}</p>
+    <p class="br-warn">{{ .correction_zh | markdownify }}</p>
+    <p class="br-label">對游泳的意義</p>
+    <p>{{ .swimming_meaning_zh | markdownify }}</p>
+    <p class="br-label br-label--mgmt">教練怎麼用</p>
+    <p>{{ .coach_use_zh | markdownify }}</p>
+    <p class="br-plain"><span class="br-plain-tag">白話</span>{{ .plain_zh | markdownify }}</p>
+    {{ with .source }}<p class="br-src"><span class="br-src-tag">來源</span>{{ . }}</p>{{ end }}
+  </section>
+  {{ end }}
+
+  {{ with $tr.bolt_test }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .what_zh | markdownify }}</p>
+    <p class="br-label">怎麼測</p>
+    <p>{{ .procedure_zh | markdownify }}</p>
+    <p class="br-warn">{{ .norms_truth_zh | markdownify }}</p>
+    <p class="br-label">與表現的關係</p>
+    <p>{{ .performance_zh | markdownify }}</p>
+    <p class="br-label br-label--mgmt">教練怎麼用</p>
+    <p>{{ .coach_use_zh | markdownify }}</p>
+    <p class="br-plain"><span class="br-plain-tag">白話</span>{{ .plain_zh | markdownify }}</p>
+    {{ with .source }}<p class="br-src"><span class="br-src-tag">來源</span>{{ . }}</p>{{ end }}
+  </section>
+  {{ end }}
+
+  {{ with $tr.self_tracking }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .why_zh | markdownify }}</p>
+    {{ with .metrics_zh }}<ul class="le-points">{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>{{ end }}
+    <p class="br-label">怎麼解讀</p>
+    <p>{{ .interpretation_zh | markdownify }}</p>
+    <p class="br-label br-label--mgmt">教練怎麼用</p>
+    <p>{{ .coach_use_zh | markdownify }}</p>
+    <p class="br-plain"><span class="br-plain-tag">白話</span>{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+  {{ with $rg.principle }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .premise_zh | markdownify }}</p>
+    <p class="br-warn">{{ .land_only_zh | markdownify }}</p>
+    <p class="br-label">證據邊界</p>
+    <p>{{ .evidence_boundary_zh | markdownify }}</p>
+    <p class="br-label">機制指回哪</p>
+    <p>{{ .mechanism_pointer_zh | markdownify }}</p>
+    <p class="br-label">研究缺口</p>
+    <p>{{ .gap_zh | markdownify }}</p>
+    <p class="br-label br-label--mgmt">教練怎麼用</p>
+    <p>{{ .coach_use_zh | markdownify }}</p>
+    <p class="br-plain"><span class="br-plain-tag">白話</span>{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $rg.physiological_sigh }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p class="br-warn">{{ .safety_zh | markdownify }}</p>
+    <p>{{ .what_zh | markdownify }}</p>
+    <p class="br-focus">{{ .procedure_zh | markdownify }}</p>
+    <p class="br-label">機制</p>
+    <p>{{ .mechanism_zh | markdownify }}</p>
+    <p class="br-label">證據</p>
+    <p>{{ .evidence_zh | markdownify }}</p>
+    <p class="br-label">對游泳的意義</p>
+    <p>{{ .swimming_meaning_zh | markdownify }}</p>
+    <p class="br-label br-label--mgmt">教練怎麼用</p>
+    <p>{{ .coach_use_zh | markdownify }}</p>
+    <p class="br-plain"><span class="br-plain-tag">白話</span>{{ .plain_zh | markdownify }}</p>
+    {{ with .source }}<p class="br-src"><span class="br-src-tag">來源</span>{{ . }}</p>{{ end }}
+  </section>
+  {{ end }}
+
+  {{ with $rg.resonance_breathing }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .what_zh | markdownify }}</p>
+    <p class="br-focus">{{ .procedure_zh | markdownify }}</p>
+    <p class="br-label">機制</p>
+    <p>{{ .mechanism_zh | markdownify }}</p>
+    <p class="br-warn">{{ .evidence_honesty_zh | markdownify }}</p>
+    <p class="br-label">個人化頻率</p>
+    <p>{{ .personalization_zh | markdownify }}</p>
+    <p class="br-label">邊界</p>
+    <p>{{ .boundary_zh | markdownify }}</p>
+    <p class="br-label br-label--mgmt">教練怎麼用</p>
+    <p>{{ .coach_use_zh | markdownify }}</p>
+    <p class="br-plain"><span class="br-plain-tag">白話</span>{{ .plain_zh | markdownify }}</p>
+    {{ with .source }}<p class="br-src"><span class="br-src-tag">來源</span>{{ . }}</p>{{ end }}
+  </section>
+  {{ end }}
+
+  {{ with $rg.box_breathing }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .what_zh | markdownify }}</p>
+    <p class="br-focus">{{ .procedure_zh | markdownify }}</p>
+    <p class="br-warn">{{ .correction_zh | markdownify }}</p>
+    <p class="br-label br-label--mgmt">教練怎麼用</p>
+    <p>{{ .coach_use_zh | markdownify }}</p>
+    <p class="br-plain"><span class="br-plain-tag">白話</span>{{ .plain_zh | markdownify }}</p>
+    {{ with .source }}<p class="br-src"><span class="br-src-tag">來源</span>{{ . }}</p>{{ end }}
+  </section>
+  {{ end }}
+
+  {{ with $rg.wim_hof }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p class="br-warn">{{ .safety_zh | markdownify }}</p>
+    <p>{{ .what_zh | markdownify }}</p>
+    <p class="br-label">證據：Kox 內毒素研究</p>
+    <p>{{ .evidence_kox_zh | markdownify }}</p>
+    <p class="br-label">證據：期待效應</p>
+    <p>{{ .evidence_expectancy_zh | markdownify }}</p>
+    <p class="br-label">證據：品質最高的一份</p>
+    <p>{{ .evidence_blades_zh | markdownify }}</p>
+    <p class="br-label">證據：與 guru 效應的分辨</p>
+    <p>{{ .evidence_guru_zh | markdownify }}</p>
+    <p class="br-label br-label--mgmt">教練怎麼用</p>
+    <p>{{ .coach_use_zh | markdownify }}</p>
+    <p class="br-plain"><span class="br-plain-tag">白話</span>{{ .plain_zh | markdownify }}</p>
+    {{ with .source }}<p class="br-src"><span class="br-src-tag">來源</span>{{ . }}</p>{{ end }}
+  </section>
+  {{ end }}
+
+  {{ with $rg.claims_gap }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .premise_zh | markdownify }}</p>
+    {{ with .patterns_zh }}<ul class="le-points">{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>{{ end }}
+    <p class="br-label br-label--mgmt">教練怎麼用</p>
+    <p>{{ .coach_use_zh | markdownify }}</p>
+    <p class="br-plain"><span class="br-plain-tag">白話</span>{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+</article>

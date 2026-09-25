@@ -1,0 +1,176 @@
+/* 呼吸章專用樣式（Claude 手寫）。只用 tokens。 */
+
+.vx-br { padding-top: var(--s3); }
+
+/* ===== 頁內目次 ===== */
+.br-toc { margin: var(--s4) 0 var(--s5); padding: 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.br-toc ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--s4); counter-reset: brtoc; }
+.br-toc li { counter-increment: brtoc; border-top: 1px solid var(--rule); }
+.br-toc li:first-child,
+.br-toc li:nth-child(2) { border-top: 0; }
+.br-toc a {
+  display: grid;
+  grid-template-columns: 2.4em 1fr;
+  gap: var(--s2);
+  padding: var(--s2) 0;
+  color: var(--ink);
+  text-decoration: none;
+  min-height: var(--tap);
+  align-items: center;
+}
+.br-toc a::before {
+  content: counter(brtoc);
+  font: 700 var(--fs-m)/1 var(--f-serif);
+  color: var(--series);
+  text-align: right;
+}
+.br-toc a:hover { color: var(--series); text-decoration: underline; }
+@media (max-width: 600px) {
+  .br-toc ol { grid-template-columns: 1fr; }
+  .br-toc li:nth-child(2) { border-top: 1px solid var(--rule); }
+}
+
+/* ===== 安全鐵則：左側 4px 規則線、tint 背景、s3 內距 ===== */
+.br-safety {
+  background: var(--tint);
+  border-left: 4px solid var(--series);
+  padding: var(--s3) var(--s3) var(--s3) calc(var(--s3) + 4px);
+  margin: var(--s5) 0 var(--s6);
+  scroll-margin-top: var(--s3);
+}
+.br-safety .br-safety-tag {
+  display: inline-block;
+  font: 700 var(--fs-s)/1 var(--f-sans);
+  color: var(--series);
+  letter-spacing: .14em;
+  margin: 0 0 var(--s2);
+  padding: 0;
+}
+.br-safety > h2 {
+  font: 700 var(--fs-l)/1.4 var(--f-serif);
+  margin: 0 0 var(--s3);
+  padding: 0;
+  border-top: 0;
+}
+.br-safety > .lc-lead { margin-bottom: var(--s4); }
+.br-safety-item {
+  border-top: 1px solid var(--rule);
+  padding-top: var(--s3);
+  margin-top: var(--s3);
+}
+.br-safety-item:first-of-type { border-top: 0; padding-top: 0; margin-top: 0; }
+.br-safety-item > h3 {
+  font: 700 var(--fs-m)/1.4 var(--f-serif);
+  margin: 0 0 var(--s2);
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s1);
+}
+.br-safety-item > h3 .cert { margin-left: var(--s1); }
+
+/* ===== 各節點共用樣式（le-block 在 library.css 已有基礎） ===== */
+.vx-br .le-block { margin-top: var(--s5); }
+.vx-br .le-block > h2 {
+  font: 700 var(--fs-l)/1.4 var(--f-serif);
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s2);
+}
+.vx-br .le-block > h2 .cert { font-weight: 400; }
+
+/* ===== 區塊內小標 / 警告 / 白話 / 來源 ===== */
+.br-label {
+  font: 700 var(--fs-s)/1.4 var(--f-sans);
+  color: var(--ink-2);
+  letter-spacing: .08em;
+  margin: var(--s3) 0 var(--s1);
+}
+.br-label--mgmt { color: var(--series); }
+
+.br-warn {
+  border-left: 3px solid var(--series);
+  padding: var(--s1) 0 var(--s1) var(--s3);
+  color: var(--ink);
+  font-family: var(--f-serif);
+  font-size: var(--fs-m);
+  line-height: 1.8;
+  margin: var(--s3) 0;
+}
+.br-warn p { margin: 0; }
+
+.br-rule {
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  padding: var(--s2) var(--s3);
+  font-family: var(--f-serif);
+  line-height: 1.8;
+  margin: var(--s3) 0;
+}
+.br-rule p { margin: 0; }
+
+.br-author {
+  border-top: 1px dashed var(--rule);
+  padding-top: var(--s2);
+  font-family: var(--f-serif);
+  color: var(--ink-2);
+  line-height: 1.8;
+  margin: var(--s3) 0;
+}
+.br-author p { margin: 0; }
+
+.br-focus {
+  font: 500 var(--fs-m)/1.8 var(--f-serif);
+  background: var(--tint);
+  padding: var(--s2) var(--s3);
+  margin: var(--s3) 0;
+}
+.br-focus p { margin: 0; }
+
+.br-plain {
+  border-top: 1px solid var(--rule);
+  padding-top: var(--s2);
+  margin: var(--s4) 0 0;
+  font-family: var(--f-serif);
+  line-height: 1.8;
+}
+.br-plain > .br-plain-tag {
+  display: inline-block;
+  font: 700 var(--fs-s)/1 var(--f-sans);
+  color: var(--series);
+  letter-spacing: .14em;
+  margin-right: var(--s2);
+}
+
+.br-meta {
+  font-size: var(--fs-s);
+  color: var(--ink-2);
+  line-height: 1.7;
+  margin: var(--s2) 0;
+}
+.br-meta > .br-meta-tag {
+  display: inline-block;
+  background: var(--tint);
+  padding: 2px 6px;
+  margin-right: var(--s1);
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.br-src {
+  font-size: var(--fs-s);
+  color: var(--ink-2);
+  line-height: 1.7;
+  margin: var(--s3) 0 0;
+  border-top: 1px dashed var(--rule);
+  padding-top: var(--s1);
+}
+.br-src > .br-src-tag {
+  font-weight: 700;
+  color: var(--ink);
+  margin-right: var(--s1);
+}
+
+/* 重點清單（沿用 entry.css 的 le-points） */
+.vx-br .le-points { padding-left: 1.4em; margin: var(--s2) 0 var(--s3); }
+.vx-br .le-points li { font-family: var(--f-serif); line-height: 1.8; margin-bottom: var(--s2); }
+
+/* 確保 lib-chapter 在 vortex/breathing 下不被 rail 的邊距吃掉 */
+@media (max-width: 600px) {
+  .br-safety { padding: var(--s3) var(--s2) var(--s3) calc(var(--s2) + 4px); }
+}
