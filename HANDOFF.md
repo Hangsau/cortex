@@ -1,5 +1,18 @@
 # HANDOFF — my-site (Cortex)
 
+## 全站從零重做：新版預覽站 P1（Vortex）進行中（2026-09-25）
+
+規劃書：`research/redesign-2026-09-24/PLAN.md`（v2，使用者已確認定位：Vortex 是主力、給所有人讀、不導流；其他系列各自入口）。
+新版在 `next/`，用 `hugo.next.toml` 建到 `public/next/`，預覽 `https://hangsau.github.io/cortex/next/`；**舊站照常上線，不准從舊 layouts/CSS 複製任何東西**。
+
+- 工作單規格：`next/specs/_context.md` + `W1.md`、`W3.md`–`W8.md`；W2（`next/assets/css/tokens.css`、`shell.css`）Claude 已手寫
+- 驗收：`python -X utf8 next/specs/check.py W<n>`（Claude 寫，M3 不准改）
+- 執行：`bash next/specs/run_queue.sh [起始W]`，依序派 `claude-m3-lite`（MiniMax-M3），不過就附失敗輸出重試 2 次，再改派 codex 1 次；通過才由腳本 commit + push
+- 進度看 `next/specs/STATUS.md`、細節 `next/specs/queue.log`
+- 佇列 2026-09-25 從 W1 啟動（Claude 5H 當時 90%）。接手：讀 STATUS.md → 失敗就讀 queue.log 修規格或手修後 `run_queue.sh W<n>` 續跑 → 全過後 W9：Playwright 截圖桌機 390/1440、檢查 320px 溢出、對照 PLAN §6 驗收指標，交使用者看 `/next/`
+- 使用者指示：不要用 shotclock 排程接手，由當前 session 自己監控
+
+
 ## CSCS 題庫重寫：ch01–ch14 完成，出題／審查／重出全改走直呼 API（2026-09-17）
 
 依使用者「先擴充題庫再接讀書器、中英都要、合併成一份、按 CSCS 出題邏輯」的指示，把
