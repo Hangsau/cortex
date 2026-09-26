@@ -11,5 +11,8 @@
   <main id="main">{{ block "main" . }}{{ end }}</main>
 </div>
 <footer class="site-foot">Cortex · 新版預覽</footer>
+{{ partial "library/xl-templates.html" . }}
+{{- $study := resources.Get "js/study.js" | fingerprint }}
+<script src="{{ $study.RelPermalink }}" defer></script>
 </body>
 </html>

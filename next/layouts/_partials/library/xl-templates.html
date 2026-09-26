@@ -1,0 +1,23 @@
+{{- /* 跨系列「對照閱讀」：只輸出本頁用得到的單位（next/data/crosslinks.json 的 pages 索引），
+       以 <template data-xl-for="錨點"> 放在頁尾，由 study.js 插到該錨點（小節標題下方／條目末尾）。
+       整頁即單位者（Vortex 知識點頁，anchor 為空）由 vortex/next-read.html 的「教科書怎麼說」呈現。Claude 手寫。 */ -}}
+{{- with hugo.Data.crosslinks -}}
+  {{- $cl := . -}}
+  {{- $page := strings.TrimPrefix (relURL "") $.RelPermalink -}}
+  {{- with index $cl.pages $page -}}
+<div hidden id="xl-data">
+    {{- range . }}
+      {{- $anchor := .anchor }}
+      {{- if $anchor }}{{ with index $cl.links .id }}
+<template data-xl-for="{{ $anchor }}"><aside class="xl" aria-label="對照閱讀"><p class="xl-k">對照閱讀</p><ul class="xl-list">
+        {{- range first 2 . }}<li><a href="{{ relURL .path }}">{{ .title }}</a>{{ with .why }}<span class="xl-why">{{ . }}</span>{{ end }}</li>{{ end -}}
+</ul>
+        {{- if gt (len .) 2 }}<details class="xl-more"><summary>再看 {{ sub (len .) 2 }} 條</summary><ul class="xl-list">
+          {{- range after 2 . }}<li><a href="{{ relURL .path }}">{{ .title }}</a>{{ with .why }}<span class="xl-why">{{ . }}</span>{{ end }}</li>{{ end -}}
+</ul></details>{{ end -}}
+</aside></template>
+      {{- end }}{{ end }}
+    {{- end }}
+</div>
+  {{- end -}}
+{{- end -}}

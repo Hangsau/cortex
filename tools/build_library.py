@@ -77,6 +77,12 @@ def _chapter_desc(slug, ch_num):
 
 # ---------- 系列建構 ----------
 
+def reader_section_counts():
+    """讀本各章小節數（進度條分母），取自 data/reading/index.json。"""
+    ix = load_json(DATA_DIR / "reading" / "index.json")
+    return {u["id"]: len(u.get("sections") or []) for u in ix.get("units", [])}
+
+
 def build_kinesiology():
     books = load_json(DATA_DIR / "reading" / "books.json")
     neu = books["neumann"]
@@ -91,6 +97,7 @@ def build_kinesiology():
             "desc": _chapter_desc("kinesiology", nn),
             "path": ch["path"],
             "part": PART_ZH.get(ch.get("group", "") or "", ch.get("group", "") or ""),
+            "units": reader_section_counts().get(ch["id"], 0),
         })
     return {
         "id": "kinesiology",
@@ -131,6 +138,7 @@ def build_basic_biomechanics():
             "desc": _chapter_desc("basic-biomechanics", nn),
             "path": ch["path"],
             "part": PART_ZH.get(ch.get("group", "") or "", ch.get("group", "") or ""),
+            "units": reader_section_counts().get(ch["id"], 0),
         })
     tools = []
     topics_md = CONTENT_DIR / "library" / "basic-biomechanics" / "topics" / "index.md"
@@ -187,6 +195,7 @@ def build_cscs():
             "title": cscs_title(n, d.get("title", "")),
             "desc": desc,
             "path": f"library/essentials-of-strength-training/ch{n:02d}/",
+            "units": sum(len(t.get("items", [])) for t in topics),
             "part": "",
         })
     concepts = load_yaml(DATA_DIR / "cscs" / "_concepts.yaml")

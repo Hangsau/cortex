@@ -23,7 +23,8 @@
 {{- end }}
 {{- $idx := -1 }}
 {{- range $i, $c := $s.chapters }}{{ if eq (relURL $c.path) $p.RelPermalink }}{{ $idx = $i }}{{ end }}{{ end }}
-<article class="lib-chapter ck-chapter">
+{{- $nextHref := "" }}{{ $nextTitle := "" }}{{ if and (ge $idx 0) (lt (add $idx 1) (len $s.chapters)) }}{{ with index $s.chapters (add $idx 1) }}{{ $nextHref = relURL .path }}{{ $nextTitle = printf "第 %v 章 · %s" .n .title }}{{ end }}{{ end }}
+<article class="lib-chapter ck-chapter" data-study="cscs" data-series-title="{{ $s.title }}" data-series-group="{{ $s.group }}" data-chapter-title="第 {{ $n }} 章 · {{ $p.Title }}" data-next-href="{{ $nextHref }}" data-next-title="{{ $nextTitle }}">
   <header class="lc-head">
     <p class="kicker">肌力與體能訓練精要 · 第 {{ $n }} 章</p>
     <h1>{{ $ch.title }}</h1>

@@ -10,6 +10,8 @@
     {{- $meta := slice }}{{ range slice $s.title_en $s.author $s.edition }}{{ with . }}{{ $meta = $meta | append . }}{{ end }}{{ end }}
     {{- with $meta }}<p class="ls-meta">{{ delimit . " · " }}</p>{{ end }}
     <p class="ls-lead">{{ $s.lead }}</p>
+    {{- $tot := 0 }}{{ range $s.chapters }}{{ $tot = add $tot (.units | default 0) }}{{ end }}
+    {{- if $tot }}<p class="ls-progress" data-progress-path="{{ relURL $s.path }}" data-progress-units="{{ $tot }}"></p>{{ end }}
     <p class="ls-stats">
       {{- with $s.chapters }}<span><b>{{ len . }}</b> {{ $s.chapters_label | default "章" }}</span>{{ end }}
       {{- with $s.entries }}<span><b>{{ len . }}</b> 個{{ $s.entries_label }}</span>{{ end }}
@@ -43,12 +45,15 @@
     <ol class="ls-toc">
         {{- $last = $c.part }}
       {{- end }}
-      <li><a class="ls-ch" href="{{ relURL $c.path }}"><span class="ls-n">{{ $c.n }}</span><span class="ls-ch-body"><span class="ls-ch-t">{{ $c.title }}</span><span class="ls-ch-d">{{ $c.desc }}</span></span></a></li>
+      <li><a class="ls-ch" href="{{ relURL $c.path }}"{{ with $c.units }} data-progress-path="{{ relURL $c.path }}" data-progress-units="{{ . }}"{{ end }}><span class="ls-n">{{ $c.n }}</span><span class="ls-ch-body"><span class="ls-ch-t">{{ $c.title }}</span><span class="ls-ch-d">{{ $c.desc }}</span><span data-progress-slot></span></span></a></li>
     {{- end }}
     </ol>
   </section>
   {{- end }}
 
+  {{- with $s.entries }}
+  <section class="ls-daily" data-daily hidden aria-label="今天試這一個"><script type="application/json">{{ . | jsonify | safeJS }}</script></section>
+  {{- end }}
   {{- with $s.entries }}
   <section class="ls-sec" aria-labelledby="ls-entries">
     <h2 id="ls-entries">全部{{ $s.entries_label }}</h2>

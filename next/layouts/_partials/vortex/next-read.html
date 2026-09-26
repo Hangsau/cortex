@@ -98,7 +98,8 @@
   {{- $segTitle = "心理層" -}}
 {{- end -}}
 
-{{- if or $hasAny $stroke $segList -}}
+{{- $xl := index (hugo.Data.crosslinks.links | default dict) $id -}}
+{{- if or $hasAny $stroke $segList $xl -}}
 <section class="next-read" aria-labelledby="nr-h">
   <h2 id="nr-h">接著看</h2>
   {{- range $g := $groups -}}
@@ -147,6 +148,23 @@
       </div>
     {{- end -}}
   {{- end -}}
+  {{- with $xl }}
+      <div class="nr-group nr-group--books">
+        <h3>教科書怎麼說</h3>
+        <ol class="nr-list">
+          {{- range first 4 . }}
+          <li><a class="nr-item" href="{{ relURL .path }}"><span class="nr-title">{{ .title }}</span><span class="nr-hook">{{ .why }}</span></a></li>
+          {{- end }}
+        </ol>
+        {{- if gt (len .) 4 }}
+        <details class="nr-more"><summary>看全部 {{ len . }} 條</summary><ol class="nr-list">
+          {{- range after 4 . }}
+          <li><a class="nr-item" href="{{ relURL .path }}"><span class="nr-title">{{ .title }}</span><span class="nr-hook">{{ .why }}</span></a></li>
+          {{- end }}
+        </ol></details>
+        {{- end }}
+      </div>
+  {{- end }}
   {{- if or $stroke $segList }}
   <p class="nr-tail">
     {{- if $stroke }}

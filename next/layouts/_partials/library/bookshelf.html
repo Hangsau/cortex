@@ -12,6 +12,25 @@
     <p class="bs-lead">把讀過、研究過的東西整理成查得到、讀得下去、彼此連得起來的知識。主力是游泳教學的水感研究，另有肌力與動作、學習與教學、兒童氣質的整本讀書整理。</p>
   </header>
 
+  <section class="bs-resume" data-resume hidden aria-label="接著讀"></section>
+  {{- $starts := slice }}
+  {{- range $lib.series }}
+    {{- if eq .id "mnfl" }}{{ with index .entries 0 }}{{ $starts = $starts | append (dict "k" "3 分鐘" "t" (printf "一個學習技法：%s" .title) "d" .desc "p" .path "g" "learning") }}{{ end }}{{ end }}
+    {{- if eq .id "kinesiology" }}{{ with index .chapters 0 }}{{ $starts = $starts | append (dict "k" "5 分鐘" "t" (printf "肌動學第 1 章：%s（先讀第一節就好）" .title) "d" .desc "p" .path "g" "strength") }}{{ end }}{{ end }}
+    {{- if eq .id "cscs" }}{{ $starts = $starts | append (dict "k" "5 分鐘" "t" "CSCS 做五題選擇題" "d" "答錯的會連回課本那一條，錯了也算讀過" "p" "library/essentials-of-strength-training/quiz/" "g" "strength") }}{{ end }}
+    {{- if eq .id "temperament" }}{{ with index .entries 0 }}{{ $starts = $starts | append (dict "k" "2 分鐘" "t" (printf "一個氣質維度：%s" .title) "d" .desc "p" .path "g" "temperament") }}{{ end }}{{ end }}
+  {{- end }}
+  {{- with $starts }}
+  <section class="bs-start" data-starter aria-labelledby="bs-start-h">
+    <h2 id="bs-start-h">不知道從哪開始？挑一個短的</h2>
+    <div class="bs-start-list">
+    {{- range . }}
+      <a class="bs-start-i series-{{ .g }}" href="{{ relURL .p }}"><span class="bs-start-k">{{ .k }}</span><span class="bs-start-t">{{ .t }}</span><span class="bs-start-d">{{ .d }}</span></a>
+    {{- end }}
+    </div>
+  </section>
+  {{- end }}
+
   <section class="bs-vortex series-vortex" aria-labelledby="bs-v">
     <p class="kicker">主要研究</p>
     <h2 id="bs-v" class="bs-v-title"><a href="{{ relURL "vortex/" }}">Vortex 水感</a></h2>
@@ -42,7 +61,8 @@
     <div class="bs-books">
         {{- $last = $s.group_name }}
       {{- end }}
-      <a class="bs-book series-{{ $s.group }}" href="{{ relURL $s.path }}">
+      {{- $tot := 0 }}{{ range $s.chapters }}{{ $tot = add $tot (.units | default 0) }}{{ end }}
+      <a class="bs-book series-{{ $s.group }}" href="{{ relURL $s.path }}"{{ if $tot }} data-progress-path="{{ relURL $s.path }}" data-progress-units="{{ $tot }}"{{ end }}>
         <span class="bs-book-t">{{ $s.title }}</span>
         {{- $meta := slice }}{{ range slice $s.title_en $s.author }}{{ with . }}{{ $meta = $meta | append . }}{{ end }}{{ end }}
         <span class="bs-book-m">{{ delimit $meta " · " }}</span>

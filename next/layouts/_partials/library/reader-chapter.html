@@ -8,7 +8,8 @@
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 <link rel="stylesheet" href="{{ $dcss.RelPermalink }}">
 {{- $idx := -1 }}{{ range $i, $c := $s.chapters }}{{ if eq (relURL $c.path) $p.RelPermalink }}{{ $idx = $i }}{{ end }}{{ end }}
-<article class="lib-chapter rd-page">
+{{- $nextHref := "" }}{{ $nextTitle := "" }}{{ if and (ge $idx 0) (lt (add $idx 1) (len $s.chapters)) }}{{ with index $s.chapters (add $idx 1) }}{{ $nextHref = relURL .path }}{{ $nextTitle = printf "第 %v 章 · %s" .n .title }}{{ end }}{{ end }}
+<article class="lib-chapter rd-page" data-study="reader" data-series-title="{{ $s.title }}" data-series-group="{{ $s.group }}" data-chapter-title="第 {{ $p.Params.chapter }} 章 · {{ $p.Title }}" data-next-href="{{ $nextHref }}" data-next-title="{{ $nextTitle }}">
   <header class="lc-head">
     <p class="kicker">{{ $s.title }}{{ with $p.Params.chapter }} · 第 {{ . }} 章{{ end }}{{ if ge $idx 0 }}{{ with (index $s.chapters $idx).part }} · {{ . }}{{ end }}{{ end }}</p>
     <h1>{{ $p.Title }}</h1>

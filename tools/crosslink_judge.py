@@ -55,11 +55,26 @@ why（link=true 時必填）：一句繁體中文，30 字以內，說明「讀 
 """
 
 
-def call(user_text):
+STRICT = """你是嚴格的教科書審稿人。以下每一對都已被初審判為「相關」，你要複審，把牽強的剔除。
+
+只有同時符合下面三項才保留（keep=true）：
+1. A 與 B 的**主角相同**：同一個結構（例如同一條韌帶、同一組肌群）、同一個機制（例如同一種力學原理）、或同一個動作／數量。
+2. 不是「同一部位但不同主題」（例如 A 講膝屈肌、B 講蹠屈肌 → 剔除），也不是「同一大領域」（都講訓練、都講神經）。
+3. 讀 A 的人會自然想接著讀 B：B 對 A 的主角給出另一個角度、機制、應用或數據。
+
+有任何一項不確定，就 keep=false。寧可少連，不要硬連。
+
+輸出：只輸出 JSON Lines，每對一行，依輸入順序，不要其他文字：
+{"i": 序號, "keep": true}
+{"i": 序號, "keep": false}
+"""
+
+
+def call(user_text, system=None):
     payload = {
         "model": MODEL,
         "max_tokens": 8000,
-        "system": [{"type": "text", "text": RULES, "cache_control": {"type": "ephemeral"}}],
+        "system": [{"type": "text", "text": system or RULES, "cache_control": {"type": "ephemeral"}}],
         "messages": [{"role": "user", "content": user_text}],
     }
     headers = {"x-api-key": TOKEN, "anthropic-version": "2023-06-01", "content-type": "application/json"}
@@ -77,7 +92,11 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--batch", type=int, default=40)
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--verify-below", type=float, default=0.0,
+                    help="複審模式：只對 score 低於此值、已判 link 的對做嚴格複審，結果寫 verify.jsonl")
     args = ap.parse_args()
+    if args.verify_below:
+        return verify(args)
     units = json.loads((DIR / "units.json").read_text(encoding="utf-8"))
     cands = [json.loads(l) for l in (DIR / "candidates.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()]
     out = DIR / "judgments.jsonl"
@@ -130,6 +149,40 @@ def main():
                 f.write(json.dumps(rec, ensure_ascii=False) + "\n")
         yes = sum(1 for j in got.values() if j.get("link"))
         print(f"批 {s // args.batch + 1}：回 {len(got)}/{len(chunk)}，連 {yes}｜usage {usage}", flush=True)
+
+
+def verify(args):
+    units = json.loads((DIR / "units.json").read_text(encoding="utf-8"))
+    judged = [json.loads(l) for l in (DIR / "judgments.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()]
+    out = DIR / "verify.jsonl"
+    done = set()
+    if out.exists():
+        done = {(j["a"], j["b"]) for j in (json.loads(l) for l in out.read_text(encoding="utf-8").splitlines() if l.strip())}
+    todo = [j for j in judged if j["link"] and j["score"] < args.verify_below and (j["a"], j["b"]) not in done]
+    print(f"複審 {len(todo)} 對（score < {args.verify_below}）", flush=True)
+
+    def desc(uid):
+        u = units[uid]
+        return f"{u['title']}｜{u['summary']}"
+
+    for s in range(0, len(todo), args.batch):
+        chunk = todo[s:s + args.batch]
+        lines = [f"[{i}] A：{desc(c['a'])}\n    B：{desc(c['b'])}\n    初審理由：{c.get('why', '')}" for i, c in enumerate(chunk)]
+        text, usage = call("\n".join(lines), STRICT)
+        got = {}
+        for l in text.splitlines():
+            l = l.strip().strip("`")
+            if l.startswith("{"):
+                try:
+                    j = json.loads(l)
+                    got[int(j["i"])] = bool(j.get("keep"))
+                except (ValueError, KeyError):
+                    pass
+        with out.open("a", encoding="utf-8") as f:
+            for i, c in enumerate(chunk):
+                if i in got:
+                    f.write(json.dumps({"a": c["a"], "b": c["b"], "keep": got[i]}, ensure_ascii=False) + "\n")
+        print(f"批 {s // args.batch + 1}：回 {len(got)}/{len(chunk)}，保留 {sum(got.values())}", flush=True)
 
 
 if __name__ == "__main__":
