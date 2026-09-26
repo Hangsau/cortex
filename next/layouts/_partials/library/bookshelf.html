@@ -21,13 +21,15 @@
     {{- if eq .id "temperament" }}{{ with index .entries 0 }}{{ $starts = $starts | append (dict "k" "2 分鐘" "t" (printf "一個氣質維度：%s" .title) "d" .desc "p" .path "g" "temperament") }}{{ end }}{{ end }}
   {{- end }}
   {{- with $starts }}
-  <section class="bs-start" data-starter aria-labelledby="bs-start-h">
+  {{- $st := resources.FromString "starters.json" (jsonify hugo.Data.starters) | fingerprint }}
+  <section class="bs-start" data-starter data-src="{{ $st.RelPermalink }}" aria-labelledby="bs-start-h">
     <h2 id="bs-start-h">不知道從哪開始？挑一個短的</h2>
     <div class="bs-start-list">
     {{- range . }}
       <a class="bs-start-i series-{{ .g }}" href="{{ relURL .p }}"><span class="bs-start-k">{{ .k }}</span><span class="bs-start-t">{{ .t }}</span><span class="bs-start-d">{{ .d }}</span></a>
     {{- end }}
     </div>
+    <p class="bs-start-foot"><button type="button" class="bs-shuffle" data-shuffle hidden>換一組</button><span class="muted" data-starter-note></span></p>
   </section>
   {{- end }}
 

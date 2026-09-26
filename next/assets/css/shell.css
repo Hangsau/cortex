@@ -153,5 +153,8 @@ mark { background: none; color: inherit; font-weight: 700; text-decoration: unde
 .bs-start-t { font: 700 var(--fs-m)/1.5 var(--f-serif); }
 .bs-start-d { font-size: var(--fs-s); line-height: 1.6; color: var(--ink-2); }
 .bs-start-i:hover .bs-start-t { color: var(--series); text-decoration: underline; }
+.bs-start-foot { margin: var(--s2) 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: var(--s1); }
+.bs-shuffle { min-height: var(--tap); padding: 0 var(--s3); border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink); font: 700 var(--fs-s)/1 var(--f-sans); cursor: pointer; }
+.bs-shuffle:hover { border-color: var(--series); color: var(--series); }
 @media (max-width: 900px) { .bs-start-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .bs-start-list { grid-template-columns: 1fr; } .ls-daily { padding-left: var(--s2); } }
