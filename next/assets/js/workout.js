@@ -145,6 +145,14 @@
     }
     return known(s).length ? { tier: 'tier_d', one: known(s).map(x => x[0]).join('、') } : null;
   }
+  function baseFor(s, d) {
+    const own = pb(s, d);
+    if (own) return { t: own, src: `${d} m PB` };
+    const longer = known(s).find(([D]) => D > d && D % d === 0);
+    if (!longer) return null;
+    const [D, T] = longer;
+    return { t: T * d / D, split: true, D, T, src: `${D} m 成績 ÷ ${D / d}` };
+  }
   const hasCss = (s) => { const c = css(s); return !!(c && c.pace); };
   const TIER_LABEL = { tier_a: '實測', tier_b: '估計', tier_c: '外推', tier_d: '自校準' };
 
@@ -155,8 +163,8 @@
     if (row.int === 'custom') { const t = parseT(row.target); return t ? { t } : null; }
     if (NO_AUTO[row.mode] || row.int === 'none') return null;
     if (row.int === 'sprint') {
-      const p = pb(s, row.dist);
-      return p ? { t: p / ((row.pct || 95) / 100) } : { miss: `沒有${SZH[s]} ${row.dist} m 成績` };
+      const b = baseFor(s, row.dist);
+      return b ? { t: b.t / ((row.pct || 95) / 100), note: b.split ? `由 ${b.src}` : '' } : { miss: `沒有${SZH[s]} ${row.dist} m 或更長距離的成績` };
     }
     if (row.int === 'race') {
       const ev = +row.event, p = ev && pb(s, ev);
@@ -410,18 +418,17 @@
     const dists = STROKES.find(s => s.k === S.sstroke).d.filter(d => d <= 400);
     if (!dists.includes(+S.sdist)) S.sdist = String(dists[0]);
     const sd = $('[data-wk-sdist]');
-    sd.innerHTML = dists.map(d => `<option value="${d}">${d} m${pb(S.sstroke, d) ? '' : '（沒有成績）'}</option>`).join('');
+    sd.innerHTML = dists.map(d => `<option value="${d}">${d} m${pb(S.sstroke, d) ? '' : baseFor(S.sstroke, d) ? '（由較長距離切段）' : '（沒有成績）'}</option>`).join('');
     sd.value = S.sdist;
     const d = +S.sdist, zh = SZH[S.sstroke];
     $('[data-wk-pctv]').textContent = S.pct;
     $('[data-wk-pct]').value = S.pct;
-    const p = pb(S.sstroke, d);
-    if (!p) {
-      const longer = known(S.sstroke).find(([D]) => D > d && D % d === 0);
-      box.innerHTML = `<p class="wk-note">沒有${zh} ${d} m 的成績，不換算。先在 ① 填${zh} ${d} m。</p>` +
-        (longer ? `<p class="muted">參考：${zh} ${longer[0]} m 成績 ${fmt(longer[1], 2)} 切成 ${d} m 一段是每段 ${fmt(longer[1] / (longer[0] / d), 2)}——這是 ${longer[0]} m 的<b>比賽配速</b>（賽速重複用），不是 ${d} m 全力衝刺的秒數。</p>` : '');
+    const base = baseFor(S.sstroke, d);
+    if (!base) {
+      box.innerHTML = `<p class="wk-note">沒有${zh} ${d} m 或更長距離的成績，算不出來。先在 ① 填一筆${zh}成績。</p>`;
       return;
     }
+    const p = base.t;
     const tg = p / (S.pct / 100);
     const row = blankRow({ reps: 0, dist: d, stroke: S.sstroke, int: 'sprint', pct: S.pct });
     const h = restHint(row);
@@ -429,7 +436,8 @@
     const repsMid = t ? Math.round((t.reps.min + t.reps.max) / 2) : 4;
     const pcts = [80, 85, 88, 90, 92, 95, 98, 100];
     let html = `<div class="wk-sp"><p class="wk-css-k">${zh} ${d} m 目標</p><p class="wk-sp-v">${fmt(tg, 2)}</p>
-      <p class="muted">PB ${fmt(p, 2)} ÷ ${S.pct}%</p></div>
+      <p class="muted">${base.split ? `基準 ${fmt(p, 2)}＝${zh} ${base.D} m 成績 ${fmt(base.T, 2)} ÷ ${base.D / d}` : `PB ${fmt(p, 2)}`} ÷ ${S.pct}%</p>
+      ${base.split ? `<p class="wk-note">沒有${zh} ${d} m 成績，基準用 ${base.D} m 成績平均切段（等於 ${base.D} m 的比賽配速）。真正的 ${d} m 全力會比這快一些，所以這個目標偏保守；有 ${d} m 成績填進 ① 就改用它。</p>` : ''}</div>
       <div class="wk-quick" aria-label="速查">${pcts.map(x => `<button type="button" class="wk-q${x === +S.pct ? ' is-on' : ''}" data-pct="${x}"><span>${x}%</span><b>${fmt(p / (x / 100), 2)}</b></button>`).join('')}</div>`;
     if (t) html += `<p class="wk-note"><b>${t.key === 'velocity' ? '純速組' : '乳酸生成組'} ${t.cert}：</b>每趟 ${t.distance_m.min}–${t.distance_m.max} m，${t.reps.min}–${t.reps.max} 趟，休 ${fmt0(t.rest_s.min)}–${fmt0(t.rest_s.max)}。退出：${esc(t.exit)}。</p>`;
     else html += '<p class="wk-note">衝刺組的休息參數只到 50 m；這個距離的休息請自己決定。</p>';
