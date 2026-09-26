@@ -11,13 +11,22 @@
   (dict "p" "tech" "t" "技術分析" "n" "tech")
   (dict "p" "problems" "t" "找問題" "n" "problem")
   (dict "p" "injuries" "t" "運動傷害" "n" "injury")
-  (dict "p" "mind" "t" "心理層" "n" "psy")
-  (dict "p" "levels" "t" "水感發展級別" "n" "level") -}}
+  (dict "p" "mind" "t" "心理概念" "n" "psy") -}}
+{{- $topics := slice
+  (dict "p" "breathing" "t" "呼吸")
+  (dict "p" "psychology" "t" "心理層")
+  (dict "p" "joints" "t" "骨關節動作")
+  (dict "p" "movement" "t" "動作圖譜") -}}
+{{- $plans := slice
+  (dict "p" "adm" "t" "運動員發展 ADM")
+  (dict "p" "periodization" "t" "訓練週期化") -}}
 <details class="rail" id="rail">
   <summary class="rail-toggle">Vortex 目錄</summary>
   <nav aria-label="Vortex 目錄">
     <p class="rail-h">開始</p>
-    <a class="rail-a{{ if eq $here (relURL "vortex/") }} is-here{{ end }}" href="{{ relURL "vortex/" }}">水感是什麼</a>
+    <a class="rail-a{{ if eq $here (relURL "vortex/") }} is-here{{ end }}" href="{{ relURL "vortex/" }}">Vortex 首頁</a>
+    <a class="rail-a{{ if eq $here (relURL "vortex/water-sense/") }} is-here{{ end }}" href="{{ relURL "vortex/water-sense/" }}">什麼是水感</a>
+    <a class="rail-a{{ if hasPrefix $here (relURL "vortex/levels/") }} is-here{{ end }}" href="{{ relURL "vortex/levels/" }}">發展地圖 L0–L6</a>
     <p class="rail-h">六種泳式</p>
     {{- range $order }}
       {{- $s := index $d.strokes . }}
@@ -31,6 +40,16 @@
         {{- end }}{{ end }}
     </div>
       {{- end }}
+    {{- end }}
+    <p class="rail-h">主題</p>
+    {{- range $topics }}
+      {{- $tp := relURL (printf "vortex/%s/" .p) }}
+    <a class="rail-a{{ if hasPrefix $here $tp }} is-here{{ end }}" href="{{ $tp }}">{{ .t }}</a>
+    {{- end }}
+    <p class="rail-h">長期規劃</p>
+    {{- range $plans }}
+      {{- $pp := relURL (printf "vortex/%s/" .p) }}
+    <a class="rail-a{{ if hasPrefix $here $pp }} is-here{{ end }}" href="{{ $pp }}">{{ .t }}</a>
     {{- end }}
     <p class="rail-h">查找</p>
     {{- range $lists }}

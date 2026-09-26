@@ -54,6 +54,9 @@
 .vh-idx-s { font-size: var(--fs-s); color: var(--ink-2); }
 .vh-idx:hover .vh-idx-t { text-decoration: underline; }
 
+.vh-topic { grid-template-columns: 1fr; }
+.vh-topic .vh-idx-t { font: 700 var(--fs-l)/1.35 var(--f-serif); color: var(--series); }
+
 @media (max-width: 900px) {
   .vh-strokes, .vh-myths, .vh-index { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .vh-ladder { grid-template-columns: 1fr; gap: var(--s2); }

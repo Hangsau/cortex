@@ -17,6 +17,7 @@
     <p class="kicker">VORTEX · 水感知識庫</p>
     <h1 class="vh-title">水感</h1>
     <p class="vh-lead">技術是水感的輸出，不是要照抄的動作。這裡把六種泳式拆成一個個動作，每個動作都接到怎麼練、常見的錯誤想法、背後的物理，以及練不起來時該看哪裡。</p>
+    <p><a class="vh-more" href="{{ relURL "vortex/water-sense/" }}">第一次來？先讀：什麼是水感 →</a></p>
     <p class="vh-stats">
       <span><b>{{ index $cnt "move" }}</b> 個動作</span>
       <span><b>{{ index $cnt "drill" }}</b> 個練習</span>
@@ -76,6 +77,17 @@
       <li><a href="{{ relURL .path }}"><span class="vh-l">{{ .record.level }}</span><span class="vh-l-name">{{ .title }}</span><span class="vh-l-tag">{{ .record.tagline | plainify }}</span></a></li>
     {{- end }}{{ end }}
     </ol>
+  </section>
+
+  <section class="vh-sec" aria-labelledby="vh-topics">
+    <h2 id="vh-topics">主題與長期規劃</h2>
+    <p class="vh-sec-lead">跨過單一泳式的題目：呼吸、心理、身體怎麼動，以及一整季、一整個運動生涯怎麼安排。</p>
+    <div class="vh-index vh-topics">
+    {{- range slice (dict "p" "breathing" "t" "呼吸") (dict "p" "psychology" "t" "心理層") (dict "p" "joints" "t" "骨關節動作") (dict "p" "movement" "t" "動作圖譜") (dict "p" "adm" "t" "運動員發展 ADM") (dict "p" "periodization" "t" "訓練週期化") }}
+      {{- $pg := site.GetPage (printf "/vortex/%s" .p) }}
+      <a class="vh-idx vh-topic" href="{{ relURL (printf "vortex/%s/" .p) }}"><span class="vh-idx-t">{{ .t }}</span>{{ with $pg }}{{ with .Description }}<span class="vh-idx-s">{{ . }}</span>{{ end }}{{ end }}</a>
+    {{- end }}
+    </div>
   </section>
 
   {{- $idx := slice

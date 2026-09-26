@@ -664,6 +664,23 @@ def p4():
             if frag and urllib.parse.unquote(frag) not in ids_of(target):
                 bad_anchor.append(f"{here} → {href}")
     print(f"稽核 {pages_n} 頁、{links_n} 條站內連結")
+    # 孤兒頁：沒有任何其他頁連到它（2026-09-26 Vortex 七個專頁做好卻沒放進目錄與首頁，連結稽核抓不到）
+    linked = set()
+    for f in OUT.rglob("*.html"):
+        doc = f.read_text(encoding="utf-8")
+        if "此頁已搬移" in doc:
+            continue
+        for href in re.findall(r'href="?([^"\s>#]+)', doc):
+            if href.startswith(base):
+                linked.add((OUT / urllib.parse.unquote(href[len(base):]) / "index.html").resolve())
+    orphans = []
+    for f in OUT.rglob("index.html"):
+        if f.parent in (OUT, OUT / "library") or "此頁已搬移" in f.read_text(encoding="utf-8"):  # /library/ 是舊網址的書房落點
+            continue
+        if f.resolve() not in linked:
+            orphans.append("/" + f.parent.relative_to(OUT).as_posix() + "/")
+    for o in sorted(orphans)[:40]:
+        fail(f"孤兒頁（沒有任何頁連到它）：{o}")
     for b in sorted(set(broken))[:40]:
         fail(f"斷連結：{b}")
     for b in sorted(set(bad_anchor))[:40]:
