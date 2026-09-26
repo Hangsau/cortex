@@ -95,27 +95,17 @@
   };
   const fmt0 = (t) => fmt(Math.round(t), 0);
   const r5 = (x) => Math.round(x / 5) * 5;
-  // 手機數字鍵盤打不出冒號，所以時間一律拆成「分」「秒」兩格；顯示照使用者輸入的精度，不補 .0
-  const splitT = (t, dec) => {
-    if (t == null || !(t > 0)) return { m: '', s: '' };
-    const tot = +(+t).toFixed(dec), m = Math.floor(tot / 60);
-    const sec = +(tot - m * 60).toFixed(dec);
-    const s = String(sec);
-    return { m: m ? String(m) : '', s: m && sec < 10 ? '0' + s : s };
+  // 時間欄：單一格，可寫「1:30」或「90」，用一般鍵盤（2026-09-27 使用者：分秒兩格容易填錯）
+  const showT = (t, dec) => {
+    if (t == null || !(t > 0)) return '';
+    const x = +(+t).toFixed(dec);
+    if (x < 60) return String(x);
+    const m = Math.floor(x / 60), sec = +(x - m * 60).toFixed(dec);
+    return m + ':' + (sec < 10 ? '0' : '') + sec;
   };
-  const tfHtml = (attrs, t, dec, label, ph) => {
-    const v = splitT(t, dec);
-    return `<span class="wk-tf" ${attrs} data-dec="${dec}"><input class="wk-tf-m" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="分" value="${v.m}" aria-label="${label}（分）" autocomplete="off"><span aria-hidden="true">:</span><input class="wk-tf-s" type="text" inputmode="decimal" placeholder="${ph || '秒'}" value="${v.s}" aria-label="${label}（秒）" autocomplete="off"></span>`;
-  };
-  const readTF = (el) => {
-    const mi = el.querySelector('.wk-tf-m').value.trim();
-    const si = el.querySelector('.wk-tf-s').value.trim().replace(',', '.').replace('：', ':');
-    if (!mi && !si) return null;
-    if (si.includes(':')) return parseT(si);
-    const v = (+mi || 0) * 60 + (+si || 0);
-    return Number.isFinite(v) && v > 0 ? v : null;
-  };
-  const setTF = (el, t) => { const v = splitT(t, +el.dataset.dec || 0); el.querySelector('.wk-tf-m').value = v.m; el.querySelector('.wk-tf-s').value = v.s; };
+  const tfHtml = (attrs, t, dec, label, ph) => `<span class="wk-tf" ${attrs} data-dec="${dec}"><input class="wk-tf-i" type="text" placeholder="${ph || '例 90 或 1:30'}" value="${showT(t, dec)}" aria-label="${label}" autocomplete="off"></span>`;
+  const readTF = (el) => parseT(el.querySelector('.wk-tf-i').value.replace(',', '.'));
+  const setTF = (el, t) => { el.querySelector('.wk-tf-i').value = showT(t, +el.dataset.dec || 0); };
 
   /* ---------- 成績與 CSS ---------- */
   const pb = (s, d) => parseT(S.pb[baseStroke(s)] && S.pb[baseStroke(s)][d]);
@@ -145,9 +135,15 @@
     }
     return known(s).length ? { tier: 'tier_d', one: known(s).map(x => x[0]).join('、') } : null;
   }
+  // 50 m → 25 m 蹬牆衝刺：各式教練觀測點的 t25/t50 平均（next/data/swim_25_from_50.yaml，🟠）
+  const R25 = {};
+  (PZ.p25 && PZ.p25.points || []).forEach(x => { (R25[x.stroke] = R25[x.stroke] || []).push(x.t25 / x.t50); });
+  Object.keys(R25).forEach(k => { const a = R25[k]; R25[k] = { r: a.reduce((u, v) => u + v, 0) / a.length, n: a.length }; });
   function baseFor(s, d) {
     const own = pb(s, d);
     if (own) return { t: own, src: `${d} m PB` };
+    const t50 = pb(s, 50);
+    if (d === 25 && t50 && R25[s]) return { t: t50 * R25[s].r, split: true, D: 50, T: t50, coach: true, src: `50 m 成績 × ${R25[s].r.toFixed(3)}` };
     const longer = known(s).find(([D]) => D > d && D % d === 0);
     if (!longer) return null;
     const [D, T] = longer;
@@ -436,8 +432,9 @@
     const repsMid = t ? Math.round((t.reps.min + t.reps.max) / 2) : 4;
     const pcts = [80, 85, 88, 90, 92, 95, 98, 100];
     let html = `<div class="wk-sp"><p class="wk-css-k">${zh} ${d} m 目標</p><p class="wk-sp-v">${fmt(tg, 2)}</p>
-      <p class="muted">${base.split ? `基準 ${fmt(p, 2)}＝${zh} ${base.D} m 成績 ${fmt(base.T, 2)} ÷ ${base.D / d}` : `PB ${fmt(p, 2)}`} ÷ ${S.pct}%</p>
-      ${base.split ? `<p class="wk-note">沒有${zh} ${d} m 成績，基準用 ${base.D} m 成績平均切段（等於 ${base.D} m 的比賽配速）。真正的 ${d} m 全力會比這快一些，所以這個目標偏保守；有 ${d} m 成績填進 ① 就改用它。</p>` : ''}</div>
+      <p class="muted">${base.coach ? `基準 ${fmt(p, 2)}＝${zh} 50 m 成績 ${fmt(base.T, 2)} × ${R25[S.sstroke].r.toFixed(3)}` : base.split ? `基準 ${fmt(p, 2)}＝${zh} ${base.D} m 成績 ${fmt(base.T, 2)} ÷ ${base.D / d}` : `PB ${fmt(p, 2)}`} ÷ ${S.pct}%</p>
+      ${base.coach ? `<p class="wk-note">沒有${zh} 25 m 成績：用 50 m 成績換算成 25 m 蹬牆衝刺。比例 ${R25[S.sstroke].r.toFixed(3)} 來自 ${R25[S.sstroke].n} 個教練觀測點 ${esc(PZ.p25.cert)}，點不多，有 25 m 成績填進 ① 就改用它。</p>`
+        : base.split ? `<p class="wk-note">沒有${zh} ${d} m 成績，基準用 ${base.D} m 成績平均切段${d === 25 ? `（${zh}還沒有 50→25 的教練觀測資料）` : ''}。這是 ${base.D} m 的比賽配速，不是 ${d} m 全力；有 ${d} m 成績填進 ① 就改用它。</p>` : ''}</div>
       <div class="wk-quick" aria-label="速查">${pcts.map(x => `<button type="button" class="wk-q${x === +S.pct ? ' is-on' : ''}" data-pct="${x}"><span>${x}%</span><b>${fmt(p / (x / 100), 2)}</b></button>`).join('')}</div>`;
     if (t) html += `<p class="wk-note"><b>${t.key === 'velocity' ? '純速組' : '乳酸生成組'} ${t.cert}：</b>每趟 ${t.distance_m.min}–${t.distance_m.max} m，${t.reps.min}–${t.reps.max} 趟，休 ${fmt0(t.rest_s.min)}–${fmt0(t.rest_s.max)}。退出：${esc(t.exit)}。</p>`;
     else html += '<p class="wk-note">衝刺組的休息參數只到 50 m；這個距離的休息請自己決定。</p>';
@@ -601,7 +598,7 @@
   blocksEl.addEventListener('change', (e) => {
     const el = e.target;
     const tf = el.closest('.wk-tf');
-    if (tf) { const li = el.closest('.wk-r'); const row = rowOf(li); setTF(tf, row[tf.dataset.tff]); return; }
+    if (tf) return;
     if (el.tagName !== 'SELECT') return;
     const li = el.closest('.wk-r'); if (!li) return;
     const row = rowOf(li), f = el.dataset.f, v = el.value;
@@ -918,7 +915,7 @@
     const [s, d] = tf.dataset.wkPb.split(':');
     setTF(tf, parseT(S.pb[s][d]));
     tf.addEventListener('input', () => { S.pb[s][d] = readTF(tf); save(); refresh(); });
-    tf.addEventListener('change', () => { if (S.pb[s][d] >= 60) setTF(tf, S.pb[s][d]); }); // 秒格打 90 才整理成 1｜30，其餘照原樣
+
   });
   $('[data-wk-css]').addEventListener('click', (e) => {
     const zs = e.target.closest('[data-zs]');

@@ -27,6 +27,7 @@
     "spacing" $sd.weekly_assembly.spacing_rules_zh
     "taper" (dict "min" $tdur.range.min_days "max" $tdur.range.max_days "dur_note" $tdur.range.note_zh "vol" $tvol.reduction "freq" $tfreq.rule_zh "practice" $tp.swim_application.practice_zh "by_event" $tp.swim_application.no_event_specificity_zh)
     "energy" $zn.swim_energy_by_distance.events
+    "p25" hugo.Data.swim_25_from_50
 -}}
 {{- $src := index hugo.Data "vortex" "drills" -}}
 {{- $drills := slice -}}
@@ -50,7 +51,7 @@
 
   <section class="le-block" id="wk-pb" aria-labelledby="wk-pb-h">
     <h2 id="wk-pb-h">① 我的成績</h2>
-    <p class="muted">左格填分、右格填秒，例如 1 分 05.3 秒填 <b>1</b>｜<b>5.3</b>；不到一分鐘左格空著。只填真的游過的成績——沒填的距離不會被推估成個人最佳。每一式分開算，成績和練習要在同一種池長。成績不會存起來，每次打開都是空白。</p>
+    <p class="muted">時間可以寫「分:秒」或直接寫秒：1 分 05.3 秒填 <b>1:05.3</b> 或 <b>65.3</b>，34.2 秒填 <b>34.2</b>。只填真的游過的成績——沒填的距離不會被推估成個人最佳。每一式分開算，成績和練習要在同一種池長。成績不會存起來，每次打開都是空白。</p>
     <div class="wk-row">
       <label class="wk-field"><span>成績的池長</span>
         <select data-wk-course><option value="scm">短池 25 m</option><option value="lcm">長池 50 m</option></select>
@@ -62,7 +63,7 @@
       <div class="wk-pbs">
         {{- $k := .k }}{{ $zh := .zh }}
         {{- range .d }}
-        <div class="wk-field"><span>{{ . }} m</span><span class="wk-tf" data-wk-pb="{{ $k }}:{{ . }}" data-dec="2"><input class="wk-tf-m" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="分" aria-label="{{ $zh }} {{ . }} m（分）" autocomplete="off"><span aria-hidden="true">:</span><input class="wk-tf-s" type="text" inputmode="decimal" placeholder="秒" aria-label="{{ $zh }} {{ . }} m（秒）" autocomplete="off"></span></div>
+        <div class="wk-field"><span>{{ . }} m</span><span class="wk-tf" data-wk-pb="{{ $k }}:{{ . }}" data-dec="2"><input class="wk-tf-i" type="text" placeholder="例 34.2 或 1:05" aria-label="{{ $zh }} {{ . }} m 成績" autocomplete="off"></span></div>
         {{- end }}
       </div>
     </fieldset>
@@ -90,7 +91,7 @@
 
   <section class="le-block" id="wk-sprint" aria-labelledby="wk-sprint-h">
     <h2 id="wk-sprint-h">④ 衝刺換算</h2>
-    <p class="muted">目標秒數＝同一式、同一距離的 PB ÷ 強度%。沒有那個距離的 PB，就用同一式較長距離的成績平均切段當基準（例如 50 m 34 秒 → 25 m 基準 17 秒），比真正的全力慢一些、方向保守；不用短距離往上推，也不用公式外推。「PB 幾 %」查無文獻公式，95% 只是起點。</p>
+    <p class="muted">目標秒數＝同一式、同一距離的 PB ÷ 強度%。沒有 25 m 成績時，由同一式 50 m 成績按教練觀測的比例換算成 25 m 蹬牆衝刺（🟠，仰式還沒有資料則取 50 m ÷ 2）；其他距離沒有 PB 時，用較長距離成績平均切段。不從短距離往上推。「PB 幾 %」查無文獻公式，95% 只是起點。</p>
     <div class="wk-row">
       <label class="wk-field"><span>泳式</span><select data-wk-sstroke></select></label>
       <label class="wk-field"><span>距離</span><select data-wk-sdist></select></label>

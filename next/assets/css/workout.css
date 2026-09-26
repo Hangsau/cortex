@@ -82,12 +82,11 @@
 .wk-r select:focus-visible, .wk-r input:focus-visible { outline: 3px solid var(--series); outline-offset: 1px; }
 .wk-in { display: inline-flex; align-items: center; gap: 4px; }
 .wk-in[hidden] { display: none; }
-.wk-tf { display: inline-flex; align-items: center; gap: 2px; font-weight: 700; }
-.wk-tf input { width: 3.2em; min-width: 0; min-height: 44px; padding: 0 4px; border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink); font: 400 var(--fs-m)/1 var(--f-sans); font-variant-numeric: tabular-nums; text-align: center; }
-.wk-tf .wk-tf-s { width: 4em; }
+.wk-tf { display: inline-flex; }
+.wk-tf input { width: 6.5em; min-width: 0; min-height: 44px; padding: 0 var(--s1); border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink); font: 400 var(--fs-m)/1 var(--f-sans); font-variant-numeric: tabular-nums; }
+.wk-tf input::placeholder { color: var(--ink-2); font-size: var(--fs-s); }
 .wk-tf input:focus-visible { outline: 3px solid var(--series); outline-offset: 1px; }
-.wk-pbset .wk-tf { width: 100%; }
-.wk-pbset .wk-tf input { flex: 1 1 0; width: auto; }
+.wk-pbset .wk-tf, .wk-pbset .wk-tf input { width: 100%; }
 .wk-r-count .wk-in input[type="number"] { width: 3.6em; }
 .wk-r-sum { margin-left: auto; }
 .wk-addrow { width: 100%; min-height: var(--tap); margin: var(--s1) 0 0; border: 1px solid var(--series); border-radius: 4px; background: var(--paper); color: var(--series); font: 700 var(--fs-m)/1 var(--f-sans); cursor: pointer; }
