@@ -37,7 +37,7 @@ next/
                              diagrams.js、cscs-quiz.js、cscs-cards.js、temp-quiz.js、planner.js …
   data/                      產生物：vortex_links.json、library.json、starters.json、crosslinks.json；
                              手管：drill_axes.yaml（練習篩選軸標籤）、cscs_titles.yaml（CSCS 中文章名）；
-                             swim_rules.json（課表工具用，tools/sync_swim_rules.py 從 swim-coach 規則表同步）、swim_equipment.yaml（器材中文名）、swim_25_from_50.yaml（50→25 m 教練觀測換算點）
+                             swim_rules.json（課表工具用，tools/sync_swim_rules.py 從 swim-coach 規則表同步）、swim_equipment.yaml（器材中文名）
   static/                    舊網址轉址頁（tools/build_redirects.py 產生）
   specs/                     工作單規格、check.py（全部驗收）、run_queue.sh（M3 派工佇列）、STATUS.md
   crosslinks/                跨系列連結的候選、判斷、複審原始資料

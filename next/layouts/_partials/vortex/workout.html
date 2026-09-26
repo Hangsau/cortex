@@ -27,7 +27,6 @@
     "spacing" $sd.weekly_assembly.spacing_rules_zh
     "taper" (dict "min" $tdur.range.min_days "max" $tdur.range.max_days "dur_note" $tdur.range.note_zh "vol" $tvol.reduction "freq" $tfreq.rule_zh "practice" $tp.swim_application.practice_zh "by_event" $tp.swim_application.no_event_specificity_zh)
     "energy" $zn.swim_energy_by_distance.events
-    "p25" hugo.Data.swim_25_from_50
 -}}
 {{- $src := index hugo.Data "vortex" "drills" -}}
 {{- $drills := slice -}}
@@ -91,7 +90,7 @@
 
   <section class="le-block" id="wk-sprint" aria-labelledby="wk-sprint-h">
     <h2 id="wk-sprint-h">④ 衝刺換算</h2>
-    <p class="muted">目標秒數＝同一式、同一距離的 PB ÷ 強度%。沒有 25 m 成績時，由同一式 50 m 成績按教練觀測的比例換算成 25 m 蹬牆衝刺（🟠，仰式還沒有資料則取 50 m ÷ 2）；其他距離沒有 PB 時，用較長距離成績平均切段。不從短距離往上推。「PB 幾 %」查無文獻公式，95% 只是起點。</p>
+    <p class="muted">目標秒數＝同一式、同一距離的 PB ÷ 強度%。沒有那個距離的 PB，就用同一式較長距離的成績平均切段：25 m 取 50 m ÷ 2（跳水與蹬牆的差、距離短速度較快，大致抵銷）。不從短距離往上推。「PB 幾 %」查無文獻公式，95% 只是起點。</p>
     <div class="wk-row">
       <label class="wk-field"><span>泳式</span><select data-wk-sstroke></select></label>
       <label class="wk-field"><span>距離</span><select data-wk-sdist></select></label>
