@@ -1,13 +1,33 @@
-{{- /* 課表與間歇計時（Claude 手寫，2026-09-26）。處方數字全部來自 next/data/swim_rules.json
-       （由 tools/sync_swim_rules.py 從 swim-coach/rules/menu_rules.yaml 同步），頁面不寫死。
-       drill 清單取 data/vortex/drills.yaml（Vortex canonical 同步），器材中文名取 next/data/swim_equipment.yaml。
-       計算、課表編輯與計時在 next/assets/js/workout.js；所有輸入只存本機 localStorage。 */ -}}
+{{- /* 課表與間歇計時（Claude 手寫，2026-09-26；2026-09-27 公式全面改走 Vortex canonical）。
+       配速與組型公式、週期階段、減量、週組裝全部來自 data/periodization/（TheVortexProject canonical 同步）：
+         set-design.yaml 的 generator（CSS 四級錨點、有氧倍率、各組型距離／休息／趟數／目標規則）、
+         phase_allocation（各期意圖）、weekly_assembly（每週幾堂的配置）；taper.yaml（減量）；
+         structure.yaml 的 swim_annual（大週期長度）；zones.yaml 的 swim_energy_by_distance（項目能量系統）。
+       swim_rules.json（swim-coach 同步）只剩 drill 與緩和的預設休息。drill 清單取 data/vortex/drills.yaml，
+       器材中文名取 next/data/swim_equipment.yaml。計算、課表編輯與計時在 next/assets/js/workout.js。 */ -}}
 {{- $lib := resources.Get "css/library.css" | fingerprint -}}
 {{- $css := resources.Get "css/workout.css" | fingerprint -}}
 {{- $js := resources.Get "js/workout.js" | fingerprint -}}
 <link rel="stylesheet" href="{{ $lib.RelPermalink }}">
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 {{- $r := hugo.Data.swim_rules -}}
+{{- $sd := index hugo.Data "periodization" "set-design" -}}
+{{- $st := index hugo.Data "periodization" "structure" -}}
+{{- $tp := index hugo.Data "periodization" "taper" -}}
+{{- $zn := index hugo.Data "periodization" "zones" -}}
+{{- $tdur := dict -}}{{- $tvol := dict -}}{{- $tfreq := dict -}}
+{{- range $tp.variables }}{{ if eq .key "duration" }}{{ $tdur = . }}{{ else if eq .key "volume" }}{{ $tvol = . }}{{ else if eq .key "frequency" }}{{ $tfreq = . }}{{ end }}{{ end -}}
+{{- $pz := dict
+    "gen" (dict "derived" $sd.generator.derived "types" $sd.generator.set_types "tiers" $sd.generator.anchor_tiers.tiers "cert" $sd.generator.cert)
+    "phases" $sd.phase_allocation.intent_by_phase
+    "phase_prop" $sd.phase_allocation.phase_proportions_zh
+    "phase_cert" $sd.phase_allocation.cert
+    "macro" $st.swim_annual_structure.macrocycle_length_weeks
+    "budgets" $sd.weekly_assembly.session_budgets
+    "spacing" $sd.weekly_assembly.spacing_rules_zh
+    "taper" (dict "min" $tdur.range.min_days "max" $tdur.range.max_days "dur_note" $tdur.range.note_zh "vol" $tvol.reduction "freq" $tfreq.rule_zh "practice" $tp.swim_application.practice_zh "by_event" $tp.swim_application.no_event_specificity_zh)
+    "energy" $zn.swim_energy_by_distance.events
+-}}
 {{- $src := index hugo.Data "vortex" "drills" -}}
 {{- $drills := slice -}}
 {{- range $src.drills -}}
@@ -16,21 +36,21 @@
 {{- end -}}
 {{- $cats := slice -}}{{- range $src.categories }}{{ $cats = $cats | append (dict "k" .key "n" .name_zh) }}{{ end -}}
 {{- $eq := slice -}}{{- range hugo.Data.swim_equipment.items }}{{ $eq = $eq | append (dict "k" .key "n" .zh) }}{{ end -}}
-{{- $strokes := slice (dict "k" "free" "zh" "自由式" "d" (slice 50 100 200 400 800 1500)) (dict "k" "back" "zh" "仰式" "d" (slice 50 100 200)) (dict "k" "breast" "zh" "蛙式" "d" (slice 50 100 200)) (dict "k" "fly" "zh" "蝶式" "d" (slice 50 100 200)) (dict "k" "im" "zh" "混合式" "d" (slice 100 200 400)) -}}
+{{- $strokes := slice (dict "k" "free" "zh" "自由式" "d" (slice 25 50 100 200 400 800 1500)) (dict "k" "back" "zh" "仰式" "d" (slice 25 50 100 200)) (dict "k" "breast" "zh" "蛙式" "d" (slice 25 50 100 200)) (dict "k" "fly" "zh" "蝶式" "d" (slice 25 50 100 200)) (dict "k" "im" "zh" "混合式" "d" (slice 100 200 400)) -}}
 <article class="lib-chapter wk" data-wk>
   <header class="lc-head">
     <p class="kicker">Vortex · 工具</p>
     <h1>課表與間歇計時</h1>
-    <p class="lc-lead">填上各式成績，排出整份課表（暖身、drill、主課、緩和，可混合泳式、挑 drill、帶器材），每一列的目標秒數自動算好；排完按開始，整份課表變成間歇計時，出發前、到目標秒數、休息結束都有提示音。</p>
+    <p class="lc-lead">填上各式成績與目標賽事，看現在該練什麼、推薦的主課怎麼開；排出整份課表（可混合泳式、挑 drill、帶器材），再變成間歇計時，出發前、到目標秒數、休息結束都有提示音。</p>
   </header>
 
   <nav class="wk-steps" aria-label="步驟">
-    <a href="#wk-pb">① 成績</a><a href="#wk-css">② 換算</a><a href="#wk-sprint">③ 衝刺換算</a><a href="#wk-menu">④ 排課表</a><a href="#wk-sum">⑤ 總覽</a><a href="#wk-mine">⑥ 我的 drill 與器材</a>
+    <a href="#wk-pb">① 成績</a><a href="#wk-css">② 換算</a><a href="#wk-pz">③ 週期與建議</a><a href="#wk-sprint">④ 衝刺換算</a><a href="#wk-menu">⑤ 排課表</a><a href="#wk-sum">⑥ 清單</a><a href="#wk-mine">⑦ 我的 drill 與器材</a>
   </nav>
 
   <section class="le-block" id="wk-pb" aria-labelledby="wk-pb-h">
     <h2 id="wk-pb-h">① 我的成績</h2>
-    <p class="muted">左格填分、右格填秒，例如 1 分 05.3 秒填 <b>1</b>｜<b>05.3</b>；不到一分鐘左格空著。有幾筆填幾筆；每一式分開算。成績和練習要在同一種池長。</p>
+    <p class="muted">左格填分、右格填秒，例如 1 分 05.3 秒填 <b>1</b>｜<b>5.3</b>；不到一分鐘左格空著。只填真的游過的成績——沒填的距離不會被推估成個人最佳。每一式分開算，成績和練習要在同一種池長。</p>
     <div class="wk-row">
       <label class="wk-field"><span>成績的池長</span>
         <select data-wk-course><option value="scm">短池 25 m</option><option value="lcm">長池 50 m</option></select>
@@ -40,9 +60,9 @@
     <fieldset class="wk-pbset">
       <legend>{{ .zh }}</legend>
       <div class="wk-pbs">
-        {{- $k := .k }}
+        {{- $k := .k }}{{ $zh := .zh }}
         {{- range .d }}
-        <div class="wk-field"><span>{{ . }} m</span><span class="wk-tf" data-wk-pb="{{ $k }}:{{ . }}" data-dec="1"><input class="wk-tf-m" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="分" aria-label="{{ . }} m 分" autocomplete="off"><span aria-hidden="true">:</span><input class="wk-tf-s" type="text" inputmode="decimal" placeholder="秒" aria-label="{{ . }} m 秒" autocomplete="off"></span></div>
+        <div class="wk-field"><span>{{ . }} m</span><span class="wk-tf" data-wk-pb="{{ $k }}:{{ . }}" data-dec="2"><input class="wk-tf-m" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="分" aria-label="{{ $zh }} {{ . }} m（分）" autocomplete="off"><span aria-hidden="true">:</span><input class="wk-tf-s" type="text" inputmode="decimal" placeholder="秒" aria-label="{{ $zh }} {{ . }} m（秒）" autocomplete="off"></span></div>
         {{- end }}
       </div>
     </fieldset>
@@ -50,13 +70,29 @@
   </section>
 
   <section class="le-block" id="wk-css" aria-labelledby="wk-css-h">
-    <h2 id="wk-css-h">② 換算結果</h2>
-    <div data-wk-css><p class="muted">填入至少一筆成績後，這裡會算出各式 CSS 與各強度每趟的目標秒數。</p></div>
+    <h2 id="wk-css-h">② 換算：CSS 與有氧配速</h2>
+    <div data-wk-css><p class="muted">填入成績後，這裡會算出各式 CSS（臨界游速）與閾值、有氧的每趟目標秒數。</p></div>
+  </section>
+
+  <section class="le-block" id="wk-pz" aria-labelledby="wk-pz-h">
+    <h2 id="wk-pz-h">③ 週期與本週建議</h2>
+    <p class="muted">填目標賽事日期，推算現在在哪一期、這週純速／賽速／速耐／有氧誰為主，並推薦幾組主課。每一組都是參考，加進課表後可以改。</p>
+    <div class="wk-row">
+      <label class="wk-field"><span>目標賽事日期</span><input type="date" data-wk-race></label>
+      <label class="wk-field"><span>今天</span><input type="date" data-wk-today></label>
+      <label class="wk-field"><span>這個週期從哪天開始（可不填）</span><input type="date" data-wk-mstart></label>
+    </div>
+    <div class="wk-row">
+      <label class="wk-field"><span>比賽泳式</span><select data-wk-estroke></select></label>
+      <label class="wk-field"><span>比賽距離</span><select data-wk-edist></select></label>
+      <label class="wk-field"><span>每週下水</span><select data-wk-sess><option value="1">1 次</option><option value="2">2 次</option><option value="3">3 次</option><option value="4">4 次</option><option value="5">5 次</option><option value="6">6 次以上</option></select></label>
+    </div>
+    <div data-wk-pzout></div>
   </section>
 
   <section class="le-block" id="wk-sprint" aria-labelledby="wk-sprint-h">
-    <h2 id="wk-sprint-h">③ 衝刺／HIIT 換算</h2>
-    <p class="muted">目標秒數＝該距離 PB ÷ 強度%。規則表查無「衝刺目標＝PB 幾 %」的文獻公式，預設 95% 是建議起點，請依當天狀況調。</p>
+    <h2 id="wk-sprint-h">④ 衝刺換算</h2>
+    <p class="muted">目標秒數＝<b>同一式、同一距離</b>的 PB ÷ 強度%。沒有那個距離的 PB 就不換算——用別的距離推短距離衝刺會失真（例如蝶式從 50 m 推 25 m 會推得比自由式還快）。「PB 幾 %」查無文獻公式，95% 只是起點。</p>
     <div class="wk-row">
       <label class="wk-field"><span>泳式</span><select data-wk-sstroke></select></label>
       <label class="wk-field"><span>距離</span><select data-wk-sdist></select></label>
@@ -68,7 +104,7 @@
   </section>
 
   <section class="le-block" id="wk-menu" aria-labelledby="wk-menu-h">
-    <h2 id="wk-menu-h">④ 排課表</h2>
+    <h2 id="wk-menu-h">⑤ 排課表</h2>
     <div class="wk-menubar">
       <label class="wk-field"><span>課表</span><select data-wk-menus></select></label>
       <label class="wk-field wk-grow"><span>名稱</span><input type="text" data-wk-mname autocomplete="off"></label>
@@ -78,7 +114,7 @@
       <button type="button" class="wk-btn" data-wk-mdup>複製這份</button>
       <button type="button" class="wk-btn wk-btn--quiet" data-wk-mdel>刪除這份</button>
     </div>
-    <p class="muted">每一列：幾組 × 幾趟 × 距離、泳式、游法（游／腳／手／drill）、強度、每趟休息、組間休息。強度選「技術／耐力／速度／衝刺」會依該式成績自動算目標秒數；腳和 drill 用游泳成績算會失真，只能不設目標或自己填秒數。每一段底下的「＋ 加一列」新增項目。</p>
+    <p class="muted">每一列：幾組 × 幾趟 × 距離、泳式、游法、強度、每趟休息、組間休息。秒數欄不會自動填；選了強度後旁邊會出現建議值，按「套用」才填進去。腳和 drill 用游泳成績算會失真，只能不設目標或自己填秒數。</p>
     <div data-wk-blocks></div>
     <div class="wk-actions">
       <button type="button" class="wk-btn" data-wk-addblk>＋ 加一段</button>
@@ -88,7 +124,7 @@
   </section>
 
   <section class="le-block" id="wk-sum" aria-labelledby="wk-sum-h">
-    <h2 id="wk-sum-h">⑤ 課表總覽</h2>
+    <h2 id="wk-sum-h">⑥ 課表清單</h2>
     <div class="wk-sumwrap" data-wk-sum></div>
     <div class="wk-actions">
       <button type="button" class="wk-btn" data-wk-print>列印</button>
@@ -99,7 +135,7 @@
   </section>
 
   <section class="le-block" id="wk-mine" aria-labelledby="wk-mine-h">
-    <h2 id="wk-mine-h">⑥ 我的 drill 與器材</h2>
+    <h2 id="wk-mine-h">⑦ 我的 drill 與器材</h2>
     <p class="muted">內建的 drill 來自 Vortex 練習庫；不在裡面的動作在這裡新增，之後排課表時會出現在 drill 選單最上面。</p>
     <div class="wk-mine">
       <label class="wk-field wk-grow"><span>drill 名稱</span><input type="text" data-wk-dname autocomplete="off" placeholder="例如：單手蝶式 3-3-3"></label>
@@ -118,8 +154,10 @@
     <ul class="wk-mylist" data-wk-elist></ul>
   </section>
 
-  <p class="t-legend muted">處方數字來源：swim-coach 規則表（{{ $r.source.commit }}，同步於 {{ $r.source.synced }}）；強度分區與衝刺休息依 {{ $r.source.zones_citation }}。技術／耐力／速度各段的配速加減與休息秒數屬教練判斷，無文獻依據。所有成績、課表、自訂 drill 只存在這台裝置的瀏覽器。</p>
+  <p class="t-legend muted">公式與處方來源：Vortex 週期化章的課表設計（自動課表生成參數、階段配置、週組裝）、減量與能量系統節；每個數字旁標證據等級（🟢 研究實證、🟡 教科書或舊文獻、🟠 實務慣例、🔵 本站操作模型）。drill 與緩和的預設休息來自 swim-coach 規則表（{{ $r.source.commit }}）。所有成績、課表、自訂 drill 只存在這台裝置的瀏覽器。</p>
 </article>
+
+<div class="wk-toast" data-wk-toast role="status" aria-live="polite" hidden></div>
 
 <div class="wk-timer" data-wk-timer hidden role="dialog" aria-modal="true" aria-label="間歇計時器">
   <div class="wk-t-top"><span data-wk-t-where></span><button type="button" class="wk-t-x" data-wk-stop aria-label="結束計時">結束</button></div>
@@ -142,6 +180,7 @@
 </div>
 
 <script type="application/json" id="wk-rules">{{ $r | jsonify | safeJS }}</script>
+<script type="application/json" id="wk-pzdata">{{ $pz | jsonify | safeJS }}</script>
 <script type="application/json" id="wk-drills">{{ dict "drills" $drills "cats" $cats "equip" $eq "strokes" $strokes | jsonify | safeJS }}</script>
 <noscript><p class="page muted">這個工具需要 JavaScript。</p></noscript>
 <script src="{{ $js.RelPermalink }}" defer></script>

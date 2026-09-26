@@ -1,28 +1,48 @@
-/* 課表與間歇計時（Claude 手寫，2026-09-26；2026-09-27 改：分／秒分格輸入、幾組×幾趟、就地更新、清單列印、計時中臨場調整）
-   處方數字來自頁內 #wk-rules（swim-coach 規則表同步）；drill 與器材詞彙來自 #wk-drills。
-   輸入存本機 localStorage('cortex-swim-v2')；舊版 v1（只有自由式成績＋單層課表）第一次開啟時自動搬過來。
-   CSS 換算（每一式分開算，每種都標方法、確定性與誤差方向）：
-     200＋400 兩點（規則表方法）＞ 有 400（+4.5 秒／100 m，業界慣例）＞ 兩筆以上其他距離（個人疲勞指數外推；
-     使用者 2026-09-26 指示，規則表原為禁止）＞ 單一成績（Riegel 外推）＞ 混合式無成績時取各式 CSS 平均
-   編輯器鐵則：打字只更新狀態與衍生文字，不重畫整個課表——手機上輸入框失焦時重畫，會把緊接著的按鈕點擊吃掉
-   （2026-09-27 使用者回報「主課無法增加」即此）。只有按鈕與下拉選單造成結構改變時才重畫。 */
+/* 課表與間歇計時（Claude 手寫，2026-09-26；2026-09-27 第四版）
+   ── 公式真相源：Vortex canonical data/periodization/（頁內 #wk-pzdata）──
+   CSS 四級（set-design generator.anchor_tiers）：
+     A 有 200＋400 → (T400−T200)÷2（實測）
+     B 只有 400   → (T400÷4)÷0.92（估計）
+     C 沒有 400、有兩筆其他距離 → 用這兩筆擬合個人指數 k＝log(T2/T1)÷log(D2/D1)，T400＝T2×(400/D2)^k，再走 B（外推）
+     D 只有一筆非 400 或沒有 → 不給絕對秒數，改「以第 1 趟為準」自校準
+   不再借跑步的 Riegel 1.06、不夾限指數、不拿各式平均代替混合式——canonical 明文說單點外推不成立。
+   衝刺／純速／乳酸生成的目標只用「同一式、同一距離」的 PB；沒有就不換算。
+   （2026-09-27 使用者回報：蝶式 50 m 38 秒推 25 m 竟比自由式 50 m 34 秒推的還快——就是跨距離外推加指數夾限造成的。）
+   有氧倍率（穩定 ×1.06、輕鬆 ×1.09）、各組型距離／休息／趟數、週期各期意圖、週組裝、減量參數全部讀資料。
+   編輯器鐵則：打字只更新狀態與衍生文字，不重畫；秒數欄不自動填，建議值要按「套用」。 */
 (() => {
   'use strict';
   const root = document.querySelector('[data-wk]');
   if (!root) return;
   const R = JSON.parse(document.getElementById('wk-rules').textContent);
+  const PZ = JSON.parse(document.getElementById('wk-pzdata').textContent);
   const V = JSON.parse(document.getElementById('wk-drills').textContent);
   const $ = (s) => root.querySelector(s);
   const esc = (x) => String(x == null ? '' : x).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
+  // 資料裡的散文用 **粗體**；顯示時轉成 <b>，其餘一律跳脫
+  const md = (x) => esc(x).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
+
   const STROKES = V.strokes; // [{k, zh, d:[距離]}]
   const SZH = Object.fromEntries(STROKES.map(s => [s.k, s.zh]));
   SZH.choice = '自選';
+  const baseStroke = (s) => (s === 'choice' ? 'free' : s);
   const DRILL_STROKE = { free: 'freestyle', back: 'backstroke', breast: 'breaststroke', fly: 'butterfly' };
   const MODES = { swim: '游', kick: '腳', pull: '手', drill: 'drill' };
-  const INTS = { none: '不設目標', tech: '技術', end: '耐力', speed: '速度', sprint: '衝刺 %', custom: '自訂秒數' };
-  const ZKEY = { tech: 'main_technique', end: 'main_endurance', speed: 'main_speed' };
+  const INTS = { none: '不設目標', easy: '輕鬆有氧', steady: '穩定有氧', thr: '閾值（CSS）', tol: '速耐', race: '賽速', sprint: '衝刺 %', custom: '自訂秒數' };
   const DRILL = Object.fromEntries(V.drills.map(d => [d.id, d]));
+
+  /* ---------- canonical 參數 ---------- */
+  const TYPE = Object.fromEntries(PZ.gen.types.map(t => [t.key, t]));
+  const lastNum = (s) => { const m = String(s).match(/([\d.]+)\s*$/); return m ? +m[1] : null; };
+  const DER = Object.fromEntries(PZ.gen.derived.map(d => [d.key, d]));
+  const K_FALLBACK = lastNum(DER.css_per_100_s_fallback.formula); // 0.92
+  const K_STEADY = lastNum(DER.steady_per_100_s.formula);         // 1.06
+  const K_EASY = lastNum(DER.easy_per_100_s.formula);             // 1.09
+  const K_TOL = 1.10; // lactate_tolerance.target_rule「由 T100 換算配速後放慢約 10%」（🟠 實務慣例）
+  const RACE_REST = (TYPE.race_pace.rest_s.rule.match(/\d+/g) || []).map(Number); // [25, 15, 25, 20]
+  const raceRest = (d) => (d <= RACE_REST[0] ? RACE_REST[1] : RACE_REST[3]);
+  const TIER = Object.fromEntries(PZ.gen.tiers.map(t => [t.key, t]));
 
   /* ---------- 狀態 ---------- */
   const KEY = 'cortex-swim-v2';
@@ -30,19 +50,25 @@
   const newMenu = (name) => ({ name, blocks: [{ title: '暖身', rows: [] }, { title: 'Drill', rows: [] }, { title: '主課', rows: [] }, { title: '緩和', rows: [] }] });
   const S = Object.assign({
     course: 'scm', pb: {}, zstroke: 'free', sstroke: 'free', sdist: '50', pct: 95, autorest: true,
-    menus: [newMenu('今天的課表')], cur: 0, myDrills: [], myEquip: [],
+    menus: [newMenu('今天的課表')], cur: 0, myDrills: [], myEquip: [], pz: {},
   }, load(KEY) || {});
   STROKES.forEach(s => { S.pb[s.k] = S.pb[s.k] || {}; });
+  S.pz = Object.assign({ race: '', today: '', mstart: '', estroke: 'free', edist: '100', sess: '4' }, S.pz || {});
   if (!load(KEY)) {
     const v1 = load('cortex-swim-v1');
     if (v1) {
       S.pb.free = v1.pb || {};
-      (v1.plan || []).forEach(p => S.menus[0].blocks[2].rows.push({ sets: 1, reps: p.reps, dist: p.dist, stroke: v1.stroke || 'free', mode: 'swim', int: 'custom', target: p.target, pct: 95, rest: p.rest, setRest: 60, drill: '', equip: [], note: p.label || '' }));
+      (v1.plan || []).forEach(p => S.menus[0].blocks[2].rows.push({ sets: 1, reps: p.reps, dist: p.dist, stroke: v1.stroke || 'free', mode: 'swim', int: 'custom', target: p.target, pct: 95, rest: p.rest, setRest: 0, drill: '', equip: [], note: p.label || '' }));
     }
   }
   if (!S.menus.length) S.menus.push(newMenu('今天的課表'));
   if (S.cur >= S.menus.length) S.cur = 0;
-  S.menus.forEach(m => m.blocks.forEach(b => b.rows.forEach(r => { r.sets = r.sets || 1; if (r.setRest == null) r.setRest = 60; })));
+  const OLD_INT = { tech: 'easy', end: 'thr', speed: 'thr' }; // 第三版以前的 swim-coach 分段，對到 canonical 組型
+  S.menus.forEach(m => m.blocks.forEach(b => b.rows.forEach(r => {
+    r.sets = r.sets || 1; if (r.setRest == null) r.setRest = 0;
+    if (OLD_INT[r.int]) r.int = OLD_INT[r.int];
+    if (!INTS[r.int]) r.int = 'none';
+  })));
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (_) { /* 無儲存空間時照常計算 */ } };
   const M = () => S.menus[S.cur];
 
@@ -63,15 +89,18 @@
     return (neg ? '−' : '') + m + ':' + si.padStart(2, '0') + (sf ? '.' + sf : '');
   };
   const fmt0 = (t) => fmt(Math.round(t), 0);
-  // 手機數字鍵盤打不出冒號，所以時間一律拆成「分」「秒」兩格（2026-09-27 使用者回報只能輸入 90 不能輸入 1:30）
+  const r5 = (x) => Math.round(x / 5) * 5;
+  // 手機數字鍵盤打不出冒號，所以時間一律拆成「分」「秒」兩格；顯示照使用者輸入的精度，不補 .0
   const splitT = (t, dec) => {
     if (t == null || !(t > 0)) return { m: '', s: '' };
-    const tot = +(+t).toFixed(dec), m = Math.floor(tot / 60), s = (tot - m * 60).toFixed(dec);
-    return { m: m ? String(m) : '', s: m ? s.padStart(dec ? dec + 3 : 2, '0') : s };
+    const tot = +(+t).toFixed(dec), m = Math.floor(tot / 60);
+    const sec = +(tot - m * 60).toFixed(dec);
+    const s = String(sec);
+    return { m: m ? String(m) : '', s: m && sec < 10 ? '0' + s : s };
   };
-  const tfHtml = (attrs, t, dec, label) => {
+  const tfHtml = (attrs, t, dec, label, ph) => {
     const v = splitT(t, dec);
-    return `<span class="wk-tf" ${attrs} data-dec="${dec}"><input class="wk-tf-m" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="分" value="${v.m}" aria-label="${label}（分）" autocomplete="off"><span aria-hidden="true">:</span><input class="wk-tf-s" type="text" inputmode="decimal" placeholder="秒" value="${v.s}" aria-label="${label}（秒）" autocomplete="off"></span>`;
+    return `<span class="wk-tf" ${attrs} data-dec="${dec}"><input class="wk-tf-m" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="分" value="${v.m}" aria-label="${label}（分）" autocomplete="off"><span aria-hidden="true">:</span><input class="wk-tf-s" type="text" inputmode="decimal" placeholder="${ph || '秒'}" value="${v.s}" aria-label="${label}（秒）" autocomplete="off"></span>`;
   };
   const readTF = (el) => {
     const mi = el.querySelector('.wk-tf-m').value.trim();
@@ -83,96 +112,74 @@
   };
   const setTF = (el, t) => { const v = splitT(t, +el.dataset.dec || 0); el.querySelector('.wk-tf-m').value = v.m; el.querySelector('.wk-tf-s').value = v.s; };
 
-  /* ---------- CSS 與 PB 推估 ---------- */
-  const RIEGEL = 1.06; // Riegel 1981（跑步耐力模型）
-  const clampK = (k) => Math.min(Math.max(k, 1.02), 1.25);
-  const known = (s) => (STROKES.find(x => x.k === s) || { d: [] }).d.map(d => [d, parseT(S.pb[s][d])]).filter(x => x[1]);
-  const pair = (a, ta, b, tb) => 100 / ((b - a) / (tb - ta));
-  const expOf = (k) => {
-    if (k.length < 2) return { e: RIEGEL, own: false };
-    const [a, ta] = k[k.length - 2], [b, tb] = k[k.length - 1];
-    const raw = Math.log(tb / ta) / Math.log(b / a);
-    return Number.isFinite(raw) && raw > 0 ? { e: clampK(raw), raw, own: true } : { e: RIEGEL, own: false };
-  };
+  /* ---------- 成績與 CSS ---------- */
+  const pb = (s, d) => parseT(S.pb[baseStroke(s)] && S.pb[baseStroke(s)][d]);
+  const known = (s) => (STROKES.find(x => x.k === s) || { d: [] }).d.map(d => [d, pb(s, d)]).filter(x => x[1]);
+  // CSS 擬合不用 25 m：出發／蹬牆占比太大，會扭曲配速—距離關係（canonical 的例子是 100＋200、50＋100）
+  const knownCss = (s) => known(s).filter(([d]) => d >= 50);
   const cssCache = {};
   function css(s) {
-    if (s === 'choice') s = 'free';
-    if (s in cssCache) return cssCache[s];
-    return (cssCache[s] = cssCalc(s));
+    s = baseStroke(s);
+    if (!(s in cssCache)) cssCache[s] = cssCalc(s);
+    return cssCache[s];
   }
   function cssCalc(s) {
-    const k = known(s), t = Object.fromEntries(k);
-    if (t[200] && t[400] && t[400] > t[200]) {
-      return { pace: pair(200, t[200], 400, t[400]), label: '200 m＋400 m 兩筆（規則表方法）', grade: 'ok',
-        how: `CSS 速度 ＝ (400 − 200) ÷ (${fmt(t[400])} − ${fmt(t[200])})`, warn: [esc(R.css.pair_bias_note_zh)] };
+    const t400 = pb(s, 400), t200 = pb(s, 200);
+    if (t200 && t400) {
+      if (t400 <= t200) return { bad: '400 m 成績比 200 m 還快，請確認。' };
+      return { pace: (t400 - t200) / 2, tier: 'tier_a', how: `(${fmt(t400, 2)} − ${fmt(t200, 2)}) ÷ 2` };
     }
-    if (t[400]) {
-      return { pace: t[400] / 4 + 4.5, label: '有 400 m：400 配速 ＋ 4.5 秒／100 m', grade: 'mid',
-        how: `${fmt(t[400] / 4)}／100 m ＋ 4.5 秒`, warn: [`${esc(R.css.practice_shortcut.certainty)}：${esc(R.css.practice_shortcut.source)}。補測 200 m 就能改用兩筆算法。`] };
-    }
+    if (t400) return { pace: t400 / 4 / K_FALLBACK, tier: 'tier_b', how: `(${fmt(t400, 2)} ÷ 4) ÷ ${K_FALLBACK}` };
+    const k = knownCss(s);
     if (k.length >= 2) {
-      const x = expOf(k), [b, tb] = k[k.length - 1];
-      const T200 = t[200] || tb * Math.pow(200 / b, x.e), T400 = tb * Math.pow(400 / b, x.e);
-      const w = [];
-      if (b <= 100) w.push('短距離成績推出來的耐力配速會<b>偏快</b>，出發間隔要往<b>寬鬆</b>的方向修。規則表原本禁止這種換算（' + esc(R.css.single_forbidden_zh.split('\n')[0]) + '），此處依你 2026-09-26 的指示提供。');
-      else w.push('外推值，規則表的做法是實測 200 m 與 400 m 兩筆。');
-      if (x.raw !== x.e) w.push(`疲勞指數 ${x.raw.toFixed(3)} 超出常見範圍，已限制在 ${x.e.toFixed(2)} 計算。`);
-      return { pace: pair(200, T200, 400, T400), label: `${k[k.length - 2][0]} m＋${b} m：個人疲勞指數外推`, grade: 'low',
-        how: `疲勞指數 ${x.e.toFixed(3)}；${t[200] ? '' : `推估 200 m ≈ ${fmt(T200)}、`}推估 400 m ≈ ${fmt(T400)}`, warn: w };
+      const [d1, t1] = k[k.length - 2], [d2, t2] = k[k.length - 1];
+      const e = Math.log(t2 / t1) / Math.log(d2 / d1);
+      if (!(e > 1)) return { bad: `${d1} m 與 ${d2} m 兩筆成績的配速不合理（長距離配速不該比短距離快），請確認。` };
+      const T400 = t2 * Math.pow(400 / d2, e);
+      return { pace: T400 / 4 / K_FALLBACK, tier: 'tier_c', how: `用 ${d1} m＋${d2} m 擬合個人指數 ${e.toFixed(3)}，推 400 m ≈ ${fmt(T400)}，再 (T400 ÷ 4) ÷ ${K_FALLBACK}`, short: d2 <= 100 };
     }
-    if (k.length === 1) {
-      const [d0, t0] = k[0];
-      const T200 = t0 * Math.pow(200 / d0, RIEGEL), T400 = t0 * Math.pow(400 / d0, RIEGEL);
-      const w = ['只用一筆成績推耐力配速，誤差最大' + (d0 <= 100 ? '而且會<b>偏快</b>' : '') + '；規則表的做法是補測 200 m 與 400 m。'];
-      if (R.css.perceived_anchors_zh.length) w.push('還沒補測前，也可以先用感覺判斷強度：' + R.css.perceived_anchors_zh.map(esc).join('；') + '。');
-      return { pace: pair(200, T200, 400, T400), label: `只有 ${d0} m：Riegel 公式外推（確定性最低）`, grade: 'low',
-        how: `推估 200 m ≈ ${fmt(T200)}、400 m ≈ ${fmt(T400)}（指數 ${RIEGEL}）`, warn: w };
-    }
-    if (s === 'im') {
-      const four = ['free', 'back', 'breast', 'fly'].map(x => css(x)).filter(Boolean);
-      if (four.length) {
-        const pace = four.reduce((a, c) => a + c.pace, 0) / four.length;
-        return { pace, label: `沒有混合式成績：取 ${four.length} 式 CSS 平均推估`, grade: 'low',
-          how: four.length < 4 ? '缺的泳式沒算進去，數字會偏向已填的那幾式。' : '四式 CSS 平均，沒算轉換泳式的時間損失。',
-          warn: ['推估值；填一筆 200 或 400 混合式成績會準得多。'] };
-      }
-    }
-    return null;
+    return known(s).length ? { tier: 'tier_d', one: known(s).map(x => x[0]).join('、') } : null;
   }
-  function pbFor(s, d) {
-    if (s === 'choice') s = 'free';
-    const own = parseT(S.pb[s] && S.pb[s][d]);
-    if (own) return { t: own, est: false };
-    const k = known(s);
-    if (!k.length) return null;
-    const x = expOf(k);
-    const ref = k.slice().sort((a, b) => Math.abs(Math.log(a[0] / d)) - Math.abs(Math.log(b[0] / d)))[0];
-    return { t: ref[1] * Math.pow(d / ref[0], x.e), est: true, from: ref[0] };
-  }
+  const hasCss = (s) => { const c = css(s); return !!(c && c.pace); };
+  const TIER_LABEL = { tier_a: '實測', tier_b: '估計', tier_c: '外推', tier_d: '自校準' };
 
-  /* ---------- 一列課表的目標秒數 ---------- */
+  /* ---------- 一列課表的目標秒數（找不到依據就不給，並說缺什麼） ---------- */
   const NO_AUTO = { kick: 1, drill: 1 };
   function targetOf(row) {
-    const custom = parseT(row.target);
-    if (row.int === 'custom') return custom ? { t: custom } : null;
+    const s = baseStroke(row.stroke);
+    if (row.int === 'custom') { const t = parseT(row.target); return t ? { t } : null; }
     if (NO_AUTO[row.mode] || row.int === 'none') return null;
     if (row.int === 'sprint') {
-      const p = pbFor(row.stroke, row.dist);
-      return p ? { t: p.t / ((row.pct || 95) / 100), est: p.est } : { miss: true };
+      const p = pb(s, row.dist);
+      return p ? { t: p / ((row.pct || 95) / 100) } : { miss: `沒有${SZH[s]} ${row.dist} m 成績` };
     }
-    const c = css(row.stroke);
-    if (!c) return { miss: true };
-    const off = R.pace_offset_sec_per_100[ZKEY[row.int]] || 0;
-    return { t: (c.pace + off) * row.dist / 100, est: c.grade === 'low' };
+    if (row.int === 'race') {
+      const ev = +row.event, p = ev && pb(s, ev);
+      if (!p) return { miss: ev ? `沒有${SZH[s]} ${ev} m 成績` : '選一個比賽距離' };
+      return { t: p / (ev / row.dist), note: `${ev} m 配速` };
+    }
+    if (row.int === 'tol') {
+      const p = pb(s, 100);
+      return p ? { t: p * row.dist / 100 * K_TOL, note: '🟠' } : { miss: `沒有${SZH[s]} 100 m 成績` };
+    }
+    const c = css(s);
+    if (!c || !c.pace) return { miss: c && c.bad ? '成績不合理' : `${SZH[s]}成績不足以算 CSS` };
+    const mult = row.int === 'easy' ? K_EASY : row.int === 'steady' ? K_STEADY : 1;
+    return { t: c.pace * mult * row.dist / 100, note: c.tier === 'tier_a' ? '' : TIER_LABEL[c.tier] };
   }
-  const RND = R.send_off_rounding_sec || 5;
-  const sendOff = (sec) => Math.ceil(sec / RND) * RND;
-  const mid = (r) => Math.round((r.min + r.max) / 2 / 5) * 5;
-  function defaultRest(row) {
-    if (row.mode === 'drill') { const f = R.drill_rest_by_stroke[row.stroke]; return mid(f || R.rest_seconds.drill); }
-    if (ZKEY[row.int]) return mid(R.rest_seconds[ZKEY[row.int]]);
-    if (row.int === 'sprint') { const r = R.zones.Sp.rest_sec_by_distance[String(row.dist)]; return r ? Math.round((r[0] + r[1]) / 2 / 30) * 30 : 180; }
-    return 20;
+  // 休息建議（canonical 組型；drill／緩和走 swim-coach 規則表）——只顯示，不自動填
+  function restHint(row, blockTitle) {
+    const range = (r) => ({ min: r.min, max: r.max, mid: r5((r.min + r.max) / 2) });
+    if (row.mode === 'drill') { const f = R.drill_rest_by_stroke[row.stroke] || R.rest_seconds.drill; return Object.assign(range(f), { why: 'drill（swim-coach 規則表）' }); }
+    if ((blockTitle || '').trim() === '緩和') return Object.assign(range(R.rest_seconds.cool_down), { why: '緩和（swim-coach 規則表）' });
+    const tp = { easy: 'aerobic_easy', thr: 'threshold', tol: 'lactate_tolerance' }[row.int];
+    if (tp) return Object.assign(range(TYPE[tp].rest_s), { why: `${INTS[row.int]}組 ${TYPE[tp].cert}` });
+    if (row.int === 'race') { const v = raceRest(row.dist); return { min: v, max: v, mid: v, why: `賽速重複 ${TYPE.race_pace.cert}` }; }
+    if (row.int === 'sprint') {
+      const t = row.dist <= TYPE.velocity.distance_m.max ? TYPE.velocity : row.dist <= TYPE.lactate_production.distance_m.max ? TYPE.lactate_production : null;
+      if (t) return Object.assign(range(t.rest_s), { why: `${t.key === 'velocity' ? '純速' : '乳酸生成'}組 ${t.cert}` });
+    }
+    return null;
   }
 
   /* ---------- drill 與器材 ---------- */
@@ -196,9 +203,9 @@
   }
   function rowInt(row) {
     const tg = targetOf(row);
-    let s = row.int === 'sprint' ? `衝刺 ${row.pct}%` : (row.int === 'custom' || row.int === 'none' || NO_AUTO[row.mode]) ? '' : INTS[row.int];
-    if (tg && tg.t) s += (s ? ' ' : '') + '目標 ' + fmt(tg.t) + (tg.est ? '（估）' : '');
-    else if (tg && tg.miss) s += `（沒有${SZH[row.stroke === 'choice' ? 'free' : row.stroke]}成績，算不出目標）`;
+    let s = row.int === 'sprint' ? `衝刺 ${row.pct}%` : row.int === 'race' ? `賽速（${row.event || '?'} m）` : (row.int === 'custom' || row.int === 'none' || NO_AUTO[row.mode]) ? '' : INTS[row.int];
+    if (tg && tg.t) s += (s ? ' ' : '') + '目標 ' + fmt(tg.t) + (tg.note && tg.note !== '🟠' && !tg.note.includes('配速') ? `（${tg.note}）` : '');
+    else if (tg && tg.miss) s += `（${tg.miss}，無目標）`;
     return s;
   }
   const rowEquip = (row) => (row.equip || []).map(eqName).join('、');
@@ -206,98 +213,239 @@
     const tg = targetOf(row);
     if (tg && tg.t) return tg.t;
     const c = css(row.stroke);
-    const per100 = c ? c.pace + 20 : 120;
+    const per100 = c && c.pace ? c.pace * K_EASY : 120;
     return per100 * row.dist / 100 * (row.mode === 'kick' || row.mode === 'drill' ? 1.3 : 1);
   }
-  const rowSec = (row) => (row.sets || 1) * row.reps * (estSec(row) + (row.rest || 0)) + ((row.sets || 1) - 1) * Math.max(0, (row.setRest || 0) - (row.rest || 0));
+  const rowSec = (row) => { const n = (row.sets || 1) * row.reps; return n * (estSec(row) + (row.rest || 0)) + ((row.sets || 1) - 1) * Math.max(0, (row.setRest || 0) - (row.rest || 0)); };
 
-  /* ---------- ② 換算結果 ---------- */
-  const ZROWS = [
-    { int: 'tech', name: '技術組', zone: '不掛能量分區' },
-    { int: 'end', name: '耐力組', zone: 'En-2 閾值有氧' },
-    { int: 'speed', name: '速度組', zone: '偏快的主組' },
-  ];
-  const GRADE = { ok: '依規則', mid: '業界慣例', low: '低確定性' };
+  /* ---------- 小提示 ---------- */
+  const toastEl = root.parentElement.querySelector('[data-wk-toast]');
+  let toastT = 0;
+  const toast = (msg) => { toastEl.textContent = msg; toastEl.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => { toastEl.hidden = true; }, 2200); };
+
+  /* ---------- ② 換算 ---------- */
   function renderCss() {
     const box = $('[data-wk-css]');
-    const have = STROKES.filter(s => css(s.k));
-    if (!have.length) { box.innerHTML = '<p class="muted">填入至少一筆成績後，這裡會算出各式 CSS 與各強度每趟的目標秒數。</p>'; return; }
-    if (!css(S.zstroke)) S.zstroke = have[0].k;
+    const any = STROKES.some(s => known(s.k).length);
+    if (!any) { box.innerHTML = '<p class="muted">填入成績後，這裡會算出各式 CSS（臨界游速）與閾值、有氧的每趟目標秒數。</p>'; return; }
+    if (!known(S.zstroke).length) S.zstroke = STROKES.find(s => known(s.k).length).k;
     let html = '<div class="wk-cssall">' + STROKES.map(s => {
-      const c = css(s.k);
-      return `<button type="button" class="wk-cs${s.k === S.zstroke ? ' is-on' : ''}" data-zs="${s.k}" aria-pressed="${s.k === S.zstroke}"${c ? '' : ' disabled'}><span>${s.zh}</span><b>${c ? fmt(c.pace) : '—'}</b><i>${c ? GRADE[c.grade] : '沒有成績'}</i></button>`;
+      const c = css(s.k), has = known(s.k).length;
+      const v = c && c.pace ? fmt(c.pace) : c && c.bad ? '？' : '—';
+      const lab = c && c.pace ? TIER_LABEL[c.tier] : c && c.bad ? '成績不合理' : has ? '自校準' : '沒有成績';
+      return `<button type="button" class="wk-cs${s.k === S.zstroke ? ' is-on' : ''}" data-zs="${s.k}" aria-pressed="${s.k === S.zstroke}"${has ? '' : ' disabled'}><span>${s.zh}</span><b>${v}</b><i>${lab}</i></button>`;
     }).join('') + '</div>';
-    const c = css(S.zstroke);
-    html += `<div class="wk-css"><p class="wk-css-k">${SZH[S.zstroke]} CSS 配速</p><p class="wk-css-v">${fmt(c.pace)}<span>／100 m</span></p>
-      <p class="wk-css-m"><span class="wk-grade wk-grade--${c.grade}">${GRADE[c.grade]}</span>${esc(c.label)}</p><p class="muted">${esc(c.how)}</p>
-      ${c.warn.map(w => `<p class="wk-warn">${w}</p>`).join('')}</div>`;
-    html += '<div class="wk-tablewrap"><table class="wk-table"><thead><tr><th scope="col">強度</th>' +
-      [50, 100, 200].map(d => `<th scope="col">${d} m</th>`).join('') + '</tr></thead><tbody>';
-    ZROWS.forEach(z => {
-      const off = R.pace_offset_sec_per_100[ZKEY[z.int]] || 0;
-      const rest = R.rest_seconds[ZKEY[z.int]];
-      html += `<tr><th scope="row">${z.name}<span>${z.zone}<br>每 100 m ${off > 0 ? '+' : ''}${off} 秒、休息 ${rest.min}–${rest.max} 秒</span></th>`;
-      [50, 100, 200].forEach(d => {
-        const tg = (c.pace + off) * d / 100;
-        html += `<td><b>${fmt(tg)}</b><span>出發 ${fmt0(sendOff(tg + rest.min))}–${fmt0(sendOff(tg + rest.max))}</span>
-          <button type="button" class="wk-add" data-zadd="${z.int}:${d}">加入主課</button></td>`;
-      });
+    const c = css(S.zstroke), zh = SZH[S.zstroke];
+    if (c && c.bad) { box.innerHTML = html + `<p class="wk-warn">${esc(c.bad)}</p>`; return; }
+    if (!c || !c.pace) {
+      box.innerHTML = html + `<div class="wk-css"><p class="wk-css-k">${zh}：${TIER_LABEL.tier_d}</p><p>只有 ${c.one} m（50 m 以上不到兩筆），算不出 CSS，所以不給閾值／有氧的絕對秒數。</p>
+        <p class="wk-note">${md(TIER.tier_d.target_time_zh)}</p><p class="muted">補一筆 200 m 或 400 m（同式同池長），這裡就會出現數字。</p></div>`;
+      return;
+    }
+    html += `<div class="wk-css"><p class="wk-css-k">${zh} CSS 配速</p><p class="wk-css-v">${fmt(c.pace)}<span>／100 m</span></p>
+      <p class="wk-css-m"><span class="wk-grade wk-grade--${c.tier === 'tier_a' ? 'ok' : c.tier === 'tier_b' ? 'mid' : 'low'}">${TIER_LABEL[c.tier]}</span>${md(TIER[c.tier].have_zh)}</p>
+      <p class="muted">${esc(c.how)}</p>
+      ${c.tier === 'tier_c' ? `<p class="wk-warn">外推值：研究比對中兩筆推 400 m 平均仍偏快，建議近期補測 400 m。${c.short ? '只用 50／100 m 推，偏快更明顯（短距離會把斜率抬高）。' : ''}</p>` : ''}</div>`;
+    const rows = [
+      { int: 'thr', name: '閾值（CSS）', t: TYPE.threshold, mult: 1, note: `每趟 ${TYPE.threshold.distance_m.min}–${TYPE.threshold.distance_m.max} m，總量 ${esc(TYPE.threshold.volume_rule.replace('總量 ', ''))}` },
+      { int: 'steady', name: '穩定有氧', t: null, mult: K_STEADY, note: `CSS × ${K_STEADY}` },
+      { int: 'easy', name: '輕鬆有氧', t: TYPE.aerobic_easy, mult: K_EASY, note: `CSS × ${K_EASY}` },
+    ];
+    html += '<div class="wk-tablewrap"><table class="wk-table"><thead><tr><th scope="col">強度</th>' + [100, 200, 400].map(d => `<th scope="col">${d} m</th>`).join('') + '</tr></thead><tbody>';
+    rows.forEach(z => {
+      html += `<tr><th scope="row">${z.name}<span>${z.note}${z.t ? `<br>休 ${z.t.rest_s.min}–${z.t.rest_s.max} 秒 ${z.t.cert}` : '<br>🔵'}</span></th>`;
+      [100, 200, 400].forEach(d => { html += `<td><b>${fmt(c.pace * z.mult * d / 100)}</b><button type="button" class="wk-add" data-zadd="${z.int}:${d}">加入主課</button></td>`; });
       html += '</tr>';
     });
     html += '</tbody></table></div>';
-    const en2 = R.zones['En-2'];
-    html += `<p class="muted">耐力組依 ${esc(en2.name_zh)}：休息不超過游的時間、超過 100 m 的重複休息要少於游的時間一半；整組約 ${en2.set_duration_min[0]}–${en2.set_duration_min[1]} 分鐘。技術／耐力／速度三段的配速加減與休息秒數是教練判斷，沒有文獻依據。</p>`;
+    html += `<p class="muted">退出規則（閾值組）：${esc(TYPE.threshold.exit)}。${esc(TYPE.threshold.continuous_note_zh || '')}</p>`;
     box.innerHTML = html;
   }
 
-  /* ---------- ③ 衝刺換算 ---------- */
+  /* ---------- 主課 ---------- */
   function mainBlock() {
     const m = M();
     let b = m.blocks.find(x => x.title === '主課');
     if (!b) { b = { title: '主課', rows: [] }; m.blocks.push(b); }
     return b;
   }
+  const blankRow = (o) => Object.assign({ sets: 1, reps: 4, dist: 50, stroke: 'free', mode: 'swim', int: 'none', pct: 95, event: '', target: null, rest: 0, setRest: 0, drill: '', equip: [], note: '' }, o);
+  function addMain(row, label) {
+    mainBlock().rows.push(blankRow(row));
+    save(); renderMenu();
+    toast(`已加入主課：${label || rowHead(row)}`);
+  }
+
+  /* ---------- ③ 週期與本週建議 ---------- */
+  const DAY = 86400000;
+  const isoToday = () => { const d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset()); return d.toISOString().slice(0, 10); };
+  const dateOf = (s) => (s ? new Date(s + 'T00:00:00') : null);
+  const PHASE_NAME = { general_prep: '一般準備期', specific_prep: '專項準備期', competition: '競賽期', taper: '減量期', transition: '過渡期' };
+  const PROP = { general_prep: 45, specific_prep: 25, competition: 12.5 }; // phase_proportions_zh 🟠 的區間中值（40–50／20–30／10–15）
+  const MACRO_W = Math.max(...(String(PZ.macro).match(/\d+(?=\s*週)|\d+/g) || [15]).map(Number).filter(n => n > 5 && n < 30), 15);
+  // 各期四類重點——轉寫自 phase_allocation.intent_by_phase（原文一併顯示）
+  const FOCUS = {
+    general_prep: { 有氧: ['主', '閾值與輕鬆有氧為主'], 純速: ['維持', '低量、高品質'], 賽速: ['少量', '當動作校準'], 速耐: ['不練', '不放或極少'] },
+    specific_prep: { 賽速: ['主', '與閾值並重'], 有氧: ['並重', '閾值；輕鬆有氧的量讓位但不歸零'], 速耐: ['每週 ≤1 次', '乳酸耐受開始進場'], 純速: ['維持', '乳酸生成開始進場'] },
+    competition: { 賽速: ['主', '保持銳利'], 純速: ['主', '速度組保持銳利'], 速耐: ['不再新增', '主賽前 10–14 天內'], 有氧: ['恢復用', '閾值與輕鬆課負責恢復'] },
+    taper: { 賽速: ['保留少量', '每堂保留短賽速'], 純速: ['保留', '短爆發、完整休息'], 有氧: ['降量', '總量下降的主要來源'], 速耐: ['不練', '主賽前 10–14 天內不新增'] },
+    transition: { 有氧: ['輕鬆', '不設目標時間'], 純速: ['不練', ''], 賽速: ['不練', ''], 速耐: ['不練', ''] },
+  };
+  const FOCUS_ORDER = ['純速', '賽速', '速耐', '有氧'];
+  function pzPhase() {
+    const p = S.pz;
+    const race = dateOf(p.race), today = dateOf(p.today || isoToday()), mstart = dateOf(p.mstart);
+    if (!race) return null;
+    const days = Math.round((race - today) / DAY);
+    const macroDays = mstart && mstart < race ? Math.round((race - mstart) / DAY) : MACRO_W * 7;
+    const tot = PROP.general_prep + PROP.specific_prep + PROP.competition;
+    const compD = Math.max(Math.round(macroDays * PROP.competition / tot), PZ.taper.max);
+    const specD = Math.round(macroDays * PROP.specific_prep / tot);
+    const bounds = { taper: PZ.taper.max, competition: compD, specific_prep: compD + specD, general_prep: macroDays };
+    let phase, note = '';
+    if (days < 0) { phase = 'transition'; note = `比賽已過 ${-days} 天。`; }
+    else if (days <= bounds.taper) { phase = 'taper'; note = days > PZ.taper.min ? `減量可以從現在開始，最晚賽前 ${PZ.taper.min} 天。` : '已在減量窗內。'; }
+    else if (days <= bounds.competition) phase = 'competition';
+    else if (days <= bounds.specific_prep) phase = 'specific_prep';
+    else { phase = 'general_prep'; if (days > macroDays) note = `離比賽 ${Math.round(days / 7)} 週，超過一個大週期（約 ${Math.round(macroDays / 7)} 週）；時間軸從賽前 ${Math.round(macroDays / 7)} 週算起，現在先當一般準備。`; }
+    if (mstart && today < mstart && days >= 0) note += ' 你填的週期開始日還沒到。';
+    return { days, phase, note, macroDays, bounds };
+  }
+  // 推薦組：組型參數全部取 set_types；取區間中值，並標明
+  function recSets(ph) {
+    const s = S.pz.estroke, ev = +S.pz.edist;
+    const out = [];
+    const repRace = ev <= 100 ? 25 : 50;
+    const raceMult = ev >= 800 ? 2.5 : ev === 400 ? 4 : 5.5; // race_pace.volume_rule：×5–6（400 改 3–5；800/1500 改 2–3）取中值
+    const raceSet = (scale) => {
+      const reps = Math.max(4, Math.round(ev * raceMult * (scale || 1) / repRace));
+      return { type: 'race_pace', name: '賽速重複', row: { reps, dist: repRace, stroke: s, int: 'race', event: String(ev), rest: raceRest(repRace) }, why: `總量＝${ev} m × ${raceMult}${scale ? ` × ${scale}（減量）` : ''}` };
+    };
+    const thrSet = () => { const t = TYPE.threshold, d = 200, vol = 2000; return { type: 'threshold', name: '閾值', row: { reps: vol / d, dist: d, stroke: s, int: 'thr', rest: r5((t.rest_s.min + t.rest_s.max) / 2) }, why: `總量取 ${esc(t.volume_rule.replace(/^總量\s*/, ''))} 的下緣` }; };
+    const easySet = () => { const t = TYPE.aerobic_easy; return { type: 'aerobic_easy', name: '輕鬆有氧', row: { reps: 3, dist: 400, stroke: s, int: 'easy', rest: r5((t.rest_s.min + t.rest_s.max) / 2) }, why: '量依可用時間調' }; };
+    const velSet = (sets) => { const t = TYPE.velocity; return { type: 'velocity', name: '純速', row: { sets: sets || t.reps.blocks, reps: 4, dist: t.distance_m.max, stroke: s, int: 'sprint', pct: 100, rest: r5((t.rest_s.min + t.rest_s.max) / 2), setRest: 0 }, why: `每趟 ${t.distance_m.min}–${t.distance_m.max} m，${t.reps.min}–${t.reps.max} 趟分 ${t.reps.blocks} 組` }; };
+    const lpSet = () => { const t = TYPE.lactate_production; return { type: 'lactate_production', name: '乳酸生成', row: { reps: 6, dist: t.distance_m.max, stroke: s, int: 'sprint', pct: 100, rest: r5((t.rest_s.min + t.rest_s.max) / 2) }, why: `每趟 ${t.distance_m.min}–${t.distance_m.max} m，${t.reps.min}–${t.reps.max} 趟` }; };
+    const tolSet = () => { const t = TYPE.lactate_tolerance; return { type: 'lactate_tolerance', name: '速耐', row: { reps: 5, dist: 100, stroke: s, int: 'tol', rest: 40 }, why: `每趟 ${t.distance_m.min}–${t.distance_m.max} m，${t.reps.min}–${t.reps.max} 趟，休 ${t.rest_s.min}–${t.rest_s.max} 秒` }; };
+    if (ph === 'general_prep') out.push(thrSet(), easySet(), velSet());
+    else if (ph === 'specific_prep') out.push(raceSet(), thrSet(), tolSet());
+    else if (ph === 'competition') out.push(raceSet(), ev <= 100 ? velSet() : lpSet(), easySet());
+    else if (ph === 'taper') out.push(raceSet(0.5), velSet(1), easySet());
+    else out.push(Object.assign(easySet(), { row: { reps: 2, dist: 400, stroke: s, int: 'none', rest: 30 } }));
+    return out;
+  }
+  function renderPz() {
+    const box = $('[data-wk-pzout]');
+    const P = pzPhase();
+    if (!P) { box.innerHTML = '<p class="muted">填目標賽事日期後開始推算。</p>'; return; }
+    const s = S.pz.estroke, ev = +S.pz.edist;
+    const b = P.bounds, tot = Math.max(b.general_prep, P.days, 1);
+    const seg = (key, from, to) => `<div class="wk-tl-seg wk-tl-${key}" data-grow="${Math.max(to - from, 0)}"><span>${PHASE_NAME[key]}</span></div>`;
+    const pos = P.days < 0 ? 100 : Math.max(0, Math.min(100, 100 * (1 - P.days / tot)));
+    let html = `<div class="wk-pzhead"><p class="wk-css-k">現在是</p><p class="wk-pz-phase">${PHASE_NAME[P.phase]}</p>
+      <p>${P.days >= 0 ? `離比賽 <b>${P.days}</b> 天（約 ${(P.days / 7).toFixed(1)} 週）` : ''}${P.note ? ' ' + esc(P.note) : ''}</p></div>`;
+    if (P.days >= 0) {
+      html += `<div class="wk-tl" aria-hidden="true">${seg('general_prep', b.specific_prep, tot)}${seg('specific_prep', b.competition, b.specific_prep)}${seg('competition', b.taper, b.competition)}${seg('taper', 0, b.taper)}<i class="wk-tl-now" data-pos="${pos.toFixed(1)}"></i></div>
+        <p class="muted">時間軸：大週期 ${Math.round(P.macroDays / 7)} 週（${S.pz.mstart ? '依你填的開始日' : `沒填開始日，用研究觀察到的大週期長度：${esc(PZ.macro)}`}）；各期比例用教練慣例的區間中值——${md(PZ.phase_prop.split('\n')[0])}減量窗 ${PZ.taper.min}–${PZ.taper.max} 天 🟢。</p>`;
+    }
+    const F = FOCUS[P.phase];
+    html += `<h3>這週的重點 <span class="wk-cert">${PZ.phase_cert}</span></h3><div class="wk-focus">` + FOCUS_ORDER.map(k => `<div class="wk-fc wk-fc--${F[k][0] === '主' ? 'main' : /不練|不再/.test(F[k][0]) ? 'off' : 'mid'}"><span>${k}</span><b>${F[k][0]}</b><i>${esc(F[k][1])}</i></div>`).join('') + '</div>';
+    const intent = PZ.phases.find(x => x.phase === (P.phase === 'taper' ? 'competition' : P.phase));
+    if (intent) html += `<p class="wk-note"><b>${esc(intent.name_zh)}原文：</b>${md(intent.emphasis_zh)}</p>`;
+    const en = PZ.energy.find(x => x.event === ev + 'm');
+    if (en) html += `<p class="muted">${ev} m 的能量來源：有氧約 ${esc(en.aerobic_pct)}（${md(en.note_zh)}）${en.cert}。距離越短，純速與賽速越吃重；400 m 以上有氧是主幹。</p>`;
+    html += '<p class="muted">四類的對應：純速＝速度組與乳酸生成；賽速＝目標賽速重複；速耐＝乳酸耐受；有氧＝閾值（CSS）與輕鬆有氧。研究沒有「每週各練幾成」的單一答案，所以這裡只給主次，不給百分比。</p>';
+    if (P.phase === 'taper' || (P.days >= 0 && P.days <= PZ.taper.max + 7)) {
+      html += `<div class="wk-taper"><h3>減量怎麼做 🟢</h3><ul>
+        <li>時長 ${PZ.taper.min}–${PZ.taper.max} 天：${md(PZ.taper.dur_note)}</li>
+        <li>總量降 ${esc(PZ.taper.vol.typical)}（剛完成高量訓練塊降 ${esc(PZ.taper.vol.heavy_pretaper)}）</li>
+        <li>${md(PZ.taper.freq)}</li><li>${esc(PZ.taper.by_event.replace(/^🟢\s*/, ''))}</li></ul></div>`;
+    }
+    const n = Math.min(6, Math.max(1, +S.pz.sess || 1));
+    const bud = PZ.budgets.find(x => x.sessions === n);
+    if (bud && P.phase !== 'transition') html += `<h3>一週 ${n} 堂怎麼擺 🔵</h3><p>${md(bud.layout_zh)}</p><details class="wk-more"><summary>間隔規則</summary><p>${md(PZ.spacing).replace(/\n/g, '<br>')}</p></details>`;
+    html += `<h3>推薦主課（${SZH[s]} ${ev} m）</h3><p class="muted">取各組型參數區間的中值；目標秒數用你在 ① 填的成績算，缺成績的組會標「以第 1 趟為準」。按「加入主課」後可以再改。</p><ol class="wk-rec">`;
+    recSets(P.phase).forEach((x, i) => {
+      const t = TYPE[x.type];
+      const row = blankRow(x.row);
+      const tg = targetOf(row);
+      html += `<li><div class="wk-rec-h"><b>${x.name}</b><span>${t ? t.cert : ''}</span></div>
+        <p class="wk-rec-v">${esc(rowHead(row))}　${tg && tg.t ? '目標 <b>' + fmt(tg.t) + '</b>' : tg && tg.miss ? `<span class="wk-miss">${esc(tg.miss)}，以第 1 趟為準</span>` : '不設目標'}　休 ${fmt0(row.rest)}${row.sets > 1 && row.setRest ? '　組間 ' + fmt0(row.setRest) : ''}</p>
+        <p class="muted">${x.why}${t && t.exit ? `。退出：${esc(t.exit)}` : ''}${t && t.weekly_max ? `。每週最多 ${t.weekly_max} 次` : ''}${t && t.requires_fresh ? '，要在不累的時候做' : ''}</p>
+        <button type="button" class="wk-add" data-rec="${i}">加入主課</button></li>`;
+    });
+    html += '</ol>';
+    box.innerHTML = html;
+    const now = box.querySelector('.wk-tl-now'); if (now) now.style.left = now.dataset.pos + '%';
+    box.querySelectorAll('.wk-tl-seg').forEach(el => { el.style.flexGrow = el.dataset.grow; }); // 比例由資料算，只能在執行時設
+    const recs = recSets(P.phase);
+    box.querySelectorAll('[data-rec]').forEach(btn => btn.addEventListener('click', () => { const x = recs[+btn.dataset.rec]; addMain(Object.assign({ note: x.name }, x.row), x.name); }));
+  }
+  function initPz() {
+    const es = $('[data-wk-estroke]'), ed = $('[data-wk-edist]');
+    es.innerHTML = STROKES.map(s => `<option value="${s.k}">${s.zh}</option>`).join('');
+    const fillD = () => {
+      const ds = STROKES.find(s => s.k === S.pz.estroke).d.filter(d => d >= 50);
+      ed.innerHTML = ds.map(d => `<option value="${d}">${d} m</option>`).join('');
+      if (!ds.includes(+S.pz.edist)) S.pz.edist = String(ds.includes(100) ? 100 : ds[0]);
+      ed.value = S.pz.edist;
+    };
+    es.value = S.pz.estroke; fillD();
+    $('[data-wk-race]').value = S.pz.race;
+    $('[data-wk-today]').value = S.pz.today || isoToday();
+    $('[data-wk-mstart]').value = S.pz.mstart;
+    $('[data-wk-sess]').value = S.pz.sess;
+    const on = (sel, key, extra) => $(sel).addEventListener('change', (e) => { S.pz[key] = e.target.value; if (extra) extra(); save(); renderPz(); });
+    on('[data-wk-race]', 'race'); on('[data-wk-mstart]', 'mstart'); on('[data-wk-sess]', 'sess'); on('[data-wk-edist]', 'edist');
+    on('[data-wk-estroke]', 'estroke', fillD);
+    // 「今天」不存成固定值：沒改就永遠用當天日期
+    $('[data-wk-today]').addEventListener('change', (e) => { S.pz.today = e.target.value === isoToday() ? '' : e.target.value; save(); renderPz(); });
+  }
+
+  /* ---------- ④ 衝刺換算：只用同式同距離的 PB ---------- */
   function renderSprint() {
     const box = $('[data-wk-sprint]');
     const ss = $('[data-wk-sstroke]');
     ss.innerHTML = STROKES.map(s => `<option value="${s.k}">${s.zh}</option>`).join('');
     ss.value = S.sstroke;
-    const dists = [25].concat(STROKES.find(s => s.k === S.sstroke).d.filter(d => d <= 400));
-    if (!dists.includes(+S.sdist)) S.sdist = String(dists.includes(50) ? 50 : dists[1]);
+    const dists = STROKES.find(s => s.k === S.sstroke).d.filter(d => d <= 400);
+    if (!dists.includes(+S.sdist)) S.sdist = String(dists[0]);
     const sd = $('[data-wk-sdist]');
-    sd.innerHTML = dists.map(d => `<option value="${d}">${d} m</option>`).join('');
+    sd.innerHTML = dists.map(d => `<option value="${d}">${d} m${pb(S.sstroke, d) ? '' : '（沒有成績）'}</option>`).join('');
     sd.value = S.sdist;
-    const d = +S.sdist;
+    const d = +S.sdist, zh = SZH[S.sstroke];
     $('[data-wk-pctv]').textContent = S.pct;
     $('[data-wk-pct]').value = S.pct;
-    const p = pbFor(S.sstroke, d);
-    if (!p) { box.innerHTML = `<p class="muted">先在 ① 填至少一筆${SZH[S.sstroke]}成績。</p>`; return; }
-    const tg = p.t / (S.pct / 100);
-    const sp = R.zones.Sp;
-    const rr = sp.rest_sec_by_distance[String(d)], rp = sp.reps_by_distance[String(d)];
-    const row = { sets: 1, reps: rp ? Math.round((rp[0] + rp[1]) / 2) : 4, dist: d, stroke: S.sstroke, mode: 'swim', int: 'sprint', pct: S.pct, setRest: 60 };
-    const restDef = defaultRest(row);
+    const p = pb(S.sstroke, d);
+    if (!p) {
+      const longer = known(S.sstroke).find(([D]) => D > d && D % d === 0);
+      box.innerHTML = `<p class="wk-note">沒有${zh} ${d} m 的成績，不換算。先在 ① 填${zh} ${d} m。</p>` +
+        (longer ? `<p class="muted">參考：${zh} ${longer[0]} m 成績 ${fmt(longer[1], 2)} 切成 ${d} m 一段是每段 ${fmt(longer[1] / (longer[0] / d), 2)}——這是 ${longer[0]} m 的<b>比賽配速</b>（賽速重複用），不是 ${d} m 全力衝刺的秒數。</p>` : '');
+      return;
+    }
+    const tg = p / (S.pct / 100);
+    const row = blankRow({ reps: 0, dist: d, stroke: S.sstroke, int: 'sprint', pct: S.pct });
+    const h = restHint(row);
+    const t = d <= TYPE.velocity.distance_m.max ? TYPE.velocity : d <= TYPE.lactate_production.distance_m.max ? TYPE.lactate_production : null;
+    const repsMid = t ? Math.round((t.reps.min + t.reps.max) / 2) : 4;
     const pcts = [80, 85, 88, 90, 92, 95, 98, 100];
-    let html = `<div class="wk-sp"><p class="wk-css-k">${SZH[S.sstroke]} ${d} m 目標</p><p class="wk-sp-v">${fmt(tg)}</p>
-      <p class="muted">${p.est ? `你沒有${SZH[S.sstroke]} ${d} m 成績，由 ${p.from} m 推估 PB ≈ ${fmt(p.t)}（估計值）` : `PB ${fmt(p.t)}`} ÷ ${S.pct}%</p></div>
-      <div class="wk-quick" aria-label="速查">${pcts.map(x => `<button type="button" class="wk-q${x === +S.pct ? ' is-on' : ''}" data-pct="${x}"><span>${x}%</span><b>${fmt(p.t / (x / 100))}</b></button>`).join('')}</div>`;
-    if (rr) html += `<p class="wk-note"><b>${esc(sp.name_zh)}的休息：</b>${d} m 休 ${fmt0(rr[0])}–${fmt0(rr[1])}，做 ${rp[0]}–${rp[1]} 趟。練的是「休息充足下的速度」，不是累了之後的速度（${esc(R.source.zones_citation.split('.')[0])}）。</p>`;
-    else html += `<p class="wk-note">文獻給的衝刺休息只到 50 m；${d} m 的休息請自己決定（下面預設 3 分鐘）。</p>`;
-    if (d <= 50) html += `<p class="muted">另一個做法：${esc(R.zones['En-3'].name_zh)}用 ${R.zones['En-3'].repeat_distance_m.join('–')} m、約 ${R.zones['En-3'].cited_repeat_sec} 秒的重複，休息 ${R.zones['En-3'].cited_rest_min.join('–')} 分鐘。</p>`;
-    html += `<div class="wk-sp-add"><div class="wk-field"><span>趟數</span><input type="number" inputmode="numeric" min="1" max="40" value="${row.reps}" data-sp-reps></div>
-      <div class="wk-field"><span>休息</span>${tfHtml('data-sp-rest', restDef, 0, '休息')}</div>
-      <button type="button" class="wk-btn wk-btn--main" data-sp-add>加入主課</button></div>`;
+    let html = `<div class="wk-sp"><p class="wk-css-k">${zh} ${d} m 目標</p><p class="wk-sp-v">${fmt(tg, 2)}</p>
+      <p class="muted">PB ${fmt(p, 2)} ÷ ${S.pct}%</p></div>
+      <div class="wk-quick" aria-label="速查">${pcts.map(x => `<button type="button" class="wk-q${x === +S.pct ? ' is-on' : ''}" data-pct="${x}"><span>${x}%</span><b>${fmt(p / (x / 100), 2)}</b></button>`).join('')}</div>`;
+    if (t) html += `<p class="wk-note"><b>${t.key === 'velocity' ? '純速組' : '乳酸生成組'} ${t.cert}：</b>每趟 ${t.distance_m.min}–${t.distance_m.max} m，${t.reps.min}–${t.reps.max} 趟，休 ${fmt0(t.rest_s.min)}–${fmt0(t.rest_s.max)}。退出：${esc(t.exit)}。</p>`;
+    else html += '<p class="wk-note">衝刺組的休息參數只到 50 m；這個距離的休息請自己決定。</p>';
+    html += `<div class="wk-sp-add"><div class="wk-field"><span>趟數</span><input type="number" inputmode="numeric" min="1" max="40" placeholder="${repsMid}" data-sp-reps></div>
+      <div class="wk-field"><span>休息</span>${tfHtml('data-sp-rest', null, 0, '休息', h ? String(h.mid) : '秒')}</div>
+      <button type="button" class="wk-btn wk-btn--main" data-sp-add>加入主課</button></div><p class="muted">空白就用建議值（趟數 ${repsMid}${h ? `、休息 ${fmt0(h.mid)}` : ''}）。</p>`;
     box.innerHTML = html;
     box.querySelectorAll('[data-pct]').forEach(b => b.addEventListener('click', () => { S.pct = +b.dataset.pct; save(); renderSprint(); }));
     box.querySelector('[data-sp-add]').addEventListener('click', () => {
-      row.reps = +box.querySelector('[data-sp-reps]').value || row.reps;
-      row.rest = readTF(box.querySelector('[data-sp-rest]')) || restDef;
-      mainBlock().rows.push(Object.assign({ target: null, drill: '', equip: [], note: '' }, row));
-      save(); renderMenu(); location.hash = 'wk-menu';
+      row.reps = +box.querySelector('[data-sp-reps]').value || repsMid;
+      row.rest = readTF(box.querySelector('[data-sp-rest]')) || (h ? h.mid : 0);
+      addMain(row);
     });
   }
 
-  /* ---------- ④ 排課表 ---------- */
+  /* ---------- ⑤ 排課表 ---------- */
   const openEq = new Set();
   const opt = (obj, cur) => Object.entries(obj).map(([k, v]) => `<option value="${k}"${k === cur ? ' selected' : ''}>${esc(v)}</option>`).join('');
   function drillOptions(row) {
@@ -316,10 +464,23 @@
     return html;
   }
   function tgHtml(row) {
-    const tg = targetOf(row);
-    if (row.int === 'none') return '<span class="muted">到牆自己按</span>';
+    if (row.int === 'none' || NO_AUTO[row.mode] && row.int !== 'custom') return '<span class="muted">到牆自己按</span>';
     if (row.int === 'custom') return '';
-    return tg && tg.t ? `目標 <b>${fmt(tg.t)}</b>${tg.est ? '（估）' : ''}` : `<span class="wk-miss">沒有${SZH[row.stroke === 'choice' ? 'free' : row.stroke]}成績</span>`;
+    const tg = targetOf(row);
+    if (tg && tg.t) return `目標 <b>${fmt(tg.t)}</b>${tg.note ? `<span class="wk-tgn">${esc(tg.note)}</span>` : ''}`;
+    return `<span class="wk-miss">${esc(tg ? tg.miss : '')}，沒有目標</span>`;
+  }
+  function hintHtml(row, bi) {
+    const h = restHint(row, M().blocks[bi] && M().blocks[bi].title);
+    if (!h) return '';
+    const txt = h.min === h.max ? fmt0(h.min) : `${fmt0(h.min)}–${fmt0(h.max)}`;
+    return `建議休 ${txt}（${esc(h.why)}）<button type="button" class="wk-apply" data-apply="${h.mid}">套用 ${fmt0(h.mid)}</button>`;
+  }
+  function eventOptions(row) {
+    const s = baseStroke(row.stroke);
+    const evs = known(s).map(x => x[0]).filter(d => d >= row.dist && d >= 50);
+    if (!evs.length) return '<option value="">（沒有可用的比賽成績）</option>';
+    return '<option value="">以哪個項目的成績？</option>' + evs.map(d => `<option value="${d}"${String(d) === String(row.event) ? ' selected' : ''}>${d} m 成績</option>`).join('');
   }
   function rowHtml(row, bi, ri) {
     const ints = NO_AUTO[row.mode] ? { none: INTS.none, custom: INTS.custom } : INTS;
@@ -342,13 +503,15 @@
       <div class="wk-r-line">
         <select data-f="int" aria-label="強度">${opt(ints, row.int)}</select>
         ${row.int === 'sprint' ? `<label class="wk-in"><input type="number" inputmode="numeric" min="50" max="100" value="${row.pct}" data-f="pct" aria-label="強度百分比"><span>%</span></label>` : ''}
-        ${row.int === 'custom' ? `<span class="wk-in"><span>目標</span>${tfHtml('data-tff="target"', parseT(row.target), 1, '目標秒數')}</span>` : ''}
+        ${row.int === 'race' ? `<select data-f="event" aria-label="比賽距離">${eventOptions(row)}</select>` : ''}
+        ${row.int === 'custom' ? `<span class="wk-in"><span>目標</span>${tfHtml('data-tff="target"', parseT(row.target), 2, '目標秒數')}</span>` : ''}
         <span class="wk-r-tg" data-rtg>${tgHtml(row)}</span>
       </div>
       <div class="wk-r-line">
         <span class="wk-in"><span>每趟休息</span>${tfHtml('data-tff="rest"', row.rest, 0, '每趟休息')}</span>
         <span class="wk-in" data-setrest${(row.sets || 1) > 1 ? '' : ' hidden'}><span>組間休息</span>${tfHtml('data-tff="setRest"', row.setRest, 0, '組間休息')}</span>
       </div>
+      <p class="wk-hint" data-rhint>${hintHtml(row, bi)}</p>
       <details class="wk-r-eq" data-eq="${key}"${openEq.has(key) ? ' open' : ''}><summary>器材：${eq.length ? esc(rowEquip(row)) : '不用'}</summary>
         <div class="wk-chips">${allEquip().map(k => `<button type="button" class="wk-chip" aria-pressed="${eq.includes(k)}" data-eqk="${esc(k)}">${esc(eqName(k))}</button>`).join('')}</div>
       </details>
@@ -364,7 +527,7 @@
     const rows = M().blocks.flatMap(b => b.rows);
     const dist = rows.reduce((a, r) => a + rowDist(r), 0);
     const sec = rows.reduce((a, r) => a + rowSec(r), 0);
-    $('[data-wk-total]').textContent = rows.length ? `共 ${dist} m，約 ${Math.round(sec / 60)} 分鐘（有目標的用目標秒數，其餘用 CSS 放慢估算）` : '';
+    $('[data-wk-total]').textContent = rows.length ? `共 ${dist} m，約 ${Math.round(sec / 60)} 分鐘（有目標的用目標秒數，其餘用輕鬆有氧配速估算）` : '';
     root.querySelectorAll('.wk-blk').forEach(el => { const b = M().blocks[+el.dataset.b]; if (b) el.querySelector('[data-bdist]').textContent = blockDist(b) + ' m'; });
     renderSum();
   }
@@ -389,19 +552,17 @@
     totals();
   }
   function newRow(bi) {
-    const b = M().blocks[bi];
-    const last = b.rows[b.rows.length - 1];
-    if (last) return JSON.parse(JSON.stringify(last));
-    const t = (b.title || '').trim();
-    const row = {
-      sets: 1, reps: t === '暖身' || t === '緩和' ? 1 : 4, dist: t === '暖身' ? 200 : t === '緩和' ? 100 : 50, stroke: 'free',
-      mode: t.toLowerCase() === 'drill' ? 'drill' : 'swim', int: t === '主課' ? 'end' : 'none', pct: 95, target: null, setRest: 60, drill: '', equip: [], note: '',
-    };
-    row.rest = t === '緩和' ? mid(R.rest_seconds.cool_down) : defaultRest(row);
-    return row;
+    const t = (M().blocks[bi].title || '').trim();
+    return blankRow({ reps: t === '暖身' || t === '緩和' ? 1 : 4, dist: t === '暖身' ? 200 : t === '緩和' ? 100 : 50, mode: t.toLowerCase() === 'drill' ? 'drill' : 'swim' });
   }
   const blocksEl = $('[data-wk-blocks]');
   const rowOf = (li) => M().blocks[+li.dataset.b].rows[+li.dataset.r];
+  const refreshRow = (li, row) => {
+    li.querySelector('[data-rtg]').innerHTML = tgHtml(row);
+    li.querySelector('[data-rsum]').textContent = rowDist(row) + ' m';
+    li.querySelector('[data-setrest]').hidden = !((row.sets || 1) > 1);
+    li.querySelector('[data-rhint]').innerHTML = hintHtml(row, +li.dataset.b);
+  };
   // 打字：只改狀態與衍生文字，不重畫
   blocksEl.addEventListener('input', (e) => {
     const el = e.target;
@@ -419,9 +580,7 @@
       if (f === 'note') row.note = el.value;
       else if (+el.value >= 1) row[f] = +el.value;
     } else return;
-    li.querySelector('[data-rtg]').innerHTML = tgHtml(row);
-    li.querySelector('[data-rsum]').textContent = rowDist(row) + ' m';
-    li.querySelector('[data-setrest]').hidden = !((row.sets || 1) > 1);
+    refreshRow(li, row);
     save(); totals();
   });
   // 失焦：時間格整理成「分:秒」；下拉選單：改結構，只重畫這一列
@@ -440,8 +599,7 @@
     } else if (f === 'mode') {
       row.mode = v;
       if (NO_AUTO[v] && !{ none: 1, custom: 1 }[row.int]) row.int = 'none';
-      if (v === 'drill') row.rest = defaultRest(row);
-    } else if (f === 'int') { row.int = v; row.rest = defaultRest(row); } else row[f] = v;
+    } else row[f] = v;
     save(); replaceRow(li);
   });
   blocksEl.addEventListener('toggle', (e) => {
@@ -465,6 +623,7 @@
     }
     const li = btn.closest('.wk-r'); if (!li) return;
     const bi = +li.dataset.b, ri = +li.dataset.r, rows = m.blocks[bi].rows, row = rows[ri];
+    if (btn.dataset.apply != null) { row.rest = +btn.dataset.apply; save(); setTF(li.querySelector('[data-tff="rest"]'), row.rest); totals(); return; }
     if (btn.dataset.eqk) {
       const k = btn.dataset.eqk; row.equip = row.equip || [];
       row.equip = row.equip.includes(k) ? row.equip.filter(x => x !== k) : row.equip.concat(k);
@@ -482,7 +641,7 @@
     openEq.clear(); save(); renderMenu();
   });
 
-  /* ---------- ⑤ 清單 ---------- */
+  /* ---------- ⑥ 清單 ---------- */
   function sumBits(row) {
     return [rowInt(row), row.rest ? '每趟休 ' + fmt0(row.rest) : '', (row.sets || 1) > 1 && row.setRest ? '組間休 ' + fmt0(row.setRest) : '', rowEquip(row), row.note || ''].filter(Boolean);
   }
@@ -520,7 +679,7 @@
   });
   window.addEventListener('afterprint', () => document.body.classList.remove('wk-printing'));
 
-  /* ---------- ⑥ 我的 drill 與器材 ---------- */
+  /* ---------- ⑦ 我的 drill 與器材 ---------- */
   let draftEq = [];
   function renderMine() {
     $('[data-wk-deq]').innerHTML = allEquip().map(k => `<button type="button" class="wk-chip" aria-pressed="${draftEq.includes(k)}" data-deqk="${esc(k)}">${esc(eqName(k))}</button>`).join('');
@@ -536,7 +695,7 @@
     if (!name) { $('[data-wk-dname]').focus(); return; }
     S.myDrills.push({ id: String(Date.now()), name, stroke: $('[data-wk-dstroke]').value, cue: $('[data-wk-dcue]').value.trim(), equip: draftEq });
     $('[data-wk-dname]').value = ''; $('[data-wk-dcue]').value = ''; draftEq = [];
-    save(); renderMine(); renderMenu();
+    save(); renderMine(); renderMenu(); toast(`已新增 drill：${name}`);
   });
   $('[data-wk-dlist]').addEventListener('click', (e) => {
     const b = e.target.closest('[data-ddel]'); if (!b) return;
@@ -732,25 +891,27 @@
   document.addEventListener('visibilitychange', () => { if (!T.hidden && document.visibilityState === 'visible') holdScreen(); });
 
   /* ---------- 輸入與初始化 ---------- */
-  const refresh = () => { Object.keys(cssCache).forEach(k => delete cssCache[k]); renderCss(); renderSprint(); renderMenu(); };
+  const refresh = () => {
+    Object.keys(cssCache).forEach(k => delete cssCache[k]);
+    renderCss(); renderPz(); renderSprint();
+    blocksEl.querySelectorAll('.wk-r').forEach(li => refreshRow(li, rowOf(li)));
+    totals();
+  };
   const course = $('[data-wk-course]'); course.value = S.course;
   course.addEventListener('change', () => { S.course = course.value; save(); });
   root.querySelectorAll('[data-wk-pb]').forEach(tf => {
     const [s, d] = tf.dataset.wkPb.split(':');
     setTF(tf, parseT(S.pb[s][d]));
     tf.addEventListener('input', () => { S.pb[s][d] = readTF(tf); save(); refresh(); });
-    tf.addEventListener('change', () => setTF(tf, S.pb[s][d]));
+    tf.addEventListener('change', () => { if (S.pb[s][d] >= 60) setTF(tf, S.pb[s][d]); }); // 秒格打 90 才整理成 1｜30，其餘照原樣
   });
   $('[data-wk-css]').addEventListener('click', (e) => {
     const zs = e.target.closest('[data-zs]');
     if (zs) { S.zstroke = zs.dataset.zs; save(); renderCss(); return; }
     const b = e.target.closest('[data-zadd]'); if (!b) return;
     const [int, d] = b.dataset.zadd.split(':');
-    const row = { sets: 1, reps: 6, dist: +d, stroke: S.zstroke, mode: 'swim', int, pct: 95, target: null, setRest: 60, drill: '', equip: [], note: '' };
-    row.rest = defaultRest(row);
-    if (int === 'end') { const tg = targetOf(row); row.reps = Math.max(2, Math.floor(15 * 60 / (((tg && tg.t) || 60) + row.rest))); }
-    mainBlock().rows.push(row);
-    save(); renderMenu(); location.hash = 'wk-menu';
+    const t = int === 'thr' ? TYPE.threshold : int === 'easy' ? TYPE.aerobic_easy : null;
+    addMain({ reps: 4, dist: +d, stroke: S.zstroke, int, rest: t ? r5((t.rest_s.min + t.rest_s.max) / 2) : 0 });
   });
   $('[data-wk-sstroke]').addEventListener('change', (e) => { S.sstroke = e.target.value; save(); renderSprint(); });
   $('[data-wk-sdist]').addEventListener('change', (e) => { S.sdist = e.target.value; save(); renderSprint(); });
@@ -768,5 +929,6 @@
   $('[data-wk-start]').addEventListener('click', openTimer);
   const ar = $('[data-wk-autorest]'); ar.checked = S.autorest !== false;
   ar.addEventListener('change', () => { S.autorest = ar.checked; save(); });
-  renderCss(); renderSprint(); renderMenu(); renderMine();
+  initPz();
+  renderCss(); renderPz(); renderSprint(); renderMenu(); renderMine();
 })();
