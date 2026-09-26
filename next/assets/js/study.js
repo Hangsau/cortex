@@ -200,32 +200,26 @@
   if (starter && starter.dataset.src && window.fetch) {
     let st = {};
     try { st = JSON.parse(localStorage.getItem('cortex-study-v1')) || {}; } catch (_) { st = {}; }
-    const read = st.read || {};
     const base = document.querySelector('.site-name').getAttribute('href');
-    if (st.last) starter.querySelector('h2').textContent = '想換個口味？今天的短篇';
+    if (st.last) starter.querySelector('h2').textContent = '想換個口味？隨機挑幾篇短的';
     const GROUPS = [['reading', 'strength'], ['cscs', 'strength'], ['learning', 'learning'], ['temperament', 'temperament']];
     const esc = (x) => String(x || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
-    const hash = (str) => { let h = 2166136261; for (const c of str) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } return h >>> 0; };
-    let round = 0;
     fetch(starter.dataset.src).then(r => r.json()).then(data => {
       const list = starter.querySelector('.bs-start-list');
       const draw = () => {
-        const day = new Date().toISOString().slice(0, 10);
         list.innerHTML = GROUPS.map(([g, series]) => {
           const pool = (data.groups[g] || []);
-          const fresh = pool.filter(e => !read[base + e.p]);
-          const from = fresh.length ? fresh : pool;
-          if (!from.length) return '';
-          const e = from[hash(day + g + round) % from.length];
+          if (!pool.length) return '';
+          const e = pool[Math.floor(Math.random() * pool.length)];
           return `<a class="bs-start-i series-${series}" href="${base}${e.p}"><span class="bs-start-k">${esc(e.k)}</span><span class="bs-start-t">${esc(e.t)}</span>${e.d ? `<span class="bs-start-d">${esc(e.d)}</span>` : ''}</a>`;
         }).join('');
       };
       draw();
       const btn = starter.querySelector('[data-shuffle]');
       btn.hidden = false;
-      btn.addEventListener('click', () => { round += 1; draw(); });
+      btn.addEventListener('click', draw);
       const note = starter.querySelector('[data-starter-note]');
-      if (note) note.textContent = '　每天自動換一組；優先挑你還沒讀過的。';
+      if (note) note.textContent = '　每次進來都隨機抽；不想讀這幾個就換一組。';
     }).catch(() => { /* 讀不到清單時保留伺服器端的預設四個 */ });
   }
 })();

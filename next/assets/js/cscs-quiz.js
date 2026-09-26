@@ -79,6 +79,16 @@
         .then(function (data) { cb(data); })
         .catch(function () { cb(null); });
     }
+    var params = new URLSearchParams(location.search);
+    var pch = params.get('ch');
+    var pn = parseInt(params.get('n'), 10) || 0;
+    if (pch) {
+      if (pch === 'random') pch = indexData[Math.floor(Math.random() * indexData.length)].id;
+      if (byId[pch]) {
+        sel.value = pch;
+        fetchChapter(pch, function (data) { if (data) startSession(pch, data, pn); });
+      }
+    }
     startBtn.addEventListener('click', function () {
       var cid = sel.value;
       fetchChapter(cid, function (data) {
@@ -86,7 +96,7 @@
         startSession(cid, data);
       });
     });
-    function startSession(cid, data) {
+    function startSession(cid, data, limit) {
       var scope = currentScope();
       var rec = getRec(cid);
       var all = data.questions || [];
@@ -105,8 +115,12 @@
         run = null;
         return;
       }
+      if (limit && limit > 0 && qs.length > limit) {
+        qs = shuffle(qs.slice()).slice(0, limit);
+      }
       run = {
         cid: cid,
+        limit: limit || 0,
         chapterUrl: byId[cid].url,
         qs: qs,
         i: 0,

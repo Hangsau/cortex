@@ -642,6 +642,7 @@ def p4():
             if href.startswith(("http:", "https:", "mailto:", "javascript:", "data:")):
                 continue
             path, _, frag = href.partition("#")
+            path = path.split("?", 1)[0]  # 網址參數（如選擇題 ?ch=&n=）不影響目標頁是否存在
             if path == "":
                 target = f
             elif path.startswith(base):

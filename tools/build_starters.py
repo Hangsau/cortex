@@ -1,6 +1,6 @@
 """書房首頁「今天的短篇」候選清單（Claude 撰寫，2026-09-26）。
 
-四組各收 1–6 分鐘能讀完的單位；首頁由 study.js 每天挑一組（依日期決定、優先沒讀過的），
+四組各收 1–6 分鐘能讀完的單位；首頁由 study.js 每次進來隨機抽一組（使用者 2026-09-26 決定：本機閱讀紀錄不可靠，不以讀過沒讀過篩），
 可按「換一組」。讀本小節的分鐘數以字數估（與 study.js 同為每分鐘 450 字）。
 
 用法：python -X utf8 tools/build_starters.py   → next/data/starters.json
@@ -51,21 +51,15 @@ def reading():
 
 
 def cscs():
-    out = []
-    for n in range(1, 25):
-        ch = yaml.safe_load((ROOT / f"data/cscs/ch{n:02d}.yaml").read_text(encoding="utf-8"))
-        for topic in ch["topics"]:
-            if not topic.get("items"):
-                continue
-            it = topic["items"][0]
-            ans = it.get("a") or []
-            out.append({
-                "k": "約 1 分鐘",
-                "t": f"CSCS 第 {n} 章：{it['q']}",
-                "d": plain(ans[0] if ans else it.get("detail", ""))[:60],
-                "p": f"library/essentials-of-strength-training/ch{n:02d}/#{it['id']}",
-            })
-    return out
+    """CSCS 隨機五題：一章一筆；首頁隨機抽一章，選擇題頁再從該章題庫隨機抽 5 題直接開始。"""
+    lib = json.loads((ROOT / "next/data/library.json").read_text(encoding="utf-8"))
+    chapters = next(s for s in lib["series"] if s["id"] == "cscs")["chapters"]
+    return [{
+        "k": "約 5 分鐘",
+        "t": f"CSCS 隨機五題：第 {c['n']} 章 · {c['title']}",
+        "d": "從這章題庫隨機抽 5 題，答錯的會連回課本那一條",
+        "p": f"library/essentials-of-strength-training/quiz/?ch={c['id']}&n=5",
+    } for c in chapters]
 
 
 def from_library():

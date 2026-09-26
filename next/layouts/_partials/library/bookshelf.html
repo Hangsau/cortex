@@ -17,7 +17,7 @@
   {{- range $lib.series }}
     {{- if eq .id "mnfl" }}{{ with index .entries 0 }}{{ $starts = $starts | append (dict "k" "3 分鐘" "t" (printf "一個學習技法：%s" .title) "d" .desc "p" .path "g" "learning") }}{{ end }}{{ end }}
     {{- if eq .id "kinesiology" }}{{ with index .chapters 0 }}{{ $starts = $starts | append (dict "k" "5 分鐘" "t" (printf "肌動學第 1 章：%s（先讀第一節就好）" .title) "d" .desc "p" .path "g" "strength") }}{{ end }}{{ end }}
-    {{- if eq .id "cscs" }}{{ $starts = $starts | append (dict "k" "5 分鐘" "t" "CSCS 做五題選擇題" "d" "答錯的會連回課本那一條，錯了也算讀過" "p" "library/essentials-of-strength-training/quiz/" "g" "strength") }}{{ end }}
+    {{- if eq .id "cscs" }}{{ $starts = $starts | append (dict "k" "5 分鐘" "t" "CSCS 隨機五題" "d" "隨機抽一章、再抽 5 題，答錯的會連回課本那一條" "p" "library/essentials-of-strength-training/quiz/?ch=random&n=5" "g" "strength") }}{{ end }}
     {{- if eq .id "temperament" }}{{ with index .entries 0 }}{{ $starts = $starts | append (dict "k" "2 分鐘" "t" (printf "一個氣質維度：%s" .title) "d" .desc "p" .path "g" "temperament") }}{{ end }}{{ end }}
   {{- end }}
   {{- with $starts }}
