@@ -20,6 +20,11 @@ jobs:
           wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.159.1/hugo_extended_0.159.1_linux-amd64.deb
           sudo dpkg -i hugo.deb
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
       - name: Build
         run: |
           pip install pyyaml
