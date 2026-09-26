@@ -51,7 +51,8 @@ def main():
         },
         "pace_offset_sec_per_100": {k: v for k, v in find("pace_offset_sec_per_100").items()
                                     if k in ("main_technique", "main_endurance", "main_speed")},
-        "rest_seconds": {k: find("rest_seconds")[k] for k in ("main_technique", "main_endurance", "main_speed")},
+        "rest_seconds": {k: find("rest_seconds")[k] for k in ("main_technique", "main_endurance", "main_speed", "drill", "cool_down")},
+        "drill_rest_by_stroke": find("rest_seconds").get("drill_by_stroke", {}),
         "send_off_rounding_sec": find("send_off")["rounding_sec"],
         "zones": {
             "En-2": {

@@ -24,7 +24,7 @@ deploy：push `hugo-source` → GitHub Actions 跑資料產生器後 `hugo --min
 | 改全站首頁（書房） | `next/layouts/_partials/library/bookshelf.html` ＋ `next/assets/css/bookshelf.css` |
 | 改 Vortex 首頁／泳式頁／知識點頁／清單 | `next/layouts/_partials/vortex/{home,stroke,unit,next-read,list}.html`；分派在 `next/layouts/vortex/page.html` |
 | 改 Vortex 專頁（呼吸、週期化、ADM、心理、骨關節、動作圖譜） | `next/layouts/_partials/vortex/{breathing,periodization,adm-*,psychology-read,joints,movement}.html`；頁面檔在 `next/content/vortex/` |
-| 課表與間歇計時（CSS 換算、衝刺%、HIIT 計時） | `_partials/vortex/workout.html`＋`next/assets/js/workout.js`＋`workout.css`；處方數字 `next/data/swim_rules.json`（`tools/sync_swim_rules.py` 從 swim-coach 規則表同步，勿手改） |
+| 課表與間歇計時（CSS 換算、衝刺%、HIIT 計時） | `_partials/vortex/workout.html`＋`next/assets/js/workout.js`＋`workout.css`；處方數字 `next/data/swim_rules.json`（`tools/sync_swim_rules.py` 從 swim-coach 規則表同步，勿手改）；drill 清單讀 `data/vortex/drills.yaml`，器材中文名 `next/data/swim_equipment.yaml` |
 | 改 Vortex 內容（泳式、drill、誤區、技術分析…） | **不在此 repo**：改 `TheVortexProject/canonical/` → `tools/sync_vortex.py`（CI 自動） |
 | Vortex 知識點雙向連結 | `tools/build_vortex_links.py` → `next/data/vortex_links.json`；測試 `tools/test_vortex_links.py` |
 | 練習篩選軸（標籤／排序） | `next/data/drill_axes.yaml`；篩選邏輯 `next/assets/js/filter.js`（通用多軸，ADM 標準頁共用） |
