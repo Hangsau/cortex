@@ -1,7 +1,0 @@
----
-title: "心理層 · 一條讀下來"
-layout: "vortex-psychology-read"
-slug: "psychology-read"
-aliases:
-  - /vortex/psychology/
----

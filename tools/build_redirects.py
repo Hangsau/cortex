@@ -58,6 +58,9 @@ def norm(p):
 
 
 def snapshot():
+    """只在切換前有效：舊版型已於 2026-09-26 移除（封存於 git 標籤 legacy-site-2026-09-26），
+    現在執行會建出新站而不是舊站，因此直接拒絕，保護 next/legacy_urls.txt 不被覆寫。"""
+    sys.exit("舊站已移除，不能再產生舊網址清單；next/legacy_urls.txt 是切換前的最終版本，勿覆寫")
     tmp = Path(tempfile.mkdtemp())
     try:
         build(tmp)
@@ -106,7 +109,7 @@ def main():
             d.unlink()
     tmp = Path(tempfile.mkdtemp())
     try:
-        build(tmp, "hugo.next.toml")
+        build(tmp)
         existing = {norm(p) for p in pages(tmp)}
     finally:
         shutil.rmtree(tmp, ignore_errors=True)

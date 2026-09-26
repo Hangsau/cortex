@@ -167,14 +167,10 @@ def build_basic_biomechanics():
 
 
 def cscs_title(n, fallback):
-    """CSCS 章名：data/cscs 的 title 有幾章是英文，中文章名在舊內容檔 chNN/_index.md。
-    去掉「Ch.N 」前綴（頁面另有「第 N 章」），兩處都沒有時才用 yaml 原值。"""
-    import re
-    md = ROOT / "content" / "library" / "essentials-of-strength-training" / f"ch{n:02d}" / "_index.md"
-    title = fallback
-    if md.exists():
-        fm = load_front(md)
-        title = fm.get("title") or fallback
+    """CSCS 中文章名：data/cscs 的 title 有幾章是英文，中文章名存在 next/data/cscs_titles.yaml
+    （2026-09-26 自舊站內容檔移入）。查不到時用 yaml 原值並去掉「Ch.N 」前綴。"""
+    titles = load_yaml(ROOT / "next" / "data" / "cscs_titles.yaml") or {}
+    title = titles.get(f"ch{n:02d}") or fallback
     return re.sub(r"^Ch\.?\s*\d+\s*", "", str(title)).strip()
 
 

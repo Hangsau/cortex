@@ -15,7 +15,7 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / "public" / "next"
+OUT = ROOT / "public"  # 2026-09-26 正式切換後，新版即正式站
 LINKS = ROOT / "next" / "data" / "vortex_links.json"
 FAILS = []
 
@@ -41,7 +41,7 @@ def run(cmd, timeout=600):
 def build_next():
     if OUT.exists():
         shutil.rmtree(OUT)
-    proc, secs = run(["hugo", "--minify", "--config", "hugo.next.toml"])
+    proc, secs = run(["hugo", "--minify"])
     if proc.returncode != 0:
         out = "\n".join(l for l in (proc.stdout + proc.stderr).splitlines() if not l.startswith("WARN"))
         fail(f"hugo next 建置失敗（exit {proc.returncode}）：\n{out[-4000:]}")
@@ -108,12 +108,12 @@ def w1():
 
 
 def w3():
-    for f in ["hugo.next.toml", "next/layouts/baseof.html", "next/content/_index.md", "next/content/vortex/_index.md"]:
+    for f in ["hugo.toml", "next/layouts/baseof.html", "next/content/_index.md", "next/content/vortex/_index.md"]:
         if not (ROOT / f).exists():
             fail(f"缺 {f}")
     dy = (ROOT / ".github/workflows/deploy.yml").read_text(encoding="utf-8")
-    if "hugo.next.toml" not in dy or "next preview build failed" not in dy:
-        fail("deploy.yml 未加入不影響正式站的 next 建置步驟")
+    if "build_vortex_links.py" not in dy or "hugo --minify" not in dy or "hugo.next.toml" in dy:
+        fail("deploy.yml 未改為以新版設定建置正式站")
     build_next()
     home = page("")
     for needle in ["site-head", "series-vortex", "vortex/"]:
@@ -443,7 +443,9 @@ def v2():
     doc = page("vortex/water-sense")
     if not doc:
         return
-    old = (ROOT / "layouts/vortex/vortex-water-sense.html").read_text(encoding="utf-8")
+    # 舊版型已移除，原文從封存標籤讀（legacy-site-2026-09-26）
+    old = subprocess.run(["git", "show", "legacy-site-2026-09-26:layouts/vortex/vortex-water-sense.html"],
+                         cwd=ROOT, capture_output=True, text=True, encoding="utf-8").stdout
     old = re.sub(r"\{\{.*?\}\}", " ", old, flags=re.S)
     sents = [s for s in re.split(r"[。！？\n]", text_of(old)) if len(re.findall(r"[\u4e00-\u9fff]", s)) >= 12]
     new = re.sub(r"\s+", "", text_of(doc))
@@ -620,7 +622,7 @@ def p4():
     """全站連結稽核：每個站內連結的目標頁必須存在；帶 #錨點者，目標頁必須有該 id。"""
     import urllib.parse
     build_next()
-    base = "/cortex/next/"
+    base = "/cortex/"
     ids_cache = {}
 
     def ids_of(f):

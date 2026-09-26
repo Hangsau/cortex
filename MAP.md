@@ -1,128 +1,84 @@
 # MAP — my-site (Cortex)
 
-> 結構地圖，給冷啟動讀者（人/LLM）。格式與維護流程見 `C:\claudehome\CODEBASE_MAP_METHODOLOGY.md`。
-> 行為規範見 `CLAUDE.md`；進度/待辦見 `HANDOFF.md`。
+> 結構地圖，給冷啟動讀者（人／LLM）。格式與維護流程見 `C:\claudehome\CODEBASE_MAP_METHODOLOGY.md`。
+> 行為規範見 `CLAUDE.md`；進度／待辦見 `HANDOFF.md`。
 >
-> `last_verified: 2026-08-26`
-> 本次驗證範圍是首頁資料流／版型／CSS／audit；全域 `check_map_freshness.py` 仍回報既有 helper 與部分 Vortex 檔未列入 MAP，未冒充已完成全專案盤點。
+> `last_verified: 2026-09-26`（正式切換到新版當天全檔重寫；舊架構的 MAP 隨舊版封存於 git 標籤 `legacy-site-2026-09-26`）
 
 ---
 
 ## 1. 一句話定位 + 技術棧
 
-個人知識網站，**Hugo 靜態站**（無 theme，全自訂 layout）。  
-deploy：push `hugo-source` branch → GitHub Actions `hugo --minify` build `./public` → GitHub Pages（`https://hangsau.github.io/cortex/`）。  
-本機預覽：`hugo`（cwd = 此 repo）。push 指令見 `CLAUDE.md` 部署段（Windows credential 繞過）。
+個人知識網站：Vortex 游泳水感研究（主力）＋書房（肌動學、基礎生物力學、CSCS、大腦喜歡這樣學、UST、氣質）。
+**Hugo 靜態站，無 theme**；所有版型、樣式、互動在 `next/`，由 `hugo.toml` 的 module mounts 組起來。
+deploy：push `hugo-source` → GitHub Actions 跑資料產生器後 `hugo --minify` → GitHub Pages（`https://hangsau.github.io/cortex/`）。
 
 ---
 
 ## 2. 「要做 X → 去讀 Y」決策索引
 
 | 你要做的事 | 動這裡 |
-|-----------|--------|
-| 讀／修改肌動學與基礎生物力學中文導讀 | `content/library/{kinesiology,basic-biomechanics}/` → `layouts/library/reading-{book,chapter,topics}.html`；`data/reading/` 詞表與生成索引；`static/css/reading.css`、`static/js/reading.js`；來源／驗收／啟動見 `research/book-readers-2026-09-06/REVIEW.md`，最新批次 `nerve-muscle-expansion/RUN.md`（讀本範圍2026-09-22已驗） |
-| 規劃全站內容呈現／成長／Claude與Codex派工 | `research/content-presentation-2026-09-05/WEBSITE_STUDY.md` → GROWTH_MAP、PLAN、MODEL_WORK_PACKAGES、RESEARCH_LOG與兩組inventory；形態／成長案頭研究已做，主案可讀知識館；W1b需求、W1g成長契約；原型與真人驗證待做 |
-| 改全站顏色/字級 | `static/css/variables.css`（只放 CSS 變數） |
-| 改排版結構（nav/main/footer） | `static/css/layout.css` |
-| 加新書（一般風格） | `content/library/<slug>/_index.md` + 往 `data/home.yaml` 對應領域的 `entries` 加一筆 |
-| 改首頁（Hero、常用任務、領域入口、規格數字） | 真相源 `data/home.yaml` → 渲染 `layouts/index.html` → 樣式 `static/css/home.css`；改完跑 `tools/home_audit.js` |
-| 加自訂風格書（如 mnfl/ust） | 見 `CLAUDE.md`「自訂風格書籍設計模式」 |
-| 改 vortex 公開內容（泳式/誤區/drill/L 階段） | **不在此 repo！** 改 `TheVortexProject/canonical/` → 跑 `tools/sync_vortex.py` |
-| 改 vortex 呈現（版面/互動/CSS） | `layouts/vortex/*.html` + `static/css/vortex.css`（可直接改） |
-| 同步問題索引／驗公開邊界 | `tools/sync_vortex.py` 的 `problem_public_data` / `sync_problems` → `data/vortex/problems.yaml`；`tools/test_sync_problems.py`（2026-09-12 已驗） |
-| 改找問題頁與跨頁定位 | `content/vortex/problems/_index.md` → `layouts/vortex/vortex-problems.html` + `layouts/partials/vortex/problem-intervention.html`；`static/css/vortex-problems.css`、`static/js/vortex-problems.js`；入口在 database／sidebar，目標錨點在 vortex-stroke／vortex-drills，drill 展開在 `static/js/vortex.js`；驗收 `tools/audit_vortex_problems.js`（2026-09-12 本機已驗） |
-| 改 ADM / 週期化內容 | 同 vortex：canonical-synced，改 canonical 再 sync |
-| 改氣質 section 內容 | `data/temperament/*.yaml`（my-site 自有，**可直接改**） |
-| 改 CSCS 內容 / 閃卡 | `data/cscs/chNN.yaml`（唯一真相源）→ 跑 `python tools/cscs_check.py` |
-| 補 CSCS 深度層（術語/數字/延伸） | 同上 yaml 的 `detail`/`terms`/`numbers`/`related`/`concepts`；術語表 `data/cscs/_terms.yaml` |
-| 改 CSCS 概念軸（跨章節閱讀） | 詞彙 `data/cscs/_concepts.yaml`（封閉集 22 條，含 `group`/`order`）；批次上標 `tools/cscs_tag_concepts.py`；頁面 `layouts/library/cscs-concepts.html` |
-| 改 vortex 互動行為 | `static/js/vortex.js`（單檔依 DOM hook 分派：`.vx-doc` 文件流 scrollspy / legacy 面板切換 / `[data-vx-db]` drills / `[data-vx-find]` database / `[data-vx-adm-std]` ADM 標準 / `.vx-read` 進度條） |
+|---|---|
+| 改全站顏色／字級／間距 | `next/assets/css/tokens.css`（只放變數；系列色 `.series-*`） |
+| 改外殼（頂列、左側目錄、對照閱讀框、進度元件） | `next/layouts/baseof.html`、`_partials/site-head.html`、`_partials/{vortex,library}/rail.html`、`next/assets/css/shell.css` |
+| 改全站首頁（書房） | `next/layouts/_partials/library/bookshelf.html` ＋ `next/assets/css/bookshelf.css` |
+| 改 Vortex 首頁／泳式頁／知識點頁／清單 | `next/layouts/_partials/vortex/{home,stroke,unit,next-read,list}.html`；分派在 `next/layouts/vortex/page.html` |
+| 改 Vortex 專頁（呼吸、週期化、ADM、心理、骨關節、動作圖譜） | `next/layouts/_partials/vortex/{breathing,periodization,adm-*,psychology-read,joints,movement}.html`；頁面檔在 `next/content/vortex/` |
+| 改 Vortex 內容（泳式、drill、誤區、技術分析…） | **不在此 repo**：改 `TheVortexProject/canonical/` → `tools/sync_vortex.py`（CI 自動） |
+| Vortex 知識點雙向連結 | `tools/build_vortex_links.py` → `next/data/vortex_links.json`；測試 `tools/test_vortex_links.py` |
+| 練習篩選軸（標籤／排序） | `next/data/drill_axes.yaml`；篩選邏輯 `next/assets/js/filter.js`（通用多軸，ADM 標準頁共用） |
+| 加一本書進書房／改系列目錄 | `tools/build_library.py` → `next/data/library.json`；系列首頁版型 `_partials/library/series-home.html` 通用 |
+| 改讀本章節呈現 | `_partials/library/reader-chapter.html`；解說圖 `next/layouts/_shortcodes/reading-*.html` ＋ `diagram.css` ＋ `diagrams.js` |
+| 改 CSCS 章節頁／概念索引／選擇題／閃卡 | `_partials/library/cscs-{chapter,concepts,quiz,cards}.html`；頁面由 `next/content/library/essentials-of-strength-training/_content.gotmpl` 產生 |
+| 改大腦喜歡這樣學／UST／氣質 | `_partials/library/{mnfl-technique,ust-chapter,ust-strategy,temp-article,temp-dimension,temp-quiz}.html` |
+| 跨系列知識連結（讀本 ↔ CSCS ↔ Vortex） | `tools/crosslink_candidates.py` → `crosslink_judge.py`（MiniMax）→ `build_crosslinks.py` → `next/data/crosslinks.json`；呈現 `_partials/library/xl-templates.html` ＋ `study.js` |
+| 閱讀陪伴（分鐘數、進度、接著讀、隨機短篇） | `next/assets/js/study.js`；短篇清單 `tools/build_starters.py` → `next/data/starters.json` |
+| 舊網址轉址 | `tools/build_redirects.py` → `next/static/`；舊網址清單 `next/legacy_urls.txt`（勿覆寫） |
+| 驗收 | `python -X utf8 next/specs/check.py <W>`（W1 W3–W8 L1 L3–L5 V2–V7 T1–T4 P4） |
+| 派 M3 做結構性工作 | 規格寫 `next/specs/<W>.md`，`bash next/specs/run_queue.sh --only <W…>`（claude-m3-lite，驗收過才 commit） |
 
 ---
 
 ## 3. 檔案地圖
 
-### 進入點 / 骨架
-- `layouts/_default/baseof.html`（21 行）— 只管 HTML 骨架，**`.main-content` 有 800px 上限**（見踩雷 §4）
-- `layouts/partials/nav.html` / `footer.html` — 全站 nav/footer；nav 只有字標與「回目次」，`hugo.toml` 刻意無 `[menu]`（全站地圖＝首頁四領域目次，不掛第二套分區清單）
-- `layouts/index.html`（約 130 行）— 首頁「任務入口＋四領域索引」，讀 `data/home.yaml`；首屏 6 個 quick actions，第二層 domain primary/secondary
+### 建置與分派
+- `hugo.toml` — mounts：`next/{content,layouts,assets,data,static}`、`data/`、`content/library/{kinesiology,basic-biomechanics}`（排除 learning-map.md）、`content/vortex/{instructional,bridge,technica}`、`content/vortex/adm`（只剩 background.md）
+- `next/layouts/page.html`／`section.html` → `_partials/library/dispatch.html`：系列首頁（路徑＝系列 path）→ series-home；`layout: reading-chapter` → reader-chapter；`reading-topics` → reader-topics；其餘依 `params.role` 找 `_partials/library/<role>.html`
+- `next/layouts/vortex/page.html`／`section.html`：`role` 缺省時 有 `unit_id`→unit、section→reading-list、其他→article；否則 `_partials/vortex/<role>.html`
+- `next/layouts/_partials/library/series-of.html`：依網址前綴找出所屬書房系列（決定系列色與左側目錄）
 
-### Section → layout 路由
-| content 目錄 | layout | 說明 |
-|-------------|--------|------|
-| `content/library/` | `layouts/library/{list,book,chapter,single}.html` | 書庫；CSCS 章節頁在 `chapter.html`（351 行，2026-07-31 從 3×3 九宮格改成黏性目次文件版型 + 遮答自測 + 深度層，資料讀 `data/cscs/`；模式切換／scrollspy／錨點展開／閃卡 JS 全內聯）。改動後跑 `tools/audit.js` 迴歸 |
-| 　└ CSCS 概念索引 | `library/cscs-concepts.html`（180 行） | 打散章節的第二條軸：22 概念 × 各自落點（2505 條連結），共用 `.nb` 版型；入口在 book 頁的工具列與每條知識單位的概念標籤 |
-| 　└ 特殊書 | `library/mnfl-{book,toolkit}.html`、`library/ust-{book,handbook,strategies}.html` | 大腦喜歡這樣學 / UST，各自 CSS |
-| 　└ 肌肉骨骼兩冊中文讀本 | `library/reading-{book,chapter,topics}.html`、`shortcodes/reading-{source,diagram,viscoelastic,length-tension,force-balance,shoulder-angles,shoulder-load,forearm-load,elbow-load,wrist-components,pulley-load,tendon-moments,pulley-excursion,lumbosacral-load,disc-pressure,lifting-load,lumbar-resultant,cervical-magnification,airflow,hip-support,knee-compartments,ankle-load}.html` | 33章中文詳解／導讀，肌動學第1–16章與Nordin第1–17章均已加深（1,106節／260,914中文字）；來源定位、跨書主題；共用 `reading.css`／`reading.js`；本機原頁由 `tools/book_reader.py` 唯讀回應 |
-| `content/temperament/` | `layouts/temperament/temperament-main.html`（386 行） | 氣質 section + 測驗（`temperament-quiz.js` 197 行） |
-| `content/vortex/` | `layouts/vortex/*`（見下） | 游泳知識庫，最大最複雜 |
+### 頁面來源（content adapters）
+- `next/content/vortex/_content.gotmpl`：約 770 個 Vortex 知識點頁、6 泳式頁、8 清單頁
+- `next/content/library/essentials-of-strength-training/_content.gotmpl`：24 章＋概念索引
+- `next/content/library/{mind-for-numbers,uncommon-sense-teaching}/_content.gotmpl`、`next/content/temperament/_content.gotmpl`
 
-### vortex layouts（layouts/vortex/，全 section 重點）
+### 資料產生器（CI 會跑前三支＋ check_learning_map）
+- `tools/build_vortex_links.py`、`tools/build_library.py`、`tools/build_starters.py`
+- `tools/build_crosslinks.py`（讀 `next/crosslinks/{units.json,judgments.jsonl,verify.jsonl}`；不在 CI，判斷要花 MiniMax）
 
-> 2026-07 重設計（I1–I5）後：**master-detail 面板切換範式已退役**，rail 型頁全數改「連續文件 + scrollspy」（wrap 加 `vx-doc` class，rail 按鈕→錨點連結）。唯一 legacy 面板頁剩 temperament section（不在 vortex）。
-
-| 檔 | 行 | 職責 | 互動 JS |
-|----|----|------|---------|
-| `vortex-home.html` | 70 | 首頁：masthead + hero(什麼是水感) + 處境帶 4 入口 + legend（主題/搜尋都在左欄） | 載 `vortex.js` |
-| `vortex-stroke.html` | 304 | 每式連續文件（vx-doc：moves→drills→errors→tech→levels） | vortex.js doc 分支（scrollspy + chip 篩選） |
-| `vortex-database.html` | 275 | 查資料：全站 8 類單元級撈取，支援 `?q=` | vortex.js `[data-vx-find]` 分支 |
-| `vortex-drills.html` | 187 | 找練習（139 drill 多軸篩選，label ①②③） | vortex.js `[data-vx-db]` 分支 |
-| `vortex-water-sense.html` | 585 | 水感指南，**全 hardcoded**，vx-doc | vortex.js doc 分支 |
-| `vortex-periodization.html` | 1103 | 週期化期刊頁（最長），vx-doc | vortex.js doc 分支 |
-| `vortex-levels.html` | 137 | 水感 L0–L6，vx-doc | vortex.js doc 分支 |
-| `vortex-breathing.html` | 642 | 呼吸章三條線（感知線只指路去 drills／生理線／喚醒調節線）21 節點，vx-doc；**安全面板置頂且不可收合**，概念地圖 range `data/breathing/_index.yaml` 生成 | vortex.js doc 分支 |
-| `vortex-injuries.html` | 288 | 運動傷害，vx-doc | vortex.js doc 分支 |
-| `vortex-psychology-read.html` | 140 | 心理層連續長文（READ；lookup 頁已退役，/vortex/psychology/ alias 轉址至此） | vortex.js `.vx-read` 分支（進度條+spy） |
-| `vortex-adm-{home,matrix,standards,single}.html` | 74/105/60/28 | ADM 四頁；matrix 為 vx-doc | matrix doc 分支；standards `[data-vx-adm-std]` 分支 |
-| `vortex/{single,list}.html` | 29/36 | technica/instructional/bridge 散文 fallback | 無 |
-
-### CSS（static/css/）
-`variables.css`(49) `base.css`(79) `layout.css`(165) `home.css`(約 620，首頁工作台 Hero＋atlas＋RWD，完全 scope 在 `.home-page`) `library.css`(140) `cscs-chapter.css`(719) `vortex.css`(2111) `vortex-techo.css`(158，僅首頁 tx-*) `vortex-nav.css`(159，全站側欄+搜尋框) `vortex-injuries.css`(242) `mnfl.css`(391) `ust.css`(526) `temperament.css`(296)。
-隔離手法：各 section CSS 用 `body:has(.<prefix>-*)` scope，不互相污染。
-
-### JS（static/js/）
-- `vortex.js`(555) — 單檔依 DOM hook 分派（見 §2 決策索引該列）；`setupCardFilters`/`setupDrillFilters` 為 doc 與 legacy 分支共用；`?q=` 只寫入 `input.value`（XSS-safe）
-- `temperament-quiz.js`(197) — 氣質測驗純前端計分
-
-### 版型驗收（tools/）
-- `reading_check.py`、`audit_book_readers.js`、`check_book_reader_server.py` — 讀本結構／連結、既有97項瀏覽器及18項原頁服務檢查；周邊神經／骨骼肌批兩章67項在 `research/book-readers-2026-09-06/nerve-muscle-expansion/check-browser.js`，正式頁驗收在同目錄 `check-live.py`（沿用trunk批HTML解析器），彙整`record-validation.py`；前批保留各批次目錄
-- `home_audit.js` — 首頁 30 項資料＋Playwright 閘：home.yaml 色碼/URL、19 個 canonical 目的地、6 個 quick actions、4 個 domains、兩冊讀本常駐入口、連結回應、heading、對比、focus、CLS、reduced-motion 與 768/390/320px RWD（讀本入口範圍於 2026-09-06 已驗）
-- `audit.js` — CSCS 章節頁＋概念索引 38 項既有迴歸閘；首頁改動後仍須跑，確認 CSS 隔離沒有波及其他頁
-
-### 資料流
-- `tools/sync_vortex.py` — 從 `TheVortexProject/canonical/` 同步到 `data/{vortex,adm,periodization,breathing}/`。**單向，勿手改 data/**
-- `data/{mnfl,ust,temperament}/`、`data/home.yaml` — my-site 自有，**可直接改**
+### 前端
+- `study.js`（對照閱讀插入、閱讀進度、接著讀、隨機短篇、今天試這一個）、`filter.js`、`diagrams.js`、`cscs.js`（遮答自測）、`cscs-quiz.js`、`cscs-cards.js`、`temp-quiz.js`、`planner.js`
 
 ---
 
-## 4. 踩雷點 / 非顯而易見處（讀檔表面看不出）
+## 4. 踩雷點 / 非顯而易見處
 
-1. **`static/css/vortex.css` 的 RWD `@media` 集中在檔案後段**（檔案現約 2111 行）。中段讀不到任何 media query → **別下「沒有 RWD / 沒手機版」結論**。同理 `is-hidden`（搜 `is-hidden`，details.vx-card 用）、`.vx-cert`（搜 `vx-cert`）都在中後段。`:focus-visible` 確實沒有、`prefers-color-scheme`（dark mode）確實沒有。
-2. **`vortex.js` 是單一檔依 DOM hook 分派**：`.vx-doc` 文件流（scrollspy）/ legacy 面板切換（**temperament-main.html 仍用 data-target 按鈕，此分支不可刪**）/ `[data-vx-db]` drills / `[data-vx-find]` database / `[data-vx-adm-std]` ADM 標準 / `.vx-read`。改多軸 filter 在 `setupCardFilters`/`setupDrillFilters` 共用函數改。**adm-standards 的 `stdPanel.querySelector('.vx-filters')` 依賴容器 class，layout 改 `.vx-filters` 名會斷 JS**（2026-07-10 audit 確認）。
-3. **`vortex-water-sense.html` 全 hardcoded，從不呼叫 `.Content`**。對應 `content/vortex/technica/water-sense-guide.md` 的 body 是**死碼**（2026-06-15 已清空留註解）。改這頁文案要改 template，不是改 .md。
-4. **`data/vortex|adm|periodization|breathing/` 是 canonical-synced**：手改會被下次 `sync_vortex.py` 洗掉。改內容要回 `C:\claudehome\projects\TheVortexProject\canonical/`。`breathing/` 是**整章目錄式搬運**（全 public 無 diagnostic），不是 `data/vortex/` 那種單檔剝離。
-5. **`baseof.html` 的 `.main-content { max-width:800px }` 罩住每一頁**；vortex 頁靠 `vortex.css` 的 `body:has(...) .main-content{max-width:none}` 脫離上限（搜 `main-content`）。改寬度問題先查這條。
-6. **stroke 頁誤區/機制用精確 key 過濾**（`vortex-stroke.html` 搜 `where ... "stroke" $key`）：`stroke: common` 的通用項**不會**自動出現在各式頁——是「可能缺漏」而非「會多出來」。
-7. **stroke 中英名 dict 已抽成共用 partial** `layouts/partials/vortex/stroke-dicts.html`，home/database/standards/drills 4 個 layout 都 `partial` 它（2026-06-23 稽核更正）。`vortex-stroke.html` 不用 partial——它的中英名取自每式 `_index.md` front-matter（`stroke_tag`/`stroke_en`），機制不同。**殘留低優先重複**：key→slug 映射 dict（`free→freestyle`）仍在 stroke/database/drills 各 inline 一份。adm-standards 用另一套 `start`/`turn` 分開 vocabulary，別混。
-8. **`public/` 不進 git**（2026-06-15 `git rm --cached` + gitignore）。本機看到的 committed public 斷鏈與 live 無關，live 永遠是 CI fresh build。
-9. **`.Site.Data.*` 已全數遷移完畢**（2026-06-23 稽核：`grep -rn '\.Site\.Data' layouts/` 命中 0）：全站 layout 都用 `index hugo.Data "x"`。舊 MAP 記「8 個 layout 仍用」已過時，不再是隱憂。
-10. **taxonomy 已停用**（`hugo.toml` `disableKinds`）：frontmatter 的 `tags:` 不產頁。想做標籤導覽要先處理中文 slug URL 編碼（否則 mojibake）。
-11. **`el.hidden = true` 在有 `display` class 規則的元素上無效**：author 的 `.nb-doc { display: grid }` specificity 高過 UA 的 `[hidden] { display: none }`，JS 設 hidden 畫面不會變。`cscs-chapter.css` 明寫 `.nb-doc[hidden] { display: none }` 解（**不用 `!important`**，專案禁用）。同模式的 `.vx-*` 若日後用 hidden 切換要一併注意。
-12. **CSCS 章節頁已改讀 `data/cscs/`**（2026-07-31）：舊的「剖析子頁 `RawContent`、`；` 當條列分隔符」機制連同 202 個 topic md 檔一起刪除，`；` 恢復成普通標點。`chNN/` 現在只剩 `_index.md`。
-13. **`related` / `terms` / `concepts` 指到不存在的目標，Hugo 不報錯只給空字串**（同 §踩雷 Vortex 分類標籤的坑）。所以驗收靠 `tools/cscs_check.py`，把斷鏈當失敗；**不跑它就等於沒有交叉參照**。
-14. **wiki 連結索引用 `partialCached "cscs-index.html" $book $book.RelPermalink`**：1583 條，每頁重建會拖慢建置；variant key 用 RelPermalink，避免第二本書共用同一份快取。
-15. **`.nb-detail summary` 的 `display` 不是 `list-item`，原生三角會消失**，靠 `::before` 自己畫；改 summary 版面時別把箭頭弄丟（`audit.js` 沒有斷言它，只有人眼看得到）。
-16. **`base.css` 全站 `html { scroll-behavior: smooth }` 會讓錨點落地漂掉**：跳錨點時瀏覽器自己的平滑捲動、頁面既有的平滑捲動、`scrollIntoView()` 三者互搶，實測落點偏離目標 2200px。`chapter.html` / `cscs-concepts.html` 的 `openTarget()` 因此在定位期間暫時把 `documentElement.style.scrollBehavior` 設成 `auto`，下一幀再補一次並還原。**只用 `scrollIntoView({behavior:'auto'})` 不夠**（動畫仍會接手）。
-17. **Goldmark 在全形標點與 CJK 之間不認粗體閉合符**：`**延腦背側呼吸群（DRG）**主要…` 的收尾 `**` 前是 `）`、後是 `主`，右側 flanking 判定失敗，`**` 原樣印在頁面上。修法是把括號／句號移到粗體外側，**且要修在 canonical 那一側**。⚠ 2026-08-11 全站掃描：`public/` 仍有 222 個未渲染的 `**`（database 90、freestyle 34、udk 18…），**根因不只一種**——數量大的比較像該欄位根本沒過 `markdownify`，要修先分類。掃描方式：對 `public/**/index.html` 數 `**` 出現次數。
-18. **錨點跳進收合的 `<details>` 會落在空白處**：`vx-doc` 模式原本沒有 hash 處理（自動展開只存在於 legacy 面板分支的 `data-anchor`）。`vortex.js` 的 `openTargetDetails()` 在載入與 `hashchange` 時補這件事——加新的「從別頁跳進某節」入口前先確認它還在。
-19. **純計算的 Hugo 迴圈一定要用 `{{- -}}` 夾緊**：不夾的話每次迭代吐出縮排空白，概念頁 22 × 1583 次迭代把 HTML 從 578KB 灌成 1.86MB。看到頁面異常肥先查迴圈空白，不是查內容量。
-20. **首頁的 quick action 重複 URL 是刻意的，canonical 目的地不是兩份**：`quick_actions` 只是首屏捷徑，完整清單仍由 `domains.primary` / `domains.secondary` + `footer_link` 擁有。`home_audit.js` 允許一個目的地出現兩次，但不允許第三份或規格外 URL。手機版隱藏 domain `lede/spec` 也是刻意的密度裁決；入口與 note 仍完整保留。
+1. **`hugo server` 會把頁面寫進 `public/`，和 `check.py` 的建置互相清掉**：看畫面請 `hugo -d <暫存>/cortex --baseURL http://127.0.0.1:1319/cortex/` ＋ 靜態伺服器。
+2. **`next/data/` 下只能放 Hugo 認得的資料格式**：放 `.txt` 會讓整站建置失敗（2026-09-26 `legacy_urls.txt` 事故）。
+3. **自訂屬性的連結色**：`--link` 在 `:root` 算定後不隨系列色變；連結一律用 `var(--series)`。
+4. **Hugo `index` 查不到 key 回空字串不報錯**：分類標籤、節點清單、來源 id 都要從資料讀並有 fallback（見 CLAUDE.md 內容規則）。
+5. **printf 印數字要用 `%v`**：`%s` 會輸出 `%!s(uint64=170)`；`check.py` 全站檢查 `%!`。
+6. **CSCS 中文章名不在 `data/cscs/chNN.yaml`**（有幾章是英文）而在 `next/data/cscs_titles.yaml`。
+7. **`drills.yaml` 的 `deficiency_fixes` 是外部書本缺陷編號，不是動作序號**，不可拿來連 drill 與動作。
+8. **對照閱讀與閱讀進度都以錨點為鍵**：讀本小節 `{#anchor}`、CSCS item id 改名會無聲打斷兩者。
+9. **Vortex 的呼吸安全段落必須置頂且不可收合**；`check.py V3` 會擋。
+10. **Windows Git Bash heredoc 寫 Python 時 `\n` 常被吃掉**：長片段改用檔案寫入工具寫成 .py 再執行。
 
 ---
 
 ## 5. 邊界 / 別碰
 
-- **canonical 源在另一個 repo**：`TheVortexProject`（游泳內容真相源）。my-site 只是消費端/呈現層。
-- **swim-coach 不在範圍**：另一套自動教練系統（會反查 periodization data，但獨立）。
-- **CSCS 內容真相源是 `data/cscs/`**（my-site 自有，可直接改）。Google Sheets CSV / `data/flashcards/*.json` / topic md 檔皆已廢除，別再照舊文件去 Sheets 加閃卡。
-- **Hugo 版本漂移**：CI 0.159.1（寫死 deploy.yml）vs 本機可能更新版，改版面前先知道有落差。
+- **Vortex 內容真相源在 `TheVortexProject`**；`data/{vortex,adm,periodization,breathing,movement}/` 與 `content/vortex/{instructional,bridge,technica}/` 是同步產物，勿手改。
+- **CSCS 內容真相源是 `data/cscs/`**（my-site 自有）；選擇題進度與 cscs-quest 桌面端互不相通。
+- **舊站已移除**，需要時從 git 標籤 `legacy-site-2026-09-26` 檢出；不要把舊版型或舊 CSS 搬回 `next/`。
+- Hugo 版本：CI 0.159.1（寫死在 deploy.yml），本機可能較新。
