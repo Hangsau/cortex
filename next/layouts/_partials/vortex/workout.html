@@ -30,7 +30,7 @@
 
   <section class="le-block" id="wk-pb" aria-labelledby="wk-pb-h">
     <h2 id="wk-pb-h">① 我的成績</h2>
-    <p class="muted">時間寫成「分:秒」或直接寫秒，例如 <b>1:05.3</b> 或 <b>32.8</b>。有幾筆填幾筆；每一式分開算。成績和練習要在同一種池長。</p>
+    <p class="muted">左格填分、右格填秒，例如 1 分 05.3 秒填 <b>1</b>｜<b>05.3</b>；不到一分鐘左格空著。有幾筆填幾筆；每一式分開算。成績和練習要在同一種池長。</p>
     <div class="wk-row">
       <label class="wk-field"><span>成績的池長</span>
         <select data-wk-course><option value="scm">短池 25 m</option><option value="lcm">長池 50 m</option></select>
@@ -42,7 +42,7 @@
       <div class="wk-pbs">
         {{- $k := .k }}
         {{- range .d }}
-        <label class="wk-field"><span>{{ . }} m</span><input type="text" inputmode="decimal" placeholder="—" data-wk-pb="{{ $k }}:{{ . }}" autocomplete="off"></label>
+        <div class="wk-field"><span>{{ . }} m</span><span class="wk-tf" data-wk-pb="{{ $k }}:{{ . }}" data-dec="1"><input class="wk-tf-m" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="分" aria-label="{{ . }} m 分" autocomplete="off"><span aria-hidden="true">:</span><input class="wk-tf-s" type="text" inputmode="decimal" placeholder="秒" aria-label="{{ . }} m 秒" autocomplete="off"></span></div>
         {{- end }}
       </div>
     </fieldset>
@@ -78,22 +78,24 @@
       <button type="button" class="wk-btn" data-wk-mdup>複製這份</button>
       <button type="button" class="wk-btn wk-btn--quiet" data-wk-mdel>刪除這份</button>
     </div>
-    <p class="muted">每一列：趟數 × 距離、泳式、游法（游／腳／手／drill）、強度、休息。強度選「技術／耐力／速度／衝刺」會依該式成績自動算目標秒數；腳和 drill 用游泳成績算會失真，只能不設目標或自己填秒數。</p>
+    <p class="muted">每一列：幾組 × 幾趟 × 距離、泳式、游法（游／腳／手／drill）、強度、每趟休息、組間休息。強度選「技術／耐力／速度／衝刺」會依該式成績自動算目標秒數；腳和 drill 用游泳成績算會失真，只能不設目標或自己填秒數。每一段底下的「＋ 加一列」新增項目。</p>
     <div data-wk-blocks></div>
     <div class="wk-actions">
       <button type="button" class="wk-btn" data-wk-addblk>＋ 加一段</button>
     </div>
     <p class="wk-total" data-wk-total></p>
-    <div class="wk-actions">
-      <button type="button" class="wk-btn wk-btn--main" data-wk-start>開始計時</button>
-    </div>
-    <label class="wk-check"><input type="checkbox" data-wk-autorest checked> 有目標秒數的趟，沒按「到牆」時目標一到就開始算休息</label>
+    <div class="wk-actions"><a class="wk-btn wk-btn--main" href="#wk-sum">排好了，看清單 →</a></div>
   </section>
 
   <section class="le-block" id="wk-sum" aria-labelledby="wk-sum-h">
     <h2 id="wk-sum-h">⑤ 課表總覽</h2>
-    <div data-wk-sum></div>
-    <div class="wk-actions"><button type="button" class="wk-btn" data-wk-copy>複製成文字</button></div>
+    <div class="wk-sumwrap" data-wk-sum></div>
+    <div class="wk-actions">
+      <button type="button" class="wk-btn" data-wk-print>列印</button>
+      <button type="button" class="wk-btn" data-wk-copy>複製成文字</button>
+    </div>
+    <label class="wk-check"><input type="checkbox" data-wk-autorest checked> 有目標秒數的趟，沒按「到牆」時目標一到就開始算休息</label>
+    <div class="wk-actions"><button type="button" class="wk-btn wk-btn--main wk-btn--big" data-wk-start>照這份清單開始 HIIT 計時</button></div>
   </section>
 
   <section class="le-block" id="wk-mine" aria-labelledby="wk-mine-h">
@@ -127,6 +129,11 @@
   <p class="wk-t-sub" data-wk-t-sub></p>
   <p class="wk-t-drill" data-wk-t-drill></p>
   <button type="button" class="wk-t-wall" data-wk-wall>到牆</button>
+  <div class="wk-t-adj" aria-label="臨場調整">
+    <div class="wk-t-adjrow"><span>目標</span><button type="button" data-adj="t:-1">−1 秒</button><button type="button" data-adj="t:1">+1 秒（放慢）</button></div>
+    <div class="wk-t-adjrow"><span>休息</span><button type="button" data-adj="r:-10">−10 秒</button><button type="button" data-adj="r:10">+10 秒</button></div>
+    <p class="wk-t-adjv" data-wk-t-adjv></p>
+  </div>
   <div class="wk-t-ctrl">
     <button type="button" class="wk-btn" data-wk-pause>暫停</button>
     <button type="button" class="wk-btn" data-wk-skip>跳過這一段</button>

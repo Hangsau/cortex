@@ -81,6 +81,18 @@
 .wk-r select, .wk-r input, .wk-mine input, .wk-mine select { min-height: 44px; padding: 0 var(--s1); border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink); font: 400 var(--fs-m)/1 var(--f-sans); font-variant-numeric: tabular-nums; max-width: 100%; }
 .wk-r select:focus-visible, .wk-r input:focus-visible { outline: 3px solid var(--series); outline-offset: 1px; }
 .wk-in { display: inline-flex; align-items: center; gap: 4px; }
+.wk-in[hidden] { display: none; }
+.wk-tf { display: inline-flex; align-items: center; gap: 2px; font-weight: 700; }
+.wk-tf input { width: 3.2em; min-width: 0; min-height: 44px; padding: 0 4px; border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink); font: 400 var(--fs-m)/1 var(--f-sans); font-variant-numeric: tabular-nums; text-align: center; }
+.wk-tf .wk-tf-s { width: 4em; }
+.wk-tf input:focus-visible { outline: 3px solid var(--series); outline-offset: 1px; }
+.wk-pbset .wk-tf { width: 100%; }
+.wk-pbset .wk-tf input { flex: 1 1 0; width: auto; }
+.wk-r-count .wk-in input[type="number"] { width: 3.6em; }
+.wk-r-sum { margin-left: auto; }
+.wk-addrow { width: 100%; min-height: var(--tap); margin: var(--s1) 0 0; border: 1px solid var(--series); border-radius: 4px; background: var(--paper); color: var(--series); font: 700 var(--fs-m)/1 var(--f-sans); cursor: pointer; }
+.wk-addrow:hover { background: var(--tint); }
+.wk-btn--big { width: 100%; min-height: 64px; font-size: var(--fs-l); }
 .wk-in input[type="number"] { width: 4.5em; }
 .wk-in input[type="text"] { width: 5.5em; }
 .wk-r-drill { flex: 1 1 220px; min-width: 0; }
@@ -97,15 +109,16 @@
 .wk-r-act { display: inline-flex; flex-wrap: wrap; gap: var(--s1); }
 .wk-r-act button { min-width: 44px; min-height: 44px; padding: 0 var(--s1); border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink-2); font: 400 var(--fs-s)/1 var(--f-sans); cursor: pointer; }
 .wk-r-act button:hover { border-color: var(--series); color: var(--ink); }
-.wk-blk > .wk-add { min-height: var(--tap); }
 .wk-total { margin: var(--s2) 0 0; font-weight: 700; }
 
 .wk-sum-t { margin: 0 0 var(--s2); font: 700 var(--fs-l)/1.4 var(--f-serif); }
 .wk-sum-t span { display: block; font: 400 var(--fs-s)/1.6 var(--f-sans); color: var(--ink-2); }
 .wk-sum-b { margin: 0 0 var(--s2); }
 .wk-sum-h { display: flex; justify-content: space-between; margin: 0; padding-top: var(--s1); border-top: 2px solid var(--ink); font-weight: 700; }
-.wk-sum-b ul { list-style: none; margin: 0; padding: 0; }
-.wk-sum-b li { padding: var(--s1) 0; border-top: 1px solid var(--rule); line-height: 1.6; }
+.wk-sum-b ol { list-style: none; margin: 0; padding: 0; }
+.wk-sum-b li { display: flex; gap: var(--s2); padding: var(--s1) 0; border-top: 1px solid var(--rule); line-height: 1.6; }
+.wk-sum-b li i { flex: 0 0 1.6em; font: 700 var(--fs-m)/1.6 var(--f-serif); font-style: normal; color: var(--series); text-align: right; }
+.wk-sum-b li b { font-size: var(--fs-m); }
 .wk-sum-b li span { display: block; font-size: var(--fs-s); color: var(--ink-2); }
 
 .wk-mine { display: flex; flex-wrap: wrap; gap: var(--s2); margin: var(--s2) 0; }
@@ -134,6 +147,10 @@ body.wk-running { overflow: hidden; }
 .wk-t-sub { margin: 0 0 var(--s3); font: 400 var(--fs-l)/1.4 var(--f-sans); text-align: center; }
 .wk-t-wall { width: 100%; max-width: 640px; min-height: 120px; border: 0; border-radius: 4px; background: var(--paper); color: var(--ink); font: 700 clamp(32px, 9vw, 48px)/1 var(--f-sans); cursor: pointer; }
 .wk-t-wall[hidden] { display: none; }
+.wk-t-adj { width: 100%; max-width: 640px; margin: var(--s3) 0 0; }
+.wk-t-adjrow { display: grid; grid-template-columns: 3em 1fr 1fr; align-items: center; gap: var(--s1); margin-bottom: var(--s1); font: 700 var(--fs-m)/1 var(--f-sans); }
+.wk-t-adjrow button { min-height: var(--tap); border: 1px solid var(--paper); border-radius: 4px; background: none; color: var(--paper); font: 700 var(--fs-m)/1.2 var(--f-sans); cursor: pointer; }
+.wk-t-adjv { min-height: 1.6em; margin: 0; font-size: var(--fs-s); line-height: 1.6; text-align: center; }
 .wk-t-ctrl { display: flex; gap: var(--s2); margin: var(--s3) 0; }
 .wk-t-ctrl .wk-btn { background: none; color: var(--paper); border-color: var(--paper); }
 .wk-t-log { list-style: none; margin: 0; padding: 0; width: 100%; max-width: 640px; font: 400 var(--fs-m)/1.8 var(--f-sans); font-variant-numeric: tabular-nums; }
@@ -143,4 +160,12 @@ body.wk-running { overflow: hidden; }
 @media (max-width: 600px) {
   .wk-quick { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .wk-css { padding-left: var(--s2); }
+}
+
+/* 列印：只印課表清單（按「列印」時 JS 把清單複製到 body 最外層的 #wk-print） */
+#wk-print { display: none; }
+@media print {
+  body.wk-printing > *:not(#wk-print) { display: none; }
+  body.wk-printing #wk-print { display: block; padding: 0 var(--s2); }
+  body.wk-printing .wk-sum-b { break-inside: avoid; }
 }
