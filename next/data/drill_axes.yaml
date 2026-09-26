@@ -1,0 +1,131 @@
+# 練習（drill）篩選軸：欄位 → 中文標籤與固定排序。
+# 來源：舊站 layouts/vortex/vortex-drills.html 的「9 軸中文映射 v1.0（2026-06-27）」與三型對照，
+# 2026-09-26 搬到資料層（版型不再寫死標籤）。值域以 data/vortex/drills.yaml 實際出現者為準，
+# 資料出現、這裡沒列的值會以原值顯示並排在最後。
+# primary: true 的軸直接顯示；其餘收在「更多篩選」。
+axes:
+  - field: l_target
+    dim: level
+    label: 在哪個水感階段
+    primary: true
+    values:
+      - {key: L0, zh: L0}
+      - {key: L1, zh: L1}
+      - {key: L2, zh: L2}
+      - {key: L3, zh: L3}
+      - {key: L4, zh: L4}
+      - {key: L5, zh: L5}
+      - {key: L6, zh: L6}
+  - field: drill_function
+    dim: fn
+    label: 用途
+    values:
+      - {key: warmup, zh: 熱身}
+      - {key: corrective, zh: 矯正}
+      - {key: skill_isolation, zh: 孤立練習}
+      - {key: skill_integration, zh: 整合}
+      - {key: progression, zh: 階梯遞進}
+      - {key: pre_main_set, zh: 主項前激活}
+      - {key: cooldown, zh: 緩和}
+  - field: difficulty_tier
+    dim: dt
+    label: 難度門檻
+    values:
+      - {key: foundation, zh: 基礎}
+      - {key: intermediate, zh: 中階}
+      - {key: advanced, zh: 進階}
+      - {key: elite, zh: 菁英}
+  - field: cognitive_load
+    dim: cl
+    label: 專注程度（疲勞下能否做）
+    values:
+      - {key: low, zh: 低}
+      - {key: medium, zh: 中}
+      - {key: high, zh: 高}
+  - field: body_position
+    dim: body
+    label: 身體姿勢
+    values:
+      - {key: standing, zh: 站姿}
+      - {key: vertical, zh: 垂直}
+      - {key: prone, zh: 俯臥}
+      - {key: supine, zh: 仰躺}
+      - {key: side, zh: 側躺}
+      - {key: underwater, zh: 水下}
+      - {key: transitional, zh: 轉換}
+  - field: skill_focus
+    dim: sk
+    label: 感知標的
+    values:
+      - {key: breath_rhythm, zh: 呼吸節律}
+      - {key: streamline_line, zh: 流線體線}
+      - {key: buoyancy_balance, zh: 浮力平衡}
+      - {key: core_tension, zh: 核心張力}
+      - {key: hip_drive, zh: 髖部驅動}
+      - {key: catch_evf, zh: 高肘捕水}
+      - {key: forearm_pressure, zh: 前臂壓水}
+      - {key: hand_acceleration, zh: 手部加速}
+      - {key: entry_extension, zh: 入水延伸}
+      - {key: recovery_path, zh: 移臂路徑}
+      - {key: kick_origin, zh: 踢水起始}
+      - {key: kick_amplitude, zh: 踢水振幅}
+  - field: constraints
+    dim: con
+    label: 限制條件（拿掉什麼讓感知浮出）
+    values:
+      - {key: no_arms, zh: 不用手}
+      - {key: single_arm, zh: 單手}
+      - {key: closed_fist, zh: 握拳}
+      - {key: paddle_amplifier, zh: 手掌板}
+      - {key: no_kick, zh: 不踢}
+      - {key: single_leg, zh: 單腳}
+      - {key: no_breath, zh: 閉氣}
+      - {key: breath_added, zh: 加換氣}
+      - {key: eyes_closed, zh: 閉眼}
+      - {key: tempo_constrained, zh: 限定節奏}
+      - {key: tension_held, zh: 維持張力}
+  - field: movement_pattern
+    dim: mp
+    label: 動作型態
+    values:
+      - {key: static, zh: 靜止}
+      - {key: progressive, zh: 緩進}
+      - {key: continuous, zh: 連續}
+      - {key: pause_pulse, zh: 停頓脈衝}
+      - {key: alternating, zh: 左右交替}
+      - {key: rotational, zh: 旋轉}
+  - field: stroke_phase
+    dim: sp
+    label: 划水週期
+    values:
+      - {key: non_stroke, zh: 非划水段}
+      - {key: entry, zh: 入水}
+      - {key: catch, zh: 抓水}
+      - {key: pull, zh: 拉前段}
+      - {key: push, zh: 推後段}
+      - {key: recovery, zh: 移臂}
+      - {key: glide, zh: 滑行}
+      - {key: transition, zh: 銜接}
+      - {key: whole_stroke, zh: 整套}
+  - field: tactile_anchor
+    dim: ta
+    label: 回饋訊號
+    values:
+      - {key: pool_floor_visual, zh: 看池底}
+      - {key: hand_pressure, zh: 手感}
+      - {key: foot_pressure, zh: 腳感}
+      - {key: core_tension_internal, zh: 核心張力}
+      - {key: wall_contact, zh: 牆面}
+      - {key: water_sound, zh: 水聲}
+      - {key: partner_feedback, zh: 同伴}
+      - {key: equipment_feedback, zh: 器材回饋}
+      - {key: surface_break, zh: 破水時機}
+  - field: abc_type
+    dim: abc
+    label: 補哪一塊感知
+    null_as: general
+    values:
+      - {key: A, zh: 手感}
+      - {key: B, zh: 腳感}
+      - {key: C, zh: 全身張力}
+      - {key: general, zh: 通用}

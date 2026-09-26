@@ -139,6 +139,38 @@
     </div>
     {{- end -}}
 
+    {{- if eq $type "drill" -}}
+      {{- $axes := hugo.Data.drill_axes.axes -}}
+      {{- $recs := slice -}}{{- range $it := $items -}}{{- with index $units $it.uid -}}{{- $recs = $recs | append .record -}}{{- end -}}{{- end -}}
+      {{- $rows := dict -}}
+      {{- range $ax := $axes -}}
+        {{- $seen := dict -}}
+        {{- range $r := $recs -}}
+          {{- $v := index $r $ax.field -}}
+          {{- if and (not $v) $ax.null_as -}}{{- $v = $ax.null_as -}}{{- end -}}
+          {{- if reflect.IsSlice $v -}}{{- range $v -}}{{- $seen = merge $seen (dict (string .) true) -}}{{- end -}}{{- else if $v -}}{{- $seen = merge $seen (dict (string $v) true) -}}{{- end -}}
+        {{- end -}}
+        {{- $html := "" -}}
+        {{- range $ax.values -}}{{- if index $seen .key -}}{{- $html = printf "%s<button type=\"button\" aria-pressed=\"false\" data-filter=\"%s\" data-value=\"%s\">%s</button>" $html $ax.dim .key .zh -}}{{- end -}}{{- end -}}
+        {{- $rows = merge $rows (dict $ax.dim (dict "label" $ax.label "html" $html "primary" $ax.primary)) -}}
+      {{- end -}}
+      {{- range $ax := $axes -}}{{- if $ax.primary -}}{{- with index $rows $ax.dim -}}{{- if .html -}}
+    <div class="filter-group" data-filter-group="{{ $ax.dim }}">
+      <span class="filter-label">{{ .label }}</span>
+      <button type="button" aria-pressed="true" data-filter="{{ $ax.dim }}" data-value="">全部</button>{{ .html | safeHTML }}
+    </div>
+      {{- end -}}{{- end -}}{{- end -}}{{- end }}
+    <details class="more-filters">
+      <summary>更多篩選<span data-more-count></span></summary>
+      {{- range $ax := $axes -}}{{- if not $ax.primary -}}{{- with index $rows $ax.dim -}}{{- if .html }}
+      <div class="filter-group" data-filter-group="{{ $ax.dim }}">
+        <span class="filter-label">{{ .label }}</span>
+        <button type="button" aria-pressed="true" data-filter="{{ $ax.dim }}" data-value="">全部</button>{{ .html | safeHTML }}
+      </div>
+      {{- end -}}{{- end -}}{{- end -}}{{- end }}
+    </details>
+    {{- end -}}
+
   </div>
   {{- end -}}
 
@@ -171,7 +203,16 @@
         {{- else -}}
           {{- $dataCategory = $u.category -}}
         {{- end -}}
-        <li data-uid="{{ $uid }}" data-stroke="{{ $dataStroke }}" data-category="{{ $dataCategory }}" data-equip="{{ $dataEquip }}" data-indent="{{ $it.indent }}">
+        {{- $axAttrs := "" -}}
+        {{- if eq $type "drill" -}}
+          {{- range $ax := hugo.Data.drill_axes.axes -}}
+            {{- $v := index $u.record $ax.field -}}
+            {{- if and (not $v) $ax.null_as -}}{{- $v = $ax.null_as -}}{{- end -}}
+            {{- $s := "" -}}{{- if reflect.IsSlice $v -}}{{- $s = delimit $v " " -}}{{- else if $v -}}{{- $s = string $v -}}{{- end -}}
+            {{- $axAttrs = printf "%s data-%s=\"%s\"" $axAttrs $ax.dim $s -}}
+          {{- end -}}
+        {{- end -}}
+        <li data-uid="{{ $uid }}" data-stroke="{{ $dataStroke }}" data-category="{{ $dataCategory }}" data-equip="{{ $dataEquip }}" data-indent="{{ $it.indent }}"{{ $axAttrs | safeHTMLAttr }}>
           <a class="item-title" href="{{ relURL $u.path }}">
             <strong>{{ $u.title }}</strong>
           </a>

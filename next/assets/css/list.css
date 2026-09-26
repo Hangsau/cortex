@@ -109,3 +109,8 @@
 /* ===== Claude 視覺層（2026-09-26） ===== */
 .list > h1 { font: 700 var(--fs-display)/1 var(--f-serif); margin: 0 0 var(--s2); }
 .items li a { font-family: var(--f-serif); }
+
+/* 更多篩選（drill 的 10 個次要維度，Claude 2026-09-26） */
+.more-filters { margin-top: var(--s1); border-top: 1px solid var(--rule); }
+.more-filters > summary { font-weight: 700; }
+.more-filters .filter-group { margin-top: var(--s2); }
