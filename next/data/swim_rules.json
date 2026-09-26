@@ -1,0 +1,104 @@
+{
+ "source": {
+  "file": "swim-coach/rules/menu_rules.yaml",
+  "commit": "7b641cf 2026-09-12",
+  "synced": "2026-09-26",
+  "zones_citation": "Maglischo, E.W. (2012). Training Zones Revisited. J. Swimming Research, Vol. 19:2."
+ },
+ "pace_offset_sec_per_100": {
+  "main_technique": 10,
+  "main_endurance": 0,
+  "main_speed": -10
+ },
+ "rest_seconds": {
+  "main_technique": {
+   "min": 20,
+   "max": 30
+  },
+  "main_endurance": {
+   "min": 10,
+   "max": 20
+  },
+  "main_speed": {
+   "min": 60,
+   "max": 90
+  }
+ },
+ "send_off_rounding_sec": 5,
+ "zones": {
+  "En-2": {
+   "name_zh": "閾值有氧（En-2）",
+   "purpose_zh": "練**快縮 A 型肌纖維**的有氧代謝。這一區的休息是用「工作時間的比例」定的，不是固定秒數",
+   "rest_max_ratio": 1.0,
+   "rest_ratio_over_100m": 0.5,
+   "set_duration_min": [
+    10,
+    20
+   ],
+   "rpe_pct_of_max": [
+    80,
+    90
+   ]
+  },
+  "En-3": {
+   "name_zh": "最大攝氧有氧（En-3）",
+   "purpose_zh": "練**快縮 X 型肌纖維**的有氧代謝。趟距短（25–50 m）但休息拉得長，靠反覆把最難徵召的那類纖維叫出來",
+   "repeat_distance_m": [
+    25,
+    50
+   ],
+   "cited_repeat_sec": 30,
+   "cited_rest_min": [
+    3,
+    4
+   ]
+  },
+  "Sp": {
+   "name_zh": "衝刺（Sp）",
+   "purpose_zh": "把**最大衝刺速度**拉上去。想要的適應是三類肌纖維的收縮力與收縮速度都變快，肌肉才推得出更大的划水功率",
+   "rest_sec_by_distance": {
+    "10": [
+     15,
+     30
+    ],
+    "25": [
+     30,
+     120
+    ],
+    "50": [
+     120,
+     300
+    ]
+   },
+   "reps_by_distance": {
+    "10": [
+     10,
+     15
+    ],
+    "25": [
+     6,
+     10
+    ],
+    "50": [
+     3,
+     6
+    ]
+   },
+   "rationale_en": "Remember that you are trying to improve rested speed, not fatigued speed."
+  }
+ },
+ "css": {
+  "pair_bias_note_zh": "200/400 配對算出的 CSS 偏高，據此推的出發間隔會偏緊；要修就往寬鬆方向修",
+  "single_forbidden_zh": "單點無法定義斜率。硬用 t/d*100 當配速等於假設「該距離的均速＝閾值速度」，\n這對 50 m PB 會快到離譜、對 800 m 會偏慢，誤差方向隨距離翻轉。\n先前版本的 base_pace_100 = t / d * 100 即為此誤，已刪。",
+  "practice_shortcut": {
+   "rule_en": "add 4-5 seconds per 100 meters to estimate CSS",
+   "source": "TrainingPeaks（Dave Schell, 2018）教練部落格",
+   "certainty": "🟠 教練實務，非同行評審"
+  },
+  "perceived_anchors_zh": [
+   "還能用鼻子順順吐氣＝偏輕",
+   "還能講短句、講不了整句＝中等（接近 En-2 的感覺）",
+   "只能吐單字＝偏重"
+  ]
+ }
+}

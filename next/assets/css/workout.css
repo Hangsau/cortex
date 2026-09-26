@@ -1,0 +1,92 @@
+/* 課表與間歇計時（Claude 手寫，2026-09-26）。計時器畫面為池邊設計：大數字、高對比、大按鈕。 */
+.wk-steps { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s3); margin: 0 0 var(--s2); font: 700 var(--fs-s)/1 var(--f-sans); }
+.wk-steps a { display: inline-flex; align-items: center; min-height: var(--tap); }
+.wk .le-block { margin-top: var(--s5); }
+.wk .le-block > h2 { border-top: 2px solid var(--ink); padding-top: var(--s2); margin: 0 0 var(--s2); }
+.wk-row, .wk-pbs { display: flex; flex-wrap: wrap; gap: var(--s2); margin: var(--s2) 0; }
+.wk-pbs .wk-field { flex: 1 1 120px; }
+.wk-field { display: flex; flex-direction: column; gap: 4px; font: 700 var(--fs-s)/1.4 var(--f-sans); }
+.wk-grow { flex: 1 1 220px; }
+.wk-field input[type="text"], .wk-field input[type="number"], .wk-field select {
+  min-height: var(--tap); padding: 0 var(--s2); border: 1px solid var(--rule); border-radius: 4px;
+  background: var(--paper); color: var(--ink); font: 400 var(--fs-l)/1 var(--f-sans); font-variant-numeric: tabular-nums;
+}
+.wk-field input[type="range"] { width: 100%; min-height: var(--tap); accent-color: var(--series); }
+.wk-field input:focus-visible, .wk-field select:focus-visible { outline: 3px solid var(--series); outline-offset: 1px; }
+
+.wk-css { padding: var(--s2) 0 var(--s2) var(--s3); border-left: 4px solid var(--series); margin-bottom: var(--s3); }
+.wk-css-k { margin: 0; font: 700 var(--fs-s)/1.4 var(--f-sans); color: var(--series); letter-spacing: .1em; }
+.wk-css-v { margin: 0; font: 700 clamp(40px, 9vw, 64px)/1.1 var(--f-serif); font-variant-numeric: tabular-nums; }
+.wk-css-v span { font: 400 var(--fs-m)/1 var(--f-sans); color: var(--ink-2); margin-left: var(--s1); }
+.wk-css-m { margin: var(--s1) 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: var(--s1); font-weight: 700; }
+.wk-grade { display: inline-block; padding: 2px var(--s1); border: 1px solid currentColor; border-radius: 4px; font-size: var(--fs-s); }
+.wk-grade--ok { color: var(--series); }
+.wk-grade--mid { color: var(--ink-2); }
+.wk-grade--low { color: var(--ink); background: var(--tint); }
+.wk-warn { margin: var(--s1) 0 0; padding-left: var(--s2); border-left: 2px solid var(--ink); font-size: var(--fs-s); line-height: 1.7; }
+.wk-note { margin: var(--s2) 0; font-size: var(--fs-s); line-height: 1.7; }
+
+.wk-tablewrap { overflow-x: auto; margin: 0 0 var(--s2); }
+.wk-table { width: 100%; border-collapse: collapse; font: 400 var(--fs-s)/1.5 var(--f-sans); }
+.wk-table th, .wk-table td { border-top: 1px solid var(--rule); padding: var(--s1); text-align: left; vertical-align: top; }
+.wk-table thead th { border-top: 2px solid var(--ink); }
+.wk-table tbody th { font-weight: 700; min-width: 7em; }
+.wk-table tbody th span, .wk-table td span { display: block; font-weight: 400; color: var(--ink-2); }
+.wk-table td b { font: 700 var(--fs-l)/1.2 var(--f-sans); font-variant-numeric: tabular-nums; }
+.wk-add { margin-top: 4px; min-height: 36px; padding: 0 var(--s2); border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--series); font: 700 var(--fs-s)/1 var(--f-sans); cursor: pointer; }
+.wk-add:hover { border-color: var(--series); }
+
+.wk-sp { margin: var(--s2) 0; }
+.wk-sp-v { margin: 0; font: 700 clamp(56px, 14vw, 96px)/1 var(--f-sans); font-variant-numeric: tabular-nums; color: var(--series); }
+.wk-quick { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s1); margin: var(--s2) 0; }
+.wk-q { display: flex; flex-direction: column; align-items: center; gap: 2px; min-height: var(--tap); padding: var(--s1) 0; border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink); cursor: pointer; font-family: var(--f-sans); }
+.wk-q span { font-size: var(--fs-s); color: var(--ink-2); }
+.wk-q b { font-size: var(--fs-m); font-variant-numeric: tabular-nums; }
+.wk-q.is-on { border-color: var(--series); background: var(--series); color: var(--paper); }
+.wk-q.is-on span { color: var(--paper); }
+.wk-sp-add { display: flex; flex-wrap: wrap; align-items: flex-end; gap: var(--s2); }
+.wk-sp-add .wk-field { flex: 0 1 120px; }
+
+.wk-btn { display: inline-flex; align-items: center; justify-content: center; min-height: var(--tap); padding: 0 var(--s3); border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink); font: 700 var(--fs-m)/1 var(--f-sans); cursor: pointer; }
+.wk-btn:hover { border-color: var(--series); }
+.wk-btn--main { background: var(--series); border-color: var(--series); color: var(--paper); }
+.wk-btn--quiet { border-color: transparent; color: var(--ink-2); font-weight: 400; }
+.wk-actions { display: flex; flex-wrap: wrap; gap: var(--s2); margin: var(--s2) 0; }
+.wk-check { display: flex; align-items: center; gap: var(--s1); min-height: var(--tap); font-size: var(--fs-s); }
+.wk-check input { width: 22px; height: 22px; accent-color: var(--series); }
+
+.wk-plan { list-style: none; margin: 0; padding: 0; counter-reset: wkset; }
+.wk-set { counter-increment: wkset; display: flex; flex-wrap: wrap; align-items: center; gap: var(--s1) var(--s2); padding: var(--s2) 0; border-top: 1px solid var(--rule); font: 400 var(--fs-s)/1.4 var(--f-sans); }
+.wk-set::before { content: counter(wkset); font: 700 var(--fs-l)/1 var(--f-serif); color: var(--series); min-width: 1.4em; }
+.wk-set input { min-height: 40px; padding: 0 var(--s1); border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink); font: 400 var(--fs-m)/1 var(--f-sans); font-variant-numeric: tabular-nums; }
+.wk-set input[type="number"] { width: 4.5em; }
+.wk-set input[data-f="target"], .wk-set input[data-f="rest"] { width: 5.5em; }
+.wk-set-l { flex: 1 1 100%; font-weight: 700; }
+.wk-del { margin-left: auto; min-width: 40px; min-height: 40px; border: 0; background: none; color: var(--ink-2); font-size: var(--fs-l); cursor: pointer; }
+.wk-total { margin: var(--s1) 0 0; }
+
+/* ---------- 計時器（全螢幕） ---------- */
+.wk-timer {
+  position: fixed; inset: 0; z-index: 50; display: flex; flex-direction: column; align-items: center;
+  padding: var(--s3) var(--s2) var(--s4); background: var(--ink); color: var(--paper); overflow-y: auto;
+}
+.wk-timer[hidden] { display: none; }
+body.wk-running { overflow: hidden; }
+.wk-t-top { width: 100%; max-width: 640px; display: flex; justify-content: space-between; align-items: center; gap: var(--s2); font: 700 var(--fs-m)/1.4 var(--f-sans); }
+.wk-t-x { min-height: var(--tap); padding: 0 var(--s3); border: 1px solid var(--paper); border-radius: 4px; background: none; color: var(--paper); font: 700 var(--fs-m)/1 var(--f-sans); cursor: pointer; }
+.wk-t-phase { margin: var(--s4) 0 0; font: 700 var(--fs-xl)/1 var(--f-sans); letter-spacing: .2em; }
+.wk-t-clock { margin: var(--s2) 0; font: 700 clamp(96px, 30vw, 200px)/1 var(--f-sans); font-variant-numeric: tabular-nums; }
+.wk-t-clock.is-over { text-decoration: underline 8px; text-underline-offset: 16px; }
+.wk-t-sub { margin: 0 0 var(--s3); font: 400 var(--fs-l)/1.4 var(--f-sans); text-align: center; }
+.wk-t-wall { width: 100%; max-width: 640px; min-height: 120px; border: 0; border-radius: 4px; background: var(--paper); color: var(--ink); font: 700 clamp(32px, 9vw, 48px)/1 var(--f-sans); cursor: pointer; }
+.wk-t-wall[hidden] { display: none; }
+.wk-t-ctrl { display: flex; gap: var(--s2); margin: var(--s3) 0; }
+.wk-t-ctrl .wk-btn { background: none; color: var(--paper); border-color: var(--paper); }
+.wk-t-log { list-style: none; margin: 0; padding: 0; width: 100%; max-width: 640px; font: 400 var(--fs-m)/1.8 var(--f-sans); font-variant-numeric: tabular-nums; }
+.wk-t-log li { display: flex; justify-content: space-between; border-top: 1px solid var(--ink-2); }
+.wk-t-log .is-slow { font-weight: 700; text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .wk-quick { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .wk-css { padding-left: var(--s2); }
+}

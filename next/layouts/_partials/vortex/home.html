@@ -83,7 +83,7 @@
     <h2 id="vh-topics">主題與長期規劃</h2>
     <p class="vh-sec-lead">跨過單一泳式的題目：呼吸、心理、身體怎麼動，以及一整季、一整個運動生涯怎麼安排。</p>
     <div class="vh-index vh-topics">
-    {{- range slice (dict "p" "breathing" "t" "呼吸") (dict "p" "psychology" "t" "心理層") (dict "p" "joints" "t" "骨關節動作") (dict "p" "movement" "t" "動作圖譜") (dict "p" "adm" "t" "運動員發展 ADM") (dict "p" "periodization" "t" "訓練週期化") }}
+    {{- range slice (dict "p" "breathing" "t" "呼吸") (dict "p" "psychology" "t" "心理層") (dict "p" "joints" "t" "骨關節動作") (dict "p" "movement" "t" "動作圖譜") (dict "p" "workout" "t" "課表與間歇計時") (dict "p" "adm" "t" "運動員發展 ADM") (dict "p" "periodization" "t" "訓練週期化") }}
       {{- $pg := site.GetPage (printf "/vortex/%s" .p) }}
       <a class="vh-idx vh-topic" href="{{ relURL (printf "vortex/%s/" .p) }}"><span class="vh-idx-t">{{ .t }}</span>{{ with $pg }}{{ with .Description }}<span class="vh-idx-s">{{ . }}</span>{{ end }}{{ end }}</a>
     {{- end }}
