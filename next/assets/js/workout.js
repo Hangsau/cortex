@@ -172,7 +172,7 @@
     const mult = row.int === 'easy' ? K_EASY : row.int === 'steady' ? K_STEADY : 1;
     return { t: c.pace * mult * row.dist / 100, note: c.tier === 'tier_a' ? '' : TIER_LABEL[c.tier] };
   }
-  // 休息建議（canonical 組型；drill／緩和走 swim-coach 規則表）——只顯示，不自動填
+  // 休息建議（canonical 組型；drill／緩和走 swim-coach 規則表）——autoRest 會帶入中值，使用者改過就不覆蓋
   function restHint(row, blockTitle) {
     const range = (r) => ({ min: r.min, max: r.max, mid: r5((r.min + r.max) / 2) });
     if (row.mode === 'drill') { const f = R.drill_rest_by_stroke[row.stroke] || R.rest_seconds.drill; return Object.assign(range(f), { why: 'drill（swim-coach 規則表）' }); }
