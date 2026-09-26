@@ -50,7 +50,7 @@
 
   <section class="le-block" id="wk-pb" aria-labelledby="wk-pb-h">
     <h2 id="wk-pb-h">① 我的成績</h2>
-    <p class="muted">左格填分、右格填秒，例如 1 分 05.3 秒填 <b>1</b>｜<b>5.3</b>；不到一分鐘左格空著。只填真的游過的成績——沒填的距離不會被推估成個人最佳。每一式分開算，成績和練習要在同一種池長。</p>
+    <p class="muted">左格填分、右格填秒，例如 1 分 05.3 秒填 <b>1</b>｜<b>5.3</b>；不到一分鐘左格空著。只填真的游過的成績——沒填的距離不會被推估成個人最佳。每一式分開算，成績和練習要在同一種池長。成績不會存起來，每次打開都是空白。</p>
     <div class="wk-row">
       <label class="wk-field"><span>成績的池長</span>
         <select data-wk-course><option value="scm">短池 25 m</option><option value="lcm">長池 50 m</option></select>
@@ -76,15 +76,13 @@
 
   <section class="le-block" id="wk-pz" aria-labelledby="wk-pz-h">
     <h2 id="wk-pz-h">③ 週期與本週建議</h2>
-    <p class="muted">填目標賽事日期，推算現在在哪一期、這週純速／賽速／速耐／有氧誰為主，並推薦幾組主課。每一組都是參考，加進課表後可以改。</p>
+    <p class="muted">填目標賽事日期，推算現在在哪一期、這週純速／賽速／速耐／有氧誰為主，並用 ② 選中的泳式推薦幾組主課。每一組都是參考，加進課表後可以改。</p>
     <div class="wk-row">
       <label class="wk-field"><span>目標賽事日期</span><input type="date" data-wk-race></label>
       <label class="wk-field"><span>今天</span><input type="date" data-wk-today></label>
       <label class="wk-field"><span>這個週期從哪天開始（可不填）</span><input type="date" data-wk-mstart></label>
     </div>
     <div class="wk-row">
-      <label class="wk-field"><span>比賽泳式</span><select data-wk-estroke></select></label>
-      <label class="wk-field"><span>比賽距離</span><select data-wk-edist></select></label>
       <label class="wk-field"><span>每週下水</span><select data-wk-sess><option value="1">1 次</option><option value="2">2 次</option><option value="3">3 次</option><option value="4">4 次</option><option value="5">5 次</option><option value="6">6 次以上</option></select></label>
     </div>
     <div data-wk-pzout></div>
@@ -114,7 +112,7 @@
       <button type="button" class="wk-btn" data-wk-mdup>複製這份</button>
       <button type="button" class="wk-btn wk-btn--quiet" data-wk-mdel>刪除這份</button>
     </div>
-    <p class="muted">每一列：幾組 × 幾趟 × 距離、泳式、游法、強度、每趟休息、組間休息。秒數欄不會自動填；選了強度後旁邊會出現建議值，按「套用」才填進去。腳和 drill 用游泳成績算會失真，只能不設目標或自己填秒數。</p>
+    <p class="muted">每一列：幾組 × 幾趟 × 距離、泳式、游法、強度、每趟休息、組間休息。目標秒數依 ① 的成績自動算；休息自動帶建議區間的中值，改了就照你的。腳和 drill 用游泳成績算會失真，只能不設目標或自己填秒數。</p>
     <div data-wk-blocks></div>
     <div class="wk-actions">
       <button type="button" class="wk-btn" data-wk-addblk>＋ 加一段</button>
