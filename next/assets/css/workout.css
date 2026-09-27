@@ -190,6 +190,7 @@ body.wk-running { overflow: hidden; }
 .wk-t-adjv { min-height: 1.6em; margin: 0; font-size: var(--fs-s); line-height: 1.6; text-align: center; }
 .wk-t-ctrl { display: flex; gap: var(--s2); margin: var(--s3) 0; }
 .wk-t-ctrl .wk-btn { background: none; color: var(--paper); border-color: var(--paper); }
+.wk-t-ctrl .wk-btn[hidden] { display: none; }
 .wk-t-log { list-style: none; margin: 0; padding: 0; width: 100%; max-width: 640px; font: 400 var(--fs-m)/1.8 var(--f-sans); font-variant-numeric: tabular-nums; }
 .wk-t-log li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 var(--s2); border-top: 1px solid var(--ink-2); font-size: var(--fs-s); }
 .wk-t-log .is-slow { font-weight: 700; text-decoration: underline; }
@@ -197,6 +198,30 @@ body.wk-running { overflow: hidden; }
 @media (max-width: 600px) {
   .wk-quick { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .wk-css { padding-left: var(--s2); }
+}
+
+/* 第五版：進階欄、插入常用組、總量統計、大螢幕側欄 */
+.wk-r-adv summary { display: flex; align-items: center; min-height: 44px; cursor: pointer; color: var(--ink-2); }
+.wk-r-adv .wk-r-line { margin: var(--s1) 0; }
+.wk-r-adv .muted { margin: 0; font-size: var(--fs-s); }
+.wk-r-adv input[type="number"] { width: 4.5em; }
+.wk-ins { width: 100%; min-height: var(--tap); margin-top: var(--s1); padding: 0 var(--s1); border: 1px dashed var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink-2); font: 400 var(--fs-s)/1 var(--f-sans); }
+.wk-vol { margin: var(--s2) 0; padding-top: var(--s1); border-top: 2px solid var(--ink); font-size: var(--fs-s); line-height: 1.8; }
+.wk-vol p { display: flex; flex-wrap: wrap; gap: 0 var(--s2); margin: 0 0 var(--s1); }
+.wk-vol em { flex: 0 0 3em; font-style: normal; font-weight: 700; color: var(--ink-2); }
+.wk-t-main { display: flex; flex-direction: column; align-items: center; width: 100%; }
+.wk-t-side { display: none; }
+.wk-t-list { list-style: none; margin: 0; padding: 0; }
+.wk-t-list li { display: flex; flex-direction: column; padding: var(--s1) var(--s2); border-top: 1px solid var(--ink-2); font: 400 var(--fs-s)/1.5 var(--f-sans); }
+.wk-t-list li span { color: var(--rule); }
+.wk-t-list li i { font-style: normal; color: var(--rule); }
+.wk-t-list li.is-now { background: var(--paper); color: var(--ink); border-radius: 4px; }
+.wk-t-list li.is-now span, .wk-t-list li.is-now i { color: var(--ink-2); }
+@media (min-width: 900px) {
+  .wk-timer { flex-direction: row; align-items: stretch; gap: var(--s4); padding: var(--s3) var(--s4); }
+  .wk-t-main { flex: 1 1 auto; min-width: 0; }
+  .wk-t-side { display: block; flex: 0 0 380px; overflow-y: auto; padding-left: var(--s3); border-left: 1px solid var(--ink-2); }
+  .wk-t-sidet { margin: 0 0 var(--s2); font: 700 var(--fs-m)/1.4 var(--f-sans); }
 }
 
 /* 列印：只印課表清單（按「列印」時 JS 把清單複製到 body 最外層的 #wk-print） */

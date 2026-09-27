@@ -112,7 +112,7 @@
       <button type="button" class="wk-btn" data-wk-mdup>複製這份</button>
       <button type="button" class="wk-btn wk-btn--quiet" data-wk-mdel>刪除這份</button>
     </div>
-    <p class="muted">每一列：幾組 × 幾趟 × 距離、泳式、游法、強度、每趟休息、組間休息。目標秒數依 ① 的成績自動算；休息自動帶建議區間的中值，改了就照你的。腳和 drill 用游泳成績算會失真，只能不設目標或自己填秒數。</p>
+    <p class="muted">每一列：幾組 × 幾趟 × 距離、泳式、游法、強度、每趟休息或出發間隔、組間休息；「進階」裡可設逐趟遞減與分段游。目標秒數依 ① 的成績自動算；休息自動帶建議區間的中值，改了就照你的。腳和 drill 用游泳成績算會失真，只能不設目標或自己填秒數。</p>
     <div data-wk-blocks></div>
     <div class="wk-actions">
       <button type="button" class="wk-btn" data-wk-addblk>＋ 加一段</button>
@@ -127,8 +127,11 @@
     <div class="wk-actions">
       <button type="button" class="wk-btn" data-wk-print>列印</button>
       <button type="button" class="wk-btn" data-wk-copy>複製成文字</button>
+      <button type="button" class="wk-btn" data-wk-share>分享連結</button>
     </div>
+    <p class="muted">分享連結裡帶著整份課表；對方打開後按確定就匯入，目標秒數用他自己的成績算。</p>
     <label class="wk-check"><input type="checkbox" data-wk-autorest checked> 有目標秒數的趟，沒按「到牆」時目標一到就開始算休息</label>
+    <label class="wk-check"><input type="checkbox" data-wk-voice checked> 語音報讀下一趟（手機要開聲音）</label>
     <div class="wk-actions"><button type="button" class="wk-btn wk-btn--main wk-btn--big" data-wk-start>照這份清單開始 HIIT 計時</button></div>
   </section>
 
@@ -145,6 +148,8 @@
       <div class="wk-full"><button type="button" class="wk-btn wk-btn--main" data-wk-dadd>新增 drill</button></div>
     </div>
     <ul class="wk-mylist" data-wk-dlist></ul>
+    <h3>我的常用組</h3>
+    <ul class="wk-mylist" data-wk-llist></ul>
     <div class="wk-row">
       <label class="wk-field wk-grow"><span>新增器材</span><input type="text" data-wk-ename autocomplete="off" placeholder="例如：手蹼、頭頂水瓶"></label>
       <button type="button" class="wk-btn wk-self-end" data-wk-eadd>加入</button>
@@ -158,6 +163,7 @@
 <div class="wk-toast" data-wk-toast role="status" aria-live="polite" hidden></div>
 
 <div class="wk-timer" data-wk-timer hidden role="dialog" aria-modal="true" aria-label="間歇計時器">
+ <div class="wk-t-main">
   <div class="wk-t-top"><span data-wk-t-where></span><button type="button" class="wk-t-x" data-wk-stop aria-label="結束計時">結束</button></div>
   <p class="wk-t-row" data-wk-t-row></p>
   <p class="wk-t-phase" data-wk-t-phase>準備</p>
@@ -173,8 +179,11 @@
   <div class="wk-t-ctrl">
     <button type="button" class="wk-btn" data-wk-pause>暫停</button>
     <button type="button" class="wk-btn" data-wk-skip>跳過這一段</button>
+    <button type="button" class="wk-btn" data-wk-t-copy hidden>複製這次結果</button>
   </div>
   <ol class="wk-t-log" data-wk-t-log></ol>
+ </div>
+ <aside class="wk-t-side" aria-label="整份課表"><p class="wk-t-sidet">整份課表</p><ol class="wk-t-list" data-wk-t-list></ol></aside>
 </div>
 
 <script type="application/json" id="wk-rules">{{ $r | jsonify | safeJS }}</script>

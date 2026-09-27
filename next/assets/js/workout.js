@@ -10,7 +10,9 @@
    （2026-09-27 使用者回報：蝶式 50 m 38 秒推 25 m 竟比自由式 50 m 34 秒推的還快——就是跨距離外推加指數夾限造成的。）
    有氧倍率（穩定 ×1.06、輕鬆 ×1.09）、各組型距離／休息／趟數、週期各期意圖、週組裝、減量參數全部讀資料。
    編輯器鐵則：打字只更新狀態與衍生文字，不重畫。休息預設＝建議區間中值，使用者改過就不覆蓋。
-   成績不存進瀏覽器（每次開頁都是空白），課表、自訂 drill、器材照存。 */
+   成績不存進瀏覽器（每次開頁都是空白），課表、自訂 drill、器材、常用組照存。
+   2026-09-27 第五版（教練需求調查後）：出發間隔模式（計時器照出發時間跑）、逐趟遞減／遞增、分段游、PB＋秒、
+   總量統計、語音報讀、常用組與測驗組範本、分享連結、大螢幕側欄、複製這次結果。多組別與多人紀錄留待以後。 */
 (() => {
   'use strict';
   const root = document.querySelector('[data-wk]');
@@ -30,7 +32,12 @@
   const baseStroke = (s) => (s === 'choice' ? 'free' : s);
   const DRILL_STROKE = { free: 'freestyle', back: 'backstroke', breast: 'breaststroke', fly: 'butterfly' };
   const MODES = { swim: '游', kick: '腳', pull: '手', drill: 'drill' };
-  const INTS = { none: '不設目標', easy: '輕鬆有氧', steady: '穩定有氧', thr: '閾值（CSS）', tol: '速耐', race: '賽速', sprint: '衝刺 %', custom: '自訂秒數' };
+  const INTS = { none: '不設目標', easy: '輕鬆有氧', steady: '穩定有氧', thr: '閾值（CSS）', tol: '速耐', race: '賽速', sprint: '衝刺 %', pbplus: 'PB ＋ 秒', custom: '自訂秒數' };
+  const STEP_ON = { none: '不變', target: '目標秒數', sendoff: '出發間隔', rest: '休息' };
+  // 每一列的欄位預設；舊存檔、分享連結匯入的列都用它補齊
+  const ROW_DEF = { sets: 1, reps: 4, dist: 50, stroke: 'free', mode: 'swim', int: 'none', pct: 95, pbPlus: 0, event: '', target: null, rest: 0, setRest: 0,
+    restMode: 'rest', sendoff: 0, stepOn: 'none', stepSec: -1, stepCycle: 0, brokenEvery: 0, brokenRest: 10, drill: '', equip: [], note: '', restAuto: false };
+  const normRow = (r) => { Object.keys(ROW_DEF).forEach(k => { if (r[k] == null) r[k] = Array.isArray(ROW_DEF[k]) ? [] : ROW_DEF[k]; }); return r; };
   const DRILL = Object.fromEntries(V.drills.map(d => [d.id, d]));
 
   /* ---------- canonical 參數 ---------- */
@@ -51,7 +58,7 @@
   const newMenu = (name) => ({ name, blocks: [{ title: '暖身', rows: [] }, { title: 'Drill', rows: [] }, { title: '主課', rows: [] }, { title: '緩和', rows: [] }] });
   const S = Object.assign({
     course: 'scm', pb: {}, zstroke: 'free', sstroke: 'free', sdist: '50', pct: 95, autorest: true,
-    menus: [newMenu('今天的課表')], cur: 0, myDrills: [], myEquip: [], pz: {},
+    menus: [newMenu('今天的課表')], cur: 0, myDrills: [], myEquip: [], lib: [], voice: true, pz: {},
   }, load(KEY) || {});
   // 成績不存進瀏覽器：每次開頁都是乾淨的空白成績（2026-09-27 使用者要求：重新整理不要帶上次的秒數）
   S.pb = {};
@@ -71,7 +78,7 @@
     r.sets = r.sets || 1; if (r.setRest == null) r.setRest = 0;
     if (OLD_INT[r.int]) r.int = OLD_INT[r.int];
     if (!INTS[r.int]) r.int = 'none';
-    if (r.restAuto == null) r.restAuto = false;
+    normRow(r);
   })));
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(Object.assign({}, S, { pb: {} }))); } catch (_) { /* 無儲存空間時照常計算 */ } };
   const M = () => S.menus[S.cur];
@@ -163,6 +170,10 @@
       if (!p) return { miss: ev ? `沒有${SZH[s]} ${ev} m 成績` : '選一個比賽距離' };
       return { t: p / (ev / row.dist), note: `${ev} m 配速` };
     }
+    if (row.int === 'pbplus') {
+      const b = baseFor(s, row.dist);
+      return b ? { t: b.t + (+row.pbPlus || 0), note: b.split ? `由 ${b.src}` : '' } : { miss: `沒有${SZH[s]} ${row.dist} m 或更長距離的成績` };
+    }
     if (row.int === 'tol') {
       const p = pb(s, 100);
       return p ? { t: p * row.dist / 100 * K_TOL, note: '🟠' } : { miss: `沒有${SZH[s]} 100 m 成績` };
@@ -208,7 +219,7 @@
   }
   function rowInt(row) {
     const tg = targetOf(row);
-    let s = row.int === 'sprint' ? `衝刺 ${row.pct}%` : row.int === 'race' ? (row.event ? `賽速（${row.event} m）` : '賽速（未選項目）') : (row.int === 'custom' || row.int === 'none' || NO_AUTO[row.mode]) ? '' : INTS[row.int];
+    let s = row.int === 'pbplus' ? `PB ${+row.pbPlus >= 0 ? '+' : '−'}${Math.abs(+row.pbPlus || 0)} 秒` : row.int === 'sprint' ? `衝刺 ${row.pct}%` : row.int === 'race' ? (row.event ? `賽速（${row.event} m）` : '賽速（未選項目）') : (row.int === 'custom' || row.int === 'none' || NO_AUTO[row.mode]) ? '' : INTS[row.int];
     if (tg && tg.t) s += (s ? ' ' : '') + '目標 ' + fmt(tg.t) + (tg.note && tg.note !== '🟠' && !tg.note.includes('配速') ? `（${tg.note}）` : '');
     else if (tg && tg.miss) s += `（${tg.miss}，無目標）`;
     return s;
@@ -221,7 +232,19 @@
     const per100 = c && c.pace ? c.pace * K_EASY : 120;
     return per100 * row.dist / 100 * (row.mode === 'kick' || row.mode === 'drill' ? 1.3 : 1);
   }
-  const rowSec = (row) => { const n = (row.sets || 1) * row.reps; return n * (estSec(row) + (row.rest || 0)) + ((row.sets || 1) - 1) * Math.max(0, (row.setRest || 0) - (row.rest || 0)); };
+  const segsOf = (row) => (row.brokenEvery > 0 && row.brokenEvery < row.dist ? Math.ceil(row.dist / row.brokenEvery) : 1);
+  const rowSec = (row) => {
+    const n = (row.sets || 1) * row.reps;
+    const per = row.restMode === 'sendoff' && row.sendoff > 0 ? row.sendoff : estSec(row) + (row.rest || 0) + (segsOf(row) - 1) * (row.brokenRest || 0);
+    return n * per + ((row.sets || 1) - 1) * Math.max(0, (row.setRest || 0) - (row.rest || 0));
+  };
+  function stepText(row) {
+    if (!row.stepOn || row.stepOn === 'none' || !+row.stepSec) return '';
+    const v = +row.stepSec;
+    return `${STEP_ON[row.stepOn]}每趟 ${v > 0 ? '+' : '−'}${Math.abs(v)} 秒${row.stepCycle > 0 ? `，每 ${row.stepCycle} 趟重來（1–${row.stepCycle} ${v < 0 ? '遞減' : '遞增'}）` : ''}`;
+  }
+  const brokenText = (row) => (segsOf(row) > 1 ? `每 ${row.brokenEvery} m 停 ${row.brokenRest} 秒` : '');
+  const advText = (row) => [stepText(row), brokenText(row)].filter(Boolean).join('；');
 
   /* ---------- 小提示 ---------- */
   const toastEl = root.parentElement.querySelector('[data-wk-toast]');
@@ -274,12 +297,15 @@
     if (!b) { b = { title: '主課', rows: [] }; m.blocks.push(b); }
     return b;
   }
-  const blankRow = (o) => Object.assign({ sets: 1, reps: 4, dist: 50, stroke: 'free', mode: 'swim', int: 'none', pct: 95, event: '', target: null, rest: 0, setRest: 0, drill: '', equip: [], note: '', restAuto: false }, o);
+  const blankRow = (o) => normRow(Object.assign(JSON.parse(JSON.stringify(ROW_DEF)), o));
+  const RND = R.send_off_rounding_sec || 5; // 出發間隔進位（swim-coach 規則表 send_off.rounding_sec）
   // 休息預設＝建議區間中值；使用者自己改過（restAuto=false）就不再覆蓋
   function autoRest(row, blockTitle) {
     if (!row.restAuto) return;
     const h = restHint(row, blockTitle);
     row.rest = h ? h.mid : 0;
+    const tg = targetOf(row);
+    row.sendoff = Math.ceil(((tg && tg.t ? tg.t : estSec(row)) + row.rest) / RND) * RND; // 出發間隔＝目標（沒有就估計）＋建議休息，進位
   }
   function addMain(row, label) {
     mainBlock().rows.push(blankRow(row));
@@ -446,7 +472,7 @@
   }
 
   /* ---------- ⑤ 排課表 ---------- */
-  const openEq = new Set();
+  const openEq = new Set(), openAdv = new Set();
   const opt = (obj, cur) => Object.entries(obj).map(([k, v]) => `<option value="${k}"${k === cur ? ' selected' : ''}>${esc(v)}</option>`).join('');
   function drillOptions(row) {
     const want = DRILL_STROKE[row.stroke];
@@ -504,24 +530,45 @@
         <select data-f="int" aria-label="強度">${opt(ints, row.int)}</select>
         ${row.int === 'sprint' ? `<label class="wk-in"><input type="number" inputmode="numeric" min="50" max="100" value="${row.pct}" data-f="pct" aria-label="強度百分比"><span>%</span></label>` : ''}
         ${row.int === 'race' ? `<select data-f="event" aria-label="比賽距離">${eventOptions(row)}</select>` : ''}
+        ${row.int === 'pbplus' ? `<label class="wk-in"><span>PB ＋</span><input type="number" step="0.5" value="${row.pbPlus}" data-f="pbPlus" aria-label="比 PB 慢幾秒"><span>秒</span></label>` : ''}
         ${row.int === 'custom' ? `<span class="wk-in"><span>目標</span>${tfHtml('data-tff="target"', parseT(row.target), 2, '目標秒數')}</span>` : ''}
         <span class="wk-r-tg" data-rtg>${tgHtml(row)}</span>
       </div>
       <div class="wk-r-line">
-        <span class="wk-in"><span>每趟休息</span>${tfHtml('data-tff="rest"', row.rest, 0, '每趟休息')}</span>
+        <select data-f="restMode" aria-label="休息方式">${opt({ rest: '每趟休息', sendoff: '出發間隔' }, row.restMode)}</select>
+        ${row.restMode === 'sendoff' ? `<span class="wk-in"><span>每</span>${tfHtml('data-tff="sendoff"', row.sendoff, 0, '出發間隔')}<span>出發</span></span>` : tfHtml('data-tff="rest"', row.rest, 0, '每趟休息')}
         <span class="wk-in" data-setrest${(row.sets || 1) > 1 ? '' : ' hidden'}><span>組間休息</span>${tfHtml('data-tff="setRest"', row.setRest, 0, '組間休息')}</span>
       </div>
       <p class="wk-hint" data-rhint>${hintHtml(row, bi)}</p>
+      <details class="wk-r-adv" data-adv="${key}"${openAdv.has(key) ? ' open' : ''}><summary>進階：<span data-advs>${esc(advText(row) || '逐趟遞減、分段游')}</span></summary>
+        <div class="wk-r-line"><span>逐趟變化</span><select data-f="stepOn" aria-label="逐趟變化的項目">${opt(STEP_ON, row.stepOn)}</select>
+          <label class="wk-in"><span>每趟</span><input type="number" step="0.5" value="${row.stepSec}" data-f="stepSec" aria-label="每趟加減秒數"><span>秒</span></label>
+          <label class="wk-in"><span>每</span><input type="number" inputmode="numeric" min="0" max="20" value="${row.stepCycle || ''}" placeholder="—" data-f="stepCycle" aria-label="幾趟重來"><span>趟重來</span></label></div>
+        <p class="muted">負數＝一趟比一趟快（遞減）；填「每 4 趟重來」就是 1–4 遞減。</p>
+        <div class="wk-r-line"><span>分段游</span><label class="wk-in"><span>每</span><input type="number" inputmode="numeric" min="0" step="25" value="${row.brokenEvery || ''}" placeholder="—" data-f="brokenEvery" aria-label="每幾公尺停"><span>m 停</span></label>
+          <label class="wk-in"><input type="number" inputmode="numeric" min="0" value="${row.brokenRest}" data-f="brokenRest" aria-label="分段停幾秒"><span>秒</span></label></div>
+      </details>
       <details class="wk-r-eq" data-eq="${key}"${openEq.has(key) ? ' open' : ''}><summary>器材：${eq.length ? esc(rowEquip(row)) : '不用'}</summary>
         <div class="wk-chips">${allEquip().map(k => `<button type="button" class="wk-chip" aria-pressed="${eq.includes(k)}" data-eqk="${esc(k)}">${esc(eqName(k))}</button>`).join('')}</div>
       </details>
       <input class="wk-r-note" type="text" value="${esc(row.note || '')}" placeholder="備註（例如：每 25 m 換氣 3 次）" data-f="note" aria-label="備註">
       <div class="wk-r-act">
         <button type="button" data-act="up" aria-label="往上移">↑</button><button type="button" data-act="down" aria-label="往下移">↓</button>
-        <button type="button" data-act="dup">複製</button><button type="button" data-act="del" aria-label="刪除這一列">刪除</button>
+        <button type="button" data-act="dup">複製</button><button type="button" data-act="save">存成常用</button><button type="button" data-act="del" aria-label="刪除這一列">刪除</button>
       </div>
     </li>`;
   }
+  // 內建測驗組：CSS 測驗（canonical 的 200＋400 錨點）、7×200 漸進測驗（Topend Sports 協定：每 6 分鐘出發；
+  // 青少年版為 PB＋24、+20、+16、+12、+8、PB、目標 PB，這裡簡化成每趟快 4 秒）
+  const BUILTIN = [
+    { name: 'CSS 測驗：400 全力＋200 全力', rows: [
+      { reps: 1, dist: 400, int: 'none', rest: 600, note: '全力，記下秒數填回 ①；游完充分休息（先填 10 分鐘，可改）' },
+      { reps: 1, dist: 200, int: 'none', rest: 0, note: '全力，記下秒數填回 ①' }] },
+    { name: '7 × 200 漸進測驗（每 6 分鐘出發）', rows: [
+      { reps: 7, dist: 200, int: 'pbplus', pbPlus: 24, restMode: 'sendoff', sendoff: 360, stepOn: 'target', stepSec: -4, note: '從 PB＋24 秒起每趟快 4 秒，最後一趟全力；記下每趟秒數' }] },
+  ];
+  const insOptions = () => '<option value="">＋ 插入常用組…</option><optgroup label="測驗組">' + BUILTIN.map((x, i) => `<option value="b:${i}">${esc(x.name)}</option>`).join('') + '</optgroup>'
+    + (S.lib.length ? '<optgroup label="我的常用組">' + S.lib.map((x, i) => `<option value="u:${i}">${esc(x.name)}</option>`).join('') + '</optgroup>' : '');
   const blockDist = (b) => b.rows.reduce((a, r) => a + rowDist(r), 0);
   function totals() {
     const rows = M().blocks.flatMap(b => b.rows);
@@ -539,15 +586,18 @@
       <div class="wk-blk-h">
         <input class="wk-blk-t" type="text" value="${esc(b.title)}" data-bt aria-label="段落名稱">
         <span class="muted" data-bdist></span>
-        <span class="wk-r-act"><button type="button" data-bact="up" aria-label="整段往上">↑</button><button type="button" data-bact="down" aria-label="整段往下">↓</button><button type="button" data-bact="del" aria-label="刪除整段">刪除</button></span>
+        <span class="wk-r-act"><button type="button" data-bact="up" aria-label="整段往上">↑</button><button type="button" data-bact="down" aria-label="整段往下">↓</button><button type="button" data-bact="save">存整段</button><button type="button" data-bact="del" aria-label="刪除整段">刪除</button></span>
       </div>
       <ol class="wk-rows">${b.rows.map((r, ri) => rowHtml(r, bi, ri)).join('')}</ol>
       <button type="button" class="wk-addrow" data-addrow="${bi}">＋ 在「${esc(b.title)}」加一列</button>
+      <select class="wk-ins" data-ins="${bi}" aria-label="插入常用組">${insOptions()}</select>
     </section>`).join('');
     totals();
   }
   function replaceRow(li) {
     const bi = +li.dataset.b, ri = +li.dataset.r;
+    // 展開狀態直接從畫面讀（toggle 事件是非同步的，不能靠它）
+    li.querySelectorAll('details[data-eq], details[data-adv]').forEach(d => { const set = d.dataset.eq ? openEq : openAdv, k = d.dataset.eq || d.dataset.adv; if (d.open) set.add(k); else set.delete(k); });
     li.outerHTML = rowHtml(M().blocks[bi].rows[ri], bi, ri);
     totals();
   }
@@ -565,7 +615,15 @@
     li.querySelector('[data-rsum]').textContent = rowDist(row) + ' m';
     li.querySelector('[data-setrest]').hidden = !((row.sets || 1) > 1);
     li.querySelector('[data-rhint]').innerHTML = hintHtml(row, +li.dataset.b);
+    const as = li.querySelector('[data-advs]'); if (as) as.textContent = advText(row) || '逐趟遞減、分段游';
   };
+  const syncRest = (li, row) => {
+    if (!row.restAuto) return;
+    autoRest(row, M().blocks[+li.dataset.b].title);
+    const rf = li.querySelector('[data-tff="rest"]'); if (rf) setTF(rf, row.rest);
+    const sf = li.querySelector('[data-tff="sendoff"]'); if (sf) setTF(sf, row.sendoff);
+  };
+  const FREE_NUM = { stepSec: 1, stepCycle: 1, brokenEvery: 1, brokenRest: 1, pbPlus: 1 };
   // 打字：只改狀態與衍生文字，不重畫
   blocksEl.addEventListener('input', (e) => {
     const el = e.target;
@@ -577,14 +635,12 @@
     const li = el.closest('.wk-r'); if (!li) return;
     const row = rowOf(li);
     const tf = el.closest('.wk-tf');
-    if (tf) { const v = readTF(tf); const f = tf.dataset.tff; row[f] = f === 'target' ? v : (v || 0); if (f === 'rest') row.restAuto = false; }
+    if (tf) { const v = readTF(tf); const f = tf.dataset.tff; row[f] = f === 'target' ? v : (v || 0); if (f === 'rest' || f === 'sendoff') row.restAuto = false; }
     else if (el.tagName === 'INPUT' && el.dataset.f) {
       const f = el.dataset.f;
       if (f === 'note') row.note = el.value;
-      else if (+el.value >= 1) {
-        row[f] = +el.value;
-        if (f === 'dist' && row.restAuto) { autoRest(row, M().blocks[+li.dataset.b].title); setTF(li.querySelector('[data-tff="rest"]'), row.rest); }
-      }
+      else if (FREE_NUM[f]) { if (el.value === '') row[f] = 0; else if (Number.isFinite(+el.value)) row[f] = +el.value; else return; if (f === 'pbPlus') syncRest(li, row); }
+      else if (+el.value >= 1) { row[f] = +el.value; if (f === 'dist' || f === 'pct') syncRest(li, row); }
     } else return;
     refreshRow(li, row);
     save(); totals();
@@ -592,6 +648,16 @@
   // 失焦：時間格整理成「分:秒」；下拉選單：改結構，只重畫這一列
   blocksEl.addEventListener('change', (e) => {
     const el = e.target;
+    if (el.matches('[data-ins]')) {
+      const [k, i] = el.value.split(':');
+      const src = k === 'b' ? BUILTIN[+i] : k === 'u' ? S.lib[+i] : null;
+      if (src) {
+        const rows = src.rows.map(r => (k === 'b' ? blankRow(Object.assign({ stroke: S.zstroke }, r)) : normRow(JSON.parse(JSON.stringify(r)))));
+        M().blocks[+el.dataset.ins].rows.push(...rows);
+        save(); renderMenu(); toast(`已插入：${src.name}`);
+      }
+      return;
+    }
     const tf = el.closest('.wk-tf');
     if (tf) return;
     if (el.tagName !== 'SELECT') return;
@@ -607,11 +673,14 @@
       if (NO_AUTO[v] && !{ none: 1, custom: 1 }[row.int]) row.int = 'none';
     } else row[f] = v;
     if (f === 'mode' || f === 'int' || f === 'stroke') { row.restAuto = true; autoRest(row, M().blocks[+li.dataset.b].title); }
+    else if (f === 'event' || f === 'restMode') syncRestNoDom(row, +li.dataset.b);
     save(); replaceRow(li);
   });
+  const syncRestNoDom = (row, bi) => { if (row.restAuto) autoRest(row, M().blocks[bi].title); };
   blocksEl.addEventListener('toggle', (e) => {
-    const d = e.target; if (!d.matches || !d.matches('[data-eq]')) return;
-    if (d.open) openEq.add(d.dataset.eq); else openEq.delete(d.dataset.eq);
+    const d = e.target; if (!d.matches) return;
+    if (d.matches('[data-eq]')) { if (d.open) openEq.add(d.dataset.eq); else openEq.delete(d.dataset.eq); }
+    if (d.matches('[data-adv]')) { if (d.open) openAdv.add(d.dataset.adv); else openAdv.delete(d.dataset.adv); }
   }, true);
   const move = (arr, i, j) => { if (j < 0 || j >= arr.length) return; const [x] = arr.splice(i, 1); arr.splice(j, 0, x); };
   blocksEl.addEventListener('click', (e) => {
@@ -624,19 +693,28 @@
     }
     if (btn.dataset.bact) {
       const bi = +btn.closest('.wk-blk').dataset.b;
+      if (btn.dataset.bact === 'save') {
+        if (!m.blocks[bi].rows.length) { toast('這一段還是空的'); return; }
+        const name = prompt('常用組的名字', m.blocks[bi].title); if (!name) return;
+        S.lib.push({ name, rows: JSON.parse(JSON.stringify(m.blocks[bi].rows)) }); save(); renderMenu(); renderMine(); toast(`已存成常用組：${name}`); return;
+      }
       if (btn.dataset.bact === 'del') { if (m.blocks[bi].rows.length && !confirm(`刪除「${m.blocks[bi].title}」整段？`)) return; m.blocks.splice(bi, 1); }
       else move(m.blocks, bi, bi + (btn.dataset.bact === 'up' ? -1 : 1));
-      openEq.clear(); save(); renderMenu(); return;
+      openEq.clear(); openAdv.clear(); save(); renderMenu(); return;
     }
     const li = btn.closest('.wk-r'); if (!li) return;
     const bi = +li.dataset.b, ri = +li.dataset.r, rows = m.blocks[bi].rows, row = rows[ri];
-    if (btn.dataset.apply != null) { row.rest = +btn.dataset.apply; row.restAuto = true; save(); setTF(li.querySelector('[data-tff="rest"]'), row.rest); refreshRow(li, row); totals(); return; }
+    if (btn.dataset.apply != null) { row.restAuto = true; syncRest(li, row); save(); refreshRow(li, row); totals(); return; }
     if (btn.dataset.eqk) {
       const k = btn.dataset.eqk; row.equip = row.equip || [];
       row.equip = row.equip.includes(k) ? row.equip.filter(x => x !== k) : row.equip.concat(k);
       save(); replaceRow(li); return;
     }
     const a = btn.dataset.act;
+    if (a === 'save') {
+      const name = prompt('常用組的名字', rowHead(row)); if (!name) return;
+      S.lib.push({ name, rows: [JSON.parse(JSON.stringify(row))] }); save(); renderMenu(); renderMine(); toast(`已存成常用組：${name}`); return;
+    }
     if (a === 'del') rows.splice(ri, 1);
     else if (a === 'dup') rows.splice(ri + 1, 0, JSON.parse(JSON.stringify(row)));
     else if (a === 'up' || a === 'down') {
@@ -645,12 +723,20 @@
       else if (j < 0 && bi > 0) { rows.splice(ri, 1); m.blocks[bi - 1].rows.push(row); } // 移到上一段末尾
       else if (j >= rows.length && bi < m.blocks.length - 1) { rows.splice(ri, 1); m.blocks[bi + 1].rows.unshift(row); }
     }
-    openEq.clear(); save(); renderMenu();
+    openEq.clear(); openAdv.clear(); save(); renderMenu();
   });
 
   /* ---------- ⑥ 清單 ---------- */
   function sumBits(row) {
-    return [rowInt(row), row.rest ? '每趟休 ' + fmt0(row.rest) : '', (row.sets || 1) > 1 && row.setRest ? '組間休 ' + fmt0(row.setRest) : '', rowEquip(row), row.note || ''].filter(Boolean);
+    const so = row.restMode === 'sendoff' && row.sendoff > 0;
+    return [rowInt(row), so ? `每 ${fmt0(row.sendoff)} 出發` : row.rest ? '每趟休 ' + fmt0(row.rest) : '', (row.sets || 1) > 1 && row.setRest ? '組間休 ' + fmt0(row.setRest) : '',
+      stepText(row), brokenText(row), rowEquip(row), row.note || ''].filter(Boolean);
+  }
+  // 總量統計：依泳式、游法、強度加總距離
+  function volStats(rows) {
+    const tot = rows.reduce((a, r) => a + rowDist(r), 0) || 1;
+    const group = (keyFn) => { const o = {}; rows.forEach(r => { const k = keyFn(r); o[k] = (o[k] || 0) + rowDist(r); }); return Object.entries(o).sort((a, b) => b[1] - a[1]).map(([k, v]) => [k, v, Math.round(v * 100 / tot)]); };
+    return [['泳式', group(r => SZH[r.stroke])], ['游法', group(r => MODES[r.mode])], ['強度', group(r => (NO_AUTO[r.mode] && r.int !== 'custom' ? INTS.none : INTS[r.int]))]];
   }
   function renderSum() {
     const m = M();
@@ -659,7 +745,8 @@
     let n = 0;
     $('[data-wk-sum]').innerHTML = `<p class="wk-sum-t">${esc(m.name || '課表')}<span>${esc($('[data-wk-total]').textContent)}</span></p>` + blocks.map(b =>
       `<div class="wk-sum-b"><p class="wk-sum-h">${esc(b.title)}<span>${blockDist(b)} m</span></p><ol>` +
-      b.rows.map(r => { n += 1; const bits = sumBits(r); return `<li><i>${n}</i><div><b>${esc(rowHead(r))}</b>${bits.length ? `<span>${esc(bits.join(' · '))}</span>` : ''}</div></li>`; }).join('') + '</ol></div>').join('');
+      b.rows.map(r => { n += 1; const bits = sumBits(r); return `<li><i>${n}</i><div><b>${esc(rowHead(r))}</b>${bits.length ? `<span>${esc(bits.join(' · '))}</span>` : ''}</div></li>`; }).join('') + '</ol></div>').join('')
+      + '<div class="wk-vol">' + volStats(m.blocks.flatMap(b => b.rows)).map(([lab, g]) => `<p><em>${lab}</em>${g.map(([k, v, pc]) => `<span>${esc(k)} <b>${v} m</b> ${pc}%</span>`).join('')}</p>`).join('') + '</div>';
   }
   function sumText() {
     const m = M();
@@ -669,6 +756,7 @@
       b.rows.forEach(r => { const bits = sumBits(r); out.push(rowHead(r) + (bits.length ? '  ' + bits.join(' · ') : '')); });
     });
     out.push('', $('[data-wk-total]').textContent);
+    volStats(m.blocks.flatMap(b => b.rows)).forEach(([lab, g]) => out.push(`${lab}：` + g.map(([k, v, pc]) => `${k} ${v} m（${pc}%）`).join('、')));
     return out.join('\n');
   }
   $('[data-wk-copy]').addEventListener('click', async (e) => {
@@ -685,12 +773,50 @@
     window.print();
   });
   window.addEventListener('afterprint', () => document.body.classList.remove('wk-printing'));
+  // 分享連結：整份課表（連同用到的自訂 drill、器材）壓縮後放進網址 #m=…；對方打開就能匯入，目標秒數用對方自己的成績算
+  const b64u = (bytes) => { let s = ''; bytes.forEach(c => { s += String.fromCharCode(c); }); return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); };
+  const unb64u = (s) => Uint8Array.from(atob(s.replace(/-/g, '+').replace(/_/g, '/')), c => c.charCodeAt(0));
+  async function pack(obj) {
+    const raw = new TextEncoder().encode(JSON.stringify(obj));
+    if (window.CompressionStream) return 'z' + b64u(new Uint8Array(await new Response(new Blob([raw]).stream().pipeThrough(new CompressionStream('deflate-raw'))).arrayBuffer()));
+    return 'j' + b64u(raw);
+  }
+  async function unpack(s) {
+    const bytes = unb64u(s.slice(1));
+    const buf = s[0] === 'z' ? await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('deflate-raw'))).arrayBuffer() : bytes;
+    return JSON.parse(new TextDecoder().decode(buf));
+  }
+  $('[data-wk-share]').addEventListener('click', async () => {
+    const m = M(), rows = m.blocks.flatMap(b => b.rows);
+    const ids = new Set(rows.map(r => r.drill).filter(x => x && x.startsWith('my:')));
+    const eqs = new Set(rows.flatMap(r => r.equip || []).filter(k => k.startsWith('x:')));
+    const url = location.href.split('#')[0] + '#m=' + await pack({ v: 1, menu: m, drills: S.myDrills.filter(d => ids.has('my:' + d.id)), equip: [...eqs].map(k => k.slice(2)) });
+    if (navigator.share) { try { await navigator.share({ title: m.name, url }); return; } catch (_) { /* 取消分享就改成複製 */ } }
+    try { await navigator.clipboard.writeText(url); toast('分享連結已複製'); } catch (_) { prompt('複製這個連結：', url); }
+  });
+  async function importShared() {
+    const h = location.hash;
+    if (!h.startsWith('#m=')) return;
+    history.replaceState(null, '', location.pathname + location.search);
+    try {
+      const d = await unpack(h.slice(3));
+      if (!d || !d.menu || !Array.isArray(d.menu.blocks)) throw new Error('bad');
+      if (!confirm(`匯入分享的課表「${d.menu.name || '課表'}」？目標秒數會用你自己在 ① 填的成績算。`)) return;
+      (d.drills || []).forEach(x => { if (!S.myDrills.some(y => y.id === x.id)) S.myDrills.push(x); });
+      (d.equip || []).forEach(n => { if (!S.myEquip.includes(n)) S.myEquip.push(n); });
+      d.menu.blocks.forEach(b => b.rows.forEach(normRow));
+      S.menus.push(d.menu); S.cur = S.menus.length - 1;
+      save(); renderMenu(); renderMine(); toast(`已匯入：${d.menu.name || '課表'}`);
+      $('#wk-sum') && document.getElementById('wk-sum').scrollIntoView();
+    } catch (_) { toast('這個分享連結讀不出來'); }
+  }
 
   /* ---------- ⑦ 我的 drill 與器材 ---------- */
   let draftEq = [];
   function renderMine() {
     $('[data-wk-deq]').innerHTML = allEquip().map(k => `<button type="button" class="wk-chip" aria-pressed="${draftEq.includes(k)}" data-deqk="${esc(k)}">${esc(eqName(k))}</button>`).join('');
     $('[data-wk-dlist]').innerHTML = S.myDrills.map((d, i) => `<li><span><b>${esc(d.name)}</b>${d.stroke !== 'any' ? '・' + SZH[d.stroke] : ''}${d.cue ? '<br>' + esc(d.cue) : ''}${(d.equip || []).length ? '<br>器材：' + esc(d.equip.map(eqName).join('、')) : ''}</span><button type="button" class="wk-del" data-ddel="${i}" aria-label="刪除 ${esc(d.name)}">✕</button></li>`).join('') || '<li class="muted">還沒有自訂 drill。</li>';
+    $('[data-wk-llist]').innerHTML = S.lib.map((x, i) => `<li><span><b>${esc(x.name)}</b><br>${esc(x.rows.map(rowHead).join('；'))}</span><button type="button" class="wk-del" data-ldel="${i}" aria-label="刪除 ${esc(x.name)}">✕</button></li>`).join('') || '<li class="muted">還沒有常用組。在課表的一列按「存成常用」，或一段按「存整段」。</li>';
     $('[data-wk-elist]').innerHTML = S.myEquip.map((n, i) => `<li><span>${esc(n)}</span><button type="button" class="wk-del" data-edel="${i}" aria-label="刪除 ${esc(n)}">✕</button></li>`).join('');
   }
   $('[data-wk-deq]').addEventListener('click', (e) => {
@@ -714,6 +840,11 @@
     const n = $('[data-wk-ename]').value.trim();
     if (!n || S.myEquip.includes(n) || Object.values(EQN).includes(n)) { $('[data-wk-ename]').value = ''; return; }
     S.myEquip.push(n); $('[data-wk-ename]').value = ''; save(); renderMine(); renderMenu();
+  });
+  $('[data-wk-llist]').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-ldel]'); if (!b) return;
+    if (!confirm(`刪除常用組「${S.lib[+b.dataset.ldel].name}」？`)) return;
+    S.lib.splice(+b.dataset.ldel, 1); save(); renderMine(); renderMenu();
   });
   $('[data-wk-elist]').addEventListener('click', (e) => {
     const b = e.target.closest('[data-edel]'); if (!b) return;
@@ -743,23 +874,44 @@
   let wake = null;
   const holdScreen = async () => { try { wake = await navigator.wakeLock.request('screen'); } catch (_) { wake = null; } };
 
-  /* ---------- 計時器：整份課表逐列、逐組、逐趟跑 ---------- */
+  /* ---------- 語音報讀 ---------- */
+  const sayT = (x) => { x = Math.round(x * 10) / 10; if (x < 60) return `${x} 秒`; const m = Math.floor(x / 60), s = Math.round(x - m * 60); return s ? `${m} 分 ${s} 秒` : `${m} 分鐘`; };
+  function say(text) {
+    if (!S.voice || !window.speechSynthesis) return;
+    try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(text); u.lang = 'zh-TW'; speechSynthesis.speak(u); } catch (_) { /* 不支援語音就只有嗶聲 */ }
+  }
+  const sayRep = (st) => {
+    const d = st.row.mode === 'drill' ? drillOf(st.row.drill) : null;
+    const mode = st.row.mode === 'swim' ? '' : st.row.mode === 'drill' ? ' drill' + (d ? ' ' + d.name : '') : ' ' + MODES[st.row.mode];
+    return `${st.segD} 公尺 ${SZH[st.row.stroke]}${mode}${st.target ? `，目標 ${sayT(st.target)}` : ''}`;
+  };
+
+  /* ---------- 計時器：整份課表逐列、逐組、逐趟（含分段）跑 ---------- */
   const T = root.parentElement.querySelector('[data-wk-timer]');
   const tq = (s) => T.querySelector(s);
-  let seq = [], idx = 0, phase = 'ready', t0 = 0, paused = 0, pausedAt = 0, beeped = {}, timer = null, log = [];
-  let adj = new Map(); // 臨場調整：row → {t: 目標秒數加減, r: 休息秒數加減}；只影響這次計時，不改存好的課表
+  let seq = [], idx = 0, phase = 'ready', t0 = 0, paused = 0, pausedAt = 0, beeped = {}, timer = null, log = [], repT0 = 0;
+  let adj = new Map(); // 臨場調整：row → {t: 目標秒數加減, r: 休息／出發間隔加減}；只影響這次計時，不改存好的課表
+  let rowIdx = new Map(), lastHi = -1;
 
   function build() {
     seq = [];
     M().blocks.forEach(b => b.rows.forEach(row => {
-      const tg = targetOf(row);
-      const target = tg && tg.t ? tg.t : null;
-      const sets = row.sets || 1;
+      const tg = targetOf(row), base = tg && tg.t ? tg.t : null;
+      const sets = row.sets || 1, so = row.restMode === 'sendoff' && row.sendoff > 0, segs = segsOf(row);
       for (let s = 1; s <= sets; s++) {
         for (let r = 1; r <= row.reps; r++) {
-          seq.push({ kind: 'swim', b, row, s, r, target });
-          const sec = r < row.reps ? row.rest : (s < sets ? row.setRest : row.rest);
-          if (sec > 0) seq.push({ kind: 'rest', b, row, sec, setBreak: r === row.reps && s < sets });
+          const k = row.stepCycle > 0 ? (r - 1) % row.stepCycle : r - 1;
+          const dlt = row.stepOn && row.stepOn !== 'none' ? (+row.stepSec || 0) * k : 0;
+          const target = base != null ? Math.max(1, base + (row.stepOn === 'target' ? dlt : 0)) : null;
+          const sendoff = so ? Math.max(5, row.sendoff + (row.stepOn === 'sendoff' ? dlt : 0)) : null;
+          for (let g = 1; g <= segs; g++) {
+            const segD = g < segs ? row.brokenEvery : row.dist - row.brokenEvery * (segs - 1);
+            seq.push({ kind: 'swim', b, row, s, r, g, segs, segD, first: g === 1, target: target != null ? target * segD / row.dist : null, sendoff: g === segs ? sendoff : null });
+            if (g < segs && row.brokenRest > 0) seq.push({ kind: 'rest', b, row, sec: row.brokenRest, broken: true });
+          }
+          if (r === row.reps && s < sets) { if (row.setRest > 0) seq.push({ kind: 'rest', b, row, sec: row.setRest, setBreak: true }); }
+          else if (so) seq.push({ kind: 'rest', b, row, sec: 0, dyn: true, sendoff });
+          else { const sec = Math.max(0, row.rest + (row.stepOn === 'rest' ? dlt : 0)); if (sec > 0) seq.push({ kind: 'rest', b, row, sec }); }
         }
       }
     }));
@@ -769,7 +921,7 @@
   const elapsed = () => (pausedAt ? pausedAt : now()) - t0 - paused;
   const begin = (p) => { phase = p; t0 = now(); paused = 0; pausedAt = 0; beeped = {}; };
   const nextSwim = (i) => { for (let j = i; j < seq.length; j++) if (seq[j].kind === 'swim') return seq[j]; return null; };
-  const swimLine = (st) => `${rowHead(st.row)}（${(st.row.sets || 1) > 1 ? `第 ${st.s}/${st.row.sets} 組・` : ''}第 ${st.r}/${st.row.reps} 趟）`;
+  const swimLine = (st) => `${rowHead(st.row)}（${(st.row.sets || 1) > 1 ? `第 ${st.s}/${st.row.sets} 組・` : ''}第 ${st.r}/${st.row.reps} 趟${st.segs > 1 ? `・第 ${st.g}/${st.segs} 段` : ''}）`;
   const drillLine = (row) => {
     const d = row.mode === 'drill' ? drillOf(row.drill) : null;
     return [d && d.cue, rowEquip(row) && '器材：' + rowEquip(row), row.note].filter(Boolean).join('　');
@@ -778,20 +930,39 @@
     const a = adj.get(row); if (!a) return '';
     const bits = [];
     if (a.t) bits.push(`目標 ${a.t > 0 ? '+' : '−'}${Math.abs(a.t)} 秒`);
-    if (a.r) bits.push(`休息 ${a.r > 0 ? '+' : '−'}${Math.abs(a.r)} 秒`);
+    if (a.r) bits.push(`${row.restMode === 'sendoff' ? '出發間隔' : '休息'} ${a.r > 0 ? '+' : '−'}${Math.abs(a.r)} 秒`);
     return bits.length ? '這一列已調整：' + bits.join('、') + '（只影響這次）' : '';
   };
+  function renderSide() {
+    const items = []; rowIdx = new Map();
+    M().blocks.forEach(b => b.rows.forEach(r => { rowIdx.set(r, items.length); const x = [rowInt(r), sumBits(r)[1]].filter(Boolean).join(' · '); items.push(`<li data-k="${items.length}"><span>${esc(b.title)}</span><b>${esc(rowHead(r))}</b>${x ? `<i>${esc(x)}</i>` : ''}</li>`); }));
+    tq('[data-wk-t-list]').innerHTML = items.join(''); lastHi = -1;
+  }
+  function highlight() {
+    const c = seq[idx]; if (!c) return;
+    const k = rowIdx.get(c.row); if (k === lastHi) return; lastHi = k;
+    tq('[data-adj="r:10"]').parentElement.querySelector('span').textContent = c.row.restMode === 'sendoff' ? '出發' : '休息';
+    tq('[data-wk-t-list]').querySelectorAll('li').forEach(li => { const on = +li.dataset.k === k; li.classList.toggle('is-now', on); if (on) li.scrollIntoView({ block: 'nearest' }); });
+  }
 
   function nextStep() {
-    if (phase === 'ready') idx = 0; else idx += 1;
+    idx = phase === 'ready' ? 0 : idx + 1;
+    // 出發間隔：休息＝下一次出發時間 − 已經過的時間；已經過了就直接出發
+    while (idx < seq.length && seq[idx].kind === 'rest' && seq[idx].dyn) {
+      seq[idx].sec = seq[idx].sendoff - (now() - repT0);
+      if (seq[idx].sec > 0.3) break;
+      idx += 1;
+    }
     if (idx >= seq.length) { finish(); return; }
-    if (seq[idx].kind === 'swim') SND.go();
-    begin(seq[idx].kind);
+    const cur = seq[idx];
+    begin(cur.kind);
+    if (cur.kind === 'swim') { SND.go(); if (cur.first) repT0 = now(); }
+    else if (!cur.broken && cur.sec >= 6) { const nx = nextSwim(idx + 1); if (nx) say(`${nx.row !== cur.row ? '換下一組。' : '下一趟，'}${sayRep(nx)}`); }
   }
   function wall(auto) {
     if (phase !== 'swim') return;
     const cur = seq[idx];
-    log.push({ where: `${cur.b.title}・${rowHead(cur.row)} ${(cur.row.sets || 1) > 1 ? `第 ${cur.s} 組` : ''}第 ${cur.r} 趟`, target: cur.target, actual: auto ? null : elapsed() });
+    log.push({ where: `${cur.b.title}・${rowHead(cur.row)} ${(cur.row.sets || 1) > 1 ? `第 ${cur.s} 組` : ''}第 ${cur.r} 趟${cur.segs > 1 ? `第 ${cur.g} 段` : ''}`, target: cur.target, actual: auto ? null : elapsed() });
     renderLog();
     nextStep();
   }
@@ -801,8 +972,11 @@
     let changed = false;
     for (let j = idx; j < seq.length; j++) {
       const x = seq[j]; if (x.row !== row) continue;
-      if (kind === 't' && x.kind === 'swim' && x.target != null) { x.target = Math.max(1, x.target + d); changed = true; }
-      if (kind === 'r' && x.kind === 'rest') { x.sec = Math.max(0, x.sec + d); changed = true; }
+      if (kind === 't' && x.kind === 'swim' && x.target != null) { x.target = Math.max(1, x.target + d * (x.segD / row.dist)); changed = true; }
+      if (kind === 'r') {
+        if (x.kind === 'swim' && x.sendoff != null) { x.sendoff = Math.max(5, x.sendoff + d); changed = true; }
+        if (x.kind === 'rest' && !x.broken) { if (x.dyn) x.sendoff = Math.max(5, x.sendoff + d); x.sec = Math.max(0, x.sec + d); changed = true; }
+      }
     }
     const v = tq('[data-wk-t-adjv]');
     if (!changed) { v.textContent = kind === 't' ? '這一列沒有目標秒數可調。' : '這一列後面沒有休息可調。'; return; }
@@ -813,6 +987,7 @@
     v.textContent = adjText(row);
     frame();
   }
+  const logLine = (x) => (x.actual == null ? `${x.where}：（未按到牆）` : x.target == null ? `${x.where}：${fmt(x.actual)}` : `${x.where}：${fmt(x.actual)}（目標 ${fmt(x.target)}，${x.actual - x.target <= 0 ? '' : '+'}${(x.actual - x.target).toFixed(1)}）`);
   function renderLog() {
     tq('[data-wk-t-log]').innerHTML = log.slice().reverse().slice(0, 6).map(x => {
       if (x.actual == null) return `<li>${esc(x.where)}<span>（未按到牆）</span></li>`;
@@ -822,20 +997,22 @@
     }).join('');
   }
   function finish() {
-    phase = 'done'; clearInterval(timer); SND.done();
+    phase = 'done'; clearInterval(timer); SND.done(); say('課表完成');
     tq('[data-wk-t-phase]').textContent = '完成';
     tq('[data-wk-t-row]').textContent = M().name || '';
     const aimed = log.filter(x => x.actual != null && x.target != null), hit = aimed.filter(x => x.actual <= x.target).length;
     tq('[data-wk-t-clock]').textContent = aimed.length ? `${hit}/${aimed.length}` : '✓';
     tq('[data-wk-t-sub]').textContent = aimed.length ? '趟達到目標秒數' : '課表跑完了';
-    const changed = [...adj.entries()].filter(([, a]) => a.t || a.r).map(([row, a]) => `${rowHead(row)}：${[a.t ? `目標 ${a.t > 0 ? '+' : '−'}${Math.abs(a.t)} 秒` : '', a.r ? `休息 ${a.r > 0 ? '+' : '−'}${Math.abs(a.r)} 秒` : ''].filter(Boolean).join('、')}`);
+    const changed = [...adj.entries()].filter(([, a]) => a.t || a.r).map(([row]) => `${rowHead(row)}：${adjText(row).replace('這一列已調整：', '').replace('（只影響這次）', '')}`);
     tq('[data-wk-t-drill]').textContent = changed.length ? '這次臨場調整過：' + changed.join('；') : '';
     tq('[data-wk-t-adjv]').textContent = '';
     tq('[data-wk-wall]').hidden = true;
+    tq('[data-wk-t-copy]').hidden = !log.length;
     if (wake) { wake.release().catch(() => {}); wake = null; }
   }
   function frame() {
     if (pausedAt || phase === 'done') return;
+    highlight();
     const e = elapsed();
     const cur = seq[idx];
     const where = tq('[data-wk-t-where]'), rowEl = tq('[data-wk-t-row]'), ph = tq('[data-wk-t-phase]'), ck = tq('[data-wk-t-clock]'), sub = tq('[data-wk-t-sub]'), dr = tq('[data-wk-t-drill]');
@@ -854,14 +1031,25 @@
     if (phase === 'swim') {
       rowEl.textContent = swimLine(cur); dr.textContent = drillLine(cur.row);
       ph.textContent = '游'; ck.textContent = fmt(e);
-      if (cur.target == null) { sub.textContent = '沒有目標秒數，到牆按一下'; ck.classList.remove('is-over'); return; }
-      const over = e - cur.target;
-      sub.textContent = over < 0 ? `目標 ${fmt(cur.target)}（還有 ${fmt(-over)}）` : `目標 ${fmt(cur.target)} 已到`;
-      ck.classList.toggle('is-over', over >= 0);
-      if (over >= 0 && !beeped.t) { beeped.t = 1; SND.target(); if (S.autorest) wall(true); }
+      let txt;
+      if (cur.target == null) { txt = '沒有目標秒數，到牆按一下'; ck.classList.remove('is-over'); }
+      else {
+        const over = e - cur.target;
+        txt = over < 0 ? `目標 ${fmt(cur.target)}（還有 ${fmt(-over)}）` : `目標 ${fmt(cur.target)} 已到`;
+        ck.classList.toggle('is-over', over >= 0);
+        if (over >= 0 && !beeped.t) { beeped.t = 1; SND.target(); if (S.autorest) { wall(true); return; } }
+      }
+      if (cur.sendoff != null) {
+        const left = cur.sendoff - (now() - repT0);
+        txt += `　下次出發 ${fmt0(Math.max(0, Math.ceil(left)))}`;
+        [3, 2, 1].forEach(n => { if (left <= n && !beeped['s' + n]) { beeped['s' + n] = 1; SND.tick(); } });
+        if (left <= 0) { wall(true); return; } // 出發時間到了還沒按到牆：照出發間隔直接下一趟
+      }
+      sub.textContent = txt;
     } else if (phase === 'rest') {
       const left = cur.sec - e, nx = nextSwim(idx + 1);
-      ph.textContent = cur.setBreak ? '組間休息' : '休息'; ck.textContent = fmt0(Math.max(0, Math.ceil(left))); ck.classList.remove('is-over');
+      ph.textContent = cur.broken ? '分段休息' : cur.setBreak ? '組間休息' : cur.dyn ? '等出發' : '休息';
+      ck.textContent = fmt0(Math.max(0, Math.ceil(left))); ck.classList.remove('is-over');
       rowEl.textContent = nx ? '下一趟：' + swimLine(nx) : '';
       sub.textContent = nx && nx.target ? `目標 ${fmt(nx.target)}` : '';
       dr.textContent = nx ? (nx.row !== cur.row ? '換下一列　' : '') + drillLine(nx.row) : '';
@@ -875,15 +1063,17 @@
     try { ac = ac || new (window.AudioContext || window.webkitAudioContext)(); ac.resume(); } catch (_) { ac = null; }
     tone(440, 40); // 使用者按下的當下解鎖聲音（iPhone 要求）
     holdScreen();
-    log = []; adj = new Map(); renderLog(); idx = 0;
-    tq('[data-wk-t-adjv]').textContent = '';
+    log = []; adj = new Map(); renderLog(); renderSide(); idx = 0;
+    tq('[data-wk-t-adjv]').textContent = ''; tq('[data-wk-t-copy]').hidden = true;
     T.hidden = false; document.body.classList.add('wk-running');
     tq('[data-wk-pause]').textContent = '暫停';
     begin('ready');
+    say(`準備。第一趟，${sayRep(seq[0])}`);
     clearInterval(timer); timer = setInterval(frame, 100); frame();
   }
   function closeTimer() {
     clearInterval(timer); phase = 'done'; T.hidden = true; document.body.classList.remove('wk-running');
+    try { window.speechSynthesis && speechSynthesis.cancel(); } catch (_) { /* 無 */ }
     if (wake) { wake.release().catch(() => {}); wake = null; }
   }
   tq('[data-wk-wall]').addEventListener('click', () => wall(false));
@@ -891,8 +1081,13 @@
   tq('[data-wk-skip]').addEventListener('click', () => { if (phase === 'swim') wall(true); else if (phase !== 'done') nextStep(); });
   tq('[data-wk-pause]').addEventListener('click', (ev) => {
     if (phase === 'done') return;
-    if (pausedAt) { paused += now() - pausedAt; pausedAt = 0; ev.target.textContent = '暫停'; }
+    if (pausedAt) { const dp = now() - pausedAt; paused += dp; repT0 += dp; pausedAt = 0; ev.target.textContent = '暫停'; }
     else { pausedAt = now(); ev.target.textContent = '繼續'; }
+  });
+  tq('[data-wk-t-copy]').addEventListener('click', async (ev) => {
+    const text = [`${M().name || '課表'}　${new Date().toLocaleString('zh-TW')}`].concat(log.map(logLine)).join('\n');
+    try { await navigator.clipboard.writeText(text); ev.target.textContent = '已複製'; } catch (_) { prompt('複製這次結果：', text); }
+    setTimeout(() => { ev.target.textContent = '複製這次結果'; }, 2000);
   });
   T.querySelectorAll('[data-adj]').forEach(b => b.addEventListener('click', () => { const [k, d] = b.dataset.adj.split(':'); adjust(k, +d); }));
   document.addEventListener('visibilitychange', () => { if (!T.hidden && document.visibilityState === 'visible') holdScreen(); });
@@ -901,8 +1096,8 @@
   const refresh = () => {
     Object.keys(cssCache).forEach(k => delete cssCache[k]);
     renderCss(); renderPz(); renderSprint();
-    blocksEl.querySelectorAll('.wk-r').forEach(li => refreshRow(li, rowOf(li)));
-    totals();
+    M().blocks.forEach(b => b.rows.forEach(r => { if (r.restAuto) autoRest(r, b.title); })); // 成績變了，自動帶的出發間隔跟著變
+    renderMenu();
   };
   const course = $('[data-wk-course]'); course.value = S.course;
   course.addEventListener('change', () => { S.course = course.value; save(); });
@@ -923,19 +1118,22 @@
   $('[data-wk-sstroke]').addEventListener('change', (e) => { S.sstroke = e.target.value; save(); renderSprint(); });
   $('[data-wk-sdist]').addEventListener('change', (e) => { S.sdist = e.target.value; save(); renderSprint(); });
   $('[data-wk-pct]').addEventListener('input', (e) => { S.pct = +e.target.value; save(); renderSprint(); });
-  $('[data-wk-menus]').addEventListener('change', (e) => { S.cur = +e.target.value; openEq.clear(); save(); renderMenu(); });
+  $('[data-wk-menus]').addEventListener('change', (e) => { S.cur = +e.target.value; openEq.clear(); openAdv.clear(); save(); renderMenu(); });
   $('[data-wk-mname]').addEventListener('input', (e) => { M().name = e.target.value.trim() || '未命名'; save(); renderSum(); });
   $('[data-wk-mname]').addEventListener('change', () => { $('[data-wk-menus]').options[S.cur].textContent = M().name; });
-  $('[data-wk-mnew]').addEventListener('click', () => { S.menus.push(newMenu('新課表 ' + (S.menus.length + 1))); S.cur = S.menus.length - 1; openEq.clear(); save(); renderMenu(); });
+  $('[data-wk-mnew]').addEventListener('click', () => { S.menus.push(newMenu('新課表 ' + (S.menus.length + 1))); S.cur = S.menus.length - 1; openEq.clear(); openAdv.clear(); save(); renderMenu(); });
   $('[data-wk-mdup]').addEventListener('click', () => { const c = JSON.parse(JSON.stringify(M())); c.name += '（複製）'; S.menus.push(c); S.cur = S.menus.length - 1; save(); renderMenu(); });
   $('[data-wk-mdel]').addEventListener('click', () => {
     if (!confirm(`刪除課表「${M().name}」？`)) return;
-    S.menus.splice(S.cur, 1); if (!S.menus.length) S.menus.push(newMenu('今天的課表')); S.cur = 0; openEq.clear(); save(); renderMenu();
+    S.menus.splice(S.cur, 1); if (!S.menus.length) S.menus.push(newMenu('今天的課表')); S.cur = 0; openEq.clear(); openAdv.clear(); save(); renderMenu();
   });
   $('[data-wk-addblk]').addEventListener('click', () => { M().blocks.push({ title: '新的一段', rows: [] }); save(); renderMenu(); });
   $('[data-wk-start]').addEventListener('click', openTimer);
   const ar = $('[data-wk-autorest]'); ar.checked = S.autorest !== false;
   ar.addEventListener('change', () => { S.autorest = ar.checked; save(); });
+  const vc = $('[data-wk-voice]'); vc.checked = S.voice !== false;
+  vc.addEventListener('change', () => { S.voice = vc.checked; save(); if (vc.checked) say('語音報讀開啟'); });
   initPz();
   renderCss(); renderPz(); renderSprint(); renderMenu(); renderMine();
+  importShared();
 })();
