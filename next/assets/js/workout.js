@@ -219,7 +219,7 @@
   }
   function rowInt(row) {
     const tg = targetOf(row);
-    let s = row.int === 'pbplus' ? `PB ${+row.pbPlus >= 0 ? '+' : '−'}${Math.abs(+row.pbPlus || 0)} 秒` : row.int === 'sprint' ? `衝刺 ${row.pct}%` : row.int === 'race' ? (row.event ? `賽速（${row.event} m）` : '賽速（未選項目）') : (row.int === 'custom' || row.int === 'none' || NO_AUTO[row.mode]) ? '' : INTS[row.int];
+    let s = row.int === 'pbplus' ? `PB ${+row.pbPlus >= 0 ? '+' : '−'}${Math.abs(+row.pbPlus || 0)} 秒` : row.int === 'sprint' ? `衝刺 ${row.pct}%` : row.int === 'race' ? (row.event ? `賽速（${row.event} m）` : '賽速（未選項目）') : row.int === 'custom' ? (row.intLabel || '') : (row.int === 'none' || NO_AUTO[row.mode]) ? '' : INTS[row.int];
     if (tg && tg.t) s += (s ? ' ' : '') + '目標 ' + fmt(tg.t) + (tg.note && tg.note !== '🟠' && !tg.note.includes('配速') ? `（${tg.note}）` : '');
     else if (tg && tg.miss) s += `（${tg.miss}，無目標）`;
     return s;
@@ -349,26 +349,56 @@
     return { days, phase, note, macroDays, bounds };
   }
   // 推薦組：組型參數全部取 set_types；取區間中值，並標明
-  function recSets(ph) {
-    const s = S.zstroke;
-    const out = [];
+  // 各組型的推薦組（參數全取 set_types，取區間中值）；週課表與單堂推薦共用
+  function setBuilders(s) {
     // 比賽項目可能多項（使用者 2026-09-27），不在這裡選；賽速組以 25 m 一趟、100 m 賽距 × 5 的量當樣板，項目在課表列裡選
-    const raceSet = (scale) => {
-      const reps = Math.max(4, Math.round(100 * 5 * (scale || 1) / 25));
-      return { type: 'race_pace', name: '賽速重複', row: { reps, dist: 25, stroke: s, int: 'race', event: '', rest: raceRest(25) },
-        why: `樣板以 100 m 項目計：總量＝賽距 × 5–6${scale ? `，減量再 × ${scale}` : ''}（400 m 改 × 3–5、800／1500 m 改 × 2–3，每趟改 50 m）；加入後在那一列選要以哪個項目的成績算目標` };
+    // 項目預設：有 100 m 成績用 100，否則用最短的一筆 ≥50 m 成績；都沒有就留空（課表列裡再選）
+    const race = (scale, label) => {
+      const have = known(s).map(x => x[0]).filter(d => d >= 50);
+      const ev = have.includes(100) ? 100 : (have[0] || 100);
+      const rep = ev <= 100 ? 25 : 50, mult = ev >= 800 ? 2.5 : ev === 400 ? 4 : 5.5; // race_pace.volume_rule 取中值
+      const reps = Math.max(4, Math.round(ev * mult * (scale || 1) / rep));
+      return { type: 'race_pace', name: label || '賽速重複', row: { reps, dist: rep, stroke: s, int: 'race', event: have.length ? String(ev) : '', rest: raceRest(rep) },
+        why: `以 ${ev} m 項目計：總量＝${ev} m × ${mult}${scale ? ` × ${scale}` : ''}（race_pace.volume_rule 取中值）；要換項目，在課表那一列改` };
     };
-    const thrSet = () => { const t = TYPE.threshold, d = 200, vol = 2000; return { type: 'threshold', name: '閾值', row: { reps: vol / d, dist: d, stroke: s, int: 'thr', rest: r5((t.rest_s.min + t.rest_s.max) / 2) }, why: `總量取 ${esc(t.volume_rule.replace(/^總量\s*/, ''))} 的下緣` }; };
-    const easySet = () => { const t = TYPE.aerobic_easy; return { type: 'aerobic_easy', name: '輕鬆有氧', row: { reps: 3, dist: 400, stroke: s, int: 'easy', rest: r5((t.rest_s.min + t.rest_s.max) / 2) }, why: '量依可用時間調' }; };
-    const velSet = (sets) => { const t = TYPE.velocity; return { type: 'velocity', name: '純速', row: { sets: sets || t.reps.blocks, reps: 4, dist: t.distance_m.max, stroke: s, int: 'sprint', pct: 100, rest: r5((t.rest_s.min + t.rest_s.max) / 2), setRest: 0 }, why: `每趟 ${t.distance_m.min}–${t.distance_m.max} m，${t.reps.min}–${t.reps.max} 趟分 ${t.reps.blocks} 組` }; };
-    const lpSet = () => { const t = TYPE.lactate_production; return { type: 'lactate_production', name: '乳酸生成', row: { reps: 6, dist: t.distance_m.max, stroke: s, int: 'sprint', pct: 100, rest: r5((t.rest_s.min + t.rest_s.max) / 2) }, why: `每趟 ${t.distance_m.min}–${t.distance_m.max} m，${t.reps.min}–${t.reps.max} 趟` }; };
-    const tolSet = () => { const t = TYPE.lactate_tolerance; return { type: 'lactate_tolerance', name: '速耐', row: { reps: 5, dist: 100, stroke: s, int: 'tol', rest: 40 }, why: `每趟 ${t.distance_m.min}–${t.distance_m.max} m，${t.reps.min}–${t.reps.max} 趟，休 ${t.rest_s.min}–${t.rest_s.max} 秒` }; };
-    if (ph === 'general_prep') out.push(thrSet(), easySet(), velSet());
-    else if (ph === 'specific_prep') out.push(raceSet(), thrSet(), tolSet());
-    else if (ph === 'competition') out.push(raceSet(), velSet(), easySet());
-    else if (ph === 'taper') out.push(raceSet(0.5), velSet(1), easySet());
-    else out.push(Object.assign(easySet(), { row: { reps: 2, dist: 400, stroke: s, int: 'none', rest: 30 } }));
-    return out;
+    const thr = () => { const x = TYPE.threshold, d = 200, vol = 2000; return { type: 'threshold', name: '閾值', row: { reps: vol / d, dist: d, stroke: s, int: 'thr', rest: r5((x.rest_s.min + x.rest_s.max) / 2) }, why: `總量取 ${esc(x.volume_rule.replace(/^總量\s*/, ''))} 的下緣` }; };
+    const easy = (label) => { const x = TYPE.aerobic_easy; return { type: 'aerobic_easy', name: label || '輕鬆有氧', row: { reps: 3, dist: 400, stroke: s, int: 'easy', rest: r5((x.rest_s.min + x.rest_s.max) / 2) }, why: '量依可用時間調' }; };
+    const vel = (sets) => { const x = TYPE.velocity; return { type: 'velocity', name: '純速', row: { sets: sets || x.reps.blocks, reps: 4, dist: x.distance_m.max, stroke: s, int: 'sprint', pct: 100, rest: r5((x.rest_s.min + x.rest_s.max) / 2), setRest: 0 }, why: `每趟 ${x.distance_m.min}–${x.distance_m.max} m，${x.reps.min}–${x.reps.max} 趟分 ${x.reps.blocks} 組；熱身後、還不累時做` }; };
+    const tol = () => { const x = TYPE.lactate_tolerance; return { type: 'lactate_tolerance', name: '速耐', row: { reps: 5, dist: 100, stroke: s, int: 'tol', rest: 40 }, why: `每趟 ${x.distance_m.min}–${x.distance_m.max} m，${x.reps.min}–${x.reps.max} 趟，休 ${x.rest_s.min}–${x.rest_s.max} 秒；每週最多 ${x.weekly_max} 次` }; };
+    const free = () => ({ type: null, name: '輕鬆游', row: { reps: 2, dist: 400, stroke: s, int: 'none', rest: 30 }, why: '過渡期不設目標時間，維持下水頻率' });
+    return { race, thr, easy, vel, tol, free };
+  }
+  // 一週 N 堂的堂次類型：轉寫自 weekly_assembly.session_budgets 的 s1–s6（原文在畫面上並列）
+  //   Q＝品質課（賽速／速耐／乳酸生成等吃力的課）、E＝輕鬆或技術、T＝閾值有氧、L＝長有氧
+  const WEEK_SLOTS = { 1: ['Q'], 2: ['Q', 'E'], 3: ['Q', 'E', 'Q'], 4: ['Q', 'E', 'Q', 'T'], 5: ['Q', 'T', 'E', 'Q', 'L'], 6: ['Q', 'T', 'E', 'Q', 'L', 'E'] };
+  const SLOT_NAME = { Q: '品質課', E: '輕鬆＋技術', T: '閾值有氧', L: '長有氧' };
+  // 各期品質課的重點：轉寫 phase_allocation.intent_by_phase；第二堂品質課換不同意圖（weekly_assembly s3 原文）
+  function qualityDay(ph, k, B) {
+    const second = k % 2 === 1;
+    if (ph === 'general_prep') return second ? { focus: '賽速（少量，動作校準）＋閾值', sets: [B.race(0.5, '賽速（少量）'), B.thr()] } : { focus: '純速（維持）＋閾值', sets: [B.vel(), B.thr()] };
+    if (ph === 'specific_prep') return second ? { focus: '速耐（本週唯一一次）', sets: [B.tol()] } : { focus: '賽速', sets: [B.race()] };
+    if (ph === 'competition') return second ? { focus: '純速', sets: [B.vel()] } : { focus: '賽速', sets: [B.race()] };
+    return second ? { focus: '純速（短）', sets: [B.vel(1)] } : { focus: '賽速（減量）', sets: [B.race(0.5, '賽速（減量）')] }; // taper
+  }
+  function weekPlan(ph, n) {
+    const B = setBuilders(S.zstroke);
+    if (ph === 'transition') return Array.from({ length: n }, () => ({ slot: 'E', focus: '過渡：輕鬆游', sets: [B.free()] }));
+    let q = 0, obs = false;
+    return WEEK_SLOTS[n].map(sl => {
+      if (sl === 'Q') return Object.assign({ slot: 'Q' }, qualityDay(ph, q++, B));
+      if (sl === 'T') return { slot: 'T', focus: '閾值有氧', sets: [B.thr()] };
+      if (sl === 'L') return { slot: 'L', focus: '長有氧', sets: [B.easy('長有氧')] };
+      const d = { slot: 'E', focus: '輕鬆有氧＋技術（drill 自選）', sets: [B.easy()] };
+      if (!obs) { obs = true; d.obs = true; } // 每週一個觀察點，掛在第一堂輕鬆課（weekly_assembly 間隔規則第 4 條）
+      return d;
+    });
+  }
+  function menuFromDay(d, k) {
+    const m = newMenu(`第 ${k + 1} 堂・${d.focus}`);
+    const main = m.blocks.find(b => b.title === '主課');
+    d.sets.forEach(x => { const r = blankRow(Object.assign({ note: x.name, restAuto: true }, x.row)); autoRest(r, '主課'); r.rest = x.row.rest; main.rows.push(r); });
+    if (d.obs) m.blocks[0].rows.push(blankRow({ reps: 1, dist: 100, stroke: S.zstroke, int: 'none', rest: 60, note: '觀察點：同池長、同出發、同距離計時一趟，和前幾週比' }));
+    return m;
   }
   function renderPz() {
     const box = $('[data-wk-pzout]');
@@ -398,23 +428,29 @@
     }
     const n = Math.min(6, Math.max(1, +S.pz.sess || 1));
     const bud = PZ.budgets.find(x => x.sessions === n);
-    if (bud && P.phase !== 'transition') html += `<h3>一週 ${n} 堂怎麼擺 🔵</h3><p>${md(bud.layout_zh)}</p><details class="wk-more"><summary>間隔規則</summary><p>${md(PZ.spacing).replace(/\n/g, '<br>')}</p></details>`;
-    html += `<h3>推薦主課（${SZH[s]}）</h3><p class="muted">泳式跟著 ② 選中的那一式。取各組型參數區間的中值；目標秒數用你在 ① 填的成績算，缺成績的組會標「以第 1 趟為準」。按「加入主課」後可以再改。</p><ol class="wk-rec">`;
-    recSets(P.phase).forEach((x, i) => {
-      const t = TYPE[x.type];
-      const row = blankRow(x.row);
-      const tg = targetOf(row);
-      html += `<li><div class="wk-rec-h"><b>${x.name}</b><span>${t ? t.cert : ''}</span></div>
-        <p class="wk-rec-v">${esc(rowHead(row))}　${tg && tg.t ? '目標 <b>' + fmt(tg.t) + '</b>' : tg && tg.miss ? `<span class="wk-miss">${esc(tg.miss)}，以第 1 趟為準</span>` : '不設目標'}　休 ${fmt0(row.rest)}${row.sets > 1 && row.setRest ? '　組間 ' + fmt0(row.setRest) : ''}</p>
-        <p class="muted">${x.why}${t && t.exit ? `。退出：${esc(t.exit)}` : ''}${t && t.weekly_max ? `。每週最多 ${t.weekly_max} 次` : ''}${t && t.requires_fresh ? '，要在不累的時候做' : ''}</p>
-        <button type="button" class="wk-add" data-rec="${i}">加入主課</button></li>`;
-    });
-    html += '</ol>';
+    const week = weekPlan(P.phase, n);
+    html += `<h3>這週 ${n} 堂的建議（${SZH[s]}）</h3>
+      <p class="muted">照上課順序排，吃力的品質課之間隔一堂輕鬆課。每堂只給主課，暖身、drill、緩和留給你排；泳式跟著 ② 選中的那一式，目標秒數用 ① 的成績算。</p>`;
+    if (bud && P.phase !== 'transition') html += `<details class="wk-more"><summary>週組裝規則原文 🔵</summary><p>${md(bud.layout_zh)}</p><p>${md(PZ.spacing).replace(/\n/g, '<br>')}</p></details>`;
+    html += '<ol class="wk-week">' + week.map((d, k) => `<li class="wk-day wk-day--${d.slot}">
+        <div class="wk-day-h"><b>第 ${k + 1} 堂</b><span>${SLOT_NAME[d.slot]}</span></div>
+        <p class="wk-day-f">${esc(d.focus)}</p>
+        <ul>${d.sets.map(x => { const row = blankRow(x.row), tg = targetOf(row), ty = x.type && TYPE[x.type];
+          return `<li><b>${esc(x.name)}</b>${ty ? ` <span class="wk-cert">${ty.cert}</span>` : ''}<br>${esc(rowHead(row))}　${tg && tg.t ? '目標 ' + fmt(tg.t) : tg && tg.miss ? `<span class="wk-miss">${esc(tg.miss)}</span>` : '不設目標'}　休 ${fmt0(row.rest)}<br><span class="muted">${x.why}${ty && ty.exit ? `。退出：${esc(ty.exit)}` : ''}</span></li>`; }).join('')}</ul>
+        ${d.obs ? '<p class="muted">這堂放本週的觀察點：熱身後同池長、同出發、同距離計時一趟，和前幾週比。</p>' : ''}
+        <button type="button" class="wk-add" data-day="${k}">用這堂建立課表</button></li>`).join('') + '</ol>'
+      + `<div class="wk-actions"><button type="button" class="wk-btn" data-weekall>整週建成 ${n} 份課表</button></div>`;
     box.innerHTML = html;
     const now = box.querySelector('.wk-tl-now'); if (now) now.style.left = now.dataset.pos + '%';
     box.querySelectorAll('.wk-tl-seg').forEach(el => { el.style.flexGrow = el.dataset.grow; }); // 比例由資料算，只能在執行時設
-    const recs = recSets(P.phase);
-    box.querySelectorAll('[data-rec]').forEach(btn => btn.addEventListener('click', () => { const x = recs[+btn.dataset.rec]; addMain(Object.assign({ note: x.name, restAuto: true }, x.row), x.name); }));
+    box.querySelectorAll('[data-day]').forEach(btn => btn.addEventListener('click', () => {
+      const k = +btn.dataset.day; S.menus.push(menuFromDay(week[k], k)); S.cur = S.menus.length - 1;
+      save(); renderMenu(); toast(`已建立課表：${M().name}`); document.getElementById('wk-menu').scrollIntoView();
+    }));
+    box.querySelector('[data-weekall]').addEventListener('click', () => {
+      week.forEach((d, k) => S.menus.push(menuFromDay(d, k))); S.cur = S.menus.length - week.length;
+      save(); renderMenu(); toast(`已建立 ${week.length} 份課表，在 ⑤ 的「課表」選單切換`); document.getElementById('wk-menu').scrollIntoView();
+    });
   }
   function initPz() {
     $('[data-wk-race]').value = S.pz.race;
@@ -672,6 +708,7 @@
       row.mode = v;
       if (NO_AUTO[v] && !{ none: 1, custom: 1 }[row.int]) row.int = 'none';
     } else row[f] = v;
+    if (f === 'int') delete row.intLabel;
     if (f === 'mode' || f === 'int' || f === 'stroke') { row.restAuto = true; autoRest(row, M().blocks[+li.dataset.b].title); }
     else if (f === 'event' || f === 'restMode') syncRestNoDom(row, +li.dataset.b);
     save(); replaceRow(li);
@@ -736,7 +773,7 @@
   function volStats(rows) {
     const tot = rows.reduce((a, r) => a + rowDist(r), 0) || 1;
     const group = (keyFn) => { const o = {}; rows.forEach(r => { const k = keyFn(r); o[k] = (o[k] || 0) + rowDist(r); }); return Object.entries(o).sort((a, b) => b[1] - a[1]).map(([k, v]) => [k, v, Math.round(v * 100 / tot)]); };
-    return [['泳式', group(r => SZH[r.stroke])], ['游法', group(r => MODES[r.mode])], ['強度', group(r => (NO_AUTO[r.mode] && r.int !== 'custom' ? INTS.none : INTS[r.int]))]];
+    return [['泳式', group(r => SZH[r.stroke])], ['游法', group(r => MODES[r.mode])], ['強度', group(r => (NO_AUTO[r.mode] && r.int !== 'custom' ? INTS.none : r.int === 'custom' && r.intLabel ? r.intLabel : INTS[r.int]))]];
   }
   function renderSum() {
     const m = M();
@@ -790,7 +827,15 @@
     const m = M(), rows = m.blocks.flatMap(b => b.rows);
     const ids = new Set(rows.map(r => r.drill).filter(x => x && x.startsWith('my:')));
     const eqs = new Set(rows.flatMap(r => r.equip || []).filter(k => k.startsWith('x:')));
-    const url = location.href.split('#')[0] + '#m=' + await pack({ v: 1, menu: m, drills: S.myDrills.filter(d => ids.has('my:' + d.id)), equip: [...eqs].map(k => k.slice(2)) });
+    // 成績不存、對方也沒有你的成績：把目前算得出的目標秒數固定成自訂秒數，對方打開就能直接跑
+    const frozen = JSON.parse(JSON.stringify(m));
+    frozen.blocks.forEach(b => b.rows.forEach(r => {
+      r.restAuto = false;
+      if (r.int === 'custom' || r.int === 'none' || NO_AUTO[r.mode]) return;
+      const tg = targetOf(r);
+      if (tg && tg.t) { r.intLabel = rowInt(r).replace(/\s*目標.*$/, ''); r.target = +tg.t.toFixed(2); r.int = 'custom'; }
+    }));
+    const url = location.href.split('#')[0] + '#m=' + await pack({ v: 1, menu: frozen, drills: S.myDrills.filter(d => ids.has('my:' + d.id)), equip: [...eqs].map(k => k.slice(2)) });
     if (navigator.share) { try { await navigator.share({ title: m.name, url }); return; } catch (_) { /* 取消分享就改成複製 */ } }
     try { await navigator.clipboard.writeText(url); toast('分享連結已複製'); } catch (_) { prompt('複製這個連結：', url); }
   });

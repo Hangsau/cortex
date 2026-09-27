@@ -200,6 +200,19 @@ body.wk-running { overflow: hidden; }
   .wk-css { padding-left: var(--s2); }
 }
 
+/* 週課表 */
+.wk-week { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--s2); margin: var(--s2) 0; padding: 0; }
+.wk-day { display: flex; flex-direction: column; gap: var(--s1); padding: var(--s2); border: 1px solid var(--rule); border-radius: 4px; }
+.wk-day--Q { border-color: var(--series); border-left-width: 4px; }
+.wk-day-h { display: flex; justify-content: space-between; align-items: baseline; font-size: var(--fs-m); }
+.wk-day-h span { font-size: var(--fs-s); color: var(--ink-2); }
+.wk-day--Q .wk-day-h span { color: var(--series); font-weight: 700; }
+.wk-day-f { margin: 0; font-weight: 700; }
+.wk-day ul { list-style: none; margin: 0; padding: 0; font-size: var(--fs-s); line-height: 1.6; }
+.wk-day ul li { padding: var(--s1) 0; border-top: 1px solid var(--rule); font-variant-numeric: tabular-nums; }
+.wk-day > .muted { margin: 0; font-size: var(--fs-s); }
+.wk-day .wk-add { align-self: flex-start; min-height: var(--tap); }
+
 /* 第五版：進階欄、插入常用組、總量統計、大螢幕側欄 */
 .wk-r-adv summary { display: flex; align-items: center; min-height: 44px; cursor: pointer; color: var(--ink-2); }
 .wk-r-adv .wk-r-line { margin: var(--s1) 0; }
