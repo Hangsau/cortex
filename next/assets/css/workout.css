@@ -109,6 +109,23 @@
 .wk-r-act button { min-width: 44px; min-height: 44px; padding: 0 var(--s1); border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink-2); font: 400 var(--fs-s)/1 var(--f-sans); cursor: pointer; }
 .wk-r-act button:hover { border-color: var(--series); color: var(--ink); }
 .wk-total { margin: var(--s2) 0 0; font-weight: 700; }
+.wk-compose { margin: var(--s3) 0 0; padding: var(--s2); border: 2px solid var(--series); border-radius: 4px; }
+.wk-compose h3 { margin: 0; font: 700 var(--fs-l)/1.4 var(--f-serif); }
+.wk-compose .wk-r { border-top: 0; padding-bottom: 0; }
+.wk-r-main { width: 100%; }
+.wk-r--edit { padding-left: var(--s2); padding-right: var(--s2); border: 2px solid var(--series); border-radius: 4px; }
+.wk-r--sum { flex-direction: row; align-items: flex-start; gap: var(--s2); padding: var(--s1) 0; }
+.wk-r--sum > i { flex: 0 0 1.6em; font: 700 var(--fs-m)/44px var(--f-serif); font-style: normal; color: var(--series); text-align: right; }
+.wk-r--sum > div { flex: 1 1 auto; min-width: 0; padding-top: 10px; line-height: 1.5; overflow-wrap: anywhere; }
+.wk-r--sum > div b { font-size: var(--fs-m); }
+.wk-r--sum > div span { display: block; color: var(--ink-2); }
+.wk-r--sum .wk-r-act { flex: 0 0 auto; flex-wrap: nowrap; }
+.wk-r--new { animation: wk-flash 1.8s ease-out; }
+@keyframes wk-flash { from { background: var(--tint); } to { background: transparent; } }
+@media (prefers-reduced-motion: reduce) { .wk-r--new { animation: none; background: var(--tint); } }
+.wk-empty { margin: var(--s1) 0 0; }
+.wk-addrow[hidden] { display: none; }
+.wk-toast-undo { min-height: 36px; margin-left: var(--s1); padding: 0 var(--s2); border: 1px solid var(--paper); border-radius: 4px; background: none; color: var(--paper); font: 700 var(--fs-s)/1 var(--f-sans); cursor: pointer; }
 
 .wk-sum-t { margin: 0 0 var(--s2); font: 700 var(--fs-l)/1.4 var(--f-serif); }
 .wk-sum-t span { display: block; font: 400 var(--fs-s)/1.6 var(--f-sans); color: var(--ink-2); }

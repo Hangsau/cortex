@@ -249,7 +249,14 @@
   /* ---------- 小提示 ---------- */
   const toastEl = root.parentElement.querySelector('[data-wk-toast]');
   let toastT = 0;
-  const toast = (msg) => { toastEl.textContent = msg; toastEl.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => { toastEl.hidden = true; }, 2200); };
+  let toastUndo = null;
+  // undo 給了就在提示裡放「復原」鍵，停留較久
+  const toast = (msg, undo) => {
+    toastEl.textContent = msg; toastUndo = undo || null;
+    if (undo) { const b = document.createElement('button'); b.type = 'button'; b.className = 'wk-toast-undo'; b.textContent = '復原'; toastEl.append(' ', b); }
+    toastEl.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => { toastEl.hidden = true; toastUndo = null; }, undo ? 6000 : 2200);
+  };
+  toastEl.addEventListener('click', (e) => { if (!e.target.closest('.wk-toast-undo') || !toastUndo) return; const f = toastUndo; toastUndo = null; toastEl.hidden = true; clearTimeout(toastT); f(); });
 
   /* ---------- ② 換算 ---------- */
   function renderCss() {
@@ -509,6 +516,27 @@
 
   /* ---------- ⑤ 排課表 ---------- */
   const openEq = new Set(), openAdv = new Set();
+  // 編輯方式（2026-09-30 使用者要求）：上方一張「新增一列」表單填好按「加入」；下方課表每列只顯示一行摘要，
+  // 按「修改」才在原位展開（同時只開一列），「刪除」可從提示復原。草稿不存檔，重新整理就清掉。
+  let draft = null, draftBlk = null, draftDirty = false, editing = null, flash = null;
+  function draftBi() {
+    const bs = M().blocks;
+    let bi = bs.indexOf(draftBlk);
+    if (bi < 0) {
+      if (!bs.length) { draftBlk = null; return -1; }
+      bi = bs.findIndex(b => !b.rows.length);
+      if (bi < 0) bi = Math.max(0, bs.findIndex(b => b.title === '主課'));
+      draftBlk = bs[bi];
+      if (!draftDirty) draft = null;
+    }
+    if (!draft) { draft = newRow(bi); draftDirty = false; }
+    return bi;
+  }
+  // 換目標段：還沒動過的草稿依新段重帶預設，動過的只重算建議休息
+  function retarget(bi) {
+    draftBlk = M().blocks[bi];
+    if (!draftDirty) draft = null; else autoRest(draft, draftBlk.title);
+  }
   const opt = (obj, cur) => Object.entries(obj).map(([k, v]) => `<option value="${k}"${k === cur ? ' selected' : ''}>${esc(v)}</option>`).join('');
   function drillOptions(row) {
     const want = DRILL_STROKE[row.stroke];
@@ -544,13 +572,15 @@
     if (!evs.length) return '<option value="">（沒有可用的比賽成績）</option>';
     return '<option value="">以哪個項目的成績？</option>' + evs.map(d => `<option value="${d}"${String(d) === String(row.event) ? ' selected' : ''}>${d} m 成績</option>`).join('');
   }
-  function rowHtml(row, bi, ri) {
+  // kind：'draft'＝上方新增表單、'edit'＝課表裡正在修改的那一列
+  function rowHtml(row, bi, ri, kind) {
     const ints = NO_AUTO[row.mode] ? { none: INTS.none, custom: INTS.custom } : INTS;
     if (!ints[row.int]) row.int = 'none';
     const d = drillOf(row.drill);
-    const key = bi + '-' + ri;
+    const key = kind === 'draft' ? 'd' : bi + '-' + ri;
     const eq = row.equip || [];
-    return `<li class="wk-r" data-b="${bi}" data-r="${ri}">
+    return `<li class="wk-r${kind === 'edit' ? ' wk-r--edit' : ''}" data-b="${bi}" data-r="${ri}">
+      ${kind === 'draft' ? `<div class="wk-r-line"><label class="wk-in"><span>加到</span><select data-draftb aria-label="加到哪一段">${M().blocks.map((b, i) => `<option value="${i}"${i === bi ? ' selected' : ''}>${esc(b.title || '未命名')}</option>`).join('')}</select></label></div>` : ''}
       <div class="wk-r-line wk-r-count">
         <label class="wk-in"><input type="number" inputmode="numeric" min="1" max="20" value="${row.sets || 1}" data-f="sets" aria-label="組數"><span>組 ×</span></label>
         <label class="wk-in"><input type="number" inputmode="numeric" min="1" max="99" value="${row.reps}" data-f="reps" aria-label="每組趟數"><span>趟 ×</span></label>
@@ -588,10 +618,19 @@
         <div class="wk-chips">${allEquip().map(k => `<button type="button" class="wk-chip" aria-pressed="${eq.includes(k)}" data-eqk="${esc(k)}">${esc(eqName(k))}</button>`).join('')}</div>
       </details>
       <input class="wk-r-note" type="text" value="${esc(row.note || '')}" placeholder="備註（例如：每 25 m 換氣 3 次）" data-f="note" aria-label="備註">
+      ${kind === 'draft' ? '<button type="button" class="wk-btn wk-btn--main wk-r-main" data-act="add">加入</button>' : `<button type="button" class="wk-btn wk-btn--main wk-r-main" data-act="done">完成</button>
       <div class="wk-r-act">
         <button type="button" data-act="up" aria-label="往上移">↑</button><button type="button" data-act="down" aria-label="往下移">↓</button>
         <button type="button" data-act="dup">複製</button><button type="button" data-act="save">存成常用</button><button type="button" data-act="del" aria-label="刪除這一列">刪除</button>
-      </div>
+      </div>`}
+    </li>`;
+  }
+  // 課表裡沒在修改的列：一行摘要＋修改／刪除
+  function sumRowHtml(row, bi, ri, n) {
+    const bits = sumBits(row);
+    return `<li class="wk-r wk-r--sum${row === flash ? ' wk-r--new' : ''}" data-b="${bi}" data-r="${ri}">
+      <i>${n}</i><div><b>${esc(rowHead(row))}</b>${bits.length ? `<span>${esc(bits.join(' · '))}</span>` : ''}</div>
+      <span class="wk-r-act"><button type="button" data-act="edit" aria-label="修改第 ${n} 列">修改</button><button type="button" data-act="del" aria-label="刪除第 ${n} 列">刪除</button></span>
     </li>`;
   }
   // 內建測驗組：CSS 測驗（canonical 的 200＋400 錨點）、7×200 漸進測驗（Topend Sports 協定：每 6 分鐘出發；
@@ -618,23 +657,28 @@
     const m = M();
     $('[data-wk-menus]').innerHTML = S.menus.map((x, i) => `<option value="${i}"${i === S.cur ? ' selected' : ''}>${esc(x.name || '未命名')}</option>`).join('');
     $('[data-wk-mname]').value = m.name || '';
-    $('[data-wk-blocks]').innerHTML = m.blocks.map((b, bi) => `<section class="wk-blk" data-b="${bi}">
+    const dbi = draftBi();
+    let n = 0;
+    $('[data-wk-blocks]').innerHTML = `<section class="wk-compose" data-wk-compose><h3>新增一列</h3>${dbi < 0 ? '<p class="muted">這份課表還沒有任何一段，先按下面的「＋ 加一段」。</p>' : `<ol class="wk-rows">${rowHtml(draft, dbi, 'd', 'draft')}</ol>`}</section>`
+      + m.blocks.map((b, bi) => `<section class="wk-blk" data-b="${bi}">
       <div class="wk-blk-h">
         <input class="wk-blk-t" type="text" value="${esc(b.title)}" data-bt aria-label="段落名稱">
         <span class="muted" data-bdist></span>
         <span class="wk-r-act"><button type="button" data-bact="up" aria-label="整段往上">↑</button><button type="button" data-bact="down" aria-label="整段往下">↓</button><button type="button" data-bact="save">存整段</button><button type="button" data-bact="del" aria-label="刪除整段">刪除</button></span>
       </div>
-      <ol class="wk-rows">${b.rows.map((r, ri) => rowHtml(r, bi, ri)).join('')}</ol>
-      <button type="button" class="wk-addrow" data-addrow="${bi}">＋ 在「${esc(b.title)}」加一列</button>
+      <ol class="wk-rows">${b.rows.map((r, ri) => { n += 1; return r === editing ? rowHtml(r, bi, ri, 'edit') : sumRowHtml(r, bi, ri, n); }).join('')}</ol>
+      ${b.rows.length ? '' : '<p class="muted wk-empty">這一段還是空的。</p>'}
+      <button type="button" class="wk-addrow" data-target="${bi}"${bi === dbi ? ' hidden' : ''}>＋ 改成加到「${esc(b.title)}」</button>
       <select class="wk-ins" data-ins="${bi}" aria-label="插入常用組">${insOptions()}</select>
     </section>`).join('');
+    flash = null;
     totals();
   }
   function replaceRow(li) {
     const bi = +li.dataset.b, ri = +li.dataset.r;
     // 展開狀態直接從畫面讀（toggle 事件是非同步的，不能靠它）
     li.querySelectorAll('details[data-eq], details[data-adv]').forEach(d => { const set = d.dataset.eq ? openEq : openAdv, k = d.dataset.eq || d.dataset.adv; if (d.open) set.add(k); else set.delete(k); });
-    li.outerHTML = rowHtml(M().blocks[bi].rows[ri], bi, ri);
+    li.outerHTML = li.dataset.r === 'd' ? rowHtml(draft, bi, 'd', 'draft') : rowHtml(M().blocks[bi].rows[ri], bi, ri, 'edit');
     totals();
   }
   function newRow(bi) {
@@ -645,7 +689,7 @@
     return row;
   }
   const blocksEl = $('[data-wk-blocks]');
-  const rowOf = (li) => M().blocks[+li.dataset.b].rows[+li.dataset.r];
+  const rowOf = (li) => (li.dataset.r === 'd' ? draft : M().blocks[+li.dataset.b].rows[+li.dataset.r]);
   const refreshRow = (li, row) => {
     li.querySelector('[data-rtg]').innerHTML = tgHtml(row);
     li.querySelector('[data-rsum]').textContent = rowDist(row) + ' m';
@@ -665,7 +709,8 @@
     const el = e.target;
     if (el.matches('[data-bt]')) {
       const blk = el.closest('.wk-blk'); M().blocks[+blk.dataset.b].title = el.value;
-      blk.querySelector('[data-addrow]').textContent = `＋ 在「${el.value}」加一列`;
+      blk.querySelector('[data-target]').textContent = `＋ 改成加到「${el.value}」`;
+      const o = blocksEl.querySelector(`[data-draftb] option[value="${blk.dataset.b}"]`); if (o) o.textContent = el.value;
       save(); renderSum(); return;
     }
     const li = el.closest('.wk-r'); if (!li) return;
@@ -677,7 +722,8 @@
       if (f === 'note') row.note = el.value;
       else if (FREE_NUM[f]) { if (el.value === '') row[f] = 0; else if (Number.isFinite(+el.value)) row[f] = +el.value; else return; if (f === 'pbPlus') syncRest(li, row); }
       else if (+el.value >= 1) { row[f] = +el.value; if (f === 'dist' || f === 'pct') syncRest(li, row); }
-    } else return;
+    } else return; // 下拉選單也會觸發 input，交給 change 處理，不能在這裡把草稿標成改過
+    if (li.dataset.r === 'd') draftDirty = true;
     refreshRow(li, row);
     save(); totals();
   });
@@ -694,11 +740,13 @@
       }
       return;
     }
+    if (el.matches('[data-draftb]')) { retarget(+el.value); renderMenu(); return; }
     const tf = el.closest('.wk-tf');
     if (tf) return;
     if (el.tagName !== 'SELECT') return;
     const li = el.closest('.wk-r'); if (!li) return;
     const row = rowOf(li), f = el.dataset.f, v = el.value;
+    if (li.dataset.r === 'd') draftDirty = true;
     if (f === 'drill') {
       const old = drillOf(row.drill), d = drillOf(v);
       row.drill = v; // 換 drill 時拿掉上一個 drill 帶進來的器材，保留使用者自己勾的
@@ -723,9 +771,10 @@
   blocksEl.addEventListener('click', (e) => {
     const m = M();
     const btn = e.target.closest('button'); if (!btn) return;
-    if (btn.dataset.addrow != null) {
-      const bi = +btn.dataset.addrow; m.blocks[bi].rows.push(newRow(bi)); save(); renderMenu();
-      const rows = blocksEl.querySelectorAll(`.wk-blk[data-b="${bi}"] .wk-r`); rows[rows.length - 1].scrollIntoView({ block: 'nearest' });
+    if (btn.dataset.target != null) {
+      retarget(+btn.dataset.target); renderMenu();
+      const c = blocksEl.querySelector('[data-wk-compose]'); c.scrollIntoView({ block: 'start' });
+      const f = c.querySelector('[data-f="reps"]'); if (f) f.focus({ preventScroll: true });
       return;
     }
     if (btn.dataset.bact) {
@@ -740,7 +789,8 @@
       openEq.clear(); openAdv.clear(); save(); renderMenu(); return;
     }
     const li = btn.closest('.wk-r'); if (!li) return;
-    const bi = +li.dataset.b, ri = +li.dataset.r, rows = m.blocks[bi].rows, row = rows[ri];
+    const bi = +li.dataset.b, ri = +li.dataset.r, rows = m.blocks[bi].rows, row = rowOf(li);
+    if (li.dataset.r === 'd' && (btn.dataset.apply != null || btn.dataset.eqk)) draftDirty = true;
     if (btn.dataset.apply != null) { row.restAuto = true; syncRest(li, row); save(); refreshRow(li, row); totals(); return; }
     if (btn.dataset.eqk) {
       const k = btn.dataset.eqk; row.equip = row.equip || [];
@@ -748,12 +798,32 @@
       save(); replaceRow(li); return;
     }
     const a = btn.dataset.act;
+    if (a === 'add') {
+      const added = JSON.parse(JSON.stringify(draft)), stroke = draft.stroke;
+      rows.push(added); flash = added;
+      draft = newRow(bi); draft.stroke = stroke; autoRest(draft, m.blocks[bi].title); draftDirty = false;
+      openEq.delete('d'); openAdv.delete('d'); save(); renderMenu();
+      toast(`已加入「${m.blocks[bi].title}」：${rowHead(added)}`);
+      return;
+    }
+    if (li.dataset.r === 'd') return;
+    if (a === 'edit' || a === 'done') {
+      editing = a === 'edit' ? row : null; openEq.clear(); openAdv.clear(); renderMenu();
+      const at = blocksEl.querySelector(`.wk-blk[data-b="${bi}"] .wk-r[data-r="${ri}"]`);
+      if (at) { at.scrollIntoView({ block: 'nearest' }); if (a === 'done') at.querySelector('button').focus({ preventScroll: true }); }
+      return;
+    }
+    if (a === 'del') {
+      rows.splice(ri, 1); if (editing === row) editing = null;
+      openEq.clear(); openAdv.clear(); save(); renderMenu();
+      toast(`已刪除：${rowHead(row)}`, () => { rows.splice(Math.min(ri, rows.length), 0, row); flash = row; save(); renderMenu(); });
+      return;
+    }
     if (a === 'save') {
       const name = prompt('常用組的名字', rowHead(row)); if (!name) return;
       S.lib.push({ name, rows: [JSON.parse(JSON.stringify(row))] }); save(); renderMenu(); renderMine(); toast(`已存成常用組：${name}`); return;
     }
-    if (a === 'del') rows.splice(ri, 1);
-    else if (a === 'dup') rows.splice(ri + 1, 0, JSON.parse(JSON.stringify(row)));
+    if (a === 'dup') rows.splice(ri + 1, 0, JSON.parse(JSON.stringify(row)));
     else if (a === 'up' || a === 'down') {
       const j = ri + (a === 'up' ? -1 : 1);
       if (j >= 0 && j < rows.length) move(rows, ri, j);
