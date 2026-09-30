@@ -7,6 +7,26 @@
 {{- $bank := index hugo.Data.cscs "_quiz_bank" -}}
 {{- $total := 0 -}}
 {{- $index := slice -}}
+{{- /* 官方原題（data/cscs/_official.yaml）：使用者提供的原題，練習用中文、英文原文作參考。
+     選項維持原題順序（fixed），題數少所以整份放一支 JSON，排在章節選單最上面。 */ -}}
+{{- $official := index hugo.Data.cscs "_official" -}}
+{{- $basis := dict "given" "答案：原文附答案" "book" "答案：原文未附，依原書推定" "inferred" "答案：原文未附，依通則推定（可信度較低）" -}}
+{{- if $official }}
+  {{- $oqs := slice }}
+  {{- range $official.questions }}
+    {{- if ne .practice false }}
+      {{- $en := printf "%s\n\n%s" .en.stem (delimit .en.options "\n") -}}
+      {{- $oqs = $oqs | append (dict "id" .id "stem" .zh.stem "opts" .zh.options "correct" .zh.correct
+                                     "why" (slice) "fixed" true "loc" "官方原題"
+                                     "note" (printf "%s\n%s" (index $basis .answer_basis) .zh.explanation)
+                                     "en" $en) }}
+    {{- end }}
+  {{- end }}
+  {{- $ores := resources.FromString "library/essentials-of-strength-training/quiz/official.json"
+               (dict "chapter" "official" "title" "官方原題" "url" "" "questions" $oqs | jsonify) -}}
+  {{- $index = $index | append (dict "id" "official" "title" (printf "官方原題（中文，%d 題）" (len $oqs))
+                                     "url" "" "json" $ores.RelPermalink "n" (len $oqs)) }}
+{{- end }}
 {{- range $s.chapters }}
   {{- $cid := .id }}
   {{- $cdata := index $bank $cid }}
@@ -44,7 +64,7 @@
   <header class="lc-head">
     <p class="kicker">肌力與體能訓練精要 · 工具</p>
     <h1>{{ $p.Title }}</h1>
-    <p class="lc-lead">全書 {{ $total }} 題，一次練一章。作答後說明其他選項錯在哪，並連回課本該條原文。選項每次重新洗牌，背位置沒有用。</p>
+    <p class="lc-lead">選單最上面是官方原題（中文練習，可展開英文原文）；其餘 {{ $total }} 題是依教材出的 AI 題，一次練一章，作答後說明其他選項錯在哪並連回課本。</p>
   </header>
 
   <section class="cq-setup" id="cqSetup">
@@ -79,11 +99,16 @@
 
     <p class="cq-loc" id="cqLoc"></p>
     <p class="cq-stem" id="cqStem"></p>
+    <details class="cq-orig" id="cqOrig" hidden>
+      <summary>看英文原文</summary>
+      <p class="cq-orig-t" id="cqOrigText"></p>
+    </details>
 
     <div class="cq-answers" id="cqAnswers"></div>
 
     <div class="cq-after" id="cqAfter" hidden>
       <p class="cq-verdict" id="cqVerdict"></p>
+      <p class="cq-note-t" id="cqExplain" hidden></p>
       <div class="cq-why" id="cqWhy"></div>
       <p class="cq-src"><a id="cqSrc" href="#">回課本這一條 →</a></p>
       <button type="button" class="cq-next" id="cqNext">下一題</button>

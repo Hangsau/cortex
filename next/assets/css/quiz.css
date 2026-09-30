@@ -113,6 +113,17 @@ select#cqChapter {
 }
 .cq-verdict.is-ng::before { content: "✗ "; }
 
+/* 官方原題：英文原文收在可展開區塊（參考用），答案依據＋解說在作答後出現 */
+.cq-orig { margin: 0 0 var(--s3); font-size: var(--fs-s); color: var(--ink-2); }
+.cq-orig summary {
+  min-height: var(--tap); display: inline-flex; align-items: center;
+  color: var(--series); cursor: pointer;
+}
+.cq-orig-t { margin: var(--s1) 0 0; white-space: pre-line; line-height: 1.6; overflow-wrap: anywhere; }
+.cq-note-t {
+  font-size: var(--fs-s); color: var(--ink); white-space: pre-line;
+  margin: 0 0 var(--s2); font-family: var(--f-serif); line-height: 1.7;
+}
 .cq-why { margin: 0 0 var(--s3); padding: 0; }
 .cq-why p {
   font-size: var(--fs-s); color: var(--ink-2);

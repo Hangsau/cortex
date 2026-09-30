@@ -1,0 +1,531 @@
+meta:
+  title: CSCS 官方原題
+  source: resources/raw/cscs-questions/official_questions.md
+  provided_by: 使用者（2026-09-30 貼上，確認為官方原題）
+  translated_by: Claude（2026-09-30），練習一律用中文；英文原文留作參考
+  answer_basis:
+    given: 原文附有答案（多為網路討論者所寫的解答與解析）
+    book: 原文未附答案或附的不是答案，依原書（ESC4）條文推定
+    inferred: 原文未附答案，第 4 版原書查無直接條文，依領域通則推定；可信度較低
+  notes: >-
+    chapter 是對應原書（ESC4）章節，只用來篩選章節，不代表題目出處。
+    practice: false 的題目只留作參考、不出題（原文題目本身有缺陷）。
+questions:
+- id: off.001
+  chapter: ch13
+  answer_basis: given
+  zh:
+    stem: 一名大學一級（D-I）籃球中鋒，身高 208 cm、體重 111.1 kg，季前測驗結果如下：1RM 背蹲舉 122.5 kg（270 lb）、1RM 爆發上膊 102.1 kg（225 lb）、垂直跳 45.7 cm（18 in）、立定跳遠 284 cm（112 in）、最大攝氧量 38 mL/kg/min。他的阻力訓練計畫最應該加強哪一個動作？
+    options: [槓鈴背蹲舉, 懸垂爆發上膊, 負重跳躍蹲]
+    correct: 0
+    explanation: 籃球最看重爆發力，而他的爆發力指標（垂直跳、立定跳遠）已在約 60 百分位以上；一級籃球後衛與前鋒的垂直跳平均約 17.1 吋，18 吋算中上。反而背蹲舉只比爆發上膊多 45 lb，顯示最大肌力不足（約 53 百分位），所以重點是背蹲舉。
+  en:
+    stem: "A 6 ft 10 in (208 cm), 245 lb (111.1 kg) division I collegiate basketball center records the following preseason test results: 1RM back squat: 270 lb (122.5 kg); 1RM power clean: 225 lb (102.1 kg); Vertical jump: 18.0 in (45.7 cm); Standing long jump: 112 in (284 cm); V̇O₂max: 38 mL/kg/min. Which exercise should receive the greatest emphasis in the athlete’s resistance training program?"
+    options: [Barbell back squat, Hang power clean, Loaded jump squats]
+- id: off.002
+  chapter: ch13
+  answer_basis: given
+  zh:
+    stem: 一名體重 72.5 kg 的女子曲棍球選手，季前測驗結果：1RM 臥推 52.2 kg、1RM 背蹲舉 93.0 kg、垂直跳 45.7 cm（18 in）、20 公尺衝刺 3.52 秒、Pro-agility（5-10-5 折返）5.02 秒。下一個訓練週期最適合加入哪一個動作？
+    options: [爆發上膊, 背蹲舉, 速度臥推]
+    correct: 0
+    explanation: 曲棍球是爆發力加反覆衝刺的運動。她的垂直跳不錯，但 20 公尺衝刺和 Pro-agility 都偏慢，顯示加速與爆發力不足，所以加爆發上膊。
+  en:
+    stem: "A 160 lb (72.5 kg) female field hockey player has the following test results during preseason testing: 1RM bench press: 115 lb (52.2 kg); 1RM back squat: 205 lb (93.0 kg); Vertical jump: 18 in (45.7 cm); 20 m sprint: 3.52 s; Pro-agility: 5.02 s. Which of the following exercises would be most appropriate to add to the subsequent training block?"
+    options: [Power clean, Back squat, Speed bench press]
+- id: off.003
+  chapter: ch13
+  answer_basis: book
+  zh:
+    stem: 一名女子足球選手，身高 175 cm、體重 75 kg，測驗結果：1RM 臥推 57 kg、1RM 背蹲舉 111 kg、垂直跳 41 cm（16 in）、立定跳遠 1.65 m、10 公尺衝刺 1.85 秒、Pro-agility 4.68 秒。她的訓練計畫最適合加入什麼？
+    options: [減速訓練, 上斜臥推, 爆發上膊]
+    correct: 2
+    explanation: （原文未附答案，依原書第 13 章測驗判讀推定）背蹲舉約為體重 1.5 倍，最大肌力已足夠；垂直跳 16 吋、立定跳遠 1.65 m 都偏低，爆發力是弱點，所以加爆發上膊。Pro-agility 4.68 秒並不差，減速訓練不是優先。
+  en:
+    stem: "A 5'9, 165 lb (75 kg) female soccer player has the following test results: 1RM bench press: 125 lb (57 kg); 1RM back squat: 245 lb (111 kg); Vertical jump: 16 in (41 cm); Standing broad jump: 5 ft 5 in (1.65 m); 10 m sprint: 1.85 s; Pro-agility: 4.68 s. What is the most appropriate addition to her program?"
+    options: [deceleration drills, incline bench press, power clean]
+- id: off.004
+  chapter: ch13
+  answer_basis: given
+  zh:
+    stem: 一名大學三級（D-III）女子冰球選手，身高 168 cm、體重 76.7 kg，測驗結果：1RM 前蹲舉 79.4 kg、1RM 六角槓硬舉 103 kg、垂直跳 44.5 cm、立定跳遠 148 cm、300 碼折返跑 65 秒、1RM 臥推 52 kg。下一個訓練週期該怎麼調整？
+    options: [以發展爆發力為重點, 以發展最大肌力為重點, 維持原本的週期不變]
+    correct: 0
+    explanation: 冰球是爆發力、無氧、反覆衝刺的運動，重點在爆發力多於最大肌力。她的立定跳遠只有 148 cm，水平爆發力特別差，而水平爆發力對冰球非常重要。
+  en:
+    stem: "A 5'6 169lb (76.7kg) division III collegiate female hockey athlete has the following results from a test battery: 1RM Front Squat: 175lb (79.4kg); 1RM Trap bar Deadlift: 225lb (103kg); Vertical Jump: 17.5in (44.5cm); Broad Jump: 58in (148cm); 300-yard shuttle: 65s; 1RM Bench Press: 115lb (52kg). What changes should be made to the next training block?"
+    options: [focus on power development, focus on max strength development, make no changes to the block]
+- id: off.005
+  chapter: ch08
+  answer_basis: given
+  zh:
+    stem: 在一段高強度訓練期間，肌力體能教練想用最有效的方法提升選手的專注。下列哪一種教練做法最適當？
+    options: [選手做出技術正確的反覆後，給予肯定, 選手練習表現努力時，就取消練習後的體能訓練, 選手反覆出現技術錯誤時，減少他的訓練權限]
+    correct: 0
+    explanation: 技術正確就給予肯定，是正增強；研究顯示正增強最有效，能讓注意力留在任務上。取消體能訓練是負增強，減少權限是負處罰。
+  en:
+    stem: A strength and conditioning coach is seeking the most effective method to enhance athlete focus during a high-intensity training block. Which coaching behavior is most appropriate?
+    options: [Provide recognition following technically sound repetitions, Eliminate post-session conditioning following strong practice effort, Reduce training privileges following repeated technical errors]
+- id: off.006
+  chapter: ch19
+  answer_basis: inferred
+  zh:
+    stem: 你正帶美式足球隊的角衛做敏捷訓練。訓練中選手衝刺出去、攔截一顆傳短的球，這個動作屬於敏捷的哪一個階段？
+    options: [轉換期（transition）, 啟動期（initiation）, 實現期（actualization）]
+    correct: 2
+    explanation: （原文未附答案，第 4 版原書查無，依第 5 版的敏捷三階段推定）啟動期是起動、轉換期是改變方向與動作模式、實現期是完成動作目標。衝刺並攔截到球就是完成任務目標，屬於實現期。
+  en:
+    stem: You are doing agility drills with the cornerbacks on the football team. The act of sprinting and intercepting the underthrown pass during the drill qualifies as which phase of agility?
+    options: [transition, initation, actualization]
+- id: off.007
+  chapter: ch19
+  answer_basis: given
+  zh:
+    stem: 肌力體能專家想提高一項「機動性（maneuverability）」訓練的難度，應該怎麼做？
+    options: [加入減速的元素, 加入閃躲的元素, 加入彎道的元素]
+    correct: 2
+    explanation: 機動性是指在幾乎直線的奔跑中帶有轉彎的能力。原書第 19 章的進階方式就是增加「彎道」的難度，例如 L 形跑。
+  en:
+    stem: How can a strength and conditioning specialist increase the difficulty of a maneuverability drill?
+    options: [add deceleration components, add evasion components, add bend components]
+- id: off.008
+  chapter: ch13
+  answer_basis: given
+  zh:
+    stem: 肌力體能教練在休賽季為傷後回歸的選手施測星狀偏移平衡測驗（SEBT）。選手應該從哪個方向開始？
+    options: [順時針, 逆時針, 隨機]
+    correct: 2
+    explanation: 星狀偏移平衡測驗各方向的施測順序採隨機，避免固定順序造成的學習與疲勞效應。
+  en:
+    stem: A strength and conditioning coach is implementing the Star Excursion Balance Test for athletes returning from injury in the off-season. In which direction should the athlete start?
+    options: [clockwise, counterclockwise, randomly]
+- id: off.009
+  chapter: ch17
+  answer_basis: book
+  zh:
+    stem: 一名選手背蹲舉用 83.9 kg（185 lb）做了 12 下。接下來他要以每組 5 下的方式訓練，理想的訓練重量是多少？
+    options: [97.5–101.6 kg（215–224 lb）, 102.1–106.1 kg（225–234 lb）, 106.6–110.7 kg（235–244 lb）]
+    correct: 2
+    explanation: （原文附的是作答者用 Epley 公式的猜測，不是答案；依原書表 17.7 計算）12 下約等於 1RM 的 67%，1RM ≈ 185 ÷ 0.67 ≈ 276 lb；5 下約為 1RM 的 87%，276 × 0.87 ≈ 240 lb，落在 235–244 lb。
+  en:
+    stem: An athlete completes a back squat test at 185 lb (83.9 kg) for 12 repetitions. The athlete will be training for 5 repetitions. What would the ideal training weight be?
+    options: [215-224 lb (97.5-101.6kg), 225-234 lb (102.1-106.1kg), 235-244 lb (106.6-110.7kg)]
+- id: off.010
+  chapter: ch21
+  answer_basis: given
+  zh:
+    stem: 高強度訓練後進行主動恢復，研究顯示它對下列哪一項的影響最大？
+    options: [明顯減少肌肉疲勞, 血乳酸的清除變慢, 改善心理層面的感受]
+    correct: 2
+    explanation: 主動恢復並不會明顯減輕肌肉疲勞，好處主要來自降低對疲勞與痠痛的「感受」，屬於心理層面，而非生理層面。
+  en:
+    stem: The performance of active recovery following an intense training session has shown the greatest impact on which of the following?
+    options: [significantly reduced muscular fatigue, decreased blood lactate removal, improved psychological outcomes]
+- id: off.011
+  chapter: ch04
+  answer_basis: given
+  zh:
+    stem: 一名選手剛完成阻力訓練。下列都會影響訓練後荷爾蒙反應的大小，「除了」哪一項？
+    options: [選手為了維持動作姿勢所付出的努力程度, 這次訓練刺激到的肌肉量, 訓練後需要修復的結締組織程度]
+    correct: 0
+    explanation: 訓練後荷爾蒙反應的大小取決於刺激到的肌肉量、需要修復的組織程度等；「為了維持姿勢付出多少努力」不是影響因素。
+  en:
+    stem: "An athlete just completed a resistance training workout. All of the following are factors that influence the magnitude of the post-workout hormonal response EXCEPT:"
+    options: [Amount of effort the athlete gave to maintain form during the workout, Quantity of muscle tissue stimulated by the workout, Degree of connective tissue repair needed after the workout]
+- id: off.012
+  chapter: ch13
+  answer_basis: given
+  zh:
+    stem: 一名大三女子短距離游泳選手拿到第一次測驗結果：最大攝氧量 45 mL/kg/min、1RM 背蹲舉 55 kg、1RM 臥推 44 kg。你會怎麼調整她接下來的訓練計畫？
+    options: [加入肌力／爆發力期, 加入最大肌力期, 加入肌肥大期]
+    correct: 1
+    explanation: 短距離游泳是爆發力與肌力型的項目，爆發力最重要，但這份測驗沒有爆發力項目；次重要的是肌力，而她的肌力低於 60 百分位，所以最適當的是加入最大肌力期。
+  en:
+    stem: "A college junior female sprint swimmer receives the results of her first testing day. VO2 Max: 45ml/kg/min, 1RM back squat: 115lbs (55kg), and a 1 RM bench press: 98lbs (44kg). What changes would you make to the future program?"
+    options: [add a strength/power phase, add a max strength phase, add a hypertrophy phase]
+- id: off.013
+  chapter: ch18
+  answer_basis: given
+  zh:
+    stem: 肌力教練想提示選手用「主動的全腳掌」落地。最適當的口令是哪一個？
+    options: [「用全腳掌落地」, 「主動攻擊地面」, 「落地時勾腳尖（背屈）」]
+    correct: 1
+    explanation: 「攻擊地面」這類外在焦點的口令，能讓選手主動、快速地把腳踩向地面，而不是被動地讓腳掌拍地。
+  en:
+    stem: A strength coach is cueing athletes to land with an active flat foot. What is the most appropriate cue?
+    options: ['"land with flat foot"', '"attack the ground"', '"dorsiflex at landing"']
+- id: off.014
+  chapter: ch20
+  answer_basis: given
+  zh:
+    stem: 觀察長跑選手的跑姿時，他的軀幹應該前傾大約幾度？
+    options: [1 度, 3 度, 5 度]
+    correct: 1
+    explanation: 長跑時軀幹應維持約 3 度的輕微前傾（原書第 20 章跑步技術）。
+  en:
+    stem: When observing the form of a distance runner, how much forward lean should this athlete have in their torso?
+    options: [1 degree, 3 degrees, 5 degrees]
+- id: off.015
+  chapter: ch07
+  answer_basis: given
+  zh:
+    stem: 一名女性運動員發生過多次腦震盪。下列哪一項是她「不會」出現的情況？
+    options: [單一任務步態之間的變化較大, 單一任務步態之間的變化較小, 雙重任務步態之間的變化較大]
+    correct: 1
+    explanation: 女性運動員多次腦震盪後，腦血流量較低，而且在單一任務與雙重任務步態之間的變化「更大」；所以「變化較小」是不會出現的情況。
+  en:
+    stem: When a female athlete has multiple concussions, which of the following does she not experience?
+    options: [greater changes between single-task gait activities, fewer changes between single-task gait activities, greater changes between dual-task gait activities]
+- id: off.016
+  chapter: ch17
+  answer_basis: given
+  zh:
+    stem: 一名選手背蹲舉用 114 kg（250 lb）做了 10 下。接下來他要以每組 5 下的方式訓練，理想的重量是多少？
+    options: [129.3–131.5 kg（285–290 lb）, 133.8–136 kg（295–300 lb）, 127–129.2 kg（280–285 lb）]
+    correct: 0
+    explanation: 依原書表 17.7：10 下約為 1RM 的 75%，1RM ≈ 250 ÷ 0.75 ≈ 333 lb；5 下約為 1RM 的 87%，333 × 0.87 ≈ 290 lb。
+  en:
+    stem: An athlete completes a back squat test at 250 lb (114 kg) for 10 repetitions. The athlete will be training for 5 repetitions. What would the ideal weight be?
+    options: [285-290lb (129.3-131.5kg), 295-300lb (133.8-136kg), 280-285lb (127-129.2kg)]
+- id: off.017
+  chapter: ch19
+  answer_basis: given
+  zh:
+    stem: 快速變向時，哪一組肌群在減速中扮演關鍵角色？
+    options: [膕旁肌, 股四頭肌, 內收肌]
+    correct: 1
+    explanation: 變向前的減速主要靠股四頭肌做離心收縮來煞車（原書第 19 章）。
+  en:
+    stem: When executing a rapid change of direction, which muscle group plays a crucial role in deceleration?
+    options: [hamstrings, quadriceps, adductors]
+- id: off.018
+  chapter: ch02
+  answer_basis: given
+  zh:
+    stem: 棒球投手出手的瞬間，前臂（以肘為支點伸直）屬於哪一類槓桿？
+    options: [第一類槓桿, 第二類槓桿, 第三類槓桿]
+    correct: 2
+    explanation: 支點是肘，肌力來自附著點很靠近肘的肱三頭肌，阻力是球。阻力臂遠長於肌力臂，所以是第三類槓桿：犧牲力量、換取速度。球很輕，速度比力量重要。
+  en:
+    stem: What class of lever is the lead forearm in a baseball pitch at ball release?
+    options: [First class, Second Class, Third Class]
+- id: off.019
+  chapter: ch09
+  answer_basis: given
+  zh:
+    stem: 哪一種胺基酸已被證實對肌肉蛋白質合成的影響最大？
+    options: [白胺酸（leucine）, 纈胺酸（valine）, 異白胺酸（isoleucine）]
+    correct: 0
+    explanation: 三種支鏈胺基酸中，白胺酸是啟動肌肉蛋白質合成最關鍵的一種（原書第 9 章）。
+  en:
+    stem: Which amino acid has been shown to have the greatest effect on muscle protein synthesis?
+    options: [Leucine, Valine, Isoleucine]
+- id: off.020
+  chapter: ch10
+  answer_basis: given
+  zh:
+    stem: 一名體重 50 kg 的大學越野跑選手，正從賽後期轉入休賽期訓練。賽後期訓練量低，她每天吃 240 g 碳水化合物並維持體重。隨著訓練量增加，為了支撐訓練表現，你建議她把每日碳水攝取改成多少？
+    options: [325 g, 425 g, 510 g]
+    correct: 1
+    explanation: 240 g ÷ 50 kg ≈ 每公斤 4.8 g，是低訓練量的水準。訓練量增加後的耐力選手約需每公斤 8–10 g，425 g ≈ 每公斤 8.5 g 最合適；510 g 已超過每公斤 10 g。
+  en:
+    stem: "A 110lb (50kg) collegiate cross-country runner is transitioning from post-season to offseason training. She was consuming 240g of carbohydrate per day and maintaining body weight with low training volume during the post-season. In order to fuel for performance as training volume increases, you advise her to change her carbohydrate intake to:"
+    options: [325g, 425g, 510g]
+- id: off.021
+  chapter: ch08
+  answer_basis: given
+  zh:
+    stem: Balaji 和 Divyang 正在為一場板球比賽熱身，看台上的觀眾比球隊以往任何一場都多。Balaji 覺得觀眾的喧鬧很刺激，熱身時保持專注；Divyang 在同樣的環境下卻覺得很不舒服。哪一個理論最能解釋這個現象？
+    options: [災難理論, 倒 U 理論, 逆轉理論]
+    correct: 2
+    explanation: 逆轉理論認為，同樣高的喚醒程度，有人解讀成興奮、準備好了，有人解讀成不舒服、缺乏信心，差別在個人怎麼詮釋。
+  en:
+    stem: Balaji and Divyang are warming up for a cricket match. There are more fans in the audience than in any previous match the team has played. Balaji interprets this extra crowd noise as exciting and remains focused for his warm-up. Divyang experiences the same environment as unpleasant. Which theory best explains this phenomenon?
+    options: [Catastrophe theory, Inverted U theory, Reversal Theory]
+- id: off.022
+  chapter: ch12
+  answer_basis: given
+  zh:
+    stem: 同一批選手的垂直跳，分別由專項教練和肌力教練用觸碰式測量器施測。專項教練測出來的成績平均高了 3 吋，兩邊的標準差則差不多。這代表什麼？
+    options: [建構效度低, 區辨效度低, 施測者間信度低]
+    correct: 2
+    explanation: 同樣的選手、同樣的測驗，換一個施測者成績就系統性地不同，代表施測者之間的一致性差，也就是施測者間信度低。
+  en:
+    stem: "A vertical jump test is performed with a jump and tap stick by the sport coach and by the strength coach. If the athletes scores average 3 inches higher when tested by the sport coach with a similar standard deviation on both measurements, this indicates:"
+    options: [Low construct validity, Low discriminant validity, Low interrater reliability]
+- id: off.023
+  chapter: ch02
+  answer_basis: given
+  zh:
+    stem: 哪一類槓桿的肌力臂比阻力臂長？
+    options: [第一類槓桿, 第二類槓桿, 第三類槓桿]
+    correct: 1
+    explanation: 第二類槓桿的肌力與阻力在支點同一側，且肌力臂比阻力臂長，機械利益大於 1，例如踮腳尖。
+  en:
+    stem: In which class of lever is the moment arm of the muscle larger than the moment arm of the resistance?
+    options: [1st Class, 2nd Class, 3rd Class]
+- id: off.024
+  chapter: ch04
+  answer_basis: given
+  zh:
+    stem: 下列都是內分泌系統對阻力訓練的適應，「除了」哪一項？
+    options: [荷爾蒙經肝臟清除的時間, 肌肉組織中的受器數量, 分泌出的荷爾蒙種類]
+    correct: 2
+    explanation: 阻力訓練會改變受器數量、清除速率等，但不會改變腺體分泌的荷爾蒙種類。
+  en:
+    stem: All of the following are adaptations of the endocrine system to resistance training EXCEPT?
+    options: [Hormone clearance time through the liver, Number of receptors in muscle tissue, Type of hormones released]
+- id: off.025
+  chapter: ch10
+  answer_basis: inferred
+  zh:
+    stem: 一名 20 歲女子 1500 公尺自由式選手，身高 183 cm、體重 74 kg、體脂 16%。新賽季快開始了，她請肌力教練看看她的飲食並給建議。她每天攝取：蛋白質 489 大卡、碳水化合物 1776 大卡、脂肪 303 大卡。最適當的建議是什麼？
+    options: [增加蛋白質攝取, 增加碳水化合物攝取, 增加總熱量攝取]
+    correct: 2
+    explanation: （原文未附答案，依原書第 10 章建議量推算，可信度較低）蛋白質約 122 g（每公斤 1.65 g）已足夠；碳水約 444 g（每公斤 6 g）尚可；脂肪只有約 34 g，約占總熱量 12%，偏低。總熱量約 2568 大卡，對長距離游泳選手賽前的訓練量偏少，所以最適當的是增加總熱量。
+  en:
+    stem: "A 6'0 163 lb (74 kg) 20 year old female 1500m freestyle swimmer with 16% BF is close to the start of the upcoming season and asks her strength coach to review her diet and make a recommendation if deemed appropriate. Protein - 489 kcals; Carbs - 1776 kcals; Fats - 303 kcals. What is the most appropriate recommendation?"
+    options: [increase protein intake, increase carbohydrate intake, increase total calorie intake]
+- id: off.026
+  chapter: ch13
+  answer_basis: given
+  zh:
+    stem: 一名大學女子排球選手，身高 190.5 cm、體重 70 kg，測驗結果：1RM 臥推 52.2 kg、1RM 背蹲舉 56.7 kg、最大攝氧量 40 mL/kg/min、體脂 30%、垂直跳 45 cm。哪一項需要改善？
+    options: [爆發力, 下肢肌力, BMI]
+    correct: 1
+    explanation: 背蹲舉 56.7 kg 還不到體重，而且幾乎跟臥推一樣重，下肢肌力明顯不足（原書第 13 章常模）。
+  en:
+    stem: "A 154 lb (70 kg), 6 ft., 3 in. (190.5 cm) female collegiate volleyball player has the following test profile. 1RM bench press: 115 lb (52.2 kg); 1RM back squat: 125 lb (56.7 kg); VO2 max: 40 ml/kg/min; Body fat percentage: 30%; Vertical jump: 18 in (45 cm). Which of the following needs improvement?"
+    options: [power, lower body strength, BMI]
+- id: off.027
+  chapter: ch01
+  answer_basis: given
+  zh:
+    stem: 高爾基肌腱器被活化，跟下列哪一項有關？
+    options: [肌肉內產生的力量, 肌腱本身的收縮力, 肌肉長度的變化速率]
+    correct: 0
+    explanation: 高爾基肌腱器感受的是張力（肌肉產生的力量），被活化時會抑制肌肉出力，保護肌肉與肌腱。肌肉長度與變化速率是肌梭在偵測。
+  en:
+    stem: Activation of the Golgi tendon organ involves which of the following?
+    options: [force production within a muscle, contractile force of the tendon, rate of change in muscle length]
+- id: off.028
+  chapter: ch17
+  answer_basis: given
+  zh:
+    stem: 設計阻力訓練計畫時，下列哪一項屬於運動項目「生理分析」的內容？
+    options: [訓練的優先重點, 參與的肌肉, 肌肉受傷的部位]
+    correct: 0
+    explanation: 需求分析有三部分：動作分析、生理分析、傷害分析。生理分析要決定哪些身體素質（肌力、爆發力、肌肥大、肌耐力、能量系統）是訓練優先重點。參與的肌肉屬於動作分析，受傷部位屬於傷害分析。（原文答案寫成 Physical attributes，對應的選項是 training priorities。）
+  en:
+    stem: Which of the following is a component of the physiological analysis of a sport when designing a resistance training program?
+    options: [training priorities, muscular involvement, muscle injury sites]
+- id: off.029
+  chapter: ch13
+  answer_basis: given
+  zh:
+    stem: 一名大學男子籃球選手，身高 203 cm、體重 104.5 kg，測驗結果：1RM 背蹲舉 195 lb（約 88 kg）、臥推 105 lb（約 48 kg）、垂直跳 19.5 吋、20 碼衝刺 3.4 秒、5-10-5 折返 5.23 秒。這名選手最需要改善哪一項訓練因子？
+    options: [最大肌力, 無氧能力, 最大爆發力]
+    correct: 2
+    explanation: 籃球最重要的素質是爆發力，應優先於最大肌力。垂直跳不到 20 吋對籃球選手來說有問題，20 碼衝刺與 5-10-5 也都太慢。最大肌力可以當次要重點，但不是最優先。
+  en:
+    stem: "The results of a small battery of tests performed on a male collegiate basketball player weighing 230 lb (104.5 kg) 6 ft., 8 in. (203 cm) tall are as follows: 1RM back squat: 195lb; Bench Press: 105lb; Vertical Jump: 19.5 in; 20 yd dash: 3.4sec; 5-10-5: 5.23sec. Which of the following training factors is this athlete most in need of improving?"
+    options: [Maximal Strength, Anaerobic Capacity, Maximal Power]
+- id: off.030
+  chapter: ch07
+  answer_basis: book
+  zh:
+    stem: 肌力體能專業人員要為一名已有 3 年訓練經驗的青少年選手設計阻力訓練計畫。設計時最重要的是考量哪一種年齡？
+    options: [生物年齡, 訓練年齡, 實際年齡（生理上的出生年齡）]
+    correct: 0
+    explanation: （原文未附答案，依原書第 7 章推定）青少年的生理功能與成熟度跟生物年齡關係較密切，同樣實際年齡的孩子，生物年齡可能差好幾歲，所以設計計畫時以生物年齡為主要考量。
+  en:
+    stem: A strength and conditioning professional is developing a resistance training program for youth athlete who has 3 year of experience, which age would be most important to consider while developing the training program
+    options: [biological age, training age, chronological age]
+- id: off.031
+  chapter: ch15
+  answer_basis: inferred
+  zh:
+    stem: 你的選手準備做錘式彎舉。從解剖姿勢開始，她的手腕（前臂）必須做出哪一個動作，才能進入正確的起始姿勢？
+    options: [旋後, 維持中立, 旋前]
+    correct: 2
+    explanation: （原文未附答案，依解剖學推定）解剖姿勢的前臂是旋後（掌心朝前）；錘式彎舉要掌心相對（中立握），所以前臂必須旋前。這個動作其實發生在橈尺關節，題目稱為手腕。
+  en:
+    stem: Your athlete is preparing to perform a hammer curl exercise. From anatomical position, which joint action must occur at her wrist to enter the appropriate position to perform the repetition?
+    options: [Supination, Neutral, Pronation]
+- id: off.032
+  chapter: ch08
+  answer_basis: book
+  zh:
+    stem: 兩名格鬥選手在台上面對面時，被外界的刺激淹沒。要避免選手在台上失控，應該強化注意力四象限中的哪一種？
+    options: [評估（Assess，廣泛外部）, 分析（Analyze，廣泛內部）, 行動（Act，狹窄外部）, 準備（Prepare，狹窄內部）]
+    correct: 2
+    explanation: （原文未附答案，依原書第 8 章推定）原書寫明：容易被外界刺激淹沒的選手，應教他專注在一個重要線索上，例如對手的腳步，也就是狹窄外部注意，對應「行動」象限。
+  en:
+    stem: When the father of MMA Dana white put to fighters on stage facing each other, and they become overloaded with external stimuli. Which of the four quadrants of attentional focus should be reinforced to avoid the fighter losing it at stage?
+    options: [Assess, Analyze, Act, Prepare]
+- id: off.033
+  chapter: ch19
+  answer_basis: book
+  zh:
+    stem: 在 40 碼衝刺中，哪一項對外接手的最高速度影響最大？
+    options: [反應時間, 腿長, 步幅, 步頻]
+    correct: 2
+    explanation: （原文未附答案，依原書第 19 章推定）原書指出，在最高速度時，菁英與新手衝刺者的差別在步幅（2.70 m 對 2.56 m），而步幅來自把更大的力量正確地施加到地面。
+  en:
+    stem: Which of the following has the greatest impact on wide receivers maximum velocity during the 40 yard dash?
+    options: [reaction time, leg length, strate length, stride frequency]
+- id: off.034
+  chapter: ch17
+  answer_basis: book
+  zh:
+    stem: 要發展肌耐力，建議採用下列哪一種組數與次數的組合？
+    options: [4 組、每組 10 下, 3 組、每組 6 下, 2 組、每組 15 下]
+    correct: 2
+    explanation: （原文未附答案，依原書表 17.11）肌耐力訓練是每組 12 下以上、2–3 組，負荷在 1RM 的 67% 以下。
+  en:
+    stem: Which of The following set- reps combinations is recommended for the development of strength in endurance
+    options: [4 sets of 10 repetition, 3 sets of 6 repetition, 2 sets of 15 repetition]
+- id: off.035
+  chapter: ch13
+  answer_basis: given
+  zh:
+    stem: 一名體重 61.5 kg 的大二女子袋棍球選手，測驗結果：1RM 臥推 43 kg、1RM 背蹲舉 77.7 kg、垂直跳 14 吋、20 公尺衝刺 4.5 秒、Pro-agility 6.0 秒。下列哪一個動作最能改善她表現不佳的項目？
+    options: [爆發上膊, 減速訓練, 臥推]
+    correct: 0
+    explanation: 垂直跳 14 吋、Pro-agility 6 秒、20 公尺 4.5 秒都很差，對袋棍球選手來說，最重要的是爆發力。爆發上膊能同時改善垂直跳、20 公尺與 Pro-agility；減速很重要，但她的加速也不足。
+  en:
+    stem: "A 61.5kg female lacrosse player has the following test in her sophomore year of college: 1RM bench press: 43kg; 1RM back squat: 77.7kg; Vertical jump: 14 inches; 20m sprint: 4.5 sec; Pro agility: 6.0 sec. Which of the following exercises will help to improve the low scoring assessment?"
+    options: [power clean, deceleration drill, bench press]
+- id: off.036
+  chapter: ch19
+  answer_basis: inferred
+  zh:
+    stem: 教選手後退跑時，選手應該表現出下列哪一個特徵？
+    options: [雙腳站距窄, 軀幹保持垂直, 降低身體重心]
+    correct: 2
+    explanation: （原文未附答案，第 4 版原書查無，依一般後退跑技術推定）後退跑要屈髖屈膝、降低重心、軀幹略前傾，才能穩定並隨時轉身衝刺；軀幹直立或站距太窄都會失去平衡與反應能力。
+  en:
+    stem: An athlete should demonstrate which of the following when being coached to backpedal?
+    options: [a narrow stance, a vertical position of the trunk, a lowered center of mass]
+- id: off.037
+  chapter: ch16
+  answer_basis: given
+  zh:
+    stem: 下列哪一個技術步驟出現在大力士圓木推舉（log press），而不屬於挺舉？
+    options: [第一次接槓, 轉換, 第二次拉槓]
+    correct: 0
+    explanation: 圓木推舉要先把圓木拉到胸前接住（第一次接槓），再推過頭；挺舉沒有這個步驟。
+  en:
+    stem: Which of the following technique steps is found in the log press that is not part of the clean and jerk?
+    options: [First catch, Transition, Second Pull]
+- id: off.038
+  chapter: ch17
+  answer_basis: inferred
+  practice: false
+  zh:
+    stem: 對高中網球選手來說，下列哪一個動作最具專項性？
+    options: [直立划船, 滑輪下拉, 過頭三頭肌伸展, 俯身側平舉]
+    correct: 3
+    explanation: 原文的討論指出這題不是考試會出現的題型：選項沒有核心動作、沒有合理的唯一正解。只留作參考，不列入練習。
+  en:
+    stem: Which of the following exercise is most sports specific for a high school tennis player?
+    options: [Upright row, Lats pulldown, Overhead triceps extension, Bent-over Lateral raises]
+- id: off.039
+  chapter: ch10
+  answer_basis: given
+  zh:
+    stem: 一名 25 歲男子袋棍球選手，體重 82 kg，想增重 3.2 kg。他每日總能量消耗約 3700 大卡，3 天飲食紀錄的平均攝取：蛋白質 165 g、碳水化合物 575 g、脂肪 91 g。對蛋白質攝取的建議是什麼？
+    options: [減少攝取, 維持目前攝取, 增加攝取]
+    correct: 1
+    explanation: 165 g ÷ 82 kg ≈ 每公斤 2.0 g，已達增肌的建議量，不需要再增加；要增重應調整的是總熱量（目前約 3787 大卡，只比消耗多一點）。
+  en:
+    stem: "A male lacrosse athlete is seeking to gain 7 lb (3.2 kg). He is 25 years old and weighs 180 lb (82 kg). The total energy expenditure per day is approximately 3700 kcals. A 3-day food record reveals the following average intakes: Protein = 165 g; Carbohydrates = 575 g; Fat = 91 g. What recommendation is appropriate for protein?"
+    options: [decrease intake, maintain intake, increase intake]
+- id: off.040
+  chapter: ch12
+  answer_basis: given
+  zh:
+    stem: 同一天的測驗組合裡，下列哪一項應該最先施測？
+    options: [1RM 抓舉, T 字折返測驗, 垂直跳]
+    correct: 2
+    explanation: 不會造成疲勞的測驗要排在最前面，垂直跳屬於這一類，也最不會影響後面的測驗成績。
+  en:
+    stem: Which of the following tests should be performed first when conducted in the same test battery?
+    options: [1RM Snatch, T-test, vertical jump]
+- id: off.041
+  chapter: ch03
+  answer_basis: given
+  zh:
+    stem: 肌力體能專業人員建議大學籃球隊在季前做高強度間歇訓練。若每趟運動 15 秒，休息多久最能提升選手迎接賽季的準備度？
+    options: [15–180 秒, 45–75 秒, 30–45 秒]
+    correct: 1
+    explanation: 15 秒的全力運動主要靠快速醣解系統，對應的運動休息比約 1:3 到 1:5（原書表 3.6），也就是 45–75 秒；籃球也高度依賴快速醣解。
+  en:
+    stem: A strength and conditioning professional is advising university basketball coaches about the pre-season use of high-intensity interval training. When performing work bouts of 15 sec, which of the following ranges for rest will increase athlete readiness for the competitive season?
+    options: [15-180sec, 45-75sec, 30-45sec]
+- id: off.042
+  chapter: ch22
+  answer_basis: given
+  zh:
+    stem: 一名高中美式足球近端鋒完成 6 個月的前十字韌帶重建復健後，阻力訓練的首要目標是什麼？
+    options: [肌耐力, 基礎肌力, 肌肥大]
+    correct: 0
+    explanation: 傷後與健康組織的課表設計原則相同。他正處於成熟重塑期，起點應該像高一新生的課表一樣，從最基礎的肌耐力開始。
+  en:
+    stem: Which is the primary resistance training goal for a high school American football tight end following a 6 month rehabilitation program for an ACL reconstruction?
+    options: [Strength Endurance, Basic Strength, Hypertrophy]
+- id: off.043
+  chapter: ch13
+  answer_basis: given
+  zh:
+    stem: 施測 505 敏捷測驗時，選手在哪個位置轉身再加速？
+    options: [距起跑線 10 公尺處, 第一組計時燈處, 距起跑線 15 公尺處]
+    correct: 2
+    explanation: 選手從起跑線衝刺 10 公尺通過計時燈，再跑 5 公尺到轉身線，所以轉身點距起跑線 15 公尺（原書 13.21）。
+  en:
+    stem: When conducting the 505 agility test, athletes turn and accelerate at what point?
+    options: [10 m from the start line, at the first set of timing lights, 15 m from the start line]
+- id: off.044
+  chapter: ch12
+  answer_basis: given
+  zh:
+    stem: 評估短距離蛙式選手的體能時，測驗組合應包含下列哪一組？
+    options: [垂直跳、1RM 背蹲舉、1RM 臥推、1RM 引體向上, 立定跳遠、10RM 腿伸展、10RM 臥推、10RM 引體向上, 垂直跳、3RM 爆發上膊、3RM 俯臥划船、10RM 側平舉]
+    correct: 0
+    explanation: 短距離游泳是高度無氧的項目，測驗會像田徑短跑選手，再加上臥推與引體向上來看上肢力量。出發跳台可以想成橫向的垂直跳。10RM 的項目不符合短距離選手的專項需求。
+  en:
+    stem: When assessing the physical characteristics of competitive sprint breaststroke swimmers, a test battery should include which of the following?
+    options: ['vertical jump, 1RM back squat, 1RM bench press, 1RM pull-up', 'broad jump, 10RM leg extension, 10RM bench press, 10RM pull-up', 'vertical jump, 3RM power clean, 3RM bench pull, 10RM lateral raise']
+- id: off.045
+  chapter: ch09
+  answer_basis: given
+  zh:
+    stem: 建議多吃富含維生素 B 群的食物，是因為它們能扮演下列哪一種角色？
+    options: [脂肪分解的速率限制輔酶, 蛋白質合成的輔因子, 碳水化合物代謝的輔酶]
+    correct: 2
+    explanation: 維生素 B 群是能量代謝（尤其碳水化合物代謝）中的輔酶（原書第 9 章）。
+  en:
+    stem: The inclusion of foods rich in B vitamins is recommended based on their ability to fulfill which of the following roles?
+    options: [rate-limiting coenzyme for lipolysis, co-factor for protein synthesis, coenzyme for carbohydrate metabolism]
+- id: off.046
+  chapter: ch16
+  answer_basis: given
+  zh:
+    stem: 肌力教練想提升打擊類格鬥選手出拳的初始速度。在臥推中加入哪一項最能達成這個目標？
+    options: [彈力帶或鐵鍊, 增加重量, 減少重量]
+    correct: 0
+    explanation: 彈力帶或鐵鍊讓阻力在動作後段變大、前段較輕，選手能在整個動作範圍持續加速，而不必在末段減速（原書第 16 章可變阻力）。
+  en:
+    stem: A strength coach’s goal with striking athletes is to increase the initial velocity of their punches, what action when added to a bench press would best achieve this goal?
+    options: [Bands and/or chains, Increased weight, Decreased weight]
+- id: off.047
+  chapter: ch21
+  answer_basis: given
+  zh:
+    stem: 為了提升緩衝能力，肌力體能專業人員應該在什麼時期，為大學足球隊安排 3 對 3 的小場地比賽？
+    options: [休賽期, 賽季中, 季前]
+    correct: 1
+    explanation: 依原書第 3、5、21 章，這類貼近比賽、高強度的小場地比賽用來提升緩衝能力，適合安排在賽季中維持專項體能。
+  en:
+    stem: If programming to enhance buffering capacity, when should the strength and conditioning professional coordinate the inclusion of 3 on 3 small sided games for a collegiate soccer?
+    options: [Off-season, in-season, pre-season]

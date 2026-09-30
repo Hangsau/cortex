@@ -1,7 +1,7 @@
 // T1：CSCS 選擇題練習（手機可作答）
 (function () {
   var STORAGE_KEY = 'cscs-quiz-next-v1';
-  var LABELS = ['A', 'B', 'C'];
+  var LABELS = ['A', 'B', 'C', 'D', 'E'];
   function loadState() {
     try { var raw = localStorage.getItem(STORAGE_KEY); return raw ? JSON.parse(raw) : {}; }
     catch (e) { return {}; }
@@ -40,6 +40,9 @@
     var after = $('cqAfter');
     var verdict = $('cqVerdict');
     var why = $('cqWhy');
+    var orig = $('cqOrig');
+    var origText = $('cqOrigText');
+    var explain = $('cqExplain');
     var src = $('cqSrc');
     var nextBtn = $('cqNext');
     var quitBtn = $('cqQuit');
@@ -140,9 +143,13 @@
       prog.textContent = (run.i + 1) + ' / ' + run.qs.length;
       loc.textContent = q.loc || '';
       stem.textContent = q.stem;
+      // 官方原題附英文原文作參考，收在可展開區塊裡；AI 題沒有這欄就不顯示。
+      orig.hidden = !q.en;
+      orig.open = false;
+      origText.textContent = q.en || '';
       after.hidden = true;
-      var order = [0, 1, 2];
-      shuffle(order);
+      var order = q.opts.map(function (_, i) { return i; });
+      if (!q.fixed) shuffle(order);  // 官方原題維持原題選項順序
       run.currentOrder = order;
       run.currentCorrect = order.indexOf(q.correct);
       run.answered = false;
@@ -187,9 +194,11 @@
       });
       verdict.className = 'cq-verdict ' + (isOk ? 'is-ok' : 'is-ng');
       verdict.textContent = isOk ? '答對' : '答錯';
+      explain.textContent = q.note || '';
+      explain.hidden = !q.note;
       why.innerHTML = '';
-      run.currentOrder.forEach(function (orig, idx) {
-        var w = (q.why && q.why[orig]) || '';
+      run.currentOrder.forEach(function (o, idx) {
+        var w = (q.why && q.why[o]) || '';
         if (!w) return;
         var p = document.createElement('p');
         var b = document.createElement('b');
@@ -220,9 +229,10 @@
       score.textContent = '本輪 ' + run.ok + ' / ' + total + ' 題答對（' + pct + '%）';
       recap.innerHTML = '';
       run.wrong.forEach(function (q) {
-        var a = document.createElement('a');
+        // 官方原題沒有對應的課本條目，錯題清單只列題目、不做連結。
+        var a = document.createElement(q.item ? 'a' : 'div');
         a.className = 'cq-recap-i';
-        a.href = run.chapterUrl + '#' + (q.item || '');
+        if (q.item) a.href = run.chapterUrl + '#' + q.item;
         var b = document.createElement('b');
         b.textContent = q.item || q.id;
         var s = document.createElement('span');
