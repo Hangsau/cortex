@@ -27,6 +27,23 @@
   {{- $index = $index | append (dict "id" "official" "title" (printf "官方原題（中文，%d 題）" (len $oqs))
                                      "url" "" "json" $ores.RelPermalink "n" (len $oqs)) }}
 {{- end }}
+{{- /* 原書章末題（data/cscs/_book_zh.yaml）：課本 Study Questions 的中文練習版，正解依書末答案表。
+     含 I/II/III 組合選項，順序有意義，所以同樣不洗牌。 */ -}}
+{{- $book := index hugo.Data.cscs "_book_zh" -}}
+{{- if $book }}
+  {{- $bqs := slice }}
+  {{- range $book.questions }}
+    {{- $en := printf "%s\n\n%s" .en.stem (delimit .en.options "\n") -}}
+    {{- $bqs = $bqs | append (dict "id" .id "stem" .zh.stem "opts" .zh.options "correct" .correct
+                                   "why" (slice) "fixed" true "loc" (printf "原書章末題 · %s" .id)
+                                   "note" "答案：依原書書末答案表（Answers to Study Questions）"
+                                   "en" $en) }}
+  {{- end }}
+  {{- $bres := resources.FromString "library/essentials-of-strength-training/quiz/book.json"
+               (dict "chapter" "book" "title" "原書章末題" "url" "" "questions" $bqs | jsonify) -}}
+  {{- $index = $index | append (dict "id" "book" "title" (printf "原書章末題（中文，%d 題）" (len $bqs))
+                                     "url" "" "json" $bres.RelPermalink "n" (len $bqs)) }}
+{{- end }}
 {{- range $s.chapters }}
   {{- $cid := .id }}
   {{- $cdata := index $bank $cid }}
@@ -64,7 +81,7 @@
   <header class="lc-head">
     <p class="kicker">肌力與體能訓練精要 · 工具</p>
     <h1>{{ $p.Title }}</h1>
-    <p class="lc-lead">選單最上面是官方原題（中文練習，可展開英文原文）；其餘 {{ $total }} 題是依教材出的 AI 題，一次練一章，作答後說明其他選項錯在哪並連回課本。</p>
+    <p class="lc-lead">選單最上面是官方原題與原書章末題（中文練習，可展開英文原文）；其餘 {{ $total }} 題是依教材出的 AI 題，一次練一章，作答後說明其他選項錯在哪並連回課本。</p>
   </header>
 
   <section class="cq-setup" id="cqSetup">
