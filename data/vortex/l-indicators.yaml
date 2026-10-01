@@ -141,11 +141,12 @@ indicators:
   indicator: 划手有明顯的捕水「卡頓感」；拳頭游 vs 開手速度差 > 15%
   framework_state: 水感出現但不穩定
   evidence:
-  - certainty: 🟢
+  - certainty: 🟠
     text: Race Club PDM（推進方向動作）
     source: Race Club
     source_ids:
     - src.race-club
+    observation_basis: 量測（PDM，APLab Italy）由 The Race Club 發表在該機構自家教材與網站，未經同儕審查、未報告樣本數與重複量測。外推邊界：數字只當量級參考，不當處方門檻；確定性比照 udk.tech.9 對 theraceclub.com 的判定標 🟠（2026-10-02 由 🟢 調整）。
 - id: free.L3.kick-rhythm
   stroke: free
   level: L3
@@ -298,10 +299,12 @@ indicators:
   framework_state: 壓力下感知失守
   evidence:
   - certainty: 🟢
-    text: González-Ravé 2025
+    text: González-Ravé 2025 是 100 m 仰式出發與轉身的綜述，只對應本級「流線型滑行後提早抬頭」這一項。
     source: González-Ravé 2025
     source_ids:
     - src.gonzalez-rave-2025-a
+  - certainty: 🔵
+    text: 「高划頻下旋轉幅度縮小」「加速後蛇行明顯」是本框架的判讀指標，上述綜述沒有量這兩項。（2026-10-02 更正：原本整條只掛「González-Ravé 2025」四個字標 🟢。）
 - id: back.L4.head-stillness
   stroke: back
   level: L4
@@ -355,11 +358,8 @@ indicators:
   indicator: 疲勞後技術與前段差距極小；六拍踢節律全程維持；划距跨速度穩定
   framework_state: 感知自動化完成
   evidence:
-  - certainty: 🟢
-    text: 系統綜述
-    source: González-Ravé 2025
-    source_ids:
-    - src.gonzalez-rave-2025-a
+  - certainty: 🔵
+    text: 「疲勞後技術與前段差距極小、六拍踢全程維持、划距跨速度穩定」是本框架對仰式 L6 的定義性描述，不是量測結果。（2026-10-02 移除誤引：原本只寫「系統綜述」掛 González-Ravé 2025，那是出發轉身綜述，沒有量這些項目；且同一組跨強度研究顯示仰式划距隨強度下降。）
 - id: fly.pre.undulation
   stroke: fly
   level: pre
@@ -557,7 +557,7 @@ indicators:
   framework_state: 阻力感知萌芽——收腿
   evidence:
   - certainty: 🟡
-    text: 收腿阻力相關 r=0.35
+    text: 膝外旋與蛙腿游速呈弱相關（r=0.35，p<0.08，未達顯著）；這個數字量的是膝外旋與游速，不是收腿阻力。（2026-10-02 更正：原寫「收腿阻力相關 r=0.35」。）
     source: Strzała 2013
     source_ids:
     - src.strzala-2013-a
