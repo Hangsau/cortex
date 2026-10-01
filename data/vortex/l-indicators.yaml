@@ -138,9 +138,11 @@ indicators:
   stroke: free
   level: L3
   aspect: EVF 捕水
-  indicator: 划手有明顯的捕水「卡頓感」；拳頭游 vs 開手速度差 > 15%
+  indicator: 划手有明顯的捕水「卡頓感」；拳頭游與開手游的速度差開始縮小（差距仍大於 15% 時，屬手感缺失 A 型的訊號）
   framework_state: 水感出現但不穩定
   evidence:
+  - certainty: 🔵
+    text: 拳頭游指標的方向：拳頭游拿掉手掌，速度差越小代表前臂參與推進越多。15%／10% 是本框架的分級設計，沒有經過驗證；全框架一律用百分比（2026-10-02 統一：原本 L3 寫「差距 >15%」當 EVF 出現、L4 寫「5 秒以內（25m）」，方向與單位都不一致）。
   - certainty: 🟠
     text: Race Club PDM（推進方向動作）
     source: Race Club
@@ -161,11 +163,13 @@ indicators:
   stroke: free
   level: L4
   aspect: 旋轉耦合
-  indicator: 加速後旋轉崩潰（肩旋轉提前縮小）；高划頻下 EVF 消失
+  indicator: 加速後旋轉與划手推力的時機錯開（推力峰與旋轉峰不再對齊）；高划頻下 EVF 消失。旋轉幅度隨強度縮小是一般現象，不單獨當失守判準
   framework_state: 壓力下感知失守
   evidence:
+  - certainty: 🔵
+    text: 「時機錯開」是本框架的判讀指標，目前沒有量化門檻。（2026-10-02 更正：原寫「加速後肩旋轉提前縮小」當 L4 失守，但下面這份研究顯示競技泳者加速時滾轉普遍縮小，free.err16 的 Andersen 2020 更顯示衝刺時肩旋轉並沒有縮。）
   - certainty: 🟢
-    text: 自由式在強度上升時全身滾轉、肩滾轉、髖滾轉幅度全面縮小，峰值時點也往週期前段移；仰式兩者都不變。（2026-09-06 改指：原本掛 Gonjo 2020，那篇只測最大速度一個條件，說不了「加速後」怎麼變。）
+    text: 一般現象：自由式在強度上升時全身滾轉、肩滾轉、髖滾轉幅度全面縮小，峰值時點也往週期前段移；仰式兩者都不變。（2026-09-06 改指：原本掛 Gonjo 2020，那篇只測最大速度一個條件，說不了「加速後」怎麼變。）
     source: Gonjo et al. 2021
     source_ids:
     - src.gonjo-2021-body-roll
@@ -173,19 +177,16 @@ indicators:
   stroke: free
   level: L4
   aspect: 划頻×划距
-  indicator: SR 提高時 SL 下降 > 5%（感知尚未支撐技術）
+  indicator: SR 提高時 SL 比自己慢游時的基準明顯縮短（感知尚未支撐技術）
   framework_state: 壓力下感知失守
   evidence:
-  - certainty: 🟢
-    text: Staunton 2025
-    source: Staunton et al. 2025
-    source_ids:
-    - src.staunton-2025-c
+  - certainty: 🔵
+    text: 「明顯縮短」以泳者自己的 SR–SL 曲線為基準判讀，本框架不設跨人通用的百分比門檻。（2026-10-02 更正：原寫「SL 下降 > 5%」並掛 Staunton 2025 標 🟢；5% 沒有出處，且依 free.tech.35 舊數字連菁英都會被判成 L4。）
 - id: free.L5.sr-sl
   stroke: free
   level: L5
   aspect: 划頻×划距
-  indicator: 精英特徵：高 SR 下 SL 不下降；SR 與速度負相關消失
+  indicator: 精英特徵：高 SR 下 SL 不明顯縮短
   framework_state: 感知自動化過渡
   evidence:
   - certainty: 🟢
@@ -515,7 +516,7 @@ indicators:
   aspect: 腿部推進
   indicator: 浮板踢水能穩定前進；翻腳掌時腳掌有水壓感知（非腳心朝後）
   framework_state: 推進感萌芽——腿部
-  note: 踝關節柔韌性 > 踢腿力量（文獻一致結論）。感知建立前先確認踝關節能否翻轉到推進位置，否則是硬體問題而非感知問題。
+  note: 感知建立前先確認踝關節能否翻轉到推進位置，否則是硬體問題而非感知問題。
   evidence:
   - certainty: 🟢
     text: CFD 渦流分析
@@ -523,7 +524,7 @@ indicators:
     source_ids:
     - src.tanaka-2024-c
   - certainty: 🟡
-    text: 踝柔韌性主導
+    text: 踝關節動作與蛙腿推進力相關（膝伸展階段踝蹠屈角速度 r=0.59）；這是角速度不是活動度，撐不起「踝柔韌性主導」。（2026-10-02 更正原文「踝柔韌性主導」）
     source: Koga et al. 2025；Strzała 2013
     source_ids:
     - src.hayashi
