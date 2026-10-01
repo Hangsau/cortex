@@ -13,6 +13,7 @@ a { color: var(--series); text-underline-offset: 3px; }
 a:hover { text-decoration-thickness: 2px; }
 :focus-visible { outline: 3px solid var(--series); outline-offset: 2px; }
 img { max-width: 100%; height: auto; }
+pre { max-width: 100%; overflow-x: auto; }   /* 文字流程圖靠對齊，不折行；手機上在框內左右捲 */
 
 /* ---------- 頂列 ---------- */
 .site-head {

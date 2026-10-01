@@ -11,7 +11,22 @@
   const save = (s) => { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (_) { /* 無儲存空間時不記錄 */ } };
   const state = Object.assign({ read: {}, last: null, days: {} }, load());
   const today = () => new Date().toISOString().slice(0, 10);
-  const base = document.documentElement.dataset.base || '/';
+
+  // 預覽期（/cortex/next/）記下的網址在正式切換後已不存在：同網域共用 localStorage，
+  // 所以把舊前綴換成正式網址，讀過的打勾與「接著讀」才不會指到 404。
+  const siteName = document.querySelector('.site-name');
+  const siteBase = siteName ? siteName.getAttribute('href') : '/';
+  const legacy = siteBase + 'next/';
+  const fix = (p) => (typeof p === 'string' && p.startsWith(legacy) ? siteBase + p.slice(legacy.length) : p);
+  if (Object.keys(state.read).some(k => k.startsWith(legacy)) || (state.last && JSON.stringify(state.last).includes(legacy))) {
+    state.read = Object.fromEntries(Object.entries(state.read).map(([k, v]) => [fix(k), v]));
+    const L = state.last;
+    if (L) {
+      ['path', 'href', 'next_chapter'].forEach(f => { L[f] = fix(L[f]); });
+      if (L.next) L.next.href = fix(L.next.href);
+    }
+    save(state);
+  }
 
   /* ---------- 1. 對照閱讀：把 <template data-xl-for> 插到錨點 ---------- */
   document.querySelectorAll('template[data-xl-for]').forEach(tpl => {
@@ -166,7 +181,7 @@
 
   /* ---------- 4. 書房首頁：繼續讀／今天只讀一節 ---------- */
   const resume = document.querySelector('[data-resume]');
-  if (resume && state.last && state.last.href) {
+  const showResume = () => {
     const L = state.last;
     const week = Object.entries(state.days).filter(([d]) => (Date.now() - new Date(d)) < 7 * 864e5).reduce((s, [, n]) => s + n, 0);
     const go = L.next ? L.next : (L.next_chapter ? { href: L.next_chapter, title: L.next_chapter_title, min: null } : null);
@@ -177,6 +192,14 @@
       ${go ? `<a class="rs-one" href="${go.href}">今天只讀一節就好：${go.title}${go.min ? `<span class="muted">（約 ${go.min} 分鐘）</span>` : ''}</a>` : ''}
       ${week ? `<p class="rs-week muted">這一週讀了 ${week} 節。</p>` : ''}`;
     resume.hidden = false;
+  };
+  if (resume && state.last && state.last.href) {
+    // 網址日後若改名，記住的那頁會消失：先確認還在才顯示，404 就忘掉這筆
+    fetch(state.last.href.split('#')[0], { method: 'HEAD' })
+      .then(r => {
+        if (r.status === 404) { state.last = null; save(state); } else showResume();
+      })
+      .catch(showResume);
   }
 })();
 

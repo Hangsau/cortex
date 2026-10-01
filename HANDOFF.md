@@ -1,5 +1,12 @@
 # HANDOFF — my-site (Cortex)
 
+## 全站健檢＋「接著讀」404 修正（2026-10-01）
+
+- **「接著讀」404 根因**：`study.js` 存的是絕對路徑；預覽期在 `/cortex/next/` 記下的進度，因 localStorage 以網域（hangsau.github.io）為單位，切換正式網址後仍被首頁讀到，連到已不存在的 `/cortex/next/...`。修法：載入時把 `/cortex/next/` 前綴換成正式網址（讀過的打勾一併救回）；首頁顯示「接著讀」前先 HEAD 確認該頁存在，404 就清掉那筆（日後網址改名也不會再指到死頁）
+- **手機橫向溢出**：3 頁內文 `<pre>` 文字流程圖撐破 390px（adm/background、bridge/underwater-dolphin-kick-bridge、instructional/backstroke-teaching-errors）；`shell.css` 加 `pre { overflow-x: auto }`
+- **健檢結果**：968 頁靜態連結＋錨點、`next/data/*.json` 內 2,507 條路徑全部可解析；check.py 21 項全 PASS；全站 390px 溢出 0；抽 101 頁無 console 錯誤
+- **已知、未處理**：① 讀本「原書對照」裡的 `/cortex/originals/...` 連結（998 條）一律 `hidden`，正式站沒有任何東西會把它打開，說明文字卻寫「可在本機開啟」——是否要拿掉或接回 `tools/book_reader.py` 待定 ② `build_vortex_links.py` 有 7 條 Vortex `cross_ref` 指向非知識點 ID（movement.*、breathing.*），只是不產生連結，不會 404
+
 ## 全站從零重做：已正式切換（2026-09-26）
 
 規劃書：`research/redesign-2026-09-24/PLAN.md`（v2，使用者已確認定位：Vortex 是主力、給所有人讀、不導流；其他系列各自入口）。
