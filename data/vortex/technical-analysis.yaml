@@ -1391,14 +1391,14 @@ points:
     certainty: 🟢
     source_ids:
     - src.nicol-2022-breaststroke-systematic-review
-    text: 肩膀內旋，手掌轉約 45°，雙臂保持伸直向外展至肩寬外，形成 Y 字形；速度平穩不加速；側向合力不等於向前有效分量，外划越寬向前有效推進佔比反而下降。
+    text: 肩膀內旋，手掌轉約 45°，雙臂保持伸直向外展開，形成 Y 字形（寬度因人而異，見下方實務）；速度平穩不加速；側向合力不等於向前有效分量，外划越寬向前有效推進佔比反而下降。
   evidence:
   - certainty: 🟢
     text: 外划功能確認為捕水前置動作，非推進相
     source: 'Nicol, E., Pearson, S., Saxby, D., Minahan, C., & Tor, E. (2022). Stroke Kinematics, Temporal Patterns, Neuromuscular Activity, Pacing and Kinetics in Elite Breaststroke Swimming: A Systematic Review. Sports Medicine - Open, 8(1), 75.'
     source_ids:
     - src.nicol-2022-breaststroke-systematic-review
-  practical_implication: 外划幅度以不超過肩寬為上限（USMS 建議），不以更寬為目標；上肢力量越強或肩活動度受限者可有個人化調整空間。
+  practical_implication: 外划不以更寬為目標；寬度依個人上肢力量與肩活動度決定（越強的人撐得住越寬，見 breast.err6），「約肩寬」只當教練參考值，不是固定上限。（2026-10-02 修正：原文同條寫「展至肩寬外」又寫「不超過肩寬為上限」，且同一機構的另一篇文章明說寬度是個體變數。）
 - id: breast.tech.4
   stroke: breast
   category: stroke-cycle
@@ -1511,10 +1511,10 @@ points:
   stroke: breast
   category: kick
   title: 收腿：阻力最大時刻與最優路徑
-  summary: 收腿是整個踢腿週期阻力最大的時刻；最優路徑是腳跟往外側臀部靠（非正中間），同時發生髖外旋，最小化膝蓋前移與正面阻力。
+  summary: 收腿是整個踢腿週期阻力最大的時刻；最優路徑是腳跟往外側臀部靠（非正中間）、膝保持相對靠近，最小化膝蓋前移與正面阻力；這個「腳在膝外側」的位置在屈髖屈膝下靠的是髖內旋。
   mechanism:
     certainty: 🔵
-    text: 傳統「腳跟碰屁股」路徑使膝蓋大幅前移，正面面積激增；往外側臀部靠的路徑讓髖外旋同時發生，大腿前移量最小，正面阻力最低，路徑也更短，縮短收腿時間；腳掌提前到達斜後方位置，可更早進入 outsweep。
+    text: 傳統「腳跟碰屁股」路徑使膝蓋大幅前移，正面面積激增；往外側臀部靠的路徑（屈髖屈膝下由髖內旋把小腿遠端往外擺）讓大腿前移量最小，正面阻力最低，路徑也更短——收腿時間靠縮短路徑來縮短，不是靠主動加快腿速（見 breast.err14）；（2026-10-02 三方審查裁決：屈髖屈膝的收腿位，股骨內旋才會讓小腿遠端往外擺——膝距窄、腳落在膝外側要靠髖內旋；蛙式教學文獻也這樣描述。原文寫「髖外旋」是方向寫反。）腳掌提前到達斜後方位置，可更早進入 outsweep。
   evidence:
   - certainty: 🟢
     text: CFD 確認收腿是制動最大時刻；收腿時腳掌和小腿後外側產生制動渦流
@@ -1522,7 +1522,7 @@ points:
     source_ids:
     - src.tanaka-2024-c
   - certainty: 🟡
-    text: 膝外旋（髖外旋功能性指標）與蛙腿游速呈弱相關（r=0.35，p<0.08，未達 0.05 顯著水準）
+    text: 膝外旋（脛骨相對股骨的旋轉，與髖旋轉是不同關節）與蛙腿游速呈弱相關（r=0.35，p<0.08，未達 0.05 顯著水準）
     source: Strzała et al. 2013
     source_ids:
     - src.strzala-2013-c
@@ -1536,7 +1536,7 @@ points:
     certainty: 🟢
     source_ids:
     - src.strzala-2013-c
-    text: 踝關節外翻讓腳掌背側對準推進方向；翻轉不到位則提前蹬水，outsweep 推進面積大幅縮減，insweep 渦流整合不完整；膝外旋是髖外旋的功能性指標。
+    text: 踝關節外翻讓腳掌背側對準推進方向；翻轉不到位則提前蹬水，outsweep 推進面積大幅縮減，insweep 渦流整合不完整。膝外旋是膝關節自己的旋轉，不能拿來代表髖旋轉（2026-10-02 刪除原文「膝外旋是髖外旋的功能性指標」）。
   evidence:
   - certainty: 🟡
     text: 膝外旋與游速弱相關（r=0.35，p<0.08，未達 0.05 顯著水準）
@@ -1569,7 +1569,7 @@ points:
   mechanism:
     certainty: 🔵
     text: 收腿動作在身體後方形成渦流區（slipstream）；膝距窄讓收腿渦流集中，腳掌蹬出時精準蹬回渦流區，獲得額外推力；膝距寬使渦流範圍擴散，腳掌蹬出位置偏離渦流區，同時正面阻力增加、踢腿週期延長。
-  practical_implication: 膝距窄是技術目標而非審美偏好；能否實現膝距窄的根本決定因子是 hip internal rotation 幅度。
+  practical_implication: 膝距窄是技術目標而非審美偏好；能否在膝距窄的同時讓腳落在膝外側，關鍵之一是屈髖位的髖內旋可用量（須分關節評估，見 breast.tech.15）。
 - id: breast.tech.14
   stroke: breast
   category: hardware
@@ -1597,13 +1597,13 @@ points:
   stroke: breast
   category: hardware
   title: 髖關節內旋（Hip Internal Rotation）：第二關鍵解剖因子
-  summary: 髖旋轉幅度直接決定腳掌能否翻轉到位，不足時無論如何指導「腳掌翻出去」都是無效指令——是物理限制而非理解問題。本條的教練觀測把這個旋轉寫成內旋，動作圖譜則把內旋與外旋兩向並列，因為翻腳過程中股骨方位一直在變，兩者可能各自在講不同時點。
+  summary: 髖旋轉幅度直接決定腳掌能否翻轉到位，不足時無論如何指導「腳掌翻出去」都是無效指令——是物理限制而非理解問題。依屈髖屈膝收腿位的幾何，讓腳落在膝外側的是髖內旋；breast.tech.36 列的髖外旋，談的是伸髖位下「腳尖朝外」這個朝向的來源之一，兩者講的是不同姿勢與不同量。（2026-10-02 三方審查裁決：屈髖屈膝的收腿位，股骨內旋才會讓小腿遠端往外擺——膝距窄、腳落在膝外側要靠髖內旋；蛙式教學文獻也這樣描述。原文寫「髖外旋」是方向寫反。）
   mechanism:
     certainty: 🟠
     observation_basis: '觀察者為 The Race Club 的教練群，觀察族群為競技蛙式泳者。外推邊界：非控制實驗、未報告量測方法與樣本，不適用於一般成人初學與兒童；本條只作為「髖旋轉可用量會限制翻腳」這個定性關聯的實務依據，不作為方向歸屬或劑量的依據。
 
       '
-    text: 蛙腿踢水時讓腳趾外翻，股骨必須在髖關節產生旋轉——這是腳掌朝向斜後方的解剖前提；本條的教練觀測把這個旋轉指為內旋，而解剖來源在同一現象上指的是外旋，動作圖譜兩向並列（見 cross_ref）。可用量不足時，腳掌無法外翻到位，只能靠膝距加寬補償；膝距加寬帶來三重成本：正面阻力增加、踢腿週期延長、腳掌蹬出位置偏離渦流區；限制混合了股骨頸角度（骨骼，固定）和周邊軟組織緊繃（可訓練），需先區分再介入。
+    text: 蛙腿踢水時讓腳趾外翻，股骨必須在髖關節產生旋轉——這是腳掌朝向斜後方的解剖前提；在屈髖屈膝的收腿位，這個旋轉是髖內旋（股骨內旋使小腿遠端往外擺）；動作圖譜另列外旋，是伸髖位下腳尖朝向的來源之一，兩者不衝突但不可混用。可用量不足時，腳掌無法外翻到位，只能靠膝距加寬補償；膝距加寬帶來三重成本：正面阻力增加、踢腿週期延長、腳掌蹬出位置偏離渦流區；限制混合了股骨頸角度（骨骼，固定）和周邊軟組織緊繃（可訓練），需先區分再介入。
   evidence:
   - certainty: 🟠
     observation_basis: '觀察者為 The Race Club 的教練群，觀察族群為競技蛙式泳者。外推邊界：此為教學現場觀察的比例感，非控制實驗數字，未報告量測方法、樣本數與離散度，不得當作訓練劑量或成效預期使用。
@@ -1681,7 +1681,7 @@ points:
     source: Sanders 1998
     source_ids:
     - src.sanders-1998
-  practical_implication: Adam Peaty、秦海洋、Mike Barrowman 均為 wave style 代表；競技蛙式技術教學應以 wave style 為預設目標風格。
+  practical_implication: Adam Peaty、秦海洋、Mike Barrowman 均為 wave style 代表（Barrowman 師承 Jozsef Nagy 的 wave 技術）。教學上不預設單一風格：先評估解剖條件（見 breast.tech.16、tech.21），條件允許者發展 wave style，限制明確者在現有邊界內選較平的路徑。（2026-10-02 修正原文「競技蛙式教學應以 wave 為預設目標風格」，與 tech.21「風格由解剖決定」矛盾。）
 - id: breast.tech.19
   stroke: breast
   category: style
@@ -1774,7 +1774,7 @@ points:
   stroke: breast
   category: errors
   title: 外划過寬：效率雙重損失
-  summary: 外划超過肩寬導致側向分量增加、向前有效推進減少，同時使收腿阻力增加。
+  summary: 外划過寬（超出自身力量撐得住的範圍）導致側向分量增加、向前有效推進減少，同時使收腿阻力增加。
   mechanism:
     certainty: 🟢
     source_ids:
@@ -1782,11 +1782,11 @@ points:
     text: 外划越寬，向前有效分量佔側向合力比例越低；外划更寬同時意味著收腿時腿展開更寬，阻力增加；捕水位置也因此不佳。
   evidence:
   - certainty: 🟢
-    text: 外划幅度上限建議不超過肩寬
+    text: 外划寬度是個體變數，「約肩寬」是常見的教練參考值，不是量測得出的上限
     source: 'Nicol, E., Pearson, S., Saxby, D., Minahan, C., & Tor, E. (2022). Stroke Kinematics, Temporal Patterns, Neuromuscular Activity, Pacing and Kinetics in Elite Breaststroke Swimming: A Systematic Review. Sports Medicine - Open, 8(1), 75.'
     source_ids:
     - src.nicol-2022-breaststroke-systematic-review
-  practical_implication: USMS 建議外划不超過肩膀寬度為上限；根本修正是建立捕水感知，讓手在感知到位時自然停止，而非靠意識強制控制幅度。
+  practical_implication: 寬度沒有固定上限（約肩寬是常見參考）；根本修正是建立捕水感知，讓手在感知到位時自然停止，而非靠意識強制控制幅度。
 - id: breast.tech.25
   stroke: breast
   category: errors
@@ -1808,21 +1808,19 @@ points:
 - id: breast.tech.27
   stroke: breast
   category: fatigue
-  title: 疲勞崩潰序列：五層遞進惡性循環
-  summary: 蛙式疲勞崩潰從 insweep 加速消失開始，依序是滑行縮短、收腿路徑延長、外划擴大、波動消失，每層崩潰讓下一層更容易發生。
+  title: 疲勞崩潰序列（假說）：五層遞進惡性循環
+  summary: 本框架推測的蛙式疲勞崩潰順序（尚無疲勞量測）：從 insweep 加速消失開始，依序是滑行縮短、收腿路徑延長、外划擴大、波動消失，每層崩潰讓下一層更容易發生。
   mechanism:
-    certainty: 🟢
-    source_ids:
-    - src.nicol-2022-breaststroke-systematic-review
-    text: 第一崩潰：insweep 腳速下降（推進力直接損失 r=0.89），渦流合併不完整，速度峰值下降；第二崩潰：主觀需要更早划手，在動能仍高時打斷滑行，浪費動能；第三崩潰：髖外旋控制下降，腳跟路徑向正中間偏移，大腿前移、阻力上升；第四崩潰：捕水感知消失，手在「找水」，外划超過最優幅度；終端崩潰：核心肌群疲勞，無法維持俯衝角度，升力失效，退化為平游，收腿阻力暴增，惡性循環加速。
+    certainty: 🔴
+    text: 第一崩潰：insweep（內夾）腳速下降（腳速與腳底推進力的 r=0.89 是非疲勞情境的相關，見 breast.tech.12），渦流合併不完整，速度峰值下降；第二崩潰：主觀需要更早划手，在動能仍高時打斷滑行，浪費動能；第三崩潰：髖內旋控制下降，腳跟路徑向正中間偏移，大腿前移、阻力上升；第四崩潰：捕水感知消失，手在「找水」，外划超過最優幅度；終端崩潰：核心肌群疲勞，無法維持俯衝角度，升力失效，退化為平游，收腿阻力暴增，惡性循環加速。整個序列是推導出的假說：本庫沒有蛙式疲勞過程中腳速或各環節變化的量測。（2026-10-02 由 🟢 降為 🔴，並把「髖外旋」改為髖內旋。）
   evidence:
-  - certainty: 🟢
-    text: 疲勞導致 insweep 腳速下降，推進力直接損失
+  - certainty: 🔴
+    text: 原記錄寫「疲勞導致 insweep 腳速下降，推進力直接損失」並掛 Nicol 2022 綜述；該綜述是否含此疲勞量測尚未查證到，先不採信。
     source: 'Nicol, E., Pearson, S., Saxby, D., Minahan, C., & Tor, E. (2022). Stroke Kinematics, Temporal Patterns, Neuromuscular Activity, Pacing and Kinetics in Elite Breaststroke Swimming: A Systematic Review. Sports Medicine - Open, 8(1), 75.'
     source_ids:
     - src.nicol-2022-breaststroke-systematic-review
-  practical_implication: 訓練目標是讓第一層崩潰（insweep 加速消失）盡可能晚發生；這也解釋了為什麼「疲勞下技術穩定性」是精英的核心優勢。
-  cross_ref: breast.tech.22（文中「疲勞下技術穩定性是精英核心優勢」）、breast.tech.31（第一崩潰引用的 insweep 腳速 r=0.89 即該條原則①）
+  practical_implication: 訓練目標是讓第一層崩潰（insweep 加速消失）盡可能晚發生；這個序列能否被訓練延後，本庫目前沒有量測。（2026-10-02 刪除「這也解釋了疲勞下技術穩定性是精英核心優勢」——breast.tech.22 已撤回該主張。）
+  cross_ref: breast.tech.22（只提供分段速度差距，不含疲勞資料）、breast.tech.31（第一崩潰引用的 insweep 腳速 r=0.89 即該條原則①）
   cross_ref_ids:
   - breast.tech.22
   - breast.tech.31
@@ -1884,7 +1882,7 @@ points:
     - breast.tech.10
     - breast.tech.8
     - breast.tech.29
-    text: ① insweep 腳速是推進力直接決定因子（r=0.89），加速度方向正確的前提下速度越快推進力越大；② 收腿是阻力最大時刻，縮短收腿時間是群體共識；③ arm-leg coordination 時序精度是精英和次精英最大差距——是技術問題非解剖問題；④ 滑行管理是蛙式特有的效率變數。
+    text: ① insweep 腳速是推進力直接決定因子（r=0.89），加速度方向正確的前提下速度越快推進力越大；② 收腿是阻力最大時刻，以最短路徑、不主動加速的方式通過它是群體共識（縮短的是路徑，不是加快腿速）；③ arm-leg coordination 時序精度是精英和次精英最大差距——是技術問題非解剖問題；④ 滑行管理是蛙式特有的效率變數。
   practical_implication: 評估泳者問題時，應先區分這些解剖無關原則與解剖邊界限制，兩者的介入方向完全不同。
   cross_ref: 四條原則的承載條目（原 evidence_from）：breast.tech.12、breast.tech.10、breast.tech.8、breast.tech.29
   cross_ref_ids:
@@ -2235,7 +2233,7 @@ points:
 
     - 仰式：髖旋轉增加（由 200 m 自由式研究外推，仰式未直接量測）——代償本身就是首環的可見形式
 
-    - 蛙式：insweep 腳速下降（推進力直接損失），接著才是提早划手打斷滑行
+    - 蛙式：insweep 腳速下降（推導假說，尚無疲勞量測），接著才是提早划手打斷滑行
 
     - 蝶式：第二踢力量下降，接著 Recovery 抬高；末期「游水上面」近乎喪失波動推進
 
