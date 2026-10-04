@@ -35,9 +35,14 @@
   const INTS = { none: '不設目標', easy: '輕鬆有氧', steady: '穩定有氧', thr: '閾值（CSS）', tol: '速耐', race: '賽速', sprint: '衝刺 %', pbplus: 'PB ＋ 秒', custom: '自訂秒數' };
   const STEP_ON = { none: '不變', target: '目標秒數', sendoff: '出發間隔', rest: '休息' };
   // 每一列的欄位預設；舊存檔、分享連結匯入的列都用它補齊
-  const ROW_DEF = { sets: 1, reps: 4, dist: 50, stroke: 'free', mode: 'swim', int: 'none', pct: 95, pbPlus: 0, event: '', target: null, rest: 0, setRest: 0,
+  const ROW_DEF = { sets: 1, reps: 4, dist: 50, stroke: 'free', mode: 'swim', int: 'none', pct: 95, pbPlus: 0, event: '', target: null, rest: 0, setRest: 0, rowRest: null,
     restMode: 'rest', sendoff: 0, stepOn: 'none', stepSec: -1, stepCycle: 0, brokenEvery: 0, brokenRest: 10, drill: '', equip: [], note: '', restAuto: false };
-  const normRow = (r) => { Object.keys(ROW_DEF).forEach(k => { if (r[k] == null) r[k] = Array.isArray(ROW_DEF[k]) ? [] : ROW_DEF[k]; }); return r; };
+  const normRow = (r) => {
+    Object.keys(ROW_DEF).forEach(k => { if (r[k] == null) r[k] = Array.isArray(ROW_DEF[k]) ? [] : ROW_DEF[k]; });
+    // null 沿用舊版的每趟設定；0 明確表示直接進下一項。
+    if (typeof r.rowRest !== 'number' || !Number.isFinite(r.rowRest) || r.rowRest < 0) r.rowRest = null;
+    return r;
+  };
   const DRILL = Object.fromEntries(V.drills.map(d => [d.id, d]));
 
   /* ---------- canonical 參數 ---------- */
@@ -110,7 +115,7 @@
     const m = Math.floor(x / 60), sec = +(x - m * 60).toFixed(dec);
     return m + ':' + (sec < 10 ? '0' : '') + sec;
   };
-  const tfHtml = (attrs, t, dec, label, ph) => `<span class="wk-tf" ${attrs} data-dec="${dec}"><input class="wk-tf-i" type="text" placeholder="${ph || '例 90 或 1:30'}" value="${showT(t, dec)}" aria-label="${label}" autocomplete="off"></span>`;
+  const tfHtml = (attrs, t, dec, label, ph, showZero = false) => `<span class="wk-tf" ${attrs} data-dec="${dec}"><input class="wk-tf-i" type="text" placeholder="${ph || '例 90 或 1:30'}" value="${t === 0 && showZero ? '0' : showT(t, dec)}" aria-label="${label}" autocomplete="off"></span>`;
   const readTF = (el) => parseT(el.querySelector('.wk-tf-i').value.replace(',', '.'));
   const setTF = (el, t) => { el.querySelector('.wk-tf-i').value = showT(t, +el.dataset.dec || 0); };
 
@@ -233,10 +238,17 @@
     return per100 * row.dist / 100 * (row.mode === 'kick' || row.mode === 'drill' ? 1.3 : 1);
   }
   const segsOf = (row) => (row.brokenEvery > 0 && row.brokenEvery < row.dist ? Math.ceil(row.dist / row.brokenEvery) : 1);
-  const rowSec = (row) => {
-    const n = (row.sets || 1) * row.reps;
-    const per = row.restMode === 'sendoff' && row.sendoff > 0 ? row.sendoff : estSec(row) + (row.rest || 0) + (segsOf(row) - 1) * (row.brokenRest || 0);
-    return n * per + ((row.sets || 1) - 1) * Math.max(0, (row.setRest || 0) - (row.rest || 0));
+  const rowSec = (row, hasNext) => {
+    let sec = 0, repSec = 0;
+    // 與計時器共用順序，避免漏算項目間隔或把課表末尾休息算進去。
+    rowSteps(row, null, estSec(row), hasNext).forEach(step => {
+      if (step.first) repSec = 0;
+      const duration = step.kind === 'swim'
+        ? (step.sendoff != null ? Math.min(step.target, Math.max(0, step.sendoff - repSec)) : step.target)
+        : step.dyn ? Math.max(0, step.sendoff - repSec) : step.sec;
+      sec += duration; repSec += duration;
+    });
+    return sec;
   };
   function stepText(row) {
     if (!row.stepOn || row.stepOn === 'none' || !+row.stepSec) return '';
@@ -606,6 +618,8 @@
         <span class="wk-in" data-setrest${(row.sets || 1) > 1 ? '' : ' hidden'}><span>組間休息</span>${tfHtml('data-tff="setRest"', row.setRest, 0, '組間休息')}</span>
       </div>
       <p class="wk-hint" data-rhint>${hintHtml(row, bi)}</p>
+      <div class="wk-r-line"><span class="wk-in"><span>項目結束後休息</span>${tfHtml('data-tff="rowRest"', row.rowRest, 2, '項目結束後休息', '留空沿用每趟設定', true)}</span></div>
+      <p class="wk-hint">這一列全部完成後，休息多久再進下一項。取代最後一趟的休息；可填 90 或 1:30，填 0 直接接下一項，留空沿用每趟設定。課表最後一項不再休息。</p>
       <details class="wk-r-adv" data-adv="${key}"${openAdv.has(key) ? ' open' : ''}><summary>進階：<span data-advs>${esc(advText(row) || '逐趟遞減、分段游')}</span></summary>
         <div class="wk-r-line"><span>逐趟變化</span><select data-f="stepOn" aria-label="逐趟變化的項目">${opt(STEP_ON, row.stepOn)}</select>
           <label class="wk-in"><span>每趟</span><input type="number" step="0.5" value="${row.stepSec}" data-f="stepSec" aria-label="每趟加減秒數"><span>秒</span></label>
@@ -648,7 +662,7 @@
   function totals() {
     const rows = M().blocks.flatMap(b => b.rows);
     const dist = rows.reduce((a, r) => a + rowDist(r), 0);
-    const sec = rows.reduce((a, r) => a + rowSec(r), 0);
+    const sec = rows.reduce((a, r, i) => a + rowSec(r, i < rows.length - 1), 0);
     $('[data-wk-total]').textContent = rows.length ? `共 ${dist} m，約 ${Math.round(sec / 60)} 分鐘（有目標的用目標秒數，其餘用輕鬆有氧配速估算）` : '';
     root.querySelectorAll('.wk-blk').forEach(el => { const b = M().blocks[+el.dataset.b]; if (b) el.querySelector('[data-bdist]').textContent = blockDist(b) + ' m'; });
     renderSum();
@@ -716,7 +730,19 @@
     const li = el.closest('.wk-r'); if (!li) return;
     const row = rowOf(li);
     const tf = el.closest('.wk-tf');
-    if (tf) { const v = readTF(tf); const f = tf.dataset.tff; row[f] = f === 'target' ? v : (v || 0); if (f === 'rest' || f === 'sendoff') row.restAuto = false; }
+    if (tf) {
+      const f = tf.dataset.tff;
+      if (f === 'rowRest') {
+        const raw = el.value.trim().replace('：', ':').replace(',', '.');
+        const valid = !raw || /^(?:\d+(?:\.\d+)?|\d+:[0-5]?\d(?:\.\d+)?)$/.test(raw);
+        const v = raw.includes(':') ? raw.split(':').reduce((m, s) => +m * 60 + +s) : Number(raw);
+        el.setCustomValidity(valid && Number.isFinite(v) ? '' : '請填 0 以上的秒數或分:秒，例如 90 或 1:30。');
+        el.setAttribute('aria-invalid', String(!el.validity.valid));
+        if (!el.validity.valid) return;
+        row.rowRest = raw ? v : null;
+      } else { const v = readTF(tf); row[f] = f === 'target' ? v : (v || 0); }
+      if (f === 'rest' || f === 'sendoff') row.restAuto = false;
+    }
     else if (el.tagName === 'INPUT' && el.dataset.f) {
       const f = el.dataset.f;
       if (f === 'note') row.note = el.value;
@@ -798,6 +824,10 @@
       save(); replaceRow(li); return;
     }
     const a = btn.dataset.act;
+    if (a === 'add' || a === 'done' || a === 'save') {
+      const interval = li.querySelector('[data-tff="rowRest"] input');
+      if (interval && !interval.reportValidity()) return;
+    }
     if (a === 'add') {
       const added = JSON.parse(JSON.stringify(draft)), stroke = draft.stroke;
       rows.push(added); flash = added;
@@ -837,7 +867,7 @@
   function sumBits(row) {
     const so = row.restMode === 'sendoff' && row.sendoff > 0;
     return [rowInt(row), so ? `每 ${fmt0(row.sendoff)} 出發` : row.rest ? '每趟休 ' + fmt0(row.rest) : '', (row.sets || 1) > 1 && row.setRest ? '組間休 ' + fmt0(row.setRest) : '',
-      stepText(row), brokenText(row), rowEquip(row), row.note || ''].filter(Boolean);
+      row.rowRest != null ? '項目結束後休 ' + fmt0(row.rowRest) : '', stepText(row), brokenText(row), rowEquip(row), row.note || ''].filter(Boolean);
   }
   // 總量統計：依泳式、游法、強度加總距離
   function volStats(rows) {
@@ -1005,32 +1035,39 @@
   const T = root.parentElement.querySelector('[data-wk-timer]');
   const tq = (s) => T.querySelector(s);
   let seq = [], idx = 0, phase = 'ready', t0 = 0, paused = 0, pausedAt = 0, beeped = {}, timer = null, log = [], repT0 = 0;
-  let adj = new Map(); // 臨場調整：row → {t: 目標秒數加減, r: 休息／出發間隔加減}；只影響這次計時，不改存好的課表
+  let adj = new Map(); // 臨場調整：row → {t: 目標, r: 休息／出發間隔, b: 項目間隔} 秒數加減；不改存好的課表
   let rowIdx = new Map(), lastHi = -1;
 
-  function build() {
-    seq = [];
-    M().blocks.forEach(b => b.rows.forEach(row => {
-      const tg = targetOf(row), base = tg && tg.t ? tg.t : null;
-      const sets = row.sets || 1, so = row.restMode === 'sendoff' && row.sendoff > 0, segs = segsOf(row);
-      for (let s = 1; s <= sets; s++) {
-        for (let r = 1; r <= row.reps; r++) {
-          const k = row.stepCycle > 0 ? (r - 1) % row.stepCycle : r - 1;
-          const dlt = row.stepOn && row.stepOn !== 'none' ? (+row.stepSec || 0) * k : 0;
-          const target = base != null ? Math.max(1, base + (row.stepOn === 'target' ? dlt : 0)) : null;
-          const sendoff = so ? Math.max(5, row.sendoff + (row.stepOn === 'sendoff' ? dlt : 0)) : null;
-          for (let g = 1; g <= segs; g++) {
-            const segD = g < segs ? row.brokenEvery : row.dist - row.brokenEvery * (segs - 1);
-            seq.push({ kind: 'swim', b, row, s, r, g, segs, segD, first: g === 1, target: target != null ? target * segD / row.dist : null, sendoff: g === segs ? sendoff : null });
-            if (g < segs && row.brokenRest > 0) seq.push({ kind: 'rest', b, row, sec: row.brokenRest, broken: true });
-          }
-          if (r === row.reps && s < sets) { if (row.setRest > 0) seq.push({ kind: 'rest', b, row, sec: row.setRest, setBreak: true }); }
-          else if (so) seq.push({ kind: 'rest', b, row, sec: 0, dyn: true, sendoff });
-          else { const sec = Math.max(0, row.rest + (row.stepOn === 'rest' ? dlt : 0)); if (sec > 0) seq.push({ kind: 'rest', b, row, sec }); }
+  function rowSteps(row, b, base, hasNext) {
+    const steps = [];
+    const sets = row.sets || 1, so = row.restMode === 'sendoff' && row.sendoff > 0, segs = segsOf(row);
+    for (let s = 1; s <= sets; s++) {
+      for (let r = 1; r <= row.reps; r++) {
+        const k = row.stepCycle > 0 ? (r - 1) % row.stepCycle : r - 1;
+        const dlt = row.stepOn && row.stepOn !== 'none' ? (+row.stepSec || 0) * k : 0;
+        const target = base != null ? Math.max(1, base + (row.stepOn === 'target' ? dlt : 0)) : null;
+        const sendoff = so ? Math.max(5, row.sendoff + (row.stepOn === 'sendoff' ? dlt : 0)) : null;
+        for (let g = 1; g <= segs; g++) {
+          const segD = g < segs ? row.brokenEvery : row.dist - row.brokenEvery * (segs - 1);
+          steps.push({ kind: 'swim', b, row, s, r, g, segs, segD, first: g === 1, target: target != null ? target * segD / row.dist : null, sendoff: g === segs ? sendoff : null });
+          if (g < segs && row.brokenRest > 0) steps.push({ kind: 'rest', b, row, sec: row.brokenRest, broken: true });
         }
+        const rowBreak = r === row.reps && s === sets;
+        if (rowBreak && !hasNext) continue;
+        if (rowBreak && row.rowRest != null) { if (row.rowRest > 0) steps.push({ kind: 'rest', b, row, sec: row.rowRest, rowBreak: true }); }
+        else if (r === row.reps && s < sets) { if (row.setRest > 0) steps.push({ kind: 'rest', b, row, sec: row.setRest, setBreak: true }); }
+        else if (so) steps.push({ kind: 'rest', b, row, sec: 0, dyn: true, sendoff, rowBreak });
+        else { const sec = Math.max(0, row.rest + (row.stepOn === 'rest' ? dlt : 0)); if (sec > 0) steps.push({ kind: 'rest', b, row, sec, rowBreak }); }
       }
-    }));
-    while (seq.length && seq[seq.length - 1].kind === 'rest') seq.pop(); // 最後一趟之後不休息
+    }
+    return steps;
+  }
+  function build() {
+    const rows = M().blocks.flatMap(b => b.rows.map(row => ({ b, row })));
+    seq = rows.flatMap(({ b, row }, i) => {
+      const tg = targetOf(row);
+      return rowSteps(row, b, tg && tg.t ? tg.t : null, i < rows.length - 1);
+    });
   }
   const now = () => performance.now() / 1000;
   const elapsed = () => (pausedAt ? pausedAt : now()) - t0 - paused;
@@ -1046,17 +1083,18 @@
     const bits = [];
     if (a.t) bits.push(`目標 ${a.t > 0 ? '+' : '−'}${Math.abs(a.t)} 秒`);
     if (a.r) bits.push(`${row.restMode === 'sendoff' ? '出發間隔' : '休息'} ${a.r > 0 ? '+' : '−'}${Math.abs(a.r)} 秒`);
+    if (a.b) bits.push(`項目間隔 ${a.b > 0 ? '+' : '−'}${Math.abs(a.b)} 秒`);
     return bits.length ? '這一列已調整：' + bits.join('、') + '（只影響這次）' : '';
   };
   function renderSide() {
     const items = []; rowIdx = new Map();
-    M().blocks.forEach(b => b.rows.forEach(r => { rowIdx.set(r, items.length); const x = [rowInt(r), sumBits(r)[1]].filter(Boolean).join(' · '); items.push(`<li data-k="${items.length}"><span>${esc(b.title)}</span><b>${esc(rowHead(r))}</b>${x ? `<i>${esc(x)}</i>` : ''}</li>`); }));
+    M().blocks.forEach(b => b.rows.forEach(r => { rowIdx.set(r, items.length); const x = sumBits(r).join(' · '); items.push(`<li data-k="${items.length}"><span>${esc(b.title)}</span><b>${esc(rowHead(r))}</b>${x ? `<i>${esc(x)}</i>` : ''}</li>`); }));
     tq('[data-wk-t-list]').innerHTML = items.join(''); lastHi = -1;
   }
   function highlight() {
     const c = seq[idx]; if (!c) return;
+    tq('[data-adj="r:10"]').parentElement.querySelector('span').textContent = phase === 'rest' && c.rowBreak ? '項目間隔' : c.row.restMode === 'sendoff' ? '出發' : '休息';
     const k = rowIdx.get(c.row); if (k === lastHi) return; lastHi = k;
-    tq('[data-adj="r:10"]').parentElement.querySelector('span').textContent = c.row.restMode === 'sendoff' ? '出發' : '休息';
     tq('[data-wk-t-list]').querySelectorAll('li').forEach(li => { const on = +li.dataset.k === k; li.classList.toggle('is-now', on); if (on) li.scrollIntoView({ block: 'nearest' }); });
   }
 
@@ -1072,7 +1110,7 @@
     const cur = seq[idx];
     begin(cur.kind);
     if (cur.kind === 'swim') { SND.go(); if (cur.first) repT0 = now(); }
-    else if (!cur.broken && cur.sec >= 6) { const nx = nextSwim(idx + 1); if (nx) say(`${nx.row !== cur.row ? '換下一組。' : '下一趟，'}${sayRep(nx)}`); }
+    else if (!cur.broken && cur.sec >= 6) { const nx = nextSwim(idx + 1); if (nx) say(`${nx.row !== cur.row ? '換下一項。' : '下一趟，'}${sayRep(nx)}`); }
   }
   function wall(auto) {
     if (phase !== 'swim') return;
@@ -1084,21 +1122,23 @@
   function adjust(kind, d) {
     if (phase === 'done' || !seq.length) return;
     const row = (seq[idx] || seq[0]).row;
+    if (kind === 'r' && phase === 'rest' && seq[idx].rowBreak) kind = 'b';
     let changed = false;
     for (let j = idx; j < seq.length; j++) {
       const x = seq[j]; if (x.row !== row) continue;
       if (kind === 't' && x.kind === 'swim' && x.target != null) { x.target = Math.max(1, x.target + d * (x.segD / row.dist)); changed = true; }
       if (kind === 'r') {
         if (x.kind === 'swim' && x.sendoff != null) { x.sendoff = Math.max(5, x.sendoff + d); changed = true; }
-        if (x.kind === 'rest' && !x.broken) { if (x.dyn) x.sendoff = Math.max(5, x.sendoff + d); x.sec = Math.max(0, x.sec + d); changed = true; }
+        if (x.kind === 'rest' && !x.broken && (!x.rowBreak || row.rowRest == null)) { if (x.dyn) x.sendoff = Math.max(5, x.sendoff + d); x.sec = Math.max(0, x.sec + d); changed = true; }
       }
+      if (kind === 'b' && x.kind === 'rest' && x.rowBreak) { x.sec = Math.max(0, x.sec + d); changed = true; }
     }
     const v = tq('[data-wk-t-adjv]');
     if (!changed) { v.textContent = kind === 't' ? '這一列沒有目標秒數可調。' : '這一列後面沒有休息可調。'; return; }
-    const a = adj.get(row) || { t: 0, r: 0 };
+    const a = adj.get(row) || { t: 0, r: 0, b: 0 };
     a[kind] += d; adj.set(row, a);
     if (phase === 'swim' && kind === 't' && seq[idx].target > elapsed()) beeped.t = 0;
-    if (phase === 'rest' && kind === 'r') { const left = seq[idx].sec - elapsed(); [1, 2, 3].forEach(n => { if (left > n) delete beeped['r' + n]; }); }
+    if (phase === 'rest' && (kind === 'r' || kind === 'b')) { const left = seq[idx].sec - elapsed(); [1, 2, 3].forEach(n => { if (left > n) delete beeped['r' + n]; }); }
     v.textContent = adjText(row);
     frame();
   }
@@ -1118,7 +1158,7 @@
     const aimed = log.filter(x => x.actual != null && x.target != null), hit = aimed.filter(x => x.actual <= x.target).length;
     tq('[data-wk-t-clock]').textContent = aimed.length ? `${hit}/${aimed.length}` : '✓';
     tq('[data-wk-t-sub]').textContent = aimed.length ? '趟達到目標秒數' : '課表跑完了';
-    const changed = [...adj.entries()].filter(([, a]) => a.t || a.r).map(([row]) => `${rowHead(row)}：${adjText(row).replace('這一列已調整：', '').replace('（只影響這次）', '')}`);
+    const changed = [...adj.entries()].filter(([, a]) => a.t || a.r || a.b).map(([row]) => `${rowHead(row)}：${adjText(row).replace('這一列已調整：', '').replace('（只影響這次）', '')}`);
     tq('[data-wk-t-drill]').textContent = changed.length ? '這次臨場調整過：' + changed.join('；') : '';
     tq('[data-wk-t-adjv]').textContent = '';
     tq('[data-wk-wall]').hidden = true;
@@ -1163,9 +1203,9 @@
       sub.textContent = txt;
     } else if (phase === 'rest') {
       const left = cur.sec - e, nx = nextSwim(idx + 1);
-      ph.textContent = cur.broken ? '分段休息' : cur.setBreak ? '組間休息' : cur.dyn ? '等出發' : '休息';
+      ph.textContent = cur.rowBreak ? '項目間休息' : cur.broken ? '分段休息' : cur.setBreak ? '組間休息' : cur.dyn ? '等出發' : '休息';
       ck.textContent = fmt0(Math.max(0, Math.ceil(left))); ck.classList.remove('is-over');
-      rowEl.textContent = nx ? '下一趟：' + swimLine(nx) : '';
+      rowEl.textContent = nx ? (cur.rowBreak ? '下一項：' : '下一趟：') + swimLine(nx) : '';
       sub.textContent = nx && nx.target ? `目標 ${fmt(nx.target)}` : '';
       dr.textContent = nx ? (nx.row !== cur.row ? '換下一列　' : '') + drillLine(nx.row) : '';
       [3, 2, 1].forEach(n => { if (left <= n && !beeped['r' + n]) { beeped['r' + n] = 1; SND.tick(); } });
