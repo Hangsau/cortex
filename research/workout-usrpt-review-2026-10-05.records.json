@@ -1,0 +1,741 @@
+[
+  {
+    "record_type": "run_manifest",
+    "run_id": "workout-usrpt-review-2026-10-05",
+    "question": "課表與間歇計時器哪些能力已常見、Vortex 優化順序、現有 USRPT 覆蓋與合理入口／執行設計。",
+    "phase": "full_workflow",
+    "evidence_profiles": [
+      "textual_interpretive",
+      "practice_observation_model",
+      "empirical_quantitative",
+      "mixed_cross_domain"
+    ],
+    "started_at": "2026-10-05T15:25:21Z",
+    "updated_at": "2026-10-05T15:25:21Z",
+    "timestamp_note": "此時間為追溯紀錄建檔檢查點，檢索與程式審查在同日稍早已進行。",
+    "queries": [
+      {
+        "query": "Commit Swimming workout builder attendance analytics official",
+        "date": "2026-10-05",
+        "channel": "web_search",
+        "total_hits": null,
+        "note": "代表性檢索詞；工具回傳節選，無可靠總命中數。"
+      },
+      {
+        "query": "Seconds interval timer custom intervals text to speech official",
+        "date": "2026-10-05",
+        "channel": "web_search",
+        "total_hits": null,
+        "note": "代表性檢索詞；工具回傳節選，無可靠總命中數。"
+      },
+      {
+        "query": "site.myswimpro.com personalized swim workouts intervals guided workouts",
+        "date": "2026-10-05",
+        "channel": "web_search",
+        "total_hits": null,
+        "note": "代表性檢索詞；工具回傳節選，無可靠總命中數。"
+      },
+      {
+        "query": "site.coachsci.sdsu.edu swimming bulletin 49 USRPT 47 failure 20 seconds",
+        "date": "2026-10-05",
+        "channel": "web_search",
+        "total_hits": null,
+        "note": "代表性檢索詞；工具回傳節選，無可靠總命中數。"
+      },
+      {
+        "query": "USRPT 2024 scoping Papadimitriou 2023",
+        "date": "2026-10-05",
+        "channel": "web_search",
+        "total_hits": null,
+        "note": "代表性檢索詞；工具回傳節選，無可靠總命中數。"
+      },
+      {
+        "query": "\"USRPT\" \"2025\" study",
+        "date": "2026-10-05",
+        "channel": "web_search",
+        "total_hits": null,
+        "note": "代表性檢索詞；工具回傳節選，無可靠總命中數。"
+      },
+      {
+        "query": "\"USRPT\" \"2026\" study",
+        "date": "2026-10-05",
+        "channel": "web_search",
+        "total_hits": null,
+        "note": "代表性檢索詞；工具回傳節選，無可靠總命中數。"
+      },
+      {
+        "query": "\"Ultra-short race pace training\" \"scoping\" 2024",
+        "date": "2026-10-05",
+        "channel": "web_search",
+        "total_hits": null,
+        "note": "代表性檢索詞；工具回傳節選，無可靠總命中數。"
+      },
+      {
+        "query": "\"10.3390/sports12080227\"",
+        "date": "2026-10-05",
+        "channel": "web_search",
+        "total_hits": null,
+        "note": "代表性檢索詞；工具回傳節選，無可靠總命中數。"
+      },
+      {
+        "query": "\"Intensity and Pace Calculation\" \"227\"",
+        "date": "2026-10-05",
+        "channel": "web_search",
+        "total_hits": null,
+        "note": "代表性檢索詞；工具回傳節選，無可靠總命中數。"
+      },
+      {
+        "query": "\"Comparison of Ultra-Short Race Pace\" 2023 swimmers 18",
+        "date": "2026-10-05",
+        "channel": "web_search",
+        "total_hits": null,
+        "note": "代表性檢索詞；工具回傳節選，無可靠總命中數。"
+      },
+      {
+        "query": "\"The effects of high-intensity interval training on competitive swimmers\" 2026 randomized",
+        "date": "2026-10-05",
+        "channel": "web_search",
+        "total_hits": null,
+        "note": "代表性檢索詞；工具回傳節選，無可靠總命中數。"
+      },
+      {
+        "query": "USRPT app timer failure tracking first failure swimmer",
+        "date": "2026-10-05",
+        "channel": "web_search",
+        "total_hits": null,
+        "note": "代表性檢索詞；工具回傳節選，無可靠總命中數。"
+      },
+      {
+        "query": "USRPT timer app coach training sets official",
+        "date": "2026-10-05",
+        "channel": "web_search",
+        "total_hits": null,
+        "note": "代表性檢索詞；工具回傳節選，無可靠總命中數。"
+      }
+    ],
+    "checkpoints": [
+      {
+        "name": "code_audit",
+        "status": "complete_for_relevant_paths",
+        "commit": "83b6a4f"
+      },
+      {
+        "name": "market_scan",
+        "status": "first_party_feature_descriptions_only"
+      },
+      {
+        "name": "protocol_check",
+        "status": "originator_relevant_sections_read"
+      },
+      {
+        "name": "evidence_scan",
+        "status": "targeted_not_exhaustive",
+        "registered_sources": 16
+      },
+      {
+        "name": "implementation",
+        "status": "not_started_not_part_of_this_research"
+      }
+    ],
+    "coverage_note": "官方產品頁、原作者通報、原始研究與本地程式互相比對。不是系統性回顧；未付費實測、未訪談使用者、未證明競品沒有相同規則引擎。2025/2026 候選部分只有摘要，全文失敗與替代存取見各 source.notes。論壇、品牌 USRPT 簡介僅作探索，未作規則證據。"
+  },
+  {
+    "record_type": "source",
+    "source_id": "seconds",
+    "source_type": "official_product_documentation",
+    "title": "Seconds: Interval options",
+    "identifiers": {
+      "url": "https://www.intervaltimer.com/help/editors/intervals?platform=android"
+    },
+    "retrieved_at": "2026-10-05T15:25:21Z",
+    "metadata_available": true,
+    "abstract_available": false,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "僅核對官方描述，未登入付費產品實測。"
+  },
+  {
+    "record_type": "source",
+    "source_id": "myswimpro",
+    "source_type": "official_product_documentation",
+    "title": "Personalizing MySwimPro Workouts",
+    "identifiers": {
+      "url": "https://support.myswimpro.com/en/articles/6350446-personalizing-myswimpro-workouts"
+    },
+    "retrieved_at": "2026-10-05T15:25:21Z",
+    "metadata_available": true,
+    "abstract_available": false,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "僅核對官方描述，未登入付費產品實測。"
+  },
+  {
+    "record_type": "source",
+    "source_id": "myswimpro-ai",
+    "source_type": "official_product_documentation",
+    "title": "MySwimPro AI Swim Coach announcement",
+    "identifiers": {
+      "url": "https://blog.myswimpro.com/2024/02/08/ai-swim-workouts-created-by-ai-swim-coach/"
+    },
+    "retrieved_at": "2026-10-05T15:25:21Z",
+    "metadata_available": true,
+    "abstract_available": false,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "僅核對官方描述，未登入付費產品實測。"
+  },
+  {
+    "record_type": "source",
+    "source_id": "commit",
+    "source_type": "official_product_documentation",
+    "title": "Commit Swimming Features",
+    "identifiers": {
+      "url": "https://www.commitswimming.com/features"
+    },
+    "retrieved_at": "2026-10-05T15:25:21Z",
+    "metadata_available": true,
+    "abstract_available": false,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "僅核對官方描述，未登入付費產品實測。"
+  },
+  {
+    "record_type": "source",
+    "source_id": "rushall49",
+    "source_type": "originator_manual",
+    "title": "USRPT Defined: After Two Years USRPT Comes of Age, Bulletin 49 v1.2",
+    "identifiers": {
+      "url": "https://coachsci.sdsu.edu/swim/bullets/49DEFINED.pdf"
+    },
+    "retrieved_at": "2026-10-05T15:25:21Z",
+    "metadata_available": true,
+    "abstract_available": false,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "方法提出者自出版；核讀定義與距離例外相關頁面，不作療效比較證據。"
+  },
+  {
+    "record_type": "source",
+    "source_id": "rushall47",
+    "source_type": "originator_manual",
+    "title": "Step-by-Step USRPT Planning and Decision-Making Processes (Bulletin 47 v3.1; title shortened)",
+    "identifiers": {
+      "url": "https://coachsci.sdsu.edu/swim/bullets/47GUIDE.pdf"
+    },
+    "retrieved_at": "2026-10-05T15:25:21Z",
+    "metadata_available": true,
+    "abstract_available": false,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "核讀 printed 1.10–1.14 與休息相關段落。PDF 全文可存取不代表逐頁完成萃取；用於原作者流程規則，不證明方法優越性。"
+  },
+  {
+    "record_type": "source",
+    "source_id": "williamson2020",
+    "source_type": "primary_experimental_study",
+    "title": "Williamson et al. (2020): USRPT acute responses in collegiate swimmers",
+    "identifiers": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7706661/"
+    },
+    "retrieved_at": "2026-10-05T15:25:21Z",
+    "metadata_available": true,
+    "abstract_available": true,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "PMC 核讀方法與結果。期刊 PDF 逾時後改由 PMC 成功存取；單次生理反應，非長期比較。"
+  },
+  {
+    "record_type": "source",
+    "source_id": "papadimitriou2023",
+    "source_type": "primary_experimental_study",
+    "title": "Papadimitriou et al. (2023): USRPT versus HIIT in young swimmers",
+    "identifiers": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10537129/"
+    },
+    "retrieved_at": "2026-10-05T15:25:21Z",
+    "metadata_available": true,
+    "abstract_available": true,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "MDPI 直接頁曾回應 429，PMC 可讀。18 人、兩日交叉比較；處方不完全等同原作者失敗規則。"
+  },
+  {
+    "record_type": "source",
+    "source_id": "female2025",
+    "source_type": "primary_single_group_study",
+    "title": "The Effectiveness of Ultra Short Race Pace Training in Female Students Majoring in Swimming",
+    "identifiers": {
+      "url": "https://journals.ekb.eg/article_427280.html"
+    },
+    "retrieved_at": "2026-10-05T15:25:21Z",
+    "metadata_available": true,
+    "abstract_available": true,
+    "fulltext_status": "unknown",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "讀到摘要；PDF 存取逾時。14 人含 4 名先導、10 名正式樣本，單組前後測；全文處方未審核。標題為辨識用簡稱。"
+  },
+  {
+    "record_type": "source",
+    "source_id": "case2026",
+    "source_type": "primary_case_report",
+    "title": "2026 USRPT versus Matveyev: two-swimmer case report",
+    "identifiers": {
+      "url": "https://revistaiberociencias.org/index.php/multidisciplinar/article/view/1576"
+    },
+    "retrieved_at": "2026-10-05T15:25:21Z",
+    "metadata_available": true,
+    "abstract_available": true,
+    "fulltext_status": "unknown",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "2026-09-08；doi:10.63371/ic.v5.n3.a1576。只讀摘要，全文連結未進一步核讀；每條件一人且摘要報告 2–4 分鐘恢復，不適用嚴格短休方法的優越性主張。"
+  },
+  {
+    "record_type": "source",
+    "source_id": "meta2026",
+    "source_type": "systematic_review",
+    "title": "The effects of high-intensity interval training on competitive swimmers: A systematic review and meta-analysis",
+    "identifiers": {
+      "url": "https://www.sciencedirect.com/science/article/pii/S1440244026000897"
+    },
+    "retrieved_at": "2026-10-05T15:25:21Z",
+    "metadata_available": true,
+    "abstract_available": true,
+    "fulltext_status": "partial",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "doi:10.1016/j.jsams.2026.02.015。直接頁回應 403；搜尋索引可讀摘要／節錄，未核對原始子集，只用於發現候選與避免聲稱完全沒有新文獻。"
+  },
+  {
+    "record_type": "source",
+    "source_id": "sprint2026",
+    "source_type": "review",
+    "title": "Invited review on 50-m sprint swimming training intensity distribution",
+    "identifiers": {
+      "url": "https://link.springer.com/article/10.1007/s00421-025-06064-x"
+    },
+    "retrieved_at": "2026-10-05T15:25:21Z",
+    "metadata_available": true,
+    "abstract_available": true,
+    "fulltext_status": "partial",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "2025 線上出版、2026 卷期；僅核對摘要，訂閱全文未讀。探索候選，不用於 USRPT 規則或效果斷言。"
+  },
+  {
+    "record_type": "source",
+    "source_id": "sports2024",
+    "source_type": "systematic_review",
+    "title": "Intensity and Pace Calculation of Ultra Short Race Pace Training (USRPT) in Swimming—Take-Home Messages and Statements for Swimming Coaches",
+    "identifiers": {
+      "url": "https://pdfs.semanticscholar.org/88fe/afbfd96b69309224f7076c8d8ef1f036b4df.pdf"
+    },
+    "retrieved_at": "2026-10-05T15:25:21Z",
+    "metadata_available": true,
+    "abstract_available": true,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "文章原始 PDF 的再存放版本；核對首頁與篩選資訊，doi:10.3390/sports12080227。僅校正書目，不取代原始實驗。"
+  },
+  {
+    "record_type": "source",
+    "source_id": "physiologia2024",
+    "source_type": "scoping_review",
+    "title": "Ultra Short Race Pace Training (USRPT) in Swimming. Do the Volume and Interval Matter? A Scoping Review",
+    "identifiers": {
+      "url": "https://doi.org/10.3390/physiologia4040034"
+    },
+    "retrieved_at": "2026-10-05T15:25:21Z",
+    "metadata_available": true,
+    "abstract_available": true,
+    "fulltext_status": "partial",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "出版者索引／作者出版資料核對標題、卷期與 DOI。直接開 DOI 曾失敗；可由 https://www.mdpi.com/3089706 的索引核對，未完成全文萃取。"
+  },
+  {
+    "record_type": "source",
+    "source_id": "workout-code",
+    "source_type": "project_source_code",
+    "title": "Vortex workout generator and timer",
+    "identifiers": {
+      "path": "next/assets/js/workout.js",
+      "commit": "83b6a4fb6018b42a6018354ddb88873454ecdf9b"
+    },
+    "local_path": "../next/assets/js/workout.js",
+    "metadata_available": true,
+    "abstract_available": false,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "核讀生成、計時、到牆、撤銷、臨場修改與儲存相關函式。未將程式檢視當成池邊實測。"
+  },
+  {
+    "record_type": "source",
+    "source_id": "set-design",
+    "source_type": "synced_project_training_model",
+    "title": "Periodization set design and race_pace generator rules",
+    "identifiers": {
+      "path": "data/periodization/set-design.yaml"
+    },
+    "local_path": "../data/periodization/set-design.yaml",
+    "metadata_available": true,
+    "abstract_available": false,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "同步副本。實際修正須在 TheVortexProject canonical 處理再同步；本輪未改規則。"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "seconds-features",
+    "source_id": "seconds",
+    "locator": "Interval editor options",
+    "statement": "官方提供各段時間、名稱、顏色、計數與提示設定。",
+    "claim_kind": "text_passage",
+    "evidence_profile": "textual_interpretive",
+    "provenance_type": "source_derived",
+    "scope": {
+      "boundary": "公開功能說明，非實測品質。"
+    },
+    "curated_at": "2026-10-05T15:25:21Z"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "personalization",
+    "source_id": "myswimpro",
+    "locator": "Workout scaling, seed times, set editing",
+    "statement": "官方支援個人配速、總量縮放與組型欄位編輯。",
+    "claim_kind": "text_passage",
+    "evidence_profile": "textual_interpretive",
+    "provenance_type": "source_derived",
+    "scope": {
+      "boundary": "無法由文件判定所有進階流程。"
+    },
+    "curated_at": "2026-10-05T15:25:21Z"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "ai-existing",
+    "source_id": "myswimpro-ai",
+    "locator": "AI Swim Coach announcement and personalization description",
+    "statement": "AI 生成並編輯泳課已是既有產品宣稱提供的功能。",
+    "claim_kind": "text_passage",
+    "evidence_profile": "textual_interpretive",
+    "provenance_type": "source_derived",
+    "scope": {
+      "boundary": "未驗證生成品質或訓練效果。"
+    },
+    "curated_at": "2026-10-05T15:25:21Z"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "commit-workflow",
+    "source_id": "commit",
+    "locator": "Workout writing, training logs, season planning, analytics",
+    "statement": "官方產品範圍涵蓋課表與季計畫、紀錄及分析。",
+    "claim_kind": "text_passage",
+    "evidence_profile": "textual_interpretive",
+    "provenance_type": "source_derived",
+    "scope": {
+      "boundary": "未做價格／品質排名。"
+    },
+    "curated_at": "2026-10-05T15:25:21Z"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "partial-usrpt",
+    "source_id": "workout-code",
+    "locator": "setBuilders(), qualityDay(), weekPlan(), ROW_DEF, rowSteps()",
+    "statement": "賽速重複採 PB 配速與 race_pace 參數，但沒有依達標狀態執行失敗、休過或退出的專用引擎。",
+    "claim_kind": "practice_observation",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "source_derived",
+    "scope": {
+      "version": "83b6a4f",
+      "boundary": "固定排程配速組，不應標示為已完成原版 USRPT。"
+    },
+    "curated_at": "2026-10-05T15:25:21Z"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "timer-unknown",
+    "source_id": "workout-code",
+    "locator": "wall(auto), frame(), openTimer(), closeTimer()",
+    "statement": "自動到目標時間進休息時 actual 為 null；執行紀錄未保存為可跨次比較的歷史，開新計時會重建執行狀態。",
+    "claim_kind": "practice_observation",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "source_derived",
+    "scope": {
+      "version": "83b6a4f",
+      "boundary": "時間提示不是實測成績；程式檢視不代表所有裝置背景行為都經實測。"
+    },
+    "curated_at": "2026-10-05T15:25:21Z"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "original-stop",
+    "source_id": "rushall47",
+    "locator": "printed pages 1.10–1.14 (PDF pages 10–14)",
+    "statement": "原作者流程有前五趟適應處理、失敗後錯開出發、連續兩次嘗試失敗或累計三次失敗結束，另有泳池實務變通。",
+    "claim_kind": "text_passage",
+    "evidence_profile": "textual_interpretive",
+    "provenance_type": "source_derived",
+    "scope": {
+      "boundary": "方法提出者的規則，非優於其他方法的實驗證據。",
+      "version": "3.1"
+    },
+    "curated_at": "2026-10-05T15:25:21Z"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "original-intent",
+    "source_id": "rushall49",
+    "locator": "printed pages 9–10",
+    "statement": "以賽速短距離重複與短休息設計，追蹤首次失敗；總量規則存在賽距例外。",
+    "claim_kind": "text_passage",
+    "evidence_profile": "textual_interpretive",
+    "provenance_type": "source_derived",
+    "scope": {
+      "boundary": "不能把短休組直接視為輕鬆恢復，也不能將單一倍數套用所有賽距。",
+      "version": "1.2"
+    },
+    "curated_at": "2026-10-05T15:25:21Z"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "acute-load",
+    "source_id": "williamson2020",
+    "locator": "Methods, Results, Discussion",
+    "statement": "14 名大學競技泳者單次課程中乳酸與主觀負荷明顯上升。",
+    "claim_kind": "reported_result",
+    "evidence_profile": "empirical_quantitative",
+    "provenance_type": "source_derived",
+    "scope": {
+      "population": "14 名大學競技泳者",
+      "design": "acute single-session",
+      "boundary": "不是長期成效或方法優越性試驗。"
+    },
+    "curated_at": "2026-10-05T15:25:21Z"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "acute-comparison",
+    "source_id": "papadimitriou2023",
+    "locator": "Methods protocol and Results swimming kinematics",
+    "statement": "18 名青少年兩日比較中不同處方呈現不同速度、乳酸與划水指標。",
+    "claim_kind": "reported_result",
+    "evidence_profile": "empirical_quantitative",
+    "provenance_type": "source_derived",
+    "scope": {
+      "population": "18 名青少年",
+      "design": "counterbalanced acute comparison",
+      "boundary": "跨方案每划距離／划水指數差異不證明長期技術受損；USRPT 處方未完整執行原作者失敗流程。"
+    },
+    "curated_at": "2026-10-05T15:25:21Z"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "new-study-limits",
+    "source_id": "female2025",
+    "locator": "Abstract: methods and results",
+    "statement": "2025 年研究摘要報告單組前後改善，正式樣本為 10 人。",
+    "claim_kind": "reported_result",
+    "evidence_profile": "empirical_quantitative",
+    "provenance_type": "source_derived",
+    "scope": {
+      "design": "single-group pre/post",
+      "boundary": "PDF 未讀；無法推出相較其他方法的優越性。"
+    },
+    "curated_at": "2026-10-05T15:25:21Z"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "modified-case",
+    "source_id": "case2026",
+    "locator": "Abstract: sample, training periods and recovery",
+    "statement": "2026 年病例摘要每種方案只有一名泳者，所稱 USRPT 恢復為 2–4 分鐘。",
+    "claim_kind": "reported_result",
+    "evidence_profile": "empirical_quantitative",
+    "provenance_type": "source_derived",
+    "scope": {
+      "design": "two-person case report",
+      "boundary": "摘要資訊；不可作嚴格短休規則的比較效果證明。"
+    },
+    "curated_at": "2026-10-05T15:25:21Z"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "local-exit-gap",
+    "source_id": "set-design",
+    "locator": "usrpt narrative and generator.set_types.race_pace.exit",
+    "statement": "生成器的退出簡寫缺少累計三次失敗；本地 2024 引用名稱與連結標題混淆，2023 技術結論超出急性方案比較。",
+    "claim_kind": "practice_observation",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "source_derived",
+    "scope": {
+      "boundary": "後兩項由原文對照成立，修正需在 canonical 來源執行。"
+    },
+    "curated_at": "2026-10-05T15:25:21Z"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "bibliography-sports",
+    "source_id": "sports2024",
+    "locator": "Article first page: title, journal, DOI",
+    "statement": "Sports 12(8), 227 的標題是 Intensity and Pace Calculation…，DOI 10.3390/sports12080227。",
+    "claim_kind": "text_passage",
+    "evidence_profile": "textual_interpretive",
+    "provenance_type": "source_derived",
+    "scope": {
+      "boundary": "書目核對，不是新效果證據。"
+    },
+    "curated_at": "2026-10-05T15:25:21Z"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "bibliography-scoping",
+    "source_id": "physiologia2024",
+    "locator": "Publisher title and citation information",
+    "statement": "Do the Volume and Interval Matter? A Scoping Review 是 Physiologia 4(4), 506–516，DOI 10.3390/physiologia4040034。",
+    "claim_kind": "text_passage",
+    "evidence_profile": "textual_interpretive",
+    "provenance_type": "source_derived",
+    "scope": {
+      "boundary": "與 Sports 227 為不同文章。"
+    },
+    "curated_at": "2026-10-05T15:25:21Z"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "product-direction",
+    "statement": "對 Vortex 優先改善池邊可恢復操作、規則執行與同條件紀錄，比單加模板或 AI 說明更有機會提供實際價值。",
+    "claim_kind": "project_model",
+    "evidence_profile": "mixed_cross_domain",
+    "provenance_type": "project_model",
+    "scope": {
+      "boundary": "產品設計判斷，尚未經市場需求或使用者比較試驗驗證。"
+    },
+    "supporting_claim_ids": [
+      "seconds-features",
+      "personalization",
+      "ai-existing",
+      "commit-workflow",
+      "partial-usrpt",
+      "timer-unknown"
+    ]
+  },
+  {
+    "record_type": "decision",
+    "decision_id": "priorities",
+    "affirmative_conclusion": "優先建立可靠的池邊執行與真實紀錄流程。",
+    "works_when": [
+      "主要用途是池邊帶課或自行照課執行。"
+    ],
+    "fails_when": [
+      "只需要一次性列印課表、無現場操作需求。"
+    ],
+    "how_to_identify": [
+      "以重整恢復、漏記處理及練後能否重建實際完成內容做驗收。"
+    ],
+    "action": [
+      "先規劃中斷復原、USRPT 執行和單次結果保存，再加入 AI 解釋。"
+    ],
+    "remaining_boundary": "未驗證市場差異化或裝置背景計時可靠度；這些是下一輪測試。",
+    "supporting_claim_ids": [
+      "product-direction",
+      "timer-unknown"
+    ],
+    "evidence_status": "code_and_first_party_features_verified",
+    "decision_status": "proposed_not_implemented"
+  },
+  {
+    "record_type": "decision",
+    "decision_id": "placement",
+    "affirmative_conclusion": "USRPT 放在主課的賽速目的下，作為可選執行規則。",
+    "works_when": [
+      "泳者有明確目標賽距與可用配速依據。"
+    ],
+    "fails_when": [
+      "將其當成輕鬆恢復選项或把 PB 推導數字當成已驗證適合所有泳者的劑量。"
+    ],
+    "how_to_identify": [
+      "入口能分清訓練目的、計時方式及退出規則；無配速依據會要求補填。"
+    ],
+    "action": [
+      "新增主課→賽速→一般重複／USRPT；保持有氧和閾值組型清楚可選。"
+    ],
+    "remaining_boundary": "分類是產品設計；在混合課表採用一組規則，不等同採納原作者全部訓練哲學。",
+    "supporting_claim_ids": [
+      "partial-usrpt",
+      "original-intent",
+      "acute-load"
+    ],
+    "evidence_status": "protocol_and_current_code_verified",
+    "decision_status": "proposed_not_implemented"
+  },
+  {
+    "record_type": "decision",
+    "decision_id": "execution",
+    "affirmative_conclusion": "USRPT 引擎必須以已確認結果驅動休過與退出，並支援撤銷。",
+    "works_when": [
+      "使用者能確認達標／未達標或提供可信實測時間。"
+    ],
+    "fails_when": [
+      "把倒數結束視為達標，或以立即跳段取代保留出發節奏的規則性休過。"
+    ],
+    "how_to_identify": [
+      "分別測試前五趟、失敗後休過、連續兩次與累計三次失敗、漏記、撤銷及組內改目標。"
+    ],
+    "action": [
+      "記錄未知結果，不以未知更新生理失敗數；加入規則版本、停止原因、計數與完整撤銷狀態。"
+    ],
+    "remaining_boundary": "團體泳道、25 m 同向出發的變通需另定義；手機點按不等同精密量測。",
+    "supporting_claim_ids": [
+      "original-stop",
+      "timer-unknown",
+      "partial-usrpt"
+    ],
+    "evidence_status": "originator_rules_verified_not_efficacy_proof",
+    "decision_status": "proposed_not_implemented"
+  },
+  {
+    "record_type": "decision",
+    "decision_id": "evidence-maintenance",
+    "affirmative_conclusion": "可提供可追溯的 USRPT 選項，同時修正來源並保留效果不確定性。",
+    "works_when": [
+      "將原作者處方、急性反應與長期比較成效分別說明。"
+    ],
+    "fails_when": [
+      "聲稱已證明長期優越、一定破壞技術，或目前完全沒有研究。"
+    ],
+    "how_to_identify": [
+      "每個主張對應研究設計、族群、處方和全文核讀狀態。"
+    ],
+    "action": [
+      "後續從 canonical 修補退出條件和混淆書目，再同步；新研究全文審核後更新成效敘述。"
+    ],
+    "remaining_boundary": "2025、2026 部分候選只讀摘要，沒有完成系統性檢索與效果合成。",
+    "supporting_claim_ids": [
+      "local-exit-gap",
+      "original-stop",
+      "acute-comparison",
+      "new-study-limits",
+      "modified-case",
+      "bibliography-sports",
+      "bibliography-scoping"
+    ],
+    "evidence_status": "mixed_fulltext_and_abstract_only",
+    "decision_status": "proposed_not_implemented"
+  }
+]

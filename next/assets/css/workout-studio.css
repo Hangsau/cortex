@@ -135,6 +135,7 @@ body.workout-studio { border-left: 0; }
 .ws-brief-grid p { color: var(--ink-2); margin: var(--s1) 0; font-size: var(--fs-s); line-height: 1.8; }
 .ws-brief-actions { display: flex; gap: var(--s1); flex-wrap: wrap; }
 .ws-muted { color: var(--ink-2); }
+.ws-entry-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--s1) var(--s2); }
 .ws-copy-dialog { width: min(700px, calc(100% - 32px)); max-height: 90dvh; border: 1px solid var(--rule); border-radius: 4px; padding: var(--s3); background: var(--ws-surface); color: var(--ink); }
 .ws-copy-dialog h2 { margin-top: 0; }
 .ws-copy-dialog textarea { display: block; width: 100%; height: 45dvh; margin-bottom: var(--s2); padding: var(--s2); background: var(--paper); color: var(--ink); border: 1px solid var(--rule); font-size: var(--fs-s); }

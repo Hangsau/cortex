@@ -19,6 +19,7 @@
 {{- range $tp.variables }}{{ if eq .key "duration" }}{{ $tdur = . }}{{ else if eq .key "volume" }}{{ $tvol = . }}{{ else if eq .key "frequency" }}{{ $tfreq = . }}{{ end }}{{ end -}}
 {{- $pz := dict
     "gen" (dict "derived" $sd.generator.derived "types" $sd.generator.set_types "tiers" $sd.generator.anchor_tiers.tiers "cert" $sd.generator.cert)
+    "intents" $sd.energy_targets.intents
     "phases" $sd.phase_allocation.intent_by_phase
     "phase_prop" $sd.phase_allocation.phase_proportions_zh
     "phase_cert" $sd.phase_allocation.cert
@@ -41,12 +42,25 @@
   <header class="lc-head">
     <p class="kicker">Vortex · 工具</p>
     <h1>課表與間歇計時</h1>
-    <p class="lc-lead">填上各式成績與目標賽事，看現在該練什麼、推薦的主課怎麼開；排出整份課表（可混合泳式、挑 drill、帶器材），再變成間歇計時，出發前、到目標秒數、休息結束都有提示音。</p>
+    <p class="lc-lead">依今天的訓練目的選主課，或依賽事日期安排一週。填成績換算配速，排好課表後帶進間歇計時。</p>
   </header>
 
   <nav class="wk-steps" aria-label="步驟">
-    <a href="#wk-pb">① 成績</a><a href="#wk-css">② 換算</a><a href="#wk-pz">③ 週期與建議</a><a href="#wk-sprint">④ 衝刺換算</a><a href="#wk-menu">⑤ 排課表</a><a href="#wk-sum">⑥ 清單</a><a href="#wk-mine">⑦ 我的 drill 與器材</a>
+    <a href="#wk-goals">依目的選主課</a><a href="#wk-pb">① 成績</a><a href="#wk-css">② 換算</a><a href="#wk-pz">③ 週期與建議</a><a href="#wk-sprint">④ 衝刺換算</a><a href="#wk-menu">⑤ 排課表</a><a href="#wk-sum">⑥ 清單</a><a href="#wk-mine">⑦ 我的 drill 與器材</a>
   </nav>
+
+  <section class="le-block" id="wk-goals" aria-labelledby="wk-goals-h" tabindex="-1">
+    <h2 id="wk-goals-h">依訓練目的選主課</h2>
+    <p class="muted">沒有比賽也能選。先決定今天想練什麼，再把主課加入課表；暖身、技術與緩和由你安排。各種能量系統會共同參與，這裡按訓練目的分類。</p>
+    <div class="wk-row wk-goal-fields">
+      <label class="wk-field wk-grow"><span>訓練目的</span><select data-wk-goal></select></label>
+      <label class="wk-field"><span>泳式</span><select data-wk-goal-stroke></select></label>
+      <label class="wk-field"><span>參考份量</span><select data-wk-goal-size><option value="compact">精簡組</option><option value="standard">原有組型</option></select></label>
+      <label class="wk-field" data-wk-goal-event-field hidden><span>配速參考距離</span><select data-wk-goal-event></select></label>
+    </div>
+    <p class="muted">份量是可修改的組型範例，還未依你的訓練經驗與當天狀況調整。精簡組減少組數或趟數，保留每趟距離與休息；不會按比例縮短休息。</p>
+    <div data-wk-goal-out></div>
+  </section>
 
   <section class="le-block" id="wk-pb" aria-labelledby="wk-pb-h">
     <h2 id="wk-pb-h">① 我的成績</h2>
@@ -75,7 +89,7 @@
   </section>
 
   <section class="le-block" id="wk-pz" aria-labelledby="wk-pz-h">
-    <h2 id="wk-pz-h">③ 週期與本週建議</h2>
+    <h2 id="wk-pz-h">③ 依賽事日期安排一週</h2>
     <p class="muted">填目標賽事日期，推算現在在哪一期、這週純速／賽速／速耐／有氧誰為主，再排出這週每一堂的定位與主課；每一堂可以一鍵建成課表。每一組都是參考，加進課表後可以改。</p>
     <div class="wk-row">
       <label class="wk-field"><span>目標賽事日期</span><input type="date" data-wk-race></label>

@@ -3,6 +3,17 @@
 .wk-steps a { display: inline-flex; align-items: center; min-height: var(--tap); }
 .wk .le-block { margin-top: var(--s5); }
 .wk .le-block > h2 { border-top: 2px solid var(--ink); padding-top: var(--s2); margin: 0 0 var(--s2); }
+.wk-goal-fields > .wk-field { flex: 1 1 150px; }
+.wk-goal-fields > .wk-grow { flex-basis: 250px; }
+.wk-goal-fields > [hidden] { display: none; }
+.wk-goal-preview { border-left: 3px solid var(--series); background: var(--tint); padding: var(--s3); margin-top: var(--s3); }
+.wk-goal-preview h3 { margin: 0; font-size: var(--fs-xl); line-height: 1.5; }
+.wk-goal-preview > p { line-height: 1.8; }
+.wk-goal-facts { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s4); margin: var(--s3) 0; }
+.wk-goal-facts dt { color: var(--ink-2); font-size: var(--fs-s); }
+.wk-goal-facts dd { margin: var(--s1) 0 0; font-weight: 700; font-variant-numeric: tabular-nums; }
+.wk-goal-details { border-top: 1px solid var(--rule); margin-top: var(--s3); font-size: var(--fs-s); line-height: 1.8; }
+.wk-goal-details summary { display: flex; align-items: center; min-height: var(--tap); cursor: pointer; font-weight: 700; }
 .wk-row, .wk-pbs { display: flex; flex-wrap: wrap; gap: var(--s2); margin: var(--s2) 0; }
 .wk-pbs .wk-field { flex: 1 1 120px; }
 .wk-field { display: flex; flex-direction: column; gap: 4px; font: 700 var(--fs-s)/1.4 var(--f-sans); }

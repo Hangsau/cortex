@@ -25,10 +25,10 @@
     <div class="ws-layout">
       <div class="ws-panels">
         <section id="ws-panel-plan" role="tabpanel" aria-labelledby="ws-tab-plan" tabindex="0">
-          <div class="ws-intro"><div><h2>今天的課表</h2><p>從暖身到緩和，把每一段排成自己的節奏。</p></div><button class="ws-quiet" type="button" data-ws-sample>試用示範課表 ↗</button></div>
+          <div class="ws-intro"><div><h2>今天的課表</h2><p>從暖身到緩和，把每一段排成自己的節奏。</p></div><div class="ws-entry-actions"><button class="ws-quiet" type="button" data-ws-recommend>依目的選主課 ↗</button><button class="ws-quiet" type="button" data-ws-sample>試用示範課表 ↗</button></div></div>
           <p class="ws-copy-note" data-ws-import></p><div data-ws-slot="plan"></div>
         </section>
-        <section id="ws-panel-pace" role="tabpanel" aria-labelledby="ws-tab-pace" tabindex="0" hidden><div class="ws-intro"><div><h2>讓配速有依據</h2><p>填入實測成績，再把合適的組型加入課表。</p></div></div><div data-ws-slot="pace"></div></section>
+        <section id="ws-panel-pace" role="tabpanel" aria-labelledby="ws-tab-pace" tabindex="0" hidden><div class="ws-intro"><div><h2>今天想練什麼？</h2><p>依目的選主課，或依賽事安排一週。填入成績後，就能帶出配速。</p></div></div><div data-ws-slot="pace"></div></section>
         <section id="ws-panel-library" role="tabpanel" aria-labelledby="ws-tab-library" tabindex="0" hidden><div class="ws-intro"><div><h2>你的練習工具箱</h2><p>收好常用的練習、器材與組型，下次直接拿來用。</p></div></div><div data-ws-slot="library"></div></section>
         <section id="ws-panel-review" role="tabpanel" aria-labelledby="ws-tab-review" tabindex="0" hidden><div class="ws-intro"><div><h2>把這堂課帶到池邊</h2><p>確認安排，列印或分享，也替訓練留下目的。</p></div></div><div data-ws-slot="review"></div>
           <section class="ws-brief"><p class="ws-eyebrow">課表說明</p><h3>知道為什麼，也知道怎麼調整。</h3><p data-ws-goal-text></p>
@@ -58,9 +58,10 @@
     $(`[data-ws-slot="${panel}"]`).appendChild(el);
   };
   attach('wk-menu', 'plan', '編排課表');
+  attach('wk-goals', 'pace', '依訓練目的選主課');
   attach('wk-pb', 'pace', '個人成績');
   attach('wk-css', 'pace', 'CSS 與有氧配速');
-  attach('wk-pz', 'pace', '週期與本週建議');
+  attach('wk-pz', 'pace', '依賽事日期安排一週');
   attach('wk-sprint', 'pace', '衝刺換算');
   attach('wk-mine', 'library', '我的 drill 與器材');
   attach('wk-sum', 'review', '課表清單');
@@ -159,6 +160,7 @@
     });
   }
   root.addEventListener('workout:change', update);
+  root.addEventListener('workout:recommendation-added', () => showTab('plan'));
   root.addEventListener('workout:render', enhance);
   root.addEventListener('workout:saved', () => { $('[data-ws-save]').textContent = api.snapshot().saved ? '已儲存在此瀏覽器' : '目前無法儲存，請先下載課表'; });
   $('[data-ws-intent]').addEventListener('input', e => { api.setIntent(e.target.value); $('[data-ws-goal-text]').textContent = e.target.value; });
@@ -171,6 +173,7 @@
     else if (btn.hasAttribute('data-ws-add')) openComposer(+btn.dataset.wsAdd);
     else if (btn.hasAttribute('data-ws-close')) closeEditor();
     else if (btn.hasAttribute('data-ws-sample')) { api.sample(); showTab('plan'); }
+    else if (btn.hasAttribute('data-ws-recommend')) { showTab('pace'); $('#wk-goals').focus(); $('#wk-goals').scrollIntoView(); }
     else if (btn.hasAttribute('data-ws-ai')) {
       const prompt = `請根據以下游泳課表與使用者目標，以繁體中文整理：\n1. 這堂課的目的與各段的角色。\n2. 順序、距離、趟數、配速與休息的安排理由。\n3. 預期優點、適用條件及可能的取捨；不要保證效果。\n4. 需要觀察的指標與調整／退出條件。\n5. 缺少的資訊與需要先問的問題。\n\n請區分「課表已知事實」、「所附規則的內容」與「你的推論」。不要虛構研究、來源或使用者狀況。沒有目標秒數的項目不要自行補出配速。逐趟變化、分段休息、組間休息與項目間休息是不同設定；rowRest=null 沿用每趟設定，0 直接接下一項，整堂最後不再休息。若安排無法支持目標，直接指出；不要為每份課表硬找優點。所有修改先提出建議，不要把原課表改寫成已確認的處方。\n\n${JSON.stringify(api.brief(), null, 2)}`;
       try { await navigator.clipboard.writeText(prompt); $('[data-ws-export-status]').textContent = '已複製課表與提問，可以貼到你慣用的 AI。'; }

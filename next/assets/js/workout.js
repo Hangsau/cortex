@@ -48,6 +48,7 @@
 
   /* ---------- canonical 參數 ---------- */
   const TYPE = Object.fromEntries(PZ.gen.types.map(t => [t.key, t]));
+  const INTENT = Object.fromEntries((PZ.intents || []).map(t => [t.key, t]));
   const lastNum = (s) => { const m = String(s).match(/([\d.]+)\s*$/); return m ? +m[1] : null; };
   const DER = Object.fromEntries(PZ.gen.derived.map(d => [d.key, d]));
   const K_FALLBACK = lastNum(DER.css_per_100_s_fallback.formula); // 0.92
@@ -414,20 +415,95 @@
   function setBuilders(s) {
     // 比賽項目可能多項（使用者 2026-09-27），不在這裡選；賽速組以 25 m 一趟、100 m 賽距 × 5 的量當樣板，項目在課表列裡選
     // 項目預設：有 100 m 成績用 100，否則用最短的一筆 ≥50 m 成績；都沒有就留空（課表列裡再選）
-    const race = (scale, label) => {
+    const race = (scale, label, selectedEvent) => {
       const have = known(s).map(x => x[0]).filter(d => d >= 50);
-      const ev = have.includes(100) ? 100 : (have[0] || 100);
+      const ev = selectedEvent || (have.includes(100) ? 100 : (have[0] || 100));
       const rep = ev <= 100 ? 25 : 50, mult = ev >= 800 ? 2.5 : ev === 400 ? 4 : 5.5; // race_pace.volume_rule 取中值
       const reps = Math.max(4, Math.round(ev * mult * (scale || 1) / rep));
-      return { type: 'race_pace', name: label || '賽速重複', row: { reps, dist: rep, stroke: s, int: 'race', event: have.length ? String(ev) : '', rest: raceRest(rep) },
-        why: `以 ${ev} m 項目計：總量＝${ev} m × ${mult}${scale ? ` × ${scale}` : ''}（race_pace.volume_rule 取中值）；要換項目，在課表那一列改` };
+      return { type: 'race_pace', name: label || '賽速重複', row: { reps, dist: rep, stroke: s, int: 'race', event: selectedEvent || have.length ? String(ev) : '', rest: raceRest(rep) },
+        why: `以 ${ev} m 項目計：總量＝${ev} m × ${mult}${scale ? ` × ${scale}` : ''}（既有賽速總量範圍取中值）；可依實際完成情況調整` };
     };
     const thr = () => { const x = TYPE.threshold, d = 200, vol = 2000; return { type: 'threshold', name: '閾值', row: { reps: vol / d, dist: d, stroke: s, int: 'thr', rest: r5((x.rest_s.min + x.rest_s.max) / 2) }, why: `總量取 ${esc(x.volume_rule.replace(/^總量\s*/, ''))} 的下緣` }; };
     const easy = (label) => { const x = TYPE.aerobic_easy; return { type: 'aerobic_easy', name: label || '輕鬆有氧', row: { reps: 3, dist: 400, stroke: s, int: 'easy', rest: r5((x.rest_s.min + x.rest_s.max) / 2) }, why: '量依可用時間調' }; };
+    const steady = () => { const x = easy('穩定有氧'); x.row.int = 'steady'; x.why = `配速用 CSS × ${K_STEADY}；份量與休息沿用輕鬆有氧範例，可再調整`; return x; };
     const vel = (sets) => { const x = TYPE.velocity; return { type: 'velocity', name: '純速', row: { sets: sets || x.reps.blocks, reps: 4, dist: x.distance_m.max, stroke: s, int: 'sprint', pct: 100, rest: r5((x.rest_s.min + x.rest_s.max) / 2), setRest: 0 }, why: `每趟 ${x.distance_m.min}–${x.distance_m.max} m，${x.reps.min}–${x.reps.max} 趟分 ${x.reps.blocks} 組；熱身後、還不累時做` }; };
+    const prod = () => { const x = TYPE.lactate_production; return { type: 'lactate_production', name: INTENT.lactate_production.name_zh, row: { reps: Math.round((x.reps.min + x.reps.max) / 2), dist: x.distance_m.max, stroke: s, int: 'sprint', pct: 100, rest: r5((x.rest_s.min + x.rest_s.max) / 2) }, why: '趟數與休息取既有建議區間中值；先充分暖身，再維持每趟品質' }; };
     const tol = () => { const x = TYPE.lactate_tolerance; return { type: 'lactate_tolerance', name: '速耐', row: { reps: 5, dist: 100, stroke: s, int: 'tol', rest: 40 }, why: `每趟 ${x.distance_m.min}–${x.distance_m.max} m，${x.reps.min}–${x.reps.max} 趟，休 ${x.rest_s.min}–${x.rest_s.max} 秒；每週最多 ${x.weekly_max} 次` }; };
     const free = () => ({ type: null, name: '輕鬆游', row: { reps: 2, dist: 400, stroke: s, int: 'none', rest: 30 }, why: '過渡期不設目標時間，維持下水頻率' });
-    return { race, thr, easy, vel, tol, free };
+    return { race, thr, easy, steady, vel, prod, tol, free };
+  }
+
+  /* ---------- 無賽期的主課推薦：沿用同一套配速與組型，不新增計時模式 ---------- */
+  const GOAL_BUILDERS = { aerobic_easy: 'easy', steady: 'steady', threshold: 'thr', velocity: 'vel', lactate_production: 'prod', lactate_tolerance: 'tol', race_pace: 'race' };
+  const goalName = key => key === 'steady' ? INTS.steady : INTENT[key].name_zh;
+  // 只保留本次頁面的選擇；產生的課表沿用既有存檔格式。
+  const goalChoice = { key: 'aerobic_easy', stroke: 'free', size: 'compact', event: 100 };
+  function goalSet() {
+    const key = goalChoice.key, builder = setBuilders(goalChoice.stroke)[GOAL_BUILDERS[key]];
+    const x = key === 'race_pace' ? builder(null, null, goalChoice.event) : builder();
+    x.name = goalName(key);
+    if (goalChoice.size === 'compact') {
+      if (x.row.sets > 1) x.row.sets = Math.ceil(x.row.sets / 2);
+      else x.row.reps = Math.max(1, Math.ceil(x.row.reps / 2));
+    }
+    // 穩定有氧沒有獨立休息規則；保留這次顯示的範例，避免 autoRest 將它歸零。
+    x.row = blankRow(Object.assign({ note: x.name, restAuto: key !== 'steady' }, x.row));
+    const target = targetOf(x.row);
+    x.row.sendoff = Math.ceil(((target && target.t || estSec(x.row)) + x.row.rest) / RND) * RND;
+    // 多組之間仍需完整恢復，不能沿用純速舊樣板的 0 秒。
+    if (x.row.sets > 1) x.row.setRest = x.row.rest;
+    return x;
+  }
+  function renderGoals() {
+    const box = $('[data-wk-goal-out]');
+    if (!box) return;
+    const key = goalChoice.key, x = goalSet(), row = x.row, type = TYPE[x.type], target = targetOf(row);
+    const intent = INTENT[key], purpose = intent ? intent.goal_zh : '以穩定、可維持的節奏累積游泳量。';
+    const basis = key === 'steady' ? `CSS × ${K_STEADY}（本站換算）` : type.target_rule;
+    const stop = key === 'race_pace' ? '依現場配速與動作決定是否縮減或結束；這裡提供一般賽速組型，沒有自動失敗判定。' : key === 'steady' ? '留意配速與動作能否維持，必要時減量或放慢。' : type.exit;
+    box.innerHTML = `<div class="wk-goal-preview"><p class="wk-css-k">${esc(SZH[row.stroke])} · ${esc(x.name)} · ${goalChoice.size === 'compact' ? '精簡組' : '原有組型'}</p>
+      <h3>${row.sets > 1 ? `${row.sets} 組 × ` : ''}${row.reps} × ${row.dist} m</h3><p>${esc(purpose)}</p>
+      <dl class="wk-goal-facts"><div><dt>每趟目標</dt><dd>${target && target.t ? `${fmt(target.t)}${target.note ? `（${esc(target.note)}）` : ''}` : '待補成績或自訂秒數'}</dd></div><div><dt>每趟休息</dt><dd>${fmt0(row.rest)}${row.sets > 1 ? `；組間 ${fmt0(row.setRest)}` : ''}</dd></div><div><dt>主課距離</dt><dd>${rowDist(row)} m</dd></div></dl>
+      ${!target || !target.t ? `<p class="wk-note">${esc(target && target.miss || '尚未設定目標')}。仍可加入組型；在下方填成績後換算，或在課表內改用自訂秒數。</p>` : ''}
+      ${key === 'race_pace' ? '<p class="wk-note">參考的是所選距離的實測成績，不需要賽事日期。用短距離重複熟悉配速，也可搭配其他主課。</p>' : ''}
+      ${key === 'lactate_tolerance' ? '<p class="wk-note">這類範例適用於已有規律訓練、能自行控速的泳者；配速與休息屬教練實務起點。</p>' : ''}
+      <div class="wk-actions"><button type="button" class="wk-btn wk-btn--main" data-wk-goal-add>加入目前主課</button><button type="button" class="wk-btn" data-wk-goal-new>另建課表</button></div>
+      <details class="wk-goal-details"><summary>配速依據與調整提示</summary><p>配速依據：${esc(basis)}。</p><p>組型參考：${esc(x.why)}。</p><p>調整提示：${esc(stop)}</p><p class="muted">提示供你現場判斷，計時器不會自動判定達標或退出。</p></details></div>`;
+  }
+  function initGoals() {
+    const section = $('#wk-goals'); if (!section) return;
+    $('[data-wk-goal]').innerHTML = Object.keys(GOAL_BUILDERS).map(k => `<option value="${k}">${esc(goalName(k))}</option>`).join('');
+    const strokes = STROKES.filter(s => s.k !== 'im');
+    $('[data-wk-goal-stroke]').innerHTML = strokes.map(s => `<option value="${s.k}">${esc(s.zh)}</option>`).join('');
+    function syncEvent() {
+      const dists = strokes.find(s => s.k === goalChoice.stroke).d.filter(d => d >= 50);
+      if (!dists.includes(goalChoice.event)) goalChoice.event = 100;
+      $('[data-wk-goal-event]').innerHTML = dists.map(d => `<option value="${d}">${d} m</option>`).join('');
+      $('[data-wk-goal-event]').value = String(goalChoice.event);
+      $('[data-wk-goal-event-field]').hidden = goalChoice.key !== 'race_pace';
+    }
+    section.addEventListener('change', e => {
+      if (e.target.matches('[data-wk-goal]') && Object.hasOwn(GOAL_BUILDERS, e.target.value)) goalChoice.key = e.target.value;
+      else if (e.target.matches('[data-wk-goal-stroke]') && strokes.some(s => s.k === e.target.value)) goalChoice.stroke = e.target.value;
+      else if (e.target.matches('[data-wk-goal-size]') && ['compact', 'standard'].includes(e.target.value)) goalChoice.size = e.target.value;
+      else if (e.target.matches('[data-wk-goal-event]') && +e.target.value >= 50 && strokes.find(s => s.k === goalChoice.stroke).d.includes(+e.target.value)) goalChoice.event = +e.target.value;
+      else return;
+      syncEvent(); renderGoals();
+    });
+    section.addEventListener('click', e => {
+      const btn = e.target.closest('[data-wk-goal-add], [data-wk-goal-new]'); if (!btn) return;
+      const x = goalSet();
+      if (btn.hasAttribute('data-wk-goal-new')) {
+        const m = newMenu(`${SZH[goalChoice.stroke]}・${x.name}`);
+        m.intent = INTENT[goalChoice.key] ? INTENT[goalChoice.key].goal_zh : '以穩定、可維持的節奏累積游泳量。';
+        m.blocks.find(b => b.title === '主課').rows.push(x.row);
+        S.menus.push(m); S.cur = S.menus.length - 1;
+        openEq.clear(); openAdv.clear(); save(); renderMenu(); toast(`已建立課表：${m.name}`);
+      } else addMain(x.row, x.name);
+      root.dispatchEvent(new CustomEvent('workout:recommendation-added'));
+      $('#wk-menu').scrollIntoView();
+    });
+    syncEvent(); renderGoals();
   }
   // 一週 N 堂的堂次類型：轉寫自 weekly_assembly.session_budgets 的 s1–s6（原文在畫面上並列）
   //   Q＝品質課（賽速／速耐／乳酸生成等吃力的課）、E＝輕鬆或技術、T＝閾值有氧、L＝長有氧
@@ -1465,7 +1541,7 @@
   /* ---------- 輸入與初始化 ---------- */
   const refresh = () => {
     Object.keys(cssCache).forEach(k => delete cssCache[k]);
-    renderCss(); renderPz(); renderSprint();
+    renderCss(); renderPz(); renderSprint(); renderGoals();
     M().blocks.forEach(b => b.rows.forEach(r => { if (r.restAuto) autoRest(r, b.title); })); // 成績變了，自動帶的出發間隔跟著變
     renderMenu();
   };
@@ -1552,6 +1628,7 @@
     });
   }
   initPz();
+  initGoals();
   renderCss(); renderPz(); renderSprint(); renderMenu(); renderMine();
   importShared();
 })();
