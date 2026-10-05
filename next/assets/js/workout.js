@@ -17,6 +17,7 @@
   'use strict';
   const root = document.querySelector('[data-wk]');
   if (!root) return;
+  const studio = root.hasAttribute('data-wk-studio');
   const R = JSON.parse(document.getElementById('wk-rules').textContent);
   const PZ = JSON.parse(document.getElementById('wk-pzdata').textContent);
   const V = JSON.parse(document.getElementById('wk-drills').textContent);
@@ -58,18 +59,21 @@
   const TIER = Object.fromEntries(PZ.gen.tiers.map(t => [t.key, t]));
 
   /* ---------- 狀態 ---------- */
-  const KEY = 'cortex-swim-v2';
+  const KEY = studio ? 'cortex-swim-studio-v1' : 'cortex-swim-v2';
   const load = (k) => { try { return JSON.parse(localStorage.getItem(k)); } catch (_) { return null; } };
+  const savedState = load(KEY);
+  const importedState = studio && !savedState ? load('cortex-swim-v2') : null;
+  let savedOk = true;
   const newMenu = (name) => ({ name, blocks: [{ title: '暖身', rows: [] }, { title: 'Drill', rows: [] }, { title: '主課', rows: [] }, { title: '緩和', rows: [] }] });
   const S = Object.assign({
     course: 'scm', pb: {}, zstroke: 'free', sstroke: 'free', sdist: '50', pct: 95, autorest: true,
     menus: [newMenu('今天的課表')], cur: 0, myDrills: [], myEquip: [], lib: [], voice: true, pz: {},
-  }, load(KEY) || {});
+  }, savedState || importedState || {});
   // 成績不存進瀏覽器：每次開頁都是乾淨的空白成績（2026-09-27 使用者要求：重新整理不要帶上次的秒數）
   S.pb = {};
   STROKES.forEach(s => { S.pb[s.k] = {}; });
   S.pz = Object.assign({ race: '', today: '', mstart: '', sess: '4' }, S.pz || {});
-  if (!load(KEY)) {
+  if (!savedState && !importedState) {
     const v1 = load('cortex-swim-v1');
     if (v1) {
       S.pb.free = v1.pb || {};
@@ -85,7 +89,10 @@
     if (!INTS[r.int]) r.int = 'none';
     normRow(r);
   })));
-  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(Object.assign({}, S, { pb: {} }))); } catch (_) { /* 無儲存空間時照常計算 */ } };
+  const save = () => {
+    try { localStorage.setItem(KEY, JSON.stringify(Object.assign({}, S, { pb: {} }))); savedOk = true; } catch (_) { savedOk = false; }
+    root.dispatchEvent(new CustomEvent('workout:saved', { detail: { saved: savedOk } }));
+  };
   const M = () => S.menus[S.cur];
   save(); // 立刻把舊版存下的成績清掉
 
@@ -666,6 +673,7 @@
     $('[data-wk-total]').textContent = rows.length ? `共 ${dist} m，約 ${Math.round(sec / 60)} 分鐘（有目標的用目標秒數，其餘用輕鬆有氧配速估算）` : '';
     root.querySelectorAll('.wk-blk').forEach(el => { const b = M().blocks[+el.dataset.b]; if (b) el.querySelector('[data-bdist]').textContent = blockDist(b) + ' m'; });
     renderSum();
+    root.dispatchEvent(new CustomEvent('workout:change'));
   }
   function renderMenu() {
     const m = M();
@@ -687,6 +695,7 @@
     </section>`).join('');
     flash = null;
     totals();
+    root.dispatchEvent(new CustomEvent('workout:render'));
   }
   function replaceRow(li) {
     const bi = +li.dataset.b, ri = +li.dataset.r;
@@ -824,6 +833,7 @@
       save(); replaceRow(li); return;
     }
     const a = btn.dataset.act;
+    if (!a) return;
     if (a === 'add' || a === 'done' || a === 'save') {
       const interval = li.querySelector('[data-tff="rowRest"] input');
       if (interval && !interval.reportValidity()) return;
@@ -1288,6 +1298,54 @@
   ar.addEventListener('change', () => { S.autorest = ar.checked; save(); });
   const vc = $('[data-wk-voice]'); vc.checked = S.voice !== false;
   vc.addEventListener('change', () => { S.voice = vc.checked; save(); if (vc.checked) say('語音報讀開啟'); });
+  // 工作台只透過這個介面操作同一套課表與計時邏輯；資料輸出可交給日後的 AI 服務。
+  if (studio) {
+    root.workout = Object.freeze({
+      snapshot() {
+        const rows = M().blocks.flatMap(b => b.rows);
+        return JSON.parse(JSON.stringify({ menu: M(), saved: savedOk, imported: !!importedState,
+          distance: rows.reduce((n, r) => n + rowDist(r), 0),
+          seconds: rows.reduce((n, r, i) => n + rowSec(r, i < rows.length - 1), 0), count: rows.length,
+          blocks: M().blocks.map(b => ({ title: b.title, distance: blockDist(b), count: b.rows.length })) }));
+      },
+      add(bi) { editing = null; retarget(bi); renderMenu(); },
+      finishEdit() { editing = null; renderMenu(); },
+      moveRow(fromBlock, fromRow, toBlock, toRow) {
+        const src = M().blocks[fromBlock], dest = M().blocks[toBlock];
+        if (!src || !dest || !src.rows[fromRow] || !Number.isInteger(toRow) || toRow < 0 || toRow > dest.rows.length) return false;
+        if (src === dest && fromRow < toRow) toRow -= 1;
+        const [r] = src.rows.splice(fromRow, 1); dest.rows.splice(toRow, 0, r);
+        editing = null; save(); renderMenu(); return true;
+      },
+      setIntent(value) { M().intent = String(value).slice(0, 2000); save(); },
+      sample() {
+        const m = newMenu('介面示範・1200 m');
+        m.intent = '用這份示範試試新增、排序與項目間休息；正式訓練前請依自己的目標修改。';
+        m.blocks[0].rows.push(blankRow({ reps: 1, dist: 200, rest: 0, rowRest: 30, note: '輕鬆游，記下今天的感覺' }));
+        m.blocks[1].rows.push(blankRow({ reps: 4, dist: 50, rest: 20, rowRest: 60, note: '先選一個今天想練的技術' }));
+        m.blocks[2].rows.push(blankRow({ reps: 6, dist: 100, rest: 30, rowRest: 60, note: '依自己的成績與目標設定配速' }));
+        m.blocks[3].rows.push(blankRow({ reps: 1, dist: 200, rest: 0, note: '放鬆游，回顧今天的完成情況' }));
+        S.menus.push(m); S.cur = S.menus.length - 1; editing = null; draftDirty = false; save(); renderMenu();
+      },
+      brief() {
+        const snapshot = this.snapshot();
+        return {
+          schemaVersion: 1, kind: 'vortex.workout.brief', language: 'zh-Hant',
+          course: S.course, goal: M().intent || null,
+          summary: { distanceM: snapshot.distance, estimatedSeconds: snapshot.seconds, items: snapshot.count },
+          menu: JSON.parse(JSON.stringify(M())),
+          items: M().blocks.flatMap((b, bi) => b.rows.map((r, ri) => {
+            const target = targetOf(r), type = ({ thr: 'threshold', easy: 'aerobic_easy', tol: 'lactate_tolerance', race: 'race_pace' })[r.int];
+            return { block: bi, row: ri, label: rowHead(r), description: sumBits(r).join('；'),
+              targetSeconds: target && target.t || null, targetBasis: target && (target.note || target.miss) || (r.int === 'custom' ? '使用者自訂' : null),
+              rule: type ? { key: type, exit: TYPE[type].exit || null, certainty: TYPE[type].cert || null } : null };
+          })),
+          missingContext: ['尚未提供訓練年資、近期負荷、身體狀態與前後課安排；不可自行假設。'],
+          source: { title: 'Vortex 週期化・課表設計', url: new URL('../periodization/', location.href.split('#')[0]).href },
+        };
+      },
+    });
+  }
   initPz();
   renderCss(); renderPz(); renderSprint(); renderMenu(); renderMine();
   importShared();

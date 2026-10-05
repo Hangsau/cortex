@@ -4,15 +4,17 @@
 {{- $isVortex := or (eq .Section "vortex") (hasPrefix .RelPermalink (relURL "vortex/")) }}
 {{- $series := partial "library/series-of.html" . }}
 {{- $group := "vortex" }}{{ with $series }}{{ $group = .group }}{{ end }}
-<body class="series-{{ $group }}{{ if or $isVortex $series }} has-rail{{ end }}">
-{{ partial "site-head.html" . }}
-<div class="frame">
-  {{- if $isVortex }}{{ partial "vortex/rail.html" . }}{{ else if $series }}{{ partial "library/rail.html" (dict "page" . "series" $series) }}{{ end }}
+<body class="series-{{ $group }}{{ if .Params.workout_studio }} workout-studio{{ else if or $isVortex $series }} has-rail{{ end }}">
+{{ if not .Params.workout_studio }}{{ partial "site-head.html" . }}{{ end }}
+<div class="{{ if .Params.workout_studio }}ws-frame{{ else }}frame{{ end }}">
+  {{- if not .Params.workout_studio }}{{ if $isVortex }}{{ partial "vortex/rail.html" . }}{{ else if $series }}{{ partial "library/rail.html" (dict "page" . "series" $series) }}{{ end }}{{ end }}
   <main id="main">{{ block "main" . }}{{ end }}</main>
 </div>
+{{ if not .Params.workout_studio }}
 <footer class="site-foot">Cortex · 個人知識庫</footer>
 {{ partial "library/xl-templates.html" . }}
 {{- $study := resources.Get "js/study.js" | fingerprint }}
 <script src="{{ $study.RelPermalink }}" defer></script>
+{{ end }}
 </body>
 </html>

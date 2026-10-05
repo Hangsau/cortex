@@ -1,0 +1,9 @@
+<header class="ws-top">
+  <a class="ws-brand" href="{{ relURL "vortex/" }}" aria-label="Vortex 首頁"><svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><path d="M4 9h24M4 16h19M4 23h14" fill="none" stroke="currentColor" stroke-width="3"/><path d="m23 19 5 4-5 4" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>VORTEX<small>TRAINING STUDIO</small></span></a>
+  <nav aria-label="工作台連結"><a href="{{ relURL "vortex/workout/" }}">回原版</a><a href="{{ relURL "vortex/" }}">知識庫 ↗</a></nav>
+</header>
+{{ partial "vortex/workout.html" . }}
+{{ $css := resources.Get "css/workout-studio.css" | fingerprint }}
+{{ $js := resources.Get "js/workout-studio.js" | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+<script src="{{ $js.RelPermalink }}" defer></script>

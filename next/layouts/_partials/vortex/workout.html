@@ -37,12 +37,13 @@
 {{- $cats := slice -}}{{- range $src.categories }}{{ $cats = $cats | append (dict "k" .key "n" .name_zh) }}{{ end -}}
 {{- $eq := slice -}}{{- range hugo.Data.swim_equipment.items }}{{ $eq = $eq | append (dict "k" .key "n" .zh) }}{{ end -}}
 {{- $strokes := slice (dict "k" "free" "zh" "自由式" "d" (slice 25 50 100 200 400 800 1500)) (dict "k" "back" "zh" "仰式" "d" (slice 25 50 100 200)) (dict "k" "breast" "zh" "蛙式" "d" (slice 25 50 100 200)) (dict "k" "fly" "zh" "蝶式" "d" (slice 25 50 100 200)) (dict "k" "im" "zh" "混合式" "d" (slice 100 200 400)) -}}
-<article class="lib-chapter wk" data-wk>
+<article class="lib-chapter wk" data-wk{{ if .Params.workout_studio }} data-wk-studio{{ end }}>
   <header class="lc-head">
     <p class="kicker">Vortex · 工具</p>
     <h1>課表與間歇計時</h1>
     <p class="lc-lead">填上各式成績與目標賽事，看現在該練什麼、推薦的主課怎麼開；排出整份課表（可混合泳式、挑 drill、帶器材），再變成間歇計時，出發前、到目標秒數、休息結束都有提示音。</p>
   </header>
+  {{ if not .Params.workout_studio }}<p><a class="wk-btn" href="{{ relURL "vortex/workout-studio/" }}">試用新版排課工作台 ↗</a></p>{{ end }}
 
   <nav class="wk-steps" aria-label="步驟">
     <a href="#wk-pb">① 成績</a><a href="#wk-css">② 換算</a><a href="#wk-pz">③ 週期與建議</a><a href="#wk-sprint">④ 衝刺換算</a><a href="#wk-menu">⑤ 排課表</a><a href="#wk-sum">⑥ 清單</a><a href="#wk-mine">⑦ 我的 drill 與器材</a>

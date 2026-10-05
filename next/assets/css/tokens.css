@@ -30,6 +30,15 @@
 .series-learning { --series: #2F6B3A; }
 .series-temperament { --series: #8A6A12; }
 
+/* 獨立工具工作台：保留 Vortex 藍綠識別，讓操作介面有自己的明暗層次。 */
+.workout-studio {
+  --paper: #F6F8F5; --ink: #1C3438; --ink-2: #52686C;
+  --tint: #EBF1ED; --rule: #D8E2DC; --series: #176B69;
+  --ws-surface: #FFFFFF; --ws-deep: #183F43; --ws-on-deep: #F7FAF3;
+  --ws-lime: #DEEDAD; --ws-tone-0: #276C70; --ws-tone-1: #659887;
+  --ws-tone-2: #B5CE86; --ws-tone-3: #D3DFCB;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --paper: #121416; --ink: #E6E4DF; --ink-2: #A9ADB3;
@@ -39,6 +48,10 @@
   .series-strength { --series: #E08A6E; }
   .series-learning { --series: #7FC08C; }
   .series-temperament { --series: #D6B45A; }
+  .workout-studio {
+    --paper: #142326; --ink: #E5EFEB; --ink-2: #B0C3BD;
+    --tint: #24383A; --rule: #355052; --series: #91D3BD; --ws-surface: #1D3033;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

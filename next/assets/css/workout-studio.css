@@ -1,0 +1,199 @@
+/* Standalone tool layout. Existing workout controls remain functional without
+   the studio adapter; every enhancement is scoped to this page. */
+body.workout-studio { border-left: 0; }
+.workout-studio button, .workout-studio input, .workout-studio select, .workout-studio textarea { font-family: var(--f-sans); }
+.workout-studio button { cursor: pointer; min-height: var(--tap); }
+.workout-studio button:disabled { cursor: default; opacity: .45; }
+.ws-top { display: flex; align-items: center; justify-content: space-between; gap: var(--s2); min-height: 88px; padding: var(--s2) max(var(--s3), calc((100vw - 1280px) / 2)); border-bottom: 1px solid var(--rule); background: var(--ws-surface); }
+.ws-brand { display: flex; align-items: center; gap: var(--s2); min-height: var(--tap); text-decoration: none; color: var(--series); }
+.ws-brand > span { font-size: var(--fs-l); font-weight: 700; line-height: 1.2; letter-spacing: .12em; }
+.ws-brand small { display: block; margin-top: 4px; font-size: var(--fs-s); letter-spacing: .12em; font-weight: 400; color: var(--ink-2); }
+.ws-top nav { display: flex; gap: var(--s3); }
+.ws-top nav a { display: inline-flex; align-items: center; min-height: var(--tap); font-size: var(--fs-s); text-decoration: none; color: var(--ink-2); }
+.workout-studio .lib-chapter.wk { max-width: 1280px; width: calc(100% - 64px); margin: 0 auto; padding: 0 0 128px; }
+.ws-hero { display: flex; justify-content: space-between; align-items: center; gap: var(--s3); padding: var(--s3) 0; }
+.ws-eyebrow { margin: 0 0 var(--s1); font-size: var(--fs-s); font-weight: 500; letter-spacing: .1em; color: var(--series); }
+.ws-hero h1 { font-size: clamp(28px, 3vw, 42px); font-family: var(--f-serif); letter-spacing: .02em; }
+.ws-lead { margin: var(--s2) 0 0; color: var(--ink-2); }
+.ws-hero-side { text-align: right; }
+.ws-version { display: inline-block; padding: 4px var(--s2); border: 1px solid var(--rule); border-radius: 4px; color: var(--series); font-size: var(--fs-s); }
+.ws-hero-side p { color: var(--ink-2); font-size: var(--fs-s); margin: var(--s2) 0 0; }
+.ws-hero-side p::before { content: ''; display: inline-block; width: 6px; height: 6px; margin-right: var(--s1); border-radius: 50%; background: var(--series); }
+.ws-hero-side .is-error { color: var(--ink); font-weight: 700; }
+.ws-tabs { display: flex; align-items: stretch; gap: var(--s4); margin-bottom: var(--s4); border-bottom: 1px solid var(--rule); }
+.ws-tabs button { display: inline-flex; align-items: center; justify-content: center; gap: var(--s1); border: 0; border-bottom: 3px solid transparent; border-radius: 0; min-height: 60px; padding: 0 var(--s1); margin-bottom: -1px; background: transparent; color: var(--ink-2); font-size: var(--fs-m); white-space: nowrap; }
+.ws-tabs button span { font-size: var(--fs-s); font-variant-numeric: tabular-nums; opacity: .65; }
+.ws-tabs button[aria-selected="true"] { color: var(--series); font-weight: 700; border-bottom-color: var(--series); }
+.ws-tabs button:hover { color: var(--series); background: var(--tint); }
+.ws-layout { display: grid; grid-template-columns: minmax(0, 1fr) 292px; align-items: start; gap: var(--s4); }
+.ws-panels { min-width: 0; }
+.ws-panels > [hidden] { display: none; }
+.ws-ready [hidden] { display: none; }
+.ws-intro { display: flex; align-items: start; justify-content: space-between; gap: var(--s2); margin-bottom: var(--s2); }
+.ws-intro h2 { margin: 0; font-family: var(--f-sans); font-size: var(--fs-l); }
+.ws-intro p { font-size: var(--fs-s); color: var(--ink-2); margin: var(--s1) 0 0; }
+.ws-quiet { border: 0; background: none; color: var(--series); font-size: var(--fs-s); padding: 0; min-height: var(--tap); flex-shrink: 0; }
+.ws-copy-note { margin: 0 0 var(--s3); font-size: var(--fs-s); color: var(--ink-2); }
+.workout-studio .wk .le-block { margin: 0; padding: var(--s3); border: 1px solid var(--rule); border-radius: 4px; background: var(--ws-surface); }
+.workout-studio .wk .le-block + .le-block { margin-top: var(--s3); }
+.workout-studio .wk .le-block > h2 { margin: 0 0 var(--s2); padding: 0; border: 0; font-family: var(--f-sans); }
+.workout-studio .wk .le-block > .muted { font-size: var(--fs-s); line-height: 1.8; }
+.workout-studio .wk #wk-menu { padding: 0; border: 0; background: transparent; }
+.ws-ready #wk-menu > h2, .ws-ready #wk-menu > .muted, .ws-ready #wk-menu > .wk-total, .ws-ready #wk-menu > .wk-actions:last-child { display: none; }
+.workout-studio .wk-menubar { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: var(--s2); padding: var(--s2); margin: 0; border: 1px solid var(--rule); border-radius: 4px; background: var(--ws-surface); }
+.workout-studio .wk-menubar .wk-grow { grid-column: 1 / -1; }
+.ws-rename { min-height: var(--tap); padding: 0 var(--s1); border: 0; background: var(--tint); color: var(--series); font-size: var(--fs-s); border-radius: 4px; }
+.workout-studio .wk-field > span { font-size: var(--fs-s); font-weight: 400; color: var(--ink-2); }
+.workout-studio .wk-field input, .workout-studio .wk-field select { min-height: var(--tap); background: var(--ws-surface); font-size: var(--fs-m); }
+.workout-studio #wk-menu > .wk-actions { margin: var(--s1) 0 var(--s3); gap: var(--s1); }
+.workout-studio #wk-menu > .wk-actions .wk-btn { min-height: var(--tap); padding: 0 var(--s2); font-size: var(--fs-s); background: none; border-color: transparent; color: var(--ink-2); }
+.workout-studio #wk-menu > .wk-actions .wk-btn:hover { background: var(--tint); color: var(--series); }
+.workout-studio #wk-menu > .wk-actions .wk-btn[data-wk-addblk] { width: 100%; border: 1px dashed var(--rule); color: var(--series); background: var(--ws-surface); }
+.workout-studio .wk-blk { margin: 0 0 var(--s3); padding: var(--s2); border: 1px solid var(--rule); border-radius: 4px; background: var(--ws-surface); }
+.workout-studio .wk-blk-h { flex-wrap: nowrap; gap: var(--s1); margin-bottom: var(--s2); }
+.ws-block-index { flex: 0 0 36px; align-self: center; font-size: var(--fs-l); font-weight: 500; font-variant-numeric: tabular-nums; color: var(--series); }
+.workout-studio .wk-blk-t { flex: 1 1 80px; min-height: var(--tap); padding: 0; border-bottom: 1px solid transparent; font: 700 var(--fs-m)/1.5 var(--f-sans); }
+.workout-studio .wk-blk-t:hover { border-bottom-color: var(--rule); }
+.workout-studio [data-bdist] { white-space: nowrap; font-size: var(--fs-s); color: var(--ink-2); }
+.workout-studio .ws-options { position: relative; border: 0; margin: 0; padding: 0; }
+.ws-options summary { display: flex; align-items: center; justify-content: center; min-width: var(--tap); min-height: var(--tap); color: var(--ink-2); cursor: pointer; list-style: none; }
+.ws-options summary::-webkit-details-marker { display: none; }
+.ws-options summary::before, .ws-options summary::after { display: none; }
+.ws-options-panel { position: absolute; z-index: 3; right: 0; top: 100%; width: 228px; padding: var(--s1); background: var(--ws-surface); border: 1px solid var(--rule); border-radius: 4px; }
+.ws-options-panel > .wk-r-act { display: flex; flex-wrap: wrap; gap: var(--s1); }
+.workout-studio .ws-options-panel > .wk-ins { margin: var(--s1) 0 0; padding: 0 var(--s1); background: var(--ws-surface); }
+.workout-studio .wk-r--sum { align-items: center; gap: var(--s1); border-top: 1px solid var(--rule); padding: var(--s2) 0; }
+.workout-studio .wk-r--sum > i { display: none; }
+.workout-studio .wk-r--sum > div { padding: 0; }
+.workout-studio .wk-r--sum > div b { font-size: var(--fs-m); font-weight: 700; }
+.workout-studio .wk-r--sum > div span { margin-top: 4px; font-size: var(--fs-s); line-height: 1.7; }
+.workout-studio .wk-r--sum .wk-r-act { gap: 0; }
+.workout-studio .wk-r--sum .wk-r-act button { min-width: var(--tap); min-height: var(--tap); border: 0; padding: 0 var(--s1); background: none; }
+.workout-studio .wk-r--sum .wk-r-act button[data-act="edit"] { color: var(--series); font-weight: 700; }
+.workout-studio .wk-r--sum .wk-r-act button:hover { background: var(--tint); }
+.ws-drag { min-width: var(--tap); min-height: var(--tap); border: 0; background: none; color: var(--ink-2); font-size: var(--fs-l); cursor: grab; }
+.is-dragging { opacity: .4; }
+.workout-studio .wk-addrow { display: none; }
+.ws-add { min-width: var(--tap); min-height: var(--tap); padding: 0 var(--s1); border: 0; border-radius: 4px; background: transparent; color: var(--series); font-size: var(--fs-s); white-space: nowrap; }
+.ws-add:hover { background: var(--tint); border-color: var(--series); }
+.workout-studio .wk-ins { margin-top: var(--s1); border: 0; padding: 0; font-size: var(--fs-s); background: transparent; color: var(--ink-2); }
+.workout-studio .wk-empty { padding: var(--s2) 0; margin: 0; font-size: var(--fs-s); text-align: center; }
+.ws-aside { display: flex; flex-direction: column; gap: var(--s3); position: sticky; top: var(--s3); }
+.ws-overview { padding: var(--s3); border-radius: 4px; background: var(--ws-deep); color: var(--ws-on-deep); }
+.ws-overview .ws-eyebrow { color: var(--ws-lime); }
+.ws-distance { display: flex; align-items: baseline; gap: var(--s1); margin: var(--s3) 0; }
+.ws-distance strong { font-size: 54px; font-weight: 500; line-height: 1; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.ws-distance > span { font-size: var(--fs-l); opacity: .75; }
+.ws-stat-pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3); margin-bottom: var(--s3); }
+.ws-stat-pair > div { display: flex; flex-direction: column; gap: 2px; }
+.ws-stat-pair b { font-size: var(--fs-l); font-weight: 500; font-variant-numeric: tabular-nums; }
+.ws-stat-pair span { font-size: var(--fs-s); opacity: .8; }
+.ws-volume { display: block; width: 100%; height: 12px; margin: var(--s2) 0; }
+.ws-tone-0 { --tone: var(--ws-tone-0); }.ws-tone-1 { --tone: var(--ws-tone-1); }.ws-tone-2 { --tone: var(--ws-tone-2); }.ws-tone-3 { --tone: var(--ws-tone-3); }
+.ws-volume rect { fill: var(--tone); }
+.ws-block-totals { list-style: none; padding: 0; margin: var(--s2) 0; }
+.ws-block-totals li { display: flex; align-items: center; gap: var(--s1); font-size: var(--fs-s); padding: 6px 0; }
+.ws-block-totals li::before { content: ''; width: 7px; height: 7px; border-radius: 2px; background: var(--tone); flex-shrink: 0; }
+.ws-block-totals li span { flex: 1; }
+.ws-block-totals b { font-weight: 400; font-variant-numeric: tabular-nums; }
+.ws-estimate { border-top: 1px solid var(--ws-tone-0); padding-top: var(--s2); margin: var(--s2) 0 0; font-size: var(--fs-s); line-height: 1.7; opacity: .75; }
+.ws-intent label { display: block; margin-bottom: var(--s1); font-weight: 700; font-size: var(--fs-m); }
+.ws-intent textarea { width: 100%; min-height: 120px; resize: vertical; border: 1px solid var(--rule); border-radius: 4px; background: var(--ws-surface); color: var(--ink); padding: var(--s2); font-size: var(--fs-s); line-height: 1.8; }
+.ws-intent p, .ws-local-note { margin: var(--s1) 0 0; font-size: var(--fs-s); line-height: 1.8; color: var(--ink-2); }
+.ws-local-note { border-top: 1px solid var(--rule); padding-top: var(--s2); }
+.ws-bottom { position: fixed; bottom: 0; left: 0; right: 0; z-index: 10; min-height: 88px; display: flex; align-items: center; justify-content: space-between; gap: var(--s3); padding: var(--s2) max(var(--s3), calc((100vw - 1280px) / 2)); padding-bottom: max(var(--s2), env(safe-area-inset-bottom)); border-top: 1px solid var(--rule); background: var(--ws-surface); }
+.ws-bottom > div:first-child { display: flex; align-items: baseline; gap: var(--s2); }
+.ws-bottom strong { font-size: var(--fs-l); font-variant-numeric: tabular-nums; }
+.ws-bottom span { font-size: var(--fs-s); color: var(--ink-2); }
+.ws-bottom-actions { display: flex; gap: var(--s2); }
+.ws-bottom button { min-height: 52px; border-radius: 4px; padding: 0 var(--s3); font-size: var(--fs-m); font-weight: 700; }
+.ws-preview { border: 1px solid var(--rule); background: var(--ws-surface); color: var(--ink); }
+.ws-start { border: 1px solid var(--ws-deep); background: var(--ws-deep); color: var(--ws-on-deep); min-width: 200px; text-align: left; }
+.ws-start span { color: var(--ws-lime); margin-left: var(--s5); font-size: var(--fs-l); }
+.workout-studio .wk-toast { bottom: 108px; }
+.ws-editor { width: min(660px, calc(100% - 32px)); max-height: calc(100dvh - 48px); padding: var(--s3); background: var(--ws-surface); color: var(--ink); border: 1px solid var(--rule); border-radius: 4px; overflow-y: auto; }
+.ws-editor::backdrop, .ws-copy-dialog::backdrop { background: rgb(15 35 39 / .55); }
+.ws-editor-head { display: flex; justify-content: space-between; align-items: start; gap: var(--s2); padding-bottom: var(--s2); border-bottom: 1px solid var(--rule); }
+.ws-editor-head h2 { margin: 0; font: 700 var(--fs-l)/1.5 var(--f-sans); }
+.ws-editor-head button { min-width: var(--tap); min-height: var(--tap); border: 0; background: var(--tint); color: var(--ink); font-size: var(--fs-l); border-radius: 4px; }
+.workout-studio .ws-editor .wk-compose { margin: 0; padding: 0; border: 0; }
+.ws-editor .wk-compose > h3 { display: none; }
+.workout-studio .ws-editor .wk-r--edit { border: 0; padding: var(--s2) 0 0; }
+.workout-studio .ws-editor .wk-r { gap: var(--s2); }
+.workout-studio .ws-editor .wk-r-line { gap: var(--s1) var(--s2); }
+.workout-studio .ws-editor input, .workout-studio .ws-editor select, .workout-studio .ws-editor button { min-height: var(--tap); }
+.ws-editor .wk-r-line .wk-in { flex-wrap: wrap; }
+.workout-studio .ws-editor .wk-r-eq, .workout-studio .ws-editor .wk-r-adv { padding: 0 var(--s2); background: var(--paper); border-radius: 4px; }
+.ws-editor .wk-r-main { margin-top: var(--s1); }
+.ws-editor .wk-hint { font-size: var(--fs-s); }
+.ws-editing-placeholder { padding: var(--s3); color: var(--ink-2); background: var(--tint); font-size: var(--fs-s); list-style: none; }
+.ws-brief { margin-top: var(--s3); padding: var(--s3); background: var(--tint); border: 1px solid var(--rule); border-radius: 4px; }
+.ws-brief h3 { margin: 0 0 var(--s2); font-size: var(--fs-l); }
+.ws-brief > p { font-size: var(--fs-s); line-height: 1.8; }
+.ws-brief-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s3); border-top: 1px solid var(--rule); padding: var(--s3) 0 var(--s1); margin-top: var(--s3); }
+.ws-brief-grid b { font-size: var(--fs-s); color: var(--series); }
+.ws-brief-grid p { color: var(--ink-2); margin: var(--s1) 0; font-size: var(--fs-s); line-height: 1.8; }
+.ws-brief-actions { display: flex; gap: var(--s1); flex-wrap: wrap; }
+.ws-muted { color: var(--ink-2); }
+.ws-copy-dialog { width: min(700px, calc(100% - 32px)); max-height: 90dvh; border: 1px solid var(--rule); border-radius: 4px; padding: var(--s3); background: var(--ws-surface); color: var(--ink); }
+.ws-copy-dialog h2 { margin-top: 0; }
+.ws-copy-dialog textarea { display: block; width: 100%; height: 45dvh; margin-bottom: var(--s2); padding: var(--s2); background: var(--paper); color: var(--ink); border: 1px solid var(--rule); font-size: var(--fs-s); }
+.ws-sources { margin-top: var(--s3); font-size: var(--fs-s); color: var(--ink-2); }
+.ws-sources summary { min-height: var(--tap); cursor: pointer; }
+.ws-ready #wk-sum > .wk-actions:last-child { display: none; }
+.workout-studio .wk-t-ctrl { flex-wrap: wrap; justify-content: center; }
+@media (max-width: 1100px) {
+  .ws-layout { grid-template-columns: minmax(0, 1fr) 260px; gap: var(--s3); }
+  .workout-studio .wk-r--sum { flex-wrap: wrap; }
+  .workout-studio .wk-r--sum > div { flex-basis: calc(100% - 64px); }
+  .workout-studio .wk-r--sum .wk-r-act { margin-left: auto; }
+}
+@media (max-width: 800px) {
+  .ws-top { padding: var(--s2) var(--s3); }
+  .ws-layout { grid-template-columns: minmax(0, 1fr); }
+  .ws-aside { position: static; display: grid; grid-template-columns: 1fr 1fr; }
+  .ws-local-note { grid-column: 1 / -1; }
+  .ws-bottom { padding-left: var(--s3); padding-right: var(--s3); gap: var(--s2); }
+  .ws-bottom > div:first-child { flex-direction: column; gap: 0; }
+  .ws-bottom .ws-preview { display: none; }
+}
+@media (max-width: 560px) {
+  .workout-studio .lib-chapter.wk { width: calc(100% - 32px); padding-bottom: 120px; }
+  .ws-top { padding: var(--s1) var(--s2); min-height: 76px; }
+  .ws-brand { gap: var(--s1); }
+  .ws-brand > span { font-size: var(--fs-m); }
+  .ws-brand small { font-size: var(--fs-s); letter-spacing: .03em; }
+  .ws-brand svg { width: 24px; }
+  .ws-top nav { gap: var(--s2); }
+  .ws-top nav a:last-child { display: none; }
+  .ws-hero { align-items: start; flex-direction: column; gap: var(--s2); padding: var(--s3) 0 var(--s1); }
+  .ws-hero .ws-eyebrow, .ws-hero .ws-lead { display: none; }
+  .ws-hero-side { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); text-align: left; }
+  .ws-hero-side p { margin: 0; }
+  .ws-hero h1 { font-size: 28px; }
+  .ws-lead { margin-top: var(--s1); font-size: var(--fs-s); }
+  .ws-tabs { gap: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-bottom: var(--s3); }
+  .ws-tabs button { font-size: var(--fs-s); padding: 0; min-height: 56px; white-space: normal; }
+  .ws-tabs button span { display: none; }
+  .ws-intro { display: flex; align-items: center; }
+  .ws-intro p { display: none; }
+  .ws-quiet { margin: 0; }
+  .workout-studio .wk-menubar { gap: var(--s2); }
+  .workout-studio .wk-blk { padding: var(--s2); }
+  .ws-add-label { display: none; }
+  .workout-studio .wk .le-block { padding: var(--s2); }
+  .workout-studio .wk #wk-menu { padding: 0; }
+  .ws-aside { grid-template-columns: minmax(0, 1fr); }
+  .ws-overview { padding: var(--s3); }
+  .ws-bottom { min-height: 88px; padding-left: var(--s2); padding-right: var(--s2); }
+  .ws-bottom strong { font-size: var(--fs-m); }
+  .ws-bottom > div:first-child > span { font-size: var(--fs-s); max-width: 140px; }
+  .ws-start { min-width: 0; padding: 0 var(--s2); font-size: var(--fs-s); }
+  .ws-start span { margin-left: var(--s2); }
+  .ws-editor { padding: var(--s2); width: calc(100% - 16px); max-height: calc(100dvh - 24px); }
+  .ws-editor .wk-r-count { gap: var(--s1); }
+  .workout-studio .ws-editor .wk-r-count .wk-in input { width: 3.2em; }
+  .ws-brief { padding: var(--s2); }
+  .ws-brief-grid { grid-template-columns: minmax(0, 1fr); gap: var(--s2); padding-top: var(--s2); }
+}
+@media print { .workout-studio .ws-bottom, .workout-studio .ws-top { display: none; } }
