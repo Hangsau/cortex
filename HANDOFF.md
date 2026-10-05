@@ -1,5 +1,14 @@
 # HANDOFF — my-site (Cortex)
 
+## 無賽期的訓練目的推薦（2026-10-06）
+
+- **已發布**：`21bb34a`，GitHub Actions `37390547176` build / deploy 成功，正式入口仍是 `/vortex/workout/`。
+- **使用者方向**：USRPT 不需另做整份課表，現階段保留一般賽速重複即可；取消上輪研究提出的「優先實作完整 USRPT 引擎」。先讓無賽事的人也能依訓練目的選主課。
+- **新入口**：排課頁「依目的選主課」及「成績與建議」最前方；輕鬆有氧、穩定有氧、閾值、純速、乳酸生成、乳酸耐受、賽速共七類。選泳式、精簡／原有組型；賽速可選配速參考距離，不需賽事日期。可加入目前主課或另建課表，暖身／drill／緩和留給使用者安排。
+- **沿用規則**：canonical `energy_targets.intents` 提供名稱與目的，配速共用 `targetOf()`，多數範例共用 `setBuilders()`。新穩定有氧範例用原 CSS 倍率，份量與休息明示沿用輕鬆範例；新乳酸生成用既有 generator 範圍。精簡只減少趟／組、不縮短休息；新純速多組保留組間休息。PB 缺少時不補出秒數，仍允許加入組型；PB 繼續開頁清空。推薦選擇只在記憶體，不新增存檔 schema。
+- **驗收**：新 `tools/test_workout_goals.cjs` 與既有 timer / studio / live 共四套 Playwright 通過；22 specs 全 PASS，P4 958 頁／50,427 條連結，121 舊網址全部對應。新測試涵蓋無賽期／無 PB、七類配速、休息保留、獨立泳式、距離切換、不覆蓋課表、存檔／重載、非法輸入、原週計畫及 320／390／1440px。同一新測試已對公開 `https://hangsau.github.io/cortex/vortex/workout/?v=21bb34a` 全部通過。
+- **記錄**：`research/workout-purpose-recommendations.md`（範圍／風險／驗收）；上輪 USRPT 研究及來源 records 一併保存。canonical 書目混淆與退出簡寫待修，本輪未同步或修改 canonical。
+
 ## 正式工作台與池邊計時復原（2026-10-05）
 
 - **已發布**：`83b6a4f`，GitHub Actions `37323508949` build / deploy 成功。新版正式取代 `/vortex/workout/`；`/vortex/workout-studio/` 帶 query/hash 轉到正式頁，舊分享仍可匯入。導覽只保留正式入口，移除「試用／回原版」文案。
