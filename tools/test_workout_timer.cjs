@@ -6,7 +6,7 @@ const path = require('node:path');
 const os = require('node:os');
 const { chromium } = require('playwright-core');
 const url = process.argv[2] || 'http://127.0.0.1:1327/cortex/vortex/workout/';
-const key = 'cortex-swim-v2';
+const key = 'cortex-swim-v3';
 const row = (extra = {}) => ({ sets: 1, reps: 1, dist: 50, stroke: 'free', mode: 'swim', int: 'custom', target: 2, rest: 3, ...extra });
 
 (async () => {
@@ -24,7 +24,11 @@ const row = (extra = {}) => ({ sets: 1, reps: 1, dist: 50, stroke: 'free', mode:
   page.on('dialog', dialog => dialog.accept(dialog.type() === 'prompt' ? '間隔測試常用組' : undefined));
   const text = selector => page.locator(selector).textContent();
   const tick = (ms = 100) => page.clock.runFor(ms);
-  const click = async selector => { await page.locator(selector).click(); await tick(); };
+  const click = async selector => {
+    if (selector === '[data-wk-start]') selector = '[data-ws-start]';
+    if (['[data-wk-copy]', '[data-wk-share]'].includes(selector)) await page.locator('[data-ws-tab="review"]').click();
+    await page.locator(selector).click(); await tick();
+  };
   const phase = () => text('[data-wk-t-phase]');
   const state = () => page.evaluate(k => JSON.parse(localStorage.getItem(k)), key);
   const load = async blocks => {
@@ -32,7 +36,7 @@ const row = (extra = {}) => ({ sets: 1, reps: 1, dist: 50, stroke: 'free', mode:
       menus: [{ name: '間隔測試', blocks }], cur: 0, voice: false, autorest: true,
     })), { key, blocks });
     await page.reload();
-    await page.locator('[data-wk-compose]').waitFor();
+    await page.locator('.ws-ready').waitFor();
   };
   const start = async () => {
     await click('[data-wk-start]');
@@ -40,7 +44,7 @@ const row = (extra = {}) => ({ sets: 1, reps: 1, dist: 50, stroke: 'free', mode:
     await click('[data-wk-skip]');
     assert.equal(await phase(), '游');
   };
-  const edit = () => click('.wk-blk [data-act="edit"] >> nth=0');
+  const edit = async () => { await page.locator('[data-ws-tab="plan"]').click(); await click('.wk-blk [data-act="edit"] >> nth=0'); };
   const field = () => page.locator('.wk-r--edit [data-tff="rowRest"] input');
   const until = async predicate => {
     for (let n = 0; n < 100; n++) {
@@ -75,6 +79,7 @@ const row = (extra = {}) => ({ sets: 1, reps: 1, dist: 50, stroke: 'free', mode:
     assert.equal(await field().inputValue(), '1:30');
     await click('.wk-r--edit [data-act="save"]');
     assert.equal((await state()).lib[0].rows[0].rowRest, 90);
+    await click('.wk-r--edit [data-act="done"]');
     await click('[data-wk-share]');
     await until(() => page.evaluate(() => !!window.copiedText));
     const shared = await page.evaluate(() => window.copiedText);
@@ -186,7 +191,7 @@ const row = (extra = {}) => ({ sets: 1, reps: 1, dist: 50, stroke: 'free', mode:
     assert.match(await text('[data-wk-t-row]'), /第 1\/20 組・第 1\/99 趟・第 1\/4 段/);
     await click('[data-wk-stop]');
     await load([{ title: '空課表', rows: [] }]);
-    await click('[data-wk-start]');
+    assert.equal(await page.locator('[data-ws-start]').isDisabled(), true);
     assert.equal(await page.locator('[data-wk-timer]').isHidden(), true);
     assert.deepEqual(errors, []);
     console.log('PASS responsive layouts, large/empty workouts, interrupted restart and browser errors');

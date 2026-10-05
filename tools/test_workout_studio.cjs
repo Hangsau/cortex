@@ -6,10 +6,10 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { chromium } = require('playwright-core');
-const url = process.argv[2] || 'http://127.0.0.1:1327/cortex/vortex/workout-studio/';
-const oldUrl = new URL('../workout/', url).href;
+const url = process.argv[2] || 'http://127.0.0.1:1327/cortex/vortex/workout/';
+const oldUrl = new URL('../', url).href;
 const output = process.env.WORKOUT_SCREENSHOTS || os.tmpdir();
-const oldKey = 'cortex-swim-v2', key = 'cortex-swim-studio-v1';
+const oldKey = 'cortex-swim-v2', key = 'cortex-swim-v3';
 
 (async () => {
   const browser = await chromium.launch({ headless: true, channel: process.env.PLAYWRIGHT_CHANNEL || 'chrome' });
@@ -34,7 +34,7 @@ const oldKey = 'cortex-swim-v2', key = 'cortex-swim-studio-v1';
   const noOverflow = async () => assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
   try {
     await old.goto(oldUrl);
-    await old.locator('[data-wk-mname]').fill('原版課表');
+    await old.evaluate(k => localStorage.setItem(k, JSON.stringify({ menus: [{ name: '原版課表', blocks: [{ title: '主課', rows: [] }] }], cur: 0 })), oldKey);
     const oldBefore = await old.evaluate(k => localStorage.getItem(k), oldKey);
     await page.goto(url);
     await page.locator('.ws-ready').waitFor();
@@ -44,12 +44,12 @@ const oldKey = 'cortex-swim-v2', key = 'cortex-swim-studio-v1';
     assert.equal(await page.locator('dialog[open]').count(), 0);
     await page.locator('[data-ws-rename]').click();
     await page.locator('[data-wk-mname]').fill('新版課表');
-    await old.locator('[data-wk-mname]').fill('原版仍可獨立修改');
+    await old.evaluate(k => { const s = JSON.parse(localStorage.getItem(k)); s.menus[0].name = '原版仍可獨立修改'; localStorage.setItem(k, JSON.stringify(s)); }, oldKey);
     assert.equal((await current()).name, '新版課表');
     assert.equal(await old.evaluate(k => JSON.parse(localStorage.getItem(k)).menus[0].name, oldKey), '原版仍可獨立修改');
     await page.reload();
     assert.equal((await current()).name, '新版課表');
-    console.log('PASS initial import, independent concurrent tabs, persistence and empty state');
+    console.log('PASS legacy import, concurrent stale tab isolation, persistence and empty state');
 
     await page.locator('[data-ws-sample]').click();
     assert.equal((await snapshot()).distance, 1200);

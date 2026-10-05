@@ -59,10 +59,45 @@
   const TIER = Object.fromEntries(PZ.gen.tiers.map(t => [t.key, t]));
 
   /* ---------- 狀態 ---------- */
-  const KEY = studio ? 'cortex-swim-studio-v1' : 'cortex-swim-v2';
+  const KEY = 'cortex-swim-v3';
   const load = (k) => { try { return JSON.parse(localStorage.getItem(k)); } catch (_) { return null; } };
   const savedState = load(KEY);
-  const importedState = studio && !savedState ? load('cortex-swim-v2') : null;
+  // 合併兩個舊入口；舊 key 保留，已開著的舊分頁也不會覆蓋正式版。
+  function migrate() {
+    const valid = s => s && Array.isArray(s.menus) && s.menus.every(m => m && Array.isArray(m.blocks) && m.blocks.every(b => b && Array.isArray(b.rows)));
+    const sources = ['cortex-swim-studio-v1', 'cortex-swim-v2'].map(load).filter(valid);
+    if (!sources.length) return null;
+    const result = sources[0];
+    ['myDrills', 'myEquip', 'lib'].forEach(k => { if (!Array.isArray(result[k])) result[k] = []; });
+    sources.slice(1).forEach(source => {
+      const remap = new Map();
+      (source.myDrills || []).forEach(d => {
+        const existing = result.myDrills.find(x => x.id === d.id);
+        if (existing && JSON.stringify(existing) === JSON.stringify(d)) return;
+        if (existing) {
+          let id = String(d.id) + '-legacy';
+          while (result.myDrills.some(x => x.id === id)) id += '-1';
+          remap.set('my:' + d.id, 'my:' + id); d.id = id;
+        }
+        result.myDrills.push(d);
+      });
+      const remapRow = r => { if (remap.has(r.drill)) r.drill = remap.get(r.drill); };
+      source.menus.forEach(m => m.blocks.forEach(b => b.rows.forEach(remapRow)));
+      (source.lib || []).forEach(item => item.rows.forEach(remapRow));
+      for (const k of ['menus', 'lib', 'myEquip']) {
+        const signatures = new Set(result[k].map(x => JSON.stringify(x)));
+        (source[k] || []).forEach(x => {
+          const signature = JSON.stringify(x);
+          if (!signatures.has(signature)) {
+            if (k === 'menus' && result.menus.some(m => m.name === x.name)) x.name += '（原版保留）';
+            result[k].push(x); signatures.add(signature);
+          }
+        });
+      }
+    });
+    return result;
+  }
+  const importedState = !savedState ? migrate() : null;
   let savedOk = true;
   const newMenu = (name) => ({ name, blocks: [{ title: '暖身', rows: [] }, { title: 'Drill', rows: [] }, { title: '主課', rows: [] }, { title: '緩和', rows: [] }] });
   const S = Object.assign({
@@ -1027,7 +1062,10 @@
     done: () => { tone(990, 250); tone(1320, 250, 0.3); tone(1760, 500, 0.6); },
   };
   let wake = null;
-  const holdScreen = async () => { try { wake = await navigator.wakeLock.request('screen'); } catch (_) { wake = null; } };
+  const holdScreen = async () => {
+    if (wake && !wake.released) return;
+    try { wake = await navigator.wakeLock.request('screen'); } catch (_) { wake = null; }
+  };
 
   /* ---------- 語音報讀 ---------- */
   const sayT = (x) => { x = Math.round(x * 10) / 10; if (x < 60) return `${x} 秒`; const m = Math.floor(x / 60), s = Math.round(x - m * 60); return s ? `${m} 分 ${s} 秒` : `${m} 分鐘`; };
@@ -1044,9 +1082,11 @@
   /* ---------- 計時器：整份課表逐列、逐組、逐趟（含分段）跑 ---------- */
   const T = root.parentElement.querySelector('[data-wk-timer]');
   const tq = (s) => T.querySelector(s);
-  let seq = [], idx = 0, phase = 'ready', t0 = 0, paused = 0, pausedAt = 0, beeped = {}, timer = null, log = [], repT0 = 0;
+  let seq = [], idx = 0, phase = 'ready', t0 = 0, paused = 0, pausedAt = null, beeped = {}, timer = null, log = [], repT0 = 0;
   let adj = new Map(); // 臨場調整：row → {t: 目標, r: 休息／出發間隔, b: 項目間隔} 秒數加減；不改存好的課表
   let rowIdx = new Map(), lastHi = -1;
+  let runMenu = null, undoSteps = [], edits = [];
+  const liveDialog = tq('[data-wk-live]');
 
   function rowSteps(row, b, base, hasNext) {
     const steps = [];
@@ -1060,28 +1100,59 @@
         for (let g = 1; g <= segs; g++) {
           const segD = g < segs ? row.brokenEvery : row.dist - row.brokenEvery * (segs - 1);
           steps.push({ kind: 'swim', b, row, s, r, g, segs, segD, first: g === 1, target: target != null ? target * segD / row.dist : null, sendoff: g === segs ? sendoff : null });
-          if (g < segs && row.brokenRest > 0) steps.push({ kind: 'rest', b, row, sec: row.brokenRest, broken: true });
+          if (g < segs && row.brokenRest > 0) steps.push({ kind: 'rest', b, row, s, r, g, sec: row.brokenRest, broken: true });
         }
         const rowBreak = r === row.reps && s === sets;
         if (rowBreak && !hasNext) continue;
-        if (rowBreak && row.rowRest != null) { if (row.rowRest > 0) steps.push({ kind: 'rest', b, row, sec: row.rowRest, rowBreak: true }); }
-        else if (r === row.reps && s < sets) { if (row.setRest > 0) steps.push({ kind: 'rest', b, row, sec: row.setRest, setBreak: true }); }
-        else if (so) steps.push({ kind: 'rest', b, row, sec: 0, dyn: true, sendoff, rowBreak });
-        else { const sec = Math.max(0, row.rest + (row.stepOn === 'rest' ? dlt : 0)); if (sec > 0) steps.push({ kind: 'rest', b, row, sec, rowBreak }); }
+        const position = { b, row, s, r, g: segs, kind: 'rest' };
+        if (rowBreak && row.rowRest != null) { if (row.rowRest > 0) steps.push({ ...position, sec: row.rowRest, rowBreak: true }); }
+        else if (r === row.reps && s < sets) { if (row.setRest > 0) steps.push({ ...position, sec: row.setRest, setBreak: true }); }
+        else if (so) steps.push({ ...position, sec: 0, dyn: true, sendoff, rowBreak });
+        else { const sec = Math.max(0, row.rest + (row.stepOn === 'rest' ? dlt : 0)); if (sec > 0) steps.push({ ...position, sec, rowBreak }); }
       }
     }
     return steps;
   }
   function build() {
-    const rows = M().blocks.flatMap(b => b.rows.map(row => ({ b, row })));
+    const rows = runMenu.blocks.flatMap(b => b.rows.map(row => ({ b, row })));
     seq = rows.flatMap(({ b, row }, i) => {
       const tg = targetOf(row);
       return rowSteps(row, b, tg && tg.t ? tg.t : null, i < rows.length - 1);
     });
   }
   const now = () => performance.now() / 1000;
-  const elapsed = () => (pausedAt ? pausedAt : now()) - t0 - paused;
-  const begin = (p) => { phase = p; t0 = now(); paused = 0; pausedAt = 0; beeped = {}; };
+  const elapsed = () => (pausedAt != null ? pausedAt : now()) - t0 - paused;
+  const begin = (p) => { phase = p; t0 = now(); paused = 0; pausedAt = null; beeped = {}; };
+  const repElapsed = () => (pausedAt != null ? pausedAt : now()) - repT0;
+  const pauseTimer = () => {
+    if (pausedAt == null && phase !== 'done') pausedAt = now();
+    try { window.speechSynthesis && speechSynthesis.cancel(); } catch (_) { /* 無 */ }
+    tq('[data-wk-pause]').textContent = '繼續';
+  };
+  function syncControls() {
+    const done = phase === 'done', last = undoSteps[undoSteps.length - 1];
+    tq('[data-wk-undo]').disabled = !last;
+    tq('[data-wk-undo]').textContent = last ? '撤銷' + last.label : '撤銷上次操作';
+    ['[data-wk-skip]', '[data-wk-pause]', '[data-wk-live-open]'].forEach(s => { tq(s).disabled = done; });
+    T.querySelectorAll('[data-adj]').forEach(b => { b.disabled = done; });
+    tq('[data-wk-pause]').textContent = pausedAt != null ? '繼續' : '暫停';
+  }
+  function remember(label) {
+    // 一次 clone 才能保留 seq、menu 與 Map 之間的 row 參照。
+    undoSteps.push({ label, state: structuredClone({ runMenu, seq, idx, phase, log, adj, edits, e: elapsed(), re: repElapsed(), beeped }) });
+    if (undoSteps.length > 10) undoSteps.shift();
+    syncControls();
+  }
+  function undoTimer() {
+    const last = undoSteps.pop(); if (!last) return;
+    ({ runMenu, seq, idx, phase, log, adj, edits, beeped } = last.state);
+    t0 = now() - last.state.e; repT0 = now() - last.state.re; paused = 0; pausedAt = now();
+    tq('[data-wk-t-copy]').hidden = true;
+    tq('[data-wk-t-adjv]').textContent = adjText(seq[idx].row);
+    tq('[data-wk-t-notice]').textContent = `已撤銷${last.label}，回到操作前並暫停；操作後的紀錄也已撤回。按「繼續」再出發。`;
+    pauseTimer(); renderLog(); renderSide(); syncControls(); frame(true); holdScreen();
+    clearInterval(timer); timer = setInterval(frame, 100);
+  }
   const nextSwim = (i) => { for (let j = i; j < seq.length; j++) if (seq[j].kind === 'swim') return seq[j]; return null; };
   const swimLine = (st) => `${rowHead(st.row)}（${(st.row.sets || 1) > 1 ? `第 ${st.s}/${st.row.sets} 組・` : ''}第 ${st.r}/${st.row.reps} 趟${st.segs > 1 ? `・第 ${st.g}/${st.segs} 段` : ''}）`;
   const drillLine = (row) => {
@@ -1098,7 +1169,7 @@
   };
   function renderSide() {
     const items = []; rowIdx = new Map();
-    M().blocks.forEach(b => b.rows.forEach(r => { rowIdx.set(r, items.length); const x = sumBits(r).join(' · '); items.push(`<li data-k="${items.length}"><span>${esc(b.title)}</span><b>${esc(rowHead(r))}</b>${x ? `<i>${esc(x)}</i>` : ''}</li>`); }));
+    runMenu.blocks.forEach(b => b.rows.forEach(r => { rowIdx.set(r, items.length); const x = sumBits(r).join(' · '); items.push(`<li data-k="${items.length}"><span>${esc(b.title)}</span><b>${esc(rowHead(r))}</b>${x ? `<i>${esc(x)}</i>` : ''}</li>`); }));
     tq('[data-wk-t-list]').innerHTML = items.join(''); lastHi = -1;
   }
   function highlight() {
@@ -1109,23 +1180,27 @@
   }
 
   function nextStep() {
+    const wasPaused = pausedAt != null, re = repElapsed();
     idx = phase === 'ready' ? 0 : idx + 1;
     // 出發間隔：休息＝下一次出發時間 − 已經過的時間；已經過了就直接出發
     while (idx < seq.length && seq[idx].kind === 'rest' && seq[idx].dyn) {
-      seq[idx].sec = seq[idx].sendoff - (now() - repT0);
+      seq[idx].sec = seq[idx].sendoff - re;
       if (seq[idx].sec > 0.3) break;
       idx += 1;
     }
     if (idx >= seq.length) { finish(); return; }
     const cur = seq[idx];
     begin(cur.kind);
-    if (cur.kind === 'swim') { SND.go(); if (cur.first) repT0 = now(); }
-    else if (!cur.broken && cur.sec >= 6) { const nx = nextSwim(idx + 1); if (nx) say(`${nx.row !== cur.row ? '換下一項。' : '下一趟，'}${sayRep(nx)}`); }
+    repT0 = now() - re;
+    if (cur.kind === 'swim') { if (!wasPaused) SND.go(); if (cur.first) repT0 = now(); }
+    else if (!wasPaused && !cur.broken && cur.sec >= 6) { const nx = nextSwim(idx + 1); if (nx) say(`${nx.row !== cur.row ? '換下一項。' : '下一趟，'}${sayRep(nx)}`); }
+    if (wasPaused) pauseTimer();
+    syncControls();
   }
-  function wall(auto) {
+  function wall(auto, skipped = false) {
     if (phase !== 'swim') return;
     const cur = seq[idx];
-    log.push({ where: `${cur.b.title}・${rowHead(cur.row)} ${(cur.row.sets || 1) > 1 ? `第 ${cur.s} 組` : ''}第 ${cur.r} 趟${cur.segs > 1 ? `第 ${cur.g} 段` : ''}`, target: cur.target, actual: auto ? null : elapsed() });
+    log.push({ where: `${cur.b.title}・${rowHead(cur.row)} ${(cur.row.sets || 1) > 1 ? `第 ${cur.s} 組` : ''}第 ${cur.r} 趟${cur.segs > 1 ? `第 ${cur.g} 段` : ''}`, target: cur.target, actual: auto ? null : elapsed(), skipped });
     renderLog();
     nextStep();
   }
@@ -1134,6 +1209,7 @@
     const row = (seq[idx] || seq[0]).row;
     if (kind === 'r' && phase === 'rest' && seq[idx].rowBreak) kind = 'b';
     let changed = false;
+    remember('調秒');
     for (let j = idx; j < seq.length; j++) {
       const x = seq[j]; if (x.row !== row) continue;
       if (kind === 't' && x.kind === 'swim' && x.target != null) { x.target = Math.max(1, x.target + d * (x.segD / row.dist)); changed = true; }
@@ -1144,18 +1220,18 @@
       if (kind === 'b' && x.kind === 'rest' && x.rowBreak) { x.sec = Math.max(0, x.sec + d); changed = true; }
     }
     const v = tq('[data-wk-t-adjv]');
-    if (!changed) { v.textContent = kind === 't' ? '這一列沒有目標秒數可調。' : '這一列後面沒有休息可調。'; return; }
+    if (!changed) { undoSteps.pop(); syncControls(); v.textContent = kind === 't' ? '這一列沒有目標秒數可調。' : '這一列後面沒有休息可調。'; return; }
     const a = adj.get(row) || { t: 0, r: 0, b: 0 };
     a[kind] += d; adj.set(row, a);
     if (phase === 'swim' && kind === 't' && seq[idx].target > elapsed()) beeped.t = 0;
     if (phase === 'rest' && (kind === 'r' || kind === 'b')) { const left = seq[idx].sec - elapsed(); [1, 2, 3].forEach(n => { if (left > n) delete beeped['r' + n]; }); }
     v.textContent = adjText(row);
-    frame();
+    frame(true);
   }
-  const logLine = (x) => (x.actual == null ? `${x.where}：（未按到牆）` : x.target == null ? `${x.where}：${fmt(x.actual)}` : `${x.where}：${fmt(x.actual)}（目標 ${fmt(x.target)}，${x.actual - x.target <= 0 ? '' : '+'}${(x.actual - x.target).toFixed(1)}）`);
+  const logLine = (x) => (x.actual == null ? `${x.where}：（${x.skipped ? '手動跳過' : '未按到牆'}）` : x.target == null ? `${x.where}：${fmt(x.actual)}` : `${x.where}：${fmt(x.actual)}（目標 ${fmt(x.target)}，${x.actual - x.target <= 0 ? '' : '+'}${(x.actual - x.target).toFixed(1)}）`);
   function renderLog() {
     tq('[data-wk-t-log]').innerHTML = log.slice().reverse().slice(0, 6).map(x => {
-      if (x.actual == null) return `<li>${esc(x.where)}<span>（未按到牆）</span></li>`;
+      if (x.actual == null) return `<li>${esc(x.where)}<span>（${x.skipped ? '手動跳過' : '未按到牆'}）</span></li>`;
       if (x.target == null) return `<li>${esc(x.where)}<span>${fmt(x.actual)}</span></li>`;
       const d = x.actual - x.target;
       return `<li>${esc(x.where)}<span class="${d <= 0 ? 'is-ok' : 'is-slow'}">${fmt(x.actual)}（${d <= 0 ? '' : '+'}${d.toFixed(1)}）</span></li>`;
@@ -1164,19 +1240,21 @@
   function finish() {
     phase = 'done'; clearInterval(timer); SND.done(); say('課表完成');
     tq('[data-wk-t-phase]').textContent = '完成';
-    tq('[data-wk-t-row]').textContent = M().name || '';
+    tq('[data-wk-t-row]').textContent = runMenu.name || '';
     const aimed = log.filter(x => x.actual != null && x.target != null), hit = aimed.filter(x => x.actual <= x.target).length;
     tq('[data-wk-t-clock]').textContent = aimed.length ? `${hit}/${aimed.length}` : '✓';
     tq('[data-wk-t-sub]').textContent = aimed.length ? '趟達到目標秒數' : '課表跑完了';
     const changed = [...adj.entries()].filter(([, a]) => a.t || a.r || a.b).map(([row]) => `${rowHead(row)}：${adjText(row).replace('這一列已調整：', '').replace('（只影響這次）', '')}`);
-    tq('[data-wk-t-drill]').textContent = changed.length ? '這次臨場調整過：' + changed.join('；') : '';
+    tq('[data-wk-t-drill]').textContent = changed.length || edits.length ? '這次臨場調整過：' + edits.concat(changed).join('；') : '';
     tq('[data-wk-t-adjv]').textContent = '';
     tq('[data-wk-wall]').hidden = true;
     tq('[data-wk-t-copy]').hidden = !log.length;
+    syncControls();
     if (wake) { wake.release().catch(() => {}); wake = null; }
   }
-  function frame() {
-    if (pausedAt || phase === 'done') return;
+  function frame(renderPaused = false) {
+    if ((pausedAt != null && !renderPaused) || phase === 'done') return;
+    const running = pausedAt == null;
     highlight();
     const e = elapsed();
     const cur = seq[idx];
@@ -1184,73 +1262,200 @@
     tq('[data-wk-wall]').hidden = phase !== 'swim';
     if (phase === 'ready') {
       const left = 10 - e, first = seq[0];
-      ph.textContent = '準備'; ck.textContent = fmt0(Math.max(0, Math.ceil(left))); ck.classList.remove('is-over');
+      ph.textContent = running ? '準備' : '準備 · 已暫停'; ck.textContent = fmt0(Math.max(0, Math.ceil(left))); ck.classList.remove('is-over');
       where.textContent = first.b.title; rowEl.textContent = swimLine(first);
       sub.textContent = first.target ? `第一趟目標 ${fmt(first.target)}` : '這一列沒有目標秒數，到牆按一下';
       dr.textContent = drillLine(first.row);
-      [3, 2, 1].forEach(n => { if (left <= n && !beeped['r' + n]) { beeped['r' + n] = 1; SND.tick(); } });
-      if (left <= 0) nextStep();
+      if (running) [3, 2, 1].forEach(n => { if (left <= n && !beeped['r' + n]) { beeped['r' + n] = 1; SND.tick(); } });
+      if (running && left <= 0) nextStep();
       return;
     }
     where.textContent = cur.b.title;
     if (phase === 'swim') {
       rowEl.textContent = swimLine(cur); dr.textContent = drillLine(cur.row);
-      ph.textContent = '游'; ck.textContent = fmt(e);
+      ph.textContent = running ? '游' : '游 · 已暫停'; ck.textContent = fmt(e);
       let txt;
       if (cur.target == null) { txt = '沒有目標秒數，到牆按一下'; ck.classList.remove('is-over'); }
       else {
         const over = e - cur.target;
         txt = over < 0 ? `目標 ${fmt(cur.target)}（還有 ${fmt(-over)}）` : `目標 ${fmt(cur.target)} 已到`;
         ck.classList.toggle('is-over', over >= 0);
-        if (over >= 0 && !beeped.t) { beeped.t = 1; SND.target(); if (S.autorest) { wall(true); return; } }
+        if (running && over >= 0 && !beeped.t) { beeped.t = 1; SND.target(); if (S.autorest) { wall(true); return; } }
       }
       if (cur.sendoff != null) {
-        const left = cur.sendoff - (now() - repT0);
+        const left = cur.sendoff - repElapsed();
         txt += `　下次出發 ${fmt0(Math.max(0, Math.ceil(left)))}`;
-        [3, 2, 1].forEach(n => { if (left <= n && !beeped['s' + n]) { beeped['s' + n] = 1; SND.tick(); } });
-        if (left <= 0) { wall(true); return; } // 出發時間到了還沒按到牆：照出發間隔直接下一趟
+        if (running) [3, 2, 1].forEach(n => { if (left <= n && !beeped['s' + n]) { beeped['s' + n] = 1; SND.tick(); } });
+        if (running && left <= 0) { wall(true); return; } // 出發時間到了還沒按到牆：照出發間隔直接下一趟
       }
       sub.textContent = txt;
     } else if (phase === 'rest') {
       const left = cur.sec - e, nx = nextSwim(idx + 1);
       ph.textContent = cur.rowBreak ? '項目間休息' : cur.broken ? '分段休息' : cur.setBreak ? '組間休息' : cur.dyn ? '等出發' : '休息';
+      if (!running) ph.textContent += ' · 已暫停';
       ck.textContent = fmt0(Math.max(0, Math.ceil(left))); ck.classList.remove('is-over');
       rowEl.textContent = nx ? (cur.rowBreak ? '下一項：' : '下一趟：') + swimLine(nx) : '';
       sub.textContent = nx && nx.target ? `目標 ${fmt(nx.target)}` : '';
       dr.textContent = nx ? (nx.row !== cur.row ? '換下一列　' : '') + drillLine(nx.row) : '';
-      [3, 2, 1].forEach(n => { if (left <= n && !beeped['r' + n]) { beeped['r' + n] = 1; SND.tick(); } });
-      if (left <= 0) nextStep();
+      if (running) [3, 2, 1].forEach(n => { if (left <= n && !beeped['r' + n]) { beeped['r' + n] = 1; SND.tick(); } });
+      if (running && left <= 0) nextStep();
     }
   }
   function openTimer() {
+    runMenu = structuredClone(M());
     build();
     if (!seq.length) { alert('課表是空的，先加一列。'); return; }
     try { ac = ac || new (window.AudioContext || window.webkitAudioContext)(); ac.resume(); } catch (_) { ac = null; }
     tone(440, 40); // 使用者按下的當下解鎖聲音（iPhone 要求）
     holdScreen();
-    log = []; adj = new Map(); renderLog(); renderSide(); idx = 0;
+    log = []; adj = new Map(); undoSteps = []; edits = []; renderLog(); renderSide(); idx = 0;
+    tq('[data-wk-t-notice]').textContent = '';
     tq('[data-wk-t-adjv]').textContent = ''; tq('[data-wk-t-copy]').hidden = true;
     T.hidden = false; document.body.classList.add('wk-running');
     tq('[data-wk-pause]').textContent = '暫停';
     begin('ready');
+    repT0 = now(); syncControls();
     say(`準備。第一趟，${sayRep(seq[0])}`);
     clearInterval(timer); timer = setInterval(frame, 100); frame();
   }
   function closeTimer() {
+    if (liveDialog.open) liveDialog.close();
     clearInterval(timer); phase = 'done'; T.hidden = true; document.body.classList.remove('wk-running');
     try { window.speechSynthesis && speechSynthesis.cancel(); } catch (_) { /* 無 */ }
     if (wake) { wake.release().catch(() => {}); wake = null; }
   }
-  tq('[data-wk-wall]').addEventListener('click', () => wall(false));
+  tq('[data-wk-wall]').addEventListener('click', () => { if (phase === 'swim') { remember('到牆'); wall(false); frame(true); } });
   tq('[data-wk-stop]').addEventListener('click', closeTimer);
-  tq('[data-wk-skip]').addEventListener('click', () => { if (phase === 'swim') wall(true); else if (phase !== 'done') nextStep(); });
+  tq('[data-wk-skip]').addEventListener('click', () => {
+    if (phase === 'done') return;
+    remember('跳過');
+    if (phase === 'swim') wall(true, true); else nextStep();
+    tq('[data-wk-t-notice]').textContent = '誤按可用「撤銷跳過」回復；可逐步撤銷最近 10 次操作。';
+    frame(true);
+  });
+  tq('[data-wk-undo]').addEventListener('click', undoTimer);
   tq('[data-wk-pause]').addEventListener('click', (ev) => {
     if (phase === 'done') return;
-    if (pausedAt) { const dp = now() - pausedAt; paused += dp; repT0 += dp; pausedAt = 0; ev.target.textContent = '暫停'; }
-    else { pausedAt = now(); ev.target.textContent = '繼續'; }
+    if (pausedAt != null) { const dp = now() - pausedAt; paused += dp; repT0 += dp; pausedAt = null; ev.target.textContent = '暫停'; tq('[data-wk-t-notice]').textContent = ''; }
+    else pauseTimer();
+    frame(true);
+  });
+  const liveRows = () => runMenu.blocks.flatMap(b => b.rows.map(row => ({ b, row })));
+  const liveField = k => liveDialog.querySelector(`[data-live="${k}"]`);
+  let liveTargetValue = '';
+  function fillLiveForm() {
+    const { row } = liveRows()[+tq('[data-wk-live-row]').value];
+    const current = phase !== 'ready' && seq[idx].row === row ? seq[idx] : null;
+    const a = adj.get(row) || { t: 0, r: 0, b: 0 }, tg = targetOf(row);
+    const input = (key, label, value, attrs = '') => `<label class="wk-live-field">${label}<input data-live="${key}" value="${esc(value == null ? '' : value)}" ${attrs}></label>`;
+    const select = (key, label, value, options) => `<label class="wk-live-field">${label}<select data-live="${key}">${Object.entries(options).map(([k, v]) => `<option value="${esc(k)}"${k === value ? ' selected' : ''}>${esc(v)}</option>`).join('')}</select></label>`;
+    const time = (key, label, value) => input(key, label, value == null ? '' : value === 0 ? '0' : showT(value, 2), 'type="text" placeholder="秒或分:秒" autocomplete="off"');
+    tq('[data-wk-live-progress]').textContent = current
+      ? `目前第 ${current.s} 組、第 ${current.r} 趟${phase === 'rest' ? '後的休息' : current.segs > 1 ? `、第 ${current.g} 段` : ''}。組數至少 ${current.s}，每組趟數至少 ${current.r}；前面紀錄保留。`
+      : '這個項目尚未開始，可以調整整個項目。';
+    tq('[data-wk-live-fields]').innerHTML = [
+      input('sets', '這項總組數', row.sets, `type="number" inputmode="numeric" min="${current ? current.s : 1}" max="20"`),
+      input('reps', '每組總趟數', row.reps, `type="number" inputmode="numeric" min="${current ? current.r : 1}" max="99"`),
+      input('dist', '每趟距離（m）', row.dist, 'type="number" inputmode="numeric" min="10" max="3000"'),
+      select('stroke', '泳式', row.stroke, SZH), select('mode', '游法', row.mode, MODES),
+      time('target', '目標秒數（留白不設）', tg && tg.t ? Math.max(1, tg.t + a.t) : null),
+      select('restMode', '間歇方式', row.restMode, { rest: '每趟休息', sendoff: '固定出發間隔' }),
+      time('rest', '每趟休息', Math.max(0, row.rest + a.r)),
+      time('sendoff', '出發間隔', row.sendoff > 0 ? Math.max(5, row.sendoff + a.r) : 0),
+      time('setRest', '組間休息', row.setRest > 0 ? Math.max(0, row.setRest + a.r) : 0),
+      time('rowRest', '項目間休息（留白沿用）', row.rowRest == null ? (a.b && current && current.rowBreak ? current.sec : null) : Math.max(0, row.rowRest + a.b)),
+      select('drill', 'Drill 動作', row.drill, { '': '未選擇', ...Object.fromEntries(V.drills.map(d => [d.id, d.n])), ...Object.fromEntries(S.myDrills.map(d => ['my:' + d.id, d.name])) }),
+      `<label class="wk-live-field wk-live-wide">備註／動作提醒<textarea data-live="note" rows="2" maxlength="2000">${esc(row.note)}</textarea></label>`,
+    ].join('');
+    liveTargetValue = liveField('target').value;
+    tq('[data-wk-live-error]').textContent = '';
+  }
+  tq('[data-wk-live-open]').addEventListener('click', () => {
+    if (phase === 'done') return;
+    pauseTimer(); frame(true);
+    const available = new Set(seq.slice(idx).map(st => st.row));
+    tq('[data-wk-live-row]').innerHTML = liveRows().map(({ b, row }, i) => available.has(row)
+      ? `<option value="${i}">${i + 1}. ${esc(b.title)} · ${esc(rowHead(row))}</option>` : '').join('');
+    fillLiveForm(); liveDialog.showModal();
+  });
+  tq('[data-wk-live-row]').addEventListener('change', fillLiveForm);
+  function closeLiveForm() {
+    liveDialog.close();
+    tq('[data-wk-t-notice]').textContent = '計時保持暫停。確認後按「繼續」。';
+    tq('[data-wk-live-open]').focus();
+  }
+  tq('[data-wk-live-cancel]').addEventListener('click', closeLiveForm);
+  liveDialog.addEventListener('cancel', e => { e.preventDefault(); closeLiveForm(); });
+  tq('[data-wk-live-form]').noValidate = true;
+  tq('[data-wk-live-form]').addEventListener('submit', e => {
+    e.preventDefault();
+    const { b, row } = liveRows()[+tq('[data-wk-live-row]').value];
+    const current = phase !== 'ready' && seq[idx].row === row ? seq[idx] : null;
+    let invalidField = null;
+    const invalid = (key, message) => { invalidField = liveField(key); throw new Error(message); };
+    try {
+      const number = (key, min, max, label) => {
+        const n = Number(liveField(key).value);
+        if (!Number.isInteger(n) || n < min || n > max) invalid(key, `${label}請填 ${min}–${max} 的整數。`);
+        return n;
+      };
+      const time = (key, optional = false) => {
+        const raw = liveField(key).value.trim().replace('：', ':');
+        if (optional && !raw) return null;
+        if (!/^\d+(?:\.\d+)?$/.test(raw) && !/^\d+:[0-5]?\d(?:\.\d+)?$/.test(raw)) invalid(key, '時間請填非負秒數或分:秒，例如 30、1:30。');
+        const parts = raw.split(':'), value = parts.length === 2 ? +parts[0] * 60 + +parts[1] : +raw;
+        if (!Number.isFinite(value) || value > 86400) invalid(key, '時間請填 0–86400 秒。');
+        return value;
+      };
+      const values = { sets: number('sets', current ? current.s : 1, 20, '總組數'), reps: number('reps', current ? current.r : 1, 99, '每組趟數'), dist: number('dist', 10, 3000, '距離'),
+        rest: time('rest'), setRest: time('setRest'), sendoff: time('sendoff'), rowRest: time('rowRest', true), restAuto: false,
+        stroke: liveField('stroke').value, mode: liveField('mode').value, restMode: liveField('restMode').value, drill: liveField('drill').value, note: liveField('note').value.slice(0, 2000) };
+      if (!Object.hasOwn(SZH, values.stroke) || !Object.hasOwn(MODES, values.mode) || !['rest', 'sendoff'].includes(values.restMode)) invalid('stroke', '請選擇有效的泳式、游法與間歇方式。');
+      const target = time('target', true);
+      if (target !== null && target < 1) invalid('target', '目標至少 1 秒；不設目標請留白。');
+      if (values.restMode === 'sendoff' && values.sendoff < 5) invalid('sendoff', '出發間隔至少 5 秒。');
+      if (current && row.brokenEvery > 0 && (current.kind === 'swim' || current.broken)) {
+        const doneDistance = row.brokenEvery * (current.g - (current.kind === 'swim' ? 1 : 0));
+        if (values.dist <= doneDistance) invalid('dist', `距離需大於這一趟已完成的 ${doneDistance} m。`);
+      }
+      const a = adj.get(row);
+      if (liveField('target').value !== liveTargetValue || (a && a.t)) Object.assign(values, { int: target == null ? 'none' : 'custom', target, intLabel: '' });
+      const before = rowHead(row), priorAdjustment = adjText(row);
+      remember('課表修改');
+      Object.assign(row, values); adj.delete(row);
+      const start = seq.findIndex((st, i) => i >= idx && st.row === row);
+      let end = start; while (end < seq.length && seq[end].row === row) end++;
+      const rows = liveRows(), tg = targetOf(row);
+      let replacement = rowSteps(row, b, tg && tg.t ? tg.t : null, rows.findIndex(x => x.row === row) < rows.length - 1);
+      const compare = (x, y) => x.s - y.s || x.r - y.r || x.g - y.g || (x.kind === 'rest' ? 1 : 0) - (y.kind === 'rest' ? 1 : 0);
+      if (current) replacement = replacement.filter(st => compare(st, current) >= 0);
+      const sameStep = !current || (replacement.length && compare(replacement[0], current) === 0);
+      seq = seq.slice(0, start).concat(replacement, seq.slice(end));
+      if (priorAdjustment) edits.push(before + '：' + priorAdjustment);
+      edits.push(`臨場修改：${before} → ${rowHead(row)}；${sumBits(row).join('；')}`);
+      if (current) {
+        if (idx >= seq.length) finish();
+        else if (sameStep) {
+          phase = seq[idx].kind;
+          if (seq[idx].dyn) seq[idx].sec = Math.max(0, seq[idx].sendoff - (repElapsed() - elapsed()));
+          beeped = {};
+        } else {
+          const re = repElapsed(); begin(seq[idx].kind); repT0 = seq[idx].first ? now() : now() - re; pauseTimer();
+          if (seq[idx].dyn) seq[idx].sec = Math.max(0, seq[idx].sendoff - re);
+        }
+      }
+      liveDialog.close(); renderSide(); syncControls(); frame(true);
+      tq('[data-wk-t-adjv]').textContent = '';
+      tq('[data-wk-t-notice]').textContent = phase === 'done' ? '後續趟數已調整，這次訓練完成；可撤銷課表修改。' : '已套用到目前與後續進度，保持暫停；已完成紀錄保留。按「繼續」接著練，也可撤銷修改。';
+      tq('[data-wk-undo]').focus();
+    } catch (error) {
+      tq('[data-wk-live-error]').textContent = error.message;
+      if (invalidField) invalidField.focus();
+    }
   });
   tq('[data-wk-t-copy]').addEventListener('click', async (ev) => {
-    const text = [`${M().name || '課表'}　${new Date().toLocaleString('zh-TW')}`].concat(log.map(logLine)).join('\n');
+    const changed = [...adj.entries()].map(([row]) => `${rowHead(row)}：${adjText(row)}`);
+    const text = [`${runMenu.name || '課表'}　${new Date().toLocaleString('zh-TW')}`].concat(log.map(logLine), edits, changed).join('\n');
     try { await navigator.clipboard.writeText(text); ev.target.textContent = '已複製'; } catch (_) { prompt('複製這次結果：', text); }
     setTimeout(() => { ev.target.textContent = '複製這次結果'; }, 2000);
   });

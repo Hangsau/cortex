@@ -14,7 +14,7 @@
   shell.innerHTML = `
     <header class="ws-hero">
       <div><p class="ws-eyebrow">一堂課，從一個目標開始</p><h1>今天，游得有方向。</h1><p class="ws-lead">排好節奏，帶著課表下水。</p></div>
-      <div class="ws-hero-side"><span class="ws-version">新版試用</span><p data-ws-save role="status">已儲存在此瀏覽器</p></div>
+      <div class="ws-hero-side"><span class="ws-version">排課與間歇計時</span><p data-ws-save role="status">已儲存在此瀏覽器</p></div>
     </header>
     <nav class="ws-tabs" role="tablist" aria-label="排課工作台">
       <button id="ws-tab-plan" role="tab" aria-controls="ws-panel-plan" aria-selected="true" data-ws-tab="plan"><span>01</span> 排課</button>
@@ -46,7 +46,7 @@
           <p class="ws-estimate">時間依目標與休息估算；沒有目標的項目使用估計配速。</p>
         </section>
         <section class="ws-intent"><label for="ws-intent">這堂課想練什麼？</label><textarea id="ws-intent" rows="3" maxlength="2000" placeholder="例如：累的時候，仍能維持每一下划水的品質。" data-ws-intent></textarea><p>留下目標，排課與回顧都更有方向。</p></section>
-        <p class="ws-local-note">新版與原版分開保存。課表存在這台裝置的瀏覽器。</p>
+        <p class="ws-local-note">課表存在這台裝置的瀏覽器；用分享連結帶到其他裝置。</p>
       </aside>
     </div>
     <footer class="ws-bottom"><div><strong data-ws-bottom-distance>0 m</strong><span data-ws-bottom-time>還沒有訓練項目</span></div><div class="ws-bottom-actions"><button type="button" class="ws-preview" data-ws-preview>預覽課表</button><button type="button" class="ws-start" data-ws-start>開始計時 <span aria-hidden="true">↗</span></button></div></footer>
@@ -99,7 +99,7 @@
     $('[data-ws-export]').disabled = !s.count;
     $('[data-ws-save]').textContent = s.saved ? '已儲存在此瀏覽器' : '目前無法儲存，請先下載課表';
     $('[data-ws-save]').classList.toggle('is-error', !s.saved);
-    $('[data-ws-import]').textContent = s.imported ? '已帶入原版課表；新版修改另存。' : '新版修改另存，可隨時回原版比較。';
+    $('[data-ws-import]').textContent = s.imported ? '已保留原版與試用版課表；可從課表選單切換。' : '';
     if (document.activeElement !== $('[data-ws-intent]')) $('[data-ws-intent]').value = s.menu.intent || '';
     $('[data-ws-goal-text]').textContent = s.menu.intent || '還沒寫下這堂課的目標。可以先在「這堂課想練什麼？」記下一句話。';
     const list = $('[data-ws-block-totals]'), svg = $('[data-ws-volume]');

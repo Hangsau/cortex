@@ -43,7 +43,6 @@
     <h1>課表與間歇計時</h1>
     <p class="lc-lead">填上各式成績與目標賽事，看現在該練什麼、推薦的主課怎麼開；排出整份課表（可混合泳式、挑 drill、帶器材），再變成間歇計時，出發前、到目標秒數、休息結束都有提示音。</p>
   </header>
-  {{ if not .Params.workout_studio }}<p><a class="wk-btn" href="{{ relURL "vortex/workout-studio/" }}">試用新版排課工作台 ↗</a></p>{{ end }}
 
   <nav class="wk-steps" aria-label="步驟">
     <a href="#wk-pb">① 成績</a><a href="#wk-css">② 換算</a><a href="#wk-pz">③ 週期與建議</a><a href="#wk-sprint">④ 衝刺換算</a><a href="#wk-menu">⑤ 排課表</a><a href="#wk-sum">⑥ 清單</a><a href="#wk-mine">⑦ 我的 drill 與器材</a>
@@ -158,7 +157,7 @@
     <ul class="wk-mylist" data-wk-elist></ul>
   </section>
 
-  <p class="t-legend muted">公式與處方來源：Vortex 週期化章的課表設計（自動課表生成參數、階段配置、週組裝）、減量與能量系統節；每個數字旁標證據等級（🟢 研究實證、🟡 教科書或舊文獻、🟠 實務慣例、🔵 本站操作模型）。drill 與緩和的預設休息來自 swim-coach 規則表（{{ $r.source.commit }}）。所有成績、課表、自訂 drill 只存在這台裝置的瀏覽器。</p>
+  <p class="t-legend muted">公式與處方來源：Vortex 週期化章的課表設計（自動課表生成參數、階段配置、週組裝）、減量與能量系統節；每個數字旁標證據等級（🟢 研究實證、🟡 教科書或舊文獻、🟠 實務慣例、🔵 本站操作模型）。drill 與緩和的預設休息來自 swim-coach 規則表（{{ $r.source.commit }}）。課表、自訂 drill 只存在這台裝置的瀏覽器；成績重新開頁後清空。</p>
 </article>
 
 <div class="wk-toast" data-wk-toast role="status" aria-live="polite" hidden></div>
@@ -172,19 +171,33 @@
   <p class="wk-t-sub" data-wk-t-sub></p>
   <p class="wk-t-drill" data-wk-t-drill></p>
   <button type="button" class="wk-t-wall" data-wk-wall>到牆</button>
+  <div class="wk-t-ctrl">
+    <button type="button" class="wk-btn" data-wk-pause>暫停</button>
+    <button type="button" class="wk-btn" data-wk-skip>跳過這一段</button>
+    <button type="button" class="wk-btn" data-wk-undo disabled>撤銷上次操作</button>
+    <button type="button" class="wk-btn" data-wk-live-open>暫停修改課表</button>
+    <button type="button" class="wk-btn" data-wk-t-copy hidden>複製這次結果</button>
+  </div>
+  <p class="wk-t-notice" data-wk-t-notice role="status" aria-live="polite"></p>
   <div class="wk-t-adj" aria-label="臨場調整">
     <div class="wk-t-adjrow"><span>目標</span><button type="button" data-adj="t:-1">−1 秒</button><button type="button" data-adj="t:1">+1 秒（放慢）</button></div>
     <div class="wk-t-adjrow"><span>休息</span><button type="button" data-adj="r:-10">−10 秒</button><button type="button" data-adj="r:10">+10 秒</button></div>
     <p class="wk-t-adjv" data-wk-t-adjv></p>
   </div>
-  <div class="wk-t-ctrl">
-    <button type="button" class="wk-btn" data-wk-pause>暫停</button>
-    <button type="button" class="wk-btn" data-wk-skip>跳過這一段</button>
-    <button type="button" class="wk-btn" data-wk-t-copy hidden>複製這次結果</button>
-  </div>
   <ol class="wk-t-log" data-wk-t-log></ol>
  </div>
  <aside class="wk-t-side" aria-label="整份課表"><p class="wk-t-sidet">整份課表</p><ol class="wk-t-list" data-wk-t-list></ol></aside>
+ <dialog class="wk-live" data-wk-live aria-labelledby="wk-live-title">
+  <form data-wk-live-form>
+   <h2 id="wk-live-title">調整這次訓練</h2>
+   <p>計時已暫停。修改目前或後續項目，保留已完成紀錄與本段已經過的時間；只影響這次訓練。</p>
+   <label class="wk-live-field">要修改的項目<select data-wk-live-row></select></label>
+   <p data-wk-live-progress></p>
+   <div class="wk-live-fields" data-wk-live-fields></div>
+   <p class="wk-live-error" data-wk-live-error role="alert"></p>
+   <div class="wk-live-actions"><button type="button" class="wk-btn" data-wk-live-cancel>取消修改</button><button type="submit" class="wk-btn wk-btn--main">套用，保持暫停</button></div>
+  </form>
+ </dialog>
 </div>
 
 <script type="application/json" id="wk-rules">{{ $r | jsonify | safeJS }}</script>
