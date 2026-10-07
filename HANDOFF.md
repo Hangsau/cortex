@@ -1,5 +1,14 @@
 # HANDOFF — my-site (Cortex)
 
+## 器材使用指南（2026-10-07）
+
+- 使用者方向：先上線詳細器材指南，再根據使用方法擴充推薦課表。本輪不改自動配速、推薦演算法或計時狀態。
+- 新頁 `/vortex/instructional/equipment-guide/`，沿用文章版型與章節錨點；涵蓋划手板、蛙鞋、中央呼吸管、8 字球、浮板、阻力傘、四類繩、腳踝帶及節拍器，包含操作步驟、drill 配對、適用／退階條件與示例。
+- 來源 `TheVortexProject/Instructional/游泳器材使用指南.md`，經 `sync_vortex.py` 同步；網站首頁、Vortex 目錄、排課練習庫提供入口。canonical 通知流程已補 Instructional 路徑，日後指南修改能自動同步。
+- 同步修正 `UDKLow1` 為「水面呼吸管蝶腿」，保留 ID/URL；移除一般呼吸管可供水下呼吸的錯誤描述，原未識別來源撤下，改引 DAN 的功能說明。指引與處方設計分開。
+- 研究來源及執行／驗收記錄：`research/swim-equipment-2026-10-07/`。全站驗收與部署結果完成後補記。
+- 後續：器材配速須依同條件參照／手動／主觀努力分流；`FrPad1`、`Br5` 需複審；本輪沒有直接啟用自動器材推薦。
+
 ## 無賽期的訓練目的推薦（2026-10-06）
 
 - **已發布**：`21bb34a`，GitHub Actions `37390547176` build / deploy 成功，正式入口仍是 `/vortex/workout/`。

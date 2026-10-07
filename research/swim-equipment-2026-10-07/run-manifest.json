@@ -1,0 +1,222 @@
+{
+  "record_type": "run_manifest",
+  "run_id": "swim-equipment-2026-10-07",
+  "question": "游泳器材的目的、使用時機、方法、drill 與主課配對、移除器材後的檢查，以及 Vortex 現有資料與計時器適配。",
+  "phase": "publication",
+  "started_at": "2026-10-07T03:29:38Z",
+  "evidence_profiles": [
+    "empirical_quantitative",
+    "practice_observation_model",
+    "mixed_cross_domain"
+  ],
+  "queries": [
+    {
+      "query": "swimming hand paddles fins 2023 37284541 training kinematics",
+      "channel": "web"
+    },
+    {
+      "query": "swimming pull buoy snorkel kickboard effects kinematics oxygen study",
+      "channel": "web"
+    },
+    {
+      "query": "swimming parachute tethered resisted assisted training randomized trial",
+      "channel": "web"
+    },
+    {
+      "query": "site.usms.org swimming equipment paddles fins snorkel pull buoy kickboard",
+      "channel": "web"
+    },
+    {
+      "query": "\"The influence of an 11-week resisted swim training program\"",
+      "channel": "web"
+    },
+    {
+      "query": "\"Velocity, Oxygen Uptake, and Metabolic Cost of Pull, Kick, and Whole-Body Swimming\"",
+      "channel": "web"
+    },
+    {
+      "query": "\"Effects of dry-land vs. resisted- and assisted-sprint\" site:pubmed.ncbi.nlm.nih.gov",
+      "channel": "web"
+    },
+    {
+      "query": "\"swimming\" \"snorkel\" kinematics 2023 2024 2025 site:pubmed.ncbi.nlm.nih.gov",
+      "channel": "web"
+    },
+    {
+      "query": "\"swimming\" \"kickboard\" kinematics site:pubmed.ncbi.nlm.nih.gov",
+      "channel": "web"
+    },
+    {
+      "query": "\"StrechCordz\" safety \"NZ\"",
+      "channel": "web"
+    },
+    {
+      "query": "Influence of hand paddles and fins on blood lactate heart rate perceived exertion behavior",
+      "channel": "web",
+      "purpose": "trace matched-speed study from 2023 references"
+    },
+    {
+      "query": "site.usms.org freestyle breathing snorkel swimming",
+      "channel": "web"
+    },
+    {
+      "query": "site.nzcordz.com product use care",
+      "channel": "web"
+    },
+    {
+      "query": "site.finisswim.com Positive Drive Fins technical sheet Tempo Trainer reference guide",
+      "channel": "web"
+    },
+    {
+      "query": "site.dan.org snorkels pros cons",
+      "channel": "web",
+      "purpose": "verify ordinary snorkel surface-air limitation"
+    }
+  ],
+  "checkpoints": [
+    {
+      "name": "existing_knowledge_search",
+      "status": "completed",
+      "note": "my-site drills/equipment/workout code; TheVortexProject canonical/Drills; swim-coach hestia RAW/digests. Local RAW contains interpretation and cannot be treated as verbatim original."
+    },
+    {
+      "name": "primary_source_comparison",
+      "status": "completed",
+      "note": "同速乳酸研究 vs 全力估算成本；急性 vs 長期；摘要與全文分開。"
+    },
+    {
+      "name": "reader_report",
+      "status": "completed",
+      "note": "REPORT.md 包含器材操作、四類繩、六組示例、七種課表目的與能力差異。"
+    },
+    {
+      "name": "structured_records",
+      "status": "completed",
+      "note": "16 sources、21 claims、12 decisions、2 tensions；來源狀態與決策狀態分列。"
+    },
+    {
+      "name": "validators",
+      "status": "passed",
+      "note": "records.json 三項驗證與 run-manifest.json 結構驗證均通過，0 errors / 0 warnings。驗證只檢查結構與追溯，不代表科學正確性認證。"
+    },
+    {
+      "name": "inventory_check",
+      "status": "completed",
+      "note": "Python YAML 計數確認 179 筆與器材標記數；本次修改僅 research 資料夾。"
+    },
+    {
+      "name": "canonical_integration",
+      "status": "not_performed",
+      "note": "研究任務；未修改或部署網站。UDKLow1 修正仍待實作。"
+    }
+  ],
+  "coverage_note": "定向研究，非系統性回顧。原始實驗、作者訓練指南與製造商操作說明分層；檢索工具不提供可靠總命中數。兒童、初學、成人健身、競技與鐵人場景分列，不將競技男性資料當作所有人的處方。",
+  "updated_at": "2026-10-07T03:44:18Z",
+  "status": "research_completed",
+  "inclusion_decisions": [
+    {
+      "source_ids": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S07",
+        "S08",
+        "S09",
+        "S10",
+        "S11",
+        "S12",
+        "S13",
+        "S14",
+        "S15",
+        "S16"
+      ],
+      "decision": "included",
+      "reason": "原始研究用於條件性效果；教練用於操作；原廠用於型號用途／操作；本地資料用於工具審計。各自角色分開。"
+    },
+    {
+      "identifier": "PMID 27373807 / DOI 10.1080/02640414.2016.1201210",
+      "decision": "not_used_for_claims",
+      "reason": "找到仰式划手板／阻力傘研究；PubMed 正文擷取只回頁尾，未依本地 RAW 推導效果。"
+    },
+    {
+      "identifier": "DOI 10.1080/14763141.2020.1770324",
+      "decision": "candidate_not_extracted",
+      "reason": "相關 11 週阻力協調研究；目前決策不需額外劑量外推，樣本重疊未釐清。"
+    },
+    {
+      "identifier": "PMCID PMC13286932",
+      "decision": "candidate_not_extracted",
+      "reason": "救生用蛙鞋情境不同，未用於一般泳式器材處方。"
+    },
+    {
+      "identifier": "2013 paddles/fins review",
+      "decision": "discovery_only",
+      "reason": "追溯原始研究，不把綜述作本次效果主要證據。"
+    },
+    {
+      "identifier": "retailer pages, forums, customer reviews",
+      "decision": "excluded_from_effect_claims",
+      "reason": "不用購物心得或行銷宣稱支持效果。"
+    },
+    {
+      "identifier": "local swim-coach RAW interpretations",
+      "decision": "audit_only",
+      "reason": "混入作者以外推論；估算成本／IdC 等需回原文，不能當逐字原始論文。"
+    }
+  ],
+  "failures_and_limits": [
+    {
+      "item": "PubMed pages intermittently return only HHS footer",
+      "action": "可讀摘要／搜尋原始摘要才擷取；27373807 不作效果主張。"
+    },
+    {
+      "item": "S03–S06",
+      "action": "本次只讀摘要；fulltext_status unknown，非聲稱全文不存在或已讀。"
+    },
+    {
+      "item": "S12–S13",
+      "action": "只擷取可讀原廠 PDF 說明，標 partial，不替代獨立成效研究。"
+    },
+    {
+      "item": "S01–S02 possible overlapping sample",
+      "action": "相同樣本特徵與倫理編號；未當成獨立複驗，也未聲稱已確定同一批人。"
+    },
+    {
+      "item": "No reliable total search hit counts",
+      "action": "不宣稱系統性回顧或用偽造命中數計算覆蓋率。"
+    }
+  ],
+  "unresolved_items": [
+    {
+      "priority": "high",
+      "item": "UDKLow1 錯誤宣稱一般呼吸管可支援持續水下呼吸",
+      "decision_id": "D11",
+      "next_action": "從 canonical 重新定義並同步網站；先核實既有來源。"
+    },
+    {
+      "priority": "normal",
+      "item": "器材及 pull 配速可沿用無器材參照",
+      "decision_id": "D10",
+      "next_action": "後續實作加入配速來源與同條件判斷。"
+    },
+    {
+      "priority": "normal",
+      "item": "FrPad1、Br5 的單一成功訊號可能過度推論",
+      "next_action": "內容複審，不把物件保持或靜止受力直接當成完整游有效性。"
+    },
+    {
+      "priority": "normal",
+      "item": "兒童劑量、通用配速修正、最佳器材占比",
+      "next_action": "不建立統一百分比；以能力與反應調整。"
+    }
+  ],
+  "artifacts": [
+    "REPORT.md",
+    "records.json",
+    "run-manifest.json"
+  ],
+  "stop_reason": "器材範圍、drill／主課配對、實務條件與系統審計皆已交付；限制與待修明列。更多廣泛檢索不改變目前決策。"
+}

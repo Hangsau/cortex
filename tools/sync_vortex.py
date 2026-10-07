@@ -146,6 +146,7 @@ SLUG_MAP = {
     "水下蝶腳感知橋接":      "underwater-dolphin-kick-bridge",
     "出發轉身感知橋接":      "starts-turns-bridge",
     # Instructional
+    "游泳器材使用指南":      "equipment-guide",
     "自由式深度技術分析":    "freestyle-technical-analysis",
     "自由式教學誤區深探":    "freestyle-teaching-errors",
     "仰式深度技術分析":      "backstroke-technical-analysis",
