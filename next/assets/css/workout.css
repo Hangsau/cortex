@@ -284,6 +284,24 @@ body.wk-running { overflow: hidden; }
   .wk-t-sidet { margin: 0 0 var(--s2); font: 700 var(--fs-m)/1.4 var(--f-sans); }
 }
 
+/* 多人水道：沿用課表欄位與表格，小螢幕只在出發表內橫捲。 */
+.wk-lane { min-width: 0; overflow-wrap: anywhere; }
+.wk-lane [hidden] { display: none; }
+.wk-lane .wk-field input { width: 100%; min-width: 0; }
+.wk-lane-person { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr) minmax(0, .7fr) auto; align-items: end; gap: var(--s2); padding: var(--s2) 0; border-bottom: 1px solid var(--rule); }
+.wk-lane-batch { margin: var(--s3) 0; min-width: 0; }
+.wk-lane .wk-tablewrap { max-width: 100%; }
+.wk-lane .wk-table { min-width: 560px; font-variant-numeric: tabular-nums; }
+.wk-lane .wk-table caption { text-align: left; padding: var(--s1); color: var(--ink-2); }
+.wk-lane .wk-table td { white-space: nowrap; }
+.wk-lane .wk-table tbody th { max-width: 160px; }
+.wk-lane textarea { width: 100%; min-height: 180px; padding: var(--s2); border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink); font: 400 var(--fs-m)/1.6 var(--f-sans); }
+.wk-lane textarea:focus-visible, .wk-lane .wk-tablewrap:focus-visible { outline: 3px solid var(--series); outline-offset: 1px; }
+@media (max-width: 600px) {
+  .wk-lane-person { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .wk-lane .wk-actions > .wk-btn { max-width: 100%; line-height: 1.4; padding-top: var(--s1); padding-bottom: var(--s1); }
+}
+
 /* 列印：只印課表清單（按「列印」時 JS 把清單複製到 body 最外層的 #wk-print） */
 #wk-print { display: none; }
 @media print {

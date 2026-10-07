@@ -25,6 +25,7 @@ deploy：push `hugo-source` → GitHub Actions 跑資料產生器後 `hugo --min
 | 改 Vortex 首頁／泳式頁／知識點頁／清單 | `next/layouts/_partials/vortex/{home,stroke,unit,next-read,list}.html`；分派在 `next/layouts/vortex/page.html` |
 | 改 Vortex 專頁（呼吸、週期化、ADM、心理、骨關節、動作圖譜） | `next/layouts/_partials/vortex/{breathing,periodization,adm-*,psychology-read,joints,movement}.html`；頁面檔在 `next/content/vortex/` |
 | 課表與間歇計時（CSS 換算、衝刺%、HIIT 計時） | `_partials/vortex/workout.html`＋`next/assets/js/workout.js`＋`workout.css`；配速、組型、週期、減量公式全讀 `data/periodization/`（set-design generator／phase_allocation／weekly_assembly、taper、structure.swim_annual_structure、zones.swim_energy_by_distance）；`next/data/swim_rules.json`（swim-coach 同步）只剩 drill／緩和預設休息；drill 清單讀 `data/vortex/drills.yaml`，器材中文名 `next/data/swim_equipment.yaml` |
+| 多人共用水道（名單、分批與手動出發表） | `_partials/vortex/workout-lane.html`＋`next/assets/js/workout-lane.js`；工作台入口在 `workout-studio.js`；`workout.js` 的唯讀 `recommendation()` 帶入單組。公式與邊界：`research/shared-lane-2026-10-08/`；計算／瀏覽器驗收：`tools/test_workout_lane.cjs`。名單只留本頁記憶體，沒有多人即時計時或個人 PB 套用 |
 | 改 Vortex 內容（泳式、drill、誤區、技術分析…） | **不在此 repo**：改 `TheVortexProject/canonical/` → `tools/sync_vortex.py`（CI 自動） |
 | Vortex 知識點雙向連結 | `tools/build_vortex_links.py` → `next/data/vortex_links.json`；測試 `tools/test_vortex_links.py` |
 | 練習篩選軸（標籤／排序） | `next/data/drill_axes.yaml`；篩選邏輯 `next/assets/js/filter.js`（通用多軸，ADM 標準頁共用） |

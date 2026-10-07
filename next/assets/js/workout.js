@@ -467,7 +467,7 @@
       ${!target || !target.t ? `<p class="wk-note">${esc(target && target.miss || '尚未設定目標')}。仍可加入組型；在下方填成績後換算，或在課表內改用自訂秒數。</p>` : ''}
       ${key === 'race_pace' ? '<p class="wk-note">參考的是所選距離的實測成績，不需要賽事日期。用短距離重複熟悉配速，也可搭配其他主課。</p>' : ''}
       ${key === 'lactate_tolerance' ? '<p class="wk-note">這類範例適用於已有規律訓練、能自行控速的泳者；配速與休息屬教練實務起點。</p>' : ''}
-      <div class="wk-actions"><button type="button" class="wk-btn wk-btn--main" data-wk-goal-add>加入目前主課</button><button type="button" class="wk-btn" data-wk-goal-new>另建課表</button></div>
+      <div class="wk-actions"><button type="button" class="wk-btn wk-btn--main" data-wk-goal-add>加入目前主課</button><button type="button" class="wk-btn" data-wk-goal-new>另建課表</button><button type="button" class="wk-btn" data-wk-goal-lane>用單組安排多人</button></div>
       <details class="wk-goal-details"><summary>配速依據與調整提示</summary><p>配速依據：${esc(basis)}。</p><p>組型參考：${esc(x.why)}。</p><p>調整提示：${esc(stop)}</p><p class="muted">提示供你現場判斷，計時器不會自動判定達標或退出。</p></details></div>`;
   }
   function initGoals() {
@@ -1582,6 +1582,10 @@
   // 工作台只透過這個介面操作同一套課表與計時邏輯；資料輸出可交給日後的 AI 服務。
   if (studio) {
     root.workout = Object.freeze({
+      recommendation() {
+        const x = goalSet();
+        return { name: x.name, strokeLabel: SZH[x.row.stroke], row: JSON.parse(JSON.stringify(x.row)) };
+      },
       snapshot() {
         const rows = M().blocks.flatMap(b => b.rows);
         return JSON.parse(JSON.stringify({ menu: M(), saved: savedOk, imported: !!importedState,

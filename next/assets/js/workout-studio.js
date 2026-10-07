@@ -25,7 +25,7 @@
     <div class="ws-layout">
       <div class="ws-panels">
         <section id="ws-panel-plan" role="tabpanel" aria-labelledby="ws-tab-plan" tabindex="0">
-          <div class="ws-intro"><div><h2>今天的課表</h2><p>從暖身到緩和，把每一段排成自己的節奏。</p></div><div class="ws-entry-actions"><button class="ws-quiet" type="button" data-ws-recommend>依目的選主課 ↗</button><button class="ws-quiet" type="button" data-ws-sample>試用示範課表 ↗</button></div></div>
+          <div class="ws-intro"><div><h2>今天的課表</h2><p>從暖身到緩和，把每一段排成自己的節奏。</p></div><div class="ws-entry-actions"><button class="ws-quiet" type="button" data-ws-recommend>依目的選主課 ↗</button><button class="ws-quiet" type="button" data-ws-lane>多人共用水道 ↗</button><button class="ws-quiet" type="button" data-ws-sample>試用示範課表 ↗</button></div></div>
           <p class="ws-copy-note" data-ws-import></p><div data-ws-slot="plan"></div>
         </section>
         <section id="ws-panel-pace" role="tabpanel" aria-labelledby="ws-tab-pace" tabindex="0" hidden><div class="ws-intro"><div><h2>今天想練什麼？</h2><p>依目的選主課，或依賽事安排一週。填入成績後，就能帶出配速。</p></div></div><div data-ws-slot="pace"></div></section>
@@ -59,6 +59,7 @@
   };
   attach('wk-menu', 'plan', '編排課表');
   attach('wk-goals', 'pace', '依訓練目的選主課');
+  attach('wk-lane', 'pace', '多人共用水道');
   attach('wk-pb', 'pace', '個人成績');
   attach('wk-css', 'pace', 'CSS 與有氧配速');
   attach('wk-pz', 'pace', '依賽事日期安排一週');
@@ -174,6 +175,7 @@
     else if (btn.hasAttribute('data-ws-close')) closeEditor();
     else if (btn.hasAttribute('data-ws-sample')) { api.sample(); showTab('plan'); }
     else if (btn.hasAttribute('data-ws-recommend')) { showTab('pace'); $('#wk-goals').focus(); $('#wk-goals').scrollIntoView(); }
+    else if (btn.hasAttribute('data-ws-lane')) { showTab('pace'); $('#wk-lane').focus(); $('#wk-lane').scrollIntoView(); }
     else if (btn.hasAttribute('data-ws-ai')) {
       const prompt = `請根據以下游泳課表與使用者目標，以繁體中文整理：\n1. 這堂課的目的與各段的角色。\n2. 順序、距離、趟數、配速與休息的安排理由。\n3. 預期優點、適用條件及可能的取捨；不要保證效果。\n4. 需要觀察的指標與調整／退出條件。\n5. 缺少的資訊與需要先問的問題。\n\n請區分「課表已知事實」、「所附規則的內容」與「你的推論」。不要虛構研究、來源或使用者狀況。沒有目標秒數的項目不要自行補出配速。逐趟變化、分段休息、組間休息與項目間休息是不同設定；rowRest=null 沿用每趟設定，0 直接接下一項，整堂最後不再休息。若安排無法支持目標，直接指出；不要為每份課表硬找優點。所有修改先提出建議，不要把原課表改寫成已確認的處方。\n\n${JSON.stringify(api.brief(), null, 2)}`;
       try { await navigator.clipboard.writeText(prompt); $('[data-ws-export-status]').textContent = '已複製課表與提問，可以貼到你慣用的 AI。'; }
@@ -198,7 +200,7 @@
   });
   root.addEventListener('dragend', () => { dragged = null; root.querySelectorAll('.is-dragging').forEach(el => el.classList.remove('is-dragging')); });
   function followHash() {
-    const groups = { 'wk-menu': 'plan', 'wk-pb': 'pace', 'wk-css': 'pace', 'wk-pz': 'pace', 'wk-sprint': 'pace', 'wk-mine': 'library', 'wk-sum': 'review' };
+    const groups = { 'wk-menu': 'plan', 'wk-goals': 'pace', 'wk-lane': 'pace', 'wk-lane-help': 'pace', 'wk-pb': 'pace', 'wk-css': 'pace', 'wk-pz': 'pace', 'wk-sprint': 'pace', 'wk-mine': 'library', 'wk-sum': 'review' };
     const target = groups[location.hash.slice(1)]; if (target) showTab(target);
   }
   window.addEventListener('hashchange', followHash);

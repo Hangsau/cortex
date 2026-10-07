@@ -1,0 +1,352 @@
+[
+  {
+    "record_type": "source",
+    "source_id": "LS1",
+    "title": "Swimming 101: The Basics — What Is Proper Swimming Etiquette?",
+    "source_type": "coaching_guidance",
+    "identifiers": {
+      "url": "https://lanemate.usms.org/fitness-and-training/guides/swimming-101/the-basics"
+    },
+    "metadata_available": true,
+    "abstract_available": false,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "retrieved_at": "2026-10-07T22:26:12Z",
+    "notes": "Terry Heggy；讀排序、circle swimming、traffic management 相關正文。5／10秒為常見做法，不是保證不追及的人數標準；方向以現場規範為準。"
+  },
+  {
+    "record_type": "source",
+    "source_id": "LS2",
+    "title": "How to Maximize Your Time on the Wall",
+    "source_type": "coaching_guidance",
+    "identifiers": {
+      "url": "https://www.usms.org/fitness-and-training/articles-and-videos/articles/how-to-maximize-your-time-on-the-wall"
+    },
+    "metadata_available": true,
+    "abstract_available": false,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "retrieved_at": "2026-10-07T22:26:12Z",
+    "notes": "Terry Heggy，2019-04-22；讀 Definitions。出發週期與到牆後休息分開。"
+  },
+  {
+    "record_type": "source",
+    "source_id": "LS3",
+    "title": "Pool etiquette – thought starters",
+    "source_type": "organization_guidance",
+    "identifiers": {
+      "url": "https://www.swimming.org/assets/frontier-two-resources/pool-etiquette.pdf"
+    },
+    "metadata_available": true,
+    "abstract_available": false,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "retrieved_at": "2026-10-07T22:26:12Z",
+    "notes": "Swim England，一頁文字完整可讀；使用 Lane etiquette guidance。沒有把泛稱 research shows 當研究證據，沒有推導人數上限。"
+  },
+  {
+    "record_type": "source",
+    "source_id": "LS4",
+    "title": "Coaching Challenges: Running Workouts for Swimmers with Varying Ability Levels — Relay 2025 discussion notes",
+    "source_type": "workshop_notes",
+    "identifiers": {
+      "url": "https://community.usms.org/swimming/relay-conference/f/relay-2025/33074/coaching-challenges-running-workouts-for-varying-ability-levels"
+    },
+    "metadata_available": true,
+    "abstract_available": false,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "retrieved_at": "2026-10-07T22:26:12Z",
+    "notes": "USMS 工作坊公開討論筆記，標示講者 Jeff Commings、Leslie Scott。採同主題／跨水道改距離概念；不是正式試驗，也不採其他懲罰、疼痛或器材泛化說法。"
+  },
+  {
+    "record_type": "source",
+    "source_id": "LS5",
+    "title": "Vortex workout rows and sequential timer inspection",
+    "source_type": "project_source",
+    "identifiers": {
+      "url": "https://github.com/Hangsau/cortex/blob/c968973fcab7ff029aab40558e78f4f4e81d69f4/next/assets/js/workout.js"
+    },
+    "metadata_available": true,
+    "abstract_available": false,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "retrieved_at": "2026-10-07T22:26:12Z",
+    "notes": "讀 ROW_DEF、S、goalSet、rowSteps、build；每列按次序執行，沒有從每人各一列產生同時執行計時的機制。這是實作前的歷史稽核，依不可變 commit URL 定位；後續程式已更新，不再以工作目錄檔案代表舊版本。原 SHA-256：c6245830a1f19b32cd2ceaf80710d21bcaa58f34d77756dafec1bf8c2ab88793。",
+    "version": "c968973fcab7ff029aab40558e78f4f4e81d69f4"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "LC1",
+    "statement": "USMS 指引建議按當天泳式與速度排序，快者先出發，常見5或10秒錯開，並留出轉身及等候位置。",
+    "claim_kind": "author_interpretation",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "source_derived",
+    "scope": {
+      "context": "成人訓練與水道禮儀",
+      "boundary": "不是所有人／泳池通用的安全間隔或人數公式"
+    },
+    "source_id": "LS1",
+    "locator": "Circle swimming vs. splitting the lane; Additional etiquette for a Masters workout; Traffic management (lines 295–318)"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "LC2",
+    "statement": "固定出發週期從同一人前次出發起算；固定休息則從自己到牆起算。",
+    "claim_kind": "text_passage",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "source_derived",
+    "scope": {
+      "context": "泳池看鐘與間隔定義",
+      "boundary": "不由定義推導特定能量系統的最佳休息"
+    },
+    "source_id": "LS2",
+    "locator": "Definitions: Sendoff interval; Rest interval"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "LC3",
+    "statement": "Swim England 指引要求按現場方向單列游進、在池端讓較快者超越，休息者留出轉身空間；器材任務可能改變相對速度。",
+    "claim_kind": "text_passage",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "source_derived",
+    "scope": {
+      "context": "公開泳池水道指引",
+      "boundary": "沒有給通用每道人數或固定繞圈方向"
+    },
+    "source_id": "LS3",
+    "locator": "Page 1, Lane etiquette guidance, lines 21–34"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "LC4",
+    "statement": "工作坊筆記提出不同水道調整距離而共用出發週期，以及用不同趟數維持共同課程時長。",
+    "claim_kind": "text_passage",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "source_derived",
+    "scope": {
+      "context": "多水道、多能力團體的教練討論",
+      "boundary": "不直接驗證同一條水道不同距離的交通可行性"
+    },
+    "source_id": "LS4",
+    "locator": "Notes from KH; Same interval - but change distance by lane; Keep total time the same, lines 55–83"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "LC5",
+    "statement": "在固定個人出發偏移下，休息為 I−tᵢ；若每人有休息上下限，共同週期須在各 [tᵢ+r_minᵢ,tᵢ+r_maxᵢ] 區間的交集中。",
+    "claim_kind": "project_model",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "project_model",
+    "scope": {
+      "derivation": "arrival=kI+oᵢ+tᵢ; next departure=(k+1)I+oᵢ",
+      "boundary": "給定本趟預估時間的排程恆等式，不保證生理效果相同或實際不追及"
+    }
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "LC6",
+    "statement": "採全員到牆再出發時，週期另需至少為 max(oᵢ+tᵢ)+池邊緩衝；最後一人完成時間為 (K−1)I+max(oᵢ+tᵢ)。",
+    "claim_kind": "project_model",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "project_model",
+    "scope": {
+      "context": "同批、同距離、固定順序與週期的組織模式",
+      "boundary": "全員到齊是可選安排；沒有把它當所有循環水道的必要條件"
+    }
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "LC7",
+    "statement": "單水道分批可減少同時混游，但等待會加入每人的實際休息，可能使原先連續或短休息主課不再適用。",
+    "claim_kind": "project_model",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "project_model",
+    "scope": {
+      "context": "由排程時間推導的訓練設計取捨",
+      "boundary": "不是特定分批法的成效試驗；充分恢復是否足夠仍需看主課需求"
+    }
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "LC8",
+    "statement": "現有 workout.js 的列與 rowSteps/build 依次形成單一執行序列；把每位泳者排成一列，不會變成多人同時計時。",
+    "claim_kind": "text_passage",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "source_derived",
+    "scope": {
+      "context": "版本 c968973 的程式稽核",
+      "boundary": "未新增名單、分批、並行計時或網站UI"
+    },
+    "source_id": "LS5",
+    "locator": "ROW_DEF line 39; state S line 104; goalSet line 441; rowSteps line 1167; build line 1192"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "LC9",
+    "statement": "第一版可輸出教練可手動調整的分批、順序、個別目標與出發表，沿用使用者已接受手動處理時間的偏好。",
+    "claim_kind": "project_model",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "project_model",
+    "scope": {
+      "basis": "對話偏好及既有單人課表模型",
+      "boundary": "功能提案，未取得現場資料或完成產品實測"
+    }
+  },
+  {
+    "record_type": "decision",
+    "decision_id": "LD1",
+    "affirmative_conclusion": "先依今天的任務與可重複速度安排同批及順序。",
+    "works_when": [
+      "資料對應同泳式、距離、器材及當天狀態",
+      "能穩定完成並遵守水道動線"
+    ],
+    "fails_when": [
+      "只看PB或年齡分組",
+      "器材／泳式改了仍沿用排序",
+      "整池完成能力或現場人流不穩定"
+    ],
+    "how_to_identify": [
+      "暖身後觀察可完成的短段",
+      "核對今日池長、任務和可用水道"
+    ],
+    "action": [
+      "按當天任務重排",
+      "資料不足先暫定並在第一小組後調整"
+    ],
+    "remaining_boundary": "沒有個人資料時只能提供示例，不能稱作已替今天的人完成課表。",
+    "supporting_claim_ids": [
+      "LC1",
+      "LC3",
+      "LC9"
+    ],
+    "evidence_status": "教練／組織指引加排程推導；非最佳處方成效試驗",
+    "decision_status": "proposed_pending_actual_roster"
+  },
+  {
+    "record_type": "decision",
+    "decision_id": "LD2",
+    "affirmative_conclusion": "速度與休息需求相容者可共用週期並維持個人出發偏移。",
+    "works_when": [
+      "休息區間有交集",
+      "現場能維持順序與轉身空間"
+    ],
+    "fails_when": [
+      "慢者來不及出發",
+      "快者休息超出原目的",
+      "頻繁追腳或隊尾未走首位已返牆"
+    ],
+    "how_to_identify": [
+      "計算 I−tᵢ 及區間交集",
+      "觀察第一小組動線"
+    ],
+    "action": [
+      "算共同週期並顯示每人休息",
+      "需要全員到齊時加上最後到牆限制",
+      "無解就更換組型或分組"
+    ],
+    "remaining_boundary": "平均配速不能證明全程安全；缺場地和變速資料時仍需現場判斷。",
+    "supporting_claim_ids": [
+      "LC1",
+      "LC2",
+      "LC5",
+      "LC6"
+    ],
+    "evidence_status": "教練／組織指引加排程推導；非最佳處方成效試驗",
+    "decision_status": "proposed_pending_actual_roster"
+  },
+  {
+    "record_type": "decision",
+    "decision_id": "LD3",
+    "affirmative_conclusion": "差距大時可分批或分時段，並把等待納入休息。",
+    "works_when": [
+      "技術或有足夠恢復空間的主課",
+      "等待位置與照看安排可行"
+    ],
+    "fails_when": [
+      "兩批同時在同一道做快游與慢游",
+      "長等待破壞連續有氧或工作恢復比"
+    ],
+    "how_to_identify": [
+      "記錄每人實際到牆與下次出發",
+      "檢查等待者是否占用轉身路徑"
+    ],
+    "action": [
+      "先清出上一批動線再下一批",
+      "閾值等需求不相容時改分時段或另用水道"
+    ],
+    "remaining_boundary": "不能承諾一條水道同時滿足任意人数和彼此不相容的訓練目的。",
+    "supporting_claim_ids": [
+      "LC3",
+      "LC5",
+      "LC7"
+    ],
+    "evidence_status": "教練／組織指引加排程推導；非最佳處方成效試驗",
+    "decision_status": "proposed_pending_actual_roster"
+  },
+  {
+    "record_type": "decision",
+    "decision_id": "LD4",
+    "affirmative_conclusion": "同一道先用同批同距離，不把多水道差異化配方直接搬入。",
+    "works_when": [
+      "希望簡單可執行",
+      "同批能完成相同趟長"
+    ],
+    "fails_when": [
+      "不同距離造成不同終點或池邊擁擠",
+      "純速度乘時間忽略轉身及等待"
+    ],
+    "how_to_identify": [
+      "檢查每人結束池端",
+      "核對早到者位置與下次順序"
+    ],
+    "action": [
+      "需要不同距離時另畫出到牆和等待安排",
+      "優先完整池長、明示奇數趟去向"
+    ],
+    "remaining_boundary": "同週期不同距離可用，但需具體動線；本輪沒有驗證一般解法。",
+    "supporting_claim_ids": [
+      "LC3",
+      "LC4",
+      "LC6"
+    ],
+    "evidence_status": "教練／組織指引加排程推導；非最佳處方成效試驗",
+    "decision_status": "proposed_pending_actual_roster"
+  },
+  {
+    "record_type": "decision",
+    "decision_id": "LD5",
+    "affirmative_conclusion": "先做多人出發表與人工調整輸出，無需先接AI或並行計時。",
+    "works_when": [
+      "使用者願意手動操作",
+      "名單与參考時間可填入"
+    ],
+    "fails_when": [
+      "把現有順序計時器當成多人同時計時",
+      "無解仍強行產生共同課表"
+    ],
+    "how_to_identify": [
+      "輸出首趟、次趟、休息及最後一人完成時間",
+      "明示無資料與不可相容條件"
+    ],
+    "action": [
+      "保留既有七類主課目的",
+      "生成分批、順序、每人份量及出發表",
+      "公開內容若日後加入站內，採自足說明與自己的文章連結"
+    ],
+    "remaining_boundary": "第一版已實作共同距離／趟數的手動出發表；個人不同份量、多人即時計時與現場團體訓練尚未驗證。",
+    "supporting_claim_ids": [
+      "LC5",
+      "LC6",
+      "LC8",
+      "LC9"
+    ],
+    "evidence_status": "教練／組織指引加排程推導；非最佳處方成效試驗",
+    "decision_status": "implemented_pending_pool_trial"
+  }
+]

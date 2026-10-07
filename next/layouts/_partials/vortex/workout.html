@@ -8,6 +8,7 @@
 {{- $lib := resources.Get "css/library.css" | fingerprint -}}
 {{- $css := resources.Get "css/workout.css" | fingerprint -}}
 {{- $js := resources.Get "js/workout.js" | fingerprint -}}
+{{- $laneJs := resources.Get "js/workout-lane.js" | fingerprint -}}
 <link rel="stylesheet" href="{{ $lib.RelPermalink }}">
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 {{- $r := hugo.Data.swim_rules -}}
@@ -46,7 +47,7 @@
   </header>
 
   <nav class="wk-steps" aria-label="步驟">
-    <a href="#wk-goals">依目的選主課</a><a href="#wk-pb">① 成績</a><a href="#wk-css">② 換算</a><a href="#wk-pz">③ 週期與建議</a><a href="#wk-sprint">④ 衝刺換算</a><a href="#wk-menu">⑤ 排課表</a><a href="#wk-sum">⑥ 清單</a><a href="#wk-mine">⑦ 我的 drill 與器材</a>
+    <a href="#wk-goals">依目的選主課</a><a href="#wk-lane">多人共用水道</a><a href="#wk-pb">① 成績</a><a href="#wk-css">② 換算</a><a href="#wk-pz">③ 週期與建議</a><a href="#wk-sprint">④ 衝刺換算</a><a href="#wk-menu">⑤ 排課表</a><a href="#wk-sum">⑥ 清單</a><a href="#wk-mine">⑦ 我的 drill 與器材</a>
   </nav>
 
   <section class="le-block" id="wk-goals" aria-labelledby="wk-goals-h" tabindex="-1">
@@ -61,6 +62,8 @@
     <p class="muted">份量是可修改的組型範例，還未依你的訓練經驗與當天狀況調整。精簡組減少組數或趟數，保留每趟距離與休息；不會按比例縮短休息。</p>
     <div data-wk-goal-out></div>
   </section>
+
+  {{ partial "vortex/workout-lane.html" . }}
 
   <section class="le-block" id="wk-pb" aria-labelledby="wk-pb-h">
     <h2 id="wk-pb-h">① 我的成績</h2>
@@ -220,3 +223,4 @@
 <script type="application/json" id="wk-drills">{{ dict "drills" $drills "cats" $cats "equip" $eq "strokes" $strokes | jsonify | safeJS }}</script>
 <noscript><p class="page muted">這個工具需要 JavaScript。</p></noscript>
 <script src="{{ $js.RelPermalink }}" defer></script>
+<script src="{{ $laneJs.RelPermalink }}" defer></script>

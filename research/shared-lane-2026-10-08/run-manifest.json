@@ -1,0 +1,127 @@
+{
+  "record_type": "run_manifest",
+  "run_id": "shared-lane-2026-10-08",
+  "question": "一條水道的多人訓練能否依今天的人員與能力建立公式／安排方法？",
+  "phase": "integration",
+  "started_at": "2026-10-07T22:26:12Z",
+  "updated_at": "2026-10-07T22:58:29.809546Z",
+  "evidence_profiles": [
+    "practice_observation_model"
+  ],
+  "queries": [
+    {
+      "channel": "web",
+      "query": "site.usms.org coaching crowded lanes different abilities send off intervals swimmers"
+    },
+    {
+      "channel": "web",
+      "query": "site.usms.org lane swimming etiquette 5 10 seconds fastest first"
+    },
+    {
+      "channel": "web",
+      "query": "site.swimming.org swimming coaching mixed ability lane training intervals"
+    },
+    {
+      "channel": "web",
+      "query": "site.usms.org crowded lanes coach lane"
+    },
+    {
+      "channel": "web",
+      "query": "site.swimming.org lane etiquette speed"
+    },
+    {
+      "channel": "web",
+      "query": "site.usms.org different speeds interval"
+    },
+    {
+      "channel": "web",
+      "query": "site.usms.org coaching different abilities intervals"
+    },
+    {
+      "channel": "web",
+      "query": "site.usms.org crowded lanes sets"
+    },
+    {
+      "channel": "web",
+      "query": "site.swimming.org staggered swimmers"
+    },
+    {
+      "channel": "local",
+      "query": "workout.js ROW_DEF / S / goalSet / rowSteps / build; existing equipment recommendations and handoff"
+    }
+  ],
+  "checkpoints": [
+    {
+      "name": "intake",
+      "status": "completed",
+      "note": "詢問实际池長、人數和速度差；未回覆仍可完成一般方法。沿用手動時間偏好。"
+    },
+    {
+      "name": "primary_guidance",
+      "status": "completed",
+      "note": "4個教練／組織／工作坊來源，另1個現有程式來源。"
+    },
+    {
+      "name": "calculation",
+      "status": "completed",
+      "note": "四人100m示例、休息交集有解／無解、6趟最後到牆皆已核算。恆速整圈追及篩查非現場安全驗證。"
+    },
+    {
+      "name": "records_validation",
+      "status": "completed",
+      "note": "記錄、manifest、來源檔與跨記錄引用均0 error／0 warning；不代表模型已完成泳池實測。"
+    },
+    {
+      "name": "implementation",
+      "status": "completed",
+      "note": "手動名單、分批、同批排序、到齊選項、兩種輪替、出發表及目的推薦單組導入；不持久保存名單，不更改計時／課表格式。"
+    },
+    {
+      "name": "site_validation",
+      "status": "completed",
+      "note": "計算與瀏覽器新測試、goals/studio/live/timer 既有四套、22 specs 全 PASS；959 頁／51,315 站內連結及 121 舊網址有效；320/390/1440px 無整頁溢出。"
+    },
+    {
+      "name": "publication",
+      "status": "pending",
+      "note": "待 commit、CI 與正式站驗證。"
+    }
+  ],
+  "included_source_ids": [
+    "LS1",
+    "LS2",
+    "LS3",
+    "LS4",
+    "LS5"
+  ],
+  "excluded": [
+    {
+      "candidate": "Swim England COVID-19 Return to Pool guidance (2020) and similar pandemic capacity tables",
+      "reason": "過時且特定防疫脈絡，不當成今日每道人數通則。"
+    },
+    {
+      "candidate": "anonymous forum/reddit lane-capacity anecdotes",
+      "reason": "不作公式或安全人數依據。"
+    },
+    {
+      "candidate": "commercial generic stroke/equipment pace multipliers",
+      "reason": "未驗證可代表今日個人與單水道動線。"
+    }
+  ],
+  "failures": [
+    {
+      "url": "https://www.usms.org/fitness-and-training/guides/swimming-101/the-basics",
+      "issue": "轉向總覽；改讀同機構 LaneMate 的完整 The Basics 正文。"
+    }
+  ],
+  "coverage_note": "定向研究，非系統性回顧；排程公式不是個別訓練成效或水道安全容量保證。使用者核准後已加入單水道手動出發表，計算／UI 及全站驗收通過，尚無泳池團體實測。",
+  "outputs": [
+    "REPORT.md",
+    "records.json",
+    "run-manifest.json",
+    "implementation.md",
+    "../../tools/test_workout_lane.cjs"
+  ],
+  "reviewed_source_count": 5,
+  "web_sources_used": 4
+}
