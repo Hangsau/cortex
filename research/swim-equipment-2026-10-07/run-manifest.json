@@ -2,7 +2,7 @@
   "record_type": "run_manifest",
   "run_id": "swim-equipment-2026-10-07",
   "question": "游泳器材的目的、使用時機、方法、drill 與主課配對、移除器材後的檢查，以及 Vortex 現有資料與計時器適配。",
-  "phase": "revision",
+  "phase": "publication",
   "started_at": "2026-10-07T03:29:38Z",
   "evidence_profiles": [
     "empirical_quantitative",
@@ -116,13 +116,18 @@
     },
     {
       "name": "self_contained_equipment_revision",
-      "status": "validated_pending_publication",
+      "status": "published_verified",
       "note": "使用者指定保留自己的文章連結、移除外站；11個外連移除，重要研究入文，普通蛙鞋與特殊設計分開，時間手動處理。",
-      "validation": "22 specs; 121 legacy URLs; record/source/reference checks; 320/390/1440px; zero external URLs; preserved own links"
+      "validation": "22 specs; 121 legacy URLs; record/source/reference checks; 320/390/1440px; zero external URLs; preserved own links",
+      "website_commit": "056f7b29ba70cdfd3cd6bec52d373f73a484a49f",
+      "source_commit": "7d216440f80a026b5a92ffd84861afc567c157a7",
+      "deployment_run": "37633473917",
+      "sync_run": "37633551661",
+      "live": "320/390/1440px HTTP200, zero external article links, 21 anchors, own page links, no overflow/pageerror"
     }
   ],
   "coverage_note": "定向研究，非系統性回顧。原始實驗、作者訓練指南與製造商操作說明分層；檢索工具不提供可靠總命中數。兒童、初學、成人健身、競技與鐵人場景分列，不將競技男性資料當作所有人的處方。",
-  "updated_at": "2026-10-07T12:36:16Z",
+  "updated_at": "2026-10-07T14:06:04Z",
   "status": "research_integrated_and_published",
   "inclusion_decisions": [
     {

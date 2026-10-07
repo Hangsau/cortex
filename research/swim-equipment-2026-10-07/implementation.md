@@ -61,4 +61,5 @@ my-site 提供可由首頁、目錄、排課練習庫抵達的詳細器材指南
 - 回復方式：以本次內容 commit 反向修改原文，再同步發布；不刪除歷史或改指南網址。
 - 驗收：22 specs PASS（同一產物重用建置，各 spec 原檢查均執行）；P4 959 頁／51,312 條內連；121 舊網址有效。原 17 個錨點與 10 個自有頁面目的地均保留，指南外站 URL 為 0。320／390／1440px 無溢出，drill／課表往返正常，無 pageerror。兩份研究的 records、manifest、來源狀態與引用檢查均 0 error／0 warning。
 - 本機預覽的第一次瀏覽器請求為 404；改用相同可存取環境的 localhost 靜態服務後通過，未更動內容來迴避檢查。
-- 發布：待推送及線上確認。
+- 已發布：my-site `056f7b29ba70cdfd3cd6bec52d373f73a484a49f`，部署 [37633473917](https://github.com/Hangsau/cortex/actions/runs/37633473917) 成功；來源 `7d216440f80a026b5a92ffd84861afc567c157a7`，同步 [37633551661](https://github.com/Hangsau/TheVortexProject/actions/runs/37633551661) 成功並回報 No public content changes。
+- 正式站：320／390／1440px 全部 HTTP 200、無溢出、正文外連 0、既有加新增共 21 個章節錨點存在；實際點擊自己的 drill 與課表連結正常，無 pageerror。
