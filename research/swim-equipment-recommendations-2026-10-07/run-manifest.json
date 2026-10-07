@@ -1,0 +1,128 @@
+{
+  "record_type": "run_manifest",
+  "run_id": "swim-equipment-recommendations-2026-10-07",
+  "question": "已上線的器材指南如何整合進七種推薦主課，兼顧教學配對、器材適用條件、配速、份量、泳池動線與既有計時模型？",
+  "phase": "decision",
+  "started_at": "2026-10-07T12:06:35Z",
+  "evidence_profiles": [
+    "empirical_quantitative",
+    "practice_observation_model",
+    "mixed_cross_domain"
+  ],
+  "queries": [
+    {
+      "channel": "web",
+      "query": "swimming hand paddles warm up priming randomized performance study"
+    },
+    {
+      "channel": "web",
+      "query": "swimming parachute resistance load velocity decrement sprint study"
+    },
+    {
+      "channel": "web",
+      "query": "site.usms.org drills swimming practice equipment transfer whole stroke"
+    },
+    {
+      "channel": "local",
+      "query": "goalSet/setBuilders/targetOf/restHint/rowSteps/estSec/course/myEquip/share/brief and existing equipment research"
+    }
+  ],
+  "checkpoints": [
+    {
+      "name": "existing_evidence",
+      "status": "completed",
+      "note": "沿用上一輪來源與器材指南，避免重做一般器材用途研究。"
+    },
+    {
+      "name": "code_trace",
+      "status": "completed",
+      "note": "確認單列生成、逐列計時、器材標記與自訂詞彙、配速／時間估計、分享與 AI brief 路徑。"
+    },
+    {
+      "name": "primary_evidence",
+      "status": "completed",
+      "note": "讀阻力暖身方法／結果與編課指引；急性與慢性結果分開。"
+    },
+    {
+      "name": "conditional_decisions",
+      "status": "completed",
+      "note": "9項決策、七類配置、池長／器材所在池端、計時順序、配速與存檔界線；未修改產品。"
+    },
+    {
+      "name": "validation",
+      "status": "completed",
+      "note": "validate_records（records＋manifest）、check_source_completeness、check_references：均 0 error / 0 warning。只驗研究產物，未宣稱執行未實作的功能驗收。"
+    }
+  ],
+  "coverage_note": "研究與產品規則設計，非系統性回顧；新增查證課表編排教練指引與阻力暖身的原始試驗。只建立可評估提案，不修改網站、canonical 或推薦引擎。",
+  "updated_at": "2026-10-07T12:24:55Z",
+  "completion_status": "completed_research_only",
+  "included_source_ids": [
+    "S02",
+    "S03",
+    "S04",
+    "S07",
+    "S09",
+    "REC-S01",
+    "REC-S02",
+    "REC-S03",
+    "REC-S04"
+  ],
+  "reused_evidence": {
+    "path": "../swim-equipment-2026-10-07/records.json",
+    "source_ids": [
+      "S02",
+      "S03",
+      "S04",
+      "S07",
+      "S09"
+    ],
+    "note": "保留原先全文／摘要存取與擷取狀態；本輪不把既有摘要升格全文。"
+  },
+  "discovery": [
+    {
+      "candidate": "Bufalo et al. 2023, DOI 10.3389/fspor.2023.1244168",
+      "status": "included",
+      "reason": "直接測試阻力器材暖身與後續速度；出版者全文可讀。"
+    },
+    {
+      "candidate": "Terry Heggy, USMS 2023 How to Write a Swimming Workout",
+      "status": "included",
+      "reason": "原作者教練指引，支持目的、清楚指示與個別回饋。"
+    },
+    {
+      "candidate": "Applying Load–Velocity Profiling to Guide In-Water Resistance Training in an Olympic-Level Swimmer: A Case Study, Applied Sciences 15(23),12790",
+      "url": "https://www.mdpi.com/2076-3417/15/23/12790",
+      "status": "excluded_access_blocked",
+      "reason": "開啟回傳 InternalError，未讀正文，不引用效果或配額。"
+    },
+    {
+      "candidate": "其他 USMS 模板、蝶式 drill 頁、論壇／零售與研究聚合轉載",
+      "status": "not_included",
+      "reason": "避免重複與間接來源；沒有用搜尋摘要建立新的定量處方。"
+    }
+  ],
+  "failures": [
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10704193/",
+      "error": "CAPTCHA",
+      "resolution": "同 DOI 出版者全文可讀，讀取 Methods/Results；未將 PMC 頁視為成功全文擷取。"
+    },
+    {
+      "url": "https://www.mdpi.com/2076-3417/15/23/12790",
+      "error": "InternalError",
+      "resolution": "排除，沒有從標題或搜尋摘要推論效果。"
+    }
+  ],
+  "outputs": [
+    "REPORT.md",
+    "records.json",
+    "run-manifest.json"
+  ],
+  "limitations": [
+    "定向研究，非系統性回顧。",
+    "未找到可泛用的器材占比或配速換算。",
+    "第一版模板候選仍需逐筆審核與池邊驗證。",
+    "功能驗收為未來規格，沒有啟用任何新生成或AI功能。"
+  ]
+}

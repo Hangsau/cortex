@@ -974,5 +974,89 @@
     "resolution_pointer": "D11",
     "coverage_status": "reviewed",
     "notes": "呼吸管的功能矛盾已釐清；canonical 與公開 UDKLow1 已改成水面練習，原來源鍵撤下。"
+  },
+  {
+    "record_type": "source",
+    "source_id": "S17",
+    "source_type": "empirical_study",
+    "title": "Post-activation performance enhancement does not occur following a large hand-paddles and parachute-resisted warm-up routine in collegiate swimmers",
+    "identifiers": {
+      "url": "https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2023.1244168/full"
+    },
+    "retrieved_at": "2026-10-07T12:23:21Z",
+    "metadata_available": true,
+    "abstract_available": true,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "Bufalo et al., 2023. DOI 10.3389/fspor.2023.1244168。讀摘要、方法 2.1–2.4、結果 3 與相關討論。PMC CAPTCHA，改從出版者讀取全文；不採納未測量的疲勞機制作為已證實原因。",
+    "reused_from": "../swim-equipment-recommendations-2026-10-07/records.json"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "C22",
+    "statement": "12 位大學男性泳者的隨機順序交叉試驗中，四趟 10 秒最大努力划手板加阻力傘暖身，相較無器材衝刺暖身未顯著改善後續 25m、50m 表現及所測運動學。",
+    "claim_kind": "reported_result",
+    "evidence_profile": "empirical_quantitative",
+    "provenance_type": "source_derived",
+    "scope": {
+      "population": "12 位能以出發台出發於 28 秒內完成 50m 的成年男性泳者",
+      "context": "共同 500m 暖身後四趟最大努力；25m 池；兩條件相隔 40 分鐘",
+      "time": "急性",
+      "boundary": "未顯著不等於證明零效果；不推論長期阻力課無用，也不推廣至所有器材暖身"
+    },
+    "source_id": "S17",
+    "locator": "Methods 2.1–2.3; Results 3, Figures 1–2"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "C23",
+    "statement": "使用者接受手動設置與時間處理，要求器材使用教學和重要研究留在自己的網站，保留自己的文章連結，移除外站連結；一般蛙鞋說明不可由特殊四式款代替。",
+    "claim_kind": "project_model",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "project_model",
+    "scope": {
+      "basis": "2026-10-07 本次使用者明確修正",
+      "boundary": "內容呈現與實作範圍決策，不是訓練效果證據"
+    }
+  },
+  {
+    "record_type": "decision",
+    "decision_id": "D13",
+    "affirmative_conclusion": "器材指南在站內完成操作與研究解釋，保留自有文章連結，份量和時間維持手動處理。",
+    "works_when": [
+      "使用方法可在本文完整理解",
+      "研究可追溯到名稱與 DOI",
+      "區分一般器材與特定設計"
+    ],
+    "fails_when": [
+      "以外連代替操作步驟",
+      "由專用四式款推論一般蛙鞋用途",
+      "把摘要、單次差異或實務示例寫成通用效果保證"
+    ],
+    "how_to_identify": [
+      "掃描指南不得包含外站 href，原站內入口仍可達",
+      "核對研究人數、條件、時間尺度與測量方式",
+      "讀者能找到呼吸管穿戴、呼吸與進水處理"
+    ],
+    "action": [
+      "移除 11 個外站連結",
+      "研究發現、排課含意和邊界直接入文，文獻名與 DOI 保留文字",
+      "補充呼吸管步驟、一般蛙鞋範圍及手動設置說明"
+    ],
+    "remaining_boundary": "本輪處理器材指南；其他既有專題與原始來源登錄未全面刪除，日後個別修訂仍保留可追溯資料。",
+    "supporting_claim_ids": [
+      "C01",
+      "C02",
+      "C04",
+      "C05",
+      "C11",
+      "C12",
+      "C13",
+      "C22",
+      "C23"
+    ],
+    "evidence_status": "沿用已查證來源，新增暖身全文結果；呈現方式由使用者指定",
+    "decision_status": "implemented_pending_publication"
   }
 ]

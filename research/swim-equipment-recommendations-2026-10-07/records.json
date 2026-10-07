@@ -1,0 +1,703 @@
+[
+  {
+    "record_type": "source",
+    "source_id": "S02",
+    "source_type": "empirical_study",
+    "title": "Influence of hand paddles and fins on blood lactate, heart rate and perceived exertion behavior",
+    "identifiers": {
+      "url": "https://www.scielo.br/j/rbcdh/a/D8GsnvCj3LtSpYWbNhFMmdv/?lang=en",
+      "doi": "10.5007/1980-0037.2018v20n2p155"
+    },
+    "retrieved_at": "2026-10-07T03:40:00Z",
+    "metadata_available": true,
+    "abstract_available": true,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "全文方法與結果已讀。11 位有經驗男性；12×50m；30 秒休息；器材條件配對無器材速度。未將 HR/RPE 所有細項簡化成一致顯著。",
+    "reused_from": "../swim-equipment-2026-10-07/records.json"
+  },
+  {
+    "record_type": "source",
+    "source_id": "S03",
+    "source_type": "empirical_study",
+    "title": "Velocity, Oxygen Uptake, and Metabolic Cost of Pull, Kick, and Whole-Body Swimming",
+    "identifiers": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27967275/",
+      "doi": "10.1123/ijspp.2016-0322"
+    },
+    "retrieved_at": "2026-10-07T03:40:00Z",
+    "metadata_available": true,
+    "abstract_available": true,
+    "fulltext_status": "unknown",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "本次只讀原始摘要；20 位菁英，6 次 200m。沒有讀取全文裝置細節，不能將結果全部歸因於浮球。",
+    "reused_from": "../swim-equipment-2026-10-07/records.json"
+  },
+  {
+    "record_type": "source",
+    "source_id": "S04",
+    "source_type": "empirical_study",
+    "title": "Effect of an 11-Week In-Water Training Program With Increased Resistance on the Swimming Performance and the Basic Kinematic Characteristics of the Front Crawl Stroke",
+    "identifiers": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28277423/",
+      "doi": "10.1519/JSC.0000000000001879"
+    },
+    "retrieved_at": "2026-10-07T03:40:00Z",
+    "metadata_available": true,
+    "abstract_available": true,
+    "fulltext_status": "unknown",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "本次只讀摘要。2017 線上、2019 卷期。12 位年輕女性，配對後分組。摘要的組內顯著不直接當成組間差異。",
+    "reused_from": "../swim-equipment-2026-10-07/records.json"
+  },
+  {
+    "record_type": "source",
+    "source_id": "S07",
+    "source_type": "coaching_guidance",
+    "title": "What Swimmers Need to Know About Paddles",
+    "identifiers": {
+      "url": "https://www.usms.org/fitness-and-training/articles-and-videos/articles/how-to-buy-and-use-paddles"
+    },
+    "retrieved_at": "2026-10-07T03:40:00Z",
+    "metadata_available": true,
+    "abstract_available": false,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "Scott Bay，2025-02-04。讀正文用途、尺寸、形狀與使用；教練建議而非試驗。未採用板滑動可唯一診斷錯誤的強斷言。",
+    "reused_from": "../swim-equipment-2026-10-07/records.json"
+  },
+  {
+    "record_type": "source",
+    "source_id": "S09",
+    "source_type": "coaching_guidance",
+    "title": "Freestyle Swimming Technique: Breathing — Snorkel Swimming",
+    "identifiers": {
+      "url": "https://www.usms.org/fitness-and-training/guides/freestyle/breathing"
+    },
+    "retrieved_at": "2026-10-07T03:40:00Z",
+    "metadata_available": true,
+    "abstract_available": false,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "擷取 Snorkel Swimming 段，Andrew Sheaff。僅採用戴管與正常換氣交替；未推薦該頁其他限制呼吸練習。",
+    "reused_from": "../swim-equipment-2026-10-07/records.json"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "C02",
+    "source_id": "S02",
+    "locator": "Methodological procedures; Results and Discussion",
+    "statement": "相同速度的 12×50m 自由式中，划手板及蛙鞋條件的乳酸反應低於無器材。",
+    "claim_kind": "reported_result",
+    "evidence_profile": "empirical_quantitative",
+    "provenance_type": "source_derived",
+    "scope": {
+      "population": "11 位有經驗男性",
+      "task": "12×50m，自訂基準速度後以燈光配速；休息 30 秒",
+      "measure": "乳酸；不概括所有 HR/RPE 比較",
+      "boundary": "不是各自全力；不當成所有人固定負荷下降幅度"
+    }
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "C03",
+    "source_id": "S03",
+    "locator": "Abstract: Methods and Conclusions",
+    "statement": "拉手、踢腿與完整游是不同任務；研究在低／中強度條件配對動作頻率而非所有條件配對游速。",
+    "claim_kind": "reported_result",
+    "evidence_profile": "empirical_quantitative",
+    "provenance_type": "source_derived",
+    "scope": {
+      "population": "20 位菁英",
+      "task": "6×200m，完整游／拉手／踢腿",
+      "access": "abstract_only",
+      "boundary": "不推導通用配速係數，不假設全文器材細節"
+    }
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "C04",
+    "source_id": "S04",
+    "locator": "Abstract: Methods and Results",
+    "statement": "11 週小型阻力傘介入摘要報告實驗組短距離表現改善，支持它可作可監控的訓練成分。",
+    "claim_kind": "reported_result",
+    "evidence_profile": "empirical_quantitative",
+    "provenance_type": "source_derived",
+    "scope": {
+      "population": "12 位年輕女性泳者",
+      "task": "共同課表中的衝刺部分以有傘／無傘區分",
+      "time": "11 週",
+      "access": "abstract_only",
+      "boundary": "未由摘要組內顯著直接判斷組間效果；不宣稱最佳劑量"
+    }
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "C07",
+    "source_id": "S07",
+    "locator": "Article: Size Matters; Getting the Most Out of Your Paddles",
+    "statement": "作者建議依經驗、板尺寸與動作選擇划手板；開始採較小尺寸，出現疼痛停止，並把器材當作回饋線索。",
+    "claim_kind": "author_interpretation",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "source_derived",
+    "scope": {
+      "audience": "成人游泳教練指引",
+      "boundary": "不是 RCT；沒有採用板滑動唯一診斷動作的斷言"
+    }
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "C09",
+    "source_id": "S09",
+    "locator": "Snorkel Swimming subsection",
+    "statement": "作者建議把呼吸管游與不戴管游交替，觀察正常換氣時能否保留較穩定的動作。",
+    "claim_kind": "author_interpretation",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "source_derived",
+    "scope": {
+      "task": "自由式呼吸配合",
+      "boundary": "教學建議，非轉移效果對照試驗；不包含其他限制呼吸練習"
+    }
+  },
+  {
+    "record_type": "source",
+    "source_id": "REC-S01",
+    "source_type": "empirical_study",
+    "title": "Post-activation performance enhancement does not occur following a large hand-paddles and parachute-resisted warm-up routine in collegiate swimmers",
+    "identifiers": {
+      "url": "https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2023.1244168/full"
+    },
+    "retrieved_at": "2026-10-07T12:23:21Z",
+    "metadata_available": true,
+    "abstract_available": true,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "Bufalo et al., 2023. DOI 10.3389/fspor.2023.1244168。讀摘要、方法 2.1–2.4、結果 3 與相關討論。PMC CAPTCHA，改從出版者讀取全文；不採納未測量的疲勞機制作為已證實原因。"
+  },
+  {
+    "record_type": "source",
+    "source_id": "REC-S02",
+    "source_type": "coaching_guidance",
+    "title": "How to Write a Swimming Workout",
+    "identifiers": {
+      "url": "https://www.usms.org/fitness-and-training/articles-and-videos/articles/how-to-write-a-swimming-workout"
+    },
+    "retrieved_at": "2026-10-07T12:23:21Z",
+    "metadata_available": true,
+    "abstract_available": false,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "Terry Heggy，2023-01-11。讀正文目的、清楚指示、drill 與個別回饋段；不採用其他限制呼吸範例或概括的傷害預防推論。"
+  },
+  {
+    "record_type": "source",
+    "source_id": "REC-S03",
+    "source_type": "project_source",
+    "title": "Vortex workout generation, pacing, timer, sharing and brief source inspection",
+    "identifiers": {
+      "url": "https://github.com/Hangsau/cortex/blob/c6c4c2e641b1f954aae1ec822d744d7b1e326eb6/next/assets/js/workout.js"
+    },
+    "retrieved_at": "2026-10-07T12:23:21Z",
+    "metadata_available": true,
+    "abstract_available": false,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "以函式為定位；一併檢視 next/layouts/_partials/vortex/workout.html 的 drill JSON 與成績池長欄位。唯讀稽核，未執行新功能。",
+    "local_path": "../../next/assets/js/workout.js",
+    "sha256": "c6245830a1f19b32cd2ceaf80710d21bcaa58f34d77756dafec1bf8c2ab88793",
+    "version": "c6c4c2e641b1f954aae1ec822d744d7b1e326eb6"
+  },
+  {
+    "record_type": "source",
+    "source_id": "REC-S04",
+    "source_type": "project_source",
+    "title": "Vortex canonical drill applicability audit",
+    "identifiers": {},
+    "retrieved_at": "2026-10-07T12:23:21Z",
+    "metadata_available": true,
+    "abstract_available": false,
+    "fulltext_status": "complete",
+    "readability": "readable",
+    "extraction_status": "partial",
+    "notes": "選讀 Drills/drills_freestyle.yaml、drills_breaststroke.yaml、drills_butterfly.yaml、drills_sculling.yaml、drills_udk.yaml。local_path/hash 為自由式代表檔；各檔以同一 canonical commit 和具名 drill ID 定位。",
+    "local_path": "../../../TheVortexProject/Drills/drills_freestyle.yaml",
+    "sha256": "df2080decc418ba943fc913325a6331180352d7d307c21323c607f4e25231706",
+    "version": "163eef665933251e3c9f46a87d1c2401fd12f989"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "REC-C01",
+    "statement": "12 位大學男性泳者的隨機順序交叉試驗中，四趟 10 秒最大努力划手板加阻力傘暖身，相較無器材衝刺暖身未顯著改善後續 25m、50m 表現及所測運動學。",
+    "claim_kind": "reported_result",
+    "evidence_profile": "empirical_quantitative",
+    "provenance_type": "source_derived",
+    "scope": {
+      "population": "12 位能以出發台出發於 28 秒內完成 50m 的成年男性泳者",
+      "context": "共同 500m 暖身後四趟最大努力；25m 池；兩條件相隔 40 分鐘",
+      "time": "急性",
+      "boundary": "未顯著不等於證明零效果；不推論長期阻力課無用，也不推廣至所有器材暖身"
+    },
+    "source_id": "REC-S01",
+    "locator": "Methods 2.1–2.3; Results 3, Figures 1–2"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "REC-C02",
+    "statement": "作者主張每組有明確目的、指示簡單清楚，技術練習及器材選擇需配合目標並觀察個別反應。",
+    "claim_kind": "author_interpretation",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "source_derived",
+    "scope": {
+      "context": "成人游泳課表編寫的教練指引",
+      "boundary": "未證實特定排列或劑量最佳；不要求本產品自動補齊全課"
+    },
+    "source_id": "REC-S02",
+    "locator": "Basic Principles; Structure Your Workout: Drills; supplemental set discussion"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "REC-C03",
+    "statement": "現有 targetOf 不依 equip 判斷配速是否相容；pull 不在 NO_AUTO，int none 與自動休息則會交互影響。",
+    "claim_kind": "text_passage",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "source_derived",
+    "scope": {
+      "context": "目前網站版本的程式行為",
+      "boundary": "唯讀推論，改版需重查"
+    },
+    "source_id": "REC-S03",
+    "locator": "workout.js: ROW_DEF, NO_AUTO, targetOf(), restHint(), autoRest()"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "REC-C04",
+    "statement": "goalSet/addMain 以一列加入主課；rowSteps 先跑完每列趟組，rowRest 是跨列休息覆寫值，最後工作列無尾休。",
+    "claim_kind": "text_passage",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "source_derived",
+    "scope": {
+      "context": "列式計時與生成模型",
+      "boundary": "備註中的交替文字不改變執行順序"
+    },
+    "source_id": "REC-S03",
+    "locator": "workout.js: addMain(), goalSet(), rowSteps(), build()"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "REC-C05",
+    "statement": "S.course 標示為成績的池長，myEquip 是新增詞彙；前端 drill JSON 未包含難度、必要與可選器材的區分。",
+    "claim_kind": "text_passage",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "source_derived",
+    "scope": {
+      "context": "目前欄位語意及 Hugo 輸出",
+      "boundary": "不可當成今日泳池、今日器材或能力評估"
+    },
+    "source_id": "REC-S03",
+    "locator": "workout.js: state S, allEquip(), drillOf(); workout.html: PB course label and drill JSON dictionary"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "REC-C06",
+    "statement": "estSec 缺有效目標仍會估時，部分路徑據此預先計算出發間隔；分享與 brief 各自使用 targetOf 結果。",
+    "claim_kind": "text_passage",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "source_derived",
+    "scope": {
+      "context": "估時、出發與序列化路徑",
+      "boundary": "粗估不等於已驗證器材目標"
+    },
+    "source_id": "REC-S03",
+    "locator": "workout.js: estSec(), autoRest(), goalSet(); share export around line 1048; AI brief export around line 1610"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "REC-C07",
+    "statement": "具器材標籤的 drill 有能力、動作及情境差異：FrEL1 為 elite 且列兩器材；Br8 文字可戴但標籤列管；Sc7 面朝下而標籤含仰式；Fl25 為進階自由式輕踢腿變式；UDK4 含進階水下情境。",
+    "claim_kind": "text_passage",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "source_derived",
+    "scope": {
+      "context": "具名 canonical drill 檢閱",
+      "boundary": "無法只靠器材及泳式標籤保證推薦適用；不是全面來源正確性審核"
+    },
+    "source_id": "REC-S04",
+    "locator": "Drills/drills_freestyle.yaml FrEL1; drills_breaststroke.yaml Br8; drills_sculling.yaml Sc7; drills_butterfly.yaml Fl25; drills_udk.yaml UDK4"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "REC-C08",
+    "statement": "保留七種目的並增加可選技術準備及有限主課替換，比新增各器材平行整份課表更符合目前使用流程。",
+    "claim_kind": "project_model",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "project_model",
+    "scope": {
+      "context": "依使用者先指南後推薦、保留自行編排的偏好設計",
+      "boundary": "產品決策，未做使用者測試或成效比較"
+    }
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "REC-C09",
+    "statement": "推薦模板需明示器材、能力、池長與所在池端、順序、增量或替換、配速依據及轉換休息；模板數值屬可修改設計示例。",
+    "claim_kind": "project_model",
+    "evidence_profile": "mixed_cross_domain",
+    "provenance_type": "project_model",
+    "scope": {
+      "context": "讓提案可用現有列式計時器執行",
+      "boundary": "25m 示例不直接擴為 50m 劑量；無最佳器材占比結論"
+    }
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "REC-C10",
+    "statement": "先用經審核規則模板，再由 AI 解釋固定結果，可保留出處、適用條件及生成版本；舊課表與正在計時快照不應由新推薦隱式改寫。",
+    "claim_kind": "project_model",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "project_model",
+    "scope": {
+      "context": "後續功能架構及資料連續性",
+      "boundary": "目前未實作 AI、模板及遷移機制"
+    }
+  },
+  {
+    "record_type": "decision",
+    "decision_id": "REC-D01",
+    "affirmative_conclusion": "先提供可選技術準備：器材段接無器材完整游，再進主課。",
+    "works_when": [
+      "已暖身且熟悉器材",
+      "有單一技術重點",
+      "能維持正常呼吸與動作"
+    ],
+    "fails_when": [
+      "新增段造成疲勞或超出時間",
+      "第一次學器材卻直接進高強度",
+      "沒有想處理的技術問題"
+    ],
+    "how_to_identify": [
+      "詢問當日重點與熟悉程度",
+      "拿掉器材後看同一動作是否保留"
+    ],
+    "action": [
+      "預設不加，使用者勾選後才加入 drill 區",
+      "每模組一個提示與回看項目"
+    ],
+    "remaining_boundary": "轉移效果需實際觀察，並非證實長期學習。",
+    "supporting_claim_ids": [
+      "C09",
+      "REC-C02",
+      "REC-C08"
+    ],
+    "evidence_status": "教練指引支持目的與轉移檢查；位置、份量是專案設計",
+    "decision_status": "proposed",
+    "monitoring": [
+      "拿掉器材後的表現與疲勞"
+    ],
+    "stop_conditions": [
+      "不適、無法正常呼吸或完成動作時停止該模組"
+    ]
+  },
+  {
+    "record_type": "decision",
+    "decision_id": "REC-D02",
+    "affirmative_conclusion": "先只對輕鬆／穩定有氧提供有限主課替換，其餘主課保留原主要任務。",
+    "works_when": [
+      "接受改變部分完整游內容",
+      "器材已熟悉且符合目的"
+    ],
+    "fails_when": [
+      "正測試完整游表現",
+      "原目的要求持續完整游",
+      "想把等距當成等效負荷"
+    ],
+    "how_to_identify": [
+      "預覽原段與替換段",
+      "使用者選擇技術準備或主課變式"
+    ],
+    "action": [
+      "替換而非默默加量",
+      "保留無器材段",
+      "高強度不預設加阻力"
+    ],
+    "remaining_boundary": "沒有通用器材占比，也未證實本選單分類是最佳編排。",
+    "supporting_claim_ids": [
+      "C02",
+      "C03",
+      "REC-C01",
+      "REC-C08"
+    ],
+    "evidence_status": "生理差異有小樣本研究；具體選單是保守的產品範圍決策",
+    "decision_status": "proposed"
+  },
+  {
+    "record_type": "decision",
+    "decision_id": "REC-D03",
+    "affirmative_conclusion": "器材段先用努力程度或明確手動目標，訓練目的與配速依據分開。",
+    "works_when": [
+      "沒有可靠同條件器材參照",
+      "可使用到牆後休息"
+    ],
+    "fails_when": [
+      "直接套普通 PB/CSS",
+      "把估時計入自動出發",
+      "取消秒數也抹除目的與休息"
+    ],
+    "how_to_identify": [
+      "檢查模式、器材、泳式、池長及目標來源",
+      "更動條件後標示手填目標需確認"
+    ],
+    "action": [
+      "共用配速相容性於編輯、顯示、計時、分享、列印、brief",
+      "手動目標保留來源；無目標時保留具體休息",
+      "將來同條件測試另設參照"
+    ],
+    "remaining_boundary": "沒有通用換算，努力程度也不等於精確能量系統量測。",
+    "supporting_claim_ids": [
+      "C02",
+      "C03",
+      "REC-C03",
+      "REC-C06"
+    ],
+    "evidence_status": "研究支持任務差異；欄位分離與檢查屬工程設計",
+    "decision_status": "optional_future_automation_not_current_prerequisite",
+    "user_revision": "器材與時間接受手動處理；自動化條件保留為未來規格，不擋當前內容與示例。"
+  },
+  {
+    "record_type": "decision",
+    "decision_id": "REC-D04",
+    "affirmative_conclusion": "用實際順序的課表列、完整池長與可到達的器材位置表達模板。",
+    "works_when": [
+      "每段可穩定完成",
+      "換裝發生在器材可取得的池端",
+      "距離預算足夠"
+    ],
+    "fails_when": [
+      "A四趟B四趟備註寫交替",
+      "25m 模板在50m池直接加倍",
+      "把成績池長當今天池長"
+    ],
+    "how_to_identify": [
+      "預覽逐列執行順序及每次換裝位置",
+      "詢問今日池長、能完成的趟長與額外份量"
+    ],
+    "action": [
+      "初版 AABB 少換裝",
+      "交替需展開成 ABAB 列",
+      "跨列時間不得縮短必要恢復；明示覆寫語意",
+      "沒有適用模板則略過"
+    ],
+    "remaining_boundary": "模板劑量與換裝時間是設計起點，需池邊驗證。",
+    "supporting_claim_ids": [
+      "REC-C04",
+      "REC-C05",
+      "REC-C09"
+    ],
+    "evidence_status": "程式稽核明確；動線與份量是待實測設計",
+    "decision_status": "optional_future_automation_not_current_prerequisite",
+    "user_revision": "器材與時間接受手動處理；自動化條件保留為未來規格，不擋當前內容與示例。"
+  },
+  {
+    "record_type": "decision",
+    "decision_id": "REC-D05",
+    "affirmative_conclusion": "進階阻力先保留指南和手動設計，不自動當作衝刺增益。",
+    "works_when": [
+      "有教練與可控負荷、場地條件時另設專項",
+      "新功能先服務一般可觀察的技術準備"
+    ],
+    "fails_when": [
+      "器材有了就自動加入大負荷",
+      "拿急性無顯著當長期無效",
+      "用成年小樣本劑量直接套兒童"
+    ],
+    "how_to_identify": [
+      "檢查器材經驗、阻力設定與控制能力",
+      "區分單次暖身與數週訓練目的"
+    ],
+    "action": [
+      "第一版不自動加入阻力傘、牽引／助力／原地繩、腳踝帶",
+      "划手板先審核小型熟悉回饋模板",
+      "原地訓練先具備時間型工作段"
+    ],
+    "remaining_boundary": "不是否定器材價值；長期最佳劑量與族群適用仍不足。",
+    "supporting_claim_ids": [
+      "C04",
+      "C07",
+      "REC-C01",
+      "REC-C09"
+    ],
+    "evidence_status": "小型長期摘要與單次完整研究回答不同問題；啟用範圍為產品決策",
+    "decision_status": "proposed",
+    "monitoring": [
+      "動作控制、完成情形、局部不適"
+    ],
+    "stop_conditions": [
+      "疼痛、失去正常呼吸或器材／固定條件不適用"
+    ]
+  },
+  {
+    "record_type": "decision",
+    "decision_id": "REC-D06",
+    "affirmative_conclusion": "介面保持原主課入口，按需展開今天器材、重點與一個建議。",
+    "works_when": [
+      "使用者希望快速編課",
+      "模板有可判斷條件"
+    ],
+    "fails_when": [
+      "用全部器材詞彙當今天攜帶",
+      "一開始要求完整能力問卷",
+      "沒有適用模板仍硬湊"
+    ],
+    "how_to_identify": [
+      "只有相關選擇才詢問缺少條件",
+      "預覽是否能看懂用途、增量和移除後觀察"
+    ],
+    "action": [
+      "預設不加器材",
+      "指南連結到對應章節",
+      "加入前明示新增／替換距離及時間的不確定性"
+    ],
+    "remaining_boundary": "尚未經手機與真實泳池使用者測試。",
+    "supporting_claim_ids": [
+      "REC-C02",
+      "REC-C05",
+      "REC-C08",
+      "REC-C09"
+    ],
+    "evidence_status": "產品設計；以現有欄位語意與教練溝通原則支持",
+    "decision_status": "proposed"
+  },
+  {
+    "record_type": "decision",
+    "decision_id": "REC-D07",
+    "affirmative_conclusion": "以少量逐筆審核模板連接指南與 drill，並獨立標必要／可選器材和能力條件。",
+    "works_when": [
+      "來源與具體動作可核對",
+      "條件能由使用者或教練觀察"
+    ],
+    "fails_when": [
+      "只按泳式器材標籤匹配",
+      "直接複製第一條 how_to 或長距離配額"
+    ],
+    "how_to_identify": [
+      "檢視 FrEL1、Br8、Sc7、Fl25、UDK4 等反例",
+      "查來源層級與變式是否相同"
+    ],
+    "action": [
+      "先審呼吸管、蛙鞋、浮球與適當踢腿候選",
+      "FrPad1、Br5 延續待複審不納入",
+      "無相容模板直接保留原課；不為四式硬補"
+    ],
+    "remaining_boundary": "本輪並非完整 drill 資料庫來源審核，候選還不能直接當已發布模板。",
+    "supporting_claim_ids": [
+      "REC-C05",
+      "REC-C07",
+      "REC-C09"
+    ],
+    "evidence_status": "具名資料檢查充分支持需增加條件；具體模板待逐筆校訂",
+    "decision_status": "proposed"
+  },
+  {
+    "record_type": "decision",
+    "decision_id": "REC-D08",
+    "affirmative_conclusion": "用版本化模板生成結果，再讓 AI 解釋其目的與限制。",
+    "works_when": [
+      "模板有來源、順序及適用條件",
+      "使用者明確加入"
+    ],
+    "fails_when": [
+      "AI 自創劑量或功效",
+      "模板更新覆蓋舊課表或活動計時",
+      "器材成績混入普通PB"
+    ],
+    "how_to_identify": [
+      "核對結果版本與目標來源",
+      "比對存檔及計時快照是否被改寫"
+    ],
+    "action": [
+      "第一版不需AI API或器材PB資料庫",
+      "保留現有PB不持久化偏好",
+      "舊器材自動配速執行前標需確認而非載入時默改",
+      "AI只解釋已確定結果"
+    ],
+    "remaining_boundary": "日後擴充需另驗 schema、遷移及隱私設計。",
+    "supporting_claim_ids": [
+      "REC-C03",
+      "REC-C06",
+      "REC-C10"
+    ],
+    "evidence_status": "架構提案，非已完成或實測功能",
+    "decision_status": "proposed"
+  },
+  {
+    "record_type": "decision",
+    "decision_id": "REC-D09",
+    "affirmative_conclusion": "先完成配速與模板條件，再接技術準備與有氧替換，最後才擴充進階器材。",
+    "works_when": [
+      "已有來源審核與明確驗收情境"
+    ],
+    "fails_when": [
+      "只加UI或只加器材標籤就視為完成",
+      "沒有驗證舊課表與計時路徑"
+    ],
+    "how_to_identify": [
+      "依 REPORT 第7節的具體情境檢查",
+      "池邊檢查動線與提示是否可用"
+    ],
+    "action": [
+      "保留無器材七類行為",
+      "驗證無PB、缺器材、長池、交替、跨段恢復、存檔及分享",
+      "模板先少量發布並收集可選回饋"
+    ],
+    "remaining_boundary": "本輪完成研究記錄驗證，功能驗收尚未執行。",
+    "supporting_claim_ids": [
+      "REC-C03",
+      "REC-C04",
+      "REC-C05",
+      "REC-C06",
+      "REC-C09",
+      "REC-C10"
+    ],
+    "evidence_status": "程式路徑稽核＋可執行驗收規格",
+    "decision_status": "optional_future_automation_not_current_prerequisite",
+    "user_revision": "器材與時間接受手動處理；自動化條件保留為未來規格，不擋當前內容與示例。"
+  },
+  {
+    "record_type": "tension",
+    "tension_id": "REC-T01",
+    "left_claim_id": "C04",
+    "right_claim_id": "REC-C01",
+    "comparison_axes": {
+      "construct": "阻力游泳的效果",
+      "population": "12位年輕女性 vs 12位成年大學男性",
+      "context": "11週課表衝刺介入 vs 單次划手板加傘暖身",
+      "measure": "介入前後游速 vs 後續25/50m及運動學",
+      "time": "慢性 vs 急性",
+      "direction": "摘要組內改善 vs 急性未顯著差異"
+    },
+    "assessment": "conditional_difference",
+    "resolution_status": "resolved",
+    "resolution_pointer": "REC-D05; REPORT.md sections 1 and 4",
+    "coverage_status": "reviewed",
+    "notes": "不同時間尺度及操作，沒有互相推翻；長期全文統計未讀，不聲稱阻力普遍優越或無效。"
+  },
+  {
+    "record_type": "claim",
+    "claim_id": "REC-C11",
+    "statement": "使用者後續接受器材份量與時間手動處理，自動化條件不作當前前置門檻；使用教學與研究重點寫進自己的網站，保留自己的文章連結。",
+    "claim_kind": "project_model",
+    "evidence_profile": "practice_observation_model",
+    "provenance_type": "project_model",
+    "scope": {
+      "basis": "2026-10-07 後續使用者修正",
+      "boundary": "修正範圍與介面優先順序，不否定器材條件會影響配速的研究"
+    }
+  }
+]
