@@ -106,13 +106,13 @@
     },
     {
       "name": "canonical_integration",
-      "status": "not_performed",
-      "note": "研究任務；未修改或部署網站。UDKLow1 修正仍待實作。"
+      "status": "completed",
+      "note": "後續使用者要求整合；canonical 163eef6 與 my-site 34540e6 已發布，UDKLow1 已修正。"
     }
   ],
   "coverage_note": "定向研究，非系統性回顧。原始實驗、作者訓練指南與製造商操作說明分層；檢索工具不提供可靠總命中數。兒童、初學、成人健身、競技與鐵人場景分列，不將競技男性資料當作所有人的處方。",
-  "updated_at": "2026-10-07T03:44:18Z",
-  "status": "research_completed",
+  "updated_at": "2026-10-07T08:37:46.868989+00:00",
+  "status": "research_integrated_and_published",
   "inclusion_decisions": [
     {
       "source_ids": [
@@ -191,12 +191,6 @@
   ],
   "unresolved_items": [
     {
-      "priority": "high",
-      "item": "UDKLow1 錯誤宣稱一般呼吸管可支援持續水下呼吸",
-      "decision_id": "D11",
-      "next_action": "從 canonical 重新定義並同步網站；先核實既有來源。"
-    },
-    {
       "priority": "normal",
       "item": "器材及 pull 配速可沿用無器材參照",
       "decision_id": "D10",
@@ -216,7 +210,27 @@
   "artifacts": [
     "REPORT.md",
     "records.json",
-    "run-manifest.json"
+    "run-manifest.json",
+    "implementation.md"
   ],
-  "stop_reason": "器材範圍、drill／主課配對、實務條件與系統審計皆已交付；限制與待修明列。更多廣泛檢索不改變目前決策。"
+  "stop_reason": "器材範圍、drill／主課配對、實務條件與系統審計皆已交付；限制與待修明列。更多廣泛檢索不改變目前決策。",
+  "resolved_items": [
+    {
+      "priority": "high",
+      "item": "UDKLow1 錯誤宣稱一般呼吸管可支援持續水下呼吸",
+      "decision_id": "D11",
+      "next_action": "從 canonical 重新定義並同步網站；先核實既有來源。",
+      "resolution": "canonical 163eef6 與 my-site 34540e6 已修正並通過線上驗收"
+    }
+  ],
+  "integration": {
+    "requested_followup": "先將器材詳細使用方式加入 my-site，再據此安排課表",
+    "url": "https://hangsau.github.io/cortex/vortex/instructional/equipment-guide/",
+    "canonical_commit": "163eef6",
+    "site_commit": "34540e6",
+    "deploy_run": 37594642614,
+    "sync_run": 37594706284,
+    "online_verification": "passed",
+    "next_scope": "器材與拉手模式的配速參照及推薦邏輯"
+  }
 }

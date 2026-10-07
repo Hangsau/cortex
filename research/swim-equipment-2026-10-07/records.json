@@ -572,7 +572,7 @@
     "evidence_profile": "mixed_cross_domain",
     "provenance_type": "project_model",
     "scope": {
-      "status": "修正決策；本次未實作",
+      "status": "研究提出的修正，已於後續整合實作並發布",
       "impact": "直接影響使用理解"
     },
     "supporting_claim_ids": [
@@ -893,14 +893,20 @@
       "從 canonical 修正再同步",
       "目前從推薦範例排除"
     ],
-    "remaining_boundary": "此研究未更改 canonical 或網站；部署修正仍待後續實作。",
+    "remaining_boundary": "後續整合已修改 canonical 並同步公開站，保留 UDKLow1 ID；一般呼吸管只用於水面正常呼吸。教學步驟不是 DAN 的試驗處方。",
     "supporting_claim_ids": [
       "C11",
       "C14",
       "C21"
     ],
     "evidence_status": "物理功能與既有資料直接不符",
-    "decision_status": "pending_canonical_fix"
+    "decision_status": "implemented_and_deployed",
+    "implementation": {
+      "canonical_commit": "163eef6",
+      "site_commit": "34540e6",
+      "url": "https://hangsau.github.io/cortex/vortex/instructional/equipment-guide/",
+      "verified_on": "2026-10-07"
+    }
   },
   {
     "record_type": "decision",
@@ -964,9 +970,9 @@
       "direction": "只能水面呼吸 vs 既有資料宣稱能延長水下呼吸"
     },
     "assessment": "contradiction",
-    "resolution_status": "partially_resolved",
+    "resolution_status": "resolved",
     "resolution_pointer": "D11",
     "coverage_status": "reviewed",
-    "notes": "研究判斷已釐清；本次排除推薦，但 canonical 及上線內容尚待修改。"
+    "notes": "呼吸管的功能矛盾已釐清；canonical 與公開 UDKLow1 已改成水面練習，原來源鍵撤下。"
   }
 ]

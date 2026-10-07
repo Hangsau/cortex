@@ -46,4 +46,7 @@ my-site 提供可由首頁、目錄、排課練習庫抵達的詳細器材指南
 - 已實際看過 390px 頁首與呼吸管操作段截圖。瀏覽器首次驗收需先開啟「重新命名」才可編輯原本收起的欄位；修正驗收操作後通過，非產品缺陷。
 - 本機 Hugo 啟動受沙箱限制，經自動批准改用較高權限執行建置／無介面 Chrome。未要求使用者再次批准。
 - sync dry-run 的五筆舊文章 CHANGED 是同步狀態 hash 落後；實際公開文章沒有新增 diff，僅更新 state。重新產生 vortex_links 帶入原先已在 canonical／公開資料存在的索引更新；未額外修改這些技術內容。
-- 待補正式部署 commit／workflow、canonical notify-mysite 與線上確認。
+- 正式站：`34540e6`，GitHub Actions [37594642614](https://github.com/Hangsau/cortex/actions/runs/37594642614) build／deploy 成功。
+- canonical：`163eef6`，notify-mysite [37594706284](https://github.com/Hangsau/TheVortexProject/actions/runs/37594706284) 成功；同步結果為 No public content changes，與已部署資料一致。
+- 線上驗收：公開指南 HTTP 200、320／390／1440px 無溢出、16 錨點、首頁／排課練習庫導覽、修正 UDKLow1 名稱與步驟、手機往返後課表保存一致，全部通過，無 pageerror。
+- 初次發布升權呼叫因自動批准審核服務額度不足而未執行；使用者要求繼續後，同一審核路徑重試成功，沒有繞過審核。
