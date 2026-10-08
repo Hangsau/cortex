@@ -289,7 +289,10 @@ body.wk-running { overflow: hidden; }
 .wk-lane { min-width: 0; overflow-wrap: anywhere; }
 .wk-lane [hidden] { display: none; }
 .wk-lane .wk-field input { width: 100%; min-width: 0; }
-.wk-lane-person { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr) minmax(0, .7fr) auto; align-items: end; gap: var(--s2); padding: var(--s2) 0; border-bottom: 1px solid var(--rule); }
+.wk-lane-person { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, .6fr) auto; align-items: end; gap: var(--s2); padding: var(--s2) 0; border-bottom: 1px solid var(--rule); }
+.wk-lane-wide { grid-column: 1 / -1; margin: 0; }
+.wk-lane-pbs { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: var(--s2); margin: var(--s2) 0; }
+.wk-lane input[readonly] { background: var(--tint); }
 .wk-lane-batch { margin: var(--s3) 0; min-width: 0; }
 .wk-lane .wk-tablewrap { max-width: 100%; }
 .wk-lane .wk-table { min-width: 560px; font-variant-numeric: tabular-nums; }

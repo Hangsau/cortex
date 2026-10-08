@@ -24,7 +24,10 @@
     </nav>
     <div class="ws-layout">
       <div class="ws-panels">
-        <section id="ws-panel-pace" role="tabpanel" aria-labelledby="ws-tab-pace" tabindex="0"><div class="ws-intro"><div><h2>今天想練什麼？</h2><p>依目的選主課，或依賽事安排一週。填入成績後，就能帶出配速。</p></div></div><div data-ws-slot="pace"></div></section>
+        <section id="ws-panel-pace" role="tabpanel" aria-labelledby="ws-tab-pace" tabindex="0"><div class="ws-intro"><div><h2 data-ws-pace-title>今天想練什麼？</h2><p data-ws-pace-intro>依目的選主課，或依賽事安排一週。填入成績後，就能帶出配速。</p></div></div>
+          <div class="ws-training-modes" role="group" aria-label="訓練對象"><button type="button" class="wk-btn" data-ws-mode="personal" aria-pressed="true">個人訓練</button><button type="button" class="wk-btn" data-ws-mode="group" aria-pressed="false">團體訓練</button></div>
+          <div data-ws-mode-panel="personal"><div data-ws-slot="pace"></div></div><div data-ws-mode-panel="group" hidden><div data-ws-slot="group"></div></div>
+        </section>
         <section id="ws-panel-plan" role="tabpanel" aria-labelledby="ws-tab-plan" tabindex="0" hidden>
           <div class="ws-intro"><div><h2>今天的課表</h2><p>從暖身到緩和，把每一段排成自己的節奏。</p></div><div class="ws-entry-actions"><button class="ws-quiet" type="button" data-ws-recommend>依目的選主課 ↗</button><button class="ws-quiet" type="button" data-ws-lane>多人共用水道 ↗</button><button class="ws-quiet" type="button" data-ws-sample>試用示範課表 ↗</button></div></div>
           <p class="ws-copy-note" data-ws-import></p><div data-ws-slot="plan"></div>
@@ -59,7 +62,7 @@
   };
   attach('wk-menu', 'plan', '編排課表');
   attach('wk-goals', 'pace', '依訓練目的選主課');
-  attach('wk-lane', 'pace', '多人共用水道');
+  attach('wk-lane', 'group', '團體成績與主課');
   attach('wk-pb', 'pace', '個人成績');
   attach('wk-css', 'pace', 'CSS 與有氧配速');
   attach('wk-pz', 'pace', '依賽事日期安排一週');
@@ -72,13 +75,30 @@
   const sourceDetails = document.createElement('details');
   sourceDetails.className = 'ws-sources';
   sourceDetails.innerHTML = '<summary>查看計算依據與資料保存方式</summary>';
-  sourceDetails.append(sources); $('#ws-panel-pace').append(sourceDetails);
-  let active = 'pace', lastCount = api.snapshot().count, dragged = null;
+  sourceDetails.append(sources); $('[data-ws-mode-panel="personal"]').append(sourceDetails);
+  let active = 'pace', trainingMode = 'personal', lastCount = api.snapshot().count, dragged = null;
+  function saveStatus() {
+    const saved = api.snapshot().saved, group = active === 'pace' && trainingMode === 'group';
+    $('[data-ws-save]').textContent = group ? '團體名單僅保留於本次頁面' : saved ? '已儲存在此瀏覽器' : '目前無法儲存，請先下載課表';
+    $('[data-ws-save]').classList.toggle('is-error', !group && !saved);
+  }
+  function showMode(mode) {
+    if (!['personal', 'group'].includes(mode)) return;
+    trainingMode = mode;
+    root.querySelectorAll('[data-ws-mode]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.wsMode === mode)));
+    root.querySelectorAll('[data-ws-mode-panel]').forEach(panel => { panel.hidden = panel.dataset.wsModePanel !== mode; });
+    root.classList.toggle('ws-group-mode', active === 'pace' && mode === 'group');
+    $('[data-ws-pace-title]').textContent = mode === 'group' ? '一起練，各有適合的配速。' : '今天想練什麼？';
+    $('[data-ws-pace-intro]').textContent = mode === 'group' ? '選主課、填每人的成績，再決定固定休息或共同包干。' : '依目的選主課，或依賽事安排一週。填入成績後，就能帶出配速。';
+    saveStatus();
+  }
   function showTab(name, focus = false) {
     if (!$(`[data-ws-tab="${name}"]`)) return;
     active = name;
     root.querySelectorAll('[data-ws-tab]').forEach(btn => { const on = btn.dataset.wsTab === name; btn.setAttribute('aria-selected', String(on)); btn.tabIndex = on ? 0 : -1; });
     root.querySelectorAll('.ws-panels > section').forEach(el => { el.hidden = el.id !== 'ws-panel-' + name; });
+    root.classList.toggle('ws-group-mode', name === 'pace' && trainingMode === 'group');
+    saveStatus();
     if (focus) $('#ws-tab-' + name).focus();
   }
   $('.ws-tabs').addEventListener('keydown', e => {
@@ -99,8 +119,7 @@
     $('[data-ws-start]').disabled = !s.count;
     $('[data-ws-ai]').disabled = !s.count;
     $('[data-ws-export]').disabled = !s.count;
-    $('[data-ws-save]').textContent = s.saved ? '已儲存在此瀏覽器' : '目前無法儲存，請先下載課表';
-    $('[data-ws-save]').classList.toggle('is-error', !s.saved);
+    saveStatus();
     $('[data-ws-import]').textContent = s.imported ? '已保留原版與試用版課表；可從課表選單切換。' : '';
     if (document.activeElement !== $('[data-ws-intent]')) $('[data-ws-intent]').value = s.menu.intent || '';
     $('[data-ws-goal-text]').textContent = s.menu.intent || '還沒寫下這堂課的目標。可以先在「這堂課想練什麼？」記下一句話。';
@@ -162,20 +181,22 @@
   }
   root.addEventListener('workout:change', update);
   root.addEventListener('workout:recommendation-added', () => showTab('plan'));
+  root.addEventListener('workout:group-requested', () => { showTab('pace'); showMode('group'); });
   root.addEventListener('workout:render', enhance);
-  root.addEventListener('workout:saved', () => { $('[data-ws-save]').textContent = api.snapshot().saved ? '已儲存在此瀏覽器' : '目前無法儲存，請先下載課表'; });
+  root.addEventListener('workout:saved', saveStatus);
   $('[data-ws-intent]').addEventListener('input', e => { api.setIntent(e.target.value); $('[data-ws-goal-text]').textContent = e.target.value; });
   root.addEventListener('click', async e => {
     const btn = e.target.closest('button'); if (!btn) return;
     if (btn.dataset.wsTab) showTab(btn.dataset.wsTab);
+    else if (btn.dataset.wsMode) showMode(btn.dataset.wsMode);
     else if (btn.hasAttribute('data-ws-rename')) { nameField.hidden = !nameField.hidden; btn.setAttribute('aria-expanded', String(!nameField.hidden)); btn.textContent = nameField.hidden ? '重新命名' : '收起名稱'; if (!nameField.hidden) $('[data-wk-mname]').focus(); }
     else if (btn.hasAttribute('data-ws-preview')) { showTab('review'); $('#ws-panel-review').focus(); window.scrollTo({ top: 0, behavior: 'auto' }); }
     else if (btn.hasAttribute('data-ws-start')) $('[data-wk-start]').click();
     else if (btn.hasAttribute('data-ws-add')) openComposer(+btn.dataset.wsAdd);
     else if (btn.hasAttribute('data-ws-close')) closeEditor();
     else if (btn.hasAttribute('data-ws-sample')) { api.sample(); showTab('plan'); }
-    else if (btn.hasAttribute('data-ws-recommend')) { showTab('pace'); $('#wk-goals').focus(); $('#wk-goals').scrollIntoView(); }
-    else if (btn.hasAttribute('data-ws-lane')) { showTab('pace'); $('#wk-lane').focus(); $('#wk-lane').scrollIntoView(); }
+    else if (btn.hasAttribute('data-ws-recommend')) { showTab('pace'); showMode('personal'); $('#wk-goals').focus(); $('#wk-goals').scrollIntoView(); }
+    else if (btn.hasAttribute('data-ws-lane')) { showTab('pace'); showMode('group'); $('#wk-lane').focus(); $('#wk-lane').scrollIntoView(); }
     else if (btn.hasAttribute('data-ws-ai')) {
       const prompt = `請根據以下游泳課表與使用者目標，以繁體中文整理：\n1. 這堂課的目的與各段的角色。\n2. 順序、距離、趟數、配速與休息的安排理由。\n3. 預期優點、適用條件及可能的取捨；不要保證效果。\n4. 需要觀察的指標與調整／退出條件。\n5. 缺少的資訊與需要先問的問題。\n\n請區分「課表已知事實」、「所附規則的內容」與「你的推論」。不要虛構研究、來源或使用者狀況。沒有目標秒數的項目不要自行補出配速。逐趟變化、分段休息、組間休息與項目間休息是不同設定；rowRest=null 沿用每趟設定，0 直接接下一項，整堂最後不再休息。若安排無法支持目標，直接指出；不要為每份課表硬找優點。所有修改先提出建議，不要把原課表改寫成已確認的處方。\n\n${JSON.stringify(api.brief(), null, 2)}`;
       try { await navigator.clipboard.writeText(prompt); $('[data-ws-export-status]').textContent = '已複製課表與提問，可以貼到你慣用的 AI。'; }
@@ -201,7 +222,8 @@
   root.addEventListener('dragend', () => { dragged = null; root.querySelectorAll('.is-dragging').forEach(el => el.classList.remove('is-dragging')); });
   function followHash() {
     const groups = { 'wk-menu': 'plan', 'wk-goals': 'pace', 'wk-lane': 'pace', 'wk-lane-help': 'pace', 'wk-pb': 'pace', 'wk-css': 'pace', 'wk-pz': 'pace', 'wk-sprint': 'pace', 'wk-mine': 'library', 'wk-sum': 'review' };
-    const target = groups[location.hash.slice(1)]; if (target) showTab(target);
+    const hash = location.hash.slice(1), target = groups[hash];
+    if (target) { showTab(target); if (target === 'pace') showMode(['wk-lane', 'wk-lane-help'].includes(hash) ? 'group' : 'personal'); }
   }
   window.addEventListener('hashchange', followHash);
   update(); enhance(); followHash(); root.classList.add('ws-ready');

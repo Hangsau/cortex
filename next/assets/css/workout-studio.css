@@ -29,6 +29,10 @@ body.workout-studio { border-left: 0; }
 .ws-panels { min-width: 0; }
 .ws-panels > [hidden] { display: none; }
 .ws-ready [hidden] { display: none; }
+.ws-training-modes { display: flex; flex-wrap: wrap; gap: var(--s1); margin: var(--s2) 0; }
+.ws-training-modes [aria-pressed="true"] { background: var(--series); border-color: var(--series); color: var(--paper); }
+.ws-group-mode .ws-aside, .ws-group-mode .ws-bottom { display: none; }
+.ws-group-mode .ws-layout { grid-template-columns: minmax(0, 1fr); }
 .ws-intro { display: flex; align-items: start; justify-content: space-between; gap: var(--s2); margin-bottom: var(--s2); }
 .ws-intro h2 { margin: 0; font-family: var(--f-sans); font-size: var(--fs-l); }
 .ws-intro p { font-size: var(--fs-s); color: var(--ink-2); margin: var(--s1) 0 0; }

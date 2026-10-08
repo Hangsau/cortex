@@ -1,34 +1,48 @@
 <section class="le-block wk-lane" id="wk-lane" aria-labelledby="wk-lane-h" tabindex="-1" data-lane>
-  <h2 id="wk-lane-h">多人共用水道</h2>
-  <p>同一個主課，依今天每人的速度安排順序、批次與出發時間。先填這一段能重複維持的時間，算好後在池邊手動執行。</p>
+  <h2 id="wk-lane-h">團體成績與主課</h2>
+  <p>先選今天的主課，再填每位泳者的成績，推算各自的目標秒數、休息與出發安排。與個人模式共用配速規則，算好後在池邊手動執行。</p>
   <p class="wk-note">名單與參考時間只留在這次開啟的頁面，重新整理會清空。出發表可複製帶走；不會改動你的個人課表或正在進行的計時。</p>
-  <div class="wk-actions"><button type="button" class="wk-btn" data-lane-example>載入四人示範</button><button type="button" class="wk-btn" data-lane-import>帶入上方推薦的單組</button></div>
+  <div class="wk-actions"><button type="button" class="wk-btn" data-lane-example>載入四人手動示範</button><button type="button" class="wk-btn" data-lane-import>帶入個人推薦的組型</button></div>
   <p class="wk-note" data-lane-context role="status"></p>
   <form data-lane-form novalidate autocomplete="off">
+    <h3>1. 今天要練什麼？</h3>
+    <div class="wk-row wk-goal-fields">
+      <label class="wk-field wk-grow"><span>訓練目的</span><select data-lane-choice="key"></select></label>
+      <label class="wk-field"><span>泳式</span><select data-lane-choice="stroke"></select></label>
+      <label class="wk-field"><span>參考份量</span><select data-lane-choice="size"><option value="compact">精簡組</option><option value="standard">原有組型</option></select></label>
+      <label class="wk-field" data-lane-race hidden><span>賽速參考距離</span><select data-lane-choice="event"></select></label>
+    </div>
+    <p class="wk-note">選目的會帶入組型與建議休息，下方仍可調整。每人的秒數只用自己的成績；器材、drill 或成績不足時，可改用手動目標。</p>
     <div class="wk-row wk-goal-fields">
       <label class="wk-field wk-grow"><span>這一段的訓練目的</span><input type="text" maxlength="120" data-lane-field="purpose" placeholder="例如：穩定有氧、換氣時保持頭位"></label>
       <label class="wk-field wk-grow"><span>泳式、游法與器材</span><input type="text" maxlength="120" data-lane-field="task" value="自由式・無器材"></label>
       <label class="wk-field"><span>今天池長</span><select data-lane-field="pool"><option value="25">25 m</option><option value="50">50 m</option></select></label>
       <label class="wk-field"><span>單趟距離（m）</span><input type="number" min="25" max="1500" step="25" value="100" data-lane-field="distance"></label>
-      <label class="wk-field"><span>每人趟數</span><input type="number" min="1" max="200" value="6" data-lane-field="reps"></label>
+      <label class="wk-field"><span>每人組數</span><input type="number" min="1" max="20" value="1" data-lane-field="sets"></label>
+      <label class="wk-field"><span>每組趟數</span><input type="number" min="1" max="200" value="6" data-lane-field="reps"></label>
+      <label class="wk-field"><span>到齊後組間休息（秒）</span><input type="number" min="0" max="3600" value="0" data-lane-field="setRest"></label>
+      <label class="wk-field"><span>執行方式</span><select data-lane-field="timing"><option value="sendoff">同批共同包干</option><option value="rest">每人固定休息</option></select></label>
+      <label class="wk-field"><span data-lane-rest-label>每趟至少休息（秒）</span><input type="number" min="0" max="3600" value="20" data-lane-field="minRest"></label>
       <label class="wk-field"><span>這一段可用分鐘（選填）</span><input type="number" min="1" max="240" data-lane-field="minutes" placeholder="例如：20"></label>
     </div>
+    <details class="wk-goal-details" data-lane-settings><summary>調整出發間隔、包干與分批方式</summary>
     <div class="wk-row wk-goal-fields">
       <label class="wk-field"><span>人與人隔幾秒出發</span><input type="number" min="1" max="60" value="5" data-lane-field="gap"></label>
-      <label class="wk-field"><span>每趟至少休息（秒）</span><input type="number" min="0" max="3600" value="20" data-lane-field="minRest"></label>
-      <label class="wk-field"><span>每趟最多休息（秒，選填）</span><input type="number" min="0" max="3600" value="35" data-lane-field="maxRest"></label>
+      <label class="wk-field" data-lane-sendoff-only><span>每趟最多休息（秒，選填）</span><input type="number" min="0" max="3600" value="35" data-lane-field="maxRest"></label>
       <label class="wk-field"><span>到齊後整理／換批（秒）</span><input type="number" min="0" max="600" value="5" data-lane-field="buffer"></label>
-      <label class="wk-field"><span>共同週期（選填）</span><input type="text" inputmode="decimal" maxlength="12" data-lane-field="interval" placeholder="自動計算；或填 2:05"></label>
-      <label class="wk-field wk-grow"><span>有多批時怎麼輪</span><select data-lane-field="mode"><option value="blocks">這批做完全部趟數，再換下一批</option><option value="rotation">每批各游一趟，逐趟輪流</option></select></label>
+      <label class="wk-field" data-lane-sendoff-only><span>共同包干（選填）</span><input type="text" inputmode="decimal" maxlength="12" data-lane-field="interval" placeholder="自動計算；或填 2:05"></label>
+      <label class="wk-field wk-grow" data-lane-sendoff-only><span>有多批時怎麼輪</span><select data-lane-field="mode"><option value="blocks">這批做完全部組，再換下一批</option><option value="rotation">每批各游一趟，逐趟輪流</option></select></label>
     </div>
-    <label class="wk-check"><input type="checkbox" data-lane-field="regroup" checked>同一批每趟到齊後，再開始下一趟</label>
+    <label class="wk-check" data-lane-sendoff-only><input type="checkbox" data-lane-field="regroup" checked>同一批每趟到齊後，再開始下一趟</label>
     <p class="wk-note">週期從「自己上次出發」起算。空白時進位到方便看鐘的 5 秒刻度；休息範圍是你這次設定的條件，請依訓練目的修改。</p>
-    <h3>今天的名單</h3>
-    <p class="wk-note">填的是這次 <strong data-lane-distance-label>100 m</strong> 的完成時間，例如 1:30 或 90 秒。換泳式、器材或池長後要重新確認；每批會由快到慢排序。</p>
+    </details>
+    <h3>2. 每個人的成績與目標</h3>
+    <p class="wk-note">展開成績欄，只填實際游過的距離，時間可寫 1:30 或 90。將推算這次 <strong data-lane-distance-label>100 m</strong> 的目標；成績需與今天的泳式、池長及器材條件一致。每批依目標由快到慢排序。</p>
+    <div class="wk-actions"><button type="button" class="wk-btn" data-lane-pb-toggle>展開所有人的成績</button></div>
     <div class="wk-lane-people" data-lane-people></div>
     <div class="wk-actions"><button type="button" class="wk-btn" data-lane-add>＋ 加一人</button><button type="button" class="wk-btn" data-lane-group>依休息範圍建議分批</button></div>
     <p class="wk-note">批次可手動修改。分批建議只比較同批的休息條件；逐趟輪流時，等別批的時間也算休息。最多輸入 24 人，實際同時下水人數依現場條件安排。</p>
-    <div class="wk-actions"><button type="submit" class="wk-btn wk-btn--main">計算出發表</button></div>
+    <div class="wk-actions"><button type="submit" class="wk-btn wk-btn--main">計算團體目標與出發表</button></div>
     <p class="wk-warn" data-lane-error role="alert" hidden></p>
   </form>
   <p class="wk-note" data-lane-status role="status"></p>
@@ -38,6 +52,7 @@
   <details class="wk-goal-details" id="wk-lane-help">
     <summary>怎麼用這張出發表？</summary>
     <p>先選共同目的，再依今天該泳式的速度排序。人與人隔 5 秒出發，和每人每 2 分鐘出發，是兩件不同的事。個人休息＝自己的出發週期−這一趟的完成時間。</p>
+    <p>固定休息是每人實際到牆後再休息，後續出發時間依目標游速預估；共同包干則固定出發週期，因此快慢不同的人會有不同休息。組間先等這批全員完成，休完組間時間再出發；若逐趟輪流，下一組要等所有批次完成。</p>
     <p>「這批做完再換」讓各批保有自己的週期；「逐趟輪流」要等其他批完成才輪回來，休息可能變長。若有人休息超出你設定的範圍，表格會指出原因，請調整主課、份量或分時段練習。</p>
     <p>奇數個池長的單趟，下一趟會從對岸出發；器材放置與等待位置也要一起安排。換段要等最後一人完成，不能只看第一人結束的時間。</p>
     <p>出發表以這次填入的時間估算。若反覆追腳、首位返牆時隊尾還沒出發，或休息者擋住轉身，先調整同批人數、距離與順序；讓行與繞圈方向依泳池規定。這裡不判定水道安全容量。</p>

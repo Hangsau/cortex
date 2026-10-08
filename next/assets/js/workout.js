@@ -163,24 +163,24 @@
   const setTF = (el, t) => { el.querySelector('.wk-tf-i').value = showT(t, +el.dataset.dec || 0); };
 
   /* ---------- 成績與 CSS ---------- */
-  const pb = (s, d) => parseT(S.pb[baseStroke(s)] && S.pb[baseStroke(s)][d]);
-  const known = (s) => (STROKES.find(x => x.k === s) || { d: [] }).d.map(d => [d, pb(s, d)]).filter(x => x[1]);
+  const pb = (s, d, bests = S.pb) => parseT(bests[baseStroke(s)] && bests[baseStroke(s)][d]);
+  const known = (s, bests = S.pb) => (STROKES.find(x => x.k === s) || { d: [] }).d.map(d => [d, pb(s, d, bests)]).filter(x => x[1]);
   // CSS 擬合不用 25 m：出發／蹬牆占比太大，會扭曲配速—距離關係（canonical 的例子是 100＋200、50＋100）
-  const knownCss = (s) => known(s).filter(([d]) => d >= 50);
+  const knownCss = (s, bests = S.pb) => known(s, bests).filter(([d]) => d >= 50);
   const cssCache = {};
   function css(s) {
     s = baseStroke(s);
     if (!(s in cssCache)) cssCache[s] = cssCalc(s);
     return cssCache[s];
   }
-  function cssCalc(s) {
-    const t400 = pb(s, 400), t200 = pb(s, 200);
+  function cssCalc(s, bests = S.pb) {
+    const t400 = pb(s, 400, bests), t200 = pb(s, 200, bests);
     if (t200 && t400) {
       if (t400 <= t200) return { bad: '400 m 成績比 200 m 還快，請確認。' };
       return { pace: (t400 - t200) / 2, tier: 'tier_a', how: `(${fmt(t400, 2)} − ${fmt(t200, 2)}) ÷ 2` };
     }
     if (t400) return { pace: t400 / 4 / K_FALLBACK, tier: 'tier_b', how: `(${fmt(t400, 2)} ÷ 4) ÷ ${K_FALLBACK}` };
-    const k = knownCss(s);
+    const k = knownCss(s, bests);
     if (k.length >= 2) {
       const [d1, t1] = k[k.length - 2], [d2, t2] = k[k.length - 1];
       const e = Math.log(t2 / t1) / Math.log(d2 / d1);
@@ -188,14 +188,14 @@
       const T400 = t2 * Math.pow(400 / d2, e);
       return { pace: T400 / 4 / K_FALLBACK, tier: 'tier_c', how: `用 ${d1} m＋${d2} m 擬合個人指數 ${e.toFixed(3)}，推 400 m ≈ ${fmt(T400)}，再 (T400 ÷ 4) ÷ ${K_FALLBACK}`, short: d2 <= 100 };
     }
-    return known(s).length ? { tier: 'tier_d', one: known(s).map(x => x[0]).join('、') } : null;
+    return known(s, bests).length ? { tier: 'tier_d', one: known(s, bests).map(x => x[0]).join('、') } : null;
   }
   // 沒有該距離 PB：用同式較長距離成績平均切段。50 → 25 直接 ÷ 2——跳水比蹬牆快、距離短速度快，兩者大致抵銷
   // （2026-09-27 使用者判斷；曾試過按泳式的教練觀測比例，使用者認為不必修正）
-  function baseFor(s, d) {
-    const own = pb(s, d);
+  function baseFor(s, d, bests = S.pb) {
+    const own = pb(s, d, bests);
     if (own) return { t: own, src: `${d} m PB` };
-    const longer = known(s).find(([D]) => D > d && D % d === 0);
+    const longer = known(s, bests).find(([D]) => D > d && D % d === 0);
     if (!longer) return null;
     const [D, T] = longer;
     return { t: T * d / D, split: true, D, T, src: `${D} m 成績 ÷ ${D / d}` };
@@ -205,28 +205,28 @@
 
   /* ---------- 一列課表的目標秒數（找不到依據就不給，並說缺什麼） ---------- */
   const NO_AUTO = { kick: 1, drill: 1 };
-  function targetOf(row) {
+  function targetOf(row, bests) {
     const s = baseStroke(row.stroke);
     if (row.int === 'custom') { const t = parseT(row.target); return t ? { t } : null; }
     if (NO_AUTO[row.mode] || row.int === 'none') return null;
     if (row.int === 'sprint') {
-      const b = baseFor(s, row.dist);
+      const b = baseFor(s, row.dist, bests);
       return b ? { t: b.t / ((row.pct || 95) / 100), note: b.split ? `由 ${b.src}` : '' } : { miss: `沒有${SZH[s]} ${row.dist} m 或更長距離的成績` };
     }
     if (row.int === 'race') {
-      const ev = +row.event, p = ev && pb(s, ev);
+      const ev = +row.event, p = ev && pb(s, ev, bests);
       if (!p) return { miss: ev ? `沒有${SZH[s]} ${ev} m 成績` : '選一個比賽距離' };
       return { t: p / (ev / row.dist), note: `${ev} m 配速` };
     }
     if (row.int === 'pbplus') {
-      const b = baseFor(s, row.dist);
+      const b = baseFor(s, row.dist, bests);
       return b ? { t: b.t + (+row.pbPlus || 0), note: b.split ? `由 ${b.src}` : '' } : { miss: `沒有${SZH[s]} ${row.dist} m 或更長距離的成績` };
     }
     if (row.int === 'tol') {
-      const p = pb(s, 100);
+      const p = pb(s, 100, bests);
       return p ? { t: p * row.dist / 100 * K_TOL, note: '🟠' } : { miss: `沒有${SZH[s]} 100 m 成績` };
     }
-    const c = css(s);
+    const c = bests ? cssCalc(s, bests) : css(s);
     if (!c || !c.pace) return { miss: c && c.bad ? '成績不合理' : `${SZH[s]}成績不足以算 CSS` };
     const mult = row.int === 'easy' ? K_EASY : row.int === 'steady' ? K_STEADY : 1;
     return { t: c.pace * mult * row.dist / 100, note: c.tier === 'tier_a' ? '' : TIER_LABEL[c.tier] };
@@ -412,11 +412,11 @@
   }
   // 推薦組：組型參數全部取 set_types；取區間中值，並標明
   // 各組型的推薦組（參數全取 set_types，取區間中值）；週課表與單堂推薦共用
-  function setBuilders(s) {
+  function setBuilders(s, bests = S.pb) {
     // 比賽項目可能多項（使用者 2026-09-27），不在這裡選；賽速組以 25 m 一趟、100 m 賽距 × 5 的量當樣板，項目在課表列裡選
     // 項目預設：有 100 m 成績用 100，否則用最短的一筆 ≥50 m 成績；都沒有就留空（課表列裡再選）
     const race = (scale, label, selectedEvent) => {
-      const have = known(s).map(x => x[0]).filter(d => d >= 50);
+      const have = known(s, bests).map(x => x[0]).filter(d => d >= 50);
       const ev = selectedEvent || (have.includes(100) ? 100 : (have[0] || 100));
       const rep = ev <= 100 ? 25 : 50, mult = ev >= 800 ? 2.5 : ev === 400 ? 4 : 5.5; // race_pace.volume_rule 取中值
       const reps = Math.max(4, Math.round(ev * mult * (scale || 1) / rep));
@@ -438,18 +438,18 @@
   const goalName = key => key === 'steady' ? INTS.steady : INTENT[key].name_zh;
   // 只保留本次頁面的選擇；產生的課表沿用既有存檔格式。
   const goalChoice = { key: 'aerobic_easy', stroke: 'free', size: 'compact', event: 100 };
-  function goalSet() {
-    const key = goalChoice.key, builder = setBuilders(goalChoice.stroke)[GOAL_BUILDERS[key]];
-    const x = key === 'race_pace' ? builder(null, null, goalChoice.event) : builder();
+  function goalSet(choice = goalChoice, bests) {
+    const key = choice.key, builder = setBuilders(choice.stroke, bests)[GOAL_BUILDERS[key]];
+    const x = key === 'race_pace' ? builder(null, null, choice.event) : builder();
     x.name = goalName(key);
-    if (goalChoice.size === 'compact') {
+    if (choice.size === 'compact') {
       if (x.row.sets > 1) x.row.sets = Math.ceil(x.row.sets / 2);
       else x.row.reps = Math.max(1, Math.ceil(x.row.reps / 2));
     }
     // 穩定有氧沒有獨立休息規則；保留這次顯示的範例，避免 autoRest 將它歸零。
     x.row = blankRow(Object.assign({ note: x.name, restAuto: key !== 'steady' }, x.row));
-    const target = targetOf(x.row);
-    x.row.sendoff = Math.ceil(((target && target.t || estSec(x.row)) + x.row.rest) / RND) * RND;
+    const target = targetOf(x.row, bests);
+    x.row.sendoff = target && target.t ? Math.ceil((target.t + x.row.rest) / RND) * RND : bests ? 0 : Math.ceil((estSec(x.row) + x.row.rest) / RND) * RND;
     // 多組之間仍需完整恢復，不能沿用純速舊樣板的 0 秒。
     if (x.row.sets > 1) x.row.setRest = x.row.rest;
     return x;
@@ -467,7 +467,7 @@
       ${!target || !target.t ? `<p class="wk-note">${esc(target && target.miss || '尚未設定目標')}。仍可加入組型；在下方填成績後換算，或在課表內改用自訂秒數。</p>` : ''}
       ${key === 'race_pace' ? '<p class="wk-note">參考的是所選距離的實測成績，不需要賽事日期。用短距離重複熟悉配速，也可搭配其他主課。</p>' : ''}
       ${key === 'lactate_tolerance' ? '<p class="wk-note">這類範例適用於已有規律訓練、能自行控速的泳者；配速與休息屬教練實務起點。</p>' : ''}
-      <div class="wk-actions"><button type="button" class="wk-btn wk-btn--main" data-wk-goal-add>加入目前主課</button><button type="button" class="wk-btn" data-wk-goal-new>另建課表</button><button type="button" class="wk-btn" data-wk-goal-lane>用單組安排多人</button></div>
+      <div class="wk-actions"><button type="button" class="wk-btn wk-btn--main" data-wk-goal-add>加入目前主課</button><button type="button" class="wk-btn" data-wk-goal-new>另建課表</button><button type="button" class="wk-btn" data-wk-goal-lane>用這組安排團體</button></div>
       <details class="wk-goal-details"><summary>配速依據與調整提示</summary><p>配速依據：${esc(basis)}。</p><p>組型參考：${esc(x.why)}。</p><p>調整提示：${esc(stop)}</p><p class="muted">提示供你現場判斷，計時器不會自動判定達標或退出。</p></details></div>`;
   }
   function initGoals() {
@@ -1647,7 +1647,34 @@
     root.workout = Object.freeze({
       recommendation() {
         const x = goalSet();
-        return { name: x.name, strokeLabel: SZH[x.row.stroke], row: JSON.parse(JSON.stringify(x.row)) };
+        return { name: x.name, strokeLabel: SZH[x.row.stroke], choice: { ...goalChoice }, row: JSON.parse(JSON.stringify(x.row)) };
+      },
+      groupOptions() {
+        return { goals: Object.keys(GOAL_BUILDERS).map(key => ({ key, name: goalName(key) })), strokes: STROKES.filter(x => x.k !== 'im').map(x => ({ key: x.k, name: x.zh, distances: x.d.slice() })) };
+      },
+      groupRecommendation(choice, bests = {}, distance) {
+        if (!choice || !Object.hasOwn(GOAL_BUILDERS, choice.key) || !STROKES.some(s => s.k === choice.stroke && s.k !== 'im') || !['compact', 'standard'].includes(choice.size)) throw new Error('請選擇有效的主課、泳式與份量。');
+        const event = Number(choice.event);
+        if (!STROKES.find(s => s.k === choice.stroke).d.includes(event) || event < 50) throw new Error('請選擇有效的賽速參考距離。');
+        const scores = {};
+        for (const d of STROKES.find(s => s.k === choice.stroke).d) {
+          const raw = String(bests?.[choice.stroke]?.[d] ?? '').trim().replace('：', ':');
+          if (!raw) continue;
+          const seconds = parseT(raw);
+          if (!/^(?:\d+(?:\.\d{1,2})?|\d{1,3}:[0-5]\d(?:\.\d{1,2})?)$/.test(raw) || seconds == null || seconds > 7200) throw new Error(`${d} m 成績請填有效的分:秒或秒數（最多 120 分鐘）。`);
+          scores[d] = seconds;
+        }
+        bests = { [choice.stroke]: scores };
+        const x = goalSet({ ...choice, event }, bests), row = x.row;
+        if (distance != null) {
+          if (!Number.isInteger(distance) || distance < 25 || distance > 1500) throw new Error('請填有效的單趟距離。');
+          row.dist = distance;
+        }
+        const target = targetOf(row, bests), c = ['easy', 'steady', 'thr'].includes(row.int) ? cssCalc(row.stroke, bests) : null;
+        row.sendoff = target && target.t ? Math.ceil((target.t + row.rest) / RND) * RND : 0;
+        const rule = choice.key === 'steady' ? `CSS × ${K_STEADY}（本站換算）` : TYPE[x.type].target_rule;
+        const basis = c && c.pace ? `${rule}；CSS ${fmt(c.pace)}／100 m（${TIER_LABEL[c.tier]}）；${c.how}` : `${rule}${target && target.note && target.note !== '🟠' ? `；${target.note}` : ''}`;
+        return { name: x.name, strokeLabel: SZH[row.stroke], row: JSON.parse(JSON.stringify(row)), target: target && target.t || null, basis, missing: target && target.miss || (!target ? '請填足夠的成績，或改填手動目標。' : ''), sendoff: target && target.t ? Math.ceil((target.t + row.rest) / RND) * RND : null };
       },
       snapshot() {
         const rows = M().blocks.flatMap(b => b.rows);

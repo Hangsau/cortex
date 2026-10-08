@@ -42,6 +42,23 @@ assert.ok(calc({ distance: 400, people: [{ time: 100, batch: 1 }, { time: 300, b
 assert.ok(calc({ distance: 100, gap: 60 }).warnings.some(w => w.includes('隊尾')));
 assert.equal(calc({ reps: 200, people: Array.from({ length: 24 }, () => ({ time: 60, batch: 1 })), maxRest: '' }).groups[0].people.length, 24);
 assert.throws(() => calc({ people: Array.from({ length: 25 }, () => ({ time: 60, batch: 1 })) }), /1–24/);
+// Multiple sets wait for the whole group; fixed rest has a different period per swimmer.
+r = calc({ sets: 2, setRest: 60 });
+assert.equal(r.groups[0].setStride, 805); assert.equal(r.finish, 1550); assert.equal(r.nextBlock, 1555);
+assert.deepEqual(r.groups[0].people.map(p => p.setRest), [90, 85, 80, 75]);
+r = calc({ timing: 'rest', sets: 2, setRest: 60 });
+assert.deepEqual(r.groups[0].people.map(p => p.period), [110, 115, 120, 125]);
+assert.deepEqual(r.groups[0].people.map(p => p.rest), [20, 20, 20, 20]);
+assert.deepEqual(r.groups[0].people.map(p => p.last), [1445, 1480, 1515, 1550]);
+assert.deepEqual(r.groups[0].people.map(p => p.setRest), [165, 135, 105, 75]);
+r = calculate({ ...two, mode: 'rotation', sets: 2, setRest: 60 });
+assert.equal(r.groups[0].setStride, 495); assert.equal(r.finish, 930); assert.equal(r.nextBlock, 935);
+r = calc({ sets: 2, reps: 1, setRest: 60 });
+assert.equal(r.finish, 300); assert.equal(r.groups[0].people[0].next, 180);
+assert.ok(r.groups[0].people.every(p => p.rest === null));
+for (const extra of [{ sets: 0 }, { sets: 21 }, { setRest: -1 }, { timing: 'rest', mode: 'rotation' }]) assert.throws(() => calc(extra));
+assert.throws(() => suggestGroups({ ...example, timing: 'rest' }), /固定休息/);
+assert.ok(calc({ timing: 'rest', minRest: 180 }).groups[0].people.every(p => p.rest === 180));
 console.log('PASS shared-lane math: scheduling, rest bounds, batches, rounding, invalid inputs and limits');
 if (process.argv[2] === '--unit') process.exit(0);
 
@@ -69,6 +86,7 @@ const url = process.argv[2] || 'http://127.0.0.1:13379/cortex/vortex/workout/';
     assert.equal(await page.locator('[data-lane-output] tbody tr').count(), 4);
     assert.equal(await page.locator('[data-lane-error]').isVisible(), false);
     assert.deepEqual(await snapshot(), original);
+    await page.locator('[data-lane-settings] > summary').click();
 
     // Changing a condition invalidates the export; changing swimming conditions also clears reference times.
     await f('maxRest').fill('30'); assert.equal(await page.locator('[data-lane-export]').isVisible(), false);
@@ -81,12 +99,14 @@ const url = process.argv[2] || 'http://127.0.0.1:13379/cortex/vortex/workout/';
     await f('distance').fill('50'); await f('purpose').focus(); assert.deepEqual(await roster(), ['', '', '', '']);
     await compute(); assert.match(await page.locator('[data-lane-error]').innerText(), /50 m/);
 
-    // Recommendation import is a single set, does not substitute the owner's PB for other swimmers.
+    // Recommendation import retains all sets, without substituting the owner's PB.
+    await page.locator('[data-ws-mode="personal"]').click();
     await page.locator('[data-wk-goal]').selectOption('velocity');
     await page.locator('[data-wk-goal-size]').selectOption('standard');
     await page.locator('[data-wk-goal-lane]').click();
     assert.equal(await page.locator('#wk-lane').isVisible(), true);
-    assert.match(await page.locator('[data-lane-context]').innerText(), /原推薦.*組間休息.*先算其中 1 組/);
+    assert.match(await page.locator('[data-lane-context]').innerText(), /2 組.*組間休/);
+    assert.equal(await f('sets').inputValue(), '2');
     assert.deepEqual(await roster(), ['', '', '', '']); assert.deepEqual(await snapshot(), original);
 
     // Names and purpose stay text, and clipboard denial yields a selectable in-page fallback.
