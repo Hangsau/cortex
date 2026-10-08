@@ -45,6 +45,6 @@
 - [x] 新聲音測試通過，包含無音訊時時鐘仍可用；JavaScript 語法通過。
 - [x] timer／live／studio／goals／lane 五套回歸通過；320／390／1440px 及手機畫面確認，測試音按鈕在手機佔滿整列；原生 Chrome 音訊 context 啟動與時鐘通過。
 - [x] 22 specs 全 PASS，959 頁／51,315 站內連結及 121 舊網址有效。
-- [ ] 發布與正式網址驗證。
+- [x] 已發布 `2592f7a`；[GitHub Pages 部署 37751400522](https://github.com/Hangsau/cortex/actions/runs/37751400522) 成功。對正式網址 `https://hangsau.github.io/cortex/vortex/workout/?v=2592f7a` 執行新聲音測試全部通過，含原生 Chrome 音訊與 320／390／1440px。
 
 沒有把音訊問題擴張成新的背景計時引擎，也沒有宣稱所有手機真機已驗證。
