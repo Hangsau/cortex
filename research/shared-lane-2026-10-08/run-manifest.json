@@ -2,9 +2,9 @@
   "record_type": "run_manifest",
   "run_id": "shared-lane-2026-10-08",
   "question": "一條水道的多人訓練能否依今天的人員與能力建立公式／安排方法？",
-  "phase": "integration",
+  "phase": "publication",
   "started_at": "2026-10-07T22:26:12Z",
-  "updated_at": "2026-10-07T22:58:29.809546Z",
+  "updated_at": "2026-10-08T08:19:00.624601Z",
   "evidence_profiles": [
     "practice_observation_model"
   ],
@@ -83,8 +83,9 @@
     },
     {
       "name": "publication",
-      "status": "pending",
-      "note": "待 commit、CI 與正式站驗證。"
+      "status": "completed",
+      "note": "c5b62f8 已發布；deploy 37699588105 成功，正式站完整 shared-lane 計算／瀏覽器測試通過（320/390/1440px）。",
+      "url": "https://github.com/Hangsau/cortex/actions/runs/37699588105"
     }
   ],
   "included_source_ids": [
