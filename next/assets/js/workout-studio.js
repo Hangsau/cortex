@@ -17,18 +17,18 @@
       <div class="ws-hero-side"><span class="ws-version">排課與間歇計時</span><p data-ws-save role="status">已儲存在此瀏覽器</p></div>
     </header>
     <nav class="ws-tabs" role="tablist" aria-label="排課工作台">
-      <button id="ws-tab-plan" role="tab" aria-controls="ws-panel-plan" aria-selected="true" data-ws-tab="plan"><span>01</span> 排課</button>
-      <button id="ws-tab-pace" role="tab" aria-controls="ws-panel-pace" aria-selected="false" tabindex="-1" data-ws-tab="pace"><span>02</span> 成績與建議</button>
+      <button id="ws-tab-pace" role="tab" aria-controls="ws-panel-pace" aria-selected="true" data-ws-tab="pace"><span>01</span> 成績與建議</button>
+      <button id="ws-tab-plan" role="tab" aria-controls="ws-panel-plan" aria-selected="false" tabindex="-1" data-ws-tab="plan"><span>02</span> 排課</button>
       <button id="ws-tab-library" role="tab" aria-controls="ws-panel-library" aria-selected="false" tabindex="-1" data-ws-tab="library"><span>03</span> 練習庫</button>
       <button id="ws-tab-review" role="tab" aria-controls="ws-panel-review" aria-selected="false" tabindex="-1" data-ws-tab="review"><span>04</span> 課表與說明</button>
     </nav>
     <div class="ws-layout">
       <div class="ws-panels">
-        <section id="ws-panel-plan" role="tabpanel" aria-labelledby="ws-tab-plan" tabindex="0">
+        <section id="ws-panel-pace" role="tabpanel" aria-labelledby="ws-tab-pace" tabindex="0"><div class="ws-intro"><div><h2>今天想練什麼？</h2><p>依目的選主課，或依賽事安排一週。填入成績後，就能帶出配速。</p></div></div><div data-ws-slot="pace"></div></section>
+        <section id="ws-panel-plan" role="tabpanel" aria-labelledby="ws-tab-plan" tabindex="0" hidden>
           <div class="ws-intro"><div><h2>今天的課表</h2><p>從暖身到緩和，把每一段排成自己的節奏。</p></div><div class="ws-entry-actions"><button class="ws-quiet" type="button" data-ws-recommend>依目的選主課 ↗</button><button class="ws-quiet" type="button" data-ws-lane>多人共用水道 ↗</button><button class="ws-quiet" type="button" data-ws-sample>試用示範課表 ↗</button></div></div>
           <p class="ws-copy-note" data-ws-import></p><div data-ws-slot="plan"></div>
         </section>
-        <section id="ws-panel-pace" role="tabpanel" aria-labelledby="ws-tab-pace" tabindex="0" hidden><div class="ws-intro"><div><h2>今天想練什麼？</h2><p>依目的選主課，或依賽事安排一週。填入成績後，就能帶出配速。</p></div></div><div data-ws-slot="pace"></div></section>
         <section id="ws-panel-library" role="tabpanel" aria-labelledby="ws-tab-library" tabindex="0" hidden><div class="ws-intro"><div><h2>你的練習工具箱</h2><p>收好常用的練習、器材與組型，下次直接拿來用。</p></div></div><div data-ws-slot="library"></div></section>
         <section id="ws-panel-review" role="tabpanel" aria-labelledby="ws-tab-review" tabindex="0" hidden><div class="ws-intro"><div><h2>把這堂課帶到池邊</h2><p>確認安排，列印或分享，也替訓練留下目的。</p></div></div><div data-ws-slot="review"></div>
           <section class="ws-brief"><p class="ws-eyebrow">課表說明</p><h3>知道為什麼，也知道怎麼調整。</h3><p data-ws-goal-text></p>
@@ -73,7 +73,7 @@
   sourceDetails.className = 'ws-sources';
   sourceDetails.innerHTML = '<summary>查看計算依據與資料保存方式</summary>';
   sourceDetails.append(sources); $('#ws-panel-pace').append(sourceDetails);
-  let active = 'plan', lastCount = api.snapshot().count, dragged = null;
+  let active = 'pace', lastCount = api.snapshot().count, dragged = null;
   function showTab(name, focus = false) {
     if (!$(`[data-ws-tab="${name}"]`)) return;
     active = name;

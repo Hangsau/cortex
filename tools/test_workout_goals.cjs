@@ -16,7 +16,7 @@ const output = process.env.WORKOUT_SCREENSHOTS || os.tmpdir();
   const menu = async () => { const s = await state(); return s.menus[s.cur]; };
   const rows = async () => (await menu()).blocks.flatMap(b => b.rows);
   const brief = () => page.evaluate(() => document.querySelector('[data-wk]').workout.brief());
-  const open = () => page.locator('[data-ws-recommend]').click();
+  const open = async () => { await page.locator('[data-ws-tab="plan"]').click(); await page.locator('[data-ws-recommend]').click(); };
   const select = key => page.locator('[data-wk-goal]').selectOption(key);
   const add = () => page.locator('[data-wk-goal-add]').click();
   const noOverflow = async () => assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);

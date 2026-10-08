@@ -42,6 +42,9 @@ const oldKey = 'cortex-swim-v2', key = 'cortex-swim-v3';
     assert.equal(await page.evaluate(k => localStorage.getItem(k), oldKey), oldBefore);
     assert.equal(await page.locator('[data-ws-start]').isDisabled(), true);
     assert.equal(await page.locator('dialog[open]').count(), 0);
+    assert.deepEqual(await page.locator('[data-ws-tab]').evaluateAll(xs => xs.map(x => x.dataset.wsTab)), ['pace', 'plan', 'library', 'review']);
+    assert.equal(await page.locator('[data-ws-tab="pace"]').getAttribute('aria-selected'), 'true');
+    await page.locator('[data-ws-tab="plan"]').click();
     await page.locator('[data-ws-rename]').click();
     await page.locator('[data-wk-mname]').fill('新版課表');
     await old.evaluate(k => { const s = JSON.parse(localStorage.getItem(k)); s.menus[0].name = '原版仍可獨立修改'; localStorage.setItem(k, JSON.stringify(s)); }, oldKey);
@@ -51,6 +54,7 @@ const oldKey = 'cortex-swim-v2', key = 'cortex-swim-v3';
     assert.equal((await current()).name, '新版課表');
     console.log('PASS legacy import, concurrent stale tab isolation, persistence and empty state');
 
+    await page.locator('[data-ws-tab="plan"]').click();
     await page.locator('[data-ws-sample]').click();
     assert.equal((await snapshot()).distance, 1200);
     assert.equal((await snapshot()).count, 4);
@@ -170,6 +174,7 @@ const oldKey = 'cortex-swim-v2', key = 'cortex-swim-v3';
     await page.locator('[data-wk-stop]').click();
     console.log('PASS studio timer, pause, item transition and no final rest');
 
+    await page.locator('[data-ws-tab="plan"]').click();
     await page.locator('[data-ws-sample]').click();
     for (const width of [1440, 390, 320]) {
       await page.setViewportSize({ width, height: width === 1440 ? 1000 : 844 });
@@ -183,8 +188,8 @@ const oldKey = 'cortex-swim-v2', key = 'cortex-swim-v3';
       await page.screenshot({ path: path.join(output, `workout-studio-editor-${width}.png`) });
       await page.keyboard.press('Escape');
     }
-    await page.locator('[data-ws-tab="plan"]').focus(); await page.keyboard.press('ArrowRight');
-    assert.equal(await page.locator('[data-ws-tab="pace"]').getAttribute('aria-selected'), 'true');
+    await page.locator('[data-ws-tab="pace"]').focus(); await page.keyboard.press('ArrowRight');
+    assert.equal(await page.locator('[data-ws-tab="plan"]').getAttribute('aria-selected'), 'true');
     await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'reduce' }); await noOverflow();
     console.log('PASS all tabs and editor at 320/390/1440, keyboard tabs and dark mode');
 
@@ -195,6 +200,7 @@ const oldKey = 'cortex-swim-v2', key = 'cortex-swim-v3';
     }, key);
     await failedStorage.goto(url);
     assert.match(await failedStorage.locator('[data-ws-save]').textContent(), /無法儲存/);
+    await failedStorage.locator('[data-ws-tab="plan"]').click();
     await failedStorage.locator('[data-ws-rename]').click();
     await failedStorage.locator('[data-wk-mname]').fill('存檔失敗仍可操作');
     assert.match(await failedStorage.locator('[data-ws-save]').textContent(), /無法儲存/);

@@ -59,7 +59,7 @@ const url = process.argv[2] || 'http://127.0.0.1:13379/cortex/vortex/workout/';
   const roster = () => page.locator('[data-person-field="time"]').evaluateAll(xs => xs.map(x => x.value));
   const overflow = async () => assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
   try {
-    await page.goto(url); await page.locator('[data-ws-lane]').click();
+    await page.goto(url); await page.locator('[data-ws-tab="plan"]').click(); await page.locator('[data-ws-lane]').click();
     assert.equal(await page.locator('#wk-lane').isVisible(), true);
     assert.deepEqual(await roster(), ['', '', '', '']);
     const original = await snapshot();
