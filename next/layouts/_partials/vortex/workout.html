@@ -149,6 +149,9 @@
     <p class="muted">分享連結裡帶著整份課表，目標秒數照你現在的成績固定下來；對方打開按確定就匯入，不用填成績就能直接跑 HIIT。</p>
     <label class="wk-check"><input type="checkbox" data-wk-autorest checked> 有目標秒數的趟，沒按「到牆」時目標一到就開始算休息</label>
     <label class="wk-check"><input type="checkbox" data-wk-voice checked> 語音報讀下一趟（手機要開聲音）</label>
+    <div class="wk-actions"><button type="button" class="wk-btn" data-wk-audio-test>測試／恢復提示音</button></div>
+    <p class="wk-note" data-wk-audio-status role="status">開始前可測試音量：短聲是倒數，長聲是出發；提示音與語音報讀分開。</p>
+    <p class="wk-note">計時時請保持此頁在前景；切換 App 或鎖定螢幕後，瀏覽器可能暫停提示音與畫面更新。</p>
     <div class="wk-actions"><button type="button" class="wk-btn wk-btn--main wk-btn--big" data-wk-start>照這份清單開始 HIIT 計時</button></div>
   </section>
 
@@ -194,9 +197,11 @@
     <button type="button" class="wk-btn" data-wk-skip>跳過這一段</button>
     <button type="button" class="wk-btn" data-wk-undo disabled>撤銷上次操作</button>
     <button type="button" class="wk-btn" data-wk-live-open>暫停修改課表</button>
+    <button type="button" class="wk-btn" data-wk-audio-test>測試／恢復提示音</button>
     <button type="button" class="wk-btn" data-wk-t-copy hidden>複製這次結果</button>
   </div>
   <p class="wk-t-notice" data-wk-t-notice role="status" aria-live="polite"></p>
+  <p class="wk-t-notice" data-wk-audio-status role="status">出發前 3、2、1 短聲，出發長聲。請保持頁面在前景。</p>
   <div class="wk-t-adj" aria-label="臨場調整">
     <div class="wk-t-adjrow"><span>目標</span><button type="button" data-adj="t:-1">−1 秒</button><button type="button" data-adj="t:1">+1 秒（放慢）</button></div>
     <div class="wk-t-adjrow"><span>休息</span><button type="button" data-adj="r:-10">−10 秒</button><button type="button" data-adj="r:10">+10 秒</button></div>

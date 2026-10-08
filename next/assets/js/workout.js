@@ -1118,22 +1118,67 @@
   });
 
   /* ---------- 聲音與螢幕常亮 ---------- */
-  let ac = null;
+  let ac = null, audioResume = null, audioEpoch = 0;
+  const playingTones = new Set();
+  const audioStatus = message => document.querySelectorAll('[data-wk-audio-status]').forEach(el => { el.textContent = message; });
+  const cancelSpeech = () => { try { window.speechSynthesis && speechSynthesis.cancel(); } catch (_) { /* 無語音 API */ } };
+  function stopTones() {
+    audioEpoch += 1;
+    playingTones.forEach(o => { try { o.stop(); o.disconnect(); } catch (_) { /* 已結束 */ } });
+    playingTones.clear();
+  }
+  function resumeAudio(recreate = false) {
+    if (recreate) {
+      stopTones(); const old = ac; ac = null; audioResume = null;
+      if (old) { old.onstatechange = null; try { Promise.resolve(old.close()).catch(() => {}); } catch (_) { /* 已關閉 */ } }
+    }
+    try {
+      if (!ac || ac.state === 'closed') {
+        ac = new (window.AudioContext || window.webkitAudioContext)();
+        const context = ac;
+        context.onstatechange = () => {
+          if (ac !== context) return;
+          if (context.state !== 'running') stopTones();
+          audioStatus(context.state === 'running' ? '提示音已啟用，請用測試音確認裝置音量。' : '提示音中斷，請按「測試／恢復提示音」。');
+        };
+      }
+      const context = ac;
+      if (context.state === 'running') return Promise.resolve(true);
+      if (audioResume && audioResume.context === context) return audioResume.promise;
+      audioStatus('提示音尚未啟用；若沒有聲音，請按「測試／恢復提示音」。');
+      const promise = Promise.resolve(context.resume()).then(() => {
+        if (ac !== context) return false;
+        const ready = context.state === 'running';
+        audioStatus(ready ? '提示音已啟用，請用測試音確認裝置音量。' : '提示音仍中斷，請按「測試／恢復提示音」。');
+        return ready;
+      }).catch(() => {
+        if (ac === context) audioStatus('提示音無法啟用，請按「測試／恢復提示音」並確認裝置音量。');
+        return false;
+      }).finally(() => { if (audioResume && audioResume.promise === promise) audioResume = null; });
+      audioResume = { context, promise }; return promise;
+    } catch (_) {
+      audioStatus('這個瀏覽器目前無法播放提示音；計時仍可使用，請以畫面確認。');
+      return Promise.resolve(false);
+    }
+  }
   const tone = (freq, ms, at = 0) => {
-    if (!ac) return;
+    // 不把過期嗶聲排在暫停的音訊時鐘上，避免恢復後一起補播。
+    if (!ac || ac.state !== 'running') { resumeAudio(); return; }
     try {
       ms = Math.max(ms, 40);
       const t0 = ac.currentTime + at + 0.01, o = ac.createOscillator(), g = ac.createGain();
       o.type = 'square'; o.frequency.value = freq;
       g.gain.setValueAtTime(0.0001, t0); g.gain.exponentialRampToValueAtTime(0.35, t0 + 0.01);
       g.gain.setValueAtTime(0.35, t0 + ms / 1000 - 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t0 + ms / 1000);
+      o.onended = () => { playingTones.delete(o); o.disconnect(); g.disconnect(); };
+      playingTones.add(o);
       o.connect(g).connect(ac.destination); o.start(t0); o.stop(t0 + ms / 1000 + 0.02);
-    } catch (_) { /* 聲音失敗不影響計時 */ }
+    } catch (_) { audioStatus('裝置無法播放提示音，請按「測試／恢復提示音」。'); }
   };
   const vib = (p) => { try { navigator.vibrate && navigator.vibrate(p); } catch (_) { /* 不支援就略過 */ } };
   const SND = {
-    tick: () => { tone(880, 120); vib(80); },          // 倒數 3、2、1
-    go: () => { tone(1320, 600); vib(400); },           // 出發
+    tick: () => { cancelSpeech(); stopTones(); tone(880, 120); vib(80); }, // 倒數 3、2、1 優先於報讀
+    go: () => { cancelSpeech(); stopTones(); tone(1320, 600); vib(400); }, // 出發
     target: () => { tone(660, 180); tone(660, 180, 0.28); vib([150, 100, 150]); }, // 到達目標秒數
     done: () => { tone(990, 250); tone(1320, 250, 0.3); tone(1760, 500, 0.6); },
   };
@@ -1202,7 +1247,7 @@
   const repElapsed = () => (pausedAt != null ? pausedAt : now()) - repT0;
   const pauseTimer = () => {
     if (pausedAt == null && phase !== 'done') pausedAt = now();
-    try { window.speechSynthesis && speechSynthesis.cancel(); } catch (_) { /* 無 */ }
+    cancelSpeech(); stopTones(); vib(0);
     tq('[data-wk-pause]').textContent = '繼續';
   };
   function syncControls() {
@@ -1256,7 +1301,7 @@
   }
 
   function nextStep() {
-    const wasPaused = pausedAt != null, re = repElapsed();
+    const wasPaused = pausedAt != null, re = repElapsed(), priorCues = beeped;
     idx = phase === 'ready' ? 0 : idx + 1;
     // 出發間隔：休息＝下一次出發時間 − 已經過的時間；已經過了就直接出發
     while (idx < seq.length && seq[idx].kind === 'rest' && seq[idx].dyn) {
@@ -1267,6 +1312,8 @@
     if (idx >= seq.length) { finish(); return; }
     const cur = seq[idx];
     begin(cur.kind);
+    // 包干在「游」與「等出發」之間仍是同一個出發點，已播過的秒數不能重播。
+    if (cur.dyn) [1, 2, 3].forEach(n => { if (priorCues['d' + n]) beeped['d' + n] = 1; });
     repT0 = now() - re;
     if (cur.kind === 'swim') { if (!wasPaused) SND.go(); if (cur.first) repT0 = now(); }
     else if (!wasPaused && !cur.broken && cur.sec >= 6) { const nx = nextSwim(idx + 1); if (nx) say(`${nx.row !== cur.row ? '換下一項。' : '下一趟，'}${sayRep(nx)}`); }
@@ -1300,7 +1347,9 @@
     const a = adj.get(row) || { t: 0, r: 0, b: 0 };
     a[kind] += d; adj.set(row, a);
     if (phase === 'swim' && kind === 't' && seq[idx].target > elapsed()) beeped.t = 0;
-    if (phase === 'rest' && (kind === 'r' || kind === 'b')) { const left = seq[idx].sec - elapsed(); [1, 2, 3].forEach(n => { if (left > n) delete beeped['r' + n]; }); }
+    const countdownLeft = phase === 'rest' && (kind === 'r' || kind === 'b') ? seq[idx].sec - elapsed()
+      : phase === 'swim' && kind === 'r' && seq[idx].sendoff != null ? seq[idx].sendoff - repElapsed() : null;
+    if (countdownLeft != null) [1, 2, 3].forEach(n => { if (countdownLeft > n) delete beeped['d' + n]; });
     v.textContent = adjText(row);
     frame(true);
   }
@@ -1314,7 +1363,9 @@
     }).join('');
   }
   function finish() {
-    phase = 'done'; clearInterval(timer); SND.done(); say('課表完成');
+    const audible = pausedAt == null;
+    phase = 'done'; clearInterval(timer); stopTones(); cancelSpeech();
+    if (audible) { SND.done(); say('課表完成'); }
     tq('[data-wk-t-phase]').textContent = '完成';
     tq('[data-wk-t-row]').textContent = runMenu.name || '';
     const aimed = log.filter(x => x.actual != null && x.target != null), hit = aimed.filter(x => x.actual <= x.target).length;
@@ -1327,6 +1378,11 @@
     tq('[data-wk-t-copy]').hidden = !log.length;
     syncControls();
     if (wake) { wake.release().catch(() => {}); wake = null; }
+  }
+  function departureCountdown(left) {
+    // 只播目前剩下的那一秒；延遲畫面或短休息不補播已過的 3、2、1。
+    const n = Math.ceil(left - 1e-7);
+    if (left > 0 && n >= 1 && n <= 3 && !beeped['d' + n]) { beeped['d' + n] = 1; SND.tick(); }
   }
   function frame(renderPaused = false) {
     if ((pausedAt != null && !renderPaused) || phase === 'done') return;
@@ -1342,7 +1398,7 @@
       where.textContent = first.b.title; rowEl.textContent = swimLine(first);
       sub.textContent = first.target ? `第一趟目標 ${fmt(first.target)}` : '這一列沒有目標秒數，到牆按一下';
       dr.textContent = drillLine(first.row);
-      if (running) [3, 2, 1].forEach(n => { if (left <= n && !beeped['r' + n]) { beeped['r' + n] = 1; SND.tick(); } });
+      if (running) departureCountdown(left);
       if (running && left <= 0) nextStep();
       return;
     }
@@ -1360,8 +1416,9 @@
       }
       if (cur.sendoff != null) {
         const left = cur.sendoff - repElapsed();
-        txt += `　下次出發 ${fmt0(Math.max(0, Math.ceil(left)))}`;
-        if (running) [3, 2, 1].forEach(n => { if (left <= n && !beeped['s' + n]) { beeped['s' + n] = 1; SND.tick(); } });
+        const following = seq[idx + 1], departs = following && (following.kind === 'swim' || following.dyn);
+        txt += `　${departs ? '下次出發' : '本趟週期'} ${fmt0(Math.max(0, Math.ceil(left)))}`;
+        if (running && departs) departureCountdown(left);
         if (running && left <= 0) { wall(true); return; } // 出發時間到了還沒按到牆：照出發間隔直接下一趟
       }
       sub.textContent = txt;
@@ -1373,7 +1430,7 @@
       rowEl.textContent = nx ? (cur.rowBreak ? '下一項：' : '下一趟：') + swimLine(nx) : '';
       sub.textContent = nx && nx.target ? `目標 ${fmt(nx.target)}` : '';
       dr.textContent = nx ? (nx.row !== cur.row ? '換下一列　' : '') + drillLine(nx.row) : '';
-      if (running) [3, 2, 1].forEach(n => { if (left <= n && !beeped['r' + n]) { beeped['r' + n] = 1; SND.tick(); } });
+      if (running) departureCountdown(left);
       if (running && left <= 0) nextStep();
     }
   }
@@ -1381,8 +1438,7 @@
     runMenu = structuredClone(M());
     build();
     if (!seq.length) { alert('課表是空的，先加一列。'); return; }
-    try { ac = ac || new (window.AudioContext || window.webkitAudioContext)(); ac.resume(); } catch (_) { ac = null; }
-    tone(440, 40); // 使用者按下的當下解鎖聲音（iPhone 要求）
+    cancelSpeech(); stopTones(); resumeAudio(); // 在使用者按下的當下啟用音訊。
     holdScreen();
     log = []; adj = new Map(); undoSteps = []; edits = []; renderLog(); renderSide(); idx = 0;
     tq('[data-wk-t-notice]').textContent = '';
@@ -1397,7 +1453,7 @@
   function closeTimer() {
     if (liveDialog.open) liveDialog.close();
     clearInterval(timer); phase = 'done'; T.hidden = true; document.body.classList.remove('wk-running');
-    try { window.speechSynthesis && speechSynthesis.cancel(); } catch (_) { /* 無 */ }
+    cancelSpeech(); stopTones(); vib(0);
     if (wake) { wake.release().catch(() => {}); wake = null; }
   }
   tq('[data-wk-wall]').addEventListener('click', () => { if (phase === 'swim') { remember('到牆'); wall(false); frame(true); } });
@@ -1412,7 +1468,7 @@
   tq('[data-wk-undo]').addEventListener('click', undoTimer);
   tq('[data-wk-pause]').addEventListener('click', (ev) => {
     if (phase === 'done') return;
-    if (pausedAt != null) { const dp = now() - pausedAt; paused += dp; repT0 += dp; pausedAt = null; ev.target.textContent = '暫停'; tq('[data-wk-t-notice]').textContent = ''; }
+    if (pausedAt != null) { resumeAudio(); const dp = now() - pausedAt; paused += dp; repT0 += dp; pausedAt = null; ev.target.textContent = '暫停'; tq('[data-wk-t-notice]').textContent = ''; }
     else pauseTimer();
     frame(true);
   });
@@ -1536,7 +1592,14 @@
     setTimeout(() => { ev.target.textContent = '複製這次結果'; }, 2000);
   });
   T.querySelectorAll('[data-adj]').forEach(b => b.addEventListener('click', () => { const [k, d] = b.dataset.adj.split(':'); adjust(k, +d); }));
-  document.addEventListener('visibilitychange', () => { if (!T.hidden && document.visibilityState === 'visible') holdScreen(); });
+  document.querySelectorAll('[data-wk-audio-test]').forEach(button => button.addEventListener('click', () => {
+    cancelSpeech();
+    const ready = resumeAudio(true), epoch = audioEpoch;
+    ready.then(ok => { if (ok && epoch === audioEpoch) { tone(880, 120); tone(1320, 450, 0.35); } });
+  }));
+  document.addEventListener('visibilitychange', () => {
+    if (!T.hidden && document.visibilityState === 'visible') { holdScreen(); resumeAudio(); }
+  });
 
   /* ---------- 輸入與初始化 ---------- */
   const refresh = () => {
@@ -1578,7 +1641,7 @@
   const ar = $('[data-wk-autorest]'); ar.checked = S.autorest !== false;
   ar.addEventListener('change', () => { S.autorest = ar.checked; save(); });
   const vc = $('[data-wk-voice]'); vc.checked = S.voice !== false;
-  vc.addEventListener('change', () => { S.voice = vc.checked; save(); if (vc.checked) say('語音報讀開啟'); });
+  vc.addEventListener('change', () => { S.voice = vc.checked; save(); if (vc.checked) say('語音報讀開啟'); else cancelSpeech(); });
   // 工作台只透過這個介面操作同一套課表與計時邏輯；資料輸出可交給日後的 AI 服務。
   if (studio) {
     root.workout = Object.freeze({

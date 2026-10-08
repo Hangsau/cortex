@@ -219,6 +219,7 @@ body.wk-running { overflow: hidden; }
 .wk-t-ctrl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s1); margin: var(--s2) 0 0; width: 100%; max-width: 640px; }
 .wk-t-ctrl .wk-btn { background: none; color: var(--paper); border-color: var(--paper); }
 .wk-t-ctrl .wk-btn[hidden] { display: none; }
+.wk-t-ctrl [data-wk-audio-test] { grid-column: 1 / -1; }
 .wk-t-ctrl .wk-btn:disabled, .wk-t-adj button:disabled { opacity: .45; cursor: default; }
 .wk-t-notice { max-width: 640px; margin: var(--s1) 0 0; font-size: var(--fs-s); line-height: 1.6; }
 .wk-t-notice:empty { display: none; }
