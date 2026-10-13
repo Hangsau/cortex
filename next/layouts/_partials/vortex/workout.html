@@ -33,6 +33,7 @@
     "loading" $st.macrocycle.loading_patterns
     "loading_note" $st.macrocycle.swim_application_zh
     "loading_by_phase" hugo.Data.workout_blocks.loading_by_phase
+    "prep" (dict "list" hugo.Data.workout_blocks.equipment_prep "guide" (relURL hugo.Data.workout_blocks.equipment_prep_guide) "scope" hugo.Data.workout_blocks.equipment_prep_scope_zh)
     "udk" (merge hugo.Data.workout_blocks.udk (dict "safety" (index hugo.Data "breathing" "safety").hypoxic_blackout.rule_zh "doc_url" (relURL hugo.Data.workout_blocks.udk.doc) "turn_url" (relURL hugo.Data.workout_blocks.udk.turn_doc) "drill_url" (printf "vortex/drills/%s/" (lower hugo.Data.workout_blocks.udk.drill) | relURL)))
 -}}
 {{- $src := index hugo.Data "vortex" "drills" -}}
@@ -66,6 +67,7 @@
     </div>
     <p class="muted">份量是可修改的組型範例，還未依你的訓練經驗與當天狀況調整。精簡組減少組數或趟數，保留每趟距離與休息；不會按比例縮短休息。</p>
     <div data-wk-goal-out></div>
+    <div data-wk-prep></div>
   </section>
 
   {{ partial "vortex/workout-lane.html" . }}

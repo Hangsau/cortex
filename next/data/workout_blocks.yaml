@@ -27,3 +27,55 @@ loading_by_phase:
   general_prep: "4:1"        # note_zh：早期準備期
   specific_prep: "3:1"       # note_zh：書中常見的負荷／恢復安排範例（預設）
   competition: "2:2 / 1:1"   # note_zh：競賽期
+
+# 主課前的器材技術準備（依目的選主課區，可選）。
+# 三個模板＝器材使用指南「如何放進一堂課」的三個實務範例，距離／組數／休息照指南原文；
+# 哪個目的開放哪個模板照 research/swim-equipment-recommendations-2026-10-07/REPORT.md §2 第一版配置。
+# 指南原話：適用於能自在完成相關距離且已熟悉器材者；距離、趟數、休息都可調整，不是研究證實的最佳劑量。
+equipment_prep_guide: vortex/instructional/equipment-guide/
+equipment_prep_scope_zh: 適用於能自在完成這些距離、而且已經熟悉器材的人；距離、組數、休息都可以調，不是研究證實的最佳劑量。兒童或初學者從現場照看得到、能保持呼吸與控制的更短段開始。
+equipment_prep:
+  - id: snorkel-head
+    version: 1
+    title_zh: 換氣加入後，頭位仍能穩定
+    strokes: [free]
+    goals: [aerobic_easy, steady, threshold, velocity, lactate_production, lactate_tolerance, race_pace]
+    equip: [snorkel]
+    sets: {min: 2, max: 4}
+    rest: {min: 20, max: 30}
+    rest_note_zh: 段間休 20–30 秒，未恢復就延長。
+    sequence:
+      - {dist: 25, mode: swim, equip: [snorkel], note: 呼吸管自由式：頭不動，只感覺前進}
+      - {dist: 25, mode: swim, equip: [], note: 取下呼吸管，正常換氣自由式}
+    cue_zh: 主課保持正常換氣，觀察前進感有沒有在轉頭時被打斷。
+    anchor: snorkel
+  - id: fins-rotation
+    version: 1
+    title_zh: 轉體時，左右配合更清楚
+    strokes: [free]
+    goals: [aerobic_easy, steady]
+    equip: [fins]
+    sets: {min: 1, max: 4}
+    rest: {min: 20, max: 30}
+    rest_note_zh: 指南這一例沒寫秒數，只說每段停下恢復並換裝、先試一組再依品質決定重複；先用另外兩例的 20–30 秒，換裝來不及就延長。
+    sequence:
+      - {dist: 25, mode: drill, equip: [fins], note: 戴蛙鞋六踢換邊：側身踢六下再換邊}
+      - {dist: 25, mode: swim, equip: [fins], note: 戴蛙鞋完整游}
+      - {dist: 25, mode: swim, equip: [], note: 脫掉蛙鞋完整游}
+    cue_zh: 主課只保留一個左右配合的提示。
+    anchor: fins
+  - id: buoy-pull
+    version: 1
+    title_zh: 有氧主課中，集中一部分划手工作
+    strokes: [free]
+    goals: [aerobic_easy, steady]
+    equip: [pull_buoy]
+    sets: {min: 2, max: 4}
+    rest: {min: 20, max: 30}
+    rest_note_zh: 每段休 20–30 秒。
+    sequence:
+      - {dist: 50, mode: pull, equip: [pull_buoy], note: 夾腿浮板（8 字球）拉手}
+      - {dist: 50, mode: swim, equip: [], note: 正常游}
+    cue_zh: 兩種條件各自維持可重複的努力程度。
+    stop_zh: 如果已經只能靠拱腰或用力夾腿完成，縮短或改回正常游。
+    anchor: pull-buoy

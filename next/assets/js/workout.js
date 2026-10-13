@@ -209,6 +209,8 @@
     const s = baseStroke(row.stroke);
     if (row.int === 'custom') { const t = parseT(row.target); return t ? { t } : null; }
     if (NO_AUTO[row.mode] || row.int === 'none') return null;
+    // 器材改變浮力、推進與節奏：一般成績推出的配速不適用（器材指南「如何調整距離與強度」）
+    if ((row.equip || []).length) return { miss: '戴器材不套用一般成績配速，要目標請填自訂秒數' };
     if (row.int === 'sprint') {
       const b = baseFor(s, row.dist, bests);
       return b ? { t: b.t / ((row.pct || 95) / 100), note: b.split ? `由 ${b.src}` : '' } : { miss: `沒有${SZH[s]} ${row.dist} m 或更長距離的成績` };
@@ -488,6 +490,53 @@
       ${key === 'lactate_tolerance' ? '<p class="wk-note">這類範例適用於已有規律訓練、能自行控速的泳者；配速與休息屬教練實務起點。</p>' : ''}
       <div class="wk-actions"><button type="button" class="wk-btn wk-btn--main" data-wk-goal-add>加入目前主課</button><button type="button" class="wk-btn" data-wk-goal-new>另建課表</button><button type="button" class="wk-btn" data-wk-goal-lane>用這組安排團體</button></div>
       <details class="wk-goal-details"><summary>配速依據與調整提示</summary><p>配速依據：${esc(basis)}。</p><p>組型參考：${esc(x.why)}。</p><p>調整提示：${esc(stop)}</p><p class="muted">提示供你現場判斷，計時器不會自動判定達標或退出。</p></details></div>`;
+    renderPrep();
+  }
+  /* ---------- 主課前的器材技術準備：器材指南三個實務範例（資料在 workout_blocks.equipment_prep） ---------- */
+  const PREP = (PZ.prep && PZ.prep.list) || [];
+  const PREP_EQ = [...new Set(PREP.flatMap(t => t.equip))];
+  const prepToday = new Set(); // 今天帶了什麼：只在這次開頁有效，不拿全器材清單當成持有
+  const prepSets = {};
+  let prepOpen = false;
+  const prepRest = (t) => r5((t.rest.min + t.rest.max) / 2);
+  const prepN = (t) => prepSets[t.id] || t.sets.min;
+  // 依實際練習順序展開：每組把 sequence 各段排成一列，計時器就照 A→B→A→B 跑
+  function prepRows(t) {
+    const n = prepN(t), rows = [];
+    for (let k = 0; k < n; k++) t.sequence.forEach(seg => rows.push(blankRow({ reps: 1, dist: seg.dist, stroke: 'free', mode: seg.mode, int: 'none',
+      equip: seg.equip.slice(), rest: prepRest(t), note: `${t.title_zh}（第 ${k + 1}/${n} 組）：${seg.note}`, prep: `${t.id}@${t.version}` })));
+    return rows;
+  }
+  function renderPrep() {
+    const box = $('[data-wk-prep]'); if (!box || !PREP.length) return;
+    const fit = PREP.filter(t => t.goals.includes(goalChoice.key)), usable = fit.filter(t => t.strokes.includes(goalChoice.stroke));
+    let html = `<details class="wk-goal-details wk-prep"${prepOpen ? ' open' : ''}><summary>主課前加一段器材技術準備（可選）</summary>
+      <p class="muted">${esc(PZ.prep.scope)}器材段不套用一般成績配速；加進課表後都可以改。<a href="${PZ.prep.guide}#lesson">器材使用指南：如何放進一堂課</a></p>
+      <p class="wk-css-k">今天帶了</p><div class="wk-chips">${PREP_EQ.map(k => `<button type="button" class="wk-chip" aria-pressed="${prepToday.has(k)}" data-wk-prep-eq="${esc(k)}">${esc(eqName(k))}</button>`).join('')}</div>`;
+    if (!usable.length) html += `<p class="muted">${fit.length ? `目前只有自由式的器材準備模板，${esc(SZH[goalChoice.stroke])}主課先照原課。` : '這個目的不預設加器材準備，保留主課的品質與恢復。'}</p>`;
+    else html += '<ul class="wk-prep-list">' + usable.map(t => {
+      const miss = t.equip.filter(k => !prepToday.has(k)), n = prepN(t), per = t.sequence.reduce((a, s) => a + s.dist, 0);
+      const opts = Array.from({ length: t.sets.max - t.sets.min + 1 }, (_, i) => t.sets.min + i).map(v => `<option value="${v}"${v === n ? ' selected' : ''}>${v} 組</option>`).join('');
+      return `<li class="wk-prep-item"><p class="wk-day-f">${esc(t.title_zh)}</p>
+        <ol class="wk-prep-seq">${t.sequence.map(s => `<li>${s.dist} m ${esc(s.note)}</li>`).join('')}</ol>
+        <p class="muted">${esc(t.rest_note_zh)}${esc(t.cue_zh)}${esc(t.stop_zh || '')}</p>
+        <div class="wk-row"><label class="wk-field"><span>組數</span><select data-wk-prep-sets="${esc(t.id)}">${opts}</select></label></div>
+        <p>新增 <b>${per * n} m</b>（${n} 組 × ${per} m），每段休 ${prepRest(t)} 秒</p>
+        ${miss.length ? `<p><span class="wk-miss">需要${esc(miss.map(eqName).join('、'))}：先在上面點「今天帶了」</span></p>` : ''}
+        <div class="wk-actions"><button type="button" class="wk-btn" data-wk-prep-add="${esc(t.id)}"${miss.length ? ' disabled' : ''}>加進 drill 段</button><a href="${PZ.prep.guide}#${esc(t.anchor)}">${esc(eqName(t.equip[0]))}怎麼用</a></div></li>`;
+    }).join('') + '</ul>';
+    box.innerHTML = html + '</details>';
+  }
+  function addPrep(id) {
+    const t = PREP.find(x => x.id === id);
+    if (!t || t.equip.some(k => !prepToday.has(k))) return;
+    const m = M();
+    let blk = m.blocks.find(b => b.title === 'Drill');
+    if (!blk) { blk = { title: 'Drill', rows: [] }; const i = m.blocks.findIndex(b => b.title === '主課'); m.blocks.splice(i < 0 ? m.blocks.length : i, 0, blk); }
+    blk.rows.push(...prepRows(t));
+    save(); renderMenu(); toast(`已加進 drill 段：${t.title_zh}`);
+    root.dispatchEvent(new CustomEvent('workout:recommendation-added'));
+    $('#wk-menu').scrollIntoView();
   }
   function initGoals() {
     const section = $('#wk-goals'); if (!section) return;
@@ -502,6 +551,8 @@
       $('[data-wk-goal-event-field]').hidden = goalChoice.key !== 'race_pace';
     }
     section.addEventListener('change', e => {
+      const ps = e.target.closest('[data-wk-prep-sets]');
+      if (ps) { const tp = PREP.find(x => x.id === ps.dataset.wkPrepSets), v = +ps.value; if (tp && v >= tp.sets.min && v <= tp.sets.max) prepSets[tp.id] = v; renderPrep(); return; }
       if (e.target.matches('[data-wk-goal]') && Object.hasOwn(GOAL_BUILDERS, e.target.value)) goalChoice.key = e.target.value;
       else if (e.target.matches('[data-wk-goal-stroke]') && strokes.some(s => s.k === e.target.value)) goalChoice.stroke = e.target.value;
       else if (e.target.matches('[data-wk-goal-size]') && ['compact', 'standard'].includes(e.target.value)) goalChoice.size = e.target.value;
@@ -509,7 +560,12 @@
       else return;
       syncEvent(); renderGoals();
     });
+    section.addEventListener('toggle', e => { if (e.target.matches('.wk-prep')) prepOpen = e.target.open; }, true);
     section.addEventListener('click', e => {
+      const chip = e.target.closest('[data-wk-prep-eq]');
+      if (chip) { const k = chip.dataset.wkPrepEq; if (PREP_EQ.includes(k)) { if (prepToday.has(k)) prepToday.delete(k); else prepToday.add(k); } renderPrep(); root.querySelector(`[data-wk-prep-eq="${k}"]`).focus(); return; }
+      const pa = e.target.closest('[data-wk-prep-add]');
+      if (pa) { addPrep(pa.dataset.wkPrepAdd); return; }
       const btn = e.target.closest('[data-wk-goal-add], [data-wk-goal-new]'); if (!btn) return;
       const x = goalSet();
       if (btn.hasAttribute('data-wk-goal-new')) {

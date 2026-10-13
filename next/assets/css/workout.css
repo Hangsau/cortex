@@ -183,6 +183,11 @@
 .wk-box { margin: var(--s3) 0; padding: var(--s2) var(--s3); border: 1px solid var(--rule); border-radius: 4px; }
 .wk-box h3 { margin-top: 0; }
 .wk-box p { margin: var(--s1) 0; line-height: 1.7; }
+.wk-prep-list { list-style: none; margin: var(--s2) 0 0; padding: 0; }
+.wk-prep-item { padding: var(--s2) 0; border-top: 1px solid var(--rule); }
+.wk-prep-item p { margin: var(--s1) 0; }
+.wk-prep-seq { margin: var(--s1) 0; padding-left: 1.4em; line-height: 1.7; }
+.wk-prep .wk-actions a { display: inline-flex; align-items: center; min-height: var(--tap); }
 .wk-more summary { display: flex; align-items: center; min-height: 44px; cursor: pointer; color: var(--series); }
 .wk-rec { list-style: none; margin: 0; padding: 0; }
 .wk-rec li { padding: var(--s2) 0; border-top: 1px solid var(--rule); }
