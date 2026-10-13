@@ -2,7 +2,8 @@
        配速與組型公式、週期階段、減量、週組裝全部來自 data/periodization/（TheVortexProject canonical 同步）：
          set-design.yaml 的 generator（CSS 四級錨點、有氧倍率、各組型距離／休息／趟數／目標規則）、
          phase_allocation（各期意圖）、weekly_assembly（每週幾堂的配置）；taper.yaml（減量）；
-         structure.yaml 的 swim_annual（大週期長度）；zones.yaml 的 swim_energy_by_distance（項目能量系統）。
+         structure.yaml 的 swim_annual（大週期長度）與 macrocycle.loading_patterns（期內負荷節律）；
+         next/data/workout_blocks.yaml（水下海豚腿段劑量、各期對照的負荷比例；水下安全條件讀 breathing/safety）；zones.yaml 的 swim_energy_by_distance（項目能量系統）。
        swim_rules.json（swim-coach 同步）只剩 drill 與緩和的預設休息。drill 清單取 data/vortex/drills.yaml，
        器材中文名取 next/data/swim_equipment.yaml。計算、課表編輯與計時在 next/assets/js/workout.js。 */ -}}
 {{- $lib := resources.Get "css/library.css" | fingerprint -}}
@@ -29,6 +30,10 @@
     "spacing" $sd.weekly_assembly.spacing_rules_zh
     "taper" (dict "min" $tdur.range.min_days "max" $tdur.range.max_days "dur_note" $tdur.range.note_zh "vol" $tvol.reduction "freq" $tfreq.rule_zh "practice" $tp.swim_application.practice_zh "by_event" $tp.swim_application.no_event_specificity_zh)
     "energy" $zn.swim_energy_by_distance.events
+    "loading" $st.macrocycle.loading_patterns
+    "loading_note" $st.macrocycle.swim_application_zh
+    "loading_by_phase" hugo.Data.workout_blocks.loading_by_phase
+    "udk" (merge hugo.Data.workout_blocks.udk (dict "safety" (index hugo.Data "breathing" "safety").hypoxic_blackout.rule_zh "doc_url" (relURL hugo.Data.workout_blocks.udk.doc) "turn_url" (relURL hugo.Data.workout_blocks.udk.turn_doc) "drill_url" (printf "vortex/drills/%s/" (lower hugo.Data.workout_blocks.udk.drill) | relURL)))
 -}}
 {{- $src := index hugo.Data "vortex" "drills" -}}
 {{- $drills := slice -}}

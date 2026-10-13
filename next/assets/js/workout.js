@@ -410,6 +410,25 @@
     if (mstart && today < mstart && days >= 0) note += ' 你填的週期開始日還沒到。';
     return { days, phase, note, macroDays, bounds };
   }
+  // 期內負荷節律：比例與說明讀 structure.macrocycle.loading_patterns；哪一期對照哪個比例讀 workout_blocks.loading_by_phase
+  function pzLoad(P) {
+    const ratio = (PZ.loading_by_phase || {})[P.phase];
+    const pat = ratio && (PZ.loading || []).find(x => x.ratio === ratio);
+    if (!pat) return null;
+    const [load, rest] = ratio.split('/')[0].trim().split(':').map(Number);
+    const upper = { general_prep: P.macroDays, specific_prep: P.bounds.specific_prep, competition: P.bounds.competition }[P.phase];
+    const wk = Math.floor(Math.max(0, upper - P.days) / 7), pos = wk % (load + rest);
+    return { ratio, pat, load, rest, wk, pos, recovery: pos >= load };
+  }
+  // 水下海豚腿段一週排幾堂：劑量每週 per_week.min–max 次，課少時不超過總堂數；減量期取下限
+  function uwCount(ph, n) {
+    const U = PZ.udk;
+    if (!U || ph === 'transition') return 0;
+    const c = Math.min(n, Math.max(U.per_week.min, Math.min(U.per_week.max, n - 1)));
+    return ph === 'taper' ? Math.min(c, U.per_week.min) : c;
+  }
+  // 從大週期第一週起算，每 retest_every_weeks 週的最後一週重測
+  const uwRetest = (P) => (Math.floor(Math.max(0, P.macroDays - P.days) / 7) + 1) % PZ.udk.retest_every_weeks === 0;
   // 推薦組：組型參數全部取 set_types；取區間中值，並標明
   // 各組型的推薦組（參數全取 set_types，取區間中值）；週課表與單堂推薦共用
   function setBuilders(s, bests = S.pb) {
@@ -521,7 +540,7 @@
     const B = setBuilders(S.zstroke);
     if (ph === 'transition') return Array.from({ length: n }, () => ({ slot: 'E', focus: '過渡：輕鬆游', sets: [B.free()] }));
     let q = 0, obs = false;
-    return WEEK_SLOTS[n].map(sl => {
+    const days = WEEK_SLOTS[n].map(sl => {
       if (sl === 'Q') return Object.assign({ slot: 'Q' }, qualityDay(ph, q++, B));
       if (sl === 'T') return { slot: 'T', focus: '閾值有氧', sets: [B.thr()] };
       if (sl === 'L') return { slot: 'L', focus: '長有氧', sets: [B.easy('長有氧')] };
@@ -529,12 +548,26 @@
       if (!obs) { obs = true; d.obs = true; } // 每週一個觀察點，掛在第一堂輕鬆課（weekly_assembly 間隔規則第 4 條）
       return d;
     });
+    // 水下段先掛品質課（本來就是高品質、恢復充足的課），再閾值、輕鬆、長有氧
+    let uw = uwCount(ph, n);
+    ['Q', 'T', 'E', 'L'].forEach(sl => days.forEach(d => { if (uw > 0 && d.slot === sl) { d.uw = true; uw--; } }));
+    return days;
+  }
+  // 水下海豚腿列：休息走 drill 規則，趟數由「每次約幾分鐘」÷（估計每趟秒數＋休息）換算
+  function uwRow(retest) {
+    const U = PZ.udk;
+    const r = blankRow({ reps: 1, dist: 25, stroke: 'fly', mode: 'drill', drill: U.drill, int: 'none', restAuto: true,
+      note: (retest ? `這堂先重測：${U.retest_zh} ` : '') + U.row_note_zh });
+    autoRest(r, 'Drill');
+    r.reps = Math.max(1, Math.round(U.minutes * 60 / (estSec(r) + r.rest)));
+    return r;
   }
   function menuFromDay(d, k) {
     const m = newMenu(`第 ${k + 1} 堂・${d.focus}`);
     const main = m.blocks.find(b => b.title === '主課');
     d.sets.forEach(x => { const r = blankRow(Object.assign({ note: x.name, restAuto: true }, x.row)); autoRest(r, '主課'); r.rest = x.row.rest; main.rows.push(r); });
     if (d.obs) m.blocks[0].rows.push(blankRow({ reps: 1, dist: 100, stroke: S.zstroke, int: 'none', rest: 60, note: '觀察點：同池長、同出發、同距離計時一趟，和前幾週比' }));
+    if (d.uw) m.blocks.find(b => b.title === 'Drill').rows.push(uwRow(d.retest));
     return m;
   }
   function renderPz() {
@@ -557,6 +590,12 @@
     if (intent) html += `<p class="wk-note"><b>${esc(intent.name_zh)}原文：</b>${md(intent.emphasis_zh)}</p>`;
     html += `<p class="muted">項目越短，純速與賽速越吃重；400 m 以上有氧是主幹（各距離有氧占比：${PZ.energy.map(x => `${esc(x.event)} ${esc(x.aerobic_pct)}`).join('、')} ${PZ.energy[0] ? PZ.energy[0].cert : ''}）。</p>`;
     html += '<p class="muted">四類的對應：純速＝速度組與乳酸生成；賽速＝目標賽速重複；速耐＝乳酸耐受；有氧＝閾值（CSS）與輕鬆有氧。研究沒有「每週各練幾成」的單一答案，所以這裡只給主次，不給百分比。</p>';
+    const L = pzLoad(P);
+    if (L) {
+      html += `<div class="wk-box"><h3>這週在負荷節律裡的位置 <span class="wk-cert">${esc(L.pat.cert)}</span></h3>
+        <p>${PHASE_NAME[P.phase]}第 <b>${L.wk + 1}</b> 週：<b>${L.recovery ? '恢復週' : `負荷週 ${L.pos + 1}／${L.load}`}</b>。這一期對照 ${esc(L.ratio)}（${L.load} 個負荷週接 ${L.rest} 個恢復週；${esc(L.pat.note_zh)}）。</p>
+        <p class="muted">${L.recovery ? '恢復週要降多少，書裡沒有給數字：品質課的強度保留，各組趟數自己往下調。' : '負荷週照下面的課做；要不要比上週多一點，看上週的完成品質與恢復。'}書中提醒：${md(String(PZ.loading_note || '').replace(/^🔵\s*/, ''))}</p></div>`;
+    }
     if (P.phase === 'taper' || (P.days >= 0 && P.days <= PZ.taper.max + 7)) {
       html += `<div class="wk-taper"><h3>減量怎麼做 🟢</h3><ul>
         <li>時長 ${PZ.taper.min}–${PZ.taper.max} 天：${md(PZ.taper.dur_note)}</li>
@@ -566,6 +605,16 @@
     const n = Math.min(6, Math.max(1, +S.pz.sess || 1));
     const bud = PZ.budgets.find(x => x.sessions === n);
     const week = weekPlan(P.phase, n);
+    const U = PZ.udk, retest = U && uwRetest(P), uwFirst = week.find(d => d.uw);
+    if (retest && uwFirst) uwFirst.retest = true;
+    if (uwFirst) {
+      html += `<div class="wk-box"><h3>${esc(U.title_zh)}：這週 ${week.filter(d => d.uw).length} 堂 <span class="wk-cert">${esc(U.cert)}</span></h3>
+        <p>${esc(U.dose_zh)}${P.phase === 'taper' ? esc(U.taper_zh) : ''}</p>
+        <p>${retest ? `<b>這週是重測週</b>（排在第 ${week.indexOf(uwFirst) + 1} 堂）：` : '下週重測：'}${esc(U.retest_zh)}</p>
+        <p class="wk-note"><b>水下安全：</b>${md(String(U.safety || '').replace(/^🔵\s*/, '').replace(/^因此/, ''))}</p>
+        <p class="muted">${esc(U.max_underwater_zh)}${esc(U.turn_test_zh)}</p>
+        <p class="muted">出處：<a href="${U.doc_url}">${esc(U.source_zh)}</a>。練法：<a href="${U.drill_url}">比賽配速水下打水</a>。轉身：<a href="${U.turn_url}">出發與轉身技術分析</a>。</p></div>`;
+    }
     html += `<h3>這週 ${n} 堂的建議（${SZH[s]}）</h3>
       <p class="muted">照上課順序排，吃力的品質課之間隔一堂輕鬆課。每堂只給主課，暖身、drill、緩和留給你排；泳式跟著 ② 選中的那一式，目標秒數用 ① 的成績算。</p>`;
     if (bud && P.phase !== 'transition') html += `<details class="wk-more"><summary>週組裝規則原文 🔵</summary><p>${md(bud.layout_zh)}</p><p>${md(PZ.spacing).replace(/\n/g, '<br>')}</p></details>`;
@@ -575,6 +624,7 @@
         <ul>${d.sets.map(x => { const row = blankRow(x.row), tg = targetOf(row), ty = x.type && TYPE[x.type];
           return `<li><b>${esc(x.name)}</b>${ty ? ` <span class="wk-cert">${ty.cert}</span>` : ''}<br>${esc(rowHead(row))}　${tg && tg.t ? '目標 ' + fmt(tg.t) : tg && tg.miss ? `<span class="wk-miss">${esc(tg.miss)}</span>` : '不設目標'}　休 ${fmt0(row.rest)}<br><span class="muted">${x.why}${ty && ty.exit ? `。退出：${esc(ty.exit)}` : ''}</span></li>`; }).join('')}</ul>
         ${d.obs ? '<p class="muted">這堂放本週的觀察點：熱身後同池長、同出發、同距離計時一趟，和前幾週比。</p>' : ''}
+        ${d.uw ? `<p class="muted">＋ ${esc(U.title_zh)}約 ${U.minutes} 分鐘，放在 drill 段${d.retest ? '；這堂先重測' : ''}。</p>` : ''}
         <button type="button" class="wk-add" data-day="${k}">用這堂建立課表</button></li>`).join('') + '</ol>'
       + `<div class="wk-actions"><button type="button" class="wk-btn" data-weekall>整週建成 ${n} 份課表</button></div>`;
     box.innerHTML = html;
