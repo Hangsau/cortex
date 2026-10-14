@@ -447,3 +447,23 @@ W022 7 → 0。逐筆讀原文（PubMed efetch／Europe PMC／BMS、BISp 文獻�
   - fly.L4.outsweep 的「Peyrebrune & Turner 2007」：查無此篇；最接近的 Osborough & Peyrebrune 2008（Swimming Times 科普文）作者、年份、內容都不合，不改掛，改標 🔴。**technical-analysis 同一來源的引用（fly 外划條）待處理**（codex 2.8 當時正在改該檔，避免衝突）。
 - 修訂紀錄全部寫進各條目最外層 `maintenance_note`；`_sources.yaml` 的 pmc-2018／mason-1992-a／colman-1998-a 改為 verified 並補全書目，peyrebrune-2007／statpearls-2023 補查證未果紀錄。
 - 同時清掉 l-indicators 的 6 筆 W029 審查軌跡（搬到 `maintenance_note`）。
+
+### 2.1 呼吸 _index／framework（Claude，2026-10-14 晚）
+
+- **_index 摘要跟不上本文（修 7）**：_index 的 gist 是目錄摘要，codex 修過 safety／physiology／training／regulation 之後沒有同步。
+  - hypoxic_blackout：「原則上水面、海豚腿除外」不是三方聲明的寫法，改成本文 rule_zh 的四個條件。
+  - hypocapnia：本文已改「機制之一」，gist 還寫「主導機制…非波爾效應左移」，同步。
+  - autonomic_coupling：「吸氣偏交感」與本文（迷走作用隨相位減弱／恢復，Russo 2017）矛盾，同步。
+  - imt：本文是 🟢、三份統合分析兩份看不到成績效益，gist 還是 🟡「兩份不一致」，同步；「更正」口吻拿掉。
+  - bolt：「49 位菁英選手」補明是競速滑冰、沒有游泳研究——讀者會以為是泳者。
+  - resonance／box：拿掉「更正：」口吻（審查軌跡），box 補上研究名。
+- **framework（修 3）**：
+  - 內部矛盾：overview 兩處寫感知線「按 L0–L6 分級」，grading 寫 L0–L2，改成「按 L 級、呼吸只佔 L0–L2」。
+  - 「憋氣練肺既無效又危險」與「任何水下版本致命」：依 10/13 立場分清行為，危險的是搬進水裡憋到極限，不是一切憋氣或一切水下；並與正常水下段區隔。順手拿掉公開文字裡的檔名「safety.yaml」。
+- **駁回**：
+  - framework／self_tracking／regulation 的 🔵 改 🟠：taxonomy 的 🔵 判準明示「推導／作者綜合」，框架定位與收錄邊界屬作者綜合，不是教練觀測。
+  - neural_control／chemoreceptors 的 🟢 改 🔵：本文節點標 🟢 且掛了來源，gist 照本文。
+  - 「USA Swimming 對水下海豚腿設距離規定」「血氧機延遲 30–60 秒」：MiniMax 未給來源、本庫來源也沒有，幻覺，捨棄；15 m 是比賽規則，不是安全規範。
+  - Balban、Blades、co2 表的數字：本文已有完整來源與數字，gist 是摘要。
+  - L2 兩側換氣當所有人終點：分級軸講的是感知建立的順序，沒有說每個人都必須走到 L2。
+  - development_stages 缺成人：taxonomy 的 stage 詞彙是 ADM 青少年發展階段，沒有成人值可加；族群限制已寫在 caveat_zh。

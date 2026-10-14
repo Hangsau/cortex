@@ -5,7 +5,7 @@ safety:
 - id: breathing.safety.hypoxic_blackout
   file: safety.yaml
   name_zh: 缺氧昏迷（危險水下憋氣的致死機轉）
-  gist_zh: 🟢全章最高優先：致命的是游前過度換氣＋憋到極限＋無專人盯的組合；CO2 被排掉後人在毫無窒息感下昏迷。三方聲明對教練是條件式規範（原則上水面、海豚腿除外），正常的水下段與少換氣訓練不在禁止之列
+  gist_zh: 🟢全章最高優先：致命的是游前過度換氣＋憋到極限＋無專人盯的組合；CO2 被排掉後人在毫無窒息感下昏迷。三方聲明的條件是下水前最多一兩口深呼吸、每趟有距離上限、限制趟數並給足恢復、有人專門盯這一道；照這些條件，出發轉身水下段、限量水下海豚腿與少換氣衝刺都是正常訓練
   stages:
   - l2t
   - t2t
@@ -14,7 +14,7 @@ safety:
 - id: breathing.safety.hypocapnia_mechanism
   file: safety.yaml
   name_zh: 血氧正常 ≠ 安全
-  gist_zh: 🟢主導機制是腦血管收縮（非波爾效應左移）；血氧機量不到，不能拿來當缺氧昏迷的防線
+  gist_zh: 🟢二氧化碳被排掉後腦血管收縮、腦血流下降，是過度換氣讓腦缺氧的機制之一；血氧機量不到這件事，不能拿來當缺氧昏迷的防線
   stages:
   - l2t
   - t2t
@@ -79,7 +79,7 @@ physiology:
 - id: breathing.physiology.autonomic_coupling
   file: physiology.yaml
   name_zh: 呼吸與自律神經耦合
-  gist_zh: 🟢吸氣偏交感、吐氣偏副交感（RSA）；吐氣長於吸氣會鎮定的機制基礎
+  gist_zh: 🟢平靜呼吸時吸氣伴隨心臟迷走作用減弱、吐氣時恢復，心率隨之起伏（RSA）；這不等於吐氣拉長就保證鎮定
   stages:
   - l2t
   - t2t
@@ -98,7 +98,7 @@ training:
 - id: breathing.training.imt
   file: training.yaml
   name_zh: 吸氣肌訓練 IMT/RMT
-  gist_zh: 🟡肌力一定進步（MIP +29.35 cmH2O）但成績不一定：13篇僅3篇見成績進步，另一份統合分析卻見顯著；兩份結論不一致。更正15%MIP是安慰劑劑量不是訓練下限
+  gist_zh: 🟢吸氣肌力一致進步（MIP 平均 +29.35 cmH2O），成績未定：三份統合分析中兩份看不到成績效益。15% MIP 在多數試驗裡是假訓練組的劑量，不是訓練下限
   stages:
   - t2c
   - t2w
@@ -119,7 +119,7 @@ training:
 - id: breathing.training.bolt_test
   file: training.yaml
   name_zh: BOLT 測試
-  gist_zh: 🟢測法可照做，但「理想40秒/多數人15–25秒」沒有常模研究支撐；49位菁英選手身上與表現零相關，絕不可拿來分級選材
+  gist_zh: 🟢測法可照做，但「理想40秒/多數人15–25秒」沒有常模研究支撐；在 49 位菁英競速滑冰選手身上與表現無相關（沒有游泳研究），絕不可拿來分級選材
   stages:
   - t2t
   - t2c
@@ -153,7 +153,7 @@ regulation:
 - id: breathing.regulation.resonance_breathing
   file: regulation.yaml
   name_zh: 共振呼吸
-  gist_zh: 🟡吸吐各5–6秒、每天10–20分鐘；個人化頻率用4.5–6.5次/分掃描取HRV振幅最大。更正：Lalanza 2023 是方法學回顧不是療效證據
+  gist_zh: 🟡吸吐各5–6秒、每天10–20分鐘；個人化頻率用4.5–6.5次/分掃描取HRV振幅最大。常被引用的 Lalanza 2023 是方法學回顧（143 篇中約三分之二沒交代實際呼吸頻率），不是療效證據
   stages:
   - t2t
   - t2c
@@ -161,7 +161,7 @@ regulation:
 - id: breathing.regulation.box_breathing
   file: regulation.yaml
   name_zh: 箱式呼吸
-  gist_zh: 🟡吸4-閉4-吐4-閉4；更正：在最直接測過它的研究裡未達統計顯著，坊間「已證實有效」是誤讀
+  gist_zh: 🟡吸4-閉4-吐4-閉4；在直接比較過它的 Balban 2023 四組研究裡，情緒改善未達統計顯著，坊間「已證實有效」是誤讀
   stages:
   - t2t
   - t2c
