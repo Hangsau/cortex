@@ -20,6 +20,15 @@
 .vh-stroke-premise { font: 400 var(--fs-m)/1.7 var(--f-serif); }
 .vh-stroke-meta { margin-top: auto; padding-top: var(--s1); font-size: var(--fs-s); color: var(--ink-2); }
 
+/* 三個入口（2026-10-14）：沿用六式的上緣粗線分格；層名 serif、連結列用細規則線分隔 */
+.vh-layers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s4); margin-top: var(--s3); }
+.vh-layer { padding-top: var(--s2); border-top: 2px solid var(--ink); }
+.vh-layer-name { font: 700 var(--fs-xl)/1.2 var(--f-serif); margin: 0 0 var(--s1); }
+.vh-layer-d { font: 400 var(--fs-m)/1.7 var(--f-serif); margin: 0 0 var(--s2); }
+.vh-layer ul { list-style: none; margin: 0; padding: 0; }
+.vh-layer li { border-top: 1px solid var(--rule); padding: var(--s1) 0; min-height: var(--tap); display: flex; flex-wrap: wrap; align-items: center; gap: 0 4px; }
+.vh-layer li a { color: var(--series); font-weight: 700; }
+
 /* 誤區：一大 + 六小 */
 .vh-myth-feature {
   display: block; padding: var(--s3) 0 var(--s3) var(--s4); border-left: 4px solid var(--series);
@@ -59,6 +68,7 @@
 
 @media (max-width: 900px) {
   .vh-strokes, .vh-myths, .vh-index { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .vh-layers { grid-template-columns: 1fr; }
   .vh-ladder { grid-template-columns: 1fr; gap: var(--s2); }
   .vh-ladder::before { top: 0; bottom: 0; left: 19px; right: auto; border-top: 0; border-left: 2px solid var(--rule); }
   .vh-ladder a { display: grid; grid-template-columns: 40px 1fr; column-gap: var(--s2); }

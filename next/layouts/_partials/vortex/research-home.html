@@ -1,0 +1,54 @@
+{{- /* 研究庫首頁（Phase 4，2026-10-14，Claude 手寫）。系列首頁頁型（lib-series／ls-*），不新增版型。
+     三層架構的資料庫層入口：來源 → 審查紀錄 → 研究筆記 → 研究底稿，依「離結論多近」排列。 */ -}}
+{{- $css := resources.Get "css/library.css" | fingerprint -}}
+{{- $ecss := resources.Get "css/entry.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+<link rel="stylesheet" href="{{ $ecss.RelPermalink }}">
+{{- $reg := (index hugo.Data.vortex "source-registry").sources -}}
+{{- $used := hugo.Data.vortex.source_usage.sources -}}
+{{- $verified := 0 }}{{ range $sid, $_ := $used }}{{ with index $reg $sid }}{{ if eq .verification_status "verified" }}{{ $verified = add $verified 1 }}{{ end }}{{ end }}{{ end -}}
+{{- $sec := dict
+  "sources" (site.GetPage "/vortex/research/sources")
+  "rulings" (site.GetPage "/vortex/research/rulings")
+  "notes" (site.GetPage "/vortex/research/notes")
+  "drafts" (site.GetPage "/vortex/research/drafts") -}}
+<article class="lib-series">
+  <header class="ls-hero">
+    <p class="kicker">Vortex · 研究庫</p>
+    <h1 class="ls-title">{{ .Title }}</h1>
+    <p class="ls-lead">{{ .Description }}</p>
+    <p class="ls-stats">
+      <span><b>{{ len $used }}</b> 筆被引用的來源（{{ $verified }} 筆已核對書目）</span>
+      <span><b>{{ len (index $sec "rulings").RegularPages }}</b> 份審查與裁決紀錄</span>
+      <span><b>{{ len (index $sec "notes").RegularPages }}</b> 篇研究筆記</span>
+      <span><b>{{ len (index $sec "drafts").RegularPages }}</b> 篇研究底稿</span>
+    </p>
+  </header>
+
+  <section class="ls-sec" aria-labelledby="rh-trace">
+    <h2 id="rh-trace">從結論往回查</h2>
+    <div class="ls-tools">
+      {{- range slice
+        (dict "k" "sources" "d" "每篇文獻的查證狀態，以及本站哪些知識點建立在它上面")
+        (dict "k" "rulings" "d" "哪些說法被改了、為什麼改、依據哪一句原文")
+        (dict "k" "notes" "d" "心理、感知科學、物理現象、週期化的文獻彙整，研究中")
+        (dict "k" "drafts" "d" "拆成知識點之前的長文原稿，已凍結，不再維護") }}
+        {{- $d := .d }}{{ with index $sec .k }}
+      <a class="ls-tool" href="{{ .RelPermalink }}"><span class="ls-tool-t">{{ .Title }}</span><span class="ls-tool-d">{{ $d }}</span></a>
+        {{- end }}
+      {{- end }}
+    </div>
+  </section>
+
+  <section class="ls-sec" aria-labelledby="rh-cert">
+    <h2 id="rh-cert">確定性標記怎麼讀</h2>
+    <ul class="le-points">
+      <li>🔵 推導：從物理、解剖條件推出來，或明說是跨文獻推論的作者綜合；它不是某一篇研究的發現。</li>
+      <li>🟢 近期文獻：約 2010 年後、可重取的研究支撐。</li>
+      <li>🟡 舊文獻：約 2010 年前的研究，或公認的物理常數。</li>
+      <li>🟠 教練觀測：教學現場的觀察，標明誰觀察、什麼族群、能外推到哪裡；它不冒充研究。</li>
+      <li>🔴 待查：還沒有可靠依據的假設，或確認是研究空白。</li>
+    </ul>
+    <p class="muted">標記說的是「證據是什麼性質」，不是「這句話有多重要」。同一頁裡不同段落可能有不同標記。</p>
+  </section>
+</article>

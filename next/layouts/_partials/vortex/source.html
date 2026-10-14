@@ -1,0 +1,49 @@
+{{- /* 研究庫來源條目頁（Phase 4，2026-10-14，Claude 手寫）。沿用條目頁型（lib-entry／le-*）。
+     識別碼只印純文字不外連（使用者 2026-10-07：本站不外連其他網站）。 */ -}}
+{{- $sid := .Params.source_id -}}
+{{- $r := index (index hugo.Data.vortex "source-registry").sources $sid -}}
+{{- $su := index hugo.Data.vortex.source_usage.sources $sid -}}
+{{- $links := hugo.Data.vortex_links -}}
+{{- $typeZh := dict "move" "動作" "drill" "練習" "tech" "技術分析" "error" "教學誤區" "problem" "找問題" "injury" "運動傷害" "level" "水感級別" "psy" "心理主題" "psyc" "心理概念" -}}
+{{- $kindZh := dict "journal-article" "期刊論文" "journal_article" "期刊論文" "book" "書" "book-chapter" "書的章節" "guideline" "指引" "report" "報告" "website" "網站" "other" "其他" -}}
+{{- $css := resources.Get "css/library.css" | fingerprint -}}
+{{- $ecss := resources.Get "css/entry.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+<link rel="stylesheet" href="{{ $ecss.RelPermalink }}">
+<article class="lib-chapter lib-entry">
+  <header class="lc-head">
+    <p class="kicker">Vortex · 研究庫 · 來源</p>
+    <h1>{{ .Title }}</h1>
+    {{- with $r }}{{ if ne .display $.Title }}<p class="lc-lead">{{ .display }}</p>{{ end }}{{ end }}
+  </header>
+
+  {{- with $r }}
+  <section class="le-block">
+    <h2>這筆來源的狀態</h2>
+    <ul class="le-points">
+      <li>查證：{{ if eq .verification_status "verified" }}已核對書目與識別碼{{ else }}<b>未查證</b>：書目還沒有對過原文或可重取的識別碼，引用它的說法請保留看待{{ end }}</li>
+      {{- with .type }}<li>類型：{{ index $kindZh . | default . }}</li>{{ end }}
+      {{- with .identifier }}
+        {{- with .doi }}<li>DOI：{{ . }}</li>{{ end }}
+        {{- with .pmid }}<li>PubMed：{{ . }}</li>{{ end }}
+        {{- with .pmcid }}<li>PMC：{{ . }}</li>{{ end }}
+        {{- with .isbn }}<li>ISBN：{{ . }}</li>{{ end }}
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+
+  {{- with $su }}
+  {{- $shown := slice }}{{ $other := 0 }}
+  {{- range .units }}{{ with index $links.units . }}{{ $shown = $shown | append . }}{{ else }}{{ $other = add $other 1 }}{{ end }}{{ end }}
+  <nav class="le-siblings" aria-label="引用這筆來源的知識點">
+    <p class="kicker">引用這筆來源的知識點（{{ len $shown }}）</p>
+    <ul>
+      {{- range $shown }}
+      <li><a href="{{ relURL .path }}"><b>{{ .title }}</b><span class="muted">{{ index $typeZh .type }}{{ with .stroke }}{{ with index $links.strokes . }} · {{ .name_zh }}{{ end }}{{ end }}</span></a></li>
+      {{- end }}
+    </ul>
+    {{- if gt $other 0 }}<p class="muted">另有 {{ $other }} 處引用在專章（呼吸、週期化、動作圖譜等）的段落裡。</p>{{ end }}
+  </nav>
+  {{- end }}
+</article>

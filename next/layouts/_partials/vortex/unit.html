@@ -500,7 +500,11 @@
     {{- if and $record.phenomenon $record.phenomenon.certainty }}{{ $hasCert = true }}{{ end -}}
   {{- end -}}
 
-  {{- if or $hasEvidence $hasSrcIds $hasCert }}
+  {{- $reg := (index hugo.Data.vortex "source-registry").sources -}}
+  {{- $usage := hugo.Data.vortex.source_usage -}}
+  {{- $srcList := index $usage.units $id -}}
+  {{- $trail := index hugo.Data.vortex.decision_trail $id -}}
+  {{- if or $hasEvidence $hasSrcIds $hasCert $srcList $trail }}
   <details class="layer layer-evidence" id="evidence">
     <summary>證據與來源</summary>
     {{- if $hasEvidence }}
@@ -511,7 +515,7 @@
         {{- if gt (len .) 0 }}
         <h3>交叉引用</h3>
         <ul class="value-ul">
-          {{- range . }}<li><code>{{ . }}</code></li>{{- end }}
+          {{- range . }}<li>{{ with index $links.units . }}<a href="{{ relURL .path }}">{{ .title }}</a>{{ else }}{{ . }}{{ end }}</li>{{- end }}
         </ul>
         {{- end }}
       {{- end -}}
@@ -520,7 +524,7 @@
         {{- if gt (len .) 0 }}
         <h3>交叉引用</h3>
         <ul class="value-ul">
-          {{- range . }}<li><code>{{ . }}</code></li>{{- end }}
+          {{- range . }}<li>{{ with index $links.units . }}<a href="{{ relURL .path }}">{{ .title }}</a>{{ else }}{{ . }}{{ end }}</li>{{- end }}
         </ul>
         {{- end }}
       {{- end -}}
@@ -529,7 +533,7 @@
         {{- if gt (len .) 0 }}
         <h3>交叉引用</h3>
         <ul class="value-ul">
-          {{- range . }}<li><code>{{ . }}</code></li>{{- end }}
+          {{- range . }}<li>{{ with index $links.units . }}<a href="{{ relURL .path }}">{{ .title }}</a>{{ else }}{{ . }}{{ end }}</li>{{- end }}
         </ul>
         {{- end }}
       {{- end -}}
@@ -540,25 +544,23 @@
         {{- partial "value.html" (dict "v" $record.references "depth" 0) -}}
         {{- end -}}
       {{- end -}}
-    {{- else if eq $type "drill" -}}
-      {{- with $record.source_ids -}}
-        {{- if gt (len .) 0 }}
-        <h3>來源</h3>
-        <ul class="value-ul">
-          {{- range . }}<li>{{ with index (index hugo.Data.vortex "source-registry").sources . }}{{ .display }}{{ if eq .verification_status "unverified" }}（未查證）{{ end }}{{ else }}{{ . }}{{ end }}</li>{{- end }}
-        </ul>
-        {{- end }}
-      {{- end }}
-    {{- else if eq $type "psyc" -}}
-      {{- with $record.source_ids -}}
-        {{- if gt (len .) 0 }}
-        <h3>來源</h3>
-        <ul class="value-ul">
-          {{- range . }}<li>{{ with index (index hugo.Data.vortex "source-registry").sources . }}{{ .display }}{{ if eq .verification_status "unverified" }}（未查證）{{ end }}{{ else }}{{ . }}{{ end }}</li>{{- end }}
-        </ul>
-        {{- end }}
-      {{- end }}
     {{- end -}}
+    {{- if ne $type "injury" }}{{ with $srcList }}
+        <h3>本頁引用的來源</h3>
+        <ul class="value-ul">
+          {{- range . }}{{ $r := index $reg . }}{{ $su := index $usage.sources . }}
+          <li><a href="{{ relURL (printf "vortex/research/sources/%s/" $su.slug) }}">{{ with $r }}{{ .display }}{{ else }}{{ . }}{{ end }}</a>{{ with $r }}{{ if eq .verification_status "unverified" }}（未查證）{{ end }}{{ end }}</li>
+          {{- end }}
+        </ul>
+    {{- end }}{{ end }}
+    {{- with $trail }}
+        <h3>這條結論怎麼來的</h3>
+        <ul class="value-ul">
+          {{- range . }}
+          <li><a href="{{ relURL (printf "vortex/research/rulings/%s/" .slug) }}{{ with .section }}#{{ anchorize . }}{{ end }}">{{ .title }}{{ with .section }}：{{ . }}{{ end }}</a></li>
+          {{- end }}
+        </ul>
+    {{- end }}
     {{- if $hasCert }}
     <p class="muted"><span class="muted-cert">確定性標記：</span>
       {{- if and (eq $type "tech") $record.mechanism -}}

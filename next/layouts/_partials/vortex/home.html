@@ -1,4 +1,5 @@
-{{- /* Vortex 首頁（Claude 手寫，2026-09-26 視覺重做）：大標題 → 六式入口 → 反直覺誤區（一大六小）→ L0–L6 階梯 → 查找索引 */ -}}
+{{- /* Vortex 首頁（Claude 手寫；2026-10-14 三層重構改骨架）：大標題 → 三個入口（知識／應用／研究庫）→ 六式 → 反直覺誤區 → L0–L6 階梯。
+     原「主題與長期規劃」「直接查找」兩段併入三入口，不再各自成段。 */ -}}
 {{- $d := hugo.Data.vortex_links -}}
 {{- $order := slice "free" "back" "breast" "fly" "udk" "starts-turns" -}}
 {{- $long := dict "free" "freestyle" "back" "backstroke" "breast" "breaststroke" "fly" "butterfly" "udk" "underwater_dolphin_kick" "starts-turns" "starts_turns" -}}
@@ -25,6 +26,43 @@
       <span><b>{{ lang.FormatNumber 0 $links }}</b> 條知識連結</span>
     </p>
   </header>
+
+
+  <section class="vh-sec" aria-labelledby="vh-layers">
+    <h2 id="vh-layers">三個入口</h2>
+    <div class="vh-layers">
+      <div class="vh-layer">
+        <p class="vh-layer-name">知識</p>
+        <p class="vh-layer-d">整理好的知識點：六種泳式拆成一個個動作，每個動作接到練法、誤區與背後的物理。</p>
+        <ul>
+          <li><a href="#vh-strokes">從一種泳式開始</a></li>
+          <li><a href="{{ relURL "vortex/levels/" }}">水感發展地圖 L0–L6</a></li>
+          <li><a href="{{ relURL "vortex/breathing/" }}">呼吸</a>・<a href="{{ relURL "vortex/psychology/" }}">心理層</a>・<a href="{{ relURL "vortex/joints/" }}">骨關節</a></li>
+          <li><a href="{{ relURL "vortex/drills/" }}">{{ index $cnt "drill" }} 個練習</a>・<a href="{{ relURL "vortex/tech/" }}">技術分析</a>・<a href="{{ relURL "vortex/injuries/" }}">運動傷害</a></li>
+        </ul>
+      </div>
+      <div class="vh-layer">
+        <p class="vh-layer-name">應用</p>
+        <p class="vh-layer-d">把知識變成下水前的決定：卡關時找處理、排一堂課、選器材、看長期發展。</p>
+        <ul>
+          <li><a href="{{ relURL "vortex/problems/" }}">找問題：練不起來時</a></li>
+          <li><a href="{{ relURL "vortex/workout/" }}">課表與間歇計時</a></li>
+          <li><a href="{{ relURL "vortex/instructional/equipment-guide/" }}">器材使用指南</a></li>
+          <li><a href="{{ relURL "vortex/adm/" }}">運動員發展 ADM</a>・<a href="{{ relURL "vortex/periodization/" }}">訓練週期化</a></li>
+        </ul>
+      </div>
+      <div class="vh-layer">
+        <p class="vh-layer-name">研究庫</p>
+        <p class="vh-layer-d">每句話從哪裡來：來源與查證狀態、哪些說法被改過、還在整理的研究筆記。</p>
+        <ul>
+          <li><a href="{{ relURL "vortex/research/sources/" }}">{{ len hugo.Data.vortex.source_usage.sources }} 筆來源</a></li>
+          <li><a href="{{ relURL "vortex/research/rulings/" }}">審查與裁決紀錄</a></li>
+          <li><a href="{{ relURL "vortex/research/notes/" }}">研究筆記</a>・<a href="{{ relURL "vortex/research/drafts/" }}">研究底稿</a></li>
+          <li><a href="{{ relURL "vortex/research/" }}">研究庫首頁：確定性標記怎麼讀</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
   <section class="vh-sec" aria-labelledby="vh-strokes">
     <h2 id="vh-strokes">從一種泳式開始</h2>
@@ -79,30 +117,4 @@
     </ol>
   </section>
 
-  <section class="vh-sec" aria-labelledby="vh-topics">
-    <h2 id="vh-topics">主題與長期規劃</h2>
-    <p class="vh-sec-lead">跨過單一泳式的題目：呼吸、心理、身體怎麼動，以及一整季、一整個運動生涯怎麼安排。</p>
-    <div class="vh-index vh-topics">
-    {{- range slice (dict "p" "breathing" "t" "呼吸") (dict "p" "psychology" "t" "心理層") (dict "p" "joints" "t" "骨關節動作") (dict "p" "movement" "t" "動作圖譜") (dict "p" "instructional/equipment-guide" "t" "器材使用指南") (dict "p" "workout" "t" "課表與間歇計時") (dict "p" "adm" "t" "運動員發展 ADM") (dict "p" "periodization" "t" "訓練週期化") }}
-      {{- $pg := site.GetPage (printf "/vortex/%s" .p) }}
-      <a class="vh-idx vh-topic" href="{{ relURL (printf "vortex/%s/" .p) }}"><span class="vh-idx-t">{{ .t }}</span>{{ with $pg }}{{ with .Description }}<span class="vh-idx-s">{{ . }}</span>{{ end }}{{ end }}</a>
-    {{- end }}
-    </div>
-  </section>
-
-  {{- $idx := slice
-    (dict "p" "drills" "t" "練習" "n" "drill" "s" "依泳式、類別、器材篩選")
-    (dict "p" "errors" "t" "教學誤區" "n" "error" "s" "很多人以為，其實")
-    (dict "p" "tech" "t" "技術分析" "n" "tech" "s" "動作背後的機制")
-    (dict "p" "problems" "t" "找問題" "n" "problem" "s" "練不起來時從這裡找")
-    (dict "p" "injuries" "t" "運動傷害" "n" "injury" "s" "成因、預防與處理")
-    (dict "p" "mind" "t" "心理層" "n" "psy" "s" "恐懼、動機與心流") -}}
-  <section class="vh-sec" aria-labelledby="vh-index">
-    <h2 id="vh-index">直接查找</h2>
-    <div class="vh-index">
-    {{- range $idx }}
-      <a class="vh-idx" href="{{ relURL (printf "vortex/%s/" .p) }}"><span class="vh-idx-n">{{ index $cnt .n }}</span><span class="vh-idx-t">{{ .t }}</span><span class="vh-idx-s">{{ .s }}</span></a>
-    {{- end }}
-    </div>
-  </section>
 </article>

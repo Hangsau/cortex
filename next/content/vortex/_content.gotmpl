@@ -48,3 +48,19 @@
 {{- end -}}
 {{- $.AddPage $pdict }}
 {{- end }}
+
+{{- /* 研究庫：來源條目頁（被至少一個條目引用、未撤銷的來源；Phase 4，2026-10-14） */ -}}
+{{- $reg := (index hugo.Data.vortex "source-registry").sources -}}
+{{- range $sid, $su := hugo.Data.vortex.source_usage.sources }}
+{{- $r := index $reg $sid -}}
+{{- $title := $sid -}}
+{{- $desc := "" -}}
+{{- with $r }}{{ $title = .title | default .display }}{{ $desc = .display }}{{ end -}}
+{{- $.AddPage (dict
+    "path"   (printf "research/sources/%s" $su.slug)
+    "kind"   "page"
+    "title"  $title
+    "description" $desc
+    "params" (dict "role" "source" "source_id" $sid)
+  ) }}
+{{- end }}

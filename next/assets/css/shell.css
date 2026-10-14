@@ -91,6 +91,8 @@ mark { background: none; color: inherit; font-weight: 700; text-decoration: unde
 .rail-n { display: inline-block; min-width: 1.8em; color: var(--ink-2); font-variant-numeric: tabular-nums; }
 .rail-a.is-here .rail-n { color: var(--series); }
 .rail-series { font: 700 var(--fs-m)/1.4 var(--f-serif); margin-top: var(--s1); }
+/* Vortex 三層（知識／應用／研究庫）：層與層之間用分隔線與較大間距分群（鐵則 F 接近律） */
+.rail nav > .rail-series ~ .rail-series { margin-top: var(--s4); padding-top: var(--s2); border-top: 1px solid var(--rule); }
 
 /* ---------- 對照閱讀（跨系列知識連結，study.js 插入） ---------- */
 .xl { margin: var(--s1) 0 var(--s3); padding: var(--s1) 0 var(--s1) var(--s2); border-left: 2px solid var(--series); font: 400 var(--fs-s)/1.6 var(--f-sans); }

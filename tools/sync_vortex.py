@@ -291,6 +291,96 @@ def sync_research_notes(dry_run: bool):
         (NOTE_DIR / f"{slug}.md").write_text(fm + body, encoding="utf-8")
 
 
+# ── 研究庫索引與審查紀錄（Phase 4，2026-10-14）──
+# 來源反向索引 → 來源條目頁與知識點頁的「本頁引用的來源」；
+# 審查／裁決紀錄白名單 → research/rulings/，決策軌跡只保留指向這些公開紀錄的命中。
+INDICES_SRC = VORTEX_SRC / "indices"
+RULINGS_DIR = HUGO_VORTEX / "research" / "rulings"
+RULING_FILES = {
+    "plans/內容審查_2026-10-01.md": "content-review-2026-10-01",
+    "plans/內容審查_2026-10-01/裁決_自由式.md": "ruling-2026-10-free",
+    "plans/內容審查_2026-10-01/裁決_仰式.md": "ruling-2026-10-back",
+    "plans/內容審查_2026-10-01/裁決_蛙式.md": "ruling-2026-10-breast",
+    "plans/內容審查_2026-10-01/裁決_蝶式.md": "ruling-2026-10-fly",
+    "plans/內容審查_2026-10-01/裁決_水下出發轉身.md": "ruling-2026-10-udk-starts-turns",
+    "plans/內容審查_2026-10-14.md": "content-review-2026-10-14",
+    "plans/關節主張裁決_自由式.md": "joint-ruling-free",
+    "plans/關節主張裁決_仰式.md": "joint-ruling-back",
+    "plans/關節主張裁決_蛙式.md": "joint-ruling-breast",
+    "plans/關節主張裁決_蝶式.md": "joint-ruling-fly",
+    "plans/關節主張裁決_超流線.md": "joint-ruling-streamline",
+    "plans/關節主張裁決_B類ROM.md": "joint-ruling-rom",
+    "plans/關節主張裁決_C類傷害宣稱.md": "joint-ruling-injury-claims",
+}
+SOURCE_USAGE_DST = HUGO_ROOT / "data" / "vortex" / "source_usage.json"
+DECISION_TRAIL_DST = HUGO_ROOT / "data" / "vortex" / "decision_trail.json"
+
+
+def source_slug(source_id: str) -> str:
+    return source_id.removeprefix("src.").lower()
+
+
+def sync_research_index(dry_run: bool):
+    """來源使用索引、決策軌跡、審查紀錄頁。"""
+    print()
+    print("=== 研究庫索引 ===")
+    rev = json.loads((INDICES_SRC / "source_reverse_index.json").read_text(encoding="utf-8"))
+    by_source, by_unit = {}, {}
+    for src in rev["sources"]:
+        if src.get("verification_status") == "retracted" or not src.get("usages"):
+            continue
+        units = []
+        for use in src["usages"]:
+            if use["id"] not in units:
+                units.append(use["id"])
+            by_unit.setdefault(use["id"], [])
+            if src["id"] not in by_unit[use["id"]]:
+                by_unit[use["id"]].append(src["id"])
+        by_source[src["id"]] = {"slug": source_slug(src["id"]), "units": units}
+    usage = {"sources": by_source, "units": by_unit}
+    print(f"  被引用來源 {len(by_source)} 筆、有來源的條目 {len(by_unit)} 筆")
+
+    titles = {}
+    for rel, slug in RULING_FILES.items():
+        src_file = VORTEX_SRC / rel
+        if not src_file.exists():
+            print(f"  [WARN] 找不到 {rel}")
+            continue
+        body = strip_existing_frontmatter(src_file.read_text(encoding="utf-8"))
+        titles[rel] = (slug, extract_title(body))
+    trail_raw = json.loads((INDICES_SRC / "decision_trail.json").read_text(encoding="utf-8"))
+    trail = {}
+    for unit_id, hits in trail_raw["trails"].items():
+        seen = []
+        for hit in hits:
+            if hit["file"] not in titles:
+                continue
+            slug, title = titles[hit["file"]]
+            # 命中在文件 H1 底下時，上站前 H1 已被剝掉、沒有錨點，改連頁首
+            section = "" if hit["section"].strip() == title.strip() else hit["section"]
+            key = (slug, section)
+            if key in seen:
+                continue
+            seen.append(key)
+            trail.setdefault(unit_id, []).append({"slug": slug, "title": title, "section": section})
+    print(f"  有公開審查紀錄的條目 {len(trail)} 筆")
+    if dry_run:
+        return
+    SOURCE_USAGE_DST.write_text(json.dumps(usage, ensure_ascii=False, indent=1), encoding="utf-8")
+    DECISION_TRAIL_DST.write_text(json.dumps(trail, ensure_ascii=False, indent=1), encoding="utf-8")
+    RULINGS_DIR.mkdir(parents=True, exist_ok=True)
+    keep = {slug for slug, _ in titles.values()}
+    for old in RULINGS_DIR.glob("*.md"):
+        if old.name != "_index.md" and old.stem not in keep:
+            old.unlink()
+    for rel, (slug, title) in titles.items():
+        body = strip_existing_frontmatter((VORTEX_SRC / rel).read_text(encoding="utf-8"))
+        body = strip_external_links(strip_diagnostic(strip_title_h1(body)))
+        fm = build_frontmatter(title=title, description="", slug=slug, layer="research",
+                               layer_name="審查與裁決紀錄", strokes=[], research_status="審查紀錄")
+        (RULINGS_DIR / f"{slug}.md").write_text(fm + body, encoding="utf-8")
+
+
 # ── 自訂 layout 對照（slug → layout）──
 # 預設 content 走 Hugo lookup（vortex/single.html，純 markdown 渲染）。
 # 已設計成 master-detail 的頁面在此指定專屬 layout，body 由 layout 接管，
@@ -1485,6 +1575,7 @@ def main():
         save_state(state)
 
     sync_research_notes(dry_run)
+    sync_research_index(dry_run)
     sync_drills(dry_run)
     sync_teaching_errors(dry_run)
     sync_moves(dry_run)
