@@ -1,5 +1,6 @@
 # 課表工具的「技能段」資料（手管，2026-10-13）
-# 週課表（③）會把這些段落掛進一週的部分堂次；數字一律來自下列出處，工具只做排列與換算。
+# 週課表（③）會把這些段落掛進一週的部分堂次；工具只做排列與換算。
+# 應用層不自帶研究事實（三層重構 W3.3）：研究數字與可信度只寫在 canonical 知識點，這裡用 doc／turn_doc 連過去。
 # 水下安全條件不在這裡寫：直接讀 data/breathing/safety.yaml 的 hypoxic_blackout.rule_zh（canonical 同步）。
 
 udk:
@@ -12,12 +13,12 @@ udk:
   drill: UDK5            # 比賽配速水下打水：蹬牆水下打到 10–15 m 再接出水
   max_underwater_m: 15
   max_underwater_zh: 競賽規則：自由式、仰式、蝶式在出發與轉身後，水下不得超過 15 m；練習也以 15 m 為上限，不比遠。
-  dose_zh: 日本菁英泳者 4 個月介入：在常規訓練外加每次約 10 分鐘的水下海豚腿專項組，男子水下速度 1.73→1.81 m/s、女子 1.49→1.53 m/s。起始劑量照這個做：每週 2–4 次、每次約 10 分鐘，每 2 週重測一次。
-  cert: 🟢
-  source_zh: Vortex《水下蝶腳技術分析》§6.4 整合訓練方法
-  doc: vortex/research/drafts/underwater-dolphin-kick-analysis/
+  dose_zh: 起始劑量是實務設計：每週 2–4 次、每次約 10 分鐘，每 2 週重測一次。依據是一份日本全國級泳者的 4 個月介入研究，研究數字與可信度看知識點；每週次數取自二手報導，原文細節尚未取得。
+  cert: 🟠
+  source_zh: 知識點〈UDK 訓練 4 個月介入可顯著提升速度〉
+  doc: vortex/tech/udk-tech-26/
   turn_test_zh: 想比較轉身做法，用「觸牆到 7.5 m」計時：一份比較三種轉法的研究發現推牆速度有差，到 7.5 m 時已經沒有差別。
-  turn_doc: vortex/research/drafts/starts-turns-technical-analysis/
+  turn_doc: vortex/tech/starts-turns-tech-30/
   row_note_zh: 約 10 分鐘：蹬牆水下海豚腿，最多到 15 m 就出水，輕鬆游完這一趟。趟數是用 10 分鐘換算的，依實際時間調；每趟要恢復到呼吸平穩再出發。
   taper_zh: 減量期保留短的水下段，不加量。
 

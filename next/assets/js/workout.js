@@ -669,7 +669,7 @@
         <p>${retest ? `<b>這週是重測週</b>（排在第 ${week.indexOf(uwFirst) + 1} 堂）：` : '下週重測：'}${esc(U.retest_zh)}</p>
         <p class="wk-note"><b>水下安全：</b>${md(String(U.safety || '').replace(/^🔵\s*/, '').replace(/^因此/, ''))}</p>
         <p class="muted">${esc(U.max_underwater_zh)}${esc(U.turn_test_zh)}</p>
-        <p class="muted">出處：<a href="${U.doc_url}">${esc(U.source_zh)}</a>。練法：<a href="${U.drill_url}">比賽配速水下打水</a>。轉身：<a href="${U.turn_url}">出發與轉身技術分析</a>。</p></div>`;
+        <p class="muted">出處：<a href="${U.doc_url}">${esc(U.source_zh)}</a>。練法：<a href="${U.drill_url}">比賽配速水下打水</a>。轉身測法依據：<a href="${U.turn_url}">三種轉法比較研究</a>。</p></div>`;
     }
     html += `<h3>這週 ${n} 堂的建議（${SZH[s]}）</h3>
       <p class="muted">照上課順序排，吃力的品質課之間隔一堂輕鬆課。每堂只給主課，暖身、drill、緩和留給你排；泳式跟著 ② 選中的那一式，目標秒數用 ① 的成績算。</p>`;

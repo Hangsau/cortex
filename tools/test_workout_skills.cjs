@@ -95,7 +95,7 @@ const TODAY = '2026-10-13';
     await pace();
     // 出處連結指向站內頁
     const hrefs = await page.locator('[data-wk-pzout] .wk-box a').evaluateAll(as => as.map(a => a.getAttribute('href')));
-    assert.ok(hrefs.some(h => h.endsWith('/vortex/instructional/underwater-dolphin-kick-analysis/')));
+    assert.ok(hrefs.some(h => h.endsWith('/vortex/tech/udk-tech-26/')));
     assert.ok(hrefs.some(h => h.endsWith('/vortex/drills/udk5/')));
 
     for (const w of [320, 390]) {
