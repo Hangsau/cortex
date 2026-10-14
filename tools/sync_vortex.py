@@ -228,6 +228,69 @@ SLUG_MAP = {
     "出發與轉身教學誤區深探":"starts-turns-teaching-errors",
 }
 
+# ── 研究筆記（W3.5，2026-10-14）：Research/ 下的文獻彙整，研究庫公開為「研究筆記」──
+# 不出站：整本書萃取（著作權）、內部稽核、Talos 未定稿、未處理的 _incoming。
+RESEARCH_SRC = VORTEX_SRC / "Research"
+NOTE_DIR = HUGO_VORTEX / "research" / "notes"
+NOTE_SLUGS = {
+    "心理/00_心理層總覽": "psychology-overview",
+    "心理/01_注意力焦點與動作學習": "attention-focus-motor-learning",
+    "心理/02_喚醒焦慮與壓力崩潰": "arousal-anxiety-choking",
+    "心理/03_水中恐懼與學習者心理": "water-fear-learner-psychology",
+    "心理/04_動機與自我決定": "motivation-self-determination",
+    "心理/05_意象與心理演練": "imagery-mental-rehearsal",
+    "心理/06_自我對話與心理技能訓練": "self-talk-psychological-skills",
+    "心理/07_心流與最佳表現": "flow-peak-performance",
+    "心理/08_心理感知生理交互": "psycho-perceptual-physiological-interaction",
+    "感知科學/feedforward機制": "feedforward",
+    "感知科學/內臟感知與迷走神經": "interoception-vagus",
+    "感知科學/動態系統理論": "dynamical-systems",
+    "感知科學/因果倒置假設": "causal-inversion-hypothesis",
+    "感知科學/感知學習": "perceptual-learning",
+    "感知科學/感知量化SQ框架": "sensation-quantification-sq",
+    "感知科學/機械感受器": "mechanoreceptors",
+    "感知科學/神經學對照組三點座標": "neurological-reference-points",
+    "感知科學/隱性_顯性學習": "implicit-explicit-learning",
+    "物理現象/彈性蓄能": "elastic-energy-storage",
+    "物理現象/推進力理論演變": "propulsion-theory-history",
+    "物理現象/渦流回收": "vortex-recapture",
+    "物理現象/自然頻率": "natural-frequency",
+    "週期化/低通氣訓練_VHL_RSH": "hypoventilation-training",
+    "週期化/極化訓練_Seiler": "polarized-training-seiler",
+    "週期化/板塊週期化_Issurin": "block-periodization-issurin",
+    "週期化/頂尖教練訓練哲學_Sandbakk": "elite-coaching-philosophy-sandbakk",
+}
+NOTE_LAYER_NAME = "研究筆記"
+
+
+def sync_research_notes(dry_run: bool):
+    """Research/ 白名單筆記 → content/vortex/research/notes/，剝診斷語與外連，標「研究中」。"""
+    print()
+    print("=== 研究筆記 ===")
+    if not dry_run:
+        NOTE_DIR.mkdir(parents=True, exist_ok=True)
+        for old in NOTE_DIR.glob("*.md"):
+            if old.name != "_index.md" and old.stem not in NOTE_SLUGS.values():
+                old.unlink()
+    for key, slug in NOTE_SLUGS.items():
+        src = RESEARCH_SRC / f"{key}.md"
+        if not src.exists():
+            print(f"  [WARN] 找不到 {src}")
+            continue
+        body = strip_existing_frontmatter(src.read_text(encoding="utf-8"))
+        title = extract_title(body)
+        desc = extract_description(body)
+        body = strip_external_links(strip_diagnostic(strip_title_h1(body)))
+        print(f"  {key} → research/notes/{slug}")
+        if dry_run:
+            continue
+        fm = build_frontmatter(
+            title=title, description=desc, slug=slug, layer="research",
+            layer_name=NOTE_LAYER_NAME, strokes=[], research_status="研究中",
+        )
+        (NOTE_DIR / f"{slug}.md").write_text(fm + body, encoding="utf-8")
+
+
 # ── 自訂 layout 對照（slug → layout）──
 # 預設 content 走 Hugo lookup（vortex/single.html，純 markdown 渲染）。
 # 已設計成 master-detail 的頁面在此指定專屬 layout，body 由 layout 接管，
@@ -375,7 +438,8 @@ def strip_existing_frontmatter(content: str) -> str:
 
 def build_frontmatter(title: str, description: str, slug: str,
                       layer: str, layer_name: str, strokes: list,
-                      layout: str = "", frozen: str = "") -> str:
+                      layout: str = "", frozen: str = "",
+                      research_status: str = "") -> str:
     lines = ["---"]
     lines.append(f'title: "{title}"')
     if description:
@@ -388,6 +452,8 @@ def build_frontmatter(title: str, description: str, slug: str,
         lines.append(f'layout: "{layout}"')
     if frozen:
         lines.append(f'frozen: "{frozen}"')
+    if research_status:
+        lines.append(f'research_status: "{research_status}"')
     if strokes:
         lines.append("strokes:")
         for s in strokes:
@@ -1418,6 +1484,7 @@ def main():
         state["files"] = files_state
         save_state(state)
 
+    sync_research_notes(dry_run)
     sync_drills(dry_run)
     sync_teaching_errors(dry_run)
     sync_moves(dry_run)

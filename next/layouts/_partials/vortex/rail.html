@@ -59,7 +59,7 @@
     <a class="rail-a{{ if hasPrefix $here $lp }} is-here{{ end }}" href="{{ $lp }}">{{ .t }}</a>
     {{- end }}
     <p class="rail-h">研究庫</p>
-    {{- range slice (dict "p" "research/drafts" "t" "研究底稿") }}
+    {{- range slice (dict "p" "research/notes" "t" "研究筆記") (dict "p" "research/drafts" "t" "研究底稿") }}
       {{- $sp := relURL (printf "vortex/%s/" .p) }}
     <a class="rail-a{{ if eq $here $sp }} is-here{{ else if hasPrefix $here $sp }} is-open{{ end }}" href="{{ $sp }}">{{ .t }}</a>
       {{- if and (hasPrefix $here $sp) (ne $here $sp) }}
