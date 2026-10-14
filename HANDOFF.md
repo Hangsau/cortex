@@ -1,5 +1,21 @@
 # HANDOFF — my-site (Cortex)
 
+## Vortex 三層重構 W3.1–W3.3（2026-10-14）
+
+- 泳式動作 `data/vortex/{free,back,breast,fly,udk,starts-turns}.yaml` 改由 `sync_moves()` 從 canonical `moves.yaml` 生成，**不要再手改**。
+- 散文長文改成研究庫「研究底稿」：
+  - 出站路徑 `content/vortex/research/drafts/`。`strip_diagnostic()` 剝除診斷用語，`strip_external_links()` 剝除外連。
+  - 頁首由 `article.html` 依 front matter `frozen` 印出凍結說明。
+  - Bridge／Technica 的掛載已撤，`instructional/` 只留器材指南。
+  - 左欄「深入閱讀」改為「研究庫 › 研究底稿」。
+  - `build_redirects.py` 新增散文與 Bridge 轉址，121 個舊網址全部對應。
+- 課表的水下海豚腿段改連知識點 `tech/udk-tech-26`、`tech/starts-turns-tech-30`；劑量標 🟠 實務設計。
+- 驗收：
+  - 22 specs PASS。
+  - workout 的 skills／prep／studio／goals 測試通過。執行時要 `NODE_PATH=C:\claudehome	oolsrowser
+ode_modules`，並以 1327 埠的本機建置來跑。
+- 未做：`next/content/vortex/water-sense.md` 仍是手寫（W3.2b）。Phase 4 三入口改版尚未開始。
+
 ## Vortex 三層重構 Phase 1：來源改顯示書目（2026-10-14）
 
 - 規劃書在 TheVortexProject `plans/三層重構與全庫檢查_2026-10-14.md`。網站會分成知識／應用／研究庫三個入口；Phase 4 才動版面。
