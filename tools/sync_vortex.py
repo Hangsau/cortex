@@ -38,6 +38,10 @@ TEACHING_ERRORS_SRC = VORTEX_SRC / "canonical" / "instructional" / "teaching-err
 TEACHING_ERRORS_DST = HUGO_ROOT / "data" / "vortex" / "teaching-errors.yaml"
 
 PROBLEMS_SRC = VORTEX_SRC / "canonical" / "instructional" / "problems.yaml"
+MOVES_SRC = VORTEX_SRC / "canonical" / "instructional" / "moves.yaml"
+# 泳式頁動作：每式一檔 data/vortex/<stroke>.yaml（2026-10-14 前在 my-site 手管）
+MOVE_FIELDS = ("n", "name", "one", "l", "physical", "boundary", "drills",
+               "cue_bad", "cue_why", "cue_good", "lnote")
 PROBLEMS_DST = HUGO_ROOT / "data" / "vortex" / "problems.yaml"
 PROBLEM_FIELDS = ("id", "stroke", "category", "title", "links", "cross_ref", "cross_ref_ids", "coverage_gap")
 PROBLEM_PUBLIC_FIELDS = frozenset({"observable", "mechanism_summary"})
@@ -512,6 +516,27 @@ def problem_source_targets():
         "water_interventions": intervention_ids,
         "cross_ref_ids": {r["id"] for r in records(TEACHING_ERRORS_SRC, "errors")},
     }
+
+
+def sync_moves(dry_run: bool):
+    """canonical moves.yaml → data/vortex/<stroke>.yaml，欄位白名單、形狀與遷入前相同。
+
+    `id` 與 `links` 是 canonical 端給驗證器用的鍵，不出站；版型以 `n` 與 drill 中文名運作。
+    """
+    if not MOVES_SRC.exists():
+        print("  [skip] canonical 尚無 moves.yaml，保留現有 data/vortex/<stroke>.yaml")
+        return
+    data = yaml.safe_load(MOVES_SRC.read_text(encoding="utf-8"))
+    print(f"=== 泳式動作：{sum(len(s['moves']) for s in data['strokes'])} 筆 ===")
+    for entry in data["strokes"]:
+        out = {
+            "premise": entry["premise"],
+            "moves": [{k: m[k] for k in MOVE_FIELDS if k in m} for m in entry["moves"]],
+        }
+        dst = HUGO_ROOT / "data" / "vortex" / f"{entry['stroke']}.yaml"
+        print(f"  {entry['stroke']:13s} {len(out['moves'])}")
+        if not dry_run:
+            _atomic_write_yaml(dst, out)
 
 
 def sync_problems(dry_run: bool):
@@ -1323,6 +1348,7 @@ def main():
 
     sync_drills(dry_run)
     sync_teaching_errors(dry_run)
+    sync_moves(dry_run)
     sync_technical_analysis(dry_run)
     sync_source_registry(dry_run)
     sync_l_indicators(dry_run)
