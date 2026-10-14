@@ -477,3 +477,30 @@ W022 7 → 0。逐筆讀原文（PubMed efetch／Europe PMC／BMS、BISp 文獻�
 
 - `src.mason-1992-b`、`src.colman-1998-b` 與重建後的 -a 是同一篇（technical-analysis 引用的五峰值數字、flat／undulating 比較與 -a 相同），引用全改掛 -a，-b 轉墓碑（照 2026-09-06 McCullough 合併的慣例）。
 - technical-analysis fly.tech.12 的「疲勞時外划方向偏移」（🟢，Peyrebrune & Turner 2007）撤下，`src.peyrebrune-2007` 零引用、查無此篇，轉墓碑擋重新引用。
+
+### 2.4 Drills 第 1 批（codex＋Claude 驗收，2026-10-14 晚）
+
+- 範圍：backstroke 兩塊、breaststroke 兩塊、freestyle 第 1 塊。codex 自報 修 21／駁回 22／待查 0，逐條紀錄（含原書 Lepinski 2011 逐字引句、PMID）在 `codex紀錄/2.4_Drills_*`。
+- **Claude 駁回 codex 的一項結構改動**：codex 把三檔 70 筆頂層 `abc_type` 搬進 `diagnostic:`，理由是它參與公開篩選。已全數還原。網站把 `abc_type` 當公開篩選軸「補哪一塊感知」，只顯示手感／腳感／全身張力，不印 A/B/C 字樣，是既有設計；搬遷會讓三式 drill 的篩選無聲失效、與其餘 4 檔不一致、違反 `Drills/DRILL_INDEX.md` schema，swim-coach `generate_menu.py` 也讀頂層欄位。
+- **保留的修正**（抽驗原書引句 2 條屬實：Bk12 "over extend their arms (into the centerline"、Bk22 "goggles resting on your forehead"）：
+  - 水下蛙式兩條（仰面水下蛙式、水面水下組合）補上安全條件：有人全程直接看護、不過度換氣、不反覆挑戰閉氣、短段即上浮。依 10/13 立場，危險的是行為組合，不是「在水下」。
+  - Bk26 `constraints: [single_arm]` 改空：另一手正常划，不符 TAG_SCHEMA 的 single_arm 定義。
+  - 器材與文意修正（戴呼吸管而非蛙鏡、「距划效」改「增加划距」、EVF 補全稱、換氣計數說清楚）。
+- **Claude 改寫**：codex 把兩筆無法定位出處的 drill 署名改成「Vortex 編製」，這是把通行練習說成本專案原創。改成 UDK2 先例的寫法「通行的…練習形式；本庫未取得可定位的單篇出處」；`src.pair-pacing-in-adjacent-lanes` 轉墓碑。W002 因此 +2，與 UDK2／UDK5 同屬刻意狀態。
+- codex 存在 `codex紀錄/驗證/` 的 validate 報告快照不是證據，已刪；`build_indices` 也已排除該目錄。
+
+### 2.4 Drills 第 2 批（Claude 自驗；codex 5H 已用 92%，2026-10-14 晚）
+
+**udk（12 條：修 6／駁回 6）**
+- 修：
+  - UDK3、UDK4 的 yourswimlog 署名指不到文章。網搜站內只有〈Race Tempo Dolphin Kicking〉一篇，內容是垂直打水的節拍組，與本筆不符。改成 UDK1／UDK5 先例寫法，兩筆來源轉墓碑。UDK3 註明組數與頻率是實務排法。
+  - UDK2 換面打水補一句：一口正常吸氣出發、不過度換氣、不拉長水下距離。這是技術練習，不是閉氣挑戰，依 10/13 行為判準只補條件，不加禁令。
+  - UDK1 的 10–20 秒補上「撐不到從自己能穩住的秒數開始」，不預設能力。
+  - UDKEC1「代表核心軸線需要校正」改成下一步做法；UDKLow1「預定位置」改成「自己預定的位置」。
+- 駁回：
+  - abc_type 搬進 diagnostic：同第 1 批，是公開篩選軸。
+  - UDK3「每週 2–3 次」對象：這是 elite 層練習，難度標記已限定。
+  - UDKEC1「核心是真正的軸」：是感知描述。
+  - UDKLow1 安全句抽成 safety_note：schema 沒有這個欄位；Pollock 2015 已讀正文（registry 註記），支持「只供水面呼吸」。
+  - UDK4「池底標記」：池底標記本來就是給水下泳者看的，教練在池邊計時，沒有矛盾。
+  - UDK1 Sheaff 2022：已取全文核對，原文第三要素即 "Maintain equal propulsion and tempo in both directions"。
