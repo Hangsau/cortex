@@ -126,12 +126,71 @@ MOVEMENT_FILES = (
     )),
 )
 
-# ── Layer 設定 ──
-LAYERS = {
-    "Technica":     {"slug": "technica",     "name": "水感框架"},
-    "Bridge":       {"slug": "bridge",       "name": "感知橋接"},
-    "Instructional":{"slug": "instructional","name": "技術深探"},
-}
+# ── 散文路由（2026-10-14 三層重構 W3.2）──
+# 散文底稿不再當知識頁：器材指南是應用層文章，照舊掛在 instructional/；
+# 其餘 Instructional／Technica 長文是研究庫的「研究底稿」，掛在 research/drafts/，
+# 出站前剝除教練診斷用語與外站連結；Bridge 退役不出站；水感指南由 my-site
+# next/content/vortex/water-sense.md 呈現（尚待收回 canonical，見規劃書 W3.2）。
+ARTICLE_STEMS = {"游泳器材使用指南"}
+RETIRED_LAYERS = {"Bridge"}
+SKIP_STEMS = {"水感指南"}
+PROSE_LAYERS = ("Technica", "Bridge", "Instructional")
+ARTICLE_DIR = HUGO_VORTEX / "instructional"
+DRAFT_DIR = HUGO_VORTEX / "research" / "drafts"
+# 已撤下的舊散文目錄（重跑時清掉，避免殘檔被重新掛上）
+STALE_DIRS = (HUGO_VORTEX / "bridge", HUGO_VORTEX / "technica")
+DRAFT_LAYER_NAME = "研究底稿"
+DRAFT_FROZEN = "2026-10-14"
+
+# 教練診斷框架用語；與 TheVortexProject tools/validate.py W028 同一組判準
+_DIAG_RE = re.compile(r"[ABC]\s?型|三型(?:診斷|分類|的|訊號|區分)|感知三型|泳者說[「『：:]|診斷問題|typical_speech")
+_MD_EXT_LINK = re.compile(r"\[([^\]]+)\]\((https?://[^)]+)\)")
+_BARE_URL = re.compile(r"<?https?://[^\s)>|]+>?")
+
+
+def strip_diagnostic(md: str) -> str:
+    """剝除診斷用語：整節（標題含）、整張表（表頭含）、單行（表格列／清單／段落行）。"""
+    out: list[str] = []
+    skip_level = 0
+    lines = md.split("\n")
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        heading = re.match(r"^(#{1,6})\s", line)
+        if heading:
+            level = len(heading.group(1))
+            if skip_level and level > skip_level:
+                i += 1
+                continue
+            skip_level = level if _DIAG_RE.search(line) else 0
+            if skip_level:
+                i += 1
+                continue
+        elif skip_level:
+            i += 1
+            continue
+        if line.lstrip().startswith("|"):
+            table = []
+            while i < len(lines) and lines[i].lstrip().startswith("|"):
+                table.append(lines[i])
+                i += 1
+            if _DIAG_RE.search(table[0]):
+                continue
+            out.extend(row for row in table if not _DIAG_RE.search(row))
+            continue
+        if not _DIAG_RE.search(line):
+            out.append(line)
+        i += 1
+    return "\n".join(out)
+
+
+def strip_external_links(md: str) -> str:
+    """外站連結改成純文字（使用者 2026-10-07：本站不外連）。"""
+    md = _MD_EXT_LINK.sub(lambda m: m.group(1), md)
+    return _BARE_URL.sub("", md)
+
+
+LAYERS_NAME = {"Instructional": "技術深探", "Technica": "水感框架", "Bridge": "感知橋接"}
 
 # ── 檔名 → URL slug（明確對照，不自動猜） ──
 SLUG_MAP = {
@@ -316,7 +375,7 @@ def strip_existing_frontmatter(content: str) -> str:
 
 def build_frontmatter(title: str, description: str, slug: str,
                       layer: str, layer_name: str, strokes: list,
-                      layout: str = "") -> str:
+                      layout: str = "", frozen: str = "") -> str:
     lines = ["---"]
     lines.append(f'title: "{title}"')
     if description:
@@ -327,6 +386,8 @@ def build_frontmatter(title: str, description: str, slug: str,
     lines.append(f'layer_name: "{layer_name}"')
     if layout:
         lines.append(f'layout: "{layout}"')
+    if frozen:
+        lines.append(f'frozen: "{frozen}"')
     if strokes:
         lines.append("strokes:")
         for s in strokes:
@@ -1281,66 +1342,59 @@ def main():
     state = load_state()
     files_state = state.setdefault("files", {})
 
-    for layer_dir, layer_cfg in LAYERS.items():
-        src_dir = VORTEX_SRC / layer_dir
-        dst_dir = HUGO_VORTEX / layer_cfg["slug"]
-        if not dry_run:
-            dst_dir.mkdir(parents=True, exist_ok=True)
+    if not dry_run:
+        for stale in STALE_DIRS:
+            if stale.exists():
+                for f in stale.glob("*.md"):
+                    f.unlink()
+                stale.rmdir()
+        DRAFT_DIR.mkdir(parents=True, exist_ok=True)
+        for f in ARTICLE_DIR.glob("*.md"):
+            if f.name != "_index.md" and f.stem != SLUG_MAP["游泳器材使用指南"]:
+                f.unlink()
 
-        for src_file in sorted(src_dir.glob("*.md")):
+    for layer_dir in PROSE_LAYERS:
+        if layer_dir in RETIRED_LAYERS:
+            continue
+        for src_file in sorted((VORTEX_SRC / layer_dir).glob("*.md")):
             stem = src_file.stem
             rel_key = f"{layer_dir}/{src_file.name}"
-
+            if stem in SKIP_STEMS:
+                continue
             slug = SLUG_MAP.get(stem)
             if slug is None:
                 results["unknown"].append(rel_key)
                 print(f"[WARN]    未知 slug，跳過：{rel_key}")
                 continue
-
-            dst_file = dst_dir / f"{slug}.md"
+            is_article = stem in ARTICLE_STEMS
+            dst_file = (ARTICLE_DIR if is_article else DRAFT_DIR) / f"{slug}.md"
             cur_hash = file_hash(src_file)
-            prev = files_state.get(rel_key, {})
-
-            if not dst_file.exists():
-                status = "new"
-            elif prev.get("hash") != cur_hash:
-                status = "changed"
-            else:
-                status = "same"
-
+            status = "same" if files_state.get(rel_key, {}).get("hash") == cur_hash and dst_file.exists() else "changed"
             results[status].append(rel_key)
 
-            raw = src_file.read_text(encoding="utf-8")
-            body = strip_existing_frontmatter(raw)
+            body = strip_existing_frontmatter(src_file.read_text(encoding="utf-8"))
             title = TITLE_OVERRIDE.get(slug) or extract_title(body)
-            desc  = extract_description(body)
-            body_no_h1 = strip_title_h1(body)
-
-            if status == "same":
-                print(f"[SAME]    {rel_key}")
+            desc = extract_description(body)
+            body = strip_title_h1(body)
+            if not is_article:
+                body = strip_external_links(strip_diagnostic(body))
+            print(f"[{status.upper():7s}] {rel_key} → {dst_file.relative_to(HUGO_ROOT)}")
+            if dry_run:
                 continue
-
-            tag = "NEW" if status == "new" else "CHANGED"
-            print(f"[{tag:7s}] {rel_key}")
-            print(f"           title: {title}")
-            print(f"           desc:  {desc[:80] if desc else '(none)'}")
-            print(f"           slug:  {slug}  strokes: {detect_strokes(stem)}")
-            print(f"           dest:  {dst_file.relative_to(HUGO_ROOT)}")
-
-            if not dry_run:
-                fm = build_frontmatter(
-                    title=title, description=desc, slug=slug,
-                    layer=layer_cfg["slug"], layer_name=layer_cfg["name"],
-                    strokes=detect_strokes(stem),
-                    layout=LAYOUT_MAP.get(slug, ""),
-                )
-                dst_file.write_text(fm + body_no_h1, encoding="utf-8")
-                files_state[rel_key] = {
-                    "hash":      cur_hash,
-                    "slug":      slug,
-                    "dest":      str(dst_file.relative_to(HUGO_ROOT)),
-                    "synced_at": str(date.today()),
-                }
+            fm = build_frontmatter(
+                title=title, description=desc, slug=slug,
+                layer="instructional" if is_article else "research",
+                layer_name=LAYERS_NAME[layer_dir] if is_article else DRAFT_LAYER_NAME,
+                strokes=detect_strokes(stem),
+                layout=LAYOUT_MAP.get(slug, ""),
+                frozen="" if is_article else DRAFT_FROZEN,
+            )
+            dst_file.write_text(fm + body, encoding="utf-8")
+            files_state[rel_key] = {
+                "hash": cur_hash, "slug": slug,
+                "dest": str(dst_file.relative_to(HUGO_ROOT)),
+                "synced_at": str(date.today()),
+            }
 
     if not dry_run:
         state["files"] = files_state

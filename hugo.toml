@@ -33,17 +33,14 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap", "robotsTXT"]
     source = "content/library/basic-biomechanics"
     target = "content/library/basic-biomechanics"
     excludeFiles = ["learning-map.md"]
-  # Vortex 長文（技術深探／感知橋接／水感框架）是 TheVortexProject 同步來的 Markdown，直接掛入
+  # Vortex 散文（TheVortexProject 同步）：instructional/ 只剩應用層文章（器材指南）；
+  # 其餘長文是研究庫的研究底稿，在 research/。Bridge 與 Technica 掛載已於 2026-10-14 撤除。
   [[module.mounts]]
     source = "content/vortex/instructional"
     target = "content/vortex/instructional"
   [[module.mounts]]
-    source = "content/vortex/bridge"
-    target = "content/vortex/bridge"
-  [[module.mounts]]
-    source = "content/vortex/technica"
-    target = "content/vortex/technica"
-    excludeFiles = ["water-sense-guide.md"]
+    source = "content/vortex/research"
+    target = "content/vortex/research"
   [[module.mounts]]
     source = "content/vortex/adm"
     target = "content/vortex/adm"

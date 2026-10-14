@@ -9,6 +9,9 @@
     <h1>{{ .Title }}</h1>
     {{- if $isLatin }}<p class="muted" lang="en">{{ $desc }}</p>{{ else }}{{ with $desc }}<p class="lc-lead">{{ . }}</p>{{ end }}{{ end }}
   </header>
+  {{- with .Params.frozen }}
+  <p class="lc-frozen"><b>研究底稿</b>這篇是整理成知識點之前的長文，{{ . }} 起不再維護。內容與知識點頁不一致時，以知識點頁為準；教練診斷用語與外站連結已在上站前移除。</p>
+  {{- end }}
   <div class="lc-body read">{{ .Content }}</div>
   {{- with .Parent }}
     {{- $sib := .RegularPages.ByWeight }}

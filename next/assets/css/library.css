@@ -37,6 +37,8 @@
 /* ---------- 章節／文章頁 ---------- */
 .lib-chapter { max-width: calc(var(--measure) + 2 * var(--s4)); margin: 0 auto; padding: var(--s5) var(--s4) var(--s6); }
 .lc-head h1 { font: 700 var(--fs-xl)/1.3 var(--f-serif); margin: 0 0 var(--s3); }
+.lc-frozen { font: 400 var(--fs-s)/var(--lh-ui) var(--f-sans); color: var(--ink-2); background: var(--tint); border-left: 4px solid var(--rule); padding: var(--s2) var(--s3); margin: 0 0 var(--s5); }
+.lc-frozen b { color: var(--ink); margin-right: var(--s2); }
 .lc-lead { font: 500 var(--fs-l)/1.75 var(--f-serif); border-left: 4px solid var(--series); padding-left: var(--s3); margin: 0 0 var(--s5); }
 .lc-body { font-size: var(--fs-m); }
 .lc-body > h2 { border-top: 2px solid var(--ink); padding-top: var(--s2); margin: var(--s6) 0 var(--s3); scroll-margin-top: var(--s3); }

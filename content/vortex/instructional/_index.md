@@ -1,7 +1,7 @@
 ---
-title: "技術深探"
-description: "四式技術的物理條件與常見教學誤解——為什麼這樣游才快，以及哪些廣泛流傳的教法是錯的。"
+title: "器材與應用"
+description: "把研究結果放進一堂課的實用文章：器材怎麼戴、怎麼用、什麼時候用。"
 layer: "instructional"
-layer_name: "技術深探"
+layer_name: "應用"
 weight: 3
 ---
