@@ -120,8 +120,8 @@ indicators:
   framework_state: 推進感萌芽——腿部
   evidence:
   - certainty: 🟡
-    text: McCullough 2009
-    source: McCullough 2009
+    text: 20 名女性泳者（10 名大學一級競技、10 名休閒）：踝蹠屈活動度與 22.86 m 打水速度中度相關（r = 0.509），身高、肢段長度與垂直跳都不相關。量的是活動度與速度，不是腳掌朝向本身。
+    source: McCullough et al. 2009
     source_ids:
     - src.mccullough-2009-a
 - id: free.L2.hand-pressure
@@ -167,7 +167,7 @@ indicators:
   framework_state: 壓力下感知失守
   evidence:
   - certainty: 🔵
-    text: 「時機錯開」是本框架的判讀指標，目前沒有量化門檻。（2026-10-02 更正：原寫「加速後肩旋轉提前縮小」當 L4 失守，但下面這份研究顯示競技泳者加速時滾轉普遍縮小，free.err16 的 Andersen 2020 更顯示衝刺時肩旋轉並沒有縮。）
+    text: 「時機錯開」是本框架的判讀指標，目前沒有量化門檻。
   - certainty: 🟢
     text: 一般現象：自由式在強度上升時全身滾轉、肩滾轉、髖滾轉幅度全面縮小，峰值時點也往週期前段移；仰式兩者都不變。（2026-09-06 改指：原本掛 Gonjo 2020，那篇只測最大速度一個條件，說不了「加速後」怎麼變。）
     source: Gonjo et al. 2021
@@ -181,7 +181,7 @@ indicators:
   framework_state: 壓力下感知失守
   evidence:
   - certainty: 🔵
-    text: 「明顯縮短」以泳者自己的 SR–SL 曲線為基準判讀，本框架不設跨人通用的百分比門檻。（2026-10-02 更正：原寫「SL 下降 > 5%」並掛 Staunton 2025 標 🟢；5% 沒有出處，且依 free.tech.35 舊數字連菁英都會被判成 L4。）
+    text: 「明顯縮短」以泳者自己的 SR–SL 曲線為基準判讀，本框架不設跨人通用的百分比門檻。
 - id: free.L5.sr-sl
   stroke: free
   level: L5
@@ -231,15 +231,10 @@ indicators:
   note: 前鋸肌耐力是 L5 的硬體邊界——技術感知建立後能維持多久取決於前鋸肌，不是感知問題。
   evidence:
   - certainty: 🟡
-    text: Pink EMG 1991
+    text: 無肩痛競技泳者十二條肩部肌肉的 EMG 與影片分析：前鋸肌與肩胛下肌在自由式整個划手週期持續活化。這篇量的是正常肩膀，疲勞後的變化不在研究範圍內。
     source: Pink et al. 1991
     source_ids:
     - src.pink-1991-a
-  - certainty: 🟢
-    text: StatPearls 2023
-    source: StatPearls 2023
-    source_ids:
-    - src.statpearls-2023
 - id: free.L6.stability
   stroke: free
   level: L6
@@ -305,7 +300,7 @@ indicators:
     source_ids:
     - src.gonzalez-rave-2025-a
   - certainty: 🔵
-    text: 「高划頻下旋轉幅度縮小」「加速後蛇行明顯」是本框架的判讀指標，上述綜述沒有量這兩項。（2026-10-02 更正：原本整條只掛「González-Ravé 2025」四個字標 🟢。）
+    text: 「高划頻下旋轉幅度縮小」「加速後蛇行明顯」是本框架的判讀指標，上述綜述沒有量這兩項。
 - id: back.L4.head-stillness
   stroke: back
   level: L4
@@ -380,11 +375,8 @@ indicators:
   indicator: 浮板蝶式踢水能穩定前進；腳背有水壓感知（而非只是在拍水）
   framework_state: 推進感萌芽——腿部
   evidence:
-  - certainty: 🟢
-    text: PMC 2018
-    source: PMC 2018
-    source_ids:
-    - src.pmc-2018
+  - certainty: 🔴
+    text: 目前沒有找到直接量測浮板蝶式踢水或腳背水壓感知的文獻；本指標是教學框架的操作定義，待查。
 - id: fly.L2.catch
   stroke: fly
   level: L2
@@ -403,8 +395,8 @@ indicators:
   framework_state: 水感出現但不穩定
   evidence:
   - certainty: 🟡
-    text: Sanders 1995
-    source: Sanders 1995
+    text: 16 名菁英蝶式泳者（男女各 8）：頭、肩、髖、膝、踝的上下起伏有固定相位差，波從頭往腳傳，傳遞速度比身體前進快（男 0.34 m/s、女 0.17 m/s），且與前進速度強相關。這是身體作為一道往後傳的波的運動學依據。
+    source: Sanders et al. 1995
     source_ids:
     - src.sanders-1995-a
   - certainty: 🟠
@@ -418,8 +410,8 @@ indicators:
   framework_state: 節律感知萌芽
   evidence:
   - certainty: 🟢
-    text: 兩踢相關 r=-0.45
-    source: PMC 2018
+    text: 34 名男性競技泳者 50 m 蝶式衝刺：第一踢相對手入水的時間指標與游速相關（r = −0.45），作者解讀為第一踢相對入水適度提早，划手推進期較長、滑行期較短。
+    source: Strzała et al. 2017
     source_ids:
     - src.pmc-2018
 - id: fly.L4.second-kick
@@ -442,11 +434,8 @@ indicators:
   framework_state: 壓力下感知失守
   note: 外划幅度過大常是代償訊號——感知不到前臂水壓 → 靠更大外划「感覺抓到了」 → 實際推進反而下降。
   evidence:
-  - certainty: 🟡
-    text: Peyrebrune & Turner 2007
-    source: Peyrebrune & Turner 2007
-    source_ids:
-    - src.peyrebrune-2007
+  - certainty: 🔴
+    text: 目前沒有找到可查證的文獻直接量測外划幅度與前臂水壓感知的關係；本指標是教學框架的推論，待查。
 - id: fly.L5.two-kick-differentiation
   stroke: fly
   level: L5
@@ -456,8 +445,8 @@ indicators:
   note: 兩踢功能分化是蝶式最重要的進階感知——第一踢（輕、觸發）與第二踢（強、同步出水）是不同的感知對象。
   evidence:
   - certainty: 🟡
-    text: Mason 1992
-    source: Mason 1992
+    text: 11 名菁英蝶式泳者的重心加速度：以手入水為起點，加速峰依序出現在踢腿（1.9 m/s²）、外划（1.4）、內划（4.2）、踢腿與上划同時（2.3）。兩次踢落在划手週期的不同位置、搭配不同的手臂動作；這篇沒有分開量兩踢各自的推力。
+    source: Mason et al. 1992
     source_ids:
     - src.mason-1992-a
   - certainty: 🟠
@@ -524,7 +513,7 @@ indicators:
     source_ids:
     - src.tanaka-2024-c
   - certainty: 🟡
-    text: 踝關節動作與蛙腿推進力相關（膝伸展階段踝蹠屈角速度 r=0.59）；這是角速度不是活動度，撐不起「踝柔韌性主導」。（2026-10-02 更正原文「踝柔韌性主導」）
+    text: 踝關節動作與蛙腿推進力相關（膝伸展階段踝蹠屈角速度 r=0.59）；這是角速度不是活動度，撐不起「踝柔韌性主導」。
     source: Koga et al. 2025；Strzała 2013
     source_ids:
     - src.hayashi
@@ -558,7 +547,7 @@ indicators:
   framework_state: 阻力感知萌芽——收腿
   evidence:
   - certainty: 🟡
-    text: 膝外旋與蛙腿游速呈弱相關（r=0.35，p<0.08，未達顯著）；這個數字量的是膝外旋與游速，不是收腿阻力。（2026-10-02 更正：原寫「收腿阻力相關 r=0.35」。）
+    text: 膝外旋與蛙腿游速呈弱相關（r=0.35，p<0.08，未達顯著）；這個數字量的是膝外旋與游速，不是收腿阻力。
     source: Strzała 2013
     source_ids:
     - src.strzala-2013-a
@@ -582,8 +571,8 @@ indicators:
   framework_state: 壓力下感知失守——身體平衡
   evidence:
   - certainty: 🟡
-    text: Colman 1998
-    source: Colman 1998
+    text: 45 名國際級蛙式泳者分出最波動與最平兩種風格：最平風格的男子組重心水平速度最大最小差達平均速度的 76%，最波動風格的女子組為 53%；波動風格靠水面上軀幹、肩帶與頭的快速轉動傳遞動量，減少速度起伏。量的是速度變異，不是俯衝角度的穩定度。
+    source: Colman et al. 1998
     source_ids:
     - src.colman-1998-a
 - id: breast.L5.late-kick
@@ -620,7 +609,7 @@ indicators:
   framework_state: 感知自動化完成
   evidence:
   - certainty: 🟢
-    text: 100 m 蛙式中，精英的游進段平均速度在四趟全部快於次精英（差 7–11%），滑行段在第 2、3 趟快約 13%，pull-out 段沒有差異。（2026-09-06 更正：原本寫「划距穩定是精英特徵」，但這篇量的是分段速度，沒有量划距；能支持的是「後段游進速度維持」不是「划距維持」。）
+    text: 100 m 蛙式中，精英的游進段平均速度在四趟全部快於次精英（差 7–11%），滑行段在第 2、3 趟快約 13%，pull-out 段沒有差異。
     source: Gonjo & Olstad 2023
     source_ids:
     - src.gonjo-2023

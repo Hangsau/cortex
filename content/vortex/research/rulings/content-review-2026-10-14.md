@@ -430,3 +430,20 @@ draft: false
   - udk 出水連到 starts-turns.tech.34：該條內容正是最後一踢銜接第一划。
   - pullout-wait 的機制欄空白：E 組的設計是如實標出缺口，不硬補；網頁也不會印出空標題。
 - **順帶修（跨檔）**：technical-analysis 的 starts-turns 姿勢差異條，標題與摘要寫「蛙式不用 UDK」，與 2.3 已修正的 moves 同一規則錯誤，一併改為「不做連續水下海豚腿，規則允許一次蝶腳」。順手把簡體字「单次」改成「一次」。
+
+### 2.7 W022：l-indicators 只寫來源名的 7 筆證據（Claude，2026-10-14 晚）
+
+W022 7 → 0。逐筆讀原文（PubMed efetch／Europe PMC／BMS、BISp 文獻庫收錄的作者摘要）後決定補述或撤下：
+
+- **補述（讀了原文）**：
+  - free.L2.kick｜McCullough 2009（PMID 19855342）：20 名女性泳者，踝蹠屈與 22.86 m 打水速度 r = 0.509；註明量的是活動度與速度，不是腳掌朝向。
+  - fly.L3.undulation-integration｜Sanders 1995（PMID 7852446）：16 名菁英，波由頭往腳傳、傳速比前進快（男 0.34、女 0.17 m/s）。
+  - fly.L5.two-kick-differentiation｜Mason 1992 **重建**為 Mason, Tong & Richards 1992（BMS VI pp. 81–86）：五個加速峰，踢 1.9、踢＋上划 2.3 m/s²；註明沒有分開量兩踢推力。
+  - breast.L4.undulation｜Colman 1998 **重建**為 Colman 等 1998（J Sports Sci 16:653–665，DOI 10.1080/026404198366461）：76% vs 53% 速度變異；註明兩數字分屬不同性別組、不量俯衝角度。
+  - free.L5.serratus 的 Pink 1991 行（PMID 1781492）：原文「Pink EMG 1991」改寫成量測內容（前鋸肌與肩胛下肌全程活化，正常肩膀）。
+- **重建後改掛**：「PMC 2018」＝ Strzała 等 2017（J Hum Kinet 60:51–62，PMC5765785）。全文確認 r = −0.45 是**第一踢相對手入水的時間指標**與游速的相關——fly.L3.two-kick-timing 原寫「兩踢相關 r=-0.45」是誤讀，已改寫。fly.L2.kick（浮板踢水）與該篇無關，改標 🔴 待查。
+- **撤下**：
+  - free.L5.serratus 的「StatPearls 2023」（🟢）：最可能是 Davis 等 2023〈Swimmer's Shoulder〉，但 NCBI Bookshelf 擋自動擷取、PubMed 只有簡介，無法確認章內對前鋸肌講了什麼。Pink 行仍在，指標不缺證據。
+  - fly.L4.outsweep 的「Peyrebrune & Turner 2007」：查無此篇；最接近的 Osborough & Peyrebrune 2008（Swimming Times 科普文）作者、年份、內容都不合，不改掛，改標 🔴。**technical-analysis 同一來源的引用（fly 外划條）待處理**（codex 2.8 當時正在改該檔，避免衝突）。
+- 修訂紀錄全部寫進各條目最外層 `maintenance_note`；`_sources.yaml` 的 pmc-2018／mason-1992-a／colman-1998-a 改為 verified 並補全書目，peyrebrune-2007／statpearls-2023 補查證未果紀錄。
+- 同時清掉 l-indicators 的 6 筆 W029 審查軌跡（搬到 `maintenance_note`）。
