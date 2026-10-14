@@ -2747,7 +2747,7 @@ injuries:
     - src.pmc11954903
     - src.pmc11115434
   risk_factors:
-  - text: 缺乏監督(幼童最關鍵，佔兒童溺水約 52%)
+  - text: 缺乏監督(幼童最關鍵)
     grade: A
   - text: 無游泳技能或對泳技過度自信
     grade: A
@@ -2781,7 +2781,7 @@ injuries:
     - 任何溺水事件無論意識狀態皆視為緊急；意識喪失或無法自行離水 → 立即救援
     - 離水後咳嗽/呼吸困難/喘鳴/發紺 → 立即就醫
     - 繼發性惡化警示：溺水後數小時內(最長 24–72h)咳嗽加重/呼吸急促/異常疲倦/混亂 → 即使當下『看似沒事』也須就醫
-    acute: 2024 年 AHA／AAP 溺水復甦指引：移出水→受訓者安全時可水中救援呼吸→無反應無呼吸即 CPR『通氣優先』先給 5 次救援呼吸再按壓(溺水驟停根因為缺氧)→盡早 AED 但不延誤 CPR→呼叫 EMS→勿試圖『倒水』。中度(有呼吸但吸入水)監測 4–6h 防遲發肺水腫
+    acute: 2024 年 AHA／AAP 溺水復甦指引：移出水→受訓者安全時可水中救援呼吸→無反應無呼吸即 CPR『通氣優先』先給 2 次人工呼吸再進入 30:2 按壓循環(溺水驟停根因為缺氧；ERC 歐洲指引為 5 次起始呼吸)→盡早 AED 但不延誤 CPR→呼叫 EMS→勿試圖『倒水』。中度(有呼吸但吸入水)監測 4–6h 防遲發肺水腫
     pain_rules: null
     rehab: null
     functional_progression_criteria:
@@ -2862,9 +2862,9 @@ injuries:
   mechanism:
     summary: 運動中或運動後 1 小時內突發心跳驟停(多為心室顫動)。病理基礎多元：肥厚性心肌病(HCM)使心肌增厚影響傳導；心肌炎使發炎心肌電不穩；長 QT 等離子通道病變於運動觸發惡性心律不整；冠狀動脈異常運動時受壓缺血；commotio cordis 為胸前鈍擊在 T 波升段觸發 VF。游泳特有：面浸冷水強烈副交感(潛水反射)與運動交感激活形成自主神經衝突，在潛在易感者可致命。
     trigger_phase: 游泳中突然意識喪失/沉水；鐵人三項游泳段(冷水+面浸+起跳緊張過度換氣多重壓力疊加)為最高風險情境
-    who: 家族猝死史者、未診斷 HCM/LQTS/WPW、心肌炎後過早復訓者、男性(約女性 6 倍)、Masters(冠心病加入)
+    who: 家族猝死史者、未診斷 HCM/LQTS/WPW、心肌炎後過早復訓者、男性(依下列發生率約女性 5 倍)、Masters(冠心病加入)
   epidemiology:
-    prevalence: 競技運動員(≤35 歲)SCA/SCD 男性約 1.46、女性約 0.30 /10 萬運動員年；≤35 歲青年運動員猝死中 HCM 約佔 36%
+    prevalence: 競技運動員(≤35 歲)SCA/SCD 男性約 1.46、女性約 0.30 /10 萬運動員年；≤35 歲青年運動員猝死中 HCM 約佔 36%(美國資料；義大利系列以致心律不整右心室心肌病較常見)
     certainty: 🟢
     evidence_grade: B
     caveat: 游泳池獨立 SCD 數字無可靠單一來源，多依運動員整體數據推算；鐵人三項游泳段每 10 萬數字研究間差異大。 **使用邊界（2026-08-18 補）**：「3.6→0.4／10 萬、降 89%」出自 Corrado 等 2006（JAMA 296(13):1593-601），其資料範圍是**義大利 Veneto 單一大區、1979–2004 年、全體競技運動員**， **不是游泳專項**；且 ECG 全面篩查的成本效益在 ACC／AHA 立場中仍有異議，引用此數字時須同時呈現該爭議（見 flags.contested）。
@@ -2887,7 +2887,7 @@ injuries:
     grade: B
   - text: Wolff-Parkinson-White(WPW)
     grade: B
-  - text: 男性(約 6 倍風險)
+  - text: 男性(約 5 倍風險)
     grade: A
   - text: commotio cordis(胸前鈍擊 T 波敏感期)
     grade: B
@@ -2900,8 +2900,8 @@ injuries:
   prevention:
   - text: 運動前篩查(病史+理學檢查±ECG)
     grade: A
-  - text: ECG 篩查(ESC 推薦；義大利自然實驗 89% 減 SCD，美 ACC 立場有爭議)
-    grade: A
+  - text: ECG 篩查(ESC 推薦；義大利自然實驗 89% 減 SCD，美 ACC/AHA 不建議常規篩查)
+    grade: B
   - text: 心肌炎後充分休息(≥6 個月，LVEF 恢復+無誘發心律不整後方回訓)
     grade: Expert
   - text: 賽場/泳池 AED 即時可取得 + 人員 CPR/AED 培訓
@@ -2915,7 +2915,7 @@ injuries:
     - 游泳中意識喪失/突然沉水 → 立即救援+CPR
     - 運動中突發心悸/胸痛/暈厥任一 → 立即停止就醫
     - 不明原因劇烈呼吸困難(排除溺水) → 排查心因
-    acute: 安全地點立即 CPR(有目擊且具技能可先水中救援呼吸再上岸)→上岸 5 次救援呼吸+按壓(30:2)→盡快 AED(SCD 多為 VF，除顫最有效)→持續 CPR 直至 AED/救援到場；懷疑心肌炎者入院延伸心臟評估，不可未評估復訓
+    acute: 安全地點立即 CPR：陸上心因性驟停採先按壓(30:2)並盡快 AED(SCD 多為 VF，除顫最有效)；若是在水中失去意識、可能合併溺水缺氧，則依溺水流程先給 2 次人工呼吸→持續 CPR 直至 AED/救援到場；懷疑心肌炎者入院延伸心臟評估，不可未評估復訓
     pain_rules: null
     rehab: null
     functional_progression_criteria:
@@ -2928,11 +2928,11 @@ injuries:
     prognosis: commotio cordis 即時 CPR+AED 存活可達 >50%(過去曾低至 15%)；一般運動驟停每延遲 1 分鐘存活率降 7–10%
   population_notes:
     age:
-      youth: HCM/LQTS/commotio cordis 為主，需強制運動前篩查
+      youth: HCM/LQTS 為主，可透過運動前篩查找出；commotio cordis 是胸前鈍擊造成的突發事件，篩查查不出，靠現場 AED 與即時 CPR
       adult_beginner: 未診斷冠心病/HCM 風險，篩查應覆蓋成人
       masters: 冠心病為首要新增因子；ECG+超音波評估更重要
     sex:
-      male: 整體約 6 倍風險
+      male: 整體約 5 倍風險(1.46 vs 0.30／10 萬運動員年)
       female: 整體風險低，但先天冠狀動脈異常在女性 SCD 佔比更高
     ability: null
     lifecycle:
@@ -3002,12 +3002,12 @@ injuries:
   mechanism:
     summary: 水導熱率為空氣 25 倍，泳者持續對流/傳導散熱。散熱速率超過產熱→核心體溫下降。輕度(32–35°C)顫抖+協調下降；中度(28–32°C)意識模糊+心律不整危險升；重度(<28°C)心室顫動風險劇增。「後降(afterdrop)」是關鍵危機：離水後周邊冷血回流使核心溫續降，可能在救援後才誘發驟停。
     trigger_phase: 長距離冷水(<18°C)游泳/超距賽末段；離水後不當處置(站立行走加速後降)
-    who: 低體脂瘦型泳者、低體重兒童、未穿防寒衣的 10km+ 開放水域選手；超距(海峽)泳者核心溫可降 3–4°C 持續數小時
+    who: 低體脂瘦型泳者、兒童(體表面積相對體重較大，降溫較快)、未穿防寒衣的 10km+ 開放水域選手；超距(海峽)泳者核心溫可降 3–4°C 持續數小時
   epidemiology:
     prevalence: 無全球獨立盛行率(多以賽事為單位)；長距離開放水域賽事為顯著醫療風險
     certainty: 🟡
     evidence_grade: B
-    caveat: 同一場賽事可同時出現低體溫與高體溫個案(核心溫變化 −3.1 至 +2.7°C)；多數研究為觀察性無對照
+    caveat: 低體溫與高體溫在開放水域都會出現(Markey 等 2026 系統性回顧：有個人資料的 191 名開放水域受試者中 39 人達輕度或明顯低體溫，16% 的開放水域研究出現輕度高體溫)；多數研究為觀察性無對照
     sources:
     - Brannigan D, Rogers IR, Jacobs I, et al. (2009). Hypothermia is a significant medical risk of mass participation long-distance open water swimming. Wilderness Environ Med 20(1):14–18. PMID 19364182
     - 'Markey, K., Galan-Lopez, N., Esh, C., Carter, S., Chrismas, B., Mountjoy, M., Constantini, N., & Taylor, L. (2026). Thermoregulatory responses in open water and pool swimming: Presentation of hypothermia and hyperthermia within and outside of World Aquatics water temperature thresholds. Journal of Science and Medicine in Sport.'
@@ -3030,7 +3030,7 @@ injuries:
   - text: 脫水(降低循環效率)
     grade: Expert
   prevention:
-  - text: 遵守 World Aquatics 水溫規範(下限近年趨提高)
+  - text: 遵守 World Aquatics 水溫規範(開放水域下限 16°C、上限 31°C)
     grade: Expert
   - text: 規則允許下穿防寒衣
     grade: B
@@ -3069,7 +3069,7 @@ injuries:
     lifecycle:
       open_water: 超距(海峽)泳者核心溫可降 3–4°C 持續數小時
   links:
-    mechanism_link: 風險因子列有「脫水(降低循環效率)」——脫水/低鈉血症是本症的加成因子
+    mechanism_link: 風險因子列有「脫水(降低循環效率)」；長距離開放水域另需注意反方向的過量飲水造成低血鈉，兩者處理相反，見體液失衡條目
     mechanism_link_ids:
     - dehydration-hyponatremia
     technical_link: null
@@ -3078,11 +3078,11 @@ injuries:
     perception_link_ids: []
   references:
   - citation: Brannigan D, Rogers IR, Jacobs I, et al. (2009). Hypothermia is a significant medical risk of mass participation long-distance open water swimming. Wilderness Environ Med 20(1):14-18. PMID 19364182
-    certainty: 🟢
+    certainty: 🟡
     verified: true
     source_ids:
     - src.brannigan-2009
-  - citation: Thermoregulatory responses open water and pool swimming, JSAMS 2025, PubMed 40783351
+  - citation: 'Markey K, Galan-Lopez N, Esh C, et al. (2026). Thermoregulatory responses in open water and pool swimming: Presentation of hypothermia and hyperthermia within and outside of World Aquatics water temperature thresholds. J Sci Med Sport 29(1):28-41. PMID 40783351'
     certainty: 🟢
     verified: true
     source_ids:
@@ -3128,7 +3128,7 @@ injuries:
     prevalence: '**沒有分母明確的發生率**——主要證據形態是個案系列與驗屍官紀錄。可取得的量級參考：澳洲水域 2014–2018 年經驗屍官資料庫確認的浮潛／閉氣潛水死亡共 **91 例** （男 78、女 13，中位年齡 48 歲），其中約三分之一涉及閉氣潛水，64 例為單獨從事。但**該資料是海域浮潛／閉氣潛水，不是泳池 SWB**，且只有分子沒有分母，不能換算成發生率。'
     certainty: 🟢
     evidence_grade: C
-    caveat: 死亡常被逕行歸類為一般溺水、SWB 機制未被記錄，導致系統性低估；至今**無可靠盛行率數字**。 2026-08-17 更正：本區塊原掛的兩個 source_id 都是佔位字串（「來源待 WebFetch 核實」「具體文件待查」），已解除；其中「美軍／海軍閉氣訓練安全準則」查證後未能定位到任何具名文件。另補一項術語更正——美國紅十字會、YMCA 與 USA Swimming 已把本症改稱 **hypoxic blackout**，「shallow water blackout」被指為誤導性用語（意識喪失典型發生於 5 m 以內，但溺水可發生於任何深度），本條保留舊名便於檢索，正式定義以 hypoxic blackout 為準。
+    caveat: 死亡常被逕行歸類為一般溺水、SWB 機制未被記錄，導致系統性低估；至今**無可靠盛行率數字**。 2026-08-17 更正：本區塊原掛的兩個 source_id 都是佔位字串（「來源待 WebFetch 核實」「具體文件待查」），已解除；其中「美軍／海軍閉氣訓練安全準則」查證後未能定位到任何具名文件。另補一項術語更正——美國紅十字會、YMCA 與 USA Swimming 已把本症改稱 **hypoxic blackout**，「shallow water blackout」被指為誤導性用語（閉氣潛水的意識喪失常發生在接近水面的上升末段，但溺水可發生於任何深度，泳池淺水也會發生），本條保留舊名便於檢索，正式定義以 hypoxic blackout 為準。
     sources:
     - Bart RM, Murray BP, Lau H. Shallow Water Blackout. StatPearls, NCBI Bookshelf NBK554620
     - Lippmann J (2023). Snorkelling and breath-hold diving fatalities in Australian waters, 2014 to 2018. Diving Hyperb Med 53(3):210-217
@@ -3162,7 +3162,7 @@ injuries:
     - 水下泳者靜止不動/沉底/吐氣泡停止 → 立即視為昏迷，馬上下水拉出
     - 拉出後無反應/無正常呼吸 → 立即啟動 EMS + CPR(先給呼吸/通氣，溺水復甦以通氣優先)
     - 曾水下短暫失神但自行恢復 → 仍須就醫評估，勿當沒事繼續下水
-    acute: 離水→評估反應與呼吸→無呼吸即 CPR，溺水復甦採先通氣的 ABC 順序而非一般心停的 CAB：受訓者先給 2 次人工呼吸再進入 30:2 循環（AHA／AAP 2024）；未受訓或不願施行人工呼吸者，僅做胸外按壓仍優於不做→呼叫 EMS；恢復後仍須送醫觀察續發性溺水/吸入。**注意「先 5 次人工呼吸」是歐洲復甦委員會（ERC）的做法，不是 AHA 的數字，兩者不可互相冒名（2026-09-04 更正）**
+    acute: 離水→評估反應與呼吸→無呼吸即 CPR，溺水復甦採先通氣的 ABC 順序而非一般心停的 CAB：受訓者先給 2 次人工呼吸再進入 30:2 循環（AHA／AAP 2024；兩名受訓施救者對兒童改用 15:2）；未受訓或不願施行人工呼吸者，僅做胸外按壓仍優於不做→呼叫 EMS；恢復後仍須送醫觀察續發性溺水/吸入。**注意「先 5 次人工呼吸」是歐洲復甦委員會（ERC）的做法，不是 AHA 的數字，兩者不可互相冒名（2026-09-04 更正）**
     pain_rules: null
     rehab: null
     functional_progression_criteria: null
