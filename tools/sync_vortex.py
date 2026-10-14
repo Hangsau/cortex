@@ -430,10 +430,10 @@ def unfold_cjk(value):
 
 
 def dump_yaml(data) -> str:
-    """全檔唯一的 YAML 輸出口：先接掉 CJK 折行空白再 dump。
+    """全檔唯一的 YAML 輸出口：先剝掉維護者欄位（maintenance_note，任何層級），再接掉 CJK 折行空白後 dump。
     新增 sync_* 函式走這裡，不要直接呼叫 yaml.safe_dump。"""
     return yaml.safe_dump(
-        unfold_cjk(data),
+        unfold_cjk(_drop_keys(data, INTERNAL_NOTE_KEYS)),
         allow_unicode=True,
         default_flow_style=False,
         sort_keys=False,
