@@ -528,3 +528,20 @@ W022 7 → 0。逐筆讀原文（PubMed efetch／Europe PMC／BMS、BISp 文獻�
   - FrEL6：原書 Ch 6 只列標題 "Over the Wave, Under the Wave"，位在 hybrid 練習清單。「獨家」「菁英 sprinter 的方法」「通常在波中間」都不在原書，已改寫。
   - FrEL8：原書列在 hip-driven 練習清單；書中說 hip-driven 是長距離技術，但多數菁英女子 50–1500 都用 shoulder-driven。「菁英 800/1500 訓練核心」過度宣稱，已改寫並補原書練習名。
 - 駁回：abc_type（同前）；L6 是合法 L 級；FrEL8 已標 `difficulty_tier: elite`；`-c` 是穩定鍵命名，不改；FrEL8 perception_goal 只是描述感受。
+
+**butterfly（18 條：修 6／駁回 12，對照本機 Lepinski 原書 chapter-6）**
+- 修：
+  - Fl11「感覺旋轉不偏離就代表核心鎖定對稱」改成「維持踢腿節律與身體直線，練核心左右對稱的穩定」。
+  - Fl20 的 4 吋並列約 10 公分（原書 "within 4 inches of water"）。
+  - Fl24：原書就用 X 當變數（"swim each lap with 'X' amount of strokes of fly"），改寫成「自己能維持品質的划數」。
+  - Fl25：原書是 "can cause your chest to come up"，「會」改「可能」。
+  - Fl29：原書只說 "you should feel the catch"，「感覺水壓在手背」不是原書的話，改回捕水。
+- 駁回：
+  - abc_type（同前）。
+  - Fl3：原書寫 "improves flexibility" 與 "requires some flexibility"，本庫照原書。
+  - Fl10：原書 "25 vertical dolphin kicks in 10 seconds"，且已寫明力量不足的退階。
+  - Fl10／Fl11 深水區、Fl15 三划不換氣：短距離技術練習，不是閉氣挑戰；依行為判準不加禁令。
+  - Fl32：Alves 1999 的 4×50、6 分鐘、75%／95% 與 registry 逐字摘要相符。
+  - FlEC1「Vortex 整理」：這是本庫「沒有來源」的誠實寫法。
+  - failure_signal 的「代表…」：是給讀者的回饋，不是 A/B/C 分型。
+  - perception_goal 整體寫法、難度分布、Fl9 空 deficiency_fixes、Fl26 constraints：屬 schema 與收錄範圍，不是內容錯誤。
