@@ -504,3 +504,19 @@ W022 7 → 0。逐筆讀原文（PubMed efetch／Europe PMC／BMS、BISp 文獻�
   - UDKLow1 安全句抽成 safety_note：schema 沒有這個欄位；Pollock 2015 已讀正文（registry 註記），支持「只供水面呼吸」。
   - UDK4「池底標記」：池底標記本來就是給水下泳者看的，教練在池邊計時，沒有矛盾。
   - UDK1 Sheaff 2022：已取全文核對，原文第三要素即 "Maintain equal propulsion and tempo in both directions"。
+
+**starts-turns（12 條：修 5／駁回 7）**
+- 修（對照本機 Race Club《Fundamentals of Fast Swimming》Ch 24 原文）：
+  - STEL3 沙灘球：原書是 "Hold a beach ball out over the water a couple of feet away from the wall and above the swimmer's head. After the launch, time the drop of the beach ball…"。本庫把「離牆約兩呎」誤寫成「離水面 60–90 公分」，又寫成球懸著不動。已改成：離牆約兩呎、在頭部上方、起跳後算準時間放手。
+  - STEL2 Leg kick flops：原書是 "kicks the legs high into the air so that the bum enters the water first, rather than the hands"。本庫寫成「臀部先離水、手被動」，意思不同，已改成「臀部比手先入水」的誇張練習。
+  - ST4 旗標：補「公尺制 5 公尺、碼制 5 碼」，對齊 Bay 2024 的 5yd/m。
+  - STSpat1：拿掉 paralympic tapper 類比（tapper 是觸覺，本練習是聽覺，兩者不同通道）；拿掉「極限」。
+- 駁回：abc_type（同前）；STEL 系列 `category: turn`（`_categories.yaml` 的 turn 就是「出發轉身」）；ST3 `pool_floor_visual`、`no_arms`（TAG_SCHEMA 合法值）；STSpat1「30 公分」（練習目標，非事實主張）；ST5 Bay 2017（已取全文核對）；USMS 來源缺 URL（registry 有 URL）。
+
+**sculling（9 條：修 4／駁回 5）**
+- 修：
+  - ScUW1 寫「下潛 1.5 公尺」又寫「淺水區」，自相矛盾。改成「水深足夠、同伴監看、一口正常吸氣、不過度換氣、想換氣就上浮」。
+  - Sc6 英制吋並列公分，原書原句 "6-10 inches out from your hips and only perhaps 4-6 inches deep"；「25」補單位。Sc7「幾吋」改「幾公分」。
+  - ScFist、ScUW1 的「Counsilman …傳統」只有人名、沒有著作，屬高風險人名歸因。改成通行寫法，兩筆來源轉墓碑。
+- 駁回：abc_type（同前）；Sc1／Sc5／ScFist 的 perception_goal 只是描述感受，不算規定讀者；Lepinski 書名拼法無誤，registry 有 ISBN。
+- W002 因為無出處署名增加，與 UDK2／UDK5 先例同屬刻意狀態。

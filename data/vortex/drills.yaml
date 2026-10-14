@@ -5773,8 +5773,8 @@ drills:
   purpose_zh: 仰面腳先行，手在髖部兩側小圓圈划水，感覺前臂抓水向後推的力量
   how_to:
   - 仰躺、雙手放身側、腳朝前方移動整趟泳池；盡量放鬆每個部位（膝蓋鬆、可微彎），肩膀放鬆、頸與脊椎對齊
-  - 雙手在臀部附近做小圓圈撥水：離臀部約6-10吋、深度約4-6吋，雙手大致與臀部平行
-  - 只用手臂發力（主要前臂、部分三角肌）；能輕鬆做完25後計時當基準看進步
+  - 雙手在臀部附近做小圓圈撥水：離臀部約 15–25 公分（6–10 吋）、深度約 10–15 公分（4–6 吋），雙手大致與臀部平行
+  - 只用手臂發力（主要前臂、部分三角肌）；能輕鬆做完一趟 25（公尺或碼，依泳池）後，計時當基準看進步
   perception_goal: 小圓圈划水時感覺到手和前臂在抓水；不是整臂在動
   success_signal: 腳朝前能前進；感覺到推力
   failure_signal: 幾乎無法移動（代表沒有抓到水）
@@ -5812,7 +5812,7 @@ drills:
   how_to:
   - 面朝下、夾浮棒、戴呼吸管
   - 雙手放在臀部旁，只用手掌撥水
-  - 手移動幅度很小，只有幾吋
+  - 手移動幅度很小，只有幾公分
   perception_goal: 手在髖部感覺細微的水壓；感覺出水前的最後推力
   success_signal: 小動作也能感覺到水壓差異
   failure_signal: 感覺不到任何水壓
@@ -5965,9 +5965,7 @@ drills:
   success_signal: 握拳能前進；開手後推進量明顯多但感覺基線在前臂
   failure_signal: 握拳完全無法前進（代表整個系統依賴手掌）
   deficiency_fixes: []
-  source: Counsilman 捕水訓練（fist sculling 為前臂感知標準練習）
-  source_ids:
-  - src.counsilman-fist-sculling
+  source: 通行的握拳撥水練習形式；本庫未取得可定位的單篇出處
   body_position: prone
   constraints:
   - closed_fist
@@ -5998,14 +5996,12 @@ drills:
   - 深吸一口氣下潛到約 1.5 公尺深，俯臥水下
   - 雙臂前伸做 Sc1 寬 Y 撥水，目標是讓身體停在那個深度（不浮不沉）
   - 做 10–15 秒一組，回水面換氣 30 秒再重複
-  - 做 4 組；過程注意呼吸安全（淺水區、有同伴監看）
+  - 做 4 組；在水深足夠下潛 1.5 公尺的區域、有同伴在水面監看；下潛前一口正常深吸氣，不刻意過度換氣，想換氣就上浮，不延長閉氣
   perception_goal: 懸停代表撥水的力量恰好抵消浮力，是捕水效率的客觀標尺
   success_signal: 能維持深度 10 秒以上不浮
   failure_signal: 立刻上浮（撥水沒抓到水）
   deficiency_fixes: []
-  source: Counsilman 沉浮平衡傳統（hover sculling）
-  source_ids:
-  - src.counsilman-hover-sculling
+  source: 通行的水下懸停撥水練習形式；本庫未取得可定位的單篇出處
   body_position: underwater
   constraints:
   - no_kick
@@ -6375,7 +6371,7 @@ drills:
   - L3
   - L4
   abc_type: C
-  purpose_zh: 仰式看不到牆，用旗標（距牆 5 公尺）建立固定划手數，不靠回頭偷看就能準確翻身。
+  purpose_zh: 仰式看不到牆，用旗標（公尺制泳池距牆 5 公尺、碼制泳池 5 碼）建立固定划手數，不靠回頭偷看就能準確翻身。
   how_to:
   - 正常仰式游，經過背泳旗標時開始數划手，記錄到牆需要幾下
   - 用這個固定划手數，在最後一下轉體翻身，不抬頭偷看
@@ -6449,11 +6445,11 @@ drills:
   - 閉眼游，集中注意力在耳朵聽到的水流回音與牆壓變化
   - 感覺「快到了」就翻身蹬牆；同伴回報距牆距離
   - 做 6 次，每次調整對牆距的聽覺判斷
-  perception_goal: 建立純聽覺/觸覺的空間判斷，取代視覺；極限的空間感訓練
+  perception_goal: 建立純聽覺/觸覺的空間判斷，取代視覺
   success_signal: 誤差在 30 公分內；翻身不撞牆不撈空
   failure_signal: 嚴重誤差（>1 公尺）；需要睜眼或撞牆
   deficiency_fixes: []
-  source: Vortex 整理（高階空間感訓練；類似 paralympic visually impaired tapper system）
+  source: Vortex 整理（高階空間感訓練）
   body_position: supine
   constraints:
   - eyes_closed
@@ -6511,15 +6507,15 @@ drills:
   - L5
   - L6
   abc_type: C
-  purpose_zh: Race Club 仰式出發專項 drill：強調腿/髖往上爆發，不靠手——讓臀部和大腿先離水後手才進入水
+  purpose_zh: Race Club 仰式出發專項 drill：起跳時雙腿往空中高踢，讓臀部比手先入水，用誇張動作練出入水前更強的腿部上踢
   how_to:
   - 正常仰式出發姿勢（腳貼牆、抓握把）
-  - 出發時專注雙腿往上方爆發推送，讓臀部先離開水面、形成空中拋物線
-  - 手反而是被動跟著走，不主動往後甩
+  - 起跳時雙腿往空中高踢，讓臀部先入水，而不是手先入水
+  - 這是刻意誇張的練習，目的是腿部上踢的力量與時機，不是比賽的入水方式
   - 做 5-10 次，組間休 60 秒；專注腿驅動感
-  perception_goal: 出發時感覺臀部和大腿先飛起；手是被動的
+  perception_goal: 起跳時感覺雙腿往上踢的力量帶動身體，而不是靠手往後甩
   success_signal: 身體形成乾淨拋物線；入水後仍有強流線
-  failure_signal: 靠手拉起身體；身體入水時已散
+  failure_signal: 腿沒踢高、手先入水；靠手往後甩帶身體
   deficiency_fixes: []
   source: The Race Club — Fundamentals of Fast Swimming Ch 24
   source_ids:
@@ -6548,12 +6544,12 @@ drills:
   - L5
   - L6
   abc_type: C
-  purpose_zh: Race Club 仰式出發感知時機 drill：教練拿沙灘球懸在出發拋物線高點，選手要在腳入水前剛好踢到球，發展腿驅動時機
+  purpose_zh: Race Club 仰式出發感知時機 drill：教練拿沙灘球在游者頭部上方、起跳後算準時間放下，選手要在腳入水前把球踢起，發展腿驅動時機
   how_to:
-  - 同伴或教練站在池邊，把沙灘球懸在游者出發拋物線的高點（離水面 60-90 公分）
-  - 正常仰式出發，目標是腳在入水前剛好踢到球
+  - 同伴或教練站在池邊，把沙灘球拿在水面上方、離牆約兩呎（約 60 公分）、位在游者頭部上方
+  - 游者正常仰式出發；同伴在起跳後算準時間放手讓球落下，游者要在腳入水前把球踢起
   - 踢到球代表腿伸展時機正確且有足夠爆發力
-  - 做 5-10 次，每次調整球位置；組間休 60 秒
+  - 需要一點練習才抓得到放球時機；做 5-10 次，每次調整放球時機；組間休 60 秒
   perception_goal: 出發時腿往上爆發到能踢到球的高度；感覺腿是主驅動
   success_signal: 能持續踢到球；入水時身體仍流線
   failure_signal: 踢不到球（腿驅動不夠）；身體入水時拱起
