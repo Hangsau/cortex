@@ -3354,7 +3354,7 @@ injuries:
     trigger_phase: 長期高訓練量、能量赤字、低體脂、心理壓力
     who: 長期高量訓練者、能量赤字者、低體脂者、可能既有高雄激素傾向者
   epidemiology:
-    prevalence: 游泳族群原發性無月經最高 19%、繼發性無月經 0–23.8%、稀發月經 9.5–38.9%；系統性回顧游泳員月經失調平均約 41%；部分小樣本研究指游泳員停經後月經不規則率偏高(一研究達 82%、對照 40%，樣本小且為橫斷面)、雌二醇維持正常伴輕度高雄激素症
+    prevalence: 游泳族群原發性無月經最高 19%、繼發性無月經 0–23.8%、稀發月經 9.5–38.9%；系統性回顧游泳員月經失調平均約 41%；部分小樣本研究指游泳員雌二醇維持正常、伴輕度高雄激素症
     certainty: 🟡
     evidence_grade: B
     caveat: 多為橫斷面，樣本小；高雄激素型 vs 下視丘型非互斥；PCOS 先天 vs 訓練誘發因果方向無法確定；近年無大型前瞻性游泳員月經研究
@@ -3389,7 +3389,7 @@ injuries:
     - 骨折/飲食失調 → 多科介入
     acute: 排除妊娠及器質病因；評估能量狀態；多科介入
     pain_rules: null
-    rehab: 增加能量 → 月經恢復(中位 3–6 月)；疑 PCOS 型轉內分泌科
+    rehab: 增加能量 → 月經可望恢復(所需時間個體差異大，數月到更久)；疑 PCOS 型轉內分泌科
     functional_progression_criteria:
     - 月經改善
     - 能量狀態恢復
@@ -3421,7 +3421,7 @@ injuries:
     source_ids:
     - src.pmc9658102
   - citation: 'Constantini, N. W., & Warren, M. P. (1995). Menstrual dysfunction in swimmers: a distinct entity. The Journal of Clinical Endocrinology and Metabolism.'
-    certainty: 🟢
+    certainty: 🟡
     verified: true
     source_ids:
     - src.pmid-7673417
@@ -3447,11 +3447,11 @@ injuries:
   - 骨骼(骨密度)
   - 月經生理
   mechanism:
-    summary: 三聯症由三個相互關聯成分構成——低能量可及性(LEA)、月經功能障礙、低骨密度。LEA 是核心驅動子:飲食熱量扣除訓練消耗後可用能量不足，下視丘抑制 GnRH 脈衝，引發月經紊亂，長期低雌激素削弱骨形成。三者連鎖:LEA → 月經失調 → 骨流失，全具備時骨折風險大增。註:RED-S 為涵蓋更廣(含男性、代謝/免疫等)的後繼框架，見 red-s 條目。
+    summary: 三聯症由三個相互關聯成分構成——低能量可及性(LEA)、月經功能障礙、低骨密度。LEA 是核心驅動子:飲食熱量扣除訓練消耗後可用能量不足，下視丘抑制 GnRH 脈衝，引發月經紊亂，長期低雌激素使骨吸收增加、骨量流失。三者連鎖:LEA → 月經失調 → 骨流失，全具備時骨折風險大增。註:RED-S 為涵蓋更廣(含男性、代謝/免疫等)的後繼框架，見 red-s 條目。
     trigger_phase: 能量赤字長期累積、菁英訓練量、青春期不穩定期
     who: 偏瘦/耐力型女性、菁英訓練量者、青春期中後期者
   epidemiology:
-    prevalence: 游泳專項系統性回顧（Buchanan 等 2025, J Womens Sports Med）： **低能量可及性約 51%、低骨密度約 12%**；月經失調比例各研究差距極大。納入研究數與泳者總人數在文中有兩種讀法（17 篇納入／478 人來自其中報出人數的 11 篇）， **本條目不採用單一「n=478，17 研究」的寫法**。女性運動員整體「至少有一項三聯症成分」約 40%、完整三聯症約 1–4% 屬跨運動舊估計，非游泳專項。
+    prevalence: 游泳專項文獻綜述（Buchanan 等 2025, J Womens Sports Med，敘事性綜述）： **低能量可及性約 51%、低骨密度約 12%**；月經失調比例各研究差距極大。納入研究數與泳者總人數在文中有兩種讀法（17 篇納入／478 人來自其中報出人數的 11 篇）， **本條目不採用單一「n=478，17 研究」的寫法**。女性運動員整體「至少有一項三聯症成分」約 40%、完整三聯症約 1–4% 屬跨運動舊估計，非游泳專項。
     certainty: 🟡
     evidence_grade: B
     caveat: 2026-08-18 更正：原寫「游泳族群約 41% 有三聯症風險(系統性回顧 n=478，17 研究)」—— 41% 無法在該回顧摘要中對上，樣本描述亦有歧義，已改寫為可對上的 51%／12% 兩項。另：各研究診斷標準不一；游泳族群月經失調可能含高雄激素型(見 exercise-amenorrhea)，與低雌激素型骨骼影響不同。
@@ -3482,7 +3482,7 @@ injuries:
   management:
     red_flags:
     - 低創傷骨折史 → 就醫
-    - BMI <17.5 → 就醫
+    - 體重明顯過低或持續下降、拒絕進食 → 就醫(不以單一 BMI 切點判斷)
     - 停經 >6 月 → 就醫
     - 嚴重飲食限制 → 多學科介入
     acute: 多學科介入(營養/心理/運動醫學)；優先恢復能量可及性
@@ -3502,7 +3502,7 @@ injuries:
       adult_beginner: null
       masters: 停經後以骨流失為表現，月經不再為指標
     sex:
-      female: 游泳女選手約 41% 風險
+      female: 游泳女選手風險偏高(單一盛行率數字無法在現有綜述中對上，見流病說明)
       male: 三聯症定義本不含男性(→ RED-S 框架擴展之爭核心)
     ability:
       para: 資料極缺；脊損非重力負荷疊加 LEA 風險尤高
@@ -3553,9 +3553,9 @@ injuries:
     driver: 鐵蛋白(ferritin) < 20 ng/mL 即視為儲備不足；< 12 ng/mL 為臨床缺鐵；女性比男性更易缺鐵（月經損失+多吃植物來源+紅肉攝取低）
     trigger_phase: 高強度訓練期 / 月經期 / 訓練量驟增期
     who: 女性運動員、青少年成長期者、素食/純素傾向者、月經量大者、訓練量驟增者
-    swim_context: 游泳是非衝擊運動，足部撞擊性溶血較跑者少；但訓練強度與量大、運動性發炎（hepcidin 升高抑制吸收）+ 訓練後 24 小時內鐵吸收窗口縮窄，仍易累積缺鐵
+    swim_context: 游泳是非衝擊運動，足部撞擊性溶血較跑者少；但訓練強度與量大、運動性發炎（hepcidin 升高抑制吸收）(高強度訓練後約 3–6 小時 hepcidin 升高、鐵吸收下降，約一天內回到基線)，仍易累積缺鐵
   epidemiology:
-    prevalence: 女性運動員 11–41% 鐵缺乏（範圍取決於切點與族群）；女子泳者報告 ferritin < 20 ng/mL 比例可達 50%（即使口服鐵補充劑加倍從 20 mg → 40 mg/日，盛行率仍未顯著下降，顯示吸收效率才是瓶頸）
+    prevalence: 女性運動員鐵缺乏相當常見，比例依切點與族群差異很大；可靠的游泳專項數字目前只有敘事綜述轉述，本庫不列單一數字(見說明)
     certainty: 🟡
     evidence_grade: B
     caveat: 2026-08-18 更正（查無此文獻）：本欄原本引用一份「IOC 共識聲明 — Iron in sport」—— **IOC 從未發表過以鐵為主題的共識聲明**，該引用已解除。移除它不影響任何內容，只是拿掉了「有 IOC 背書」的假象。連帶：**11–41%、50%、20→40 mg 三個數字目前只剩 Sim 2019 這份敘事綜述可掛，而該文是轉述層級、非原始研究**，三者皆須視為待查，不進 public 數字。另：「鐵儲備不足」vs「臨床貧血」切點差異大；運動性偽貧血（高血漿量稀釋）會讓 Hb 看似低但其實有益於耐力，要與真鐵缺乏區分。
@@ -3592,7 +3592,7 @@ injuries:
     - Hb < 11.0 g/dL（女）或 < 13.0 g/dL（男）+ 疲倦/頭暈/心悸 → 就醫排除其他病因
     - ferritin < 12 ng/mL + 持續疲勞 → 全套貧血評估
     - 口服鐵補充 8 週後 ferritin 仍 < 20 → 排除吸收障礙（celiac、H. pylori、IBD）
-    acute: 若 ferritin < 30 ng/mL：硫酸亞鐵 100–200 mg 元素鐵/日 + 維生素 C 500 mg 同服（鐵吸收提升約 30%）；避免咖啡因/鈣/茶於同時段
+    acute: ferritin 偏低時由醫師依數值、年齡與血紅素決定是否補鐵及劑量(兒童誤服鐵劑有中毒風險，不自行購買高劑量)；鐵劑通常避免與咖啡因、鈣、茶同時段服用
     pain_rules: null
     rehab: ferritin 回升期間（4–12 週）：高強度訓練量減半，重點放在技術與基礎有氧；恢復後逐漸加量
     functional_progression_criteria:
@@ -3690,11 +3690,11 @@ injuries:
   - 心血管/代謝/免疫多系統
   mechanism:
     summary: 能量攝取長期低於運動消耗(low energy availability, LEA)→身體下調非必要功能以保命→月經/睪固酮、骨代謝、代謝率、免疫、心血管、心理多系統受抑。不是單一疾病而是低能量可用性引發的多系統症候群。女性運動員三聯症(低能量可用性+月經失調+低骨密度)是 RED-S 的子集。
-    driver: 能量可用性 = (攝取 − 運動消耗) / 去脂體重；< 30 kcal/kg FFM/day 為臨床關切閾值（具體閾值待核實，個體差異大）
+    driver: 能量可用性 = (攝取 − 運動消耗) / 去脂體重；< 30 kcal/kg 去脂體重/日為常用的關切閾值(Loucks & Thuma 2003：29 名月經規律的久坐女性 5 天實驗，低於此值 LH 脈衝開始紊亂；個體差異大，不可當單一診斷切點)
     swim_context: 泳者每日高熱量消耗 + 體型/外觀壓力 + 大量陸訓，能量赤字易被低估
     who: null
   epidemiology:
-    prevalence: 女性運動員 LEA/三聯症盛行率報導範圍極廣；游泳專項數字待 WebFetch 核實。青少年女子泳者 disordered eating 盛行率 25–31%、月經失調 3–65%（範圍極廣反映定義差異），是同年齡男性與非運動族群的數倍
+    prevalence: 女性運動員 LEA/三聯症盛行率報導範圍極廣；游泳專項的可靠數字目前缺乏；青少年女子泳者的飲食失調與月經失調報導比例範圍很大，反映定義與篩檢工具不一，本庫不列單一數字
     certainty: 🟡
     evidence_grade: B
     caveat: 2026-08-18 更正（重複登錄）：本欄原本掛了兩筆引用，實為同一份 IOC 共識，已刪去重複的那筆、只保留一個——原寫法會讓一份文獻看起來像兩份獨立支撐。另：引用 IOC 共識必須標版本（2014／2018／2023 三版結論不同），本條目數字尚未逐版對回。定義與篩檢工具(LEAF-Q／REDs CAT2)差異大→盛行率不可橫向比較；男性 RED-S 長期被低估。
@@ -3757,6 +3757,11 @@ injuries:
     technical_link: null
     perception_link: null
   references:
+  - citation: Loucks AB, Thuma JR. (2003). Luteinizing hormone pulsatility is disrupted at a threshold of energy availability in regularly menstruating women. J Clin Endocrinol Metab 88(1):297-311.
+    certainty: 🟡
+    verified: true
+    source_ids:
+    - src.loucks-thuma-2003
   - citation: Mountjoy M, Ackerman KE, Bailey DM, et al. (2023). 2023 International Olympic Committee's (IOC) consensus statement on Relative Energy Deficiency in Sport (REDs). Br J Sports Med 57(17):1073-1097.
     certainty: 🟢
     verified: true
