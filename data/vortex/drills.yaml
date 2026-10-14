@@ -133,7 +133,7 @@ drills:
   how_to:
   - 從側躺位置開始，加入旋轉，每6到10次踢水從一側臀部翻轉到另一側
   - 旋轉由臀部底部發動，是快速的翻轉，搭配穩定緊湊的踢水
-  - 加入換氣：頭轉到最小，靠身體旋轉帶起換氣，每三次旋轉換一次氣
+  - 加入換氣：頭轉到最小，靠身體旋轉帶起換氣；從一側臀部轉到另一側算一次，每第三次換側時換氣
   - 換氣後立刻回到平衡位置
   perception_goal: 旋轉從臀部啟動；頭轉量最小；回到水中立即找到平衡
   success_signal: 換氣後立刻回到另一側45度平衡；頭部像跟著身體走
@@ -360,7 +360,7 @@ drills:
   purpose_zh: 單臂高肘划水感知，強調錨定後整體旋轉推進，像用身體跳過手臂
   how_to:
   - 一手向前伸直（如左手），另一手剛離開水面、手肘高舉、指尖輕觸水面，以左臀約45度乘載
-  - 踢幾下取得動力，前伸手開始抓水，沿直線用力推到臀部，過程中保持高手肘（EVF）
+  - 踢幾下取得動力，前伸手開始抓水，沿直線用力推到臀部，過程中保持高手肘（EVF：早期垂直前臂，抓水初期讓前臂盡早接近垂直）
   - 感覺推水的推進與臀部滑開；左手推到底時右手前刺，換左手變成「帆」，像翻越到另一側
   - 抓水卡住時，手錨定後把肩膀略往內轉、手肘自然略外轉，幫助建立EVF；全程放慢
   perception_goal: 前臂垂直入水錨定後，感覺身體整個翻越過去；拉手配合髖旋轉
@@ -2055,11 +2055,11 @@ drills:
   - L2
   - L3
   abc_type: A
-  purpose_zh: 雙臂同時划水修正過度後伸越過中線，感覺手臂對齊肩膀舉起
+  purpose_zh: 雙臂同時划水修正回臂頂端越過身體中線，感覺手臂對齊肩膀舉起
   how_to:
   - 雙臂同時划仰式
   - 手臂舉過頭往後時，讓雙臂與肩膀對齊（想像球賽得分後雙手上舉慶祝的寬度）
-  - 用來重設划手的肌肉記憶，特別是手臂在頂端越過中線或往後伸太遠時
+  - 用來重設划手的肌肉記憶，特別是手臂在回臂頂端過度伸向身體中線時
   perception_goal: 雙臂上舉時感覺像慶祝射門；手臂對齊肩膀不越過中線
   success_signal: 兩手對稱且對齊肩膀；背部感覺舒適
   failure_signal: 手超過中線；一側比另一側難
@@ -2580,8 +2580,7 @@ drills:
   source_ids:
   - src.theres-a-drill-for-that
   body_position: supine
-  constraints:
-  - single_arm
+  constraints: []
   movement_pattern: continuous
   skill_focus:
   - catch_evf
@@ -2602,7 +2601,7 @@ drills:
   - L2
   - L3
   abc_type: null
-  purpose_zh: 閉眼仰式流線踢水，靠耳朵感覺池底距離、靠體感確認身體線；建立純粹的本體感
+  purpose_zh: 閉眼仰式流線踢水，留意周圍水聲、靠體感確認身體線；練習減少視覺依賴
   how_to:
   - 確認泳道淨空、最好有同伴看著；仰躺 streamline 踢水
   - 閉眼出發，靠耳朵聽水流方向、靠身體感覺水面位置
@@ -2728,9 +2727,7 @@ drills:
   success_signal: 兩人能在約定划數下到牆，划水節律穩定
   failure_signal: 為了配速犧牲身體線；節律跟不上
   deficiency_fixes: []
-  source: 通用團隊訓練法（pair pacing in adjacent lanes）
-  source_ids:
-  - src.pair-pacing-in-adjacent-lanes
+  source: 通行的相鄰泳道同伴配速練習形式；本庫未取得可定位的單篇出處
   body_position: supine
   constraints:
   - tempo_constrained
@@ -2766,7 +2763,7 @@ drills:
   deficiency_fixes:
   - 3
   - 4
-  source: 通用游泳教學法（switch drill warmup variant）
+  source: 通行的六踢換邊熱身變式；本庫未取得可定位的單篇出處
   body_position: transitional
   constraints: []
   movement_pattern: alternating
@@ -3408,7 +3405,7 @@ drills:
   - L4
   - L5
   abc_type: null
-  purpose_zh: 靜止練習感覺髖部在內划時前推的幅度，是距划效的關鍵
+  purpose_zh: 靜止練習感覺髖部在內划時前推的幅度，是增加划距的關鍵
   how_to:
   - 趴平在水中、雙腿在後，放鬆到靜止（可輕踢維持平衡）
   - 雙臂外撇成寬「Y」，把肺往前略下壓在水面；內撇並盡量把髖往前送，在內撇換氣、定住身體線，完全停住再重複
@@ -3598,7 +3595,7 @@ drills:
   - L3
   - L4
   abc_type: A
-  purpose_zh: 戴蛙鏡和浮力棒，臉朝下，感覺低姿態拉手和頭部對齊
+  purpose_zh: 戴呼吸管並夾浮力棒，臉朝下，感覺低姿態拉手和頭部對齊
   how_to:
   - 面朝下，戴呼吸管夾浮棒（沒呼吸管就需要時才換氣）
   - 雙腿拖在後面（不波動、不踢腿）
@@ -3812,9 +3809,9 @@ drills:
   abc_type: null
   purpose_zh: 仰面水下游蛙式，消除重力偏差，感覺蛙式動作的對稱性
   how_to:
-  - （建議夾鼻夾）仰面在水下游蛙式，保持在水面下
+  - （建議夾鼻夾）僅限熟悉水中翻轉的泳者，在具救援能力的教練或同伴全程直接看護下短段仰面水下游蛙式；不單獨做，下潛前不過度換氣
   - 頭與身體成一線，雙手錨定在身體前方往下抓水
-  - 身體保持平、臉與掌心朝上；剛開始幾划就浮上來沒關係，逐漸延長
+  - 身體保持平、臉與掌心朝上；做短段後即上浮恢復正常呼吸，不追求水下距離、不反覆挑戰閉氣；需要換氣即上浮，充分恢復後才再練
   perception_goal: 感覺仰面時的動作是否與正面對稱；感覺手部入水點和頭部位置
   success_signal: 仰面蛙式與正面蛙式的感覺接近
   failure_signal: 完全感覺不同（代表動作有偏側）
@@ -3837,7 +3834,7 @@ drills:
   difficulty_tier: advanced
 - id: Br29
   name_en: Up-Down Combos
-  name_zh: 正仰面組合
+  name_zh: 水面水下組合
   strokes:
   - breaststroke
   category: timing
@@ -3845,10 +3842,10 @@ drills:
   l_target:
   - L4
   abc_type: null
-  purpose_zh: 連續正面和仰面水下蛙式切換，感覺頭部線條的穩定性
+  purpose_zh: 水面與水下蛙式切換，感覺頭部線條的穩定性
   how_to:
   - 類似Br24：一連串在水面上的划，接一連串在水面下的完整蛙式
-  - 「下」的那組不換氣
+  - 「下」的那組只作短段水下技術練習，由具救援能力的教練或同伴全程直接看護；不單獨做、不過度換氣、不反覆挑戰閉氣，需換氣即上浮並充分恢復
   - 3上3下（水面下），再進到2上2下、1上1下
   perception_goal: 每次切換都能快速找回頭部靜止的位置
   success_signal: 切換流暢；頭部對齊感不變
@@ -4097,7 +4094,7 @@ drills:
   abc_type: A
   purpose_zh: 戴小手掌板做蛙式拉手（不踢），把外撇→內撇的加速差異放大成明確的壓力感
   how_to:
-  - 戴小手掌板、夾 pull buoy，完全不踢水
+  - 戴小手掌板、夾 pull buoy，完全不踢水；肩部疼痛時停止此練習並告知教練
   - 做蛙式拉手：外撇慢、內撇加速、前刺最快
   - 手掌板會把「加速 = 壓力增加」這個關係放大
   - 做 4×50，每組計算划水次數
@@ -4217,7 +4214,7 @@ drills:
   - 單趟 25 公尺以內的矯正用途，不拿來練長距離——夾球會限制每次踢腿後的推進與滑行段，整體 stroke 會被拖慢
   perception_goal: 感覺換氣時下巴往前推而不是往上抬；球在下巴下方的接觸點是頭部位置的即時參考
   success_signal: 整趟球都沒掉，而且還吸得到氣
-  failure_signal: 球掉出來（抬頭了）；或為了不讓球掉而把頸部整個鎖死、上半身僵硬——球雖然沒掉，卻換來另一個問題
+  failure_signal: 球掉出來（抬頭了）；若為了夾球而頸部僵硬、上半身緊繃或無法順利換氣，立即停止夾球、恢復呼吸，改做不夾球版本
   deficiency_fixes:
   - 1
   source: 'Sica, J. (2025). Swim Drill of the Week: Tennis Ball Breaststroke. Swimming World.'
@@ -4253,7 +4250,7 @@ drills:
   - 內划時手往內往下壓，讓上半身被推起來，等臉自然出水再吸氣
   - 頭不主動抬；如果壓完了臉還在水裡，是手沒壓夠，不是脖子抬不夠
   - 走 10–15 公尺，重複 4–6 趟
-  perception_goal: 感覺到「氣是手給的」——上浮來自內划的向下分量，頸部全程不出力
+  perception_goal: 感覺到「氣是手給的」——上浮來自內划的向下分量，避免主動仰頭，頸部保持自然對齊
   success_signal: 臉在內划進行到一半時自己出水；吸完氣頭自己回到水裡
   failure_signal: 靠仰頭把臉抬出水；或手壓完了臉還在水裡（內划沒有向下分量）
   deficiency_fixes:
