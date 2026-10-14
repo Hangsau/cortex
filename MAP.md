@@ -4,6 +4,8 @@
 > 行為規範見 `CLAUDE.md`；進度／待辦見 `HANDOFF.md`。
 >
 > `last_verified: 2026-09-26`（正式切換到新版當天全檔重寫；舊架構的 MAP 隨舊版封存於 git 標籤 `legacy-site-2026-09-26`）
+>
+> 2026-10-14 **局部**更新：Vortex 三層重構（知識／應用／研究庫）相關列——§2 Vortex 列、§3 mounts 與 content adapters、§4 第 11–12 條、§5 同步產物路徑，已對照實檔查證。Vortex 骨架總覽見 `VORTEX_SKELETON.md`。
 
 ---
 
@@ -22,7 +24,8 @@ deploy：push `hugo-source` → GitHub Actions 跑資料產生器後 `hugo --min
 | 改全站顏色／字級／間距 | `next/assets/css/tokens.css`（只放變數；系列色 `.series-*`） |
 | 改外殼（頂列、左側目錄、對照閱讀框、進度元件） | `next/layouts/baseof.html`、`_partials/site-head.html`、`_partials/{vortex,library}/rail.html`、`next/assets/css/shell.css` |
 | 改全站首頁（書房） | `next/layouts/_partials/library/bookshelf.html` ＋ `next/assets/css/bookshelf.css` |
-| 改 Vortex 首頁／泳式頁／知識點頁／清單 | `next/layouts/_partials/vortex/{home,stroke,unit,next-read,list}.html`；分派在 `next/layouts/vortex/page.html` |
+| 改 Vortex 首頁／泳式頁／知識點頁／清單 | `next/layouts/_partials/vortex/{home,stroke,unit,next-read,list}.html`；分派在 `next/layouts/vortex/page.html`；左欄兩層樹（三入口＋本頁目次）在 `rail.html` |
+| 改 Vortex 研究庫（來源條目頁、審查與裁決紀錄、研究筆記、研究底稿） | `_partials/vortex/{research-home,source,article}.html`；資料由 `sync_vortex.py` 的 `sync_research_index()`（`data/vortex/source_usage.json`、`decision_trail.json`、`content/vortex/research/rulings/`，白名單 `RULING_FILES`）與 `sync_research_notes()` 產生 |
 | 改 Vortex 專頁（呼吸、週期化、ADM、心理、骨關節、動作圖譜） | `next/layouts/_partials/vortex/{breathing,periodization,adm-*,psychology-read,joints,movement}.html`；頁面檔在 `next/content/vortex/` |
 | 課表與間歇計時（CSS 換算、衝刺%、HIIT 計時） | `_partials/vortex/workout.html`＋`next/assets/js/workout.js`＋`workout.css`；配速、組型、週期、減量公式全讀 `data/periodization/`（set-design generator／phase_allocation／weekly_assembly、taper、structure.swim_annual_structure、zones.swim_energy_by_distance）；`next/data/swim_rules.json`（swim-coach 同步）只剩 drill／緩和預設休息；drill 清單讀 `data/vortex/drills.yaml`，器材中文名 `next/data/swim_equipment.yaml` |
 | 個人／團體切換、團員成績配速與共用水道出發表 | `_partials/vortex/workout-lane.html`＋`next/assets/js/workout-lane.js`；模式與導覽在 `workout-studio.js`。`workout.js` 的 `groupRecommendation(choice, bests, distance)` 以各人獨立成績共用七種主課規則，`recommendation()` 帶入完整組型；團體支援固定休息／包干、組間等待與分批。名單與成績僅留本頁記憶體，無多人即時計時；計算／操作驗收 `tools/test_workout_{lane,group}.cjs`。排程公式 `research/shared-lane-2026-10-08/`，本輪紀錄 `research/workout-group-pacing.md` |
@@ -45,13 +48,13 @@ deploy：push `hugo-source` → GitHub Actions 跑資料產生器後 `hugo --min
 ## 3. 檔案地圖
 
 ### 建置與分派
-- `hugo.toml` — mounts：`next/{content,layouts,assets,data,static}`、`data/`、`content/library/{kinesiology,basic-biomechanics}`（排除 learning-map.md）、`content/vortex/{instructional,bridge,technica}`、`content/vortex/adm`（只剩 background.md）
+- `hugo.toml` — mounts：`next/{content,layouts,assets,data,static}`、`data/`、`content/library/{kinesiology,basic-biomechanics}`（排除 learning-map.md）、`content/vortex/instructional`（只剩器材指南）、`content/vortex/research`（研究庫）、`content/vortex/adm`（只剩 background.md）。Bridge／Technica 掛載 2026-10-14 撤除
 - `next/layouts/page.html`／`section.html` → `_partials/library/dispatch.html`：系列首頁（路徑＝系列 path）→ series-home；`layout: reading-chapter` → reader-chapter；`reading-topics` → reader-topics；其餘依 `params.role` 找 `_partials/library/<role>.html`
 - `next/layouts/vortex/page.html`／`section.html`：`role` 缺省時 有 `unit_id`→unit、section→reading-list、其他→article；否則 `_partials/vortex/<role>.html`
 - `next/layouts/_partials/library/series-of.html`：依網址前綴找出所屬書房系列（決定系列色與左側目錄）
 
 ### 頁面來源（content adapters）
-- `next/content/vortex/_content.gotmpl`：約 770 個 Vortex 知識點頁、6 泳式頁、8 清單頁
+- `next/content/vortex/_content.gotmpl`：Vortex 知識點頁、6 泳式頁、清單頁、研究庫來源條目頁（613 筆）
 - `next/content/library/essentials-of-strength-training/_content.gotmpl`：24 章＋概念索引
 - `next/content/library/{mind-for-numbers,uncommon-sense-teaching}/_content.gotmpl`、`next/content/temperament/_content.gotmpl`
 
@@ -76,12 +79,14 @@ deploy：push `hugo-source` → GitHub Actions 跑資料產生器後 `hugo --min
 8. **對照閱讀與閱讀進度都以錨點為鍵**：讀本小節 `{#anchor}`、CSCS item id 改名會無聲打斷兩者。
 9. **Vortex 的呼吸安全段落必須置頂且不可收合**；`check.py V3` 會擋。
 10. **Windows Git Bash heredoc 寫 Python 時 `\n` 常被吃掉**：長片段改用檔案寫入工具寫成 .py 再執行。
+11. **泳式頁動作不再手管**：`data/vortex/{free,back,breast,fly,udk,starts-turns}.yaml` 由 `sync_moves()` 從 Vortex `moves.yaml` 生成；「什麼是水感」由 Vortex `Technica/水感是什麼.md` 原樣同步，改內容都去 Vortex。
+12. **散文進站前會被剝除**：研究底稿與研究筆記經 `strip_diagnostic()`、`strip_external_links()`；`maintenance_note` 由 `dump_yaml()` 在任何檔、任何層級剝除。看到研究底稿少了段落，先查是不是被剝除規則吃掉。
 
 ---
 
 ## 5. 邊界 / 別碰
 
-- **Vortex 內容真相源在 `TheVortexProject`**；`data/{vortex,adm,periodization,breathing,movement}/` 與 `content/vortex/{instructional,bridge,technica}/` 是同步產物，勿手改。
+- **Vortex 內容真相源在 `TheVortexProject`**；`data/{vortex,adm,periodization,breathing,movement}/`、`content/vortex/{instructional,research}/`、`next/content/vortex/water-sense.md` 是同步產物，勿手改。
 - **CSCS 內容真相源是 `data/cscs/`**（my-site 自有）；選擇題進度與 cscs-quest 桌面端互不相通。
 - **舊站已移除**，需要時從 git 標籤 `legacy-site-2026-09-26` 檢出；不要把舊版型或舊 CSS 搬回 `next/`。
 - Hugo 版本：CI 0.159.1（寫死在 deploy.yml），本機可能較新。

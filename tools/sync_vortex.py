@@ -129,8 +129,8 @@ MOVEMENT_FILES = (
 # ── 散文路由（2026-10-14 三層重構 W3.2）──
 # 散文底稿不再當知識頁：器材指南是應用層文章，照舊掛在 instructional/；
 # 其餘 Instructional／Technica 長文是研究庫的「研究底稿」，掛在 research/drafts/，
-# 出站前剝除教練診斷用語與外站連結；Bridge 退役不出站；水感指南由 my-site
-# next/content/vortex/water-sense.md 呈現（尚待收回 canonical，見規劃書 W3.2）。
+# 出站前剝除教練診斷用語與外站連結；Bridge 退役不出站；舊《水感指南》也是研究底稿，
+# 「什麼是水感」頁改由下方 VERBATIM_ARTICLES 原樣同步（W3.2b）。
 ARTICLE_STEMS = {"游泳器材使用指南"}
 RETIRED_LAYERS = {"Bridge"}
 SKIP_STEMS: set[str] = set()
@@ -261,6 +261,7 @@ NOTE_SLUGS = {
     "週期化/頂尖教練訓練哲學_Sandbakk": "elite-coaching-philosophy-sandbakk",
 }
 NOTE_LAYER_NAME = "研究筆記"
+NOTE_STATUS = "研究中"
 
 
 def sync_research_notes(dry_run: bool):
@@ -286,7 +287,7 @@ def sync_research_notes(dry_run: bool):
             continue
         fm = build_frontmatter(
             title=title, description=desc, slug=slug, layer="research",
-            layer_name=NOTE_LAYER_NAME, strokes=[], research_status="研究中",
+            layer_name=NOTE_LAYER_NAME, strokes=[], research_status=NOTE_STATUS,
         )
         (NOTE_DIR / f"{slug}.md").write_text(fm + body, encoding="utf-8")
 
@@ -312,6 +313,8 @@ RULING_FILES = {
     "plans/關節主張裁決_B類ROM.md": "joint-ruling-rom",
     "plans/關節主張裁決_C類傷害宣稱.md": "joint-ruling-injury-claims",
 }
+RULING_LAYER_NAME = "審查與裁決紀錄"
+RULING_STATUS = "審查紀錄"
 SOURCE_USAGE_DST = HUGO_ROOT / "data" / "vortex" / "source_usage.json"
 DECISION_TRAIL_DST = HUGO_ROOT / "data" / "vortex" / "decision_trail.json"
 
@@ -320,65 +323,81 @@ def source_slug(source_id: str) -> str:
     return source_id.removeprefix("src.").lower()
 
 
-def sync_research_index(dry_run: bool):
-    """來源使用索引、決策軌跡、審查紀錄頁。"""
-    print()
-    print("=== 研究庫索引 ===")
-    rev = json.loads((INDICES_SRC / "source_reverse_index.json").read_text(encoding="utf-8"))
+def build_source_usage(reverse_index: dict) -> dict:
+    """來源 → 引用它的條目、條目 → 它引用的來源（墓碑與零引用不出站）；保留首見順序。"""
     by_source, by_unit = {}, {}
-    for src in rev["sources"]:
+    for src in reverse_index["sources"]:
         if src.get("verification_status") == "retracted" or not src.get("usages"):
             continue
-        units = []
-        for use in src["usages"]:
-            if use["id"] not in units:
-                units.append(use["id"])
-            by_unit.setdefault(use["id"], [])
-            if src["id"] not in by_unit[use["id"]]:
-                by_unit[use["id"]].append(src["id"])
+        units = list(dict.fromkeys(use["id"] for use in src["usages"]))
+        for unit_id in units:
+            unit_sources = by_unit.setdefault(unit_id, [])
+            if src["id"] not in unit_sources:
+                unit_sources.append(src["id"])
         by_source[src["id"]] = {"slug": source_slug(src["id"]), "units": units}
-    usage = {"sources": by_source, "units": by_unit}
-    print(f"  被引用來源 {len(by_source)} 筆、有來源的條目 {len(by_unit)} 筆")
+    return {"sources": by_source, "units": by_unit}
 
-    titles = {}
+
+def load_rulings() -> dict:
+    """白名單審查紀錄：plans 相對路徑 → (slug, 標題, 去掉 front matter 的本文)。"""
+    rulings = {}
     for rel, slug in RULING_FILES.items():
         src_file = VORTEX_SRC / rel
         if not src_file.exists():
             print(f"  [WARN] 找不到 {rel}")
             continue
         body = strip_existing_frontmatter(src_file.read_text(encoding="utf-8"))
-        titles[rel] = (slug, extract_title(body))
-    trail_raw = json.loads((INDICES_SRC / "decision_trail.json").read_text(encoding="utf-8"))
+        rulings[rel] = (slug, extract_title(body), body)
+    return rulings
+
+
+def build_public_trail(trail_raw: dict, rulings: dict) -> dict:
+    """決策軌跡只留指向公開審查紀錄的命中；同一份紀錄同一小節只列一次。"""
     trail = {}
     for unit_id, hits in trail_raw["trails"].items():
-        seen = []
+        seen = set()
         for hit in hits:
-            if hit["file"] not in titles:
+            if hit["file"] not in rulings:
                 continue
-            slug, title = titles[hit["file"]]
+            slug, title, _ = rulings[hit["file"]]
             # 命中在文件 H1 底下時，上站前 H1 已被剝掉、沒有錨點，改連頁首
             section = "" if hit["section"].strip() == title.strip() else hit["section"]
-            key = (slug, section)
-            if key in seen:
+            if (slug, section) in seen:
                 continue
-            seen.append(key)
+            seen.add((slug, section))
             trail.setdefault(unit_id, []).append({"slug": slug, "title": title, "section": section})
+    return trail
+
+
+def write_rulings(rulings: dict):
+    RULINGS_DIR.mkdir(parents=True, exist_ok=True)
+    keep = {slug for slug, _, _ in rulings.values()}
+    for old in RULINGS_DIR.glob("*.md"):
+        if old.name != "_index.md" and old.stem not in keep:
+            old.unlink()
+    for slug, title, body in rulings.values():
+        body = strip_external_links(strip_diagnostic(strip_title_h1(body)))
+        fm = build_frontmatter(title=title, description="", slug=slug, layer="research",
+                               layer_name=RULING_LAYER_NAME, strokes=[], research_status=RULING_STATUS)
+        (RULINGS_DIR / f"{slug}.md").write_text(fm + body, encoding="utf-8")
+
+
+def sync_research_index(dry_run: bool):
+    """來源使用索引、決策軌跡、審查紀錄頁。"""
+    print()
+    print("=== 研究庫索引 ===")
+    usage = build_source_usage(
+        json.loads((INDICES_SRC / "source_reverse_index.json").read_text(encoding="utf-8")))
+    print(f"  被引用來源 {len(usage['sources'])} 筆、有來源的條目 {len(usage['units'])} 筆")
+    rulings = load_rulings()
+    trail = build_public_trail(
+        json.loads((INDICES_SRC / "decision_trail.json").read_text(encoding="utf-8")), rulings)
     print(f"  有公開審查紀錄的條目 {len(trail)} 筆")
     if dry_run:
         return
     SOURCE_USAGE_DST.write_text(json.dumps(usage, ensure_ascii=False, indent=1), encoding="utf-8")
     DECISION_TRAIL_DST.write_text(json.dumps(trail, ensure_ascii=False, indent=1), encoding="utf-8")
-    RULINGS_DIR.mkdir(parents=True, exist_ok=True)
-    keep = {slug for slug, _ in titles.values()}
-    for old in RULINGS_DIR.glob("*.md"):
-        if old.name != "_index.md" and old.stem not in keep:
-            old.unlink()
-    for rel, (slug, title) in titles.items():
-        body = strip_existing_frontmatter((VORTEX_SRC / rel).read_text(encoding="utf-8"))
-        body = strip_external_links(strip_diagnostic(strip_title_h1(body)))
-        fm = build_frontmatter(title=title, description="", slug=slug, layer="research",
-                               layer_name="審查與裁決紀錄", strokes=[], research_status="審查紀錄")
-        (RULINGS_DIR / f"{slug}.md").write_text(fm + body, encoding="utf-8")
+    write_rulings(rulings)
 
 
 # ── 自訂 layout 對照（slug → layout）──

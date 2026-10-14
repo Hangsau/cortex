@@ -2,125 +2,88 @@
 
 > 這份只描述**骨架、設計概念、整體樣貌**，不含任何內容文字。
 > 內容真相源在 `TheVortexProject/canonical/`，本站只是公開呈現層。
+> 2026-10-14 三層重構後重寫；2026-09-26 以前的舊骨架（techō 首頁、`vortex-*` layout）隨舊站封存於 git 標籤 `legacy-site-2026-09-26`。
 
 ---
 
 ## 1. 它是什麼
 
-`my-site`（Cortex）底下的一個 Hugo section，路徑 `content/vortex/`，nav 顯示「Vortex」。
-渦流計劃（游泳水感教學研究）的**公開知識展示面**。
+`my-site`（Cortex）底下的 Vortex 系列，網址 `/vortex/`。渦流計劃（游泳水感教學研究）的**公開呈現層**。
 
 - 線上：`https://hangsau.github.io/cortex/vortex/`
-- 資料流：`canonical/*.yaml` → `tools/sync_vortex.py` → `data/vortex/` → layout（**勿手改 `data/`**）
+- 資料流：Vortex `canonical/*.yaml`、`Drills/`、`indices/`、審查紀錄 → `tools/sync_vortex.py`（CI，由 Vortex 的 notify-mysite 觸發）→ `data/vortex|adm|periodization|breathing|movement/`、`content/vortex/research/` → `next/` 版型。**勿手改同步產物。**
 
 ---
 
-## 2. 核心設計概念
+## 2. 三層：知識／應用／研究庫
 
-### 2.1 內容哲學：感知優先（perception-first）
-- 命題：**技術是感知的「輸出」，不是輸入**——感知對了，動作自己會收斂。
-- 漏斗順序：先懂「水感是什麼」→ 再挑一式 → 把感知練成動作。
-- 不做 prescriptive（不規定「該有什麼感覺」）；軸是「游者說了什麼 → 判斷」。
+首頁、左欄第一層都分成三個入口，不問讀者身分、不分流。
 
-### 2.2 公開／診斷分層（硬邊界）
-- **公開頁只放**：物理現實、硬體邊界、常見錯誤口令、L0–L6 序列、相關 drill。
-- **不放公開頁**：感知判讀診斷語（「泳者說 X = 到位」、三型／A型／B型／C型／typical_speech／main_problem）。
-- 淨化在 `sync_vortex.py` 階段完成。
+| 層 | 回答什麼 | 頁面 |
+|---|---|---|
+| **知識** | 這件事是什麼、為什麼 | 6 泳式頁、水感發展地圖 L0–L6、呼吸、心理、骨關節、動作圖譜、練習、技術分析、運動傷害；全部由 canonical 生成的知識點頁 |
+| **應用** | 我現在該怎麼做 | 找問題（problems）、課表與間歇計時、器材使用指南、ADM 運動員發展、訓練週期化 |
+| **研究庫** | 這個結論怎麼來的、可信到什麼程度 | 來源條目頁（反向列出引用它的知識點）、審查與裁決紀錄、研究筆記（研究中）、研究底稿（凍結的散文長文） |
 
-### 2.3 視覺語言：日式文具（techō / Hobonichi 手帳）
-- 定義在 `static/css/vortex-techo.css`（首頁 `tx-*`）+ `static/css/vortex.css` 的 `:root` token（子頁 `vx-*`）。
-- 底色 `#FAFAF7`／柿橘強調 `#D4622A`／橫罫格線當骨架／細邊框取代卡片／**無圓角**／留白即設計。
-- 字體：Shippori Mincho + Noto Serif TC（標題）、Courier Prime + Noto Sans TC（內文/mono）。
-- 全繁中，無裝飾性英文（eyebrow/印章/欄位 key 都改回中文）。
-
-### 2.4 知識確定性標記
-每條內容標注來源可信度：🔵 推導 · 🟢 近期文獻 · 🟡 舊文獻 · 🟠 教練觀測 · 🔴 待查。
+**層間連結**：知識點頁底部「證據與來源」統一列出本頁引用的來源（可點進來源條目頁），並有「這條結論怎麼來的」連到裁決紀錄的段落錨點（資料來自 Vortex `indices/decision_trail.json`）；交叉引用印成標題連結，不印 ID。
 
 ---
 
-## 3. 頁面骨架（content tree）
+## 3. 核心設計概念
+
+### 3.1 內容哲學：感知優先
+- 命題：**技術是感知的輸出，不是輸入**。首頁先給「什麼是水感」，再進泳式與 L 級。
+
+### 3.2 公開／診斷分層（硬邊界）
+- 公開頁只放物理、硬體邊界、常見錯誤口令、L0–L6 序列、相關 drill。
+- 不放診斷判讀語（A/B/C 型、「泳者說」、typical_speech…）。剝除在 `sync_vortex.py`：canonical `public` 白名單輸出；散文進研究庫前由 `strip_diagnostic()` 剝除；`maintenance_note` 任何檔、任何層級都不出站（`dump_yaml()`）。
+
+### 3.3 散文不在知識區
+- Instructional／Technica 長文只以研究底稿出現（`content/vortex/research/drafts/`，頁首印凍結說明、剝除診斷語與外連）。Bridge 已退役。舊網址由 `tools/build_redirects.py` 轉址（121 個）。
+- 例外：「什麼是水感」（`next/content/vortex/water-sense.md`）原樣同步 Vortex `Technica/水感是什麼.md`；器材指南是應用層文章。
+
+### 3.4 視覺語言：「野外圖鑑」
+- token 在 `next/assets/css/tokens.css`：紙色 `#FAFAF7`、墨 `#14171A`、Vortex 系列色 `#0B6E8A`、左緣拇指索引色帶、四級字級、正文欄 36em、最小點擊 48px（池邊濕手）。
+- 字體 Noto Serif TC（標題）＋ Noto Sans TC（內文）。全繁中。
+
+### 3.5 知識確定性標記
+🔵 推導／作者綜合 · 🟢 近期文獻 · 🟡 舊文獻 · 🟠 教練實務觀察 · 🔴 待查。研究庫首頁說明怎麼讀；確定性不等於來源查驗狀態，來源條目頁另標 verified／unverified。
+
+---
+
+## 4. 頁面來源與版型
 
 ```
-content/vortex/
-  _index.md                    layout: vortex-home      → 全站門面（見 §4）
-  freestyle/_index.md          layout: vortex-stroke    ┐
-  backstroke/_index.md         layout: vortex-stroke    │ 六大單元
-  breaststroke/_index.md       layout: vortex-stroke    │ 每式一頁
-  butterfly/_index.md          layout: vortex-stroke    │ master-detail
-  starts-turns/_index.md       layout: vortex-stroke    │
-  underwater-dolphin-kick/...  layout: vortex-stroke    ┘
-  levels/_index.md             layout: vortex-levels        → 水感發展 L0–L6
-  technica/water-sense-guide   layout: vortex-water-sense   → 「什麼是水感」設計頁
-  psychology/_index.md         layout: vortex-psychology    → 心理層（恐懼/動機/心流）
-  periodization/_index.md      layout: vortex-periodization → 訓練週期化
-  database/_index.md           layout: vortex-database      → 跨泳式資料庫
-  adm/
-    _index.md                  layout: vortex-adm-home      → 運動員發展矩陣 首頁
-    matrix.md                  layout: vortex-adm-matrix    → 4 支柱 × 4 階段
-    standards.md               layout: vortex-adm-standards → 技術標準（篩選+搜尋）
-    background.md              layout: vortex-adm-single    → 長文
-  technica/_index.md           （研究原文存檔 · 未編排）
-  instructional/_index.md      （技術原文存檔 · 未編排）
-  bridge/_index.md             （感知橋接 · 存檔）
+next/content/vortex/
+  _index.md                 首頁 → _partials/vortex/home.html（三入口＋從一種泳式開始）
+  _content.gotmpl           約千個知識點頁、6 泳式頁、清單頁、研究庫來源條目頁
+  water-sense.md            什麼是水感（原樣同步）
+  breathing.md / psychology.md / joints.md / movement.md / periodization.md
+  workout.md / workout-studio.md   課表與間歇計時
+  adm/                      ADM 首頁、矩陣、標準
+content/vortex/（同步產物，hugo.toml 掛載）
+  instructional/            只剩器材使用指南
+  research/                 研究庫：_index、sources/、rulings/、notes/、drafts/
 ```
+
+| partial（`next/layouts/_partials/vortex/`） | 服務頁 |
+|---|---|
+| `home.html` | `/vortex/` 首頁 |
+| `rail.html` | 左欄兩層樹：上層三入口、下層本頁目次 |
+| `stroke.html` | 泳式頁（動作來自 canonical `moves.yaml`） |
+| `unit.html` | 知識點頁（證據與來源、這條結論怎麼來的、交叉引用） |
+| `list.html`、`reading-list.html`、`next-read.html` | 清單頁、section 清單、接著讀 |
+| `research-home.html`、`source.html`、`article.html` | 研究庫首頁、來源條目頁、文章（研究筆記／底稿／裁決紀錄，依 front matter 印狀態） |
+| `breathing.html`、`psychology-read.html`、`joints.html`、`movement.html`、`periodization.html`、`adm-*.html` | 各專頁 |
+| `workout*.html` | 課表、團體水道、工作台 |
+
+分派：`next/layouts/vortex/page.html`／`section.html`，`role` 缺省時有 `unit_id`→unit、section→reading-list、其他→article。
 
 ---
 
-## 4. 首頁編排（vortex-home / techō）
+## 5. 維護紅線
 
-由上而下五段，是整個站的引導漏斗：
-
-```
-[ masthead ]      渦流計劃印章 + 大標「水感」 + lead（感知優先命題）
-   │
-[ 序 · 00 ]       新手入口 tx-hero「什麼是水感？」→ water-sense-guide
-   └ tx-path       理（水感理論） / 級（L0–L6）兩條岔路
-   │
-[ 圖 · 水感地圖 ]  L0–L6 × 四式矩陣，點格→側面板讀該級細節
-   └ 共同地基       L0 呼吸 / L1 漂浮（四式共用）→ L2 起分流
-   └ L0− 心理層     恐懼/動機/注意力 chips → psychology
-   │
-[ 六 · 六大單元 ]  六式 ledger（details 展開看動作分解）→ 進入各式頁
-   │
-[ ＋ · 放大尺度 ]  四張卡：ADM / 週期化 / 依需求找練習 / 跨泳式查資料
-   │
-[ legend ]        研究原文存檔連結 + 確定性標記圖例
-```
-
-導航模式：地圖格與心理 chips 觸發**右側滑出側面板**（`tx-detail`，純 JS，無 JS 時地圖仍可看）。
-
----
-
-## 5. layout ↔ 頁面對照
-
-| layout | 服務頁 | 互動模式 |
-|--------|--------|----------|
-| `vortex-home` | `/vortex/` | techō 單頁 + 側面板（tx-*） |
-| `vortex-stroke` | 每式一頁 | sticky 左 rail + 主面板就地切換（hash 路由，不重載） |
-| `vortex-levels` | 水感 L0–L6 | rail + ladder（原生 `<details>`） |
-| `vortex-water-sense` | 什麼是水感 | master-detail 7 面板 + 22 ladder |
-| `vortex-psychology` | 心理層 | 處境門面 + master-detail（每頁 L0–L6 定位梯） |
-| `vortex-periodization` | 週期化 | 左目次 + 4 面板，概念 `<details>` 收合 |
-| `vortex-database` | 資料庫 | 主角「想練什麼?」三軸 picker + 配角三 tab 查找 |
-| `vortex-adm-*` | ADM 四頁 | home/matrix(master-detail)/standards(篩選)/single(長文) |
-
----
-
-## 6. 結構特性（整體樣貌）
-
-- **三層導覽深度**：首頁漏斗 → section 頁（rail/面板）→ 概念 `<details>` 展開。
-- **不跳頁、不攏長**：master-detail 就地 swap + 原生折疊，避免落地長到天邊。
-- **token-driven 換皮**：改 `vortex.css :root` 一處，全 `vx-*` 子頁同步換設計語言，結構/JS 不動。
-- **server-side render 為主**：JS 只切可見性；`<noscript>` 下全展開仍可讀。
-- **入站引導靠處境卡**，不靠角色選擇器（不分教練/選手/家長）、不按教科書 topic 目錄。
-
----
-
-## 7. 維護紅線
-
-1. 內容改 `canonical/` 再跑 `sync_vortex.py`，**不手改 `data/vortex|adm|periodization/`**。
-2. 新增公開內容前確認**沒洩漏診斷型碼**（三型/A型/B型/C型/typical_speech/main_problem）。
-3. CSS/JS 路徑用 `{{ .Site.BaseURL }}css/x.css`（不加前綴 `/`）。
-4. layout 仍用 `.Site.Data.*`（已 deprecated）——未來 Hugo 升版需遷 `hugo.Data`。
-5. live = CI 每次 push `hugo --minify` 重 build，`public/` 不進 git。
-```
+1. 內容改 Vortex `canonical/`，不改 `data/` 或 `content/vortex/`。
+2. 新增公開內容前確認沒有診斷用語外洩（Vortex validate W028、sync 端剝除兩道）。
+3. 研究庫的審查／裁決紀錄由 `sync_vortex.py` 的白名單（`RULING_FILES`）決定哪些 plans 檔公開；新增要公開的紀錄要登錄白名單。
+4. 驗收：`python -X utf8 next/specs/check.py <W>`（22 項）＋ `python -X utf8 tools/build_redirects.py`；呼吸安全段必須置頂且不可收合（V3）。

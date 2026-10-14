@@ -43,7 +43,7 @@ next/
   crosslinks/                跨系列連結的候選、判斷、複審原始資料
   legacy_urls.txt            舊站 121 個網址（切換前最終版，勿覆寫）
 content/                     仍掛載的 canonical Markdown：library/{kinesiology,basic-biomechanics}、
-                             vortex/{instructional,bridge,technica}（sync_vortex 同步）、vortex/adm/background.md
+                             vortex/instructional（只剩器材指南）、vortex/research（研究庫，sync_vortex 同步）、vortex/adm/background.md
 data/                        canonical 資料：vortex、adm、periodization、breathing、movement（sync_vortex 同步，勿手改）；
                              cscs、reading、mnfl、ust、temperament（my-site 自有）
 tools/                       build_vortex_links、build_library、build_starters、crosslink_candidates／judge、
@@ -152,7 +152,7 @@ canonical 的條目用 `source_ids: [src.xxx]` 這種機器鍵指來源；`sync_
 - **`link` 在 Python 這層算好**（頂層 url → identifier.url → doi → pmcid → pmid 五路優先序），Hugo template 不做分支。**只有 ISBN 的書就沒有 link，這是正確狀態**——不要為了讓每筆都可點去拼書店或 Google Books 網址，那是編造。
 - **查不到 id 時 layout 必須印出 id 本身**。Hugo 的 `index` 查不到 key 回空字串且不報錯，沒有 fallback 的話來源行會**無聲消失**、讀者以為這條本來就沒來源。同 §「Vortex 分類標籤」那條鐵則的理由。`verification_status: unverified` 也必須標「未查證」（359/532 筆屬此類），專案規範明訂無法查證者不得以肯定句包裝。
 
-目前只有 `vortex-joints.html` 的 `mechanism.source_ids` 接了這份註冊表。`vortex-stroke.html` 的「深入機制」面板對**全部**技術卡通用（`technical-analysis.yaml` 有 251 處 `source_ids`），要接的話是一次點亮六個泳式頁，需獨立的視覺驗收，別順手加。
+2026-10-14 三層重構 Phase 4 起，知識點頁（`unit.html`）的「本頁引用的來源」統一由這份註冊表＋`data/vortex/source_usage.json` 產生，每筆可點進研究庫的來源條目頁（`source.html`，反向列出引用它的知識點）。上面三條規則同樣適用於來源條目頁。
 
 ### 呼吸章（`data/breathing/`）：三條線 + 安全置頂
 

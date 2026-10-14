@@ -1,5 +1,18 @@
 # HANDOFF — my-site (Cortex)
 
+## Vortex 三層重構 Phase 3 收尾＋Phase 4＋文件對齊（2026-10-14）
+
+- **三入口上線**（`52b202c`）：首頁與左欄第一層改成知識／應用／研究庫；左欄是兩層樹（三入口在上、本頁目次在下）。
+- **研究庫**：
+  - 613 筆來源條目頁，反向列出引用它的知識點（`source.html`，資料 `data/vortex/source_usage.json`）。
+  - 審查與裁決紀錄（`research/rulings/`，由 `sync_research_index()` 依白名單 `RULING_FILES` 從 Vortex `plans/` 搬運）。
+  - 研究筆記 26 篇（`d7104b1`，頁首標研究中）、研究底稿（凍結散文）。
+- **知識點頁**：「本頁引用的來源」可點進來源條目頁；新增「這條結論怎麼來的」連到裁決紀錄段落（`data/vortex/decision_trail.json`）；交叉引用改標題連結。
+- **W3.2b**（`148b34e`）：「什麼是水感」改由 Vortex `Technica/水感是什麼.md` 原樣同步，`next/content/vortex/water-sense.md` 不要再手改；舊《水感指南》改研究底稿。
+- **maintenance_note 不出站**（`4602273`）：`dump_yaml()` 在任何檔、任何層級剝除。Vortex 已把公開文字裡的審查軌跡全部搬進這個欄位（W029 60→0）。
+- **文件對齊**：`VORTEX_SKELETON.md` 依現況重寫（舊版描述的是 2026-09-26 前的 techō 首頁）；`MAP.md` 局部更新 Vortex 列、mounts、踩雷 11–12；`CLAUDE.md` 修掛載路徑與來源註冊表現況；`sync_vortex.py` 一行過期註解。
+- 未做：swim-coach 的 `vendor/vortex` pin 落後於三層重構，需要時由 swim-coach 端自行更新（不代改）。
+
 ## Vortex 三層重構 W3.1–W3.3（2026-10-14）
 
 - 泳式動作 `data/vortex/{free,back,breast,fly,udk,starts-turns}.yaml` 改由 `sync_moves()` 從 canonical `moves.yaml` 生成，**不要再手改**。
