@@ -133,7 +133,11 @@ MOVEMENT_FILES = (
 # next/content/vortex/water-sense.md 呈現（尚待收回 canonical，見規劃書 W3.2）。
 ARTICLE_STEMS = {"游泳器材使用指南"}
 RETIRED_LAYERS = {"Bridge"}
-SKIP_STEMS = {"水感指南"}
+SKIP_STEMS: set[str] = set()
+# 原樣搬運的公開文章：canonical 端的 .md 已帶完整 front matter（版面已設計好），
+# sync 不重組 front matter，只整檔寫到指定位置。2026-10-14 W3.2b 起「什麼是水感」
+# 的真相源是 TheVortexProject/Technica/水感是什麼.md（原為 my-site 手寫）。
+VERBATIM_ARTICLES = {"水感是什麼": HUGO_ROOT / "next" / "content" / "vortex" / "water-sense.md"}
 PROSE_LAYERS = ("Technica", "Bridge", "Instructional")
 ARTICLE_DIR = HUGO_VORTEX / "instructional"
 DRAFT_DIR = HUGO_VORTEX / "research" / "drafts"
@@ -229,15 +233,11 @@ SLUG_MAP = {
 # 已設計成 master-detail 的頁面在此指定專屬 layout，body 由 layout 接管，
 # .Content 不再使用。sync 重跑時這裡會把 layout 欄位寫回 frontmatter，
 # 避免覆蓋掉手動設定。
-LAYOUT_MAP = {
-    "water-sense-guide": "vortex-water-sense",
-}
+LAYOUT_MAP: dict[str, str] = {}
 
 # ── 自訂標題對照（slug → title）──
 # canonical markdown 的 H1 標題若與公開站想呈現的不同，在此覆寫。
-TITLE_OVERRIDE = {
-    "water-sense-guide": "什麼是水感",
-}
+TITLE_OVERRIDE: dict[str, str] = {}
 
 # ── Stroke 偵測（從檔名關鍵字推斷） ──
 # ── CJK 折行空白 ──────────────────────────────
@@ -1149,12 +1149,24 @@ def sync_psychology(dry_run: bool):
     print(f"  寫入 {PSYCHOLOGY_DST.relative_to(HUGO_ROOT)}")
 
 
+# 任何層級出現都不出站的維護者欄位（寫給維護者的修正紀錄，會帶機器鍵與內部用語）
+INTERNAL_NOTE_KEYS = {"maintenance_note"}
+
+
+def _drop_keys(value, keys):
+    if isinstance(value, dict):
+        return {k: _drop_keys(v, keys) for k, v in value.items() if k not in keys}
+    if isinstance(value, list):
+        return [_drop_keys(v, keys) for v in value]
+    return value
+
+
 def _strip_injury(rec):
     """剝除內部 QA 層：去掉 audit（內部稽核）與 flags.pending_verification
     （未驗證數字，鐵則不進 public）。保留 flags.contested + vintage_warning
     （誠實揭露學界分歧，對公眾有教育價值）。其餘欄位皆屬公開衛教內容。
     """
-    out = {k: v for k, v in rec.items() if k != "audit"}
+    out = _drop_keys({k: v for k, v in rec.items() if k != "audit"}, INTERNAL_NOTE_KEYS)
     fl = out.get("flags")
     if isinstance(fl, dict):
         out["flags"] = {k: v for k, v in fl.items() if k != "pending_verification"}
@@ -1360,6 +1372,12 @@ def main():
             stem = src_file.stem
             rel_key = f"{layer_dir}/{src_file.name}"
             if stem in SKIP_STEMS:
+                continue
+            if stem in VERBATIM_ARTICLES:
+                dst = VERBATIM_ARTICLES[stem]
+                print(f"[ARTICLE] {rel_key} → {dst.relative_to(HUGO_ROOT)}")
+                if not dry_run:
+                    dst.write_text(src_file.read_text(encoding="utf-8"), encoding="utf-8")
                 continue
             slug = SLUG_MAP.get(stem)
             if slug is None:
