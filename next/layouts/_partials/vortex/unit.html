@@ -545,7 +545,7 @@
         {{- if gt (len .) 0 }}
         <h3>來源</h3>
         <ul class="value-ul">
-          {{- range . }}<li><code>{{ . }}</code></li>{{- end }}
+          {{- range . }}<li>{{ with index (index hugo.Data.vortex "source-registry").sources . }}{{ .display }}{{ if eq .verification_status "unverified" }}（未查證）{{ end }}{{ else }}{{ . }}{{ end }}</li>{{- end }}
         </ul>
         {{- end }}
       {{- end }}
@@ -554,7 +554,7 @@
         {{- if gt (len .) 0 }}
         <h3>來源</h3>
         <ul class="value-ul">
-          {{- range . }}<li><code>{{ . }}</code></li>{{- end }}
+          {{- range . }}<li>{{ with index (index hugo.Data.vortex "source-registry").sources . }}{{ .display }}{{ if eq .verification_status "unverified" }}（未查證）{{ end }}{{ else }}{{ . }}{{ end }}</li>{{- end }}
         </ul>
         {{- end }}
       {{- end }}

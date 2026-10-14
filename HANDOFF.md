@@ -1,5 +1,12 @@
 # HANDOFF — my-site (Cortex)
 
+## Vortex 三層重構 Phase 1：來源改顯示書目（2026-10-14）
+
+- 規劃書在 TheVortexProject `plans/三層重構與全庫檢查_2026-10-14.md`。網站會分成知識／應用／研究庫三個入口；Phase 4 才動版面。
+- 這輪只修一個公開缺陷：drill 頁與心理概念頁「證據與來源」原本把 `src.*` 機器鍵用 `<code>` 印出（225 頁）。`unit.html` 改從 `data/vortex/source-registry.yaml` 取 `display`，`unverified` 的來源加註「（未查證）」，查不到 id 時 fallback 印 id。
+- 「交叉引用」仍印 ID（如 `back.tech.3`），留到 Phase 4.3 改成標題連結。
+- 驗收：22 specs PASS、121 舊網址對應。
+
 ## 課表工具：器材技術準備、期內負荷節律、水下海豚腿段（2026-10-13）
 
 - 起因：使用者盤點「推薦課表會不會因週期不同而不同、特殊訓練（阻力傘、牽引繩、閉氣、轉身、出發）怎麼排」。盤點結論：週期本來就有（賽事日期→五期→各期品質課），但同一期每週相同、器材只是標記、出發轉身沒有位置。本輪補三項；swim-coach 的 `generate_menu.py` 是舊版，已不是課表入口。
