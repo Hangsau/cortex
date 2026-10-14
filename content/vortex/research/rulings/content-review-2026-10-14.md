@@ -520,3 +520,11 @@ W022 7 → 0。逐筆讀原文（PubMed efetch／Europe PMC／BMS、BISp 文獻�
   - ScFist、ScUW1 的「Counsilman …傳統」只有人名、沒有著作，屬高風險人名歸因。改成通行寫法，兩筆來源轉墓碑。
 - 駁回：abc_type（同前）；Sc1／Sc5／ScFist 的 perception_goal 只是描述感受，不算規定讀者；Lepinski 書名拼法無誤，registry 有 ISBN。
 - W002 因為無出處署名增加，與 UDK2／UDK5 先例同屬刻意狀態。
+
+**freestyle 第 2–3 塊（10 條：修 5／駁回 5，對照本機 Race Club 原書）**
+- 修：
+  - FrEL4：原書標題 "High-elbow sculling drill with snorkel, small paddles and fins"。蛙鞋和 `no_kick` 矛盾，拿掉 no_kick，how_to 補「蛙鞋輕踢維持身體水平」。
+  - FrEL5：.2–.3 秒屬實（Ch 7："The hip rotation occurs .2-.3 seconds after the shoulder rotation"）。「菁英推進的核心」改成原書說法「加強後段推水」；how_to 不再要求「感覺 0.2 秒」，改抓先後順序。
+  - FrEL6：原書 Ch 6 只列標題 "Over the Wave, Under the Wave"，位在 hybrid 練習清單。「獨家」「菁英 sprinter 的方法」「通常在波中間」都不在原書，已改寫。
+  - FrEL8：原書列在 hip-driven 練習清單；書中說 hip-driven 是長距離技術，但多數菁英女子 50–1500 都用 shoulder-driven。「菁英 800/1500 訓練核心」過度宣稱，已改寫並補原書練習名。
+- 駁回：abc_type（同前）；L6 是合法 L 級；FrEL8 已標 `difficulty_tier: elite`；`-c` 是穩定鍵命名，不改；FrEL8 perception_goal 只是描述感受。
