@@ -413,3 +413,11 @@ draft: false
   - claim_status 的分級細節：屬既有 W 系列裁決的範圍。
   - safety_note 措辭差異。
   - USA Swimming 101.6.3 規則引文：本條已明示是 USA Swimming 規則、World Aquatics 沒有對應條文。
+
+### 2.4 problems（Claude）
+
+- 3 塊 6 條全部駁回或不改：
+  - cross_ref 列的是相連誤區的「錯誤想法」標題，這是設計。
+  - udk 出水連到 starts-turns.tech.34：該條內容正是最後一踢銜接第一划。
+  - pullout-wait 的機制欄空白：E 組的設計是如實標出缺口，不硬補；網頁也不會印出空標題。
+- **順帶修（跨檔）**：technical-analysis 的 starts-turns 姿勢差異條，標題與摘要寫「蛙式不用 UDK」，與 2.3 已修正的 moves 同一規則錯誤，一併改為「不做連續水下海豚腿，規則允許一次蝶腳」。順手把簡體字「单次」改成「一次」。
