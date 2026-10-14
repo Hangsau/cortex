@@ -363,12 +363,7 @@
   "src.colman-1998-a": {
    "slug": "colman-1998-a",
    "units": [
-    "breast.L4.undulation"
-   ]
-  },
-  "src.colman-1998-b": {
-   "slug": "colman-1998-b",
-   "units": [
+    "breast.L4.undulation",
     "breast.tech.17",
     "breast.tech.19"
    ]
@@ -1445,13 +1440,8 @@
   "src.mason-1992-a": {
    "slug": "mason-1992-a",
    "units": [
-    "fly.L5.two-kick-differentiation"
-   ]
-  },
-  "src.mason-1992-b": {
-   "slug": "mason-1992-b",
-   "units": [
     "fly.L4.second-kick",
+    "fly.L5.two-kick-differentiation",
     "fly.tech.11"
    ]
   },
@@ -2119,13 +2109,6 @@
     "starts-turns.tech.46"
    ]
   },
-  "src.peyrebrune-2007": {
-   "slug": "peyrebrune-2007",
-   "units": [
-    "fly.L4.outsweep",
-    "fly.tech.12"
-   ]
-  },
   "src.piatrikova-2018-3min-all-out-cs": {
    "slug": "piatrikova-2018-3min-all-out-cs",
    "units": [
@@ -2178,7 +2161,6 @@
   "src.pmc-2018": {
    "slug": "pmc-2018",
    "units": [
-    "fly.L2.kick",
     "fly.L3.two-kick-timing"
    ]
   },
@@ -3134,7 +3116,6 @@
   "src.statpearls-2023": {
    "slug": "statpearls-2023",
    "units": [
-    "free.L5.serratus",
     "free.tech.10",
     "movement.intervention.scapular-upward-rotation.serratus-endurance"
    ]
@@ -4614,10 +4595,10 @@
    "src.colman-1998-a"
   ],
   "breast.tech.17": [
-   "src.colman-1998-b"
+   "src.colman-1998-a"
   ],
   "breast.tech.19": [
-   "src.colman-1998-b",
+   "src.colman-1998-a",
    "src.sanders-1998"
   ],
   "psych.motivation.bpn_triad": [
@@ -5246,8 +5227,7 @@
    "src.yoris-2015-interoceptive-panic"
   ],
   "fly.tech.12": [
-   "src.kudo-2014",
-   "src.peyrebrune-2007"
+   "src.kudo-2014"
   ],
   "psych.fear.diving_reflex_calm": [
    "src.kyriakoulis-2021-diving-response-panic",
@@ -5344,15 +5324,15 @@
   "movement.demand.starts-turns.underwater-glide.shoulder-elevation": [
    "src.martens-2015"
   ],
+  "fly.L4.second-kick": [
+   "src.mason-1992-a"
+  ],
   "fly.L5.two-kick-differentiation": [
    "src.mason-1992-a",
    "src.swim-like-a-fish-2025"
   ],
-  "fly.L4.second-kick": [
-   "src.mason-1992-b"
-  ],
   "fly.tech.11": [
-   "src.mason-1992-b"
+   "src.mason-1992-a"
   ],
   "psych.arousal.reinvestment": [
    "src.masters-1992-knowledge-knerves",
@@ -5855,9 +5835,6 @@
    "src.pereira-2018",
    "src.pmc10813451"
   ],
-  "fly.L4.outsweep": [
-   "src.peyrebrune-2007"
-  ],
   "periodization.set_design.anchors": [
    "src.piatrikova-2018-3min-all-out-cs",
    "src.scott-2024-css-stroke-specific-reliability",
@@ -5869,8 +5846,7 @@
    "src.pink"
   ],
   "free.L5.serratus": [
-   "src.pink-1991-a",
-   "src.statpearls-2023"
+   "src.pink-1991-a"
   ],
   "free.tech.10": [
    "src.pink-1991-b",
@@ -5897,9 +5873,6 @@
   ],
   "udk.tech.3": [
    "src.pla-2021"
-  ],
-  "fly.L2.kick": [
-   "src.pmc-2018"
   ],
   "fly.L3.two-kick-timing": [
    "src.pmc-2018"

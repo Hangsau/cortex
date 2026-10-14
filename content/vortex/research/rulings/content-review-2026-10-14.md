@@ -467,3 +467,13 @@ W022 7 → 0。逐筆讀原文（PubMed efetch／Europe PMC／BMS、BISp 文獻�
   - Balban、Blades、co2 表的數字：本文已有完整來源與數字，gist 是摘要。
   - L2 兩側換氣當所有人終點：分級軸講的是感知建立的順序，沒有說每個人都必須走到 L2。
   - development_stages 缺成人：taxonomy 的 stage 詞彙是 ADM 青少年發展階段，沒有成人值可加；族群限制已寫在 caveat_zh。
+
+### 2.8 公開正文審查軌跡清理（codex＋Claude，2026-10-14 晚）
+
+- W029 60 → 0。codex 清 5 檔 54 處（teaching-errors 17、technical-analysis 29、dryland 3、set-design 1、zones 4），l-indicators 6 處由 Claude 在 2.7 一併處理。逐處原句／新句在 `codex紀錄/2.8_軌跡清理.md`。
+- 驗收（Claude）：validate 0 ERROR；舊新 YAML 逐鍵比對，5 檔零鍵遺失、零新增公開鍵，maintenance_note 全在 public 外（程式檢查）；縮減超過一半的 6 個欄位逐一讀過，刪掉的都只是括號裡的修訂史，數字與限定都還在。
+
+### 2.7 延伸：重複登錄合併（Claude）
+
+- `src.mason-1992-b`、`src.colman-1998-b` 與重建後的 -a 是同一篇（technical-analysis 引用的五峰值數字、flat／undulating 比較與 -a 相同），引用全改掛 -a，-b 轉墓碑（照 2026-09-06 McCullough 合併的慣例）。
+- technical-analysis fly.tech.12 的「疲勞時外划方向偏移」（🟢，Peyrebrune & Turner 2007）撤下，`src.peyrebrune-2007` 零引用、查無此篇，轉墓碑擋重新引用。
