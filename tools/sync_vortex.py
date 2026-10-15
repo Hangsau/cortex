@@ -590,7 +590,7 @@ def save_state(state: dict):
 
 
 def sync_drills(dry_run: bool):
-    """讀 5 個 canonical drills_*.yaml，依 stroke 順序合併成 my-site 單檔 drills.yaml。
+    """讀 DRILL_STROKES 的 canonical drills_*.yaml，依順序合併成 my-site 單檔 drills.yaml。
 
     canonical 是 single source of truth；本函式只搬運，不改內容。
     輸出沿用 my-site 既有 block-style（PyYAML 預設 block dump 即對齊），
@@ -757,7 +757,8 @@ def problem_source_targets():
 def sync_moves(dry_run: bool):
     """canonical moves.yaml → data/vortex/<stroke>.yaml，欄位白名單、形狀與遷入前相同。
 
-    `id` 與 `links` 是 canonical 端給驗證器用的鍵，不出站；版型以 `n` 與 drill 中文名運作。
+    保留既有 drills 中文名；只有 links.drills 的新動作將 ID 清單轉入 drills，
+    由 build_vortex_links 解析。其餘 id／links 不出站。
     """
     if not MOVES_SRC.exists():
         print("  [skip] canonical 尚無 moves.yaml，保留現有 data/vortex/<stroke>.yaml")
@@ -765,9 +766,15 @@ def sync_moves(dry_run: bool):
     data = yaml.safe_load(MOVES_SRC.read_text(encoding="utf-8"))
     print(f"=== 泳式動作：{sum(len(s['moves']) for s in data['strokes'])} 筆 ===")
     for entry in data["strokes"]:
+        moves = []
+        for move in entry["moves"]:
+            record = {k: move[k] for k in MOVE_FIELDS if k in move}
+            if not record.get("drills") and (move.get("links") or {}).get("drills"):
+                record["drills"] = move["links"]["drills"]
+            moves.append(record)
         out = {
             "premise": entry["premise"],
-            "moves": [{k: m[k] for k in MOVE_FIELDS if k in m} for m in entry["moves"]],
+            "moves": moves,
         }
         dst = HUGO_ROOT / "data" / "vortex" / f"{entry['stroke']}.yaml"
         print(f"  {entry['stroke']:13s} {len(out['moves'])}")

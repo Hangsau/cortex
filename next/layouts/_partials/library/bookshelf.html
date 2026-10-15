@@ -36,7 +36,7 @@
   <section class="bs-vortex series-vortex" aria-labelledby="bs-v">
     <p class="kicker">主要研究</p>
     <h2 id="bs-v" class="bs-v-title"><a href="{{ relURL "vortex/" }}">Vortex 水感</a></h2>
-    <p class="bs-v-lead">技術是水感的輸出，不是要照抄的動作。六種泳式拆成一個個動作，每個動作都接到怎麼練、常見的錯誤想法、背後的物理，以及練不起來時該看哪裡。</p>
+    <p class="bs-v-lead">技術是水感的輸出，不是要照抄的動作。七項游泳技能拆成一個個動作，每個動作都接到怎麼練、常見的錯誤想法、背後的物理，以及練不起來時該看哪裡。</p>
     <p class="bs-stats">
       <span><b>{{ index $vc "move" }}</b> 個動作</span>
       <span><b>{{ index $vc "drill" }}</b> 個練習</span>
@@ -44,9 +44,9 @@
       <span><b>{{ index $vc "tech" }}</b> 條技術分析</span>
       <span><b>{{ lang.FormatNumber 0 $vl }}</b> 條知識連結</span>
     </p>
-    <nav class="bs-v-strokes" aria-label="六種泳式">
-      {{- range slice "free" "back" "breast" "fly" "udk" "starts-turns" }}
-      <a href="{{ relURL (printf "vortex/%s/" .) }}">{{ (index $v.strokes .).name_zh }}</a>
+    <nav class="bs-v-strokes" aria-label="七項游泳技能">
+      {{- range slice "free" "back" "breast" "fly" "udk" "starts-turns" "open-water" }}
+      <a href="{{ relURL (printf "vortex/%s/" .) }}">{{ (index $v.strokes .).nav_zh | default (index $v.strokes .).name_zh }}</a>
       {{- end }}
     </nav>
     <p><a class="bs-go" href="{{ relURL "vortex/" }}">進入 Vortex 水感 →</a></p>

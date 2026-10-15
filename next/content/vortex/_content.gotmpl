@@ -2,7 +2,7 @@
   Vortex 知識點頁 content adapter（W4）。
   從 hugo.Data.vortex_links 讀索引，建立：
     - 8 個集合清單頁（kind=section，role=list）
-    - 6 個泳式樞紐頁（kind=page，role=stroke）
+    - 7 個技能樞紐頁（kind=page，role=stroke）
     - 全部知識點頁（kind=page，role=unit）
 */ -}}
 {{- $links := hugo.Data.vortex_links -}}
@@ -27,7 +27,7 @@
   ) }}
 {{- end }}
 
-{{- /* 泳式樞紐頁（6 個） */ -}}
+{{- /* 技能樞紐頁（7 個，依索引生成） */ -}}
 {{- range $stroke, $meta := $links.strokes }}
 {{- $.AddPage (dict
     "path"   $stroke

@@ -45,18 +45,18 @@ CSS／JS 一律放 `next/assets/`，在版型中用 `resources.Get` 取得並 `|
 ## Vortex 資料（`data/vortex/*.yaml`，唯讀）
 | 單位 type | 來源 | id | 標題欄 | 數量 |
 |---|---|---|---|---|
-| move | `free.yaml back.yaml breast.yaml fly.yaml udk.yaml starts-turns.yaml` 的 `moves[]`（欄位 n,name,one,l,physical,boundary,drills,lnote,cue_bad,cue_why,cue_good）；頂層 `premise` 是該式導言字串 | `{stroke}.move.{n}`，stroke＝檔名去 .yaml | name | 51 |
-| drill | `drills.yaml` 的 `drills[]`（id,name_zh,name_en,strokes,category,equipment,l_target,purpose_zh,how_to,perception_goal,success_signal,failure_signal,deficiency_fixes,difficulty_tier,source_ids…）；`categories[]` 有 key,name_zh | id（如 `Fr1`） | name_zh | 179 |
-| tech | `technical-analysis.yaml` 的 `points[]`（id,stroke,category,title,nav_zh,summary,mechanism,practical_implication,perception_signal,evidence,cross_ref_ids）；`categories[]` | id（如 `free.tech.4`） | nav_zh 優先，否則 title | 222 |
+| move | `free.yaml back.yaml breast.yaml fly.yaml udk.yaml starts-turns.yaml open-water.yaml` 的 `moves[]`（欄位 n,name,one,l,physical,boundary,drills,lnote,cue_bad,cue_why,cue_good）；頂層 `premise` 是該式導言字串 | `{stroke}.move.{n}`，stroke＝檔名去 .yaml | name | 66 |
+| drill | `drills.yaml` 的 `drills[]`（id,name_zh,name_en,strokes,category,equipment,l_target,purpose_zh,how_to,perception_goal,success_signal,failure_signal,deficiency_fixes,difficulty_tier,source_ids…）；`categories[]` 有 key,name_zh | id（如 `Fr1`） | name_zh | 214 |
+| tech | `technical-analysis.yaml` 的 `points[]`（id,stroke,category,title,nav_zh,summary,mechanism,practical_implication,perception_signal,evidence,cross_ref_ids）；`categories[]` | id（如 `free.tech.4`） | nav_zh 優先，否則 title | 252 |
 | error | `teaching-errors.yaml` 的 `errors[]`（id,stroke,category,title,misconception,physical_reason,correct_concept,perception_impact,evidence,cross_ref_ids）；`categories[]` | id（如 `free.err1`） | title | 104 |
-| problem | `problems.yaml` 的 `problems[]`（id,stroke,category,title,observable,mechanism_summary,links{technical_analysis[],drills[],interventions[],water_interventions[]},cross_ref_ids）；`categories[]` | id | title | 73 |
+| problem | `problems.yaml` 的 `problems[]`（id,stroke,category,title,observable,mechanism_summary,links{technical_analysis[],drills[],interventions[],water_interventions[]},cross_ref_ids）；`categories[]` | id | title | 84 |
 | injury | `injuries.yaml` 的 `injuries[]`（id,zh,en,category,mechanism,epidemiology,risk_factors,prevention,management,links{mechanism_link_ids,technical_link_ids,perception_link_ids},…）；`categories[]` | id | zh | 47 |
 | level | `water-sense-levels.yaml` 的 `levels[]`（id,stroke,level,name_zh,tagline,description,indicators,methods[{name,detail,cue}],stagnation,milestone） | id（如 `free.L0`、`breast.pre`） | name_zh | 26 |
 | psy | `psychology.yaml` 的 `themes[]`（id,name_zh,nav_zh,when_zh,lead_zh,premise,concepts[]） | id（如 `psych.fear`） | name_zh | 8 |
 | psyc | 上述每個 theme 的 `concepts[]`（id,name_zh,phenomenon,misconception_refs[{cue,why,better}],intervention_refs[{name,certainty,how_to}],l_levels） | id | name_zh | 62 |
 
-泳式 key 與中文名：`free` 自由式、`back` 仰式、`breast` 蛙式、`fly` 蝶式、`udk` 水下海豚腿、`starts-turns` 出發與轉身。
-drill 的 `strokes` 用另一套值：`freestyle→free`、`backstroke→back`、`breaststroke→breast`、`butterfly→fly`、`underwater_dolphin_kick→udk`、`starts_turns→starts-turns`。
+泳式 key 與中文名：`free` 自由式、`back` 仰式、`breast` 蛙式、`fly` 蝶式、`udk` 水下海豚腿、`starts-turns` 出發與轉身、`open-water` 開放水域與鐵人（短導航「開放水域」）。
+drill 的 `strokes` 用另一套值：`freestyle→free`、`backstroke→back`、`breaststroke→breast`、`butterfly→fly`、`underwater_dolphin_kick→udk`、`starts_turns→starts-turns`、`open_water→open-water`。
 
 ## 網址規則（W1 算好寫進 JSON，其他單照用）
 | type | 路徑（相對站根，不含 baseURL） |

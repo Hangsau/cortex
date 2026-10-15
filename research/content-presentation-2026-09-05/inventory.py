@@ -94,7 +94,7 @@ counts = {
     "teaching_errors": len(documents["data/vortex/teaching-errors.yaml"]["errors"]),
     "injuries": len(documents["data/vortex/injuries.yaml"]["injuries"]),
     "stroke_moves": sum(len(documents[f"data/vortex/{s}.yaml"]["moves"])
-                        for s in ("free", "back", "breast", "fly", "udk", "starts-turns")),
+                        for s in ("free", "back", "breast", "fly", "udk", "starts-turns", "open-water")),
     "movement": {name: len(documents[f"data/movement/{name}.yaml"][key])
                  for name, key in movement_keys.items()},
     "mnfl_techniques": sum(len(t["techniques"]) for t in documents["data/mnfl/techniques.yaml"]["themes"]),

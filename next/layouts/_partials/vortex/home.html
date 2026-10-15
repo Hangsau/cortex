@@ -1,8 +1,8 @@
-{{- /* Vortex 首頁（Claude 手寫；2026-10-14 三層重構改骨架）：大標題 → 三個入口（知識／應用／研究庫）→ 六式 → 反直覺誤區 → L0–L6 階梯。
+{{- /* Vortex 首頁（Claude 手寫；2026-10-14 三層重構改骨架）：大標題 → 三個入口（知識／應用／研究庫）→ 七項技能 → 反直覺誤區 → L0–L6 階梯。
      原「主題與長期規劃」「直接查找」兩段併入三入口，不再各自成段。 */ -}}
 {{- $d := hugo.Data.vortex_links -}}
-{{- $order := slice "free" "back" "breast" "fly" "udk" "starts-turns" -}}
-{{- $long := dict "free" "freestyle" "back" "backstroke" "breast" "breaststroke" "fly" "butterfly" "udk" "underwater_dolphin_kick" "starts-turns" "starts_turns" -}}
+{{- $order := slice "free" "back" "breast" "fly" "udk" "starts-turns" "open-water" -}}
+{{- $long := dict "free" "freestyle" "back" "backstroke" "breast" "breaststroke" "fly" "butterfly" "udk" "underwater_dolphin_kick" "starts-turns" "starts_turns" "open-water" "open_water" -}}
 {{- $cnt := dict -}}
 {{- $errBy := dict -}}
 {{- range $id, $u := $d.units -}}
@@ -17,7 +17,7 @@
   <header class="vh-hero">
     <p class="kicker">VORTEX · 水感知識庫</p>
     <h1 class="vh-title">水感</h1>
-    <p class="vh-lead">技術是水感的輸出，不是要照抄的動作。這裡把六種泳式拆成一個個動作，每個動作都接到怎麼練、常見的錯誤想法、背後的物理，以及練不起來時該看哪裡。</p>
+    <p class="vh-lead">技術是水感的輸出，不是要照抄的動作。這裡把七項游泳技能拆成一個個動作，每個動作都接到怎麼練、常見的錯誤想法、背後的物理，以及練不起來時該看哪裡。</p>
     <p><a class="vh-more" href="{{ relURL "vortex/water-sense/" }}">第一次來？先讀：什麼是水感 →</a></p>
     <p class="vh-stats">
       <span><b>{{ index $cnt "move" }}</b> 個動作</span>
@@ -33,9 +33,9 @@
     <div class="vh-layers">
       <div class="vh-layer">
         <p class="vh-layer-name">知識</p>
-        <p class="vh-layer-d">整理好的知識點：六種泳式拆成一個個動作，每個動作接到練法、誤區與背後的物理。</p>
+        <p class="vh-layer-d">整理好的知識點：七項游泳技能拆成一個個動作，每個動作接到練法、誤區與背後的物理。</p>
         <ul>
-          <li><a href="#vh-strokes">從一種泳式開始</a></li>
+          <li><a href="#vh-strokes">從一項技能開始</a></li>
           <li><a href="{{ relURL "vortex/levels/" }}">水感發展地圖 L0–L6</a></li>
           <li><a href="{{ relURL "vortex/breathing/" }}">呼吸</a>・<a href="{{ relURL "vortex/psychology/" }}">心理層</a>・<a href="{{ relURL "vortex/joints/" }}">骨關節</a></li>
           <li><a href="{{ relURL "vortex/drills/" }}">{{ index $cnt "drill" }} 個練習</a>・<a href="{{ relURL "vortex/tech/" }}">技術分析</a>・<a href="{{ relURL "vortex/injuries/" }}">運動傷害</a></li>
@@ -65,7 +65,7 @@
   </section>
 
   <section class="vh-sec" aria-labelledby="vh-strokes">
-    <h2 id="vh-strokes">從一種泳式開始</h2>
+    <h2 id="vh-strokes">從一項技能開始</h2>
     <div class="vh-strokes">
     {{- range $order }}
       {{- $k := . }}

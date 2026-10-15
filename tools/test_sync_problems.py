@@ -56,7 +56,7 @@ class PublicProjection(unittest.TestCase):
     def test_real_full_source(self):
         doc = yaml.safe_load(sync.PROBLEMS_SRC.read_text(encoding="utf-8"))
         result = sync.problem_public_data(doc)
-        self.assertEqual(len(result["problems"]), 73)
+        self.assertEqual(len(result["problems"]), 84)
         self.assertEqual({r["id"] for r in doc["problems"]}, {r["id"] for r in result["problems"]})
         targets = sync.problem_source_targets()
         for entry in result["problems"]:

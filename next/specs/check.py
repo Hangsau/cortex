@@ -1,6 +1,7 @@
 """新版預覽站逐工作單驗收（Claude 撰寫；M3 不准修改本檔）。
 
 用法：python -X utf8 next/specs/check.py W1|W3|W4|W5|W6|W7|W8
+不帶參數時依序執行全部 W 工作單。
 全部通過印 PASS 並 exit 0；否則列出失敗項並 exit 1。
 """
 import html
@@ -15,15 +16,16 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / "public"  # 2026-09-26 正式切換後，新版即正式站
+_BUILD_DIR = tempfile.TemporaryDirectory(prefix="my-site-check-")
+OUT = Path(_BUILD_DIR.name) / "cortex"  # 驗收隔離，不清掉或覆寫 public/
 LINKS = ROOT / "next" / "data" / "vortex_links.json"
 FAILS = []
 
 SEG = {"move": "moves", "drill": "drills", "tech": "tech", "error": "errors",
        "problem": "problems", "injury": "injuries", "level": "levels", "psy": "mind", "psyc": "mind"}
-EXPECT = {"move": 51, "drill": 179, "tech": 222, "error": 104, "problem": 73,
+EXPECT = {"move": 66, "drill": 214, "tech": 252, "error": 104, "problem": 84,
           "injury": 47, "level": 26, "psy": 8, "psyc": 62}
-STROKES = ["free", "back", "breast", "fly", "udk", "starts-turns"]
+STROKES = ["free", "back", "breast", "fly", "udk", "starts-turns", "open-water"]
 LISTS = ["drills", "tech", "errors", "problems", "injuries", "levels", "mind", "moves"]
 
 
@@ -41,7 +43,8 @@ def run(cmd, timeout=600):
 def build_next():
     if OUT.exists():
         shutil.rmtree(OUT)
-    proc, secs = run(["hugo", "--minify"])
+    proc, secs = run(["hugo", "--minify", "-d", str(OUT),
+                      "--baseURL", "http://127.0.0.1:1319/cortex/"])
     if proc.returncode != 0:
         out = "\n".join(l for l in (proc.stdout + proc.stderr).splitlines() if not l.startswith("WARN"))
         fail(f"hugo next 建置失敗（exit {proc.returncode}）：\n{out[-4000:]}")
@@ -51,7 +54,7 @@ def build_next():
 def page(rel):
     p = OUT / rel / "index.html"
     if not p.exists():
-        fail(f"缺頁面：public/next/{rel}/index.html")
+        fail(f"缺頁面：{p}")
         return ""
     return p.read_text(encoding="utf-8")
 
@@ -103,8 +106,8 @@ def w1():
         if counts.get(t) != n:
             fail(f"units type={t} 數量 {counts.get(t)} ≠ {n}")
     practice = sum(1 for es in d["out"].values() for e in es if e["rel"] == "practice")
-    if practice != 103:
-        fail(f"practice 邊 {practice} ≠ 103")
+    if practice != 126:
+        fail(f"practice 邊 {practice} ≠ 126")
 
 
 def w3():
@@ -193,8 +196,18 @@ def w6():
             if d["units"][mid]["path"] not in doc:
                 fail(f"vortex/{s} 缺動作連結 {mid}")
         for t in ["error", "tech"]:
-            if not any(u["path"] in doc for u in d["units"].values() if u["type"] == t and u["stroke"] == s):
+            entries = [u for u in d["units"].values() if u["type"] == t and u["stroke"] == s]
+            if entries and not any(u["path"] in doc for u in entries):
                 fail(f"vortex/{s} 沒有任何 {t} 連結")
+        if s == "open-water":
+            if "開放水域與鐵人" not in text_of(doc) or "開放水域沒有牆、沒有池底線" not in text_of(doc):
+                fail("open-water 缺全名或 premise")
+            if "stroke-errors" in doc or "stroke-levels" in doc:
+                fail("open-water 不應出現空的誤區／L 級區塊")
+        for uid, u in d["units"].items():
+            if u["type"] == "drill" and s.replace("-", "_") in u["record"].get("strokes", []):
+                if u["path"] not in doc:
+                    fail(f"vortex/{s} 缺練習連結 {uid}")
     global_checks()
 
 
@@ -694,14 +707,19 @@ def p4():
 
 
 if __name__ == "__main__":
-    step = (sys.argv[1] if len(sys.argv) > 1 else "").upper()
-    fn = {"P4": p4, "L1": l1, "L3": l3, "L4": l4, "L5": l5, "V2": v2, "V3": v3, "V4": v4, "V5": v5, "V6": v6, "V7": v7, "T1": t1, "T2": t2, "T3": t3, "T4": t4, "W1": w1, "W3": w3, "W4": w4, "W5": w5, "W6": w6, "W7": w7, "W8": w8}.get(step)
-    if not fn:
-        sys.exit("用法：check.py L1|W1|W3|W4|W5|W6|W7|W8")
-    fn()
-    if FAILS:
-        print(f"FAIL {step}（{len(FAILS)} 項）")
-        for m in FAILS[:60]:
-            print(" -", m)
-        sys.exit(1)
-    print(f"PASS {step}")
+    steps = [sys.argv[1].upper()] if len(sys.argv) > 1 else ["W1", "W3", "W4", "W5", "W6", "W7", "W8"]
+    checks = {"P4": p4, "L1": l1, "L3": l3, "L4": l4, "L5": l5, "V2": v2, "V3": v3, "V4": v4, "V5": v5, "V6": v6, "V7": v7, "T1": t1, "T2": t2, "T3": t3, "T4": t4, "W1": w1, "W3": w3, "W4": w4, "W5": w5, "W6": w6, "W7": w7, "W8": w8}
+    for step in steps:
+        fn = checks.get(step)
+        if not fn:
+            sys.exit("用法：check.py [P4|L1|L3–L5|V2–V7|T1–T4|W1|W3–W8]；無參數跑全部 W")
+        previous = len(FAILS)
+        fn()
+        failures = FAILS[previous:]
+        if failures:
+            print(f"FAIL {step}（{len(failures)} 項）")
+            for m in failures[:60]:
+                print(" -", m)
+        else:
+            print(f"PASS {step}")
+    sys.exit(1 if FAILS else 0)

@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "vortex"
 OUT = ROOT / "next" / "data" / "vortex_links.json"
 
-MOVE_FILES = ["free", "back", "breast", "fly", "udk", "starts-turns"]
+MOVE_FILES = ["free", "back", "breast", "fly", "udk", "starts-turns", "open-water"]
 SEG = {"move": "moves", "drill": "drills", "tech": "tech", "error": "errors",
        "problem": "problems", "injury": "injuries", "level": "levels",
        "psy": "mind", "psyc": "mind"}
@@ -30,10 +30,11 @@ DRILL_STROKE_MAP = {
     "butterfly": "fly",
     "underwater_dolphin_kick": "udk",
     "starts_turns": "starts-turns",
+    "open_water": "open-water",
 }
 
 # strokes that have no levels
-NO_LEVEL_STROKES = {"udk", "starts-turns"}
+NO_LEVEL_STROKES = {"udk", "starts-turns", "open-water"}
 
 # strokes where L0/L1 are absent
 L0L1_MISSING = {"breast", "fly"}
@@ -218,10 +219,13 @@ def main():
             "name_zh": {
                 "free": "自由式", "back": "仰式", "breast": "蛙式",
                 "fly": "蝶式", "udk": "水下海豚腿", "starts-turns": "出發與轉身",
+                "open-water": "開放水域與鐵人",
             }[stroke],
             "premise": premise,
             "moves": move_ids,
         }
+        if stroke == "open-water":
+            strokes_meta[stroke]["nav_zh"] = "開放水域"
 
     # ---------- drill ----------
     yd = load_yaml(DATA / "drills.yaml")
@@ -390,7 +394,7 @@ def main():
             _add_edge(out_edges, in_edges, cuid, uid, "part_of")
 
     # ---------- edges ----------
-    # practice: move -> drill (by name)
+    # practice: move -> drill (exact ID, then legacy Chinese name)
     for stroke in MOVE_FILES:
         yd = load_yaml(DATA / f"{stroke}.yaml")
         for mv in yd.get("moves", []):
@@ -399,6 +403,9 @@ def main():
             drill_names = mv.get("drills") or []
             for dname in drill_names:
                 if not isinstance(dname, str):
+                    continue
+                if units.get(dname, {}).get("type") == "drill":
+                    _add_edge(out_edges, in_edges, from_id, dname, "practice")
                     continue
                 candidates = name_to_drills.get(dname, [])
                 if not candidates:

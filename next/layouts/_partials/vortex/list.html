@@ -15,14 +15,15 @@
   "fly" "蝶式"
   "udk" "水下海豚腿"
   "starts-turns" "出發與轉身"
+  "open-water" "開放水域"
 -}}
 
 {{- $css := resources.Get "css/list.css" | fingerprint -}}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
 
 {{- /* 收集該類型的所有項目，依 stroke 與 id 排序；psy 另處理 */ -}}
-{{- $strokeOrder := slice "free" "back" "breast" "fly" "udk" "starts-turns" -}}
-{{- $strokePos := dict "free" 0 "back" 1 "breast" 2 "fly" 3 "udk" 4 "starts-turns" 5 -}}
+{{- $strokeOrder := slice "free" "back" "breast" "fly" "udk" "starts-turns" "open-water" -}}
+{{- $strokePos := dict "free" 0 "back" 1 "breast" 2 "fly" 3 "udk" 4 "starts-turns" 5 "open-water" 6 -}}
 
 {{- /* drill 的 strokes（資料）→ 內部 key；多值用空白串接成 data-stroke */ -}}
 {{- $strokeToKey := dict
@@ -32,6 +33,7 @@
   "butterfly" "fly"
   "underwater_dolphin_kick" "udk"
   "starts_turns" "starts-turns"
+  "open_water" "open-water"
 -}}
 
 {{- /* 統計該類型實際出現的泳式與類別 */ -}}
@@ -82,15 +84,23 @@
   {{- range $uid, $u := $units -}}
     {{- if eq $u.type $type -}}
       {{- $strokeKey := $u.stroke -}}
-      {{- $pos := -1 -}}
-      {{- if $strokeKey -}}
-        {{- $pos = index $strokePos $strokeKey | default -1 -}}
+      {{- $pos := len $strokeOrder -}}
+      {{- if isset $strokePos $strokeKey -}}
+        {{- $pos = index $strokePos $strokeKey -}}
       {{- end -}}
-      {{- $typed = $typed | append (dict "uid" $uid "stroke" $strokeKey "pos" $pos "category" $u.category_name) -}}
+      {{- if eq $type "drill" -}}
+        {{- range $u.record.strokes -}}
+          {{- $key := index $strokeToKey . | default . -}}
+          {{- if isset $strokePos $key -}}
+            {{- $candidate := index $strokePos $key -}}
+            {{- if lt $candidate $pos -}}{{- $pos = $candidate -}}{{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+      {{- $typed = $typed | append (dict "uid" $uid "stroke" $strokeKey "sortKey" (printf "%v:%s" $pos $uid) "category" $u.category_name) -}}
     {{- end -}}
   {{- end -}}
-  {{- $typed = sort $typed "pos" "asc" -}}
-  {{- $typed = sort $typed "uid" "asc" -}}
+  {{- $typed = sort $typed "sortKey" "asc" -}}
   {{- range $t := $typed -}}
     {{- $items = $items | append (dict "uid" $t.uid "stroke" $t.stroke "category" $t.category "equip" "" "indent" 0) -}}
   {{- end -}}

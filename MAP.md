@@ -54,7 +54,7 @@ deploy：push `hugo-source` → GitHub Actions 跑資料產生器後 `hugo --min
 - `next/layouts/_partials/library/series-of.html`：依網址前綴找出所屬書房系列（決定系列色與左側目錄）
 
 ### 頁面來源（content adapters）
-- `next/content/vortex/_content.gotmpl`：Vortex 知識點頁、6 泳式頁、清單頁、研究庫來源條目頁（613 筆）
+- `next/content/vortex/_content.gotmpl`：Vortex 知識點頁、7 技能頁、清單頁、研究庫來源條目頁（613 筆）
 - `next/content/library/essentials-of-strength-training/_content.gotmpl`：24 章＋概念索引
 - `next/content/library/{mind-for-numbers,uncommon-sense-teaching}/_content.gotmpl`、`next/content/temperament/_content.gotmpl`
 
@@ -69,7 +69,7 @@ deploy：push `hugo-source` → GitHub Actions 跑資料產生器後 `hugo --min
 
 ## 4. 踩雷點 / 非顯而易見處
 
-1. **`hugo server` 會把頁面寫進 `public/`，和 `check.py` 的建置互相清掉**：看畫面請 `hugo -d <暫存>/cortex --baseURL http://127.0.0.1:1319/cortex/` ＋ 靜態伺服器。
+1. **預覽與驗收建置都用暫存目錄，不寫 `public/`**：看畫面請 `hugo -d <暫存>/cortex --baseURL http://127.0.0.1:1319/cortex/` ＋ 靜態伺服器，不用 `hugo server`。`check.py` 自 2026-10-15 起每次執行使用獨立暫存目錄；不帶參數會依序跑全部 W。
 2. **`next/data/` 下只能放 Hugo 認得的資料格式**：放 `.txt` 會讓整站建置失敗（2026-09-26 `legacy_urls.txt` 事故）。
 3. **自訂屬性的連結色**：`--link` 在 `:root` 算定後不隨系列色變；連結一律用 `var(--series)`。
 4. **Hugo `index` 查不到 key 回空字串不報錯**：分類標籤、節點清單、來源 id 都要從資料讀並有 fallback（見 CLAUDE.md 內容規則）。
@@ -79,7 +79,7 @@ deploy：push `hugo-source` → GitHub Actions 跑資料產生器後 `hugo --min
 8. **對照閱讀與閱讀進度都以錨點為鍵**：讀本小節 `{#anchor}`、CSCS item id 改名會無聲打斷兩者。
 9. **Vortex 的呼吸安全段落必須置頂且不可收合**；`check.py V3` 會擋。
 10. **Windows Git Bash heredoc 寫 Python 時 `\n` 常被吃掉**：長片段改用檔案寫入工具寫成 .py 再執行。
-11. **泳式頁動作不再手管**：`data/vortex/{free,back,breast,fly,udk,starts-turns}.yaml` 由 `sync_moves()` 從 Vortex `moves.yaml` 生成；「什麼是水感」由 Vortex `Technica/水感是什麼.md` 原樣同步，改內容都去 Vortex。
+11. **泳式頁動作不再手管**：`data/vortex/{free,back,breast,fly,udk,starts-turns,open-water}.yaml` 由 `sync_moves()` 從 Vortex `moves.yaml` 生成；「什麼是水感」由 Vortex `Technica/水感是什麼.md` 原樣同步，改內容都去 Vortex。
 12. **散文進站前會被剝除**：研究底稿與研究筆記經 `strip_diagnostic()`、`strip_external_links()`；`maintenance_note` 由 `dump_yaml()` 在任何檔、任何層級剝除。看到研究底稿少了段落，先查是不是被剝除規則吃掉。
 
 ---
