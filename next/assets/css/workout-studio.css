@@ -32,6 +32,16 @@ body.workout-studio { border-left: 0; }
 .ws-training-modes { display: flex; flex-wrap: wrap; gap: var(--s1); margin: var(--s2) 0; }
 .ws-training-modes [aria-pressed="true"] { background: var(--series); border-color: var(--series); color: var(--paper); }
 .ws-group-mode .ws-aside, .ws-group-mode .ws-bottom { display: none; }
+/* 成績與建議的四個子畫面：連成一條的分段鈕，跟上方大分頁（底線）與個人／團體（實心膠囊）分得出層級 */
+.ws-views { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0 0 var(--s3); border: 1px solid var(--rule); border-radius: 4px; background: var(--ws-surface); overflow: hidden; }
+.ws-views button { min-height: var(--tap); padding: var(--s1) 4px; border: 0; border-left: 1px solid var(--rule); background: none; color: var(--ink-2); font: 700 var(--fs-s)/1.3 var(--f-sans); cursor: pointer; }
+.ws-views button:first-child { border-left: 0; }
+.ws-views button:hover { background: var(--tint); color: var(--series); }
+.ws-views button[aria-pressed="true"] { background: var(--ws-deep); color: var(--ws-on-deep); }
+.ws-views button:focus-visible { outline: 3px solid var(--series); outline-offset: -3px; }
+.ws-view-hint { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--s1); margin: var(--s2) 0 0; font-size: var(--fs-s); color: var(--ink-2); }
+.ws-draw-view .wk-draw { border-top: 0; margin-top: 0; }
+.ws-draw-view .wk-draw > summary { display: none; } /* 自成一頁時永遠展開，不需要收合鈕 */
 .ws-group-mode .ws-layout { grid-template-columns: minmax(0, 1fr); }
 .ws-intro { display: flex; align-items: start; justify-content: space-between; gap: var(--s2); margin-bottom: var(--s2); }
 .ws-intro h2 { margin: 0; font-family: var(--f-sans); font-size: var(--fs-l); }

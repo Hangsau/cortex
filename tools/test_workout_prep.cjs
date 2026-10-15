@@ -13,6 +13,7 @@ const url = process.argv[2] || 'http://127.0.0.1:1327/cortex/vortex/workout/';
   const drillRows = async () => { const s = await state(); return s.menus[s.cur].blocks.find(b => b.title === 'Drill').rows; };
   const brief = () => page.evaluate(() => document.querySelector('[data-wk]').workout.brief());
   const pace = () => page.locator('[data-ws-tab="pace"]').click();
+  const view = key => page.locator(`.ws-views [data-ws-view="${key}"]`).click(); // 成績與建議的子畫面
   const prep = () => page.locator('[data-wk-prep]');
   const items = () => prep().locator('.wk-prep-item');
   const goal = async (key, stroke = 'free') => { await page.locator('[data-wk-goal]').selectOption(key); await page.locator('[data-wk-goal-stroke]').selectOption(stroke); };
@@ -66,7 +67,7 @@ const url = process.argv[2] || 'http://127.0.0.1:1327/cortex/vortex/workout/';
     assert.match(await prep().innerText(), /目前只有自由式的器材準備模板，仰式主課先照原課/);
 
     // 器材列不套一般成績配速：同一列不戴器材有閾值目標，戴划手板就沒有（顯示原因）
-    for (const [dist, value] of [[200, '150'], [400, '320']]) await page.locator(`[data-wk-pb="free:${dist}"] input`).fill(value);
+    await view('pb'); for (const [dist, value] of [[200, '150'], [400, '320']]) await page.locator(`[data-wk-pb="free:${dist}"] input`).fill(value); await view('goals');
     await goal('threshold');
     await page.locator('[data-wk-goal-add]').click();
     assert.ok((await brief()).items.at(-1).targetSeconds > 0, '不戴器材的閾值列要有目標');
@@ -76,7 +77,7 @@ const url = process.argv[2] || 'http://127.0.0.1:1327/cortex/vortex/workout/';
       localStorage.setItem('cortex-swim-v3', JSON.stringify(s));
     });
     await page.reload();
-    for (const [dist, value] of [[200, '150'], [400, '320']]) await page.locator(`[data-wk-pb="free:${dist}"] input`).fill(value);
+    await view('pb'); for (const [dist, value] of [[200, '150'], [400, '320']]) await page.locator(`[data-wk-pb="free:${dist}"] input`).fill(value); await view('goals');
     assert.equal((await brief()).items.at(-1).targetSeconds, null, '戴器材不可沿用一般配速');
     assert.match(await page.locator('[data-ws-tab="plan"]').evaluate(() => document.querySelector('#wk-menu').innerText), /戴器材不套用一般成績配速/);
 

@@ -13,6 +13,7 @@ const url = process.argv[2] || 'http://127.0.0.1:13380/cortex/vortex/workout/';
   const people = page.locator('[data-lane-person]');
   const person = (i, key) => people.nth(i).locator(`[data-person-field="${key}"]`);
   const pb = (i, d) => people.nth(i).locator(`[data-person-pb="${d}"]`);
+  const view = key => page.locator(`.ws-views [data-ws-view="${key}"]`).click(); // 成績與建議的子畫面
   const mode = key => page.locator(`[data-ws-mode="${key}"]`).click();
   const compute = () => page.locator('[data-lane-form] button[type="submit"]').click();
   const snapshot = () => page.evaluate(() => ({ menu: document.querySelector('[data-wk]').workout.snapshot(), saved: JSON.stringify(localStorage) }));
@@ -22,7 +23,7 @@ const url = process.argv[2] || 'http://127.0.0.1:13380/cortex/vortex/workout/';
     await page.goto(url);
     assert.equal(await page.locator('[data-ws-mode="personal"]').getAttribute('aria-pressed'), 'true');
     assert.equal(await page.locator('#wk-lane').isVisible(), false);
-    for (const [d, value] of [[25, '12.5'], [50, '28'], [100, '60'], [200, '150'], [400, '320']]) await page.locator(`[data-wk-pb="free:${d}"] input`).fill(value);
+    await view('pb'); for (const [d, value] of [[25, '12.5'], [50, '28'], [100, '60'], [200, '150'], [400, '320']]) await page.locator(`[data-wk-pb="free:${d}"] input`).fill(value); await view('goals');
     const original = await snapshot();
     // Group calculations use explicit member data and the existing seven goal rules.
     const results = await page.evaluate(() => {
@@ -68,7 +69,7 @@ const url = process.argv[2] || 'http://127.0.0.1:13380/cortex/vortex/workout/';
     let rows = await dataRows();
     assert.deepEqual(rows.map(r => r.slice(0, 3)), [['1:25', '0:35', '2:00'], ['1:40', '0:20', '2:00']]);
     assert.match(await page.locator('[data-lane-summary]').innerText(), /12:30.*12:35/);
-    await mode('personal'); assert.equal(await page.locator('.ws-bottom').isVisible(), true);
+    await mode('personal'); await view('pb'); assert.equal(await page.locator('.ws-bottom').isVisible(), true);
     assert.match(await page.locator('[data-ws-save]').innerText(), /已儲存/);
     assert.equal(await page.locator('[data-wk-pb="free:200"] input').inputValue(), '150');
     await mode('group'); assert.equal(await pb(0, 200).inputValue(), '2:30.00');
@@ -103,7 +104,7 @@ const url = process.argv[2] || 'http://127.0.0.1:13380/cortex/vortex/workout/';
     assert.equal(await pb(1, 200).inputValue(), ''); await compute();
     assert.match(await page.locator('[data-lane-error]').innerText(), /器材或自訂游法/);
     // Personal recommendation opens group mode and imports the entire multi-set structure.
-    await mode('personal'); await page.locator('[data-wk-goal]').selectOption('velocity');
+    await mode('personal'); await view('goals'); await page.locator('[data-wk-goal]').selectOption('velocity');
     await page.locator('[data-wk-goal-size]').selectOption('standard');
     await page.locator('[data-wk-goal-lane]').click();
     assert.equal(await page.locator('[data-ws-mode="group"]').getAttribute('aria-pressed'), 'true');

@@ -17,6 +17,7 @@ const output = process.env.WORKOUT_SCREENSHOTS || os.tmpdir();
   const rows = async () => (await menu()).blocks.flatMap(b => b.rows);
   const brief = () => page.evaluate(() => document.querySelector('[data-wk]').workout.brief());
   const open = async () => { await page.locator('[data-ws-tab="plan"]').click(); await page.locator('[data-ws-recommend]').click(); };
+  const view = key => page.locator(`.ws-views [data-ws-view="${key}"]`).click(); // 成績與建議的子畫面
   const select = key => page.locator('[data-wk-goal]').selectOption(key);
   const add = () => page.locator('[data-wk-goal-add]').click();
   const noOverflow = async () => assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
@@ -48,9 +49,11 @@ const output = process.env.WORKOUT_SCREENSHOTS || os.tmpdir();
       await open();
     }
     // Inputs update the selected recommendation and generated rows through the shared formulas.
+    await view('pb');
     for (const [dist, value] of [[25, '12.5'], [50, '28'], [100, '60'], [200, '150'], [400, '320']]) {
       await page.locator(`[data-wk-pb="free:${dist}"] input`).fill(value);
     }
+    await view('goals');
     for (const [key, , , , , target] of cases) {
       await select(key); await add();
       assert.ok(Math.abs((await brief()).items.at(-1).targetSeconds - target) < 0.001, `${key} target`);
@@ -73,7 +76,7 @@ const output = process.env.WORKOUT_SCREENSHOTS || os.tmpdir();
     // Each stroke uses its own PB, and changing stroke resets unsupported race distances.
     await page.locator('[data-wk-goal-stroke]').selectOption('fly');
     assert.equal(await page.locator('[data-wk-goal-event]').inputValue(), '100');
-    await page.locator('[data-wk-pb="fly:100"] input').fill('80');
+    await view('pb'); await page.locator('[data-wk-pb="fly:100"] input').fill('80'); await view('goals');
     await add();
     row = (await rows()).at(-1);
     assert.equal(row.stroke, 'fly'); assert.equal(row.event, '100');
@@ -95,7 +98,7 @@ const output = process.env.WORKOUT_SCREENSHOTS || os.tmpdir();
     assert.deepEqual((await state()).pb, {});
     await open();
     // Invalid PB and a malformed option cannot create targets or select an unknown builder.
-    await page.locator('[data-wk-pb="free:200"] input').fill('oops');
+    await view('pb'); await page.locator('[data-wk-pb="free:200"] input').fill('oops'); await view('goals');
     await select('threshold');
     assert.match(await page.locator('[data-wk-goal-out]').innerText(), /待補成績/);
     await page.evaluate(() => {
@@ -106,6 +109,7 @@ const output = process.env.WORKOUT_SCREENSHOTS || os.tmpdir();
     await add(); assert.equal((await rows()).at(-1).int, 'thr');
     // Existing race-date route still builds a week; new goal selections do not require or overwrite it.
     await open();
+    await view('week');
     await page.locator('[data-wk-today]').fill('2026-10-06');
     await page.locator('[data-wk-race]').fill('2026-12-20');
     assert.equal(await page.locator('[data-day]').count(), 4);

@@ -17,9 +17,10 @@ const ZH = { 自由式: 'free', 仰式: 'back', 蛙式: 'breast', 蝶式: 'fly' 
     await page.goto(url);
     await page.locator('[data-ws-tab="plan"]').click();
     await page.locator('[data-ws-recommend]').click();
-    await page.locator('#wk-draw > summary').click();
+    await view(page, 'draw');
     return { context, page };
   }
+  const view = (page, key) => page.locator(`.ws-views [data-ws-view="${key}"]`).click(); // 成績與建議的子畫面
   const state = page => page.evaluate(() => JSON.parse(localStorage.getItem('cortex-swim-v3')));
   const rows = async page => { const s = await state(page); return s.menus[s.cur].blocks.flatMap(b => b.rows); };
   const faces = async page => (await page.locator('[data-draw-card] [data-draw-face] b').allInnerTexts()).map(t => ZH[t.trim()]);
@@ -38,6 +39,12 @@ const ZH = { 自由式: 'free', 仰式: 'back', 蛙式: 'breast', 蝶式: 'fly' 
     let { context, page } = await fresh({ reducedMotion: 'reduce' });
     assert.match(await page.locator('[data-wk-draw-body]').innerText(), /還沒有比賽日期/, 'cycle mode without race date explains');
     assert.equal(await page.locator('[data-draw-deck]').count(), 0);
+    // 音效開關：預設開，關掉會記在這台裝置
+    assert.equal(await page.locator('[data-draw-sound]').getAttribute('aria-pressed'), 'true');
+    await page.locator('[data-draw-sound]').click();
+    assert.equal(await page.locator('[data-draw-sound]').getAttribute('aria-pressed'), 'false');
+    assert.equal(await page.evaluate(() => localStorage.getItem('cortex-draw-sound')), 'off');
+    await page.locator('[data-draw-sound]').click();
 
     // 自訂：預設三段，抽完拿掉 → 同一輪不重複
     await page.locator('[data-draw-src="custom"]').click();
@@ -93,8 +100,10 @@ const ZH = { 自由式: 'free', 仰式: 'back', 蛙式: 'breast', 蝶式: 'fly' 
 
     // 固定 + 抽完拿掉：固定的那式不會再被抽到；加入主課沿用既有產生器與成績
     ({ context, page } = await fresh({ reducedMotion: 'reduce' }));
+    await view(page, 'pb');
     for (const [d, v] of [[25, '12.5'], [50, '28'], [100, '60'], [200, '150'], [400, '320']]) await page.locator(`[data-wk-pb="free:${d}"] input`).fill(v);
     await page.locator('[data-wk-pb="free:400"] input').press('Tab');
+    await view(page, 'draw');
     await page.locator('[data-draw-src="custom"]').click();
     await page.locator('[data-draw-lock="1"]').selectOption('free');
     for (let k = 0; k < 8; k++) {
@@ -139,7 +148,9 @@ const ZH = { 自由式: 'free', 仰式: 'back', 蛙式: 'breast', 蝶式: 'fly' 
 
     // 依賽事週期：填日期後讀 pzPhase
     const race = new Date(Date.now() + 20 * 86400000).toISOString().slice(0, 10);
+    await view(page, 'week');
     await page.locator('[data-wk-race]').fill(race); await page.locator('[data-wk-race]').press('Tab');
+    await view(page, 'draw');
     await page.locator('[data-draw-src="cycle"]').click();
     assert.match(await page.locator('[data-wk-draw-body]').innerText(), /現在是 .+期，離比賽 \d+ 天/);
     assert.ok(await page.locator('[data-draw-card]').count() >= 1);
@@ -214,6 +225,8 @@ const ZH = { 自由式: 'free', 仰式: 'back', 蛙式: 'breast', 蝶式: 'fly' 
     ({ context, page } = await (async () => { const c = await browser.newContext(); const p = await c.newPage(); p.on('pageerror', e => errors.push(e.message)); await p.goto(url + '#wk-draw'); return { context: c, page: p }; })());
     assert.equal(await page.locator('#wk-draw').evaluate(el => el.open), true);
     assert.equal(await page.locator('#ws-tab-pace').getAttribute('aria-selected'), 'true');
+    assert.equal(await page.locator('[data-wk-draw-body]').isVisible(), true, 'deep link shows the draw view');
+    assert.equal(await page.locator('#wk-goals').isVisible(), false, 'one tool at a time');
     await context.close();
 
     assert.deepEqual(errors, []);

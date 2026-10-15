@@ -702,7 +702,7 @@
   function drawSourceHtml(P) {
     let html = '';
     if (draw.src === 'cycle') html += P ? `<p>現在是 <b>${PHASE_NAME[P.phase]}</b>${P.days >= 0 ? `，離比賽 ${P.days} 天` : ''}；段落照本期的品質課。</p>`
-      : '<p class="wk-note">還沒有比賽日期。到下方「依賽事日期安排一週」填日期，或改用「自選週期」「自訂」。</p>';
+      : '<p class="wk-note">還沒有比賽日期。先在「依賽事日期安排一週」填日期，或改用「自選週期」「自訂」。</p>';
     if (draw.src !== 'custom') {
       const fields = [];
       if (draw.src === 'phase') fields.push(`<label class="wk-field"><span>週期</span><select data-draw-phase>${DRAW_PHASES.map(k => `<option value="${k}"${k === draw.phase ? ' selected' : ''}>${PHASE_NAME[k]}</option>`).join('')}</select></label>`);
@@ -729,7 +729,8 @@
       <p class="wk-css-k">主課段落從哪來</p><div class="wk-chips">${drawChip('data-draw-src', 'cycle', draw.src === 'cycle', '依賽事週期')}${drawChip('data-draw-src', 'phase', draw.src === 'phase', '自選週期')}${drawChip('data-draw-src', 'custom', draw.src === 'custom', '自訂')}</div>` + drawSourceHtml(P);
     html += `<p class="wk-css-k">籤筒裡放哪幾式</p><div class="wk-chips">${DRAW_STROKES.map(s => drawChip('data-draw-pool', s, draw.pool.has(s), SZH[s])).join('')}</div>
       <p class="wk-css-k">抽法</p><div class="wk-chips">${drawChip('data-draw-mode', 'remove', draw.mode === 'remove', '抽完拿掉')}${drawChip('data-draw-mode', 'replace', draw.mode === 'replace', '抽完放回')}</div>
-      <p class="muted">${draw.mode === 'remove' ? '同一輪不重複；段數比籤多時，抽完一輪再全部放回。' : '每段都從整個籤筒抽，可能抽到同一式（例如自自仰）。'}</p>`;
+      <p class="muted">${draw.mode === 'remove' ? '同一輪不重複；段數比籤多時，抽完一輪再全部放回。' : '每段都從整個籤筒抽，可能抽到同一式（例如自自仰）。'}</p>
+      <div class="wk-chips">${drawChip('data-draw-sound', 'on', SFX.isOn(), '抽卡音效')}</div>`;
     const res = drawResult(slots), next = drawNext(slots), left = slots.filter((_, i) => !drawFace(i)).length;
     if (slots.length) {
       const built = slots.map((sl, i) => (drawFace(i) ? sl.build(drawFace(i)) : null));
@@ -750,6 +751,73 @@
     const back = keep && box.querySelector(`[${keep.name}="${CSS.escape(keep.value)}"]`);
     if (back && !back.disabled) back.focus();
   }
+  /* 抽卡音效：WebAudio 現場合成，不載音檔。時間點對齊舞台時間軸（GACHA_*、workout.css 的 wk-g-*）：
+     落下（風聲＋落地咚）→ 蓄力（越來越快的鼓點＋往上爬的音）→ 爆開（亮和弦琶音＋閃爍高音＋水花）→ 蓋章（低音咚）→ 收下（泡泡啵）。
+     音效開關只記在這台裝置（瀏覽器儲存失敗就預設開）；跳過蓄力時把已排好的聲音全停掉。 */
+  const SFX_KEY = 'cortex-draw-sound';
+  const SFX_GAIN = 0.4; // 總音量：池邊手機外放夠聽見，不刺耳
+  const SFX_ROLL = { from: 0.13, to: 0.035, ease: 0.82 }; // 蓄力鼓點的起始／最短間隔（秒）與每拍縮短比例
+  const SFX_CHORD = [1046.5, 1318.5, 1568, 2093]; // 爆開的大三和弦琶音 C6 E6 G6 C7
+  const SFX = (() => {
+    let ac = null, out = null, on = true;
+    const live = new Set();
+    try { on = localStorage.getItem(SFX_KEY) !== 'off'; } catch (_) { /* 讀不到就預設開 */ }
+    const ctx = () => {
+      if (!on) return null;
+      try {
+        if (!ac) { ac = new (window.AudioContext || window.webkitAudioContext)(); out = ac.createGain(); out.gain.value = SFX_GAIN; out.connect(ac.destination); }
+        if (ac.state === 'suspended') ac.resume();
+        return ac;
+      } catch (_) { return null; }
+    };
+    const keep = (node, t0, t1) => { live.add(node); node.onended = () => { live.delete(node); node.disconnect(); }; node.start(t0); node.stop(t1); };
+    const env = (c, t0, dur, vol) => {
+      const g = c.createGain();
+      g.gain.setValueAtTime(0.0001, t0); g.gain.exponentialRampToValueAtTime(vol, t0 + Math.min(0.02, dur / 4)); g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+      g.connect(out); return g;
+    };
+    // 一個音：type 波形，f0→f1 滑音，at 秒後開始
+    function tone(type, f0, f1, at, dur, vol) {
+      const c = ctx(); if (!c) return;
+      const t0 = c.currentTime + at, o = c.createOscillator();
+      o.type = type; o.frequency.setValueAtTime(f0, t0); o.frequency.exponentialRampToValueAtTime(f1, t0 + dur);
+      o.connect(env(c, t0, dur, vol)); keep(o, t0, t0 + dur + 0.02);
+    }
+    // 一段濾波雜訊：風聲、水花、鼓點
+    function hiss(at, dur, vol, f0, f1) {
+      const c = ctx(); if (!c) return;
+      const t0 = c.currentTime + at, len = Math.ceil(c.sampleRate * dur), buf = c.createBuffer(1, len, c.sampleRate), data = buf.getChannelData(0);
+      for (let k = 0; k < len; k++) data[k] = Math.random() * 2 - 1;
+      const src = c.createBufferSource(), bp = c.createBiquadFilter();
+      src.buffer = buf; bp.type = 'bandpass'; bp.Q.value = 1.2;
+      bp.frequency.setValueAtTime(f0, t0); bp.frequency.exponentialRampToValueAtTime(f1, t0 + dur);
+      src.connect(bp).connect(env(c, t0, dur, vol)); keep(src, t0, t0 + dur + 0.02);
+    }
+    return {
+      isOn: () => on,
+      toggle() { on = !on; try { localStorage.setItem(SFX_KEY, on ? 'on' : 'off'); } catch (_) { /* 只影響下次開頁 */ } if (!on) this.stop(); },
+      stop() { live.forEach(n => { try { n.stop(); } catch (_) { /* 已經停了 */ } }); live.clear(); },
+      // 卡背落下＋蓄力：一次排好，跳過時 stop() 全部取消
+      charge() {
+        hiss(0, 0.45, 0.5, 2400, 300); tone('sine', 140, 55, 0.5, 0.22, 0.9);
+        const start = GACHA_OPEN_MS / 1000 - 1.15, end = GACHA_OPEN_MS / 1000;
+        tone('triangle', 220, 880, start, end - start, 0.18);
+        for (let t = start, gap = SFX_ROLL.from, n = 0; t < end; t += gap, gap = Math.max(SFX_ROLL.to, gap * SFX_ROLL.ease), n++) {
+          hiss(t, 0.05, 0.35 + 0.4 * (t - start) / (end - start), 1800 + n * 40, 900);
+        }
+      },
+      burst() {
+        this.stop();
+        hiss(0, 0.6, 0.6, 6000, 1200);
+        SFX_CHORD.forEach((f, k) => tone('triangle', f, f, k * 0.07, 0.55, 0.35));
+        [2637, 3136, 3520, 4186].forEach((f, k) => tone('sine', f, f * 1.01, 0.3 + k * 0.09, 0.18, 0.12));
+        tone('sine', 110, 60, 0.28, 0.25, 0.8); // 名字蓋章
+      },
+      pop() { tone('sine', 420, 980, 0, 0.09, 0.4); },
+      flip() { hiss(0, 0.12, 0.4, 3000, 1200); tone('triangle', 1568, 2093, 0.05, 0.12, 0.18); },
+      shuffle() { for (let k = 0; k < 4; k++) hiss(k * 0.16, 0.08, 0.3, 2200, 1400); },
+    };
+  })();
   const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
   // 抽完一張（或一輪）後：卡片定稿、焦點回到下一個動作
   function drawSettle(popped) {
@@ -768,13 +836,13 @@
     const box = $('[data-wk-draw-body]'), deck = box.querySelector('[data-draw-deck]');
     box.querySelectorAll('button, select').forEach(el => { el.disabled = true; });
     box.querySelector('[data-draw-live]').textContent = '洗牌中…';
-    deck.classList.add('is-shuffling');
+    deck.classList.add('is-shuffling'); SFX.shuffle();
     let t = DRAW_SHUFFLE_MS;
     todo.forEach((i, k) => {
       setTimeout(() => {
         const li = deck.querySelector(`[data-draw-card="${i}"]`);
         li.querySelector('[data-draw-face]').innerHTML = cardFace(picks[k]);
-        li.classList.add('is-up', 'is-pop', `is-${picks[k]}`);
+        li.classList.add('is-up', 'is-pop', `is-${picks[k]}`); SFX.flip();
       }, t);
       t += DRAW_GAP_MS;
     });
@@ -792,7 +860,7 @@
     st.className = `wk-gacha is-${s}`;
     st.setAttribute('role', 'dialog'); st.setAttribute('aria-modal', 'true'); st.setAttribute('aria-label', `抽第 ${i + 1} 段`); st.tabIndex = -1;
     st.innerHTML = gachaHtml(i, slots[i].name, s, built);
-    root.append(st); st.focus();
+    root.append(st); st.focus(); SFX.charge();
     const ok = st.querySelector('[data-gacha-ok]');
     let stage = 'charge';
     const timers = [];
@@ -800,13 +868,13 @@
     const open = () => {
       if (stage !== 'charge') return;
       stage = 'open'; timers.forEach(clearTimeout);
-      st.classList.add('is-open'); st.querySelector('[data-gacha-name]').textContent = `${SZH[s]}！`;
+      st.classList.add('is-open'); SFX.burst(); st.querySelector('[data-gacha-name]').textContent = `${SZH[s]}！`;
       timers.push(setTimeout(ready, GACHA_READY_MS));
     };
     const close = () => {
       if (stage === 'out') return;
       stage = 'out'; timers.forEach(clearTimeout);
-      st.classList.add('is-out');
+      st.classList.add('is-out'); SFX.pop();
       setTimeout(() => { st.remove(); drawSettle([i]); }, GACHA_OUT_MS);
     };
     st.addEventListener('click', () => (stage === 'charge' ? open() : stage === 'ready' ? close() : null));
@@ -854,6 +922,7 @@
       if (d.drawSrc && ['cycle', 'phase', 'custom'].includes(d.drawSrc)) { draw.src = d.drawSrc; reset(); }
       else if (d.drawPool && DRAW_STROKES.includes(d.drawPool)) { if (draw.pool.has(d.drawPool)) draw.pool.delete(d.drawPool); else draw.pool.add(d.drawPool); reset(); }
       else if (d.drawMode && ['remove', 'replace'].includes(d.drawMode)) { draw.mode = d.drawMode; reset(); }
+      else if (d.drawSound) { SFX.toggle(); SFX.pop(); renderDraw(); }
       else if (d.drawMove) { const [i, dir] = d.drawMove.split(':').map(Number), j = i + dir; if (draw.custom[i] && draw.custom[j]) { [draw.custom[i], draw.custom[j]] = [draw.custom[j], draw.custom[i]]; [draw.locks[i], draw.locks[j]] = [draw.locks[j], draw.locks[i]]; reset(); } }
       else if (d.drawDel != null && draw.custom.length > 1 && draw.custom[+d.drawDel]) { const i = +d.drawDel; draw.custom.splice(i, 1); draw.locks.splice(i, 1); reset(); }
       else if (b.hasAttribute('data-draw-addslot') && draw.custom.length < DRAW_MAX) { draw.custom.push('aerobic_easy'); reset(); }
