@@ -1,4 +1,4 @@
-/* node tools/test_workout_draw.cjs [URL]; 抽主課泳式：段落來源、抽完拿掉／放回、固定、加入課表、動畫、窄螢幕。isolated browser storage only. */
+/* node tools/test_workout_draw.cjs [URL]; 抽主課泳式：段落來源、抽完拿掉／放回、固定、輪流單抽與抽卡舞台、一次抽完、加入課表、窄螢幕。isolated browser storage only. */
 const assert = require('node:assert/strict');
 const path = require('node:path');
 const os = require('node:os');
@@ -23,7 +23,14 @@ const ZH = { 自由式: 'free', 仰式: 'back', 蛙式: 'breast', 蝶式: 'fly' 
   const state = page => page.evaluate(() => JSON.parse(localStorage.getItem('cortex-swim-v3')));
   const rows = async page => { const s = await state(page); return s.menus[s.cur].blocks.flatMap(b => b.rows); };
   const faces = async page => (await page.locator('[data-draw-card] [data-draw-face] b').allInnerTexts()).map(t => ZH[t.trim()]);
-  const go = async page => { await page.locator('[data-draw-go]').click(); await page.waitForFunction(() => /抽到/.test(document.querySelector('[data-draw-live]').textContent), null, { timeout: 8000 }); };
+  const done = page => page.waitForFunction(() => /^抽到/.test(document.querySelector('[data-draw-live]').textContent), null, { timeout: 8000 });
+  // 抽完整一輪：上一輪抽完就先「再抽一輪」，剩兩段以上用「一次抽完」，剩一段用「抽第 N 段」
+  const go = async page => {
+    if (await page.locator('[data-draw-again]').count()) await page.locator('[data-draw-again]').click();
+    if (await page.locator('[data-draw-all]').count()) await page.locator('[data-draw-all]').click();
+    else if (await page.locator('[data-draw-go]').count()) await page.locator('[data-draw-go]').click();
+    await done(page);
+  };
   const noOverflow = async page => assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, 'no horizontal scroll');
 
   try {
@@ -62,9 +69,26 @@ const ZH = { 自由式: 'free', 仰式: 'back', 蛙式: 'breast', 蝶式: 'fly' 
     assert.match(await page.locator('[data-wk-draw-body]').innerText(), /籤筒是空的/);
     for (let k = 0; k < 3; k++) await page.locator('[data-draw-del="0"]').click();
     for (let i = 0; i < 3; i++) await page.locator(`[data-draw-lock="${i}"]`).selectOption(['fly', 'back', 'fly'][i]);
-    assert.equal(await page.locator('[data-draw-go]').isDisabled(), false);
-    await go(page);
+    assert.equal(await page.locator('[data-draw-again]').count(), 1, 'all fixed: nothing left to draw');
     assert.deepEqual(await faces(page), ['fly', 'back', 'fly']);
+    await context.close();
+
+    // 輪流抽（減少動態）：一張一張抽，拿掉模式不重複；點卡片＝抽那一段
+    ({ context, page } = await fresh({ reducedMotion: 'reduce' }));
+    await page.locator('[data-draw-src="custom"]').click();
+    for (let k = 0; k < 8; k++) {
+      if (k) await page.locator('[data-draw-again]').click();
+      await page.locator('[data-draw-pick="2"]').click();
+      assert.equal(await page.locator('.wk-card.is-up').count(), 1);
+      assert.match(await page.locator('[data-draw-live]').innerText(), /已抽：第 3 段.+還有 2 段/);
+      assert.match(await page.locator('[data-draw-go]').innerText(), /抽第 1 段/);
+      assert.equal(await page.locator('[data-draw-add]').isDisabled(), true, 'cannot add half a draw');
+      await page.locator('[data-draw-go]').click();
+      assert.equal(await page.locator('[data-draw-all]').count(), 0, 'one left: no draw-all');
+      await page.locator('[data-draw-go]').click();
+      await done(page);
+      assert.equal(new Set(await faces(page)).size, 3, 'turn-by-turn remove mode: no repeats');
+    }
     await context.close();
 
     // 固定 + 抽完拿掉：固定的那式不會再被抽到；加入主課沿用既有產生器與成績
@@ -121,18 +145,61 @@ const ZH = { 自由式: 'free', 仰式: 'back', 蛙式: 'breast', 蝶式: 'fly' 
     assert.ok(await page.locator('[data-draw-card]').count() >= 1);
     await context.close();
 
-    // 動畫：洗牌 → 依序翻開；期間控制項鎖住；卡面有插圖
+    // 單抽舞台：點卡 → 落下蓄力 → 爆開翻面、名字 → 收下；點一下可跳過蓄力；Esc 收下
     ({ context, page } = await fresh());
     await page.locator('[data-draw-src="custom"]').click();
+    assert.equal(await page.locator('[data-draw-pick]').count(), 3, 'face-down cards are tappable');
+    await page.locator('[data-draw-pick="1"]').click({ force: true }); // 未翻的卡一直輕晃，Playwright 等不到穩定
+    const stage = page.locator('.wk-gacha');
+    assert.equal(await stage.count(), 1);
+    assert.equal(await stage.getAttribute('role'), 'dialog');
+    await page.waitForTimeout(900);
+    assert.equal(await page.locator('.wk-gacha.is-open').count(), 0, 'still charging');
+    await page.screenshot({ path: path.join(output, 'workout-gacha-charge.png') });
+    await page.waitForSelector('.wk-gacha.is-open', { timeout: 3000 });
+    await page.waitForTimeout(250);
+    await page.screenshot({ path: path.join(output, 'workout-gacha-burst.png') });
+    await page.waitForSelector('[data-gacha-ok]:not([disabled])', { timeout: 3000 });
+    assert.match(await page.locator('[data-gacha-name]').innerText(), /^(自由式|仰式|蛙式|蝶式)！$/);
+    assert.equal(await page.locator('[data-gacha-ok]').evaluate(el => el === document.activeElement), true, 'focus on 收下');
+    const art = await page.locator('.wk-gacha img').evaluateAll(els => els.map(e => e.complete && e.naturalWidth > 0));
+    assert.ok(art.length === 2 && art.every(Boolean), 'stage art loads');
+    await page.screenshot({ path: path.join(output, 'workout-gacha-1440.png') });
+    const name1 = (await page.locator('[data-gacha-name]').innerText()).replace('！', '');
+    await page.locator('[data-gacha-ok]').click();
+    await page.waitForSelector('.wk-gacha', { state: 'detached', timeout: 2000 });
+    assert.equal(await page.locator('[data-draw-card="1"].is-up').count(), 1);
+    assert.equal(await page.locator('.wk-card.is-up').count(), 1);
+    assert.equal((await page.locator('[data-draw-card="1"] [data-draw-face] b').innerText()).trim(), name1);
+    assert.equal(await page.locator('[data-draw-go]').evaluate(el => el === document.activeElement), true, 'focus returns to next draw');
+    // 點舞台跳過蓄力
+    await page.setViewportSize({ width: 390, height: 844 });
     await page.locator('[data-draw-go]').click();
+    await page.waitForTimeout(150);
+    await stage.click({ position: { x: 20, y: 20 } });
+    await page.waitForSelector('.wk-gacha.is-open', { timeout: 400 });
+    await page.waitForSelector('[data-gacha-ok]:not([disabled])', { timeout: 3000 });
+    await noOverflow(page);
+    await page.screenshot({ path: path.join(output, 'workout-gacha-390.png') });
+    await page.keyboard.press('Escape');
+    await page.waitForSelector('.wk-gacha', { state: 'detached', timeout: 2000 });
+    await page.locator('[data-draw-go]').click();
+    await page.waitForSelector('[data-gacha-ok]:not([disabled])', { timeout: 4000 });
+    await page.keyboard.press('Enter');
+    await done(page);
+    assert.equal(new Set(await faces(page)).size, 3);
+    assert.equal(await page.locator('[data-draw-add]').isDisabled(), false);
+    // 一次抽完：洗牌後依序翻開，期間鎖住
+    await page.setViewportSize({ width: 1440, height: 1000 });
+    await page.locator('[data-draw-again]').click();
+    assert.equal(await page.locator('.wk-card.is-up').count(), 0);
+    await page.locator('[data-draw-all]').click();
     await page.waitForTimeout(120);
     assert.equal(await page.locator('[data-draw-deck].is-shuffling').count(), 1);
     assert.equal(await page.locator('[data-draw-add]').isDisabled(), true, 'locked while animating');
-    await page.waitForFunction(() => document.querySelectorAll('.wk-card.is-up').length === 1, null, { timeout: 3000 });
-    await page.screenshot({ path: path.join(output, 'workout-draw-mid.png') });
-    await page.waitForFunction(() => /抽到/.test(document.querySelector('[data-draw-live]').textContent), null, { timeout: 5000 });
+    await done(page);
     assert.equal(await page.locator('.wk-card.is-up').count(), 3);
-    assert.equal(await page.locator('[data-draw-go]').evaluate(el => el === document.activeElement), true, 'focus returns to draw button');
+    assert.equal(await page.locator('[data-draw-again]').evaluate(el => el === document.activeElement), true, 'focus returns to again');
     const imgs = await page.locator('.wk-card-face img').evaluateAll(els => els.map(e => e.complete && e.naturalWidth > 0));
     assert.ok(imgs.length === 3 && imgs.every(Boolean), 'card art loads');
     await page.locator('#wk-draw').screenshot({ path: path.join(output, 'workout-draw-1440.png') });

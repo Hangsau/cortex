@@ -26,6 +26,10 @@
   --band: 4px;               /* 拇指索引色帶寬 */
   --plate: #F6F8F5;          /* 圖鑑插圖的紙色（抽籤卡面）；插圖本身是淺紙，深色模式也不換 */
   --plate-glint: rgba(222, 237, 173, .75); /* 翻卡掃光，取工作台 --ws-lime */
+  /* 抽卡：四式各一色（卡框、名牌底、舞台光芒）。名牌白字 22px 粗體，四色對白都 ≥4.5:1；淺深色模式共用，舞台本身就是深底 */
+  --draw-free: #0E7799; --draw-back: #4A5BC9; --draw-breast: #1F7A42; --draw-fly: #A85A00;
+  --draw-stage: #08201F; --draw-stage-2: #176B69; /* 舞台背景：工作台深青由中心往外沉 */
+  --draw-on-stage: #FFFFFF; --draw-spark: #FFF4B8; --draw-bubble: rgba(222, 237, 173, .7);
 }
 .series-vortex   { --series: #0B6E8A; }
 .series-strength { --series: #A23B1F; }
