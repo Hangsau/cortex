@@ -1,4 +1,7 @@
 /* 課表與間歇計時（Claude 手寫，2026-09-26）。計時器畫面為池邊設計：大數字、高對比、大按鈕。 */
+.wk-moved { border-left: var(--band) solid var(--series); background: var(--tint); padding: var(--s2) var(--s3); margin: 0 0 var(--s3); font: var(--fs-s)/var(--lh-ui) var(--f-sans); }
+.wk-moved p { margin: 0 0 var(--s1); }
+.wk-moved a { display: inline-flex; align-items: center; min-height: var(--tap); font-weight: 700; }
 .wk-steps { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s3); margin: 0 0 var(--s2); font: 700 var(--fs-s)/1 var(--f-sans); }
 .wk-steps a { display: inline-flex; align-items: center; min-height: var(--tap); }
 .wk .le-block { margin-top: var(--s5); }
