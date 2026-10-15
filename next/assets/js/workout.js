@@ -641,70 +641,132 @@
     if (d.uw) m.blocks.find(b => b.title === 'Drill').rows.push(uwRow(d.retest));
     return m;
   }
-  /* ---------- 抽主課泳式（2026-10-15，額外的趣味入口） ----------
-     段落：依賽事週期（pzPhase）或自選週期 → 該期品質課的組（qualityDay，與週課表同一份）；或自訂目的順序 → goalSet。
-     每段的泳式用抽的：抽完拿掉（同一輪不重複，抽完一輪再補滿）／抽完放回（可能自自仰）；可把某段固定成某一式。
-     輪流抽：一次抽一段（點卡或「抽第 N 段」，全螢幕抽卡舞台），也可剩下的一次抽完。
-     組型、配速、休息全部走既有產生器，不另立公式；只留在這次頁面，加入課表才寫進存檔。drill 不抽，在課表裡自己選。 */
+  /* ---------- 分段主課＋抽泳式（2026-10-15，額外的趣味入口） ----------
+     主課＝1–6 段（每段一個目的）× 每段拆成 1–4 輪（每輪一個泳姿）。
+     段落：依賽事週期（pzPhase）或自選週期 → 該期品質課的組（qualityDay，與週課表同一份），可在後段加一段副泳式有氧；或自訂目的順序 → goalSet。
+     每一輪的泳式用抽的：抽完拿掉（同一輪不重複，抽完再補滿）／抽完放回（可能自自仰）；每輪可固定成某一式。
+     整堂總量（選填）：主課可用量＝總量 − 目前課表的暖身／drill／緩和；速度、乳酸、賽速段照組型的量（它們的量不隨時間加），剩下的分給有氧與閾值段。
+     泳式的距離上限看成績、不看年齡：某式有成績的最長距離就是那一式的每趟上限（只游過 50、100 蝶的人，蝶式有氧不會排 200）。
+     組型、配速、休息全部走既有產生器，不另立公式；只留在這次頁面（總量記在本機），加入課表才寫進存檔。drill 不抽，在課表裡自己選。 */
   const DRAW_ART = (() => { try { return JSON.parse(document.getElementById('wk-draw-art').textContent) || {}; } catch (e) { return {}; } })();
   const DRAW_STROKES = ['free', 'back', 'breast', 'fly'];
   const DRAW_SHORT = { free: '自', back: '仰', breast: '蛙', fly: '蝶' };
   const DRAW_PHASES = ['general_prep', 'specific_prep', 'competition', 'taper', 'transition'];
-  const DRAW_MAX = 6;
+  const DRAW_MAX = 6;             // 最多幾段
+  const DRAW_SPLITS = [1, 2, 3, 4]; // 一段最多拆成四式
   const DRAW_SHUFFLE_MS = 640, DRAW_GAP_MS = 420, DRAW_SETTLE_MS = 240; // 一次抽完：洗牌 4×160ms；每張翻卡間隔；最後一張翻完到結果定稿
   const GACHA_OPEN_MS = 1700, GACHA_READY_MS = 900, GACHA_OUT_MS = 260; // 單抽舞台：落下＋蓄力到爆開；爆開到可收下；收下淡出（與 workout.css 的 wk-g-* 時間軸一致）
   const GACHA_SPARKS = 12, GACHA_BUBBLES = 10; // 爆開的光點數、舞台上升的泡泡數（CSS 依 nth-child 排角度與位置）
   const DRAW_DAYS = [0, 1];       // qualityDay 只分第 1／第 2 堂品質課
   const DRAW_RACE_EVENT = 100;    // 自訂的賽速段：配速參考距離同「依目的選主課」預設
   const DRAW_ART_SIZE = 'width="360" height="480"'; // 卡面 webp 實際尺寸，避免載入位移
-  // got[i]＝第 i 段這一輪抽到的式（固定的段不抽）；bag＝抽完拿掉時這一輪還在籤筒裡的式，輪流一張一張抽也接得上
-  const draw = { src: 'cycle', phase: 'general_prep', day: 0, custom: ['velocity', 'threshold', 'aerobic_easy'], size: 'standard',
-    pool: new Set(DRAW_STROKES), mode: 'remove', locks: [], got: [], bag: null, sig: '', busy: false };
+  const DRAW_TOTAL_KEY = 'cortex-draw-total', DRAW_TOTAL_MAX = 10000;
+  const DRAW_FRAME = 500;         // 課表還沒排暖身／drill／緩和時先抓 100＋300＋100
+  // 依時間決定量的組：分主課剩下的量（權重：閾值、穩定有氧是主角，輕鬆有氧是陪襯）；每趟距離從長到短挑，至少 3 趟
+  const FLEX_WEIGHT = { threshold: 2, steady: 2, aerobic_easy: 1 };
+  const FLEX_DIST = [400, 200, 100], FLEX_MIN_REPS = 3; // set_types：閾值每趟 100–400 m、輕鬆有氧 100 m 起
+  const LONG_ROUND_RATIO = 10; // 一輪的量超過該式最長成績距離的 10 倍就提醒可以拆給多式——工具的提醒門檻，不是文獻劑量
+  const readTotal = () => { try { const v = +localStorage.getItem(DRAW_TOTAL_KEY); return v > 0 ? v : null; } catch (_) { return null; } };
+  // got／locks 以「段.輪」為鍵；bag＝抽完拿掉時這一輪還在籤筒裡的式，輪流一張一張抽也接得上
+  const draw = { src: 'cycle', phase: 'general_prep', day: 0, custom: ['velocity', 'threshold', 'aerobic_easy'], size: 'standard', tail: true,
+    splits: [], total: readTotal(), pool: new Set(DRAW_STROKES), mode: 'remove', locks: {}, got: {}, bag: null, sig: '', busy: false };
   function drawPhase() {
     if (draw.src === 'phase') return { phase: draw.phase };
     const P = pzPhase();
     return P ? { phase: P.phase, days: P.days } : null;
   }
-  // 每一段：name（目的）＋ build(stroke) → { name, row }，泳式換了就用同一個產生器重算
+  // 每一段：name（目的）、key（組型）＋ build(stroke) → { name, row }（標準組型；配速用該式自己的成績與賽距）
   function drawSlots() {
     if (draw.src === 'custom') return draw.custom.map(key => ({ name: goalName(key), key,
       build: s => { const x = goalSet({ key, stroke: s, size: draw.size, event: DRAW_RACE_EVENT }); return { name: x.name, row: x.row }; } }));
     const P = drawPhase();
     if (!P) return [];
     const sets = s => (P.phase === 'transition' ? [setBuilders(s).free()] : qualityDay(P.phase, draw.day, setBuilders(s)).sets);
-    return sets('free').map((x0, i) => ({ name: x0.name, key: x0.type || 'aerobic_easy',
+    const slots = sets('free').map((x0, i) => ({ name: x0.name, key: x0.type || 'aerobic_easy',
       build: s => { const x = sets(s)[i]; return { name: x.name, row: qualityRow(x) }; } }));
+    if (draw.tail && P.phase !== 'transition') slots.push({ name: '副泳式有氧', key: 'aerobic_easy', build: s => { const x = setBuilders(s).easy('副泳式有氧'); return { name: x.name, row: qualityRow(x) }; } });
+    return slots;
   }
-  const drawSig = (slots) => slots.map(sl => sl.name).join('|');
+  const drawSplit = (i) => draw.splits[i] || 1;
+  const drawRounds = (slots) => slots.flatMap((sl, i) => Array.from({ length: drawSplit(i) }, (_, j) => ({ i, j, id: `${i}.${j}`, sl })));
+  const roundLabel = (r) => (drawSplit(r.i) > 1 ? `第 ${r.i + 1} 段第 ${r.j + 1} 輪` : `第 ${r.i + 1} 段`);
+  const drawSig = (slots) => slots.map((sl, i) => `${sl.name}×${drawSplit(i)}`).join('|');
   const drawPool = () => DRAW_STROKES.filter(s => draw.pool.has(s));
-  const drawFace = (i) => draw.locks[i] || draw.got[i];
-  const drawResult = (slots) => (slots.length && slots.every((_, i) => drawFace(i)) ? slots.map((_, i) => drawFace(i)) : null);
-  const drawNext = (slots) => slots.findIndex((_, i) => !drawFace(i));
-  const drawRound = () => { draw.got = []; draw.bag = null; };
-  // 抽一支籤：放回＝每次從整個籤筒抽；拿掉＝從這一輪剩下的抽，抽空了再全部放回
-  function drawPick() {
-    const pool = drawPool();
-    if (draw.mode === 'replace') return pool[Math.floor(Math.random() * pool.length)];
-    if (!draw.bag) draw.bag = pool.filter(s => !draw.locks.includes(s)); // 固定的那式先從這一輪拿掉
+  const drawFace = (id) => draw.locks[id] || draw.got[id];
+  const drawResult = (rounds) => (rounds.length && rounds.every(r => drawFace(r.id)) ? rounds.map(r => drawFace(r.id)) : null);
+  const drawNext = (rounds) => rounds.find(r => !drawFace(r.id));
+  const drawRound = () => { draw.got = {}; draw.bag = null; };
+  // 抽一支籤：放回＝每次從整個籤筒抽；拿掉＝從這一輪剩下的抽，抽空了再全部放回。
+  // 拿掉模式下同一段的各輪不重複（「4 式各一輪」就是四式都游到）；籤筒剩下的都已在這段出現過，才從整個籤筒挑這段還沒有的
+  function drawPick(rounds, r) {
+    const pool = drawPool(), any = a => a[Math.floor(Math.random() * a.length)];
+    if (draw.mode === 'replace') return any(pool);
+    const locked = rounds.map(x => draw.locks[x.id]).filter(Boolean);
+    if (!draw.bag) draw.bag = pool.filter(s => !locked.includes(s)); // 固定的那式先從這一輪拿掉
     if (!draw.bag.length) draw.bag = pool.slice();
-    return draw.bag.splice(Math.floor(Math.random() * draw.bag.length), 1)[0];
+    const used = rounds.filter(x => x.i === r.i && x.id !== r.id).map(x => drawFace(x.id)).filter(Boolean);
+    const fresh = draw.bag.filter(s => !used.includes(s)), spare = pool.filter(s => !used.includes(s));
+    const s = fresh.length ? any(fresh) : spare.length ? any(spare) : any(draw.bag);
+    if (draw.bag.includes(s)) draw.bag.splice(draw.bag.indexOf(s), 1);
+    return s;
+  }
+  // 某式有成績的最長距離＝那一式每趟的上限；沒有任何成績就不設限（也算不出目標）
+  const strokeCap = (s) => { const k = known(s).map(([d]) => d); return k.length ? Math.max(...k) : Infinity; };
+  // 暖身＋drill＋緩和：讀目前課表；還沒排就先抓 DRAW_FRAME
+  function drawFrame() {
+    const d = M().blocks.filter(b => b.title !== '主課').reduce((a, b) => a + b.rows.reduce((x, r) => x + rowDist(r), 0), 0);
+    return d ? { m: d, from: '目前課表' } : { m: DRAW_FRAME, from: '先抓 100＋300＋100' };
+  }
+  // 量的分配：沒填總量 → 各段照組型；有填 → 固定量的段照組型，剩下的依權重分給有氧／閾值段
+  function drawPlan(slots) {
+    const base = slots.map(sl => rowDist(sl.build('free').row));
+    if (!draw.total) return { vols: base.map(() => null), base };
+    const frame = drawFrame(), budget = Math.max(0, draw.total - frame.m);
+    const w = slots.map(sl => FLEX_WEIGHT[sl.key] || 0), wsum = w.reduce((a, b) => a + b, 0);
+    const fixed = base.reduce((a, v, i) => a + (w[i] ? 0 : v), 0), share = Math.max(0, budget - fixed);
+    return { vols: w.map(x => (x && wsum ? share * x / wsum : null)), base, frame, budget, fixed, share, flex: wsum > 0 };
+  }
+  const sendoffOf = (r) => { const tg = targetOf(r); return Math.ceil(((tg && tg.t ? tg.t : estSec(r)) + r.rest) / RND) * RND; };
+  // 一輪的組：同一段的量平均分給各輪；依時間的組重挑每趟距離；超過該式成績上限的距離縮短、總量不變
+  function roundBuild(r, s, plan) {
+    const x = r.sl.build(s), row = normRow(JSON.parse(JSON.stringify(x.row))), k = drawSplit(r.i), cap = strokeCap(s);
+    if (FLEX_WEIGHT[r.sl.key]) {
+      const V = (plan.vols[r.i] != null ? plan.vols[r.i] : rowDist(row)) / k;
+      const cand = [row.dist, ...FLEX_DIST].filter(d => d <= cap);
+      const d = cand.find(c => V / c >= FLEX_MIN_REPS) || (cand.length ? Math.min(...cand) : row.dist);
+      Object.assign(row, { sets: 1, setRest: 0, dist: d, reps: Math.max(1, Math.round(V / d)) });
+    } else {
+      if (k > 1) { const n = (row.sets || 1) * row.reps; Object.assign(row, { sets: 1, setRest: 0, reps: Math.max(1, Math.ceil(n / k)) }); }
+      if (row.dist > cap) { const n = (row.sets || 1) * row.reps * row.dist; Object.assign(row, { dist: cap, reps: Math.max(1, Math.round(n / (row.sets || 1) / cap)) }); }
+    }
+    row.sendoff = sendoffOf(row);
+    return { name: x.name, row };
   }
   const drawImg = (k) => (DRAW_ART[k] ? `<img src="${esc(DRAW_ART[k])}" alt="" ${DRAW_ART_SIZE} decoding="async">` : '');
   const cardFace = (s) => `${drawImg(s)}<b>${esc(SZH[s])}</b>`;
   function drawDetail(x) {
-    const r = x.row, tg = targetOf(r);
+    const r = x.row, tg = targetOf(r), cap = strokeCap(r.stroke);
     const t = tg && tg.t ? `目標 ${fmt(tg.t)}` : r.int === 'none' ? '不設目標時間' : `${(tg && tg.miss) || '待補成績'}`;
-    return `<p class="wk-draw-set">${r.sets > 1 ? `${r.sets} 組 × ` : ''}${r.reps} × ${r.dist} m</p><p class="muted">${esc(t)}・休 ${fmt0(r.rest)}</p>`;
+    const long = rowDist(r) > cap * LONG_ROUND_RATIO ? `<p class="wk-note">${esc(SZH[r.stroke])}最長的成績是 ${cap} m，這一輪 ${rowDist(r)} m 偏多；可以把這段拆給多式各一輪。</p>` : '';
+    return `<p class="wk-draw-set">${r.sets > 1 ? `${r.sets} 組 × ` : ''}${r.reps} × ${r.dist} m</p><p class="muted">${esc(t)}・休 ${fmt0(r.rest)}</p>${long}`;
   }
   // 還沒翻的卡本身就是按鈕：小朋友輪流點自己那張
-  function drawCard(sl, i, built, canPick) {
-    const lock = draw.locks[i], s = drawFace(i);
+  function drawCard(r, built, canPick) {
+    const lock = draw.locks[r.id], s = drawFace(r.id), multi = drawSplit(r.i) > 1;
     const inner = `<div class="wk-card-in"><div class="wk-card-back">${drawImg('card-back')}</div><div class="wk-card-face" data-draw-face>${s ? cardFace(s) : ''}</div></div>`;
-    return `<li class="wk-card${s ? ` is-up is-${s}` : ''}" data-draw-card="${i}">
-      <p class="wk-card-k">第 ${i + 1} 段・${esc(sl.name)}</p>
-      ${!s && canPick ? `<button type="button" class="wk-card-flip" data-draw-pick="${i}" aria-label="抽第 ${i + 1} 段">${inner}</button>` : `<div class="wk-card-flip">${inner}</div>`}
-      <div class="wk-card-out">${built[i] ? drawDetail(built[i]) : ''}</div>
-      <label class="wk-field"><span>這一段</span><select data-draw-lock="${i}"><option value="">用抽的</option>${DRAW_STROKES.map(k => `<option value="${k}"${k === lock ? ' selected' : ''}>固定${esc(SZH[k])}</option>`).join('')}</select></label></li>`;
+    return `<li class="wk-card${s ? ` is-up is-${s}` : ''}" data-draw-card="${r.id}">
+      <p class="wk-card-k">${multi ? `第 ${r.j + 1} 輪` : `第 ${r.i + 1} 段・${esc(r.sl.name)}`}</p>
+      ${!s && canPick ? `<button type="button" class="wk-card-flip" data-draw-pick="${r.id}" aria-label="抽${roundLabel(r)}">${inner}</button>` : `<div class="wk-card-flip">${inner}</div>`}
+      <div class="wk-card-out">${built ? drawDetail(built) : ''}</div>
+      <label class="wk-field"><span>${multi ? '這一輪' : '這一段'}</span><select data-draw-lock="${r.id}"><option value="">用抽的</option>${DRAW_STROKES.map(k => `<option value="${k}"${k === lock ? ' selected' : ''}>固定${esc(SZH[k])}</option>`).join('')}</select></label></li>`;
+  }
+  // 一段：標題、約幾公尺、拆成幾式，底下是各輪的卡
+  function drawSegHtml(sl, i, rounds, builtOf, plan, canPick) {
+    const own = rounds.filter(r => r.i === i), k = drawSplit(i);
+    const m = own.every(r => builtOf[r.id]) ? own.reduce((a, r) => a + rowDist(builtOf[r.id].row), 0) : Math.round(plan.vols[i] != null ? plan.vols[i] : plan.base[i]);
+    return `<li class="wk-seg"><div class="wk-seg-h"><p class="wk-seg-t">第 ${i + 1} 段・${esc(sl.name)}</p><p class="muted">約 ${m} m</p>
+      <label class="wk-field"><span>拆成幾式</span><select data-draw-split="${i}">${DRAW_SPLITS.map(n => `<option value="${n}"${n === k ? ' selected' : ''}>${n === 1 ? '一式游完' : `${n} 式各一輪`}</option>`).join('')}</select></label></div>
+      <ol class="wk-deck">${own.map(r => drawCard(r, builtOf[r.id], canPick)).join('')}</ol></li>`;
   }
   const drawChip = (attr, k, isOn, label) => `<button type="button" class="wk-chip" aria-pressed="${isOn}" ${attr}="${k}">${esc(label)}</button>`;
   // 段落來源的說明與欄位：週期（依賽事／自選）或自訂順序
@@ -718,6 +780,7 @@
       if (P && P.phase !== 'transition') { const B = setBuilders('free'); fields.push(`<label class="wk-field wk-grow"><span>這週第幾堂品質課</span><select data-draw-day>${DRAW_DAYS.map(k => `<option value="${k}"${k === draw.day ? ' selected' : ''}>第 ${k + 1} 堂：${esc(qualityDay(P.phase, k, B).focus)}</option>`).join('')}</select></label>`); }
       if (fields.length) html += `<div class="wk-row">${fields.join('')}</div>`;
       if (P && P.phase === 'transition') html += '<p class="muted">過渡期只排輕鬆游，不設目標時間。</p>';
+      else if (P) html += `<div class="wk-chips">${drawChip('data-draw-tail', 'on', draw.tail, '後段加一段副泳式有氧')}</div>`;
     } else {
       const goalOpts = cur => Object.keys(GOAL_BUILDERS).map(k => `<option value="${k}"${k === cur ? ' selected' : ''}>${esc(goalName(k))}</option>`).join('');
       html += `<ol class="wk-draw-order">${draw.custom.map((k, i) => `<li><label class="wk-field wk-grow"><span>第 ${i + 1} 段</span><select data-draw-goal="${i}">${goalOpts(k)}</select></label>
@@ -726,35 +789,46 @@
     }
     return html;
   }
+  // 整堂總量：填了就照它分主課的量，並把算式攤開
+  function drawTotalHtml(plan) {
+    let html = `<div class="wk-row"><label class="wk-field"><span>整堂總量（m，選填）</span><input type="number" inputmode="numeric" min="0" max="${DRAW_TOTAL_MAX}" step="100" placeholder="例 2100" data-draw-total value="${draw.total || ''}"></label></div>`;
+    if (!draw.total) return html + '<p class="muted">沒填就照各組型的原有份量。填了以後，速度、乳酸、賽速段照組型，剩下的量分給有氧與閾值段。</p>';
+    html += `<p class="muted">整堂 ${draw.total} m − 暖身＋drill＋緩和 ${plan.frame.m} m（${plan.frame.from}）＝主課約 ${plan.budget} m；速度、乳酸、賽速段 ${plan.fixed} m，${plan.flex ? `其餘約 ${Math.round(plan.share)} m 分給有氧與閾值段。` : '沒有有氧或閾值段可以吸收剩下的量。'}</p>`;
+    if (plan.flex && plan.share < FLEX_DIST.at(-1) * FLEX_MIN_REPS) html += '<p class="wk-note">剩給有氧與閾值的量很少：總量可能不夠放下這幾段，或速度段太多。</p>';
+    return html;
+  }
   function renderDraw() {
     const box = $('[data-wk-draw-body]');
     if (!box || draw.busy) return;
     const act = document.activeElement, keep = act && box.contains(act) ? [...act.attributes].find(a => a.name.startsWith('data-draw-')) : null;
     const slots = drawSlots();
-    draw.locks.length = slots.length;
-    if (draw.sig !== drawSig(slots)) { drawRound(); draw.sig = drawSig(slots); } // 段落變了（例如改了賽事日期），這一輪作廢
+    draw.splits.length = slots.length;
+    if (draw.sig !== drawSig(slots)) { drawRound(); draw.sig = drawSig(slots); } // 段落或拆法變了（例如改了賽事日期），這一輪作廢
+    const rounds = drawRounds(slots), plan = drawPlan(slots);
+    Object.keys(draw.locks).forEach(id => { if (!rounds.some(r => r.id === id)) delete draw.locks[id]; });
     const P = draw.src === 'custom' ? null : drawPhase();
-    let html = `<p class="muted">主課分幾段、照什麼順序，由週期或你自己決定；每段游什麼式用抽的。加進課表後全部都能改，drill 照抽到的泳式在課表裡自己選。</p>
+    let html = `<p class="muted">主課分幾段、每段練什麼，由週期或你自己決定；每段可以一式游完，或拆給 2–4 式各一輪，每輪游什麼式用抽的。加進課表後全部都能改，drill 照抽到的泳式在課表裡自己選。</p>
       <p class="wk-css-k">主課段落從哪來</p><div class="wk-chips">${drawChip('data-draw-src', 'cycle', draw.src === 'cycle', '依賽事週期')}${drawChip('data-draw-src', 'phase', draw.src === 'phase', '自選週期')}${drawChip('data-draw-src', 'custom', draw.src === 'custom', '自訂')}</div>` + drawSourceHtml(P);
+    if (slots.length) html += drawTotalHtml(plan);
     html += `<p class="wk-css-k">籤筒裡放哪幾式</p><div class="wk-chips">${DRAW_STROKES.map(s => drawChip('data-draw-pool', s, draw.pool.has(s), SZH[s])).join('')}</div>
       <p class="wk-css-k">抽法</p><div class="wk-chips">${drawChip('data-draw-mode', 'remove', draw.mode === 'remove', '抽完拿掉')}${drawChip('data-draw-mode', 'replace', draw.mode === 'replace', '抽完放回')}</div>
-      <p class="muted">${draw.mode === 'remove' ? '同一輪不重複；段數比籤多時，抽完一輪再全部放回。' : '每段都從整個籤筒抽，可能抽到同一式（例如自自仰）。'}</p>
+      <p class="muted">${draw.mode === 'remove' ? '同一輪不重複；輪數比籤多時，抽完再全部放回。' : '每輪都從整個籤筒抽，可能抽到同一式（例如自自仰）。'}</p>
       <div class="wk-chips">${drawChip('data-draw-sound', 'on', SFX.isOn(), '抽卡音效')}</div>`;
-    const res = drawResult(slots), next = drawNext(slots), left = slots.filter((_, i) => !drawFace(i)).length;
+    const res = drawResult(rounds), next = drawNext(rounds), left = rounds.filter(r => !drawFace(r.id)).length;
     if (slots.length) {
-      const built = slots.map((sl, i) => (drawFace(i) ? sl.build(drawFace(i)) : null));
-      const blocked = next >= 0 && !drawPool().length;
+      const builtOf = Object.fromEntries(rounds.filter(r => drawFace(r.id)).map(r => [r.id, roundBuild(r, drawFace(r.id), plan)]));
+      const blocked = !!next && !drawPool().length;
       const main = res ? '<button type="button" class="wk-btn wk-btn--main" data-draw-again>再抽一輪</button>'
-        : `<button type="button" class="wk-btn wk-btn--main" data-draw-go${blocked ? ' disabled' : ''}>抽第 ${next + 1} 段</button>${left > 1 ? `<button type="button" class="wk-btn" data-draw-all${blocked ? ' disabled' : ''}>剩下 ${left} 段一次抽完</button>` : ''}`;
-      html += `<p class="muted">輪流抽：一人點一張卡，或按「抽第 N 段」照順序抽。</p>
-        <ol class="wk-deck" data-draw-deck>${slots.map((sl, i) => drawCard(sl, i, built, !blocked)).join('')}</ol>
-        ${blocked ? '<p class="wk-note">籤筒是空的：至少放一式，或把每段都設成固定。</p>' : ''}
+        : `<button type="button" class="wk-btn wk-btn--main" data-draw-go${blocked ? ' disabled' : ''}>抽${roundLabel(next)}</button>${left > 1 ? `<button type="button" class="wk-btn" data-draw-all${blocked ? ' disabled' : ''}>剩下 ${left} 張一次抽完</button>` : ''}`;
+      html += `<p class="muted">輪流抽：一人點一張卡，或按「抽…」照順序抽。</p>
+        <ol class="wk-segs" data-draw-deck>${slots.map((sl, i) => drawSegHtml(sl, i, rounds, builtOf, plan, !blocked)).join('')}</ol>
+        ${blocked ? '<p class="wk-note">籤筒是空的：至少放一式，或把每一輪都設成固定。</p>' : ''}
         <div class="wk-actions">${main}
         <button type="button" class="wk-btn" data-draw-add${res ? '' : ' disabled'}>全部加入目前主課</button><button type="button" class="wk-btn" data-draw-new${res ? '' : ' disabled'}>另建課表</button>
         ${draw.src !== 'custom' ? '<button type="button" class="wk-btn" data-draw-tocustom>用這些段落自訂</button>' : ''}</div>`;
     }
-    const live = res ? `抽到：${slots.map((sl, i) => `${SZH[res[i]]}（${sl.name}）`).join(' → ')}`
-      : draw.got.some(Boolean) ? `已抽：${slots.map((sl, i) => (draw.got[i] ? `第 ${i + 1} 段${SZH[draw.got[i]]}` : '')).filter(Boolean).join('、')}；還有 ${left} 段。` : '';
+    const live = res ? `抽到：${slots.map((sl, i) => `${sl.name}（${rounds.filter(r => r.i === i).map(r => SZH[drawFace(r.id)]).join('、')}）`).join(' → ')}`
+      : Object.keys(draw.got).length ? `已抽：${rounds.filter(r => draw.got[r.id]).map(r => `${roundLabel(r)}${SZH[draw.got[r.id]]}`).join('、')}；還有 ${left} 張。` : '';
     html += `<p class="wk-draw-live" role="status" data-draw-live>${esc(live)}</p>`;
     box.innerHTML = html;
     const back = keep && box.querySelector(`[${keep.name}="${CSS.escape(keep.value)}"]`);
@@ -828,47 +902,47 @@
     };
   })();
   const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
-  // 抽完一張（或一輪）後：卡片定稿、焦點回到下一個動作
+  // 抽完一張（或一次全抽）後：卡片定稿、焦點回到下一個動作
   function drawSettle(popped) {
     draw.busy = false; renderDraw();
-    popped.forEach(i => { const li = $(`[data-draw-card="${i}"]`); if (li) li.classList.add('is-pop'); });
+    popped.forEach(id => { const li = $(`[data-draw-card="${id}"]`); if (li) li.classList.add('is-pop'); });
     const next = $('[data-draw-go]') || $('[data-draw-again]'); if (next) next.focus();
   }
-  // 剩下的段一次抽完：洗牌後依序翻開（大人排課用的快速版）
+  // 剩下的一次抽完：洗牌後依序翻開（大人排課用的快速版）
   function runDrawAll() {
-    const slots = drawSlots();
-    if (!slots.length || draw.busy || drawNext(slots) < 0) return;
-    const todo = slots.map((_, i) => i).filter(i => !drawFace(i));
-    const picks = todo.map(() => drawPick());
-    if (reducedMotion()) { todo.forEach((i, k) => { draw.got[i] = picks[k]; }); drawSettle([]); return; }
+    const slots = drawSlots(), rounds = drawRounds(slots);
+    if (!rounds.length || draw.busy || !drawNext(rounds)) return;
+    const todo = rounds.filter(r => !drawFace(r.id));
+    const picks = todo.map(r => (draw.got[r.id] = drawPick(rounds, r)));
+    if (reducedMotion()) { drawSettle([]); return; }
     draw.busy = true;
     const box = $('[data-wk-draw-body]'), deck = box.querySelector('[data-draw-deck]');
-    box.querySelectorAll('button, select').forEach(el => { el.disabled = true; });
+    box.querySelectorAll('button, select, input').forEach(el => { el.disabled = true; });
     box.querySelector('[data-draw-live]').textContent = '洗牌中…';
     deck.classList.add('is-shuffling'); SFX.shuffle();
     let t = DRAW_SHUFFLE_MS;
-    todo.forEach((i, k) => {
+    todo.forEach((r, k) => {
       setTimeout(() => {
-        const li = deck.querySelector(`[data-draw-card="${i}"]`);
+        const li = deck.querySelector(`[data-draw-card="${r.id}"]`);
         li.querySelector('[data-draw-face]').innerHTML = cardFace(picks[k]);
         li.classList.add('is-up', 'is-pop', `is-${picks[k]}`); SFX.flip();
       }, t);
       t += DRAW_GAP_MS;
     });
-    setTimeout(() => { todo.forEach((i, k) => { draw.got[i] = picks[k]; }); drawSettle([]); }, t + DRAW_SETTLE_MS);
+    setTimeout(() => drawSettle([]), t + DRAW_SETTLE_MS);
   }
   // 單抽：全螢幕舞台，卡背落下 → 蓄力抖動、光圈與泡泡聚集 → 閃光爆開翻面 → 泳式名蓋章；點一下可跳過蓄力
-  function runDrawOne(i) {
-    const slots = drawSlots();
-    if (draw.busy || !slots[i] || drawFace(i) || !drawPool().length) return;
-    const s = drawPick(), built = slots[i].build(s);
-    draw.got[i] = s;
-    if (reducedMotion()) { drawSettle([i]); return; }
+  function runDrawOne(id) {
+    const slots = drawSlots(), rounds = drawRounds(slots), r = rounds.find(x => x.id === id);
+    if (draw.busy || !r || drawFace(id) || !drawPool().length) return;
+    const s = drawPick(rounds, r), built = roundBuild(r, s, drawPlan(slots));
+    draw.got[id] = s;
+    if (reducedMotion()) { drawSettle([id]); return; }
     draw.busy = true;
     const st = document.createElement('div');
     st.className = `wk-gacha is-${s}`;
-    st.setAttribute('role', 'dialog'); st.setAttribute('aria-modal', 'true'); st.setAttribute('aria-label', `抽第 ${i + 1} 段`); st.tabIndex = -1;
-    st.innerHTML = gachaHtml(i, slots[i].name, s, built);
+    st.setAttribute('role', 'dialog'); st.setAttribute('aria-modal', 'true'); st.setAttribute('aria-label', `抽${roundLabel(r)}`); st.tabIndex = -1;
+    st.innerHTML = gachaHtml(`${roundLabel(r)}・${r.sl.name}`, s, built);
     root.append(st); st.focus(); SFX.charge();
     const ok = st.querySelector('[data-gacha-ok]');
     let stage = 'charge';
@@ -884,7 +958,7 @@
       if (stage === 'out') return;
       stage = 'out'; timers.forEach(clearTimeout);
       st.classList.add('is-out'); SFX.pop();
-      setTimeout(() => { st.remove(); drawSettle([i]); }, GACHA_OUT_MS);
+      setTimeout(() => { st.remove(); drawSettle([id]); }, GACHA_OUT_MS);
     };
     st.addEventListener('click', () => (stage === 'charge' ? open() : stage === 'ready' ? close() : null));
     st.addEventListener('keydown', e => {
@@ -895,29 +969,36 @@
     timers.push(setTimeout(open, GACHA_OPEN_MS));
   }
   // 舞台內容：光芒、泡泡、卡（光圈、星光、抖動層、翻面層）、泳式名、組與目標、收下
-  const gachaHtml = (i, name, s, built) => `<div class="wk-gacha-rays"></div><div class="wk-gacha-bubbles">${'<i></i>'.repeat(GACHA_BUBBLES)}</div>
-      <p class="wk-gacha-k">第 ${i + 1} 段・${esc(name)}</p>
+  const gachaHtml = (title, s, built) => `<div class="wk-gacha-rays"></div><div class="wk-gacha-bubbles">${'<i></i>'.repeat(GACHA_BUBBLES)}</div>
+      <p class="wk-gacha-k">${esc(title)}</p>
       <div class="wk-gacha-card"><div class="wk-gacha-glow"></div><div class="wk-gacha-sparks">${'<i></i>'.repeat(GACHA_SPARKS)}</div>
         <div class="wk-gacha-shake"><div class="wk-gacha-in"><div class="wk-gacha-back">${drawImg('card-back')}</div><div class="wk-gacha-face">${drawImg(s)}</div></div></div></div>
       <p class="wk-gacha-name" aria-live="polite" data-gacha-name></p><div class="wk-gacha-out">${drawDetail(built)}</div>
       <button type="button" class="wk-btn wk-btn--main" data-gacha-ok disabled>收下</button><p class="wk-gacha-hint">點一下直接翻開</p><div class="wk-gacha-flash"></div>`;
   function drawAdd(fresh) {
-    const slots = drawSlots(), res = drawResult(slots);
+    const slots = drawSlots(), rounds = drawRounds(slots), res = drawResult(rounds);
     if (!res || draw.busy) return;
-    const xs = slots.map((sl, i) => sl.build(res[i]));
-    const label = res.map(s => DRAW_SHORT[s]).join('');
+    const plan = drawPlan(slots), xs = rounds.map((r, k) => roundBuild(r, res[k], plan));
+    const label = slots.map((_, i) => rounds.map((r, k) => (r.i === i ? DRAW_SHORT[res[k]] : '')).join('')).join('');
     if (fresh) {
       const m = newMenu(`抽籤・${label}`);
-      m.intent = `主課：${xs.map((x, i) => `${x.name}（${SZH[res[i]]}）`).join(' → ')}`;
+      m.intent = `主課：${slots.map((sl, i) => `${sl.name}（${rounds.map((r, k) => (r.i === i ? SZH[res[k]] : '')).filter(Boolean).join('、')}）`).join(' → ')}`;
       m.blocks.find(b => b.title === '主課').rows.push(...xs.map(x => x.row));
       S.menus.push(m); S.cur = S.menus.length - 1;
       openEq.clear(); openAdv.clear(); save(); renderMenu(); toast(`已建立課表：${m.name}`);
     } else {
       mainBlock().rows.push(...xs.map(x => x.row));
-      save(); renderMenu(); toast(`已加入主課：${label}（${xs.length} 段）`);
+      save(); renderMenu(); toast(`已加入主課：${label}（${slots.length} 段 ${xs.length} 輪）`);
     }
     root.dispatchEvent(new CustomEvent('workout:recommendation-added'));
     $('#wk-menu').scrollIntoView();
+  }
+  // 自訂段落搬移或刪除時，拆法與固定泳式跟著段走（舊索引 → 新索引；null＝刪掉）
+  function remapSegs(map) {
+    const splits = [], locks = {};
+    draw.splits.forEach((v, i) => { const n = map(i); if (n != null) splits[n] = v; });
+    Object.entries(draw.locks).forEach(([id, v]) => { const [i, j] = id.split('.').map(Number), n = map(i); if (n != null) locks[`${n}.${j}`] = v; });
+    draw.splits = splits; draw.locks = locks;
   }
   function initDraw() {
     const el = $('[data-wk-draw]');
@@ -928,15 +1009,19 @@
       const b = e.target.closest('button');
       if (!b || b.disabled || draw.busy) return;
       const d = b.dataset;
-      if (d.drawSrc && ['cycle', 'phase', 'custom'].includes(d.drawSrc)) { draw.src = d.drawSrc; reset(); }
+      if (d.drawSrc && ['cycle', 'phase', 'custom'].includes(d.drawSrc)) { draw.src = d.drawSrc; draw.splits = []; draw.locks = {}; reset(); }
       else if (d.drawPool && DRAW_STROKES.includes(d.drawPool)) { if (draw.pool.has(d.drawPool)) draw.pool.delete(d.drawPool); else draw.pool.add(d.drawPool); reset(); }
       else if (d.drawMode && ['remove', 'replace'].includes(d.drawMode)) { draw.mode = d.drawMode; reset(); }
+      else if (d.drawTail) { draw.tail = !draw.tail; reset(); }
       else if (d.drawSound) { SFX.toggle(); SFX.pop(); renderDraw(); }
-      else if (d.drawMove) { const [i, dir] = d.drawMove.split(':').map(Number), j = i + dir; if (draw.custom[i] && draw.custom[j]) { [draw.custom[i], draw.custom[j]] = [draw.custom[j], draw.custom[i]]; [draw.locks[i], draw.locks[j]] = [draw.locks[j], draw.locks[i]]; reset(); } }
-      else if (d.drawDel != null && draw.custom.length > 1 && draw.custom[+d.drawDel]) { const i = +d.drawDel; draw.custom.splice(i, 1); draw.locks.splice(i, 1); reset(); }
+      else if (d.drawMove) {
+        const [i, dir] = d.drawMove.split(':').map(Number), j = i + dir;
+        if (draw.custom[i] && draw.custom[j]) { [draw.custom[i], draw.custom[j]] = [draw.custom[j], draw.custom[i]]; remapSegs(x => (x === i ? j : x === j ? i : x)); reset(); }
+      }
+      else if (d.drawDel != null && draw.custom.length > 1 && draw.custom[+d.drawDel]) { const i = +d.drawDel; draw.custom.splice(i, 1); remapSegs(x => (x === i ? null : x > i ? x - 1 : x)); reset(); }
       else if (b.hasAttribute('data-draw-addslot') && draw.custom.length < DRAW_MAX) { draw.custom.push('aerobic_easy'); reset(); }
-      else if (b.hasAttribute('data-draw-go')) runDrawOne(drawNext(drawSlots()));
-      else if (d.drawPick != null) runDrawOne(+d.drawPick);
+      else if (b.hasAttribute('data-draw-go')) { const r = drawNext(drawRounds(drawSlots())); if (r) runDrawOne(r.id); }
+      else if (d.drawPick != null) runDrawOne(d.drawPick);
       else if (b.hasAttribute('data-draw-all')) runDrawAll();
       else if (b.hasAttribute('data-draw-again')) { reset(); const go = $('[data-draw-go]'); if (go) go.focus(); }
       else if (b.hasAttribute('data-draw-add')) drawAdd(false);
@@ -946,11 +1031,18 @@
     el.addEventListener('change', e => {
       const t = e.target, d = t.dataset;
       if (draw.busy) return;
+      if (t.matches('[data-draw-total]')) { // 量變了不重抽：泳式不變，只重算每輪的趟數
+        const v = Math.round(+t.value);
+        draw.total = v > 0 ? Math.min(v, DRAW_TOTAL_MAX) : null;
+        try { if (draw.total) localStorage.setItem(DRAW_TOTAL_KEY, String(draw.total)); else localStorage.removeItem(DRAW_TOTAL_KEY); } catch (_) { /* 只影響下次開頁 */ }
+        renderDraw(); return;
+      }
       if (t.matches('[data-draw-phase]') && DRAW_PHASES.includes(t.value)) draw.phase = t.value;
       else if (t.matches('[data-draw-day]') && DRAW_DAYS.includes(+t.value)) draw.day = +t.value;
       else if (t.matches('[data-draw-goal]') && Object.hasOwn(GOAL_BUILDERS, t.value) && draw.custom[+d.drawGoal]) draw.custom[+d.drawGoal] = t.value;
       else if (t.matches('[data-draw-size]') && ['compact', 'standard'].includes(t.value)) draw.size = t.value;
-      else if (t.matches('[data-draw-lock]')) draw.locks[+d.drawLock] = DRAW_STROKES.includes(t.value) ? t.value : undefined;
+      else if (t.matches('[data-draw-split]') && DRAW_SPLITS.includes(+t.value)) { draw.splits[+d.drawSplit] = +t.value; Object.keys(draw.locks).forEach(id => { if (id.startsWith(`${d.drawSplit}.`)) delete draw.locks[id]; }); }
+      else if (t.matches('[data-draw-lock]') && /^\d+\.\d+$/.test(d.drawLock)) { if (DRAW_STROKES.includes(t.value)) draw.locks[d.drawLock] = t.value; else delete draw.locks[d.drawLock]; }
       else return;
       reset();
     });

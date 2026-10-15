@@ -1,4 +1,4 @@
-/* node tools/test_workout_draw.cjs [URL]; 抽主課泳式：段落來源、抽完拿掉／放回、固定、輪流單抽與抽卡舞台、一次抽完、加入課表、窄螢幕。isolated browser storage only. */
+/* node tools/test_workout_draw.cjs [URL]; 分段主課＋抽泳式：段落來源、拆成幾式、整堂總量、泳式距離上限、抽完拿掉／放回、固定、輪流單抽與抽卡舞台、一次抽完、加入課表、窄螢幕。isolated browser storage only. */
 const assert = require('node:assert/strict');
 const path = require('node:path');
 const os = require('node:os');
@@ -75,7 +75,7 @@ const ZH = { 自由式: 'free', 仰式: 'back', 蛙式: 'breast', 蝶式: 'fly' 
     assert.equal(await page.locator('[data-draw-go]').isDisabled(), true);
     assert.match(await page.locator('[data-wk-draw-body]').innerText(), /籤筒是空的/);
     for (let k = 0; k < 3; k++) await page.locator('[data-draw-del="0"]').click();
-    for (let i = 0; i < 3; i++) await page.locator(`[data-draw-lock="${i}"]`).selectOption(['fly', 'back', 'fly'][i]);
+    for (let i = 0; i < 3; i++) await page.locator(`[data-draw-lock="${i}.0"]`).selectOption(['fly', 'back', 'fly'][i]);
     assert.equal(await page.locator('[data-draw-again]').count(), 1, 'all fixed: nothing left to draw');
     assert.deepEqual(await faces(page), ['fly', 'back', 'fly']);
     await context.close();
@@ -85,9 +85,9 @@ const ZH = { 自由式: 'free', 仰式: 'back', 蛙式: 'breast', 蝶式: 'fly' 
     await page.locator('[data-draw-src="custom"]').click();
     for (let k = 0; k < 8; k++) {
       if (k) await page.locator('[data-draw-again]').click();
-      await page.locator('[data-draw-pick="2"]').click();
+      await page.locator('[data-draw-pick="2.0"]').click();
       assert.equal(await page.locator('.wk-card.is-up').count(), 1);
-      assert.match(await page.locator('[data-draw-live]').innerText(), /已抽：第 3 段.+還有 2 段/);
+      assert.match(await page.locator('[data-draw-live]').innerText(), /已抽：第 3 段.+還有 2 張/);
       assert.match(await page.locator('[data-draw-go]').innerText(), /抽第 1 段/);
       assert.equal(await page.locator('[data-draw-add]').isDisabled(), true, 'cannot add half a draw');
       await page.locator('[data-draw-go]').click();
@@ -105,13 +105,13 @@ const ZH = { 自由式: 'free', 仰式: 'back', 蛙式: 'breast', 蝶式: 'fly' 
     await page.locator('[data-wk-pb="free:400"] input').press('Tab');
     await view(page, 'draw');
     await page.locator('[data-draw-src="custom"]').click();
-    await page.locator('[data-draw-lock="1"]').selectOption('free');
+    await page.locator('[data-draw-lock="1.0"]').selectOption('free');
     for (let k = 0; k < 8; k++) {
       await go(page);
       const f = await faces(page);
       assert.equal(f[1], 'free'); assert.ok(!f.includes('free', 2) && f[0] !== 'free', `locked stroke removed from bag: ${f}`);
     }
-    assert.match(await page.locator('[data-draw-card="1"] .wk-card-out').innerText(), /目標 2:50/, 'threshold free target from PBs (170 s)');
+    assert.match(await page.locator('[data-draw-card="1.0"] .wk-card-out').innerText(), /目標 2:50/, 'threshold free target from PBs (170 s)');
     const before = await rows(page), drawn = await faces(page);
     await page.locator('[data-draw-add]').click();
     assert.equal(await page.locator('#ws-tab-plan').getAttribute('aria-selected'), 'true');
@@ -130,18 +130,59 @@ const ZH = { 自由式: 'free', 仰式: 'back', 蛙式: 'breast', 蝶式: 'fly' 
     assert.equal(s.menus[s.cur].blocks.find(b => b.title === '主課').rows.length, 3);
     assert.equal(s.menus[s.cur].blocks.find(b => b.title === 'Drill').rows.length, 0, 'drill left for the user');
 
+    // 拆成幾式：純速 2×4×25 拆四式＝每式 2 趟；閾值 10×200 拆兩式＝每式約 1000 m
+    await page.locator('[data-ws-tab="pace"]').click();
+    await page.locator('[data-draw-src="custom"]').click();
+    await page.locator('[data-draw-split="0"]').selectOption('4');
+    await page.locator('[data-draw-split="1"]').selectOption('2');
+    assert.equal(await page.locator('[data-draw-card]').count(), 7, '4 + 2 + 1 rounds');
+    assert.deepEqual(await page.locator('.wk-seg:nth-child(1) .wk-card-k').allInnerTexts(), ['第 1 輪', '第 2 輪', '第 3 輪', '第 4 輪']);
+    await go(page);
+    const f7 = await faces(page);
+    assert.equal(new Set(f7.slice(0, 4)).size, 4, `speed rounds take all four strokes: ${f7}`);
+    assert.equal(new Set(f7.slice(4, 6)).size, 2, `rounds within one segment never repeat in remove mode: ${f7}`);
+    const r7 = await (async () => { const b = await rows(page); await page.locator('[data-draw-add]').click(); return (await rows(page)).slice(b.length); })();
+    assert.deepEqual(r7.slice(0, 4).map(r => [r.sets || 1, r.reps, r.dist]), Array(4).fill([1, 2, 25]), 'speed 8 reps split into 4 × 2');
+    assert.deepEqual(r7.slice(4, 6).map(r => r.reps * r.dist), [1000, 1000], 'threshold 2000 m split into two rounds');
+    // 整堂總量：速度段照組型，剩下的分給閾值（權重 2）與輕鬆有氧（權重 1）
+    await page.locator('[data-ws-tab="pace"]').click();
+    await page.locator('[data-draw-split="0"]').selectOption('1');
+    await page.locator('[data-draw-split="1"]').selectOption('1');
+    for (let i = 0; i < 3; i++) await page.locator(`[data-draw-lock="${i}.0"]`).selectOption('free');
+    await page.locator('[data-draw-total]').fill('2100'); await page.locator('[data-draw-total]').press('Tab');
+    assert.equal(await page.evaluate(() => localStorage.getItem('cortex-draw-total')), '2100', 'total remembered on this device');
+    const info = await page.locator('[data-wk-draw-body]').innerText();
+    const budget = +info.match(/主課約 (\d+) m/)[1];
+    const r8 = await (async () => { const b = await rows(page); await page.locator('[data-draw-add]').click(); return (await rows(page)).slice(b.length); })();
+    const m8 = r8.map(r => (r.sets || 1) * r.reps * r.dist);
+    assert.equal(m8[0], 200, 'speed segment keeps its own volume');
+    assert.ok(Math.abs(m8.reduce((a, b) => a + b, 0) - budget) <= 200, `main ≈ budget ${budget}: ${m8}`);
+    assert.ok(m8[1] > m8[2], 'threshold gets the larger share');
+    // 泳式距離上限看成績：蝶式只有 50／100 → 蝶式有氧每趟不超過 100
+    await page.locator('[data-ws-tab="pace"]').click();
+    await view(page, 'pb');
+    await page.locator('[data-wk-pb="fly:50"] input').fill('35'); await page.locator('[data-wk-pb="fly:100"] input').fill('80'); await page.locator('[data-wk-pb="fly:100"] input').press('Tab');
+    await view(page, 'draw');
+    await page.locator('[data-draw-total]').fill(''); await page.locator('[data-draw-total]').press('Tab');
+    await page.locator('[data-draw-lock="2.0"]').selectOption('fly');
+    assert.match(await page.locator('[data-draw-card="2.0"] .wk-card-out').innerText(), /12 × 100 m[\s\S]*偏多/, 'easy 3×400 becomes 12×100 for a fly swimmer whose longest fly is 100, with a split hint');
+    for (let i = 0; i < 3; i++) await page.locator(`[data-draw-lock="${i}.0"]`).selectOption('');
+
     // 自選週期：專項準備第 1 堂＝賽速一段；第 2 堂＝速耐；過渡期＝輕鬆游
     await page.locator('[data-ws-tab="pace"]').click();
     await page.locator('[data-draw-src="phase"]').click();
     await page.locator('[data-draw-phase]').selectOption('specific_prep');
+    assert.deepEqual(await page.locator('.wk-card-k').allInnerTexts(), ['第 1 段・賽速重複', '第 2 段・副泳式有氧'], 'tail aerobic segment on by default');
+    await page.locator('[data-draw-tail]').click();
     assert.deepEqual(await page.locator('.wk-card-k').allInnerTexts(), ['第 1 段・賽速重複']);
     await page.locator('[data-draw-day]').selectOption('1');
     assert.equal(await page.locator('[data-draw-card]').count(), 1);
+    await page.locator('[data-draw-tail]').click();
     await page.locator('[data-draw-phase]').selectOption('general_prep');
     await page.locator('[data-draw-day]').selectOption('0');
-    assert.equal(await page.locator('[data-draw-card]').count(), 2, 'general prep: velocity + threshold');
+    assert.equal(await page.locator('[data-draw-card]').count(), 3, 'general prep: velocity + threshold + tail aerobic');
     await page.locator('[data-draw-tocustom]').click();
-    assert.deepEqual(await page.locator('[data-draw-goal]').evaluateAll(els => els.map(e => e.value)), ['velocity', 'threshold']);
+    assert.deepEqual(await page.locator('[data-draw-goal]').evaluateAll(els => els.map(e => e.value)), ['velocity', 'threshold', 'aerobic_easy']);
     await page.locator('[data-draw-src="phase"]').click();
     await page.locator('[data-draw-phase]').selectOption('transition');
     assert.match(await page.locator('[data-wk-draw-body]').innerText(), /過渡期只排輕鬆游/);
@@ -160,7 +201,7 @@ const ZH = { 自由式: 'free', 仰式: 'back', 蛙式: 'breast', 蝶式: 'fly' 
     ({ context, page } = await fresh());
     await page.locator('[data-draw-src="custom"]').click();
     assert.equal(await page.locator('[data-draw-pick]').count(), 3, 'face-down cards are tappable');
-    await page.locator('[data-draw-pick="1"]').click({ force: true }); // 未翻的卡一直輕晃，Playwright 等不到穩定
+    await page.locator('[data-draw-pick="1.0"]').click({ force: true }); // 未翻的卡一直輕晃，Playwright 等不到穩定
     const stage = page.locator('.wk-gacha');
     assert.equal(await stage.count(), 1);
     assert.equal(await stage.getAttribute('role'), 'dialog');
@@ -179,9 +220,9 @@ const ZH = { 自由式: 'free', 仰式: 'back', 蛙式: 'breast', 蝶式: 'fly' 
     const name1 = (await page.locator('[data-gacha-name]').innerText()).replace('！', '');
     await page.locator('[data-gacha-ok]').click();
     await page.waitForSelector('.wk-gacha', { state: 'detached', timeout: 2000 });
-    assert.equal(await page.locator('[data-draw-card="1"].is-up').count(), 1);
+    assert.equal(await page.locator('[data-draw-card="1.0"].is-up').count(), 1);
     assert.equal(await page.locator('.wk-card.is-up').count(), 1);
-    assert.equal((await page.locator('[data-draw-card="1"] [data-draw-face] b').innerText()).trim(), name1);
+    assert.equal((await page.locator('[data-draw-card="1.0"] [data-draw-face] b').innerText()).trim(), name1);
     assert.equal(await page.locator('[data-draw-go]').evaluate(el => el === document.activeElement), true, 'focus returns to next draw');
     // 點舞台跳過蓄力
     await page.setViewportSize({ width: 390, height: 844 });

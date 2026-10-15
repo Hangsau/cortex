@@ -193,7 +193,13 @@
 .wk-draw-order { list-style: none; margin: var(--s2) 0; padding: 0; display: grid; gap: var(--s1); }
 .wk-draw-order li { display: flex; flex-wrap: wrap; align-items: flex-end; gap: var(--s1); }
 .wk-draw-order .wk-btn { width: var(--tap); padding: 0; }
-.wk-deck { list-style: none; margin: var(--s3) 0 var(--s2); padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(132px, 200px)); gap: var(--s3) var(--s2); }
+/* 段：標題列（第幾段、約幾公尺、拆成幾式）＋底下各輪的卡；段與段之間一條髮絲線 */
+.wk-segs { list-style: none; margin: var(--s3) 0 var(--s2); padding: 0; }
+.wk-seg { padding: var(--s2) 0; border-top: 1px solid var(--rule); }
+.wk-seg-h { display: flex; flex-wrap: wrap; align-items: flex-end; gap: var(--s1) var(--s2); }
+.wk-seg-h p { margin: 0; }
+.wk-seg-t { flex: 1 1 12em; font: 700 var(--fs-m)/1.4 var(--f-sans); color: var(--ink); }
+.wk-deck { list-style: none; margin: var(--s2) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(132px, 200px)); gap: var(--s3) var(--s2); }
 .wk-card { --c: var(--series); display: flex; flex-direction: column; gap: var(--s1); min-width: 0; }
 .wk-card.is-free, .wk-gacha.is-open.is-free { --c: var(--draw-free); } /* 舞台翻開前不上色，免得光芒先洩底 */
 .wk-card.is-back, .wk-gacha.is-open.is-back { --c: var(--draw-back); }
@@ -217,7 +223,7 @@ button.wk-card-flip:focus-visible { outline: 3px solid var(--c); outline-offset:
 .wk-card-out p { margin: 0; }
 .wk-draw-set { font-weight: 700; font-variant-numeric: tabular-nums; }
 .wk-draw-live { min-height: 1.6em; font-weight: 700; }
-.wk-deck.is-shuffling .wk-card:not(.is-up) .wk-card-in { animation: wk-shuffle 160ms ease-in-out 4 alternate; }
+.is-shuffling .wk-card:not(.is-up) .wk-card-in { animation: wk-shuffle 160ms ease-in-out 4 alternate; }
 .wk-card.is-pop .wk-card-flip { animation: wk-pop 420ms cubic-bezier(.3, 1.6, .5, 1); }
 .wk-card.is-pop .wk-card-face::after { animation: wk-sweep 420ms ease-out 200ms; }
 @keyframes wk-shuffle { from { transform: translateX(-4px) rotate(-2deg); } to { transform: translateX(4px) rotate(2deg); } }

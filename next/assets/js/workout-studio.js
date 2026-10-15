@@ -31,7 +31,7 @@
           <div data-ws-mode-panel="personal">
             <div class="ws-views" role="group" aria-label="要用哪一個工具">${VIEWS.map(([k, label]) => `<button type="button" data-ws-view="${k}" aria-pressed="${k === 'goals'}">${label}</button>`).join('')}</div>
             <div data-ws-view-panel="goals"><div data-ws-slot="goals"></div><p class="ws-view-hint">目標秒數從你的成績算。<button type="button" class="ws-quiet" data-ws-view="pb">去填成績 →</button></p></div>
-            <div data-ws-view-panel="draw" hidden><section class="le-block ws-draw-view"><h2>抽主課泳式</h2><div data-ws-slot="draw"></div></section><p class="ws-view-hint">目標秒數從你的成績算。<button type="button" class="ws-quiet" data-ws-view="pb">去填成績 →</button></p></div>
+            <div data-ws-view-panel="draw" hidden><section class="le-block ws-draw-view"><h2>分段主課・抽泳式</h2><div data-ws-slot="draw"></div></section><p class="ws-view-hint">目標秒數從你的成績算。<button type="button" class="ws-quiet" data-ws-view="pb">去填成績 →</button></p></div>
             <div data-ws-view-panel="week" hidden><div data-ws-slot="week"></div></div>
             <div data-ws-view-panel="pb" hidden><div data-ws-slot="pb"></div></div>
           </div><div data-ws-mode-panel="group" hidden><div data-ws-slot="group"></div></div>
