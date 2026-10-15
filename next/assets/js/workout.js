@@ -791,16 +791,12 @@
     const st = document.createElement('div');
     st.className = `wk-gacha is-${s}`;
     st.setAttribute('role', 'dialog'); st.setAttribute('aria-modal', 'true'); st.setAttribute('aria-label', `抽第 ${i + 1} 段`); st.tabIndex = -1;
-    st.innerHTML = `<div class="wk-gacha-rays"></div><div class="wk-gacha-bubbles">${'<i></i>'.repeat(GACHA_BUBBLES)}</div>
-      <p class="wk-gacha-k">第 ${i + 1} 段・${esc(slots[i].name)}</p>
-      <div class="wk-gacha-card"><div class="wk-gacha-glow"></div><div class="wk-gacha-sparks">${'<i></i>'.repeat(GACHA_SPARKS)}</div>
-        <div class="wk-gacha-shake"><div class="wk-gacha-in"><div class="wk-gacha-back">${drawImg('card-back')}</div><div class="wk-gacha-face">${drawImg(s)}</div></div></div></div>
-      <p class="wk-gacha-name" aria-live="polite" data-gacha-name></p><div class="wk-gacha-out">${drawDetail(built)}</div>
-      <button type="button" class="wk-btn wk-btn--main" data-gacha-ok disabled>收下</button><p class="wk-gacha-hint">點一下直接翻開</p><div class="wk-gacha-flash"></div>`;
+    st.innerHTML = gachaHtml(i, slots[i].name, s, built);
     root.append(st); st.focus();
+    const ok = st.querySelector('[data-gacha-ok]');
     let stage = 'charge';
     const timers = [];
-    const ready = () => { stage = 'ready'; const ok = st.querySelector('[data-gacha-ok]'); ok.disabled = false; ok.focus(); };
+    const ready = () => { stage = 'ready'; ok.disabled = false; ok.focus(); };
     const open = () => {
       if (stage !== 'charge') return;
       stage = 'open'; timers.forEach(clearTimeout);
@@ -816,11 +812,18 @@
     st.addEventListener('click', () => (stage === 'charge' ? open() : stage === 'ready' ? close() : null));
     st.addEventListener('keydown', e => {
       if (e.key === 'Escape' || (stage === 'charge' && (e.key === 'Enter' || e.key === ' '))) { e.preventDefault(); if (stage === 'charge') open(); else close(); }
-      else if (e.key === 'Tab') { e.preventDefault(); const ok = st.querySelector('[data-gacha-ok]'); if (!ok.disabled) ok.focus(); } // 舞台上只有「收下」一個可操作的東西
+      else if (e.key === 'Tab') { e.preventDefault(); if (!ok.disabled) ok.focus(); } // 舞台上只有「收下」一個可操作的東西
     });
     requestAnimationFrame(() => st.classList.add('is-on'));
     timers.push(setTimeout(open, GACHA_OPEN_MS));
   }
+  // 舞台內容：光芒、泡泡、卡（光圈、星光、抖動層、翻面層）、泳式名、組與目標、收下
+  const gachaHtml = (i, name, s, built) => `<div class="wk-gacha-rays"></div><div class="wk-gacha-bubbles">${'<i></i>'.repeat(GACHA_BUBBLES)}</div>
+      <p class="wk-gacha-k">第 ${i + 1} 段・${esc(name)}</p>
+      <div class="wk-gacha-card"><div class="wk-gacha-glow"></div><div class="wk-gacha-sparks">${'<i></i>'.repeat(GACHA_SPARKS)}</div>
+        <div class="wk-gacha-shake"><div class="wk-gacha-in"><div class="wk-gacha-back">${drawImg('card-back')}</div><div class="wk-gacha-face">${drawImg(s)}</div></div></div></div>
+      <p class="wk-gacha-name" aria-live="polite" data-gacha-name></p><div class="wk-gacha-out">${drawDetail(built)}</div>
+      <button type="button" class="wk-btn wk-btn--main" data-gacha-ok disabled>收下</button><p class="wk-gacha-hint">點一下直接翻開</p><div class="wk-gacha-flash"></div>`;
   function drawAdd(fresh) {
     const slots = drawSlots(), res = drawResult(slots);
     if (!res || draw.busy) return;
