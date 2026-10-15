@@ -2302,6 +2302,27 @@
     M().blocks.forEach(b => b.rows.forEach(r => { if (r.restAuto) autoRest(r, b.title); })); // 成績變了，自動帶的出發間隔跟著變
     renderMenu();
   };
+  /* 教練後台（swim-coach）帶學生成績過來：#pb=<base64url JSON {v:1,name,course,who,pb:{式:{距離:秒}}}>。
+     只填這次開頁的成績，照舊不存進瀏覽器；名字只在網址 # 後面，不會送到伺服器。 */
+  function importPb() {
+    const h = location.hash;
+    if (!h.startsWith('#pb=')) return null;
+    history.replaceState(null, '', location.pathname + location.search);
+    try {
+      const raw = atob(h.slice(4).replace(/-/g, '+').replace(/_/g, '/'));
+      const d = JSON.parse(new TextDecoder().decode(Uint8Array.from(raw, c => c.charCodeAt(0))));
+      if (!d || d.v !== 1 || !d.pb || typeof d.pb !== 'object') throw new Error('bad');
+      STROKES.forEach(st => {
+        S.pb[st.k] = {};
+        const src = d.pb[st.k] || {};
+        st.d.forEach(dist => { const t = +src[dist]; if (t > 0 && t < 36000) S.pb[st.k][dist] = t; });
+      });
+      if (d.course === 'scm' || d.course === 'lcm') S.course = d.course;
+      if (d.who === 'swim' || d.who === 'tri') S.pz.who = d.who;
+      return d.name ? String(d.name).slice(0, 50) : '學生';
+    } catch (_) { return false; }
+  }
+  const pbFrom = importPb();
   const course = $('[data-wk-course]'); course.value = S.course;
   course.addEventListener('change', () => { S.course = course.value; save(); });
   root.querySelectorAll('[data-wk-pb]').forEach(tf => {
@@ -2420,4 +2441,6 @@
   initDraw();
   renderCss(); renderPz(); renderSprint(); renderMenu(); renderMine();
   importShared();
+  if (pbFrom) toast(`已帶入「${pbFrom}」的成績（只在這次開頁有效）`);
+  else if (pbFrom === false) toast('這個成績連結讀不出來');
 })();
