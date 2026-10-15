@@ -6253,6 +6253,189 @@ drills:
   cognitive_load: low
   tactile_anchor: equipment_feedback
   difficulty_tier: intermediate
+- id: UDK6
+  name_en: Side-Lying Dolphin Kick, Observed From the Front
+  name_zh: 側身海豚踢（教練從正面看手擺與腳離線）
+  strokes:
+  - underwater_dolphin_kick
+  category: kick
+  equipment: []
+  l_target:
+  - L3
+  - L4
+  abc_type: B
+  purpose_zh: 側身水下做海豚踢，教練站在池端從正面往前看，用兩個容易看見的現象判斷打水：手臂左右擺多大，腳離開身體線多遠。
+  how_to:
+  - 游者側躺、雙臂鎖成流線，朝教練的方向水下打水；每趟距離短，一口正常吸氣就出發，不過度換氣，有人看著
+  - 教練在池端先只看手：雙手左右擺動的幅度反映髖部彎得多大，書上建議手大約左右擺 6 到 8 英寸（約 15 到 20 公分）
+  - 再只看腳：腳離開身體線的距離代表膝蓋彎得多大，腳離得越遠，減速越多；同時注意每一個踢水循環的速度是否夠快
+  - 每趟只請游者改一個地方（例如手擺小一點），再看下一趟有沒有改變，不一次修兩處
+  perception_goal: 打水是從髖、膝一起收緊的小動作，手臂不大幅擺動，腳不離開身體線太遠。
+  success_signal: 手左右擺動幅度小而穩定、腳貼著身體線上下、節奏夠快。
+  failure_signal: 手左右大幅擺動、膝蓋彎很大、腳遠離身體線、踢一下停一下。
+  deficiency_fixes: []
+  source: Hall, G. W., & Murphy, D. (2020). Fundamentals of Fast Swimming. 第 22 章 Fundamentals of Dolphin Kick（沒有測速儀器時，用側身打水從池端觀察手擺與腳離線）
+  source_ids:
+  - src.hall-murphy-2020
+  body_position: side
+  constraints:
+  - tension_held
+  movement_pattern: continuous
+  skill_focus:
+  - kick_amplitude
+  - kick_origin
+  stroke_phase: non_stroke
+  drill_function: corrective
+  cognitive_load: medium
+  tactile_anchor: partner_feedback
+  difficulty_tier: intermediate
+- id: UDK7
+  name_en: Streamline Dolphin Kick on the Back With Fins
+  name_zh: 仰臥流線海豚踢（穿蛙鞋，下踢壓水）
+  strokes:
+  - underwater_dolphin_kick
+  category: kick
+  equipment:
+  - fins
+  l_target:
+  - L4
+  - L5
+  abc_type: B
+  purpose_zh: 穿蛙鞋仰臥打水，專心感覺鞋底往下壓水的那一下；仰臥時下踢是相對弱的一邊，也是仰式水下段最值得練的一邊。
+  how_to:
+  - 穿蛙鞋、仰臥、雙臂流線，蹬牆後水下打水；每趟最多 25 公尺，休息 10 到 15 秒，不要為了做完而勉強憋氣，有人在池邊看著
+  - 正常吸一口氣，不過度換氣；用鼻夾或上唇輕壓鼻孔防止水進鼻子
+  - 專心感覺鞋底往下壓水，下踢和上踢都要用力，而不是只靠上踢
+  - 做不到全程就縮短距離，在中途浮上來即可
+  perception_goal: 鞋底在每一次往下的踢水都壓到水，感覺像踩在水上。
+  success_signal: 仰臥打水速度穩定、下踢與上踢都有力、鼻子沒有進水。
+  failure_signal: 只剩上踢有力、膝蓋彎很大、鼻子進水而中途嗆到。
+  deficiency_fixes: []
+  source: Hall, G. W., & Murphy, D. (2020). Fundamentals of Fast Swimming. 第 22 章（改善上踢的訓練組：仰臥穿蛙鞋水下打水，專心用鞋底壓水）；25 公尺上限與休息時間為本庫的安全上限，非原書處方
+  source_ids:
+  - src.hall-murphy-2020
+  body_position: supine
+  constraints:
+  - no_breath
+  - tension_held
+  movement_pattern: continuous
+  skill_focus:
+  - wave_undulation
+  - kick_amplitude
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: foot_pressure
+  difficulty_tier: advanced
+- id: UDK8
+  name_en: With and Without Fins Contrast
+  name_zh: 穿蛙鞋與不穿蛙鞋對照
+  strokes:
+  - underwater_dolphin_kick
+  category: kick
+  equipment:
+  - fins
+  l_target:
+  - L3
+  - L4
+  abc_type: B
+  purpose_zh: 同一段距離先穿蛙鞋打、再脫掉蛙鞋打，比較兩種情況下波動的大小和節奏，檢查蛙鞋有沒有讓你偷偷把動作做大。
+  how_to:
+  - 同一個距離（例如蹬牆後打到旗標，不超過自己舒服的水下距離），先穿蛙鞋打一趟
+  - 休息後脫掉蛙鞋，以同樣的力道與同樣的距離再打一趟，同伴記錄兩趟的踢數與時間
+  - 比較：脫鞋後踢數有沒有大增、波動有沒有變大或變亂；腳背的感覺在兩種情況下有沒有一致
+  - 不為了追時間而把水下距離拉長；覺得需要換氣就提早浮出
+  perception_goal: 有鞋沒鞋，打水的核心動作是同一個；蛙鞋只是放大，不是替代。
+  success_signal: 脫鞋後節奏與波動形式大致維持，踢數合理增加。
+  failure_signal: 脫鞋後動作塌掉、波動變小或變亂、膝蓋代償。
+  deficiency_fixes: []
+  source: 通行的蛙鞋對照練習形式；本庫未取得可定位的單篇出處
+  source_ids: []
+  body_position: underwater
+  constraints:
+  - no_breath
+  movement_pattern: continuous
+  skill_focus:
+  - kick_origin
+  - wave_undulation
+  stroke_phase: non_stroke
+  drill_function: corrective
+  cognitive_load: medium
+  tactile_anchor: equipment_feedback
+  difficulty_tier: intermediate
+- id: UDK9
+  name_en: Fixed Distance Kick-Count Ladder
+  name_zh: 固定距離踢數梯（同距離比較用幾踢）
+  strokes:
+  - underwater_dolphin_kick
+  category: kick
+  equipment: []
+  l_target:
+  - L4
+  - L5
+  abc_type: B
+  purpose_zh: 同一段水下距離，用不同的踢數打完，找出自己「踢數少、速度快、還不吃力」的組合；踢得多不一定比較好。
+  how_to:
+  - 選一段固定距離（例如 10 公尺），蹬牆後以特定踢數打完，之後浮出，由同伴計時
+  - 依序換不同踢數（例如 6、8、10 下），每次踢數固定，每一次之間完全休息
+  - 比較哪種踢數最快、感覺最輕；也看踢數太少時是否變成大力踩水
+  - 整個過程只用自己能舒服完成的距離，有人看著，覺得需要換氣就提早浮出
+  perception_goal: 每一踢都壓到水，踢數不是越多越好，而是每一踢都有效。
+  success_signal: 找到一個踢數，時間比別的更快，且結束後不會非常喘。
+  failure_signal: 為了湊踢數而踢得又小又快、或為了減踢數而大力踩水。
+  deficiency_fixes: []
+  source: Hall, G. W., & Murphy, D. (2020). Fundamentals of Fast Swimming. 第 25 章（每個人適合的踢數需要個別測試，踢得更多不一定更好）
+  source_ids:
+  - src.hall-murphy-2020
+  body_position: underwater
+  constraints:
+  - no_breath
+  movement_pattern: progressive
+  skill_focus:
+  - rhythm_tempo
+  - kick_amplitude
+  stroke_phase: non_stroke
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: partner_feedback
+  difficulty_tier: advanced
+- id: UDK10
+  name_en: Wall-Holding Up-Kick Focus
+  name_zh: 抓池邊海豚踢（只練上踢）
+  strokes:
+  - underwater_dolphin_kick
+  category: kick
+  equipment: []
+  l_target:
+  - L2
+  - L3
+  abc_type: B
+  purpose_zh: 雙手抓住池邊，身體水平，專心把腿往上拉起來的那一下；把上踢單獨拉出來練，不被往前游的動作打斷。
+  how_to:
+  - 雙手抓住池邊，臉朝下浮在水面或使用呼吸管，身體保持水平
+  - 專心做上踢：用直一點的腿往上拉，感覺後腿面與腳背把水往上方推
+  - 每次做 10 到 15 秒，中間休息；想到下踢時就放鬆，不要兩邊都用力
+  - 可以改成呼吸管，臉可以一直在水裡；不憋氣，覺得需要時就抬頭換氣
+  perception_goal: 上踢也是推進的一半，不是只讓腿回到上面的動作。
+  success_signal: 上踢時能感覺到水被腿後側往上推，且身體不因此被拉動。
+  failure_signal: 只用膝蓋往上彎、腿後側沒有感覺、動作變成只靠下踢。
+  deficiency_fixes: []
+  source: Hall, G. W., & Murphy, D. (2020). Fundamentals of Fast Swimming. 第 22 章（上踢不只是回復動作，也能產生推進）；抓池邊的做法是本庫整理，非原書練習
+  source_ids:
+  - src.hall-murphy-2020
+  body_position: prone
+  constraints:
+  - no_arms
+  - tension_held
+  movement_pattern: static
+  skill_focus:
+  - kick_amplitude
+  - kick_origin
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: low
+  tactile_anchor: foot_pressure
+  difficulty_tier: foundation
 - id: ST1
   name_en: Mid-Pool Somersault
   name_zh: 中池翻滾
@@ -6567,3 +6750,534 @@ drills:
   cognitive_load: high
   tactile_anchor: partner_feedback
   difficulty_tier: elite
+- id: ST6
+  name_en: Standing Forward Roll (Shallow Water)
+  name_zh: 站立前滾翻（淺水，鼻子吐氣）
+  strokes:
+  - starts_turns
+  category: turn
+  equipment: []
+  l_target:
+  - L0
+  - L1
+  abc_type: C
+  purpose_zh: 在腳踩得到底的淺水區，先熟悉頭朝下翻轉一圈的感覺，並確認整個翻轉過程鼻子能持續吐氣；翻滾轉身學不會，最常見的原因是鼻子進水而不是動作不會。
+  how_to:
+  - 選胸口以下的淺水區，吸一口氣，臉入水、鼻子開始緩慢吐氣
+  - 下巴貼胸，雙手在身前撐水，雙腳離地把身體團成一球，向前翻一圈後站起
+  - 整圈都維持鼻子吐氣；先翻一圈就站起，確認不嗆水，再連續翻兩三圈，每圈之間站起來換氣
+  - 鼻子進水或不舒服時立即站起，退回只把臉埋入水中吐氣；可先戴鼻夾或泳鏡，不勉強
+  perception_goal: 翻轉時空氣一直從鼻子出去，水就進不來；頭朝下翻也知道哪裡是上、哪裡是下。
+  success_signal: 連翻數圈不嗆水，起身時方向感還在。
+  failure_signal: 翻到一半憋住氣再嗆到、身體攤開沒有團緊、翻完不知道面向哪裡。
+  deficiency_fixes: []
+  source: 通行的前滾翻入門練習形式；本庫未取得可定位的單篇出處
+  source_ids: []
+  body_position: standing
+  constraints: []
+  movement_pattern: rotational
+  skill_focus:
+  - breath_rhythm
+  - spatial_awareness
+  stroke_phase: non_stroke
+  drill_function: warmup
+  cognitive_load: low
+  tactile_anchor: pool_floor_visual
+  difficulty_tier: foundation
+- id: ST7
+  name_en: Open Turn Breakdown at the Wall
+  name_zh: 開放式轉身分解：觸牆—肘拉—越頂手入水—側蹬
+  strokes:
+  - starts_turns
+  category: turn
+  equipment: []
+  l_target:
+  - L2
+  - L3
+  abc_type: C
+  purpose_zh: 把蛙式、蝶式的開放式轉身拆成慢動作，一步一步練到順，目標是在牆上的停留時間越短越好。
+  how_to:
+  - 從牆邊約一臂長處慢速游進，雙手同時觸牆（蛙式、蝶式的觸牆規則都要求雙手同時）
+  - 觸牆後一側手立刻離牆，手肘收在身體旁邊貼著水下往後帶；另一手肘彎曲、從頭上越過入水
+  - 雙膝收緊、雙腳疊在一起收到身體下方，兩腳側向踩上牆，腳尖指向轉身的那一側
+  - 先在牆邊做到每一步都清楚，再把動作連起來，最後才加速；每次只盯一個重點（例如這趟只看離牆那隻手）
+  perception_goal: 整個轉身是一個連續動作，頭和上半身貼近水面，腳在水下很快就位。
+  success_signal: 觸牆到雙腳踩牆之間沒有停頓，頭沒有抬到很高。
+  failure_signal: 雙手都抓著牆不放、身體直立抬很高、離牆的手繞到側面太遠。
+  deficiency_fixes: []
+  source: Hall, G. W., & Murphy, D. (2020). Fundamentals of Fast Swimming. 第 26 章 Open Spin Turns（旋轉式開放轉身六個教學重點）
+  source_ids:
+  - src.hall-murphy-2020
+  body_position: transitional
+  constraints: []
+  movement_pattern: pause_pulse
+  skill_focus:
+  - spatial_awareness
+  - rotation_connection
+  stroke_phase: transition
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: wall_contact
+  difficulty_tier: intermediate
+- id: ST8
+  name_en: Open Spin Away From the Wall
+  name_zh: 離牆水平旋轉練習（一耳貼水面）
+  strokes:
+  - starts_turns
+  category: turn
+  equipment: []
+  l_target:
+  - L1
+  - L2
+  abc_type: C
+  purpose_zh: 先離開牆面練習「水平轉、不立起來」的旋轉，建立旋轉半徑小、頭貼近水面的感覺，再帶回牆邊。
+  how_to:
+  - 在池中俯臥漂浮，雙臂前伸，頭放進水裡
+  - 聽到口令後雙膝收向胸口，身體在水面上水平轉半圈，轉的過程中轉動方向那一側的耳朵貼著水面
+  - 轉的時候頭向後轉去換氣，眼睛看向後方的牆或水道邊，不是看向側面
+  - 轉完雙臂回到前伸、身體伸直，再重複；左右兩個方向都要練
+  perception_goal: 身體縮得越小轉得越快；頭和肩膀貼近水面，不往上立起。
+  success_signal: 能在原地很快轉半圈、一耳貼水、換到氣，轉完身體回到水平。
+  failure_signal: 身體往上立起、肩膀一前一後歪斜、轉的時候膝蓋沒有收緊。
+  deficiency_fixes: []
+  source: Hall, G. W., & Murphy, D. (2020). Fundamentals of Fast Swimming. 第 26 章 Open Spin Turns（離牆旋轉練習）
+  source_ids:
+  - src.hall-murphy-2020
+  body_position: prone
+  constraints:
+  - no_kick
+  movement_pattern: rotational
+  skill_focus:
+  - rotation_connection
+  - breath_rhythm
+  stroke_phase: transition
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: foundation
+- id: ST9
+  name_en: Alternating-Side Open Turns
+  name_zh: 開放式轉身左右手輪流
+  strokes:
+  - starts_turns
+  category: turn
+  equipment: []
+  l_target:
+  - L3
+  abc_type: C
+  purpose_zh: 兩側都會轉：每趟輪流用左手、右手當先離牆的那隻，避免只會往一個方向轉。
+  how_to:
+  - 蛙式或蝶式游進牆，雙手同時觸牆
+  - 單數趟由左手先離牆（往左側轉），雙數趟由右手先離牆（往右側轉）
+  - 每趟之間在牆邊停下檢查：先離牆的手肘有沒有收在身旁、越頂手有沒有彎肘入水
+  - 兩側的流暢度差很多時，弱的那側多練幾趟，但速度先放慢
+  perception_goal: 兩側轉身的感覺一致，不需要為了轉身方向臨時調整進牆步調。
+  success_signal: 左右兩側轉身時間接近、離牆姿勢都乾淨。
+  failure_signal: 弱側明顯卡住、進牆前就先偏向慣用側。
+  deficiency_fixes: []
+  source: 通行的雙側轉身練習形式；本庫未取得可定位的單篇出處
+  source_ids: []
+  body_position: transitional
+  constraints:
+  - single_arm
+  movement_pattern: alternating
+  skill_focus:
+  - rotation_connection
+  - spatial_awareness
+  stroke_phase: transition
+  drill_function: corrective
+  cognitive_load: medium
+  tactile_anchor: partner_feedback
+  difficulty_tier: intermediate
+- id: ST10
+  name_en: Side Push-Off, Rotate to Prone, First Stroke
+  name_zh: 蹬牆側躺、轉俯臥、接第一划
+  strokes:
+  - starts_turns
+  category: turn
+  equipment:
+  - fins
+  l_target:
+  - L3
+  - L4
+  abc_type: C
+  purpose_zh: 只練轉身的後半段：側身蹬牆後在水下轉回俯臥，並在速度還高時接上第一划。
+  how_to:
+  - 一手扶牆、雙腳踩牆，另一手前伸，蹬牆時身體側向（與自己翻滾轉身蹬牆時的側向一致）
+  - 蹬出後立刻打一兩下海豚踢，邊踢邊讓身體轉回俯臥
+  - 身體轉到俯臥後馬上做第一划；水下段不要超過自己能輕鬆完成的距離，不在水下憋到極限
+  - 可先穿蛙鞋練出順序，再脫掉蛙鞋讓整套動作變慢一點，檢查是否還接得上
+  perception_goal: 旋轉發生在離牆之後，由踢腿帶著身體轉；第一划接在速度還沒掉的時候。
+  success_signal: 轉身蹬出後流線沒有散開，第一划接得上、沒有停頓。
+  failure_signal: 還沒離牆就扭成俯臥、轉動時手臂鬆開、轉完才開始想第一划。
+  deficiency_fixes: []
+  source: Hall, G. W., & Murphy, D. (2020). Fundamentals of Fast Swimming. 第 25 章（側身蹬牆、三下海豚踢接三划的練習與轉身後半段的教學順序）
+  source_ids:
+  - src.hall-murphy-2020
+  body_position: side
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - streamline_line
+  - rotation_connection
+  stroke_phase: transition
+  drill_function: skill_integration
+  cognitive_load: medium
+  tactile_anchor: wall_contact
+  difficulty_tier: intermediate
+- id: ST11
+  name_en: Turn 25
+  name_zh: 轉身 25（中池起動、全速進牆、全速出）
+  strokes:
+  - starts_turns
+  category: turn
+  equipment: []
+  l_target:
+  - L3
+  - L4
+  abc_type: C
+  purpose_zh: 把轉身當成一個要全力做的環節來練：只計轉身那一段的品質與時間，其餘距離都是為它服務。
+  how_to:
+  - 從池中央起動（不從牆上出發），以正常訓練強度游向牆，進牆不減速
+  - 轉身後全力出牆，出牆後游 5 到 10 公尺就停；水下段依規則上限內，遵守安全條件，不勉強憋氣
+  - 每趟回到起點休息，用同一個起點與終點做計時或比較，同伴或教練看進牆、轉身、出牆三段
+  - 每一趟只挑一個要修的重點，例如這趟看進牆有沒有減速
+  perception_goal: 轉身是一個在高速下完成的動作，進牆前不減速、離牆後馬上加速。
+  success_signal: 進牆沒有滑行、轉身沒有停頓、出牆速度比進牆更快。
+  failure_signal: 進牆前就把速度收掉、轉身時休息一下、出牆後才開始用力。
+  deficiency_fixes: []
+  source: Hall, G. W., & Murphy, D. (2020). Fundamentals of Fast Swimming. 第 25 章（轉身是比賽中的加速機會，練習時就要全力做；以 8 公尺進出的轉身競賽形式）
+  source_ids:
+  - src.hall-murphy-2020
+  body_position: transitional
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - rhythm_tempo
+  - spatial_awareness
+  stroke_phase: whole_stroke
+  drill_function: skill_integration
+  cognitive_load: high
+  tactile_anchor: partner_feedback
+  difficulty_tier: advanced
+- id: ST12
+  name_en: Fatigued Turns
+  name_zh: 疲勞轉身（主課最後幾趟只計轉身品質）
+  strokes:
+  - starts_turns
+  category: turn
+  equipment: []
+  l_target:
+  - L4
+  - L5
+  abc_type: C
+  purpose_zh: 比賽的轉身多半發生在累的時候；主課最後幾趟刻意要求轉身品質，練的是疲勞下不偷工的習慣。
+  how_to:
+  - 主課最後三到四趟，和平常一樣游，但每一次轉身都要維持前面精神好時的標準
+  - 標準由教練在課前說清楚，例如進牆不滑行、翻轉時收緊、出牆馬上踢
+  - 教練只記轉身品質，不管這幾趟的總時間；沒達標的轉身記下來，下課時一起看
+  - 水下段保持原本課表上的規定，不因為追求轉身品質而加長水下距離
+  perception_goal: 累的時候轉身仍然是一個完整的動作，不是拿來喘氣的休息站。
+  success_signal: 最後幾趟的轉身與精神好時的轉身看起來一樣。
+  failure_signal: 進牆開始滑行、翻得鬆散、出牆後不踢就開始游。
+  deficiency_fixes: []
+  source: Hall, G. W., & Murphy, D. (2020). Fundamentals of Fast Swimming. 第 25 章（轉身需要獨立的體能，練習時偷懶的轉身在比賽中也做不好）
+  source_ids:
+  - src.hall-murphy-2020
+  body_position: transitional
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - core_tension
+  - rhythm_tempo
+  stroke_phase: transition
+  drill_function: pre_main_set
+  cognitive_load: high
+  tactile_anchor: partner_feedback
+  difficulty_tier: advanced
+- id: ST13
+  name_en: Backstroke Flag Count, Roll, One Stroke, Flip
+  name_zh: 仰式旗下計划、翻俯臥一划、翻滾仰躺蹬出
+  strokes:
+  - starts_turns
+  category: turn
+  equipment: []
+  l_target:
+  - L3
+  - L4
+  abc_type: C
+  purpose_zh: 把仰式翻滾轉身的前半段練成一個連續動作：過旗後數划、翻成俯臥、接一個連續手划、翻滾，蹬出時回到仰臥。
+  how_to:
+  - 先確認自己從旗下到牆的划手數（可用仰式旗下數划手那個練習先標定）
+  - 過旗後按划手數游，在預定的那一划翻成俯臥，接一個連續的手划，立刻翻滾
+  - 翻滾後雙腳平踩牆、腳尖朝上，蹬出時身體回到仰臥；轉身過程不能在俯臥時停頓
+  - 先用慢速確認序列，再逐步加到比賽速度；加蛙鞋時划手數會變，要重新標定
+  perception_goal: 翻成俯臥後的動作是連續的，沒有停頓，也不需要抬頭找牆。
+  success_signal: 進牆不撞牆不撈空，翻轉連貫，蹬出時身體是仰臥且腳尖朝上踩牆。
+  failure_signal: 翻成俯臥後停下來滑行、過早翻過去、離牆時已經不是仰臥。
+  deficiency_fixes: []
+  source: Hall, G. W., & Murphy, D. (2020). Fundamentals of Fast Swimming. 第 25 章（仰式翻滾轉身的進牆節奏與翻成俯臥的時機）；轉身規則依 World Aquatics 游泳技術規則
+  source_ids:
+  - src.hall-murphy-2020
+  - src.world-aquatics-2023-swimming-technical-rules
+  body_position: transitional
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - spatial_awareness
+  - rotation_connection
+  stroke_phase: transition
+  drill_function: skill_integration
+  cognitive_load: high
+  tactile_anchor: equipment_feedback
+  difficulty_tier: advanced
+- id: ST14
+  name_en: 'Finish Touch: Last Five Meters'
+  name_zh: 終點觸牆：最後 5 公尺全速、不抬頭、伸長觸牆
+  strokes:
+  - starts_turns
+  category: turn
+  equipment: []
+  l_target:
+  - L3
+  - L4
+  abc_type: C
+  purpose_zh: 終點觸牆的功課是進牆時不減速、不抬頭，最後一划接上伸長的觸牆；距離不對時補半划或踢腿，而不是滑行。
+  how_to:
+  - 從離牆約 10 公尺處起，最後 5 公尺全速游，頭保持正常姿勢
+  - 自由式與仰式單手伸長觸牆；蛙式與蝶式雙手同時觸牆
+  - 觸牆的那一下是整個動作的一部分，不是游完才補的；觸牆後教練或同伴回報進牆節奏有沒有減速
+  - 發現距離不對時，練習補半划或加踢腿，不做滑行或回頭看牆
+  perception_goal: 最後一划之後手臂自然伸長碰到牆，速度在碰牆的瞬間都還在。
+  success_signal: 最後 5 公尺沒有減速、觸牆時身體伸長、不需要抬頭看牆。
+  failure_signal: 最後一划太短或滑進牆、觸牆前抬頭、蛙蝶式雙手沒有同時到。
+  deficiency_fixes: []
+  source: Hall, G. W., & Murphy, D. (2020). Fundamentals of Fast Swimming. 第 25 章（仰式終點與進牆，不減速、不回頭看牆）；各式觸牆規定依 World Aquatics 游泳技術規則
+  source_ids:
+  - src.hall-murphy-2020
+  - src.world-aquatics-2023-swimming-technical-rules
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - entry_extension
+  - spatial_awareness
+  stroke_phase: entry
+  drill_function: skill_integration
+  cognitive_load: medium
+  tactile_anchor: wall_contact
+  difficulty_tier: intermediate
+- id: ST15
+  name_en: Relay Exchange in Pairs
+  name_zh: 接力交接：兩人一組觀察前一棒最後一划
+  strokes:
+  - starts_turns
+  category: turn
+  equipment:
+  - partner
+  l_target:
+  - L4
+  abc_type: C
+  purpose_zh: 接力交接的難題是不能比前一棒早離台，又想盡量不浪費時間；兩人一組，練下一棒怎麼讀前一棒最後一划的節奏。
+  how_to:
+  - 兩人一組：前一棒游向牆，下一棒站在台上觀察，先不離台，只在心裡預測前一棒什麼時候觸牆
+  - 預測熟了之後，下一棒按自己的預測啟動，但腳必須等到前一棒觸牆才能離開；練習時先把啟動動作做小，不要為了搶時間而提早
+  - 第三人在池邊看並說出：下一棒的腳離台時間比前一棒觸牆早還是晚
+  - 只用來練訓練場上的時間判讀；正式比賽有電子判定，不能用目測當依據
+  perception_goal: 看前一棒最後一划的節奏，就知道自己什麼時候該開始動，而不是看到手碰牆才動。
+  success_signal: 腳離台時間稍晚於前一棒觸牆，沒有提早，且延遲很小。
+  failure_signal: 提早離台、或看到觸牆後才開始動而浪費了時間。
+  deficiency_fixes: []
+  source: 通行的接力交接練習形式；交接規則依 World Aquatics 游泳技術規則；其餘為本庫整理
+  source_ids:
+  - src.world-aquatics-2023-swimming-technical-rules
+  body_position: standing
+  constraints: []
+  movement_pattern: pause_pulse
+  skill_focus:
+  - rhythm_tempo
+  - spatial_awareness
+  stroke_phase: transition
+  drill_function: skill_integration
+  cognitive_load: high
+  tactile_anchor: partner_feedback
+  difficulty_tier: advanced
+- id: ST16
+  name_en: 'Start Progression: Sitting, Kneeling, Staggered Stance'
+  name_zh: 出發進程：坐姿入水、跪姿、單腳前後站
+  strokes:
+  - starts_turns
+  category: turn
+  equipment: []
+  l_target:
+  - L1
+  - L2
+  abc_type: C
+  purpose_zh: 從低的姿勢開始，一階一階升高，讓出發這件事從不怕水開始建立；每一階的檢查標準都是全身從同一個洞入水。
+  how_to:
+  - 前提：只在水夠深、有人在旁的地方做，水深不足時不做任何跳水出發，只做水中蹬牆流線
+  - 第一階：坐在池邊，雙手前伸、下巴貼胸，身體向前滑入水中，檢查頭、肩、腳是否從同一個洞進去
+  - 第二階：跪姿，一腳在前、一腳在後，向前倒入水，每一階都確認過關再升級
+  - 第三階：單腳前後站，重心前傾後向前出發；最後才換到出發台，每升一階都先在水中確認深度與流線
+  perception_goal: 入水不是用力跳出去，而是身體向前倒、全身從一個洞進去。
+  success_signal: 每一階的入水水花都小、手腳身體走同一路徑、入水後流線維持。
+  failure_signal: 身體分成兩段入水、肚子拍水、入水角度太陡而往下。
+  deficiency_fixes: []
+  source: 通行的出發入門進程；本庫未取得可定位的單篇出處
+  source_ids: []
+  body_position: transitional
+  constraints: []
+  movement_pattern: progressive
+  skill_focus:
+  - entry_extension
+  - streamline_line
+  stroke_phase: entry
+  drill_function: progression
+  cognitive_load: medium
+  tactile_anchor: partner_feedback
+  difficulty_tier: foundation
+- id: ST17
+  name_en: Entry Through the Hole
+  name_zh: 入水穿洞（漂浮呼拉圈或想像點）
+  strokes:
+  - starts_turns
+  category: turn
+  equipment:
+  - small_object
+  l_target:
+  - L2
+  - L3
+  abc_type: C
+  purpose_zh: 用一個看得見的目標把「全身穿過同一個洞」變成具體動作：手、頭、身體、腳都從水面上同一點進去。
+  how_to:
+  - 在水中固定一個漂浮的呼拉圈或在水面標一個點，作為入水目標；深度夠才做跳水動作，不夠就只做坐姿入水
+  - 從池邊以坐姿或跪姿入水，手先進圈、身體順著手走，腳最後從同一個圈穿過
+  - 同伴在旁邊看並回報：身體有沒有碰到圈、腳有沒有從別的地方入水
+  - 穿過後馬上維持流線，看能滑多遠
+  perception_goal: 手打開的那個洞，整個身體和腳都要走同一條路過去。
+  success_signal: 身體不碰圈、腳也穿得過去、入水水花小。
+  failure_signal: 手穿過了但腰以下拍在圈外、身體入水角度不一致。
+  deficiency_fixes: []
+  source: 通行的出發入水目標練習形式；本庫未取得可定位的單篇出處
+  source_ids: []
+  body_position: transitional
+  constraints: []
+  movement_pattern: pause_pulse
+  skill_focus:
+  - entry_extension
+  - spatial_awareness
+  stroke_phase: entry
+  drill_function: corrective
+  cognitive_load: medium
+  tactile_anchor: equipment_feedback
+  difficulty_tier: intermediate
+- id: ST18
+  name_en: Breakout in Three Steps
+  name_zh: 破水三步：蹬牆、N 下海豚踢、第一划不換氣、接 6 划
+  strokes:
+  - starts_turns
+  category: timing
+  equipment:
+  - fins
+  l_target:
+  - L4
+  - L5
+  abc_type: C
+  purpose_zh: 把出水前後的動作變成固定順序：蹬牆、水下海豚踢若干下、在最後一踢時發動第一划、先不換氣、連續游幾划。
+  how_to:
+  - 蹬牆成流線，立刻開始海豚踢；踢幾下依自己的能力決定，每次練習先固定一個數字（例如 3 下）
+  - 最後一下海豚踢的同時發動第一划，下巴貼近胸口，不抬頭找水面
+  - 第一划先不換氣，接著連續游 6 划，再換氣；水下段不拉長，覺得需要換氣就提早浮出
+  - 有同伴在旁邊時，由同伴看第一划是否與最後一踢同步、頭有沒有提早抬起
+  perception_goal: 最後一踢和第一划是同一個動作；不是踢完再想怎麼划。
+  success_signal: 出水時速度沒掉、頭沒有提早抬、第一划與最後一踢同步。
+  failure_signal: 最後一踢結束後才開始划、手提早打開、頭先抬起。
+  deficiency_fixes: []
+  source: Hall, G. W., & Murphy, D. (2020). Fundamentals of Fast Swimming. 第 23 章（自由式出水七要點）與第 25 章（三踢三划練習）
+  source_ids:
+  - src.hall-murphy-2020
+  body_position: underwater
+  constraints:
+  - no_breath
+  movement_pattern: continuous
+  skill_focus:
+  - streamline_line
+  - glide_efficiency
+  stroke_phase: transition
+  drill_function: skill_integration
+  cognitive_load: high
+  tactile_anchor: surface_break
+  difficulty_tier: advanced
+- id: ST19
+  name_en: Breaststroke Pullout Distance
+  name_zh: 蛙式 pullout 計距
+  strokes:
+  - starts_turns
+  category: turn
+  equipment: []
+  l_target:
+  - L3
+  - L4
+  abc_type: C
+  purpose_zh: 固定一次蹬牆加一次 pullout，量自己從牆到浮出水面的位置，比較不同做法（先划、先踢、流線長短）的差別。
+  how_to:
+  - 蹬牆成流線，滑行到速度剛開始降低時做一次 pullout（一次手划加一次蛙踢），之後浮出水面
+  - 同伴在池邊標記頭破水的位置，記錄距離
+  - 重複幾趟，只換一個變項（例如滑行長短），其他維持一樣，比較哪一種浮出的位置更遠
+  - 只在規則允許的範圍內練（頭須在第二次手划最寬處之前出水）；覺得需要換氣時提早出水，不憋到極限
+  perception_goal: pullout 的目標是把蹬牆的速度接成往前的推進，不是在水下停住等時間。
+  success_signal: 同樣的蹬牆，浮出水面的位置越來越遠且穩定。
+  failure_signal: 滑到幾乎靜止才划、手划後腿沒接上、每趟浮出位置差很多。
+  deficiency_fixes: []
+  source: 通行的 pullout 計距練習形式；本庫未取得可定位的單篇出處；水下動作規定依 World Aquatics 游泳技術規則
+  source_ids:
+  - src.world-aquatics-2023-swimming-technical-rules
+  body_position: underwater
+  constraints:
+  - no_breath
+  movement_pattern: pause_pulse
+  skill_focus:
+  - glide_efficiency
+  - streamline_line
+  stroke_phase: glide
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: partner_feedback
+  difficulty_tier: intermediate
+- id: ST20
+  name_en: 'Backstroke Breakout: Back Dolphin, Transition Kick, First Stroke'
+  name_zh: 仰式破水：仰臥海豚踢、轉換踢、第一划
+  strokes:
+  - starts_turns
+  category: timing
+  equipment:
+  - fins
+  l_target:
+  - L4
+  - L5
+  abc_type: C
+  purpose_zh: 練仰式從水下到水面的銜接：仰臥海豚踢，換成仰式踢，第一划在頭破水之前就開始。
+  how_to:
+  - 仰臥蹬牆，雙臂流線，開始水下海豚踢；水下距離由教練指定，不超過規則上限，也不憋到極限，有人在旁邊看
+  - 最後一下上踢時發動第一划，隨後轉成有力的仰式踢，接著連續游數划
+  - 仰臥時氣泡只會往水面跑，對阻力沒有幫助；用鼻夾或上唇輕壓鼻孔，把空氣留在肺裡、水擋在鼻外，找到自己穩定的方法
+  - 同伴看第一划是否在頭破水前就開始、轉換踢是否有力
+  perception_goal: 水下的推進直接接到水面的第一划，中間沒有空窗。
+  success_signal: 破水時速度不掉、第一划接得上、鼻子沒有進水。
+  failure_signal: 海豚踢結束後才開始划、轉換踢變弱、破水時嗆水。
+  deficiency_fixes: []
+  source: Hall, G. W., & Murphy, D. (2020). Fundamentals of Fast Swimming. 第 24 章（仰式出發的水下海豚踢、保持空氣在肺內與出水七要點）
+  source_ids:
+  - src.hall-murphy-2020
+  body_position: supine
+  constraints:
+  - no_breath
+  movement_pattern: continuous
+  skill_focus:
+  - kick_origin
+  - glide_efficiency
+  stroke_phase: transition
+  drill_function: skill_integration
+  cognitive_load: high
+  tactile_anchor: surface_break
+  difficulty_tier: advanced
