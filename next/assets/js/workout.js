@@ -1074,14 +1074,18 @@
      有氧與技術組沿用游泳的 CSS 換算（targetOf 的 steady／easy），鐵人未驗證。沒有出處的份量（每週總量等）不給預設。 */
   const TRI = PZ.tri || null;
   const TRI_STROKE = 'free';
-  const triDist = () => TRI.race_distances.items.find(x => x.key === S.pz.tdist) || TRI.race_distances.items[1];
+  const CONT_ROUND_M = 50; // 連續長游換算成公尺後的進位單位
+  const byKey = (items, key, fallback) => items.find(x => x.key === key) || items.find(x => x.key === fallback);
+  const triDist = () => byKey(TRI.race_distances.items, S.pz.tdist, 'standard');
   const triSlot = (k) => TRI.slots.items.find(x => x.key === k);
   function triRp() {
     const own = parseT(S.pz.trp);
     if (own) return { t: own, src: '你填的泳段目標配速' };
+    if (String(S.pz.trp || '').trim()) return { bad: true };
     if (triDist().rp_from_css && hasCss(TRI_STROKE)) return { t: css(TRI_STROKE).pace, src: 'CSS 暫用（游泳賽換算，鐵人未驗證）' };
     return null;
   }
+  const triPace = () => { const g = triRp(); return g && g.t ? g : null; }; // 可用的比賽配速；看不懂的輸入當作沒有
   // 原文組型的一列 → 課表列；block＝整組重複幾輪（原文 2×[…]），在 triDay 展開
   function triRow(x, scale, rp) {
     const o = { reps: Math.max(1, Math.round(x.reps * scale)), dist: x.dist, stroke: TRI_STROKE, rest: x.rest, note: x.name_zh, int: 'none' };
@@ -1092,38 +1096,40 @@
     return blankRow(o);
   }
   function triDay(k) {
-    const D = triDist(), rp = triRp();
+    const D = triDist(), rp = triPace();
     // 超級距離：第一堂比賽配速課換成每週至少一次的 10×100（Slaughter 2019）
     const slot = triSlot(D.weekly_10x100 && k === 'rp' ? 'tenx100' : k);
     if (k === 'aerobic') {
       const B = setBuilders(TRI_STROKE), x = B.easy('長有氧');
       const min = slot.continuous_minutes[D.key], c = css(TRI_STROKE);
-      const cont = c && c.pace ? Math.round(min * 60 / (c.pace * K_STEADY) * 2) * 50 : 0; // 分鐘 ÷ 穩定有氧每 100 m 秒數，進位到 50 m
-      return { key: k, name: slot.name_zh, note: slot.note_zh, rows: [qualityRow(x)], extra: `改成不停的穩定長游：約 ${min} 分鐘${cont ? `（以穩定有氧配速約 ${cont} m）` : ''}。` };
+      const cont = c && c.pace ? Math.round(min * 60 / (c.pace * K_STEADY) * 100 / CONT_ROUND_M) * CONT_ROUND_M : 0; // 分鐘 ÷ 穩定有氧每 100 m 秒數
+      return { name: slot.name_zh, note: slot.note_zh, rows: [qualityRow(x)], extra: `改成不停的穩定長游：約 ${min} 分鐘${cont ? `（以穩定有氧配速約 ${cont} m）` : ''}。` };
     }
     const rows = [], scale = slot.key === 'tenx100' ? 1 : D.scale; // 10×100 是原文指定的組，不隨賽距縮放
     const rounds = Math.max(...slot.sets.map(x => x.block || 1));
     for (let r = 0; r < rounds; r++) slot.sets.forEach(x => { if (r < (x.block || 1)) rows.push(triRow(x, scale, rp)); });
-    return { key: k, name: slot.name_zh, note: slot.note_zh, rows };
+    return { name: slot.name_zh, note: slot.note_zh, rows };
   }
   function triMenu(d, k) {
     const m = newMenu(`第 ${k + 1} 堂・鐵人${d.name}`);
     const main = m.blocks.find(b => b.title === '主課');
-    if (hasPb(TRI_STROKE) || triRp()) d.rows.forEach(r => main.rows.push(JSON.parse(JSON.stringify(r))));
+    if (hasPb(TRI_STROKE) || triPace()) d.rows.forEach(r => main.rows.push(JSON.parse(JSON.stringify(r))));
     else main.rows.push(coachRow(TRI_STROKE, d.name));
     return m;
   }
+  const pzHead = (P) => `<div class="wk-pzhead"><p class="wk-css-k">現在是</p><p class="wk-pz-phase">${PHASE_NAME[P.phase]}</p>
+      <p>${P.days >= 0 ? `離比賽 <b>${P.days}</b> 天（約 ${(P.days / 7).toFixed(1)} 週）` : ''}${P.note ? ' ' + esc(P.note) : ''}</p></div>`;
   function renderTri(box, P) {
-    const D = triDist(), L = TRI.levels.items.find(x => x.key === S.pz.tlevel) || TRI.levels.items[1], rp = triRp();
+    const D = triDist(), L = byKey(TRI.levels.items, S.pz.tlevel, 'regular'), got = triRp(), rp = triPace();
     const n = Math.min(6, Math.max(1, +S.pz.sess || 1));
     const week = TRI.week.by_sessions[String(n)].map(triDay);
     const src = (t) => `<p class="muted">${md(t)}</p>`;
     let html = '';
-    if (P) html += `<div class="wk-pzhead"><p class="wk-css-k">現在是</p><p class="wk-pz-phase">${PHASE_NAME[P.phase]}</p><p>${P.days >= 0 ? `離比賽 <b>${P.days}</b> 天（約 ${(P.days / 7).toFixed(1)} 週）` : ''}${P.note ? ' ' + esc(P.note) : ''}</p></div>`;
+    if (P) html += pzHead(P);
     html += `<div class="wk-box"><h3>${esc(D.name_zh)}（泳段 ${D.swim_m} m）・${esc(L.name_zh)} <span class="wk-cert">${TRI.planner.cert}</span></h3>
       <p>建議每週 <b>${L.sessions}</b> 堂：${esc(L.note_zh)}${+S.pz.sess !== L.sessions ? ` <button type="button" class="wk-btn" data-tri-sess="${L.sessions}">改成每週 ${L.sessions} 堂</button>` : ''}</p>
       ${src(TRI.session_volume.note_zh)}
-      <p>比賽配速：${rp ? `<b>${fmt(rp.t)}</b>／100 m（${esc(rp.src)}）` : '<span class="wk-miss">沒有可用的比賽配速，比賽配速組不給秒數</span>'}</p>
+      <p>比賽配速：${rp ? `<b>${fmt(rp.t)}</b>／100 m（${esc(rp.src)}）` : got && got.bad ? '<span class="wk-miss">看不懂填的泳段配速（例 1:45 或 105），比賽配速組先不給秒數</span>' : '<span class="wk-miss">沒有可用的比賽配速，比賽配速組不給秒數</span>'}</p>
       ${src(TRI.race_pace.rule_zh)}${src(TRI.race_pace.retest_zh)}
       ${src(TRI.race_distances.scale_note_zh)}</div>`;
     if (P && P.days >= 0 && P.days <= TRI.race_month.open_water_days) html += `<div class="wk-box"><h3>賽前一個月</h3><p>${esc(TRI.race_month.note_zh)}</p></div>`;
@@ -1154,8 +1160,7 @@
     const b = P.bounds, tot = Math.max(b.general_prep, P.days, 1);
     const seg = (key, from, to) => `<div class="wk-tl-seg wk-tl-${key}" data-grow="${Math.max(to - from, 0)}"><span>${PHASE_NAME[key]}</span></div>`;
     const pos = P.days < 0 ? 100 : Math.max(0, Math.min(100, 100 * (1 - P.days / tot)));
-    let html = `<div class="wk-pzhead"><p class="wk-css-k">現在是</p><p class="wk-pz-phase">${PHASE_NAME[P.phase]}</p>
-      <p>${P.days >= 0 ? `離比賽 <b>${P.days}</b> 天（約 ${(P.days / 7).toFixed(1)} 週）` : ''}${P.note ? ' ' + esc(P.note) : ''}</p></div>`;
+    let html = pzHead(P);
     if (P.days >= 0) {
       html += `<div class="wk-tl" aria-hidden="true">${seg('general_prep', b.specific_prep, tot)}${seg('specific_prep', b.competition, b.specific_prep)}${seg('competition', b.taper, b.competition)}${seg('taper', 0, b.taper)}<i class="wk-tl-now" data-pos="${pos.toFixed(1)}"></i></div>
         <p class="muted">時間軸：大週期 ${Math.round(P.macroDays / 7)} 週（${S.pz.mstart ? '依你填的開始日' : `沒填開始日，用研究觀察到的大週期長度：${esc(PZ.macro)}`}）；各期比例用教練慣例的區間中值——${md(PZ.phase_prop.split('\n')[0])}減量窗 ${PZ.taper.min}–${PZ.taper.max} 天 🟢。</p>`;

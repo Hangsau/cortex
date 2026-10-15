@@ -70,6 +70,8 @@ const output = process.env.WORKOUT_SCREENSHOTS || os.tmpdir();
     // 超級距離：自填 1:40 → 第一堂換成 10×100（不縮放），目標 1:40
     await open(); await view('week');
     await page.locator('[data-wk-tdist]').selectOption('full');
+    await page.locator('[data-wk-trp]').fill('abc');
+    assert.match(await out(), /看不懂填的泳段配速/, 'unparseable pace is reported, not silently replaced');
     await page.locator('[data-wk-trp]').fill('1:40');
     assert.match(await out(), /1:40\.0／100 m（你填的泳段目標配速）/);
     await page.locator('[data-tri-day="0"]').click(); // 直接從配速欄點按鈕：不能被失焦重畫吃掉
