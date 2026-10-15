@@ -4287,3 +4287,358 @@ points:
   - diving-cervical-injury
   - ST16
   - ST17
+- id: open-water.tech.1
+  stroke: open-water
+  category: concept
+  title: 沒有牆、沒有池底線——開放水域每一划都要自己推進，泳池成績不能直接換算
+  summary: 泳池每個牆邊都有轉身：轉身讓人短暫喘口氣，蹬牆又給一段免費的加速，池底線和水道繩負責指方向。開放水域什麼都沒有，必須連續游、自己找方向、自己維持配速。所以同一位泳者的泳池成績不能直接換算成開放水域的配速，連續游的能力要另外練。
+  mechanism:
+    certainty: 🔵
+    text: 從結構上看，泳池的 25 公尺或 50 公尺是一段一段的：每一段結尾有轉身，轉身那一下肌肉負荷降低、速度由蹬牆補回來，所以一個人能在泳池維持的配速，有一部分是牆壓出來的。開放水域把這些全拿掉，同樣的距離變成一次不間斷的輸出，手臂與軀幹的負荷沒有中斷點，方向也要自己維持。因此兩種環境量到的「同一個人的速度」不是同一個東西，只能當粗略參考。
+  evidence:
+  - certainty: 🟢
+    text: 書中對開放水域的描述是：泳池每圈都有轉身與方向改變，開放水域沒有；開放水域游者靠的是對潮流、風與天候的判斷與直覺，而不是分段時間與圈數。書中也建議訓練時要有連續游的距離耐受，短距離賽事的目標是能連續游到比賽距離的約 1.3 倍，作為水溫較低或水流較強時的緩衝。
+    source: Riewald, S. A., & Rodeo, S. A. (Eds.). (2015). Science of Swimming Faster. 第 24 章 Open Water Swimmers.
+    source_ids:
+    - src.riewald-rodeo-2015
+  practical_implication: 評估一位泳池很強的人能不能游開放水域，不要只看池中的百公尺成績，要看他能不能不停牆連續游完賽事的距離。第一次下水前，先在泳池連續游過賽事距離一次（不扶牆、不蹬牆），知道自己連續游的底線。
+  cross_ref: 泳池如何練開放水域 open-water.tech.13；drill OW8、OW9
+  cross_ref_ids:
+  - open-water.tech.13
+  - OW8
+  - OW9
+- id: open-water.tech.2
+  stroke: open-water
+  category: head
+  title: 定向抬頭（sighting）——只讓眼睛剛出水，抬得越高腿越沉
+  summary: 開放水域要靠浮標或地標確認方向，所以要抬頭看。省力的做法是只把眼睛剛抬出水面看前方（俗稱鱷魚眼），看完讓臉回到水中，再轉頭換氣。抬頭越高、停得越久，髖與腿越往下沉，阻力越大。看與換氣可以分開做，也可以合併成一個動作，依水況和個人習慣選。
+  mechanism:
+    certainty: 🔵
+    text: 頭是身體裡很重的一段。抬頭時頭的重量和浮力的支點改變，上身被抬高、髖與腿相對下沉，身體從水平變成斜的，正面面積和阻力一起上升。抬得越高、停得越久，這個代價越大；抬完回水，身體還要一小段時間才回到水平。所以省力的原則是「抬得低、抬得短」，不是「看得清楚」。看與換氣合併可以少一次動作，但一次抬頭要兼顧看和吸氣，頭會抬得比單純看更高；分開做則多一次轉頭，但每次的動作較小。哪一種比較省，取決於浪況與個人的頭頸活動度，本庫沒有比較資料。
+  evidence:
+  - certainty: 🟢
+    text: 書中說明，抬頭定向時應避免髖大幅下沉或腿下垂；第一部分划手應把水往後推而不是往下壓，以維持前進速度；抬頭看完之後，頭的位置應與脊椎排成一線，眼睛看向下方。書中估算，十公里賽若每二十五公尺抬一次頭，整場約抬四百次，對下背、頸與肩造成額外負擔，因此核心力量與柔軟度都很重要。
+    source: Riewald, S. A., & Rodeo, S. A. (Eds.). (2015). Science of Swimming Faster. 第 24 章 Open Water Swimmers.
+    source_ids:
+    - src.riewald-rodeo-2015
+  practical_implication: 在泳池可以練「每隔幾趟抬一次頭，只露眼睛」，確認抬頭那一划腿沒有沉下去。抬頭的頻率不要照別人的數字，要看自己游直的能力與當天的水況（見游直的能力）。浪大或看不到浮標時，頻率要提高；平靜且直線能力好時可以減少。
+  cross_ref: 抬頭的連鎖代價 free.tech.18；游直的能力 open-water.tech.3；drill OW1、OW2
+  cross_ref_ids:
+  - free.tech.18
+  - open-water.tech.3
+  - OW1
+  - OW2
+- id: open-water.tech.3
+  stroke: open-water
+  category: concept
+  title: 游直的能力——左右不對稱會讓人偏航，先在泳池測自己偏多少
+  summary: 沒有水道繩的時候，左右划手出力不平均、單邊換氣、踢腿偏向，都會讓人慢慢偏離直線。游得越直，需要抬頭看的次數越少，省下的力氣越多。先在安全的條件下測自己的偏向，再決定抬頭頻率。雙邊換氣在開放水域的實際用途是保留選邊：避浪、看浮標或看對手時可以選邊。
+  mechanism:
+    certainty: 🔵
+    text: 身體往前的方向，是左右兩側推進與阻力的合成。任何一側比另一側多一點出力，或一邊的手越過中線、踢腿偏向一側，合成的方向就會每一划偏一點點，累積起來就偏離。單邊換氣的人換氣那一側的頭與肩位置不同，容易讓那一側的手路徑和阻力不同，所以偏向常跟著換氣側走。偏航的代價有兩層：多游的距離，以及為了修正而多抬的頭。
+  evidence:
+  - certainty: 🟢
+    text: 書中說，能游直取決於兩側推進力與阻力平衡的划水；雙邊換氣對許多人有助於建立平衡，但真正的目標是手臂、踢腿與頭位的對稱，跨中線的踢腿或換氣時的手路徑，可能才是游不直的根本原因。書中的測試是：站在岸邊選一個目標，閉眼游五十到一百划，停下看偏到左邊還是右邊、偏多少；重複幾次確認自己的自然偏向，先在平靜水面測，之後再在有浪的水面測。書中也提到，最好的游者在衝刺時不靠水道繩、不靠雙邊換氣也能游直，他們的左右手在水下的力量發展型態相近。
+    source: Riewald, S. A., & Rodeo, S. A. (Eds.). (2015). Science of Swimming Faster. 第 24 章 Open Water Swimmers.
+    source_ids:
+    - src.riewald-rodeo-2015
+  practical_implication: 測偏向要有人看守，或在空的水道，並確保不會撞到東西。測出來是偏左或偏右，就知道抬頭看的時機：偏得多的人抬頭要更頻繁，偏得少的人可以拉長。再從單邊換氣改成雙邊交替，檢查偏向是否變小。偏向若沒改善，往往是手跨中線或踢腿的問題，要回到單一泳式的技術分析處理。
+  cross_ref: 雙側對稱划水 free.tech.30；定向抬頭 open-water.tech.2；drill OW3、OW4
+  cross_ref_ids:
+  - free.tech.30
+  - open-water.tech.2
+  - OW3
+  - OW4
+- id: open-water.tech.4
+  stroke: open-water
+  category: concept
+  title: 跟游（drafting）——跟在正後方或髖側，用別人帶動的水流省力
+  summary: 跟游是游在另一位泳者的正後方（腳邊）或髖側，利用前方泳者帶動的水流，減少自己迎面的阻力。省力的方向很明確，但沒有可以直接套用的省力百分比。風險是跟到方向錯、配速不合的人。許多鐵人賽的游泳段與開放水域比賽允許跟游，但各賽事的規定不同，以報名賽事的規則為準。
+  mechanism:
+    certainty: 🔵
+    text: 前方泳者在水裡前進時，會帶動身後的水一起往前流，並在身後形成較低壓的區域。游在這個區域裡，相對於周圍水的阻力比自己單獨游時小，所以相同配速下用力較少，或相同用力下能游得快一些。正後方與髖側都是這個區域的一部分，哪個位置比較省因水況與配速而異。代價是視野被擋、要持續盯著前方泳者的腳，而且方向由別人決定，跟錯了會一起偏航。
+  evidence:
+  - certainty: 🟢
+    text: 書中把跟游描述為開放水域比賽的一部分：泳池的列隊游（paceline）訓練讓三到五位泳者在同一水道內，依序跟在前者腳後，輪流領游；書中列出的好處有練習跟游、學習在配速下省力、增加對其他泳者的意識，以及在組中練習加速與放慢。書中也提到，進攻型的游者會刻意靠近對手的空間，利用跟游影響比賽。
+    source: Riewald, S. A., & Rodeo, S. A. (Eds.). (2015). Science of Swimming Faster. 第 24 章 Open Water Swimmers.
+    source_ids:
+    - src.riewald-rodeo-2015
+  practical_implication: 先在泳池練跟腳游：兩人一組，輪流領。到開放水域，跟游的人仍要每隔一段抬頭確認方向，不能完全交給前面的人。碰到前方泳者的腳是常見的小碰撞，要事先練到能接受；比賽中被碰到不要和對方起衝突。規則面的細節（可以跟多近、是否允許碰觸）依賽事規則，下水前讀報名賽事的說明。
+  cross_ref: 集體出發 open-water.tech.5；drill OW6、OW7
+  cross_ref_ids:
+  - open-water.tech.5
+  - OW6
+  - OW7
+- id: open-water.tech.5
+  stroke: open-water
+  category: tempo
+  title: 集體出發——開頭強度遠高於巡航，之後要能降回巡航配速
+  summary: 開放水域和鐵人比賽的出發，大多是很多人同時開始：開頭一段為了搶位置、避開碰撞，強度遠高於後面的巡航配速。重點能力不是衝得快，而是衝完之後能降回巡航配速而不爆掉，這要專門練。出發方式有沙灘跑入、水中出發、浮台或跳台出發；淺水段可用海豚跳前進。
+  mechanism:
+    certainty: 🔵
+    text: 人多的時候，位置有價值：前面的水較乾淨、碰撞較少，所以開頭每個人都想往前擠，整體配速被推高。身體從岸上或站立切換到水平游，心率會在短時間內升高，之後降回穩態需要時間。如果開頭的強度超過自己能很快恢復的範圍，後面的巡航配速會跟著下降，整體時間反而更慢。所以出發要練的是「衝一段、降回去」的切換，而不是單純衝刺。
+  evidence:
+  - certainty: 🟢
+    text: 書中描述短距離開放水域賽事的開頭強度極高，從岸上全力衝跑，到水中出發時以約四百公尺的配速衝向第一個轉向浮標，目的是及早取得好位置。書中建議的訓練方式有沿岸「進進出出」（跑入水中、直游到浮標或指定距離、折返、淺水用海豚式前進、跑上岸），以及上岸後再接長距離短休息的穩態組，模擬高強度出發後的有氧游。
+    source: Riewald, S. A., & Rodeo, S. A. (Eds.). (2015). Science of Swimming Faster. 第 24 章 Open Water Swimmers.
+    source_ids:
+    - src.riewald-rodeo-2015
+  practical_implication: 初學者和成人鐵人不一定要跟著搶頭位置：站在外側或後排，開頭有空間，也比較不會被擠。想練出發能力，用「前段快、後段回巡航」的組，用配速而不是數字定義快與回穩。下水前確認出發方式（沙灘、水中、浮台），並確認出發區的水深，沙灘出發和淺水段要看清楚水底。
+  cross_ref: 出水上岸 open-water.tech.11；恐慌與過度換氣 open-water.tech.12；drill OW5、OW9、OW11
+  cross_ref_ids:
+  - open-water.tech.11
+  - open-water.tech.12
+  - OW5
+  - OW9
+  - OW11
+- id: open-water.tech.6
+  stroke: open-water
+  category: concept
+  title: 繞浮標——內線短但擠，外線長但順，轉向時可以用仰臥滾轉縮小半徑
+  summary: 繞浮標有兩個取捨：靠內線的路徑短，但擁擠、被碰撞和被擋住的機會多；靠外線的路徑長一些，但空間大、比較順。轉向時還有一個技巧：仰臥滾轉（俗稱 corkscrew），在轉彎處翻成仰臥一划再翻回俯臥，縮小轉彎半徑。浮標通常要從固定的一側繞過，繞哪一側以賽事說明為準。
+  mechanism:
+    certainty: 🔵
+    text: 從幾何上看，繞圈時內側的路徑比外側短，所以一群人都想靠內，內側就擠。擁擠意味著被碰、被擋、速度被迫降低，這些代價可能抵消路徑縮短的好處。外線繞得遠，但可以保持自己的節奏。選哪一條取決於自己對碰撞的容忍度與當時人群的密度。仰臥滾轉的原理是：翻成仰臥時，一側的手臂可以越過身體做轉向動作，身體沿著比較小的圓轉，不用先停下來調整方向，但這個技巧需要先在安全環境練到熟，本庫沒有它省多少時間的比較資料。
+  evidence:
+  - certainty: 🟢
+    text: 書中說明泳池開放水域練習（POW）要同時練左肩與右肩繞標，因為開放水域沒有標準航線與標準轉向方式；也說明不碰牆的轉身有兩種做法：到池底線盡頭時做翻滾轉身但不碰牆，用幾個快速划手加強力踢腿帶動；或做開放式轉身，側身以外側手做交叉划手並配剪刀腳，用來改變方向。
+    source: Riewald, S. A., & Rodeo, S. A. (Eds.). (2015). Science of Swimming Faster. 第 24 章 Open Water Swimmers.
+    source_ids:
+    - src.riewald-rodeo-2015
+  practical_implication: 初學者先選外線，把擠與碰撞降到最低。熟悉後再試內線。仰臥滾轉先在泳池用水道繩或浮具當浮標練，確認翻回俯臥時不嗆水、不暈。浮標的繞法（順時針或逆時針）以賽事說明為準，兩個方向都要練。
+  cross_ref: 集體出發 open-water.tech.5；drill OW10
+  cross_ref_ids:
+  - open-water.tech.5
+  - OW10
+- id: open-water.tech.7
+  stroke: open-water
+  category: hardware
+  title: 防寒衣（一）身體位置——浮力集中在軀幹與下肢，腿沉的人受益最大
+  summary: 防寒衣的泡棉有浮力，而且這份浮力分布在穿著的軀幹與大腿部位。結果是原本下沉的腿被托起、身體更接近水平。受益最大的是腿沉的泳者；原本浮力就好的泳者，效益較小。在鹽水（海水）中，水本身浮力較大，身體位置比淡水容易維持。
+  mechanism:
+    certainty: 🔵
+    text: 身體在水裡水平與否，取決於浮力中心與重心的相對位置。多數人的肺在胸腔、重心偏下，腿相對密度大，所以腿容易沉。防寒衣的泡棉增加軀幹與大腿的浮力，把浮力中心往下半身移，腿就被托起。腿沉的人原本要靠踢腿維持的位置，防寒衣替他做掉了一部分；原本就水平的人，防寒衣只是多加一些浮力，改變有限。這是浮力與位置的關係，不是技術差異。
+  evidence:
+  - certainty: 🟢
+    text: 書中說，淡水密度較低，所以泳者在鹽水中自然浮得比淡水高；在鹽水中維持身體位置與流線通常較容易，在淡水中需要由核心肌群提供缺少的支撐。書中只把防寒衣描述為冷水中的保暖手段（與氯丁橡膠泳帽、矽膠耳塞並列），沒有討論它的浮力效果。
+    source: Riewald, S. A., & Rodeo, S. A. (Eds.). (2015). Science of Swimming Faster. 第 24 章 Open Water Swimmers.
+    source_ids:
+    - src.riewald-rodeo-2015
+  practical_implication: 判斷自己的腿沉不沉：不穿防寒衣時，放鬆、不踢腿，看腿會不會明顯下沉。腿沉的人，防寒衣會讓游泳感覺大不同，適合先在泳池或安全水域試游，感受新的身體位置，再決定踢腿策略。是否允許、是否強制穿防寒衣，依水溫與賽事規則而定，以報名賽事的規定為準；穿或不穿的決定，水溫與保暖是更重要的理由。
+  cross_ref: 防寒衣的動作代價 open-water.tech.8；踢腿分配 open-water.tech.10；drill OW13
+  cross_ref_ids:
+  - open-water.tech.8
+  - open-water.tech.10
+  - OW13
+- id: open-water.tech.8
+  stroke: open-water
+  category: hardware
+  title: 防寒衣（二）動作代價——肩部布料限制活動度，回臂較寬較低，划頻略高
+  summary: 防寒衣在肩與上臂的布料會增加回臂的阻力、限制肩的活動度。常見的因應是回臂的路徑較寬較低，划頻略高一些。穿脫與合身都要提前練，不要在比賽日第一次穿。穿著時肩膀容易痠，是因為肩部要額外對抗布料。是否允許或強制穿防寒衣，依水溫與賽事規則。
+  mechanism:
+    certainty: 🔵
+    text: 泡棉有彈性但仍有阻力：手臂向前、向上時，肩周圍的布料被拉伸，要多花力氣去拉動它，並且限制肩關節轉動到的最大角度。回臂路徑如果仍維持高肘、手貼近身體，布料被拉得最緊；改成較寬較低的路徑，布料被拉得較少，阻力較小，但手臂移動的距離變長，所以划頻通常要略微提高，才能維持速度。合身度影響很大：太緊會限制呼吸與肩活動，太鬆會進水、增加阻力。
+  practical_implication: 第一次穿防寒衣不要選比賽日。至少在泳池或安全水域穿著游幾次，每次逐步增加時間，並測試穿脫速度與合身度。肩痠明顯的人，用較短的組數和較長的休息先適應。穿著時的回臂路徑與划頻，要自己找出舒服的組合，不是套用固定公式。
+  cross_ref: 防寒衣身體位置 open-water.tech.7；drill OW13
+  cross_ref_ids:
+  - open-water.tech.7
+  - OW13
+- id: open-water.tech.9
+  stroke: open-water
+  category: stroke-cycle
+  title: 波浪與水流——滑行被浪打斷，划頻較高、換氣選背浪側，順流時拉長划距
+  summary: 浪會打斷滑行，所以開放水域常見較高的划頻、較短的滑行。回臂較高、手不要被浪拍到；換氣選背浪的一側，才不會一口喝進水。順著水流、浪向前進時，可以拉長划距、減少踢腿，跟著浪的推力走；逆流或側流則會增加負擔。
+  mechanism:
+    certainty: 🔵
+    text: 滑行只在身體前進的速度不被打斷時才有意義。浪或波紋從前方打來時，會降低身體的前進速度，滑行段馬上減速；縮短滑行、提高划頻，可以持續提供推進，速度掉得較少。換氣時嘴巴在水面附近，迎浪那一側容易嗆水，背浪側能避開。順著浪走時，水本身帶著身體前進，划手要補的推進量較少，所以可以延長每一划。
+  evidence:
+  - certainty: 🟢
+    text: 書中說，快的游者在開頭與接近終點時有較高的划頻與手臂轉速；在白浪或較大波紋時，高肘與高手的回臂比較合適，可以避免手被浪拍亂，節省力氣；逆著波紋游時偶爾會不小心吞水，可把換氣位置稍微往後移到腋下，遠離來浪一側。順著大浪、順流前進時，可以拉長划距、減少踢腿，盡量乘浪前進以保存體力。
+    source: Riewald, S. A., & Rodeo, S. A. (Eds.). (2015). Science of Swimming Faster. 第 24 章 Open Water Swimmers.
+    source_ids:
+    - src.riewald-rodeo-2015
+  practical_implication: 到了浪大的水域，先把划頻提高、回臂放高，確認換氣側是背浪一側。這也是要會雙邊換氣的實際理由：往返航線上，浪從不同方向來，需要能選邊換氣。順流和逆流的時候，不要用同一個配速，順流時不要硬撐，逆流時不要和水流對抗到力竭。
+  cross_ref: 定向抬頭 open-water.tech.2；游直的能力 open-water.tech.3；踢腿分配 open-water.tech.10
+  cross_ref_ids:
+  - open-water.tech.2
+  - open-water.tech.3
+  - open-water.tech.10
+- id: open-water.tech.10
+  stroke: open-water
+  category: kick
+  title: 踢腿分配——鐵人泳段多用小踢腿保留下肢，但腿沉又沒防寒衣的人減踢會下沉
+  summary: 鐵人泳段後面還要騎車和跑步，所以常見做法是用較少、較小的踢腿，把下肢保留到後面。有防寒衣時，防寒衣補足身體位置，減少踢腿的代價較小；但腿沉又不穿防寒衣的人，一旦減少踢腿，腿會下沉、阻力變大。這是浮力與踝關節活動度等硬體條件，不是意志力的問題。
+  mechanism:
+    certainty: 🔵
+    text: 踢腿有兩個功能：推進，以及維持身體水平。在長距離中，推進的貢獻相對於手臂較小，但維持身體位置的功能不能省。腿不沉的人，減少踢腿不會影響身體位置，省下的能量實際可用；腿沉的人，少踢就下沉，阻力上升，反而更累。踝關節活動度不足的人，踢腿推進效率低，這類人更依賴防寒衣或浮力裝備補位置，不是靠多練踢腿就能解決。
+  evidence:
+  - certainty: 🟢
+    text: 書中說，開放水域泳者的腿常是壓艙物而非推進來源，有助於在浪中維持平衡；建議用小幅度、緊湊的踢腿，因為踢得更快或更深都會使身體離開流線位置、消耗更多氧氣。書中也提到，從兩拍踢改為四拍或六拍可以更快，但代價是大腿肌群耗氧增加，沒有練過時容易喘；在溫暖水域減少踢腿（例如從四拍改兩拍）可能有助於減輕熱壓力。
+    source: Riewald, S. A., & Rodeo, S. A. (Eds.). (2015). Science of Swimming Faster. 第 24 章 Open Water Swimmers.
+    source_ids:
+    - src.riewald-rodeo-2015
+  practical_implication: 先檢查自己的腿沉不沉（見防寒衣身體位置）。腿不沉就可以試較少、較小的踢腿；腿沉的人，先確認有沒有防寒衣補位置，沒有的話保留足夠的踢腿維持水平，不要硬套「鐵人不用踢腿」。出水之前最後一段可以加踢腿喚醒下肢。
+  cross_ref: 兩拍踢 free.tech.12；踝關節柔韌性 free.tech.13；防寒衣身體位置 open-water.tech.7
+  cross_ref_ids:
+  - free.tech.12
+  - free.tech.13
+  - open-water.tech.7
+- id: open-water.tech.11
+  stroke: open-water
+  category: depth
+  title: 出水上岸——划到手碰沙才站，先站穩再跑，姿勢改變時可能頭暈
+  summary: 游到手划到底、碰到水底的沙再站起來，太早站起來會在淺水裡走不動。最後一段可以加一點踢腿喚醒下肢，為接下來的跑或走做準備。從水平轉為站立的瞬間，血液分布改變，部分人會頭暈；先站穩再起跑，不要急著衝。
+  mechanism:
+    certainty: 🔵
+    text: 水平游泳時，身體各處大致在同一高度，血液容易回到心臟。站起來之後，下肢的血液要對抗重力回心，短時間內回心血量下降，血壓可能暫時降低，頭暈就是這個過渡期的徵象。游完一段高強度的泳段之後再站起，這個影響更明顯。淺水中站得太早，水的阻力又讓走路更費力，所以划到手碰底再起身是比較省力的時機。
+  evidence:
+  - certainty: 🟢
+    text: 書中說，上岸結束的訓練（deck-up）讓泳者習慣從水平到垂直的快速姿勢轉換，這種轉換會讓心率出現明顯起伏。
+    source: Riewald, S. A., & Rodeo, S. A. (Eds.). (2015). Science of Swimming Faster. 第 24 章 Open Water Swimmers.
+    source_ids:
+    - src.riewald-rodeo-2015
+  practical_implication: 在泳池可以練「游完立刻出水再入水」的組（上岸轉換）。如果站起來頭暈，先停下來，扶著東西站穩再走，不要硬跑。暈得嚴重、不舒服的時間長，要停下比賽就醫，不要當作疲勞忍著。
+  cross_ref: 集體出發 open-water.tech.5；drill OW12
+  cross_ref_ids:
+  - open-water.tech.5
+  - OW12
+- id: open-water.tech.12
+  stroke: open-water
+  category: errors
+  title: 恐慌與過度換氣——冷水、看不到底、擁擠都會觸發，先預防，發生時先翻仰漂求助
+  summary: 開放水域的死亡風險，大多來自恐慌、冷水與心臟事件，而不是游得不夠快。冷水接觸、臉入水看不到底、人群擁擠碰撞，都可能觸發急促的呼吸與恐慌。預防的做法是下水前先入水熱身、在冷水中慢慢吐氣、出發時站在邊線。發生時，先停下來翻成仰漂，或改抬頭蛙式，舉手求救，抓住救生艇或浮具。不獨自下水，帶顯眼的救生浮標，先確認水溫與水況。
+  mechanism:
+    certainty: 🔵
+    text: 冷水接觸皮膚的反應，是不由自主地喘氣和呼吸急促；這時如果臉在水面附近，可能會吸進水。恐慌讓呼吸更快更淺，這會讓人感覺更喘，形成惡性循環。擁擠的碰撞和看不到底的黑暗，會增加無法控制的感覺，而「失控感」本身是怕水的核心（見心理層）。處理方式的邏輯是：先把頭抬出水面，讓呼吸有空間；用仰漂或抬頭蛙式取代需要把臉放進水的動作；叫人。逞強繼續游是最危險的選擇。這些方法是安全性的一般性建議，不是訓練處方。
+  evidence:
+  - certainty: 🟢
+    text: 書中說，遇到未預期或令人不安的情況，重點是保持或回到平靜。可以做的事包括：抬頭環顧，看到其他泳者有助於減輕焦慮；游近岸邊；改用蛙式或仰式；舉起手臂或呼叫安全人員。書中說，除非受傷或過度換氣，最好的做法是繼續游，這需要事先準備；也建議對水況感到緊張的泳者與有經驗的隊友一起游。
+    source: Riewald, S. A., & Rodeo, S. A. (Eds.). (2015). Science of Swimming Faster. 第 24 章 Open Water Swimmers.
+    source_ids:
+    - src.riewald-rodeo-2015
+  practical_implication: 恐慌或急促呼吸時，優先處理安全：翻成仰漂，舉手求救，抓住救生浮具。不要為了「還是想完成」而撐。冷水的反應與低體溫、心臟事件和脫水的風險，另見健康條目；呼吸調節與恐懼的心理機制，另見呼吸與心理條目。陸上的呼吸調節只能在陸上或岸邊做，不要在水中憋氣或過度換氣。
+  cross_ref: 冷水休克 cold-water-shock；低體溫 hypothermia-swimmers；溺水 drowning；運動性心因猝死 exertional-sudden-cardiac-death；脫水與低血鈉 dehydration-hyponatremia；凍結反射 psych.fear.freeze_reflex；換氣恐慌 psych.fear.co2_breath_panic；安全前提 psych.fear.safety_precondition；呼吸調節 breathing.regulation.principle；drill OW14、OW15
+  cross_ref_ids:
+  - cold-water-shock
+  - hypothermia-swimmers
+  - drowning
+  - exertional-sudden-cardiac-death
+  - dehydration-hyponatremia
+  - psych.fear.freeze_reflex
+  - psych.fear.co2_breath_panic
+  - psych.fear.safety_precondition
+  - breathing.regulation.principle
+  - OW14
+  - OW15
+- id: open-water.tech.13
+  stroke: open-water
+  category: concept
+  title: 泳池裡怎麼練開放水域——不蹬牆、抬頭看目標、並排游、跟腳、連續游、穿防寒衣
+  summary: 沒有開放水域也能先練一部分：不蹬牆的轉身、每隔幾划抬頭看池端目標、三人並排同一水道、跟腳游、長距離連續游、穿防寒衣練習。這些練不到水溫、浪與水下視野，但能準備好技術與連續游的底。
+  mechanism:
+    certainty: 🔵
+    text: 開放水域與泳池的差異可以拆成幾個獨立的成分：沒有牆（連續游、不蹬牆）、沒有水道繩（方向）、人多（碰撞與跟游）、水況（浪、冷）、裝備（防寒衣）。前面幾項都能在泳池模擬，一次練一個；水況與冷水只能在真實環境練，不能靠泳池取代。
+  evidence:
+  - certainty: 🟢
+    text: 書中列出泳池模擬開放水域的做法：泳池開放水域（POW，拆掉水道繩、設置轉向浮標）練習無水道繩、群游、浮標轉向、不蹬牆、攻防戰術、位置與跟游，以及貼身游的身體接觸；列隊游；上岸組（deck-up）；每隔四趟抬頭看前方練習定向；三位隊友同一水道並排游，例如十二個一百公尺輪流站在中間，適應身體碰撞。
+    source: Riewald, S. A., & Rodeo, S. A. (Eds.). (2015). Science of Swimming Faster. 第 24 章 Open Water Swimmers.
+    source_ids:
+    - src.riewald-rodeo-2015
+  practical_implication: 一次練一個成分：這週練不蹬牆與連續游，下週練並排與跟腳。泳池拆水道繩需要場地允許，也要有人看管。把「泳池能練的」練到不用想，到開放水域時才能把注意力放在水況和安全。
+  cross_ref: 沒有牆沒有池底線 open-water.tech.1；定向抬頭 open-water.tech.2；跟游 open-water.tech.4；drill OW1、OW5、OW6、OW8、OW13
+  cross_ref_ids:
+  - open-water.tech.1
+  - open-water.tech.2
+  - open-water.tech.4
+  - OW1
+  - OW5
+  - OW6
+  - OW8
+  - OW13
+- id: open-water.tech.14
+  stroke: open-water
+  category: tempo
+  title: 鐵人泳段和池游比賽的需求差異——單一一次、連續、無牆、集體出發，之後還要騎跑
+  summary: 鐵人泳段是單一一次、連續、沒有牆、多半集體出發的耐力項目，游完之後還要騎車和跑步，距離從短距離賽的數百公尺到超級鐵人的數公里。池游比賽大多是 50 到 1500 公尺，轉身多，無氧比重較高。所以兩者的能量系統重心不同：鐵人泳段以有氧和閾值附近的持續配速為主，目標是以最低代價完成、出水還有餘力騎跑，不是游出最快的泳段成績。
+  mechanism:
+    certainty: 🔵
+    text: 從項目結構推導：池游的距離短、每個牆都有轉身，單趟的強度可以較高，後半段靠無氧能量撐住，所以速度、速耐與乳酸耐受佔訓練的重要位置。鐵人泳段只發生一次，持續時間通常是數分鐘到數十分鐘或更久，沒有轉身的休息，強度只能維持在可以長時間持續的範圍，也就是以有氧代謝為主、靠近閾值的配速；游得太快，出水時已經消耗掉騎跑需要的能量，整體成績反而更差。另外開放水域有浪、流、無牆、跟游與防寒衣，泳池測得的配速只能當起點（見開放水域與泳池成績不能直接換算）。
+  practical_implication: 規劃鐵人的泳訓前，先問三件事：賽事的距離與出發方式、是否允許跟游（依報名賽事規則）、這位泳者的目標是完成、安全出水，還是在泳段搶位置。不同答案的訓練比例不同，見訓練比例的調整。
+  cross_ref: 沒有牆沒有池底線 open-water.tech.1；泳訓轉移與比例調整 open-water.tech.16；集體出發 open-water.tech.5
+  cross_ref_ids:
+  - open-water.tech.1
+  - open-water.tech.16
+  - open-water.tech.5
+- id: open-water.tech.15
+  stroke: open-water
+  category: fatigue
+  title: 和騎跑一起排——游泳課與跑步關鍵課衝突較小，但總疲勞要一起算
+  summary: 游泳的主要負荷在上肢與軀幹，和跑步的關鍵課衝突較小，所以常排在同一天。但總疲勞不是各自獨立的：游泳課的次數不等於全週總負荷，排課時要把騎車和跑步的量與強度一起看。
+  mechanism:
+    certainty: 🔵
+    text: 不同運動的局部肌肉負荷不同，所以同一天安排游泳與跑步，局部肌肉的恢復互相影響較小。但疲勞也有全身性的部分，如睡眠、能量補給、神經系統的壓力，這些不分運動項目，疊加起來仍會影響下一堂課的品質。所以「游泳對跑步沒衝突」只對局部肌肉成立，總負荷仍要整體評估。
+  practical_implication: 排課時先寫下全週的跑步與騎車關鍵課，再決定游泳放在哪一天。游泳放在跑步關鍵課之前或之後，都要看當天的狀態，不是固定規則。具體決策見週期化的族群選項中的鐵人三項。
+  cross_ref: 週期化決策工具 periodization.decisions.planner；鐵人泳段的組課 open-water.tech.14
+  cross_ref_ids:
+  - periodization.decisions.planner
+  - open-water.tech.14
+- id: open-water.tech.16
+  stroke: open-water
+  category: tempo
+  title: 泳訓可以轉移，要調整的是比例——閾值與有氧加重，速耐降到少量，純速保留小劑量
+  summary: 鐵人不需要另一套泳訓系統。技術、有氧和閾值（CSS）的組都可以直接轉移，泳訓的強度區與組型可以沿用。要調整的是比例：閾值與有氧比例提高；乳酸耐受與速耐降到少量；純速保留小劑量，用途是讓技術在高速下不垮，以及集體出發和繞標時的短暫加速。例外是菁英允許跟游的短距離賽：開頭與繞標的加速決定位置，速度與速耐的比重應接近池游選手。這是族群差異，成人初學鐵人、分齡賽與菁英要分開看。
+  mechanism:
+    certainty: 🔵
+    text: 為什麼大部分可以轉移：泳訓練的是划水技術、有氧能力和閾值附近的持續配速，這些正是鐵人泳段要用的能力，所以相同的強度區與組型不必重建。為什麼比例要調：訓練時間有限，每一堂的時間花在哪裡，決定能力往哪裡長。鐵人泳段沒有大量需要乳酸耐受的段落，所以速耐組的邊際價值低，但完全不做高速也有代價：技術在高速下容易變形，出發與繞標的短暫加速也需要練。菁英短距離賽（允許跟游）則不同：頭幾百公尺和每個浮標的加速決定能否進入前面的集團，這一小段的能量需求和池游選手接近。以上為依項目結構推導，本庫沒有鐵人泳訓比例的對照研究。
+  practical_implication: 沿用泳訓的強度區與組型，把閾值與有氧組的份量放大，速耐組縮小，保留少量的短衝與高速技術組。個人的臨界游速只當泳池的配速基準；本庫已記錄沒有開放水域的臨界游速效度研究，到了實際水域要修正。菁英與分齡、初學的訓練重心不同，不要套用同一個比例。
+  cross_ref: 臨界游速證據與邊界 periodization.set_design.css_evidence；組課四個變項 periodization.set_design.variables；鐵人泳段需求差異 open-water.tech.14；drill OW9
+  cross_ref_ids:
+  - periodization.set_design.css_evidence
+  - periodization.set_design.variables
+  - open-water.tech.14
+  - OW9
+- id: open-water.tech.17
+  stroke: open-water
+  category: tempo
+  title: 長距離連續游的定位——練配速、建立比賽距離的信心、把開放水域技能放進去練，但它不是恢復課
+  summary: 偶爾排一堂長距離連續游是合理的，價值有三個：練配速、建立能游完比賽距離的信心（對初學鐵人尤其重要）、把抬頭和不蹬牆等開放水域技能放進長距離裡練。它可以是輕鬆到穩定強度的有氧課，但不要當成放鬆日：連續的長距離仍是訓練量，真正的恢復課是短、輕、以技術為主的課。整堂課的總量和連續游的距離是兩件事：一堂課總量大不代表要連續游完，連續游的距離要看目標比賽與個人能力。
+  mechanism:
+    certainty: 🔵
+    text: 連續游和分段游的差別在於中間有沒有休息：分段游每次休息讓肌肉和心肺恢復，連續游沒有，負荷累積得更多，也更接近比賽。所以長距離連續游對「比賽距離不間斷」這項能力有直接的練習價值，但同時它消耗的恢復資源也比同樣總量的分段游多。如果把它當成放鬆日，實際累積的疲勞會比預期高，影響隔天的關鍵課。另一方面，一堂課的總量可以用許多段較短的游湊出來，這和連續游一段不同，兩種負荷的目的與疲勞程度也不同。
+  practical_implication: 排長距離連續游時，先寫下這堂課的主目的是配速、信心還是開放水域技能，再決定強度和距離。連續游的距離由教練依泳者的能力和比賽距離安排，不照別人的數字；初學者可以先用分段累加，逐步向連續游靠近。排完後看隔天的狀態，如果恢復比預期差，下次縮短或降低強度。恢復課另外安排，內容短、輕、以技術為主。
+  cross_ref: 沒有牆沒有池底線 open-water.tech.1；定向抬頭 open-water.tech.2；泳訓轉移與比例調整 open-water.tech.16；drill OW1、OW8
+  cross_ref_ids:
+  - open-water.tech.1
+  - open-water.tech.2
+  - open-water.tech.16
+  - OW1
+  - OW8
+- id: open-water.tech.18
+  stroke: open-water
+  category: tempo
+  title: 時間預算——鐵人每週泳課有限，每一堂都要有清楚的主目的
+  summary: 鐵人要把時間分給游泳、騎車和跑步，每週的泳課次數有限，所以每一堂泳課要有一個清楚的主目的，例如一堂閾值主課、一堂技術加開放水域技能、一堂長距離有氧。主目的決定這堂課的內容與強度，其餘當輔助。每週次數依個人的時間和目標而定，本庫不訂固定次數。
+  mechanism:
+    certainty: 🔵
+    text: 訓練時間是固定預算：一堂課同時要練技術、閾值、速度、開放水域技能和長距離，每一項都只能分到一點，沒有一項練得夠。給每堂課一個主目的，是把有限的時間集中在一件事上，也讓疲勞的來源清楚，便於調整。技術課放在體力好的時候，因為疲勞時技術容易變形；閾值或長距離課的疲勞比較大，要和跑步、騎車的關鍵課一起考慮。
+  practical_implication: 排課前先列出本週可用的泳課次數，再逐堂寫下主目的。如果只有很少的次數，優先保留對泳者最大的限制所對應的那一堂：技術不穩的人保技術與開放水域技能，有氧底子不足的人保有氧與閾值。
+  cross_ref: 和騎跑一起排 open-water.tech.15；泳訓轉移與比例調整 open-water.tech.16
+  cross_ref_ids:
+  - open-water.tech.15
+  - open-water.tech.16
+- id: open-water.tech.19
+  stroke: open-water
+  category: tempo
+  title: 鐵人泳段的週期結構——基礎期偏技術與有氧，建構期加閾值，賽前加入比賽配速與實地練習，最後減量
+  summary: 基礎期偏重技術與有氧；建構期加入閾值組；賽前期加入比賽配速的分段（例如把比賽距離拆成幾段，以比賽配速游），並做開放水域和防寒衣的實地練習；最後是減量。這是結構，不是數字：每一期多長、每週多少量，依賽事日期、個人基礎與時間預算決定。
+  mechanism:
+    certainty: 🔵
+    text: 順序來自能力之間的依賴關係：技術與有氧是底，沒有它們，閾值組的品質和量都撐不住；閾值是持續配速的支撐，建構期開始放大；比賽配速的分段把泳池的能力連到比賽距離，讓泳者知道比賽配速的感覺；開放水域與防寒衣的實地練習只能在賽前做，因為它們依賽事的水溫與環境決定，過早做沒有意義，過晚做來不及適應（防寒衣的肩部適應與冷水適應都需要時間）。最後減量讓疲勞消退，保留比賽前的狀態。
+  practical_implication: 從賽事日期倒推：先確定實地練習能安排幾次，再往前放比賽配速分段，再往前放閾值，最前面是技術與有氧。減量的做法見週期化的減量條目。每期的目標寫成能力（例如「能以比賽配速連續游完比賽距離的某一段」），不寫成固定的數字。
+  cross_ref: 減量 periodization.taper.swim；防寒衣動作代價 open-water.tech.8；冷水入水 cold-water-shock；drill OW13、OW14
+  cross_ref_ids:
+  - periodization.taper.swim
+  - open-water.tech.8
+  - cold-water-shock
+  - OW13
+  - OW14

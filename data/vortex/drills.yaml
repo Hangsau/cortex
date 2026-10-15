@@ -13,6 +13,8 @@ categories:
   name_zh: 搖櫓
 - key: turn
   name_zh: 出發轉身
+- key: open_water_skill
+  name_zh: 開放水域技能
 drills:
 - id: Fr1
   name_en: Standing Breathing
@@ -7281,3 +7283,528 @@ drills:
   cognitive_load: high
   tactile_anchor: surface_break
   difficulty_tier: advanced
+- id: OW1
+  name_en: Crocodile-Eyes Sighting
+  name_zh: 鱷魚眼抬頭
+  strokes:
+  - open_water
+  category: open_water_skill
+  equipment: []
+  l_target:
+  - L3
+  abc_type: C
+  purpose_zh: 練「只讓眼睛剛出水看前方、看完臉回水」，並確認抬頭那一划腿沒有沉下去。
+  how_to:
+  - 選一個池端的目標（旗桿、牆上標記、教練的位置）
+  - 連續游，每隔固定的趟數或划數抬頭一次，只露出眼睛看目標，再讓臉回水
+  - 抬頭那一划，把水往後推而不是往下壓，視線看完後眼睛回到看下方
+  - 請同伴從側面看抬頭時髖與腿有沒有明顯下沉；下沉就把抬頭再降低、縮短
+  perception_goal: 抬頭的瞬間身體仍接近水平，抬頭前後速度沒有明顯掉。
+  success_signal: 抬頭一次，看得清目標，腿沒有沉，下一划自然接上。
+  failure_signal: 整個頭與肩抬高、腿下沉；抬完回水後身體要重新拉平才能繼續。
+  deficiency_fixes: []
+  source: Riewald & Rodeo (2015), Science of Swimming Faster, 第 24 章（泳池練習定向，每隔幾趟抬頭看前方）
+  source_ids:
+  - src.riewald-rodeo-2015
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - spatial_awareness
+  - streamline_line
+  stroke_phase: whole_stroke
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: pool_floor_visual
+  difficulty_tier: intermediate
+- id: OW2
+  name_en: Sight-Then-Breathe vs Sight-and-Breathe
+  name_zh: 抬頭看與換氣分開做 vs 合併做
+  strokes:
+  - open_water
+  category: open_water_skill
+  equipment: []
+  l_target:
+  - L3
+  - L4
+  abc_type: C
+  purpose_zh: 比較「先抬頭看、回水後再轉頭換氣」和「一次抬頭同時看與吸氣」，找出自己在不同水況下比較省力的做法。
+  how_to:
+  - 用同樣的距離和配速，先游一組分開做的：抬頭看一次，臉回水，下一個換氣時機再轉頭呼吸
+  - 再游一組合併做的：一次抬頭同時看目標並吸氣
+  - 每組結束後記錄：腿沉了多少、有沒有嗆水、心率或呼吸的感覺
+  - 有浪的水況（或在泳池有人製造波紋）再重複，看選擇有沒有改變
+  perception_goal: 知道自己在什麼水況下，哪一種抬頭方式讓身體位置和呼吸都比較穩。
+  success_signal: 能說出兩種方式各自的代價，並依水況選擇。
+  failure_signal: 兩種方式都抬得很高、腿都沉；或固定用一種而不管水況。
+  deficiency_fixes: []
+  source: 通行的練習形式；本庫未取得可定位的單篇出處
+  source_ids: []
+  body_position: prone
+  constraints:
+  - breath_added
+  movement_pattern: alternating
+  skill_focus:
+  - breath_rhythm
+  - spatial_awareness
+  stroke_phase: whole_stroke
+  drill_function: progression
+  cognitive_load: medium
+  tactile_anchor: surface_break
+  difficulty_tier: intermediate
+- id: OW3
+  name_en: Eyes-Closed Straight-Line Test
+  name_zh: 閉眼直線測試
+  strokes:
+  - open_water
+  category: open_water_skill
+  equipment:
+  - partner
+  l_target:
+  - L3
+  - L4
+  abc_type: C
+  purpose_zh: 測出自己不看線時會偏左還是偏右、偏多少，作為決定抬頭頻率的依據。
+  how_to:
+  - 在空的水道或空曠的水域，有同伴在旁看守並看著你，確保不會撞到東西
+  - 站在起點，選一個前方目標，閉眼游固定的幾划，時間短、距離短，不憋氣不衝刺
+  - 停下來睜眼，看自己偏離目標的方向和大概距離，由同伴確認
+  - 重複幾次，確認偏向是否穩定；再改成雙邊換氣交替，比較偏向有沒有變小
+  perception_goal: 知道自己的自然偏向，以及它是否跟著換氣側走。
+  success_signal: 幾次測試的偏向方向一致，可以拿來決定抬頭的時機。
+  failure_signal: 每次偏的方向都不同（可能是換氣、水流或測試條件不穩定）；或沒有人看守就閉眼游。
+  deficiency_fixes: []
+  source: Riewald & Rodeo (2015), Science of Swimming Faster, 第 24 章（閉眼游向目標測試偏向）；本庫將距離與看守條件改為更保守的泳池版
+  source_ids:
+  - src.riewald-rodeo-2015
+  body_position: prone
+  constraints:
+  - eyes_closed
+  movement_pattern: continuous
+  skill_focus:
+  - spatial_awareness
+  - rotation_connection
+  stroke_phase: whole_stroke
+  drill_function: corrective
+  cognitive_load: medium
+  tactile_anchor: partner_feedback
+  difficulty_tier: intermediate
+- id: OW4
+  name_en: Bilateral Breathing
+  name_zh: 雙邊換氣
+  strokes:
+  - open_water
+  category: open_water_skill
+  equipment: []
+  l_target:
+  - L2
+  - L3
+  abc_type: C
+  purpose_zh: 兩側都能換氣，才能在開放水域選邊：避浪、看浮標、看對手；也有助於讓左右更平衡。
+  how_to:
+  - 輕鬆配速連續游，固定每隔數划換氣一次，自然左右交替，從自己容易的間隔開始
+  - 穩定後再換不同的間隔，不勉強憋氣
+  - 注意兩側換氣時頭的位置和手臂路徑是否相近
+  - 弱側感覺不順時，先放慢，不要增加換氣次數換取舒服
+  perception_goal: 兩側換氣的感覺相近，沒有哪一側特別卡或特別抬頭。
+  success_signal: 左右換氣的頭位相同，換氣側改變時身體不偏。
+  failure_signal: 弱側換氣抬頭較高或扭頭，手臂路徑變形。
+  deficiency_fixes: []
+  source: Riewald & Rodeo (2015), Science of Swimming Faster, 第 24 章（雙邊換氣用於選邊與平衡）
+  source_ids:
+  - src.riewald-rodeo-2015
+  body_position: prone
+  constraints:
+  - breath_added
+  movement_pattern: alternating
+  skill_focus:
+  - breath_rhythm
+  - rotation_connection
+  stroke_phase: whole_stroke
+  drill_function: corrective
+  cognitive_load: low
+  tactile_anchor: surface_break
+  difficulty_tier: foundation
+- id: OW5
+  name_en: Shoulder-to-Shoulder Pack Swim
+  name_zh: 擁擠游：三人並排同一水道
+  strokes:
+  - open_water
+  category: open_water_skill
+  equipment:
+  - partner
+  l_target:
+  - L4
+  abc_type: C
+  purpose_zh: 練習對輕微碰撞的耐受，以及在人多時維持自己的划水節奏。
+  how_to:
+  - 三人同時出發，並排游同一水道，每個人輪流站在中間
+  - 事先約定：只有輕微的肩與手臂接觸，不抓、不拉、不壓對方
+  - 游的過程中專注維持自己的划水節奏，碰到時不停也不報復
+  - 每個人輪流在左、中、右位置，感受不同位置的碰撞與視野
+  perception_goal: 被輕微碰到時身體不縮、呼吸不亂，節奏照舊。
+  success_signal: 並排游過整趟，碰撞後節奏沒有被打亂。
+  failure_signal: 一碰到就停、縮手、換氣亂掉；或對同伴出現推擠。
+  deficiency_fixes: []
+  source: Riewald & Rodeo (2015), Science of Swimming Faster, 第 24 章（三人同一水道並排游，輪流站中間）
+  source_ids:
+  - src.riewald-rodeo-2015
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - spatial_awareness
+  - rhythm_tempo
+  stroke_phase: whole_stroke
+  drill_function: skill_integration
+  cognitive_load: high
+  tactile_anchor: partner_feedback
+  difficulty_tier: intermediate
+- id: OW6
+  name_en: Paceline Draft Swim
+  name_zh: 跟腳游（兩人一組，前後交換）
+  strokes:
+  - open_water
+  category: open_water_skill
+  equipment:
+  - partner
+  l_target:
+  - L3
+  - L4
+  abc_type: null
+  purpose_zh: 練習跟在前一位泳者的腳後，感受省力的位置，並練習輪流領游。
+  how_to:
+  - 兩人一組同一水道，前面的人用穩定的配速游，後面的人跟在腳後
+  - 後面的人保持在能看到前者腳的距離，每隔幾划抬頭確認方向，不完全交給前面的人
+  - 游完一段後交換：領游的人停在池邊，後面的人接到前面，輪流領
+  - 回報給對方：跟游時的呼吸與划水感覺跟單獨游有什麼不同
+  perception_goal: 知道跟在前者腳後的位置是什麼感覺，並能在不貼太近的情況下維持。
+  success_signal: 能穩定跟住，不一直碰到對方的腳，也沒有失去方向感。
+  failure_signal: 貼太近一直碰腳；或整段都不抬頭，完全交給前面的人帶路。
+  deficiency_fixes: []
+  source: Riewald & Rodeo (2015), Science of Swimming Faster, 第 24 章（列隊游 paceline sets）
+  source_ids:
+  - src.riewald-rodeo-2015
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - spatial_awareness
+  - glide_efficiency
+  stroke_phase: whole_stroke
+  drill_function: skill_integration
+  cognitive_load: medium
+  tactile_anchor: partner_feedback
+  difficulty_tier: intermediate
+- id: OW7
+  name_en: Hip-Side Draft Swim
+  name_zh: 髖側跟游
+  strokes:
+  - open_water
+  category: open_water_skill
+  equipment:
+  - partner
+  l_target:
+  - L4
+  abc_type: null
+  purpose_zh: 練習游在前一位泳者的髖側，比較和正後方跟游的感覺差異。
+  how_to:
+  - 兩人同一水道，前面的人穩定游，後面的人游在對方髖的位置，略偏一側
+  - 保持手臂不碰到對方，視線可看到前者的身體側面
+  - 游一段後換邊，比較左側與右側跟游的感覺
+  - 最後與正後方跟游比較：哪個位置視野較好、哪個位置較省
+  perception_goal: 知道髖側位置和正後方位置在視野、碰撞風險和省力感上的差別。
+  success_signal: 能穩定游在髖側而不貼近、不偏離。
+  failure_signal: 不斷偏離或擠到對方，手臂纏在一起。
+  deficiency_fixes: []
+  source: 通行的練習形式；本庫未取得可定位的單篇出處
+  source_ids: []
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - spatial_awareness
+  - pressure_mapping
+  stroke_phase: whole_stroke
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: partner_feedback
+  difficulty_tier: advanced
+- id: OW8
+  name_en: No-Wall Turn
+  name_zh: 不蹬牆轉身
+  strokes:
+  - open_water
+  category: open_water_skill
+  equipment: []
+  l_target:
+  - L3
+  - L4
+  abc_type: C
+  purpose_zh: 模擬沒有牆時的轉向：不碰牆也能改變方向，並練習連續游。
+  how_to:
+  - 游到池底線盡頭前，不碰牆，用開放式或翻滾轉身的方式改變方向
+  - 開放式做法：側身，外側手做交叉划手，配合剪刀腳轉向
+  - 翻滾做法：到池底線盡頭時做翻滾但不碰牆，用幾個快速划手加強力踢腿帶出
+  - 兩個方向都練，轉完立刻接上連續游，不停下
+  perception_goal: 轉向不靠牆也能保持身體軸線和速度。
+  success_signal: 轉完方向正確、速度沒有明顯掉，身體仍接近水平。
+  failure_signal: 轉向後停頓、方向偏掉，或要用腳找牆才能起動。
+  deficiency_fixes: []
+  source: Riewald & Rodeo (2015), Science of Swimming Faster, 第 24 章（不碰牆的翻滾與開放式轉身）
+  source_ids:
+  - src.riewald-rodeo-2015
+  body_position: transitional
+  constraints: []
+  movement_pattern: rotational
+  skill_focus:
+  - spatial_awareness
+  - core_tension
+  stroke_phase: transition
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: intermediate
+- id: OW9
+  name_en: Fast Start, Settle to Cruise
+  name_zh: 快出發回穩組
+  strokes:
+  - open_water
+  category: open_water_skill
+  equipment: []
+  l_target:
+  - L4
+  - L5
+  abc_type: null
+  purpose_zh: 練習開頭一段高強度之後，能降回巡航配速，而不是爆掉。
+  how_to:
+  - 每一趟前段用比賽出發時的強度衝一小段，用感覺定義快，不看數字
+  - 衝完之後立刻降回巡航配速，目標是在很短的時間內讓呼吸與划水恢復穩定
+  - 連續做幾趟，每趟的休息固定，比較回穩所需的時間
+  - 可以在最後接一組長距離短休息的穩態游，模擬高強度出發之後的有氧段
+  perception_goal: 衝完之後呼吸能快速恢復，巡航配速沒有掉太多。
+  success_signal: 回穩段的配速和沒衝的版本差距小。
+  failure_signal: 衝完就大喘，後面的配速一路掉。
+  deficiency_fixes: []
+  source: Riewald & Rodeo (2015), Science of Swimming Faster, 第 24 章（高強度出發之後接長距離穩態組）；以配速而非數字定義快與回穩為本庫的寫法
+  source_ids:
+  - src.riewald-rodeo-2015
+  body_position: prone
+  constraints:
+  - tempo_constrained
+  movement_pattern: alternating
+  skill_focus:
+  - rhythm_tempo
+  - glide_efficiency
+  stroke_phase: whole_stroke
+  drill_function: skill_integration
+  cognitive_load: high
+  tactile_anchor: equipment_feedback
+  difficulty_tier: advanced
+- id: OW10
+  name_en: Back-Roll Buoy Turn (Corkscrew)
+  name_zh: 仰臥滾轉繞標
+  strokes:
+  - open_water
+  category: open_water_skill
+  equipment:
+  - lane_line
+  l_target:
+  - L4
+  abc_type: C
+  purpose_zh: 在泳池用水道繩或浮具當浮標，練習轉彎時翻成仰臥一划再翻回，縮小轉彎半徑。
+  how_to:
+  - 先在淺水或慢速下練：游到浮標前，翻成仰臥做一划，再翻回俯臥
+  - 確認翻回俯臥時不嗆水、不暈，再逐步加速
+  - 左右兩個方向的轉彎都練
+  - 再加入人多的情境（幾人一組輪流繞標），練在不被擠的路線轉彎
+  perception_goal: 轉彎時身體軸線仍然連續，不因為翻轉而失去方向。
+  success_signal: 轉完朝向正確，換氣不嗆，速度沒有明顯停頓。
+  failure_signal: 翻回俯臥時嗆水、方向偏掉，或轉得比一般轉彎更慢。
+  deficiency_fixes: []
+  source: 通行的練習形式；本庫未取得可定位的單篇出處
+  source_ids: []
+  body_position: transitional
+  constraints: []
+  movement_pattern: rotational
+  skill_focus:
+  - rotation_connection
+  - spatial_awareness
+  stroke_phase: transition
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
+- id: OW11
+  name_en: Dolphin Dive in Shallows
+  name_zh: 海豚跳（淺水）
+  strokes:
+  - open_water
+  category: open_water_skill
+  equipment: []
+  l_target:
+  - L3
+  abc_type: null
+  purpose_zh: 練習在淺水段用海豚跳前進：雙手前撲入水、腳蹬底再起，比走路和游泳都快的轉換。
+  how_to:
+  - 安全條件：水深足夠做入水而不碰底，水底平整、沒有石頭或障礙，確認沒有人在前方，水深與底質由有經驗的人確認
+  - 站在淺水，雙手併攏前撲入水，頭在手臂之間，不要垂直往下插
+  - 手入水後腳蹬底，身體劃過水面，再起身，重複
+  - 水太淺（會碰底）或水底狀況不明時不做，改走或跑到夠深再游
+  perception_goal: 手入水的角度是向前而不是向下，起身再入水的銜接順。
+  success_signal: 入水角度平，不撞底、不嗆水，轉換連續。
+  failure_signal: 垂直往下插，手或頭碰到水底；或動作拖泥帶水，比直接走還慢。
+  deficiency_fixes: []
+  source: Riewald & Rodeo (2015), Science of Swimming Faster, 第 24 章（淺水海豚式前進）；水深與底質條件為本庫的安全補充
+  source_ids:
+  - src.riewald-rodeo-2015
+  body_position: transitional
+  constraints: []
+  movement_pattern: alternating
+  skill_focus:
+  - wave_undulation
+  - entry_extension
+  stroke_phase: entry
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: foot_pressure
+  difficulty_tier: intermediate
+- id: OW12
+  name_en: Exit and Transition Practice
+  name_zh: 出水上岸轉換
+  strokes:
+  - open_water
+  category: open_water_skill
+  equipment: []
+  l_target:
+  - L3
+  abc_type: null
+  purpose_zh: 練習從水平游到站立的轉換：最後一段加踢腿、手碰底才站、站穩再走。
+  how_to:
+  - 游到池邊或淺水，最後一段稍微加踢腿喚醒下肢
+  - 手划到碰到水底（或池邊）才起身，不要提早站
+  - 站起來之後先站穩，確認不暈再走或跑，如果頭暈就停下扶著東西
+  - 也可以做上岸組：每趟游完立刻出水，再入水開始下一趟，習慣姿勢轉換
+  perception_goal: 站起來的瞬間身體穩定，知道頭暈時要先停。
+  success_signal: 站起來不晃，能順利接上走或跑。
+  failure_signal: 太早站起來在水中走不動，或站起來頭暈還硬衝。
+  deficiency_fixes: []
+  source: Riewald & Rodeo (2015), Science of Swimming Faster, 第 24 章（deck-up：游完立刻出水再入水）
+  source_ids:
+  - src.riewald-rodeo-2015
+  body_position: transitional
+  constraints: []
+  movement_pattern: alternating
+  skill_focus:
+  - kick_amplitude
+  - spatial_awareness
+  stroke_phase: transition
+  drill_function: skill_integration
+  cognitive_load: low
+  tactile_anchor: wall_contact
+  difficulty_tier: foundation
+- id: OW13
+  name_en: Wetsuit Pool Adaptation
+  name_zh: 防寒衣泳池適應
+  strokes:
+  - open_water
+  category: open_water_skill
+  equipment:
+  - wetsuit
+  l_target:
+  - L3
+  abc_type: null
+  purpose_zh: 在泳池或安全水域先穿著防寒衣游，適應新的身體位置與肩部活動限制，不在比賽日第一次穿。
+  how_to:
+  - 先練穿脫，確認合身、拉鍊與頸部不會勒、不會大量進水
+  - 先做輕鬆游，體驗身體位置的改變（特別是腿的位置）
+  - 再加入抬頭定向和轉向，感受肩部的活動限制和回臂路徑
+  - 逐次增加游的時間；肩膀明顯痠就縮短，並在較長休息後再試
+  perception_goal: 知道穿防寒衣後身體位置和肩部感覺的改變，並找到舒服的回臂與划頻組合。
+  success_signal: 穿著游一段時間，肩不過度痠，能順利抬頭與轉向。
+  failure_signal: 太緊限制呼吸或肩活動；太鬆進水；肩很快痠到無法維持動作。
+  deficiency_fixes: []
+  source: 通行的練習形式；本庫未取得可定位的單篇出處
+  source_ids: []
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - recovery_path
+  - rhythm_tempo
+  stroke_phase: recovery
+  drill_function: progression
+  cognitive_load: medium
+  tactile_anchor: equipment_feedback
+  difficulty_tier: intermediate
+- id: OW14
+  name_en: Cold-Water Entry Routine
+  name_zh: 冷水入水程序
+  strokes:
+  - open_water
+  category: open_water_skill
+  equipment:
+  - partner
+  l_target:
+  - L1
+  - L2
+  abc_type: C
+  purpose_zh: 漸進入水，讓身體在臉入水前適應冷，先慢慢吐氣，降低冷水觸發急促呼吸的機會。
+  how_to:
+  - 安全條件：有人看守，岸邊或淺水區可立即站立，先確認水溫與水況，水太冷就不下水
+  - 先走進水到腰，用水沾濕手臂、頸與臉，停留幾次呼吸
+  - 再蹲下讓肩入水，臉入水前先慢慢吐氣，臉入水後持續緩緩吐氣，不憋氣
+  - 呼吸急促、手腳發麻或發抖明顯時，立刻出水保暖，不勉強
+  perception_goal: 冷的感覺出現時，呼吸仍然可以慢慢吐出，不被急喘接管。
+  success_signal: 入水過程呼吸順，臉入水後能持續緩緩吐氣。
+  failure_signal: 一入水就急喘、無法吐氣，或不看水溫直接跳入。
+  deficiency_fixes: []
+  source: 通行的練習形式；本庫未取得可定位的單篇出處。冷水休克的機制見健康層的冷水休克條目
+  source_ids: []
+  body_position: standing
+  constraints: []
+  movement_pattern: static
+  skill_focus:
+  - breath_rhythm
+  - pressure_mapping
+  stroke_phase: non_stroke
+  drill_function: warmup
+  cognitive_load: low
+  tactile_anchor: core_tension_internal
+  difficulty_tier: foundation
+- id: OW15
+  name_en: 'Panic Recovery: Roll to Back'
+  name_zh: 恐慌自救練習
+  strokes:
+  - open_water
+  category: open_water_skill
+  equipment:
+  - partner
+  l_target:
+  - L1
+  - L2
+  abc_type: C
+  purpose_zh: 游進中感到喘或慌時，能翻成仰漂、恢復呼吸、再翻回俯臥，並知道可以舉手求救。
+  how_to:
+  - 在淺水或有人看守的水道，輕鬆游一小段
+  - 聽到口令（或自己模擬喘）後，翻成仰漂，手放身側或向外張開，慢慢吐氣、吸氣
+  - 呼吸恢復後再翻回俯臥繼續游；也練習抬頭蛙式和舉手
+  - 同伴在旁邊看守，真有不適時立即協助，不勉強完成
+  perception_goal: 喘的時候知道怎麼把頭抬出水面，讓呼吸先回來。
+  success_signal: 翻成仰漂後呼吸能在短時間內變慢，翻回俯臥順利。
+  failure_signal: 翻不過去、停在原地亂踢、不願求助；或獨自練習沒有人看守。
+  deficiency_fixes: []
+  source: Riewald & Rodeo (2015), Science of Swimming Faster, 第 24 章（保持平靜、改蛙式或仰式、舉手呼叫安全人員）；練習步驟為本庫設計
+  source_ids:
+  - src.riewald-rodeo-2015
+  body_position: transitional
+  constraints: []
+  movement_pattern: alternating
+  skill_focus:
+  - breath_rhythm
+  - buoyancy_balance
+  stroke_phase: non_stroke
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: partner_feedback
+  difficulty_tier: foundation

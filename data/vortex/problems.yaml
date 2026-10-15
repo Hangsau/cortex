@@ -28,6 +28,8 @@ categories:
   name_zh: 轉身
 - key: breakout
   name_zh: 出水銜接
+- key: open_water
+  name_zh: 開放水域
 problems:
 - id: prob.breast.head-lift-hip-drop
   stroke: breast
@@ -1668,3 +1670,140 @@ problems:
 
     - 為了不犯規而過度保守，等看到觸牆才開始動，浪費時間。'
   mechanism_summary: 交接是預測性的時間控制：要根據前一棒最後一兩划的節奏預測觸牆的時刻，腳離台落在觸牆之後。提早離台的風險遠大於慢一點，剛開始練接力時以「寧可慢也不要早」為準。
+- id: prob.open-water.panic-breathless
+  stroke: open-water
+  category: open_water
+  title: 一到開放水域就喘不過氣、想停
+  links:
+    technical_analysis:
+    - open-water.tech.12
+    - open-water.tech.5
+    drills:
+    - OW14
+    - OW15
+    - OW4
+    interventions: []
+    water_interventions: []
+  cross_ref: ''
+  cross_ref_ids: []
+  coverage_gap:
+  - no_intervention
+  observable: '- 入水或出發後很快呼吸急促、換氣變淺變快。
+
+    - 臉入水就想抬頭、不想把臉放進水裡。
+
+    - 想停下來抓東西、向岸邊或救生艇靠。'
+  mechanism_summary: 冷水接觸、看不到水底、人群擁擠，都可能觸發急促呼吸與恐慌，而恐慌讓呼吸更快更淺。先處理安全：翻成仰漂或改抬頭蛙式、舉手求救、抓住浮具，不要硬撐。預防則是入水熱身、在冷水中先慢慢吐氣、出發站邊線，並與有經驗的人一起游。
+- id: prob.open-water.veer-off-course
+  stroke: open-water
+  category: open_water
+  title: 游不直，抬頭才發現偏了
+  links:
+    technical_analysis:
+    - open-water.tech.3
+    - open-water.tech.2
+    drills:
+    - OW3
+    - OW4
+    - OW1
+    interventions: []
+    water_interventions: []
+  cross_ref: ''
+  cross_ref_ids: []
+  coverage_gap:
+  - no_intervention
+  observable: '- 抬頭看浮標時，發現位置偏離，要大幅修正。
+
+    - 偏向常固定在同一側，且常和換氣的那一側相同。
+
+    - 為了不偏而抬頭越來越頻繁，越游越累。'
+  mechanism_summary: 偏航來自左右推進與阻力不平衡：單邊換氣、手跨中線、踢腿偏向都會讓方向每一划偏一點。先在有人看守的條件下測自己的偏向，再用偏多少決定抬頭頻率，並檢查雙邊換氣能否讓偏向變小；沒改善的話回到單一泳式處理手跨中線與踢腿。
+- id: prob.open-water.legs-sink-after-sighting
+  stroke: open-water
+  category: open_water
+  title: 每次抬頭看完，腳就沉下去
+  links:
+    technical_analysis:
+    - open-water.tech.2
+    - open-water.tech.10
+    drills:
+    - OW1
+    - OW2
+    interventions: []
+    water_interventions: []
+  cross_ref: ''
+  cross_ref_ids: []
+  coverage_gap:
+  - no_intervention
+  observable: '- 抬頭那一划之後髖與腿下沉，身體變斜。
+
+    - 回水後要多划幾下才找回平直。
+
+    - 抬頭次數一多，速度明顯掉。'
+  mechanism_summary: 抬頭時頭與上身抬高，髖與腿相對下沉，阻力上升。省力的做法是只讓眼睛剛出水、看完臉回水再轉頭換氣，並在抬頭那一划把水往後推而不是往下壓。看與換氣要分開還是合併，依浪況與個人頭頸活動度決定。
+- id: prob.open-water.wetsuit-shoulder-fatigue
+  stroke: open-water
+  category: open_water
+  title: 穿防寒衣游，肩膀很快就痠
+  links:
+    technical_analysis:
+    - open-water.tech.8
+    - open-water.tech.7
+    drills:
+    - OW13
+    interventions: []
+    water_interventions: []
+  cross_ref: ''
+  cross_ref_ids: []
+  coverage_gap:
+  - no_intervention
+  observable: '- 穿著游一小段，肩與上臂就很緊、痠。
+
+    - 回臂變小、手貼近身體，或划頻不自覺降低。
+
+    - 第一次穿時進水、勒頸，或呼吸受限。'
+  mechanism_summary: 肩與上臂的布料增加回臂阻力、限制肩活動度。常見因應是回臂較寬較低、划頻略高，並讓合身度恰當。穿脫與穿著游要提前在泳池或安全水域逐步練，不要在比賽日第一次穿。
+- id: prob.open-water.start-blowup
+  stroke: open-water
+  category: open_water
+  title: 出發一開始就衝太快，後面爆掉
+  links:
+    technical_analysis:
+    - open-water.tech.5
+    - open-water.tech.14
+    drills:
+    - OW9
+    - OW5
+    interventions: []
+    water_interventions: []
+  cross_ref: ''
+  cross_ref_ids: []
+  coverage_gap:
+  - no_intervention
+  observable: '- 前一兩百公尺強度很高，之後配速一路掉。
+
+    - 衝完大喘，很久才恢復穩定呼吸。
+
+    - 出發階段被擠、被碰，反應過度而加速。'
+  mechanism_summary: 多人出發的開頭強度被位置競爭推高；如果強度超過自己能很快恢復的範圍，後面的巡航配速會跟著掉，整體反而更慢。要專門練「衝一段、降回巡航」的切換，初學者可站外側或後排，避開最擠的區域。
+- id: prob.open-water.exit-dizzy
+  stroke: open-water
+  category: open_water
+  title: 上岸站起來頭暈腿軟
+  links:
+    technical_analysis:
+    - open-water.tech.11
+    drills:
+    - OW12
+    interventions: []
+    water_interventions: []
+  cross_ref: ''
+  cross_ref_ids: []
+  coverage_gap:
+  - no_intervention
+  observable: '- 站起來的瞬間頭暈、眼前發黑。
+
+    - 腿軟、走不穩，無法順利接上走或跑。
+
+    - 太早站起來，在淺水裡走得很吃力。'
+  mechanism_summary: 從水平轉為站立時血液分布改變，回心血量暫時下降，高強度泳段後更明顯。划到手碰底再起身、最後一段加踢腿喚醒下肢、站穩再起跑。頭暈嚴重或持續，要停下就醫，不當作疲勞硬撐。
