@@ -201,9 +201,7 @@
 .wk-card.is-fly, .wk-gacha.is-open.is-fly { --c: var(--draw-fly); }
 .wk-card-k { margin: 0; font: 700 var(--fs-s)/1.4 var(--f-sans); color: var(--ink-2); }
 .wk-card-flip { display: block; width: 100%; padding: 0; border: 0; background: none; color: inherit; font: inherit; perspective: 900px; }
-button.wk-card-flip { cursor: pointer; animation: wk-bob 2.4s ease-in-out infinite; } /* 還沒翻的卡輕輕晃，邀小朋友來點 */
-.wk-card:nth-child(2n) button.wk-card-flip { animation-delay: -1.2s; }
-@media (prefers-reduced-motion: reduce) { button.wk-card-flip { animation: none; } }
+button.wk-card-flip { cursor: pointer; }
 button.wk-card-flip:hover .wk-card-in, button.wk-card-flip:focus-visible .wk-card-in { transform: translateY(-6px) rotate(-1.5deg); }
 button.wk-card-flip:focus-visible { outline: 3px solid var(--c); outline-offset: 4px; }
 .wk-card-in { position: relative; aspect-ratio: 3 / 4; transform-style: preserve-3d; transition: transform 300ms ease-out; }
@@ -225,7 +223,6 @@ button.wk-card-flip:focus-visible { outline: 3px solid var(--c); outline-offset:
 @keyframes wk-shuffle { from { transform: translateX(-4px) rotate(-2deg); } to { transform: translateX(4px) rotate(2deg); } }
 @keyframes wk-pop { 0% { transform: scale(.85); } 60% { transform: scale(1.08); } }
 @keyframes wk-sweep { to { transform: translateX(110%); } }
-@keyframes wk-bob { 50% { transform: translateY(-4px) rotate(1deg); } }
 @media (max-width: 600px) { .wk-deck { grid-template-columns: repeat(2, minmax(0, 1fr)); } } /* auto-fit 依上限 200px 算欄數，窄螢幕會掉成單欄 */
 
 /* 單抽舞台。時間軸（改了要同步 workout.js 的 GACHA_*）：0–550ms 卡背落下 → 550–1700ms 蓄力（抖動漸強、光圈脹大、泡泡加速）→ is-open 閃光爆開翻面、光點四射、名字蓋章 → 900ms 後可收下 */
