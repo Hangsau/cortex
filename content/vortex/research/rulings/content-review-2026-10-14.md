@@ -83,6 +83,31 @@ draft: false
 | 2.1 | drafts/oral-contraceptives-performance | 7 | 1 | 6 | ✅ |
 | 2.1 | drafts/swimming-induced-bronchoconstriction | 12 | 5 | 7 | ✅ |
 | 2.1 | drafts/sipe | 6 | 3 | 3 | ✅ |
+| 2.1 | breathing/safety（codex） | 11 | 5 | 6 | ✅ |
+| 2.1 | breathing/training（codex） | 7 | 3 | 4 | ✅ |
+| 2.1 | breathing/regulation（codex） | 7 | 3 | 4 | ✅ |
+| 2.1 | breathing/physiology（codex） | 11 | 9 | 2 | ✅ |
+| 2.1 | breathing/_index | 18 | 7 | 11 | ✅ |
+| 2.1 | breathing/framework | 5 | 3 | 2 | ✅ |
+| 2.2 | psychology/psychology | 83 | 見 §2.2 | 見 §2.2 | ✅ |
+| 2.3 | instructional/moves（6 泳式 51 動作） | 66 | 見 §2.3 | 見 §2.3 | ✅ |
+| 2.4 | instructional/problems | 6 | 0 | 6 | ✅ |
+| 2.4 | Drills/drills_backstroke（codex＋Claude 驗收） | 18 | codex 7，abc_type 搬遷被駁回還原 | 11 | ✅ |
+| 2.4 | Drills/drills_breaststroke（codex＋Claude 驗收） | 20 | codex 11，abc_type 搬遷被駁回還原 | 9 | ✅ |
+| 2.4 | Drills/drills_freestyle（第 1 塊 codex，第 2–3 塊 Claude） | 13 | 8 | 7 | ✅ |
+| 2.4 | Drills/drills_butterfly（Claude） | 18 | 6 | 12 | ✅ |
+| 2.4 | Drills/drills_sculling（Claude） | 9 | 4 | 5 | ✅ |
+| 2.4 | Drills/drills_starts-turns（Claude） | 12 | 5 | 7 | ✅ |
+| 2.4 | Drills/drills_udk（Claude） | 12 | 6 | 6 | ✅ |
+| 2.5 | movement/actions、muscle-groups、stroke-demands、interventions | 105 | 見 §2.5 | 見 §2.5 | ✅ |
+| 2.5 | movement/_index | 0 | — | — | ✅（初讀無問題） |
+| 2.6 | periodization/_index、structure、taper、zones、set-design、dryland、decisions | 119 | 見 §2.6 | 見 §2.6 | ✅ |
+| 2.6 | development/matrix、technical-standards | 19 | 見 §2.6 | 見 §2.6 | ✅ |
+| 2.7 | technica/l-indicators（W022） | 7 | 5 補述＋2 撤下 | 0 | ✅ |
+| 2.8 | teaching-errors、technical-analysis、dryland、set-design、zones、l-indicators（W029 審查軌跡） | 60 | 60 | 0 | ✅ |
+| 範圍外 | instructional/technical-analysis、teaching-errors、technica/l-indicators、water-sense-levels | — | — | — | 2026-10-01 已審（`plans/內容審查_2026-10-01.md`） |
+| 範圍外 | perception/free | — | — | — | stub 骨架，未上網站，不審 |
+| 範圍外 | _taxonomy、_sources | — | — | — | 詞彙與來源註冊表，隨各批修改 |
 
 ## 逐檔紀錄
 
