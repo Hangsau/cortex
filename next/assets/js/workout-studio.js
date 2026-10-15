@@ -10,7 +10,9 @@
   root.querySelector('.wk-steps').remove();
   const sources = root.querySelector('.t-legend');
   // 成績與建議分四個子畫面：一次只做一件事（2026-10-15 使用者：一個畫面東西太多）
-  const VIEWS = [['goals', '選主課'], ['draw', '抽泳式'], ['week', '排一週'], ['pb', '成績與配速']];
+  // 成績放第一個：成績不存進瀏覽器，每次開頁都要先填；「游泳／鐵人」也在這裡選（2026-10-15 使用者）
+  const VIEWS = [['pb', '成績與配速'], ['goals', '選主課'], ['week', '排一週'], ['draw', '抽泳式']];
+  const FIRST_VIEW = VIEWS[0][0];
   const shell = document.createElement('div');
   shell.className = 'ws-shell';
   shell.innerHTML = `
@@ -29,11 +31,11 @@
         <section id="ws-panel-pace" role="tabpanel" aria-labelledby="ws-tab-pace" tabindex="0"><div class="ws-intro"><div><h2 data-ws-pace-title>今天想練什麼？</h2><p data-ws-pace-intro>先填成績，再選主課、抽泳式，或依比賽日期排一週。</p></div></div>
           <div class="ws-training-modes" role="group" aria-label="訓練對象"><button type="button" class="wk-btn" data-ws-mode="personal" aria-pressed="true">個人訓練</button><button type="button" class="wk-btn" data-ws-mode="group" aria-pressed="false">團體訓練</button></div>
           <div data-ws-mode-panel="personal">
-            <div class="ws-views" role="group" aria-label="要用哪一個工具">${VIEWS.map(([k, label]) => `<button type="button" data-ws-view="${k}" aria-pressed="${k === 'goals'}">${label}</button>`).join('')}</div>
-            <div data-ws-view-panel="goals"><div data-ws-slot="goals"></div><p class="ws-view-hint">目標秒數從你的成績算。<button type="button" class="ws-quiet" data-ws-view="pb">去填成績 →</button></p></div>
+            <div class="ws-views" role="group" aria-label="要用哪一個工具">${VIEWS.map(([k, label]) => `<button type="button" data-ws-view="${k}" aria-pressed="${k === FIRST_VIEW}">${label}</button>`).join('')}</div>
+            <div data-ws-view-panel="goals" hidden><div data-ws-slot="goals"></div><p class="ws-view-hint">目標秒數從你的成績算。<button type="button" class="ws-quiet" data-ws-view="pb">去填成績 →</button></p></div>
             <div data-ws-view-panel="draw" hidden><section class="le-block ws-draw-view"><h2>分段主課・抽泳式</h2><div data-ws-slot="draw"></div></section><p class="ws-view-hint">目標秒數從你的成績算。<button type="button" class="ws-quiet" data-ws-view="pb">去填成績 →</button></p></div>
             <div data-ws-view-panel="week" hidden><div data-ws-slot="week"></div></div>
-            <div data-ws-view-panel="pb" hidden><div data-ws-slot="pb"></div></div>
+            <div data-ws-view-panel="pb"><div data-ws-slot="pb"></div><p class="ws-view-hint">填好成績後：<button type="button" class="ws-quiet" data-ws-view="goals">選主課 →</button><button type="button" class="ws-quiet" data-ws-view="week">依賽事日期排一週 →</button></p></div>
           </div><div data-ws-mode-panel="group" hidden><div data-ws-slot="group"></div></div>
         </section>
         <section id="ws-panel-plan" role="tabpanel" aria-labelledby="ws-tab-plan" tabindex="0" hidden>
@@ -98,7 +100,7 @@
     root.querySelectorAll('[data-ws-mode-panel]').forEach(panel => { panel.hidden = panel.dataset.wsModePanel !== mode; });
     root.classList.toggle('ws-group-mode', active === 'pace' && mode === 'group');
     $('[data-ws-pace-title]').textContent = mode === 'group' ? '一起練，各有適合的配速。' : '今天想練什麼？';
-    $('[data-ws-pace-intro]').textContent = mode === 'group' ? '選主課、填每人的成績，再決定固定休息或共同包干。' : '依目的選主課，或依賽事安排一週。填入成績後，就能帶出配速。';
+    $('[data-ws-pace-intro]').textContent = mode === 'group' ? '選主課、填每人的成績，再決定固定休息或共同包干。' : '先填成績（游泳或鐵人三項），再選主課，或依賽事安排一週。';
     saveStatus();
   }
   function showView(name) {

@@ -20,7 +20,7 @@ const url = process.argv[2] || 'http://127.0.0.1:1327/cortex/vortex/workout/';
   const openPrep = async () => { if (!(await prep().locator('details').evaluate(d => d.open))) await prep().locator('summary').click(); };
   try {
     await page.goto(url);
-    await pace();
+    await pace(); await view('goals'); // 開頁預設是成績與配速
 
     // 輕鬆有氧＋自由式：三個模板；沒點「今天帶了」時全部停用
     await goal('aerobic_easy');

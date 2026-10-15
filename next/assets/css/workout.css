@@ -16,6 +16,7 @@
 .wk-goal-details summary { display: flex; align-items: center; min-height: var(--tap); cursor: pointer; font-weight: 700; }
 .wk-row, .wk-pbs { display: flex; flex-wrap: wrap; gap: var(--s2); margin: var(--s2) 0; }
 .wk-row[hidden] { display: none; }
+.wk-pbset[hidden] { display: none; }
 .wk-pbs .wk-field { flex: 1 1 120px; }
 .wk-field { display: flex; flex-direction: column; gap: 4px; font: 700 var(--fs-s)/1.4 var(--f-sans); }
 .wk-grow { flex: 1 1 220px; min-width: 0; }

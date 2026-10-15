@@ -99,9 +99,9 @@ const oldKey = 'cortex-swim-v2', key = 'cortex-swim-v3';
     console.log('PASS accessible ordering and drag across blocks into an empty block');
 
     await page.locator('[data-ws-tab="pace"]').click();
-    assert.equal(await page.locator('#wk-pb').isVisible(), false, 'pace tab opens on 選主課, one tool at a time');
-    await page.locator('.ws-views [data-ws-view="pb"]').click();
-    assert.equal(await page.locator('#wk-pb').isVisible(), true);
+    // 成績不存進瀏覽器、每次都要先填：開頁先到成績與配速（2026-10-15 使用者），一次只顯示一個工具
+    assert.equal(await page.locator('#wk-pb').isVisible(), true, 'pace tab opens on 成績與配速');
+    assert.equal(await page.locator('#wk-goals').isVisible(), false, 'one tool at a time');
     await page.locator('[data-wk-pb="free:200"] input').fill('3:00');
     await page.locator('[data-wk-pb="free:400"] input').fill('6:20');
     assert.match(await page.locator('[data-wk-css]').textContent(), /CSS 配速/);

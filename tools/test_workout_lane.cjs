@@ -101,6 +101,7 @@ const url = process.argv[2] || 'http://127.0.0.1:13379/cortex/vortex/workout/';
 
     // Recommendation import retains all sets, without substituting the owner's PB.
     await page.locator('[data-ws-mode="personal"]').click();
+    await page.locator('.ws-views [data-ws-view="goals"]').click(); // 開頁預設是成績與配速
     await page.locator('[data-wk-goal]').selectOption('velocity');
     await page.locator('[data-wk-goal-size]').selectOption('standard');
     await page.locator('[data-wk-goal-lane]').click();

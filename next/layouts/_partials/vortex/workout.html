@@ -60,13 +60,13 @@
   <section class="le-block" id="wk-goals" aria-labelledby="wk-goals-h" tabindex="-1">
     <h2 id="wk-goals-h">依訓練目的選主課</h2>
     <p class="muted">沒有比賽也能選。先決定今天想練什麼，再把主課加入課表；暖身、技術與緩和由你安排。各種能量系統會共同參與，這裡按訓練目的分類。</p>
-    <div class="wk-row wk-goal-fields">
+    <div class="wk-row wk-goal-fields" data-wk-goal-swim>
       <label class="wk-field wk-grow"><span>訓練目的</span><select data-wk-goal></select></label>
       <label class="wk-field"><span>泳式</span><select data-wk-goal-stroke></select></label>
       <label class="wk-field"><span>參考份量</span><select data-wk-goal-size><option value="standard">原有組型</option><option value="compact">精簡組</option></select></label>
       <label class="wk-field" data-wk-goal-event-field hidden><span>配速參考距離</span><select data-wk-goal-event></select></label>
     </div>
-    <p class="muted">份量是可修改的組型範例，還未依你的訓練經驗與當天狀況調整。精簡組減少組數或趟數，保留每趟距離與休息；速度、乳酸、賽速組不會砍到該組的最少趟數以下。</p>
+    <p class="muted" data-wk-goal-swim>份量是可修改的組型範例，還未依你的訓練經驗與當天狀況調整。精簡組減少組數或趟數，保留每趟距離與休息；速度、乳酸、賽速組不會砍到該組的最少趟數以下。</p>
     <div data-wk-goal-out></div>
     <div data-wk-prep></div>
     {{- /* 抽主課泳式（2026-10-15，額外的趣味入口）：段落照週期或自訂，泳式用抽的；卡面插圖 Codex 生圖，來源見 assets/images/workout-draw/SOURCE.md */ -}}
@@ -86,14 +86,29 @@
 
   <section class="le-block" id="wk-pb" aria-labelledby="wk-pb-h">
     <h2 id="wk-pb-h">① 我的成績</h2>
+    <div class="wk-row" data-wk-whorow>
+      <label class="wk-field"><span>我是</span><select data-wk-who><option value="swim">游泳</option><option value="tri">鐵人三項（泳段）</option></select></label>
+    </div>
     <p class="muted">時間可以寫「分:秒」或直接寫秒：1 分 05.3 秒填 <b>1:05.3</b> 或 <b>65.3</b>，34.2 秒填 <b>34.2</b>。只填真的游過的成績——沒填的距離不會被推估成個人最佳。每一式分開算，成績和練習要在同一種池長。成績不會存起來，每次打開都是空白。</p>
+    <div data-wk-tri hidden>
+      <div class="wk-row">
+        <label class="wk-field"><span>鐵人賽距</span><select data-wk-tdist></select></label>
+        <label class="wk-field"><span>程度</span><select data-wk-tlevel></select></label>
+      </div>
+      <div class="wk-row">
+        <label class="wk-field"><span>上次這個賽距的泳段成績（出水時間，可不填）</span><input type="text" inputmode="decimal" placeholder="例 32:30 或 1:05:00" autocomplete="off" data-wk-tsplit></label>
+        <label class="wk-field"><span>泳段目標配速（每 100 m，可不填）</span><input type="text" inputmode="decimal" placeholder="例 1:45" autocomplete="off" data-wk-trp></label>
+      </div>
+      <p class="muted" data-wk-tri-pace></p>
+      <p class="muted">鐵人只需要自由式的泳池成績：<b>200 m＋400 m</b> 算 CSS 最準；只有 400 m，或 800 m、1500 m 兩筆也能換算。比賽泳段成績用來算你實際的比賽配速，不會反推泳池 CSS（開放水域換回泳池沒有出處）。</p>
+    </div>
     <div class="wk-row">
       <label class="wk-field"><span>成績的池長</span>
         <select data-wk-course><option value="scm">短池 25 m</option><option value="lcm">長池 50 m</option></select>
       </label>
     </div>
     {{- range $strokes }}
-    <fieldset class="wk-pbset">
+    <fieldset class="wk-pbset" data-wk-pbset="{{ .k }}">
       <legend>{{ .zh }}</legend>
       <div class="wk-pbs">
         {{- $k := .k }}{{ $zh := .zh }}
@@ -117,14 +132,6 @@
       <label class="wk-field"><span>目標賽事日期</span><input type="date" data-wk-race></label>
       <label class="wk-field"><span>今天</span><input type="date" data-wk-today></label>
       <label class="wk-field"><span>這個週期從哪天開始（可不填）</span><input type="date" data-wk-mstart></label>
-    </div>
-    <div class="wk-row">
-      <label class="wk-field"><span>對象</span><select data-wk-who><option value="swim">游泳</option><option value="tri">鐵人三項（泳段）</option></select></label>
-    </div>
-    <div class="wk-row" data-wk-tri hidden>
-      <label class="wk-field"><span>鐵人賽距</span><select data-wk-tdist></select></label>
-      <label class="wk-field"><span>程度</span><select data-wk-tlevel></select></label>
-      <label class="wk-field"><span>泳段目標配速（每 100 m，可不填）</span><input type="text" inputmode="decimal" placeholder="例 1:45" autocomplete="off" data-wk-trp></label>
     </div>
     <div class="wk-row">
       <label class="wk-field"><span>每週下水</span><select data-wk-sess><option value="1">1 次</option><option value="2">2 次</option><option value="3">3 次</option><option value="4">4 次</option><option value="5">5 次</option><option value="6">6 次以上</option></select></label>
