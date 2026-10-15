@@ -669,7 +669,7 @@
   const readTotal = () => { try { const v = +localStorage.getItem(DRAW_TOTAL_KEY); return v > 0 ? v : null; } catch (_) { return null; } };
   // got／locks 以「段.輪」為鍵；bag＝抽完拿掉時這一輪還在籤筒裡的式，輪流一張一張抽也接得上
   const draw = { src: 'cycle', phase: 'general_prep', day: 0, custom: ['velocity', 'threshold', 'aerobic_easy'], size: 'standard', tail: true,
-    splits: [], total: readTotal(), pool: null, mode: 'remove', locks: {}, got: {}, bag: null, sig: '', busy: false };
+    splits: [], total: readTotal(), pool: new Set(DRAW_STROKES), mode: 'remove', locks: {}, got: {}, bag: null, sig: '', busy: false };
   function drawPhase() {
     if (draw.src === 'phase') return { phase: draw.phase };
     const P = pzPhase();
@@ -691,9 +691,7 @@
   const drawRounds = (slots) => slots.flatMap((sl, i) => Array.from({ length: drawSplit(i) }, (_, j) => ({ i, j, id: `${i}.${j}`, sl })));
   const roundLabel = (r) => (drawSplit(r.i) > 1 ? `第 ${r.i + 1} 段第 ${r.j + 1} 輪` : `第 ${r.i + 1} 段`);
   const drawSig = (slots) => slots.map((sl, i) => `${sl.name}×${drawSplit(i)}`).join('|');
-  // 籤筒：還沒自己點過＝放有填成績的泳式（只填自由式的鐵人或長距離選手就只抽自由式）；一式都沒填就四式都放
-  const drawAutoPool = () => { const has = DRAW_STROKES.filter(s => known(s).length); return has.length ? has : DRAW_STROKES.slice(); };
-  const drawPool = () => (draw.pool ? DRAW_STROKES.filter(s => draw.pool.has(s)) : drawAutoPool());
+  const drawPool = () => DRAW_STROKES.filter(s => draw.pool.has(s));
   const drawFace = (id) => draw.locks[id] || draw.got[id];
   const drawResult = (rounds) => (rounds.length && rounds.every(r => drawFace(r.id)) ? rounds.map(r => drawFace(r.id)) : null);
   const drawNext = (rounds) => rounds.find(r => !drawFace(r.id));
@@ -705,7 +703,6 @@
     const pool = drawPool(), any = a => a[Math.floor(Math.random() * a.length)];
     if (draw.mode === 'replace') return any(pool);
     const locked = rounds.map(x => draw.locks[x.id]).filter(Boolean);
-    if (draw.bag) draw.bag = draw.bag.filter(s => pool.includes(s)); // 中途補了成績、籤筒自動變了，不能抽到籤筒外的式
     if (!draw.bag) draw.bag = pool.filter(s => !locked.includes(s)); // 固定的那式先從這一輪拿掉
     if (!draw.bag.length) draw.bag = pool.slice();
     const used = rounds.filter(x => x.i === r.i && x.id !== r.id).map(x => drawFace(x.id)).filter(Boolean);
@@ -814,9 +811,7 @@
     let html = `<p class="muted">主課分幾段、每段練什麼，由週期或你自己決定；每段可以一式游完，或拆給 2–4 式各一輪，每輪游什麼式用抽的。加進課表後全部都能改，drill 照抽到的泳式在課表裡自己選。</p>
       <p class="wk-css-k">主課段落從哪來</p><div class="wk-chips">${drawChip('data-draw-src', 'cycle', draw.src === 'cycle', '依賽事週期')}${drawChip('data-draw-src', 'phase', draw.src === 'phase', '自選週期')}${drawChip('data-draw-src', 'custom', draw.src === 'custom', '自訂')}</div>` + drawSourceHtml(P);
     if (slots.length) html += drawTotalHtml(plan);
-    const inPool = drawPool();
-    html += `<p class="wk-css-k">籤筒裡放哪幾式</p><div class="wk-chips">${DRAW_STROKES.map(s => drawChip('data-draw-pool', s, inPool.includes(s), SZH[s])).join('')}</div>
-      <p class="muted">${draw.pool ? '照你點選的泳式。' : inPool.length < DRAW_STROKES.length ? `自動放有填成績的泳式（${inPool.map(s => SZH[s]).join('、')}）；要抽其他式就點一下加進來。` : '自動放有填成績的泳式；還沒填成績時四式都放。'}</p>
+    html += `<p class="wk-css-k">籤筒裡放哪幾式</p><div class="wk-chips">${DRAW_STROKES.map(s => drawChip('data-draw-pool', s, draw.pool.has(s), SZH[s])).join('')}</div>
       <p class="wk-css-k">抽法</p><div class="wk-chips">${drawChip('data-draw-mode', 'remove', draw.mode === 'remove', '抽完拿掉')}${drawChip('data-draw-mode', 'replace', draw.mode === 'replace', '抽完放回')}</div>
       <p class="muted">${draw.mode === 'remove' ? '同一輪不重複；輪數比籤多時，抽完再全部放回。' : '每輪都從整個籤筒抽，可能抽到同一式（例如自自仰）。'}</p>
       <div class="wk-chips">${drawChip('data-draw-sound', 'on', SFX.isOn(), '抽卡音效')}</div>`;
@@ -1016,10 +1011,7 @@
       if (!b || b.disabled || draw.busy) return;
       const d = b.dataset;
       if (d.drawSrc && ['cycle', 'phase', 'custom'].includes(d.drawSrc)) { draw.src = d.drawSrc; draw.splits = []; draw.locks = {}; reset(); }
-      else if (d.drawPool && DRAW_STROKES.includes(d.drawPool)) {
-        if (!draw.pool) draw.pool = new Set(drawPool()); // 第一次自己點：從目前自動的籤筒改起
-        if (draw.pool.has(d.drawPool)) draw.pool.delete(d.drawPool); else draw.pool.add(d.drawPool); reset();
-      }
+      else if (d.drawPool && DRAW_STROKES.includes(d.drawPool)) { if (draw.pool.has(d.drawPool)) draw.pool.delete(d.drawPool); else draw.pool.add(d.drawPool); reset(); }
       else if (d.drawMode && ['remove', 'replace'].includes(d.drawMode)) { draw.mode = d.drawMode; reset(); }
       else if (d.drawTail) { draw.tail = !draw.tail; reset(); }
       else if (d.drawSound) { SFX.toggle(); SFX.pop(); renderDraw(); }

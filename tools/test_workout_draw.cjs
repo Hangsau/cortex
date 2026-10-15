@@ -105,11 +105,6 @@ const ZH = { 自由式: 'free', 仰式: 'back', 蛙式: 'breast', 蝶式: 'fly' 
     await page.locator('[data-wk-pb="free:400"] input').press('Tab');
     await view(page, 'draw');
     await page.locator('[data-draw-src="custom"]').click();
-    // 籤筒預設只放有填成績的泳式：只填了自由式 → 只有自由式；自己點了就照點的
-    assert.deepEqual(await page.locator('[data-draw-pool]').evaluateAll(els => els.filter(e => e.getAttribute('aria-pressed') === 'true').map(e => e.dataset.drawPool)), ['free']);
-    assert.match(await page.locator('[data-wk-draw-body]').innerText(), /自動放有填成績的泳式（自由式）/);
-    for (const k of ['back', 'breast', 'fly']) await page.locator(`[data-draw-pool="${k}"]`).click();
-    assert.equal(await page.locator('[data-draw-pool][aria-pressed="true"]').count(), 4);
     await page.locator('[data-draw-lock="1.0"]').selectOption('free');
     for (let k = 0; k < 8; k++) {
       await go(page);
