@@ -167,7 +167,8 @@
   "src.bernhardt-12-week-sprint-swim-plan": {
    "slug": "bernhardt-12-week-sprint-swim-plan",
    "units": [
-    "open-water.tech.18"
+    "open-water.tech.18",
+    "periodization.triathlon.levels"
    ]
   },
   "src.bernhardt-workout-placement-recovery": {
@@ -1046,7 +1047,10 @@
     "open-water.tech.17",
     "open-water.tech.18",
     "open-water.tech.19",
-    "open-water.tech.21"
+    "open-water.tech.21",
+    "periodization.triathlon.race_distances",
+    "periodization.triathlon.race_month",
+    "periodization.triathlon.slots"
    ]
   },
   "src.hazlett-1994-muscle-tension-gad": {
@@ -1067,7 +1071,8 @@
     "open-water.tech.14",
     "open-water.tech.16",
     "open-water.tech.21",
-    "open-water.tech.22"
+    "open-water.tech.22",
+    "periodization.triathlon.slots"
    ]
   },
   "src.hellard-2013-optimal-overload-taper": {
@@ -1364,7 +1369,8 @@
    "slug": "laughlin-2016-short-reps-vs-steady-swims",
    "units": [
     "open-water.tech.17",
-    "open-water.tech.21"
+    "open-water.tech.21",
+    "periodization.triathlon.slots"
    ]
   },
   "src.lebrun-2003-triphasic-oc-vo2max": {
@@ -1476,7 +1482,9 @@
    "slug": "mackinnon-2024-how-much-swimming-triathlete",
    "units": [
     "open-water.tech.17",
-    "open-water.tech.18"
+    "open-water.tech.18",
+    "periodization.triathlon.levels",
+    "periodization.triathlon.session_volume"
    ]
   },
   "src.maglischo-2003-swimming-fastest": {
@@ -1987,7 +1995,8 @@
   "src.newsome-2025-swim-smooth-pace": {
    "slug": "newsome-2025-swim-smooth-pace",
    "units": [
-    "open-water.tech.16"
+    "open-water.tech.16",
+    "periodization.triathlon.race_pace"
    ]
   },
   "src.nicholls-1984-achievement-motivation": {
@@ -2223,7 +2232,8 @@
   "src.petrie-2025-periodize-triathlon-training": {
    "slug": "petrie-2025-periodize-triathlon-training",
    "units": [
-    "open-water.tech.19"
+    "open-water.tech.19",
+    "periodization.triathlon.taper"
    ]
   },
   "src.piatrikova-2018-3min-all-out-cs": {
@@ -3227,7 +3237,10 @@
     "open-water.tech.14",
     "open-water.tech.16",
     "open-water.tech.18",
-    "open-water.tech.21"
+    "open-water.tech.21",
+    "periodization.triathlon.levels",
+    "periodization.triathlon.race_distances",
+    "periodization.triathlon.slots"
    ]
   },
   "src.slawson-2013-osb11-start-categorisation": {
@@ -4623,6 +4636,11 @@
    "src.mackinnon-2024-how-much-swimming-triathlete",
    "src.slaughter-2019-swim-plan-triathlon-distances-usms"
   ],
+  "periodization.triathlon.levels": [
+   "src.bernhardt-12-week-sprint-swim-plan",
+   "src.mackinnon-2024-how-much-swimming-triathlete",
+   "src.slaughter-2019-swim-plan-triathlon-distances-usms"
+  ],
   "open-water.tech.15": [
    "src.bernhardt-workout-placement-recovery"
   ],
@@ -5473,6 +5491,19 @@
    "src.slaughter-2019-swim-plan-triathlon-distances-usms",
    "src.slowtwitch-myth-of-triathlon-swimming"
   ],
+  "periodization.triathlon.race_distances": [
+   "src.hayes-2018-open-water-8-weeks-220-triathlon",
+   "src.slaughter-2019-swim-plan-triathlon-distances-usms"
+  ],
+  "periodization.triathlon.race_month": [
+   "src.hayes-2018-open-water-8-weeks-220-triathlon"
+  ],
+  "periodization.triathlon.slots": [
+   "src.hayes-2018-open-water-8-weeks-220-triathlon",
+   "src.heggy-2021-triathlon-swim-intensity-usms",
+   "src.laughlin-2016-short-reps-vs-steady-swims",
+   "src.slaughter-2019-swim-plan-triathlon-distances-usms"
+  ],
   "psych.arousal.muscle_tension_loop": [
    "src.hazlett-1994-muscle-tension-gad"
   ],
@@ -5635,6 +5666,9 @@
    "src.lyttle-2000",
    "src.takeda-2026",
    "src.the-race-club-turn-when-to-start-dolphin-kick"
+  ],
+  "periodization.triathlon.session_volume": [
+   "src.mackinnon-2024-how-much-swimming-triathlete"
   ],
   "BkPad1": [
    "src.maglischo-2003-swimming-fastest"
@@ -6126,6 +6160,9 @@
    "src.neumann-2017",
    "src.scharborough-2017-dolphin-kick-prone-supine"
   ],
+  "periodization.triathlon.race_pace": [
+   "src.newsome-2025-swim-smooth-pace"
+  ],
   "breast.L4.timing": [
    "src.nicol-2022-breaststroke-systematic-review"
   ],
@@ -6204,6 +6241,9 @@
   "starts-turns.tech.46": [
    "src.pereira-2018",
    "src.pmc10813451"
+  ],
+  "periodization.triathlon.taper": [
+   "src.petrie-2025-periodize-triathlon-training"
   ],
   "periodization.set_design.anchors": [
    "src.piatrikova-2018-3min-all-out-cs",
