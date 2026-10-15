@@ -108,7 +108,7 @@
   // 成績不存進瀏覽器：每次開頁都是乾淨的空白成績（2026-09-27 使用者要求：重新整理不要帶上次的秒數）
   S.pb = {};
   STROKES.forEach(s => { S.pb[s.k] = {}; });
-  S.pz = Object.assign({ race: '', today: '', mstart: '', sess: '4' }, S.pz || {});
+  S.pz = Object.assign({ race: '', today: '', mstart: '', sess: '4', who: 'swim', tdist: 'standard', tlevel: 'regular', trp: '' }, S.pz || {});
   if (!savedState && !importedState) {
     const v1 = load('cortex-swim-v1');
     if (v1) {
@@ -1068,9 +1068,87 @@
     window.addEventListener('hashchange', follow);
     follow(); renderDraw();
   }
+  /* ---------- 鐵人三項泳段（2026-10-15）：結構全讀 canonical periodization/triathlon.yaml（PZ.tri） ----------
+     組型、趟數、休息照來源原文；依賽距調量＝趟數 × scale（Hayes 2018，以標準距離為基準）。
+     比賽配速：使用者填的泳段配速優先；沒填時只有 rp_from_css 的賽距暫用 CSS（Swim Smooth 對 1500 m 游泳賽的換算），其餘不給秒數。
+     有氧與技術組沿用游泳的 CSS 換算（targetOf 的 steady／easy），鐵人未驗證。沒有出處的份量（每週總量等）不給預設。 */
+  const TRI = PZ.tri || null;
+  const TRI_STROKE = 'free';
+  const triDist = () => TRI.race_distances.items.find(x => x.key === S.pz.tdist) || TRI.race_distances.items[1];
+  const triSlot = (k) => TRI.slots.items.find(x => x.key === k);
+  function triRp() {
+    const own = parseT(S.pz.trp);
+    if (own) return { t: own, src: '你填的泳段目標配速' };
+    if (triDist().rp_from_css && hasCss(TRI_STROKE)) return { t: css(TRI_STROKE).pace, src: 'CSS 暫用（游泳賽換算，鐵人未驗證）' };
+    return null;
+  }
+  // 原文組型的一列 → 課表列；block＝整組重複幾輪（原文 2×[…]），在 triDay 展開
+  function triRow(x, scale, rp) {
+    const o = { reps: Math.max(1, Math.round(x.reps * scale)), dist: x.dist, stroke: TRI_STROKE, rest: x.rest, note: x.name_zh, int: 'none' };
+    if (x.int === 'rp') {
+      if (rp) Object.assign(o, { int: 'custom', target: showT(rp.t * x.dist / 100, 1), intLabel: '比賽配速' });
+      else o.note += '（填泳段目標配速才有秒數）';
+    } else if (x.int === 'steady' || x.int === 'easy') o.int = x.int;
+    return blankRow(o);
+  }
+  function triDay(k) {
+    const D = triDist(), rp = triRp();
+    // 超級距離：第一堂比賽配速課換成每週至少一次的 10×100（Slaughter 2019）
+    const slot = triSlot(D.weekly_10x100 && k === 'rp' ? 'tenx100' : k);
+    if (k === 'aerobic') {
+      const B = setBuilders(TRI_STROKE), x = B.easy('長有氧');
+      const min = slot.continuous_minutes[D.key], c = css(TRI_STROKE);
+      const cont = c && c.pace ? Math.round(min * 60 / (c.pace * K_STEADY) * 2) * 50 : 0; // 分鐘 ÷ 穩定有氧每 100 m 秒數，進位到 50 m
+      return { key: k, name: slot.name_zh, note: slot.note_zh, rows: [qualityRow(x)], extra: `改成不停的穩定長游：約 ${min} 分鐘${cont ? `（以穩定有氧配速約 ${cont} m）` : ''}。` };
+    }
+    const rows = [], scale = slot.key === 'tenx100' ? 1 : D.scale; // 10×100 是原文指定的組，不隨賽距縮放
+    const rounds = Math.max(...slot.sets.map(x => x.block || 1));
+    for (let r = 0; r < rounds; r++) slot.sets.forEach(x => { if (r < (x.block || 1)) rows.push(triRow(x, scale, rp)); });
+    return { key: k, name: slot.name_zh, note: slot.note_zh, rows };
+  }
+  function triMenu(d, k) {
+    const m = newMenu(`第 ${k + 1} 堂・鐵人${d.name}`);
+    const main = m.blocks.find(b => b.title === '主課');
+    if (hasPb(TRI_STROKE) || triRp()) d.rows.forEach(r => main.rows.push(JSON.parse(JSON.stringify(r))));
+    else main.rows.push(coachRow(TRI_STROKE, d.name));
+    return m;
+  }
+  function renderTri(box, P) {
+    const D = triDist(), L = TRI.levels.items.find(x => x.key === S.pz.tlevel) || TRI.levels.items[1], rp = triRp();
+    const n = Math.min(6, Math.max(1, +S.pz.sess || 1));
+    const week = TRI.week.by_sessions[String(n)].map(triDay);
+    const src = (t) => `<p class="muted">${md(t)}</p>`;
+    let html = '';
+    if (P) html += `<div class="wk-pzhead"><p class="wk-css-k">現在是</p><p class="wk-pz-phase">${PHASE_NAME[P.phase]}</p><p>${P.days >= 0 ? `離比賽 <b>${P.days}</b> 天（約 ${(P.days / 7).toFixed(1)} 週）` : ''}${P.note ? ' ' + esc(P.note) : ''}</p></div>`;
+    html += `<div class="wk-box"><h3>${esc(D.name_zh)}（泳段 ${D.swim_m} m）・${esc(L.name_zh)} <span class="wk-cert">${TRI.planner.cert}</span></h3>
+      <p>建議每週 <b>${L.sessions}</b> 堂：${esc(L.note_zh)}${+S.pz.sess !== L.sessions ? ` <button type="button" class="wk-btn" data-tri-sess="${L.sessions}">改成每週 ${L.sessions} 堂</button>` : ''}</p>
+      ${src(TRI.session_volume.note_zh)}
+      <p>比賽配速：${rp ? `<b>${fmt(rp.t)}</b>／100 m（${esc(rp.src)}）` : '<span class="wk-miss">沒有可用的比賽配速，比賽配速組不給秒數</span>'}</p>
+      ${src(TRI.race_pace.rule_zh)}${src(TRI.race_pace.retest_zh)}
+      ${src(TRI.race_distances.scale_note_zh)}</div>`;
+    if (P && P.days >= 0 && P.days <= TRI.race_month.open_water_days) html += `<div class="wk-box"><h3>賽前一個月</h3><p>${esc(TRI.race_month.note_zh)}</p></div>`;
+    if (P && (P.phase === 'taper' || (P.days >= 0 && P.days <= PZ.taper.max + 7))) html += `<div class="wk-taper"><h3>減量</h3><p>${esc(TRI.taper.note_zh)}</p><ul>
+      <li>游泳減量時長 ${PZ.taper.min}–${PZ.taper.max} 天；總量降 ${esc(PZ.taper.vol.typical)}</li><li>${md(PZ.taper.freq)}</li></ul></div>`;
+    html += `<h3>這週 ${n} 堂的建議（自由式）</h3><p class="muted">${esc(TRI.week.note_zh)}</p>
+      ${hasPb(TRI_STROKE) || rp ? '' : `<p class="wk-note">${esc(noPbText(TRI_STROKE))}，也沒填泳段目標配速：這裡只排每堂的定位，建成課表時主課是佔位列。</p>`}`;
+    html += '<ol class="wk-week">' + week.map((d, k) => `<li class="wk-day">
+        <div class="wk-day-h"><b>第 ${k + 1} 堂</b><span>${esc(d.name)}</span></div>
+        <ul>${d.rows.map(r => { const tg = targetOf(r); return `<li>${esc(rowHead(r))}　${r.int === 'custom' ? '比賽配速 ' : ''}${tg && tg.t ? '目標 ' + fmt(tg.t) : tg && tg.miss ? `<span class="wk-miss">${esc(tg.miss)}</span>` : '不設目標'}　休 ${fmt0(r.rest)}<br><span class="muted">${esc(r.note)}</span></li>`; }).join('')}</ul>
+        ${d.extra ? `<p>${esc(d.extra)}</p>` : ''}<p class="muted">${esc(d.note)}</p>
+        <button type="button" class="wk-add" data-tri-day="${k}">用這堂建立課表</button></li>`).join('') + '</ol>'
+      + `<div class="wk-actions"><button type="button" class="wk-btn" data-tri-all>整週建成 ${n} 份課表</button></div>`;
+    box.innerHTML = html;
+    const add = (list) => { list.forEach(([d, k]) => S.menus.push(triMenu(d, k))); S.cur = S.menus.length - list.length; save(); renderMenu(); toast(list.length > 1 ? `已建立 ${list.length} 份課表，在 ⑤ 的「課表」選單切換` : `已建立課表：${M().name}`); document.getElementById('wk-menu').scrollIntoView(); };
+    box.querySelectorAll('[data-tri-day]').forEach(btn => btn.addEventListener('click', () => add([[week[+btn.dataset.triDay], +btn.dataset.triDay]])));
+    box.querySelector('[data-tri-all]').addEventListener('click', () => add(week.map((d, k) => [d, k])));
+    const ss = box.querySelector('[data-tri-sess]');
+    if (ss) ss.addEventListener('click', () => { S.pz.sess = ss.dataset.triSess; $('[data-wk-sess]').value = S.pz.sess; save(); renderPz(); });
+  }
   function renderPz() {
     const box = $('[data-wk-pzout]');
     const P = pzPhase();
+    $('[data-wk-tri]').hidden = S.pz.who !== 'tri';
+    if (S.pz.who === 'tri' && TRI) { renderTri(box, P); return; }
     if (!P) { box.innerHTML = '<p class="muted">填目標賽事日期後開始推算。</p>'; return; }
     const s = S.zstroke;
     const b = P.bounds, tot = Math.max(b.general_prep, P.days, 1);
@@ -1145,6 +1223,14 @@
     $('[data-wk-sess]').value = S.pz.sess;
     const on = (sel, key, extra) => $(sel).addEventListener('change', (e) => { S.pz[key] = e.target.value; if (extra) extra(); save(); renderPz(); });
     on('[data-wk-race]', 'race'); on('[data-wk-mstart]', 'mstart'); on('[data-wk-sess]', 'sess');
+    if (TRI) {
+      $('[data-wk-tdist]').innerHTML = TRI.race_distances.items.map(x => `<option value="${esc(x.key)}">${esc(x.name_zh)}（${x.swim_m} m）</option>`).join('');
+      $('[data-wk-tlevel]').innerHTML = TRI.levels.items.map(x => `<option value="${esc(x.key)}">${esc(x.name_zh)}</option>`).join('');
+      $('[data-wk-who]').value = S.pz.who; $('[data-wk-tdist]').value = S.pz.tdist; $('[data-wk-tlevel]').value = S.pz.tlevel; $('[data-wk-trp]').value = S.pz.trp;
+      on('[data-wk-who]', 'who'); on('[data-wk-tdist]', 'tdist'); on('[data-wk-tlevel]', 'tlevel');
+      // 配速打字當下就更新：等到失焦的 change 才重畫，會把使用者正要點的「建立課表」按鈕換掉、吃掉那一下點擊
+      $('[data-wk-trp]').addEventListener('input', (e) => { S.pz.trp = e.target.value; save(); renderPz(); });
+    } else $('[data-wk-who]').closest('.wk-row').hidden = true;
     // 「今天」不存成固定值：沒改就永遠用當天日期
     $('[data-wk-today]').addEventListener('change', (e) => { S.pz.today = e.target.value === isoToday() ? '' : e.target.value; save(); renderPz(); });
   }
