@@ -363,6 +363,12 @@
   }
   const blankRow = (o) => normRow(Object.assign(JSON.parse(JSON.stringify(ROW_DEF)), o));
   const RND = R.send_off_rounding_sec || 5; // 出發間隔進位（swim-coach 規則表 send_off.rounding_sec）
+  /* 沒有這一式的任何成績＝大概率還沒比過賽，屬一般泳者，訓練方式不同（set-design anchor_tiers.scope_zh，2026-10-15 使用者定）：
+     推薦一律不建議距離、趟數、秒數，只放「泳式＋目的」的佔位列讓教練排。只要有一筆成績，照常建議（含 tier_d 自校準）。 */
+  const hasPb = (s) => known(baseStroke(s)).length > 0;
+  const NO_PB_DIST = 25; // 佔位列 1 × 25 m，數字本身沒有建議意義
+  const noPbText = (s) => `沒有${SZH[baseStroke(s)]}成績：距離、趟數、秒數由你排`;
+  const coachRow = (stroke, name) => blankRow({ reps: 1, dist: NO_PB_DIST, stroke, int: 'none', rest: 0, note: `${name}・${noPbText(stroke)}（請自行設定）` });
   // 休息預設＝建議區間中值；使用者自己改過（restAuto=false）就不再覆蓋
   function autoRest(row, blockTitle) {
     if (!row.restAuto) return;
@@ -487,6 +493,12 @@
   function renderGoals() {
     const box = $('[data-wk-goal-out]');
     if (!box) return;
+    if (!hasPb(goalChoice.stroke)) {
+      box.innerHTML = `<div class="wk-goal-preview"><p class="wk-css-k">${esc(SZH[goalChoice.stroke])} · ${esc(goalName(goalChoice.key))}</p>
+        <h3>${esc(noPbText(goalChoice.stroke))}</h3><p>還沒有這一式的成績，通常是還沒比過賽的一般泳者，訓練方式不同；這裡不建議組型。到「成績與配速」填一筆成績，就會照成績建議距離、趟數與目標秒數。</p>
+        <div class="wk-actions"><button type="button" class="wk-btn wk-btn--main" data-wk-goal-add>加一列給你排</button><button type="button" class="wk-btn" data-wk-goal-new>另建課表</button><button type="button" class="wk-btn" data-wk-goal-lane>用這組安排團體</button></div></div>`;
+      renderPrep(); return;
+    }
     const key = goalChoice.key, x = goalSet(), row = x.row, type = TYPE[x.type], target = targetOf(row);
     const intent = INTENT[key], purpose = intent ? intent.goal_zh : '以穩定、可維持的節奏累積游泳量。';
     const basis = key === 'steady' ? `CSS × ${K_STEADY}（本站換算）` : type.target_rule;
@@ -577,6 +589,7 @@
       if (pa) { addPrep(pa.dataset.wkPrepAdd); return; }
       const btn = e.target.closest('[data-wk-goal-add], [data-wk-goal-new]'); if (!btn) return;
       const x = goalSet();
+      if (!hasPb(goalChoice.stroke)) x.row = coachRow(goalChoice.stroke, x.name);
       if (btn.hasAttribute('data-wk-goal-new')) {
         const m = newMenu(`${SZH[goalChoice.stroke]}・${x.name}`);
         m.intent = INTENT[goalChoice.key] ? INTENT[goalChoice.key].goal_zh : '以穩定、可維持的節奏累積游泳量。';
@@ -636,7 +649,7 @@
   function menuFromDay(d, k) {
     const m = newMenu(`第 ${k + 1} 堂・${d.focus}`);
     const main = m.blocks.find(b => b.title === '主課');
-    d.sets.forEach(x => main.rows.push(qualityRow(x)));
+    d.sets.forEach(x => main.rows.push(hasPb(S.zstroke) ? qualityRow(x) : coachRow(S.zstroke, x.name)));
     if (d.obs) m.blocks[0].rows.push(blankRow({ reps: 1, dist: 100, stroke: S.zstroke, int: 'none', rest: 60, note: '觀察點：同池長、同出發、同距離計時一趟，和前幾週比' }));
     if (d.uw) m.blocks.find(b => b.title === 'Drill').rows.push(uwRow(d.retest));
     return m;
@@ -730,6 +743,7 @@
   const sendoffOf = (r) => { const tg = targetOf(r); return Math.ceil(((tg && tg.t ? tg.t : estSec(r)) + r.rest) / RND) * RND; };
   // 一輪的組：同一段的量平均分給各輪；依時間的組重挑每趟距離；超過該式成績上限的距離縮短、總量不變
   function roundBuild(r, s, plan) {
+    if (!hasPb(s)) return { name: r.sl.name, row: coachRow(s, r.sl.name), noPb: true };
     const x = r.sl.build(s), row = normRow(JSON.parse(JSON.stringify(x.row))), k = drawSplit(r.i), cap = strokeCap(s);
     if (FLEX_WEIGHT[r.sl.key]) {
       const V = (plan.vols[r.i] != null ? plan.vols[r.i] : rowDist(row)) / k;
@@ -746,6 +760,7 @@
   const drawImg = (k) => (DRAW_ART[k] ? `<img src="${esc(DRAW_ART[k])}" alt="" ${DRAW_ART_SIZE} decoding="async">` : '');
   const cardFace = (s) => `${drawImg(s)}<b>${esc(SZH[s])}</b>`;
   function drawDetail(x) {
+    if (x.noPb) return `<p class="wk-draw-set">${esc(noPbText(x.row.stroke))}</p>`;
     const r = x.row, tg = targetOf(r), cap = strokeCap(r.stroke);
     const t = tg && tg.t ? `目標 ${fmt(tg.t)}` : r.int === 'none' ? '不設目標時間' : `${(tg && tg.miss) || '待補成績'}`;
     const long = rowDist(r) > cap * LONG_ROUND_RATIO ? `<p class="wk-note">${esc(SZH[r.stroke])}最長的成績是 ${cap} m，這一輪 ${rowDist(r)} m 偏多；可以把這段拆給多式各一輪。</p>` : '';
@@ -1099,12 +1114,13 @@
         <p class="muted">出處：<a href="${U.doc_url}">${esc(U.source_zh)}</a>。練法：<a href="${U.drill_url}">比賽配速水下打水</a>。轉身測法依據：<a href="${U.turn_url}">三種轉法比較研究</a>。</p></div>`;
     }
     html += `<h3>這週 ${n} 堂的建議（${SZH[s]}）</h3>
-      <p class="muted">照上課順序排，吃力的品質課之間隔一堂輕鬆課。每堂只給主課，暖身、drill、緩和留給你排；泳式跟著 ② 選中的那一式，目標秒數用 ① 的成績算。</p>`;
+      <p class="muted">照上課順序排，吃力的品質課之間隔一堂輕鬆課。每堂只給主課，暖身、drill、緩和留給你排；泳式跟著 ② 選中的那一式，目標秒數用 ① 的成績算。</p>
+      ${hasPb(s) ? '' : `<p class="wk-note">${esc(noPbText(s))}。還沒有這一式成績通常是還沒比過賽的一般泳者，這裡只排每堂的定位；建成課表時主課是佔位列，等你填。</p>`}`;
     if (bud && P.phase !== 'transition') html += `<details class="wk-more"><summary>週組裝規則原文 🔵</summary><p>${md(bud.layout_zh)}</p><p>${md(PZ.spacing).replace(/\n/g, '<br>')}</p></details>`;
     html += '<ol class="wk-week">' + week.map((d, k) => `<li class="wk-day wk-day--${d.slot}">
         <div class="wk-day-h"><b>第 ${k + 1} 堂</b><span>${SLOT_NAME[d.slot]}</span></div>
         <p class="wk-day-f">${esc(d.focus)}</p>
-        <ul>${d.sets.map(x => { const row = blankRow(x.row), tg = targetOf(row), ty = x.type && TYPE[x.type];
+        <ul>${!hasPb(s) ? d.sets.map(x => `<li><b>${esc(x.name)}</b><br><span class="wk-miss">${esc(noPbText(s))}</span></li>`).join('') : d.sets.map(x => { const row = blankRow(x.row), tg = targetOf(row), ty = x.type && TYPE[x.type];
           return `<li><b>${esc(x.name)}</b>${ty ? ` <span class="wk-cert">${ty.cert}</span>` : ''}<br>${esc(rowHead(row))}　${tg && tg.t ? '目標 ' + fmt(tg.t) : tg && tg.miss ? `<span class="wk-miss">${esc(tg.miss)}</span>` : '不設目標'}　休 ${fmt0(row.rest)}<br><span class="muted">${x.why}${ty && ty.exit ? `。退出：${esc(ty.exit)}` : ''}</span></li>`; }).join('')}</ul>
         ${d.obs ? '<p class="muted">這堂放本週的觀察點：熱身後同池長、同出發、同距離計時一趟，和前幾週比。</p>' : ''}
         ${d.uw ? `<p class="muted">＋ ${esc(U.title_zh)}約 ${U.minutes} 分鐘，放在 drill 段${d.retest ? '；這堂先重測' : ''}。</p>` : ''}

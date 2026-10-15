@@ -46,6 +46,15 @@ const ZH = { 自由式: 'free', 仰式: 'back', 蛙式: 'breast', 蝶式: 'fly' 
     assert.equal(await page.evaluate(() => localStorage.getItem('cortex-draw-sound')), 'off');
     await page.locator('[data-draw-sound]').click();
 
+    // 還沒填任何成績：每一輪都只寫「由你排」，加入課表是佔位列
+    await page.locator('[data-draw-src="custom"]').click();
+    await go(page);
+    assert.match(await page.locator('[data-draw-card="0.0"] .wk-card-out').innerText(), /沒有.+成績：距離、趟數、秒數由你排/);
+    const noPbRows = await (async () => { const b = await rows(page); await page.locator('[data-draw-add]').click(); return (await rows(page)).slice(b.length); })();
+    assert.ok(noPbRows.length === 3 && noPbRows.every(r => r.int === 'none' && r.reps === 1 && r.dist === 25 && /請自行設定/.test(r.note)), 'placeholder rows for strokes without PB');
+    await page.locator('[data-ws-tab="pace"]').click();
+    await page.locator('[data-draw-src="cycle"]').click();
+
     // 自訂：預設三段，抽完拿掉 → 同一輪不重複
     await page.locator('[data-draw-src="custom"]').click();
     assert.equal(await page.locator('[data-draw-card]').count(), 3);
@@ -102,7 +111,8 @@ const ZH = { 自由式: 'free', 仰式: 'back', 蛙式: 'breast', 蝶式: 'fly' 
     ({ context, page } = await fresh({ reducedMotion: 'reduce' }));
     await view(page, 'pb');
     for (const [d, v] of [[25, '12.5'], [50, '28'], [100, '60'], [200, '150'], [400, '320']]) await page.locator(`[data-wk-pb="free:${d}"] input`).fill(v);
-    await page.locator('[data-wk-pb="free:400"] input').press('Tab');
+    for (const [k, t50, t100] of [['back', '33', '72'], ['breast', '38', '84'], ['fly', '35', '80']]) { await page.locator(`[data-wk-pb="${k}:50"] input`).fill(t50); await page.locator(`[data-wk-pb="${k}:100"] input`).fill(t100); }
+    await page.locator('[data-wk-pb="fly:100"] input').press('Tab');
     await view(page, 'draw');
     await page.locator('[data-draw-src="custom"]').click();
     await page.locator('[data-draw-lock="1.0"]').selectOption('free');

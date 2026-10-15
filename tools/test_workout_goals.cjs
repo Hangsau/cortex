@@ -36,16 +36,26 @@ const output = process.env.WORKOUT_SCREENSHOTS || os.tmpdir();
       ['lactate_tolerance', 'tol', 100, 5, 40, 66],
       ['race_pace', 'race', 25, 22, 15, 15],
     ];
-    for (const [key, int, dist, reps, rest] of cases) {
+    // 沒有這一式的成績＝一般泳者：不建議距離、趟數、秒數，只放佔位列給教練排（set-design anchor_tiers.scope_zh）
+    for (const [key] of cases) {
       await select(key);
-      assert.match(await page.locator('[data-wk-goal-out]').innerText(), /待補成績或自訂秒數/);
+      assert.match(await page.locator('[data-wk-goal-out]').innerText(), /沒有自由式成績：距離、趟數、秒數由你排/);
+      assert.equal(await page.locator('[data-wk-goal-out] .wk-goal-facts').count(), 0, 'no numbers without a PB');
       const previous = await rows();
       await add();
       assert.equal(await page.locator('#ws-tab-plan').getAttribute('aria-selected'), 'true');
       const current = await rows(), row = current.at(-1);
       assert.deepEqual(current.slice(0, -1), previous, 'adding a recommendation preserves previous rows');
-      assert.equal(row.int, int); assert.equal(row.dist, dist); assert.equal(row.reps, reps); assert.equal(row.rest, rest);
+      assert.equal(row.int, 'none'); assert.equal(row.reps, 1); assert.equal(row.dist, 25); assert.match(row.note, /請自行設定/);
       assert.equal((await brief()).items.at(-1).targetSeconds, null, 'no PB must not invent a target');
+      await open();
+    }
+    // 有成績之後照組型建議：距離、趟數、休息（目標秒數在下一段驗）
+    await view('pb'); await page.locator('[data-wk-pb="free:50"] input').fill('28'); await view('goals');
+    for (const [key, int, dist, reps, rest] of cases) {
+      await select(key); await add();
+      const row = (await rows()).at(-1);
+      assert.equal(row.int, int); assert.equal(row.dist, dist); assert.equal(row.reps, reps); assert.equal(row.rest, rest);
       await open();
     }
     // Inputs update the selected recommendation and generated rows through the shared formulas.
@@ -110,13 +120,13 @@ const output = process.env.WORKOUT_SCREENSHOTS || os.tmpdir();
     // Invalid PB and a malformed option cannot create targets or select an unknown builder.
     await view('pb'); await page.locator('[data-wk-pb="free:200"] input').fill('oops'); await view('goals');
     await select('threshold');
-    assert.match(await page.locator('[data-wk-goal-out]').innerText(), /待補成績/);
+    assert.match(await page.locator('[data-wk-goal-out]').innerText(), /沒有自由式成績/, 'an invalid PB counts as no PB');
     await page.evaluate(() => {
       const select = document.querySelector('[data-wk-goal]');
       select.add(new Option('invalid', '__proto__')); select.value = '__proto__';
       select.dispatchEvent(new Event('change', { bubbles: true }));
     });
-    await add(); assert.equal((await rows()).at(-1).int, 'thr');
+    await add(); assert.match((await rows()).at(-1).note, /^閾值/, 'malformed option keeps the previous builder');
     // Existing race-date route still builds a week; new goal selections do not require or overwrite it.
     await open();
     await view('week');
@@ -126,6 +136,8 @@ const output = process.env.WORKOUT_SCREENSHOTS || os.tmpdir();
     const countBeforeWeek = (await state()).menus.length;
     await page.locator('[data-weekall]').click();
     assert.equal((await state()).menus.length, countBeforeWeek + 4);
+    assert.match(await page.locator('[data-wk-pzout]').evaluate(el => el.textContent), /沒有自由式成績：距離、趟數、秒數由你排/, 'week plan without PB only gives each session its role');
+    assert.ok((await state()).menus.slice(-4).every(m => m.blocks.find(b => b.title === '主課').rows.every(r => r.int === 'none' && /請自行設定/.test(r.note))), 'week menus without PB get placeholder main rows');
     for (const width of [320, 390, 1440]) {
       await page.setViewportSize({ width, height: 1000 });
       if (await page.locator('#ws-tab-plan').getAttribute('aria-selected') !== 'true') await page.locator('#ws-tab-plan').click();
