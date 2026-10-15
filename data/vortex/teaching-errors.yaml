@@ -2371,3 +2371,63 @@ errors:
   cross_ref: starts-turns.tech.44（自由式 Breakout 七要點，含「第一划不換氣」）
   cross_ref_ids:
   - starts-turns.tech.44
+- id: open-water.err1
+  stroke: open-water
+  category: kick
+  title: 鐵人不用學踢腿，腿留給騎跑
+  misconception: 「鐵人不需要學踢腿，腿要留給後面的騎車和跑步。」這個說法在鐵人圈流傳： Triathlete.com 的文章把它列為要反駁的說法，論壇有人自述曾被這樣告知；來源都沒有指名是哪位教練或哪份教材在教。這裡只收「完全不踢、不用學」的版本。比賽中少踢、輕踢是實務上的共識，不在誤區範圍內。
+  physical_reason:
+    certainty: 🔵
+    text: 鐵人游泳時，踢腿不是主要的推進來源，這點教練文章看法一致；但踢腿的另一個功能是維持平衡與身體位置。「比賽中少踢」是對的，「所以不用學踢」卻跳了一步：少踢是比賽中的選擇，需要先會踢才有得選；踢腿的能量成本與對阻力的影響，這些來源都沒有量化，本條不補數字。
+  evidence:
+  - certainty: 🔵
+    text: 實務文件：Burgan 的 Slowtwitch 教練文章寫，鐵人的踢腿不是重要的推進手段，但在幫助平衡與身體位置上很重要。這是教練個人觀點，沒有量測。
+    source_ids:
+    - src.burgan-2008-kicking-slowtwitch
+  - certainty: 🔵
+    text: 實務文件：Sutton 的教練文章寫，對距離游泳者而言踢腿的作用是平衡； McLarty 在 Triathlete.com 把「鐵人不需要學踢腿」列為要反駁的說法，理由是有效率的游泳需要全身一起工作。兩篇都是個人觀點，沒有研究引用。
+    source_ids:
+    - src.sutton-2015-seven-swim-myths-triathlon
+    - src.mclarty-2013-four-swimming-myths
+  - certainty: 🔵
+    text: 論壇討論：Slowtwitch 的討論串（2003 年）裡，發文者自述曾被告知不要踢腿以保留腿力，沒有說是誰告知；約 4 人少踢或不踢，3 人保留輕踢。是個人自述，不是教練文件。
+    source_ids:
+    - src.slowtwitch-wetsuit-floating-legs-and-no-kick
+  - certainty: 🟡
+    text: 簡短綜述（Brisswalter & Hausswirth 2008）轉述 Millet 等人：鐵人可以用兩拍或六拍踢，目的是降低下肢的推進期。這支持「比賽中可以少踢」，不支持「完全不用學踢」。
+    source_ids:
+    - src.brisswalter-hausswirth-2008-drafting-review
+  cross_ref: 踢腿分配 open-water.tech.10；防寒衣身體位置 open-water.tech.7
+  cross_ref_ids:
+  - open-water.tech.10
+  - open-water.tech.7
+  correct_concept: 比賽中少踢、輕踢、不拿腿推進，是合理的選擇；但練習中仍要學踢，因為踢腿幫助維持平衡與身體位置，會踢才有比賽中少踢的選擇。兩個說法要分開：少踢是策略，不用學踢是缺少基礎。穿防寒衣時腿被托起，踢多踢少再依泳者的腿沉不沉決定。
+  perception_impact: 完全不練踢的人，缺少「腿在水裡的位置」這條回饋；腿沉或身體位置掉下來時，不容易察覺原因出在哪裡。這是依推導的說法，沒有量測。
+- id: open-water.err2
+  stroke: open-water
+  category: head
+  title: 一定要雙邊換氣，而且固定每三划換氣一次
+  misconception: 「鐵人一定要學雙邊換氣，節奏就是每三划換氣一次。」 McLarty 在 Triathlete.com 把「雙側換氣就是每三划吸氣一次」列為要反駁的固定節奏， Sutton 的教練文章也把「必須雙側換氣」列為迷思；來源沒有指名是誰教「一定要」。雙側換氣是值得學的技能，這裡收的是「一定要、固定每三划」的版本。
+  physical_reason:
+    certainty: 🔵
+    text: 依定義算：每三划換氣一次，比每兩划一次，單位划數的吸氣次數少約三分之一。划水強度高、需要更多氧的時候，這個差別就會顯現，所以高強度時改成每兩划單側換氣是合理的。雙側換氣的好處是兩側的平衡與矯正；固定「每三划」只是其中一種節奏，不是唯一的方法。
+  evidence:
+  - certainty: 🔵
+    text: 實務文件：Casey 在 TrainingPeaks 的教練文章（USAT 二級、Ironman 認證教練）寫，雙側換氣是鐵人都該學並練的技能，但缺點是吸入的氧較少；每兩划換氣給最多的氧；划水型態因人而異，對一個人快的對另一個人不一定。這是教練個人觀點，沒有量測。
+    source_ids:
+    - src.casey-2016-bilateral-breathing-trainingpeaks
+  - certainty: 🔵
+    text: 實務文件：McLarty 在 Triathlete.com 寫，許多泳者需要更常換氣，尤其是用力游的時候； Sutton 的教練文章寫，不需要雙側換氣。兩篇都是個人觀點，沒有研究引用。
+    source_ids:
+    - src.mclarty-2013-four-swimming-myths
+    - src.sutton-2015-seven-swim-myths-triathlon
+  - certainty: 🔵
+    text: 論壇討論：Slowtwitch 的討論串（2024 年，第 1 頁）裡，有人非正式自測，雙側換氣在相同強度下慢 4 到 5 秒（自述數字可能不準）；也有人認為雙側換氣有用。個人自述，沒有對照。
+    source_ids:
+    - src.slowtwitch-should-you-bilateral-breathe
+  cross_ref: 雙側對稱划水 free.tech.30；定向抬頭 open-water.tech.2
+  cross_ref_ids:
+  - free.tech.30
+  - open-water.tech.2
+  correct_concept: 雙側換氣是有用的技能，值得學，用來矯正兩側的不對稱、增加彈性；但「一定要」或「固定每三划」沒有出處。換氣的節奏依強度與個人調整：氧需求高時可以每兩划單側，平穩的時候再用雙側。
+  perception_impact: 把換氣變成「數到三」的口令，注意力容易放在數划數，而不是身體現在需要不需要換氣；高強度時勉強照節奏，還會累積缺氧的壓迫感。這是依推導的說法，沒有量測。

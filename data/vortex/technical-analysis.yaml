@@ -4353,7 +4353,7 @@ points:
   stroke: open-water
   category: concept
   title: 跟游（drafting）——跟在正後方或髖側，用別人帶動的水流省力
-  summary: 跟游是游在另一位泳者的正後方（腳邊）或髖側，利用前方泳者帶動的水流，減少自己迎面的阻力。省力的方向很明確，但沒有可以直接套用的省力百分比。風險是跟到方向錯、配速不合的人。許多鐵人賽的游泳段與開放水域比賽允許跟游，但各賽事的規定不同，以報名賽事的規則為準。
+  summary: 跟游是游在另一位泳者的正後方（腳邊）或髖側，利用前方泳者帶動的水流，減少自己迎面的阻力。省力的方向很明確。泳池實驗測到的幅度很大，但受試者是泳者、不是鐵人賽事，不能直接套用成省力百分比。「跟游沒差別」這個說法沒有找到實際主張的人，而泳池研究的結果與它相反。風險是跟到方向錯、配速不合的人。許多鐵人賽的游泳段與開放水域比賽允許跟游，但各賽事的規定不同，以報名賽事的規則為準。
   mechanism:
     certainty: 🔵
     text: 前方泳者在水裡前進時，會帶動身後的水一起往前流，並在身後形成較低壓的區域。游在這個區域裡，相對於周圍水的阻力比自己單獨游時小，所以相同配速下用力較少，或相同用力下能游得快一些。正後方與髖側都是這個區域的一部分，哪個位置比較省因水況與配速而異。代價是視野被擋、要持續盯著前方泳者的腳，而且方向由別人決定，跟錯了會一起偏航。
@@ -4363,6 +4363,14 @@ points:
     source: Riewald, S. A., & Rodeo, S. A. (Eds.). (2015). Science of Swimming Faster. 第 24 章 Open Water Swimmers.
     source_ids:
     - src.riewald-rodeo-2015
+  - certainty: 🟡
+    text: 泳池實驗（Chatard & Wilson 2003，11 名游泳者，非鐵人賽事）：以 95% 最佳 1500 m 配速游 4 分鐘，跟在前者後方 0 或 50 cm 時，攝氧降 11%、心率降 6%、血乳酸降 38%、自覺費力降 20%，被動拖曳阻力降 21%、20%；側向 50、100 cm 降 6%、7%；後方 150 cm 仍約有 10% 的代謝成本降低。領游者被指示不踢腿，結果來自泳池與水槽，不能直接套到開放水域的鐵人賽事。
+    source_ids:
+    - src.chatard-wilson-2003-drafting-distance
+  - certainty: 🟡
+    text: 簡短綜述（Brisswalter & Hausswirth 2008）：轉述 Chatard 與 Millet，跟在領游者後面游速提高 3.2%（400 m 約省 20 m），增益隨泳者能力與皮脂厚度而異，較快、較瘦的泳者增益較大；另轉述 Delextrat 等人，跟游後的騎乘效率較高（+4.8%），這個數字本庫沒有讀到原論文。作者對機制用的是「推測」的語氣。
+    source_ids:
+    - src.brisswalter-hausswirth-2008-drafting-review
   practical_implication: 先在泳池練跟腳游：兩人一組，輪流領。到開放水域，跟游的人仍要每隔一段抬頭確認方向，不能完全交給前面的人。碰到前方泳者的腳是常見的小碰撞，要事先練到能接受；比賽中被碰到不要和對方起衝突。規則面的細節（可以跟多近、是否允許碰觸）依賽事規則，下水前讀報名賽事的說明。
   cross_ref: 集體出發 open-water.tech.5；drill OW6、OW7
   cross_ref_ids:
@@ -4414,7 +4422,7 @@ points:
   stroke: open-water
   category: hardware
   title: 防寒衣（一）身體位置——浮力集中在軀幹與下肢，腿沉的人受益最大
-  summary: 防寒衣的泡棉有浮力，而且這份浮力分布在穿著的軀幹與大腿部位。結果是原本下沉的腿被托起、身體更接近水平。受益最大的是腿沉的泳者；原本浮力就好的泳者，效益較小。在鹽水（海水）中，水本身浮力較大，身體位置比淡水容易維持。
+  summary: 防寒衣的泡棉有浮力，而且這份浮力分布在穿著的軀幹與大腿部位。結果是原本下沉的腿被托起、身體更接近水平。受益最大的是腿沉的泳者；原本浮力就好的泳者，效益較小。在鹽水（海水）中，水本身浮力較大，身體位置比淡水容易維持。有些文章說防寒衣能讓成績進步最多 20%，這個數字沒有出處；讀到的泳池研究，泳者 400 m 約快 6%，見證據。「穿了防寒衣就不用練技術」的證據不足：該研究沒有測身體位置，也沒有測不練技術的後果。
   mechanism:
     certainty: 🔵
     text: 身體在水裡水平與否，取決於浮力中心與重心的相對位置。多數人的肺在胸腔、重心偏下，腿相對密度大，所以腿容易沉。防寒衣的泡棉增加軀幹與大腿的浮力，把浮力中心往下半身移，腿就被托起。腿沉的人原本要靠踢腿維持的位置，防寒衣替他做掉了一部分；原本就水平的人，防寒衣只是多加一些浮力，改變有限。這是浮力與位置的關係，不是技術差異。
@@ -4424,6 +4432,10 @@ points:
     source: Riewald, S. A., & Rodeo, S. A. (Eds.). (2015). Science of Swimming Faster. 第 24 章 Open Water Swimmers.
     source_ids:
     - src.riewald-rodeo-2015
+  - certainty: 🟢
+    text: 泳池與水槽實驗（Gay et al. 2019，33 名游泳者，平均年齡約 26 歲，400 m 最大自由式，非鐵人賽事）：穿防寒衣比穿泳衣快 0.07 m/s，時間約少 6%，划距增加約 4%，划頻相近。作者認為進步來自防寒衣本身，不是游泳技術改變；身體位置這個研究沒有測。引言提到浮力低、效率低的泳者能耗降低較多，那是引用他人的研究，本文沒有驗證。
+    source_ids:
+    - src.gay-2019-wetsuit-swimmers-performance
   practical_implication: 判斷自己的腿沉不沉：不穿防寒衣時，放鬆、不踢腿，看腿會不會明顯下沉。腿沉的人，防寒衣會讓游泳感覺大不同，適合先在泳池或安全水域試游，感受新的身體位置，再決定踢腿策略。是否允許、是否強制穿防寒衣，依水溫與賽事規則而定，以報名賽事的規定為準；穿或不穿的決定，水溫與保暖是更重要的理由。
   cross_ref: 防寒衣的動作代價 open-water.tech.8；踢腿分配 open-water.tech.10；drill OW13
   cross_ref_ids:
@@ -4564,7 +4576,7 @@ points:
     certainty: 🔵
     text: 從項目結構推導：池游的距離短、每個牆都有轉身，單趟的強度可以較高，後半段靠無氧能量撐住，所以速度、速耐與乳酸耐受佔訓練的重要位置。鐵人泳段只發生一次，持續時間通常是數分鐘到數十分鐘或更久，沒有轉身的休息，強度只能維持在可以長時間持續的範圍，也就是以有氧代謝為主、靠近閾值的配速；游得太快，出水時已經消耗掉騎跑需要的能量，整體成績反而更差。另外開放水域有浪、流、無牆、跟游與防寒衣，泳池測得的配速只能當起點（見開放水域與泳池成績不能直接換算）。
   evidence:
-  - certainty: 🟢
+  - certainty: 🟡
     text: 菁英、允許跟游的奧運距離賽研究（1999 年國際三項總會世界盃 20 場，男 605 人、女 479 人）：男子 90%、女子 70% 的賽事中，冠軍是在第一群出水；泳段名次與最終名次的相關為男 0.49、女 0.39，騎車 0.67，跑步約 0.85。作者的結論是最終名次較由跑步決定。這個族群不是分齡也不是長距離，研究沒有報告選手的訓練組成。
     source_ids:
     - src.landers-2008-swim-positioning-triathlon
@@ -4626,7 +4638,7 @@ points:
     text: 13 名休閒男鐵人、半超距離、20 週的比較研究：兩極化組與金字塔組的全項目強度分布不同（前者約 84.5%／4.2%／11.3%，後者約 77.9%／18.8%／3.3%），比賽成績只差 2 秒。這是游騎跑合計的強度分布，不是泳段專屬，不能用來決定泳訓的比例。
     source_ids:
     - src.selles-perez-2019-polarized-pyramidal-half-ironman
-  - certainty: 🟢
+  - certainty: 🟡
     text: 菁英允許跟游的奧運距離賽：男子 90%、女子 70% 的賽事中，冠軍在第一群出水。研究沒有報告這些選手的訓練組成，所以「速度與速耐的比重接近池游」目前沒有資料可以支持或反對。
     source_ids:
     - src.landers-2008-swim-positioning-triathlon
@@ -4739,3 +4751,134 @@ points:
   - cold-water-shock
   - OW13
   - OW14
+- id: open-water.tech.20
+  stroke: open-water
+  category: concept
+  title: 『游泳只占比賽一小部分，練游泳不划算』——判定（部分正確，依族群）
+  summary: 這個說法的出發點是：游泳段的時間在整場比賽裡比例小，騎車和跑步的距離長得多，所以多練騎跑回報更大。判定依族群分開看。允許跟游的菁英短距離賽：研究不支持「不划算」，冠軍多半在第一群出水，位置比時間占比重要；但同一份研究也說，最終名次較由跑步決定。非跟游的分齡賽與初學者：沒有研究可以裁決，論壇的意見分兩派。所以它不是單純的迷思，也不是定論，答案取決於泳者的目標與族群。
+  mechanism:
+    certainty: 🔵
+    text: 「時間占比小」和「練習報酬低」是兩件不同的事。占比只說明泳段在總時間裡的比例，不說明同樣的訓練時間投在哪一項能換到最多的總成績；那還要看這位泳者現在最弱的是哪一項、泳段會不會決定比賽位置，以及游泳體能是否遷移到後兩項。這是依論證結構的推導，不是量測。
+  evidence:
+  - certainty: 🟡
+    text: 菁英、允許跟游的奧運距離賽研究（Landers et al. 2008，1999 年國際三項總會世界盃 20 場，男 605 人、女 479 人）：男子 90%、女子 70% 的賽事中，冠軍在第一群出水；泳段名次與最終名次的相關為男 0.49、女 0.39，跑步約 0.85。作者的結論是最終名次較由跑步決定。這個族群不是分齡也不是長距離，研究沒有報告選手的訓練組成。
+    source_ids:
+    - src.landers-2008-swim-positioning-triathlon
+  - certainty: 🔵
+    text: 論壇討論：Slowtwitch 的「Swimming overrated」討論串（2005 年，第 1 頁）裡，約 4 人傾向少練游泳或少投資，約 8 人主張技術或游泳體能有價值，其餘看個人；有人說游泳練得好的好處不只是泳段成績。都是個人自述。
+    source_ids:
+    - src.slowtwitch-swimming-overrated
+  - certainty: 🔵
+    text: 論壇討論：Slowtwitch 的另一則討論串（第 1 頁）裡，有自稱教過許多鐵人的人主張鐵人游得不夠，也有人認為分齡賽每週 2 到 4 小時的游泳足以完賽，兩邊各約 5 至 6 人。是個人自述，身分無法查證，不是研究。
+    source_ids:
+    - src.slowtwitch-myth-of-triathlon-swimming
+  practical_implication: 被問到「要不要少練游泳」時，先分族群：允許跟游且要搶位置的人，泳段位置有研究支持；只求完賽的分齡初學者，沒有研究可以裁決，要看他現在最弱的一項與可用的時間。每週的泳課次數與每堂的主目的見時間預算，泳訓比例見泳訓轉移。不要用「泳段占比小」單獨當理由砍掉泳課。
+  cross_ref: 鐵人泳段需求差異 open-water.tech.14；泳訓轉移與比例調整 open-water.tech.16；時間預算 open-water.tech.18
+  cross_ref_ids:
+  - open-water.tech.14
+  - open-water.tech.16
+  - open-water.tech.18
+- id: open-water.tech.21
+  stroke: open-water
+  category: concept
+  title: 『鐵人是長距離所以不用練速度』與『一定要連續游到比賽距離（或間歇就夠）』——判定（證據不足）
+  summary: 前半句「不用練速度」，這裡讀到的來源裡沒有人明確這樣主張，反方只有教練文章：在長組內加入 25 到 100 碼或公尺的全力衝刺，以及短距離賽速度與耐力並重。後半句「一定要連續游到賽距」或「間歇就夠」，兩邊都有教練在教，也都沒有研究，判定是證據不足，不是迷思。研究層唯一相關的是一項 13 人的半超研究，它報告的是全項目合計的強度分布，沒有泳段專屬的數字。這一條只寫判定，內容與出處不在這裡重寫，見鐵人泳段需求差異、泳訓轉移與長距離連續游的定位。
+  mechanism:
+    certainty: 🔵
+    text: 兩個說法都是「單一變項決定訓練方向」的簡化：速度與耐力不是二選一，連續游與間歇也只是同一堂課的兩種負荷安排。判定證據不足的原因不是意見分歧本身，而是沒有任何對照研究把不同的泳訓安排和鐵人泳段成績連在一起，所以無法判誰對。
+  evidence:
+  - certainty: 🔵
+    text: 實務文件：Heggy 在 U.S. Masters Swimming 的教練文章建議在長組內加入 25 到 100 碼或公尺的全力衝刺，再回到比賽配速；Slaughter 的教練文章對短距離賽仍建議速度與耐力並重。這些是教練建議，沒有量測，也沒有對照。
+    source_ids:
+    - src.heggy-2021-triathlon-swim-intensity-usms
+    - src.slaughter-2019-swim-plan-triathlon-distances-usms
+  - certainty: 🔵
+    text: 論壇討論：Slowtwitch 的討論串（第 1 頁）有人寫「鐵人游泳像長距離池游，和衝刺很不一樣」，是在描述差異，不是主張不用練速度。這個討論串沒有人明確主張不練速度。
+    source_ids:
+    - src.slowtwitch-myth-of-triathlon-swimming
+  - certainty: 🔵
+    text: 實務文件（連續游，兩邊並存）：Hayes 的 8 週計畫以連續 800 公尺、單堂 2,000 公尺為進入門檻，最長的開放水域游 2.5 公里；Laughlin 主張以 200 公尺以下的池內重複為主，穩定長游只排 10、20、40 分鐘。兩者各是單一教練的單一說法。
+    source_ids:
+    - src.hayes-2018-open-water-8-weeks-220-triathlon
+    - src.laughlin-2016-short-reps-vs-steady-swims
+  - certainty: 🟢
+    text: 13 名休閒男鐵人、半超距離、20 週的比較研究：兩極化組與金字塔組的全項目強度分布不同，比賽成績只差 2 秒。這是游騎跑合計的強度分布，不是泳段專屬，所以不能裁決泳段該練多少速度或多長的連續游。
+    source_ids:
+    - src.selles-perez-2019-polarized-pyramidal-half-ironman
+  practical_implication: 遇到「鐵人不用練速度」或「一定要連續游完賽距」的說法，不要直接判對錯，要問說的人依據是教練經驗還是研究，並對照泳者的賽距與目標：短距離賽偏向速度與耐力並重，超級鐵人距離以有氧為主，這是教練文章的方向，不是研究。連續游的距離由教練依泳者決定，具體做法見長距離連續游的定位。
+  cross_ref: 鐵人泳段需求差異 open-water.tech.14；泳訓轉移與比例調整 open-water.tech.16；長距離連續游 open-water.tech.17
+  cross_ref_ids:
+  - open-water.tech.14
+  - open-water.tech.16
+  - open-water.tech.17
+- id: open-water.tech.22
+  stroke: open-water
+  category: concept
+  title: 『游泳段要保留體力，慢慢游就好』——判定（部分正確，依族群）
+  summary: 「別在泳段把力用光」有道理，「慢慢游」則要看族群。允許跟游的菁英短距離賽：位置決定比賽，研究顯示冠軍多半在第一群出水，慢慢游行不通。分齡賽：教練文章建議學出比賽距離能守住的最快持續配速，並在長組內插入短衝刺，那不是慢慢游，而是守在可持續的上限內；這是教練建議，沒有研究量測它是否比慢游好。初學者：這裡讀到的來源沒有足夠的資料，不下判定。
+  mechanism:
+    certainty: 🔵
+    text: 泳段只發生一次，之後還要騎跑，所以強度要守在出水後仍有餘力的範圍內，這是依項目結構的推導。但「保留體力」不等於「越慢越好」：游太慢會失去位置與跟游的機會，也沒有證據說慢游換來的體力在後兩項能被兌現。
+  evidence:
+  - certainty: 🔵
+    text: 實務文件：Heggy 在 U.S. Masters Swimming 的教練文章建議做可持續配速的組，學出比賽距離能守住的最快速度；並在長組內加入 25 到 100 碼或公尺的全力衝刺，再回到比賽配速。這是教練建議，沒有量測。
+    source_ids:
+    - src.heggy-2021-triathlon-swim-intensity-usms
+  - certainty: 🟡
+    text: 菁英、允許跟游的奧運距離賽研究（Landers et al. 2008）：男子 90%、女子 70% 的賽事中，冠軍在第一群出水。這個族群不是分齡也不是長距離，研究沒有報告選手的配速策略。
+    source_ids:
+    - src.landers-2008-swim-positioning-triathlon
+  practical_implication: 對分齡鐵人，把目標寫成「比賽配速」而不是「慢慢游」：用持續配速的組找出能守住的最快速度，再回頭決定要不要多留一點餘力。對要搶位置的菁英，泳段配速不能以保留體力為唯一依據。泳段強度沒有鐵人專屬的量測資料，不要套用固定的百分比。
+  cross_ref: 鐵人泳段需求差異 open-water.tech.14；泳訓轉移與比例調整 open-water.tech.16；集體出發 open-water.tech.5
+  cross_ref_ids:
+  - open-water.tech.14
+  - open-water.tech.16
+  - open-water.tech.5
+- id: open-water.tech.23
+  stroke: open-water
+  category: concept
+  title: 『成人學游泳太晚，技術改不了，只能靠體能』——判定（迷思，但證據只有自述）
+  summary: 這個說法在這裡讀到的來源裡沒有人明確主張，只有成人初學者擔心「太晚了」的提問。能找到的證據只有論壇自述和一篇實務文件：十幾位成年後才學游泳的人自述學得會，沒有人說學不會；不過也有人說多數人進步不快，資深泳者仍會游過晚學者。所以判定是迷思，但範圍要寫小：成人學得會是自述，沒有追蹤資料；「改得了」不等於「快」，技術仍是瓶頸。這裡只涵蓋成人晚學者，兒童的情況來源裡沒有資料。
+  mechanism:
+    certainty: 🔵
+    text: 「技術改不了」要成立，必須有一個年齡之後的學習完全停止的證據，這個說法沒有任何來源提供。自述學會的人是會發聲的人，學不會而放棄的人不會出現在討論串裡，所以這些自述高估了成功率；它能反駁的只是「完全改不了」的絕對說法，不能證明「多數人都會很快學會」。
+  evidence:
+  - certainty: 🔵
+    text: 論壇討論：Slowtwitch 的「Learning to swim ... is it too late?」討論串（第 1 頁）裡，58 歲的發文者問現在學游泳是否太晚；14 人以上的回覆自述成年後學得會，例如有人自述約 3.5 個月做到奧運距離開放水域，有人自述 47 歲才學游、兩次完成超級鐵人，仍是慢但自在。也有人說對多數人進步不快，資深泳者仍會游過晚學者，游泳是以技術為主的項目。沒有人主張學不會。都是個人自述，沒有追蹤資料。
+    source_ids:
+    - src.slowtwitch-learning-to-swim-too-late
+  - certainty: 🔵
+    text: 實務文件：Triathlete.com 的訪談文章，受訪教練主張成人晚學者可以學，但要先建立安全與基礎（身體位置、換氣），再做划水 drill；立場是「可學，但方法要對」。沒有研究引用。
+    source_ids:
+    - src.triathlete-2022-adult-onset-swimmers
+  practical_implication: 成人晚學者的提問「是不是太晚」，不回答成「學得會」或「學不會」，而是說明：自述裡學得會的人不少，但進度因人而異，技術是瓶頸；先建立安全與基礎，再談划水細節。不要承諾學多久學會。
+  cross_ref: 沒有牆沒有池底線 open-water.tech.1；時間預算 open-water.tech.18
+  cross_ref_ids:
+  - open-water.tech.1
+  - open-water.tech.18
+- id: open-water.tech.24
+  stroke: open-water
+  category: concept
+  title: 『比賽前一天要休息，不要下水』——判定（證據不足，找不到主張者）
+  summary: 這裡讀到的來源裡，沒有人明確主張「賽前一天完全不下水」。論壇上有人賽前一天短游，有人前兩天短游；一篇廠商部落格建議賽前的游泳要短，目的是熟悉比賽開頭的感覺。沒有研究，所以判定是證據不足，不是迷思，也不是定論。比較貼近來源的說法是：賽前減量、前一天若下水就短而輕，不是整天不碰水。
+  mechanism:
+    certainty: 🔵
+    text: 賽前一天的游泳有兩個可能的目的：讓身體保持對水的感覺，以及熟悉場地與出發。這兩個目的都不需要大量，所以「短而輕」與「完全休息」的差別主要在感覺與場地熟悉，不是體能。這是依目的的推導，沒有量測。
+  evidence:
+  - certainty: 🔵
+    text: 論壇討論：Slowtwitch 的賽前減量討論串（發文加 4 則回覆）裡，4 則回覆都主張短或輕度的減量；有人說不建議賽前一天完全休息、仍維持游泳量但降低強度。個人自述。
+    source_ids:
+    - src.slowtwitch-taper-for-open-water-race
+  - certainty: 🔵
+    text: 論壇討論：Slowtwitch 的「Shake-out」討論串（約 12 則）裡，只有兩人描述賽前游泳：一人賽前一天游 20 分鐘，含短的配速段；一人賽前兩天游 30 分鐘。沒有人明確主張前一天完全不下水。個人自述，樣本極小。
+    source_ids:
+    - src.slowtwitch-shake-out-routine
+  - certainty: 🔵
+    text: 實務文件（廠商部落格，有商業立場）：FORM 的文章建議賽前最佳的游泳課要短，並與比賽策略一致，目的是熟悉比賽開頭的感覺。沒有數據。
+    source_ids:
+    - src.form-2023-triathlon-swim-race-day-prep
+  practical_implication: 被問到賽前一天要不要下水時，不回答成「一定要」或「一定不要」：可以說來源裡的做法是前一天短游或前兩天短游，目的是保持感覺與熟悉場地，也可以選擇休息。是否能下水也取決於賽場是否開放。賽前減量的具體做法見減量條目，這裡沒有研究可以給天數或降幅。
+  cross_ref: 賽前減量 periodization.taper.swim；週期結構 open-water.tech.19
+  cross_ref_ids:
+  - periodization.taper.swim
+  - open-water.tech.19
