@@ -458,7 +458,14 @@
   const GOAL_BUILDERS = { aerobic_easy: 'easy', steady: 'steady', threshold: 'thr', velocity: 'vel', lactate_production: 'prod', lactate_tolerance: 'tol', race_pace: 'race' };
   const goalName = key => key === 'steady' ? INTS.steady : INTENT[key].name_zh;
   // 只保留本次頁面的選擇；產生的課表沿用既有存檔格式。
-  const goalChoice = { key: 'aerobic_easy', stroke: 'free', size: 'compact', event: 100 };
+  const goalChoice = { key: 'aerobic_easy', stroke: 'free', size: 'standard', event: 100 };
+  // 精簡組砍半後的下限：速度類照 set_types 的最少趟數；賽速照 volume_rule 的下緣倍數（≤200 m 賽距 ×5、400 m ×3、800 m 以上 ×2）。
+  // 閾值與有氧沒有下限——它們的量本來就「依可用時間」，精簡組就是給時間短的課用。
+  const RACE_VOLUME_MIN = (ev) => (ev >= 800 ? 2 : ev === 400 ? 3 : 5);
+  function compactFloor(key, row, event) {
+    if (key === 'race_pace') { const ev = +row.event || +event; return Math.ceil(ev * RACE_VOLUME_MIN(ev) / row.dist); }
+    return TYPE[key] && TYPE[key].reps ? TYPE[key].reps.min : 0;
+  }
   function goalSet(choice = goalChoice, bests) {
     const key = choice.key, builder = setBuilders(choice.stroke, bests)[GOAL_BUILDERS[key]];
     const x = key === 'race_pace' ? builder(null, null, choice.event) : builder();
@@ -466,6 +473,8 @@
     if (choice.size === 'compact') {
       if (x.row.sets > 1) x.row.sets = Math.ceil(x.row.sets / 2);
       else x.row.reps = Math.max(1, Math.ceil(x.row.reps / 2));
+      const sets = x.row.sets || 1, lo = compactFloor(key, x.row, choice.event);
+      if (sets * x.row.reps < lo) x.row.reps = Math.ceil(lo / sets); // 砍半不能砍到這種組本身的最少量以下
     }
     // 穩定有氧沒有獨立休息規則；保留這次顯示的範例，避免 autoRest 將它歸零。
     x.row = blankRow(Object.assign({ note: x.name, restAuto: key !== 'steady' }, x.row));
@@ -649,7 +658,7 @@
   const DRAW_RACE_EVENT = 100;    // 自訂的賽速段：配速參考距離同「依目的選主課」預設
   const DRAW_ART_SIZE = 'width="360" height="480"'; // 卡面 webp 實際尺寸，避免載入位移
   // got[i]＝第 i 段這一輪抽到的式（固定的段不抽）；bag＝抽完拿掉時這一輪還在籤筒裡的式，輪流一張一張抽也接得上
-  const draw = { src: 'cycle', phase: 'general_prep', day: 0, custom: ['velocity', 'threshold', 'aerobic_easy'], size: 'compact',
+  const draw = { src: 'cycle', phase: 'general_prep', day: 0, custom: ['velocity', 'threshold', 'aerobic_easy'], size: 'standard',
     pool: new Set(DRAW_STROKES), mode: 'remove', locks: [], got: [], bag: null, sig: '', busy: false };
   function drawPhase() {
     if (draw.src === 'phase') return { phase: draw.phase };
@@ -713,7 +722,7 @@
       const goalOpts = cur => Object.keys(GOAL_BUILDERS).map(k => `<option value="${k}"${k === cur ? ' selected' : ''}>${esc(goalName(k))}</option>`).join('');
       html += `<ol class="wk-draw-order">${draw.custom.map((k, i) => `<li><label class="wk-field wk-grow"><span>第 ${i + 1} 段</span><select data-draw-goal="${i}">${goalOpts(k)}</select></label>
         <button type="button" class="wk-btn" data-draw-move="${i}:-1" aria-label="第 ${i + 1} 段往前"${i ? '' : ' disabled'}>↑</button><button type="button" class="wk-btn" data-draw-move="${i}:1" aria-label="第 ${i + 1} 段往後"${i < draw.custom.length - 1 ? '' : ' disabled'}>↓</button><button type="button" class="wk-btn" data-draw-del="${i}" aria-label="刪除第 ${i + 1} 段"${draw.custom.length > 1 ? '' : ' disabled'}>✕</button></li>`).join('')}</ol>
-        <div class="wk-row">${draw.custom.length < DRAW_MAX ? '<button type="button" class="wk-btn" data-draw-addslot>加一段</button>' : ''}<label class="wk-field"><span>參考份量</span><select data-draw-size><option value="compact"${draw.size === 'compact' ? ' selected' : ''}>精簡組</option><option value="standard"${draw.size === 'standard' ? ' selected' : ''}>原有組型</option></select></label></div>`;
+        <div class="wk-row">${draw.custom.length < DRAW_MAX ? '<button type="button" class="wk-btn" data-draw-addslot>加一段</button>' : ''}<label class="wk-field"><span>參考份量</span><select data-draw-size><option value="standard"${draw.size === 'standard' ? ' selected' : ''}>原有組型</option><option value="compact"${draw.size === 'compact' ? ' selected' : ''}>精簡組</option></select></label></div>`;
     }
     return html;
   }

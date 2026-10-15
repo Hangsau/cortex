@@ -28,13 +28,13 @@ const output = process.env.WORKOUT_SCREENSHOTS || os.tmpdir();
     assert.equal(await page.locator('[data-wk-goal] option').count(), 7);
     assert.equal(await page.locator('[data-wk-goal-stroke] option').count(), 4);
     const cases = [
-      ['aerobic_easy', 'easy', 400, 2, 15, 370.6],
-      ['steady', 'steady', 400, 2, 15, 360.4],
-      ['threshold', 'thr', 200, 5, 35, 170],
+      ['aerobic_easy', 'easy', 400, 3, 15, 370.6],
+      ['steady', 'steady', 400, 3, 15, 360.4],
+      ['threshold', 'thr', 200, 10, 35, 170],
       ['velocity', 'sprint', 25, 4, 180, 12.5],
-      ['lactate_production', 'sprint', 50, 3, 120, 28],
-      ['lactate_tolerance', 'tol', 100, 3, 40, 66],
-      ['race_pace', 'race', 25, 11, 15, 15],
+      ['lactate_production', 'sprint', 50, 6, 120, 28],
+      ['lactate_tolerance', 'tol', 100, 5, 40, 66],
+      ['race_pace', 'race', 25, 22, 15, 15],
     ];
     for (const [key, int, dist, reps, rest] of cases) {
       await select(key);
@@ -59,6 +59,16 @@ const output = process.env.WORKOUT_SCREENSHOTS || os.tmpdir();
       assert.ok(Math.abs((await brief()).items.at(-1).targetSeconds - target) < 0.001, `${key} target`);
       await open();
     }
+    // 預設是原有組型；精簡組砍半但不低於該組最少量（純速 6 趟、乳酸生成 4、速耐 4、賽速 ≥ 賽距 ×5），閾值與有氧照砍半
+    assert.equal(await page.locator('[data-wk-goal-size]').inputValue(), 'standard');
+    await page.locator('[data-wk-goal-size]').selectOption('compact');
+    for (const [key, sets, reps] of [['velocity', 1, 6], ['lactate_production', 1, 4], ['lactate_tolerance', 1, 4], ['race_pace', 1, 20], ['threshold', 1, 5], ['aerobic_easy', 1, 2]]) {
+      await select(key); await add();
+      const r = (await rows()).at(-1);
+      assert.equal(r.sets || 1, sets, `${key} compact sets`); assert.equal(r.reps, reps, `${key} compact reps`);
+      await open();
+    }
+    await page.locator('[data-wk-goal-size]').selectOption('standard');
     // Reducing volume preserves recovery; both transitions between sets and reps remain usable.
     await select('velocity');
     await page.locator('[data-wk-goal-size]').selectOption('standard');
