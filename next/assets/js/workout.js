@@ -696,6 +696,7 @@
   const drawResult = (rounds) => (rounds.length && rounds.every(r => drawFace(r.id)) ? rounds.map(r => drawFace(r.id)) : null);
   const drawNext = (rounds) => rounds.find(r => !drawFace(r.id));
   const drawRound = () => { draw.got = {}; draw.bag = null; };
+  const segStrokes = (rounds, i) => rounds.filter(r => r.i === i).map(r => SZH[drawFace(r.id)]).join('、'); // 這一段各輪抽到的式
   // 抽一支籤：放回＝每次從整個籤筒抽；拿掉＝從這一輪剩下的抽，抽空了再全部放回。
   // 拿掉模式下同一段的各輪不重複（「4 式各一輪」就是四式都游到）；籤筒剩下的都已在這段出現過，才從整個籤筒挑這段還沒有的
   function drawPick(rounds, r) {
@@ -733,7 +734,7 @@
     if (FLEX_WEIGHT[r.sl.key]) {
       const V = (plan.vols[r.i] != null ? plan.vols[r.i] : rowDist(row)) / k;
       const cand = [row.dist, ...FLEX_DIST].filter(d => d <= cap);
-      const d = cand.find(c => V / c >= FLEX_MIN_REPS) || (cand.length ? Math.min(...cand) : row.dist);
+      const d = cand.find(c => V / c >= FLEX_MIN_REPS) || (cand.length ? Math.min(...cand) : Math.min(row.dist, cap));
       Object.assign(row, { sets: 1, setRest: 0, dist: d, reps: Math.max(1, Math.round(V / d)) });
     } else {
       if (k > 1) { const n = (row.sets || 1) * row.reps; Object.assign(row, { sets: 1, setRest: 0, reps: Math.max(1, Math.ceil(n / k)) }); }
@@ -827,7 +828,7 @@
         <button type="button" class="wk-btn" data-draw-add${res ? '' : ' disabled'}>全部加入目前主課</button><button type="button" class="wk-btn" data-draw-new${res ? '' : ' disabled'}>另建課表</button>
         ${draw.src !== 'custom' ? '<button type="button" class="wk-btn" data-draw-tocustom>用這些段落自訂</button>' : ''}</div>`;
     }
-    const live = res ? `抽到：${slots.map((sl, i) => `${sl.name}（${rounds.filter(r => r.i === i).map(r => SZH[drawFace(r.id)]).join('、')}）`).join(' → ')}`
+    const live = res ? `抽到：${slots.map((sl, i) => `${sl.name}（${segStrokes(rounds, i)}）`).join(' → ')}`
       : Object.keys(draw.got).length ? `已抽：${rounds.filter(r => draw.got[r.id]).map(r => `${roundLabel(r)}${SZH[draw.got[r.id]]}`).join('、')}；還有 ${left} 張。` : '';
     html += `<p class="wk-draw-live" role="status" data-draw-live>${esc(live)}</p>`;
     box.innerHTML = html;
@@ -979,10 +980,10 @@
     const slots = drawSlots(), rounds = drawRounds(slots), res = drawResult(rounds);
     if (!res || draw.busy) return;
     const plan = drawPlan(slots), xs = rounds.map((r, k) => roundBuild(r, res[k], plan));
-    const label = slots.map((_, i) => rounds.map((r, k) => (r.i === i ? DRAW_SHORT[res[k]] : '')).join('')).join('');
+    const label = res.map(s => DRAW_SHORT[s]).join('');
     if (fresh) {
       const m = newMenu(`抽籤・${label}`);
-      m.intent = `主課：${slots.map((sl, i) => `${sl.name}（${rounds.map((r, k) => (r.i === i ? SZH[res[k]] : '')).filter(Boolean).join('、')}）`).join(' → ')}`;
+      m.intent = `主課：${slots.map((sl, i) => `${sl.name}（${segStrokes(rounds, i)}）`).join(' → ')}`;
       m.blocks.find(b => b.title === '主課').rows.push(...xs.map(x => x.row));
       S.menus.push(m); S.cur = S.menus.length - 1;
       openEq.clear(); openAdv.clear(); save(); renderMenu(); toast(`已建立課表：${m.name}`);
