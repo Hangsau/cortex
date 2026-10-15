@@ -27,6 +27,8 @@
   - 新 `tools/test_workout_draw.cjs` 涵蓋：三種來源、拿掉／放回／固定／空籤筒、目標秒數與 goals 一致（自由式閾值 170 秒）、加入不動既有列、另建課表、動畫鎖定與焦點、插圖載入、320／390／1440 無溢出、深連結。
   - 既有 goals／studio／prep／lane／group／skills／timer／live／audio 全 PASS。
   - 22 specs PASS，121 舊網址對應。
+- 已發布 `1c4a726`＋code-audit `ac0d94e`（週課表與抽籤共用 `qualityRow`、常數命名、拆 `drawSourceHtml`），部署 `38663440338` 成功；正式站 `?v=ac0d94e` 跑 `test_workout_draw.cjs` 全 PASS。
+- code-audit 保留未改：①「另建課表」的建 menu 流程跟 `initGoals` 重複（合併會動到既有推薦流程）②切換段落來源時「固定泳式」沿用各段位置，不清空（設計選擇）。
 - 未做：卡面插圖未經使用者審美確認（使用者說不好看再重生）；沒有池邊真機測。
 
 ## Vortex 三層重構 Phase 3 收尾＋Phase 4＋文件對齊（2026-10-14）
