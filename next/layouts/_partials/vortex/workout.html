@@ -68,6 +68,17 @@
     <p class="muted">份量是可修改的組型範例，還未依你的訓練經驗與當天狀況調整。精簡組減少組數或趟數，保留每趟距離與休息；不會按比例縮短休息。</p>
     <div data-wk-goal-out></div>
     <div data-wk-prep></div>
+    {{- /* 抽主課泳式（2026-10-15，額外的趣味入口）：段落照週期或自訂，泳式用抽的；卡面插圖 Codex 生圖，來源見 assets/images/workout-draw/SOURCE.md */ -}}
+    {{- $drawArt := dict -}}
+    {{- range slice "free" "back" "breast" "fly" "card-back" -}}
+      {{- $k := . -}}
+      {{- with resources.Get (printf "images/workout-draw/%s.webp" $k) -}}{{- $drawArt = merge $drawArt (dict $k (. | fingerprint).RelPermalink) -}}{{- end -}}
+    {{- end -}}
+    <script type="application/json" id="wk-draw-art">{{ $drawArt | jsonify | safeJS }}</script>
+    <details class="wk-goal-details wk-draw" id="wk-draw" data-wk-draw>
+      <summary>抽主課泳式（加點運氣）</summary>
+      <div data-wk-draw-body></div>
+    </details>
   </section>
 
   {{ partial "vortex/workout-lane.html" . }}

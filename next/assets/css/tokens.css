@@ -24,6 +24,8 @@
   --measure: 36em;           /* 正文欄，約每行 36 字 */
   --tap: 48px;               /* 最小點擊高度（池邊濕手） */
   --band: 4px;               /* 拇指索引色帶寬 */
+  --plate: #F6F8F5;          /* 圖鑑插圖的紙色（抽籤卡面）；插圖本身是淺紙，深色模式也不換 */
+  --plate-glint: rgba(222, 237, 173, .75); /* 翻卡掃光，取工作台 --ws-lime */
 }
 .series-vortex   { --series: #0B6E8A; }
 .series-strength { --series: #A23B1F; }

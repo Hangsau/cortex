@@ -221,9 +221,9 @@
   });
   root.addEventListener('dragend', () => { dragged = null; root.querySelectorAll('.is-dragging').forEach(el => el.classList.remove('is-dragging')); });
   function followHash() {
-    const groups = { 'wk-menu': 'plan', 'wk-goals': 'pace', 'wk-lane': 'pace', 'wk-lane-help': 'pace', 'wk-pb': 'pace', 'wk-css': 'pace', 'wk-pz': 'pace', 'wk-sprint': 'pace', 'wk-mine': 'library', 'wk-sum': 'review' };
+    const groups = { 'wk-menu': 'plan', 'wk-goals': 'pace', 'wk-draw': 'pace', 'wk-lane': 'pace', 'wk-lane-help': 'pace', 'wk-pb': 'pace', 'wk-css': 'pace', 'wk-pz': 'pace', 'wk-sprint': 'pace', 'wk-mine': 'library', 'wk-sum': 'review' };
     const hash = location.hash.slice(1), target = groups[hash];
-    if (target) { showTab(target); if (target === 'pace') showMode(['wk-lane', 'wk-lane-help'].includes(hash) ? 'group' : 'personal'); }
+    if (target) { showTab(target); if (target === 'pace') showMode(['wk-lane', 'wk-lane-help'].includes(hash) ? 'group' : 'personal'); if (hash === 'wk-draw') $('#wk-draw').scrollIntoView(); }
   }
   window.addEventListener('hashchange', followHash);
   update(); enhance(); followHash(); root.classList.add('ws-ready');
