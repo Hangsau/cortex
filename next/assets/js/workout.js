@@ -618,10 +618,16 @@
     r.reps = Math.max(1, Math.round(U.minutes * 60 / (estSec(r) + r.rest)));
     return r;
   }
+  // 週課表的組 → 課表列：保留組型的休息（autoRest 只用來補其他欄位）
+  function qualityRow(x) {
+    const r = blankRow(Object.assign({ note: x.name, restAuto: true }, x.row));
+    autoRest(r, '主課'); r.rest = x.row.rest;
+    return r;
+  }
   function menuFromDay(d, k) {
     const m = newMenu(`第 ${k + 1} 堂・${d.focus}`);
     const main = m.blocks.find(b => b.title === '主課');
-    d.sets.forEach(x => { const r = blankRow(Object.assign({ note: x.name, restAuto: true }, x.row)); autoRest(r, '主課'); r.rest = x.row.rest; main.rows.push(r); });
+    d.sets.forEach(x => main.rows.push(qualityRow(x)));
     if (d.obs) m.blocks[0].rows.push(blankRow({ reps: 1, dist: 100, stroke: S.zstroke, int: 'none', rest: 60, note: '觀察點：同池長、同出發、同距離計時一趟，和前幾週比' }));
     if (d.uw) m.blocks.find(b => b.title === 'Drill').rows.push(uwRow(d.retest));
     return m;
@@ -635,7 +641,10 @@
   const DRAW_SHORT = { free: '自', back: '仰', breast: '蛙', fly: '蝶' };
   const DRAW_PHASES = ['general_prep', 'specific_prep', 'competition', 'taper', 'transition'];
   const DRAW_MAX = 6;
-  const DRAW_SHUFFLE_MS = 640, DRAW_GAP_MS = 420;
+  const DRAW_SHUFFLE_MS = 640, DRAW_GAP_MS = 420, DRAW_SETTLE_MS = 240; // 洗牌 4×160ms；每張翻卡間隔；最後一張翻完到結果定稿
+  const DRAW_DAYS = [0, 1];       // qualityDay 只分第 1／第 2 堂品質課
+  const DRAW_RACE_EVENT = 100;    // 自訂的賽速段：配速參考距離同「依目的選主課」預設
+  const DRAW_ART_SIZE = 'width="360" height="480"'; // 卡面 webp 實際尺寸，避免載入位移
   const draw = { src: 'cycle', phase: 'general_prep', day: 0, custom: ['velocity', 'threshold', 'aerobic_easy'], size: 'compact',
     pool: new Set(DRAW_STROKES), mode: 'remove', locks: [], result: null, busy: false };
   function drawPhase() {
@@ -646,15 +655,12 @@
   // 每一段：name（目的）＋ build(stroke) → { name, row }，泳式換了就用同一個產生器重算
   function drawSlots() {
     if (draw.src === 'custom') return draw.custom.map(key => ({ name: goalName(key), key,
-      build: s => { const x = goalSet({ key, stroke: s, size: draw.size, event: 100 }); return { name: x.name, row: x.row }; } }));
+      build: s => { const x = goalSet({ key, stroke: s, size: draw.size, event: DRAW_RACE_EVENT }); return { name: x.name, row: x.row }; } }));
     const P = drawPhase();
     if (!P) return [];
     const sets = s => (P.phase === 'transition' ? [setBuilders(s).free()] : qualityDay(P.phase, draw.day, setBuilders(s)).sets);
-    return sets('free').map((x0, i) => ({ name: x0.name, key: x0.type || 'aerobic_easy', build: s => {
-      const x = sets(s)[i], r = blankRow(Object.assign({ note: x.name, restAuto: true }, x.row));
-      autoRest(r, '主課'); r.rest = x.row.rest; // 同週課表 menuFromDay：保留組型的休息
-      return { name: x.name, row: r };
-    } }));
+    return sets('free').map((x0, i) => ({ name: x0.name, key: x0.type || 'aerobic_easy',
+      build: s => { const x = sets(s)[i]; return { name: x.name, row: qualityRow(x) }; } }));
   }
   const drawSig = (slots) => slots.map(sl => sl.name).join('|');
   const drawPool = () => DRAW_STROKES.filter(s => draw.pool.has(s));
@@ -668,7 +674,7 @@
       return bag.splice(bag.indexOf(pick(bag)), 1)[0];
     });
   }
-  const drawImg = (k) => (DRAW_ART[k] ? `<img src="${esc(DRAW_ART[k])}" alt="" width="360" height="480" decoding="async">` : '');
+  const drawImg = (k) => (DRAW_ART[k] ? `<img src="${esc(DRAW_ART[k])}" alt="" ${DRAW_ART_SIZE} decoding="async">` : '');
   const cardFace = (s) => `${drawImg(s)}<b>${esc(SZH[s])}</b>`;
   function drawDetail(x) {
     const r = x.row, tg = targetOf(r);
@@ -683,23 +689,16 @@
       <div class="wk-card-out">${built ? drawDetail(built[i]) : ''}</div>
       <label class="wk-field"><span>這一段</span><select data-draw-lock="${i}"><option value="">用抽的</option>${DRAW_STROKES.map(k => `<option value="${k}"${k === lock ? ' selected' : ''}>固定${esc(SZH[k])}</option>`).join('')}</select></label></li>`;
   }
-  function renderDraw() {
-    const box = $('[data-wk-draw-body]');
-    if (!box || draw.busy) return;
-    const act = document.activeElement, keep = act && box.contains(act) ? [...act.attributes].find(a => a.name.startsWith('data-draw-')) : null;
-    const slots = drawSlots();
-    draw.locks.length = slots.length;
-    if (draw.result && draw.sig !== drawSig(slots)) draw.result = null; // 段落變了（例如改了賽事日期），舊結果作廢
-    const P = draw.src === 'custom' ? null : drawPhase();
-    const chip = (attr, k, on, label) => `<button type="button" class="wk-chip" aria-pressed="${on}" ${attr}="${k}">${esc(label)}</button>`;
-    let html = `<p class="muted">主課分幾段、照什麼順序，由週期或你自己決定；每段游什麼式用抽的。加進課表後全部都能改，drill 照抽到的泳式在課表裡自己選。</p>
-      <p class="wk-css-k">主課段落從哪來</p><div class="wk-chips">${chip('data-draw-src', 'cycle', draw.src === 'cycle', '依賽事週期')}${chip('data-draw-src', 'phase', draw.src === 'phase', '自選週期')}${chip('data-draw-src', 'custom', draw.src === 'custom', '自訂')}</div>`;
+  const drawChip = (attr, k, isOn, label) => `<button type="button" class="wk-chip" aria-pressed="${isOn}" ${attr}="${k}">${esc(label)}</button>`;
+  // 段落來源的說明與欄位：週期（依賽事／自選）或自訂順序
+  function drawSourceHtml(P) {
+    let html = '';
     if (draw.src === 'cycle') html += P ? `<p>現在是 <b>${PHASE_NAME[P.phase]}</b>${P.days >= 0 ? `，離比賽 ${P.days} 天` : ''}；段落照本期的品質課。</p>`
       : '<p class="wk-note">還沒有比賽日期。到下方「依賽事日期安排一週」填日期，或改用「自選週期」「自訂」。</p>';
     if (draw.src !== 'custom') {
       const fields = [];
       if (draw.src === 'phase') fields.push(`<label class="wk-field"><span>週期</span><select data-draw-phase>${DRAW_PHASES.map(k => `<option value="${k}"${k === draw.phase ? ' selected' : ''}>${PHASE_NAME[k]}</option>`).join('')}</select></label>`);
-      if (P && P.phase !== 'transition') { const B = setBuilders('free'); fields.push(`<label class="wk-field wk-grow"><span>這週第幾堂品質課</span><select data-draw-day>${[0, 1].map(k => `<option value="${k}"${k === draw.day ? ' selected' : ''}>第 ${k + 1} 堂：${esc(qualityDay(P.phase, k, B).focus)}</option>`).join('')}</select></label>`); }
+      if (P && P.phase !== 'transition') { const B = setBuilders('free'); fields.push(`<label class="wk-field wk-grow"><span>這週第幾堂品質課</span><select data-draw-day>${DRAW_DAYS.map(k => `<option value="${k}"${k === draw.day ? ' selected' : ''}>第 ${k + 1} 堂：${esc(qualityDay(P.phase, k, B).focus)}</option>`).join('')}</select></label>`); }
       if (fields.length) html += `<div class="wk-row">${fields.join('')}</div>`;
       if (P && P.phase === 'transition') html += '<p class="muted">過渡期只排輕鬆游，不設目標時間。</p>';
     } else {
@@ -708,8 +707,20 @@
         <button type="button" class="wk-btn" data-draw-move="${i}:-1" aria-label="第 ${i + 1} 段往前"${i ? '' : ' disabled'}>↑</button><button type="button" class="wk-btn" data-draw-move="${i}:1" aria-label="第 ${i + 1} 段往後"${i < draw.custom.length - 1 ? '' : ' disabled'}>↓</button><button type="button" class="wk-btn" data-draw-del="${i}" aria-label="刪除第 ${i + 1} 段"${draw.custom.length > 1 ? '' : ' disabled'}>✕</button></li>`).join('')}</ol>
         <div class="wk-row">${draw.custom.length < DRAW_MAX ? '<button type="button" class="wk-btn" data-draw-addslot>加一段</button>' : ''}<label class="wk-field"><span>參考份量</span><select data-draw-size><option value="compact"${draw.size === 'compact' ? ' selected' : ''}>精簡組</option><option value="standard"${draw.size === 'standard' ? ' selected' : ''}>原有組型</option></select></label></div>`;
     }
-    html += `<p class="wk-css-k">籤筒裡放哪幾式</p><div class="wk-chips">${DRAW_STROKES.map(s => chip('data-draw-pool', s, draw.pool.has(s), SZH[s])).join('')}</div>
-      <p class="wk-css-k">抽法</p><div class="wk-chips">${chip('data-draw-mode', 'remove', draw.mode === 'remove', '抽完拿掉')}${chip('data-draw-mode', 'replace', draw.mode === 'replace', '抽完放回')}</div>
+    return html;
+  }
+  function renderDraw() {
+    const box = $('[data-wk-draw-body]');
+    if (!box || draw.busy) return;
+    const act = document.activeElement, keep = act && box.contains(act) ? [...act.attributes].find(a => a.name.startsWith('data-draw-')) : null;
+    const slots = drawSlots();
+    draw.locks.length = slots.length;
+    if (draw.result && draw.sig !== drawSig(slots)) draw.result = null; // 段落變了（例如改了賽事日期），舊結果作廢
+    const P = draw.src === 'custom' ? null : drawPhase();
+    let html = `<p class="muted">主課分幾段、照什麼順序，由週期或你自己決定；每段游什麼式用抽的。加進課表後全部都能改，drill 照抽到的泳式在課表裡自己選。</p>
+      <p class="wk-css-k">主課段落從哪來</p><div class="wk-chips">${drawChip('data-draw-src', 'cycle', draw.src === 'cycle', '依賽事週期')}${drawChip('data-draw-src', 'phase', draw.src === 'phase', '自選週期')}${drawChip('data-draw-src', 'custom', draw.src === 'custom', '自訂')}</div>` + drawSourceHtml(P);
+    html += `<p class="wk-css-k">籤筒裡放哪幾式</p><div class="wk-chips">${DRAW_STROKES.map(s => drawChip('data-draw-pool', s, draw.pool.has(s), SZH[s])).join('')}</div>
+      <p class="wk-css-k">抽法</p><div class="wk-chips">${drawChip('data-draw-mode', 'remove', draw.mode === 'remove', '抽完拿掉')}${drawChip('data-draw-mode', 'replace', draw.mode === 'replace', '抽完放回')}</div>
       <p class="muted">${draw.mode === 'remove' ? '同一輪不重複；段數比籤多時，抽完一輪再全部放回。' : '每段都從整個籤筒抽，可能抽到同一式（例如自自仰）。'}</p>`;
     if (slots.length) {
       const built = draw.result ? slots.map((sl, i) => sl.build(draw.result[i])) : null;
@@ -747,7 +758,7 @@
       }, t);
       t += DRAW_GAP_MS;
     });
-    setTimeout(() => { draw.busy = false; draw.result = res; renderDraw(); const go = $('[data-draw-go]'); if (go) go.focus(); }, t + 240);
+    setTimeout(() => { draw.busy = false; draw.result = res; renderDraw(); const go = $('[data-draw-go]'); if (go) go.focus(); }, t + DRAW_SETTLE_MS);
   }
   function drawAdd(fresh) {
     if (!draw.result || draw.busy) return;
@@ -779,7 +790,7 @@
       else if (d.drawPool && DRAW_STROKES.includes(d.drawPool)) { if (draw.pool.has(d.drawPool)) draw.pool.delete(d.drawPool); else draw.pool.add(d.drawPool); reset(); }
       else if (d.drawMode && ['remove', 'replace'].includes(d.drawMode)) { draw.mode = d.drawMode; reset(); }
       else if (d.drawMove) { const [i, dir] = d.drawMove.split(':').map(Number), j = i + dir; if (draw.custom[i] && draw.custom[j]) { [draw.custom[i], draw.custom[j]] = [draw.custom[j], draw.custom[i]]; [draw.locks[i], draw.locks[j]] = [draw.locks[j], draw.locks[i]]; reset(); } }
-      else if (d.drawDel != null && draw.custom.length > 1) { const i = +d.drawDel; draw.custom.splice(i, 1); draw.locks.splice(i, 1); reset(); }
+      else if (d.drawDel != null && draw.custom.length > 1 && draw.custom[+d.drawDel]) { const i = +d.drawDel; draw.custom.splice(i, 1); draw.locks.splice(i, 1); reset(); }
       else if (b.hasAttribute('data-draw-addslot') && draw.custom.length < DRAW_MAX) { draw.custom.push('aerobic_easy'); reset(); }
       else if (b.hasAttribute('data-draw-go')) runDraw();
       else if (b.hasAttribute('data-draw-add')) drawAdd(false);
@@ -790,7 +801,7 @@
       const t = e.target, d = t.dataset;
       if (draw.busy) return;
       if (t.matches('[data-draw-phase]') && DRAW_PHASES.includes(t.value)) draw.phase = t.value;
-      else if (t.matches('[data-draw-day]') && ['0', '1'].includes(t.value)) draw.day = +t.value;
+      else if (t.matches('[data-draw-day]') && DRAW_DAYS.includes(+t.value)) draw.day = +t.value;
       else if (t.matches('[data-draw-goal]') && Object.hasOwn(GOAL_BUILDERS, t.value) && draw.custom[+d.drawGoal]) draw.custom[+d.drawGoal] = t.value;
       else if (t.matches('[data-draw-size]') && ['compact', 'standard'].includes(t.value)) draw.size = t.value;
       else if (t.matches('[data-draw-lock]')) draw.locks[+d.drawLock] = DRAW_STROKES.includes(t.value) ? t.value : undefined;
