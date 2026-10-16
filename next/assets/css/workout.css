@@ -331,6 +331,12 @@ button.wk-card-flip:focus-visible { outline: 3px solid var(--c); outline-offset:
 .wk-timer[hidden] { display: none; }
 body.wk-running { overflow: hidden; }
 .wk-t-top { width: 100%; max-width: 640px; display: flex; justify-content: space-between; align-items: center; gap: var(--s2); font: 700 var(--fs-m)/1.4 var(--f-sans); }
+.wk-t-topbtns { display: flex; gap: var(--s1); }
+.wk-t-lockover { position: fixed; inset: 0; z-index: 51; display: flex; align-items: flex-end; justify-content: center; padding: 0 var(--s2) 18vh; background: rgba(0, 0, 0, .35); touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+.wk-t-lockover[hidden] { display: none; }
+.wk-t-lockmsg { margin: 0; padding: var(--s3); border: 2px solid var(--paper); border-radius: 8px; background: var(--ink); color: var(--paper); font: 400 var(--fs-m)/1.6 var(--f-sans); text-align: center; }
+.wk-t-lockover.is-holding .wk-t-lockmsg { background: var(--paper); color: var(--ink); transition: background 2s linear, color 2s linear; }
+.wk-timer.is-mute [data-wk-audio-status] { padding: var(--s1) var(--s2); border: 2px solid var(--paper); border-radius: 4px; font-weight: 700; }
 .wk-t-x { min-height: var(--tap); padding: 0 var(--s3); border: 1px solid var(--paper); border-radius: 4px; background: none; color: var(--paper); font: 700 var(--fs-m)/1 var(--f-sans); cursor: pointer; }
 .wk-t-row { margin: var(--s2) 0 0; font: 700 var(--fs-l)/1.4 var(--f-sans); text-align: center; }
 .wk-t-drill { margin: 0 0 var(--s3); max-width: 640px; font: 400 var(--fs-m)/1.6 var(--f-sans); text-align: center; }

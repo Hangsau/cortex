@@ -1821,7 +1821,20 @@
     playingTones.forEach(o => { try { o.stop(); o.disconnect(); } catch (_) { /* 已結束 */ } });
     playingTones.clear();
   }
+  // 被中斷（來電、通知、誤觸叫出其他聲音）後每 2 秒自動重試，計時器開著才試；恢復了就停
+  let audioRetry = null;
+  function watchAudio() {
+    if (audioRetry) return;
+    audioRetry = setInterval(() => {
+      const shown = [...document.querySelectorAll('[data-wk-timer]')].some(t => !t.hidden);
+      if (!shown || (ac && ac.state === 'running')) { clearInterval(audioRetry); audioRetry = null; return; }
+      resumeAudio();
+    }, 2000);
+  }
+  const markAudio = (ok) => document.querySelectorAll('[data-wk-timer]').forEach(t => t.classList.toggle('is-mute', !ok));
   function resumeAudio(recreate = false) {
+    // iPhone 的靜音模式預設會讓網頁音效無聲；設成 playback 讓提示音照響（只有支援的瀏覽器有這個設定）
+    try { if (navigator.audioSession && navigator.audioSession.type !== 'playback') navigator.audioSession.type = 'playback'; } catch (_) { /* 不支援 */ }
     if (recreate) {
       stopTones(); const old = ac; ac = null; audioResume = null;
       if (old) { old.onstatechange = null; try { Promise.resolve(old.close()).catch(() => {}); } catch (_) { /* 已關閉 */ } }
@@ -1832,8 +1845,9 @@
         const context = ac;
         context.onstatechange = () => {
           if (ac !== context) return;
-          if (context.state !== 'running') stopTones();
-          audioStatus(context.state === 'running' ? '提示音已啟用，請用測試音確認裝置音量。' : '提示音中斷，請按「測試／恢復提示音」。');
+          if (context.state !== 'running') { stopTones(); watchAudio(); }
+          markAudio(context.state === 'running');
+          audioStatus(context.state === 'running' ? '提示音已啟用，請用測試音確認裝置音量。' : '提示音中斷，正在自動恢復；碰一下畫面也會恢復。若一直沒聲音，可能是其他程式占用聲音或手機切成靜音。');
         };
       }
       const context = ac;
@@ -1843,6 +1857,7 @@
       const promise = Promise.resolve(context.resume()).then(() => {
         if (ac !== context) return false;
         const ready = context.state === 'running';
+        markAudio(ready); if (!ready) watchAudio();
         audioStatus(ready ? '提示音已啟用，請用測試音確認裝置音量。' : '提示音仍中斷，請按「測試／恢復提示音」。');
         return ready;
       }).catch(() => {
@@ -2146,6 +2161,7 @@
     clearInterval(timer); timer = setInterval(frame, 100); frame();
   }
   function closeTimer() {
+    tq('[data-wk-lockover]').hidden = true;
     if (liveDialog.open) liveDialog.close();
     if (jumpDialog.open) jumpDialog.close();
     clearInterval(timer); phase = 'done'; T.hidden = true; document.body.classList.remove('wk-running');
@@ -2335,6 +2351,16 @@
   document.addEventListener('visibilitychange', () => {
     if (!T.hidden && document.visibilityState === 'visible') { holdScreen(); resumeAudio(); }
   });
+  // 碰到計時器任何地方（含鎖定遮罩）都順便恢復聲音：手機只允許在使用者碰觸時重新啟用音效
+  T.addEventListener('pointerdown', () => { if (!ac || ac.state !== 'running') resumeAudio(); }, true);
+  // 鎖定畫面：池邊手濕、水滴會誤觸；鎖定後所有按鈕都按不到，長按遮罩 2 秒解鎖
+  const lockOver = tq('[data-wk-lockover]');
+  let lockHold = null;
+  const setLock = (on) => { lockOver.hidden = !on; lockOver.classList.remove('is-holding'); clearTimeout(lockHold); lockHold = null; if (!on) tq('[data-wk-lock]').focus(); };
+  tq('[data-wk-lock]').addEventListener('click', () => setLock(true));
+  lockOver.addEventListener('pointerdown', (e) => { e.preventDefault(); lockOver.classList.add('is-holding'); clearTimeout(lockHold); lockHold = setTimeout(() => setLock(false), 2000); });
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach(ev => lockOver.addEventListener(ev, () => { lockOver.classList.remove('is-holding'); clearTimeout(lockHold); lockHold = null; }));
+  lockOver.addEventListener('contextmenu', (e) => e.preventDefault());
 
   /* ---------- 輸入與初始化 ---------- */
   const refresh = () => {

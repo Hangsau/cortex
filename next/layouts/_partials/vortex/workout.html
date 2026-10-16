@@ -224,7 +224,7 @@
 
 <div class="wk-timer" data-wk-timer hidden role="dialog" aria-modal="true" aria-label="間歇計時器">
  <div class="wk-t-main">
-  <div class="wk-t-top"><span data-wk-t-where></span><button type="button" class="wk-t-x" data-wk-stop aria-label="結束計時">結束</button></div>
+  <div class="wk-t-top"><span data-wk-t-where></span><span class="wk-t-topbtns"><button type="button" class="wk-t-x" data-wk-lock>鎖定畫面</button><button type="button" class="wk-t-x" data-wk-stop aria-label="結束計時">結束</button></span></div>
   <p class="wk-t-row" data-wk-t-row></p>
   <p class="wk-t-phase" data-wk-t-phase>準備</p>
   <p class="wk-t-clock" data-wk-t-clock>0:10</p>
@@ -243,6 +243,7 @@
   </div>
   <p class="wk-t-notice" data-wk-t-notice role="status" aria-live="polite"></p>
   <p class="wk-t-notice" data-wk-audio-status role="status">出發前 3、2、1 短聲，出發長聲。請保持頁面在前景。</p>
+  <div class="wk-t-lockover" data-wk-lockover hidden><p class="wk-t-lockmsg">畫面已鎖定，水滴碰到不會誤按<br><b>長按這裡 2 秒解鎖</b></p></div>
   <div class="wk-t-adj" aria-label="臨場調整">
     <div class="wk-t-adjrow"><span>目標</span><button type="button" data-adj="t:-1">−1 秒</button><button type="button" data-adj="t:1">+1 秒（放慢）</button></div>
     <div class="wk-t-adjrow"><span>休息</span><button type="button" data-adj="r:-10">−10 秒</button><button type="button" data-adj="r:10">+10 秒</button></div>
