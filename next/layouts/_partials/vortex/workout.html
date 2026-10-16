@@ -233,6 +233,8 @@
   <button type="button" class="wk-t-wall" data-wk-wall>到牆</button>
   <div class="wk-t-ctrl">
     <button type="button" class="wk-btn" data-wk-pause>暫停</button>
+    <button type="button" class="wk-btn" data-wk-redo>這一趟重來</button>
+    <button type="button" class="wk-btn" data-wk-jump-open>從某一趟開始</button>
     <button type="button" class="wk-btn" data-wk-skip>跳過這一段</button>
     <button type="button" class="wk-btn" data-wk-undo disabled>撤銷上次操作</button>
     <button type="button" class="wk-btn" data-wk-live-open>暫停修改課表</button>
@@ -249,6 +251,15 @@
   <ol class="wk-t-log" data-wk-t-log></ol>
  </div>
  <aside class="wk-t-side" aria-label="整份課表"><p class="wk-t-sidet">整份課表</p><ol class="wk-t-list" data-wk-t-list></ol></aside>
+ <dialog class="wk-live" data-wk-jump aria-labelledby="wk-jump-title">
+  <form data-wk-jump-form>
+   <h2 id="wk-jump-title">從某一趟開始</h2>
+   <p>計時已暫停。選要從哪一項、第幾趟開始，按下後重新 10 秒倒數出發；已經記下的秒數都保留。</p>
+   <label class="wk-live-field">項目<select data-wk-jump-row></select></label>
+   <label class="wk-live-field">從第幾趟<select data-wk-jump-rep></select></label>
+   <div class="wk-live-actions"><button type="button" class="wk-btn" data-wk-jump-cancel>取消</button><button type="submit" class="wk-btn wk-btn--main">從這一趟開始（倒數 10 秒）</button></div>
+  </form>
+ </dialog>
  <dialog class="wk-live" data-wk-live aria-labelledby="wk-live-title">
   <form data-wk-live-form>
    <h2 id="wk-live-title">調整這次訓練</h2>

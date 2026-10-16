@@ -1,5 +1,9 @@
 # HANDOFF — my-site (Cortex)
 
+## 計時器：這一趟重來／從某一趟開始（2026-10-16 晚）
+- 計時器多兩個按鈕：「這一趟重來」（游泳中＝這一趟、休息中＝剛游完那一趟、準備中＝重新倒數），「從某一趟開始」（選項目＋第幾組第幾趟）。都回到 10 秒準備倒數再出發，已記的秒數保留，可撤銷。實作在 workout.js（startAt）＋ workout.html 的 data-wk-jump dialog。
+- swim-coach 雲端版用 tools/port_timer.py 同步（已同步）。test_workout_* 九支全過。
+
 ## 課表工具：教練後台帶學生成績（2026-10-16）
 
 - `#pb=`＋base64url JSON（`{v:1,name,course,who,pb:{式:{距離:秒}}}`）：swim-coach 教練頁學生頁的「用某某的成績開課表工具」連結。打開後自動填成績、池長、游泳／鐵人；網址資料立刻清掉；成績照舊不存進瀏覽器。`workout.js` 的 importPb（在成績輸入初始化前），測試 `tools/test_workout_pbimport.cjs`。

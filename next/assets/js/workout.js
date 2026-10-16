@@ -1901,7 +1901,8 @@
   let adj = new Map(); // 臨場調整：row → {t: 目標, r: 休息／出發間隔, b: 項目間隔} 秒數加減；不改存好的課表
   let rowIdx = new Map(), lastHi = -1;
   let runMenu = null, undoSteps = [], edits = [];
-  const liveDialog = tq('[data-wk-live]');
+  let startAt = 0; // 準備倒數完從 seq 的哪一步出發（從頭＝0；「這一趟重來」「從某一趟開始」會改）
+  const liveDialog = tq('[data-wk-live]'), jumpDialog = tq('[data-wk-jump]');
 
   function rowSteps(row, b, base, hasNext) {
     const steps = [];
@@ -1954,13 +1955,13 @@
   }
   function remember(label) {
     // 一次 clone 才能保留 seq、menu 與 Map 之間的 row 參照。
-    undoSteps.push({ label, state: structuredClone({ runMenu, seq, idx, phase, log, adj, edits, e: elapsed(), re: repElapsed(), beeped }) });
+    undoSteps.push({ label, state: structuredClone({ runMenu, seq, idx, phase, log, adj, edits, startAt, e: elapsed(), re: repElapsed(), beeped }) });
     if (undoSteps.length > 10) undoSteps.shift();
     syncControls();
   }
   function undoTimer() {
     const last = undoSteps.pop(); if (!last) return;
-    ({ runMenu, seq, idx, phase, log, adj, edits, beeped } = last.state);
+    ({ runMenu, seq, idx, phase, log, adj, edits, startAt, beeped } = last.state);
     t0 = now() - last.state.e; repT0 = now() - last.state.re; paused = 0; pausedAt = now();
     tq('[data-wk-t-copy]').hidden = true;
     tq('[data-wk-t-adjv]').textContent = adjText(seq[idx].row);
@@ -1995,8 +1996,8 @@
   }
 
   function nextStep() {
-    const wasPaused = pausedAt != null, re = repElapsed(), priorCues = beeped;
-    idx = phase === 'ready' ? 0 : idx + 1;
+    const wasPaused = pausedAt != null, re = repElapsed(), priorCues = beeped, fromReady = phase === 'ready';
+    idx = fromReady ? startAt : idx + 1;
     // 出發間隔：休息＝下一次出發時間 − 已經過的時間；已經過了就直接出發
     while (idx < seq.length && seq[idx].kind === 'rest' && seq[idx].dyn) {
       seq[idx].sec = seq[idx].sendoff - re;
@@ -2009,7 +2010,7 @@
     // 包干在「游」與「等出發」之間仍是同一個出發點，已播過的秒數不能重播。
     if (cur.dyn) [1, 2, 3].forEach(n => { if (priorCues['d' + n]) beeped['d' + n] = 1; });
     repT0 = now() - re;
-    if (cur.kind === 'swim') { if (!wasPaused) SND.go(); if (cur.first) repT0 = now(); }
+    if (cur.kind === 'swim') { if (!wasPaused) SND.go(); if (cur.first || fromReady) repT0 = now(); }
     else if (!wasPaused && !cur.broken && cur.sec >= 6) { const nx = nextSwim(idx + 1); if (nx) say(`${nx.row !== cur.row ? '換下一項。' : '下一趟，'}${sayRep(nx)}`); }
     if (wasPaused) pauseTimer();
     syncControls();
@@ -2087,10 +2088,10 @@
     const where = tq('[data-wk-t-where]'), rowEl = tq('[data-wk-t-row]'), ph = tq('[data-wk-t-phase]'), ck = tq('[data-wk-t-clock]'), sub = tq('[data-wk-t-sub]'), dr = tq('[data-wk-t-drill]');
     tq('[data-wk-wall]').hidden = phase !== 'swim';
     if (phase === 'ready') {
-      const left = 10 - e, first = seq[0];
+      const left = 10 - e, first = seq[startAt];
       ph.textContent = running ? '準備' : '準備 · 已暫停'; ck.textContent = fmt0(Math.max(0, Math.ceil(left))); ck.classList.remove('is-over');
       where.textContent = first.b.title; rowEl.textContent = swimLine(first);
-      sub.textContent = first.target ? `第一趟目標 ${fmt(first.target)}` : '這一列沒有目標秒數，到牆按一下';
+      sub.textContent = first.target ? `${startAt ? '這一趟' : '第一趟'}目標 ${fmt(first.target)}` : '這一列沒有目標秒數，到牆按一下';
       dr.textContent = drillLine(first.row);
       if (running) departureCountdown(left);
       if (running && left <= 0) nextStep();
@@ -2134,7 +2135,7 @@
     if (!seq.length) { alert('課表是空的，先加一列。'); return; }
     cancelSpeech(); stopTones(); resumeAudio(); // 在使用者按下的當下啟用音訊。
     holdScreen();
-    log = []; adj = new Map(); undoSteps = []; edits = []; renderLog(); renderSide(); idx = 0;
+    log = []; adj = new Map(); undoSteps = []; edits = []; renderLog(); renderSide(); idx = 0; startAt = 0;
     tq('[data-wk-t-notice]').textContent = '';
     tq('[data-wk-t-adjv]').textContent = ''; tq('[data-wk-t-copy]').hidden = true;
     T.hidden = false; document.body.classList.add('wk-running');
@@ -2146,6 +2147,7 @@
   }
   function closeTimer() {
     if (liveDialog.open) liveDialog.close();
+    if (jumpDialog.open) jumpDialog.close();
     clearInterval(timer); phase = 'done'; T.hidden = true; document.body.classList.remove('wk-running');
     cancelSpeech(); stopTones(); vib(0);
     if (wake) { wake.release().catch(() => {}); wake = null; }
@@ -2160,6 +2162,45 @@
     frame(true);
   });
   tq('[data-wk-undo]').addEventListener('click', undoTimer);
+  // 中途出狀況：回到某一趟的開頭，重新 10 秒準備倒數再出發。之前記下的秒數保留，可以撤銷。
+  const repStart = (k) => { const x = seq[k]; return seq.findIndex(y => y.kind === 'swim' && y.row === x.row && y.s === x.s && y.r === x.r); };
+  function jumpTo(k, label) {
+    remember(label);
+    if (phase === 'done') { clearInterval(timer); timer = setInterval(frame, 100); holdScreen(); tq('[data-wk-t-copy]').hidden = true; tq('[data-wk-stop]').textContent = '結束'; }
+    cancelSpeech(); stopTones(); vib(0);
+    startAt = k; idx = k; begin('ready'); repT0 = now();
+    tq('[data-wk-pause]').textContent = '暫停';
+    tq('[data-wk-t-drill]').textContent = '';
+    tq('[data-wk-t-adjv]').textContent = adjText(seq[k].row);
+    tq('[data-wk-t-notice]').textContent = `從「${seq[k].b.title}・${swimLine(seq[k])}」重新開始，10 秒後出發。之前的紀錄保留；按錯可以撤銷。`;
+    say(`準備。${sayRep(seq[k])}`);
+    syncControls(); frame(true);
+  }
+  tq('[data-wk-redo]').addEventListener('click', () => {
+    // 正在游：這一趟；休息中：剛游完的那一趟；準備倒數中：重新倒數
+    let k = idx;
+    if (phase === 'ready') k = startAt;
+    else { while (k > 0 && seq[k].kind !== 'swim') k -= 1; if (seq[k].kind !== 'swim') return; k = repStart(k); }
+    jumpTo(k, '重來');
+  });
+  const jumpRows = () => { const out = []; seq.forEach((x, i) => { if (x.kind === 'swim' && (x.g || 1) === 1) { let r = out.find(o => o.row === x.row); if (!r) out.push(r = { row: x.row, b: x.b, steps: [] }); r.steps.push(i); } }); return out; };
+  function fillJumpReps(sel) {
+    const r = jumpRows()[+tq('[data-wk-jump-row]').value];
+    tq('[data-wk-jump-rep]').innerHTML = r.steps.map(i => { const x = seq[i]; return `<option value="${i}"${i === sel ? ' selected' : ''}>${(x.row.sets || 1) > 1 ? `第 ${x.s} 組・` : ''}第 ${x.r} 趟${x.target ? `（目標 ${fmt(x.target)}）` : ''}</option>`; }).join('');
+  }
+  tq('[data-wk-jump-open]').addEventListener('click', () => {
+    pauseTimer(); frame(true);
+    const rows = jumpRows();
+    let cur = phase === 'ready' ? startAt : idx; while (cur > 0 && seq[cur].kind !== 'swim') cur -= 1;
+    const curStart = seq[cur] && seq[cur].kind === 'swim' ? repStart(cur) : rows[0].steps[0];
+    const ri = Math.max(0, rows.findIndex(r => r.steps.includes(curStart)));
+    tq('[data-wk-jump-row]').innerHTML = rows.map((r, i) => `<option value="${i}"${i === ri ? ' selected' : ''}>${i + 1}. ${esc(r.b.title)} · ${esc(rowHead(r.row))}</option>`).join('');
+    fillJumpReps(curStart); jumpDialog.showModal();
+  });
+  tq('[data-wk-jump-row]').addEventListener('change', () => fillJumpReps(-1));
+  tq('[data-wk-jump-cancel]').addEventListener('click', () => { jumpDialog.close(); tq('[data-wk-t-notice]').textContent = '計時保持暫停。確認後按「繼續」。'; });
+  jumpDialog.addEventListener('cancel', e => { e.preventDefault(); jumpDialog.close(); });
+  tq('[data-wk-jump-form]').addEventListener('submit', e => { e.preventDefault(); const k = +tq('[data-wk-jump-rep]').value; jumpDialog.close(); jumpTo(k, '跳到'); });
   tq('[data-wk-pause]').addEventListener('click', (ev) => {
     if (phase === 'done') return;
     if (pausedAt != null) { resumeAudio(); const dp = now() - pausedAt; paused += dp; repT0 += dp; pausedAt = null; ev.target.textContent = '暫停'; tq('[data-wk-t-notice]').textContent = ''; }
