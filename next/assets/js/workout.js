@@ -37,7 +37,8 @@
   const STEP_ON = { none: '不變', target: '目標秒數', sendoff: '出發間隔', rest: '休息' };
   // 每一列的欄位預設；舊存檔、分享連結匯入的列都用它補齊
   const ROW_DEF = { sets: 1, reps: 4, dist: 50, stroke: 'free', mode: 'swim', int: 'none', pct: 95, pbPlus: 0, event: '', target: null, rest: 0, setRest: 0, rowRest: null,
-    restMode: 'rest', sendoff: 0, stepOn: 'none', stepSec: -1, stepCycle: 0, brokenEvery: 0, brokenRest: 10, drill: '', equip: [], note: '', restAuto: false };
+    restMode: 'rest', sendoff: 0, stepOn: 'none', stepSec: -1, stepCycle: 0, brokenEvery: 0, brokenRest: 10, drill: '', equip: [], note: '', restAuto: false,
+    stype: '', age: '' }; // stype＝組型（純速／乳酸生成同為衝刺，靠它分休息）；age＝child／older（純速休息依年齡）
   const normRow = (r) => {
     Object.keys(ROW_DEF).forEach(k => { if (r[k] == null) r[k] = Array.isArray(ROW_DEF[k]) ? [] : ROW_DEF[k]; });
     // null 沿用舊版的每趟設定；0 明確表示直接進下一項。
@@ -195,10 +196,11 @@
   function baseFor(s, d, bests = S.pb) {
     const own = pb(s, d, bests);
     if (own) return { t: own, src: `${d} m PB` };
-    const longer = known(s, bests).find(([D]) => D > d && D % d === 0);
+    // 優先整除的較長距離（50 ÷ 2）；都不整除（例如 15 m）才用最短的較長距離按比例（使用者 2026-10-18：慢的泳者純速改短距離）
+    const ks = known(s, bests), longer = ks.find(([D]) => D > d && D % d === 0) || ks.find(([D]) => D > d);
     if (!longer) return null;
     const [D, T] = longer;
-    return { t: T * d / D, split: true, D, T, src: `${D} m 成績 ÷ ${D / d}` };
+    return { t: T * d / D, split: true, D, T, src: D % d === 0 ? `${D} m 成績 ÷ ${D / d}` : `${D} m 成績 × ${d}/${D}` };
   }
   const hasCss = (s) => { const c = css(s); return !!(c && c.pace); };
   const TIER_LABEL = { tier_a: '實測', tier_b: '估計', tier_c: '外推', tier_d: '自校準' };
@@ -242,7 +244,11 @@
     if (tp) return Object.assign(range(TYPE[tp].rest_s), { why: `${INTS[row.int]}組 ${TYPE[tp].cert}` });
     if (row.int === 'race') { const v = raceRest(row.dist); return { min: v, max: v, mid: v, why: `賽速重複 ${TYPE.race_pace.cert}` }; }
     if (row.int === 'sprint') {
-      const t = row.dist <= TYPE.velocity.distance_m.max ? TYPE.velocity : row.dist <= TYPE.lactate_production.distance_m.max ? TYPE.lactate_production : null;
+      // 有組型就照組型（慢的泳者乳酸生成可能只有 15 m）；舊列沒有組型才照距離猜
+      const t = TYPE[row.stype] && ['velocity', 'lactate_production'].includes(row.stype) ? TYPE[row.stype]
+        : row.dist <= TYPE.velocity.distance_m.max ? TYPE.velocity : row.dist <= TYPE.lactate_production.distance_m.max ? TYPE.lactate_production : null;
+      const ageR = t && t.key === 'velocity' && t.rest_by_age && t.rest_by_age[row.age];
+      if (ageR) return { min: t.rest_s.min, max: t.rest_s.max, mid: ageR.rest_s, why: `純速組 ${t.cert}，${row.age === 'child' ? '12 歲以下' : '13 歲以上'}` };
       if (t) return Object.assign(range(t.rest_s), { why: `${t.key === 'velocity' ? '純速' : '乳酸生成'}組 ${t.cert}` });
     }
     return null;
@@ -460,6 +466,49 @@
     return { race, thr, easy, steady, vel, prod, tol, free };
   }
 
+  /* ---------- 同一種組的多種排法（使用者 2026-10-18） ----------
+     組型以每趟秒數定義（canonical set_types.duration_s），距離是依泳者速度算出來的結果：
+     候選距離 × 目標秒數 → 只留每趟秒數落在時間窗內的；都落不進（例如沒有成績）才用原本的樣板。
+     量：純速照 reps 範圍與分組、乳酸生成／速耐照原本趟數、賽速／閾值／有氧維持原本總量換算趟數。
+     純速休息依年齡（rest_by_age，opts.child＝12 歲以下）；年齡不明照 13 歲以上。 */
+  const VARIANT_DIST = [10, 12.5, 15, 25, 50, 75, 100, 150, 200, 300, 400, 800];
+  const SHORT_TYPES = { velocity: 1, lactate_production: 1, race_pace: 1 }; // 這幾種每趟不超過 50 m
+  const VEL_SPLITS = [[2, 4], [2, 5], [1, 6]]; // 純速：總趟數在 reps 6–10 內、可分 2 組
+  const VOLUME_TYPES = { race_pace: 1, threshold: 1, aerobic_easy: 1, steady: 1 }; // 維持總量、換算趟數
+  const MIN_REPS = 2;
+  function velRest(opts) {
+    const a = TYPE.velocity.rest_by_age;
+    if (!a) return { rest: r5((TYPE.velocity.rest_s.min + TYPE.velocity.rest_s.max) / 2), setRest: null };
+    const r = opts && opts.child ? a.child : a.older;
+    return { rest: r.rest_s, setRest: r.set_rest_s };
+  }
+  function setVariants(key, row, bests, opts = {}) {
+    const T = TYPE[key === 'steady' ? 'aerobic_easy' : key], win = T && T.duration_s;
+    const total = (row.sets || 1) * row.reps * row.dist;
+    const secOf = (d) => { const r = { ...row, sets: 1, dist: d }, tg = targetOf(r, bests); return tg && tg.t ? tg.t : estSec(r); };
+    const pool = key === 'race_pace' && T.preferred_distances_m ? T.preferred_distances_m : VARIANT_DIST; // 賽速只用原文的 15／25／50
+    const dists = pool.filter(d => (SHORT_TYPES[key] ? d <= 50 : d >= 25) && (!VOLUME_TYPES[key] || total / d >= MIN_REPS)
+      && (win ? (x => x >= win.min && x <= win.max)(secOf(d)) : d >= 25));
+    const vr = key === 'velocity' ? velRest(opts) : null;
+    const make = (d, sets, reps) => {
+      const r = { dist: d, sets, reps, stype: key };
+      if (vr) { r.rest = vr.rest; r.setRest = sets > 1 ? vr.setRest : 0; r.age = opts.child ? 'child' : 'older'; }
+      if (key === 'race_pace') r.rest = raceRest(d);
+      const sec = secOf(d), count = sets > 1 ? `${sets} 組 × ${reps} × ${d} m` : `${reps} × ${d} m`;
+      return { row: r, sec, label: `${count}（每趟約 ${Math.round(sec)} 秒）` };
+    };
+    const out = [];
+    (dists.length ? dists : [row.dist]).forEach(d => {
+      if (key === 'velocity') VEL_SPLITS.forEach(([n, k]) => out.push(make(d, n, k)));
+      else if (VOLUME_TYPES[key]) out.push(make(d, 1, Math.max(MIN_REPS, Math.round(total / d))));
+      else out.push(make(d, row.sets || 1, row.reps));
+    });
+    // 第一個＝原本樣板的距離（還在時間窗內時），其餘照距離排；沒成績時只有原本樣板
+    out.sort((a, b) => (a.row.dist === row.dist ? -1 : 0) - (b.row.dist === row.dist ? -1 : 0) || a.row.dist - b.row.dist);
+    out.win = win || null;
+    return out;
+  }
+
   /* ---------- 無賽期的主課推薦：沿用同一套配速與組型，不新增計時模式 ---------- */
   const GOAL_BUILDERS = { aerobic_easy: 'easy', steady: 'steady', threshold: 'thr', velocity: 'vel', lactate_production: 'prod', lactate_tolerance: 'tol', race_pace: 'race' };
   const goalName = key => key === 'steady' ? INTS.steady : INTENT[key].name_zh;
@@ -476,6 +525,11 @@
     const key = choice.key, builder = setBuilders(choice.stroke, bests)[GOAL_BUILDERS[key]];
     const x = key === 'race_pace' ? builder(null, null, choice.event) : builder();
     x.name = goalName(key);
+    // 多種排法：choice.variant 選第幾種（抽卡、換一種排法用）；choice.child＝12 歲以下
+    const vs = setVariants(key, x.row, bests, choice), vi = ((+choice.variant || 0) % vs.length + vs.length) % vs.length, v = vs[vi];
+    Object.assign(x.row, v.row);
+    x.variants = vs.map(o => o.label); x.variant = vi;
+    if (vs.win) x.why = `每趟約 ${Math.round(v.sec)} 秒（${x.name}每趟 ${vs.win.min}–${vs.win.max} 秒，距離依速度換算）；${x.why}`;
     if (choice.size === 'compact') {
       if (x.row.sets > 1) x.row.sets = Math.ceil(x.row.sets / 2);
       else x.row.reps = Math.max(1, Math.ceil(x.row.reps / 2));
@@ -486,8 +540,8 @@
     x.row = blankRow(Object.assign({ note: x.name, restAuto: key !== 'steady' }, x.row));
     const target = targetOf(x.row, bests);
     x.row.sendoff = target && target.t ? Math.ceil((target.t + x.row.rest) / RND) * RND : bests ? 0 : Math.ceil((estSec(x.row) + x.row.rest) / RND) * RND;
-    // 多組之間仍需完整恢復，不能沿用純速舊樣板的 0 秒。
-    if (x.row.sets > 1) x.row.setRest = x.row.rest;
+    // 多組之間仍需完整恢復，不能沿用純速舊樣板的 0 秒；純速用 rest_by_age 的組間（趟間 × 2）
+    if (x.row.sets > 1) x.row.setRest = v.row.setRest || x.row.rest;
     return x;
   }
   function renderGoals() {
@@ -506,6 +560,7 @@
     const stop = key === 'race_pace' ? '依現場配速與動作決定是否縮減或結束；這裡提供一般賽速組型，沒有自動失敗判定。' : key === 'steady' ? '留意配速與動作能否維持，必要時減量或放慢。' : type.exit;
     box.innerHTML = `<div class="wk-goal-preview"><p class="wk-css-k">${esc(SZH[row.stroke])} · ${esc(x.name)} · ${goalChoice.size === 'compact' ? '精簡組' : '原有組型'}</p>
       <h3>${row.sets > 1 ? `${row.sets} 組 × ` : ''}${row.reps} × ${row.dist} m</h3><p>${esc(purpose)}</p>
+      ${x.variants.length > 1 ? `<p class="wk-note">同樣目的有 ${x.variants.length} 種排法（第 ${x.variant + 1} 種）。<button type="button" class="wk-btn" data-wk-goal-vary>換一種排法</button></p>` : ''}
       <dl class="wk-goal-facts"><div><dt>每趟目標</dt><dd>${target && target.t ? `${fmt(target.t)}${target.note ? `（${esc(target.note)}）` : ''}` : '待補成績或自訂秒數'}</dd></div><div><dt>每趟休息</dt><dd>${fmt0(row.rest)}${row.sets > 1 ? `；組間 ${fmt0(row.setRest)}` : ''}</dd></div><div><dt>主課距離</dt><dd>${rowDist(row)} m</dd></div></dl>
       ${!target || !target.t ? `<p class="wk-note">${esc(target && target.miss || '尚未設定目標')}。仍可加入組型；在下方填成績後換算，或在課表內改用自訂秒數。</p>` : ''}
       ${key === 'race_pace' ? '<p class="wk-note">參考的是所選距離的實測成績，不需要賽事日期。用短距離重複熟悉配速，也可搭配其他主課。</p>' : ''}
@@ -580,10 +635,11 @@
       else if (e.target.matches('[data-wk-goal-size]') && ['compact', 'standard'].includes(e.target.value)) goalChoice.size = e.target.value;
       else if (e.target.matches('[data-wk-goal-event]') && +e.target.value >= 50 && strokes.find(s => s.k === goalChoice.stroke).d.includes(+e.target.value)) goalChoice.event = +e.target.value;
       else return;
-      syncEvent(); renderGoals();
+      goalChoice.variant = 0; syncEvent(); renderGoals();
     });
     section.addEventListener('toggle', e => { if (e.target.matches('.wk-prep')) prepOpen = e.target.open; }, true);
     section.addEventListener('click', e => {
+      if (e.target.closest('[data-wk-goal-vary]')) { goalChoice.variant = (+goalChoice.variant || 0) + 1; renderGoals(); const b = root.querySelector('[data-wk-goal-vary]'); if (b) b.focus(); return; }
       const chip = e.target.closest('[data-wk-prep-eq]');
       if (chip) { const k = chip.dataset.wkPrepEq; if (PREP_EQ.includes(k)) { if (prepToday.has(k)) prepToday.delete(k); else prepToday.add(k); } renderPrep(); root.querySelector(`[data-wk-prep-eq="${k}"]`).focus(); return; }
       const pa = e.target.closest('[data-wk-prep-add]');
