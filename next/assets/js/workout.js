@@ -485,21 +485,25 @@
   function setVariants(key, row, bests, opts = {}) {
     const T = TYPE[key === 'steady' ? 'aerobic_easy' : key], win = T && T.duration_s;
     const total = (row.sets || 1) * row.reps * row.dist;
-    const secOf = (d) => { const r = { ...row, sets: 1, dist: d }, tg = targetOf(r, bests); return tg && tg.t ? tg.t : estSec(r); };
+    // 只用真的目標秒數（成績換算）；沒有成績就不靠估計值挑距離，維持原本樣板
+    const secOf = (d) => { const tg = targetOf({ ...row, sets: 1, dist: d }, bests); return tg && tg.t ? tg.t : null; };
     const pool = key === 'race_pace' && T.preferred_distances_m ? T.preferred_distances_m : VARIANT_DIST; // 賽速只用原文的 15／25／50
-    const dists = pool.filter(d => (SHORT_TYPES[key] ? d <= 50 : d >= 25) && (!VOLUME_TYPES[key] || total / d >= MIN_REPS)
-      && (win ? (x => x >= win.min && x <= win.max)(secOf(d)) : d >= 25));
+    const allowed = pool.filter(d => (SHORT_TYPES[key] ? d <= 50 : d >= 25) && (!VOLUME_TYPES[key] || total / d >= MIN_REPS));
+    const off = (x) => (x < win.min ? win.min - x : x > win.max ? x - win.max : 0); // 離時間窗幾秒
+    let dists = allowed.filter(d => (win ? (x => x != null && off(x) === 0)(secOf(d)) : secOf(d) != null));
+    // 沒有剛好落在窗內的（例如 25 m 要 16 秒、15 m 只要 9.6 秒）：取最接近時間窗的那個距離
+    if (!dists.length && win) { const near = allowed.map(d => [d, secOf(d)]).filter(([, x]) => x != null).sort((a, b) => off(a[1]) - off(b[1]))[0]; if (near) dists = [near[0]]; }
     const vr = key === 'velocity' ? velRest(opts) : null;
     const make = (d, sets, reps) => {
       const r = { dist: d, sets, reps, stype: key };
       if (vr) { r.rest = vr.rest; r.setRest = sets > 1 ? vr.setRest : 0; r.age = opts.child ? 'child' : 'older'; }
       if (key === 'race_pace') r.rest = raceRest(d);
       const sec = secOf(d), count = sets > 1 ? `${sets} 組 × ${reps} × ${d} m` : `${reps} × ${d} m`;
-      return { row: r, sec, label: `${count}（每趟約 ${Math.round(sec)} 秒）` };
+      return { row: r, sec, label: sec ? `${count}（每趟約 ${Math.round(sec)} 秒）` : count };
     };
     const out = [];
     (dists.length ? dists : [row.dist]).forEach(d => {
-      if (key === 'velocity') VEL_SPLITS.forEach(([n, k]) => out.push(make(d, n, k)));
+      if (key === 'velocity') ((row.sets || 1) > 1 ? VEL_SPLITS : [[1, row.reps]]).forEach(([n, k]) => out.push(make(d, n, k))); // 減量期的「純速（短）」本來就只有一組
       else if (VOLUME_TYPES[key]) out.push(make(d, 1, Math.max(MIN_REPS, Math.round(total / d))));
       else out.push(make(d, row.sets || 1, row.reps));
     });
@@ -529,7 +533,7 @@
     const vs = setVariants(key, x.row, bests, choice), vi = ((+choice.variant || 0) % vs.length + vs.length) % vs.length, v = vs[vi];
     Object.assign(x.row, v.row);
     x.variants = vs.map(o => o.label); x.variant = vi;
-    if (vs.win) x.why = `每趟約 ${Math.round(v.sec)} 秒（${x.name}每趟 ${vs.win.min}–${vs.win.max} 秒，距離依速度換算）；${x.why}`;
+    if (vs.win && v.sec) x.why = `每趟約 ${Math.round(v.sec)} 秒（${x.name}每趟 ${vs.win.min}–${vs.win.max} 秒，距離依速度換算）；${x.why}`;
     if (choice.size === 'compact') {
       if (x.row.sets > 1) x.row.sets = Math.ceil(x.row.sets / 2);
       else x.row.reps = Math.max(1, Math.ceil(x.row.reps / 2));
