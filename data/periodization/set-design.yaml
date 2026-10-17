@@ -879,12 +879,25 @@ generator:
     distance_m:
       min: 10
       max: 25
+    duration_s:
+      min: 10
+      max: 15
     target_from:
     - t25_s
     target_rule: 該距離個人最佳成績
     rest_s:
       min: 120
       max: 240
+    rest_by_age:
+      child_max_age: 12
+      child:
+        rest_s: 120
+        set_rest_s: 240
+      older:
+        rest_s: 180
+        set_rest_s: 360
+      cert: 🔵
+      note_zh: "趟間取 rest_s 範圍內的值；組間＝趟間 × 2（var_reps「可分 2 組，組間再加長休」的長休取值）。\n組間比例：NSCA《Essentials of Strength Training and Conditioning》第 4 版第 19 章短跑速度課表範例\n  「2 × 3 × 20 m（2 min / 4 min）」——陸上短跑，不是游泳，只借比例。\n12 歲以下取下緣：同書第 3 章引 Kappenstein 等，9 歲兒童高強度間歇時磷酸肌酸消耗較少、恢復期存量較高；\n  該研究為蹠屈動作非游泳，「兒童可休較短」是本檔推導。\n恢復量參考（同書第 17 章）：休 2 分鐘磷酸肌酸約 84%、4 分鐘約 89%、8 分鐘完全恢復。\n分界 12 歲與兩組數字由教練（Hangsau）2026-10-18 決定。"
     reps:
       min: 6
       max: 10
@@ -898,6 +911,9 @@ generator:
     distance_m:
       min: 25
       max: 50
+    duration_s:
+      min: 20
+      max: 35
     target_from:
     - t25_s
     - t50_s
@@ -917,6 +933,9 @@ generator:
     distance_m:
       min: 75
       max: 150
+    duration_s:
+      min: 60
+      max: 150
     target_from:
     - t100_s
     target_rule: 由 T100 換算配速後放慢約 10%（實務慣例，無文獻處方）
@@ -935,6 +954,9 @@ generator:
     distance_m:
       min: 15
       max: 75
+    duration_s:
+      min: 8
+      max: 45
     preferred_distances_m:
     - 15
     - 25
@@ -955,6 +977,9 @@ generator:
     distance_m:
       min: 100
       max: 400
+    duration_s:
+      min: 45
+      max: 360
     target_from:
     - css_per_100_s
     target_rule: 臨界游速配速
