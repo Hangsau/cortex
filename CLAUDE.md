@@ -6,6 +6,7 @@
 網址：`https://hangsau.github.io/cortex/`
 Repo：`Hangsau/cortex`，branch：`hugo-source`
 
+- **只放知識內容**（使用者 2026-10-21 定）：排課工具是 swim-coach 的工作，my-site 不放課表、計時、抽卡、水道等工具。
 - **Vortex（主力）**：游泳水感研究。給使用者本人查閱，也給任何拿到連結的人（初學者、家長、選手、教練、路人）讀；**不導流**（不問身分、不分流），靠頁內由淺到深與知識點連結讓人讀下去。
 - **書房（其他系列）**：兩冊肌肉骨骼讀本、CSCS、大腦喜歡這樣學、UST、氣質。主要給使用者本人，每個系列各自有入口與相關連結；介面要讓容易拖延的人願意開始、讀得下去。
 - 2026-09-26 全站從零重做並正式切換。**舊版封存於 git 標籤 `legacy-site-2026-09-26`**（舊 `layouts/`、`static/`、`data/home.yaml` 已移除）。規劃書：`research/redesign-2026-09-24/PLAN.md`。
@@ -37,7 +38,7 @@ next/
                              diagrams.js、cscs-quiz.js、cscs-cards.js、temp-quiz.js、planner.js …
   data/                      產生物：vortex_links.json、library.json、starters.json、crosslinks.json；
                              手管：drill_axes.yaml（練習篩選軸標籤）、cscs_titles.yaml（CSCS 中文章名）；
-                             swim_rules.json（課表工具用，tools/sync_swim_rules.py 從 swim-coach 規則表同步）、swim_equipment.yaml（器材中文名）、workout_blocks.yaml（課表工具的器材技術準備模板、水下海豚腿段劑量、各期負荷比例對照）
+                             （2026-10-21 起不放課表工具：排課、計時、抽卡、水道全在 swim-coach；swim_rules／swim_equipment／workout_blocks 已搬回 swim-coach app/data-src/）
   static/                    舊網址轉址頁（tools/build_redirects.py 產生）
   specs/                     工作單規格、check.py（全部驗收）、run_queue.sh（M3 派工佇列）、STATUS.md
   crosslinks/                跨系列連結的候選、判斷、複審原始資料

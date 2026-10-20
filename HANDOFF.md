@@ -1,9 +1,10 @@
 # HANDOFF — my-site (Cortex)
 
-## 課表工具改由 swim-coach 當正本（2026-10-21 使用者定）
+## 課表工具已從 my-site 移除（2026-10-21 使用者定：my-site 只放知識內容）
 
-- `next/assets/js/workout.js` 的課表工具之後要嘛跟上 swim-coach、要嘛廢掉；新功能只做在 swim-coach。
-- 2026-10-21：`tools/test_workout_draw/goals/group.cjs` 過期的期望值已更新（組間休息 360、純速距離依速度、專項準備補閾值），三套都 PASS。
+- 刪除 `vortex/workout/`、`vortex/workout-studio/` 兩頁與其 partial、JS、CSS、抽卡圖、`swim_rules.json`／`swim_equipment.yaml`／`workout_blocks.yaml`（已搬回 swim-coach `app/data-src/`）、`tools/sync_swim_rules.py`、`tools/test_workout_*.cjs`；Vortex 首頁與左側目錄的「課表與間歇計時」入口拿掉；`baseof.html` 的工作台分支、`tokens.css` 的 `.workout-studio` 色票一併刪。
+- swim-coach 的引擎資料改由 swim-coach `tools/build_engine_data.py` 直接讀 Vortex，不再抓 my-site 頁面。
+- 驗收：P4 全站連結 PASS、舊網址 121 筆全對、T1–T4／V2–V7／L*／W3–W5／W7／W8 PASS；W1（units type=error 106≠104）、W6（open-water 空區塊）移除前就失敗，與此無關，待查。
 
 ## 計時器：這一趟重來／從某一趟開始（2026-10-16 晚）
 - 計時器多兩個按鈕：「這一趟重來」（游泳中＝這一趟、休息中＝剛游完那一趟、準備中＝重新倒數），「從某一趟開始」（選項目＋第幾組第幾趟）。都回到 10 秒準備倒數再出發，已記的秒數保留，可撤銷。實作在 workout.js（startAt）＋ workout.html 的 data-wk-jump dialog。
