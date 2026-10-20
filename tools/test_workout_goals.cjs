@@ -84,7 +84,7 @@ const output = process.env.WORKOUT_SCREENSHOTS || os.tmpdir();
     await page.locator('[data-wk-goal-size]').selectOption('standard');
     await add();
     let row = (await rows()).at(-1);
-    assert.equal(row.sets, 2); assert.equal(row.reps, 4); assert.equal(row.rest, 180); assert.equal(row.setRest, 180);
+    assert.equal(row.sets, 2); assert.equal(row.reps, 4); assert.equal(row.rest, 180); assert.equal(row.setRest, 360); // 10/18 起組間＝趟間 × 2（rest_by_age）
     await open();
     await select('race_pace');
     await page.locator('[data-wk-goal-event]').selectOption('400');

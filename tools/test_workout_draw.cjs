@@ -152,7 +152,7 @@ const ZH = { 自由式: 'free', 仰式: 'back', 蛙式: 'breast', 蝶式: 'fly' 
     assert.equal(new Set(f7.slice(0, 4)).size, 4, `speed rounds take all four strokes: ${f7}`);
     assert.equal(new Set(f7.slice(4, 6)).size, 2, `rounds within one segment never repeat in remove mode: ${f7}`);
     const r7 = await (async () => { const b = await rows(page); await page.locator('[data-draw-add]').click(); return (await rows(page)).slice(b.length); })();
-    assert.deepEqual(r7.slice(0, 4).map(r => [r.sets || 1, r.reps, r.dist]), Array(4).fill([1, 2, 25]), 'speed 8 reps split into 4 × 2');
+    assert.deepEqual(r7.slice(0, 4).map(r => [r.sets || 1, r.reps]), Array(4).fill([1, 2]), 'speed 8 reps split into 4 × 2（距離依速度換算，10/18 起可能是 15 m）');
     assert.deepEqual(r7.slice(4, 6).map(r => r.reps * r.dist), [1000, 1000], 'threshold 2000 m split into two rounds');
     // 整堂總量：速度段照組型，剩下的分給閾值（權重 2）與輕鬆有氧（權重 1）
     await page.locator('[data-ws-tab="pace"]').click();
@@ -178,15 +178,15 @@ const ZH = { 自由式: 'free', 仰式: 'back', 蛙式: 'breast', 蝶式: 'fly' 
     assert.match(await page.locator('[data-draw-card="2.0"] .wk-card-out').innerText(), /12 × 100 m[\s\S]*偏多/, 'easy 3×400 becomes 12×100 for a fly swimmer whose longest fly is 100, with a split hint');
     for (let i = 0; i < 3; i++) await page.locator(`[data-draw-lock="${i}.0"]`).selectOption('');
 
-    // 自選週期：專項準備第 1 堂＝賽速一段；第 2 堂＝速耐；過渡期＝輕鬆游
+    // 自選週期：專項準備第 1 堂＝賽速＋閾值；第 2 堂＝速耐＋短閾值（2026-10-21 起賽速與閾值並重）；過渡期＝輕鬆游
     await page.locator('[data-ws-tab="pace"]').click();
     await page.locator('[data-draw-src="phase"]').click();
     await page.locator('[data-draw-phase]').selectOption('specific_prep');
-    assert.deepEqual(await page.locator('.wk-card-k').allInnerTexts(), ['第 1 段・賽速重複', '第 2 段・副泳式有氧'], 'tail aerobic segment on by default');
+    assert.deepEqual(await page.locator('.wk-card-k').allInnerTexts(), ['第 1 段・賽速重複', '第 2 段・閾值', '第 3 段・副泳式有氧'], 'tail aerobic segment on by default');
     await page.locator('[data-draw-tail]').click();
-    assert.deepEqual(await page.locator('.wk-card-k').allInnerTexts(), ['第 1 段・賽速重複']);
+    assert.deepEqual(await page.locator('.wk-card-k').allInnerTexts(), ['第 1 段・賽速重複', '第 2 段・閾值']);
     await page.locator('[data-draw-day]').selectOption('1');
-    assert.equal(await page.locator('[data-draw-card]').count(), 1);
+    assert.equal(await page.locator('[data-draw-card]').count(), 2); // 速耐＋短閾值
     await page.locator('[data-draw-tail]').click();
     await page.locator('[data-draw-phase]').selectOption('general_prep');
     await page.locator('[data-draw-day]').selectOption('0');

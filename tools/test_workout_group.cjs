@@ -108,7 +108,7 @@ const url = process.argv[2] || 'http://127.0.0.1:13380/cortex/vortex/workout/';
     await page.locator('[data-wk-goal-size]').selectOption('standard');
     await page.locator('[data-wk-goal-lane]').click();
     assert.equal(await page.locator('[data-ws-mode="group"]').getAttribute('aria-pressed'), 'true');
-    assert.equal(await f('sets').inputValue(), '2'); assert.equal(await f('setRest').inputValue(), '180');
+    assert.equal(await f('sets').inputValue(), '2'); assert.equal(await f('setRest').inputValue(), '360');
     assert.deepEqual(await targets(), ['', '']); assert.equal(await choice('key').inputValue(), 'velocity');
     assert.deepEqual(await snapshot(), original);
     // Mobile roster with PB fields and results is scrollable without overflowing the page.
