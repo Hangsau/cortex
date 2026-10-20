@@ -260,6 +260,7 @@ NOTE_SLUGS = {
     "週期化/板塊週期化_Issurin": "block-periodization-issurin",
     "週期化/頂尖教練訓練哲學_Sandbakk": "elite-coaching-philosophy-sandbakk",
     "週期化/蹼泳訓練_能力休息與分配": "finswimming-training",
+    "競賽成績分析/跨泳式關係_三項新發現": "cross-stroke-relations",
 }
 NOTE_LAYER_NAME = "研究筆記"
 NOTE_STATUS = "研究中"
