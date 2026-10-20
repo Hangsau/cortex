@@ -1,5 +1,10 @@
 # HANDOFF — my-site (Cortex)
 
+## 課表工具改由 swim-coach 當正本（2026-10-21 使用者定）
+
+- `next/assets/js/workout.js` 的課表工具之後要嘛跟上 swim-coach、要嘛廢掉；新功能只做在 swim-coach。
+- `tools/test_workout_draw/goals/group.cjs` 一直失敗（純速休息期望值仍是 10/18 前的 180，實際 360），決定跟上或廢掉時一併處理。
+
 ## 計時器：這一趟重來／從某一趟開始（2026-10-16 晚）
 - 計時器多兩個按鈕：「這一趟重來」（游泳中＝這一趟、休息中＝剛游完那一趟、準備中＝重新倒數），「從某一趟開始」（選項目＋第幾組第幾趟）。都回到 10 秒準備倒數再出發，已記的秒數保留，可撤銷。實作在 workout.js（startAt）＋ workout.html 的 data-wk-jump dialog。
 - swim-coach 雲端版用 tools/port_timer.py 同步（已同步）。test_workout_* 九支全過。
