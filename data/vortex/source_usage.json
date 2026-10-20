@@ -252,6 +252,7 @@
   "src.bosquet-2007-tapering-meta-analysis": {
    "slug": "bosquet-2007-tapering-meta-analysis",
    "units": [
+    "periodization.set_design.phase_allocation",
     "periodization.taper.swim",
     "periodization.taper.type.fast_exponential",
     "periodization.taper.type.step",
@@ -748,6 +749,12 @@
    "slug": "general-swim-science-consensus",
    "units": [
     "starts-turns.err12"
+   ]
+  },
+  "src.girold-2007-dryland-vs-resisted-assisted-sprint": {
+   "slug": "girold-2007-dryland-vs-resisted-assisted-sprint",
+   "units": [
+    "periodization.set_design.phase_allocation"
    ]
   },
   "src.goff-2023": {
@@ -4286,6 +4293,7 @@
    "units": [
     "movement.demand.starts-turns.flip.tuck-composition-and-rotation-is-not-a-joint-action",
     "movement.demand.starts-turns.turn-approach.cervical-non-extension-and-coverage-boundary",
+    "periodization.set_design.phase_allocation",
     "starts-turns.tech.20",
     "starts-turns.tech.38"
    ]
@@ -4775,6 +4783,13 @@
   ],
   "starts-turns.tech.28": [
    "src.born-2022-im"
+  ],
+  "periodization.set_design.phase_allocation": [
+   "src.bosquet-2007-tapering-meta-analysis",
+   "src.girold-2007-dryland-vs-resisted-assisted-sprint",
+   "src.hellard-2013-optimal-overload-taper",
+   "src.hellard-2019",
+   "src.wen-2016-flip-turn-drills"
   ],
   "periodization.taper.swim": [
    "src.bosquet-2007-tapering-meta-analysis",
@@ -5515,10 +5530,6 @@
   "open-water.tech.22": [
    "src.heggy-2021-triathlon-swim-intensity-usms",
    "src.landers-2008-swim-positioning-triathlon"
-  ],
-  "periodization.set_design.phase_allocation": [
-   "src.hellard-2013-optimal-overload-taper",
-   "src.hellard-2019"
   ],
   "periodization.dryland.methods": [
    "src.hermosilla-2021",
