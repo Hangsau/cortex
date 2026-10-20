@@ -456,7 +456,7 @@
       return { type: 'race_pace', name: label || '賽速重複', row: { reps, dist: rep, stroke: s, int: 'race', event: selectedEvent || have.length ? String(ev) : '', rest: raceRest(rep) },
         why: `以 ${ev} m 項目計：總量＝${ev} m × ${mult}${scale ? ` × ${scale}` : ''}（既有賽速總量範圍取中值）；可依實際完成情況調整` };
     };
-    const thr = () => { const x = TYPE.threshold, d = 200, vol = 2000; return { type: 'threshold', name: '閾值', row: { reps: vol / d, dist: d, stroke: s, int: 'thr', rest: r5((x.rest_s.min + x.rest_s.max) / 2) }, why: `總量取 ${esc(x.volume_rule.replace(/^總量\s*/, ''))} 的下緣` }; };
+    const thr = (scale, label) => { const x = TYPE.threshold, d = 200, vol = 2000 * (scale || 1); return { type: 'threshold', name: label || '閾值', row: { reps: vol / d, dist: d, stroke: s, int: 'thr', rest: r5((x.rest_s.min + x.rest_s.max) / 2) }, why: `總量取 ${esc(x.volume_rule.replace(/^總量\s*/, ''))} 的下緣${scale ? `的 ${scale} 倍（和速耐同一堂，工具取半）` : ''}` }; };
     const easy = (label) => { const x = TYPE.aerobic_easy; return { type: 'aerobic_easy', name: label || '輕鬆有氧', row: { reps: 3, dist: 400, stroke: s, int: 'easy', rest: r5((x.rest_s.min + x.rest_s.max) / 2) }, why: '量依可用時間調' }; };
     const steady = () => { const x = easy('穩定有氧'); x.row.int = 'steady'; x.why = `配速用 CSS × ${K_STEADY}；份量與休息沿用輕鬆有氧範例，可再調整`; return x; };
     const vel = (sets) => { const x = TYPE.velocity; return { type: 'velocity', name: '純速', row: { sets: sets || x.reps.blocks, reps: 4, dist: x.distance_m.max, stroke: s, int: 'sprint', pct: 100, rest: r5((x.rest_s.min + x.rest_s.max) / 2), setRest: 0 }, why: `每趟 ${x.distance_m.min}–${x.distance_m.max} m，${x.reps.min}–${x.reps.max} 趟分 ${x.reps.blocks} 組；熱身後、還不累時做` }; };
@@ -675,7 +675,8 @@
   function qualityDay(ph, k, B) {
     const second = k % 2 === 1;
     if (ph === 'general_prep') return second ? { focus: '賽速（少量，動作校準）＋閾值', sets: [B.race(0.5, '賽速（少量）'), B.thr()] } : { focus: '純速（維持）＋閾值', sets: [B.vel(), B.thr()] };
-    if (ph === 'specific_prep') return second ? { focus: '速耐（本週唯一一次）', sets: [B.tol()] } : { focus: '賽速', sets: [B.race()] };
+    // 專項準備：賽速與閾值並重（Vortex set_design.phase_allocation；使用者 2026-10-20 指出原本沒有閾值、剩下的量全變輕鬆有氧）
+    if (ph === 'specific_prep') return second ? { focus: '速耐（本週唯一一次）＋閾值（短）', sets: [B.tol(), B.thr(0.5, '閾值（短）')] } : { focus: '賽速＋閾值', sets: [B.race(), B.thr()] };
     if (ph === 'competition') return second ? { focus: '純速', sets: [B.vel()] } : { focus: '賽速', sets: [B.race()] };
     return second ? { focus: '純速（短）', sets: [B.vel(1)] } : { focus: '賽速（減量）', sets: [B.race(0.5, '賽速（減量）')] }; // taper
   }
@@ -741,7 +742,15 @@
   const DRAW_TOTAL_KEY = 'cortex-draw-total', DRAW_TOTAL_MAX = 10000;
   const DRAW_FRAME = 500;         // 課表還沒排暖身／drill／緩和時先抓 100＋300＋100
   // 依時間決定量的組：分主課剩下的量（權重：閾值、穩定有氧是主角，輕鬆有氧是陪襯）；每趟距離從長到短挑，至少 3 趟
-  const FLEX_WEIGHT = { threshold: 2, steady: 2, aerobic_easy: 1 };
+  // 剩下的量依時期分（使用者 2026-10-20；方向取自 Vortex zones.swim_tid：一般準備金字塔、專項準備轉極化＋閾值、賽前低強度占比下降；比例是工具規則 🔵，可再調）
+  const FLEX_BY_PHASE = {
+    general_prep: { threshold: 2, steady: 2, aerobic_easy: 1 },  // 閾值與輕鬆有氧為主
+    specific_prep: { threshold: 2, steady: 2, aerobic_easy: 1 }, // 賽速與閾值並重，輕鬆讓位但不歸零
+    competition: { threshold: 1, steady: 1, aerobic_easy: 2 },   // 閾值與輕鬆課負責恢復
+    taper: { aerobic_easy: 1 },                                  // 只留輕鬆＋賽速
+    transition: { aerobic_easy: 1 },
+  };
+  const flexW = (key) => { const P = draw.src === 'custom' ? null : drawPhase(); return ((P && FLEX_BY_PHASE[P.phase]) || FLEX_BY_PHASE.general_prep)[key] || 0; };
   const FLEX_DIST = [400, 200, 100], FLEX_MIN_REPS = 3; // set_types：閾值每趟 100–400 m、輕鬆有氧 100 m 起
   const LONG_ROUND_RATIO = 10; // 一輪的量超過該式最長成績距離的 10 倍就提醒可以拆給多式——工具的提醒門檻，不是文獻劑量
   const readTotal = () => { try { const v = +localStorage.getItem(DRAW_TOTAL_KEY); return v > 0 ? v : null; } catch (_) { return null; } };
@@ -801,7 +810,7 @@
     const base = slots.map(sl => rowDist(sl.build('free').row));
     if (!draw.total) return { vols: base.map(() => null), base };
     const frame = drawFrame(), budget = Math.max(0, draw.total - frame.m);
-    const w = slots.map(sl => FLEX_WEIGHT[sl.key] || 0), wsum = w.reduce((a, b) => a + b, 0);
+    const w = slots.map(sl => flexW(sl.key)), wsum = w.reduce((a, b) => a + b, 0);
     const fixed = base.reduce((a, v, i) => a + (w[i] ? 0 : v), 0), share = Math.max(0, budget - fixed);
     return { vols: w.map(x => (x && wsum ? share * x / wsum : null)), base, frame, budget, fixed, share, flex: wsum > 0 };
   }
@@ -810,7 +819,7 @@
   function roundBuild(r, s, plan) {
     if (!hasPb(s)) return { name: r.sl.name, row: coachRow(s, r.sl.name), noPb: true };
     const x = r.sl.build(s), row = normRow(JSON.parse(JSON.stringify(x.row))), k = drawSplit(r.i), cap = strokeCap(s);
-    if (FLEX_WEIGHT[r.sl.key]) {
+    if (flexW(r.sl.key)) {
       const V = (plan.vols[r.i] != null ? plan.vols[r.i] : rowDist(row)) / k;
       const cand = [row.dist, ...FLEX_DIST].filter(d => d <= cap);
       const d = cand.find(c => V / c >= FLEX_MIN_REPS) || (cand.length ? Math.min(...cand) : Math.min(row.dist, cap));
