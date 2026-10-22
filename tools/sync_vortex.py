@@ -263,6 +263,7 @@ NOTE_SLUGS = {
     "競賽成績分析/跨泳式關係_三項新發現": "cross-stroke-relations",
     "競賽成績分析/分段型態_每場差異與狀態變化": "split-patterns",
     "競賽成績分析/掉速成因_轉身前加速": "fade-causes",
+    "競賽成績分析/比賽情境與配速_五個問題": "race-context",
     "競賽成績分析/100公尺勝負點_前後50與反應時間": "hundred-decider",
 }
 NOTE_LAYER_NAME = "研究筆記"
