@@ -74,6 +74,8 @@ groups:
     slugs:
     - propulsion-theory-history
     - vortex-recapture
+    - elastic-energy-storage
+    - natural-frequency
   - key: training
     name_zh: 訓練安排
     desc_zh: 強度分布、週期化結構、頂尖教練的工作方式、特殊訓練法與蹼泳。
@@ -931,7 +933,7 @@ notes:
   role: overview
   kind: literature
   status: researching
-  summary_zh: 推進主要靠往後推水的阻力、自己產生的渦流可以被再利用；兩篇引用查證失敗的筆記已下架待重寫。
+  summary_zh: 推進主要靠往後推水的阻力、自己產生的渦流可以被再利用；彈性蓄能與划頻節律兩篇只用全文來源重寫，游泳中的直接量測仍是空白。
   title: 水中物理：總覽
   group: literature
   weight: 37
@@ -991,6 +993,54 @@ notes:
     'no': '4.1'
     title: 自由式有沒有「渦流接力」的最佳時序
     anchor: q-4-1
+- id: note.elastic-energy
+  slug: elastic-energy-storage
+  theme: physics
+  kind: literature
+  status: researching
+  summary_zh: 肌肉先被快速拉長再縮短會更有力；游泳裡有說法的只有出發與轉身的蹬牆，划手踢腿中有沒有可利用的彈性蓄能，目前沒有量測。
+  findings:
+  - text_zh: 伸展縮短循環要「拉長快、轉換短」，停頓太久存下的能量會以熱散掉。
+    certainty: 🟡
+  - text_zh: 轉身時中等力度觸牆、從半流線型姿勢快速蹬出，能用上腿部存的彈性能量；觸牆後再蹲深或往牆裡沉會散掉。
+    certainty: 🟡
+    apply_zh: 練轉身時要求觸牆後立刻蹬，不往下蹲、不往牆裡沉。
+  - text_zh: 水中動作速度低，能利用的彈性能量很可能比陸上跳躍小；划手與踢腿中的實際貢獻沒有量測。
+    certainty: 🔵
+  title: 彈性蓄能：游泳裡哪裡用得到「先拉長再彈回」
+  group: literature
+  weight: 40
+  status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.4.3
+    'no': '4.3'
+    title: 游泳中有沒有可利用的彈性蓄能
+    anchor: q-4-3
+- id: note.natural-frequency
+  slug: natural-frequency
+  theme: physics
+  kind: literature
+  status: researching
+  summary_zh: 手腳像耦合的振盪器，一划配幾踢會隨速度切換；但「每個人有一個最省力的自然頻率划頻」沒有泳者的直接量測。
+  findings:
+  - text_zh: 距離配速時入水期較長、划頻較低、比較經濟；衝刺用划頻與推進力換掉經濟性。
+    certainty: 🟡
+    apply_zh: 不給固定的理想划頻，划頻跟距離、速度一起變。
+  - text_zh: 菁英自由式選手加速時，手腳頻率比從 1:1 轉到 1:3，1:2 很少出現；在流水槽中耦合變鬆、不對稱變大。
+    certainty: 🟢
+  - text_zh: 划手踢腿是主動驅動、阻力隨速度平方增加，肢體的固有頻率不能直接等同最佳划頻。
+    certainty: 🔵
+  title: 划頻、節律與手腳協調：「自然頻率」假說查證之後
+  group: literature
+  weight: 41
+  status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.4.2
+    'no': '4.2'
+    title: 划頻和肢體的自然頻率
+    anchor: q-4-2
 - id: note.training-overview
   slug: training-overview
   theme: training
@@ -1000,7 +1050,7 @@ notes:
   summary_zh: 游泳多數是金字塔型強度分布；頂尖教練走傳統週期化加上逐人微調；板塊週期化與低通氣訓練在游泳的證據還有限。
   title: 訓練安排：總覽
   group: literature
-  weight: 40
+  weight: 42
   status_zh: 研究中
   graduated: []
   questions:
@@ -1031,7 +1081,7 @@ notes:
     certainty: 🟢
   title: 極化訓練（Polarized Training）與訓練強度分布（TID）
   group: literature
-  weight: 41
+  weight: 43
   status_zh: 研究中
   graduated:
   - id: periodization.zones.swim_tid
@@ -1052,7 +1102,7 @@ notes:
     certainty: 🟢
   title: 板塊週期化（Block Periodization）— Issurin 研究筆記
   group: literature
-  weight: 42
+  weight: 44
   status_zh: 研究中
   graduated:
   - id: periodization.structure.school_block
@@ -1075,7 +1125,7 @@ notes:
     certainty: 🟢
   title: 頂尖耐力教練的訓練哲學
   group: literature
-  weight: 43
+  weight: 45
   status_zh: 研究中
   graduated: []
   questions: []
@@ -1092,7 +1142,7 @@ notes:
     certainty: 🔵
   title: 超最大強度低通氣訓練（VHL / RSH-VHL）
   group: literature
-  weight: 44
+  weight: 46
   status_zh: 研究中
   graduated: []
   questions:
@@ -1117,7 +1167,7 @@ notes:
     certainty: 🔵
   title: 蹼泳訓練：各項目要練什麼、怎麼休息、器材怎麼分配
   group: literature
-  weight: 45
+  weight: 47
   status_zh: 研究中
   graduated: []
   questions:
@@ -1143,7 +1193,7 @@ notes:
     apply_zh: 課表裡沒有出處的份量留白，不自己補數字。
   title: 鐵人三項的游泳：常見說法與訓練參數，研究怎麼說
   group: literature
-  weight: 46
+  weight: 48
   status_zh: 已寫進知識點
   graduated:
   - id: open-water.err1
@@ -1189,7 +1239,7 @@ notes:
     apply_zh: 先張力 → 再身體動作 → 再流體意圖。
   title: 指令層次設計：身體運動語言 vs 流體意圖語言
   group: observation
-  weight: 47
+  weight: 49
   status_zh: 研究中
   graduated: []
   questions: []
@@ -1205,7 +1255,7 @@ notes:
     apply_zh: 用放大感知訊號的器材讓動作自己調整，而不是用大划板強迫形式。
   title: 課堂觀察：小划手板實驗
   group: observation
-  weight: 48
+  weight: 50
   status_zh: 研究中
   graduated: []
   questions:

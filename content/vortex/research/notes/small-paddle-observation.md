@@ -5,7 +5,7 @@ slug: "small-paddle-observation"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 48
+weight: 50
 note_kind: "observation"
 note_theme: "observation"
 note_role: ""

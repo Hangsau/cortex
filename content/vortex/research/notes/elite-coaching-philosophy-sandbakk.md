@@ -5,7 +5,7 @@ slug: "elite-coaching-philosophy-sandbakk"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 43
+weight: 45
 note_kind: "literature"
 note_theme: "training"
 note_role: ""
