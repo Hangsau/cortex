@@ -313,8 +313,15 @@ def clean_note_text(md: str, stem_to_note: dict[str, dict], by_title: dict[str, 
     return re.sub(r"\n{3,}", "\n\n", md).strip() + "\n"
 
 
+def public_prose(raw: str) -> str:
+    """散文上站前的共同前處理：去 front matter 與 H1、剝診斷語與外站連結。"""
+    return strip_external_links(strip_diagnostic(strip_title_h1(strip_existing_frontmatter(raw))))
+
+
 OPEN_Q_SRC = VORTEX_SRC / "FUTURE_RESEARCH.md"
 OPEN_Q_DST = HUGO_VORTEX / "research" / "open-questions.md"
+OPEN_Q_WEIGHT = 3  # 研究庫內排序：研究結論一覽 1、研究筆記 2、開放問題 3
+OPEN_Q_DESC = "研究筆記做完之後，資料或文獻還回答不了的問題：問題是什麼、目前知道到哪裡、要怎麼驗證。"
 _OPEN_Q_HEADING = re.compile(r"^### (\d+(?:\.\d+)+)\s+(.+?)\s*\{#(q-[\d-]+)\}\s*$", re.M)
 
 
@@ -397,9 +404,7 @@ def sync_research_notes(dry_run: bool):
             by_unit.setdefault(u["id"], []).append(n["slug"])
         n["questions"] = [dict(id=q, **questions[q]) for q in n.pop("open_questions", []) if q in questions]
         src = n["_src"]
-        body = strip_existing_frontmatter(src.read_text(encoding="utf-8"))
-        body = strip_external_links(strip_diagnostic(strip_title_h1(body)))
-        body = clean_note_text(body, stem_to_note, by_title)
+        body = clean_note_text(public_prose(src.read_text(encoding="utf-8")), stem_to_note, by_title)
         for leak in sorted(set(re.findall(r"(?:Research|Technica|Instructional|Observations|canonical)/\S*", body))):
             print(f"  [WARN] {n['slug']} 仍含內部路徑：{leak}")
         print(f"  {src.relative_to(RESEARCH_SRC.parent)} → research/notes/{n['slug']}")
@@ -419,13 +424,16 @@ def sync_research_notes(dry_run: bool):
         return
     NOTES_DATA_DST.write_text(dump_yaml({"groups": groups, "notes": notes, "by_unit": by_unit}),
                               encoding="utf-8")
+    write_open_questions(stem_to_note, by_title)
+
+
+def write_open_questions(stem_to_note: dict[str, dict], by_title: dict[str, dict]):
+    """FUTURE_RESEARCH.md → 研究庫「開放問題」頁；筆記連結在 notes/ 底下，所以前綴多一層。"""
     raw = OPEN_Q_SRC.read_text(encoding="utf-8")
-    body = strip_external_links(strip_diagnostic(strip_title_h1(strip_existing_frontmatter(raw))))
-    body = clean_note_text(body, stem_to_note, by_title, prefix="../notes/")
-    fm = build_frontmatter(title=extract_title(raw),
-                           description="研究筆記做完之後，資料或文獻還回答不了的問題：問題是什麼、目前知道到哪裡、要怎麼驗證。",
-                           slug="open-questions", layer="research", layer_name="開放問題", strokes=[],
-                           extra={"weight": 3})
+    body = clean_note_text(public_prose(raw), stem_to_note, by_title, prefix="../notes/")
+    fm = build_frontmatter(title=extract_title(raw), description=OPEN_Q_DESC, slug="open-questions",
+                           layer="research", layer_name="開放問題", strokes=[],
+                           extra={"weight": OPEN_Q_WEIGHT})
     OPEN_Q_DST.write_text(fm + body, encoding="utf-8")
 
 

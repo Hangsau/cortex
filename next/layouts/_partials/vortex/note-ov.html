@@ -1,0 +1,5 @@
+{{- /* 研究筆記清單的總覽列（大類總覽、主題總覽共用）。dict "slug" "notes"（slug → 筆記資料）。 */ -}}
+{{- $n := index .notes .slug -}}
+{{- with site.GetPage (printf "/vortex/research/notes/%s" .slug) }}
+<a class="nl-ov" href="{{ .RelPermalink }}"><span class="nl-ov-k">總覽</span><span class="ls-ch-body"><span class="ls-ch-t">{{ .Title }}</span><span class="ls-ch-d">{{ $n.summary_zh }}</span></span></a>
+{{- end -}}
