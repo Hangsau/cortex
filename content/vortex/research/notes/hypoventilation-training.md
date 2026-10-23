@@ -1,10 +1,13 @@
 ---
 title: "超最大強度低通氣訓練（VHL / RSH-VHL）"
-description: "定位：這是 2020–2026 期間水中訓練文獻裡證據最完整的一條「新路線」——不靠高海拔或低氧帳篷，而是靠泳者自己在低肺容積下憋氣製造局部缺氧。"
+description: "低肺容積憋氣衝刺能改善反覆衝刺能力，但樣本小、只在成人選手，不適用初學者與兒童。"
 slug: "hypoventilation-training"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 41
+note_kind: "literature"
+note_theme: "training"
 draft: false
 ---
 

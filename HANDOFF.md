@@ -1,5 +1,13 @@
 # HANDOFF — my-site (Cortex)
 
+
+## 當前狀態（2026-10-23，Vortex 研究筆記改由登錄表驅動）
+
+- `tools/sync_vortex.py` 的 `sync_research_notes()` 改讀 Vortex `Research/_notes.yaml`（寫筆記 md 的 weight／description／note_kind／note_theme，並輸出 `data/vortex/research_notes.yaml`）；寫死的 `NOTE_SLUGS` 已刪。
+- 新版面（沿用既有頁型元件，未加 CSS）：`_partials/vortex/notes-list.html`（研究筆記依 3 大類 7 主題分組、主題內編號＝閱讀順序）、`notes-digest.html`（新頁「研究結論一覽」`content/vortex/research/conclusions.md`）；研究庫首頁與左欄加入口；筆記頁頂說明依類型區分。
+- 驗收：P4、V2–V7、W3–W5、W7、W8 PASS；舊網址 121 全對應。**W1（units type=error 106≠104）與 W6（open-water 空區塊／udk.move.4）在未改動的 HEAD 一樣失敗，與本次無關，待處理。**
+- 下一步：版面升級要先走 Claude Design 畫布（見 Vortex `plans/研究筆記整理規劃_2026-10-23.md` Phase 2）。
+
 ## 課表工具已從 my-site 移除（2026-10-21 使用者定：my-site 只放知識內容）
 
 - 刪除 `vortex/workout/`、`vortex/workout-studio/` 兩頁與其 partial、JS、CSS、抽卡圖、`swim_rules.json`／`swim_equipment.yaml`／`workout_blocks.yaml`（已搬回 swim-coach `app/data-src/`）、`tools/sync_swim_rules.py`、`tools/test_workout_*.cjs`；Vortex 首頁與左側目錄的「課表與間歇計時」入口拿掉；`baseof.html` 的工作台分支、`tokens.css` 的 `.workout-studio` 色票一併刪。

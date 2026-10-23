@@ -1,0 +1,44 @@
+{{- /* 研究結論一覽（2026-10-23，Claude 手寫）。沿用文章頁型（lib-chapter／lc-*），不新增版型。
+     所有研究筆記的 findings 集中一頁，資料來自 data/vortex/research_notes.yaml（真相源：Vortex Research/_notes.yaml）。
+     每條結論綁在自己的證據標記上；「怎麼用」只在有值時印。 */ -}}
+{{- $css := resources.Get "css/library.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{- $data := hugo.Data.vortex.research_notes -}}
+{{- $bySlug := dict }}{{ range $data.notes }}{{ $bySlug = merge $bySlug (dict .slug .) }}{{ end -}}
+<article class="lib-chapter vx-article">
+  <header class="lc-head">
+    <p class="kicker">Vortex · 研究庫</p>
+    <h1>{{ .Title }}</h1>
+    <p class="lc-lead">{{ .Description }}</p>
+  </header>
+  <p class="lc-frozen"><b>怎麼讀</b>🔵 推導或自己分析的數字、🟢 近期文獻、🟡 舊文獻、🟠 教練觀測、🔴 還沒有依據的假設。這裡的結論都還在研究中，與知識點頁不一致時，以知識點頁為準。</p>
+  <div class="lc-body read">
+    <nav aria-label="主題">
+      <ul>
+        {{- range $data.groups }}{{ range .themes }}
+        <li><a href="#nd-{{ .key }}">{{ .name_zh }}</a>（{{ len .slugs }} 篇）</li>
+        {{- end }}{{ end }}
+      </ul>
+    </nav>
+    {{- range $data.groups }}
+    <h2 id="nd-g-{{ .key }}">{{ .name_zh }}</h2>
+    {{- with .desc_zh }}<p>{{ . }}</p>{{ end }}
+      {{- range .themes }}
+    <h3 id="nd-{{ .key }}">{{ .name_zh }}</h3>
+        {{- range .slugs }}
+          {{- $n := index $bySlug . }}
+          {{- with site.GetPage (printf "/vortex/research/notes/%s" .) }}
+    <p><a href="{{ .RelPermalink }}"><strong>{{ .Title }}</strong></a>{{ if ne $n.status "researching" }}（{{ $n.status_zh }}）{{ end }}</p>
+          {{- else }}
+    <p><strong>{{ $n.slug }}</strong></p>
+          {{- end }}
+    <ul>
+          {{- range $n.findings }}
+      <li>{{ .certainty }} {{ .text_zh }}{{ with .apply_zh }}<br>怎麼用：{{ . }}{{ end }}</li>
+          {{- end }}
+    </ul>
+        {{- end }}
+      {{- end }}
+    {{- end }}
+  </div>
+</article>

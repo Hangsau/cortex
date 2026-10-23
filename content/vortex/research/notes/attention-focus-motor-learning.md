@@ -1,10 +1,13 @@
 ---
 title: "注意力焦點與動作學習"
-description: "主題：外部 vs. 內部注意力焦點對動作學習與運動表現的影響，含游泳專屬證據及「感覺水」的理論張力分析。"
+description: "外部焦點不是全面優於內部焦點；本體感覺主導的任務上，一致的內部焦點反而較好。"
 slug: "attention-focus-motor-learning"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 26
+note_kind: "literature"
+note_theme: "psychology"
 draft: false
 ---
 

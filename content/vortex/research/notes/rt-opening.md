@@ -1,10 +1,13 @@
 ---
 title: "出發反應與前段配速：反應特別快，前段會不會跟著衝過頭？"
-description: "定位：常聽到的擔心是「出發太快、太緊張，整場配速就亂了」。"
+description: "出發反應快不會讓前段衝過頭（仰式例外）；反應快的那天，往往整體狀態也好。"
 slug: "rt-opening"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 5
+note_kind: "analysis"
+note_theme: "race-swim"
 draft: false
 ---
 

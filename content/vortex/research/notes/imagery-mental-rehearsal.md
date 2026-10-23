@@ -1,10 +1,13 @@
 ---
 title: "意象與心理演練（Imagery & Mental Rehearsal）"
-description: "Vortex 核心命題連結：所有游泳技術都建立在「水感知」上；技術形式是感知系統的輸出。"
+description: "動覺意象會用到大腦的前向模型，是可以訓練的感知預演。"
 slug: "imagery-mental-rehearsal"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 30
+note_kind: "literature"
+note_theme: "psychology"
 draft: false
 ---
 

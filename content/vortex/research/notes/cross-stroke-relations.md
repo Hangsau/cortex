@@ -1,10 +1,13 @@
 ---
 title: "泳式之間的關係：用比賽成績找到的三項新發現"
-description: "定位：這篇用公開比賽成績分析泳式之間的關係：一式進步會不會帶動另一式、哪些能力是跨泳式共用的、為什麼有些人自由式很強蛙式卻普通。"
+description: "牆比較強的人隔年長池進步比較多；蛙式跟其他泳式脫鉤只發生在男性。「蝶式先進步」已撤回。"
 slug: "cross-stroke-relations"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 15
+note_kind: "analysis"
+note_theme: "development"
 draft: false
 ---
 

@@ -1,10 +1,13 @@
 ---
 title: "比賽頻率與進步：比賽場數多，進步會比較少嗎？還是只是統計假象？"
-description: "定位：先前一份研究順帶看到「一季比賽場數多的人，之後進步略少」。"
+description: "「比賽多、進步少」是計算方式造成的假象；用公平的量法，比賽多寡跟進步沒有關係。"
 slug: "race-frequency"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 12
+note_kind: "analysis"
+note_theme: "development"
 draft: false
 ---
 

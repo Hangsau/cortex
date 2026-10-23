@@ -1,10 +1,13 @@
 ---
 title: "台灣孩子：同一天游越多項會怎樣？幾歲開始會收尾？"
-description: "定位：台灣中華泳協從 2026 年開始公布分段，而且有每一項的比賽日期、包含 9–12 歲組，這是日本資料沒有的。"
+description: "同一天每多游一項，每趟平均慢約 0.2%；台灣孩子的 200 常中段保留太多，100 則是後 50 撐不住。"
 slug: "tw-kids"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 10
+note_kind: "analysis"
+note_theme: "race-day"
 draft: false
 ---
 

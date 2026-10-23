@@ -1,10 +1,13 @@
 ---
 title: "掉速延伸：是這個人還是這一場？決賽前段多衝值不值得？最後 50 超車從哪裡開始？"
-description: "定位：接續〈最後一段為什麼會掉速〉。"
+description: "「會掉的選手」要看一季好幾場才準；決賽前段多衝，最後一段痛一點但總成績更好。"
 slug: "fade-followup"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 4
+note_kind: "analysis"
+note_theme: "race-swim"
 draft: false
 ---
 

@@ -1,10 +1,13 @@
 ---
 title: "游泳渦流回收（Vortex Recovery in Swimming）"
-description: "建立日期：2026-04-18"
+description: "泳者自己產生的渦流可以被下一個動作再利用，水下波形踢腿已有直接研究。"
 slug: "vortex-recapture"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 35
+note_kind: "literature"
+note_theme: "physics"
 draft: false
 ---
 

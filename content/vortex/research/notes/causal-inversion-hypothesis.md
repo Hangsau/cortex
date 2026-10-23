@@ -1,10 +1,13 @@
 ---
 title: "因果倒置假設"
-description: "建立日期：2026-04-10（整理自外部討論紀錄）"
+description: "本專案的核心假設：不是重複動作練出效率，而是先感知到水流，大腦預測，動作才被召喚出來。"
 slug: "causal-inversion-hypothesis"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 16
+note_kind: "literature"
+note_theme: "perception"
 draft: false
 ---
 

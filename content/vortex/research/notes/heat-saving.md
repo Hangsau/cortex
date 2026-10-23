@@ -1,10 +1,13 @@
 ---
 title: "預賽保留與晉級：預賽要收多少才安全？收著游，決賽有比較好嗎？"
-description: "定位：預賽要不要收著游、收多少才不會落選，是比賽中常見的決定。"
+description: "預賽要收，平常成績至少要比晉級門檻快 2–3%；資料看不到「預賽收著游、決賽比較好」。"
 slug: "heat-saving"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 9
+note_kind: "analysis"
+note_theme: "race-day"
 draft: false
 ---
 

@@ -1,10 +1,13 @@
 ---
 title: "游泳推進力理論演變：從「找靜水」到現代生物力學"
-description: "整合日期：2026年4月"
+description: "「找靜水來划」是升力理論的副產品，前提已瓦解；現在主流認為往後推水的阻力才是主要推進力。"
 slug: "propulsion-theory-history"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 34
+note_kind: "literature"
+note_theme: "physics"
 draft: false
 ---
 

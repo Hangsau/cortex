@@ -1,10 +1,13 @@
 ---
 title: "水道位置與分組強度：邊道、獨自領先、強組會怎樣？"
-description: "定位：〈鄰道效應〉看的是「兩側的人這一趟實際游多快」。"
+description: "長池邊道比較慢、後段掉比較多；預賽獨自領先時沒人帶，比較慢；決賽碰到強組會被帶快。"
 slug: "lane-heat"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 8
+note_kind: "analysis"
+note_theme: "race-day"
 draft: false
 ---
 

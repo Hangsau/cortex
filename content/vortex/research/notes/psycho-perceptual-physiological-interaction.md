@@ -1,10 +1,13 @@
 ---
 title: "08 心理–感知–生理交互（橋接叢集）"
-description: "建立日期：2026-06-15"
+description: "把恐懼、喚醒、肌肉張力、內感受串成一條機制鏈，接到全身張力型的教學問題。"
 slug: "psycho-perceptual-physiological-interaction"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 33
+note_kind: "literature"
+note_theme: "psychology"
 draft: false
 ---
 

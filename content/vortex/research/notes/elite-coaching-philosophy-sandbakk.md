@@ -1,10 +1,13 @@
 ---
 title: "頂尖耐力教練的訓練哲學"
-description: "定位：這份筆記不是「某套週期化模型」，而是 meta-level 的教練實務描述——12 位世界級教練「實際怎麼做決定」的共通模式。"
+description: "挪威 12 位世界級耐力教練的共通點：系統蒐集數據、實驗心態、大量輕鬆加每週 2–3 個關鍵日。"
 slug: "elite-coaching-philosophy-sandbakk"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 40
+note_kind: "literature"
+note_theme: "training"
 draft: false
 ---
 

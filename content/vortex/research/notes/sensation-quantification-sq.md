@@ -1,10 +1,13 @@
 ---
 title: "感知商數（SQ）三維框架"
-description: "建立日期：2026-04-11（整合自流體覺知教學系統 v3.0 Section 9.5）"
+description: "想直接量「感知能力」而不是動作結果的三維框架，目前還是研究假設。"
 slug: "sensation-quantification-sq"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 22
+note_kind: "literature"
+note_theme: "perception"
 draft: false
 ---
 

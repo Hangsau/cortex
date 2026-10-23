@@ -1,10 +1,13 @@
 ---
 title: "神經學對照組三點座標系"
-description: "建立日期：2026-04-11（整合自流體覺知教學系統 v3.1 補強討論）"
+description: "用嬰兒、成人初學者、菁英泳者三個神經學座標點，取代「初學者對菁英」的二分法。"
 slug: "neurological-reference-points"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 23
+note_kind: "literature"
+note_theme: "perception"
 draft: false
 ---
 

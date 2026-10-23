@@ -1,10 +1,13 @@
 ---
 title: "100 公尺的勝負點：前 50、後 50 與出發反應"
-description: "定位：這篇用比賽的 50 公尺分段，回答 100 公尺「跟別人比，贏在哪裡」：同一組比賽的差距落在前 50 還是後 50、實力相近時誰贏、出發反應值多少、程度高的人掉速是否較少。"
+description: "100 公尺同組的差距約六成在後 50；實力相近時，前 50 領先的人比較常贏。"
 slug: "hundred-decider"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 2
+note_kind: "analysis"
+note_theme: "race-swim"
 draft: false
 ---
 

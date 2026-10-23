@@ -1,10 +1,13 @@
 ---
 title: "隊伍效應與轉隊：進步有多少是「隊伍」決定的？轉隊有用嗎？"
-description: "定位：孩子進步多少，跟在哪一隊有多大關係？台灣有些孩子會轉隊（使用者補充），轉隊之後真的會進步比較多嗎？這篇用台灣全國與縣市賽 2014–2026 的成績回答。"
+description: "在哪一隊大約解釋一成多的進步差異；轉隊當年常伴隨進步，但到新隊第一整年就回到一般水準。"
 slug: "team-transfer"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 14
+note_kind: "analysis"
+note_theme: "development"
 draft: false
 ---
 

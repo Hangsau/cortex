@@ -1,10 +1,13 @@
 ---
 title: "04 動機與自我決定"
-description: "dossier 性質：原始文獻整理，非最終稿。"
+description: "精熟導向的氣氛讓人敢探索新感覺；表現導向的氣氛把錯誤變成能力判決，壓縮感知學習的空間。"
 slug: "motivation-self-determination"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 29
+note_kind: "literature"
+note_theme: "psychology"
 draft: false
 ---
 

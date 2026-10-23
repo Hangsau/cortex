@@ -1,10 +1,13 @@
 ---
 title: "心理層總覽 — 從感知優先重讀運動心理學"
-description: "本文件是心理層的整合骨架與導航地圖，不是第九份 dossier。"
+description: "心理層的總覽：八份文獻整理浮現五條主軸，最吃重的是「感覺水」這種第三類注意力焦點。"
 slug: "psychology-overview"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 25
+note_kind: "literature"
+note_theme: "psychology"
 draft: false
 ---
 

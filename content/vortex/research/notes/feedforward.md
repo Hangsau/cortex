@@ -1,10 +1,13 @@
 ---
 title: "Feedforward 機制：訓練操作化"
-description: "建立日期：2026-04-18"
+description: "把因果倒置假設落到訓練：感知輸入建立前向模型，再由前向模型預先調整動作。"
 slug: "feedforward"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 20
+note_kind: "literature"
+note_theme: "perception"
 draft: false
 ---
 

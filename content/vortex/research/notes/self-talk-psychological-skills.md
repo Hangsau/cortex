@@ -1,10 +1,13 @@
 ---
 title: "自我對話與心理技能訓練（Self-Talk & Psychological Skills Training）"
-description: "dossier 性質：原始彙整，非最終稿。"
+description: "自我對話要配合任務：精細技術配指導式、力量耐力配激勵式；「感知導向自我對話」還沒有人研究。"
 slug: "self-talk-psychological-skills"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 31
+note_kind: "literature"
+note_theme: "psychology"
 draft: false
 ---
 

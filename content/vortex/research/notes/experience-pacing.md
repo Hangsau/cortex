@@ -1,10 +1,13 @@
 ---
 title: "比賽經驗與配速：比賽經驗會讓配速變穩嗎？"
-description: "定位：小選手配速常常忽快忽慢、最後掉很多。"
+description: "比賽比得多，配速不會自己變穩；要穩得在練習中刻意練。"
 slug: "experience-pacing"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 13
+note_kind: "analysis"
+note_theme: "development"
 draft: false
 ---
 

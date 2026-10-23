@@ -1,10 +1,13 @@
 ---
 title: "極化訓練（Polarized Training）與訓練強度分布（TID）"
-description: "定位：與 Bompa 六分區框架形成對話的平行框架。"
+description: "極化訓練不是游泳的唯一解：游泳選手多數是金字塔型分布，而且依主項距離不同。"
 slug: "polarized-training-seiler"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 38
+note_kind: "literature"
+note_theme: "training"
 draft: false
 ---
 

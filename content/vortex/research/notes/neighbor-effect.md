@@ -1,10 +1,13 @@
 ---
 title: "鄰道效應：被旁邊的人拉快，最後 50 會不會付帳？"
-description: "定位：〈最後一段為什麼會掉速〉發現，前段比自己平常快，代價會落在最後 50。"
+description: "旁邊的人快會把你拉快；最後一段會多掉一點，但總成績平均是賺的。"
 slug: "neighbor-effect"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 7
+note_kind: "analysis"
+note_theme: "race-day"
 draft: false
 ---
 

@@ -1,10 +1,13 @@
 ---
 title: "彈性蓄能（Elastic Energy Storage in Swimming）"
-description: "建立日期：2026-04-25"
+description: "四式各有一個肌肉先被拉長再彈回的時機；水阻會吸收大部分彈性，游泳中的實測多半是研究空白。"
 slug: "elastic-energy-storage"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 36
+note_kind: "literature"
+note_theme: "physics"
 draft: false
 ---
 

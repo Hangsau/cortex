@@ -1,10 +1,13 @@
 ---
 title: "水中恐懼與學習者心理（教學應用角）"
-description: "dossier 狀態：初稿 — 2026-06-15"
+description: "怕水的核心是怕失去動作控制，不是泛泛的怕水；不同族群的恐懼長得不一樣。"
 slug: "water-fear-learner-psychology"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 28
+note_kind: "literature"
+note_theme: "psychology"
 draft: false
 ---
 

@@ -1,10 +1,13 @@
 ---
 title: "最後一段為什麼會掉速、該練什麼"
-description: "定位：前一篇〈分段型態〉發現，狀態好壞主要反映在最後一段。"
+description: "前段比平常快，代價落在最後一段；短池比長池掉得多。最後 50 的加速從進最後一面牆之前就開始。"
 slug: "fade-causes"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 3
+note_kind: "analysis"
+note_theme: "race-swim"
 draft: false
 ---
 

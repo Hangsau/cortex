@@ -1,10 +1,13 @@
 ---
 title: "板塊週期化（Block Periodization）— Issurin 研究筆記"
-description: "供「週期化多派框架對話」綜合重寫階段使用。"
+description: "板塊週期化一次只集中練一兩項能力，靠殘留效應銜接；在游泳中還沒有對照研究。"
 slug: "block-periodization-issurin"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 39
+note_kind: "literature"
+note_theme: "training"
 draft: false
 ---
 

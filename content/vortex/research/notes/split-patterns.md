@@ -1,10 +1,13 @@
 ---
 title: "分段型態：每場差多少、狀態變化落在哪一段"
-description: "定位：這篇用比賽的每 50 公尺分段，回答三件事：一場比賽各段通常長怎樣、同一個人每場差多少、進步或退步時變化落在哪一段。"
+description: "同一個人每場差最多的是最後一段；狀態變好或變差，主要反映在後半段。"
 slug: "split-patterns"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 1
+note_kind: "analysis"
+note_theme: "race-swim"
 draft: false
 ---
 

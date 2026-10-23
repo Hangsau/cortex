@@ -1,10 +1,13 @@
 ---
 title: "機械感受器與水感知"
-description: "建立日期：2026-04-17"
+description: "水感不是神秘直覺，是手部皮膚機械感受器的整合輸出；練水感要給感受器夠清楚的訊號。"
 slug: "mechanoreceptors"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 17
+note_kind: "literature"
+note_theme: "perception"
 draft: false
 ---
 

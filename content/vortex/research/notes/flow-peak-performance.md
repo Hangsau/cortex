@@ -1,10 +1,13 @@
 ---
 title: "07 心流與最佳表現狀態（Flow & Optimal Performance）"
-description: "Dossier — 非最終稿。"
+description: "心流是自動化接管、意識控制最低的狀態，對應 L5–L6「水在幫我」的感受。"
 slug: "flow-peak-performance"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 32
+note_kind: "literature"
+note_theme: "psychology"
 draft: false
 ---
 

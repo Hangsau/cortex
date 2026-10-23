@@ -10,6 +10,7 @@
 {{- $sec := dict
   "sources" (site.GetPage "/vortex/research/sources")
   "rulings" (site.GetPage "/vortex/research/rulings")
+  "conclusions" (site.GetPage "/vortex/research/conclusions")
   "notes" (site.GetPage "/vortex/research/notes")
   "drafts" (site.GetPage "/vortex/research/drafts") -}}
 <article class="lib-series">
@@ -29,9 +30,10 @@
     <h2 id="rh-trace">從結論往回查</h2>
     <div class="ls-tools">
       {{- range slice
+        (dict "k" "conclusions" "d" "所有研究筆記的重點結論集中一頁，每條標證據等級、附怎麼用")
         (dict "k" "sources" "d" "每篇文獻的查證狀態，以及本站哪些知識點建立在它上面")
         (dict "k" "rulings" "d" "哪些說法被改了、為什麼改、依據哪一句原文")
-        (dict "k" "notes" "d" "心理、感知科學、物理現象、週期化的文獻彙整，研究中")
+        (dict "k" "notes" "d" "比賽成績分析與心理、感知、物理、訓練安排的文獻整理，依主題和閱讀順序排列")
         (dict "k" "drafts" "d" "拆成知識點之前的長文原稿，已凍結，不再維護") }}
         {{- $d := .d }}{{ with index $sec .k }}
       <a class="ls-tool" href="{{ .RelPermalink }}"><span class="ls-tool-t">{{ .Title }}</span><span class="ls-tool-d">{{ $d }}</span></a>

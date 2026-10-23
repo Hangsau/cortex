@@ -1,10 +1,13 @@
 ---
 title: "相對年齡效應：分齡組裡年紀小的那一半吃虧多少？吃虧到幾歲？"
-description: "定位：比賽依年齡分組，同一組裡生得晚的孩子比組裡最大的人小將近一歲（日本兩歲組甚至差近兩歲）。"
+description: "分齡組裡年紀最小的孩子吃虧很大，12 歲最明顯、男生拖到 16 歲；但年紀最小還擠進全國賽的孩子，長大反而比較好。"
 slug: "relative-age"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 11
+note_kind: "analysis"
+note_theme: "development"
 draft: false
 ---
 

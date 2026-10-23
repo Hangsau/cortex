@@ -1,10 +1,13 @@
 ---
 title: "隱性 vs 顯性學習（Implicit vs Explicit Motor Learning）"
-description: "建立日期：2026-04-25（v1 stub）｜升級：2026-06-15（v2）"
+description: "顯性規則學得快但壓力下容易崩；隱性學習慢但穩。壓力下崩潰的機制叫「再投資」。"
 slug: "implicit-explicit-learning"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 19
+note_kind: "literature"
+note_theme: "perception"
 draft: false
 ---
 

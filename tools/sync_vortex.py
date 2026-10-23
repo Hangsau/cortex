@@ -228,84 +228,77 @@ SLUG_MAP = {
     "出發與轉身教學誤區深探":"starts-turns-teaching-errors",
 }
 
-# ── 研究筆記（W3.5，2026-10-14）：Research/ 下的文獻彙整，研究庫公開為「研究筆記」──
-# 不出站：整本書萃取（著作權）、內部稽核、Talos 未定稿、未處理的 _incoming。
+# ── 研究筆記（W3.5，2026-10-14；2026-10-23 改讀登錄表）──
+# 真相源是 Vortex 的 Research/_notes.yaml：哪些上網站、主題、閱讀順序、卡片的一句話結論、
+# 狀態，以及「研究結論一覽」的 findings。這裡不再寫名單；新筆記在 Vortex 登錄即自動上站。
+# 不出站的檔案（整本書萃取、內部稽核、未定稿）登錄在 non_public 或 public: false。
 RESEARCH_SRC = VORTEX_SRC / "Research"
+NOTES_REGISTRY = RESEARCH_SRC / "_notes.yaml"
 NOTE_DIR = HUGO_VORTEX / "research" / "notes"
-NOTE_SLUGS = {
-    "心理/00_心理層總覽": "psychology-overview",
-    "心理/01_注意力焦點與動作學習": "attention-focus-motor-learning",
-    "心理/02_喚醒焦慮與壓力崩潰": "arousal-anxiety-choking",
-    "心理/03_水中恐懼與學習者心理": "water-fear-learner-psychology",
-    "心理/04_動機與自我決定": "motivation-self-determination",
-    "心理/05_意象與心理演練": "imagery-mental-rehearsal",
-    "心理/06_自我對話與心理技能訓練": "self-talk-psychological-skills",
-    "心理/07_心流與最佳表現": "flow-peak-performance",
-    "心理/08_心理感知生理交互": "psycho-perceptual-physiological-interaction",
-    "感知科學/feedforward機制": "feedforward",
-    "感知科學/內臟感知與迷走神經": "interoception-vagus",
-    "感知科學/動態系統理論": "dynamical-systems",
-    "感知科學/因果倒置假設": "causal-inversion-hypothesis",
-    "感知科學/感知學習": "perceptual-learning",
-    "感知科學/感知量化SQ框架": "sensation-quantification-sq",
-    "感知科學/機械感受器": "mechanoreceptors",
-    "感知科學/神經學對照組三點座標": "neurological-reference-points",
-    "感知科學/隱性_顯性學習": "implicit-explicit-learning",
-    "物理現象/彈性蓄能": "elastic-energy-storage",
-    "物理現象/推進力理論演變": "propulsion-theory-history",
-    "物理現象/渦流回收": "vortex-recapture",
-    "物理現象/自然頻率": "natural-frequency",
-    "週期化/低通氣訓練_VHL_RSH": "hypoventilation-training",
-    "週期化/極化訓練_Seiler": "polarized-training-seiler",
-    "週期化/板塊週期化_Issurin": "block-periodization-issurin",
-    "週期化/頂尖教練訓練哲學_Sandbakk": "elite-coaching-philosophy-sandbakk",
-    "週期化/蹼泳訓練_能力休息與分配": "finswimming-training",
-    "競賽成績分析/跨泳式關係_三項新發現": "cross-stroke-relations",
-    "競賽成績分析/分段型態_每場差異與狀態變化": "split-patterns",
-    "競賽成績分析/掉速成因_轉身前加速": "fade-causes",
-    "競賽成績分析/掉速延伸_特質或當天與決賽超車": "fade-followup",
-    "競賽成績分析/鄰道效應": "neighbor-effect",
-    "競賽成績分析/混合式泳式段取捨": "im-legs",
-    "競賽成績分析/出發反應與前段配速": "rt-opening",
-    "競賽成績分析/台灣孩子_當天負荷與收尾能力": "tw-kids",
-    "競賽成績分析/水道位置與分組強度": "lane-heat",
-    "競賽成績分析/相對年齡效應": "relative-age",
-    "競賽成績分析/比賽頻率與進步": "race-frequency",
-    "競賽成績分析/隊伍效應與轉隊": "team-transfer",
-    "競賽成績分析/預賽保留與晉級": "heat-saving",
-    "競賽成績分析/比賽經驗與配速": "experience-pacing",
-    "競賽成績分析/100公尺勝負點_前後50與反應時間": "hundred-decider",
-}
+NOTES_DATA_DST = HUGO_ROOT / "data" / "vortex" / "research_notes.yaml"
 NOTE_LAYER_NAME = "研究筆記"
-NOTE_STATUS = "研究中"
+NOTE_STATUS_ZH = {"researching": "研究中", "graduated": "已寫進知識點", "retracted": "已撤回"}
+# 出站給 layout 的欄位（白名單）：path、maintenance_note 是維護者用的，不出站。
+NOTE_PUBLIC_FIELDS = ("id", "slug", "theme", "kind", "status", "summary_zh", "findings",
+                      "graduated_to", "open_questions")
+
+
+def load_public_notes() -> tuple[list[dict], list[dict]]:
+    """回傳 (groups, notes)：notes 已依 groups→themes→order 排好、只含公開筆記，並帶 title 與 weight。"""
+    reg = yaml.safe_load(NOTES_REGISTRY.read_text(encoding="utf-8"))
+    by_theme: dict[str, list[dict]] = {}
+    for n in reg.get("notes") or []:
+        if n.get("public", True):
+            by_theme.setdefault(n["theme"], []).append(n)
+    groups, ordered = [], []
+    for g in reg.get("groups") or []:
+        themes = []
+        for t in g.get("themes") or []:
+            notes = sorted(by_theme.get(t["key"], []), key=lambda n: n["order"])
+            if not notes:
+                continue
+            for n in notes:
+                src = (RESEARCH_SRC / n["path"]).resolve()
+                body = strip_existing_frontmatter(src.read_text(encoding="utf-8"))
+                rec = {k: n[k] for k in NOTE_PUBLIC_FIELDS if k in n}
+                rec.update(title=extract_title(body), group=g["key"], weight=len(ordered) + 1,
+                           status_zh=NOTE_STATUS_ZH[n["status"]], _src=src)
+                ordered.append(rec)
+            themes.append({"key": t["key"], "name_zh": t["name_zh"], "desc_zh": t.get("desc_zh", ""),
+                           "slugs": [n["slug"] for n in notes]})
+        if themes:
+            groups.append({"key": g["key"], "name_zh": g["name_zh"], "desc_zh": g.get("desc_zh", ""),
+                           "themes": themes})
+    return groups, ordered
 
 
 def sync_research_notes(dry_run: bool):
-    """Research/ 白名單筆記 → content/vortex/research/notes/，剝診斷語與外連，標「研究中」。"""
+    """登錄表的公開筆記 → content/vortex/research/notes/（剝診斷語與外連）＋ data/vortex/research_notes.yaml。"""
     print()
     print("=== 研究筆記 ===")
+    groups, notes = load_public_notes()
+    slugs = {n["slug"] for n in notes}
     if not dry_run:
         NOTE_DIR.mkdir(parents=True, exist_ok=True)
         for old in NOTE_DIR.glob("*.md"):
-            if old.name != "_index.md" and old.stem not in NOTE_SLUGS.values():
+            if old.name != "_index.md" and old.stem not in slugs:
                 old.unlink()
-    for key, slug in NOTE_SLUGS.items():
-        src = RESEARCH_SRC / f"{key}.md"
-        if not src.exists():
-            print(f"  [WARN] 找不到 {src}")
-            continue
+    for n in notes:
+        src = n.pop("_src")
         body = strip_existing_frontmatter(src.read_text(encoding="utf-8"))
-        title = extract_title(body)
-        desc = extract_description(body)
         body = strip_external_links(strip_diagnostic(strip_title_h1(body)))
-        print(f"  {key} → research/notes/{slug}")
+        print(f"  {src.relative_to(RESEARCH_SRC.parent)} → research/notes/{n['slug']}")
         if dry_run:
             continue
         fm = build_frontmatter(
-            title=title, description=desc, slug=slug, layer="research",
-            layer_name=NOTE_LAYER_NAME, strokes=[], research_status=NOTE_STATUS,
+            title=n["title"], description=n["summary_zh"], slug=n["slug"], layer="research",
+            layer_name=NOTE_LAYER_NAME, strokes=[], research_status=n["status_zh"],
+            extra={"weight": n["weight"], "note_kind": n["kind"], "note_theme": n["theme"]},
         )
-        (NOTE_DIR / f"{slug}.md").write_text(fm + body, encoding="utf-8")
+        (NOTE_DIR / f"{n['slug']}.md").write_text(fm + body, encoding="utf-8")
+    print(f"  共 {len(notes)} 篇，{sum(len(g['themes']) for g in groups)} 個主題")
+    if not dry_run:
+        NOTES_DATA_DST.write_text(dump_yaml({"groups": groups, "notes": notes}), encoding="utf-8")
 
 
 # ── 研究庫索引與審查紀錄（Phase 4，2026-10-14）──
@@ -564,7 +557,7 @@ def strip_existing_frontmatter(content: str) -> str:
 def build_frontmatter(title: str, description: str, slug: str,
                       layer: str, layer_name: str, strokes: list,
                       layout: str = "", frozen: str = "",
-                      research_status: str = "") -> str:
+                      research_status: str = "", extra: dict | None = None) -> str:
     lines = ["---"]
     lines.append(f'title: "{title}"')
     if description:
@@ -583,6 +576,8 @@ def build_frontmatter(title: str, description: str, slug: str,
         lines.append("strokes:")
         for s in strokes:
             lines.append(f'  - "{s}"')
+    for k, v in (extra or {}).items():
+        lines.append(f'{k}: {json.dumps(v, ensure_ascii=False)}')
     lines.append("draft: false")
     lines.append("---")
     return "\n".join(lines) + "\n\n"

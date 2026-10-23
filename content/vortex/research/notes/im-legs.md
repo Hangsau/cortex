@@ -1,10 +1,13 @@
 ---
 title: "個人混合式的泳式段取捨：前面衝快，哪一段付帳？"
-description: "定位：〈分段型態〉發現，混合式的狀態變化主要落在蛙式段。"
+description: "個人混合式前面快的那天，四個泳式段都快；相對沒跟上的是最後的自由式段，不是蛙式段。"
 slug: "im-legs"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 6
+note_kind: "analysis"
+note_theme: "race-swim"
 draft: false
 ---
 

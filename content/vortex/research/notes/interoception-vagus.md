@@ -1,10 +1,13 @@
 ---
 title: "內臟感知、迷走神經與水中防衛型學員"
-description: "建立日期：2026-04-11（整合自流體覺知教學系統 v3.0 討論紀錄）"
+description: "防衛型學員在水裡卡住，不只是外在張力高；呼吸與內臟壓力的協調才是更深的閘門。"
 slug: "interoception-vagus"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 24
+note_kind: "literature"
+note_theme: "perception"
 draft: false
 ---
 

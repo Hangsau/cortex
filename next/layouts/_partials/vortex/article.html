@@ -10,7 +10,8 @@
     {{- if $isLatin }}<p class="muted" lang="en">{{ $desc }}</p>{{ else }}{{ with $desc }}<p class="lc-lead">{{ . }}</p>{{ end }}{{ end }}
   </header>
   {{- with .Params.research_status }}
-  <p class="lc-frozen"><b>研究筆記・{{ . }}</b>這是整理中的文獻彙整，尚未逐條通過本站審查。內容與知識點頁不一致時，以知識點頁為準；教練診斷用語與外站連結已在上站前移除。</p>
+  {{- $kind := $.Params.note_kind }}
+  <p class="lc-frozen"><b>研究筆記・{{ . }}</b>{{ if eq $kind "analysis" }}這是用公開比賽成績自己做的分析，數字沒有經過同儕審查，對原因的解釋只是假設。{{ else if eq $kind "observation" }}這是教學現場的觀察紀錄，不是對照實驗。{{ else }}這是整理中的文獻彙整，尚未逐條通過本站審查。{{ end }}內容與知識點頁不一致時，以知識點頁為準；教練診斷用語與外站連結已在上站前移除。</p>
   {{- end }}
   {{- with .Params.frozen }}
   <p class="lc-frozen"><b>研究底稿</b>這篇是整理成知識點之前的長文，{{ . }} 起不再維護。內容與知識點頁不一致時，以知識點頁為準；教練診斷用語與外站連結已在上站前移除。</p>

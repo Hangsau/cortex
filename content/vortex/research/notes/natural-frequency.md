@@ -1,10 +1,13 @@
 ---
 title: "自然頻率（Natural Frequency in Swimming）"
-description: "建立日期：2026-04-25"
+description: "划頻接近肢體的自然頻率時，可能比較省力、感覺「水在幫我」；目前主要是物理推導。"
 slug: "natural-frequency"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 37
+note_kind: "literature"
+note_theme: "physics"
 draft: false
 ---
 

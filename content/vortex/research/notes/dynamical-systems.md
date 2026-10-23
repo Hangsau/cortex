@@ -1,10 +1,13 @@
 ---
 title: "動態系統理論（DST）在游泳教學中的整合"
-description: "建立日期：2026-04-10（整理自外部討論紀錄）"
+description: "動作不是被教出來的，而是從身體、環境、任務三種約束的互動中長出來的。"
 slug: "dynamical-systems"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 21
+note_kind: "literature"
+note_theme: "perception"
 draft: false
 ---
 

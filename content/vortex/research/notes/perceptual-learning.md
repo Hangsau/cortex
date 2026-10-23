@@ -1,10 +1,13 @@
 ---
 title: "感知學習"
-description: "建立日期：2026-04-17"
+description: "水感進步不是手變靈敏，而是大腦學會從同樣的訊號分辨更細的差異；練習要有「辨別什麼」。"
 slug: "perceptual-learning"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 18
+note_kind: "literature"
+note_theme: "perception"
 draft: false
 ---
 

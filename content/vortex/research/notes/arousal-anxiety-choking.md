@@ -1,10 +1,13 @@
 ---
 title: "02 喚醒、焦慮與壓力下的技術崩潰（Choking）"
-description: "Dossier 性質：原始資料彙整，非定稿。確定性標記：🟢 近期可查（PMID/DOI）/ 🟡 舊文獻 / 🟠 書籍或二手 / 🔵 框架推導 / 🔴 待查或空白"
+description: "壓力下的技術崩潰，主要機制是把顯性規則叫回來監控動作；初學者過早的肌肉激活最可能是焦慮造成的過度控制。"
 slug: "arousal-anxiety-choking"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 27
+note_kind: "literature"
+note_theme: "psychology"
 draft: false
 ---
 

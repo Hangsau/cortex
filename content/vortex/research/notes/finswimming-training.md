@@ -1,10 +1,13 @@
 ---
 title: "蹼泳訓練：各項目要練什麼、怎麼休息、器材怎麼分配"
-description: "定位：蹼泳（水面蹼泳、雙蹼、屏氣潛泳）沒有公開的完整訓練處方。"
+description: "蹼泳沒有公開處方，這篇從游泳資料推論：組內靜止休息、組間輕鬆游，屏氣組一定要有人看著。"
 slug: "finswimming-training"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
+weight: 42
+note_kind: "literature"
+note_theme: "training"
 draft: false
 ---
 
