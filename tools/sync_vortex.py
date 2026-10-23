@@ -269,6 +269,11 @@ NOTE_SLUGS = {
     "競賽成績分析/出發反應與前段配速": "rt-opening",
     "競賽成績分析/台灣孩子_當天負荷與收尾能力": "tw-kids",
     "競賽成績分析/水道位置與分組強度": "lane-heat",
+    "競賽成績分析/相對年齡效應": "relative-age",
+    "競賽成績分析/比賽頻率與進步": "race-frequency",
+    "競賽成績分析/隊伍效應與轉隊": "team-transfer",
+    "競賽成績分析/預賽保留與晉級": "heat-saving",
+    "競賽成績分析/比賽經驗與配速": "experience-pacing",
     "競賽成績分析/100公尺勝負點_前後50與反應時間": "hundred-decider",
 }
 NOTE_LAYER_NAME = "研究筆記"
