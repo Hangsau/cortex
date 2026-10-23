@@ -5,16 +5,15 @@ slug: "implicit-explicit-learning"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 19
+weight: 21
 note_kind: "literature"
 note_theme: "perception"
+note_role: ""
 draft: false
 ---
 
-> 建立日期：2026-04-25（v1 stub）｜升級：2026-06-15（v2）
-> 狀態：v2 — 以心理層 dossier 02（再投資）+ 07（flow / de-reinvestment）素材擴充。
 > 標記：🔵推導 / 🟢近期可查（附 PMID/DOI）/ 🟡舊文獻（可追原始）/ 🟠書籍二手 / 🔴待查或研究空白。
-> ⚠️ v1→v2 更正：v1 把 Liao & Masters 2001 analogy 研究描述為「游泳第一手實證」並附 DOI 10.1080/026404101300149327 — 經查證該描述**錯誤**。真實研究是 **table tennis**（桌球正手上旋），正確 DOI 10.1080/02640410152006081。游泳應用為**外推**，非第一手實證。詳見下方 §3 與 §🔴。
+> ⚠️ Liao & Masters 2001 的類比學習研究是 **table tennis**（桌球正手上旋，DOI 10.1080/02640410152006081），不是游泳；游泳應用屬**外推**，不是第一手實證。詳見下方 §3 與 §🔴。
 
 ---
 
@@ -108,5 +107,3 @@ draft: false
 - **00 心理層總覽 §1 主軸 B**：本檔 = 該主軸的方法論落點。
 
 ---
-
-*v2 升級：2026-06-15。修復 v1 escape-bug（整檔字面 `\n`）+ 更正 Liao & Masters 桌球/游泳誤植 + 補再投資理論機制核心。*

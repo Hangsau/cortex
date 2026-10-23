@@ -1,12 +1,12 @@
 # HANDOFF — my-site (Cortex)
 
 
-## 當前狀態（2026-10-23，Vortex 研究筆記改由登錄表驅動）
+## 當前狀態（2026-10-23，Vortex 研究庫：研究筆記／研究結論一覽／開放問題）
 
-- `tools/sync_vortex.py` 的 `sync_research_notes()` 改讀 Vortex `Research/_notes.yaml`（寫筆記 md 的 weight／description／note_kind／note_theme，並輸出 `data/vortex/research_notes.yaml`）；寫死的 `NOTE_SLUGS` 已刪。
-- 新版面（沿用既有頁型元件，未加 CSS）：`_partials/vortex/notes-list.html`（研究筆記依 3 大類 7 主題分組、主題內編號＝閱讀順序）、`notes-digest.html`（新頁「研究結論一覽」`content/vortex/research/conclusions.md`）；研究庫首頁與左欄加入口；筆記頁頂說明依類型區分。
-- 驗收：P4、V2–V7、W3–W5、W7、W8 PASS；舊網址 121 全對應。**W1（units type=error 106≠104）與 W6（open-water 空區塊／udk.move.4）在未改動的 HEAD 一樣失敗，與本次無關，待處理。**
-- 下一步：版面升級要先走 Claude Design 畫布（見 Vortex `plans/研究筆記整理規劃_2026-10-23.md` Phase 2）。
+- `tools/sync_vortex.py` 的 `sync_research_notes()` 讀 Vortex `Research/_notes.yaml`：寫筆記 md（weight＝閱讀順序、description＝一句話結論、note_kind／note_role）、`data/vortex/research_notes.yaml`（groups／notes／by_unit 反向索引、graduated 標題、questions 題目），並把 `FUTURE_RESEARCH.md` 寫成 `content/vortex/research/open-questions.md`。上站清理 `clean_note_text()`：剝頁首維護註記、內部檔案對照小節、教練觀察指標；檔名引用與〈短標題〉轉成筆記連結（標題列不放連結）。
+- 版面（Claude 設計，沿用 lib-series／lib-chapter，新增 CSS 在 `library.css` 末段 `nl-*`／`nd-*`／`nt-*`）：`notes-list.html`（主題跳轉、入口、總覽列、狀態標記）、`notes-digest.html`（研究結論一覽）、`article.html`（筆記頁底：已寫進知識點、還沒有答案的問題；總覽說明）、`unit.html`（證據與來源加「研究筆記」）、`unit-link.html`（知識點 ID → 連結）。研究庫首頁與左欄加「研究結論一覽」「開放問題」。
+- 驗收：P4（1756 頁）、V2–V7、W1、W3–W5、W7、W8 PASS；舊網址 121 全對應。W1 預期數量改為 tech 257／error 106（`check.py`、`tools/test_vortex_links.py`、`specs/W1.md`、`specs/_context.md` 同步）。
+- **待處理（既有，非本次）**：W6「open-water 不應出現空的誤區／L 級區塊」。
 
 ## 課表工具已從 my-site 移除（2026-10-21 使用者定：my-site 只放知識內容）
 

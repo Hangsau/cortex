@@ -23,7 +23,7 @@ FAILS = []
 
 SEG = {"move": "moves", "drill": "drills", "tech": "tech", "error": "errors",
        "problem": "problems", "injury": "injuries", "level": "levels", "psy": "mind", "psyc": "mind"}
-EXPECT = {"move": 66, "drill": 214, "tech": 252, "error": 104, "problem": 84,
+EXPECT = {"move": 66, "drill": 214, "tech": 257, "error": 106, "problem": 84,
           "injury": 47, "level": 26, "psy": 8, "psyc": 62}
 STROKES = ["free", "back", "breast", "fly", "udk", "starts-turns", "open-water"]
 LISTS = ["drills", "tech", "errors", "problems", "injuries", "levels", "mind", "moves"]

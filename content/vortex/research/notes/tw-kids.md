@@ -5,9 +5,10 @@ slug: "tw-kids"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 10
+weight: 11
 note_kind: "analysis"
 note_theme: "race-day"
+note_role: ""
 draft: false
 ---
 
@@ -15,7 +16,7 @@ draft: false
 >
 > **讀法**：數字都是渦流計畫自己分析公開比賽成績得到的，屬 🔵 推論層級；對原因的解釋標 🔴。前兩題分析前先寫好計畫；選手隨機分兩半，一半用來找錯，程式定案後另一半只跑一次。下面是第二半的結果，括號內是第一半。第三題是描述，用全部資料。這些分析沒有經過同儕審查。
 >
-> **本筆記不取代 canonical**，是研究層素材。
+> **本筆記不取代知識點**，是研究層素材。
 
 ---
 

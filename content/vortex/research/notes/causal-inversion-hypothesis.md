@@ -5,15 +5,14 @@ slug: "causal-inversion-hypothesis"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 16
+weight: 18
 note_kind: "literature"
 note_theme: "perception"
+note_role: ""
 draft: false
 ---
 
-> 建立日期：2026-04-10（整理自外部討論紀錄）  
 > 確定性層次：🔵 邏輯推導 + 🟢 近期文獻支持  
-> 狀態：核心理論，待實驗驗證
 
 ---
 
@@ -183,13 +182,3 @@ L5 不需要特殊訓練方法。它是自動化歷程在感知-動作系統裡�
 - [ ] 注意力指向不同（姿勢 vs 流場）的學員，其神經地圖差異是否可在行為上測量（擾動反應？感知描述語言？）？
 
 ---
-
-## 與現有系統的連結
-
-- **Technica/** — L0–L6 框架是因果倒置假設的操作化  
-- **RESEARCH_PLAN.md Layer 1.2** — Feedforward 機制（本文件提供更上層的理論框架）  
-- **FUTURE_RESEARCH.md 2.5** — 皮膚機械感受器（放鬆手機制的硬體基礎）  
-
----
-
-*最後更新：2026-04-10 · 整理自研究討論紀錄*

@@ -5,9 +5,10 @@ slug: "elite-coaching-philosophy-sandbakk"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 40
+weight: 42
 note_kind: "literature"
 note_theme: "training"
+note_role: ""
 draft: false
 ---
 
@@ -15,7 +16,7 @@ draft: false
 
 > **定位**：這份筆記不是「某套週期化模型」，而是 meta-level 的**教練實務描述**——12 位世界級教練「實際怎麼做決定」的共通模式。它與本資料夾其他週期化筆記（Seiler 極化、Issurin 板塊、Sweetenham 反向）的關係是：那些是「強度／結構模型」，這份是「教練在這些模型之上如何運作的工作習慣」。
 >
-> **本筆記不取代 canonical**。屬研究層描述性素材，不是可直接落到 `periodization` YAML 的量化規範。
+> **本筆記不取代知識點**。屬研究層描述性素材，不是可以直接寫進週期化章的量化規範。
 
 ---
 
@@ -80,7 +81,3 @@ draft: false
 | 2 | PMC12031707（同篇開放取用版） | 原文章節與結論核對來源 | 🟢 |
 
 ---
-
-## 文件版本紀錄
-
-- **初版** · 2026-06-22：整合 Hestia VM 研究報告（water-training-breakthroughs）。建立 Sandbakk 2025 教練哲學筆記；以 WebSearch 查證原文（Springer / PMC PMC12031707）後撰寫，並標注報告蒸餾版與原文結論的落差（報告駁回的兩條實為原文結論，本筆記以原文為準）。

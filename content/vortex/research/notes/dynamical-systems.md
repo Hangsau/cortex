@@ -5,15 +5,14 @@ slug: "dynamical-systems"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 21
+weight: 23
 note_kind: "literature"
 note_theme: "perception"
+note_role: ""
 draft: false
 ---
 
-> 建立日期：2026-04-10（整理自外部討論紀錄）  
 > 確定性層次：🟢 有實證支持的理論框架  
-> 狀態：理論整合，尚未完全操作化
 
 ---
 
@@ -153,13 +152,3 @@ Gibson（1979）的行為機會（Affordance）概念：
 - Gibson（1969）感知學習本質上是一個自組織過程
 
 ---
-
-## 與現有系統的連結
-
-- **因果倒置假設.md** — DST 提供了因果倒置的動態機制解釋
-- **RESEARCH_PLAN.md Layer 1.4** — 隱性學習 vs 顯性學習（DST 支持隱性學習優先）
-- **FUTURE_RESEARCH.md** — 相變與感知突破事件的研究設計
-
----
-
-*最後更新：2026-04-10 · 整理自研究討論紀錄*

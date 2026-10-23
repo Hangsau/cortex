@@ -5,9 +5,10 @@ slug: "polarized-training-seiler"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 38
+weight: 40
 note_kind: "literature"
 note_theme: "training"
+note_role: ""
 draft: false
 ---
 
@@ -15,7 +16,7 @@ draft: false
 
 > **定位**：與 Bompa 六分區框架形成對話的平行框架。Bompa 的強度語言是「佔最大表現的百分比」（zone 1–5），Seiler 的語言是「三區分布比例」（Z1/Z2/Z3）。兩套系統問的問題不同——Bompa 問「每區強度是什麼」，Seiler 問「每區各應占多少比例」。
 >
-> **本筆記不取代 canonical**。數字反查後如需進 canonical/periodization/zones.yaml，另外流程處理。
+> **本筆記不取代知識點**。數字反查後如需寫進強度區知識點，另外審查。
 
 ---
 
@@ -33,7 +34,7 @@ Seiler 使用**通氣閾值**（ventilatory thresholds，VT1/VT2）作為三區�
 
 - VT1 ≈ 有氧閾值，VT2 ≈ 無氧閾值（AnTh）。🟢
 - 三區劃分在 TID 文獻中已是事實標準，可見 Seiler (2010) 和 Stöggl & Sperlich (2014) 的方法論。🟢
-- 此三區 Z1/Z2/Z3 對應到游泳 canonical（`periodization.zones.swim_three_zone`）的三區乳酸模型，概念相通，但乳酸界線在原始文獻裡稍有浮動，不可把邊界值當精確定論。🔵
+- 此三區 Z1/Z2/Z3 對應到本站週期化章的游泳三區乳酸模型，概念相通，但乳酸界線在原始文獻裡稍有浮動，不可把邊界值當精確定論。🔵
 
 ---
 
@@ -230,7 +231,7 @@ Seiler 的觀察是：菁英選手自然趨向 80% 低強度 + 20% 高強度，�
 - **Bompa zone 2**（賽配速，80–90% 最大表現）可能對應到 Seiler 的 **Z3 或 Z2 邊界**，不是同一個「中間區」。兩個系統的邊界定義不同，直接數字對比需要謹慎。🔵
 - 若 Bompa 的「賽配速」實際上對應 Seiler 的 Z3（高強度），則「50% 時間在賽配速」反而比「80/20 極化」要求更多高強度——兩者方向完全相反。
 - 若 Bompa 的「賽配速」對應 Seiler 的 Z2，則 Bompa 主張大量閾值訓練，與 Seiler 的「避開中間區」直接衝突。
-- **目前 canonical 使用 Bompa 框架**；這個張力是本研究模組要呈現給讀者的核心辯論，不應強行統一，而是並陳兩套邏輯讓使用者理解適用場景的差異。🔵
+- **目前本站週期化章使用 Bompa 框架**；這個張力是本研究模組要呈現給讀者的核心辯論，不應強行統一，而是並陳兩套邏輯讓使用者理解適用場景的差異。🔵
 
 ---
 
@@ -257,7 +258,6 @@ Seiler 的觀察是：菁英選手自然趨向 80% 低強度 + 20% 高強度，�
 
 ---
 
-*最後更新：2026-06-22*
 *查證工具：WebSearch × 6 輪並行搜尋*
 *撰寫：Claude Code（研究助手）*
 

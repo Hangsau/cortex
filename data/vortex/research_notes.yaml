@@ -2,10 +2,12 @@ groups:
 - key: analysis
   name_zh: 我們算出來的
   desc_zh: 用公開比賽成績自己做的分析。數字是自己算的（🔵），沒有經過同儕審查；對原因的解釋標 🔴。
+  overview: race-data-overview
   themes:
   - key: race-swim
     name_zh: 一趟比賽怎麼游完
     desc_zh: 分段、掉速、出發與混合式：一趟比賽的時間花在哪裡、差在哪裡。
+    overview: ''
     slugs:
     - split-patterns
     - hundred-decider
@@ -16,6 +18,7 @@ groups:
   - key: race-day
     name_zh: 比賽當天的環境
     desc_zh: 旁邊的人、水道、預賽策略、一天游幾項，會怎麼影響成績。
+    overview: ''
     slugs:
     - neighbor-effect
     - lane-heat
@@ -24,6 +27,7 @@ groups:
   - key: development
     name_zh: 長期發展
     desc_zh: 年齡、比賽場數、經驗、隊伍與泳式之間的關係，怎麼影響一個人好幾年的進步。
+    overview: ''
     slugs:
     - relative-age
     - race-frequency
@@ -33,10 +37,12 @@ groups:
 - key: literature
   name_zh: 文獻怎麼說
   desc_zh: 整理既有研究與專書，接到水感框架。多數仍在整理中，結論以知識點頁為準。
+  overview: ''
   themes:
   - key: perception
     name_zh: 感知與學習
     desc_zh: 水感的神經基礎、感知怎麼學、為什麼動作是感知的輸出。
+    overview: perception-overview
     slugs:
     - causal-inversion-hypothesis
     - mechanoreceptors
@@ -50,8 +56,8 @@ groups:
   - key: psychology
     name_zh: 心理
     desc_zh: 注意力、壓力、恐懼、動機、意象、心流，從感知優先重讀運動心理學。
+    overview: psychology-overview
     slugs:
-    - psychology-overview
     - attention-focus-motor-learning
     - arousal-anxiety-choking
     - water-fear-learner-psychology
@@ -63,21 +69,60 @@ groups:
   - key: physics
     name_zh: 水中物理
     desc_zh: 推進力理論、渦流、彈性與節律。
+    overview: physics-overview
     slugs:
     - propulsion-theory-history
     - vortex-recapture
-    - elastic-energy-storage
-    - natural-frequency
   - key: training
     name_zh: 訓練安排
     desc_zh: 強度分布、週期化結構、頂尖教練的工作方式、特殊訓練法與蹼泳。
+    overview: training-overview
     slugs:
     - polarized-training-seiler
     - block-periodization-issurin
     - elite-coaching-philosophy-sandbakk
     - hypoventilation-training
     - finswimming-training
+  - key: triathlon
+    name_zh: 鐵人三項
+    desc_zh: 鐵人泳段訓練的常見說法與參數，逐條對照讀到全文的來源。
+    overview: ''
+    slugs:
+    - triathlon-swimming
+- key: observation
+  name_zh: 教學觀察
+  desc_zh: 教學現場的觀察紀錄（🟠），不是對照實驗。
+  overview: ''
+  themes:
+  - key: observation
+    name_zh: 教學觀察
+    desc_zh: 課堂上看到的現象與教學語言的設計。
+    overview: ''
+    slugs:
+    - instruction-layers
+    - small-paddle-observation
 notes:
+- id: note.analysis-overview
+  slug: race-data-overview
+  theme: analysis
+  role: overview
+  kind: analysis
+  status: researching
+  summary_zh: 15 篇比賽分析串起來的四件事：勝負和狀態落在後半段、前段多衝通常划算、單場不下判斷、很多差別是量法造成的。
+  title: 比賽數據告訴我們什麼：15 篇分析的總覽
+  group: analysis
+  weight: 1
+  status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.1.1
+    'no': '1.1'
+    title: 狀態為什麼先出現在後半段
+    anchor: q-1-1
+  - id: fq.1.2
+    'no': '1.2'
+    title: 最後一段掉速的原因，與「轉身前先加速」
+    anchor: q-1-2
 - id: note.split-patterns
   slug: split-patterns
   theme: race-swim
@@ -96,8 +141,14 @@ notes:
     apply_zh: 練習分段只跟自己比，用多場平均。
   title: 分段型態：每場差多少、狀態變化落在哪一段
   group: analysis
-  weight: 1
+  weight: 2
   status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.1.1
+    'no': '1.1'
+    title: 狀態為什麼先出現在後半段
+    anchor: q-1-1
 - id: note.hundred-decider
   slug: hundred-decider
   theme: race-swim
@@ -116,8 +167,10 @@ notes:
     apply_zh: 一般孩子不必特別練；常爭前幾名的選手值得花時間。
   title: 100 公尺的勝負點：前 50、後 50 與出發反應
   group: analysis
-  weight: 2
+  weight: 3
   status_zh: 研究中
+  graduated: []
+  questions: []
 - id: note.fade-causes
   slug: fade-causes
   theme: race-swim
@@ -138,8 +191,14 @@ notes:
     apply_zh: 自己驗證：同配速的 200 輪流游「進牆前 10 m 加速」與「出牆才加速」，各 4–6 次比最後 25／50。
   title: 最後一段為什麼會掉速、該練什麼
   group: analysis
-  weight: 3
+  weight: 4
   status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.1.2
+    'no': '1.2'
+    title: 最後一段掉速的原因，與「轉身前先加速」
+    anchor: q-1-2
 - id: note.fade-followup
   slug: fade-followup
   theme: race-swim
@@ -158,8 +217,14 @@ notes:
     apply_zh: 練習組可用「最後 50：前 25 加速進牆、出牆後全力」。
   title: 掉速延伸：是這個人還是這一場？決賽前段多衝值不值得？最後 50 超車從哪裡開始？
   group: analysis
-  weight: 4
+  weight: 5
   status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.1.2
+    'no': '1.2'
+    title: 最後一段掉速的原因，與「轉身前先加速」
+    anchor: q-1-2
 - id: note.rt-opening
   slug: rt-opening
   theme: race-swim
@@ -175,8 +240,10 @@ notes:
     apply_zh: 仰式出發、蹬牆、水下當成一個單元練。
   title: 出發反應與前段配速：反應特別快，前段會不會跟著衝過頭？
   group: analysis
-  weight: 5
+  weight: 6
   status_zh: 研究中
+  graduated: []
+  questions: []
 - id: note.im-legs
   slug: im-legs
   theme: race-swim
@@ -192,8 +259,10 @@ notes:
     apply_zh: 賽後先看蛙式段跟自己平常比；練「前三段快之後自由式還踢得起來」的轉換組。
   title: 個人混合式的泳式段取捨：前面衝快，哪一段付帳？
   group: analysis
-  weight: 6
+  weight: 7
   status_zh: 研究中
+  graduated: []
+  questions: []
 - id: note.neighbor-effect
   slug: neighbor-effect
   theme: race-day
@@ -206,8 +275,14 @@ notes:
     apply_zh: 分到強組、旁邊衝出去可以跟；賽後最後 50 掉得多，先看旁邊是不是特別快、總成績如何。
   title: 鄰道效應：被旁邊的人拉快，最後 50 會不會付帳？
   group: analysis
-  weight: 7
+  weight: 8
   status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.1.3
+    'no': '1.3'
+    title: 被帶著衝為什麼划算
+    anchor: q-1-3
 - id: note.lane-heat
   slug: lane-heat
   theme: race-day
@@ -225,8 +300,14 @@ notes:
     certainty: 🔵
   title: 水道位置與分組強度：邊道、獨自領先、強組會怎樣？
   group: analysis
-  weight: 8
+  weight: 9
   status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.1.3
+    'no': '1.3'
+    title: 被帶著衝為什麼划算
+    anchor: q-1-3
 - id: note.heat-saving
   slug: heat-saving
   theme: race-day
@@ -242,8 +323,14 @@ notes:
     apply_zh: 賽前準備比預賽留力重要；預賽目標寫成「比門檻快 X 秒」。
   title: 預賽保留與晉級：預賽要收多少才安全？收著游，決賽有比較好嗎？
   group: analysis
-  weight: 9
+  weight: 10
   status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.1.5
+    'no': '1.5'
+    title: 選拔、轉隊、預賽策略的長期效果
+    anchor: q-1-5
 - id: note.tw-kids
   slug: tw-kids
   theme: race-day
@@ -259,8 +346,14 @@ notes:
     apply_zh: 200 最後 50 比第三個 50 快很多（例如 5% 以上）代表中段保留太多；100 練前 50 控制住。
   title: 台灣孩子：同一天游越多項會怎樣？幾歲開始會收尾？
   group: analysis
-  weight: 10
+  weight: 11
   status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.1.4
+    'no': '1.4'
+    title: 孩子的 200 中段游快一點，總成績會不會更好
+    anchor: q-1-4
 - id: note.relative-age
   slug: relative-age
   theme: development
@@ -282,8 +375,14 @@ notes:
     apply_zh: 「今年排名退步」常只是剛升組，等第二年再看。
   title: 相對年齡效應：分齡組裡年紀小的那一半吃虧多少？吃虧到幾歲？
   group: analysis
-  weight: 11
+  weight: 12
   status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.1.5
+    'no': '1.5'
+    title: 選拔、轉隊、預賽策略的長期效果
+    anchor: q-1-5
 - id: note.race-frequency
   slug: race-frequency
   theme: development
@@ -299,8 +398,10 @@ notes:
     apply_zh: 不拿破 PB 率比較場數不同的孩子；排賽考量疲勞、課業、動機。
   title: 比賽頻率與進步：比賽場數多，進步會比較少嗎？還是只是統計假象？
   group: analysis
-  weight: 12
+  weight: 13
   status_zh: 研究中
+  graduated: []
+  questions: []
 - id: note.experience-pacing
   slug: experience-pacing
   theme: development
@@ -313,8 +414,10 @@ notes:
     apply_zh: 小選手配速亂，不要期待多比幾場就好；練習中固定目標分段、給分段回饋、賽前寫配速計畫。
   title: 比賽經驗與配速：比賽經驗會讓配速變穩嗎？
   group: analysis
-  weight: 13
+  weight: 14
   status_zh: 研究中
+  graduated: []
+  questions: []
 - id: note.team-transfer
   slug: team-transfer
   theme: development
@@ -330,8 +433,14 @@ notes:
     apply_zh: 轉隊看訓練內容、距離、師生關係，不期待成績因此跳升。
   title: 隊伍效應與轉隊：進步有多少是「隊伍」決定的？轉隊有用嗎？
   group: analysis
-  weight: 14
+  weight: 15
   status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.1.5
+    'no': '1.5'
+    title: 選拔、轉隊、預賽策略的長期效果
+    anchor: q-1-5
 - id: note.cross-stroke-relations
   slug: cross-stroke-relations
   theme: development
@@ -349,8 +458,39 @@ notes:
     certainty: 🔵
   title: 泳式之間的關係：用比賽成績找到的三項新發現
   group: analysis
-  weight: 15
+  weight: 16
   status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.1.6
+    'no': '1.6'
+    title: 泳式之間的關係從何而來
+    anchor: q-1-6
+- id: note.perception-overview
+  slug: perception-overview
+  theme: perception
+  role: overview
+  kind: literature
+  status: researching
+  summary_zh: 九篇筆記的主線：先感覺到水，大腦才能預測，動作是被預測召喚出來的；硬體、學習、控制、穩定四層材料怎麼支撐它。
+  title: 感知與學習：九篇筆記的總覽
+  group: literature
+  weight: 17
+  status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.2.1
+    'no': '2.1'
+    title: 低速建立的感覺，能不能遷移到全速
+    anchor: q-2-1
+  - id: fq.2.2
+    'no': '2.2'
+    title: 感知訓練 vs 動作訓練，誰在疲勞下撐得久
+    anchor: q-2-2
+  - id: fq.2.3
+    'no': '2.3'
+    title: 不靠學員口述，能不能看出「感覺好不好」
+    anchor: q-2-3
 - id: note.causal-inversion
   slug: causal-inversion-hypothesis
   theme: perception
@@ -364,13 +504,20 @@ notes:
     certainty: 🟢
   - text_zh: 低速建立的感知能否遷移到全速，是這個假設最關鍵、尚未驗證的環節。
     certainty: 🔴
-  open_questions:
-  - fq.0.1
-  - fq.0.3
   title: 因果倒置假設
   group: literature
-  weight: 16
+  weight: 18
   status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.2.1
+    'no': '2.1'
+    title: 低速建立的感覺，能不能遷移到全速
+    anchor: q-2-1
+  - id: fq.2.2
+    'no': '2.2'
+    title: 感知訓練 vs 動作訓練，誰在疲勞下撐得久
+    anchor: q-2-2
 - id: note.mechanoreceptors
   slug: mechanoreceptors
   theme: perception
@@ -385,8 +532,18 @@ notes:
     apply_zh: 阻力手套與覆蓋手掌的划手板不拿來建立水感。
   title: 機械感受器與水感知
   group: literature
-  weight: 17
+  weight: 19
   status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.2.5
+    'no': '2.5'
+    title: 手的感覺能不能練得更靈敏
+    anchor: q-2-5
+  - id: fq.2.7
+    'no': '2.7'
+    title: 人的水感能接近魚的側線到什麼程度
+    anchor: q-2-7
 - id: note.perceptual-learning
   slug: perceptual-learning
   theme: perception
@@ -404,8 +561,18 @@ notes:
     apply_zh: 每個練習給一個明確的辨別任務，難度接近「剛好感覺得出差異」。
   title: 感知學習
   group: literature
-  weight: 18
+  weight: 20
   status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.2.5
+    'no': '2.5'
+    title: 手的感覺能不能練得更靈敏
+    anchor: q-2-5
+  - id: fq.2.6
+    'no': '2.6'
+    title: 什麼條件下感覺建立得最快
+    anchor: q-2-6
 - id: note.implicit-explicit
   slug: implicit-explicit-learning
   theme: perception
@@ -421,8 +588,18 @@ notes:
     certainty: 🔵
   title: 隱性 vs 顯性學習（Implicit vs Explicit Motor Learning）
   group: literature
-  weight: 19
+  weight: 21
   status_zh: 研究中
+  graduated:
+  - id: psych.arousal.implicit_learning
+    title: 讓技術「說不出口」，才能在壓力下不崩潰
+  - id: psych.flow.de_reinvestment
+    title: 放掉顯性控制，信任習得的感知——L6 的心理開關
+  questions:
+  - id: fq.2.2
+    'no': '2.2'
+    title: 感知訓練 vs 動作訓練，誰在疲勞下撐得久
+    anchor: q-2-2
 - id: note.feedforward
   slug: feedforward
   theme: perception
@@ -434,8 +611,10 @@ notes:
     certainty: 🔴
   title: Feedforward 機制：訓練操作化
   group: literature
-  weight: 20
+  weight: 22
   status_zh: 研究中
+  graduated: []
+  questions: []
 - id: note.dynamical-systems
   slug: dynamical-systems
   theme: perception
@@ -450,8 +629,10 @@ notes:
     certainty: 🟢
   title: 動態系統理論（DST）在游泳教學中的整合
   group: literature
-  weight: 21
+  weight: 23
   status_zh: 研究中
+  graduated: []
+  questions: []
 - id: note.sq-framework
   slug: sensation-quantification-sq
   theme: perception
@@ -464,8 +645,14 @@ notes:
     apply_zh: 已設計最小可行的課堂觀察計畫，尚未執行。
   title: 感知商數（SQ）三維框架
   group: literature
-  weight: 22
+  weight: 24
   status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.2.3
+    'no': '2.3'
+    title: 不靠學員口述，能不能看出「感覺好不好」
+    anchor: q-2-3
 - id: note.neuro-reference
   slug: neurological-reference-points
   theme: perception
@@ -479,8 +666,14 @@ notes:
     certainty: 🔴
   title: 神經學對照組三點座標系
   group: literature
-  weight: 23
+  weight: 25
   status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.3.1
+    'no': '3.1'
+    title: 初學者的肌肉為什麼比菁英早啟動
+    anchor: q-3-1
 - id: note.interoception-vagus
   slug: interoception-vagus
   theme: perception
@@ -494,11 +687,18 @@ notes:
     certainty: 🟠
   title: 內臟感知、迷走神經與水中防衛型學員
   group: literature
-  weight: 24
+  weight: 26
   status_zh: 研究中
+  graduated:
+  - id: psych.fear.diving_reflex_calm
+    title: 同一片水，也能讓人冷靜
+  - id: psych.interaction.vagal_tone_fear_extinction
+    title: 迷走張力決定脫敏快慢
+  questions: []
 - id: note.psych-overview
   slug: psychology-overview
   theme: psychology
+  role: overview
   kind: literature
   status: researching
   summary_zh: 心理層的總覽：八份文獻整理浮現五條主軸，最吃重的是「感覺水」這種第三類注意力焦點。
@@ -512,13 +712,15 @@ notes:
     apply_zh: 對初學者先用精熟氣候卸掉評價壓力，恐懼才有空間消退。
   title: 心理層總覽 — 從感知優先重讀運動心理學
   group: literature
-  weight: 25
+  weight: 27
   status_zh: 研究中
+  graduated: []
+  questions: []
 - id: note.psych-attention
   slug: attention-focus-motor-learning
   theme: psychology
   kind: literature
-  status: researching
+  status: graduated
   summary_zh: 外部焦點不是全面優於內部焦點；本體感覺主導的任務上，一致的內部焦點反而較好。
   findings:
   - text_zh: 2024 年貝氏統合分析推翻了外部焦點全面優越的結論。
@@ -527,13 +729,17 @@ notes:
     certainty: 🔵
   title: 注意力焦點與動作學習
   group: literature
-  weight: 26
-  status_zh: 研究中
+  weight: 28
+  status_zh: 已寫進知識點
+  graduated:
+  - id: psych.attention
+    title: 注意力焦點
+  questions: []
 - id: note.psych-arousal
   slug: arousal-anxiety-choking
   theme: psychology
   kind: literature
-  status: researching
+  status: graduated
   summary_zh: 壓力下的技術崩潰，主要機制是把顯性規則叫回來監控動作；初學者過早的肌肉激活最可能是焦慮造成的過度控制。
   findings:
   - text_zh: 再投資理論、個人最佳喚醒區是解釋壓力崩潰的主要框架。
@@ -542,13 +748,17 @@ notes:
     certainty: 🟢
   title: 02 喚醒、焦慮與壓力下的技術崩潰（Choking）
   group: literature
-  weight: 27
-  status_zh: 研究中
+  weight: 29
+  status_zh: 已寫進知識點
+  graduated:
+  - id: psych.arousal
+    title: 喚醒、焦慮與壓力崩潰
+  questions: []
 - id: note.psych-fear
   slug: water-fear-learner-psychology
   theme: psychology
   kind: literature
-  status: researching
+  status: graduated
   summary_zh: 怕水的核心是怕失去動作控制，不是泛泛的怕水；不同族群的恐懼長得不一樣。
   findings:
   - text_zh: 恐水量表中「失去動作控制」是最強的恐懼預測因子。
@@ -557,13 +767,17 @@ notes:
     certainty: 🟢
   title: 水中恐懼與學習者心理（教學應用角）
   group: literature
-  weight: 28
-  status_zh: 研究中
+  weight: 30
+  status_zh: 已寫進知識點
+  graduated:
+  - id: psych.fear
+    title: 水中恐懼
+  questions: []
 - id: note.psych-motivation
   slug: motivation-self-determination
   theme: psychology
   kind: literature
-  status: researching
+  status: graduated
   summary_zh: 精熟導向的氣氛讓人敢探索新感覺；表現導向的氣氛把錯誤變成能力判決，壓縮感知學習的空間。
   findings:
   - text_zh: 自我決定理論：自主、勝任、關係三種需求影響持續投入；現行游泳教學常壓制自主。
@@ -572,26 +786,34 @@ notes:
     certainty: 🔵
   title: 04 動機與自我決定
   group: literature
-  weight: 29
-  status_zh: 研究中
+  weight: 31
+  status_zh: 已寫進知識點
+  graduated:
+  - id: psych.motivation
+    title: 動機與動機氣候
+  questions: []
 - id: note.psych-imagery
   slug: imagery-mental-rehearsal
   theme: psychology
   kind: literature
-  status: researching
+  status: graduated
   summary_zh: 動覺意象會用到大腦的前向模型，是可以訓練的感知預演。
   findings:
   - text_zh: 動覺意象使用和實際動作相同的前向模型；有研究顯示意象訓練提升泳者本體感覺。
     certainty: 🟢
   title: 意象與心理演練（Imagery & Mental Rehearsal）
   group: literature
-  weight: 30
-  status_zh: 研究中
+  weight: 32
+  status_zh: 已寫進知識點
+  graduated:
+  - id: psych.imagery
+    title: 意象與心理演練
+  questions: []
 - id: note.psych-selftalk
   slug: self-talk-psychological-skills
   theme: psychology
   kind: literature
-  status: researching
+  status: graduated
   summary_zh: 自我對話要配合任務：精細技術配指導式、力量耐力配激勵式；「感知導向自我對話」還沒有人研究。
   findings:
   - text_zh: 指導式與激勵式自我對話各配合不同任務，游泳池中有系列研究支持。
@@ -600,26 +822,34 @@ notes:
     certainty: 🔴
   title: 自我對話與心理技能訓練（Self-Talk & Psychological Skills Training）
   group: literature
-  weight: 31
-  status_zh: 研究中
+  weight: 33
+  status_zh: 已寫進知識點
+  graduated:
+  - id: psych.self_talk
+    title: 自我對話與心理技能
+  questions: []
 - id: note.psych-flow
   slug: flow-peak-performance
   theme: psychology
   kind: literature
-  status: researching
+  status: graduated
   summary_zh: 心流是自動化接管、意識控制最低的狀態，對應 L5–L6「水在幫我」的感受。
   findings:
   - text_zh: 心流的觸發是挑戰與技能匹配加上信任；再投資則在壓力和害怕失敗時出現。
     certainty: 🟢
   title: 07 心流與最佳表現狀態（Flow & Optimal Performance）
   group: literature
-  weight: 32
-  status_zh: 研究中
+  weight: 34
+  status_zh: 已寫進知識點
+  graduated:
+  - id: psych.flow
+    title: 心流與去再投資
+  questions: []
 - id: note.psych-interaction
   slug: psycho-perceptual-physiological-interaction
   theme: psychology
   kind: literature
-  status: researching
+  status: graduated
   summary_zh: 把恐懼、喚醒、肌肉張力、內感受串成一條機制鏈，接到全身張力型的教學問題。
   findings:
   - text_zh: 恐懼 → 喚醒升高 → 肌肉張力前饋 → 內感受改變，可以串成一條解釋全身張力問題的鏈。
@@ -628,8 +858,41 @@ notes:
     certainty: 🟢
   title: 08 心理–感知–生理交互（橋接叢集）
   group: literature
-  weight: 33
+  weight: 35
+  status_zh: 已寫進知識點
+  graduated:
+  - id: psych.interaction
+    title: 心理–感知–生理交互
+  questions:
+  - id: fq.3.1
+    'no': '3.1'
+    title: 初學者的肌肉為什麼比菁英早啟動
+    anchor: q-3-1
+- id: note.physics-overview
+  slug: physics-overview
+  theme: physics
+  role: overview
+  kind: literature
+  status: researching
+  summary_zh: 推進主要靠往後推水的阻力、自己產生的渦流可以被再利用；兩篇引用查證失敗的筆記已下架待重寫。
+  title: 水中物理：總覽
+  group: literature
+  weight: 36
   status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.4.1
+    'no': '4.1'
+    title: 自由式有沒有「渦流接力」的最佳時序
+    anchor: q-4-1
+  - id: fq.4.2
+    'no': '4.2'
+    title: 划頻和肢體的自然頻率
+    anchor: q-4-2
+  - id: fq.4.3
+    'no': '4.3'
+    title: 游泳中有沒有可利用的彈性蓄能
+    anchor: q-4-3
 - id: note.propulsion-history
   slug: propulsion-theory-history
   theme: physics
@@ -646,8 +909,10 @@ notes:
     certainty: 🔵
   title: 游泳推進力理論演變：從「找靜水」到現代生物力學
   group: literature
-  weight: 34
+  weight: 37
   status_zh: 研究中
+  graduated: []
+  questions: []
 - id: note.vortex-recapture
   slug: vortex-recapture
   theme: physics
@@ -661,38 +926,39 @@ notes:
     certainty: 🟢
   title: 游泳渦流回收（Vortex Recovery in Swimming）
   group: literature
-  weight: 35
+  weight: 38
   status_zh: 研究中
-- id: note.elastic-energy
-  slug: elastic-energy-storage
-  theme: physics
+  graduated: []
+  questions:
+  - id: fq.4.1
+    'no': '4.1'
+    title: 自由式有沒有「渦流接力」的最佳時序
+    anchor: q-4-1
+- id: note.training-overview
+  slug: training-overview
+  theme: training
+  role: overview
   kind: literature
   status: researching
-  summary_zh: 四式各有一個肌肉先被拉長再彈回的時機；水阻會吸收大部分彈性，游泳中的實測多半是研究空白。
-  findings:
-  - text_zh: 四式各有一個伸展後縮短的時機（例如自由式划手末端到入水），可以作為「彈出」的感知目標。
-    certainty: 🔵
-  - text_zh: 自由式肩帶在游泳中的彈性蓄能，目前沒有實測研究。
-    certainty: 🔴
-  title: 彈性蓄能（Elastic Energy Storage in Swimming）
+  summary_zh: 游泳多數是金字塔型強度分布；頂尖教練走傳統週期化加上逐人微調；板塊週期化與低通氣訓練在游泳的證據還有限。
+  title: 訓練安排：總覽
   group: literature
-  weight: 36
+  weight: 39
   status_zh: 研究中
-- id: note.natural-frequency
-  slug: natural-frequency
-  theme: physics
-  kind: literature
-  status: researching
-  summary_zh: 划頻接近肢體的自然頻率時，可能比較省力、感覺「水在幫我」；目前主要是物理推導。
-  findings:
-  - text_zh: 肢體可視為有阻尼的彈簧質量系統，划頻與自然頻率匹配是省力的候選解釋。
-    certainty: 🔵
-  - text_zh: 泳者自然頻率與划頻的直接測量是研究空白。
-    certainty: 🔴
-  title: 自然頻率（Natural Frequency in Swimming）
-  group: literature
-  weight: 37
-  status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.5.1
+    'no': '5.1'
+    title: 水感能不能被週期化
+    anchor: q-5-1
+  - id: fq.5.3
+    'no': '5.3'
+    title: 游泳的板塊週期化
+    anchor: q-5-3
+  - id: fq.5.4
+    'no': '5.4'
+    title: 低通氣訓練用在分齡選手
+    anchor: q-5-4
 - id: note.polarized
   slug: polarized-training-seiler
   theme: training
@@ -708,8 +974,14 @@ notes:
     certainty: 🟢
   title: 極化訓練（Polarized Training）與訓練強度分布（TID）
   group: literature
-  weight: 38
+  weight: 40
   status_zh: 研究中
+  graduated:
+  - id: periodization.zones.swim_tid
+    title: TID＝整個週期裡輕鬆／閾值／吃力三種強度各占多少。主要有三種分布：極化型（大量輕鬆 ＋少量超吃力、中間幾乎不練）、金字塔型（由下往上遞減）、閾值型（中間那塊偏多）。游泳最該知道的一件事是：它不像跑步、自行車那樣呈現極化。追蹤 127 名法國菁英泳者、 289 個賽季的資料顯示，將近一半的訓練量（44–46%）就落在
+  - id: periodization.zones.school_polarized
+    title: 極化派（Seiler）問的不是「每區強度多少」而是「每區各占幾成」。他觀察全國／國際級耐力選手，發現他們自然形成「大量輕鬆＋少量超吃力、中間幾乎不練」的分布——大約 80% 低強度、20% 高強度（這個 80/20 算的是課次，不是時間）。為什麼避開中間（閾值）區？因為那強度「高不成低不就」：累積疲勞不少，刺激又不
+  questions: []
 - id: note.block
   slug: block-periodization-issurin
   theme: training
@@ -723,8 +995,16 @@ notes:
     certainty: 🟢
   title: 板塊週期化（Block Periodization）— Issurin 研究筆記
   group: literature
-  weight: 39
+  weight: 41
   status_zh: 研究中
+  graduated:
+  - id: periodization.structure.school_block
+    title: 板塊週期化（Issurin）跟 Bompa 最大的不同：Bompa 主張準備期可以同時把很多能力一起練；Issurin 說高水準選手做不到——很多訓練刺激會互相打架（大量有氧會干擾長肌力），所以要『一次只集中練一兩項』，按順序排。怎麼決定何時換下一項？看『殘留效應』——某能力停練後能撐多久：有氧耐力、最大肌力約撐 30
+  questions:
+  - id: fq.5.3
+    'no': '5.3'
+    title: 游泳的板塊週期化
+    anchor: q-5-3
 - id: note.sandbakk
   slug: elite-coaching-philosophy-sandbakk
   theme: training
@@ -738,8 +1018,10 @@ notes:
     certainty: 🟢
   title: 頂尖耐力教練的訓練哲學
   group: literature
-  weight: 40
+  weight: 42
   status_zh: 研究中
+  graduated: []
+  questions: []
 - id: note.hypoventilation
   slug: hypoventilation-training
   theme: training
@@ -753,8 +1035,14 @@ notes:
     certainty: 🔵
   title: 超最大強度低通氣訓練（VHL / RSH-VHL）
   group: literature
-  weight: 41
+  weight: 43
   status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.5.4
+    'no': '5.4'
+    title: 低通氣訓練用在分齡選手
+    anchor: q-5-4
 - id: note.finswimming
   slug: finswimming-training
   theme: training
@@ -770,9 +1058,152 @@ notes:
     apply_zh: 屏氣組一定有人直接看著，出發前不過度換氣，想換氣就上來。
   - text_zh: 各項目的能力分配與三個處方缺口是推論，要在實際訓練中驗證。
     certainty: 🔵
-  open_questions:
-  - fq.0.7
   title: 蹼泳訓練：各項目要練什麼、怎麼休息、器材怎麼分配
   group: literature
-  weight: 42
+  weight: 44
   status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.5.2
+    'no': '5.2'
+    title: 蹼泳的三個處方缺口
+    anchor: q-5-2
+- id: note.triathlon
+  slug: triathlon-swimming
+  theme: triathlon
+  kind: literature
+  status: graduated
+  summary_zh: 鐵人泳段專屬的強度分布、週期化、減量沒有研究全文；17 條常見說法只有「跟游沒差別」「防寒衣快 20%」能用研究直接對照，兩條都不成立。
+  findings:
+  - text_zh: 跟游有明確的省力效果：緊跟在後時攝氧量降約 11%、血乳酸降約 38%，「跟游沒差別」不成立。
+    certainty: 🟢
+  - text_zh: 防寒衣在 400 m 約快 6%，主要來自划幅變長；「快 20%」找不到出處。
+    certainty: 🟢
+  - text_zh: 「鐵人不用學踢腿」「一定要雙邊換氣」只對一半：賽中少踢、會雙邊換氣有用，但完全不踢、「必須」都沒有依據。
+    certainty: 🟠
+  - text_zh: 每週課數、每堂時間、組型範本有實務文件出處；泳段強度分布、開放水域配速換算、減量幅度都沒有出處。
+    certainty: 🟠
+    apply_zh: 課表裡沒有出處的份量留白，不自己補數字。
+  title: 鐵人三項的游泳：常見說法與訓練參數，研究怎麼說
+  group: literature
+  weight: 45
+  status_zh: 已寫進知識點
+  graduated:
+  - id: open-water.err1
+    title: 鐵人不用學踢腿，腿留給騎跑
+  - id: open-water.err2
+    title: 一定要雙邊換氣，而且固定每三划換氣一次
+  - id: open-water.tech.4
+    title: 跟游（drafting）——跟在正後方或髖側，用別人帶動的水流省力
+  - id: open-water.tech.7
+    title: 防寒衣（一）身體位置——浮力集中在軀幹與下肢，腿沉的人受益最大
+  - id: open-water.tech.20
+    title: 『游泳只占比賽一小部分，練游泳不划算』——判定（部分正確，依族群）
+  - id: open-water.tech.21
+    title: 『鐵人是長距離所以不用練速度』與『一定要連續游到比賽距離（或間歇就夠）』——判定（證據不足）
+  - id: open-water.tech.22
+    title: 『游泳段要保留體力，慢慢游就好』——判定（部分正確，依族群）
+  - id: open-water.tech.23
+    title: 『成人學游泳太晚，技術改不了，只能靠體能』——判定（迷思，但證據只有自述）
+  - id: open-water.tech.24
+    title: 『比賽前一天要休息，不要下水』——判定（證據不足，找不到主張者）
+  - id: periodization.triathlon.planner
+    title: 鐵人三項泳段排課
+  questions:
+  - id: fq.6.1
+    'no': '6.1'
+    title: 鐵人泳段的強度分布與減量
+    anchor: q-6-1
+  - id: fq.6.2
+    'no': '6.2'
+    title: 泳池配速換算到開放水域
+    anchor: q-6-2
+- id: note.obs-instruction-layers
+  slug: instruction-layers
+  theme: observation
+  kind: observation
+  status: researching
+  summary_zh: 指令順序要先放鬆張力，再給身體動作語言，最後才給流體意圖語言；順序反過來幾乎無效。
+  findings:
+  - text_zh: 「上下擺動大腿」這類身體動作語言先建立動作模式，「讓腳背甩出水」這類流體意圖語言再接上水流感知。
+    certainty: 🟠
+  - text_zh: 學生還在防衛緊繃時，流體意圖語言聽不進去，要先處理張力。
+    certainty: 🟠
+    apply_zh: 先張力 → 再身體動作 → 再流體意圖。
+  title: 指令層次設計：身體運動語言 vs 流體意圖語言
+  group: observation
+  weight: 46
+  status_zh: 研究中
+  graduated: []
+  questions: []
+- id: note.obs-small-paddle
+  slug: small-paddle-observation
+  theme: observation
+  kind: observation
+  status: researching
+  summary_zh: 只稍微放大手掌的小划手板，沒教正確動作，學生也會自己調整出相似的手型和前臂角度。
+  findings:
+  - text_zh: 用小划手板後，學生自發把手掌和前臂調向更能抓水的位置，描述「水變重了、手更抓得住」；背景不同的人收斂到相似的手型。
+    certainty: 🟠
+    apply_zh: 用放大感知訊號的器材讓動作自己調整，而不是用大划板強迫形式。
+  title: 課堂觀察：小划手板實驗
+  group: observation
+  weight: 47
+  status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.2.5
+    'no': '2.5'
+    title: 手的感覺能不能練得更靈敏
+    anchor: q-2-5
+by_unit:
+  psych.arousal.implicit_learning:
+  - implicit-explicit-learning
+  psych.flow.de_reinvestment:
+  - implicit-explicit-learning
+  psych.fear.diving_reflex_calm:
+  - interoception-vagus
+  psych.interaction.vagal_tone_fear_extinction:
+  - interoception-vagus
+  psych.attention:
+  - attention-focus-motor-learning
+  psych.arousal:
+  - arousal-anxiety-choking
+  psych.fear:
+  - water-fear-learner-psychology
+  psych.motivation:
+  - motivation-self-determination
+  psych.imagery:
+  - imagery-mental-rehearsal
+  psych.self_talk:
+  - self-talk-psychological-skills
+  psych.flow:
+  - flow-peak-performance
+  psych.interaction:
+  - psycho-perceptual-physiological-interaction
+  periodization.zones.swim_tid:
+  - polarized-training-seiler
+  periodization.zones.school_polarized:
+  - polarized-training-seiler
+  periodization.structure.school_block:
+  - block-periodization-issurin
+  open-water.err1:
+  - triathlon-swimming
+  open-water.err2:
+  - triathlon-swimming
+  open-water.tech.4:
+  - triathlon-swimming
+  open-water.tech.7:
+  - triathlon-swimming
+  open-water.tech.20:
+  - triathlon-swimming
+  open-water.tech.21:
+  - triathlon-swimming
+  open-water.tech.22:
+  - triathlon-swimming
+  open-water.tech.23:
+  - triathlon-swimming
+  open-water.tech.24:
+  - triathlon-swimming
+  periodization.triathlon.planner:
+  - triathlon-swimming

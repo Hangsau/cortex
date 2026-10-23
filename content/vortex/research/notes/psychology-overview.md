@@ -5,9 +5,10 @@ slug: "psychology-overview"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 25
+weight: 27
 note_kind: "literature"
 note_theme: "psychology"
+note_role: "overview"
 draft: false
 ---
 
@@ -62,17 +63,17 @@ draft: false
 
 - 顯性學習（reinvestment 作為工具）在 **L1–L3 是必要的**，不是問題。
 - **L5→L6 的關鍵轉換 = 成功「去再投資」（de-reinvestment）**：放掉顯性自我監控，信任已習得的隱性感知模式。L6 的「水在幫我」就是再投資降到最低、自動化達到最高的現象學報告。
-- **Liao & Masters（2001）是這條軸的可操作介入證據**（DOI: 10.1080/02640410152006081 🟢）：用比喻式指導（原研究是**桌球**正手上旋的「直角三角形」拍路意象）取代顯性技術分解，壓力下表現更穩、累積的外顯規則更少。⚠️ 原研究是桌球非游泳；游泳的類比指導效果尚無第一手實證（v1 誤標為「游泳第一手」已更正，見 `Research/感知科學/隱性_顯性學習.md` v2）。
-- 這條軸**直接擴充既有的 `Research/感知科學/隱性_顯性學習.md`**（v1 stub，2026-04-25 建立，僅 3KB，Masters 1992 核心）— cluster 02 與 07 提供大幅更豐富的素材：再投資的動作 vs 決策分離、Liao & Masters 2001 完整方法、Beilock 明確監控假說、IZOF/Hardy 壓力崩潰鏈，足以把該 stub 升級為 v2。
+- **Liao & Masters（2001）是這條軸的可操作介入證據**（DOI: 10.1080/02640410152006081 🟢）：用比喻式指導（原研究是**桌球**正手上旋的「直角三角形」拍路意象）取代顯性技術分解，壓力下表現更穩、累積的外顯規則更少。⚠️ 原研究是桌球非游泳；游泳的類比指導效果尚無第一手實證。
+- 這條軸在 [〈隱性 vs 顯性學習〉](../implicit-explicit-learning/) 有完整展開：再投資的動作與決策分離、Liao & Masters 2001 的完整方法、Beilock 明確監控假說、IZOF／Hardy 壓力崩潰鏈。
 
 ### 主軸 C — EMG 悖論的心理橋（cluster 08，接 FUTURE_RESEARCH §0.5）
 
-初學者過早的肌肉激活（Vaz 2016 PMID 26878097；Olstad 2017 DOI 10.1123/ijspp.2016-0179）有兩種解釋，互相競爭：
+初學者過早的肌肉激活（Vaz 2016 PMID 26878097；Olstad 2017 DOI 10.1123/ijspp.2015-0703）有兩種解釋，互相競爭：
 
 1. **焦慮驅動的過度控制（防禦性僵硬）** — 喚醒升高 → 肌肉張力前饋 → 干預感知通道
 2. **預測性前饋（feedforward）** — 正常的運動預備，不是病理
 
-cluster 08 的評估結論：**解釋 #1（焦慮過度控制）目前證據最強**（Barreto 2017 DOI 10.1016/j.neulet.2017.02.033，🟢×3）。
+cluster 08 的評估結論：**解釋 #1（焦慮過度控制）目前證據最強**（Langlet 等 2017 DOI 10.1016/j.neulet.2017.02.024，🟢×3）。
 
 → 同時 cluster 05 的意象研究提供解釋 #2 的橋：動覺意象使用 forward model（Kilteni 2018 PMID 29691389），把「預測性前饋」這條解釋連回可訓練的介入。
 
@@ -157,17 +158,15 @@ cluster 08 的評估結論：**解釋 #1（焦慮過度控制）目前證據最�
 
 | # | 主題 | 核心理論支柱 | 游泳第一手亮點 |
 |---|------|------------|-------------|
-| [01](01_注意力焦點與動作學習.md) | 注意力焦點與動作學習 | Wulf EF/IF、constrained action hypothesis | 2024 Bayesian meta 推翻 EF 全面優越；Freudenheim 2010 游泳外焦點 |
-| [02](02_喚醒焦慮與壓力崩潰.md) | 喚醒焦慮與壓力崩潰 | 再投資理論（Masters 1992）、IZOF、Beilock | EMG 悖論機制鏈；游泳賽前 ACTH 4 倍升高（PMID 34868421） |
-| [03](03_水中恐懼與學習者心理.md) | 水中恐懼與學習者心理 | FWAQ、凍結雙系統、CO₂ 敏感 | 「失去動作控制」是最強恐懼預測因子（Misimi 2020） |
-| [04](04_動機與自我決定.md) | 動機與自我決定 | SDT、成就目標、動機氣候、TARGET | Pelletier 2001 泳者縱貫；Minkels 2023 現行游泳教學壓制自主 |
-| [05](05_意象與心理演練.md) | 意象與心理演練 | forward model、PETTLEP | Kilteni 2018 意象用前向模型；Frontiers 2025 RCT 提升泳者本體感 |
-| [06](06_自我對話與心理技能訓練.md) | 自我對話與心理技能 | IST/MST 配對假說、目標設定、PST | Hatzigeorgiadis 游泳池系列；Matos 2020 MST +2.8% 且 RPE 不變 |
-| [07](07_心流與最佳表現.md) | 心流與最佳表現 | Csikszentmihalyi 九維度、flow vs clutch | Liao & Masters 2001 類比學習（桌球實證，去再投資手段；游泳應用待證） |
-| [08](08_心理感知生理交互.md) | 心理-感知-生理交互 | Marcora 心理生物、Noakes 中樞調節、Craig 內感受 | Baba 2021 水浸內感受；EMG 悖論評估（#1 證據最強） |
+| [01](../attention-focus-motor-learning/) | 注意力焦點與動作學習 | Wulf EF/IF、constrained action hypothesis | 2024 Bayesian meta 推翻 EF 全面優越；Freudenheim 2010 游泳外焦點 |
+| [02](../arousal-anxiety-choking/) | 喚醒焦慮與壓力崩潰 | 再投資理論（Masters 1992）、IZOF、Beilock | EMG 悖論機制鏈；游泳賽前 ACTH 4 倍升高（PMID 34868421） |
+| [03](../water-fear-learner-psychology/) | 水中恐懼與學習者心理 | FWAQ、凍結雙系統、CO₂ 敏感 | 「失去動作控制」是最強恐懼預測因子（Misimi 2020） |
+| [04](../motivation-self-determination/) | 動機與自我決定 | SDT、成就目標、動機氣候、TARGET | Pelletier 2001 泳者縱貫；Minkels 2023 現行游泳教學壓制自主 |
+| [05](../imagery-mental-rehearsal/) | 意象與心理演練 | forward model、PETTLEP | Kilteni 2018 意象用前向模型；Frontiers 2025 RCT 提升泳者本體感 |
+| [06](../self-talk-psychological-skills/) | 自我對話與心理技能 | IST/MST 配對假說、目標設定、PST | Hatzigeorgiadis 游泳池系列；Matos 2020 MST +2.8% 且 RPE 不變 |
+| [07](../flow-peak-performance/) | 心流與最佳表現 | Csikszentmihalyi 九維度、flow vs clutch | Liao & Masters 2001 類比學習（桌球實證，去再投資手段；游泳應用待證） |
+| [08](../psycho-perceptual-physiological-interaction/) | 心理-感知-生理交互 | Marcora 心理生物、Noakes 中樞調節、Craig 內感受 | Baba 2021 水浸內感受；EMG 悖論評估（#1 證據最強） |
 
 **第一手在地書源**：Science of Swimming Faster Ch.16（Bauman 游泳心理）、Ch.11（Riewald 賽前策略）；Endure（Hutchinson，中樞調節/疼痛/信念）。
 
 ---
-
-*整合完成：2026-06-15。本層由 8 份 dossier（子代理蒐集）+ 本總覽（Opus 整合）構成。dossier 為文獻原始整理，可隨新證據修訂；本總覽是它們的結構骨架。*

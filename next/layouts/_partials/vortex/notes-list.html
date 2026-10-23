@@ -1,11 +1,12 @@
-{{- /* 研究筆記清單（2026-10-23，Claude 手寫）。系列首頁頁型（lib-series／ls-*），不新增版型。
-     分組、主題、閱讀順序與卡片摘要全部來自 data/vortex/research_notes.yaml（真相源：Vortex Research/_notes.yaml），
-     layout 不寫任何筆記名單。編號是主題內的閱讀順序。 */ -}}
+{{- /* 研究筆記清單（2026-10-23，Claude 手寫）。系列首頁頁型（lib-series／ls-*）。
+     分組、主題、總覽、閱讀順序、卡片摘要全部來自 data/vortex/research_notes.yaml（真相源：Vortex Research/_notes.yaml），
+     layout 不寫任何筆記名單。編號是主題內的閱讀順序；總覽不編號、排在主題最前面。 */ -}}
 {{- $css := resources.Get "css/library.css" | fingerprint -}}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 {{- $data := hugo.Data.vortex.research_notes -}}
 {{- $bySlug := dict }}{{ range $data.notes }}{{ $bySlug = merge $bySlug (dict .slug .) }}{{ end -}}
 {{- $digest := site.GetPage "/vortex/research/conclusions" -}}
+{{- $openq := site.GetPage "/vortex/research/open-questions" -}}
 <article class="lib-series">
   <header class="ls-hero">
     <p class="kicker">Vortex · 研究庫</p>
@@ -15,34 +16,52 @@
       <span><b>{{ len $data.notes }}</b> 篇</span>
       {{- range $data.groups }}{{ $c := 0 }}{{ range .themes }}{{ $c = add $c (len .slugs) }}{{ end }}<span>{{ .name_zh }} <b>{{ $c }}</b> 篇</span>{{ end }}
     </p>
+    <ul class="nl-jump" aria-label="主題">
+      {{- range $data.groups }}{{ range .themes }}
+      <li><a href="#nt-{{ .key }}">{{ .name_zh }}<b>{{ len .slugs }}</b></a></li>
+      {{- end }}{{ end }}
+    </ul>
   </header>
 
-  {{- with $digest }}
-  <section class="ls-sec" aria-labelledby="nl-digest">
-    <h2 id="nl-digest">先看結論</h2>
+  <section class="ls-sec" aria-labelledby="nl-start">
+    <h2 id="nl-start">不想一篇一篇讀，從這裡開始</h2>
     <div class="ls-tools">
+      {{- with $digest }}
       <a class="ls-tool" href="{{ .RelPermalink }}"><span class="ls-tool-t">{{ .Title }}</span><span class="ls-tool-d">{{ .Description }}</span></a>
+      {{- end }}
+      {{- with $openq }}
+      <a class="ls-tool" href="{{ .RelPermalink }}"><span class="ls-tool-t">開放問題</span><span class="ls-tool-d">{{ .Description }}</span></a>
+      {{- end }}
     </div>
   </section>
-  {{- end }}
 
   {{- range $data.groups }}
   <section class="ls-sec" aria-labelledby="nl-{{ .key }}">
     <h2 id="nl-{{ .key }}">{{ .name_zh }}</h2>
-    {{- with .desc_zh }}<p class="ls-meta">{{ . }}</p>{{ end }}
+    {{- with .desc_zh }}<p class="nl-group-lead">{{ . }}</p>{{ end }}
+    {{- with .overview }}{{ $n := index $bySlug . }}{{ with site.GetPage (printf "/vortex/research/notes/%s" .) }}
+    <a class="nl-ov" href="{{ .RelPermalink }}"><span class="nl-ov-k">總覽</span><span class="ls-ch-body"><span class="ls-ch-t">{{ .Title }}</span><span class="ls-ch-d">{{ $n.summary_zh }}</span></span></a>
+    {{- end }}{{ end }}
     {{- range .themes }}
-    <p class="ls-part" id="nt-{{ .key }}">{{ .name_zh }}</p>
-    {{- with .desc_zh }}<p class="ls-meta">{{ . }}</p>{{ end }}
-    <ol class="ls-toc">
-      {{- range $i, $slug := .slugs }}
-        {{- $n := index $bySlug $slug }}
-        {{- with site.GetPage (printf "/vortex/research/notes/%s" $slug) }}
-      <li><a class="ls-ch" href="{{ .RelPermalink }}"><span class="ls-n">{{ add $i 1 }}</span><span class="ls-ch-body"><span class="ls-ch-t">{{ .Title }}</span><span class="ls-ch-d">{{ $n.summary_zh }}</span>{{ if ne $n.status "researching" }}<span class="ls-ch-d">{{ $n.status_zh }}</span>{{ end }}</span></a></li>
-        {{- else }}
-      <li><span class="ls-ch"><span class="ls-n">{{ add $i 1 }}</span><span class="ls-ch-body"><span class="ls-ch-t">{{ $slug }}</span></span></span></li>
+    <div class="nl-theme">
+      <div class="nl-theme-head">
+        <p class="ls-part" id="nt-{{ .key }}">{{ .name_zh }}</p>
+        {{- with .desc_zh }}<p>{{ . }}</p>{{ end }}
+      </div>
+      {{- with .overview }}{{ $n := index $bySlug . }}{{ with site.GetPage (printf "/vortex/research/notes/%s" .) }}
+      <a class="nl-ov" href="{{ .RelPermalink }}"><span class="nl-ov-k">總覽</span><span class="ls-ch-body"><span class="ls-ch-t">{{ .Title }}</span><span class="ls-ch-d">{{ $n.summary_zh }}</span></span></a>
+      {{- end }}{{ end }}
+      <ol class="ls-toc">
+        {{- range $i, $slug := .slugs }}
+          {{- $n := index $bySlug $slug }}
+          {{- with site.GetPage (printf "/vortex/research/notes/%s" $slug) }}
+        <li><a class="ls-ch" href="{{ .RelPermalink }}"><span class="ls-n">{{ add $i 1 }}</span><span class="ls-ch-body"><span class="ls-ch-t">{{ .Title }}</span><span class="ls-ch-d">{{ $n.summary_zh }}</span>{{ if ne $n.status "researching" }}<span class="nl-tag">{{ $n.status_zh }}</span>{{ end }}</span></a></li>
+          {{- else }}
+        <li><span class="ls-ch"><span class="ls-n">{{ add $i 1 }}</span><span class="ls-ch-body"><span class="ls-ch-t">{{ $slug }}</span></span></span></li>
+          {{- end }}
         {{- end }}
-      {{- end }}
-    </ol>
+      </ol>
+    </div>
     {{- end }}
   </section>
   {{- end }}

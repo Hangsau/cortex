@@ -5,9 +5,10 @@ slug: "hypoventilation-training"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 41
+weight: 43
 note_kind: "literature"
 note_theme: "training"
+note_role: ""
 draft: false
 ---
 
@@ -15,7 +16,7 @@ draft: false
 
 > **定位**：這是 2020–2026 期間水中訓練文獻裡**證據最完整的一條「新路線」**——不靠高海拔或低氧帳篷，而是靠泳者自己在低肺容積下憋氣製造局部缺氧。它不是週期化模型，而是一種可嵌進高強度區（Z3 / 衝刺）的**具體訓練方法**，因此放在週期化資料夾作為「強度區的可訓練槓桿」素材。
 >
-> **本筆記不取代 canonical**。屬研究層方法素材，原始樣本偏小、機制仍有爭議，不可直接寫成 canonical 的訓練處方。
+> **本筆記不取代知識點**。屬研究層方法素材，原始樣本偏小、機制仍有爭議，不可直接寫成知識點的訓練處方。
 
 ---
 
@@ -46,7 +47,7 @@ draft: false
 | 200m | −6.9 秒 |
 | 400m | −13.6 秒 |
 
-> 🔴 **數字待二次追蹤**：上述秒數來自 Hestia 研究報告對 Woorons 2016 的讀取，尚未逐一追到原文摘要核對。論文存在性與「VHL 組進步、常氧不變」的方向已查證（PMID 26741118 真實，標題「Hypoventilation Training at Supramaximal Intensity Improves Swimming Performance」）；但 −3.7 / −6.9 / −13.6 的精確值在進 canonical 前需追到原文。
+> 數字已對照原文摘要：100 m −3.7 ± 3.7 秒（−4.4%）、200 m −6.9 ± 5.0 秒（−3.6%）、400 m −13.6 ± 6.1 秒（−3.5%），控制組沒有變化；VHL 組的最高血乳酸與乳酸累積速率上升，攝氧峰值不變。
 
 ### Trincat 2017——RSH-VHL 改善競技泳者反覆衝刺能力 🟢
 
@@ -99,7 +100,3 @@ draft: false
 | 3 | Précart et al. 2025；*Sports Med Open* 11:55；DOI 10.1186/s40798-025-00853-6 | 統合分析，定位低成本缺氧替代方案 | 🟢（PMID 待補 🔴） |
 
 ---
-
-## 文件版本紀錄
-
-- **初版** · 2026-06-22：整合 Hestia VM 研究報告（water-training-breakthroughs）。建立 VHL / RSH-VHL 低通氣訓練筆記；三篇來源（Woorons 2016 / Trincat 2017 / Précart 2025）均經 WebSearch 查證論文存在性與方向。保留兩處 🔴：Woorons 進步秒數待追原文、Précart PMID 待從 PubMed 核對。明確標注此路線不涉感知層、對兒童／初學者無外推基礎。

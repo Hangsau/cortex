@@ -5,14 +5,13 @@ slug: "propulsion-theory-history"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 34
+weight: 37
 note_kind: "literature"
 note_theme: "physics"
+note_role: ""
 draft: false
 ---
 
-> 整合日期：2026年4月  
-> 來源：swimming_propulsion_theory.md（raw/notes）  
 > 原文附完整學術來源，以下各主張依確定性層次標注
 
 ---
@@ -75,7 +74,7 @@ draft: false
 
 **③「找靜水」類比的邏輯錯誤：** 🔵 升力理論支持者曾用「毛毛蟲輪葉」類比說明後葉會被前葉攪亂，所以應該找靜水。但人類游泳者同時只有一隻手在水中發力——**根本不存在「後面的手划到自己攪亂的水」這個問題**，類比從根本上不適用。
 
-**④ 渦流（Vortex）的角色：** 🟢 Matsuuchi et al.（2009）確認，手划水過程中確實會產生渦流，渦流與推進力有關。但這是**描述現象**，不是教「要去找渦流划」——渦流是划手時自然產生的流體力學現象。（連結：`→ Research/物理現象/渦流回收.md`）
+**④ 渦流（Vortex）的角色：** 🟢 Matsuuchi et al.（2009）確認，手划水過程中確實會產生渦流，渦流與推進力有關。但這是**描述現象**，不是教「要去找渦流划」——渦流是划手時自然產生的流體力學現象。（連結：`→ [〈游泳渦流回收〉](../vortex-recapture/)）
 
 **來源：**
 - Rushall et al. (1994). *A Re-evaluation of the Traditional Aerodynamic Forces in Swimming.* Swimming Science Bulletin.
@@ -104,21 +103,9 @@ draft: false
 - **有前進速度時：** 水流迎面而來，手掌伸出後水壓立即建立，阻力回饋清晰，更容易感受到「抓到水」的感覺。
 - **靜止時：** 沒有相對流速，手掌沒有迎面水壓，只能靠手臂動作自己製造壓力差，難度高、回饋弱。
 
-**框架連結：** 水感（feel for the water）本質上是**壓力回饋的感知能力**，而不是「找到靜水」的能力。這直接支撐 Technica 層的核心命題——感知建立需要充分的外周機械感受器輸入（`→ Research/感知科學/機械感受器.md`）。
+**框架連結：** 水感（feel for the water）本質上是**壓力回饋的感知能力**，而不是「找到靜水」的能力。這直接支撐 Technica 層的核心命題——感知建立需要充分的外周機械感受器輸入（`→ [〈機械感受器與水感知〉](../mechanoreceptors/)）。
 
 **來源：** Hall, G. (2019). *10 Swimming Myths Debunked & Revisited.* SwimSwam.
-
----
-
-## 五、與 Vortex 框架的連結
-
-| 連結點 | 目標文件 |
-|--------|----------|
-| EVF 的生物力學依據 | `Instructional/自由式深度技術分析.md` |
-| S 型划手作為教學誤區 | `Instructional/自由式教學誤區深探.md`（S 型路徑迷思） |
-| 渦流的物理現象 | `Research/物理現象/渦流回收.md` |
-| 壓力回饋感知 | `Research/感知科學/機械感受器.md` |
-| 水感框架 | `Technica/水感指南.md`、`Technica/自由式水感框架.md` |
 
 ---
 
@@ -134,5 +121,3 @@ draft: false
 | Matsuuchi et al. | 2009 | Unsteady flow field around a human hand | 🟢 |
 
 ---
-
-*整合自 raw/notes/swimming_propulsion_theory.md，已刪除原始筆記*

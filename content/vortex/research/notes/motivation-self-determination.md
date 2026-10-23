@@ -4,14 +4,14 @@ description: "精熟導向的氣氛讓人敢探索新感覺；表現導向的氣
 slug: "motivation-self-determination"
 layer: "research"
 layer_name: "研究筆記"
-research_status: "研究中"
-weight: 29
+research_status: "已寫進知識點"
+weight: 31
 note_kind: "literature"
 note_theme: "psychology"
+note_role: ""
 draft: false
 ---
 
-> dossier 性質：原始文獻整理，非最終稿。  
 > 確定性標記：🟢近期可查(附PMID/DOI) / 🟡舊文獻 / 🟠書籍二手或觀測 / 🔵推導 / 🔴待查  
 > 游泳實證 vs 跨運動外推：凡外推皆標注「[跨運動外推]」
 
@@ -146,7 +146,7 @@ Ames, C. (1992). Classrooms: Goals, structures, and student motivation. *Journal
 ### 5. 精熟氣候的生理與心理效應（近期實驗研究）
 
 **Hogue, C. M. et al. (2024)**  
-🟢 PMID: 38242101 | DOI: 10.1177/01461672241246678（JSEP 2024）  
+🟢 PMID: 38242101 | DOI: 10.1123/jsep.2023-0104（JSEP 2024）  
 期刊：*Journal of Sport and Exercise Psychology*  
 - 設計：RCT，56 名男大學生，30 分鐘教玩雜耍（juggling），隨機分配精熟氣候 vs 表現氣候
 - 測量：唾液 interleukin-6（IL-6，發炎指標）、威脅/資源評估、BPN 滿足
@@ -342,7 +342,7 @@ Masters swimmers study (2025)：自我氣候 × 低主觀勝任感 → 承諾下
 cluster 03 確立「失去動作控制」是最強恐水因子；本檔確立 ego 氣候 × 低勝任感 → 負向最強。兩者在 L0 是乘法關係：  
 → 表現氣候把初學者私下的「失控感」翻譯成公開的「能力判決」，等於在最高的恐懼上再乘勝任威脅，把 L0 閘門抬得更高。  
 → 精熟氣候則同時卸掉評價威脅，讓減敏／暴露（cluster 03 教學介入）真正生效。  
-→ 「感知目標語言」（命題三）因此身兼兩職：既是動機工具，也是恐懼閘門的評價放大器關閉鈕。完整推導見 `00_心理層總覽.md` §1「主軸交互 D × E」。
+→ 「感知目標語言」（命題三）因此身兼兩職：既是動機工具，也是恐懼閘門的評價放大器關閉鈕。完整推導見 [〈心理層總覽〉](../psychology-overview/) §1「主軸交互 D × E」。
 
 ### 實踐意涵
 

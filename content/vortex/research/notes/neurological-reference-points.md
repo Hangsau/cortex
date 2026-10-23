@@ -5,15 +5,14 @@ slug: "neurological-reference-points"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 23
+weight: 25
 note_kind: "literature"
 note_theme: "perception"
+note_role: ""
 draft: false
 ---
 
-> 建立日期：2026-04-11（整合自流體覺知教學系統 v3.1 補強討論）
 > 確定性層次：🟢 有文獻支持的部分 + 🔴 推論部分（分別標記）
-> 狀態：理論框架，待教學應用轉譯
 
 ---
 
@@ -149,14 +148,3 @@ EMG 直接證據：世界級蛙式選手在**滑行期一開始**，股直肌與
 - Vaz, J.R. et al. (2016). Muscle activation during breaststroke. *Journal of Sports Sciences*.
 
 ---
-
-## 與現有系統的連結
-
-- **Research/感知科學/因果倒置假設.md** — 主張A是因果倒置假設的精確化
-- **FUTURE_RESEARCH.md 0.5** — EMG悖論（此文件提供更完整的框架）
-- **Observations/L0漂浮三態診斷.md** — 三點座標系解釋嬰兒式感覺驅動vs教練介入後的差異
-- **Technica/技術指標 L級對應框架.docx** — L5 描述需根據此文件更新
-
----
-
-*最後更新：2026-04-11 · 整合自研究討論紀錄 v3.1*

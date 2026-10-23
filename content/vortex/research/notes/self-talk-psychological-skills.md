@@ -4,14 +4,14 @@ description: "自我對話要配合任務：精細技術配指導式、力量耐
 slug: "self-talk-psychological-skills"
 layer: "research"
 layer_name: "研究筆記"
-research_status: "研究中"
-weight: 31
+research_status: "已寫進知識點"
+weight: 33
 note_kind: "literature"
 note_theme: "psychology"
+note_role: ""
 draft: false
 ---
 
-> dossier 性質：原始彙整，非最終稿。資料來源混合第一手在地文獻與 WebSearch 摘要。
 > 標記說明：🟢近期可查(PMID/DOI)／🟡舊文獻(可查但需圖書館)／🟠書籍二手或觀測／🔵推導／🔴待查
 
 ---
@@ -186,7 +186,7 @@ PST 是多模態介入，典型包含以下元素：
 | 2 | Hatzigeorgiadis A, Theodorakis Y, Zourbanos N. Self-Talk in the Swimming Pool | 2004 | Journal of Applied Sport Psychology, 16(2), 138-150. DOI: 10.1080/10413200490437886 | 游泳池中水球任務兩實驗：精度任務 IST > MST；力量任務 MST 顯著改善；兩類自我對話均降低干擾性思維 | 🟢（游泳特異） |
 | 3 | Hatzigeorgiadis A, Galanis V, Zourbanos N, Theodorakis Y. A Self-Talk Intervention for Competitive Sport Performance | 2014 | Journal of Applied Sport Psychology, 26(1). DOI: 10.1080/10413200.2013.790095 | 41 名年輕泳者 10 週自我對話訓練；介入組表現改善顯著優於控制組；長期訓練優於短期 | 🟢（游泳特異） |
 | 4 | Hatzigeorgiadis A, Zourbanos N, Theodorakis Y. Moderating effects of self-talk content on self-talk functions | 2007 | Journal of Applied Sport Psychology, 19, 240-251 | IST 對注意力控制更有效；MST 對動機與自信提升更有效；兩者機制不同但可互補 | 🟡 |
-| 5 | Zourbanos N et al. Mechanisms underlying self-talk–performance: motivational self-talk on confidence and anxiety | 2009 | Psychology of Sport and Exercise. DOI: 10.1016/j.psychsport.2008.06.002 | 激勵型自我對話訓練→降低身體焦慮、提升 state self-confidence 與 self-efficacy | 🟢 |
+| 5 | Zourbanos N et al. Mechanisms underlying self-talk–performance: motivational self-talk on confidence and anxiety | 2009 | Psychology of Sport and Exercise. DOI: 10.1016/j.psychsport.2008.07.009 | 激勵型自我對話訓練→降低身體焦慮、提升 state self-confidence 與 self-efficacy | 🟢 |
 | 6 | Matos S, Bertollo M et al. Motivational self-talk improves time-trial swimming endurance in amateur triathletes | 2020 | International Journal of Sport and Exercise Psychology, 19(3), 446-459. DOI: 10.1080/1612197X.2020.1717576 | MST 組游泳成績提升 2.8%；每 150m 配速加快；自覺費力程度（RPE）不變——MST 可在不增加感知努力下提升耐力游泳表現 | 🟢（游泳特異） |
 | 7 | Zach O. Self-talk and its application to competitive swimming | 2024 | *Studia Kinanthropologica* 24(2-3):67–75，DOI:10.32725/sk.2024.004（捷克刊物，無 PMID） | 整合回顧：自我對話可改善競技泳者起跑反應、本體感覺技能、肌力耐力與運動學指標；長期 > 短期介入；建議泳者自訂自我對話腳本並與教練評估 | 🟢（游泳特異） |
 | 8 | Freudenheim AM, Wulf G, Madureira F et al. An External Focus of Attention Results in Greater Swimming Speed | 2010 | International Journal of Sports Science & Coaching, 5(4), 533-542. DOI: 10.1260/1747-9541.5.4.533 | 中級前泳者：外焦點指令（"push the water back"）→ 顯著縮短 16m 時間；優於內焦點（"pull hands back"）與控制組；專家泳者外焦點同樣更快 | 🟢（游泳特異） |
@@ -233,7 +233,7 @@ PST 是多模態介入，典型包含以下元素：
 
 ### 核心連接點
 
-Vortex 的「指令層次設計」（見 Observations/指令層次設計.md）區分兩種指令語言：
+Vortex 的「指令層次設計」（見 [〈指令層次設計〉](../instruction-layers/)）區分兩種指令語言：
 1. **身體運動語言**：「手肘高提」、「拉手到髖部」——描述身體部位的動作
 2. **流體意圖語言**：「把水推到身後」、「像刀切水一樣」——描述與水的關係效果
 

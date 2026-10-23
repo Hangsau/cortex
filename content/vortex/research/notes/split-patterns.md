@@ -5,9 +5,10 @@ slug: "split-patterns"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 1
+weight: 2
 note_kind: "analysis"
 note_theme: "race-swim"
+note_role: ""
 draft: false
 ---
 
@@ -17,7 +18,7 @@ draft: false
 >
 > **讀法**：數字都是渦流計畫自己分析公開比賽成績得到的，不是已發表的研究，全部屬 🔵 推論層級（樣本大、有信賴區間，但沒有經過同儕審查，而且是探索性分析，不是預先登記的檢定）。對原因的解釋標 🔴 個人假設。
 >
-> **本筆記不取代 canonical**，是研究層素材。比賽是全力游、跳水出發，跟練習的強度不同；比賽的數字不能直接拿來當練習的標準。
+> **本筆記不取代知識點**，是研究層素材。比賽是全力游、跳水出發，跟練習的強度不同；比賽的數字不能直接拿來當練習的標準。
 
 ---
 

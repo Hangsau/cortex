@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "vortex"
 OUT = ROOT / "next" / "data" / "vortex_links.json"
 STROKES = ["free", "back", "breast", "fly", "udk", "starts-turns", "open-water"]
-EXPECT = {"move": 66, "drill": 214, "tech": 252, "error": 104, "problem": 84,
+EXPECT = {"move": 66, "drill": 214, "tech": 257, "error": 106, "problem": 84,
           "injury": 47, "level": 26, "psy": 8, "psyc": 62}
 fails = []
 

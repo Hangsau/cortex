@@ -4,14 +4,14 @@ description: "怕水的核心是怕失去動作控制，不是泛泛的怕水；
 slug: "water-fear-learner-psychology"
 layer: "research"
 layer_name: "研究筆記"
-research_status: "研究中"
-weight: 28
+research_status: "已寫進知識點"
+weight: 30
 note_kind: "literature"
 note_theme: "psychology"
+note_role: ""
 draft: false
 ---
 
-> dossier 狀態：初稿 — 2026-06-15  
 > 撰寫原則：每條附來源標記；游泳專屬實證與跨領域外推嚴格分開。  
 > 標記說明：🟢近期可查（附PMID/DOI）/ 🟡舊文獻（有出處但非近期）/ 🟠書籍或二手觀察 / 🔵推導 / 🔴待查或空白
 
@@ -100,7 +100,7 @@ draft: false
 | 年份 | 作者 | 標題 | 期刊 | PMID/DOI | 主要結論 | 標記 |
 |------|------|------|------|----------|---------|------|
 | 2015 | Domschke K et al. | Roles of interoceptive sensitivity and metacognitive interoception in panic | Behavioral and Brain Functions | PMC4422149 | 恐慌症核心機制：對內感受信號（心跳、呼吸）的過度敏感 + 誤讀 → 災難化解釋 → 循環放大 | 🟢 |
-| 2011 | Do All Threats Work the Same Way? | Divergent effects of fear and disgust on sensory perception and attention | Journal of Neuroscience | DOI: 10.1523/JNEUROSCI.4457-10.2011 | 恐懼引發注意力窄化（attentional tunneling）：強化對威脅的感知，同時抑制非威脅性刺激的感知通道 | 🟢 |
+| 2011 | Do All Threats Work the Same Way? | Divergent effects of fear and disgust on sensory perception and attention | Journal of Neuroscience | DOI: 10.1523/JNEUROSCI.4394-10.2011 | 恐懼引發注意力窄化（attentional tunneling）：強化對威脅的感知，同時抑制非威脅性刺激的感知通道 | 🟢 |
 | 2019 | Trait anxiety and attentional mechanisms | Effect of trait anxiety on attentional mechanisms in conditioning and extinction | Scientific Reports | PMC6586658 | 高特質焦慮者過度推廣威脅感知至非相關刺激（context overgeneralization） | 🟢 |
 | 2022 | Frontiers Psychiatry | Polyvagal Theory: A Science of Safety | Frontiers in Integrative Neuroscience | DOI: 10.3389/fnint.2022.871227 | 腹側迷走（ventral vagal）= 安全感 + 社會接觸 + 學習就緒；背側迷走（dorsal vagal）= 崩潰/關機。安全感是學習的前提條件。 | 🟢 |
 
@@ -193,7 +193,7 @@ FWAQ 確立「失去動作控制」是最強恐懼因子（本檔 §4），這�
 
 關鍵調節變項是**知覺勝任感**：低勝任 + ego 氣候時負向效應最強（Masters 泳者 Frontiers 2025，DOI 10.3389/fpsyg.2025.1574429；統合分析 DOI 10.3390/ejihpe14040064 🟢）。而低知覺勝任感正是**所有初學族群的共同起點**（成人初學、兒童初學）。
 
-→ 教學落點：對初學者，減敏／暴露（下節）若放在表現氣候裡會被評價威脅抵銷——先卸掉評價威脅（精熟語言、私下練習、不比較），再做暴露，恐懼消退才有空間。完整交互推導見 `00_心理層總覽.md` §1「主軸交互 D × E」。
+→ 教學落點：對初學者，減敏／暴露（下節）若放在表現氣候裡會被評價威脅抵銷——先卸掉評價威脅（精熟語言、私下練習、不比較），再做暴露，恐懼消退才有空間。完整交互推導見 [〈心理層總覽〉](../psychology-overview/) §1「主軸交互 D × E」。
 
 ---
 

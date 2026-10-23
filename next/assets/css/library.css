@@ -94,3 +94,39 @@
   .ls-entries { grid-template-columns: 1fr; }
   .lc-lead { padding-left: var(--s2); }
 }
+
+/* ---------- 研究筆記（Vortex 研究庫，2026-10-23）----------
+   清單頁（lib-series）：主題跳轉列、總覽列、狀態標記。結論一覽（lib-chapter）：每篇一塊、結論逐條、怎麼用縮排。 */
+.nl-jump { list-style: none; margin: var(--s4) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0 var(--s4); }
+.nl-jump a { display: flex; justify-content: space-between; align-items: center; gap: var(--s2); min-height: var(--tap); border-top: 1px solid var(--rule); color: var(--ink); text-decoration: none; font: 500 var(--fs-m)/1.4 var(--f-serif); }
+.nl-jump a:hover { color: var(--series); }
+.nl-jump b { font: 700 var(--fs-s)/1 var(--f-sans); color: var(--ink-2); }
+.nl-group-lead { max-width: var(--measure); color: var(--ink-2); margin: 0 0 var(--s3); }
+.nl-theme { margin-top: var(--s5); }
+.nl-theme-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s1) var(--s3); margin-bottom: var(--s2); }
+.nl-theme-head .ls-part { margin: 0; }
+.nl-theme-head p { margin: 0; color: var(--ink-2); font-size: var(--fs-s); }
+.nl-ov { display: grid; grid-template-columns: 2.4em 1fr; gap: var(--s2); padding: var(--s2) var(--s3) var(--s2) 0; margin-bottom: var(--s1); border-left: 4px solid var(--series); background: var(--tint); color: var(--ink); text-decoration: none; min-height: var(--tap); }
+.nl-ov-k { font: 700 var(--fs-s)/1.5 var(--f-sans); color: var(--series); text-align: right; padding-top: 2px; }
+.nl-ov:hover .ls-ch-t { color: var(--series); text-decoration: underline; }
+.nl-tag { display: inline-block; font: 500 var(--fs-s)/1.4 var(--f-sans); color: var(--series); border: 1px solid currentColor; border-radius: 2px; padding: 0 6px; margin-top: 2px; width: fit-content; }
+
+.nd-nav { list-style: none; padding: 0; margin: 0 0 var(--s5); display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0 var(--s3); font-family: var(--f-sans); }
+.nd-nav a { display: flex; align-items: center; justify-content: space-between; min-height: var(--tap); border-top: 1px solid var(--rule); color: var(--ink); text-decoration: none; }
+.nd-nav a:hover { color: var(--series); }
+.nd-nav span { color: var(--ink-2); font-size: var(--fs-s); }
+.nd-ov { font: 400 var(--fs-s)/var(--lh-ui) var(--f-sans); color: var(--ink-2); margin: 0 0 var(--s3); }
+.nd-note { border-top: 1px solid var(--rule); padding-top: var(--s3); margin-top: var(--s4); }
+.nd-note > h4 { font: 700 var(--fs-m)/1.5 var(--f-serif); margin: 0 0 var(--s2); }
+.nd-note > h4 a { color: var(--ink); text-decoration: none; }
+.nd-note > h4 a:hover { color: var(--series); text-decoration: underline; }
+.lc-body .nd-findings { list-style: none; padding: 0; }
+.lc-body .nd-findings li { display: grid; grid-template-columns: 1.6em 1fr; gap: var(--s1); margin-bottom: var(--s3); }
+.nd-apply { display: block; margin-top: var(--s1); padding-left: var(--s2); border-left: 2px solid var(--rule); color: var(--ink-2); font-size: var(--fs-s); line-height: var(--lh-ui); font-family: var(--f-sans); }
+.nd-apply b { color: var(--ink); margin-right: 4px; }
+.nd-more { font: 400 var(--fs-s)/var(--lh-ui) var(--f-sans); color: var(--ink-2); margin: 0; }
+
+.nt-foot { border-top: 2px solid var(--ink); margin-top: var(--s6); padding-top: var(--s2); }
+.nt-foot h2 { font: 700 var(--fs-m)/1.4 var(--f-serif); margin: var(--s3) 0 var(--s2); }
+.nt-foot ul { padding-left: 1.4em; margin: 0 0 var(--s3); font-family: var(--f-sans); line-height: var(--lh-ui); }
+.nt-foot li { margin-bottom: var(--s1); }

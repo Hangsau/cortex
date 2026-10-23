@@ -1,0 +1,9 @@
+{{- /* canonical 知識點 ID → 站內連結（2026-10-23）。dict "id" "title"。
+     有知識點頁的連到頁；週期化章節點連到週期化頁的錨點；都沒有就只印標題（不編造網址）。 */ -}}
+{{- $id := .id -}}
+{{- $u := index hugo.Data.vortex_links.units $id -}}
+{{- $per := where (index hugo.Data.periodization "_index") "id" $id -}}
+{{- if $u -}}<a href="{{ relURL $u.path }}">{{ .title }}</a>
+{{- else if $per -}}<a href="{{ relURL "vortex/periodization/" }}#{{ $id }}">{{ .title }}</a>
+{{- else -}}{{ .title }}
+{{- end -}}

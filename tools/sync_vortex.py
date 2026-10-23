@@ -239,66 +239,194 @@ NOTES_DATA_DST = HUGO_ROOT / "data" / "vortex" / "research_notes.yaml"
 NOTE_LAYER_NAME = "研究筆記"
 NOTE_STATUS_ZH = {"researching": "研究中", "graduated": "已寫進知識點", "retracted": "已撤回"}
 # 出站給 layout 的欄位（白名單）：path、maintenance_note 是維護者用的，不出站。
-NOTE_PUBLIC_FIELDS = ("id", "slug", "theme", "kind", "status", "summary_zh", "findings",
+NOTE_PUBLIC_FIELDS = ("id", "slug", "theme", "role", "kind", "status", "summary_zh", "findings",
                       "graduated_to", "open_questions")
 
 
+# 研究筆記的散文是研究工作稿，上站前把「只給維護者看」的部分拿掉（真相源不改）：
+# 頁首的建立日期／狀態／dossier 註記、文末「最後更新／整合自」、整節的內部檔案對照與
+# 教練觀察指標，以及檔名形式的互相引用（改成筆記標題；有登錄的連到該筆記）。
+_NOTE_META_LINE = re.compile(
+    r"^>\s*\**(建立日期|整合日期|撰寫日期|研究日期|記錄日期|狀態|dossier|Dossier|最後更新|來源：(外部|研究討論|swimming))")
+_NOTE_TAIL_LINE = re.compile(r"^\*(最後更新|整合自|整合完成|整合日期|v\d)")
+_NOTE_INTERNAL_SECTION = re.compile(
+    r"^#{2,3}\s.*(與現有系統的連結|相關文件|文件版本紀錄|蒐集紀要|與 Vortex 框架的連結|教練觀察指標)\s*$")
+_NOTE_MD_LINK = re.compile(r"\[([^\]]+)\]\(([^)\s]+?)\.md\)")
+_NOTE_FILE_REF = re.compile(r"`?(?:[^\s`「」（）()*\[\]|]+/)?([^\s`/「」（）()*\[\]|]+?)\.(?:md|docx)`?")
+# 散文裡用〈短標題〉指其他筆記（例：〈分段型態〉）；對得上登錄筆記的就連過去
+_NOTE_ANGLE_REF = re.compile(r"(?<!\[)〈([^〈〉\n]{2,40})〉(?!\])")
+
+
+def short_title(title: str) -> str:
+    return re.split(r"[：:（(—]", title)[0].strip()
+
+
+def note_short_titles(notes: list[dict]) -> dict[str, dict]:
+    """完整標題與「：」前的短標題都可以指到筆記；短標題撞名時不收（避免連錯）。"""
+    seen: dict[str, list[dict]] = {}
+    for n in notes:
+        for key in {n["title"], short_title(n["title"]), n["_src"].stem.replace("_", "")}:
+            seen.setdefault(key, []).append(n)
+    return {k: v[0] for k, v in seen.items() if len(v) == 1 and len(k) >= 2}
+
+
+def clean_note_text(md: str, stem_to_note: dict[str, dict], by_title: dict[str, dict],
+                    prefix: str = "../") -> str:
+    out, skip_level = [], 0
+    for line in md.split("\n"):
+        heading = re.match(r"^(#{1,6})\s", line)
+        if heading:
+            level = len(heading.group(1))
+            if skip_level and level > skip_level:
+                continue
+            skip_level = level if _NOTE_INTERNAL_SECTION.match(line) else 0
+            if skip_level:
+                continue
+        elif skip_level:
+            continue
+        if _NOTE_META_LINE.match(line) or _NOTE_TAIL_LINE.match(line):
+            continue
+        out.append(line)
+    md = "\n".join(out)
+
+    def link(m):
+        note = stem_to_note.get(Path(m.group(2)).name)
+        return f"[{m.group(1)}]({prefix}{note['slug']}/)" if note else m.group(1)
+
+    def ref(m):
+        note = stem_to_note.get(m.group(1))
+        return f"[〈{short_title(note['title'])}〉]({prefix}{note['slug']}/)" if note else m.group(1)
+
+    def angle(m):
+        text = m.group(1).strip()
+        note = by_title.get(text)
+        if not note:  # 〈最後一段為什麼會掉速〉這種寫到一半的標題：唯一前綴才算
+            hits = {n["slug"]: n for k, n in by_title.items() if k.startswith(text)}
+            note = next(iter(hits.values())) if len(hits) == 1 else None
+        return f"[〈{m.group(1)}〉]({prefix}{note['slug']}/)" if note else m.group(0)
+
+    md = _NOTE_ANGLE_REF.sub(angle, _NOTE_FILE_REF.sub(ref, _NOTE_MD_LINK.sub(link, md)))
+    # 標題列裡不放連結：把 [〈x〉](…) 還原成〈x〉
+    md = re.sub(r"^(#{1,6}\s.*)$",
+                lambda m: re.sub(r"\[(〈[^〉]+〉)\]\([^)]*\)", r"\1", m.group(1)), md, flags=re.M)
+    md = re.sub(r"(\n---\s*){2,}", "\n\n---\n", md)
+    return re.sub(r"\n{3,}", "\n\n", md).strip() + "\n"
+
+
+OPEN_Q_SRC = VORTEX_SRC / "FUTURE_RESEARCH.md"
+OPEN_Q_DST = HUGO_VORTEX / "research" / "open-questions.md"
+_OPEN_Q_HEADING = re.compile(r"^### (\d+(?:\.\d+)+)\s+(.+?)\s*\{#(q-[\d-]+)\}\s*$", re.M)
+
+
+def load_open_questions() -> dict[str, dict]:
+    """FUTURE_RESEARCH.md 的「### 1.2 題目 {#q-1-2}」→ {fq.1.2: {no, title, anchor}}。"""
+    text = OPEN_Q_SRC.read_text(encoding="utf-8")
+    return {f"fq.{num}": {"no": num, "title": title, "anchor": anchor}
+            for num, title, anchor in _OPEN_Q_HEADING.findall(text)}
+
+
+def load_unit_titles() -> dict[str, str]:
+    data = json.loads((INDICES_SRC / "content_index.json").read_text(encoding="utf-8"))
+    return {r["id"]: unfold_cjk(r.get("title") or r["id"]) for r in data["records"]}
+
+
 def load_public_notes() -> tuple[list[dict], list[dict]]:
-    """回傳 (groups, notes)：notes 已依 groups→themes→order 排好、只含公開筆記，並帶 title 與 weight。"""
+    """回傳 (groups, notes)：notes 依「大類總覽 → 主題總覽 → 主題內 order」排好、只含公開筆記，
+    帶 title 與 weight（＝網站閱讀順序，上下篇也照它）。"""
     reg = yaml.safe_load(NOTES_REGISTRY.read_text(encoding="utf-8"))
     by_theme: dict[str, list[dict]] = {}
+    overview: dict[str, dict] = {}
     for n in reg.get("notes") or []:
-        if n.get("public", True):
+        if not n.get("public", True):
+            continue
+        if n.get("role") == "overview":
+            overview[n["theme"]] = n
+        else:
             by_theme.setdefault(n["theme"], []).append(n)
     groups, ordered = [], []
+
+    def add(n, group_key):
+        src = (RESEARCH_SRC / n["path"]).resolve()
+        body = strip_existing_frontmatter(src.read_text(encoding="utf-8"))
+        rec = {k: n[k] for k in NOTE_PUBLIC_FIELDS if k in n}
+        rec.update(title=extract_title(body), group=group_key, weight=len(ordered) + 1,
+                   status_zh=NOTE_STATUS_ZH[n["status"]], _src=src)
+        ordered.append(rec)
+
     for g in reg.get("groups") or []:
         themes = []
+        if g["key"] in overview:
+            add(overview[g["key"]], g["key"])
         for t in g.get("themes") or []:
             notes = sorted(by_theme.get(t["key"], []), key=lambda n: n["order"])
             if not notes:
                 continue
+            if t["key"] in overview:
+                add(overview[t["key"]], g["key"])
             for n in notes:
-                src = (RESEARCH_SRC / n["path"]).resolve()
-                body = strip_existing_frontmatter(src.read_text(encoding="utf-8"))
-                rec = {k: n[k] for k in NOTE_PUBLIC_FIELDS if k in n}
-                rec.update(title=extract_title(body), group=g["key"], weight=len(ordered) + 1,
-                           status_zh=NOTE_STATUS_ZH[n["status"]], _src=src)
-                ordered.append(rec)
+                add(n, g["key"])
             themes.append({"key": t["key"], "name_zh": t["name_zh"], "desc_zh": t.get("desc_zh", ""),
+                           "overview": overview.get(t["key"], {}).get("slug", ""),
                            "slugs": [n["slug"] for n in notes]})
         if themes:
             groups.append({"key": g["key"], "name_zh": g["name_zh"], "desc_zh": g.get("desc_zh", ""),
-                           "themes": themes})
+                           "overview": overview.get(g["key"], {}).get("slug", ""), "themes": themes})
     return groups, ordered
 
 
 def sync_research_notes(dry_run: bool):
-    """登錄表的公開筆記 → content/vortex/research/notes/（剝診斷語與外連）＋ data/vortex/research_notes.yaml。"""
+    """登錄表的公開筆記 → content/vortex/research/notes/（剝診斷語與外連）＋ data/vortex/research_notes.yaml；
+    FUTURE_RESEARCH.md → content/vortex/research/open-questions.md。"""
     print()
     print("=== 研究筆記 ===")
     groups, notes = load_public_notes()
+    questions = load_open_questions()
+    units = load_unit_titles()
     slugs = {n["slug"] for n in notes}
     if not dry_run:
         NOTE_DIR.mkdir(parents=True, exist_ok=True)
         for old in NOTE_DIR.glob("*.md"):
             if old.name != "_index.md" and old.stem not in slugs:
                 old.unlink()
+    stem_to_note = {n["_src"].stem: n for n in notes}
+    by_title = note_short_titles(notes)
+    by_unit: dict[str, list[str]] = {}
     for n in notes:
-        src = n.pop("_src")
+        n["graduated"] = [{"id": u, "title": units.get(u, u)} for u in n.pop("graduated_to", [])]
+        for u in n["graduated"]:
+            by_unit.setdefault(u["id"], []).append(n["slug"])
+        n["questions"] = [dict(id=q, **questions[q]) for q in n.pop("open_questions", []) if q in questions]
+        src = n["_src"]
         body = strip_existing_frontmatter(src.read_text(encoding="utf-8"))
         body = strip_external_links(strip_diagnostic(strip_title_h1(body)))
+        body = clean_note_text(body, stem_to_note, by_title)
+        for leak in sorted(set(re.findall(r"(?:Research|Technica|Instructional|Observations|canonical)/\S*", body))):
+            print(f"  [WARN] {n['slug']} 仍含內部路徑：{leak}")
         print(f"  {src.relative_to(RESEARCH_SRC.parent)} → research/notes/{n['slug']}")
         if dry_run:
             continue
         fm = build_frontmatter(
             title=n["title"], description=n["summary_zh"], slug=n["slug"], layer="research",
             layer_name=NOTE_LAYER_NAME, strokes=[], research_status=n["status_zh"],
-            extra={"weight": n["weight"], "note_kind": n["kind"], "note_theme": n["theme"]},
+            extra={"weight": n["weight"], "note_kind": n["kind"], "note_theme": n["theme"],
+                   "note_role": n.get("role", "")},
         )
         (NOTE_DIR / f"{n['slug']}.md").write_text(fm + body, encoding="utf-8")
-    print(f"  共 {len(notes)} 篇，{sum(len(g['themes']) for g in groups)} 個主題")
-    if not dry_run:
-        NOTES_DATA_DST.write_text(dump_yaml({"groups": groups, "notes": notes}), encoding="utf-8")
+    for n in notes:
+        n.pop("_src", None)
+    print(f"  共 {len(notes)} 篇，{sum(len(g['themes']) for g in groups)} 個主題，開放問題 {len(questions)} 題")
+    if dry_run:
+        return
+    NOTES_DATA_DST.write_text(dump_yaml({"groups": groups, "notes": notes, "by_unit": by_unit}),
+                              encoding="utf-8")
+    raw = OPEN_Q_SRC.read_text(encoding="utf-8")
+    body = strip_external_links(strip_diagnostic(strip_title_h1(strip_existing_frontmatter(raw))))
+    body = clean_note_text(body, stem_to_note, by_title, prefix="../notes/")
+    fm = build_frontmatter(title=extract_title(raw),
+                           description="研究筆記做完之後，資料或文獻還回答不了的問題：問題是什麼、目前知道到哪裡、要怎麼驗證。",
+                           slug="open-questions", layer="research", layer_name="開放問題", strokes=[],
+                           extra={"weight": 3})
+    OPEN_Q_DST.write_text(fm + body, encoding="utf-8")
 
 
 # ── 研究庫索引與審查紀錄（Phase 4，2026-10-14）──

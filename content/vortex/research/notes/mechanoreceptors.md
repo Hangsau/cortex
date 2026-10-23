@@ -5,15 +5,14 @@ slug: "mechanoreceptors"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 17
+weight: 19
 note_kind: "literature"
 note_theme: "perception"
+note_role: ""
 draft: false
 ---
 
-> 建立日期：2026-04-17  
 > 確定性層次：🔵 邏輯推導 + 🟡 舊文獻 + 🟢 近期文獻  
-> 狀態：理論基礎建立，訓練應用為推導
 
 ---
 
@@ -114,7 +113,6 @@ Ruffini endings 約佔手部感受器的 **20%**，是皮膚拉伸方向感知�
 | L3（抓水方向） | Ruffini endings：皮膚拉伸**方向**感知是 EVF 是否成功的感知標誌 |
 | L4（前臂整合） | 前臂 Ruffini + Merkel 覆蓋面擴大，感知面從「手掌點」延伸為「手臂面」 |
 | L5（全身場） | 軀幹/大腿皮膚的 Ruffini 拉伸訊號整合入全身動態預測模型 |
-
 
 ---
 

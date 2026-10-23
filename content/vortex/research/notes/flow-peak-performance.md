@@ -4,14 +4,13 @@ description: "心流是自動化接管、意識控制最低的狀態，對應 L5
 slug: "flow-peak-performance"
 layer: "research"
 layer_name: "研究筆記"
-research_status: "研究中"
-weight: 32
+research_status: "已寫進知識點"
+weight: 34
 note_kind: "literature"
 note_theme: "psychology"
+note_role: ""
 draft: false
 ---
-
-> Dossier — 非最終稿。標記說明：🟢近期可查(附PMID/DOI) / 🟡舊文獻(可查但偏早) / 🟠書籍二手或觀測 / 🔵推導/推論 / 🔴待查/尚無直接實證
 
 ---
 
@@ -111,9 +110,9 @@ Swann, Keegan, Piggott & Crust（2012）：系統回顧 1992–2011 年精英運
 **兩者不互斥但不並存**：同一場比賽中，運動員可先進入 clutch 再滑入 flow，或反之，但不在同一時刻共存。
 
 **關鍵文獻**：
-- Swann et al.（2017）：*Current Opinion in Psychology*, 16, 169–175. DOI: 10.1016/j.copsyc.2017.05.003 🟢（PMID: 28813354）
+- Swann et al.（2017）：*Current Opinion in Psychology*, 16, 169–175. DOI: 10.1016/j.copsyc.2017.03.032 🟢（PMID: 28813354）
 - Swann et al.（2016）：整合模型，*Journal of Applied Sport Psychology*, 29(2), 175–195. DOI: 10.1080/10413200.2016.1272650 🟢
-- Swann et al.（2021）：Flow-Clutch Scale 開發，*Psychology of Sport and Exercise*, 57, 102001. DOI: 10.1016/j.psychsport.2021.102001 🟢
+- Swann et al.（2022）：Flow-Clutch Scale 開發，*Psychology of Sport and Exercise*, 58, 102066. DOI: 10.1016/j.psychsport.2021.102066 🟢
 - Gonzalez-García et al.（2023）：Flow-Clutch 簡版量表，*Frontiers in Psychology*, PMC9895101 🟢
 
 ---
@@ -142,7 +141,7 @@ Swann, Keegan, Piggott & Crust（2012）：系統回顧 1992–2011 年精英運
 
 **隱性學習與基底核（Basal Ganglia）**：高度自動化的動作控制轉移到基底核執行，不再依賴前額葉的顯性工作記憶。心流的「行動與覺察融合」在神經層面對應的正是這個控制轉移。流動動作不需「想」——因為已無需前額葉參與。🟡（Neuroscience review on flow: *Front. Psychol.* 2020; PMC7551835）
 
-**動作自動化的神經相關物（Neural Correlates of Motor Automaticity）**：練習驅動的自動化伴隨 fronto-striatal 網絡活動降低（PET/fMRI 研究），與心流的輕鬆感一致。🟢（PMID: 15843592；Floyer-Lea & Matthews, 2005, *J. Neurophysiology*；Seidler et al., 2005, *J. Neuroscience*, 25(22), 5356–5364. PMC6725010）
+**動作自動化的神經相關物（Neural Correlates of Motor Automaticity）**：練習驅動的自動化伴隨 fronto-striatal 網絡活動降低（PET/fMRI 研究），與心流的輕鬆感一致。🟢（PMID: 15716371；Floyer-Lea & Matthews, 2005, *J. Neurophysiology*；Seidler et al., 2005, *J. Neuroscience*, 25(22), 5356–5364. PMC6725010）
 
 ---
 
@@ -157,13 +156,13 @@ Swann, Keegan, Piggott & Crust（2012）：系統回顧 1992–2011 年精英運
 | 1996 | Jackson & Marsh | Development of Flow State Scale | JSEP 18, 17–35 | — | 36 題 FSS，九因子 CFA 驗證 | 🟡 |
 | 1999 | Jackson & Csikszentmihalyi | *Flow in Sports*（書） | Human Kinetics | — | 運動心流應用，含游泳實例 | 🟠 |
 | 2002 | Jackson & Eklund | FSS-2 開發 | JSEP 24, 133–150 | — | Rasch 分析，層次模型，autotelic 最易達成 | 🟡 |
-| 2004 | Dietrich | Neurocognitive mechanisms of flow | Consciousness & Cognition 13, 746–761 | 15556389 | 暫時性前額葉低激活假說 | 🟡 |
+| 2004 | Dietrich | Neurocognitive mechanisms of flow | Consciousness & Cognition 13, 746–761 | 15522630 | 暫時性前額葉低激活假說 | 🟡 |
 | 2008 | Engeser & Rheinberg | Flow, performance & challenge-skill | Motivation & Emotion 32, 158–172 | — | 挑戰-技能平衡調節心流-表現關係，自我效能為調節變數 | 🟡 |
 | 2012 | Swann, Keegan et al. | Systematic review of flow in elite sport | PSE 13(6), 807–819 | DOI: 10.1016/j.psychsport.2012.05.006 | 心流可間接控制；自動化/輕鬆感最一致 | 🟢 |
 | 2016 | Swann et al. | Integrated model of flow & clutch | JASP 29(2), 175–195 | DOI: 10.1080/10413200.2016.1272650 | 整合雙態模型；clutch 是互補非重疊狀態 | 🟢 |
 | 2017 | Swann et al. | New directions in optimal performance | Current Opinion in Psychology 16, 169–175 | 28813354 | Flow vs clutch 概念鑑別；前者自動，後者費力 | 🟢 |
 | 2021 | Harris, Allen et al. | Meta-analysis: flow & performance | IRSP 16, 693–721 | DOI: 10.1080/1750984X.2021.1929402 | 正相關但效應量不穩定；測量工具問題限制推論 | 🟢 |
-| 2021 | Swann et al. | Flow-Clutch Scale 開發 | PSE 57, 102001 | DOI: 10.1016/j.psychsport.2021.102001 | 首個同時測量 flow/clutch 的量表 | 🟢 |
+| 2022 | Swann et al. | Flow-Clutch Scale 開發 | PSE 58, 102066 | DOI: 10.1016/j.psychsport.2021.102066 | 首個同時測量 flow/clutch 的量表 | 🟢 |
 | 2022 | Morin et al. | Critique of FSS-2 & DFS-2 | Collabra: Psychology | PMC9581250 | 測量效度疑慮；部分維度因素負荷偏低 | 🟢 |
 | 2023 | Gonzalez-García et al. | Brief flow-clutch scale | Front. Psychol. | PMC9895101 | 簡版量表；雙態可信效度分離 | 🟢 |
 
@@ -258,7 +257,7 @@ Vortex 水感框架中，L5（感知水作為工具/媒介）→ L6（水我融�
 
 **Masters & Maxwell（2008）**：系統回顧 reinvestment 理論與壓力下表現的關係（reinvestment 為意識監控干擾自動化動作的核心機制）。🟢（Masters, R.S.W. & Maxwell, J. (2008). The theory of reinvestment. *International Review of Sport and Exercise Psychology*, 1(2), 160–183. DOI:10.1080/17509840802287218；IRSEP 為綜述刊物，無 PMID）。⚠️ **更正**：v1 誤植為「in Hirsch, Ed., *Consciousnesses & Unconscious Mental Processes* 書章」——實為 IRSEP 期刊論文，非書章；已查證更正。
 
-**Liao & Masters（2001）**：類比學習（analogy learning）作為隱性學習手段——用一個比喻意象（原研究是**桌球**正手上旋的「直角三角形」拍路）取代逐條顯性技術指令，結果壓力下表現更穩、累積外顯規則更少。🟢（Liao & Masters, 2001, Analogy learning: A means to implicit motor learning, *Journal of Sports Sciences*, 19(5), 307–319. DOI: 10.1080/02640410152006081）。⚠️ **更正**：原研究是桌球非游泳；v1 描述的「游泳直接實證」與 DOI 10.1080/026404101300149327 / 頁碼 369–375 / 「swimming」標題經查證無法核實，疑為捏造。游泳的類比指導→降 reinvestment→近 flow 是合理機制推導（🔵），但游泳第一手實證尚缺（見 §研究空白）。
+**Liao & Masters（2001）**：類比學習（analogy learning）作為隱性學習手段——用一個比喻意象（原研究是**桌球**正手上旋的「直角三角形」拍路）取代逐條顯性技術指令，結果壓力下表現更穩、累積外顯規則更少。🟢（Liao & Masters, 2001, Analogy learning: A means to implicit motor learning, *Journal of Sports Sciences*, 19(5), 307–319. DOI: 10.1080/02640410152006081）。⚠️ **更正**：原研究是桌球非游泳；v1 描述的「游泳直接實證」與 DOI 10.1080/02640410152006081 / 頁碼 369–375 / 「swimming」標題經查證無法核實，疑為捏造。游泳的類比指導→降 reinvestment→近 flow 是合理機制推導（🔵），但游泳第一手實證尚缺（見 §研究空白）。
 
 ### Flow-Reinvestment 軸線的水感應用
 
@@ -310,7 +309,7 @@ Vortex 水感框架中，L5（感知水作為工具/媒介）→ L6（水我融�
 - Jackson, S.A. (1996). Toward a conceptual understanding of flow. *RQES*, 67(1), 76–90. PMID: 8735997 🟡🟢
 - Jackson, S.A. & Marsh, H.W. (1996). Development and validation of FSS. *JSEP*, 18, 17–35. 🟡
 - Jackson, S.A. & Eklund, R.C. (2002). Assessing flow in physical activity: FSS-2 & DFS-2. *JSEP*, 24, 133–150. 🟡
-- Dietrich, A. (2004). Neurocognitive mechanisms of the flow state. *Consciousness & Cognition*, 13, 746–761. PMID: 15556389 🟡
+- Dietrich, A. (2004). Neurocognitive mechanisms of the flow state. *Consciousness & Cognition*, 13, 746–761. PMID: 15522630 🟡
 - Engeser, S. & Rheinberg, F. (2008). Flow, performance and moderators. *Motivation & Emotion*, 32, 158–172. 🟡
 - Beilock, S.L. & Carr, T.H. (2001). On fragility of skilled performance. *JEP: General*, 130, 701–725. 🟡
 - Masters, R.S.W. (1992). Knowledge, knerves and know-how. *British J. Psychology*, 83, 343–358. 🟡
@@ -318,7 +317,7 @@ Vortex 水感框架中，L5（感知水作為工具/媒介）→ L6（水我融�
 - Swann, C., Keegan, R.J., Piggott, D. & Crust, L. (2012). Systematic review of flow in elite sport. *PSE*, 13(6), 807–819. DOI: 10.1016/j.psychsport.2012.05.006 🟢
 - Swann, C. et al. (2016). Integrated model of flow & clutch. *JASP*, 29(2), 175–195. DOI: 10.1080/10413200.2016.1272650 🟢
 - Swann, C. et al. (2017). Flow & clutch states in sport. *Current Opinion in Psychology*, 16, 169–175. PMID: 28813354 🟢
-- Swann, C. et al. (2021). The Flow-Clutch Scale. *PSE*, 57, 102001. DOI: 10.1016/j.psychsport.2021.102001 🟢
+- Swann, C. et al. (2022). The Flow-Clutch Scale. *PSE*, 58, 102066. DOI: 10.1016/j.psychsport.2021.102066 🟢
 - Harris, D.J. et al. (2021). Meta-analysis: flow & performance. *IRSP*, 16, 693–721. DOI: 10.1080/1750984X.2021.1929402 🟢
 - Gonzalez-García, H. et al. (2023). Brief flow-clutch scale. *Front. Psychol.* PMC9895101 🟢
 - Hanin, Y.L. (2000). *Emotions in Sport*. Human Kinetics. 🟠（含游泳 IZOF 應用）

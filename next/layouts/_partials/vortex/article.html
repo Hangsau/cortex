@@ -11,12 +11,27 @@
   </header>
   {{- with .Params.research_status }}
   {{- $kind := $.Params.note_kind }}
-  <p class="lc-frozen"><b>研究筆記・{{ . }}</b>{{ if eq $kind "analysis" }}這是用公開比賽成績自己做的分析，數字沒有經過同儕審查，對原因的解釋只是假設。{{ else if eq $kind "observation" }}這是教學現場的觀察紀錄，不是對照實驗。{{ else }}這是整理中的文獻彙整，尚未逐條通過本站審查。{{ end }}內容與知識點頁不一致時，以知識點頁為準；教練診斷用語與外站連結已在上站前移除。</p>
+  <p class="lc-frozen"><b>研究筆記・{{ if eq $.Params.note_role "overview" }}主題總覽{{ else }}{{ . }}{{ end }}</b>{{ if eq $.Params.note_role "overview" }}這篇把本主題各篇筆記的結論串起來，不新增主張；數字、出處與限制以各篇為準。{{ else if eq $kind "analysis" }}這是用公開比賽成績自己做的分析，數字沒有經過同儕審查，對原因的解釋只是假設。{{ else if eq $kind "observation" }}這是教學現場的觀察紀錄，不是對照實驗。{{ else }}這是整理中的文獻彙整，尚未逐條通過本站審查。{{ end }}內容與知識點頁不一致時，以知識點頁為準；教練診斷用語與外站連結已在上站前移除。</p>
   {{- end }}
   {{- with .Params.frozen }}
   <p class="lc-frozen"><b>研究底稿</b>這篇是整理成知識點之前的長文，{{ . }} 起不再維護。內容與知識點頁不一致時，以知識點頁為準；教練診斷用語與外站連結已在上站前移除。</p>
   {{- end }}
   <div class="lc-body read">{{ .Content }}</div>
+  {{- if .Params.note_kind }}
+    {{- $note := index (where hugo.Data.vortex.research_notes.notes "slug" .Slug) 0 }}
+    {{- with $note }}{{ if or .graduated .questions }}
+  <aside class="nt-foot" aria-label="這篇筆記和本站其他內容的關係">
+    {{- with .graduated }}
+    <h2>{{ if eq $note.status "graduated" }}已寫進知識點{{ else }}相關知識點{{ end }}</h2>
+    <ul>{{ range . }}<li>{{ partial "vortex/unit-link.html" (dict "id" .id "title" .title) }}</li>{{ end }}</ul>
+    {{- end }}
+    {{- with .questions }}{{ $oq := site.GetPage "/vortex/research/open-questions" }}
+    <h2>還沒有答案的問題</h2>
+    <ul>{{ range . }}<li><a href="{{ $oq.RelPermalink }}#{{ .anchor }}">{{ .no }} {{ .title }}</a></li>{{ end }}</ul>
+    {{- end }}
+  </aside>
+    {{- end }}{{ end }}
+  {{- end }}
   {{- with .Parent }}
     {{- $sib := .RegularPages.ByWeight }}
     {{- $i := -1 }}{{ range $k, $v := $sib }}{{ if eq $v.RelPermalink $.RelPermalink }}{{ $i = $k }}{{ end }}{{ end }}

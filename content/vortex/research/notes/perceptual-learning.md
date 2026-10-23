@@ -5,15 +5,14 @@ slug: "perceptual-learning"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 18
+weight: 20
 note_kind: "literature"
 note_theme: "perception"
+note_role: ""
 draft: false
 ---
 
-> 建立日期：2026-04-17  
 > 確定性層次：🔵 邏輯推導 + 🟡 有效文獻 + 🟢 近期文獻  
-> 狀態：理論基礎完整，游泳應用為推導
 
 ---
 
@@ -151,7 +150,6 @@ Gibson 識別出三種分化方向：
 | **硬體（機械感受器）** | Ruffini endings 能感知皮膚拉伸方向，這是不依賴學習的物理能力 |
 | **軟體（感知學習）** | 大腦是否學會「提取 Ruffini 訊號中的方向資訊」，需要特定的辨別訓練 |
 
-
 ### 4.3 與 L 級框架的對應
 
 每個 L 級轉換，正是一個特定感知維度的分化學習完成：
@@ -219,10 +217,3 @@ Gibson 識別出三種分化方向：
 - Dosher, B.A., & Lu, Z.L. (1998). Perceptual learning reflects external noise filtering and internal noise reduction through channel reweighting. *PNAS.* 🟡
 
 ---
-
-## 與現有系統的連結
-
-- **因果倒置假設.md** — 本文件提供感知學習的機制說明，支撐「注意力方向決定建什麼地圖」的主張
-- **機械感受器.md** — 硬體（感受器特性）+ 軟體（感知學習）的互補關係
-- **Technica/水感指南.md** — L 級框架的神經科學基礎（每級轉換 = 一個分化學習完成）
-- **RESEARCH_PLAN.md Layer 1.2** — feedforward 機制的感知學習基礎

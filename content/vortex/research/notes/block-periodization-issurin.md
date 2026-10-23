@@ -5,14 +5,14 @@ slug: "block-periodization-issurin"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 39
+weight: 41
 note_kind: "literature"
 note_theme: "training"
+note_role: ""
 draft: false
 ---
 
 > 供「週期化多派框架對話」綜合重寫階段使用。  
-> 撰寫日期：2026-06-11  
 > 反幻覺等級標記：🔵推導 / 🟢近期文獻 / 🟡舊文獻 / 🟠教練觀測 / 🔴待查
 
 ---

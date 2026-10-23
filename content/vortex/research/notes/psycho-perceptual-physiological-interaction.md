@@ -4,14 +4,14 @@ description: "把恐懼、喚醒、肌肉張力、內感受串成一條機制鏈
 slug: "psycho-perceptual-physiological-interaction"
 layer: "research"
 layer_name: "研究筆記"
-research_status: "研究中"
-weight: 33
+research_status: "已寫進知識點"
+weight: 35
 note_kind: "literature"
 note_theme: "psychology"
+note_role: ""
 draft: false
 ---
 
-> 建立日期：2026-06-15
 > 目的：蒐集「心理狀態如何透過感知與神經生理機制影響游泳技術」的文獻基礎，作為整個研究橋接叢集（psyche → perception → physiology → movement）的原材料。
 > 確定性標記：🟢近期可查(附PMID/DOI) / 🟡舊文獻(可追原始) / 🟠書籍/二手 / 🔵推導 / 🔴待查
 
@@ -43,7 +43,7 @@ Vortex Project 的核心命題（技術形式是感知系統的輸出）之所�
 - Paciorek & Skora (2020)：Vagus Nerve Stimulation as a Gateway to Interoception. *Frontiers in Psychology*. DOI: 10.3389/fpsyg.2020.01659 🟢
 - Translational Psychiatry (2024)：Interoceptive training impacts the neural circuit of the anterior insula cortex. DOI: 10.1038/s41398-024-02933-9 🟢
 
-**游泳特異性：** 在水中，浮力卸除重力對內臟的壓迫，對焦慮傾向個體反而觸發「位移威脅」——內臟感知訊號失去正常參考點，前島放大效應讓原本中性的浮力感被標記為危險（見「內臟感知與迷走神經.md」的表格詳述）。
+**游泳特異性：** 在水中，浮力卸除重力對內臟的壓迫，對焦慮傾向個體反而觸發「位移威脅」——內臟感知訊號失去正常參考點，前島放大效應讓原本中性的浮力感被標記為危險（見「[〈內臟感知、迷走神經與水中防衛型學員〉](../interoception-vagus/)」的表格詳述）。
 
 ---
 
@@ -61,11 +61,11 @@ Vortex Project 的核心命題（技術形式是感知系統的輸出）之所�
 ```
 
 **實驗支持：**
-- Moderate anxiety modifies EMG activity of forearm muscle during reaction task (ScienceDirect, 2017)：焦慮使前運動時間（premotor time）的 EMG 活性增加。DOI: 10.1016/j.neulet.2017.02.033 🟢
+- Moderate anxiety modifies EMG activity of forearm muscle during reaction task (ScienceDirect, 2017)：焦慮使前運動時間（premotor time）的 EMG 活性增加。DOI: 10.1016/j.neulet.2017.02.024 🟢
 - Muscle relaxation enhances motor imagery capacity in anxiety (PLOS ONE, 2025)：PMC11723612。肌肉放鬆可恢復焦慮者的運動意象能力，反向證明肌張力升高阻礙運動計畫層。🟢
 - Muscle tension in generalized anxiety disorder critical review (ResearchGate, cited ~2008 Hoehn-Saric)：慢性焦慮患者靜息時肌張力一致性升高，但自律神經過度激活不必然伴隨。🟡
 
-**游泳應用：** 防衛型學員的肌張力升高不只造成阻力——它使身體無法在水中形成流線（hydrodynamic profile），同時阻斷機械感受器對水流方向與壓力的感知（Ruffini 末梢因皮膚被拉緊而飽和）。此機制直接解釋「張力閘門」假說（見因果倒置假設.md）。
+**游泳應用：** 防衛型學員的肌張力升高不只造成阻力——它使身體無法在水中形成流線（hydrodynamic profile），同時阻斷機械感受器對水流方向與壓力的感知（Ruffini 末梢因皮膚被拉緊而飽和）。此機制直接解釋「張力閘門」假說（見因果倒置假設）。
 
 **與 EMG 悖論的連結：** 🔑 Vaz et al. (2016) 與 Olstad et al. (2017) 所記錄的初學者「早啟動」現象，本節提供了神經機制解釋：焦慮性 γ-運動神經元活性升高 → 肌梭虛報 → 大腦偵測到「張力即將丟失」 → 提前觸發保護性收縮。這不是「嘗試預測流場」，而是「對內部張力訊號的反應性防衛」——支持 EMG 悖論的解釋 #1（焦慮性過度控制）。
 
@@ -192,7 +192,7 @@ Easterbrook, J.A. (1959). **The effect of emotion on cue utilization and the org
 
 **游泳應用：** 對於水感訓練，「外周線索」正是最關鍵的流場感知訊號——手掌壓力梯度、手指間的水流方向、腳踝處的漩渦阻力。高度喚醒的學員注意力鎖定於「不溺水」（中心線索：呼吸、身體位置），水感訊號自動被過濾掉。這提供了為何防衛型學員在技術層面難以進步的感知機制解釋。
 
-**對感知訓練的推論：** 🔵 L0–L1 的首要任務應是將喚醒降至中度範圍，才能讓感知頻寬開啟。「潛水反射作為前置降載工具」的介入設計（見內臟感知與迷走神經.md）在這個框架下獲得理論支持。
+**對感知訓練的推論：** 🔵 L0–L1 的首要任務應是將喚醒降至中度範圍，才能讓感知頻寬開啟。「潛水反射作為前置降載工具」的介入設計（見內臟感知與迷走神經）在這個框架下獲得理論支持。
 
 ---
 
@@ -220,7 +220,7 @@ Porges, S.W. (2011). *The Polyvagal Theory.* W.W. Norton. 🟠（書籍）
 - 面部入水 → 三叉神經（眼眶區域）受冷/水壓刺激 → 迷走神經激活 → 心跳減慢（bradycardia）+ 血管收縮 + 副交感切換
 - 此反射與杏仁核激活的生理方向相反：「內建的快速降恐慌機制」
 - PMC8667218 (2021)：潛水反射可降低恐慌症狀。 🟢
-- **訓練可塑性：** 訓練有素的潛水員透過重複接觸可擴展保護窗口（見內臟感知與迷走神經.md）
+- **訓練可塑性：** 訓練有素的潛水員透過重複接觸可擴展保護窗口（見內臟感知與迷走神經）
 
 ---
 
@@ -259,7 +259,6 @@ Fear and the Defense Cascade: Clinical Implications and Management. *Harvard Rev
 ---
 
 ### 1.9 換氣作為週期性認知負荷注入：感知頻寬的節律性塌陷（🔵 推導）
-
 
 **機制鏈（🔵，建立在本叢集已引用的雙重任務與注意力窄化文獻上）：**
 
@@ -345,7 +344,7 @@ Fear and the Defense Cascade: Clinical Implications and Management. *Harvard Rev
 
 | 年份 | 作者 | 標題（縮略）| 期刊 | PMID/DOI | 結論 | 標記 |
 |------|------|------------|------|----------|------|------|
-| 2017 | Barreto et al. | Anxiety modifies EMG of forearm muscle | *Neurosci Lett* | DOI: 10.1016/j.neulet.2017.02.033 | 中度焦慮使前運動時間 EMG 活性增加 | 🟢 |
+| 2017 | Langlet, Hainaut & Bolmont | Moderate anxiety modifies the EMG of a forearm muscle | *Neurosci Lett* | DOI: 10.1016/j.neulet.2017.02.024 | 中度焦慮使前運動時間 EMG 活性增加 | 🟢 |
 | 2025 | (PMC11723612) | Muscle relaxation enhances motor imagery in anxiety | *PLOS ONE* | PMC11723612 | 放鬆肌肉恢復焦慮者運動意象能力 | 🟢 |
 
 ### 游泳 EMG — 初學者 vs. 菁英（支持 EMG 悖論）
@@ -353,7 +352,7 @@ Fear and the Defense Cascade: Clinical Implications and Management. *Harvard Rev
 | 年份 | 作者 | 標題（縮略）| 期刊 | PMID/DOI | 結論 | 標記 |
 |------|------|------------|------|----------|------|------|
 | 2016 | Vaz, Olstad et al. | Muscle coordination breaststroke: elite vs. beginners | *PMID: 26878097* | PMID: 26878097 | 初學者水推進時機早於菁英；8 塊肌肉表面 EMG | 🟢 |
-| 2017 | Olstad et al. | Muscle activation in world-champion breaststroke swimmers | *IJSPP* 12(4):538 | DOI: 10.1123/ijspp.2016-0179 | 世界冠軍 vs. 國家菁英的協調差異；冠軍踝關節肌肉交替更精準 | 🟢 |
+| 2017 | Olstad et al. | Muscle activation in world-champion breaststroke swimmers | *IJSPP* 12(4):538 | DOI: 10.1123/ijspp.2015-0703 | 世界冠軍 vs. 國家菁英的協調差異；冠軍踝關節肌肉交替更精準 | 🟢 |
 
 ### 防衛/凍結生理
 
@@ -389,7 +388,7 @@ Fear and the Defense Cascade: Clinical Implications and Management. *Harvard Rev
 
 ## 四、與既有專案文件的連結
 
-### 4.1 與「內臟感知與迷走神經.md」
+### 4.1 與「〈內臟感知、迷走神經與水中防衛型學員〉」
 
 **支持項目：**
 - Craig (2002, 2009) 的前島框架直接支持文件中「前島敏感化迴路」的神經基礎
@@ -407,13 +406,13 @@ Fear and the Defense Cascade: Clinical Implications and Management. *Harvard Rev
 
 ---
 
-### 4.2 與「FUTURE_RESEARCH.md §0.5 EMG 悖論」
+### 4.2 與「FUTURE_RESEARCH §0.5 EMG 悖論」
 
 **對三種解釋的文獻支持度評估：**
 
 **解釋 #1：初學者早啟動 = 焦慮性過度控制（本文獻的最強支持）**
 
-- Barreto et al. (2017) 直接顯示焦慮使前運動時間 EMG 活性增加（🟢 直接實驗支持）
+- Langlet 等（2017）直接顯示焦慮使前運動時間 EMG 活性增加（🟢 直接實驗支持）
 - PMC11723612 (2025) 顯示放鬆肌肉可恢復運動計畫能力（間接反向支持）
 - 肌張力升高的 γ-運動神經元機制（§1.2）提供了「為何張力高就提前啟動」的機制鏈
 - **評估：目前文獻對解釋 #1 的支持度最強（🟢 × 3）**
@@ -434,7 +433,7 @@ Fear and the Defense Cascade: Clinical Implications and Management. *Harvard Rev
 
 ---
 
-### 4.3 與「神經學對照組三點座標.md」（🔴 未讀此文件，以下為依 FUTURE_RESEARCH 推導）
+### 4.3 與「〈神經學對照組三點座標系〉」（🔴 未讀此文件，以下為依 FUTURE_RESEARCH 推導）
 
 - Marcora 的 RPE 框架提供了「零點」的操作性定義：嬰兒游泳時 RPE 概念不適用（無意識停止機制），初學者的 RPE 包含恐懼成分，菁英的 RPE 接近純生理信號
 - 焦慮下的 γ-運動神經元活性升高可作為「皮質介入量」的指標：嬰兒幾乎無此介入，菁英介入精準，初學者介入粗糙且防禦性

@@ -5,9 +5,10 @@ slug: "relative-age"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 11
+weight: 12
 note_kind: "analysis"
 note_theme: "development"
+note_role: ""
 draft: false
 ---
 
@@ -15,7 +16,7 @@ draft: false
 >
 > **讀法**：數字都是渦流計畫自己分析公開比賽成績得到的，屬 🔵 推論層級；對原因的解釋標 🔴。分析前先寫好計畫再看結果；需要模型或追蹤的比較，選手隨機分兩半，兩半方向一致才下結論。這些分析沒有經過同儕審查。只有統計數字，沒有姓名。
 >
-> **本筆記不取代 canonical**，是研究層素材。
+> **本筆記不取代知識點**，是研究層素材。
 
 ---
 

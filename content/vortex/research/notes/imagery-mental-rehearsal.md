@@ -4,10 +4,11 @@ description: "動覺意象會用到大腦的前向模型，是可以訓練的感
 slug: "imagery-mental-rehearsal"
 layer: "research"
 layer_name: "研究筆記"
-research_status: "研究中"
-weight: 30
+research_status: "已寫進知識點"
+weight: 32
 note_kind: "literature"
 note_theme: "psychology"
+note_role: ""
 draft: false
 ---
 
@@ -52,7 +53,7 @@ draft: false
 | **P**erspective | 視角選擇（第一人稱/第三人稱）| 動覺意象倡導第一人稱（內視角）|
 
 **20 年回顧**：
-- 🟢 Scott et al.（2022），"Twenty years of PETTLEP imagery: An update and new direction for simulation-based training"，*Asian Journal of Sport and Exercise Psychology* 2(2), pp.70–79，DOI: 10.1016/j.ajsep.2022.xx（ScienceDirect），提出與動作觀察整合的新方向。
+- 🟢 Scott et al.（2022），"Twenty years of PETTLEP imagery: An update and new direction for simulation-based training"，*Asian Journal of Sport and Exercise Psychology* 2(2), pp.70–79，DOI: 10.1016/j.ajsep.2022.07.002，提出與動作觀察整合的新方向。
 
 **最新 2025 實證**：
 - 🟢 The Sport Psychologist Vol. 39, Issue 4（2025）：日本大學生運動員（Study 1 n=422，Study 2 n=378）驗證 PETTLEP 多維度結構——時機元素可進一步拆分為 timing-real / timing-slow / timing-fast；第一與第三人稱視角是獨立維度。

@@ -5,15 +5,14 @@ slug: "interoception-vagus"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 24
+weight: 26
 note_kind: "literature"
 note_theme: "perception"
+note_role: ""
 draft: false
 ---
 
-> 建立日期：2026-04-11（整合自流體覺知教學系統 v3.0 討論紀錄）
 > 確定性層次：🟢 文獻支持 + 🟠 教學觀測 + 🔴 部分推論
-> 狀態：待教學驗證
 
 ---
 
@@ -128,13 +127,3 @@ draft: false
 - Translational Psychiatry (2024). Interoceptive training impacts the neural circuit of the anterior insula cortex. DOI: 10.1038/s41398-024-02933-9
 
 ---
-
-## 與現有系統的連結
-
-- **Observations/L0漂浮三態診斷.md** — 三層介入序列對應態二/態三
-- **Research/感知科學/因果倒置假設.md** — 張力閘門機制（外周層）
-- **Technica/游泳水感完整指南.docx** — L0–L1 訓練方法的前置條件
-
----
-
-*最後更新：2026-04-11 · 整合自研究討論紀錄 v3.0*

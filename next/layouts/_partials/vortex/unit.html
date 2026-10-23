@@ -504,7 +504,8 @@
   {{- $usage := hugo.Data.vortex.source_usage -}}
   {{- $srcList := index $usage.units $id -}}
   {{- $trail := index hugo.Data.vortex.decision_trail $id -}}
-  {{- if or $hasEvidence $hasSrcIds $hasCert $srcList $trail }}
+  {{- $noteSlugs := index hugo.Data.vortex.research_notes.by_unit $id -}}
+  {{- if or $hasEvidence $hasSrcIds $hasCert $srcList $trail $noteSlugs }}
   <details class="layer layer-evidence" id="evidence">
     <summary>證據與來源</summary>
     {{- if $hasEvidence }}
@@ -558,6 +559,14 @@
         <ul class="value-ul">
           {{- range . }}
           <li><a href="{{ relURL (printf "vortex/research/rulings/%s/" .slug) }}{{ with .section }}#{{ anchorize . }}{{ end }}">{{ .title }}{{ with .section }}：{{ . }}{{ end }}</a></li>
+          {{- end }}
+        </ul>
+    {{- end }}
+    {{- with $noteSlugs }}
+        <h3>研究筆記</h3>
+        <ul class="value-ul">
+          {{- range . }}
+          <li>{{ with site.GetPage (printf "/vortex/research/notes/%s" .) }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ else }}{{ . }}{{ end }}</li>
           {{- end }}
         </ul>
     {{- end }}

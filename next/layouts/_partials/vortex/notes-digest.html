@@ -1,10 +1,11 @@
-{{- /* 研究結論一覽（2026-10-23，Claude 手寫）。沿用文章頁型（lib-chapter／lc-*），不新增版型。
+{{- /* 研究結論一覽（2026-10-23，Claude 手寫）。文章頁型（lib-chapter／lc-*）。
      所有研究筆記的 findings 集中一頁，資料來自 data/vortex/research_notes.yaml（真相源：Vortex Research/_notes.yaml）。
-     每條結論綁在自己的證據標記上；「怎麼用」只在有值時印。 */ -}}
+     每條結論綁在自己的證據標記上；「怎麼用」「開放問題」只在有值時印；總覽不列結論，只給「先讀總覽」連結。 */ -}}
 {{- $css := resources.Get "css/library.css" | fingerprint -}}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 {{- $data := hugo.Data.vortex.research_notes -}}
 {{- $bySlug := dict }}{{ range $data.notes }}{{ $bySlug = merge $bySlug (dict .slug .) }}{{ end -}}
+{{- $openq := site.GetPage "/vortex/research/open-questions" -}}
 <article class="lib-chapter vx-article">
   <header class="lc-head">
     <p class="kicker">Vortex · 研究庫</p>
@@ -13,30 +14,38 @@
   </header>
   <p class="lc-frozen"><b>怎麼讀</b>🔵 推導或自己分析的數字、🟢 近期文獻、🟡 舊文獻、🟠 教練觀測、🔴 還沒有依據的假設。這裡的結論都還在研究中，與知識點頁不一致時，以知識點頁為準。</p>
   <div class="lc-body read">
-    <nav aria-label="主題">
-      <ul>
-        {{- range $data.groups }}{{ range .themes }}
-        <li><a href="#nd-{{ .key }}">{{ .name_zh }}</a>（{{ len .slugs }} 篇）</li>
-        {{- end }}{{ end }}
-      </ul>
-    </nav>
+    <ul class="nd-nav" aria-label="主題">
+      {{- range $data.groups }}{{ range .themes }}
+      <li><a href="#nd-{{ .key }}">{{ .name_zh }}<span>{{ len .slugs }} 篇</span></a></li>
+      {{- end }}{{ end }}
+    </ul>
     {{- range $data.groups }}
     <h2 id="nd-g-{{ .key }}">{{ .name_zh }}</h2>
     {{- with .desc_zh }}<p>{{ . }}</p>{{ end }}
+    {{- with .overview }}{{ with site.GetPage (printf "/vortex/research/notes/%s" .) }}
+    <p class="nd-ov">先讀總覽：<a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+    {{- end }}{{ end }}
       {{- range .themes }}
     <h3 id="nd-{{ .key }}">{{ .name_zh }}</h3>
+        {{- with .overview }}{{ with site.GetPage (printf "/vortex/research/notes/%s" .) }}
+    <p class="nd-ov">先讀總覽：<a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+        {{- end }}{{ end }}
         {{- range .slugs }}
           {{- $n := index $bySlug . }}
-          {{- with site.GetPage (printf "/vortex/research/notes/%s" .) }}
-    <p><a href="{{ .RelPermalink }}"><strong>{{ .Title }}</strong></a>{{ if ne $n.status "researching" }}（{{ $n.status_zh }}）{{ end }}</p>
-          {{- else }}
-    <p><strong>{{ $n.slug }}</strong></p>
-          {{- end }}
-    <ul>
+    <div class="nd-note">
+      <h4>{{ with site.GetPage (printf "/vortex/research/notes/%s" .) }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ else }}{{ $n.slug }}{{ end }}</h4>
+      <ul class="nd-findings">
           {{- range $n.findings }}
-      <li>{{ .certainty }} {{ .text_zh }}{{ with .apply_zh }}<br>怎麼用：{{ . }}{{ end }}</li>
+        <li><span>{{ .certainty }}</span><span>{{ .text_zh }}{{ with .apply_zh }}<span class="nd-apply"><b>怎麼用</b>{{ . }}</span>{{ end }}</span></li>
           {{- end }}
-    </ul>
+      </ul>
+      {{- with $n.graduated }}
+      <p class="nd-more">{{ if eq $n.status "graduated" }}已寫進知識點{{ else }}相關知識點{{ end }}：{{ len . }} 條，見筆記頁底</p>
+      {{- end }}
+      {{- with $n.questions }}{{ with $openq }}
+      <p class="nd-more">還沒有答案：{{ range $i, $q := $n.questions }}{{ if $i }}、{{ end }}<a href="{{ $openq.RelPermalink }}#{{ $q.anchor }}">{{ $q.no }} {{ $q.title }}</a>{{ end }}</p>
+      {{- end }}{{ end }}
+    </div>
         {{- end }}
       {{- end }}
     {{- end }}

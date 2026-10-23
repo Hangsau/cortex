@@ -5,15 +5,14 @@ slug: "sensation-quantification-sq"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 22
+weight: 24
 note_kind: "literature"
 note_theme: "perception"
+note_role: ""
 draft: false
 ---
 
-> 建立日期：2026-04-11（整合自流體覺知教學系統 v3.0 Section 9.5）
 > 確定性層次：🔴 研究假設，尚待課堂驗證
-> 狀態：初步框架，最小可行觀察計畫已設計
 
 ---
 
@@ -100,13 +99,3 @@ SQ 提升 → 感知前饋模型改善 → SWOLF/SPL 隨之改善，但方向不
 - Han, J. et al. (2016). Assessing proprioception: A critical review of methods. PMC6191985.
 
 ---
-
-## 與現有系統的連結
-
-- **FUTURE_RESEARCH.md 0.4** — 診斷語言外化（SQ 是解決方案之一）
-- **Research/感知科學/神經學對照組三點座標.md** — 三點座標的L級對應
-- **Observations/L0漂浮三態診斷.md** — 測試B（漂浮距離預測）可從L0就開始記錄
-
----
-
-*最後更新：2026-04-11 · 整合自研究討論紀錄 v3.0*

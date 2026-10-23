@@ -4,10 +4,11 @@ description: "外部焦點不是全面優於內部焦點；本體感覺主導的
 slug: "attention-focus-motor-learning"
 layer: "research"
 layer_name: "研究筆記"
-research_status: "研究中"
-weight: 26
+research_status: "已寫進知識點"
+weight: 28
 note_kind: "literature"
 note_theme: "psychology"
+note_role: ""
 draft: false
 ---
 
@@ -42,7 +43,7 @@ Wulf、McNevin & Shea（2001）的核心命題：
 
 🟡 Wulf, G., McNevin, N., & Shea, C. H. (2001). The automaticity of complex motor skill learning as a function of attentional focus. *The Quarterly Journal of Experimental Psychology, 54A*(4), 1143–1154. **PMID: 11765737**
 
-🟢（待確認完整 DOI）Becker, K. A., & Smith, P. J. (2015). External attentional focus enhances movement automatization: A comprehensive test of the constrained action hypothesis. *Human Movement Science, 32*(4), 600–617. DOI: 10.1016/j.humov.2013.07.001
+🟢 Kal, E. C., van der Kamp, J., & Houdijk, H. (2013). External attentional focus enhances movement automatization: A comprehensive test of the constrained action hypothesis. *Human Movement Science, 32*(4), 527–539. DOI: 10.1016/j.humov.2013.04.001
 
 **理論機制底層根源**：
 外部焦點之所以有效，部分可用**意動原則（Ideomotor Principle）**解釋（James, 1890；Hommel, 1996；Prinz, 1997）：動作在規劃時以其「預期效果」為編碼單位；外部焦點與此自然對齊，而內部焦點則引入不相容的知覺-動作代碼衝突。
@@ -87,7 +88,7 @@ Wulf、McNevin & Shea（2001）的核心命題：
 
 🟢 （2025 meta-analysis）PMC 文章："The farther, the better? The effect of attentional focus distance on motor performance: a systematic review and meta-analysis." **PMC12424610** [2025 年，實際查到 PubMed Central]
 
-🟢 ScienceDirect (2020): "Forward thinking: When a distal external focus makes you faster" DOI: 10.1016/j.humov.2020.102786（待確認）
+🟢 Banks 等（2020），"Forward thinking: When a distal external focus makes you faster"，*Human Movement Science*，DOI: 10.1016/j.humov.2020.102708
 
 ---
 
@@ -143,9 +144,9 @@ Wulf、McNevin & Shea（2001）的核心命題：
 | 4 | Freudenheim, Wulf et al. (2010) | DOI: 10.1260/1747-9541.5.4.533 | 游泳時外部焦點（「推水」）顯著提升泳速，優於內部焦點（「拉手」） | 🟡 |
 | 5 | Stoate & Wulf (2011) | DOI: 10.1260/1747-9541.6.1.99 | 精英游泳者：外部焦點組泳速與控制組相同，內部焦點組顯著變慢 | 🟡 |
 | 6 | [Author 🔴] Skilled swimmers HMS (2021) | PMID: 33845276（Human Movement Science） | 精英游泳者外部焦點下動作事件序列提前，但結果指標無顯著差異（彈性維持） | 🟢 |
-| 7 | Becker & Smith (2015) | DOI: 10.1016/j.humov.2013.07.001 | 外部焦點使動作更流暢規律，全面驗證 CAH | 🟡 |
+| 7 | Kal, van der Kamp & Houdijk (2013) | DOI: 10.1016/j.humov.2013.04.001 | 外部焦點使動作更流暢規律，全面驗證 CAH | 🟡 |
 | 8 | Wulf 15-year review (2013) | UNLV PDF（gwulf.faculty.unlv.edu） | 整理 15 年文獻：外部焦點優越性跨運動、跨人群一致成立（前 Bayesian 修正時代） | 🟡 |
-| 9 | [未確認作者] Gottwald et al. (2020) | ScienceDirect DOI: 10.1016/j.psychsport.2019.101620（待驗證） | 本體感覺任務中，與任務性質相符（congruent）的內部焦點表現優於外部焦點 | 🟡 |
+| 9 | Gottwald, Owen, Lawrence & McNevin (2020) | *Psychology of Sport and Exercise*，DOI: 10.1016/j.psychsport.2019.101634 | 本體感覺任務中，與任務性質相符（congruent）的內部焦點表現優於外部焦點 | 🟡 |
 | 10 | [Meta-analysis] Reporting Bias (2024) | PMID: 39480294 | 修正發表偏誤後外部焦點效果歸零，共識需全面重審 | 🟢 |
 | 11 | [Meta-analysis] Distance effect PMC (2025) | PMC12424610 | 系統性回顧：遠端外部焦點普遍優於近端，但個人差異與技能水平調節此效果 | 🟢 |
 | 12 | Morgan & Pollock (1977) | NY Acad Sci 1977 | 精英長跑者傾向聯結策略（監測身體感覺），業餘者傾向分離 | 🟡 |
@@ -331,15 +332,3 @@ Wulf 的核心主張：
 7. 🟡（部分知）**聯結 vs. 分離策略 × 距離 × 技術水平的三路游泳研究**：現有研究樣本多為休閒 / 業餘游泳者，精英游泳者的聯結/分離策略效果數據不足。
 
 ---
-
-## 蒐集紀要
-
-- 查證輪次：3 輪共 9 次 WebSearch
-- 本地書籍：Bauman Ch.16 全讀
-- 收錄文獻條目：17 條（表格）+ 延伸引用 10+ 條
-- 確定性分佈：🟢 6 條 / 🟡 9 條 / 🟠 1 條 / 🔵 0 條 / 🔴 7 空白項
-- 最後更新：2026-06-15
-
----
-
-*注意：本文件為研究 dossier 原始素材，供主代理整合用，非最終公開內容。*

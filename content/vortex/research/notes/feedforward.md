@@ -5,15 +5,14 @@ slug: "feedforward"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 20
+weight: 22
 note_kind: "literature"
 note_theme: "perception"
+note_role: ""
 draft: false
 ---
 
-> 建立日期：2026-04-18  
 > 確定性層次：🔵 邏輯推導 + 🟢 文獻支持（理論部分） · 🔴 假設性閾值（訓練指標）  
-> 狀態：操作化文件，補充因果倒置假設.md 的訓練實踐
 
 ---
 
@@ -21,7 +20,7 @@ draft: false
 
 本文件不重複理論，聚焦在「如何訓練 feedforward 能力」。
 
-理論基礎見 → [`因果倒置假設.md`](因果倒置假設.md)（預測編碼、小腦內部模型、張力閘門、元感知）
+理論基礎見 → [[〈因果倒置假設〉](../causal-inversion-hypothesis/)](../causal-inversion-hypothesis/)（預測編碼、小腦內部模型、張力閘門、元感知）
 
 ---
 
@@ -86,15 +85,3 @@ draft: false
 | **注意力指向** | 注意力聚焦於流場特徵時，前向模型更新速度更快（cf. 感知學習的注意力特異性） |
 
 ---
-
-## 與現有系統的連結
-
-- **因果倒置假設.md** — 理論上層；本文件是其操作化
-- **感知學習.md** — 注意力特異性機制解釋為什麼「指向流場」讓前向模型更新更快
-- **機械感受器.md** — 手部感受器是 feedforward 練習的硬體基礎
-- **感知量化SQ框架.md** — SQ 框架中的「預測精準度」維度，是前向模型收斂程度的量化方向
-- **Technica/水感指南.md** — L0–L6 框架是感知層的操作化指標
-
----
-
-*最後更新：2026-04-18 · 整合自 Talos 提供的 feedforward_mechanism.md*

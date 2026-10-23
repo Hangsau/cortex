@@ -4,10 +4,11 @@ description: "壓力下的技術崩潰，主要機制是把顯性規則叫回來
 slug: "arousal-anxiety-choking"
 layer: "research"
 layer_name: "研究筆記"
-research_status: "研究中"
-weight: 27
+research_status: "已寫進知識點"
+weight: 29
 note_kind: "literature"
 note_theme: "psychology"
+note_role: ""
 draft: false
 ---
 
@@ -115,7 +116,7 @@ draft: false
 - 澄清時間線：壓力 → 自我監控傾向升高 → 重新調用外顯規則 → 動作自動化解體 → 崩潰
 
 **其他關鍵後續**：
-- Masters, R. S. W., Polman, R. C. J., & Hammond, N. V. (1993). 'Reinvestment': A dimension of personality implicated in skill breakdown under pressure. *Personality and Individual Differences*, 14(5), 655–666. DOI: 10.1016/0191-8690(93)90113-H 🟡（人格量表初版）
+- Masters, R. S. W., Polman, R. C. J., & Hammond, N. V. (1993). 'Reinvestment': A dimension of personality implicated in skill breakdown under pressure. *Personality and Individual Differences*, 14(5), 655–666. DOI: 10.1016/0191-8869(93)90113-H 🟡（人格量表初版）
 - Implicit motor learning, reinvestment and movement disruption: 書章節，Masters & Maxwell，見 Taylor & Francis 2004 編輯書。🟠
 - Poolton, J. M., & Zachry, T. L. (2007). So you want to learn implicitly? Coaching and learning through implicit motor learning techniques. *International Journal of Sports Science & Coaching*, 2(2), 185–195. DOI: 10.1260/174795407780367177 🟢
 
@@ -188,7 +189,7 @@ draft: false
 | 1990 | Hardy | In Jones & Hardy (Eds.), *Stress and performance in sport*, Wiley | 災難模型：認知焦慮×生理喚醒的非線性互動，高認知焦慮下大跌落 | 書章節 | 🟠 |
 | 1990 | Martens et al. | In *Competitive anxiety in sport*, Human Kinetics, 117–190 | CSAI-2 開發：三分量競賽焦慮量表，游泳等多運動驗證 | 書章節 | 🟠 |
 | 1992 | Masters | *Brit. J. Psychol.* 83, 343–358 | 再投資理論原始版：外顯知識量 → 壓力下崩潰風險 | DOI: 10.1111/j.2044-8295.1992.tb02446.x | 🟡 |
-| 1993 | Masters, Polman & Hammond | *Personality & Individual Differences* 14(5), 655–666 | 再投資人格量表初版 | DOI: 10.1016/0191-8690(93)90113-H | 🟡 |
+| 1993 | Masters, Polman & Hammond | *Personality & Individual Differences* 14(5), 655–666 | 再投資人格量表初版 | DOI: 10.1016/0191-8869(93)90113-H | 🟡 |
 | 1994 | Hardy, Parfitt & Pates | *J. Sports Sci.* 12(4), 327–334 | 災難模型實地驗證（8 名草地滾球選手）：高認知焦慮下出現遲滯（hysteresis）大幅跌落 | PMID: 7932942 | 🟢 |
 | 1997 | Hanin | *European Yearbook of Sport Psychology* 1, 29–72 | IZOF 全面表述：情緒功能性而非效價決定表現 | 年鑑章節（無 DOI/PMID，非索引刊物）| 🟡 |
 | 2001 | Beilock & Carr | *J. Exp. Psychol. Gen.* 130(4), 701–725 | 外顯監控理論：壓力誘發技術聚焦，打斷程序化技能 | APA PDF 可取 | 🟢 |
