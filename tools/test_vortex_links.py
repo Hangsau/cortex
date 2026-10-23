@@ -9,8 +9,8 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "vortex"
 OUT = ROOT / "next" / "data" / "vortex_links.json"
-STROKES = ["free", "back", "breast", "fly", "udk", "starts-turns", "open-water"]
-EXPECT = {"move": 66, "drill": 214, "tech": 257, "error": 106, "problem": 84,
+STROKES = ["free", "back", "breast", "fly", "udk", "starts-turns", "open-water", "race"]
+EXPECT = {"move": 66, "drill": 214, "tech": 272, "error": 106, "problem": 84,
           "injury": 47, "level": 26, "psy": 8, "psyc": 62}
 fails = []
 
@@ -53,7 +53,7 @@ names = sum(len(m.get("drills") or []) for s in STROKES for m in load(f"{s}.yaml
 practice = sum(1 for es in out.values() for e in es if e["rel"] == "practice")
 check(practice == names == 126, f"practice {practice}、move.drills 名稱 {names}，應皆為 126")
 check(not [x for x in d["stats"]["unresolved"] if x["field"].startswith("drills")], "有 move.drills 名稱解析失敗")
-check(list(d["strokes"]) == STROKES, "技能順序應為七項，open-water 排在 starts-turns 後")
+check(list(d["strokes"]) == STROKES, "技能順序應為八項，open-water、race 排在 starts-turns 後")
 check(d["strokes"]["open-water"]["name_zh"] == "開放水域與鐵人", "open-water 全名錯誤")
 check(d["strokes"]["open-water"]["nav_zh"] == "開放水域", "open-water 短導航錯誤")
 for stroke in ("starts-turns", "open-water"):

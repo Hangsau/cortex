@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "vortex"
 OUT = ROOT / "next" / "data" / "vortex_links.json"
 
-MOVE_FILES = ["free", "back", "breast", "fly", "udk", "starts-turns", "open-water"]
+MOVE_FILES = ["free", "back", "breast", "fly", "udk", "starts-turns", "open-water", "race"]
 SEG = {"move": "moves", "drill": "drills", "tech": "tech", "error": "errors",
        "problem": "problems", "injury": "injuries", "level": "levels",
        "psy": "mind", "psyc": "mind"}
@@ -34,7 +34,7 @@ DRILL_STROKE_MAP = {
 }
 
 # strokes that have no levels
-NO_LEVEL_STROKES = {"udk", "starts-turns", "open-water"}
+NO_LEVEL_STROKES = {"udk", "starts-turns", "open-water", "race"}
 
 # strokes where L0/L1 are absent
 L0L1_MISSING = {"breast", "fly"}
@@ -219,7 +219,7 @@ def main():
             "name_zh": {
                 "free": "自由式", "back": "仰式", "breast": "蛙式",
                 "fly": "蝶式", "udk": "水下海豚腿", "starts-turns": "出發與轉身",
-                "open-water": "開放水域與鐵人",
+                "open-water": "開放水域與鐵人", "race": "比賽與配速",
             }[stroke],
             "premise": premise,
             "moves": move_ids,

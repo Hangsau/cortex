@@ -44,8 +44,8 @@
       <span><b>{{ index $vc "tech" }}</b> 條技術分析</span>
       <span><b>{{ lang.FormatNumber 0 $vl }}</b> 條知識連結</span>
     </p>
-    <nav class="bs-v-strokes" aria-label="七項游泳技能">
-      {{- range slice "free" "back" "breast" "fly" "udk" "starts-turns" "open-water" }}
+    <nav class="bs-v-strokes" aria-label="游泳技能與比賽">
+      {{- range slice "free" "back" "breast" "fly" "udk" "starts-turns" "open-water" "race" }}
       <a href="{{ relURL (printf "vortex/%s/" .) }}">{{ (index $v.strokes .).nav_zh | default (index $v.strokes .).name_zh }}</a>
       {{- end }}
     </nav>

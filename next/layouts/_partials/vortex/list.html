@@ -16,14 +16,15 @@
   "udk" "水下海豚腿"
   "starts-turns" "出發與轉身"
   "open-water" "開放水域"
+  "race" "比賽與配速"
 -}}
 
 {{- $css := resources.Get "css/list.css" | fingerprint -}}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
 
 {{- /* 收集該類型的所有項目，依 stroke 與 id 排序；psy 另處理 */ -}}
-{{- $strokeOrder := slice "free" "back" "breast" "fly" "udk" "starts-turns" "open-water" -}}
-{{- $strokePos := dict "free" 0 "back" 1 "breast" 2 "fly" 3 "udk" 4 "starts-turns" 5 "open-water" 6 -}}
+{{- $strokeOrder := slice "free" "back" "breast" "fly" "udk" "starts-turns" "open-water" "race" -}}
+{{- $strokePos := dict "free" 0 "back" 1 "breast" 2 "fly" 3 "udk" 4 "starts-turns" 5 "open-water" 6 "race" 7 -}}
 
 {{- /* drill 的 strokes（資料）→ 內部 key；多值用空白串接成 data-stroke */ -}}
 {{- $strokeToKey := dict

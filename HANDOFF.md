@@ -1,6 +1,14 @@
 # HANDOFF — my-site (Cortex)
 
 
+
+## 當前狀態（2026-10-23，Vortex 第 8 技能「比賽與配速」上站）
+
+- Vortex 新增 stroke `race`：15 個知識點 `race.tech.1–15`（比賽成績分析的數據結論），技能頁 `/vortex/race/`，首頁卡片（無動作時改顯示知識點數）、左欄（標題改「游泳技能與比賽」）、書房首頁都有入口。
+- **修掉一個全站既有缺陷**：技術分析知識點頁的開頭原本只用 80 字截斷的 hook，summary 全文從未上站（272 點裡 122 點受影響）；`unit.html` 改成技術點用 summary 全文，截斷版只給清單卡片。
+- W6 原本失敗是檢查過時（斷言開放水域頁不得有誤區區塊，但 10-15 後開放水域已有 2 條誤區）；改成「誤區區塊與資料一致」，並加 race 檢查。W1 預期 tech 272。
+- 驗收：P4（1773 頁）、W1、W3–W8、V2–V7、L1／L3–L5、T1–T4、test_vortex_links 全 PASS；舊網址 121 全對應。
+
 ## 當前狀態（2026-10-23，Vortex 研究庫：研究筆記／研究結論一覽／開放問題）
 
 - `tools/sync_vortex.py` 的 `sync_research_notes()` 讀 Vortex `Research/_notes.yaml`：寫筆記 md（weight＝閱讀順序、description＝一句話結論、note_kind／note_role）、`data/vortex/research_notes.yaml`（groups／notes／by_unit 反向索引、graduated 標題、questions 題目），並把 `FUTURE_RESEARCH.md` 寫成 `content/vortex/research/open-questions.md`。上站清理 `clean_note_text()`：剝頁首維護註記、內部檔案對照小節、教練觀察指標；檔名引用與〈短標題〉轉成筆記連結（標題列不放連結）。

@@ -23,9 +23,9 @@ FAILS = []
 
 SEG = {"move": "moves", "drill": "drills", "tech": "tech", "error": "errors",
        "problem": "problems", "injury": "injuries", "level": "levels", "psy": "mind", "psyc": "mind"}
-EXPECT = {"move": 66, "drill": 214, "tech": 257, "error": 106, "problem": 84,
+EXPECT = {"move": 66, "drill": 214, "tech": 272, "error": 106, "problem": 84,
           "injury": 47, "level": 26, "psy": 8, "psyc": 62}
-STROKES = ["free", "back", "breast", "fly", "udk", "starts-turns", "open-water"]
+STROKES = ["free", "back", "breast", "fly", "udk", "starts-turns", "open-water", "race"]
 LISTS = ["drills", "tech", "errors", "problems", "injuries", "levels", "mind", "moves"]
 
 
@@ -190,7 +190,7 @@ def w6():
         return
     for s in STROKES:
         doc = page(f"vortex/{s}")
-        if "mv-row" not in doc:
+        if d["strokes"][s]["moves"] and "mv-row" not in doc:
             fail(f"vortex/{s} 缺 mv-row")
         for mid in d["strokes"][s]["moves"]:
             if d["units"][mid]["path"] not in doc:
@@ -199,11 +199,20 @@ def w6():
             entries = [u for u in d["units"].values() if u["type"] == t and u["stroke"] == s]
             if entries and not any(u["path"] in doc for u in entries):
                 fail(f"vortex/{s} 沒有任何 {t} 連結")
+        # 沒有 L 級的技能不得出現 L 級區塊；誤區區塊只在真的有誤區時出現（空區不出）
+        has_errors = any(u["type"] == "error" and u["stroke"] == s for u in d["units"].values())
+        if ("stroke-errors" in doc) != has_errors:
+            fail(f"vortex/{s} 誤區區塊與資料不符（有誤區 {has_errors}）")
+        if s in ("open-water", "race") and "stroke-levels" in doc:
+            fail(f"vortex/{s} 不應出現 L 級區塊")
         if s == "open-water":
             if "開放水域與鐵人" not in text_of(doc) or "開放水域沒有牆、沒有池底線" not in text_of(doc):
                 fail("open-water 缺全名或 premise")
-            if "stroke-errors" in doc or "stroke-levels" in doc:
-                fail("open-water 不應出現空的誤區／L 級區塊")
+        if s == "race":
+            if "比賽與配速" not in text_of(doc) or "用公開比賽成績自己做的分析" not in text_of(doc):
+                fail("race 缺全名或 premise")
+            if "stroke-moves" in doc:
+                fail("race 沒有動作，不應出現動作區塊")
         for uid, u in d["units"].items():
             if u["type"] == "drill" and s.replace("-", "_") in u["record"].get("strokes", []):
                 if u["path"] not in doc:

@@ -59,6 +59,14 @@
       {{- $t := . | plainify | strings.TrimSpace -}}
       {{- if $t -}}{{- $hook = . -}}{{- end -}}
     {{- end -}}
+    {{- /* 技術分析的 summary 就是這一頁的結論：頁內用全文（$u.hook 是清單卡片用的 80 字截斷版，
+          2026-10-23 前 122 個技術點的後半段因此從未上站） */ -}}
+    {{- if and (not $hook) (eq $type "tech") -}}
+      {{- with $record.summary -}}
+        {{- $t := . | plainify | strings.TrimSpace -}}
+        {{- if $t -}}{{- $hook = . -}}{{- end -}}
+      {{- end -}}
+    {{- end -}}
     {{- if not $hook -}}
       {{- with $u.hook -}}
         {{- $t := . | plainify | strings.TrimSpace -}}

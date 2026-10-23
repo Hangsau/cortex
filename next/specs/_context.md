@@ -47,7 +47,7 @@ CSS／JS 一律放 `next/assets/`，在版型中用 `resources.Get` 取得並 `|
 |---|---|---|---|---|
 | move | `free.yaml back.yaml breast.yaml fly.yaml udk.yaml starts-turns.yaml open-water.yaml` 的 `moves[]`（欄位 n,name,one,l,physical,boundary,drills,lnote,cue_bad,cue_why,cue_good）；頂層 `premise` 是該式導言字串 | `{stroke}.move.{n}`，stroke＝檔名去 .yaml | name | 66 |
 | drill | `drills.yaml` 的 `drills[]`（id,name_zh,name_en,strokes,category,equipment,l_target,purpose_zh,how_to,perception_goal,success_signal,failure_signal,deficiency_fixes,difficulty_tier,source_ids…）；`categories[]` 有 key,name_zh | id（如 `Fr1`） | name_zh | 214 |
-| tech | `technical-analysis.yaml` 的 `points[]`（id,stroke,category,title,nav_zh,summary,mechanism,practical_implication,perception_signal,evidence,cross_ref_ids）；`categories[]` | id（如 `free.tech.4`） | nav_zh 優先，否則 title | 257 |
+| tech | `technical-analysis.yaml` 的 `points[]`（id,stroke,category,title,nav_zh,summary,mechanism,practical_implication,perception_signal,evidence,cross_ref_ids）；`categories[]` | id（如 `free.tech.4`） | nav_zh 優先，否則 title | 272 |
 | error | `teaching-errors.yaml` 的 `errors[]`（id,stroke,category,title,misconception,physical_reason,correct_concept,perception_impact,evidence,cross_ref_ids）；`categories[]` | id（如 `free.err1`） | title | 106 |
 | problem | `problems.yaml` 的 `problems[]`（id,stroke,category,title,observable,mechanism_summary,links{technical_analysis[],drills[],interventions[],water_interventions[]},cross_ref_ids）；`categories[]` | id | title | 84 |
 | injury | `injuries.yaml` 的 `injuries[]`（id,zh,en,category,mechanism,epidemiology,risk_factors,prevention,management,links{mechanism_link_ids,technical_link_ids,perception_link_ids},…）；`categories[]` | id | zh | 47 |

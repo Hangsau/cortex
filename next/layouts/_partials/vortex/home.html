@@ -1,8 +1,8 @@
-{{- /* Vortex 首頁（Claude 手寫；2026-10-14 三層重構改骨架）：大標題 → 三個入口（知識／應用／研究庫）→ 七項技能 → 反直覺誤區 → L0–L6 階梯。
+{{- /* Vortex 首頁（Claude 手寫；2026-10-14 三層重構改骨架）：大標題 → 三個入口（知識／應用／研究庫）→ 技能與比賽 → 反直覺誤區 → L0–L6 階梯。
      原「主題與長期規劃」「直接查找」兩段併入三入口，不再各自成段。 */ -}}
 {{- $d := hugo.Data.vortex_links -}}
-{{- $order := slice "free" "back" "breast" "fly" "udk" "starts-turns" "open-water" -}}
-{{- $long := dict "free" "freestyle" "back" "backstroke" "breast" "breaststroke" "fly" "butterfly" "udk" "underwater_dolphin_kick" "starts-turns" "starts_turns" "open-water" "open_water" -}}
+{{- $order := slice "free" "back" "breast" "fly" "udk" "starts-turns" "open-water" "race" -}}
+{{- $long := dict "free" "freestyle" "back" "backstroke" "breast" "breaststroke" "fly" "butterfly" "udk" "underwater_dolphin_kick" "starts-turns" "starts_turns" "open-water" "open_water" "race" "race" -}}
 {{- $cnt := dict -}}
 {{- $errBy := dict -}}
 {{- range $id, $u := $d.units -}}
@@ -75,7 +75,11 @@
       <a class="vh-stroke" href="{{ relURL (printf "vortex/%s/" $k) }}">
         <span class="vh-stroke-name">{{ $s.name_zh }}</span>
         <span class="vh-stroke-premise">{{ $first }}。</span>
+        {{- if $s.moves }}
         <span class="vh-stroke-meta">{{ len $s.moves }} 個動作 · {{ $nd }} 個練習 · {{ len (index $errBy $k | default slice) }} 條誤區</span>
+        {{- else }}{{ $nt := 0 }}{{ range $d.units }}{{ if and (eq .type "tech") (eq .stroke $k) }}{{ $nt = add $nt 1 }}{{ end }}{{ end }}
+        <span class="vh-stroke-meta">{{ $nt }} 個知識點 · 用比賽成績算出來的</span>
+        {{- end }}
       </a>
     {{- end }}
     </div>

@@ -26,6 +26,7 @@ deploy：push `hugo-source` → GitHub Actions 跑資料產生器後 `hugo --min
 | 改全站首頁（書房） | `next/layouts/_partials/library/bookshelf.html` ＋ `next/assets/css/bookshelf.css` |
 | 改 Vortex 首頁／泳式頁／知識點頁／清單 | `next/layouts/_partials/vortex/{home,stroke,unit,next-read,list}.html`；分派在 `next/layouts/vortex/page.html`；左欄兩層樹（三入口＋本頁目次）在 `rail.html` |
 | 改 Vortex 研究庫（來源條目頁、審查與裁決紀錄、研究筆記、研究底稿） | `_partials/vortex/{research-home,source,article}.html`；資料由 `sync_vortex.py` 的 `sync_research_index()`（`data/vortex/source_usage.json`、`decision_trail.json`、`content/vortex/research/rulings/`，白名單 `RULING_FILES`）與 `sync_research_notes()` 產生 |
+| 加技能（Vortex 的 stroke key，例如 2026-10-23 的第 8 個 `race` 比賽與配速） | 寫死技能清單的地方：`tools/build_vortex_links.py`（MOVE_FILES、NO_LEVEL_STROKES、name_zh）、`tools/test_vortex_links.py`、`next/specs/check.py`（STROKES、W6）、`_partials/vortex/{home,list,rail}.html`、`_partials/library/bookshelf.html`；沒有動作的技能在首頁卡片改顯示知識點數 |
 | 改研究筆記清單、研究結論一覽、開放問題 | 資料：Vortex `Research/_notes.yaml`、`FUTURE_RESEARCH.md` → `sync_research_notes()` 寫 `content/vortex/research/notes/*.md`、`research/open-questions.md`、`data/vortex/research_notes.yaml`（含 `by_unit` 反向索引）；上站清理 `clean_note_text()`。版面：`_partials/vortex/{notes-list,notes-digest,article,unit-link}.html`、`unit.html` 的「研究筆記」；樣式 `library.css` 末段 `nl-*`／`nd-*`／`nt-*`。layout 不寫筆記名單 |
 | 改 Vortex 專頁（呼吸、週期化、ADM、心理、骨關節、動作圖譜） | `next/layouts/_partials/vortex/{breathing,periodization,adm-*,psychology-read,joints,movement}.html`；頁面檔在 `next/content/vortex/` |
 | 改 Vortex 內容（泳式、drill、誤區、技術分析…） | **不在此 repo**：改 `TheVortexProject/canonical/` → `tools/sync_vortex.py`（CI 自動） |
@@ -77,7 +78,7 @@ deploy：push `hugo-source` → GitHub Actions 跑資料產生器後 `hugo --min
 8. **對照閱讀與閱讀進度都以錨點為鍵**：讀本小節 `{#anchor}`、CSCS item id 改名會無聲打斷兩者。
 9. **Vortex 的呼吸安全段落必須置頂且不可收合**；`check.py V3` 會擋。
 10. **Windows Git Bash heredoc 寫 Python 時 `\n` 常被吃掉**：長片段改用檔案寫入工具寫成 .py 再執行。
-11. **泳式頁動作不再手管**：`data/vortex/{free,back,breast,fly,udk,starts-turns,open-water}.yaml` 由 `sync_moves()` 從 Vortex `moves.yaml` 生成；「什麼是水感」由 Vortex `Technica/水感是什麼.md` 原樣同步，改內容都去 Vortex。
+11. **泳式頁動作不再手管**：`data/vortex/{free,back,breast,fly,udk,starts-turns,open-water,race}.yaml` 由 `sync_moves()` 從 Vortex `moves.yaml` 生成；「什麼是水感」由 Vortex `Technica/水感是什麼.md` 原樣同步，改內容都去 Vortex。
 12. **散文進站前會被剝除**：研究底稿與研究筆記經 `strip_diagnostic()`、`strip_external_links()`；`maintenance_note` 由 `dump_yaml()` 在任何檔、任何層級剝除。看到研究底稿少了段落，先查是不是被剝除規則吃掉。
 
 ---

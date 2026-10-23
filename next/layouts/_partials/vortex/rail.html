@@ -4,7 +4,7 @@
 {{- $cur := "" -}}
 {{- with .Params.stroke }}{{ $cur = . }}{{ end -}}
 {{- with .Params.unit_id }}{{ with index $d.units . }}{{ $cur = .stroke }}{{ end }}{{ end -}}
-{{- $order := slice "free" "back" "breast" "fly" "udk" "starts-turns" "open-water" -}}
+{{- $order := slice "free" "back" "breast" "fly" "udk" "starts-turns" "open-water" "race" -}}
 {{- /* 2026-10-14 三層重構：知識（呈現）／應用／研究庫（資料庫）。層標題用 rail-series，子群用 rail-h。 */ -}}
 {{- $lists := slice
   (dict "p" "drills" "t" "練習" "n" "drill")
@@ -37,7 +37,7 @@
     <a class="rail-a{{ if eq $here (relURL "vortex/") }} is-here{{ end }}" href="{{ relURL "vortex/" }}">Vortex 首頁</a>
     <a class="rail-a{{ if eq $here (relURL "vortex/water-sense/") }} is-here{{ end }}" href="{{ relURL "vortex/water-sense/" }}">什麼是水感</a>
     <a class="rail-a{{ if hasPrefix $here (relURL "vortex/levels/") }} is-here{{ end }}" href="{{ relURL "vortex/levels/" }}">發展地圖 L0–L6</a>
-    <p class="rail-h">七項游泳技能</p>
+    <p class="rail-h">游泳技能與比賽</p>
     {{- range $order }}
       {{- $s := index $d.strokes . }}
       {{- $sp := relURL (printf "vortex/%s/" .) }}
