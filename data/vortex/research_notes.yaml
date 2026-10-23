@@ -15,6 +15,7 @@ groups:
     - fade-followup
     - rt-opening
     - im-legs
+    - stroke-links
   - key: race-day
     name_zh: 比賽當天的環境
     desc_zh: 旁邊的人、水道、預賽策略、一天游幾項，會怎麼影響成績。
@@ -109,7 +110,7 @@ notes:
   kind: analysis
   status: researching
   summary_zh: 15 篇比賽分析串起來的四件事：勝負和狀態落在後半段、前段多衝通常划算、單場不下判斷、很多差別是量法造成的。
-  title: 比賽數據告訴我們什麼：15 篇分析的總覽
+  title: 比賽數據告訴我們什麼：16 篇分析的總覽
   group: analysis
   weight: 1
   status_zh: 研究中
@@ -263,6 +264,32 @@ notes:
   status_zh: 研究中
   graduated: []
   questions: []
+- id: note.stroke-links
+  slug: stroke-links
+  theme: race-swim
+  kind: analysis
+  status: researching
+  summary_zh: 蛙式在四式裡最自成一格；混合式的差距約三分之一在蛙式段，蛙式段強的混合式選手游 200 蛙排名更前面。
+  findings:
+  - text_zh: 混合式四個泳式段各自最能預測同泳式的單項；蛙式最獨立，只有蝶式段跟 200 蛙有一點關係，而且只有單向。
+    certainty: 🔵
+    apply_zh: 不要用其他泳式推估蛙式，蛙式要另外評估。
+  - text_zh: 蛙式段比自己其他三段每強 1%，200 蛙的排名比自己混合式多好約 0.4%；混合式蛙式段約為自己 200 蛙平均每 50 的 1.03–1.045 倍。
+    certainty: 🔵
+    apply_zh: 蛙式段是強項的混合式選手可以加報 200 蛙；用 200 蛙平均每 50 × 1.03–1.045 估混合式蛙式段的目標。
+  - text_zh: 200 蛙一年進步 1%，混合式蛙式段快 0.53%、自由式段 0.48%，蝶仰段只有約 0.2；其他泳式的進步則分散到四段。
+    certainty: 🔵
+    apply_zh: 混合式選手弱項是蛙式時，補蛙式回報最大。
+  title: 四式之間的牽動：混合式選手游蛙式項目，表現如何？
+  group: analysis
+  weight: 8
+  status_zh: 研究中
+  graduated: []
+  questions:
+  - id: fq.1.6
+    'no': '1.6'
+    title: 泳式之間的關係從何而來
+    anchor: q-1-6
 - id: note.neighbor-effect
   slug: neighbor-effect
   theme: race-day
@@ -275,7 +302,7 @@ notes:
     apply_zh: 分到強組、旁邊衝出去可以跟；賽後最後 50 掉得多，先看旁邊是不是特別快、總成績如何。
   title: 鄰道效應：被旁邊的人拉快，最後 50 會不會付帳？
   group: analysis
-  weight: 8
+  weight: 9
   status_zh: 研究中
   graduated: []
   questions:
@@ -300,7 +327,7 @@ notes:
     certainty: 🔵
   title: 水道位置與分組強度：邊道、獨自領先、強組會怎樣？
   group: analysis
-  weight: 9
+  weight: 10
   status_zh: 研究中
   graduated: []
   questions:
@@ -323,7 +350,7 @@ notes:
     apply_zh: 賽前準備比預賽留力重要；預賽目標寫成「比門檻快 X 秒」。
   title: 預賽保留與晉級：預賽要收多少才安全？收著游，決賽有比較好嗎？
   group: analysis
-  weight: 10
+  weight: 11
   status_zh: 研究中
   graduated: []
   questions:
@@ -346,7 +373,7 @@ notes:
     apply_zh: 200 最後 50 比第三個 50 快很多（例如 5% 以上）代表中段保留太多；100 練前 50 控制住。
   title: 台灣孩子：同一天游越多項會怎樣？幾歲開始會收尾？
   group: analysis
-  weight: 11
+  weight: 12
   status_zh: 研究中
   graduated: []
   questions:
@@ -375,7 +402,7 @@ notes:
     apply_zh: 「今年排名退步」常只是剛升組，等第二年再看。
   title: 相對年齡效應：分齡組裡年紀小的那一半吃虧多少？吃虧到幾歲？
   group: analysis
-  weight: 12
+  weight: 13
   status_zh: 研究中
   graduated: []
   questions:
@@ -398,7 +425,7 @@ notes:
     apply_zh: 不拿破 PB 率比較場數不同的孩子；排賽考量疲勞、課業、動機。
   title: 比賽頻率與進步：比賽場數多，進步會比較少嗎？還是只是統計假象？
   group: analysis
-  weight: 13
+  weight: 14
   status_zh: 研究中
   graduated: []
   questions: []
@@ -414,7 +441,7 @@ notes:
     apply_zh: 小選手配速亂，不要期待多比幾場就好；練習中固定目標分段、給分段回饋、賽前寫配速計畫。
   title: 比賽經驗與配速：比賽經驗會讓配速變穩嗎？
   group: analysis
-  weight: 14
+  weight: 15
   status_zh: 研究中
   graduated: []
   questions: []
@@ -433,7 +460,7 @@ notes:
     apply_zh: 轉隊看訓練內容、距離、師生關係，不期待成績因此跳升。
   title: 隊伍效應與轉隊：進步有多少是「隊伍」決定的？轉隊有用嗎？
   group: analysis
-  weight: 15
+  weight: 16
   status_zh: 研究中
   graduated: []
   questions:
@@ -458,7 +485,7 @@ notes:
     certainty: 🔵
   title: 泳式之間的關係：用比賽成績找到的三項新發現
   group: analysis
-  weight: 16
+  weight: 17
   status_zh: 研究中
   graduated: []
   questions:
@@ -475,7 +502,7 @@ notes:
   summary_zh: 九篇筆記的主線：先感覺到水，大腦才能預測，動作是被預測召喚出來的；硬體、學習、控制、穩定四層材料怎麼支撐它。
   title: 感知與學習：九篇筆記的總覽
   group: literature
-  weight: 17
+  weight: 18
   status_zh: 研究中
   graduated: []
   questions:
@@ -506,7 +533,7 @@ notes:
     certainty: 🔴
   title: 因果倒置假設
   group: literature
-  weight: 18
+  weight: 19
   status_zh: 研究中
   graduated: []
   questions:
@@ -532,7 +559,7 @@ notes:
     apply_zh: 阻力手套與覆蓋手掌的划手板不拿來建立水感。
   title: 機械感受器與水感知
   group: literature
-  weight: 19
+  weight: 20
   status_zh: 研究中
   graduated: []
   questions:
@@ -561,7 +588,7 @@ notes:
     apply_zh: 每個練習給一個明確的辨別任務，難度接近「剛好感覺得出差異」。
   title: 感知學習
   group: literature
-  weight: 20
+  weight: 21
   status_zh: 研究中
   graduated: []
   questions:
@@ -588,7 +615,7 @@ notes:
     certainty: 🔵
   title: 隱性 vs 顯性學習（Implicit vs Explicit Motor Learning）
   group: literature
-  weight: 21
+  weight: 22
   status_zh: 研究中
   graduated:
   - id: psych.arousal.implicit_learning
@@ -611,7 +638,7 @@ notes:
     certainty: 🔴
   title: Feedforward 機制：訓練操作化
   group: literature
-  weight: 22
+  weight: 23
   status_zh: 研究中
   graduated: []
   questions: []
@@ -629,7 +656,7 @@ notes:
     certainty: 🟢
   title: 動態系統理論（DST）在游泳教學中的整合
   group: literature
-  weight: 23
+  weight: 24
   status_zh: 研究中
   graduated: []
   questions: []
@@ -645,7 +672,7 @@ notes:
     apply_zh: 已設計最小可行的課堂觀察計畫，尚未執行。
   title: 感知商數（SQ）三維框架
   group: literature
-  weight: 24
+  weight: 25
   status_zh: 研究中
   graduated: []
   questions:
@@ -666,7 +693,7 @@ notes:
     certainty: 🔴
   title: 神經學對照組三點座標系
   group: literature
-  weight: 25
+  weight: 26
   status_zh: 研究中
   graduated: []
   questions:
@@ -687,7 +714,7 @@ notes:
     certainty: 🟠
   title: 內臟感知、迷走神經與水中防衛型學員
   group: literature
-  weight: 26
+  weight: 27
   status_zh: 研究中
   graduated:
   - id: psych.fear.diving_reflex_calm
@@ -712,7 +739,7 @@ notes:
     apply_zh: 對初學者先用精熟氣候卸掉評價壓力，恐懼才有空間消退。
   title: 心理層總覽 — 從感知優先重讀運動心理學
   group: literature
-  weight: 27
+  weight: 28
   status_zh: 研究中
   graduated: []
   questions: []
@@ -729,7 +756,7 @@ notes:
     certainty: 🔵
   title: 注意力焦點與動作學習
   group: literature
-  weight: 28
+  weight: 29
   status_zh: 已寫進知識點
   graduated:
   - id: psych.attention
@@ -748,7 +775,7 @@ notes:
     certainty: 🟢
   title: 02 喚醒、焦慮與壓力下的技術崩潰（Choking）
   group: literature
-  weight: 29
+  weight: 30
   status_zh: 已寫進知識點
   graduated:
   - id: psych.arousal
@@ -767,7 +794,7 @@ notes:
     certainty: 🟢
   title: 水中恐懼與學習者心理（教學應用角）
   group: literature
-  weight: 30
+  weight: 31
   status_zh: 已寫進知識點
   graduated:
   - id: psych.fear
@@ -786,7 +813,7 @@ notes:
     certainty: 🔵
   title: 04 動機與自我決定
   group: literature
-  weight: 31
+  weight: 32
   status_zh: 已寫進知識點
   graduated:
   - id: psych.motivation
@@ -803,7 +830,7 @@ notes:
     certainty: 🟢
   title: 意象與心理演練（Imagery & Mental Rehearsal）
   group: literature
-  weight: 32
+  weight: 33
   status_zh: 已寫進知識點
   graduated:
   - id: psych.imagery
@@ -822,7 +849,7 @@ notes:
     certainty: 🔴
   title: 自我對話與心理技能訓練（Self-Talk & Psychological Skills Training）
   group: literature
-  weight: 33
+  weight: 34
   status_zh: 已寫進知識點
   graduated:
   - id: psych.self_talk
@@ -839,7 +866,7 @@ notes:
     certainty: 🟢
   title: 07 心流與最佳表現狀態（Flow & Optimal Performance）
   group: literature
-  weight: 34
+  weight: 35
   status_zh: 已寫進知識點
   graduated:
   - id: psych.flow
@@ -858,7 +885,7 @@ notes:
     certainty: 🟢
   title: 08 心理–感知–生理交互（橋接叢集）
   group: literature
-  weight: 35
+  weight: 36
   status_zh: 已寫進知識點
   graduated:
   - id: psych.interaction
@@ -877,7 +904,7 @@ notes:
   summary_zh: 推進主要靠往後推水的阻力、自己產生的渦流可以被再利用；兩篇引用查證失敗的筆記已下架待重寫。
   title: 水中物理：總覽
   group: literature
-  weight: 36
+  weight: 37
   status_zh: 研究中
   graduated: []
   questions:
@@ -909,7 +936,7 @@ notes:
     certainty: 🔵
   title: 游泳推進力理論演變：從「找靜水」到現代生物力學
   group: literature
-  weight: 37
+  weight: 38
   status_zh: 研究中
   graduated: []
   questions: []
@@ -926,7 +953,7 @@ notes:
     certainty: 🟢
   title: 游泳渦流回收（Vortex Recovery in Swimming）
   group: literature
-  weight: 38
+  weight: 39
   status_zh: 研究中
   graduated: []
   questions:
@@ -943,7 +970,7 @@ notes:
   summary_zh: 游泳多數是金字塔型強度分布；頂尖教練走傳統週期化加上逐人微調；板塊週期化與低通氣訓練在游泳的證據還有限。
   title: 訓練安排：總覽
   group: literature
-  weight: 39
+  weight: 40
   status_zh: 研究中
   graduated: []
   questions:
@@ -974,7 +1001,7 @@ notes:
     certainty: 🟢
   title: 極化訓練（Polarized Training）與訓練強度分布（TID）
   group: literature
-  weight: 40
+  weight: 41
   status_zh: 研究中
   graduated:
   - id: periodization.zones.swim_tid
@@ -995,7 +1022,7 @@ notes:
     certainty: 🟢
   title: 板塊週期化（Block Periodization）— Issurin 研究筆記
   group: literature
-  weight: 41
+  weight: 42
   status_zh: 研究中
   graduated:
   - id: periodization.structure.school_block
@@ -1018,7 +1045,7 @@ notes:
     certainty: 🟢
   title: 頂尖耐力教練的訓練哲學
   group: literature
-  weight: 42
+  weight: 43
   status_zh: 研究中
   graduated: []
   questions: []
@@ -1035,7 +1062,7 @@ notes:
     certainty: 🔵
   title: 超最大強度低通氣訓練（VHL / RSH-VHL）
   group: literature
-  weight: 43
+  weight: 44
   status_zh: 研究中
   graduated: []
   questions:
@@ -1060,7 +1087,7 @@ notes:
     certainty: 🔵
   title: 蹼泳訓練：各項目要練什麼、怎麼休息、器材怎麼分配
   group: literature
-  weight: 44
+  weight: 45
   status_zh: 研究中
   graduated: []
   questions:
@@ -1086,7 +1113,7 @@ notes:
     apply_zh: 課表裡沒有出處的份量留白，不自己補數字。
   title: 鐵人三項的游泳：常見說法與訓練參數，研究怎麼說
   group: literature
-  weight: 45
+  weight: 46
   status_zh: 已寫進知識點
   graduated:
   - id: open-water.err1
@@ -1132,7 +1159,7 @@ notes:
     apply_zh: 先張力 → 再身體動作 → 再流體意圖。
   title: 指令層次設計：身體運動語言 vs 流體意圖語言
   group: observation
-  weight: 46
+  weight: 47
   status_zh: 研究中
   graduated: []
   questions: []
@@ -1148,7 +1175,7 @@ notes:
     apply_zh: 用放大感知訊號的器材讓動作自己調整，而不是用大划板強迫形式。
   title: 課堂觀察：小划手板實驗
   group: observation
-  weight: 47
+  weight: 48
   status_zh: 研究中
   graduated: []
   questions:

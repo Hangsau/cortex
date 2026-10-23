@@ -5,7 +5,7 @@ slug: "motivation-self-determination"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "已寫進知識點"
-weight: 31
+weight: 32
 note_kind: "literature"
 note_theme: "psychology"
 note_role: ""

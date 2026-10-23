@@ -5,7 +5,7 @@ slug: "imagery-mental-rehearsal"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "已寫進知識點"
-weight: 32
+weight: 33
 note_kind: "literature"
 note_theme: "psychology"
 note_role: ""

@@ -5,7 +5,7 @@ slug: "feedforward"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 22
+weight: 23
 note_kind: "literature"
 note_theme: "perception"
 note_role: ""

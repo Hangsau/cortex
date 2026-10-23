@@ -5,7 +5,7 @@ slug: "experience-pacing"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 14
+weight: 15
 note_kind: "analysis"
 note_theme: "development"
 note_role: ""

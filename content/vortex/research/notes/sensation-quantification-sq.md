@@ -5,7 +5,7 @@ slug: "sensation-quantification-sq"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 24
+weight: 25
 note_kind: "literature"
 note_theme: "perception"
 note_role: ""

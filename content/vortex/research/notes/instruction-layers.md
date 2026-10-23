@@ -5,7 +5,7 @@ slug: "instruction-layers"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 46
+weight: 47
 note_kind: "observation"
 note_theme: "observation"
 note_role: ""

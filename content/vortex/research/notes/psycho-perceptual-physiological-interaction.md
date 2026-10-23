@@ -5,7 +5,7 @@ slug: "psycho-perceptual-physiological-interaction"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "已寫進知識點"
-weight: 35
+weight: 36
 note_kind: "literature"
 note_theme: "psychology"
 note_role: ""

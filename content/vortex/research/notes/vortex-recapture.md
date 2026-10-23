@@ -5,7 +5,7 @@ slug: "vortex-recapture"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 38
+weight: 39
 note_kind: "literature"
 note_theme: "physics"
 note_role: ""

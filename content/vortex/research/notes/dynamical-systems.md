@@ -5,7 +5,7 @@ slug: "dynamical-systems"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 23
+weight: 24
 note_kind: "literature"
 note_theme: "perception"
 note_role: ""

@@ -5,7 +5,7 @@ slug: "attention-focus-motor-learning"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "已寫進知識點"
-weight: 28
+weight: 29
 note_kind: "literature"
 note_theme: "psychology"
 note_role: ""

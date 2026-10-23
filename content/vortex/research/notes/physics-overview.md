@@ -5,7 +5,7 @@ slug: "physics-overview"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 36
+weight: 37
 note_kind: "literature"
 note_theme: "physics"
 note_role: "overview"

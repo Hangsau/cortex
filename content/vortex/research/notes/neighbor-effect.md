@@ -5,7 +5,7 @@ slug: "neighbor-effect"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 8
+weight: 9
 note_kind: "analysis"
 note_theme: "race-day"
 note_role: ""

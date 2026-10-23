@@ -5,7 +5,7 @@ slug: "polarized-training-seiler"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 40
+weight: 41
 note_kind: "literature"
 note_theme: "training"
 note_role: ""

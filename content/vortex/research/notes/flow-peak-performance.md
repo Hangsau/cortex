@@ -5,7 +5,7 @@ slug: "flow-peak-performance"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "已寫進知識點"
-weight: 34
+weight: 35
 note_kind: "literature"
 note_theme: "psychology"
 note_role: ""

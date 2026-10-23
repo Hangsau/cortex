@@ -5,7 +5,7 @@ slug: "training-overview"
 layer: "research"
 layer_name: "研究筆記"
 research_status: "研究中"
-weight: 39
+weight: 40
 note_kind: "literature"
 note_theme: "training"
 note_role: "overview"
