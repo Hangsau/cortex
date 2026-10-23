@@ -4,7 +4,7 @@ description: "同一個人每場差最多的是最後一段；狀態變好或變
 slug: "split-patterns"
 layer: "research"
 layer_name: "研究筆記"
-research_status: "研究中"
+research_status: "已寫進知識點"
 weight: 2
 note_kind: "analysis"
 note_theme: "race-swim"

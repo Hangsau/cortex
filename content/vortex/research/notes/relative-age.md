@@ -4,7 +4,7 @@ description: "分齡組裡年紀最小的孩子吃虧很大，12 歲最明顯、
 slug: "relative-age"
 layer: "research"
 layer_name: "研究筆記"
-research_status: "研究中"
+research_status: "已寫進知識點"
 weight: 13
 note_kind: "analysis"
 note_theme: "development"

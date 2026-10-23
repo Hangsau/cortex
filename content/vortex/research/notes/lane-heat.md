@@ -4,7 +4,7 @@ description: "長池邊道比較慢、後段掉比較多；預賽獨自領先時
 slug: "lane-heat"
 layer: "research"
 layer_name: "研究筆記"
-research_status: "研究中"
+research_status: "已寫進知識點"
 weight: 10
 note_kind: "analysis"
 note_theme: "race-day"

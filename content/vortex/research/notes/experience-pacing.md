@@ -4,7 +4,7 @@ description: "比賽比得多，配速不會自己變穩；要穩得在練習中
 slug: "experience-pacing"
 layer: "research"
 layer_name: "研究筆記"
-research_status: "研究中"
+research_status: "已寫進知識點"
 weight: 15
 note_kind: "analysis"
 note_theme: "development"

@@ -4,7 +4,7 @@ description: "預賽要收，平常成績至少要比晉級門檻快 2–3%；�
 slug: "heat-saving"
 layer: "research"
 layer_name: "研究筆記"
-research_status: "研究中"
+research_status: "已寫進知識點"
 weight: 11
 note_kind: "analysis"
 note_theme: "race-day"

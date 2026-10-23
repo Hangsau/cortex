@@ -4,7 +4,7 @@ description: "日本、台灣、世界級賽事都一樣：蛙式是自成一格
 slug: "stroke-links"
 layer: "research"
 layer_name: "研究筆記"
-research_status: "研究中"
+research_status: "已寫進知識點"
 weight: 8
 note_kind: "analysis"
 note_theme: "race-swim"

@@ -4,7 +4,7 @@ description: "前段比平常快，代價落在最後一段；短池比長池掉
 slug: "fade-causes"
 layer: "research"
 layer_name: "研究筆記"
-research_status: "研究中"
+research_status: "已寫進知識點"
 weight: 4
 note_kind: "analysis"
 note_theme: "race-swim"

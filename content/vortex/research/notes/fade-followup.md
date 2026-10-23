@@ -4,7 +4,7 @@ description: "「會掉的選手」要看一季好幾場才準；決賽前段多
 slug: "fade-followup"
 layer: "research"
 layer_name: "研究筆記"
-research_status: "研究中"
+research_status: "已寫進知識點"
 weight: 5
 note_kind: "analysis"
 note_theme: "race-swim"

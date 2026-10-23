@@ -4,7 +4,7 @@ description: "旁邊的人快會把你拉快；最後一段會多掉一點，但
 slug: "neighbor-effect"
 layer: "research"
 layer_name: "研究筆記"
-research_status: "研究中"
+research_status: "已寫進知識點"
 weight: 9
 note_kind: "analysis"
 note_theme: "race-day"

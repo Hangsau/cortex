@@ -4,7 +4,7 @@ description: "個人混合式前面快的那天，四個泳式段都快；相對
 slug: "im-legs"
 layer: "research"
 layer_name: "研究筆記"
-research_status: "研究中"
+research_status: "已寫進知識點"
 weight: 7
 note_kind: "analysis"
 note_theme: "race-swim"

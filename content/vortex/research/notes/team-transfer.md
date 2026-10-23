@@ -4,7 +4,7 @@ description: "在哪一隊大約解釋一成多的進步差異；轉隊當年常
 slug: "team-transfer"
 layer: "research"
 layer_name: "研究筆記"
-research_status: "研究中"
+research_status: "已寫進知識點"
 weight: 16
 note_kind: "analysis"
 note_theme: "development"

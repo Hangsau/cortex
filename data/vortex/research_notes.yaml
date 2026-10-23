@@ -128,7 +128,7 @@ notes:
   slug: split-patterns
   theme: race-swim
   kind: analysis
-  status: researching
+  status: graduated
   summary_zh: 同一個人每場差最多的是最後一段；狀態變好或變差，主要反映在後半段。
   findings:
   - text_zh: 同一人同一季，最後一段每場的起伏約 1.0–1.3 個百分點，是中間段的 1.6–2 倍。
@@ -143,8 +143,10 @@ notes:
   title: 分段型態：每場差多少、狀態變化落在哪一段
   group: analysis
   weight: 2
-  status_zh: 研究中
-  graduated: []
+  status_zh: 已寫進知識點
+  graduated:
+  - id: race.tech.1
+    title: 同一個人每場比賽差最多的是最後一段；狀態變好或變差，也先反映在後半段
   questions:
   - id: fq.1.1
     'no': '1.1'
@@ -154,7 +156,7 @@ notes:
   slug: hundred-decider
   theme: race-swim
   kind: analysis
-  status: researching
+  status: graduated
   summary_zh: 100 公尺同組的差距約六成在後 50；實力相近時，前 50 領先的人比較常贏。
   findings:
   - text_zh: 同一組比賽裡，選手之間的差距約六成來自後 50。程度越高掉速越少，台灣孩子在自由式、蝶式的後 50 差距特別大。
@@ -169,14 +171,16 @@ notes:
   title: 100 公尺的勝負點：前 50、後 50 與出發反應
   group: analysis
   weight: 3
-  status_zh: 研究中
-  graduated: []
+  status_zh: 已寫進知識點
+  graduated:
+  - id: race.tech.2
+    title: 100 公尺同組的差距約六成在後 50；實力相近時，前 50 領先的人比較常贏
   questions: []
 - id: note.fade-causes
   slug: fade-causes
   theme: race-swim
   kind: analysis
-  status: researching
+  status: graduated
   summary_zh: 前段比平常快，代價落在最後一段；短池比長池掉得多。最後 50 的加速從進最後一面牆之前就開始。
   findings:
   - text_zh: 前段比自己平常快 1%，最後 50 相對第三個 50 多掉約 0.55 個百分點。
@@ -193,8 +197,10 @@ notes:
   title: 最後一段為什麼會掉速、該練什麼
   group: analysis
   weight: 4
-  status_zh: 研究中
-  graduated: []
+  status_zh: 已寫進知識點
+  graduated:
+  - id: race.tech.3
+    title: 前段比平常快，代價落在最後一段；短池比長池掉得多
   questions:
   - id: fq.1.2
     'no': '1.2'
@@ -204,7 +210,7 @@ notes:
   slug: fade-followup
   theme: race-swim
   kind: analysis
-  status: researching
+  status: graduated
   summary_zh: 「會掉的選手」要看一季好幾場才準；決賽前段多衝，最後一段痛一點但總成績更好。
   findings:
   - text_zh: 有些人確實比較會掉，但要用一季 3 場以上的中位數判斷，單場看不準。
@@ -219,8 +225,10 @@ notes:
   title: 掉速延伸：是這個人還是這一場？決賽前段多衝值不值得？最後 50 超車從哪裡開始？
   group: analysis
   weight: 5
-  status_zh: 研究中
-  graduated: []
+  status_zh: 已寫進知識點
+  graduated:
+  - id: race.tech.4
+    title: 「會掉的選手」要看一季好幾場才準；決賽前段多衝，最後一段痛一點但總成績更好
   questions:
   - id: fq.1.2
     'no': '1.2'
@@ -230,7 +238,7 @@ notes:
   slug: rt-opening
   theme: race-swim
   kind: analysis
-  status: researching
+  status: graduated
   summary_zh: 出發反應快不會讓前段衝過頭（仰式例外）；反應快的那天，往往整體狀態也好。
   findings:
   - text_zh: 自由式、蛙式、蝶式反應快的那趟，前 50 和最後一段都沒有變化，總成績快的幅度是省下反應時間的 2–4 倍。
@@ -242,14 +250,16 @@ notes:
   title: 出發反應與前段配速：反應特別快，前段會不會跟著衝過頭？
   group: analysis
   weight: 6
-  status_zh: 研究中
-  graduated: []
+  status_zh: 已寫進知識點
+  graduated:
+  - id: race.tech.5
+    title: 出發反應快不會讓前段衝過頭（仰式例外）；反應快的那天，往往整體狀態好
   questions: []
 - id: note.im-legs
   slug: im-legs
   theme: race-swim
   kind: analysis
-  status: researching
+  status: graduated
   summary_zh: 個人混合式前面快的那天，四個泳式段都快；相對沒跟上的是最後的自由式段，不是蛙式段。
   findings:
   - text_zh: 沒有看到「前面衝、後面垮」：前兩段快的那天，四段都快，總成績更好。
@@ -261,14 +271,16 @@ notes:
   title: 個人混合式的泳式段取捨：前面衝快，哪一段付帳？
   group: analysis
   weight: 7
-  status_zh: 研究中
-  graduated: []
+  status_zh: 已寫進知識點
+  graduated:
+  - id: race.tech.6
+    title: 個人混合式前面快的那天，四個泳式段都快；相對沒跟上的是最後的自由式段
   questions: []
 - id: note.stroke-links
   slug: stroke-links
   theme: race-swim
   kind: analysis
-  status: researching
+  status: graduated
   summary_zh: 日本、台灣、世界級賽事都一樣：蛙式是自成一格的泳式，混合式選手的蛙式項目看他混合式的蛙式段就知道。
   findings:
   - text_zh: 日本、台灣、世界泳聯三個來源都一樣：200 蛙幾乎只跟混合式的蛙式段有關，蛙式段也預測不了蝶、仰、自三個單項。
@@ -283,8 +295,10 @@ notes:
   title: 四式之間的牽動：混合式選手游蛙式項目，表現如何？
   group: analysis
   weight: 8
-  status_zh: 研究中
-  graduated: []
+  status_zh: 已寫進知識點
+  graduated:
+  - id: race.tech.7
+    title: 蛙式自成一格：混合式選手的蛙式項目，看他混合式的蛙式段就知道
   questions:
   - id: fq.1.6
     'no': '1.6'
@@ -294,7 +308,7 @@ notes:
   slug: neighbor-effect
   theme: race-day
   kind: analysis
-  status: researching
+  status: graduated
   summary_zh: 旁邊的人快會把你拉快；最後一段會多掉一點，但總成績平均是賺的。
   findings:
   - text_zh: 兩側選手快時自己也會變快，自由式、蝶式和決賽最明顯；最後一段多掉一點，但前段多賺的大於後段多付的。
@@ -303,8 +317,10 @@ notes:
   title: 鄰道效應：被旁邊的人拉快，最後 50 會不會付帳？
   group: analysis
   weight: 9
-  status_zh: 研究中
-  graduated: []
+  status_zh: 已寫進知識點
+  graduated:
+  - id: race.tech.8
+    title: 旁邊的人快會把你拉快；最後一段多掉一點，但總成績平均是賺的
   questions:
   - id: fq.1.3
     'no': '1.3'
@@ -314,7 +330,7 @@ notes:
   slug: lane-heat
   theme: race-day
   kind: analysis
-  status: researching
+  status: graduated
   summary_zh: 長池邊道比較慢、後段掉比較多；預賽獨自領先時沒人帶，比較慢；決賽碰到強組會被帶快。
   findings:
   - text_zh: 長池邊道比較慢、最後一段也掉比較多；短池看不出來。
@@ -328,8 +344,10 @@ notes:
   title: 水道位置與分組強度：邊道、獨自領先、強組會怎樣？
   group: analysis
   weight: 10
-  status_zh: 研究中
-  graduated: []
+  status_zh: 已寫進知識點
+  graduated:
+  - id: race.tech.9
+    title: 長池邊道比較慢、後段掉比較多；組裡沒人帶時比較慢；決賽碰到強組會被帶快
   questions:
   - id: fq.1.3
     'no': '1.3'
@@ -339,7 +357,7 @@ notes:
   slug: heat-saving
   theme: race-day
   kind: analysis
-  status: researching
+  status: graduated
   summary_zh: 預賽要收，平常成績至少要比晉級門檻快 2–3%；資料看不到「預賽收著游、決賽比較好」。
   findings:
   - text_zh: 平常成績只比晉級門檻快 0–0.5% 時落選率 50%，快 2–3% 降到 7%，快 3% 以上 3%；200–400 m 需要更大的邊際。
@@ -351,8 +369,10 @@ notes:
   title: 預賽保留與晉級：預賽要收多少才安全？收著游，決賽有比較好嗎？
   group: analysis
   weight: 11
-  status_zh: 研究中
-  graduated: []
+  status_zh: 已寫進知識點
+  graduated:
+  - id: race.tech.10
+    title: 預賽要收，平常成績至少要比晉級門檻快 2–3%；看不到「預賽收著游，決賽比較好」
   questions:
   - id: fq.1.5
     'no': '1.5'
@@ -362,7 +382,7 @@ notes:
   slug: tw-kids
   theme: race-day
   kind: analysis
-  status: researching
+  status: graduated
   summary_zh: 同一天每多游一項，每趟平均慢約 0.2%；台灣孩子的 200 常中段保留太多，100 則是後 50 撐不住。
   findings:
   - text_zh: 同一天每多游一項，每趟平均慢 0.18%（12 歲以下 0.28%），慢在整趟，不是最後一段崩。多天比賽的第幾天看不出影響。
@@ -374,8 +394,10 @@ notes:
   title: 台灣孩子：同一天游越多項會怎樣？幾歲開始會收尾？
   group: analysis
   weight: 12
-  status_zh: 研究中
-  graduated: []
+  status_zh: 已寫進知識點
+  graduated:
+  - id: race.tech.11
+    title: 同一天每多游一項，每趟慢約 0.2%；台灣孩子的 200 常中段保留太多
   questions:
   - id: fq.1.4
     'no': '1.4'
@@ -385,7 +407,7 @@ notes:
   slug: relative-age
   theme: development
   kind: analysis
-  status: researching
+  status: graduated
   summary_zh: 分齡組裡年紀最小的孩子吃虧很大，12 歲最明顯、男生拖到 16 歲；但年紀最小還擠進全國賽的孩子，長大反而比較好。
   findings:
   - text_zh: 日本全國少年賽 11–12 歲組，組裡最年輕那群只有應有人數的 2–4 成；同場排名平均落後 38 個百分位，15–16 歲縮到 4 個。
@@ -403,8 +425,10 @@ notes:
   title: 相對年齡效應：分齡組裡年紀小的那一半吃虧多少？吃虧到幾歲？
   group: analysis
   weight: 13
-  status_zh: 研究中
-  graduated: []
+  status_zh: 已寫進知識點
+  graduated:
+  - id: race.tech.12
+    title: 分齡組裡年紀最小的孩子吃虧很大；但年紀最小還擠進全國賽的孩子，長大反而比較好
   questions:
   - id: fq.1.5
     'no': '1.5'
@@ -414,7 +438,7 @@ notes:
   slug: race-frequency
   theme: development
   kind: analysis
-  status: researching
+  status: graduated
   summary_zh: 「比賽多、進步少」是計算方式造成的假象；用公平的量法，比賽多寡跟進步沒有關係。
   findings:
   - text_zh: 用季最佳量進步時，比賽多的人隔年進步看起來較少；改用每季隨機抽 2 場的平均，這個關係就消失。
@@ -426,14 +450,16 @@ notes:
   title: 比賽頻率與進步：比賽場數多，進步會比較少嗎？還是只是統計假象？
   group: analysis
   weight: 14
-  status_zh: 研究中
-  graduated: []
+  status_zh: 已寫進知識點
+  graduated:
+  - id: race.tech.13
+    title: 「比賽多、進步少」是量法造成的假象；用公平的量法，比賽多寡跟進步沒有關係
   questions: []
 - id: note.experience-pacing
   slug: experience-pacing
   theme: development
   kind: analysis
-  status: researching
+  status: graduated
   summary_zh: 比賽比得多，配速不會自己變穩；要穩得在練習中刻意練。
   findings:
   - text_zh: 同年齡同程度的人，全國賽經驗加倍，最後一段掉速、各段起伏、每場差異都沒有變小，各年齡都一樣。
@@ -442,14 +468,16 @@ notes:
   title: 比賽經驗與配速：比賽經驗會讓配速變穩嗎？
   group: analysis
   weight: 15
-  status_zh: 研究中
-  graduated: []
+  status_zh: 已寫進知識點
+  graduated:
+  - id: race.tech.14
+    title: 比賽比得多，配速不會自己變穩；要穩得在練習中刻意練
   questions: []
 - id: note.team-transfer
   slug: team-transfer
   theme: development
   kind: analysis
-  status: researching
+  status: graduated
   summary_zh: 在哪一隊大約解釋一成多的進步差異；轉隊當年常伴隨進步，但到新隊第一整年就回到一般水準。
   findings:
   - text_zh: 扣掉年齡與程度後，進步差異約 12% 可以用隊伍解釋；隊伍今年進步多、明年還多的相關只有 0.22。
@@ -461,8 +489,10 @@ notes:
   title: 隊伍效應與轉隊：進步有多少是「隊伍」決定的？轉隊有用嗎？
   group: analysis
   weight: 16
-  status_zh: 研究中
-  graduated: []
+  status_zh: 已寫進知識點
+  graduated:
+  - id: race.tech.15
+    title: 在哪一隊大約解釋一成多的進步差異；轉隊當年常伴隨進步，到新隊第一整年就回到一般水準
   questions:
   - id: fq.1.5
     'no': '1.5'
@@ -1184,6 +1214,36 @@ notes:
     title: 手的感覺能不能練得更靈敏
     anchor: q-2-5
 by_unit:
+  race.tech.1:
+  - split-patterns
+  race.tech.2:
+  - hundred-decider
+  race.tech.3:
+  - fade-causes
+  race.tech.4:
+  - fade-followup
+  race.tech.5:
+  - rt-opening
+  race.tech.6:
+  - im-legs
+  race.tech.7:
+  - stroke-links
+  race.tech.8:
+  - neighbor-effect
+  race.tech.9:
+  - lane-heat
+  race.tech.10:
+  - heat-saving
+  race.tech.11:
+  - tw-kids
+  race.tech.12:
+  - relative-age
+  race.tech.13:
+  - race-frequency
+  race.tech.14:
+  - experience-pacing
+  race.tech.15:
+  - team-transfer
   psych.arousal.implicit_learning:
   - implicit-explicit-learning
   psych.flow.de_reinvestment:

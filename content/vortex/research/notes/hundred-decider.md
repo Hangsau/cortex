@@ -4,7 +4,7 @@ description: "100 公尺同組的差距約六成在後 50；實力相近時，�
 slug: "hundred-decider"
 layer: "research"
 layer_name: "研究筆記"
-research_status: "研究中"
+research_status: "已寫進知識點"
 weight: 3
 note_kind: "analysis"
 note_theme: "race-swim"

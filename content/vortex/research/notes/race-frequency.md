@@ -4,7 +4,7 @@ description: "「比賽多、進步少」是計算方式造成的假象；用公
 slug: "race-frequency"
 layer: "research"
 layer_name: "研究筆記"
-research_status: "研究中"
+research_status: "已寫進知識點"
 weight: 14
 note_kind: "analysis"
 note_theme: "development"
