@@ -263,7 +263,12 @@ NOTE_SLUGS = {
     "競賽成績分析/跨泳式關係_三項新發現": "cross-stroke-relations",
     "競賽成績分析/分段型態_每場差異與狀態變化": "split-patterns",
     "競賽成績分析/掉速成因_轉身前加速": "fade-causes",
-    "競賽成績分析/比賽情境與配速_五個問題": "race-context",
+    "競賽成績分析/掉速延伸_特質或當天與決賽超車": "fade-followup",
+    "競賽成績分析/鄰道效應": "neighbor-effect",
+    "競賽成績分析/混合式棒間取捨": "im-legs",
+    "競賽成績分析/出發反應與前段配速": "rt-opening",
+    "競賽成績分析/台灣孩子_當天負荷與收尾能力": "tw-kids",
+    "競賽成績分析/水道位置與分組強度": "lane-heat",
     "競賽成績分析/100公尺勝負點_前後50與反應時間": "hundred-decider",
 }
 NOTE_LAYER_NAME = "研究筆記"
