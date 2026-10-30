@@ -5347,6 +5347,8 @@ drills:
   - butterfly
   - starts_turns
   category: timing
+  turn_type:
+  - breakout
   equipment: []
   l_target:
   - L4
@@ -6444,6 +6446,8 @@ drills:
   strokes:
   - starts_turns
   category: turn
+  turn_type:
+  - flip
   equipment: []
   l_target:
   - L1
@@ -6478,6 +6482,8 @@ drills:
   strokes:
   - starts_turns
   category: turn
+  turn_type:
+  - flip
   equipment: []
   l_target:
   - L2
@@ -6512,6 +6518,8 @@ drills:
   strokes:
   - starts_turns
   category: turn
+  turn_type:
+  - general
   equipment: []
   l_target:
   - L2
@@ -6549,6 +6557,8 @@ drills:
   strokes:
   - starts_turns
   category: turn
+  turn_type:
+  - back
   equipment:
   - fins
   l_target:
@@ -6585,6 +6595,8 @@ drills:
   strokes:
   - starts_turns
   category: turn
+  turn_type:
+  - flip
   equipment: []
   l_target:
   - L3
@@ -6619,6 +6631,8 @@ drills:
   strokes:
   - starts_turns
   category: turn
+  turn_type:
+  - back
   equipment: []
   l_target:
   - L5
@@ -6652,6 +6666,8 @@ drills:
   strokes:
   - starts_turns
   category: turn
+  turn_type:
+  - start
   equipment: []
   l_target:
   - L5
@@ -6686,6 +6702,8 @@ drills:
   strokes:
   - starts_turns
   category: turn
+  turn_type:
+  - start
   equipment: []
   l_target:
   - L5
@@ -6721,6 +6739,8 @@ drills:
   strokes:
   - starts_turns
   category: turn
+  turn_type:
+  - start
   equipment:
   - ball
   - partner
@@ -6758,6 +6778,8 @@ drills:
   strokes:
   - starts_turns
   category: turn
+  turn_type:
+  - flip
   equipment: []
   l_target:
   - L0
@@ -6792,6 +6814,8 @@ drills:
   strokes:
   - starts_turns
   category: turn
+  turn_type:
+  - open
   equipment: []
   l_target:
   - L2
@@ -6827,6 +6851,8 @@ drills:
   strokes:
   - starts_turns
   category: turn
+  turn_type:
+  - open
   equipment: []
   l_target:
   - L1
@@ -6863,6 +6889,8 @@ drills:
   strokes:
   - starts_turns
   category: turn
+  turn_type:
+  - open
   equipment: []
   l_target:
   - L3
@@ -6897,6 +6925,9 @@ drills:
   strokes:
   - starts_turns
   category: turn
+  turn_type:
+  - flip
+  - open
   equipment:
   - fins
   l_target:
@@ -6933,6 +6964,8 @@ drills:
   strokes:
   - starts_turns
   category: turn
+  turn_type:
+  - general
   equipment: []
   l_target:
   - L3
@@ -6968,6 +7001,8 @@ drills:
   strokes:
   - starts_turns
   category: turn
+  turn_type:
+  - general
   equipment: []
   l_target:
   - L4
@@ -7003,6 +7038,8 @@ drills:
   strokes:
   - starts_turns
   category: turn
+  turn_type:
+  - back
   equipment: []
   l_target:
   - L3
@@ -7039,6 +7076,8 @@ drills:
   strokes:
   - starts_turns
   category: turn
+  turn_type:
+  - finish
   equipment: []
   l_target:
   - L3
@@ -7075,6 +7114,8 @@ drills:
   strokes:
   - starts_turns
   category: turn
+  turn_type:
+  - finish
   equipment:
   - partner
   l_target:
@@ -7110,6 +7151,8 @@ drills:
   strokes:
   - starts_turns
   category: turn
+  turn_type:
+  - start
   equipment: []
   l_target:
   - L1
@@ -7144,6 +7187,8 @@ drills:
   strokes:
   - starts_turns
   category: turn
+  turn_type:
+  - start
   equipment:
   - small_object
   l_target:
@@ -7179,6 +7224,8 @@ drills:
   strokes:
   - starts_turns
   category: timing
+  turn_type:
+  - breakout
   equipment:
   - fins
   l_target:
@@ -7216,6 +7263,8 @@ drills:
   strokes:
   - starts_turns
   category: turn
+  turn_type:
+  - breakout
   equipment: []
   l_target:
   - L3
@@ -7252,6 +7301,8 @@ drills:
   strokes:
   - starts_turns
   category: timing
+  turn_type:
+  - breakout
   equipment:
   - fins
   l_target:
@@ -7282,6 +7333,390 @@ drills:
   drill_function: skill_integration
   cognitive_load: high
   tactile_anchor: surface_break
+  difficulty_tier: advanced
+- id: ST21
+  name_en: 'Crossover Step 1–2: Mid-Pool Roll, Then Roll Into the Wall to a Pullout'
+  name_zh: 仰轉蛙 crossover 第 1–2 步：池中往固定一側翻，再進牆翻轉接蛙式 pullout
+  strokes:
+  - starts_turns
+  category: turn
+  turn_type:
+  - im
+  equipment: []
+  l_target:
+  - L2
+  - L3
+  abc_type: C
+  purpose_zh: 混合式仰式接蛙式的 crossover 拆成五步教，這是前兩步：先固定往哪一側翻，再把翻轉帶到牆邊、蹬出接蛙式 pullout。
+  how_to:
+  - 第 1 步：離牆仰式游 4–5 划，往非慣用手那一側滾，像在池中做仰式翻滾轉身；腳碰到水面就算完成。之後觸牆用的是慣用手，所以一開始就固定往非慣用手側滾
+  - 第 2 步：從距牆約 8 公尺仰式游進，過了仰式旗、接近牆時往非慣用手側開始翻，像要做仰式翻滾轉身
+  - 這一步先不管手有沒有觸牆；翻的過程把身體轉向非慣用手側，不要仰臥蹬出，蹬牆後接一個完整的蛙式 pullout
+  - 第 2 步沒有觸牆，比賽會犯規，只是分解練習；觸牆在第 4、5 步才加進來
+  perception_goal: 每次都往同一側翻，翻完身體的方向是清楚的，蹬出去已經朝向俯臥。
+  success_signal: 連續幾次都往同一側翻；蹬牆後轉回俯臥、pullout 完整。
+  failure_signal: 左右亂翻、仰臥蹬出、pullout 推得太深或太淺。
+  deficiency_fixes: []
+  source: Hall, G. W., & Murphy, D. (2020). Fundamentals of Fast Swimming. 第 27 章 The Crossover Transition for the Individual Medley（五步教學的 Step 1、Step 2）
+  source_ids:
+  - src.hall-murphy-2020
+  body_position: transitional
+  constraints: []
+  movement_pattern: rotational
+  skill_focus:
+  - rotation_connection
+  - spatial_awareness
+  stroke_phase: transition
+  drill_function: progression
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: intermediate
+- id: ST22
+  name_en: 'Crossover Step 3: One Hand on the Wall, Drop Into the Flip'
+  name_zh: 仰轉蛙 crossover 第 3 步：俯臥單手扶牆，頭往下翻、蹬出接 pullout
+  strokes:
+  - starts_turns
+  category: turn
+  turn_type:
+  - im
+  equipment: []
+  l_target:
+  - L2
+  - L3
+  abc_type: C
+  purpose_zh: 在牆邊定住，只練觸牆之後的翻轉：從單手扶牆直接翻、蹬出接蛙式 pullout。
+  how_to:
+  - 俯臥、頭朝牆，慣用手扶牆，非慣用手放在身體旁邊；輕輕踢腳讓腿浮著
+  - 聽到口令後頭往下壓進翻滾，雙腳踩牆，蹬出接完整的蛙式 pullout
+  - 每次翻完檢查蹬出的方向和深度，再回牆邊做下一次
+  perception_goal: 從扶牆到雙腳踩牆是一個連續的動作，翻的時候身體縮得很小。
+  success_signal: 翻得快、腳踩得穩，蹬出方向正、pullout 深度適中。
+  failure_signal: 翻之前先把頭抬起來看、腳踩到牆時身體還沒縮緊、蹬出後偏向一側。
+  deficiency_fixes: []
+  source: Hall, G. W., & Murphy, D. (2020). Fundamentals of Fast Swimming. 第 27 章 The Crossover Transition for the Individual Medley（五步教學的 Step 3）
+  source_ids:
+  - src.hall-murphy-2020
+  body_position: transitional
+  constraints: []
+  movement_pattern: pause_pulse
+  skill_focus:
+  - rotation_connection
+  - streamline_line
+  stroke_phase: transition
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: wall_contact
+  difficulty_tier: intermediate
+- id: ST23
+  name_en: 'Crossover Step 4: Side-Kick Into the Wall, See It, Then Touch'
+  name_zh: 仰轉蛙 crossover 第 4 步：側躺踢腿進牆、水下先看到牆再觸牆
+  strokes:
+  - starts_turns
+  category: turn
+  turn_type:
+  - im
+  equipment: []
+  l_target:
+  - L3
+  - L4
+  abc_type: C
+  purpose_zh: 練 crossover 最容易犯規的那一段：側躺進牆、在水下看到牆、觸牆時還沒轉到俯臥。
+  how_to:
+  - 距牆約 5 公尺仰式踢腿進牆，慣用手伸在頭上方，非慣用手放身側
+  - 接近牆時側滾成側躺，慣用手在上；這隻手的上臂保持在耳朵後面，裁判常看這個位置判斷有沒有轉過頭
+  - 側躺時往後側方的水下看牆，繼續踢、閉氣進牆
+  - 慣用手碰到牆後，身體再往俯臥方向稍微轉一點，接著翻轉、蹬出接蛙式 pullout
+  perception_goal: 還沒碰到牆就知道牆在哪裡；觸牆那一刻身體是側躺，不是趴著。
+  success_signal: 每次都在水下先看到牆、觸牆時仍是側躺、觸牆後才轉。
+  failure_signal: 還沒碰牆就轉到俯臥（比賽會被判犯規）、沒看牆所以觸牆時太近或太遠、觸牆的手肘彎掉。
+  deficiency_fixes: []
+  source: Hall, G. W., & Murphy, D. (2020). Fundamentals of Fast Swimming. 第 27 章（五步教學的 Step 4）；觸牆時須仍在仰臥：World Aquatics (2023) SW 9.4 接 SW 6.5
+  source_ids:
+  - src.hall-murphy-2020
+  - src.world-aquatics-2023-swimming-technical-rules
+  body_position: side
+  constraints:
+  - no_arms
+  - no_breath
+  movement_pattern: progressive
+  skill_focus:
+  - spatial_awareness
+  - rotation_connection
+  stroke_phase: transition
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: wall_contact
+  difficulty_tier: advanced
+- id: ST24
+  name_en: Full Crossover Transition (Back to Breast)
+  name_zh: 仰轉蛙 crossover 完整轉身
+  strokes:
+  - starts_turns
+  category: turn
+  turn_type:
+  - im
+  equipment: []
+  l_target:
+  - L4
+  - L5
+  abc_type: C
+  purpose_zh: 把前四步連成完整的 crossover：側躺看牆進牆、慣用手觸牆、腿從水面上帶過、轉回俯臥接蛙式 pullout。
+  how_to:
+  - 距牆約 8 公尺仰式游進，過了仰式旗、接近牆時滾向非慣用手側，慣用手在上、上臂在耳後；不要轉到俯臥
+  - 手碰牆之前，先在水下看到牆；最後一划提早開始、手伸長去碰牆，進牆時踢腳不減速
+  - 觸牆後身體往俯臥方向稍微轉一點，收緊的腿從水面上帶過來，帶到看的方向的另一側
+  - 腳踩牆時腳尖指向開始轉的另一側（例如往左轉，腳尖朝右）；進牆面向一邊，出牆面向另一邊
+  - 蹬牆時繼續轉向俯臥，腳離開牆時已經大致俯臥，接蛙式 pullout
+  - crossover 的最後一口氣比其他轉法早吸，要閉氣到 pullout 結束；氣還撐不到的選手，可以把 pullout 改成一次有力的海豚踢就出水
+  perception_goal: 整個轉身順著同一個方向轉下去，沒有在牆上停下來再反方向起動。
+  success_signal: 看得到牆、觸牆時是側躺、腿從水面上帶過、腳尖朝另一側、離牆時已大致俯臥。
+  failure_signal: 往慣用手側轉而用非慣用手觸牆；側滾太晚撞進牆或太早滑太長；觸牆前就趴下；觸牆後沒有往俯臥轉一點硬從側面翻；手肘彎掉太靠近牆；轉錯邊讓腳尖朝開始轉的同一側。
+  deficiency_fixes: []
+  source: Hall, G. W., & Murphy, D. (2020). Fundamentals of Fast Swimming. 第 27 章（五步教學的 Step 5、十項常見錯誤、年輕選手縮短 pullout 的做法）；觸牆時須仍在仰臥：World Aquatics (2023) SW 9.4 接 SW 6.5；離牆時須已轉向俯臥：USA Swimming 101.6.3.B(2)
+  source_ids:
+  - src.hall-murphy-2020
+  - src.world-aquatics-2023-swimming-technical-rules
+  - src.usa-swimming-101-6-individual-medley
+  body_position: transitional
+  constraints:
+  - no_breath
+  movement_pattern: rotational
+  skill_focus:
+  - rotation_connection
+  - spatial_awareness
+  stroke_phase: transition
+  drill_function: skill_integration
+  cognitive_load: high
+  tactile_anchor: wall_contact
+  difficulty_tier: advanced
+- id: ST25
+  name_en: Back-to-Breast Open Turn
+  name_zh: 仰轉蛙開放式轉身：仰臥觸牆、腳從水下收、側蹬轉俯臥
+  strokes:
+  - starts_turns
+  category: turn
+  turn_type:
+  - im
+  equipment: []
+  l_target:
+  - L2
+  - L3
+  abc_type: C
+  purpose_zh: 仰式接蛙式最容易上手的轉法；比 crossover 慢，但最後一口氣可以在牆上吸，接 pullout 前憋氣時間最短，適合剛學混合式或氣還撐不久的選手。
+  how_to:
+  - 仰式游進，在仰臥的姿勢下用一隻手觸牆
+  - 觸牆後雙膝收緊、腳從水下收到身體下方，身體往觸牆那隻手的一側轉，頭在轉的時候出水吸氣
+  - 雙腳側向踩牆，蹬牆的過程中轉回俯臥，接蛙式 pullout
+  - 動作細節照開放式轉身的要點：身體縮小、頭貼近水面、不要在牆上停頓
+  perception_goal: 觸牆後很快把身體收小，換一口氣就離開牆。
+  success_signal: 觸牆時是仰臥、在牆上沒有多停、蹬出時轉回俯臥。
+  failure_signal: 還沒觸牆就先翻成俯臥、在牆上抓著停太久、頭抬得很高。
+  deficiency_fixes: []
+  source: Hall, G. W., & Murphy, D. (2020). Fundamentals of Fast Swimming. 第 27 章（開放式轉身的優缺點：最慢、但最後一口氣最晚）；動作步驟依第 26 章開放式轉身要點推導；觸牆時須仍在仰臥：World Aquatics (2023) SW 9.4 接 SW 6.5
+  source_ids:
+  - src.hall-murphy-2020
+  - src.world-aquatics-2023-swimming-technical-rules
+  body_position: transitional
+  constraints: []
+  movement_pattern: pause_pulse
+  skill_focus:
+  - rotation_connection
+  - breath_rhythm
+  stroke_phase: transition
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: wall_contact
+  difficulty_tier: intermediate
+- id: ST26
+  name_en: Back-to-Breast Reverse Somersault
+  name_zh: 仰轉蛙背翻：仰臥觸牆後向後翻滾
+  strokes:
+  - starts_turns
+  category: turn
+  turn_type:
+  - im
+  equipment: []
+  l_target:
+  - L3
+  - L4
+  abc_type: C
+  purpose_zh: 仰式接蛙式的另一種轉法：觸牆後順著原本的方向向後翻。比開放式快，但容易失去方向、鼻子容易進水，書的作者不建議比賽使用，列出來供比較與選擇。
+  how_to:
+  - 仰式游進，在仰臥的姿勢下用一隻手觸牆
+  - 觸牆後順著同一個方向，頭往後沉入水裡，腳從上方越過，做一個向後的翻滾，身體縮緊翻得比較快
+  - 頭會倒過來，鼻子容易進水：用上唇輕壓鼻孔，或戴鼻夾
+  - 最後一口氣要在進牆前就吸好；翻完先找準蹬牆的方向，再接蛙式 pullout
+  perception_goal: 倒過來的時候還知道自己的方向，蹬出去是正的。
+  success_signal: 翻得緊、鼻子沒進水、蹬出方向和深度正確。
+  failure_signal: 翻完分不清方向、蹬出偏斜或太深、鼻子嗆水。
+  deficiency_fixes: []
+  source: Hall, G. W., & Murphy, D. (2020). Fundamentals of Fast Swimming. 第 27 章（reverse flip or somersault 的做法與缺點）；觸牆時須仍在仰臥：World Aquatics (2023) SW 9.4 接 SW 6.5
+  source_ids:
+  - src.hall-murphy-2020
+  - src.world-aquatics-2023-swimming-technical-rules
+  body_position: transitional
+  constraints:
+  - no_breath
+  movement_pattern: rotational
+  skill_focus:
+  - rotation_connection
+  - spatial_awareness
+  stroke_phase: transition
+  drill_function: skill_isolation
+  cognitive_load: high
+  tactile_anchor: wall_contact
+  difficulty_tier: advanced
+- id: ST27
+  name_en: Fly-to-Back Transition
+  name_zh: 蝶轉仰：雙手同時觸牆、不停頓收腿、仰臥蹬出
+  strokes:
+  - starts_turns
+  category: turn
+  turn_type:
+  - im
+  equipment: []
+  l_target:
+  - L2
+  - L3
+  abc_type: C
+  purpose_zh: 混合式蝶式接仰式的轉身；不用翻滾，是混合式裡最快的一個轉身，時間主要輸在觸牆後的停頓、收腿太慢和多吸一口氣。
+  how_to:
+  - 蝶式進牆，雙手分開、同時觸牆
+  - 觸牆的同時開始收腿，不在牆上停下來確認；膝蓋收緊，讓轉動半徑變小
+  - 身體往後倒成仰臥，雙手回到頭上方，雙腳在水下踩牆
+  - 仰臥蹬出成流線，接仰式的水下段與破水；練習時盡量不在牆上多吸一口氣，看自己能不能維持
+  perception_goal: 觸牆和收腿是同一個動作，身體往後倒的時候很快就踩到牆。
+  success_signal: 觸牆後沒有停頓、腳很快踩到牆、仰臥蹬出成流線。
+  failure_signal: 雙手觸牆後停一下才收腿、腿從很遠的地方收回來、在牆上換一大口氣才走。
+  deficiency_fixes: []
+  source: Vortex starts-turns.tech.28、tech.36（Born, Romann & Stöggl 2022：蝶接仰是混合式最快的轉身，三大效率損失是停頓、旋轉慢、換氣）；雙手同時觸牆：World Aquatics (2023) SW 8.4；動作步驟為推導
+  source_ids:
+  - src.born-2022-im
+  - src.world-aquatics-2023-swimming-technical-rules
+  body_position: transitional
+  constraints:
+  - no_breath
+  movement_pattern: pause_pulse
+  skill_focus:
+  - rotation_connection
+  - streamline_line
+  stroke_phase: transition
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: wall_contact
+  difficulty_tier: intermediate
+- id: ST28
+  name_en: Breast-to-Free Transition
+  name_zh: 蛙轉自：雙手同時觸牆的開放式轉身，蹬牆轉回俯臥接自由式
+  strokes:
+  - starts_turns
+  category: turn
+  turn_type:
+  - im
+  equipment: []
+  l_target:
+  - L2
+  - L3
+  abc_type: C
+  purpose_zh: 混合式蛙式接自由式的轉身：觸牆照蛙式規則，掉頭照開放式轉身，蹬出後在水下轉回俯臥接自由式。
+  how_to:
+  - 蛙式進牆，雙手分開、同時觸牆
+  - 接開放式旋轉轉身：一手立刻離牆、手肘貼身體在水下往後帶，雙膝收緊，另一手彎肘從頭上越過，頭在轉的時候往後看牆吸氣
+  - 雙腳側向踩牆，蹬牆時轉回俯臥，接水下踢與自由式第一划
+  - 混合式的自由式段要在俯臥游；蹬牆後不要仰著或側著接第一划
+  perception_goal: 觸牆到蹬出是一個連續的旋轉，蹬出後很快就回到趴著的姿勢。
+  success_signal: 雙手同時觸牆、牆上沒有停頓、蹬出後俯臥接第一划。
+  failure_signal: 單手先觸牆、雙手抓牆不放、蹬出時身體還側著就開始划。
+  deficiency_fixes: []
+  source: Hall, G. W., & Murphy, D. (2020). Fundamentals of Fast Swimming. 第 26 章 Open Spin Turns（開放式轉身要點）、第 25 章（混合式自由式段須俯臥蹬離）；雙手同時觸牆：World Aquatics (2023) SW 7.6
+  source_ids:
+  - src.hall-murphy-2020
+  - src.world-aquatics-2023-swimming-technical-rules
+  body_position: transitional
+  constraints: []
+  movement_pattern: pause_pulse
+  skill_focus:
+  - rotation_connection
+  - spatial_awareness
+  stroke_phase: transition
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: wall_contact
+  difficulty_tier: intermediate
+- id: ST29
+  name_en: 'IM Freestyle Flip Turn: Rotate In, Push Off on the Stomach'
+  name_zh: 混合式自由式段的翻滾轉身：進牆先側轉、蹬離時回到俯臥
+  strokes:
+  - starts_turns
+  category: turn
+  turn_type:
+  - im
+  - flip
+  equipment: []
+  l_target:
+  - L3
+  - L4
+  abc_type: C
+  purpose_zh: 混合式的自由式段如果有翻滾轉身（例如 400 混合式、短池 200 混合式）；跟一般自由式翻滾不同，這裡要在進牆時先側轉一點，讓腳斜踩牆，蹬離時已經回到俯臥。
+  how_to:
+  - 自由式進牆，翻滾時身體先側轉一點，雙腳斜著踩到牆上（不是腳尖朝上）
+  - 蹬牆時繼續轉，腳離開牆時已經大致俯臥
+  - 接水下踢與第一划；和一般自由式翻滾輪流練，分清楚兩種踩牆的方向
+  perception_goal: 翻滾的同時就在轉身體，蹬出去不用再仰著或側著找方向。
+  success_signal: 腳斜著踩牆、離牆時已經俯臥。
+  failure_signal: 照一般自由式翻滾腳尖朝上踩牆、仰著蹬出才轉。
+  deficiency_fixes: []
+  source: Hall, G. W., & Murphy, D. (2020). Fundamentals of Fast Swimming. 第 25 章 Freestyle and Backstroke Flip Turns（混合式自由式段的翻滾須俯臥蹬離、進牆時部分側轉）
+  source_ids:
+  - src.hall-murphy-2020
+  body_position: transitional
+  constraints: []
+  movement_pattern: rotational
+  skill_focus:
+  - rotation_connection
+  - spatial_awareness
+  stroke_phase: transition
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: wall_contact
+  difficulty_tier: advanced
+- id: ST30
+  name_en: IM Transition 25s
+  name_zh: 混合式銜接 25：前一式進牆、轉身、下一式破水
+  strokes:
+  - starts_turns
+  category: turn
+  turn_type:
+  - im
+  equipment: []
+  l_target:
+  - L3
+  - L4
+  abc_type: C
+  purpose_zh: 把銜接放在真的換式情境裡練：每趟只練一個銜接，前一式全速進牆、轉身、下一式破水接幾划就停。
+  how_to:
+  - 從距牆約 8 公尺開始，用前一式全速進牆（例如蝶式）
+  - 做這個銜接的轉身（蝶轉仰、仰轉蛙、蛙轉自），蹬出接下一式的水下段與破水
+  - 下一式游幾划就停，回到起點做下一趟；每趟只練一個銜接，三個銜接輪流
+  - 練仰轉蛙時固定用同一種轉法（crossover、開放式或背翻），練熟一種再比較
+  perception_goal: 換式的那一刻速度不掉，下一式一出水就是自己的節奏。
+  success_signal: 進牆不減速、轉身符合該式的觸牆規則、下一式破水後馬上接上。
+  failure_signal: 進牆前就放慢、觸牆不合規則（單手觸牆、仰式段觸牆前就趴下）、破水後先停一下才開始游。
+  deficiency_fixes: []
+  source: 練法為推導：沿用第 25 章距牆約 8 公尺開始的進牆練習方式（Hall & Murphy 2020）；各銜接的觸牆規則見 World Aquatics (2023) SW 6.5、7.6、8.4、9.4
+  source_ids:
+  - src.hall-murphy-2020
+  - src.world-aquatics-2023-swimming-technical-rules
+  body_position: transitional
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - rotation_connection
+  - rhythm_tempo
+  stroke_phase: transition
+  drill_function: skill_integration
+  cognitive_load: high
+  tactile_anchor: wall_contact
   difficulty_tier: advanced
 - id: OW1
   name_en: Crocodile-Eyes Sighting
