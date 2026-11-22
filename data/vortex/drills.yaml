@@ -511,7 +511,7 @@ drills:
   - L3
   - L4
   abc_type: A
-  purpose_zh: 水下恢復臂強調捕水發生在水面附近，感覺手在水下「溜冰」
+  purpose_zh: 水下恢復臂強調捕水發生在水面附近，感覺手在水下「溜冰」；也可當時序放大器——移臂在水下時，水的阻力會放大時機錯誤，逼出手臂與轉體同步
   how_to:
   - 此練習刻意看前方（臉仍在水中），看著自己抓水
   - 划手回臂走水下而非水面上方，抓水保持在接近水面處
@@ -525,6 +525,7 @@ drills:
   source: There's a Drill for That
   source_ids:
   - src.theres-a-drill-for-that
+  - src.sheaff-2023-cla-swim-coaching
   body_position: prone
   constraints: []
   movement_pattern: continuous
@@ -585,11 +586,12 @@ drills:
   - L3
   - L4
   abc_type: A
-  purpose_zh: 握拳划手強調前臂在拉水中的作用，感覺張開手後壓力明顯增加
+  purpose_zh: 握拳划手強調前臂在拉水中的作用，感覺張開手後壓力明顯增加；換手型的變體屬 L3 以上、需已有基本手部感知（小划手板放大訊號是 L1–L2 的做法，兩者不要混用）
   how_to:
   - 第一趟握拳游自由式，感覺前臂在划水時的工作
   - 記得前臂、手腕、手掌是一個整體；把划手伸長帶出旋轉，入水保持寬（不越過中線）
   - 下一趟從握拳開始，逐漸把手張開到正常位置
+  - 可輪流換手型：握網球、OK 手勢、只伸一根手指、每趟換一種
   perception_goal: 握拳時感覺前臂在做工；張開手後感覺明顯的水壓增加
   success_signal: 握拳游也能前進；開手後推力明顯增強
   failure_signal: 握拳時幾乎無法前進（代表只靠手掌划水）
@@ -598,6 +600,7 @@ drills:
   source: There's a Drill for That
   source_ids:
   - src.theres-a-drill-for-that
+  - src.sheaff-2023-cla-swim-coaching
   body_position: prone
   constraints:
   - closed_fist
@@ -736,6 +739,7 @@ drills:
   - 把划手數加上秒數得到「高爾夫分數」（例：40秒加42划等於82）
   - 接下來三趟設法降低這個分數（同時減少划手數與時間）
   - 透過多次練習找到自己「每划距離」與速度之間的最佳平衡
+  - 進階：每個池長設划數上限（略少於平常），在上限內盡量維持速度
   perception_goal: 感覺每一划都有明確推力；找到划頻與划距的平衡點
   success_signal: 每趟50的總分持續下降；時間和划次都有改善
   failure_signal: 總分無法下降；划次少了但時間差很多（過度滑行）
@@ -1641,6 +1645,156 @@ drills:
   cognitive_load: medium
   tactile_anchor: core_tension_internal
   difficulty_tier: elite
+- id: FrCL1
+  name_en: Unannounced Speed Change
+  name_zh: 變速不預告
+  strokes:
+  - freestyle
+  category: timing
+  equipment: []
+  l_target:
+  - L4
+  abc_type: null
+  purpose_zh: 每趟出發前才告知這一趟的目標速度（例：慢、快、中、更快），泳者無法預先排好動作，只能靠水壓、用力感和節奏去調出那個速度；練的是在不同速度間切換而感覺不亂掉。目標速度必須是這位泳者當下做得到的，做不到先加休息或縮短單趟，再談速度
+  how_to:
+  - 游數趟 50 公尺自由式（趟數依泳者當天狀態，不設固定數字），每趟休息到足以做出該趟目標速度
+  - 教練在每趟出發前才說目標速度，先不要排好順序給泳者看；速度順序要有快有慢、不要一路遞增
+  - 泳者出發前不看碼表、不預先計算，只靠身體感覺去調整
+  - 趟後泳者先說「這趟水壓和節奏是什麼感覺」，再看實際秒數與划數，比對感覺與結果
+  perception_goal: 每個速度對應不同的手上水壓、推水用力程度和節奏；能憑感覺把速度調到指定值，而不是靠看時間
+  success_signal: 說得出快、慢兩種速度下手上水壓與節奏各差在哪；實際秒數落在目標附近；速度改變時動作沒有散掉
+  failure_signal: 只會「全部用力」或「全部放鬆」，各趟感覺沒有差別；快的那趟划頻衝高但手上沒有壓力、距離縮短；慢的那趟動作鬆垮、失去身體位置
+  deficiency_fixes:
+  - 15
+  source: Sheaff, A Constraints-Led Approach to Swim Coaching (2023)
+  source_ids:
+  - src.sheaff-2023-cla-swim-coaching
+  body_position: prone
+  constraints: []
+  movement_pattern: alternating
+  skill_focus:
+  - pressure_mapping
+  - rhythm_tempo
+  stroke_phase: whole_stroke
+  drill_function: progression
+  cognitive_load: medium
+  tactile_anchor: hand_pressure
+  difficulty_tier: advanced
+- id: FrCL2
+  name_en: Tempo Trainer Stroke Rate Lock
+  name_zh: 節拍器划頻鎖定
+  strokes:
+  - freestyle
+  category: timing
+  equipment:
+  - tempo_trainer
+  l_target:
+  - L4
+  - L5
+  abc_type: null
+  purpose_zh: 用划頻節拍器把划頻鎖住，變數只剩每一划推得多有力：在同一個划頻下，靠每一划的推水改變速度。划頻跟不上或維持不住的泳者，節拍器幫他找到並守住目標划頻；長距離泳者也可反向用它練降低划頻
+  how_to:
+  - 節拍器夾在泳帽下，設定一個泳者能穩定跟上的划頻（先從略低於平常的划頻開始）
+  - 每一聲對應一次入水（或一划），先游一趟跟上節拍，確定節奏本身不費力
+  - 同一划頻下，第二趟要求游得更快，只能靠每一划推得更確實、把水往後送得更多
+  - 之後每次提高一點划頻再重複，不要一次拉太高；趟後比較各划頻下的划數與秒數
+  perception_goal: 划頻固定後，速度的差別完全來自這一划推出去多少水；感覺到手與前臂的壓力在每一划中被維持到推水結束
+  success_signal: 同一個節拍下，快的那趟划數比慢的那趟少或相同、秒數更短；每一划都有被水撐住的壓力
+  failure_signal: 為了更快偷偷提早入水追節拍；划數變多、每划距離縮短；入水後手上沒有壓力、只是趕著把手送出去
+  deficiency_fixes:
+  - 15
+  source: Sheaff, A Constraints-Led Approach to Swim Coaching (2023)
+  source_ids:
+  - src.sheaff-2023-cla-swim-coaching
+  body_position: prone
+  constraints:
+  - tempo_constrained
+  movement_pattern: continuous
+  skill_focus:
+  - rhythm_tempo
+  - hand_acceleration
+  stroke_phase: push
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: equipment_feedback
+  difficulty_tier: advanced
+- id: FrCL3
+  name_en: Object on Head Breathing
+  name_zh: 頭頂放物換氣
+  strokes:
+  - freestyle
+  category: breathing
+  equipment:
+  - paddles
+  l_target:
+  - L3
+  - L4
+  abc_type: C
+  purpose_zh: 頭頂放一個小東西（如一塊划水板，用泳帽或帶子穩住），游自由式時換氣不讓它掉，逼出頭不上抬、沿軀幹線轉動的換氣；掉了就是頭離開了軀幹線。做不到時先確認不是頸或肩的活動度受限，再當感知問題處理
+  how_to:
+  - 划水板平放頭頂，先站著或慢速踢水確定它放得穩
+  - 慢速游自由式，只在換氣那一拍測試：划水板不能掉、不能明顯傾斜
+  - 穩定後加入不同換氣模式（每 2 划、每 3 划、雙邊）和較快的速度
+  - 拿掉划水板再游幾趟，比較換氣時頭與身體的連線
+  perception_goal: 換氣時頭像是軸心上的一部分，隨身體轉動而不是獨立抬起；吸氣那一瞬間腿沒有被拉沉
+  success_signal: 換氣時划水板穩住；換氣前後身體線條沒有明顯斷掉，腿沒有下沉
+  failure_signal: 划水板在換氣那一拍掉落或滑歪；換氣時要靠抬頭才能吸到氣、腿明顯下沉；或整趟都屏氣以避免動到頭
+  deficiency_fixes:
+  - 1
+  - 2
+  source: Sheaff, A Constraints-Led Approach to Swim Coaching (2023)
+  source_ids:
+  - src.sheaff-2023-cla-swim-coaching
+  body_position: prone
+  constraints:
+  - breath_added
+  - tension_held
+  movement_pattern: continuous
+  skill_focus:
+  - breath_rhythm
+  - streamline_line
+  stroke_phase: non_stroke
+  drill_function: corrective
+  cognitive_load: high
+  tactile_anchor: equipment_feedback
+  difficulty_tier: intermediate
+- id: FrCL4
+  name_en: Elevator Freestyle
+  name_zh: 電梯自由式
+  strokes:
+  - freestyle
+  category: balance
+  equipment: []
+  l_target:
+  - L3
+  - L4
+  abc_type: C
+  purpose_zh: 一趟之內頭的位置從很高慢慢降到很低（或反過來），比較身體在水中的高低變化，讓泳者自己找出身體最順、最水平的頭位。做不到某個頭位時，先確認不是頸部活動度受限
+  how_to:
+  - 用平常的自由式節奏游，視線從看前方遠處開始
+  - 每過幾划把頭位置降低一點，最後看池底正下方，整趟逐步變化、不要突然跳
+  - 再反過來一趟：從看池底開始逐步抬高視線
+  - 趟後說出哪個頭位身體最容易前進、腿最輕；最後用較快的速度在那個頭位游一趟檢驗
+  perception_goal: 頭位置變化時，胸口、髖和腿的浮力與阻力跟著變；找到一個頭位，身體自然水平、腿被托起
+  success_signal: 能說出哪個頭位最順，並在較快速度下維持它；頭位變化時換氣仍從容
+  failure_signal: 頭抬高時腿明顯下沉卻沒察覺；頭壓太低時肩頸緊繃、換氣被打亂；各頭位感覺都一樣（代表在看池底的視覺而非身體感覺）
+  deficiency_fixes:
+  - 1
+  - 2
+  source: Sheaff, A Constraints-Led Approach to Swim Coaching (2023)
+  source_ids:
+  - src.sheaff-2023-cla-swim-coaching
+  body_position: prone
+  constraints: []
+  movement_pattern: progressive
+  skill_focus:
+  - buoyancy_balance
+  - pressure_mapping
+  stroke_phase: whole_stroke
+  drill_function: skill_isolation
+  cognitive_load: medium
+  tactile_anchor: core_tension_internal
+  difficulty_tier: intermediate
 - id: Bk1
   name_en: Streamlined Kick on Back
   name_zh: 仰式流線踢水
@@ -2814,6 +2968,42 @@ drills:
   cognitive_load: medium
   tactile_anchor: equipment_feedback
   difficulty_tier: elite
+- id: BkCL1
+  name_en: Pushed Off Alignment Backstroke
+  name_zh: 仰式推離對位
+  strokes:
+  - backstroke
+  category: balance
+  equipment:
+  - pull_buoy
+  l_target:
+  - L4
+  abc_type: C
+  purpose_zh: 建立良好仰式姿勢不難，難的是高速與疲勞下維持。這個練習刻意加一個輕的限制把身體推離理想對位（腳踝夾夾腿浮板，或頭上只戴一條帶子限制頭的位置），讓泳者自己找出不被推偏的方法，再拿掉限制正常游。不需要藥球、阻力繩、配重帶；若頸、髖或肩的活動度限制導致某個姿勢做不到，先確認這點再當感知問題處理
+  how_to:
+  - 先正常游 25 公尺仰式，記住身體水平、髖的高度和頭的位置
+  - 腳踝夾住夾腿浮板（或換成只限制頭位置的版本）游 25 公尺，限制會把髖或腿往下拉、把身體推離對位
+  - 不要被動修，先留意身體往哪裡偏，再試著用核心、頭位置或踢水去把身體帶回水平
+  - 拿掉夾腿浮板，馬上游中高速仰式 25–50 公尺，維持剛剛找到的位置
+  perception_goal: 身體被推偏的當下，能感覺到是髖往下、肋骨鬆開還是頭抬起；找到把身體帶回水平的內部張力
+  success_signal: 戴上限制後仍能把髖維持在水面附近；拿掉後速度升高髖仍不下沉
+  failure_signal: 用背部硬撐把腰拱起來（腰椎過度伸展代償）；靠大力打腿硬頂住、動作變形；限制拿掉後立刻掉回原位
+  deficiency_fixes: []
+  source: Sheaff, A Constraints-Led Approach to Swim Coaching (2023)
+  source_ids:
+  - src.sheaff-2023-cla-swim-coaching
+  body_position: supine
+  constraints:
+  - tension_held
+  movement_pattern: continuous
+  skill_focus:
+  - streamline_line
+  - core_tension
+  stroke_phase: whole_stroke
+  drill_function: corrective
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
 - id: Br1
   name_en: Wall Kicks
   name_zh: 牆邊蛙式腿
@@ -5568,6 +5758,40 @@ drills:
   cognitive_load: medium
   tactile_anchor: core_tension_internal
   difficulty_tier: advanced
+- id: FlCL1
+  name_en: Head-Up Butterfly
+  name_zh: 抬頭蝶式
+  strokes:
+  - butterfly
+  category: timing
+  equipment: []
+  l_target:
+  - L4
+  abc_type: C
+  purpose_zh: 頭抬出水面游蝶式，髖會被壓低，泳者必須在正確的時間踢得更有力，才能把髖帶上來、把手臂移出水面，逼出對的踢腿時機。這是把整個蝶式節奏保留下來的簡化型練習。頸、肩活動度或腰背不適者，先確認不是活動度受限再當感知問題處理
+  how_to:
+  - 先游 25 公尺正常蝶式，記住手入水、踢腿和髖上來的節奏
+  - 頭抬出水游蝶式，視線看前方，保持整個蝶式節奏，不要變成只靠手拉
+  - 手要移得出水，只能靠踢腿把髖帶起來，感覺踢腿「頂」髖的時機
+  - 回到正常蝶式游一趟，比較髖上來的時間點；可與單手蝶式交替，一輪比一輪快
+  perception_goal: 抬頭後髖被壓低，要靠時機對的有力踢腿把髖帶上來；感覺到踢腿與手出水之間的連續一條線
+  success_signal: 手能順利移出水；踢腿時髖明顯上來；回到正常蝶式後髖的上浮時機更接近手入水之前
+  failure_signal: 用背部硬撐把上身抬高（腰背代償）；手出水靠肩膀硬拉而踢腿沒參與；越游髖越沉
+  deficiency_fixes: []
+  source: Sheaff, A Constraints-Led Approach to Swim Coaching (2023)
+  source_ids:
+  - src.sheaff-2023-cla-swim-coaching
+  body_position: prone
+  constraints: []
+  movement_pattern: continuous
+  skill_focus:
+  - wave_undulation
+  - kick_origin
+  stroke_phase: whole_stroke
+  drill_function: progression
+  cognitive_load: high
+  tactile_anchor: core_tension_internal
+  difficulty_tier: advanced
 - id: Sc1
   name_en: Wide Y Sculling
   name_zh: 寬Y型划水
@@ -5958,17 +6182,20 @@ drills:
   - L3
   - L4
   abc_type: A
-  purpose_zh: 握拳做寬 Y 划水，把前臂感知逼到最大；開拳後感覺手掌的「額外推進」是前臂之上的附加層
+  purpose_zh: 握拳做寬 Y 划水，把前臂感知逼到最大；開拳後感覺手掌的「額外推進」是前臂之上的附加層；換手型的變體屬 L3 以上、需已有基本手部感知（小划手板放大訊號是 L1–L2 的做法，兩者不要混用）
   how_to:
   - 夾 pull buoy、不踢水，雙手握拳做 Sc1 寬 Y 划水
   - 全程靠前臂壓力推進；25 公尺後改為張開手繼續划
   - 對照前臂感知 vs 加上手掌後的感知差異
   - 做 4 趟，前 2 趟全程握拳、後 2 趟前 12.5 公尺握拳、後 12.5 開手
+  - 可輪流換手型：握網球、OK 手勢、只伸一根手指、每趟換一種
   perception_goal: 握拳時前臂感覺最強；開手後手掌變成「點綴」而非主力
   success_signal: 握拳能前進；開手後推進量明顯多但感覺基線在前臂
   failure_signal: 握拳完全無法前進（代表整個系統依賴手掌）
   deficiency_fixes: []
   source: 通行的握拳撥水練習形式；本庫未取得可定位的單篇出處
+  source_ids:
+  - src.sheaff-2023-cla-swim-coaching
   body_position: prone
   constraints:
   - closed_fist
@@ -6018,6 +6245,44 @@ drills:
   cognitive_load: high
   tactile_anchor: hand_pressure
   difficulty_tier: advanced
+- id: ScCL1
+  name_en: Large Slow Standing Scull
+  name_zh: 站水大幅搖櫓
+  strokes:
+  - freestyle
+  - backstroke
+  - breaststroke
+  - butterfly
+  category: sculling
+  equipment: []
+  l_target:
+  - L2
+  - L3
+  abc_type: A
+  purpose_zh: 站在及胸深的水裡，手臂大幅度、慢慢地往外推再往內收，換方向時壓力不掉，學習「包水、導水」：感覺手掌與整條前臂都有壓力。對泳者可以說這比較像帶方向變化的拉，而不是小幅度快速搖櫓。低門檻，適合還沒建立手部水壓感的人。若某個方向的手臂做不到，先確認不是肩或腕的活動度受限
+  how_to:
+  - 站在及胸深的水中，雙手在水面下，掌心外翻先往外慢慢推出
+  - 轉折處手掌翻向、改為往內掃回身體中線，動作圓滑、不是急停急轉
+  - 全程把注意力放在整條前臂與手掌上的壓力，換方向那一刻壓力不要掉
+  - 熟悉後慢慢改變身體位置（前傾、半漂浮），再加入緩慢的移動
+  perception_goal: 手和整條前臂像包著一團有重量的水；換方向時水壓是連續過渡的，不是先鬆掉再重新抓
+  success_signal: 能說出手掌與前臂壓力哪個位置最強、換方向時有沒有掉；動作大而慢仍維持壓力
+  failure_signal: 換方向時壓力突然消失（手在「空」的水裡）；只有手掌有感覺、前臂沒感覺；動作越做越小越快（用速度補償）
+  deficiency_fixes: []
+  source: Sheaff, A Constraints-Led Approach to Swim Coaching (2023)
+  source_ids:
+  - src.sheaff-2023-cla-swim-coaching
+  body_position: standing
+  constraints: []
+  movement_pattern: static
+  skill_focus:
+  - forearm_pressure
+  - pressure_mapping
+  stroke_phase: catch
+  drill_function: skill_isolation
+  cognitive_load: low
+  tactile_anchor: hand_pressure
+  difficulty_tier: foundation
 - id: UDK1
   name_en: Vertical Kicking
   name_zh: 垂直打水
