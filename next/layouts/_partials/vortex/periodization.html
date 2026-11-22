@@ -136,6 +136,7 @@
     <p>{{ .perception_note_zh | markdownify }}</p>
     <p>{{ .relation_zh | markdownify }}</p>
     <p>{{ .limitations_zh | markdownify }}</p>
+    {{ with .observation_basis }}<p>{{ . | markdownify }}</p>{{ end }}
     <p class="read">{{ .plain_zh | markdownify }}</p>
   </section>
   {{ end }}
@@ -906,6 +907,19 @@
     <p>{{ .rule_zh | markdownify }}</p>
     {{ with .completion_rule_zh }}<p>{{ . | markdownify }}</p>{{ end }}
     {{ end }}
+    {{ with .cannot_hit_target_zh }}<p>{{ . | markdownify }}</p>{{ end }}
+    {{ with .cannot_hit_target_observation_basis }}<p>{{ . | markdownify }}</p>{{ end }}
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{ with $set.technique_under_fatigue }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .how_zh | markdownify }}</p>
+    <p>{{ .boundary_zh | markdownify }}</p>
+    <p>{{ .overconstraint_zh | markdownify }}</p>
+    {{ with .observation_basis }}<p>{{ . | markdownify }}</p>{{ end }}
     <p class="read">{{ .plain_zh | markdownify }}</p>
   </section>
   {{ end }}
