@@ -113,6 +113,33 @@
   </section>
   {{ end }}
 
+  {{ with $str.technique_change_phases }}
+  <section class="le-block" id="{{ .id }}">
+    <h2>{{ index $names .id }}<span class="cert">{{ .cert }}</span></h2>
+    <p>{{ .when_to_use_zh | markdownify }}</p>
+    {{ with .phases }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">階段</th><th scope="col">要達成什麼</th><th scope="col">怎麼做</th><th scope="col">何時進下一階段</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .name_zh }}</th><td>{{ .goal_zh | markdownify }}</td><td>{{ .how_zh | markdownify }}</td><td>{{ .switch_when_zh | markdownify }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    {{ with .time_scales }}
+    <div class="pz-scroll"><table class="pz-table">
+      <thead><tr><th scope="col">時間尺度</th><th scope="col">變化量怎麼安排</th></tr></thead>
+      <tbody>
+        {{ range . }}<tr><th scope="row">{{ .scale_zh }}</th><td>{{ .how_zh | markdownify }}</td></tr>{{ end }}
+      </tbody>
+    </table></div>
+    {{ end }}
+    <p>{{ .perception_note_zh | markdownify }}</p>
+    <p>{{ .relation_zh | markdownify }}</p>
+    <p>{{ .limitations_zh | markdownify }}</p>
+    <p class="read">{{ .plain_zh | markdownify }}</p>
+  </section>
+  {{ end }}
+
   {{- $annual_keys := slice "monocycle" "bicycle" "tricycle" "multipeak" -}}
   {{- range $key := $annual_keys -}}
   {{- $target := printf "periodization.structure.annual.%s" $key -}}
