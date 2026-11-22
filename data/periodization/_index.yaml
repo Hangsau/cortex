@@ -433,6 +433,15 @@ set_design:
   - t2t
   - t2c
   - t2w
+- id: periodization.set_design.technique_under_fatigue
+  file: set-design.yaml
+  anchor: set-design-technique-fatigue
+  name_zh: 疲勞下守住已會的技術
+  gist_zh: 先累再接比賽速度，用划數或划頻檢查技術有沒有守住；只用在已會的技術，不教新動作；一位大學教練的經驗
+  stages:
+  - t2t
+  - t2c
+  - t2w
 - id: periodization.set_design.usrpt
   file: set-design.yaml
   anchor: set-design-usrpt
